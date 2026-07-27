@@ -1,40 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-BR
-fetched_at: 2026-07-20T04:43:38.051266+00:00
-title: "Entendimento de documentos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=ja
+fetched_at: 2026-07-27T04:46:59.633849+00:00
+title: "\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envie comentários
+フィードバックを送信
 
-# Entendimento de documentos
+# ドキュメントの理解
 
-Os modelos do Gemini podem processar documentos em formato PDF usando a visão nativa para entender contextos completos. Isso vai além da extração de texto, permitindo que o Gemini:
+Gemini モデルは、ネイティブ ビジョンを使用してドキュメント全体のコンテキストを理解し、PDF 形式のドキュメントを処理できます。これは単なるテキスト抽出にとどまらず、Gemini は次のことができるようになります。
 
-- Analisar e interpretar conteúdo, incluindo texto, imagens, diagramas, gráficos e tabelas, mesmo em documentos longos de até 1.000 páginas.
-- Extrair informações em formatos de [saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
-- Resumir e responder a perguntas com base nos elementos visuais e textuais de um documento.
-- Transcrever o conteúdo do documento (por exemplo, para HTML), preservando layouts e formatação, para uso em aplicativos downstream.
+- 最大 1,000 ページの長いドキュメントでも、テキスト、画像、図、グラフ、表などのコンテンツを分析して解釈します。
+- 情報を[構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)形式で抽出します。
+- ドキュメント内のビジュアル要素とテキスト要素の両方に基づいて、要約を作成し、質問に回答します。
+- レイアウトと書式設定を保持したまま、ドキュメントのコンテンツを（HTML などに）文字起こしして、下流のアプリケーションで使用します。
 
-Você também pode enviar documentos que não sejam em PDF da mesma forma, mas o Gemini vai considerá-los como texto normal, o que elimina o contexto, como gráficos ou formatação.
+PDF 以外のドキュメントも同じ方法で渡すことができますが、Gemini はそれらを通常のテキストとして認識するため、グラフや書式設定などのコンテキストは失われます。
 
-## Como transmitir dados de PDF inline
+## PDF データをインラインで渡す
 
-É possível transmitir dados de PDF inline na solicitação. Essa opção é mais adequada para documentos menores ou processamento temporário em que não é necessário referenciar o arquivo em solicitações subsequentes. Recomendamos usar a
-[API Files](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br#large-pdfs)
-para documentos maiores que você precisa consultar em interações de várias rodadas para
-melhorar a latência da solicitação e reduzir o uso da largura de banda.
+リクエストで PDF データをインラインで渡すことができます。これは、後続のリクエストでファイルを参照する必要がない、小さなドキュメントや一時的な処理に最適です。リクエストのレイテンシを改善し、帯域幅の使用量を削減するには、マルチターンのインタラクションで参照する必要がある大きなドキュメントには [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja#large-pdfs) を使用することをおすすめします。
 
-O exemplo a seguir mostra como transmitir dados de PDF inline:
+次の例は、PDF データをインラインで渡す方法を示しています。
 
 ### Python
 
@@ -119,7 +116,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Também é possível fazer upload de um arquivo PDF local para processamento:
+ローカルの PDF ファイルをアップロードして処理することもできます。
 
 ### Python
 
@@ -221,13 +218,13 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-## Fazer upload de PDFs usando a API Files
+## Files API を使用して PDF をアップロードする
 
-Recomendamos usar a API Files para arquivos maiores ou quando você pretende reutilizar um documento em várias solicitações. Isso melhora a latência da solicitação e reduz o uso de largura de banda ao desacoplar o upload de arquivos das solicitações de modelo.
+大きなファイルの場合や、複数のリクエストでドキュメントを再利用する場合は、Files API を使用することをおすすめします。これにより、ファイル アップロードとモデル リクエストを分離することで、リクエストのレイテンシが改善され、帯域幅の使用量が削減されます。
 
-### PDFs grandes de URLs
+### URL からの大きな PDF
 
-Use a API File para simplificar o upload e o processamento de arquivos PDF grandes de URLs:
+File API を使用すると、URL からの大きな PDF ファイルのアップロードと処理を簡素化できます。
 
 ### Python
 
@@ -380,7 +377,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### PDFs grandes armazenados localmente
+### ローカルに保存された大きな PDF
 
 ### Python
 
@@ -500,7 +497,7 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-Para verificar se a API armazenou o arquivo enviado e receber os metadados dele, chame [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=pt-br). Somente o `name` (e, por extensão, o `uri`) são exclusivos.
+[`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=ja) を呼び出すことで、API がアップロードされたファイルを正常に保存し、そのメタデータを取得したことを確認できます。`name`（およびその拡張である `uri`）のみが一意です。
 
 ### Python
 
@@ -555,9 +552,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Enviar vários PDFs
+## 複数の PDF を渡す
 
-A API Gemini pode processar vários documentos PDF (até 1.000 páginas) em uma única solicitação, desde que o tamanho combinado dos documentos e do comando de texto permaneça dentro da janela de contexto do modelo.
+Gemini API は、ドキュメントとテキスト プロンプトの合計サイズがモデルのコンテキスト ウィンドウ内に収まる限り、1 回のリクエストで複数の PDF ドキュメント（最大 1, 000 ページ）を処理できます。
 
 ### Python
 
@@ -748,62 +745,50 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## Detalhes técnicos
+## 詳細な技術情報
 
-O Gemini aceita arquivos PDF de até 50 MB ou 1.000 páginas. Esse limite se aplica
-a dados inline e uploads da API Files. Cada página do documento equivale a 258
-tokens.
+Gemini は、最大 50 MB または 1,000 ページの PDF ファイルをサポートしています。この上限は、インライン データと Files API のアップロードの両方に適用されます。ドキュメントの各ページは 258 個のトークンに相当します。
 
-Embora não haja limites específicos para o número de pixels em um documento além da [janela de contexto](https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br) do modelo, páginas maiores são reduzidas para uma resolução máxima de 3072 x 3072, preservando a proporção original, enquanto páginas menores são aumentadas para 768 x 768 pixels. Não há redução de custo para páginas menores, além da largura de banda, ou melhoria de desempenho para páginas com resolução mais alta.
+ドキュメントのピクセル数にモデルの[コンテキスト ウィンドウ](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)以外の具体的な制限はありませんが、大きなページは元のアスペクト比を維持したまま、最大解像度 3, 072 x 3, 072 に合わせて縮小され、小さなページは 768 x 768 ピクセルに拡大されます。サイズが小さいページでは帯域幅以外のコスト削減はなく、解像度が高いページではパフォーマンスの向上はありません。
 
-### Modelos do Gemini 3
+### Gemini 3 モデル
 
-O Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro
-`media_resolution`. Agora você pode definir a resolução como baixa, média ou alta para cada parte de mídia. Com essa adição, o processamento de documentos PDF foi atualizado:
+Gemini 3 では、`media_resolution` パラメータを使用して、マルチモーダル ビジョン処理をきめ細かく制御できます。個々のメディアパートごとに解像度を低、中、高に設定できるようになりました。この追加により、PDF ドキュメントの処理が更新されました。
 
-1. **Inclusão de texto nativo**:o texto incorporado nativamente no PDF é extraído
-   e fornecido ao modelo.
-2. **Faturamento e relatórios de tokens**:
-   - Você **não é cobrado** por tokens originados do
-     **texto nativo** extraído em PDFs.
-   - Na seção `usage_metadata` da resposta da API, os tokens gerados
-     pelo processamento de páginas PDF (como imagens) agora são contados na modalidade `IMAGE`
-     , e não em uma modalidade `DOCUMENT` separada, como em algumas versões
-     anteriores.
+1. **ネイティブ テキストの包含:** PDF にネイティブに埋め込まれたテキストが抽出され、モデルに提供されます。
+2. **請求とトークン レポート:**
+   - PDF から抽出された**ネイティブ テキスト**から生成されたトークンについては、**課金されません**。
+   - API レスポンスの `usage_metadata` セクションで、PDF ページ（画像）の処理から生成されたトークンが、以前のバージョンの一部のように個別の `DOCUMENT` モダリティではなく、`IMAGE` モダリティでカウントされるようになりました。
 
-Para mais detalhes sobre o parâmetro de resolução de mídia, consulte o guia [Resolução de mídia](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=pt-br).
+メディア解像度パラメータの詳細については、[メディア解像度](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=ja)ガイドをご覧ください。
 
-### Tipos de documentos
+### ドキュメント タイプ
 
-Tecnicamente, é possível transmitir outros tipos MIME para o entendimento de documentos, como TXT, Markdown, HTML, XML etc. No entanto, a visão de documentos ***só entende PDFs de forma significativa***. Outros tipos serão extraídos como texto puro, e o modelo não poderá interpretar o que vemos na renderização desses arquivos. Todas as especificidades de tipo de arquivo, como gráficos, diagramas, tags HTML, formatação Markdown etc., serão perdidas.
+技術的には、TXT、Markdown、HTML、XML など、ドキュメント理解用の他の MIME タイプを渡すことができます。ただし、ドキュメント ビジョンは ***PDF のみを意味のある形で理解します***。他のタイプは純粋なテキストとして抽出され、モデルはこれらのファイルのレンダリングで表示される内容を解釈できません。グラフ、図、HTML タグ、Markdown 形式などのファイル形式固有のものはすべて失われます。
 
-Para conhecer outros métodos de entrada de arquivos, consulte o guia [Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
+その他のファイル入力方法については、[ファイル入力方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja)ガイドをご覧ください。
 
-### Práticas recomendadas
+### ベスト プラクティス
 
-Para conseguir os melhores resultados:
+最良の結果を得るために、次のことを行います。
 
-- Gire as páginas para a orientação correta antes de fazer o upload.
-- Evite páginas desfocadas.
-- Se você estiver usando uma única página, coloque o comando de texto depois dela.
+- アップロードする前に、ページを正しい向きに回転させます。
+- ぼやけたページは避けてください。
+- 1 ページを使用する場合は、テキスト プロンプトをページの後に配置します。
 
-## A seguir
+## 次のステップ
 
-Para saber mais, consulte os seguintes recursos:
+詳細については、次のリソースをご覧ください。
 
-- [Estratégias de solicitação de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): a
-  API Gemini aceita solicitações com dados de texto, imagem, áudio e vídeo, também
-  conhecidas como solicitações multimodais.
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
-  Com elas, é possível orientar o comportamento do modelo com base nas suas
-  necessidades e casos de uso específicos.
+- [ファイル プロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide): Gemini API は、テキスト、画像、音声、動画データを使用したプロンプト（マルチモーダル プロンプトとも呼ばれます）をサポートしています。
+- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions): システム指示を使用すると、特定のニーズやユースケースに基づいてモデルの動作を制御できます。
 
-Envie comentários
+フィードバックを送信
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última atualização 2026-07-07 UTC.
+最終更新日 2026-07-07 UTC。
 
-Quer enviar seu feedback?
+ご意見をお聞かせください
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-07 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-07 UTC。"],[],[]]

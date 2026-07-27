@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl
-fetched_at: 2026-07-20T04:41:42.255431+00:00
+fetched_at: 2026-07-27T04:39:00.378929+00:00
 title: "Wnioskowanie o\u00a0priorytecie \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

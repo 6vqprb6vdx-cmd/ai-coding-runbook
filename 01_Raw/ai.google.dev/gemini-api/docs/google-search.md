@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=pl
-fetched_at: 2026-07-20T04:43:36.598557+00:00
-title: "Grounding z\u00a0u\u017cyciem wyszukiwarki Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=pt-BR
+fetched_at: 2026-07-27T04:37:43.997848+00:00
+title: "Embasamento com a Pesquisa Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Grounding z użyciem wyszukiwarki Google
+# Embasamento com a Pesquisa Google
 
-Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google łączy model Gemini z treściami z internetu w czasie rzeczywistym i działa we wszystkich dostępnych językach. Pozwala to Gemini udzielać dokładniejszych odpowiedzi i cytować zweryfikowane źródła poza jego granicą wiedzy.
+O embasamento com a Pesquisa Google conecta o modelo do Gemini ao conteúdo da web em tempo real e funciona com todos os idiomas disponíveis. Isso permite que o Gemini forneça respostas mais precisas e cite fontes verificáveis além do limite de conhecimento.
 
-Powiązanie ze źródłami informacji pomaga tworzyć aplikacje, które mogą:
+O embasamento ajuda você a criar aplicativos que podem:
 
-- **zwiększać dokładność faktów:** zmniejszaj halucynacje modelu, opierając odpowiedzi na informacjach ze świata rzeczywistego;
-- **uzyskiwać dostęp do informacji w czasie rzeczywistym:** odpowiadaj na pytania dotyczące najnowszych wydarzeń i tematów;
-- **podawać cytaty:** buduj zaufanie użytkowników, pokazując źródła twierdzeń modelu.
+- **Aumentar a acurácia factual**:reduza as alucinações do modelo embasando as respostas em informações do mundo real.
+- **Acessar informações em tempo real**:responda a perguntas sobre eventos e temas recentes.
+- **Forneça citações**:aumente a confiança do usuário mostrando as fontes das declarações do modelo.
 
 ### Python
 
@@ -71,21 +71,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Jak działa powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google
+## Como funciona o embasamento com a Pesquisa Google
 
-Gdy włączysz narzędzie `google_search`, model automatycznie obsługuje cały przepływ pracy związany z wyszukiwaniem, przetwarzaniem i cytowaniem informacji.
+Quando você ativa a ferramenta `google_search`, o modelo processa todo o fluxo de trabalho de pesquisa, tratamento e citação de informações automaticamente.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=pl)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=pt-br)
 
-1. **Prompt użytkownika:** Twoja aplikacja wysyła prompt użytkownika do interfejsu Gemini API z włączonym narzędziem `google_search`.
-2. **Analiza prompta:** model analizuje prompt i określa, czy wyszukiwanie w Google może poprawić odpowiedź.
-3. **Wyszukiwanie w Google:** w razie potrzeby model automatycznie generuje co najmniej 1 zapytanie i je wykonuje.
-4. **Przetwarzanie wyników wyszukiwania:** model przetwarza wyniki wyszukiwania, syntetyzuje informacje i formułuje odpowiedź.
-5. **Odpowiedź oparta na źródłach informacji:** interfejs API zwraca ostateczną, przyjazną dla użytkownika odpowiedź opartą na wynikach wyszukiwania. Ta odpowiedź zawiera tekstową odpowiedź modelu z wbudowanymi `annotations` zawierającymi cytaty, a także kroki `google_search_call` i `google_search_result` z zapytaniami i sugestiami wyszukiwania.
+1. **Comando do usuário**:seu aplicativo envia um comando do usuário para a API Gemini
+   com a ferramenta `google_search` ativada.
+2. **Análise do comando**:o modelo analisa o comando e determina se uma
+   Pesquisa Google pode melhorar a resposta.
+3. **Pesquisa Google**:se necessário, o modelo gera e executa automaticamente uma ou várias consultas de pesquisa.
+4. **Processamento de resultados da pesquisa**:o modelo processa os resultados da pesquisa, sintetiza as informações e formula uma resposta.
+5. **Resposta embasada**:a API retorna uma resposta final e fácil de usar que
+   é baseada nos resultados da pesquisa. Essa resposta inclui a resposta de texto do modelo com `annotations` inline contendo as citações, bem como as etapas `google_search_call` e `google_search_result` com as consultas e sugestões de pesquisa.
 
-## Informacje o odpowiedzi opartej na źródłach informacji
+## Entender a resposta de embasamento
 
-Gdy odpowiedź jest oparta na źródłach informacji, tekst wygenerowany przez model zawiera wbudowane `annotations` bezpośrednio w bloku treści tekstowej. Te adnotacje zawierają informacje o cytowaniu, które łączą części odpowiedzi z ich źródłami.
+Quando uma resposta é fundamentada, a saída de texto do modelo inclui `annotations` inline diretamente no bloco de conteúdo de texto. Essas anotações fornecem informações de citação que vinculam partes da resposta às fontes.
 
 ```
 {
@@ -144,20 +147,22 @@ Gdy odpowiedź jest oparta na źródłach informacji, tekst wygenerowany przez m
 }
 ```
 
-Kluczowe pola w odpowiedzi:
+Os campos principais na resposta:
 
-- `google_search_call` : zawiera `queries` wyszukiwania wykonane przez model.
-- `google_search_result` : zawiera `search_suggestions`, czyli fragment kodu HTML do renderowania sugestii wyszukiwania w interfejsie. Pełne wymagania dotyczące korzystania z usługi są
-  opisane w [Warunkach korzystania z usługi](https://ai.google.dev/gemini-api/terms?hl=pl#grounding-with-google-search).
-- `text` z `annotations` : syntetyzowana odpowiedź modelu z wbudowanymi cytatami. Każda adnotacja `url_citation` łączy segment tekstu (zdefiniowany przez `start_index` i `end_index`) z adresem URL źródła. Jest to klucz do tworzenia wbudowanych cytatów.
+- `google_search_call` : contém a pesquisa `queries` executada pelo modelo.
+- `google_search_result` : contém `search_suggestions`, um snippet HTML
+  para renderizar sugestões de pesquisa na sua interface. Os requisitos de uso completos estão detalhados nos [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#grounding-with-google-search).
+- `text` com `annotations` : a resposta sintetizada do modelo com citações
+  inline. Cada anotação `url_citation` vincula um segmento de texto (definido por `start_index` e `end_index`) a um URL de origem. Essa é a chave para
+  criar citações inline.
 
-Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google można też stosować w połączeniu z narzędziem kontekstu [adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl), aby opierać odpowiedzi na
-danych publicznych z internetu i na konkretnych adresach URL, które podasz.
+O embasamento com a Pesquisa Google também pode ser usado em combinação com a [ferramenta de contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br) para embasar respostas em dados públicos da Web e nos URLs específicos que você fornece.
 
-## Podawanie źródeł za pomocą wbudowanych cytatów
+## Atribuição de fontes com citações inline
 
-Interfejs API zwraca wbudowane adnotacje `url_citation` w bloku treści tekstowej, co daje Ci pełną kontrolę nad sposobem wyświetlania źródeł w interfejsie użytkownika.
-Każda adnotacja zawiera `start_index` i `end_index`, aby określić, którą część tekstu cytuje. Oto jak je wyodrębnić i wyświetlić.
+A API retorna anotações `url_citation` inline no bloco de conteúdo de texto,
+controle total sobre como você mostra as fontes na interface do usuário.
+Cada anotação inclui `start_index` e `end_index` para identificar a parte do texto que ela cita. Veja como extrair e mostrar esses dados.
 
 ### Python
 
@@ -200,7 +205,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-Dane wyjściowe będą zawierać tekst, a następnie jego cytaty:
+A saída vai mostrar o texto seguido das citações:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -212,54 +217,48 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Ceny
+## Preços
 
-Gdy używasz powiązania ze źródłami informacji przy użyciu wyszukiwarki Google z Gemini 3, za każde zapytanie, które model zdecyduje się wykonać, zostanie naliczona opłata. Jeśli model zdecyduje się
-wykonać kilka zapytań, aby odpowiedzieć na 1 prompt (np.
-wyszukać hasła `"UEFA Euro 2024 winner"` i `"Spain vs England Euro 2024 final
-score"` w ramach tego samego wywołania interfejsu API), będzie to liczone jako 2 płatne użycia narzędzia
-w przypadku tego żądania. Na potrzeby rozliczeń ignorujemy puste zapytania w wyszukiwarce podczas zliczania unikalnych zapytań. Ten model rozliczeń dotyczy tylko modeli Gemini 3. Gdy używasz powiązania ze źródłami informacji przy użyciu wyszukiwarki Google z Gemini 2.5 lub starszymi modelami, opłata jest naliczana za prompt.
+Quando você usa o Embasamento com a Pesquisa Google com o Gemini 3, seu projeto é cobrado
+por cada consulta de pesquisa que o modelo decide executar. Se o modelo decidir executar várias consultas de pesquisa para responder a um único comando (por exemplo, pesquisar `"UEFA Euro 2024 winner"` e `"Spain vs England Euro 2024 final
+score"` na mesma chamada de API), isso será contabilizado como dois usos faturáveis da ferramenta para essa solicitação. Para fins de faturamento, ignoramos as consultas de pesquisa na Web vazias ao contar as consultas exclusivas. Esse modelo de faturamento só se aplica aos modelos do Gemini 3. Ao usar o embasamento de pesquisa com o Gemini 2.5 ou modelos mais antigos, seu projeto é faturado por comando.
 
-Szczegółowe informacje o cenach znajdziesz na stronie cennika interfejsu [Gemini API
-.](https://ai.google.dev/gemini-api/docs/pricing?hl=pl)
+Para informações detalhadas sobre preços, consulte a [página de preços da API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
 
-## Obsługiwane modele
+## Modelos compatíveis
 
-Pełne możliwości znajdziesz na stronie przeglądu [modelu](https://ai.google.dev/gemini-api/docs/models?hl=pl).
+Confira todos os recursos na página [Visão geral do modelo](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
 
-| Model | Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google |
+| Modelo | Embasamento com a Pesquisa Google |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash Image (wersja testowa) | ✔️ |
-| Gemini 3.1 Pro (wersja testowa) | ✔️ |
-| Gemini 3 Pro Image (wersja testowa) | ✔️ |
-| Gemini 3 Flash (wersja testowa) | ✔️ |
+| Pré-lançamento da imagem do Gemini 3.1 Flash | ✔️ |
+| Pré-lançamento do Gemini 3.1 Pro | ✔️ |
+| Pré-lançamento do Gemini 3 Pro Image | ✔️ |
+| Pré-lançamento do Gemini 3 Flash | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Obsługiwane kombinacje narzędzi
+## Combinações de ferramentas compatíveis
 
-Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google możesz stosować z innymi narzędziami, takimi jak
-[wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) i
-[kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl), aby obsługiwać bardziej złożone
-przypadki użycia.
+Você pode usar o embasamento com a Pesquisa Google com outras ferramentas, como [execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br) e [contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br), para casos de uso mais complexos.
 
-Modele Gemini 3 obsługują łączenie wbudowanych narzędzi (takich jak powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google) z narzędziami niestandardowymi (wywoływanie funkcji). Więcej informacji znajdziesz na
-[stronie kombinacji narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+Os modelos do Gemini 3 permitem combinar ferramentas integradas (como o embasamento com a Pesquisa Google) e personalizadas (chamada de função). Saiba mais na página de
+[combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
 
-## Co dalej?
+## A seguir
 
-- Dowiedz się więcej o innych dostępnych narzędziach, takich jak [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
-- [Dowiedz się, jak rozszerzać prompty o konkretne adresy URL za pomocą narzędzia kontekstu adresu URL.](https://ai.google.dev/gemini-api/docs/url-context?hl=pl)
+- Saiba mais sobre outras ferramentas disponíveis, como a [chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
+- Saiba como aumentar os comandos com URLs específicos usando a [ferramenta de contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br).
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-07-06 UTC.
+Última atualização 2026-07-06 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-06 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-06 UTC."],[],[]]

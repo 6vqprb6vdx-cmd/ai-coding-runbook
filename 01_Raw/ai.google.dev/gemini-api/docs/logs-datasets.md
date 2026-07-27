@@ -1,43 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=es-419
-fetched_at: 2026-07-20T04:38:34.036679+00:00
-title: "Registros y conjuntos de datos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-BR
+fetched_at: 2026-07-27T04:40:16.636343+00:00
+title: "Registros e conjuntos de dados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Enviar comentarios
+Envie comentários
 
-# Registros y conjuntos de datos
+# Registros e conjuntos de dados
 
-En esta guía, aprenderás a ver los registros del uso de la API de Gemini en el panel de Google AI Studio para comprender mejor el comportamiento del modelo y cómo los usuarios pueden interactuar con tus aplicaciones. Usa el registro para observar, depurar y *compartir de forma opcional comentarios sobre el uso con Google para ayudar a mejorar Gemini en los casos de uso de los desarrolladores*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=es-419)
+Neste guia, você vai aprender a
+ver registros do uso da API Gemini no painel do Google AI Studio
+para entender melhor o comportamento do modelo e como os usuários interagem com seus
+aplicativos. Use o registro em registros para observar, depurar e *compartilhar feedback de uso com o Google para ajudar a melhorar o Gemini em casos de uso de desenvolvedores*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=pt-br)
 
-Se admiten todas las llamadas a las APIs de `GenerateContent`, `BatchGenerateContent` y `StreamGenerateContent`, y las llamadas a la API de [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=es-419), excepto las de los agentes administrados. Esto incluye las llamadas realizadas a través de los extremos de [compatibilidad con OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=es-419).
+Todas as chamadas de API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` e [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br), exceto as de agentes gerenciados, são compatíveis. Isso inclui chamadas feitas pelos endpoints de
+[compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
 
-## Configura el registro del proyecto
+## Configurar o registro do projeto
 
-De forma predeterminada, la API almacena todos los objetos de interacción (`store=true`) para simplificar el uso de las funciones de administración de estados del servidor. Por el contrario, la API de Generate Content no almacena solicitudes de forma predeterminada y requiere que el almacenamiento se habilite por solicitud o a nivel del proyecto desde AI Studio.
+Por padrão, a API armazena todos os objetos de interação (`store=true`) para simplificar o uso dos recursos de gerenciamento de estado do lado do servidor. Por outro lado, a API Generate Content não armazena solicitações por padrão e exige que o armazenamento seja ativado por solicitação ou no nível do projeto no AI Studio.
 
-En [AI Studio](https://aistudio.google.com/logs?hl=es-419) de Google, puedes habilitar o inhabilitar el registro para todos los proyectos o para proyectos específicos, y cambiar estas preferencias en cualquier momento a través del panel **Configuración** en la página [Registros y conjuntos de datos](https://aistudio.google.com/logs?hl=es-419). El registro se puede activar o desactivar de forma independiente para la API de `generateContent` y la API de [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=es-419) para cambiar el comportamiento de almacenamiento predeterminado de un proyecto.
+No [AI Studio](https://aistudio.google.com/logs?hl=pt-br) do Google, é possível ativar ou desativar o registro em todos os projetos ou em projetos específicos e mudar essas preferências a qualquer momento no painel **Configurações** da página [Registros e conjuntos de dados](https://aistudio.google.com/logs?hl=pt-br). É possível ativar ou desativar o registro em log
+de forma independente para a API `generateContent` e a API
+[Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
+para mudar o comportamento de armazenamento padrão de um projeto.
 
-### Registro a nivel de la solicitud
+### Geração de registros no nível da solicitação
 
-El comportamiento de almacenamiento y registro varía según la API:
+O comportamento de armazenamento e geração de registros varia de acordo com a API:
 
-- **[API de Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=es-419):** Almacena solicitudes de forma predeterminada (`store=true`) para simplificar la administración del estado del servidor.
-- **Generate Content API (`generateContent`):** No almacena solicitudes de forma predeterminada (`store=false`).
+- **[API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)**:armazena solicitações por padrão (`store=true`) para simplificar o gerenciamento de estado do lado do servidor.
+- **API Generate Content (`generateContent`)**: não armazena solicitações por padrão (`store=false`).
 
-Así puedes configurar la propiedad `store`:
+Veja como definir a propriedade `store`:
 
-**API de `generateContent`**
+**API GenerateContent**
 
 ### Python
 
@@ -47,7 +54,7 @@ from google import genai
 client = genai.Client()
 
 response = client.models.generate_content(
-    model='gemini-3.5-flash',
+    model='gemini-3.6-flash',
     contents='Explain quantum entanglement in simple terms.',
     config={'store': False} # Set to True to enable logging of this request
 )
@@ -63,7 +70,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const response = await client.models.generateContent({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     contents: 'Explain quantum entanglement in simple terms.',
     config: {
         store: false // Set to true to enable logging of this request
@@ -73,7 +80,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-**API de Interactions**
+**API Interactions**
 
 ### Python
 
@@ -83,7 +90,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Explain quantum entanglement in simple terms.",
     store=True # Set to False to disable logging of this request
 )
@@ -99,7 +106,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Explain quantum entanglement in simple terms.',
     store: true // Set to false to disable logging of this request
 });
@@ -107,60 +114,61 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[interaction.outputs.length - 1].text);
 ```
 
-## Cómo ver los registros del proyecto en AI Studio
+## Ver registros do projeto no AI Studio
 
-1. Ve a la página Registros en [AI Studio](https://aistudio.google.com/logs?hl=es-419).
-2. Selecciona un proyecto en el menú desplegable.
-3. Si existen, los registros aparecerán en la tabla en orden cronológico inverso para la API de Interactions.
-4. Para observar los registros del proyecto de la API de Generate Content, primero habilita esta opción en el [panel de configuración](#configure-logging).
+1. Acesse a página "Registros" no [AI Studio](https://aistudio.google.com/logs?hl=pt-br).
+2. Selecione um projeto no menu suspenso.
+3. Os registros vão aparecer na tabela em ordem cronológica inversa para a API Interactions, se existirem.
+4. Para observar os registros do projeto da API Content, primeiro ative essa opção no [painel de configurações](#configure-logging).
 
-Haz clic en una entrada para obtener una vista previa de la carga útil. Puedes inspeccionar la instrucción y la respuesta completas de Gemini, así como el contexto de los turnos anteriores. En el caso de las solicitudes a la **API de Interactions**, los registros también incluyen un vínculo directo a `previous_interaction_id`.
+Clique em uma entrada para ver uma prévia do payload. Você pode inspecionar o comando e a resposta completos do Gemini, além do contexto das trocas anteriores. Para solicitações da **API Interactions**, os registros também incluem um link direto para o `previous_interaction_id`.
 
-## Configura la retención del almacenamiento del proyecto
+## Configurar a retenção de armazenamento do projeto
 
-Los registros vencerán y se marcarán para su eliminación después de un período de retención predeterminado de 55 días (a menos que se [guarden en un conjunto de datos](#create), en cuyo caso no vencerán).
-Puedes configurar el período de retención de los registros de un proyecto en un máximo de 7, 14, 28 o 55 días.
+Os registros expiram e são marcados para exclusão após um período de retenção padrão de 55 dias, a menos que sejam [salvos em um conjunto de dados](#create), que não expira.
+É possível configurar a janela de retenção dos registros de um projeto para, no máximo, 7, 14, 28 ou 55 dias.
 
-## Crea y comparte conjuntos de datos
+## Criar e compartilhar conjuntos de dados
 
-Puedes guardar los registros en conjuntos de datos para organizarlos y exportarlos de manera más eficaz.
+É possível salvar registros em conjuntos de dados para organizar e exportar com mais eficiência.
 
-- En la [página Registros](https://aistudio.google.com/logs?hl=es-419), busca la barra de filtros en la parte superior para seleccionar una propiedad por la que filtrar.
-- En la vista filtrada, usa las casillas de verificación para seleccionar todos los registros o registros individuales.
-- Haz clic en el botón **Crear conjunto de datos** que aparece en la parte superior de la lista.
-- Asigna un nombre y una descripción opcional a tu nuevo conjunto de datos.
-- Verás el conjunto de datos que acabas de crear con el conjunto seleccionado de registros.
-- Exporta tu conjunto de datos para realizar un análisis más detallado como archivos CSV, JSONL o a Hojas de cálculo de Google.
+- Na [página "Registros"](https://aistudio.google.com/logs?hl=pt-br), localize a barra de filtro
+  na parte de cima para selecionar uma propriedade de filtragem.
+- Na visualização filtrada, use as caixas de seleção para selecionar todos os registros ou apenas alguns.
+- Clique no botão **Criar conjunto de dados** que aparece na parte de cima da lista.
+- Dê um nome e uma descrição opcional ao novo conjunto de dados.
+- Você vai encontrar o conjunto de dados que acabou de criar com o conjunto selecionado de registros.
+- Exporte seu conjunto de dados para análise posterior como arquivos CSV, JSONL ou para o Google Planilhas.
 
-Los conjuntos de datos pueden ser útiles para varios casos de uso diferentes.
+Os conjuntos de dados podem ser úteis para vários casos de uso diferentes.
 
-- **Selecciona conjuntos de desafíos:** Impulsa mejoras futuras que se enfoquen en las áreas en las que deseas que mejore tu IA.
-- **Selecciona conjuntos de muestras:** Por ejemplo, una muestra del uso real para generar respuestas a partir de otro modelo o una colección de casos extremos para las verificaciones de rutina antes de la implementación.
-- **Conjuntos de evaluación:** Son conjuntos representativos del uso real en las capacidades importantes, para la comparación entre otros modelos o iteraciones de instrucciones del sistema.
+- **Organize conjuntos de desafios**:impulsione melhorias futuras que visam áreas em que você quer que a IA melhore.
+- **Organizar conjuntos de amostras**:por exemplo, uma amostra de uso real para gerar respostas de outro modelo ou uma coleção de casos extremos para verificações de rotina antes da implantação.
+- **Conjuntos de avaliação**:conjuntos representativos do uso real em recursos importantes, para comparação entre outros modelos ou iterações de instruções do sistema.
 
-Puedes contribuir a la investigación y el desarrollo de Gemini compartiendo tus conjuntos de datos con Google como ejemplos de demostración.
+Você pode contribuir para a pesquisa e o desenvolvimento do Gemini compartilhando seus conjuntos de dados com o Google como exemplos de demonstração.
 
-## Limitaciones
+## Limitações
 
-Por el momento, no se admite el registro para lo siguiente:
+No momento, o registro em log não é compatível com o seguinte:
 
-- Modelos de Imagen y Veo
-- Modelos de incorporación de Gemini
-- Modelo de Gemini Robotics
-- Entradas que contienen videos, GIFs o PDFs
-- Agentes en versión preliminar pública en la API de Gemini
+- Modelos do Imagen e do Veo
+- Modelos de incorporação do Gemini
+- Modelo do Gemini Robotics
+- Entradas com vídeos, GIFs ou PDFs
+- Agentes de pré-lançamento público na API Gemini
 
-## ¿Qué sigue?
+## A seguir
 
-- **Crea prototipos con el historial de sesiones:** Usa [AI Studio Build](https://aistudio.google.com/apps?hl=es-419) para crear apps con vibe coding y agrega tu clave de API para habilitar un historial de registros de la API de Gemini para las funciones basadas en IA.
-- **Vuelve a ejecutar los registros con la API de Gemini Batch:** Usa conjuntos de datos para el muestreo de respuestas y la evaluación de modelos o la lógica de la aplicación. Para ello, vuelve a ejecutar los registros con la [API de Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **Crie protótipos com o histórico da sessão**:use o [AI Studio Build](https://aistudio.google.com/apps?hl=pt-br) para programar apps com vibe coding e adicione sua chave de API para ativar um histórico de registros da API Gemini para recursos de IA.
+- **Executar novamente os registros com a API Gemini Batch**:use conjuntos de dados para amostragem de respostas e avaliação de modelos ou lógica de aplicativos executando novamente os registros com a [API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-Enviar comentarios
+Envie comentários
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última actualización: 2026-07-17 (UTC)
+Última atualização 2026-07-22 UTC.
 
-¿Quieres brindar más información?
+Quer enviar seu feedback?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-17 (UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-22 UTC."],[],[]]

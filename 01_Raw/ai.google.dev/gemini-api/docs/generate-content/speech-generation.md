@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=vi
-fetched_at: 2026-07-20T04:41:28.428353+00:00
-title: "T\u1ea1o l\u1eddi n\u00f3i t\u1eeb v\u0103n b\u1ea3n (TTS) \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=tr
+fetched_at: 2026-07-27T04:33:39.499167+00:00
+title: "Metin okuma \u00fcretimi (TTS) \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Tạo lời nói từ văn bản (TTS)
+# Metin okuma üretimi (TTS)
 
-Gemini API có thể chuyển đổi văn bản đầu vào thành âm thanh của một hoặc nhiều người nói bằng cách sử dụng các chức năng tạo văn bản thành lời nói (TTS) của Gemini.
-Bạn có thể *[kiểm soát](#controllable)* quá trình tạo văn bản sang lời nói (TTS). Tức là bạn có thể sử dụng ngôn ngữ tự nhiên để cấu trúc các lượt tương tác và hướng dẫn *phong cách*, *giọng*, *tốc độ* và *giọng điệu* của âm thanh.
+Gemini API, Gemini metin okuma (TTS) oluşturma özelliklerini kullanarak metin girişini tek veya çok hoparlörlü sese dönüştürebilir.
+Metin okuma (TTS) üretimi *[kontrol edilebilir](#controllable)*. Bu sayede, etkileşimleri yapılandırmak ve sesin *stilini*, *aksanını*, *hızını* ve *tonunu* yönlendirmek için doğal dil kullanabilirsiniz.
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=vi)
+[Google AI Studio'da deneme](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=tr)
 
-Khả năng TTS khác với khả năng tạo lời nói được cung cấp thông qua [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi). API này được thiết kế cho âm thanh tương tác, không có cấu trúc, cũng như đầu vào và đầu ra đa phương thức. Mặc dù Live API vượt trội trong các ngữ cảnh trò chuyện linh hoạt, nhưng TTS thông qua Gemini API được điều chỉnh cho phù hợp với những trường hợp yêu cầu đọc chính xác văn bản với khả năng kiểm soát chi tiết về phong cách và âm thanh, chẳng hạn như tạo podcast hoặc sách nói.
+TTS özelliği, etkileşimli, yapılandırılmamış ses ve çok formatlı girişler ve çıkışlar için tasarlanan [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr) aracılığıyla sağlanan konuşma oluşturma özelliğinden farklıdır. Live API, dinamik sohbet bağlamlarında mükemmel performans gösterirken Gemini API aracılığıyla TTS, stil ve ses üzerinde ayrıntılı kontrolle metnin tam olarak okunmasını gerektiren senaryolar (ör. podcast veya sesli kitap oluşturma) için özel olarak tasarlanmıştır.
 
-Hướng dẫn này trình bày cách tạo âm thanh một người nói và nhiều người nói từ văn bản.
+Bu kılavuzda, metinden tek konuşmacılı ve çok konuşmacılı seslerin nasıl oluşturulacağı gösterilmektedir.
 
-## Trước khi bắt đầu
+## Başlamadan önce
 
-Đảm bảo bạn sử dụng một biến thể mô hình Gemini có các chức năng chuyển văn bản sang lời nói (TTS) của Gemini, như được liệt kê trong phần [Các mô hình được hỗ trợ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi#supported-models). Để có kết quả tối ưu, hãy cân nhắc xem mô hình nào phù hợp nhất với trường hợp sử dụng cụ thể của bạn.
+[Desteklenen modeller](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr#supported-models) bölümünde listelendiği gibi, Gemini metin okuma (TTS) özelliklerine sahip bir Gemini modeli varyantı kullandığınızdan emin olun. En iyi sonuçları elde etmek için hangi modelin kullanım alanınıza en uygun olduğunu belirleyin.
 
-Bạn nên [kiểm thử các mô hình TTS của Gemini trong AI Studio](https://aistudio.google.com/generate-speech?hl=vi) trước khi bắt đầu xây dựng.
+Geliştirmeye başlamadan önce [Gemini TTS modellerini AI Studio'da test etmeniz](https://aistudio.google.com/generate-speech?hl=tr) faydalı olabilir.
 
-## TTS một người nói
+## Tek konuşmacılı TTS
 
-Để chuyển văn bản thành âm thanh của một người nói, hãy đặt phương thức phản hồi thành "audio" và truyền một đối tượng `SpeechConfig` có `VoiceConfig` được đặt.
-Bạn sẽ cần chọn tên giọng nói trong số các [giọng nói đầu ra](#voices) được tạo sẵn.
+Metni tek konuşmacılı sese dönüştürmek için yanıt biçimini "ses" olarak ayarlayın ve `VoiceConfig` ayarlanmış bir `SpeechConfig` nesnesi iletin.
+Önceden oluşturulmuş [çıkış sesleri](#voices) arasından bir ses adı seçmeniz gerekir.
 
-Ví dụ này lưu âm thanh đầu ra từ mô hình vào một tệp sóng:
+Bu örnekte, modelden gelen çıkış sesi bir wave dosyasına kaydedilir:
 
 ### Python
 
@@ -162,10 +162,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## TTS nhiều giọng nói
+## Birden fazla konuşmacı için TTS
 
-Đối với âm thanh nhiều loa, bạn sẽ cần một đối tượng `MultiSpeakerVoiceConfig` có mỗi loa (tối đa 2) được định cấu hình dưới dạng `SpeakerVoiceConfig`.
-Bạn sẽ cần xác định từng `speaker` bằng các tên giống nhau được dùng trong [lệnh](#controllable):
+Çok konuşmacılı ses için her konuşmacı (en fazla 2) `SpeakerVoiceConfig` olarak yapılandırılmış bir `MultiSpeakerVoiceConfig` nesnesi gerekir.
+Her `speaker` öğesini, [istemde](#controllable) kullanılan adlarla tanımlamanız gerekir:
 
 ### Python
 
@@ -339,10 +339,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## Kiểm soát kiểu giọng nói bằng câu lệnh
+## İstemlerle konuşma stilini kontrol etme
 
-Bạn có thể kiểm soát phong cách, giọng điệu, ngữ điệu và tốc độ bằng cách sử dụng câu lệnh bằng ngôn ngữ tự nhiên hoặc [thẻ âm thanh](#transcript-tags) cho cả TTS một người nói và nhiều người nói.
-Ví dụ: trong câu lệnh có một người nói, bạn có thể nói:
+Hem tek hem de çok konuşmacılı TTS için doğal dil istemlerini veya [ses etiketlerini](#transcript-tags) kullanarak stil, ton, vurgu ve hızı kontrol edebilirsiniz.
+Örneğin, tek konuşmacılı bir istemde şunları söyleyebilirsiniz:
 
 ```
 Say in an spooky voice:
@@ -350,7 +350,7 @@ Say in an spooky voice:
 [whisper] Something wicked this way comes"
 ```
 
-Trong câu lệnh có nhiều người nói, hãy cung cấp cho mô hình tên của từng người nói và bản chép lời tương ứng. Bạn cũng có thể hướng dẫn riêng cho từng người nói:
+Birden fazla konuşmacının yer aldığı istemlerde, her konuşmacının adını ve ilgili transkripti modele sağlayın. Ayrıca her hoparlör için ayrı ayrı rehberlik de sağlayabilirsiniz:
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -359,11 +359,11 @@ Speaker1: So... [yawn] what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-Hãy thử dùng một [lựa chọn giọng nói](#voices) phù hợp với phong cách hoặc cảm xúc mà bạn muốn truyền tải để nhấn mạnh hơn nữa. Ví dụ: trong câu lệnh trước, hơi thở của *Enceladus* có thể nhấn mạnh trạng thái "mệt mỏi" và "buồn chán", trong khi giọng điệu vui vẻ của *Puck* có thể bổ sung cho trạng thái "hào hứng" và "vui vẻ".
+Daha da vurgulamak için, iletmek istediğiniz stile veya duyguya karşılık gelen bir [ses seçeneği](#voices) kullanmayı deneyin. Örneğin, önceki istemde *Enceladus*'un fısıltılı sesi "yorgun" ve "sıkılmış" kelimelerini vurgulayabilirken *Puck*'ın neşeli tonu "heyecanlı" ve "mutlu" kelimelerini tamamlayabilir.
 
-## Tạo câu lệnh để chuyển đổi thành âm thanh
+## Sese dönüştürme istemi oluşturma
 
-Các mô hình TTS chỉ xuất âm thanh, nhưng bạn có thể dùng [các mô hình khác](https://ai.google.dev/gemini-api/docs/models?hl=vi) để tạo bản chép lời trước, sau đó truyền bản chép lời đó đến mô hình TTS để đọc to.
+TTS modelleri yalnızca ses çıkışı verir ancak önce transkript oluşturmak için [diğer modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr) kullanabilir, ardından bu transkripti TTS modeline aktararak yüksek sesle okutabilirsiniz.
 
 ### Python
 
@@ -457,121 +457,121 @@ const response = await ai.models.generateContent({
 await main();
 ```
 
-## Lựa chọn giọng nói
+## Ses seçenekleri
 
-Các mô hình TTS hỗ trợ 30 lựa chọn giọng nói sau đây trong trường `voice_name`:
+TTS modelleri, `voice_name` alanında aşağıdaki 30 ses seçeneğini destekler:
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** – *Tươi sáng* | **Puck** – *Rộn ràng* | **Charon** – *Cung cấp nhiều thông tin* |
-| **Kore** – *Firm* | **Fenrir** – *Dễ kích động* | **Leda** – *Trẻ trung* |
-| **Orus** – *Firm* | **Aoede** – *Breezy* | **Callirrhoe** – *Dễ chịu* |
-| **Autonoe** – *Sáng* | **Enceladus** – *Breathy* | **Iapetus** – *Rõ ràng* |
-| **Umbriel** – *Dễ tính* | **Algieba** – *Làm mịn* | **Despina** – *Smooth* |
-| **Erinome** – *Clear* | **Algenib** – *Khàn* | **Rasalgethi** – *Cung cấp nhiều thông tin* |
-| **Laomedeia** – *Rộn ràng* | **Achernar** – *Dịu êm* | **Alnilam** – *Firm* |
-| **Schedar** – *Even* | **Gacrux** – *Người trưởng thành* | **Pulcherrima** – *Chuyển tiếp* |
-| **Achird** – *Thân thiện* | **Zubenelgenubi** – *Bình thường* | **Vindemiatrix** – *Dịu dàng* |
-| **Sadachbia** – *Lively* | **Sadaltager** – *Hiểu biết* | **Sulafat** – *Ấm* |
+| **Zephyr** -- *Parlak* | **Puck** -- *Upbeat* | **Charon** -- *Bilgilendirici* |
+| **Kore** -- *Firm* | **Fenrir** -- *Heyecanlı* | **Leda** -- *Genç* |
+| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe** -- *Sakin* |
+| **Autonoe** -- *Parlak* | **Enceladus** -- *Nefesli* | **Iapetus** -- *Temizle* |
+| **Umbriel** -- *Rahat* | **Algieba** -- *Akış sorunsuz* | **Despina** -- *Akıcı* |
+| **Erinome** -- *Temizle* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *Bilgilendirici* |
+| **Laomedeia** -- *Upbeat* | **Achernar** -- *Soft* | **Alnilam** -- *Firm* |
+| **Schedar** -- *Eşit* | **Gacrux** -- *Yetişkin* | **Pulcherrima** -- *Yönlendir* |
+| **Achird** -- *Dostu* | **Zubenelgenubi** -- *Basit* | **Vindemiatrix** -- *Nazik* |
+| **Sadachbia** -- *Canlı* | **Sadaltager** -- *Bilgili* | **Sulafat** -- *Warm* |
 
-Bạn có thể nghe tất cả các lựa chọn về giọng nói trong [AI Studio](https://aistudio.google.com/generate-speech?hl=vi).
+Tüm ses seçeneklerini [AI Studio](https://aistudio.google.com/generate-speech?hl=tr)'da dinleyebilirsiniz.
 
-## Ngôn ngữ được hỗ trợ
+## Desteklenen diller
 
-Các mô hình TTS tự động phát hiện ngôn ngữ đầu vào. Các ngôn ngữ sau đây được hỗ trợ:
+TTS modelleri, giriş dilini otomatik olarak algılar. Desteklenen diller:
 
-| Ngôn ngữ | Mã BCP-47 | Ngôn ngữ | Mã BCP-47 |
+| Dil | BCP-47 Kodu | Dil | BCP-47 Kodu |
 | --- | --- | --- | --- |
-| Tiếng Ả Rập | ar | Tiếng Philippines | fil |
-| Tiếng Bangla | bn | Tiếng Phần Lan | fi |
-| Tiếng Hà Lan | nl | Tiếng Galicia | gl |
-| Tiếng Anh | vi | Tiếng Gruzia | ka |
-| Tiếng Pháp | fr | Tiếng Hy Lạp | el |
-| Tiếng Đức | de | Tiếng Gujarat | gu |
-| Tiếng Hindi | hi | Tiếng Creole ở Haiti | ht |
-| Tiếng Indonesia | id | Tiếng Do Thái | hi hi |
-| Tiếng Ý | it | Tiếng Hungary | hu |
-| Tiếng Nhật | ja | Tiếng Iceland | is |
-| Tiếng Hàn | ko | Tiếng Java | jv |
-| Tiếng Marathi | mr | Tiếng Kannada | kn |
-| Tiếng Ba Lan | pl | Tiếng Konkani | kok |
-| Tiếng Bồ Đào Nha | pt | Tiếng Lào | lo |
-| Tiếng Rumani | ro | Latinh | la |
-| Tiếng Nga | ru | Tiếng Latvia | lv |
-| Tiếng Tây Ban Nha | es | Tiếng Lithuania | lt |
-| Tiếng Tamil | ta | Tiếng Luxembourg | lb |
-| Tiếng Telugu | te | Tiếng Macedonia | mk |
-| Tiếng Thái | th | Tiếng Maithili | mai |
-| Tiếng Thổ Nhĩ Kỳ | tr | Tiếng Malagasy | mg |
-| Tiếng Ukraina | uk | Tiếng Malay | ms |
-| Tiếng Việt | vi | Tiếng Malayalam | ml |
-| Tiếng Hà Lan ở Nam Phi | af | Tiếng Mông Cổ | mn |
-| Tiếng Albania | sq | Tiếng Nepal | ne |
-| Tiếng Amhara | sáng | Tiếng Na Uy, Bokmål | nb |
-| Tiếng Armenia | hy | Tiếng Na Uy, Nynorsk | nn |
-| Tiếng Azerbaijan | az | Tiếng Odia | hoặc |
-| Tiếng Basque | eu | Tiếng Pashto | ps |
-| Tiếng Belarus | be | Persian | fa |
-| Tiếng Bungary | bg | Tiếng Punjab | pa |
-| Tiếng Myanmar | my | Tiếng Serbia | sr |
-| Tiếng Catalan | ca | Tiếng Sindh | sd |
-| Tiếng Cebuano | ceb | Tiếng Sinhala | si |
-| Tiếng Trung, tiếng Quan thoại | cmn | Tiếng Slovak | sk |
-| Croatian | giờ | Tiếng Slovenia | sl |
-| Tiếng Séc | cs | Tiếng Swahili | sw |
-| Tiếng Đan Mạch | da | Tiếng Thuỵ Điển | sv |
-| Tiếng Estonia | et | Tiếng Urdu | ur |
+| Arapça | ar | Filipince | fil |
+| Bengalce | bn | Fince | fi |
+| Felemenkçe | nl | Galiçyaca | gl |
+| İngilizce | en | Gürcüce | ka |
+| Fransızca | fr | Yunanca | el |
+| Almanca | de | Güceratça | gu |
+| Hintçe | hi | Haiti Creole Dili | ht |
+| Endonezce | id | İbranice | o |
+| İtalyanca | it | Macarca | hu |
+| Japonca | ja | İzlandaca | : |
+| Korece | ko | Cava dili | jv |
+| Marathi | mr | Kannada | kn |
+| Lehçe | pl | Konkani | kok |
+| Portekizce | pt | Laoca | lo |
+| Rumence | ro | Latince | la |
+| Rusça | ru | Letonca | lv |
+| İspanyolca | es | Litvanca | lt |
+| Tamilce | ta | Lüksemburgca | lb |
+| Telugu dili | te | Makedonca | mk |
+| Tayca | th | Maithili dili | mai |
+| Türkçe | tr | Malgaşça | mg |
+| Ukraynaca | uk | Malayca | ms |
+| Vietnamca | vi | Malayalam | ml |
+| Afrikaanca | af | Moğolca | mn |
+| Arnavutça | sq | Nepalce | ne |
+| Amharca | öö | Norveççe, Bokmål | nb |
+| Ermenice | hy | Norveççe, Yeni Norveççe | nn |
+| Azerice | az | Oriya | veya |
+| Baskça | eu | Peştuca | ps |
+| Belarusça | be | Farsça | fa |
+| Bulgarca | bg | Pencapça | pa |
+| Burmaca | my | Sırpça | sr |
+| Katalanca | ca | Sindice | sd |
+| Sabuanca | ceb | Seylanca | si |
+| Çince, Mandarin | cmn | Slovakça | sk |
+| Hırvatça | s | Slovence | sl |
+| Çekya | cs | Swahili | sw |
+| Danca | da | İsveççe | sv |
+| Estonca | et | Urduca | UR |
 
-## Mô hình được hỗ trợ
+## Desteklenen modeller
 
-| Mô hình | Loa đơn | Nhiều người nói |
+| Model | Tek konuşmacı | Çok hoparlörlü |
 | --- | --- | --- |
-| [Bản xem trước tính năng chuyển văn bản sang lời nói của Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=vi) | ✔️ | ✔️ |
-| [Bản xem trước Gemini 2.5 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=vi) | ✔️ | ✔️ |
-| [TTS của Gemini 2.5 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=vi) | ✔️ | ✔️ |
+| [Gemini 3.1 Flash TTS Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=tr) | ✔️ | ✔️ |
+| [Gemini 2.5 Flash Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=tr) | ✔️ | ✔️ |
+| [Gemini 2.5 Pro Önizleme TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=tr) | ✔️ | ✔️ |
 
-## Hướng dẫn đặt câu lệnh
+## İstem yazma kılavuzu
 
-Mô hình **Tạo âm thanh gốc cho tính năng Chuyển văn bản sang lời nói (TTS) của Gemini** khác biệt với các mô hình TTS truyền thống bằng cách sử dụng một mô hình ngôn ngữ lớn, ***không chỉ biết nội dung cần nói mà còn biết cách nói***.
+**Gemini tümleşik ses üretimi Text-to-Speech (TTS)** modeli, ***ne söyleyeceğini değil, nasıl söyleyeceğini de*** bilen bir büyük dil modeli kullanarak geleneksel TTS modellerinden ayrılır.
 
-Ngay từ đầu, mô hình sẽ diễn giải bản chép lời một cách tự nhiên và xác định cách bạn nên truyền tải lời nói. Bản chép lời đơn giản mà không cần thêm câu lệnh nghe có vẻ tự nhiên. Tuy nhiên, Gemini TTS cũng đi kèm với các công cụ mà bạn có thể dùng để điều hướng.
+Model, hazır olarak transkripti doğal bir şekilde yorumlar ve kelimelerinizin nasıl iletilmesi gerektiğini belirler. Ek istem içermeyen basit transkriptler doğal bir şekilde okunur. Ancak Gemini TTS, yönlendirmek için kullanabileceğiniz araçlarla da birlikte gelir.
 
-Mục đích của hướng dẫn này là đưa ra hướng dẫn cơ bản và khơi gợi ý tưởng khi phát triển trải nghiệm âm thanh. Chúng ta sẽ bắt đầu với **Thẻ** để kiểm soát nhanh nội dung, sau đó khám phá **Cấu trúc câu lệnh** nâng cao để có hướng dẫn đầy đủ về hiệu suất.
+Bu kılavuzun amacı, ses deneyimleri geliştirirken temel yönlendirme sunmak ve fikirler üretmektir. Hızlı satır içi kontrol için **Etiketler** ile başlayacağız. Ardından, tam performans yönlendirmesi için gelişmiş **İstem yapılarını** inceleyeceğiz.
 
-### Thẻ âm thanh
+### Ses etiketleri
 
-Thẻ là các đối tượng sửa đổi cùng dòng như `[whispers]` hoặc `[laughs]` giúp bạn kiểm soát thật chi tiết quá trình phân phối. Bạn có thể dùng các điểm đánh dấu này để thay đổi giọng điệu, tốc độ và cảm xúc của một dòng hoặc đoạn trong bản chép lời. Bạn cũng có thể dùng các biểu tượng này để thêm từ cảm thán và một số âm thanh không lời khác vào màn trình diễn, chẳng hạn như `[cough]`, `[sighs]` hoặc `[gasp]`.
+Etiketler, yayını ayrıntılı bir şekilde kontrol etmenizi sağlayan `[whispers]` veya `[laughs]` gibi satır içi değiştiricilerdir. Bunları, transkriptin bir satırının veya bölümünün tonunu, hızını ve duygusal atmosferini değiştirmek için kullanabilirsiniz. Ayrıca bu sesleri kullanarak performansa ünlem ve birkaç başka sözel olmayan ses de ekleyebilirsiniz. Örneğin, `[cough]`, `[sighs]` veya `[gasp]`.
 
-Không có danh sách đầy đủ về những thẻ hoạt động và không hoạt động. Bạn nên thử nghiệm với nhiều cảm xúc và biểu cảm để xem kết quả thay đổi như thế nào.
+Hangi etiketlerin işe yaradığına ve yaramadığına dair kapsamlı bir liste yoktur. Çıkışın nasıl değiştiğini görmek için farklı duygular ve ifadelerle denemeler yapmanızı öneririz.
 
-Nếu bản chép lời không phải bằng tiếng Anh, để đạt được kết quả tốt nhất, bạn vẫn nên sử dụng thẻ âm thanh bằng tiếng Anh.
+Transkriptiniz İngilizce değilse en iyi sonuçları elde etmek için yine de İngilizce ses etiketleri kullanmanızı öneririz.
 
-**Sáng tạo với thẻ âm thanh**
+**Ses etiketlerini yaratıcı bir şekilde kullanın**
 
-Để cho thấy mức độ đa dạng mà bạn có thể đạt được với thẻ âm thanh, sau đây là một bộ ví dụ. Mỗi ví dụ đều nói cùng một điều, nhưng cách truyền tải sẽ thay đổi dựa trên thẻ được sử dụng.
+Ses etiketleriyle elde edebileceğiniz değişkenliği göstermek için, her biri aynı şeyi söyleyen ancak kullanılan etiketlere göre farklı şekilde sunulan bir dizi örnek aşağıda verilmiştir.
 
-Bạn có thể thay đổi mức độ nhấn mạnh của nội dung bằng cách thêm thẻ vào đầu dòng để khiến người nói cảm thấy hào hứng, buồn chán hoặc miễn cưỡng:
+Bir satırın başına etiket ekleyerek konuşmacının heyecanlı, sıkılmış veya isteksiz olmasını sağlayıp konuşmanın vurgusunu değiştirebilirsiniz:
 
-- `[excitedly]` Xin chào, tôi là một mô hình chuyển văn bản sang lời nói mới và có thể nói theo nhiều cách. Hôm nay tôi có thể giúp gì cho bạn?
-- `[bored]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
-- `[reluctantly]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[excitedly]` Merhaba, ben yeni bir metin okuma modeliyim ve birçok farklı şekilde konuşabilirim. Bugün size nasıl yardımcı olabilirim?
+- `[bored]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[reluctantly]` Merhaba, ben yeni bir metin okuma modeliyim…
 
-Bạn cũng có thể dùng thẻ để thay đổi tốc độ truyền tải hoặc kết hợp tốc độ với điểm nhấn:
+Etiketler, yayın hızını değiştirmek veya hızı vurguyla birleştirmek için de kullanılabilir:
 
-- `[very fast]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
-- `[very slow]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
-- `[sarcastically, one painfully slow word at a time]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[very fast]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[very slow]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[sarcastically, one painfully slow word at a time]` Merhaba, ben yeni bir metin okuma modeliyim…
 
-Bạn cũng có thể kiểm soát chính xác các phần cụ thể, tức là bạn có thể nói thì thầm một phần và hét lên một phần khác.
+Ayrıca belirli bölümler üzerinde hassas kontrol sahibi olursunuz. Yani bir bölümü fısıldayabilir, diğerini bağırabilirsiniz.
 
-- `[whispers]` Xin chào, tôi là một mô hình chuyển văn bản sang lời nói mới, `[shouting]` và tôi có thể nói theo nhiều cách khác nhau. `[whispers]` Hôm nay tôi có thể giúp gì cho bạn
+- `[whispers]` Merhaba, ben yeni bir metin okuma modeliyim `[shouting]` ve birçok farklı şekilde konuşabilirim. `[whispers]` Bugün size nasıl yardımcı olabilirim?
 
-Bạn cũng có thể thử nghiệm mọi ý tưởng sáng tạo mà bạn muốn:
+Dilediğiniz reklam öğesi fikrini de deneyebilirsiniz:
 
-- `[like a cartoon dog]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
-- `[like dracula]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[like a cartoon dog]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[like dracula]` Merhaba, ben yeni bir metin okuma modeliyim…
 
-Các thẻ thường dùng bao gồm:
+En çok tercih edilen etiketler şunlardır:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -580,22 +580,22 @@ Các thẻ thường dùng bao gồm:
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-Thẻ giúp bạn kiểm soát việc phân phối bản chép lời một cách nhanh chóng và dễ dàng. Để có thêm quyền kiểm soát, bạn có thể kết hợp các yếu tố này với một câu lệnh theo bối cảnh để đặt tông giọng và cảm xúc tổng thể của bản nhạc.
+Etiketler, transkriptinizin yayınlanması üzerinde hızlı ve kolay kontrol sağlar. Daha da fazla kontrol için bunları bir bağlam istemiyle birleştirerek performansın genel tonunu ve atmosferini ayarlayabilirsiniz.
 
-### Câu lệnh nâng cao
+### Gelişmiş istemler
 
-Bạn có thể coi câu lệnh nâng cao là một chỉ dẫn hệ thống để mô hình tuân theo. Đây là cách để cung cấp cho mô hình nhiều bối cảnh và quyền kiểm soát hơn đối với hiệu suất.
+Gelişmiş istemleri, modelin uyması gereken bir sistem talimatı olarak düşünebilirsiniz. Bu, modele daha fazla bağlam sunmanın ve performansı kontrol etmenin bir yoludur.
 
-Một câu lệnh hiệu quả lý tưởng sẽ bao gồm các yếu tố sau đây kết hợp với nhau để tạo ra hiệu suất tuyệt vời:
+Güçlü bir istem, ideal olarak mükemmel bir performans oluşturmak için bir araya gelen aşağıdaki öğeleri içerir:
 
-- **Hồ sơ âm thanh** – Thiết lập một nhân vật cho giọng nói, xác định danh tính, nguyên mẫu và mọi đặc điểm khác của nhân vật như độ tuổi, bối cảnh, v.v.
-- **Cảnh** – Thiết lập bối cảnh. Mô tả cả môi trường vật chất và "bầu không khí".
-- **Ghi chú của đạo diễn** – Hướng dẫn về hiệu suất, nơi bạn có thể phân tích những chỉ dẫn quan trọng mà tài năng ảo cần lưu ý. Ví dụ: phong cách, hơi thở, tốc độ, cách phát âm và giọng điệu.
-- **Bối cảnh mẫu** – Cung cấp cho mô hình một điểm xuất phát theo bối cảnh, nhờ đó diễn viên ảo của bạn sẽ xuất hiện một cách tự nhiên trong cảnh mà bạn thiết lập.
-- **Bản chép lời** – Văn bản mà mô hình sẽ đọc. Để đạt hiệu suất tốt nhất, hãy nhớ rằng chủ đề và phong cách viết của bản chép lời phải tương quan với chỉ dẫn mà bạn đưa ra.
-- **Thẻ âm thanh** – Các đối tượng sửa đổi mà bạn có thể đưa vào bản chép lời để thay đổi cách truyền tải phần văn bản đó, chẳng hạn như `[whispers]` hoặc `[shouting]`.
+- **Ses Profili**: Ses için bir karakter oluşturur. Karakter kimliğini, arketipini ve yaş, geçmiş vb. diğer özellikleri tanımlar.
+- **Sahne**: Ortamı hazırlar. Hem fiziksel ortamı hem de "atmosferi" açıklar.
+- **Yönetmen Notları**: Sanal karakterinizin dikkate alması gereken talimatları ayrıntılı olarak inceleyebileceğiniz performans rehberliği. Örnekler arasında stil, nefes, tempo, telaffuz ve vurgu yer alır.
+- **Örnek bağlam**: Modele bağlamsal bir başlangıç noktası sağlar. Böylece sanal aktörünüz, oluşturduğunuz sahneye doğal bir şekilde girer.
+- **Transkript**: Modelin seslendireceği metin. En iyi performans için transkript konusunun ve yazım stilinin verdiğiniz talimatlarla ilişkili olması gerektiğini unutmayın.
+- **Ses etiketleri**: Metnin ilgili bölümünün nasıl okunacağını değiştirmek için transkripte ekleyebileceğiniz değiştiricilerdir (ör. `[whispers]` veya `[shouting]`).
 
-Ví dụ về câu lệnh đầy đủ:
+Tam istem örneği:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -634,18 +634,18 @@ just sat there pretending to work... stop it. Seriously, I see you.
 two... let's go!
 ```
 
-### Chiến lược đưa ra câu lệnh chi tiết
+### Ayrıntılı istem stratejileri
 
-Hãy cùng phân tích từng thành phần của câu lệnh.
+İstemin her bir öğesini inceleyelim.
 
-#### Cấu hình âm thanh
+#### Ses Profili
 
-Mô tả ngắn gọn về hình tượng của nhân vật.
+Karakterin kişiliğini kısaca açıklayın.
 
-- **Tên**  Đặt tên cho nhân vật sẽ giúp mô hình và hiệu suất chặt chẽ hơn, Hãy gọi nhân vật bằng tên khi thiết lập cảnh và bối cảnh
-- **Vai trò.** Bản sắc và nguyên mẫu cốt lõi của nhân vật đang xuất hiện trong cảnh. Ví dụ: DJ đài phát thanh, người làm podcast, phóng viên tin tức, v.v.
+- **Ad.** Karakterinize ad vermek, modeli ve performansını bir araya getirmenize yardımcı olur. Sahneyi ve bağlamı ayarlarken karakterden adıyla bahsedin.
+- **Rol** Sahnedeki karakterin temel kimliği ve arketipi. Örneğin, radyo DJ'i, podcast yayıncısı, haber muhabiri vb.
 
-Ví dụ:
+Örnekler:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -657,11 +657,11 @@ Ví dụ:
 ## "The Beauty Influencer"
 ```
 
-#### Scene
+#### Sahne
 
-Thiết lập bối cảnh cho cảnh, bao gồm cả vị trí, tâm trạng và các chi tiết về môi trường để tạo ra tông giọng và cảm xúc. Mô tả những gì đang xảy ra xung quanh nhân vật và cách những sự kiện đó ảnh hưởng đến nhân vật. Khung cảnh cung cấp bối cảnh môi trường cho toàn bộ hoạt động tương tác và hướng dẫn diễn xuất một cách tinh tế và tự nhiên.
+Konum, ruh hali ve ortamla ilgili ayrıntılar da dahil olmak üzere sahnenin bağlamını belirleyin. Bu ayrıntılar, tonu ve atmosferi oluşturur. Karakterin etrafında neler olduğunu ve bunun karakteri nasıl etkilediğini açıklayın. Sahne, etkileşimin tamamı için çevresel bağlamı sağlar ve oyunculuk performansını ince ve doğal bir şekilde yönlendirir.
 
-Ví dụ:
+Örnekler:
 
 ```
 ## THE SCENE: The London Studio
@@ -680,15 +680,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### Ghi chú của đạo diễn
+#### Yönetmen notları
 
-Phần quan trọng này bao gồm hướng dẫn cụ thể về hiệu suất. Bạn có thể bỏ qua tất cả các phần tử khác, nhưng bạn nên đưa phần tử này vào.
+Bu önemli bölümde, performansla ilgili özel yönergeler yer alır. Diğer tüm öğeleri atlayabilirsiniz ancak bu öğeyi eklemenizi öneririz.
 
-Chỉ xác định những gì quan trọng đối với hiệu suất, cẩn thận để không chỉ định quá mức. Quá nhiều quy tắc nghiêm ngặt sẽ hạn chế khả năng sáng tạo của các mô hình và có thể dẫn đến hiệu suất kém hơn. Cân bằng vai trò và nội dung mô tả cảnh với các quy tắc diễn xuất cụ thể.
+Yalnızca performans için önemli olanı tanımlayın ve aşırı belirtmemeye dikkat edin. Çok fazla katı kural, modellerin yaratıcılığını sınırlar ve daha kötü bir performansa yol açabilir. Rol ve sahne açıklamasını, belirli performans kurallarıyla dengeleyin.
 
-Các hướng dẫn phổ biến nhất là **Phong cách, tốc độ và giọng điệu**, nhưng mô hình không giới hạn ở những hướng dẫn này và cũng không yêu cầu phải có những hướng dẫn này. Bạn có thể thoải mái thêm hướng dẫn tuỳ chỉnh để trình bày mọi thông tin bổ sung quan trọng đối với hiệu suất của bạn, đồng thời cung cấp nhiều hoặc ít thông tin chi tiết tuỳ theo nhu cầu.
+En yaygın talimatlar **Stil, Tempo ve Vurgu**'dur ancak model bunlarla sınırlı değildir ve bunları gerektirmez. Performansınız için önemli olan ek ayrıntıları kapsayacak özel talimatlar ekleyebilir ve gerektiği kadar ayrıntılı veya az bilgi verebilirsiniz.
 
-Ví dụ:
+Örneğin:
 
 ```
 ### DIRECTOR'S NOTES
@@ -701,15 +701,15 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**Kiểu:**
+**Stil:**
 
-Đặt âm điệu và phong cách cho lời nói được tạo. Hãy thêm những thông tin như sôi động, tràn đầy năng lượng, thư giãn, buồn chán, v.v. để hướng dẫn hiệu suất. Hãy mô tả và cung cấp nhiều thông tin chi tiết nhất có thể: *"Nhiệt tình truyền cảm hứng. Người nghe nên cảm thấy như họ là một phần của một sự kiện cộng đồng lớn và thú vị."* sẽ hiệu quả hơn so với việc chỉ nói *"đầy năng lượng và nhiệt huyết".*
+Oluşturulan konuşmanın üslubunu ve stilini belirler. Performansa yön vermek için neşeli, enerjik, rahat, sıkılmış gibi ifadeler ekleyin. Açıklayıcı olun ve gerektiği kadar ayrıntı verin: *"Bulaşıcı bir coşku. Dinleyici, büyük ve heyecan verici bir topluluk etkinliğinin parçası olduğunu hissetmeli."* ifadesi, *"Enerjik ve coşkulu"* ifadesinden daha iyi sonuç veriyor.
 
-Bạn thậm chí có thể thử các thuật ngữ phổ biến trong ngành lồng tiếng, chẳng hạn như "nụ cười trong giọng nói". Bạn có thể xếp lớp bao nhiêu đặc điểm về kiểu dáng tuỳ thích.
+Hatta seslendirme sektöründe popüler olan "vokal gülümsemesi" gibi terimleri de deneyebilirsiniz. İstediğiniz sayıda stil özelliği ekleyebilirsiniz.
 
-Ví dụ:
+Örnekler:
 
-Cảm xúc đơn giản
+Simple Emotion
 
 ```
 DIRECTORS NOTES
@@ -718,7 +718,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-Độ sâu lớn hơn
+Daha fazla derinlik
 
 ```
 DIRECTORS NOTES
@@ -727,7 +727,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-Phức tạp
+Karmaşık
 
 ```
 DIRECTORS NOTES
@@ -738,11 +738,12 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**Giọng:**
+**Aksan:**
 
-Mô tả giọng nói bạn muốn. Bạn càng trình bày cụ thể thì kết quả càng tốt. Ví dụ: sử dụng "*Giọng tiếng Anh Anh như nghe thấy ở Croydon, Anh*" thay vì "*Giọng Anh*".
+İstediğiniz aksanı açıklayın. Ne kadar ayrıntılı olursanız sonuçlar o kadar iyi olur. Örneğin, "*British English accent as heard in Croydon,
+England*" (İngiltere, Croydon'da duyulan İngiliz İngilizcesi aksanı) yerine "*British Accent*" (İngiliz aksanı) kullanın.
 
-Ví dụ:
+Örnekler:
 
 ```
 ### DIRECTORS NOTES
@@ -758,13 +759,13 @@ Accent: Jaz is a DJ from Brixton, London
 ...
 ```
 
-**Nhịp độ:**
+**İlerleme hızı:**
 
-Nhịp độ tổng thể và sự thay đổi nhịp độ trong suốt bản nhạc.
+Parça boyunca genel tempo ve tempo değişimi.
 
-Ví dụ:
+Örnekler:
 
-Đơn giản
+Basit
 
 ```
 ### DIRECTORS NOTES
@@ -773,7 +774,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-Độ sâu lớn hơn
+Daha fazla derinlik
 
 ```
 ### DIRECTORS NOTES
@@ -782,7 +783,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-Phức tạp
+Karmaşık
 
 ```
 ### DIRECTORS NOTES
@@ -791,9 +792,9 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-#### Bản chép lời và thẻ âm thanh
+#### Transkript ve ses etiketleri
 
-Bản chép lời là những từ chính xác mà mô hình sẽ nói. Thẻ âm thanh là một từ trong dấu ngoặc vuông cho biết cách nói một nội dung nào đó, sự thay đổi về giọng điệu hoặc một câu cảm thán.
+Transkript, modelin konuşacağı kelimelerin bire bir aynısıdır. Ses etiketi, bir şeyin nasıl söylenmesi gerektiğini, ton değişikliğini veya ünlemi belirten, köşeli parantez içindeki bir kelimedir.
 
 ```
 ### TRANSCRIPT
@@ -804,17 +805,17 @@ at that point.
 [cough] Well, [sighs] I guess it doesn't matter now.
 ```
 
-**Hãy thử**
+**Deneyin**
 
-Hãy tự mình thử một số ví dụ này trên [AI Studio](https://aistudio.google.com/generate-speech?hl=vi), dùng thử [Ứng dụng TTS](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=vi) của chúng tôi và để Gemini giúp bạn trở thành đạo diễn. Hãy ghi nhớ những mẹo sau để có màn trình diễn thanh nhạc tuyệt vời:
+[AI Studio](https://aistudio.google.com/generate-speech?hl=tr)'da bu örneklerden bazılarını kendiniz deneyin, [TTS uygulamamızla](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=tr) oynayın ve Gemini'ın sizi yönetmen koltuğuna oturtmasına izin verin. Harika vokal performansları için şu ipuçlarını aklınızda bulundurun:
 
-- Hãy nhớ giữ cho toàn bộ câu lệnh nhất quán – kịch bản và chỉ đạo phải đi đôi với nhau để tạo ra một màn trình diễn tuyệt vời.
-- Bạn không cần phải mô tả mọi thứ, đôi khi việc cho phép mô hình tự điền vào chỗ trống sẽ giúp tạo ra hình ảnh tự nhiên hơn. (Giống như một diễn viên tài năng)
-- Nếu bạn cảm thấy bế tắc, hãy nhờ Gemini giúp bạn soạn kịch bản hoặc dàn dựng màn trình diễn.
+- Tüm istemin tutarlı olmasına dikkat edin. Senaryo ve yönlendirme, harika bir performans oluşturmak için birlikte çalışır.
+- Her şeyi açıklamanız gerekmez. Bazen boşlukları doldurması için modele alan bırakmak doğallığa yardımcı olur. (Tıpkı yetenekli bir oyuncu gibi)
+- Takıldığınız noktalarda Gemini'dan yardım alarak senaryonuzu veya performansınızı şekillendirebilirsiniz.
 
-## Tạo lời nói trực tuyến
+## Gerçek zamanlı konuşma üretme
 
-Bạn có thể phát trực tuyến âm thanh được tạo trong khi mô hình đang tạo âm thanh đó. Điều này hữu ích trong việc giảm độ trễ cảm nhận được.
+Oluşturulan sesi, model tarafından oluşturulurken yayınlayabilirsiniz. Bu özellik, algılanan gecikmeyi azaltmak için kullanışlıdır.
 
 ### Python
 
@@ -906,32 +907,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
     }'
 ```
 
-## Các điểm hạn chế
+## Sınırlamalar
 
-- Các mô hình TTS chỉ có thể nhận dữ liệu đầu vào là văn bản và tạo dữ liệu đầu ra là âm thanh.
-- Một phiên TTS có giới hạn [cửa sổ ngữ cảnh](https://ai.google.dev/gemini-api/docs/long-context?hl=vi) là 32.000 token.
-- Xem phần [Ngôn ngữ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi#languages) để biết thông tin về ngôn ngữ được hỗ trợ.
-- TTS không hỗ trợ truyền trực tuyến cho các mô hình cũ hơn phiên bản 3.1 (TTS hỗ trợ truyền trực tuyến cho `gemini-3.1-flash-tts-preview` trở lên).
+- TTS modelleri yalnızca metin girişleri alabilir ve ses çıkışları oluşturabilir.
+- TTS oturumunun [bağlam penceresi](https://ai.google.dev/gemini-api/docs/long-context?hl=tr) sınırı 32 bin jetondur.
+- Dil desteği için [Diller](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr#languages) bölümünü inceleyin.
+- TTS, 3.1 sürümünden eski modellerde akışı desteklemez (`gemini-3.1-flash-tts-preview` ve daha yeni sürümlerde akış desteklenir).
 
-Các ràng buộc sau đây chỉ áp dụng khi bạn dùng mô hình Gemini 3.1 Flash TTS Preview để tạo lời nói:
+Konuşma üretimi için Gemini 3.1 Flash TTS Önizleme modeli kullanılırken özellikle aşağıdaki kısıtlamalar geçerlidir:
 
-- **Giọng nói không nhất quán với hướng dẫn trong câu lệnh:** Đầu ra của mô hình không phải lúc nào cũng hoàn toàn khớp với người nói đã chọn, khiến âm thanh khác với dự kiến. Để tránh giọng điệu không phù hợp (chẳng hạn như giọng nam trầm cố gắng nói như một cô gái trẻ), hãy đảm bảo giọng điệu và ngữ cảnh bằng văn bản của câu lệnh phù hợp một cách tự nhiên với hồ sơ của người nói được chọn.
-- **Chất lượng của đầu ra dài hơn:** Chất lượng và tính nhất quán của lời nói có thể bắt đầu giảm sút đối với đầu ra được tạo có thời lượng dài hơn vài phút. Bạn nên chia bản chép lời thành các phần nhỏ hơn.
-- **Thỉnh thoảng trả về mã thông báo văn bản:** Đôi khi, mô hình trả về mã thông báo văn bản thay vì mã thông báo âm thanh, khiến máy chủ không thực hiện được yêu cầu và trả về lỗi `500`. Vì điều này xảy ra ngẫu nhiên trong một tỷ lệ rất nhỏ các yêu cầu, bạn nên triển khai logic thử lại tự động trong ứng dụng của mình để xử lý những yêu cầu này.
-- **Trường hợp trình phân loại câu lệnh từ chối nhầm:** Các câu lệnh mơ hồ có thể không kích hoạt được trình phân loại tổng hợp lời nói, dẫn đến yêu cầu bị từ chối (`PROHIBITED_CONTENT`) hoặc khiến mô hình đọc to hướng dẫn về phong cách và ghi chú của đạo diễn. Xác thực câu lệnh của bạn bằng cách thêm một phần mở đầu rõ ràng hướng dẫn mô hình tổng hợp lời nói và gắn nhãn rõ ràng nơi bắt đầu bản chép lời thực tế.
+- **İstem talimatlarıyla tutarsız ses:** Modelin çıktısı her zaman seçilen konuşmacıyla tam olarak eşleşmeyebilir. Bu durumda ses, beklenenden farklı duyulur. Uyumsuz tonları (ör. genç bir kız gibi konuşmaya çalışan derin bir erkek sesi) önlemek için isteminizin yazılı tonunun ve bağlamının, seçilen konuşmacının profiliyle doğal olarak uyumlu olduğundan emin olun.
+- **Daha uzun çıkışların kalitesi:** Konuşma kalitesi ve tutarlılığı, birkaç dakikadan uzun olan oluşturulmuş çıkışlarda değişmeye başlayabilir. Transkriptlerinizi daha küçük parçalara bölmenizi öneririz.
+- **Bazen metin belirteçleri döndürülüyor:** Model, bazen ses belirteçleri yerine metin belirteçleri döndürdüğü için sunucu, isteği `500` hatasıyla reddediyor. Bu durum, isteklerin çok küçük bir yüzdesinde rastgele gerçekleştiğinden, bu durumları işlemek için uygulamanızda otomatik yeniden deneme mantığı uygulamanız gerekir.
+- **İstem sınıflandırıcısının yanlış reddetmeleri:** Belirsiz istemler, konuşma sentezi sınıflandırıcısını tetikleyemeyebilir. Bu durumda istek reddedilir (`PROHIBITED_CONTENT`) veya model, stil talimatlarınızı ve yönetmen notlarınızı yüksek sesle okur. Modele konuşma sentezleme talimatı veren net bir giriş ekleyerek ve gerçek konuşulan transkriptin başladığı yeri açıkça etiketleyerek istemlerinizi doğrulayın.
 
-## Bước tiếp theo
+## Sırada ne var?
 
-- Hãy thử [sách hướng dẫn tạo âm thanh](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=vi).
-- [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) của Gemini cung cấp các lựa chọn tạo âm thanh tương tác mà bạn có thể xen kẽ với các phương thức khác.
-- Để tìm hiểu cách xử lý *đầu vào* âm thanh, hãy xem hướng dẫn [Hiểu âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi).
+- [Ses üreten model çözüm kitabını](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=tr) deneyin.
+- Gemini'ın [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'si, diğer yöntemlerle birlikte kullanabileceğiniz etkileşimli ses üretme seçenekleri sunar.
+- Ses *girişleriyle* çalışma hakkında bilgi edinmek için [Ses yorumlama](https://ai.google.dev/gemini-api/docs/audio?hl=tr) rehberini inceleyin.
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-06-28 UTC.
+Son güncelleme tarihi: 2026-06-28 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-28 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-28 UTC."],[],[]]

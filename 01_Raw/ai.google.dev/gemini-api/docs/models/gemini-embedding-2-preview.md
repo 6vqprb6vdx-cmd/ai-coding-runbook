@@ -1,44 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=zh-TW
-fetched_at: 2026-07-20T04:45:19.013250+00:00
-title: "Gemini Embedding 2 \u9810\u5148\u767c\u5e03\u7248\u6a21\u578b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=id
+fetched_at: 2026-07-27T04:39:58.177492+00:00
+title: "Model Gemini Embedding 2 Preview \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
 
-提供意見
+Kirim masukan
 
-# Gemini Embedding 2 預先發布版模型
+# Model Gemini Embedding 2 Preview
 
-這是我們第一個多模態嵌入模型，可將文字、圖片、影片、音訊和 PDF 檔案有效對應至單一統一嵌入空間。Gemini Embedding 2 模型最適合用於跨模態語意搜尋、文件檢索，以及需要對大型多模態資料集進行快速、可擴充的相似度計算的推薦系統。
+Model embedding multimodal pertama kami, yang menyediakan pemetaan numerik yang efisien untuk teks, gambar, video, audio, dan PDF ke dalam satu ruang embedding terpadu. Model Gemini Embedding 2 paling cocok untuk penelusuran semantik lintas-modal, pengambilan dokumen, dan sistem rekomendasi yang memerlukan perhitungan kesamaan yang cepat dan skalabel di seluruh set data multimodal yang besar.
 
-## 說明文件
+## Dokumentasi
 
-如要全面瞭解功能和用途，請前往「[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)」頁面。
+Buka halaman [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id) untuk mengetahui cakupan lengkap
+fitur dan kemampuannya.
 
 ## gemini-embedding-2-preview
 
-| 屬性 | 說明 |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_card 模型代碼 | **Gemini API**  `gemini-embedding-2-preview` |
-| save支援的資料類型 | **輸入功率**  文字、圖片、影片、音訊、PDF  **輸出內容**  文字嵌入 |
-| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  8,192  **輸出尺寸大小**  彈性，支援：128 - 3072，建議：768、1536、3072 |
-| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 預覽：`gemini-embedding-2-preview` |
-| calendar\_month最新更新 | 2026 年 3 月 |
+| id\_cardKode model | **Gemini API**  `gemini-embedding-2-preview` |
+| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio, PDF  **Output**  Embedding teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  8.192  **Ukuran dimensi output**  Fleksibel, mendukung: 128 - 3072, Direkomendasikan: 768, 1536, 3072 |
+| 123Versi | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-embedding-2-preview` |
+| calendar\_monthUpdate terbaru | Maret 2026 |
 
-提供意見
+Kirim masukan
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-上次更新時間：2026-04-29 (世界標準時間)。
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-想進一步說明嗎？
+Ada masukan untuk kami?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

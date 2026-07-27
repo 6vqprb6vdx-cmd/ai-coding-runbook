@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/media-resolution?hl=id
-fetched_at: 2026-07-20T04:43:03.135701+00:00
-title: "Resolusi media \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/media-resolution?hl=ja
+fetched_at: 2026-07-27T04:38:52.248110+00:00
+title: "\u30e1\u30c7\u30a3\u30a2\u306e\u89e3\u50cf\u5ea6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Resolusi media
+# メディアの解像度
 
-Parameter `media_resolution` mengontrol cara Gemini API memproses input media seperti gambar, video, dan dokumen PDF dengan menentukan **jumlah token maksimum** yang dialokasikan untuk input media, sehingga Anda dapat menyeimbangkan kualitas respons dengan latensi dan biaya. Untuk setelan yang berbeda, nilai default, dan cara nilai tersebut sesuai dengan token, lihat bagian [Jumlah token](#token-counts).
+`media_resolution` パラメータは、メディア入力に割り当てられる**トークンの最大数**を決定することで、Gemini API が画像、動画、PDF ドキュメントなどのメディア入力を処理する方法を制御します。これにより、回答の品質とレイテンシ、費用のバランスを取ることができます。さまざまな設定、デフォルト値、トークンとの対応については、[トークン数](#token-counts)のセクションをご覧ください。
 
-Anda dapat mengonfigurasi resolusi media untuk setiap objek media (item konten) dalam permintaan Anda (khusus Gemini 3).
+リクエスト内の個々のメディア オブジェクト（コンテンツ アイテム）のメディア解像度を設定できます（Gemini 3 のみ）。
 
-## Resolusi media per item konten (khusus Gemini 3)
+## コンテンツ アイテムごとのメディア解像度（Gemini 3 のみ）
 
-Gemini 3 memungkinkan Anda menetapkan resolusi media untuk setiap objek media dalam permintaan, sehingga menawarkan pengoptimalan penggunaan token yang terperinci. Anda dapat menggabungkan tingkat resolusi dalam satu permintaan. Misalnya, menggunakan resolusi tinggi untuk diagram yang kompleks dan resolusi rendah untuk gambar kontekstual yang sederhana.
+Gemini 3 では、リクエスト内の個々のメディア オブジェクトのメディア解像度を設定できるため、トークン使用量をきめ細かく最適化できます。1 つのリクエストで解像度レベルを混在させることができます。たとえば、複雑な図には高解像度を使用し、シンプルなコンテキスト画像には低解像度を使用します。
 
 ### Python
 
@@ -102,69 +102,69 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Nilai resolusi yang tersedia
+## 使用可能な解決策の値
 
-Gemini API menentukan tingkat berikut untuk resolusi media:
+Gemini API は、メディアの解像度に対して次のレベルを定義します。
 
-- `unspecified`: Setelan default. Jumlah token untuk level ini sangat bervariasi antara Gemini 3 dan model Gemini sebelumnya.
-- `low`: Jumlah token lebih rendah, sehingga pemrosesan lebih cepat dan biaya lebih rendah, tetapi detailnya lebih sedikit.
-- `medium`: Keseimbangan antara detail, biaya, dan latensi.
-- `high`: Jumlah token yang lebih tinggi, memberikan lebih banyak detail untuk dikerjakan model, dengan mengorbankan peningkatan latensi dan biaya.
-- `ultra_high` (Hanya per item konten): Jumlah token tertinggi, diperlukan untuk kasus penggunaan tertentu seperti [penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id).
+- `unspecified`: デフォルト設定。このレベルのトークン数は、Gemini 3 とそれ以前の Gemini モデルで大きく異なります。
+- `low`: トークン数が減り、処理が高速化され、コストが削減されますが、詳細が少なくなります。
+- `medium`: 詳細、費用、レイテンシのバランス。
+- `high`: トークン数が多いほど、モデルが処理する詳細が増えますが、レイテンシと費用が増加します。
+- `ultra_high`（コンテンツ アイテムごと）: トークン数が最も多く、[パソコンの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)などの特定のユースケースで必要です。
 
-Perhatikan bahwa `high` memberikan performa optimal untuk sebagian besar kasus penggunaan.
+`high` は、ほとんどのユースケースで最適なパフォーマンスを提供します。
 
-Jumlah pasti token yang dihasilkan untuk setiap tingkat ini bergantung pada **jenis media** (Gambar, Video, PDF) dan **versi model**.
+これらの各レベルで生成されるトークンの正確な数は、**メディアタイプ**（画像、動画、PDF）と**モデル バージョン**の両方によって異なります。
 
-## Jumlah token
+## トークン数
 
-Tabel di bawah merangkum perkiraan jumlah token untuk setiap nilai `media_resolution` dan jenis media per kelompok model.
+次の表は、モデル ファミリーごとに、各 `media_resolution` 値とメディアタイプのおおよそのトークン数をまとめたものです。
 
-**Model Gemini 3**
+**Gemini 3 モデル**
 
-| MediaResolution | Gambar | Video | PDF |
+| MediaResolution | 画像 | 動画 | PDF |
 | --- | --- | --- | --- |
-| `unspecified` (Default) | 1120 | 70 | 560 |
-| `low` | 280 | 70 | 280 + Teks Native |
-| `medium` | 560 | 70 | 560 + Native Text |
-| `high` | 1120 | 280 | 1120 + Teks Native |
-| `ultra_high` | 2240 | T/A | T/A |
+| `unspecified`（デフォルト） | 1120 | 70 | 560 |
+| `low` | 280 | 70 | 280 + ネイティブ テキスト |
+| `medium` | 560 | 70 | 560 + ネイティブ テキスト |
+| `high` | 1120 | 280 | 1120 + ネイティブ テキスト |
+| `ultra_high` | 2240 | なし | なし |
 
-## Memilih resolusi yang tepat
+## 適切な解決策の選択
 
-- **Default (`unspecified`):** Mulai dengan default. Model ini disetel untuk keseimbangan kualitas, latensi, dan biaya yang baik untuk sebagian besar kasus penggunaan umum.
-- **`low`:** Gunakan untuk skenario saat biaya dan latensi sangat penting, dan detail yang akurat kurang penting.
-- **`medium` / `high`:** Tingkatkan resolusi saat tugas memerlukan pemahaman detail rumit dalam media. Hal ini sering kali diperlukan untuk analisis visual yang kompleks, membaca diagram, atau memahami dokumen yang padat.
-- **`ultra_high`** - Hanya tersedia untuk setelan per item konten. Direkomendasikan untuk kasus penggunaan tertentu seperti penggunaan komputer atau saat pengujian menunjukkan peningkatan yang jelas dibandingkan `high`.
-- **Kontrol per item konten (Gemini 3):** Mengoptimalkan penggunaan token. Misalnya, dalam perintah dengan beberapa gambar, gunakan `high` untuk diagram yang kompleks dan `low` atau `medium` untuk gambar kontekstual yang lebih sederhana.
+- **デフォルト（`unspecified`）:** デフォルトから開始します。最も一般的なユースケースで品質、レイテンシ、費用のバランスが取れるように調整されています。
+- **`low`:** 費用とレイテンシが最優先で、詳細な粒度が重要でないシナリオで使用します。
+- **`medium` / `high`:** タスクでメディア内の複雑な詳細を理解する必要がある場合は、解像度を上げます。これは、複雑な視覚分析、グラフの読み取り、密度の高いドキュメントの理解に必要になることがよくあります。
+- **`ultra_high`** - コンテンツ アイテムごとの設定でのみ使用できます。パソコンの使用など、特定のユースケースや、テストで `high` よりも明確な改善が見られる場合に推奨されます。
+- **コンテンツ アイテムごとの制御（Gemini 3）:** トークンの使用量を最適化します。たとえば、複数の画像を含むプロンプトでは、複雑な図には `high` を使用し、よりシンプルなコンテキスト画像には `low` または `medium` を使用します。
 
-**Setelan yang direkomendasikan**
+**推奨設定**
 
-Berikut adalah setelan resolusi media yang direkomendasikan untuk setiap jenis media yang didukung.
+以下に、サポートされているメディアの種類ごとに推奨されるメディア解像度設定を示します。
 
-| Jenis Media | Setelan yang Direkomendasikan | Token Maksimum | Panduan Penggunaan |
+| メディアタイプ | 推奨される設定 | 最大トークン数 | 使用ガイダンス |
 | --- | --- | --- | --- |
-| **Gambar** | `high` | 1120 | Direkomendasikan untuk sebagian besar tugas analisis gambar guna memastikan kualitas maksimum. |
-| **PDF** | `medium` | 560 | Optimal untuk pemahaman dokumen; kualitas biasanya mencapai titik jenuh pada `medium`. Meningkatkan ke `high` jarang meningkatkan hasil OCR untuk dokumen standar. |
-| **Video** (Umum) | `low` (atau `medium`) | 70 (per frame) | **Catatan:** Untuk video, setelan `low` dan `medium` diperlakukan sama (70 token) untuk mengoptimalkan penggunaan konteks. Langkah ini cukup untuk sebagian besar tugas pengenalan dan deskripsi tindakan. |
-| **Video** (Banyak teks) | `high` | 280 (per frame) | Diperlukan hanya jika kasus penggunaan melibatkan pembacaan teks padat (OCR) atau detail kecil dalam frame video. |
+| **画像** | `high` | 1120 | 品質を最大限に高めるために、ほとんどの画像分析タスクにおすすめします。 |
+| **PDF** | `medium` | 560 | ドキュメントの理解に最適です。通常、品質は `medium` で飽和します。`high` に増やしても、標準的なドキュメントの OCR 結果が改善されることはほとんどありません。 |
+| **動画**（一般） | `low`（または `medium`） | 70（フレームあたり） | **注:** 動画の場合、コンテキストの使用を最適化するために、`low` と `medium` の設定は同じ（70 個のトークン）として扱われます。ほとんどのアクション認識と説明のタスクでは、これで十分です。 |
+| **動画**（テキストが多い） | `high` | 280（フレームあたり） | ユースケースで密度の高いテキスト（OCR）や動画フレーム内の細部を読み取る場合にのみ必要です。 |
 
-Selalu uji dan evaluasi dampak berbagai setelan resolusi pada aplikasi Anda untuk menemukan kompromi terbaik antara kualitas, latensi, dan biaya.
+さまざまな解像度設定がアプリケーションに与える影響を常にテストして評価し、品質、レイテンシ、費用の最適なトレードオフを見つけてください。
 
-## Ringkasan kompatibilitas versi
+## バージョンの互換性の概要
 
-- Menetapkan `resolution` pada setiap item konten **eksklusif untuk model Gemini 3**.
+- 個々のコンテンツ アイテムに `resolution` を設定できるのは、**Gemini 3 モデルのみ**です。
 
-## Langkah berikutnya
+## 次のステップ
 
-- Pelajari lebih lanjut kemampuan multimodal Gemini API dalam panduan [pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id), [pemahaman video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id), dan [pemahaman dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
+- Gemini API のマルチモーダル機能の詳細については、[画像理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja)、[動画理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja)、[ドキュメント理解](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)の各ガイドをご覧ください。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-07-06 UTC.
+最終更新日 2026-07-06 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-06 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-06 UTC。"],[],[]]

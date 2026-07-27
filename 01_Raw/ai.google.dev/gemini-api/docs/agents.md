@@ -1,100 +1,101 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agents?hl=he
-fetched_at: 2026-07-20T04:45:32.384275+00:00
-title: "\u05e1\u05e7\u05d9\u05e8\u05d4 \u05db\u05dc\u05dc\u05d9\u05ea \u05e9\u05dc \u05d4\u05e1\u05d5\u05db\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agents?hl=hi
+fetched_at: 2026-07-27T04:40:00.787292+00:00
+title: "\u090f\u091c\u0947\u0902\u091f \u0915\u0940 \u0916\u093e\u0938 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-שליחת משוב
+सुझाव भेजें
 
-# סקירה כללית של הסוכנים
+# एजेंट की खास जानकारी
 
-סוכנים מנוהלים ב-Gemini API מספקים לכם מסגרת סוכנים שניתנת להגדרה. קריאה אחת ל-API מספקת ארגז חול של Linux שבו הסוכן מסיק מסקנות, מריץ קוד, מנהל קבצים וגולש באינטרנט באופן אוטונומי.
+Gemini API से एजेंट बनाने और मैनेज करने की सुविधा की मदद से, आपको कॉन्फ़िगर किया जा सकने वाला एजेंट
+हार्नेस मिलता है. एक एपीआई कॉल, Linux सैंडबॉक्स उपलब्ध कराता है. इसमें एजेंट, तर्क देता है, कोड को एक्ज़ीक्यूट करता है, फ़ाइलों को मैनेज करता है, और वेब को अपने-आप ब्राउज़ करता है.
 
 [rocket\_launch
 
-מדריך למתחילים
+क्विकस्टार्ट
 
-איך מתקשרים לסוכן, משדרים תשובות ויוצרים סוכן בהתאמה אישית](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he)
+पहला एजेंट कॉल करें, जवाब स्ट्रीम करें, और कस्टम एजेंट बनाएं.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi)
 [smart\_toy
 
-Antigravity Agent
+Antigravity एजेंट
 
-יכולות, כלים, קלט מולטימודאלי ותמחור של הסוכן שמוגדר כברירת מחדל.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he)
+डिफ़ॉल्ट एजेंट के लिए केपबिलिटी, टूल, मल्टीमॉडल इनपुट, और कीमत.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi)
 [experiment
 
-סוכנים ב-AI Studio
+AI Studio में एजेंट
 
-סביבת משחקים ויזואלית ליצירת אב טיפוס של סוכנים בלי לכתוב קוד.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=he)
+कोडिंग किए बिना एजेंट के प्रोटोटाइप बनाने के लिए विज़ुअल प्लेग्राउंड.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=hi)
 
-## סוכנים מנוהלים זמינים
+## मैनेज किए जा सकने वाले एजेंट
 
-- **[סוכן Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he)**: סוכן מנוהל לשימוש כללי שמבוסס על Gemini 3.5 Flash. מריץ קוד, מנהל קבצים ומבצע חיפושים באינטרנט בתוך ארגז חול מאובטח של Linux שמארחת Google. אתם יכולים להוסיף לו הוראות, מיומנויות ונתונים משלכם כדי [ליצור סוכן בהתאמה אישית](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he).
-- ‫**[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he)**: סוכן מחקר אוטונומי שתכנן, מבצע ומסכם משימות מחקר מרובות שלבים לתרחישי שימוש כמו ניתוח שוק, בדיקת נאותות וסקירת ספרות.
+- **[Antigravity एजेंट](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi)**: यह Gemini 3.6 Flash की मदद से काम करने वाला, मैनेज किया गया एजेंट है. इसका इस्तेमाल सामान्य कामों के लिए किया जा सकता है. यह Google के होस्ट किए गए सुरक्षित Linux सैंडबॉक्स में कोड चलाता है, फ़ाइलों को मैनेज करता है, और वेब पर खोज करता है. `agent_config` का इस्तेमाल करके, Gemini के लिए उपलब्ध मॉडल (जैसे कि Gemini 3.6 Flash, Gemini 3.5 Flash या Gemini 3.5 Flash-Lite) को कॉन्फ़िगर किया जा सकता है. साथ ही, अपने निर्देशों, कौशल, और डेटा के साथ इसे बेहतर बनाया जा सकता है, ताकि [अपनी पसंद के मुताबिक एजेंट बनाया जा सके](https://ai.google.dev/gemini-api/docs/custom-agents?hl=hi).
+- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi)**: यह अपने-आप काम करने वाला रिसर्च एजेंट है. यह रिसर्च से जुड़े कई चरणों वाले टास्क को प्लान करता है, उन्हें पूरा करता है, और उनका विश्लेषण करता है. इसका इस्तेमाल मार्केट विश्लेषण, ज़रूरी जांच, और साहित्य की समीक्षा जैसे कामों के लिए किया जा सकता है.
 
-## אבטחה ושיטות מומלצות
+## सुरक्षा और सबसे सही तरीके
 
-כל סוכן פועל בסביבת ארגז חול שמבודדת ברמת מערכת ההפעלה.
-כברירת מחדל, לארגז החול יש גישה בלתי מוגבלת לרשת יוצאת. אתם יכולים להגביל או להשבית את הגישה לרשת באמצעות רשימת היתרים.
+हर एजेंट, सैंडबॉक्स किए गए एनवायरमेंट में काम करता है. यह ओएस लेवल पर अलग होता है.
+सैंडबॉक्स में, आउटबाउंड नेटवर्क ऐक्सेस पर डिफ़ॉल्ट रूप से कोई पाबंदी नहीं होती. अनुमति वाली सूची का इस्तेमाल करके, नेटवर्क ऐक्सेस को सीमित या बंद किया जा सकता है.
 
-### גישה לרשת
+### नेटवर्क ऐक्सेस
 
-כברירת מחדל, לסביבות יש גישה בלתי מוגבלת לרשת יוצאת. אפשר להשתמש ב`network` רשימת היתרים כדי להגביל את התנועה היוצאת לדומיינים ספציפיים או לדפוסי wildcard. פרטים על ההגדרה מופיעים במאמרים [רשימת כתובות IP ברשת שאפשר לגשת אליהן](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=he#network_allow_list) (AI Studio) או [כללי רשת](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he#with_network_rules) (API).
+डिफ़ॉल्ट रूप से, एनवायरमेंट में आउटबाउंड नेटवर्क का ऐक्सेस बिना किसी पाबंदी के होता है. `network` अनुमति वाली सूची का इस्तेमाल करके, आउटबाउंड ट्रैफ़िक को कुछ डोमेन या वाइल्डकार्ड पैटर्न तक सीमित करें. कॉन्फ़िगरेशन के बारे में ज़्यादा जानने के लिए, [नेटवर्क की अनुमति वाली सूची](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=hi#network_allow_list) (AI Studio) या [नेटवर्क के नियम](https://ai.google.dev/gemini-api/docs/custom-agents?hl=hi#with_network_rules) (API) देखें.
 
-### כלים חיצוניים וממשקי API
+### बाहरी टूल और एपीआई
 
-כדי להרחיב את היכולות של הסוכן, אפשר לקשר אליו כלים חיצוניים וממשקי API. מומלץ להשתמש רק בכלים ממקורות מהימנים ולהגדיר את ההרשאות להיקף המינימלי הנדרש. אפשר להחדיר את פרטי הכניסה בצורה מאובטחת באמצעות שינויים בכותרות של שרת proxy ליציאה, והם אף פעם לא נחשפים בתוך ארגז החול. הסוכן יכול להשתמש בכל פרטי כניסה שיש לו גישה אליהם, לכן כדאי לספק רק פרטי כניסה שאתם מוכנים להעניק להם גישה מלאה.
+एजेंट की क्षमताओं को बढ़ाने के लिए, बाहरी टूल और एपीआई कनेक्ट किए जा सकते हैं. सिर्फ़ भरोसेमंद सोर्स से मिले टूल इस्तेमाल करें. साथ ही, अनुमतियों को कम से कम ज़रूरी दायरे तक सीमित रखें. क्रेडेंशियल को इग्रेस प्रॉक्सी हेडर ट्रांसफ़ॉर्मेशन के ज़रिए सुरक्षित तरीके से इंजेक्ट किया जा सकता है. इन्हें सैंडबॉक्स में कभी भी नहीं दिखाया जाता. एजेंट, अपने पास मौजूद किसी भी क्रेडेंशियल का इस्तेमाल कर सकता है. इसलिए, सिर्फ़ वे क्रेडेंशियल दें जिनका पूरा स्कोप आपको देना है.
 
-- משתמשים בחשבונות שירות או במפתחות API עם הרשאות מינימליות.
-- עדיף להשתמש בטוקנים קצרי טווח במקום במפתחות ארוכי טווח.
-- חשוב לספק פרטי כניסה רק אם אתם מוכנים להעניק את ההיקף המלא של ההרשאות.
-- עדכון של פרטי הכניסה לפי לוח זמנים קבוע.
+- कम से कम विशेषाधिकार वाले सेवा खातों या एपीआई कुंजियों का इस्तेमाल करें.
+- लंबे समय तक इस्तेमाल की जा सकने वाली कुंजियों के बजाय, कम समय तक इस्तेमाल किए जा सकने वाले टोकन को प्राथमिकता दें.
+- सिर्फ़ ऐसे क्रेडेंशियल दें जिनका पूरा स्कोप आपको देना है.
+- क्रेडेंशियल को नियमित रूप से बदलें.
 
-פרטים על הגדרת שינויים בכותרות מופיעים במאמר בנושא [אישורים](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he#credentials).
+हेडर ट्रांसफ़ॉर्मेशन कॉन्फ़िगर करने के बारे में ज़्यादा जानने के लिए, [क्रेडेंशियल](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi#credentials) देखें.
 
-### פיקוח אנושי
+### मानवीय निगरानी
 
-תמיד כדאי לאמת את הפלט (קוד שנוצר, טרנספורמציות של נתונים, שינויים בהגדרות) לפני הפריסה, במיוחד במשימות שמשנות נתונים או יוצרות אינטראקציה עם מערכות חיצוניות.
+जनरेट किए गए कोड, डेटा ट्रांसफ़ॉर्मेशन, और कॉन्फ़िगरेशन में किए गए बदलावों को डिप्लॉय करने से पहले, हमेशा उनकी पुष्टि करें. खास तौर पर, उन टास्क के लिए जो डेटा में बदलाव करते हैं या बाहरी सिस्टम के साथ इंटरैक्ट करते हैं.
 
-## תמחור
+## कीमत
 
-סוכנים מנוהלים משתמשים ב[מודל של תשלום לפי שימוש](https://ai.google.dev/gemini-api/docs/pricing?hl=he#pricing-for-agents) שמבוסס על טוקנים של מודל Gemini ועל שימוש בכלי. אינטראקציה אחת יכולה להפעיל כמה לולאות של ניתוח, ובדרך כלל היא צורכת 100,000 עד 3 מיליון טוקנים. החישוב של הסביבה **לא מחויב** במהלך תקופת התצוגה המקדימה. [כאן](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he#availability-and-pricing) אפשר לראות פירוט של העלויות לכל משימה. סוכנים מנוהלים זמינים גם בתוכנית בחינם, עם מכסת שימוש ומגבלת קצב בחינם.
+मैनेज किए गए एजेंट, Gemini मॉडल के टोकन और टूल के इस्तेमाल के आधार पर, [इस्तेमाल के हिसाब से पैसे चुकाएं मॉडल](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#pricing-for-agents) का इस्तेमाल करते हैं. एक इंटरैक्शन से, कई बार तर्क करने की प्रोसेस शुरू हो सकती है. इसमें आम तौर पर, 1 लाख से 30 लाख टोकन इस्तेमाल होते हैं. प्रीव्यू के दौरान, एनवायरमेंट कंप्यूट के लिए **बिल नहीं भेजा जाता**. हर टास्क के हिसाब से, [अनुमानित लागत](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#availability-and-pricing) देखें. मैनेज किए गए एजेंट, बिना किसी शुल्क वाले टियर में भी उपलब्ध हैं. इसमें दर की सीमा और इस्तेमाल का कोटा बिना किसी शुल्क के मिलता है.
 
-## מגבלות
+## सीमाएं
 
-| מגבלה | תיאור |
+| सीमा | ब्यौरा |
 | --- | --- |
-| **משך החיים של הסביבה** | סביבות נמחקות סופית אחרי 7 ימים של חוסר פעילות. |
-| **VM Spin-down** | מכונות וירטואליות מושבתות אחרי פרק זמן קצר של חוסר פעילות כדי לחסוך במשאבים. הבקשה הבאה משחזרת את המצב (עם הפעלה במצב התחלתי). |
-| **תוכנות שהותקנו מראש** | סביבה מבוססת-Ubuntu עם Python 3.12 ו-Node.js 22. מידע נוסף על תמונת הבסיס של הסביבה זמין במאמר בנושא [תוכנות שהותקנו מראש](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he#pre-installed-software). |
-| **מספר הנציגים המקסימלי** | אפשר לנהל עד 1,000 סוכנים. |
+| **Environment Lifetime** | अगर सात दिनों तक एनवायरमेंट का इस्तेमाल नहीं किया जाता है, तो उन्हें हमेशा के लिए मिटा दिया जाता है. |
+| **वीएम को बंद करना** | संसाधन बचाने के लिए, कुछ समय तक कोई गतिविधि न होने पर वीएम बंद हो जाते हैं. अगला अनुरोध, स्थिति को वापस ले आता है (कोल्ड स्टार्ट के साथ). |
+| **पहले से इंस्टॉल किया गया सॉफ़्टवेयर** | Python 3.12 और Node.js 22 के साथ Ubuntu पर आधारित एनवायरमेंट. एनवायरमेंट की बेस इमेज के बारे में ज़्यादा जानने के लिए, [पहले से इंस्टॉल किया गया सॉफ़्टवेयर](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi#pre-installed-software) देखें. |
+| **ज़्यादा से ज़्यादा एजेंट** | आपके पास मैनेज किए गए ज़्यादा से ज़्यादा 1,000 एजेंट हो सकते हैं. |
 
-## מסגרות של סוכנים
+## एजेंट फ़्रेमवर्क
 
-אפשר גם ליצור סוכנים באמצעות Gemini בעזרת המסגרות וערכות ה-SDK הבאות:
+इन फ़्रेमवर्क और SDK का इस्तेमाल करके, Gemini की मदद से एजेंट भी बनाए जा सकते हैं:
 
-- ‫[**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=he): יצירת תהליכי עבודה מורכבים של אפליקציות ומערכות מרובות סוכנים באמצעות מבני גרפים.
-- ‫[**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=he): חיבור סוכני Gemini לנתונים פרטיים כדי לשפר את תהליכי העבודה באמצעות RAG.
-- ‫[**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=he): ארגון של סוכני AI אוטונומיים שמשתפים פעולה ומגלמים תפקידים.
-- ‫[**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=he): פיתוח ממשקי משתמש וסוכנים מבוססי-AI ב-JavaScript/TypeScript.
-- ‫[**Google ADK**](https://google.github.io/adk-docs/get-started/python/): מסגרת קוד פתוח ליצירה ולתיאום של סוכני AI עם יכולת פעולה הדדית.
-- ‫[**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=he): יצירה של סוכני AI אוטונומיים באמצעות אותם כלים, לולאת סוכן וניהול הקשר שמופעלים על ידי Google Antigravity, ניתנים לתכנות ב-Python.
+- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=hi): ग्राफ़ स्ट्रक्चर का इस्तेमाल करके, स्टेटफ़ुल और कॉम्प्लेक्स ऐप्लिकेशन फ़्लो और मल्टी-एजेंट सिस्टम बनाएं.
+- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=hi): RAG की मदद से बेहतर वर्कफ़्लो के लिए, Gemini एजेंट को अपने निजी डेटा से कनेक्ट करें.
+- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=hi): यह ऑटोनॉमस एआई एजेंट के साथ मिलकर काम करने और भूमिका निभाने की सुविधा देता है.
+- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=hi): JavaScript/TypeScript में, एआई की मदद से काम करने वाले यूज़र इंटरफ़ेस और एजेंट बनाएं.
+- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/): यह ओपन-सोर्स फ़्रेमवर्क है. इसकी मदद से, अलग-अलग प्लैटफ़ॉर्म पर काम करने वाले एआई एजेंट बनाए और मैनेज किए जा सकते हैं.
+- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=hi): एक ही टूल, एजेंट लूप, और कॉन्टेक्स्ट मैनेजमेंट का इस्तेमाल करके, ऑटोनॉमस एआई एजेंट बनाएं. ये टूल, एजेंट लूप, और कॉन्टेक्स्ट मैनेजमेंट, Google Antigravity को बेहतर बनाते हैं. इन्हें Python में प्रोग्राम किया जा सकता है.
 
-שליחת משוב
+सुझाव भेजें
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-עדכון אחרון: 2026-07-16 (שעון UTC).
+आखिरी बार 2026-07-21 (UTC) को अपडेट किया गया.
 
-רוצה לתת לנו משוב?
+क्या आपको हमें और कुछ बताना है?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-16 (שעון UTC)."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-21 (UTC) को अपडेट किया गया."],[],[]]

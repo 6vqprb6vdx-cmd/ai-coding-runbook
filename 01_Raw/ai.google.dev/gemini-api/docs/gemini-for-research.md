@@ -1,41 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pt-BR
-fetched_at: 2026-07-20T04:34:14.854390+00:00
-title: "Acelere a descoberta com o Gemini for Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=vi
+fetched_at: 2026-07-27T04:37:22.510493+00:00
+title: "\u0110\u1ea9y nhanh qu\u00e1 tr\u00ecnh kh\u00e1m ph\u00e1 b\u1eb1ng Gemini cho Nghi\u00ean c\u1ee9u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
 
-# Acelere a descoberta com o Gemini for Research
+# Đẩy nhanh quá trình khám phá bằng Gemini cho Nghiên cứu
 
-[Gerar uma chave da API Gemini](https://aistudio.google.com/apikey?hl=pt-br)
+[Nhận Khoá API Gemini](https://aistudio.google.com/apikey?hl=vi)
 
-Os modelos Gemini podem ser usados para avançar a pesquisa fundamental em várias disciplinas.
-Confira algumas maneiras de usar o Gemini na sua pesquisa:
+Bạn có thể sử dụng các mô hình Gemini để thúc đẩy nghiên cứu cơ bản trên nhiều lĩnh vực.
+Sau đây là những cách bạn có thể khám phá Gemini cho hoạt động nghiên cứu của mình:
 
-- **Analisar e controlar as saídas do modelo**: para uma análise mais detalhada, examine um
-  candidato de resposta gerado pelo modelo usando ferramentas como
-  `CitationMetadata`. Também é possível configurar opções para a geração e as saídas do modelo, como `responseSchema`, `topP` e `topK`. [Saiba mais](https://ai.google.dev/api/generate-content?hl=pt-br).
-- **Entradas multimodais**: o Gemini pode processar imagens, áudio e vídeos, permitindo uma
-  infinidade de direções de pesquisa interessantes. [Saiba mais](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br).
-- **Recursos de contexto longo**: o Gemini 3.0 Flash e Pro vêm com uma janela de contexto de 1 milhão de tokens. [Saiba mais](https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br).
-- **Cresça com o Google**: acesse rapidamente os modelos do Gemini pela API e pelo Google AI
-  Studio para casos de uso de produção. Se você estiver procurando uma plataforma baseada no Google Cloud, a Gemini Enterprise Agent Platform poderá fornecer infraestrutura de suporte adicional.
+- **Phân tích và kiểm soát kết quả đầu ra của mô hình**: Để phân tích thêm, bạn có thể xem xét một
+  ứng viên phản hồi do mô hình tạo bằng các công cụ như
+  `CitationMetadata`. Bạn cũng có thể định cấu hình các lựa chọn cho quá trình tạo và kết quả đầu ra của mô hình, chẳng hạn như `responseSchema`, `topP` và `topK`. [Tìm hiểu thêm](https://ai.google.dev/api/generate-content?hl=vi).
+- **Đầu vào đa phương thức**: Gemini có thể xử lý hình ảnh, âm thanh và video, mở ra vô vàn hướng nghiên cứu thú vị. [Tìm hiểu thêm](https://ai.google.dev/gemini-api/docs/vision?hl=vi).
+- **Khả năng xử lý ngữ cảnh dài**: Gemini 3.0 Flash và Pro có cửa sổ ngữ cảnh 1 triệu token. [Tìm hiểu thêm](https://ai.google.dev/gemini-api/docs/long-context?hl=vi).
+- **Grow with Google**: Nhanh chóng truy cập vào các mô hình Gemini thông qua API và Google AI
+  Studio cho các trường hợp sử dụng trong quá trình sản xuất. Nếu bạn đang tìm kiếm một nền tảng dựa trên Google Cloud, thì Nền tảng tác nhân Gemini Enterprise có thể cung cấp thêm cơ sở hạ tầng hỗ trợ.
 
-Para apoiar a pesquisa acadêmica e impulsionar a pesquisa de ponta, o Google oferece
-acesso a créditos da API Gemini para cientistas e pesquisadores acadêmicos pelo
-[Programa Acadêmico Gemini](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pt-br#gemini-academic-program).
+Để hỗ trợ nghiên cứu học thuật và thúc đẩy nghiên cứu tiên tiến, Google cung cấp quyền truy cập vào hạn mức tín dụng Gemini API cho các nhà khoa học và nhà nghiên cứu học thuật thông qua [Chương trình học thuật Gemini](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=vi#gemini-academic-program).
 
-## Comece a usar o Gemini
+## Làm quen với Gemini
 
-A API Gemini e o Google AI Studio ajudam você a começar a trabalhar com os modelos mais recentes do Google e a transformar suas ideias em aplicativos escalonáveis.
+API Gemini và Google AI Studio giúp bạn bắt đầu làm việc với các mô hình mới nhất của Google và biến ý tưởng của bạn thành các ứng dụng có thể mở rộng.
 
 ### Python
 
@@ -83,51 +80,50 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
    }'
 ```
 
-## Acadêmicos em destaque
+## Các học giả nổi bật
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=pt-br)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=vi)
 
-"Nossa pesquisa investiga o Gemini como um modelo de linguagem visual (VLM, na sigla em inglês) e seus comportamentos agênticos em diversos ambientes, do ponto de vista da robustez e da segurança. Até agora, avaliamos a robustez do Gemini contra distrações, como janelas pop-up, quando os agentes VLM realizam tarefas de computador, e usamos o Gemini para analisar a interação social, eventos temporais e fatores de risco com base na entrada de vídeo."
+"Nghiên cứu của chúng tôi điều tra Gemini với tư cách là một mô hình ngôn ngữ trực quan (VLM) và các hành vi của tác nhân trong nhiều môi trường từ góc độ về độ mạnh mẽ và độ an toàn. Cho đến nay, chúng tôi đã đánh giá độ mạnh mẽ của Gemini trước các yếu tố gây xao nhãng như cửa sổ bật lên khi các tác nhân VLM thực hiện các tác vụ trên máy tính, đồng thời đã tận dụng Gemini để phân tích tương tác xã hội, các sự kiện theo thời gian cũng như các yếu tố rủi ro dựa trên đầu vào video."
 
-[Site de Diyi Yang (em inglês)](https://cs.stanford.edu/~diyiy/)
+[Trang web của Diyi Yang](https://cs.stanford.edu/~diyiy/)
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=pt-br)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=vi)
 
-"O Gemini Pro e o Flash, com a janela de contexto longa, têm nos ajudado no OK-Robot, nosso projeto de manipulação móvel de vocabulário aberto. O Gemini permite consultas e comandos complexos de linguagem natural na "memória" do robô: nesse caso, observações anteriores feitas pelo robô durante uma longa duração de operação. Mahi Shafiullah e eu também estamos usando o Gemini para decompor tarefas em código que o robô pode executar no mundo real."
+"Gemini Pro và Flash, với cửa sổ ngữ cảnh dài, đã giúp chúng tôi trong OK-Robot, dự án thao tác trên thiết bị di động có từ vựng mở của chúng tôi. Gemini cho phép các truy vấn và lệnh bằng ngôn ngữ tự nhiên phức tạp trên "bộ nhớ" của robot: trong trường hợp này, đó là các quan sát trước đây mà robot đã thực hiện trong một khoảng thời gian hoạt động dài. Tôi và Mahi Shafiullah cũng đang sử dụng Gemini để phân tách các tác vụ thành mã mà robot có thể thực thi trong thế giới thực."
 
-[Site de Lerrel Pinto (em inglês)](https://www.lerrelpinto.com/)
+[Trang web của Lerrel Pinto](https://www.lerrelpinto.com/)
 
-## Programa Acadêmico Gemini
+## Chương trình học thuật Gemini
 
-Pesquisadores acadêmicos qualificados (como professores, funcionários e estudantes de doutorado) em [países
-aceitos](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br) podem se inscrever para receber créditos da API Gemini
-e limites de taxa mais altos para projetos de pesquisa. Esse suporte permite maior capacidade de processamento para experimentos científicos e avanços na pesquisa.
+Các nhà nghiên cứu học thuật đủ điều kiện (chẳng hạn như giảng viên, nhân viên và sinh viên tiến sĩ) ở các quốc gia [được hỗ trợ](https://ai.google.dev/gemini-api/docs/available-regions?hl=vi) có thể đăng ký nhận hạn mức tín dụng API Gemini
+và hạn mức cao hơn cho các dự án nghiên cứu. Sự hỗ trợ này giúp tăng công suất cho các thí nghiệm khoa học và thúc đẩy nghiên cứu.
 
-Estamos particularmente interessados nas áreas de pesquisa na seção a seguir, mas aceitamos inscrições de diversas disciplinas científicas:
+Chúng tôi đặc biệt quan tâm đến các lĩnh vực nghiên cứu trong phần sau, nhưng chúng tôi hoan nghênh các đơn đăng ký từ nhiều ngành khoa học:
 
-- **Avaliações e comparativos**: métodos de avaliação aprovados pela comunidade que podem fornecer um indicador de desempenho forte em áreas como veracidade, segurança, instruções, raciocínio e planejamento.
-- **Acelerar a descoberta científica para beneficiar a humanidade**: possíveis
-  aplicações de IA em pesquisas científicas interdisciplinares, incluindo áreas
-  como doenças raras e negligenciadas, biologia experimental, ciência dos materiais
-  e sustentabilidade.
-- **Incorporação e interações**: uso de modelos de linguagem grandes para
-  investigar novas interações nos campos de IA incorporada, interações ambientais,
-  robótica e interação humano-computador.
-- **Recursos emergentes**: explorar novos recursos agênticos necessários para
-  melhorar o raciocínio e o planejamento, e como os recursos podem ser expandidos durante a
-  inferência (por exemplo, usando o Gemini Flash).
-- **Interação e compreensão multimodal**: identificar lacunas e
-  oportunidades para modelos fundamentais multimodais para análise, raciocínio,
-  e planejamento em várias tarefas.
+- **Đánh giá và điểm chuẩn**: Các phương thức đánh giá được cộng đồng chứng thực có thể
+  cung cấp tín hiệu hiệu suất mạnh mẽ trong các lĩnh vực như tính xác thực, độ an toàn,
+  khả năng tuân theo hướng dẫn, khả năng suy luận và lập kế hoạch.
+- **Thúc đẩy khám phá khoa học để mang lại lợi ích cho nhân loại**: Các ứng dụng tiềm năng
+  của AI trong nghiên cứu khoa học liên ngành, bao gồm các lĩnh vực
+  như bệnh hiếm gặp và bị bỏ quên, sinh học thực nghiệm, khoa học vật liệu,
+  và tính bền vững.
+- **Hiện thân và tương tác**: Sử dụng các mô hình ngôn ngữ lớn để
+  điều tra các tương tác mới trong các lĩnh vực AI hiện thân, tương tác xung quanh,
+  robot học và tương tác giữa người và máy tính.
+- **Các khả năng mới nổi**: Khám phá các khả năng của tác nhân AI mới cần thiết để nâng cao khả năng suy luận và lập kế hoạch, cũng như cách mở rộng các khả năng trong quá trình suy luận (ví dụ: bằng cách sử dụng Gemini Flash).
+- **Tương tác và hiểu biết đa phương thức**: Xác định các khoảng trống và
+  cơ hội cho các mô hình cơ bản đa phương thức để phân tích, suy luận,
+  và lập kế hoạch trên nhiều tác vụ.
 
-Qualificação: somente pessoas (professores, pesquisadores ou equivalentes) afiliadas a uma instituição acadêmica válida ou organização de pesquisa acadêmica podem se inscrever. O acesso e os créditos da API serão concedidos e removidos a critério do Google. Analisamos as inscrições mensalmente.
+Điều kiện tham gia: Chỉ những cá nhân (giảng viên, nhà nghiên cứu hoặc tương đương) liên kết với một tổ chức học thuật hợp lệ hoặc tổ chức nghiên cứu học thuật mới có thể đăng ký. Xin lưu ý rằng quyền truy cập và hạn mức tín dụng API sẽ được cấp và xoá theo quyết định của Google. Chúng tôi xem xét các đơn đăng ký hằng tháng.
 
-### Comece a pesquisar com a API Gemini
+### Bắt đầu nghiên cứu bằng API Gemini
 
-[Faça sua inscrição agora](https://forms.gle/HMviQstU8PxC5iCt5)
+[Đăng ký ngay](https://forms.gle/HMviQstU8PxC5iCt5)
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última atualização 2026-07-01 UTC.
+Cập nhật lần gần đây nhất: 2026-07-01 UTC.
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-01 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-01 UTC."],[],[]]

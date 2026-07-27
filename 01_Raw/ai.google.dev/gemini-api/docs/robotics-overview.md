@@ -1,50 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=de
-fetched_at: 2026-07-20T04:36:21.102942+00:00
-title: "Gemini Robotics-ER\u00a01.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=id
+fetched_at: 2026-07-27T04:36:16.731684+00:00
+title: "Gemini Robotics-ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Gemini Robotics-ER 1.6
+# Gemini Robotics-ER 1.6
 
-Gemini Robotics-ER 1.6 ist ein Vision-Language-Modell (VLM), das die Agent-Funktionen von Gemini für die Robotik nutzt. Es wurde für fortschrittliches logisches Denken in der physischen Welt entwickelt und ermöglicht es Robotern, komplexe visuelle Daten zu interpretieren, räumliche Schlussfolgerungen zu ziehen und Aktionen aus Befehlen in natürlicher Sprache zu planen.
+Gemini Robotics-ER 1.6 adalah model bahasa-penglihatan (VLM) yang menghadirkan kemampuan agentik Gemini ke robotik. Model ini dirancang untuk penalaran tingkat lanjut di dunia fisik, sehingga memungkinkan robot menafsirkan data visual yang kompleks, melakukan penalaran spasial, dan merencanakan tindakan dari perintah bahasa alami.
 
-Wenn Sie Gemini Robotics-ER 1.5 verwendet haben, können Sie das Modell 1.6 verwenden, indem Sie im API-Aufruf den Modellnamen von `model="gemini-robotics-er-1.5-preview"` in `model="gemini-robotics-er-1.6-preview"` ändern.
+Perhatikan bahwa jika Anda menggunakan Gemini Robotics-ER 1.5, Anda dapat mulai menggunakan model 1.6 dengan mengganti nama model dari `model="gemini-robotics-er-1.5-preview"` menjadi `model="gemini-robotics-er-1.6-preview"` dalam panggilan API.
 
-Wichtige Funktionen und Vorteile:
+Fitur dan manfaat utama:
 
-- **Erweiterte Autonomie**:Roboter können in offenen Umgebungen Schlussfolgerungen ziehen, sich anpassen und auf Veränderungen reagieren.
-- **Interaktion in natürlicher Sprache**:Roboter sind einfacher zu bedienen, da komplexe Aufgaben in natürlicher Sprache zugewiesen werden können.
-- **Aufgabenorchestrierung**:Zerlegt Befehle in natürlicher Sprache in untergeordnete Aufgaben und lässt sich in vorhandene Robotersteuerungen und Verhaltensweisen integrieren, um Aufgaben mit langer Zeitspanne zu erledigen.
-- **Vielseitige Funktionen**:Objekte lokalisieren und identifizieren, Beziehungen zwischen Objekten verstehen, Greifvorgänge und Trajektorien planen und dynamische Szenen interpretieren.
+- **Peningkatan otonomi:** Robot dapat bernalar, beradaptasi, dan merespons perubahan di lingkungan terbuka.
+- **Interaksi bahasa alami:** Memudahkan penggunaan robot dengan memungkinkan penugasan tugas kompleks menggunakan bahasa alami.
+- **Orkestrasi tugas:** Menguraikan perintah bahasa alami menjadi sub-tugas dan berintegrasi dengan pengontrol dan perilaku robot yang ada untuk menyelesaikan tugas dengan cakupan panjang.
+- **Kemampuan serbaguna:** Menemukan dan mengidentifikasi objek, memahami hubungan objek, merencanakan genggaman dan lintasan, serta menafsirkan adegan dinamis.
 
-In diesem Dokument wird [die Funktionsweise des Modells](#how-it-works) beschrieben und es werden mehrere [Beispiele](#standard-spatial-reasoning) vorgestellt, die die agentenähnlichen Funktionen des Modells verdeutlichen.
+Dokumen ini menjelaskan [fungsi model](#how-it-works) dan memandu Anda
+melalui beberapa [contoh](#standard-spatial-reasoning) yang menyoroti kemampuan
+agen model.
 
-Wenn Sie gleich loslegen möchten, können Sie das Modell in Google AI Studio ausprobieren.
+Jika ingin langsung mencobanya, Anda dapat mencoba model ini di Google AI Studio.
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=de)
+[Coba di Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=id)
 
-## Sicherheit
+## Keamanan
 
-Gemini Robotics-ER 1.6 wurde mit Blick auf die Sicherheit entwickelt. Es liegt jedoch in Ihrer Verantwortung, für eine sichere Umgebung rund um den Roboter zu sorgen. Modelle für generative KI können Fehler machen und physische Roboter können Schäden verursachen. Sicherheit hat für uns Priorität. Deshalb ist es ein aktiver und wichtiger Bereich unserer Forschung, generative KI-Modelle sicher zu machen, wenn sie mit realen Robotern verwendet werden. Weitere Informationen finden Sie auf der [Google DeepMind-Seite zur Robotersicherheit](https://deepmind.google/models/gemini-robotics/safety?hl=de).
+Meskipun Gemini Robotics-ER 1.6 dibuat dengan mempertimbangkan keselamatan, Anda bertanggung jawab untuk menjaga lingkungan yang aman di sekitar robot. Model AI generatif dapat membuat kesalahan, dan robot fisik dapat menyebabkan kerusakan. Keamanan adalah
+prioritas, dan membuat model AI generatif aman saat digunakan dengan robotika
+dunia nyata adalah area penelitian kami yang aktif dan penting. Untuk mempelajari lebih lanjut, buka
+[halaman keamanan robotik Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=id).
 
-## Erste Schritte: Objekte in einer Szene finden
+## Mulai: Menemukan objek dalam adegan
 
-Das folgende Beispiel veranschaulicht einen häufigen Anwendungsfall in der Robotik. Darin wird gezeigt, wie Sie mit der Methode [`generateContent`](https://ai.google.dev/api/generate-content?hl=de#method:-models.generatecontent) ein Bild und einen Text-Prompt an das Modell übergeben, um eine Liste der erkannten Objekte mit den entsprechenden 2D-Punkten zu erhalten.
-Das Modell gibt Punkte für Elemente zurück, die es in einem Bild erkannt hat, sowie deren normalisierte 2D-Koordinaten und Labels.
+Contoh berikut menunjukkan kasus penggunaan robotik umum. Contoh ini menunjukkan cara
+meneruskan gambar dan perintah teks ke model menggunakan
+metode [`generateContent`](https://ai.google.dev/api/generate-content?hl=id#method:-models.generatecontent)
+untuk mendapatkan daftar objek yang diidentifikasi dengan titik 2D yang sesuai.
+Model ini menampilkan titik untuk item yang diidentifikasi dalam gambar, dengan menampilkan
+koordinat dan label 2D yang dinormalisasi.
 
-Sie können diese Ausgabe mit einer Robotics API verwenden oder ein VLA-Modell (Vision-Language-Action) oder andere benutzerdefinierte Drittanbieterfunktionen aufrufen, um Aktionen für einen Roboter zu generieren.
+Anda dapat menggunakan output ini dengan API robotik atau memanggil model vision-language-action (VLA) atau fungsi yang ditentukan pengguna pihak ketiga lainnya untuk menghasilkan tindakan yang akan dilakukan robot.
 
 ### Python
 
@@ -119,7 +128,8 @@ curl -X POST \
   }'
 ```
 
-Die Ausgabe ist ein JSON-Array mit Objekten, die jeweils ein `point` (normalisierte `[y, x]`-Koordinaten) und ein `label` zur Identifizierung des Objekts enthalten.
+Outputnya akan berupa array JSON yang berisi objek, yang masing-masing memiliki `point`
+(koordinat `[y, x]` yang dinormalisasi) dan `label` yang mengidentifikasi objek.
 
 ### JSON
 
@@ -138,43 +148,46 @@ Die Ausgabe ist ein JSON-Array mit Objekten, die jeweils ein `point` (normalisie
 ]
 ```
 
-Das folgende Bild zeigt ein Beispiel dafür, wie diese Punkte dargestellt werden können:
+Gambar berikut adalah contoh cara titik-titik ini dapat ditampilkan:
 
-![Beispiel für die Darstellung der Punkte von Objekten in einem Bild](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=de)
+![Contoh yang menampilkan titik objek dalam gambar](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=id)
 
-## Funktionsweise
+## Cara kerjanya
 
-Mit Gemini Robotics-ER 1.6 können Ihre Roboter die physische Welt mithilfe von räumlichem Verständnis in den Kontext setzen und darin arbeiten. Es verwendet Bild-, Video- und Audioeingaben sowie Prompts in natürlicher Sprache, um:
+Gemini Robotics-ER 1.6 memungkinkan robot Anda memahami konteks dan bekerja di dunia fisik menggunakan pemahaman spasial. Fitur ini menerima input gambar/video/audio dan perintah bahasa alami untuk:
 
-- **Objekte und Szenenkontext verstehen**: Erkennt Objekte und analysiert ihre Beziehung zur Szene, einschließlich ihrer Affordanzen.
-- **Aufgabenanweisungen verstehen**: Interpretiert Aufgaben, die in natürlicher Sprache formuliert sind, z. B. „Finde die Banane“.
-- **Räumlich und zeitlich denken**: Abläufe von Aktionen und die Interaktion von Objekten mit einer Szene im Zeitverlauf verstehen.
-- **Strukturierte Ausgabe bereitstellen**: Gibt Koordinaten (Punkte oder Begrenzungsrahmen) zurück, die Objektpositionen darstellen.
+- **Memahami objek dan konteks adegan**: Mengidentifikasi objek, dan alasan
+  hubungan objek dengan adegan, termasuk kemampuan objek.
+- **Memahami petunjuk tugas**: Menafsirkan tugas yang diberikan dalam bahasa alami, seperti "temukan pisang".
+- **Mempertimbangkan ruang dan waktu**: Memahami urutan tindakan dan cara objek berinteraksi dengan adegan dari waktu ke waktu.
+- **Menyediakan output terstruktur**: Menampilkan koordinat (titik atau kotak
+  pembatas) yang merepresentasikan lokasi objek.
 
-So können Roboter ihre Umgebung programmatisch „sehen“ und „verstehen“.
+Hal ini memungkinkan robot "melihat" dan "memahami" lingkungannya secara terprogram.
 
-Gemini Robotics-ER 1.6 ist auch agentisch. Das bedeutet, dass es komplexe Aufgaben (z. B. „Lege den Apfel in die Schüssel“) in Unteraufgaben aufteilen kann, um langfristige Aufgaben zu koordinieren:
+Gemini Robotics-ER 1.6 juga agentik, yang berarti ia dapat menguraikan tugas-tugas kompleks (seperti "taruh apel di mangkuk") menjadi sub-tugas untuk mengorkestrasi tugas-tugas dengan cakupan waktu yang panjang:
 
-- **Unteraufgaben sequenzieren**: Befehle werden in eine logische Abfolge von Schritten zerlegt.
-- **Funktionsaufrufe/Codeausführung**: Führt Schritte aus, indem vorhandene Roboterfunktionen/-tools aufgerufen oder generierter Code ausgeführt wird.
+- **Mengurutkan subtugas**: Menguraikan perintah menjadi urutan langkah-langkah yang logis.
+- **Panggilan fungsi/Eksekusi kode**: Mengeksekusi langkah-langkah dengan memanggil fungsi/alat robot yang ada atau mengeksekusi kode yang dihasilkan.
 
-[Weitere Informationen zu Funktionsaufrufen mit Gemini](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=de#how-it-works)
+Baca selengkapnya cara kerja panggilan fungsi dengan Gemini di [halaman Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=id#how-it-works).
 
-### Thinking Budget mit Gemini Robotics-ER 1.6 verwenden
+### Menggunakan anggaran pemikiran dengan Gemini Robotics-ER 1.6
 
-Gemini Robotics-ER 1.6 verfügt über ein flexibles Denkbudget, mit dem Sie die Kompromisse zwischen Latenz und Genauigkeit steuern können. Bei Aufgaben zum räumlichen Verständnis wie der Objekterkennung kann das Modell mit einem kleinen Denkbudget eine hohe Leistung erzielen. Komplexere Aufgaben wie das Zählen und die Gewichtsschätzung profitieren von einem größeren Denkbudget. So können Sie den Bedarf an Antworten mit geringer Latenz mit Ergebnissen mit hoher Genauigkeit für anspruchsvollere Aufgaben in Einklang bringen.
+Gemini Robotics-ER 1.6 memiliki anggaran pemikiran yang fleksibel sehingga Anda dapat mengontrol kompromi antara latensi dan akurasi. Untuk tugas pemahaman spasial seperti deteksi objek, model dapat mencapai performa tinggi dengan anggaran pemikiran yang kecil. Tugas penalaran yang lebih kompleks seperti penghitungan dan estimasi berat akan lebih baik jika menggunakan anggaran pemikiran yang lebih besar. Dengan demikian, Anda dapat menyeimbangkan kebutuhan respons latensi rendah dengan hasil akurasi tinggi untuk tugas yang lebih sulit.
 
-Weitere Informationen zu Denkbudgets finden Sie auf der Seite mit den [wichtigsten Funktionen](https://ai.google.dev/gemini-api/docs/thinking?hl=de) für die Denkphase.
+Untuk mempelajari lebih lanjut anggaran pemikiran, lihat halaman kemampuan inti
+[Pemikiran](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
 
-## Standardmäßiges räumliches Denken
+## Penalaran spasial standar
 
-Die folgenden Beispiele veranschaulichen Aufgaben für **robotic perception** und räumliches Denken mit Prompts in natürlicher Sprache, die von der Identifizierung und Suche von Objekten in einem Bild bis hin zur Planung von Trajektorien reichen. Der Einfachheit halber wurden die Code-Snippets in diesen Beispielen so gekürzt, dass nur der Prompt und der Aufruf der `generate_content` API zu sehen sind.
+Contoh berikut menunjukkan tugas untuk **persepsi robotik** dan penalaran spasial menggunakan perintah bahasa alami, mulai dari menunjuk dan menemukan objek dalam gambar hingga merencanakan lintasan. Untuk mempermudah, cuplikan kode dalam contoh ini telah disederhanakan untuk hanya menampilkan perintah dan panggilan ke `generate_content` API.
 
-Den vollständigen ausführbaren Code sowie zusätzliche Beispiele finden Sie im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Kode yang dapat dijalankan sepenuhnya serta contoh tambahan dapat ditemukan di [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-### Auf Objekte zeigen
+### Menunjuk objek
 
-Das Zeigen auf und Suchen von Objekten in Bildern oder Videoframes ist ein häufiger Anwendungsfall für Vision-and-Language-Modelle (VLMs) in der Robotik. Im folgenden Beispiel wird das Modell aufgefordert, bestimmte Objekte in einem Bild zu finden und ihre Koordinaten zurückzugeben.
+Menunjuk dan menemukan objek dalam gambar atau frame video adalah kasus penggunaan umum untuk model vision-and-language (VLM) dalam robotika. Contoh berikut meminta model untuk menemukan objek tertentu dalam gambar dan menampilkan koordinatnya.
 
 ### Python
 
@@ -222,7 +235,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Die Ausgabe wäre ähnlich wie im Beispiel für den Einstieg ein JSON-Objekt mit den Koordinaten der gefundenen Objekte und ihren Labels.
+Outputnya akan mirip dengan contoh memulai, yaitu JSON yang berisi koordinat objek yang ditemukan dan labelnya.
 
 ```
 [
@@ -236,9 +249,9 @@ Die Ausgabe wäre ähnlich wie im Beispiel für den Einstieg ein JSON-Objekt mit
 ]
 ```
 
-![Ein Beispiel, in dem die Punkte von Objekten angezeigt werden, die in einem Bild erkannt wurden](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=de)
+![Contoh yang menampilkan titik-titik objek yang diidentifikasi dalam gambar](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=id)
 
-Verwenden Sie den folgenden Prompt, um das Modell aufzufordern, abstrakte Kategorien wie „Obst“ anstelle bestimmter Objekte zu interpretieren und alle Instanzen im Bild zu finden.
+Gunakan perintah berikut untuk meminta model menafsirkan kategori abstrak seperti "buah" dan bukan objek tertentu, serta menemukan semua instance dalam gambar.
 
 ### Python
 
@@ -251,13 +264,15 @@ prompt = f"""
         [y, x] format normalized to 0-1000."""
 ```
 
-[Weitere Bildverarbeitungstechniken](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de)
+Buka halaman [pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id) untuk
+teknik pemrosesan gambar lainnya.
 
-### Objekte in einem Video verfolgen
+### Melacak objek dalam video
 
-Gemini Robotics-ER 1.6 kann auch Videoframes analysieren, um Objekte im Zeitverlauf zu verfolgen. Eine Liste der unterstützten Videoformate finden Sie unter [Videoeingaben](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#supported-formats).
+Gemini Robotics-ER 1.6 juga dapat menganalisis frame video untuk melacak objek dari waktu ke waktu. Lihat [Input video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id#supported-formats)
+untuk mengetahui daftar format video yang didukung.
 
-Das ist der Basis-Prompt, mit dem bestimmte Objekte in jedem Frame gefunden werden, den das Modell analysiert:
+Berikut adalah perintah dasar yang digunakan untuk menemukan objek tertentu dalam setiap frame yang dianalisis model:
 
 ### Python
 
@@ -281,17 +296,21 @@ base_prompt = f"""
   """
 ```
 
-Die Ausgabe zeigt, wie ein Stift und ein Laptop in den Videoframes verfolgt werden.
+Output menunjukkan pena dan laptop yang dilacak di seluruh frame video.
 
-![Ein Beispiel, in dem Objekte in einem GIF durch Frames verfolgt werden](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=de)
+![Contoh yang menunjukkan objek yang dilacak melalui frame dalam GIF](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=id)
 
-Den vollständigen ausführbaren Code finden Sie im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Untuk kode yang dapat dijalankan sepenuhnya, lihat
+[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-### Objekterkennung und Begrenzungsrahmen
+### Deteksi objek dan kotak pembatas
 
-Das Modell kann nicht nur einzelne Punkte, sondern auch 2D-Markierungsrahmen zurückgeben, die einen rechteckigen Bereich um ein Objekt darstellen.
+Selain titik tunggal, model juga dapat menampilkan kotak pembatas 2D, yang menyediakan
+area persegi panjang yang mengelilingi objek.
 
-In diesem Beispiel werden 2D-Begrenzungsrahmen für identifizierbare Objekte auf einem Tisch angefordert. Das Modell wird angewiesen, die Ausgabe auf 25 Objekte zu beschränken und mehrere Instanzen eindeutig zu benennen.
+Contoh ini meminta kotak pembatas 2D untuk objek yang dapat diidentifikasi pada tabel. Model
+diinstruksikan untuk membatasi output hingga 25 objek dan memberi nama beberapa
+instance secara unik.
 
 ### Python
 
@@ -334,18 +353,19 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Im Folgenden sehen Sie die vom Modell zurückgegebenen Begrenzungsrahmen.
+Berikut ini menampilkan kotak yang ditampilkan dari model.
 
-![Beispiel für Begrenzungsrahmen für gefundene Objekte](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=de)
+![Contoh yang menampilkan kotak pembatas untuk objek yang ditemukan](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=id)
 
-Den vollständigen ausführbaren Code finden Sie im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
-Auf der Seite [Bildanalyse](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de) finden Sie weitere Beispiele für visuelle Aufgaben wie Objekterkennung und Begrenzungsrahmen.
+Untuk kode yang dapat dijalankan sepenuhnya, lihat [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Halaman [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id) juga memiliki contoh tambahan tugas visual seperti deteksi objek dan contoh kotak pembatas.
 
-### Trajektorien
+### Lintasan
 
-Gemini Robotics-ER 1.6 kann Folgen von Punkten generieren, die eine Trajektorie definieren. Das ist nützlich, um Roboterbewegungen zu steuern.
+Gemini Robotics-ER 1.6 dapat membuat urutan titik yang menentukan lintasan, yang berguna untuk memandu pergerakan robot.
 
-In diesem Beispiel wird eine Trajektorie angefordert, um einen roten Stift zu einem Organizer zu bewegen. Dazu werden der Startpunkt und eine Reihe von Zwischenpunkten angegeben.
+Contoh ini meminta lintasan untuk memindahkan pena merah ke pengatur, termasuk
+titik awal dan serangkaian titik perantara.
 
 ### Python
 
@@ -387,7 +407,9 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Die Antwort ist eine Reihe von Koordinaten, die die Flugbahn des roten Stifts beschreiben, die er zurücklegen muss, um die Aufgabe zu erfüllen, ihn auf den Organizer zu bewegen:
+Responsnya adalah sekumpulan koordinat yang menjelaskan lintasan jalur
+yang harus diikuti pena merah untuk menyelesaikan tugas memindahkannya ke atas
+pengelola:
 
 ```
 [
@@ -410,15 +432,15 @@ Die Antwort ist eine Reihe von Koordinaten, die die Flugbahn des roten Stifts be
 ]
 ```
 
-![Beispiel für die geplante Flugbahn](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=de)
+![Contoh yang menunjukkan lintasan yang direncanakan](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=id)
 
-## Agentische Funktionen
+## Kemampuan agentic
 
-Die folgenden Beispiele veranschaulichen das erweiterte **Robotic Reasoning** mit den Agent-Funktionen des Modells, insbesondere die **Codeausführung**. In diesen Szenarien kann das Modell entscheiden, Python-Code zu schreiben und auszuführen, um Bilder zu bearbeiten (z. B. durch Zoomen, Zuschneiden oder Drehen), um Unklarheiten zu beseitigen oder die Genauigkeit zu verbessern, bevor es antwortet.
+Contoh berikut menunjukkan **penalaran robotik** tingkat lanjut menggunakan kemampuan agentik model, khususnya **eksekusi kode**. Dalam skenario ini, model dapat memutuskan untuk menulis dan mengeksekusi kode Python untuk memanipulasi gambar (seperti memperbesar, memangkas, atau memutar) guna menyelesaikan ambiguitas atau meningkatkan presisi sebelum menjawab.
 
-### Objekterkennung (Zoomen und Zuschneiden)
+### Deteksi objek (Zoom dan pangkas)
 
-Das folgende Beispiel zeigt, wie Sie die Codeausführung verwenden, um ein Bild zu zoomen und zuzuschneiden, damit Objekte besser erkannt und Begrenzungsrahmen zurückgegeben werden können.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk melakukan zoom dan memangkas gambar agar tampilan lebih jelas saat mendeteksi objek dan menampilkan kotak pembatas.
 
 ### Python
 
@@ -457,7 +479,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Die Modellausgabe würde in etwa so aussehen:
+Output model akan mirip dengan berikut ini:
 
 ```
 [
@@ -469,13 +491,13 @@ Die Modellausgabe würde in etwa so aussehen:
 ]
 ```
 
-Im Folgenden sehen Sie die vom Modell zurückgegebenen Begrenzungsrahmen.
+Berikut ini menampilkan kotak yang ditampilkan dari model.
 
-![Beispiel für Begrenzungsrahmen für gefundene Objekte](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=de)
+![Contoh yang menampilkan kotak pembatas untuk objek yang ditemukan](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=id)
 
-### Analoge Messgeräte ablesen und Logik anwenden
+### Membaca pengukur analog dan menerapkan logika
 
-Das folgende Beispiel zeigt, wie Sie das Modell verwenden, um ein analoges Messgerät zu lesen und Zeitberechnungen durchzuführen. Dabei wird eine Systemanweisung verwendet, um eine JSON-Ausgabe zu erzwingen.
+Contoh berikut menunjukkan cara menggunakan model untuk membaca pengukur analog dan melakukan penghitungan waktu. Tindakan ini menggunakan petunjuk sistem untuk menerapkan output JSON.
 
 ### Python
 
@@ -512,11 +534,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Im Folgenden finden Sie ein Beispiel für eine Bildeingabe.
+Berikut adalah contoh input gambar.
 
-![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=de)
+![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=id)
 
-Die Modellausgabe würde in etwa so aussehen:
+Output model akan mirip dengan berikut ini:
 
 ```
 Time Response:  {
@@ -525,9 +547,9 @@ Time Response:  {
  }
 ```
 
-### Flüssigkeit in einem Behälter messen
+### Mengukur cairan dalam wadah
 
-Das folgende Beispiel zeigt, wie Sie die Codeausführung verwenden, um einen Zähler auszulesen und den Flüssigkeitsstand in Prozent zu berechnen.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk membaca meteran dan menghitung level cairan sebagai persentase.
 
 ### Python
 
@@ -567,13 +589,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Unten sehen Sie eine vergrößerte Version des Eingabebilds.
+Berikut adalah gambar input yang diperbesar.
 
-![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=de)
+![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=id)
 
-### Markierungen auf einer Leiterplatte lesen
+### Membaca tanda pada papan sirkuit
 
-Im folgenden Beispiel wird gezeigt, wie Sie die Codeausführung verwenden, um Text auf einem Chip auf einer Leiterplatte zu lesen. Das Modell kann das Bild nach Bedarf zoomen, zuschneiden und drehen.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk membaca teks pada chip papan sirkuit, sehingga model dapat melakukan zoom, memangkas, dan memutar gambar sesuai kebutuhan.
 
 ### Python
 
@@ -607,13 +629,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Unten sehen Sie eine vergrößerte Version des Eingabebilds.
+Berikut adalah gambar input yang diperbesar.
 
-![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=de)
+![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=id)
 
-### Bildannotation
+### Anotasi gambar
 
-Das folgende Beispiel zeigt, wie Sie die Codeausführung verwenden, um ein Bild mit Anmerkungen zu versehen (z.B. durch Zeichnen von Pfeilen für Entsorgungsanweisungen) und das geänderte Bild zurückzugeben.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk memberi anotasi pada gambar (misalnya, menggambar panah untuk petunjuk pembuangan) dan menampilkan gambar yang telah dimodifikasi.
 
 ### Python
 
@@ -651,11 +673,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Im Folgenden finden Sie ein Beispiel für eine Bildeingabe.
+Berikut adalah contoh input gambar.
 
-![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=de)
+![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=id)
 
-Die Modellausgabe würde in etwa so aussehen:
+Output model akan mirip dengan berikut ini:
 
 ```
 The annotated image shows the suggested disposal locations for the items on the table:
@@ -664,13 +686,15 @@ The annotated image shows the suggested disposal locations for the items on the 
 - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Orchestrierung
+## Orkestrasi
 
-Gemini Robotics-ER 1.6 kann **Aufgaben planen** und räumliche Schlussfolgerungen auf höherer Ebene ziehen. Es kann Aktionen ableiten oder optimale Standorte auf Grundlage des Kontextes ermitteln, um Aufgaben mit langem Horizont zu koordinieren.
+Gemini Robotics-ER 1.6 dapat melakukan **perencanaan tugas** dan penalaran spasial tingkat tinggi, menyimpulkan tindakan atau mengidentifikasi lokasi optimal berdasarkan pemahaman kontekstual untuk mengatur tugas dengan cakupan panjang.
 
-### Platz für einen Laptop schaffen
+### Menyediakan ruang untuk laptop
 
-In diesem Beispiel wird gezeigt, wie Gemini Robotics-ER über einen Raum nachdenken kann. Der Prompt fordert das Modell auf, zu ermitteln, welches Objekt verschoben werden muss, um Platz für ein anderes Element zu schaffen.
+Contoh ini menunjukkan cara Gemini Robotics-ER dapat memahami ruang. Perintah
+meminta model untuk mengidentifikasi objek mana yang perlu dipindahkan untuk membuat
+ruang bagi item lain.
 
 ### Python
 
@@ -708,7 +732,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Die Antwort enthält eine 2D-Koordinate des Objekts, das die Frage des Nutzers beantwortet. In diesem Fall ist es das Objekt, das verschoben werden soll, um Platz für einen Laptop zu schaffen.
+Respons berisi koordinat 2D objek yang menjawab pertanyaan pengguna, dalam hal ini, objek yang harus dipindahkan untuk memberi ruang bagi laptop.
 
 ```
 [
@@ -716,11 +740,11 @@ Die Antwort enthält eine 2D-Koordinate des Objekts, das die Frage des Nutzers b
 ]
 ```
 
-![Ein Beispiel, das zeigt, welches Objekt für ein anderes Objekt verschoben werden muss](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=de)
+![Contoh yang menunjukkan objek mana yang perlu dipindahkan untuk objek lain](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=id)
 
-### Lunchpaket packen
+### Mengepak Bekal Makan Siang
 
-Das Modell kann auch Anleitungen für mehrstufige Aufgaben geben und für jeden Schritt auf relevante Objekte verweisen. In diesem Beispiel wird gezeigt, wie das Modell eine Reihe von Schritten zum Packen einer Lunchbox plant.
+Model ini juga dapat memberikan petunjuk untuk tugas multi-langkah dan menunjukkan objek yang relevan untuk setiap langkah. Contoh ini menunjukkan cara model merencanakan serangkaian langkah untuk mengemas tas bekal.
 
 ### Python
 
@@ -759,13 +783,14 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Die Antwort auf diesen Prompt ist eine Schritt-für-Schritt-Anleitung zum Packen einer Lunchbox anhand der Bildeingabe.
+Respons terhadap perintah ini adalah serangkaian petunjuk langkah demi langkah tentang cara mengemas
+tas makan siang dari input gambar.
 
-**Eingabebild**
+**Gambar input**
 
-![Bild einer Brotdose und von Lebensmitteln, die hineingepackt werden können](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=de)
+![Gambar kotak makan siang dan item yang akan dimasukkan ke dalamnya](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=id)
 
-**Modellausgabe**
+**Output model**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -788,15 +813,17 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-### Benutzerdefinierte Roboter-API aufrufen
+### Memanggil API robot kustom
 
-In diesem Beispiel wird die Aufgabenorchestration mit einer benutzerdefinierten Roboter-API veranschaulicht. Sie enthält eine Mock-API, die für einen Pick-and-Place-Vorgang entwickelt wurde. Die Aufgabe besteht darin, einen blauen Block aufzunehmen und in eine orangefarbene Schale zu legen:
+Contoh ini menunjukkan orkestrasi tugas dengan API robot kustom. API ini memperkenalkan API tiruan yang dirancang untuk operasi ambil dan letakkan. Tugasnya adalah
+mengambil balok biru dan meletakkannya di mangkuk oranye:
 
-![Bild des Blocks und der Schale](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=de)
+![Gambar balok dan mangkuk](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=id)
 
-Ähnlich wie bei den anderen Beispielen auf dieser Seite ist der vollständige ausführbare Code im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) verfügbar.
+Mirip dengan contoh lainnya di halaman ini, kode yang dapat dijalankan sepenuhnya tersedia
+di [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-Im ersten Schritt müssen Sie beide Artikel mit dem folgenden Prompt finden:
+Langkah pertama adalah menemukan kedua item dengan perintah berikut:
 
 ### Python
 
@@ -809,7 +836,7 @@ prompt = """
           """
 ```
 
-Die Modellantwort enthält die normalisierten Koordinaten des Blocks und der Schale:
+Respons model mencakup koordinat blok dan mangkuk yang dinormalisasi:
 
 ```
 [
@@ -818,7 +845,7 @@ Die Modellantwort enthält die normalisierten Koordinaten des Blocks und der Sch
 ]
 ```
 
-In diesem Beispiel wird die folgende Mock-Roboter-API verwendet:
+Contoh ini menggunakan mock robot API berikut:
 
 ### Python
 
@@ -833,7 +860,9 @@ def returnToOrigin():
   print("Returning to origin pose")
 ```
 
-Im nächsten Schritt wird eine Folge von API-Funktionen mit der erforderlichen Logik aufgerufen, um die Aktion auszuführen. Der folgende Prompt enthält eine Beschreibung der Roboter-API, die das Modell bei der Orchestrierung dieser Aufgabe verwenden soll.
+Langkah berikutnya adalah memanggil urutan fungsi API dengan logika yang diperlukan untuk
+mengeksekusi tindakan. Perintah berikut menyertakan deskripsi robot
+API yang harus digunakan model saat mengatur tugas ini.
 
 ### Python
 
@@ -877,7 +906,8 @@ prompt = f"""
 """
 ```
 
-Das Folgende zeigt eine mögliche Ausgabe des Modells basierend auf dem Prompt und der Mock-Roboter-API. Die Ausgabe enthält den Denkprozess des Modells und die Aufgaben, die es daraufhin geplant hat. Außerdem wird die Ausgabe der Roboterfunktionsaufrufe angezeigt, die das Modell nacheinander ausgeführt hat.
+Berikut adalah kemungkinan output model berdasarkan perintah dan
+API robot tiruan. Output mencakup proses berpikir model dan tugas yang direncanakannya sebagai hasilnya. Bagian ini juga menunjukkan output panggilan fungsi robot yang diurutkan model.
 
 ```
 Reasoning: To perform the pick and place operation, I will first move the
@@ -977,72 +1007,83 @@ moving to coordinates: -247, 90, 15
 Returning to origin pose
 ```
 
-## Best Practices
+## Praktik terbaik
 
-Um die Leistung und Genauigkeit Ihrer Robotikanwendungen zu optimieren, ist es wichtig, dass Sie wissen, wie Sie effektiv mit dem Gemini-Modell interagieren. In diesem Abschnitt werden Best Practices und wichtige Strategien für das Erstellen von Prompts, den Umgang mit visuellen Daten und die Strukturierung von Aufgaben beschrieben, um die zuverlässigsten Ergebnisse zu erzielen.
+Untuk mengoptimalkan performa dan akurasi aplikasi robotik Anda, Anda harus memahami cara berinteraksi dengan model Gemini secara efektif. Bagian ini menguraikan praktik terbaik dan strategi utama untuk membuat perintah, menangani data visual, dan menyusun tugas untuk mendapatkan hasil yang paling andal.
 
-1. Verwenden Sie eine klare und einfache Sprache.
+1. Gunakan bahasa yang jelas dan sederhana.
 
-   - **Natürliche Sprache verwenden**: Das Gemini-Modell ist darauf ausgelegt, natürliche, konversationelle Sprache zu verstehen. Formulieren Sie Ihre Prompts so, dass sie semantisch klar sind und widerspiegeln, wie eine Person auf natürliche Weise Anweisungen geben würde.
-   - **Alltagssprache verwenden**: Verwenden Sie eine einfache, alltägliche Sprache anstelle von Fachsprache oder Jargon. Wenn das Modell nicht wie erwartet auf einen bestimmten Begriff reagiert, versuchen Sie, ihn mit einem gängigeren Synonym umzuformulieren.
-2. Visuelle Eingabe optimieren
+   - **Gunakan bahasa alami**: Model Gemini dirancang untuk memahami bahasa percakapan yang alami. Susun perintah Anda dengan cara yang
+     jelas secara semantik dan mencerminkan cara seseorang memberikan
+     petunjuk secara alami.
+   - **Gunakan terminologi sehari-hari**: Pilih bahasa umum sehari-hari daripada jargon teknis atau khusus. Jika model tidak merespons seperti yang diharapkan terhadap istilah tertentu, coba parafrasakan dengan sinonim yang lebih umum.
+2. Mengoptimalkan input visual.
 
-   - **Für Details heranzoomen**: Wenn Sie es mit Objekten zu tun haben, die klein oder in einer Weitwinkelaufnahme schwer zu erkennen sind, verwenden Sie eine Begrenzungsrahmenfunktion, um das gewünschte Objekt zu isolieren. Sie können das Bild dann auf diese Auswahl zuschneiden und das neue, fokussierte Bild an das Modell senden, um eine detailliertere Analyse zu erhalten.
-   - **Mit Beleuchtung und Farbe experimentieren**: Die Wahrnehmung des Modells kann durch schwierige Lichtverhältnisse und einen schlechten Farbkontrast beeinträchtigt werden.
-3. Teilen Sie komplexe Probleme in kleinere Schritte auf. Wenn Sie jeden kleineren Schritt einzeln angehen, können Sie das Modell zu einem präziseren und erfolgreichen Ergebnis führen.
-4. Genauigkeit durch Konsens verbessern Bei Aufgaben, die ein hohes Maß an Präzision erfordern, können Sie das Modell mit demselben Prompt mehrmals abfragen. Durch die Mittelung der zurückgegebenen Ergebnisse können Sie einen „Konsens“ erzielen, der oft genauer und zuverlässiger ist.
+   - **Perbesar untuk melihat detail**: Saat berurusan dengan objek yang kecil atau
+     sulit dibedakan dalam bidikan yang lebih luas, gunakan fungsi kotak pembatas untuk
+     mengisolasi objek yang diinginkan. Kemudian, Anda dapat memangkas gambar ke pilihan ini dan mengirim gambar baru yang lebih fokus ke model untuk analisis yang lebih mendetail.
+   - **Bereksperimen dengan pencahayaan dan warna**: Persepsi model dapat terpengaruh oleh kondisi pencahayaan yang sulit dan kontras warna yang buruk.
+3. Uraikan masalah kompleks menjadi langkah-langkah yang lebih kecil. Dengan menangani setiap langkah yang lebih kecil satu per satu, Anda dapat memandu model untuk mencapai hasil yang lebih presisi dan berhasil.
+4. Meningkatkan akurasi melalui konsensus. Untuk tugas yang memerlukan tingkat presisi yang tinggi, Anda dapat membuat kueri model beberapa kali dengan perintah yang sama. Dengan
+   merata-ratakan hasil yang ditampilkan, Anda dapat mencapai "konsensus" yang
+   sering kali lebih akurat dan andal.
 
-## Beschränkungen
+## Batasan
 
-Beachten Sie beim Entwickeln mit Gemini Robotics-ER 1.6 die folgenden Einschränkungen:
+Pertimbangkan batasan berikut saat mengembangkan dengan Gemini Robotics-ER 1.6:
 
-- **Vorschau**:Das Modell befindet sich derzeit in der **Vorschau**. APIs und Funktionen können sich ändern und sind ohne gründliche Tests möglicherweise nicht für produktionskritische Anwendungen geeignet.
-- **Latenz**:Komplexe Anfragen, Eingaben mit hoher Auflösung oder umfangreiche `thinking_budget` können zu längeren Verarbeitungszeiten führen.
-- **KI-Halluzinationen**:Wie alle Large Language Models kann Gemini Robotics-ER 1.6 gelegentlich „halluzinieren“ oder falsche Informationen liefern, insbesondere bei mehrdeutigen Prompts oder Out-of-Distribution-Eingaben.
-- **Abhängigkeit von der Prompt-Qualität**:Die Qualität der Ausgabe des Modells hängt stark von der Klarheit und Spezifität des Eingabe-Prompts ab. Vage oder schlecht strukturierte Prompts können zu suboptimalen Ergebnissen führen.
-- **Rechenkosten**:Die Ausführung des Modells, insbesondere mit Videoeingaben oder hohem `thinking_budget`, verbraucht Rechenressourcen und verursacht Kosten.
-  Weitere Informationen finden Sie auf der Seite [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=de).
-- **Eingabetypen**:In den folgenden Abschnitten finden Sie Details zu den Einschränkungen für die einzelnen Modi.
-  - [Bildeingaben](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de#technical-details-image)
-  - [Videoeingänge](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#supported-formats)
-  - [Audioeingänge](https://ai.google.dev/gemini-api/docs/audio?hl=de#supported-formats)
+- **Status pratinjau:** Model saat ini dalam **Pratinjau**. API dan kemampuan dapat berubah, dan mungkin tidak cocok untuk aplikasi penting produksi tanpa pengujian menyeluruh.
+- **Latensi:** Kueri yang kompleks, input resolusi tinggi, atau
+  `thinking_budget` yang ekstensif dapat menyebabkan peningkatan waktu pemrosesan.
+- **Halusinasi:** Seperti semua model bahasa besar, Gemini Robotics-ER 1.6 terkadang dapat "berhalusinasi" atau memberikan informasi yang salah, terutama untuk perintah yang ambigu atau input di luar distribusi.
+- **Ketergantungan pada kualitas perintah:** Kualitas output model sangat bergantung pada kejelasan dan spesifisitas perintah input. Perintah yang tidak jelas atau berstruktur buruk dapat menghasilkan hasil yang kurang optimal.
+- **Biaya komputasi:** Menjalankan model, terutama dengan input video atau
+  `thinking_budget` tinggi, akan menggunakan resource komputasi dan menimbulkan biaya.
+  Lihat halaman [Pemikiran](https://ai.google.dev/gemini-api/docs/thinking?hl=id) untuk mengetahui detail selengkapnya.
+- **Jenis input:** Lihat topik berikut untuk mengetahui detail batasan untuk setiap mode.
+  - [Input gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id#technical-details-image)
+  - [Input video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id#supported-formats)
+  - [Input audio](https://ai.google.dev/gemini-api/docs/audio?hl=id#supported-formats)
 
-## Datenschutzhinweise
+## Pemberitahuan Privasi
 
-Sie bestätigen, dass die in diesem Dokument genannten Modelle (die „Robotikmodelle“) Video- und Audiodaten verwenden, um Ihre Hardware gemäß Ihren Anweisungen zu betreiben und zu bewegen. Sie dürfen die Robotikmodelle daher so betreiben, dass Daten von identifizierbaren Personen, z. B. Sprach-, Bild- und Ähnlichkeitsdaten („personenbezogene Daten“), von den Robotikmodellen erhoben werden. Wenn Sie die Robotikmodelle so betreiben, dass personenbezogene Daten erhoben werden, stimmen Sie zu, dass Sie keine identifizierbaren Personen mit den Robotikmodellen interagieren lassen oder sich in der Umgebung der Robotikmodelle aufhalten lassen, es sei denn, diese identifizierbaren Personen wurden ausreichend darüber informiert und haben zugestimmt, dass ihre personenbezogenen Daten an Google weitergegeben und von Google verwendet werden dürfen, wie in den zusätzlichen Nutzungsbedingungen für Gemini API unter [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=de) (den „Nutzungsbedingungen“) beschrieben, einschließlich gemäß dem Abschnitt „Wie Google Ihre Daten verwendet“. Sie sorgen dafür, dass diese Mitteilung die Erhebung und Nutzung personenbezogener Daten gemäß den Nutzungsbedingungen erlaubt, und unternehmen wirtschaftlich angemessene Anstrengungen, um die Erhebung und Weitergabe personenbezogener Daten zu minimieren, indem Sie Techniken wie das Unkenntlichmachen von Gesichtern verwenden und die Robotikmodelle nach Möglichkeit in Bereichen betreiben, in denen sich keine identifizierbaren Personen aufhalten.
+Anda memahami bahwa model yang dirujuk dalam dokumen ini ("Model Robotik") memanfaatkan data video dan audio untuk mengoperasikan dan menggerakkan hardware Anda sesuai dengan petunjuk Anda. Oleh karena itu, Anda dapat mengoperasikan Model Robotik sehingga data dari orang yang dapat diidentifikasi, seperti data suara, gambar, dan kemiripan ("Data Pribadi"), akan dikumpulkan oleh Model Robotik. Jika Anda memilih untuk mengoperasikan Model Robotik dengan cara yang mengumpulkan Data Pribadi, Anda setuju bahwa Anda tidak akan mengizinkan orang yang dapat diidentifikasi untuk berinteraksi dengan, atau berada di area sekitar, Model Robotik, kecuali dan hingga orang yang dapat diidentifikasi tersebut telah diberi tahu dan menyetujui secara memadai bahwa Data Pribadi mereka dapat diberikan kepada dan digunakan oleh Google sebagaimana diuraikan dalam Persyaratan Layanan Tambahan Gemini API yang dapat ditemukan di [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=id) (selanjutnya disebut "Persyaratan"), termasuk sesuai dengan bagian yang berjudul "Cara Google Menggunakan Data Anda". Anda akan memastikan bahwa pemberitahuan tersebut mengizinkan pengumpulan dan penggunaan Data Pribadi sebagaimana diuraikan dalam Persyaratan, dan Anda akan menggunakan upaya yang wajar secara komersial untuk meminimalkan pengumpulan dan distribusi Data Pribadi dengan menggunakan teknik seperti mengaburkan wajah dan mengoperasikan Model Robotik di area yang tidak berisi orang yang dapat diidentifikasi sejauh yang dapat dilakukan.
 
-## Preise
+## Harga
 
-Detaillierte Informationen zu Preisen und verfügbaren Regionen finden Sie auf der Seite [Preise](https://ai.google.dev/gemini-api/docs/pricing?hl=de).
+Untuk mengetahui informasi mendetail tentang harga dan wilayah yang tersedia, lihat halaman
+[harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
 
-## Modellversionen
+## Versi model
 
-### Robotics-ER 1.6 (Vorschau)
+### Pratinjau Robotics-ER 1.6
 
-| Attribut | Beschreibung |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardModellcode | `gemini-robotics-er-1.6-preview` |
-| saveUnterstützte Datentypen | **Eingaben**  Text, Bilder, Video, Audio  **Ausgabe**  Text |
-| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  131.072  **Tokenausgabelimit**  65.536 |
-| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Nicht unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Unterstützt  **[Codeausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Unterstützt  **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**  Unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Nicht unterstützt  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Nicht unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Unterstützt  **[Denken](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Unterstützt  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Unterstützt |
-| speedNutzungsoptionen | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Unterstützt  **[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)**  Unterstützt  **[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)**  Unterstützt |
-| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthLetzte Aktualisierung | Dezember 2025 |
-| cognition\_2Wissensstichtag | Januar 2025 |
+| Kode model id\_card | `gemini-robotics-er-1.6-preview` |
+| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio  **Output**  Teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072  **Batas token output**  65.536 |
+| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Tidak didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Didukung  **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**  Didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Didukung  **[Melakukan grounding dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Tidak didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Didukung  **[Berpikir](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Didukung |
+| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Didukung  **[Inferensi fleksibel](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Didukung |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthPembaruan terbaru | Desember 2025 |
+| cognition\_2Batas informasi | Januari 2025 |
 
-## Nächste Schritte
+## Langkah berikutnya
 
-- Sehen Sie sich auch andere Funktionen an und experimentieren Sie weiter mit verschiedenen Prompts und Eingaben, um weitere Anwendungsfälle für Gemini Robotics-ER 1.6 zu finden.
-  Weitere Beispiele finden Sie im [Robotics Getting Started Colab](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
-- Weitere Informationen dazu, wie Gemini Robotics-Modelle mit Blick auf die Sicherheit entwickelt wurden, [finden Sie auf dieser Seite](https://deepmind.google/models/gemini-robotics/safety?hl=de).
-- Aktuelle Informationen zu Gemini Robotics-Modellen finden Sie auf der [Gemini Robotics-Landingpage](https://deepmind.google/robotics?hl=de).
+- Jelajahi kemampuan lainnya dan terus bereksperimen dengan berbagai perintah dan input untuk menemukan lebih banyak aplikasi Gemini Robotics-ER 1.6.
+  Lihat [Robotics getting started colab](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)
+  untuk contoh lainnya.
+- Pelajari cara model Gemini Robotics dibuat dengan mempertimbangkan keamanan, buka [halaman keamanan robotik Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=id).
+- Baca info terbaru tentang model Gemini Robotics di
+  [halaman landing Gemini Robotics](https://deepmind.google/robotics?hl=id).
 
-Feedback geben
+Kirim masukan
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Zuletzt aktualisiert: 2026-07-13 (UTC).
+Terakhir diperbarui pada 2026-07-13 UTC.
 
-Haben Sie Feedback für uns?
+Ada masukan untuk kami?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-13 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-13 UTC."],[],[]]

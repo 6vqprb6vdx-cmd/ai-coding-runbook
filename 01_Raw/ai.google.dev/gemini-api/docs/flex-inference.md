@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl
-fetched_at: 2026-07-20T04:35:37.736617+00:00
-title: "Elastyczne wnioskowanie \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-BR
+fetched_at: 2026-07-27T04:47:50.253291+00:00
+title: "Infer\u00eancia flex\u00edvel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Elastyczne wnioskowanie
+# Inferência flexível
 
-Gemini Flex API to poziom wnioskowania, który oferuje o 50% niższe koszty w porównaniu ze stawkami standardowymi w zamian za zmienne opóźnienie i dostępność na zasadzie „najlepszej jakości”. Jest przeznaczony do zadań, które są odporne na opóźnienia i wymagają przetwarzania synchronicznego, ale nie potrzebują wydajności w czasie rzeczywistym, jaką zapewnia standardowy interfejs API.
+A API Gemini Flex é um nível de inferência que oferece uma redução de custos de 50% em comparação com as taxas padrão, em troca de latência variável e disponibilidade de melhor esforço. Ela foi projetada para cargas de trabalho tolerantes à latência que exigem processamento síncrono, mas não precisam do desempenho em tempo real da API padrão.
 
-## Jak korzystać z Flex
+## Como usar o Flex
 
-Aby używać warstwy Flex, w żądaniu określ `service_tier` jako `flex`. Jeśli to pole zostanie pominięte, żądania będą domyślnie korzystać z poziomu standardowego.
+Para usar o nível Flex, especifique `service_tier` como `flex` na solicitação. Por padrão, as solicitações usam o nível padrão se esse campo for omitido.
 
 ### Python
 
@@ -70,56 +70,64 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Jak działa wnioskowanie Flex
+## Como a inferência do Flex funciona
 
-Wnioskowanie Gemini Flex wypełnia lukę między standardowym interfejsem API a 24-godzinnym czasem realizacji [interfejsu Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl). Wykorzystuje ona moc obliczeniową poza godzinami szczytu, którą można „odłączyć”, aby zapewnić ekonomiczne rozwiązanie do zadań w tle i sekwencyjnych przepływów pracy.
+A inferência do Gemini Flex preenche a lacuna entre a API padrão e o tempo de resposta de 24 horas
+da [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br). Ela usa capacidade de computação fora do horário de pico e "descartável" para oferecer uma solução econômica para tarefas em segundo plano e fluxos de trabalho sequenciais.
 
-| Funkcja | Flex | Priorytet | Standardowe | Wsad |
+| Recurso | Flex | Prioridade | Padrão | Lote |
 | --- | --- | --- | --- | --- |
-| **Ceny** | 50% zniżki | 75–100% więcej niż w przypadku wersji Standard | Pełna cena | 50% zniżki |
-| **Opóźnienie** | Minuty (docelowo 1–15 minut) | Niska (sekundy) | Sekundy na minuty | Do 24 godzin |
-| **Niezawodność** | Możliwie najlepsza obsługa (możliwość odrzucenia) | Wysoka (nie gubią sierści) | Wysoki / dość wysoki | Wysoki (przepustowość) |
-| **Interfejs** | Synchroniczna | Synchroniczna | Synchroniczna | Asynchroniczny |
+| **Preços** | 50% de desconto | 75 a 100% a mais que o padrão | Preço total | 50% de desconto |
+| **Latência** | Minutos (1 a 15 min de destino) | Baixa (segundos) | Segundos a minutos | Até 24 horas |
+| **Confiabilidade** | Melhor esforço (descartável) | Alta (não descartável) | Alta / média-alta | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrona |
 
-### Główne zalety
+### Principais vantagens
 
-- **Oszczędność kosztów:** znaczne oszczędności w przypadku ocen środowisk nieprodukcyjnych, agentów działających w tle i wzbogacania danych.
-- **Łatwe wdrożenie:** wystarczy dodać jeden parametr do istniejących żądań.
-- **Synchroniczne przepływy pracy:** idealne w przypadku sekwencyjnych łańcuchów interfejsów API, w których kolejne żądanie zależy od wyniku poprzedniego, co czyni je bardziej elastycznymi niż przetwarzanie wsadowe w przypadku przepływów pracy agentów.
+- **Eficiência de custos**: economia substancial para avaliações de não produção, agentes em segundo plano e enriquecimento de dados.
+- **Baixa fricção**: basta adicionar um único parâmetro às solicitações atuais.
+- **Fluxos de trabalho síncronos**: ideal para cadeias de API sequenciais em que a próxima solicitação depende da saída da anterior, tornando-a mais flexível do que o lote para fluxos de trabalho de agentes.
 
-### Przypadki użycia
+### Casos de uso
 
-- **Oceny offline:** przeprowadzanie testów regresji lub tworzenie tabel wyników z użyciem dużego modelu językowego jako sędziego.
-- **Agenci działający w tle:** sekwencyjne zadania, takie jak aktualizacje CRM, tworzenie profili czy moderowanie treści, w przypadku których dopuszczalne są kilkuminutowe opóźnienia.
-- **Badania z ograniczeniami budżetowymi:** eksperymenty akademickie, które wymagają dużej liczby tokenów przy ograniczonym budżecie.
+- **Avaliações off-line**: execução de testes de regressão ou placares de "LLM como um juiz".
+- **Agentes em segundo plano**: tarefas sequenciais, como atualizações de CRM, criação de perfis ou moderação de conteúdo, em que minutos de atraso são aceitáveis.
+- **Pesquisa com restrição de orçamento**: experimentos acadêmicos que exigem alto volume de tokens em um orçamento limitado.
 
-### Ograniczenia liczby żądań
+### Limites de taxas
 
-Ruch związany z elastycznym wnioskowaniem jest wliczany do ogólnych [limitów szybkości](https://aistudio.google.com/rate-limit?hl=pl). Nie oferuje on rozszerzonych limitów szybkości, takich jak [interfejs Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl).
+O tráfego de inferência do Flex é contabilizado nos seus [limites de taxa](https://aistudio.google.com/rate-limit?hl=pt-br) gerais. Ele não
+oferece limites de taxa estendidos como a [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br).
 
-### Rozmiar z możliwością zmniejszenia
+### Capacidade descartável
 
-Ruch elastyczny jest traktowany z niższym priorytetem. Jeśli nastąpi nagły wzrost standardowego ruchu, żądania Flex mogą zostać wyprzedzone lub usunięte, aby zapewnić przepustowość użytkownikom o wysokim priorytecie. Jeśli szukasz wnioskowania o wysokim priorytecie, zapoznaj się z sekcją [Wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl).
+O tráfego do Flex é tratado com menor prioridade. Se houver um pico no tráfego padrão, as solicitações do Flex poderão ser interrompidas ou removidas para garantir a capacidade dos usuários de alta prioridade. Se você estiver procurando inferência de alta prioridade, confira
+[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)
 
-### Kody błędów
+### Códigos de erro
 
-Gdy elastyczna przepustowość jest niedostępna lub system jest przeciążony, interfejs API zwraca standardowe kody błędów:
+Quando a capacidade do Flex não estiver disponível ou o sistema estiver congestionado, a API vai retornar códigos de erro padrão:
 
-- **503 Usługa niedostępna:** system jest obecnie zajęty.
-- **429 Zbyt wiele żądań:** przekroczono limity częstotliwości lub wyczerpano zasoby.
+- **503 Serviço indisponível**: o sistema está na capacidade máxima.
+- **429 Há muitas solicitações**: limites de taxa ou esgotamento de recursos.
 
-### Odpowiedzialność klienta
+### Responsabilidade do cliente
 
-- **Brak opcji zapasowej po stronie serwera:** aby zapobiec nieoczekiwanym opłatom, system nie będzie automatycznie przełączać żądania Flex na poziom Standard, jeśli pula Flex jest pełna.
-- **Ponowne próby:** musisz wdrożyć własną logikę ponownych prób po stronie klienta ze wzrastającym czasem do ponowienia.
-- **Limity czasu:** ponieważ żądania elastyczne mogą znajdować się w kolejce, zalecamy zwiększenie limitów czasu po stronie klienta do co najmniej 10 minut, aby uniknąć przedwczesnego zamknięcia połączenia.
+- **Nenhum fallback do lado do servidor**: para evitar cobranças inesperadas, o sistema não vai
+  fazer upgrade automático de uma solicitação do Flex para o nível padrão se a capacidade do Flex estiver
+  cheia.
+- **Novas tentativas**: é necessário implementar sua própria lógica de nova tentativa do lado do cliente com
+  espera exponencial.
+- **Tempos limite**: como as solicitações do Flex podem ficar em uma fila, recomendamos
+  aumentar os tempos limite do lado do cliente para 10 minutos ou mais para evitar o fechamento prematuro
+  da conexão.
 
-## Dostosowywanie okien limitu czasu
+## Ajustar janelas de tempo limite
 
-Możesz skonfigurować limity czasu dla poszczególnych żądań w przypadku interfejsu REST API i bibliotek klienta.
-Zawsze upewnij się, że limit czasu po stronie klienta obejmuje zamierzony okres oczekiwania serwera (np. ponad 600 s w przypadku elastycznych kolejek oczekiwania). Pakiety SDK oczekują wartości czasu oczekiwania w milisekundach.
+É possível configurar tempos limite por solicitação para a API REST e as bibliotecas de cliente.
+Sempre verifique se o tempo limite do lado do cliente abrange a janela de paciência do servidor pretendida (por exemplo, 600 segundos ou mais para filas de espera do Flex). Os SDKs esperam valores de tempo limite em milissegundos.
 
-### Limity czasu poszczególnych żądań
+### Tempos limite por solicitação
 
 ### Python
 
@@ -153,9 +161,9 @@ async function main() {
 await main();
 ```
 
-## Wdrażanie ponownych prób
+## Implementar novas tentativas
 
-Usługa Flex jest skalowalna i może zwracać błędy 503. Oto przykład opcjonalnego wdrożenia logiki ponawiania, aby kontynuować obsługę nieudanych żądań:
+Como o Flex é descartável e falha com erros 503, confira um exemplo de implementação opcional da lógica de nova tentativa para continuar com solicitações com falha:
 
 ### Python
 
@@ -234,35 +242,36 @@ async function main() {
 await main();
 ```
 
-## Ceny
+## Preços
 
-Wnioskowanie elastyczne kosztuje 50% [standardowej ceny interfejsu API](https://ai.google.dev/gemini-api/docs/pricing?hl=pl) i jest rozliczane za token.
+A inferência do Flex tem preço de 50% da [API padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br)
+e é faturada por token.
 
-## Obsługiwane modele
+## Modelos compatíveis
 
-Te modele obsługują wnioskowanie Flex:
+Os seguintes modelos oferecem suporte à inferência do Flex:
 
-| Model | Elastyczne wnioskowanie |
+| Modelo | Inferência do Flex |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | ✔️ |
-| [Gemini 3 Flash (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## Co dalej?
+## A seguir
 
-- [Wnioskowanie o priorytecie](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) w przypadku bardzo małego opóźnienia.
-- [Tokeny:](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) dowiedz się więcej o tokenach.
+- [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br) para latência ultrabaixa.
+- [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br): entenda os tokens.
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-07-06 UTC.
+Última atualização 2026-07-06 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-06 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-06 UTC."],[],[]]

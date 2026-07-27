@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=tr
-fetched_at: 2026-07-20T04:37:43.108423+00:00
-title: "Imagen'i kullanarak resim olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=he
+fetched_at: 2026-07-27T04:39:48.103811+00:00
+title: "\u05d9\u05e6\u05d9\u05e8\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Geri bildirim gönderin
+שליחת משוב
 
-# Imagen'i kullanarak resim oluşturma
+# יצירת תמונות באמצעות Imagen
 
-Imagen, Google'ın yüksek kaliteli görüntü üretme modelidir. Metin istemlerinden gerçekçi ve yüksek kaliteli görüntüler oluşturabilir. Üretilen tüm görüntülerde SynthID filigranı bulunur. Kullanılabilen Imagen modeli varyantları hakkında daha fazla bilgi edinmek için [Model sürümleri](#model-versions) bölümüne bakın.
+‫Imagen הוא מודל של Google ליצירת תמונות באיכות גבוהה, שיכול ליצור תמונות מציאותיות ואיכותיות מהנחיות טקסט. כל התמונות שנוצרו כוללות סימן מים של SynthID. מידע נוסף על הווריאציות הזמינות של מודל Imagen זמין בקטע [גרסאות המודל](#model-versions).
 
-## Nano Banana'ya geçiş
+## מעבר ל-Nano Banana
 
-Imagen modellerinin desteği sonlandırıldı ve 17 Ağustos 2026'da kapatılacak. Görüntü oluşturma ihtiyaçlarınız için Nano Banana'ya geçmenizi öneririz.
+הוצאנו משימוש את מודלי Imagen, והם יושבתו ב-17 באוגוסט 2026. מומלץ לעבור ל-Nano Banana כדי ליצור תמונות.
 
-Taşıma işlemi aşağıdaki değişiklikleri içerir:
+ההעברה כוללת את השינויים הבאים:
 
-- **Model adı**: Imagen model adları yerine `gemini-2.5-flash-image` kullanın.
-- **Yöntem**: `client.models.generate_images` yerine `client.models.generate_content` kullanın.
-- **Yanıt işleme**: Nano Banana, belirli bir görüntü yanıtı nesnesi yerine görüntü verilerini içerebilen içerik parçaları döndürür.
+- **שם המודל**: משתמשים ב-`gemini-2.5-flash-image` במקום בשמות של מודלי Imagen.
+- **שיטה**: במקום `client.models.generate_images`, צריך להשתמש ב-`client.models.generate_content`.
+- **טיפול בתשובה**: Nano Banana מחזיר חלקי תוכן, שעשויים לכלול נתוני תמונה, במקום אובייקט תשובה ספציפי של תמונה.
 
-Daha fazla bilgi ve örnek için [Görüntü üretme kılavuzuna](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) bakın.
+[במדריך ליצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he) אפשר למצוא פרטים נוספים ודוגמאות.
 
-## Imagen modellerini kullanarak resim üretme
+## יצירת תמונות באמצעות מודלים של Imagen
 
-Bu örnekte, [Imagen modeli](https://deepmind.google/technologies/imagen/?hl=tr) ile görüntü oluşturma gösterilmektedir:
+בדוגמה הזו מוסבר איך ליצור תמונות באמצעות [מודל Imagen](https://deepmind.google/technologies/imagen/?hl=he):
 
 ### Python
 
@@ -144,363 +144,365 @@ curl -X POST \
       }'
 ```
 
-![Kırmızı kaykay tutan bir robotun yapay zekayla üretilmiş resmi](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=tr)
+![תמונה שנוצרה על ידי AI של רובוט שמחזיק סקייטבורד אדום](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=he)
 
-Kırmızı kaykay tutan bir robotun yapay zekayla üretilmiş görüntüsü
+תמונה שנוצרה על ידי AI של רובוט שמחזיק סקייטבורד אדום
 
-### Imagen yapılandırması
+### הגדרות של Imagen
 
-Imagen şu anda yalnızca İngilizce istemleri ve aşağıdaki parametreleri desteklemektedir:
+בשלב הזה, Imagen תומך רק בהנחיות באנגלית ובפרמטרים הבאים:
 
-- `numberOfImages`: Oluşturulacak resim sayısı (1-4 arası).
-  Varsayılan değer 4'tür.
-- `imageSize`: Üretilen resmin boyutu. Bu özellik yalnızca Standart ve Ultra modellerinde desteklenir. Desteklenen değerler `1K` ve `2K`'dir.
-  Varsayılan değer `1K`'dır.
-- `aspectRatio`: Oluşturulan resmin en boy oranını değiştirir. Desteklenen değerler: `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` ve `"16:9"`. Varsayılan değer: `"1:1"`.
-- `personGeneration`: Modelin insan resimleri oluşturmasına izin verilir. Aşağıdaki değerler desteklenir:
+- ‫`numberOfImages`: מספר התמונות שייווצרו, מ-1 עד 4 (כולל).
+  ערך ברירת המחדל הוא 4.
+- ‫`imageSize`: הגודל של התמונה שנוצרה. התמיכה ניתנת רק במודלים Standard ו-Ultra. הערכים הנתמכים הם `1K` ו-`2K`.
+  ערך ברירת המחדל הוא `1K`.
+- ‫`aspectRatio`: שינוי יחס הגובה-רוחב של התמונה שנוצרה. הערכים הנתמכים הם `"1:1"`,‏ `"3:4"`,‏ `"4:3"`,‏ `"9:16"` ו-`"16:9"`. ערך ברירת המחדל הוא `"1:1"`.
+- ‫`personGeneration`: מאפשרים למודל ליצור תמונות של אנשים. יש תמיכה בערכים הבאים:
 
-  - `"dont_allow"`: İnsanların yer aldığı görüntülerin üretilmesini engelleme
-  - `"allow_adult"`: Çocukların değil, yetişkinlerin resimlerini üretin. Bu, varsayılan seçenektir.
-  - `"allow_all"`: Yetişkinlerin ve çocukların yer aldığı görüntüler üretin.
+  - ‫`"dont_allow"`: חסימת יצירת תמונות של אנשים.
+  - ‫`"allow_adult"`: יצירת תמונות של מבוגרים, אבל לא של ילדים. זוהי אפשרות ברירת המחדל.
+  - ‫`"allow_all"`: יצירת תמונות שכוללות מבוגרים וילדים.
 
-## Imagen istem rehberi
+## מדריך לכתיבת פרומפטים ל-Imagen
 
-Imagen kılavuzunun bu bölümünde, metinden görüntü oluşturma istemini değiştirmenin nasıl farklı sonuçlar verebileceği ve oluşturabileceğiniz resim örnekleri gösterilmektedir.
+בקטע הזה במדריך ל-Imagen מוסבר איך שינוי של הנחיה ליצירת תמונות לפי טקסט יכול להניב תוצאות שונות, ומוצגות דוגמאות לתמונות שאפשר ליצור.
 
-### İstem yazmayla ilgili temel bilgiler
+### יסודות כתיבת ההנחיות
 
-İyi bir istem açıklayıcı ve net olmalı, anlamlı anahtar kelimeler ve değiştiriciler kullanmalıdır. **Özne**, **bağlam** ve **stilinizi** düşünerek başlayın.
+הנחיה טובה היא תיאורית וברורה, וכוללת מילות מפתח ומשנים משמעותיים. מתחילים לחשוב על **הנושא**, **ההקשר** ו**הסגנון**.
 
-![Konu, bağlam ve stilin vurgulandığı istem](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=tr)
+![הנחיה עם דגש על הנושא, ההקשר והסגנון](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=he)
 
-Resim metni: *Gökdelenlerle* (**bağlam ve arka plan**) çevrili bir *modern apartman binasının* (**konu**) *taslağı* (**stil**).
+טקסט התמונה: *סקיצה* (**סגנון**) של *בניין דירות מודרני* (**נושא**) מוקף *גורדי שחקים* (**הקשר ורקע**).
 
-1. **Özne**: Her istemde ilk olarak *özneyi* düşünmeniz gerekir. Bu, resmini istediğiniz nesne, kişi, hayvan veya manzaradır.
-2. **Bağlam ve arka plan:** Konunun yerleştirileceği *arka plan veya bağlam* da aynı derecede önemlidir. Öznenizi çeşitli arka planlara yerleştirmeyi deneyin. Örneğin, beyaz arka planlı bir stüdyo, dış mekanlar veya iç mekanlar.
-3. **Stil:** Son olarak, istediğiniz resim stilini ekleyin. *Stiller* genel (tablo, fotoğraf, eskiz) veya çok özel (pastel boya, kömür çizimi, izometrik 3D) olabilir. Stilleri birleştirebilirsiniz.
+1. **נושא**: הדבר הראשון שצריך לחשוב עליו כשכותבים הנחיה הוא *הנושא*: האובייקט, האדם, החיה או הנוף שרוצים ליצור מהם תמונה.
+2. **הקשר ורקע:** חשוב לא פחות הוא *הרקע או ההקשר* שבהם יוצג הנושא. נסו למקם את מושא הצילום על רקעים שונים. לדוגמה, סטודיו עם רקע לבן, בחוץ או בסביבות פנימיות.
+3. **סגנון:** לסיום, מוסיפים את סגנון התמונה הרצוי. *סגנונות* יכולים להיות כלליים (ציור, צילום, סקיצות) או ספציפיים מאוד (ציור פסטל, רישום בפחם, תלת-ממד איזומטרי). אפשר גם לשלב בין סגנונות.
 
-İsteminizi ilk kez yazdıktan sonra, istediğiniz görüntüye ulaşana kadar daha fazla ayrıntı ekleyerek isteminizi iyileştirin. Tekrar önemlidir.
-Önce temel fikrinizi belirleyin, ardından oluşturulan görüntü vizyonunuza yakın olana kadar bu temel fikri iyileştirin ve genişletin.
+אחרי שכותבים גרסה ראשונה של ההנחיה, מוסיפים לה פרטים נוספים עד שמקבלים את התמונה הרצויה. חשוב לבצע איטרציות.
+מתחילים עם הרעיון המרכזי, ואז משפרים ומרחיבים אותו עד שהתמונה שנוצרת קרובה לחזון שלכם.
 
 |  |  |  |
 | --- | --- | --- |
-| Gerçekçi örnek resim 1   İstem: İlkbaharda bir gölün yanındaki park | Gerçekçi örnek resim 2   İstem: İlkbaharda bir gölün yanındaki park, **güneş gölün karşısında batıyor, altın saat** | gerçekçi örnek resim 3   İstem: İlkbaharda bir gölün yanındaki park, ***güneş gölün karşısında batıyor, altın saat, kırmızı kır çiçekleri*** |
+| תמונה פוטוריאליסטית לדוגמה 1   הנחיה: פארק באביב ליד אגם | תמונה פוטוריאליסטית לדוגמה 2   הנחיה: פארק באביב ליד אגם, **השמש שוקעת מעל האגם, שעת הזהב** | תמונת דוגמה פוטוריאליסטית 3   הנחיה: פארק באביב ליד אגם, ***השמש שוקעת מעבר לאגם, שעת הזהב, פרחי בר אדומים*** |
 
-Imagen modelleri, istemleriniz kısa veya uzun ve ayrıntılı olsa da fikirlerinizi ayrıntılı görüntülere dönüştürebilir. İstediğiniz mükemmel sonucu elde edene kadar isteminizi yineleyerek ve ayrıntılar ekleyerek vizyonunuzu şekillendirin.
+מודלים של Imagen יכולים להפוך את הרעיונות שלכם לתמונות מפורטות, לא משנה אם ההנחיות שלכם קצרות או ארוכות ומפורטות. משפרים את החזון באמצעות הנחיות חוזרות, ומוסיפים פרטים עד שמגיעים לתוצאה המושלמת.
 
 |  |  |
 | --- | --- |
-| Kısa istemler, hızlı bir şekilde resim üretmenize olanak tanır.  Imagen 4 kısa istem örneği   İstem: 20'li yaşlarında bir kadının yakın çekim fotoğrafı, sokak fotoğrafı, film karesi, soluk turuncu sıcak tonlar | Daha uzun istemler, belirli ayrıntılar eklemenize ve görüntünüzü oluşturmanıza olanak tanır.  Imagen 4 uzun istem örneği   İstem: 20'li yaşlarında bir kadının sokak fotoğrafçılığı tarzında çekilmiş büyüleyici fotoğrafı. Resim, turuncu rengin soluk tonlarının kullanıldığı bir film karesi gibi görünmeli. |
+| הנחיות קצרות מאפשרות ליצור תמונה במהירות.  דוגמה להנחיה קצרה ב-Imagen 4   הנחיה: תמונה בתקריב של אישה בשנות ה-20 לחייה, צילום רחוב, פריים מסרט, גוונים חמים של כתום מושתק | הנחיות ארוכות יותר מאפשרות להוסיף פרטים ספציפיים ולבנות את התמונה.  דוגמה להנחיה ארוכה ב-Imagen 4   הנחיה: תמונה שובה לב של אישה בשנות ה-20 לחייה בסגנון צילום רחוב. התמונה צריכה להיראות כמו צילום סטילס עם גוונים חמים כתומים מושתקים. |
 
-Imagen istemi yazmayla ilgili ek öneriler:
+עצות נוספות לכתיבת הנחיות ל-Imagen:
 
-- **Açıklayıcı bir dil kullanın**: Imagen'e net bir resim sunmak için ayrıntılı sıfatlar ve zarflar kullanın.
-- **Bağlam bilgisi verin**: Gerekirse yapay zekanın anlamasına yardımcı olmak için arka plan bilgilerini ekleyin.
-- **Belirli sanatçılardan veya tarzlardan bahsedin**: Aklınızda belirli bir estetik varsa belirli sanatçılardan veya sanat akımlarından bahsetmek faydalı olabilir.
-- **İstem mühendisliği araçlarını kullanın**: İstemlerinizi hassaslaştırmanıza ve en iyi sonuçları elde etmenize yardımcı olacak istem mühendisliği araçlarını veya kaynaklarını inceleyin.
-- **Kişisel ve grup resimlerinizdeki yüz ayrıntılarını iyileştirme**: Yüz ayrıntılarını fotoğrafın odak noktası olarak belirtin (örneğin, istemde "portre" kelimesini kullanın).
+- **משתמשים בשפה תיאורית**: כדאי להשתמש בשמות תואר ובפעלים תיאוריים מפורטים כדי ליצור תמונה ברורה עבור Imagen.
+- **מספקים הקשר**: אם צריך, כוללים מידע רקע כדי לעזור ל-AI להבין את התוכן.
+- **הפניה לאומנים או לסגנונות ספציפיים**: אם יש לכם אסתטיקה מסוימת בראש, כדאי להפנות לאומנים או לזרמים באומנות ספציפיים.
+- **שימוש בכלים להנדסת פרומפטים**: כדאי לנסות כלים או משאבים להנדסת פרומפטים שיעזרו לכם לחדד את הפרומפטים ולהשיג תוצאות אופטימליות.
+- **שיפור הפרטים של הפנים בתמונות אישיות ובתמונות קבוצתיות**: מציינים את פרטי הפנים כנקודת המיקוד של התמונה (לדוגמה, משתמשים במילה "פורטרט" בהנחיה).
 
-### Resimlerde metin oluşturma
+### יצירת טקסט בתמונות
 
-Imagen modelleri, resimlere metin ekleyerek daha yaratıcı görüntü oluşturma olanakları sunar. Bu özellikten en iyi şekilde yararlanmak için aşağıdaki bilgileri kullanın:
+מודלים של Imagen יכולים להוסיף טקסט לתמונות, וכך מאפשרים ליצור תמונות בצורה יצירתית יותר. כדי להפיק את המרב מהתכונה הזו, מומלץ לפעול לפי ההנחיות הבאות:
 
-- **Güvenle yineleme yapın**: İstediğiniz görünümü elde edene kadar görüntüleri yeniden oluşturmanız gerekebilir. Imagen'in metin entegrasyonu hâlâ gelişme aşamasındadır ve bazen birden fazla deneme en iyi sonuçları verir.
-- **Kısa tutun**: En iyi sonuç için metni 25 karakterle sınırlayın.
-- **Birden fazla ifade**: Ek bilgi sağlamak için iki veya üç farklı ifadeyle denemeler yapın. Daha net kompozisyonlar için üç ifadeyi aşmayın.
+- **חזרה על הפעולה עד לקבלת התוצאה הרצויה**: יכול להיות שתצטרכו ליצור מחדש את התמונות עד שתקבלו את המראה שרציתם. השילוב של טקסט ב-Imagen עדיין בתהליך פיתוח, ולפעמים צריך לנסות כמה פעמים כדי לקבל את התוצאות הטובות ביותר.
+- **הקפידו על ניסוח קצר**: כדי לקבל תוצאות אופטימליות, הגבילו את הטקסט ל-25 תווים או פחות.
+- **כמה ביטויים**: כדאי להתנסות עם שניים או שלושה ביטויים שונים כדי לספק מידע נוסף. כדי ליצור קומפוזיציות נקיות יותר, מומלץ להשתמש בלא יותר משלושה משפטים.
 
-  ![Imagen 4 ile metin oluşturma örneği](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=tr)
+  ![דוגמה ליצירת טקסט באמצעות Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=he)
 
-  İstem: Başlık olarak "Summerland" metninin kalın yazı tipiyle yazıldığı, bu metnin altında "Yaz hiç bu kadar güzel olmamıştı" sloganının yer aldığı bir poster.
-- **Kılavuz Yerleşimi**: Imagen, metni yönlendirildiği şekilde yerleştirmeye çalışsa da zaman zaman farklılıklar olabilir. Bu özellik sürekli olarak geliştirilmektedir.
-- **Yazı tipi stiline ilham verme**: Imagen'in seçimlerini ince bir şekilde etkilemek için genel bir yazı tipi stili belirtin. Yazı tipinin tam olarak aynı olmasını beklemeyin ancak yaratıcı yorumlar bekleyebilirsiniz.
-- **Yazı tipi boyutu**: Yazı tipi boyutu oluşturmayı etkilemek için yazı tipi boyutu veya genel bir boyut göstergesi (örneğin, *küçük*, *orta*, *büyük*) belirtin.
+  הנחיה: פוסטר עם הטקסט Summerland בגופן מודגש ככותרת, מתחת לטקסט הזה מופיע הסלוגן Summer never felt so good
+- **מיקום הטקסט**: מודל Imagen יכול לנסות למקם את הטקסט לפי ההנחיות, אבל יכול להיות שיהיו מדי פעם שינויים. אנחנו כל הזמן משפרים את התכונה הזו.
+- **סגנון גופן מעורר השראה**: מציינים סגנון גופן כללי כדי להשפיע בעדינות על הבחירות של Imagen. אל תצפו לשכפול מדויק של הגופן, אלא לפרשנויות יצירתיות.
+- **גודל הגופן**: מציינים גודל גופן או אינדיקציה כללית לגודל (לדוגמה, *קטן*, *בינוני*, *גדול*) כדי להשפיע על יצירת גודל הגופן.
 
-### İstem parametrelendirme
+### הגדרת פרמטרים להנחיות
 
-Çıkış sonuçlarını daha iyi kontrol etmek için Imagen'e girişleri parametrelendirmeniz faydalı olabilir. Örneğin, müşterilerinizin işletmeleri için logo oluşturabilmesini ve logoların her zaman düz renk bir arka plan üzerinde oluşturulmasını istediğinizi varsayalım. Ayrıca, müşterinin menüden seçebileceği seçenekleri de sınırlamak istiyorsunuz.
+כדי לשלוט טוב יותר בתוצאות הפלט, כדאי להגדיר פרמטרים לקלט ב-Imagen. לדוגמה, נניח שאתם רוצים שהלקוחות יוכלו ליצור לוגו לעסק שלהם, ואתם רוצים לוודא שהלוגו תמיד ייווצר על רקע בצבע אחיד. אתם רוצים גם להגביל את האפשרויות שהלקוח יכול לבחור מהתפריט.
 
-Bu örnekte, aşağıdakine benzer şekilde parametrelendirilmiş bir istem oluşturabilirsiniz:
+בדוגמה הזו, אפשר ליצור הנחיה עם פרמטרים שדומה להנחיה הבאה:
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-Müşteri, özel kullanıcı arayüzünüzde parametreleri bir menü kullanarak girebilir ve seçtiği değer, Imagen'in aldığı istemi doldurur.
+בממשק המשתמש המותאם אישית, הלקוח יכול להזין את הפרמטרים באמצעות תפריט, והערך שהוא בוחר מאכלס את ההנחיה שמתקבלת ב-Imagen.
 
-Örneğin:
+לדוגמה:
 
-1. İstem: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. הנחיה: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Imagen 4 istem parametreleştirme örneği 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=tr)
-2. İstem: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![דוגמה 1 לפרמטרים של הנחיה ב-Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=he)
+2. הנחיה: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Imagen 4 istem parametrelendirme örneği 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=tr)
-3. İstem: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![דוגמה 2 לפרמטרים של הנחיה ב-Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=he)
+3. הנחיה: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Imagen 4 istem parametreleştirme örneği 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=tr)
+   ![דוגמה 3 לפרמטרים של הנחיה ב-Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=he)
 
-### Gelişmiş istem yazma teknikleri
+### טכניקות מתקדמות לכתיבת הנחיות
 
-Fotoğraf tanımlayıcıları, şekiller ve malzemeler, tarihi sanat akımları ve görüntü kalitesi değiştiricileri gibi özelliklere dayalı olarak daha spesifik istemler oluşturmak için aşağıdaki örnekleri kullanın.
+אפשר להשתמש בדוגמאות הבאות כדי ליצור הנחיות ספציפיות יותר על סמך מאפיינים כמו תיאורי צילום, צורות וחומרים, תנועות אמנותיות היסטוריות ומשנים של איכות התמונה.
 
-#### Fotoğrafçılık
+#### צילום
 
-- İstem şunları içerir: *"... fotoğrafı"*
+- ההנחיה כוללת: *"תמונה של..."*
 
-Bu stili kullanmak için Imagen'a fotoğraf aradığınızı net bir şekilde belirten anahtar kelimelerle başlayın. İstemlerinize *"Şunun fotoğrafı:" ifadesiyle başlayın. . ."*. Örneğin:
-
-|  |  |  |
-| --- | --- | --- |
-| Gerçekçi örnek resim 1   İstem: **Mutfakta ahşap bir yüzeyin üzerinde** kahve çekirdeklerinin fotoğrafı | Gerçekçi örnek resim 2   İstem: Mutfak tezgahında **bir** çikolata çubuğunun | gerçekçi örnek resim 3   İstem: Arka planda su bulunan modern bir binanın **fotoğrafı** |
-
-Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
-
-##### Fotoğrafçılık değiştiricileri
-
-Aşağıdaki örneklerde, fotoğrafa özel çeşitli değiştiricileri ve parametreleri görebilirsiniz. Daha hassas kontrol için birden fazla değiştiriciyi birleştirebilirsiniz.
-
-1. **Kamera Yakınlığı** - *Uzaktan çekilen yakın çekim*
-
-   |  |  |
-   | --- | --- |
-   | yakın çekim kamera örnek görüntüsü   İstem: Kahve çekirdeklerinin **yakın çekim** fotoğrafı | Uzaklaştırılmış kamera örnek resmi   İstem: Dağınık bir mutfakta küçük bir kahve çekirdeği torbasının **uzaklaştırılmış** fotoğrafı |
-2. **Kamera Konumu** - *aerial, from below* (havadan, aşağıdan)
-
-   |  |  |
-   | --- | --- |
-   | Kuş bakışı fotoğraf örneği   İstem: Gökdelenlerin bulunduğu bir şehir merkezinin **havadan fotoğrafı** | alttan görünüm örnek resmi   İstem: **Aşağıdan** çekilmiş, mavi gökyüzünün göründüğü bir orman örtüsü fotoğrafı |
-3. **Işık** - *doğal, dramatik, sıcak, soğuk*
-
-   |  |  |
-   | --- | --- |
-   | doğal ışıklandırma örnek resmi   İstem: Modern bir koltuğun **doğal ışıkta** çekilmiş stüdyo fotoğrafı | dramatik ışıklandırma örnek resmi   İstem: modern bir koltuğun stüdyo fotoğrafı, **etkileyici ışıklandırma** |
-4. **Kamera Ayarları** *- hareket bulanıklığı, Odağı Yumuşat, bokeh, portre*
-
-   |  |  |
-   | --- | --- |
-   | hareket bulanıklığı örnek resmi   İstem: **Hareket bulanıklığı** olan bir arabanın içinden çekilmiş, gökdelenlerle dolu bir şehir fotoğrafı | Odağı Yumuşat örnek resmi   İstem: Gece, şehirdeki bir köprünün **odağı yumuşatılmış** fotoğrafı |
-5. **Lens türleri**: *35 mm, 50 mm, balık gözü, geniş açı, makro*
-
-   |  |  |
-   | --- | --- |
-   | Makro lens örnek resmi   İstem: Yaprak fotoğrafı, **makro lens** | Balık gözü lens örnek resmi   İstem: sokak fotoğrafçılığı, New York City, **balık gözü lens** |
-6. **Film türleri** - *siyah beyaz, polaroid*
-
-   |  |  |
-   | --- | --- |
-   | polaroid fotoğraf örneği   İstem: Güneş gözlüğü takan bir köpeğin **Polaroid portresi** | siyah beyaz fotoğraf örneği   İstem: Güneş gözlüğü takan bir köpeğin **siyah beyaz fotoğrafı** |
-
-Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
-
-### Resim ve sanat
-
-- İstem şunları içerir: *"... painting resmi"*, *"Bir sketch..."*
-
-Sanat stilleri, kalemle çizilmiş taslaklar gibi tek renkli stillerden hiper gerçekçi dijital sanat eserlerine kadar çeşitlilik gösterir. Örneğin, aşağıdaki resimlerde farklı stillerle aynı istem kullanılmıştır:
-
-*"Arka planda gökdelenlerin olduğu, köşeli ve sportif bir elektrikli sedanın [art style or creation technique]"*
+כדי להשתמש בסגנון הזה, מתחילים במילות מפתח שמציינות בבירור ל-Imagen שאתם מחפשים תמונה. ההנחיות צריכות להתחיל במילים
+*"תמונה של. . ‫."*. לדוגמה:
 
 |  |  |  |
 | --- | --- | --- |
-| sanat örnek resimleri   İstem: Köşeli bir...**teknik kurşun kalem çizimi** | sanat örnek resimleri   İstem: A **charcoal drawing** of an angular... | Sanat örnek resimleri   İstem: Köşeli bir...**renkli kalem çizimi** |
+| תמונה פוטוריאליסטית לדוגמה 1   הנחיה: **תמונה של** פולי קפה במטבח על משטח עץ | תמונה פוטוריאליסטית לדוגמה 2   הנחיה: **תמונה של** חטיף שוקולד על משטח במטבח | תמונת דוגמה פוטוריאליסטית 3   הנחיה: **תמונה של** בניין מודרני עם מים ברקע |
+
+מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
+
+##### שינויים בצילום
+
+בדוגמאות הבאות אפשר לראות כמה פרמטרים ומשנים שספציפיים לצילום. אפשר לשלב כמה משנים כדי לקבל שליטה מדויקת יותר.
+
+1. **קירבה למצלמה** – *תקריב, צילום מרחוק*
+
+   |  |  |
+   | --- | --- |
+   | תמונה לדוגמה שצולמה במצלמה במצב תקריב   פרומפט: תמונה **מקרוב** של פולי קפה | תמונה לדוגמה של מצלמה בהגדלה מוקטנת   הנחיה: תמונה **ממרחק** של שקית קטנה של  פולי קפה במטבח מבולגן |
+2. **מיקום המצלמה** – *צילום אווירי, מלמטה*
+
+   |  |  |
+   | --- | --- |
+   | תמונה לדוגמה של תצלום אווירי   הנחיה: **תמונה אווירית** של עיר עם גורדי שחקים | תמונה לדוגמה של מבט מלמטה   הנחיה: תמונה של צמרת עצים ביער עם שמיים כחולים **מלמטה** |
+3. **תאורה** – *טבעית, דרמטית, חמה, קרה*
+
+   |  |  |
+   | --- | --- |
+   | תמונה לדוגמה עם תאורה טבעית   הנחיה: תמונה בסטודיו של כורסה מודרנית, **תאורה טבעית** | תמונה לדוגמה של תאורה דרמטית   הנחיה: תמונה בסגנון סטודיו של כורסה מודרנית, **תאורה דרמטית** |
+4. **הגדרות המצלמה** *– טשטוש תנועה, פוקוס רך, בוקה, צילום פורטרט*
+
+   |  |  |
+   | --- | --- |
+   | תמונה לדוגמה של טשטוש תנועה   הנחיה: תמונה של עיר עם גורדי שחקים מתוך מכונית עם **טשטוש תנועה** | תמונה לדוגמה של פוקוס רך   הנחיה: **תמונה עם מוקד רך** של גשר בעיר בלילה |
+5. **סוגי עדשות** – *35 מ"מ, 50 מ"מ, עין הדג, זווית רחבה, מאקרו*
+
+   |  |  |
+   | --- | --- |
+   | תמונה לדוגמה שצולמה בעדשת מאקרו   הנחיה: תמונה של עלה, **עדשת מאקרו** | תמונה לדוגמה בעדשת עין הדג   הנחיה: צילום רחוב, העיר ניו יורק, **עדשת עין הדג** |
+6. **סוגי סרטים** – *שחור-לבן, פולרואיד*
+
+   |  |  |
+   | --- | --- |
+   | תמונה לדוגמה של תמונת פולרואיד   הנחיה: **תמונת פולרואיד** של כלב עם משקפי שמש | תמונה לדוגמה בשחור-לבן   פרומפט: **תמונה בשחור-לבן** של כלב עם משקפי שמש |
+
+מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
+
+### איור ואומנות
+
+- ההנחיה כוללת: *"painting של..."*, *‫"sketch של…"*
+
+סגנונות האומנות משתנים מסגנונות מונוכרומטיים כמו שרטוטי עיפרון, ועד לאומנות דיגיטלית היפר-ריאליסטית. לדוגמה, בתמונות הבאות נעשה שימוש באותו הנחיה עם סגנונות שונים:
+
+*"תמונה של מכונית סדאן חשמלית ספורטיבית עם קווים זוויתיים, עם גורדי שחקים ברקע"*[art style or creation technique]
 
 |  |  |  |
 | --- | --- | --- |
-| sanat örnek resimleri   İstem: Köşeli bir...**pastel boya resmi** | Sanat örnek resimleri   İstem: Köşeli bir...**dijital sanatı** | Sanat örnek resimleri   İstem: Köşeli bir...**art deco (poster)** |
-
-Resim kaynağı: Her resim, Imagen 2 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
-
-##### Şekiller ve malzemeler
-
-- İstem şunları içeriyor: *"...yapılmış..."*, *"...şeklinde..."*
-
-Bu teknolojinin güçlü yönlerinden biri, başka şekilde zor veya imkansız olan görüntüler oluşturabilmenizdir. Örneğin, şirket logonuzu farklı materyaller ve dokularla yeniden oluşturabilirsiniz.
+| תמונות לדוגמה של אומנות   הנחיה: **ציור טכני בעיפרון** של... | תמונות לדוגמה של אומנות   פרומפט: **רישום פחם** של... | תמונות לדוגמה של אומנות   פרומפט: **ציור בעיפרון צבעוני** של... |
 
 |  |  |  |
 | --- | --- | --- |
-| Şekiller ve malzemeler örneği resim 1   İstem: **Peynirden yapılmış** bir spor çantası | şekiller ve malzemeler örneği resim 2   İstem: Kuş **şeklinde** neon tüpler | şekiller ve malzemeler örneği resim 3   İstem: **Kağıttan yapılmış** bir koltuk, stüdyo fotoğrafı, origami tarzı |
+| תמונות לדוגמה של אומנות   פרומפט: **ציור בצבעי פסטל** של זוויתי... | תמונות לדוגמה של אומנות   פרומפט: **יצירת אומנות דיגיטלית** של... | תמונות לדוגמה של אומנות   הנחיה: **פוסטר בסגנון ארט דקו** של... |
 
-Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
+מקור התמונה: כל תמונה נוצרה באמצעות הפרומפט הטקסטואלי המתאים, בעזרת מודל Imagen 2.
 
-#### Tarihi sanat referansları
+##### צורות וחומרים
 
-- İstem şunları içeriyor: *"...tarzında..."*
+- ההנחיה כוללת: *"...made of..."*, *"...בצורה של..."*
 
-Bazı stiller yıllar içinde ikonik hale geldi. Aşağıda deneyebileceğiniz bazı tarihi resim veya sanat tarzları fikirleri verilmiştir.
-
-*"[art period or movement]
- tarzında bir resim üret: rüzgar çiftliği"*
+אחת מנקודות החוזק של הטכנולוגיה הזו היא האפשרות ליצור תמונות שקשה או בלתי אפשרי ליצור בדרך אחרת. לדוגמה, אפשר ליצור מחדש את הלוגו של החברה בחומרים ובמרקמים שונים.
 
 |  |  |  |
 | --- | --- | --- |
-| empresyonizm örneği resim   İstem: **Empresyonist bir tablo*tarzında*** bir görüntü oluştur: rüzgar çiftliği | Rönesans dönemi örneği   İstem: **Rönesans dönemi tablosu *stilinde*** bir rüzgar çiftliği resmi oluştur | Pop art örneği resim   İstem: **Pop art*tarzında*** bir rüzgar çiftliği resmi üret |
+| תמונה 1 של דוגמה לצורות ולחומרים   פרומפט: תיק דאפל **עשוי** מגבינה | תמונה 2 של דוגמה לצורות ולחומרים   הנחיה: צינורות ניאון **בצורה** של ציפור | תמונה 3 של דוגמה לצורות ולחומרים   הנחיה: כורסה **עשויה מנייר**, תמונה שצולמה באולפן, בסגנון אוריגמי |
 
-Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
+מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
 
-#### Resim kalitesi değiştiricileri
+#### הפניות לאומנות היסטורית
 
-Belirli anahtar kelimeler, modelin yüksek kaliteli bir öğe aradığınızı anlamasını sağlayabilir. Kalite değiştiricilere örnek olarak şunlar verilebilir:
+- ההנחיה כוללת: *"…בסגנון של…"*
 
-- **Genel Değiştiriciler** - *yüksek kaliteli, güzel, stilize edilmiş*
-- **Fotoğraflar** - *4K, HDR, Studio Photo*
-- **Sanat, İllüstrasyon** - *Profesyonel, ayrıntılı*
+סגנונות מסוימים הפכו לאייקוניים במהלך השנים. הנה כמה רעיונות לסגנונות ציור או אמנות היסטוריים שאפשר לנסות.
 
-Aşağıda, kalite değiştiricileri içermeyen istemlere ve aynı istemin kalite değiştiricileri içeren versiyonuna dair birkaç örnek verilmiştir.
+*"צור תמונה בסגנון של [art period or movement]
+: חוות טורבינות רוח"*
+
+|  |  |  |
+| --- | --- | --- |
+| תמונה לדוגמה של אימפרסיוניזם   הנחיה: צור תמונה **בסגנון של *ציור אימפרסיוניסטי***: חוות טורבינות רוח | תמונה לדוגמה מתקופת הרנסנס   הנחיה: צור תמונה **בסגנון של *ציור מתקופת הרנסנס***: חוות רוח | תמונה לדוגמה של פופ ארט   הנחיה: צור תמונה **בסגנון *פופ ארט***: חוות רוח |
+
+מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
+
+#### משנים של איכות התמונה
+
+מילות מפתח מסוימות יכולות להבהיר למודל שאתם מחפשים נכס באיכות גבוהה. דוגמאות למשני איכות:
+
+- **משנים כלליים** – *איכות גבוהה, יפה, מסוגנן*
+- ‫**Photos** – *4K, ‏ HDR, ‏ Studio Photo*
+- **אומנות, איור** – *על ידי איש מקצוע, מפורט*
+
+הנה כמה דוגמאות להנחיות ללא משפרי איכות ולהנחיות זהות עם משפרי איכות.
 
 |  |  |
 | --- | --- |
-| Değiştiriciler olmadan mısır örneği resmi   İstem (kalite değiştiriciler yok): Bir mısır sapının fotoğrafı | Değiştiricilerle birlikte mısır örneği resmi   İstem (kalite değiştiricilerle): **4K HDR kalitesinde**   bir mısır koçanı **profesyonel bir   fotoğrafçı tarafından çekilmiş** |
+| תמונה לדוגמה של תירס ללא משנים   הנחיה (ללא משפרי איכות): תמונה של גבעול תירס | דוגמה לתמונה של תירס עם משנים   הנחיה (עם משפרי איכות): **תמונה יפה באיכות 4K HDR**   של גבעול תירס **שצולמה על ידי   צלם מקצועי** |
 
-Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
+מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
 
-#### En boy oranları
+#### יחסי גובה-רוחב
 
-Imagen ile görüntü üretme özelliği, beş farklı görüntü en-boy oranı ayarlamanıza olanak tanır.
+יצירת תמונות באמצעות Imagen מאפשרת להגדיר חמישה יחסי גובה-רוחב שונים.
 
-1. **Kare** (1:1, varsayılan): Standart bir kare fotoğraf. Bu en-boy oranının yaygın kullanım alanları arasında sosyal medya gönderileri yer alır.
-2. **Tam ekran** (4:3): Bu en boy oranı genellikle medyada veya filmlerde kullanılır.
-   Ayrıca çoğu eski (geniş ekran olmayan) TV'nin ve orta formatlı kameraların boyutlarıdır. Yatay olarak daha fazla sahneyi yakalar (1:1 ile karşılaştırıldığında). Bu nedenle, fotoğrafçılıkta tercih edilen en boy oranıdır.
-
-   |  |  |
-   | --- | --- |
-   | en-boy oranı örneği   İstem: Piyano çalan bir müzisyenin parmaklarının yakın çekimi, siyah beyaz film, vintage (4:3 en boy oranı) | en-boy oranı örneği   İstem: Lüks bir restoran için patates kızartmasının yemek dergisi tarzında profesyonel bir stüdyo fotoğrafı (4:3 en-boy oranı) |
-3. **Dikey tam ekran** (3:4): Bu, 90 derece döndürülmüş tam ekran en boy oranıdır. Bu sayede, 1:1 en boy oranına kıyasla sahnenin daha fazlasını dikey olarak yakalayabilirsiniz.
+1. **ריבוע** (1:1, ברירת מחדל) – תמונה ריבועית רגילה. יחס הגובה-רוחב הזה נפוץ בפוסטים ברשתות חברתיות.
+2. **מסך מלא** (4:3) – יחס הגובה-רוחב הזה נפוץ בשימוש במדיה או בסרטים.
+   אלה גם המידות של רוב הטלוויזיות הישנות (לא רחבות) ושל מצלמות בפורמט בינוני. היחס הזה מאפשר לצלם חלק גדול יותר מהסצנה לרוחב (בהשוואה ליחס של 1:1),
+   ולכן הוא מועדף בצילום.
 
    |  |  |
    | --- | --- |
-   | en-boy oranı örneği   İstem: Yürüyüş yapan bir kadının botlarının su birikintisine yansıyan yakın çekimi, arka planda büyük dağlar, reklam tarzında, dramatik açılar (3:4 en-boy oranı) | en-boy oranı örneği   İstem: Bir nehrin mistik bir vadide aktığına dair kuşbakışı çekim (3:4 en-boy oranı) |
-4. **Geniş ekran** (16:9): Bu oran, 4:3'ün yerini almıştır ve artık TV'ler, monitörler ve cep telefonu ekranları (yatay) için en yaygın en boy oranıdır.
-   Arka planın daha fazlasını (ör. manzaralar) yakalamak istediğinizde bu en boy oranını kullanın.
+   | דוגמה ליחס גובה-רוחב   הנחיה: תקריב של אצבעות של מוזיקאי שמנגן בפסנתר, סרט בשחור-לבן, וינטג' (יחס גובה-רוחב של 4:3) | דוגמה ליחס גובה-רוחב   הנחיה: תמונה מקצועית שצולמה בסטודיו של צ'יפס למסעדה יוקרתית, בסגנון של מגזין אוכל (יחס רוחב-גובה של 4:3) |
+3. **מסך מלא לאורך** (3:4) – יחס הגובה-רוחב למסך מלא מסובב ב-90 מעלות. כך אפשר לצלם חלק גדול יותר מהסצנה בצורה אנכית בהשוואה ליחס גובה-רוחב של 1:1.
 
-   ![en-boy oranı örneği](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=tr)
+   |  |  |
+   | --- | --- |
+   | דוגמה ליחס גובה-רוחב   הנחיה: אישה מטיילת, תקריב של מגפיים שמשתקפים בשלולית, הרים גדולים ברקע, בסגנון של פרסומת, זוויות דרמטיות (יחס גובה-רוחב של 3:4) | דוגמה ליחס גובה-רוחב   הנחיה: צילום אווירי של נהר שזורם במעלה עמק מיסטי (יחס גובה-רוחב 3:4) |
+4. **מסך רחב** (16:9) – היחס הזה החליף את 4:3 והוא עכשיו יחס הגובה-רוחב הנפוץ ביותר בטלוויזיות, במסכים ובמסכי טלפונים ניידים (לרוחב).
+   כדאי להשתמש ביחס הגובה-רוחב הזה כשרוצים לצלם חלק גדול יותר מהרקע (לדוגמה, נופים).
 
-   İstem: Plajda oturan, baştan aşağı beyaz giyinmiş bir adam, yakın çekim, gün batımının altın saatindeki ışık (16:9 en-boy oranı)
-5. **Dikey** (9:16): Bu oran geniş ekranın döndürülmüş halidir. Bu, kısa video uygulamaları (ör. YouTube Shorts) tarafından popüler hale getirilen nispeten yeni bir en-boy oranıdır. Binalar, ağaçlar, şelaleler veya benzeri diğer nesneler gibi güçlü dikey yönlere sahip uzun nesneler için kullanın.
+   ![דוגמה ליחס גובה-רוחב](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=he)
 
-   ![en-boy oranı örneği](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=tr)
+   הנחיה: צילום תקריב של גבר לבוש בבגדים לבנים יושב על החוף, תאורה של שעת הזהב (יחס גובה-רוחב של 16:9)
+5. **לאורך** (9:16) – יחס הגובה-רוחב הזה הוא מסך רחב אבל מסובב. זהו יחס רוחב-גובה חדש יחסית, שהפך לפופולרי בקרב אפליקציות של סרטונים קצרים (לדוגמה, סרטוני YouTube Shorts). השתמשו בערך הזה לאובייקטים גבוהים עם אוריינטציה אנכית חזקה, כמו בניינים, עצים, מפלים או אובייקטים דומים אחרים.
 
-   İstem: Arka planda güzel bir gün batımı olan, devasa, modern, görkemli ve destansı bir gökdelenin dijital görüntüsü (9:16 en-boy oranı)
+   ![דוגמה ליחס גובה-רוחב](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=he)
 
-#### Fotoğraf gerçekliğinde görüntüler
+   הנחיה: הדמיה דיגיטלית של גורד שחקים עצום, מודרני, מפואר, אפי עם שקיעה יפה ברקע (יחס גובה-רוחב של 9:16)
 
-Görüntü üretme modelinin farklı sürümleri, sanatsal ve fotogerçekçi çıkışların bir karışımını sunabilir. Oluşturmak istediğiniz konuya göre daha fotogerçekçi bir çıktı oluşturmak için istemlerde aşağıdaki ifadeleri kullanın.
+#### תמונות פוטוריאליסטיות
 
-| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
+גרסאות שונות של מודל יצירת התמונות עשויות להציע שילוב של פלט אמנותי ופוטו-ריאליסטי. כדי ליצור פלט היפר-ריאליסטי יותר, כדאי להשתמש בניסוחים הבאים בהנחיות, בהתאם לנושא שרוצים ליצור.
+
+| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
 | --- | --- | --- | --- |
-| Kişiler (portreler) | Üs, yakınlaştırma | 24-35mm | Siyah beyaz film, Film noir, Alan derinliği, iki tonlu (iki renkten bahsedin) |
-| Yiyecek, böcek, bitki (nesneler, natürmort) | Makro | 60-105mm | Yüksek ayrıntı, hassas odaklama, kontrollü ışıklandırma |
-| Spor, vahşi yaşam (hareket) | Telefoto yakınlaştırma | 100-400mm | Yüksek deklanşör hızı, aksiyon veya hareket takibi |
-| Astronomik, manzara (geniş açı) | Geniş Açı | 10-24mm | Uzun pozlama süreleri, keskin odak, uzun pozlama, pürüzsüz su veya bulutlar |
+| אנשים (דיוקנאות) | Prime, zoom | 24-35 מ״מ | סרט בשחור-לבן, סרט נואר, עומק שדה, דו-גווני (צריך לציין שני צבעים) |
+| אוכל, חרקים, צמחים (אובייקטים, טבע דומם) | Macro | ‫60-105 מ״מ | רמת פירוט גבוהה, מיקוד מדויק, תאורה מבוקרת |
+| ספורט, חיות בר (תנועה) | זום טלפוטו | ‫100-400 מ״מ | מהירות תריס גבוהה, מעקב אחרי פעולה או תנועה |
+| אסטרונומי, נוף (זווית רחבה) | זווית רחבה | ‫10-24 מ״מ | זמני חשיפה ארוכים, פוקוס חד, חשיפה ארוכה, מים או עננים חלקים |
 
-##### Portreler
+##### צילומי פורטרט
 
-| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
+| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
 | --- | --- | --- | --- |
-| Kişiler (portreler) | Üs, yakınlaştırma | 24-35mm | Siyah beyaz film, Film noir, Alan derinliği, Çift tonlu (iki renkten bahsedin) |
+| אנשים (דיוקנאות) | Prime, zoom | 24-35 מ״מ | סרט בשחור-לבן, סרט אפל, עומק שדה, דו-גווני (מציינים שני צבעים) |
 
-Imagen, tablodaki birkaç anahtar kelimeyi kullanarak aşağıdaki portreleri oluşturabilir:
+בעזרת כמה מילות מפתח מהטבלה, Imagen יכול ליצור את הפורטרטים הבאים:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği |
+| דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות |
 
-İstem: *35 mm portre, mavi ve gri çift tonlu bir kadın*  
-Model: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği |
-
-İstem: *Bir kadın, 35 mm portre, film noir*  
-Model: `imagen-4.0-generate-001`
-
-##### Nesneler
-
-| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
-| --- | --- | --- | --- |
-| Yiyecek, böcek, bitki (nesneler, natürmort) | Makro | 60-105mm | Yüksek ayrıntı, hassas odaklama, kontrollü ışıklandırma |
-
-Tablodaki birkaç anahtar kelimeyi kullanarak Imagen, aşağıdaki nesne resimlerini oluşturabilir:
+הנחיה: *דיוקן של אישה, 35 מ"מ, גווני כחול ואפור*  
+מודל: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği |
+| דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות |
 
-İstem: *dua çiçeği yaprağı, makro lens, 60 mm*  
-Model: `imagen-4.0-generate-001`
+הנחיה: *A woman, 35mm portrait, film noir*  
+מודל: `imagen-4.0-generate-001`
+
+##### אובייקטים
+
+| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
+| --- | --- | --- | --- |
+| אוכל, חרקים, צמחים (אובייקטים, טבע דומם) | Macro | ‫60-105 מ״מ | רמת פירוט גבוהה, מיקוד מדויק, תאורה מבוקרת |
+
+בעזרת כמה מילות מפתח מהטבלה, Imagen יכול ליצור את תמונות האובייקטים הבאות:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği |
+| דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט |
 
-İstem: *a plate of pasta, 100mm Macro lens*  
-Model: `imagen-4.0-generate-001`
-
-##### Hareket
-
-| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
-| --- | --- | --- | --- |
-| Spor, vahşi yaşam (hareket) | Telefoto yakınlaştırma | 100-400mm | Yüksek deklanşör hızı, aksiyon veya hareket takibi |
-
-Imagen, tablodaki birkaç anahtar kelimeyi kullanarak aşağıdaki hareketli görüntüleri oluşturabilir:
+הנחיה: *leaf of a prayer plant, macro lens, 60mm*  
+מודל: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği |
+| דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט |
 
-İstem: *kazandıran touchdown, hızlı deklanşör hızı, hareket takibi*  
-Model: `imagen-4.0-generate-001`
+הנחיה: *צלחת פסטה, עדשת מאקרו 100 מ"מ*  
+מודל: `imagen-4.0-generate-001`
+
+##### תנועה
+
+| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
+| --- | --- | --- | --- |
+| ספורט, חיות בר (תנועה) | זום טלפוטו | ‫100-400 מ״מ | מהירות תריס גבוהה, מעקב אחרי פעולה או תנועה |
+
+באמצעות כמה מילות מפתח מהטבלה, Imagen יכול ליצור את תמונות התנועה הבאות:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği |
+| דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה |
 
-İstem: *Ormanda koşan bir geyik, yüksek deklanşör hızı, hareket takibi*  
-Model: `imagen-4.0-generate-001`
-
-##### Geniş Açı
-
-| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
-| --- | --- | --- | --- |
-| Astronomik, manzara (geniş açı) | Geniş Açı | 10-24mm | Uzun pozlama süreleri, keskin odak, uzun pozlama, pürüzsüz su veya bulutlar |
-
-Tablodaki birkaç anahtar kelimeyi kullanarak Imagen, aşağıdaki geniş açılı fotoğrafları oluşturabilir:
+הנחיה: *a winning touchdown, מהירות התריס, movement tracking*  
+מודל: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği |
+| דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה |
 
-İstem: *an expansive mountain range, landscape wide angle 10mm*  
-Model: `imagen-4.0-generate-001`
+הנחיה: *אייל רץ ביער, מהירות תריס גבוהה, מעקב אחרי תנועה*  
+מודל: `imagen-4.0-generate-001`
+
+##### זווית רחבה
+
+| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
+| --- | --- | --- | --- |
+| אסטרונומי, נוף (זווית רחבה) | זווית רחבה | ‫10-24 מ״מ | זמני חשיפה ארוכים, פוקוס חד, חשיפה ארוכה, מים או עננים חלקים |
+
+באמצעות כמה מילות מפתח מהטבלה, Imagen יכול ליצור את התמונות הבאות בזווית רחבה:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği |
+| דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה |
 
-İstem: *Ayın fotoğrafı, astro fotoğrafçılık, 10 mm geniş açı*  
-Model: `imagen-4.0-generate-001`
+הנחיה: *רכס הרים רחב, צילום נוף בזווית רחבה של 10 מ"מ*  
+מודל: `imagen-4.0-generate-001`
 
-## Model sürümleri
+|  |  |  |  |
+| --- | --- | --- | --- |
+| דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה |
 
-### Imagen 4 (desteği sonlandırıldı)
+הנחיה: *תמונה של הירח, צילום אסטרונומי, זווית רחבה של 10 מ"מ*  
+מודל: `imagen-4.0-generate-001`
 
-| Mülk | Açıklama |
+## גרסאות המודלים
+
+### ‫Imagen 4 (הוצא משימוש)
+
+| נכס | תיאור |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveDesteklenen veri türleri | **Giriş**  Metin  **Çıkış**  Resimler |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  480 jeton (metin)  **Çıkış resimleri**  1 ila 4 (Ultra/Standart/Hızlı) |
-| calendar\_monthSon güncelleme | Haziran 2025 |
+| id\_cardקוד מודל | ‫**Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveסוגי נתונים נתמכים | **קלט**  טקסט  **פלט**  תמונות |
+| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  ‫480 טוקנים (טקסט)  **תמונות פלט**  ‫1 עד 4 (Ultra/Standard/Fast) |
+| calendar\_monthהעדכון האחרון | יוני 2025 |
 
 ### Imagen 3
 
-Imagen 3 modeli [kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr).
+מודל Imagen 3 [יצא משימוש](https://ai.google.dev/gemini-api/docs/deprecations?hl=he).
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-07-16 UTC.
+עדכון אחרון: 2026-07-16 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-16 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-16 (שעון UTC)."],[],[]]

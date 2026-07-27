@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=he
-fetched_at: 2026-07-20T04:45:25.281096+00:00
-title: "\u05d7\u05e9\u05d9\u05d1\u05d4 \u05e9\u05dc Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=zh-CN
+fetched_at: 2026-07-27T04:46:08.426033+00:00
+title: "Gemini \u601d\u8003 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-שליחת משוב
+发送反馈
 
-# חשיבה של Gemini
+# Gemini 思考
 
-[למודלים מסדרות Gemini 3 ו-2.5](https://ai.google.dev/gemini-api/docs/models?hl=he) יש 'תהליך חשיבה' שמשפר באופן משמעותי את יכולות החשיבה הרציונלית והתכנון הרב-שלבי שלהם. כך הם יעילים מאוד במשימות מורכבות כמו כתיבת קוד, מתמטיקה מתקדמת וניתוח נתונים.
+[Gemini 3 和 2.5 系列模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)采用“思考过程”，可显著提升推理和多步规划能力，因此非常适合处理编码、高等数学和数据分析等复杂任务。
 
-כשמשתמשים במודל חשיבה, Gemini מנתח את ההנחיה באופן פנימי לפני שהוא משיב. ה-API של האינטראקציות חושף את ההסבר הזה באמצעות `thought` שלבים ייעודיים שמופיעים בסדר כרונולוגי לצד קריאות לפונקציות, קלט משתמש או פלט של מודל במערך `steps`.
+当您使用思考模型时，Gemini 会在回答之前进行内部推理。Interactions API 通过 `thought` 步骤（按时间顺序显示在 `steps` 数组中的专用步骤）呈现这种推理过程。
 
-כל שלב מחשבה מכיל שני שדות:
+每个思考步骤都包含两个字段：
 
-| שדה | חובה? | תיאור |
+| 字段 | 必填 | 说明 |
 | --- | --- | --- |
-| `signature` | ‫✅ כן | ייצוג מוצפן של מצב הנימוק הפנימי של המודל. תמיד מוצג, גם כשהמודל מבצע נימוק מינימלי. |
-| `summary` | ❌ לא | מערך של תוכן (טקסט ו/או תמונות) שמסכם את הנימוקים. יכול להיות שיהיה ריק, בהתאם להגדרות של [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=he), אם המודל לא ביצע מספיק חשיבה רציונלית או בהתאם לסוג התוכן (לדוגמה, יכול להיות שלא יהיו סיכומי טקסט לתמונות לטנטיות). |
+| `signature` | ✅ 是 | 模型内部推理状态的加密表示形式。始终存在，即使模型执行的推理最少也是如此。 |
+| `summary` | ❌ 否 | 总结推理过程的内容（文本和/或图片）数组。可能会为空，具体取决于 [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=zh-cn) 配置、模型是否进行了充分的推理，或者内容类型（例如，图片潜在空间可能没有文本摘要）。 |
 
-## אינטראקציות עם תכונת ההעמקה
+## 与思考的互动
 
-התחלת אינטראקציה עם מודל חשיבה דומה לכל בקשת אינטראקציה אחרת. בשדה `model`, מציינים אחד מ[המודלים עם תמיכה בחשיבה](#thinking-levels):
+与思维模型互动与任何其他互动请求类似。在 `model` 字段中指定[支持思考的模型](#thinking-levels)之一：
 
 ### Python
 
@@ -73,10 +73,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## סיכומי חשיבה
+## 思考摘要
 
-סיכומי מחשבות מספקים תובנות לגבי תהליך הנימוק הפנימי של המודל.
-כברירת מחדל, מוחזר רק הפלט הסופי. אפשר להפעיל סיכומי מחשבות באמצעות `thinking_summaries`:
+思考总结可提供对模型内部推理过程的洞见。
+默认情况下，仅返回最终输出。您可以使用 `thinking_summaries` 启用思路总结：
 
 ### Python
 
@@ -158,23 +158,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-בלוק מחשבה יכול להכיל **רק חתימה ללא סיכום** במקרים הבאים:
+在以下情况下，思想块可能**仅包含签名，而不包含摘要**：
 
-- בקשות פשוטות, שבהן המודל לא נימק מספיק כדי ליצור סיכום
-- `thinking_summaries: "none"`, במקרים שבהם הסיכומים מושבתים באופן מפורש
-- יכול להיות שלסוגים מסוימים של תוכן מחשבות, כמו תמונות, לא יהיו סיכומי טקסט
+- 简单请求，模型推理不足，无法生成摘要
+- `thinking_summaries: "none"`，其中明确停用了摘要
+- 某些类型的想法内容（例如图片）可能没有文字摘要
 
-הקוד צריך תמיד לטפל בבלוקים של מחשבות שבהם `summary` ריק או לא קיים.
+您的代码应始终处理 `summary` 为空或缺失的思路块。
 
-## סטרימינג עם חשיבה
+## 包含思考的流式传输
 
-אפשר להשתמש בסטרימינג כדי לקבל סיכומים מצטברים של המחשבות במהלך היצירה.
-בלוקי מחשבה מועברים באמצעות אירועים שנשלחים מהשרת (SSE) עם שני סוגים שונים של דלתא:
+使用流式传输在生成期间接收增量思维摘要。
+系统会使用服务器发送的事件 (SSE) 传送思路块，其中包含两种不同的增量类型：
 
-| סוג הדלתא | מכיל | מתי נשלח |
+| 增量类型 | 包含 | 发送时间 |
 | --- | --- | --- |
-| `thought_summary` | תוכן סיכום של טקסט או תמונה | דלתא אחת או יותר עם סיכום מצטבר |
-| `thought_signature` | החתימה הקריפטוגרפית | הדלתא האחרונה לפני `step.stop` |
+| `thought_summary` | 文字或图片摘要内容 | 一个或多个增量（带有增量摘要） |
+| `thought_signature` | 加密签名 | `step.stop` 之前的最后一个增量 |
 
 ### Python
 
@@ -276,7 +276,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-התגובה בסטרימינג משתמשת באירועים שנשלחים מהשרת (SSE) ומורכבת משלבים ומאירועים, לדוגמה:
+流式回答使用服务器发送的事件 (SSE)，由步骤和事件组成，例如：
 
 ```
 event: interaction.created
@@ -307,20 +307,20 @@ event: done
 data: [DONE]
 ```
 
-## שליטה בחשיבה
+## 控制性思维
 
-מודלים של Gemini חושבים באופן דינמי כברירת מחדל, ומתאימים באופן אוטומטי את כמות המאמץ שמושקע בהסקה על סמך מורכבות הבקשה. אפשר לשלוט בהתנהגות הזו באמצעות הפרמטר `thinking_level`.
+Gemini 模型默认采用动态思维，会根据请求的复杂程度自动调整推理力度。您可以使用 `thinking_level` 参数控制此行为。
 
-| מודל | חשיבה כברירת מחדל | רמות נתמכות |
+| 模型 | 默认思维 | 支持的级别 |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | מופעל (גבוהה) | נמוך, בינוני, גבוה |
-| gemini-3.1-flash-lite-image | מופעל (מינימלי) | מינימלי, גבוה |
-| gemini-3-flash-preview | מופעל (גבוהה) | מינימלי, נמוך, בינוני, גבוה |
-| gemini-3-pro-preview | מופעל (גבוהה) | נמוך, גבוה |
-| gemini-3.5-flash | מופעל (בינוני) | מינימלי, נמוך, בינוני, גבוה |
-| gemini-2.5-pro | מופעל | נמוך, בינוני, גבוה |
-| gemini-2.5-flash | מופעל | נמוך, בינוני, גבוה |
-| gemini-2.5-flash-lite | מושבת | נמוך, בינוני, גבוה |
+| gemini-3.1-pro-preview | 开启（高） | 低、中、高 |
+| gemini-3.1-flash-lite-image | 开启（极简） | 极简、高 |
+| gemini-3-flash-preview | 开启（高） | 极低、低、中、高 |
+| gemini-3-pro-preview | 开启（高） | 低、高 |
+| gemini-3.5-flash | 开启（中） | 极低、低、中、高 |
+| gemini-2.5-pro | 开启 | 低、中、高 |
+| gemini-2.5-flash | 开启 | 低、中、高 |
+| gemini-2.5-flash-lite | 关闭 | 低、中、高 |
 
 ### Python
 
@@ -371,27 +371,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## חתימות של מחשבות
+## 思维签名
 
-חתימות מחשבה הן ייצוגים מוצפנים של ההיגיון הפנימי של המודל. הם נדרשים לשמור על רצף של נימוקים לאורך אינטראקציות עוקבות.
+思考特征是模型内部推理的加密表示形式。它们需要在多轮对话中保持推理的连续性。
 
-ממשק Interactions API מפשט את הטיפול בחתימות מחשבה בהשוואה ל-`generateContent` API.
+与 `generateContent` API 相比，Interactions API 可让处理意念签名变得更加简单。
 
-### מצב עם שמירת מצב (מומלץ)
+### 有状态模式（推荐）
 
-כברירת מחדל, כשמשתמשים ב-Interactions API במצב stateful (על ידי הגדרת `store: true` והעברת `previous_interaction_id` בתורות הבאות), השרת מנהל באופן אוטומטי את מצב השיחה, כולל כל בלוקי המחשבה והחתימות. במצב הזה, לא צריך לעשות שום דבר לגבי חתימות. הם מטופלים באופן מלא בצד השרת.
+默认情况下，当您在有状态模式下使用 Interactions API（通过设置 `store: true` 并在后续轮次中传递 `previous_interaction_id`）时，服务器会自动管理对话状态，包括所有思考块和签名。在此模式下，您无需针对签名执行任何操作。它们完全在服务器端处理。
 
-### מצב חסר סטטוס
+### 无状态模式
 
-אם אתם מנהלים את מצב השיחה בעצמכם (מצב בלי שמירת מצב) ומעבירים את ההיסטוריה המלאה של הקלט והפלט בכל בקשה:
+如果您自行管理对话状态（无状态模式），并在每次请求中传递完整的输入和输出历史记录，请执行以下操作：
 
-- **חובה** לשלוח מחדש את כל הבלוקים של `thought` בדיוק כמו שהם התקבלו מהמודל.
-- **חשוב** לא להסיר או לשנות את בלוקי המחשבה מההיסטוריה, כי הם מכילים את החתימות שנדרשות כדי שהמודל ימשיך את הנימוק שלו.
-- כשמחליפים מודלים במהלך סשן, עדיין צריך לשלוח מחדש את בלוקי המחשבה של המודל הקודם. הקצה העורפי מנהל את התאימות.
+- 您**必须**始终完全按照从模型收到的方式重新发送所有 `thought` 代码块。
+- 您**不应**从历史记录中移除或修改思考块，因为它们包含模型继续推理所需的签名。
+- 在会话中切换模型时，您仍应重新发送之前模型的思考块。后端管理兼容性。
 
-## תמחור
+## 价格
 
-כשהחשיבה מופעלת, התמחור של התשובה הוא סכום הטוקנים של הפלט והטוקנים של החשיבה. אפשר לקבל את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `total_thought_tokens`.
+开启思考功能后，回答价格是输出 token 和思考 token 的总和。您可以从 `total_thought_tokens` 字段获取生成的思考令牌总数。
 
 ### Python
 
@@ -407,32 +407,32 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז יוצרים [סיכומים](#summaries) כדי לספק תובנות לגבי תהליך החשיבה. התמחור מבוסס על כל הטוקנים של המחשבה שהמודל צריך ליצור, למרות שרק הסיכום מופק מה-API.
+思考模型会生成完整的想法，以提高最终回答的质量，然后输出[总结](#summaries)，以便深入了解思考过程。定价基于模型需要生成的完整思考令牌，尽管 API 只输出摘要。
 
-מידע נוסף על טוקנים זמין במדריך [ספירת טוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
+如需详细了解令牌，请参阅[令牌计数](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn)指南。
 
-## שיטות מומלצות
+## 最佳做法
 
-כדי להשתמש במודלים של חשיבה בצורה יעילה, כדאי לפעול לפי ההנחיות הבאות.
+遵循以下准则，可高效使用思考模型。
 
-- **בדיקת ההיגיון**: ניתוח סיכומי המחשבות כדי להבין את הכשלים ולשפר את ההנחיות.
-- **שליטה בתקציב החשיבה**: אפשר להנחות את המודל לחשוב פחות כדי ליצור פלט ארוך ולחסוך בטוקנים.
-- **משימות פשוטות**: שימוש במינימום חשיבה או בחשיבה ברמה נמוכה כדי לאחזר עובדות או לבצע סיווג (לדוגמה, "איפה הוקמה DeepMind?").
-- **משימות מורכבות**: השתמשו בחשיבה רגילה כדי להשוות בין מושגים או להסיק מסקנות יצירתיות (למשל, השוואה בין רכבים חשמליים לרכבים היברידיים).
-- **משימות מורכבות**: כדי לכתוב קוד מתקדם, לפתור בעיות מתמטיות או לתכנן תוכניות מרובות שלבים (למשל, לפתור בעיות מתמטיות של AIME), כדאי להשתמש בחשיבה מקסימלית.
+- **查看推理过程**：分析思维总结，了解失败原因并改进提示。
+- **控制思考预算**：提示模型减少思考，以节省 token。
+- **简单任务**：使用最少或少量思考来检索事实或进行分类（例如“DeepMind 是在哪里成立的？”）。
+- **中等任务**：使用默认的思考模式来比较概念或进行创意推理（例如，比较电动汽车和混合动力汽车）。
+- **复杂任务**：使用最大思考量来完成高级编码、数学或多步规划任务（例如，解决 AIME 数学问题）。
 
-## המאמרים הבאים
+## 后续步骤
 
-- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he): תשובות טקסט בסיסיות
-- [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he): התחברות לכלי
-- [מדריך Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=he): תכונות ספציפיות למודל
+- [文本生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn)：基本文本回答
+- [函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)：连接到工具
+- [Gemini 3 指南](https://ai.google.dev/gemini-api/docs/gemini-3?hl=zh-cn)：特定于模型的功能
 
-שליחת משוב
+发送反馈
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-עדכון אחרון: 2026-07-06 (שעון UTC).
+最后更新时间 (UTC)：2026-07-06。
 
-רוצה לתת לנו משוב?
+需要向我们提供更多信息？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-06 (שעון UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-06。"],[],[]]

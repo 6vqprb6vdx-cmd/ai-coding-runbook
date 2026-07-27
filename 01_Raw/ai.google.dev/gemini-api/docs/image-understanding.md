@@ -1,42 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=de
-fetched_at: 2026-07-20T04:39:06.812383+00:00
-title: "Bilder verstehen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja
+fetched_at: 2026-07-27T04:49:05.065927+00:00
+title: "\u753b\u50cf\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Feedback geben
+フィードバックを送信
 
-# Bilder verstehen
+# 画像の理解
 
-Gemini-Modelle sind von Grund auf multimodal konzipiert und ermöglichen eine Vielzahl von Aufgaben im Bereich Bildverarbeitung und Computer Vision, darunter Bildunterschriften, Klassifizierung und visuelle Frage-Antwort-Aufgaben, ohne dass spezielle ML-Modelle trainiert werden müssen.
+Gemini モデルは、マルチモーダル AI として一から構築されています。そのため、画像キャプション、分類、視覚的な質問応答など、さまざまな画像処理タスクやコンピュータ ビジョン タスクを、専用の ML モデルをトレーニングすることなく実行できます。
 
-Neben ihren allgemeinen multimodalen Funktionen bieten Gemini-Modelle
-**eine höhere Genauigkeit** für bestimmte Anwendungsfälle wie [Objekterkennung](#object-detection)
-und [Segmentierung](#segmentation), durch zusätzliches Training.
+Gemini モデルは、一般的なマルチモーダル機能に加えて、追加のトレーニングにより、[オブジェクト検出](#object-detection)や[セグメンテーション](#segmentation)などの特定のユースケースで**精度が向上**しています。
 
-## Bilder an Gemini übergeben
+## Gemini に画像を渡す
 
-Sie können Bilder auf verschiedene Arten als Eingabe für Gemini bereitstellen:
+Gemini に画像を渡すには、次の複数の方法があります。
 
-- [Bild über URL übergeben](#url-image): Ideal für öffentlich zugängliche Bilder.
-- [Inline-Bilddaten übergeben](#inline-image): Für base64-codierte Bilddaten.
-- [Bilder mit der File API hochladen](#upload-image): Empfohlen für
-  größere Dateien oder für die Wiederverwendung von Bildern in mehreren Anfragen.
+- [URL を使用して画像を渡す](#url-image): 一般公開されている画像に最適です。
+- [インライン画像データの受け渡し](#inline-image): base64 でエンコードされた画像データの場合。
+- [File API を使用した画像のアップロード](#upload-image): 大きいファイルや、複数のリクエストで画像を再利用する場合におすすめします。
 
-### Bild über URL übergeben
+### URL を使用して画像を渡す
 
-Sie können ein Bild mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hochladen und es
-in der Anfrage übergeben:
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用して画像をアップロードし、リクエストで渡すことができます。
 
 ### Python
 
@@ -107,9 +103,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Inline-Bilddaten übergeben
+### インライン画像データを渡す
 
-Sie können Bilddaten als base64-codierte Strings bereitstellen:
+画像データは base64 エンコード文字列として指定できます。
 
 ### Python
 
@@ -188,9 +184,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Bilder mit der File API hochladen
+### File API を使用して画像をアップロードする
 
-Verwenden Sie die Files API für große Dateien oder um dieselbe Bilddatei wiederholt zu verwenden. Weitere Informationen finden Sie im Leitfaden zur [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
+大きなファイルの場合や、同じ画像ファイルを繰り返し使用できるようにするには、Files API を使用します。[Files API ガイド](https://ai.google.dev/gemini-api/docs/files?hl=ja)をご覧ください。
 
 ### Python
 
@@ -263,9 +259,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Prompts mit mehreren Bildern
+## 複数の画像を使用したプロンプト
 
-Sie können mehrere Bilder in einem einzelnen Prompt bereitstellen, indem Sie mehrere Bildobjekte in das `input`-Array einfügen:
+`input` 配列に複数の画像オブジェクトを含めることで、1 つのプロンプトで複数の画像を指定できます。
 
 ### Python
 
@@ -343,9 +339,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Objekterkennung
+## オブジェクト検出
 
-Modelle werden trainiert, um Objekte in einem Bild zu erkennen und die Koordinaten des Begrenzungsrahmens zu ermitteln. Die Koordinaten werden relativ zu den Bildabmessungen auf [0, 1000] skaliert. Sie müssen diese Koordinaten basierend auf der ursprünglichen Bildgröße herunterskalieren.
+モデルは、画像内のオブジェクトを検出し、その境界ボックスの座標を取得するようにトレーニングされます。画像の寸法を基準とした座標は、[0, 1000] にスケーリングされます。元の画像サイズに基づいて、これらの座標をスケールダウンする必要があります。
 
 ### Python
 
@@ -466,13 +462,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Weitere Beispiele finden Sie im [Gemini Cookbook](https://github.com/google-gemini/cookbook).
+その他の例については、[Gemini クックブック](https://github.com/google-gemini/cookbook)をご覧ください。
 
-## Segmentierung
+## セグメンテーション
 
-Gemini-Modelle erkennen nicht nur Elemente, sondern segmentieren sie auch und stellen ihre Konturmasken bereit.
+Gemini モデルは、アイテムを検出するだけでなく、セグメント化して輪郭マスクを提供します。
 
-Das Modell gibt eine JSON-Liste aus, in der jedes Element eine Segmentierungsmaske darstellt. Jedes Element hat einen Begrenzungsrahmen (`box_2d`) im Format `[ymin, xmin, ymax, xmax]` mit normalisierten Koordinaten zwischen 0 und 1000, ein Label (`label`), das das Objekt identifiziert, und schließlich die Segmentierungsmaske innerhalb des Begrenzungsrahmens als Polygon von `[x, y]`-Koordinaten, die auf 0–1000 normalisiert sind.
+モデルは JSON リストを予測します。各項目はセグメンテーション マスクを表します。各アイテムには、0 ～ 1000 の正規化された座標を持つ `[ymin, xmin, ymax, xmax]` 形式の境界ボックス（「`box_2d`」）、オブジェクトを識別するラベル（「`label`」）、最後に境界ボックス内のセグメンテーション マスク（0 ～ 1000 に正規化された `[x, y]` 座標のポリゴン）があります。
 
 ### Python
 
@@ -613,82 +609,72 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Ein Tisch mit Cupcakes, auf dem die Holz- und Glasobjekte hervorgehoben sind](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=de)
+![カップケーキが並べられたテーブル。木製とガラス製のオブジェクトがハイライト表示されている](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=ja)
 
-Beispiel für eine Segmentierungsausgabe mit Objekten und Segmentierungsmasken
+オブジェクトとセグメンテーション マスクを含むセグメンテーション出力の例
 
-## Unterstützte Bildformate
+## サポートされている画像形式
 
-Gemini unterstützt die folgenden MIME-Typen für Bildformate:
+Gemini は、次の画像形式の MIME タイプをサポートしています。
 
-- PNG – `image/png`
-- JPEG – `image/jpeg`
-- WEBP – `image/webp`
-- HEIC – `image/heic`
-- HEIF – `image/heif`
+- PNG - `image/png`
+- JPEG - `image/jpeg`
+- WEBP - `image/webp`
+- HEIC - `image/heic`
+- HEIF - `image/heif`
 
-Weitere Informationen zu anderen Methoden für die Dateieingabe finden Sie im
-[Leitfaden zu Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
+その他のファイル入力方法については、[ファイル入力方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja)ガイドをご覧ください。
 
-## Leistungsspektrum
+## 機能
 
-Alle Gemini-Modellversionen sind multimodal und können für eine Vielzahl von Aufgaben im Bereich Bildverarbeitung und Computer Vision verwendet werden, darunter Bildunterschriften, visuelle Frage-Antwort-Aufgaben, Bildklassifizierung, Objekterkennung und Segmentierung.
+すべての Gemini モデル バージョンはマルチモーダルであり、画像キャプション、Visual Question & Answering、画像分類、オブジェクト検出、セグメンテーションなど、幅広い画像処理タスクやコンピュータ ビジョン タスクで使用できます。
 
-Je nach Ihren Qualitäts- und Leistungsanforderungen kann Gemini die Notwendigkeit reduzieren, spezielle ML-Modelle zu verwenden.
+Gemini は、品質とパフォーマンスの要件に応じて、特殊な ML モデルを使用する必要性を軽減できます。
 
-Die neuesten Modellversionen wurden speziell trainiert, um die Genauigkeit bei
-speziellen Aufgaben zusätzlich zu allgemeinen Funktionen wie verbesserter
-[Objekterkennung](#object-detection) und [Segmentierung](#segmentation) zu verbessern.
+最新のモデル バージョンは、汎用機能に加えて、[オブジェクト検出](#object-detection)や[セグメンテーション](#segmentation)などの専門的なタスクの精度を向上させるように特別にトレーニングされています。
 
-## Einschränkungen und wichtige technische Informationen
+## 制限事項と主な技術情報
 
-### Dateilimit
+### ファイルの上限
 
-Gemini-Modelle unterstützen maximal 3.600 Bilddateien pro Anfrage.
+Gemini モデルは、リクエストあたり最大 3,600 個の画像ファイルをサポートしています。
 
-### Tokenberechnung
+### トークンの計算
 
-- 258 Tokens, wenn beide Dimensionen <= 384 Pixel sind.
-  Größere Bilder werden in Kacheln mit 768 × 768 Pixel aufgeteilt, die jeweils 258 Tokens kosten.
+- 両方の寸法が 384 ピクセル以下の場合、258 個のトークン。大きな画像は 768x768 ピクセルのタイルに分割され、それぞれ 258 個のトークンを消費します。
 
-Eine grobe Formel zur Berechnung der Anzahl der Kacheln lautet so:
+タイルの数を計算するおおよその式は次のとおりです。
 
-- Berechnen Sie die Größe der Zuschneideeinheit, die ungefähr so aussieht: `floor(min(width, height)` / 1.5).
-- Teilen Sie jede Dimension durch die Größe der Zuschneideeinheit und multiplizieren Sie die Ergebnisse, um die Anzahl der Kacheln zu erhalten.
+- 切り抜き単位のサイズ（おおよそ `floor(min(width, height)` / 1.5）を計算します。
+- 各ディメンションをクロップ単位サイズで割り、乗算してタイルの数を取得します。
 
-Bei einem Bild mit den Abmessungen 960 × 540 beträgt die Größe der Zuschneideeinheit beispielsweise 360. Teilen Sie jede Dimension durch 360. Die Anzahl der Kacheln beträgt 3 × 2 = 6.
+たとえば、960x540 のサイズの画像の場合、切り抜き単位のサイズは 360 になります。各ディメンションを 360 で割ると、タイルの数は 3 × 2 = 6 になります。
 
-### Auflösung von Medien
+### メディアの解像度
 
-Mit Gemini 3 wird mit dem Parameter `media_resolution` eine detaillierte Steuerung der multimodalen Bildverarbeitung eingeführt. Der Parameter `media_resolution` bestimmt die **maximale Anzahl von Tokens, die pro Eingabebild oder Videobild zugewiesen werden**.
-Höhere Auflösungen verbessern die Fähigkeit des Modells, kleinen Text zu lesen oder kleine Details zu erkennen, erhöhen aber die Tokennutzung und die Latenz.
+Gemini 3 では、`media_resolution` パラメータを使用して、マルチモーダル ビジョン処理をきめ細かく制御できます。`media_resolution` パラメータは、**入力画像または動画フレームごとに割り当てられるトークンの最大数**を決定します。解像度が高いほど、モデルが細かいテキストを読み取ったり、小さな詳細を識別する能力が向上しますが、トークンの使用量とレイテンシが増加します。
 
-## Tipps und Best Practices
+## おすすめの方法やお役立ち情報
 
-- Prüfen Sie, ob die Bilder richtig gedreht sind.
-- Verwenden Sie klare, nicht verschwommene Bilder.
-- Wenn Sie ein einzelnes Bild mit Text verwenden, platzieren Sie den Text-Prompt *vor* dem Bild im `input`-Array.
+- 画像が正しく回転することを確認します。
+- 鮮明でぼやけていない画像を使用します。
+- テキストを含む 1 つの画像を使用する場合は、`input` 配列の画像の前にテキスト プロンプトを配置します。
 
-## Nächste Schritte
+## 次のステップ
 
-In diesem Leitfaden erfahren Sie, wie Sie Bilddateien hochladen und Textausgaben aus Bildeingaben generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
+このガイドでは、画像ファイルをアップロードし、画像入力からテキスト出力を生成する方法について説明します。詳細については、次のリソースをご覧ください。
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de): Weitere Informationen zum Hochladen und Verwalten von Dateien zur Verwendung mit Gemini.
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions):
-  Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren
-  spezifischen Anforderungen und Anwendungsfällen steuern.
-- [Strategien für Prompts mit Dateien](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die
-  Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch
-  multimodale Prompts genannt.
-- [Sicherheitsleitfaden](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Generative
-  KI-Modelle liefern manchmal unerwartete Ausgaben, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): Gemini で使用するファイルのアップロードと管理について説明します。
+- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions): システム指示を使用すると、特定のニーズやユースケースに基づいてモデルの動作を制御できます。
+- [ファイル プロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide): Gemini API は、テキスト、画像、音声、動画データを使用したプロンプト（マルチモーダル プロンプトとも呼ばれます）をサポートしています。
+- [安全に関するガイダンス](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja): 生成 AI モデルは、不正確、偏見がある、不快な出力など、予期しない出力を生成することがあります。このような出力による危害のリスクを制限するには、後処理と人間による評価が不可欠です。
 
-Feedback geben
+フィードバックを送信
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Zuletzt aktualisiert: 2026-07-07 (UTC).
+最終更新日 2026-07-07 UTC。
 
-Haben Sie Feedback für uns?
+ご意見をお聞かせください
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-07 (UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-07 UTC。"],[],[]]

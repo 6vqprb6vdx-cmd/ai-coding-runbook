@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=ar
-fetched_at: 2026-07-20T04:34:44.813362+00:00
-title: "\u0627\u0633\u062a\u062f\u0639\u0627\u0621 \u0627\u0644\u062f\u0648\u0627\u0644\u0651 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=ko
+fetched_at: 2026-07-27T04:43:59.468730+00:00
+title: "Gemini API\ub97c \uc0ac\uc6a9\ud55c \ud568\uc218 \ud638\ucd9c \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-إرسال ملاحظات
+의견 보내기
 
-# استدعاء الدوالّ باستخدام Gemini API
+# Gemini API를 사용한 함수 호출
 
-تتيح لك ميزة "استدعاء الدوال" ربط النماذج بالأدوات وواجهات برمجة التطبيقات الخارجية.
-وبدلاً من إنشاء ردود نصية، يحدّد النموذج الوقت المناسب لاستدعاء دوال معيّنة ويقدّم المَعلمات اللازمة لتنفيذ إجراءات في العالم الحقيقي.
-يتيح ذلك للنموذج أن يكون بمثابة جسر بين اللغة الطبيعية والإجراءات والبيانات في العالم الحقيقي. تتضمّن ميزة "استدعاء الدالة" 3 حالات استخدام أساسية:
+함수 호출을 사용하면 모델을 외부 도구 및 API에 연결할 수 있습니다.
+모델은 텍스트 대답을 생성하는 대신 특정 함수를 호출할 시점을 결정하고 실제 작업을 실행하는 데 필요한 파라미터를 제공합니다.
+이를 통해 모델은 자연어와 실제 작업 및 데이터 간의 브리지 역할을 할 수 있습니다. 함수 호출에는 3가지 주요 사용 사례가 있습니다.
 
-- [**اتّخاذ إجراءات:**](#meeting) التفاعل مع الأنظمة الخارجية باستخدام واجهات برمجة التطبيقات، مثل تحديد المواعيد أو إنشاء الفواتير أو إرسال الرسائل الإلكترونية أو التحكّم في الأجهزة المنزلية الذكية
-- [**تعزيز المعرفة:**](#weather) الوصول إلى المعلومات من مصادر خارجية، مثل قواعد البيانات وواجهات برمجة التطبيقات وقواعد المعلومات
-- [**توسيع الإمكانات:**](#chart) يمكنك استخدام أدوات خارجية لإجراء العمليات الحسابية وتوسيع حدود النموذج، مثل استخدام آلة حاسبة أو إنشاء رسومات بيانية.
+- [**작업 수행:**](#meeting) 약속 일정 예약, 인보이스 생성, 이메일 전송, 스마트 홈 기기 제어 등 API를 사용하여 외부 시스템과 상호작용합니다.
+- [**지식 보강:**](#weather) 데이터베이스, API, 기술 자료와 같은 외부 소스의 정보에 액세스합니다.
+- [**기능 확장:**](#chart) 외부 도구를 사용하여 계산을 수행하고 계산기 사용이나 차트 생성과 같은 모델의 제한사항을 확장합니다.
 
-يمكنك الاطّلاع أدناه على أمثلة على حالات الاستخدام هذه:
+아래에서 이러한 사용 사례의 예를 살펴볼 수 있습니다.
 
-### تحديد موعد اجتماع
+### 회의 일정 예약
 
-يوضّح هذا المثال كيفية تحديد دالة تحدّد موعدًا لاجتماع مع المشارِكين في وقت معيّن، ما يسمح للنموذج بتحليل طلبات المستخدمين وعرض وسيطات منظَّمة لتنفيذ إجراءات في أنظمة خارجية.
+이 예에서는 특정 시간에 참석자와 회의를 예약하는 함수를 정의하여 모델이 사용자 요청을 파싱하고 구조화된 인수를 반환하여 외부 시스템에서 작업을 트리거할 수 있도록 하는 방법을 보여줍니다.
 
 ### Python
 
@@ -75,7 +75,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about the Q3 planning.",
     config=config,
 )
@@ -93,7 +93,7 @@ else:
     print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -132,7 +132,7 @@ const scheduleMeetingFunctionDeclaration = {
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about the Q3 planning.',
   config: {
     tools: [{
@@ -158,7 +158,7 @@ if (response.functionCalls && response.functionCalls.length > 0) {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -209,9 +209,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### الحصول على معلومات الطقس
+### 날씨 확인
 
-يوضّح هذا المثال كيفية تحديد دالة تسترد بيانات درجة الحرارة لموقع جغرافي، ما يتيح للنموذج استدعاء واجهات برمجة التطبيقات الخارجية للإجابة عن طلبات البحث التي تتطلّب معلومات خارجية أو في الوقت الفعلي.
+이 예시에서는 위치의 온도 데이터를 가져오는 함수를 정의하여 모델이 실시간 또는 외부 정보가 필요한 질문에 답하기 위해 외부 API를 호출할 수 있도록 하는 방법을 보여줍니다.
 
 ### Python
 
@@ -242,7 +242,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="What's the temperature in London?",
     config=config,
 )
@@ -260,7 +260,7 @@ else:
     print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -286,7 +286,7 @@ const weatherFunctionDeclaration = {
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: "What's the temperature in London?",
   config: {
     tools: [{
@@ -312,7 +312,7 @@ if (response.functionCalls && response.functionCalls.length > 0) {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -350,9 +350,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### إنشاء رسم بياني
+### 차트 만들기
 
-يوضّح هذا المثال كيفية تحديد دالة تنشئ رسمًا بيانيًا شريطيًا من بيانات منظَّمة، ما يوضّح كيف يمكن للنموذج استخدام أدوات خارجية لإجراء عمليات حسابية أو إنشاء أصول مرئية:
+이 예에서는 구조화된 데이터에서 막대 그래프를 생성하는 함수를 정의하여 모델이 외부 도구를 사용하여 계산을 수행하거나 시각적 애셋을 만드는 방법을 보여줍니다.
 
 ### Python
 
@@ -394,7 +394,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000.",
     config=config,
 )
@@ -412,7 +412,7 @@ else:
     print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -448,7 +448,7 @@ const createChartFunctionDeclaration = {
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: "Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000.",
   config: {
     tools: [{
@@ -474,7 +474,7 @@ if (response.functionCalls && response.functionCalls.length > 0) {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -522,32 +522,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## طريقة عمل ميزة "استدعاء الدوال"
+## 함수 호출 작동 방식
 
-![نظرة عامة حول ميزة &quot;استدعاء الدالة&quot;](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=ar)
+![함수 호출 개요](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=ko)
 
-تتضمّن ميزة "استدعاء الدوال" تفاعلاً منظَّمًا بين تطبيقك والنموذج والدوال الخارجية. في ما يلي تفاصيل العملية:
+함수 호출은 애플리케이션, 모델, 외부 함수 간의 구조화된 상호작용을 포함합니다. 이 과정은 다음과 같이 세분화할 수 있습니다.
 
-1. **تحديد تعريف الدالة:** حدِّد تعريف الدالة في الرمز البرمجي لتطبيقك. تصف "تعريفات الدوال" اسم الدالة ومعلماتها والغرض منها للنموذج.
-2. **استدعاء واجهة برمجة التطبيقات باستخدام تعريفات الدوال:** أرسِل طلب المستخدم مع تعريفات الدوال إلى النموذج. ويحلّل الطلب ويحدّد ما إذا كان استدعاء دالة سيكون مفيدًا. في هذه الحالة، يستجيب النموذج بكائن JSON منظَّم يحتوي على اسم الدالة والمعلَمات ومعرّف فريد `id`
-   (يعرض النموذج الآن هذا المعرّف `id` دائمًا عند استخدام نماذج Gemini 3\*).
-3. **تنفيذ رمز الدالة (مسؤوليتك):** *لا* ينفّذ النموذج الدالة بنفسه. يقع على عاتق تطبيقك مسؤولية معالجة الرد والتحقّق من وجود طلب استدعاء دالة. If
-   - **نعم**: استخرِج الاسم والوسيطات و`id` للدالة ونفِّذ الدالة المقابلة في تطبيقك.
-   - **لا:** قدّم النموذج ردًا نصيًا مباشرًا على الطلب
-     (لا يتم التركيز على هذا المسار في المثال، ولكنّه نتيجة محتملة).
-4. **إنشاء ردّ سهل الاستخدام:** إذا تم تنفيذ دالة، سجِّل النتيجة وأرسِلها مرة أخرى إلى النموذج، مع الحرص على تضمين `id` المطابق في دورة لاحقة من المحادثة. سيستخدم النموذج النتيجة لإنشاء رد نهائي سهل الاستخدام يتضمّن المعلومات من استدعاء الدالة.
+1. **함수 선언 정의:** 애플리케이션 코드에서 함수 선언을 정의합니다. 함수 선언은 함수의 이름, 매개변수, 목적을 모델에 설명합니다.
+2. **함수 선언으로 API 호출:** 함수 선언과 함께 사용자 프롬프트를 모델에 전송합니다. 요청을 분석하고 함수 호출이 도움이 되는지 확인합니다. 그렇다면 함수 이름, 인수, 고유한 `id`(이 `id`는 이제 Gemini 3 모델\*의 API에서 항상 반환됨)가 포함된 구조화된 JSON 객체로 응답합니다.
+3. **함수 코드 실행 (개발자 책임):** 모델은 함수 자체를 실행*하지 않습니다*. 응답을 처리하고 함수 호출을 확인하는 것은 애플리케이션의 책임입니다. 다음과 같은 경우에만
+   - **예**: 함수의 이름, 인수, `id`를 추출하고 애플리케이션에서 해당 함수를 실행합니다.
+   - **아니요:** 모델이 프롬프트에 직접 텍스트 응답을 제공했습니다(이 흐름은 예시에서 덜 강조되지만 가능한 결과임).
+4. **사용자 친화적인 대답 만들기:** 함수가 실행된 경우 결과를 캡처하여 모델에 다시 전송하고, 후속 대화 턴에서 일치하는 `id`를 포함해야 합니다. 이 결과를 사용하여 함수 호출의 정보를 통합하는 최종적이고 사용자 친화적인 대답을 생성합니다.
 
-يمكن تكرار هذه العملية عدة مرات، ما يتيح إجراء تفاعلات وعمليات سير عمل معقّدة. يتيح النموذج أيضًا استدعاء دوال متعددة
-في دورة واحدة ([استدعاء الدوال بالتوازي](#parallel_function_calling))،
-وبالتسلسل ([استدعاء الدوال التركيبي](#compositional_function_calling))،
-ومع أدوات Gemini المضمّنة ([استخدام أدوات متعددة](#native-tools)).
+이 프로세스는 여러 턴에 걸쳐 반복될 수 있으므로 복잡한 상호작용과 워크플로가 가능합니다. 또한 모델은 단일 턴에서 여러 함수를 순서대로([컴포지셔널 함수 호출](#compositional_function_calling)) 호출하고, 내장된 Gemini 도구([다중 도구 사용](#native-tools))를 사용하여 호출하는 [병렬 함수 호출](#parallel_function_calling)을 지원합니다.
 
-\* **ربط معرّفات الدوال دائمًا:** يعرض Gemini 3 الآن دائمًا معرّفًا فريدًا
-`id` مع كل `functionCall`. يجب تضمين `id` هذا بالضبط في `functionResponse` حتى يتمكّن النموذج من ربط النتيجة بالطلب الأصلي بدقة.
+\* **항상 함수 ID 매핑:** 이제 Gemini 3는 모든 `functionCall`에 고유한 `id`를 항상 반환합니다. 모델이 결과를 원래 요청에 정확하게 매핑할 수 있도록 `functionResponse`에 이 정확한 `id`를 포함하세요.
 
-### الخطوة 1: تحديد تعريف دالة
+### 1단계: 함수 선언 정의
 
-حدِّد دالة وبيانها ضمن الرمز البرمجي لتطبيقك يسمح للمستخدمين بضبط قيم الإضاءة وإجراء طلب بيانات من واجهة برمجة التطبيقات. يمكن أن تستدعي هذه الدالة خدمات أو واجهات برمجة تطبيقات خارجية.
+사용자가 조명 값을 설정하고 API 요청을 할 수 있도록 애플리케이션 코드 내에서 함수와 선언을 정의합니다. 이 함수는 외부 서비스나 API를 호출할 수 있습니다.
 
 ### Python
 
@@ -587,7 +581,7 @@ def set_light_values(brightness: int, color_temp: str) -> dict[str, int | str]:
     return {"brightness": brightness, "colorTemperature": color_temp}
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { Type } from '@google/genai';
@@ -628,9 +622,9 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### الخطوة 2: استدعاء النموذج باستخدام تعريفات الدوال
+### 2단계: 함수 선언으로 모델 호출
 
-بعد تحديد تعريفات الدوال، يمكنك أن تطلب من النموذج استخدامها. ويحلّل الطلب وتعريفات الدوال ويقرّر ما إذا كان سيردّ مباشرةً أو سيستدعي دالة. إذا تم استدعاء دالة، سيحتوي عنصر الاستجابة على اقتراح باستدعاء دالة.
+함수 선언을 정의한 후 모델에 이를 사용하도록 요청할 수 있습니다. 프롬프트와 함수 선언을 분석하여 직접 응답할지 함수를 호출할지 결정합니다. 함수가 호출되면 응답 객체에 함수 호출 제안이 포함됩니다.
 
 ### Python
 
@@ -651,7 +645,7 @@ contents = [
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=contents,
     config=config,
 )
@@ -659,7 +653,7 @@ response = client.models.generate_content(
 print(response.candidates[0].content.parts[0].function_call)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -684,7 +678,7 @@ const contents = [
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: contents,
   config: config
 });
@@ -692,7 +686,7 @@ const response = await ai.models.generateContent({
 console.log(response.functionCalls[0]);
 ```
 
-بعد ذلك، يعرض النموذج كائن `functionCall` في مخطط متوافق مع OpenAPI يحدّد كيفية طلب إحدى الدوال المحدّدة أو أكثر من أجل الرد على سؤال المستخدم.
+그러면 모델은 사용자 질문에 답변하기 위해 선언된 함수를 하나 이상 호출하는 방법을 지정하는 OpenAPI 호환 스키마의 `functionCall` 객체를 반환합니다.
 
 ### Python
 
@@ -700,7 +694,7 @@ console.log(response.functionCalls[0]);
 id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_values'
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 {
@@ -710,9 +704,9 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 }
 ```
 
-### الخطوة 3: تنفيذ رمز الدالة set\_light\_values
+### 3단계: set\_light\_values 함수 코드 실행
 
-استخرِج تفاصيل طلب استدعاء الدالة من ردّ النموذج، وحلِّل المَعلمات، ونفِّذ الدالة `set_light_values`.
+모델의 대답에서 함수 호출 세부정보를 추출하고, 인수를 파싱하고, `set_light_values` 함수를 실행합니다.
 
 ### Python
 
@@ -725,7 +719,7 @@ if tool_call.name == "set_light_values":
     print(f"Function execution result: {result}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // Extract tool call details
@@ -738,9 +732,9 @@ if (tool_call.name === 'set_light_values') {
 }
 ```
 
-### الخطوة 4: إنشاء ردّ سهل الاستخدام يتضمّن نتيجة الدالة واستدعاء النموذج مرة أخرى
+### 4단계: 함수 결과로 사용자 친화적인 응답을 만들고 모델을 다시 호출
 
-أخيرًا، أرسِل نتيجة تنفيذ الدالة إلى النموذج ليتمكّن من دمج هذه المعلومات في الرد النهائي الذي يقدّمه للمستخدم.
+마지막으로 함수 실행 결과를 모델에 다시 전송하여 이 정보를 사용자에 대한 최종 대답에 통합할 수 있도록 합니다.
 
 ### Python
 
@@ -761,7 +755,7 @@ contents.append(types.Content(role="user", parts=[function_response_part])) # Ap
 
 client = genai.Client()
 final_response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     config=config,
     contents=contents,
 )
@@ -769,7 +763,7 @@ final_response = client.models.generate_content(
 print(final_response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // Create a function response part
@@ -785,7 +779,7 @@ contents.push({ role: 'user', parts: [{ functionResponse: function_response_part
 
 // Get the final response from the model
 const final_response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: contents,
   config: config
 });
@@ -793,62 +787,54 @@ const final_response = await ai.models.generateContent({
 console.log(final_response.text);
 ```
 
-بهذا تنتهي عملية استدعاء الدوال. استخدم النموذج الدالة
-`set_light_values` بنجاح لتنفيذ الإجراء المطلوب من المستخدم.
+이로써 함수 호출 흐름이 완료됩니다. 모델이 `set_light_values` 함수를 사용하여 사용자의 요청 작업을 성공적으로 수행했습니다.
 
-## تعريفات الدوال
+## 함수 선언
 
-عند تنفيذ ميزة "استدعاء الدوال" في طلب، يمكنك إنشاء عنصر `tools` يحتوي على دالة واحدة أو أكثر من دوال `function declarations`. يمكنك تحديد الدوال باستخدام JSON، وتحديدًا باستخدام [مجموعة فرعية من select](https://ai.google.dev/api/caching?hl=ar#Schema) من تنسيق [مخطط OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). يمكن أن يتضمّن تعريف الدالة الواحدة المَعلمات التالية:
+프롬프트에서 함수 호출을 구현할 때 하나 이상의 `function declarations`이 포함된 `tools` 객체를 만듭니다. JSON을 사용하여 함수를 정의할 때, 특히 [OpenAPI 스키마](https://spec.openapis.org/oas/v3.0.3#schemaw) 형식의 [선택된 하위 집합](https://ai.google.dev/api/caching?hl=ko#Schema)을 사용합니다. 단일 함수 선언에는 다음 파라미터가 포함될 수 있습니다.
 
-- ‫`name` (string): اسم فريد للدالة (`get_weather_forecast`،
-  `send_email`). استخدِم أسماء وصفية بدون مسافات أو أحرف خاصة
-  (استخدِم الشرطات السفلية أو camelCase).
-- `description` (سلسلة): شرح واضح ومفصّل للغرض من الدالة وإمكاناتها. هذا أمر بالغ الأهمية لكي يفهم النموذج متى يجب استخدام الدالة. كن محدّدًا وقدِّم أمثلة إذا كان ذلك مفيدًا ("تعثر على دور السينما استنادًا إلى الموقع الجغرافي وعنوان الفيلم اختياريًا، والذي يتم عرضه حاليًا في دور السينما").
-- ‫`parameters` (object): تحدّد هذه السمة مَعلمات الإدخال التي تتوقّعها الدالة.
-  - `type` (سلسلة): تحدّد نوع البيانات العام، مثل `object`.
-  - `properties` (عنصر): يدرج المَعلمات الفردية، ويتضمّن كل منها ما يلي:
-    - `type` (سلسلة): نوع بيانات المَعلمة، مثل `string` أو `integer` أو `boolean, array`
-    - ‫`description` (سلسلة): وصف لغرض المَعلمة وتنسيقها. قدِّم أمثلة وقيودًا ("المدينة والولاية،
-      مثل 'سان فرانسيسكو، كاليفورنيا' أو رمز بريدي مثل '95616'").
-    - ‫`enum` (مصفوفة، اختياري): إذا كانت قيم المَعلمات من مجموعة ثابتة، استخدِم "enum" لإدراج القيم المسموح بها بدلاً من مجرد وصفها في الوصف. يؤدي ذلك إلى تحسين الدقة ("enum":
-      ["daylight", "cool", "warm"]).
-  - ‫`required` (مصفوفة): مصفوفة من السلاسل تسرد أسماء المَعلمات التي يجب توفّرها لكي تعمل الدالة.
+- `name` (문자열): 함수의 고유한 이름 (`get_weather_forecast`, `send_email`)입니다. 공백이나 특수문자가 없는 설명적인 이름을 사용하세요(밑줄이나 카멜 표기법 사용).
+- `description` (문자열): 함수의 목적과 기능을 명확하고 자세하게 설명합니다. 이는 모델이 함수를 사용해야 하는 시점을 이해하는 데 중요합니다. 구체적으로 설명하고 도움이 되는 경우 예를 들어 주세요 ('위치를 기반으로 영화관을 찾고, 선택적으로 현재 영화관에서 상영 중인 영화 제목을 찾습니다.').
+- `parameters` (객체): 함수에서 예상하는 입력 매개변수를 정의합니다.
+  - `type` (문자열): `object`과 같은 전체 데이터 유형을 지정합니다.
+  - `properties` (객체): 개별 파라미터를 각각 나열합니다.
+    - `type`(문자열): 매개변수의 데이터 유형입니다(예: `string`, `integer`, `boolean, array`).
+    - `description` (문자열): 파라미터의 목적과 형식을 설명합니다. 예시와 제약 조건('도시와 주(예: 'San Francisco, CA') 또는 우편번호(예: '95616')')을 제공합니다.
+    - `enum` (배열, 선택사항): 파라미터 값이 고정된 집합에서 파생된 경우 설명에 값을 설명하는 대신 'enum'을 사용하여 허용된 값을 나열합니다. 이렇게 하면 정확도가 향상됩니다 ('enum':
+      ['daylight', 'cool', 'warm']).
+  - `required` (배열): 함수가 작동하는 데 필수인 파라미터 이름을 나열하는 문자열 배열입니다.
 
-يمكنك أيضًا إنشاء `FunctionDeclarations` من دوال Python مباشرةً باستخدام `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
+`types.FunctionDeclaration.from_callable(client=client, callable=your_function)`을 사용하여 Python 함수에서 직접 `FunctionDeclarations`를 구성할 수도 있습니다.
 
-## استدعاء الدوال باستخدام نماذج التفكير
+## 사고 모델을 사용한 함수 호출
 
-تستخدم نماذج Gemini 3 و2.5 سلسلة عملية ["تفكير"](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) داخلية للاستدلال على الطلبات. يؤدي ذلك إلى تحسين أداء ميزة &quot;استدعاء الدوال&quot; بشكل كبير، ما يسمح للنموذج بتحديد الوقت المناسب لاستدعاء دالة معيّنة والمعلَمات التي يجب استخدامها. بما أنّ Gemini API لا يحتفظ بأي بيانات، تستخدم النماذج
-[توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar) للحفاظ على السياق
-في المحادثات المترابطة.
+Gemini 3 및 2.5 시리즈 모델은 내부 ['사고'](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) 프로세스를 사용하여 요청을 추론합니다. 이렇게 하면 함수 호출 성능이 크게 향상되어 모델이 함수를 호출할 시기와 사용할 매개변수를 더 잘 결정할 수 있습니다. Gemini API는 스테이트리스(Stateless)이므로 모델은 [생각 서명](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ko)을 사용하여 멀티턴 대화 전반에서 컨텍스트를 유지합니다.
 
-يتناول هذا القسم الإدارة المتقدّمة لتوقيعات الأفكار، ولا يكون ضروريًا إلا إذا كنت تنشئ طلبات واجهة برمجة التطبيقات يدويًا (مثل REST) أو تتلاعب بسجلّ المحادثات.
+이 섹션에서는 생각 서명의 고급 관리를 다루며, API 요청을 수동으로 구성하거나 (예: REST를 통해) 대화 기록을 조작하는 경우에만 필요합니다.
 
-**إذا كنت تستخدم [حِزم تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) (مكتباتنا الرسمية)، لن تحتاج إلى إدارة هذه العملية**. تتولّى حِزم SDK تلقائيًا تنفيذ الخطوات اللازمة، كما هو موضّح في [المثال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-4) السابق.
+**[Google 생성형 AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ko) (Google의 공식 라이브러리)를 사용하는 경우 이 프로세스를 관리할 필요가 없습니다**. SDK는 이전 [예](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#step-4)에 표시된 대로 필요한 단계를 자동으로 처리합니다.
 
-### إدارة سجلّ المحادثات يدويًا
+### 대화 기록 수동 관리
 
-في حال تعديل سجلّ المحادثات يدويًا، بدلاً من إرسال [الردّ السابق الكامل](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-4)، عليك التعامل بشكل صحيح مع `thought_signature` المضمّن في ردّ النموذج.
+대화 기록을 수동으로 수정하는 경우 [이전의 완전한 응답](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#step-4)을 보내는 대신 모델의 턴에 포함된 `thought_signature`를 올바르게 처리해야 합니다.
 
-اتّبِع القواعد التالية لضمان الحفاظ على سياق النموذج:
+모델의 컨텍스트가 유지되도록 다음 규칙을 따르세요.
 
-- يجب دائمًا إرسال `thought_signature` مرة أخرى إلى النموذج داخل [`Part`](https://ai.google.dev/api?hl=ar#request-body-structure) الأصلي.
-- **احرص دائمًا على تضمين `id` نفسه من `function_call` في `function_response` لكي تتمكّن واجهة برمجة التطبيقات من ربط النتيجة بالطلب الصحيح.**
-- لا تدمج `Part` تحتوي على توقيع مع `Part` لا تحتوي على توقيع. يؤدي ذلك إلى فقدان السياق المكاني للفكرة.
-- لا تدمج بين ملفَي `Parts` يحتويان على تواقيع، لأنّه لا يمكن دمج سلاسل التواقيع.
+- 항상 원래 [`Part`](https://ai.google.dev/api?hl=ko#request-body-structure) 내에서 `thought_signature`를 모델에 다시 전송합니다.
+- **API가 결과를 올바른 요청에 매핑할 수 있도록 항상 `function_response`에 `function_call`의 정확한 `id`를 포함하세요.**
+- 서명이 포함된 `Part`를 서명이 포함되지 않은 `Part`와 병합하지 마세요. 이렇게 하면 사고의 위치 컨텍스트가 깨집니다.
+- 서명이 포함된 두 `Parts`를 결합하지 마세요. 서명 문자열은 병합할 수 없습니다.
 
-#### توقيعات أفكار Gemini 3
+#### Gemini 3 사고 서명
 
-في Gemini 3، قد يحتوي أي [`Part`](https://ai.google.dev/api?hl=ar#request-body-structure) من ردّ النموذج
-على توقيع فكري.
-على الرغم من أنّنا ننصح بشكل عام بعرض التوقيعات من جميع أنواع `Part`، إلا أنّ عرض توقيعات الأفكار إلزامي عند استخدام ميزة "استدعاء الدوال". ما لم يتم التلاعب يدويًا بسجلّ المحادثات، ستتعامل حزمة تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي مع توقيعات الأفكار تلقائيًا.
+Gemini 3에서는 모델 응답의 모든 [`Part`](https://ai.google.dev/api?hl=ko#request-body-structure)에 사고 서명이 포함될 수 있습니다.
+일반적으로 모든 `Part` 유형에서 서명을 반환하는 것이 좋지만, 함수 호출의 경우 생각 서명을 다시 전달해야 합니다. 대화 기록을 수동으로 조작하지 않는 한 Google 생성형 AI SDK에서 생각 서명을 자동으로 처리합니다.
 
-إذا كنت تتلاعب بسجلّ المحادثات يدويًا، يُرجى الرجوع إلى صفحة [توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar) للحصول على إرشادات وتفاصيل كاملة حول كيفية التعامل مع توقيعات الأفكار في Gemini 3.
+대화 기록을 수동으로 조작하는 경우 [사고 서명](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ko) 페이지에서 Gemini 3의 사고 서명 처리에 관한 전체 안내와 세부정보를 참고하세요.
 
-##### فحص توقيعات الأفكار
+##### 생각 서명 검사
 
-مع أنّ ذلك ليس ضروريًا للتنفيذ، يمكنك فحص الاستجابة للاطّلاع على
-`thought_signature` لأغراض تصحيح الأخطاء أو تعليمية.
+구현에 필수는 아니지만 디버깅이나 교육 목적으로 응답을 검사하여 `thought_signature`를 확인할 수 있습니다.
 
 ### Python
 
@@ -863,7 +849,7 @@ if part.thought_signature:
   print(base64.b64encode(part.thought_signature).decode("utf-8"))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // After receiving a response from a model with thinking enabled
@@ -876,13 +862,13 @@ if (part.thoughtSignature) {
 }
 ```
 
-يمكنك الاطّلاع على مزيد من المعلومات حول القيود والاستخدامات المتعلقة بالتوقيعات الفكرية ونماذج التفكير بشكل عام في صفحة [التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#signatures).
+[생각](https://ai.google.dev/gemini-api/docs/thinking?hl=ko#signatures) 페이지에서 생각 서명의 제한사항 및 사용법과 일반적인 생각 모델에 대해 자세히 알아보세요.
 
-## استدعاء الدوال بشكل متوازٍ
+## 병렬 함수 호출
 
-بالإضافة إلى استدعاء الدوال في محادثة واحدة، يمكنك أيضًا استدعاء دوال متعددة في الوقت نفسه. تتيح لك ميزة "استدعاء الدوال المتوازي" تنفيذ دوال متعددة في الوقت نفسه، ويتم استخدامها عندما لا تكون الدوال معتمدة على بعضها البعض. ويكون ذلك مفيدًا في سيناريوهات مثل جمع البيانات من مصادر مستقلة متعددة، مثل استرداد تفاصيل العملاء من قواعد بيانات مختلفة أو التحقّق من مستويات المخزون في مستودعات مختلفة أو تنفيذ إجراءات متعددة مثل تحويل شقتك إلى ديسكو.
+단일 턴 함수 호출 외에도 한 번에 여러 함수를 호출할 수 있습니다. 병렬 함수 호출을 사용하면 여러 함수를 한 번에 실행할 수 있으며 함수가 서로 종속되지 않는 경우에 사용됩니다. 이는 여러 독립 소스에서 데이터를 수집하는 시나리오에서 유용합니다. 예를 들어 여러 데이터베이스에서 고객 세부정보를 가져오거나 여러 창고에서 재고 수준을 확인하거나 아파트를 디스코로 변환하는 등의 여러 작업을 실행하는 경우에 유용합니다.
 
-عندما يبدأ النموذج عدة طلبات استدعاء دوال في دورة واحدة، ليس عليك عرض كائنات `function_result` بالترتيب نفسه الذي تم استلام كائنات `function_call` به. يربط Gemini API كل نتيجة بالمكالمة المقابلة لها باستخدام `id` من ناتج النموذج. يتيح لك ذلك تنفيذ الدوال بشكل غير متزامن وإلحاق النتائج بقائمتك عند اكتمالها.
+모델이 단일 턴에서 여러 함수 호출을 시작하는 경우 `function_call` 객체를 수신한 순서와 동일한 순서로 `function_result` 객체를 반환하지 않아도 됩니다. Gemini API는 모델 출력의 `id`를 사용하여 각 결과를 해당 호출에 다시 매핑합니다. 이렇게 하면 함수를 비동기적으로 실행하고 완료되면 결과를 목록에 추가할 수 있습니다.
 
 ### Python
 
@@ -937,7 +923,7 @@ dim_lights = {
 }
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { Type } from '@google/genai';
@@ -992,8 +978,8 @@ const dimLights = {
 };
 ```
 
-اضبط وضع "استدعاء الدوال" للسماح باستخدام جميع الأدوات المحدّدة.
-لمزيد من المعلومات، يمكنك الاطّلاع على مقالة [ضبط ميزة "استدعاء الدوال"](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#function_calling_modes).
+지정된 모든 도구를 사용할 수 있도록 함수 호출 모드를 구성합니다.
+자세한 내용은 [함수 호출 구성](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#function_calling_modes)을 참고하세요.
 
 ### Python
 
@@ -1017,7 +1003,7 @@ config = types.GenerateContentConfig(
     ),
 )
 
-chat = client.chats.create(model="gemini-3.5-flash", config=config)
+chat = client.chats.create(model="gemini-3.6-flash", config=config)
 response = chat.send_message("Turn this place into a party!")
 
 # Print out each of the function calls requested from this single call
@@ -1027,7 +1013,7 @@ for fn in response.function_calls:
     print(f"{fn.name}({args}) - ID: {fn.id}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1052,7 +1038,7 @@ const ai = new GoogleGenAI({});
 
 // Create a chat session
 const chat = ai.chats.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     config: config
 });
 const response = await chat.sendMessage({message: 'Turn this place into a party!'});
@@ -1067,11 +1053,9 @@ for (const fn of response.functionCalls) {
 }
 ```
 
-تعكس كل نتيجة مطبوعة طلبًا واحدًا للدالة قد طلبه النموذج. لإعادة إرسال النتائج، يجب تضمين الردود بالترتيب نفسه الذي تم طلبها به.
+인쇄된 각 결과는 모델이 요청한 단일 함수 호출을 반영합니다. 결과를 다시 보내려면 요청된 순서와 동일한 순서로 응답을 포함하세요.
 
-يتيح حزمة تطوير البرامج (SDK) الخاصة بلغة Python [استدعاء الدوال تلقائيًا](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#automatic_function_calling_python_only)،
-ما يؤدي إلى تحويل دوال Python تلقائيًا إلى تعريفات، والتعامل مع دورة تنفيذ استدعاء الدالة والاستجابة نيابةً عنك. في ما يلي مثال على حالة استخدام
-الديسكو.
+Python SDK는 [자동 함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#automatic_function_calling_python_only)을 지원하며, 이는 Python 함수를 선언으로 자동 변환하고 함수 호출 실행 및 응답 주기를 처리합니다. 다음은 디스코 사용 사례의 예입니다.
 
 ### Python
 
@@ -1124,7 +1108,7 @@ config = types.GenerateContentConfig(
 
 # Make the request
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Do everything you need to this place into party!",
     config=config,
 )
@@ -1134,16 +1118,15 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## استدعاء الدوال التركيبية
+## 구성 함수 호출
 
-تتيح ميزة &quot;استدعاء الدوال التركيبي أو التسلسلي&quot; لـ Gemini ربط عدة استدعاءات للدوال معًا لتلبية طلب معقّد. على سبيل المثال، للإجابة عن السؤال "ما هي درجة الحرارة في موقعي الجغرافي الحالي؟"، قد تستدعي Gemini API أولاً الدالة `get_current_location()` ثم الدالة `get_weather()` التي تأخذ الموقع الجغرافي كمعلَمة.
+구성적 또는 순차적 함수 호출을 사용하면 Gemini가 여러 함수 호출을 함께 연결하여 복잡한 요청을 처리할 수 있습니다. 예를 들어 '현재 위치의 온도를 알려 줘'라는 질문에 답하기 위해 Gemini API는 먼저 `get_current_location()` 함수를 호출한 다음 위치를 매개변수로 사용하는 `get_weather()` 함수를 호출할 수 있습니다.
 
-يوضّح المثال التالي كيفية تنفيذ استدعاء الدوال التركيبية باستخدام حزمة تطوير البرامج للغة Python واستدعاء الدوال التلقائي.
+다음 예에서는 Python SDK와 자동 함수 호출을 사용하여 컴포지셔널 함수 호출을 구현하는 방법을 보여줍니다.
 
 ### Python
 
-يستخدم هذا المثال ميزة استدعاء الدوال التلقائي في
-`google-genai` حزمة تطوير البرامج (SDK) الخاصة بلغة Python. تحوّل حزمة تطوير البرامج (SDK) تلقائيًا دوال Python إلى المخطط المطلوب، وتنفّذ طلبات استدعاء الدوال عند طلب النموذج، وترسل النتائج إلى النموذج لإكمال المهمة.
+이 예시에서는 `google-genai` Python SDK의 자동 함수 호출 기능을 사용합니다. SDK는 Python 함수를 필요한 스키마로 자동 변환하고, 모델에서 요청할 때 함수 호출을 실행하고, 작업을 완료하기 위해 결과를 모델에 다시 전송합니다.
 
 ```
 import os
@@ -1173,7 +1156,7 @@ config = types.GenerateContentConfig(
 
 # Make the request
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise set it to 18°C.",
     config=config,
 )
@@ -1182,9 +1165,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**الناتج المتوقّع**
+**예상 출력:**
 
-عند تشغيل الرمز، ستلاحظ أنّ حزمة تطوير البرامج (SDK) تنظّم عمليات استدعاء الدوال. يستدعي النموذج أولاً `get_weather_forecast`، ويتلقّى درجة الحرارة، ثم يستدعي `set_thermostat_temperature` بالقيمة الصحيحة استنادًا إلى المنطق الوارد في الطلب.
+코드를 실행하면 SDK가 함수 호출을 오케스트레이션하는 것을 확인할 수 있습니다. 모델은 먼저 `get_weather_forecast`를 호출하고 온도를 수신한 다음 프롬프트의 로직에 따라 올바른 값으로 `set_thermostat_temperature`를 호출합니다.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1194,9 +1177,9 @@ Tool Response: {'status': 'success'}
 OK. I've set the thermostat to 20°C.
 ```
 
-### JavaScript
+### 자바스크립트
 
-يوضّح هذا المثال كيفية استخدام حزمة تطوير البرامج (SDK) المستندة إلى JavaScript/TypeScript لتنفيذ استدعاءات الدوال التركيبية باستخدام حلقة تنفيذ يدوية.
+이 예시에서는 JavaScript/TypeScript SDK를 사용하여 수동 실행 루프를 통해 컴포지션 함수 호출을 실행하는 방법을 보여줍니다.
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1275,7 +1258,7 @@ let contents = [
 // Loop until the model has no more function calls to make
 while (true) {
   const result = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents,
     config: { tools },
   });
@@ -1325,9 +1308,9 @@ while (true) {
 }
 ```
 
-**الناتج المتوقّع**
+**예상 출력:**
 
-عند تشغيل الرمز، ستلاحظ أنّ حزمة تطوير البرامج (SDK) تنظّم عمليات استدعاء الدوال. يستدعي النموذج أولاً `get_weather_forecast`، ويتلقّى درجة الحرارة، ثم يستدعي `set_thermostat_temperature` بالقيمة الصحيحة استنادًا إلى المنطق الوارد في الطلب.
+코드를 실행하면 SDK가 함수 호출을 오케스트레이션하는 것을 확인할 수 있습니다. 모델은 먼저 `get_weather_forecast`를 호출하고 온도를 수신한 다음 프롬프트의 로직에 따라 올바른 값으로 `set_thermostat_temperature`를 호출합니다.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1337,8 +1320,7 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-استدعاء الدوال التركيبية هو إحدى الميزات الأصلية في [Live
-API](https://ai.google.dev/gemini-api/docs/live?hl=ar). وهذا يعني أنّ Live API يمكنها التعامل مع استدعاء الدوال بشكل مشابه لحزمة تطوير البرامج (SDK) بلغة Python.
+구성 함수 호출은 네이티브 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko) 기능입니다. 즉, Live API는 Python SDK와 유사하게 함수 호출을 처리할 수 있습니다.
 
 ### Python
 
@@ -1359,7 +1341,7 @@ tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // Light control schemas
@@ -1378,18 +1360,16 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## أوضاع استدعاء الدالة
+## 함수 호출 모드
 
-تتيح لك Gemini API التحكّم في طريقة استخدام النموذج للأدوات المتوفّرة (تعريفات الدوال). على وجه التحديد، يمكنك ضبط الوضع ضمن `function_calling_config`.
+Gemini API를 사용하면 모델이 제공된 도구(함수 선언)를 사용하는 방식을 제어할 수 있습니다. 특히.`function_calling_config` 내에서 모드를 설정할 수 있습니다.
 
-- ‫`VALIDATED`: الوضع التلقائي لدمج الأدوات (عند تفعيل الأدوات المضمّنة أو النتائج المنظَّمة أيضًا) يقتصر النموذج على توقّع إما طلبات الدوال أو اللغة الطبيعية، ويضمن الالتزام بمخطط الدوال. في حال عدم توفير
-  `allowed_function_names`، يختار النموذج من جميع تعريفات الدوال المتاحة. إذا تم توفير `allowed_function_names`، يختار النموذج من مجموعة الدوال المسموح بها. يقلّل هذا الوضع من عدد استدعاءات الدوال غير الصالحة (مقارنةً بالوضع `AUTO`).
-- ‫`AUTO`: الوضع التلقائي عند تفعيل أداة function\_declarations فقط
-  يقرّر النموذج ما إذا كان سينشئ ردًا بلغة طبيعية أو سيقترح إجراء مكالمة استنادًا إلى الطلب والسياق.
-- `ANY`: يلتزم النموذج دائمًا بتوقّع طلب دالة، ويضمن الالتزام بمخطط الدالة. إذا لم يتم تحديد `allowed_function_names`، يمكن للنموذج الاختيار من أي من تعريفات الدوال المقدَّمة.
-  إذا تم تقديم `allowed_function_names` كقائمة، يمكن للنموذج الاختيار فقط من الدوال في تلك القائمة. استخدِم هذا الوضع عندما تحتاج إلى استجابة من دالة
-  لكل طلب (إذا كان ذلك منطبقًا).
-- ‫`NONE`: *محظور* على النموذج إجراء استدعاءات الدوال. وهذا الإجراء يعادل إرسال طلب بدون أي تعريفات للدوال. يمكنك استخدام هذه السمة لإيقاف ميزة "استدعاء الدوال" مؤقتًا بدون إزالة تعريفات الأدوات.
+- `VALIDATED`: 도구 조합의 기본 모드입니다 (기본 제공 도구 또는 구조화된 출력도 사용 설정된 경우). 모델이 함수 호출 또는 자연어를 예측하도록 제한되며 함수 스키마 준수를 보장합니다. `allowed_function_names`가 제공되지 않았으면 모델이 사용 가능한 모든 함수 선언 중에서 선택합니다. `allowed_function_names`가 제공되었으면 모델이 허용된 함수 집합 중에서 선택합니다. 이 모드는 잘못된 함수 호출을 줄입니다 (`AUTO` 모드와 비교).
+- `AUTO`: function\_declarations 도구만 사용 설정된 경우의 기본 모드입니다.
+  모델은 프롬프트와 컨텍스트에 따라 자연어 응답을 생성할지 아니면 함수 호출을 제안할지 결정합니다.
+- `ANY`: 모델이 항상 함수 호출을 예측하도록 제한되며 함수 스키마 준수를 보장합니다. `allowed_function_names`가 지정되지 않은 경우 모델은 제공된 함수 선언 중에서 선택할 수 있습니다.
+  `allowed_function_names`가 목록으로 제공되면 모델은 해당 목록의 함수 중에서만 선택할 수 있습니다. 모든 프롬프트에 함수 호출 응답이 필요한 경우 이 모드를 사용하세요 (해당하는 경우).
+- `NONE`: 모델이 함수 호출을 실행하는 것이 *금지*됩니다. 이는 함수 선언 없이 요청을 전송하는 것과 동일합니다. 이 모드를 사용하면 도구 정의를 삭제하지 않고 함수 호출을 일시적으로 사용 중지할 수 있습니다.
 
 ### Python
 
@@ -1410,7 +1390,7 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { FunctionCallingConfigMode } from '@google/genai';
@@ -1430,19 +1410,18 @@ const config = {
 };
 ```
 
-## استدعاء الدالة تلقائيًا (في Python فقط)
+## 자동 함수 호출 (Python만 해당)
 
-عند استخدام حزمة تطوير البرامج (SDK) الخاصة بلغة Python، يمكنك تقديم دوال Python مباشرةً كأدوات.
-تحوّل حزمة SDK هذه الدوال إلى تعريفات، وتدير عملية تنفيذ استدعاء الدالة، وتتعامل مع دورة الاستجابة نيابةً عنك. حدِّد الدالة باستخدام تلميحات الأنواع وسلسلة التوثيق. للحصول على أفضل النتائج، ننصحك باستخدام
-[سلاسل مستندات بتنسيق Google.](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)
-سيقوم حِزمة تطوير البرامج (SDK) بعد ذلك تلقائيًا بما يلي:
+Python SDK를 사용하는 경우 Python 함수를 도구로 직접 제공할 수 있습니다.
+SDK는 이러한 함수를 선언으로 변환하고, 함수 호출 실행을 관리하며, 응답 주기를 처리합니다. 유형 힌트와 docstring을 사용하여 함수를 정의합니다. 최적의 결과를 얻으려면 [Google 스타일 docstring](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)을 사용하는 것이 좋습니다.
+그러면 SDK가 다음 작업을 자동으로 실행합니다.
 
-1. رصد الردود على طلبات تنفيذ الدوال من النموذج
-2. استدعِ دالة Python المناسبة في الرمز البرمجي.
-3. إرسال ردّ الدالة إلى النموذج
-4. عرض الردّ النصي النهائي للنموذج
+1. 모델의 함수 호출 응답을 감지합니다.
+2. 코드에서 해당 Python 함수를 호출합니다.
+3. 함수의 응답을 모델에 다시 보냅니다.
+4. 모델의 최종 텍스트 응답을 반환합니다.
 
-لا تحلّل حزمة تطوير البرامج (SDK) حاليًا أوصاف الوسيطات إلى خانات وصف السمة في بيان الدالة الذي تم إنشاؤه. بدلاً من ذلك، يرسل السلسلة بأكملها كالوصف الخاص بالدالة ذات المستوى الأعلى.
+SDK는 현재 인수 설명을 생성된 함수 선언의 속성 설명 슬롯으로 파싱하지 않습니다. 대신 전체 docstring을 최상위 함수 설명으로 전송합니다.
 
 ### Python
 
@@ -1471,7 +1450,7 @@ config = types.GenerateContentConfig(
 
 # Make the request
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="What's the temperature in Boston?",
     config=config,
 )
@@ -1479,7 +1458,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-يمكنك إيقاف استدعاء الدوال التلقائي باستخدام:
+다음과 같이 자동 함수 호출을 사용 중지할 수 있습니다.
 
 ### Python
 
@@ -1490,11 +1469,9 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### بيان مخطط الدالة التلقائي
+### 자동 함수 스키마 선언
 
-يمكن لواجهة برمجة التطبيقات وصف أي من الأنواع التالية. يُسمح باستخدام أنواع `Pydantic`،
-ما دام أنّ الحقول المحدّدة فيها تتألف أيضًا من أنواع
-مسموح بها. لا تتوافق أنواع القواميس (مثل `dict[str: int]`) مع هذه الميزة، لذا لا تستخدمها.
+API는 다음 유형을 설명할 수 있습니다. `Pydantic` 유형은 허용된 유형으로 구성된 필드가 정의되어 있는 경우 허용됩니다. 여기서는 딕셔너리 유형 (예: `dict[str: int]`)이 잘 지원되지 않으므로 사용하지 마세요.
 
 ### Python
 
@@ -1503,8 +1480,7 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-للاطّلاع على شكل المخطط المستنتَج، يمكنك تحويله باستخدام
-[`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
+추론된 스키마가 어떻게 표시되는지 확인하려면 [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable)를 사용하여 변환하면 됩니다.
 
 ### Python
 
@@ -1523,11 +1499,11 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## استخدام أدوات متعددة: الجمع بين الأدوات المضمّنة وميزة "استدعاء الدوال"
+## 다중 도구 사용: 기본 제공 도구와 함수 호출 결합
 
-يمكنك تفعيل أدوات متعددة، والجمع بين الأدوات المضمّنة واستدعاء الدوال في الطلب نفسه.
+동일한 요청에서 기본 제공 도구와 함수 호출을 결합하여 여러 도구를 사용 설정할 수 있습니다.
 
-يمكن لنماذج Gemini 3 الجمع بين الأدوات المضمّنة وميزة &quot;استدعاء الدوال&quot; الجاهزة للاستخدام، وذلك بفضل ميزة &quot;تداول سياق الأدوات&quot;. يمكنك الاطّلاع على صفحة [الجمع بين الأدوات المضمّنة واستدعاء الدوال البرمجية](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar) لمزيد من المعلومات.
+Gemini 3 모델은 도구 컨텍스트 순환 기능 덕분에 기본 제공 도구를 기본적으로 함수 호출과 결합할 수 있습니다. [내장 도구와 함수 호출 결합](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko) 페이지를 읽고 자세히 알아보세요.
 
 ### Python
 
@@ -1553,7 +1529,7 @@ getWeather = {
 }
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="What is the northernmost city in the United States? What's the weather like there today?",
     config=types.GenerateContentConfig(
       tools=[
@@ -1585,7 +1561,7 @@ history = [
 ]
 
 response_2 = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=history,
     config=types.GenerateContentConfig(
       tools=[
@@ -1623,7 +1599,7 @@ const getWeather = {
 
 async function run() {
     const model = client.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-3.6-flash",
     });
 
     const tools = [
@@ -1669,22 +1645,21 @@ async function run() {
 run();
 ```
 
-بالنسبة إلى الطُرز التي تسبق سلسلة Gemini 3، استخدِم [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ar).
+Gemini 3 시리즈 이전 모델의 경우 [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ko)를 사용하세요.
 
-## استجابات الوظائف المتعددة الوسائط
+## 멀티모달 함수 응답
 
-بالنسبة إلى نماذج سلسلة Gemini 3، يمكنك تضمين محتوى متعدد الوسائط في أجزاء استجابة الدالة التي ترسلها إلى النموذج. يمكن للنموذج معالجة هذا المحتوى المتعدد الوسائط في دوره التالي لتقديم ردّ أكثر دقة.
-تتوفّر أنواع MIME التالية للمحتوى المتعدّد الوسائط في ردود الدوال:
+Gemini 3 시리즈 모델의 경우 모델에 전송하는 함수 응답 부분에 멀티모달 콘텐츠를 포함할 수 있습니다. 모델은 다음 차례에 이 멀티모달 콘텐츠를 처리하여 더 많은 정보를 바탕으로 응답을 생성할 수 있습니다.
+함수 응답의 멀티모달 콘텐츠에 지원되는 MIME 유형은 다음과 같습니다.
 
-- **الصور**: `image/png` و`image/jpeg` و`image/webp`
-- **المستندات**: `application/pdf`، `text/plain`
+- **이미지**: `image/png`, `image/jpeg`, `image/webp`
+- **문서**: `application/pdf`, `text/plain`
 
-لتضمين بيانات متعددة الوسائط في ردّ الدالة، أدرِجها كجزء واحد أو أكثر
-مضمّن في الجزء `functionResponse`. يجب أن يحتوي كل جزء متعدد الوسائط على `inlineData`. إذا أشرت إلى جزء متعدد الوسائط من داخل حقل `response` الخاص بالبيانات المنظَّمة، يجب أن يحتوي على `displayName` فريد.
+함수 응답에 멀티모달 데이터를 포함하려면 `functionResponse` 부분 내에 중첩된 하나 이상의 부분으로 포함하세요. 각 멀티모달 부분에는 `inlineData`가 포함되어야 합니다. 구조화된 `response` 필드 내에서 멀티모달 부분을 참조하는 경우 고유한 `displayName`이 포함되어야 합니다.
 
-يمكنك أيضًا الإشارة إلى جزء متعدد الوسائط من داخل حقل `response` البيانات المنظَّمة الخاص بالجزء `functionResponse` باستخدام تنسيق مرجع JSON `{"$ref": "<displayName>"}`. يستبدل النموذج المرجع بالمحتوى المتعدد الوسائط عند معالجة الرد. لا يمكن الإشارة إلى كل `displayName` إلا مرة واحدة في الحقل `response` المنظَّم.
+JSON 참조 형식(`{"$ref": "<displayName>"}`)을 사용하여 `functionResponse` 부분의 구조화된 `response` 필드 내에서 멀티모달 부분을 참조할 수도 있습니다. 이 모델은 응답을 처리할 때 참조를 멀티모달 콘텐츠로 대체합니다. 각 `displayName`은 구조화된 `response` 필드에서 한 번만 참조할 수 있습니다.
 
-يعرض المثال التالي رسالة تحتوي على `functionResponse` لوظيفة باسم `get_image` وجزء مضمّن يحتوي على بيانات صور مع `displayName: "instrument.jpg"`. يشير الحقل `response` الخاص بـ `functionResponse` إلى جزء الصورة هذا:
+다음 예시에서는 `get_image`라는 함수의 `functionResponse`를 포함하는 메시지와 `displayName: "instrument.jpg"` 형식의 이미지 데이터를 포함하는 중첩된 부분을 보여줍니다. `functionResponse`의 `response` 필드는 이 이미지 부분을 참조합니다.
 
 ### Python
 
@@ -1718,7 +1693,7 @@ tool_config = types.Tool(function_declarations=[get_image_declaration])
 # 2. Send a message that triggers the tool
 prompt = "Show me the instrument I ordered last month."
 response_1 = client.models.generate_content(
-  model="gemini-3.5-flash",
+  model="gemini-3.6-flash",
   contents=[prompt],
   config=types.GenerateContentConfig(
       tools=[tool_config],
@@ -1766,7 +1741,7 @@ history = [
 ]
 
 response_2 = client.models.generate_content(
-  model="gemini-3.5-flash",
+  model="gemini-3.6-flash",
   contents=history,
   config=types.GenerateContentConfig(
       tools=[tool_config],
@@ -1777,7 +1752,7 @@ response_2 = client.models.generate_content(
 print(f"\nFinal model response: {response_2.text}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -1808,7 +1783,7 @@ const toolConfig = {
 // 2. Send a message that triggers the tool
 const prompt = 'Show me the instrument I ordered last month.';
 const response1 = await client.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: prompt,
   config: {
     tools: [toolConfig],
@@ -1862,7 +1837,7 @@ const history = [
 ];
 
 const response2 = await client.models.generateContent({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   contents: history,
   config: {
     tools: [toolConfig],
@@ -1892,7 +1867,7 @@ else
   IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -w0)
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -1928,25 +1903,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## استدعاء الدالة مع الناتج المنظَّم
+## 구조화된 출력을 사용한 함수 호출
 
-بالنسبة إلى طُرز سلسلة Gemini 3، يمكنك استخدام ميزة &quot;استدعاء الدوال&quot; مع
-[النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar). يتيح ذلك للنموذج توقّع استدعاءات الدوال أو النتائج التي تلتزم بمخطط محدّد. نتيجةً لذلك، ستتلقّى ردودًا منسَّقة بشكل متّسق عندما لا ينشئ النموذج استدعاءات الدوال.
+Gemini 3 시리즈 모델의 경우 [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)과 함께 함수 호출을 사용할 수 있습니다. 이를 통해 모델이 특정 스키마를 준수하는 함수 호출 또는 출력을 예측할 수 있습니다. 따라서 모델이 함수 호출을 생성하지 않을 때 일관된 형식의 응답을 받을 수 있습니다.
 
-## بروتوكول سياق النموذج (MCP)
+## 모델 컨텍스트 프로토콜 (MCP)
 
-[بروتوكول سياق النموذج (MCP)](https://modelcontextprotocol.io/introduction) هو معيار مفتوح المصدر لربط تطبيقات الذكاء الاصطناعي بالأدوات والبيانات الخارجية.
-يوفّر بروتوكول سياق النموذج بروتوكولاً مشتركًا للنماذج للوصول إلى السياق، مثل الدوال (الأدوات) أو مصادر البيانات (الموارد) أو الطلبات المحدّدة مسبقًا.
+[모델 컨텍스트 프로토콜 (MCP)](https://modelcontextprotocol.io/introduction)은 AI 애플리케이션을 외부 도구 및 데이터에 연결하기 위한 개방형 표준입니다.
+MCP는 모델이 함수(도구), 데이터 소스 (리소스), 사전 정의된 프롬프트와 같은 컨텍스트에 액세스하기 위한 공통 프로토콜을 제공합니다.
 
-تتضمّن حِزم تطوير البرامج (SDK) من Gemini إمكانية استخدام MCP، ما يقلّل من الرموز النموذجية ويوفّر [استدعاء الأدوات تلقائيًا](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#automatic_function_calling_python_only) لأدوات MCP. عندما ينشئ النموذج طلبًا لاستخدام أداة MCP، يمكن لحزمة تطوير البرامج (SDK) الخاصة بلغة Python وJavaScript تنفيذ أداة MCP تلقائيًا وإرسال الردّ إلى النموذج في طلب لاحق، مع مواصلة هذه العملية إلى أن يتوقف النموذج عن إرسال طلبات لاستخدام الأدوات.
+Gemini SDK에는 MCP 지원이 내장되어 있어 상용구 코드를 줄이고 MCP 도구의 [자동 도구 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#automatic_function_calling_python_only)을 제공합니다. 모델이 MCP 도구 호출을 생성하면 Python 및 JavaScript 클라이언트 SDK가 MCP 도구를 자동으로 실행하고 후속 요청에서 모델에 응답을 다시 전송하여 모델에서 더 이상 도구 호출이 이루어지지 않을 때까지 이 루프를 계속할 수 있습니다.
 
-في ما يلي مثال على كيفية استخدام خادم MCP محلي مع Gemini و`mcp` SDK.
+여기에서 Gemini 및 `mcp` SDK로 로컬 MCP 서버를 사용하는 방법의 예를 확인할 수 있습니다.
 
 ### Python
 
-تأكَّد من تثبيت أحدث إصدار من حزمة تطوير البرامج (SDK) الخاصة بـ
-[`mcp`](https://modelcontextprotocol.io/introduction) على
-النظام الأساسي الذي تختاره.
+선택한 플랫폼에 최신 버전의 [`mcp` SDK](https://modelcontextprotocol.io/introduction)가 설치되어 있는지 확인합니다.
 
 ```
 pip install mcp
@@ -1980,7 +1952,7 @@ async def run():
 
             # Send request to the model with MCP function declarations
             response = await client.aio.models.generate_content(
-                model="gemini-3.5-flash",
+                model="gemini-3.6-flash",
                 contents=prompt,
                 config=genai.types.GenerateContentConfig(
                     temperature=0,
@@ -1997,9 +1969,9 @@ async def run():
 asyncio.run(run())
 ```
 
-### JavaScript
+### 자바스크립트
 
-تأكَّد من تثبيت أحدث إصدار من حزمة تطوير البرامج (SDK) `mcp` على المنصة التي تختارها.
+선택한 플랫폼에 최신 버전의 `mcp` SDK가 설치되어 있는지 확인합니다.
 
 ```
 npm install @modelcontextprotocol/sdk
@@ -2031,7 +2003,7 @@ await client.connect(serverParams);
 
 // Send request to the model with MCP tools
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: `What is the weather in London in ${new Date().toLocaleDateString()}?`,
   config: {
     tools: [mcpToTool(client)],  // uses the session, will automatically call the tool
@@ -2047,69 +2019,126 @@ console.log(response.text)
 await client.close();
 ```
 
-### القيود المفروضة على التوافق المضمّن مع منصّات إدارة الموافقة
+### 기본 제공 MCP 지원의 제한사항
 
-تتوفّر ميزة دعم MCP المضمّنة [تجريبيًا](https://ai.google.dev/gemini-api/docs/models?hl=ar#preview) في حِزم SDK، وتخضع للقيود التالية:
+기본 제공 MCP 지원은 SDK의 [실험적](https://ai.google.dev/gemini-api/docs/models?hl=ko#preview) 기능이며 다음과 같은 제한사항이 있습니다.
 
-- تتوفّر الأدوات فقط، وليس المراجع أو الطلبات
-- تتوفّر هذه الميزة لحزمة تطوير البرامج (SDK) الخاصة بلغة Python وJavaScript/TypeScript.
-- قد تحدث تغييرات غير متوافقة مع الإصدارات السابقة في الإصدارات المستقبلية.
+- 리소스나 프롬프트가 아닌 도구만 지원됩니다.
+- Python 및 JavaScript/TypeScript SDK에서 사용할 수 있습니다.
+- 향후 출시에서 호환성이 깨지는 변경사항이 발생할 수 있습니다.
 
-يمكنك دائمًا دمج خوادم MCP يدويًا إذا كانت هذه الخوادم تفرض قيودًا على ما تنشئه.
+이러한 제한으로 인해 빌드하는 항목이 제한되는 경우 MCP 서버를 수동으로 통합하는 방법도 있습니다.
 
-## النماذج المتوافقة
+## 지원되는 모델
 
-يسرد هذا القسم النماذج وإمكاناتها في استدعاء الدوال. ولا يتم تضمين النماذج التجريبية. يمكنك الاطّلاع على نظرة عامة شاملة حول الإمكانات في صفحة [النظرة العامة على النموذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
+이 섹션에는 모델과 함수 호출 기능이 나열되어 있습니다. 실험용 모델은 포함되지 않습니다. [모델 개요](https://ai.google.dev/gemini-api/docs/models?hl=ko) 페이지에서 포괄적인 기능 개요를 확인할 수 있습니다.
 
-| الطراز | استدعاء الدالة | استدعاء الدوال بشكل متوازٍ | استدعاء الدوال التركيبية |
+| 모델 | 함수 호출 | 병렬 함수 호출 | 구성 함수 호출 |
 | --- | --- | --- | --- |
-| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ | ✔️ | ✔️ |
-| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Pro 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ | ✔️ | ✔️ |
 
-## أفضل الممارسات
+## 권장사항
 
-- **أوصاف الوظائف والمعلَمات:** يجب أن تكون أوصافك واضحة ومحدّدة للغاية. ويعتمد النموذج على هذه المعلومات لاختيار الوظيفة الصحيحة وتقديم الوسيطات المناسبة.
-- **التسمية:** استخدِم أسماء دوال وصفية (بدون مسافات أو نقاط أو شرطات).
-- **الكتابة القوية:** استخدِم أنواعًا محدّدة (عدد صحيح، سلسلة، تعداد) للمَعلمات
-  للحدّ من الأخطاء. إذا كانت إحدى المَعلمات تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم نوع البيانات
-  enum.
-- **اختيار الأدوات:** على الرغم من أنّ النموذج يمكنه استخدام عدد غير محدود من الأدوات، فإنّ توفير عدد كبير جدًا منها يمكن أن يزيد من خطر اختيار أداة غير صحيحة أو غير مثالية. لتحقيق أفضل النتائج، احرص على توفير الأدوات ذات الصلة فقط بالسياق أو المهمة، مع الحرص على ألا يتجاوز عدد الأدوات النشطة 10 إلى 20 أداة كحد أقصى. ننصحك باختيار الأدوات بشكل ديناميكي استنادًا إلى سياق المحادثة إذا كان لديك عدد كبير من الأدوات.
-- **هندسة الطلبات:**
-  - توفير السياق: أخبر النموذج عن دوره (مثلاً، "أنت مساعد
-    مفيد بشأن الطقس").
-  - تقديم التعليمات: حدِّد كيفية استخدام الدوال ومتى يجب استخدامها (مثلاً، "لا تخمّن التواريخ، بل استخدِم دائمًا تاريخًا مستقبليًا للتوقعات").
-  - تشجيع التوضيح: اطلب من النموذج طرح أسئلة توضيحية
-    إذا لزم الأمر.
-  - يمكنك الاطّلاع على [سير العمل المستند إلى الوكلاء](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar#agentic-workflows)
-    للحصول على استراتيجيات إضافية حول تصميم هذه الطلبات. في ما يلي مثال على [تعليمات نظام](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar#agentic-si-template) تم اختبارها.
-- **درجة العشوائية:** استخدِم درجة عشوائية منخفضة (مثل 0) لإجراء استدعاءات دالة أكثر حتميةً وموثوقيةً.
-- **التحقّق من الصحة:** إذا كان لطلب تنفيذ دالة عواقب كبيرة (مثل تقديم طلب)، يجب التحقّق من صحة الطلب مع المستخدم قبل تنفيذه.
-- **التحقّق من سبب الإنهاء:** احرص دائمًا على التحقّق من [`finishReason`](https://ai.google.dev/api/generate-content?hl=ar#FinishReason)
-  في ردّ النموذج للتعامل مع الحالات التي تعذّر فيها على النموذج إنشاء
-  استدعاء دالة صالح.
-- **معالجة الأخطاء**: اتّخِذ إجراءات فعالة لمعالجة الأخطاء في الدوال من أجل معالجة الإدخالات غير المتوقّعة أو الأعطال في واجهة برمجة التطبيقات بشكل سليم. عرض رسائل خطأ مفيدة يمكن للنموذج استخدامها لإنشاء ردود مفيدة للمستخدم.
-- **الأمان:** يُرجى مراعاة الأمان عند استدعاء واجهات برمجة التطبيقات الخارجية. استخدِم آليات المصادقة والتفويض المناسبة. تجنَّب عرض البيانات الحسّاسة في استدعاءات الدوال.
-- **حدود الرموز المميزة:** يتم احتساب أوصاف الدوال ومعلَماتها ضمن الحد الأقصى لعدد الرموز المميزة التي يمكنك إدخالها. إذا كنت تواجه مشاكل بسبب الحد الأقصى لعدد الرموز المميزة، ننصحك بالحد من عدد الدوال أو طول الأوصاف، أو بتقسيم المهام المعقّدة إلى مجموعات أصغر وأكثر تركيزًا من الدوال.
-- **مزيج من bash والأدوات المخصّصة**: بالنسبة إلى المطوّرين الذين يستخدمون مزيجًا من bash والأدوات المخصّصة، يتوفّر الإصدار التجريبي من Gemini 3.1 Pro مع نقطة نهاية منفصلة يمكن الوصول إليها من خلال واجهة برمجة التطبيقات باسم [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar#gemini-31-pro-preview-customtools).
+- **함수 및 파라미터 설명:** 설명을 매우 명확하고 구체적으로 작성하세요. 모델은 이를 기반으로 올바른 함수를 선택하고 적절한 인수를 제공합니다.
+- **이름 지정:** 설명적인 함수 이름을 사용합니다 (공백, 마침표, 대시 없음).
+- **강력한 유형 지정:** 오류를 줄이기 위해 파라미터에 특정 유형 (정수, 문자열, enum)을 사용합니다. 매개변수에 유효한 값의 집합이 제한되어 있는 경우 enum을 사용합니다.
+- **도구 선택:** 모델은 임의의 수의 도구를 사용할 수 있지만 너무 많은 도구를 제공하면 잘못되거나 최적화되지 않은 도구를 선택할 위험이 커집니다. 최상의 결과를 얻으려면 컨텍스트 또는 작업과 관련된 도구만 제공하는 것이 좋습니다. 활성 도구 세트는 최대 10~20개로 유지하는 것이 좋습니다. 총 도구 수가 많은 경우 대화 컨텍스트에 기반한 동적 도구 선택을 고려하세요.
+- **프롬프트 엔지니어링:**
+  - 컨텍스트 제공: 모델의 역할을 알려줍니다 (예: '너는 유용한 날씨 어시스턴트야').
+  - 안내 제공: 함수를 사용하는 방법과 시기를 지정합니다 (예: '날짜를 추측하지 말고 항상 예측에 미래 날짜를 사용해').
+  - 명확한 설명 요청: 필요한 경우 모델에 명확한 설명을 요청하도록 지시합니다.
+  - 이러한 프롬프트를 설계하는 방법에 관한 추가 전략은 [에이전트 워크플로](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ko#agentic-workflows)를 참고하세요. 다음은 테스트된 [시스템 명령](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ko#agentic-si-template)의 예입니다.
+- **온도:** 더 결정론적이고 신뢰할 수 있는 함수 호출을 위해 낮은 온도 (예: 0)를 사용합니다.
+- **유효성 검사:** 함수 호출이 중대한 결과를 초래하는 경우 (예: 주문) 이를 실행하기 전에 사용자와 함께 호출 유효성을 검사합니다.
+- **종료 이유 확인:** 모델이 유효한 함수 호출을 생성하지 못한 경우를 처리하기 위해 항상 모델의 대답에서 [`finishReason`](https://ai.google.dev/api/generate-content?hl=ko#FinishReason)를 확인합니다.
+- **오류 처리**: 함수에 강력한 오류 처리를 구현하여 예기치 않은 입력이나 API 오류를 정상적으로 처리합니다. 모델이 유용한 사용자 응답을 생성하는 데 사용할 수 있는 유익한 오류 메시지를 반환합니다.
+- **보안:** 외부 API를 호출할 때 보안에 유의하세요. 적절한 인증 및 승인 메커니즘을 사용합니다. 함수 호출에서 민감한 정보를 노출하지 마세요.
+- **토큰 제한:** 함수 설명과 파라미터는 입력 토큰 제한에 포함됩니다. 토큰 한도에 도달하면 함수 수나 설명 길이를 제한하고 복잡한 작업을 더 작고 집중적인 함수 집합으로 나누는 것이 좋습니다.
+- **bash와 맞춤 도구의 조합** bash와 맞춤 도구를 조합하여 빌드하는 경우 Gemini 3.1 Pro 미리보기에는 API를 통해 사용할 수 있는 별도의 엔드포인트가 제공되며, 이 엔드포인트는 [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko#gemini-31-pro-preview-customtools)라고 합니다.
 
-## الملاحظات والقيود
+## 사전 도구 텍스트 요구사항 해결 방법
 
-- تحديد موضع أجزاء طلبات الدوال: عند استخدام تعريفات الدوال المخصّصة [إلى جانب الأدوات المضمّنة](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar) (مثل &quot;بحث Google&quot;)، قد يعرض النموذج مزيجًا من أجزاء `functionCall` و`toolCall` و`toolResponse` في ردّ واحد. لهذا السبب، لا تفترض أنّ `functionCall` سيكون دائمًا العنصر الأخير في مصفوفة الأجزاء. إذا كنت تحلّل استجابة JSON يدويًا، احرص دائمًا على تكرار مصفوفة الأجزاء بدلاً من الاعتماد على الموضع.
-- لا يتوافق سوى [جزء من مخطط OpenAPI](https://ai.google.dev/api/caching?hl=ar#FunctionDeclaration).
-- بالنسبة إلى الوضع `ANY`، قد ترفض واجهة برمجة التطبيقات المخططات الكبيرة جدًا أو المتداخلة بشكل كبير. إذا واجهت أخطاء، حاوِل تبسيط مخططات مَعلمات الدالة والاستجابة من خلال تقصير أسماء السمات أو تقليل التداخل أو الحدّ من عدد تعريفات الدوال.
-- أنواع المَعلمات المتوافقة في Python محدودة.
-- لا تتوفّر ميزة استدعاء الدوال التلقائي إلا في حزمة تطوير البرامج (SDK) الخاصة بلغة Python.
+**문제:** 프롬프트에서 모델이 구조화된 텍스트 (XML, YAML, JSON 등)를 출력해야 하는 경우 (예: `<UPDATE>...</UPDATE>`)을 호출하면 도구 호출이 `Malformed_Function_Call`로 인해 가끔 실패할 수 있습니다.
 
-إرسال ملاحظات
+**해결 방법:** 다음 해결 방법으로 이 문제를 해결할 수 있습니다.
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+- **권장:** 모델이 도구 전 메모를 원시 텍스트 대신 전용 `update()` 함수 호출 내에 넣도록 지시합니다 (자세한 내용은 아래 참고).
+- 구조화된 텍스트 대신 마크다운 헤더 (`# UPDATE`, `## PLAN`)로 메모를 작성하도록 모델에 지시합니다.
+- 모델이 도구 호출 전에 텍스트를 출력하도록 요구하지 마세요.
 
-تاريخ التعديل الأخير: 2026-06-24 (حسب التوقيت العالمي المتفَّق عليه)
+### 권장 해결 방법: 전용 함수 호출로 작업 메모 래핑
 
-هل تريد مشاركة ملاحظاتك معنا؟
+원래 지침 대신 다음을 사용하세요.
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+```
+Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags within `<UPDATE>`.
+```
+
+업데이트된 안내를 사용하세요.
+
+```
+Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
+```
+
+고객 요청에서 이전 `<UPDATE>` XML 형식에 대한 모든 참조를 업데이트합니다. 그런 다음 업데이트 함수의 해당 함수 선언을 추가합니다.
+
+```
+{
+  "name": "update",
+  "description": "Update working notes (previous step analysis, plan, next step, external note).",
+  "parameters": {
+    "type": "OBJECT",
+    "properties": {
+      "previous_step": {
+        "type": "STRING",
+        "description": "Key findings and outcomes since the previous step."
+      },
+      "plan": {
+        "type": "STRING",
+        "description": "The current status of the plan."
+      },
+      "next_step": {
+        "type": "STRING",
+        "description": "Brief explanation of the immediate next action according to the plan."
+      },
+      "external": {
+        "type": "STRING",
+        "description": "A short, plain-language note shown to the User about what you are ABOUT TO DO next."
+      }
+    },
+    "required": [
+      "previous_step",
+      "plan",
+      "next_step",
+      "external"
+    ]
+  }
+}
+```
+
+그러면 모델은 동일한 단계에서 구조화된 XML을 대체하는 `update()` 호출과 실행하려는 실제 함수 호출이라는 두 가지 호출을 실행합니다.
+
+## 참고사항 및 제한사항
+
+- 함수 호출 부분의 위치 지정: [내장 도구](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko) (예: Google 검색)와 함께 맞춤 함수 선언을 사용하는 경우 모델은 단일 턴에서 `functionCall`, `toolCall`, `toolResponse` 부분을 혼합하여 반환할 수 있습니다. 따라서 `functionCall`가 항상 parts 배열의 마지막 항목이라고 가정하면 안 됩니다. JSON 응답을 수동으로 파싱하는 경우 위치에 의존하지 말고 항상 parts 배열을 반복하세요.
+- [OpenAPI 스키마의 하위 집합](https://ai.google.dev/api/caching?hl=ko#FunctionDeclaration)만 지원됩니다.
+- `ANY` 모드의 경우 API에서 매우 크거나 깊이 중첩된 스키마를 거부할 수 있습니다. 오류가 발생하면 속성 이름을 줄이거나, 중첩을 줄이거나, 함수 선언 수를 제한하여 함수 매개변수와 응답 스키마를 단순화해 보세요.
+- Python에서 지원되는 매개변수 유형은 제한적입니다.
+- 자동 함수 호출은 Python SDK 기능입니다.
+
+의견 보내기
+
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+
+최종 업데이트: 2026-07-21(UTC)
+
+의견을 전달하고 싶나요?
+
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-21(UTC)"],[],[]]

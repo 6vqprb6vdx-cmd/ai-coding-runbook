@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=hi
-fetched_at: 2026-07-20T04:42:46.603675+00:00
-title: "\u0907\u092e\u0947\u091c \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=ja
+fetched_at: 2026-07-27T04:48:19.675767+00:00
+title: "\u753b\u50cf\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-सुझाव भेजें
+フィードバックを送信
 
-# इमेज को समझना
+# 画像の理解
 
-Gemini मॉडल को मल्टीमॉडल के तौर पर डिज़ाइन किया गया है. इससे इमेज प्रोसेसिंग और कंप्यूटर विज़न से जुड़े कई काम किए जा सकते हैं. जैसे, इमेज के लिए कैप्शन जनरेट करना, इमेज को अलग-अलग कैटगरी में बांटना, और इमेज से जुड़े सवालों के जवाब देना. इसके लिए, आपको एमएल मॉडल को ट्रेनिंग देने की ज़रूरत नहीं होती.
+Gemini モデルは、マルチモーダル AI として一から構築されています。そのため、画像キャプション、分類、視覚的な質問応答など、さまざまな画像処理タスクやコンピュータ ビジョン タスクを、専用の ML モデルをトレーニングすることなく実行できます。
 
-Gemini मॉडल, मल्टीमॉडल की सामान्य सुविधाओं के साथ-साथ, कुछ खास इस्तेमाल के उदाहरणों के लिए **ज़्यादा सटीक नतीजे** देते हैं. जैसे, [ऑब्जेक्ट का पता लगाने की सुविधा](#object-detection). इसके लिए, उन्हें अतिरिक्त ट्रेनिंग दी जाती है.
+Gemini モデルは、一般的なマルチモーダル機能に加えて、追加のトレーニングにより、[オブジェクト検出](#object-detection)などの特定のユースケースで**精度が向上**しています。
 
-## Gemini को इमेज पास करना
+## Gemini に画像を渡す
 
-Gemini को इनपुट के तौर पर इमेज देने के लिए, इन दो तरीकों का इस्तेमाल किया जा सकता है:
+Gemini に画像を渡す方法は 2 つあります。
 
-- [इनलाइन इमेज डेटा पास करना](#inline-image): यह छोटी फ़ाइलों के लिए सबसे सही है. इसमें प्रॉम्प्ट के साथ-साथ, कुल अनुरोध का साइज़ 20 एमबी से कम होना चाहिए.
-- [File API का इस्तेमाल करके इमेज अपलोड करना](#upload-image): इसका सुझाव बड़ी फ़ाइलों के लिए दिया जाता है. इसके अलावा, इसका इस्तेमाल कई अनुरोधों में इमेज को फिर से इस्तेमाल करने के लिए भी किया जा सकता है.
+- [インライン画像データを渡す](#inline-image): 小さいファイル（プロンプトを含む合計リクエスト サイズが 20 MB 未満）に最適です。
+- [File API を使用して画像をアップロードする](#upload-image): 大きなファイルや、複数のリクエストで画像を再利用する場合におすすめします。
 
-### इनलाइन इमेज का डेटा पास करना
+### インライン画像データを渡す
 
-`generateContent` को किए गए अनुरोध में, इनलाइन इमेज डेटा पास किया जा सकता है. इमेज का डेटा, Base64 एन्कोड की गई स्ट्रिंग के तौर पर दिया जा सकता है. इसके अलावा, सीधे तौर पर स्थानीय फ़ाइलों को पढ़कर भी डेटा दिया जा सकता है. हालांकि, यह भाषा पर निर्भर करता है.
+`generateContent` へのリクエストでインライン画像データを渡すことができます。画像データは、Base64 エンコード文字列として提供するか、ローカルファイルを直接読み取って提供できます（言語によって異なります）。
 
-यहां दिए गए उदाहरण में, लोकल फ़ाइल से इमेज को पढ़ने और उसे प्रोसेस करने के लिए `generateContent` API को पास करने का तरीका बताया गया है.
+次の例は、ローカル ファイルから画像を読み取り、処理のために `generateContent` API に渡す方法を示しています。
 
 ### Python
 
@@ -88,7 +88,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 bytes, _ := os.ReadFile("path/to/small-sample.jpg")
@@ -142,7 +142,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }' 2> /dev/null
 ```
 
-किसी यूआरएल से इमेज को फ़ेच किया जा सकता है. इसके बाद, उसे बाइट में बदला जा सकता है. साथ ही, उसे `generateContent` में पास किया जा सकता है. ऐसा करने का तरीका यहां दिए गए उदाहरणों में बताया गया है.
+次の例に示すように、URL から画像を取得してバイトに変換し、`generateContent` に渡すこともできます。
 
 ### Python
 
@@ -200,7 +200,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -284,9 +284,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }' 2> /dev/null
 ```
 
-### File API का इस्तेमाल करके इमेज अपलोड करना
+### File API を使用して画像をアップロードする
 
-बड़ी फ़ाइलों के लिए या एक ही इमेज फ़ाइल का बार-बार इस्तेमाल करने के लिए, फ़ाइल एपीआई का इस्तेमाल करें. इस कोड में, एक इमेज फ़ाइल अपलोड की जाती है. इसके बाद, `generateContent` को कॉल करने के लिए इस फ़ाइल का इस्तेमाल किया जाता है. ज़्यादा जानकारी और उदाहरणों के लिए, [Files API की गाइड](https://ai.google.dev/gemini-api/docs/files?hl=hi) देखें.
+大きなファイルの場合や、同じ画像ファイルを繰り返し使用できるようにするには、Files API を使用します。次のコードは、画像ファイルをアップロードし、`generateContent` の呼び出しでそのファイルを使用します。詳細と例については、[Files API ガイド](https://ai.google.dev/gemini-api/docs/files?hl=ja)をご覧ください。
 
 ### Python
 
@@ -335,7 +335,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -431,9 +431,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## एक से ज़्यादा इमेज का इस्तेमाल करके प्रॉम्प्ट देना
+## 複数の画像を使用したプロンプト
 
-एक ही प्रॉम्प्ट में कई इमेज दी जा सकती हैं. इसके लिए, `contents` ऐरे में कई इमेज `Part` ऑब्जेक्ट शामिल करें. ये इनलाइन डेटा (स्थानीय फ़ाइलें या यूआरएल) और File API रेफ़रंस का मिक्सचर हो सकते हैं.
+`contents` 配列に複数の画像 `Part` オブジェクトを含めることで、1 つのプロンプトで複数の画像を指定できます。インライン データ（ローカル ファイルまたは URL）と File API 参照を混在させることができます。
 
 ### Python
 
@@ -517,7 +517,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 // Upload the first image
@@ -618,9 +618,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## ऑब्जेक्ट का पता लगाने की सुविधा
+## オブジェクト検出
 
-मॉडल को इस तरह से ट्रेन किया जाता है कि वे किसी इमेज में मौजूद ऑब्जेक्ट का पता लगा सकें और उनके बाउंडिंग बॉक्स के निर्देशांक पा सकें. इमेज के डाइमेंशन के हिसाब से कोऑर्डिनेट, [0, 1000] के स्केल पर होते हैं. आपको अपनी मूल इमेज के साइज़ के आधार पर, इन कोऑर्डिनेट को कम करना होगा.
+モデルは、画像内のオブジェクトを検出し、その境界ボックスの座標を取得するようにトレーニングされます。画像の寸法を基準とした座標は、[0, 1000] にスケーリングされます。元の画像サイズに基づいて、これらの座標をスケールダウンする必要があります。
 
 ### Python
 
@@ -693,7 +693,7 @@ console.log(boundingBoxes);
 // const absX1 = (boundingBoxes[0].box_2d[1] / 1000) * imageWidth;
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -822,14 +822,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }' 2> /dev/null
 ```
 
-ज़्यादा उदाहरणों के लिए, [Gemini कुकबुक](https://github.com/google-gemini/cookbook) में मौजूद ये नोटबुक देखें:
+その他の例については、[Gemini クックブック](https://github.com/google-gemini/cookbook)の次のノートブックをご覧ください。
 
-- [2D स्पेशल अंडरस्टैंडिंग नोटबुक](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=hi)
-- [एक्सपेरिमेंट के तौर पर उपलब्ध 3D पॉइंटिंग नोटबुक](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=hi)
+- [2D 空間認識ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=ja)
+- [試験運用版の 3D ポインティング ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=ja)
 
-## Google Images पर काम करने वाले फ़ॉर्मैट
+## サポートされている画像形式
 
-Gemini में, इस तरह के इमेज फ़ॉर्मैट वाले एमआईएमई टाइप इस्तेमाल किए जा सकते हैं:
+Gemini は、次の画像形式の MIME タイプをサポートしています。
 
 - PNG - `image/png`
 - JPEG - `image/jpeg`
@@ -837,63 +837,60 @@ Gemini में, इस तरह के इमेज फ़ॉर्मैट 
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-फ़ाइल इनपुट करने के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट करने के तरीके](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi) गाइड देखें.
+その他のファイル入力方法については、[ファイル入力方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja)ガイドをご覧ください。
 
-## क्षमताएं
+## 機能
 
-Gemini के सभी मॉडल वर्शन मल्टीमॉडल हैं. इनका इस्तेमाल, इमेज प्रोसेसिंग और कंप्यूटर विज़न से जुड़े कई कामों के लिए किया जा सकता है. जैसे, इमेज के लिए कैप्शन जनरेट करना, विज़ुअल से जुड़े सवालों के जवाब देना, इमेज को कैटगरी में बांटना, और ऑब्जेक्ट का पता लगाना. हालांकि, इनके अलावा और भी काम किए जा सकते हैं.
+すべての Gemini モデル バージョンはマルチモーダルであり、画像キャプション、Visual Question & Answering、画像分類、オブジェクト検出など、幅広い画像処理タスクやコンピュータ ビジョン タスクで使用できます。
 
-Gemini, आपकी क्वालिटी और परफ़ॉर्मेंस की ज़रूरतों के हिसाब से, खास एमएल मॉडल के इस्तेमाल को कम कर सकता है.
+Gemini を使用すると、品質とパフォーマンスの要件に応じて、特殊な ML モデルを使用する必要性が軽減されます。
 
-मॉडल के नए वर्शन को खास तौर पर, सामान्य कामों के साथ-साथ खास कामों को ज़्यादा सटीक तरीके से करने के लिए ट्रेन किया गया है. जैसे, [ऑब्जेक्ट का पता लगाने की सुविधा](#object-detection).
+最新のモデル バージョンは、一般的な機能に加えて、[オブジェクト検出](#object-detection)の強化など、専門的なタスクの精度を向上させるために特別にトレーニングされています。
 
-## सीमाएं और मुख्य तकनीकी जानकारी
+## 制限事項と主な技術情報
 
-### फ़ाइल की सीमा
+### ファイルの上限
 
-Gemini मॉडल, हर अनुरोध के लिए ज़्यादा से ज़्यादा 3,600 इमेज फ़ाइलें इस्तेमाल कर सकते हैं.
+Gemini モデルは、リクエストあたり最大 3,600 個の画像ファイルをサポートしています。
 
-### टोकन की गिनती
+### トークンの計算
 
-- अगर दोनों डाइमेंशन 384 पिक्सल से कम या इसके बराबर हैं, तो 258 टोकन.
-  बड़ी इमेज को 768x768 पिक्सल वाली टाइल में बांटा जाता है. हर टाइल की कीमत 258 टोकन होती है.
+- 両方の寸法が 384 ピクセル以下の場合、258 個のトークン。大きな画像は 768x768 ピクセルのタイルに分割され、各タイルに 258 個のトークンが使用されます。
 
-टाइल की संख्या कैलकुलेट करने का सामान्य फ़ॉर्मूला यहां दिया गया है:
+タイルの数を計算するおおよその式は次のとおりです。
 
-- क्रॉप यूनिट के साइज़ का हिसाब लगाएं. यह साइज़, फ़्लोर(min(चौड़ाई, ऊंचाई) / 1.5) के आस-पास होता है.
-- टाइल की संख्या पाने के लिए, हर डाइमेंशन को क्रॉप यूनिट के साइज़ से भाग दें और फिर उन्हें आपस में गुणा करें.
+- 切り抜き単位のサイズを計算します。これはおおよそ floor(min(width, height) / 1.5) です。
+- 各ディメンションをクロップ単位サイズで割り、乗算してタイルの数を取得します。
 
-उदाहरण के लिए, 960x540 डाइमेंशन वाली इमेज के लिए, क्रॉप यूनिट का साइज़ 360 होगा. हर डाइमेंशन को 360 से भाग दें. टाइल की संख्या 3 \* 2 = 6 है.
+たとえば、960x540 のサイズの画像の場合、切り抜き単位のサイズは 360 になります。各ディメンションを 360 で割ると、タイルの数は 3 \* 2 = 6 になります。
 
-### मीडिया रिज़ॉल्यूशन
+### メディアの解像度
 
-Gemini 3 में, मल्टीमॉडल विज़न प्रोसेसिंग को ज़्यादा बारीकी से कंट्रोल करने की सुविधा मिलती है. इसके लिए, `media_resolution` पैरामीटर का इस्तेमाल किया जाता है. `media_resolution` पैरामीटर से यह तय होता है कि **हर इनपुट इमेज या वीडियो फ़्रेम के लिए ज़्यादा से ज़्यादा कितने टोकन असाइन किए जा सकते हैं.**
-ज़्यादा रिज़ॉल्यूशन से, मॉडल को छोटे टेक्स्ट को पढ़ने या छोटी-छोटी बारीकियों को पहचानने में मदद मिलती है. हालांकि, इससे टोकन का इस्तेमाल और इंतज़ार का समय बढ़ जाता है.
+Gemini 3 では、`media_resolution` パラメータを使用して、マルチモーダル ビジョン処理をきめ細かく制御できます。`media_resolution` パラメータは、**入力画像または動画フレームごとに割り当てられるトークンの最大数**を決定します。解像度が高いほど、モデルが細かいテキストを読み取ったり、小さな詳細を識別する能力が向上しますが、トークンの使用量とレイテンシが増加します。
 
-पैरामीटर और इससे टोकन की गिनती पर पड़ने वाले असर के बारे में ज़्यादा जानने के लिए, [मीडिया रिज़ॉल्यूशन](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=hi) गाइड देखें.
+パラメータとそのトークン計算への影響について詳しくは、[メディア解像度](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=ja)ガイドをご覧ください。
 
-## सलाह और सबसे सही तरीके
+## おすすめの方法やお役立ち情報
 
-- पुष्टि करें कि इमेज सही तरीके से घुमाई गई हों.
-- साफ़ और बिना धुंधली इमेज का इस्तेमाल करें.
-- टेक्स्ट वाली किसी एक इमेज का इस्तेमाल करते समय, `contents` ऐरे में इमेज वाले हिस्से के *बाद* टेक्स्ट प्रॉम्प्ट डालें.
+- 画像が正しく回転することを確認します。
+- 鮮明でぼやけていない画像を使用します。
+- テキストを含む 1 つの画像を使用する場合は、`contents` 配列の画像部分の後にテキスト プロンプトを配置します。
 
-## आगे क्या करना है
+## 次のステップ
 
-इस गाइड में, इमेज फ़ाइलें अपलोड करने और इमेज इनपुट से टेक्स्ट आउटपुट जनरेट करने का तरीका बताया गया है. ज़्यादा जानने के लिए, यहां दिए गए संसाधन देखें:
+このガイドでは、画像ファイルをアップロードし、画像入力からテキスト出力を生成する方法について説明します。詳細については、次のリソースをご覧ください。
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi): Gemini के साथ इस्तेमाल करने के लिए, फ़ाइलें अपलोड करने और उन्हें मैनेज करने के बारे में ज़्यादा जानें.
-- [सिस्टम के लिए निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
-  सिस्टम के लिए निर्देश देने की सुविधा की मदद से, अपनी खास ज़रूरतों और इस्तेमाल के उदाहरणों के आधार पर, मॉडल के व्यवहार को कंट्रोल किया जा सकता है.
-- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide): Gemini API, टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा देता है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
-- [सुरक्षा से जुड़ी गाइडलाइन](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=hi): कभी-कभी जनरेटिव एआई मॉडल से ऐसे आउटपुट मिलते हैं जिनकी उम्मीद नहीं होती. जैसे, गलत, पक्षपात करने वाले या आपत्तिजनक आउटपुट. इस तरह के आउटपुट से होने वाले नुकसान के जोखिम को कम करने के लिए, पोस्ट-प्रोसेसिंग और मैन्युअल तरीके से आकलन करना ज़रूरी है.
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): Gemini で使用するファイルのアップロードと管理について説明します。
+- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions): システム指示を使用すると、特定のニーズやユースケースに基づいてモデルの動作を制御できます。
+- [ファイル プロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide): Gemini API は、テキスト、画像、音声、動画データを使用したプロンプト（マルチモーダル プロンプトとも呼ばれます）をサポートしています。
+- [安全に関するガイダンス](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja): 生成 AI モデルは、不正確、偏見がある、不快な出力など、予期しない出力を生成することがあります。このような出力による危害のリスクを軽減するには、後処理と人間による評価が不可欠です。
 
-सुझाव भेजें
+フィードバックを送信
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-आखिरी बार 2026-06-24 (UTC) को अपडेट किया गया.
+最終更新日 2026-06-24 UTC。
 
-क्या आपको हमें और कुछ बताना है?
+ご意見をお聞かせください
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-24 (UTC) को अपडेट किया गया."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-24 UTC。"],[],[]]

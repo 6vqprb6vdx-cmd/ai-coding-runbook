@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=vi
-fetched_at: 2026-07-20T04:38:45.513427+00:00
+fetched_at: 2026-07-27T04:45:32.680986+00:00
 title: "G\u1ecdi h\u00e0m b\u1eb1ng Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -56,7 +56,7 @@ schedule_meeting_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about Q3 planning.",
     tools=[{"type": "function", **schedule_meeting_function}],
 )
@@ -91,7 +91,7 @@ const scheduleMeetingFunction = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about Q3 planning.',
   tools: [scheduleMeetingFunction],
 });
@@ -111,7 +111,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about Q3 planning.",
     "tools": [{
         "type": "function",
@@ -159,7 +159,7 @@ weather_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What's the temperature in London?",
     tools=[weather_function],
 )
@@ -194,7 +194,7 @@ const weatherFunctionDeclaration = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: "What's the temperature in London?",
   tools: [weatherFunctionDeclaration],
 });
@@ -214,7 +214,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What'\''s the temperature in London?",
     "tools": [{
       "type": "function",
@@ -258,7 +258,7 @@ create_chart_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
     tools=[create_chart_function],
 )
@@ -292,7 +292,7 @@ const createChartFunctionDeclaration = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: "Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
   tools: [createChartFunctionDeclaration],
 });
@@ -311,7 +311,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Create a bar chart titled '\''Quarterly Sales'\'' with Q1: 50000, Q2: 75000, Q3: 60000.",
     "tools": [{
         "type": "function",
@@ -337,7 +337,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 Gọi hàm là một hoạt động tương tác có cấu trúc giữa ứng dụng, mô hình và các hàm bên ngoài:
 
 1. **Xác định khai báo hàm:** Xác định tên, tham số và mục đích của hàm cho mô hình.
-2. **Gọi LLM bằng các khai báo hàm:** Gửi câu lệnh của người dùng cùng với(các) khai báo hàm đến mô hình.
+2. **Gọi LLM bằng khai báo hàm:** Gửi câu lệnh của người dùng cùng với(các) khai báo hàm đến mô hình.
 3. **Thực thi mã hàm (Trách nhiệm của bạn):** Mô hình *không* tự thực thi hàm. Trích xuất tên và đối số rồi thực thi trong ứng dụng của bạn.
 4. **Tạo câu trả lời thân thiện với người dùng:** Gửi kết quả trở lại mô hình để có câu trả lời cuối cùng, thân thiện với người dùng.
 
@@ -406,7 +406,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Turn the lights down to a romantic level",
     tools=[set_light_values_declaration],
 )
@@ -423,7 +423,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: 'Turn the lights down to a romantic level',
   tools: [setLightValuesTool],
 });
@@ -470,7 +470,7 @@ if (fcStep.name === 'set_light_values') {
 
 ```
 final_interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {
             "type": "function_result",
@@ -490,7 +490,7 @@ print(final_interaction.output_text)
 
 ```
 const finalInteraction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: [{
     type: 'function_result',
     name: fcStep.name,
@@ -529,7 +529,7 @@ history = [
 ]
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     store=False,
     input=history,
     tools=[set_light_values_declaration],
@@ -550,7 +550,7 @@ history.append({
 })
 
 final_interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     store=False,
     input=history,
     tools=[set_light_values_declaration],
@@ -575,7 +575,7 @@ async function main() {
   ];
 
   const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     store: false,
     input: history,
     tools: [setLightValuesTool],
@@ -597,7 +597,7 @@ async function main() {
   });
 
   const finalInteraction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     store: false,
     input: history,
     tools: [setLightValuesTool],
@@ -617,7 +617,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "store": false,
     "input": [
       {
@@ -664,7 +664,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d "{
-    \"model\": \"gemini-3.5-flash\",
+    \"model\": \"gemini-3.6-flash\",
     \"store\": false,
     \"input\": $HISTORY,
     \"tools\": [{
@@ -688,7 +688,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 Khai báo hàm được truyền dưới dạng một công cụ và bao gồm:
 
 - `type` (chuỗi): Phải là `"function"` đối với các hàm tuỳ chỉnh.
-- `name` (chuỗi): Tên hàm riêng biệt (sử dụng dấu gạch dưới hoặc quy tắc lạc đà).
+- `name` (chuỗi): Tên hàm riêng biệt (sử dụng dấu gạch dưới hoặc quy tắc viết hoa chữ cái đầu của từ thứ hai).
 - `description` (chuỗi): Giải thích rõ ràng về mục đích của hàm.
 - `parameters` (đối tượng): Các thông số đầu vào mà hàm này yêu cầu.
   - `type` (chuỗi): Loại dữ liệu tổng thể, chẳng hạn như `object`.
@@ -697,7 +697,7 @@ Khai báo hàm được truyền dưới dạng một công cụ và bao gồm:
 
 ## Gọi hàm bằng mô hình tư duy
 
-Các mô hình Gemini 3 sử dụng quy trình ["tư duy"](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) nội bộ giúp cải thiện tính năng gọi hàm. Các SDK sẽ tự động xử lý [chữ ký ý tưởng](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) cho bạn.
+Các mô hình Gemini 3 sử dụng quy trình ["tư duy"](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) nội bộ giúp cải thiện chức năng gọi. Các SDK sẽ tự động xử lý [chữ ký ý tưởng](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) cho bạn.
 
 ## Gọi hàm song song
 
@@ -716,7 +716,7 @@ dim_lights = {"type": "function", "name": "dim_lights", "description": "Dim the 
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Turn this place into a party!",
     tools=[power_disco_ball, start_music, dim_lights],
     generation_config={"tool_choice": "any"},
@@ -739,7 +739,7 @@ const dimLights = { type: 'function', name: 'dim_lights', description: 'Dim the 
   parameters: { type: 'object', properties: { brightness: { type: 'number' } }, required: ['brightness'] } };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: 'Turn this place into a party!',
   tools: [powerDiscoBall, startMusic, dimLights],
   generation_config: { tool_choice: 'any' },
@@ -759,7 +759,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Turn this place into a party!",
     "tools": [
       {
@@ -842,7 +842,7 @@ set_thermostat_temperature_declaration = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
     tools=[
         get_weather_forecast_declaration,
@@ -897,7 +897,7 @@ const setThermostatTemperatureTool = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3.5-flash',
+  model: 'gemini-3.6-flash',
   input: "If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
   tools: [
     getWeatherForecastTool,
@@ -926,7 +926,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "If it'\''s warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
     "tools": [
       {
@@ -999,7 +999,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the temperature in Boston?",
     "tools": [{
       "type": "function",
@@ -1058,7 +1058,7 @@ tools = [
 ]
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What is the northernmost city in the United States? What's the weather like there today?",
     tools=tools
 )
@@ -1068,7 +1068,7 @@ for step in interaction.steps:
         print(f"Function call: {step.name} (ID: {step.id})")
         result = {"response": "Very cold. 22 degrees Fahrenheit."}
         interaction_2 = client.interactions.create(
-            model="gemini-3.5-flash",
+            model="gemini-3.6-flash",
             previous_interaction_id=interaction.id,
             tools=tools,
             input=[{
@@ -1108,7 +1108,7 @@ const tools = [
 ];
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: "What is the northernmost city in the United States? What's the weather like there today?",
     tools: tools
 });
@@ -1118,7 +1118,7 @@ for (const step of interaction.steps) {
         console.log(`Function call: ${step.name} (ID: ${step.id})`);
         const result = {response: "Very cold. 22 degrees Fahrenheit."};
         const interaction_2 = await client.interactions.create({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             previous_interaction_id: interaction.id,
             tools: tools,
             input: [{
@@ -1142,7 +1142,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the northernmost city in the United States? What'\''s the weather like there today?",
     "tools": [
       {"type": "google_search"},
@@ -1166,7 +1166,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "previous_interaction_id": "INTERACTION_ID",
     "tools": [
       {"type": "google_search"},
@@ -1219,7 +1219,7 @@ image_bytes = requests.get(image_path).content
 base64_image_data = base64.b64encode(image_bytes).decode("utf-8")
 
 final_interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     previous_interaction_id=interaction.id,
     input=[
         {
@@ -1253,7 +1253,7 @@ const toolCall = interaction.steps.find(s => s.type === 'function_call');
 const base64ImageData = "BASE64_IMAGE_DATA";
 
 const finalInteraction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     previous_interaction_id: interaction.id,
     input: [{
         type: 'function_result',
@@ -1280,7 +1280,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "previous_interaction_id": "INTERACTION_ID",
     "input": [
       {
@@ -1331,7 +1331,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Check the weather in San Francisco.",
     tools=[
         {
@@ -1351,7 +1351,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Check the weather in San Francisco.',
     tools: [
         {
@@ -1370,7 +1370,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Check the weather in San Francisco.",
     "tools": [
         {
@@ -1408,7 +1408,7 @@ weather_tool = {
 }
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What is the weather in Paris?",
     tools=[weather_tool],
     stream=True
@@ -1477,7 +1477,7 @@ const weatherTool = {
 };
 
 const stream = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'What is the weather in Paris?',
     tools: [weatherTool],
     stream: true,
@@ -1531,7 +1531,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the weather in Paris?",
     "tools": [{
         "type": "function",
@@ -1551,14 +1551,76 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 
 ## Các phương pháp hay nhất
 
-- **Mô tả hàm và tham số:** Rõ ràng và cụ thể.
+- **Nội dung mô tả về hàm và tham số:** Rõ ràng và cụ thể.
 - **Đặt tên:** Sử dụng tên mô tả không có dấu cách hoặc ký tự đặc biệt.
 - **Nhập mạnh:** Sử dụng các loại cụ thể (số nguyên, chuỗi, enum).
 - **Lựa chọn công cụ:** Giữ số lượng công cụ đang hoạt động ở mức tối đa là 10 đến 20.
-- **Thiết kế câu lệnh:** Cung cấp bối cảnh và hướng dẫn.
+- **Kỹ thuật tạo câu lệnh:** Cung cấp bối cảnh và hướng dẫn.
 - **Xác thực:** Xác thực các lệnh gọi hàm trước khi thực thi.
 - **Xử lý lỗi:** Triển khai biện pháp xử lý lỗi hữu ích.
 - **Bảo mật:** Sử dụng phương thức xác thực phù hợp cho các API bên ngoài.
+
+## Giải pháp thay thế cho các yêu cầu về văn bản trước khi sử dụng công cụ
+
+**Vấn đề:** Nếu câu lệnh của bạn yêu cầu mô hình xuất văn bản có cấu trúc (XML, YAML, JSON, v.v.) (ví dụ: `<UPDATE>...</UPDATE>`) ngay trước khi thực hiện một lệnh gọi công cụ, đôi khi lệnh gọi công cụ có thể không thành công với `Malformed_Function_Call`.
+
+**Giải pháp:** Các giải pháp sau đây sẽ giải quyết vấn đề này:
+
+- **ƯU TIÊN:** Hướng dẫn mô hình đặt các ghi chú trước khi sử dụng công cụ vào một lệnh gọi hàm `update()` chuyên dụng thay vì văn bản thô (xem thông tin chi tiết bên dưới).
+- Hướng dẫn mô hình viết ghi chú dưới dạng tiêu đề Markdown (`# UPDATE`, `## PLAN`) thay vì văn bản có cấu trúc.
+- Không yêu cầu mô hình xuất văn bản trước khi gọi công cụ.
+
+### Giải pháp thay thế ưu tiên: Gói ghi chú công việc trong một lệnh gọi hàm chuyên dụng
+
+Thay vì chỉ thị ban đầu:
+
+```
+Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags within `<UPDATE>`.
+```
+
+Hãy làm theo hướng dẫn mới này:
+
+```
+Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
+```
+
+Đồng thời, hãy cập nhật tất cả các thông tin tham chiếu đến định dạng XML `<UPDATE>` cũ trong yêu cầu của khách hàng. Sau đó, hãy thêm nội dung khai báo hàm tương ứng cho hàm cập nhật:
+
+```
+{
+  "name": "update",
+  "description": "Update working notes (previous step analysis, plan, next step, external note).",
+  "parameters": {
+    "type": "OBJECT",
+    "properties": {
+      "previous_step": {
+        "type": "STRING",
+        "description": "Key findings and outcomes since the previous step."
+      },
+      "plan": {
+        "type": "STRING",
+        "description": "The current status of the plan."
+      },
+      "next_step": {
+        "type": "STRING",
+        "description": "Brief explanation of the immediate next action according to the plan."
+      },
+      "external": {
+        "type": "STRING",
+        "description": "A short, plain-language note shown to the User about what you are ABOUT TO DO next."
+      }
+    },
+    "required": [
+      "previous_step",
+      "plan",
+      "next_step",
+      "external"
+    ]
+  }
+}
+```
+
+Sau đó, mô hình sẽ thực hiện hai lệnh gọi trong cùng một bước: lệnh gọi `update()` thay thế XML có cấu trúc và lệnh gọi hàm thực tế mà mô hình muốn thực hiện.
 
 ## Lưu ý và giới hạn
 
@@ -1570,8 +1632,8 @@ Gửi ý kiến phản hồi
 
 Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Cập nhật lần gần đây nhất: 2026-07-07 UTC.
+Cập nhật lần gần đây nhất: 2026-07-21 UTC.
 
 Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-07 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-21 UTC."],[],[]]

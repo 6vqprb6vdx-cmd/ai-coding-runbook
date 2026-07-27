@@ -1,150 +1,142 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=de
-fetched_at: 2026-07-20T04:35:15.091754+00:00
-title: "Langer Kontext \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=ar
+fetched_at: 2026-07-27T04:44:54.698051+00:00
+title: "\u0633\u064a\u0627\u0642 \u0637\u0648\u064a\u0644 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Feedback geben
+إرسال ملاحظات
 
-# Langer Kontext
+# سياق طويل
 
-Viele Gemini-Modelle haben große Kontextfenster mit 1 Million oder mehr Tokens.
-Bisher war die Menge an Text (oder Tokens), die dem Modell gleichzeitig übergeben werden konnte, bei Large Language Models (LLMs) erheblich begrenzt.
-Das große Kontextfenster von Gemini eröffnet viele neue Anwendungsfälle und Entwicklerparadigmen.
+تتضمّن العديد من طُرز Gemini قدرة استيعاب كبيرة تصل إلى مليون رمز مميّز أو أكثر.
+في السابق، كانت النماذج اللغوية الكبيرة (LLM) محدودة بشكل كبير بسبب كمية النص (أو الرموز المميزة) التي يمكن تمريرها إلى النموذج في وقت واحد.
+تتيح قدرة الاستيعاب الموسَّعة في Gemini العديد من حالات الاستخدام الجديدة ونماذج المطوّرين.
 
-Der Code, den Sie bereits für Fälle wie die [Text
-generierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de) oder [multimodale
-Eingaben](https://ai.google.dev/gemini-api/docs/vision?hl=de) verwenden, funktioniert ohne Änderungen mit langem Kontext.
+سيعمل الرمز الذي تستخدمه حاليًا في حالات مثل [إنشاء
+النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar) أو [المدخلات
+المتعددة الوسائط](https://ai.google.dev/gemini-api/docs/vision?hl=ar) بدون أي تغييرات مع السياق الطويل.
 
-In diesem Dokument erhalten Sie einen Überblick darüber, was Sie mit Modellen mit Kontextfenstern von 1 Million und mehr Tokens erreichen können. Auf der Seite finden Sie eine kurze Übersicht über das Kontextfenster und Informationen dazu, wie Entwickler mit langem Kontext umgehen sollten, verschiedene Anwendungsfälle für langen Kontext in der Praxis und Möglichkeiten zur Optimierung der Nutzung von langem Kontext.
+يقدّم لك هذا المستند نظرة عامة على ما يمكنك تحقيقه باستخدام نماذج تتضمّن نوافذ سياق تتضمّن مليون رمز مميّز أو أكثر. تقدّم الصفحة نظرة عامة موجزة حول قدرة الاستيعاب، وتستكشف كيفية الاستفادة من قدرة الاستيعاب الموسَّعة، وحالات الاستخدام المختلفة في العالم الواقعي، وطرق تحسين الاستخدام.
 
-Die Kontextfenstergrößen bestimmter Modelle finden Sie auf der
-[Seite Modelle](https://ai.google.dev/gemini-api/docs/models?hl=de).
+للاطّلاع على أحجام قدرة استيعاب نماذج معيّنة، يُرجى الانتقال إلى صفحة [النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
 
-## Was ist das Kontextfenster?
+## ما هي قدرة الاستيعاب؟
 
-Die grundlegende Verwendung der Gemini-Modelle besteht darin, dem Modell Informationen (Kontext) zu übergeben, woraufhin das Modell eine Antwort generiert. Eine Analogie für das Kontextfenster ist das Kurzzeitgedächtnis. Die Menge an Informationen, die im Kurzzeitgedächtnis einer Person gespeichert werden kann, ist begrenzt. Das gilt auch für generative Modelle.
+تتمثّل الطريقة الأساسية لاستخدام نماذج Gemini في تمرير المعلومات (السياق) إلى النموذج، الذي سينشئ بعد ذلك ردًا. يمكن تشبيه قدرة استيعاب السياق بالذاكرة قصيرة المدى. هناك كمية محدودة من المعلومات التي يمكن تخزينها في الذاكرة القصيرة المدى لدى الشخص، وينطبق الأمر نفسه على النماذج التوليدية.
 
-Weitere Informationen zur Funktionsweise von Modellen finden Sie in unserem [Leitfaden zu generativen Modellen](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de#under-the-hood).
+يمكنك الاطّلاع على مزيد من المعلومات حول طريقة عمل النماذج في [دليل النماذج التوليدية](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar#under-the-hood).
 
-## Erste Schritte mit langem Kontext
+## بدء استخدام ميزة "السياق الطويل"
 
-Ältere Versionen generativer Modelle konnten nur 8.000 Tokens gleichzeitig verarbeiten. Neuere Modelle haben diese Grenze auf 32.000 oder sogar 128.000 Tokens erhöht. Gemini ist das erste Modell, das 1 Million Tokens verarbeiten kann.
+في السابق، كانت الإصدارات الأقدم من النماذج التوليدية قادرة على معالجة 8,000 رمز مميز فقط في المرة الواحدة. وقد ذهبت الطُرز الأحدث إلى أبعد من ذلك من خلال قبول 32,000 أو حتى 128,000 رمز مميز. ‫Gemini هو أول نموذج يمكنه قبول مليون رمز مميّز.
 
-In der Praxis würden 1 Million Tokens so aussehen:
+في الواقع، سيبدو مليون رمز مميز على النحو التالي:
 
-- 50.000 Codezeilen (mit den üblichen 80 Zeichen pro Zeile)
-- Alle Textnachrichten, die Sie in den letzten 5 Jahren gesendet haben
-- 8 englische Romane durchschnittlicher Länge
-- Transkripte von über 200 Podcastfolgen durchschnittlicher Länge
+- ‫50,000 سطر من التعليمات البرمجية (مع 80 حرفًا قياسيًا لكل سطر)
+- جميع الرسائل النصية التي أرسلتها في آخر 5 سنوات
+- 8 روايات إنجليزية متوسطة الطول
+- نصوص لأكثر من 200 حلقة بودكاست بمتوسط طول
 
-Bei den kleineren Kontextfenstern, die bei vielen anderen Modellen üblich sind, sind oft Strategien erforderlich, z. B. das willkürliche Löschen alter Nachrichten, das Zusammenfassen von Inhalten, die Verwendung von RAG mit Vektordatenbanken oder das Filtern von Prompts, um Tokens zu sparen.
+تتطلّب قدرات الاستيعاب الأكثر محدودية الشائعة في العديد من النماذج الأخرى غالبًا استراتيجيات مثل حذف الرسائل القديمة بشكل عشوائي أو تلخيص المحتوى أو استخدام RAG مع قواعد بيانات المتّجهات أو فلترة الطلبات لحفظ الرموز المميزة.
 
-Diese Techniken sind in bestimmten Szenarien zwar weiterhin wertvoll, aber das große Kontextfenster von Gemini ermöglicht einen direkteren Ansatz: alle relevanten Informationen im Voraus bereitzustellen. Da Gemini-Modelle speziell für umfangreiche Kontextfunktionen entwickelt wurden, zeigen sie ein leistungsstarkes In-Context-Learning. Beispiel: Wenn nur Lehrmaterialien im Kontext bereitgestellt werden (eine 500-seitige Referenz
-grammatik, ein Wörterbuch und ≈ 400 parallele Sätze), kann Gemini
-[vom Englischen nach Kalamang übersetzen](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
-– eine Papua-Sprache mit
-weniger als 200 Sprechern – mit einer Qualität, die der einer Person ähnelt, die aus denselben
-Materialien gelernt hat. Dies veranschaulicht den Paradigmenwechsel, der durch den langen Kontext von Gemini ermöglicht wird, und eröffnet neue Möglichkeiten durch robustes In-Context-Learning.
+على الرغم من أنّ هذه الأساليب لا تزال مفيدة في سيناريوهات معيّنة، فإنّ قدرة استيعاب السياق الواسعة في Gemini تتيح اتّباع أسلوب أكثر مباشرةً، وهو تقديم جميع المعلومات ذات الصلة مسبقًا. بما أنّ نماذج Gemini مصمّمة خصيصًا لتوفير إمكانات سياقية هائلة، فإنّها تقدّم أداءً قويًا في التعلّم السياقي. على سبيل المثال، باستخدام مواد تعليمية ضمن السياق فقط (مرجع نحوي من 500 صفحة وقاموس ونحو 400 جملة متوازية)، [تعلّم Gemini
+الترجمة](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
+من الإنجليزية إلى لغة كالامانغ، وهي لغة بابوا يتحدث بها أقل من 200 شخص، وبجودة مماثلة لجودة الترجمة التي يقدمها متعلّم بشري يستخدم المواد نفسها. يوضّح ذلك التحوّل النموذجي الذي يتيحه سياق Gemini الطويل، ما يفتح آفاقًا جديدة من خلال التعلّم القوي داخل السياق.
 
-## Anwendungsfälle für langen Kontext
+## حالات استخدام السياق الطويل
 
-Der Standardanwendungsfall für die meisten generativen Modelle ist zwar immer noch die Texteingabe, aber die Gemini-Modellfamilie ermöglicht ein neues Paradigma multimodaler Anwendungsfälle. Diese Modelle können Text, Video, Audio und Bilder nativ verstehen. Sie werden
-von der [Gemini API begleitet, die multimodale Datei
-typen](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=de) verarbeitet.
+على الرغم من أنّ حالة الاستخدام العادية لمعظم النماذج التوليدية لا تزال هي إدخال النص، تتيح مجموعة نماذج Gemini نموذجًا جديدًا لحالات الاستخدام المتعدّدة الوسائط. يمكن لهذه النماذج فهم النصوص والفيديوهات والمقاطع الصوتية والصور بشكلٍ مباشر. وتتضمّن هذه النماذج [Gemini API التي تقبل أنواع ملفات متعدّدة الوسائط](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=ar) لتوفير المزيد من الراحة.
 
-### Text im Langformat
+### نص طويل
 
-Text hat sich als die Ebene der Intelligenz erwiesen, die einen Großteil der Dynamik rund um LLMs untermauert. Wie bereits erwähnt, war ein Großteil der praktischen Einschränkungen von LLMs darauf zurückzuführen, dass kein ausreichend großes Kontextfenster für bestimmte Aufgaben vorhanden war. Dies führte zur schnellen Einführung von Retrieval Augmented Generation (RAG) und anderen Techniken, die dem Modell dynamisch relevante Kontextinformationen zur Verfügung stellen. Mit immer größeren Kontextfenstern stehen jetzt neue Techniken zur Verfügung, die neue Anwendungsfälle ermöglichen.
+وقد أثبت النص أنّه طبقة الذكاء التي تستند إليها الكثير من التطورات في مجال النماذج اللغوية الكبيرة. كما ذكرنا سابقًا، يعود الكثير من القيود العملية المفروضة على النماذج اللغوية الكبيرة إلى عدم توفّر قدرة استيعاب كبيرة بما يكفي لتنفيذ مهام معيّنة. أدّى ذلك إلى اعتماد سريع للتوليد المعزّز بالاسترجاع (RAG) وتقنيات أخرى تقدّم للنموذج بشكل ديناميكي معلومات سياقية ذات صلة. أما الآن، ومع توفّر قدرات استيعاب أكبر فأكبر، أصبحت هناك تقنيات جديدة تتيح حالات استخدام جديدة.
 
-Einige neue und Standardanwendungsfälle für textbasierten langen Kontext:
+في ما يلي بعض حالات الاستخدام الناشئة والعادية للنصوص الطويلة المستندة إلى السياق:
 
-- Zusammenfassen großer Textmengen
-  - Bei früheren Zusammenfassungsoptionen mit kleineren Kontextmodellen war ein gleitendes Fenster oder eine andere Technik erforderlich, um den Status der vorherigen Abschnitte beizubehalten, während dem Modell neue Tokens übergeben wurden.
-- Fragen und Antworten
-  - Bisher war dies aufgrund der begrenzten Menge an Kontext und der geringen faktischen Erinnerung der Modelle nur mit RAG möglich.
-- Agentische Workflows
-  - Text ist die Grundlage dafür, wie Agents den Status ihrer Aufgaben beibehalten. Wenn nicht genügend Informationen über die Welt und das Ziel des Agents vorhanden sind, wird die Zuverlässigkeit der Agents eingeschränkt.
+- تلخيص مجموعات كبيرة من النصوص
+  - كانت خيارات التلخيص السابقة التي تستخدم نماذج سياق أصغر تتطلّب
+    نافذة منزلقة أو أسلوبًا آخر للاحتفاظ بحالة الأقسام السابقة
+    أثناء تمرير الرموز المميزة الجديدة إلى النموذج
+- طرح الأسئلة والإجابة عنها
+  - في السابق، كان ذلك ممكنًا فقط باستخدام التوليد المعزّز بالاسترجاع (RAG) بسبب الكمية المحدودة من السياق وانخفاض قدرة النماذج على استرجاع المعلومات الواقعية.
+- عمليات سير العمل المستندة إلى الذكاء الاصطناعي الوكيل
+  - يشكّل النص الأساس الذي تستند إليه البرامج في تتبُّع ما أنجزته وما عليها إنجازه، ويُعدّ عدم توفّر معلومات كافية حول العالم وهدف البرنامج من القيود التي تحدّ من موثوقية البرامج.
 
-[Many-shot in-context learning](https://arxiv.org/pdf/2404.11018) ist eine der einzigartigsten Funktionen, die durch lange Kontextmodelle ermöglicht werden. Untersuchungen haben gezeigt, dass die üblichen Paradigmen für „Single-Shot“- oder „Multi-Shot“-Beispiele, bei denen dem Modell ein oder mehrere Beispiele für eine Aufgabe präsentiert werden, auf Hunderte, Tausende oder sogar Hunderttausende von Beispielen skaliert werden können, was zu neuen Modellfunktionen führen kann. Es hat sich gezeigt, dass dieser Many-Shot-Ansatz ähnlich wie Modelle funktioniert, die für eine bestimmte Aufgabe optimiert wurden. Für Anwendungsfälle, in denen die Leistung eines Gemini-Modells für einen Produktions-Roll-out noch nicht ausreicht, können Sie den Many-Shot-Ansatz ausprobieren. Wie Sie später im Abschnitt zur Optimierung des langen Kontexts noch einmal untersuchen werden, ist diese Art von Arbeitslast mit hoher Eingabetoken durch Kontext-Caching in einigen Fällen wesentlich wirtschaftlicher und hat sogar eine geringere Latenz.
+[التعلّم داخل السياق باستخدام أمثلة متعددة](https://arxiv.org/pdf/2404.11018) هو إحدى الإمكانات الفريدة التي تتيحها النماذج ذات السياق الطويل. أظهرت الأبحاث أنّ استخدام نموذج "اللقطة الواحدة" أو "اللقطات المتعددة" الشائع، حيث يتم تزويد النموذج بمثال واحد أو بضعة أمثلة على مهمة ما، وتوسيع نطاق ذلك إلى مئات أو آلاف أو حتى مئات الآلاف من الأمثلة، يمكن أن يؤدي إلى إمكانات جديدة للنموذج. وقد تبيّن أيضًا أنّ هذا النهج الذي يتضمّن عدة لقطات يحقّق أداءً مشابهًا للنماذج التي تم تحسينها لتنفيذ مهمة معيّنة. في حالات الاستخدام التي لا يكون فيها أداء أحد نماذج Gemini كافيًا لطرحه في مرحلة الإنتاج، يمكنك تجربة أسلوب "اللقطات المتعددة". كما ستتعرّف لاحقًا في قسم تحسين السياق الطويل، يتيح التخزين المؤقت للسياق إمكانية تنفيذ هذا النوع من أحمال العمل العالية لرموز الإدخال بشكل أكثر فعالية من حيث التكلفة، وحتى مع وقت استجابة أقل في بعض الحالات.
 
-### Videos im Langformat
+### فيديو طويل
 
-Der Nutzen von Videoinhalten war lange Zeit durch die mangelnde Zugänglichkeit des Mediums selbst eingeschränkt. Es war schwierig, die Inhalte zu überfliegen, Transkripte konnten die Nuancen eines Videos oft nicht erfassen und die meisten Tools verarbeiten Bilder, Text und Audio nicht zusammen. Mit Gemini führen die Textfunktionen mit langem Kontext dazu, dass Fragen zu multimodalen Eingaben mit gleichbleibender Leistung beantwortet werden können.
+لطالما كانت فائدة محتوى الفيديو محدودة بسبب عدم توفّر إمكانية الوصول إلى الوسيط نفسه. كان من الصعب التصفح السريع للمحتوى، وغالبًا ما كانت النصوص لا تنقل المعنى الدقيق للفيديو، كما أنّ معظم الأدوات لا تعالج الصور والنصوص والمقاطع الصوتية معًا. باستخدام Gemini، تتيح إمكانات التعامل مع النصوص الطويلة الاستنتاج والإجابة عن الأسئلة حول المدخلات المتعددة الوسائط بأداء ثابت.
 
-Einige neue und Standardanwendungsfälle für langen Videokontext:
+في ما يلي بعض حالات الاستخدام الناشئة والعادية لسياق الفيديو الطويل:
 
-- Fragen und Antworten zu Videos
-- Videospeicher, wie bei [Google's Project Astra](https://deepmind.google/technologies/gemini/project-astra/?hl=de) gezeigt
-- Videountertitel
-- Videoempfehlungssysteme durch Anreicherung vorhandener Metadaten mit neuem multimodalen Verständnis
-- Videoanpassung durch Analyse einer Datenmenge und der zugehörigen Videometadaten und anschließendes Entfernen von Teilen von Videos, die für den Zuschauer nicht relevant sind
-- Moderation von Videoinhalten
-- Videoverarbeitung in Echtzeit
+- الإجابة عن الأسئلة في الفيديوهات
+- ذاكرة الفيديو، كما هو موضّح في [Project Astra من Google](https://deepmind.google/technologies/gemini/project-astra/?hl=ar)
+- إضافة ترجمة وشرح إلى الفيديو
+- أنظمة اقتراح الفيديوهات، من خلال إثراء البيانات الوصفية الحالية بفهم جديد متعدد الوسائط
+- تخصيص الفيديوهات من خلال تحليل مجموعة من البيانات وبيانات الفيديو الوصفية المرتبطة بها، ثم إزالة أجزاء الفيديوهات التي لا تهمّ المشاهد
+- الإشراف على محتوى الفيديو
+- معالجة الفيديو في الوقت الفعلي
 
-Bei der Arbeit mit Videos ist es wichtig zu berücksichtigen, wie die [Videos in
-Tokens verarbeitet werden](https://ai.google.dev/gemini-api/docs/tokens?hl=de#media-token), da dies sich auf die
-Abrechnung und die Nutzungslimits auswirkt. Weitere Informationen zum Prompting mit Videodateien finden Sie in
-dem [Leitfaden
-zum Prompting](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=de#prompting-with-videos).
+عند العمل مع الفيديوهات، من المهم مراعاة كيفية [معالجة الفيديوهات وتحويلها إلى رموز مميزة](https://ai.google.dev/gemini-api/docs/tokens?hl=ar#media-token)، لأنّ ذلك يؤثر في الفوترة وحدود الاستخدام. يمكنك الاطّلاع على مزيد من المعلومات حول استخدام ملفات الفيديو في الطلبات في [دليل الطلبات](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=ar#prompting-with-videos).
 
-### Audioinhalte im Langformat
+### المحتوى الصوتي الطويل
 
-Die Gemini-Modelle waren die ersten nativ multimodalen Large Language Models, die Audio verstehen konnten. Bisher umfasste der typische Entwicklerworkflow die Verknüpfung mehrerer domänenspezifischer Modelle, z. B. eines Speech-to-Text-Modells und eines Text-zu-Text-Modells, um Audio zu verarbeiten. Dies führte zu einer zusätzlichen Latenz, die durch mehrere Round-Trip-Anfragen erforderlich war, und zu einer geringeren Leistung, die in der Regel auf die nicht verbundene Architektur der Einrichtung mit mehreren Modellen zurückzuführen ist.
+كانت نماذج Gemini أول نماذج لغوية كبيرة متعدّدة الوسائط بشكل أصلي
+يمكنها فهم الصوت. في السابق، كان مسار عمل المطوّر النموذجي يتضمّن ربط نماذج متعددة خاصة بمجالات معيّنة، مثل نموذج تحويل الكلام إلى نص وطلبات وردود نصية، وذلك لمعالجة الصوت. وقد أدّى ذلك إلى زيادة وقت الاستجابة المطلوب من خلال تنفيذ طلبات متعدّدة ذهابًا وإيابًا، وانخفاض الأداء الذي يُعزى عادةً إلى البُنى غير المتصلة لإعداد النماذج المتعدّدة.
 
-Einige neue und Standardanwendungsfälle für Audiokontext:
+في ما يلي بعض حالات الاستخدام الناشئة والعادية لسياق الصوت:
 
-- Sprache-zu-Text und Übersetzung in Echtzeit
-- Fragen und Antworten zu Podcasts / Videos
-- Transkription und Zusammenfassung von Besprechungen
-- Sprachassistenten
+- الترجمة وتحويل الصوت إلى نص في الوقت الفعلي
+- الإجابة عن الأسئلة في البودكاست أو الفيديو
+- تحويل الصوت إلى نص وتلخيص الاجتماعات
+- المساعدون الصوتيون
 
-Weitere Informationen zum Prompting mit Audiodateien finden Sie im [Leitfaden zum Prompting](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=de#prompting-with-videos).
+يمكنك الاطّلاع على مزيد من المعلومات حول توجيه الطلبات باستخدام الملفات الصوتية في [دليل توجيه الطلبات](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=ar#prompting-with-videos).
 
-## Optimierungen für langen Kontext
+## تحسينات على السياقات الطويلة
 
-Die wichtigste Optimierung bei der Arbeit mit langem Kontext und den Gemini
-Modellen ist die Verwendung von [Kontext
-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de). Neben der bisherigen Unmöglichkeit, viele Tokens in einer einzigen Anfrage zu verarbeiten, war die andere Haupteinschränkung der Preis. Wenn Sie eine App "Mit Ihren Daten chatten" haben, bei der ein Nutzer 10 PDFs, ein Video und einige Arbeitsdokumente hochlädt, müssten Sie in der Vergangenheit mit einem komplexeren RAG-Tool (Retrieval Augmented Generation) / Framework arbeiten, um diese Anfragen zu verarbeiten und einen erheblichen Betrag für in das Kontextfenster verschobene Tokens zu bezahlen. Jetzt können Sie die vom Nutzer hochgeladenen Dateien im Cache speichern und stundenweise bezahlen. Die Kosten für Eingabe / Ausgabe pro Anfrage sind bei Gemini Flash beispielsweise etwa viermal niedriger als die Standardkosten für Eingabe / Ausgabe. Wenn der Nutzer also ausreichend mit seinen Daten chattet, können Sie als Entwickler erhebliche Kosten sparen.
+عند العمل مع سياق طويل ونماذج Gemini، يكون التحسين الأساسي هو استخدام [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar). بالإضافة إلى استحالة معالجة عدد كبير من الرموز المميزة في طلب واحد، كان القيد الرئيسي الآخر هو التكلفة. إذا كان لديك تطبيق "الدردشة مع بياناتك" يتيح للمستخدم تحميل 10 ملفات PDF وفيديو وبعض مستندات العمل، كان عليك في السابق استخدام أداة أو إطار عمل أكثر تعقيدًا للتوليد المعزّز بالاسترجاع (RAG) من أجل معالجة هذه الطلبات ودفع مبلغ كبير مقابل الرموز المميزة التي تم نقلها إلى قدرة الاستيعاب. يمكنك الآن تخزين الملفات التي يحمّلها المستخدم مؤقتًا والدفع مقابل تخزينها على أساس كل ساعة. على سبيل المثال، تبلغ تكلفة الإدخال / الإخراج لكل طلب باستخدام Gemini Flash حوالي ربع تكلفة الإدخال / الإخراج العادية، لذا إذا كان المستخدم يتحدث مع بياناته بشكل كافٍ، سيوفّر لك ذلك الكثير من التكاليف بصفتك مطوّرًا.
 
-## Einschränkungen für langen Kontext
+## محدودية قدرة الاستيعاب الموسَّعة
 
-In verschiedenen Abschnitten dieses Leitfadens ging es darum, wie Gemini-Modelle eine hohe Leistung bei verschiedenen "Nadel im Heuhaufen"-Evaluationsvorgängen erzielen. Bei diesen Tests wird die einfachste Einrichtung berücksichtigt, bei der Sie nach einer einzelnen „Nadel“ suchen. Wenn Sie nach mehreren „Nadeln“ oder bestimmten Informationen suchen, ist die Leistung des Modells nicht so genau. Die Leistung kann je nach Kontext stark variieren. Das ist wichtig, da es einen inhärenten Kompromiss zwischen dem Abrufen der richtigen Informationen und den Kosten gibt. Sie können bei einer einzelnen Abfrage etwa 99% erreichen, müssen aber jedes Mal die Kosten für Eingabetokens bezahlen, wenn Sie diese Abfrage senden. Wenn also 100 Informationen abgerufen werden sollen und Sie eine Leistung von 99% benötigen, müssen Sie wahrscheinlich 100 Anfragen senden. Dies ist ein gutes Beispiel dafür, wie Kontext-Caching die Kosten für die Verwendung von Gemini-Modellen erheblich senken und gleichzeitig die Leistung hoch halten kann.
+في أقسام مختلفة من هذا الدليل، تحدّثنا عن كيفية تحقيق نماذج Gemini
+أداءً عاليًا في مختلف عمليات التقييم المتعلقة باسترجاع المعلومات من مستندات طويلة. تأخذ هذه الاختبارات في الاعتبار الإعداد الأساسي، حيث يكون لديك إبرة واحدة تبحث عنها. في الحالات التي قد يكون لديك فيها عدة "إبر" أو معلومات محددة تبحث عنها، لا يحقّق النموذج الدقة نفسها. يمكن أن يختلف الأداء بشكل كبير حسب السياق. من المهم مراعاة ذلك لأنّ هناك مفاضلة بين الحصول على المعلومات الصحيحة وتكلفة ذلك. يمكنك الحصول على دقة تبلغ% 99 تقريبًا في طلب بحث واحد، ولكن عليك دفع تكلفة الرموز المميزة للإدخال في كل مرة ترسل فيها طلب البحث هذا. لذا، لاسترداد 100 جزء من المعلومات، إذا كنت بحاجة إلى أداء بنسبة% 99، من المحتمل أن تحتاج إلى إرسال 100 طلب. هذا مثال جيد على الحالات التي يمكن أن يؤدي فيها التخزين المؤقت للسياق إلى خفض التكلفة المرتبطة باستخدام نماذج Gemini بشكل كبير مع الحفاظ على مستوى الأداء العالي.
 
-## Häufig gestellte Fragen
+## الأسئلة الشائعة
 
-### Wo ist der beste Ort, um meine Abfrage in das Kontextfenster einzufügen?
+### أين أفضل مكان لوضع استعلامي في قدرة الاستيعاب؟
 
-In den meisten Fällen, insbesondere wenn der gesamte Kontext lang ist, ist die Leistung des Modells besser, wenn Sie Ihre Abfrage / Frage am Ende des Prompts platzieren (nach dem gesamten anderen Kontext).
+في معظم الحالات، خاصةً إذا كان السياق الإجمالي طويلاً، سيكون أداء النموذج أفضل إذا وضعت طلبك أو سؤالك في نهاية الطلب (بعد كل السياق الآخر).
 
-### Verringert sich die Leistung des Modells, wenn ich einer Abfrage weitere Tokens hinzufüge?
+### هل ينخفض أداء النموذج عند إضافة المزيد من الرموز المميزة إلى طلب بحث؟
 
-Wenn Tokens nicht an das Modell übergeben werden müssen, ist es im Allgemeinen am besten, sie nicht zu übergeben. Wenn Sie jedoch eine große Menge an Tokens mit einigen Informationen haben und Fragen zu diesen Informationen stellen möchten, kann das Modell diese Informationen sehr gut extrahieren (in vielen Fällen mit einer Genauigkeit von bis zu 99 %).
+بشكل عام، إذا لم تكن بحاجة إلى تمرير الرموز المميّزة إلى النموذج، من الأفضل تجنُّب تمريرها. ومع ذلك، إذا كان لديك عدد كبير من الرموز المميزة تتضمّن بعض المعلومات وأردت طرح أسئلة حول هذه المعلومات، سيكون النموذج قادرًا بشكل كبير على استخراج هذه المعلومات (بدقة تصل إلى% 99 في العديد من الحالات).
 
-### Wie kann ich die Kosten für Abfragen mit langem Kontext senken?
+### كيف يمكنني خفض التكلفة باستخدام طلبات البحث ذات السياق الطويل؟
 
-Wenn Sie eine ähnliche Gruppe von Tokens / Kontext haben, die Sie mehrmals verwenden möchten, kann [Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) dazu beitragen, die Kosten für das Stellen von Fragen zu diesen Informationen zu senken.
+إذا كان لديك مجموعة مماثلة من الرموز المميزة أو السياق الذي تريد إعادة استخدامه عدة مرات، يمكن أن يساعدك [تخزين السياق مؤقتًا](https://ai.google.dev/gemini-api/docs/caching?hl=ar) في تقليل التكاليف المرتبطة بطرح أسئلة حول هذه المعلومات.
 
-### Wirkt sich die Kontextlänge auf die Latenz des Modells aus?
+### هل يؤثر طول السياق في وقت استجابة النموذج؟
 
-Bei jeder Anfrage gibt es eine bestimmte Latenz, unabhängig von der Größe. Im Allgemeinen haben längere Abfragen jedoch eine höhere Latenz (Zeit bis zum ersten Token).
+هناك مقدار ثابت من وقت الاستجابة في أي طلب، بغض النظر عن الحجم، ولكن بشكل عام، ستستغرق طلبات البحث الأطول وقت استجابة أطول (الوقت اللازم لظهور الرمز المميز الأول).
 
-Feedback geben
+إرسال ملاحظات
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Zuletzt aktualisiert: 2026-06-22 (UTC).
+تاريخ التعديل الأخير: 2026-06-22 (حسب التوقيت العالمي المتفَّق عليه)
 
-Haben Sie Feedback für uns?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-22 (UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-22 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,45 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=hi
-fetched_at: 2026-07-20T04:35:40.814959+00:00
-title: "Gemini \u0914\u0930 LangGraph \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, ReAct \u090f\u091c\u0947\u0902\u091f \u0915\u094b \u0936\u0941\u0930\u0942 \u0938\u0947 \u092c\u0928\u093e\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=ja
+fetched_at: 2026-07-27T04:45:51.027058+00:00
+title: "Gemini \u3068 LangGraph \u3092\u4f7f\u7528\u3057\u3066 ReAct \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u3092\u30bc\u30ed\u304b\u3089\u4f5c\u6210\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-सुझाव भेजें
+フィードバックを送信
 
-# Gemini और LangGraph की मदद से, ReAct एजेंट को शुरू से बनाना
+# Gemini と LangGraph を使用して ReAct エージェントをゼロから作成する
 
-LangGraph, स्टेटफ़ुल एलएलएम ऐप्लिकेशन बनाने का एक फ़्रेमवर्क है. इसलिए, यह ReAct (रीज़निंग ऐंड ऐक्टिंग) एजेंट बनाने के लिए एक अच्छा विकल्प है.
+LangGraph はステートフルな LLM アプリケーションを構築するためのフレームワークであり、ReAct（推論と行動）エージェントの構築に適しています。
 
-ReAct एजेंट, एलएलएम की रीज़निंग को कार्रवाई करने की सुविधा के साथ जोड़ते हैं. ये एजेंट, उपयोगकर्ता के लक्ष्यों को हासिल करने के लिए, बार-बार सोचते हैं, टूल का इस्तेमाल करते हैं, और अपनी टिप्पणियों के आधार पर काम करते हैं. साथ ही, ये अपनी रणनीति को डाइनैमिक तरीके से अडजस्ट करते हैं. साल 2023 में ["ReAct: Synergizing Reasoning and Acting
-in Language Models"](https://arxiv.org/abs/2210.03629) में पेश किया गया यह पैटर्न,
-रिजिड वर्कफ़्लो के बजाय, इंसानों की तरह फ़्लेक्सिबल तरीके से समस्याओं को हल करने की कोशिश करता है.
+ReAct エージェントは、LLM の推論とアクションの実行を組み合わせます。ユーザーの目標を達成するために、反復的に思考し、ツールを使用し、観察に基づいて行動し、アプローチを動的に適応させます。「["ReAct: Synergizing Reasoning and Acting
+in Language Models"](https://arxiv.org/abs/2210.03629)」（2023 年）で紹介されたこのパターンは、厳格なワークフローではなく、人間のような柔軟な問題解決を反映しようとしています。
 
-LangGraph, पहले से बना ReAct एजेंट ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)) उपलब्ध कराता है. यह तब काम आता है, जब आपको ReAct को लागू करने के लिए ज़्यादा कंट्रोल और कस्टमाइज़ेशन की ज़रूरत होती है. इस गाइड में, आपको इसका आसान वर्शन दिखाया जाएगा.
+LangGraph には、ReAct エージェント（[`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)）が組み込まれています。これは、ReAct 実装の制御とカスタマイズを強化する必要がある場合に役立ちます。このガイドでは、簡略化されたバージョンを示します。
 
-LangGraph, एजेंट को ग्राफ़ के तौर पर मॉडल करता है. इसके लिए, तीन मुख्य कॉम्पोनेंट का इस्तेमाल किया जाता है:
+LangGraph は、次の 3 つの主要なコンポーネントを使用してエージェントをグラフとしてモデル化します。
 
-- `State`: शेयर किया गया डेटा स्ट्रक्चर (आम तौर पर `TypedDict` या `Pydantic BaseModel`), जो ऐप्लिकेशन के मौजूदा स्नैपशॉट को दिखाता है.
-- `Nodes`: आपके एजेंट की लॉजिक को एनकोड करता है. इन्हें इनपुट के तौर पर मौजूदा स्टेट मिलती है. इसके बाद, ये कुछ कंप्यूटेशन या साइड इफ़ेक्ट करते हैं. साथ ही, अपडेट की गई स्टेट दिखाते हैं. जैसे, एलएलएम कॉल या टूल कॉल.
-- `Edges`: मौजूदा `State` के आधार पर, एक्ज़ीक्यूट करने के लिए अगला `Node` तय करते हैं. इससे, शर्तों के आधार पर लॉजिक और फ़िक्स्ड ट्रांज़िशन की अनुमति मिलती है.
+- `State`: アプリケーションの現在のスナップショットを表す共有データ構造（通常は `TypedDict` または `Pydantic BaseModel`）。
+- `Nodes`: エージェントのロジックをエンコードします。現在の State を入力として受け取り、計算または副作用を実行して、更新された State（LLM 呼び出しやツール呼び出しなど）を返します。
+- `Edges`: 現在の `State` に基づいて実行する次の `Node` を定義し、条件付きロジックと固定遷移を可能にします。
 
-अगर आपके पास अब तक एपीआई पासकोड नहीं है, तो इसे [Google AI
-Studio](https://aistudio.google.com/apikey?hl=hi) से पाया जा सकता है.
+API キーをまだ取得していない場合は、[Google AI
+Studio](https://aistudio.google.com/apikey?hl=ja) から取得できます。
 
 ```
 pip install langgraph langchain-google-genai geopy requests
 ```
 
-एपीआई पासकोड को, एनवायरमेंट वैरिएबल `GEMINI_API_KEY` में सेट करें.
+環境変数 `GEMINI_API_KEY` に API キーを設定します。
 
 ```
 import os
@@ -48,11 +47,12 @@ import os
 api_key = os.getenv("GEMINI_API_KEY")
 ```
 
-LangGraph का इस्तेमाल करके, ReAct एजेंट को लागू करने का तरीका बेहतर तरीके से समझने के लिए, इस गाइड में एक व्यावहारिक उदाहरण दिया गया है. इसमें, एक ऐसा एजेंट बनाया जाएगा जिसका लक्ष्य, किसी खास जगह के मौजूदा मौसम की जानकारी पाने के लिए, किसी टूल का इस्तेमाल करना है.
+LangGraph を使用して ReAct エージェントを実装する方法をよりよく理解するために、このガイドでは実践的な例を紹介します。ツールを使用して、指定された場所の現在の天気を調べるエージェントを作成します。
 
-मौसम की जानकारी देने वाले इस एजेंट के लिए, `State` में बातचीत के इतिहास (मैसेज की सूची के तौर पर) और उठाए गए चरणों की संख्या (इंटीजर के तौर पर) को सेव किया जाएगा. यह सिर्फ़ उदाहरण के तौर पर दिखाया गया है.
+この天気エージェントでは、`State` は継続的な会話履歴（メッセージのリストとして）と、実行されたステップ数のカウンタ（整数として）を保持します。これは説明のためのものです。
 
-LangGraph, स्टेट मैसेज की सूचियों को अपडेट करने के लिए, `add_messages` नाम का हेल्पर फ़ंक्शन उपलब्ध कराता है. [यह रिड्यूसर के तौर पर काम करता है. यह मौजूदा सूची के साथ-साथ, नए मैसेज लेता है और एक साथ मिलाकर सूची दिखाता है.](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers) यह मैसेज आईडी के हिसाब से अपडेट करता है. साथ ही, नए और न देखे गए मैसेज के लिए, डिफ़ॉल्ट रूप से "सिर्फ़ जोड़ने" का तरीका अपनाता है.
+LangGraph には、状態メッセージ リストを更新するためのヘルパー関数 `add_messages` が用意されています。これは[リデューサー](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers)として機能し、
+現在のリストと新しいメッセージを受け取り、結合されたリストを返します。メッセージ ID で更新を処理し、新しい未確認のメッセージに対してはデフォルトで「追加のみ」の動作になります。
 
 ```
 from typing import Annotated,Sequence, TypedDict
@@ -66,7 +66,7 @@ class AgentState(TypedDict):
     number_of_steps: int
 ```
 
-इसके बाद, मौसम की जानकारी देने वाले टूल को तय करें.
+次に、天気ツールを定義します。
 
 ```
 from langchain_core.tools import tool
@@ -105,7 +105,7 @@ def get_weather_forecast(location: str, date: str):
 tools = [get_weather_forecast]
 ```
 
-अब मॉडल को शुरू करें और टूल को मॉडल से बाइंड करें.
+次に、モデルを初期化し、ツールをモデルにバインドします。
 
 ```
 from datetime import datetime
@@ -128,14 +128,14 @@ res=model.invoke(f"What is the weather in Berlin on {datetime.today()}?")
 print(res)
 ```
 
-एजेंट को चलाने से पहले, नोड और एज तय करना ज़रूरी है.
-इस उदाहरण में, दो नोड और एक एज है.
+エージェントを実行する前の最後のステップは、ノードとエッジを定義することです。
+この例では、2 つのノードと 1 つのエッジがあります。
 
-- `call_tool` नोड, जो आपके टूल के तरीके को एक्ज़ीक्यूट करता है. LangGraph में इसके लिए, [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/) नाम का पहले से बना नोड मौजूद है.
-- `call_model` नोड, जो मॉडल को कॉल करने के लिए `model_with_tools` का इस्तेमाल करता है.
-- `should_continue` एज, जो यह तय करता है कि टूल को कॉल करना है या मॉडल को.
+- ツールメソッドを実行する `call_tool` ノード。[ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/)
+- `model_with_tools` を使用してモデルを呼び出す `call_model` ノード。
+- ツールを呼び出すかモデルを呼び出すかを決定する `should_continue` エッジ。
 
-नोड और एज की संख्या तय नहीं होती. अपने ग्राफ़ में जितने चाहें उतने नोड और एज जोड़े जा सकते हैं. उदाहरण के लिए, स्ट्रक्चर्ड आउटपुट जोड़ने के लिए कोई नोड जोड़ा जा सकता है. इसके अलावा, टूल या मॉडल को कॉल करने से पहले, मॉडल के आउटपुट की जांच करने के लिए, सेल्फ़-वेरिफ़िकेशन/रिफ़्लेक्शन नोड जोड़ा जा सकता है.
+ノードとエッジの数は固定されていません。グラフには必要な数のノードとエッジを追加できます。たとえば、構造化された出力を追加するノードや、ツールまたはモデルを呼び出す前にモデルの出力を確認する自己検証/反射ノードを追加できます。
 
 ```
 from langchain_core.messages import ToolMessage
@@ -179,7 +179,7 @@ def should_continue(state: AgentState):
     return "continue"
 ```
 
-एजेंट के सभी कॉम्पोनेंट तैयार होने के बाद, उन्हें जोड़ा जा सकता है.
+エージェントのすべてのコンポーネントが準備できたので、組み立てることができます。
 
 ```
 from langgraph.graph import StateGraph, END
@@ -215,7 +215,7 @@ workflow.add_edge("tools", "llm")
 graph = workflow.compile()
 ```
 
-`draw_mermaid_png` तरीके का इस्तेमाल करके, अपने ग्राफ़ को विज़ुअलाइज़ किया जा सकता है.
+`draw_mermaid_png` メソッドを使用してグラフを可視化できます。
 
 ```
 from IPython.display import Image, display
@@ -223,9 +223,9 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=hi)
+![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=ja)
 
-अब एजेंट को चलाएं.
+エージェントを実行します。
 
 ```
 from datetime import datetime
@@ -238,7 +238,7 @@ for state in graph.stream(inputs, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-अब बातचीत जारी रखी जा सकती है. इसके अलावा, किसी दूसरे शहर के मौसम की जानकारी मांगी जा सकती है या तुलना करने का अनुरोध किया जा सकता है.
+会話を続けたり、別の都市の天気を尋ねたり、比較をリクエストしたりできます。
 
 ```
 state["messages"].append(("user", "Would it be warmer in Munich?"))
@@ -248,12 +248,12 @@ for state in graph.stream(state, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-सुझाव भेजें
+フィードバックを送信
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया.
+最終更新日 2026-06-22 UTC。
 
-क्या आपको हमें और कुछ बताना है?
+ご意見をお聞かせください
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-22 UTC。"],[],[]]

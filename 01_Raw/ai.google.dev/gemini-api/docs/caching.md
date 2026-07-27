@@ -1,52 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=id
-fetched_at: 2026-07-20T04:43:13.207885+00:00
-title: "Context caching \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ar
+fetched_at: 2026-07-27T04:42:55.642595+00:00
+title: "\u0627\u0644\u062a\u062e\u0632\u064a\u0646 \u0627\u0644\u0645\u0624\u0642\u062a \u0644\u0644\u0633\u064a\u0627\u0642 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Kirim masukan
+إرسال ملاحظات
 
-# Context caching
+# التخزين المؤقت للسياق
 
-Dalam alur kerja AI biasa, Anda mungkin meneruskan token input yang sama berulang kali ke model. Gemini API menawarkan penyimpanan cache implisit untuk mengoptimalkan performa dan biaya.
+في سير عمل الذكاء الاصطناعي النموذجي، قد يتم تمرير رموز الإدخال نفسها بشكل متكرّر إلى أحد النماذج. توفّر Gemini API ميزة التخزين المؤقت الضمني لتحسين الأداء والتكاليف.
 
-## Caching implisit
+## التخزين المؤقت الضمني
 
-Penyimpanan cache implisit diaktifkan secara default untuk semua model Gemini 2.5 dan yang lebih baru. Fitur ini didukung untuk mode percakapan [stateful](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#multi-turn-conversations) (menggunakan `previous_interaction_id`) dan [stateless](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#stateless-conversations).
-Kami secara otomatis meneruskan penghematan biaya jika permintaan Anda mencapai cache. Anda tidak perlu melakukan tindakan apa pun untuk mengaktifkannya. Jumlah token input
-minimum untuk penyiapan cache konteks tercantum dalam tabel berikut untuk setiap model:
+يتم تفعيل التخزين المؤقت الضمني تلقائيًا لجميع نماذج Gemini 2.5 والإصدارات الأحدث. [وهو متاح لكل من [أوضاع المحادثات التي تحتفظ بالحالة](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#multi-turn-conversations) (باستخدام `previous_interaction_id`)
+وتلك التي لا تحتفظ بالحالة](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#stateless-conversations).
+ننقل تلقائيًا وفورات التكلفة إذا تم العثور على طلبك في ذاكرات التخزين المؤقت. ليس عليك اتّخاذ أي إجراء لتفعيل هذه الميزة. يتم إدراج الحد الأدنى لعدد رموز الإدخال من أجل التخزين المؤقت للسياق في الجدول التالي لكل نموذج:
 
-| Model | Batas token minimum |
+| الطراز | الحد الأدنى لعدد الرموز |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| Pratinjau Gemini 3.1 Pro | 4096 |
+| ‫Gemini 3.1 Pro (معاينة) | 4096 |
 | Gemini 2.5 Flash | 2048 |
 | Gemini 2.5 Pro | 2048 |
 
-Untuk meningkatkan peluang terjadinya cache hit implisit:
+لزيادة فرصة العثور على البيانات في ذاكرة التخزين المؤقت الضمني:
 
-- Coba letakkan konten besar dan umum di awal perintah Anda
-- Mencoba mengirim permintaan dengan awalan yang serupa dalam waktu singkat
+- حاوِل وضع المحتويات الكبيرة والشائعة في بداية طلبك.
+- حاوِل إرسال الطلبات التي تتضمّن بادئة مشابهة خلال فترة قصيرة.
 
-Anda dapat melihat jumlah token yang merupakan hit cache di kolom
-`usage.total_cached_tokens` (Python dan JavaScript) objek respons.
+يمكنك الاطّلاع على عدد الرموز التي تم العثور عليها في ذاكرة التخزين المؤقت في الحقل `usage.total_cached_tokens` (Python وJavaScript) في عنصر الاستجابة.
 
-Kirim masukan
+إرسال ملاحظات
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Terakhir diperbarui pada 2026-07-07 UTC.
+تاريخ التعديل الأخير: 2026-07-07 (حسب التوقيت العالمي المتفَّق عليه)
 
-Ada masukan untuk kami?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-07 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-07 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

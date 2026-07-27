@@ -1,30 +1,29 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-BR
-fetched_at: 2026-07-20T04:33:30.160124+00:00
-title: "Combinar ferramentas integradas e chamadas de fun\u00e7\u00e3o \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=id
+fetched_at: 2026-07-27T04:43:31.465771+00:00
+title: "Menggabungkan alat bawaan dan panggilan fungsi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Combinar ferramentas integradas e chamadas de função
+# Menggabungkan alat bawaan dan panggilan fungsi
 
-O Gemini permite a combinação de [ferramentas integradas](https://ai.google.dev/gemini-api/docs/tools?hl=pt-br), como
-o `google_search`, e a [chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)
-(também conhecida como *ferramentas personalizadas*) em uma única interação, preservando e expondo
-o histórico de contexto das chamadas de ferramentas. As combinações de ferramentas integradas e personalizadas permitem fluxos de trabalho complexos e orientados por agentes em que, por exemplo, o modelo pode se basear em dados da Web em tempo real antes de chamar sua lógica de negócios específica.
+Gemini memungkinkan kombinasi [alat bawaan](https://ai.google.dev/gemini-api/docs/tools?hl=id), seperti
+`google_search`, dan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+(juga dikenal sebagai *alat kustom*) dalam satu interaksi dengan mempertahankan dan mengekspos
+histori konteks panggilan alat. Kombinasi alat bawaan dan kustom memungkinkan alur kerja agentik yang kompleks, yang memungkinkan model, misalnya, mendasarkan diri pada data web real-time sebelum memanggil logika bisnis spesifik Anda.
 
-Confira um exemplo que ativa combinações de ferramentas integradas e personalizadas com
-`google_search` e uma função personalizada `getWeather`:
+Berikut adalah contoh yang mengaktifkan kombinasi alat bawaan dan kustom dengan `google_search` dan fungsi kustom `getWeather`:
 
 ### Python
 
@@ -145,93 +144,92 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Como funciona
+## Cara kerjanya
 
-Os modelos do Gemini 3 usam a *circulação de contexto de ferramentas* para ativar combinações de ferramentas integradas e personalizadas. A circulação do contexto da ferramenta permite preservar e
-expor o contexto das ferramentas integradas e compartilhá-lo com ferramentas personalizadas na mesma
-interação.
+Model Gemini 3 menggunakan *sirkulasi konteks alat* untuk mengaktifkan kombinasi alat bawaan dan kustom. Sirkulasi konteks alat memungkinkan konteks alat bawaan dipertahankan dan diekspos, serta dibagikan dengan alat kustom dalam interaksi yang sama.
 
-### Ativar a combinação de ferramentas
+### Mengaktifkan kombinasi alat
 
-- Inclua o [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#function-declarations), além
-  das ferramentas integradas que você quer usar, para acionar o comportamento de combinação.
+- Sertakan [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#function-declarations), beserta
+  alat bawaan yang ingin Anda gunakan, untuk memicu perilaku kombinasi.
 
-### Etapas retornadas pela API
+### Langkah-langkah yang ditampilkan API
 
-Em uma resposta de interação, a API retorna etapas separadas para chamadas de ferramentas integradas e de funções (ferramentas personalizadas):
+Dalam respons interaksi, API menampilkan langkah-langkah terpisah untuk panggilan alat bawaan dan panggilan fungsi (alat kustom):
 
-- **Etapas da ferramenta integrada**: a API gerencia essas etapas automaticamente, preservando o contexto em todas as interações.
-- **Etapas de chamada de função**: a API retorna `function_call` etapas para suas
-  funções personalizadas. Você executa a função e retorna o resultado.
+- **Langkah-langkah alat bawaan**: API mengelola langkah-langkah ini secara otomatis, mempertahankan
+  konteks di seluruh giliran.
+- **Langkah-langkah panggilan fungsi**: API menampilkan langkah-langkah `function_call` untuk fungsi kustom Anda. Anda menjalankan fungsi dan memberikan hasilnya kembali.
 
-### Campos críticos nas etapas retornadas
+### Kolom penting dalam langkah-langkah yang ditampilkan
 
-Alguns campos nas etapas retornadas são essenciais para manter o contexto da ferramenta e permitir combinações de ferramentas:
+Kolom tertentu dalam langkah-langkah yang ditampilkan sangat penting untuk mempertahankan konteks alat dan mengaktifkan kombinasi alat:
 
-- **`id`**: encontrado nas etapas `function_call` e `function_response`. Um identificador exclusivo que mapeia uma chamada para a resposta dela.
-- **`signature`**: encontrado nas etapas `thought`, bem como em todas as etapas de chamada de ferramenta (por exemplo, `function_call`) e resultado (por exemplo, `function_response`) para modelos do Gemini 3 e versões mais recentes. Esse contexto criptografado permite a **circulação de contexto de ferramentas** entre as interações.
+- **`id`**: Ditemukan di langkah-langkah `function_call` dan `function_response`. ID unik yang memetakan panggilan ke responsnya.
+- **`signature`**: Ditemukan di langkah-langkah `thought`, serta semua langkah panggilan alat (mis., `function_call`) dan hasil (mis., `function_response`) untuk model Gemini 3+. Konteks terenkripsi ini memungkinkan **sirkulasi konteks alat** di seluruh interaksi.
 
-**Gerenciar esses campos**:
+**Mengelola kolom ini:**
 
-- **Modo com estado (recomendado)**: quando você usa `previous_interaction_id`, o servidor processa automaticamente os campos `id` e `signature`.
-- **Modo sem estado**: ao gerenciar o histórico de conversas manualmente, é preciso garantir que os campos `id` e `signature` sejam transmitidos de volta ao modelo em solicitações subsequentes para validar a autenticidade e manter o contexto. Os SDKs oficiais fazem isso automaticamente se você transmitir o objeto de resposta completo de volta ao histórico.
+- **Mode Stateful (Direkomendasikan)**: Saat Anda menggunakan `previous_interaction_id`, server akan otomatis menangani kolom `id` dan `signature`.
+- **Mode Stateless**: Saat mengelola histori percakapan secara manual, Anda harus memastikan bahwa Anda meneruskan kolom `id` dan `signature` kembali ke model dalam permintaan berikutnya untuk memvalidasi keaslian dan mempertahankan konteks. SDK resmi menangani hal ini secara otomatis jika Anda meneruskan objek respons lengkap kembali ke histori.
 
-### Dados específicos da ferramenta
+### Data khusus alat
 
-Algumas ferramentas integradas retornam argumentos de dados visíveis para o usuário específicos do tipo de ferramenta.
+Beberapa alat bawaan menampilkan argumen data yang terlihat oleh pengguna yang khusus untuk jenis alat.
 
-| Ferramenta | Argumentos de chamada de ferramenta visíveis para o usuário (se houver) | Resposta da ferramenta visível para o usuário (se houver) |
+| Alat | Argumen panggilan alat yang terlihat oleh pengguna (jika ada) | Respons alat yang terlihat oleh pengguna (jika ada) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` URLs a serem pesquisados | `status`: status da navegação `retrieved_url`: URLs navegados |
-| **file\_search** | Nenhum | Nenhum |
+| **url\_context** | `urls` URL yang akan dijelajahi | `status`: Status penjelajahan `retrieved_url`: URL yang dijelajahi |
+| **file\_search** | Tidak ada | Tidak ada |
 
-## Tokens e preços
+## Token dan harga
 
-As partes de chamadas de função integradas em solicitações são contabilizadas em `prompt_token_count`. Como essas etapas intermediárias agora estão visíveis e são retornadas para você, elas fazem parte do histórico da conversa. Isso só acontece com *solicitações*, não com *respostas*.
+Perhatikan bahwa bagian panggilan alat bawaan dalam permintaan dihitung ke dalam `prompt_token_count`. Karena langkah-langkah alat perantara ini kini terlihat dan ditampilkan kepada Anda, langkah-langkah tersebut merupakan bagian dari histori percakapan. Hal ini hanya berlaku untuk
+kasus untuk *permintaan*, bukan *respons*.
 
-A ferramenta da Pesquisa Google é uma exceção a essa regra. A Pesquisa Google já aplica o próprio modelo de preços no nível da consulta, então os tokens não são cobrados duas vezes. Consulte a página [Preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+Alat Google Penelusuran adalah pengecualian untuk aturan ini. Google Penelusuran sudah
+menerapkan model harganya sendiri di tingkat kueri, sehingga token tidak
+dikenai biaya dua kali (lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)).
 
-Leia a página [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) para mais informações.
+Baca halaman [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mengetahui informasi selengkapnya.
 
-## Limitações
+## Batasan
 
-- Usar o modo `validated` por padrão (o modo `auto` não é compatível) quando
-  a circulação de contexto da ferramenta está ativada.
-- Ferramentas integradas, como o `google_search`, dependem de informações de localização e hora atual. Portanto, se o `system_instruction` ou o `function_declaration.description` tiver informações conflitantes de localização e hora, o recurso de combinação de ferramentas poderá não funcionar bem.
+- Secara default, gunakan mode `validated` (mode `auto` tidak didukung) saat sirkulasi konteks alat diaktifkan.
+- Alat bawaan seperti `google_search` mengandalkan informasi lokasi dan waktu saat ini. Jadi, jika `system_instruction` atau `function_declaration.description` Anda memiliki informasi lokasi dan waktu yang bertentangan, fitur kombinasi alat mungkin tidak berfungsi dengan baik.
 
-## Ferramentas compatíveis
+## Alat yang didukung
 
-A circulação padrão de contexto de ferramentas se aplica a ferramentas do lado do servidor (integradas).
-A execução de código também é uma ferramenta do lado do servidor, mas tem uma solução integrada própria para
-circulação de contexto. O uso de computador e a chamada de função são ferramentas do lado do cliente e também têm soluções integradas para a circulação de contexto.
+Sirkulasi konteks alat standar berlaku untuk alat sisi server (bawaan).
+Eksekusi Kode juga merupakan alat sisi server, tetapi memiliki solusi bawaannya sendiri untuk sirkulasi konteks. Penggunaan Komputer dan panggilan fungsi adalah alat sisi klien, dan juga memiliki solusi bawaan untuk sirkulasi konteks.
 
-| Ferramenta | Lado da execução | Suporte à circulação de contexto |
+| Alat | Sisi eksekusi | Dukungan Sirkulasi Konteks |
 | --- | --- | --- |
-| [Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) | Servidor | Compatível |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br) | Servidor | Compatível |
-| [Contexto do URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br) | Servidor | Compatível |
-| [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br) | Servidor | Compatível |
-| [Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br) | Servidor | Compatível (integrado, usa etapas `code_execution` e `code_execution_result`) |
-| [Uso do computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br) | Lado do cliente | Compatível (integrado, usa etapas `function_call` e `function_response`) |
-| [Funções personalizadas](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) | Lado do cliente | Compatível (integrado, usa etapas `function_call` e `function_response`) |
+| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Sisi server | Didukung |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Sisi server | Didukung |
+| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Sisi server | Didukung |
+| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Sisi server | Didukung |
+| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Sisi server | Didukung (bawaan, menggunakan langkah-langkah `code_execution` dan `code_execution_result`) |
+| [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Sisi klien | Didukung (bawaan, menggunakan langkah-langkah `function_call` dan `function_response`) |
+| [Fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) | Sisi klien | Didukung (bawaan, menggunakan langkah-langkah `function_call` dan `function_response`) |
 
-## A seguir
+## Langkah berikutnya
 
-- Saiba mais sobre a [chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) na API Gemini.
-- Conheça as ferramentas compatíveis:
-  - [Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br)
-  - [Contexto do URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br)
-  - [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br)
+- Pelajari lebih lanjut [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API.
+- Pelajari alat yang didukung:
+  - [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)
+  - [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
+  - [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id)
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-07-06 UTC.
+Terakhir diperbarui pada 2026-07-06 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-06 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-06 UTC."],[],[]]

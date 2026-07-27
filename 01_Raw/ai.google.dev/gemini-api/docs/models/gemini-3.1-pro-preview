@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar
-fetched_at: 2026-07-20T04:38:11.539321+00:00
+fetched_at: 2026-07-27T04:48:09.948154+00:00
 title: "\u0645\u0639\u0627\u064a\u0646\u0629 Gemini 3.1 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,44 +18,43 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 # معاينة Gemini 3.1 Pro
 
-تم تصميم إصدار Gemini 3.1 Pro التجريبي لتحسين أداء سلسلة Gemini 3 Pro وموثوقيتها، وهو يوفّر قدرات تحليلية أفضل، وكفاءة محسّنة في استخدام الرموز المميزة، وتجربة أكثر واقعية واتساقًا من الناحية الوقائعية. تم تحسينه
-ليناسب سلوكيات هندسة البرمجيات وقابلية الاستخدام، بالإضافة إلى سير العمل المستند إلى الوكلاء
-الذي يتطلّب استخدامًا دقيقًا للأدوات وتنفيذًا موثوقًا به لعدة خطوات في مجالات
-العالم الحقيقي.
+تم تصميم الإصدار التجريبي من Gemini 3.1 Pro لتحسين أداء سلسلة Gemini 3 Pro وموثوقيتها، وهو يوفّر تفكيرًا أفضل وكفاءة محسّنة في استخدام الرموز المميّزة وتجربة أكثر واقعية واتساقًا من الناحية الفعلية. تم تحسينه لسلوك هندسة البرامج وقابلية استخدامها، بالإضافة إلى مهام سير عمل الوكلاء التي تتطلب استخدامًا دقيقًا للأدوات وتنفيذًا موثوقًا به لعدة خطوات في مجالات العالم الحقيقي.
 
-[تجربة الميزة في Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ar)
+[تجربة في Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ar)
 
 ## الوثائق
 
-انتقِل إلى صفحة [دليل المطوّرين في Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
+يمكنك الانتقال إلى صفحة [دليل المطوّرين في Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ar) للاطّلاع على تغطية كاملة
+للميزات والإمكانات.
 
 ## gemini-3.1-pro-preview
 
 | الموقع | الوصف |
 | --- | --- |
-| رمز النموذج id\_card | `gemini-3.1-pro-preview` |
-| saveأنواع البيانات المتوافقة | **المدخلات**  النصوص والصور والفيديوهات والمحتوى الصوتي وملفات PDF  **الناتج**  نص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  1,048,576  **الحدّ الأقصى لعدد الرموز المميزة الناتجة**  65,536 |
-| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  متوافق (في AI Studio فقط)  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  متاح |
-| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  متاح  **[استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  متاح |
-| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - معاينة: `gemini-3.1-pro-preview` - معاينة: `gemini-3.1-pro-preview-customtools` \* |
+| id\_cardرمز النموذج | `gemini-3.1-pro-preview` |
+| saveأنواع البيانات المتوفرة | **المدخلات**  نص وصورة وفيديو وصوت وملف PDF  **الناتج**  نص |
+| token\_autoحدود الرموز المميّزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحد الأقصى لعدد الرموز المميّزة للإدخال**  1,048,576  **الحد الأقصى لعدد الرموز المميّزة للإخراج**  65,536 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  متاح (في AI Studio فقط)  **[استدعاء الوظائف](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[واجهة برمجة التطبيقات المباشرة](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[لتحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[مُخرجات منظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  متاح  **[طريقة التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  متاح |
+| خيارات الاستهلاكspeed | **[واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستدلال المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  متاح  **[الاستدلال حسب الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  متاح |
+| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - معاينة: `gemini-3.1-pro-preview` - معاينة: `gemini-3.1-pro-preview-customtools` \* |
 | calendar\_monthآخر تعديل | فبراير 2026 |
-| cognition\_2تاريخ آخر تحديث للبيانات | يناير 2025 |
+| id\_cardبطاقة النموذج | [بطاقة النموذج](https://deepmind.google/models/model-cards/gemini-3-1-pro/?hl=ar) |
 
 #### gemini-3.1-pro-preview-customtools
 
-\* *بالنسبة إلى المطوّرين الذين يستخدمون مزيجًا من bash والأدوات المخصّصة، يتوفّر الإصدار التجريبي من Gemini 3.1 Pro
-مع نقطة نهاية منفصلة يمكن الوصول إليها من خلال واجهة برمجة التطبيقات باسم
-`gemini-3.1-pro-preview-customtools`. يُعدّ هذا النقطة النهائية أفضل في تحديد أولويات أدواتك المخصّصة (مثل `view_file` أو `search_code`).*
+\* *بالنسبة إلى المستخدمين الذين يطوّرون باستخدام مزيج من أدوات bash والأدوات المخصّصة، يتضمّن الإصدار التجريبي من Gemini 3.1 Pro
+نقطة نهاية منفصلة متاحة من خلال واجهة برمجة التطبيقات تُسمّى
+`gemini-3.1-pro-preview-customtools`. تُحسّن نقطة النهاية هذه من تحديد أولويات أدواتك المخصّصة (مثل `view_file` أو `search_code`).*
 
-*يُرجى العِلم أنّه على الرغم من أنّ `gemini-3.1-pro-preview-customtools` محسّن لسير العمل المستند إلى الوكلاء والذي يستخدم أدوات مخصّصة وbash، قد تلاحظ بعض التقلبات في الجودة في بعض حالات الاستخدام التي لا تستفيد من هذه الأدوات.*
+*يُرجى العِلم أنّه على الرغم من أنّ `gemini-3.1-pro-preview-customtools` مُحسّنة لمهام سير عمل الوكلاء التي تستخدم الأدوات المخصّصة وbash، قد تلاحظ تقلبات في الجودة في
+بعض حالات الاستخدام التي لا تستفيد من هذه الأدوات.*
 
 إرسال ملاحظات
 
 إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
+تاريخ التعديل الأخير: 2026-07-21 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-21 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

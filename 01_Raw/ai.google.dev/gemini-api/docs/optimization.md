@@ -1,94 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=vi
-fetched_at: 2026-07-20T04:39:40.770251+00:00
-title: "T\u1ed1i \u01b0u ho\u00e1 v\u00e0 suy lu\u1eadn Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=fr
+fetched_at: 2026-07-27T04:37:57.371490+00:00
+title: "Optimisation et inf\u00e9rence de l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Gửi ý kiến phản hồi
+Envoyer des commentaires
 
-# Tối ưu hoá và suy luận Gemini API
+# Optimisation et inférence de l'API Gemini
 
-Gemini API cung cấp nhiều cơ chế tối ưu hoá để giúp bạn cân bằng tốc độ, chi phí và độ tin cậy dựa trên nhu cầu cụ thể về khối lượng công việc.
-Cho dù bạn đang xây dựng bot trò chuyện theo thời gian thực hay chạy các pipeline xử lý dữ liệu ngoại tuyến nặng, việc chọn đúng mô hình có thể giúp bạn giảm đáng kể chi phí hoặc tăng hiệu suất.
+L'API Gemini propose différents mécanismes d'optimisation pour vous aider à équilibrer la vitesse, le coût et la fiabilité en fonction des besoins spécifiques de vos charges de travail.
+Que vous créiez des robots conversationnels en temps réel ou que vous exécutiez des pipelines de traitement de données hors connexion volumineux, le choix du bon paradigme peut réduire considérablement les coûts ou améliorer les performances.
 
-| Tính năng | Tiêu chuẩn | Linh hoạt | Mức độ ưu tiên | Theo nhóm | Lưu vào bộ nhớ đệm |
+| Fonctionnalité | Standard | Flex | Priorité | Lot | Mise en cache |
 | --- | --- | --- | --- | --- | --- |
-| **Định giá** | Giá đầy đủ | Chiết khấu 50% | Cao hơn từ 75% đến 100% so với mức tiêu chuẩn | Chiết khấu 50% | Chiết khấu 90% + Dung lượng lưu trữ mã thông báo theo tỷ lệ |
-| **Độ trễ** | Từ vài giây đến vài phút | Phút (mục tiêu từ 1 đến 15 phút) | Giây | Tối đa 24 giờ | Thời gian hiển thị mã thông báo đầu tiên nhanh hơn |
-| **Độ tin cậy** | Cao / Trung bình cao | Trong khả năng tốt nhất có thể (Có thể loại bỏ) | Cao (Không thể loại bỏ) | Cao (đối với thông lượng) | Không áp dụng |
-| **Giao diện** | Đồng bộ | Đồng bộ | Đồng bộ | Không đồng bộ | Trạng thái đã lưu |
-| **Trường hợp sử dụng phù hợp nhất** | Quy trình công việc chung của ứng dụng | Các chuỗi tuần tự không khẩn cấp | Ứng dụng sản xuất, ứng dụng dành cho người dùng | Tập dữ liệu lớn, đánh giá ngoại tuyến | Các truy vấn lặp lại trên cùng một tệp |
+| **Tarifs** | Plein tarif | 50% de remise | 75% à 100% de plus que la valeur standard | 50% de remise | Remise de 90% + stockage des jetons au prorata |
+| **Latence** | De secondes à minutes | Minutes (objectif de 1 à 15 min) | Secondes | Jusqu'à 24 heures | Délai d'émission du premier jeton plus rapide |
+| **Fiabilité** | Élevée / Moyenne-haute | Optimisation limitée (désactivable) | Élevée (non amovible) | Élevée (pour le débit) | N/A |
+| **Interface** | Synchrone | Synchrone | Synchrone | Asynchrone | État enregistré |
+| **Cas d'utilisation idéal** | Workflows généraux des applications | Chaînes séquentielles non urgentes | Applications de production destinées aux utilisateurs | Ensembles de données volumineux, évaluations hors connexion | Requêtes récurrentes sur le même fichier |
 
-## Cấp dịch vụ suy luận (Đồng bộ)
+## Niveaux de service d'inférence (synchrone)
 
-Bạn có thể chuyển đổi giữa lưu lượng truy cập đồng bộ được tối ưu hoá về độ tin cậy và lưu lượng truy cập đồng bộ được tối ưu hoá về chi phí bằng cách truyền tham số `service_tier` trong các lệnh gọi tạo tiêu chuẩn.
+Vous pouvez passer d'un trafic synchrone optimisé pour la fiabilité à un trafic synchrone optimisé pour les coûts en transmettant le paramètre `service_tier` dans vos appels de génération standards.
 
-### Suy luận tiêu chuẩn (Mặc định)
+### Inférence standard (par défaut)
 
-Cấp tiêu chuẩn là lựa chọn mặc định để tạo nội dung tuần tự.
-Cấp này cung cấp thời gian phản hồi bình thường mà không có phí bảo hiểm bổ sung hoặc hàng đợi lớn.
+Le niveau standard est l'option par défaut pour la génération de contenu séquentiel.
+Elle offre des temps de réponse normaux, sans frais supplémentaires ni longues files d'attente.
 
-- **Độ tin cậy:** Mức độ quan trọng tiêu chuẩn
-- **Giá:** Giá tiêu chuẩn.
-- **Phù hợp nhất với:** Hầu hết các ứng dụng tương tác hằng ngày.
+- **Fiabilité** : niveau de gravité standard
+- **Prix** : tarifs standards.
+- **Recommandé pour** : la plupart des applications interactives du quotidien.
 
-### Suy luận ưu tiên (Tối ưu hoá độ trễ)
+### Inférence prioritaire (optimisée pour la latence)
 
-[Quy trình xử lý](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi)ưu tiên sẽ chuyển các yêu cầu của bạn
-đến hàng đợi điện toán có mức độ quan trọng cao.
-Lưu lượng truy cập này hoàn toàn không thể loại bỏ (không bao giờ bị các cấp khác ưu tiên) và mang lại độ tin cậy cao nhất. Nếu bạn vượt quá giới hạn Ưu tiên động, hệ thống sẽ tự động hạ cấp yêu cầu xuống quy trình xử lý Tiêu chuẩn thay vì báo lỗi.
+Le traitement [prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr) achemine vos demandes vers des files d'attente de calcul de haute criticité.
+Ce trafic ne peut en aucun cas être supprimé (il n'est jamais interrompu par d'autres niveaux) et offre la fiabilité la plus élevée. Si vous dépassez les limites de priorité dynamique, le système rétrogradera la requête vers un traitement standard au lieu d'échouer avec une erreur.
 
-- **Độ tin cậy:** Mức độ quan trọng cao nhất
-- **Giá:** Cao hơn từ 75% đến 100% so với mức Tiêu chuẩn.
-- **Phù hợp nhất với:** Chatbot dành cho khách hàng, tính năng phát hiện gian lận theo thời gian thực và trợ lý ảo quan trọng đối với doanh nghiệp.
+- **Fiabilité** : criticité la plus élevée
+- **Prix** : 75% à 100% au-dessus des tarifs standards.
+- **Idéal pour** : les chatbots clients, la détection de fraudes en temps réel et les copilotes essentiels pour l'entreprise.
 
-### Suy luận linh hoạt (Tối ưu hoá chi phí)
+### Inférence flexible (coût optimisé)
 
-[Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi) giúp bạn tiết kiệm 50% so với mức giá tiêu chuẩn bằng cách tận dụng
-công suất điện toán không cao điểm. Các yêu cầu được xử lý đồng bộ, nghĩa là bạn không cần viết lại mã để quản lý các đối tượng theo nhóm.
-Vì đây là lưu lượng truy cập "có thể loại bỏ", nên các yêu cầu có thể bị ưu tiên nếu hệ thống gặp phải tình trạng tăng đột biến lưu lượng truy cập tiêu chuẩn.
+L'[inférence flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr) offre une remise de 50% par rapport aux tarifs standards en utilisant une capacité de calcul opportuniste hors pointe. Les requêtes sont traitées de manière synchrone, ce qui signifie que vous n'avez pas besoin de réécrire le code pour gérer les objets de lot.
+Comme il s'agit d'un trafic "éliminable", les requêtes peuvent être préemptées si le système connaît des pics de trafic standards.
 
-- **Độ tin cậy:** Không được đảm bảo, mức độ quan trọng có thể loại bỏ
-- **Giá:** 50% giá Tiêu chuẩn (tính phí theo mã thông báo).
-- **Phù hợp nhất với:** Quy trình công việc nhiều bước của tác nhân mà lệnh gọi N+1 phụ thuộc vào kết quả của lệnh gọi N, các bản cập nhật CRM ở chế độ nền và các đánh giá ngoại tuyến.
+- **Fiabilité** : criticité non garantie et réductible
+- **Prix** : 50% du prix standard (facturé par jeton).
+- **Idéal pour** : les workflows agentiques en plusieurs étapes où l'appel N+1 dépend de la sortie de l'appel N, des mises à jour CRM en arrière-plan et des évaluations hors connexion.
 
-## API theo nhóm (Hàng loạt, không đồng bộ)
+## API Batch (par lot, asynchrone)
 
-[API theo nhóm](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) được thiết kế để xử lý không đồng bộ một lượng lớn
-yêu cầu với
-chi phí bằng 50% chi phí tiêu chuẩn. Bạn có thể gửi yêu cầu dưới dạng từ điển nội tuyến hoặc sử dụng tệp đầu vào JSONL (tối đa 2 GB). API này xử lý các yêu cầu bằng cách sử dụng hàng đợi thông lượng ở chế độ nền với thời gian hoàn thành mục tiêu là 24 giờ.
+L'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr) est conçue pour traiter de grands volumes de requêtes de manière asynchrone à 50% du coût standard. Vous pouvez envoyer des requêtes sous forme de dictionnaires intégrés ou à l'aide d'un fichier d'entrée JSONL (jusqu'à 2 Go). Il traite les demandes à l'aide de files d'attente de débit en arrière-plan avec un délai de traitement cible de 24 heures.
 
-- **Độ tin cậy:** Có thể loại bỏ nhưng có hệ thống tự động thử lại và xếp hàng đợi trong 24 giờ
-- **Giá:** 50% giá Tiêu chuẩn.
-- **Phù hợp nhất với:** Xử lý trước các tập dữ liệu lớn, chạy các bộ kiểm thử hồi quy định kỳ và tạo hình ảnh hoặc nội dung nhúng với số lượng lớn.
+- **Fiabilité** : peut être supprimé, mais avec des tentatives automatiques de 24 heures et un système de mise en file d'attente
+- **Prix** : 50% du prix standard.
+- **Idéal pour** : le prétraitement d'ensembles de données volumineux, l'exécution de suites de tests de régression périodiques et la génération d'images ou d'embeddings à grand volume.
 
-## Lưu vào bộ nhớ đệm theo ngữ cảnh (Tiết kiệm dữ liệu đầu vào)
+## Mise en cache du contexte (économies d'entrées)
 
-[Tính năng lưu vào bộ nhớ đệm theo ngữ cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) được sử dụng khi một ngữ cảnh ban đầu đáng kể
-được các yêu cầu ngắn hơn tham chiếu nhiều lần.
+La [mise en cache de contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) est utilisée lorsqu'un contexte initial important est référencé à plusieurs reprises par des requêtes plus courtes.
 
-- **Lưu vào bộ nhớ đệm ngầm ẩn:** Tự động bật trên Gemini 2.5 và các mô hình mới hơn.
-  Hệ thống sẽ chuyển khoản tiết kiệm chi phí nếu yêu cầu của bạn khớp với các bộ nhớ đệm hiện có dựa trên các tiền tố lời nhắc phổ biến.
-- **Lưu vào bộ nhớ đệm rõ ràng:** Bạn có thể tạo đối tượng bộ nhớ đệm theo cách thủ công với một Thời gian tồn tại (TTL) cụ thể. Sau khi tạo, bạn có thể tham khảo các mã thông báo được lưu vào bộ nhớ đệm cho các yêu cầu tiếp theo để tránh việc truyền tải cùng một tải trọng văn bản nhiều lần.
-- **Giá:** Tính phí dựa trên số lượng mã thông báo trong bộ nhớ đệm và thời gian lưu trữ (TTL).
-- **Phù hợp nhất với:** Chatbot có hướng dẫn hệ thống mở rộng, phân tích lặp lại các tệp video dài hoặc truy vấn đối với các tập tài liệu lớn.
+- **Mise en cache implicite** : activée automatiquement sur les modèles Gemini 2.5 et ultérieurs.
+  Le système répercute les économies si votre demande touche des caches existants basés sur des préfixes d'invite courants.
+- **Mise en cache explicite** : vous pouvez créer manuellement un objet cache avec une valeur TTL (Time-To-Live) spécifique. Une fois les jetons mis en cache, vous pouvez vous y référer pour les requêtes ultérieures afin d'éviter de transmettre plusieurs fois la même charge utile de corpus.
+- **Prix** : facturé en fonction du nombre de jetons de cache et de la durée de stockage (TTL).
+- **Idéal pour** : les chatbots avec des instructions système détaillées, l'analyse répétitive de fichiers vidéo longs ou les requêtes sur des ensembles de documents volumineux.
 
-Gửi ý kiến phản hồi
+Envoyer des commentaires
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+Dernière mise à jour le 2026/04/29 (UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

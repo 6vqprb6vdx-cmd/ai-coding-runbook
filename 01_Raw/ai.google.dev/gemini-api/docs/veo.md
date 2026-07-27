@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/veo?hl=es-419
-fetched_at: 2026-07-20T04:44:23.566306+00:00
-title: "Genera videos con Veo 3.1 en la API de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/veo?hl=ja
+fetched_at: 2026-07-27T04:42:36.212583+00:00
+title: "Gemini API \u306e Veo 3.1 \u3067\u52d5\u753b\u3092\u751f\u6210\u3059\u308b \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Enviar comentarios
+フィードバックを送信
 
-# Genera videos con Veo 3.1 en la API de Gemini
+# Gemini API の Veo 3.1 で動画を生成する
 
-> Para obtener información sobre la comprensión de videos, consulta la guía de [comprensión de videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419).
+> 動画理解については、[動画理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja)ガイドをご覧ください。
 
-[Veo 3.1](https://deepmind.google/models/veo/?hl=es-419) es un modelo para generar videos de 8 segundos (720p, 1080p o 4K) con audio generado de forma nativa. Puedes acceder a este modelo de forma programática con la API de Gemini. Para obtener más información sobre las variantes de modelos de Veo disponibles, consulta la sección [Versiones de modelos](#model-versions).
+[Veo 3.1](https://deepmind.google/models/veo/?hl=ja) は、ネイティブに生成された音声を含む 8 秒間の動画（720p、1080p、4k）を生成するモデルです。このモデルには、Gemini API を使用してプログラムでアクセスできます。使用可能な Veo モデル バリエーションの詳細については、[モデルのバージョン](#model-versions)をご覧ください。
 
-Veo 3.1 se destaca en una amplia variedad de estilos visuales y cinematográficos, y presenta varias capacidades nuevas:
+Veo 3.1 は、幅広い視覚的および映画的なスタイルに優れており、いくつかの新機能が導入されています。
 
-- **Videos verticales**: Elige entre videos horizontales (`16:9`) y verticales (`9:16`).
-- **Extensión de video**: Extiende los videos que se generaron anteriormente con Veo.
-- **Generación específica de fotogramas**: Genera un video especificando el primer y el último fotograma.
-- **Dirección basada en imágenes**: Usa hasta tres imágenes de referencia para guiar el contenido del video que generes.
+- **縦向き動画**: 横向き（`16:9`）と縦向き（`9:16`）の動画を選択します。
+- **動画の拡張**: 以前に Veo を使用して生成された動画を拡張します。
+- **フレーム固有の生成**: 最初と最後のフレームを指定して動画を生成します。
+- **画像ベースの指示**: 生成する動画の内容を示すため、参照画像を 3 枚まで使用できます。
 
-Si deseas obtener más información para escribir instrucciones de texto eficaces para la generación de videos, consulta la [guía de instrucciones de Veo](#prompt-guide).
+動画生成用の効果的なテキスト プロンプトの作成方法については、[Veo プロンプト ガイド](#prompt-guide)をご覧ください。
 
-## Generación de texto a video
+## テキストから動画を生成する
 
-En los siguientes ejemplos, se muestra cómo puedes generar un video con [diálogo](#dialogue), [realismo cinematográfico](#realism) o [animación creativa](#style):
+次の例は、[セリフ](#dialogue)、[映画のようなリアルさ](#realism)、[クリエイティブなアニメーション](#style)を含む動画を生成する方法を示しています。
 
-### Diálogos y efectos de sonido
+### 会話と効果音
 
 ### Python
 
@@ -227,7 +227,7 @@ while true; do
 done
 ```
 
-### Realismo cinematográfico
+### 映画的リアリズム
 
 ### Python
 
@@ -419,7 +419,7 @@ while true; do
 done
 ```
 
-### Animación creativa
+### クリエイティブ アニメーション
 
 ### Python
 
@@ -605,9 +605,9 @@ while true; do
 done
 ```
 
-## Cómo controlar la relación de aspecto
+## アスペクト比を制御する
 
-Veo 3.1 te permite crear videos horizontales (`16:9`, el parámetro de configuración predeterminado) o verticales (`9:16`). Puedes indicarle al modelo cuál quieres usar con el parámetro `aspect_ratio`:
+Veo 3.1 では、横向き（`16:9`、デフォルト設定）または縦向き（`9:16`）の動画を作成できます。`aspect_ratio` パラメータを使用して、必要なモデルを指定できます。
 
 ### Python
 
@@ -770,13 +770,13 @@ while true; do
 done
 ```
 
-## Cómo controlar la resolución
+## 解像度を制御する
 
-Veo 3.1 también puede generar directamente videos en 720p, 1080p o 4K (4K no disponible para Veo 3.1 Lite).
+Veo 3.1 では、720p、1080p、4k の動画を直接生成することもできます（4k は Veo 3.1 Lite では利用できません）。
 
-Ten en cuenta que, cuanto mayor sea la resolución, mayor será la latencia. Los videos en 4K también son más costosos (consulta los [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#veo-3.1)).
+解像度が高いほど、レイテンシが高くなります。4K 動画は料金も高くなります（[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#veo-3.1)を参照）。
 
-La [extensión de video](#extending_veo_videos) también se limita a videos en 720p.
+[動画拡張機能](#extending_veo_videos)も 720p の動画に限定されます。
 
 ### Python
 
@@ -939,9 +939,9 @@ while true; do
 done
 ```
 
-## Generación de video a partir de imágenes
+## 画像から動画を生成する
 
-El siguiente código muestra cómo generar una imagen con [Gemini 3.1 Flash Image, también conocido como Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419), y, luego, usar esa imagen como fotograma inicial para generar un video con Veo 3.1.
+次のコードは、[Gemini 3.1 Flash Image（別名 Nano Banana 2）](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)を使用して画像を生成し、その画像を Veo 3.1 で動画を生成するための開始フレームとして使用する方法を示しています。
 
 ### Python
 
@@ -1129,15 +1129,15 @@ class GenerateVideoFromImage {
 }
 ```
 
-### Cómo usar imágenes de referencia
+### 参照画像を使用する
 
-Veo 3.1 ahora acepta hasta 3 imágenes de referencia para guiar el contenido de tu video generado. Proporciona imágenes de una persona, un personaje o un producto para conservar la apariencia del sujeto en el video de salida.
+Veo 3.1 では、生成された動画のコンテンツをガイドする参照画像を最大 3 枚まで使用できるようになりました。人物、キャラクター、商品の画像を提供して、出力動画で被写体の外観を保持します。
 
-Por ejemplo, usar estas tres imágenes generadas con [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) como referencias con una [instrucción bien escrita](#use-reference-images) crea el siguiente video:
+たとえば、[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) で生成された 3 つの画像をリファレンスとして使用し、[適切なプロンプト](#use-reference-images)を使用すると、次の動画が作成されます。
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
-| Vestido de alta costura de flamenco con capas de plumas rosas y fucsias | Mujer hermosa con cabello oscuro y ojos marrones cálidos | Gafas de sol caprichosas rosas con forma de corazón |
+| ピンクとフクシアの羽が何層にも重なった、ハイファッションのフラミンゴ ドレス | ダークブラウンの髪と温かみのある茶色の瞳を持つ美しい女性 | ピンクのハート型のサングラス |
 
 ### Python
 
@@ -1365,9 +1365,9 @@ while true; do
 done
 ```
 
-### Cómo usar el primer y el último fotograma
+### 最初と最後のフレームを使用する
 
-Veo 3.1 te permite crear videos usando interpolación o especificando el primer y el último fotograma del video. Si deseas obtener información para escribir instrucciones de texto eficaces para la generación de videos, consulta la [guía de instrucciones de Veo](#use-reference-images).
+Veo 3.1 では、補間を使用するか、動画の最初と最後のフレームを指定して動画を作成できます。動画生成用の効果的なテキスト プロンプトの作成については、[Veo プロンプト ガイド](#use-reference-images)をご覧ください。
 
 ### Python
 
@@ -1540,30 +1540,30 @@ done
 
 | `` `first_image` `` | `` `last_image` `` | *veo3.1\_with\_interpolation.mp4* |
 | --- | --- | --- |
-| Una mujer fantasmal con cabello blanco largo y un vestido ondeante se balancea suavemente en un columpio de cuerda. | La mujer fantasma desaparece del columpio | Un video cinematográfico y sobrecogedor de una mujer misteriosa que desaparece de un columpio en la niebla |
+| 長い白い髪とゆったりとしたドレスを着た幽霊のような女性が、ロープのブランコに優しく揺られている | ブランコから消える幽霊の女性 | 霧の中でブランコから消える不気味な女性の、映画のような不気味な動画 |
 
-## Extiende videos de Veo
+## Veo 動画を拡張する
 
-Usa Veo 3.1 para extender hasta 20 veces los videos que generaste anteriormente con Veo en 7 segundos.
+Veo 3.1 を使用すると、以前に Veo で生成した動画を 7 秒間、最大 20 回まで延長できます。
 
-Limitaciones de los videos de entrada:
+入力動画の制限事項:
 
-- Los videos generados por Veo solo pueden durar hasta 141 segundos.
-- La API de Gemini solo admite extensiones de video para los videos generados por Veo.
-- El video debe provenir de una generación anterior, como `operation.response.generated_videos[0].video`.
-- Los videos se almacenan durante 2 días, pero, si se hace referencia a un video para su extensión, se restablece el temporizador de almacenamiento de 2 días. Solo puedes extender los videos que se generaron o a los que se hizo referencia en los últimos dos días.
-- Se espera que los videos de entrada tengan una cierta longitud, relación de aspecto y dimensiones:
-  - Relación de aspecto: 9:16 o 16:9
-  - Resolución: 720p
-  - Duración del video: 141 segundos o menos
+- Veo で生成された動画の長さは最長 141 秒です。
+- Gemini API は、Veo で生成された動画の動画拡張機能のみをサポートしています。
+- 動画は `operation.response.generated_videos[0].video` などの前の世代のものである必要があります。
+- 動画は 2 日間保存されますが、延長のために動画が参照されると、2 日間の保存タイマーがリセットされます。続きを生成できるのは、過去 2 日以内に生成または参照された動画のみです。
+- 入力動画には、一定の長さ、アスペクト比、サイズが求められます。
+  - アスペクト比: 9:16 または 16:9
+  - 解像度: 720p
+  - 動画の長さ: 141 秒以内
 
-El resultado de la extensión es un solo video que combina el video de entrada del usuario y el video extendido generado, con una duración de hasta 148 segundos.
+拡張機能の出力は、ユーザー入力動画と生成された拡張動画を組み合わせた 1 本の動画で、最大 148 秒の動画になります。
 
-En este ejemplo, se toma un video generado por Veo, que se muestra aquí con su instrucción original, y se extiende con el parámetro `video` y una nueva instrucción:
+この例では、Veo で生成された動画（元のプロンプトとともに表示）を取得し、`video` パラメータと新しいプロンプトを使用して拡張しています。
 
-| Instrucción | Resultado: `butterfly_video` |
+| プロンプト | 出力: `butterfly_video` |
 | --- | --- |
-| Una mariposa de origami aletea y vuela por las puertas francesas hacia el jardín. | Una mariposa de origami aletea y sale volando por las puertas francesas hacia el jardín. |
+| 折り紙の蝶が羽ばたき、フレンチドアから庭に飛び立つ。 | 折り紙の蝶が羽ばたき、フレンチドアから庭に飛び出す。 |
 
 ### Python
 
@@ -1739,13 +1739,13 @@ while true; do
 done
 ```
 
-Si deseas obtener información para escribir instrucciones de texto eficaces para la generación de videos, consulta la [guía de instrucciones de Veo](#extend-prompt).
+動画生成用の効果的なテキスト プロンプトの作成については、[Veo プロンプト ガイド](#extend-prompt)をご覧ください。
 
-## Maneja operaciones asíncronas
+## 非同期オペレーションの処理
 
-La generación de videos es una tarea que requiere mucha capacidad de procesamiento. Cuando envías una solicitud a la API, se inicia un trabajo de larga duración y se muestra de inmediato un objeto `operation`. Luego, debes sondear hasta que el video esté listo, lo que se indica con el estado `done` como verdadero.
+動画の生成は、コンピューティング負荷の高いタスクです。API にリクエストを送信すると、長時間実行ジョブが開始され、すぐに `operation` オブジェクトが返されます。次に、`done` ステータスが true になるまでポーリングする必要があります。
 
-El núcleo de este proceso es un bucle de sondeo, que verifica periódicamente el estado del trabajo.
+このプロセスの中心はポーリング ループです。このループはジョブのステータスを定期的にチェックします。
 
 ### Python
 
@@ -1924,303 +1924,300 @@ while true; do
 done
 ```
 
-## Parámetros y especificaciones de la API de Veo
+## Veo API のパラメータと仕様
 
-Estos son los parámetros que puedes configurar en tu solicitud a la API para controlar el proceso de generación de video.
+API リクエストで設定して動画生成プロセスを制御できるパラメータは次のとおりです。
 
-| Parámetro | Veo 3.1 y Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 y Veo 3 Fast | Veo 2 |
+| パラメータ | Veo 3.1 と Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 と Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| Instancias | | | | |
-| `prompt`: Es la descripción de texto del video. Admite pistas de audio. | `string` | `string` | `string` | `string` |
-| `image`: Una imagen inicial para animar. | Objeto `Image` | Objeto `Image` | Objeto `Image` | Objeto `Image` |
-| `lastFrame`: La imagen final para la transición de un video de interpolación. Se debe usar en combinación con el parámetro `image`. | Objeto `Image` | Objeto `Image` | Objeto `Image` | Objeto `Image` |
-| `referenceImages`: Hasta tres imágenes que se usarán como referencias de estilo y contenido. | Objeto `VideoGenerationReferenceImage` | Objeto `n/a` | N/A | N/A |
-| `video`: Video que se usará para la extensión de video. | Objeto `Video` de una generación anterior | N/A | N/A | N/A |
-| Parámetros | | | | |
-| `aspectRatio`: Relación de aspecto del video. | `"16:9"` (predeterminado), `"9:16"` | `"16:9"` (predeterminado), `"9:16"` | `"16:9"` (predeterminado), `"9:16"` | `"16:9"` (predeterminado), `"9:16"` |
-| `durationSeconds`: Duración del video generado. | `"4"`, `"6"`, `"8"`.   *Debe ser "8" cuando se usan extensiones, imágenes de referencia o resoluciones de 1080p y 4K* | `"4"`, `"6"`, `"8"`.   *Debe ser "8" cuando se usan imágenes de referencia o con 1080p* | `"4"`, `"6"`, `"8"`.   *Debe ser "8" cuando se usan extensiones, imágenes de referencia o resoluciones de 1080p y 4K* | `"5"`, `"6"`, `"8"` |
-| `personGeneration`: Controla la generación de personas. (Consulta [Limitaciones](#limitations) para conocer las restricciones regionales). | Texto a video y extensión: `"allow_all"` solamente   Imágenes a video, interpolación y de referencia: `"allow_adult"` solamente | Texto a video: `"allow_all"` solamente   Imágenes de referencia, interpolación y de imagen a video: `"allow_adult"` solamente | Texto a video: `"allow_all"` solamente   Imagen a video: `"allow_adult"` solamente | Texto a video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Imagen a video:  `"allow_adult"` y `"dont_allow"` |
-| `resolution`: Resolución del video. | `"720p"` (predeterminado),  `"1080p"` (solo admite una duración de 8 s), `"4k"` (solo admite una duración de 8 s)   *`"720p"` solo para la extensión* | `"720p"` (predeterminado),  `"1080p"` (solo admite una duración de 8 s) | `"720p"` (predeterminado),  `"1080p"` (solo admite una duración de 8 s), `"4k"` (solo admite una duración de 8 s)   *`"720p"` solo para la extensión* | No compatible |
+| インスタンス | | | | |
+| `prompt`: 動画のテキストによる説明。音声キューをサポートしています。 | `string` | `string` | `string` | `string` |
+| `image`: アニメーション化する初期画像。 | `Image` オブジェクト | `Image` オブジェクト | `Image` オブジェクト | `Image` オブジェクト |
+| `lastFrame`: 補間動画の最終画像。`image` パラメータと組み合わせて使用する必要があります。 | `Image` オブジェクト | `Image` オブジェクト | `Image` オブジェクト | `Image` オブジェクト |
+| `referenceImages`: スタイルとコンテンツの参照として使用する画像（最大 3 枚）。 | `VideoGenerationReferenceImage` オブジェクト | `n/a` オブジェクト | なし | なし |
+| `video`: 動画広告で使用する動画。 | 前の世代の `Video` オブジェクト | なし | × | なし |
+| パラメータ | | | | |
+| `aspectRatio`: 動画のアスペクト比。 | `"16:9"`（デフォルト）、 `"9:16"` | `"16:9"`（デフォルト）、 `"9:16"` | `"16:9"`（デフォルト）、 `"9:16"` | `"16:9"`（デフォルト）、 `"9:16"` |
+| `durationSeconds`: 生成された動画の長さ。 | `"4"`、`"6"`、`"8"`。   *拡張機能、参照画像、1080p および 4k の解像度を使用する場合は「8」である必要があります* | `"4"`、`"6"`、`"8"`。   *参照画像を使用する場合、または 1080p の場合は「8」にする必要があります* | `"4"`、`"6"`、`"8"`。   *拡張機能、参照画像、1080p および 4k の解像度を使用する場合は「8」である必要があります* | `"5"`、`"6"`、`"8"` |
+| `personGeneration`: 人物の生成を制御します。（リージョン制限については、[制限事項](#limitations)をご覧ください）。 | テキストから動画を作成＆拡張機能: `"allow_all"` のみ   画像から動画を作成、補間、参照画像: `"allow_adult"` のみ | テキストから動画を作成: `"allow_all"` のみ   画像から動画を作成、補間、参照画像: `"allow_adult"` のみ | テキストから動画を作成: `"allow_all"` のみ   画像から動画を作成: `"allow_adult"` のみ | テキストから動画を作成:  `"allow_all"`、`"allow_adult"`、`"dont_allow"`   画像から動画を作成:  `"allow_adult"`、`"dont_allow"` |
+| `resolution`: 動画の解像度。 | `"720p"`（デフォルト）、 `"1080p"`（8 秒の長さのみをサポート）、 `"4k"`（8 秒の長さのみをサポート）   *拡張機能のみの `"720p"`* | `"720p"`（デフォルト）、 `"1080p"`（8 秒の長さのみをサポート） | `"720p"`（デフォルト）、 `"1080p"`（8 秒の長さのみをサポート）、 `"4k"`（8 秒の長さのみをサポート）   *拡張機能のみの `"720p"`* | サポート対象外 |
 
-Ten en cuenta que el parámetro `seed` también está disponible para los modelos de Veo 3.
-No garantiza el determinismo, pero lo mejora ligeramente.
+`seed` パラメータは Veo 3 モデルでも使用できます。決定性を保証するものではありませんが、わずかに改善されます。
 
-## Funciones del modelo
+## モデルの機能
 
-| Función | Veo 3.1 y Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 y Veo 3 Fast | Veo 2 |
+| 機能 | Veo 3.1 と Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 と Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| **Audio:** Genera audio de forma nativa con el video. | ✔️ Siempre activada | ✔️ Siempre activada | ✔️ Siempre activada | ❌ Solo silencioso |
-| **Modalidades de entrada:** Tipo de entrada que se usa para la generación. | Texto a video, imagen a video y video a video | Texto a video, imagen a video | Texto a video, imagen a video | Texto a video, imagen a video |
-| **Resolución:** Es la resolución de salida del video. | 720p, 1080p (solo 8 s de duración), 4K (solo 8 s de duración)  *Solo 720p cuando se usa la extensión de video.* | 720p, 1080p (solo 8 s de duración) | 720p y 1080p (solo 16:9) | 720p |
-| **Velocidad de fotogramas:** Es la velocidad de fotogramas de salida del video. | 24 fotogramas | 24 fotogramas | 24 fotogramas | 24 fotogramas |
-| **Duración del video:** Es la duración del video generado. | 8 segundos, 6 segundos, 4 segundos  *8 segundos solo si se usa 1080p o 4K, o si se usan imágenes de referencia* | 8 segundos, 6 segundos, 4 segundos  *8 segundos solo si la resolución es de 1080p o si se usan imágenes de referencia* | 8 segundos | De 5 a 8 segundos |
-| **Videos por solicitud:** Cantidad de videos generados por solicitud. | 1 | 1 | 1 | 1 o 2 |
-| **Estado:** Disponibilidad del modelo | [Vista previa](https://ai.google.dev/gemini-api/docs/models?hl=es-419#preview) | [Vista previa](https://ai.google.dev/gemini-api/docs/models?hl=es-419#preview) | [Estable](https://ai.google.dev/gemini-api/docs/models?hl=es-419#stable) | [Estable](https://ai.google.dev/gemini-api/docs/models?hl=es-419#latest-stable) |
+| **音声:** 動画とともに音声をネイティブに生成します。 | ✔️ 常にオン | ✔️ 常にオン | ✔️ 常にオン | ❌ マナーのみ |
+| **入力モード:** 生成に使用される入力のタイプ。 | テキストから動画を作成、画像から動画を作成、動画から動画を作成 | テキストから動画を作成、画像から動画を作成 | テキストから動画を作成、画像から動画を作成 | テキストから動画を作成、画像から動画を作成 |
+| **解像度:** 動画の出力解像度。 | 720p、1080p（8 秒のみ）、4k（8 秒のみ）  *動画拡張機能を使用する場合は 720p のみ。* | 720p、1080p（8 秒の長さのみ） | 720p、1080p（16:9 のみ） | 720p |
+| **フレームレート:** 動画の出力フレームレート。 | 24 fps | 24 fps | 24 fps | 24 fps |
+| **動画の長さ:** 生成された動画の長さ。 | 8 秒、6 秒、4 秒  *1080p または 4k の場合、または参照画像を使用している場合のみ 8 秒* | 8 秒、6 秒、4 秒  *1080p または参照画像を使用している場合は 8 秒のみ* | 8秒 | 5 ～ 8 秒 |
+| **リクエストあたりの動画数:** リクエストごとに生成される動画の数。 | 1 | 1 | 1 | 1 または 2 |
+| **ステータス:** モデルの提供状況 | [プレビュー](https://ai.google.dev/gemini-api/docs/models?hl=ja#preview) | [プレビュー](https://ai.google.dev/gemini-api/docs/models?hl=ja#preview) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=ja#stable) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=ja#latest-stable) |
 
-## Limitaciones
+## 制限事項
 
-- **Mensajes con varios videos:** Por el momento, no se admite hacer referencia a varios videos ni razonar sobre ellos. Si intentas usar instrucciones para varios videos, es posible que se degrade el rendimiento del modelo o que se generen resultados inesperados.
-- **Idiomas admitidos:** El inglés (EN) se admite por completo, pero no se evaluaron otros idiomas, por lo que es posible que funcionen, pero los resultados pueden variar.
-- **Latencia de solicitud:** Mín.: 11 segundos; Máx.: 6 minutos (durante las horas pico).
-- **Limitaciones regionales:** En las ubicaciones de la UE, el Reino Unido, Suiza y MENA, los siguientes son los valores permitidos para `personGeneration`:
-  - Veo 3 y 3.1: Solo `allow_adult`.
-  - Veo 2: `dont_allow` y `allow_adult`. El valor predeterminado es `dont_allow`.
-- **Retención de videos:** Los videos generados se almacenan en el servidor durante 2 días y, luego, se quitan. Para guardar una copia local, debes descargar el video en un plazo de 2 días después de su generación. Los videos extendidos se consideran videos recién generados.
-- **Marcas de agua:** Los videos creados por Veo tienen una marca de agua con [SynthID](https://deepmind.google/technologies/synthid/?hl=es-419), nuestra herramienta para identificar contenido generado por IA y agregarle una marca de agua. Los videos se pueden verificar con la plataforma de verificación de [SynthID](https://deepmind.google/science/synthid/?hl=es-419).
-- **Seguridad:** Los videos generados se someten a filtros de seguridad y procesos de verificación de memorización que ayudan a mitigar los riesgos de privacidad, derechos de autor y sesgos.
-- **Error de audio:** A veces, Veo 3.1 impide la generación de un video debido a filtros de seguridad o a otros problemas de procesamiento con el audio. No se te cobrará si se bloquea la generación de tu video.
+- **複数動画のプロンプト:** 現在、複数の動画を参照したり、複数の動画にわたって推論したりすることはできません。マルチ動画プロンプトを試すと、モデルのパフォーマンスが低下したり、予期しない出力が生成されたりする可能性があります。
+- **言語サポート:** 英語（EN）は完全にサポートされていますが、他の言語は評価されていないため、機能する可能性はありますが、結果は異なる場合があります。
+- **リクエスト レイテンシ:** 最小: 11 秒、最大: 6 分（ピーク時間）。
+- **地域による制限:** EU、英国、スイス、中東、北アフリカの地域では、`personGeneration` に使用できる値は次のとおりです。
+  - Veo 3 と 3.1: `allow_adult` のみ。
+  - Veo 2: `dont_allow`、`allow_adult`。デフォルトは `dont_allow` です。
+- **動画の保持:** 生成された動画は 2 日間サーバーに保存され、その後削除されます。ローカルコピーを保存するには、動画が生成されてから 2 日以内にダウンロードする必要があります。延長された動画は、新たに生成された動画として扱われます。
+- **透かし:** Veo で作成された動画には、AI 生成コンテンツに透かしを入れて識別するための Google のツールである [SynthID](https://deepmind.google/technologies/synthid/?hl=ja) を使用して透かしが入れられます。動画は [SynthID](https://deepmind.google/science/synthid/?hl=ja) 検証プラットフォームを使用して検証できます。
+- **安全性:** 生成された動画は、プライバシー、著作権、バイアスのリスクを軽減するのに役立つ安全フィルタと記憶チェック プロセスを通過します。
+- **音声エラー:** Veo 3.1 では、音声の安全フィルターやその他の処理の問題により、動画の生成がブロックされることがあります。動画の生成がブロックされた場合は、課金されません。
 
-## Guía de instrucciones de Veo
+## Veo プロンプト ガイド
 
-En esta sección, se incluyen ejemplos de videos que puedes crear con Veo y se muestra cómo modificar instrucciones para producir resultados distintos.
+このセクションでは、Veo を使用して作成できる動画の例を紹介し、プロンプトを変更して異なる結果を生成する方法について説明します。
 
-### Filtros de seguridad
+### 安全フィルタ
 
-Veo aplica filtros de seguridad en Gemini para garantizar que los videos generados y las fotos subidas no contengan contenido ofensivo.
-Se bloquean las instrucciones que infringen nuestros [términos y lineamientos](https://ai.google.dev/gemini-api/docs/usage-policies?hl=es-419#abuse-monitoring).
+Veo は、Gemini 全体で安全フィルタを適用し、生成された動画やアップロードされた写真に不適切なコンテンツが含まれていないことを確認します。Google の[利用規約とガイドライン](https://ai.google.dev/gemini-api/docs/usage-policies?hl=ja#abuse-monitoring)に違反するプロンプトはブロックされます。
 
-### Conceptos básicos de la escritura de instrucciones
+### プロンプト作成の基本
 
-Las buenas instrucciones son descriptivas y claras. Para aprovechar al máximo Veo, comienza por identificar tu idea principal, agrega palabras clave y modificadores para definirla mejor, y usa terminología específica de video en tus instrucciones.
+適切なプロンプトは、説明的で明確なものです。Veo を最大限に活用するには、まず主なアイデアを特定し、キーワードと修飾子を追加してアイデアを洗練させ、動画固有の用語をプロンプトに組み込みます。
 
-Los siguientes elementos deben incluirse en la instrucción:
+プロンプトには次の要素を含める必要があります。
 
-- **Asunto**: El objeto, la persona, el animal o el paisaje que quieres que aparezca en tu video, como *paisaje urbano*, *naturaleza*, *vehículos* o *cachorros*.
-- **Acción**: Lo que hace el sujeto (por ejemplo, *caminar*, *correr* o *girar la cabeza*).
-- **Estilo**: Especifica la dirección creativa con palabras clave de estilo cinematográfico específicas, como *ciencia ficción*, *película de terror*, *cine negro* o estilos animados como *dibujos animados*.
-- **Posicionamiento y movimiento de la cámara**: [Opcional] Controla la ubicación y el movimiento de la cámara con términos como *vista aérea*, *a la altura de los ojos*, *toma desde arriba*, *toma con dolly* o *vista de gusano*.
-- **Composición**: [Opcional] Cómo se encuadra la toma, por ejemplo, *toma amplia*, *primer plano*, *toma individual* o *toma doble*.
-- **Efectos de enfoque y lente**: [Opcional] Usa términos como *enfoque superficial*, *enfoque profundo*, *enfoque suave*, *lente macro* y *lente gran angular* para lograr efectos visuales específicos.
-- **Ambiente**: [Opcional] La forma en que el color y la luz contribuyen a la escena, como *tonos azules*, *noche* o *tonos cálidos*.
+- **主題**: 動画に含めたい物体、人物、動物、風景（*街並み*、*自然*、*乗り物*、*子犬*など）。
+- **アクション**: 被写体の動き（*歩く*、*走る*、*頭を回す*など）。
+- **スタイル**: *SF*、*ホラー映画*、*フィルム ノワール*、*漫画*などの特定の映画スタイルのキーワードを使用して、クリエイティブの方向性を指定します。
+- **カメラの位置と動き**: [省略可] 「空撮」、「目の高さ」、「俯瞰」、「ドリーショット」、「ローアングル」などの用語を使用して、カメラの位置と動きを制御します。
+- **構図**: [省略可] *ワイドショット*、*クローズアップ*、*シングルショット*、*ツーショット*など、ショットの構図。
+- **フォーカスとレンズ効果**: [省略可] *浅いフォーカス*、*深いフォーカス*、*ソフト フォーカス*、*マクロレンズ*、*広角レンズ*などの用語を使用して、特定の視覚効果を実現します。
+- **アンビアンス**: [省略可] 色や光によるシーンへの影響（*青い色調*、*夜*、*暖かい色調*など）。
 
-#### Más sugerencias para escribir instrucciones
+#### プロンプトの作成に関するその他のヒント
 
-- **Usa lenguaje descriptivo**: Usa adjetivos y adverbios para pintar una imagen clara para Veo.
-- **Mejora los detalles faciales**: Especifica los detalles faciales como el enfoque de la foto, por ejemplo, usando la palabra *retrato* en la instrucción.
+- **わかりやすい表現を使用する**: 形容詞や副詞を使用して、Veo の明確な画像を描きます。
+- **顔の細部を補正する**: プロンプトで「ポートレート」という単語を使用するなど、写真の焦点として顔の細部を指定します。
 
-*Para obtener estrategias de instrucciones más completas, consulta [Introducción al diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).*
+*より包括的なプロンプト戦略については、[プロンプト設計の概要](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ja)をご覧ください。*
 
-### Solicitud de audio
+### 音声のプロンプト
 
-Puedes proporcionar a Veo indicaciones para efectos de sonido, ruido ambiental y diálogo.
-El modelo capta los matices de estas pistas para generar una banda sonora sincronizada.
+Veo に効果音、周囲のノイズ、会話のキューを提供できます。モデルはこれらのキューのニュアンスを捉え、同期されたサウンドトラックを生成します。
 
-- **Diálogo:** Usa comillas para el discurso específico. (Por ejemplo, "Esta debe ser la llave", murmuró).
-- **Efectos de sonido (SFX):** Describe los sonidos de forma explícita. (Ejemplo: Los neumáticos chirrían con fuerza, el motor ruge).
-- **Ruido ambiental:** Describe el paisaje sonoro del entorno. (Ejemplo: Un zumbido tenue y misterioso resuena en el fondo).
+- **会話:** 具体的な会話には引用符を使用します。（例: 「これが鍵に違いない」と彼はつぶやいた。）
+- **効果音（SFX）:** 音を明確に説明します。（例: タイヤが大きな音を立てて、エンジンがうなる。）
+- **周囲の音:** 環境のサウンドスケープを説明します。（例: 背景でかすかな不気味なハミングが響く。）
 
-En estos videos, se muestra cómo solicitar la generación de audio de Veo 3 con niveles de detalle cada vez mayores.
+これらの動画は、Veo 3 の音声生成に詳細レベルを上げてプロンプトを入力する様子を示しています。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Más detalles (diálogo y ambiente)** Una toma amplia de un bosque brumoso del noroeste del Pacífico. Dos excursionistas exhaustos, un hombre y una mujer, se abren paso entre los helechos cuando el hombre se detiene abruptamente y mira un árbol. Primer plano: Marcas frescas y profundas de garras en la corteza del árbol. Hombre: (Con la mano en su cuchillo de caza) "Ese no es un oso común". Mujer: (voz tensa por el miedo, mientras explora el bosque) "¿Entonces qué es?". Una corteza áspera, ramas que se quiebran, pasos sobre la tierra húmeda. Un pájaro solitario gorjea. | Dos personas en el bosque se encuentran con señales de un oso. |
-| **Menos detalles (diálogo)** Animación de recorte de papel. Bibliotecario nuevo: "¿Dónde guardan los libros prohibidos?". Curador anterior: "No lo hacemos. Nos mantienen". | Bibliotecarios animados discutiendo sobre libros prohibidos |
+| **詳細（セリフとアンビエンス）** 霧のかかった太平洋岸北西部の森のワイドショット。疲れた 2 人のハイカー（男性と女性）がシダをかき分けて進んでいると、男性が突然立ち止まり、木を見つめる。クローズアップ: 木の皮に深く新しい爪痕が刻まれています。男:（狩猟ナイフに手を当てて）「あれは普通のクマじゃない。」女性: （恐怖で声が震え、森を見回しながら）「じゃあ、何なの？」粗い樹皮、折れる小枝、湿った地面を踏む足音。一羽の鳥がさえずる。 | 森の中でクマの痕跡を見つけた 2 人の人物。 |
+| **Less detail (Dialogue)** 紙の切り抜きアニメーション。新しい司書: 「禁書はどこに保管されていますか？」以前のキュレーター: 「いいえ。彼らは私たちを維持します。」 | 禁書について話し合うアニメーションの司書 |
 
-Prueba estas instrucciones para escuchar el audio.
-[Probar Veo](https://deepmind.google/models/veo/?hl=es-419)
+以下のプロンプトを試して、音声を聞いてみましょう。
+[Veo を試す](https://deepmind.google/models/veo/?hl=ja)
 
-### Instrucciones con imágenes de referencia
+### 参照画像を使用したプロンプト
 
-Puedes usar una o más imágenes como entradas para guiar los videos que generes con las capacidades de [imagen a video](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#generate-from-images) de Veo. Veo usa la imagen de entrada como el fotograma inicial. Selecciona una imagen que se parezca más a lo que imaginas como la primera escena de tu video para animar objetos cotidianos, dar vida a dibujos y pinturas, y agregar movimiento y sonido a escenas de la naturaleza.
+Veo の[画像から動画への変換](https://ai.google.dev/gemini-api/docs/veo?hl=ja#generate-from-images)機能を使用して、1 つ以上の画像を生成動画のガイドとして使用できます。Veo は入力画像を最初のフレームとして使用します。動画の最初のシーンとして思い描いているものに最も近い画像を選択して、日常の物をアニメ化したり、線画や絵画に命を吹き込んだり、自然の風景に動きと音を追加したりします。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Imagen de entrada (generada por Nano Banana)** Una foto macro hiperrealista de surfistas pequeños en miniatura que surfean las olas del océano dentro de un lavabo rústico de piedra. Una canilla de bronce antigua está abierta y crea el oleaje perpetuo. Iluminación natural brillante, surrealista y caprichosa. | Pequeños surfistas en miniatura montando las olas del océano dentro de un lavabo rústico de piedra. |
-| **Video de salida (generado por Veo 3.1)** Un video macro cinematográfico y surrealista. Pequeños surfistas cabalgan olas perpetuas y ondulantes dentro de un lavamanos de piedra. Una canilla de latón antigua que funciona genera el sonido de las olas. La cámara se desplaza lentamente por la escena caprichosa y soleada mientras las figuras en miniatura tallan con destreza el agua turquesa. | Pequeños surfistas que rodean las olas en el lavamanos de un baño. |
+| **入力画像（Nano Banana で生成）** 素朴な石の洗面台の中で、小さなミニチュアのサーファーが海の波に乗っている超現実的なマクロ写真。ヴィンテージの真鍮製の蛇口から水が流れ、永遠の波が生まれています。シュールで奇抜な、明るい自然光。 | 素朴な石造りの洗面台の中で、小さなサーファーが海の波に乗っている。 |
+| **出力動画（Veo 3.1 で生成）** シュールで映画のようなマクロ動画。小さなサーファーが、石造りの洗面台の中で永遠に続く波に乗っている。ヴィンテージの真鍮製の蛇口から流れ出る水が、無限の波を生み出します。ミニチュアの人物がターコイズ ブルーの海を巧みに切り開く、陽光が差し込む奇抜なシーンをカメラがゆっくりとパンします。 | バスルームのシンクで波に乗る小さなサーファーたち。 |
 
-Veo 3.1 te permite [hacer referencia a imágenes](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#reference-images) o ingredientes para dirigir el contenido de los videos que generes. Proporciona hasta tres imágenes de recursos de una sola persona, personaje o producto. Veo conserva la apariencia del sujeto en el video resultante.
+Veo 3.1 では、[参照画像](https://ai.google.dev/gemini-api/docs/veo?hl=ja#reference-images)または素材を使用して、生成された動画のコンテンツを指定できます。1 人の人物、キャラクター、商品の画像を 3 枚まで指定します。Veo は、出力動画で被写体の外観を保持します。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Imagen de referencia (generada por Nano Banana)** Un pez pescador de aguas profundas acecha en las profundidades oscuras, con los dientes al descubierto y el cebo brillante. | Un pez linterna oscuro y brillante |
-| **Imagen de referencia (generada por Nano Banana)** Un disfraz de princesa rosa para niños con una varita y una tiara, sobre un fondo de producto simple. | Un disfraz de princesa rosa para niños |
-| **Video de salida (generado por Veo 3.1)** Crea una versión de dibujos animados tonta del pez con el disfraz, nadando y agitando la varita. | Un pez linterna con un disfraz de princesa |
+| **参照画像（Nano Banana で生成）** 深海の暗い水の中に、アンコウが潜んでいる。歯をむき出しにして、餌が光っている。 | 暗闇で光るアンコウ |
+| **参照画像（Nano Banana で生成）** ピンク色の子供用プリンセス コスチューム。杖とティアラ付き。シンプルな商品背景。 | ピンクのプリンセス衣装を着た子供 |
+| **出力動画（Veo 3.1 で生成）** 衣装を着た魚が泳ぎながら杖を振っている、おかしな漫画風の動画を作成します。 | プリンセス コスチュームを着たアンコウ |
 
-Con Veo 3.1, también puedes generar videos especificando el [primer y el último cuadro](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#using-first-and-last-video-frames) del video.
+Veo 3.1 を使用して、動画の[最初と最後のフレーム](https://ai.google.dev/gemini-api/docs/veo?hl=ja#using-first-and-last-video-frames)を指定して動画を生成することもできます。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Primera imagen (generada por Nano Banana)** Una imagen frontal fotorrealista de alta calidad de un gato pelirrojo conduciendo un auto de carreras convertible rojo en la costa de la Riviera francesa. | Un gato pelirrojo conduce un auto de carreras rojo descapotable |
-| **Última imagen (generada por Nano Banana)** Muestra lo que sucede cuando el automóvil despega desde un acantilado. | Un gato pelirrojo que conduce un convertible rojo se cae por un acantilado |
-| **Video de salida (generado por Veo 3.1)** Opcional | Un gato se lanza desde un acantilado y despega |
+| **1 枚目の画像（Nano Banana で生成）** フランスのリビエラ海岸で赤いオープンカーのレーシングカーを運転する茶トラ猫の高品質なリアルな正面画像。 | 赤いオープンカーのレーシングカーを運転する茶色の猫 |
+| **最後の画像（Nano Banana で生成）** 崖から車が飛び出す様子を表示します。 | 赤いオープンカーを運転する茶色の猫が崖から落ちる |
+| **出力動画（Veo 3.1 で生成）** 省略可 | 猫が崖から飛び降りて飛び立つ |
 
-Esta función te brinda un control preciso sobre la composición de tu toma, ya que te permite definir el fotograma inicial y el final. Sube una imagen o usa un fotograma de una generación de video anterior para asegurarte de que tu escena comience y termine exactamente como la imaginas.
+この機能を使用すると、開始フレームと終了フレームを定義して、ショットの構図を正確に制御できます。画像をアップロードするか、以前の動画生成のフレームを使用して、シーンが思いどおりに開始し、終了するようにします。
 
-### Instrucción para extender
+### 延長を促すプロンプト
 
-Para [extender](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#extending_veo_videos) el video generado por Veo con Veo 3.1 (no disponible para Veo 3.1 Lite), usa el video como entrada junto con una instrucción de texto opcional. Extender finaliza el último segundo o los últimos 24 fotogramas del video y continúa la acción.
+Veo 3.1（Veo 3.1 Lite では使用できません）で Veo 生成動画を[拡張](https://ai.google.dev/gemini-api/docs/veo?hl=ja#extending_veo_videos)するには、動画を入力として使用し、オプションでテキスト プロンプトも使用します。拡張では、動画の最後の 1 秒または 24 フレームを完成させ、アクションを継続します。
 
-Ten en cuenta que la voz no se puede extender de manera efectiva si no está presente en el último segundo del video.
+動画の最後の 1 秒に音声が含まれていない場合、音声を効果的に延長することはできません。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Video de entrada (generado por Veo 3.1)** El parapentista despega desde la cima de la montaña y comienza a descender en planeo por las montañas con vistas a los valles cubiertos de flores que se encuentran debajo. | Un parapentista despega desde la cima de una montaña |
-| **Video de salida (generado por Veo 3.1)** Extiende este video con el paracaidista descendiendo lentamente. | Un parapente despega desde la cima de una montaña y, luego, desciende lentamente. |
+| **入力動画（Veo 3.1 で生成）** パラグライダーが山頂から飛び立ち、眼下に広がる花畑の谷を見下ろしながら山々を滑空し始める。 | 山頂から飛び立つパラグライダー |
+| **出力動画（Veo 3.1 で生成）** パラグライダーがゆっくりと降下する動画を延長します。 | 山頂からパラグライダーが飛び立ち、ゆっくりと降下していく |
 
-### Ejemplos de instrucciones y resultados
+### プロンプトと出力の例
 
-En esta sección, se presentan varias instrucciones que destacan cómo los detalles descriptivos pueden mejorar el resultado de cada video.
+このセクションでは、いくつかのプロンプトを紹介し、説明的な詳細情報が各動画の結果をどのように向上させるかについて説明します。
 
-#### Hielos
+#### アイシクル
 
-En este video, se muestra cómo puedes usar los elementos de los [conceptos básicos de la redacción de instrucciones](#basics) en tu instrucción.
+この動画では、[プロンプト作成の基本](#basics)の要素をプロンプトで使用する方法を紹介します。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| Primer plano (composición) de carámbanos que se derriten (sujeto) en una pared de roca congelada (contexto) con tonos azules fríos (ambiente), con zoom (movimiento de la cámara) que mantiene el detalle en primer plano de las gotas de agua (acción). | Estalactitas que gotean con un fondo azul. |
+| 凍った岩壁（コンテキスト）に垂れ下がる溶けかけのつらら（被写体）を、クールな青色のトーン（雰囲気）でクローズアップ（構図）した写真。水滴（アクション）のクローズアップのディテールを維持しながら、ズームイン（カメラの動き）している。 | 青い背景に垂れるつらら。 |
 
-#### Hombre hablando por teléfono
+#### 電話中の男性
 
-En estos videos, se muestra cómo puedes revisar tu instrucción con detalles cada vez más específicos para que Veo defina mejor el resultado a tu gusto.
+これらの動画では、より具体的な詳細情報をプロンプトに追加して、Veo が出力を好みに合わせて調整する方法を示しています。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Menos detalles** La cámara se desplaza para mostrar un primer plano de un hombre desesperado con un abrigo verde. Está haciendo una llamada en un teléfono de pared de disco con una luz verde neón. Parece una escena de película. | Un hombre hablando por teléfono. |
-| **Más detalles** Una toma cinematográfica en primer plano sigue a un hombre desesperado con un abrigo verde desgastado mientras marca un número en un teléfono de disco montado en una pared de ladrillos sucia, bañada en el resplandor misterioso de un letrero de neón verde. La cámara se acerca y revela la tensión en su mandíbula y la desesperación grabada en su rostro mientras lucha por hacer la llamada. La profundidad de campo superficial se enfoca en su frente arrugada y el teléfono rotatorio negro, desenfocando el fondo en un mar de colores neón y sombras indistintas, lo que crea una sensación de urgencia y aislamiento. | Un hombre hablando por teléfono |
+| **詳細を減らす** カメラがドリーして、緑色のトレンチコートを着た絶望的な表情の男のクローズアップを映し出す。緑色のネオンライトを背景に、ダイヤル式の壁掛け電話で話している。映画のシーンのようです。 | 電話で話す男性。 |
+| **詳細** 緑色のネオンサインの不気味な光に照らされた、ざらざらしたレンガの壁に取り付けられたダイヤル式電話を回す、緑色のトレンチコートを着た追い詰められた男を追うクローズアップの映画のようなショット。カメラがズームインし、電話をかけようと苦闘する彼の顔に刻まれた絶望と、顎の緊張が映し出される。被写界深度が浅いため、眉をひそめた男性と黒いダイヤル式電話に焦点が当てられ、背景はネオンカラーと不明瞭な影の海にぼかされ、緊急性と孤立感が生まれている。 | 電話で話す男性 |
 
-#### Leopardo de las nieves
+#### ユキヒョウ
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Instrucción simple:** Una criatura adorable con pelaje similar al de un leopardo de las nieves camina por un bosque invernal, renderizado en estilo de dibujos animados en 3D. | El leopardo de las nieves está letárgico. |
-| **Instrucción detallada:** Crea una escena animada en 3D corta con un estilo de dibujos animados alegre. Una criatura tierna con pelaje similar al de un leopardo de las nieves, ojos grandes y expresivos, y una forma redondeada y amigable se pavonea felizmente por un bosque invernal caprichoso. La escena debe incluir árboles redondeados cubiertos de nieve, copos de nieve que caen suavemente y luz solar cálida que se filtra a través de las ramas. Los movimientos elásticos y la sonrisa amplia de la criatura deben transmitir alegría pura. Usa un tono alegre y conmovedor con colores brillantes y alegres, y animaciones divertidas. | El leopardo de las nieves corre más rápido. |
+| **シンプルなプロンプト:** 雪豹のような毛皮を持つかわいい生き物が冬の森を歩いている、3D アニメ風のレンダリング。 | ユキヒョウがぐったりしている。 |
+| **詳細なプロンプト:** 楽しいアニメーション スタイルの短い 3D アニメーション シーンを作成します。雪豹のような毛皮、大きな表情豊かな目、丸みを帯びたフレンドリーな姿をしたかわいい生き物が、気まぐれな冬の森を嬉しそうに跳ね回っている。丸みを帯びた雪に覆われた木々、優しく舞い落ちる雪、枝の間から差し込む暖かい太陽光を表現してください。生き物の弾むような動きと満面の笑みで、純粋な喜びを表現してください。明るく陽気な色と遊び心のあるアニメーションで、アップビートで心温まるトーンを目指します。 | Snow leopard の実行速度が向上しました。 |
 
-### Ejemplos por elementos de escritura
+### ライティング要素別の例
 
-En estos ejemplos, se muestra cómo definir mejor tus instrucciones con cada elemento básico.
+これらの例は、各基本要素でプロンプトを絞り込む方法を示しています。
 
-#### Asunto y contexto
+#### 件名とコンテキスト
 
-Especifica el enfoque principal (sujeto) y el fondo o el entorno (contexto).
+メインの被写体（主題）と背景または環境（コンテキスト）を指定します。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| Render arquitectónico de un edificio de departamentos de hormigón blanco con formas orgánicas fluidas, que se fusiona a la perfección con la vegetación exuberante y los elementos futuristas | Marcador de posición. |
-| Un satélite flotando en el espacio exterior con la luna y algunas estrellas en el fondo. | Satélite flotando en la atmósfera. |
+| 白いコンクリートのアパートメント ビルの建築レンダリング。流れるような有機的な形状で、緑豊かな植物や未来的な要素とシームレスに調和している | プレースホルダ。 |
+| 宇宙空間を漂う衛星。背景には月と星がいくつか見える。 | 大気圏に浮かぶ人工衛星。 |
 
-#### Acción
+#### アクション
 
-Especifica lo que hace el sujeto (p.ej., caminar, correr o girar la cabeza).
+被写体が何をしているかを指定します（歩く、走る、頭を回すなど）。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| Toma amplia de una mujer caminando por la playa, con una expresión de satisfacción y relajación, mirando hacia el horizonte al atardecer. | El atardecer es absolutamente hermoso. |
+| 夕暮れ時にビーチを歩き、満足そうな表情で水平線を眺める女性のワイドショット。 | 夕日は本当に美しいです。 |
 
-#### Estilo
+#### スタイル
 
-Agrega palabras clave para dirigir la generación hacia una estética específica (p.ej., surrealista, vintage, futurista, cine negro).
+キーワードを追加して、特定の美学（シュール、ビンテージ、未来、フィルム ノワールなど）に沿って生成されるようにします。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| Estilo de cine negro, hombre y mujer caminando por la calle, misterio, cinematográfico, blanco y negro. | El estilo de cine negro es absolutamente hermoso. |
+| フィルム ノワール風、街を歩く男女、ミステリー、映画風、白黒。 | フィルム ノワール スタイルは本当に美しいです。 |
 
-#### Movimiento y composición de la cámara
+#### カメラの動きと構図
 
-Especifica cómo se mueve la cámara (toma en primera persona, vista aérea, vista de seguimiento con dron) y cómo se encuadra la toma (plano general, primer plano, plano contrapicado).
+カメラの動き（主観ショット、空撮、追跡ドローン ビュー）とショットの構図（引きのショット、クローズアップ、ローアングル）を指定します。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| Toma en primera persona desde un automóvil antiguo que conduce bajo la lluvia, Canadá de noche, cinematográfica. | El atardecer es absolutamente hermoso. |
-| Primer plano extremo de un ojo con la ciudad reflejada en él. | El atardecer es absolutamente hermoso. |
+| 雨の中を走るヴィンテージカーの車内から撮影した POV ショット。カナダの夜、映画のような雰囲気。 | 夕日は本当に美しいです。 |
+| 街が映り込んだ目を極端にクローズアップした画像。 | 夕日は本当に美しいです。 |
 
-#### Ambiente
+#### 雰囲気
 
-Las paletas de colores y la iluminación influyen en el ambiente. Prueba con términos como "naranja apagado, tonos cálidos", "luz natural", "amanecer" o "tonos azules fríos".
+カラーパレットと照明がムードに影響します。「くすんだオレンジ色の暖色系」、「自然光」、「日の出」、「クールな青色系」などのキーワードを試してみてください。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| Primer plano de una niña sosteniendo un adorable cachorro de golden retriever en el parque, con luz solar. | Un cachorro en los brazos de una niña. |
-| Primer plano cinematográfico de una mujer triste que viaja en autobús bajo la lluvia, con tonos azules fríos y un ambiente melancólico. | Una mujer que viaja en un autobús y se siente triste. |
+| 公園で愛らしいゴールデン レトリバーの子犬を抱いている少女のクローズアップ、太陽の光。 | 子犬を抱きかかえる少女。 |
+| 雨の中、バスに乗る悲しそうな女性の映画のようなクローズアップ ショット。クールな青いトーン、悲しい雰囲気。 | バスに乗って悲しそうな女性。 |
 
-### Relaciones de aspecto
+### アスペクト比
 
-Veo te permite especificar la relación de aspecto de tu video.
+Veo では、動画のアスペクト比を指定できます。
 
-| **Instrucción** | **Resultados generados** |
+| **プロンプト** | **生成された出力** |
 | --- | --- |
-| **Pantalla ancha (16:9)** Crea un video con una vista de seguimiento de un dron de un hombre que conduce un automóvil convertible rojo en Palm Springs, en la década de 1970, con luz solar cálida y sombras largas. | Un hombre conduce un auto convertible rojo en Palm Springs, con un estilo de los años 70. |
-| **Vertical (9:16)** Crea un video en el que se destaque el movimiento fluido de una majestuosa cascada hawaiana en una exuberante selva tropical. Enfócate en el flujo de agua realista, el follaje detallado y la iluminación natural para transmitir tranquilidad. Captura el agua que fluye, la atmósfera brumosa y la luz del sol que se filtra a través del denso dosel. Usa movimientos de cámara cinematográficos y fluidos para mostrar la cascada y sus alrededores. Busca un tono tranquilo y realista que transporte al usuario a la serena belleza de la selva tropical hawaiana. | Una majestuosa cascada hawaiana en una exuberante selva tropical. |
+| **ワイドスクリーン（16:9）** 1970 年代のパーム スプリングスで、赤いオープンカーを運転する男性を追跡するドローンからの視点の動画を作成します。暖かい日差し、長い影。 | パーム スプリングスで赤いオープンカーを運転する男性（1970 年代風）。 |
+| **縦向き（9:16）** 緑豊かな熱帯雨林にあるハワイの雄大な滝の滑らかな動きを強調した動画を作成します。リアルな水の流れ、細部まで表現された葉、自然な光に焦点を当て、静けさを表現します。流れ落ちる水、霧に包まれた雰囲気、密生した樹冠から差し込む斑状の太陽光を捉えてください。滑らかで映画のようなカメラワークで、滝とその周辺の様子を紹介します。平和で現実的なトーンを目指し、視聴者をハワイの熱帯雨林の静かな美しさに誘います。 | 緑豊かな熱帯雨林にある雄大なハワイの滝。 |
 
-## Versiones del modelo
+## モデル バージョン
 
-Consulta la página [Precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#veo-3.1) y los [Límites de frecuencia](https://aistudio.google.com/rate-limit?hl=es-419) para obtener más detalles sobre el uso específico del modelo de Veo.
+Veo モデル固有の使用量の詳細については、[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#veo-3.1)ページと[レート制限](https://aistudio.google.com/rate-limit?hl=ja)をご覧ください。
 
-### Versión preliminar de Veo 3.1
+### Veo 3.1 プレビュー版
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-3.1-generate-preview` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
-| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
-| calendar\_monthÚltima actualización | Enero de 2026 |
+| id\_cardモデルコード | **Gemini API**  `veo-3.1-generate-preview` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  音声付きの動画 |
+| token\_auto の上限 | **テキスト入力**  1,024 個のトークン  **出力動画**  1 |
+| calendar\_month最終更新日 | 2026 年 1 月 |
 
-### Versión preliminar de Veo 3.1 Fast
+### Veo 3.1 Fast プレビュー
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-3.1-fast-generate-preview` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
-| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
-| calendar\_monthÚltima actualización | Enero de 2026 |
+| id\_cardモデルコード | **Gemini API**  `veo-3.1-fast-generate-preview` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  音声付きの動画 |
+| token\_auto の上限 | **テキスト入力**  1,024 個のトークン  **出力動画**  1 |
+| calendar\_month最終更新日 | 2026 年 1 月 |
 
-### Versión preliminar de Veo 3.1 Lite
+### Veo 3.1 Lite プレビュー版
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-3.1-lite-generate-preview` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
-| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
-| calendar\_monthÚltima actualización | Marzo de 2026 |
+| id\_cardモデルコード | **Gemini API**  `veo-3.1-lite-generate-preview` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  音声付きの動画 |
+| token\_auto の上限 | **テキスト入力**  1,024 個のトークン  **出力動画**  1 |
+| calendar\_month最終更新日 | 2026 年 3 月 |
 
-### Veo 3 (dejó de estar disponible)
+### Veo 3（非推奨）
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-3.0-generate-001` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
-| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
-| calendar\_monthÚltima actualización | Julio de 2025 |
+| id\_cardモデルコード | **Gemini API**  `veo-3.0-generate-001` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  音声付きの動画 |
+| token\_auto の上限 | **テキスト入力**  1,024 個のトークン  **出力動画**  1 |
+| calendar\_month最終更新日 | 2025 年 7 月 |
 
-### Veo 3 Fast (obsoleto)
+### Veo 3 Fast（非推奨）
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-3.0-fast-generate-001` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
-| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
-| calendar\_monthÚltima actualización | Julio de 2025 |
+| id\_cardモデルコード | **Gemini API**  `veo-3.0-fast-generate-001` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  音声付きの動画 |
+| token\_auto の上限 | **テキスト入力**  1,024 個のトークン  **出力動画**  1 |
+| calendar\_month最終更新日 | 2025 年 7 月 |
 
-### Veo 2 (obsoleto)
+### Veo 2（非推奨）
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-2.0-generate-001` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video |
-| Límites de token\_auto | **Entrada de texto**  N/A  **Entrada de imagen**  Cualquier resolución de imagen y relación de aspecto con un tamaño de archivo de hasta 20 MB  **Video de salida**  Hasta 2 |
-| calendar\_monthÚltima actualización | Abril de 2025 |
+| id\_cardモデルコード | **Gemini API**  `veo-2.0-generate-001` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  動画 |
+| token\_auto の上限 | **テキスト入力**  なし  **画像入力**  任意の画像解像度とアスペクト比（ファイルサイズ 20 MB まで）  **出力動画**  最大 2 個 |
+| calendar\_month最終更新日 | 2025 年 4 月 |
 
-### Veo 2 (obsoleto)
+### Veo 2（非推奨）
 
-| Propiedad | Descripción |
+| プロパティ | 説明 |
 | --- | --- |
-| Código del modelo id\_card | **API de Gemini**  `veo-2.0-generate-001` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video |
-| Límites de token\_auto | **Entrada de texto**  N/A  **Entrada de imagen**  Cualquier resolución de imagen y relación de aspecto con un tamaño de archivo de hasta 20 MB  **Video de salida**  Hasta 2 |
-| calendar\_monthÚltima actualización | Abril de 2025 |
+| id\_cardモデルコード | **Gemini API**  `veo-2.0-generate-001` |
+| save でサポートされるデータ型 | **入力**  テキスト、画像  **出力**  動画 |
+| token\_auto の上限 | **テキスト入力**  なし  **画像入力**  任意の画像解像度とアスペクト比（ファイルサイズ 20 MB まで）  **出力動画**  最大 2 個 |
+| calendar\_month最終更新日 | 2025 年 4 月 |
 
-Las versiones de Veo Fast permiten a los desarrolladores crear videos con sonido y mantener una alta calidad, además de optimizar la velocidad y los casos de uso comerciales. Son ideales para los servicios de backend que generan anuncios de forma programática, las herramientas para realizar pruebas A/B rápidas de conceptos creativos o las apps que necesitan producir contenido para redes sociales rápidamente.
+Veo Fast バージョンでは、高品質を維持しながら、速度とビジネス ユースケースを最適化して、音声付き動画を作成できます。広告をプログラムで生成するバックエンド サービス、クリエイティブ コンセプトの迅速な A/B テストを行うツール、ソーシャル メディア コンテンツを迅速に作成する必要があるアプリなどに最適です。
 
-## ¿Qué sigue?
+## 次のステップ
 
-- Comienza a usar la API de Veo 3.1 experimentando en el [Colab de inicio rápido de Veo](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=es-419) y el [applet de Veo 3.1](https://aistudio.google.com/apps/bundled/veo_studio?hl=es-419).
-- Obtén más información para escribir instrucciones aún mejores con nuestra [Introducción al diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
+- [Veo クイックスタート Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=ja) と [Veo 3.1 アプレット](https://aistudio.google.com/apps/bundled/veo_studio?hl=ja)で試して、Veo 3.1 API を使ってみましょう。
+- [プロンプト設計の概要](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ja)で、より良いプロンプトを作成する方法を学習する。
 
-Enviar comentarios
+フィードバックを送信
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última actualización: 2026-06-30 (UTC)
+最終更新日 2026-06-30 UTC。
 
-¿Quieres brindar más información?
+ご意見をお聞かせください
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-30 (UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-30 UTC。"],[],[]]

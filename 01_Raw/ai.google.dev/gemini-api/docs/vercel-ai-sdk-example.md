@@ -1,44 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=id
-fetched_at: 2026-07-20T04:44:43.107324+00:00
-title: "Agen Riset Pasar dengan Gemini dan AI SDK dari Vercel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=ja
+fetched_at: 2026-07-27T04:45:55.507464+00:00
+title: "Vercel \u306e Gemini \u3068 AI SDK \u3092\u4f7f\u7528\u3057\u305f\u5e02\u5834\u8abf\u67fb\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Agen Riset Pasar dengan Gemini dan AI SDK dari Vercel
+# Vercel の Gemini と AI SDK を使用した市場調査エージェント
 
-[AI SDK by Vercel](https://ai-sdk.dev) adalah library open source yang canggih untuk
-membangun aplikasi, antarmuka pengguna, dan agen yang didukung AI di TypeScript.
+[Vercel の AI SDK](https://ai-sdk.dev) は、TypeScript で AI 搭載のアプリケーション、ユーザー インターフェース、エージェントを構築するための強力なオープンソース ライブラリです。
 
-Panduan ini akan memandu Anda membuat aplikasi Node.js dengan TypeScript yang menggunakan AI SDK untuk terhubung dengan Gemini API melalui [Google Generative AI Provider](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) dan melakukan analisis tren pasar otomatis. Aplikasi
-akhir akan:
+このガイドでは、AI SDK を使用して [Google Generative AI Provider](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) 経由で Gemini API に接続し、自動化された市場トレンド分析を行う Node.js アプリケーションを TypeScript
+で構築する手順について説明します。最終的なアプリケーションは次のようになります。
 
-1. Menggunakan Gemini dengan Google Penelusuran untuk meneliti tren pasar saat ini.
-2. Ekstrak data terstruktur dari riset untuk membuat diagram.
-3. Gabungkan riset dan diagram ke dalam laporan HTML profesional, lalu simpan sebagai PDF.
+1. Gemini と Google 検索を使用して、現在の市場トレンドを調査します。
+2. 調査から構造化データを抽出し、グラフを生成します。
+3. 調査とグラフを組み合わせて、プロフェッショナルな HTML レポートを作成し、PDF として保存します。
 
-## Prasyarat
+## 前提条件
 
-Untuk menyelesaikan panduan ini, Anda memerlukan:
+このガイドを完了するには、次のものが必要です。
 
-- Kunci Gemini API. Anda dapat membuatnya secara gratis di [Google AI Studio](https://aistudio.google.com/apikey?hl=id).
-- [Node.js](https://nodejs.org/en/download) versi 18 atau yang lebih baru.
-- Pengelola paket, seperti `npm`, `pnpm`, atau `yarn`.
+- Gemini API キー。[Google AI Studio](https://aistudio.google.com/apikey?hl=ja) で無料で作成できます。
+- [Node.js](https://nodejs.org/en/download) バージョン 18 以降。
+- パッケージ マネージャー（`npm`、`pnpm`、`yarn` など）。
 
-## Menyiapkan aplikasi Anda
+## アプリケーションの設定
 
-Pertama, buat direktori baru untuk project Anda dan lakukan inisialisasi.
+まず、プロジェクト用の新しいディレクトリを作成し、初期化します。
 
 ### npm
 
@@ -56,7 +55,7 @@ cd market-trend-app
 pnpm init
 ```
 
-### benang
+### yarn
 
 ```
 mkdir market-trend-app
@@ -64,10 +63,9 @@ cd market-trend-app
 yarn init -y
 ```
 
-### Menginstal dependensi
+### 依存関係のインストール
 
-Selanjutnya, instal AI SDK, penyedia AI Generatif Google, dan dependensi
-lain yang diperlukan.
+次に、AI SDK、Google Generative AI Provider、その他の必要な依存関係をインストールします。
 
 ### npm
 
@@ -76,8 +74,7 @@ npm install ai @ai-sdk/google zod
 npm install -D @types/node tsx typescript && npx tsc --init
 ```
 
-Untuk mencegah error compiler TypeScript, jadikan baris berikut sebagai komentar di
-`tsconfig.json` yang dihasilkan:
+TypeScript コンパイラのエラーを防ぐため、生成された `tsconfig.json` で次の行をコメントアウトします。
 
 ```
 //"verbatimModuleSyntax": true,
@@ -90,21 +87,22 @@ pnpm add ai @ai-sdk/google zod
 pnpm add -D @types/node tsx typescript
 ```
 
-### benang
+### yarn
 
 ```
 yarn add ai @ai-sdk/google zod
 yarn add -D @types/node tsx typescript && yarn tsc --init
 ```
 
-Untuk mencegah error compiler TypeScript, jadikan baris berikut sebagai komentar di
-`tsconfig.json` yang dihasilkan:
+TypeScript コンパイラのエラーを防ぐため、生成された `tsconfig.json` で次の行をコメントアウトします。
 
 ```
 //"verbatimModuleSyntax": true,
 ```
 
-Aplikasi ini juga akan menggunakan paket pihak ketiga [Puppeteer](https://pptr.dev/) dan [Chart.js](https://www.chartjs.org) untuk merender diagram dan membuat PDF:
+このアプリケーションでは、グラフのレンダリングと
+PDF の作成に、サードパーティ パッケージの[Puppeteer](https://pptr.dev/)
+と [Chart.js](https://www.chartjs.org) も使用します。
 
 ### npm
 
@@ -120,19 +118,18 @@ pnpm add puppeteer chart.js
 pnpm add -D @types/chart.js
 ```
 
-### benang
+### yarn
 
 ```
 yarn add puppeteer chart.js
 yarn add -D @types/chart.js
 ```
 
-Paket `puppeteer` memerlukan skrip yang dijalankan untuk mendownload browser Chromium. Pengelola paket Anda mungkin meminta persetujuan, jadi pastikan Anda menyetujui skrip saat diminta.
+`puppeteer` パッケージでは、Chromium ブラウザをダウンロードするスクリプトを実行する必要があります。パッケージ マネージャーから承認を求められる場合があります。その場合は、スクリプトを承認してください。
 
-### Konfigurasi kunci API Anda
+### API キーを構成する
 
-Tetapkan variabel lingkungan `GOOGLE_GENERATIVE_AI_API_KEY` dengan kunci Gemini API Anda. Penyedia AI Generatif Google akan otomatis mencari kunci API Anda di
-variabel lingkungan ini.
+`GOOGLE_GENERATIVE_AI_API_KEY` 環境変数に Gemini API キーを設定します。Google 生成 AI Provider は、この環境変数で API キーを自動的に検索します。
 
 ### MacOS/Linux
 
@@ -146,12 +143,11 @@ export GOOGLE_GENERATIVE_AI_API_KEY="YOUR_API_KEY_HERE"
 setx GOOGLE_GENERATIVE_AI_API_KEY "YOUR_API_KEY_HERE"
 ```
 
-## Buat aplikasi Anda
+## アプリを作成する
 
-Sekarang, mari kita buat file utama untuk aplikasi kita. Buat file baru bernama
-`main.ts` di direktori project Anda. Anda akan membangun logika dalam file ini langkah demi langkah.
+次に、アプリケーションのメインファイルを作成します。プロジェクト ディレクトリに `main.ts` という名前の新しいファイルを作成します。このファイルでロジックを段階的に構築します。
 
-Untuk pengujian cepat guna memastikan semuanya telah disiapkan dengan benar, tambahkan kode berikut ke `main.ts`. Contoh dasar ini menggunakan `generateText` untuk mendapatkan respons sederhana dari Gemini.
+すべてが正しく設定されていることを確認する簡単なテストとして、次のコードを `main.ts` に追加します。この基本的な例では、`generateText` を使用して Gemini から簡単なレスポンスを取得します。
 
 ```
 import { google } from "@ai-sdk/google";
@@ -169,7 +165,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-Sebelum menambahkan kompleksitas, jalankan skrip ini untuk memverifikasi bahwa lingkungan Anda dikonfigurasi dengan benar. Jalankan perintah berikut di terminal.
+複雑さを増す前に、このスクリプトを実行して、環境が正しく構成されていることを確認します。ターミナルで次のコマンドを実行します。
 
 ### npm
 
@@ -183,19 +179,20 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### benang
+### yarn
 
 ```
 yarn tsc && node main.js
 ```
 
-Jika semuanya disiapkan dengan benar, Anda akan melihat respons Gemini dicetak ke konsol.
+すべてが正しく設定されている場合は、Gemini のレスポンスがコンソールに出力されます。
 
-## Melakukan riset pasar dengan Google Penelusuran
+## Google 検索で市場調査を行う
 
-Untuk mendapatkan informasi terbaru, Anda dapat mengaktifkan alat [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) untuk Gemini. Saat alat ini aktif, model dapat menelusuri web untuk menjawab perintah dan akan menampilkan sumber yang digunakannya.
+最新の情報を取得するには、Gemini の
+[Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)ツールを有効にします。このツールが有効になっている場合、モデルはウェブを検索してプロンプトに回答し、使用したソースを返します。
 
-Ganti konten `main.ts` dengan kode berikut untuk melakukan langkah pertama analisis kita.
+`main.ts` の内容を次のコードに置き換えて、分析の最初のステップを実行します。
 
 ```
 import { google } from "@ai-sdk/google";
@@ -221,15 +218,13 @@ async function main() {
 main().catch(console.error);
 ```
 
-## Mengekstrak data diagram
+## グラフデータを抽出する
 
-Selanjutnya, mari kita proses teks riset untuk mengekstrak data terstruktur yang cocok untuk
-diagram. Gunakan fungsi `generateObject` AI SDK bersama dengan skema `zod`
-untuk menentukan struktur data yang tepat.
+次に、調査テキストを処理して、グラフに適した構造化データを抽出します。AI SDK の `generateObject` 関数と `zod` スキーマを使用して、正確なデータ構造を定義します。
 
-Buat juga fungsi helper untuk mengonversi data terstruktur ini menjadi konfigurasi yang dapat dipahami oleh `Chart.js`.
+また、この構造化データを `Chart.js` が理解できる構成に変換するヘルパー関数も作成します。
 
-Tambahkan kode berikut ke `main.ts`. Perhatikan impor baru dan "Langkah 2" yang ditambahkan.
+次のコードを `main.ts` に追加します。新しいインポートと追加された「ステップ 2」に注意してください。
 
 ```
 import { google } from "@ai-sdk/google";
@@ -311,13 +306,13 @@ ${marketTrends}
 main().catch(console.error);
 ```
 
-## Buat laporan akhir
+## 最終レポートを生成する
 
-Pada langkah terakhir, instruksikan Gemini untuk bertindak sebagai penulis laporan ahli.
-Berikan riset pasar, konfigurasi diagram, dan serangkaian petunjuk yang jelas untuk membuat laporan HTML. Kemudian, gunakan
-[Puppeteer](https://pptr.dev/) untuk merender HTML ini dan menyimpannya sebagai PDF.
+最後のステップでは、Gemini にエキスパート レポート作成者として機能するように指示します。
+市場調査、グラフの構成、HTML レポートを作成するための明確な手順を提供します。次に、
+[Puppeteer](https://pptr.dev/) を使用してこの HTML をレンダリングし、PDF として保存します。
 
-Tambahkan impor `puppeteer` akhir dan "Step 3" ke file `main.ts` Anda.
+最後の `puppeteer` インポートと「ステップ 3」を `main.ts` ファイルに追加します。
 
 ```
 // ... (imports from previous step)
@@ -378,10 +373,9 @@ async function main() {
 main().catch(console.error);
 ```
 
-## Menjalankan aplikasi Anda
+## アプリケーションの実行
 
-Sekarang Anda siap menjalankan aplikasi. Jalankan perintah berikut di
-terminal Anda:
+これで、アプリケーションを実行する準備ができました。ターミナルで次のコマンドを実行します。
 
 ### npm
 
@@ -395,33 +389,33 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### benang
+### yarn
 
 ```
 yarn tsc && node main.js
 ```
 
-Anda akan melihat logging di terminal saat skrip menjalankan setiap langkah.
-Setelah selesai, file `report.pdf` yang berisi analisis pasar Anda akan dibuat di direktori project Anda.
+スクリプトが各ステップを実行すると、ターミナルにログが表示されます。
+完了すると、プロジェクト ディレクトリに市場分析を含む `report.pdf` ファイルが作成されます。
 
-Di bawah, Anda akan melihat dua halaman pertama contoh laporan PDF:
+以下に、PDF レポートの最初の 2 ページを示します。
 
-![Laporan analisis pasar](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=id)
+![市場分析レポート](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=ja)
 
-## Aset lainnya
+## その他のリソース
 
-Untuk mengetahui informasi selengkapnya tentang cara membangun dengan Gemini dan AI SDK, pelajari referensi berikut:
+Gemini と AI SDK を使用したビルドの詳細については、次のリソースをご覧ください。
 
-- [Dokumen AI SDK](https://ai-sdk.dev/docs)
-- [Dokumen AI SDK Google Generative AI](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
-- [Cookbook AI SDK: Mulai Menggunakan Gemini](https://ai-sdk.dev/cookbook/guides/gemini)
+- [AI SDK のドキュメント](https://ai-sdk.dev/docs)
+- [AI SDK Google Generative AI のドキュメント](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
+- [AI SDK クックブック: Gemini を使ってみる](https://ai-sdk.dev/cookbook/guides/gemini)
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-05-19 UTC.
+最終更新日 2026-05-19 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

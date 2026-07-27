@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=he
-fetched_at: 2026-07-20T04:36:50.580818+00:00
-title: "\u05e2\u05d9\u05d2\u05d5\u05df \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05d7\u05d9\u05e4\u05d5\u05e9 Google \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=ja
+fetched_at: 2026-07-27T04:45:36.331415+00:00
+title: "Google \u691c\u7d22\u306b\u3088\u308b\u30b0\u30e9\u30a6\u30f3\u30c7\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-שליחת משוב
+フィードバックを送信
 
-# עיגון באמצעות חיפוש Google
+# Google 検索によるグラウンディング
 
-העיגון באמצעות חיפוש Google מחבר את מודל Gemini לתוכן מהאינטרנט שמתעדכן בזמן אמת, ועובד בכל השפות הזמינות. כך Gemini יכול לתת תשובות מדויקות יותר ולצטט מקורות ניתנים לאימות, מעבר לתאריך סף הידע שלו.
+Google 検索によるグラウンディングは、Gemini モデルをリアルタイムのウェブ コンテンツに接続し、利用可能なすべての言語で機能します。これにより、Gemini はより正確な回答を提供して、ナレッジ カットオフ以降の検証可能な情報源を引用することができます。
 
-ההארקה עוזרת לכם ליצור אפליקציות שיכולות:
+グラウンディングは、次のことができるアプリケーションの構築に役立ちます。
 
-- **שיפור הדיוק העובדתי:** כדי לצמצם את ההזיות של המודל, התשובות מבוססות על מידע מהעולם האמיתי.
-- **גישה למידע בזמן אמת:** מענה לשאלות על אירועים ונושאים עדכניים.
-- **לספק ציטוטים:** כדי לבנות את אמון המשתמשים, כדאי להציג את המקורות של הטענות של המודל.
+- **事実の正確性を高める:** 回答を実世界の情報に基づいて生成することで、モデルのハルシネーションを減らします。
+- **リアルタイムの情報にアクセスする:** 最近の出来事やトピックに関する質問に答えます。
+- **引用を提供する:** モデルの主張の出典を示すことで、ユーザーの信頼を築きます。
 
 ### Python
 
@@ -99,23 +99,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-מידע נוסף זמין ב[מחברת של כלי החיפוש](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=he).
+詳しくは、[検索ツール ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ja)をご覧ください。
 
-## איך עיגון באמצעות חיפוש Google פועל
+## Google 検索によるグラウンディングの仕組み
 
-כשמפעילים את הכלי `google_search`, המודל מטפל בכל תהליך העבודה של חיפוש, עיבוד וציטוט מידע באופן אוטומטי.
+`google_search` ツールを有効にすると、モデルは情報の検索、処理、引用のワークフロー全体を自動的に処理します。
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=he)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=ja)
 
-1. **הנחיית משתמש:** האפליקציה שולחת הנחיית משתמש אל Gemini API עם הכלי `google_search` מופעל.
-2. **ניתוח ההנחיה:** המודל מנתח את ההנחיה וקובע אם חיפוש ב-Google יכול לשפר את התשובה.
-3. **חיפוש Google:** אם צריך, המודל יוצר באופן אוטומטי שאילתת חיפוש אחת או יותר ומריץ אותן.
-4. **עיבוד תוצאות החיפוש:** המודל מעבד את תוצאות החיפוש, מסנתז את המידע ומנסח תשובה.
-5. **תשובה מבוססת:** ה-API מחזיר תשובה סופית וידידותית למשתמש שמבוססת על תוצאות החיפוש. התשובה הזו כוללת את התשובה הטקסטואלית של המודל `groundingMetadata` עם שאילתות החיפוש, תוצאות החיפוש והציטוטים.
+1. **ユーザー プロンプト:** アプリケーションは、`google_search` ツールを有効にして、ユーザーのプロンプトを Gemini API に送信します。
+2. **プロンプトの分析:** モデルがプロンプトを分析し、Google 検索で回答を改善できるかどうかを判断します。
+3. **Google 検索:** 必要に応じて、モデルは 1 つ以上の検索クエリを自動的に生成して実行します。
+4. **検索結果の処理:** モデルが検索結果を処理し、情報を合成して回答を作成します。
+5. **グラウンディングされたレスポンス:** API は、検索結果に基づいてグラウンディングされた、最終的なユーザー フレンドリーなレスポンスを返します。このレスポンスには、モデルのテキスト回答と、検索クエリ、ウェブ検索結果、引用を含む `groundingMetadata` が含まれます。
 
-## הסבר על תשובת ההארקה
+## グラウンディング レスポンスについて
 
-כשמקרקעים תשובה בהצלחה, התשובה כוללת את השדה `groundingMetadata`. הנתונים המובנים האלה חיוניים לאימות הטענות וליצירת חוויית ציטוט עשירה באפליקציה.
+レスポンスが正常にグラウンディングされると、レスポンスに `groundingMetadata` フィールドが含まれます。この構造化データは、請求を検証し、アプリケーションでリッチな引用エクスペリエンスを構築するために不可欠です。
 
 ```
 {
@@ -157,18 +157,18 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-‫Gemini API מחזיר את המידע הבא עם התג `groundingMetadata`:
+Gemini API は、`groundingMetadata` で次の情報を返します。
 
-- ‫`webSearchQueries` : מערך של שאילתות החיפוש שנעשה בהן שימוש. המידע הזה שימושי לניפוי באגים ולהבנת תהליך החשיבה של המודל.
-- ‫`searchEntryPoint` : מכיל את ה-HTML וה-CSS לעיבוד הצעות החיפוש הנדרשות. דרישות השימוש המלאות מפורטות [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-search).
-- ‫`groundingChunks` : מערך של אובייקטים שמכילים את המקורות באינטרנט (`uri` ו-`title`).
-- ‫`groundingSupports` : מערך של מקטעים לחיבור התגובה של המודל `text` למקורות ב-`groundingChunks`. כל מקטע מקשר טקסט `segment` (מוגדר על ידי `startIndex` ו-`endIndex`) ל-`groundingChunkIndices` אחד או יותר. זהו המפתח ליצירת ציטוטים בגוף הטקסט.
+- `webSearchQueries` : 使用された検索クエリの配列。これは、モデルの推論プロセスをデバッグして理解するのに役立ちます。
+- `searchEntryPoint` : 必要な検索候補をレンダリングするための HTML と CSS が含まれています。使用要件の詳細は、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#grounding-with-google-search)をご覧ください。
+- `groundingChunks` : ウェブソース（`uri` と `title`）を含むオブジェクトの配列。
+- `groundingSupports` : モデル レスポンス `text` を `groundingChunks` のソースに接続するチャンクの配列。各チャンクは、テキスト `segment`（`startIndex` と `endIndex` で定義）を 1 つ以上の `groundingChunkIndices` にリンクします。これが、インライン引用を作成するための鍵となります。
 
-אפשר גם להשתמש בעיגון באמצעות חיפוש Google בשילוב עם [כלי ההקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he) כדי לעגן תשובות גם על נתונים ציבוריים באינטרנט וגם על כתובות ה-URL הספציפיות שאתם מספקים.
+Google 検索によるグラウンディングは、[URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)と組み合わせて使用することもできます。これにより、一般公開されているウェブデータと、指定した特定の URL の両方で回答をグラウンディングできます。
 
-## שיוך מקורות באמצעות ציטוטים מוטמעים
+## インライン引用による出典の明示
 
-ממשק ה-API מחזיר נתוני ציטוט מובְנים, כך שיש לכם שליטה מלאה על האופן שבו אתם מציגים מקורות בממשק המשתמש. אפשר להשתמש בשדות `groundingSupports` וב-`groundingChunks` כדי לקשר את ההצהרות של המודל ישירות למקורות שלהן. הנה דפוס נפוץ לעיבוד המטא-נתונים כדי ליצור תגובה עם ציטוטים מוטבעים שאפשר ללחוץ עליהם.
+API は構造化された引用データを返すため、ユーザー インターフェースでソースを表示する方法を完全に制御できます。`groundingSupports` フィールドと `groundingChunks` フィールドを使用して、モデルのステートメントをソースに直接リンクできます。メタデータを処理して、クリック可能なインライン引用を含むレスポンスを作成する一般的なパターンは次のとおりです。
 
 ### Python
 
@@ -243,55 +243,55 @@ const textWithCitations = addCitations(response);
 console.log(textWithCitations);
 ```
 
-התשובה החדשה עם ציטוטים מוטבעים תיראה כך:
+インライン引用を含む新しい回答は次のようになります。
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final.[1](https:/...), [2](https:/...), [4](https:/...), [5](https:/...) This victory marks Spain's record-breaking fourth European Championship title.[5]((https:/...), [2](https:/...), [3](https:/...), [4](https:/...)
 ```
 
-## תמחור
+## 料金
 
-כשמשתמשים בעיגון באמצעות חיפוש Google עם Gemini 3, הפרויקט מחויב על כל שאילתת חיפוש שהמודל מחליט לבצע. אם המודל מחליט להריץ כמה שאילתות חיפוש כדי לענות על הנחיה אחת (לדוגמה, חיפוש של `"UEFA Euro 2024 winner"` ושל `"Spain vs England Euro 2024 final
-score"` באותה קריאה ל-API), זה נחשב כשני שימושים בתשלום בכלי עבור הבקשה הזו. לצורך חיוב, אנחנו מתעלמים משאילתות ריקות בחיפוש Google כשסופרים שאילתות ייחודיות. מודל החיוב הזה רלוונטי רק למודלים של Gemini 3. כשמשתמשים בהארקה של חיפוש עם Gemini 2.5 או מודלים ישנים יותר, החיוב על הפרויקט הוא לפי הנחיה.
+Gemini 3 で Google 検索によるグラウンディングを使用すると、モデルが実行すると判断した検索クエリごとにプロジェクトに課金されます。モデルが 1 つのプロンプトに回答するために複数の検索クエリを実行すると判断した場合（たとえば、同じ API 呼び出し内で `"UEFA Euro 2024 winner"` と `"Spain vs England Euro 2024 final
+score"` を検索する場合）、そのリクエストに対してツールの有料使用が 2 回カウントされます。請求の目的で、一意のクエリをカウントする際に空のウェブ検索クエリは無視されます。この課金モデルは Gemini 3 モデルにのみ適用されます。Gemini 2.5 以前のモデルで検索グラウンディングを使用する場合、プロジェクトはプロンプトごとに課金されます。
 
-למידע מפורט על התמחור, אפשר לעיין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
+料金の詳細については、[Gemini API の料金ページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)をご覧ください。
 
-## מודלים נתמכים
+## サポートされているモデル
 
-אפשר למצוא את כל היכולות בדף [סקירה כללית של המודל](https://ai.google.dev/gemini-api/docs/models?hl=he).
+完全な機能については、[モデルの概要](https://ai.google.dev/gemini-api/docs/models?hl=ja)ページをご覧ください。
 
-| מודל | עיגון באמצעות חיפוש Google |
+| モデル | Google 検索によるグラウンディング |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| תצוגה מקדימה של תמונות ב-Gemini 3.1 Flash | ✔️ |
-| ‫Gemini 3.1 Pro Preview | ✔️ |
-| תצוגה מקדימה של תמונות ב-Gemini 3 Pro | ✔️ |
-| ‫Gemini 3 Flash Preview | ✔️ |
-| ‫Gemini 3.1 Flash-Lite (גרסת טרום-השקה) | ✔️ |
-| Gemini ‎2.5 Pro | ✔️ |
-| Gemini ‎2.5 Flash | ✔️ |
+| Gemini 3.1 Flash Image プレビュー版 | ✔️ |
+| Gemini 3.1 Pro プレビュー版 | ✔️ |
+| Gemini 3 Pro Image プレビュー | ✔️ |
+| Gemini 3 Flash プレビュー | ✔️ |
+| Gemini 3.1 Flash-Lite プレビュー版 | ✔️ |
+| Gemini 2.5 Pro | ✔️ |
+| Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini ‎2.0 Flash | ✔️ |
+| Gemini 2.0 Flash | ✔️ |
 
-## שילובים נתמכים של כלים
+## サポートされているツールの組み合わせ
 
-אפשר להשתמש ב-Grounding עם חיפוש Google עם כלים אחרים כמו [הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he) ו[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he) כדי להפעיל תרחישי שימוש מורכבים יותר.
+[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)や [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)などの他のツールと Google 検索によるグラウンディングを組み合わせて、より複雑なユースケースに対応できます。
 
-מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו עיגון באמצעות חיפוש Google) עם כלים מותאמים אישית (קריאה לפונקציה). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
+Gemini 3 モデルは、組み込みツール（Google 検索によるグラウンディングなど）とカスタムツール（関数呼び出し）の組み合わせをサポートしています。詳しくは、[ツールの組み合わせ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)のページをご覧ください。
 
-## המאמרים הבאים
+## 次のステップ
 
-- כדאי לנסות את [המתכון לעיגון בחיפוש Google ב-Gemini API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=he).
-- אפשר לקרוא על כלים זמינים אחרים, כמו [הפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
-- [כאן](https://ai.google.dev/gemini-api/docs/url-context?hl=he) מוסבר איך להוסיף לתיאורים כתובות URL ספציפיות באמצעות הכלי 'הקשר כתובת URL'.
+- [Gemini API クックブックの Google 検索によるグラウンディング](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ja)を試す。
+- [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)など、その他の利用可能なツールについて学習する。
+- [URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)を使用して、特定の URL でプロンプトを補強する方法について説明します。
 
-שליחת משוב
+フィードバックを送信
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-עדכון אחרון: 2026-06-23 (שעון UTC).
+最終更新日 2026-06-23 UTC。
 
-רוצה לתת לנו משוב?
+ご意見をお聞かせください
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-23 (שעון UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-23 UTC。"],[],[]]

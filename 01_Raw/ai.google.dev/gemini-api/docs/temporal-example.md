@@ -1,84 +1,84 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=pt-BR
-fetched_at: 2026-07-20T04:40:08.548635+00:00
-title: "Agente de IA dur\u00e1vel com Gemini e Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=de
+fetched_at: 2026-07-27T04:42:06.841068+00:00
+title: "Langlebiger KI-Agent mit Gemini und Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Envie comentários
+Feedback geben
 
-# Agente de IA durável com Gemini e Temporal
+# Langlebiger KI-Agent mit Gemini und Temporal
 
-Neste tutorial, você vai aprender a criar um loop de agente [estilo ReAct](https://arxiv.org/abs/2210.03629) que usa a API Gemini para raciocínio e o [Temporal](https://temporal.io/) para durabilidade.
-O código-fonte completo deste tutorial está disponível no
-[GitHub](https://github.com/temporal-community/durable-react-agent-gemini).
+In dieser Anleitung erfahren Sie, wie Sie eine
+[ReAct-ähnliche](https://arxiv.org/abs/2210.03629) agentische Schleife erstellen, die die
+Gemini API für die Schlussfolgerung und [Temporal](https://temporal.io/) für die Dauerhaftigkeit verwendet.
+Der vollständige Quellcode für diese Anleitung ist auf
+[GitHub](https://github.com/temporal-community/durable-react-agent-gemini) verfügbar.
 
-O agente pode chamar ferramentas, como pesquisar alertas de clima ou geolocalizar um endereço IP, e vai repetir o processo até ter informações suficientes para responder.
+Der Agent kann Tools aufrufen, z. B. um Wetterwarnungen zu suchen oder eine IP-Adresse zu geolokalisieren. Er wird so lange wiederholt, bis er genügend Informationen für eine Antwort hat.
 
-O que diferencia isso de uma demonstração típica de agente é a **durabilidade**. Cada chamada de LLM, cada invocação de ferramenta e cada etapa do loop do agente são mantidas pelo Temporal. Se o processo falhar, a rede cair ou uma API atingir o tempo limite,
-o Temporal vai tentar novamente e retomar automaticamente da última etapa concluída. Nenhum histórico de conversas é perdido, e nenhuma chamada de ferramenta é repetida incorretamente.
+Was sich von einer typischen Agent-Demo unterscheidet, ist die **Dauerhaftigkeit**. Jeder LLM-Aufruf, jeder Tool-Aufruf und jeder Schritt der agentischen Schleife wird von Temporal gespeichert. Wenn der Prozess abstürzt, die Netzwerkverbindung unterbrochen wird oder ein API-Aufruf eine Zeitüberschreitung verursacht, wiederholt Temporal den Vorgang automatisch und setzt ihn beim letzten abgeschlossenen Schritt fort. Der Unterhaltungsverlauf geht nicht verloren und Tool-Aufrufe werden nicht fälschlicherweise wiederholt.
 
-## Arquitetura
+## Architektur
 
-A arquitetura consiste em três partes:
+Die Architektur besteht aus drei Teilen:
 
-- **Fluxo de trabalho**:o loop agêntico que orquestra a lógica de execução.
-- **Atividades**:unidades individuais de trabalho (chamadas de LLM, chamadas de ferramentas) que o Temporal torna duráveis.
-- **Worker**:o processo que executa os fluxos de trabalho e as atividades.
+- **Workflow**:Die agentische Schleife, die die Ausführungslogik orchestriert.
+- **Aktivitäten**:Einzelne Arbeitseinheiten (LLM-Aufrufe, Tool-Aufrufe), die von Temporal dauerhaft gemacht werden.
+- **Worker**:Der Prozess, der die Workflows und Aktivitäten ausführt.
 
-Neste exemplo, você vai colocar todas as três partes em um único arquivo (`durable_agent_worker.py`). Em uma implementação real, você as separaria para permitir várias vantagens de implantação e escalonabilidade. Você vai colocar o código que fornece um comando ao agente em um segundo arquivo (`start_workflow.py`).
+In diesem Beispiel werden alle drei Teile in einer einzigen Datei (`durable_agent_worker.py`) platziert. In einer realen Implementierung würden Sie sie trennen, um verschiedene Vorteile bei der Bereitstellung und Skalierbarkeit zu nutzen. Der Code, der dem Agent einen Prompt liefert, wird in einer zweiten Datei (`start_workflow.py`) platziert.
 
-## Pré-requisitos
+## Vorbereitung
 
-Para concluir este guia, você vai precisar do seguinte:
+Für diese Anleitung benötigen Sie Folgendes:
 
-- Uma chave da API Gemini. Você pode criar uma sem custo financeiro no
-  [Google AI Studio](https://aistudio.google.com/apikey?hl=pt-br).
-- [Python](https://www.python.org/downloads/) versão 3.10 ou mais recente.
-- A [CLI do Temporal](https://docs.temporal.io/cli) para executar um servidor de desenvolvimento local.
+- Einen Gemini API-Schlüssel. Sie können einen kostenlos in
+  [Google AI Studio](https://aistudio.google.com/apikey?hl=de) erstellen.
+- [Python](https://www.python.org/downloads/)-Version 3.10 oder höher.
+- Die [Temporal CLI](https://docs.temporal.io/cli) zum Ausführen eines lokalen
+  Entwicklungsservers.
 
-## Configuração
+## Einrichtung
 
-Antes de começar, verifique se você tem um
-[servidor de desenvolvimento do Temporal](https://docs.temporal.io/cli#start-dev-server)
-em execução localmente:
+Bevor Sie beginnen, muss ein
+[Temporal-Entwicklungsserver](https://docs.temporal.io/cli#start-dev-server)
+lokal ausgeführt werden:
 
 ```
 temporal server start-dev
 ```
 
-Em seguida, instale as dependências necessárias:
+Installieren Sie als Nächstes die erforderlichen Abhängigkeiten:
 
 ```
 pip install temporalio google-genai httpx pydantic python-dotenv
 ```
 
-Crie um arquivo `.env` no diretório do projeto com sua chave de API Gemini. Você
-pode receber uma chave de API do
-[Google AI Studio](https://aistudio.google.com/apikey?hl=pt-br).
+Erstellen Sie in Ihrem Projektverzeichnis eine `.env`-Datei mit Ihrem Gemini API-Schlüssel. Sie
+können einen API-Schlüssel von
+[Google AI Studio](https://aistudio.google.com/apikey?hl=de)abrufen.
 
 ```
 echo "GOOGLE_API_KEY=your-api-key-here" > .env
 ```
 
-## Implementação
+## Implementierung
 
-O restante deste tutorial explica o `durable_agent_worker.py` de cima para baixo, criando o agente parte por parte. Crie o arquivo e acompanhe.
+Im weiteren Verlauf dieser Anleitung wird `durable_agent_worker.py` von oben nach unten durchgegangen und der Agent Schritt für Schritt erstellt. Erstellen Sie die Datei und folgen Sie der Anleitung.
 
-### Importações e configuração de sandbox
+### Importe und Sandbox-Einrichtung
 
-Comece com as importações que precisam ser definidas antecipadamente. O bloco
-`workflow.unsafe.imports_passed_through()` instrui a sandbox de fluxo de trabalho do Temporal
-a permitir que determinados módulos passem sem restrições. Isso é necessário porque várias bibliotecas (principalmente `httpx`, que cria subclasses de `urllib.request.Request`) usam padrões que o sandbox bloquearia.
+Beginnen Sie mit den Importen, die im Voraus definiert werden müssen. Der Block `workflow.unsafe.imports_passed_through()` weist die Workflow-Sandbox von Temporal an, bestimmte Module ohne Einschränkung durchzulassen. Das ist erforderlich, da mehrere Bibliotheken (insbesondere `httpx`, das von `urllib.request.Request` abgeleitet wird) Muster verwenden, die von der Sandbox andernfalls blockiert würden.
 
 ```
 from temporalio import workflow
@@ -93,10 +93,9 @@ with workflow.unsafe.imports_passed_through():
     from google.genai import types
 ```
 
-### Instruções do sistema
+### Systemanweisungen
 
-Em seguida, defina a personalidade do agente. As instruções do sistema informam ao modelo como
-se comportar. O agente foi instruído a responder em haicais quando nenhuma ferramenta é necessária.
+Definieren Sie als Nächstes die Persönlichkeit des Agenten. Die Systemanweisungen geben an, wie sich das Modell verhalten soll. Dieser Agent wird angewiesen, in Haikus zu antworten, wenn keine Tools erforderlich sind.
 
 ```
 SYSTEM_INSTRUCTIONS = """
@@ -107,11 +106,9 @@ If no tools are needed, respond in haikus.
 """
 ```
 
-### Definições de ferramentas
+### Tooldefinitionen
 
-Agora, defina as ferramentas que o agente pode usar. Cada ferramenta é uma função assíncrona com uma
-docstring descritiva. As ferramentas que usam parâmetros usam um modelo Pydantic como argumento único. Essa é uma prática recomendada do Temporal que mantém as assinaturas de atividade
-estáveis à medida que você adiciona campos opcionais ao longo do tempo.
+Definieren Sie nun die Tools, die der Agent verwenden kann. Jedes Tool ist eine asynchrone Funktion mit einem beschreibenden Docstring. Tools, die Parameter verwenden, haben ein Pydantic-Modell als einziges Argument. Das ist eine Best Practice von Temporal, mit der die Aktivitätssignaturen stabil bleiben, wenn Sie im Laufe der Zeit optionale Felder hinzufügen.
 
 ```
 import json
@@ -140,7 +137,7 @@ async def get_weather_alerts(request: GetWeatherAlertsRequest) -> str:
         return json.dumps(response.json())
 ```
 
-Em seguida, defina ferramentas para geolocalização de endereços IP:
+Definieren Sie als Nächstes Tools für die Geolokalisierung von IP-Adressen:
 
 ```
 class GetLocationRequest(BaseModel):
@@ -169,11 +166,11 @@ async def get_location_info(request: GetLocationRequest) -> str:
         return f"{result['city']}, {result['regionName']}, {result['country']}"
 ```
 
-### Registro de ferramentas
+### Tool-Registry
 
-Em seguida, crie um registro que mapeie nomes de ferramentas para funções de manipulador. A função
-`get_tools()` gera objetos `FunctionDeclaration` compatíveis com o Gemini
-das chamadas usando `FunctionDeclaration.from_callable_with_api_option()`.
+Erstellen Sie als Nächstes eine Registry, die Tool-Namen Handler-Funktionen zuordnet. Die
+`get_tools()` Funktion generiert Gemini-kompatible `FunctionDeclaration` Objekte
+aus den Callables mit `FunctionDeclaration.from_callable_with_api_option()`.
 
 ```
 from typing import Any, Awaitable, Callable
@@ -211,12 +208,11 @@ def get_tools() -> types.Tool:
     )
 ```
 
-### Atividade do LLM
+### LLM-Aktivität
 
-Agora defina a atividade que chama a API Gemini. As classes de dados `GeminiChatRequest` e `GeminiChatResponse` definem o contrato.
+Definieren Sie nun die Aktivität, die die Gemini API aufruft. Die Dataclasses `GeminiChatRequest` und `GeminiChatResponse` definieren den Vertrag.
 
-Você vai desativar a chamada de função automática para que a invocação do LLM e da ferramenta sejam tratadas como tarefas separadas, aumentando a durabilidade do seu agente. Você também vai desativar as novas tentativas integradas do SDK (`attempts=1`), já que
-o Temporal processa as novas tentativas de maneira durável.
+Sie deaktivieren den automatischen Funktionsaufruf, damit der LLM-Aufruf und der Tool-Aufruf als separate Aufgaben behandelt werden. Dadurch wird die Dauerhaftigkeit Ihres Agenten erhöht. Außerdem deaktivieren Sie die integrierten Wiederholungen des SDK (`attempts=1`), da Temporal Wiederholungen dauerhaft verarbeitet.
 
 ```
 import os
@@ -292,12 +288,11 @@ async def generate_content(request: GeminiChatRequest) -> GeminiChatResponse:
     )
 ```
 
-### Atividade da ferramenta dinâmica
+### Dynamische Tool-Aktivität
 
-Em seguida, defina a atividade que executa ferramentas. Isso usa o recurso de atividade dinâmica do Temporal: o gerenciador de ferramentas (um objeto invocável) é obtido do registro de ferramentas pela função `get_handler`. Isso permite que diferentes agentes sejam definidos apenas fornecendo um conjunto diferente de ferramentas e instruções do sistema. O fluxo de trabalho que implementa o loop de agente não requer mudanças.
+Definieren Sie als Nächstes die Aktivität, die Tools ausführt. Dabei wird die dynamische Aktivitätsfunktion von Temporal verwendet: Der Tool-Handler (ein Callable) wird über die Funktion `get_handler` aus der Tool-Registry abgerufen. So können verschiedene Agenten definiert werden, indem einfach eine andere Gruppe von Tools und Systemanweisungen angegeben wird. Der Workflow, der die agentische Schleife implementiert, muss nicht geändert werden.
 
-A atividade inspeciona a assinatura do manipulador para determinar como transmitir
-argumentos. Se o manipulador esperar um modelo Pydantic, ele vai processar o formato de saída aninhado que o Gemini produz (por exemplo, `{"request": {"state": "CA"}}` em vez de um `{"state": "CA"}` simples).
+Die Aktivität prüft die Signatur des Handlers, um zu bestimmen, wie Argumente übergeben werden. Wenn der Handler ein Pydantic-Modell erwartet, verarbeitet er das verschachtelte Ausgabeformat, das von Gemini erzeugt wird (z. B. `{"request": {"state": "CA"}}` anstelle von `{"state": "CA"}`).
 
 ```
 import inspect
@@ -337,14 +332,11 @@ async def dynamic_tool_activity(args: Sequence[RawValue]) -> dict:
     return result
 ```
 
-### O fluxo de trabalho de loop com agentes
+### Der Workflow der agentischen Schleife
 
-Agora você tem tudo o que precisa para terminar de criar o agente. A classe `AgentWorkflow` implementa um fluxo de trabalho que contém o ciclo do agente. Nesse loop, o LLM
-é invocado por uma atividade (tornando-o durável), a saída é inspecionada e, se uma
-ferramenta foi escolhida pelo LLM, ela é invocada pelo `dynamic_tool_activity`.
+Jetzt haben Sie alle Teile, um den Agenten fertigzustellen. Die Klasse `AgentWorkflow` implementiert einen Workflow, der die agentische Schleife enthält. In dieser Schleife wird das LLM über eine Aktivität aufgerufen (wodurch es dauerhaft wird), die Ausgabe wird geprüft und wenn ein Tool vom LLM ausgewählt wurde, wird es über `dynamic_tool_activity` aufgerufen.
 
-Neste agente simples de estilo ReAct, quando o LLM decide não usar uma ferramenta, o
-loop é considerado concluído e o resultado final do LLM é retornado.
+In diesem einfachen ReAct-Agent wird die Schleife als abgeschlossen betrachtet und das endgültige LLM-Ergebnis zurückgegeben, sobald das LLM kein Tool mehr verwendet.
 
 ```
 from datetime import timedelta
@@ -412,17 +404,13 @@ class AgentWorkflow:
         return result
 ```
 
-O loop de agente é totalmente durável. Se o worker do agente falhar após várias
-iterações no loop, o Temporal vai retomar exatamente de onde parou
-sem precisar invocar novamente as invocações de LLM ou chamadas de ferramentas já executadas.
+Die agentische Schleife ist vollständig dauerhaft. Wenn der Agent-Worker nach mehreren Iterationen in der Schleife abstürzt, setzt Temporal genau dort fort, wo er aufgehört hat, ohne bereits ausgeführte LLM-Aufrufe oder Tool-Aufrufe wiederholen zu müssen.
 
-### Inicialização do worker
+### Worker-Start
 
-Por fim, conecte tudo. Embora o código implemente a lógica de negócios necessária de maneira que pareça estar sendo executado em um único processo, o uso do Temporal o torna um sistema orientado a eventos (especificamente, originado por eventos), em que a comunicação entre o fluxo de trabalho e as atividades acontece por mensagens fornecidas pelo Temporal.
+Verbinden Sie nun alle Teile miteinander. Der Code implementiert die erforderliche Geschäftslogik so, dass es so aussieht, als würde er in einem einzigen Prozess ausgeführt. Durch die Verwendung von Temporal wird er jedoch zu einem ereignisgesteuerten System (insbesondere Event-Sourcing), bei dem die Kommunikation zwischen dem Workflow und den Aktivitäten über Messaging erfolgt, das von Temporal bereitgestellt wird.
 
-O worker do Temporal se conecta ao serviço do Temporal e atua como um programador para
-as tarefas de fluxo de trabalho e atividade. O worker registra o fluxo de trabalho e as duas
-atividades e começa a detectar tarefas.
+Der Temporal-Worker stellt eine Verbindung zum Temporal-Dienst her und fungiert als Scheduler für die Workflow- und Aktivitätsaufgaben. Der Worker registriert den Workflow und beide Aktivitäten und wartet dann auf Aufgaben.
 
 ```
 import asyncio
@@ -461,9 +449,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## O script do cliente
+## Das Clientskript
 
-Crie o script do cliente (`start_workflow.py`). Ele envia uma consulta e aguarda o resultado. Ele se conecta à mesma fila de tarefas referenciada no worker do agente. O script `start_workflow` envia uma tarefa de fluxo de trabalho com o comando do usuário para essa fila, iniciando a execução do agente.
+Erstellen Sie das Clientskript (`start_workflow.py`). Es sendet eine Abfrage und wartet auf das Ergebnis. Es stellt eine Verbindung zur selben Aufgabenwarteschlange her, auf die im Agent-Worker verwiesen wird. Das Skript `start_workflow` sendet eine Workflow-Aufgabe mit dem Nutzer-Prompt an diese Aufgabenwarteschlange und startet so die Ausführung des Agenten.
 
 ```
 import asyncio
@@ -493,31 +481,29 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Run the agent
+## Agenten ausführen
 
-Se ainda não tiver feito isso, inicie o servidor de desenvolvimento do Temporal:
+Starten Sie den Temporal-Entwicklungsserver, falls noch nicht geschehen:
 
 ```
 temporal server start-dev
 ```
 
-Em uma nova janela de terminal, inicie o worker do agente:
+Starten Sie in einem neuen Terminalfenster den Agent-Worker:
 
 ```
 python -m durable_agent_worker
 ```
 
-Em uma terceira janela de terminal, envie uma consulta ao seu agente:
+Senden Sie in einem dritten Terminalfenster eine Abfrage an Ihren Agenten:
 
 ```
 python -m start_workflow "are there any weather alerts for where I am?"
 ```
 
-Observe a saída no terminal do `durable_agent_worker`, que mostra as ações que acontecem em cada iteração do loop de agente. O LLM consegue atender à solicitação do usuário invocando uma série de ferramentas disponíveis. Você pode
-conferir as etapas executadas na interface do Temporal em
-`http://localhost:8233/namespaces/default/workflows`.
+Beachten Sie die Ausgabe im Terminal von `durable_agent_worker`, die die Aktionen zeigt, die in jeder Iteration der agentischen Schleife ausgeführt werden. Das LLM kann die Nutzeranfrage erfüllen, indem es eine Reihe von Tools aufruft, die ihm zur Verfügung stehen. Die ausgeführten Schritte können Sie in der Temporal UI unter `http://localhost:8233/namespaces/default/workflows` sehen.
 
-Teste alguns comandos diferentes para ver o raciocínio do agente e chamar ferramentas:
+Probieren Sie verschiedene Prompts aus, um zu sehen, wie der Agent Schlussfolgerungen zieht und Tools aufruft:
 
 ```
 python -m start_workflow "are there any weather alerts for New York?"
@@ -526,67 +512,63 @@ python -m start_workflow "what is my ip address?"
 python -m start_workflow "tell me a joke"
 ```
 
-O último comando não exige ferramentas, então o agente responde com um haicai
-baseado no `SYSTEM_INSTRUCTIONS`.
+Für den letzten Prompt sind keine Tools erforderlich. Daher antwortet der Agent in einem Haiku basierend auf den `SYSTEM_INSTRUCTIONS`.
 
-## Testar a durabilidade (opcional)
+## Dauerhaftigkeit testen (optional)
 
-A criação com base no Temporal garante que seu agente sobreviva a falhas sem problemas. Você pode testar isso usando dois experimentos distintos.
+Durch die Verwendung von Temporal kann Ihr Agent Fehler nahtlos überstehen. Sie können dies mit zwei verschiedenen Tests prüfen.
 
-### Como simular uma interrupção de rede
+### Netzwerkausfall simulieren
 
-Neste teste, você vai desativar temporariamente a conexão de Internet do computador,
-enviar um fluxo de trabalho, observar o Temporal tentar novamente de forma automática e restaurar a
-rede para ver a recuperação.
+In diesem Test deaktivieren Sie vorübergehend die Internetverbindung Ihres Computers, senden einen Workflow, beobachten, wie Temporal den Vorgang automatisch wiederholt, und stellen dann die Netzwerkverbindung wieder her, um zu sehen, wie der Vorgang wiederhergestellt wird.
 
-1. Desconecte a máquina da Internet (por exemplo, desative o Wi-Fi).
-2. Envie um fluxo de trabalho:
+1. Trennen Sie Ihren Computer vom Internet (z. B. deaktivieren Sie das WLAN).
+2. Senden Sie einen Workflow:
 
    ```
    python -m start_workflow "tell me a joke"
    ```
-3. Verifique a interface do Temporal (`http://localhost:8233`). Você vai notar que a atividade do LLM está falhando e que o Temporal está gerenciando automaticamente as novas tentativas em segundo plano.
-4. Conecte-se à Internet novamente.
-5. A próxima tentativa automática vai acessar a API Gemini, e seu terminal vai imprimir o resultado final.
+3. Prüfen Sie die Temporal UI (`http://localhost:8233`). Sie sehen, dass die LLM-Aktivität fehlschlägt und Temporal die Wiederholungen automatisch im Hintergrund verwaltet.
+4. Stellen Sie die Internetverbindung wieder her.
+5. Beim nächsten automatischen Wiederholungsversuch wird die Gemini API erfolgreich erreicht und das endgültige Ergebnis wird im Terminal ausgegeben.
 
-### Como sobreviver a uma falha de worker
+### Worker-Absturz überstehen
 
-Neste teste, você vai encerrar o worker no meio da execução e reiniciá-lo. O Temporal reproduz o histórico do fluxo de trabalho (origem de eventos) e retoma da última atividade concluída. As invocações de LLM e as chamadas de ferramentas já concluídas não são repetidas.
+In diesem Test beenden Sie den Worker während der Ausführung und starten ihn neu. Temporal wiederholt den Workflow-Verlauf (Event-Sourcing) und setzt ihn bei der letzten abgeschlossenen Aktivität fort. Bereits abgeschlossene LLM-Aufrufe und Tool-Aufrufe werden nicht wiederholt.
 
-1. Para ter tempo de encerrar o worker, abra `durable_agent_worker.py` e remova temporariamente o comentário de `await asyncio.sleep(10)` dentro do laço `AgentWorkflow`
-   `run`.
-2. Reinicie o worker:
+1. Um Zeit zu haben, den Worker zu beenden, öffnen Sie `durable_agent_worker.py` und heben Sie vorübergehend die Auskommentierung von `await asyncio.sleep(10)` in der `run`-Schleife von `AgentWorkflow` auf.
+2. Starten Sie den Worker neu:
 
    ```
    python -m durable_agent_worker
    ```
-3. Envie uma consulta que acione várias ferramentas:
+3. Senden Sie eine Abfrage, die mehrere Tools auslöst:
 
    ```
    python -m start_workflow "are there any weather alerts where I am?"
    ```
-4. Encerre o processo de worker a qualquer momento antes da conclusão (`Ctrl-C` no terminal do worker ou usando `kill %1` se estiver em execução em segundo plano).
-5. Reinicie o worker:
+4. Beenden Sie den Worker-Prozess jederzeit vor Abschluss (`Ctrl-C` im Worker-Terminal oder mit `kill %1`, wenn er im Hintergrund ausgeführt wird).
+5. Starten Sie den Worker neu:
 
    ```
    python -m durable_agent_worker
    ```
 
-O Temporal reproduz o histórico do fluxo de trabalho. As chamadas de LLM e as invocações de ferramentas que já foram concluídas **não** são executadas novamente. Os resultados delas são reproduzidos instantaneamente do histórico (o log de eventos). O fluxo de trabalho é concluído.
+Temporal wiederholt den Workflow-Verlauf. Die bereits abgeschlossenen LLM-Aufrufe und Tool-Aufrufe werden **nicht** noch einmal ausgeführt. Ihre Ergebnisse werden sofort aus dem Verlauf (dem Ereignisprotokoll) wiedergegeben. Der Workflow wird erfolgreich abgeschlossen.
 
-## Outros recursos
+## Weitere Ressourcen
 
-- [Documentação temporal](https://docs.temporal.io/)
-- [SDK do Python do Temporal](https://docs.temporal.io/develop/python)
-- [SDK da IA generativa do Google](https://googleapis.github.io/python-genai/)
-- [Código-fonte deste tutorial](https://github.com/temporal-community/durable-react-agent-gemini)
+- [Temporal-Dokumentation](https://docs.temporal.io/)
+- [Temporal Python SDK](https://docs.temporal.io/develop/python)
+- [Google GenAI SDK](https://googleapis.github.io/python-genai/)
+- [Quellcode für diese Anleitung](https://github.com/temporal-community/durable-react-agent-gemini)
 
-Envie comentários
+Feedback geben
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Última atualização 2026-06-22 UTC.
+Zuletzt aktualisiert: 2026-06-22 (UTC).
 
-Quer enviar seu feedback?
+Haben Sie Feedback für uns?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-22 (UTC)."],[],[]]

@@ -1,67 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=ar
-fetched_at: 2026-07-20T04:43:55.334453+00:00
-title: "\u0627\u0644\u0628\u062f\u0621 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=pl
+fetched_at: 2026-07-27T04:33:15.906670+00:00
+title: "Pierwsze kroki \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-# البدء
+# Pierwsze kroki
 
-يساعدك هذا الدليل في بدء استخدام Gemini API من خلال [واجهة Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar). ستُجري أول طلب بيانات من واجهة برمجة التطبيقات في أقل من دقيقة، وستستكشف ميزات إنشاء النصوص، والفهم المتعدد الوسائط، وإنشاء الصور، والناتج المنظَّم، والأدوات، واستدعاء الدالة، والوكلاء، والتنفيذ في الخلفية.
+Z tego przewodnika dowiesz się, jak zacząć korzystać z interfejsu Gemini API za pomocą [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl). Pierwsze wywołanie interfejsu API wykonasz w mniej niż minutę. Poznasz generowanie tekstu, rozumienie multimodalne, generowanie obrazów, dane wyjściowe strukturalne, narzędzia, wywoływanie funkcji, agentów i wykonywanie w tle.
 
-تتوفّر واجهة Interactions API من خلال حزمتَي تطوير البرامج (SDK) [Python](https://github.com/googleapis/python-genai) و[JavaScript](https://github.com/googleapis/js-genai)، بالإضافة إلى REST.
+Interfejs Interactions API jest dostępny w pakietach SDK w językach [Python](https://github.com/googleapis/python-genai) i [JavaScript](https://github.com/googleapis/js-genai), a także w ramach REST.
 
-## 1. الحصول على مفتاح واجهة برمجة تطبيقات
+## 1. Uzyskiwanie klucza interfejsu API
 
-لاستخدام Gemini API، يجب أن يكون لديك مفتاح واجهة برمجة تطبيقات للمصادقة على طلباتك وفرض حدود الأمان وتتبُّع الاستخدام في حسابك.
+Aby korzystać z interfejsu Gemini API, musisz mieć klucz API, który umożliwia uwierzytelnianie żądań, egzekwowanie limitów bezpieczeństwa i śledzenie wykorzystania na koncie.
 
-- ينشئ Google AI Studio تلقائيًا مشروعًا ومفتاح واجهة برمجة تطبيقات للمستخدمين الجدد.
-  يمكنك نسخه من [صفحة مفاتيح واجهة برمجة التطبيقات](https://aistudio.google.com/api-keys?hl=ar).
-- إذا كنت بحاجة إلى مفتاح جديد، انقر على **إنشاء مفتاح واجهة برمجة تطبيقات** في AI Studio واتّبِع مربع الحوار لإضافة زوج جديد من المفتاح والمشروع.
+- Google AI Studio automatycznie tworzy projekt i klucz interfejsu API dla nowych użytkowników.
+  Możesz go skopiować ze [strony kluczy interfejsów API](https://aistudio.google.com/api-keys?hl=pl).
+- Jeśli potrzebujesz nowego klucza, w AI Studio kliknij **Utwórz klucz interfejsu API** i postępuj zgodnie z instrukcjami w oknie, aby dodać nową parę klucz-projekt.
 
-[إنشاء مفتاح واجهة Gemini API](https://aistudio.google.com/apikey?hl=ar)
+[Tworzenie klucza interfejsu Gemini API](https://aistudio.google.com/apikey?hl=pl)
 
-اضبط مفتاحك كمتغيّر بيئة:
+Ustaw klucz jako zmienną środowiskową:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### الترقية إلى الفئة المدفوعة
+### Przejście na poziom płatny
 
-تؤدي الترقية إلى الفئة المدفوعة إلى زيادة حدود معدّل الطلبات وتتطلّب إعداد Cloud Billing.
+Przejście na płatny poziom zwiększa limity ograniczania liczby żądań i wymaga skonfigurowania Rozliczeń usługi Google Cloud.
 
-- انقر على **إعداد الفوترة** في صفحة [مفاتيح واجهة برمجة التطبيقات](https://aistudio.google.com/api-keys?hl=ar) أو [المشاريع](https://aistudio.google.com/projects?hl=ar) في AI Studio.
-- اتّبِع تعليمات مربّع الحوار "الفوترة في Cloud" لإنشاء حساب فوترة أو ربطه، وإضافة طريقة دفع، ودفع مبلغ مسبق لا يقل عن 10 دولار أمريكي (أو ما يعادله بالعملة المحلية) في شكل أرصدة مدفوعة.
-- يمكنك الاطّلاع على استخدامك لواجهة برمجة التطبيقات في [Google AI Studio](https://aistudio.google.com/usage?hl=ar)
-  ضمن **لوحة البيانات** > **الاستخدام**.
+- Na stronie AI Studio [Klucze interfejsu API](https://aistudio.google.com/api-keys?hl=pl) lub [Projekty](https://aistudio.google.com/projects?hl=pl) kliknij **Skonfiguruj rozliczenia**.
+- Postępuj zgodnie z instrukcjami w oknie dialogowym Rozliczenia usługi Google Cloud, aby utworzyć lub połączyć konto rozliczeniowe, dodać formę płatności i dokonać przedpłaty w wysokości co najmniej 10 USD (lub równowartości w innej walucie) w postaci środków.
+- Wykorzystanie interfejsu API możesz sprawdzić w [Google AI Studio](https://aistudio.google.com/usage?hl=pl) w sekcji **Panel** > **Wykorzystanie**.
 
-لمزيد من المعلومات، يُرجى الاطّلاع على [صفحة الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar).
+Więcej informacji znajdziesz na [stronie Płatności](https://ai.google.dev/gemini-api/docs/billing?hl=pl).
 
-## 2. تثبيت حزمة تطوير البرامج (SDK) وإجراء مكالمتك الأولى
+## 2. Instalowanie pakietu SDK i wykonywanie pierwszego wywołania
 
-ثبِّت حزمة تطوير البرامج (SDK) وأنشئ نصًا من خلال طلب واحد من واجهة برمجة التطبيقات.
+Zainstaluj pakiet SDK i wygeneruj tekst za pomocą jednego wywołania interfejsu API.
 
 ### Python
 
-ثبِّت حزمة تطوير البرامج (SDK) باتّباع الخطوات التالية:
+Zainstaluj pakiet SDK:
 
 ```
 pip install -U google-genai
 ```
 
-إعداد العميل وإرسال طلب:
+Zainicjuj klienta i wyślij żądanie:
 
 ```
 from google import genai
@@ -77,13 +76,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-ثبِّت حزمة تطوير البرامج (SDK) باتّباع الخطوات التالية:
+Zainstaluj pakiet SDK:
 
 ```
 npm install @google/genai
 ```
 
-إعداد العميل وإرسال طلب:
+Zainicjuj klienta i wyślij żądanie:
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -109,7 +108,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 {
@@ -141,13 +140,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-عند استخدام REST، تعرض واجهة برمجة التطبيقات مورد `Interaction` الكامل الذي يحتوي على البيانات الوصفية وإحصاءات الاستخدام وسجلّ الخطوات التفصيلية للرد.
+W przypadku korzystania z interfejsu REST API zwraca pełny zasób `Interaction` zawierający metadane, statystyki wykorzystania i szczegółową historię tury.
 
-في حين تعرض حِزم تطوير البرامج (SDK) الرد الكامل، فإنّها توفّر أيضًا خصائص ملائمة، مثل `interaction.output_text` و`interaction.output_image`، للوصول إلى النتائج النهائية مباشرةً. يمكنك الاطّلاع على مزيد من المعلومات حول بنية الرد في [نظرة عامة على التفاعلات](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) أو قراءة [دليل إنشاء النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar) للحصول على تفاصيل حول تعليمات النظام وإعدادات الإنشاء.
+Pakiety SDK udostępniają pełną odpowiedź, ale zapewniają też wygodne właściwości, takie jak `interaction.output_text` i `interaction.output_image`, które umożliwiają bezpośredni dostęp do ostatecznych wyników. Więcej informacji o strukturze odpowiedzi znajdziesz w [omówieniu interakcji](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl). Szczegółowe informacje o instrukcjach systemowych i konfiguracji generowania znajdziesz w [przewodniku po generowaniu tekstu](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl).
 
-## 3- عرض الرد تدريجيًا
+## 3. Przesyłanie odpowiedzi strumieniowo
 
-للحصول على تفاعلات أكثر سلاسة، يمكنك بث الردّ أثناء إنشائه. يقدّم كل حدث `step.delta` جزءًا من النص يمكنك عرضه على الفور.
+Aby interakcje były płynniejsze, przesyłaj strumieniowo generowaną odpowiedź. Każde zdarzenie `step.delta` dostarcza fragment tekstu, który możesz od razu wyświetlić.
 
 ### Python
 
@@ -197,9 +196,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-عند البث، يستجيب الخادم ببث أحداث Server-Sent Events (SSE). يتضمّن كل حدث نوعًا وبيانات JSON.
+Podczas strumieniowania serwer odpowiada strumieniem zdarzeń wysyłanych przez serwer (SSE). Każde zdarzenie zawiera typ i dane JSON.
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 event: interaction.created
@@ -230,18 +229,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-للحصول على نظرة تفصيلية حول التعامل مع أحداث البث وأنواع التغييرات، راجِع [دليل التفاعلات أثناء البث](https://ai.google.dev/gemini-api/docs/streaming?hl=ar).
+Szczegółowe informacje o obsłudze zdarzeń przesyłanych strumieniowo i typów różnicowych znajdziesz w [przewodniku po interakcjach przesyłanych strumieniowo](https://ai.google.dev/gemini-api/docs/streaming?hl=pl).
 
-## 4. المحادثات المتعدّدة الجولات
+## 4. Rozmowy wieloetapowe
 
-تتيح Interactions API إجراء محادثات مترابطة بطريقتَين:
+Interfejs Interactions API obsługuje wieloetapowe rozmowy na 2 sposoby:
 
-- **الحفاظ على الحالة (يُنصح به)**: مواصلة محادثة على الخادم باستخدام `previous_interaction_id` هذا الخيار مثالي لمعظم عمليات الدردشة وعمليات الوكلاء التي تريد أن يدير الخادم السجلّ ويحسّن التخزين المؤقت.
-- **عدم الاحتفاظ بالحالة**: يمكنك إدارة سجلّ المحادثات على جهاز العميل من خلال تمرير جميع الجوانب السابقة (بما في ذلك خطوات التفكير والأدوات الوسيطة للنموذج) في كل طلب.
+- **Stanowe (zalecane):** kontynuuj rozmowę na serwerze za pomocą `previous_interaction_id`. Idealny w przypadku większości przepływów pracy związanych z czatem i agentami, w których chcesz, aby serwer zarządzał historią i optymalizował buforowanie.
+- **Bezstanowy:** zarządzaj historią rozmowy na urządzeniu klienta, przekazując w każdym żądaniu wszystkie poprzednie etapy (w tym pośrednie etapy myślenia modelu i narzędzi).
 
-### ذات حالة (مُقترَحة)
+### Stanowy (zalecany)
 
-يمكنك ربط التفاعلات من خلال تمرير `previous_interaction_id`. يتولّى الخادم إدارة سجلّ المحادثات الكامل نيابةً عنك.
+Łącz interakcje, przekazując `previous_interaction_id`. Serwer zarządza pełną historią rozmów.
 
 ### Python
 
@@ -311,9 +310,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### بلا حالة
+### Bezstanowy
 
-ضبط `store=false` وإدارة سجلّ المحادثات من جهة العميل يجب الاحتفاظ بجميع الخطوات التي تم إنشاؤها بواسطة النموذج (بما في ذلك الخطوتان `thought` و`function_call`) وإعادة إرسالها تمامًا كما تم استلامها.
+Ustawianie `store=false` i zarządzanie historią rozmów po stronie klienta. Musisz zachować i ponownie przesłać wszystkie kroki wygenerowane przez model (w tym kroki `thought` i `function_call`) w dokładnie takiej samej formie, w jakiej zostały otrzymane.
 
 ### Python
 
@@ -425,7 +424,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 {
@@ -452,11 +451,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-تعرض التفاعلات الثانية كائن استجابة كاملاً يتضمّن الخطوات الجديدة فقط، ولكنّه يستند إلى سياق المحادثة السابقة. يمكنك الاطّلاع على مزيد من المعلومات حول الحفاظ على الحالة في [دليل المحادثات المترابطة](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#multi-turn-conversations)، أو استكشاف [الوضع غير الاحتفاظ بالحالة](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#stateless-conversations) لإدارة السجلّ من جهة العميل.
+Druga interakcja zwraca pełny obiekt odpowiedzi, który zawiera tylko nowe kroki, ale jest oparty na kontekście poprzedniej tury. Więcej informacji o utrzymywaniu stanu znajdziesz w [przewodniku po rozmowach wieloetapowych](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl#multi-turn-conversations). Możesz też zapoznać się z [trybem bezstanowym](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl#stateless-conversations), który umożliwia zarządzanie historią po stronie klienta.
 
-## 5- فهم المحتوى المتعدد الوسائط
+## 5. Rozpoznawanie multimodalne
 
-تستطيع نماذج Gemini فهم الصور والمحتوى الصوتي والفيديو والمستندات بشكلٍ مباشر. تمرير الوسائط إلى جانب النص في طلب واحد
+Modele Gemini natywnie rozumieją obrazy, dźwięk, filmy i dokumenty. Przesyłaj multimedia wraz z tekstem w jednym żądaniu.
 
 ### Python
 
@@ -548,7 +547,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 {
@@ -573,27 +572,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-يمكنك الاطّلاع على كيفية تمرير الصور والفيديوهات والملفات الصوتية في [دليل فهم الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar).
+Dowiedz się, jak przekazywać obrazy, filmy i pliki audio, z [przewodnika po rozpoznawaniu obrazów](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pl).
 
 [hearing
 
-فهم الصوت
+Rozpoznawanie dźwięku
 
-تحويل الملفات الصوتية إلى نص أو تلخيصها أو الإجابة عن الأسئلة المتعلقة بها](https://ai.google.dev/gemini-api/docs/audio?hl=ar)
+Transkrybuj pliki audio, podsumowuj je i odpowiadaj na dotyczące ich pytania.](https://ai.google.dev/gemini-api/docs/audio?hl=pl)
 [videocam
 
-فهم الفيديوهات
+Rozpoznawanie filmów
 
-تحليل محتوى الفيديو وتحديد الأحداث ووصف الإجراءات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar)
+analizować treści wideo, lokalizować zdarzenia i opisywać działania;](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl)
 [description
 
-معالجة المستندات
+Przetwarzanie dokumentów
 
-استخراج المعلومات من ملفات PDF وتنسيقات المستندات الأخرى](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar)
+wyodrębniać informacje z plików PDF i innych formatów dokumentów;](https://ai.google.dev/gemini-api/docs/document-processing?hl=pl)
 
-## 6. إنشاء محتوى متعدد الوسائط
+## 6. Generowanie multimodalne
 
-يمكن لـ Gemini إنشاء الصور بشكلٍ أصلي باستخدام نماذج الصور [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar).
+Gemini może generować obrazy natywnie za pomocą modeli graficznych [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
 
 ### Python
 
@@ -646,7 +645,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 {
@@ -669,22 +668,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-عندما ينشئ النموذج صورة، يعرض بيانات الصورة المشفّرة بتنسيق base64 في خطوة ضمن مصفوفة `steps`، وكذلك من خلال السمة `output_image`. اطّلِع على [دليل إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) للتعرّف على نسب العرض إلى الارتفاع وتعديل الصور والمراجع.
+Gdy model wygeneruje obraz, zwraca dane obrazu zakodowane w formacie base64 w kroku w tablicy `steps`, a także za pomocą właściwości `output_image`. Więcej informacji o współczynnikach proporcji, edytowaniu obrazów i odniesieniach znajdziesz w [przewodniku po generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
 
 [record\_voice\_over
 
-إنشاء الكلام
+Generowanie mowy
 
-إنشاء كلام معبّر ومتعدد المتحدثين باستخدام تكنولوجيا تحويل النص إلى كلام في Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)
+Generowanie ekspresywnej mowy z udziałem wielu mówców za pomocą Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl)
 [music\_note
 
-إنشاء الموسيقى
+Generowanie muzyki
 
-أنشِئ مقاطع وأغانٍ كاملة باستخدام Lyria 3.](https://ai.google.dev/gemini-api/docs/music-generation?hl=ar)
+Twórz klipy i pełne utwory za pomocą Lyrii 3.](https://ai.google.dev/gemini-api/docs/music-generation?hl=pl)
 
-## 7. استخدام ناتج منظَّم
+## 7. Korzystanie z uporządkowanych danych wyjściowych
 
-اضبط النموذج لعرض JSON يطابق مخططًا تحدّده. تعمل المخرجات المنظَّمة مع [Pydantic](https://docs.pydantic.dev/latest/) (بايثون) و[Zod](https://zod.dev/) (جافاسكريبت).
+Skonfiguruj model tak, aby zwracał dane JSON zgodne ze zdefiniowanym przez Ciebie schematem. Uporządkowane dane wyjściowe działają z bibliotekami [Pydantic](https://docs.pydantic.dev/latest/) (Python) i [Zod](https://zod.dev/) (JavaScript).
 
 ### Python
 
@@ -787,7 +786,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 {
@@ -809,11 +808,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-يحتوي نص الإخراج على سلسلة JSON صالحة تتوافق تمامًا مع المخطط المطلوب. لمعرفة كيفية تحديد بنى أكثر تعقيدًا ومخططات متكررة، يُرجى الاطّلاع على [دليل الإخراج المنظَّم](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar).
+Blok tekstu wyjściowego zawiera prawidłowy ciąg JSON, który jest zgodny z wymaganym schematem. Aby dowiedzieć się, jak definiować bardziej złożone struktury i schematy rekurencyjne, zapoznaj się z [przewodnikiem po uporządkowanych danych wyjściowych](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl).
 
-## 8. استخدام الأدوات
+## 8. Korzystanie z narzędzi
 
-تحديد مصدر ردّ النموذج من خلال معلومات في الوقت الفعلي باستخدام "بحث Google" تبحث واجهة برمجة التطبيقات تلقائيًا عن النتائج وتعالجها وتعرض الاقتباسات.
+Opieraj odpowiedzi modelu na informacjach uzyskiwanych w czasie rzeczywistym za pomocą wyszukiwarki Google. Interfejs API automatycznie wyszukuje i przetwarza wyniki oraz zwraca cytowania.
 
 ### Python
 
@@ -886,7 +885,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
 ```
 {
@@ -936,41 +935,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-يتم تفصيل خطوات البحث ضمن سجلّ التفاعل، ويتضمّن الناتج النهائي اقتباسات مضمّنة تشير إلى مصادر الويب.
+Szczegółowe informacje o krokach wyszukiwania znajdziesz w historii interakcji, a wynik końcowy zawiera przypisy w tekście wskazujące źródła internetowe.
 
-يمكنك التعرّف على كيفية استخراج الاقتباسات من "بحث Google" في [دليل التأسيس في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)، أو الاطّلاع على كيفية دمج أدوات متعددة في [دليل دمج الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
+Więcej informacji o wyodrębnianiu cytatów z wyszukiwarki znajdziesz w [przewodniku po ugruntowaniu w wyszukiwarce Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl). Z kolei w [przewodniku po łączeniu narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl) dowiesz się, jak łączyć ze sobą różne narzędzia.
 
 [code
 
-تنفيذ الرمز البرمجي
+Wykonanie kodu
 
-تنفيذ رمز Python البرمجي في بيئة Borg آمنة ومحمية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)
+uruchamiać kod Pythona w bezpiecznym środowisku piaskownicy Borg;](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl)
 [link
 
-سياق عناوين URL
+Kontekst adresu URL
 
-تمرير عناوين URL الخاصة بالويب المتاحة للجميع مباشرةً لتستند الردود إلى محتوى صفحة الويب](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)
+Przekazuj publiczne adresy URL bezpośrednio do odpowiedzi podstawowych w treści strony internetowej.](https://ai.google.dev/gemini-api/docs/url-context?hl=pl)
 [search
 
-البحث عن ملف
+Wyszukiwanie plików
 
-فهرسة المستندات وملفات الوسائط التي تم تحميلها والبحث فيها](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)
+Indeksowanie i wyszukiwanie przesłanych dokumentów i plików multimedialnych.](https://ai.google.dev/gemini-api/docs/file-search?hl=pl)
 [map
 
-خرائط Google
+Mapy Google
 
-تستند الردود إلى بيانات جغرافية مكانية وبيانات مواقع جغرافية من العالم الحقيقي.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)
+Uzasadniaj odpowiedzi danymi geoprzestrzennymi i informacjami o lokalizacji ze świata rzeczywistego.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl)
 [computer
 
-استخدام الكمبيوتر
+Korzystanie z komputera
 
-أتمتة المتصفّح والتفاعل مع الشاشة](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar)
+Automatyzacja przeglądarki i interakcja z ekranem.](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl)
 
-## 9. استدعاء الدوال الخاصة بك
+## 9. Wywoływanie własnych funkcji
 
-تتيح لك ميزة "استدعاء الدوال" ربط النموذج بالرمز البرمجي. عليك تحديد اسم الدالة ومَعلماتها، ويقرّر النموذج وقت استدعائها ويعرض وسيطات منظَّمة، ثم تنفّذها محليًا وتعيد إرسال النتيجة.
+Wywoływanie funkcji umożliwia połączenie modelu z kodem. Deklarujesz nazwę i parametry funkcji, model decyduje, kiedy ją wywołać, i zwraca uporządkowane argumenty, a Ty wykonujesz ją lokalnie i odsyłasz wynik.
 
-### ذات حالة (مُقترَحة)
+### Stanowy (zalecany)
 
 ### Python
 
@@ -1155,13 +1154,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### بلا حالة
+### Bezstanowy
 
-يمكنك أيضًا استخدام ميزة "استدعاء الدوال" في الوضع غير الاحتفاظ بالحالة من خلال إدارة سجلّ المحادثات من جهة العميل وتعيين `store=false`. في الوضع غير المرتبط بحالة، يجب تمرير السجلّ الكامل للمحادثة في الحقل `input` لكل طلب لاحق. يجب أن يتضمّن هذا السجلّ ما يلي:
+Możesz też używać wywoływania funkcji w trybie bezstanowym, zarządzając historią rozmów po stronie klienta i ustawiając wartość `store=false`. W trybie bezstanowym musisz przekazywać pełną historię rozmowy w polu `input` każdej kolejnej prośby. Historia musi zawierać:
 
-1. الخطوة `user_input` الأولية
-2. جميع الخطوات التي تم إنشاؤها بواسطة النموذج والتي تم عرضها في الجولة الأولى (بما في ذلك الخطوتان `thought` و`function_call`) تمامًا كما تم تلقّيها
-3. الخطوة `function_result` التي تحتوي على ناتج الدالة التي تم تنفيذها
+1. Początkowy krok `user_input`.
+2. Wszystkie wygenerowane przez model kroki zwrócone w turze 1 (w tym kroki `thought` i `function_call`) dokładnie w takiej postaci, w jakiej zostały otrzymane.
+3. Krok `function_result` zawierający dane wyjściowe wykonanej funkcji.
 
 ### Python
 
@@ -1369,9 +1368,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
-خلال الجولة الأولى، يعرض النموذج ردًا مع الحالة `requires_action` والخطوة `function_call`:
+Podczas tury 1 model zwraca odpowiedź ze stanem `requires_action` i krokiem `function_call`:
 
 ```
 {
@@ -1392,7 +1391,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-بعد تشغيل الدالة محليًا وإرسال النتيجة (الجولة 2)، يعرض التفاعل النهائي المكتمل ما يلي:
+Po uruchomieniu funkcji lokalnie i przesłaniu wyniku (tura 2) otrzymasz ostateczną, ukończoną interakcję:
 
 ```
 {
@@ -1422,11 +1421,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-للحصول على ميزات متقدّمة، مثل استدعاء الدوال المتوازية أو أوضاع اختيار الدوال، يمكنك الاطّلاع على [دليل استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar).
+Więcej informacji o funkcjach zaawansowanych, takich jak równoległe wywoływanie funkcji czy tryby wyboru funkcji, znajdziesz w [przewodniku po wywoływaniu funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
 
-## 10. تشغيل وكيل مُدار
+## 10. Uruchamianie agenta zarządzanego
 
-تعمل البرامج المُدارة في بيئة اختبار معزولة عن بُعد مع إمكانية الوصول إلى أدوات مثل تنفيذ الرموز البرمجية وإدارة الملفات. مرِّر `agent` بدلاً من `model` واضبط `environment="remote"`.
+Zarządzane agenty działają w zdalnej piaskownicy z dostępem do narzędzi takich jak wykonywanie kodu i zarządzanie plikami. Zamiast `model` przekaż `agent` i ustaw `environment="remote"`.
 
 ### Python
 
@@ -1473,27 +1472,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-يمكنك أيضًا تحديد [عملاء مخصّصين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar) وحفظهم مع تعليماتك ومهاراتك ومصادر البيانات الخاصة بك.
+Możesz też definiować i zapisywać [agenty niestandardowe](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl) z własnymi instrukcjami, umiejętnościami i źródłami danych.
 
 [rocket\_launch
 
-البدء السريع
+Krótkie wprowadzenie
 
-إجراء مكالمة الوكيل الأولى وبث الردود وإنشاء وكيل مخصّص](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar)
+Wykonaj pierwsze połączenie z agentem, przesyłaj strumieniowo odpowiedzi i utwórz własnego agenta.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl)
 [smart\_toy
 
-وكيل Antigravity
+Agent Antigravity
 
-الإمكانات والأدوات والإدخال المتعدد الوسائط والأسعار للوكيل التلقائي](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar)
+Możliwości, narzędzia, dane wejściowe multimodalne i ceny domyślnego agenta.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl)
 [experiment
 
-الوكلاء في AI Studio
+Agenty w AI Studio
 
-مساحة تجريبية مرئية لإنشاء نماذج أوّلية للوكلاء بدون كتابة رموز برمجية](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=ar)
+Wizualne środowisko testowe do prototypowania agentów bez pisania kodu.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=pl)
 
-## 11. تنفيذ المهام في الخلفية
+## 11. Uruchamianie zadań w tle
 
-اضبط `background=True` لتنفيذ المهام الطويلة بشكل غير متزامن. استطلاع حول النتائج التي تتضمّن `interactions.get()` لمزيد من التفاصيل، يُرجى الاطّلاع على [دليل التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar).
+Skonfiguruj `background=True` tak, aby długotrwałe zadania były wykonywane asynchronicznie. Sprawdź wyniki z `interactions.get()`. Więcej informacji znajdziesz w [przewodniku dotyczącym wykonywania w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl).
 
 ### Python
 
@@ -1588,9 +1587,9 @@ while true; do
 done
 ```
 
-**الردّ:**
+**Odpowiedź:**
 
-يتم عرض الاستجابة الأولية على الفور مع الحالة `in_progress`:
+Początkowa odpowiedź jest zwracana natychmiast ze stanem `in_progress`:
 
 ```
 {
@@ -1601,7 +1600,7 @@ done
 }
 ```
 
-بعد تنفيذ مهمة الخلفية بالكامل، ستؤدي عملية التحقّق من حالة التفاعل إلى عرض ما يلي:
+Gdy zadanie w tle zostanie w pełni wykonane, sprawdzenie stanu interakcji zwróci:
 
 ```
 {
@@ -1623,27 +1622,27 @@ done
 }
 ```
 
-يمكنك الاطّلاع على [دليل التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar) لمعرفة المزيد عن تشغيل النماذج والوكلاء بشكل غير متزامن.
+Więcej informacji o asynchronicznym uruchamianiu modeli i agentów znajdziesz w [przewodniku po wykonywaniu w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl).
 
-## الخطوات التالية
+## Co dalej?
 
-- [التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar): تنفيذ المهام الطويلة المدى بشكل غير متزامن وإدارة الحالة
-- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar): تعليمات النظام وإعدادات الإنشاء وأنماط النصوص المتقدّمة
-- [إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar): نِسب العرض إلى الارتفاع وتعديل الصور والمراجع المتعلقة بالأنماط
-- [فهم الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar): التصنيف ورصد العناصر والأسئلة والأجوبة المرئية
-- [التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar): استخدام أسلوب "سلسلة الأفكار" للاستدلال في المهام المعقّدة
-- [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar): أوضاع الدوال المتوازية والتركيبية والمقيّدة
-- [بحث Google](https://ai.google.dev/gemini-api/docs/google-search?hl=ar): التأسيس والاقتباسات واقتراحات البحث
-- [الوكلاء المُدارون](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): وكلاء مُعدّون مسبقًا مع إمكانية تنفيذ الرموز البرمجية وإدارة الملفات.
-- [‫Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar): بحث مستقل متعدد الخطوات يتضمّن التخطيط والتجميع
-- [الإخراج المنظَّم](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar): مخطّطات JSON، وقيم التعداد، وتعريفات الأنواع المتكرّرة
+- [Wykonywanie w tle:](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl) asynchroniczne wykonywanie długotrwałych zadań i zarządzanie stanem.
+- [Generowanie tekstu:](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl) instrukcje systemowe, konfiguracja generowania i zaawansowane wzorce tekstu.
+- [Generowanie obrazów:](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl) formaty obrazu, edytowanie obrazów i odniesienia do stylu.
+- [Rozpoznawanie obrazów:](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pl) klasyfikacja, wykrywanie obiektów i wizualne pytania i odpowiedzi.
+- [Myślenie:](https://ai.google.dev/gemini-api/docs/thinking?hl=pl) używaj rozumowania krok po kroku w przypadku złożonych zadań.
+- [Wywoływanie funkcji:](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) tryby funkcji równoległych, złożonych i ograniczonych.
+- [Wyszukiwarka Google:](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) grounding, cytaty i sugestie wyszukiwania.
+- [Zarządzane agenty:](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl) gotowe agenty z funkcjami wykonywania kodu i zarządzania plikami.
+- [Deep Research:](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) autonomiczne, wieloetapowe badania z planowaniem i syntezą.
+- [Dane wyjściowe w formacie strukturalnym:](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) schematy JSON, wyliczenia i rekurencyjne definicje typów.
 
-إرسال ملاحظات
+Prześlij opinię
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاريخ التعديل الأخير: 2026-07-06 (حسب التوقيت العالمي المتفَّق عليه)
+Ostatnia aktualizacja: 2026-07-06 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Chcesz przekazać coś jeszcze?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-06 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-06 UTC."],[],[]]

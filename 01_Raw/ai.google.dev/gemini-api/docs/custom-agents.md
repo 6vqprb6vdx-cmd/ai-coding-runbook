@@ -1,34 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ja
-fetched_at: 2026-07-20T04:44:33.951059+00:00
-title: "\u30de\u30cd\u30fc\u30b8\u30c9 \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u69cb\u7bc9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar
+fetched_at: 2026-07-27T04:33:45.872010+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u0648\u0643\u0644\u0627\u0621 \u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-フィードバックを送信
+إرسال ملاحظات
 
-# マネージド エージェントの構築
+# إنشاء وكلاء مُدارين
 
-Gemini API のマネージド エージェントを使用すると、独自の指示、スキル、データで Antigravity エージェントを拡張できます。インタラクション時に[エージェントをインラインでカスタマイズ](#customize-inline)するか、ID で呼び出すマネージド エージェントとして[構成を保存](#save-agent)できます。
+تتيح لك الوكلاء المُدارون على Gemini API توسيع نطاق وكيل Antigravity باستخدام تعليماتك ومهاراتك وبياناتك. يمكنك [تخصيص الوكيل بشكل مضمّن](#customize-inline) في وقت التفاعل، أو [حفظ الإعداد](#save-agent) كوكيل مُدار يمكنك استدعاؤه باستخدام المعرّف.
 
-## Antigravity エージェントをカスタマイズする
+## تخصيص وكيل Antigravity
 
-カスタム エージェントを構築する最も簡単な方法は、新しいインタラクションを作成するときに構成をインラインで渡すことです。登録手順は必要ありません。エージェントは次の 3 つの方法で拡張できます。
+أسرع طريقة لإنشاء وكيل مخصّص هي تمرير إعداداتك مضمّنةً أثناء إنشاء تفاعل جديد بدون الحاجة إلى إجراء خطوة التسجيل. يمكنك توسيع نطاق عمل الوكيل بعدة طرق رئيسية:
 
-- **システム指示**: `system_instruction` を介してインライン テキストを渡し、動作を形成します。
-- **ツール**: デフォルトのツール（コード実行、検索、URL コンテキスト）をオーバーライドする、リモート MCP サーバーを登録する、カスタム関数（関数呼び出し）を定義する。
-- **ファイルとスキル**: `AGENTS.md` や `SKILL.md` などのファイルを環境にマウントします。
+- **[اختيار النموذج](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#model-selection)**: اختَر نموذج Gemini الأساسي من خلال `agent_config` (يكون النموذج التلقائي هو **Gemini 3.6 Flash**).
+- **تعليمات النظام**: يمكنك تمرير نص مضمّن من خلال `system_instruction` لتحديد السلوك.
+- **الأدوات**: يمكنك إلغاء الأدوات التلقائية (تنفيذ الرمز البرمجي، والبحث، وسياق عنوان URL)، أو تسجيل خوادم MCP عن بُعد، أو تحديد وظائف مخصّصة (استدعاء الوظائف).
+- **الملفات والمهارات**: يمكنك تحميل ملفات مثل `AGENTS.md` و`SKILL.md` في البيئة.
 
-3 つすべてをインラインで渡す例を次に示します。
+في ما يلي مثال على تمرير المَعلمات الثلاث كلها في السطر:
 
 ### Python
 
@@ -120,22 +121,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-すべてはインタラクション時に定義されます。事前に登録する必要はありません。Antigravity エージェント ハーネスは、ランタイム（コード実行、ファイル管理、ウェブアクセス）を提供し、その上に構成レイヤを配置します。
+يتم تحديد كل شيء في وقت التفاعل. ليس عليك تسجيل أي شيء أولاً. توفر أداة Antigravity Agent بيئة التشغيل (تنفيذ الرموز البرمجية وإدارة الملفات والوصول إلى الويب) وطبقات الإعدادات في الأعلى.
 
-### ツールとシステム指示
+### الأدوات وتعليمات النظام
 
-`system_instruction` パラメータと `tools` パラメータを使用して、特定インタラクションのエージェントの動作と機能をカスタマイズできます。
+يمكنك تخصيص سلوك الوكيل وإمكاناته لتفاعل معيّن باستخدام المَعلمتَين `system_instruction` و`tools`.
 
-- **システム指示**: `system_instruction` パラメータを使用して、エージェントの動作を形作るインライン テキストを渡します。これは、呼び出しごとに変更したいクイック調整に最適です。`system_instruction` と `AGENTS.md` は加算的です。両方が存在する場合は両方が適用されます。
-- **ツール**: デフォルトでは、Antigravity エージェントは `code_execution`、`google_search`、`url_context` にアクセスできます。このリストは、インタラクション時に `tools` パラメータを渡すことでオーバーライドできます。[リモート MCP サーバー](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#mcp-servers)を登録したり、[カスタム関数（関数呼び出し）](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#function-calling)を定義して、エージェントを独自の API やデータベースに接続することもできます。利用可能なツールの詳細については、[Antigravity エージェント: サポートされているツール](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#supported-tools)をご覧ください。
+- **تعليمات النظام**: استخدِم المَعلمة `system_instruction` لتمرير نص مضمّن يحدّد سلوك الوكيل. هذه الميزة مثالية لإجراء تعديلات سريعة تريد تغييرها لكل مكالمة. تكون `system_instruction` و`AGENTS.md` ترافقيتَين، أي أنّهما تسريان معًا عند توفّرهما.
+- **الأدوات**: بشكلٍ تلقائي، يمكن لوكيل Antigravity الوصول إلى `code_execution` و`google_search` و`url_context`. يمكنك تجاوز هذه القائمة من خلال تمرير المَعلمة `tools` في وقت التفاعل. يمكنك أيضًا تسجيل [خوادم MCP عن بُعد](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#mcp-servers) أو تحديد [دوال مخصّصة (استدعاء الدوال)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#function-calling) لربط الوكيل بواجهات برمجة التطبيقات وقواعد البيانات الخاصة بك. للاطّلاع على التفاصيل الكاملة حول الأدوات المتاحة، يُرجى الانتقال إلى [Antigravity Agent: الأدوات المتوافقة](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#supported-tools).
 
-### ファイルベースのカスタマイズ
+### التخصيص المستند إلى الملفات
 
-#### エージェントのディレクトリ構造
+#### بنية دليل الوكيل
 
-構成をインラインで渡すこともできますが、エージェントのファイルは構造化されたディレクトリに整理することをおすすめします。これにより、管理、バージョン管理、エージェントの環境へのマウントが容易になります。
+على الرغم من أنّه يمكنك تمرير الإعدادات مضمّنة، ننصحك بتنظيم ملفات البرنامج في دليل منظَّم. يسهّل ذلك إدارة الملفات والتحكّم في إصداراتها وتثبيتها في بيئة الوكيل.
 
-一般的なエージェント プロジェクト ディレクトリは次のようになります。
+يبدو دليل مشروع الوكيل النموذجي على النحو التالي:
 
 ```
 my-agent/
@@ -146,13 +147,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Antigravity ランタイムは、これらのファイルについて `.agents/`（および環境のルート）をスキャンします。
+يفحص وقت تشغيل Antigravity `.agents/` (وجذر البيئة) بحثًا عن هذه الملفات.
 
 #### AGENTS.md
 
-エージェントは、起動時に環境から `.agents/AGENTS.md`（または `/.agents/AGENTS.md`）をシステム命令として自動的に読み込みます。コードとともにバージョン管理する長い形式のペルソナ定義、詳細なガイドライン、手順には `AGENTS.md` を使用します。
+يحمّل الوكيل تلقائيًا `.agents/AGENTS.md` (أو `/.agents/AGENTS.md`) من البيئة كتعليمات نظام عند بدء التشغيل. استخدِم `AGENTS.md` لتعريفات الشخصيات الطويلة والإرشادات المفصّلة والتعليمات التي تريد التحكّم في إصدارها إلى جانب الرمز البرمجي.
 
-インライン ソースを使用して `AGENTS.md` をマウントします。
+تثبيت `AGENTS.md` باستخدام مصدر مضمّن:
 
 ### Python
 
@@ -229,9 +230,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### スキル: SKILL.md
+#### المهارات: SKILL.md
 
-スキルは、エージェントの機能を拡張するファイルです。`.agents/skills/<skill-name>/SKILL.md` の下に配置すると、ハーネスが自動的に検出して登録します。
+المهارات هي ملفات توسّع إمكانات الوكيل. ضَعها تحت `.agents/skills/<skill-name>/SKILL.md`، وسيتعرّف عليها نظام التوصيل تلقائيًا ويسجّلها.
 
 ```
 .agents/
@@ -241,7 +242,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         └── SKILL.md
 ```
 
-インライン ソースを使用してスキルをマウントします。
+تثبيت مهارة باستخدام مصدر مضمّن:
 
 ### Python
 
@@ -318,17 +319,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-`.agents/skills/` と `/.agents/skills/` から読み込まれたスキルはどちらも自動的に検出されます。
+يتم تلقائيًا اكتشاف المهارات المحمَّلة من `.agents/skills/` و`/.agents/skills/`.
 
-## マネージド エージェントを作成する
+## إنشاء وكيل مُدار
 
-構成を反復処理したら、`agents.create` を使用してマネージド エージェントとして作成できます。これにより、構成を毎回繰り返すことなく、ID でエージェントを呼び出すことができます。
+بعد تكرار عملية الإعداد، يمكنك إنشاء الإعداد كبرنامج وكيل مُدار باستخدام `agents.create`. يتيح لك ذلك استدعاء "الوكيل" حسب المعرّف بدون تكرار عملية الإعداد في كل مرة.
 
-マネージド エージェントの作成時に指定する `id` は、プロジェクト内で一意である必要があり、予約済みの接頭辞（`google-`、`gemini-` など）で始めることはできません。制限付き接頭辞の完全なリストについては、[エージェント ID の制限](#agent-id-restrictions)をご覧ください。
+يجب أن يكون `id` الذي تحدّده عند إنشاء وكيل مُدار فريدًا لمشروعك ويجب ألا يبدأ بالبادئات المحجوزة (مثل `google-` و`gemini-`). اطّلِع على [قيود رقم تعريف الوكيل](#agent-id-restrictions) للحصول على القائمة الكاملة بالبادئات المحظورة.
 
-### ソースから
+### من المصادر
 
-ソースとともに `base_agent`、`id`、`system_instruction`、`base_environment` を指定します。プラットフォームは、呼び出しごとにファイルを含む新しいサンドボックスをプロビジョニングします。使用可能なソースタイプ（Git、GCS、インライン）については、[環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja)をご覧ください。
+حدِّد `base_agent` و`id` و`agent_config` و`system_instruction` و`base_environment` مع المصادر. توفّر المنصة بيئة اختبار جديدة تتضمّن ملفاتك في كل عملية استدعاء. راجِع [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar) لمعرفة أنواع المصادر المتاحة (Git وGCS والمضمّنة).
 
 ### Python
 
@@ -340,6 +341,10 @@ client = genai.Client()
 agent = client.agents.create(
     id="data-analyst",
     base_agent="antigravity-preview-05-2026",
+    agent_config={
+        "type": "antigravity",
+        "model": "gemini-3.6-flash",
+    },
     system_instruction="You are a data analyst. Always include visualizations and export results as PDF.",
     base_environment={
         "type": "remote",
@@ -376,6 +381,10 @@ const client = new GoogleGenAI({});
 const agent = await client.agents.create({
     id: "data-analyst",
     base_agent: "antigravity-preview-05-2026",
+    agent_config: {
+        type: "antigravity",
+        model: "gemini-3.6-flash",
+    },
     system_instruction: "You are a data analyst. Always include visualizations and export results as PDF.",
     base_environment: {
         type: "remote",
@@ -411,6 +420,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 -d '{
     "id": "data-analyst",
     "base_agent": "antigravity-preview-05-2026",
+    "agent_config": {
+        "type": "antigravity",
+        "model": "gemini-3.6-flash"
+    },
     "system_instruction": "You are a data analyst. Always include visualizations and export results as PDF.",
     "base_environment": {
         "type": "remote",
@@ -435,9 +448,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### 既存の環境から（フォーク）
+### من بيئة حالية (تشعّب)
 
-環境が適切になるまで（パッケージがインストールされ、ファイルが配置されるまで）、ベースの Antigravity エージェントで反復処理を行い、その後、マネージド エージェントにフォークします。
+كرِّر استخدام وكيل Antigravity الأساسي إلى أن تصبح البيئة مناسبة (تثبيت الحِزم، ووضع الملفات في مكانها)، ثم أنشئ نسخة من الوكيل في وكيل مُدار.
 
 ### Python
 
@@ -501,11 +514,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### ネットワーク ルールを使用する
+### مع قواعد الشبكة
 
-マネージド エージェントを保存するときに、アウトバウンド アクセスをロックダウンしたり、認証情報を挿入したりできます。許可リストの完全なスキーマ、認証情報のパターン、ワイルドカードについては、[環境: ネットワーク構成](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#network-configuration)をご覧ください。
+يمكنك حظر الوصول الخارجي أو إدخال بيانات الاعتماد عند حفظ وكيل مُدار. للاطّلاع على مخطط قائمة السماح الكامل وأنماط بيانات الاعتماد وأحرف البدل، يُرجى الانتقال إلى [البيئات: إعدادات الشبكة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#network-configuration).
 
-次の例では、GitHub と PyPI にのみアクセスできる `issue-resolver` エージェントを作成し、GitHub の認証情報を挿入します。
+ينشئ المثال التالي وكيلاً `issue-resolver` يمكنه الوصول إلى GitHub وPyPI فقط، مع إدخال بيانات الاعتماد الخاصة بـ GitHub:
 
 ### Python
 
@@ -615,9 +628,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## エージェントを呼び出す
+## استدعاء الوكيل
 
-新しいインタラクションを作成して、エージェント ID を使用してマネージド エージェントを呼び出します。呼び出しごとにベース環境がフォークされるため、実行は常にクリーンな状態から開始されます。
+اتّصِل بالوكيل المُدار باستخدام رقم تعريف الوكيل من خلال إنشاء تفاعل جديد. يؤدي كل استدعاء إلى إنشاء نسخة من البيئة الأساسية، لذا تبدأ كل عملية تشغيل بشكل نظيف.
 
 ### Python
 
@@ -656,15 +669,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-マルチターンの会話とストリーミングについては、[クイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja)をご覧ください。同じ `previous_interaction_id` パターンと `environment` パターンがマネージド エージェントに適用されます。
+للمحادثات المترابطة والبث، يُرجى الاطّلاع على [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar). تنطبق أنماط `previous_interaction_id` و`environment` نفسها على البرامج التي يديرها المشرف.
 
-マネージド エージェントは、バックグラウンド実行とキャンセルもサポートしています。詳細とコード例については、[Antigravity Agent: バックグラウンド実行](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#background-execution)をご覧ください。
+تتيح الوكلاء المُدارين أيضًا تنفيذ العمليات في الخلفية وإلغاءها. للحصول على التفاصيل وأمثلة الرموز، يُرجى الاطّلاع على [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#background-execution).
 
-## 呼び出し時の構成のオーバーライド
+## تجاوز الإعدادات عند الاستدعاء
 
-インタラクションの作成時に、エージェントのデフォルトの `system_instruction`、`tools`、`environment` ネットワーク構成をオーバーライドできます。これにより、保存されているエージェント定義を変更せずに、特定実行のエージェントの動作、機能、認証情報を変更できます。
+يمكنك إلغاء إعدادات الشبكة التلقائية `system_instruction` و`tools` و`environment` الخاصة بالوكيل عند إنشاء تفاعل. يتيح لك ذلك تعديل سلوك الوكيل أو إمكاناته أو بيانات اعتماده لتنفيذ عملية معيّنة بدون تغيير تعريف الوكيل المخزّن.
 
-### システム指示とツールをオーバーライドする
+### تجاوز تعليمات النظام وأدواته
 
 ### Python
 
@@ -708,9 +721,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### ネットワーク構成をオーバーライドする（認証情報を更新する）
+### تجاوز إعدادات الشبكة (تحديث بيانات الاعتماد)
 
-マネージド エージェントの `base_environment` にネットワーク認証情報が組み込まれている場合は、呼び出し時にオーバーライドして、有効期限切れのトークンを更新したり、API キーをローテーションしたりできます。新しい `network` 構成を含む `environment` オブジェクトを渡します。新しいネットワーク ルールは、そのインタラクションの以前のルールを完全に置き換えます。ベース環境のソース（ファイル、リポジトリ）は保持されます。
+إذا كان وكيلك المُدار يتضمّن بيانات اعتماد الشبكة في `base_environment`، يمكنك تجاهلها عند الاستدعاء لتجديد الرموز المميزة المنتهية الصلاحية أو تدوير مفاتيح واجهة برمجة التطبيقات. مرِّر عنصر `environment` مع إعداد `network` جديد. تحلّ قواعد الشبكة الجديدة محلّ القواعد السابقة بشكل كامل في ما يتعلّق بهذا التفاعل. يتم الاحتفاظ بمصادر البيئة الأساسية (الملفات والمستودعات).
 
 ### Python
 
@@ -790,11 +803,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## エージェントを管理
+## إدارة الوكلاء
 
-エージェントの一覧表示、取得、削除を行うことができます。
+يمكنك إدراج الوكلاء والحصول عليهم وحذفهم.
 
-### エージェントのリスト表示
+### وكلاء القائمة
 
 ### Python
 
@@ -822,7 +835,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### エージェントを取得する
+### الحصول على وكيل
 
 ### Python
 
@@ -845,9 +858,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### エージェントを削除する
+### حذف وكيل
 
-削除すると、構成が削除されます。既存の環境とエージェントによって作成されたインタラクションは影響を受けません。
+يؤدي الحذف إلى إزالة الإعدادات. لا تتأثر البيئات والتفاعلات الحالية التي أنشأها الوكيل.
 
 ### Python
 
@@ -868,23 +881,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## エージェント定義のリファレンス
+## مرجع تعريف الوكيل
 
-| フィールド | 型 | 必須 / 省略可 | 説明 |
+| الحقل | النوع | مطلوب | الوصف |
 | --- | --- | --- | --- |
-| `id` | 文字列 | ○ | Google Cloud プロジェクト内の一意のエージェント識別子。エージェントの呼び出しに使用されます。予約済みの接頭辞は使用できません。[エージェント ID の制限事項](#agent-id-restrictions)をご覧ください。 |
-| `description` | 文字列 | いいえ | 人が読める形式のエージェントの説明。 |
-| `base_agent` | 文字列 | ○ | ベース エージェント ID（例: `antigravity-preview-05-2026`）。 |
-| `system_instruction` | 文字列 | いいえ | 行動とペルソナを定義するシステム プロンプト。 |
-| `tools` | 配列 | いいえ | エージェントが使用できるツール。省略した場合、デフォルトの `code_execution`、`google_search`、`url_context` になります。サポートされているツールには、`code_execution`、`google_search`、`url_context`、`mcp_server`、カスタム `function` 定義が含まれます。 |
-| `base_environment` | 文字列またはオブジェクト | いいえ | `"remote"`、`environment_id`、または `sources` と `network` を含む構成オブジェクト。環境をご覧ください。 |
+| `id` | سلسلة | نعم | المعرّف الفريد للوكيل ضمن مشروع Google Cloud يُستخدَم لتفعيل الوكيل. يجب عدم استخدام البادئات المحجوزة. اطّلِع على [قيود معرّف الوكيل](#agent-id-restrictions). |
+| `description` | سلسلة | لا | وصف الوكيل يمكن لشخص عادي قراءته |
+| `base_agent` | سلسلة | نعم | معرّف الوكيل الأساسي (مثلاً، `antigravity-preview-05-2026`) |
+| `agent_config` | عنصر | لا | إعدادات الوكيل الأساسي، بما في ذلك اختيار النموذج (`{"type": "antigravity", "model": "gemini-3.6-flash"}`). يتم ضبط القيمة التلقائية على `gemini-3.6-flash` في حال عدم تحديدها. لا يمكن إلغاؤها في وقت التفاعل مع الوكلاء المحدّدين. |
+| `system_instruction` | سلسلة | لا | طلب النظام الذي يحدّد السلوك والشخصية |
+| `tools` | صفيف | لا | الأدوات التي يمكن للوكيل استخدامها في حال عدم تحديدها، يتم ضبطها تلقائيًا على `code_execution` و`google_search` و`url_context`. تشمل الأدوات المتوافقة `code_execution` و`google_search` و`url_context` و`mcp_server` وتعريفات `function` المخصّصة. |
+| `base_environment` | سلسلة أو عنصر | لا | `"remote"` أو `environment_id` أو عنصر إعدادات يتضمّن `sources` و`network` الاطّلاع على البيئات |
 
-### エージェント ID の制限事項
+### القيود المفروضة على رقم تعريف الوكيل
 
-マネージド エージェントを作成するときに指定する `id` は、次のルールに従う必要があります。
+عند إنشاء وكيل مُدار، يجب أن يلتزم `id` الذي تحدّده بالقواعد التالية:
 
-- Google Cloud プロジェクト内で一意である必要があります。
-- 次の予約済みの接頭辞（大文字と小文字は区別されません）で始まってはなりません。そうでない場合、作成は失敗します。
+- ويجب أن يكون فريدًا لمشروعك على Google Cloud.
+- يجب **ألا** يبدأ بأي من البادئات المحجوزة التالية (غير حساسة لحالة الأحرف)، وإلا ستتعذّر عملية الإنشاء:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -902,35 +916,35 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   - `nest-`
   - `kaggle-`
 
-## 反復処理のワークフロー
+## سير عمل التكرار
 
-1. ベースの Antigravity エージェントで**プロトタイプ**を作成します。システム指示と環境ソースをインラインで渡します。手順、スキル、環境設定をインタラクティブにテストします。
-2. 環境を**安定化**します。パッケージをインストールし、ソースをマウントして、すべてが機能することを確認します。
-3. ソースから新しいエージェントを作成するか、環境をフォークして、マネージド エージェントとして**永続化**します。
-4. エージェントの定義を**更新**します。システム指示を変更したり、スキルを入れ替えたり、ソースを追加したりします。次の呼び出しでは、新しい構成が取得されます。
+1. **إنشاء نموذج أولي** باستخدام وكيل Antigravity الأساسي تمرير تعليمات النظام ومصادر البيئة مضمّنة اختبار التعليمات والمهارات وإعداد البيئة بشكل تفاعلي
+2. **تثبيت** البيئة ثبِّت الحِزم، واربط المصادر، وتأكَّد من أنّ كل شيء يعمل.
+3. **الاستمرار** كوكيل مُدار من خلال إنشاء وكيل جديد، إما من المصادر أو من خلال إنشاء نسخة من البيئة.
+4. **عدِّل** تعريف الوكيل. تغيير تعليمات النظام أو تبديل المهارات أو إضافة مصادر سيتم استخدام الإعدادات الجديدة في عملية الاستدعاء التالية.
 
-## 制限事項
+## القيود
 
-- **プレビュー ステータス**: マネージド エージェントはプレビュー版です。機能とスキーマは変更される可能性があります。
-- **ベース エージェント**: `base_agent` として `antigravity-preview-05-2026` のみがサポートされます。
-- **バージョニングなし**: エージェントのバージョニングとロールバックはまだ使用できません。
-- **サブエージェントのネストなし**: サブエージェントの委任はまだサポートされていません。
-- 管理対象エージェントは最大 1,000 個まで使用できます。
+- **حالة المعاينة**: الوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
+- **الوكيل الأساسي والنماذج**: يُسمح بالقيمة `antigravity-preview-05-2026` فقط كقيمة `base_agent`. خيارات النماذج المتوافقة في `agent_config` هي `gemini-3.5-flash` و`gemini-3.6-flash` (الإعداد التلقائي) و`gemini-3.5-flash-lite`. بالنسبة إلى الوكلاء المحدّدين، لا يمكن تجاهل النموذج في وقت التفاعل.
+- **عدم توفّر ميزة التحكم بالإصدارات**: لا تتوفّر ميزة التحكم بإصدارات الوكيل والعودة إلى الإصدار السابق بعد.
+- **عدم إمكانية إنشاء وكلاء فرعيين متداخلين**: لا تتوفّر بعد إمكانية تفويض وكيل فرعي.
+- يمكنك الحصول على ما يصل إلى 1,000 وكيل مُدار.
 
-## 次のステップ
+## الخطوات التالية
 
-- [エージェントの概要](https://ai.google.dev/gemini-api/docs/agents?hl=ja): マネージド エージェントの基本コンセプトについて学習します。
-- [クイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja): マルチターン会話とストリーミングを使用して構築を開始します。
-- [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja): デフォルトのエージェントの機能、ツール、料金を確認します。
-- [エージェント環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja): サンドボックス、ソース、ネットワーキングを構成します。
-- [Agent Platform の Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ja): 組織のガバナンスが組み込まれたエージェントを作成する場合に使用します。
+- [نظرة عامة على الوكلاء](https://ai.google.dev/gemini-api/docs/agents?hl=ar): تعرَّف على المفاهيم الأساسية للوكلاء المُدارين.
+- [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): ابدأ إنشاء محادثات مترابطة وبث المحتوى.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): استكشاف الإمكانات والأدوات والأسعار للوكيل التلقائي
+- [بيئات الوكيل](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar): يمكنك ضبط بيئات الاختبار المعزولة والمصادر والشبكات.
+- [Managed Agents API على "منصة الوكلاء"](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ar): لإنشاء الوكلاء المُدارين مع إدارة مؤسسية مدمجة.
 
-フィードバックを送信
+إرسال ملاحظات
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-07-08 UTC。
+تاريخ التعديل الأخير: 2026-07-21 (حسب التوقيت العالمي المتفَّق عليه)
 
-ご意見をお聞かせください
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-08 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-21 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

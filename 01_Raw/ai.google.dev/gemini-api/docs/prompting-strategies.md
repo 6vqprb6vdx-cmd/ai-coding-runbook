@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-BR
-fetched_at: 2026-07-20T04:41:03.506766+00:00
+fetched_at: 2026-07-27T04:37:48.238725+00:00
 title: "Estrat\u00e9gias de design de comandos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

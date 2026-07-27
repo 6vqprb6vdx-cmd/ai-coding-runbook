@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=fr
-fetched_at: 2026-07-20T04:33:34.630283+00:00
-title: "URLs de contexte \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=vi
+fetched_at: 2026-07-27T04:45:43.238793+00:00
+title: "Ng\u1eef c\u1ea3nh URL \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-# URLs de contexte
+# Ngữ cảnh URL
 
-L'outil de contexte d'URL vous permet de fournir un contexte supplémentaire aux modèles sous forme d'URL. En incluant des URL dans votre requête, le modèle accédera au contenu de ces pages (à condition qu'il ne s'agisse pas d'un type d'URL listé dans la [section sur les limites](#limitations)) pour informer et améliorer sa réponse.
+Công cụ ngữ cảnh URL cho phép bạn cung cấp thêm ngữ cảnh cho các mô hình dưới dạng URL. Bằng cách đưa URL vào yêu cầu, mô hình sẽ truy cập vào nội dung trên những trang đó (miễn là đó không phải là loại URL được liệt kê trong [phần hạn chế](#limitations)) để cung cấp thông tin và cải thiện phản hồi của mô hình.
 
-L'outil de contexte d'URL est utile pour les tâches suivantes :
+Công cụ ngữ cảnh URL rất hữu ích cho những tác vụ như sau:
 
-- **Extraire des données** : récupérez des informations spécifiques telles que des prix, des noms ou des conclusions clés à partir de plusieurs URL.
-- **Comparer des documents** : analysez plusieurs rapports, articles ou PDF pour identifier les différences et suivre les tendances.
-- **Synthétiser et créer du contenu** : combinez des informations provenant de plusieurs URL sources pour générer des résumés, des articles de blog ou des rapports précis.
-- **Analyser le code et la documentation** : pointez sur un dépôt GitHub ou une documentation technique pour expliquer le code, générer des instructions de configuration ou répondre à des questions.
+- **Trích xuất dữ liệu**: Lấy thông tin cụ thể như giá, tên hoặc phát hiện chính từ nhiều URL.
+- **So sánh tài liệu**: Phân tích nhiều báo cáo, bài viết hoặc tệp PDF để xác định điểm khác biệt và theo dõi xu hướng.
+- **Tổng hợp và tạo nội dung**: Kết hợp thông tin từ nhiều URL nguồn để tạo bản tóm tắt, bài đăng trên blog hoặc báo cáo chính xác.
+- **Phân tích mã và tài liệu**: Chỉ đến một kho lưu trữ trên GitHub hoặc tài liệu kỹ thuật để giải thích mã, tạo hướng dẫn thiết lập hoặc trả lời câu hỏi.
 
-L'exemple suivant montre comment comparer deux recettes provenant de sites Web différents.
+Ví dụ sau đây cho thấy cách so sánh hai công thức nấu ăn trên các trang web khác nhau.
 
 ### Python
 
@@ -111,20 +111,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Fonctionnement
+## Cách hoạt động
 
-L'outil Contexte d'URL utilise un processus de récupération en deux étapes pour équilibrer la vitesse, le coût et l'accès aux données récentes. Lorsque vous fournissez une URL, l'outil tente d'abord d'extraire le contenu d'un cache d'index interne. Il sert de cache hautement optimisé. Si une URL n'est pas disponible dans l'index (par exemple, s'il s'agit d'une page très récente), l'outil effectue automatiquement une récupération en direct.
-Il accède directement à l'URL pour récupérer son contenu en temps réel.
+Công cụ Bối cảnh URL sử dụng quy trình truy xuất gồm hai bước để cân bằng tốc độ, chi phí và quyền truy cập vào dữ liệu mới. Khi bạn cung cấp một URL, công cụ này sẽ cố gắng tìm nạp nội dung từ bộ nhớ đệm chỉ mục nội bộ trước tiên. Thư mục này đóng vai trò là một bộ nhớ đệm được tối ưu hoá cao. Nếu một URL không có trong chỉ mục (ví dụ: nếu đó là một trang rất mới), thì công cụ này sẽ tự động quay lại để tìm nạp trực tiếp.
+Thao tác này truy cập trực tiếp vào URL để truy xuất nội dung của URL đó theo thời gian thực.
 
-## Combiner avec d'autres outils
+## Kết hợp với các công cụ khác
 
-Vous pouvez combiner l'outil de contexte d'URL avec d'autres outils pour créer des workflows plus efficaces.
+Bạn có thể kết hợp công cụ bối cảnh URL với các công cụ khác để tạo quy trình làm việc hiệu quả hơn.
 
-Les [modèles Gemini 3](#supported-models) permettent de combiner des outils intégrés (comme le contexte d'URL) avec des outils personnalisés (appel de fonction). Pour en savoir plus, consultez la page [Combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
+[Các mô hình Gemini 3](#supported-models) hỗ trợ việc kết hợp các công cụ tích hợp sẵn (chẳng hạn như URL Context) với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
 
-### Ancrage avec la recherche
+### Bám sát nguồn bằng tính năng tìm kiếm
 
-Lorsque le contexte d'URL et l'[ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/grounding?hl=fr) sont activés, le modèle peut utiliser ses capacités de recherche pour trouver des informations pertinentes en ligne, puis utiliser l'outil de contexte d'URL pour mieux comprendre les pages qu'il trouve. Cette approche est efficace pour les requêtes qui nécessitent à la fois une recherche large et une analyse approfondie de pages spécifiques.
+Khi cả ngữ cảnh URL và tính năng [Căn cứ vào Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) đều được bật, mô hình có thể sử dụng các khả năng tìm kiếm của mình để tìm thông tin liên quan trên mạng, sau đó sử dụng công cụ ngữ cảnh URL để hiểu rõ hơn về các trang mà mô hình tìm thấy. Phương pháp này rất hiệu quả đối với những câu lệnh yêu cầu cả tìm kiếm trên diện rộng và phân tích chuyên sâu các trang cụ thể.
 
 ### Python
 
@@ -197,19 +197,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Comprendre la réponse
+## Hiểu rõ câu trả lời
 
-Lorsque le modèle utilise l'outil de contexte d'URL, sa réponse textuelle inclut des annotations `url_citation` intégrées dans le bloc de contenu textuel. Chaque annotation associe un segment du texte de réponse (via `start_index` et `end_index`) à l'URL source dont il est issu. Il s'agit de la principale façon d'afficher les citations dans votre application. Consultez l'[exemple principal ci-dessus](#get-started) pour savoir comment les extraire.
+Khi sử dụng công cụ ngữ cảnh URL, câu trả lời bằng văn bản của mô hình sẽ có chú thích `url_citation` nội tuyến trên khối nội dung văn bản. Mỗi chú thích liên kết một đoạn văn bản phản hồi (thông qua `start_index` và `end_index`) với URL nguồn mà đoạn văn bản đó được lấy từ đó. Đây là cách chính để hiển thị trích dẫn trong ứng dụng của bạn – hãy xem [ví dụ chính ở trên](#get-started) để biết cách trích xuất các trích dẫn này.
 
-La réponse inclut également une étape `url_context_result` avec des métadonnées sur chaque tentative de récupération d'URL (état, URL récupérée). Cela est principalement utile pour le débogage.
+Phản hồi cũng bao gồm một bước `url_context_result` có siêu dữ liệu về từng lần truy xuất URL (trạng thái, URL đã truy xuất). Điều này chủ yếu hữu ích cho việc gỡ lỗi.
 
-### Contrôles de sécurité
+### Kiểm tra an toàn
 
-Le système effectue une vérification de la modération du contenu sur les URL pour confirmer qu'elles respectent les normes de sécurité. Si une URL échoue à ce contrôle, l'étape `url_context_result` correspondante affichera un `status` de `"unsafe"`.
+Hệ thống sẽ kiểm tra nội dung của các URL để xác nhận rằng các URL đó đáp ứng các tiêu chuẩn an toàn. Nếu một URL không vượt qua được bước kiểm tra này, bước `url_context_result` tương ứng sẽ cho thấy `status` của `"unsafe"`.
 
-### Nombre de jetons
+### Số lượng mã thông báo
 
-Le contenu récupéré à partir des URL que vous spécifiez dans votre requête est comptabilisé dans les jetons d'entrée. Vous pouvez voir le nombre de jetons dans l'objet `usage` de l'interaction. En voici un exemple :
+Nội dung được truy xuất từ các URL mà bạn chỉ định trong câu lệnh sẽ được tính là một phần của mã thông báo đầu vào. Bạn có thể xem số lượng mã thông báo trong đối tượng `usage` của lượt tương tác. Sau đây là một ví dụ:
 
 ```
 'usage': {
@@ -223,56 +223,55 @@ Le contenu récupéré à partir des URL que vous spécifiez dans votre requête
 }
 ```
 
-Le prix par jeton dépend du modèle utilisé. Pour en savoir plus, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
+Giá mỗi mã thông báo phụ thuộc vào mô hình được sử dụng, hãy xem trang [định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) để biết thông tin chi tiết.
 
-## Modèles compatibles
+## Mô hình được hỗ trợ
 
-| Modèle | Contexte de l'URL |
+| Mô hình | Bối cảnh từ URL |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=fr) | ✔️ |
-| [Preview Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fr) | ✔️ |
-| [Preview Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fr) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
+| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
+| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
 
-## Bonnes pratiques
+## Các phương pháp hay nhất
 
-- **Fournissez des URL spécifiques** : pour obtenir les meilleurs résultats, fournissez des URL directes vers le contenu que vous souhaitez que le modèle analyse. Le modèle ne récupérera que le contenu des URL que vous fournissez, et non celui des liens imbriqués.
-- **Vérifiez l'accessibilité** : assurez-vous que les URL que vous fournissez ne redirigent pas vers des pages qui nécessitent une connexion ou sont soumises à un paywall.
-- **Utilisez l'URL complète** : indiquez l'URL complète, y compris le protocole (par exemple, https://www.google.com au lieu de google.com).
+- **Cung cấp URL cụ thể**: Để có kết quả tốt nhất, hãy cung cấp URL trực tiếp đến nội dung mà bạn muốn mô hình phân tích. Mô hình này sẽ chỉ truy xuất nội dung từ những URL mà bạn cung cấp, chứ không truy xuất nội dung từ các đường liên kết lồng nhau.
+- **Kiểm tra khả năng tiếp cận**: Xác minh rằng các URL bạn cung cấp không dẫn đến những trang yêu cầu đăng nhập hoặc nằm sau tường phí.
+- **Sử dụng URL đầy đủ**: Cung cấp URL đầy đủ, bao gồm cả giao thức (ví dụ: https://www.google.com thay vì chỉ google.com).
 
-## Limites
+## Các điểm hạn chế
 
-- Limite de requêtes : l'outil peut traiter jusqu'à 20 URL par requête.
-- Taille du contenu de l'URL : la taille maximale du contenu récupéré à partir d'une seule URL est de 34 Mo.
-- Accessibilité publique : les URL doivent être accessibles au public sur le Web.
-  Les adresses localhost (par exemple, localhost, 127.0.0.1), les réseaux privés et les services de tunneling (par exemple, ngrok, pinggy) ne sont pas acceptés.
-- API Gemini uniquement : le contexte d'URL n'est disponible que dans l'API Gemini, et non dans Gemini Enterprise Agent Platform.
+- Giới hạn yêu cầu: Công cụ này có thể xử lý tối đa 20 URL cho mỗi yêu cầu.
+- Kích thước nội dung URL: Kích thước tối đa cho nội dung được truy xuất từ một URL duy nhất là 34 MB.
+- Khả năng truy cập công khai: Các URL phải truy cập được công khai trên web.
+  Không hỗ trợ địa chỉ máy chủ cục bộ (ví dụ: localhost, 127.0.0.1), mạng riêng tư và dịch vụ đường hầm (ví dụ: ngrok, pinggy).
+- Chỉ có trong Gemini API: Bối cảnh URL chỉ có trong Gemini API, chứ không có trong Nền tảng tác nhân Gemini Enterprise.
 
-### Types de contenus acceptés et non acceptés
+### Các loại nội dung được hỗ trợ và không được hỗ trợ
 
-L'outil peut extraire du contenu à partir d'URL avec les types de contenu suivants :
+Công cụ này có thể trích xuất nội dung từ các URL có những loại nội dung sau:
 
-- Texte (text/html, application/json, text/plain, text/xml, text/css,
-  text/javascript , text/csv, text/rtf)
-- Image (image/png, image/jpeg, image/bmp, image/webp)
+- Văn bản (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
+- Hình ảnh (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-Les types de contenus suivants **ne sont pas** acceptés :
+Các loại nội dung sau đây **không** được hỗ trợ:
 
-- Contenu soumis à un paywall
-- Vidéos YouTube (consultez la section [Compréhension des vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr#youtube) pour savoir comment traiter les URL YouTube)
-- Fichiers Google Workspace, comme des documents Google Docs ou des feuilles de calcul
-- Fichiers vidéo et audio
+- Nội dung có tường phí
+- Video trên YouTube (Xem phần [hiểu video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#youtube) để tìm hiểu cách xử lý URL của YouTube)
+- Các tệp trên Google Workspace như tài liệu hoặc bảng tính trên Google
+- Tệp video và âm thanh
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Dernière mise à jour le 2026/07/06 (UTC).
+Cập nhật lần gần đây nhất: 2026-07-06 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/06 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-06 UTC."],[],[]]

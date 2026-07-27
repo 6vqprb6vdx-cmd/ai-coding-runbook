@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=hi
-fetched_at: 2026-07-20T04:35:00.638352+00:00
-title: "Gemini \u0915\u093e Deep Research \u090f\u091c\u0947\u0902\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=pl
+fetched_at: 2026-07-27T04:48:06.748719+00:00
+title: "Agent Deep Research w\u00a0Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-सुझाव भेजें
+Prześlij opinię
 
-# Gemini का Deep Research एजेंट
+# Agent Deep Research w Gemini
 
-Gemini की Deep Research सुविधा वाला एजेंट, रिसर्च से जुड़े कई चरणों वाले टास्क को अपने-आप प्लान करता है, उन्हें एक्ज़ीक्यूट करता है, और उनका विश्लेषण करता है. यह सुविधा, Gemini की मदद से काम करती है. यह मुश्किल से मुश्किल जानकारी को भी आसानी से समझकर, ज़्यादा जानकारी वाली रिपोर्ट तैयार करती है. इसमें सोर्स का हवाला भी दिया जाता है. नई सुविधाओं की मदद से, एजेंट के साथ मिलकर प्लान बनाया जा सकता है. साथ ही, एमसीपी सर्वर का इस्तेमाल करके बाहरी टूल से कनेक्ट किया जा सकता है. इसके अलावा, विज़ुअलाइज़ेशन (जैसे कि चार्ट और ग्राफ़) शामिल किए जा सकते हैं और दस्तावेज़ों को सीधे तौर पर इनपुट के तौर पर इस्तेमाल किया जा सकता है.
+Agent Gemini Deep Research autonomicznie planuje, wykonuje i syntetyzuje wieloetapowe zadania badawcze. Dzięki Gemini potrafi poruszać się po złożonych zasobach informacji, aby tworzyć szczegółowe raporty z cytatami. Nowe funkcje umożliwiają wspólne planowanie z agentem, łączenie się z narzędziami zewnętrznymi za pomocą serwerów MCP, dodawanie wizualizacji (takich jak wykresy) i bezpośrednie przekazywanie dokumentów jako danych wejściowych.
 
-रिसर्च के कामों में, बार-बार खोज करना और पढ़ना शामिल होता है. इन्हें पूरा करने में कई मिनट लग सकते हैं. आपको एजेंट को एसिंक्रोनस तरीके से चलाने और नतीजों के लिए पोल करने या अपडेट स्ट्रीम करने के लिए, [बैकग्राउंड में एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/background-execution?hl=hi) (`background=true` सेट करें) का इस्तेमाल करना होगा. ज़्यादा जानकारी के लिए, [लंबे समय तक चलने वाले टास्क मैनेज करना](#long-running-tasks) लेख पढ़ें.
+Zadania badawcze obejmują iteracyjne wyszukiwanie i czytanie, a ich wykonanie może potrwać kilka minut. Aby uruchomić agenta asynchronicznie i sprawdzać wyniki lub przesyłać strumieniowo aktualizacje, musisz użyć [wykonywania w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl) (ustaw `background=true`). Więcej informacji znajdziesz w sekcji [Obsługa długotrwałych zadań](#long-running-tasks).
 
-यहां दिए गए उदाहरण में, बैकग्राउंड में रिसर्च टास्क शुरू करने और नतीजों के लिए पोल करने का तरीका बताया गया है.
+Poniższy przykład pokazuje, jak rozpocząć analizę w tle i sprawdzać wyniki.
 
 ### Python
 
@@ -97,20 +97,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 'MySQL के लिए Google Cloud SQL' पर काम करने वाले वर्शन
+## Obsługiwane wersje
 
-Deep Research एजेंट दो वर्शन में उपलब्ध है:
+Agent Deep Research jest dostępny w 2 wersjach:
 
-- **Deep Research** (`deep-research-preview-04-2026`): इसे तेज़ी से और असरदार तरीके से काम करने के लिए डिज़ाइन किया गया है. यह क्लाइंट यूज़र इंटरफ़ेस (यूआई) पर वापस स्ट्रीम करने के लिए सबसे सही है.
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): इसमें, कॉन्टेक्स्ट को अपने-आप इकट्ठा करने और उसे सिंथेसाइज़ करने की सुविधा मिलती है. इससे आपको ज़्यादा से ज़्यादा जानकारी मिलती है.
+- **Deep Research** (`deep-research-preview-04-2026`): zaprojektowany z myślą o szybkości i wydajności, idealny do przesyłania strumieniowego do interfejsu klienta.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): maksymalna kompleksowość automatycznego zbierania i syntezy kontekstu.
 
-## साथ मिलकर प्लान बनाना
+## Planowanie zespołowe
 
-मिलकर प्लानिंग करने की सुविधा से, एजेंट के काम शुरू करने से पहले ही रिसर्च की दिशा तय की जा सकती है. इससे, रिसर्च प्लान को लागू करने से पहले उसकी समीक्षा करके उसे बेहतर बनाया जा सकता है. इस सुविधा के चालू होने पर, एजेंट तुरंत जवाब देने के बजाय, रिसर्च प्लान का सुझाव देता है. इसके बाद, कई चरणों वाले इंटरैक्शन के ज़रिए प्लान की समीक्षा की जा सकती है, उसमें बदलाव किया जा सकता है या उसे मंज़ूरी दी जा सकती है.
+Planowanie oparte na współpracy daje Ci kontrolę nad kierunkiem badań, zanim agent rozpocznie pracę. Możesz przejrzeć i dopracować plan badań przed jego realizacją. Gdy ta opcja jest włączona, agent zwraca proponowany plan badań zamiast natychmiastowego wykonania. Następnie możesz przejrzeć, zmodyfikować lub zatwierdzić plan w ramach interakcji wieloetapowych.
 
-### पहला चरण: प्लान का अनुरोध करना
+### Krok 1. Poproś o plan
 
-पहले इंटरैक्शन में `collaborative_planning=True` सेट करें. एजेंट पूरी रिपोर्ट के बजाय, रिसर्च प्लान दिखाता है.
+Ustaw `collaborative_planning=True` w pierwszej interakcji. Zamiast pełnego raportu agent zwraca plan badań.
 
 ### Python
 
@@ -176,9 +176,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### दूसरा चरण: प्लान को बेहतर बनाना (ज़रूरी नहीं)
+### Krok 2. Ulepsz plan (opcjonalnie)
 
-बातचीत जारी रखने और प्लान को बेहतर बनाने के लिए, `previous_interaction_id` का इस्तेमाल करें. प्लानिंग मोड में बने रहने के लिए, `collaborative_planning=True` को चालू रखें.
+Użyj `previous_interaction_id`, aby kontynuować rozmowę i ulepszać plan. Naciśnij `collaborative_planning=True`, aby pozostać w trybie planowania.
 
 ### Python
 
@@ -242,9 +242,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### तीसरा चरण: मंज़ूरी देना और लागू करना
+### Krok 3. Zatwierdź i wykonaj
 
-प्लान को स्वीकार करने और रिसर्च शुरू करने के लिए, `collaborative_planning=False` को सेट करें या इसे छोड़ दें.
+Ustaw wartość `collaborative_planning=False` (lub pomiń ją), aby zatwierdzić plan i rozpocząć zbieranie informacji.
 
 ### Python
 
@@ -308,10 +308,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## विज़ुअलाइज़ेशन
+## Wizualizacja
 
-`visualization` को `"auto"` पर सेट करने पर, एजेंट अपनी रिसर्च के नतीजों को बेहतर तरीके से दिखाने के लिए चार्ट, ग्राफ़, और अन्य विज़ुअल एलिमेंट जनरेट कर सकता है.
-जनरेट की गई इमेज, जवाब के चरणों में शामिल होती हैं और इन्हें `image` डेल्टा के तौर पर स्ट्रीम किया जाता है. बेहतर नतीजे पाने के लिए, अपनी क्वेरी में विज़ुअल के लिए साफ़ तौर पर पूछें. उदाहरण के लिए, "ऐसे चार्ट शामिल करें जिनमें समय के साथ रुझान दिख रहे हों" या "बाज़ार हिस्सेदारी की तुलना करने वाले ग्राफ़िक जनरेट करें." `visualization` को `"auto"` पर सेट करने से यह सुविधा चालू हो जाती है. हालांकि, एजेंट सिर्फ़ तब विज़ुअल जनरेट करता है, जब प्रॉम्प्ट में इसके लिए अनुरोध किया जाता है.
+Gdy `visualization` jest ustawione na `"auto"`, agent może generować wykresy i inne elementy wizualne, aby wspierać wyniki swoich badań.
+Wygenerowane obrazy są uwzględniane w krokach odpowiedzi i przesyłane strumieniowo jako delty `image`. Aby uzyskać najlepsze wyniki, w zapytaniu wyraźnie poproś o elementy wizualne, np. „Dołącz wykresy pokazujące trendy na przestrzeni czasu” lub „Wygeneruj grafiki porównujące udziały w rynku”. Ustawienie `visualization` na `"auto"` włącza tę funkcję, ale agent generuje wizualizacje tylko wtedy, gdy jest o to proszony w prompcie.
 
 ### Python
 
@@ -402,21 +402,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## इन टूल के साथ काम करता है
+## Obsługiwane narzędzia
 
-Deep Research की सुविधा, कई इन-बिल्ट और बाहरी टूल के साथ काम करती है. डिफ़ॉल्ट रूप से (जब कोई `tools` पैरामीटर नहीं दिया जाता है), एजेंट के पास Google Search, यूआरएल कॉन्टेक्स्ट, और कोड एक्ज़ीक्यूशन का ऐक्सेस होता है. एजेंट की क्षमताओं को सीमित करने या बढ़ाने के लिए, टूल के बारे में साफ़ तौर पर बताया जा सकता है.
+Funkcja Deep Research obsługuje wiele wbudowanych i zewnętrznych narzędzi. Domyślnie (gdy nie podano parametru `tools`) agent ma dostęp do wyszukiwarki Google, kontekstu adresu URL i wykonywania kodu. Możesz wyraźnie określić narzędzia, aby ograniczyć lub rozszerzyć możliwości agenta.
 
-| टूल | वैल्यू टाइप करें | ब्यौरा |
+| Narzędzie | Wpisz wartość | Opis |
 | --- | --- | --- |
-| Google Search | `google_search` | सार्वजनिक वेब पर खोजें. यह सुविधा डिफ़ॉल्ट रूप से चालू होती है. |
-| यूआरएल कॉन्टेक्स्ट | `url_context` | वेब पेज पर मौजूद कॉन्टेंट को पढ़ना और उसके बारे में खास जानकारी देना. यह सुविधा डिफ़ॉल्ट रूप से चालू होती है. |
-| कोड एक्ज़ीक्यूट करना | `code_execution` | कैलकुलेशन और डेटा विश्लेषण करने के लिए, कोड को एक्ज़ीक्यूट करना. यह सुविधा डिफ़ॉल्ट रूप से चालू होती है. |
-| MCP Server | `mcp_server` | बाहरी टूल को ऐक्सेस करने के लिए, रिमोट एमसीपी सर्वर से कनेक्ट करें. |
-| फ़ाइल खोजने की सुविधा | `file_search` | अपलोड किए गए दस्तावेज़ कॉर्पस खोजें. |
+| Wyszukiwarka Google | `google_search` | Wyszukiwanie w sieci publicznej. Ta opcja jest domyślnie włączona. |
+| Kontekst adresu URL | `url_context` | czytać i podsumowywać treści na stronach internetowych; Ta opcja jest domyślnie włączona. |
+| Wykonanie kodu | `code_execution` | wykonywać kod w celu przeprowadzania obliczeń i analizy danych, Ta opcja jest domyślnie włączona. |
+| Serwer MCP | `mcp_server` | Łączenie się ze zdalnymi serwerami MCP w celu uzyskania dostępu do narzędzi zewnętrznych. |
+| Wyszukiwanie plików | `file_search` | Wyszukiwanie w przesłanych korpusach dokumentów. |
 
-### Google Search
+### Wyszukiwarka Google
 
-Google Search को सिर्फ़ टूल के तौर पर चालू करें:
+Włącz wyszukiwarkę Google jako jedyne narzędzie:
 
 ### Python
 
@@ -454,9 +454,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### यूआरएल कॉन्टेक्स्ट
+### Kontekst adresu URL
 
-एजेंट को वेब पेजों को पढ़ने और उनकी खास जानकारी देने की सुविधा दें:
+Umożliwienie agentowi odczytywania i streszczania konkretnych stron internetowych:
 
 ### Python
 
@@ -494,9 +494,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### कोड एक्ज़ीक्यूट करना
+### Wykonanie kodu
 
-एजेंट को कैलकुलेशन और डेटा के विश्लेषण के लिए कोड लागू करने की अनुमति दें:
+Zezwól agentowi na wykonywanie kodu do obliczeń i analizy danych:
 
 ### Python
 
@@ -534,21 +534,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### एमसीपी सर्वर
+### Serwery MCP
 
-रिमोट एमसीपी सर्वर से कनेक्ट करें, ताकि एजेंट को बाहरी टूल और सेवाओं का ऐक्सेस दिया जा सके.
+Łącz się ze zdalnymi serwerami MCP, aby umożliwić agentowi dostęp do narzędzi i usług zewnętrznych.
 
-टूल कॉन्फ़िगरेशन में सर्वर `name` और `url` दें. आपके पास पुष्टि करने वाले क्रेडेंशियल पास करने का विकल्प भी होता है. साथ ही, यह तय किया जा सकता है कि एजेंट किन टूल को कॉल कर सकता है.
+W konfiguracji narzędzi podaj serwer `name` i `url`. Możesz też przekazywać dane logowania i ograniczać narzędzia, z których może korzystać agent.
 
-| फ़ील्ड | प्रकार | ज़रूरी है | ब्यौरा |
+| Pole | Typ | Wymagane | Opis |
 | --- | --- | --- | --- |
-| `type` | `string` | हां | `"mcp_server"` होना चाहिए. |
-| `name` | `string` | नहीं | एमसीपी सर्वर का डिसप्ले नेम. |
-| `url` | `string` | नहीं | एमसीपी सर्वर के एंडपॉइंट का पूरा यूआरएल. |
-| `headers` | `object` | नहीं | कुंजी-वैल्यू पेयर, सर्वर को किए गए हर अनुरोध के साथ एचटीटीपी हेडर के तौर पर भेजे जाते हैं. उदाहरण के लिए, पुष्टि करने वाले टोकन. |
-| `allowed_tools` | `array` | नहीं | यह पाबंदी लगाएं कि एजेंट, सर्वर के किन टूल को कॉल कर सकता है. |
+| `type` | `string` | Tak | Musi to być `"mcp_server"`. |
+| `name` | `string` | Nie | Wyświetlana nazwa serwera MCP. |
+| `url` | `string` | Nie | Pełny adres URL punktu końcowego serwera MCP. |
+| `headers` | `object` | Nie | Pary klucz-wartość wysyłane jako nagłówki HTTP z każdym żądaniem do serwera (np. tokeny uwierzytelniania). |
+| `allowed_tools` | `array` | Nie | Ogranicz narzędzia na serwerze, z których agent może korzystać. |
 
-#### बुनियादी इस्तेमाल
+#### Podstawowe użycie
 
 ### Python
 
@@ -607,9 +607,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### फ़ाइल खोजने की सुविधा
+### Wyszukiwanie plików
 
-[फ़ाइल खोजने](https://ai.google.dev/gemini-api/docs/file-search?hl=hi) वाले टूल का इस्तेमाल करके, एजेंट को अपने डेटा का ऐक्सेस दें.
+Udostępnij agentowi własne dane za pomocą narzędzia [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl).
 
 ### Python
 
@@ -661,11 +661,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## फ़ॉर्मैटिंग और स्टीयर करने की सुविधा
+## Sterowanie i formatowanie
 
-अपने प्रॉम्प्ट में फ़ॉर्मैटिंग से जुड़े खास निर्देश देकर, एजेंट के जवाब को अपनी ज़रूरत के हिसाब से बनाया जा सकता है. इससे, रिपोर्ट को खास सेक्शन और सब-सेक्शन में व्यवस्थित किया जा सकता है. साथ ही, डेटा टेबल शामिल की जा सकती हैं या अलग-अलग ऑडियंस (जैसे, "तकनीकी," "कार्यकारी," "सामान्य") के लिए टोन को अडजस्ट किया जा सकता है.
+Możesz sterować danymi wyjściowymi agenta, podając w prompcie konkretne instrukcje formatowania. Umożliwia to dzielenie raportów na określone sekcje i podsekcje, dodawanie tabel danych oraz dostosowywanie tonu do różnych odbiorców (np. „techniczny”, „dla kadry kierowniczej”, „nieformalny”).
 
-अपने इनपुट टेक्स्ट में, आउटपुट का फ़ॉर्मैट साफ़ तौर पर बताएं.
+W tekście wejściowym wyraźnie określ żądany format wyjściowy.
 
 ### Python
 
@@ -718,9 +718,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## मल्टीमॉडल इनपुट
+## Dane wejściowe multimodalne
 
-डीप रिसर्च में मल्टीमॉडल इनपुट का इस्तेमाल किया जा सकता है. जैसे, इमेज और दस्तावेज़ (PDF). इससे एजेंट को विज़ुअल कॉन्टेंट का विश्लेषण करने और वेब पर आधारित रिसर्च करने में मदद मिलती है. यह रिसर्च, दिए गए इनपुट के हिसाब से की जाती है.
+Deep Research obsługuje dane wejściowe w różnych formatach, w tym obrazy i dokumenty (PDF), co umożliwia agentowi analizowanie treści wizualnych i przeprowadzanie wyszukiwania w internecie w kontekście podanych danych wejściowych.
 
 ### Python
 
@@ -826,10 +826,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### दस्तावेज़ को समझना
+### Rozumienie dokumentów
 
-दस्तावेज़ को समझने की सुविधा की मदद से, दस्तावेज़ों को सीधे तौर पर मल्टीमॉडल इनपुट के तौर पर पास किया जा सकता है.
-यह एजेंट, दिए गए दस्तावेज़ों का विश्लेषण करता है और उनके कॉन्टेंट के आधार पर रिसर्च करता है.
+Rozumienie dokumentów umożliwia przekazywanie dokumentów bezpośrednio jako danych wejściowych multimodalnych.
+Agent analizuje podane dokumenty i przeprowadza badania na podstawie ich treści.
 
 ### Python
 
@@ -890,28 +890,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## लंबे समय तक चलने वाले टास्क मैनेज करना
+## Obsługa długotrwałych zadań
 
-Deep Research की सुविधा, कई चरणों में काम करती है. इसमें प्लानिंग करना, खोजना, पढ़ना, और लिखना शामिल है. आम तौर पर, यह साइकल, सिंक्रोनस एपीआई कॉल के लिए तय की गई स्टैंडर्ड टाइमआउट की सीमाओं से ज़्यादा होता है.
+Deep Research to wieloetapowy proces obejmujący planowanie, wyszukiwanie, czytanie i pisanie. Ten cykl zwykle przekracza standardowe limity czasu oczekiwania synchronicznych wywołań interfejsu API.
 
-एजेंट को `background=True` का इस्तेमाल करना होगा. एपीआई, `Interaction` ऑब्जेक्ट का कुछ हिस्सा तुरंत दिखाता है. पोलिंग के लिए इंटरैक्शन वापस पाने के लिए, `id` प्रॉपर्टी का इस्तेमाल किया जा सकता है. इंटरैक्शन की स्थिति `in_progress` से बदलकर `completed` या `failed` हो जाएगी. बैकग्राउंड टास्क मैनेज करने के बारे में पूरी जानकारी वाली गाइड के लिए, [बैकग्राउंड में काम करना](https://ai.google.dev/gemini-api/docs/background-execution?hl=hi) लेख पढ़ें.
+Przedstawiciele muszą korzystać z usługi `background=True`. Interfejs API od razu zwraca obiekt częściowy
+`Interaction`. Za pomocą właściwości `id` możesz pobrać interakcję na potrzeby ankiety. Stan interakcji zmieni się z `in_progress` na `completed` lub `failed`. Szczegółowy przewodnik zarządzania zadaniami w tle znajdziesz w artykule [Wykonywanie w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl).
 
-### स्ट्रीमिंग
+### Streaming
 
-Deep Research की सुविधा में स्ट्रीमिंग की सुविधा उपलब्ध है. इससे आपको रिसर्च की प्रोग्रेस के बारे में रीयल-टाइम में अपडेट मिलते हैं. जैसे, सोच की खास जानकारी, टेक्स्ट आउटपुट, और जनरेट की गई इमेज.
-आपको `stream=True` और `background=True` को सेट करना होगा.
+Deep Research obsługuje przesyłanie strumieniowe, dzięki czemu możesz otrzymywać aktualizacje w czasie rzeczywistym dotyczące postępów w badaniach, w tym podsumowania przemyśleń, dane wyjściowe w postaci tekstu i wygenerowane obrazy.
+Musisz ustawić wartości `stream=True` i `background=True`.
 
-जवाब देने के लिए की गई कार्रवाइयों (सोच) और प्रोग्रेस के अपडेट पाने के लिए, आपको **सोच के बारे में खास जानकारी** देने की सुविधा चालू करनी होगी. इसके लिए, `agent_config` में जाकर `thinking_summaries` को `"auto"` पर सेट करें. इसके बिना, स्ट्रीम सिर्फ़ फ़ाइनल नतीजे दिखा सकती है.
+Aby otrzymywać pośrednie kroki rozumowania (myśli) i informacje o postępach, musisz włączyć **podsumowania myślenia**, ustawiając wartość `thinking_summaries` na `"auto"` w `agent_config`. Bez tego strumień może dostarczać tylko wyniki końcowe.
 
-#### स्ट्रीम इवेंट के टाइप
+#### Typy zdarzeń strumienia
 
-| इवेंट किस तरह का है | डेल्टा टाइप | ब्यौरा |
+| Typ zdarzenia | Typ delty | Opis |
 | --- | --- | --- |
-| `step.delta` | `thought` | एजेंट का इंटरमीडिएट रीज़निंग स्टेप. |
-| `step.delta` | `text` | जवाब के टेक्स्ट का हिस्सा. |
-| `step.delta` | `image` | जनरेट की गई इमेज (base64 कोड में बदली गई). |
+| `step.delta` | `thought` | Pośredni krok rozumowania agenta. |
+| `step.delta` | `text` | Część ostatecznego tekstu wyjściowego. |
+| `step.delta` | `image` | Wygenerowany obraz (zakodowany w formacie base64). |
 
-यहां एक उदाहरण दिया गया है. इसमें रिसर्च टास्क शुरू किया जाता है और स्ट्रीम को अपने-आप फिर से कनेक्ट होने की सुविधा के साथ प्रोसेस किया जाता है. यह `interaction_id` और `last_event_id` को ट्रैक करता है, ताकि कनेक्शन टूटने (उदाहरण के लिए, 600 सेकंड के टाइमआउट के बाद) पर, यह वहीं से शुरू हो सके जहां यह रुका था.
+W tym przykładzie rozpoczyna się zadanie badawcze i przetwarzanie strumienia z automatycznym ponownym łączeniem. Śledzi ona `interaction_id` i `last_event_id`, dzięki czemu w przypadku utraty połączenia (np. po upływie 600-sekundowego limitu czasu) może wznowić działanie od miejsca, w którym zostało przerwane.
 
 ### Python
 
@@ -1032,9 +1033,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## फ़ॉलो-अप वाले सवाल पूछना और बातचीत करना
+## Dodatkowe pytania i interakcje
 
-एजेंट से फ़ाइनल रिपोर्ट मिलने के बाद, `previous_interaction_id` का इस्तेमाल करके बातचीत जारी रखी जा सकती है. इससे आपको पूरी रिसर्च को फिर से शुरू किए बिना, रिसर्च के किसी खास सेक्शन के बारे में ज़्यादा जानकारी पाने, उसे छोटा करने या उसके बारे में ज़्यादा जानकारी देने के लिए कहा जा सकता है.
+Po przesłaniu przez pracownika obsługi klienta ostatecznego raportu możesz kontynuować rozmowę, korzystając z `previous_interaction_id`. Dzięki temu możesz poprosić o wyjaśnienie, podsumowanie lub rozwinięcie określonych sekcji badania bez konieczności ponownego rozpoczynania całego zadania.
 
 ### Python
 
@@ -1077,28 +1078,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Gemini Deep Research Agent का इस्तेमाल कब करना चाहिए
+## Kiedy warto używać agenta Deep Research w Gemini
 
-Deep Research एक **एजेंट** है, न कि सिर्फ़ एक मॉडल. यह उन वर्कलोड के लिए सबसे सही है जिनमें कम इंतज़ार के समय वाली चैट के बजाय "ऐनलिस्ट-इन-अ-बॉक्स" अप्रोच की ज़रूरत होती है.
+Deep Research to **agent**, a nie tylko model. Najlepiej sprawdza się w przypadku zbiorów zadań, które wymagają podejścia „analityk w pudełku”, a nie czatu o niskim poziomie opóźnień.
 
-| सुविधा | Gemini के स्टैंडर्ड मॉडल | Gemini की Deep Research सुविधा वाला एजेंट |
+| Funkcja | Standardowe modele Gemini | Agent Deep Research w Gemini |
 | --- | --- | --- |
-| **लेटेंसी** | सेकंड | मिनट (एसिंक/बैकग्राउंड) |
-| **प्रोसेस** | जनरेट करें -> आउटपुट | प्लान -> खोजें -> पढ़ें -> दोहराएं -> आउटपुट |
-| **आउटपुट** | बातचीत वाला टेक्स्ट, कोड, कम शब्दों में जानकारी | ज़्यादा जानकारी वाली रिपोर्ट, लंबी अवधि का विश्लेषण, तुलना करने वाली टेबल |
-| **इनके लिए सबसे सही** | चैटबॉट, जानकारी निकालना, क्रिएटिव राइटिंग | मार्केट ऐनलिसिस, ज़रूरी जांच, साहित्य की समीक्षाएं, प्रतिस्पर्धी लैंडस्केपिंग |
+| **Opóźnienie** | Sekundy | Minuty (asynchroniczne/w tle) |
+| **Proces** | Generowanie –> dane wyjściowe | Planowanie –> Wyszukiwanie –> Czytanie –> Iteracja –> Wynik |
+| **Dane wyjściowe** | tekst konwersacyjny, kod, krótkie podsumowania; | Szczegółowe raporty, długie analizy, tabele porównawcze |
+| **Najlepsze zastosowania** | Chatboty, wyodrębnianie, pisanie kreatywne | analiza rynku, należyta staranność, przeglądy literatury, analiza konkurencji; |
 
-## एजेंट का कॉन्फ़िगरेशन
+## Konfiguracja agenta
 
-Deep Research, व्यवहार को कंट्रोल करने के लिए `agent_config` पैरामीटर का इस्तेमाल करता है.
-इसे डिक्शनरी के तौर पर पास करें. इसमें ये फ़ील्ड शामिल होने चाहिए:
+Funkcja Deep Research używa parametru `agent_config` do kontrolowania zachowania.
+Przekaż go jako słownik z tymi polami:
 
-| फ़ील्ड | टाइप | डिफ़ॉल्ट | ब्यौरा |
+| Pole | Typ | Domyślny | Opis |
 | --- | --- | --- | --- |
-| `type` | `string` | ज़रूरी है | `"deep-research"` होना चाहिए. |
-| `thinking_summaries` | `string` | `"none"` | स्ट्रीमिंग के दौरान, तर्क देने के इंटरमीडिएट चरणों को पाने के लिए, इसे `"auto"` पर सेट करें. इसे बंद करने के लिए, `"none"` पर सेट करें. |
-| `visualization` | `string` | `"auto"` | एजेंट के जनरेट किए गए चार्ट और इमेज को चालू करने के लिए, इसे `"auto"` पर सेट करें. इसे बंद करने के लिए, `"off"` पर सेट करें. |
-| `collaborative_planning` | `boolean` | `false` | रिसर्च शुरू होने से पहले, कई बार प्लान की समीक्षा करने की सुविधा चालू करने के लिए, इसे `true` पर सेट करें. |
+| `type` | `string` | Wymagane | Musi to być `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Ustaw wartość `"auto"`, aby otrzymywać pośrednie kroki rozumowania podczas przesyłania strumieniowego. Aby wyłączyć tę funkcję, ustaw wartość `"none"`. |
+| `visualization` | `string` | `"auto"` | Ustaw wartość `"auto"`, aby włączyć wykresy i obrazy generowane przez agenta. Aby wyłączyć tę funkcję, ustaw wartość `"off"`. |
+| `collaborative_planning` | `boolean` | `false` | Ustaw na `true`, aby włączyć wieloetapowe sprawdzanie planu przed rozpoczęciem wyszukiwania. |
 
 ### Python
 
@@ -1153,58 +1154,58 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## उपलब्धता और कीमत
+## Dostępność i ceny
 
-Google AI Studio और Gemini API में Interactions API का इस्तेमाल करके, Gemini Deep Research Agent को ऐक्सेस किया जा सकता है.
+Do agenta Deep Research w Gemini możesz uzyskać dostęp za pomocą interfejsu Interactions API w Google AI Studio i Gemini API.
 
-कीमत, [इस्तेमाल के हिसाब से पेमेंट करने वाले मॉडल](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#pricing-for-agents) के हिसाब से तय की जाती है. यह Gemini के बुनियादी मॉडल और एजेंट के इस्तेमाल किए गए टूल के हिसाब से तय होती है. स्टैंडर्ड चैट के अनुरोधों में, एक अनुरोध से एक आउटपुट मिलता है. हालांकि, Deep Research के टास्क में एजेंटिक वर्कफ़्लो होता है. एक अनुरोध करने पर, प्लानिंग, खोजने, पढ़ने, और तर्क करने की प्रोसेस अपने-आप शुरू हो जाती है.
+Ceny są oparte na [modelu płatności za wykorzystanie](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#pricing-for-agents), który zależy od podstawowych modeli Gemini i narzędzi używanych przez agenta. W odróżnieniu od standardowych żądań czatu, w których przypadku żądanie prowadzi do jednego wyniku, zadanie Deep Research to proces oparty na działaniach agenta. Pojedyncze żądanie wywołuje autonomiczne zapętlenie planowania, wyszukiwania, czytania i wnioskowania.
 
-### अनुमानित लागतें
+### Szacunkowy koszt
 
-रिसर्च की ज़रूरत के हिसाब से, लागत अलग-अलग होती है. एजेंट, आपके प्रॉम्प्ट का जवाब देने के लिए, अपने-आप यह तय करता है कि उसे कितना पढ़ना और खोजना है.
+Koszty zależą od głębokości wymaganych badań. Agent samodzielnie określa, ile czytania i wyszukiwania jest potrzebne, aby odpowiedzieć na Twój prompt.
 
-- **Deep Research** (`deep-research-preview-04-2026`): सामान्य क्वेरी के लिए, एजेंट ~80 सर्च क्वेरी, ~2,50,000 इनपुट टोकन (~50 से 70% कैश मेमोरी में सेव) और ~60,000 आउटपुट टोकन का इस्तेमाल कर सकता है.
-  - **कुल अनुमानित शुल्क:** हर टास्क के लिए ~100 रुपये से 300 रुपये
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): प्रतिस्पर्धी कंपनियों के बारे में ज़्यादा जानकारी पाने या पूरी तरह से जांच करने के लिए, एजेंट ~160 खोज क्वेरी, ~9 लाख इनपुट टोकन (जिनमें से ~50 से 70% कैश मेमोरी में सेव होते हैं) और ~80 हज़ार आउटपुट टोकन का इस्तेमाल कर सकता है.
-  - **कुल अनुमानित शुल्क:** हर टास्क के लिए ~300 रुपये से 700 रुपये
+- **Deep Research** (`deep-research-preview-04-2026`): w przypadku typowego zapytania wymagającego umiarkowanej analizy agent może użyć około 80 zapytań, około 250 tys. tokenów wejściowych (ok. 50–70% z nich może być w pamięci podręcznej) i około 60 tys. tokenów wyjściowych.
+  - **Szacunkowa suma:** od 1,00 PLN do 3,00 PLN za zadanie
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): w przypadku dogłębnej analizy konkurencji lub szczegółowego badania due diligence agent może użyć do ok. 160 zapytań, ok. 900 tys. tokenów wejściowych (ok. 50–70% – z pamięci podręcznej) i ok. 80 tys. tokenów wyjściowych.
+  - **Szacunkowa suma:** od 3 do 7 PLN za zadanie
 
-## सुरक्षा से जुड़ी बातें
+## kwestie bezpieczeństwa;
 
-किसी एजेंट को वेब और आपकी निजी फ़ाइलों का ऐक्सेस देने से पहले, सुरक्षा से जुड़े जोखिमों के बारे में सोच-विचार करना ज़रूरी है.
+Przyznanie agentowi dostępu do internetu i plików prywatnych wymaga starannego rozważenia zagrożeń związanych z bezpieczeństwem.
 
-- **फ़ाइलों का इस्तेमाल करके प्रॉम्प्ट इंजेक्ट करना:** एजेंट, आपकी दी गई फ़ाइलों का कॉन्टेंट पढ़ता है. पक्का करें कि अपलोड किए गए दस्तावेज़ (पीडीएफ़, टेक्स्ट फ़ाइलें) भरोसेमंद सोर्स से लिए गए हों. नुकसान पहुंचाने वाली फ़ाइल में ऐसा छिपा हुआ टेक्स्ट हो सकता है जिसे एजेंट के आउटपुट में बदलाव करने के लिए डिज़ाइन किया गया हो.
-- **वेब कॉन्टेंट से जुड़े जोखिम:** एजेंट, सार्वजनिक वेब पर खोज करता है. हम मज़बूत सुरक्षा फ़िल्टर लागू करते हैं. हालांकि, इस बात का खतरा बना रहता है कि एजेंट को नुकसान पहुंचाने वाले वेब पेजों का सामना करना पड़ सकता है और वह उन्हें प्रोसेस कर सकता है. हमारा सुझाव है कि जवाब में दिए गए `citations` की समीक्षा करके, स्रोतों की पुष्टि करें.
-- **डेटा चोरी:** अगर आपने एजेंट को वेब ब्राउज़ करने की अनुमति दी है, तो उससे संवेदनशील
-  आंतरिक डेटा की खास जानकारी देने के लिए कहते समय सावधानी बरतें.
+- **Wstrzykiwanie promptów za pomocą plików:** agent odczytuje zawartość podanych przez Ciebie plików. Upewnij się, że przesłane dokumenty (pliki PDF, pliki tekstowe) pochodzą z zaufanych źródeł. Złośliwy plik może zawierać ukryty tekst, który ma na celu manipulowanie danymi wyjściowymi agenta.
+- **Ryzyko związane z treściami w internecie:** agent przeszukuje publiczny internet. Stosujemy co prawda zaawansowane filtry bezpieczeństwa, ale istnieje ryzyko, że agent natrafi na złośliwe strony internetowe i je przetworzy. Zalecamy sprawdzenie `citations` podanych w odpowiedzi, aby zweryfikować źródła.
+- **Eksfiltracja:** zachowaj ostrożność, prosząc agenta o podsumowanie poufnych danych wewnętrznych, jeśli zezwalasz mu też na przeglądanie internetu.
 
-## सबसे सही तरीके
+## Sprawdzone metody
 
-- **जिन सवालों के जवाब नहीं पता उनके लिए प्रॉम्प्ट:** एजेंट को यह निर्देश दें कि वह मौजूद न होने वाले डेटा को कैसे मैनेज करे.
-  उदाहरण के लिए, अपने प्रॉम्प्ट में *"अगर 2025 के लिए कुछ खास आंकड़े उपलब्ध नहीं हैं, तो अनुमान लगाने के बजाय साफ़ तौर पर बताएं कि वे अनुमान हैं या उपलब्ध नहीं हैं"* जोड़ें.
-- **संदर्भ दें:** एजेंट को रिसर्च करने के लिए, बैकग्राउंड की जानकारी या इनपुट प्रॉम्प्ट में सीधे तौर पर पाबंदियां बताएं.
-- **साथ मिलकर प्लान बनाने की सुविधा का इस्तेमाल करें:** मुश्किल क्वेरी के लिए, साथ मिलकर प्लान बनाने की सुविधा चालू करें. इससे रिसर्च प्लान को लागू करने से पहले उसकी समीक्षा की जा सकेगी और उसे बेहतर बनाया जा सकेगा.
-- **मल्टीमॉडल इनपुट:** Deep Research Agent, मल्टीमॉडल इनपुट के साथ काम करता है.
-  इसका इस्तेमाल सावधानी से करें, क्योंकि इससे लागत बढ़ जाती है और कॉन्टेक्स्ट विंडो ओवरफ़्लो होने का खतरा बढ़ जाता है.
+- **Pytaj o nieznane:** podaj agentowi instrukcje dotyczące postępowania w przypadku brakujących danych.
+  Na przykład dodaj do promptu *„Jeśli konkretne dane za 2025 r. nie są dostępne, wyraźnie zaznacz, że są to prognozy lub że są niedostępne, zamiast je szacować”*.
+- **Podaj kontekst:** ugruntuj wiedzę agenta, podając informacje lub ograniczenia bezpośrednio w prompcie wejściowym.
+- **Korzystaj z planowania zespołowego:** w przypadku złożonych zapytań włącz planowanie zespołowe, aby przed wykonaniem zadania przejrzeć i dopracować plan badań.
+- **Wprowadzanie danych w różnych formatach:** agent Deep Research obsługuje wprowadzanie danych w różnych formatach.
+  Używaj go ostrożnie, ponieważ zwiększa koszty i ryzyko przepełnienia okna kontekstu.
 
-## सीमाएं
+## Ograniczenia
 
-- **कस्टम टूल:** फ़िलहाल, कस्टम फ़ंक्शन कॉलिंग टूल उपलब्ध नहीं कराए जा सकते. हालांकि, डीप रिसर्च एजेंट के साथ रिमोट एमसीपी (मॉडल कॉन्टेक्स्ट प्रोटोकॉल) सर्वर का इस्तेमाल किया जा सकता है.
-- **स्ट्रक्चर्ड आउटपुट:** फ़िलहाल, डीप रिसर्च एजेंट स्ट्रक्चर्ड आउटपुट के साथ काम नहीं करता है.
-- **रिसर्च के लिए ज़्यादा से ज़्यादा समय:** Deep Research एजेंट को रिसर्च करने के लिए ज़्यादा से ज़्यादा 60 मिनट मिलते हैं. ज़्यादातर टास्क 20 मिनट में पूरे हो जाने चाहिए.
-- **स्टोर से जुड़ी ज़रूरी शर्तें:** `background=True` का इस्तेमाल करके एजेंट को रन करने के लिए, `store=True` ज़रूरी है.
-- **Google Search:** [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) डिफ़ॉल्ट रूप से चालू होता है. साथ ही, भरोसेमंद स्रोतों से मिली जानकारी के आधार पर जवाब देने की सुविधा के लिए, [कुछ खास पाबंदियां](https://ai.google.dev/gemini-api/terms?hl=hi#use-restrictions2) लागू होती हैं.
+- **Niestandardowe narzędzia:** obecnie nie możesz udostępniać niestandardowych narzędzi do wywoływania funkcji, ale możesz używać zdalnych serwerów MCP (Model Context Protocol) z agentem Deep Research.
+- **Uporządkowane dane wyjściowe:** agent Deep Research nie obsługuje obecnie uporządkowanych danych wyjściowych.
+- **Maksymalny czas wyszukiwania:** agent Deep Research ma maksymalny czas wyszukiwania wynoszący 60 minut. Większość zadań powinna zostać ukończona w ciągu 20 minut.
+- **Wymagania dotyczące sklepu:** uruchomienie agenta za pomocą `background=True` wymaga
+  `store=True`.
+- **Wyszukiwarka Google:** [wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) jest domyślnie włączona, a do wyników opartych na wiedzy stosowane są [określone ograniczenia](https://ai.google.dev/gemini-api/terms?hl=pl#use-restrictions2).
 
-## आगे क्या करना है
+## Co dalej?
 
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) के बारे में ज़्यादा जानें.
-- [फ़ाइल खोज](https://ai.google.dev/gemini-api/docs/file-search?hl=hi) टूल का इस्तेमाल करके, अपने डेटा का इस्तेमाल करने का तरीका जानें.
+- Dowiedz się więcej o [interfejsie Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl).
+- Dowiedz się, jak korzystać z własnych danych za pomocą narzędzia [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl).
 
-सुझाव भेजें
+Prześlij opinię
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-आखिरी बार 2026-07-14 (UTC) को अपडेट किया गया.
+Ostatnia aktualizacja: 2026-07-14 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Chcesz przekazać coś jeszcze?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-14 (UTC) को अपडेट किया गया."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-14 UTC."],[],[]]

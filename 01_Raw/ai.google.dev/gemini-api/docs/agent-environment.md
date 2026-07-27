@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=ko
-fetched_at: 2026-07-20T04:38:53.431289+00:00
-title: "\uad00\ub9ac\ud615 \uc5d0\uc774\uc804\ud2b8\uc758 \ud658\uacbd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi
+fetched_at: 2026-07-27T04:36:29.617901+00:00
+title: "\u092e\u0948\u0928\u0947\u091c \u0915\u093f\u090f \u091c\u093e \u0930\u0939\u0947 \u090f\u091c\u0947\u0902\u091f\u094b\u0902 \u092e\u0947\u0902 \u090f\u0928\u0935\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-의견 보내기
+सुझाव भेजें
 
-# 관리형 에이전트의 환경
+# मैनेज किए जा रहे एजेंटों में एनवायरमेंट
 
-환경은 에이전트가 코드를 실행하고 파일을 유지할 수 있는 격리된 공간을 제공하는 관리형 Linux 샌드박스입니다. 상호작용 컨텍스트와 분리되어 있으므로 여러 상호작용에서 동일한 환경을 재사용하거나 언제든지 새로 시작할 수 있습니다.
+एनवायरमेंट, मैनेज किए गए Linux सैंडबॉक्स होते हैं. इनसे एजेंट को कोड चलाने और फ़ाइलें सेव करने के लिए, अलग जगह मिलती है. ये इंटरैक्शन के कॉन्टेक्स्ट से अलग होते हैं. इसलिए, एक ही एनवायरमेंट को कई इंटरैक्शन में फिर से इस्तेमाल किया जा सकता है या किसी भी समय नया एनवायरमेंट बनाया जा सकता है.
 
-다음 예에서는 새로운 원격 환경으로 상호작용을 만들고 ID를 검색하는 방법을 보여줍니다.
+यहां दिए गए उदाहरण में, रिमोट एनवायरमेंट बनाकर उसके साथ इंटरैक्शन करने और उसका आईडी पाने का तरीका बताया गया है:
 
 ### Python
 
@@ -67,17 +67,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## `environment` 매개변수
+## `environment` पैरामीटर
 
-`environment` 매개변수는 세 가지 형식을 허용합니다.
+`environment` पैरामीटर के लिए, तीन फ़ॉर्मैट इस्तेमाल किए जा सकते हैं:
 
-| 양식 | 예 | 용도 |
+| फ़ॉर्म | उदाहरण | कब इस्तेमाल करें |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | 새 샌드박스를 프로비저닝합니다. |
-| 환경 ID | `environment="env_abc123"` | 모든 파일과 패키지가 포함된 기존 샌드박스를 재사용합니다. |
-| 구성 객체 | `environment={...}` | 소스 또는 네트워크 규칙 또는 둘 다를 사용하여 새 샌드박스를 프로비저닝합니다. |
+| `"remote"` | `environment="remote"` | नया सैंडबॉक्स बनाएं. |
+| एनवायरमेंट आईडी | `environment="env_abc123"` | मौजूदा सैंडबॉक्स को उसकी सभी फ़ाइलों और पैकेज के साथ फिर से इस्तेमाल करें. |
+| कॉन्फ़िगरेशन ऑब्जेक्ट | `environment={...}` | सोर्स, नेटवर्क के नियमों या दोनों के साथ नया सैंडबॉक्स बनाएं. |
 
-다음 예에서는 `environment` 매개변수를 사용하는 세 가지 방법을 보여줍니다.
+यहां दिए गए उदाहरणों में, `environment` पैरामीटर का इस्तेमाल करने के तीन तरीके बताए गए हैं.
 
 ### Python
 
@@ -205,10 +205,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 환경 구성
+## एनवायरमेंट कॉन्फ़िगर करना
 
-환경을 설정하는 한 가지 방법은 에이전트에게 설치해야 하는 항목을 알려주는 것입니다.
-종속성 확인 및 문제 해결을 처리합니다. 환경이 준비되면 `environment_id`를 저장하고 재사용합니다.
+एनवायरमेंट सेट अप करने का एक तरीका यह है कि एजेंट को बताया जाए कि आपको क्या इंस्टॉल करना है.
+यह डिपेंडेंसी रिज़ॉल्यूशन और समस्या हल करने की प्रोसेस को मैनेज करता है. एनवायरमेंट तैयार होने के बाद, `environment_id` सेव करें और उसे फिर से इस्तेमाल करें.
 
 ### Python
 
@@ -285,15 +285,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 소스에서 마운트
+### किसी सोर्स से माउंट करना
 
-에이전트에 필요한 파일을 정확히 알고 있다면 반복하는 대신 단일 호출로 파일을 마운트합니다. `environment` 구성 객체는 세 가지 유형의 `sources` 배열을 허용합니다.
+अगर आपको पता है कि एजेंट को किन फ़ाइलों की ज़रूरत है, तो उन्हें एक ही कॉल में माउंट करें. इसके लिए, बार-बार कॉल करने की ज़रूरत नहीं है. `environment` कॉन्फ़िगरेशन ऑब्जेक्ट, तीन टाइप वाले `sources` कलेक्शन को स्वीकार करता है:
 
-| 소스 유형 | `type` 값 | 설명 | 한도 |
+| सोर्स टाइप | `type` की वैल्यू | ब्यौरा | सीमा |
 | --- | --- | --- | --- |
-| Git 저장소 | `repository` | URL에서 저장소를 `target`의 샌드박스로 클론합니다. | 500 MB |
-| Cloud Storage | `gcs` | Cloud Storage에서 `target`의 샌드박스로 파일 또는 디렉터리를 복사합니다. | 2 GB |
-| 인라인 콘텐츠 | `inline` | `target`의 샌드박스에 있는 파일에 원시 텍스트 콘텐츠를 씁니다. | 파일당 1MB, 총 2MB |
+| Git डेटा स्टोर करने की जगह | `repository` | किसी यूआरएल से, डेटा स्टोर करने की जगह को `target` पर मौजूद सैंडबॉक्स में क्लोन करता है. | 500 एमबी |
+| Cloud Storage | `gcs` | Cloud Storage से किसी फ़ाइल या डायरेक्ट्री को कॉपी करके, `target` पर मौजूद सैंडबॉक्स में सेव करता है. | 2 GB |
+| इनलाइन कॉन्टेंट | `inline` | रॉ टेक्स्ट कॉन्टेंट को, `target` पर मौजूद सैंडबॉक्स में किसी फ़ाइल में लिखता है. | हर फ़ाइल के लिए एक एमबी, कुल दो एमबी |
 
 ### Python
 
@@ -398,16 +398,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-두 가지 접근 방식을 결합할 수 있습니다. 알려진 소스를 선언적으로 마운트한 다음 후속 상호작용을 반복하여 패키지를 설치하거나 설정 스크립트를 실행합니다. 커스텀 소스를 추가할 때 루트 (`/`)를 대상으로 설정할 수 없습니다. 항상 하위 디렉터리를 지정해야 합니다.
+दोनों तरीकों को एक साथ इस्तेमाल किया जा सकता है: जाने-पहचाने सोर्स को डिक्लेरेटिव तरीके से माउंट करें. इसके बाद, पैकेज इंस्टॉल करने या सेटअप स्क्रिप्ट चलाने के लिए, फ़ॉलो-अप इंटरैक्शन के साथ दोहराएं. कस्टम सोर्स जोड़ते समय, रूट (`/`) को टारगेट के तौर पर सेट नहीं किया जा सकता. इसके लिए, हमेशा सब-डायरेक्ट्री तय करनी होगी.
 
-### 비공개 소스
+### निजी सोर्स
 
-네트워크 구성에 사용자 인증 정보를 추가하여 비공개 GitHub 저장소 또는 비공개 Cloud Storage 버킷에서 다운로드할 수도 있습니다.
+नेटवर्क कॉन्फ़िगरेशन में क्रेडेंशियल जोड़कर, निजी GitHub रिपॉज़िटरी या निजी Cloud Storage बकेट से भी डाउनलोड किया जा सकता है:
 
-**비공개 Git 저장소**의 경우 `Basic` 인증을
-사용하여 [GitHub 개인 액세스 토큰
-(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)을 사용합니다.
-`x-oauth-basic`을 사용자 이름으로 사용하여 토큰을 인코딩합니다.
+**निजी Git रिपॉज़िटरी** के लिए, अपने
+[GitHub Personal Access Token
+(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) के साथ `Basic` ऑथेंटिकेशन का इस्तेमाल करें.
+टोकन को `x-oauth-basic` को उपयोगकर्ता नाम के तौर पर इस्तेमाल करके एनकोड करें:
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -512,7 +512,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-**비공개 Cloud Storage 버킷**의 경우 표준 OAuth 2.0 Bearer 토큰을 사용합니다.
+**निजी Cloud Storage बकेट** के लिए, स्टैंडर्ड OAuth 2.0 Bearer टोकन का इस्तेमाल करें:
 
 ```
 gcloud auth print-access-token
@@ -617,25 +617,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 사전 설치된 소프트웨어
+## पहले से इंस्टॉल किया गया सॉफ़्टवेयर
 
-샌드박스는 Ubuntu에서 실행되며 런타임과 일반 패키지가 사전 설치되어 제공됩니다. 에이전트는 `pip
-install` 또는 `npm install`을 사용하여 런타임에 추가 패키지를 설치할 수 있습니다. 상호작용 중에 설치된 패키지는 동일한 `environment_id`를 재사용할 때 유지됩니다.
+सैंडबॉक्स, Ubuntu पर चलता है. इसमें रनटाइम और सामान्य पैकेज पहले से इंस्टॉल होते हैं. एजेंट, रनटाइम के दौरान `pip
+install` या `npm install` का इस्तेमाल करके, अतिरिक्त पैकेज इंस्टॉल कर सकता है. किसी इंटरैक्शन के दौरान इंस्टॉल किए गए पैकेज, उसी `environment_id` को फिर से इस्तेमाल करने पर बने रहते हैं.
 
-| 카테고리 | 사전 설치 패키지 |
+| कैटगरी | पहले से इंस्टॉल किए गए पैकेज |
 | --- | --- |
-| **UNIX 도구** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
+| **UNIX टूल** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
 | **Python 3.12** | `numpy`, `pandas`, `requests`, `google-genai`, `beautifulsoup4`, `pyyaml`, `ast-grep-cli` |
 | **Node.js 22** | `create-next-app`, `create-vite`, `typescript` |
 
-## 네트워크 구성
+## नेटवर्क कॉन्फ़िगरेशन
 
-기본적으로 환경에는 무제한 아웃바운드 네트워크 액세스 권한이 있습니다. `network` 필드를 사용하여 아웃바운드 트래픽을 특정 도메인으로 제한합니다. 각 규칙은 일치하는 요청에 헤더를 삽입할 `domain` 및 선택적 `transform` 객체를 지정합니다. 이러한 헤더는 상호작용마다 고유할 수 있으며 동일한 환경에 대해 업데이트할 수 있습니다.
+डिफ़ॉल्ट रूप से, एनवायरमेंट में आउटबाउंड नेटवर्क ऐक्सेस पर कोई पाबंदी नहीं होती. आउटबाउंड ट्रैफ़िक को खास डोमेन तक सीमित करने के लिए, `network` फ़ील्ड का इस्तेमाल करें. हर नियम में, `domain` और मैचिंग अनुरोधों में हेडर इंजेक्ट करने के लिए, एक वैकल्पिक `transform` ऑब्जेक्ट तय किया जाता है. ये हेडर, हर इंटरैक्शन के लिए अलग-अलग हो सकते हैं. साथ ही, इन्हें एक ही एनवायरमेंट के लिए अपडेट किया जा सकता है.
 
-| 필드 | 유형 | 설명 |
+| फ़ील्ड | टाइप | ब्यौरा |
 | --- | --- | --- |
-| `domain` | `string` | 일치시킬 도메인입니다. 정확한 호스트 이름 또는 모든 도메인에 `*`를 사용합니다. |
-| `transform` | `object` | 일치하는 요청에 삽입할 헤더를 나타내는 플랫 키-값 쌍이 포함된 객체입니다(예: `{"Authorization": "Bearer ..."}`). |
+| `domain` | `string` | मैच करने के लिए डोमेन. सभी डोमेन के लिए, सटीक होस्टनेम या `*` का इस्तेमाल करें. |
+| `transform` | `object` | ऑब्जेक्ट में फ़्लैट की-वैल्यू पेयर होते हैं.ये पेयर, मैचिंग अनुरोधों में इंजेक्ट किए जाने वाले हेडर को दिखाते हैं. जैसे, `{"Authorization": "Bearer ..."}`. |
 
 ### Python
 
@@ -724,14 +724,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-허용 목록이 설정되면 명시적으로 나열된 도메인에 대한 요청만 허용됩니다. 와일드 카드를 사용하여 하위 도메인을 일치시킬 수 있지만 (예: `{"domain":
-"*.example.com"}`), 루트 도메인
-`example.com`은 별도로 추가해야 합니다. 삽입된 헤더 없이 나열되지 않은 도메인 라우팅과 같은 다른 모든 트래픽을 허용하려면 `{"domain": "*"}`을
-캐치올 항목으로 추가합니다.
+अनुमति वाली सूची सेट होने पर, सिर्फ़ सूची में शामिल डोमेन के अनुरोधों को अनुमति दी जाती है. सबडोमेन से मैच करने के लिए, वाइल्डकार्ड का इस्तेमाल किया जा सकता है. जैसे, `{"domain":
+"*.example.com"}`. हालांकि, ध्यान दें कि इससे रूट डोमेन
+`example.com` मैच नहीं होता. इसे अलग से जोड़ना होगा. अन्य सभी ट्रैफ़िक को अनुमति देने के लिए, जैसे
+कि सूची में शामिल न किए गए डोमेन को बिना हेडर इंजेक्ट किए रूट करने के लिए, `{"domain": "*"}` को कैच-ऑल एंट्री के तौर पर
+जोड़ें.
 
-### 사용자 인증 정보
+### क्रेडेंशियल
 
-헤더 변환을 추가하여 에이전트가 사용할 사용자 인증 정보를 추가할 수 있습니다. 사용자 인증 정보는 이그레스 프록시에 의해 각 HTTP 헤더에 삽입되며 샌드박스 내에서 환경 변수 또는 파일로 노출되지 않습니다.
+हेडर ट्रांसफ़ॉर्मेशन जोड़कर, अपने एजेंट के लिए क्रेडेंशियल जोड़े जा सकते हैं. क्रेडेंशियल को, संबंधित एचटीटीपी हेडर में इग्रेस प्रॉक्सी से इंजेक्ट किया जाता है. इन्हें एनवायरमेंट वैरिएबल या फ़ाइलों के तौर पर, सैंडबॉक्स में कभी भी नहीं दिखाया जाता.
 
 ### Python
 
@@ -824,9 +825,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 네트워크 액세스 사용 중지
+### नेटवर्क ऐक्सेस की सुविधा बंद करना
 
-모든 아웃바운드 네트워크 액세스를 차단하려면 `network`를 `disabled`로 설정합니다.
+आउटबाउंड नेटवर्क ऐक्सेस को ब्लॉक करने के लिए, `network` को `disabled` पर सेट करें:
 
 ### Python
 
@@ -882,10 +883,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 사용자 인증 정보 새로고침
+### क्रेडेंशियल रीफ़्रेश करना
 
-액세스 토큰 및 단기 API 키와 같은 사용자 인증 정보가 만료됩니다.
-다음 상호작용에서 새 `network` 구성과 함께 기존 `environment_id`를 전달하여 사용자 인증 정보를 새로고침할 수 있습니다. 새 네트워크 규칙은 이전 규칙을 완전히 대체하지만 환경의 파일 시스템 상태(설치된 패키지, 파일, 저장소)는 유지됩니다.
+ऐक्सेस टोकन और कम समय के लिए मान्य एपीआई कुंजियों जैसे क्रेडेंशियल की समयसीमा खत्म हो जाती है.
+इन्हें रीफ़्रेश करने के लिए, अगले इंटरैक्शन में मौजूदा `environment_id` के साथ नया `network` कॉन्फ़िगरेशन पास करें. नए नेटवर्क के नियम, पुराने नियमों की जगह पूरी तरह से ले लेते हैं. वहीं, एनवायरमेंट के फ़ाइल सिस्टम की स्थिति (इंस्टॉल किए गए पैकेज, फ़ाइलें, रिपॉज़िटरी) बनी रहती है.
 
 ### Python
 
@@ -1012,21 +1013,169 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 환경 수명 주기
+## एनवायरमेंट का लाइफ़साइकल
 
-환경은 다음 수명 주기를 따릅니다.
+एनवायरमेंट का लाइफ़साइकल इस तरह होता है:
 
-| 주 | 동작 |
+| राज्य | व्यवहार |
 | --- | --- |
-| **생성 시간** | 상호작용에서 `environment: "remote"` 또는 구성 객체를 지정할 때 프로비저닝됩니다. |
-| **활성** | 상호작용이 진행되는 동안 실행됩니다. |
-| **유휴** | 15분 동안 활동이 없으면 자동 스냅샷이 생성되고 중지됩니다. |
-| **오프라인** | 마지막 활성 후 7일 동안 보관됩니다. ID를 전달하여 다시 시작할 수 있습니다. |
-| **삭제됨** | 시스템에서 삭제되었습니다. |
+| **बनाया गया** | जब कोई इंटरैक्शन, `environment: "remote"` या कॉन्फ़िगरेशन ऑब्जेक्ट तय करता है, तब एनवायरमेंट बनाया जाता है. |
+| **चालू है** | इंटरैक्शन के दौरान चालू रहता है. |
+| **कुछ समय से इस्तेमाल में नहीं है** | 15 मिनट तक कोई गतिविधि न होने पर, इसका स्नैपशॉट अपने-आप ले लिया जाता है और यह बंद हो जाता है. |
+| **ऑफ़लाइन** | पिछली बार चालू होने के बाद, सात दिनों तक बना रहता है. इसका आईडी पास करके, इसे फिर से चालू किया जा सकता है. |
+| **मिटाया गया** | टीटीएल के सात दिनों की समयसीमा खत्म होने के बाद या मैन्युअल तरीके से मिटाने पर, इसे सिस्टम से अपने-आप हटा दिया जाता है. |
 
-## 환경에서 파일 다운로드
+## Environments API
 
-에이전트는 실행 중에 샌드박스 내에 파일을 만듭니다. Files API를 사용하여 전체 환경 스냅샷을 tar 파일로 다운로드할 수 있습니다.
+सैंडबॉक्स सेशन को प्रोग्राम के हिसाब से मैनेज करने के लिए, Environments API का इस्तेमाल किया जा सकता है.
+एनवायरमेंट की सूची बनाने से, चालू सेशन के आईडी का पता लगाया जा सकता है. साथ ही, लंबे समय तक चलने वाले टास्क के दौरान, क्लाइंट कनेक्शन खत्म होने पर, स्थिति को वापस लाया जा सकता है. सेशन का मेटाडेटा भी देखा जा सकता है. साथ ही, वर्कफ़्लो खत्म होने पर, एनवायरमेंट को साफ़ तौर पर मिटाया जा सकता है. इसके लिए, टीटीएल की समयसीमा खत्म होने का इंतज़ार करने की ज़रूरत नहीं है.
+
+### एनवायरमेंट की सूची बनाना
+
+अपने प्रोजेक्ट से जुड़े चालू एनवायरमेंट की सूची बनाएं. जवाब के बैच का साइज़ कंट्रोल करने के लिए, पेज पर नंबर डालने वाले पैरामीटर का इस्तेमाल करें.
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+for env in client.environments.list(page_size=10):
+    print(f"Environment ID: {env.environment_id}, Type: {env.type}")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const response = await client.environments.list({ pageSize: 10 });
+for (const env of response.environments) {
+    console.log(`Environment ID: ${env.environment_id}, Type: ${env.type}`);
+}
+```
+
+### REST
+
+```
+curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments?pageSize=10" \
+-H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+जवाब, यहां दिए गए उदाहरण की तरह दिखता है:
+
+```
+{
+  "environments": [
+    {
+      "environment_id": "140128b2a13c12c00a5a0d8cf7af9469",
+      "type": "remote"
+    },
+    {
+      "environment_id": "362b738275a1d74af6f1c62bc050da73",
+      "type": "remote"
+    }
+  ],
+  "next_page_token": "Cj...5aE="
+}
+```
+
+### कोई एनवायरमेंट पाना
+
+किसी खास एनवायरमेंट के लिए, उसके संसाधन के नाम के हिसाब से मेटाडेटा और कॉन्फ़िगरेशन की जानकारी पाएं.
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+env = client.environments.get(name="environments/YOUR_ENVIRONMENT_ID")
+print(f"Environment ID: {env.environment_id}, Type: {env.type}")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const env = await client.environments.get({ name: "environments/YOUR_ENVIRONMENT_ID" });
+console.log(`Environment ID: ${env.environment_id}, Type: ${env.type}`);
+```
+
+### REST
+
+```
+curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/YOUR_ENVIRONMENT_ID" \
+-H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+जवाब, यहां दिए गए उदाहरण की तरह दिखता है:
+
+```
+{
+  "environment_id": "140128b2a13c12c00a5a0d8cf7af9469",
+  "type": "remote",
+  "sources": [
+    {
+      "type": "repository",
+      "source": "https://github.com/octocat/Spoon-Knife",
+      "target": "/workspace/spoon-knife"
+    }
+  ],
+  "network": {
+    "allowlist": [
+      {
+        "domain": "api.github.com"
+      },
+      {
+        "domain": "github.com"
+      }
+    ]
+  }
+}
+```
+
+### कोई एनवायरमेंट मिटाना
+
+अपने टास्क या पाइपलाइन खत्म होने पर, सैंडबॉक्स के संसाधनों को साफ़ करने के लिए, किसी एनवायरमेंट को साफ़ तौर पर खत्म करें और मिटाएं.
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+client.environments.delete(name="environments/YOUR_ENVIRONMENT_ID")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+await client.environments.delete({ name: "environments/YOUR_ENVIRONMENT_ID" });
+```
+
+### REST
+
+```
+curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/environments/YOUR_ENVIRONMENT_ID" \
+-H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+## एनवायरमेंट से फ़ाइलें डाउनलोड करना
+
+एजेंट, एक्ज़ीक्यूशन के दौरान सैंडबॉक्स में फ़ाइलें बनाता है. Files API का इस्तेमाल करके, पूरे एनवायरमेंट के स्नैपशॉट को टार फ़ाइल के तौर पर डाउनलोड किया जा सकता है:
 
 ### Python
 
@@ -1121,41 +1270,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## 가격 및 리소스
+## कीमत और संसाधन
 
-각 환경은 고정 리소스 할당으로 실행됩니다.
+हर एनवायरमेंट, तय किए गए संसाधन के साथ चलता है:
 
-| 리소스 | 값 |
+| संसाधन | मान |
 | --- | --- |
-| **CPU** | 4개의 코어 |
-| **메모리** | 16 GB |
+| **सीपीयू** | चार कोर |
+| **मेमोरी** | 16 जीबी |
 
-환경 컴퓨팅 (CPU, 메모리, 샌드박스 실행)은 프리뷰 기간 동안 **청구되지 않습니다**. 에이전트 토큰 비용은
-[가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#pricing-for-agents)을
-참조하세요.
+प्रीव्यू की अवधि के दौरान, एनवायरमेंट के कंप्यूट (सीपीयू, मेमोरी, सैंडबॉक्स एक्ज़ीक्यूशन) के लिए **कोई शुल्क नहीं लिया जाता**. एजेंट टोकन की लागत के बारे में जानने के लिए,
+[कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#pricing-for-agents) देखें.
 
-## 제한사항
+## सीमाएं
 
-- **프리뷰 상태:** 환경 및 관리형 에이전트는 프리뷰 버전입니다. 기능 및 스키마는 변경될 수 있습니다.
-- **인라인 소스 크기:** 인라인 소스는 파일당 1MB, 모든 파일에서 총 2MB로 제한됩니다.
-- **소스 크기**: Git 저장소는 500MB로 제한되고 Cloud Storage 저장소는 2GB로 제한됩니다.
-- **환경 시작:** 새 환경을 프로비저닝하는 데 최대 5초가 걸립니다. 대규모 소스 저장소는 이 시간을 늘릴 수 있습니다.
-- **파일 지원:** 에이전트는 현재 텍스트 및 이미지 파일 읽기로 제한됩니다. 바이너리 파일 지원은 아직 제공되지 않습니다.
-- **루트에서 마운트 안 됨:** 커스텀 소스를 추가할 때 루트 (`/`)를 대상으로 설정할 수 없습니다. 항상 하위 디렉터리를 지정해야 합니다.
+- **प्रीव्यू की स्थिति:** एनवायरमेंट और मैनेज किए गए एजेंट, प्रीव्यू में हैं. इनकी सुविधाओं और स्कीमा में बदलाव हो सकता है.
+- **इनलाइन सोर्स का साइज़:** इनलाइन सोर्स, हर फ़ाइल के लिए एक एमबी और सभी फ़ाइलों के लिए कुल दो एमबी तक सीमित हैं.
+- **सोर्स का साइज़**: Git रिपॉज़िटरी 500 एमबी और Cloud Storage रिपॉज़िटरी दो जीबी तक सीमित हैं.
+- **एनवायरमेंट का स्टार्टअप:** नया एनवायरमेंट बनाने में, करीब पांच सेकंड लगते हैं. बड़े सोर्स रिपॉज़िटरी की वजह से, इसमें ज़्यादा समय लग सकता है.
+- **एनवायरमेंट की समयसीमा खत्म होना:** ऑफ़लाइन एनवायरमेंट, सात दिनों तक बने रहते हैं. इसके बाद, टीटीएल क्लीनअप की सुविधा से, इनकी समयसीमा अपने-आप खत्म हो जाती है. समयसीमा खत्म हो चुके या अमान्य एनवायरमेंट आईडी को पास करने पर, `404 Not Found` गड़बड़ी दिखती है.
+- **फ़ाइल फ़ॉर्मैट के लिए सहायता:** फ़िलहाल, एजेंट सिर्फ़ टेक्स्ट और इमेज फ़ाइलें पढ़ सकता है. बाइनरी फ़ाइलें पढ़ने की सुविधा अभी उपलब्ध नहीं है.
+- **रूट से माउंट करने की सुविधा नहीं है:** कस्टम सोर्स जोड़ते समय, रूट (`/`) को टारगेट के तौर पर सेट नहीं किया जा सकता. इसके लिए, हमेशा सब-डायरेक्ट्री तय करनी होगी.
 
-## 다음 단계
+## आगे क्या करना है
 
-- [에이전트 개요](https://ai.google.dev/gemini-api/docs/agents?hl=ko): 관리형 에이전트의 핵심 개념에 대해 알아봅니다.
-- [빠른 시작](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ko): 멀티턴 대화 및 스트리밍으로 빌드를 시작합니다.
-- [Antigravity 에이전트](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko): 기본 에이전트의 기능, 도구, 가격 책정을 살펴봅니다.
-- [커스텀 에이전트 빌드](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ko): `AGENTS.md` 및 `SKILL.md`를 사용하여 자체 에이전트를 정의합니다.
+- [एजेंट की खास जानकारी](https://ai.google.dev/gemini-api/docs/agents?hl=hi): मैनेज किए गए एजेंट के मुख्य कॉन्सेप्ट के बारे में जानें.
+- [क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi): सिलसिलेवार बातचीत और स्ट्रीमिंग की सुविधा के साथ, एजेंट बनाना शुरू करें.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi): डिफ़ॉल्ट एजेंट की क्षमताओं, टूल, मॉडल चुनने के तरीके, और कीमत के बारे में जानें.
+- [कस्टम एजेंट बनाना](https://ai.google.dev/gemini-api/docs/custom-agents?hl=hi): `AGENTS.md` और `SKILL.md` का इस्तेमाल करके, अपने एजेंट तय करें.
 
-의견 보내기
+सुझाव भेजें
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-최종 업데이트: 2026-07-06(UTC)
+आखिरी बार 2026-07-23 (UTC) को अपडेट किया गया.
 
-의견을 전달하고 싶나요?
+क्या आपको हमें और कुछ बताना है?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-06(UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-23 (UTC) को अपडेट किया गया."],[],[]]

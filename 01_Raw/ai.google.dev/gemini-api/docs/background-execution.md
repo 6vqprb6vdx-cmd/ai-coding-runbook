@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-CN
-fetched_at: 2026-07-20T04:37:50.180750+00:00
-title: "\u540e\u53f0\u6267\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=id
+fetched_at: 2026-07-27T04:36:20.627857+00:00
+title: "Eksekusi latar belakang \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-发送反馈
+Kirim masukan
 
-# 后台执行
+# Eksekusi latar belakang
 
-对于深度研究、复杂推理或多步智能体执行等长时间运行的任务，连接超时可能会中断标准 HTTP 请求（通常在 60 秒后关闭）。[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 提供**后台执行**功能，以异步运行这些任务。
+Untuk tugas yang berjalan lama seperti riset mendalam, penalaran kompleks, atau eksekusi agen multi-langkah, waktu tunggu koneksi dapat mengganggu permintaan HTTP standar (yang biasanya ditutup setelah 60 detik). [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) menyediakan **eksekusi latar belakang** untuk menjalankan tugas ini secara asinkron.
 
-如需让互动一直运行，直到完成服务器上的任务，请在创建互动时设置 `"background": true`。该 API 会立即返回一个互动 ID，客户端应用可以使用该 ID 来轮询状态、流式传输进度或重新连接到断开连接的流。
+Agar interaksi berjalan hingga menyelesaikan tugas di server, tetapkan `"background": true` saat membuat interaksi. API akan segera menampilkan ID interaksi, yang dapat digunakan aplikasi klien untuk melakukan polling status, memproses streaming, atau menghubungkan kembali ke streaming yang terputus.
 
-标准 Gemini 模型（例如 `gemini-3.5-flash` 和 `gemini-3.1-pro-preview`）和受管理的代理（例如 `antigravity-preview-05-2026`）支持后台执行。
+Eksekusi di latar belakang didukung untuk model Gemini standar (seperti `gemini-3.5-flash` dan `gemini-3.1-pro-preview`) dan Agen Terkelola (seperti `antigravity-preview-05-2026`).
 
-## 创建后台互动
+## Membuat interaksi latar belakang
 
-如需启动后台互动，请在创建资源时将 `background` 参数设置为 `true`。
+Untuk memulai interaksi latar belakang, tetapkan parameter `background` ke `true` saat membuat resource.
 
 ### Python
 
@@ -72,31 +72,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 后台执行的运作方式
+## Cara kerja eksekusi latar belakang
 
-创建后台互动时，任务会在服务器上异步运行。互动会经历各种执行状态：
+Saat Anda membuat interaksi latar belakang, tugas akan berjalan secara asinkron di server. Interaksi bertransisi melalui berbagai status eksekusi:
 
-- `in_progress`：服务器正在积极执行互动（例如运行代码或进行研究）。
-- `requires_action`：互动已暂停，正在等待客户输入（例如确认工具执行或回答问题）。
-- `completed`：互动已成功完成，输出已可供使用。
-- `failed`：执行期间出错（例如工具故障或速率限制）。
-- `cancelled`：客户端请求停止了执行。
+- `in_progress`: Server sedang aktif menjalankan interaksi (seperti menjalankan kode atau melakukan riset).
+- `requires_action`: Interaksi telah dijeda dan menunggu input klien (seperti mengonfirmasi eksekusi alat atau menjawab pertanyaan).
+- `completed`: Interaksi berhasil diselesaikan dan output tersedia.
+- `failed`: Terjadi error selama eksekusi (seperti kegagalan alat atau batas kecepatan).
+- `cancelled`: Permintaan klien menghentikan eksekusi.
 
-### 使用场景
+### Kasus penggunaan
 
-使用后台执行功能可实现以下目的：
+Gunakan eksekusi latar belakang untuk:
 
-- **智能体执行**：需要执行代码、浏览网页或进行子智能体编排的任务（例如 `antigravity-preview-05-2026`）。
-- **Deep Research**：使用 `deep-research-preview-04-2026` 或 `deep-research-max-preview-04-2026` 运行，需要几分钟时间。
-- **长推理**：模型思考步骤超出标准 HTTP 连接限制的任务。
+- **Eksekusi agen:** Tugas yang memerlukan eksekusi kode, penjelajahan web, atau orkestrasi sub-agen (seperti `antigravity-preview-05-2026`).
+- **Deep Research:** Berjalan menggunakan `deep-research-preview-04-2026` atau `deep-research-max-preview-04-2026` yang memerlukan waktu beberapa menit.
+- **Penalaran panjang:** Tugas yang langkah-langkah pemikiran modelnya melampaui batas koneksi HTTP standar.
 
-## 检索结果
+## Mengambil hasil
 
-使用**轮询**或**流式传输**获取后台互动结果。
+Dapatkan hasil interaksi latar belakang menggunakan **polling** atau **streaming**.
 
-### 轮询模式（非阻塞）
+### Pola polling (tidak memblokir)
 
-轮询会使用非阻塞 GET 请求定期检查互动状态，直到达到终止状态。
+Polling memeriksa status interaksi secara berkala menggunakan permintaan GET non-blocking hingga mencapai status terminal.
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### 流式传输模式
+### Pola streaming
 
-如果网络中断导致数据流断开，则可以从上次收到的事件恢复流式传输。每个 delta 的载荷中都包含一个唯一的 `event_id`。将此 ID 作为 `last_event_id` 传递会从相应事件恢复流。
+Jika gangguan jaringan menghentikan streaming, streaming dapat dilanjutkan dari peristiwa terakhir yang diterima. Setiap delta berisi `event_id` unik dalam payload-nya. Meneruskan ID ini sebagai `last_event_id` akan melanjutkan streaming dari peristiwa tersebut.
 
 ### Python
 
@@ -240,14 +240,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## 多轮对话
+## Percakapan multi-giliran
 
-后续互动可以使用 `previous_interaction_id` 链接到后台对话，但需遵守以下限制：
+Interaksi berikutnya dapat dirangkai ke percakapan latar belakang menggunakan `previous_interaction_id`, dengan tunduk pada batasan berikut:
 
-1. **活跃执行被阻塞**：将后续互动链接到状态为 `in_progress` 的互动会返回 `400 Bad Request` 错误。等待互动达到 `completed` 状态，然后再开始下一个互动。
-2. **受管代理的环境参数**：当为受管代理（例如 `antigravity-preview-05-2026`）链接互动时，请求必须同时包含 `previous_interaction_id` 和 `environment`。
+1. **Eksekusi aktif diblokir:** Merangkai interaksi berikutnya dengan interaksi yang berstatus `in_progress` akan menampilkan error `400 Bad Request`. Tunggu hingga interaksi mencapai status `completed` sebelum memulai interaksi berikutnya.
+2. **Parameter Lingkungan untuk Agen Terkelola:** Saat merangkai interaksi untuk Agen Terkelola (seperti `antigravity-preview-05-2026`), permintaan harus menyertakan `previous_interaction_id` dan `environment`.
 
-以下示例展示了如何串联互动：
+Contoh berikut menunjukkan cara merangkai interaksi:
 
 ### Python
 
@@ -335,12 +335,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 取消和删除
+## Pembatalan dan penghapusan
 
-使用取消和删除请求来控制正在运行的执行并管理存储空间：
+Mengontrol eksekusi yang sedang berjalan dan mengelola penyimpanan menggunakan permintaan pembatalan dan penghapusan:
 
-- **取消 (`POST /interactions/{id}/cancel`)**：停止正在运行的任务。状态转换为 `cancelled`。服务器上的清理操作可能会导致 GET 请求中的状态更新出现轻微延迟。
-- **删除 (`DELETE /interactions/{id}`)**：从服务器中移除互动记录。后续 GET 请求会返回 `404 Not Found` 错误。
+- **Batalkan (`POST /interactions/{id}/cancel`):** Menghentikan tugas yang sedang berjalan. Status akan berubah menjadi `cancelled`. Tindakan pembersihan di server dapat menyebabkan sedikit penundaan sebelum status diperbarui dalam permintaan GET.
+- **Hapus (`DELETE /interactions/{id}`):** Menghapus catatan interaksi dari server. Permintaan GET berikutnya akan menampilkan error `404 Not Found`.
 
 ### Python
 
@@ -384,18 +384,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## 后续步骤
+## Langkah berikutnya
 
-- 请参阅 [Interactions API 概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn)，了解会话和状态管理。
-- 如需详细了解实时活动更新，请参阅[流式互动](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-cn)指南。
-- 探索[受管代理快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)，构建有状态的多轮代理。
+- Baca [Ringkasan Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) untuk memahami pengelolaan sesi dan status.
+- Lihat panduan [Interaksi streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=id) untuk mengetahui detail tentang update peristiwa real-time.
+- Pelajari [Panduan memulai agen terkelola](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id) untuk membangun agen multi-turn stateful.
 
-发送反馈
+Kirim masukan
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最后更新时间 (UTC)：2026-06-26。
+Terakhir diperbarui pada 2026-06-26 UTC.
 
-需要向我们提供更多信息？
+Ada masukan untuk kami?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-26。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-26 UTC."],[],[]]

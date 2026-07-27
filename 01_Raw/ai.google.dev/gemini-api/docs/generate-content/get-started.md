@@ -1,89 +1,75 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar
-fetched_at: 2026-07-20T04:36:02.860659+00:00
-title: "\u0627\u0644\u0628\u062f\u0621 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko
+fetched_at: 2026-07-27T04:36:09.300448+00:00
+title: "\uc2dc\uc791\ud558\uae30 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-إرسال ملاحظات
+의견 보내기
 
-# البدء
+# 시작하기
 
-سيساعدك هذا الدليل في البدء باستخدام **generateContent** القديم. بالنسبة إلى المشاريع والتطبيقات الجديدة، ننصحك بشدة باستخدام **Interactions API** الجديد بدلاً من ذلك، وهو أبسط طريقة وأفضلها للاستفادة من نماذج Gemini والوكلاء.
+이 가이드에서는 기존 **generateContent** API를 시작하는 방법을 설명합니다. 새 프로젝트 및 애플리케이션의 경우 Gemini 모델 및 에이전트를 빌드하는 가장 간단하고 효과적인 방법인 새로운 **Interactions API**를 대신 사용하는 것이 좋습니다.
 
-يوضّح لك هذا التشغيل السريع كيفية تثبيت مكتباتنا
- وتقديم أول طلب وعرض الردود تدريجيًا
-وإنشاء محادثات متعدّدة الجولات واستخدام الأدوات باستخدام الطريقة العادية
-`generateContent`.
+이 빠른 시작에서는 [라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko)를 설치하고, 첫 번째 요청을 하고, 응답을 스트리밍하고, 멀티턴 대화를 빌드하고, 표준 `generateContent` 메서드를 사용하여 도구를 사용하는 방법을 보여줍니다.
 
-## الحصول على مفتاح واجهة برمجة التطبيقات
+## API 키 가져오기
 
-لاستخدام Gemini API، يجب أن يكون لديك مفتاح واجهة برمجة تطبيقات للمصادقة على طلباتك وفرض حدود الأمان وتتبُّع الاستخدام في حسابك.
+Gemini API를 사용하려면 요청을 인증하고, 보안 한도를 적용하고, 계정의 사용량을 추적하는 API 키가 있어야 합니다.
 
-- ينشئ Google AI Studio تلقائيًا مشروعًا ومفتاح واجهة برمجة تطبيقات للمستخدمين الجدد.
-  يمكنك نسخه من صفحة [مفاتيح واجهة برمجة التطبيقات](https://aistudio.google.com/api-keys?hl=ar).
-- إذا كنت بحاجة إلى مفتاح جديد، انقر على **إنشاء مفتاح واجهة برمجة تطبيقات** في AI Studio واتّبِع التعليمات في مربّع الحوار لإضافة زوج جديد من المفتاح والمشروع.
+- Google AI Studio는 신규 사용자를 위해 프로젝트와 API 키를 자동으로 생성합니다.
+  [API 키 페이지](https://aistudio.google.com/api-keys?hl=ko)에서 복사할 수 있습니다.
+- 새 키가 필요한 경우 AI Studio에서 **API 키 만들기**를 클릭하고 대화상자에 따라 새 키-프로젝트 쌍을 추가합니다.
 
-[إنشاء مفتاح Gemini API](https://aistudio.google.com/apikey?hl=ar)
+[Gemini API 키 만들기](https://aistudio.google.com/apikey?hl=ko)
 
-اضبط مفتاحك كمتغيّر بيئة:
+키를 환경 변수로 설정합니다.
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### الترقية إلى المستوى المدفوع
+### 유료 등급으로 업그레이드
 
-تؤدي الترقية إلى المستوى المدفوع إلى زيادة حدود المعدّل وتتطلّب إعداد الفوترة في Cloud.
+유료 등급으로 업그레이드하면 비율 제한이 증가하며 Cloud Billing을 설정해야 합니다.
 
-- انقر على **إعداد الفوترة** في صفحات مفاتيح واجهة برمجة التطبيقات
-   أو
-  [المشاريع](https://aistudio.google.com/projects?hl=ar) في AI Studio.
-- اتّبِع التعليمات في مربّع حوار الفوترة في Cloud لإنشاء حساب فوترة أو ربطه وإضافة طريقة دفع ودفع مبلغ مسبق لا يقل عن 10 دولارات أمريكية (أو ما يعادلها بالعملة المحلية) في أرصدة مدفوعة.
-- يمكنك الاطّلاع على استخدامك لواجهة برمجة التطبيقات في [Google AI Studio](https://aistudio.google.com/usage?hl=ar)
-  ضمن **لوحة البيانات** > **الاستخدام**.
+- AI Studio [API 키](https://aistudio.google.com/api-keys?hl=ko) 또는 [프로젝트](https://aistudio.google.com/projects?hl=ko) 페이지에서 **결제 설정**을 클릭합니다.
+- Cloud Billing 대화상자에 따라 결제 계정을 만들거나 연결하고, 결제 수단을 추가하고, 유료 크레딧으로 최소 10달러 (또는 해당 통화)를 선불합니다.
+- [Google AI Studio](https://aistudio.google.com/usage?hl=ko)의 **대시보드** > **사용량**에서 API 사용량을 확인합니다.
 
-انتقِل إلى صفحة [الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar) لمزيد من المعلومات.
+자세한 내용은 [결제 페이지](https://ai.google.dev/gemini-api/docs/billing?hl=ko)를 참고하세요.
 
-## تثبيت حزمة Google GenAI SDK
+## Google 생성형 AI SDK 설치
 
 ### Python
 
-باستخدام [Python 3.9 أو إصدار أحدث](https://www.python.org/downloads/)، ثبِّت حزمة
-[`google-genai` باستخدام](https://pypi.org/project/google-genai/)
-أمر
-[pip التالي](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+[Python 3.9 이상](https://www.python.org/downloads/)을 사용하여 다음 [pip 명령어](https://packaging.python.org/en/latest/tutorials/installing-packages/)를 사용하여 [`google-genai` 패키지](https://pypi.org/project/google-genai/)를 설치합니다.
 
 ```
 pip install -q -U google-genai
 ```
 
-### JavaScript
+### 자바스크립트
 
-باستخدام [Node.js الإصدار 18 أو إصدار أحدث](https://nodejs.org/en/download/package-manager)،
-ثبِّت
-[حزمة Google Gen AI SDK لـ TypeScript وJavaScript](https://www.npmjs.com/package/@google/genai)
-باستخدام
-[أمر npm التالي](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+[Node.js v18 이상](https://nodejs.org/en/download/package-manager)을 사용하여 다음 [npm 명령어](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)를 사용하여 [TypeScript 및 JavaScript용 Google Gen AI SDK](https://www.npmjs.com/package/@google/genai)를 설치합니다.
 
 ```
 npm install @google/genai
 ```
 
-## إنشاء نص
+## 텍스트 생성
 
-استخدِم طريقة `models.generate_content` لـ
-[إنشاء ردّ نصي](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar).
+`models.generate_content` 메서드를 사용하여 [텍스트 응답을 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)합니다.
 
 ### Python
 
@@ -100,7 +86,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -119,7 +105,7 @@ async function main() {
 main();
 ```
 
-### راحة
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -139,10 +125,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## عرض الردود تدريجيًا
+## 대답 스트리밍
 
-لا يعرض النموذج ردًا إلا بعد اكتمال عملية الإنشاء بأكملها. للحصول على تجربة أسرع وأكثر تفاعلاً، يمكنك
-[عرض أجزاء الردّ](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#stream) تدريجيًا أثناء إنشائها.
+기본적으로 모델은 전체 생성 프로세스가 완료된 후에만 대답을 반환합니다. 더 빠르고 대화형 환경을 위해 대답 청크가 생성될 때 [스트리밍](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#stream)할 수 있습니다.
 
 ### Python
 
@@ -156,7 +141,7 @@ for chunk in response:
     print(chunk.text, end="", flush=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 async function main() {
@@ -173,7 +158,7 @@ async function main() {
 main();
 ```
 
-### راحة
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:streamGenerateContent" \
@@ -194,11 +179,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:s
   }'
 ```
 
-## محادثات متعدّدة الجولات
+## 멀티턴 대화
 
-بالنسبة إلى المحادثات المتعدّدة الجولات، توفّر حزم SDK أداة مساعدة `chats` ذات حالة لـ
-إنشاء تجربة محادثة [متعدّدة الجولات](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#chat)
-تدير تلقائيًا سجلّ المحادثات.
+멀티턴 대화의 경우 SDK는 대화 기록을 자동으로 관리하는 [멀티턴 채팅 환경](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#chat)을 빌드하기 위한 스테이트풀 `chats` 도우미를 제공합니다.
 
 ### Python
 
@@ -212,7 +195,7 @@ response2 = chat.send_message("How many paws are in my house?")
 print("Response 2:", response2.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 async function main() {
@@ -228,7 +211,7 @@ async function main() {
 main();
 ```
 
-### راحة
+### REST
 
 ```
 # REST is stateless. You must pass the full conversation history in the request.
@@ -254,11 +237,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## استخدام الأدوات
+## 도구 사용하기
 
-يمكنك توسيع إمكانات النموذج من خلال
-[تحديد مصدر الردود من "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)
-للوصول إلى محتوى الويب في الوقت الفعلي. يقرّر النموذج تلقائيًا متى يبحث وينفّذ طلبات البحث ويُنشئ ردًا.
+[Google 검색을 사용한 대답 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)을 통해 모델의 기능을 확장하여 실시간 웹 콘텐츠에 액세스하세요. 모델은 검색 시점을 자동으로 결정하고, 쿼리를 실행하고, 대답을 합성합니다.
 
 ### Python
 
@@ -290,7 +271,7 @@ if metadata.grounding_chunks:
         print(f" - [{chunk.web.title}]({chunk.web.uri})")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 async function main() {
@@ -322,7 +303,7 @@ async function main() {
 main();
 ```
 
-### راحة
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -345,25 +326,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-تتوافق Gemini API أيضًا مع الأدوات المضمّنة الأخرى:
+Gemini API는 다음과 같은 다른 기본 제공 도구도 지원합니다.
 
-- **[\*\*تنفيذ الرموز البرمجية\*\*](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**:
-  تتيح للنموذج كتابة رموز Python البرمجية وتشغيلها لحلّ المسائل الرياضية المعقّدة.
-- **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**: تتيح لك
-  تحديد مصدر الردود من عناوين URL معيّنة لصفحات الويب تقدّمها أنت.
-- **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**: تتيح لك
-  تحميل الملفات وتحديد مصدر الردود من محتواها باستخدام البحث الدلالي.
-- **[خرائط Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**: تتيح لك
-  تحديد مصدر الردود من بيانات الموقع الجغرافي والبحث عن الأماكن والاتجاهات و
-  الخرائط.
-- **[استخدام الكمبيوتر](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar)**: تتيح للنموذج التفاعل مع شاشة الكمبيوتر ولوحة المفاتيح والفأرة الافتراضية لتنفيذ المهام.
+- **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**:
+  모델이 Python 코드를 작성하고 실행하여 복잡한 수학 문제를 해결할 수 있습니다.
+- **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**: 사용자가 제공한 특정 웹페이지 URL을 기반으로 대답을 생성할 수 있습니다.
+- **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**: 파일을 업로드하고 시맨틱 검색을 사용하여 콘텐츠에서 대답을 그라운딩할 수 있습니다.
+- **[Google 지도](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**: 위치 데이터에 기반한 대답을 제공하고 장소, 길찾기, 지도를 검색할 수 있습니다.
+- **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**: 모델이 가상 컴퓨터 화면, 키보드, 마우스와 상호작용하여 작업을 실행할 수 있습니다.
 
-## استدعاء الدوال المخصّصة
+## 맞춤 함수 호출
 
-استخدِم **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)** لربط
-النماذج بأدواتك وواجهات برمجة التطبيقات المخصّصة. يحدّد النموذج متى يستدعي دالتك ويعرض `functionCall` في الردّ لتنفيذه في تطبيقك.
+**[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**을 사용하여 모델을 맞춤 도구 및 API에 연결합니다. 모델은 함수를 호출할 시기를 결정하고 애플리케이션이 실행할 수 있도록 응답에 `functionCall`를 반환합니다.
 
-يعلن هذا المثال عن دالة وهمية لدرجة الحرارة ويتحقّق مما إذا كان النموذج يريد استدعاءها.
+이 예시에서는 모의 온도 함수를 선언하고 모델이 이 함수를 호출하려고 하는지 확인합니다.
 
 ### Python
 
@@ -421,7 +397,7 @@ if part.function_call:
     print("Final Response:", final_response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -488,7 +464,7 @@ async function main() {
 main();
 ```
 
-### راحة
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -525,25 +501,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## الخطوات التالية
+## 다음 단계
 
-بعد أن بدأت استخدام Gemini API، يمكنك استكشاف الأدلة التالية لإنشاء تطبيقات أكثر تقدّمًا:
+이제 Gemini API를 시작했으므로 다음 가이드를 살펴보고 더 고급 애플리케이션을 빌드하세요.
 
-- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar)
-- [إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)
-- [فهم الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar)
-- [طريقة التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)
-- [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
-- [تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)
-- [السياق الطويل](https://ai.google.dev/gemini-api/docs/long-context?hl=ar)
-- [المتجهات الدلالية](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar)
+- [텍스트 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)
+- [이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)
+- [이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko)
+- [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)
+- [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)
+- [Google 검색으로 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)
+- [긴 컨텍스트](https://ai.google.dev/gemini-api/docs/long-context?hl=ko)
+- [임베딩](https://ai.google.dev/gemini-api/docs/embeddings?hl=ko)
 
-إرسال ملاحظات
+의견 보내기
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-تاريخ التعديل الأخير: 2026-07-08 (حسب التوقيت العالمي المتفَّق عليه)
+최종 업데이트: 2026-07-08(UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+의견을 전달하고 싶나요?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-08 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-08(UTC)"],[],[]]

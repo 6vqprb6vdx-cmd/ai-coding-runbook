@@ -1,205 +1,211 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi
-fetched_at: 2026-07-20T04:42:23.707464+00:00
-title: "Gi\u1edbi h\u1ea1n s\u1ed1 l\u01b0\u1ee3ng y\u00eau c\u1ea7u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-BR
+fetched_at: 2026-07-27T04:36:52.227413+00:00
+title: "Limites de taxas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-# Giới hạn số lượng yêu cầu
+# Limites de taxas
 
-Hạn mức tỷ lệ điều chỉnh số lượng yêu cầu mà bạn có thể gửi đến Gemini API trong một khoảng thời gian nhất định. Những giới hạn này giúp duy trì mức sử dụng hợp lý, bảo vệ khỏi hành vi sai trái và giúp duy trì hiệu suất hệ thống cho tất cả người dùng.
+Os limites de taxa regulam o número de solicitações que você pode fazer para a API Gemini
+em um determinado período. Esses limites ajudam a manter o uso justo, proteger contra
+abusos e manter o desempenho do sistema para todos os usuários.
 
-[Xem hạn mức sử dụng đang hoạt động trong AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=vi)
+[Conferir seus limites de taxa ativos no AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=pt-br)
 
-## Cách hoạt động của hạn mức yêu cầu
+## Como funcionam os limites de taxa
 
-Hạn mức tỷ lệ thường được đo lường theo 3 phương diện:
+Os limites de taxa geralmente são medidos em três dimensões:
 
-- Số yêu cầu mỗi phút (**RPM**)
-- Số mã thông báo mỗi phút (đầu vào) (**TPM**)
-- Số yêu cầu mỗi ngày (**RPD**)
+- Solicitações por minuto (**RPM**)
+- Tokens por minuto (entrada) (**TPM**)
+- Solicitações por dia (**RPD**)
 
-Mức sử dụng của bạn được đánh giá dựa trên từng hạn mức và việc vượt quá bất kỳ hạn mức nào trong số đó sẽ kích hoạt lỗi giới hạn tốc độ. Ví dụ: nếu giới hạn RPM của bạn là 20, thì việc đưa ra 21 yêu cầu trong vòng một phút sẽ dẫn đến lỗi, ngay cả khi bạn chưa vượt quá giới hạn TPM hoặc các giới hạn khác.
+Seu uso é avaliado em relação a cada limite, e exceder qualquer um deles vai
+acionar um erro de limitação de taxa. Por exemplo, se o limite de RPM for 20, fazer 21 solicitações em um minuto vai resultar em um erro, mesmo que você não tenha excedido o TPM ou outros limites.
 
-Hạn mức sử dụng được áp dụng cho mỗi dự án, chứ không phải cho mỗi khoá API. Hạn mức số yêu cầu mỗi ngày (**RPD**) sẽ được đặt lại vào lúc nửa đêm theo giờ Thái Bình Dương.
+Os limites de taxa são aplicados por projeto, não por chave de API. As cotas de solicitações por dia (**RPD**) são redefinidas à meia-noite do horário do Pacífico.
 
-Hạn mức sẽ khác nhau tuỳ thuộc vào mô hình cụ thể đang được sử dụng và một số hạn mức chỉ áp dụng cho một số mô hình cụ thể. Ví dụ: Số hình ảnh mỗi phút (IPM) chỉ được tính cho các mô hình có khả năng tạo hình ảnh (Nano Banana), nhưng về mặt khái niệm thì tương tự như số mã thông báo mỗi phút (TPM). Các mô hình khác có thể có giới hạn về số lượng mã thông báo mỗi ngày (TPD).
+Os limites variam de acordo com o modelo específico usado, e alguns limites só se aplicam a modelos específicos. Por exemplo, as imagens por minuto (IPM) só são calculadas para modelos capazes de gerar imagens (Nano Banana), mas são conceitualmente semelhantes às TPM. Outros modelos podem ter um limite de token por dia (TPD).
 
-Hạn mức sử dụng của các mô hình thử nghiệm và mô hình xem trước sẽ bị hạn chế hơn.
+Os limites de taxa são mais restritos para modelos experimentais e de prévia.
 
-### Giới hạn số lượng yêu cầu dựa trên mức chi tiêu
+### Limites de taxa com base em gastos
 
-Ngoài hạn mức yêu cầu mỗi phút (RPM) và hạn mức mã thông báo mỗi phút (TPM), Gemini API còn áp dụng hạn mức dựa trên mức chi tiêu để ngăn chặn các khoản phí không mong muốn. Việc các hạn mức này có áp dụng cho tài khoản của bạn hay không phụ thuộc vào nhật ký thanh toán và [bậc sử dụng](#usage-tiers) của bạn.
+Além dos limites de solicitações por minuto (RPM) e tokens por minuto (TPM), a API Gemini aplica limites de taxa com base em gastos para proteger contra cobranças inesperadas. Se esses limites se aplicam à sua conta, isso depende do seu histórico de faturamento e do [nível de uso](#usage-tiers).
 
-Bảng sau đây cho biết hạn mức dựa trên mức chi tiêu cho từng [bậc sử dụng](#usage-tiers). Các hạn mức này được đánh giá trong khoảng thời gian 10 phút liên tục. Việc tài khoản của bạn có phải tuân thủ những hạn mức này hay không phụ thuộc vào nhật ký thanh toán và trạng thái tài khoản của bạn.
+A tabela a seguir mostra os limites de taxa com base no gasto para cada [nível de uso](#usage-tiers). Esses limites são avaliados em uma janela de 10 minutos. A aplicação desses limites à sua conta depende do histórico de faturamento e da situação da conta.
 
-| Cấp sử dụng | Giới hạn tốc độ chi tiêu (mỗi 10 phút) |
+| Nível de uso | Limite de taxa de gasto (a cada 10 minutos) |
 | --- | --- |
-| **Free** | Không áp dụng |
-| **Cấp 1** | đô la Hong Kong |
-| **Cấp 2** | đô la Hong Kong |
-| **Cấp 3** | đô la Hong Kong |
+| **Free** (link em francês) | N/A |
+| **Nível 1** | US$ 10 |
+| **Nível 2** | US$ 200 |
+| **Nível 3** | US$ 200 |
 
-Nếu bạn đạt đến giới hạn tốc độ dựa trên mức chi tiêu, API sẽ trả về lỗi `429 RESOURCE_EXHAUSTED`. Cách giải quyết:
+Se você atingir um limite de taxa com base em gastos, a API vai retornar um erro `429 RESOURCE_EXHAUSTED`. Para solucioná-lo:
 
-- **Đợi rồi thử lại** sau một khoảng thời gian ngắn.
-- **Giảm tốc độ của các yêu cầu tốn kém**, chẳng hạn như bằng cách sử dụng các cửa sổ ngữ cảnh nhỏ hơn hoặc đầu ra ngắn hơn.
-- Nếu bạn thường xuyên đạt đến giới hạn này trong quá trình sử dụng bình thường, hãy [yêu cầu tăng giới hạn tốc độ](#request-rate-limit-increase).
+- **Aguarde e tente de novo** após um curto período.
+- **Reduza a taxa de solicitações caras**, por exemplo, usando janelas de contexto menores ou saídas mais curtas.
+- Se você atingir esse limite com frequência durante o uso normal, [solicite um aumento do limite de taxa](#request-rate-limit-increase).
 
-## Cấp sử dụng
+## Níveis de uso
 
-Giới hạn về tốc độ được gắn với cấp sử dụng của dự án. Khi mức sử dụng và mức chi tiêu API tăng lên, bạn sẽ tự động được nâng cấp lên một cấp cao hơn với hạn mức tốc độ cao hơn.
+Os limites de taxa estão vinculados ao nível de uso do projeto. À medida que seu uso e gastos com a API aumentam, você recebe um upgrade automático para um nível mais alto com limites de taxa maiores.
 
-Điều kiện để đạt được Cấp 2 và Cấp 3 dựa trên tổng mức chi tiêu tích luỹ cho các dịch vụ của Google Cloud (bao gồm nhưng không giới hạn ở Gemini API) đối với tài khoản thanh toán được liên kết với dự án của bạn.
+As qualificações para os níveis 2 e 3 são baseadas no gasto total acumulado em serviços do Google Cloud (incluindo, entre outros, a API Gemini) para a conta de faturamento vinculada ao seu projeto.
 
-| Cấp sử dụng | Vòng loại | [Hạn mức cấp thanh toán](https://ai.google.dev/gemini-api/docs/billing?hl=vi#tier-spend-caps) |
+| Nível de uso | Qualificação | [Limite do nível de faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br#tier-spend-caps) |
 | --- | --- | --- |
-| **Free** | [Dự án đang hoạt động](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) hoặc dùng thử miễn phí | Không áp dụng |
-| **Cấp 1** | [Thiết lập và liên kết một tài khoản thanh toán đang hoạt động](https://ai.google.dev/gemini-api/docs/billing?hl=vi#setup-billing) | 250 USD |
-| **Cấp 2** | Thanh toán 100 USD + 3 ngày kể từ lần thanh toán thành công đầu tiên | $2.000 |
-| **Cấp 3** | Thanh toán 1.000 USD + 30 ngày kể từ lần thanh toán thành công đầu tiên | 20.000 – 100.000 đô la Mỹ trở lên |
+| **Free** (link em francês) | [Projeto ativo](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) ou teste sem custo financeiro | N/A |
+| **Nível 1** | [Configurar e vincular uma conta de faturamento ativa](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br#setup-billing) | US$ 250,00 |
+| **Nível 2** | Pagamento de US $100 + 3 dias desde o primeiro pagamento bem-sucedido | US$ 2.000 |
+| **Nível 3** | Pago US $1.000 + 30 dias desde o primeiro pagamento bem-sucedido | US$ 20.000 a US$ 100.000 ou mais |
 
-Mặc dù việc đáp ứng các tiêu chí đủ điều kiện đã nêu thường là đủ để được phê duyệt, nhưng trong một số trường hợp hiếm gặp, yêu cầu nâng cấp có thể bị từ chối dựa trên các yếu tố khác được xác định trong quá trình xem xét.
+Embora atender aos critérios de qualificação declarados seja geralmente suficiente para aprovação, em casos raros, uma solicitação de upgrade pode ser negada com base em outros fatores identificados durante o processo de revisão.
 
-Hệ thống này giúp duy trì tính bảo mật và tính toàn vẹn của nền tảng Gemini API cho tất cả người dùng.
+Esse sistema ajuda a manter a segurança e a integridade da plataforma da API Gemini para todos os usuários.
 
-## Hạn mức yêu cầu Gemini API
+## Limites de taxa da API Gemini
 
-Hạn mức sử dụng phụ thuộc vào nhiều yếu tố (chẳng hạn như cấp sử dụng của bạn) và bạn có thể xem hạn mức này trong Google AI Studio. Khi cấp và trạng thái tài khoản của bạn thay đổi theo thời gian, giới hạn tốc độ sẽ tự động cập nhật.
+Os limites de taxa dependem de vários fatores, como seu nível de uso, e podem ser consultados no Google AI Studio. À medida que seu nível e o status da conta mudam com o tempo, os limites de taxa são atualizados automaticamente.
 
-[Xem hạn mức sử dụng đang hoạt động trong AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=vi)
+[Conferir seus limites de taxa ativos no AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=pt-br)
 
-Hạn mức tốc độ được chỉ định không được đảm bảo và dung lượng thực tế có thể thay đổi.
+Os limites de taxa especificados não são garantidos, e a capacidade real pode variar.
 
-## Giới hạn số lượng yêu cầu suy luận mức độ ưu tiên
+## Limites de taxa de inferência de prioridade
 
-[Mức tiêu thụ ưu tiên](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi) có giới hạn tốc độ riêng, mặc dù mức tiêu thụ được tính vào giới hạn tốc độ lưu lượng truy cập tương tác tổng thể. **Giới hạn tốc độ mặc định là: 0,3 lần [giới hạn tốc độ tiêu chuẩn](https://aistudio.google.com/rate-limit?hl=vi) cho mỗi mô hình và cấp**
+O consumo de [prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br) tem limites de taxa próprios, mesmo que o consumo seja contado para os limites de taxa gerais de tráfego interativo. **Os limites de taxa padrão são: 0,3 vezes o [limite de taxa padrão](https://aistudio.google.com/rate-limit?hl=pt-br) para cada modelo e nível**
 
-## Hạn mức về tốc độ của Batch API
+## Limites de taxa da API Batch
 
-Các yêu cầu [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) phải tuân theo giới hạn tốc độ riêng, tách biệt với các lệnh gọi API không theo lô.
+As solicitações da [API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br) estão sujeitas a limites de taxa próprios, separados das chamadas de API que não são em lote.
 
-- **Số yêu cầu theo lô đồng thời:** 100
-- **Giới hạn kích thước tệp đầu vào:** 2 GB
-- **Hạn mức lưu trữ tệp:** 20 GB
-- **Số lượng mã thông báo được đưa vào hàng đợi cho mỗi mô hình:** Bảng **Số lượng mã thông báo được đưa vào hàng đợi theo lô** liệt kê số lượng mã thông báo tối đa có thể được đưa vào hàng đợi để xử lý theo lô trên tất cả các công việc xử lý theo lô đang hoạt động của bạn cho một mô hình nhất định.
+- **Solicitações em lote simultâneas**:100
+- **Limite de tamanho do arquivo de entrada**:2 GB
+- **Limite de armazenamento de arquivos**:20 GB
+- **Tokens enfileirados por modelo**:a tabela **Tokens enfileirados em lote** lista o número máximo de tokens que podem ser enfileirados para processamento em lote em todos os seus jobs em lote ativos para um determinado modelo.
 
-### Cấp 1
+### Nível 1
 
-| Mô hình | Mã thông báo được xếp hàng đợi theo lô |
+| Modelo | Tokens em lote na fila |
 | --- | --- |
-| Mô hình xoá văn bản | | | | |
+| Modelos de saída de texto | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro (Bản xem trước) | 5.000.000 |
+| Pré-lançamento do Gemini 3.1 Pro | 5.000.000 |
 | Gemini 3.1 Flash Lite | 10.000.000 |
-| Bản xem trước Gemini 3.1 Flash Lite | 10.000.000 |
+| Pré-lançamento do Gemini 3.1 Flash Lite | 10.000.000 |
 | Gemini 3.5 Flash | 3.000.000 |
 | Gemini 2.5 Pro | 5.000.000 |
 | Gemini 2.5 Pro TTS | 25.000 |
 | Gemini 2.5 Flash | 3.000.000 |
-| Bản xem trước Gemini 2.5 Flash | 3.000.000 |
-| Bản xem trước hình ảnh Gemini 2.5 Flash | 3.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash | 3.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash Image | 3.000.000 |
 | Gemini 2.5 Flash TTS | 100.000 |
 | Gemini 2.5 Flash Lite | 10.000.000 |
-| Bản xem trước Gemini 2.5 Flash Lite | 10.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash Lite | 10.000.000 |
 | Gemini 2.0 Flash | 10.000.000 |
-| Hình ảnh Gemini 2.0 Flash | 3.000.000 |
+| Imagem do Gemini 2.0 Flash | 3.000.000 |
 | Gemini 2.0 Flash Lite | 10.000.000 |
-| Mô hình tạo nội dung đa phương thức | | | | |
-| Bản xem trước hình ảnh Gemini 3.1 Flash 🍌 | 1.000.000 |
-| Hình ảnh Gemini 3.1 Flash Lite 🍌 | 2.000.000 |
-| Bản xem trước hình ảnh của Gemini 3 Pro 🍌 | 2.000.000 |
-| Mô hình nhúng | | | | |
-| Gemini Embedding | 500.000 |
+| Modelos de geração multimodal | | | | |
+| Pré-lançamento do Gemini 3.1 Flash Image 🍌 | 1.000.000 |
+| Imagem do Gemini 3.1 Flash Lite 🍌 | 2.000.000 |
+| Pré-lançamento do Gemini 3 Pro Image 🍌 | 2.000.000 |
+| Modelos de embeddings | | | | |
+| Embedding do Gemini | 500.000 |
 
-### Cấp 2
+### Nível 2
 
-| Mô hình | Mã thông báo được xếp hàng đợi theo lô |
+| Modelo | Tokens em lote na fila |
 | --- | --- |
-| Mô hình xoá văn bản | | | | |
+| Modelos de saída de texto | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro (Bản xem trước) | 500.000.000 |
+| Pré-lançamento do Gemini 3.1 Pro | 500.000.000 |
 | Gemini 3.1 Flash Lite | 500.000.000 |
-| Bản xem trước Gemini 3.1 Flash Lite | 500.000.000 |
+| Pré-lançamento do Gemini 3.1 Flash Lite | 500.000.000 |
 | Gemini 3.5 Flash | 400.000.000 |
 | Gemini 2.5 Pro | 500.000.000 |
 | Gemini 2.5 Pro TTS | 100.000 |
 | Gemini 2.5 Flash | 400.000.000 |
-| Bản xem trước Gemini 2.5 Flash | 400.000.000 |
-| Bản xem trước hình ảnh Gemini 2.5 Flash | 400.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash | 400.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash Image | 400.000.000 |
 | Gemini 2.5 Flash TTS | 100.000 |
 | Gemini 2.5 Flash Lite | 500.000.000 |
-| Bản xem trước Gemini 2.5 Flash Lite | 500.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash Lite | 500.000.000 |
 | Gemini 2.0 Flash | 1.000.000.000 |
-| Hình ảnh Gemini 2.0 Flash | 400.000.000 |
+| Imagem do Gemini 2.0 Flash | 400.000.000 |
 | Gemini 2.0 Flash Lite | 1.000.000.000 |
-| Mô hình tạo nội dung đa phương thức | | | | |
-| Bản xem trước hình ảnh Gemini 3.1 Flash 🍌 | 250.000.000 |
-| Hình ảnh Gemini 3.1 Flash Lite 🍌 | 270.000.000 |
-| Bản xem trước hình ảnh của Gemini 3 Pro 🍌 | 270.000.000 |
-| Mô hình nhúng | | | | |
-| Gemini Embedding | 5.000.000 |
+| Modelos de geração multimodal | | | | |
+| Pré-lançamento do Gemini 3.1 Flash Image 🍌 | 250.000.000 |
+| Imagem do Gemini 3.1 Flash Lite 🍌 | 270.000.000 |
+| Pré-lançamento do Gemini 3 Pro Image 🍌 | 270.000.000 |
+| Modelos de embeddings | | | | |
+| Embedding do Gemini | 5.000.000 |
 
-### Cấp 3
+### Nível 3
 
-| Mô hình | Mã thông báo được xếp hàng đợi theo lô |
+| Modelo | Tokens em lote na fila |
 | --- | --- |
-| Mô hình xoá văn bản | | | | |
+| Modelos de saída de texto | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro (Bản xem trước) | 1.000.000.000 |
+| Pré-lançamento do Gemini 3.1 Pro | 1.000.000.000 |
 | Gemini 3.1 Flash Lite | 1.000.000.000 |
-| Bản xem trước Gemini 3.1 Flash Lite | 1.000.000.000 |
+| Pré-lançamento do Gemini 3.1 Flash Lite | 1.000.000.000 |
 | Gemini 3.5 Flash | 1.000.000.000 |
 | Gemini 2.5 Pro | 1.000.000.000 |
 | Gemini 2.5 Pro TTS | 1.000.000 |
 | Gemini 2.5 Flash | 1.000.000.000 |
-| Bản xem trước Gemini 2.5 Flash | 1.000.000.000 |
-| Bản xem trước hình ảnh Gemini 2.5 Flash | 1.000.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash | 1.000.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash Image | 1.000.000.000 |
 | Gemini 2.5 Flash TTS | 4.000.000 |
 | Gemini 2.5 Flash Lite | 1.000.000.000 |
-| Bản xem trước Gemini 2.5 Flash Lite | 1.000.000.000 |
+| Pré-lançamento do Gemini 2.5 Flash Lite | 1.000.000.000 |
 | Gemini 2.0 Flash | 5.000.000.000 |
-| Hình ảnh Gemini 2.0 Flash | 1.000.000.000 |
+| Imagem do Gemini 2.0 Flash | 1.000.000.000 |
 | Gemini 2.0 Flash Lite | 5.000.000.000 |
-| Mô hình tạo nội dung đa phương thức | | | | |
-| Bản xem trước hình ảnh Gemini 3.1 Flash 🍌 | 750.000.000 |
-| Hình ảnh Gemini 3.1 Flash Lite 🍌 | 1.000.000.000 |
-| Bản xem trước hình ảnh của Gemini 3 Pro 🍌 | 1.000.000.000 |
-| Mô hình nhúng | | | | |
-| Gemini Embedding | 10.000.000 |
+| Modelos de geração multimodal | | | | |
+| Pré-lançamento do Gemini 3.1 Flash Image 🍌 | 750.000.000 |
+| Imagem do Gemini 3.1 Flash Lite 🍌 | 1.000.000.000 |
+| Pré-lançamento do Gemini 3 Pro Image 🍌 | 1.000.000.000 |
+| Modelos de embeddings | | | | |
+| Embedding do Gemini | 10.000.000 |
 
-## Cách nâng cấp lên cấp độ tiếp theo
+## Como fazer upgrade para o próximo nível
 
-Để chuyển từ gói Miễn phí sang gói có tính phí, trước tiên, bạn phải [thiết lập thông tin thanh toán trong AI Studio](https://ai.google.dev/gemini-api/docs/billing?hl=vi).
+Para fazer a transição do nível sem custo financeiro para um nível pago, primeiro [configure o faturamento no AI Studio](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br).
 
-Sau khi dự án của bạn đáp ứng [các tiêu chí được chỉ định](#usage-tiers), dự án đó sẽ tự động được nâng cấp lên cấp tiếp theo. Việc nâng cấp từ gói Miễn phí lên Cấp 1 thường có hiệu lực ngay lập tức, còn các lần nâng cấp cấp độ tiếp theo sẽ có hiệu lực trong vòng 10 phút. Chuyển đến [trang Dự án](https://aistudio.google.com/projects?hl=vi) trong AI Studio để kiểm tra các cấp.
+Quando seu projeto atender aos [critérios especificados](#usage-tiers), ele será atualizado automaticamente para o próximo nível. Os upgrades do Nível sem custo financeiro para o Nível 1
+geralmente entram em vigor instantaneamente, e os upgrades de nível subsequentes levam
+até 10 minutos. Acesse a [página "Projetos"](https://aistudio.google.com/projects?hl=pt-br) no AI Studio para verificar seus níveis.
 
-## Yêu cầu tăng giới hạn tốc độ
+## Solicitar um aumento no limite de taxa
 
-Mỗi biến thể mô hình đều có một hạn mức liên kết (số yêu cầu mỗi phút, RPM).
-Để biết thông tin chi tiết về các giới hạn tốc độ đó, hãy xem trang [Giới hạn tốc độ của AI Studio](https://aistudio.google.com/rate-limit?hl=vi).
+Cada variação de modelo tem um limite de taxa associado (solicitações por minuto, RPM).
+Para mais detalhes sobre esses limites de taxa, consulte a página
+[Limite de taxa do AI Studio](https://aistudio.google.com/rate-limit?hl=pt-br).
 
-[Yêu cầu tăng giới hạn tốc độ cho cấp có tính phí](https://forms.gle/ETzX94k8jf7iSotH9)
+[Solicitar um aumento no limite de taxa do nível pago](https://forms.gle/ETzX94k8jf7iSotH9)
 
-Chúng tôi không đảm bảo sẽ tăng hạn mức sử dụng cho bạn, nhưng chúng tôi sẽ cố gắng hết sức để xem xét yêu cầu của bạn.
+Não podemos garantir que vamos aumentar seu limite de taxa, mas faremos o possível para analisar seu pedido.
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Cập nhật lần gần đây nhất: 2026-07-03 UTC.
+Última atualização 2026-07-03 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Quer enviar seu feedback?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-03 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-03 UTC."],[],[]]

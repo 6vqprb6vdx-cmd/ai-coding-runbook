@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=zh-TW
-fetched_at: 2026-07-20T04:37:33.636685+00:00
+fetched_at: 2026-07-27T04:39:43.203532+00:00
 title: "Lyria 3 Pro \u9810\u5148\u767c\u5e03\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

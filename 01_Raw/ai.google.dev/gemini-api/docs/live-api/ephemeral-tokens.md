@@ -1,47 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=it
-fetched_at: 2026-07-20T04:39:45.819398+00:00
-title: "Token temporanei \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=de
+fetched_at: 2026-07-27T04:46:17.750317+00:00
+title: "Ephemerische Tokens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Invia feedback
+Feedback geben
 
-# Token temporanei
+# Ephemerische Tokens
 
-I token effimeri sono token di autenticazione di breve durata per accedere all'API Gemini
-tramite [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Sono progettati per migliorare la sicurezza quando
-ti connetti direttamente dal dispositivo di un utente all'API (un'
-[implementazione client-server](https://ai.google.dev/gemini-api/docs/live?hl=it#implementation-approach)
-). Come le chiavi API standard, i token effimeri possono essere estratti dalle applicazioni lato client, come browser web o app mobile. Tuttavia, poiché i token effimeri scadono rapidamente e possono essere limitati, riducono significativamente i rischi per la sicurezza in un ambiente di produzione. Dovresti utilizzarli quando accedi all'API Live direttamente dalle applicazioni lato client per migliorare la sicurezza delle chiavi API.
+Temporäre Tokens sind kurzlebige Authentifizierungstokens für den Zugriff auf die Gemini API über [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Sie sollen die Sicherheit verbessern, wenn Sie direkt vom Gerät eines Nutzers aus eine Verbindung zur API herstellen (eine [Client-zu-Server](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach)-Implementierung). Wie Standard-API-Schlüssel können auch temporäre Tokens aus clientseitigen Anwendungen wie Webbrowsern oder mobilen Apps extrahiert werden. Da temporäre Tokens jedoch schnell ablaufen und eingeschränkt werden können, verringern sie die Sicherheitsrisiken in einer Produktionsumgebung erheblich. Sie sollten sie verwenden, wenn Sie direkt von clientseitigen Anwendungen auf die Live API zugreifen, um die Sicherheit von API-Schlüsseln zu erhöhen.
 
-## Come funzionano i token effimeri
+## Funktionsweise von temporären Tokens
 
-Ecco come funzionano i token effimeri a livello generale:
+So funktionieren temporäre Tokens:
 
-1. Il client (ad es. l'app web) esegue l'autenticazione con il backend.
-2. Il backend richiede un token effimero al servizio di provisioning dell'API Gemini.
-3. L'API Gemini emette un token di breve durata.
-4. Il backend invia il token al client per le connessioni WebSocket all'API Live. Puoi farlo sostituendo la chiave API con un token effimero.
-5. Il client utilizza il token come se fosse una chiave API.
+1. Ihr Client (z.B. eine Web-App) wird bei Ihrem Backend authentifiziert.
+2. Ihr Backend fordert ein temporäres Token vom Bereitstellungsdienst der Gemini API an.
+3. Die Gemini API gibt ein kurzlebiges Token aus.
+4. Ihr Backend sendet das Token an den Client für WebSocket-Verbindungen zur Live API. Dazu können Sie Ihren API-Schlüssel durch ein temporäres Token ersetzen.
+5. Der Client verwendet das Token dann so, als wäre es ein API-Schlüssel.
 
-![Panoramica dei token temporanei](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=it)
+![Sitzungsspezifische Tokens – Übersicht](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=de)
 
-In questo modo la sicurezza viene migliorata perché, anche se estratto, il token ha una durata breve, a differenza di una chiave API di lunga durata di cui è stato eseguito il deployment lato client. Poiché il client invia i dati direttamente a Gemini, ciò migliora anche la latenza ed evita che i backend debbano eseguire il proxy dei dati in tempo reale.
+Das erhöht die Sicherheit, da das Token auch im Falle eines Diebstahls nur kurzlebig ist, im Gegensatz zu einem clientseitig bereitgestellten, langlebigen API-Schlüssel. Da der Client Daten direkt an Gemini sendet, wird auch die Latenz verbessert und Ihre Back-Ends müssen die Echtzeitdaten nicht mehr weiterleiten.
 
-## Creare un token effimero
+## Sitzungsspezifisches Token erstellen
 
-Di seguito è riportato un esempio semplificato di come ottenere un token effimero da Gemini.
-Per impostazione predefinita, avrai 1 minuto per avviare nuove sessioni dell'API Live utilizzando il token di questa richiesta (`newSessionExpireTime`) e 30 minuti per inviare messaggi tramite questa connessione (`expireTime`).
+Hier ist ein vereinfachtes Beispiel dafür, wie Sie ein temporäres Token von Gemini erhalten.
+Standardmäßig haben Sie 1 Minute Zeit, um neue Live API-Sitzungen mit dem Token aus dieser Anfrage (`newSessionExpireTime`) zu starten, und 30 Minuten Zeit, um Nachrichten über diese Verbindung (`expireTime`) zu senden.
 
 ### Python
 
@@ -51,9 +47,7 @@ from google import genai
 
 now = datetime.datetime.now(tz=datetime.timezone.utc)
 
-client = genai.Client(
-    http_options={'api_version': 'v1alpha',}
-)
+client = genai.Client()
 
 token = client.auth_tokens.create(
     config = {
@@ -61,7 +55,6 @@ token = client.auth_tokens.create(
     'expire_time': now + datetime.timedelta(minutes=30), # Default is 30 minutes in the future
     # 'expire_time': '2025-05-17T00:00:00Z',   # Accepts isoformat.
     'new_session_expire_time': now + datetime.timedelta(minutes=1), # Default 1 minute in the future
-    'http_options': {'api_version': 'v1alpha'},
   }
 )
 
@@ -81,28 +74,34 @@ const token = await client.authTokens.create({
       uses: 1, // The default
       expireTime: expireTime, // Default is 30 mins
       newSessionExpireTime: new Date(Date.now() + (1 * 60 * 1000)), // Default 1 minute in the future
-      httpOptions: {apiVersion: 'v1alpha'},
     },
   });
 ```
 
-Per i vincoli dei valori di `expireTime`, i valori predefiniti e altre specifiche dei campi, consulta il
-[riferimento API](https://ai.google.dev/api/live?hl=it#ephemeral-auth-tokens).
-Nel periodo di tempo `expireTime`, dovrai utilizzare
-[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=it#session-resumption) per
-ricollegare la chiamata ogni 10 minuti (puoi farlo con lo stesso token anche
-se `uses: 1`).
+### REST
 
-È anche possibile bloccare un token effimero a un insieme di configurazioni. Questo potrebbe essere utile per migliorare ulteriormente la sicurezza della tua applicazione e mantenere le istruzioni di sistema sul lato server.
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
+  -H "x-goog-api-key: ${GEMINI_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uses": 1,
+    "expireTime": "YYYY-MM-DDTHH:MM:SSZ",
+    "newSessionExpireTime": "YYYY-MM-DDTHH:MM:SSZ"
+  }'
+```
+
+Informationen zu Einschränkungen, Standardwerten und anderen Feldspezifikationen für `expireTime` finden Sie in der [API-Referenz](https://ai.google.dev/api/live?hl=de#ephemeral-auth-tokens).
+Innerhalb des Zeitraums von `expireTime` müssen Sie [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=de#session-resumption) alle 10 Minuten eine neue Verbindung herstellen. Das kann mit demselben Token erfolgen, auch wenn `uses: 1`.
+
+Es ist auch möglich, ein temporäres Token für eine Reihe von Konfigurationen zu sperren. Das kann nützlich sein, um die Sicherheit Ihrer Anwendung weiter zu verbessern und Ihre Systemanweisungen auf der Serverseite zu behalten.
 
 ### Python
 
 ```
 from google import genai
 
-client = genai.Client(
-    http_options={'api_version': 'v1alpha',}
-)
+client = genai.Client()
 
 token = client.auth_tokens.create(
     config = {
@@ -111,11 +110,9 @@ token = client.auth_tokens.create(
         'model': 'gemini-3.1-flash-live-preview',
         'config': {
             'session_resumption':{},
-            'temperature':0.7,
             'response_modalities':['AUDIO']
         }
     },
-    'http_options': {'api_version': 'v1alpha'},
     }
 )
 
@@ -138,28 +135,41 @@ const token = await client.authTokens.create({
             model: 'gemini-3.1-flash-live-preview',
             config: {
                 sessionResumption: {},
-                temperature: 0.7,
                 responseModalities: ['AUDIO']
             }
         },
-        httpOptions: {
-            apiVersion: 'v1alpha'
-        }
     }
 });
 
 // You'll need to pass the value under token.name back to your client to use it
 ```
 
-Puoi anche bloccare un sottoinsieme di campi. Per maggiori informazioni, consulta la [documentazione dell'SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)
-.
+### REST
 
-## Connettersi all'API Live con un token effimero
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
+  -H "x-goog-api-key: ${GEMINI_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "uses": 1,
+    "expireTime": "YYYY-MM-DDTHH:MM:SSZ",
+    "liveConnectConstraints": {
+      "model": "models/gemini-3.1-flash-live-preview",
+      "config": {
+        "sessionResumption": {},
+        "responseModalities": ["AUDIO"]
+      }
+    }
+  }'
+```
 
-Una volta ottenuto un token effimero, utilizzalo come se fosse una chiave API (ma ricorda che funziona solo per l'API Live e solo con la versione `v1alpha` dell'API).
+Sie können auch eine Teilmenge von Feldern sperren. Weitere Informationen finden Sie in der [SDK-Dokumentation](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
 
-L'utilizzo di token effimeri aggiunge valore solo quando esegui il deployment di applicazioni
-che seguono [l'approccio di implementazione client-server](https://ai.google.dev/gemini-api/docs/live?hl=it#implementation-approach).
+## Mit einem temporären Token eine Verbindung zur Live API herstellen
+
+Sobald Sie ein temporäres Token haben, verwenden Sie es wie einen API-Schlüssel. Es funktioniert jedoch nur für die Live-API und nur mit der `v1beta`-Version der API.
+
+Die Verwendung von temporären Tokens ist nur dann sinnvoll, wenn Anwendungen bereitgestellt werden, die dem [Client-zu-Server-Implementierungsansatz](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach) folgen.
 
 ### JavaScript
 
@@ -189,29 +199,29 @@ async function main() {
 main();
 ```
 
-Per altri esempi, consulta [Iniziare a utilizzare l'API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+Weitere Beispiele finden Sie unter [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de).
 
-## Best practice
+## Best Practices
 
-- Imposta una durata di scadenza breve utilizzando il parametro `expire_time`.
-- I token scadono, quindi è necessario riavviare il processo di provisioning.
-- Verifica l'autenticazione sicura per il tuo backend. I token effimeri saranno sicuri solo quanto il metodo di autenticazione del backend.
-- In genere, evita di utilizzare i token effimeri per le connessioni da backend a Gemini, poiché questo percorso è in genere considerato sicuro.
+- Legen Sie mit dem Parameter `expire_time` eine kurze Ablaufdauer fest.
+- Tokens laufen ab und der Bereitstellungsprozess muss neu gestartet werden.
+- Sichere Authentifizierung für Ihr eigenes Backend überprüfen Die Sicherheit von Einmaltokens hängt von der Authentifizierungsmethode Ihres Back-Ends ab.
+- Im Allgemeinen sollten Sie keine temporären Tokens für Backend-zu-Gemini-Verbindungen verwenden, da dieser Pfad in der Regel als sicher gilt.
 
-## Limitazioni
+## Beschränkungen
 
-Al momento, i token effimeri sono compatibili solo con l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+Kurzlebige Tokens sind derzeit nur mit der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) kompatibel.
 
-## Passaggi successivi
+## Nächste Schritte
 
-- Per ulteriori informazioni, consulta il riferimento dell'API Live [sui token effimeri](https://ai.google.dev/api/live?hl=it#ephemeral-auth-tokens).
+- Weitere Informationen finden Sie in der [Referenz zur Live API](https://ai.google.dev/api/live?hl=de#ephemeral-auth-tokens) zu temporären Tokens.
 
-Invia feedback
+Feedback geben
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Ultimo aggiornamento 2026-06-12 UTC.
+Zuletzt aktualisiert: 2026-07-23 (UTC).
 
-Vuoi dirci altro?
+Haben Sie Feedback für uns?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-12 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-23 (UTC)."],[],[]]

@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=it
-fetched_at: 2026-07-20T04:40:59.059756+00:00
-title: "Comprensione dell'audio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=de
+fetched_at: 2026-07-27T04:46:03.973040+00:00
+title: "Audioinhalte verstehen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Invia feedback
+Feedback geben
 
-# Comprensione dell'audio
+# Audioinhalte verstehen
 
-Gemini può analizzare l'input audio e generare risposte di testo.
+Gemini kann Audioeingaben analysieren und Textantworten generieren.
 
 ### Python
 
@@ -67,7 +67,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -166,24 +166,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Panoramica
+## Übersicht
 
-Gemini può analizzare e comprendere l'input audio e generare risposte di testo,
-consentendo casi d'uso come i seguenti:
+Gemini kann Audioeingaben analysieren und verstehen und Textantworten darauf generieren. Dadurch sind Anwendungsfälle wie die folgenden möglich:
 
-- Descrivere, riassumere o rispondere a domande sui contenuti audio.
-- Fornisci una trascrizione e una traduzione dell'audio (conversione della voce in testo).
-- Rileva le emozioni nel parlato e nella musica.
-- Analizza segmenti specifici dell'audio e fornisci i timestamp.
+- Audioinhalte beschreiben, zusammenfassen oder Fragen dazu beantworten.
+- Transkription und Übersetzung des Audios bereitstellen (Sprache zu Text).
+- Emotionen in Sprache und Musik erkennen.
+- Bestimmte Segmente des Audios analysieren und Zeitstempel angeben.
 
-Al momento l'API Gemini non supporta i casi d'uso della trascrizione in tempo reale.
-Per interazioni vocali e video in tempo reale, consulta l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
-Per modelli di sintesi vocale dedicati con supporto per la trascrizione in tempo reale,
-utilizza l'[API Google Cloud Speech-to-Text](https://cloud.google.com/speech-to-text?hl=it).
+Derzeit unterstützt die Gemini API keine Anwendungsfälle für die Echtzeit-Transkription.
+Informationen zu Echtzeit-Sprach- und Videointeraktionen finden Sie in der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de).
+Für spezielle Modelle für die Spracherkennung mit Unterstützung für die Echtzeit-Transkription,
+verwenden Sie die [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=de).
 
-## Trascrivere la voce in testo
+## Sprache zu Text transkribieren
 
-Questa applicazione di esempio mostra come richiedere all'API Gemini di trascrivere, tradurre e riassumere il parlato, inclusi timestamp e rilevamento delle emozioni, utilizzando [output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it).
+In dieser Beispielanwendung wird gezeigt, wie Sie die Gemini API auffordern, Sprache zu transkribieren,
+zu übersetzen und zusammenzufassen, einschließlich Zeitstempeln und Emotionserkennung
+mithilfe [strukturierter Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de).
 
 ### Python
 
@@ -411,32 +412,28 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Puoi chiedere a [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=it) di creare
-un'app proprio come
-[questa app di trascrizione di esempio](https://aistudio.google.com/apps/bundled/echoscript?hl=it)
-con un clic.
+Sie können [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=de) auffordern, mit einem Klick eine App wie [diese Beispiel-Transkriptions-App](https://aistudio.google.com/apps/bundled/echoscript?hl=de) zu erstellen.
 
-![Un&#39;app Gemini per la trascrizione audio multilingue](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=it)
+![Eine mehrsprachige Audio-Transkriptions-Gemini-App](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=de)
 
-## Audio di input
+## Eingabeaudio
 
-Puoi fornire dati audio a Gemini nei seguenti modi:
+Sie können Gemini auf folgende Arten Audiodaten zur Verfügung stellen:
 
-- [Carica un file audio](#upload-audio) prima di inviare una richiesta a
-  `generateContent`.
-- [Trasmetti i dati audio incorporati](#inline-audio) con la richiesta a
+- [Laden Sie eine Audiodatei hoch](#upload-audio), bevor Sie eine Anfrage an
+  `generateContent` senden.
+- [Übergeben Sie Inline-Audiodaten](#inline-audio) mit der Anfrage an
   `generateContent`.
 
-Per scoprire altri metodi di input dei file, consulta la guida
-[Metodi di input dei file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=it).
+Weitere Informationen zu anderen Methoden für die Dateieingabe finden Sie im
+[Leitfaden zu Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
 
-### Caricare un file audio
+### Audiodatei hochladen
 
-Puoi utilizzare l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it) per caricare un file audio.
-Utilizza sempre l'API Files quando la dimensione totale della richiesta (inclusi i file, il prompt di testo, le istruzioni di sistema e così via) è superiore a 20 MB.
+Sie können die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) verwenden, um eine Audiodatei hochzuladen.
+Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich Dateien, Text-Prompt, Systemanweisungen usw.) mehr als 20 MB beträgt.
 
-Il seguente codice carica un file audio e lo utilizza in una chiamata a
-`generateContent`.
+Mit dem folgenden Code wird eine Audiodatei hochgeladen und dann in einem Aufruf von `generateContent` verwendet.
 
 ### Python
 
@@ -484,7 +481,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -583,12 +580,12 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Per saperne di più su come lavorare con i file multimediali, consulta l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it).
+Weitere Informationen zum Arbeiten mit Mediendateien finden Sie unter
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
 
-### Trasmettere i dati audio in linea
+### Audiodaten inline übergeben
 
-Anziché caricare un file audio, puoi trasmettere i dati audio incorporati nella
-richiesta a `generateContent`:
+Anstatt eine Audiodatei hochzuladen, können Sie Inline-Audiodaten in der Anfrage an `generateContent` übergeben:
 
 ### Python
 
@@ -642,7 +639,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -687,19 +684,15 @@ func main() {
 }
 ```
 
-Alcuni aspetti da tenere presente in merito ai dati audio incorporati:
+Einige Hinweise zu Inline-Audiodaten:
 
-- La dimensione massima della richiesta è 20 MB, inclusi i prompt di testo,
-  le istruzioni di sistema e i file forniti in linea. Se le dimensioni del file
-  faranno superare i 20 MB alla *dimensione totale della richiesta*, utilizza
-  l'API Files per [caricare un file audio](#upload-audio) da utilizzare
-  nella richiesta.
-- Se utilizzi un campione audio più volte, è più efficiente
-  [caricare un file audio](#upload-audio).
+- Die maximale Anfragengröße beträgt 20 MB. Dazu gehören Text-Prompts, Systemanweisungen und Inline-Dateien. [Wenn die Größe Ihrer Datei dazu führt, dass die *Gesamtgröße der Anfrage* 20 MB überschreitet, verwenden Sie die Files API, um eine Audiodatei hochzuladen, die in der Anfrage verwendet werden soll.](#upload-audio)
+- Wenn Sie ein Audiobeispiel mehrmals verwenden, ist es effizienter
+  , [eine Audiodatei hochzuladen](#upload-audio).
 
-## Ottenere una trascrizione
+## Transkript erstellen
 
-Per ottenere una trascrizione dei dati audio, chiedila nel prompt:
+Wenn Sie ein Transkript von Audiodaten erhalten möchten, fragen Sie einfach im Prompt danach:
 
 ### Python
 
@@ -743,7 +736,7 @@ const result = await ai.models.generateContent({
 console.log("result.text=", result.text);
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -788,13 +781,12 @@ func main() {
 }
 ```
 
-## Fare riferimento ai timestamp
+## Auf Zeitstempel verweisen
 
-Puoi fare riferimento a sezioni specifiche di un file audio utilizzando timestamp nel formato
-`MM:SS`. Ad esempio, il seguente prompt richiede una trascrizione che
+Sie können mit Zeitstempeln im Format `MM:SS` auf bestimmte Abschnitte einer Audiodatei verweisen. Im folgenden Prompt wird beispielsweise ein Transkript angefordert,
 
-- Inizia dopo 2 minuti e 30 secondi dall'inizio del file.
-- Termina a 3 minuti e 29 secondi dall'inizio del file.
+- das bei 2 Minuten und 30 Sekunden ab Beginn der Datei beginnt.
+- das bei 3 Minuten und 29 Sekunden ab Beginn der Datei endet.
 
 ### Python
 
@@ -810,7 +802,7 @@ prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 const prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -856,9 +848,9 @@ func main() {
 }
 ```
 
-## Contare i token
+## Tokens zählen
 
-Chiama il metodo `countTokens` per ottenere un conteggio del numero di token in un file audio. Ad esempio:
+Rufen Sie die Methode `countTokens` auf, um die Anzahl der Tokens in einer Audiodatei zu ermitteln. Beispiel:
 
 ### Python
 
@@ -898,7 +890,7 @@ const countTokensResponse = await ai.models.countTokens({
 console.log(countTokensResponse.totalTokens);
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -942,51 +934,45 @@ func main() {
 }
 ```
 
-## Formati audio supportati
+## Unterstützte Audioformate
 
-Gemini supporta i seguenti tipi MIME di formati audio:
+Gemini unterstützt die folgenden MIME-Typen für Audioformate:
 
-- WAV - `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
-- AAC - `audio/aac`
-- OGG Vorbis - `audio/ogg`
-- FLAC - `audio/flac`
+- WAV – `audio/wav`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
+- AAC – `audio/aac`
+- OGG Vorbis – `audio/ogg`
+- FLAC – `audio/flac`
 
-## Dettagli tecnici sull'audio
+## Technische Details zu Audio
 
-- Gemini rappresenta ogni secondo di audio come 32 token; ad esempio,
-  un minuto di audio è rappresentato come 1920 token.
-- Gemini può "comprendere" i componenti non vocali, come il canto degli uccelli o le sirene.
-- La durata massima supportata dei dati audio in un singolo prompt è di 9,5 ore.
-  Gemini non limita il *numero* di file audio in un singolo prompt, tuttavia,
-  la durata totale combinata di tutti i file audio in un singolo prompt non può superare
-  le 9,5 ore.
-- Gemini esegue il downsampling dei file audio a una risoluzione dei dati di 16 Kbps.
-- Se l'origine audio contiene più canali, Gemini li combina
-  in un unico canale.
+- Gemini stellt jede Sekunde Audio als 32 Tokens dar. Eine Minute Audio entspricht beispielsweise 1.920 Tokens.
+- Gemini kann nicht-sprachliche Komponenten wie Vogelgesang oder Sirenen „verstehen“.
+- Die maximal unterstützte Länge von Audiodaten in einem einzelnen Prompt beträgt 9,5 Stunden.
+  Gemini beschränkt die *Anzahl* der Audiodateien in einem einzelnen Prompt nicht.Die kombinierte Gesamtlänge aller Audiodateien in einem einzelnen Prompt darf jedoch 9,5 Stunden nicht überschreiten.
+- Gemini führt ein Downsampling von Audiodateien auf eine Datenauflösung von 16 kbit/s durch.
+- Wenn die Audioquelle mehrere Kanäle enthält, kombiniert Gemini diese Kanäle zu einem einzigen Kanal.
 
-## Passaggi successivi
+## Nächste Schritte
 
-Questa guida mostra come generare testo in risposta ai dati audio. Per saperne di più,
-consulta le seguenti risorse:
+In diesem Leitfaden wird gezeigt, wie Sie Text als Antwort auf Audiodaten generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
 
-- [Strategie di prompt dei file](https://ai.google.dev/gemini-api/docs/files?hl=it#prompt-guide): l'API
-  Gemini supporta i prompt con dati di testo, immagine, audio e video, noti anche come prompt multimodali.
-- [Istruzioni di sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions):
-  Le istruzioni di sistema ti consentono di orientare il comportamento del modello in base alle tue
-  esigenze e ai tuoi casi d'uso specifici.
-- [Indicazioni per la sicurezza](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=it): a volte i modelli di AI generativa
-  producono output inaspettati, ad esempio output imprecisi,
-  di parte o offensivi. Il post-processing e la valutazione umana sono essenziali per
-  limitare il rischio di danni derivanti da questi output.
+- [Strategien für Prompts mit Dateien](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die
+  Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch
+  als multimodale Prompts bezeichnet.
+- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions):
+  Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren
+  spezifischen Anforderungen und Anwendungsfällen steuern.
+- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Generative KI
+  Modelle erzeugen manchmal unerwartete Ausgaben, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
 
-Invia feedback
+Feedback geben
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Ultimo aggiornamento 2026-06-23 UTC.
+Zuletzt aktualisiert: 2026-06-23 (UTC).
 
-Vuoi dirci altro?
+Haben Sie Feedback für uns?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-23 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-23 (UTC)."],[],[]]

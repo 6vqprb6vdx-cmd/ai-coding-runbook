@@ -1,47 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=zh-TW
-fetched_at: 2026-07-20T04:44:27.288779+00:00
-title: "Lyria RealTime \u5be6\u9a57\u529f\u80fd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=zh-CN
+fetched_at: 2026-07-27T04:40:46.420639+00:00
+title: "Lyria RealTime \u5b9e\u9a8c\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-提供意見
+发送反馈
 
-# Lyria RealTime 實驗功能
+# Lyria RealTime 实验版
 
-這項實驗性引擎可合成高傳真度的音樂，並提供創新功能，用於生成及轉換音訊內容。Lyria RealTime 最適合用於 AI 輔助的詞曲創作、生成獨特的樂器伴奏，以及需要深入控制旋律和節奏的創意音訊工作流程，且不含人聲。
+一款用于高保真音乐合成的实验性引擎，可提供创新功能来生成和转换音频内容。Lyria RealTime 非常适合需要对旋律和节奏进行深度控制的 AI 辅助歌曲创作、独特的乐器生成和创意音频工作流程，且不包含人声。
 
-[試用 Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=zh-tw)
+[试用 Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=zh-cn)
 
-## 說明文件
+## 文档
 
-如要全面瞭解功能和特色，請前往「[即時生成音樂](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-tw)」頁面。
+如需全面了解功能和功能，请访问[实时音乐生成](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)页面。
 
 ## lyria-realtime-exp
 
-| 屬性 | 說明 |
+| 属性 | 说明 |
 | --- | --- |
-| id\_card 模型代碼 | **Gemini API**  `lyria-realtime-exp` |
-| save支援的資料類型 | **輸入功率**  文字 (加權提示)  **輸出內容**  音訊 (原始 16 位元 PCM) |
-| token\_auto串流播放限制 | **取樣率**  48kHz (立體聲)  **控制延遲**  最多 2 秒 |
-| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 實驗版：`lyria-realtime-exp` |
+| id\_card 模型代码 | **Gemini API**  `lyria-realtime-exp` |
+| 保存支持的数据类型 | **输入**  文本（加权提示）  **输出**  音频（原始 16 位 PCM） |
+| token\_auto直播限制 | **采样率**  48kHz（立体声）  **控制延迟**  最长 2 秒 |
+| 123 版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 实验性：`lyria-realtime-exp` |
 | calendar\_month最新更新 | 2025 年 5 月 |
 
-提供意見
+发送反馈
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-上次更新時間：2026-04-29 (世界標準時間)。
+最后更新时间 (UTC)：2026-04-29。
 
-想進一步說明嗎？
+需要向我们提供更多信息？
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]

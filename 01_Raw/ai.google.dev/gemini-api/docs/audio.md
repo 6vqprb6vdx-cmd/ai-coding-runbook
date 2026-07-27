@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=tr
-fetched_at: 2026-07-20T04:33:09.226348+00:00
-title: "Sesleri anlama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ko
+fetched_at: 2026-07-27T04:33:02.192696+00:00
+title: "\uc624\ub514\uc624 \uc774\ud574 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Geri bildirim gönderin
+의견 보내기
 
-# Sesleri anlama
+# 오디오 이해
 
-Gemini, ses girişini analiz edip metin yanıtları oluşturabilir.
+Gemini는 오디오 입력을 분석하여 텍스트 응답을 생성할 수 있습니다.
 
 ### Python
 
@@ -44,7 +44,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -90,22 +90,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Genel Bakış
+## 개요
 
-Gemini, ses girişini analiz edip anlayabilir ve metin yanıtları oluşturabilir. Bu sayede aşağıdaki gibi kullanım alanları ortaya çıkar:
+Gemini는 오디오 입력을 분석하고 이해하여 텍스트 응답을 생성할 수 있으므로 다음과 같은 사용 사례가 가능합니다.
 
-- Ses içeriğini açıklama, özetleme veya ses içeriğiyle ilgili soruları yanıtlama
-- Metne dönüştürme ve çeviri (konuşmayı metne dönüştürme)
-- Konuşmacı ayırma (farklı konuşmacıları tanımlama)
-- Konuşma ve müzikte duygu algılama
-- Zaman damgalarıyla belirli segmentleri analiz etme
+- 오디오 콘텐츠에 대해 설명하거나, 요약하거나, 질문에 답변하기
+- 음성 텍스트 변환
+- 화자 분할 (서로 다른 화자 식별)
+- 음성 및 음악의 감정 감지
+- 타임스탬프를 사용하여 특정 세그먼트 분석
 
-Gerçek zamanlı ses ve video etkileşimleri için [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'ye bakın.
-Gerçek zamanlı transkripsiyonu destekleyen özel konuşmayı metne dönüştürme modelleri için [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=tr)'yi kullanın.
+실시간 음성 및 동영상 상호작용은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
+실시간 스크립트 작성을 지원하는 전용 음성 텍스트 변환 모델의 경우 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ko)를 사용하세요.
 
-## Konuşmayı metne dönüştürme
+## 음성을 텍스트로 변환
 
-Bu örnekte, [yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) kullanarak konuşmayı zaman damgaları, konuşmacı ayrımı ve duygu algılama ile nasıl metne dönüştüreceğiniz, çevireceğiniz ve özetleyeceğiniz gösterilmektedir.
+이 예에서는 [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)을 사용하여 타임스탬프, 화자 분리, 감정 감지와 함께 음성을 텍스트로 변환하고, 번역하고, 요약하는 방법을 보여줍니다.
 
 ### Python
 
@@ -165,7 +165,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -263,18 +263,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Çok dilli sesli transkripsiyon Gemini uygulaması](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=tr)
+![다국어 오디오 스크립트 작성 Gemini 앱](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ko)
 
-## Giriş sesi
+## 입력 오디오
 
-Ses verilerini aşağıdaki şekillerde sağlayabilirsiniz:
+다음과 같은 방법으로 오디오 데이터를 제공할 수 있습니다.
 
-- İstek göndermeden önce [ses dosyası yükleyin](#upload-audio).
-- İstekle birlikte [satır içi ses verilerini iletin](#inline-audio).
+- 요청하기 전에 [오디오 파일을 업로드](#upload-audio)합니다.
+- 요청과 함께 [인라인 오디오 데이터를 전달](#inline-audio)합니다.
 
-### Ses dosyası yükleme
+### 오디오 파일 업로드
 
-20 MB'tan büyük dosyalar için [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanın.
+20MB를 초과하는 파일에는 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용합니다.
 
 ### Python
 
@@ -299,7 +299,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -345,9 +345,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Ses verilerini satır içi olarak iletme
+### 오디오 데이터를 인라인으로 전달
 
-Toplam istek boyutu 20 MB'tan küçük olan ses dosyaları için:
+총 요청 크기가 20MB 미만인 작은 오디오 파일의 경우:
 
 ### Python
 
@@ -374,7 +374,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -427,13 +427,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Satır içi ses verileriyle ilgili notlar:
-\* Maksimum istek boyutu toplam 20 MB'tır (istemler ve tüm dosyalar dahil).
-\* Yeniden kullanmak için [dosyayı yükleyin](#upload-audio).
+인라인 오디오 데이터 관련 참고사항:
+\* 최대 요청 크기는 총 20MB입니다 (프롬프트 및 모든 파일 포함).
+\* 재사용하려면 대신 [파일을 업로드](#upload-audio)하세요.
 
-## Transkript alma
+## 스크립트 받기
 
-Transkript almak için istemde transkript isteyin:
+스크립트를 받으려면 프롬프트에 다음과 같이 요청하세요.
 
 ### Python
 
@@ -452,7 +452,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const interaction = await client.interactions.create({
@@ -469,9 +469,9 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## Zaman damgalarına bakın
+## 타임스탬프 참고
 
-Belirli bölümlere referans vermek için `MM:SS` biçimini kullanın:
+`MM:SS` 형식을 사용하여 특정 섹션을 참조합니다.
 
 ### Python
 
@@ -489,7 +489,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const interaction = await client.interactions.create({
@@ -501,9 +501,9 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## Parça sayma
+## 토큰 집계
 
-Ses dosyasındaki jetonları sayma:
+오디오 파일의 토큰 수를 계산합니다.
 
 ### Python
 
@@ -515,7 +515,7 @@ response = client.models.count_tokens(
 print(response)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const response = await client.models.countTokens({
@@ -527,7 +527,7 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## Desteklenen ses biçimleri
+## 지원되는 오디오 형식
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -536,28 +536,28 @@ console.log(response.totalTokens);
 - OGG Vorbis - `audio/ogg`
 - FLAC - `audio/flac`
 
-## Sesle ilgili teknik ayrıntılar
+## 오디오에 대한 기술 세부정보
 
-- **Jetonlar**: Sesin her saniyesi için 32 jeton (1 dakika = 1.920 jeton)
-- **Konuşma dışı sesler**: Gemini, konuşma dışı sesleri (kuş sesi, siren vb.) anlar.
-- **Maksimum uzunluk**: İstem başına 9,5 saatlik ses
-- **Çözünürlük**: 16 kbps'ye düşürülür.
-- **Kanallar**: Çok kanallı ses tek kanalda birleştirilir.
+- **토큰**: 오디오 초당 토큰 32개 (1분 = 토큰 1,920개)
+- **비언어적 소리**: Gemini는 비언어적 소리 (새소리, 사이렌 등)를 이해합니다.
+- **최대 길이**: 프롬프트당 오디오 9시간 30분
+- **해상도**: 16Kbps로 다운샘플링됨
+- **채널**: 다중 채널 오디오가 단일 채널로 결합됨
 
-## Sırada ne var?
+## 다음 단계
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr): Ses dosyalarını yükleme ve yönetme
-- [Sistem talimatları](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#system-instructions):
-  Model davranışını özelleştirme
-- [Yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr):
-  JSON biçiminde transkripsiyon sonuçları alma
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko): 오디오 파일 업로드 및 관리
+- [시스템 요청 사항](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#system-instructions):
+  모델 동작 맞춤설정
+- [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko):
+  JSON 형식으로 스크립트 결과 가져오기
 
-Geri bildirim gönderin
+의견 보내기
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Son güncelleme tarihi: 2026-07-06 UTC.
+최종 업데이트: 2026-07-06(UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+의견을 전달하고 싶나요?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-06 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-06(UTC)"],[],[]]
