@@ -1,32 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419
-fetched_at: 2026-07-27T04:36:57.424004+00:00
-title: "Ejecuci\u00f3n de c\u00f3digo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=hi
+fetched_at: 2026-08-03T04:39:46.313560+00:00
+title: "\u0915\u094b\u0921 \u0932\u093e\u0917\u0942 \u0915\u0930\u0947\u0902 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Enviar comentarios
+सुझाव भेजें
 
-# Ejecución de código
+# कोड लागू करें
 
-La API de Gemini proporciona una herramienta de ejecución de código que permite que el modelo genere y ejecute código de Python. Luego, el modelo puede aprender de forma iterativa a partir de los resultados de la ejecución de código hasta llegar a un resultado final. Puedes usar la ejecución de código para crear aplicaciones que se beneficien del razonamiento basado en código. Por ejemplo, puedes usar la ejecución de código para resolver ecuaciones o procesar texto. También puedes
-usar las [bibliotecas](#supported-libraries) incluidas en el entorno de ejecución de código
-para realizar tareas más especializadas.
+Gemini API, कोड एक्ज़ीक्यूशन टूल उपलब्ध कराता है. इसकी मदद से, मॉडल Python कोड जनरेट और रन कर सकता है. इसके बाद, मॉडल कोड के चलने पर मिलने वाले नतीजों से बार-बार सीख सकता है. यह प्रोसेस तब तक चलती है, जब तक मॉडल को फ़ाइनल आउटपुट नहीं मिल जाता. कोड एक्ज़ीक्यूशन का इस्तेमाल करके, ऐसे ऐप्लिकेशन बनाए जा सकते हैं जिनमें कोड के आधार पर गहराई से विश्लेषण करने की सुविधा होती है. उदाहरण के लिए, कोड एक्ज़ीक्यूशन का इस्तेमाल करके, समीकरण हल किए जा सकते हैं या टेक्स्ट को प्रोसेस किया जा सकता है. इसके अलावा, कोड एक्ज़ीक्यूशन एनवायरमेंट में शामिल [लाइब्रेरी](#supported-libraries) का इस्तेमाल करके, ज़्यादा खास टास्क पूरे किए जा सकते हैं.
 
-Gemini solo puede ejecutar código en Python. Aun así, puedes pedirle a Gemini que genere código en otro lenguaje, pero el modelo no puede usar la herramienta de ejecución de código para ejecutarlo.
+Gemini, सिर्फ़ Python में कोड चला सकता है. हालांकि, Gemini से किसी दूसरी भाषा में कोड जनरेट करने के लिए कहा जा सकता है. हालांकि, मॉडल इसे रन करने के लिए, कोड एक्ज़ीक्यूशन टूल का इस्तेमाल नहीं कर सकता.
 
-## Habilita la ejecución de código
+## कोड एक्ज़ीक्यूशन चालू करें
 
-Para habilitar la ejecución de código, configura la herramienta de ejecución de código en el modelo. Esto permite que el modelo genere y ejecute código.
+कोड एक्ज़ीक्यूशन चालू करने के लिए, मॉडल पर कोड एक्ज़ीक्यूशन टूल को कॉन्फ़िगर करें. इससे मॉडल, कोड जनरेट और रन कर सकता है.
 
 ### Python
 
@@ -36,7 +34,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What is the sum of the first 50 prime numbers? "
           "Generate and run code for the calculation, and make sure you get all 50.",
     tools=[{"type": "code_execution"}]
@@ -61,7 +59,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "What is the sum of the first 50 prime numbers? " +
            "Generate and run code for the calculation, and make sure you get all 50.",
     tools: [{ type: "code_execution" }]
@@ -89,13 +87,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
     "tools": [{"type": "code_execution"}]
 }'
 ```
 
-El resultado podría ser similar al siguiente, que se formateó para facilitar la lectura:
+आउटपुट कुछ इस तरह दिख सकता है. इसे पढ़ने में आसानी के लिए फ़ॉर्मैट किया गया है:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -144,29 +142,29 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-Este resultado combina varias partes de contenido que el modelo muestra cuando se usa la ejecución de código:
+इस आउटपुट में, कॉन्टेंट के कई ऐसे हिस्से शामिल होते हैं जो मॉडल, कोड एक्ज़ीक्यूशन की सुविधा का इस्तेमाल करने पर दिखाता है:
 
-- `text`: Texto intercalado generado por el modelo
-- `code_execution_call`: Código generado por el modelo que se ejecutará
-- `code_execution_result`: Resultado del código ejecutable
+- `text`: मॉडल से जनरेट किया गया इनलाइन टेक्स्ट
+- `code_execution_call`: मॉडल से जनरेट किया गया कोड, जिसे रन किया जाना है
+- `code_execution_result`: रन किए जा सकने वाले कोड का नतीजा
 
-## Ejecución de código con imágenes (Gemini 3)
+## इमेज के साथ कोड को चलाने की सुविधा (Gemini 3)
 
-El modelo Gemini 3 Flash ahora puede escribir y ejecutar código de Python para manipular y examinar imágenes de forma activa.
+Gemini 3 Flash मॉडल, अब Python कोड लिख और रन कर सकता है. इससे इमेज में बदलाव किया जा सकता है और उनकी जांच की जा सकती है.
 
-**Casos de uso**
+**इस्तेमाल के उदाहरण**
 
-- **Acercar y examinar**: El modelo detecta de forma implícita cuando los detalles son demasiado pequeños
-  (p.ej., leer un indicador distante) y escribe código para recortar y volver a examinar el área
-  con una resolución más alta.
-- **Matemáticas visuales**: El modelo puede ejecutar cálculos de varios pasos con código (p.ej.,
-  sumar los artículos de una factura).
-- **Anotación de imágenes**: El modelo puede anotar imágenes para responder preguntas, como
-  dibujar flechas para mostrar relaciones.
+- **ज़ूम करना और जांच करना**: मॉडल, अपने-आप यह पता लगा लेता है कि कोई जानकारी बहुत छोटी है या नहीं
+  उदाहरण के लिए, दूर से किसी गेज को पढ़ना. इसके बाद, मॉडल, इमेज को क्रॉप करने और उस हिस्से की फिर से जांच करने के लिए कोड लिखता है
+  ज़्यादा रिज़ॉल्यूशन पर.
+- **विज़ुअल मैथ**: मॉडल, कोड का इस्तेमाल करके कई चरणों वाली कैलकुलेशन कर सकता है. उदाहरण के लिए,
+  रसीद पर मौजूद लाइन आइटम को जोड़ना.
+- **इमेज में एनोटेशन जोड़ना**: मॉडल, सवालों के जवाब देने के लिए इमेज में एनोटेशन जोड़ सकता है. जैसे
+  संबंधों को दिखाने के लिए तीर बनाना.
 
-## Habilita la ejecución de código con imágenes
+## इमेज के साथ कोड को चलाने की सुविधा चालू करना
 
-La ejecución de código con imágenes se admite oficialmente en Gemini 3 Flash. Para activar este comportamiento, habilita la ejecución de código como herramienta y el razonamiento.
+Gemini 3 Flash में, इमेज के साथ कोड को चलाने की सुविधा आधिकारिक तौर पर उपलब्ध है. इस सुविधा को चालू करने के लिए, कोड को चलाने की सुविधा और सूझ-बूझ से जवाब देने की सुविधा, दोनों को चालू करें.
 
 ### Python
 
@@ -183,7 +181,7 @@ image_bytes = requests.get(image_path).content
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "image", "data": base64.b64encode(image_bytes).decode('utf-8'), "mime_type": "image/jpeg"},
         {"type": "text", "text": "Zoom into the expression pedals and tell me how many pedals are there?"}
@@ -219,7 +217,7 @@ async function main() {
   const base64ImageData = Buffer.from(imageArrayBuffer).toString('base64');
 
   const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
       {
         type: "image",
@@ -253,7 +251,7 @@ main();
 
 ```
 IMG_URL="https://goo.gle/instrument-img"
-MODEL="gemini-3.5-flash"
+MODEL="gemini-3.6-flash"
 
 MIME_TYPE=$(curl -sIL "$IMG_URL" | grep -i '^content-type:' | awk -F ': ' '{print $2}' | sed 's/\r$//' | head -n 1)
 if [[ -z "$MIME_TYPE" || ! "$MIME_TYPE" == image/* ]]; then
@@ -274,7 +272,7 @@ jq -n \
   --rawfile b64 image_b64.txt \
   --arg mime "$MIME_TYPE" \
   '{
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
       {type: "image", data: $b64, mime_type: $mime},
       {type: "text", text: "Zoom into the expression pedals and tell me how many pedals are there?"}
@@ -288,9 +286,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -d @payload.json
 ```
 
-## Usa la ejecución de código en interacciones de varios turnos
+## सिलसिलेवार बातचीत में कोड एक्ज़ीक्यूशन का इस्तेमाल करना
 
-También puedes usar la ejecución de código como parte de una conversación de varios turnos con `previous_interaction_id`.
+`previous_interaction_id` का इस्तेमाल करके, सिलसिलेवार बातचीत में भी कोड एक्ज़ीक्यूशन की सुविधा का इस्तेमाल किया जा सकता है.
 
 ### Python
 
@@ -300,14 +298,14 @@ from google import genai
 client = genai.Client()
 
 interaction1 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="I have a math question for you.",
     tools=[{"type": "code_execution"}]
 )
 print(interaction1.output_text)
 
 interaction2 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     previous_interaction_id=interaction1.id,
     input="What is the sum of the first 50 prime numbers? "
           "Generate and run code for the calculation, and make sure you get all 50.",
@@ -333,14 +331,14 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction1 = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "I have a math question for you.",
     tools: [{ type: "code_execution" }]
 });
 console.log(interaction1.output_text);
 
 const interaction2 = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     previous_interaction_id: interaction1.id,
     input: "What is the sum of the first 50 prime numbers? " +
            "Generate and run code for the calculation, and make sure you get all 50.",
@@ -370,7 +368,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "I have a math question for you.",
     "tools": [{"type": "code_execution"}]
 }')
@@ -382,89 +380,82 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "previous_interaction_id": "'"$INTERACTION_ID"'",
     "input": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
     "tools": [{"type": "code_execution"}]
 }'
 ```
 
-## Entrada y salida (E/S)
+## इनपुट/आउटपुट (I/O)
 
-En los modelos actuales de Gemini, como
-[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#gemini-3.5-flash), la ejecución de código
-admite la entrada de archivos y la salida de gráficos. Con estas capacidades de entrada y salida
-, puedes subir archivos CSV y de texto, hacer preguntas sobre los
-archivos y generar gráficos de [Matplotlib](https://matplotlib.org/) como parte
-de la respuesta. Los archivos de salida se muestran como imágenes intercaladas en la respuesta.
+[Gemini 3.5 Flash जैसे मौजूदा Gemini मॉडल में, कोड को चलाने की सुविधा में फ़ाइल इनपुट और ग्राफ़ आउटपुट की सुविधा उपलब्ध है.](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#gemini-3.6-flash) इनपुट और आउटपुट की इन सुविधाओं का इस्तेमाल करके, CSV और टेक्स्ट फ़ाइलें अपलोड की जा सकती हैं. साथ ही, इन फ़ाइलों के बारे में सवाल पूछे जा सकते हैं. इसके अलावा, जवाब के तौर पर [Matplotlib](https://matplotlib.org/) ग्राफ़ जनरेट किए जा सकते हैं. आउटपुट फ़ाइलें, जवाब में इनलाइन इमेज के तौर पर दिखती हैं.
 
-### Precios de E/S
+### I/O की कीमत
 
-Cuando usas la E/S de ejecución de código, se te cobra por los tokens de entrada y salida:
+कोड एक्ज़ीक्यूशन I/O का इस्तेमाल करने पर, आपसे इनपुट टोकन और आउटपुट टोकन के लिए शुल्क लिया जाता है:
 
-**Tokens de entrada:**
+**इनपुट टोकन:**
 
-- Instrucción del usuario
+- उपयोगकर्ता का प्रॉम्प्ट
 
-**Tokens de salida:**
+**आउटपुट टोकन:**
 
-- Código generado por el modelo
-- Resultado de la ejecución de código en el entorno de código
-- Tokens de razonamiento
-- Resumen generado por el modelo
+- मॉडल से जनरेट किया गया कोड
+- कोड एनवायरमेंट में, कोड एक्ज़ीक्यूशन का आउटपुट
+- थिंकिंग टोकन
+- मॉडल से जनरेट की गई खास जानकारी
 
-### Detalles de E/S
+### I/O की जानकारी
 
-Cuando trabajes con la E/S de ejecución de código, ten en cuenta los siguientes detalles técnicos:
+कोड एक्ज़ीक्यूशन I/O का इस्तेमाल करते समय, इन तकनीकी जानकारी का ध्यान रखें:
 
-- El tiempo de ejecución máximo del entorno de código es de 30 segundos.
-- Si el entorno de código genera un error, es posible que el modelo decida volver a generar el resultado de código. Esto puede suceder hasta 5 veces.
-- El tamaño máximo de entrada de archivos está limitado por la ventana de tokens del modelo. Si subes un archivo que supera la ventana de contexto máxima del modelo, la API mostrará un error.
-- La ejecución de código funciona mejor con archivos de texto y CSV.
-- El archivo de entrada se puede pasar como datos intercalados o subir con la
-  [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419),
-  y el archivo de salida siempre se muestra como datos intercalados.
+- कोड एनवायरमेंट का ज़्यादा से ज़्यादा रनटाइम 30 सेकंड है.
+- अगर कोड एनवायरमेंट में कोई गड़बड़ी होती है, तो मॉडल, कोड आउटपुट को फिर से जनरेट कर सकता है. ऐसा ज़्यादा से ज़्यादा पांच बार हो सकता है.
+- फ़ाइल इनपुट का ज़्यादा से ज़्यादा साइज़, मॉडल टोकन विंडो से तय होता है. अगर कोई ऐसी फ़ाइल अपलोड की जाती है जिसका साइज़, मॉडल की ज़्यादा से ज़्यादा कॉन्टेक्स्ट विंडो से ज़्यादा है, तो एपीआई एक गड़बड़ी दिखाएगा.
+- कोड एक्ज़ीक्यूशन, टेक्स्ट और CSV फ़ाइलों के साथ सबसे अच्छी तरह काम करता है.
+- इनपुट फ़ाइल को इनलाइन डेटा के तौर पर पास किया जा सकता है या
+  [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi),
+  का इस्तेमाल करके अपलोड किया जा सकता है. वहीं, आउटपुट फ़ाइल हमेशा इनलाइन डेटा के तौर पर दिखती है.
 
-## Facturación
+## बिलिंग
 
-No hay cargos adicionales por habilitar la ejecución de código desde la API de Gemini.
-Se te facturará según la tarifa actual de los tokens de entrada y salida en función del modelo de Gemini que uses.
+Gemini API से कोड एक्ज़ीक्यूशन की सुविधा चालू करने के लिए, अलग से शुल्क नहीं लिया जाता.
+आपके इस्तेमाल किए जा रहे Gemini मॉडल के आधार पर, आपसे इनपुट और आउटपुट टोकन की मौजूदा दर के हिसाब से शुल्क लिया जाएगा.
 
-Estos son algunos aspectos que debes tener en cuenta sobre la facturación de la ejecución de código:
+कोड एक्ज़ीक्यूशन के लिए बिलिंग के बारे में यहां कुछ और बातें बताई गई हैं:
 
-- Solo se te factura una vez por los tokens de entrada que pasas al modelo, y se te factura por los tokens de salida finales que te muestra el modelo.
-- Los tokens que representan el código generado se cuentan como tokens de salida. El código generado puede incluir texto y resultados multimodales, como imágenes.
-- Los resultados de la ejecución de código también se cuentan como tokens de salida.
+- मॉडल को पास किए गए इनपुट टोकन के लिए, आपसे सिर्फ़ एक बार शुल्क लिया जाता है. वहीं, मॉडल से आपको मिले फ़ाइनल आउटपुट टोकन के लिए, आपसे शुल्क लिया जाता है.
+- जनरेट किए गए कोड को दिखाने वाले टोकन, आउटपुट टोकन के तौर पर गिने जाते हैं. जनरेट किए गए कोड में, टेक्स्ट और इमेज जैसे मल्टीमोडल आउटपुट शामिल हो सकते हैं.
+- कोड एक्ज़ीक्यूशन के नतीजों को भी आउटपुट टोकन के तौर पर गिना जाता है.
 
-El modelo de facturación se muestra en el siguiente diagrama:
+बिलिंग मॉडल को इस डायग्राम में दिखाया गया है:
 
-![Modelo de facturación de ejecución de código](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=es-419)
+![कोड एक्ज़ीक्यूशन के लिए बिलिंग मॉडल](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=hi)
 
-- Se te facturará según la tarifa actual de los tokens de entrada y salida en función del modelo de Gemini que uses.
-- Si Gemini usa la ejecución de código cuando genera tu respuesta, la instrucción original, el código generado y el resultado del código ejecutado se etiquetan como *tokens intermedios* y se facturan como *tokens de entrada*.
-- Luego, Gemini genera un resumen y muestra el código generado, el resultado del código ejecutado y el resumen final. Estos se facturan como *tokens de salida*.
-- La API de Gemini incluye un recuento de tokens intermedios en la respuesta de la API, por lo que sabes por qué obtienes tokens de entrada adicionales más allá de tu instrucción inicial.
+- आपके इस्तेमाल किए जा रहे Gemini मॉडल के आधार पर, आपसे इनपुट और आउटपुट टोकन की मौजूदा दर के हिसाब से शुल्क लिया जाएगा.
+- अगर Gemini, जवाब जनरेट करते समय कोड एक्ज़ीक्यूशन का इस्तेमाल करता है, तो ओरिजनल प्रॉम्प्ट, जनरेट किया गया कोड, और रन किए गए कोड का नतीजा, *इंटरमीडिएट टोकन* के तौर पर लेबल किया जाता है. साथ ही, इनके लिए *इनपुट टोकन* के तौर पर शुल्क लिया जाता है.
+- इसके बाद, Gemini एक खास जानकारी जनरेट करता है. साथ ही, जनरेट किया गया कोड, रन किए गए कोड का नतीजा, और फ़ाइनल खास जानकारी दिखाता है. इनके लिए *आउटपुट टोकन* के तौर पर शुल्क लिया जाता है.
+- Gemini API, एपीआई के जवाब में इंटरमीडिएट टोकन की गिनती शामिल करता है. इससे आपको पता चलता है कि शुरुआती प्रॉम्प्ट के अलावा, आपसे अतिरिक्त इनपुट टोकन के लिए शुल्क क्यों लिया जा रहा है.
 
-## Limitaciones
+## सीमाएं
 
-- El modelo solo puede generar y ejecutar código. No puede mostrar otros artefactos, como archivos multimedia.
-- En algunos casos, habilitar la ejecución de código puede provocar regresiones en otras áreas del resultado del modelo (por ejemplo, escribir una historia).
-- Existe cierta variación en la capacidad de los diferentes modelos para usar la ejecución de código de forma correcta.
+- मॉडल, सिर्फ़ कोड जनरेट और रन कर सकता है. यह मीडिया फ़ाइलों जैसे अन्य आर्टफ़ैक्ट नहीं दिखा सकता.
+- कुछ मामलों में, कोड एक्ज़ीक्यूशन को चालू करने पर, मॉडल आउटपुट के अन्य हिस्सों में रिग्रेशन हो सकता है. उदाहरण के लिए, कहानी लिखना.
+- अलग-अलग मॉडल की, कोड को चलाने की सुविधा का इस्तेमाल करके, टास्क को सफलतापूर्वक पूरा करने की क्षमता में कुछ अंतर होता है.
 
-## Combinaciones de herramientas compatibles
+## टूल के साथ काम करने वाली सुविधाओं के कॉम्बिनेशन
 
-La herramienta de ejecución de código se puede combinar con
-[Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) para
-potenciar casos de uso más complejos.
+कोड एक्ज़ीक्यूशन टूल को, [Google Search से सटीक जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) के साथ जोड़ा जा सकता है. इससे ज़्यादा मुश्किल इस्तेमाल के उदाहरणों को पूरा किया जा सकता है.
 
-Los modelos de Gemini 3 admiten la combinación de herramientas integradas (como la ejecución de código) con herramientas personalizadas (llamadas a funciones).
+Gemini 3 मॉडल में, बिल्ट-इन टूल (जैसे, कोड को चलाने की सुविधा) को कस्टम टूल (फ़ंक्शन कॉल) के साथ जोड़ा जा सकता है.
 
-## Bibliotecas compatibles
+## इस्तेमाल की जा सकने वाली लाइब्रेरी
 
-El entorno de ejecución de código incluye las siguientes bibliotecas:
+कोड एक्ज़ीक्यूशन एनवायरमेंट में ये लाइब्रेरी शामिल हैं:
 
 - attrs
-- ajedrez
+- chess
 - contourpy
 - fpdf
 - geopandas
@@ -479,9 +470,9 @@ El entorno de ejecución de código incluye las siguientes bibliotecas:
 - numpy
 - opencv-python
 - openpyxl
-- empaquetado
+- packaging
 - pandas
-- almohada
+- pillow
 - protobuf
 - pylatex
 - pyparsing
@@ -501,21 +492,21 @@ El entorno de ejecución de código incluye las siguientes bibliotecas:
 - toolz
 - xlrd
 
-No puedes instalar tus propias bibliotecas.
+अपनी लाइब्रेरी इंस्टॉल नहीं की जा सकतीं.
 
-## ¿Qué sigue?
+## आगे क्या करना है
 
-- Prueba la guía de inicio rápido de la API de [Interactions](https://ai.google.dev/gemini-api/docs/quickstart?hl=es-419).
-- Obtén información sobre otras herramientas de la API de Gemini:
-  - [Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)
-  - [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/quickstart?hl=hi) का इस्तेमाल करने के लिए, क्विकस्टार्ट गाइड देखें.
+- Gemini API के अन्य टूल के बारे में जानें:
+  - [फ़ंक्शन कॉल](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)
+  - [Google Search से सटीक जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)
 
-Enviar comentarios
+सुझाव भेजें
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última actualización: 2026-07-07 (UTC)
+आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
 
-¿Quieres brindar más información?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-07 (UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]

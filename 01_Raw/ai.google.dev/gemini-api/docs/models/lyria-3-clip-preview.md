@@ -1,50 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=ar
-fetched_at: 2026-07-27T04:47:56.935174+00:00
-title: "\u0645\u0639\u0627\u064a\u0646\u0629 \u0645\u0642\u0637\u0639 Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=hi
+fetched_at: 2026-08-03T04:27:27.227735+00:00
+title: "Lyria 3 \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0915\u094d\u0932\u093f\u092a \u0915\u0940 \u091d\u0932\u0915 \u0926\u0947\u0916\u0928\u0947 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-إرسال ملاحظات
+सुझाव भेजें
 
-# معاينة مقطع Lyria 3
+# Lyria 3 की मदद से क्लिप की झलक देखने की सुविधा
 
-Lyria 3 Clip Preview هو نموذج من Google تم تحسينه لإنشاء مقاطع موسيقية قصيرة وحلقات ومعاينات. وينشئ النموذج ملفات صوتية عالية الجودة مدتها 30 ثانية وبصوت ستيريو بتردد 48 كيلوهرتز من الطلبات النصية أو الصور المُدخَلة.
+Lyria 3 Clip Preview, Google का एक ऐसा मॉडल है जिसे छोटे म्यूज़िकल क्लिप, लूप, और झलक जनरेट करने के लिए ऑप्टिमाइज़ किया गया है. यह टेक्स्ट प्रॉम्प्ट या इमेज इनपुट से, 30 सेकंड का 48kHz स्टीरियो ऑडियो जनरेट करता है. इसकी क्वालिटी बहुत अच्छी होती है.
 
-[تجربة النموذج في Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-clip-preview&hl=ar)
+[Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=lyria-3-clip-preview&hl=hi)
 
-## الوثائق
+## दस्तावेज़
 
-يمكنك الانتقال إلى دليل [إنشاء الموسيقى](https://ai.google.dev/gemini-api/docs/music-generation?hl=ar) للاطّلاع على تغطية كاملة
-للميزات والإمكانات.
+सुविधाओं और उनकी उपलब्धता के बारे में पूरी जानकारी पाने के लिए, [संगीत जनरेट करने से जुड़ी](https://ai.google.dev/gemini-api/docs/music-generation?hl=hi) गाइड पर जाएं.
 
 ## lyria-3-clip-preview
 
-| الموقع | الوصف |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardرمز النموذج | `lyria-3-clip-preview` |
-| saveأنواع البيانات المتوفرة | **البيانات المُدخَلة**  النص والصورة  **الناتج**  ملف صوتي (MP3)، نص (كلمات الأغنية) |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحد الأقصى للرموز المميزة المُدخَلة**  131,072 |
-| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  غير متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  غير متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  غير متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[واجهة برمجة التطبيقات المباشرة](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[لتحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  غير متاح  **[مُخرجات منظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  غير متاح  **[طريقة التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  غير متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  غير متاح |
-| خيارات الاستهلاكspeed | **[واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  غير متاح  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  غير متاح  **[الاستنتاج ذو الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  غير متاح |
-| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - معاينة: `lyria-3-clip-preview` - معاينة: `lyria-3-pro-preview` |
-| calendar\_monthآخر تعديل | مارس 2026 |
+| id\_cardमॉडल कोड | `lyria-3-clip-preview` |
+| saveकौन-कौनसे डेटा टाइप इसके साथ काम करते हैं | **इनपुट**  टेक्स्ट और इमेज  **आउटपुट**  ऑडियो (MP3), टेक्स्ट (गाने के बोल) |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  1,31,072 |
+| handymanमिलने वाली अनुमतियां | **[ऑडियो जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/speech-generation?hl=hi)**  काम करता है  **[कैश मेमोरी में सेव होना](https://ai.google.dev/gemini-api/docs/caching?hl=hi)**  काम नहीं करता है  **[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi)**  काम नहीं करता है  **[फ़ाइल खोजने की सुविधा](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)**  काम नहीं करता है  **[फ़ंक्शन कॉल करने की सुविधा](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)**  काम नहीं करता है  **[Google Maps की मदद से भरोसेमंद स्रोतों से जानकारी लेने की सुविधा](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)**  काम नहीं करता है  **[इमेज जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)**  काम नहीं करता है  **[लाइव एपीआई](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)**  काम नहीं करता है  **[भरोसेमंद स्रोतों से जानकारी लें](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)**  काम नहीं करता है  **[स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi)**  काम नहीं करता है  **[प्रोसेस दिखाएं](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)**  काम नहीं करता है  **[यूआरएल के हिसाब से कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)**  काम नहीं करता है |
+| speedConsumption विकल्प | **[बैच एपीआई](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi)**  काम नहीं करता है  **[Flex अनुमान](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi)**  काम नहीं करता है  **[प्राथमिकता अनुमान](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi)**  काम नहीं करता है |
+| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल के वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) के बारे में पढ़ें.  - झलक देखें: `lyria-3-clip-preview` - झलक देखें: `lyria-3-pro-preview` |
+| calendar\_monthअपडेट की तारीख | मार्च 2026 |
 
-إرسال ملاحظات
+सुझाव भेजें
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
+आखिरी बार 2026-06-23 (UTC) को अपडेट किया गया.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+क्या आपको हमें और कुछ बताना है?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-23 (UTC) को अपडेट किया गया."],[],[]]

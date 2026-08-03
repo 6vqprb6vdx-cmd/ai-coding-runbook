@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=id
-fetched_at: 2026-07-27T04:44:17.330104+00:00
+fetched_at: 2026-08-03T04:35:31.593168+00:00
 title: "Bermigrasi ke Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -8,7 +8,7 @@ title: "Bermigrasi ke Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Go
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
 - [Beranda](https://ai.google.dev/?hl=id)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=id)
@@ -117,7 +117,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash", input="Tell me a joke."
+    model="gemini-3.6-flash", input="Tell me a joke."
 )
 
 print(interaction.output_text)
@@ -131,7 +131,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Tell me a joke.'
 });
 
@@ -146,7 +146,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Tell me a joke."
 }'
 
@@ -311,12 +311,12 @@ from google import genai
 client = genai.Client()
 
 interaction1 = client.interactions.create(
-    model="gemini-3.5-flash", input="Hi, my name is Phil."
+    model="gemini-3.6-flash", input="Hi, my name is Phil."
 )
 print("Response 1:", interaction1.output_text)
 
 interaction2 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     previous_interaction_id=interaction1.id,
     input="What is my name?",
 )
@@ -331,13 +331,13 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Hi, my name is Phil.'
 });
 console.log("Response 1:", interaction.output_text);
 
 interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     previous_interaction_id: interaction.id,
     input: 'What is my name?'
 });
@@ -352,7 +352,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Hi, my name is Phil."
 }'
 
@@ -361,7 +361,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "previous_interaction_id": "int_123",
     "input": "What is my name?"
 }'
@@ -505,7 +505,7 @@ with open("sample.jpg", "rb") as f:
 image_b64 = base64.b64encode(image_bytes).decode("utf-8")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {
             "type": "image",
@@ -529,7 +529,7 @@ const client = new GoogleGenAI({});
 const imageBytes = fs.readFileSync('sample.jpg').toString('base64');
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: [
         {
             type: 'image',
@@ -553,7 +553,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
         {
             "type": "image",
@@ -723,7 +723,7 @@ class Recipe(BaseModel):
     ingredients: list[str]
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Give me a recipe for chocolate chip cookies.",
     response_format=[
         {
@@ -745,7 +745,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Give me a recipe for chocolate chip cookies.',
     response_format: [
         {
@@ -776,7 +776,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Give me a recipe for chocolate chip cookies.",
     "response_format": [
         {
@@ -1009,7 +1009,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Who won Euro 2024?",
     tools=[{"type": "google_search"}],
 )
@@ -1032,7 +1032,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Who won Euro 2024?',
     tools: [{ type: 'google_search' }]
 });
@@ -1059,7 +1059,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Who won Euro 2024?",
     "tools": [{"type": "google_search"}]
 }'
@@ -1274,7 +1274,7 @@ weather_tool = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What's the weather in Boston?",
     tools=[weather_tool],
 )
@@ -1286,7 +1286,7 @@ for step in interaction.steps:
         result = "52°F and rain"
 
         interaction = client.interactions.create(
-            model="gemini-3.5-flash",
+            model="gemini-3.6-flash",
             previous_interaction_id=interaction.id,
             input=[
                 {
@@ -1321,7 +1321,7 @@ const weatherTool = {
 };
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: "What's the weather in Boston?",
     tools: [weatherTool]
 });
@@ -1333,7 +1333,7 @@ for (const step of interaction.steps) {
         const result = "52°F and rain";
 
         const nextInteraction = await client.interactions.create({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-3.6-flash',
             previous_interaction_id: interaction.id,
             input: [
                 {
@@ -1358,7 +1358,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What's the weather in Boston?",
     "tools": [{
         "type": "function",
@@ -1401,7 +1401,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "previous_interaction_id": "int_001",
     "input": {
         "type": "function_result",
@@ -1515,7 +1515,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Tell me a story",
     stream=True,
 )
@@ -1536,7 +1536,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Tell me a story',
     stream: true,
 });
@@ -1657,7 +1657,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What's the weather in Boston?",
     tools=[get_weather_tool],
     stream=True,
@@ -1684,7 +1684,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: "What's the weather in Boston?",
     tools: [getWeatherTool],
     stream: true,
@@ -1715,7 +1715,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the weather in Boston?",
     "tools": [{"type": "function", "name": "get_weather", "parameters": {"type": "object", "properties": {"location": {"type": "string"}}}}],
     "stream": true
@@ -1796,8 +1796,8 @@ Kirim masukan
 
 Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Terakhir diperbarui pada 2026-07-08 UTC.
+Terakhir diperbarui pada 2026-07-30 UTC.
 
 Ada masukan untuk kami?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-08 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

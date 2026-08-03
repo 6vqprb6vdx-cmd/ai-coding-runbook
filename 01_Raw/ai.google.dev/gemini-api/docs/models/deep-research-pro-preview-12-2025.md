@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=ar
-fetched_at: 2026-07-27T04:47:03.881862+00:00
-title: "\u0645\u0639\u0627\u064a\u0646\u0629 Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=zh-TW
+fetched_at: 2026-08-03T04:28:35.001135+00:00
+title: "Deep Research \u9810\u89bd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-إرسال ملاحظات
+提供意見
 
-# معاينة Deep Research
+# Deep Research 預覽
 
-باحث قوي مستنِد إلى الذكاء الاصطناعي الوكيل ومصمَّم لإجراء تحقيقات مستقلة ومتعدّدة الخطوات،
-ويجمع المعلومات المعقّدة في تقارير شاملة مع ذكر المصادر. هذا النموذج يستند إلى Gemini 3.1 Pro، وهو محسّن للمهام الطويلة الأمد والتحليلات التي تتطلّب دقة عالية، ويستند إلى مئات المصادر المتاحة على الويب وبيانات Workspace الخاصة، مثل Gmail وDrive.
+這項強大的代理式研究工具可自主執行多步驟調查，並將複雜資訊統整為附有出處的完整報告。這款模型採用 Gemini 3.1 Pro 技術，可從數百個公開網路來源和私人 Workspace 資料 (例如 Gmail 和雲端硬碟) 中擷取資訊，並進行準確度至關重要的分析，非常適合長時間執行的工作。
 
-## الوثائق
+## 說明文件
 
-انتقِل إلى صفحة [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
+如要全面瞭解功能與能力，請前往「[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)」頁面。
 
 ## deep-research-pro-preview-12-2025
 
-| الموقع | الوصف |
+| 屬性 | 說明 |
 | --- | --- |
-| id\_cardرمز الوكيل | **Interactions API**  `deep-research-pro-preview-12-2025` |
-| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة وملف PDF وملف صوتي وفيديو  **الناتج**  النص (التقارير المقتبَسة) |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **قدرة الاستيعاب الخاصة بالمدخلات**  1,048,576  **الحد الأقصى لعدد الرموز المميزة في الناتج**  65,536 |
-| 123الإصدارات | لمزيد من التفاصيل، يُرجى الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions).  - معاينة: `deep-research-pro-preview-12-2025` |
-| calendar\_monthآخر تعديل | ديسمبر 2025 |
+| id\_card代理程式碼 | **互動 API**  `deep-research-pro-preview-12-2025` |
+| save支援的資料類型 | **輸入功率**  文字、圖片、PDF、音訊、影片  **輸出內容**  文字 (引用報告) |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入脈絡窗口**  1,048,576  **輸出詞元限制**  65,536 |
+| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 預覽：`deep-research-pro-preview-12-2025` |
+| calendar\_month最新更新 | 2025 年 12 月 |
 
-إرسال ملاحظات
+提供意見
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+上次更新時間：2026-04-29 (世界標準時間)。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+想進一步說明嗎？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]

@@ -1,69 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=ko
-fetched_at: 2026-07-27T04:35:15.879582+00:00
-title: "\uc545\uc6a9 \ubaa8\ub2c8\ud130\ub9c1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=vi
+fetched_at: 2026-08-03T04:32:38.150306+00:00
+title: "Gi\u00e1m s\u00e1t h\u00e0nh vi sai tr\u00e1i \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# 악용 모니터링
+# Giám sát hành vi sai trái
 
-Google은 AI의 책임감 있는 개발 및 사용을 위해 최선을 다하고 있습니다. Gemini API의 안전과 무결성을 보장하기 위해 Google은 다음과 같은 정책 가이드라인을 마련했습니다.
-Gemini API를 사용하면 다음 가이드라인, [Gemini API
-추가 서비스 약관](https://ai.google.dev/gemini-api/terms?hl=ko) 및 생성형 AI [금지된
-사용 정책](https://policies.google.com/terms/generative-ai/use-policy?hl=ko)에 동의하는 것으로 간주됩니다.
+Google cam kết phát triển và sử dụng AI một cách có trách nhiệm. Để đảm bảo tính an toàn và tính toàn vẹn của Gemini API, chúng tôi đã tạo ra các nguyên tắc chính sách này.
+Bằng cách sử dụng Gemini API, bạn đồng ý với các nguyên tắc sau đây, [Điều khoản dịch vụ bổ sung](https://ai.google.dev/gemini-api/terms?hl=vi) của
+Gemini API và Chính sách về các hành vi bị cấm khi sử dụng AI tạo sinh[.](https://policies.google.com/terms/generative-ai/use-policy?hl=vi)
 
-## 오용 모니터링 방법
+## Cách chúng tôi giám sát để phát hiện hành vi sử dụng sai mục đích
 
-Google의 신뢰 및 안전팀은 자동화된 프로세스와 수동 프로세스를 조합하여 Gemini API 및 Google AI Studio의 잠재적 오용을 감지하고 정책을 시행합니다.
+Nhóm Tin cậy và An toàn của Google sử dụng kết hợp các quy trình tự động và thủ công để phát hiện hành vi sử dụng sai mục đích có thể xảy ra đối với Gemini API và Google AI Studio nhằm thực thi các chính sách của chúng tôi.
 
-- **자동 감지:** 자동화된 시스템은 API 사용을 검사하여 증오심 표현, 괴롭힘, 성적으로 노골적인 콘텐츠, 위험한 콘텐츠와 같은 금지된 사용 정책 위반을 감지합니다.
-- **수동 감지:** 프로젝트에서 지속적으로 의심스러운 활동이 나타나는 경우 승인된 Google 직원이 수동 검토를 위해 프로젝트에 플래그를 지정할 수 있습니다.
+- **Phát hiện tự động:** Các hệ thống tự động quét việc sử dụng API để phát hiện các hành vi vi phạm Chính sách về các hành vi bị cấm khi sử dụng, chẳng hạn như ngôn từ kích động thù hận, hành vi quấy rối, nội dung khiêu dâm và nội dung nguy hiểm.
+- **Phát hiện thủ công:** Nếu một dự án liên tục có hoạt động đáng ngờ, dự án đó có thể bị gắn cờ để nhân viên được uỷ quyền của Google xem xét theo cách thủ công.
 
-## 데이터 처리 방법
+## Cách chúng tôi xử lý dữ liệu
 
-Google은 서비스의 안전과 보안을 유지하기 위해 금지된 사용 정책 위반을 감지하고 방지하기 위한 목적으로, 그리고 법적 또는 규제적 공개 요구사항을 준수하기 위해 다음과 같은 데이터를 55일 동안 보관합니다.
+Google giữ lại các dữ liệu sau đây trong 55 (năm mươi lăm) ngày nhằm mục đích phát hiện và ngăn chặn các hành vi vi phạm Chính sách về các hành vi bị cấm khi sử dụng để duy trì sự an toàn và bảo mật của Dịch vụ, cũng như mọi thông tin bắt buộc phải tiết lộ theo quy định pháp luật:
 
-- **프롬프트:** API에 제출하는 텍스트 프롬프트입니다.
-- **맥락 정보:** 프롬프트와 함께 제공하는 추가 맥락입니다.
-- **출력:** Gemini API에서 생성한 응답입니다.
+- **Câu lệnh:** Câu lệnh bằng văn bản mà bạn gửi đến API.
+- **Thông tin theo bối cảnh:** Mọi thông tin bổ sung theo bối cảnh mà bạn cung cấp cùng với câu lệnh.
+- **Kết quả:** Câu trả lời do Gemini API tạo ra.
 
-## 잠재적 문제 조사 방법
+## Cách chúng tôi điều tra các vấn đề tiềm ẩn
 
-위에서 설명한 안전 필터 및 악용 감지 시스템에서 프롬프트 또는 모델 출력이 플래그로 지정되면 승인된 Google 직원이 플래그가 지정된 콘텐츠를 평가하고 미리 정의된 가이드라인 및 정책에 따라 분류 또는 결정을 확인하거나 수정할 수 있습니다. 데이터는 내부 거버넌스 평가 및 검토 관리 플랫폼을 통해 승인된 Google 직원만 인적 검토를 위해 액세스할 수 있습니다. 악용 모니터링을 위해 데이터가 로깅되면 정책 시행 및 정책 위반 방지 목적으로만 사용됩니다.
-정책 시행을 위해 특별히 사용되는 모델 외에는 AI/ML 모델을 학습하거나 미세 조정하는 데 사용되지 않습니다.
+Khi câu lệnh hoặc kết quả của mô hình bị bộ lọc an toàn và hệ thống phát hiện hành vi sai trái được mô tả ở trên gắn cờ, nhân viên được uỷ quyền của Google có thể đánh giá nội dung bị gắn cờ và xác nhận hoặc sửa thông tin phân loại hoặc xác định dựa trên các nguyên tắc và chính sách được xác định trước. Chỉ nhân viên được uỷ quyền của Google mới có thể truy cập dữ liệu để xem xét theo cách thủ công thông qua nền tảng đánh giá quản trị nội bộ và quản lý quy trình xem xét. Khi dữ liệu được ghi lại để giám sát hành vi sai trái, dữ liệu đó chỉ được dùng cho mục đích thực thi chính sách và ngăn chặn hành vi vi phạm chính sách.
+Dữ liệu này không được dùng để huấn luyện hoặc tinh chỉnh bất kỳ mô hình AI/ML nào ngoài những mô hình được dùng riêng cho việc thực thi chính sách.
 
-## 정책 준수 관련 협력
+## Hợp tác với bạn để tuân thủ chính sách
 
-Gemini 사용이 Google 정책을 준수하지 않는 경우 Google은 다음과 같은 조치를 취할 수 있습니다.
+Nếu việc bạn sử dụng Gemini không tuân thủ các chính sách của chúng tôi, chúng tôi có thể thực hiện các bước sau:
 
-- **연락:** Google은 이메일을 통해 사용 사례를 파악하고 사용을 규정 준수 상태로 전환할 수 있는 방법을 모색하기 위해 연락을 드릴 수 있습니다.
-- **임시 사용 한도:** Google은 비율 제한을 조정하거나 특정 요청에 응답하는 모델을 변경하는 등의 방법으로 Gemini API에 대한 액세스를 제한할 수 있습니다.
-- **일시 정지:** Google은 Gemini API에 대한 액세스를 일시적으로 중지할 수 있습니다.
-- **계정 폐쇄:** 최후의 수단으로, 심각한 위반의 경우 Gemini API 및 기타 Google 서비스에 대한 액세스를 영구적으로 폐쇄할 수 있습니다.
+- **Liên hệ:** Chúng tôi có thể liên hệ với bạn qua email để hiểu rõ trường hợp sử dụng của bạn và tìm hiểu các cách để giúp bạn tuân thủ chính sách.
+- **Giới hạn tạm thời về việc sử dụng:** Chúng tôi có thể giới hạn quyền truy cập của bạn vào Gemini API bằng cách điều chỉnh giới hạn về tốc độ hoặc thay đổi mô hình trả lời một yêu cầu cụ thể, chẳng hạn.
+- **Tạm ngưng:** Chúng tôi có thể tạm ngưng quyền truy cập của bạn vào Gemini API.
+- **Đóng tài khoản:** Trong trường hợp cuối cùng và đối với các hành vi vi phạm nghiêm trọng, chúng tôi có thể đóng vĩnh viễn quyền truy cập của bạn vào Gemini API và các dịch vụ khác của Google.
 
-정지 또는 계정 해지와 관련하여 연락을 드리는 경우 이의신청을 할 수 있는 링크도 제공합니다.
+Nếu chúng tôi liên hệ với bạn về việc tạm ngưng hoặc đóng tài khoản, chúng tôi cũng sẽ cung cấp một đường liên kết để bạn có thể kháng nghị.
 
-## 범위
+## Phạm vi
 
-이 정책 가이드라인은 Gemini API 및 AI Studio 사용에 적용됩니다.
+Các nguyên tắc chính sách này áp dụng cho việc sử dụng Gemini API và AI Studio.
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-최종 업데이트: 2026-06-09(UTC)
+Cập nhật lần gần đây nhất: 2026-06-09 UTC.
 
-의견을 전달하고 싶나요?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-09(UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-09 UTC."],[],[]]

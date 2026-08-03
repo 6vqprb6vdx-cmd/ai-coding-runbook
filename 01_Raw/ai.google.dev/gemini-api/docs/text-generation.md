@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=tr
-fetched_at: 2026-07-27T04:43:11.699405+00:00
-title: "Metin olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-TW
+fetched_at: 2026-08-03T04:35:02.882206+00:00
+title: "\u6587\u5b57\u751f\u6210 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Geri bildirim gönderin
+提供意見
 
-# Metin oluşturma
+# 文字生成
 
-Gemini API, metin, resim, video ve ses girişlerinden metin çıkışı oluşturabilir.
+Gemini API 可根據文字、圖片、影片和音訊輸入內容生成文字輸出內容。
 
-Temel bir örnek:
+基本範例如下：
 
 ### Python
 
@@ -30,7 +30,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="How does AI work?"
 )
 print(interaction.output_text)
@@ -45,7 +45,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "How does AI work?",
   });
   console.log(interaction.output_text);
@@ -61,21 +61,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "How does AI work?"
   }'
 ```
 
-Google GenAI SDK'ları, modelin yanıtına erişmek için doğrudan döndürülen `Interaction` nesnesinde kolaylık özellikleri sağlar.
+Google GenAI SDK 會在傳回的 `Interaction` 物件上直接提供便利屬性，方便您存取模型的回覆。
 
-En yaygın yardımcı **`interaction.output_text`** (Dize) olup modelin yanıtındaki son metin bloklarını döndürür. Yanıt, birden fazla ardışık `TextContent` blok arasında bölünmüşse bu bloklar otomatik olarak birleştirilir.
-`.output_text`, metin dışı içeriklerle (ör. düşünceler, resimler, ses veya araç çağrıları) ayrılmış önceki metin bloklarını kapsamaz. Karmaşık veya iç içe geçmiş çok formatlı yanıtlarda bunun yerine `steps` üzerinde manuel olarak yineleme yapmanız gerekir. Diğer medya kolaylığı özellikleri hakkında daha fazla bilgi edinmek için [Etkileşimlere genel bakış](https://ai.google.dev/gemini-api/docs/interactions?hl=tr#convenience-properties) başlıklı makaleyi inceleyin.
+最常見的輔助函式是 **`interaction.output_text`** (String)，會傳回模型回覆中的最後一個文字區塊。如果回覆內容分成多個連續的 `TextContent` 區塊，系統會自動合併這些區塊。請注意，`.output_text` 不包括以非文字內容 (例如想法、圖片、音訊或工具呼叫) 分隔的先前文字區塊。如果是複雜或交錯的多模態回應，則必須改為手動疊代 `steps`。如要進一步瞭解其他媒體便利性屬性，請參閱「[互動總覽](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw#convenience-properties)」。
 
-## Gemini ile düşünme
+## 與 Gemini 一起思考
 
-Gemini modellerinde genellikle ["düşünme"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=tr) özelliği varsayılan olarak etkindir. Bu özellik, modelin bir isteğe yanıt vermeden önce akıl yürütmesini sağlar.
+Gemini 模型預設會[「思考」](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-tw)，也就是先推論要求內容，再進行回覆。
 
-Her model, maliyet, gecikme ve zeka üzerinde kontrol sahibi olmanızı sağlayan farklı düşünme yapılandırmalarını destekler. Daha fazla ayrıntı için [düşünme kılavuzuna](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=tr#set-budget) bakın.
+每種模型支援不同的思考設定，可讓您控管成本、延遲和智慧。詳情請參閱[思考指南](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-tw#set-budget)。
 
 ### Python
 
@@ -85,7 +84,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="How does AI work?",
     generation_config={
         "thinking_level": "low"
@@ -103,7 +102,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "How does AI work?",
     generation_config: {
       thinking_level: "low",
@@ -122,7 +121,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "How does AI work?",
     "generation_config": {
       "thinking_level": "low"
@@ -130,9 +129,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Sistem talimatları ve diğer yapılandırmalar
+## 系統指令和其他設定
 
-Sistem talimatlarıyla Gemini modellerinin davranışını yönlendirebilirsiniz. Modelin davranışını yapılandırmak için `system_instruction` parametresini iletin.
+你可以使用系統指令引導 Gemini 模型行為。傳遞 `system_instruction` 參數來設定模型行為。
 
 ### Python
 
@@ -142,7 +141,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     system_instruction="You are a cat. Your name is Neko.",
     input="Hello there"
 )
@@ -159,7 +158,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Hello there",
     system_instruction: "You are a cat. Your name is Neko.",
   });
@@ -176,13 +175,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "system_instruction": "You are a cat. Your name is Neko.",
     "input": "Hello there"
   }'
 ```
 
-Ayrıca `generation_config` parametresini kullanarak sıcaklık gibi varsayılan oluşturma parametrelerini de geçersiz kılabilirsiniz.
+您也可以使用 `generation_config` 參數，覆寫預設生成參數，例如溫度。
 
 ### Python
 
@@ -192,7 +191,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Explain how AI works",
     generation_config={
         "temperature": 1.0
@@ -210,7 +209,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Explain how AI works",
     generation_config: {
       temperature: 1.0,
@@ -229,7 +228,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Explain how AI works",
     "generation_config": {
       "temperature": 1.0
@@ -237,11 +236,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Yapılandırılabilir parametrelerin ve açıklamalarının tam listesi için [Etkileşimler API'si referansına](https://ai.google.dev/api/interactions-api?hl=tr) bakın.
+如需可設定參數的完整清單及其說明，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw)。
 
-## Çok formatlı girişler
+## 多模態輸入內容
 
-Gemini API, çok formatlı girişleri destekler. Bu sayede metinleri medya dosyalarıyla birleştirebilirsiniz. Aşağıdaki örnekte resim sağlama gösterilmektedir:
+Gemini API 支援多模態輸入內容，可讓您結合文字和媒體檔案。以下範例說明如何提供圖片：
 
 ### Python
 
@@ -253,7 +252,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/organ.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Tell me about this instrument"},
         {
@@ -280,7 +279,7 @@ async function main() {
   });
 
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
       {type: "text", text: "Tell me about this instrument"},
       {
@@ -304,7 +303,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Tell me about this instrument"},
       {
@@ -316,14 +315,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Resim sağlamanın alternatif yöntemleri ve daha gelişmiş resim işleme hakkında bilgi edinmek için [Resim Anlama Rehberimizi](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=tr) inceleyin.
-API ayrıca [doküman](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=tr), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=tr) ve [ses](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=tr) girişlerini ve bu girişlerin anlaşılmasını da destekler.
+如需提供圖片的替代方法和更進階的圖片處理方式，請參閱[圖像解讀指南](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=zh-tw)。這項 API 也支援[文件](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=zh-tw)、[影片](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=zh-tw)和[音訊](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=zh-tw)輸入內容，並可解讀這些內容。
 
-## Yanıtları akış şeklinde gösterme
+## 逐句顯示回覆
 
-Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir.
+根據預設，整個生成程序完成後，模型才會傳回回覆。
 
-Daha akıcı etkileşimler için, yanıt parçaları oluşturuldukça işlemek üzere akışı kullanın. Etkinlik türleri, araçlarla yayın yapma, düşünme, aracı kullanma ve görüntü oluşturma konularını kapsayan kapsamlı bir kılavuz için [Yayın etkileşimleri](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=tr) başlıklı özel kılavuza bakın.
+如要讓互動更流暢，請使用串流處理生成的回應區塊。如需涵蓋事件類型、使用工具串流、思考、代理程式和圖像生成的完整指南，請參閱專屬的[串流互動](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw)指南。
 
 ### Python
 
@@ -333,7 +331,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Explain how AI works",
     stream=True
 )
@@ -352,7 +350,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const stream = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Explain how AI works",
     stream: true,
   });
@@ -377,15 +375,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Explain how AI works",
     "stream": true
   }'
 ```
 
-## Etkileşimli görüşmeler
+## 多轉折對話
 
-Etkileşimler API'si, `previous_interaction_id` kullanarak etkileşimleri zincirleme bağlayarak çok adımlı görüşmeleri destekler. Her dönüş ayrı bir etkileşimdir ve API, sohbet geçmişini otomatik olarak yönetir.
+Interactions API 支援多輪對話，只要使用 `previous_interaction_id` 將互動串連在一起即可。每個回合都是獨立的互動，API 會自動管理對話記錄。
 
 ### Python
 
@@ -395,13 +393,13 @@ from google import genai
 client = genai.Client()
 
 interaction1 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="I have 2 dogs in my house.",
 )
 print(interaction1.output_text)
 
 interaction2 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="How many paws are in my house?",
     previous_interaction_id=interaction1.id,
 )
@@ -417,13 +415,13 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction1 = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "I have 2 dogs in my house.",
   });
   console.log("Response 1:", interaction1.output_text);
 
   const interaction2 = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "How many paws are in my house?",
     previous_interaction_id: interaction1.id,
   });
@@ -440,7 +438,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "I have 2 dogs in my house."
   }')
 
@@ -450,13 +448,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "I have two dogs in my house. How many paws are in my house?",
     "previous_interaction_id": "'$INTERACTION_ID'"
   }'
 ```
 
-Akış yöntemleriyle `previous_interaction_id` birleştirilerek çok turlu görüşmelerde de kullanılabilir.
+您也可以將 `previous_interaction_id` 與串流方法結合，用於多輪對話。
 
 ### Python
 
@@ -466,13 +464,13 @@ from google import genai
 client = genai.Client()
 
 interaction1 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="I have 2 dogs in my house.",
 )
 print(interaction1.output_text)
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="How many paws are in my house?",
     previous_interaction_id=interaction1.id,
     stream=True
@@ -492,13 +490,13 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction1 = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "I have 2 dogs in my house.",
   });
   console.log("Response 1:", interaction1.output_text);
 
   const stream = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "How many paws are in my house?",
     previous_interaction_id: interaction1.id,
     stream: true,
@@ -522,7 +520,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "I have 2 dogs in my house."
   }')
 INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
@@ -532,21 +530,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "How many paws are in my house?",
     "previous_interaction_id": "'$INTERACTION_ID'",
     "stream": true
   }'
 ```
 
-## Durum bilgisiz görüşmeler
+## 無狀態對話
 
-Varsayılan olarak, `previous_interaction_id` kullandığınızda Interactions API, görüşme durumunu sunucu tarafında yönetir. Ancak, istemci tarafında sohbet geçmişini kendiniz yöneterek durumsuz modda da çalışabilirsiniz.
+根據預設，使用 `previous_interaction_id` 時，Interactions API 會在伺服器端管理對話狀態。不過，您也可以在用戶端自行管理對話記錄，以無狀態模式運作。
 
-Durumsuz modu kullanmak için:
-1. Sunucu tarafı depolamayı devre dışı bırakma isteğinizde `store=false` değerini ayarlayın.
-2. İstemci tarafında etkileşim geçmişini bir **adımlar** dizisi olarak tutun.
-3. Sonraki isteklerde, `input` alanında birikmiş adımları iletin ve yeni dönüşünüzü `user_input` adımı olarak ekleyin.
+如要使用無狀態模式，請按照下列步驟操作：
+1. 在要求中設定 `store=false`，即可停用伺服器端儲存空間。
+2. 在用戶端將對話記錄維護為 **steps** 陣列。
+3. 在後續要求中，請在 `input` 欄位中傳遞累積的步驟，並將新回合附加為 `user_input` 步驟。
 
 ### Python
 
@@ -563,7 +561,7 @@ history = [
 ]
 
 interaction1 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     store=False,
     input=history
 )
@@ -578,7 +576,7 @@ history.append({
 })
 
 interaction2 = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     store=False,
     input=history
 )
@@ -601,7 +599,7 @@ async function main() {
   ];
 
   const interaction1 = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     store: false,
     input: history
   });
@@ -615,7 +613,7 @@ async function main() {
   });
 
   const interaction2 = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     store: false,
     input: history
   });
@@ -633,7 +631,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "store": false,
     "input": [
       {
@@ -661,29 +659,32 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d "{
-    \"model\": \"gemini-3.5-flash\",
+    \"model\": \"gemini-3.6-flash\",
     \"store\": false,
     \"input\": $HISTORY
   }"
 ```
 
-## İstem ipuçları
+## 提示詞撰寫訣竅
 
-Gemini'dan en iyi şekilde yararlanmayla ilgili öneriler için [istem mühendisliği kılavuzumuza](https://ai.google.dev/gemini/docs/prompting-strategies?hl=tr) göz atın.
+請參閱[提示工程指南](https://ai.google.dev/gemini/docs/prompting-strategies?hl=zh-tw)，瞭解如何充分發揮 Gemini 的效用。
 
-## Sırada ne var?
+## 後續步驟
 
-- [Google AI Studio'da Gemini](https://aistudio.google.com?hl=tr)'ı deneyin.
-- JSON benzeri yanıtlar için [yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=tr) ile denemeler yapın.
-- Gemini'ın [görüntü](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=tr), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=tr), [ses](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=tr) ve [doküman](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=tr) anlama özelliklerini keşfedin.
-- Çok formatlı [dosya istemi stratejileri](https://ai.google.dev/gemini-api/docs/interactions/files?hl=tr#prompt-guide) hakkında bilgi edinin.
+- 在 [Google AI Studio 中試用 Gemini](https://aistudio.google.com?hl=zh-tw)。
+- 試用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-tw)，取得類似 JSON 的回覆。
+- 探索 Gemini 的[圖片](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=zh-tw)、
+  [影片](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=zh-tw)、
+  [音訊](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=zh-tw)和
+  [文件](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=zh-tw)理解功能。
+- 瞭解多模態[檔案提示策略](https://ai.google.dev/gemini-api/docs/interactions/files?hl=zh-tw#prompt-guide)。
 
-Geri bildirim gönderin
+提供意見
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Son güncelleme tarihi: 2026-07-08 UTC.
+上次更新時間：2026-07-30 (世界標準時間)。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+想進一步說明嗎？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-08 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ko
-fetched_at: 2026-07-27T04:33:02.192696+00:00
-title: "\uc624\ub514\uc624 \uc774\ud574 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ja
+fetched_at: 2026-08-03T04:32:43.276420+00:00
+title: "\u97f3\u58f0\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-의견 보내기
+フィードバックを送信
 
-# 오디오 이해
+# 音声の理解
 
-Gemini는 오디오 입력을 분석하여 텍스트 응답을 생성할 수 있습니다.
+Gemini は音声入力を分析してテキスト レスポンスを生成できます。
 
 ### Python
 
@@ -31,7 +31,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -44,7 +44,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -57,7 +57,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -78,7 +78,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -90,22 +90,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 개요
+## 概要
 
-Gemini는 오디오 입력을 분석하고 이해하여 텍스트 응답을 생성할 수 있으므로 다음과 같은 사용 사례가 가능합니다.
+Gemini は音声入力を分析して理解し、テキスト レスポンスを生成できます。これにより、次のようなユースケースが可能になります。
 
-- 오디오 콘텐츠에 대해 설명하거나, 요약하거나, 질문에 답변하기
-- 음성 텍스트 변환
-- 화자 분할 (서로 다른 화자 식별)
-- 음성 및 음악의 감정 감지
-- 타임스탬프를 사용하여 특정 세그먼트 분석
+- 音声コンテンツの説明、要約、質問への回答
+- 音声文字変換と翻訳（音声からテキスト）
+- 話者ダイアライゼーション（異なる話者の識別）
+- 音声と音楽の感情検出
+- タイムスタンプ付きの特定のセグメントの分析
 
-실시간 음성 및 동영상 상호작용은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
-실시간 스크립트 작성을 지원하는 전용 음성 텍스트 변환 모델의 경우 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ko)를 사용하세요.
+リアルタイムの音声と動画のインタラクションについては、
+[Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja)をご覧ください。
+リアルタイムの音声文字変換をサポートする専用の音声文字変換モデルについては、
+[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ja)を使用してください。
 
-## 음성을 텍스트로 변환
+## 音声をテキストに変換する
 
-이 예에서는 [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)을 사용하여 타임스탬프, 화자 분리, 감정 감지와 함께 음성을 텍스트로 변환하고, 번역하고, 요약하는 방법을 보여줍니다.
+この例では、
+タイムスタンプ、話者ダイアライゼーション、感情検出を使用して音声を文字変換、翻訳、要約する方法を
+[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を使用して示します。
 
 ### Python
 
@@ -154,7 +158,7 @@ response_schema = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "video", "uri": YOUTUBE_URL, "mime_type": "video/mp4"},
         {"type": "text", "text": prompt}
@@ -165,7 +169,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -212,7 +216,7 @@ const responseSchema = {
 };
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         { type: "video", uri: YOUTUBE_URL, mime_type: "video/mp4" },
         { type: "text", text: prompt }
@@ -230,7 +234,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {
         "type": "video",
@@ -263,18 +267,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![다국어 오디오 스크립트 작성 Gemini 앱](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ko)
+![多言語音声文字変換 Gemini アプリ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ja)
 
-## 입력 오디오
+## 入力音声
 
-다음과 같은 방법으로 오디오 데이터를 제공할 수 있습니다.
+音声データは次の方法で提供できます。
 
-- 요청하기 전에 [오디오 파일을 업로드](#upload-audio)합니다.
-- 요청과 함께 [인라인 오디오 데이터를 전달](#inline-audio)합니다.
+- [音声ファイルをアップロードします](#upload-audio) リクエストを行う前に。
+- [インライン音声データ](#inline-audio)をリクエストとともに渡します。
 
-### 오디오 파일 업로드
+### 音声ファイルをアップロードする
 
-20MB를 초과하는 파일에는 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용합니다.
+20 MB を超えるファイルには [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用します。
 
 ### Python
 
@@ -286,7 +290,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -299,7 +303,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -312,7 +316,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -333,7 +337,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -345,9 +349,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 오디오 데이터를 인라인으로 전달
+### 音声データをインラインで渡す
 
-총 요청 크기가 20MB 미만인 작은 오디오 파일의 경우:
+リクエストの合計サイズが 20 MB 未満の小さな音声ファイルの場合:
 
 ### Python
 
@@ -361,7 +365,7 @@ with open('path/to/small-sample.mp3', 'rb') as f:
     audio_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -374,7 +378,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -387,7 +391,7 @@ const audioData = fs.readFileSync("path/to/small-sample.mp3", {
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -415,7 +419,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -427,19 +431,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-인라인 오디오 데이터 관련 참고사항:
-\* 최대 요청 크기는 총 20MB입니다 (프롬프트 및 모든 파일 포함).
-\* 재사용하려면 대신 [파일을 업로드](#upload-audio)하세요.
+インライン音声データに関する注意事項:
+\* リクエストの最大サイズは合計 20 MB（プロンプトとすべてのファイルを含む）です。
+\* 再利用する場合は、代わりに[ファイルをアップロード](#upload-audio)してください。
 
-## 스크립트 받기
+## 文字起こしを取得する
 
-스크립트를 받으려면 프롬프트에 다음과 같이 요청하세요.
+文字起こしを取得するには、プロンプトでリクエストします。
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Generate a transcript of the speech."},
         {
@@ -452,11 +456,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         { type: "text", text: "Generate a transcript of the speech." },
         {
@@ -469,15 +473,15 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## 타임스탬프 참고
+## タイムスタンプを参照する
 
-`MM:SS` 형식을 사용하여 특정 섹션을 참조합니다.
+`MM:SS` 形式を使用して、特定のセクションを参照します。
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Provide a transcript from 02:30 to 03:29."},
         {
@@ -489,11 +493,11 @@ interaction = client.interactions.create(
 )
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         { type: "text", text: "Provide a transcript from 02:30 to 03:29." },
         { type: "audio", uri: uploadedFile.uri, mime_type: "audio/mp3" }
@@ -501,25 +505,25 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## 토큰 집계
+## トークンをカウントする
 
-오디오 파일의 토큰 수를 계산합니다.
+音声ファイル内のトークンをカウントします。
 
 ### Python
 
 ```
 response = client.models.count_tokens(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=[uploaded_file]
 )
 print(response)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const response = await client.models.countTokens({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: [
         { fileData: { fileUri: uploadedFile.uri, mimeType: uploadedFile.mimeType } }
     ]
@@ -527,7 +531,7 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## 지원되는 오디오 형식
+## サポートされているオーディオ形式
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -536,28 +540,28 @@ console.log(response.totalTokens);
 - OGG Vorbis - `audio/ogg`
 - FLAC - `audio/flac`
 
-## 오디오에 대한 기술 세부정보
+## 音声に関する技術的な詳細
 
-- **토큰**: 오디오 초당 토큰 32개 (1분 = 토큰 1,920개)
-- **비언어적 소리**: Gemini는 비언어적 소리 (새소리, 사이렌 등)를 이해합니다.
-- **최대 길이**: 프롬프트당 오디오 9시간 30분
-- **해상도**: 16Kbps로 다운샘플링됨
-- **채널**: 다중 채널 오디오가 단일 채널로 결합됨
+- **トークン**: 音声 1 秒あたり 32 トークン（1 分 = 1,920 トークン）
+- **会話以外の音声**: Gemini は会話以外の音声（鳥の鳴き声、サイレンなど）を理解します。
+- **最大長**: プロンプトあたり 9.5 時間の音声
+- **解像度**: 16 Kbps にダウンサンプリング
+- **チャンネル**: マルチチャンネル音声をシングル チャンネルに結合
 
-## 다음 단계
+## 次のステップ
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko): 오디오 파일 업로드 및 관리
-- [시스템 요청 사항](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#system-instructions):
-  모델 동작 맞춤설정
-- [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko):
-  JSON 형식으로 스크립트 결과 가져오기
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): 音声ファイルをアップロードして管理する
+- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions):
+  モデルの動作をカスタマイズする
+- [構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja):
+  文字起こし結果を JSON 形式で取得する
 
-의견 보내기
+フィードバックを送信
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-최종 업데이트: 2026-07-06(UTC)
+最終更新日 2026-07-30 UTC。
 
-의견을 전달하고 싶나요?
+ご意見をお聞かせください
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-06(UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

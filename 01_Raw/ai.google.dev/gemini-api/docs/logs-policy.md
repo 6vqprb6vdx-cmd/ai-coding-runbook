@@ -1,78 +1,78 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=hi
-fetched_at: 2026-07-27T04:46:34.549513+00:00
-title: "\u0921\u0947\u091f\u093e \u0932\u0949\u0917 \u0915\u0930\u0928\u093e \u0914\u0930 \u0936\u0947\u092f\u0930 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=de
+fetched_at: 2026-08-03T04:25:50.309751+00:00
+title: "Datenerfassung und \u2011freigabe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-सुझाव भेजें
+Feedback geben
 
-# डेटा लॉग करना और शेयर करना
+# Datenerfassung und ‑freigabe
 
-इस पेज पर,
-[Gemini API के लॉग](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=hi) सेव करने और उन्हें मैनेज करने के बारे में बताया गया है. ये लॉग, बिलिंग की सुविधा चालू वाले प्रोजेक्ट के लिए,
-Gemini API कॉल से मिला डेवलपर का एपीआई डेटा होता है. लॉग में, उपयोगकर्ता के अनुरोध से लेकर मॉडल के जवाब तक की पूरी प्रोसेस शामिल होती है.
-ये लॉग, आपके Google Cloud प्रोजेक्ट के लिए निजी होते हैं. ये लॉग, सिर्फ़ [गलत इस्तेमाल की निगरानी](https://ai.google.dev/gemini-api/docs/usage-policies?hl=hi) के मकसद से सेव किए गए लॉग से अलग होते हैं.
+Auf dieser Seite werden die Speicherung und Verwaltung von
+[Gemini API-Logs](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=de) beschrieben. Dabei handelt es sich um API-Daten von Entwicklern aus unterstützten Gemini API-Aufrufen für Projekte mit aktivierter Abrechnung. Logs umfassen den gesamten Prozess von der Anfrage eines Nutzers bis zur Antwort des Modells.
+Diese Logs sind privat für Ihr Google Cloud-Projekt und getrennt von allen
+Logs, die ausschließlich zur [Missbrauchsüberwachung](https://ai.google.dev/gemini-api/docs/usage-policies?hl=de)
+verwendet werden.
 
-## वह डेटा जिसे शेयर किया जा सकता है
+## Daten, die freigegeben werden können
 
-प्रोजेक्ट के मालिक के तौर पर, आपके पास Gemini API कॉल के लॉग इन करने का विकल्प होता है. ऐसा अपने इस्तेमाल के लिए या Google को सुझाव/राय या शिकायत देने और उसके साथ शेयर करने के लिए किया जा सकता है. इससे हमें अपने मॉडल को बेहतर बनाने में मदद मिलती है.
+Als Projektinhaber haben Sie die Möglichkeit, die Protokollierung von Gemini API-Aufrufen zu aktivieren. Sie können die Logs für eigene Zwecke verwenden oder Google Feedback geben und die Logs mit Google teilen, damit wir unsere Modelle kontinuierlich verbessern können.
 
-लॉग इन करने की सुविधा चालू करके, प्रॉडक्ट को बेहतर बनाने और मॉडल को ट्रेनिंग देने के लिए, यहां दिया गया डेटा शेयर किया जा सकता है. इससे हमें एआई सिस्टम बनाने में मदद मिलती है. ये सिस्टम, अलग-अलग फ़ील्ड और इस्तेमाल के मामलों में डेवलपर के लिए काम के साबित होते हैं:
+Wenn die Protokollierung aktiviert ist, können Sie uns helfen, KI-Systeme zu entwickeln, die für Entwickler in verschiedenen Bereichen und Anwendungsfällen weiterhin wertvoll sind. Dazu können Sie die folgenden Daten zur Produktverbesserung und zum Modelltraining beitragen:
 
-- **डेटासेट:** Google AI Studio के लॉग और डेटासेट इंटरफ़ेस का इस्तेमाल करके, Gemini API कॉल से मिले लॉग (अनुरोध, जवाब, मेटाडेटा वगैरह) चुनें. ये लॉग, डेटासेट में शामिल करके शेयर किए जाते हैं. डेटासेट बनाते समय, आपके पास ऑप्ट-आउट करने का विकल्प होता है.
-- **सुझाव/राय या शिकायत:** लॉग की समीक्षा करते समय, सुझाव/राय या शिकायत दी जा सकती है. इसमें थम्स अप और डाउन रेटिंग के साथ-साथ, आपकी लिखी गई टिप्पणियां भी शामिल होती हैं.
+- **Datasets**:Über die Benutzeroberfläche „Logs und Datasets“ von Google AI Studio können Sie Logs (Anfragen, Antworten, Metadaten usw.) aus unterstützten Gemini API-Aufrufen auswählen. Diese werden durch Aufnahme in Datasets beigetragen. Sie haben die Möglichkeit, die Aufnahme während der Dataset-Erstellung zu deaktivieren.
+- **Feedback**:Wenn Sie Logs überprüfen, können Sie Feedback geben, z. B. mit „Mag ich“ und „Mag ich nicht“ bewerten und Kommentare schreiben.
 
-[Google के साथ डेटासेट शेयर करने पर, उस डेटासेट में मौजूद आपके लॉग प्रोसेस किए जाएंगे. इनमें
-अनुरोध और जवाब भी शामिल हैं. इन्हें "मुफ़्त में उपलब्ध सेवाओं" के लिए बनी हमारी
-[शर्तों](https://developers.google.com/terms?hl=hi) के मुताबिक प्रोसेस किया जाएगा.
-इसका मतलब है कि डेटासेट का इस्तेमाल, Google के
-प्रॉडक्ट, सेवाओं, और मशीन लर्निंग टेक्नोलॉजी को डेवलप करने और उन्हें बेहतर बनाने के लिए किया जा सकता है. इसमें हमारे मॉडल को बेहतर बनाना और उन्हें
-ट्रेनिंग देना भी शामिल है.](https://ai.google.dev/gemini-api/terms?hl=hi#data-use-unpaid) **कृपया निजी, संवेदनशील या गोपनीय डेटा शेयर न करें.**
+Wenn Sie ein Dataset mit Google teilen, werden Ihre Logs in diesem Dataset, einschließlich
+Anfragen und Antworten, gemäß unseren
+[Bedingungen](https://developers.google.com/terms?hl=de) für
+"[Kostenlose Dienste](https://ai.google.dev/gemini-api/terms?hl=de#data-use-unpaid)"
+verarbeitet. Das Dataset kann also verwendet werden, um Google
+Produkte, ‑Dienste und Technologien für maschinelles Lernen zu entwickeln und zu verbessern, einschließlich der Verbesserung und des
+Trainings unserer Modelle. **Geben Sie keine personenbezogenen, sensiblen oder vertraulichen Informationen an.**
 
-## हम आपके डेटा का इस्तेमाल कैसे करते हैं
+## Wie wir Ihre Daten verwenden
 
-लॉग, डिफ़ॉल्ट रूप से ज़्यादा से ज़्यादा 55 दिनों तक सेव रहते हैं. इस अवधि के बाद, लॉग को मिटाने के लिए अपने-आप मार्क कर दिया जाता है. किसी प्रोजेक्ट के लिए, डेटा सेव रखने की अवधि को AI Studio में अपडेट किया जा सकता है. इससे लॉग, 7, 14, 28 या 55 दिनों के बाद अपने-आप मिटाने के लिए मार्क हो जाएंगे.
+Logs werden standardmäßig maximal 55 Tage lang aufbewahrt. Danach werden sie automatisch zur Löschung markiert. Der Aufbewahrungszeitraum für ein Projekt kann in AI Studio aktualisiert werden, sodass Logs nach 7, 14, 28 oder 55 Tagen automatisch zur Löschung markiert werden.
 
-[डेटासेट](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=hi) बनाए जा सकते हैं, ताकि डाउनस्ट्रीम इस्तेमाल के मामलों के लिए, सेट की गई अवधि के बाद भी काम के लॉग सेव रखे जा सकें. साथ ही, मॉडल को बेहतर बनाने में योगदान दिया जा सके. डेटासेट में सेव किए गए लॉग के लिए, डेटा सेव रखने की अवधि सेट नहीं की जाती.
+[Datasets](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=de) können erstellt werden, um Logs von
+Interesse über den festgelegten Aufbewahrungszeitraum hinaus für nachgelagerte Anwendungsfälle aufzubewahren und
+optional zur Verbesserung von Modellen beizutragen. Für Logs, die in Datasets gespeichert sind, gibt es keine festgelegten Aufbewahrungszeiträume.
 
-डिफ़ॉल्ट रूप से, लॉग इन करने की सुविधा सिर्फ़ बिलिंग की सुविधा चालू वाले प्रोजेक्ट के लिए उपलब्ध होती है.
-इसलिए, लॉग में मौजूद प्रॉम्प्ट और जवाब का इस्तेमाल, प्रॉडक्ट को बेहतर बनाने या
-डेवलप करने के लिए नहीं किया जाता. ऐसा डेटा के इस्तेमाल से जुड़ी हमारी [शर्तों](https://developers.google.com/terms?hl=hi)
-के मुताबिक किया जाता है.
+Da die Protokollierung standardmäßig nur für Projekte mit aktivierter Abrechnung verfügbar ist,
+werden Prompts und Antworten in Logs gemäß unseren [Bedingungen](https://developers.google.com/terms?hl=de)
+zur Datennutzung nicht zur Produktverbesserung oder
+‑entwicklung verwendet.
 
-अगर आपने Google के साथ अपने लॉग के डेटासेट शेयर करने का विकल्प चुना है, तो उन डेटासेट का इस्तेमाल, असली दुनिया के प्रदर्शन के डेटा के तौर पर किया जाएगा. इससे एआई सिस्टम और ऐप्लिकेशन के इस्तेमाल किए जाने वाले अलग-अलग डोमेन और कॉन्टेक्स्ट को बेहतर तरीके से समझा जा सकेगा. इस डेटा का इस्तेमाल, मॉडल की क्वालिटी को बेहतर बनाने के लिए किया जा सकता है. साथ ही, इससे आने वाले मॉडल और सेवाओं की ट्रेनिंग और आकलन के बारे में जानकारी मिल सकती है. [इस डेटा को, मुफ़्त में उपलब्ध सेवाओं के लिए बनी डेटा के इस्तेमाल से जुड़ी हमारी शर्तों
-के मुताबिक प्रोसेस किया जाता है.](https://ai.google.dev/gemini-api/terms?hl=hi#data-use-unpaid)
+Wenn Sie Datasets Ihrer Logs mit Google teilen, werden diese Datasets als Daten aus der Praxis verwendet, um die Vielfalt der Bereiche und Kontexte besser zu verstehen, in denen KI-Systeme und ‑Anwendungen eingesetzt werden. Diese Daten können verwendet werden, um die Modellqualität zu verbessern und das Training und die Bewertung zukünftiger Modelle und Dienste zu unterstützen. Diese Daten werden gemäß unseren Bedingungen zur Datennutzung für [kostenlose Dienste](https://ai.google.dev/gemini-api/terms?hl=de#data-use-unpaid) verarbeitet.
 
-इसलिए, समीक्षा करने वाले लोग, आपके शेयर किए गए एपीआई इनपुट और आउटपुट को पढ़ सकते हैं, उनकी व्याख्या कर सकते हैं, और उन्हें प्रोसेस कर सकते हैं. मॉडल को बेहतर बनाने के लिए डेटा का इस्तेमाल करने से पहले, Google इस प्रोसेस के तहत, उपयोगकर्ता की निजता की सुरक्षा के लिए कदम उठाता है. इसमें, समीक्षा करने वाले लोगों के देखने या व्याख्या करने से पहले, इस डेटा को आपके Google खाते, एपीआई कुंजी, और Cloud प्रोजेक्ट से डिसकनेक्ट करना शामिल है.
+Prüfer können die von Ihnen freigegebenen API-Eingaben und ‑Ausgaben lesen, mit Anmerkungen versehen und verarbeiten. Bevor Daten zur Modellverbesserung verwendet werden, ergreift Google im Rahmen dieses Prozesses Maßnahmen, um die Privatsphäre der Nutzer zu schützen. Dazu wird unter anderem dafür gesorgt, dass entsprechende Daten nicht mit Ihrem Google-Konto, API-Schlüssel und Cloud-Projekt in Verbindung gebracht werden können, bevor sie von Prüfern eingesehen oder mit Vermerken versehen werden.
 
-## डेटा से जुड़ी अनुमतियां
+## Datenberechtigungen
 
-एपीआई डेटा शेयर करने का विकल्प चुनने का मतलब है कि आपने पुष्टि की है कि आपके पास Google को इस दस्तावेज़ में बताए गए तरीके से डेटा प्रोसेस करने और उसका इस्तेमाल करने की ज़रूरी अनुमतियां हैं. **कृपया पेड सेवा से मिला संवेदनशील, गोपनीय या मालिकाना हक वाला डेटा शेयर न करें**.
-एपीआई की शर्तों के "[कॉन्टेंट सबमिट करना](https://developers.google.com/terms?hl=hi#b_submission_of_content)"
-सेक्शन के तहत, Google को दिया गया लाइसेंस, लागू कानून के तहत हमारे इस्तेमाल के लिए ज़रूरी हद तक,
-आपके सबमिट किए गए किसी भी कॉन्टेंट (जैसे, प्रॉम्प्ट. इनमें सिस्टम के साथ जुड़े निर्देश, कैश किया गया कॉन्टेंट, और इमेज, वीडियो या दस्तावेज़ जैसी फ़ाइलें शामिल हैं)
-और जनरेट किए गए किसी भी जवाब पर भी लागू होता है.
+Wenn Sie API-Daten beitragen, bestätigen Sie, dass Sie die erforderlichen Berechtigungen haben, damit Google die Daten wie in dieser Dokumentation beschrieben verarbeiten und verwenden kann. **Bitte tragen Sie keine Logs bei, die sensible, vertrauliche oder geschützte Informationen enthalten, die über den kostenpflichtigen Dienst erhalten wurden.**
+Die Befugnis, die Sie Google unter dem Abschnitt „[Einreichung von Inhalten](https://developers.google.com/terms?hl=de#b_submission_of_content)“ der API-Bedingungen erteilen, erstreckt sich auch auf alle Inhalte (z.B. Prompts, einschließlich zugehöriger Systemanweisungen, im Cache gespeicherter Inhalte und Dateien wie Bilder, Videos oder Dokumente), die Sie an die Dienste senden, und auf alle generierten Antworten, soweit dies nach geltendem Recht für deren Nutzung durch uns erforderlich ist.
 
-## डेटा शेयर करना और सुझाव/राय या शिकायत
+## Datenfreigabe und Feedback
 
-उदाहरण के तौर पर अपना डेटा शेयर करने का विकल्प चुनकर, एआई रिसर्च, Gemini API, और Google AI Studio को बेहतर बनाने में हमारी मदद करें. इससे हमें अलग-अलग कॉन्टेक्स्ट में अपने मॉडल को बेहतर बनाने में मदद मिलती है. साथ ही, हम ऐसे एआई सिस्टम बना पाते हैं जो अलग-अलग फ़ील्ड और इस्तेमाल के मामलों में डेवलपर के लिए काम के साबित होते हैं.
+Sie können uns helfen, die KI-Forschung, die Gemini API und Google AI Studio weiterzuentwickeln, indem Sie Ihre Daten als Beispiele freigeben. So können wir unsere Modelle in verschiedenen Kontexten kontinuierlich verbessern und KI-Systeme entwickeln, die für Entwickler in verschiedenen Bereichen und Anwendungsfällen weiterhin wertvoll sind.
 
-सुझाव भेजें
+Feedback geben
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-आखिरी बार 2026-07-09 (UTC) को अपडेट किया गया.
+Zuletzt aktualisiert: 2026-07-09 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Haben Sie Feedback für uns?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-09 (UTC) को अपडेट किया गया."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-09 (UTC)."],[],[]]

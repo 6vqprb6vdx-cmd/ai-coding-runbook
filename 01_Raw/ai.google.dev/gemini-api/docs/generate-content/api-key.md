@@ -1,135 +1,134 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-key?hl=he
-fetched_at: 2026-07-27T04:40:04.896510+00:00
-title: "\u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05de\u05e4\u05ea\u05d7\u05d5\u05ea API \u05e9\u05dc Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-key?hl=zh-TW
+fetched_at: 2026-08-03T04:38:18.135947+00:00
+title: "\u4f7f\u7528 Gemini API \u91d1\u9470 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-שליחת משוב
+提供意見
 
-# שימוש במפתחות API של Gemini
+# 使用 Gemini API 金鑰
 
-כדי להשתמש ב-Gemini API, צריך לאמת את הבקשות. אפשר לבצע אימות באמצעות מפתח API רגיל או מפתח API להרשאה.
+如要使用 Gemini API，必須驗證要求。您可以使用標準或授權 API 金鑰進行驗證。
 
-[איך יוצרים מפתח Gemini API או צופים בו](https://aistudio.google.com/apikey?hl=he)
+[建立或查看 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
 
-## סוגי מפתחות API: רגיל לעומת הרשאה
+## API 金鑰類型：標準與授權
 
-מפתחות API מספקים גישה ל-Gemini API, אבל מאפייני האבטחה שלהם שונים. אנחנו מעבירים את Gemini API ממפתחות API רגילים למפתחות הרשאה כדי לשפר את האבטחה:
+API 金鑰可存取 Gemini API，但安全性特徵不同。為提升安全性，Gemini API 將從標準 API 金鑰改用授權金鑰：
 
-- **מפתחות API רגילים**: משייכים בקשות לפרויקט בענן ב-Google Cloud לצורכי חיוב ומכסה. מפתחות רגילים לא מזהים את היישות שקוראת ל-API, ולכן הם לא יכולים לתמוך בהרשאות ובבקרת גישה ברמת פירוט גבוהה.
-- **מפתחות הרשאה (auth)**: מקושרים ישירות לחשבון שירות של Google Cloud. כשמשתמשים במפתח הרשאה, הבקשות מעובדות תחת הזהות של חשבון השירות המקושר, וכך מתאפשרת שליטה מדויקת בגישה. כברירת מחדל, מפתחות הרשאה מוגבלים ל-Generative Language API ‏(Gemini API) ומספקים אכיפה מהירה של מפתחות שנחשפו, שמפסיקה במהירות את השימוש במפתחות שנחשפו שזוהו על ידי המערכות שלנו.
+- **標準 API 金鑰**：將要求與 Google Cloud 專案建立關聯，以利帳單和配額管理。標準金鑰不會識別呼叫者，因此可支援的權限和存取權控管精細度有限。
+- **授權 (auth) 金鑰**：直接繫結至 Google Cloud 服務帳戶。使用授權金鑰時，系統會以繫結服務帳戶身分處理要求，方便您進行精細的存取控管。授權金鑰預設只能用於 Generative Language API (Gemini API)，且可快速強制停用遭外洩的金鑰，一旦系統偵測到金鑰外洩，就會立即停止使用。
 
-כדי להבטיח שימוש מאובטח, Gemini API יעבור ממפתחות רגילים למפתחות אימות:
+為確保安全使用，Gemini API 將從標準金鑰改用驗證金鑰：
 
-- **ברירת המחדל של מפתחות אימות**: כל מפתחות ה-API החדשים שנוצרים ב-Google AI Studio נוצרים אוטומטית כמפתחות אימות.
-- **דחייה של מפתחות ללא הגבלות**: Gemini API דוחה בקשות מ**מפתחות רגילים ללא הגבלות**. מפתחות API רגילים שהוחלו עליהם הגבלות מפורשות ממשיכים לפעול. ההגבלה הזו מונעת שימוש לא מורשה במפתחות שאולי שותפו באופן ציבורי או מקושרים לשירותים אחרים.
-- **בספטמבר 2026**: Gemini API ידחה בקשות מ**מפתחות רגילים**. כדי למנוע שיבושים בשירות, חשוב [לעבור למפתחות אימות](#migrate-to-auth-key) לפני התאריך הזה. חשוב להעביר את המינוי למפתחות אימות לפני ספטמבר 2026.
+- **預設驗證金鑰**：在 Google AI Studio 建立的所有新 API 金鑰，都會自動建立為驗證金鑰。
+- **拒絕未設限的金鑰**：Gemini API 會拒絕**未設限標準金鑰**的要求。已明確套用限制的標準 API 金鑰仍可繼續使用。這項限制可防止未經授權使用可能公開分享或連結至其他服務的金鑰。
+- **2026 年 9 月**：Gemini API 將拒絕**標準金鑰**的要求。請務必在上述日期前[遷移至驗證金鑰](#migrate-to-auth-key)，以免服務中斷。請務必在 2026 年 9 月前遷移至驗證金鑰。
 
-## ניהול מפתחות API ב-Google AI Studio
+## 在 Google AI Studio 中管理 API 金鑰
 
-אתם יכולים לנהל את הפרויקטים והמפתחות שלכם ישירות ב-[Google AI Studio](https://aistudio.google.com/apikey?hl=he).
+您可以在 [Google AI Studio](https://aistudio.google.com/apikey?hl=zh-tw) 中直接管理專案和金鑰。
 
-### פרויקטים ב-Google Cloud
+### Google Cloud 專案
 
-כל מפתח Gemini API משויך ל[פרויקט ב-Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=he).
-בפרויקטים ב-Google Cloud מנהלים את החיוב, את שותפי העריכה ואת ההרשאות. ‫Google AI Studio מספק ממשק קל משקל לגישה לפרויקטים האלה.
+每個 Gemini API 金鑰都與 [Google Cloud 專案](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=zh-tw)相關聯。
+Google Cloud 專案可管理帳單、協作者和權限。Google AI Studio 提供輕量型介面，方便您存取這些專案。
 
-- **פרויקט ברירת מחדל**: אם אתם משתמשים חדשים, Google AI Studio יוצר באופן אוטומטי פרויקט בענן ב-Google Cloud ומפתח API שמוגדרים כברירת מחדל אחרי שאתם מאשרים את התנאים וההגבלות. כדי לשנות את שם הפרויקט, עוברים לתצוגה **Projects** במרכז הבקרה.
-- **פרויקטים קיימים**: אם כבר יש לכם חשבון Google Cloud, ‏ AI Studio לא יוצר פרויקט ברירת מחדל. במקום זאת, צריך לייבא את הפרויקטים הקיימים.
+- **預設專案**：如果您是新使用者，接受《服務條款》後，Google AI Studio 會自動建立預設的 Google Cloud 雲端專案和 API 金鑰。如要重新命名這個專案，請前往資訊主頁的「專案」檢視畫面。
+- **現有專案**：如果您已有 Google Cloud 帳戶，AI Studio 不會建立預設專案。而是必須匯入現有專案。
 
-### ייבוא פרויקטים
+### 匯入專案
 
-כברירת מחדל, לא כל הפרויקטים שלכם ב-Google Cloud מוצגים ב-Google AI Studio. צריך לייבא את הפרויקטים שרוצים להשתמש בהם:
+根據預設，Google AI Studio 不會顯示所有 Google Cloud 專案。您必須匯入要使用的專案：
 
-1. עוברים אל [Google AI Studio](https://aistudio.google.com?hl=he).
-2. פותחים את **לוח הבקרה** בחלונית הימנית ובוחרים באפשרות **פרויקטים**.
-3. לוחצים על הלחצן **ייבוא פרויקטים**.
-4. מחפשים את פרויקט הענן ב-Google Cloud שרוצים לייבא ובוחרים אותו, ואז לוחצים על **ייבוא**.
-5. אחרי הייבוא, עוברים לדף **מפתחות API** במרכז הבקרה כדי ליצור מפתח בפרויקט הזה.
+1. 前往 [Google AI Studio](https://aistudio.google.com?hl=zh-tw)。
+2. 開啟左側面板的「資訊主頁」，然後選取「專案」。
+3. 按一下「匯入專案」按鈕。
+4. 搜尋並選取要匯入的 Google Cloud 雲端專案，然後按一下**匯入**。
+5. 匯入後，請前往資訊主頁的「API 金鑰」頁面，在該專案中建立金鑰。
 
-### פתרון בעיות בהרשאות ליצירת מפתחות
+### 排解金鑰建立權限問題
 
-אם הלחצן **Create API key** לא זמין ומוצגת ההודעה:
-*"You do not have permission to create a key in this project"*, סימן שאין לכם את הרשאות ה-IAM הנדרשות.
+如果「建立 API 金鑰」按鈕無法使用，並顯示「您沒有權限在這個專案中建立金鑰」訊息，表示您沒有必要的 IAM 權限。
 
-מבקשים מהאדמין של פרויקט בענן או הארגון ב-Google Cloud להקצות לכם תפקיד שמכיל את ההרשאות הבאות (למשל, עורך פרויקט):
+請 Google Cloud 專案或機構管理員授予您具備下列權限的角色 (例如專案編輯者)：
 
-- ‫`resourcemanager.projects.get`: מאפשר ל-AI Studio לאמת את הפרויקט.
-- ‫`apikeys.keys.create`: מאפשר יצירת מפתחות.
-- ‫`serviceusage.services.enable`: מוודא שממשק Generative Language API מופעל.
-- `iam.serviceAccounts.create`: חובה כדי ליצור את חשבון השירות המקושר.
-- ‫`iam.serviceAccountApiKeyBindings.create`: קושר את חשבון השירות למפתח ה-API.
+- `resourcemanager.projects.get`：允許 AI Studio 驗證專案。
+- `apikeys.keys.create`：允許產生金鑰。
+- `serviceusage.services.enable`：確認已啟用 Generative Language API。
+- `iam.serviceAccounts.create`：建立連結的服務帳戶時必須提供。
+- `iam.serviceAccountApiKeyBindings.create`：將服務帳戶繫結至 API 金鑰。
 
-אם אין לכם אפשרות לקבל הרשאת גישה אדמיניסטרטיבית, אתם יכולים ליצור פרויקט חדש ב-Google Cloud שלא משויך לארגון כדי ליצור את המפתחות.
+如果無法取得管理員存取權，可以建立未與機構相關聯的新 Google Cloud 專案，產生金鑰。
 
-## הגדרת הסביבה
+## 設定環境
 
-אחרי שיש לכם מפתח, אתם צריכים להגדיר את הסביבה כך שהמפתח ישמש את האפליקציות שלכם בצורה מאובטחת.
+取得金鑰後，請設定環境，以便在應用程式中安全地使用金鑰。
 
-### שימוש במשתני סביבה (מומלץ)
+### 使用環境變數 (建議)
 
-מגדירים את משתנה הסביבה `GEMINI_API_KEY` או `GOOGLE_API_KEY`. ספריות הלקוח של Gemini API מזהות את המשתנים האלה ומשתמשות בהם באופן אוטומטי. אם שתי ההגדרות מוגדרות, `GOOGLE_API_KEY` מקבל עדיפות.
+設定環境變數 `GEMINI_API_KEY` 或 `GOOGLE_API_KEY`。Gemini API 用戶端程式庫會自動偵測並使用這些變數。如果兩者都已設定，系統會優先採用 `GOOGLE_API_KEY`。
 
-בוחרים את מערכת ההפעלה כדי להגדיר את המשתנה:
+選取作業系統來設定變數：
 
-### ‫Linux/macOS – Bash
+### Linux/macOS - Bash
 
-בודקים אם יש לכם קובץ הגדרות bash:
+確認您是否有 Bash 設定檔：
 
 ```
 ~/.bashrc
 ```
 
-אם לא, יוצרים חשבון ופותחים אותו:
+如果沒有，請建立並開啟：
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-מוסיפים את פקודת הייצוא בסוף הקובץ:
+在檔案結尾新增匯出指令：
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-שומרים את הקובץ ומחילים את השינויים:
+儲存檔案，然後套用變更：
 
 ```
 source ~/.bashrc
 ```
 
-### ‫macOS – Zsh
+### macOS - Zsh
 
-בודקים אם יש לכם קובץ הגדרות zsh:
+確認你是否有 zsh 設定檔：
 
 ```
 ~/.zshrc
 ```
 
-אם לא, יוצרים חשבון ופותחים אותו:
+如果沒有，請建立並開啟：
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-מוסיפים את פקודת הייצוא:
+新增匯出指令：
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-שומרים את הקובץ ומחילים את השינויים:
+儲存檔案，然後套用變更：
 
 ```
 source ~/.zshrc
@@ -137,15 +136,15 @@ source ~/.zshrc
 
 ### Windows
 
-1. בסרגל החיפוש של Windows, מחפשים את האפשרות Environment Variables (משתני סביבה).
-2. בתיבת הדו-שיח System Properties (מאפייני מערכת), לוחצים על **Environment Variables** (משתני סביבה).
-3. בקטע **משתנים בהגדרת המשתמש** או **משתני מערכת**, לוחצים על **חדש...**.
-4. מגדירים את שם המשתנה כ-`GEMINI_API_KEY` ואת הערך כמפתח ה-API.
-5. כדי לשמור את קיצור הדרך, לחץ על **אישור**. פותחים סשן טרמינל חדש כדי לטעון את המשתנה.
+1. 在 Windows 搜尋列中搜尋「環境變數」。
+2. 在「系統內容」對話方塊中，按一下「環境變數」。
+3. 在「使用者變數」或「系統變數」下方，按一下「新增...」。
+4. 將變數名稱設為 `GEMINI_API_KEY`，並將值設為您的 API 金鑰。
+5. 按一下 [確定] 進行儲存。開啟新的終端機工作階段，載入變數。
 
-### ציון מפתח ה-API באופן מפורש בקוד
+### 在程式碼中明確提供 API 金鑰
 
-אפשר להעביר את מפתח ה-API באופן מפורש כשמאתחלים את הלקוח. כדאי לעשות את זה רק אם אי אפשר להשתמש במשתני סביבה.
+初始化用戶端時，您可以明確傳遞 API 金鑰。只有在無法使用環境變數時，才需要這麼做。
 
 ### Python
 
@@ -155,7 +154,7 @@ from google import genai
 client = genai.Client(api_key="YOUR_API_KEY")
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Explain how AI works in a few words"
 )
 print(response.text)
@@ -170,7 +169,7 @@ const ai = new GoogleGenAI({ apiKey: "YOUR_API_KEY" });
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: "Explain how AI works in a few words",
   });
   console.log(response.text);
@@ -203,7 +202,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         genai.Text("Explain how AI works in a few words"),
         nil,
     )
@@ -228,7 +227,7 @@ public class GenerateTextFromTextInput {
 
     GenerateContentResponse response =
         client.models.generateContent(
-            "gemini-3.5-flash",
+            "gemini-3.6-flash",
             "Explain how AI works in a few words",
             null);
 
@@ -240,7 +239,7 @@ public class GenerateTextFromTextInput {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent"       -H 'Content-Type: application/json'       -H "x-goog-api-key: YOUR_API_KEY"       -X POST       -d '{
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent"       -H 'Content-Type: application/json'       -H "x-goog-api-key: YOUR_API_KEY"       -X POST       -d '{
     "contents": [
       {
         "parts": [
@@ -253,98 +252,98 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## אבטחה וניהול סודות
+## 安全性和密鑰管理
 
-מפתח ה-API של Gemini הוא כמו סיסמה. אם פרטי הכניסה נחשפו, אנשים אחרים יכולים לנצל את המכסה של הפרויקט, לגרום לחיובים לא צפויים ולגשת למשאבים פרטיים.
+請妥善保管 Gemini API 金鑰，如同其他密碼一般。一旦遭盜用，他人就能耗用專案配額、產生非預期的帳單費用，以及存取私人資源。
 
-### כללי אבטחה קריטיים
+### 重大安全性規則
 
-- **שמירה על סודיות המפתחות**: לעולם אל תכניסו מפתחות API למערכות לניהול גרסאות כמו Git.
-- **לעולם אל תחשפו מפתחות בצד הלקוח בסביבת ייצור**: אל תקודדו מפתחות API ישירות באפליקציות אינטרנט או באפליקציות לנייד. משתמשים יכולים לחלץ מפתחות שנאספים בקוד בצד הלקוח. כדי לאבטח אפליקציות בצד הלקוח, מריצים שרת proxy בקצה העורפי כדי לבצע את הקריאות בפועל ל-API.
+- **確保金鑰機密性**：請勿將 API 金鑰登錄至 Git 等原始碼控管系統。
+- **切勿在正式版中向用戶端公開金鑰**：請勿直接在網頁或行動應用程式中以硬式編碼加入 API 金鑰。使用者可以擷取用戶端程式碼中編譯的鍵。如要保護用戶端應用程式，請執行後端 Proxy 伺服器，進行實際的 API 呼叫。
 
-### שיטות מומלצות לניהול סודות
+### 密鑰管理最佳做法
 
-- **משתני סביבה**: קריאת מפתחות ממשתני סביבה במקום מקובצי תצורה.
-- ‫**Secret Manager**: בסביבת ייצור, מומלץ לאחסן את המפתחות במאגר סודי מאובטח כמו [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=he).
-- **התראות על חיוב**: אפשר להגדיר התראות על חיוב ב-Google Cloud Console כדי לקבל הודעה אם יש עלייה חדה בשימוש או בעלויות.
+- **環境變數**：從環境變數而非設定檔讀取金鑰。
+- **Secret Manager**：在實際工作環境中，請將金鑰儲存在安全的密鑰儲存空間，例如 [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=zh-tw)。
+- **帳單快訊**：在 Google Cloud 控制台中設定帳單快訊，當用量或費用暴增時，系統會通知您。
 
-### רשימת משימות לתגובה על דליפת נתונים
+### 洩漏事件應對檢查清單
 
-אם אתם חושדים שמפתח ה-API שלכם דלף:
+如果懷疑 API 金鑰外洩，請採取下列行動：
 
-1. **יצירת מפתח חדש**: יוצרים מפתח חלופי ב-Google AI Studio או ב-Cloud Console.
-2. **מעדכנים את האפליקציה**: פורסים את הקוד באמצעות המפתח החדש.
-3. **משביתים או מוחקים את המפתח שנפרץ**: אחרי שהמפתח החדש מאומת, משביתים את המפתח שנפרץ במסוף Cloud. כדי למנוע השבתה של האפליקציה, אל תמחקו את המפתח הישן עד שהמפתח החדש יהיה פעיל לגמרי.
-4. **בדיקת השימוש**: כדי לזהות פעילות לא מורשית, בודקים את יומני החיוב ואת השימוש ב-API במסוף Google Cloud.
+1. **產生新金鑰**：在 Google AI Studio 或 Cloud Platform Console 中建立替代金鑰。
+2. **更新應用程式**：使用新金鑰部署程式碼。
+3. **停用或刪除遭入侵的金鑰**：新金鑰通過驗證後，請在 Cloud Console 中停用遭洩漏的金鑰。請勿刪除舊金鑰，直到新金鑰完全啟用為止，以免應用程式停機。
+4. **稽核使用情形**：在 Google Cloud 控制台中查看帳單記錄和 API 使用情形，找出未經授權的活動。
 
-## הגבלת הגישה למפתחות והגנה עליהם
+## 限制及保護金鑰
 
-הוספת הגבלות למפתחות ה-API מצמצמת את הנזק הפוטנציאלי אם מפתח נפרץ.
+為 API 金鑰新增限制，可將金鑰遭盜用時造成的潛在損害降到最低。
 
-### החלת הגבלות על מקור הבקשה
+### 套用要求來源限制
 
-הגבלות על מקורות מגבילות את כתובות ה-IP, האתרים או האפליקציות שיכולים להשתמש במפתח.
+來源限制會規定哪些 IP 位址、網站或應用程式可以使用您的金鑰。
 
-1. נכנסים אל [הדף Credentials במסוף Google Cloud](https://console.cloud.google.com/apis/credentials?hl=he).
-2. בוחרים את הפרויקט ולוחצים על השם של מפתח ה-API שרוצים להגביל.
-3. בקטע **Application restrictions**, בוחרים באפשרות **IP addresses** (או בסוג ההגבלה המתאים לסביבה שלכם).
-4. מציינים את כתובות ה-IP או את טווחי כתובות ה-IP המותרים ולוחצים על **שמירה**.
+1. 前往 [Google Cloud 控制台的「憑證」頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
+2. 選取專案，然後按一下要限制的 API 金鑰名稱。
+3. 在「應用程式限制」下方，選取「IP 位址」 (或適合您環境的限制類型)。
+4. 指定允許的 IP 位址或範圍，然後按一下「儲存」。
 
-### אבטחה של מפתחות API רגילים ללא הגבלות
+### 保護未設限的標準 API 金鑰
 
-כדי להמשיך להשתמש ב-Gemini API, צריך לאבטח את כל המפתחות הלא מוגבלים.
+如要繼續使用 Gemini API，請務必保護未設限的金鑰。
 
-#### הגבלת המפתח ל-Gemini API בלבד דרך AI Studio
+#### 透過 AI Studio 將金鑰限制在僅限 Gemini API
 
-אם אתם משתמשים במפתח רק ל-Gemini API, אתם יכולים לאבטח אותו ישירות ב-AI Studio:
+如果金鑰只用於 Gemini API，請直接在 AI Studio 中保護金鑰：
 
-1. בדף **API Keys** ב-[Google AI Studio](https://aistudio.google.com/api-keys?hl=he), מאתרים מפתחות שמסומנים בתווית **Unrestricted**.
-2. מעבירים את העכבר מעל התווית ולוחצים על **הוספת הגבלות** בתיבת הדו-שיח.
-3. בוחרים באפשרות **הגבלה ל-Gemini API בלבד**.
-4. לוחצים על **הגבלת המפתח** כדי לאשר.
+1. 在 [Google AI Studio](https://aistudio.google.com/api-keys?hl=zh-tw) 的「API 金鑰」頁面中，找出標有「無限制」標籤的金鑰。
+2. 將游標懸停在標籤上，然後按一下對話方塊中的「新增限制」。
+3. 選取「僅限 Gemini API」。
+4. 按一下「限制金鑰」確認操作。
 
-#### הגבלת המפתח לשירותים אחרים דרך מסוף Google Cloud
+#### 透過 Google Cloud 控制台限制其他服務的金鑰
 
-אם המפתח משותף עם ממשקי Google API אחרים (לא מומלץ), צריך להגביל אותו במסוף Cloud. **הערה: בקשות ל-Gemini API באמצעות המפתח הזה ייכשלו אחרי החלת ההגבלות האלה.**
+如果金鑰與其他 Google API 共用 (不建議)，請在 Cloud Console 中限制金鑰。**注意：套用這些限制後，使用這組金鑰的 Gemini API 要求將會失敗。**
 
-1. נכנסים אל [הדף Credentials במסוף Google Cloud](https://console.cloud.google.com/apis/credentials?hl=he).
-2. בוחרים את הפרויקט ואת מפתח ה-API.
-3. בקטע **API restrictions**, בוחרים באפשרות **Restrict key**.
-4. בתפריט הנפתח, בוחרים את ממשקי ה-API שרוצים שהמפתח הזה יוכל לגשת אליהם. לא בוחרים באפשרות **Generative Language API**.
-5. לוחצים על **שמירה**. כדי להמשיך להשתמש ב-Gemini API, צריך ליצור מפתח נפרד ומוגבל ב-AI Studio.
+1. 前往 [Google Cloud 控制台的「憑證」頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
+2. 選取專案和 API 金鑰。
+3. 在「API restrictions」下方，選取「Restrict key」。
+4. 從下拉式選單中，選取要讓這個金鑰存取的 API。請勿選取 **Generative Language API**。
+5. 按一下 [儲存]。在 AI Studio 中建立獨立的受限金鑰，繼續使用 Gemini API。
 
-### חסימה של מפתחות לא פעילים
+### 封鎖閒置金鑰
 
-החל מ-7 במאי 2026, Gemini API יחסום מפתחות API ללא הגבלות שלא נעשה בהם שימוש במשך תקופה ארוכה. המפתחות האלה מופיעים עם התג **חסום** ב-AI Studio. כדי להמשיך, צריך ליצור מפתח חדש או להשתמש במפתח קיים עם הגבלות.
+2026 年 5 月 7 日起，Gemini API 會封鎖長期閒置的未設限 API 金鑰。這些金鑰在 AI Studio 中會顯示「已封鎖」標記。您必須產生新金鑰或使用現有的受限金鑰，才能繼續操作。
 
-## מעבר למפתח אימות
+## 改用驗證金鑰
 
-כדי ליצור מפתח API חדש לאימות ולעדכן את האפליקציות:
+請按照下列步驟建立新的驗證型 API 金鑰，並更新應用程式：
 
-1. עוברים אל [דף מפתחות ה-API של AI Studio](https://aistudio.google.com/api-keys?hl=he).
-2. בודקים את העמודה **סוג המפתח** כדי לזהות מפתחות שמופיעים כ**רגילים**.
-3. לוחצים על **Create API key** (יצירת מפתח API) כדי ליצור מפתח חדש. כל המפתחות החדשים שנוצרים ב-AI Studio נוצרים אוטומטית כמפתחות אימות.
-4. מעתיקים את מפתח ה-API החדש לאימות.
-5. מעדכנים את קוד האפליקציה, את משתני הסביבה ואת כל הגדרות הפריסה כך שישתמשו במפתח ה-API החדש לאימות.
-6. בודקים את האפליקציה כדי לוודא שהיא פועלת בצורה תקינה עם המפתח החדש.
-7. אחרי האימות, מוחקים את מפתח התנועה הישן או מבטלים את הגישה אליו כדי למנוע שימוש לרעה.
+1. 前往 [AI Studio API 金鑰頁面](https://aistudio.google.com/api-keys?hl=zh-tw)。
+2. 檢查「金鑰類型」欄，找出列為「標準」的金鑰。
+3. 按一下「建立 API 金鑰」，產生新的金鑰。在 AI Studio 中建立的所有新金鑰，都會自動建立為授權金鑰。
+4. 複製新的驗證型 API 金鑰。
+5. 更新應用程式程式碼、環境變數和任何部署設定，以使用新的驗證 API 金鑰。
+6. 測試應用程式，確認新金鑰是否正常運作。
+7. 驗證完成後，請刪除或撤銷舊的流量金鑰，以免遭到濫用。
 
-## מגבלות
+## 限制
 
-ב-Google AI Studio יש את המגבלות הבאות על ניהול פרויקטים ומפתחות:
+Google AI Studio 對專案和金鑰管理設有下列限制：
 
-- אפשר ליצור עד 10 פרויקטים בכל פעם מדף **Projects** ב-Google AI Studio.
-- בדפים **API keys** ו-**Projects** מוצגים עד 100 מפתחות ו-50 פרויקטים.
-- מוצגים רק מפתחות API שלא הוגבלו או שהוגבלו ספציפית ל-Generative Language API ‏ (Gemini API).
+- 您一次最多可從 Google AI Studio 的「專案」頁面建立 10 個專案。
+- 「API 金鑰」和「專案」頁面最多會顯示 100 個金鑰和 50 個專案。
+- 系統只會顯示未設限的 API 金鑰，或是專門設限於 Generative Language API (Gemini API) 的 API 金鑰。
 
-לניהול מתקדם של פרויקטים או לשינוי מפתחות עם הגבלות אחרות, אפשר להשתמש ב[דף פרטי הכניסה במסוף Google Cloud](https://console.cloud.google.com/apis/credentials?hl=he).
+如要進行進階專案管理，或修改具有其他限制的鍵，請使用 [Google Cloud 控制台的「憑證」頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
 
-שליחת משוב
+提供意見
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-עדכון אחרון: 2026-07-16 (שעון UTC).
+上次更新時間：2026-07-30 (世界標準時間)。
 
-רוצה לתת לנו משוב?
+想進一步說明嗎？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-16 (שעון UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

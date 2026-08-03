@@ -1,31 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=tr
-fetched_at: 2026-07-27T04:44:23.756659+00:00
-title: "Gemini d\u00fc\u015f\u00fcncesi \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it
+fetched_at: 2026-08-03T04:27:39.102721+00:00
+title: "Pensiero di Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Gemini düşüncesi
+# Pensiero di Gemini
 
-[Gemini 3 ve 2.5 serisi modeller](https://ai.google.dev/gemini-api/docs/models?hl=tr), akıl yürütme ve çok adımlı planlama yeteneklerini önemli ölçüde geliştiren dahili bir "düşünme süreci" kullanır. Bu sayede kodlama, ileri matematik ve veri analizi gibi karmaşık görevlerde oldukça etkili olurlar.
+I modelli delle serie [Gemini 3 e 2.5](https://ai.google.dev/gemini-api/docs/models?hl=it) utilizzano un
+"processo di pensiero" interno che migliora notevolmente le loro capacità di ragionamento e pianificazione in più passaggi,
+rendendoli altamente efficaci per attività complesse come la
+programmazione, la matematica avanzata e l'analisi dei dati.
 
-Bu kılavuzda, Gemini API'yi kullanarak Gemini'ın düşünme özellikleriyle nasıl çalışacağınız gösterilmektedir.
+Questa guida mostra come utilizzare le funzionalità di pensiero di Gemini utilizzando l'API Gemini.
 
-## Düşünerek içerik üretme
+## Generare contenuti con il pensiero
 
-Düşünme modeliyle istek başlatmak, diğer tüm içerik oluşturma isteklerine benzer. Aradaki temel fark, aşağıdaki [metin oluşturma](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#text-input) örneğinde gösterildiği gibi, `model` alanında [düşünme desteği olan modellerden](#supported-models) birinin belirtilmesidir:
+L'avvio di una richiesta con un modello di ragionamento è simile a qualsiasi altra richiesta di generazione di contenuti. La differenza fondamentale consiste nello specificare uno dei
+[modelli con supporto per il pensiero](#supported-models) nel campo `model`, come
+mostrato nel seguente [esempio di generazione di testo](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#text-input):
 
 ### Python
 
@@ -35,7 +40,7 @@ from google import genai
 client = genai.Client()
 prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example."
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt
 )
 
@@ -53,7 +58,7 @@ async function main() {
   const prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example.";
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: prompt,
   });
 
@@ -63,7 +68,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -84,7 +89,7 @@ func main() {
   }
 
   prompt := "Explain the concept of Occam's Razor and provide a simple, everyday example."
-  model := "gemini-3.5-flash"
+  model := "gemini-3.6-flash"
 
   resp, _ := client.Models.GenerateContent(ctx, model, genai.Text(prompt), nil)
 
@@ -95,7 +100,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
  -H "x-goog-api-key: $GEMINI_API_KEY" \
  -H 'Content-Type: application/json' \
  -X POST \
@@ -113,13 +118,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
  ```
 ```
 
-## Düşünce özetleri
+## Riepiloghi del pensiero
 
-Düşünce özetleri, modelin ham düşüncelerinin özetlenmiş versiyonlarıdır ve modelin dahili akıl yürütme süreci hakkında bilgiler sunar. Düşünce düzeylerinin ve bütçelerin, modelin ham düşünceleri için geçerli olduğunu, düşünce özetleri için geçerli olmadığını unutmayın.
+I riepiloghi del pensiero sono versioni riassunte dei pensieri non elaborati del modello e offrono informazioni sul processo di ragionamento interno del modello. Tieni presente che i livelli e i budget di pensiero si applicano ai pensieri non elaborati del modello e non ai riepiloghi del pensiero.
 
-İstek yapılandırmanızda `includeThoughts` değerini `true` olarak ayarlayarak düşünce özetlerini etkinleştirebilirsiniz. Daha sonra, `response` parametresinin `parts` değerlerini yineleyerek ve `thought` boole değerini kontrol ederek özete erişebilirsiniz.
+Puoi attivare i riepiloghi del pensiero impostando `includeThoughts` su `true` nella configurazione della richiesta. Puoi quindi accedere al riepilogo scorrendo i `parts` del parametro `response` e controllando il valore booleano `thought`.
 
-Aşağıda, akış olmadan düşünce özetlerinin nasıl etkinleştirileceğini ve alınacağını gösteren bir örnek verilmiştir. Bu örnek, yanıtla birlikte tek bir nihai düşünce özeti döndürür:
+Ecco un esempio che mostra come attivare e recuperare i riepiloghi del pensiero senza streaming, che restituisce un unico riepilogo del pensiero finale con la risposta:
 
 ### Python
 
@@ -130,7 +135,7 @@ from google.genai import types
 client = genai.Client()
 prompt = "What is the sum of the first 50 prime numbers?"
 response = client.models.generate_content(
-  model="gemini-3.5-flash",
+  model="gemini-3.6-flash",
   contents=prompt,
   config=types.GenerateContentConfig(
     thinking_config=types.ThinkingConfig(
@@ -161,7 +166,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: "What is the sum of the first 50 prime numbers?",
     config: {
       thinkingConfig: {
@@ -188,7 +193,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -208,7 +213,7 @@ func main() {
   }
 
   contents := genai.Text("What is the sum of the first 50 prime numbers?")
-  model := "gemini-3.5-flash"
+  model := "gemini-3.6-flash"
   resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
       IncludeThoughts: true,
@@ -229,7 +234,7 @@ func main() {
 }
 ```
 
-Aşağıda, akışla düşünme özelliğinin kullanıldığı ve oluşturma sırasında kademeli özetler döndüren bir örnek verilmiştir:
+Ecco un esempio di utilizzo del pensiero con lo streaming, che restituisce riepiloghi incrementali durante la generazione:
 
 ### Python
 
@@ -253,7 +258,7 @@ thoughts = ""
 answer = ""
 
 for chunk in client.models.generate_content_stream(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt,
     config=types.GenerateContentConfig(
       thinking_config=types.ThinkingConfig(
@@ -294,7 +299,7 @@ let answer = "";
 
 async function main() {
   const response = await ai.models.generateContentStream({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: prompt,
     config: {
       thinkingConfig: {
@@ -327,7 +332,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -358,7 +363,7 @@ func main() {
   }
 
   contents := genai.Text(prompt)
-  model := "gemini-3.5-flash"
+  model := "gemini-3.6-flash"
 
   resp := client.Models.GenerateContentStream(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
@@ -382,25 +387,25 @@ func main() {
 }
 ```
 
-## Düşünceleri kontrol etme
+## Controllare il pensiero
 
-Gemini modelleri, varsayılan olarak dinamik düşünme özelliğini kullanır ve kullanıcının isteğinin karmaşıklığına göre akıl yürütme çabasını otomatik olarak ayarlar.
-Ancak belirli gecikme kısıtlamalarınız varsa veya modelin normalden daha derin bir muhakeme yapmasını istiyorsanız düşünme davranışını kontrol etmek için isteğe bağlı olarak parametreleri kullanabilirsiniz.
+Per impostazione predefinita, i modelli Gemini utilizzano il pensiero dinamico, regolando automaticamente la quantità di ragionamento in base alla complessità della richiesta dell'utente.
+Tuttavia, se hai vincoli di latenza specifici o richiedi che il modello utilizzi un ragionamento più approfondito del solito, puoi facoltativamente utilizzare i parametri per controllare il comportamento del pensiero.
 
-### Düşünme düzeyleri (Gemini 3)
+### Livelli di pensiero (Gemini 3)
 
-Gemini 3 modelleri ve sonraki sürümler için önerilen `thinkingLevel` parametresi, akıl yürütme davranışını kontrol etmenizi sağlar.
+Il parametro `thinkingLevel`, consigliato per i modelli Gemini 3 e versioni successive, consente di controllare il comportamento del ragionamento.
 
-Aşağıdaki tabloda her model türü için `thinkingLevel` ayarları ayrıntılı olarak açıklanmaktadır:
+La tabella seguente descrive in dettaglio le impostazioni di `thinkingLevel` per ogni tipo di modello:
 
-| Düşünme Düzeyi | Gemini 3.5 Flash | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3.1 Flash-Lite Görüntüsü | Gemini 3 Flash | Açıklama |
+| Livello di pensiero | Gemini 3.6 e 3.5 Flash | Gemini 3.1 Pro | Gemini 3.5 e 3.1 Flash-Lite | Gemini 3.1 Flash-Lite Image | Gemini 3 Flash | Descrizione |
 | --- | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | Destekleniyor | Desteklenmiyor | Destekleniyor (Varsayılan) | Destekleniyor (Varsayılan) | Destekleniyor | Çoğu sorgu için "düşünme yok" ayarıyla eşleşir. `minimal`'nın düşünme özelliğinin devre dışı olduğunu garanti etmediğini unutmayın. Model, karmaşık görevler için çok az gerekçe sunabilir. |
-| **`low`** | Destekleniyor | Destekleniyor | Destekleniyor | Desteklenmiyor | Destekleniyor | Gecikmeyi ve maliyeti en aza indirir. |
-| **`medium`** | Destekleniyor (Varsayılan) | Destekleniyor | Destekleniyor | Desteklenmiyor | Destekleniyor | Çoğu görev için dengeli düşünme |
-| **`high`** | Desteklenir (Dinamik) | Destekleniyor (Varsayılan, Dinamik) | Desteklenir (Dinamik) | Desteklenir (Dinamik) | Destekleniyor (Varsayılan, Dinamik) | Akıl yürütme derinliğini en üst düzeye çıkarır. Modelin ilk (düşünme içermeyen) çıkış jetonuna ulaşması önemli ölçüde daha uzun sürebilir ancak çıkış daha dikkatli bir şekilde gerekçelendirilir. |
+| **`minimal`** | Supportato | Non supportato | Supportato (valore predefinito) | Supportato (valore predefinito) | Supportato | Corrisponde all'impostazione "nessun pensiero" per la maggior parte delle query. Tieni presente che `minimal` non garantisce che il pensiero sia disattivato, il modello potrebbe ragionare in modo molto minimo per attività complesse. |
+| **`low`** | Supportato | Supportato | Supportato | Non supportato | Supportato | Riduce al minimo la latenza e i costi. |
+| **`medium`** | Supportato (valore predefinito) | Supportato | Supportato | Non supportato | Supportato | Pensiero bilanciato per la maggior parte delle attività. |
+| **`high`** | Supportato (dinamico) | Supportato (valore predefinito, dinamico) | Supportato (dinamico) | Supportato (dinamico) | Supportato (valore predefinito, dinamico) | Massimizza la profondità del ragionamento. Il modello potrebbe impiegare molto più tempo per raggiungere un primo token di output (non di pensiero), ma l'output sarà più accurato. |
 
-Aşağıdaki örnekte, düşünme düzeyinin nasıl ayarlanacağı gösterilmektedir.
+Il seguente esempio mostra come impostare il livello di pensiero.
 
 ### Python
 
@@ -411,7 +416,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Provide a list of 3 famous physicists and their key contributions",
     config=types.GenerateContentConfig(
         thinking_config=types.ThinkingConfig(thinking_level="low")
@@ -430,7 +435,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: "Provide a list of 3 famous physicists and their key contributions",
     config: {
       thinkingConfig: {
@@ -445,7 +450,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -467,7 +472,7 @@ func main() {
   thinkingLevelVal := "low"
 
   contents := genai.Text("Provide a list of 3 famous physicists and their key contributions")
-  model := "gemini-3.5-flash"
+  model := "gemini-3.6-flash"
   resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
       ThinkingLevel: &thinkingLevelVal,
@@ -481,7 +486,7 @@ fmt.Println(resp.Text())
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -X POST \
@@ -503,28 +508,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-Gemini 3.1 Pro'da düşünme özelliğini devre dışı bırakamazsınız. Gemini 3 Flash ve Flash-Lite da tam düşünme özelliğini desteklemez.
-Düşünme seviyesi belirtmezseniz Gemini, Gemini 3 modellerinin varsayılan düşünme seviyesini (ör. Gemini 3.1 Pro için `"high"`, Gemini 3.5 Flash için `"medium"`) kullanır.
+Non puoi disattivare il pensiero per Gemini 3.1 Pro. Anche Gemini 3 Flash e Flash-Lite
+non supportano la disattivazione completa del pensiero.
+Se non specifichi un livello di pensiero, Gemini utilizzerà il livello di pensiero predefinito dei modelli Gemini 3 (ad es. `"high"` per Gemini 3.1 Pro e `"medium"` per Gemini 3.5 Flash).
 
-Gemini 2.5 serisi modeller `thinkingLevel` dosya türünü desteklemez. Bunun yerine `thinkingBudget` dosya türünü kullanın.
+I modelli della serie Gemini 2.5 non supportano `thinkingLevel`; utilizza invece `thinkingBudget`.
 
-### Düşünme bütçeleri
+### Budget di pensiero
 
-Gemini 2.5 serisiyle kullanıma sunulan `thinkingBudget` parametresi, akıl yürütme için kullanılacak düşünme parçalarının sayısı konusunda modele yol gösterir.
+Il parametro `thinkingBudget`, introdotto con la serie Gemini 2.5, indica al modello il numero specifico di token di pensiero da utilizzare per il ragionamento.
 
-Aşağıda her model türü için `thinkingBudget` yapılandırma ayrıntıları verilmiştir.
-`thinkingBudget` değerini 0 olarak ayarlayarak düşünme özelliğini devre dışı bırakabilirsiniz.
-`thinkingBudget` değerini -1 olarak ayarlamak **dinamik düşünme** özelliğini etkinleştirir. Bu durumda model, bütçeyi isteğin karmaşıklığına göre ayarlar.
+Di seguito sono riportati i dettagli di configurazione di `thinkingBudget` per ogni tipo di modello.
+Puoi disattivare il pensiero impostando `thinkingBudget` su 0.
+Se imposti `thinkingBudget` su -1, viene attivato il **pensiero dinamico**, il che significa che il modello regolerà il budget in base alla complessità della richiesta.
 
-| Model | Varsayılan ayar (Düşünme bütçesi ayarlanmamış) | Aralık | Düşünmeyi devre dışı bırakma | Dinamik düşünmeyi etkinleştirme |
+| Modello | Impostazione predefinita (il budget di pensiero non è impostato) | Intervallo | Disattiva il pensiero | Attiva il pensiero dinamico |
 | --- | --- | --- | --- | --- |
-| **2.5 Pro** | Dinamik düşünme | `128` - `32768` | Geçersiz: Düşünme devre dışı bırakılamaz. | `thinkingBudget = -1` (Varsayılan) |
-| **2.5 Flash** | Dinamik düşünme | `0` - `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Varsayılan) |
-| **2.5 Flash Önizlemesi** | Dinamik düşünme | `0` - `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Varsayılan) |
-| **2.5 Flash Lite** | Model düşünmüyor | `512` - `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **2.5 Flash Lite Önizlemesi** | Model düşünmüyor | `512` - `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **Robotics-ER 1.6 Önizlemesi** | Dinamik düşünme | `0` - `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Varsayılan) |
-| **2.5 Flash Live Native Audio Preview (09-2025)** | Dinamik düşünme | `0` - `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Varsayılan) |
+| **2.5 Pro** | Pensiero dinamico | Da `128` a `32768` | N/A: non è possibile disattivare il pensiero | `thinkingBudget = -1` (valore predefinito) |
+| **2.5 Flash** | Pensiero dinamico | Da `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (valore predefinito) |
+| **2.5 Flash Preview** | Pensiero dinamico | Da `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (valore predefinito) |
+| **2.5 Flash Lite** | Il modello non pensa | Da `512` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite Preview** | Il modello non pensa | Da `512` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 Preview** | Pensiero dinamico | Da `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (valore predefinito) |
+| **2.5 Flash Live Native Audio Preview (09-2025)** | Pensiero dinamico | Da `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (valore predefinito) |
 
 ### Python
 
@@ -577,7 +583,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -639,30 +645,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-İstemlere bağlı olarak model, jeton bütçesini aşabilir veya bütçenin altında kalabilir.
+A seconda del prompt, il modello potrebbe superare o non raggiungere il budget di token.
 
-## Düşünce imzaları
+## Firme del pensiero
 
-[düşünce imzalarını manuel olarak yönetmeniz](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#thought-signatures) gerekir.
+L'API Gemini è senza stato, quindi il modello tratta ogni richiesta API in modo indipendente e non ha accesso al contesto di pensiero dei turni precedenti nelle interazioni in più turni.
 
-Gemini API durum bilgisi içermediğinden model, her API isteğini bağımsız olarak ele alır ve çok adımlı etkileşimlerde önceki adımlardaki düşünce bağlamına erişemez.
+Per consentire il mantenimento del contesto di pensiero nelle interazioni multi-turno, Gemini restituisce le firme del pensiero, che sono rappresentazioni criptate del processo di pensiero interno del modello.
 
-Gemini, çok turlu etkileşimlerde düşünce bağlamının korunmasını sağlamak için düşünce imzaları döndürür. Düşünce imzaları, modelin dahili düşünce sürecinin şifrelenmiş temsilleridir.
+- **I modelli Gemini 2.5** restituiscono le firme del pensiero quando il pensiero è attivato e
+  la richiesta include la [chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#thinking),
+  in particolare le [dichiarazione di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#step-2).
+- **I modelli Gemini 3** possono restituire le firme del pensiero per tutti i tipi di [parti](https://ai.google.dev/api/caching?hl=it#Part).
+  Ti consigliamo di restituire sempre tutte le firme così come le hai ricevute, ma è *obbligatorio* per le firme di chiamata di funzione. Per saperne di più, consulta la pagina
+  [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it).
 
-- **Gemini 2.5 modelleri**, düşünme etkinleştirildiğinde ve istek [işlev çağrısı](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#thinking), özellikle de [işlev bildirimleri](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#step-2) içerdiğinde düşünce imzaları döndürür.
-- **Gemini 3 modelleri**, her tür [parça](https://ai.google.dev/api/caching?hl=tr#Part) için düşünce imzaları döndürebilir.
-  Tüm imzaları her zaman alındığı şekilde geri iletmenizi öneririz ancak işlev çağrısı imzaları için bu *zorunludur*. Daha fazla bilgi için [Thought Signatures](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=tr) (Düşünce İmzaları) sayfasını inceleyin.
+Altre limitazioni di utilizzo da considerare con la chiamata di funzione includono:
 
-İşlev çağrısıyla ilgili dikkate alınması gereken diğer kullanım sınırlamaları şunlardır:
+- Le firme vengono restituite dal modello all'interno di altre parti della risposta, ad esempio le parti di chiamata di funzione o di testo.
+  [Restituisci l'intera risposta](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#step-4)
+  con tutte le parti al modello nei turni successivi.
+- Non concatenare le parti con le firme.
+- Non unire una parte con una firma con un'altra parte senza firma.
 
-- İmzalar, yanıttaki diğer bölümlerden (ör. işlev çağrısı veya metin bölümleri) döndürülür.
-  Sonraki dönüşlerde tüm parçalarıyla birlikte [yanıtın tamamını modele geri gönderin](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#step-4).
-- İmzalı bölümleri birleştirmeyin.
-- Bir bölümü imzalı, diğer bölümü imzasız olarak birleştirmeyin.
+## Prezzi
 
-## Fiyatlandırma
-
-Düşünme etkinleştirildiğinde yanıt fiyatı, çıkış jetonlarının ve düşünme jetonlarının toplamıdır. Oluşturulan düşünme jetonlarının toplam sayısını `thoughtsTokenCount` alanından alabilirsiniz.
+Quando il pensiero è attivato, il prezzo della risposta è la somma dei token di output e dei token di pensiero. Puoi ottenere il numero totale di token di pensiero generati dal campo `thoughtsTokenCount`.
 
 ### Python
 
@@ -680,7 +688,7 @@ console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
 console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
 ```
 
-### Go
+### Vai
 
 ```
 // ...
@@ -688,54 +696,61 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Düşünme modelleri, nihai yanıtın kalitesini artırmak için tam düşünceler üretir ve ardından düşünce süreci hakkında bilgi vermek için [özetler](#summaries) oluşturur. Bu nedenle, API'den yalnızca özet çıktısı alınmasına rağmen fiyatlandırma, modelin özet oluşturmak için üretmesi gereken tam düşünce jetonlarına göre yapılır.
+I modelli di pensiero generano pensieri completi per migliorare la qualità della risposta
+finale, quindi restituiscono [i riepiloghi](#summaries) per fornire informazioni sul
+processo di pensiero. Pertanto, il prezzo si basa sui token di pensiero completi che il modello deve generare per creare un riepilogo, anche se dall'API viene restituito solo il riepilogo.
 
-Jetonlar hakkında daha fazla bilgiyi [Jeton sayımı](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) rehberinde bulabilirsiniz.
+Per saperne di più sui token, consulta la [guida](https://ai.google.dev/gemini-api/docs/tokens?hl=it)
+al conteggio dei token.
 
-## En iyi uygulamalar
+## Best practice
 
-Bu bölümde, düşünce modellerini verimli bir şekilde kullanmayla ilgili bazı bilgiler yer almaktadır.
-Her zaman olduğu gibi, [istem yazma kılavuzumuza ve en iyi uygulamalarımıza](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=tr) uyarak en iyi sonuçları elde edebilirsiniz.
+Questa sezione include alcune indicazioni per l'utilizzo efficiente dei modelli di pensiero.
+Come sempre, seguendo le nostre [indicazioni e best practice per i prompt](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it) otterrai i risultati migliori.
 
-### Hata ayıklama ve yönlendirme
+### Debug e orientamento
 
-- **Akıl yürütmeyi inceleme**: Düşünce modellerinden beklediğiniz yanıtı alamadığınızda Gemini'ın düşünce özetlerini dikkatlice analiz etmek faydalı olabilir.
-  Görevi nasıl parçaladığını ve sonuca nasıl ulaştığını görebilir, bu bilgileri kullanarak doğru sonuçlara ulaşmak için düzeltmeler yapabilirsiniz.
-- **Mantıkta Rehberlik Sağlama**: Özellikle uzun bir çıktı almak istiyorsanız isteminizde rehberlik sağlayarak modelin [düşünme miktarını](#set-budget) sınırlayabilirsiniz. Bu sayede, yanıtınız için daha fazla jeton çıktısı ayırabilirsiniz.
+- **Esamina il ragionamento**: quando non ricevi la risposta prevista dai
+  modelli di pensiero, può essere utile analizzare attentamente i riepiloghi del pensiero di Gemini.
+  Puoi vedere come ha suddiviso l'attività e come è arrivato alla sua conclusione e utilizzare queste informazioni per correggere i risultati corretti.
+- **Fornisci indicazioni nel ragionamento**: se prevedi un output particolarmente lungo, potresti voler fornire indicazioni nel prompt per limitare la
+  [quantità di pensiero](#set-budget) utilizzata dal modello. In questo modo, puoi riservare più token di output per la risposta.
 
-### Görevin karmaşıklığı
+### Complessità dell'attività
 
-- **Kolay Görevler (Düşünme devre dışı olabilir):** Bilgi alma veya sınıflandırma gibi karmaşık akıl yürütme gerektirmeyen basit isteklerde düşünme gerekli değildir. Örnekler:
-  - "DeepMind nerede kuruldu?"
-  - "Bu e-postada toplantı isteğinde mi bulunuluyor yoksa sadece bilgi mi veriliyor?"
-- **Orta Görevler (Varsayılan/Biraz Düşünme):** Birçok yaygın istek, adım adım işleme veya daha derin bir anlayıştan yararlanır. Gemini, aşağıdaki gibi görevlerde düşünme yeteneğini esnek bir şekilde kullanabilir:
-  - Fotosentez ve büyüme arasında benzerlik kur.
-  - Elektrikli arabalar ile hibrit arabaları karşılaştırın ve aralarındaki farkları belirtin.
-- **Zor Görevler (Maksimum Düşünme Kapasitesi):** Karmaşık matematik problemlerini çözme veya kodlama görevleri gibi gerçekten zorlu görevler için yüksek bir düşünme bütçesi ayarlamanızı öneririz. Bu tür görevler, modelin tam akıl yürütme ve planlama yeteneklerini kullanmasını gerektirir. Bu görevler genellikle yanıt vermeden önce birçok dahili adım içerir. Örnekler:
-  - AIME 2025'teki 1. problemi çözün: 17b'nin 97b'nin bir böleni olduğu tüm b > 9 tam sayı tabanlarının toplamını bulun.
-  - Kullanıcı kimlik doğrulaması da dahil olmak üzere gerçek zamanlı borsa verilerini görselleştiren bir web uygulaması için Python kodu yaz. Mümkün olduğunca verimli hale getirin.
+- **Attività semplici (il pensiero potrebbe essere disattivato):** per le richieste semplici in cui non è richiesto un ragionamento complesso, come il recupero o la classificazione dei fatti, il pensiero non è necessario. Esempi:
+  - "Dove è stata fondata DeepMind?"
+  - "Questa email chiede un incontro o fornisce solo informazioni?"
+- **Attività di livello medio (pensiero predefinito/parziale):** molte richieste comuni traggono vantaggio da un certo grado di elaborazione passo passo o da una comprensione più approfondita. Gemini può utilizzare in modo flessibile la funzionalità di pensiero per attività come:
+  - Analogizzare la fotosintesi e la crescita.
+  - Confrontare e contrapporre auto elettriche e auto ibride.
+- **Attività difficili (capacità di pensiero massima):** per le sfide veramente complesse, come la risoluzione di problemi di matematica complessi o attività di programmazione, ti consigliamo di impostare un budget di pensiero elevato. Questi tipi di attività richiedono che il modello utilizzi tutte le sue capacità di ragionamento e pianificazione, spesso con molti passaggi interni prima di fornire una risposta. Esempi:
+  - Risolvi il problema 1 in AIME 2025: trova la somma di tutte le basi intere b > 9 per
+    le quali 17b è un divisore di 97b.
+  - Scrivi codice Python per un'applicazione web che visualizzi i dati del mercato azionario in tempo reale, inclusa l'autenticazione utente. Rendilo il più efficiente possibile.
 
-## Desteklenen modeller, araçlar ve özellikler
+## Modelli, strumenti e funzionalità supportati
 
-Düşünme özellikleri, tüm 3 ve 2.5 serisi modellerde desteklenir.
-Tüm model özelliklerini [modele genel bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında bulabilirsiniz.
+Le funzionalità di pensiero sono supportate su tutti i modelli delle serie 3 e 2.5.
+Puoi trovare tutte le funzionalità del modello nella
+[pagina di panoramica del modello](https://ai.google.dev/gemini-api/docs/models?hl=it).
 
-Düşünen modeller, Gemini'ın tüm araçları ve özellikleriyle çalışır. Bu sayede modeller, harici sistemlerle etkileşime geçebilir, kod çalıştırabilir veya anlık bilgilere erişebilir. Ayrıca, sonuçları muhakeme ve nihai yanıtlarına dahil edebilir.
+I modelli di pensiero funzionano con tutti gli strumenti e le funzionalità di Gemini. In questo modo, i modelli possono interagire con sistemi esterni, eseguire codice o accedere a informazioni in tempo reale, incorporando i risultati nel loro ragionamento e nella risposta finale.
 
-[Thinking cookbook][Colab] içinde, araçları düşünme modelleriyle kullanma örneklerini deneyebilirsiniz.
+Puoi provare esempi di utilizzo degli strumenti con i modelli di pensiero nel [ricettario di pensiero][Colab].
 
-## Sırada ne var?
+## Passaggi successivi
 
-- Düşünme kapsamı, [OpenAI Uyumluluğu](https://ai.google.dev/gemini-api/docs/openai?hl=tr#thinking) kılavuzumuzda yer almaktadır.
+- La copertura del pensiero è disponibile nella nostra guida alla compatibilità con [OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it#thinking).
 
 [Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-07-07 UTC.
+Ultimo aggiornamento 2026-07-30 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-07 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]

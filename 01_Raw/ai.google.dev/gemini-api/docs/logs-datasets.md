@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-BR
-fetched_at: 2026-07-27T04:40:16.636343+00:00
-title: "Registros e conjuntos de dados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ar
+fetched_at: 2026-08-03T04:35:57.153325+00:00
+title: "\u0627\u0644\u0633\u062c\u0644\u0651\u0627\u062a \u0648\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envie comentários
+إرسال ملاحظات
 
-# Registros e conjuntos de dados
+# السجلّات ومجموعات البيانات
 
-Neste guia, você vai aprender a
-ver registros do uso da API Gemini no painel do Google AI Studio
-para entender melhor o comportamento do modelo e como os usuários interagem com seus
-aplicativos. Use o registro em registros para observar, depurar e *compartilhar feedback de uso com o Google para ajudar a melhorar o Gemini em casos de uso de desenvolvedores*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=pt-br)
+في هذا الدليل، ستتعرّفون على كيفية عرض السجلات من استخدام Gemini API في لوحة بيانات Google AI Studio لفهم سلوك النموذج بشكل أفضل وكيفية تفاعل المستخدمين مع تطبيقاتكم. يمكنكم استخدام ميزة تسجيل البيانات لمراقبة ملاحظات الاستخدام وتصحيح الأخطاء فيها، و*مشاركتها اختياريًا مع Google للمساعدة في تحسين Gemini في حالات استخدام المطوّرين*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=ar)
 
-Todas as chamadas de API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` e [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br), exceto as de agentes gerenciados, são compatíveis. Isso inclui chamadas feitas pelos endpoints de
-[compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
+تتوفّر إمكانية تسجيل البيانات لجميع طلبات البيانات من واجهة برمجة التطبيقات `GenerateContent` و`BatchGenerateContent` و`StreamGenerateContent` وطلبات البيانات من [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=ar) API باستثناء
+الوكلاء المُدارون. ويشمل ذلك الطلبات التي يتم إجراؤها من خلال
+[نقاط نهاية التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar).
 
-## Configurar o registro do projeto
+## ضبط تسجيل بيانات المشروع
 
-Por padrão, a API armazena todos os objetos de interação (`store=true`) para simplificar o uso dos recursos de gerenciamento de estado do lado do servidor. Por outro lado, a API Generate Content não armazena solicitações por padrão e exige que o armazenamento seja ativado por solicitação ou no nível do projeto no AI Studio.
+تخزّن واجهة برمجة التطبيقات تلقائيًا جميع عناصر التفاعل (`store=true`) لتسهيل استخدام ميزات إدارة حالة الخادم. في المقابل، لا تخزّن Generate Content API الطلبات تلقائيًا، وتتطلب تفعيل مساحة التخزين لكل طلب أو على مستوى المشروع من AI Studio.
 
-No [AI Studio](https://aistudio.google.com/logs?hl=pt-br) do Google, é possível ativar ou desativar o registro em todos os projetos ou em projetos específicos e mudar essas preferências a qualquer momento no painel **Configurações** da página [Registros e conjuntos de dados](https://aistudio.google.com/logs?hl=pt-br). É possível ativar ou desativar o registro em log
-de forma independente para a API `generateContent` e a API
-[Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
-para mudar o comportamento de armazenamento padrão de um projeto.
+في Google [AI Studio](https://aistudio.google.com/logs?hl=ar)، يمكنكم تفعيل ميزة تسجيل البيانات أو
+إيقافها لجميع المشاريع أو لمشاريع معيّنة، وتغيير هذه
+الإعدادات المفضّلة في أي وقت من خلال لوحة **الإعدادات** في
+[صفحة "السجلات ومجموعات البيانات"](https://aistudio.google.com/logs?hl=ar). يمكن تفعيل ميزة تسجيل البيانات أو إيقافها
+بشكل مستقل لواجهة برمجة التطبيقات `generateContent` وواجهة
+[التفاعلات](https://ai.google.dev/gemini-api/docs/interactions?hl=ar) API
+لتغيير سلوك التخزين التلقائي لمشروع معيّن.
 
-### Geração de registros no nível da solicitação
+### تسجيل البيانات على مستوى الطلب
 
-O comportamento de armazenamento e geração de registros varia de acordo com a API:
+يختلف سلوك التخزين وتسجيل البيانات حسب واجهة برمجة التطبيقات:
 
-- **[API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)**:armazena solicitações por padrão (`store=true`) para simplificar o gerenciamento de estado do lado do servidor.
-- **API Generate Content (`generateContent`)**: não armazena solicitações por padrão (`store=false`).
+- **[واجهة Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar):** تخزّن الطلبات تلقائيًا (`store=true`) لتسهيل إدارة حالة جهة الخادم.
+- **واجهة Generate Content API (`generateContent`):** لا تخزّن الطلبات تلقائيًا (`store=false`).
 
-Veja como definir a propriedade `store`:
+إليكم كيفية ضبط السمة `store`:
 
-**API GenerateContent**
+**واجهة برمجة التطبيقات GenerateContent API**
 
 ### Python
 
@@ -80,7 +81,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-**API Interactions**
+**واجهة Interactions API**
 
 ### Python
 
@@ -114,61 +115,62 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[interaction.outputs.length - 1].text);
 ```
 
-## Ver registros do projeto no AI Studio
+## عرض سجلات المشروع في AI Studio
 
-1. Acesse a página "Registros" no [AI Studio](https://aistudio.google.com/logs?hl=pt-br).
-2. Selecione um projeto no menu suspenso.
-3. Os registros vão aparecer na tabela em ordem cronológica inversa para a API Interactions, se existirem.
-4. Para observar os registros do projeto da API Content, primeiro ative essa opção no [painel de configurações](#configure-logging).
+1. انتقِلوا إلى صفحة "السجلات" في [AI Studio](https://aistudio.google.com/logs?hl=ar).
+2. اختَاروا مشروعًا من القائمة المنسدلة.
+3. ستظهر السجلات في الجدول بترتيب زمني عكسي لواجهة Interactions API، إذا كانت متوفّرة.
+4. لمراقبة سجلات المشروع في Generate Content API، فعِّلوا هذه الميزة أولاً في لوحة [الإعدادات](#configure-logging).
 
-Clique em uma entrada para ver uma prévia do payload. Você pode inspecionar o comando e a resposta completos do Gemini, além do contexto das trocas anteriores. Para solicitações da **API Interactions**, os registros também incluem um link direto para o `previous_interaction_id`.
+انقروا على إدخال لمعاينة الحمولة. يمكنكم الاطّلاع على الطلب والردّ الكاملَين من Gemini، والسياق من المحادثات السابقة. بالنسبة إلى طلبات **واجهة Interactions API**، تتضمّن السجلات أيضًا رابطًا مباشرًا إلى `previous_interaction_id`.
 
-## Configurar a retenção de armazenamento do projeto
+## ضبط فترة الاحتفاظ بمساحة تخزين المشروع
 
-Os registros expiram e são marcados para exclusão após um período de retenção padrão de 55 dias, a menos que sejam [salvos em um conjunto de dados](#create), que não expira.
-É possível configurar a janela de retenção dos registros de um projeto para, no máximo, 7, 14, 28 ou 55 dias.
+ستنتهي صلاحية السجلات وسيتم وضع علامة عليها للحذف بعد فترة الاحتفاظ التلقائية البالغة
+55 يومًا (ما لم يتم [حفظها في مجموعة بيانات](#create) لا تنتهي صلاحيتها).
+يمكنكم ضبط فترة الاحتفاظ بسجلات المشروع على 7 أو 14 أو 28 أو 55 يومًا كحد أقصى.
 
-## Criar e compartilhar conjuntos de dados
+## إنشاء مجموعات البيانات ومشاركتها
 
-É possível salvar registros em conjuntos de dados para organizar e exportar com mais eficiência.
+يمكنكم حفظ السجلات في مجموعات البيانات لتنظيمها وتصديرها بشكل أكثر فعالية.
 
-- Na [página "Registros"](https://aistudio.google.com/logs?hl=pt-br), localize a barra de filtro
-  na parte de cima para selecionar uma propriedade de filtragem.
-- Na visualização filtrada, use as caixas de seleção para selecionar todos os registros ou apenas alguns.
-- Clique no botão **Criar conjunto de dados** que aparece na parte de cima da lista.
-- Dê um nome e uma descrição opcional ao novo conjunto de dados.
-- Você vai encontrar o conjunto de dados que acabou de criar com o conjunto selecionado de registros.
-- Exporte seu conjunto de dados para análise posterior como arquivos CSV, JSONL ou para o Google Planilhas.
+- من صفحة ["السجلات"](https://aistudio.google.com/logs?hl=ar)، ابحثوا عن شريط الفلترة
+  في أعلى الصفحة لاختيار سمة للفلترة حسبها.
+- من العرض الذي تم فلترته، استخدِموا مربّعات الاختيار لاختيار جميع السجلات أو سجلات فردية.
+- انقروا على الزر **إنشاء مجموعة بيانات** الذي يظهر في أعلى القائمة.
+- أدخِلوا اسمًا لمجموعة البيانات الجديدة ووصفًا اختياريًا لها.
+- ستظهر مجموعة البيانات التي أنشأتموها للتو مع مجموعة السجلات المنسّقة.
+- يمكنكم تصدير مجموعة البيانات لإجراء تحليل إضافي بتنسيق ملفات CSV أو JSONL أو إلى "جداول بيانات Google".
 
-Os conjuntos de dados podem ser úteis para vários casos de uso diferentes.
+يمكن أن تكون مجموعات البيانات مفيدة لعدد من حالات الاستخدام المختلفة.
 
-- **Organize conjuntos de desafios**:impulsione melhorias futuras que visam áreas em que você quer que a IA melhore.
-- **Organizar conjuntos de amostras**:por exemplo, uma amostra de uso real para gerar respostas de outro modelo ou uma coleção de casos extremos para verificações de rotina antes da implantação.
-- **Conjuntos de avaliação**:conjuntos representativos do uso real em recursos importantes, para comparação entre outros modelos ou iterações de instruções do sistema.
+- **تنسيق مجموعات التحديات:** يمكنكم إجراء تحسينات مستقبلية تستهدف المجالات التي تريدون تحسين أداء الذكاء الاصطناعي فيها.
+- **تنسيق مجموعات النماذج:** على سبيل المثال، يمكنكم استخدام نموذج من الاستخدام الفعلي لإنشاء ردود من نموذج آخر، أو مجموعة من الحالات القصوى لإجراء عمليات التحقّق الروتينية قبل النشر.
+- **مجموعات التقييم:** هي مجموعات تمثّل الاستخدام الفعلي في جميع الإمكانات المهمة، وذلك للمقارنة بين النماذج الأخرى أو تكرارات تعليمات النظام.
 
-Você pode contribuir para a pesquisa e o desenvolvimento do Gemini compartilhando seus conjuntos de dados com o Google como exemplos de demonstração.
+يمكنكم المساهمة في أبحاث Gemini وتطويره من خلال اختيار مشاركة مجموعات البيانات مع Google كأمثلة توضيحية.
 
-## Limitações
+## القيود
 
-No momento, o registro em log não é compatível com o seguinte:
+لا تتوفّر حاليًا ميزة تسجيل البيانات لما يلي:
 
-- Modelos do Imagen e do Veo
-- Modelos de incorporação do Gemini
-- Modelo do Gemini Robotics
-- Entradas com vídeos, GIFs ou PDFs
-- Agentes de pré-lançamento público na API Gemini
+- نماذج Imagen وVeo
+- نماذج تضمين Gemini
+- نموذج Gemini Robotics
+- المدخلات التي تحتوي على فيديوهات أو ملفات GIF أو ملفات PDF
+- الوكلاء في المعاينة العلنية في Gemini API
 
-## A seguir
+## الخطوات التالية
 
-- **Crie protótipos com o histórico da sessão**:use o [AI Studio Build](https://aistudio.google.com/apps?hl=pt-br) para programar apps com vibe coding e adicione sua chave de API para ativar um histórico de registros da API Gemini para recursos de IA.
-- **Executar novamente os registros com a API Gemini Batch**:use conjuntos de dados para amostragem de respostas e avaliação de modelos ou lógica de aplicativos executando novamente os registros com a [API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **إنشاء نموذج أولي باستخدام سجلّ الجلسة:** يمكنكم استخدام [أداة Build في AI Studio](https://aistudio.google.com/apps?hl=ar) لإنشاء تطبيقات رموز برمجية وإضافة مفتاح واجهة برمجة التطبيقات لتفعيل سجلّ سجلات Gemini API لميزات الذكاء الاصطناعي.
+- **إعادة تشغيل السجلات باستخدام Gemini Batch API:** يمكنكم استخدام مجموعات البيانات لأخذ عيّنات من الردود وتقييم النماذج أو منطق التطبيق من خلال إعادة تشغيل السجلات باستخدام [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-Envie comentários
+إرسال ملاحظات
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última atualização 2026-07-22 UTC.
+تاريخ التعديل الأخير: 2026-07-22 (حسب التوقيت العالمي المتفَّق عليه)
 
-Quer enviar seu feedback?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-22 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-22 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

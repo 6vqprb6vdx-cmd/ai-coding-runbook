@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=hi
-fetched_at: 2026-07-27T04:39:29.902575+00:00
-title: "\u090f\u0902\u092c\u0947\u0921 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=de
+fetched_at: 2026-08-03T04:37:56.782788+00:00
+title: "Einbettungen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-सुझाव भेजें
+Feedback geben
 
-# एंबेड करना
+# Einbettungen
 
-Gemini API, टेक्स्ट, इमेज, वीडियो, और अन्य कॉन्टेंट के लिए एम्बेडिंग जनरेट करने के लिए, एम्बेडिंग मॉडल उपलब्ध कराता है. इसके बाद, इन एम्बेडिंग का इस्तेमाल सिमैंटिक सर्च, क्लासिफ़िकेशन, और क्लस्टरिंग जैसे कामों के लिए किया जा सकता है. इससे कीवर्ड पर आधारित तरीकों की तुलना में, ज़्यादा सटीक और कॉन्टेक्स्ट के हिसाब से नतीजे मिलते हैं.
+Die Gemini API bietet Einbettungsmodelle zum Generieren von Einbettungen für Text, Bilder, Videos und andere Inhalte. Die resultierenden Einbettungen können dann für Aufgaben wie die semantische Suche, Klassifizierung und Clustering verwendet werden. Sie liefern genauere, kontextbezogene Ergebnisse als stichwortbasierte Ansätze.
 
-नया मॉडल, `gemini-embedding-2`, Gemini API में पहला मल्टीमॉडल एम्बेडिंग मॉडल है. यह टेक्स्ट, इमेज, वीडियो, ऑडियो, और दस्तावेज़ों को एक ही एम्बेडिंग स्पेस में मैप करता है. इससे 100 से ज़्यादा भाषाओं में क्रॉस-मॉडल खोज, क्लासिफ़िकेशन, और क्लस्टरिंग की जा सकती है. ज़्यादा जानने के लिए, [मल्टीमॉडल एम्बेडिंग सेक्शन](#multimodal) देखें. सिर्फ़ टेक्स्ट के लिए, `gemini-embedding-001` उपलब्ध रहेगा.
+Das neueste Modell, `gemini-embedding-2`, ist das erste multimodale Embedding-Modell in der Gemini API. Es ordnet Text, Bilder, Videos, Audio und Dokumente einem einheitlichen Einbettungsbereich zu und ermöglicht so die multimodale Suche, Klassifizierung und das Clustering in über 100 Sprachen. Weitere Informationen finden Sie im [Abschnitt zu multimodalen Einbettungen](#multimodal). Für Nur-Text-Anwendungsfälle ist `gemini-embedding-001` weiterhin verfügbar.
 
-रिट्रीवल ऑगमेंटेड जनरेशन (आरएजी) सिस्टम बनाना, एआई प्रॉडक्ट के इस्तेमाल का एक सामान्य उदाहरण है. मॉडल के आउटपुट को बेहतर बनाने में एम्बेडिंग अहम भूमिका निभाती हैं. इससे, तथ्यों के सही होने की संभावना बढ़ जाती है. साथ ही, जवाब ज़्यादा सटीक और कॉन्टेक्स्ट के हिसाब से ज़्यादा जानकारी वाले होते हैं. अगर आपको मैनेज किया गया RAG समाधान इस्तेमाल करना है, तो हमने [फ़ाइलें खोजने](https://ai.google.dev/gemini-api/docs/file-search?hl=hi) का टूल बनाया है. इससे RAG को मैनेज करना आसान हो जाता है और यह ज़्यादा किफ़ायती भी है.
+Das Erstellen von RAG-Systemen (Retrieval Augmented Generation) ist ein häufiger Anwendungsfall für KI-Produkte. Embeddings spielen eine wichtige Rolle bei der deutlichen Verbesserung der Modellausgaben in Bezug auf faktenorientierte Genauigkeit, Kohärenz und Kontextreichtum. Wenn Sie lieber eine verwaltete RAG-Lösung verwenden möchten, haben wir das Tool [Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de) entwickelt, mit dem sich RAG einfacher verwalten lässt und kostengünstiger ist.
 
-## एम्बेडिंग जनरेट की जा रही हैं
+## Einbettungen generieren
 
-टेक्स्ट एम्बेडिंग जनरेट करने के लिए, `embedContent` तरीके का इस्तेमाल करें:
+Verwenden Sie die Methode `embedContent`, um Texteinbettungen zu generieren:
 
 ### Python
 
@@ -63,7 +63,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 package main
@@ -120,28 +120,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## परफ़ॉर्मेंस को बेहतर बनाने के लिए टास्क का टाइप तय करना
+## Aufgabentyp angeben, um die Leistung zu verbessern
 
-क्लासिफ़िकेशन से लेकर दस्तावेज़ खोजने तक, कई तरह के टास्क के लिए एम्बेडिंग का इस्तेमाल किया जा सकता है. टास्क का सही टाइप तय करने से, एम्बेडिंग को सही तरीके से ऑप्टिमाइज़ करने में मदद मिलती है. इससे सटीक नतीजे मिलते हैं और काम बेहतर तरीके से होता है.
+Sie können Einbettungen für eine Vielzahl von Aufgaben verwenden, von der Klassifizierung bis zur Dokumentsuche. Wenn Sie den richtigen Aufgabentyp angeben, werden die Einbettungen für die beabsichtigten Beziehungen optimiert, wodurch die Genauigkeit und Effizienz maximiert werden.
 
-### Embeddings 2 की मदद से किए जा सकने वाले टास्क के टाइप
+### Aufgabentypen mit Embeddings 2
 
-हमारा सुझाव है कि `gemini-embedding-2` वाले सिर्फ़ टेक्स्ट वाले टास्क के लिए, अपने प्रॉम्प्ट में टास्क से जुड़े निर्देश जोड़ें. इसके लिए, क्वेरी और दस्तावेज़ को टास्क के सही प्रीफ़िक्स के साथ फ़ॉर्मैट करें.
+Bei reinen Textaufgaben mit `gemini-embedding-2` empfehlen wir dringend, die Aufgabenanweisung in den Prompt aufzunehmen. Dazu müssen Sie die Anfrage und das Dokument mit dem richtigen Aufgabenpräfix formatieren.
 
-यहां दी गई टेबल में, `gemini-embedding-2` मॉडल का इस्तेमाल करके, सिमेट्रिक और एसिमेट्रिक इस्तेमाल के उदाहरणों के लिए क्वेरी और दस्तावेज़ों को फ़ॉर्मैट करने के तरीके के उदाहरण दिए गए हैं.
+In den folgenden Tabellen finden Sie Beispiele für die Formatierung von Anfragen und Dokumenten für symmetrische und asymmetrische Anwendungsfälle mit dem Modell `gemini-embedding-2`.
 
-**जानकारी वापस पाने के उदाहरण (असमान फ़ॉर्मैट)**
+**Abrufanwendungsfälle (asymmetrisches Format)**
 
-एसिमेट्रिक इस्तेमाल के उदाहरणों में, क्वेरी में टास्क का प्रीफ़िक्स जोड़ें. साथ ही, उस कॉन्टेंट के लिए दस्तावेज़ का स्ट्रक्चर लागू करें जिसे आपको एम्बेड और वापस पाना है.
+In asymmetrischen Anwendungsfällen fügen Sie der Anfrage das Aufgabenpräfix hinzu und wenden Sie die Dokumentstruktur für die Inhalte an, die Sie einbetten und abrufen möchten.
 
-| इस्तेमाल का उदाहरण | क्वेरी का स्ट्रक्चर | दस्तावेज़ का स्ट्रक्चर |
+| Anwendungsfall | Abfragestruktur | Dokumentstruktur |
 | --- | --- | --- |
-| सर्च क्वेरी | `task: search result | query: {content}` | `title: {title} | text: {content}` अगर कोई टाइटल नहीं है, तो `title: none` का इस्तेमाल करें. |
-| सवाल-जवाब की सुविधा | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
-| तथ्यों की जांच करना | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
-| कोड वापस पाना | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
+| Suchanfrage | `task: search result | query: {content}` | `title: {title} | text: {content}` Wenn kein Titel vorhanden ist, verwenden Sie `title: none`. |
+| Question Answering | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
+| Faktenchecks | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
+| Codeabruf | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
 
-**इस्तेमाल का उदाहरण**
+**Beispiel für die Verwendung**
 
 ### Python
 
@@ -160,17 +160,17 @@ def prepare_document(content, title=None):
     return f"title: {title} | text: {content}"
 ```
 
-**एक इनपुट वाले इस्तेमाल के उदाहरण (सिमेट्रिक फ़ॉर्मैट)**
+**Anwendungsfälle mit einer Eingabe (symmetrisches Format)**
 
-सिमेट्रिक इस्तेमाल के उदाहरणों में, एक ही टास्क के लिए क्वेरी और दस्तावेज़, दोनों में एक जैसा फ़ॉर्मैट इस्तेमाल करें.
+Verwenden Sie in symmetrischen Anwendungsfällen für dieselbe Aufgabe dieselbe Formatierung für die Anfrage und das Dokument.
 
-| इस्तेमाल का उदाहरण | इनपुट स्ट्रक्चर |
+| Anwendungsfall | Eingabestruktur |
 | --- | --- |
-| कैटगरी | `task: classification | query: {content}` |
-| गुच्छ | `task: clustering | query: {content}` |
-| मिलते-जुलते मतलब | `task: sentence similarity | query: {content}` इसका इस्तेमाल, खोजने या वापस पाने के लिए न करें. इसका इस्तेमाल, सिमेंटिक टेक्स्ट की समानता के लिए किया जाता है. |
+| Klassifizierung | `task: classification | query: {content}` |
+| Clustering | `task: clustering | query: {content}` |
+| Semantische Ähnlichkeit | `task: sentence similarity | query: {content}` Nicht für die Suche oder den Abruf verwenden. Sie ist für die semantische Textähnlichkeit vorgesehen. |
 
-**इस्तेमाल का उदाहरण**
+**Beispiel für die Verwendung**
 
 ### Python
 
@@ -182,13 +182,13 @@ def prepare_query_and_document(content):
     return f'task: classification | query: {content}'
 ```
 
-यह ज़रूरी है कि टास्क का इस्तेमाल लगातार किया जाए. उदाहरण के लिए, अगर दस्तावेज़ों में `f'task: classification | query: {content}'` एम्बेड किया गया है, तो क्वेरी में भी इस टास्क फ़ॉर्मैट के हिसाब से `f'task: classification | query: {content}'` एम्बेड किया जाना चाहिए.
+Es ist wichtig, dass die Aufgabe konsistent verwendet wird. Wenn Dokumente beispielsweise mit `f'task: classification | query: {content}'` eingebettet werden, sollte auch die Anfrage in diesem Aufgabenformat eingebettet werden.
 
-### Embeddings 1 की सुविधा वाले टास्क टाइप
+### Aufgabentypen mit Embeddings 1
 
-`gemini-embedding-001` के लिए, `embedContent` तरीके में `task_type` की जानकारी दी जा सकती है. इस्तेमाल किए जा सकने वाले टास्क टाइप की पूरी सूची देखने के लिए, [इस्तेमाल किए जा सकने वाले टास्क टाइप](#supported-task-types) टेबल देखें.
+Für `gemini-embedding-001` können Sie `task_type` in der Methode `embedContent` angeben. Eine vollständige Liste der unterstützten Aufgabentypen finden Sie in der Tabelle [Unterstützte Aufgabentypen](#supported-task-types).
 
-यहां दिए गए उदाहरण में बताया गया है कि `SEMANTIC_SIMILARITY` का इस्तेमाल करके, यह कैसे पता लगाया जा सकता है कि दो टेक्स्ट स्ट्रिंग का मतलब कितना मिलता-जुलता है.
+Im folgenden Beispiel wird gezeigt, wie Sie `SEMANTIC_SIMILARITY` verwenden können, um zu prüfen, wie ähnlich sich Textstrings in ihrer Bedeutung sind.
 
 ### Python
 
@@ -259,7 +259,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 package main
@@ -350,28 +350,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-0
     }'
 ```
 
-कोड स्निपेट से पता चलेगा कि टेक्स्ट के अलग-अलग हिस्सों में कितनी समानता है.
+Die Code-Snippets zeigen, wie ähnlich die verschiedenen Textblöcke sind, wenn sie ausgeführt werden.
 
-#### इस्तेमाल किए जा सकने वाले टास्क टाइप
+#### Unterstützte Aufgabentypen
 
-`gemini-embedding-001` के लिए, इन टास्क टाइप का इस्तेमाल किया जा सकता है:
+Unterstützte Aufgabentypen für `gemini-embedding-001`:
 
-| टास्क किस तरह का है | ब्यौरा | उदाहरण |
+| Aufgabentyp | Beschreibung | Beispiele |
 | --- | --- | --- |
-| **SEMANTIC\_SIMILARITY** | टेक्स्ट की समानता का आकलन करने के लिए, ऑप्टिमाइज़ किए गए एम्बेडिंग. | सुझाव देने वाले सिस्टम, डुप्लीकेट कॉन्टेंट का पता लगाना |
-| **CLASSIFICATION** | एम्बेडिंग को ऑप्टिमाइज़ किया गया है, ताकि पहले से तय किए गए लेबल के हिसाब से टेक्स्ट को कैटगरी में बांटा जा सके. | भावनाओं का विश्लेषण, स्पैम का पता लगाना |
-| **क्लस्टरिंग** | ये एम्बेडिंग, टेक्स्ट को उनकी समानता के आधार पर क्लस्टर करने के लिए ऑप्टिमाइज़ की जाती हैं. | दस्तावेज़ व्यवस्थित करना, मार्केट रिसर्च, गड़बड़ी की पहचान करना |
-| **RETRIEVAL\_DOCUMENT** | दस्तावेज़ खोजने के लिए ऑप्टिमाइज़ किए गए एम्बेडिंग. | खोज के लिए लेखों, किताबों या वेब पेजों को इंडेक्स करना. |
-| **RETRIEVAL\_QUERY** | सामान्य खोज क्वेरी के लिए ऑप्टिमाइज़ की गई एम्बेडिंग. क्वेरी के लिए `RETRIEVAL_QUERY` और वापस लाए जाने वाले दस्तावेज़ों के लिए `RETRIEVAL_DOCUMENT` का इस्तेमाल करें. | कस्टम सर्च |
-| **CODE\_RETRIEVAL\_QUERY** | नैचुरल लैंग्वेज क्वेरी के आधार पर कोड ब्लॉक को वापस पाने के लिए, ऑप्टिमाइज़ की गई एम्बेडिंग. क्वेरी के लिए `CODE_RETRIEVAL_QUERY` और कोड ब्लॉक को वापस पाने के लिए `RETRIEVAL_DOCUMENT` का इस्तेमाल करें. | कोड के सुझाव और खोज |
-| **QUESTION\_ANSWERING** | सवाल-जवाब वाले सिस्टम में सवालों के लिए एम्बेडिंग. इन्हें ऐसे दस्तावेज़ ढूंढने के लिए ऑप्टिमाइज़ किया जाता है जिनमें सवाल का जवाब दिया गया हो. सवाल पूछने के लिए `QUESTION_ANSWERING` और दस्तावेज़ों को वापस पाने के लिए `RETRIEVAL_DOCUMENT` का इस्तेमाल करें. | चैटबॉक्स |
-| **FACT\_VERIFICATION** | ऐसे स्टेटमेंट के लिए एम्बेडिंग जिनकी पुष्टि करनी है. साथ ही, ऐसे दस्तावेज़ों को वापस पाने के लिए ऑप्टिमाइज़ किया गया है जिनमें स्टेटमेंट के पक्ष या विपक्ष में सबूत मौजूद हैं. टारगेट टेक्स्ट के लिए `FACT_VERIFICATION` और जिन दस्तावेज़ों से जानकारी निकालनी है उनके लिए `RETRIEVAL_DOCUMENT` का इस्तेमाल करें | तथ्यों की जांच करने वाले ऑटोमेटेड सिस्टम |
+| **SEMANTIC\_SIMILARITY** | Einbettungen, die für die Beurteilung der Textähnlichkeit optimiert sind. | Empfehlungssysteme, Erkennung von Duplikaten |
+| **CLASSIFICATION** | Einbettungen, die für die Klassifizierung von Texten nach vordefinierten Labels optimiert sind. | Sentimentanalyse, Spamerkennung |
+| **CLUSTERING** | Einbettungen, die für das Clustern von Texten basierend auf ihren Ähnlichkeiten optimiert sind. | Dokumentorganisation, Marktforschung, Anomalieerkennung |
+| **RETRIEVAL\_DOCUMENT** | Für die Dokumentsuche optimierte Einbettungen. | Artikel, Bücher oder Webseiten für die Suche indexieren. |
+| **RETRIEVAL\_QUERY** | Einbettungen, die für allgemeine Suchanfragen optimiert sind. Verwenden Sie `RETRIEVAL_QUERY` für Abfragen und `RETRIEVAL_DOCUMENT` für abzurufende Dokumente. | Benutzerdefinierte Suche |
+| **CODE\_RETRIEVAL\_QUERY** | Einbettungen, die für den Abruf von Codeblöcken auf Grundlage von Anfragen in natürlicher Sprache optimiert sind. Verwenden Sie `CODE_RETRIEVAL_QUERY` für Anfragen und `RETRIEVAL_DOCUMENT` für abzurufende Codeblöcke. | Codevorschläge und Suche |
+| **QUESTION\_ANSWERING** | Einbettungen für Fragen in einem Frage-Antwort-System, die für das Auffinden von Dokumenten optimiert sind, die die Frage beantworten. Verwenden Sie `QUESTION_ANSWERING` für Fragen und `RETRIEVAL_DOCUMENT` für abzurufende Dokumente. | Chatbox |
+| **FACT\_VERIFICATION** | Einbettungen für Aussagen, die überprüft werden müssen, optimiert für das Abrufen von Dokumenten, die Beweise für oder gegen die Aussage enthalten. Verwenden Sie `FACT_VERIFICATION` für den Zieltext und `RETRIEVAL_DOCUMENT` für abzurufende Dokumente. | Automatisierte Faktenchecksysteme |
 
-## वीडियो को एम्बेड करने के साइज़ को कंट्रोल करना
+## Größe von Einbettungen steuern
 
-`gemini-embedding-001` और `gemini-embedding-2`, दोनों को Matryoshka Representation Learning (MRL) तकनीक का इस्तेमाल करके ट्रेन किया जाता है. यह तकनीक, मॉडल को ज़्यादा डाइमेंशन वाले एम्बेडिंग सीखने के बारे में बताती है. इन एम्बेडिंग में शुरुआती सेगमेंट (या प्रीफ़िक्स) होते हैं, जो एक ही डेटा के ज़्यादा काम के और आसान वर्शन होते हैं.
+Sowohl `gemini-embedding-001` als auch `gemini-embedding-2` werden mit der MRL-Technik (Matryoshka Representation Learning) trainiert. Dabei wird ein Modell trainiert, um hochdimensionale Einbettungen zu lernen, deren Anfangssegmente (oder Präfixe) auch nützliche, einfachere Versionen derselben Daten sind.
 
-आउटपुट एम्बेडिंग वेक्टर के साइज़ को कंट्रोल करने के लिए, `output_dimensionality` पैरामीटर का इस्तेमाल करें. आउटपुट डाइमेंशनैलिटी को कम करने से, स्टोरेज स्पेस बचाया जा सकता है. साथ ही, डाउनस्ट्रीम ऐप्लिकेशन के लिए कंप्यूटेशनल क्षमता को बढ़ाया जा सकता है. हालांकि, इससे क्वालिटी में थोड़ी कमी आ सकती है. डिफ़ॉल्ट रूप से, दोनों मॉडल 3072 डाइमेंशन वाली एम्बेडिंग आउटपुट करते हैं. हालांकि, स्टोरेज की जगह बचाने के लिए, इसकी क्वालिटी को कम किए बिना इसे छोटे साइज़ में काटा जा सकता है. हमारा सुझाव है कि आउटपुट डाइमेंशन के लिए 768, 1536 या 3072 का इस्तेमाल करें.
+Mit dem Parameter `output_dimensionality` können Sie die Größe des Ausgabebettungsvektors steuern. Durch die Auswahl einer kleineren Ausgabedimensionalität kann Speicherplatz gespart und die Recheneffizienz für Downstream-Anwendungen gesteigert werden, ohne dass die Qualität wesentlich beeinträchtigt wird. Standardmäßig geben beide Modelle ein 3.072-dimensionales Embedding aus. Sie können es jedoch auf eine kleinere Größe kürzen, ohne die Qualität zu beeinträchtigen, um Speicherplatz zu sparen. Wir empfehlen, die Ausgabedimensionen 768, 1536 oder 3072 zu verwenden.
 
 ### Python
 
@@ -414,7 +414,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 package main
@@ -468,17 +468,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-emb
     }'
 ```
 
-कोड स्निपेट से मिले आउटपुट का उदाहरण:
+Beispielausgabe des Code-Snippets:
 
 ```
 Length of embedding: 768
 ```
 
-## छोटे डाइमेंशन के लिए क्वालिटी बनाए रखना
+## Qualität bei kleineren Abmessungen sicherstellen
 
-डिफ़ॉल्ट रूप से 3072 डाइमेंशन वाली एम्बेडिंग हमेशा सामान्य की जाती हैं. साथ ही, Gemini Embedding 2, काटे गए डाइमेंशन (जैसे, 768, 1536) को भी अपने-आप सामान्य करता है. इससे यह पक्का होता है कि सिमैंटिक समानता का हिसाब, वेक्टर की दिशा के हिसाब से लगाया जाता है, न कि मैग्नीट्यूड के हिसाब से. इससे आपको ज़्यादा सटीक नतीजे मिलते हैं.
+Während die Standardeinbettungen mit 3.072 Dimensionen immer normalisiert werden, normalisiert Gemini Embedding 2 auch automatisch gekürzte Dimensionen (z. B. 768, 1.536). So wird die semantische Ähnlichkeit über die Vektorrichtung und nicht über die Größe berechnet, was von vornherein genauere Ergebnisse liefert.
 
-**पुराने मॉडल**: अगर `gemini-embedding-001` का इस्तेमाल किया जा रहा है, तो आपको 3072 से कम डाइमेंशन को मैन्युअल तरीके से इस तरह सामान्य करना होगा:
+**Ältere Modelle**: Wenn Sie `gemini-embedding-001` verwenden, müssen Sie nicht 3072-Dimensionen manuell normalisieren:
 
 ### Python
 
@@ -494,45 +494,45 @@ print(f"Normed embedding length: {len(normed_embedding)}")
 print(f"Norm of normed embedding: {np.linalg.norm(normed_embedding):.6f}") # Should be very close to 1
 ```
 
-इस कोड स्निपेट से मिलने वाले आउटपुट का उदाहरण:
+Beispielausgabe dieses Code-Snippets:
 
 ```
 Normed embedding length: 768
 Norm of normed embedding: 1.000000
 ```
 
-यहां दी गई टेबल में, अलग-अलग डाइमेंशन के लिए MTEB स्कोर दिए गए हैं. MTEB स्कोर, एम्बेडिंग के लिए आम तौर पर इस्तेमाल किया जाने वाला बेंचमार्क है. खास तौर पर, नतीजे से पता चलता है कि परफ़ॉर्मेंस, एम्बेडिंग डाइमेंशन के साइज़ से पूरी तरह जुड़ी नहीं होती. कम डाइमेंशन वाले मॉडल, ज़्यादा डाइमेंशन वाले मॉडल के मुकाबले बेहतर स्कोर हासिल करते हैं.
+In der folgenden Tabelle sind die MTEB-Werte aufgeführt, ein häufig verwendeter Benchmark für Einbettungen für verschiedene Dimensionen. Das Ergebnis zeigt, dass die Leistung nicht unbedingt an die Größe der Einbettungsdimension gebunden ist. Niedrigere Dimensionen erreichen Werte, die mit denen ihrer Pendants mit höherer Dimension vergleichbar sind.
 
-| एमआरएल डाइमेंशन | एमटीईबी स्कोर (Gemini Embedding 001) |
+| Dimension „MRL“ | MTEB-Punktzahl (Gemini Embedding 001) |
 | --- | --- |
 | 2048 | 68.16 |
-| 1536 | 68.17 |
-| 768 | 67.99 |
-| 512 | 67.55 |
-| 256 | 66.19 |
-| 128 | 63.31 |
+| 1.536 | 68,17 |
+| 768 | 67,99 |
+| 512 | 67,55 |
+| 256 | 66,19 |
+| 128 | 63,31 |
 
-## मल्टीमॉडल एम्बेडिंग
+## Multimodale Einbettungen
 
-`gemini-embedding-2` मॉडल में, टेक्स्ट, इमेज, वीडियो, ऑडियो, और दस्तावेज़ों के कॉन्टेंट को एक साथ इस्तेमाल किया जा सकता है. सभी मोडेलिटी को एक ही एम्बेडिंग स्पेस में मैप किया जाता है. इससे अलग-अलग मोडेलिटी में खोज करने और उनकी तुलना करने की सुविधा मिलती है.
+Das `gemini-embedding-2`-Modell unterstützt multimodale Eingaben, sodass Sie neben Text auch Bilder, Videos, Audio und Dokumente einbetten können. Alle Modalitäten werden in denselben Einbettungsbereich abgebildet, was die modalitätsübergreifende Suche und den modalitätsübergreifenden Vergleich ermöglicht.
 
-### सहायता पाने के तरीके और सीमाएं
+### Unterstützte Modalitäten und Grenzwerte
 
-इनपुट के लिए, कुल 8,192 टोकन इस्तेमाल किए जा सकते हैं.
+Das maximale Limit für Eingabetokens beträgt insgesamt 8.192 Tokens.
 
-| मोडेलिटी | खासियतें और सीमाएं |
+| Modalität | Spezifikationen und Einschränkungen |
 | --- | --- |
-| **टेक्स्ट** | इसमें ज़्यादा से ज़्यादा 8,192 टोकन इस्तेमाल किए जा सकते हैं. |
-| **इमेज** | हर अनुरोध में ज़्यादा से ज़्यादा छह इमेज शामिल की जा सकती हैं. इस्तेमाल किए जा सकने वाले फ़ॉर्मैट: PNG, JPEG. |
-| **ऑडियो** | ज़्यादा से ज़्यादा 180 सेकंड का हो. इस्तेमाल किए जा सकने वाले फ़ॉर्मैट: MP3, WAV. |
-| **वीडियो** | ज़्यादा से ज़्यादा 120 सेकंड का हो. इस्तेमाल किए जा सकने वाले फ़ॉर्मैट: MP4, MOV. काम करने वाले कोडेक: H264, H265, AV1, VP9.  सिस्टम, हर वीडियो के लिए ज़्यादा से ज़्यादा 32 फ़्रेम प्रोसेस करता है: 32 सेकंड या इससे कम अवधि वाले शॉर्ट वीडियो को 1 एफ़पीएस पर सैंपल किया जाता है. वहीं, लंबी अवधि वाले वीडियो को 32 फ़्रेम पर सैंपल किया जाता है. वीडियो फ़ाइलों में ऑडियो ट्रैक प्रोसेस नहीं किए जाते. |
-| **दस्तावेज़ (PDF)** | हर अनुरोध में ज़्यादा से ज़्यादा एक फ़ाइल होनी चाहिए. साथ ही, उसमें छह से ज़्यादा पेज नहीं होने चाहिए. |
+| **Text** | Unterstützt bis zu 8.192 Tokens. |
+| **Bild** | Maximal 6 Bilder pro Anfrage. Unterstützte Formate: PNG, JPEG. |
+| **Audio** | Maximale Dauer: 180 Sekunden. Unterstützte Formate: MP3, WAV. |
+| **Video** | Maximale Dauer: 120 Sekunden Unterstützte Formate: MP4, MOV. Unterstützte Codecs: H264, H265, AV1, VP9.  Das System verarbeitet maximal 32 Frames pro Video. Bei kurzen Videos (≤ 32 Sekunden) wird eine Stichprobe mit 1 fps genommen, bei längeren Videos werden gleichmäßig 32 Frames ausgewählt. Audiotracks werden in Videodateien nicht verarbeitet. |
+| **Dokumente (PDF)** | Max. 1 Datei pro Anfrage, bis zu 6 Seiten. |
 
-### इमेज एम्बेड करना
+### Bilder einbetten
 
-यहां दिए गए उदाहरण में, `gemini-embedding-2` का इस्तेमाल करके इमेज को एम्बेड करने का तरीका बताया गया है.
+Das folgende Beispiel zeigt, wie ein Bild mit `gemini-embedding-2` eingebettet wird.
 
-इमेज को इनलाइन डेटा के तौर पर या [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) के ज़रिए अपलोड की गई फ़ाइलों के तौर पर उपलब्ध कराया जा सकता है.
+Bilder können als Inline-Daten oder als hochgeladene Dateien über die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) bereitgestellt werden.
 
 ### Python
 
@@ -606,15 +606,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### एम्बेडिंग एग्रीगेशन
+### Aggregation von Einbettungen
 
-मल्टीमॉडल कॉन्टेंट के साथ काम करते समय, इनपुट को स्ट्रक्चर करने का तरीका, एम्बेडिंग आउटपुट पर असर डालता है:
+Wenn Sie mit multimodalen Inhalten arbeiten, wirkt sich die Strukturierung Ihrer Eingabe auf die Einbettungsausgabe aus:
 
-- **कई हिस्सों (एक साथ):** `contents` पैरामीटर में सीधे तौर पर कई इनपुट जोड़ने से, सभी इनपुट के लिए एक साथ एग्रीगेट की गई एम्बेडिंग मिलती है.
-- **एक से ज़्यादा `Content` ऑब्जेक्ट (अलग-अलग):** हर इनपुट को `Content` ऑब्जेक्ट में रैप करके, उन्हें `contents` पैरामीटर में पास करने पर, हर एंट्री के लिए अलग-अलग एम्बेडिंग मिलती हैं.
-- **पोस्ट-लेवल पर जानकारी देना:** सोशल मीडिया पोस्ट जैसे जटिल ऑब्जेक्ट के लिए, हम अलग-अलग एम्बेडिंग को एग्रीगेट करने का सुझाव देते हैं. जैसे, कई मीडिया आइटम वाली पोस्ट के लिए, पोस्ट-लेवल पर जानकारी देने के लिए, अलग-अलग एम्बेडिंग को एग्रीगेट करें.
+- **Mehrere Teile (aggregiert)**: Wenn Sie dem Parameter `contents` mehrere Eingaben hinzufügen, wird ein aggregiertes Embedding für alle Eingaben erstellt.
+- **Mehrere `Content`-Objekte (separat)**: Wenn Sie jede Eingabe in ein `Content`-Objekt einfügen und diese im Parameter `contents` übergeben, werden separate Einbettungen für jeden Eintrag zurückgegeben.
+- **Darstellung auf Beitragsebene**:Bei komplexen Objekten wie Social-Media-Beiträgen mit mehreren Media-Elementen empfehlen wir, separate Einbettungen zu aggregieren (z. B. durch Mittelwertbildung), um eine kohärente Darstellung auf Beitragsebene zu erstellen.
 
-यहां दिए गए उदाहरण में, टेक्स्ट और इमेज के इनपुट के लिए एक एग्रीगेटेड एम्बेडिंग बनाने का तरीका बताया गया है. `contents` पैरामीटर में कई इनपुट जोड़ें:
+Im folgenden Beispiel wird gezeigt, wie eine aggregierte Einbettung für Text- und Bildeingaben erstellt wird. Fügen Sie dem Parameter `contents` einfach mehrere Eingaben hinzu:
 
 ### Python
 
@@ -700,7 +700,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-वहीं दूसरी ओर, अगर `Content` पैरामीटर में `Content` ऑब्जेक्ट का इस्तेमाल किया जाता है, तो यह अलग-अलग एम्बेडिंग दिखाता है.`contents` इस उदाहरण में, एंबेड करने के एक ही कॉल में कई एंबेडिंग बनाई गई हैं:
+Wenn Sie hingegen `Content`-Objekte im Parameter `contents` verwenden, werden separate Einbettungen zurückgegeben. In diesem Beispiel werden mehrere Einbettungen in einem Einbettungsaufruf erstellt:
 
 ### Python
 
@@ -791,11 +791,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### ऑडियो एम्बेड करना
+### Audio einbetten
 
-यहां दिए गए उदाहरण में, `gemini-embedding-2` का इस्तेमाल करके ऑडियो फ़ाइल को एम्बेड करने का तरीका बताया गया है.
+Das folgende Beispiel zeigt, wie Sie eine Audiodatei mit `gemini-embedding-2` einbetten.
 
-ऑडियो फ़ाइलों को इनलाइन डेटा के तौर पर या [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) के ज़रिए अपलोड की गई फ़ाइलों के तौर पर उपलब्ध कराया जा सकता है.
+Audiodateien können als Inline-Daten oder als hochgeladene Dateien über die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) bereitgestellt werden.
 
 ### Python
 
@@ -869,11 +869,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### वीडियो एम्बेड करना
+### Videos einbetten
 
-यहां दिए गए उदाहरण में, `gemini-embedding-2` का इस्तेमाल करके वीडियो एम्बेड करने का तरीका बताया गया है.
+Das folgende Beispiel zeigt, wie ein Video mit `gemini-embedding-2` eingebettet wird.
 
-वीडियो को इनलाइन डेटा के तौर पर या [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) के ज़रिए अपलोड की गई फ़ाइलों के तौर पर उपलब्ध कराया जा सकता है.
+Videos können als Inlinedaten oder als hochgeladene Dateien über die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) bereitgestellt werden.
 
 ### Python
 
@@ -947,29 +947,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-अगर आपको 120 सेकंड से ज़्यादा अवधि के वीडियो एम्बेड करने हैं, तो वीडियो को ओवरलैप होने वाले सेगमेंट में बांटें. इसके बाद, उन सेगमेंट को अलग-अलग एम्बेड करें.
+Wenn Sie Videos mit einer Länge von mehr als 120 Sekunden einbetten möchten, können Sie das Video in sich überschneidende Segmente aufteilen und diese Segmente einzeln einbetten.
 
-### दस्तावेज़ एम्बेड करना
+### Dokumente einbetten
 
-PDF फ़ॉर्मैट में मौजूद दस्तावेज़ों को सीधे तौर पर एम्बेड किया जा सकता है. यह मॉडल, हर पेज के विज़ुअल और टेक्स्ट कॉन्टेंट को प्रोसेस करता है.
+Dokumente im PDF-Format können direkt eingebettet werden. Das Modell verarbeitet die visuellen und textlichen Inhalte jeder Seite.
 
-पीडीएफ़ को इनलाइन डेटा के तौर पर या [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) के ज़रिए अपलोड की गई फ़ाइलों के तौर पर उपलब्ध कराया जा सकता है.
+PDFs können als Inline-Daten oder als hochgeladene Dateien über die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) bereitgestellt werden.
 
-#### मॉडल, PDF को कैसे प्रोसेस करता है
+#### So verarbeitet das Modell PDFs
 
-किसी PDF को एम्बेड करने पर, मॉडल विज़ुअल और टेक्स्ट, दोनों सुविधाओं का इस्तेमाल करके दस्तावेज़ को प्रोसेस करता है:
+Wenn Sie ein PDF einbetten, verarbeitet das Modell das Dokument sowohl mit visuellen als auch mit Textfunktionen:
 
-- **विज़ुअल प्रज़ेंटेशन:** यह मॉडल हर पेज को एक इमेज के तौर पर रेंडर करता है. इसमें हर पेज के लिए **258 टोकन** इस्तेमाल होते हैं.
-- **टेक्स्ट निकालना:** मॉडल, दस्तावेज़ से टेक्स्ट निकालता है. **नेटिव PDF** (जिनमें डिजिटल टेक्स्ट होता है) के लिए, मॉडल सीधे तौर पर टेक्स्ट निकालता है. **स्कैन किए गए PDF** (जिनमें टेक्स्ट की इमेज होती हैं) के लिए, मॉडल टेक्स्ट निकालने के लिए ऑप्टिकल कैरेक्टर रिकग्निशन (ओसीआर) की सुविधा अपने-आप चालू कर देता है.
+- **Visuelle Darstellung**:Das Modell rendert jede Seite als Bild, was **258 Tokens** pro Seite verbraucht.
+- **Textextraktion**:Das Modell extrahiert Text aus dem Dokument. Bei **nativen PDFs** (die digitalen Text enthalten) wird der Text direkt vom Modell extrahiert. Bei **gescannten PDFs**, die Bilder von Text enthalten, führt das Modell automatisch eine optische Zeichenerkennung (OCR) durch, um den Text zu extrahieren.
 
-किसी पीडीएफ़ के लिए, टोकन की कुल संख्या का हिसाब लगाने के लिए, टेक्स्ट टोकन में विज़ुअल टोकन (हर पेज के लिए 258) जोड़ें. आपके इनपुट, मॉडल की **8,192 टोकन की सीमा** के अंदर होने चाहिए. यह सीमा, सभी मोडैलिटी के लिए एक जैसी होती है. सिस्टम, इस सीमा से ज़्यादा के इनपुट को बिना किसी सूचना के छोटा कर देता है.
+Um die Gesamtzahl der Tokens für ein PDF zu berechnen, addieren Sie die visuellen Tokens (258 pro Seite) zu den Text-Tokens. Ihre Eingaben dürfen das **Token-Limit von 8.192** des Modells nicht überschreiten (gilt für alle Modalitäten). Eingaben, die dieses Limit überschreiten, werden vom System automatisch abgeschnitten.
 
-#### PDF से जुड़ी सीमाएं
+#### PDF-Limits
 
-- **हर अनुरोध में फ़ाइलें:** ज़्यादा से ज़्यादा एक PDF फ़ाइल सबमिट की जा सकती है.
-- **पेज की सीमा:** हर फ़ाइल में ज़्यादा से ज़्यादा छह पेज सबमिट किए जा सकते हैं. हमारा सुझाव है कि बेहतर क्वालिटी के लिए, हर PDF में सिर्फ़ एक पेज का इस्तेमाल करें.
+- **Dateien pro Anfrage**:Sie können maximal eine PDF-Datei einreichen.
+- **Seitenlimit**:Sie können maximal 6 Seiten pro Datei einreichen. Für eine optimale Qualität empfehlen wir dringend, nur eine Seite pro PDF zu verwenden.
 
-यहां दिए गए उदाहरण में, `gemini-embedding-2` का इस्तेमाल करके पीडीएफ़ को एम्बेड करने का तरीका बताया गया है:
+Das folgende Beispiel zeigt, wie Sie ein PDF mit `gemini-embedding-2` einbetten:
 
 ### Python
 
@@ -1043,91 +1043,91 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## उपयोग के उदाहरण
+## Anwendungsfälle
 
-टेक्स्ट एम्बेडिंग, एआई के कई सामान्य इस्तेमाल के उदाहरणों के लिए ज़रूरी हैं. जैसे:
+Texteinbettungen sind für eine Vielzahl gängiger KI-Anwendungsfälle unerlässlich, z. B.:
 
-- **रिट्रीवल-ऑगमेंटेड जनरेशन (आरएजी):** एम्बेडिंग, जनरेट किए गए टेक्स्ट की क्वालिटी को बेहतर बनाती हैं. इसके लिए, वे मॉडल के कॉन्टेक्स्ट में काम की जानकारी को वापस लाती हैं और उसे शामिल करती हैं.
-- **जानकारी पाना:** दिए गए इनपुट टेक्स्ट के आधार पर, मतलब के हिसाब से सबसे मिलते-जुलते टेक्स्ट या दस्तावेज़ों को खोजना.
+- **Retrieval-Augmented Generation (RAG):** Mit Embeddings lässt sich die Qualität von generiertem Text verbessern, indem relevante Informationen abgerufen und in den Kontext eines Modells eingebunden werden.
+- **Information Retrieval**:Suchen Sie anhand eines Eingabetexts nach dem semantisch ähnlichsten Text oder den semantisch ähnlichsten Dokumenten.
 
-  [दस्तावेज़ खोजने से जुड़ा ट्यूटोरियलtask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
-- **खोज के नतीजों को फिर से रैंक करना**: क्वेरी के हिसाब से शुरुआती नतीजों को सेमैंटिक तौर पर स्कोर करके, सबसे काम के आइटम को प्राथमिकता दें.
+  [Anleitung zur Dokumentsuchetask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
+- **Neubewertung der Suche**: Die relevantesten Elemente werden priorisiert, indem die ersten Ergebnisse semantisch anhand der Anfrage bewertet werden.
 
-  [खोज के नतीजों को फिर से रैंक करने से जुड़ा ट्यूटोरियलtask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
-- **गड़बड़ी की पहचान करना:** एम्बेडिंग के ग्रुप की तुलना करने से, छिपे हुए ट्रेंड या आउटलायर की पहचान करने में मदद मिल सकती है.
+  [Tutorial zum Neuklassifizieren von Suchergebnissentask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
+- **Anomalieerkennung**:Durch den Vergleich von Gruppen von Einbettungen lassen sich verborgene Trends oder Ausreißer erkennen.
 
-  [गड़बड़ी की पहचान करने से जुड़ा ट्यूटोरियलbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
-- **वर्गीकरण:** टेक्स्ट के कॉन्टेंट के आधार पर, उसे अपने-आप कैटगरी में बांटना. जैसे, भावनाओं का विश्लेषण करना या स्पैम का पता लगाना
+  [Anleitung zur Anomalieerkennungbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
+- **Klassifizierung**:Text basierend auf seinem Inhalt automatisch kategorisieren, z. B. für die Sentimentanalyse oder die Spamerkennung
 
-  [क्लासिफ़िकेशन से जुड़ा ट्यूटोरियलtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
-- **क्लस्टरिंग:** अपने एम्बेडिंग के क्लस्टर और विज़ुअलाइज़ेशन बनाकर, मुश्किल संबंधों को आसानी से समझें.
+  [Anleitung zur Klassifizierungtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
+- **Clustering**:Erfassen Sie komplexe Beziehungen effektiv, indem Sie Cluster und Visualisierungen Ihrer Einbettungen erstellen.
 
-  [क्लस्टरिंग विज़ुअलाइज़ेशन ट्यूटोरियलbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
+  [Anleitung zur Visualisierung von Clusternbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
 
-## एंबेडिंग सेव करना
+## Einbettungen speichern
 
-एम्बेडिंग को प्रोडक्शन में ले जाते समय, **वेक्टर डेटाबेस** का इस्तेमाल करना आम बात है. इससे ज़्यादा डाइमेंशन वाली एम्बेडिंग को आसानी से सेव, इंडेक्स, और वापस पाया जा सकता है. Google Cloud, मैनेज की गई डेटा सेवाएं उपलब्ध कराता है. इनका इस्तेमाल इस काम के लिए किया जा सकता है. इनमें [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/BUILD/vector-search-2?hl=hi), [BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=hi), [AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=hi), और [Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=hi) शामिल हैं.
+Wenn Sie Einbettungen in der Produktion verwenden, ist es üblich, **Vektordatenbanken** zu verwenden, um hochdimensionale Einbettungen effizient zu speichern, zu indexieren und abzurufen. Google Cloud bietet verwaltete Datendienste, die für diesen Zweck verwendet werden können, darunter [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/BUILD/vector-search-2?hl=de), [BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=de), [AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=de) und [Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=de).
 
-यहाँ दिए गए ट्यूटोरियल में, Gemini Embedding के साथ तीसरे पक्ष के अन्य वेक्टर डेटाबेस इस्तेमाल करने का तरीका बताया गया है.
+In den folgenden Anleitungen wird gezeigt, wie Sie andere Vektordatenbanken von Drittanbietern mit Gemini Embedding verwenden.
 
-- [ChromaDB ट्यूटोरियलbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
-- [QDrant ट्यूटोरियलbolt](https://qdrant.tech/documentation/embeddings/gemini/)
-- [Weaviate के ट्यूटोरियलbolt](https://docs.weaviate.io/weaviate/model-providers/google)
-- [Pinecone ट्यूटोरियलbolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
+- [ChromaDB-Tutorialsbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
+- [QDrant-Tutorialsbolt](https://qdrant.tech/documentation/embeddings/gemini/)
+- [Weaviate-Tutorialsbolt](https://docs.weaviate.io/weaviate/model-providers/google)
+- [Pinecone-Anleitungenbolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
 
-## मॉडल के वर्शन
+## Modellversionen
 
-### Gemini Embedding 2
+### Gemini Embedding 2
 
-| प्रॉपर्टी | ब्यौरा |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `gemini-embedding-2` |
-| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज, वीडियो, ऑडियो, PDF  **आउटपुट**  टेक्स्ट एम्बेडिंग |
-| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  8,192  **आउटपुट डाइमेंशन का साइज़**  लचीला, इन साइज़ के साथ काम करता है: 128 - 3072, सुझाया गया साइज़: 768, 1536, 3072 |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - स्टेबल: `gemini-embedding-2` |
-| calendar\_monthनया अपडेट | अप्रैल 2026 |
+| id\_cardModellcode | **Gemini API**  `gemini-embedding-2` |
+| saveUnterstützte Datentypen | **Eingabe**  Text, Bild, Video, Audio, PDF  **Ausgabe**  Texteinbettungen |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  8.192  **Größe der Ausgabedimension**  Flexibel, unterstützt: 128–3072, empfohlen: 768, 1536, 3072 |
+| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stabil: `gemini-embedding-2` |
+| calendar\_monthLetzte Aktualisierung | April 2026 |
 
 ### Gemini Embedding
 
-| प्रॉपर्टी | ब्यौरा |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `gemini-embedding-001` |
-| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट  **आउटपुट**  टेक्स्ट एम्बेडिंग |
-| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  2,048  **आउटपुट डाइमेंशन का साइज़**  लचीला, इन साइज़ के साथ काम करता है: 128 - 3072, सुझाया गया साइज़: 768, 1536, 3072 |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - स्टेबल: `gemini-embedding-001` |
-| calendar\_monthनया अपडेट | जून 2025 |
+| id\_cardModellcode | **Gemini API**  `gemini-embedding-001` |
+| saveUnterstützte Datentypen | **Eingabe**  Text  **Ausgabe**  Texteinbettungen |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  2.048  **Größe der Ausgabedimension**  Flexibel, unterstützt: 128–3072, empfohlen: 768, 1536, 3072 |
+| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stabil: `gemini-embedding-001` |
+| calendar\_monthLetzte Aktualisierung | Juni 2025 |
 
-काम न करने वाले Embeddings मॉडल के बारे में जानने के लिए, [Deprecations](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi) पेज पर जाएं
+Informationen zu eingestellten Embeddings-Modellen finden Sie auf der Seite [Einstellungen](https://ai.google.dev/gemini-api/docs/deprecations?hl=de).
 
-## gemini-embedding-001 से माइग्रेट करना
+## Migration von gemini-embedding-001
 
-`gemini-embedding-001` और `gemini-embedding-2` के बीच एम्बेड किए गए स्पेस **काम नहीं करते**. इसका मतलब है कि एक मॉडल से जनरेट किए गए एम्बेडिंग की तुलना, दूसरे मॉडल से जनरेट किए गए एम्बेडिंग से सीधे तौर पर नहीं की जा सकती. अगर आपको `gemini-embedding-2` पर अपग्रेड करना है, तो आपको अपना मौजूदा डेटा फिर से एम्बेड करना होगा.
+Die Einbettungsräume zwischen `gemini-embedding-001` und `gemini-embedding-2` sind **nicht kompatibel**. Das bedeutet, dass Sie die von einem Modell generierten Einbettungen nicht direkt mit den von einem anderen Modell generierten Einbettungen vergleichen können. Wenn Sie auf `gemini-embedding-2` upgraden, müssen Sie alle vorhandenen Daten neu einbetten.
 
-इन दोनों मॉडल के बीच, कई अन्य अहम अंतर भी हैं. जैसे:
+Neben der Inkompatibilität gibt es noch einige andere nennenswerte Unterschiede zwischen den beiden Modellen:
 
-- **टास्क टाइप की खास जानकारी:** `gemini-embedding-001` की मदद से, `task_type` पैरामीटर का इस्तेमाल करके टास्क टाइप तय किया जाता है. उदाहरण के लिए, `SEMANTIC_SIMILARITY`, `RETRIEVAL_DOCUMENT`. `gemini-embedding-2` के साथ, `task_type` पैरामीटर मौजूद नहीं है. इसके बजाय, आपको सिर्फ़ टेक्स्ट वाले टास्क के लिए, टास्क के निर्देश सीधे तौर पर प्रॉम्प्ट में शामिल करने चाहिए. अलग-अलग इस्तेमाल के उदाहरणों के लिए प्रॉम्प्ट को फ़ॉर्मैट करने के तरीके के बारे में जानने के लिए, [Embeddings 2 की सुविधा वाले टास्क टाइप](#task-types-embeddings-2) देखें.
-- **एंबेडिंग एग्रीगेशन:** `gemini-embedding-001` इनपुट की सूची में मौजूद हर स्ट्रिंग के लिए अलग-अलग एंबेडिंग जनरेट करता है. इसके उलट, `gemini-embedding-2` एक ही अनुरोध में सीधे तौर पर कई इनपुट (जैसे कि टेक्स्ट और इमेज) दिए जाने पर, एक एग्रीगेटेड एम्बेडिंग जनरेट करता है. अलग-अलग इनपुट के लिए अलग-अलग एम्बेडिंग जनरेट करने के लिए, हर इनपुट को `Content` ऑब्जेक्ट में रैप करें या [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi#batch-embedding) का इस्तेमाल करें. ज़्यादा जानकारी के लिए, [एग्रीगेशन को एम्बेड करना](#embedding-aggregation) लेख पढ़ें.
-- **नॉर्मलाइज़ेशन:** अगर `output_dimensionality` का इस्तेमाल करके, 3072 से कम डाइमेंशन वाले एम्बेडिंग का अनुरोध किया जाता है, तो `gemini-embedding-2` इन छोटी की गई एम्बेडिंग को अपने-आप नॉर्मलाइज़ कर देता है. `gemini-embedding-001` के साथ, आपको 3072 के अलावा अन्य डाइमेंशन के लिए मैन्युअल तरीके से नॉर्मलाइज़ेशन करना होगा. ज़्यादा जानकारी के लिए, [छोटे डाइमेंशन के लिए क्वालिटी बनाए रखना](#quality-for-smaller-dimensions) लेख पढ़ें.
+- **Spezifikation des Aufgabentyps**:Mit `gemini-embedding-001` geben Sie den Aufgabentyp mit dem Parameter `task_type` an (z.B. `SEMANTIC_SIMILARITY`, `RETRIEVAL_DOCUMENT`). Mit `gemini-embedding-2` wird der Parameter `task_type` nicht unterstützt. Stattdessen sollten Sie die Aufgabenanweisungen direkt in den Prompt für reine Textaufgaben einfügen. Unter [Aufgabentypen mit Embeddings 2](#task-types-embeddings-2) finden Sie Informationen zum Formatieren von Prompts für verschiedene Anwendungsfälle.
+- **Aggregation von Einbettungen**:`gemini-embedding-001` generiert einzelne Einbettungen für jeden String in einer Liste von Eingaben. Im Gegensatz dazu wird bei `gemini-embedding-2` eine einzelne, aggregierte Einbettung erstellt, wenn mehrere Eingaben (z. B. Text und Bilder) direkt in einer Anfrage angegeben werden. Wenn Sie separate Einbettungen für einzelne Eingaben generieren möchten, schließen Sie jede Eingabe in ein `Content`-Objekt ein oder verwenden Sie die [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de#batch-embedding). Weitere Informationen finden Sie unter [Aggregation von Einbettungen](#embedding-aggregation).
+- **Normalisierung**:Wenn Sie `output_dimensionality` verwenden, um Einbettungen mit weniger als 3.072 Dimensionen anzufordern, normalisiert `gemini-embedding-2` diese gekürzten Einbettungen automatisch. Bei `gemini-embedding-001` müssen Sie die Normalisierung für andere Dimensionen als 3.072 manuell vornehmen. Weitere Informationen finden Sie unter [Qualität bei kleineren Dimensionen sicherstellen](#quality-for-smaller-dimensions).
 
-## बैच एम्बेडिंग
+## Batch-Einbettungen
 
-अगर आपको जवाब मिलने में लगने वाले समय से कोई समस्या नहीं है, तो Gemini Embeddings मॉडल के साथ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi#batch-embedding) का इस्तेमाल करें. इससे, डिफ़ॉल्ट एम्बेडिंग की कीमत के 50% पर ज़्यादा थ्रूपुट मिलता है.
-[Batch API की कुकबुक](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb) में, इसका इस्तेमाल शुरू करने के उदाहरण देखें.
+Wenn die Latenz kein Problem darstellt, können Sie die Gemini Embeddings-Modelle mit der [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de#batch-embedding) verwenden. Dadurch ist ein viel höherer Durchsatz zum halben Standardpreis für Einbettungen möglich.
+Beispiele für die ersten Schritte finden Sie im [Batch API Cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
 
-## ज़िम्मेदारी के साथ इस्तेमाल करने के बारे में सूचना
+## Hinweis zur verantwortungsvollen Nutzung
 
-जनरेटिव एआई मॉडल नया कॉन्टेंट बनाते हैं. हालांकि, Gemini Embedding मॉडल का मकसद सिर्फ़ आपके इनपुट डेटा के फ़ॉर्मैट को संख्यात्मक रूप में बदलना है. Google, एम्बेडिंग मॉडल उपलब्ध कराने के लिए ज़िम्मेदार है. यह मॉडल, आपके इनपुट डेटा के फ़ॉर्मैट को अनुरोध किए गए संख्यात्मक फ़ॉर्मैट में बदलता है. हालांकि, उपयोगकर्ता अपने इनपुट किए गए डेटा और उससे मिलने वाली एम्बेडिंग के लिए पूरी तरह से ज़िम्मेदार होते हैं. Gemini Embedding मॉडल का इस्तेमाल करने का मतलब है कि आपने पुष्टि की है कि आपके पास अपलोड किए गए कॉन्टेंट को इस्तेमाल करने के लिए ज़रूरी अधिकार हैं. ऐसा कोई कॉन्टेंट जनरेट न करें जिससे किसी की बौद्धिक संपत्ति या निजता के अधिकारों का उल्लंघन होता हो. इस सेवा के इस्तेमाल पर, [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) और [Google की सेवा की शर्तें](https://ai.google.dev/gemini-api/terms?hl=hi) लागू होती हैं.
+Im Gegensatz zu generativen KI-Modellen, die neue Inhalte erstellen, ist das Gemini Embedding-Modell nur dazu gedacht, das Format Ihrer Eingabedaten in eine numerische Darstellung zu transformieren. Google ist zwar für die Bereitstellung eines Einbettungsmodells verantwortlich, das das Format Ihrer Eingabedaten in das erforderliche numerische Format umwandelt, die Nutzer sind jedoch weiterhin für die von ihnen eingegebenen Daten und die resultierenden Einbettungen verantwortlich. Durch die Nutzung des Gemini Embedding-Modells bestätigen Sie, dass Sie über die erforderlichen Rechte für die von Ihnen hochgeladenen Inhalte verfügen. Erstellen Sie keine Inhalte, durch die die Rechte anderer, zum Beispiel Rechte an geistigem Eigentum oder das Recht auf Privatsphäre, verletzt werden. Die Nutzung dieses Dienstes unterliegt unserer [Richtlinie zur unzulässigen Nutzung](https://policies.google.com/terms/generative-ai/use-policy?hl=de) und den [Google-Nutzungsbedingungen](https://ai.google.dev/gemini-api/terms?hl=de).
 
-## एम्बेडिंग का इस्तेमाल करके ऐप्लिकेशन बनाना शुरू करें
+## Mit Einbettungen entwickeln
 
-मॉडल की क्षमताओं के बारे में जानने के लिए, [एम्बेडिंग की क्विकस्टार्ट नोटबुक](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) देखें. साथ ही, यह भी जानें कि एम्बेडिंग को अपनी पसंद के मुताबिक कैसे बनाया जाए और उन्हें विज़ुअलाइज़ कैसे किया जाए.
+Im [Notebook zur Kurzanleitung für Einbettungen](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) können Sie die Modellfunktionen kennenlernen und erfahren, wie Sie Ihre Einbettungen anpassen und visualisieren.
 
-सुझाव भेजें
+Feedback geben
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया.
+Zuletzt aktualisiert: 2026-06-22 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Haben Sie Feedback für uns?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-22 (UTC)."],[],[]]

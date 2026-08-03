@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/latest-model?hl=zh-CN
-fetched_at: 2026-07-27T04:47:08.058991+00:00
-title: "\u4f7f\u7528\u6700\u65b0\u7684 Gemini \u6a21\u578b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/latest-model?hl=pt-BR
+fetched_at: 2026-08-03T04:27:42.023392+00:00
+title: "Como usar os modelos mais recentes do Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-发送反馈
+Envie comentários
 
-# 使用最新的 Gemini 模型
+# Como usar os modelos mais recentes do Gemini
 
-[本页面介绍了](#)
-[3.5 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=zh-cn)
+[Esta página](#)
+[3.5 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=pt-br)
 
-Gemini 3.6 Flash (`gemini-3.6-flash`) 和 Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`) 现已正式发布 (GA)，可用于生产环境。
+O Gemini 3.6 Flash (`gemini-3.6-flash`) e o Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`) estão em disponibilidade geral (GA, na sigla em inglês) e prontos para uso na produção.
 
-- **Gemini 3.6 Flash**：在处理复杂的智能体任务和多模态任务时性能更强，同时减少了 token 使用量，且价格低于 3.5 Flash。
-- **Gemini 3.5 Flash-Lite**：3.5 系列中速度最快、成本最低的模型。在执行高吞吐量任务时，性能优于之前的 Flash-Lite 版本。
+- **Gemini 3.6 Flash**: performance mais forte em tarefas agênticas e multimodais complexas, reduzindo o uso de tokens, com um preço mais baixo do que o 3.5 Flash.
+- **Gemini 3.5 Flash-Lite**: o modelo mais rápido e de menor custo da família 3.5. Supera as gerações anteriores do Flash-Lite para execução de alta capacidade.
 
-本指南介绍了每个模型的新功能、哪些 API 变更会影响您的代码，以及如何进行迁移。
+Este guia explica as novidades de cada modelo, quais mudanças na API afetam seu código e como migrar.
 
 ### Gemini 3.6 Flash
 
-1. 安装技能：
+1. Instale a habilidade:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. 应用技能：
+2. Aplique a habilidade:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.6 Flash
@@ -43,34 +43,34 @@ Gemini 3.6 Flash (`gemini-3.6-flash`) 和 Gemini 3.5 Flash-Lite (`gemini-3.5-fla
 
 ### Gemini 3.5 Flash-Lite
 
-1. 安装技能：
+1. Instale a habilidade:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. 应用技能：
+2. Aplique a habilidade:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
    ```
 
-## 新模型
+## Novos modelos
 
-| 模型 | 模型 ID | 默认思考等级 | 价格 | 说明 |
+| Modelo | ID do modelo | Nível de pensamento padrão | Preços | Descrição |
 | --- | --- | --- | --- | --- |
-| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | 1.50 美元/百万输入 token，7.50 美元/百万输出 token | 在处理智能体任务和多模态任务时，兼顾速度和智能。 |
-| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | 0.30 美元/百万输入 token，2.50 美元/百万输出 token | 3.5 系列中速度最快、成本最低的模型，适合执行高吞吐量任务。 |
+| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | US$ 1,50/1 milhão de tokens de entrada e US $7,50/1 milhão de tokens de saída | Equilibra velocidade e inteligência para tarefas agênticas e multimodais. |
+| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | US$ 0,30/1 milhão de tokens de entrada e US $2,50/1 milhão de tokens de saída | O modelo 3.5 mais rápido e de menor custo para execução de alta capacidade. |
 
-这两种模型都支持 100 万个 token 的上下文窗口、最多 64,000 个输出 token、思考功能以及全套解决方案（包括 [“计算机使用”](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-cn)）。
+Os dois modelos oferecem suporte à janela de contexto de 1 milhão de tokens, 64 mil tokens de saída máximos, pensamento e o conjunto completo de ferramentas integradas, incluindo [Uso do computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br).
 
-如需查看完整规范，请参阅模型页面：
+Para conferir as especificações completas, consulte as páginas do modelo:
 
-- [Gemini 3.6 Flash 模型页面](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-cn)
-- [Gemini 3.5 Flash-Lite 模型页面](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-cn)
+- [Página do modelo Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br)
+- [Página do modelo Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br)
 
-如需了解详细价格信息，请参阅[价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
+Para conferir os preços detalhados, consulte a [página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
 
-## 快速入门
+## Guia de início rápido
 
 ### Python
 
@@ -120,42 +120,42 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gemini 3.6 Flash 的新功能
+## Novidades do Gemini 3.6 Flash
 
-- **减少 token 和轮次** ：与 Gemini 3.5 相比，完成多步工作流所需的推理步骤、对话轮次和工具调用次数更少。它还减少了执行循环的螺旋式上升。
-- **改进了代码生成** ：生成更高质量、可用于生产用途的代码，减少了不必要的修改和调试循环。
-- **更好地遵循指令**：减少了诊断任务期间不必要的文件更改。
-- **强大的多模态和空间推理能力** ：在图表解读、视觉蓝图转换和多元素网页布局生成方面的性能有所提升。
-- **预先进行程序化检查** ：与 Gemini 3.5 Flash 相比，更倾向于在进行更改之前运行诊断代码脚本。这提高了复杂任务的准确性，但可能会在简单的前端工作中增加额外的探索步骤。
-- **支持“计算机使用”** ：作为智能体界面自动化的原生工具提供支持。
-- **界面样式偏好**：更擅长创建功能性代码，但人类评估者更喜欢早期模型提供的图文并茂和样式。您可以通过提供明确的设计指南来缓解此问题。
-- **默认思考量（中等）** ：使用与 Gemini 3.5 Flash 相同的 `medium` 默认思考等级。
-- **降低了价格**：降低了输出 token 费用（7.50 美元/百万，而 3.5 Flash 为 9.00 美元/百万）。输入 token 仍为 1.50 美元/百万。
+- **Redução de tokens e turnos**:conclui fluxos de trabalho de várias etapas com menos etapas de raciocínio, turnos de conversa e chamadas de ferramentas do que o Gemini 3.5. Ele também reduz a espiral de loop de execução.
+- **Geração de código aprimorada**:produz código pronto para produção de maior qualidade, com menos edições indesejadas e menos loops de depuração.
+- **Melhor acompanhamento de instruções**: reduz mudanças de arquivo indesejadas durante tarefas de diagnóstico.
+- **Raciocínio multimodal e espacial forte**:performance aprimorada na interpretação de gráficos, conversão de projetos visuais e geração de layouts da Web com vários elementos.
+- **Inspeção programática antecipada**:prefere executar scripts de código de diagnóstico antes de fazer mudanças com mais frequência do que o Gemini 3.5 Flash. Isso melhora a precisão em tarefas complexas, mas pode adicionar etapas exploratórias extras em trabalhos simples de front-end.
+- **Suporte ao uso do computador**:com suporte como ferramenta nativa para automação de interface agêntica.
+- **Preferência de estilo de interface**: melhor na criação de código funcional, embora os avaliadores humanos tenham preferido modelos anteriores para layout visual e estilo. É possível mitigar isso fornecendo diretrizes de design explícitas.
+- **Esforço de pensamento padrão (médio)** : usa o mesmo nível de pensamento padrão `medium` do Gemini 3.5 Flash.
+- **Preços reduzidos**: custos de token de saída mais baixos (US$ 7,50/1 milhão em comparação com US$ 9,00/1 milhão para o 3.5 Flash). Os tokens de entrada permanecem em US $1,50/1 milhão.
 
-## Gemini 3.5 Flash-Lite 的新功能
+## Novidades do Gemini 3.5 Flash-Lite
 
-- **缩短了任务执行延迟时间** ：在 3.5 系列中，对于大量数据解析和文档提取，吞吐量最高。
-- **增强了推理和多模态性能** ：从 Gemini 2.5 Flash 迁移的路径更强，在推理任务（例如 HLE，18.0% 对 11.0%）和多模态基准（例如 CharXIV，74.5% 对 63.7%）方面的得分更高。
-- **子智能体编排和工具可靠性** ：提高了代码执行、搜索和 MCP 工作流的工具执行可靠性。提高了自主规划和复杂子智能体任务的思考等级。
-- **改进了文档理解能力** ：提高了文档解析和结构化数据提取的准确性。您可以根据文档的复杂程度，尝试使用最低和最高思考等级。
-- **交互式网页编码和表格数据处理** ：通过轻量级代码执行进行规划，在前端 JavaScript 和表格数据处理方面表现出色。
-- **聊天机器人和角色持久性** ：与 Gemini 3.1 Flash-Lite 相比，在多轮指令遵循和角色一致性方面表现更强。
-- **支持“计算机使用”** ：作为智能体界面自动化的原生工具提供支持。
+- **Latência de execução de tarefas reduzida**:maior capacidade de processamento na família 3.5 para análise de dados de alto volume e extração de documentos.
+- **Raciocínio e performance multimodal aprimorados**:caminho de migração forte do Gemini 2.5 Flash, com pontuações mais altas em tarefas de raciocínio, como HLE (18,0% em comparação com 11,0%) e benchmarks multimodais, como CharXIV (74,5% em comparação com 63,7%).
+- **Orquestração de subagentes e confiabilidade de ferramentas**:melhora a confiabilidade da execução de ferramentas para execução de código, pesquisa e fluxos de trabalho de MCP. Aumente o nível de pensamento para planejamento autônomo e tarefas complexas de subagentes.
+- **Melhor compreensão de documentos**:melhora a acurácia na análise de documentos e na extração de dados estruturados. Teste níveis de pensamento mínimos e altos, dependendo da complexidade do documento.
+- **Programação interativa da Web e processamento de dados tabulares**:tem um bom desempenho no JavaScript de front-end e no processamento de dados tabulares, planejando a execução de código leve.
+- **Chatbot e persistência de persona**:acompanhamento de instruções multiturno e consistência de persona mais fortes do que o Gemini 3.1 Flash-Lite.
+- **Suporte ao uso do computador**:com suporte como ferramenta nativa para automação de interface agêntica.
 
-## 选择合适的 Flash 或 Flash-Lite 模型
+## Como escolher o modelo Flash ou Flash-Lite certo
 
-使用下表为您的工作负载选择合适的模型和迁移路径。
+Use esta tabela para selecionar o modelo e o caminho de migração certos para suas cargas de trabalho.
 
-这两种模型都需要移除已废弃的采样参数（`temperature`、`top_p`、`top_k`）和预填充的模型轮次。如需了解详情，请参阅 [API 变更](#api-changes-and-parameter-updates)。
+Os dois modelos exigem a remoção de parâmetros de amostragem descontinuados (`temperature`, `top_p`, `top_k`) e turnos de modelo pré-preenchidos. Consulte [Mudanças na API](#api-changes-and-parameter-updates) para mais detalhes.
 
-| 模型 | 主要用例 | 推荐的迁移目标 |
+| Modelo | Principais casos de uso | Destino de migração recomendado |
 | --- | --- | --- |
-| **Gemini 3.6 Flash** `gemini-3.6-flash` | 代码生成、空间/多模态推理、多步智能体工作流 | **Gemini 3.5 Flash**、**Gemini 3 Flash（预览版）** 或 **Gemini 3.1 Pro** |
-| **Gemini 3.5 Flash-Lite** `gemini-3.5-flash-lite` | 自主子智能体执行、大量数据分析和文档提取、结构化 JSON 解析 | **Gemini 3.1 Flash-Lite** 或 **Gemini 2.5 Flash** |
+| **Gemini 3.6 Flash** `gemini-3.6-flash` | Geração de código, raciocínio espacial/multimodal, fluxos de trabalho agênticos de várias etapas | **Gemini 3.5 Flash**, **Gemini 3 Flash (pré-lançamento)** ou **Gemini 3.1 Pro** |
+| **Gemini 3.5 Flash-Lite** `gemini-3.5-flash-lite` | Execução autônoma de subagentes, análise de dados de alto volume e extração de documentos, análise JSON estruturada | **Gemini 3.1 Flash-Lite** ou **Gemini 2.5 Flash** |
 
-## 更新后的 Antigravity 智能体
+## Agente do Antigravity atualizado
 
-由于性能有所提升，Gemini 3.6 Flash 现在是 Gemini 托管式智能体 中 [Antigravity 智能体](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-cn) 的新默认模型。您可以通过在 API 上设置新字段来更改此设置。
+Devido à performance aprimorada, o Gemini 3.6 Flash agora é o novo modelo padrão que alimenta o [agente do Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br) nos agentes gerenciados do Gemini. Isso pode ser alterado definindo um novo campo na API.
 
 ### Python
 
@@ -202,18 +202,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## API 变更和参数更新
+## Mudanças na API e atualizações de parâmetros
 
-从 Gemini 3.6 Flash 和 Gemini 3.5 Flash-Lite 开始，以下 API 变更适用于这些模型以及所有未来的 Gemini 模型版本。
+A partir do Gemini 3.6 Flash e do Gemini 3.5 Flash-Lite, as seguintes mudanças na API se aplicam a esses modelos e a todos os lançamentos futuros de modelos do Gemini.
 
-- **废弃了采样参数**：`temperature`、`top_p` 和 `top_k` 已废弃。API 会忽略这些参数，并在未来的模型版本中返回错误。
-- **预填充的模型轮次验证**：不再支持预填充模型轮次。如果请求中的最后一个非空轮次是 `model` 轮次，则 API 会返回 `400` 错误。
+- **Descontinuação do parâmetro de amostragem**: `temperature`, `top_p` e `top_k` foram descontinuados. A API ignora esses parâmetros e retorna um erro em gerações futuras de modelos.
+- **Validação de turnos de modelo pré-preenchidos**: o pré-preenchimento de turnos de modelo não é mais aceito. Se o último turno não vazio na solicitação for um turno `model`, a API vai retornar um erro `400`.
 
-以下是每个 API 变更的详细说明和代码示例。
+Confira abaixo explicações detalhadas e exemplos de código para cada mudança na API.
 
-### 1. 废弃了采样参数（`temperature`、`top_p`、`top_k`）
+### 1. Descontinuação do parâmetro de amostragem (`temperature`, `top_p`, `top_k`)
 
-`temperature`、`top_p` 和 `top_k` 已废弃并被忽略。在未来的模型版本中，提供这些参数会返回 HTTP 400 错误。**请从所有请求中移除这些参数。**
+`temperature`, `top_p` e `top_k` foram descontinuados e ignorados. Em gerações futuras de modelos, o fornecimento desses parâmetros retorna um erro HTTP 400. **Remova esses parâmetros de todas as solicitações.**
 
 ```
 # ⚠️ Remove these parameters (deprecated)
@@ -224,15 +224,15 @@ generation_config = {
 }
 ```
 
-为了提高确定性，请为您的特定用例定义包含明确规则的系统指令。
+Para melhorar o determinismo, defina uma instrução de sistema com regras explícitas para seu caso de uso específico.
 
-### 2. 预填充的模型轮次验证
+### 2. Validação de turnos de modelo pré-preenchidos
 
-不允许 API 请求以非空模型角色轮次结尾，否则会返回 **HTTP 400 错误** 。
+As solicitações de API que terminam com um turno de função de modelo não vazio não são permitidas e retornam um **erro HTTP 400**.
 
-#### ⚠️ 避开
+#### ⚠️ Evitar
 
-在旧版 `generateContent` 或原始 REST 载荷中，现在不允许以模型角色轮次结尾：
+Em payloads REST brutos ou `generateContent` legados, o encerramento com um turno de função de modelo não é mais permitido:
 
 ```
 /* ❌ DO NOT: End payload contents with a 'model' role turn */
@@ -244,9 +244,9 @@ generation_config = {
 }
 ```
 
-#### ✅ 推荐的迁移（Interactions API）
+#### ✅ Migração recomendada (API Interactions)
 
-在 Interactions API 中，模型轮次不会手动预填充。如果您的应用之前预填充了模型轮次以抑制前言或强制 JSON 格式，请改用 system\_instruction 或 [结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
+Na API Interactions, os turnos de modelo não são pré-preenchidos manualmente. Se o aplicativo pré-preencheu um turno de modelo para suprimir preâmbulos ou forçar a formatação JSON, use system\_instruction ou [saídas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) em vez disso.
 
 ```
 # ✅ RECOMMENDED: Use system_instruction in the Interactions API to specify output format
@@ -257,16 +257,16 @@ interaction = client.interactions.create(
 )
 ```
 
-## 迁移核对清单
+## Lista de verificação de migração
 
 ### Gemini 3.6 Flash
 
-1. 安装技能：
+1. Instale a habilidade:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. 应用技能：
+2. Aplique a habilidade:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.6 Flash
@@ -274,55 +274,55 @@ interaction = client.interactions.create(
 
 ### Gemini 3.5 Flash-Lite
 
-1. 安装技能：
+1. Instale a habilidade:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. 应用技能：
+2. Aplique a habilidade:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
    ```
 
-### 迁移到 gemini-3.6-flash
+### Migrar para o gemini-3.6-flash
 
-- **更新模型 ID** ：将目标模型字符串更改为 `gemini-3.6-flash`。
-- **移除已废弃的采样参数**：
-  - 从生成配置中移除 `temperature`、`top_p` 和 `top_k`。
-  - 将 `thinking_budget` 替换为字符串枚举 `thinking_level`，并将其设置为 `"medium"` 或 `"high"`。
-  - 移除 `candidate_count`（Gemini 3.x 中不支持）。
-- **强制执行轮次验证规则**：
-  - 在服务器端 `previous_interaction_id` 上标准化多轮对话。
-  - 移除预填充的模型轮次。
-- **审核函数调用**
-  - 将多模态素材资源放在响应载荷内。
-  - 使用 `\n\n` 设置内嵌指令的格式。
-  - 如果您看到 `Malformed_Function_Call` 错误与工具前文本相关，请参阅 [工具前文本要求的解决方法](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn#workarounds-for-pre-tool-text-requirements)。
-  - 仅在使用 generateContent API 时：确保所有 `FunctionResponse` 对象都包含 `call_id` 和 `name`。
-- **Gemini 3.x 基准要求**：如需了解 SDK 更新和思考签名保留，请参阅[Gemini 3.5 迁移核对清单](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=zh-cn#migration)。
+- **Atualizar o ID do modelo**:mude a string do modelo de destino para `gemini-3.6-flash`.
+- **Remover parâmetros de amostragem descontinuados:**
+  - Remova `temperature`, `top_p` e `top_k` das configurações de geração.
+  - Substitua `thinking_budget` pela enumeração de string `thinking_level` definida como `"medium"` ou `"high"`.
+  - Remova `candidate_count` (não aceito no Gemini 3.x).
+- **Aplicar regras de validação de turnos:**
+  - Padronize conversas multiturno no `previous_interaction_id` do lado do servidor.
+  - Remova os turnos de modelo pré-preenchidos.
+- **Auditoria de chamadas de função**
+  - Coloque recursos multimodais no payload da resposta.
+  - Formate instruções inline usando `\n\n`.
+  - Se você encontrar erros `Malformed_Function_Call` vinculados ao texto pré-ferramenta, consulte [Soluções alternativas para requisitos de texto pré-ferramenta](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#workarounds-for-pre-tool-text-requirements).
+  - Somente se você estiver usando a API generateContent: verifique se todos os objetos `FunctionResponse` incluem `call_id` e `name`.
+- **Requisitos básicos do Gemini 3.x**:para atualizações do SDK e preservação da assinatura de pensamento, consulte a [lista de verificação de migração do Gemini 3.5](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=pt-br#migration).
 
-### 迁移到 gemini-3.5-flash-lite
+### Migrar para o gemini-3.5-flash-lite
 
-- **更新模型 ID** ：将目标模型字符串更改为 `gemini-3.5-flash-lite`。
-- **配置思考量等级**：
-  - 对于大量提取、路由或分类：将 `thinking_level` 保留为 `"minimal"`（默认值），以实现最大吞吐量。
-  - 对于包含工具调用、代码执行或多步推理的自主子智能体：将 `thinking_level` 设置为 `"medium"` 或 `"high"`，以防止工具过早终止。
-- **移除已废弃的参数并验证函数调用**：应用与 [3.6 Flash 相同的规则](#migrate-to-gemini-3-6-flash)。
-- **Gemini 3.x 基准要求**：请参阅[Gemini 3.5 迁移核对清单](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=zh-cn#migration)。
+- **Atualizar o ID do modelo**:mude a string do modelo de destino para `gemini-3.5-flash-lite`.
+- **Configurar o nível de esforço de pensamento:**
+  - Para extração, roteamento ou classificação de alto volume: deixe `thinking_level` como `"minimal"` (padrão) para capacidade máxima.
+  - Para subagentes autônomos com chamadas de ferramentas, execução de código ou raciocínio em várias etapas: defina `thinking_level` como `"medium"` ou `"high"` para evitar o encerramento prematuro da ferramenta.
+- **Remover parâmetros descontinuados e validar chamadas de função:** aplique as [mesmas regras do 3.6 Flash](#migrate-to-gemini-3-6-flash).
+- **Requisitos básicos do Gemini 3.x**:consulte a [lista de verificação de migração do Gemini 3.5](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=pt-br#migration).
 
-## 后续步骤
+## Próximas etapas
 
-- 查看[模型概览](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)中的 API 规范。
-- 探索 [Interactions API 指南](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn) 中的多智能体编排。
-- 在 [Google AI Studio](https://aistudio.google.com/?hl=zh-cn) 中测试和优化提示。
+- Revise as especificações da API na [visão geral dos modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
+- Conheça a orquestração multiagente no [guia da API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br).
+- Teste e refine comandos no [Google AI Studio](https://aistudio.google.com/?hl=pt-br).
 
-发送反馈
+Envie comentários
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最后更新时间 (UTC)：2026-07-23。
+Última atualização 2026-07-30 UTC.
 
-需要向我们提供更多信息？
+Quer enviar seu feedback?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-23。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]

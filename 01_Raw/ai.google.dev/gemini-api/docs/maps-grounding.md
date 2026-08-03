@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi
-fetched_at: 2026-07-27T04:39:05.150905+00:00
-title: "C\u0103n c\u1ee9 v\u00e0o Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th
+fetched_at: 2026-08-03T04:37:49.748270+00:00
+title: "\u0e01\u0e32\u0e23\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07\u0e14\u0e49\u0e27\u0e22 Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Gửi ý kiến phản hồi
+ส่งความคิดเห็น
 
-# Căn cứ vào Google Maps
+# การอ้างอิงตำแหน่งด้วย Google Maps
 
-Tính năng Bám sát nguồn bằng Google Maps kết hợp các khả năng tạo sinh của Gemini với dữ liệu phong phú, thực tế và mới nhất của Google Maps. Tính năng này giúp nhà phát triển dễ dàng tích hợp chức năng nhận biết vị trí vào ứng dụng của họ. Khi truy vấn của người dùng có bối cảnh liên quan đến dữ liệu Maps, mô hình Gemini sẽ tận dụng Google Maps để cung cấp câu trả lời chính xác và mới nhất, phù hợp với vị trí cụ thể hoặc khu vực chung mà người dùng chỉ định.
+การเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะเชื่อมต่อความสามารถในการสร้างเนื้อหาของ Gemini กับข้อมูลที่สมบูรณ์ เป็นข้อเท็จจริง และเป็นข้อมูลล่าสุดของ Google Maps ฟีเจอร์นี้ช่วยให้นักพัฒนาแอปสามารถผสานรวมฟังก์ชันการทำงานที่รับรู้ตำแหน่งลงในแอปพลิเคชันได้อย่างง่ายดาย เมื่อคำค้นหาของผู้ใช้มีบริบทที่เกี่ยวข้องกับข้อมูล Maps โมเดล Gemini จะใช้ประโยชน์จาก Google Maps เพื่อให้คำตอบที่เป็นข้อเท็จจริงและเป็นข้อมูลล่าสุดซึ่งเกี่ยวข้องกับสถานที่ที่ผู้ใช้ระบุหรือพื้นที่ทั่วไป
 
-- **Câu trả lời chính xác, nhận biết vị trí:** Tận dụng dữ liệu phong phú và hiện tại của Google Maps cho các truy vấn theo vị trí địa lý.
-- **Cá nhân hoá nâng cao:** Điều chỉnh đề xuất và thông tin dựa trên vị trí do người dùng cung cấp.
+- **คำตอบที่แม่นยำและรับรู้ตำแหน่ง:** ใช้ประโยชน์จากข้อมูลที่ครอบคลุมและเป็นปัจจุบันของ Google Maps สำหรับคำค้นหาที่เฉพาะเจาะจงทางภูมิศาสตร์
+- **การปรับเปลี่ยนในแบบของผู้ใช้ที่มีประสิทธิภาพมากขึ้น:** ปรับแต่งคำแนะนำและข้อมูลตามสถานที่ที่ผู้ใช้ระบุ
 
-## Bắt đầu
+## เริ่มต้นใช้งาน
 
-Ví dụ này minh hoạ cách tích hợp tính năng Bám sát nguồn bằng Google Maps vào ứng dụng của bạn để cung cấp câu trả lời chính xác, nhận biết vị trí cho các truy vấn của người dùng. Lời nhắc yêu cầu các đề xuất tại địa phương kèm theo vị trí không bắt buộc của người dùng, cho phép mô hình Gemini sử dụng dữ liệu của Google Maps.
+ตัวอย่างนี้แสดงวิธีผสานรวมการเชื่อมต่อแหล่งข้อมูลกับ Google Maps เข้ากับแอปพลิเคชันเพื่อให้คำตอบที่แม่นยำและรับรู้ตำแหน่งสำหรับคำค้นหาของผู้ใช้ พรอมต์จะขอคำแนะนำในพื้นที่พร้อมสถานที่ของผู้ใช้ (ไม่บังคับ) ซึ่งช่วยให้โมเดล Gemini ใช้ข้อมูล Google Maps ได้
 
 ### Python
 
@@ -36,7 +36,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What are the best Italian restaurants within a 15-minute walk from here?",
     tools=[{
         "type": "google_maps",
@@ -68,7 +68,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "What are the best Italian restaurants within a 15-minute walk from here?",
     tools: [{
       type: "google_maps",
@@ -108,7 +108,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What are the best Italian restaurants within a 15-minute walk from here?",
     "tools": [{
       "type": "google_maps",
@@ -118,38 +118,39 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cách hoạt động của tính năng Bám sát nguồn bằng Google Maps
+## วิธีการทำงานของการเชื่อมต่อแหล่งข้อมูลกับ Google Maps
 
-Tính năng Bám sát nguồn bằng Google Maps tích hợp Gemini API với hệ sinh thái Google Geo bằng cách sử dụng Maps API làm nguồn bám sát nguồn. Khi truy vấn của người dùng chứa bối cảnh địa lý, mô hình Gemini có thể gọi công cụ Bám sát nguồn bằng Google Maps. Sau đó, mô hình này có thể tạo câu trả lời dựa trên dữ liệu của Google Maps liên quan đến vị trí được cung cấp.
+การเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะผสานรวม Gemini API กับระบบนิเวศ Geo ของ Google โดยใช้ Maps API เป็นแหล่งข้อมูล เมื่อคำค้นหาของผู้ใช้มีบริบททางภูมิศาสตร์ โมเดล Gemini จะเรียกใช้เครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Maps ได้ จากนั้นโมเดลจะสร้างคำตอบที่อิงตามข้อมูล Google Maps ที่เกี่ยวข้องกับสถานที่ที่ระบุ
 
-Quá trình này thường bao gồm:
+โดยปกติกระบวนการจะมีลักษณะดังนี้
 
-1. **Truy vấn của người dùng:** Người dùng gửi một truy vấn đến ứng dụng của bạn, có thể bao gồm bối cảnh địa lý (ví dụ: "quán cà phê gần tôi", "bảo tàng ở San Francisco").
-2. **Gọi công cụ:** Mô hình Gemini nhận ra ý định địa lý, gọi công cụ Bám sát nguồn bằng Google Maps. Bạn có thể cung cấp `latitude` và `longitude` của người dùng cho công cụ này. Công cụ này là một công cụ tìm kiếm bằng văn bản và hoạt động tương tự như tìm kiếm trên Maps, trong đó các truy vấn tại địa phương ("gần tôi") sẽ sử dụng toạ độ, trong khi các truy vấn cụ thể hoặc không tại địa phương sẽ không bị ảnh hưởng bởi vị trí rõ ràng.
-3. **Truy xuất dữ liệu:** Dịch vụ Bám sát nguồn bằng Google Maps truy vấn Google Maps để tìm thông tin liên quan (ví dụ: địa điểm, bài đánh giá, ảnh, địa chỉ, giờ mở cửa).
-4. **Tạo sinh dựa trên nguồn:** Dữ liệu Maps đã truy xuất được dùng để cung cấp thông tin cho câu trả lời của mô hình Gemini, đảm bảo tính chính xác và mức độ liên quan.
-5. **Câu trả lời và chú thích:** Mô hình này trả về câu trả lời bằng văn bản kèm theo chú thích nội tuyến liên kết đến các nguồn trên Google Maps, cho phép nhà phát triển hiển thị trích dẫn.
+1. **คำค้นหาของผู้ใช้:** ผู้ใช้ส่งคำค้นหาไปยังแอปพลิเคชันของคุณ ซึ่งอาจมีบริบททางภูมิศาสตร์ (เช่น "ร้านกาแฟใกล้ฉัน" "พิพิธภัณฑ์ในซานฟรานซิสโก")
+2. **การเรียกใช้เครื่องมือ:** โมเดล Gemini จะเรียกใช้เครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Maps เมื่อรับรู้ถึงความตั้งใจทางภูมิศาสตร์ คุณสามารถระบุ `latitude` และ `longitude` ของผู้ใช้ให้กับเครื่องมือนี้ได้ (ไม่บังคับ)
+   เครื่องมือนี้เป็นเครื่องมือค้นหาข้อความและทำงานคล้ายกับการค้นหาใน Maps โดยคำค้นหาในพื้นที่ ("ใกล้ฉัน") จะใช้พิกัด ส่วนคำค้นหาที่เฉพาะเจาะจงหรือไม่ใช่ในพื้นที่นั้นๆ จะไม่ได้รับผลกระทบจากสถานที่ที่ระบุ
+3. **การดึงข้อมูล:** บริการการเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะค้นหาข้อมูลที่เกี่ยวข้องจาก Google Maps (เช่น สถานที่ รีวิว รูปภาพ ที่อยู่ เวลาทำการ)
+4. **การสร้างเนื้อหาที่อิงตามแหล่งข้อมูล:** ระบบจะใช้ข้อมูล Maps ที่ดึงมาเพื่อแจ้งคำตอบของโมเดล Gemini เพื่อให้มั่นใจในความถูกต้องของข้อเท็จจริงและความเกี่ยวข้อง
+5. **คำตอบและคำอธิบายประกอบ:** โมเดลจะแสดงคำตอบเป็นข้อความพร้อมคำอธิบายประกอบแบบอินไลน์ที่ลิงก์ไปยังแหล่งข้อมูล Google Maps ซึ่งช่วยให้นักพัฒนาแอปแสดงการอ้างอิงได้
 
-## Lý do và thời điểm sử dụng tính năng Bám sát nguồn bằng Google Maps
+## เหตุผลและเวลาที่ควรใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Maps
 
-Tính năng Bám sát nguồn bằng Google Maps là lựa chọn lý tưởng cho các ứng dụng yêu cầu thông tin chính xác, mới nhất và theo vị trí. Tính năng này giúp nâng cao trải nghiệm người dùng bằng cách cung cấp nội dung phù hợp và được cá nhân hoá dựa trên cơ sở dữ liệu phong phú của Google Maps về hơn 250 triệu địa điểm trên toàn thế giới.
+การเชื่อมต่อแหล่งข้อมูลกับ Google Maps เหมาะอย่างยิ่งสำหรับแอปพลิเคชันที่ต้องใช้ข้อมูลที่แม่นยำ เป็นข้อมูลล่าสุด และเฉพาะเจาะจงสถานที่ ฟีเจอร์นี้ช่วยยกระดับประสบการณ์การใช้งานของผู้ใช้ด้วยการแสดงเนื้อหาที่เกี่ยวข้องและปรับเปลี่ยนในแบบของผู้ใช้ ซึ่งอิงตามฐานข้อมูลที่ครอบคลุมของ Google Maps ที่มีสถานที่มากกว่า 250 ล้านแห่งทั่วโลก
 
-Bạn nên sử dụng tính năng Bám sát nguồn bằng Google Maps khi ứng dụng của bạn cần:
+คุณควรใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Maps เมื่อแอปพลิเคชันของคุณต้องทำสิ่งต่อไปนี้
 
-- Cung cấp câu trả lời đầy đủ và chính xác cho các câu hỏi theo vị trí địa lý.
-- Xây dựng công cụ lập kế hoạch chuyến đi và hướng dẫn viên địa phương dựa trên cuộc trò chuyện.
-- Đề xuất các địa điểm yêu thích dựa trên vị trí và lựa chọn ưu tiên của người dùng, chẳng hạn như nhà hàng hoặc cửa hàng.
-- Tạo trải nghiệm nhận biết vị trí cho các dịch vụ xã hội, bán lẻ hoặc giao đồ ăn.
+- ให้คำตอบที่สมบูรณ์และถูกต้องสำหรับคำถามที่เฉพาะเจาะจงทางภูมิศาสตร์
+- สร้างเครื่องมือวางแผนการเดินทางและไกด์นำเที่ยวในพื้นที่แบบสนทนา
+- แนะนำจุดที่น่าสนใจตามสถานที่และการกำหนดค่าของผู้ใช้ เช่น ร้านอาหารหรือร้านค้า
+- สร้างประสบการณ์ที่รับรู้ตำแหน่งสำหรับบริการโซเชียลมีเดีย บริการค้าปลีก หรือบริการจัดส่งอาหาร
 
-Tính năng Bám sát nguồn bằng Google Maps vượt trội trong các trường hợp sử dụng mà khoảng cách và dữ liệu thực tế hiện tại là rất quan trọng, chẳng hạn như tìm "quán cà phê ngon nhất gần tôi" hoặc nhận chỉ đường.
+การเชื่อมต่อแหล่งข้อมูลกับ Google Maps เหมาะอย่างยิ่งสำหรับกรณีการใช้งานที่ระยะทางและข้อมูลข้อเท็จจริงปัจจุบันมีความสำคัญอย่างยิ่ง เช่น การค้นหา "ร้านกาแฟที่ดีที่สุดใกล้ฉัน" หรือการดูเส้นทาง
 
-## Trường hợp sử dụng
+## กรณีการใช้งาน
 
-Tính năng Bám sát nguồn bằng Google Maps hỗ trợ nhiều trường hợp sử dụng nhận biết vị trí.
+การเชื่อมต่อแหล่งข้อมูลกับ Google Maps รองรับกรณีการใช้งานที่รับรู้ตำแหน่งได้หลากหลาย
 
-### Xử lý các câu hỏi cụ thể về địa điểm
+### การจัดการคำถามที่เฉพาะเจาะจงสถานที่
 
-Đặt câu hỏi chi tiết về một địa điểm cụ thể để nhận câu trả lời dựa trên bài đánh giá của người dùng Google và các dữ liệu khác trên Maps.
+ถามคำถามโดยละเอียดเกี่ยวกับสถานที่ที่เฉพาะเจาะจงเพื่อรับคำตอบตามรีวิวของผู้ใช้ Google และข้อมูล Maps อื่นๆ
 
 ### Python
 
@@ -160,7 +161,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Is there a cafe near the corner of 1st and Main that has outdoor seating?",
     tools=[{
         "type": "google_maps",
@@ -191,7 +192,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Is there a cafe near the corner of 1st and Main that has outdoor seating?",
     tools: [{
       type: "google_maps",
@@ -222,9 +223,9 @@ async function main() {
 main();
 ```
 
-### Cung cấp tính năng cá nhân hoá dựa trên vị trí
+### การปรับเปลี่ยนในแบบของผู้ใช้ตามสถานที่
 
-Nhận các đề xuất phù hợp với lựa chọn ưu tiên của người dùng và một khu vực địa lý cụ thể.
+รับคำแนะนำที่ปรับให้เหมาะกับการกำหนดค่าของผู้ใช้และพื้นที่ทางภูมิศาสตร์ที่เฉพาะเจาะจง
 
 ### Python
 
@@ -235,7 +236,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Which family-friendly restaurants near here have the best playground reviews?",
     tools=[{
         "type": "google_maps",
@@ -266,7 +267,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Which family-friendly restaurants near here have the best playground reviews?",
     tools: [{
       type: "google_maps",
@@ -297,9 +298,9 @@ async function main() {
 main();
 ```
 
-### Hỗ trợ lập kế hoạch hành trình
+### การช่วยเหลือในการวางแผนการเดินทาง
 
-Tạo kế hoạch nhiều ngày kèm theo chỉ đường và thông tin về nhiều địa điểm, phù hợp với các ứng dụng du lịch.
+สร้างแผนการเดินทางหลายวันพร้อมเส้นทางและข้อมูลเกี่ยวกับสถานที่ต่างๆ ซึ่งเหมาะสำหรับแอปพลิเคชันการเดินทาง
 
 ### Python
 
@@ -312,7 +313,7 @@ client = genai.Client()
 prompt = "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner."
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=prompt,
     tools=[{
         "type": "google_maps",
@@ -333,7 +334,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner.",
     tools: [{
       type: "google_maps",
@@ -354,7 +355,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner.",
     "tools": [{
       "type": "google_maps",
@@ -364,99 +365,102 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Yêu cầu về việc sử dụng dịch vụ
+## ข้อกำหนดในการใช้งานบริการ
 
-Phần này mô tả các yêu cầu về việc sử dụng dịch vụ đối với tính năng Bám sát nguồn bằng Google Maps.
+ส่วนนี้อธิบายข้อกำหนดในการใช้งานบริการสำหรับการเชื่อมต่อแหล่งข้อมูลกับ Google Maps
 
-### Thông báo cho người dùng về việc sử dụng các nguồn trên Google Maps
+### แจ้งให้ผู้ใช้ทราบเกี่ยวกับการใช้แหล่งข้อมูล Google Maps
 
-Với mỗi kết quả Bám sát nguồn bằng Google Maps, bạn sẽ nhận được chú thích nguồn trên các khối nội dung của bước `model_output` hỗ trợ từng câu trả lời. Siêu dữ liệu sau đây sẽ được trả về:
+ผลลัพธ์แต่ละรายการที่อิงตาม Google Maps จะมีคำอธิบายประกอบแหล่งข้อมูลในบล็อกเนื้อหาของขั้นตอน `model_output` ที่รองรับคำตอบแต่ละรายการ ระบบจะแสดงข้อมูลเมตาดังต่อไปนี้
 
-- URL nguồn
-- tên
+- URL ต้นทาง
+- ชื่อ
 
-Khi trình bày kết quả từ tính năng Bám sát nguồn bằng Google Maps, bạn phải chỉ định các nguồn liên kết trên Google Maps và thông báo cho người dùng của bạn về những điều sau:
+เมื่อแสดงผลลัพธ์จากการเชื่อมต่อแหล่งข้อมูลกับ Google Maps คุณต้องระบุแหล่งข้อมูล Google Maps ที่เกี่ยวข้องและแจ้งให้ผู้ใช้ทราบดังต่อไปนี้
 
-- Các nguồn trên Google Maps phải xuất hiện ngay sau nội dung được tạo mà các nguồn đó hỗ trợ. Nội dung được tạo này còn được gọi là Kết quả Bám sát nguồn bằng Google Maps.
-- Các nguồn trên Google Maps phải có thể xem được trong một lượt tương tác của người dùng.
+- แหล่งข้อมูล Google Maps ต้องอยู่ต่อจากเนื้อหาที่สร้างขึ้นซึ่งแหล่งข้อมูลรองรับโดยทันที เนื้อหาที่สร้างขึ้นนี้เรียกอีกอย่างว่าผลลัพธ์ที่อิงตาม Google Maps
+- แหล่งข้อมูล Google Maps ต้องดูได้ภายใน 1 การโต้ตอบของผู้ใช้
 
-### Hiển thị các nguồn trên Google Maps kèm theo đường liên kết trên Google Maps
+### แสดงแหล่งข้อมูล Google Maps พร้อมลิงก์ Google Maps
 
-Đối với mỗi chú thích nguồn, bạn phải tạo bản xem trước đường liên kết theo các yêu cầu sau:
+คำอธิบายประกอบแหล่งข้อมูลแต่ละรายการต้องสร้างตัวอย่างลิงก์ตามข้อกำหนดต่อไปนี้
 
-- Ghi công từng nguồn cho Google Maps theo nguyên tắc ghi công văn bản của Google Maps
-  .
-- Hiển thị tên nguồn được cung cấp trong câu trả lời.
-- Liên kết đến nguồn bằng `url` từ chú thích.
+- ระบุแหล่งที่มาแต่ละรายการเป็น Google Maps ตามหลักเกณฑ์การระบุแหล่งที่มาด้วยข้อความของ Google Maps
+- แสดงชื่อแหล่งที่มาที่ระบุไว้ในคำตอบ
+- ลิงก์ไปยังแหล่งที่มาโดยใช้ `url` จากคำอธิบายประกอบ
 
-### Nguyên tắc ghi công văn bản của Google Maps
+### หลักเกณฑ์การระบุแหล่งที่มาด้วยข้อความของ Google Maps
 
-Khi bạn ghi công các nguồn cho Google Maps bằng văn bản, hãy tuân theo các nguyên tắc sau:
+เมื่อระบุแหล่งที่มาเป็น Google Maps ในข้อความ ให้ทำตามหลักเกณฑ์ต่อไปนี้
 
-- Không sửa đổi văn bản Google Maps theo bất kỳ cách nào:
-  - Không thay đổi cách viết hoa của Google Maps.
-  - Không chuyển Google Maps sang nhiều dòng.
-  - Không bản địa hoá Google Maps sang ngôn ngữ khác.
-  - Ngăn trình duyệt dịch Google Maps bằng cách sử dụng thuộc tính HTML translate="no".
+- อย่าแก้ไขข้อความ Google Maps ในลักษณะใดก็ตาม ดังนี้
+  - อย่าเปลี่ยนการใช้ตัวพิมพ์ใหญ่และตัวพิมพ์เล็กของ Google Maps
+  - อย่าขึ้นบรรทัดใหม่สำหรับ Google Maps
+  - อย่าแปล Google Maps เป็นภาษาอื่น
+  - ป้องกันไม่ให้เบราว์เซอร์แปล Google Maps โดยใช้แอตทริบิวต์ HTML translate="no"
 
-Để biết thêm thông tin về một số nhà cung cấp dữ liệu của Google Maps và điều khoản cấp phép của họ, hãy xem [thông báo pháp lý của Google Maps và Google Earth](https://www.google.com/help/legalnotices_maps/?hl=vi).
+ดูข้อมูลเพิ่มเติมเกี่ยวกับผู้ให้บริการข้อมูล Google Maps บางรายและ
+ข้อกำหนดสิทธิ์การใช้งานได้ที่ [ประกาศทางกฎหมายของ Google Maps และ Google Earth](https://www.google.com/help/legalnotices_maps/?hl=th)
 
-## Các phương pháp hay nhất
+## แนวทางปฏิบัติแนะนำ
 
-- **Cung cấp vị trí của người dùng:** Để có câu trả lời phù hợp và được cá nhân hoá nhất, hãy luôn thêm `latitude` và `longitude` vào cấu hình công cụ `google_maps` khi bạn biết vị trí của người dùng.
-- **Thông báo cho người dùng cuối:** Thông báo rõ ràng cho người dùng cuối rằng dữ liệu của Google Maps đang được sử dụng để trả lời các truy vấn của họ, đặc biệt là khi công cụ này được bật.
-- **Tắt khi không cần:** Tính năng Bám sát nguồn bằng Google Maps được tắt theo mặc định. Chỉ bật tính năng này (`"tools": [{"type": "google_maps"}]`) khi truy vấn có
-  bối cảnh địa lý rõ ràng để tối ưu hoá hiệu suất và chi phí.
+- **ระบุสถานที่ของผู้ใช้:** เพื่อให้ได้คำตอบที่เกี่ยวข้องมากที่สุดและปรับเปลี่ยนในแบบของผู้ใช้
+  ระบุ `latitude` และ `longitude` ในการกำหนดค่าเครื่องมือ `google_maps` เสมอเมื่อทราบสถานที่ของผู้ใช้
+- **แจ้งผู้ใช้ปลายทาง:** แจ้งให้ผู้ใช้ปลายทางทราบอย่างชัดเจนว่าระบบกำลังใช้ข้อมูล Google Maps เพื่อตอบคำค้นหาของผู้ใช้ โดยเฉพาะอย่างยิ่งเมื่อเปิดใช้เครื่องมือ
+- **ปิดเมื่อไม่จำเป็น:** การเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะปิดอยู่โดยค่าเริ่มต้น ให้เปิดใช้ (`"tools": [{"type": "google_maps"}]`) เมื่อคำค้นหามี
+  บริบททางภูมิศาสตร์ที่ชัดเจนเท่านั้น เพื่อเพิ่มประสิทธิภาพและลดค่าใช้จ่าย
 
-## Các điểm hạn chế
+## ข้อจำกัด
 
-- Tính năng Bám sát nguồn bằng Google Maps hiện chỉ hỗ trợ lời nhắc và câu trả lời bằng tiếng Anh.
-- Công cụ này có thể không dùng được ở một số khu vực.
-- Kết quả có thể khác nhau dựa trên độ chính xác của vị trí và dữ liệu Maps hiện có.
-- **Phạm vi địa lý:** Tính năng Bám sát nguồn bằng Google Maps có trên toàn cầu.
-- **Trạng thái mặc định:** Công cụ Bám sát nguồn bằng Google Maps được tắt theo mặc định.
-  Bạn phải bật công cụ này một cách rõ ràng trong các yêu cầu API.
+- ปัจจุบันการเชื่อมต่อแหล่งข้อมูลกับ Google Maps รองรับเฉพาะพรอมต์และคำตอบที่เป็นภาษาอังกฤษเท่านั้น
+- เครื่องมือนี้อาจไม่พร้อมให้บริการในบางภูมิภาค
+- ผลลัพธ์อาจแตกต่างกันไปตามความแม่นยำของสถานที่และข้อมูล Maps ที่มี
+- **ขอบเขตทางภูมิศาสตร์:** การเชื่อมต่อแหล่งข้อมูลกับ Google Maps พร้อมให้บริการทั่วโลก
+- **สถานะเริ่มต้น:** เครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะปิดอยู่โดยค่าเริ่มต้น
+  คุณต้องเปิดใช้เครื่องมือนี้อย่างชัดเจนในคำขอ API
 
-## Giá và hạn mức về giá
+## ราคาและขีดจำกัดอัตรา
 
-Giá của tính năng Bám sát nguồn bằng Google Maps sẽ khác nhau tuỳ thuộc vào thế hệ mô hình:
+ราคาการเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะแตกต่างกันไปตามรุ่นของโมเดล ดังนี้
 
-- **Mô hình Gemini 3:** Dự án của bạn sẽ bị tính phí cho mỗi **truy vấn tìm kiếm** mà mô hình quyết định thực thi. Một **lời nhắc tìm kiếm** (yêu cầu API của bạn đối với mô hình) có thể khiến mô hình thực thi nhiều truy vấn tìm kiếm để tìm thông tin cần thiết. Mỗi truy vấn này được tính là một lần sử dụng công cụ có tính phí.
-- **Mô hình Gemini 2.5 và các mô hình cũ hơn:** Dự án của bạn sẽ bị tính phí cho mỗi **lời nhắc tìm kiếm**.
-  Yêu cầu chỉ bị tính phí nếu lời nhắc trả về thành công ít nhất một kết quả bám sát nguồn bằng Google Maps, bất kể mô hình đã thực hiện bao nhiêu truy vấn tìm kiếm riêng lẻ ở nội bộ để nhận được kết quả đó.
+- **โมเดล Gemini 3:** ระบบจะเรียกเก็บเงินจากโปรเจ็กต์ของคุณสำหรับ**คำค้นหา**แต่ละรายการที่โมเดลตัดสินใจดำเนินการ **พรอมต์การค้นหา**รายการเดียว (คำขอ API ของคุณที่ส่งไปยังโมเดล) อาจทำให้โมเดลดำเนินการคำค้นหาหลายรายการเพื่อค้นหาข้อมูลที่จำเป็น คำค้นหาแต่ละรายการจะนับเป็นการใช้งานเครื่องมือที่เรียกเก็บเงินได้
+- **โมเดล Gemini 2.5 และโมเดลเก่ากว่า:** ระบบจะเรียกเก็บเงินจากโปรเจ็กต์ของคุณต่อ**พรอมต์การค้นหา**
+  ระบบจะเรียกเก็บเงินจากคำขอเฉพาะในกรณีที่พรอมต์แสดงผลลัพธ์ที่อิงตาม Google Maps อย่างน้อย 1 รายการได้สำเร็จ ไม่ว่าโมเดลจะดำเนินการคำค้นหาแต่ละรายการภายในกี่รายการก็ตามเพื่อให้ได้ผลลัพธ์นั้น
 
-Để biết thông tin chi tiết về giá, hãy xem [trang giá của Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
+ดูข้อมูลราคาโดยละเอียดได้ที่หน้าการกำหนดราคา [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
 
-## Mô hình được hỗ trợ
+## โมเดลที่รองรับ
 
-Các mô hình sau đây hỗ trợ tính năng Bám sát nguồn bằng Google Maps:
+โมเดลต่อไปนี้รองรับการเชื่อมต่อแหล่งข้อมูลกับ Google Maps
 
-| Mô hình | Bám sát nguồn bằng Google Maps |
+| โมเดล | การเชื่อมต่อแหล่งข้อมูลกับ Google Maps |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
-| [Gemini 3.1 Pro Bản dùng thử](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
-| [Gemini 3 Flash Bản dùng thử](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
 
-## Các cách kết hợp công cụ được hỗ trợ
+## ชุดเครื่องมือที่รองรับ
 
-Mô hình Gemini 3 hỗ trợ kết hợp các công cụ tích hợp (như Bám sát nguồn bằng Google Maps) với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang các cách kết hợp công cụ
-.
+โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การเชื่อมต่อแหล่งข้อมูลกับ Google Maps) กับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ที่หน้า
+[ชุดเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
 
-## Bước tiếp theo
+## ขั้นตอนถัดไป
 
-- Tìm hiểu về các [công cụ khác hiện có](https://ai.google.dev/gemini-api/docs/tools?hl=vi).
-- Để tìm hiểu thêm về các phương pháp hay nhất về AI có trách nhiệm và bộ lọc an toàn của Gemini API, hãy xem [hướng dẫn về chế độ cài đặt An toàn](https://ai.google.dev/gemini-api/docs/safety-settings?hl=vi).
+- ดูข้อมูลเกี่ยวกับเครื่องมืออื่นๆ ที่[พร้อมให้บริการ](https://ai.google.dev/gemini-api/docs/tools?hl=th)
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับแนวทางปฏิบัติแนะนำด้าน AI ที่มีความรับผิดชอบและตัวกรองความปลอดภัยของ Gemini API ได้ที่[คู่มือการตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th)
 
-Gửi ý kiến phản hồi
+ส่งความคิดเห็น
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Cập nhật lần gần đây nhất: 2026-07-06 UTC.
+อัปเดตล่าสุด 2026-07-30 UTC
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-06 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

@@ -1,37 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=zh-CN
-fetched_at: 2026-07-27T04:46:08.426033+00:00
-title: "Gemini \u601d\u8003 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=id
+fetched_at: 2026-08-03T04:25:21.764445+00:00
+title: "Pemikiran Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-发送反馈
+Kirim masukan
 
-# Gemini 思考
+# Pemikiran Gemini
 
-[Gemini 3 和 2.5 系列模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)采用“思考过程”，可显著提升推理和多步规划能力，因此非常适合处理编码、高等数学和数据分析等复杂任务。
+Model seri [Gemini 3 dan 2.5](https://ai.google.dev/gemini-api/docs/models?hl=id) menggunakan
+"proses berpikir" yang meningkatkan kemampuan penalaran dan perencanaan multi-langkah secara signifikan, sehingga sangat efektif untuk tugas kompleks seperti
+coding, matematika tingkat lanjut, dan analisis data.
 
-当您使用思考模型时，Gemini 会在回答之前进行内部推理。Interactions API 通过 `thought` 步骤（按时间顺序显示在 `steps` 数组中的专用步骤）呈现这种推理过程。
+Saat Anda menggunakan model berpikir, Gemini akan melakukan penalaran secara internal sebelum merespons. Interactions API menampilkan penalaran ini melalui langkah `thought`, langkah khusus yang muncul secara kronologis bersama dengan panggilan fungsi, input pengguna, atau output model dalam array `steps`.
 
-每个思考步骤都包含两个字段：
+Setiap langkah berpikir berisi dua kolom:
 
-| 字段 | 必填 | 说明 |
+| Kolom | Wajib | Deskripsi |
 | --- | --- | --- |
-| `signature` | ✅ 是 | 模型内部推理状态的加密表示形式。始终存在，即使模型执行的推理最少也是如此。 |
-| `summary` | ❌ 否 | 总结推理过程的内容（文本和/或图片）数组。可能会为空，具体取决于 [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=zh-cn) 配置、模型是否进行了充分的推理，或者内容类型（例如，图片潜在空间可能没有文本摘要）。 |
+| `signature` | ✅ Ya | Representasi terenkripsi dari status penalaran internal model. Selalu ada, bahkan saat model melakukan penalaran minimal. |
+| `summary` | ❌ Tidak | Array konten (teks dan/atau gambar) yang meringkas penalaran. Mungkin kosong, bergantung pada konfigurasi [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=id), apakah model melakukan penalaran yang cukup, atau jenis konten (misalnya, latensi gambar mungkin tidak memiliki ringkasan teks). |
 
-## 与思考的互动
+## Interaksi dengan pemikiran
 
-与思维模型互动与任何其他互动请求类似。在 `model` 字段中指定[支持思考的模型](#thinking-levels)之一：
+Memulai interaksi dengan model yang berbasis penalaran mirip dengan permintaan interaksi lainnya. Tentukan salah satu [model dengan dukungan pemikiran](#thinking-levels) di kolom `model` field:
 
 ### Python
 
@@ -41,7 +43,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Explain the concept of Occam's Razor and provide a simple, everyday example."
 )
 print(interaction.output_text)
@@ -55,7 +57,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Explain the concept of Occam's Razor and provide a simple, everyday example."
 });
 console.log(interaction.output_text);
@@ -68,15 +70,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Explain the concept of Occam'\''s Razor and provide a simple example."
   }'
 ```
 
-## 思考摘要
+## Ringkasan penalaran
 
-思考总结可提供对模型内部推理过程的洞见。
-默认情况下，仅返回最终输出。您可以使用 `thinking_summaries` 启用思路总结：
+Ringkasan penalaran memberikan insight tentang proses penalaran internal model.
+Secara default, hanya output akhir yang ditampilkan. Anda dapat mengaktifkan ringkasan penalaran dengan `thinking_summaries`:
 
 ### Python
 
@@ -86,7 +88,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="What is the sum of the first 50 prime numbers?",
     generation_config={
         "thinking_summaries": "auto"
@@ -117,7 +119,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "What is the sum of the first 50 prime numbers?",
     generation_config: {
         thinking_summaries: "auto"
@@ -150,7 +152,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the sum of the first 50 prime numbers?",
     "generation_config": {
       "thinking_summaries": "auto"
@@ -158,23 +160,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-在以下情况下，思想块可能**仅包含签名，而不包含摘要**：
+Blok pemikiran mungkin **hanya berisi tanda tangan tanpa ringkasan** dalam kasus berikut:
 
-- 简单请求，模型推理不足，无法生成摘要
-- `thinking_summaries: "none"`，其中明确停用了摘要
-- 某些类型的想法内容（例如图片）可能没有文字摘要
+- Permintaan sederhana, saat model tidak cukup bernalar untuk membuat ringkasan
+- `thinking_summaries: "none"`, saat ringkasan dinonaktifkan secara eksplisit
+- Jenis konten pemikiran tertentu, seperti gambar, mungkin tidak memiliki ringkasan teks
 
-您的代码应始终处理 `summary` 为空或缺失的思路块。
+Kode Anda harus selalu menangani blok pemikiran saat `summary` kosong atau tidak ada.
 
-## 包含思考的流式传输
+## Streaming dengan pemikiran
 
-使用流式传输在生成期间接收增量思维摘要。
-系统会使用服务器发送的事件 (SSE) 传送思路块，其中包含两种不同的增量类型：
+Gunakan streaming untuk menerima ringkasan pemikiran inkremental selama pembuatan.
+Blok pemikiran dikirim menggunakan Server-Sent Events (SSE) dengan dua jenis delta yang berbeda:
 
-| 增量类型 | 包含 | 发送时间 |
+| Jenis delta | Berisi | Waktu pengiriman |
 | --- | --- | --- |
-| `thought_summary` | 文字或图片摘要内容 | 一个或多个增量（带有增量摘要） |
-| `thought_signature` | 加密签名 | `step.stop` 之前的最后一个增量 |
+| `thought_summary` | Konten ringkasan teks atau gambar | Satu atau beberapa delta dengan ringkasan inkremental |
+| `thought_signature` | Tanda tangan kriptografi | delta terakhir sebelum `step.stop` |
 
 ### Python
 
@@ -195,7 +197,7 @@ thoughts = ""
 answer = ""
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=prompt,
     generation_config={
         "thinking_summaries": "auto"
@@ -235,7 +237,7 @@ let thoughts = "";
 let answer = "";
 
 const stream = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: prompt,
     generation_config: {
         thinking_summaries: "auto"
@@ -267,7 +269,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue. Alice does not live in the red house. Bob does not live in the green house. Carol does not live in the red or green house. Which house does each person live in?",
     "generation_config": {
       "thinking_summaries": "auto"
@@ -276,11 +278,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-流式回答使用服务器发送的事件 (SSE)，由步骤和事件组成，例如：
+Respons streaming menggunakan Server-Sent Events (SSE) dan terdiri dari langkah-langkah dan peristiwa, misalnya:
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.6-flash"},"event_type":"interaction.created"}
 
 event: step.start
 data: {"index":0,"step":{"signature":"","summary":[{"text":"**Evaluating the clues**\n\nI'm considering...","type":"text"}],"type":"thought"},"event_type":"step.start"}
@@ -307,20 +309,22 @@ event: done
 data: [DONE]
 ```
 
-## 控制性思维
+## Mengontrol pemikiran
 
-Gemini 模型默认采用动态思维，会根据请求的复杂程度自动调整推理力度。您可以使用 `thinking_level` 参数控制此行为。
+Model Gemini melakukan pemikiran dinamis secara default, dan otomatis menyesuaikan jumlah upaya penalaran berdasarkan kompleksitas permintaan. Anda dapat mengontrol perilaku ini menggunakan parameter `thinking_level`.
 
-| 模型 | 默认思维 | 支持的级别 |
+| Model | Pemikiran Default | Tingkat yang Didukung |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | 开启（高） | 低、中、高 |
-| gemini-3.1-flash-lite-image | 开启（极简） | 极简、高 |
-| gemini-3-flash-preview | 开启（高） | 极低、低、中、高 |
-| gemini-3-pro-preview | 开启（高） | 低、高 |
-| gemini-3.5-flash | 开启（中） | 极低、低、中、高 |
-| gemini-2.5-pro | 开启 | 低、中、高 |
-| gemini-2.5-flash | 开启 | 低、中、高 |
-| gemini-2.5-flash-lite | 关闭 | 低、中、高 |
+| gemini-3.6-flash | Aktif (sedang) | minimal, rendah, sedang, tinggi |
+| gemini-3.5-flash-lite | Aktif (minimal) | minimal, rendah, sedang, tinggi |
+| gemini-3.1-pro-preview | Aktif (tinggi) | rendah, sedang, tinggi |
+| gemini-3.1-flash-lite-image | Aktif (minimal) | minimal, tinggi |
+| gemini-3-flash-preview | Aktif (tinggi) | minimal, rendah, sedang, tinggi |
+| gemini-3-pro-preview | Aktif (tinggi) | rendah, tinggi |
+| gemini-3.5-flash | Aktif (sedang) | minimal, rendah, sedang, tinggi |
+| gemini-2.5-pro | Aktif | rendah, sedang, tinggi |
+| gemini-2.5-flash | Aktif | rendah, sedang, tinggi |
+| gemini-2.5-flash-lite | Nonaktif | rendah, sedang, tinggi |
 
 ### Python
 
@@ -330,7 +334,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Provide a list of 3 famous physicists and their key contributions",
     generation_config={
         "thinking_level": "low"
@@ -347,7 +351,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: "Provide a list of 3 famous physicists and their key contributions",
     generation_config: {
         thinking_level: "low"
@@ -363,7 +367,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Provide a list of 3 famous physicists and their key contributions",
     "generation_config": {
       "thinking_level": "low"
@@ -371,27 +375,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 思维签名
+## Tanda tangan penalaran
 
-思考特征是模型内部推理的加密表示形式。它们需要在多轮对话中保持推理的连续性。
+Tanda tangan penalaran adalah representasi terenkripsi dari penalaran internal model. Tanda tangan ini diperlukan untuk mempertahankan kontinuitas penalaran di seluruh interaksi multi-giliran.
 
-与 `generateContent` API 相比，Interactions API 可让处理意念签名变得更加简单。
+Interactions API membuat penanganan tanda tangan penalaran jauh lebih sederhana daripada `generateContent` API.
 
-### 有状态模式（推荐）
+### Mode stateful (Direkomendasikan)
 
-默认情况下，当您在有状态模式下使用 Interactions API（通过设置 `store: true` 并在后续轮次中传递 `previous_interaction_id`）时，服务器会自动管理对话状态，包括所有思考块和签名。在此模式下，您无需针对签名执行任何操作。它们完全在服务器端处理。
+Secara default, saat Anda menggunakan Interactions API dalam mode stateful (dengan menetapkan `store: true` dan meneruskan `previous_interaction_id` pada giliran berikutnya), server akan otomatis mengelola status percakapan, termasuk semua blok dan tanda tangan pemikiran. Dalam mode ini, Anda tidak perlu melakukan apa pun terkait tanda tangan. Tanda tangan ditangani sepenuhnya di sisi server.
 
-### 无状态模式
+### Mode stateless
 
-如果您自行管理对话状态（无状态模式），并在每次请求中传递完整的输入和输出历史记录，请执行以下操作：
+Jika Anda mengelola status percakapan sendiri (mode stateless) dan meneruskan histori lengkap input dan output di setiap permintaan:
 
-- 您**必须**始终完全按照从模型收到的方式重新发送所有 `thought` 代码块。
-- 您**不应**从历史记录中移除或修改思考块，因为它们包含模型继续推理所需的签名。
-- 在会话中切换模型时，您仍应重新发送之前模型的思考块。后端管理兼容性。
+- Anda **HARUS** selalu mengirim ulang semua blok `thought` persis seperti yang diterima dari model.
+- Anda **TIDAK BOLEH** menghapus atau mengubah blok pemikiran dari histori, karena blok tersebut berisi tanda tangan yang diperlukan agar model dapat melanjutkan penalarannya.
+- Saat beralih model dalam sesi, Anda tetap harus mengirim ulang blok pemikiran model sebelumnya. Backend mengelola kompatibilitas.
 
-## 价格
+## Harga
 
-开启思考功能后，回答价格是输出 token 和思考 token 的总和。您可以从 `total_thought_tokens` 字段获取生成的思考令牌总数。
+Jika pemikiran diaktifkan, harga respons adalah jumlah token output dan token pemikiran. Anda bisa mendapatkan jumlah total token pemikiran yang dihasilkan dari kolom `total_thought_tokens`.
 
 ### Python
 
@@ -407,32 +411,33 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-思考模型会生成完整的想法，以提高最终回答的质量，然后输出[总结](#summaries)，以便深入了解思考过程。定价基于模型需要生成的完整思考令牌，尽管 API 只输出摘要。
+Model berpikir menghasilkan pemikiran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](#summaries) untuk memberikan insight tentang proses
+berpikir. Harga didasarkan pada token pemikiran lengkap yang perlu dihasilkan model, meskipun hanya ringkasan yang dihasilkan dari API.
 
-如需详细了解令牌，请参阅[令牌计数](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn)指南。
+Anda dapat mempelajari token lebih lanjut di panduan [Penghitungan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id).
 
-## 最佳做法
+## Praktik terbaik
 
-遵循以下准则，可高效使用思考模型。
+Gunakan model berpikir secara efisien dengan mengikuti panduan ini.
 
-- **查看推理过程**：分析思维总结，了解失败原因并改进提示。
-- **控制思考预算**：提示模型减少思考，以节省 token。
-- **简单任务**：使用最少或少量思考来检索事实或进行分类（例如“DeepMind 是在哪里成立的？”）。
-- **中等任务**：使用默认的思考模式来比较概念或进行创意推理（例如，比较电动汽车和混合动力汽车）。
-- **复杂任务**：使用最大思考量来完成高级编码、数学或多步规划任务（例如，解决 AIME 数学问题）。
+- **Tinjau penalaran**: Analisis ringkasan pemikiran untuk memahami kegagalan dan meningkatkan perintah.
+- **Kontrol anggaran pemikiran**: Minta model untuk berpikir lebih sedikit untuk output yang panjang guna menghemat token.
+- **Tugas sederhana**: Gunakan pemikiran minimal atau rendah untuk pengambilan atau klasifikasi fakta (misalnya, "Di mana DeepMind didirikan?").
+- **Tugas sedang**: Gunakan pemikiran default untuk membandingkan konsep atau penalaran kreatif (misalnya, Bandingkan mobil listrik dan mobil hybrid).
+- **Tugas kompleks**: Gunakan pemikiran maksimum untuk coding, matematika, atau perencanaan multi-langkah tingkat lanjut (misalnya, Selesaikan soal matematika AIME).
 
-## 后续步骤
+## Langkah berikutnya
 
-- [文本生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn)：基本文本回答
-- [函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)：连接到工具
-- [Gemini 3 指南](https://ai.google.dev/gemini-api/docs/gemini-3?hl=zh-cn)：特定于模型的功能
+- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id): Respons teks dasar
+- [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id): Menghubungkan ke alat
+- [Panduan Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=id): Fitur khusus model
 
-发送反馈
+Kirim masukan
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最后更新时间 (UTC)：2026-07-06。
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-需要向我们提供更多信息？
+Ada masukan untuk kami?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-06。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

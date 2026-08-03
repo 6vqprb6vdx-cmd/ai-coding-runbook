@@ -1,38 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=tr
-fetched_at: 2026-07-27T04:35:37.987813+00:00
-title: "Yap\u0131land\u0131r\u0131lm\u0131\u015f \u00e7\u0131k\u0131\u015flar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ko
+fetched_at: 2026-08-03T04:30:54.348812+00:00
+title: "\uad6c\uc870\ud654\ub41c \ucd9c\ub825 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Geri bildirim gönderin
+의견 보내기
 
-# Yapılandırılmış çıkışlar
+# 구조화된 출력
 
-Gemini modellerini, sağlanan bir JSON şemasına uygun yanıtlar oluşturacak şekilde yapılandırabilirsiniz. Bu sayede, tahmin edilebilir ve tür açısından güvenli sonuçlar elde edilir. Ayrıca, yapılandırılmamış metinlerden yapılandırılmış verilerin ayıklanması kolaylaşır.
+제공된 JSON 스키마를 준수하는 응답을 생성하도록 Gemini 모델을 구성할 수 있습니다. 이렇게 하면 예측 가능하고 유형이 안전한 결과를 얻을 수 있으며 구조화되지 않은 텍스트에서 구조화된 데이터를 추출하는 작업이 간소화됩니다.
 
-Yapılandırılmış çıkışlar şu durumlarda idealdir:
+구조화된 출력은 다음 작업에 적합합니다.
 
-- **Veri ayıklama:** Metinden adlar ve tarihler gibi belirli bilgileri alın.
-- **Yapılandırılmış sınıflandırma:** Metni önceden tanımlanmış kategorilere göre sınıflandırın.
-- **Ajan tabanlı iş akışları:** Araçlar veya API'ler için yapılandırılmış girişler oluşturun.
+- **데이터 추출:** 텍스트에서 이름, 날짜와 같은 특정 정보를 가져옵니다.
+- **구조화된 분류:** 텍스트를 사전 정의된 카테고리로 분류합니다.
+- **에이전트 워크플로:** 도구 또는 API의 구조화된 입력을 생성합니다.
 
-Google GenAI SDK'ları, REST API'de JSON şemasını desteklemenin yanı sıra [Pydantic](https://docs.pydantic.dev/latest/) (Python) ve [Zod](https://zod.dev/) (JavaScript) kullanılarak şemaların tanımlanmasına da olanak tanır.
+REST API에서 JSON 스키마를 지원하는 것 외에도 Google GenAI SDK를 사용하면
+다음과 같이 스키마를 정의할 수 있습니다.
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) 및
+[Zod](https://zod.dev/) (자바스크립트)
 
-## Yapılandırılmış çıkış örnekleri
+## 구조화된 출력 예
 
-### Recipe Extractor
+### 레시피 추출기
 
-Bu örnekte, `object`, `array`, `string` ve `integer` gibi temel JSON şema türlerini kullanarak metinden yapılandırılmış verilerin nasıl ayıklanacağı gösterilmektedir.
+이 예에서는 `object`, `array`, `string`, `integer`와 같은 기본 JSON 스키마 유형을 사용하여 텍스트에서 구조화된 데이터를 추출하는 방법을 보여줍니다.
 
 ### Python
 
@@ -68,7 +71,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 """
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -137,7 +140,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -157,7 +160,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": "Please extract the recipe from the following text.\nThe user wants to make delicious chocolate chip cookies.\nThey need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,\n1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,\n3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.\nFor the best part, they will need 2 cups of semisweet chocolate chips.\nFirst, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,\nbaking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar\nuntil light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry\ningredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons\nonto ungreased baking sheets and bake for 9 to 11 minutes.",
       "response_format": {
         "type": "text",
@@ -196,7 +199,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Örnek Yanıt:**
+**응답 예:**
 
 ```
 {
@@ -224,9 +227,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### İçerik Denetimi
+### 콘텐츠 검토
 
-Bu örnekte, koşullu şemalar için `anyOf`, sınıflandırma için `enum` gösterilmektedir. Böylece, çıkış yapısının içeriğe göre değişmesine olanak tanınır.
+이 예에서는 조건부 스키마의 `anyOf`와 분류의 `enum`을 보여주며, 이를 통해 콘텐츠에 따라 출력 구조를 다르게 지정할 수 있습니다.
 
 ### Python
 
@@ -254,7 +257,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 """
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -315,7 +318,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -335,7 +338,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": "Please moderate the following content and provide a decision.\nContent: '\''Congratulations! You have won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'\''",
       "response_format": {
         "type": "text",
@@ -375,7 +378,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Örnek Yanıt:**
+**응답 예:**
 
 ```
 {
@@ -386,9 +389,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Yinelemeli Yapılar
+### 재귀 구조
 
-Bu örnekte, kuruluş şeması gibi yinelemeli bir şemanın nasıl tanımlanacağı gösterilmektedir.
+이 예에서는 조직도와 같은 재귀 스키마를 정의하는 방법을 보여줍니다.
 
 ### Python
 
@@ -414,7 +417,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 """
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -460,7 +463,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -480,7 +483,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": "Generate an organization chart for a small team.\nThe manager is Alice, who manages Bob and Charlie. Bob manages David.",
       "response_format": {
         "type": "text",
@@ -505,7 +508,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Örnek Yanıt:**
+**응답 예:**
 
 ```
 {
@@ -532,9 +535,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Yayın sonuçları
+## 스트리밍 결과
 
-Yapılandırılmış çıkışları yayınlayarak yanıt oluşturulurken işlemeye başlamanıza olanak tanır. Yayınlanan parçalar, son JSON nesnesini oluşturmak için birleştirilebilen geçerli kısmi JSON dizeleridir.
+구조화된 출력을 스트리밍하여 응답이 생성되는 즉시 처리를 시작할 수 있습니다. 스트리밍된 청크는 최종 JSON 객체를 형성하기 위해 연결할 수 있는 유효한 부분 JSON 문자열입니다.
 
 ### Python
 
@@ -551,7 +554,7 @@ client = genai.Client()
 prompt = "The new UI is incredibly intuitive. Add a very long summary to test streaming!"
 
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -587,7 +590,7 @@ const feedbackSchema = z.fromJSONSchema(feedbackJsonSchema);
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: "The new UI is incredibly intuitive. Add a very long summary!",
   response_format: {
     type: 'text',
@@ -613,7 +616,7 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": "The new UI is incredibly intuitive. Add a very long summary!",
       "response_format": {
         "type": "text",
@@ -631,9 +634,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## Araçlarla yapılandırılmış çıkışlar
+## 도구를 사용한 구조화된 출력
 
-Gemini 3, Yapılandırılmış Çıkışları [Google Arama ile Temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr), [URL Bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr), [Kod Yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr), [Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr#structured-output) ve [İşlev Çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) gibi yerleşik araçlarla birleştirmenize olanak tanır.
+Gemini 3를 사용하면 Google 검색을 사용한 그라운딩
+, URL 컨텍스트
+, 코드 실행
+, 파일 검색
+, 함수 호출
+을 비롯한 기본 제공 도구와 구조화된 출력을 결합할 수 있습니다.
 
 ### Python
 
@@ -726,79 +734,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## JSON şeması desteği
+## JSON 스키마 지원
 
-JSON nesnesi oluşturmak için `response_format` öğesini `text` türünde bir nesneyle (veya nesne içeren bir diziyle) yapılandırın ve `mime_type` özelliğini `application/json` olarak ayarlayın. Şema, `schema` alanında sağlanmalıdır.
+JSON 객체를 생성하려면 `text` 유형의 객체 (또는 객체를 포함하는 배열)로 `response_format`을 구성하고 `mime_type`을 `application/json`으로 설정합니다. 스키마는 `schema` 필드에 제공되어야 합니다.
 
-Gemini'ın yapılandırılmış çıkış modu, [JSON şeması](https://json-schema.org/) spesifikasyonunun bir alt kümesini destekler.
+Gemini의 구조화된 출력 모드는
+[JSON 스키마](https://json-schema.org/) 사양의 하위 집합을 지원합니다.
 
-`type` için aşağıdaki değerler desteklenir:
+다음 `type` 값이 지원됩니다.
 
-- **`string`**: Metin için.
-- **`number`**: Kayan noktalı sayılar için.
-- **`integer`**: Tam sayılar için.
-- **`boolean`**: Doğru veya yanlış değerler için.
-- **`object`**: Anahtar/değer çiftleri içeren yapılandırılmış veriler için.
-- **`array`**: Öğe listeleri için.
-- **`null`**: Bir özelliğin null olmasına izin vermek için tür dizisine `"null"` değerini ekleyin (ör. `{"type": ["string", "null"]}`).
+- **`string`**: 텍스트용
+- **`number`**: 부동 소수점 숫자용
+- **`integer`**: 정수용
+- **`boolean`**: true 또는 false 값용
+- **`object`**: 키-값 쌍이 있는 구조화된 데이터용
+- **`array`**: 항목 목록용
+- **`null`**: 속성이 null이 되도록 허용하려면 유형 배열에 `"null"`을 포함합니다 (예: `{"type": ["string", "null"]}`).
 
-Bu açıklayıcı özellikler, modele yol göstermeye yardımcı olur:
+이러한 설명 속성은 모델을 안내하는 데 도움이 됩니다.
 
-- **`title`**: Bir mülkün kısa açıklaması.
-- **`description`**: Bir tesisin daha uzun ve ayrıntılı açıklaması.
+- **`title`**: 속성에 대한 간단한 설명입니다.
+- **`description`**: 속성에 대한 더 길고 자세한 설명입니다.
 
-### Türe özgü özellikler
+### 유형별 속성
 
-**`object` değerleri için:**
+**`object` 값의 경우:**
 
-- **`properties`**: Her anahtarın bir özellik adı, her değerin ise söz konusu özelliğin şeması olduğu bir nesne.
-- **`required`**: Hangi özelliklerin zorunlu olduğunu listeleyen bir dize dizisi.
-- **`additionalProperties`**: `properties` içinde listelenmeyen özelliklere izin verilip verilmeyeceğini kontrol eder. Boole veya şema olabilir.
+- **`properties`**: 각 키가 속성 이름이고 각 값이 해당 속성의 스키마인 객체입니다.
+- **`required`**: 필수 속성을 나열하는 문자열 배열입니다.
+- **`additionalProperties`**: `properties`에 나열되지 않은 속성이 허용되는지 여부를 제어합니다. 불리언 또는 스키마일 수 있습니다.
 
-**`string` değerleri için:**
+**`string` 값의 경우:**
 
-- **`enum`**: Sınıflandırma görevleri için olası dizelerin belirli bir kümesini listeler.
-- **`format`**: Dize için `date-time`, `date`, `time` gibi bir söz dizimi belirtir.
+- **`enum`**: 분류 작업에 사용할 수 있는 특정 문자열 집합을 나열합니다.
+- **`format`**: `date-time`, `date`, `time`과 같은 문자열의 구문을 지정합니다.
 
-**`number` ve `integer` değerleri için:**
+**`number` 및 `integer` 값의 경우:**
 
-- **`enum`**: Olası sayısal değerlerin belirli bir kümesini listeler.
-- **`minimum`**: Minimum dahil edilen değer.
-- **`maximum`**: Maksimum dahil edilen değer.
+- **`enum`**: 가능한 특정 숫자 값 집합을 나열합니다.
+- **`minimum`**: 최소 포함 값입니다.
+- **`maximum`**: 최대 포함 값입니다.
 
-**`array` değerleri için:**
+**`array` 값의 경우:**
 
-- **`items`**: Dizideki tüm öğelerin şemasını tanımlar.
-- **`prefixItems`**: İlk N öğe için bir şema listesi tanımlar ve demet benzeri yapılara izin verir.
-- **`minItems`**: Dizideki minimum öğe sayısı.
-- **`maxItems`**: Dizideki maksimum öğe sayısı.
+- **`items`**: 배열의 모든 항목에 대한 스키마를 정의합니다.
+- **`prefixItems`**: 첫 번째 N개 항목의 스키마 목록을 정의하여 튜플과 같은 구조를 허용합니다.
+- **`minItems`**: 배열의 최소 항목 수입니다.
+- **`maxItems`**: 배열의 최대 항목 수입니다.
 
-## Yapılandırılmış çıkışlar ve işlev çağrısı
+## 구조화된 출력과 함수 호출 비교
 
-| Özellik | Birincil Kullanım Alanı |
+| 기능 | 주된 사용 사례 |
 | --- | --- |
-| **Yapılandırılmış Çıkışlar** | **Son yanıtı biçimlendirme** Modelin *yanıtının* belirli bir biçimde olmasını istediğinizde kullanın. |
-| **İşlev Çağırma** | **Sohbet sırasında işlem yapma** Modelin nihai yanıtı vermeden önce bir görevi *yapmanızı istemesi* gerektiğinde kullanılır. |
+| **구조화된 출력** | **최종 응답의 형식을 지정합니다.** 모델의 *답변* 을 특정 형식으로 지정하려는 경우에 사용합니다. |
+| **함수 호출** | **대화 중에 작업을 실행합니다.** 모델이 최종 답변을 제공하기 전에 작업을 실행하도록 *요청* 해야 하는 경우에 사용합니다. |
 
-## En iyi uygulamalar
+## 권장사항
 
-- **Net açıklamalar:** Modeli yönlendirmek için `description` alanını kullanın.
-- **Güçlü tür belirleme:** Belirli türleri (`integer`, `string`, `enum`) kullanın.
-- **İstem mühendisliği:** Modelin ne yapmasını istediğinizi açıkça belirtin.
-- **Doğrulama:** Çıkış söz dizimi açısından doğru JSON olsa da uygulamanızdaki değerleri her zaman doğrulayın.
-- **Hata yönetimi:** Şemaya uygun ancak semantik olarak yanlış çıktılar için etkili hata yönetimi uygulayın.
+- **명확한 설명:** `description` 필드를 사용하여 모델을 안내합니다.
+- **강력한 유형 지정:** 특정 유형 (`integer`, `string`, `enum`)을 사용합니다.
+- **프롬프트 엔지니어링:** 모델이 수행해야 하는 작업을 명확하게 명시합니다.
+- **유효성 검사:** 출력은 문법적으로 올바른 JSON이지만 항상 애플리케이션에서 값을 검증합니다.
+- **오류 처리:** 스키마를 준수하지만 의미상으로 잘못된 출력에 대해 강력한 오류 처리를 구현합니다.
 
-## Sınırlamalar
+## 제한사항
 
-- **Şema alt kümesi:** Tüm JSON şema özellikleri desteklenmez.
-- **Şema karmaşıklığı:** Çok büyük veya derin şekilde iç içe yerleştirilmiş şemalar reddedilebilir.
+- **스키마 하위 집합:** 모든 JSON 스키마 기능이 지원되는 것은 아닙니다.
+- **스키마 복잡성:** 매우 크거나 깊게 중첩된 스키마는 거부될 수 있습니다.
 
-Geri bildirim gönderin
+의견 보내기
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Son güncelleme tarihi: 2026-07-07 UTC.
+최종 업데이트: 2026-07-30(UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+의견을 전달하고 싶나요?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-07 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]

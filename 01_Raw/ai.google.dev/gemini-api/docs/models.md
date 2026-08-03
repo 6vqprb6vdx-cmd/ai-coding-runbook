@@ -1,401 +1,418 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models?hl=ar
-fetched_at: 2026-07-27T04:45:18.785200+00:00
-title: "\u0627\u0644\u0637\u0631\u064f\u0632 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models?hl=de
+fetched_at: 2026-08-03T04:27:44.873183+00:00
+title: "Modelle \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-إرسال ملاحظات
+Feedback geben
 
-# الطرُز
+# Modelle
 
-يعرّفك هذا الدليل على جميع النماذج المتاحة من خلال Gemini API.
+In diesem Leitfaden werden alle Modelle vorgestellt, die über die Gemini API verfügbar sind.
 
 ---
 
-## Gemini 3
+## Gemini 3
 
-### إسطبل
+### Stabil
 
 [spark
 
-### Gemini 3.5 Flash
+### Gemini 3.6 Flash
 
-النموذج الأكثر ذكاءً لتحقيق أداء متقدّم مستمر في مهام الذكاء الاصطناعي الوكيل والترميز
+Unser neuestes Modell, das Geschwindigkeit und Intelligenz in Einklang bringt, um eine hohe Leistung bei agentischen und multimodalen Aufgaben zu erzielen.
 
-إسطبل](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar)
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de)
+[spark
+
+### Gemini 3.5 Flash
+
+Das intelligenteste Modell für dauerhafte Spitzenleistung bei agentischen und Coding-Aufgaben.
+
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de)
 [bolt
 
-### Gemini 3.1 Flash-Lite
+### Gemini 3.5 Flash-Lite
 
-أداء فائق يضاهي النماذج الأكبر حجمًا بجزء بسيط من التكلفة
+Unser schnellstes und kostengünstigstes 3.5-Modell für die Ausführung mit hohem Durchsatz.
 
-إسطبل](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar)
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de)
+[bolt
+
+### Gemini 3.1 Flash Lite
+
+Leistung auf Frontier-Niveau, die mit größeren Modellen mithalten kann, zu einem Bruchteil der Kosten.
+
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de)
 [🍌🍌
 
-### Nano Banana 2
+### Nano Banana 2
 
-إنشاء الصور وتعديلها بكفاءة عالية وبطريقة فعّالة، مع تحسين الأداء للسرعة وحالات الاستخدام التي تتضمّن عددًا كبيرًا من الصور
+Leistungsstarke, hocheffiziente Bildgenerierung und ‑bearbeitung, optimiert für Geschwindigkeit und Anwendungsfälle mit hohem Volumen.
 
-إسطبل](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ar)
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=de)
 [🍌
 
-### Nano Banana 2 Lite
+### Nano Banana 2 Lite
 
-إنشاء الصور وتعديلها بوقت استجابة فائق السرعة وبتكلفة فعّالة، ومصمَّمة لحالات الاستخدام التفاعلية ذات الحجم الكبير
+Extrem niedrige Latenz und kostengünstige Bildgenerierung und ‑bearbeitung für interaktive Anwendungsfälle mit hohem Volumen.
 
-إسطبل](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=ar)
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=de)
 [🍌
 
 ### Nano Banana Pro
 
-نماذج متطورة لإنشاء الصور وتعديلها من أجل إنشاء صور أصلية عالية الصلة بالسياق
+Hochmoderne Modelle für die Bildgenerierung und ‑bearbeitung für die kontextbezogene Erstellung nativer Bilder.
 
-إسطبل](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ar)
+Stabil](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=de)
 
-### معاينة
+### Vorschau
 
 [auto\_awesome
 
-### Gemini 3.1 Pro
+### Gemini 3.1. Pro
 
-يتمتّع بقدرات متقدّمة في الذكاء وحلّ المشاكل المعقّدة، بالإضافة إلى إمكانات قوية في الترميز المستقل والبرمجة الحدسية.
+Fortschrittliche Intelligenz, Fähigkeiten zur Lösung komplexer Probleme und leistungsstarke Funktionen für die Programmierung von Agenten und Vibe Coding.
 
-معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar)
+Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de)
 [spark
 
-### Gemini 3 Flash
+### Gemini 3 Flash
 
-أداء فائق يضاهي النماذج الأكبر حجمًا بجزء بسيط من التكلفة
+Leistung auf Frontier-Niveau, die mit größeren Modellen mithalten kann, zu einem Bruchteil der Kosten.
 
-معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar)
+Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de)
 [translate
 
-### ‫Gemini 3.5 Live Translate
+### Gemini 3.5 Live-Übersetzung
 
-نموذج ترجمة الكلام في الوقت الفعلي وبزمن استجابة منخفض، ويتوافق مع أكثر من 70 لغة.
+Modell für die Echtzeit-Sprachübersetzung mit geringer Latenz, das über 70 Sprachen unterstützt.
 
-معاينة جديدة](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=ar)
+Neu: Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=de)
 [settings\_voice
 
-### ‫Gemini 3.1 Flash Live
+### Gemini 3.1 Flash Live
 
-نموذج Live API عالي الجودة ومنخفض الاستجابة لتطبيقات الذكاء الاصطناعي التي تعتمد على الحوار والصوت في الوقت الفعلي
+Hochwertiges Live API-Modell mit niedriger Latenz für Echtzeitdialoge und KI-Anwendungen, die auf Sprache basieren.
 
-معاينة جديدة](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ar)
+Neu: Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de)
 [graphic\_eq
 
-### Gemini 3.1 Flash TTS
+### Gemini 3.1 Flash TTS
 
-إنشاء كلام قوي بوقت استجابة سريع
+Leistungsstarke Sprachgenerierung mit geringer Latenz.
 
-معاينة جديدة](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ar)
+Neu: Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=de)
 [movie\_filter
 
 ### Gemini Omni Flash
 
-إنشاء فيديوهات وتعديلها بسرعة وبأسلوب حواري يمكنك تحويل النصوص والصور إلى فيديوهات، وتحسين النتائج باستخدام اللغة الطبيعية.
+Schnelles, konversationelles Generieren und Bearbeiten von Videos. Sie können Text und Bilder in Videos umwandeln und die Ergebnisse mithilfe natürlicher Sprache optimieren.
 
-معاينة جديدة](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=ar)
+Neu: Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=de)
 
 ---
 
-## Gemini 2.5 Flash
+## Gemini 2.5 Flash
 
 bolt
 
-### [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar)
+### [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de)
 
-هذا النموذج هو الأفضل من حيث السعر والأداء للمهام التي تتطلّب سرعة استجابة عالية ومعدّل نقل بيانات مرتفعًا.
+Unser bestes Preis-Leistungs-Modell für latenzarme Aufgaben mit hohem Volumen, die Reasoning erfordern.
 
 image\_search
 
-### [Nano Banana](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar)
+### [Nano Banana](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=de)
 
-تكنولوجيا متطورة لإنشاء الصور وتعديلها مصمَّمة لتسريع سير العمل الإبداعي
+Hochmoderne native Bildgenerierung und ‑bearbeitung für schnelle, kreative Workflows.
 
 settings\_voice
 
-### [إصدار معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=ar) من Gemini 2.5 Flash Live
+### [Gemini 2.5 Flash Live Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=de)
 
-تم تحسينه ليتوافق مع وكلاء المحادثات في الوقت الفعلي مع إمكانية بث الصوت الأصلي في أقل من ثانية.
+Optimiert für Konversationsagenten in Echtzeit mit nativem Audio-Streaming in weniger als einer Sekunde.
 
 record\_voice\_over
 
-### [معاينة ميزة تحويل النص إلى كلام في Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=ar)
+### [Gemini 2.5 Flash TTS Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=de)
 
-إنشاء صوت قابل للتحكّم فيه من خلال تحويل النص إلى كلام مع إمكانية التحكّم بدقة في الأسلوب والسرعة
+Steuerbare Text-zu-Sprache-Audio-Generierung mit präziser Steuerung von Stil und Tempo.
 
 ---
 
-## Gemini 2.5 Flash-Lite
+## Gemini 2.5 Flash-Lite
 
 speed
 
-### [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar)
+### [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de)
 
-أسرع نموذج متعدّد الوسائط وأكثرها ملاءمةً للميزانية في فئة 2.5
+Das schnellste und kostengünstigste multimodale Modell der 2.5-Familie.
 
 ---
 
-## Gemini 2.5 Pro
+## Gemini 2.5 Pro
 
 psychology
 
-### [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar)
+### [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de)
 
-هذا النموذج هو الأكثر تطورًا لدينا لإنجاز المهام المعقّدة، وهو يقدّم إمكانات ترميز واستدلال عميق.
+Unser fortschrittlichstes Modell für komplexe Aufgaben mit tiefgreifenden Schlussfolgerungs- und Programmierfunktionen.
 
 record\_voice\_over
 
-### [معاينة ميزة تحويل النص إلى كلام في Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ar)
+### [Gemini 2.5 Pro TTS Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=de)
 
-توليف الكلام بدقة عالية محسّن لتوفير جودة عالية في سير العمل المنظَّم، مثل ملفات البودكاست والكتب الصوتية
+Sprachsynthese mit hoher Wiedergabetreue, die für Qualität in strukturierten Workflows wie Podcasts und Hörbüchern optimiert ist.
 
 ---
 
-## نماذج الصوت
+## Audiomodelle
 
-*يحتوي هذا القسم على جميع النماذج الصوتية،
-بما في ذلك النماذج التي قد تكون مدرَجة في أقسام أخرى*
+*Dieser Abschnitt enthält alle Audiomodelle, auch solche, die möglicherweise bereits in anderen Abschnitten aufgeführt sind.*
 
 settings\_input\_antenna
 
-### [‫Gemini 3.1 Flash Live معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ar)
+### [Gemini 3.1 Flash Live Vorabversion](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de)
 
-نموذجنا العالي الجودة والمنخفض الاستجابة من الصوت إلى الصوت (A2A) والمصمَّم للحوار في الوقت الفعلي وتطبيقات الذكاء الاصطناعي التي تعتمد على الصوت.
+Unser hochwertiges Audio-zu-Audio-Modell (A2A) mit geringer Latenz wurde für Echtzeitdialoge und KI-Anwendungen mit Sprachsteuerung entwickelt.
 
 graphic\_eq
 
-### [إصدار معاينة من Gemini 3.1 Flash لتحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ar)
+### [Gemini 3.1 Flash TTS Vorabversion](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=de)
 
-تكنولوجيا قوية لإنشاء الكلام بزمن استجابة منخفض، مع مخرجات طبيعية ومطالبات قابلة للتوجيه وعلامات صوتية تعبيرية جديدة للتحكّم بدقة في السرد
+Leistungsstarke Sprachgenerierung mit geringer Latenz, natürlichen Ausgaben, steuerbaren Prompts und neuen ausdrucksstarken Audio-Tags für eine präzise Steuerung der Sprachausgabe.
 
 settings\_voice
 
-### [إصدار معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=ar) من Gemini 2.5 Flash Live
+### [Gemini 2.5 Flash Live Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=de)
 
-نموذج واجهة برمجة التطبيقات Live API الرائد الذي يتيح إنشاء وكلاء صوت وفيديو ثنائيي الاتجاه بزمن استجابة منخفض، مع إمكانية تحليل الصوت بشكل مدمج.
+Unser Flaggschiff-Live API-Modell für bidirektionale Sprach- und Videoagenten mit geringer Latenz und nativer Audioanalyse.
 
 bolt
 
-### [معاينة ميزة تحويل النص إلى كلام في Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=ar)
+### [Gemini 2.5 Flash TTS Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=de)
 
-تحويل سريع للّغة المكتوبة إلى منطوقة يمكن التحكّم فيه للتطبيقات التي تتطلّب وقت استجابة منخفضًا وفعالية من حيث التكلفة والمساعدين في الوقت الفعلي
+Schnelle und steuerbare Sprachsynthese für kostengünstige Anwendungen mit geringer Latenz und Echtzeit-Assistenten.
 
 record\_voice\_over
 
-### [معاينة ميزة تحويل النص إلى كلام في Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ar)
+### [Gemini 2.5 Pro TTS Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=de)
 
-توليف الكلام بدقة عالية محسّن لتوفير جودة عالية في سير العمل المنظَّم، مثل ملفات البودكاست والكتب الصوتية
+Sprachsynthese mit hoher Wiedergabetreue, die für Qualität in strukturierten Workflows wie Podcasts und Hörbüchern optimiert ist.
 
 ---
 
-## نماذج تقنيات إنشاء الوسائط استنادًا إلى الذكاء الاصطناعي التوليدي
+## Generative Medienmodelle
 
-*يحتوي هذا القسم على جميع نماذج الوسائط من إنشاء الذكاء الاصطناعي التوليدي،
-بما في ذلك النماذج التي قد تكون مدرَجة في أقسام أخرى*
+*Dieser Abschnitt enthält alle generativen Media-Modelle, auch solche, die möglicherweise bereits in anderen Abschnitten aufgeführt sind.*
 
 blur\_on
 
-### [Nano Banana 2](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ar)
+### [Nano Banana 2](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=de)
 
-إنشاء صور مرئية على نطاق واسع بكفاءة عالية، مع الجمع بين ذكاء سلسلة Gemini 3 وسرعات إنشاء فائقة.
+Hocheffiziente visuelle Inhalte in Produktionsqualität erstellen – mit der Intelligenz der Gemini 3-Serie und blitzschnellen Generierungsgeschwindigkeiten.
 
 image\_edit
 
-### [‫Nano Banana 2 Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=ar)
+### [Nano Banana 2 Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=de)
 
-تم تصميمها لتكون متخصصة في الكفاءة ضمن مجموعة أدوات إنشاء الصور، وتوفّر زمن استجابة منخفضًا للغاية وإنشاء صور وتعديلها بفعالية من حيث التكلفة.
+Dieses Modell wurde als Effizienzspezialist der Bildgenerierungsfamilie entwickelt und bietet eine extrem niedrige Latenz sowie eine kostengünstige Bildgenerierung und ‑bearbeitung.
 
 movie\_filter
 
-### [‫Veo 3.1 معاينة](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=ar)
+### [Veo 3.1 Preview](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=de)
 
-إنشاء فيديوهات سينمائية حديثة مع عناصر تحكّم إبداعية متقدّمة ومحتوى صوتي متزامن بشكلٍ أصلي
+Hochmoderne filmische Videogenerierung mit erweiterten kreativen Steuerungselementen und nativ synchronisiertem Audio.
 
 image\_edit
 
-### [‫Nano Banana Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ar)
+### [Nano Banana Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=de)
 
-محرك تصميم احترافي مزوّد بنظام أساسي للاستدلال لإنشاء مرئيات بدقة 4K بجودة الاستوديو وتصاميم معقّدة وعرض دقيق للنصوص
+Eine professionelle Design-Engine mit einem Reasoning-Kern für 4K-Visuals in Studioqualität, komplexe Layouts und präzises Textrendering.
 
 movie\_edit
 
-### [‫Veo 3.1 Lite معاينة](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=ar)
+### [Veo 3.1 Lite Vorschau](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=de)
 
-إنشاء فيديوهات وتعديلها والتحكّم بها بشكل سينمائي بكفاءة عالية وبتكلفة منخفضة، مع إعطاء الأولوية للمطوّرين، وذلك من خلال عائلة Veo 3.1.
+Hocheffiziente, kostengünstige Videogenerierung, ‑bearbeitung und filmreife Steuerung für Entwickler aus der Veo 3.1-Familie.
 
 movie\_filter
 
-### [إصدار Gemini Omni Flash معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=ar)
+### [Gemini Omni Flash Vorabversion](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=de)
 
-إنشاء فيديوهات وتعديلها بسرعة وبأسلوب حواري يمكنك تحويل النصوص والصور إلى فيديوهات، وتحسين النتائج باستخدام اللغة الطبيعية.
+Schnelles, konversationelles Generieren und Bearbeiten von Videos. Sie können Text und Bilder in Videos umwandeln und die Ergebnisse mithilfe natürlicher Sprache optimieren.
 
 image\_search
 
-### [Nano Banana](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar)
+### [Nano Banana](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=de)
 
-تكنولوجيا متطورة لإنشاء الصور وتعديلها مصمَّمة لتسريع سير العمل الإبداعي
+Hochmoderne native Bildgenerierung und ‑bearbeitung für schnelle, kreative Workflows.
 
 palette
 
-### [‫Imagen 4 متوقّف نهائيًا](https://ai.google.dev/gemini-api/docs/models/imagen?hl=ar)
+### [Imagen 4 Nicht mehr verfügbar](https://ai.google.dev/gemini-api/docs/models/imagen?hl=de)
 
-نموذج تحويل النص إلى صورة، ويتميّز بسرعة فائقة في إنشاء الصور ووضوح استثنائي يصل إلى درجة الدقة 2K.
+Text-zu-Bild-Modell, das sich durch schnelle und ultraschnelle Generierung und außergewöhnliche Klarheit bei einer Auflösung von bis zu 2K auszeichnet.
 
 ---
 
-## نماذج إنشاء الموسيقى
+## Modelle zur Musikgenerierung
 
-*يتضمّن هذا القسم جميع نماذج إنشاء الموسيقى،
-بما في ذلك النماذج التي قد تكون مدرَجة في أقسام أخرى*
+*Dieser Abschnitt enthält alle Modelle zur Musikgenerierung, auch solche, die möglicherweise bereits in anderen Abschnitten aufgeführt sind.*
 
 music\_note
 
-### [معاينة](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=ar) ‫Lyria 3 Pro
+### [Lyria 3 Pro Vorschau](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=de)
 
-هذا النموذج هو الأبرز لدينا في مجال إنشاء الموسيقى، وهو محسَّن لإنشاء أغانٍ كاملة الطول تتضمّن بنية معقّدة ومتماسكة.
+Unser Flagship-Modell für die Musikgenerierung, optimiert für Songs in voller Länge mit komplexer struktureller Kohärenz.
 
 music\_note\_2
 
-### [معاينة Lyria 3 Clip](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=ar)
+### [Lyria 3 Clip Vorschau](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=de)
 
-تم تحسينه لإنشاء مقاطع موسيقية قصيرة وحلقات ومعاينات تصل مدتها إلى 30 ثانية.
+Optimiert für die Generierung kurzer Musikclips, Loops und Vorschauen von bis zu 30 Sekunden Länge.
 
 music\_history
 
-### [Lyria RealTime تجريبي](https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=ar)
+### [Lyria RealTime Experimentell](https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=de)
 
-نموذج لإنشاء موسيقى عالية الدقة يوفّر تحكّمًا دقيقًا في الإبداع وإمكانات البث في الوقت الفعلي
+Modell zur Musikgenerierung mit hoher Qualität, das eine detaillierte kreative Kontrolle und Echtzeit-Streaming ermöglicht.
 
 ---
 
-## أدوات ونماذج الوكلاء
+## Tool- und Agent-Modelle
 
 desktop\_windows
 
-### [استخدام الكمبيوتر معاينة](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ar)
+### [Computer Use Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=de)
 
-نموذج متخصص يمكنه "رؤية" شاشة رقمية وتنفيذ إجراءات واجهة المستخدم، مثل النقر والكتابة والتنقّل لأتمتة مهام المتصفّح المعقّدة.
-
-travel\_explore
-
-### [معاينة Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=ar)
-
-نموذج مستنِد إلى الذكاء الاصطناعي الوكيل يخطّط وينفّذ بشكل مستقل عمليات بحث متعدّدة الخطوات في مئات المصادر لإنشاء تقارير تفاعلية مع الإشارة إلى المصادر
+Ein spezialisiertes Modell, das einen digitalen Bildschirm „sehen“ und Benutzeroberflächenaktionen wie Klicken, Tippen und Navigieren ausführen kann, um komplexe Browseraufgaben zu automatisieren.
 
 travel\_explore
 
-### [‫Gemini Deep Research Max معاينة](https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=ar)
+### [Gemini Deep Research Preview](https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=de)
 
-أقصى قدر من الشمولية لجمع السياق وتجميع المعلومات تلقائيًا من مئات المصادر
+Ein agentisches Modell, das autonom mehrstufige Recherchen in Hunderten von Quellen plant und ausführt, um zitierte, interaktive Berichte zu erstellen.
+
+travel\_explore
+
+### [Gemini Deep Research Max Vorschau](https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=de)
+
+Maximale Vollständigkeit für die automatische Kontextbeschaffung und ‑synthese aus Hunderten von Quellen.
 
 terminal
 
-### [Antigravity Agent معاينة](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=ar)
+### [Antigravity-Agent Vorabversion](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=de)
 
-وكيل مُدار للأغراض العامة يخطّط بشكل مستقل ويحلّل ويشغّل الرموز البرمجية ويدير الملفات ويتصفّح الويب داخل بيئة اختبار معزولة وآمنة من Linux.
+Ein Agent für allgemeine Zwecke, der autonom plant, Schlussfolgerungen zieht, Code ausführt, Dateien verwaltet und das Web in einer sicheren, isolierten Linux-Sandbox durchsucht.
 
 ---
 
-## نماذج المهام المتخصّصة
+## Spezialisierte Aufgabenmodelle
 
 hub
 
-### [Gemini Embedding 2](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=ar)
+### [Gemini Embedding 2](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=de)
 
-أول نموذج تضمين متعدد الوسائط يربط النصوص والصور والفيديوهات والمقاطع الصوتية وملفات PDF بمساحة تضمين موحّدة لإجراء بحث دلالي متقدّم وأنظمة استرجاع المعلومات المستندة إلى البحث (RAG).
+Unser erstes multimodales Einbettungsmodell, das Text, Bilder, Videos, Audio und PDFs in einen einheitlichen Einbettungsbereich für erweiterte semantische Such- und RAG-Systeme (Retrieval-Augmented Generation) umwandelt.
 
 hub
 
-### [Gemini Embedding](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=ar)
+### [Gemini Embedding](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=de)
 
-تمثيلات متّجهة عالية الأبعاد للبحث الدلالي المتقدّم وتصنيف النصوص وأنظمة RAG
+Hochdimensionale Vektordarstellungen für erweiterte semantische Suche, Textklassifizierung und RAG-Systeme.
 
 precision\_manufacturing
 
-### [‫Gemini Robotics-ER 1.6إصدار تجريبي](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=ar)
+### [Gemini Robotics ER 2Vorschau](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=de)
 
-نموذج متقدّم للتعليل المجسّد يفهم المساحات المادية ويخطّط لمهام متعدّدة الخطوات للوكلاء الآليين، مع إمكانات جديدة مثل قراءة الأدوات وتحسين التعليل المكاني والمادي.
+Ein Modell für verkörperte Schlussfolgerungen, das fortschrittliches Videoverständnis, räumliches Denken, mehrstufige Tool-Orchestrierung und die Zusammenarbeit mehrerer Roboter für Robotikaufgaben bietet.
+
+precision\_manufacturing
+
+### [Gemini Robotics ER 1.6Vorschau](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=de)
+
+Ein fortschrittliches Modell für verkörperte Schlussfolgerungen, das physische Räume versteht und mehrstufige Aufgaben für Roboter-Agents plant. Es bietet neue Funktionen wie das Ablesen von Instrumenten sowie ein verbessertes räumliches und physisches Denken.
 
 ---
 
-## الطُرز السابقة
+## Vorherige Modelle
 
 history
 
-### [إيقاف ‫Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash?hl=ar)
+### [Gemini 2.0 Flash wird eingestellt](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash?hl=de)
 
-الجيل الثاني من نموذجنا الفعّال، مع ميزات من الجيل التالي وقدرات محسّنة، بما في ذلك سرعة فائقة واستخدام مدمج للأدوات وقدرة استيعاب مليون رمز مميّز.
-
-restore
-
-### [إيقاف Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite?hl=ar)
-
-هذا النموذج هو الأسرع من الجيل الثاني، وهو مصمَّم لتحقيق الكفاءة في التكلفة وتقليل وقت الاستجابة.
+Unser Modell der zweiten Generation für den täglichen Einsatz mit Funktionen der nächsten Generation und verbesserter Leistung, darunter eine höhere Geschwindigkeit, die native Nutzung von Tools und ein Kontextfenster von 1 Million Tokens.
 
 restore
 
-### [إيقافالإصدار التجريبي من Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=ar)
+### [Gemini 2.0 Flash-Lite wird heruntergefahren](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite?hl=de)
 
-هذا النموذج المتعدّد الوسائط هو الأكثر فعالية من حيث التكلفة، وهو يقدّم أسرع أداء للمهام الخفيفة والمتكرّرة.
+Unser schnellstes Modell der zweiten Generation, optimiert für Kosteneffizienz und niedrige Latenz.
 
 restore
 
-### [إيقافمعاينة Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=ar)
+### [Gemini 3.1 Flash-Lite (Vorabversion) Herunterfahren](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=de)
 
-نموذج الاستدلال المنطقي المتطوّر لدينا، يتميّز بفهم متقدّم للمحتوى المتعدد الوسائط.
+Unser kostengünstigstes multimodales Modell, das die schnellste Leistung für hochfrequente, einfache Aufgaben bietet.
+
+restore
+
+### [Gemini 3 Pro (Vorabversion) Herunterfahren](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=de)
+
+Unser fortschrittlichstes Logikmodell mit erweitertem multimodalen Verständnis.
 
 ---
 
-## أنماط أسماء إصدارات الطرازات
+## Namensmuster für Modellversionen
 
-تتوفّر نماذج Gemini في إصدارات *ثابتة* أو *معاينة* أو *أحدث* أو *تجريبية*.
+Gemini-Modelle sind in den Versionen *stabil*, *Vorschau*, *aktuell* oder *experimentell* verfügbar.
 
-### إسطبل
+### Stabil
 
-تشير إلى نموذج ثابت معيّن. لا تتغيّر النماذج الثابتة عادةً. يجب أن تستخدم معظم تطبيقات الإنتاج نموذجًا ثابتًا محدّدًا.
+Verweist auf ein bestimmtes stabiles Modell. Stabile Modelle ändern sich in der Regel nicht. Die meisten Produktions-Apps sollten ein bestimmtes stabiles Modell verwenden.
 
-على سبيل المثال: `gemini-3.5-flash`.
+Beispiel: `gemini-3.6-flash`.
 
-### معاينة
+### Vorschau
 
-تشير إلى نموذج معاينة يمكن استخدامه في مرحلة الإنتاج. سيتم عادةً تفعيل الفوترة في نماذج المعاينة، وقد تتضمّن حدودًا أكثر صرامة على عدد الطلبات، وسيتم إيقافها نهائيًا بعد إشعارك قبل أسبوعَين على الأقل.
+Verweist auf ein Vorschaumodell, das für die Produktion verwendet werden kann. Bei Vorschau-Modellen ist die Abrechnung in der Regel aktiviert. Sie haben möglicherweise restriktivere Ratenbeschränkungen und werden mit einer Vorlaufzeit von mindestens zwei Wochen eingestellt.
 
-على سبيل المثال: `gemini-2.5-flash-preview-09-2025`.
+Beispiel: `gemini-2.5-flash-preview-09-2025`.
 
-### الأحدث
+### Neueste
 
-تشير إلى أحدث إصدار من صيغة نموذج معيّن. ويمكن أن يكون إصدارًا ثابتًا أو تجريبيًا أو إصدارًا يتضمّن ميزات تجريبية. سيتم استبدال الاسم المستعار تلقائيًا بكل إصدار جديد من أحد أشكال النموذج المحدّد. بالنسبة إلى التغييرات غير المتوافقة مع الإصدارات السابقة، سيتم إرسال **إشعار قبل أسبوعَين** عبر البريد الإلكتروني قبل تغيير الإصدار الذي يسبق الأحدث.
+Verweist auf den neuesten Release für eine bestimmte Modellvariante. Das kann ein stabiles Release, ein Preview-Release oder ein experimentelles Release sein. Dieser Alias wird bei jeder neuen Version einer bestimmten Modellvariante ausgetauscht. Bei wichtigen Änderungen wird **zwei Wochen im Voraus** per E-Mail eine Benachrichtigung gesendet, bevor die Version hinter „Latest“ geändert wird.
 
-على سبيل المثال: `gemini-flash-latest`.
+Beispiel: `gemini-flash-latest`.
 
-### تجريبي
+### Experimentell
 
-يشير إلى نموذج تجريبي لن يكون مناسبًا عادةً للاستخدام في بيئة الإنتاج، وسيتضمّن حدودًا أكثر صرامة على معدّل الاستخدام. نطرح نماذج تجريبية لجمع الملاحظات وإتاحة آخر التحديثات للمطوّرين بسرعة.
+Verweist auf ein experimentelles Modell, das in der Regel nicht für die Produktion geeignet ist und restriktivere Ratenlimits hat. Wir veröffentlichen experimentelle Modelle, um Feedback zu sammeln und Entwicklern unsere neuesten Updates schnell zur Verfügung zu stellen.
 
-النماذج التجريبية غير ثابتة، وقد تتغيّر إمكانية الوصول إلى نقاط نهاية النماذج.
+Experimentelle Modelle sind nicht stabil und die Verfügbarkeit von Modellendpunkten kann sich ändern.
 
-## إيقاف النماذج نهائيًا
+## Einstellung von Modellen
 
-للحصول على معلومات حول إيقاف النماذج نهائيًا، يُرجى الانتقال إلى صفحة [عمليات الإيقاف النهائي في Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=ar).
+Informationen zur Einstellung von Modellen finden Sie auf der Seite [Einstellung von Gemini-Modellen](https://ai.google.dev/gemini-api/docs/deprecations?hl=de).
 
-إرسال ملاحظات
+Feedback geben
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-تاريخ التعديل الأخير: 2026-07-20 (حسب التوقيت العالمي المتفَّق عليه)
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Haben Sie Feedback für uns?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-20 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

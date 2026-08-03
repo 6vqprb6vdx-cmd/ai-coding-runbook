@@ -1,75 +1,91 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko
-fetched_at: 2026-07-27T04:36:09.300448+00:00
-title: "\uc2dc\uc791\ud558\uae30 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de
+fetched_at: 2026-08-03T04:32:20.823549+00:00
+title: "Erste Schritte \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-의견 보내기
+Feedback geben
 
-# 시작하기
+# Erste Schritte
 
-이 가이드에서는 기존 **generateContent** API를 시작하는 방법을 설명합니다. 새 프로젝트 및 애플리케이션의 경우 Gemini 모델 및 에이전트를 빌드하는 가장 간단하고 효과적인 방법인 새로운 **Interactions API**를 대신 사용하는 것이 좋습니다.
+Dieser Leitfaden hilft Ihnen bei den ersten Schritten mit der Legacy-API
+**generateContent**.
+Für neue Projekte und Anwendungen empfehlen wir
+dringend, stattdessen die neue **Interactions API** zu verwenden. Sie ist die
+einfachste und beste Möglichkeit, mit Gemini-Modellen und -Agenten zu
+arbeiten.
 
-이 빠른 시작에서는 [라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko)를 설치하고, 첫 번째 요청을 하고, 응답을 스트리밍하고, 멀티턴 대화를 빌드하고, 표준 `generateContent` 메서드를 사용하여 도구를 사용하는 방법을 보여줍니다.
+In dieser Kurzanleitung erfahren Sie, wie Sie unsere
+[Bibliotheken](https://ai.google.dev/gemini-api/docs/libraries?hl=de) installieren, Ihre erste Anfrage senden, Antworten streamen, Mehrfachdialoge erstellen und Tools mit der Standardmethode
+`generateContent` verwenden.
 
-## API 키 가져오기
+## API-Schlüssel anfordern
 
-Gemini API를 사용하려면 요청을 인증하고, 보안 한도를 적용하고, 계정의 사용량을 추적하는 API 키가 있어야 합니다.
+Wenn Sie die Gemini API verwenden möchten, benötigen Sie einen API-Schlüssel, um Ihre Anfragen zu authentifizieren, Sicherheitslimits durchzusetzen und die Nutzung für Ihr Konto zu verfolgen.
 
-- Google AI Studio는 신규 사용자를 위해 프로젝트와 API 키를 자동으로 생성합니다.
-  [API 키 페이지](https://aistudio.google.com/api-keys?hl=ko)에서 복사할 수 있습니다.
-- 새 키가 필요한 경우 AI Studio에서 **API 키 만들기**를 클릭하고 대화상자에 따라 새 키-프로젝트 쌍을 추가합니다.
+- Google AI Studio erstellt automatisch ein Projekt und einen API-Schlüssel für neue Nutzer.
+  Sie können ihn auf der Seite „[API-Schlüssel](https://aistudio.google.com/api-keys?hl=de)“ kopieren.
+- Wenn Sie einen neuen Schlüssel benötigen, klicken Sie in AI Studio auf **API-Schlüssel erstellen** und folgen Sie der Anleitung, um ein neues Schlüssel-Projekt-Paar hinzuzufügen.
 
-[Gemini API 키 만들기](https://aistudio.google.com/apikey?hl=ko)
+[Gemini API-Schlüssel erstellen](https://aistudio.google.com/apikey?hl=de)
 
-키를 환경 변수로 설정합니다.
+Legen Sie Ihren Schlüssel als Umgebungsvariable fest:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### 유료 등급으로 업그레이드
+### Auf die kostenpflichtige Stufe upgraden
 
-유료 등급으로 업그레이드하면 비율 제한이 증가하며 Cloud Billing을 설정해야 합니다.
+Wenn Sie auf die kostenpflichtige Stufe upgraden, werden Ihre Ratenlimits erhöht. Außerdem müssen Sie Cloud Billing einrichten.
 
-- AI Studio [API 키](https://aistudio.google.com/api-keys?hl=ko) 또는 [프로젝트](https://aistudio.google.com/projects?hl=ko) 페이지에서 **결제 설정**을 클릭합니다.
-- Cloud Billing 대화상자에 따라 결제 계정을 만들거나 연결하고, 결제 수단을 추가하고, 유료 크레딧으로 최소 10달러 (또는 해당 통화)를 선불합니다.
-- [Google AI Studio](https://aistudio.google.com/usage?hl=ko)의 **대시보드** > **사용량**에서 API 사용량을 확인합니다.
+- [[Klicken Sie auf den Seiten „API-Schlüssel“ oder „Projekte“ von AI Studio auf **Abrechnung einrichten**.](https://aistudio.google.com/api-keys?hl=de)](https://aistudio.google.com/projects?hl=de)
+- Folgen Sie der Anleitung im Dialogfeld „Cloud-Abrechnung“, um ein Abrechnungskonto zu erstellen oder zu verknüpfen, eine Zahlungsmethode hinzuzufügen und mindestens 10 $ (oder den entsprechenden Betrag in Ihrer Landeswährung) an kostenpflichtigen Guthaben im Voraus zu bezahlen.
+- Ihre API-Nutzung können Sie in [Google AI Studio](https://aistudio.google.com/usage?hl=de)
+  unter **Dashboard** > **Nutzung** einsehen.
 
-자세한 내용은 [결제 페이지](https://ai.google.dev/gemini-api/docs/billing?hl=ko)를 참고하세요.
+Weitere Informationen finden Sie auf der Seite [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
 
-## Google 생성형 AI SDK 설치
+## Google GenAI SDK installieren
 
 ### Python
 
-[Python 3.9 이상](https://www.python.org/downloads/)을 사용하여 다음 [pip 명령어](https://packaging.python.org/en/latest/tutorials/installing-packages/)를 사용하여 [`google-genai` 패키지](https://pypi.org/project/google-genai/)를 설치합니다.
+Installieren Sie mit [Python 3.9 oder höher](https://www.python.org/downloads/) das
+[`google-genai` Paket](https://pypi.org/project/google-genai/)
+mit dem folgenden
+[pip-Befehl](https://packaging.python.org/en/latest/tutorials/installing-packages/):
 
 ```
 pip install -q -U google-genai
 ```
 
-### 자바스크립트
+### JavaScript
 
-[Node.js v18 이상](https://nodejs.org/en/download/package-manager)을 사용하여 다음 [npm 명령어](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)를 사용하여 [TypeScript 및 JavaScript용 Google Gen AI SDK](https://www.npmjs.com/package/@google/genai)를 설치합니다.
+Installieren Sie mit [Node.js Version 18 oder höher](https://nodejs.org/en/download/package-manager)
+das
+[Google Gen AI SDK für TypeScript und JavaScript](https://www.npmjs.com/package/@google/genai)
+mit dem folgenden
+[npm-Befehl](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
 
 ```
 npm install @google/genai
 ```
 
-## 텍스트 생성
+## Text generieren
 
-`models.generate_content` 메서드를 사용하여 [텍스트 응답을 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)합니다.
+Verwenden Sie die `models.generate_content` Methode, um
+[eine Textantwort zu generieren](https://ai.google.dev/gemini-api/docs/text-generation?hl=de).
 
 ### Python
 
@@ -79,14 +95,14 @@ from google import genai
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Explain how AI works in a few words"
 )
 
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -95,7 +111,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: "Explain how AI works in a few words",
   });
 
@@ -108,7 +124,7 @@ main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -125,15 +141,17 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## 대답 스트리밍
+## Antworten streamen
 
-기본적으로 모델은 전체 생성 프로세스가 완료된 후에만 대답을 반환합니다. 더 빠르고 대화형 환경을 위해 대답 청크가 생성될 때 [스트리밍](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#stream)할 수 있습니다.
+Standardmäßig gibt das Modell erst dann eine Antwort zurück, wenn der gesamte Generierungsprozess abgeschlossen ist. Für eine schnellere und interaktivere Nutzung können Sie
+[die Antwort](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#stream) Teile streamen, sobald sie
+generiert werden.
 
 ### Python
 
 ```
 response = client.models.generate_content_stream(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Explain how AI works in detail"
 )
 
@@ -141,12 +159,12 @@ for chunk in response:
     print(chunk.text, end="", flush=True)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 async function main() {
   const responseStream = await ai.models.generateContentStream({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: "Explain how AI works in detail",
   });
 
@@ -161,7 +179,7 @@ main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:streamGenerateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:streamGenerateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   --no-buffer \
@@ -179,14 +197,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:s
   }'
 ```
 
-## 멀티턴 대화
+## Mehrfachdialoge
 
-멀티턴 대화의 경우 SDK는 대화 기록을 자동으로 관리하는 [멀티턴 채팅 환경](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#chat)을 빌드하기 위한 스테이트풀 `chats` 도우미를 제공합니다.
+Für Mehrfachdialoge bieten die SDKs einen zustandsorientierten `chats` Helfer, mit dem Sie eine [Mehrfachdialog-Chat-Erfahrung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#chat) erstellen können, bei der der Unterhaltungsverlauf automatisch verwaltet wird.
 
 ### Python
 
 ```
-chat = client.chats.create(model="gemini-3.5-flash")
+chat = client.chats.create(model="gemini-3.6-flash")
 
 response1 = chat.send_message("I have 2 dogs in my house.")
 print("Response 1:", response1.text)
@@ -195,11 +213,11 @@ response2 = chat.send_message("How many paws are in my house?")
 print("Response 2:", response2.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 async function main() {
-  const chat = ai.chats.create({ model: "gemini-3.5-flash" });
+  const chat = ai.chats.create({ model: "gemini-3.6-flash" });
 
   let response = await chat.sendMessage({ message: "I have 2 dogs in my house." });
   console.log("Response 1:", response.text);
@@ -215,7 +233,7 @@ main();
 
 ```
 # REST is stateless. You must pass the full conversation history in the request.
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -237,9 +255,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## 도구 사용하기
+## Tools verwenden
 
-[Google 검색을 사용한 대답 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)을 통해 모델의 기능을 확장하여 실시간 웹 콘텐츠에 액세스하세요. 모델은 검색 시점을 자동으로 결정하고, 쿼리를 실행하고, 대답을 합성합니다.
+Erweitern Sie die Möglichkeiten des Modells, indem Sie
+[Antworten mit der Google Suche fundieren](https://ai.google.dev/gemini-api/docs/google-search?hl=de)
+um auf Web-Inhalte in Echtzeit zuzugreifen. Das Modell entscheidet automatisch, wann eine Suche durchgeführt werden soll, führt Abfragen aus und erstellt eine Antwort.
 
 ### Python
 
@@ -252,7 +272,7 @@ config = types.GenerateContentConfig(
 )
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="Who won the euro 2024?",
     config=config
 )
@@ -271,12 +291,12 @@ if metadata.grounding_chunks:
         print(f" - [{chunk.web.title}]({chunk.web.uri})")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: "Who won the euro 2024?",
     config: {
       tools: [{ googleSearch: {} }]
@@ -306,7 +326,7 @@ main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -X POST \
@@ -326,20 +346,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-Gemini API는 다음과 같은 다른 기본 제공 도구도 지원합니다.
+Die Gemini API unterstützt auch andere integrierte Tools:
 
-- **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**:
-  모델이 Python 코드를 작성하고 실행하여 복잡한 수학 문제를 해결할 수 있습니다.
-- **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**: 사용자가 제공한 특정 웹페이지 URL을 기반으로 대답을 생성할 수 있습니다.
-- **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**: 파일을 업로드하고 시맨틱 검색을 사용하여 콘텐츠에서 대답을 그라운딩할 수 있습니다.
-- **[Google 지도](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**: 위치 데이터에 기반한 대답을 제공하고 장소, 길찾기, 지도를 검색할 수 있습니다.
-- **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**: 모델이 가상 컴퓨터 화면, 키보드, 마우스와 상호작용하여 작업을 실행할 수 있습니다.
+- **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**:
+  Das Modell kann Python-Code schreiben und ausführen, um komplexe mathematische Probleme zu lösen.
+- **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**: Sie können Antworten auf bestimmte Webseiten-URLs fundieren, die Sie angeben.
+- **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**: Sie können Dateien hochladen und Antworten mithilfe der semantischen Suche auf deren Inhalt fundieren.
+- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**: Sie können Antworten auf Standortdaten fundieren und nach Orten, Wegbeschreibungen und
+  Karten suchen.
+- **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**: Das
+  Modell kann mit einem virtuellen Computerbildschirm, einer Tastatur und einer Maus interagieren, um
+  Aufgaben auszuführen.
 
-## 맞춤 함수 호출
+## Benutzerdefinierte Funktionen aufrufen
 
-**[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**을 사용하여 모델을 맞춤 도구 및 API에 연결합니다. 모델은 함수를 호출할 시기를 결정하고 애플리케이션이 실행할 수 있도록 응답에 `functionCall`를 반환합니다.
+Mit **[Funktionsaufrufen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)** können Sie
+Modelle mit Ihren benutzerdefinierten Tools und APIs verbinden. Das Modell bestimmt, wann Ihre Funktion aufgerufen werden soll, und gibt in der Antwort einen `functionCall` zurück, der von Ihrer Anwendung ausgeführt werden kann.
 
-이 예시에서는 모의 온도 함수를 선언하고 모델이 이 함수를 호출하려고 하는지 확인합니다.
+In diesem Beispiel wird eine Mock-Temperaturfunktion deklariert und geprüft, ob das Modell sie aufrufen möchte.
 
 ### Python
 
@@ -368,7 +392,7 @@ config = types.GenerateContentConfig(tools=[tools])
 contents = ["What's the temperature in London?"]
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=contents,
     config=config,
 )
@@ -390,14 +414,14 @@ if part.function_call:
     contents.append(types.Content(role="user", parts=[fn_response_part]))
 
     final_response = client.models.generate_content(
-        model="gemini-3.5-flash",
+        model="gemini-3.6-flash",
         contents=contents,
         config=config,
     )
     print("Final Response:", final_response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -424,7 +448,7 @@ async function main() {
   }];
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     contents: contents,
     config: {
       tools: [{ functionDeclarations: [weatherFunction] }],
@@ -451,7 +475,7 @@ async function main() {
     });
 
     const finalResponse = await ai.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: 'gemini-3.6-flash',
       contents: contents,
       config: {
         tools: [{ functionDeclarations: [weatherFunction] }],
@@ -467,7 +491,7 @@ main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -501,25 +525,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## 다음 단계
+## Nächste Schritte
 
-이제 Gemini API를 시작했으므로 다음 가이드를 살펴보고 더 고급 애플리케이션을 빌드하세요.
+Nachdem Sie nun die ersten Schritte mit der Gemini API gemacht haben, können Sie sich die folgenden Leitfäden ansehen, um komplexere Anwendungen zu erstellen:
 
-- [텍스트 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)
-- [이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)
-- [이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko)
-- [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)
-- [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)
-- [Google 검색으로 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)
-- [긴 컨텍스트](https://ai.google.dev/gemini-api/docs/long-context?hl=ko)
-- [임베딩](https://ai.google.dev/gemini-api/docs/embeddings?hl=ko)
+- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de)
+- [Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)
+- [Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de)
+- [Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)
+- [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)
+- [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de)
+- [Langer Kontext](https://ai.google.dev/gemini-api/docs/long-context?hl=de)
+- [Einbettungen](https://ai.google.dev/gemini-api/docs/embeddings?hl=de)
 
-의견 보내기
+Feedback geben
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-최종 업데이트: 2026-07-08(UTC)
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-의견을 전달하고 싶나요?
+Haben Sie Feedback für uns?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-08(UTC)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=tr
-fetched_at: 2026-07-27T04:35:13.225316+00:00
-title: "Gemini Omni Flash ile video \u00fcretme ve d\u00fczenleme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=he
+fetched_at: 2026-08-03T04:30:17.858524+00:00
+title: "\u05d9\u05e6\u05d9\u05e8\u05d4 \u05d5\u05e2\u05e8\u05d9\u05db\u05d4 \u05e9\u05dc \u05e1\u05e8\u05d8\u05d5\u05e0\u05d9\u05dd \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Geri bildirim gönderin
+שליחת משוב
 
-# Gemini Omni Flash ile video üretme ve düzenleme
+# יצירה ועריכה של סרטונים באמצעות Gemini Omni Flash
 
-Gemini Omni Flash (`gemini-omni-flash-preview`), yüksek hızlı video üretimi, düzenleme ve sinematik kontrol için tasarlanmış yüksek performanslı bir çok formatlı modeldir.
-Gemini Omni, önceki video modellerinden ayıran aşağıdaki temel özellikler üzerine kurulmuştur:
+‫Gemini Omni Flash‏ (`gemini-omni-flash-preview`) הוא מודל רב-אופני עם ביצועים גבוהים, שנועד ליצירה ועריכה של סרטונים במהירות גבוהה ולשליטה קולנועית.
+‫Gemini Omni מבוסס על היכולות הבסיסיות הבאות שמבדילות אותו ממודלים קודמים של סרטונים:
 
-- **Doğal çok formatlılık:** Metin, resim, ses ve videoyu aynı anda işleyerek daha tutarlı, tutarlı ve kontrol edilebilir bir çıkış sağlar.
-- **Sohbet ederek düzenleme:** [Etkileşimler API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) ile etkinleştirilen bu özellik, doğal dil kullanarak sohbet yoluyla videolarınızı yinelemeli olarak iyileştirmenize ve düzenlemenize olanak tanır. Değiştirmek istediğiniz şeyi açıklayın. Model, videonun korunmasını istediğiniz kısımlarını koruyarak düzenlemeyi uygular.
-- **Dünya bilgisi:** Gemini Omni, fizik anlayışını Gemini'ın tarih, bilim ve kültürel bağlam bilgisiyle birleştirerek fotorealizmden anlamlı hikaye anlatımına geçişi sağlar.
+- **מולטי-מודאליות מובנית:** הוא מעבד טקסט, תמונות, אודיו וסרטונים בו-זמנית, ומספק פלט מגובש, עקבי וניתן לשליטה.
+- **עריכה באמצעות שיחה:** התכונה הזו מופעלת על ידי [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he), והיא מאפשרת לכם לשפר ולערוך את הסרטונים שלכם באופן איטרטיבי באמצעות שיחה בשפה טבעית. מתארים את השינוי שרוצים לבצע, והמודל מבצע את העריכה תוך שמירה על החלקים בסרטון שרוצים להשאיר.
+- **ידע על העולם:** ‫Gemini Omni משלב בין הבנה של פיזיקה לבין הידע של Gemini בהיסטוריה, במדע ובהקשר תרבותי, ומגשר על הפער בין ריאליזם צילומי לבין סיפור משמעותי.
 
-## Metinden video üretme
+## יצירת סרטונים לפי טקסט
 
-Metin isteminden video oluşturma Model, metin açıklamanıza göre sesli bir video oluşturur. En iyi sonuçları almak için sahne açıklaması, kamera hareketi, ışıklandırma ve atmosfer gibi ayrıntıları içeren istemler yazın.
+יצירת סרטון מהנחיית טקסט. המודל יוצר סרטון עם אודיו על סמך תיאור הטקסט שהזנתם. כדי לקבל את התוצאות הטובות ביותר, כדאי לכתוב הנחיות עם פרטים כמו תיאור הסצנה, תנועת המצלמה, התאורה והאווירה.
 
 ### Python
 
@@ -73,12 +73,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### REST yanıt şeması
+### סכימת תגובת REST
 
-Kolaylık alanı `interaction.output_video` **yalnızca SDK**'dır.
-REST API'yi doğrudan kullanırken `steps` dizisinden video çıkışını alın.
+שדה הנוחות `interaction.output_video` הוא **SDK בלבד**.
+כשמשתמשים ישירות ב-API בארכיטקטורת REST, מקבלים את פלט הסרטון ממערך `steps`.
 
-**Ham REST JSON yapısı:**
+**מבנה JSON גולמי של REST:**
 
 ```
 {
@@ -103,9 +103,9 @@ REST API'yi doğrudan kullanırken `steps` dizisinden video çıkışını alın
 }
 ```
 
-### En boy oranını kontrol etme
+### שליטה ביחס הגובה-רוחב
 
-Dikey videolar oluşturmak için `aspect_ratio` simgesini `"9:16"` olarak ayarlayın. Varsayılan yön Yatay (16:9)'dur.
+כדי ליצור סרטונים בפורמט אנכי, מגדירים את `aspect_ratio` ל-`"9:16"`. ברירת המחדל היא לרוחב (16:9).
 
 ### Python
 
@@ -163,21 +163,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-## Görüntüden video üretme
+## יצירת סרטון מתמונה
 
-Metin isteminizle birlikte bir referans görsel sağlayabilirsiniz. Model, isteminize bağlı olarak resmi nasıl kullanacağına karar verir. Bu özellik, ürün çekimlerini, çizimleri veya fotoğrafları canlandırmak için kullanışlıdır.
+אתם יכולים לספק תמונה לדוגמה עם הנחייה טקסטואלית. בהתאם להנחיה, המודל יחליט איך להשתמש בתמונה. התכונה הזו שימושית כדי להפיח חיים בתמונות של מוצרים, באיורים או בתמונות.
 
-Aşağıdaki örnekte, sudan çıkan bir balık çiziminin referans görselinin nasıl kullanılacağı gösterilmektedir:
+בדוגמה הבאה אפשר לראות איך משתמשים בתמונה לדוגמה של ציור של דג שקופץ מהמים:
 
-![Sudan zıplayan balık çizimi](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=tr)
+![ציור של דג שקופץ מתוך המים](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=he)
 
-Aşağıdaki istemle:
+עם ההנחיה הבאה:
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-Çizimin gerçekçi bir videosunu oluşturmak için.
+כדי ליצור סרטון ריאליסטי של הציור.
 
 ### Python
 
@@ -232,10 +232,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Konu referansı
+### הפניה לנושא הצילום
 
-Referans resim olarak sağlanan belirli konuları içeren bir video oluşturabilirsiniz.
-Örneğin, aşağıdaki kodda, kedinin iple oynadığı bir video oluşturmak için kedi ve ipin 2 resminin nasıl sağlanacağı gösterilmektedir.
+אתם יכולים ליצור סרטון שכולל נושאים ספציפיים שסיפקתם כתמונות לדוגמה.
+לדוגמה, הקוד הבא מראה איך מספקים 2 תמונות של חתול וכדור צמר כדי ליצור סרטון של החתול משחק עם כדור הצמר.
 
 ### Python
 
@@ -293,18 +293,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Görevler parametresi
+### פרמטר המשימות
 
-`task` parametresini `video-config` içinde kullanarak amaçlanan davranışı net bir şekilde belirtin. Örneğin, modelin bir resimden video oluşturmasını istiyorsanız parametreyi `image_to_video` olarak ayarlayabilirsiniz. Bu ayar yapılmazsa model, istemden ne istediğinizi çıkarır.
+משתמשים בפרמטר `task` ב-`video-config` כדי לציין בבירור את ההתנהגות הרצויה. לדוגמה, אם רוצים שהמודל ייצור סרטון מתמונה, אפשר להגדיר את הפרמטר ל-`image_to_video`. אם לא מגדירים את הפרמטר הזה, המודל יסיק מההנחיה מה רוצים.
 
-İzin verilen değerler şunlardır:
+הערכים המותרים הם:
 
 - `text_to_video`
 - `image_to_video`
 - `reference_to_video`
 - `edit`
 
-Aşağıdaki örnekte, daha önce gösterilen resimden videoya örneği için bu ayarın nasıl yapılacağı gösterilmektedir.
+בדוגמה הבאה אפשר לראות איך מגדירים את זה עבור הדוגמה שלמעלה, שבה תמונה מוצגת לפני סרטון.
 
 ### Python
 
@@ -382,11 +382,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Durumlu video düzenleme
+## עריכת סרטונים עם שמירת מצב
 
-Video oluşturun ve takip istemlerini kullanarak videoyu yinelemeli olarak düzenleyin. Her dönüş, önceki sonucun üzerine kurulur. Model, video bağlamını hatırlar ve değişikliklerinizi uygularken bahsetmediğiniz öğeleri korur. Önceki videoyu yeniden yüklemeden görüşme geçmişini ve oluşturulan video durumunu izlemek için `previous_interaction_id` simgesini kullanın.
+ליצור סרטון ולערוך אותו באופן איטרטיבי באמצעות הנחיות המשך. כל תור
+מבוסס על התוצאה הקודמת. המודל זוכר את ההקשר של הסרטון, ומחיל את השינויים שלכם תוך שמירה על רכיבים שלא הזכרתם. אפשר להשתמש ב-`previous_interaction_id` כדי לעקוב אחרי היסטוריית השיחות ומצב הסרטון שנוצר בלי להעלות מחדש את הסרטון הקודם.
 
-Aşağıdaki örnekte, ilk videonun nasıl oluşturulacağı ve düzenleneceği gösterilmektedir:
+בדוגמה הבאה אפשר לראות איך יוצרים סרטון ראשון ואז עורכים אותו:
 
 ### Python
 
@@ -446,17 +447,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-İlk video örneği:
+דוגמה לסרטון מקורי:
 
-Düzenlenmiş video örneği:
+דוגמה לסרטון ערוך:
 
-Görüşmedeki her adımda yeni bir video oluşturulur. Model, önceki dönüşlerdeki bağlamı anlar. Böylece, tüm sahneyi yeniden tanımlamadan ışığı ayarlama ve arka planları değiştirme gibi artımlı değişiklikler yapabilirsiniz.
+כל תור בשיחה יוצר סרטון חדש. המודל מבין את ההקשר מהתורות הקודמות, כך שאפשר לבצע שינויים מצטברים כמו התאמת התאורה והחלפת הרקע, בלי לתאר מחדש את כל הסצנה.
 
-### Kendi videolarınızı düzenleme
+### עריכת סרטונים משלכם
 
-Videolarınızı [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanarak yükleyip Gemini Omni Flash ile düzenleyin.
+אפשר להעלות סרטונים באמצעות [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he) כדי לערוך אותם באמצעות Gemini Omni Flash.
 
-Aşağıdaki örnekte, orijinal videonun nasıl düzenleneceği gösterilmektedir:
+בדוגמה הבאה אפשר לראות איך עורכים את הסרטון המקורי הבא:
 
 ### Python
 
@@ -561,12 +562,12 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-Düzenlenmiş video örneği:
+דוגמה לסרטון ערוך:
 
-## URI ile video alma
+## אחזור סרטונים באמצעות URI
 
-Oluşturulan ve 4 MB'tan büyük olan videoları almak için `delivery="uri"` parametresini `response_format` içinde kullanın.
-Bu işlem, indirmeden önce video `ACTIVE` olana kadar yoklayabileceğiniz Google tarafından barındırılan bir URI döndürür.
+משתמשים בפרמטר `delivery="uri"` ב-`response_format` כדי לאחזר סרטונים שנוצרו בגודל של יותר מ-4MB.
+הפעולה הזו מחזירה URI שמתארח ב-Google, שאפשר לשלוח לו בקשות עד שהסרטון `ACTIVE` לפני ההורדה.
 
 ### Python
 
@@ -681,7 +682,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Ham REST JSON yapısı (URI):**
+**מבנה JSON גולמי של REST (URI):**
 
 ```
 {
@@ -706,107 +707,108 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## En İyi Uygulamalar
+## שיטות מומלצות
 
-- **Büyük videolar için URI teslimini kullanın:** 4 MB'tan büyük videolar için (varsa >720p) yük boyutu sınırlarını aşmamak amacıyla `response_format` içinde `delivery="uri"` kullanın.
-- **Optimize edilmiş performans:** Daha hızlı ve senkronize tekli oluşturma için `background=false`, `store=false` ve `stream=false` değerlerini ayarlayın. `store=false` ayarının, oluşturulan videonun sonraki dönüşlerde `previous_interaction_id` kullanılarak düzenlenemeyeceği anlamına geldiğini unutmayın.
-- **İstem hassasiyeti:** Ayrıntılar için [istem rehberliği](#prompt-guide) bölümüne bakın.
+- **שימוש בהעברת URI לסרטונים גדולים:** לסרטונים בגודל של יותר מ-4MB (‎>720p
+  when available), צריך להשתמש ב-`delivery="uri"` ב-`response_format` כדי להימנע ממגבלות על גודל המטען הייעודי.
+- **ביצועים אופטימליים:** מגדירים את `background=false`,‏ `store=false` ו-`stream=false` כדי ליצור תשובות מהר יותר ובאופן סינכרוני. שימו לב: הגדרה של `store=false` פירושה שלא ניתן יהיה לערוך את הסרטון שנוצר בפעולות הבאות באמצעות `previous_interaction_id`.
+- **דיוק ההנחיה:** פרטים נוספים זמינים בקטע [הנחיות לכתיבת הנחיות](#prompt-guide).
 
-## Sınırlamalar
+## מגבלות
 
-- Küçüklerin yer aldığı resimleri yükleme ve düzenleme özelliği Avrupa Ekonomik Alanı, İsviçre ve Birleşik Krallık'ta desteklenmemektedir.
-- Tanınabilir kişilerin yer aldığı resimlerin yüklenmesi ve düzenlenmesi desteklenmez.
-- Yüklenen videoları düzenleme özelliği şu anda Avrupa Ekonomik Alanı (AEA), İsviçre ve Birleşik Krallık'taki kullanıcılar tarafından kullanılamamaktadır (model tarafından oluşturulan videoların düzenlenmesi desteklenir).
-- Ses referanslarının yüklenmesi, API'nin mevcut sürümünde desteklenmemektedir.
-- API şeması, 3 saniyeye kadar olan video referanslarını kabul eder ancak şu anda model tarafından doğru şekilde işlenmez.
-- Birden fazla videoda referans verme veya akıl yürütme desteklenmez. Çok videolu istem denemek, model performansının düşmesine veya beklenmedik çıktılara neden olabilir.
-- Video uzatma ve video ara kare oluşturma (ilk ve son kare arasında video oluşturma) desteklenmez.
-- Sesle düzenleme desteklenmez.
-- Sağlanan işleme hızı desteklenmez.
-- Sistem talimatları, sıcaklık, `top_p`, durdurma dizileri ve olumsuz istemler desteklenmez (olumsuz istemlerinizi normal isteme ekleyebilirsiniz: örneğin, "X yapma").
-- YouTube videolarını medya kaynağı olarak kullanma desteklenmez.
+- העלאה ועריכה של תמונות המכילות קטינים אינה נתמכת באזור הכלכלי האירופי, בשווייץ ובבריטניה.
+- העלאה ועריכה של תמונות המכילות אנשים מסוימים שניתן לזהות אינה נתמכת.
+- בשלב הזה אי אפשר לערוך סרטונים שהועלו באזור הכלכלי האירופי (EEA), בשווייץ ובבריטניה (אפשר לערוך סרטונים שנוצרו על ידי המודל).
+- העלאת הפניות לאודיו לא נתמכת בגרסה הנוכחית של ה-API.
+- סכימת ה-API מקבלת הפניות לסרטונים באורך של עד 3 שניות, אבל המודל לא מעבד אותן בצורה נכונה בשלב הזה.
+- אי אפשר להפנות לכמה סרטונים או להסיק מסקנות על סמך כמה סרטונים. ניסיון ליצור הנחיות לכמה סרטונים עלול להוביל לירידה בביצועי המודל או לפלטים לא צפויים.
+- אין תמיכה בסיומת וידאו ובאינטרפולציה של וידאו (יצירת וידאו בין המסגרת הראשונה לאחרונה).
+- אין תמיכה בעריכה קולית.
+- אין תמיכה ברוחב פס מוקצה.
+- אין תמיכה בהוראות מערכת, בטמפרטורה, ב-`top_p`, ברצפי עצירה ובהנחיות שליליות (אפשר להוסיף את ההנחיות השליליות להנחיה הרגילה, למשל: "אל תעשה X").
+- אין תמיכה בשימוש בסרטונים ב-YouTube כמקור מדיה.
 
-## Teknik ayrıntılar
+## פרטים טכניים
 
-- Üretilen tüm videolarda, izleyiciler tarafından görünmeyen ancak kaynağın doğrulanması için programatik olarak algılanabilen SynthID filigranı bulunur.
-- Video oluşturma süreleri; süreye, çözünürlüğe ve mevcut API yüküne göre değişir. Daha uzun ve daha yüksek çözünürlüklü videoların oluşturulması daha uzun sürer.
-- İçerik güvenliği filtreleri hem giriş istemlerine hem de oluşturulan videoya uygulanır (ve bölgenize bağlıdır). Kullanım politikalarını ihlal eden istemler engellenir.
-- İngilizce (EN) tam olarak desteklenir ancak diğer diller değerlendirilmediğinden çalışabilir ancak sonuçlar değişebilir.
+- כל הסרטונים שנוצרים כוללים סימני מים של SynthID, שלא נראים לצופים אבל אפשר לזהות אותם באופן פרוגרמטי כדי לאמת את המקור.
+- זמני יצירת הסרטונים משתנים בהתאם למשך, לרזולוציה ולעומס הנוכחי על ה-API. יצירת סרטונים ארוכים יותר וברזולוציה גבוהה יותר נמשכת זמן רב יותר.
+- פילטרים של בטיחות תוכן מופעלים גם על הנחיות קלט וגם על סרטונים שנוצרו (והם תלויים באזור שלכם). הנחיות שמפירות את מדיניות השימוש ייחסמו.
+- יש תמיכה מלאה באנגלית (EN), אבל שפות אחרות לא נבדקו, ולכן יכול להיות שהן יפעלו אבל התוצאות עשויות להיות שונות.
 
-## Gemini Omni Flash istem rehberi
+## מדריך לכתיבת הנחיות ל-Gemini Omni Flash
 
-Bu bölümde, Gemini Omni Flash'ı etkili şekilde isteme hakkında ipuçları ve örnekler yer almaktadır.
+בקטע הזה יש טיפים ודוגמאות שיעזרו לכם לנסח הנחיות יעילות ל-Gemini Omni Flash.
 
-### Tek sahne
+### סצנה אחת
 
-Omni Flash, varsayılan olarak birkaç farklı çekimden oluşan bir video oluşturmaya çalışır.
-İstemden yola çıkarak ilgi çekici bir anlatı oluşturmaya çalışır.
+כברירת מחדל, Omni Flash ינסה ליצור סרטון עם כמה צילומים שונים.
+הוא ינסה ליצור סיפור מעניין על סמך ההנחיה.
 
-Çıkış videosunun tek bir sahne içermesini istiyorsanız bunu istemde belirtmeniz gerekir:
+אם אתם רוצים שסרטון הפלט יכיל סצנה אחת, אתם צריכים לציין זאת בהנחיה:
 
-- Tek bir kesintisiz sahnede
-- Tek kesintisiz çekimde
-- Sahne kesintisi yok
+- בסצנה רציפה אחת
+- בצילום רציף אחד
+- אין מעברים בין סצנות
 
-Örneğin:
+לדוגמה:
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### İstenmeyen öğeleri kaldırma
+### הסרת אלמנטים לא רצויים
 
-Oluşturulan videoda istemediğiniz şeyler varsa bunları önlemek için basit olumsuz istemler ekleyin:
+אם הסרטון שנוצר מכיל דברים שלא רציתם, אפשר להוסיף הנחיות שליליות פשוטות כדי להימנע מהם:
 
-- Diyalog yok
-- Süsleme yok
-- Ek ses efektleri yok
+- אין דיאלוג
+- אין קישוטים
+- אין אפקטים קוליים נוספים
 
-### Düzenleme istemleri
+### הנחיות לעריכה
 
-Video düzenleme için en iyi sonucu basit istemler verir. Aşırı açıklayıcı istemler, istenmeyen değişikliklere yol açabilir.
+ההנחיות הכי טובות לעריכת סרטונים הן הנחיות פשוטות. הנחיות מפורטות מדי עלולות להוביל לשינויים לא רצויים.
 
-Aşağıda, basit düzenleme istemlerine dair daha fazla örnek verilmiştir:
+הנה עוד דוגמאות להנחיות פשוטות לעריכה:
 
-- Bu videoyu animeye dönüştür
-- Bu kişiye şık bir şapka tak
-- Işıklandırmayı daha dramatik hale getirme
-- Tabeladaki metni "Omni Flash" olarak değiştirin.
+- הסרטון ייראה כמו אנימה
+- תשים כובע אופנתי על האדם הזה
+- תשנה את התאורה כך שתהיה יותר דרמטית
+- שינוי הטקסט בשלט ל-Omni Flash
 
-Videonun belirli bir yönünü düzenlerken görsel tutarlılığı korumak için `"Keep everything else the same"` simgesini ekleyin.
+כשעורכים היבט ספציפי של הסרטון, כדאי להוסיף את התג `"Keep everything else the same"` כדי לשמור על עקביות חזותית.
 
-Bu tekniğin nasıl uygulanacağını gösteren bazı örnekleri aşağıda bulabilirsiniz:
+ריכזנו כאן כמה דוגמאות שימחישו איך זה עובד.
 
-- **Kaçınılması gerekenler:** `In the video of the man sitting on the sofa, please add a small
+- **יש להימנע מ:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Basitleştirin:** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **לפשט:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **Kaçınılması gerekenler:** `Please remove the cell phone that the person is holding in
+- **יש להימנע מ:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Basitleştirin:** `Make the phone invisible. Keep everything else the
+  - **לפשט:** `Make the phone invisible. Keep everything else the
     same.`
 
-### Ses istemi
+### הנחיית האודיו
 
-Model, varsayılan olarak bir video için uygun bir ses parçası oluşturmaya çalışır. Bu her zaman istediğiniz sonuç olmayabilir. İsteminizi kullanarak istediğiniz ses türünü açıklayabilirsiniz. Bu, özellikle videonuzda müzik kullanmak istiyorsanız önemlidir:
+כברירת מחדל, המודל ינסה ליצור טראק אודיו מתאים לסרטון. יכול להיות שזה לא מה שרציתם. אתם יכולים להשתמש בהנחיה כדי לתאר את סוג האודיו שאתם רוצים. זה חשוב במיוחד אם אתם רוצים להוסיף מוזיקה לסרטון:
 
-- Sakinleştirici arka plan müziği ekleyin
-- Videoda yüksek enerjili bir tekno ritmi var.
-- Arka planda, şarkı çalan düşük kaliteli bir radyo yayını duyuluyor.
+- הוספת מוזיקת רקע רגועה
+- הסרטון כולל ביט טכנו קצבי
+- ברקע נשמעת תוכנית רדיו חלשה ומתכתית, שבה מושמע שיר
 
-### Zamanlama etkinlikleri
+### אירועי תזמון
 
-Videoda belirli zamanlarda gerçekleşmesini istediğiniz olayları istemek için doğal dil kullanabilirsiniz. Bu özellik, özellikle kendi sahne kesimlerinizi, ritminizi veya hızlı çekim dizilerinizi oluştururken kullanışlıdır.
-Örnekler için aşağıdakilere bakın:
+אתם יכולים להנחות את המודל לבצע פעולות בשעות ספציפיות בסרטון, בלי צורך בתחביר מדויק, באמצעות שפה טבעית. האפשרות הזו שימושית במיוחד כשרוצים ליצור סצנות משלכם, קצב או רצפים מהירים.
+דוגמאות:
 
-- 3 saniye sonra bir kadın sahneye giriyor.
-- 5. saniyede arka plan sesinde koro başlıyor.
-- Her 2 saniyede bir yeni kareye geçiş yapın.
-- Hızlı çekim dizisinde, her yarım saniyede (24 kare/sn hızında 12 kare) sahneyi yeni bir konuma değiştirin.
+- אחרי 3 שניות, אישה נכנסת לסצנה.
+- בדקה 5 הפזמון מתחיל באודיו ברקע.
+- כל 2 שניות מתבצע מעבר לפריים חדש.
+- בסצנת ירי מהיר, כל חצי שנייה (12 פריימים ב-24fps) משנים את הסצנה למיקום חדש.
 
-Ayrıca bir zaman kodu söz dizimi de kullanabilirsiniz:
+אפשר גם להשתמש בתחביר של קוד זמן:
 
 ```
 [0-3s] A person is walking
@@ -814,38 +816,38 @@ Ayrıca bir zaman kodu söz dizimi de kullanabilirsiniz:
 [6-10s] They start running
 ```
 
-### Meta istem
+### שיפור הנחיות בעזרת AI
 
-Gemini Omni Flash'ten video oluşturmayla ilgili genel niteliklere veya ilkelere dikkat etmesini isteyebilirsiniz:
+אתם יכולים לבקש מ-Gemini Omni Flash לשים לב לאיכויות כלליות או לעקרונות של יצירת סרטונים:
 
-- Çok zengin ve ayrıntılı ancak tamamen doğal bir sahne oluşturmak için mikro ayrıntıları, ifadeyi ve zamanlamayı göz önünde bulundurun.
-- Karakter ve ortam açıklamalarınızda son derece ayrıntılı olun.
-  Karakterlere kostüm tasarım ilkelerini uygulayın. Sahnedeki kişiler, öğeler ve nesneler hakkında çok net olun.
-- Sahnenin gerçekçi ve doğal görünmesi için arka plan öğelerine uygun ayrıntılar ekleyin.
-- Her saniyede farklı bir nadir `[thing]` gösteren, hızlı tempolu müzik içeren ve öğeleri etiketlemek için metin eklenmiş bir video oluştur.
+- כדי ליצור סצנה עשירה ומפורטת אבל טבעית לחלוטין, חשוב להתייחס לפרטים הקטנים, להבעה ולתזמון.
+- הקפידו על תיאורים מפורטים מאוד של הדמויות והסביבות.
+  יישום עקרונות של עיצוב תלבושות על דמויות. צריך להיות ספציפיים מאוד לגבי האנשים, הפריטים והאובייקטים בסצנה.
+- כדי שהסצנה תיראה מציאותית וטבעית, חשוב להוסיף הרבה פרטים מתאימים לרכיבי הרקע.
+- תכין סרטון מהיר שבו מוצגות `[thing]` שונות ונדירות כל שנייה, עם מוזיקה קצבית, ותוסיף טקסט כדי לתת שם לכל דבר.
 
-### Videolardaki metinler
+### טקסט בסרטונים
 
-Videonuzda metin olmasını isteyebilirsiniz. Gemini Omni, metni doğru ve okunabilir şekilde oluşturur. Videonuzda arka plan öğelerinde bile doğal olarak oluşan metinler varsa ne söylemesi gerektiğini tanımlamak faydalı olabilir.
+אתם יכולים להנחות את Gemini Omni לכלול טקסט בסרטון, והוא יעבד את הטקסט בצורה נכונה וקריאה. אם בסרטון שלכם יופיע טקסט באופן טבעי, גם ברכיבי הרקע, כדאי להגדיר מה צריך להיות כתוב.
 
-- Ekranda tek seferde bir kelime: "did, you, know, that, Omni, can, do,
-  awesome, text?" ("Omni'nin, harika, metinler, oluşturabildiğini, biliyor, muydunuz?") Her kelime, farklı bir animasyon stiliyle 1 saniye boyunca görünür. Diyalog yok.
-- "Bu, Omni tarafından üretilen bir yapay zeka görüntüsüdür" yazan bir sokak tabelası, "İhtiyacınız olan tüm yapay zeka" yazan bir vitrin ve "OMN111" plakalı bir araba var.
+- מילה אחת בכל פעם במסך: "did, you, know, that, Omni, can, do,
+  awesome, text?" כל מילה מופיעה למשך שנייה אחת בסגנון אנימציה שונה. אין דיאלוג.
+- יש תמרור עם הכיתוב: "This is an AI generation by Omni" (התמונה הזו נוצרה על ידי AI באמצעות Omni), יש חזית חנות עם הכיתוב: "All you need AI" (כל מה שצריך AI), יש מכונית עם לוחית רישוי עם הכיתוב: "OMN111"
 
-### Görüntü rollerini ayarlamak için istemlerde etiket kullanma
+### שימוש בתגים בהנחיות כדי להגדיר תפקידי תמונה
 
-Yüklenen medyaları belirli üretim rollerine bağlamak için etiketleri kullanabilirsiniz. Bu sayede, her resmin başlangıç karesi mi yoksa referans mı olduğunu belirtebilirsiniz.
+אתם יכולים להשתמש בתגים כדי לקשר בין מדיה שהועלתה לבין תפקידי יצירה ספציפיים. כך תוכלו לציין אם כל תמונה היא פריים ראשוני או פריים להשוואה.
 
-#### 1. Basit etiketler (önerilen)
+#### 1. תגים פשוטים (מומלץ)
 
-Resim rollerinin istemden net bir şekilde anlaşıldığı basit durumlarda, resimleri doğrudan rollere bağlayabilirsiniz:
+במקרים פשוטים שבהם התפקידים של התמונות ברורים מההנחיה, אפשר לקשר תמונות לתפקידים ישירות:
 
-- **`<FIRST_FRAME>`**: Örneğin, `<FIRST_FRAME> a woman is walking` gibi durumlarda videonun başlangıç karesi olarak resmi kullanın.
-- **`<IMAGE_REF_N>`**: Resmi referans olarak kullanın. Örneğin: `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (ilk resimdeki stil referansını ve ikinci resimdeki özne referansını birleştirir).
-  Resim referansları 0'dan başlar.
+- ‫**`<FIRST_FRAME>`**: שימוש בתמונה כמסגרת הפתיחה של הסרטון, לדוגמה: `<FIRST_FRAME> a woman is walking`
+- ‫**`<IMAGE_REF_N>`**: שימוש בתמונה כהפניה, לדוגמה: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (שילוב של הפניה לסגנון מהתמונה הראשונה והפניה לנושא מהתמונה השנייה).
+  התמונות לדוגמה מתחילות מ-0.
 
-Aşağıda 6 referans resim içeren bir örnek verilmiştir:
+דוגמה עם 6 תמונות להשוואה:
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -853,37 +855,37 @@ Aşağıda 6 referans resim içeren bir örnek verilmiştir:
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. Açık beyanlar
+#### 2. הצהרות מפורשות
 
-Birden fazla resim ve birden fazla rol içeren daha karmaşık durumlarda, doğal dil talimatı sonekleriyle eşleştirilmiş açık önek etiketlerini kullanabilirsiniz.
+במקרים מורכבים יותר עם כמה תמונות וכמה תפקידים, אפשר להשתמש בתגי קידומת מפורשים בשילוב עם סיומות של הוראות בשפה טבעית.
 
-- **Kaynakları ve referans görselleri belirtme**:
-  - `[# Sources <FIRST_FRAME>@Image1]`, başlangıç karesi olarak ilk resmi kullanır.
-  - `[# References <IMAGE_REF_0>@Image1]`, ilk resmi referans olarak kullanır.
-  - `[# References <IMAGE_REF_1>@Image2]`, ikinci resmi referans olarak kullanır.
-  - `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]`, her iki resmi de referans olarak kullanır.
-  - `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]`, ilk resmi başlangıç karesi, ikinci resmi ise referans olarak kullanır.
-- **Yönlendirici talimatlar**: İsteminizin en sonuna yönlendirici talimatlar ekleyin:
-  - Başlangıç karesi için: `"Use this image as the starting frame."`
-  - Referans resimler için: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- **הצהרה על מקורות ותמונות לדוגמה**:
+  - ‫`[# Sources <FIRST_FRAME>@Image1]` ישתמש בתמונה הראשונה כפריים ההתחלתי.
+  - ‫`[# References <IMAGE_REF_0>@Image1]` ישתמש בתמונה הראשונה כדוגמה.
+  - ‫`[# References <IMAGE_REF_1>@Image2]` ישתמש בתמונה השנייה כדוגמה.
+  - ‫`[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` ישתמש בשתי התמונות כדוגמאות.
+  - ‫`[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` ישתמש בתמונה הראשונה כפריים התחלתי ובתמונה השנייה כהפניה.
+- **הוראות מנחות**: מוסיפים הוראות מנחות בסוף ההנחיה:
+  - פריים התחלה: `"Use this image as the starting frame."`
+  - לתמונות לדוגמה: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
 
-Örnek genişletilmiş istem:
+דוגמה להנחיה מורחבת:
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-## Sırada ne var?
+## המאמרים הבאים
 
-- [Omni Hızlı Başlangıç Colab'inde](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=tr) denemeler yaparak Gemini Omni Flash'i kullanmaya başlayın.
-- [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) başlıklı makalemizden yararlanarak daha iyi istemler yazmayı öğrenin.
+- כדי להתחיל לעבוד עם Gemini Omni Flash, אפשר להתנסות ב-[Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=he).
+- כדי ללמוד איך לכתוב הנחיות טובות עוד יותר, אפשר לעיין ב[מבוא לעיצוב הנחיות](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=he).
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-07-06 UTC.
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-06 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

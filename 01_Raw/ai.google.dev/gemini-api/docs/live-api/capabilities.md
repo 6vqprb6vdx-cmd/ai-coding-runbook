@@ -1,52 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi
-fetched_at: 2026-07-27T04:44:51.871395+00:00
-title: "H\u01b0\u1edbng d\u1eabn v\u1ec1 c\u00e1c ch\u1ee9c n\u0103ng c\u1ee7a Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ja
+fetched_at: 2026-08-03T04:28:00.337650+00:00
+title: "Live API \u6a5f\u80fd\u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Hướng dẫn về các chức năng của Live API
+# Live API 機能ガイド
 
-Đây là hướng dẫn toàn diện trình bày các chức năng và cấu hình có trong Live API.
-Hãy xem trang [Bắt đầu sử dụng Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) để biết thông tin tổng quan và mã mẫu cho các trường hợp sử dụng phổ biến.
+これは、Live API で利用可能な機能と構成について説明する包括的なガイドです。概要と一般的なユースケースのサンプルコードについては、[Live API を使ってみる](https://ai.google.dev/gemini-api/docs/live?hl=ja)をご覧ください。
 
-## Trước khi bắt đầu
+## 始める前に
 
-- **Làm quen với các khái niệm cốt lõi:** Nếu chưa làm, trước tiên, hãy đọc trang [Bắt đầu sử dụng Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) . Trang này sẽ giới thiệu cho bạn các nguyên tắc cơ bản của Live API, cách API này hoạt động và các [phương pháp triển khai](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach) khác nhau.
-- **Dùng thử Live API trong AI Studio:** Bạn có thể thấy việc dùng thử Live API trong [Google AI Studio](https://aistudio.google.com/app/live?hl=vi) là hữu ích trước khi bắt đầu xây dựng. Để sử dụng Live API trong Google AI Studio, hãy chọn **Stream** (Phát trực tiếp).
+- **コアコンセプトを理解する:** まだ読んでいない場合は、まず [Live API を使ってみる](https://ai.google.dev/gemini-api/docs/live?hl=ja) ページをご覧ください。ここでは、Live API の基本原則、仕組み、さまざまな[実装方法](https://ai.google.dev/gemini-api/docs/live?hl=ja#implementation-approach)について説明します。
+- **AI Studio で Live API を試す:** 構築を開始する前に、[Google AI Studio](https://aistudio.google.com/app/live?hl=ja) で Live API を試してみることをおすすめします。Google AI Studio で Live API を使用するには、[**ストリーム**] を選択します。
 
-## So sánh mô hình
+## モデル比較
 
-Bảng sau đây tóm tắt những điểm khác biệt chính giữa mô hình [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi) và [Gemini 2.5 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=vi):
+次の表に、[Gemini 3.1 Flash Live プレビュー版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ja)モデルと [Gemini 2.5 Flash Live プレビュー版](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=ja)モデルの主な違いをまとめます。
 
-| Tính năng | Bản xem trước Gemini 3.1 Flash Live | Bản xem trước trực tiếp Gemini 2.5 Flash |
+| 機能 | Gemini 3.1 Flash Live プレビュー | Gemini 2.5 Flash ライブ プレビュー |
 | --- | --- | --- |
-| **[Tư duy](#native-audio-output-thinking)** | Sử dụng `thinkingLevel` để kiểm soát độ sâu tư duy bằng các chế độ cài đặt như `minimal`, `low`, `medium` và `high`. Mặc định là `minimal` để tối ưu hoá cho độ trễ thấp nhất. Xem phần [Các cấp và ngân sách của chiến dịch suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets). | Sử dụng `thinkingBudget` để đặt số lượng mã thông báo tư duy. Tính năng tư duy linh hoạt được bật theo mặc định. Đặt `thinkingBudget` thành `0` để tắt. Xem phần [Các cấp và ngân sách của chiến dịch suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets). |
-| **[Nhận phản hồi](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservercontent)** | Một sự kiện trên máy chủ có thể chứa nhiều phần nội dung cùng lúc (ví dụ: `inlineData` và bản chép lời). Đảm bảo mã của bạn xử lý tất cả các phần trong mỗi sự kiện để tránh bỏ lỡ nội dung. | Mỗi sự kiện trên máy chủ chỉ chứa một phần nội dung. Các phần được phân phối trong các sự kiện riêng biệt. |
-| **[Nội dung của khách hàng](#incremental-updates)** | `send_client_content` chỉ được hỗ trợ để gieo hạt nhật ký bối cảnh ban đầu (yêu cầu đặt `initial_history_in_client_content` trong cấu hình phiên). Để gửi nội dung cập nhật văn bản trong cuộc trò chuyện, hãy sử dụng `send_realtime_input`. | `send_client_content` được hỗ trợ trong suốt cuộc trò chuyện để gửi các bản cập nhật nội dung gia tăng và thiết lập ngữ cảnh. |
-| **[Bật chế độ xem mức độ phù hợp](https://ai.google.dev/api/live?hl=vi#turncoverage)** | Giá trị mặc định là `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Lượt phản hồi của mô hình bao gồm hoạt động âm thanh được phát hiện và tất cả các khung hình video. | Giá trị mặc định là `TURN_INCLUDES_ONLY_ACTIVITY`. Lượt phản hồi của mô hình chỉ bao gồm hoạt động được phát hiện. |
-| **[VAD tuỳ chỉnh](#disable-automatic-vad)** (`activity_start`/`activity_end`) | Được hỗ trợ. Tắt VAD tự động và gửi tin nhắn `activityStart` và `activityEnd` theo cách thủ công để kiểm soát ranh giới lượt lời. | Được hỗ trợ. Tắt VAD tự động và gửi tin nhắn `activityStart` và `activityEnd` theo cách thủ công để kiểm soát ranh giới lượt lời. |
-| **[Cấu hình VAD tự động](#configure-automatic-vad)** | Được hỗ trợ. Định cấu hình các thông số như `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` và `silence_duration_ms`. | Được hỗ trợ. Định cấu hình các thông số như `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` và `silence_duration_ms`. |
-| **[Gọi hàm không đồng bộ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi#async-function-calling)** (`behavior: NON_BLOCKING`) | Không được hỗ trợ. Chỉ có thể gọi hàm theo trình tự. Mô hình sẽ không bắt đầu phản hồi cho đến khi bạn gửi phản hồi của công cụ. | Được hỗ trợ. Đặt `behavior` thành `NON_BLOCKING` trong một khai báo hàm để cho phép mô hình tiếp tục tương tác trong khi hàm chạy. Kiểm soát cách mô hình xử lý các phản hồi bằng tham số `scheduling` (`INTERRUPT`, `WHEN_IDLE` hoặc `SILENT`). |
-| **[Âm thanh chủ động](#proactive-audio)** | Không được hỗ trợ | Được hỗ trợ. Khi được bật, mô hình có thể chủ động quyết định không phản hồi nếu nội dung đầu vào không liên quan. Đặt `proactive_audio` thành `true` trong cấu hình `proactivity` (yêu cầu `v1alpha`). |
-| **[Đối thoại cảm xúc](#affective-dialog)** | Không được hỗ trợ | Được hỗ trợ. Mô hình sẽ điều chỉnh phong cách phản hồi cho phù hợp với cách diễn đạt và giọng điệu của câu lệnh đầu vào. Đặt `enable_affective_dialog` thành `true` trong cấu hình phiên (yêu cầu `v1alpha`). |
+| **[思考](#native-audio-output-thinking)** | `thinkingLevel` を使用して、`minimal`、`low`、`medium`、`high` などの設定で思考の深さを制御します。デフォルトは `minimal` で、レイテンシを最小限に抑えるように最適化されます。[思考レベルと予算](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#levels-budgets)をご覧ください。 | `thinkingBudget` を使用して思考トークンの数を設定します。動的な思考はデフォルトで有効になっています。無効にするには、`thinkingBudget` を `0` に設定します。[思考レベルと予算](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#levels-budgets)をご覧ください。 |
+| **[レスポンスの受信](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentservercontent)** | 1 つのサーバー イベントに複数のコンテンツ部分（`inlineData` と文字起こしなど）を同時に含めることができます。コンテンツの欠落を防ぐため、コードが各イベントのすべての部分を処理するようにしてください。 | 各サーバー イベントにはコンテンツ部分が 1 つだけ含まれます。パーツは個別のイベントで配信されます。 |
+| **[クライアント コンテンツ](#incremental-updates)** | `send_client_content` は、初期コンテキスト履歴のシード処理でのみサポートされます（セッション構成で `initial_history_in_client_content` を設定する必要があります）。会話中にテキスト更新を送信するには、代わりに `send_realtime_input` を使用します。 | `send_client_content` は、会話全体でサポートされており、増分コンテンツ更新の送信とコンテキストの確立に使用されます。 |
+| **[カバレッジをオンにする](https://ai.google.dev/api/live?hl=ja#turncoverage)** | デフォルトは `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO` です。モデルのターンには、検出された音声アクティビティとすべての動画フレームが含まれます。 | デフォルトは `TURN_INCLUDES_ONLY_ACTIVITY` です。モデルのターンには、検出されたアクティビティのみが含まれます。 |
+| **[カスタム VAD](#disable-automatic-vad)**（`activity_start`/`activity_end`） | サポート対象。自動 VAD を無効にし、`activityStart` メッセージと `activityEnd` メッセージを手動で送信して、ターンの境界を制御します。 | サポート対象。自動 VAD を無効にし、`activityStart` メッセージと `activityEnd` メッセージを手動で送信して、ターンの境界を制御します。 |
+| **[VAD の自動構成](#configure-automatic-vad)** | サポート対象。`start_of_speech_sensitivity`、`end_of_speech_sensitivity`、`prefix_padding_ms`、`silence_duration_ms` などのパラメータを構成します。 | サポート対象。`start_of_speech_sensitivity`、`end_of_speech_sensitivity`、`prefix_padding_ms`、`silence_duration_ms` などのパラメータを構成します。 |
+| **[非同期関数呼び出し](https://ai.google.dev/gemini-api/docs/live-tools?hl=ja#async-function-calling)**（`behavior: NON_BLOCKING`） | 対象外。関数呼び出しは順次のみです。ツール応答を送信するまで、モデルは応答を開始しません。 | サポート対象。関数宣言で `behavior` を `NON_BLOCKING` に設定すると、関数が実行されている間もモデルがインタラクションを継続できます。`scheduling` パラメータ（`INTERRUPT`、`WHEN_IDLE`、`SILENT`）を使用して、モデルがレスポンスを処理する方法を制御します。 |
+| **[プロアクティブ音声](#proactive-audio)** | サポート対象外 | サポート対象。有効にすると、入力コンテンツが関連性のない場合、モデルは応答しないことを事前に決定できます。`proactivity` 構成で `proactive_audio` を `true` に設定します（`v1beta` が必要です）。 |
+| **[アフェクティブ ダイアログ](#affective-dialog)** | サポート対象外 | サポート対象。モデルは、入力の表現と口調に合わせて回答のスタイルを調整します。セッション構成で `enable_affective_dialog` を `true` に設定します（`v1beta` が必要です）。 |
 
-Để di chuyển từ Gemini 2.5 Flash Live sang Gemini 3.1 Flash Live, hãy xem [hướng dẫn di chuyển](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi#migrating).
+Gemini 2.5 Flash Live から Gemini 3.1 Flash Live に移行するには、[移行ガイド](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ja#migrating)をご覧ください。
 
-## Thiết lập kết nối
+## 接続を確立する
 
-Ví dụ sau đây minh hoạ cách tạo một kết nối bằng khoá API:
+次の例は、API キーを使用して接続を作成する方法を示しています。
 
 ### Python
 
@@ -107,13 +106,13 @@ async function main() {
 main();
 ```
 
-## Phương thức tương tác
+## インタラクション モダリティ
 
-Các phần sau đây cung cấp ví dụ và ngữ cảnh hỗ trợ cho nhiều phương thức đầu vào và đầu ra có trong Live API.
+以降のセクションでは、Live API で使用可能なさまざまな入出力モダリティの例とコンテキストについて説明します。
 
-### Đang gửi âm thanh
+### 音声を送信する
 
-Bạn cần gửi âm thanh dưới dạng dữ liệu PCM thô (âm thanh PCM thô 16 bit, 16 kHz, little-endian).
+音声は RAW PCM データ（RAW 16 ビット PCM 音声、16 kHz、リトル エンディアン）として送信する必要があります。
 
 ### Python
 
@@ -139,13 +138,13 @@ session.sendRealtimeInput({
 });
 ```
 
-### Định dạng âm thanh
+### オーディオ形式
 
-Dữ liệu âm thanh trong Live API luôn là dữ liệu thô, little-endian, PCM 16 bit. Đầu ra âm thanh luôn sử dụng tốc độ lấy mẫu là 24 kHz. Âm thanh đầu vào vốn là 16 kHz, nhưng Live API sẽ lấy lại mẫu nếu cần, vì vậy, bạn có thể gửi bất kỳ tốc độ lấy mẫu nào. Để truyền đạt tốc độ lấy mẫu của âm thanh đầu vào, hãy đặt loại MIME của mỗi [Blob](https://ai.google.dev/api/caching?hl=vi#Blob) chứa âm thanh thành một giá trị như `audio/pcm;rate=16000`.
+Live API の音声データは常に RAW、リトル エンディアン、16 ビット PCM です。オーディオ出力は常に 24 kHz のサンプルレートを使用します。入力音声はネイティブで 16 kHz ですが、必要に応じて Live API がリサンプリングするため、任意のサンプルレートを送信できます。入力音声のサンプルレートを伝えるには、音声を含む各 [Blob](https://ai.google.dev/api/caching?hl=ja#Blob) の MIME タイプを `audio/pcm;rate=16000` などの値に設定します。
 
-### Nhận âm thanh
+### 音声を受信する
 
-Các câu trả lời bằng âm thanh của mô hình được nhận dưới dạng các khối dữ liệu.
+モデルの音声応答は、データのチャンクとして受信されます。
 
 ### Python
 
@@ -173,9 +172,9 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-### Đang gửi tin nhắn
+### テキストを送信しています
 
-Bạn có thể gửi văn bản bằng `send_realtime_input` (Python) hoặc `sendRealtimeInput` (JavaScript).
+テキストは、`send_realtime_input`（Python）または `sendRealtimeInput`（JavaScript）を使用して送信できます。
 
 ### Python
 
@@ -191,9 +190,9 @@ session.sendRealtimeInput({
 });
 ```
 
-### Đang gửi video
+### 動画を送信しています
 
-Khung hình video được gửi dưới dạng hình ảnh riêng lẻ (ví dụ: JPEG hoặc PNG) ở một tốc độ khung hình cụ thể (tối đa 1 khung hình/giây).
+動画フレームは、特定のフレームレート（最大 1 フレーム / 秒）で個々の画像（JPEG や PNG など）として送信されます。
 
 ### Python
 
@@ -219,9 +218,9 @@ session.sendRealtimeInput({
 });
 ```
 
-#### Bản cập nhật nội dung bổ sung
+#### コンテンツの増分更新
 
-Sử dụng các bản cập nhật gia tăng để gửi dữ liệu đầu vào văn bản, thiết lập ngữ cảnh phiên hoặc khôi phục ngữ cảnh phiên. Đối với các ngữ cảnh ngắn, bạn có thể gửi các lượt tương tác từng bước để biểu thị chính xác trình tự các sự kiện:
+増分更新を使用して、テキスト入力の送信、セッション コンテキストの確立、セッション コンテキストの復元を行います。コンテキストが短い場合は、ターンバイターンのインタラクションを送信して、イベントの正確なシーケンスを表すことができます。
 
 ### Python
 
@@ -253,13 +252,13 @@ inputTurns = [{ "role": "user", "parts": [{ "text": "What is the capital of Germ
 session.sendClientContent({ turns: inputTurns, turnComplete: true })
 ```
 
-Đối với các ngữ cảnh dài hơn, bạn nên cung cấp một bản tóm tắt tin nhắn duy nhất để giải phóng cửa sổ ngữ cảnh cho các lượt tương tác tiếp theo. Hãy xem phần [Tiếp tục phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi#session-resumption) để biết một phương thức khác để tải ngữ cảnh phiên.
+コンテキストが長い場合は、1 つのメッセージの概要を提供して、後続のインタラクション用にコンテキスト ウィンドウを空けておくことをおすすめします。セッション コンテキストを読み込む別の方法については、[セッションの再開](https://ai.google.dev/gemini-api/docs/live-session?hl=ja#session-resumption)をご覧ください。
 
-### Bản chép lời
+### 音声文字起こし
 
-Ngoài câu trả lời của mô hình, bạn cũng có thể nhận được bản chép lời của cả đầu ra âm thanh và đầu vào âm thanh.
+モデルのレスポンスに加えて、オーディオ出力と音声入力の両方の文字起こしを受け取ることもできます。
 
-Để bật tính năng chép lời cho đầu ra âm thanh của mô hình, hãy gửi `output_audio_transcription` trong cấu hình thiết lập. Ngôn ngữ của bản chép lời được suy luận từ câu trả lời của mô hình.
+モデルのオーディオ出力の文字起こしを有効にするには、セットアップ構成で `output_audio_transcription` を送信します。音声文字変換の言語は、モデルのレスポンスから推測されます。
 
 ### Python
 
@@ -377,7 +376,7 @@ async function main() {
 main();
 ```
 
-Để bật tính năng chép lời cho đầu vào âm thanh của mô hình, hãy gửi `input_audio_transcription` trong cấu hình thiết lập.
+モデルの音声入力の文字起こしを有効にするには、セットアップ構成で `input_audio_transcription` を送信します。
 
 ### Python
 
@@ -522,11 +521,11 @@ async function main() {
 main();
 ```
 
-### Thay đổi giọng nói và ngôn ngữ
+### 音声と言語を変更する
 
-Các mô hình [đầu ra âm thanh gốc](#native-audio-output) hỗ trợ mọi giọng nói có trong các mô hình [Chuyển văn bản sang lời nói (TTS)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi#voices) của chúng tôi. Bạn có thể nghe tất cả các giọng nói trong [AI Studio](https://aistudio.google.com/app/live?hl=vi).
+[ネイティブ オーディオ出力](#native-audio-output)モデルは、[テキスト読み上げ（TTS）](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja#voices)モデルで利用可能な音声のいずれかをサポートします。[AI Studio](https://aistudio.google.com/app/live?hl=ja) で、すべての音声を聞くことができます。
 
-Để chỉ định một giọng nói, hãy đặt tên giọng nói trong đối tượng `speechConfig` trong cấu hình phiên:
+音声を指定するには、セッション構成の一部として `speechConfig` オブジェクト内に音声名を設定します。
 
 ### Python
 
@@ -548,16 +547,15 @@ const config = {
 };
 ```
 
-Live API hỗ trợ [nhiều ngôn ngữ](#supported-languages).
-Các mô hình [đầu ra âm thanh gốc](#native-audio-output) sẽ tự động chọn ngôn ngữ phù hợp và không hỗ trợ việc đặt mã ngôn ngữ một cách rõ ràng.
+Live API は[複数の言語](#supported-languages)をサポートしています。[ネイティブ オーディオ出力](#native-audio-output)モデルは、適切な言語を自動的に選択し、言語コードの明示的な設定をサポートしていません。
 
-## Khả năng âm thanh gốc
+## ネイティブ オーディオ機能
 
-Các mô hình mới nhất của chúng tôi có [đầu ra âm thanh gốc](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi), mang đến lời nói tự nhiên, chân thực và hiệu suất đa ngôn ngữ được cải thiện.
+最新のモデルには[ネイティブ オーディオ出力](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ja)が搭載されており、自然でリアルな音声を提供し、多言語対応のパフォーマンスを向上させます。
 
-### Tư duy
+### 思考モード
 
-Các mô hình Gemini 3.1 sử dụng `thinkingLevel` để kiểm soát độ sâu tư duy, với các chế độ cài đặt như `minimal`, `low`, `medium` và `high`. Chế độ mặc định là `minimal` để tối ưu hoá độ trễ thấp nhất. Các mô hình Gemini 2.5 sử dụng `thinkingBudget` để đặt số lượng mã thông báo tư duy. Để biết thêm thông tin về cấp độ so với ngân sách, hãy xem bài viết [Cấp độ và ngân sách](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets).
+Gemini 3.1 モデルは、`thinkingLevel` を使用して思考の深さを制御します。設定には、`minimal`、`low`、`medium`、`high` などがあります。デフォルトは `minimal` で、レイテンシを最小限に抑えるように最適化されています。Gemini 2.5 モデルでは、代わりに `thinkingBudget` を使用して思考トークンの数を設定します。レベルと予算の詳細については、[レベルと予算の考え方](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#levels-budgets)をご覧ください。
 
 ### Python
 
@@ -602,7 +600,7 @@ async function main() {
 main();
 ```
 
-Ngoài ra, bạn có thể bật tính năng tóm tắt ý tưởng bằng cách đặt `includeThoughts` thành `true` trong cấu hình. Hãy xem phần [tóm tắt ý tưởng](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#summaries) để biết thêm thông tin:
+また、構成で `includeThoughts` を `true` に設定すると、思考の要約を有効にできます。詳しくは、[思考の要約](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#summaries)をご覧ください。
 
 ### Python
 
@@ -631,16 +629,16 @@ const config = {
 };
 ```
 
-### Đối thoại cảm xúc
+### アフェクティブ ダイアログ
 
-Tính năng này cho phép Gemini điều chỉnh phong cách phản hồi theo biểu thức và giọng điệu đầu vào.
+この機能を使用すると、Gemini は入力された表現と口調に応じて回答スタイルを調整できます。
 
-Để sử dụng đối thoại cảm xúc, hãy đặt phiên bản API thành `v1alpha` và đặt `enable_affective_dialog` thành `true` trong thông báo thiết lập:
+アフェクティブ ダイアログを使用するには、セットアップ メッセージで API バージョンを `v1beta` に設定し、`enable_affective_dialog` を `true` に設定します。
 
 ### Python
 
 ```
-client = genai.Client(http_options={"api_version": "v1alpha"})
+client = genai.Client(http_options={"api_version": "v1beta"})
 
 config = types.LiveConnectConfig(
     response_modalities=["AUDIO"],
@@ -651,7 +649,7 @@ config = types.LiveConnectConfig(
 ### JavaScript
 
 ```
-const ai = new GoogleGenAI({ httpOptions: {"apiVersion": "v1alpha"} });
+const ai = new GoogleGenAI({ httpOptions: {"apiVersion": "v1beta"} });
 
 const config = {
   responseModalities: [Modality.AUDIO],
@@ -659,16 +657,16 @@ const config = {
 };
 ```
 
-### Âm thanh chủ động
+### コンテキストに応じた音声にのみ対応
 
-Khi tính năng này được bật, Gemini có thể chủ động quyết định không phản hồi nếu nội dung không liên quan.
+この機能を有効にすると、コンテンツが関連性のない場合、Gemini は応答しないことを事前に判断できます。
 
-Để sử dụng, hãy đặt phiên bản API thành `v1alpha` và định cấu hình trường `proactivity` trong thông báo thiết lập, đồng thời đặt `proactive_audio` thành `true`:
+これを使用するには、API バージョンを `v1beta` に設定し、セットアップ メッセージの `proactivity` フィールドを構成して、`proactive_audio` を `true` に設定します。
 
 ### Python
 
 ```
-client = genai.Client(http_options={"api_version": "v1alpha"})
+client = genai.Client(http_options={"api_version": "v1beta"})
 
 config = types.LiveConnectConfig(
     response_modalities=["AUDIO"],
@@ -679,7 +677,7 @@ config = types.LiveConnectConfig(
 ### JavaScript
 
 ```
-const ai = new GoogleGenAI({ httpOptions: {"apiVersion": "v1alpha"} });
+const ai = new GoogleGenAI({ httpOptions: {"apiVersion": "v1beta"} });
 
 const config = {
   responseModalities: [Modality.AUDIO],
@@ -687,19 +685,19 @@ const config = {
 }
 ```
 
-## Dịch trực tiếp
+## ライブ翻訳
 
-Live API hỗ trợ dịch các cuộc trò chuyện bằng lời nói theo thời gian thực với độ trễ thấp. Khả năng này cho phép bạn tạo các ứng dụng dịch giọng nói theo thời gian thực.
+Live API は、会話のリアルタイムかつ低レイテンシの翻訳をサポートします。この機能を使用すると、リアルタイムの音声翻訳アプリケーションを構築できます。
 
-Để biết thêm thông tin và ví dụ, hãy xem [hướng dẫn về tính năng Dịch trực tiếp](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=vi).
+詳細と例については、[リアルタイム翻訳ガイド](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=ja)をご覧ください。
 
-## Phát hiện hoạt động thoại (VAD)
+## 音声検出（VAD）
 
-Tính năng Phát hiện hoạt động thoại (VAD) cho phép mô hình nhận dạng thời điểm một người đang nói. Đây là tính năng cần thiết để tạo ra các cuộc trò chuyện tự nhiên, vì tính năng này cho phép người dùng ngắt lời mô hình bất cứ lúc nào.
+音声検出（VAD）により、モデルは人が話しているときを認識できます。これは、ユーザーがいつでもモデルを中断できるようにするため、自然な会話を作成するうえで不可欠です。
 
-Khi VAD phát hiện thấy một đoạn ngắt, quá trình tạo đang diễn ra sẽ bị huỷ và loại bỏ. Chỉ những thông tin đã được gửi đến máy khách mới được giữ lại trong nhật ký phiên. Sau đó, máy chủ sẽ gửi thông báo [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservercontent) để báo cáo sự gián đoạn.
+VAD が中断を検出すると、進行中の生成はキャンセルされ、破棄されます。クライアントにすでに送信された情報だけがセッション履歴に保持されます。その後、サーバーは中断を報告する [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentservercontent) メッセージを送信します。
 
-Sau đó, máy chủ Gemini sẽ loại bỏ mọi lệnh gọi hàm đang chờ xử lý và gửi thông báo `BidiGenerateContentServerContent` kèm theo mã nhận dạng của các lệnh gọi đã huỷ.
+Gemini サーバーは、保留中の関数呼び出しを破棄し、キャンセルされた呼び出しの ID を記載した `BidiGenerateContentServerContent` メッセージを送信します。
 
 ### Python
 
@@ -727,11 +725,11 @@ for (const turn of turns) {
 }
 ```
 
-### VAD tự động
+### 自動 VAD
 
-Theo mặc định, mô hình sẽ tự động thực hiện VAD trên luồng đầu vào âm thanh liên tục. Bạn có thể định cấu hình VAD bằng trường [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=vi#RealtimeInputConfig.AutomaticActivityDetection) của [cấu hình thiết lập](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentSetup).
+デフォルトでは、モデルは連続した音声入力ストリームに対して VAD を自動的に実行します。VAD は、[セットアップ構成](https://ai.google.dev/api/live?hl=ja#BidiGenerateContentSetup)の [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=ja#RealtimeInputConfig.AutomaticActivityDetection) フィールドで構成できます。
 
-Khi luồng âm thanh bị tạm dừng trong hơn một giây (ví dụ: vì người dùng tắt micrô), bạn nên gửi sự kiện [`audioStreamEnd`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end) để xoá mọi âm thanh được lưu vào bộ nhớ đệm. Ứng dụng có thể tiếp tục gửi dữ liệu âm thanh bất cứ lúc nào.
+音声ストリームが 1 秒以上一時停止すると（たとえば、ユーザーがマイクをオフにした場合）、キャッシュに保存された音声をフラッシュするために [`audioStreamEnd`](https://ai.google.dev/api/live?hl=ja#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end) イベントが送信されます。クライアントはいつでも音声データの送信を再開できます。
 
 ### Python
 
@@ -867,11 +865,11 @@ async function main() {
 main();
 ```
 
-Với `send_realtime_input`, API sẽ tự động phản hồi âm thanh dựa trên VAD. Mặc dù `send_client_content` thêm các thông báo vào ngữ cảnh mô hình theo thứ tự, nhưng `send_realtime_input` được tối ưu hoá để có khả năng phản hồi nhanh chóng, nhưng lại không đảm bảo được thứ tự xác định.
+`send_realtime_input` を使用すると、API は VAD に基づいて音声に自動的に応答します。`send_client_content` はメッセージをモデル コンテキストに順序どおりに追加しますが、`send_realtime_input` は決定論的な順序を犠牲にして応答性を最適化します。
 
-### Cấu hình VAD tự động
+### VAD の自動構成
 
-Để kiểm soát hoạt động VAD tốt hơn, bạn có thể định cấu hình các thông số sau. Hãy xem [Tài liệu tham khảo API](https://ai.google.dev/api/live?hl=vi#automaticactivitydetection) để biết thêm thông tin.
+VAD アクティビティをより詳細に制御するには、次のパラメータを構成します。詳細については、[API リファレンス](https://ai.google.dev/api/live?hl=ja#automaticactivitydetection)をご覧ください。
 
 ### Python
 
@@ -911,9 +909,9 @@ const config = {
 };
 ```
 
-### Tắt tính năng tự động phát hiện hoạt động thoại
+### 自動 VAD を無効にする
 
-Ngoài ra, bạn có thể tắt tính năng VAD tự động bằng cách đặt `realtimeInputConfig.automaticActivityDetection.disabled` thành `true` trong thông báo thiết lập. Trong cấu hình này, ứng dụng chịu trách nhiệm phát hiện lời nói của người dùng và gửi thông báo [`activityStart`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start) và [`activityEnd`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end) vào thời điểm thích hợp. `audioStreamEnd` không được gửi trong cấu hình này. Thay vào đó, mọi sự gián đoạn luồng đều được đánh dấu bằng thông báo `activityEnd`.
+また、セットアップ メッセージで `realtimeInputConfig.automaticActivityDetection.disabled` を `true` に設定することで、自動 VAD を無効にすることもできます。この構成では、クライアントがユーザーの音声の検出と、適切なタイミングでの [`activityStart`](https://ai.google.dev/api/live?hl=ja#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start) メッセージと [`activityEnd`](https://ai.google.dev/api/live?hl=ja#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end) メッセージの送信を行います。この構成では `audioStreamEnd` は送信されません。代わりに、ストリームの中断は `activityEnd` メッセージでマークされます。
 
 ### Python
 
@@ -960,34 +958,33 @@ session.sendRealtimeInput(
 session.sendRealtimeInput({ activityEnd: {} })
 ```
 
-### Tìm hiểu các thông số VAD và tác động của chúng đến chất lượng
+### VAD パラメータとその品質への影響について
 
-Khi sử dụng VAD tự động, hai thông số chính sẽ kiểm soát cách phân đoạn âm thanh thành các lượt lời nói trước khi được gửi đến mô hình:
+自動 VAD を使用する場合、次の 2 つのキー パラメータによって、音声が発話ターンに分割されてモデルに送信される方法が制御されます。
 
-- **`prefixPaddingMs`**: Lượng âm thanh cần đưa vào *trước* khi phát hiện thấy lời nói. Tính năng "nhìn lại" này đảm bảo mô hình ghi lại toàn bộ thời điểm bắt đầu của lời nói, bao gồm cả âm tiết đầu tiên có thể bắt đầu trước khi VAD kích hoạt. Giá trị `0` có thể khiến phần đầu của các từ bị cắt.
-- **`silenceDurationMs`**: Khoảng thời gian máy chủ chờ trong lúc không có âm thanh trước khi kết thúc một lượt lời nói. Khoảng thời gian này xác định mức độ chấp nhận của hệ thống đối với các khoảng dừng tự nhiên giữa câu (ví dụ: suy nghĩ, hít thở hoặc ranh giới của mệnh đề).
+- **`prefixPaddingMs`**: 発話が検出される*前*に含める音声の量。この「ルックバック」により、VAD がトリガーされる前に始まる可能性のある最初の音節など、音声の開始全体をモデルでキャプチャできます。`0` の値を使用すると、単語の先頭が切り捨てられることがあります。
+- **`silenceDurationMs`**: 発話ターンを終了する前にサーバーが無音状態で待機する時間。これにより、システムが文中の自然な一時停止（思考、呼吸、句の境界など）をどの程度許容するかが決まります。
 
-#### Ảnh hưởng của `silenceDurationMs` đến chất lượng âm thanh
+#### `silenceDurationMs` が音質に与える影響
 
-Giá trị `silenceDurationMs` ảnh hưởng trực tiếp đến kích thước và tính hoàn chỉnh của các đoạn âm thanh mà mô hình nhận được để xử lý:
+`silenceDurationMs` 値は、モデルが処理のために受け取る音声チャンクのサイズと完全性に直接影響します。
 
-- **Nên dùng (500 mili giây – 800 mili giây):** Cung cấp sự cân bằng hợp lý – mô hình nhận được các đoạn âm thanh đầy đủ, giàu ngữ cảnh trong khi vẫn duy trì độ trễ hợp lý. Giá trị mặc định nội bộ của máy chủ là khoảng 800 mili giây.
-- **Quá thấp (ví dụ: 100 mili giây – 200 mili giây):** Hệ thống kết thúc lượt lời nói trong khi tạm dừng tự nhiên, chia một câu nói thành nhiều đoạn âm thanh nhỏ. Mô hình nhận từng đoạn này riêng lẻ, mất ngữ cảnh giữa các đoạn và dẫn đến chất lượng bản chép lời và phản hồi thấp hơn.
-- **Quá cao (ví dụ: 2000 mili giây trở lên):** Hệ thống đợi một thời gian dài sau khi người dùng ngừng nói, làm tăng độ trễ cảm nhận trước khi mô hình phản hồi.
+- **推奨（500 ～ 800 ミリ秒）:** 適切なバランスが取れています。モデルは、レイテンシを妥当な範囲に抑えながら、コンテキストが豊富な完全な音声チャンクを受け取ります。サーバーの内部デフォルトは約 800 ミリ秒です。
+- **低すぎる（100 ～ 200 ミリ秒など）:** システムが自然な一時停止中に音声ターンを終了し、1 つの発話が複数の小さな音声フラグメントに分割されます。モデルはこれらのフラグメントを個別に受信するため、フラグメント間のコンテキストが失われ、文字起こしとレスポンスの品質が低下します。
+- **高すぎる（2,000 ミリ秒以上など）:** ユーザーが話すのをやめてからシステムが応答するまでの時間が長くなり、モデルが応答するまでのレイテンシが長くなります。
 
-#### Các phương pháp hay nhất cho VAD thủ công (phía máy khách)
+#### 手動（クライアントサイド）VAD のベスト プラクティス
 
-Khi bạn tắt tính năng VAD tự động và quản lý các tín hiệu `activityStart`/`activityEnd` từ tính năng phát hiện giọng nói phía máy khách của riêng bạn, hãy lưu ý rằng các cơ chế đệm âm thanh tích hợp của máy chủ sẽ bị bỏ qua. Điều này có nghĩa là:
+自動 VAD を無効にして、独自のクライアントサイド音声検出から `activityStart`/`activityEnd` シグナルを管理する場合、サーバーの組み込み音声バッファリング メカニズムはバイパスされます。これは次のことを意味します。
 
-1. **Không có bộ nhớ đệm trước lời nói:** Máy chủ sẽ không còn thêm âm thanh vào trước khi phát hiện thấy lời nói bắt đầu. Khách hàng của bạn phải cung cấp đủ ngữ cảnh âm thanh trước khi gửi `activityStart`.
-2. **Không có khoảng thời gian im lặng:** Máy chủ sẽ hành động ngay lập tức dựa trên tín hiệu `activityEnd` mà không cần chờ thêm. Nếu VAD phía máy khách của bạn sử dụng ngưỡng kết thúc lời nói quá cao (ví dụ: 200 mili giây im lặng), thì lời nói có thể bị cắt ngang câu trong khi có khoảng dừng tự nhiên.
+1. **音声前のバッファなし:** サーバーは、検出された音声の開始前に音声を付加しなくなりました。クライアントは、`activityStart` を送信する前に十分な音声コンテキストを含める必要があります。
+2. **無音許容値なし:** サーバーは、追加の待機なしで `activityEnd` シグナルに即座に対応します。クライアントサイドの VAD でアグレッシブな発話終了しきい値（200 ミリ秒の無音など）を使用すると、自然な一時停止中に発話が文の途中で途切れることがあります。
 
-Để duy trì chất lượng âm thanh bằng VAD thủ công, hãy sử dụng ngưỡng im lặng cuối lời nói ít nhất là **500 mili giây** trong trình phát hiện hoạt động thoại của ứng dụng.
-Các ngưỡng dưới giá trị này thường gây ra âm thanh rời rạc, làm giảm chất lượng bản chép lời và phản hồi của mô hình.
+手動 VAD で音質を維持するには、クライアントの音声アクティビティ検出器で発話終了の無音しきい値を **500 ミリ秒**以上に設定します。この値より低いしきい値では、音声が断片化し、音声文字変換とモデルのレスポンスの品質が低下することがよくあります。
 
-## Số lượng mã thông báo
+## トークン数
 
-Bạn có thể tìm thấy tổng số mã thông báo đã sử dụng trong trường [usageMetadata](https://ai.google.dev/api/live?hl=vi#usagemetadata) của thông báo máy chủ được trả về.
+消費されたトークンの合計数は、返されたサーバー メッセージの [usageMetadata](https://ai.google.dev/api/live?hl=ja#usagemetadata) フィールドで確認できます。
 
 ### Python
 
@@ -1021,9 +1018,9 @@ for (const turn of turns) {
 }
 ```
 
-## Độ phân giải của nội dung nghe nhìn
+## メディアの解像度
 
-Bạn có thể chỉ định độ phân giải của nội dung nghe nhìn cho nội dung nghe nhìn đầu vào bằng cách đặt trường `mediaResolution` trong cấu hình phiên:
+入力メディアのメディア解像度を指定するには、セッション構成の一部として `mediaResolution` フィールドを設定します。
 
 ### Python
 
@@ -1047,99 +1044,98 @@ const config = {
 };
 ```
 
-## Các điểm hạn chế
+## 制限事項
 
-Hãy cân nhắc những hạn chế sau của Live API khi bạn lên kế hoạch cho dự án của mình.
+プロジェクトを計画する際は、Live API の次の制限事項を考慮してください。
 
-### Phương thức phản hồi
+### 応答のモダリティ
 
-Các mô hình âm thanh gốc chỉ hỗ trợ phương thức phản hồi `AUDIO`. Nếu bạn cần phản hồi của mô hình dưới dạng văn bản, hãy sử dụng tính năng [chép lời âm thanh đầu ra](#audio-transcription).
+ネイティブ音声モデルは `AUDIO` 応答モダリティのみをサポートします。モデルのレスポンスをテキストとして取得する必要がある場合は、[出力音声の文字起こし](#audio-transcription)機能を使用します。
 
-### Xác thực ứng dụng
+### クライアント認証
 
-Theo mặc định, Live API chỉ cung cấp tính năng xác thực từ máy chủ đến máy chủ. Nếu đang triển khai ứng dụng Live API bằng [phương pháp từ máy khách đến máy chủ](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach), bạn cần sử dụng [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=vi) để giảm thiểu rủi ro bảo mật.
+Live API は、デフォルトでサーバー間認証のみを提供します。[クライアント / サーバー アプローチ](https://ai.google.dev/gemini-api/docs/live?hl=ja#implementation-approach)を使用して Live API アプリケーションを実装する場合は、[エフェメラル トークン](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ja)を使用してセキュリティ リスクを軽減する必要があります。
 
-### Thời lượng phiên
+### セッション継続期間
 
-Các phiên chỉ có âm thanh bị giới hạn ở 15 phút và các phiên có cả âm thanh và video bị giới hạn ở 2 phút.
-Tuy nhiên, bạn có thể định cấu hình [các kỹ thuật quản lý phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi) khác nhau cho số lượng tiện ích không giới hạn trong thời lượng phiên.
+音声のみのセッションは 15 分に制限され、音声と動画のセッションは 2 分に制限されます。ただし、セッション継続時間を無制限に延長するために、さまざまな[セッション管理手法](https://ai.google.dev/gemini-api/docs/live-session?hl=ja)を構成できます。
 
-### Cửa sổ ngữ cảnh
+### コンテキスト ウィンドウ
 
-Một phiên có giới hạn cửa sổ ngữ cảnh là:
+セッションのコンテキスト ウィンドウの上限は次のとおりです。
 
-- 128.000 token cho các mô hình [đầu ra âm thanh gốc](#native-audio-output)
-- 32 nghìn token cho các mô hình Live API khác
+- [ネイティブ オーディオ出力](#native-audio-output)モデルの 128,000 トークン
+- 他の Live API モデルの 32,000 トークン
 
-## Ngôn ngữ được hỗ trợ
+## サポートされている言語
 
-Live API hỗ trợ 97 ngôn ngữ sau.
+Live API は、次の 97 言語をサポートしています。
 
-| Ngôn ngữ | Mã BCP-47 | Ngôn ngữ | Mã BCP-47 |
+| 言語 | BCP-47 コード | 言語 | BCP-47 コード |
 | --- | --- | --- | --- |
-| Tiếng Hà Lan ở Nam Phi | `af` | Tiếng Latvia | `lv` |
-| Tiếng Akan | `ak` | Tiếng Lithuania | `lt` |
-| Tiếng Albania | `sq` | Tiếng Macedonia | `mk` |
-| Tiếng Amhara | `am` | Tiếng Malay | `ms` |
-| Tiếng Ả Rập | `ar` | Tiếng Malayalam | `ml` |
-| Tiếng Armenia | `hy` | Tiếng Malta | `mt` |
-| Tiếng Assam | `as` | Tiếng Maori | `mi` |
-| Tiếng Azerbaijan | `az` | Tiếng Marathi | `mr` |
-| Tiếng Basque | `eu` | Tiếng Mông Cổ | `mn` |
-| Tiếng Belarus | `be` | Tiếng Nepal | `ne` |
-| Tiếng Bengal | `bn` | Tiếng Na Uy | `no` |
-| Tiếng Bosnia | `bs` | Tiếng Odia | `or` |
-| Tiếng Bungary | `bg` | Tiếng Oromo | `om` |
-| Tiếng Myanmar | `my` | Tiếng Pashto | `ps` |
-| Tiếng Catalan | `ca` | Persian | `fa` |
-| Tiếng Cebuano | `ceb` | Tiếng Ba Lan | `pl` |
-| Tiếng Trung | `zh` | Tiếng Bồ Đào Nha | `pt` |
-| Croatian | `hr` | Tiếng Punjab | `pa` |
-| Tiếng Séc | `cs` | Tiếng Quechua | `qu` |
-| Tiếng Đan Mạch | `da` | Tiếng Rumani | `ro` |
-| Tiếng Hà Lan | `nl` | Tiếng Romansh | `rm` |
-| Tiếng Anh | `en` | Tiếng Nga | `ru` |
-| Tiếng Estonia | `et` | Tiếng Serbia | `sr` |
-| Tiếng Faroe | `fo` | Tiếng Sindh | `sd` |
-| Tiếng Philippines | `fil` | Tiếng Sinhala | `si` |
-| Tiếng Phần Lan | `fi` | Tiếng Slovak | `sk` |
-| Tiếng Pháp | `fr` | Tiếng Slovenia | `sl` |
-| Tiếng Galicia | `gl` | Tiếng Somali | `so` |
-| Tiếng Gruzia | `ka` | Tiếng Nam Sotho | `st` |
-| Tiếng Đức | `de` | Tiếng Tây Ban Nha | `es` |
-| Tiếng Hy Lạp | `el` | Tiếng Swahili | `sw` |
-| Tiếng Gujarat | `gu` | Tiếng Thuỵ Điển | `sv` |
-| Tiếng Hausa | `ha` | Tiếng Tajik | `tg` |
-| Tiếng Do Thái | `iw` | Tiếng Tamil | `ta` |
-| Tiếng Hindi | `hi` | Tiếng Telugu | `te` |
-| Tiếng Hungary | `hu` | Tiếng Thái | `th` |
-| Tiếng Iceland | `is` | Tiếng Tswana | `tn` |
-| Tiếng Indonesia | `id` | Tiếng Thổ Nhĩ Kỳ | `tr` |
-| Tiếng Ireland | `ga` | Tiếng Turkmen | `tk` |
-| Tiếng Ý | `it` | Tiếng Ukraina | `uk` |
-| Tiếng Nhật | `ja` | Tiếng Urdu | `ur` |
-| Tiếng Kannada | `kn` | Tiếng Uzbek | `uz` |
-| Tiếng Kazakh | `kk` | Tiếng Việt | `vi` |
-| Tiếng Khmer | `km` | Tiếng Wales | `cy` |
-| Tiếng Kinyarwanda | `rw` | Tiếng Tây Frisia | `fy` |
-| Tiếng Hàn | `ko` | Tiếng Wolof | `wo` |
-| Tiếng Kurd | `ku` | Tiếng Yoruba | `yo` |
-| Tiếng Kyrgyz | `ky` | Tiếng Zulu | `zu` |
-| Tiếng Lào | `lo` |  |  |
+| アフリカーンス語 | `af` | ラトビア語 | `lv` |
+| アカン語 | `ak` | リトアニア語 | `lt` |
+| アルバニア語 | `sq` | マケドニア語 | `mk` |
+| アムハラ語 | `am` | マレー語 | `ms` |
+| アラビア語 | `ar` | マラヤーラム語 | `ml` |
+| アルメニア語 | `hy` | マルタ語 | `mt` |
+| アッサム語 | `as` | マオリ語 | `mi` |
+| アゼルバイジャン語 | `az` | マラーティー語 | `mr` |
+| バスク語 | `eu` | モンゴル語 | `mn` |
+| ベラルーシ語 | `be` | ネパール語 | `ne` |
+| ベンガル語 | `bn` | ノルウェー語 | `no` |
+| ボスニア語 | `bs` | オディア語 | `or` |
+| ブルガリア語 | `bg` | オロモ語 | `om` |
+| ビルマ語 | `my` | パシュト語 | `ps` |
+| カタルーニャ語 | `ca` | ペルシャ語 | `fa` |
+| セブアノ語 | `ceb` | ポーランド語 | `pl` |
+| 中国語 | `zh` | ポルトガル語 | `pt` |
+| クロアチア語 | `hr` | パンジャブ語 | `pa` |
+| チェコ語 | `cs` | ケチュア語 | `qu` |
+| デンマーク語 | `da` | ルーマニア語 | `ro` |
+| オランダ語 | `nl` | ロマンシュ語 | `rm` |
+| 英語 | `en` | ロシア語 | `ru` |
+| エストニア語 | `et` | セルビア語 | `sr` |
+| フェロー語 | `fo` | シンド語 | `sd` |
+| フィリピン語 | `fil` | シンハラ語 | `si` |
+| フィンランド語 | `fi` | スロバキア語 | `sk` |
+| フランス語 | `fr` | スロベニア語 | `sl` |
+| ガリシア語 | `gl` | ソマリ語 | `so` |
+| ジョージア語 | `ka` | 南ソト語 | `st` |
+| ドイツ語 | `de` | スペイン語 | `es` |
+| ギリシャ語 | `el` | スワヒリ語 | `sw` |
+| グジャラート語 | `gu` | スウェーデン語 | `sv` |
+| ハウサ語 | `ha` | タジク語 | `tg` |
+| ヘブライ語 | `iw` | タミル語 | `ta` |
+| ヒンディー語 | `hi` | テルグ語 | `te` |
+| ハンガリー語 | `hu` | タイ語 | `th` |
+| アイスランド語 | `is` | ツワナ語 | `tn` |
+| インドネシア語 | `id` | トルコ語 | `tr` |
+| アイルランド語 | `ga` | トルクメン語 | `tk` |
+| イタリア語 | `it` | ウクライナ語 | `uk` |
+| 日本語 | `ja` | ウルドゥー語 | `ur` |
+| カンナダ語 | `kn` | ウズベク語 | `uz` |
+| カザフ語 | `kk` | ベトナム語 | `vi` |
+| クメール語 | `km` | ウェールズ語 | `cy` |
+| キニヤルワンダ語 | `rw` | 西フリジア語 | `fy` |
+| 韓国語 | `ko` | ウォロフ語 | `wo` |
+| クルド語 | `ku` | ヨルバ語 | `yo` |
+| キルギス語 | `ky` | ズールー語 | `zu` |
+| ラオ語 | `lo` |  |  |
 
-## Bước tiếp theo
+## 次のステップ
 
-- Đọc hướng dẫn về [Cách sử dụng công cụ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi) và [Quản lý phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi) để biết thông tin cần thiết về cách sử dụng Live API một cách hiệu quả.
-- Dùng thử Live API trong [Google AI Studio](https://aistudio.google.com/app/live?hl=vi).
-- Để biết thêm thông tin về các mô hình Live API, hãy xem phần [Âm thanh gốc của Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=vi#gemini-2.5-flash-native-audio) trên trang Mô hình.
-- Hãy thử xem thêm các ví dụ trong [sổ tay Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=vi), [sổ tay Live API Tools](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=vi) và [tập lệnh Live API Get Started](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
+- Live API を効果的に使用するための重要な情報については、[ツールの使用](https://ai.google.dev/gemini-api/docs/live-tools?hl=ja)ガイドと[セッション管理](https://ai.google.dev/gemini-api/docs/live-session?hl=ja)ガイドをご覧ください。
+- [Google AI Studio](https://aistudio.google.com/app/live?hl=ja) で Live API をお試しください。
+- Live API モデルの詳細については、モデルページの [Gemini 2.5 Flash ネイティブ音声](https://ai.google.dev/gemini-api/docs/models?hl=ja#gemini-2.5-flash-native-audio)をご覧ください。
+- [Live API クックブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=ja)、[Live API Tools クックブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ja)、[Live API スタートガイド スクリプト](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py)で、他の例も試してみてください。
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-06-09 UTC.
+最終更新日 2026-07-31 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-09 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-31 UTC。"],[],[]]

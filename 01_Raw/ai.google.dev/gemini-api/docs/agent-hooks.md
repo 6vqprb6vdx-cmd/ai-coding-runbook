@@ -1,24 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks
-fetched_at: 2026-07-27T04:38:29.787565+00:00
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=ar
+fetched_at: 2026-08-03T04:36:50.637612+00:00
 title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-The [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview) is now generally available. We recommend using this API for access to all the latest features and models.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-- [Home](https://ai.google.dev/)
-- [Gemini API](https://ai.google.dev/gemini-api)
-- [Docs](https://ai.google.dev/gemini-api/docs)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Send feedback
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+
+إرسال ملاحظات
 
 # Hooks
 
-Hooks let you run custom scripts or external HTTP requests right before or after the agent executes code or modifies files inside its remote sandbox. Use hooks to extend the agent loop with automated guardrails and background workflows, such as:
+تتيح لك الخطافات تشغيل نصوص برمجية مخصّصة أو طلبات HTTP خارجية قبل أن ينفّذ الوكيل الرمز البرمجي أو يعدّل الملفات داخل البيئة التجريبية المعزولة عن بُعد أو بعدها مباشرةً. استخدام خطافات لتوسيع حلقة الوكيل باستخدام ضوابط تلقائية ومسارات عمل في الخلفية، مثل:
 
-- **Enforcing safety and access guardrails** before high-risk shell commands or restricted file reads execute.
-- **Automating data pipeline transformations** right after an agent creates or modifies files.
-- **Streaming enterprise audit telemetry** to external monitoring systems after tool execution.
+- **فرض ضوابط الأمان والوصول** قبل تنفيذ أوامر shell عالية الخطورة أو عمليات قراءة الملفات المحظورة
+- **أتمتة عمليات تحويل مسار البيانات** بعد أن ينشئ أحد العملاء ملفات أو يعدّلها مباشرةً
+- **بث بيانات قياس تدقيق المؤسسة عن بُعد** إلى أنظمة المراقبة الخارجية بعد تنفيذ الأداة
 
 ### Python
 
@@ -163,20 +167,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Supported lifecycle events
+## أحداث مراحل النشاط المتوافقة
 
-Hooks support 2 events inside the sandbox:
+تتيح خطافات الويب حدثَين داخل وضع الحماية:
 
-| Event | When it fires | What it does |
+| الحدث | وقت تنشيطه | وظيفتها |
 | --- | --- | --- |
-| `pre_tool_execution` | Right before a tool runs | Can approve (`allow`) or block (`deny`) the tool before it executes. When blocked, the model sees your rejection reason and adapts. |
-| `post_tool_execution` | Right after a tool finishes | Runs follow-up tasks like formatting code, running unit tests, or logging telemetry. Cannot block or undo completed actions. |
+| `pre_tool_execution` | قبل تشغيل أداة مباشرةً | يمكنك الموافقة على الأداة (`allow`) أو حظرها (`deny`) قبل تنفيذها. عند حظر النموذج، يرى سبب الرفض ويتكيّف معه. |
+| `post_tool_execution` | مباشرةً بعد انتهاء أداة | تنفيذ مهام المتابعة، مثل تنسيق الرمز أو إجراء اختبارات الوحدات أو تسجيل بيانات القياس عن بُعد لا يمكن حظر الإجراءات المكتملة أو التراجع عنها. |
 
 ### `pre_tool_execution`
 
-Fires right before a tool executes. Your script reads the tool call details from `stdin` and outputs its decision JSON (`allow` or `deny`) to `stdout`.
+يتم تنشيط هذا الحدث قبل تنفيذ أي أداة مباشرةً. يقرأ النص البرمجي تفاصيل طلب الأداة من `stdin` ويعرض قرار JSON (`allow` أو `deny`) في `stdout`.
 
-**Input payload (`stdin`):**
+**حمولة الإدخال (`stdin`):**
 
 ```
 {
@@ -191,9 +195,9 @@ Fires right before a tool executes. Your script reads the tool call details from
 }
 ```
 
-**Output response (`stdout`):**
+**ردّ الإخراج (`stdout`):**
 
-To approve the tool call:
+للموافقة على طلب استخدام الأداة، اتّبِع الخطوات التالية:
 
 ```
 {
@@ -201,7 +205,7 @@ To approve the tool call:
 }
 ```
 
-To block the tool call and return feedback to the model:
+لحظر طلب استخدام الأداة وإرسال ملاحظات إلى النموذج:
 
 ```
 {
@@ -210,15 +214,15 @@ To block the tool call and return feedback to the model:
 }
 ```
 
-When a hook denies a command, the tool call is skipped immediately. The agent sees an error result containing your rejection reason right inside its current turn. The model can then self-correct by choosing an alternative command or explaining the block to the user.
+عندما يرفض أحد الخطافات تنفيذ أمر، يتم تخطّي استدعاء الأداة على الفور. يظهر للوكيل نتيجة خطأ تتضمّن سبب الرفض مباشرةً في دوره الحالي. يمكن للنموذج بعد ذلك تصحيح نفسه من خلال اختيار أمر بديل أو شرح سبب الحظر للمستخدم.
 
-If your script outputs unrecognized JSON, plain text, or anything other than `{"decision": "deny"}`, the runtime treats the response as an approval (`allow`).
+إذا كان النص البرمجي يعرض تنسيق JSON غير معروف أو نصًا عاديًا أو أي شيء آخر غير `{"decision": "deny"}`، سيتعامل وقت التشغيل مع الردّ على أنّه موافقة (`allow`).
 
 ### `post_tool_execution`
 
-Fires right after a tool completes. Your script reads the execution details and any error status from `stdin`.
+يتم تشغيله بعد اكتمال أداة مباشرةً. يقرأ النص البرمجي تفاصيل التنفيذ وحالة أي خطأ من `stdin`.
 
-**Input payload (`stdin`):**
+**حمولة الإدخال (`stdin`):**
 
 ```
 {
@@ -233,27 +237,27 @@ Fires right after a tool completes. Your script reads the execution details and 
 }
 ```
 
-If a shell command prints errors to standard error (`stderr`) or a filesystem operation fails, an `"error"` field containing the error text is included in the payload. When the command succeeds without errors, the `"error"` field is omitted entirely.
+إذا عرض أمر shell أخطاء في الخطأ العادي (`stderr`) أو تعذّرت عملية نظام ملفات، يتم تضمين حقل `"error"` يحتوي على نص الخطأ في الحمولة. عندما ينجح الأمر بدون أخطاء، يتم حذف الحقل `"error"` بالكامل.
 
-**Output response (`stdout`):**
+**ردّ الإخراج (`stdout`):**
 
 ```
 {}
 ```
 
-Because post-tool hooks run strictly for background tasks like code formatting or logging, the runtime ignores any decision values returned on `stdout`.
+بما أنّ عمليات الربط بعد الأداة يتم تنفيذها بشكل صارم للمهام التي تتم في الخلفية، مثل تنسيق الرموز أو التسجيل، يتجاهل وقت التشغيل أي قيم قرار يتم إرجاعها في `stdout`.
 
-## Configuration discovery
+## اكتشاف الإعدادات
 
-The runtime automatically discovers hook definitions from `.agents/hooks.json` or `/.agents/hooks.json` inside the sandbox environment. You can provide `hooks.json` alongside your custom scripts using any supported [environment source](https://ai.google.dev/gemini-api/docs/agent-environment#mount_from_a_source):
+يكتشف وقت التشغيل تلقائيًا تعريفات الدوال البرمجية من `.agents/hooks.json` أو `/.agents/hooks.json` داخل بيئة وضع الحماية. يمكنك توفير `hooks.json` إلى جانب النصوص البرمجية المخصّصة باستخدام أي [مصدر بيئة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#mount_from_a_source) متوافق:
 
-- **Repository mount**: A Git repository containing `.agents/hooks.json` alongside `AGENTS.md`.
-- **Cloud Storage (`gcs`)**: A GCS bucket containing `hooks.json` copied into the environment.
-- **Inline sources**: Raw JSON string and script contents passed in `environment.sources` when calling `client.interactions.create`.
+- **ربط المستودع**: مستودع Git يحتوي على `.agents/hooks.json` بالإضافة إلى `AGENTS.md`.
+- **Cloud Storage (`gcs`)**: حزمة GCS تحتوي على `hooks.json` تم نسخها إلى البيئة.
+- **المصادر المضمّنة**: سلسلة JSON غير مُعالَجة ومحتوى النص البرمجي يتم تمريرهما في `environment.sources` عند استدعاء `client.interactions.create`.
 
-### `hooks.json` schema
+### `hooks.json` مخطط
 
-A `hooks.json` file groups event definitions (`pre_tool_execution` or `post_tool_execution`) under custom names. You can enable or disable each group independently:
+يجمع ملف `hooks.json` تعريفات الأحداث (`pre_tool_execution` أو `post_tool_execution`) ضمن أسماء مخصّصة. يمكنك تفعيل كل مجموعة أو إيقافها بشكل مستقل:
 
 ```
 {
@@ -289,71 +293,71 @@ A `hooks.json` file groups event definitions (`pre_tool_execution` or `post_tool
 }
 ```
 
-### Matcher syntax and rules
+### بنية وقواعد أداة المطابقة
 
-Each rule group in `hooks.json` defines when and how handlers fire using the `matcher` and `hooks` properties:
+تحدّد كل مجموعة قواعد في `hooks.json` وقت وكيفية تشغيل المعالجات باستخدام السمتَين `matcher` و`hooks`:
 
-| Field | Type | Description |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `enabled` | `boolean` | Optional. Set to `false` to disable the group (`true` by default). |
-| `matcher` | `string` | Regular expression pattern matching target tool names inside the container. |
-| `hooks` | `array` | Ordered list of handler definitions (`command` or `http`). Handlers run sequentially in declaration order. |
+| `enabled` | `boolean` | اختياريّ. اضبط القيمة على `false` لإيقاف المجموعة (`true` تلقائيًا). |
+| `matcher` | `string` | مطابقة أنماط التعبيرات العادية لأسماء الأدوات المستهدَفة داخل الحاوية |
+| `hooks` | `array` | قائمة مرتّبة بتعريفات المعالجات (`command` أو `http`). يتم تشغيل المعالجات بالتسلسل حسب ترتيب التعريف. |
 
-#### How regex evaluation works
+#### طريقة عمل تقييم التعابير العادية
 
-When the agent invokes a tool inside the sandbox, the runtime evaluates the tool's container name against your `matcher` pattern using standard RE2 regular expressions. If the regex matches the tool name, all handlers in the `hooks` array execute in order. If multiple rule groups match the same tool, all corresponding handler arrays run.
+عندما يستدعي الوكيل أداة داخل وضع الحماية، يقيّم وقت التشغيل اسم حاوية الأداة مقارنةً بنمط `matcher` باستخدام التعبيرات العادية RE2 القياسية. إذا كان التعبير العادي يطابق اسم الأداة، سيتم تنفيذ جميع معالجات مصفوفة `hooks` بالترتيب. إذا تطابقت عدة مجموعات قواعد مع الأداة نفسها، سيتم تشغيل جميع مصفوفات المعالجات المتوافقة.
 
-You can target any built-in container tool name: code execution (`code_execution`) or filesystem operations (`read_file`, `write_file`, `list_files`, and `delete_file`).
+يمكنك استهداف أي اسم أداة حاوية مدمجة: تطبيق الرموز البرمجية (`code_execution`) أو عمليات نظام الملفات (`read_file` و`write_file` و`list_files` و`delete_file`).
 
-#### Common matcher expressions
+#### عبارات المطابقة الشائعة
 
-- `"code_execution"`: Exact string match for shell commands and script executions.
-- `"write_file"`: Exact match for filesystem file creation and disk writes.
-- `"read_file|write_file"`: Pipe separation matches multiple specific tool names in a single rule.
-- `".*_file"`: Regex wildcard matching any tool ending in `_file` (such as `read_file`, `write_file`, or `delete_file`). Standard RE2 regular expressions require `.*`; simple shell globs like `*_file` are invalid regex syntax and will fail to match.
-- `".*"` or `"*"` or `""`: Catch-all pattern that intercepts every single tool call inside the container.
+- `"code_execution"`: تطابق تام للسلسلة مع أوامر shell وعمليات تنفيذ النصوص البرمجية
+- ‫`"write_file"`: مطابقة تامة لإنشاء ملفات نظام الملفات وعمليات الكتابة على القرص
+- `"read_file|write_file"`: يتيح الفصل باستخدام علامة الأنابيب مطابقة أسماء أدوات محدّدة متعددة في قاعدة واحدة.
+- `".*_file"`: حرف بدل للتعبير العادي يطابق أي أداة تنتهي بـ `_file` (مثل `read_file` أو `write_file` أو `delete_file`). تتطلّب التعبيرات العادية القياسية RE2 استخدام `.*`، بينما تكون التعبيرات العامة البسيطة مثل `*_file` غير صالحة كبنية تعبير عادي ولن تتم مطابقتها.
+- ‫`".*"` أو `"*"` أو `""`: نمط شامل يعترض كل طلب أداة داخل الحاوية.
 
-## Handler types
+## أنواع المعالجات
 
-### Command hooks
+### خطافات الأوامر
 
-Command hooks execute a shell command or script inside the sandbox. The script receives the event JSON on `stdin` and outputs its decision JSON on `stdout`.
+تنفِّذ خطافات الأوامر أمرًا أو نصًا برمجيًا في Shell داخل وضع الحماية. يتلقّى النص البرمجي ملف JSON الخاص بالحدث على `stdin` ويعرض ملف JSON الخاص بالقرار على `stdout`.
 
-| Field | Type | Description |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `type` | `string` | Must be `"command"`. |
-| `command` | `string` | Command line to run inside the sandbox (for example, `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | Timeout in seconds. Default: `30`. |
+| `type` | `string` | يجب أن تكون `"command"`. |
+| `command` | `string` | سطر الأوامر الذي سيتم تنفيذه داخل وضع الحماية (على سبيل المثال، `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | مهلة بالثواني القيمة التلقائية: `30` |
 
-### HTTP hooks
+### خطافات HTTP
 
-HTTP hooks send the event JSON as a POST request to an external HTTPS URL directly from inside the sandbox network. The target server returns its decision in the HTTP response body using the exact same JSON format (`{"decision": "allow"}` or `{"decision": "deny", "reason": "..."}`).
+ترسل خطّافات HTTP ملف JSON الخاص بالحدث كطلب POST إلى عنوان URL خارجي بتنسيق HTTPS مباشرةً من داخل شبكة وضع الحماية. يعرض الخادم المستهدف قراره في نص استجابة HTTP باستخدام تنسيق JSON نفسه تمامًا (`{"decision": "allow"}` أو `{"decision": "deny", "reason": "..."}`).
 
-| Field | Type | Description |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `type` | `string` | Must be `"http"`. |
-| `url` | `string` | External HTTPS endpoint to POST the event payload to. |
-| `headers` | `object` | Optional key-value pairs for non-sensitive custom headers (such as `{"X-Event-Source": "agent-sandbox"}`). For authentication credentials, use the network proxy instead. |
-| `timeout` | `integer` | Timeout in seconds. Default: `30`. |
+| `type` | `string` | يجب أن تكون `"http"`. |
+| `url` | `string` | نقطة نهاية HTTPS خارجية لإرسال حمولة الحدث إليها باستخدام POST. |
+| `headers` | `object` | أزواج المفتاح/القيمة الاختيارية للعناوين المخصّصة غير الحسّاسة (مثل `{"X-Event-Source": "agent-sandbox"}`). لاستخدام بيانات اعتماد المصادقة، استخدِم خادم وكيل الشبكة بدلاً من ذلك. |
+| `timeout` | `integer` | مهلة بالثواني القيمة التلقائية: `30` |
 
-#### Egress proxy and token transformation
+#### الخادم الوكيل للخروج وتحويل الرموز المميزة
 
-Because HTTP hooks execute directly from inside the sandbox network namespace, outgoing requests pass through the transparent egress proxy. This architecture gives you 2 critical security advantages:
+بما أنّ عمليات ربط HTTP يتم تنفيذها مباشرةً من داخل مساحة اسم شبكة وضع الحماية، تمر الطلبات الصادرة عبر الخادم الوكيل الشفاف للخروج. تمنحك هذه البنية ميزتَين مهمتَين للأمان:
 
-- **Network allowlisting:** Target endpoints must be explicitly permitted in your environment's `network.allowlist`. Loopback traffic (`127.0.0.1` or `localhost`) is blocked by the proxy; always target allowlisted external endpoints.
-- **Token transformation:** You do not need to store API keys or secret bearer tokens inside `.agents/hooks.json` or mount them into the container. Instead, configure token transformation rules in your [network configuration](https://ai.google.dev/gemini-api/docs/agent-environment#network-configuration) (`network.allowlist.transform`). The egress proxy automatically intercepts outgoing HTTP hook traffic and injects your real authentication headers on the wire before leaving the sandbox.
+- **إضافة الشبكة إلى القائمة المسموح بها:** يجب السماح بنقاط النهاية المستهدَفة بشكل صريح في `network.allowlist` لبيئتك. يحظر الخادم الوكيل حركة بيانات العودة الحلقية (`127.0.0.1` أو `localhost`)، لذا استهدف دائمًا نقاط النهاية الخارجية المُدرَجة في القائمة المسموح بها.
+- **تحويل الرموز المميزة:** ليس عليك تخزين مفاتيح واجهة برمجة التطبيقات أو الرموز المميزة السرية لحاملها داخل `.agents/hooks.json` أو ربطها بالحاوية. بدلاً من ذلك، يمكنك ضبط قواعد تحويل الرموز المميزة في [إعدادات الشبكة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#network-configuration) (`network.allowlist.transform`). يعترض الخادم الوكيل الصادر تلقائيًا على زيارات HTTP الواردة من الخطاف ويُدرج عناوين المصادقة الحقيقية على الشبكة قبل مغادرة وضع الحماية.
 
-## How the runtime handles decisions and failures
+## كيفية تعامل وقت التشغيل مع القرارات والأخطاء
 
-- **Synchronous waiting:** The agent pauses and waits for your hooks to finish before continuing.
-- **Blocking tool execution:** If your pre-tool hook returns `{"decision": "deny", "reason": "<your reason>"}`, the runtime immediately cancels the tool call. The model sees your rejection reason in its conversation history and adapts by choosing a safe alternative or explaining the block to the user.
-- **Handling script crashes, HTTP errors, and timeouts:** If a command script crashes (non-zero exit status), an HTTP hook returns a non-2xx status code (such as a 4xx or 5xx server error), or an operation times out or returns unrecognized JSON, the runtime treats it as an approval (`allow`). Tool execution continues normally so a broken script or unreachable telemetry server never deadlocks your application.
+- **الانتظار المتزامن:** يتوقّف الوكيل مؤقتًا وينتظر انتهاء عمليات الربط قبل المتابعة.
+- **حظر تنفيذ الأداة:** إذا عرضت خطاف ما قبل الأداة القيمة `{"decision": "deny", "reason": "<your reason>"}`، تلغي بيئة التشغيل طلب استخدام الأداة على الفور. يطلع النموذج على سبب رفضك في سجلّ المحادثات ويتكيّف من خلال اختيار بديل آمن أو شرح سبب الحظر للمستخدم.
+- **التعامل مع أعطال البرامج النصية وأخطاء HTTP وانتهاء المهلة:** إذا تعذّر تنفيذ برنامج نصي للأوامر (حالة الخروج غير صفرية)، أو عرض خطاف HTTP لرمز حالة غير 2xx (مثل خطأ في الخادم 4xx أو 5xx)، أو انتهت مهلة عملية أو عرض JSON غير معروف، سيتعامل وقت التشغيل معها على أنّها موافقة (`allow`). يستمر تنفيذ الأداة بشكل طبيعي، لذا لن يؤدي البرنامج النصي المعطّل أو خادم القياس عن بُعد الذي لا يمكن الوصول إليه إلى توقّف تطبيقك عن العمل.
 
-## Common use cases
+## حالات الاستخدام الشائعة
 
-### Multi-turn recovery for data privacy and compliance
+### استرداد البيانات المتعدد المراحل لضمان خصوصية البيانات والامتثال للسياسات
 
-When a hook blocks access to restricted resources—such as directories containing Personally Identifiable Information (PII) or confidential financial records—you can pass `previous_interaction_id` on the next call to continue the turn in the same environment. The agent reads the denial explanation and automatically recovers by querying approved public tables instead.
+عندما يمنع خطاف الوصول إلى الموارد المحظورة، مثل الأدلة التي تحتوي على معلومات تكشف الهوية الشخصية أو السجلات المالية السرية، يمكنك تمرير `previous_interaction_id` في المكالمة التالية لمواصلة الجلسة في البيئة نفسها. يقرأ الوكيل شرح الرفض ويستردّ البيانات تلقائيًا من خلال طلب البحث عن الجداول العامة التي تمت الموافقة عليها بدلاً من ذلك.
 
 ### Python
 
@@ -567,12 +571,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### External audit logging and telemetry
+### تسجيل أحداث التدقيق والقياس عن بُعد خارجيًا
 
-Send real-time audit events from inside the sandbox to an external monitoring server whenever files are read or modified.
+إرسال أحداث التدقيق في الوقت الفعلي من داخل وضع الحماية إلى خادم مراقبة خارجي كلما تمّت قراءة الملفات أو تعديلها
 
-- **Match multiple tools:** Because matchers use standard regex, you can combine multiple tools in a single rule using pipes (`read_file|write_file`) or wildcards (`.*_file`).
-- **Keep secrets out of your configuration:** Define authentication tokens in your environment's [network configuration](https://ai.google.dev/gemini-api/docs/agent-environment#network-configuration) (`network.allowlist.transform`). The egress proxy automatically injects your real bearer tokens on outgoing requests.
+- **مطابقة أدوات متعددة:** بما أنّ أدوات المطابقة تستخدم تعبيرًا عاديًا موحّدًا، يمكنك دمج أدوات متعددة في قاعدة واحدة باستخدام علامات الأنابيب (`read_file|write_file`) أو أحرف البدل (`.*_file`).
+- **عدم تضمين الأسرار في إعداداتك:** حدِّد رموز المصادقة المميزة في [إعدادات الشبكة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#network-configuration) (`network.allowlist.transform`) لبيئتك. يضيف الخادم الوكيل الصادر تلقائيًا رموز المصادقة المميزة الحقيقية إلى الطلبات الصادرة.
 
 ### Python
 
@@ -714,25 +718,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Limitations
+## القيود
 
-- **Sandbox tool scope:** Hooks intercept built-in tools inside the sandbox: code execution (`code_execution`) and filesystem operations (`read_file`, `write_file`, `list_files`, and `delete_file`). They do not fire for custom function calling (`function`) or external Model Context Protocol (`mcp_server`) tools handled outside the container.
-- **Network allowlists:** HTTP hooks run inside the container network. You must explicitly allow target URLs in your environment's `network.allowlist`. Loopback addresses (`localhost`, `127.0.0.1`) are blocked by the proxy.
-- **Automatic approval on errors:** If a hook script crashes (non-zero exit status), times out, or fails, the runtime logs the failure and allows the tool call to continue. This ensures broken linter scripts or hanging processes never deadlock your applications.
-- **Sandbox configuration protection:** Because hooks execute inside the container sandbox, agents with filesystem write tools or shell code execution permissions can modify local `.agents/hooks.json` or scripts within writable workspaces. Use container hooks as automated policy guidance and operational guardrails; if strict tamper resistance is required against untrusted model executions, mount configuration sources from read-only repositories.
+- **نطاق أداة وضع الحماية:** تعترض الخطافات الأدوات المضمّنة داخل وضع الحماية: تنفيذ الرمز (`code_execution`) وعمليات نظام الملفات (`read_file` و`write_file` و`list_files` و`delete_file`). ولا يتم تشغيلها عند استدعاء الدوال المخصّصة (`function`) أو أدوات بروتوكول سياق النموذج الخارجي (`mcp_server`) التي تتم معالجتها خارج الحاوية.
+- **قوائم السماح بالشبكة:** يتم تنفيذ خطافات HTTP داخل شبكة الحاوية. يجب السماح بعناوين URL المستهدَفة بشكل صريح في `network.allowlist` لبيئتك. يتم حظر عناوين الاسترجاع (`localhost` و`127.0.0.1`) بواسطة الخادم الوكيل.
+- **الموافقة التلقائية عند حدوث أخطاء:** إذا تعذّر تنفيذ نص برمجي للربط (حالة الخروج غير صفرية) أو انتهت مهلته أو حدث خطأ فيه، يسجّل وقت التشغيل الخطأ ويسمح بمواصلة تنفيذ استدعاء الأداة. يضمن ذلك عدم توقّف تطبيقاتك بشكل تام بسبب نصوص برمجية غير صالحة أو عمليات معلّقة.
+- **حماية إعدادات وضع الحماية:** بما أنّ عمليات الربط يتم تنفيذها داخل وضع الحماية للحاوية، يمكن للوكلاء الذين لديهم أدوات كتابة في نظام الملفات أو أذونات تطبيق الرموز البرمجية لـ shell تعديل `.agents/hooks.json` أو النصوص البرمجية المحلية داخل مساحات العمل القابلة للكتابة. استخدِم خطافات الحاوية كإرشادات مبرمَجة للسياسات ووسائل حماية تشغيلية. إذا كانت هناك حاجة إلى مقاومة صارمة للتلاعب في عمليات تنفيذ النماذج غير الموثوق بها، يمكنك تحميل مصادر الإعدادات من مستودعات للقراءة فقط.
 
-## What's next
+## الخطوات التالية
 
-- Learn how to configure persistent [remote sandboxes and environments](https://ai.google.dev/gemini-api/docs/agent-environment).
-- Explore the capabilities and built-in tools of the [Antigravity agent](https://ai.google.dev/gemini-api/docs/antigravity-agent).
-- Review the [Interactions API overview](https://ai.google.dev/gemini-api/docs/interactions-overview) for multi-turn sessions and streaming.
+- [كيفية ضبط بيئات ومساحات اختبار عن بُعد دائمة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar)
+- استكشِف إمكانات وأدوات [وكيل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar) المضمّنة.
+- راجِع [نظرة عامة على Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) بشأن محادثة مترابطة والبث.
 
-Send feedback
+إرسال ملاحظات
 
-Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Last updated 2026-07-23 UTC.
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-Need to tell us more?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-23 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

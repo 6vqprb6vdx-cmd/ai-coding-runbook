@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=ko
-fetched_at: 2026-07-27T04:39:21.151148+00:00
-title: "\uc2a4\ud2b8\ub9ac\ubc0d \uc0c1\ud638\uc791\uc6a9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=th
+fetched_at: 2026-08-03T04:37:42.484966+00:00
+title: "\u0e01\u0e32\u0e23\u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e43\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e15\u0e23\u0e35\u0e21 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-# 스트리밍 상호작용
+# การโต้ตอบในการสตรีม
 
-상호작용을 만들 때 `stream: true`를 설정하여 [서버 전송 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE)를 사용하여 응답을 점진적으로 스트리밍할 수 있습니다.
+เมื่อสร้างการโต้ตอบ คุณสามารถตั้งค่า `stream: true` เพื่อสตรีมการตอบกลับทีละส่วนโดยใช้ [เหตุการณ์ที่เซิร์ฟเวอร์ส่ง](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE)
 
 ### Python
 
@@ -110,24 +110,24 @@ event: done
 data: [DONE]
 ```
 
-## 이벤트 유형
+## ประเภทกิจกรรม
 
-각 서버 전송 이벤트에는 이름이 지정된 `event_type`과 연결된 JSON 데이터가 포함됩니다. Interactions API는 모든 콘텐츠(텍스트, 도구 호출, 사고)가 일관된 **단계 기반** 이벤트를 통해 흐르는 대칭 스트리밍 모델을 사용합니다.
+เหตุการณ์ที่เซิร์ฟเวอร์ส่งแต่ละรายการจะมี `event_type` ที่ตั้งชื่อไว้และข้อมูล JSON ที่เกี่ยวข้อง Interactions API ใช้โมเดลการสตรีมแบบสมมาตร ซึ่งเนื้อหาทั้งหมด ไม่ว่าจะเป็นข้อความ การเรียกใช้เครื่องมือ หรือการคิด จะไหลผ่านเหตุการณ์ที่**อิงตามขั้นตอน** ที่สอดคล้องกัน
 
-각 스트림은 다음 이벤트 흐름을 따릅니다.
+สตรีมแต่ละรายการจะเป็นไปตามโฟลว์เหตุการณ์นี้
 
-1. `interaction.created`: 상호작용이 생성되고 메타데이터 (ID, 모델, 상태)가 포함됩니다.
-2. 일련의 **단계**로 구성됩니다.
-   - 단계 유형 (예: `model_output`, `thought`, `function_call`)을 나타내는 `step.start` 이벤트
-   - 해당 단계의 증분 데이터가 포함된 하나 이상의 `step.delta` 이벤트
-   - 단계를 완료로 표시하는 `step.stop` 이벤트
-3. 최종 `usage` 통계가 포함된 `interaction.completed` 이벤트
+1. `interaction.created`: การโต้ตอบถูกสร้างขึ้น ซึ่งรวมถึงข้อมูลเมตา (รหัส โมเดล สถานะ)
+2. ชุด**ขั้นตอน** ซึ่งแต่ละขั้นตอนประกอบด้วย:
+   - เหตุการณ์ `step.start` ซึ่งระบุประเภทขั้นตอน (เช่น `model_output`, `thought`, `function_call`)
+   - เหตุการณ์ `step.delta` อย่างน้อย 1 รายการที่มีข้อมูลทีละส่วนสำหรับขั้นตอนนั้น
+   - เหตุการณ์ `step.stop` ซึ่งทำเครื่องหมายขั้นตอนว่าเสร็จสมบูรณ์
+3. เหตุการณ์ `interaction.completed` ที่มีสถิติ `usage` สุดท้าย
 
-`stream: false`를 설정하면 API는 `steps` 배열이 포함된 단일 `interaction` 객체를 반환합니다. `steps`의 각 요소는 하나의 `step.start` → `step.delta`(s) → `step.stop` 주기의 완전히 조립된 버전입니다.
+เมื่อตั้งค่า `stream: false` API จะแสดงผลออบเจ็กต์ `interaction` รายการเดียวที่มีอาร์เรย์ `steps` องค์ประกอบแต่ละรายการใน `steps` คือเวอร์ชันที่ประกอบขึ้นอย่างสมบูรณ์ของวงจร `step.start` → `step.delta`(s) → `step.stop`
 
 ### `interaction.created`
 
-상호작용이 처음 생성될 때 전송됩니다. 상호작용 ID, 모델, 초기 상태가 포함됩니다.
+ส่งเมื่อมีการสร้างการโต้ตอบเป็นครั้งแรก มีรหัสการโต้ตอบ โมเดล และสถานะเริ่มต้น
 
 ```
 event: interaction.created
@@ -136,7 +136,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3.5-flash", "status": "in_p
 
 ### `interaction.status_update`
 
-상호작용 수준 상태 전환을 알립니다. 단계 사이에 표시될 수 있습니다.
+ส่งสัญญาณการเปลี่ยนสถานะระดับการโต้ตอบ อาจปรากฏระหว่างขั้นตอน
 
 ```
 event: interaction.status_update
@@ -145,23 +145,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-새 단계의 시작을 표시합니다. 단계 `type` 및 `index`가 포함됩니다. 단계 유형에 따라 예상되는 델타 유형과 스트리밍되지 않는 응답에 단계가 표시되는 방식이 결정됩니다.
+ทำเครื่องหมายจุดเริ่มต้นของขั้นตอนใหม่ มี `type` และ `index` ของขั้นตอน ประเภทขั้นตอนจะกำหนดประเภทเดลต้าที่คาดหวังและลักษณะที่ขั้นตอนปรากฏในการตอบกลับที่ไม่ใช่การสตรีม
 
-| 단계 유형 | 예상 델타 유형 | 설명 |
+| ประเภทของขั้นตอน | ประเภทเดลต้าที่คาดหวัง | คำอธิบาย |
 | --- | --- | --- |
-| `model_output` | `text`, `image`, `audio` | 모델의 최종 응답 콘텐츠입니다. |
-| `thought` | `thought_signature`, `thought_summary` | 연쇄적 사고(CoT) 추론입니다. `thinking_summaries`가 사용 설정된 경우에만 `summary`가 표시됩니다. |
-| `function_call` | `arguments_delta` | 클라이언트가 함수를 실행하도록 요청합니다. 상호작용 상태를 `requires_action`으로 설정합니다. |
-| 서버 측 도구 | 도구에 따라 다름 | API에서 실행하는 도구입니다 (예: `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
+| `model_output` | `text`, `image`, `audio` | เนื้อหาการตอบกลับสุดท้ายของโมเดล |
+| `thought` | `thought_signature`, `thought_summary` | การให้เหตุผลแบบ Chain-of-thought `summary` จะปรากฏขึ้นเมื่อเปิดใช้ `thinking_summaries` เท่านั้น |
+| `function_call` | `arguments_delta` | คำขอให้ไคลเอ็นต์เรียกใช้ฟังก์ชัน ตั้งค่าสถานะการโต้ตอบเป็น `requires_action` |
+| เครื่องมือฝั่งเซิร์ฟเวอร์ | แตกต่างกันไปตามเครื่องมือ | เครื่องมือที่ API เรียกใช้ (เช่น `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`) |
 
-전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 확인하세요.
+ดูรายการทั้งหมดได้ที่ข้อมูลอ้างอิง [Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-함수 호출의 경우 단계에는 함수 이름, ID, 빈 인수 `{}`가 포함됩니다.
+สำหรับการเรียกใช้ฟังก์ชัน ขั้นตอนจะรวมถึงชื่อฟังก์ชัน รหัส และอาร์กิวเมนต์ว่างเปล่า `{}`
 
 ```
 event: step.start
@@ -170,11 +170,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-현재 단계의 증분 데이터입니다. `delta` 객체에는 모양을 결정하는 `type` 필드가 포함됩니다.
+ข้อมูลทีละส่วนสำหรับขั้นตอนปัจจุบัน ออบเจ็กต์ `delta` มีฟิลด์ `type` ที่กำหนดรูปร่าง
 
-**예:**
+**ตัวอย่างเช่น**
 
-**`text`:** `model_output` 단계의 증분 텍스트 토큰입니다.
+**`text`:** โทเค็นข้อความทีละส่วนจากขั้นตอน `model_output`
 
 ```
 event: step.delta
@@ -184,32 +184,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** `model_output` 단계의 base64 인코딩 이미지 데이터입니다.
+**`image`:** ข้อมูลรูปภาพที่เข้ารหัส Base64 จากขั้นตอน `model_output`
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** `thought` 단계의 사고 요약 콘텐츠입니다.
+**`thought_summary`:** เนื้อหาข้อมูลสรุปการคิดจากขั้นตอน `thought`
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** 함수 호출 인수의 (부분) JSON 문자열입니다. 델타 전반에 누적되어야 합니다.
+**`arguments_delta`:** สตริง JSON (บางส่วน) สำหรับอาร์กิวเมนต์การเรียกใช้ฟังก์ชัน ต้องสะสมในเดลต้า
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-가장 일반적인 델타 유형은 다음과 같습니다. 모든 델타 유형의 전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 확인하세요.
+นี่คือประเภทเดลต้าที่พบบ่อยที่สุด ดูรายการประเภทเดลต้าทั้งหมดได้ที่[ข้อมูลอ้างอิง Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
 
 ### `step.stop`
 
-단계의 끝을 표시합니다. 단계 `index`가 포함됩니다.
+ทำเครื่องหมายจุดสิ้นสุดของขั้นตอน มี `index` ของขั้นตอน
 
 ```
 event: step.stop
@@ -218,7 +218,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-상호작용이 완료되면 전송됩니다. `usage` 통계가 포함된 최종 상호작용 객체가 포함됩니다. 스트리밍되지 않는 모드에서는 최상위 응답 객체 자체입니다. 응답에 `steps`가 포함되지 않습니다.
+ส่งเมื่อการโต้ตอบเสร็จสิ้น มีออบเจ็กต์การโต้ตอบสุดท้ายพร้อมสถิติ `usage` ในโหมดที่ไม่ใช่การสตรีม นี่คือออบเจ็กต์การตอบกลับระดับบนสุด ไม่รวม `steps` ในการตอบกลับ
 
 ```
 event: interaction.completed
@@ -227,24 +227,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-상호작용 중에 오류가 발생하면 전송됩니다. 메시지와 코드가 포함된 오류 객체가 포함됩니다.
+ส่งเมื่อเกิดข้อผิดพลาดระหว่างการโต้ตอบ มีออบเจ็กต์ข้อผิดพลาดพร้อมข้อความและรหัส
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## 도구를 사용한 스트리밍
+## การสตรีมด้วยเครื่องมือ
 
-Interactions API는 단일 요청에서 클라이언트 측 도구 (함수 호출)와 서버 측 도구 (Google 검색, 코드 실행 등)를 모두 사용하여 스트리밍을 지원합니다. 스트리밍 중에 도구 호출은 이벤트 스트림에 입력된 단계로 표시됩니다. 함수 호출의 경우 `step.start` 이벤트는 함수 이름을 전달하고 `step.delta` 이벤트는 인수를 JSON 문자열(`arguments_delta`)로 스트리밍합니다. 전체 인수를 가져오려면 이러한 델타를 누적해야 합니다.
-Google 검색과 같은 서버 측 도구는 API에서 자동으로 실행되어 `google_search_call` 및 `google_search_result` 단계를 생성합니다.
+Interactions API รองรับการสตรีมด้วยเครื่องมือทั้งฝั่งไคลเอ็นต์ (การเรียกใช้ฟังก์ชัน) และฝั่งเซิร์ฟเวอร์ (Google Search, การดำเนินการโค้ด ฯลฯ) ในคำขอเดียว ระหว่างการสตรีม การเรียกใช้เครื่องมือจะปรากฏเป็นขั้นตอนที่พิมพ์ในสตรีมเหตุการณ์ สำหรับการเรียกใช้ฟังก์ชัน เหตุการณ์ `step.start` จะแสดงชื่อฟังก์ชัน และเหตุการณ์ `step.delta` จะสตรีมอาร์กิวเมนต์เป็นสตริง JSON (`arguments_delta`) คุณต้องสะสมเดลต้าเหล่านี้เพื่อรับอาร์กิวเมนต์ทั้งหมด
+API จะเรียกใช้เครื่องมือฝั่งเซิร์ฟเวอร์ เช่น Google Search โดยอัตโนมัติ ซึ่งจะสร้างขั้นตอน `google_search_call` และ `google_search_result`
 
-### 함수 호출을 사용한 스트리밍
+### การสตรีมด้วยการเรียกใช้ฟังก์ชัน
 
-스트리밍으로 함수 호출을 실행하려면 클라이언트가 멀티턴 대화를 처리해야 합니다.
+หากต้องการทำการเรียกใช้ฟังก์ชันด้วยการสตรีม ไคลเอ็นต์ต้องจัดการการสนทนาหลายรอบดังนี้
 
-1. **1턴 (함수 요청):** `stream: true` 및 정의된 `tools`를 사용하여 `interactions.create`를 호출합니다. API는 `function_call` 단계를 스트리밍합니다. 상호작용이 상태 `requires_action`으로 완료될 때까지 `step.delta` 이벤트에서 증분 인수 JSON 문자열 (`arguments_delta`)을 누적해야 합니다.
-2. **2턴 (결과 전송):** `previous_interaction_id` (첫 번째 상호작용의 ID와 일치)를 전달하고 `input` 배열 내에서 `function_result` 블록을 전송하여 `interactions.create`를 다시 호출합니다. 이렇게 하면 스트림이 재개되어 모델이 최종 응답을 생성할 수 있습니다.
+1. **รอบที่ 1 (คำขอฟังก์ชัน):** เรียกใช้ `interactions.create` ด้วย `stream: true` และ `tools` ที่คุณกำหนด API จะสตรีมขั้นตอน `function_call` คุณต้องสะสมสตริง JSON ของอาร์กิวเมนต์ทีละส่วน (`arguments_delta`) จากเหตุการณ์ `step.delta` จนกว่าการโต้ตอบจะเสร็จสมบูรณ์ด้วยสถานะ `requires_action`
+2. **รอบที่ 2 (การส่งผลลัพธ์):** เรียกใช้ `interactions.create` อีกครั้ง โดยส่ง `previous_interaction_id` (ซึ่งตรงกับรหัสของการโต้ตอบแรก) และส่งบล็อก `function_result` ภายในอาร์เรย์ `input` ซึ่งจะดำเนินการสตรีมต่อ ทำให้โมเดลสร้างการตอบกลับสุดท้ายได้
 
 ### Python
 
@@ -401,7 +401,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**1턴:** 함수 호출 요청
+**รอบที่ 1:** ขอเรียกใช้ฟังก์ชัน
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -432,7 +432,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**2턴:** 1턴의 `previous_interaction_id` 및 `call_id`를 사용하여 함수 결과 전송
+**รอบที่ 2:** ส่งผลลัพธ์ของฟังก์ชันโดยใช้ `previous_interaction_id` และ `call_id` จากรอบที่ 1
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -461,9 +461,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 여러 도구를 사용한 스트리밍
+### การสตรีมด้วยเครื่องมือหลายรายการ
 
-다음 예에서는 하나의 요청에서 `function` 도구와 `google_search`를 모두 사용합니다.
+ตัวอย่างต่อไปนี้ใช้ทั้งเครื่องมือ `function` และ `google_search` ในคำขอเดียว
 
 ### Python
 
@@ -664,9 +664,9 @@ event: done
 data: [DONE]
 ```
 
-## 사고를 사용한 스트리밍
+## การสตรีมด้วยการคิด
 
-모델에서 사고를 사용하는 경우 두 가지 고유한 델타 유형(`thought_summary`(증분 텍스트 또는 이미지 요약 콘텐츠) 및 `thought_signature`(모델의 내부 추론을 암호화하여 나타낸 것으로 `step.stop` 전에 마지막 델타로 전송됨))이 포함된 `thought` 단계를 수신합니다. `thinking_summaries`가 사용 설정된 경우 `thought_summary` 델타는 모델의 추론 요약을 스트리밍합니다. 사고에 관한 자세한 내용은 [사고 가이드](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)를 참고하세요.
+เมื่อโมเดลใช้การคิด คุณจะได้รับขั้นตอน `thought` ที่มีประเภทเดลต้า 2 ประเภท ได้แก่ `thought_summary` (เนื้อหาข้อมูลสรุปข้อความหรือรูปภาพทีละส่วน) และ `thought_signature` (การแสดงการให้เหตุผลภายในของโมเดลที่เข้ารหัส ซึ่งส่งเป็นเดลต้าสุดท้ายก่อน `step.stop`) หากเปิดใช้ `thinking_summaries` เดลต้า `thought_summary` จะสตรีมข้อมูลสรุปการให้เหตุผลของโมเดล ดูรายละเอียดเพิ่มเติมเกี่ยวกับการคิดได้ที่[คู่มือการคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
 
 ### Python
 
@@ -766,9 +766,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## 에이전트를 사용한 스트리밍
+## การสตรีมด้วยเอเจนต์
 
-Interactions API는 Deep Research와 같은 에이전트를 지원합니다. 에이전트는 `background=True`를 사용하고 결과를 비동기식으로 반환하지만 에이전트 상호작용을 스트리밍하여 진행 상황 업데이트와 중간 단계를 실시간으로 수신할 수도 있습니다. 자세한 내용은 [백그라운드 실행 가이드](https://ai.google.dev/gemini-api/docs/background-execution?hl=ko) 및 [Deep Research 가이드](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 참고하세요.
+Interactions API รองรับเอเจนต์ เช่น Deep Research เอเจนต์ใช้ `background=True` และแสดงผลแบบไม่พร้อมกัน แต่คุณยังสตรีมการโต้ตอบของเอเจนต์เพื่อรับการอัปเดตความคืบหน้าและขั้นตอนกลางได้เมื่อเกิดขึ้น ดูรายละเอียดเพิ่มเติมได้ที่[คู่มือการดำเนินการเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th)และ[คู่มือ Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th)
 
 ### Python
 
@@ -887,11 +887,11 @@ event: done
 data: [DONE]
 ```
 
-## 이미지 생성 스트리밍
+## การสตรีมการสร้างรูปภาพ
 
-Interactions API는 여러 출력 모달리티를 동시에 스트리밍하는 것을 지원합니다. `response_format`에서 `text`와 `image`를 모두 요청하면 동일한 스트림에서 텍스트와 생성된 이미지를 번갈아 수신할 수 있습니다.
+Interactions API รองรับการสตรีมเอาต์พุตหลายรูปแบบพร้อมกัน เมื่อขอทั้ง `text` และ `image` ใน `response_format` คุณจะได้รับข้อความและรูปภาพที่สร้างขึ้นสลับกันในสตรีมเดียวกัน
 
-다음 예에서는 `gemini-3.1-flash-image` (Nano Banana 2)를 사용하여 정보를 검색하고 삽화가 번갈아 나오는 스토리를 생성합니다.
+ตัวอย่างต่อไปนี้ใช้ `gemini-3.1-flash-image` (Nano Banana 2) เพื่อค้นหาข้อมูลและสร้างเรื่องราวที่มีภาพประกอบสลับกัน
 
 ### Python
 
@@ -1044,24 +1044,24 @@ event: done
 data: [DONE]
 ```
 
-## 알 수 없는 이벤트 처리
+## การจัดการเหตุการณ์ที่ไม่รู้จัก
 
-API의 버전 관리 정책에 따라 시간 경과에 따라 새 이벤트 유형과 델타 유형이 추가될 수 있습니다. 코드는 알 수 없는 이벤트 유형을 정상적으로 처리해야 합니다. 오류를 발생시키는 대신 인식하지 못하는 이벤트를 로깅하고 건너뛰어야 합니다.
+ระบบอาจเพิ่มประเภทเหตุการณ์และประเภทเดลต้าใหม่ๆ เมื่อเวลาผ่านไปตามนโยบายการควบคุมเวอร์ชันของ API โค้ดของคุณควรจัดการประเภทเหตุการณ์ที่ไม่รู้จักอย่างเหมาะสม โดยบันทึกและข้ามเหตุการณ์ที่คุณไม่รู้จักแทนที่จะแสดงข้อผิดพลาด
 
-## 다음 단계
+## ขั้นตอนถัดไป
 
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)에 대해 자세히 알아봅니다.
-- 도구를 사용한 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)을 살펴봅니다.
-- 향상된 추론을 위한 [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)에 대해 알아봅니다.
-- 장기 실행 작업에 [Deep Research 에이전트](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 사용해 봅니다.
-- 모든 이벤트 유형 및 델타 유형은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 확인하세요.
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
+- สำรวจ[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)ด้วยเครื่องมือ
+- ดูข้อมูลเกี่ยวกับการ[คิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)เพื่อการให้เหตุผลที่ดียิ่งขึ้น
+- ลองใช้ [Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) สำหรับงานที่ใช้เวลานาน
+- ดูข้อมูลอ้างอิง [Interactions API](https://ai.google.dev/api/interactions-api?hl=th) สำหรับประเภทเหตุการณ์และประเภทเดลต้าทั้งหมด
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-07-07(UTC)
+อัปเดตล่าสุด 2026-07-07 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-07(UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-07 UTC"],[],[]]

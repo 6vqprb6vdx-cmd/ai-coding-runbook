@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi
-fetched_at: 2026-07-27T04:36:29.617901+00:00
-title: "\u092e\u0948\u0928\u0947\u091c \u0915\u093f\u090f \u091c\u093e \u0930\u0939\u0947 \u090f\u091c\u0947\u0902\u091f\u094b\u0902 \u092e\u0947\u0902 \u090f\u0928\u0935\u093e\u092f\u0930\u092e\u0947\u0902\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl
+fetched_at: 2026-08-03T04:31:37.543443+00:00
+title: "\u015arodowiska w\u00a0przypadku zarz\u0105dzanych agent\u00f3w \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-सुझाव भेजें
+Prześlij opinię
 
-# मैनेज किए जा रहे एजेंटों में एनवायरमेंट
+# Środowiska w przypadku zarządzanych agentów
 
-एनवायरमेंट, मैनेज किए गए Linux सैंडबॉक्स होते हैं. इनसे एजेंट को कोड चलाने और फ़ाइलें सेव करने के लिए, अलग जगह मिलती है. ये इंटरैक्शन के कॉन्टेक्स्ट से अलग होते हैं. इसलिए, एक ही एनवायरमेंट को कई इंटरैक्शन में फिर से इस्तेमाल किया जा सकता है या किसी भी समय नया एनवायरमेंट बनाया जा सकता है.
+Środowiska to zarządzane piaskownice Linux, które zapewniają agentom odizolowane miejsce do wykonywania kodu i przechowywania plików. Są one oddzielone od kontekstu interakcji, dzięki czemu możesz ponownie użyć tego samego środowiska w wielu interakcjach lub w dowolnym momencie zacząć od nowa.
 
-यहां दिए गए उदाहरण में, रिमोट एनवायरमेंट बनाकर उसके साथ इंटरैक्शन करने और उसका आईडी पाने का तरीका बताया गया है:
+Poniższy przykład pokazuje, jak utworzyć interakcję z nowym środowiskiem zdalnym i pobrać jego identyfikator:
 
 ### Python
 
@@ -67,17 +67,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## `environment` पैरामीटर
+## Parametr `environment`
 
-`environment` पैरामीटर के लिए, तीन फ़ॉर्मैट इस्तेमाल किए जा सकते हैं:
+Parametr `environment` może przyjmować 3 formy:
 
-| फ़ॉर्म | उदाहरण | कब इस्तेमाल करें |
+| Formularz | Przykład | Kiedy używać |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | नया सैंडबॉक्स बनाएं. |
-| एनवायरमेंट आईडी | `environment="env_abc123"` | मौजूदा सैंडबॉक्स को उसकी सभी फ़ाइलों और पैकेज के साथ फिर से इस्तेमाल करें. |
-| कॉन्फ़िगरेशन ऑब्जेक्ट | `environment={...}` | सोर्स, नेटवर्क के नियमों या दोनों के साथ नया सैंडबॉक्स बनाएं. |
+| `"remote"` | `environment="remote"` | Utwórz nową piaskownicę. |
+| Identyfikator środowiska | `environment="env_abc123"` | Użyj ponownie istniejącej piaskownicy ze wszystkimi jej plikami i pakietami. |
+| Obiekt konfiguracji | `environment={...}` | Utwórz nową piaskownicę ze źródłami, regułami sieciowymi lub oboma tymi elementami. |
 
-यहां दिए गए उदाहरणों में, `environment` पैरामीटर का इस्तेमाल करने के तीन तरीके बताए गए हैं.
+Poniższe przykłady pokazują 3 sposoby użycia parametru `environment`.
 
 ### Python
 
@@ -205,10 +205,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## एनवायरमेंट कॉन्फ़िगर करना
+## Konfigurowanie środowiska
 
-एनवायरमेंट सेट अप करने का एक तरीका यह है कि एजेंट को बताया जाए कि आपको क्या इंस्टॉल करना है.
-यह डिपेंडेंसी रिज़ॉल्यूशन और समस्या हल करने की प्रोसेस को मैनेज करता है. एनवायरमेंट तैयार होने के बाद, `environment_id` सेव करें और उसे फिर से इस्तेमाल करें.
+Jednym ze sposobów konfigurowania środowiska jest poinformowanie agenta, co ma zainstalować.
+Zajmuje się on rozwiązywaniem zależności i problemów. Gdy środowisko będzie gotowe, zapisz `environment_id` i użyj go ponownie.
 
 ### Python
 
@@ -285,15 +285,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### किसी सोर्स से माउंट करना
+### Montowanie ze źródła
 
-अगर आपको पता है कि एजेंट को किन फ़ाइलों की ज़रूरत है, तो उन्हें एक ही कॉल में माउंट करें. इसके लिए, बार-बार कॉल करने की ज़रूरत नहीं है. `environment` कॉन्फ़िगरेशन ऑब्जेक्ट, तीन टाइप वाले `sources` कलेक्शन को स्वीकार करता है:
+Jeśli wiesz dokładnie, jakich plików potrzebuje agent, zamontuj je w jednym wywołaniu zamiast iterować. Obiekt konfiguracji `environment` akceptuje tablicę `sources` z 3 typami:
 
-| सोर्स टाइप | `type` की वैल्यू | ब्यौरा | सीमा |
+| Typ źródła | Wartość `type` | Opis | Limit |
 | --- | --- | --- | --- |
-| Git डेटा स्टोर करने की जगह | `repository` | किसी यूआरएल से, डेटा स्टोर करने की जगह को `target` पर मौजूद सैंडबॉक्स में क्लोन करता है. | 500 एमबी |
-| Cloud Storage | `gcs` | Cloud Storage से किसी फ़ाइल या डायरेक्ट्री को कॉपी करके, `target` पर मौजूद सैंडबॉक्स में सेव करता है. | 2 GB |
-| इनलाइन कॉन्टेंट | `inline` | रॉ टेक्स्ट कॉन्टेंट को, `target` पर मौजूद सैंडबॉक्स में किसी फ़ाइल में लिखता है. | हर फ़ाइल के लिए एक एमबी, कुल दो एमबी |
+| Repozytorium Git | `repository` | Klonuje repozytorium z adresu URL do piaskownicy w `target`. | 500 MB |
+| Cloud Storage | `gcs` | Kopiuje plik lub katalog z Cloud Storage do piaskownicy w `target`. | 2 GB |
+| Treść w tekście | `inline` | Zapisuje surową treść tekstową w pliku w piaskownicy w `target`. | 1 MB na plik, 2 MB łącznie |
 
 ### Python
 
@@ -398,16 +398,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-दोनों तरीकों को एक साथ इस्तेमाल किया जा सकता है: जाने-पहचाने सोर्स को डिक्लेरेटिव तरीके से माउंट करें. इसके बाद, पैकेज इंस्टॉल करने या सेटअप स्क्रिप्ट चलाने के लिए, फ़ॉलो-अप इंटरैक्शन के साथ दोहराएं. कस्टम सोर्स जोड़ते समय, रूट (`/`) को टारगेट के तौर पर सेट नहीं किया जा सकता. इसके लिए, हमेशा सब-डायरेक्ट्री तय करनी होगी.
+Możesz połączyć oba podejścia: zamontować znane źródła deklaratywnie, a następnie iterować z interakcjami uzupełniającymi, aby zainstalować pakiety lub uruchomić skrypty konfiguracji. Podczas dodawania źródła niestandardowego nie możesz ustawić katalogu głównego (`/`) jako miejsca docelowego. Zawsze musisz określić podkatalog.
 
-### निजी सोर्स
+### Źródła prywatne
 
-नेटवर्क कॉन्फ़िगरेशन में क्रेडेंशियल जोड़कर, निजी GitHub रिपॉज़िटरी या निजी Cloud Storage बकेट से भी डाउनलोड किया जा सकता है:
+Możesz też pobierać dane z prywatnych repozytoriów GitHub lub prywatnych zasobników Cloud Storage, dodając dane logowania w konfiguracji sieci:
 
-**निजी Git रिपॉज़िटरी** के लिए, अपने
-[GitHub Personal Access Token
-(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) के साथ `Basic` ऑथेंटिकेशन का इस्तेमाल करें.
-टोकन को `x-oauth-basic` को उपयोगकर्ता नाम के तौर पर इस्तेमाल करके एनकोड करें:
+W przypadku **prywatnych repozytoriów Git** użyj uwierzytelniania `Basic` z
+[osobistym tokenem dostępu GitHub
+(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+Zakoduj token, używając `x-oauth-basic` jako nazwy użytkownika:
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -512,7 +512,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-**निजी Cloud Storage बकेट** के लिए, स्टैंडर्ड OAuth 2.0 Bearer टोकन का इस्तेमाल करें:
+W przypadku **prywatnych zasobników Cloud Storage** użyj standardowego tokena OAuth 2.0 Bearer:
 
 ```
 gcloud auth print-access-token
@@ -617,25 +617,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## पहले से इंस्टॉल किया गया सॉफ़्टवेयर
+## Wstępnie zainstalowane oprogramowanie
 
-सैंडबॉक्स, Ubuntu पर चलता है. इसमें रनटाइम और सामान्य पैकेज पहले से इंस्टॉल होते हैं. एजेंट, रनटाइम के दौरान `pip
-install` या `npm install` का इस्तेमाल करके, अतिरिक्त पैकेज इंस्टॉल कर सकता है. किसी इंटरैक्शन के दौरान इंस्टॉल किए गए पैकेज, उसी `environment_id` को फिर से इस्तेमाल करने पर बने रहते हैं.
+Piaskownica działa w systemie Ubuntu i ma wstępnie zainstalowane środowiska wykonawcze oraz popularne pakiety. Agent może instalować dodatkowe pakiety w czasie działania za pomocą `pip
+install` lub `npm install`. Pakiety zainstalowane podczas interakcji są zachowywane, gdy ponownie użyjesz tego samego `environment_id`.
 
-| कैटगरी | पहले से इंस्टॉल किए गए पैकेज |
+| Kategoria | Zainstalowane pakiety |
 | --- | --- |
-| **UNIX टूल** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
+| **Narzędzia UNIX** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
 | **Python 3.12** | `numpy`, `pandas`, `requests`, `google-genai`, `beautifulsoup4`, `pyyaml`, `ast-grep-cli` |
 | **Node.js 22** | `create-next-app`, `create-vite`, `typescript` |
 
-## नेटवर्क कॉन्फ़िगरेशन
+## Konfiguracja sieci
 
-डिफ़ॉल्ट रूप से, एनवायरमेंट में आउटबाउंड नेटवर्क ऐक्सेस पर कोई पाबंदी नहीं होती. आउटबाउंड ट्रैफ़िक को खास डोमेन तक सीमित करने के लिए, `network` फ़ील्ड का इस्तेमाल करें. हर नियम में, `domain` और मैचिंग अनुरोधों में हेडर इंजेक्ट करने के लिए, एक वैकल्पिक `transform` ऑब्जेक्ट तय किया जाता है. ये हेडर, हर इंटरैक्शन के लिए अलग-अलग हो सकते हैं. साथ ही, इन्हें एक ही एनवायरमेंट के लिए अपडेट किया जा सकता है.
+Domyślnie środowiska mają nieograniczony dostęp do sieci wychodzącej. Użyj pola `network`, aby ograniczyć ruch wychodzący do określonych domen. Każda reguła określa `domain` i opcjonalny obiekt `transform`, aby wstawiać nagłówki do pasujących żądań. Te nagłówki mogą być unikalne dla każdej interakcji i możesz je aktualizować w tym samym środowisku.
 
-| फ़ील्ड | टाइप | ब्यौरा |
+| Pole | Typ | Opis |
 | --- | --- | --- |
-| `domain` | `string` | मैच करने के लिए डोमेन. सभी डोमेन के लिए, सटीक होस्टनेम या `*` का इस्तेमाल करें. |
-| `transform` | `object` | ऑब्जेक्ट में फ़्लैट की-वैल्यू पेयर होते हैं.ये पेयर, मैचिंग अनुरोधों में इंजेक्ट किए जाने वाले हेडर को दिखाते हैं. जैसे, `{"Authorization": "Bearer ..."}`. |
+| `domain` | `string` | Domena do dopasowania. Użyj dokładnej nazwy hosta lub `*` dla wszystkich domen. |
+| `transform` | `object` | Obiekt zawierający płaskie pary klucz-wartość reprezentujące nagłówki do wstawienia do pasujących żądań, np. `{"Authorization": "Bearer ..."}`. |
 
 ### Python
 
@@ -724,15 +724,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-अनुमति वाली सूची सेट होने पर, सिर्फ़ सूची में शामिल डोमेन के अनुरोधों को अनुमति दी जाती है. सबडोमेन से मैच करने के लिए, वाइल्डकार्ड का इस्तेमाल किया जा सकता है. जैसे, `{"domain":
-"*.example.com"}`. हालांकि, ध्यान दें कि इससे रूट डोमेन
-`example.com` मैच नहीं होता. इसे अलग से जोड़ना होगा. अन्य सभी ट्रैफ़िक को अनुमति देने के लिए, जैसे
-कि सूची में शामिल न किए गए डोमेन को बिना हेडर इंजेक्ट किए रूट करने के लिए, `{"domain": "*"}` को कैच-ऑल एंट्री के तौर पर
-जोड़ें.
+Gdy ustawiona jest lista dozwolonych, dozwolone są tylko żądania do domen wymienionych na tej liście. Możesz używać symboli wieloznacznych do dopasowywania subdomen (np. `{"domain":
+"*.example.com"}`), ale pamiętaj, że nie pasuje to do domeny głównej
+`example.com`, którą należy dodać osobno. Aby zezwolić na cały inny ruch, np.
+na kierowanie na domeny nieznajdujące się na liście bez wstawionych nagłówków, dodaj `{"domain": "*"}` jako wpis
+obejmujący wszystkie przypadki.
 
-### क्रेडेंशियल
+### Dane logowania
 
-हेडर ट्रांसफ़ॉर्मेशन जोड़कर, अपने एजेंट के लिए क्रेडेंशियल जोड़े जा सकते हैं. क्रेडेंशियल को, संबंधित एचटीटीपी हेडर में इग्रेस प्रॉक्सी से इंजेक्ट किया जाता है. इन्हें एनवायरमेंट वैरिएबल या फ़ाइलों के तौर पर, सैंडबॉक्स में कभी भी नहीं दिखाया जाता.
+Aby agent mógł korzystać z danych logowania, możesz dodać transformacje nagłówków. Dane logowania są wstawiane do odpowiednich nagłówków HTTP przez serwer proxy ruchu wychodzącego. Nigdy nie są one udostępniane w piaskownicy jako zmienne środowiskowe ani pliki.
 
 ### Python
 
@@ -825,9 +825,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### नेटवर्क ऐक्सेस की सुविधा बंद करना
+### Wyłączanie dostępu do sieci
 
-आउटबाउंड नेटवर्क ऐक्सेस को ब्लॉक करने के लिए, `network` को `disabled` पर सेट करें:
+Aby zablokować cały dostęp do sieci wychodzącej, ustaw `network` na `disabled`:
 
 ### Python
 
@@ -883,10 +883,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### क्रेडेंशियल रीफ़्रेश करना
+### Odświeżanie danych logowania
 
-ऐक्सेस टोकन और कम समय के लिए मान्य एपीआई कुंजियों जैसे क्रेडेंशियल की समयसीमा खत्म हो जाती है.
-इन्हें रीफ़्रेश करने के लिए, अगले इंटरैक्शन में मौजूदा `environment_id` के साथ नया `network` कॉन्फ़िगरेशन पास करें. नए नेटवर्क के नियम, पुराने नियमों की जगह पूरी तरह से ले लेते हैं. वहीं, एनवायरमेंट के फ़ाइल सिस्टम की स्थिति (इंस्टॉल किए गए पैकेज, फ़ाइलें, रिपॉज़िटरी) बनी रहती है.
+Dane logowania, takie jak tokeny dostępu i krótkotrwałe klucze API, wygasają.
+Możesz je odświeżyć, przekazując istniejący `environment_id` wraz z nową konfiguracją `network` podczas następnej interakcji. Nowe reguły sieciowe całkowicie zastępują poprzednie, a stan systemu plików środowiska (zainstalowane pakiety, pliki, repozytoria) jest zachowywany.
 
 ### Python
 
@@ -1013,26 +1013,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## एनवायरमेंट का लाइफ़साइकल
+## Cykl życia środowiska
 
-एनवायरमेंट का लाइफ़साइकल इस तरह होता है:
+Środowiska mają następujący cykl życia:
 
-| राज्य | व्यवहार |
+| Stan | Zachowanie |
 | --- | --- |
-| **बनाया गया** | जब कोई इंटरैक्शन, `environment: "remote"` या कॉन्फ़िगरेशन ऑब्जेक्ट तय करता है, तब एनवायरमेंट बनाया जाता है. |
-| **चालू है** | इंटरैक्शन के दौरान चालू रहता है. |
-| **कुछ समय से इस्तेमाल में नहीं है** | 15 मिनट तक कोई गतिविधि न होने पर, इसका स्नैपशॉट अपने-आप ले लिया जाता है और यह बंद हो जाता है. |
-| **ऑफ़लाइन** | पिछली बार चालू होने के बाद, सात दिनों तक बना रहता है. इसका आईडी पास करके, इसे फिर से चालू किया जा सकता है. |
-| **मिटाया गया** | टीटीएल के सात दिनों की समयसीमा खत्म होने के बाद या मैन्युअल तरीके से मिटाने पर, इसे सिस्टम से अपने-आप हटा दिया जाता है. |
+| **Utworzono** | Utworzone, gdy interakcja określa `environment: "remote"` lub obiekt konfiguracji. |
+| **Aktywne** | Działające podczas interakcji. |
+| **– bezczynny(-a)** | Automatycznie tworzy migawkę i zatrzymuje się po 15 minutach bezczynności. |
+| **Offline** | Przechowywane przez 7 dni od ostatniej aktywności. Można je wznowić, przekazując jego identyfikator. |
+| **Usunięto** | Automatycznie usuwane z systemu po upływie 7-dniowego okresu TTL lub po ręcznym usunięciu. |
 
 ## Environments API
 
-सैंडबॉक्स सेशन को प्रोग्राम के हिसाब से मैनेज करने के लिए, Environments API का इस्तेमाल किया जा सकता है.
-एनवायरमेंट की सूची बनाने से, चालू सेशन के आईडी का पता लगाया जा सकता है. साथ ही, लंबे समय तक चलने वाले टास्क के दौरान, क्लाइंट कनेक्शन खत्म होने पर, स्थिति को वापस लाया जा सकता है. सेशन का मेटाडेटा भी देखा जा सकता है. साथ ही, वर्कफ़्लो खत्म होने पर, एनवायरमेंट को साफ़ तौर पर मिटाया जा सकता है. इसके लिए, टीटीएल की समयसीमा खत्म होने का इंतज़ार करने की ज़रूरत नहीं है.
+Za pomocą interfejsu Environments API możesz programowo zarządzać sesjami piaskownicy.
+Wyliczanie środowisk pozwala wykrywać aktywne identyfikatory sesji i przywracać stan, jeśli połączenie klienta zostanie przerwane podczas długotrwałego zadania. Możesz też sprawdzać metadane sesji i jawnie usuwać środowiska po zakończeniu przepływów pracy, zamiast czekać na automatyczne wygaśnięcie TTL.
 
-### एनवायरमेंट की सूची बनाना
+### Wyświetlanie listy środowisk
 
-अपने प्रोजेक्ट से जुड़े चालू एनवायरमेंट की सूची बनाएं. जवाब के बैच का साइज़ कंट्रोल करने के लिए, पेज पर नंबर डालने वाले पैरामीटर का इस्तेमाल करें.
+Wyświetl listę aktywnych środowisk należących do Twojego projektu. Użyj parametrów stronicowania, aby kontrolować wielkość wsadu odpowiedzi.
 
 ### Python
 
@@ -1065,7 +1065,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments?pageS
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-जवाब, यहां दिए गए उदाहरण की तरह दिखता है:
+Odpowiedź będzie wyglądać mniej więcej tak:
 
 ```
 {
@@ -1083,9 +1083,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments?pageS
 }
 ```
 
-### कोई एनवायरमेंट पाना
+### Pobieranie środowiska
 
-किसी खास एनवायरमेंट के लिए, उसके संसाधन के नाम के हिसाब से मेटाडेटा और कॉन्फ़िगरेशन की जानकारी पाएं.
+Pobierz metadane i szczegóły konfiguracji konkretnego środowiska według jego nazwy zasobu.
 
 ### Python
 
@@ -1116,7 +1116,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/YOUR_
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-जवाब, यहां दिए गए उदाहरण की तरह दिखता है:
+Odpowiedź będzie wyglądać mniej więcej tak:
 
 ```
 {
@@ -1142,9 +1142,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/YOUR_
 }
 ```
 
-### कोई एनवायरमेंट मिटाना
+### Usuwanie środowiska
 
-अपने टास्क या पाइपलाइन खत्म होने पर, सैंडबॉक्स के संसाधनों को साफ़ करने के लिए, किसी एनवायरमेंट को साफ़ तौर पर खत्म करें और मिटाएं.
+Jawnie zakończ i usuń środowisko, aby zwolnić miejsce w zasobach piaskownicy po zakończeniu zadań lub potoków.
 
 ### Python
 
@@ -1173,9 +1173,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/environments/YO
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## एनवायरमेंट से फ़ाइलें डाउनलोड करना
+## Pobieranie plików ze środowiska
 
-एजेंट, एक्ज़ीक्यूशन के दौरान सैंडबॉक्स में फ़ाइलें बनाता है. Files API का इस्तेमाल करके, पूरे एनवायरमेंट के स्नैपशॉट को टार फ़ाइल के तौर पर डाउनलोड किया जा सकता है:
+Podczas wykonywania agent tworzy pliki w piaskownicy. Za pomocą interfejsu Files API możesz pobrać pełną migawkę środowiska jako plik tar:
 
 ### Python
 
@@ -1270,41 +1270,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## कीमत और संसाधन
+## Ceny i zasoby
 
-हर एनवायरमेंट, तय किए गए संसाधन के साथ चलता है:
+Każde środowisko działa z przydzielonymi zasobami:
 
-| संसाधन | मान |
+| Zasób | Wartość |
 | --- | --- |
-| **सीपीयू** | चार कोर |
-| **मेमोरी** | 16 जीबी |
+| **CPU** | 4 rdzenie |
+| **Pamięć** | 16 GB |
 
-प्रीव्यू की अवधि के दौरान, एनवायरमेंट के कंप्यूट (सीपीयू, मेमोरी, सैंडबॉक्स एक्ज़ीक्यूशन) के लिए **कोई शुल्क नहीं लिया जाता**. एजेंट टोकन की लागत के बारे में जानने के लिए,
-[कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#pricing-for-agents) देखें.
+W okresie korzystania z wersji testowej **nie są naliczane opłaty** za zasoby obliczeniowe środowiska (CPU, pamięć, wykonywanie w piaskownicy). Koszty tokenów agenta znajdziesz w sekcji
+[Ceny](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#pricing-for-agents).
 
-## सीमाएं
+## Ograniczenia
 
-- **प्रीव्यू की स्थिति:** एनवायरमेंट और मैनेज किए गए एजेंट, प्रीव्यू में हैं. इनकी सुविधाओं और स्कीमा में बदलाव हो सकता है.
-- **इनलाइन सोर्स का साइज़:** इनलाइन सोर्स, हर फ़ाइल के लिए एक एमबी और सभी फ़ाइलों के लिए कुल दो एमबी तक सीमित हैं.
-- **सोर्स का साइज़**: Git रिपॉज़िटरी 500 एमबी और Cloud Storage रिपॉज़िटरी दो जीबी तक सीमित हैं.
-- **एनवायरमेंट का स्टार्टअप:** नया एनवायरमेंट बनाने में, करीब पांच सेकंड लगते हैं. बड़े सोर्स रिपॉज़िटरी की वजह से, इसमें ज़्यादा समय लग सकता है.
-- **एनवायरमेंट की समयसीमा खत्म होना:** ऑफ़लाइन एनवायरमेंट, सात दिनों तक बने रहते हैं. इसके बाद, टीटीएल क्लीनअप की सुविधा से, इनकी समयसीमा अपने-आप खत्म हो जाती है. समयसीमा खत्म हो चुके या अमान्य एनवायरमेंट आईडी को पास करने पर, `404 Not Found` गड़बड़ी दिखती है.
-- **फ़ाइल फ़ॉर्मैट के लिए सहायता:** फ़िलहाल, एजेंट सिर्फ़ टेक्स्ट और इमेज फ़ाइलें पढ़ सकता है. बाइनरी फ़ाइलें पढ़ने की सुविधा अभी उपलब्ध नहीं है.
-- **रूट से माउंट करने की सुविधा नहीं है:** कस्टम सोर्स जोड़ते समय, रूट (`/`) को टारगेट के तौर पर सेट नहीं किया जा सकता. इसके लिए, हमेशा सब-डायरेक्ट्री तय करनी होगी.
+- **Stan wersji testowej:** środowiska i agenci zarządzani są w wersji testowej. Funkcje i schematy mogą ulec zmianie.
+- **Rozmiar źródła w tekście:** źródła w tekście są ograniczone do 1 MB na plik i 2 MB łącznie we wszystkich plikach.
+- **Rozmiar źródła**: repozytoria Git są ograniczone do 500 MB, a repozytoria Cloud Storage do 2 GB.
+- **Uruchamianie środowiska:** utworzenie nowego środowiska trwa do ok. 5 sekund. Duże repozytoria źródłowe mogą wydłużyć ten czas.
+- **Wygasanie środowiska:** nieaktywne środowiska offline są przechowywane przez 7 dni, a następnie usuwane za pomocą automatycznego czyszczenia TTL. Przekazanie wygasłego lub nieprawidłowego identyfikatora środowiska powoduje zwrócenie błędu `404 Not Found`.
+- **Obsługa plików:** agent może obecnie odczytywać tylko pliki tekstowe i obrazy. Obsługa plików binarnych nie jest jeszcze dostępna.
+- **Brak montowania z katalogu głównego:** podczas dodawania źródła niestandardowego nie możesz ustawić katalogu głównego (`/`) jako miejsca docelowego. Zawsze musisz określić podkatalog.
 
-## आगे क्या करना है
+## Co dalej?
 
-- [एजेंट की खास जानकारी](https://ai.google.dev/gemini-api/docs/agents?hl=hi): मैनेज किए गए एजेंट के मुख्य कॉन्सेप्ट के बारे में जानें.
-- [क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi): सिलसिलेवार बातचीत और स्ट्रीमिंग की सुविधा के साथ, एजेंट बनाना शुरू करें.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi): डिफ़ॉल्ट एजेंट की क्षमताओं, टूल, मॉडल चुनने के तरीके, और कीमत के बारे में जानें.
-- [कस्टम एजेंट बनाना](https://ai.google.dev/gemini-api/docs/custom-agents?hl=hi): `AGENTS.md` और `SKILL.md` का इस्तेमाल करके, अपने एजेंट तय करें.
+- [Omówienie agentów](https://ai.google.dev/gemini-api/docs/agents?hl=pl): poznaj podstawowe koncepcje agentów zarządzanych.
+- [Krótkie wprowadzenie](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl): zacznij tworzyć aplikacje z wieloetapowymi rozmowami i przesyłaniem strumieniowym.
+- [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl): poznaj możliwości, narzędzia, wybór modelu i ceny domyślnego agenta.
+- [Tworzenie agentów niestandardowych](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl): definiuj własnych agentów za pomocą plików `AGENTS.md` i `SKILL.md`.
 
-सुझाव भेजें
+Prześlij opinię
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-आखिरी बार 2026-07-23 (UTC) को अपडेट किया गया.
+Ostatnia aktualizacja: 2026-07-23 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Chcesz przekazać coś jeszcze?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-23 (UTC) को अपडेट किया गया."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-23 UTC."],[],[]]

@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar
-fetched_at: 2026-07-27T04:33:45.872010+00:00
-title: "\u0625\u0646\u0634\u0627\u0621 \u0648\u0643\u0644\u0627\u0621 \u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr
+fetched_at: 2026-08-03T04:30:36.862913+00:00
+title: "Y\u00f6netilen Ajanlar Olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-# إنشاء وكلاء مُدارين
+# Yönetilen Ajanlar Oluşturma
 
-تتيح لك الوكلاء المُدارون على Gemini API توسيع نطاق وكيل Antigravity باستخدام تعليماتك ومهاراتك وبياناتك. يمكنك [تخصيص الوكيل بشكل مضمّن](#customize-inline) في وقت التفاعل، أو [حفظ الإعداد](#save-agent) كوكيل مُدار يمكنك استدعاؤه باستخدام المعرّف.
+Gemini API'deki yönetilen ajanlar, Antigravity ajanını kendi talimatlarınız, becerileriniz ve verilerinizle genişletmenize olanak tanır. Etkileşim sırasında [aracıyı satır içinde özelleştirebilir](#customize-inline) veya [yapılandırmayı](#save-agent), kimliğe göre çağırdığınız yönetilen bir aracı olarak kaydedebilirsiniz.
 
-## تخصيص وكيل Antigravity
+## Antigravity ajanını özelleştirme
 
-أسرع طريقة لإنشاء وكيل مخصّص هي تمرير إعداداتك مضمّنةً أثناء إنشاء تفاعل جديد بدون الحاجة إلى إجراء خطوة التسجيل. يمكنك توسيع نطاق عمل الوكيل بعدة طرق رئيسية:
+Özel bir aracı oluşturmanın en hızlı yolu, yeni bir etkileşim oluştururken yapılandırmanızı satır içi olarak iletmektir. Bu işlem için kayıt adımı gerekmez. Aracı birkaç önemli şekilde genişletebilirsiniz:
 
-- **[اختيار النموذج](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#model-selection)**: اختَر نموذج Gemini الأساسي من خلال `agent_config` (يكون النموذج التلقائي هو **Gemini 3.6 Flash**).
-- **تعليمات النظام**: يمكنك تمرير نص مضمّن من خلال `system_instruction` لتحديد السلوك.
-- **الأدوات**: يمكنك إلغاء الأدوات التلقائية (تنفيذ الرمز البرمجي، والبحث، وسياق عنوان URL)، أو تسجيل خوادم MCP عن بُعد، أو تحديد وظائف مخصّصة (استدعاء الوظائف).
-- **الملفات والمهارات**: يمكنك تحميل ملفات مثل `AGENTS.md` و`SKILL.md` في البيئة.
+- **[Model seçimi](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#model-selection)**: `agent_config` simgesini kullanarak temel Gemini modelini seçin (varsayılan olarak **Gemini 3.6 Flash** seçilir).
+- **Sistem talimatları**: Davranışı şekillendirmek için satır içi metni `system_instruction` ile iletin.
+- **Araçlar**: Varsayılan araçları (Kod Yürütme, Arama, URL Bağlamı) geçersiz kılın, uzak MCP sunucularını kaydedin veya özel işlevler (İşlev Çağırma) tanımlayın.
+- **Dosyalar ve beceriler**: `AGENTS.md` ve `SKILL.md` gibi dosyaları ortama yerleştirin.
 
-في ما يلي مثال على تمرير المَعلمات الثلاث كلها في السطر:
+Üçünün de satır içi olarak iletilmesine ilişkin bir örnek:
 
 ### Python
 
@@ -121,22 +121,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-يتم تحديد كل شيء في وقت التفاعل. ليس عليك تسجيل أي شيء أولاً. توفر أداة Antigravity Agent بيئة التشغيل (تنفيذ الرموز البرمجية وإدارة الملفات والوصول إلى الويب) وطبقات الإعدادات في الأعلى.
+Her şey etkileşim sırasında tanımlanır. Önceden herhangi bir kayıt işlemi yapmanız gerekmez. Antigravity ajan düzeneği, çalışma zamanını (kod yürütme, dosya yönetimi, web erişimi) sağlar ve yapılandırma katmanlarınız bunun üzerine eklenir.
 
-### الأدوات وتعليمات النظام
+### Araçlar ve sistem talimatları
 
-يمكنك تخصيص سلوك الوكيل وإمكاناته لتفاعل معيّن باستخدام المَعلمتَين `system_instruction` و`tools`.
+`system_instruction` ve `tools` parametrelerini kullanarak aracının davranışını ve özelliklerini belirli bir etkileşim için özelleştirebilirsiniz.
 
-- **تعليمات النظام**: استخدِم المَعلمة `system_instruction` لتمرير نص مضمّن يحدّد سلوك الوكيل. هذه الميزة مثالية لإجراء تعديلات سريعة تريد تغييرها لكل مكالمة. تكون `system_instruction` و`AGENTS.md` ترافقيتَين، أي أنّهما تسريان معًا عند توفّرهما.
-- **الأدوات**: بشكلٍ تلقائي، يمكن لوكيل Antigravity الوصول إلى `code_execution` و`google_search` و`url_context`. يمكنك تجاوز هذه القائمة من خلال تمرير المَعلمة `tools` في وقت التفاعل. يمكنك أيضًا تسجيل [خوادم MCP عن بُعد](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#mcp-servers) أو تحديد [دوال مخصّصة (استدعاء الدوال)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#function-calling) لربط الوكيل بواجهات برمجة التطبيقات وقواعد البيانات الخاصة بك. للاطّلاع على التفاصيل الكاملة حول الأدوات المتاحة، يُرجى الانتقال إلى [Antigravity Agent: الأدوات المتوافقة](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#supported-tools).
+- **Sistem talimatları**: Aracının davranışını şekillendiren satır içi metni iletmek için `system_instruction` parametresini kullanın. Bu özellik, her görüşmede değiştirmek istediğiniz hızlı düzenlemeler için idealdir. `system_instruction` ve `AGENTS.md` toplamsaldır. Her ikisi de mevcut olduğunda geçerlidir.
+- **Araçlar**: Antigravity aracısı varsayılan olarak `code_execution`, `google_search` ve `url_context`'e erişebilir. Etkileşim sırasında `tools` parametresini ileterek bu listeyi geçersiz kılabilirsiniz. Ayrıca, aracıyı kendi API'lerinize ve veritabanlarınıza bağlamak için [uzak MCP sunucuları](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#mcp-servers) kaydedebilir veya [özel işlevler (işlev çağırma)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#function-calling) tanımlayabilirsiniz. Kullanılabilen araçlarla ilgili tüm ayrıntılar için [Antigravity Agent: Desteklenen araçlar](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#supported-tools) başlıklı makaleyi inceleyin.
 
-### التخصيص المستند إلى الملفات
+### Dosyaya dayalı özelleştirme
 
-#### بنية دليل الوكيل
+#### Aracı dizin yapısı
 
-على الرغم من أنّه يمكنك تمرير الإعدادات مضمّنة، ننصحك بتنظيم ملفات البرنامج في دليل منظَّم. يسهّل ذلك إدارة الملفات والتحكّم في إصداراتها وتثبيتها في بيئة الوكيل.
+Yapılandırmayı satır içi olarak iletebilirsiniz ancak aracınızın dosyalarını yapılandırılmış bir dizinde düzenlemenizi öneririz. Bu sayede yönetmek, sürüm denetimi yapmak ve aracının ortamına monte etmek daha kolay olur.
 
-يبدو دليل مشروع الوكيل النموذجي على النحو التالي:
+Tipik bir aracı projesi dizini şu şekilde görünür:
 
 ```
 my-agent/
@@ -147,13 +147,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-يفحص وقت تشغيل Antigravity `.agents/` (وجذر البيئة) بحثًا عن هذه الملفات.
+Antigravity çalışma zamanı, bu dosyalar için `.agents/` (ve ortamın kökünü) tarar.
 
 #### AGENTS.md
 
-يحمّل الوكيل تلقائيًا `.agents/AGENTS.md` (أو `/.agents/AGENTS.md`) من البيئة كتعليمات نظام عند بدء التشغيل. استخدِم `AGENTS.md` لتعريفات الشخصيات الطويلة والإرشادات المفصّلة والتعليمات التي تريد التحكّم في إصدارها إلى جانب الرمز البرمجي.
+Aracı, başlangıçta ortamdan `.agents/AGENTS.md` (veya `/.agents/AGENTS.md`) öğesini sistem talimatları olarak otomatik olarak yükler. Uzun persona tanımları, ayrıntılı yönergeler ve kodunuzla birlikte sürüm denetimi yapmak istediğiniz talimatlar için `AGENTS.md` kullanın.
 
-تثبيت `AGENTS.md` باستخدام مصدر مضمّن:
+Satır içi kaynak kullanarak `AGENTS.md` bağlama:
 
 ### Python
 
@@ -230,9 +230,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### المهارات: SKILL.md
+#### Beceriler: SKILL.md
 
-المهارات هي ملفات توسّع إمكانات الوكيل. ضَعها تحت `.agents/skills/<skill-name>/SKILL.md`، وسيتعرّف عليها نظام التوصيل تلقائيًا ويسجّلها.
+Beceriler, ajanın yeteneklerini genişleten dosyalardır. Bunları `.agents/skills/<skill-name>/SKILL.md` altına yerleştirin. Böylece, donanım bunları otomatik olarak keşfedip kaydeder.
 
 ```
 .agents/
@@ -242,7 +242,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         └── SKILL.md
 ```
 
-تثبيت مهارة باستخدام مصدر مضمّن:
+Satır içi kaynak kullanarak beceri yükleme:
 
 ### Python
 
@@ -319,17 +319,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-يتم تلقائيًا اكتشاف المهارات المحمَّلة من `.agents/skills/` و`/.agents/skills/`.
+`.agents/skills/` ve `/.agents/skills/` kaynaklarından yüklenen beceriler otomatik olarak keşfedilir.
 
-## إنشاء وكيل مُدار
+## Yönetilen aracı oluşturma
 
-بعد تكرار عملية الإعداد، يمكنك إنشاء الإعداد كبرنامج وكيل مُدار باستخدام `agents.create`. يتيح لك ذلك استدعاء "الوكيل" حسب المعرّف بدون تكرار عملية الإعداد في كل مرة.
+Yapılandırmanızı yineledikten sonra `agents.create` ile yönetilen bir aracı olarak oluşturabilirsiniz. Bu sayede, yapılandırmayı her seferinde tekrarlamadan aracıyı kimliğe göre çağırabilirsiniz.
 
-يجب أن يكون `id` الذي تحدّده عند إنشاء وكيل مُدار فريدًا لمشروعك ويجب ألا يبدأ بالبادئات المحجوزة (مثل `google-` و`gemini-`). اطّلِع على [قيود رقم تعريف الوكيل](#agent-id-restrictions) للحصول على القائمة الكاملة بالبادئات المحظورة.
+Yönetilen bir aracı oluştururken belirttiğiniz `id`, projenize özgü olmalı ve ayrılmış ön eklerle (ör. `google-`, `gemini-`) başlamamalıdır. Kısıtlanmış ön eklerin tam listesi için [Aracı kimliği kısıtlamaları](#agent-id-restrictions) bölümüne bakın.
 
-### من المصادر
+### Kaynaklardan
 
-حدِّد `base_agent` و`id` و`agent_config` و`system_instruction` و`base_environment` مع المصادر. توفّر المنصة بيئة اختبار جديدة تتضمّن ملفاتك في كل عملية استدعاء. راجِع [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar) لمعرفة أنواع المصادر المتاحة (Git وGCS والمضمّنة).
+Kaynaklarla birlikte `base_agent`, `id`, `agent_config`, `system_instruction` ve `base_environment` değerlerini belirtin. Platform, her çağırmada dosyalarınızla yeni bir sanal alan sağlar. Kullanılabilir kaynak türleri (Git, GCS, satır içi) için [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) bölümüne bakın.
 
 ### Python
 
@@ -448,9 +448,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### من بيئة حالية (تشعّب)
+### Mevcut bir ortamdan (fork)
 
-كرِّر استخدام وكيل Antigravity الأساسي إلى أن تصبح البيئة مناسبة (تثبيت الحِزم، ووضع الملفات في مكانها)، ثم أنشئ نسخة من الوكيل في وكيل مُدار.
+Ortam doğru olana kadar (paketler yüklendi, dosyalar yerinde) temel Antigravity aracısıyla yineleme yapın, ardından bunu yönetilen bir aracıya çatallayın.
 
 ### Python
 
@@ -514,11 +514,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### مع قواعد الشبكة
+### Ağ kurallarıyla
 
-يمكنك حظر الوصول الخارجي أو إدخال بيانات الاعتماد عند حفظ وكيل مُدار. للاطّلاع على مخطط قائمة السماح الكامل وأنماط بيانات الاعتماد وأحرف البدل، يُرجى الانتقال إلى [البيئات: إعدادات الشبكة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#network-configuration).
+Yönetilen bir aracı kaydederken giden erişimi kilitleyebilir veya kimlik bilgilerini ekleyebilirsiniz. İzin verilenler listesi şeması, kimlik bilgisi kalıpları ve joker karakterler hakkında ayrıntılı bilgi için [Ortamlar: Ağ yapılandırması](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#network-configuration) başlıklı makaleyi inceleyin.
 
-ينشئ المثال التالي وكيلاً `issue-resolver` يمكنه الوصول إلى GitHub وPyPI فقط، مع إدخال بيانات الاعتماد الخاصة بـ GitHub:
+Aşağıdaki örnekte, GitHub ve PyPI'ye erişebilen ve GitHub için kimlik bilgilerinin yerleştirildiği bir `issue-resolver` aracısı oluşturulur:
 
 ### Python
 
@@ -628,9 +628,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## استدعاء الوكيل
+## Temsilciyi çağırma
 
-اتّصِل بالوكيل المُدار باستخدام رقم تعريف الوكيل من خلال إنشاء تفاعل جديد. يؤدي كل استدعاء إلى إنشاء نسخة من البيئة الأساسية، لذا تبدأ كل عملية تشغيل بشكل نظيف.
+Yeni bir etkileşim oluşturarak yönetilen aracınızı arayın. Her çağırma işlemi temel ortamı çatalladığından her çalıştırma temiz bir şekilde başlar.
 
 ### Python
 
@@ -669,15 +669,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-للمحادثات المترابطة والبث، يُرجى الاطّلاع على [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar). تنطبق أنماط `previous_interaction_id` و`environment` نفسها على البرامج التي يديرها المشرف.
+Çok aşamalı etkileşimli görüşmeler ve akış için [Hızlı Başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr) bölümüne bakın. Aynı `previous_interaction_id` ve `environment` kalıpları, yönetilen aracılar için de geçerlidir.
 
-تتيح الوكلاء المُدارين أيضًا تنفيذ العمليات في الخلفية وإلغاءها. للحصول على التفاصيل وأمثلة الرموز، يُرجى الاطّلاع على [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#background-execution).
+Yönetilen aracılar, arka planda yürütmeyi ve iptali de destekler. Ayrıntılar ve kod örnekleri için [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#background-execution) (Antigravity Agent: Arka planda yürütme) başlıklı makaleyi inceleyin.
 
-## تجاوز الإعدادات عند الاستدعاء
+## Çağırma sırasında yapılandırmayı geçersiz kılma
 
-يمكنك إلغاء إعدادات الشبكة التلقائية `system_instruction` و`tools` و`environment` الخاصة بالوكيل عند إنشاء تفاعل. يتيح لك ذلك تعديل سلوك الوكيل أو إمكاناته أو بيانات اعتماده لتنفيذ عملية معيّنة بدون تغيير تعريف الوكيل المخزّن.
+Bir etkileşim oluştururken aracının varsayılan `system_instruction`, `tools` ve `environment` ağ yapılandırmasını geçersiz kılabilirsiniz. Bu sayede, depolanan aracı tanımını değiştirmeden belirli bir çalıştırma için aracının davranışını, özelliklerini veya kimlik bilgilerini değiştirebilirsiniz.
 
-### تجاوز تعليمات النظام وأدواته
+### Sistem talimatını ve araçlarını geçersiz kılma
 
 ### Python
 
@@ -721,9 +721,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### تجاوز إعدادات الشبكة (تحديث بيانات الاعتماد)
+### Ağ yapılandırmasını geçersiz kılma (kimlik bilgilerini yenileme)
 
-إذا كان وكيلك المُدار يتضمّن بيانات اعتماد الشبكة في `base_environment`، يمكنك تجاهلها عند الاستدعاء لتجديد الرموز المميزة المنتهية الصلاحية أو تدوير مفاتيح واجهة برمجة التطبيقات. مرِّر عنصر `environment` مع إعداد `network` جديد. تحلّ قواعد الشبكة الجديدة محلّ القواعد السابقة بشكل كامل في ما يتعلّق بهذا التفاعل. يتم الاحتفاظ بمصادر البيئة الأساسية (الملفات والمستودعات).
+Yönetilen aracınızın `base_environment` kimlik bilgileri varsa, süresi dolmuş jetonları yenilemek veya API anahtarlarını döndürmek için bunları çağırma sırasında geçersiz kılabilirsiniz. Yeni bir `network` yapılandırmasıyla `environment` nesnesi iletin. Yeni ağ kuralları, söz konusu etkileşim için önceki kuralların tamamen yerini alır. Temel ortamın kaynakları (dosyalar, depolar) korunur.
 
 ### Python
 
@@ -803,11 +803,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## إدارة الوكلاء
+## Aracıları yönet
 
-يمكنك إدراج الوكلاء والحصول عليهم وحذفهم.
+Aracıları listeleyebilir, alabilir ve silebilirsiniz.
 
-### وكلاء القائمة
+### Aracıları listeleyin
 
 ### Python
 
@@ -835,7 +835,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### الحصول على وكيل
+### Aracı edinme
 
 ### Python
 
@@ -858,9 +858,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### حذف وكيل
+### Temsilci silme
 
-يؤدي الحذف إلى إزالة الإعدادات. لا تتأثر البيئات والتفاعلات الحالية التي أنشأها الوكيل.
+Silme işlemi, yapılandırmayı kaldırır. Mevcut ortamlar ve aracının oluşturduğu etkileşimler etkilenmez.
 
 ### Python
 
@@ -881,24 +881,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## مرجع تعريف الوكيل
+## Aracı tanımı referansı
 
-| الحقل | النوع | مطلوب | الوصف |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `id` | سلسلة | نعم | المعرّف الفريد للوكيل ضمن مشروع Google Cloud يُستخدَم لتفعيل الوكيل. يجب عدم استخدام البادئات المحجوزة. اطّلِع على [قيود معرّف الوكيل](#agent-id-restrictions). |
-| `description` | سلسلة | لا | وصف الوكيل يمكن لشخص عادي قراءته |
-| `base_agent` | سلسلة | نعم | معرّف الوكيل الأساسي (مثلاً، `antigravity-preview-05-2026`) |
-| `agent_config` | عنصر | لا | إعدادات الوكيل الأساسي، بما في ذلك اختيار النموذج (`{"type": "antigravity", "model": "gemini-3.6-flash"}`). يتم ضبط القيمة التلقائية على `gemini-3.6-flash` في حال عدم تحديدها. لا يمكن إلغاؤها في وقت التفاعل مع الوكلاء المحدّدين. |
-| `system_instruction` | سلسلة | لا | طلب النظام الذي يحدّد السلوك والشخصية |
-| `tools` | صفيف | لا | الأدوات التي يمكن للوكيل استخدامها في حال عدم تحديدها، يتم ضبطها تلقائيًا على `code_execution` و`google_search` و`url_context`. تشمل الأدوات المتوافقة `code_execution` و`google_search` و`url_context` و`mcp_server` وتعريفات `function` المخصّصة. |
-| `base_environment` | سلسلة أو عنصر | لا | `"remote"` أو `environment_id` أو عنصر إعدادات يتضمّن `sources` و`network` الاطّلاع على البيئات |
+| `id` | dize | Evet | Google Cloud projesindeki benzersiz aracı tanımlayıcısı. Ajanı çağırmak için kullanılır. Ayrılmış önekler kullanılmamalıdır. [Aracı kimliği kısıtlamaları](#agent-id-restrictions) başlıklı makaleyi inceleyin. |
+| `description` | dize | Hayır | Temsilcinin kullanıcılar tarafından okunabilir açıklaması. |
+| `base_agent` | dize | Evet | Temel aracı kimliği (ör. `antigravity-preview-05-2026`). |
+| `agent_config` | nesne | Hayır | Model seçimi (`{"type": "antigravity", "model": "gemini-3.6-flash"}`) dahil olmak üzere temel aracı yapılandırması. Atlanırsa varsayılan olarak `gemini-3.6-flash` olur. Adlandırılmış aracıların etkileşim sırasında geçersiz kılınamaz. |
+| `system_instruction` | dize | Hayır | Davranışı ve kullanıcı profilini tanımlayan sistem istemi. |
+| `tools` | dizi | Hayır | Ajanın kullanabileceği araçlar. Boş bırakılırsa varsayılan olarak `code_execution`, `google_search` ve `url_context` değerleri kullanılır. Desteklenen araçlar arasında `code_execution`, `google_search`, `url_context`, `mcp_server` ve özel `function` tanımları yer alır. |
+| `base_environment` | dize veya nesne | Hayır | `"remote"`, `environment_id` veya `sources` ve `network` içeren bir yapılandırma nesnesi. Ortamlar bölümüne bakın. |
 
-### القيود المفروضة على رقم تعريف الوكيل
+### Aracı kimliği kısıtlamaları
 
-عند إنشاء وكيل مُدار، يجب أن يلتزم `id` الذي تحدّده بالقواعد التالية:
+Yönetilen bir aracı oluştururken belirttiğiniz `id` şu kurallara uymalıdır:
 
-- ويجب أن يكون فريدًا لمشروعك على Google Cloud.
-- يجب **ألا** يبدأ بأي من البادئات المحجوزة التالية (غير حساسة لحالة الأحرف)، وإلا ستتعذّر عملية الإنشاء:
+- Google Cloud projenize özgü olmalıdır.
+- Aksi takdirde oluşturma işlemi başarısız olacağından, aşağıdaki ayrılmış öneklerden (büyük/küçük harfe duyarsız) biriyle **başlamamalıdır**:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -916,35 +916,35 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   - `nest-`
   - `kaggle-`
 
-## سير عمل التكرار
+## Yineleme iş akışı
 
-1. **إنشاء نموذج أولي** باستخدام وكيل Antigravity الأساسي تمرير تعليمات النظام ومصادر البيئة مضمّنة اختبار التعليمات والمهارات وإعداد البيئة بشكل تفاعلي
-2. **تثبيت** البيئة ثبِّت الحِزم، واربط المصادر، وتأكَّد من أنّ كل شيء يعمل.
-3. **الاستمرار** كوكيل مُدار من خلال إنشاء وكيل جديد، إما من المصادر أو من خلال إنشاء نسخة من البيئة.
-4. **عدِّل** تعريف الوكيل. تغيير تعليمات النظام أو تبديل المهارات أو إضافة مصادر سيتم استخدام الإعدادات الجديدة في عملية الاستدعاء التالية.
+1. Temel Antigravity aracısıyla **prototip oluşturun**. Sistem talimatını ve ortam kaynaklarını satır içi olarak iletin. Talimatları, becerileri ve ortam kurulumunu etkileşimli olarak test edin.
+2. Ortamı **dengeleyin**. Paketleri yükleyin, kaynakları bağlayın ve her şeyin çalıştığını doğrulayın.
+3. Kaynaklardan veya ortamı çatallayarak yeni bir aracı oluşturup yönetilen aracı olarak **kalıcı hale getirin**.
+4. Aracı tanımını **güncelleyin**. Sistem talimatını değiştirme, becerileri değiştirme veya kaynak ekleme Bir sonraki çağırmada yeni yapılandırma kullanılır.
 
-## القيود
+## Sınırlamalar
 
-- **حالة المعاينة**: الوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
-- **الوكيل الأساسي والنماذج**: يُسمح بالقيمة `antigravity-preview-05-2026` فقط كقيمة `base_agent`. خيارات النماذج المتوافقة في `agent_config` هي `gemini-3.5-flash` و`gemini-3.6-flash` (الإعداد التلقائي) و`gemini-3.5-flash-lite`. بالنسبة إلى الوكلاء المحدّدين، لا يمكن تجاهل النموذج في وقت التفاعل.
-- **عدم توفّر ميزة التحكم بالإصدارات**: لا تتوفّر ميزة التحكم بإصدارات الوكيل والعودة إلى الإصدار السابق بعد.
-- **عدم إمكانية إنشاء وكلاء فرعيين متداخلين**: لا تتوفّر بعد إمكانية تفويض وكيل فرعي.
-- يمكنك الحصول على ما يصل إلى 1,000 وكيل مُدار.
+- **Önizleme durumu**: Yönetilen aracıların önizleme sürümü kullanımdadır. Özellikler ve şemalar değişebilir.
+- **Temel aracı ve modeller**: `base_agent` olarak yalnızca `antigravity-preview-05-2026` desteklenir. `agent_config`'da desteklenen model seçenekleri `gemini-3.5-flash`, `gemini-3.6-flash` (varsayılan) ve `gemini-3.5-flash-lite`'dir. Adlandırılmış temsilcilerde model, etkileşim sırasında geçersiz kılınamaz.
+- **Sürüm oluşturma yok**: Ajan sürümü oluşturma ve geri alma henüz kullanılamıyor.
+- **Alt temsilci iç içe yerleştirme yok**: Alt temsilci yetkilendirme henüz desteklenmiyor.
+- En fazla 1.000 yönetilen aracınız olabilir.
 
-## الخطوات التالية
+## Sırada ne var?
 
-- [نظرة عامة على الوكلاء](https://ai.google.dev/gemini-api/docs/agents?hl=ar): تعرَّف على المفاهيم الأساسية للوكلاء المُدارين.
-- [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): ابدأ إنشاء محادثات مترابطة وبث المحتوى.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): استكشاف الإمكانات والأدوات والأسعار للوكيل التلقائي
-- [بيئات الوكيل](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar): يمكنك ضبط بيئات الاختبار المعزولة والمصادر والشبكات.
-- [Managed Agents API على "منصة الوكلاء"](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ar): لإنشاء الوكلاء المُدارين مع إدارة مؤسسية مدمجة.
+- [Ajanlara Genel Bakış](https://ai.google.dev/gemini-api/docs/agents?hl=tr): Yönetilen ajanların temel kavramları hakkında bilgi edinin.
+- [Hızlı başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr): Çok aşamalı etkileşimler ve akışla geliştirmeye başlayın.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr): Varsayılan temsilcinin özelliklerini, araçlarını ve fiyatlandırmasını keşfedin.
+- [Aracı Ortamları](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): Sanal alanları, kaynakları ve ağı yapılandırın.
+- [Agent Platform'da Yönetilen Ajanlar API'si](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=tr): Yerleşik kurumsal yönetim özelliklerine sahip ajanlar oluşturmak için kullanılır.
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-تاريخ التعديل الأخير: 2026-07-21 (حسب التوقيت العالمي المتفَّق عليه)
+Son güncelleme tarihi: 2026-07-30 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-21 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]

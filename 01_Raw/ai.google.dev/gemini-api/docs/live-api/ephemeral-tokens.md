@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=de
-fetched_at: 2026-07-27T04:46:17.750317+00:00
-title: "Ephemerische Tokens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=zh-CN
+fetched_at: 2026-08-03T04:28:09.569145+00:00
+title: "\u4e34\u65f6\u4ee4\u724c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Feedback geben
+发送反馈
 
-# Ephemerische Tokens
+# 临时令牌
 
-Temporäre Tokens sind kurzlebige Authentifizierungstokens für den Zugriff auf die Gemini API über [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Sie sollen die Sicherheit verbessern, wenn Sie direkt vom Gerät eines Nutzers aus eine Verbindung zur API herstellen (eine [Client-zu-Server](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach)-Implementierung). Wie Standard-API-Schlüssel können auch temporäre Tokens aus clientseitigen Anwendungen wie Webbrowsern oder mobilen Apps extrahiert werden. Da temporäre Tokens jedoch schnell ablaufen und eingeschränkt werden können, verringern sie die Sicherheitsrisiken in einer Produktionsumgebung erheblich. Sie sollten sie verwenden, wenn Sie direkt von clientseitigen Anwendungen auf die Live API zugreifen, um die Sicherheit von API-Schlüsseln zu erhöhen.
+临时令牌是短期有效的身份验证令牌，用于通过 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 访问 Gemini API。它们旨在增强从用户设备直接连接到 API（[客户端到服务器](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn#implementation-approach)的实现）时的安全性。与标准 API 密钥一样，临时令牌可以从 Web 浏览器或移动应用等客户端应用中提取。不过，由于临时令牌会快速过期且可以受到限制，因此它们可显著降低生产环境中的安全风险。当您直接从客户端应用访问 Live API 时，应使用它们来增强 API 密钥安全性。
 
-## Funktionsweise von temporären Tokens
+## 临时令牌的工作原理
 
-So funktionieren temporäre Tokens:
+临时令牌的大致运作方式如下：
 
-1. Ihr Client (z.B. eine Web-App) wird bei Ihrem Backend authentifiziert.
-2. Ihr Backend fordert ein temporäres Token vom Bereitstellungsdienst der Gemini API an.
-3. Die Gemini API gibt ein kurzlebiges Token aus.
-4. Ihr Backend sendet das Token an den Client für WebSocket-Verbindungen zur Live API. Dazu können Sie Ihren API-Schlüssel durch ein temporäres Token ersetzen.
-5. Der Client verwendet das Token dann so, als wäre es ein API-Schlüssel.
+1. 您的客户端（例如 Web 应用）向后端进行身份验证。
+2. 您的后端向 Gemini API 的配置服务请求临时令牌。
+3. Gemini API 会签发短期有效的令牌。
+4. 您的后端会将令牌发送给客户端，以便通过 WebSocket 连接到 Live API。您可以通过将 API 密钥替换为临时令牌来完成此操作。
+5. 然后，客户端会像使用 API 密钥一样使用该令牌。
 
-![Sitzungsspezifische Tokens – Übersicht](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=de)
+![临时令牌概览](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=zh-cn)
 
-Das erhöht die Sicherheit, da das Token auch im Falle eines Diebstahls nur kurzlebig ist, im Gegensatz zu einem clientseitig bereitgestellten, langlebigen API-Schlüssel. Da der Client Daten direkt an Gemini sendet, wird auch die Latenz verbessert und Ihre Back-Ends müssen die Echtzeitdaten nicht mehr weiterleiten.
+这有助于提高安全性，因为即使令牌被提取，其有效期也很短，不像部署在客户端的长期有效的 API 密钥。由于客户端直接将数据发送给 Gemini，因此还可以缩短延迟时间，并避免后端需要代理实时数据。
 
-## Sitzungsspezifisches Token erstellen
+## 创建临时令牌
 
-Hier ist ein vereinfachtes Beispiel dafür, wie Sie ein temporäres Token von Gemini erhalten.
-Standardmäßig haben Sie 1 Minute Zeit, um neue Live API-Sitzungen mit dem Token aus dieser Anfrage (`newSessionExpireTime`) zu starten, und 30 Minuten Zeit, um Nachrichten über diese Verbindung (`expireTime`) zu senden.
+以下是一个简化示例，展示了如何从 Gemini 获取临时令牌。
+默认情况下，您将有 1 分钟的时间来使用此请求 (`newSessionExpireTime`) 中的令牌启动新的 Live API 会话，并有 30 分钟的时间通过该连接发送消息 (`expireTime`)。
 
 ### Python
 
@@ -91,10 +91,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-Informationen zu Einschränkungen, Standardwerten und anderen Feldspezifikationen für `expireTime` finden Sie in der [API-Referenz](https://ai.google.dev/api/live?hl=de#ephemeral-auth-tokens).
-Innerhalb des Zeitraums von `expireTime` müssen Sie [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=de#session-resumption) alle 10 Minuten eine neue Verbindung herstellen. Das kann mit demselben Token erfolgen, auch wenn `uses: 1`.
+如需了解 `expireTime` 值限制、默认值和其他字段规范，请参阅 [API 参考文档](https://ai.google.dev/api/live?hl=zh-cn#ephemeral-auth-tokens)。在 `expireTime` 时间范围内，您需要每 10 分钟重新连接一次通话（即使 `uses: 1`，也可以使用同一令牌完成此操作）。[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=zh-cn#session-resumption)
 
-Es ist auch möglich, ein temporäres Token für eine Reihe von Konfigurationen zu sperren. Das kann nützlich sein, um die Sicherheit Ihrer Anwendung weiter zu verbessern und Ihre Systemanweisungen auf der Serverseite zu behalten.
+还可以将临时令牌锁定到一组配置。这可能有助于进一步提高应用的安全性，并将系统指令保留在服务器端。
 
 ### Python
 
@@ -163,13 +162,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-Sie können auch eine Teilmenge von Feldern sperren. Weitere Informationen finden Sie in der [SDK-Dokumentation](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
+您还可以锁定部分字段，如需了解详情，请参阅 [SDK 文档](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)。
 
-## Mit einem temporären Token eine Verbindung zur Live API herstellen
+## 使用临时令牌连接到 Live API
 
-Sobald Sie ein temporäres Token haben, verwenden Sie es wie einen API-Schlüssel. Es funktioniert jedoch nur für die Live-API und nur mit der `v1beta`-Version der API.
+获得临时令牌后，您可以使用它，就像使用 API 密钥一样（但请注意，它仅适用于实时 API，并且仅适用于 `v1beta` 版本的 API）。
 
-Die Verwendung von temporären Tokens ist nur dann sinnvoll, wenn Anwendungen bereitgestellt werden, die dem [Client-zu-Server-Implementierungsansatz](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach) folgen.
+仅当部署遵循[客户端到服务器实现](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn#implementation-approach)方法的应用时，使用临时令牌才有意义。
 
 ### JavaScript
 
@@ -199,29 +198,29 @@ async function main() {
 main();
 ```
 
-Weitere Beispiele finden Sie unter [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de).
+如需查看更多示例，请参阅 [Live API 使用入门](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn)。
 
-## Best Practices
+## 最佳做法
 
-- Legen Sie mit dem Parameter `expire_time` eine kurze Ablaufdauer fest.
-- Tokens laufen ab und der Bereitstellungsprozess muss neu gestartet werden.
-- Sichere Authentifizierung für Ihr eigenes Backend überprüfen Die Sicherheit von Einmaltokens hängt von der Authentifizierungsmethode Ihres Back-Ends ab.
-- Im Allgemeinen sollten Sie keine temporären Tokens für Backend-zu-Gemini-Verbindungen verwenden, da dieser Pfad in der Regel als sicher gilt.
+- 使用 `expire_time` 参数设置较短的过期时长。
+- 令牌会过期，需要重新启动配置流程。
+- 验证您自己的后端的安全身份验证。临时令牌的安全性仅取决于后端身份验证方法的安全性。
+- 一般来说，请避免将临时令牌用于后端到 Gemini 的连接，因为此路径通常被认为是安全的。
 
-## Beschränkungen
+## 限制
 
-Kurzlebige Tokens sind derzeit nur mit der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) kompatibel.
+临时令牌目前仅与 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 兼容。
 
-## Nächste Schritte
+## 后续步骤
 
-- Weitere Informationen finden Sie in der [Referenz zur Live API](https://ai.google.dev/api/live?hl=de#ephemeral-auth-tokens) zu temporären Tokens.
+- 如需了解详情，请参阅 Live API [参考文档](https://ai.google.dev/api/live?hl=zh-cn#ephemeral-auth-tokens)中的临时令牌。
 
-Feedback geben
+发送反馈
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Zuletzt aktualisiert: 2026-07-23 (UTC).
+最后更新时间 (UTC)：2026-07-30。
 
-Haben Sie Feedback für uns?
+需要向我们提供更多信息？
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-23 (UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]

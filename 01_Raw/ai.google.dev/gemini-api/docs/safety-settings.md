@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/safety-settings?hl=he
-fetched_at: 2026-07-27T04:37:04.426248+00:00
+fetched_at: 2026-08-03T04:36:45.436260+00:00
 title: "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -8,7 +8,7 @@ title: "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05d1\u05d8\u05d9\u05d7\u05d5\u05e
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
 - [דף הבית](https://ai.google.dev/?hl=he)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=he)

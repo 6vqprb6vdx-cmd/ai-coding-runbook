@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=he
-fetched_at: 2026-07-27T04:35:20.663107+00:00
+fetched_at: 2026-08-03T04:32:34.873983+00:00
 title: "\u05de\u05d4 \u05d7\u05d3\u05e9 \u05d1-Gemini 3.5 Flash \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -8,7 +8,7 @@ title: "\u05de\u05d4 \u05d7\u05d3\u05e9 \u05d1-Gemini 3.5 Flash \u00a0|\u00a0 Ge
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
 - [דף הבית](https://ai.google.dev/?hl=he)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=he)
@@ -90,11 +90,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 
 - ‫**ביצועים מתקדמים לאורך זמן:** מודל Flash הכי חכם שלנו, שעבר אופטימיזציה למשימות של סוכנים ולכתיבת קוד בהיקף נרחב.
 - **ביצוע באמצעות סוכנים:** פריסת סוכני משנה, פתרון בעיות ולולאות מהירות של סוכנים בהיקף נרחב.
-- **תכנות:** מחזורי תכנות איטרטיביים, בדיקה מהירה ויצירת אב טיפוס כדי לבדוק נתיבים חלופיים ולחקור פתרונות באופן דינמי.
+- **קידוד:** מחזורי קידוד איטרטיביים, חקר מהיר ויצירת אב טיפוס כדי לבדוק נתיבים חלופיים ולחקור פתרונות באופן דינמי.
 - **טווח ארוך:** תהליכי עבודה מרובי-שלבים ושימוש בכלי בהיקף גדול.
 - **שימור תהליכי חשיבה:** המודל שומר על שלבי הביניים של החשיבה הרציונלית באופן אוטומטי לאורך שיחות רב-שלביות. אין צורך לבצע שינויים ב-API.
 - **רמת המאמץ החדשה שמוגדרת כברירת מחדל:** המאמץ שנדרש לחשיבה השתנה מ-`high` ל-`medium`. פרטים נוספים זמינים במאמר בנושא [רמת המאמץ החדשה שמוגדרת כברירת מחדל](#default-effort-level).
-- **שיפור משמעותי של יכולות החשיבה של `low`:** `low` משופר משמעותית בכל הנוגע לקוד ולמשימות שדורשות פחות שלבים, ומציע איכות גבוהה יותר עם זמן אחזור ועלות נמוכים יותר.
+- **שיפור משמעותי ב`low`:** `low` משופר משמעותית בכל הנוגע לקוד ולמשימות שדורשות פחות שלבים, ומציע איכות גבוהה עם חביון ועלות נמוכים יותר.
 - **גרסת GA:** מודל יציב לשימוש בהפקה בהיקף נרחב.
 
 ### בחירת המודל הנכון של Flash
@@ -187,7 +187,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 
 | רמת ההעמקה | Gemini 3.5 Flash | ‫Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | תיאור |
 | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | נתמך | לא נתמך | נתמך (ברירת מחדל) | נתמך | מתאים להגדרה 'ללא חשיבה' ברוב השאילתות. הערה: `minimal` לא מבטיח שהחשיבה מושבתת, יכול להיות שהמודל יבצע נימוקים מינימליים מאוד למשימות מורכבות. |
+| **`minimal`** | נתמך | לא נתמך | נתמך (ברירת מחדל) | נתמך | מתאים להגדרה 'ללא חשיבה' ברוב השאילתות. הערה: `minimal` לא מבטיח שהחשיבה תושבת. יכול להיות שהמודל יבצע נימוק מינימלי מאוד למשימות מורכבות. |
 | **`low`** | נתמך | נתמך | נתמך | נתמך | מצמצם את זמן האחזור ואת העלות. |
 | **`medium`** | נתמך (ברירת מחדל) | נתמך | נתמך | נתמך | חשיבה מאוזנת לרוב המשימות. |
 | **`high`** | נתמך (דינמי) | נתמך (ברירת מחדל, דינמי) | נתמך (דינמי) | נתמך (ברירת מחדל, דינמי) | העומק המקסימלי של החשיבה הרציונלית. |
@@ -249,7 +249,7 @@ config = types.GenerateContentConfig(
 
 ### בקשה להפעלת פונקציה: התאמה מדויקת של תשובות
 
-ממשק ה-API של האינטראקציות כבר מחזיר שגיאה אם יש אי התאמה בתגובות לפונקציות. ה-API של GenerateContent עדיין לא מחזיר שגיאה, אבל תגובות לא תואמות גורמות למודל להחזיר תגובות ריקות עם `finish_reason: STOP` ברוב המקרים. חשוב להקפיד על המוסכמות הבאות:
+ממשק ה-API של האינטראקציות כבר מחזיר שגיאה אם יש אי התאמה בתגובות של הפונקציות. ה-API של GenerateContent עדיין לא מחזיר שגיאה, אבל תגובות לא תואמות גורמות למודל להחזיר תגובות ריקות עם `finish_reason: STOP` ברוב המקרים. חשוב להקפיד על המוסכמות הבאות:
 
 | דרישה | פרטים |
 | --- | --- |
@@ -317,7 +317,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### תשובות של פונקציות רב-אופניות
+### תשובות של פונקציות מרובות מצבים
 
 לעתים קרובות אנחנו רואים לקוחות שמספקים תמונות מחוץ לתגובה של הפונקציה. הדבר עלול להוביל להתנהגות לא צפויה של המודל (למשל, חשיפת מחשבות) ולתוצאות באיכות נמוכה יותר. במקום זאת, פועלים לפי ההמלצה ב[מסמכי ה-API של תגובות פונקציות מרובות מצבים](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=he#multimodal) וכוללים תוכן מרובה מצבים בחלקים של תגובת הפונקציה ששולחים למודל. המודל יכול לעבד את התוכן הרב-מודאלי הזה בתור הבא כדי לספק תשובה מושכלת יותר.
 
@@ -448,13 +448,13 @@ const finalResponse = await ai.models.generateContent({
 - מחליפים את `thinking_budget` ב-`thinking_level`.
 - מוסיפים את `id` ואת `name` התואם לכל החלקים של `FunctionResponse`.
 - בודקים את ההנחיות. מאמץ ברירת המחדל השתנה מ-`high` → `medium`. צריך לבדוק את האיכות, המהירות והעלות.
-- התכונה 'שימור תהליכי חשיבה' מופעלת עכשיו כברירת מחדל. ההקשר של הנימוקים נשמר בין תורות, מה שמשפר את הביצועים אבל עשוי להגדיל את השימוש בטוקנים.
+- שימור תהליכי חשיבה מופעל עכשיו כברירת מחדל. ההקשר של הנימוקים נשמר בין תורות, מה שמשפר את הביצועים אבל עשוי להגדיל את השימוש בטוקנים.
 - צמצום השימוש בכלי שלא לצורך: מתחילים בצמצום רמת החשיבה (`medium`, `low` או `minimal`); מוסיפים הוראה למערכת כדי להגביל את השימוש בכלי אם השימוש המוגזם נמשך.
 - [שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he) נתמך.
 
 ### מעבר מ-Gemini 2.5
 
-כל מה שצוין למעלה, וגם:
+כל האפשרויות שצוינו למעלה, וגם:
 
 - מפשטים את ההנחיות. אם השתמשתם בטכניקת הנחיה של שרשרת מחשבות כדי לאלץ את המודל להסיק מסקנות, נסו להשתמש ב-`thinking_level: "medium"` או ב-`"high"` עם הנחיות פשוטות יותר.
 - בדיקת עומסי עבודה של קובצי PDF ומדיה. אם הסתמכתם על התנהגות ספציפית של ניתוח מסמכים צפופים, כדאי לבדוק את ההגדרה `media_resolution_high` כדי לוודא שהדיוק נשמר. מעבר להגדרות ברירת המחדל של Gemini 3 עשוי גם להגדיל את השימוש בטוקנים בקובצי PDF, אבל להקטין אותו בסרטונים. אם הבקשות חורגות מחלון ההקשר, צריך להקטין את `media_resolution` באופן מפורש. פרטים נוספים זמינים במאמר בנושא [רזולוציית מדיה](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he).
@@ -462,7 +462,7 @@ const finalResponse = await ai.models.generateContent({
   אפשר להשתמש בחיפוש Google, בהקשר של כתובת URL, בהרצת קוד ובפונקציות מותאמות אישית באותה בקשה.
 - אם משתמשים בתשובות של פונקציות מולטי-מודאליות, צריך להעביר את התוכן המולטי-מודאלי בתוך חלקי התשובה של הפונקציה, ולא לצדם.
 - אם משתמשים בהוראות מוטמעות עם תשובות לפונקציות, מוסיפים אותן לטקסט של התשובה לפונקציה, מופרדות בשתי שורות חדשות, ולא כחלקים נפרדים.
-- מודל Gemini 3.x לא תומך בפילוח תמונות. למשימות פילוח, אפשר להמשיך להשתמש ב-Gemini 2.5 Flash עם השבתת המצב 'חשיבה', או ב-[Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he).
+- מודל Gemini 3.x לא תומך בפילוח תמונות. למשימות פילוח, אפשר להמשיך להשתמש ב-Gemini 2.5 Flash עם השבתת המודל המעמיק.
 - הסרה של `candidate_count` מההגדרה (לא נתמך ב-Gemini 3.x)
 
 ## תכונות של Gemini 3 למשפחה
@@ -472,7 +472,7 @@ const finalResponse = await ai.models.generateContent({
 
 - [**חשיבה**](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**:** הקשר של הנימוקים מוצפן ונשמר בין קריאות ל-API. אוטומטי ב-Interactions API; משתמע ב-GenerateContent.
 - ‫[**Structured outputs with tools**](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)**:** שילוב של מצב JSON עם כלים מובנים (חיפוש, הקשר של כתובת URL, הרצת קוד, קריאה לפונקציה).
-- [**תגובות מולטי-מודאליות לפונקציות**](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#multimodal)**:** החזרת תמונות, אודיו ומדיה אחרת בתוצאות של קריאות לפונקציות.
+- [**תגובות של פונקציות מולטי-מודאליות**](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#multimodal)**:** החזרת תמונות, אודיו ומדיה אחרת בתוצאות של קריאות לפונקציות.
 - [**הרצת קוד עם תמונות**](https://ai.google.dev/gemini-api/docs/code-execution?hl=he#images)**:** הרצת קוד לעיבוד תמונות וליצירת תמונות.
 - [**שימוש משולב בכלים**](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he)**:** שימוש בכלים מובנים ובקריאות לפונקציות מותאמות אישית באותה בקשה.
 - [**רזולוציית מדיה**](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he)**:**
@@ -493,7 +493,7 @@ const finalResponse = await ai.models.generateContent({
 
 ## מגבלות
 
-- מודל Gemini 3.x לא תומך בפילוח תמונות. למשימות פילוח, אפשר להמשיך להשתמש ב-Gemini 2.5 Flash עם השבתת המצב 'חשיבה', או ב-[Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he).
+- מודל Gemini 3.x לא תומך בפילוח תמונות. למשימות פילוח, אפשר להמשיך להשתמש ב-Gemini 2.5 Flash עם השבתת המצב 'חשיבה', או ב-[Gemini Robotics ER 2](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he).
 
 ## שאלות נפוצות
 
@@ -515,8 +515,8 @@ const finalResponse = await ai.models.generateContent({
 
 אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-עדכון אחרון: 2026-07-23 (שעון UTC).
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
 רוצה לתת לנו משוב?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-23 (שעון UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

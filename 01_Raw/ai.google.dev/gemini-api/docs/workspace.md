@@ -1,55 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=it
-fetched_at: 2026-07-27T04:45:14.576836+00:00
-title: "Accedi a Google AI Studio con il tuo account Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=ja
+fetched_at: 2026-08-03T04:27:17.009745+00:00
+title: "Workspace \u30a2\u30ab\u30a6\u30f3\u30c8\u3067 Google AI Studio \u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-# Accedi a Google AI Studio con il tuo account Workspace
+# Workspace アカウントで Google AI Studio にアクセスする
 
-Per impostazione predefinita, tutti gli utenti di [Google Workspace](https://workspace.google.com?hl=it) hanno accesso ad AI
-Studio. Se sei un utente di Workspace e vuoi iniziare a utilizzare
-AI Studio, consulta la
-[guida rapida di AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=it).
+すべての [Google Workspace](https://workspace.google.com?hl=ja) ユーザーは、デフォルトで AI
+Studio にアクセスできます。Workspace ユーザーで、
+AI Studio の使用を開始する場合は、
+[AI Studio クイックスタート](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja)をご覧ください。
 
-## Risoluzione dei problemi
+## トラブルシューティング
 
-Se l'accesso ad AI Studio è disattivato per il tuo account Google Workspace, potresti visualizzare un errore simile al seguente:
+Google Workspace アカウントで AI Studio へのアクセスが無効になっている場合は、次のようなエラーが表示されることがあります。
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-Se ritieni di dover avere accesso ad AI Studio, contatta l'amministratore di Workspace.
+AI Studio へのアクセス権が必要と思われる場合は、Workspace 管理者にお問い合わせください。
 
-## Abilitare AI Studio per gli utenti di Workspace
+## Workspace ユーザーに対して AI Studio を有効にする
 
-In qualità di amministratore di Google Workspace, puoi controllare chi utilizza AI Studio:
+Google Workspace 管理者は、AI Studio を使用できるユーザーを制御できます。
 
-- Per impostazione predefinita, AI Studio è attivo per tutte le versioni.
-- Puoi attivare o disattivare AI Studio per gruppi di utenti all'interno o tra le unità organizzative.
-- Versioni di Google Workspace for Education: gli utenti minori di 18 anni non possono utilizzare AI Studio con i propri account Google Workspace for Education. Ciò vale anche quando l'impostazione AI Studio è attiva. Per maggiori dettagli, vai a [Controlla l'accesso ai servizi Google in base all'
-  età](https://support.google.com/a/answer/10651918?hl=it).
+- AI Studio は、すべてのエディションでデフォルトで有効になっています。
+- 組織部門内または組織部門全体で、ユーザー グループに対して AI Studio を有効または無効にできます。
+- Google Workspace for Education エディション: 18 歳未満のユーザーは、Google Workspace for Education アカウントで AI Studio を使用できません。これは、AI Studio の設定がオンの場合にも当てはまります。詳しくは、[Google サービスへのアクセスを
+  年齢別に管理する方法](https://support.google.com/a/answer/10651918?hl=ja)をご覧ください。
 
-Per attivare o disattivare AI Studio per gli utenti della tua organizzazione, consulta
-[Attivare o disattivare Google AI Studio per gli utenti](https://support.google.com/a/answer/15004095?hl=it).
+組織内のユーザーに対して AI Studio を有効または無効にするには、
+[ユーザーに対して Google AI Studio を有効または無効にする](https://support.google.com/a/answer/15004095?hl=ja)をご覧ください。
 
-Invia feedback
+フィードバックを送信
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ultimo aggiornamento 2026-04-29 UTC.
+最終更新日 2026-04-29 UTC。
 
-Vuoi dirci altro?
+ご意見をお聞かせください
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

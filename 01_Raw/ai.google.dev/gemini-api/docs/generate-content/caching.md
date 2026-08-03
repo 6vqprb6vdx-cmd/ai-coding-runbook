@@ -1,66 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=th
-fetched_at: 2026-07-27T04:46:31.331811+00:00
-title: "\u0e01\u0e32\u0e23\u0e41\u0e04\u0e0a\u0e1a\u0e23\u0e34\u0e1a\u0e17 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=zh-TW
+fetched_at: 2026-08-03T04:26:43.184519+00:00
+title: "\u8108\u7d61\u5feb\u53d6 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-ส่งความคิดเห็น
+提供意見
 
-# การแคชบริบท
+# 脈絡快取
 
-ในเวิร์กโฟลว์ AI ทั่วไป คุณอาจส่งโทเค็นอินพุตเดียวกันซ้ำๆ ไปยังโมเดล Gemini API มีกลไกการแคช 2 แบบที่แตกต่างกัน ดังนี้
+在典型的 AI 工作流程中，您可能會重複將相同的輸入權杖傳遞至模型。Gemini API 提供兩種不同的快取機制：
 
-- การแคชแบบไม่เจาะจง (เปิดใช้โดยอัตโนมัติในโมเดล Gemini 2.5 และใหม่กว่า ไม่รับประกันการประหยัดค่าใช้จ่าย)
-- การแคชแบบเจาะจง (เปิดใช้ด้วยตนเองในโมเดลส่วนใหญ่ได้ รับประกันการประหยัดค่าใช้จ่าย)
+- 隱式快取 (Gemini 2.5 和更新的模型會自動啟用，不保證能節省費用)
+- 明確快取 (大多數模型可手動啟用，保證節省費用)
 
-การแคชแบบเจาะจงมีประโยชน์ในกรณีที่คุณต้องการรับประกันการประหยัดค่าใช้จ่าย แต่ต้องเพิ่มงานของนักพัฒนาแอป
+如果您想確保節省費用，但願意增加開發人員工作量，則可使用明確快取。
 
-## การแคชแบบไม่เจาะจง
+## 隱含快取
 
-การแคชแบบไม่เจาะจงจะเปิดใช้โดยค่าเริ่มต้นสำหรับโมเดล Gemini 2.5 และใหม่กว่าทั้งหมด เราจะส่งต่อการประหยัดค่าใช้จ่ายโดยอัตโนมัติหากคำขอของคุณตรงกับแคช คุณไม่จำเป็นต้องดำเนินการใดๆ เพื่อเปิดใช้ฟีเจอร์นี้ จำนวนโทเค็นอินพุตขั้นต่ำสำหรับการแคชบริบทแสดงอยู่ในตารางต่อไปนี้สำหรับแต่ละโมเดล
+所有 Gemini 2.5 以上版本模型都會預設啟用隱式快取功能。如果要求命中快取，系統會自動將節省的費用退還給您。這項功能會自動啟用，您無需採取任何行動。下表列出各模型進行內容快取時的最低輸入詞元數：
 
-| รุ่น | ขีดจำกัดโทเค็นขั้นต่ำ |
+| 模型 | 詞元數量下限 |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| Gemini 3.1 Pro Preview | 4096 |
+| Gemini 3.1 Pro 預先發布版 | 4096 |
 | Gemini 2.5 Flash | 2048 |
 | Gemini 2.5 Pro | 2048 |
 
-วิธีเพิ่มโอกาสที่จะพบแคชแบบไม่เจาะจง:
+如要提高隱含快取命中的機率，請採取下列行動：
 
-- ลองวางเนื้อหาขนาดใหญ่และเนื้อหาทั่วไปไว้ที่จุดเริ่มต้นของพรอมต์
-- ลองส่งคำขอที่มีคำนำหน้าที่คล้ายกันภายในระยะเวลาสั้นๆ
+- 請嘗試在提示開頭放入大型和常見內容
+- 嘗試在短時間內傳送具有相似前置字串的要求
 
-คุณสามารถดูจำนวนโทเค็นที่ตรงกับแคชได้ในฟิลด์ `usage_metadata` ของออบเจ็กต์การตอบกลับ
+您可以在回應物件的 `usage_metadata` 欄位中，查看快取命中次數。
 
-## การแคชแบบเจาะจง
+## 明確快取
 
-การใช้ฟีเจอร์การแคชแบบเจาะจงของ Gemini API ช่วยให้คุณส่งเนื้อหาบางส่วนไปยังโมเดลได้ครั้งเดียว แคชโทเค็นอินพุต แล้วอ้างอิงโทเค็นที่แคชไว้สำหรับคำขอที่ตามมา เมื่อมีปริมาณการใช้งานถึงระดับหนึ่ง การใช้โทเค็นที่แคชไว้จะมีค่าใช้จ่ายต่ำกว่าการส่งชุดโทเค็นเดียวกันซ้ำๆ
+您可以使用 Gemini API 的明確快取功能，將部分內容傳送至模型一次、快取輸入權杖，然後在後續要求中參照快取的權杖。在特定量級下，使用快取權杖的成本比重複傳遞相同權杖主體更低。
 
-เมื่อแคชชุดโทเค็น คุณสามารถเลือกระยะเวลาที่ต้องการให้แคชอยู่ก่อนที่ระบบจะลบโทเค็นโดยอัตโนมัติ ระยะเวลาการแคชนี้เรียกว่า *Time to Live* (TTL) หากไม่ได้ตั้งค่า TTL จะมีค่าเริ่มต้นเป็น 1 ชั่วโมง ค่าใช้จ่ายในการแคชขึ้นอยู่กับขนาดโทเค็นอินพุตและระยะเวลาที่คุณต้องการให้โทเค็นคงอยู่
+快取一組權杖時，您可以選擇快取存在多久，權杖才會自動刪除。這段快取時間稱為「存留時間」(TTL)。如未設定，TTL 預設為 1 小時。快取費用取決於輸入權杖大小，以及權杖的保留時間。
 
-ส่วนนี้จะถือว่าคุณได้ติดตั้ง Gemini SDK (หรือติดตั้ง curl)
-และกำหนดค่าคีย์ API แล้วตามที่แสดงใน
-[คู่มือเริ่มต้นใช้งาน](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+本節假設您已安裝 Gemini SDK (或已安裝 curl)，並已設定 API 金鑰，如「[開始使用指南](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)」所示。
 
-### สร้างเนื้อหาโดยใช้แคช
+### 使用快取生成內容
 
 ### Python
 
-ตัวอย่างต่อไปนี้แสดงวิธีสร้างเนื้อหาโดยใช้คำแนะนำระบบและไฟล์วิดีโอที่แคชไว้
+以下範例說明如何使用快取的系統指令和影片檔案生成內容。
 
-### วิดีโอ
+### 影片
 
 ```
 import os
@@ -89,7 +87,7 @@ while video_file.state.name == 'PROCESSING':
 
 print(f'Video processing complete: {video_file.uri}')
 
-model='models/gemini-3.5-flash'
+model='models/gemini-3.6-flash'
 
 # Create a cache with a 5 minute TTL (300 seconds)
 cache = client.caches.create(
@@ -139,7 +137,7 @@ document = client.files.upload(
   config=dict(mime_type='application/pdf')
 )
 
-model_name = "gemini-3.5-flash"
+model_name = "gemini-3.6-flash"
 system_instruction = "You are an expert analyzing transcripts."
 
 # Create a cached content object
@@ -167,7 +165,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-ตัวอย่างต่อไปนี้แสดงวิธีสร้างเนื้อหาโดยใช้คำแนะนำระบบและไฟล์ข้อความที่แคชไว้
+以下範例說明如何使用快取的系統指令和文字檔生成內容。
 
 ```
 import {
@@ -185,7 +183,7 @@ async function main() {
   });
   console.log("Uploaded file name:", doc.name);
 
-  const modelName = "gemini-3.5-flash";
+  const modelName = "gemini-3.6-flash";
   const cache = await ai.caches.create({
     model: modelName,
     config: {
@@ -208,7 +206,7 @@ await main();
 
 ### Go
 
-ตัวอย่างต่อไปนี้แสดงวิธีสร้างเนื้อหาโดยใช้แคช
+以下範例說明如何使用快取產生內容。
 
 ```
 package main
@@ -231,7 +229,7 @@ func main() {
         log.Fatal(err)
     }
 
-    modelName := "gemini-3.5-flash"
+    modelName := "gemini-3.6-flash"
     document, err := client.Files.UploadFromPath(
         ctx,
         "media/a11.txt",
@@ -278,14 +276,14 @@ func main() {
 
 ### REST
 
-ตัวอย่างต่อไปนี้แสดงวิธีสร้างแคชแล้วใช้แคชเพื่อสร้างเนื้อหา
+以下範例說明如何建立快取，然後用來產生內容。
 
-### วิดีโอ
+### 影片
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
 echo '{
-  "model": "models/gemini-3.5-flash",
+  "model": "models/gemini-3.6-flash",
   "contents":[
     {
       "parts":[
@@ -316,7 +314,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/cachedContents?ke
 
 CACHE_NAME=$(cat cache.json | grep '"name":' | cut -d '"' -f 4 | head -n 1)
 
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=$GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{
       "contents": [
@@ -338,7 +336,7 @@ DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
 DISPLAY_NAME="A11_Mission_Report"
 SYSTEM_INSTRUCTION="You are an expert at analyzing transcripts."
 PROMPT="Please summarize this transcript"
-MODEL="models/gemini-3.5-flash"
+MODEL="models/gemini-3.6-flash"
 TTL="300s"
 
 # Download the PDF
@@ -429,22 +427,20 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### แสดงรายการแคช
+### 列出快取
 
-คุณไม่สามารถดึงหรือดูเนื้อหาที่แคชไว้ได้ แต่สามารถดึง
-ข้อมูลเมตาของแคช (`name`, `model`, `display_name`, `usage_metadata`,
-`create_time`, `update_time` และ `expire_time`)
+您無法擷取或查看快取內容，但可以擷取快取中繼資料 (`name`、`model`、`display_name`、`usage_metadata`、`create_time`、`update_time` 和 `expire_time`)。
 
 ### Python
 
-หากต้องการแสดงข้อมูลเมตาสำหรับแคชที่อัปโหลดทั้งหมด ให้ใช้ `CachedContent.list()`
+如要列出所有已上傳快取的中繼資料，請使用 `CachedContent.list()`：
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-หากต้องการดึงข้อมูลเมตาสำหรับออบเจ็กต์แคชรายการเดียว ให้ใช้ `get` หากทราบชื่อ
+如要擷取一個快取物件的中繼資料 (如果知道物件名稱)，請使用 `get`：
 
 ```
 client.caches.get(name=name)
@@ -452,7 +448,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-หากต้องการแสดงข้อมูลเมตาสำหรับแคชที่อัปโหลดทั้งหมด ให้ใช้ `GoogleGenAI.caches.list()`
+如要列出所有已上傳快取的中繼資料，請使用 `GoogleGenAI.caches.list()`：
 
 ```
 console.log("My caches:");
@@ -469,7 +465,7 @@ while (true) {
 
 ### Go
 
-ตัวอย่างต่อไปนี้แสดงรายการแคชทั้งหมด
+以下範例會列出所有快取。
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -482,7 +478,7 @@ for _, item := range caches {
 }
 ```
 
-ตัวอย่างต่อไปนี้แสดงรายการแคชโดยใช้ขนาดหน้า 2
+以下範例會列出快取，頁面大小為 2。
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -515,13 +511,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### อัปเดตแคช
+### 更新快取
 
-คุณสามารถตั้งค่า `ttl` หรือ `expire_time` ใหม่สำหรับแคช ระบบไม่รองรับการเปลี่ยนแปลงอื่นๆ เกี่ยวกับแคช
+您可以為快取設定新的 `ttl` 或 `expire_time`。不支援變更快取的其他任何項目。
 
 ### Python
 
-ตัวอย่างต่อไปนี้แสดงวิธีอัปเดต `ttl` ของแคชโดยใช้ `client.caches.update()`
+以下範例說明如何使用 `client.caches.update()` 更新快取的 `ttl`。
 
 ```
 from google import genai
@@ -535,10 +531,7 @@ client.caches.update(
 )
 ```
 
-หากต้องการตั้งเวลาหมดอายุ ระบบจะยอมรับออบเจ็กต์ `datetime` หรือสตริง datetime ที่จัดรูปแบบ ISO (`dt.isoformat()`, เช่น
-`2025-01-27T16:02:36.473528+00:00`) เวลาของคุณต้องมีเขตเวลา
-(`datetime.utcnow()` จะไม่แนบเขตเวลา แต่
-`datetime.now(datetime.timezone.utc)` จะแนบเขตเวลา)
+如要設定到期時間，請接受 `datetime` 物件或 ISO 格式的日期時間字串 (`dt.isoformat()`，例如 `2025-01-27T16:02:36.473528+00:00`)。時間必須包含時區 (`datetime.utcnow()` 不會附加時區，`datetime.now(datetime.timezone.utc)` 則會附加時區)。
 
 ```
 from google import genai
@@ -558,7 +551,7 @@ client.caches.update(
 
 ### JavaScript
 
-ตัวอย่างต่อไปนี้แสดงวิธีอัปเดต `ttl` ของแคชโดยใช้ `GoogleGenAI.caches.update()`
+以下範例說明如何使用 `GoogleGenAI.caches.update()` 更新快取的 `ttl`。
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -571,7 +564,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-ตัวอย่างต่อไปนี้แสดงวิธีอัปเดต `TTL` ของแคช
+以下範例說明如何更新快取的 `TTL`。
 
 ```
 // Update the TTL (2 hours).
@@ -587,7 +580,7 @@ fmt.Println(cache)
 
 ### REST
 
-ตัวอย่างต่อไปนี้แสดงวิธีอัปเดต `ttl` ของแคช
+以下範例說明如何更新快取的 `ttl`。
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -595,9 +588,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### ลบแคช
+### 刪除快取
 
-บริการแคชมีการดำเนินการลบเพื่อนำเนื้อหาออกจากแคชด้วยตนเอง ตัวอย่างต่อไปนี้แสดงวิธีลบแคช
+快取服務提供刪除作業，可手動從快取中移除內容。以下範例說明如何刪除快取：
 
 ### Python
 
@@ -627,49 +620,44 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### การแคชแบบเจาะจงโดยใช้ไลบรารี OpenAI
+### 使用 OpenAI 程式庫進行明確快取
 
-หากคุณใช้[ไลบรารี OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=th) คุณสามารถเปิดใช้
-การแคชแบบเจาะจงได้โดยใช้พร็อพเพอร์ตี้ `cached_content` ใน
-[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=th#extra-body)
+如果您使用 [OpenAI 程式庫](https://ai.google.dev/gemini-api/docs/openai?hl=zh-tw)，可以透過 [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=zh-tw#extra-body) 的 `cached_content` 屬性啟用明確快取。
 
-## กรณีที่ควรใช้การแคชแบบเจาะจง
+## 使用明確快取的時機
 
-การแคชบริบทเหมาะอย่างยิ่งสำหรับสถานการณ์ที่คำขอสั้นๆ อ้างอิงบริบทเริ่มต้นขนาดใหญ่ซ้ำๆ ลองใช้การแคชบริบทสำหรับกรณีการใช้งานต่อไปนี้
+如果較短的要求會重複參照大量初始脈絡，就特別適合使用脈絡快取。請考慮在下列用途使用內容快取：
 
-- แชทบ็อตที่มี[คำแนะนำระบบ](https://ai.google.dev/gemini-api/docs/system-instructions?hl=th)ที่ครอบคลุม
-- การวิเคราะห์ไฟล์วิดีโอขนาดยาวซ้ำๆ
-- การค้นหาชุดเอกสารขนาดใหญ่เป็นประจำ
-- การวิเคราะห์ที่เก็บโค้ดหรือการแก้ไขข้อบกพร่องบ่อยๆ
+- 具有大量[系統指令](https://ai.google.dev/gemini-api/docs/system-instructions?hl=zh-tw)的聊天機器人
+- 重複分析冗長的影片檔案
+- 針對大量文件集重複查詢
+- 經常分析程式碼存放區或修正錯誤
 
-### วิธีที่การแคชแบบเจาะจงช่วยลดค่าใช้จ่าย
+### 明確快取如何降低成本
 
-การแคชบริบทเป็นฟีเจอร์แบบชำระเงินที่ออกแบบมาเพื่อลดค่าใช้จ่าย การเรียกเก็บเงินจะพิจารณาจากปัจจัยต่อไปนี้
+情境快取是付費功能，可降低成本。計費依據下列因素：
 
-1. **จำนวนโทเค็นแคช:** จำนวนโทเค็นอินพุตที่แคชไว้ ซึ่งจะเรียกเก็บเงินในอัตราที่ลดลงเมื่อรวมอยู่ในพรอมต์ที่ตามมา
-2. **ระยะเวลาการจัดเก็บ:** ระยะเวลาที่จัดเก็บโทเค็นที่แคชไว้ (TTL) ซึ่งจะเรียกเก็บเงินตามระยะเวลา TTL ของจำนวนโทเค็นที่แคชไว้ ไม่มีขีดจำกัดขั้นต่ำหรือสูงสุดสำหรับ TTL
-3. **ปัจจัยอื่นๆ:** ระบบจะเรียกเก็บเงินค่าใช้จ่ายอื่นๆ เช่น โทเค็นอินพุตและโทเค็นเอาต์พุตที่ไม่ได้แคชไว้
+1. **快取詞元數：**快取的輸入詞元數，納入後續提示時會以較低的費率計費。
+2. **儲存時間：**快取詞元的儲存時間 (TTL)，費用會根據快取詞元數量的 TTL 時間長度計費。存留時間沒有上下限。
+3. **其他因素：**系統會收取其他費用，例如非快取輸入權杖和輸出權杖的費用。
 
-โปรดดูรายละเอียดราคาล่าสุดในหน้าการกำหนดราคา Gemini API [pricing
-page](https://ai.google.dev/pricing?hl=th) หากต้องการดูวิธีนับโทเค็น โปรดดู[คู่มือ
-โทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th)
+如需最新定價詳細資料，請參閱 Gemini API [定價頁面](https://ai.google.dev/pricing?hl=zh-tw)。如要瞭解如何計算權杖，請參閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)。
 
-### ข้อควรพิจารณาเพิ่มเติม
+### 其他注意事項
 
-โปรดคำนึงถึงข้อควรพิจารณาต่อไปนี้เมื่อใช้การแคชบริบท
+使用內容快取時，請注意下列事項：
 
-- จำนวนโทเค็นอินพุต *ขั้นต่ำ* สำหรับการแคชบริบทจะแตกต่างกันไปตามโมเดล *สูงสุด* จะเท่ากับค่าสูงสุดสำหรับโมเดลที่กำหนด (ดูข้อมูลเพิ่มเติมเกี่ยวกับการนับโทเค็นได้ที่
-  ดู[คู่มือโทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th))
-- โมเดลจะไม่แยกความแตกต่างระหว่างโทเค็นที่แคชไว้กับโทเค็นอินพุตปกติ เนื้อหาที่แคชไว้จะเป็นคำนำหน้าของพรอมต์
-- ไม่มีอัตราพิเศษหรือขีดจำกัดการใช้งานสำหรับการแคชบริบท โดยจะใช้ขีดจำกัดอัตรามาตรฐานสำหรับ `GenerateContent` และขีดจำกัดโทเค็นจะรวมโทเค็นที่แคชไว้ด้วย
-- ระบบจะแสดงจำนวนโทเค็นที่แคชไว้ใน `usage_metadata` จากการดำเนินการสร้าง รับ และแสดงรายการของบริการแคช รวมถึงใน `GenerateContent` เมื่อใช้แคช
+- 不同模型有不同的內容快取*最低*詞元數。*最大值*與指定模型的最大值相同。(如要進一步瞭解如何計算權杖，請參閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw))。
+- 模型不會區分快取權杖和一般輸入權杖。快取內容是提示的前置字元。
+- 內容快取沒有特殊費率或用量限制，適用 `GenerateContent` 的標準費率限制，且權杖限制包含快取的權杖。
+- 快取服務的建立、取得和列出作業，以及使用快取時的 `GenerateContent`，都會傳回快取權杖數量。`usage_metadata`
 
-ส่งความคิดเห็น
+提供意見
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-อัปเดตล่าสุด 2026-06-24 UTC
+上次更新時間：2026-07-30 (世界標準時間)。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+想進一步說明嗎？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-24 UTC"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

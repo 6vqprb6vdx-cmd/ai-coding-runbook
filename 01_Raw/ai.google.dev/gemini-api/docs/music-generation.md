@@ -1,38 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=th
-fetched_at: 2026-07-27T04:41:04.364792+00:00
-title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e1e\u0e25\u0e07\u0e14\u0e49\u0e27\u0e22 Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=tr
+fetched_at: 2026-08-03T04:35:13.293886+00:00
+title: "Lyria 3 ile m\u00fczik \u00fcretme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# สร้างเพลงด้วย Lyria 3
+# Lyria 3 ile müzik üretme
 
-Lyria 3 เป็นกลุ่มโมเดลการสร้างเพลงของ Google ซึ่งพร้อมใช้งานผ่าน Gemini API Lyria 3 ช่วยให้คุณสร้างเสียงสเตอริโอคุณภาพสูง 44.1 kHz จากพรอมต์ข้อความหรือรูปภาพได้ โมเดลเหล่านี้ให้ความสอดคล้องของโครงสร้าง ซึ่งรวมถึงเสียงร้อง เนื้อเพลงที่กำหนดเวลา และดนตรีบรรเลงแบบเต็ม
+Lyria 3, Gemini API üzerinden kullanılabilen Google'ın müzik üretme modeli ailesidir. Lyria 3 ile metin istemlerinden veya resimlerden yüksek kaliteli, 44, 1 kHz stereo sesler üretebilirsiniz. Bu modeller, vokaller, zamanlanmış şarkı sözleri ve tam enstrümantal düzenlemeler dahil olmak üzere yapısal tutarlılık sağlar.
 
-กลุ่ม Lyria 3 มี 2 โมเดล ได้แก่
+Lyria 3 ailesinde iki model bulunur:
 
-| รุ่น | รหัสโมเดล | เหมาะสำหรับ | ระยะเวลา | เอาต์พุต |
+| Model | Model Kimliği | En uygun olduğu durumlar | Süre | Çıkış |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | คลิปสั้น ลูป ตัวอย่าง | 30 วินาที | MP3 |
-| **Lyria 3 Pro** | `lyria-3-pro-preview` | เพลงแบบเต็มความยาวที่มีท่อน Verse, Chorus และ Bridge | 2-3 นาที (ควบคุมได้โดยใช้พรอมต์) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | Kısa klipler, döngüler, önizlemeler | 30 saniye | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | Dizeler, nakaratlar ve köprüler içeren tam uzunlukta şarkılar | Birkaç dakika (istem kullanılarak kontrol edilebilir) | MP3 |
 
-คุณสามารถใช้โมเดลทั้ง 2 ได้โดยใช้
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) ใหม่ ซึ่งรองรับอินพุตหลายรูปแบบ (ข้อความและรูปภาพ) และสร้างเสียง **สเตอริโอความสมจริงสูง 44.1 kHz**
+Her iki model de çok formatlı girişleri (metin ve resimler) destekleyen yeni [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) kullanılarak kullanılabilir ve **44,1 kHz yüksek kaliteli stereo** ses üretir.
 
-## สร้างคลิปเพลง
+## Müzik klibi oluşturma
 
-โมเดล Lyria 3 Clip จะสร้างคลิปความยาว **30 วินาที** เสมอ หากต้องการสร้างคลิป ให้เรียกใช้เมธอด `interactions.create` ด้วยพรอมต์ข้อความ การตอบกลับจะมีเนื้อเพลงและโครงสร้างเพลงที่สร้างขึ้นพร้อมกับเสียงในสคีมา `steps` เสมอ
+Lyria 3 Clip modeli her zaman **30 saniyelik** bir klip oluşturur. Klip oluşturmak için `interactions.create` yöntemini metin istemiyle çağırın. Yanıtta, `steps` şemasındaki sesin yanı sıra her zaman oluşturulan şarkı sözleri ve şarkı yapısı yer alır.
 
 ### Python
 
@@ -93,14 +92,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-คุณสามารถดึงข้อมูลเพลงที่สร้างขึ้นได้โดยใช้พร็อพเพอร์ตี้ `interaction.output_audio` ซึ่งจะแสดงบล็อกเสียงที่สร้างขึ้นล่าสุด นอกจากนี้ คุณยังดึงเนื้อเพลงและโครงสร้างของเพลงได้โดยใช้พร็อพเพอร์ตี้ `interaction.output_text` ดูรายละเอียดเกี่ยวกับพร็อพเพอร์ตี้ความสะดวกได้ที่
-[ภาพรวมของ Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th#convenience-properties)
+Oluşturulan son ses bloğunu döndüren `interaction.output_audio` özelliğini kullanarak oluşturulan müzik verilerini alabilirsiniz. Ayrıca, `interaction.output_text` özelliğini kullanarak şarkı sözlerini ve yapısını da alabilirsiniz. Kolaylık özellikleri hakkında ayrıntılı bilgi için [Etkileşimlere genel bakış](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr#convenience-properties) başlıklı makaleyi inceleyin.
 
-## สร้างเพลงแบบเต็มความยาว
+## Tam uzunlukta şarkı oluşturma
 
-ใช้โมเดล `lyria-3-pro-preview` เพื่อสร้างเพลงแบบเต็มความยาวที่ใช้เวลา 2-3 นาที โมเดล Pro เข้าใจโครงสร้างดนตรีและสามารถสร้างเพลงที่มีท่อน Verse, Chorus และ Bridge ที่แตกต่างกันได้ คุณสามารถกำหนด
-ระยะเวลาได้โดยระบุในพรอมต์ (เช่น "สร้างเพลงความยาว 2 นาที") หรือ
-ใช้ [การประทับเวลา](#timing) เพื่อกำหนดโครงสร้าง
+Birkaç dakika süren tam uzunlukta şarkılar oluşturmak için `lyria-3-pro-preview` modelini kullanın. Pro modeli, müzikal yapıyı anlar ve farklı kıtalar, nakaratlar ve köprüler içeren kompozisyonlar oluşturabilir. İsteminizde süreyi belirterek (ör. "2 dakikalık bir şarkı oluştur") veya yapıyı tanımlamak için [zaman damgalarını](#timing) kullanarak süreyi etkileyebilirsiniz.
 
 ### Python
 
@@ -132,9 +128,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## เลือกรูปแบบเอาต์พุต
+## Çıkış biçimini seçin
 
-โดยค่าเริ่มต้น โมเดล Lyria 3 จะสร้างเสียงในรูปแบบ **MP3** สำหรับ Lyria 3 Pro คุณยังขอเอาต์พุตในรูปแบบ **WAV** ได้ด้วยโดยตั้งค่า `response_format`
+Lyria 3 modelleri varsayılan olarak **MP3** biçiminde ses üretir. Lyria 3 Pro'da, `response_format` ayarını yaparak çıktının **WAV** biçiminde olmasını da isteyebilirsiniz.
 
 ### Python
 
@@ -173,12 +169,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## แยกวิเคราะห์การตอบกลับ
+## Yanıtı ayrıştırma
 
-การตอบกลับจาก Lyria 3 มีบล็อกเนื้อหาหลายรายการภายในสคีมา `steps`
-Interactions จะแสดงลำดับขั้นตอน โดยขั้นตอน `model_output` จะมีเนื้อหาที่สร้างขึ้น
-บล็อกเนื้อหาข้อความจะมีเนื้อเพลงที่สร้างขึ้นหรือคำอธิบาย JSON ของโครงสร้างเพลง
-บล็อกเนื้อหาที่มีประเภท `audio` จะมีข้อมูลเสียงที่เข้ารหัสแบบ Base64
+Lyria 3'ün yanıtı, `steps` şemasında birden fazla içerik bloğu içeriyor.
+Etkileşimler, `model_output` adımlarının oluşturulan içeriği içerdiği bir adım dizisi döndürür.
+Metin içerik bloklarında, üretilen şarkı sözleri veya şarkı yapısının JSON açıklaması yer alır.
+`audio` türündeki içerik blokları, Base64 kodlu ses verilerini içerir.
 
 ### Python
 
@@ -222,11 +218,11 @@ if (lyrics) {
 curl ... | jq -r '.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio") | .data' | base64 -d > output.mp3
 ```
 
-#### เนื้อเพลงและเพลงที่สลับกัน
+#### Şarkı sözleri ve müzik arasında geçiş yapma
 
-เนื่องจากเอาต์พุตจาก Lyria 3 มีความซับซ้อน โดยมีขั้นตอนและบล็อกแยกกันสำหรับเนื้อเพลง (ข้อความ) และเพลงเอง (เสียง) พร็อพเพอร์ตี้ความสะดวกจึงเป็นทางลัดที่รวดเร็วและแนะนำ
+Lyria 3'ün çıktısı karmaşıktır. Oluşturulan şarkı sözleri (metin) ve şarkının kendisi (ses) için ayrı adımlar ve bloklar içerir. Bu nedenle, kolaylık özellikleri hızlı ve önerilen bir kısayol sunar.
 
-อย่างไรก็ตาม หากต้องการควบคุมไทม์ไลน์แบบดิบของขั้นตอนที่เซิร์ฟเวอร์แสดงผลแบบเป็นโปรแกรมอย่างเต็มรูปแบบ (เช่น การบันทึกบล็อกเนื้อหาแต่ละรายการเมื่อได้รับ) คุณสามารถวนซ้ำ `steps` ด้วยตนเองแทนได้ ดังนี้
+Ancak sunucu tarafından döndürülen adımların ham zaman çizelgesi üzerinde tam ve programatik kontrol sahibi olmak istiyorsanız (ör. tek tek içerik bloklarını alındıkları sırada günlüğe kaydetmek) bunun yerine `steps` üzerinde manuel olarak yineleme yapabilirsiniz:
 
 ### Python
 
@@ -277,9 +273,9 @@ if (audioData) {
 }
 ```
 
-## สร้างเพลงจากรูปภาพ
+## Resimlerden müzik oluşturma
 
-Lyria 3 รองรับอินพุตหลายรูปแบบ โดยคุณสามารถใส่รูปภาพได้สูงสุด **10 รูป** พร้อมกับพรอมต์ข้อความในรายการ `input` และโมเดลจะแต่งเพลงที่ได้รับแรงบันดาลใจจากเนื้อหาภาพ
+Lyria 3, çok formatlı girişleri destekler. `input` listesinde metin isteminizle birlikte **10 adede kadar resim** sağlayabilirsiniz. Model, görsel içerikten ilham alarak müzik oluşturur.
 
 ### Python
 
@@ -345,9 +341,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## ใส่เนื้อเพลงที่กำหนดเอง
+## Özel şarkı sözleri sağlama
 
-คุณสามารถเขียนเนื้อเพลงของคุณเองและใส่ไว้ในพรอมต์ได้ ใช้แท็กส่วนต่างๆ เช่น `[Verse]`, `[Chorus]` และ `[Bridge]` เพื่อช่วยให้โมเดลเข้าใจโครงสร้างเพลง
+Kendi şarkı sözlerinizi yazıp isteme ekleyebilirsiniz. Modelin şarkı yapısını anlamasına yardımcı olmak için `[Verse]`, `[Chorus]` ve `[Bridge]` gibi bölüm etiketlerini kullanın:
 
 ### Python
 
@@ -423,9 +419,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## ควบคุมเวลาและโครงสร้าง
+## Zamanlamayı ve yapıyı kontrol etme
 
-คุณสามารถระบุสิ่งที่เกิดขึ้นในบางช่วงเวลาของเพลงได้อย่างแม่นยำโดยใช้การประทับเวลา ซึ่งมีประโยชน์สำหรับการควบคุมเวลาที่เครื่องดนตรีเริ่มเล่น เวลาที่เนื้อเพลงเริ่มร้อง และความคืบหน้าของเพลง
+Zaman damgalarını kullanarak şarkının belirli anlarında tam olarak ne olacağını belirtebilirsiniz. Bu özellik, enstrümanların ne zaman devreye gireceğini, şarkı sözlerinin ne zaman sunulacağını ve şarkının nasıl ilerleyeceğini kontrol etmek için kullanışlıdır:
 
 ### Python
 
@@ -477,9 +473,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## สร้างแทร็กดนตรีบรรเลง
+## Enstrümantal parçalar oluşturma
 
-สำหรับเพลงประกอบ เกม หรือกรณีการใช้งานที่ไม่จำเป็นต้องมีเสียงร้อง คุณสามารถแจ้งให้โมเดลสร้างแทร็กดนตรีบรรเลงเท่านั้นได้
+Arka plan müziği, oyun müzikleri veya vokallerin gerekli olmadığı tüm kullanım alanlarında, modelden yalnızca enstrümantal parçalar üretmesini isteyebilirsiniz:
 
 ### Python
 
@@ -511,9 +507,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## สร้างเพลงในภาษาต่างๆ
+## Farklı dillerde müzik üretme
 
-Lyria 3 จะสร้างเนื้อเพลงในภาษาของพรอมต์ หากต้องการสร้างเพลงที่มีเนื้อเพลงเป็นภาษาฝรั่งเศส ให้เขียนพรอมต์เป็นภาษาฝรั่งเศส โมเดลจะปรับสไตล์การร้องและการออกเสียงให้เข้ากับภาษา
+Lyria 3, isteminizin dilinde şarkı sözleri oluşturur. Fransızca sözler içeren bir şarkı oluşturmak için isteminizi Fransızca yazın. Model, ses stilini ve telaffuzunu dile uyacak şekilde ayarlar.
 
 ### Python
 
@@ -545,30 +541,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## ความสามารถของโมเดล
+## Model zekası
 
-Lyria 3 จะวิเคราะห์กระบวนการพรอมต์ที่โมเดลใช้เหตุผลผ่านโครงสร้างดนตรี (Intro, Verse, Chorus, Bridge ฯลฯ) ตามพรอมต์ของคุณ
-กระบวนการนี้จะเกิดขึ้นก่อนที่จะสร้างเสียง และช่วยให้มั่นใจได้ถึงความสอดคล้องของโครงสร้างและความเป็นดนตรี
+Lyria 3, isteminizi analiz eder. Bu süreçte model, isteminize göre müzikal yapı (giriş, kıta, nakarat, köprü vb.) üzerinden akıl yürütür.
+Bu işlem, ses oluşturulmadan önce gerçekleşir ve yapısal tutarlılık ile müzikalite sağlar.
 
-## คำแนะนำในการเขียนพรอมต์
+## İstem yazma kılavuzu
 
-พรอมต์ที่เฉพาะเจาะจงมากขึ้นจะให้ผลลัพธ์ที่ดีขึ้น สิ่งที่คุณใส่ลงในพรอมต์เพื่อแนะนำการสร้างมีดังนี้
+İsteminiz ne kadar ayrıntılı olursa sonuçlar o kadar iyi olur. Üretimi yönlendirmek için şunları ekleyebilirsiniz:
 
-- **ประเภท**: ระบุประเภทหรือการผสมผสานของประเภท (เช่น "Lo-fi Hip Hop",
-  "Jazz Fusion", "Cinematic Orchestral")
-- **เครื่องดนตรี**: ระบุชื่อเครื่องดนตรี (เช่น "เปียโน Fender Rhodes",
-  "กีตาร์สไลด์", "เครื่องตีกลอง TR-808")
-- **BPM**: กำหนดจังหวะ (เช่น "120 BPM", "จังหวะช้าประมาณ 70 BPM")
-- **คีย์/สเกล**: ระบุคีย์ดนตรี (เช่น "ในคีย์ G เมเจอร์", "ในคีย์ D ไมเนอร์")
-- **อารมณ์และบรรยากาศ**: ใช้คำคุณศัพท์เชิงพรรณนา (เช่น "คิดถึงอดีต",
-  "ดุดัน", "เหนือจริง", "ชวนฝัน")
-- **โครงสร้าง**: ใช้แท็กต่างๆ เช่น `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`,
-  `[Outro]` หรือการประทับเวลาเพื่อควบคุมความคืบหน้าของเพลง
-- **ระยะเวลา**: โมเดล Clip จะสร้างคลิปความยาว 30 วินาทีเสมอ สำหรับโมเดล Pro ให้ระบุความยาวที่ต้องการในพรอมต์ (เช่น "สร้างเพลงความยาว 2 นาที") หรือใช้การประทับเวลาเพื่อควบคุมระยะเวลา
+- **Tür**: Bir tür veya tür karışımı belirtin (ör. "lo-fi hip hop", "jazz fusion", "sinematik orkestra").
+- **Enstrümanlar**: Belirli enstrümanların adını belirtin (ör. "Fender Rhodes piyano", "slide gitar", "TR-808 davul makinesi").
+- **BPM**: Tempoyu ayarlayın (ör. "120 BPM", "70 BPM civarında yavaş tempo").
+- **Ton/Ölçek**: Müzik tonunu belirtin (ör. "Sol majör", "Re minör").
+- **Ruh hali ve atmosfer**: Açıklayıcı sıfatlar kullanın (ör. "nostaljik", "agresif", "göklerde", "hayalperest").
+- **Yapı**: Şarkının ilerlemesini kontrol etmek için `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`, `[Outro]` gibi etiketler veya zaman damgaları kullanın.
+- **Süre**: Klip modeli her zaman 30 saniyelik klipler üretir. Pro modelinde, isteminizde amaçlanan uzunluğu belirtin (ör. "2 dakikalık bir şarkı oluştur") veya süreyi kontrol etmek için zaman damgalarını kullanın.
 
-### ตัวอย่างพรอมต์
+### Örnek istemler
 
-ตัวอย่างพรอมต์ที่มีประสิทธิภาพมีดังนี้
+Etkili istemlere ilişkin bazı örnekler:
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -579,43 +571,38 @@ Lyria 3 จะวิเคราะห์กระบวนการพรอม
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## แนวทางปฏิบัติแนะนำ
+## En iyi uygulamalar
 
-- **วนซ้ำด้วย Clip ก่อน** ใช้โมเดล `lyria-3-clip-preview` ที่เร็วกว่าเพื่อทดลองใช้พรอมต์ก่อนที่จะสร้างเพลงแบบเต็มความยาวด้วย `lyria-3-pro-preview`
-- **ใช้คำที่เฉพาะเจาะจง** พรอมต์ที่ไม่ชัดเจนจะให้ผลลัพธ์ทั่วไป ระบุเครื่องดนตรี BPM คีย์ อารมณ์ และโครงสร้างเพื่อให้ได้เอาต์พุตที่ดีที่สุด
-- **ใช้ภาษาที่ต้องการ** เขียนพรอมต์ในภาษาที่ต้องการให้เนื้อเพลงเป็น
-- **ใช้แท็กส่วนต่างๆ** แท็ก `[Verse]`, `[Chorus]`, `[Bridge]` จะให้โครงสร้างที่ชัดเจนแก่โมเดลเพื่อทำตาม
-- **แยกเนื้อเพลงออกจากวิธีการ** เมื่อใส่เนื้อเพลงที่กำหนดเอง ให้แยกเนื้อเพลงออกจากวิธีการทางดนตรีอย่างชัดเจน
+- **Önce Clip ile yineleyin.** `lyria-3-clip-preview` ile tam uzunlukta bir üretim yapmadan önce istemlerle deneme yapmak için daha hızlı olan `lyria-3-clip-preview` modelini kullanın.`lyria-3-pro-preview`
+- **Net olun.** Net olmayan istemler, genel sonuçlar üretir. En iyi sonucu elde etmek için enstrümanları, tempoyu, anahtarı, ruh halini ve yapıyı belirtin.
+- **Dilinizi eşleştirin.** Şarkı sözlerinin hangi dilde olmasını istiyorsanız o dilde istem girin.
+- **Bölüm etiketlerini kullanın.** `[Verse]`, `[Chorus]`, `[Bridge]` etiketleri, modele izleyeceği net bir yapı sunar.
+- **Şarkı sözlerini talimatlardan ayırın.** Özel şarkı sözleri sağlarken bunları müzikal yönlendirme talimatlarınızdan net bir şekilde ayırın.
 
-## ข้อจำกัด
+## Sınırlamalar
 
-- **ความปลอดภัย**: ตัวกรองความปลอดภัยจะตรวจสอบพรอมต์ทั้งหมด ระบบจะบล็อกพรอมต์ที่ทริกเกอร์ตัวกรอง ซึ่งรวมถึงพรอมต์ที่ขอเสียงร้องของศิลปินที่เฉพาะเจาะจงหรือการสร้างเนื้อเพลงที่มีลิขสิทธิ์
-- **การใส่ลายน้ำ**: เสียงที่สร้างขึ้นทั้งหมดจะมี
-  [ลายน้ำเสียง SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=th) เพื่อ
-  การระบุ ลายน้ำนี้หูของมนุษย์ไม่สามารถรับรู้ได้และไม่ส่งผลต่อประสบการณ์การฟัง
-- **การแก้ไขแบบผ่านการสนทนาไปมา**: การสร้างเพลงเป็นกระบวนการแบบผ่านการสนทนาไปมาครั้งเดียว
-  ระบบไม่รองรับการแก้ไขซ้ำๆ หรือการปรับแต่งคลิปที่สร้างขึ้นผ่านพรอมต์หลายรายการใน Lyria 3 เวอร์ชันปัจจุบัน
-- **ความยาว**: โมเดล Clip จะสร้างคลิปความยาว 30 วินาทีเสมอ โมเดล Pro จะสร้างเพลงที่ใช้เวลา 2-3 นาที โดยคุณสามารถกำหนดระยะเวลาที่แน่นอนได้ผ่านพรอมต์
-- **ความแน่นอน**: ผลลัพธ์อาจแตกต่างกันระหว่างการเรียกใช้ แม้ว่าจะใช้พรอมต์เดียวกันก็ตาม
+- **Güvenlik**: Tüm istemler güvenlik filtreleriyle kontrol edilir. Filtreleri tetikleyen istemler engellenir. Belirli sanatçıların seslerini veya telif hakkıyla korunan şarkı sözlerinin oluşturulmasını isteyen istemler de bu kapsamdadır.
+- **Filigran**: Üretilen tüm seslerde tanımlama için [SynthID ses filigranı](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=tr) bulunur. Bu filigran, insan kulağıyla fark edilemez ve dinleme deneyimini etkilemez.
+- **Çok adımlı düzenleme**: Müzik üretimi tek adımlı bir süreçtir.
+  Oluşturulan bir klibin birden fazla istemle yinelenerek düzenlenmesi veya iyileştirilmesi, Lyria 3'ün mevcut sürümünde desteklenmemektedir.
+- **Uzunluk**: Klip modeli her zaman 30 saniyelik klipler oluşturur. Pro modeli, birkaç dakika süren şarkılar oluşturur. Tam süre, isteminizle belirlenebilir.
+- **Belirlenimcilik**: Aynı istemle bile olsa sonuçlar görüşmeler arasında farklılık gösterebilir.
 
-## ขั้นตอนถัดไป
+## Sırada ne var?
 
-- ตรวจสอบ[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th)ของโมเดล Lyria 3
-- ลองสร้างเพลงแบบสตรีมมิงแบบ[เรียลไทม์](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=th)
-  ด้วย Lyria RealTime
-- สร้างการสนทนาแบบหลายผู้พูดด้วย
-  [โมเดล TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)
-- ดูวิธีสร้าง[รูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)หรือ[วิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)
-- ดูวิธีที่ Gemini [เข้าใจไฟล์เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)
-- สนทนาแบบเรียลไทม์กับ Gemini โดยใช้
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
+- Lyria 3 modellerinin [fiyatlandırmasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) inceleyin.
+- Lyria RealTime ile [anlık, akışlı müzik üretmeyi](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=tr) deneyin.
+- [TTS modelleri](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr) ile birden fazla konuşmacının yer aldığı görüşmeler oluşturun.
+- [Resim](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) veya [video](https://ai.google.dev/gemini-api/docs/video?hl=tr) oluşturmayı öğrenin.
+- Gemini'ın [ses dosyalarını nasıl anlayabileceğini](https://ai.google.dev/gemini-api/docs/audio?hl=tr) öğrenin.
+- [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'yi kullanarak Gemini ile anlık sohbet edin.
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-07-16 UTC
+Son güncelleme tarihi: 2026-07-30 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-16 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]

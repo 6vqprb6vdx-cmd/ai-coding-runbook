@@ -1,41 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=ko
-fetched_at: 2026-07-27T04:35:04.844893+00:00
-title: "\uad6c\uc870\ud654\ub41c \ucd9c\ub825 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=he
+fetched_at: 2026-08-03T04:31:21.463496+00:00
+title: "\u05e4\u05dc\u05d8\u05d9\u05dd \u05de\u05d5\u05d1\u05b0\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-의견 보내기
+שליחת משוב
 
-# 구조화된 출력
+# פלטים מובְנים
 
-제공된 JSON 스키마를 준수하는 응답을 생성하도록 Gemini 모델을 구성할 수 있습니다. 이렇게 하면 예측 가능하고 유형이 안전한 결과를 보장하며 구조화되지 않은 텍스트에서 구조화된 데이터를 쉽게 추출할 수 있습니다.
+אתם יכולים להגדיר את מודלי Gemini כך שיצרו תשובות לפי סכימת JSON שסיפקתם. כך אפשר להבטיח תוצאות צפויות ובטוחות מבחינת סוג הנתונים, ולפשט את תהליך החילוץ של נתונים מובְנים מטקסט לא מובְנה.
 
-구조화된 출력은 다음 작업에 적합합니다.
+שימוש בפלט מובנה הוא אידיאלי במקרים הבאים:
 
-- **데이터 추출:** 텍스트에서 이름, 날짜와 같은 특정 정보를 가져옵니다.
-- **구조화된 분류:** 텍스트를 사전 정의된 카테고리로 분류합니다.
-- **에이전트 워크플로:** 도구 또는 API의 구조화된 입력을 생성합니다.
+- **חילוץ נתונים:** חילוץ מידע ספציפי כמו שמות ותאריכים מטקסט.
+- **סיווג מובנה:** סיווג טקסט לקטגוריות מוגדרות מראש.
+- **תהליכי עבודה מבוססי-סוכן:** יצירת קלט מובנה לכלים או לממשקי API.
 
-REST API에서 JSON 스키마를 지원하는 것 외에도 Google GenAI SDK를 사용하면
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) 및
-[Zod](https://zod.dev/) (JavaScript)를 사용하여 스키마를 쉽게 정의할 수 있습니다.
+בנוסף לתמיכה בסכימת JSON ב-API בארכיטקטורת REST, ערכות ה-SDK של Google GenAI מאפשרות להגדיר סכימות בקלות באמצעות [Pydantic](https://docs.pydantic.dev/latest/) (Python) ו-[Zod](https://zod.dev/) (JavaScript).
 
-## 구조화된 출력 예
+## דוגמאות לפלט מובנה
 
-### 레시피 추출기
+### כלי לחילוץ מתכונים
 
-이 예에서는 `object`, `array`, `string`, `integer`와 같은 기본 JSON 스키마 유형을 사용하여 텍스트에서 구조화된 데이터를 추출하는 방법을 보여줍니다.
+בדוגמה הזו מוסבר איך לחלץ נתונים מובְנים מטקסט באמצעות סוגים בסיסיים של סכימת JSON, כמו `object`, `array`, `string` ו-`integer`.
 
 ### Python
 
@@ -71,7 +69,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 """
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": Recipe.model_json_schema()}},
@@ -118,7 +116,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 `;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(recipeSchema) } },
@@ -203,7 +201,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         genai.Text(prompt),
         config,
     )
@@ -217,7 +215,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -266,7 +264,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**응답 예:**
+**דוגמה לתשובה:**
 
 ```
 {
@@ -321,9 +319,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### 콘텐츠 검토
+### ניהול תוכן
 
-이 예에서는 조건부 스키마의 `anyOf`와 분류의 `enum`을 보여주며, 이를 통해 콘텐츠에 따라 출력 구조를 다르게 지정할 수 있습니다.
+בדוגמה הזו מוצגים `anyOf` לסכימות מותנות ו-`enum` לסיווג, כך שמבנה הפלט יכול להשתנות בהתאם לתוכן.
 
 ### Python
 
@@ -351,7 +349,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 """
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": ModerationResult.model_json_schema()}},
@@ -391,7 +389,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 `;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(moderationResultSchema) } },
@@ -475,7 +473,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         genai.Text(prompt),
         config,
     )
@@ -489,7 +487,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -550,9 +548,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### 재귀 구조
+### מבנים רקורסיביים
 
-이 예에서는 조직도와 같은 재귀 스키마를 정의하는 방법을 보여줍니다.
+בדוגמה הזו מוסבר איך להגדיר סכימה רקורסיבית, כמו תרשים ארגוני.
 
 ### Python
 
@@ -578,7 +576,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 """
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": Employee.model_json_schema()}},
@@ -610,7 +608,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 `;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(employeeSchema) } },
@@ -666,7 +664,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         genai.Text(prompt),
         config,
     )
@@ -680,7 +678,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -715,7 +713,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**응답 예:**
+**דוגמה לתשובה:**
 
 ```
 {
@@ -742,11 +740,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-## 스트리밍
+## סטרימינג
 
-구조화된 출력을 스트리밍할 수 있으므로 전체 출력이 완료될 때까지 기다리지 않고 출력이 생성되는 즉시 응답 처리를 시작할 수 있습니다. 이렇게 하면 애플리케이션의 인식 성능을 개선할 수 있습니다.
+אתם יכולים להזרים פלט מובנה, וכך להתחיל לעבד את התגובה בזמן שהיא נוצרת, בלי לחכות לסיום יצירת הפלט כולו. כך אפשר לשפר את הביצועים של האפליקציה.
 
-스트리밍된 청크는 유효한 부분 JSON 문자열이며, 연결하여 최종적인 완전한 JSON 객체를 형성할 수 있습니다.
+החלקים שמוזרמים יהיו מחרוזות JSON חלקיות ותקינות, שאפשר לשרשר כדי ליצור את אובייקט ה-JSON הסופי והמלא.
 
 ### Python
 
@@ -763,7 +761,7 @@ client = genai.Client()
 prompt = "The new UI is incredibly intuitive and visually appealing. Great job. Add a very long summary to test streaming!"
 
 response_stream = client.models.generate_content_stream(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": Feedback.model_json_schema()}},
@@ -790,7 +788,7 @@ const feedbackSchema = z.object({
 });
 
 const stream = await ai.models.generateContentStream({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(feedbackSchema) } },
@@ -802,14 +800,9 @@ for await (const chunk of stream) {
 }
 ```
 
-## 도구를 사용한 구조화된 출력
+## פלט מובנה עם כלים
 
-Gemini 3를 사용하면 Google 검색을 사용한 그라운딩
-, URL 컨텍스트
-, 코드 실행
-, 파일 검색
-, 함수 호출
-을 비롯한 기본 제공 도구와 구조화된 출력을 결합할 수 있습니다.
+‫Gemini 3 מאפשר לכם לשלב פלט מובנה עם כלים מובנים, כולל [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he),‏ [URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=he),‏ [הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he),‏ [File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=he#structured-output) ו-[קריאה להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
 ### Python
 
@@ -914,101 +907,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## JSON 스키마 지원
+## תמיכה בסכימת JSON
 
-JSON 객체를 생성하려면 생성 구성에서 `response_format`을 설정합니다. 스키마는 원하는 출력 형식을 설명하는 유효한 [JSON 스키마](https://json-schema.org/)여야 합니다.
+כדי ליצור אובייקט JSON, מגדירים את `response_format` בהגדרות היצירה. הסכימה חייבת להיות [סכימת JSON](https://json-schema.org/) תקינה שמתארת את פורמט הפלט הרצוי.
 
-그러면 모델이 제공된 스키마와 일치하는 구문상 유효한 JSON 문자열인 응답을 생성합니다. 구조화된 출력을 사용하는 경우 모델은 스키마의 키와 동일한 순서로 출력을 생성합니다.
+המודל ייצור תשובה שהיא מחרוזת JSON תקינה מבחינת תחביר, שתואמת לסכימה שצוינה. כשמשתמשים בפלט מובנה, המודל יפיק פלט באותו סדר של המפתחות בסכימה.
 
-Gemini의 구조화된 출력 모드는 [JSON 스키마](https://json-schema.org) 사양의 하위 집합을 지원합니다.
+מצב הפלט המובנה של Gemini תומך בחלק ממפרט [JSON Schema](https://json-schema.org).
 
-다음 `type` 값이 지원됩니다.
+יש תמיכה בערכים הבאים של `type`:
 
-- **`string`**: 텍스트용
-- **`number`**: 부동 소수점 숫자용
-- **`integer`**: 정수용
-- **`boolean`**: true/false 값용
-- **`object`**: 키-값 쌍이 있는 구조화된 데이터용
-- **`array`**: 항목 목록용
-- **`null`**: 속성이 null이 되도록 허용하려면 유형 배열에 `"null"`을 포함합니다 (예: `{"type": ["string", "null"]}`).
+- ‫**`string`**: לטקסט.
+- ‫**`number`**: למספרים בשיטת נקודה צפה.
+- ‫**`integer`**: למספרים שלמים.
+- ‫**`boolean`**: לערכים מסוג True/False.
+- ‫**`object`**: לנתונים מובְנים עם צמדי מפתח/ערך.
+- ‫**`array`**: לרשימות של פריטים.
+- ‫**`null`**: כדי לאפשר שמאפיין יהיה null, צריך לכלול את `"null"` במערך הסוגים (לדוגמה, `{"type": ["string", "null"]}`).
 
-이러한 설명 속성은 모델을 안내하는 데 도움이 됩니다.
+מאפייני התיאור האלה עוזרים להנחות את המודל:
 
-- **`title`**: 속성에 대한 간단한 설명입니다.
-- **`description`**: 속성에 대한 더 길고 자세한 설명입니다.
+- ‫**`title`**: תיאור קצר של מאפיין.
+- **`description`**: תיאור ארוך ומפורט יותר של נכס.
 
-### 유형별 속성
+### מאפיינים ספציפיים לסוג
 
-**`object` 값의 경우:**
+**לערכים של `object`:**
 
-- **`properties`**: 각 키가 속성 이름이고 각 값이 해당 속성의 스키마인 객체입니다.
-- **`required`**: 필수 속성을 나열하는 문자열 배열입니다.
-- **`additionalProperties`**: `properties`에 나열되지 않은 속성이 허용되는지 여부를 제어합니다. 불리언 또는 스키마일 수 있습니다.
+- ‫**`properties`**: אובייקט שבו כל מפתח הוא שם מאפיין וכל ערך הוא סכימה של המאפיין הזה.
+- ‫**`required`**: מערך של מחרוזות שמפרט את המאפיינים שחובה להגדיר.
+- ‫**`additionalProperties`**: מגדירה אם מותר להשתמש בנכסים שלא מופיעים ב-`properties`. יכול להיות ערך בוליאני או סכמה.
 
-**`string` 값의 경우:**
+**לערכים של `string`:**
 
-- **`enum`**: 분류 작업에 사용할 수 있는 특정 문자열 집합을 나열합니다.
-- **`format`**: 문자열의 구문(예: `date-time`, `date`, `time`)을 지정합니다.
+- ‫**`enum`**: רשימה של קבוצה ספציפית של מחרוזות אפשריות למשימות סיווג.
+- ‫**`format`**: מציין תחביר למחרוזת, כמו `date-time`, ‏`date`, ‏`time`.
 
-**`number` 및 `integer` 값의 경우:**
+**לערכים `number` ו-`integer`:**
 
-- **`enum`**: 가능한 숫자 값의 특정 집합을 나열합니다.
-- **`minimum`**: 최소 포함 값입니다.
-- **`maximum`**: 최대 포함 값입니다.
+- ‫**`enum`**: רשימה של קבוצה ספציפית של ערכים נומריים אפשריים.
+- ‫**`minimum`**: ערך המינימום כולל.
+- ‫**`maximum`**: הערך המקסימלי כולל.
 
-**`array` 값의 경우:**
+**לערכים של `array`:**
 
-- **`items`**: 배열의 모든 항목에 대한 스키마를 정의합니다.
-- **`prefixItems`**: 첫 번째 N개 항목의 스키마 목록을 정의하여 튜플과 유사한 구조를 허용합니다.
-- **`minItems`**: 배열의 최소 항목 수입니다.
-- **`maxItems`**: 배열의 최대 항목 수입니다.
+- ‫**`items`**: הגדרת הסכימה של כל הפריטים במערך.
+- ‫**`prefixItems`**: מגדיר רשימה של סכימות עבור הפריטים הראשונים, ומאפשר מבנים דמויי-tuple.
+- ‫**`minItems`**: המספר המינימלי של פריטים במערך.
+- ‫**`maxItems`**: המספר המקסימלי של פריטים במערך.
 
-## 모델 지원
+## תמיכה במודלים
 
-다음 모델은 구조화된 출력을 지원합니다.
+המודלים הבאים תומכים בפלט מובנה:
 
-| 모델 | 구조화된 출력 |
+| מודל | פלט מובנה |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro 프리뷰 | ✔️ |
+| ‫Gemini 3.1 Pro Preview | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite 프리뷰 | ✔️ |
-| Gemini 2.5 Pro | ✔️ |
-| Gemini 2.5 Flash | ✔️ |
+| ‫Gemini 3.1 Flash-Lite Preview | ✔️ |
+| Gemini ‎2.5 Pro | ✔️ |
+| Gemini ‎2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini 2.0 Flash | ✔️\* |
+| Gemini ‎2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* Gemini 2.0에서는 선호하는 구조를 정의하기 위해 JSON 입력 내에 명시적인 `propertyOrdering` 목록이 필요합니다. 이 [쿡북](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)에서 예를 확인할 수 있습니다.*
+*\* שימו לב: כדי להגדיר את המבנה המועדף ב-Gemini 2.0, צריך להוסיף רשימה מפורשת של `propertyOrdering` בקלט ה-JSON. אפשר למצוא דוגמה ב[אוסף פתרונות](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) הזה.*
 
-## 구조화된 출력과 함수 호출
+## פלט מובנה לעומת קריאה להפעלת פונקציות
 
-구조화된 출력과 함수 호출은 모두 JSON 스키마를 사용하지만 서로 다른 용도로 사용됩니다.
+גם פלט מובנה וגם קריאה לפונקציה משתמשים בסכימות JSON, אבל הם משמשים למטרות שונות:
 
-| 기능 | 주된 사용 사례 |
+| תכונה | תרחיש שימוש ראשי |
 | --- | --- |
-| **구조화된 출력** | **사용자에게 최종 응답의 형식을 지정합니다.** 모델의 *답변* 이 특정 형식 (예: 데이터베이스에 저장할 문서에서 데이터 추출)으로 표시되도록 하려면 이 기능을 사용하세요. |
-| **함수 호출** | **대화 중에 작업을 실행합니다.** 모델이 최종 답변을 제공하기 전에 작업을 실행하도록 *요청* 해야 하는 경우 (예: '현재 날씨 가져오기') 이 기능을 사용하세요. |
+| **פלט מובנה** | **עיצוב התשובה הסופית למשתמש.** משתמשים בזה כשרוצים ש*התשובה* של המודל תהיה בפורמט ספציפי (למשל, שליפת נתונים ממסמך כדי לשמור אותם במסד נתונים). |
+| **בקשה להפעלת פונקציה** | **ביצוע פעולות במהלך השיחה** משתמשים בזה כשהמודל צריך *לשאול אתכם* לבצע משימה (למשל, "קבלת נתוני מזג האוויר הנוכחיים") לפני שהוא יכול לספק תשובה סופית. |
 
-## 권장사항
+## שיטות מומלצות
 
-- **명확한 설명:** 스키마의 `description` 필드를 사용하여 각 속성이 나타내는 항목에 관해 모델에 명확한 안내를 제공합니다. 이는 모델의 출력을 안내하는 데 매우 중요합니다.
-- **강력한 유형 지정:** 가능하면 항상 특정 유형 (`integer`, `string`, `enum`)을 사용합니다. 매개변수에 유효한 값의 집합이 제한되어 있는 경우 `enum`을 사용합니다.
-- **프롬프트 엔지니어링:** 모델이 수행해야 하는 작업을 프롬프트에 명확하게 명시합니다. 예를 들어 '텍스트에서 다음 정보를 추출하세요.' 또는 '제공된 스키마에 따라 이 의견을 분류하세요.'
-- **유효성 검사:** 구조화된 출력은 구문상 올바른 JSON을 보장하지만 값이 의미상 올바른지는 보장하지 않습니다. 항상 애플리케이션 코드에서 최종 출력을 검증한 후 사용하세요.
-- **오류 처리:** 스키마를 준수하지만 비즈니스 로직 요구사항을 충족하지 못할 수 있는 모델의 출력을 원활하게 관리할 수 있도록 애플리케이션에 강력한 오류 처리를 구현합니다.
+- **תיאורים ברורים:** משתמשים בשדה `description` בסכימה כדי לספק למודל הוראות ברורות לגבי מה מייצג כל מאפיין. ההנחיה הזו חשובה מאוד כדי להכווין את הפלט של המודל.
+- **הקלדה חזקה:** מומלץ להשתמש בסוגים ספציפיים (`integer`, ‏ `string`, ‏ `enum`) בכל הזדמנות. אם לפרמטר יש קבוצה מוגבלת של ערכים תקינים, משתמשים ב-`enum`.
+- **הנדסת פרומפטים:** בפרומפט צריך לציין בצורה ברורה מה רוצים שהמודל יעשה. לדוגמה: 'חלץ את המידע הבא מהטקסט...' או 'סווג את המשוב הזה לפי הסכימה שצוינה...'.
+- **אימות:** הפלט המובנה מבטיח שקובץ ה-JSON יהיה תקין מבחינת התחביר, אבל לא מבטיח שהערכים יהיו תקינים מבחינה סמנטית. תמיד צריך לאמת את הפלט הסופי בקוד האפליקציה לפני שמשתמשים בו.
+- **טיפול בשגיאות:** כדאי להטמיע טיפול חזק בשגיאות באפליקציה כדי לנהל בצורה תקינה מקרים שבהם הפלט של המודל עומד בדרישות הסכימה, אבל לא בדרישות הלוגיקה העסקית.
 
-## 제한사항
+## מגבלות
 
-- **스키마 하위 집합:** JSON 스키마 사양의 모든 기능이 지원되는 것은 아닙니다. 모델은 지원되지 않는 속성을 무시합니다.
-- **스키마 복잡성:** API는 매우 크거나 깊게 중첩된 스키마를 거부할 수 있습니다. 오류가 발생하면 속성 이름을 줄이거나, 중첩을 줄이거나, 제약조건 수를 제한하여 스키마를 간소화해 보세요.
+- **קבוצת משנה של סכימה:** לא כל התכונות של מפרט סכימת ה-JSON נתמכות. המודל מתעלם ממאפיינים שלא נתמכים.
+- **מורכבות הסכימה:** יכול להיות שממשק ה-API ידחה סכימות גדולות מאוד או סכימות עם קינון עמוק. אם נתקלים בשגיאות, כדאי לפשט את הסכימה על ידי קיצור שמות המאפיינים, צמצום הקינון או הגבלת מספר האילוצים.
 
-의견 보내기
+שליחת משוב
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-최종 업데이트: 2026-06-23(UTC)
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-의견을 전달하고 싶나요?
+רוצה לתת לנו משוב?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-23(UTC)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

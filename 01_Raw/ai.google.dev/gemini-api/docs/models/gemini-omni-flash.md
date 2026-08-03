@@ -1,47 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=ja
-fetched_at: 2026-07-27T04:38:00.422404+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=he
+fetched_at: 2026-08-03T04:38:37.163935+00:00
 title: "Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-フィードバックを送信
+שליחת משוב
 
 # Gemini Omni Flash
 
-Gemini Omni Flash は、会話形式で動画を迅速に生成、編集できるように設計されたプレビュー モデルです。テキストや画像を動画に変換するのに優れており、Interactions API を使用して自然言語での会話を通じて生成された動画を調整、編集できます。
+‫Gemini Omni Flash הוא מודל בגרסת טרום-השקה שנועד ליצירה ולעריכה מהירות של סרטונים באמצעות שיחה. הוא מצטיין בהמרת טקסט ותמונות לסרטונים, ומאפשר לכם לשפר ולערוך סרטונים שנוצרו באמצעות שיחות בשפה טבעית באמצעות Interactions API.
 
-[Google AI Studio で試す](https://aistudio.google.com?model=gemini-omni-flash-preview&hl=ja)
+[לניסיון ב-Google AI Studio](https://aistudio.google.com?model=gemini-omni-flash-preview&hl=he)
 
-## ドキュメント
+## מאמרי עזרה
 
-機能と機能の詳細については、[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=ja)
-のページをご覧ください。
+ב[דף של Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=he) אפשר לקרוא על כל התכונות והיכולות.
 
 ## gemini-omni-flash-preview
 
-| プロパティ | 説明 |
+| נכס | תיאור |
 | --- | --- |
-| id\_cardModel コード | **Gemini API**  `gemini-omni-flash-preview` |
-| saveサポートされるデータタイプ | **入力**  テキスト、画像、動画（編集の場合は最大 10 秒）  **出力**  動画 |
-| token\_autoLimits | **コンテキスト ウィンドウ**  1,048,576 個のトークン  **出力動画**  3 秒～ 10 秒（720p、24 FPS） |
-| calendar\_month最終更新日 | 2026 年 6 月 |
+| id\_cardקוד מודל | ‫**Gemini API**  `gemini-omni-flash-preview` |
+| saveסוגי נתונים נתמכים | **קלט**  טקסט, תמונה, סרטון (עד 10 שניות לעריכה)  **פלט**  וידאו |
+| token\_autoמגבלות | **חלון ההקשר**  ‫1,048,576 טוקנים  **סרטון הפלט**  ‫3 שניות עד 10 שניות (720p, ‏ 24 FPS) |
+| calendar\_monthהעדכון האחרון | יוני 2026 |
 
-フィードバックを送信
+שליחת משוב
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-最終更新日 2026-06-30 UTC。
+עדכון אחרון: 2026-06-30 (שעון UTC).
 
-ご意見をお聞かせください
+רוצה לתת לנו משוב?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-30 UTC。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-30 (שעון UTC)."],[],[]]

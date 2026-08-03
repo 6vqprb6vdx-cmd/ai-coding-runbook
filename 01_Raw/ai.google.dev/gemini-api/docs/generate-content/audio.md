@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=de
-fetched_at: 2026-07-27T04:46:03.973040+00:00
-title: "Audioinhalte verstehen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=pl
+fetched_at: 2026-08-03T04:26:59.171373+00:00
+title: "Rozumienie mowy \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Feedback geben
+Prześlij opinię
 
-# Audioinhalte verstehen
+# Rozumienie mowy
 
-Gemini kann Audioeingaben analysieren und Textantworten generieren.
+Gemini może analizować dane wejściowe w postaci dźwięku i generować odpowiedzi tekstowe.
 
 ### Python
 
@@ -31,7 +31,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -55,7 +55,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -67,7 +67,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -103,7 +103,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         contents,
         nil,
     )
@@ -148,7 +148,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -166,25 +166,24 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Übersicht
+## Przegląd
 
-Gemini kann Audioeingaben analysieren und verstehen und Textantworten darauf generieren. Dadurch sind Anwendungsfälle wie die folgenden möglich:
+Gemini może analizować i rozumieć dane wejściowe w postaci dźwięku oraz generować odpowiedzi tekstowe, co umożliwia korzystanie z takich funkcji jak:
 
-- Audioinhalte beschreiben, zusammenfassen oder Fragen dazu beantworten.
-- Transkription und Übersetzung des Audios bereitstellen (Sprache zu Text).
-- Emotionen in Sprache und Musik erkennen.
-- Bestimmte Segmente des Audios analysieren und Zeitstempel angeben.
+- opisywanie, podsumowywanie lub odpowiadanie na pytania dotyczące treści audio;
+- transkrypcja i tłumaczenie dźwięku (mowa na tekst);
+- wykrywanie emocji w mowie i muzyce;
+- analizowanie określonych segmentów dźwięku i podawanie sygnatur czasowych.
 
-Derzeit unterstützt die Gemini API keine Anwendungsfälle für die Echtzeit-Transkription.
-Informationen zu Echtzeit-Sprach- und Videointeraktionen finden Sie in der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de).
-Für spezielle Modelle für die Spracherkennung mit Unterstützung für die Echtzeit-Transkription,
-verwenden Sie die [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=de).
+Obecnie interfejs Gemini API nie obsługuje przypadków użycia transkrypcji w czasie rzeczywistym.
+W przypadku interakcji głosowych i wideo w czasie rzeczywistym zapoznaj się z interfejsem [Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl).
+Aby korzystać z modeli mowy na tekst, które obsługują transkrypcję w czasie rzeczywistym,
+użyj interfejsu [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=pl).
 
-## Sprache zu Text transkribieren
+## Transkrypcja mowy na tekst
 
-In dieser Beispielanwendung wird gezeigt, wie Sie die Gemini API auffordern, Sprache zu transkribieren,
-zu übersetzen und zusammenzufassen, einschließlich Zeitstempeln und Emotionserkennung
-mithilfe [strukturierter Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de).
+Ta przykładowa aplikacja pokazuje, jak używać interfejsu Gemini API do transkrypcji, tłumaczenia i podsumowywania mowy, w tym sygnatur czasowych i wykrywania emocji
+za pomocą [danych wyjściowych w postaci ustrukturyzowanej](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl).
 
 ### Python
 
@@ -209,7 +208,7 @@ def main():
   """
 
   response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=[
       types.Content(
         parts=[
@@ -296,7 +295,7 @@ async function main() {
   };
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: {
       parts: [
         {
@@ -352,7 +351,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -412,28 +411,31 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Sie können [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=de) auffordern, mit einem Klick eine App wie [diese Beispiel-Transkriptions-App](https://aistudio.google.com/apps/bundled/echoscript?hl=de) zu erstellen.
+W [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=pl) możesz utworzyć
+aplikację podobną do
+[tej przykładowej aplikacji do transkrypcji](https://aistudio.google.com/apps/bundled/echoscript?hl=pl)
+jednym kliknięciem.
 
-![Eine mehrsprachige Audio-Transkriptions-Gemini-App](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=de)
+![Wielojęzyczna aplikacja Gemini do transkrypcji audio](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=pl)
 
-## Eingabeaudio
+## Dźwięk wejściowy
 
-Sie können Gemini auf folgende Arten Audiodaten zur Verfügung stellen:
+Dane audio możesz przekazywać do Gemini na te sposoby:
 
-- [Laden Sie eine Audiodatei hoch](#upload-audio), bevor Sie eine Anfrage an
-  `generateContent` senden.
-- [Übergeben Sie Inline-Audiodaten](#inline-audio) mit der Anfrage an
+- [Prześlij plik audio](#upload-audio) przed wysłaniem żądania do
+  `generateContent`.
+- [Przekaż dane audio w tekście](#inline-audio) z żądaniem do
   `generateContent`.
 
-Weitere Informationen zu anderen Methoden für die Dateieingabe finden Sie im
-[Leitfaden zu Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
+Więcej informacji o innych metodach wprowadzania plików znajdziesz w przewodniku
+[Metody wprowadzania plików](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl).
 
-### Audiodatei hochladen
+### Przesyłanie pliku audio
 
-Sie können die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) verwenden, um eine Audiodatei hochzuladen.
-Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich Dateien, Text-Prompt, Systemanweisungen usw.) mehr als 20 MB beträgt.
+Do przesyłania pliku audio możesz użyć interfejsu [Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl).
+Zawsze używaj interfejsu Files API, gdy łączny rozmiar żądania (w tym plików, prompta tekstowego, instrukcji systemowych itp.) jest większy niż 20 MB.
 
-Mit dem folgenden Code wird eine Audiodatei hochgeladen und dann in einem Aufruf von `generateContent` verwendet.
+Poniższy kod przesyła plik audio, a następnie używa go w wywołaniu `generateContent`.
 
 ### Python
 
@@ -445,7 +447,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -469,7 +471,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -481,7 +483,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -517,7 +519,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.5-flash",
+      "gemini-3.6-flash",
       contents,
       nil,
   )
@@ -562,7 +564,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -580,12 +582,12 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Weitere Informationen zum Arbeiten mit Mediendateien finden Sie unter
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
+Więcej informacji o pracy z plikami multimedialnymi znajdziesz w artykule
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl).
 
-### Audiodaten inline übergeben
+### Przekazywanie danych audio w tekście
 
-Anstatt eine Audiodatei hochzuladen, können Sie Inline-Audiodaten in der Anfrage an `generateContent` übergeben:
+Zamiast przesyłać plik audio, możesz przekazać dane audio w tekście żądania do `generateContent`:
 
 ### Python
 
@@ -598,7 +600,7 @@ with open('path/to/small-sample.mp3', 'rb') as f:
 
 client = genai.Client()
 response = client.models.generate_content(
-  model='gemini-3.5-flash',
+  model='gemini-3.6-flash',
   contents=[
     'Describe this audio clip',
     types.Part.from_bytes(
@@ -633,13 +635,13 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: contents,
 });
 console.log(response.text);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -675,7 +677,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.5-flash",
+      "gemini-3.6-flash",
       contents,
       nil,
   )
@@ -684,15 +686,15 @@ func main() {
 }
 ```
 
-Einige Hinweise zu Inline-Audiodaten:
+Oto kilka kwestii, o których warto pamiętać w przypadku danych audio w tekście:
 
-- Die maximale Anfragengröße beträgt 20 MB. Dazu gehören Text-Prompts, Systemanweisungen und Inline-Dateien. [Wenn die Größe Ihrer Datei dazu führt, dass die *Gesamtgröße der Anfrage* 20 MB überschreitet, verwenden Sie die Files API, um eine Audiodatei hochzuladen, die in der Anfrage verwendet werden soll.](#upload-audio)
-- Wenn Sie ein Audiobeispiel mehrmals verwenden, ist es effizienter
-  , [eine Audiodatei hochzuladen](#upload-audio).
+- Maksymalny rozmiar żądania to 20 MB, w tym prompty tekstowe, instrukcje systemowe i pliki przekazywane w tekście. Jeśli rozmiar pliku spowoduje, że *łączny rozmiar żądania* przekroczy 20 MB, użyj interfejsu Files API, aby [przesłać plik audio](#upload-audio) do użycia w żądaniu.
+- Jeśli używasz próbki audio wielokrotnie, bardziej efektywne jest
+  [przesłanie pliku audio](#upload-audio).
 
-## Transkript erstellen
+## Uzyskiwanie transkrypcji
 
-Wenn Sie ein Transkript von Audiodaten erhalten möchten, fragen Sie einfach im Prompt danach:
+Aby uzyskać transkrypcję danych audio, wystarczy poprosić o nią w prompcie:
 
 ### Python
 
@@ -704,7 +706,7 @@ myfile = client.files.upload(file='path/to/sample.mp3')
 prompt = 'Generate a transcript of the speech.'
 
 response = client.models.generate_content(
-  model='gemini-3.5-flash',
+  model='gemini-3.6-flash',
   contents=[prompt, myfile]
 )
 
@@ -727,7 +729,7 @@ const myfile = await ai.files.upload({
 });
 
 const result = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: createUserContent([
     createPartFromUri(myfile.uri, myfile.mimeType),
     "Generate a transcript of the speech.",
@@ -736,7 +738,7 @@ const result = await ai.models.generateContent({
 console.log("result.text=", result.text);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -772,7 +774,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.5-flash",
+      "gemini-3.6-flash",
       contents,
       nil,
   )
@@ -781,12 +783,12 @@ func main() {
 }
 ```
 
-## Auf Zeitstempel verweisen
+## Odwoływanie się do sygnatur czasowych
 
-Sie können mit Zeitstempeln im Format `MM:SS` auf bestimmte Abschnitte einer Audiodatei verweisen. Im folgenden Prompt wird beispielsweise ein Transkript angefordert,
+Do określonych sekcji pliku audio możesz odwoływać się za pomocą sygnatur czasowych w formacie `MM:SS`. Na przykład ten prompt prosi o transkrypcję, która
 
-- das bei 2 Minuten und 30 Sekunden ab Beginn der Datei beginnt.
-- das bei 3 Minuten und 29 Sekunden ab Beginn der Datei endet.
+- zaczyna się 2 minuty i 30 sekund od początku pliku;
+- kończy się 3 minuty i 29 sekund od początku pliku.
 
 ### Python
 
@@ -802,7 +804,7 @@ prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 const prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -839,7 +841,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.5-flash",
+      "gemini-3.6-flash",
       contents,
       nil,
   )
@@ -848,9 +850,9 @@ func main() {
 }
 ```
 
-## Tokens zählen
+## Zliczanie tokenów
 
-Rufen Sie die Methode `countTokens` auf, um die Anzahl der Tokens in einer Audiodatei zu ermitteln. Beispiel:
+Aby uzyskać liczbę tokenów w pliku audio, wywołaj metodę `countTokens`. Na przykład:
 
 ### Python
 
@@ -859,7 +861,7 @@ from google import genai
 
 client = genai.Client()
 response = client.models.count_tokens(
-  model='gemini-3.5-flash',
+  model='gemini-3.6-flash',
   contents=[myfile]
 )
 
@@ -882,7 +884,7 @@ const myfile = await ai.files.upload({
 });
 
 const countTokensResponse = await ai.models.countTokens({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: createUserContent([
     createPartFromUri(myfile.uri, myfile.mimeType),
   ]),
@@ -890,7 +892,7 @@ const countTokensResponse = await ai.models.countTokens({
 console.log(countTokensResponse.totalTokens);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -925,7 +927,7 @@ func main() {
 
   tokens, _ := client.Models.CountTokens(
       ctx,
-      "gemini-3.5-flash",
+      "gemini-3.6-flash",
       contents,
       nil,
   )
@@ -934,9 +936,9 @@ func main() {
 }
 ```
 
-## Unterstützte Audioformate
+## Obsługiwane formaty audio
 
-Gemini unterstützt die folgenden MIME-Typen für Audioformate:
+Gemini obsługuje te typy MIME formatów audio:
 
 - WAV – `audio/wav`
 - MP3 – `audio/mp3`
@@ -945,34 +947,35 @@ Gemini unterstützt die folgenden MIME-Typen für Audioformate:
 - OGG Vorbis – `audio/ogg`
 - FLAC – `audio/flac`
 
-## Technische Details zu Audio
+## Szczegóły techniczne dotyczące dźwięku
 
-- Gemini stellt jede Sekunde Audio als 32 Tokens dar. Eine Minute Audio entspricht beispielsweise 1.920 Tokens.
-- Gemini kann nicht-sprachliche Komponenten wie Vogelgesang oder Sirenen „verstehen“.
-- Die maximal unterstützte Länge von Audiodaten in einem einzelnen Prompt beträgt 9,5 Stunden.
-  Gemini beschränkt die *Anzahl* der Audiodateien in einem einzelnen Prompt nicht.Die kombinierte Gesamtlänge aller Audiodateien in einem einzelnen Prompt darf jedoch 9,5 Stunden nicht überschreiten.
-- Gemini führt ein Downsampling von Audiodateien auf eine Datenauflösung von 16 kbit/s durch.
-- Wenn die Audioquelle mehrere Kanäle enthält, kombiniert Gemini diese Kanäle zu einem einzigen Kanal.
+- Gemini reprezentuje każdą sekundę dźwięku jako 32 tokeny. Na przykład 1 minuta dźwięku jest reprezentowana jako 1920 tokenów.
+- Gemini może „rozumieć” elementy inne niż mowa, takie jak śpiew ptaków czy syreny.
+- Maksymalna obsługiwana długość danych audio w jednym prompcie to 9,5 godziny.
+  Gemini nie ogranicza *liczby* plików audio w jednym prompcie, ale łączna długość wszystkich plików audio w jednym prompcie nie może przekraczać 9,5 godziny.
+- Gemini zmniejsza częstotliwość próbkowania plików audio do 16 kb/s.
+- Jeśli źródło dźwięku zawiera wiele kanałów, Gemini łączy je w jeden kanał.
 
-## Nächste Schritte
+## Co dalej?
 
-In diesem Leitfaden wird gezeigt, wie Sie Text als Antwort auf Audiodaten generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
+Z tego przewodnika dowiesz się, jak generować tekst w odpowiedzi na dane audio. Więcej informacji znajdziesz w tych materiałach:
 
-- [Strategien für Prompts mit Dateien](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die
-  Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch
-  als multimodale Prompts bezeichnet.
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions):
-  Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren
-  spezifischen Anforderungen und Anwendungsfällen steuern.
-- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Generative KI
-  Modelle erzeugen manchmal unerwartete Ausgaben, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+- [Strategie tworzenia promptów z plikami](https://ai.google.dev/gemini-api/docs/files?hl=pl#prompt-guide): interfejs
+  Gemini API obsługuje tworzenie promptów z danymi tekstowymi, obrazami, dźwiękiem i filmami, czyli
+  tworzenie promptów multimodalnych.
+- [Instrukcje systemowe](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl#system-instructions):
+  Instrukcje systemowe pozwalają sterować działaniem modelu na podstawie
+  konkretnych potrzeb i przypadków użycia.
+- [Wskazówki dotyczące bezpieczeństwa](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pl): modele generatywnej AI
+  czasami generują nieoczekiwane wyniki, np. niedokładne,
+  stronnicze lub obraźliwe. Aby ograniczyć ryzyko szkód spowodowanych takimi wynikami, niezbędne jest przetwarzanie końcowe i ocena przez człowieka.
 
-Feedback geben
+Prześlij opinię
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Zuletzt aktualisiert: 2026-06-23 (UTC).
+Ostatnia aktualizacja: 2026-07-30 UTC.
 
-Haben Sie Feedback für uns?
+Chcesz przekazać coś jeszcze?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-23 (UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]

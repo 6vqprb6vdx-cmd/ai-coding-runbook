@@ -1,28 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=pl
-fetched_at: 2026-07-27T04:48:06.748719+00:00
-title: "Agent Deep Research w\u00a0Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=id
+fetched_at: 2026-08-03T04:28:32.346911+00:00
+title: "Agen Deep Research Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Prześlij opinię
+Kirim masukan
 
-# Agent Deep Research w Gemini
+# Agen Deep Research Gemini
 
-Agent Gemini Deep Research autonomicznie planuje, wykonuje i syntetyzuje wieloetapowe zadania badawcze. Dzięki Gemini potrafi poruszać się po złożonych zasobach informacji, aby tworzyć szczegółowe raporty z cytatami. Nowe funkcje umożliwiają wspólne planowanie z agentem, łączenie się z narzędziami zewnętrznymi za pomocą serwerów MCP, dodawanie wizualizacji (takich jak wykresy) i bezpośrednie przekazywanie dokumentów jako danych wejściowych.
+Agen Deep Research Gemini secara mandiri merencanakan, menjalankan, dan menyintesis tugas riset multilangkah. Didukung oleh Gemini, fitur ini menavigasi lanskap informasi yang kompleks untuk menghasilkan laporan mendetail yang disertai kutipan. Kemampuan baru memungkinkan Anda merencanakan secara kolaboratif dengan agen, terhubung ke alat eksternal menggunakan server MCP, menyertakan visualisasi (seperti diagram dan grafik), dan memberikan dokumen secara langsung sebagai input.
 
-Zadania badawcze obejmują iteracyjne wyszukiwanie i czytanie, a ich wykonanie może potrwać kilka minut. Aby uruchomić agenta asynchronicznie i sprawdzać wyniki lub przesyłać strumieniowo aktualizacje, musisz użyć [wykonywania w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl) (ustaw `background=true`). Więcej informacji znajdziesz w sekcji [Obsługa długotrwałych zadań](#long-running-tasks).
+Tugas riset melibatkan penelusuran dan pembacaan iteratif dan dapat memerlukan waktu beberapa menit untuk diselesaikan. Anda harus menggunakan [eksekusi di latar belakang](https://ai.google.dev/gemini-api/docs/background-execution?hl=id) (tetapkan `background=true`)
+untuk menjalankan agen secara asinkron dan melakukan polling untuk hasil atau streaming update. Lihat
+[Menangani tugas yang berjalan lama](#long-running-tasks) untuk mengetahui detail selengkapnya.
 
-Poniższy przykład pokazuje, jak rozpocząć analizę w tle i sprawdzać wyniki.
+Contoh berikut menunjukkan cara memulai tugas riset di latar belakang
+dan melakukan polling untuk mendapatkan hasil.
 
 ### Python
 
@@ -97,20 +100,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Obsługiwane wersje
+## Versi yang didukung
 
-Agent Deep Research jest dostępny w 2 wersjach:
+Agen Deep Research tersedia dalam dua versi:
 
-- **Deep Research** (`deep-research-preview-04-2026`): zaprojektowany z myślą o szybkości i wydajności, idealny do przesyłania strumieniowego do interfejsu klienta.
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): maksymalna kompleksowość automatycznego zbierania i syntezy kontekstu.
+- **Deep Research** (`deep-research-preview-04-2026`): Didesain untuk kecepatan dan efisiensi, ideal untuk di-streaming kembali ke UI klien.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Komprehensivitas maksimum untuk pengumpulan dan sintesis konteks otomatis.
 
-## Planowanie zespołowe
+## Perencanaan kolaboratif
 
-Planowanie oparte na współpracy daje Ci kontrolę nad kierunkiem badań, zanim agent rozpocznie pracę. Możesz przejrzeć i dopracować plan badań przed jego realizacją. Gdy ta opcja jest włączona, agent zwraca proponowany plan badań zamiast natychmiastowego wykonania. Następnie możesz przejrzeć, zmodyfikować lub zatwierdzić plan w ramach interakcji wieloetapowych.
+Perencanaan kolaboratif memberi Anda kontrol atas arah riset sebelum agen memulai pekerjaannya dengan memungkinkan Anda meninjau dan menyempurnakan rencana riset sebelum pelaksanaan. Jika diaktifkan, agen akan menampilkan rencana riset yang diusulkan, bukan
+langsung menjalankannya. Kemudian, Anda dapat meninjau, mengubah, atau menyetujui rencana melalui interaksi multi-turn.
 
-### Krok 1. Poproś o plan
+### Langkah 1: Minta paket
 
-Ustaw `collaborative_planning=True` w pierwszej interakcji. Zamiast pełnego raportu agent zwraca plan badań.
+Tetapkan `collaborative_planning=True` dalam interaksi pertama. Agen
+mengembalikan rencana riset, bukan laporan lengkap.
 
 ### Python
 
@@ -176,9 +181,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Krok 2. Ulepsz plan (opcjonalnie)
+### Langkah 2: Sempurnakan rencana (opsional)
 
-Użyj `previous_interaction_id`, aby kontynuować rozmowę i ulepszać plan. Naciśnij `collaborative_planning=True`, aby pozostać w trybie planowania.
+Gunakan `previous_interaction_id` untuk melanjutkan percakapan dan melakukan iterasi pada rencana. Tetap tekan `collaborative_planning=True` untuk tetap berada dalam mode perencanaan.
 
 ### Python
 
@@ -242,9 +247,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Krok 3. Zatwierdź i wykonaj
+### Langkah 3: Setujui dan jalankan
 
-Ustaw wartość `collaborative_planning=False` (lub pomiń ją), aby zatwierdzić plan i rozpocząć zbieranie informacji.
+Tetapkan `collaborative_planning=False` (atau hapus) untuk menyetujui rencana dan memulai riset.
 
 ### Python
 
@@ -308,10 +313,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Wizualizacja
+## Visualisasi
 
-Gdy `visualization` jest ustawione na `"auto"`, agent może generować wykresy i inne elementy wizualne, aby wspierać wyniki swoich badań.
-Wygenerowane obrazy są uwzględniane w krokach odpowiedzi i przesyłane strumieniowo jako delty `image`. Aby uzyskać najlepsze wyniki, w zapytaniu wyraźnie poproś o elementy wizualne, np. „Dołącz wykresy pokazujące trendy na przestrzeni czasu” lub „Wygeneruj grafiki porównujące udziały w rynku”. Ustawienie `visualization` na `"auto"` włącza tę funkcję, ale agent generuje wizualizacje tylko wtedy, gdy jest o to proszony w prompcie.
+Jika `visualization` disetel ke `"auto"`, agen dapat membuat diagram, grafik, dan elemen visual lainnya untuk mendukung temuan risetnya.
+Gambar yang dihasilkan disertakan dalam langkah-langkah respons dan di-streaming sebagai delta `image`. Untuk hasil terbaik, minta visual secara eksplisit dalam kueri Anda — misalnya, "Sertakan diagram yang menunjukkan tren dari waktu ke waktu" atau "Buat grafik yang membandingkan pangsa pasar". Menetapkan `visualization` ke
+`"auto"` mengaktifkan kemampuan, tetapi agen hanya menghasilkan visual
+saat perintah memintanya.
 
 ### Python
 
@@ -402,21 +409,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Obsługiwane narzędzia
+## Alat yang didukung
 
-Funkcja Deep Research obsługuje wiele wbudowanych i zewnętrznych narzędzi. Domyślnie (gdy nie podano parametru `tools`) agent ma dostęp do wyszukiwarki Google, kontekstu adresu URL i wykonywania kodu. Możesz wyraźnie określić narzędzia, aby ograniczyć lub rozszerzyć możliwości agenta.
+Deep Research mendukung beberapa alat bawaan dan eksternal. Secara default
+(jika tidak ada parameter `tools`), agen memiliki akses ke Google
+Penelusuran, Konteks URL, dan Eksekusi Kode. Anda dapat secara eksplisit
+menentukan alat untuk membatasi atau memperluas kemampuan agen.
 
-| Narzędzie | Wpisz wartość | Opis |
+| Alat | Nilai jenis | Deskripsi |
 | --- | --- | --- |
-| Wyszukiwarka Google | `google_search` | Wyszukiwanie w sieci publicznej. Ta opcja jest domyślnie włączona. |
-| Kontekst adresu URL | `url_context` | czytać i podsumowywać treści na stronach internetowych; Ta opcja jest domyślnie włączona. |
-| Wykonanie kodu | `code_execution` | wykonywać kod w celu przeprowadzania obliczeń i analizy danych, Ta opcja jest domyślnie włączona. |
-| Serwer MCP | `mcp_server` | Łączenie się ze zdalnymi serwerami MCP w celu uzyskania dostępu do narzędzi zewnętrznych. |
-| Wyszukiwanie plików | `file_search` | Wyszukiwanie w przesłanych korpusach dokumentów. |
+| Google Penelusuran | `google_search` | Telusuri web publik. Diaktifkan secara default. |
+| Konteks URL | `url_context` | Membaca dan merangkum konten halaman web. Diaktifkan secara default. |
+| Eksekusi Kode | `code_execution` | Jalankan kode untuk melakukan penghitungan dan analisis data. Diaktifkan secara default. |
+| Server MCP | `mcp_server` | Terhubung ke server MCP jarak jauh untuk akses alat eksternal. |
+| Penelusuran File | `file_search` | Menelusuri korpora dokumen yang Anda upload. |
 
-### Wyszukiwarka Google
+### Google Penelusuran
 
-Włącz wyszukiwarkę Google jako jedyne narzędzie:
+Aktifkan Google Penelusuran secara eksplisit sebagai satu-satunya alat:
 
 ### Python
 
@@ -454,9 +464,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Kontekst adresu URL
+### Konteks URL
 
-Umożliwienie agentowi odczytywania i streszczania konkretnych stron internetowych:
+Memberi agen kemampuan untuk membaca dan meringkas halaman web tertentu:
 
 ### Python
 
@@ -494,9 +504,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Wykonanie kodu
+### Eksekusi Kode
 
-Zezwól agentowi na wykonywanie kodu do obliczeń i analizy danych:
+Mengizinkan agen mengeksekusi kode untuk penghitungan dan analisis data:
 
 ### Python
 
@@ -534,21 +544,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Serwery MCP
+### Server MCP
 
-Łącz się ze zdalnymi serwerami MCP, aby umożliwić agentowi dostęp do narzędzi i usług zewnętrznych.
+Hubungkan ke server MCP jarak jauh untuk memberi agen akses ke alat dan layanan eksternal.
 
-W konfiguracji narzędzi podaj serwer `name` i `url`. Możesz też przekazywać dane logowania i ograniczać narzędzia, z których może korzystać agent.
+Berikan `name` dan `url` server dalam konfigurasi alat. Anda juga dapat
+meneruskan kredensial autentikasi dan membatasi alat yang dapat dipanggil agen.
 
-| Pole | Typ | Wymagane | Opis |
+| Kolom | Jenis | Wajib diisi | Deskripsi |
 | --- | --- | --- | --- |
-| `type` | `string` | Tak | Musi to być `"mcp_server"`. |
-| `name` | `string` | Nie | Wyświetlana nazwa serwera MCP. |
-| `url` | `string` | Nie | Pełny adres URL punktu końcowego serwera MCP. |
-| `headers` | `object` | Nie | Pary klucz-wartość wysyłane jako nagłówki HTTP z każdym żądaniem do serwera (np. tokeny uwierzytelniania). |
-| `allowed_tools` | `array` | Nie | Ogranicz narzędzia na serwerze, z których agent może korzystać. |
+| `type` | `string` | Ya | Harus berupa `"mcp_server"`. |
+| `name` | `string` | Tidak | Nama tampilan untuk server MCP. |
+| `url` | `string` | Tidak | URL lengkap untuk endpoint server MCP. |
+| `headers` | `object` | Tidak | Pasangan nilai kunci yang dikirim sebagai header HTTP dengan setiap permintaan ke server (misalnya, token autentikasi). |
+| `allowed_tools` | `array` | Tidak | Membatasi alat dari server yang dapat dipanggil oleh agen. |
 
-#### Podstawowe użycie
+#### Penggunaan dasar
 
 ### Python
 
@@ -607,9 +618,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Wyszukiwanie plików
+### Penelusuran File
 
-Udostępnij agentowi własne dane za pomocą narzędzia [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl).
+Beri agen akses ke data Anda sendiri menggunakan alat [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id).
 
 ### Python
 
@@ -661,11 +672,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Sterowanie i formatowanie
+## Kemampuan pengarahan dan pemformatan
 
-Możesz sterować danymi wyjściowymi agenta, podając w prompcie konkretne instrukcje formatowania. Umożliwia to dzielenie raportów na określone sekcje i podsekcje, dodawanie tabel danych oraz dostosowywanie tonu do różnych odbiorców (np. „techniczny”, „dla kadry kierowniczej”, „nieformalny”).
+Anda dapat mengarahkan output agen dengan memberikan petunjuk pemformatan tertentu
+dalam perintah Anda. Hal ini memungkinkan Anda menyusun laporan ke dalam bagian dan subbagian tertentu, menyertakan tabel data, atau menyesuaikan gaya bahasa untuk audiens yang berbeda (misalnya, "teknis", "eksekutif", "santai").
 
-W tekście wejściowym wyraźnie określ żądany format wyjściowy.
+Tentukan format output yang diinginkan secara eksplisit dalam teks input Anda.
 
 ### Python
 
@@ -718,9 +730,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Dane wejściowe multimodalne
+## Input multimodal
 
-Deep Research obsługuje dane wejściowe w różnych formatach, w tym obrazy i dokumenty (PDF), co umożliwia agentowi analizowanie treści wizualnych i przeprowadzanie wyszukiwania w internecie w kontekście podanych danych wejściowych.
+Deep Research mendukung input multimodal, termasuk gambar dan dokumen (PDF), sehingga memungkinkan agen menganalisis konten visual dan melakukan riset berbasis web yang dikontekstualisasi oleh input yang diberikan.
 
 ### Python
 
@@ -826,10 +838,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Rozumienie dokumentów
+### Pemahaman dokumen
 
-Rozumienie dokumentów umożliwia przekazywanie dokumentów bezpośrednio jako danych wejściowych multimodalnych.
-Agent analizuje podane dokumenty i przeprowadza badania na podstawie ich treści.
+Pemahaman dokumen memungkinkan dokumen diteruskan langsung sebagai input multimodal.
+Agen menganalisis dokumen yang diberikan dan melakukan riset berdasarkan kontennya.
 
 ### Python
 
@@ -890,29 +902,36 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Obsługa długotrwałych zadań
+## Menangani tugas yang berjalan lama
 
-Deep Research to wieloetapowy proces obejmujący planowanie, wyszukiwanie, czytanie i pisanie. Ten cykl zwykle przekracza standardowe limity czasu oczekiwania synchronicznych wywołań interfejsu API.
+Deep Research adalah proses multi-langkah yang melibatkan perencanaan, penelusuran, pembacaan, dan penulisan. Siklus ini biasanya melampaui batas waktu tunggu standar panggilan API sinkron.
 
-Przedstawiciele muszą korzystać z usługi `background=True`. Interfejs API od razu zwraca obiekt częściowy
-`Interaction`. Za pomocą właściwości `id` możesz pobrać interakcję na potrzeby ankiety. Stan interakcji zmieni się z `in_progress` na `completed` lub `failed`. Szczegółowy przewodnik zarządzania zadaniami w tle znajdziesz w artykule [Wykonywanie w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl).
+Agen wajib menggunakan `background=True`. API segera menampilkan objek
+`Interaction` parsial. Anda dapat menggunakan properti `id` untuk mengambil
+interaksi untuk polling. Status interaksi akan bertransisi dari
+`in_progress` ke `completed` atau `failed`. Untuk panduan komprehensif tentang mengelola tugas latar belakang, lihat [Eksekusi latar belakang](https://ai.google.dev/gemini-api/docs/background-execution?hl=id).
 
 ### Streaming
 
-Deep Research obsługuje przesyłanie strumieniowe, dzięki czemu możesz otrzymywać aktualizacje w czasie rzeczywistym dotyczące postępów w badaniach, w tym podsumowania przemyśleń, dane wyjściowe w postaci tekstu i wygenerowane obrazy.
-Musisz ustawić wartości `stream=True` i `background=True`.
+Deep Research mendukung streaming untuk menerima pembaruan real-time tentang progres riset, termasuk ringkasan pemikiran, output teks, dan gambar yang dihasilkan.
+Anda harus menetapkan `stream=True` dan `background=True`.
 
-Aby otrzymywać pośrednie kroki rozumowania (myśli) i informacje o postępach, musisz włączyć **podsumowania myślenia**, ustawiając wartość `thinking_summaries` na `"auto"` w `agent_config`. Bez tego strumień może dostarczać tylko wyniki końcowe.
+Untuk menerima langkah-langkah penalaran (pemikiran) dan update progres sementara,
+Anda harus mengaktifkan **ringkasan pemikiran** dengan menyetel `thinking_summaries` ke
+`"auto"` di `agent_config`. Tanpa ini, aliran data hanya dapat memberikan hasil akhir.
 
-#### Typy zdarzeń strumienia
+#### Jenis peristiwa streaming
 
-| Typ zdarzenia | Typ delty | Opis |
+| Jenis peristiwa | Jenis delta | Deskripsi |
 | --- | --- | --- |
-| `step.delta` | `thought` | Pośredni krok rozumowania agenta. |
-| `step.delta` | `text` | Część ostatecznego tekstu wyjściowego. |
-| `step.delta` | `image` | Wygenerowany obraz (zakodowany w formacie base64). |
+| `step.delta` | `thought` | Langkah penalaran perantara dari agen. |
+| `step.delta` | `text` | Bagian dari output teks akhir. |
+| `step.delta` | `image` | Gambar yang dihasilkan (berenkode base64). |
 
-W tym przykładzie rozpoczyna się zadanie badawcze i przetwarzanie strumienia z automatycznym ponownym łączeniem. Śledzi ona `interaction_id` i `last_event_id`, dzięki czemu w przypadku utraty połączenia (np. po upływie 600-sekundowego limitu czasu) może wznowić działanie od miejsca, w którym zostało przerwane.
+Contoh berikut memulai tugas riset dan memproses streaming dengan
+koneksi ulang otomatis. Objek ini melacak `interaction_id` dan `last_event_id` sehingga
+jika koneksi terputus (misalnya, setelah waktu tunggu 600 detik), objek tersebut dapat
+melanjutkan dari tempat terakhir.
 
 ### Python
 
@@ -1033,9 +1052,10 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Dodatkowe pytania i interakcje
+## Pertanyaan dan interaksi lanjutan
 
-Po przesłaniu przez pracownika obsługi klienta ostatecznego raportu możesz kontynuować rozmowę, korzystając z `previous_interaction_id`. Dzięki temu możesz poprosić o wyjaśnienie, podsumowanie lub rozwinięcie określonych sekcji badania bez konieczności ponownego rozpoczynania całego zadania.
+Anda dapat melanjutkan percakapan setelah agen menampilkan laporan akhir dengan
+menggunakan `previous_interaction_id`. Dengan begitu, Anda dapat meminta klarifikasi, meringkas, atau menguraikan bagian tertentu dari riset tanpa memulai ulang seluruh tugas.
 
 ### Python
 
@@ -1078,28 +1098,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Kiedy warto używać agenta Deep Research w Gemini
+## Kapan harus menggunakan Agen Deep Research Gemini
 
-Deep Research to **agent**, a nie tylko model. Najlepiej sprawdza się w przypadku zbiorów zadań, które wymagają podejścia „analityk w pudełku”, a nie czatu o niskim poziomie opóźnień.
+Deep Research adalah **agen**, bukan hanya model. Cara ini paling cocok untuk workload yang memerlukan pendekatan "analis dalam kotak" daripada chat latensi rendah.
 
-| Funkcja | Standardowe modele Gemini | Agent Deep Research w Gemini |
+| Fitur | Model Gemini Standar | Agen Deep Research Gemini |
 | --- | --- | --- |
-| **Opóźnienie** | Sekundy | Minuty (asynchroniczne/w tle) |
-| **Proces** | Generowanie –> dane wyjściowe | Planowanie –> Wyszukiwanie –> Czytanie –> Iteracja –> Wynik |
-| **Dane wyjściowe** | tekst konwersacyjny, kod, krótkie podsumowania; | Szczegółowe raporty, długie analizy, tabele porównawcze |
-| **Najlepsze zastosowania** | Chatboty, wyodrębnianie, pisanie kreatywne | analiza rynku, należyta staranność, przeglądy literatury, analiza konkurencji; |
+| **Latensi** | Detik | Menit (Asinkron/Latar Belakang) |
+| **Proses** | Buat -> Output | Rencanakan -> Cari -> Baca -> Lakukan iterasi -> Output |
+| **Output** | Teks percakapan, kode, ringkasan singkat | Laporan mendetail, analisis panjang, tabel perbandingan |
+| **Paling Cocok untuk** | Chatbot, ekstraksi, penulisan kreatif | Analisis pasar, uji tuntas, tinjauan pustaka, lanskap kompetitif |
 
-## Konfiguracja agenta
+## Konfigurasi agen
 
-Funkcja Deep Research używa parametru `agent_config` do kontrolowania zachowania.
-Przekaż go jako słownik z tymi polami:
+Deep Research menggunakan parameter `agent_config` untuk mengontrol perilaku.
+Teruskan sebagai kamus dengan kolom berikut:
 
-| Pole | Typ | Domyślny | Opis |
+| Kolom | Jenis | Default | Deskripsi |
 | --- | --- | --- | --- |
-| `type` | `string` | Wymagane | Musi to być `"deep-research"`. |
-| `thinking_summaries` | `string` | `"none"` | Ustaw wartość `"auto"`, aby otrzymywać pośrednie kroki rozumowania podczas przesyłania strumieniowego. Aby wyłączyć tę funkcję, ustaw wartość `"none"`. |
-| `visualization` | `string` | `"auto"` | Ustaw wartość `"auto"`, aby włączyć wykresy i obrazy generowane przez agenta. Aby wyłączyć tę funkcję, ustaw wartość `"off"`. |
-| `collaborative_planning` | `boolean` | `false` | Ustaw na `true`, aby włączyć wieloetapowe sprawdzanie planu przed rozpoczęciem wyszukiwania. |
+| `type` | `string` | Wajib | Harus berupa `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Setel ke `"auto"` untuk menerima langkah-langkah penalaran perantara selama streaming. Setel ke `"none"` untuk menonaktifkan. |
+| `visualization` | `string` | `"auto"` | Setel ke `"auto"` untuk mengaktifkan diagram dan gambar yang dibuat agen. Setel ke `"off"` untuk menonaktifkan. |
+| `collaborative_planning` | `boolean` | `false` | Setel ke `true` untuk mengaktifkan peninjauan rencana multi-putaran sebelum riset dimulai. |
 
 ### Python
 
@@ -1154,58 +1174,63 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Dostępność i ceny
+## Ketersediaan dan harga
 
-Do agenta Deep Research w Gemini możesz uzyskać dostęp za pomocą interfejsu Interactions API w Google AI Studio i Gemini API.
+Anda dapat mengakses Agen Riset Mendalam Gemini menggunakan Interactions API di Google AI Studio dan Gemini API.
 
-Ceny są oparte na [modelu płatności za wykorzystanie](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#pricing-for-agents), który zależy od podstawowych modeli Gemini i narzędzi używanych przez agenta. W odróżnieniu od standardowych żądań czatu, w których przypadku żądanie prowadzi do jednego wyniku, zadanie Deep Research to proces oparty na działaniach agenta. Pojedyncze żądanie wywołuje autonomiczne zapętlenie planowania, wyszukiwania, czytania i wnioskowania.
+Harga mengikuti [model bayar sesuai penggunaan](https://ai.google.dev/gemini-api/docs/pricing?hl=id#pricing-for-agents) berdasarkan model Gemini yang mendasarinya dan alat spesifik yang digunakan agen. Tidak seperti permintaan chat standar, yang menghasilkan satu output, tugas Deep Research adalah alur kerja agentic. Satu permintaan memicu loop otonom perencanaan, penelusuran, pembacaan, dan penalaran.
 
-### Szacunkowy koszt
+### Perkiraan biaya
 
-Koszty zależą od głębokości wymaganych badań. Agent samodzielnie określa, ile czytania i wyszukiwania jest potrzebne, aby odpowiedzieć na Twój prompt.
+Biaya bervariasi berdasarkan kedalaman riset yang diperlukan. Agen secara otonom menentukan seberapa banyak membaca dan penelusuran yang diperlukan untuk menjawab perintah Anda.
 
-- **Deep Research** (`deep-research-preview-04-2026`): w przypadku typowego zapytania wymagającego umiarkowanej analizy agent może użyć około 80 zapytań, około 250 tys. tokenów wejściowych (ok. 50–70% z nich może być w pamięci podręcznej) i około 60 tys. tokenów wyjściowych.
-  - **Szacunkowa suma:** od 1,00 PLN do 3,00 PLN za zadanie
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): w przypadku dogłębnej analizy konkurencji lub szczegółowego badania due diligence agent może użyć do ok. 160 zapytań, ok. 900 tys. tokenów wejściowych (ok. 50–70% – z pamięci podręcznej) i ok. 80 tys. tokenów wyjściowych.
-  - **Szacunkowa suma:** od 3 do 7 PLN za zadanie
+- **Deep Research** (`deep-research-preview-04-2026`): Untuk kueri umum yang memerlukan analisis sedang, agen dapat menggunakan ~80 kueri penelusuran, ~250 ribu token input (~50-70% di-cache), dan ~60 ribu token output.
+  - **Estimasi total:** ~$1.00 – $3.00 per tugas
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Untuk analisis lanskap kompetitif yang mendalam atau uji tuntas yang ekstensif, agen dapat menggunakan hingga ~160 kueri penelusuran, ~900 ribu token input (~50-70% di-cache), dan ~80 ribu token output.
+  - **Estimasi total:** ~$3.00 – $7.00 per tugas
 
-## kwestie bezpieczeństwa;
+## Pertimbangan keamanan
 
-Przyznanie agentowi dostępu do internetu i plików prywatnych wymaga starannego rozważenia zagrożeń związanych z bezpieczeństwem.
+Memberi agen akses ke web dan file pribadi Anda memerlukan pertimbangan yang cermat terhadap risiko keamanan.
 
-- **Wstrzykiwanie promptów za pomocą plików:** agent odczytuje zawartość podanych przez Ciebie plików. Upewnij się, że przesłane dokumenty (pliki PDF, pliki tekstowe) pochodzą z zaufanych źródeł. Złośliwy plik może zawierać ukryty tekst, który ma na celu manipulowanie danymi wyjściowymi agenta.
-- **Ryzyko związane z treściami w internecie:** agent przeszukuje publiczny internet. Stosujemy co prawda zaawansowane filtry bezpieczeństwa, ale istnieje ryzyko, że agent natrafi na złośliwe strony internetowe i je przetworzy. Zalecamy sprawdzenie `citations` podanych w odpowiedzi, aby zweryfikować źródła.
-- **Eksfiltracja:** zachowaj ostrożność, prosząc agenta o podsumowanie poufnych danych wewnętrznych, jeśli zezwalasz mu też na przeglądanie internetu.
+- **Injeksi perintah menggunakan file:** Agen membaca isi file yang Anda berikan. Pastikan dokumen yang diupload (PDF, file teks) berasal dari sumber tepercaya. File berbahaya dapat berisi teks tersembunyi yang dirancang untuk memanipulasi output agen.
+- **Risiko konten web:** Agen menelusuri web publik. Meskipun kami menerapkan filter keamanan yang andal, ada risiko bahwa agen dapat menemukan dan memproses halaman web berbahaya. Sebaiknya tinjau `citations` yang diberikan
+  dalam respons untuk memverifikasi sumber.
+- **Pencurian data:** Berhati-hatilah saat meminta agen untuk meringkas data internal sensitif jika Anda juga mengizinkannya menjelajahi web.
 
-## Sprawdzone metody
+## Praktik terbaik
 
-- **Pytaj o nieznane:** podaj agentowi instrukcje dotyczące postępowania w przypadku brakujących danych.
-  Na przykład dodaj do promptu *„Jeśli konkretne dane za 2025 r. nie są dostępne, wyraźnie zaznacz, że są to prognozy lub że są niedostępne, zamiast je szacować”*.
-- **Podaj kontekst:** ugruntuj wiedzę agenta, podając informacje lub ograniczenia bezpośrednio w prompcie wejściowym.
-- **Korzystaj z planowania zespołowego:** w przypadku złożonych zapytań włącz planowanie zespołowe, aby przed wykonaniem zadania przejrzeć i dopracować plan badań.
-- **Wprowadzanie danych w różnych formatach:** agent Deep Research obsługuje wprowadzanie danych w różnych formatach.
-  Używaj go ostrożnie, ponieważ zwiększa koszty i ryzyko przepełnienia okna kontekstu.
+- **Perintah untuk nilai yang tidak diketahui:** Beri tahu agen cara menangani data yang tidak ada.
+  Misalnya, tambahkan *"Jika angka spesifik untuk tahun 2025 tidak tersedia, nyatakan secara eksplisit bahwa angka tersebut adalah proyeksi atau tidak tersedia, bukan perkiraan"* ke perintah Anda.
+- **Berikan konteks:** Mendasari riset agen dengan memberikan informasi atau batasan latar belakang langsung dalam perintah input.
+- **Gunakan perencanaan kolaboratif:** Untuk kueri kompleks, aktifkan perencanaan kolaboratif untuk meninjau dan menyempurnakan rencana riset sebelum eksekusi.
+- **Input multimodal:** Agen Deep Research mendukung input multimodal.
+  Gunakan dengan hati-hati, karena hal ini akan meningkatkan biaya dan risiko meluapnya jendela konteks.
 
-## Ograniczenia
+## Batasan
 
-- **Niestandardowe narzędzia:** obecnie nie możesz udostępniać niestandardowych narzędzi do wywoływania funkcji, ale możesz używać zdalnych serwerów MCP (Model Context Protocol) z agentem Deep Research.
-- **Uporządkowane dane wyjściowe:** agent Deep Research nie obsługuje obecnie uporządkowanych danych wyjściowych.
-- **Maksymalny czas wyszukiwania:** agent Deep Research ma maksymalny czas wyszukiwania wynoszący 60 minut. Większość zadań powinna zostać ukończona w ciągu 20 minut.
-- **Wymagania dotyczące sklepu:** uruchomienie agenta za pomocą `background=True` wymaga
+- **Alat kustom:** Saat ini Anda tidak dapat menyediakan alat Pemanggilan Fungsi kustom, tetapi Anda dapat menggunakan server MCP (Model Context Protocol) jarak jauh dengan agen Riset Mendalam.
+- **Output terstruktur:** Agen Riset Mendalam saat ini tidak mendukung output terstruktur.
+- **Waktu riset maksimum:** Agen Deep Research memiliki waktu riset maksimum 60 menit. Sebagian besar tugas akan selesai dalam waktu 20 menit.
+- **Persyaratan penyimpanan:** Eksekusi agen menggunakan `background=True` memerlukan
   `store=True`.
-- **Wyszukiwarka Google:** [wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) jest domyślnie włączona, a do wyników opartych na wiedzy stosowane są [określone ograniczenia](https://ai.google.dev/gemini-api/terms?hl=pl#use-restrictions2).
+- **Penelusuran Google:** [Google
+  Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) diaktifkan secara
+  default dan [pembatasan
+  tertentu](https://ai.google.dev/gemini-api/terms?hl=id#use-restrictions2)
+  berlaku untuk hasil yang di-grounding.
 
-## Co dalej?
+## Langkah berikutnya
 
-- Dowiedz się więcej o [interfejsie Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl).
-- Dowiedz się, jak korzystać z własnych danych za pomocą narzędzia [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl).
+- Pelajari lebih lanjut [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id).
+- Pelajari cara menggunakan data Anda sendiri menggunakan alat [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id).
 
-Prześlij opinię
+Kirim masukan
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ostatnia aktualizacja: 2026-07-14 UTC.
+Terakhir diperbarui pada 2026-07-14 UTC.
 
-Chcesz przekazać coś jeszcze?
+Ada masukan untuk kami?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-14 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-14 UTC."],[],[]]

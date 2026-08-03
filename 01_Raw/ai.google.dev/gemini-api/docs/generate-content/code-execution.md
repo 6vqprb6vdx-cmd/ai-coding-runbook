@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=ko
-fetched_at: 2026-07-27T04:37:30.984283+00:00
-title: "\ucf54\ub4dc \uc2e4\ud589 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=ar
+fetched_at: 2026-08-03T04:38:03.485732+00:00
+title: "\u062a\u0646\u0641\u064a\u0630 \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u0645\u062c\u064a \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-의견 보내기
+إرسال ملاحظات
 
-# 코드 실행
+# تنفيذ الرمز البرمجي
 
-Gemini API는 모델이 Python 코드를 생성하고 실행할 수 있는 코드 실행 도구를 제공합니다. 그런 다음 모델은 최종 출력을 도출할 때까지 코드 실행 결과를 통해 반복적으로 학습할 수 있습니다. 코드 실행을 사용하여 코드 기반 추론의 이점을 활용하는 애플리케이션을 빌드할 수 있습니다. 예를 들어 코드 실행을 사용하여 방정식을 풀거나 텍스트를 처리할 수 있습니다. 코드 실행 환경에 포함된 [라이브러리](#supported-libraries)를 사용하여 더 전문적인 작업을 실행할 수도 있습니다.
+توفّر Gemini API أداة لتنفيذ الرموز البرمجية تتيح للنموذج إنشاء رموز Python البرمجية وتشغيلها. يمكن للنموذج بعد ذلك أن يتعلّم بشكل متكرّر من نتائج تنفيذ الرمز البرمجي إلى أن يصل إلى الناتج النهائي. يمكنك استخدام تنفيذ التعليمات البرمجية لإنشاء تطبيقات تستفيد من الاستدلال المستند إلى التعليمات البرمجية. على سبيل المثال، يمكنك استخدام تطبيق الرموز البرمجية لحل المعادلات أو معالجة النصوص. يمكنك أيضًا استخدام [المكتبات](#supported-libraries) المضمّنة في بيئة تنفيذ الرمز البرمجي لتنفيذ مهام أكثر تخصصًا.
 
-Gemini는 Python으로만 코드를 실행할 수 있습니다. 다른 언어로 코드를 생성해 달라고 Gemini에 요청할 수는 있지만 모델이 코드 실행 도구를 사용하여 코드를 실행할 수는 없습니다.
+يمكن لـ Gemini تنفيذ الرمز البرمجي بلغة Python فقط. سيظل بإمكانك أن تطلب من Gemini إنشاء رمز بلغة أخرى، ولكن لن يتمكّن النموذج من استخدام أداة تنفيذ الرمز البرمجي لتشغيله.
 
-## 코드 실행 사용 설정
+## تفعيل تنفيذ الرموز البرمجية
 
-코드 실행을 사용 설정하려면 모델에서 코드 실행 도구를 구성하세요. 이를 통해 모델이 코드를 생성하고 실행할 수 있습니다.
+لتفعيل تنفيذ الرموز البرمجية، عليك ضبط أداة تنفيذ الرموز البرمجية على النموذج. يتيح ذلك للنموذج إنشاء الرمز وتشغيله.
 
 ### Python
 
@@ -36,7 +36,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents="What is the sum of the first 50 prime numbers? "
     "Generate and run code for the calculation, and make sure you get all 50.",
     config=types.GenerateContentConfig(
@@ -53,7 +53,7 @@ for part in response.candidates[0].content.parts:
         print(part.code_execution_result.output)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -61,7 +61,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 let response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: [
     "What is the sum of the first 50 prime numbers? " +
       "Generate and run code for the calculation, and make sure you get all 50.",
@@ -115,7 +115,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         genai.Text("What is the sum of the first 50 prime numbers? " +
                   "Generate and run code for the calculation, and make sure you get all 50."),
         config,
@@ -130,7 +130,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d ' {"tools": [{"code_execution": {}}],
@@ -143,7 +143,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-출력은 가독성을 위해 서식이 지정된 다음과 같이 표시될 수 있습니다.
+قد يبدو الناتج على النحو التالي، وقد تم تنسيقه لتسهيل قراءته:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,27 +192,27 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-이 출력은 코드 실행을 사용할 때 모델이 반환하는 여러 콘텐츠 부분을 결합합니다.
+يجمع هذا الناتج عدة أجزاء من المحتوى يعرضها النموذج عند استخدام تنفيذ الرمز البرمجي:
 
-- `text`: 모델에서 생성된 인라인 텍스트
-- `executableCode`: 실행 목적으로 모델에서 생성된 코드
-- `codeExecutionResult`: 실행 가능한 코드의 결과
+- ‫`text`: نص مضمّن تم إنشاؤه بواسطة النموذج
+- ‫`executableCode`: رمز تم إنشاؤه بواسطة النموذج ويهدف إلى التنفيذ
+- `codeExecutionResult`: نتيجة الرمز القابل للتنفيذ
 
-이러한 부분의 이름 지정 규칙은 프로그래밍 언어에 따라 다릅니다.
+تختلف اصطلاحات التسمية لهذه الأجزاء حسب لغة البرمجة.
 
-## 이미지를 사용한 코드 실행 (Gemini 3)
+## تنفيذ الرمز البرمجي باستخدام الصور (Gemini 3)
 
-이제 Gemini 3 Flash 모델이 Python 코드를 작성하고 실행하여 이미지를 적극적으로 조작하고 검사할 수 있습니다.
+يمكن لنموذج Gemini 3 Flash الآن كتابة رموز Python البرمجية وتنفيذها من أجل التعديل على الصور وفحصها بشكل نشط.
 
-**사용 사례**
+**حالات الاستخدام**
 
-- **확대 및 검사**: 모델은 세부정보가 너무 작을 때(예: 멀리 있는 게이지를 읽는 경우) 이를 암시적으로 감지하고 더 높은 해상도로 영역을 잘라 다시 검사하는 코드를 작성합니다.
-- **시각적 수학**: 모델은 코드를 사용하여 다단계 계산을 실행할 수 있습니다 (예: 영수증의 항목 합계).
-- **이미지 주석**: 모델은 질문에 답하기 위해 이미지를 주석으로 달 수 있습니다(예: 관계를 보여주는 화살표를 그림).
+- **التكبير والتدقيق**: يرصد النموذج تلقائيًا عندما تكون التفاصيل صغيرة جدًا (على سبيل المثال، قراءة مقياس بعيد)، ويكتب رمزًا برمجيًا لاقتصاص المنطقة وإعادة فحصها بدقة أعلى.
+- **الرياضيات المرئية**: يمكن للنموذج إجراء عمليات حسابية متعددة الخطوات باستخدام الرموز البرمجية (مثل جمع بنود الإيصال).
+- **التعليق التوضيحي على الصور**: يمكن للنموذج إضافة تعليقات توضيحية إلى الصور للإجابة عن أسئلة، مثل رسم أسهم لتوضيح العلاقات.
 
-### 이미지를 사용한 코드 실행 사용 설정
+### تفعيل تنفيذ الرموز البرمجية باستخدام الصور
 
-이미지를 사용한 코드 실행은 Gemini 3 Flash에서 공식적으로 지원됩니다. 도구로서의 코드 실행과 사고를 모두 사용 설정하면 이 동작을 활성화할 수 있습니다.
+تتوفّر ميزة "تنفيذ التعليمات البرمجية" مع الصور رسميًا في Gemini 3 Flash. يمكنك تفعيل هذا السلوك من خلال تفعيل كلّ من "الاستخدام كأداة تنفيذ رموز برمجية" و"التفكير".
 
 ### Python
 
@@ -233,7 +233,7 @@ image = types.Part.from_bytes(
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=[image, "Zoom into the expression pedals and tell me how many pedals are there?"],
     config=types.GenerateContentConfig(
         tools=[types.Tool(code_execution=types.ToolCodeExecution)]
@@ -252,7 +252,7 @@ for part in response.candidates[0].content.parts:
         display(Image.open(io.BytesIO(part.as_image().image_bytes)))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 async function main() {
@@ -266,7 +266,7 @@ async function main() {
 
   // 2. Call the API with Code Execution enabled
   const result = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: [
       {
         inlineData: {
@@ -347,7 +347,7 @@ func main() {
     // 3. Generate Content
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         []*genai.Content{
             {
                 Parts: []*genai.Part{
@@ -388,7 +388,7 @@ func main() {
 
 ```
 IMG_URL="https://goo.gle/instrument-img"
-MODEL="gemini-3.5-flash"
+MODEL="gemini-3.6-flash"
 
 MIME_TYPE=$(curl -sIL "$IMG_URL" | grep -i '^content-type:' | awk -F ': ' '{print $2}' | sed 's/\r$//' | head -n 1)
 if [[ -z "$MIME_TYPE" || ! "$MIME_TYPE" == image/* ]]; then
@@ -427,9 +427,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## 채팅에서 코드 실행 사용
+## استخدام ميزة "تنفيذ الرمز البرمجي" في المحادثة
 
-채팅의 일부로 코드 실행을 사용할 수 있습니다.
+يمكنك أيضًا استخدام تنفيذ التعليمات البرمجية كجزء من محادثة.
 
 ### Python
 
@@ -440,7 +440,7 @@ from google.genai import types
 client = genai.Client()
 
 chat = client.chats.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     config=types.GenerateContentConfig(
         tools=[types.Tool(code_execution=types.ToolCodeExecution)]
     ),
@@ -463,7 +463,7 @@ for part in response.candidates[0].content.parts:
         print(part.code_execution_result.output)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import {GoogleGenAI} from "@google/genai";
@@ -471,7 +471,7 @@ import {GoogleGenAI} from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const chat = ai.chats.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   history: [
     {
       role: "user",
@@ -522,7 +522,7 @@ func main() {
 
     chat, _ := client.Chats.Create(
         ctx,
-        "gemini-3.5-flash",
+        "gemini-3.6-flash",
         config,
         nil,
     )
@@ -544,7 +544,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{"tools": [{"code_execution": {}}],
@@ -587,73 +587,75 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-## 입력/출력 (I/O)
+## الإدخال/الإخراج (I/O)
 
-코드 실행은 파일 입력과 그래프 출력을 지원합니다. 이러한 입력 및 출력 기능을 사용하면 CSV 파일과 텍스트 파일을 업로드하고 파일에 대해 질문하고 대답의 일부로 [Matplotlib](https://matplotlib.org/) 그래프를 생성할 수 있습니다. 출력 파일은 응답에 인라인 이미지로 반환됩니다.
+يتيح تنفيذ الرموز البرمجية إدخال الملفات وإخراج الرسوم البيانية. باستخدام إمكانات الإدخال والإخراج هذه، يمكنك تحميل ملفات CSV وملفات نصية وطرح أسئلة حول الملفات والحصول على رسومات بيانية من [Matplotlib](https://matplotlib.org/) كجزء من الرد. يتم عرض ملفات الإخراج كصور مضمّنة في الردّ.
 
-### I/O 가격 책정
+### أسعار مؤتمر I/O
 
-코드 실행 I/O를 사용하면 입력 토큰과 출력 토큰에 대한 요금이 청구됩니다.
+عند استخدام تطبيق الرموز البرمجية لوحدات الإدخال والإخراج، يتم تحصيل رسوم منك مقابل الرموز المميزة للإدخال والرموز المميزة للإخراج:
 
-**입력 토큰:**
+**الرموز المميّزة المدخَلة:**
 
-- 사용자 프롬프트
+- طلب المستخدم
 
-**출력 토큰:**
+**الرموز المميزة الناتجة:**
 
-- 모델에서 생성된 코드
-- 코드 환경의 코드 실행 출력
-- 사고 토큰
-- 모델에서 생성된 요약
+- الرمز البرمجي الذي أنشأه النموذج
+- ناتج تنفيذ الرمز البرمجي في بيئة الرمز البرمجي
+- رموز مميّزة للتفكير
+- ملخّص من إنشاء النموذج
 
-### I/O 세부정보
+### تفاصيل مؤتمر I/O
 
-코드 실행 I/O를 사용할 때는 다음 기술 세부정보에 유의하세요.
+عند العمل على عمليات الإدخال والإخراج لتنفيذ الرمز، يجب الانتباه إلى التفاصيل الفنية التالية:
 
-- 코드 환경의 최대 런타임은 30초입니다.
-- 코드 환경에서 오류가 발생하면 모델이 코드 출력을 재생성할 수 있습니다. 이러한 상황은 최대 5번까지 발생할 수 있습니다.
-- 최대 파일 입력 크기는 모델 토큰 창에 의해 제한됩니다. AI Studio에서 최대 입력 파일 크기는 100만 토큰입니다 (지원되는 입력 유형의 텍스트 파일의 경우 약 2MB). 너무 큰 파일을 업로드하면 AI Studio에서 전송할 수 없습니다.
-- 코드 실행은 텍스트 및 CSV 파일에서 가장 잘 작동합니다.
-- 입력 파일은 `part.inlineData` 또는 `part.fileData` ([Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 통해 업로드됨)로 전달할 수 있으며 출력 파일은 항상 `part.inlineData`로 반환됩니다.
+- الحدّ الأقصى لوقت تشغيل بيئة الرمز هو 30 ثانية.
+- إذا أدّى تنفيذ الرمز البرمجي إلى حدوث خطأ، قد يقرّر النموذج إعادة إنشاء مخرجات الرمز البرمجي. يمكن أن يحدث ذلك 5 مرات كحد أقصى.
+- يتم تحديد الحد الأقصى لحجم إدخال الملفات من خلال نافذة الرموز المميزة للنموذج. في AI Studio، يبلغ الحد الأقصى لحجم ملف الإدخال مليون رمز مميز (أي حوالي 2 ميغابايت لملفات النصوص من أنواع الإدخال المتوافقة). إذا حمّلت ملفًا كبيرًا جدًا، لن يسمح لك AI Studio بإرساله.
+- يعمل تنفيذ الرمز البرمجي بشكل أفضل مع ملفات النصوص وملفات CSV.
+- يمكن تمرير ملف الإدخال في `part.inlineData` أو `part.fileData` (يتم تحميله
+  عبر [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar))، ويتم دائمًا عرض ملف الإخراج
+  بتنسيق `part.inlineData`.
 
-## 결제
+## الفوترة
 
-Gemini API에서 코드 실행을 사용 설정하는 데에는 추가 비용이 발생하지 않습니다.
-사용 중인 Gemini 모델에 따라 입력 및 출력 토큰의 현재 요율로 비용이 청구됩니다.
+لن يتم تحصيل أي رسوم إضافية مقابل تفعيل تطبيق الرموز البرمجية من خلال Gemini API.
+سيتم تحصيل الرسوم منك وفقًا للمعدّل الحالي لرموز الإدخال والإخراج استنادًا إلى نموذج Gemini الذي تستخدمه.
 
-코드 실행의 청구에 대해 몇 가지 중요한 사항은 다음과 같습니다.
+في ما يلي بعض المعلومات الأخرى التي يجب معرفتها حول الفوترة مقابل تنفيذ الرموز البرمجية:
 
-- 모델에 전달하는 입력 토큰에 대해서는 비용이 한 번만 청구되며, 모델에서 사용자에게 반환하는 최종 출력 토큰에 대해서는 비용이 청구됩니다.
-- 생성된 코드를 나타내는 토큰은 출력 토큰으로 계산됩니다. 생성된 코드에는 텍스트 및 멀티모달 출력(예: 이미지)이 포함될 수 있습니다.
-- 코드 실행 결과도 출력 토큰으로 집계됩니다.
+- يتم تحصيل الرسوم منك مرة واحدة فقط مقابل الرموز المميزة التي يتم إدخالها إلى النموذج، ويتم تحصيل الرسوم منك مقابل الرموز المميزة للناتج النهائي التي يعرضها النموذج.
+- يتم احتساب الرموز المميزة التي تمثّل الرمز البرمجي الذي تم إنشاؤه كرموز مميزة ناتجة. يمكن أن يتضمّن الرمز البرمجي الذي تم إنشاؤه نصًا ومخرجات متعددة الوسائط، مثل الصور.
+- يتم أيضًا احتساب نتائج تنفيذ الرمز البرمجي كرموز مميّزة ناتجة.
 
-결제 모델은 다음 다이어그램에 나와 있습니다.
+يظهر نموذج الفوترة في الرسم البياني التالي:
 
-![코드 실행 청구 모델](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=ko)
+![نموذج الفوترة لتنفيذ الرموز البرمجية](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=ar)
 
-- 사용 중인 Gemini 모델에 따라 입력 및 출력 토큰의 현재 요율로 비용이 청구됩니다.
-- 응답을 생성할 때 Gemini에 코드 실행이 사용되는 경우 원본 프롬프트, 생성된 코드, 실행된 코드 결과가 *중간 토큰* 라벨로 표시되고 *입력 토큰*으로 청구됩니다.
-- 그런 후 Gemini가 요약을 생성하고 생성된 코드, 실행된 코드 결과, 최종 요약을 반환합니다. 이러한 토큰은 *출력 토큰*으로 청구됩니다.
-- Gemini API에는 API 응답에 중간 토큰 수가 포함되기 때문에 초기 프롬프트 이상으로 추가된 입력 토큰이 발생하는 이유를 알 수 있습니다.
+- يتم تحصيل الرسوم منك بالسعر الحالي لرموز الإدخال والإخراج استنادًا إلى نموذج Gemini الذي تستخدمه.
+- إذا استخدم Gemini تنفيذ الرمز البرمجي عند إنشاء ردّك، سيتم تصنيف الطلب الأصلي والرمز البرمجي الذي تم إنشاؤه ونتيجة الرمز البرمجي المنفَّذ على أنّها *رموز مميزة وسيطة*، وسيتم تحصيل الرسوم منها باعتبارها *رموزًا مميزة للإدخال*.
+- بعد ذلك، ينشئ Gemini ملخّصًا ويعرض الرمز البرمجي الذي تم إنشاؤه ونتيجة الرمز البرمجي الذي تم تنفيذه والملخّص النهائي. تتم فوترة هذه الرموز المميزة على أنّها *رموز مميزة ناتجة*.
+- يتضمّن Gemini API عدد الرموز المميّزة الوسيط في الردّ من واجهة برمجة التطبيقات، ما يتيح لك معرفة سبب تلقّيك رموزًا مميزة إضافية للإدخال تتجاوز طلبك الأولي.
 
-## 제한사항
+## القيود
 
-- 모델은 코드를 생성 및 실행할 수만 있습니다. 미디어 파일과 같은 다른 아티팩트는 반환할 수 없습니다.
-- 일부 경우에 코드 실행을 사용 설정하면 모델 출력의 다른 영역(예: 스토리 작성)에서 성능이 저하될 수 있습니다.
-- 다양한 모델이 코드 실행을 성공적으로 사용하는 능력에는 약간의 차이가 있습니다.
+- يمكن للنموذج إنشاء الرمز البرمجي وتنفيذه فقط. ولا يمكنه عرض عناصر أخرى، مثل ملفات الوسائط.
+- في بعض الحالات، يمكن أن يؤدي تفعيل تطبيق الرموز البرمجية إلى حدوث تراجع في جوانب أخرى من مخرجات النموذج (على سبيل المثال، كتابة قصة).
+- تتفاوت النماذج المختلفة في قدرتها على تنفيذ الرموز البرمجية بنجاح.
 
-## 지원되는 도구 조합
+## مجموعات الأدوات المتوافقة
 
-코드 실행 도구를 [Google 검색을 사용한 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)과 결합하여 더 복잡한 사용 사례를 지원할 수 있습니다.
+يمكن دمج أداة تطبيق الرموز البرمجية مع [تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) لتفعيل المزيد من حالات الاستخدام المعقّدة.
 
-Gemini 3 모델은 코드 실행과 같은 기본 제공 도구와 맞춤 도구(함수 호출)의 조합을 지원합니다. 도구 조합이 작동하려면 `id` 및 `thought_signature` 필드를 다시 전달해야 합니다. [도구 조합](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko) 페이지에서 자세히 알아보세요.
+تتيح نماذج Gemini 3 الجمع بين الأدوات المضمّنة (مثل "تنفيذ الرمز البرمجي") والأدوات المخصّصة (استدعاء الدوال). يجب إعادة تمرير الحقلَين `id` و`thought_signature` لكي تعمل ميزة دمج الأدوات. يمكنك الاطّلاع على مزيد من المعلومات في صفحة [مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
 
-## 지원되는 라이브러리
+## المكتبات المتوافقة
 
-코드 실행 환경에는 다음 라이브러리가 포함됩니다.
+تتضمّن بيئة تنفيذ الرمز البرمجي المكتبات التالية:
 
 - attrs
-- 체스
+- شطرنج
 - contourpy
 - fpdf
 - geopandas
@@ -668,9 +670,9 @@ Gemini 3 모델은 코드 실행과 같은 기본 제공 도구와 맞춤 도구
 - numpy
 - opencv-python
 - openpyxl
-- 패키징
-- pandas
-- pillow
+- حزمة محتوى التطبيق
+- باندا
+- وسادة
 - protobuf
 - pylatex
 - pyparsing
@@ -682,29 +684,30 @@ Gemini 3 모델은 코드 실행과 같은 기본 제공 도구와 맞춤 도구
 - scikit-learn
 - scipy
 - seaborn
-- 육
+- ستة
 - striprtf
 - sympy
-- tabulate
+- جدولة
 - tensorflow
 - toolz
 - xlrd
 
-사용자의 고유 라이브러리는 설치할 수 없습니다.
+لا يمكنك تثبيت مكتباتك الخاصة.
 
-## 다음 단계
+## الخطوات التالية
 
-- [코드 실행 Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=ko)을 사용해 보세요.
-- 다른 Gemini API 도구 알아보기:
-  - [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)
-  - [Google 검색으로 그라운딩](https://ai.google.dev/gemini-api/docs/grounding?hl=ko)
+- جرِّب
+  [تنفيذ الرمز البرمجي في Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=ar).
+- مزيد من المعلومات حول أدوات Gemini API الأخرى:
+  - [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
+  - [تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)
 
-의견 보내기
+إرسال ملاحظات
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-최종 업데이트: 2026-06-24(UTC)
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-의견을 전달하고 싶나요?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-24(UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

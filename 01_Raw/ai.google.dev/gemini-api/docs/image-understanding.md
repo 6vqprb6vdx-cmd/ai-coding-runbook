@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja
-fetched_at: 2026-07-27T04:49:05.065927+00:00
-title: "\u753b\u50cf\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar
+fetched_at: 2026-08-03T04:29:35.975500+00:00
+title: "\u0641\u0647\u0645 \u0627\u0644\u0635\u0648\u0631 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-フィードバックを送信
+إرسال ملاحظات
 
-# 画像の理解
+# فهم الصور
 
-Gemini モデルは、マルチモーダル AI として一から構築されています。そのため、画像キャプション、分類、視覚的な質問応答など、さまざまな画像処理タスクやコンピュータ ビジョン タスクを、専用の ML モデルをトレーニングすることなく実行できます。
+تم تصميم نماذج Gemini لتكون متعددة الوسائط منذ البداية، ما يتيح تنفيذ مجموعة واسعة من مهام معالجة الصور ورؤية الكمبيوتر، بما في ذلك على سبيل المثال لا الحصر، إضافة تعليقات توضيحية إلى الصور وتصنيفها والإجابة عن الأسئلة المرئية بدون الحاجة إلى تدريب نماذج مخصّصة للتعلم الآلي.
 
-Gemini モデルは、一般的なマルチモーダル機能に加えて、追加のトレーニングにより、[オブジェクト検出](#object-detection)や[セグメンテーション](#segmentation)などの特定のユースケースで**精度が向上**しています。
+بالإضافة إلى إمكانات النماذج العامة المتعدّدة الوسائط، توفّر نماذج Gemini **دقة محسّنة** لحالات استخدام معيّنة، مثل [رصد العناصر](#object-detection) و[التقسيم](#segmentation)، من خلال تدريب إضافي.
 
-## Gemini に画像を渡す
+## تمرير الصور إلى Gemini
 
-Gemini に画像を渡すには、次の複数の方法があります。
+يمكنك تقديم صور كمدخلات إلى Gemini باستخدام عدة طرق:
 
-- [URL を使用して画像を渡す](#url-image): 一般公開されている画像に最適です。
-- [インライン画像データの受け渡し](#inline-image): base64 でエンコードされた画像データの場合。
-- [File API を使用した画像のアップロード](#upload-image): 大きいファイルや、複数のリクエストで画像を再利用する場合におすすめします。
+- [تمرير الصورة باستخدام عنوان URL](#url-image): هذه الطريقة مثالية للصور المتاحة للجميع.
+- [تمرير بيانات الصورة المضمّنة](#inline-image): لبيانات الصورة المرمّزة بـ base64
+- [تحميل الصور باستخدام File API](#upload-image): ننصح به للملفات الأكبر حجمًا أو لإعادة استخدام الصور في طلبات متعددة.
 
-### URL を使用して画像を渡す
+### تمرير الصورة باستخدام عنوان URL
 
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用して画像をアップロードし、リクエストで渡すことができます。
+يمكنك تحميل صورة باستخدام [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar) وتمريرها في الطلب:
 
 ### Python
 
@@ -44,7 +44,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/organ.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -70,7 +70,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -91,7 +91,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -103,9 +103,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### インライン画像データを渡す
+### تمرير بيانات الصور المضمّنة
 
-画像データは base64 エンコード文字列として指定できます。
+يمكنك تقديم بيانات الصور كسلاسل base64 مشفّرة:
 
 ### Python
 
@@ -119,7 +119,7 @@ with open('path/to/small-sample.jpg', 'rb') as f:
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -144,7 +144,7 @@ const base64ImageFile = fs.readFileSync("path/to/small-sample.jpg", {
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -172,7 +172,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -184,9 +184,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### File API を使用して画像をアップロードする
+### تحميل الصور باستخدام File API
 
-大きなファイルの場合や、同じ画像ファイルを繰り返し使用できるようにするには、Files API を使用します。[Files API ガイド](https://ai.google.dev/gemini-api/docs/files?hl=ja)をご覧ください。
+بالنسبة إلى الملفات الكبيرة أو لاستخدام ملف الصورة نفسه بشكل متكرر، استخدِم Files API. اطّلِع على [دليل Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
 
 ### Python
 
@@ -198,7 +198,7 @@ client = genai.Client()
 my_file = client.files.upload(file="path/to/sample.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -224,7 +224,7 @@ const myfile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -247,7 +247,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -259,9 +259,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 複数の画像を使用したプロンプト
+## تقديم الطلبات باستخدام صور متعددة
 
-`input` 配列に複数の画像オブジェクトを含めることで、1 つのプロンプトで複数の画像を指定できます。
+يمكنك تقديم صور متعددة في طلب واحد من خلال تضمين عناصر صور متعددة في مصفوفة `input`:
 
 ### Python
 
@@ -271,7 +271,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "What is different between these two images?"},
         {
@@ -297,7 +297,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "What is different between these two images?"},
         {
@@ -322,7 +322,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "What is different between these two images?"},
       {
@@ -339,9 +339,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## オブジェクト検出
+## رصد العناصر
 
-モデルは、画像内のオブジェクトを検出し、その境界ボックスの座標を取得するようにトレーニングされます。画像の寸法を基準とした座標は、[0, 1000] にスケーリングされます。元の画像サイズに基づいて、これらの座標をスケールダウンする必要があります。
+يتم تدريب النماذج على رصد العناصر في صورة والحصول على إحداثيات المربّع المحيط بها. يتم تغيير حجم الإحداثيات، بالنسبة إلى أبعاد الصورة، إلى النطاق [0, 1000]. عليك إعادة قياس هذه الإحداثيات استنادًا إلى حجم الصورة الأصلية.
 
 ### Python
 
@@ -363,7 +363,7 @@ class BoundingBoxes(BaseModel):
     boxes: List[BoundingBox]
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": prompt},
         {
@@ -401,7 +401,7 @@ const boundingBoxesSchema = z.object({
 });
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: [
     { type: "text", text: prompt },
     {
@@ -428,7 +428,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Detect the all of the prominent items in the image. The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000."},
       {
@@ -462,13 +462,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-その他の例については、[Gemini クックブック](https://github.com/google-gemini/cookbook)をご覧ください。
+للاطّلاع على المزيد من الأمثلة، يُرجى الانتقال إلى [كتاب الطبخ في Gemini](https://github.com/google-gemini/cookbook).
 
-## セグメンテーション
+## التقسيم
 
-Gemini モデルは、アイテムを検出するだけでなく、セグメント化して輪郭マスクを提供します。
+لا تكتفي نماذج Gemini برصد العناصر، بل تقسمها أيضًا وتوفّر أقنعة حدودها.
 
-モデルは JSON リストを予測します。各項目はセグメンテーション マスクを表します。各アイテムには、0 ～ 1000 の正規化された座標を持つ `[ymin, xmin, ymax, xmax]` 形式の境界ボックス（「`box_2d`」）、オブジェクトを識別するラベル（「`label`」）、最後に境界ボックス内のセグメンテーション マスク（0 ～ 1000 に正規化された `[x, y]` 座標のポリゴン）があります。
+يتوقّع النموذج قائمة JSON، حيث يمثّل كل عنصر قناع تجزئة. يحتوي كل عنصر على مربّع إحاطة ("`box_2d`") بالتنسيق `[ymin, xmin, ymax, xmax]` مع إحداثيات عادية بين 0 و1000، وتصنيف ("`label`") يحدّد العنصر، وأخيرًا قناع التقسيم داخل مربّع الإحاطة كمضلّع من إحداثيات `[x, y]` العادية بين 0 و1000.
 
 ### Python
 
@@ -496,7 +496,7 @@ class BoundingBoxes(BaseModel):
     boxes: List[BoundingBox]
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": prompt},
         {
@@ -542,7 +542,7 @@ const boundingBoxesSchema = z.object({
 });
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: [
     { type: "text", text: prompt },
     {
@@ -572,7 +572,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Give the segmentation masks for the wooden and glass items.\nOutput a JSON list of segmentation masks where each entry contains the 2D\nbounding box in the key \"box_2d\", the segmentation mask in key \"mask\", and\nthe text label in the key \"label\". Use descriptive labels."},
       {
@@ -609,72 +609,76 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![カップケーキが並べられたテーブル。木製とガラス製のオブジェクトがハイライト表示されている](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=ja)
+![طاولة عليها كعكات صغيرة، مع تمييز الأغراض الخشبية والزجاجية](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=ar)
 
-オブジェクトとセグメンテーション マスクを含むセグメンテーション出力の例
+مثال على ناتج التقسيم مع الكائنات وأقنعة التقسيم
 
-## サポートされている画像形式
+## تنسيقات الصور المسموح بها
 
-Gemini は、次の画像形式の MIME タイプをサポートしています。
+يتوافق Gemini مع أنواع MIME التالية لتنسيقات الصور:
 
-- PNG - `image/png`
+- ‫PNG - `image/png`
 - JPEG - `image/jpeg`
 - WEBP - `image/webp`
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-その他のファイル入力方法については、[ファイル入力方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja)ガイドをご覧ください。
+للتعرّف على طرق إدخال الملفات الأخرى، يُرجى الاطّلاع على دليل [طرق إدخال الملفات](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ar).
 
-## 機能
+## الإمكانات
 
-すべての Gemini モデル バージョンはマルチモーダルであり、画像キャプション、Visual Question & Answering、画像分類、オブジェクト検出、セグメンテーションなど、幅広い画像処理タスクやコンピュータ ビジョン タスクで使用できます。
+تتضمّن جميع إصدارات نماذج Gemini وسائط متعددة ويمكن استخدامها في مجموعة واسعة من مهام معالجة الصور ورؤية الكمبيوتر، بما في ذلك على سبيل المثال لا الحصر، إضافة تعليقات توضيحية إلى الصور، والإجابة عن الأسئلة المرئية، وتصنيف الصور، ورصد العناصر وتقسيمها.
 
-Gemini は、品質とパフォーマンスの要件に応じて、特殊な ML モデルを使用する必要性を軽減できます。
+يمكن أن يقلّل Gemini من الحاجة إلى استخدام نماذج تعلُّم آلي متخصّصة، وذلك حسب متطلبات الجودة والأداء.
 
-最新のモデル バージョンは、汎用機能に加えて、[オブジェクト検出](#object-detection)や[セグメンテーション](#segmentation)などの専門的なタスクの精度を向上させるように特別にトレーニングされています。
+تم تدريب أحدث إصدارات النماذج خصيصًا لتحسين دقة المهام المتخصصة بالإضافة إلى الإمكانات العامة، مثل [رصد العناصر](#object-detection) و[التقسيم](#segmentation) المحسّنَين.
 
-## 制限事項と主な技術情報
+## القيود والمعلومات الفنية الأساسية
 
-### ファイルの上限
+### حد الملف
 
-Gemini モデルは、リクエストあたり最大 3,600 個の画像ファイルをサポートしています。
+تتيح نماذج Gemini تحميل 3,600 ملف صورة كحد أقصى لكل طلب.
 
-### トークンの計算
+### احتساب الرموز المميّزة
 
-- 両方の寸法が 384 ピクセル以下の場合、258 個のトークン。大きな画像は 768x768 ピクセルのタイルに分割され、それぞれ 258 個のトークンを消費します。
+- ‫258 رمزًا مميزًا إذا كان كلا البُعدَين <= 384 بكسل
+  يتم تقسيم الصور الأكبر حجمًا إلى مربّعات بحجم 768 × 768 بكسل، وتكلّف كل مربّع 258 رمزًا مميزًا.
 
-タイルの数を計算するおおよその式は次のとおりです。
+في ما يلي صيغة تقريبية لاحتساب عدد المربّعات:
 
-- 切り抜き単位のサイズ（おおよそ `floor(min(width, height)` / 1.5）を計算します。
-- 各ディメンションをクロップ単位サイズで割り、乗算してタイルの数を取得します。
+- احسب حجم وحدة الاقتصاص الذي يبلغ تقريبًا: `floor(min(width, height)` / 1.5).
+- قسِّم كل بُعد على حجم وحدة الاقتصاص واضرب النتيجة في بعضها للحصول على عدد المربّعات.
 
-たとえば、960x540 のサイズの画像の場合、切り抜き単位のサイズは 360 になります。各ディメンションを 360 で割ると、タイルの数は 3 × 2 = 6 になります。
+على سبيل المثال، إذا كانت أبعاد الصورة 960x540، سيكون حجم وحدة الاقتصاص 360. قسِّم كل بُعد على 360، ويكون عدد المربّعات 3 × 2 = 6.
 
-### メディアの解像度
+### درجة دقة الوسائط
 
-Gemini 3 では、`media_resolution` パラメータを使用して、マルチモーダル ビジョン処理をきめ細かく制御できます。`media_resolution` パラメータは、**入力画像または動画フレームごとに割り当てられるトークンの最大数**を決定します。解像度が高いほど、モデルが細かいテキストを読み取ったり、小さな詳細を識別する能力が向上しますが、トークンの使用量とレイテンシが増加します。
+يقدّم Gemini 3 إمكانية التحكّم الدقيق في معالجة الصور المتعدّدة الوسائط باستخدام المَعلمة
+`media_resolution`. تحدّد المَعلمة `media_resolution` **الحد الأقصى لعدد الرموز المميزة المخصّصة لكل صورة إدخال أو إطار فيديو.**
+تؤدي الدقة الأعلى إلى تحسين قدرة النموذج على قراءة النصوص الدقيقة أو تحديد التفاصيل الصغيرة، ولكنها تزيد من استخدام الرموز المميزة ووقت الاستجابة.
 
-## おすすめの方法やお役立ち情報
+## النصائح وأفضل الممارسات
 
-- 画像が正しく回転することを確認します。
-- 鮮明でぼやけていない画像を使用します。
-- テキストを含む 1 つの画像を使用する場合は、`input` 配列の画像の前にテキスト プロンプトを配置します。
+- تأكَّد من تدوير الصور بشكل صحيح.
+- استخدِم صورًا واضحة وغير معتمة.
+- عند استخدام صورة واحدة مع نص، ضَع الطلب النصي *قبل* الصورة في مصفوفة `input`.
 
-## 次のステップ
+## الخطوات التالية
 
-このガイドでは、画像ファイルをアップロードし、画像入力からテキスト出力を生成する方法について説明します。詳細については、次のリソースをご覧ください。
+يوضّح لك هذا الدليل كيفية تحميل ملفات الصور وإنشاء نصوص من مدخلات الصور. لمزيد من المعلومات، يُرجى الاطّلاع على المراجع التالية:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): Gemini で使用するファイルのアップロードと管理について説明します。
-- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions): システム指示を使用すると、特定のニーズやユースケースに基づいてモデルの動作を制御できます。
-- [ファイル プロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide): Gemini API は、テキスト、画像、音声、動画データを使用したプロンプト（マルチモーダル プロンプトとも呼ばれます）をサポートしています。
-- [安全に関するガイダンス](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja): 生成 AI モデルは、不正確、偏見がある、不快な出力など、予期しない出力を生成することがあります。このような出力による危害のリスクを制限するには、後処理と人間による評価が不可欠です。
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar): مزيد من المعلومات حول تحميل الملفات وإدارتها لاستخدامها مع Gemini
+- [تعليمات النظام](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#system-instructions):
+  تتيح لك تعليمات النظام توجيه سلوك النموذج استنادًا إلى احتياجاتك وحالات الاستخدام المحدّدة.
+- [استراتيجيات إنشاء الطلبات](https://ai.google.dev/gemini-api/docs/files?hl=ar#prompt-guide): تتيح واجهة Gemini API إمكانية إنشاء الطلبات باستخدام بيانات نصية وصور وملفات صوت وفيديوهات، ويُعرف ذلك أيضًا باسم إنشاء الطلبات المتعددة الوسائط.
+- [إرشادات الأمان](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ar): في بعض الأحيان، تقدّم نماذج الذكاء الاصطناعي التوليدي نتائج غير متوقعة، مثل نتائج غير دقيقة أو متحيزة أو مسيئة. تُعدّ المعالجة اللاحقة والتقييم البشري ضروريين للحدّ من خطر الأضرار الناجمة عن هذه النتائج.
 
-フィードバックを送信
+إرسال ملاحظات
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-07-07 UTC。
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-ご意見をお聞かせください
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-07 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

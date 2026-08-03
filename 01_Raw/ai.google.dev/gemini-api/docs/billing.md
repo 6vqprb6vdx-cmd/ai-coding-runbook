@@ -1,414 +1,414 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=es-419
-fetched_at: 2026-07-27T04:41:52.334703+00:00
-title: "Facturaci\u00f3n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=vi
+fetched_at: 2026-08-03T04:32:56.148452+00:00
+title: "L\u1eadp h\u00f3a \u0111\u01a1n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-# Facturación
+# Lập hóa đơn
 
-En esta guía, se proporciona una descripción general de las diferentes opciones de facturación de la API de Gemini, se explica cómo habilitar la facturación y supervisar el uso, y se responden las preguntas frecuentes sobre la facturación.
+Hướng dẫn này cung cấp thông tin tổng quan về các lựa chọn tính phí khi dùng Gemini API, giải thích cách bật tính năng thanh toán và theo dõi mức sử dụng, đồng thời giải đáp các câu hỏi thường gặp (FAQ) về việc thanh toán.
 
-## Acerca de la facturación y los niveles
+## Giới thiệu về việc thanh toán và các cấp
 
-La facturación de la API de Gemini se basa en tu historial de pagos.
+Việc tính phí cho Gemini API dựa trên nhật ký thanh toán của bạn.
 
-| Nivel de uso | Calificación | [Límite del nivel de facturación](#spend-caps) |
+| Cấp sử dụng | Vòng loại | [Hạn mức cấp thanh toán](#spend-caps) |
 | --- | --- | --- |
-| **Gratis** | [Proyecto activo](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) o prueba gratuita | N/A |
-| **Nivel 1** | [Configura y vincula una cuenta de facturación activa](#setup-billing) | $250 |
-| **Nivel 2** | Se pagaron USD 100 y pasaron 3 días desde el primer pago exitoso. | $2,000 |
-| **Nivel 3** | Se pagaron USD 1,000 y pasaron 30 días desde el primer pago exitoso. | USD 20,000 a más de USD 100,000 |
+| **Free** | [Dự án đang hoạt động](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) hoặc dùng thử miễn phí | Không áp dụng |
+| **Cấp 1** | [Thiết lập và liên kết một tài khoản thanh toán đang hoạt động](#setup-billing) | 250 USD |
+| **Cấp 2** | Thanh toán 100 USD + 3 ngày kể từ lần thanh toán thành công đầu tiên | $2.000 |
+| **Cấp 3** | Thanh toán 1.000 USD + 30 ngày kể từ lần thanh toán thành công đầu tiên | 20.000 – 100.000 đô la Mỹ trở lên |
 
-Las cuentas nuevas comienzan con el nivel gratuito, que permite el acceso a [ciertos modelos](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) en la API de Gemini y AI Studio, hasta los [límites de frecuencia](https://aistudio.google.com/rate-limit?hl=es-419) del nivel gratuito de los modelos.
+Các tài khoản mới bắt đầu ở Cấp miễn phí, cho phép truy cập vào [một số mô hình](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) trong Gemini API và AI Studio, tối đa theo [hạn mức tốc độ](https://aistudio.google.com/rate-limit?hl=vi) của cấp miễn phí của các mô hình.
 
-Para implementar tus aplicaciones directamente desde el modo de compilación, puedes usar el **nivel básico de Google Cloud**. Este nivel te permite publicar hasta 2 aplicaciones de pila completa sin configurar un proyecto de Google Cloud ni una cuenta de facturación.
-Consulta [Cómo realizar la implementación desde Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=es-419) para obtener más detalles y consulta la [documentación del nivel básico de Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=es-419) para obtener más información.
+Để triển khai các ứng dụng ngay từ Chế độ tạo, bạn có thể sử dụng **Bậc khởi đầu của Google Cloud**. Cấp này cho phép bạn xuất bản tối đa 2 ứng dụng full-stack mà không cần thiết lập dự án Google Cloud hoặc tài khoản thanh toán.
+Hãy xem phần [Triển khai từ Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=vi) để biết thông tin chi tiết và tham khảo [tài liệu về Bậc dành cho người mới bắt đầu của Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=vi) để biết thêm thông tin.
 
-Para acceder a límites de frecuencia más altos, usar modelos avanzados y garantizar que tus instrucciones y respuestas **no** se usen para mejorar los productos de Google\*, puedes [vincular una cuenta de facturación](#setup-billing) y [pagar por adelantado](#prepay) para cambiar a los niveles pagados.
-Luego, avanzarás a niveles superiores según la inversión acumulada y la antigüedad de la cuenta. En el nivel 3, es posible que tengas la opción de cambiar a la facturación [pospago](#postpay).
+Để truy cập vào hạn mức tốc độ cao hơn, sử dụng các mô hình nâng cao và đảm bảo rằng câu lệnh cũng như câu trả lời của bạn **không** được dùng để cải thiện các sản phẩm của Google\*, bạn có thể [liên kết một tài khoản thanh toán](#setup-billing) và [Trả trước](#prepay) để chuyển sang Cấp có tính phí.
+Sau đó, bạn sẽ chuyển sang các cấp cao hơn dựa trên tổng mức chi tiêu và tuổi tài khoản. Ở Cấp 3, bạn có thể chuyển sang phương thức thanh toán [Trả sau](#postpay).
 
-Los niveles, los límites de frecuencia y los límites de las cuentas de facturación se determinan a nivel de la [cuenta de facturación](#cloud-billing).
+Các cấp, hạn mức và hạn mức tài khoản thanh toán đều được xác định ở cấp [tài khoản thanh toán](#cloud-billing).
 
-\* *Privacidad de datos de nivel empresarial: Para obtener más información sobre el uso de datos para los servicios pagados, consulta las [Condiciones del Servicio](https://ai.google.dev/gemini-api/terms?hl=es-419#data-use-paid).*
+\* *Quyền riêng tư đối với dữ liệu cấp doanh nghiệp: Để biết thêm thông tin về việc sử dụng dữ liệu cho các dịch vụ có tính phí, hãy xem [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-paid).*
 
-## Configura la facturación para acceder al nivel pagado
+## Thiết lập thông tin thanh toán để sử dụng Gói trả phí
 
-Puedes crear un proyecto y configurar la facturación, o importar un proyecto existente, para actualizarte al nivel pagado en [Google AI Studio](https://aistudio.google.com/projects?hl=es-419).
-Actualizar del nivel gratuito al nivel pagado implica vincular una cuenta de facturación y [pagar por adelantado](#prepay) para agregar un mínimo de USD 10 (o el equivalente en otras monedas) de créditos a tu cuenta.
+Bạn có thể tạo một dự án và thiết lập thông tin thanh toán hoặc nhập một dự án hiện có để nâng cấp lên Cấp có tính phí trong [Google AI Studio](https://aistudio.google.com/projects?hl=vi).
+Việc nâng cấp từ Bậc miễn phí lên Bậc trả phí có nghĩa là bạn phải liên kết một tài khoản thanh toán và [trả trước](#prepay) để thêm ít nhất 10 USD (hoặc số tiền tương đương bằng các đơn vị tiền tệ khác) vào tài khoản của mình.
 
-1. Ve a la página [Claves de API](https://aistudio.google.com/api-keys?hl=es-419) o [Proyectos](https://aistudio.google.com/projects?hl=es-419) de AI Studio, o a cualquier lugar en el que veas el botón **Configurar facturación** en AI Studio.
-   - De forma predeterminada, los usuarios nuevos tendrán un [proyecto y una clave de API](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) creados para ellos.
-   - Si necesitas una clave nueva, haz clic en [**Crear clave de API**](https://aistudio.google.com/api-keys?hl=es-419) y sigue las instrucciones del diálogo para agregar un par clave-proyecto a la tabla.
-2. Busca el proyecto del nivel gratuito que deseas actualizar al nivel pagado y haz clic en **Configurar facturación** en la columna *Nivel de facturación*.
-3. Si nunca configuraste una cuenta de facturación de Google, haz lo siguiente:
-   - Se te pedirá que selecciones tu país para aceptar las Condiciones del Servicio.
-   - Luego, completa o confirma tu información de contacto y forma de pago para continuar.
-4. Si ya configuraste cuentas de facturación de Google en el pasado, haz lo siguiente:
-   - Se te pedirá que elijas entre tus cuentas de facturación existentes.
-   - Si no quieres usar ninguna de tus cuentas existentes, haz clic en **Agregar una nueva cuenta de facturación** y completa o confirma tu información de contacto y forma de pago para continuar.
-5. A continuación, sucederá una de las siguientes situaciones:
-   - Se te solicitó que prepagues un mínimo de USD 10 para completar la configuración de facturación (lo que significa que tu cuenta se asignó automáticamente al plan de facturación de [prepago](#prepay)).
-   - Se te ofrece la opción de elegir entre los planes de facturación [Prepago](#prepay) y [Pospago](#postpay) para tu cuenta.
-   - Se asignará a un plan de facturación [pospago](#postpay) durante un período intermedio hasta que el nuevo sistema de prepago se propague a todos los usuarios (a partir del 23 de marzo de 2026).
-6. Después de realizar el prepago o seleccionar la opción de pospago, se completará la configuración de tu cuenta.
+1. Chuyển đến trang [Khoá API](https://aistudio.google.com/api-keys?hl=vi), trang [Dự án](https://aistudio.google.com/projects?hl=vi) hoặc bất kỳ nơi nào bạn thấy nút **Thiết lập thông tin thanh toán** trong AI Studio.
+   - Theo mặc định, người dùng mới sẽ có một [dự án và khoá API](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) được tạo cho họ.
+   - Nếu bạn cần một khoá mới, hãy nhấp vào [**Tạo khoá API**](https://aistudio.google.com/api-keys?hl=vi) rồi làm theo hộp thoại để thêm một cặp khoá-dự án vào bảng.
+2. Tìm dự án thuộc Bậc miễn phí mà bạn muốn nâng cấp lên Bậc có tính phí, rồi nhấp vào **Thiết lập thông tin thanh toán** trong cột *Bậc thanh toán*.
+3. Nếu bạn chưa từng thiết lập tài khoản thanh toán trên Google:
+   - Bạn sẽ được yêu cầu chọn quốc gia để đồng ý với Điều khoản dịch vụ.
+   - Sau đó, hãy điền hoặc xác nhận thông tin liên hệ và phương thức thanh toán để tiếp tục.
+4. Nếu bạn đã thiết lập tài khoản thanh toán trên Google trước đây:
+   - Bạn sẽ được yêu cầu chọn trong số các tài khoản thanh toán hiện có.
+   - Nếu bạn không muốn sử dụng bất kỳ tài khoản hiện có nào, hãy nhấp vào **Thêm tài khoản thanh toán mới** rồi điền hoặc xác nhận thông tin liên hệ và phương thức thanh toán để tiếp tục.
+5. Tiếp theo, bạn sẽ:
+   - Được yêu cầu trả trước tối thiểu 100.000 VND để hoàn tất quy trình thiết lập thông tin thanh toán (tức là tài khoản của bạn được tự động chỉ định cho gói thanh toán [Trả trước](#prepay)),
+   - Bạn có thể chọn giữa gói thanh toán [Trả trước](#prepay) và [Trả sau](#postpay) cho tài khoản của mình.
+   - Được chỉ định cho gói thanh toán [Trả sau](#postpay) trong một khoảng thời gian trung gian cho đến khi hệ thống Trả trước mới được áp dụng cho tất cả người dùng (kể từ ngày 23 tháng 3 năm 2026).
+6. Sau khi thanh toán trước hoặc chọn thanh toán sau, bạn đã hoàn tất việc thiết lập tài khoản.
 
-### Actualiza al siguiente nivel pagado
+### Nâng cấp lên gói trả phí tiếp theo
 
-Si ya estás en un nivel pagado y cumples con los [criterios](#about-billing) para cambiar de plan, se actualizará automáticamente al siguiente nivel (sujeto a los [tiempos de procesamiento](#processing-times)).
+Nếu đang sử dụng một gói có tính phí và đáp ứng [các tiêu chí](#about-billing) để thay đổi gói, bạn sẽ được tự động nâng cấp lên gói tiếp theo (tuỳ thuộc vào [thời gian xử lý](#processing-times)).
 
-## Verifica el estado de la facturación
+## Xác minh trạng thái thanh toán
 
-Después de [vincular una cuenta de facturación](#setup-billing) a tu proyecto, puedes supervisar su estado en la [página Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419). A diferencia del nivel gratuito, el estado del nivel pagado es dinámico. Si bien tu nivel de uso se determina según el historial de tu cuenta, la API de Gemini solo atenderá solicitudes si tienes un saldo de crédito [prepago](#prepay) positivo.
+Sau khi [liên kết một tài khoản thanh toán](#setup-billing) với dự án của mình, bạn có thể theo dõi trạng thái của tài khoản đó trên [trang Thanh toán của AI Studio](https://aistudio.google.com/billing?hl=vi). Không giống như bậc miễn phí, trạng thái bậc có tính phí là trạng thái động; mặc dù bậc sử dụng của bạn được xác định dựa trên nhật ký tài khoản, nhưng Gemini API sẽ chỉ xử lý các yêu cầu nếu bạn có số dư tín dụng [Trả trước](#prepay) dương.
 
-En la página [Proyectos](https://aistudio.google.com/projects?hl=es-419), podrás ver el nivel y el plan de facturación de tu proyecto en la columna *Nivel de facturación*. En las columnas *Nivel de facturación* o *Estado*, se muestran las acciones de estado de facturación que tal vez debas realizar para un proyecto:
+Trên trang [Dự án](https://aistudio.google.com/projects?hl=vi), bạn sẽ có thể xem cấp và gói thanh toán của dự án trong cột *Cấp thanh toán*. Mọi thao tác liên quan đến trạng thái thanh toán mà bạn có thể cần thực hiện cho một dự án sẽ xuất hiện trong cột *Bậc thanh toán* hoặc *Trạng thái*:
 
-- “***Configurar la facturación***” si el proyecto no tiene una cuenta de facturación adjunta
-- "***Configurar prepago***" si el proyecto tiene una cuenta de facturación adjunta, pero debe usar un plan de facturación de [prepago](#prepay) que debe configurarse
-- "***Sin créditos***" si se requiere una cuenta de facturación para comprar créditos, pero no se configuró la cuenta de pagos de prepago o se agotó el saldo de crédito disponible.
+- "***Thiết lập thông tin thanh toán***" nếu dự án chưa có tài khoản thanh toán được đính kèm.
+- "***Thiết lập phương thức thanh toán trả trước***" nếu dự án có tài khoản thanh toán được đính kèm, nhưng cần sử dụng gói thanh toán [Trả trước](#prepay) cần được thiết lập.
+- "***Không có tín dụng***" nếu tài khoản thanh toán cần mua tín dụng nhưng tài khoản thanh toán trả trước chưa được thiết lập hoặc số dư tín dụng hiện có đã hết.
 
-Haz clic en cualquiera de los mensajes para continuar con las acciones necesarias.
+Nhấp vào một thông báo bất kỳ để tiến hành các hành động cần thiết.
 
-## Supervisa el uso
+## Giám sát mức sử dụng
 
-Puedes supervisar el uso de la API de Gemini en [Google AI Studio](https://aistudio.google.com/usage?hl=es-419) en **Panel** > **Uso**.
+Bạn có thể theo dõi mức sử dụng Gemini API trong [Google AI Studio](https://aistudio.google.com/usage?hl=vi) trên **Trang tổng quan** > **Mức sử dụng**.
 
-## Planes de facturación
+## Gói thanh toán
 
-Los planes de facturación de la API de Gemini y AI Studio se dividen en dos categorías que determinan cuándo pagas por el uso: prepago y pospago. Puedes consultar el plan de facturación asignado y administrar las formas de pago en la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419).
+Các gói thanh toán cho Gemini API và AI Studio được chia thành 2 loại để xác định thời điểm bạn thanh toán cho mức sử dụng: Trả trước và Trả sau. Bạn có thể kiểm tra gói thanh toán được chỉ định và quản lý phương thức thanh toán trên trang [Thanh toán cho AI Studio](https://aistudio.google.com/billing?hl=vi).
 
-### Prepago
+### Trả trước
 
-En el plan de facturación prepagado, compras créditos para tu saldo prepagado antes de usar la API de Gemini, y los costos de uso de la API se deducen de tu saldo de crédito prepagado [casi en tiempo real](#processing-times).
-Puedes realizar el pago por adelantado [agregando créditos](#buy-credits) a tu cuenta o configurando la [recarga automática](#auto-reload). Después de comprar créditos, los que no se usen vencerán después de 12 meses y [no serán reembolsables](#refunds), excepto después de [cambiar a una cuenta de pospago](#postpay).
+Trong gói thanh toán Trả trước, bạn mua tín dụng để nạp vào số dư trả trước trước khi sử dụng Gemini API và chi phí sử dụng API sẽ được trừ vào số dư tín dụng trả trước của bạn [gần như theo thời gian thực](#processing-times).
+Bạn có thể trả trước bằng cách [thêm tín dụng](#buy-credits) vào tài khoản hoặc thiết lập tính năng [tự động nạp tiền](#auto-reload). Sau khi bạn mua tín dụng, tín dụng chưa sử dụng sẽ hết hạn sau 12 tháng và [không được hoàn tiền](#refunds), trừ trường hợp sau khi [chuyển sang tài khoản Trả sau](#postpay).
 
-Cuando el saldo de crédito de prepago de la cuenta de facturación llegue a USD 0, todas las claves de API de todos los proyectos vinculados a esa cuenta de facturación dejarán de funcionar simultáneamente.
-Los créditos prepagados solo se aplican a los costos de uso de la API de Gemini. No puedes usarlos para pagar otros servicios de Google Cloud.
+Khi số dư tín dụng trả trước trong tài khoản thanh toán đạt đến 0 USD, tất cả khoá API trong tất cả dự án được liên kết với tài khoản thanh toán đó sẽ ngừng hoạt động cùng một lúc.
+Khoản tín dụng trả trước chỉ áp dụng cho chi phí sử dụng Gemini API; bạn không thể dùng khoản tín dụng này để thanh toán cho các dịch vụ khác của Google Cloud.
 
-Los usuarios nuevos tienen el plan de facturación de prepago de forma predeterminada. Es posible que los proyectos anteriores a la introducción de los planes de facturación de prepago y pospago deban [actualizar los detalles de facturación del proyecto](#verify-billing) antes de seguir usando la API de Gemini.
+Người dùng mới sẽ mặc định sử dụng gói thanh toán Trả trước. Những dự án có trước thời điểm ra mắt gói thanh toán trả trước và trả sau có thể cần phải [cập nhật thông tin thanh toán của dự án](#verify-billing) trước khi tiếp tục sử dụng Gemini API.
 
-*Ten en cuenta que el prepago no está disponible para las cuentas [facturadas (o sin conexión)](https://docs.cloud.google.com/billing/docs/concepts?hl=es-419#billing_account_types).*
+*Xin lưu ý rằng phương thức Trả trước không dùng được cho tài khoản [Có hoá đơn (hoặc Ngoại tuyến)](https://docs.cloud.google.com/billing/docs/concepts?hl=vi#billing_account_types).*
 
-#### Compre créditos
+#### Mua tín dụng
 
-Puedes comprar créditos manualmente antes de usar la API de Gemini para cargarlos en el saldo de crédito de tu cuenta prepagada.
+Bạn có thể mua tín dụng theo cách thủ công trước khi sử dụng Gemini API để nạp tín dụng vào số dư tín dụng trong tài khoản Trả trước.
 
-Para comprar créditos, ve a la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419) y selecciona **Comprar créditos**.
-La compra mínima es de USD 10. El importe máximo de créditos que puedes pagar por adelantado es de USD 5,000.
+Để mua tín dụng, hãy chuyển đến trang [Thanh toán của AI Studio](https://aistudio.google.com/billing?hl=vi) rồi chọn **Mua tín dụng**.
+Số tiền mua hàng tối thiểu là 10 USD. Số tiền tín dụng tối đa mà bạn có thể trả trước là 50.000.000 VND.
 
-#### Volver a cargar automáticamente
+#### Tự động nạp tiền
 
-La recarga automática es una función opcional que recarga automáticamente tu saldo de crédito prepagado cuando se está agotando. Esto es útil para evitar interrupciones del servicio.
+Tự động nạp tiền là một tính năng không bắt buộc, giúp tự động nạp thêm tín dụng trả trước khi số dư tín dụng sắp hết. Điều này giúp tránh bị gián đoạn dịch vụ.
 
-Puedes configurar la recarga automática y ver su estado en la tarjeta *Créditos disponibles* de la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419). Haz clic en **Configurar la recarga automática** o **Administrar la recarga automática** para establecer tu forma de pago, el importe de la recarga y el saldo mínimo que activa un pago de recarga.
+Bạn có thể thiết lập chế độ tự động nạp tiền và xem trạng thái tự động nạp tiền trong thẻ *Số tín dụng hiện có* trên trang [Thanh toán của AI Studio](https://aistudio.google.com/billing?hl=vi). Nhấp vào **Thiết lập tính năng tự động nạp tiền** hoặc **Quản lý tính năng tự động nạp tiền** để thiết lập phương thức thanh toán, số tiền nạp và số dư tối thiểu kích hoạt khoản thanh toán nạp tiền.
 
-#### Límite de carga automática mensual
+#### Hạn mức tính phí tự động hằng tháng
 
-El límite de carga automática mensual está disponible para los usuarios de prepago y ayuda a evitar costos inesperados por las recargas automáticas frecuentes de crédito.
-Usa esta función para establecer un límite máximo para las recargas automáticas de crédito en un solo ciclo de facturación. Una vez que el importe total de las recargas automáticas en un ciclo de facturación alcanza este límite, el sistema inhabilita la recarga automática hasta el comienzo del mes siguiente. Los pagos únicos que inicias de forma manual no se descuentan de este límite.
+Giới hạn tính phí tự động hằng tháng dành cho người dùng trả trước và giúp ngăn chặn các khoản phí không mong muốn do nạp tiền tự động quá thường xuyên.
+Sử dụng tính năng này để đặt hạn mức tối đa cho số lần tự động nạp lại tín dụng trong một chu kỳ thanh toán. Khi tổng số tiền tự động nạp tiền trong một chu kỳ thanh toán đạt đến hạn mức này, hệ thống sẽ tắt tính năng tự động nạp tiền cho đến khi bắt đầu tháng tiếp theo. Các khoản thanh toán một lần mà bạn thực hiện theo cách thủ công sẽ không được tính vào giới hạn này.
 
-Para establecer el límite de pago automático mensual cuando la recarga automática está habilitada, sigue estos pasos:
+Cách đặt hạn mức tính phí tự động hằng tháng khi bật tính năng tự động nạp tiền:
 
-1. Ve a la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419).
-2. Haz clic en **Administrar la recarga automática**.
-3. Expande la sección **Límite mensual** y, luego, ingresa el límite mensual máximo para las recargas automáticas.
-4. Haz clic en **Guardar**.
+1. Truy cập vào trang [Thanh toán của AI Studio](https://aistudio.google.com/billing?hl=vi).
+2. Nhấp vào **Quản lý tính năng tự động nạp tiền**.
+3. Mở rộng mục **Hạn mức hằng tháng** rồi nhập hạn mức hằng tháng tối đa cho tính năng tự động nạp tiền.
+4. Nhấp vào **Lưu**.
 
-### Pospago
+### Trả sau
 
-En el plan de facturación pospago, tu cuenta de facturación de Cloud acumula costos y se te cobra automáticamente al final del mes o cuando tus costos alcanzan un [límite de inversión asignado automáticamente](#tier-spend-caps) según el nivel de tu cuenta.
-El pago se cobra a la forma de pago asociada a tu cuenta de pagos pospago, que puedes administrar en la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419).
+Trong gói thanh toán trả sau, tài khoản thanh toán trên đám mây của bạn sẽ tích luỹ chi phí và bạn sẽ tự động bị tính phí vào cuối tháng hoặc khi chi phí đạt đến [hạn mức chi tiêu được chỉ định tự động](#tier-spend-caps) dựa trên cấp tài khoản của bạn.
+Khoản thanh toán sẽ được tính vào phương thức thanh toán được liên kết với tài khoản thanh toán Trả sau của bạn. Bạn có thể quản lý phương thức thanh toán này trên trang [Lập hoá đơn của AI Studio](https://aistudio.google.com/billing?hl=vi).
 
-Cuando cumples con los [criterios del nivel 3](#about-billing), puedes cambiar manualmente del plan prepagado al pospagado. Para cambiar de plan, deberás hacer clic en el botón **Cambiar a pospago** que aparece en la esquina superior derecha de la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419) cuando tu cuenta cumpla con los requisitos.
+Khi đáp ứng [các tiêu chí của Cấp 3](#about-billing), bạn có thể chuyển từ gói Trả trước sang gói Trả sau theo cách thủ công. Để thay đổi gói, bạn cần nhấp vào nút **Chuyển sang trả sau** xuất hiện ở trên cùng bên phải của trang [Thanh toán cho AI Studio](https://aistudio.google.com/billing?hl=vi) khi tài khoản của bạn đủ điều kiện.
 
-Luego, en la página **Facturación**, podrás ver tu saldo, las fechas de vencimiento y los pagos anteriores, así como realizar pagos y administrar las formas de pago.
+Sau đó, trên trang **Thanh toán**, bạn có thể xem số dư, ngày đến hạn và các khoản thanh toán trước đây, cũng như thực hiện thanh toán và quản lý phương thức thanh toán.
 
-Cuando [configures la facturación](#setup-billing) para un proyecto nuevo, si cumples con los requisitos para el pospago, tendrás la opción de elegir entre prepago y pospago en el diálogo de [configuración de facturación](#setup-billing).
+Khi [thiết lập thông tin thanh toán](#setup-billing) cho một dự án mới, nếu đủ điều kiện sử dụng phương thức thanh toán Trả sau, bạn sẽ có thể chọn giữa phương thức thanh toán Trả trước và Trả sau trong hộp thoại [thiết lập thông tin thanh toán](#setup-billing).
 
-Después de cambiar una cuenta de facturación de Cloud para que use el plan de facturación con posterioridad al pago, todos los proyectos vinculados a esa cuenta de facturación se cambiarán al plan con posterioridad al pago. No puedes volver a cambiar esa cuenta de facturación al plan de facturación de prepago. Puedes trasladar un proyecto a una cuenta de facturación con un plan de facturación diferente para cambiar el ciclo de facturación de ese proyecto. Visita la documentación de Cloud sobre la [administración de la facturación de proyectos](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419).
+Sau khi bạn chuyển một tài khoản thanh toán trên Cloud sang sử dụng gói thanh toán Trả sau, tất cả các dự án được liên kết với tài khoản thanh toán đó sẽ được chuyển sang gói Trả sau. Bạn không thể di chuyển tài khoản thanh toán đó trở lại gói thanh toán Trả trước. Bạn có thể di chuyển một dự án sang tài khoản thanh toán có gói thanh toán khác để thay đổi chu kỳ tính phí cho dự án đó; hãy truy cập vào tài liệu trên Cloud về [cách quản lý hoạt động thanh toán cho dự án](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=vi).
 
-Puedes obtener más información sobre el ciclo de cobro de Postpago en la [guía de Facturación de Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419).
+Bạn có thể tìm hiểu thêm về chu kỳ tính phí Postpay trong [hướng dẫn về Thanh toán trên đám mây](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=vi).
 
-## Límites de inversión
+## Giới hạn chi tiêu
 
-La API de Gemini admite límites de inversión mensuales a nivel de la cuenta de facturación y del proyecto. Estos controles están diseñados para proteger tu cuenta de cargos inesperados y el ecosistema para garantizar la disponibilidad del servicio.
+Gemini API hỗ trợ hạn mức chi tiêu hằng tháng ở cả cấp tài khoản thanh toán và cấp dự án. Các chế độ kiểm soát này được thiết kế để bảo vệ tài khoản của bạn khỏi tình trạng sử dụng quá mức ngoài dự kiến và bảo vệ hệ sinh thái để đảm bảo tính sẵn có của dịch vụ.
 
-*Ten en cuenta que los límites de inversión no están disponibles para las cuentas [facturadas (o sin conexión)](https://docs.cloud.google.com/billing/docs/concepts?hl=es-419#billing_account_types).*
+*Xin lưu ý rằng hạn mức chi tiêu không dùng được cho tài khoản [Có hoá đơn (hoặc Ngoại tuyến)](https://docs.cloud.google.com/billing/docs/concepts?hl=vi#billing_account_types).*
 
-### Límites de inversión del proyecto
+### Giới hạn chi tiêu cho dự án
 
-Puedes establecer tus propios límites de inversión a [nivel del proyecto](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) en AI Studio.
-Esto es útil si tienes varios proyectos en la misma cuenta de facturación y deseas asegurarte de que cada uno tenga acceso a una cantidad suficiente del límite de gasto acumulativo.
+Bạn có thể đặt hạn mức chi tiêu [ở cấp dự án](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) trong AI Studio.
+Điều này sẽ hữu ích nếu bạn có nhiều dự án trong cùng một tài khoản thanh toán và muốn đảm bảo mỗi dự án đều có đủ hạn mức chi tiêu tích luỹ.
 
-Las cuentas con los [roles](https://docs.cloud.google.com/iam/docs/roles-overview?hl=es-419) de editor, propietario o administrador del proyecto pueden establecer límites de inversión por proyecto en AI Studio en la página [Inversión](https://aistudio.google.com/spend?hl=es-419) en **Límite de inversión mensual** > **Editar límite de inversión**.
+Những tài khoản có [vai trò](https://docs.cloud.google.com/iam/docs/roles-overview?hl=vi) người chỉnh sửa, chủ sở hữu hoặc quản trị viên dự án có thể đặt hạn mức chi tiêu cho mỗi dự án trong AI Studio trên trang [Chi tiêu](https://aistudio.google.com/spend?hl=vi) trong phần **Hạn mức chi tiêu hằng tháng** > **Chỉnh sửa hạn mức chi tiêu**.
 
-Para obtener detalles sobre los permisos específicos de IAM de Google Cloud necesarios para ver o editar los límites de inversión y la información de facturación en AI Studio, consulta la [guía de solución de problemas de AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=es-419#iam-permissions).
+Để biết thông tin chi tiết về các quyền IAM cụ thể trên Google Cloud cần thiết để xem hoặc chỉnh sửa hạn mức chi tiêu và thông tin thanh toán trong AI Studio, hãy xem [hướng dẫn khắc phục sự cố AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=vi#iam-permissions).
 
-Si [trasladas un proyecto a una cuenta de facturación diferente](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#change_the_billing_account_for_a_project), se mantendrá cualquier límite de inversión que ya hayas establecido para ese proyecto, pero la inversión acumulada se restablecerá a USD 0 para el nuevo ciclo de facturación.
+Nếu bạn [chuyển một dự án sang một tài khoản thanh toán khác](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=vi#change_the_billing_account_for_a_project), thì mọi hạn mức chi tiêu mà bạn đã đặt cho dự án đó sẽ vẫn giữ nguyên, nhưng mọi khoản chi tiêu tích luỹ sẽ được đặt lại thành 0 USD cho chu kỳ thanh toán mới.
 
-Las tareas de larga duración, como las finalizaciones en [modo por lotes](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419) y las sesiones de agentes, pueden generar cargos por excedentes que superen el límite de inversión de tu proyecto.
+Các tác vụ chạy trong thời gian dài như hoàn tất [chế độ hàng loạt](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) và các phiên của tác nhân có thể phát sinh phí vượt quá hạn mức chi tiêu của dự án.
 
-Los tiempos de procesamiento de los datos de facturación pueden retrasarse en AI Studio hasta alrededor de 10 minutos. Es posible que experimentes excedentes más allá del límite de tu proyecto si los datos de facturación no se procesan antes de que se acumulen más cargos.
+Thời gian xử lý dữ liệu thanh toán trong AI Studio có thể bị chậm trễ, tối đa khoảng 10 phút. Bạn có thể bị tính phí vượt quá hạn mức dự án nếu dữ liệu thanh toán chưa được xử lý trước khi phát sinh thêm các khoản phí.
 
-### Límites de inversión de los niveles de la cuenta de facturación
+### Hạn mức chi tiêu theo cấp của tài khoản thanh toán
 
-Cada [nivel](#about-billing) tiene un límite de inversión mensual máximo:
+Mỗi [bậc](#about-billing) đều có hạn mức chi tiêu tối đa hằng tháng:
 
-| Nivel de uso | Límite de inversión |
+| Cấp sử dụng | Giới hạn chi tiêu |
 | --- | --- |
-| **Gratis** | N/A |
-| **Nivel 1** | $250 |
-| **Nivel 2** | $2,000 |
-| **Nivel 3** | USD 20,000 a USD 100,000 |
+| **Free** | Không áp dụng |
+| **Cấp 1** | 250 USD |
+| **Cấp 2** | $2.000 |
+| **Cấp 3** | 20.000 – 100.000 đô la Mỹ |
 
-Se aplican límites de uso mensuales para la API de Gemini a nivel de la [cuenta de facturación](#cloud-billing). Si bien los límites predeterminados están preestablecidos, puedes [solicitar un aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=es-419) para admitir un mayor uso. La inversión total se agrega en todos los proyectos vinculados que tienen habilitado el servicio de la API de Gemini. Después de que el total acumulado de la cuenta alcance el límite del nivel, se pausará el servicio para todos los proyectos vinculados a esa cuenta de facturación hasta el inicio del próximo ciclo de facturación (el 1 de cada mes).
+Hạn mức sử dụng hằng tháng được áp dụng cho Gemini API ở cấp [tài khoản thanh toán](#cloud-billing). Mặc dù các giới hạn mặc định được đặt sẵn, nhưng bạn có thể [yêu cầu tăng](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=vi) để đáp ứng mức sử dụng cao hơn. Tổng mức chi tiêu được tổng hợp trên tất cả các dự án được liên kết có bật dịch vụ Gemini API. Sau khi tổng số tài khoản tích luỹ đạt đến giới hạn của cấp, dịch vụ sẽ bị tạm dừng cho tất cả các dự án được liên kết với tài khoản thanh toán đó cho đến khi bắt đầu chu kỳ thanh toán tiếp theo (ngày 1 của mỗi tháng).
 
-#### Evalúa la inversión de tu cuenta de facturación
+#### Đánh giá mức chi tiêu của tài khoản thanh toán
 
-Para evaluar tu inversión mensual histórica y determinar si los nuevos [límites de inversión de nivel de la cuenta de facturación](#tier-spend-caps) afectarán tus proyectos en curso, sigue estos pasos:
+Để đánh giá mức chi tiêu hằng tháng trước đây nhằm xác định xem [hạn mức chi tiêu theo cấp độ Tài khoản thanh toán](#tier-spend-caps) mới có ảnh hưởng đến các dự án đang diễn ra của bạn hay không, hãy làm theo các bước sau:
 
-1. En la consola de Google Cloud, consulta la página [Informes de tu cuenta de Facturación de Cloud](https://console.cloud.google.com/billing/reports?hl=es-419).
-   - Si tienes más de una cuenta de facturación, en el mensaje, elige la cuenta de Facturación de Cloud de la que quieres ver informes de costos.
-2. De forma predeterminada, el informe se establece en "Agrupar por servicio" en el "Mes actual". Verás **API de Gemini** en la columna **Servicio** y la inversión total en la columna **Costo de uso** de la tabla.
-3. Para ver los costos detallados limitados al uso de la API de Gemini, configura el filtro **Agrupar por** para agrupar por **SKU** y el filtro **Servicios** en **API de Gemini**.
-4. Ajusta el filtro **Período por fecha de uso** al período que desees para evaluar tu inversión histórica en un período.
+1. Trong bảng điều khiển Google Cloud, hãy xem trang [Báo cáo tài khoản thanh toán Cloud](https://console.cloud.google.com/billing/reports?hl=vi).
+   - Nếu bạn có nhiều tài khoản thanh toán, hãy chọn tài khoản thanh toán Cloud mà bạn muốn xem báo cáo chi phí khi được nhắc.
+2. Theo mặc định, báo cáo sẽ là "Nhóm theo dịch vụ" trong "Tháng hiện tại". Bạn sẽ thấy **Gemini API** trong cột **Dịch vụ** và tổng mức chi tiêu trong cột **Chi phí sử dụng** của bảng.
+3. Để xem chi phí chi tiết chỉ giới hạn ở mức sử dụng Gemini API, hãy đặt bộ lọc **Nhóm theo** để nhóm theo **SKU** và bộ lọc **Dịch vụ** thành **Gemini API**.
+4. Điều chỉnh bộ lọc **Phạm vi thời gian theo ngày sử dụng** thành phạm vi bạn muốn để đánh giá mức chi tiêu trước đây trong một khoảng thời gian.
 
-## Tiempos de procesamiento
+## Thời gian xử lý
 
-Los indicadores y las actualizaciones de facturación no siempre se realizan en tiempo real.
+Các tín hiệu và thông tin cập nhật về việc thanh toán không phải lúc nào cũng diễn ra theo thời gian thực.
 
-- **Uso de créditos**: Por lo general, los costos de uso se deducen de tu saldo en cuestión de minutos.
-- **Confirmación del pago**: Si bien la mayoría de los pagos con tarjeta son instantáneos, algunas formas de pago (como las transferencias bancarias) pueden tardar varios días en procesarse. Los servicios solo se reanudan o actualizan después de que se confirma oficialmente la compra de créditos.
-- **Actualizaciones de nivel**: Después de un pago exitoso o cuando cumples con los [criterios de actualización](#about-billing), las actualizaciones de nivel suelen reflejarse en un plazo de 10 minutos.
-- **Gráficos de desglose del costo total**: Los gráficos que muestran el desglose del costo total en las páginas [Facturación](https://aistudio.google.com/billing?hl=es-419) y [Inversión](https://aistudio.google.com/spend?hl=es-419) pueden tardar hasta 24 horas en actualizarse.
+- **Mức sử dụng tín dụng**: Chi phí sử dụng thường được trừ vào số dư của bạn trong vòng vài phút.
+- **Xác nhận thanh toán**: Mặc dù hầu hết các khoản thanh toán bằng thẻ đều được xử lý ngay lập tức, nhưng một số phương thức thanh toán (như chuyển khoản ngân hàng) có thể mất vài ngày để xử lý. Các dịch vụ chỉ tiếp tục hoặc nâng cấp sau khi giao dịch mua tín dụng được xác nhận chính thức.
+- **Nâng cấp cấp độ**: Sau khi bạn thanh toán thành công hoặc khi bạn đáp ứng [các tiêu chí nâng cấp](#about-billing), cấp độ thường sẽ được nâng cấp trong vòng 10 phút.
+- **Biểu đồ phân tích tổng chi phí**: Biểu đồ cho thấy thông tin phân tích tổng chi phí của bạn trên cả trang [Thanh toán](https://aistudio.google.com/billing?hl=vi) và trang [Chi tiêu](https://aistudio.google.com/spend?hl=vi) có thể mất đến 24 giờ để cập nhật.
 
-Lee las guías de Facturación de Cloud sobre el [ciclo de facturación](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419#delayed-billing) y las latencias de [transacciones](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=es-419#missing-transactions) para obtener más información sobre posibles retrasos en la facturación.
+Hãy đọc hướng dẫn về Cloud Billing liên quan đến [chu kỳ tính phí](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=vi#delayed-billing) và độ trễ [giao dịch](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=vi#missing-transactions) để tìm hiểu thêm về các trường hợp có thể bị chậm trễ trong việc lập hoá đơn.
 
-## Reembolsos
+## Hoàn tiền
 
-No se permiten reembolsos para las cuentas de facturación **prepago**, excepto cuando se cambian los tipos de cuenta.
+Bạn không được hoàn tiền cho tài khoản thanh toán **Trả trước**, trừ trường hợp chuyển đổi loại tài khoản.
 
-**Cuando una cuenta prepagada cambia al tipo de cuenta pospagada** (después de que cumples con los [criterios](#about-billing) y [actualizas manualmente](#postpay) tu cuenta), se cierra la cuenta prepagada y los créditos prepagados restantes se reembolsan automáticamente a la forma de pago registrada.
+**Khi tài khoản Trả trước chuyển sang loại tài khoản Trả sau** (sau khi bạn đáp ứng [các tiêu chí](#about-billing) và [nâng cấp tài khoản theo cách thủ công](#postpay)), tài khoản Trả trước sẽ bị đóng và mọi khoản tín dụng trả trước còn lại sẽ tự động được hoàn lại vào phương thức thanh toán trong hồ sơ.
 
-Si [cierras](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=es-419#close-a-billing-account) tu cuenta prepagada por cualquier motivo que no sea la actualización a una cuenta pospagada, se perderán los créditos prepagados restantes.
+Nếu bạn [đóng](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=vi#close-a-billing-account) tài khoản Trả trước vì bất kỳ lý do nào khác ngoài việc nâng cấp lên tài khoản Trả sau, mọi khoản tín dụng trả trước còn lại sẽ bị mất.
 
-Los créditos comprados vencen después de 1 año. Después del vencimiento, los créditos se pierden y no se pueden recuperar.
+Khoản tín dụng đã mua sẽ hết hạn sau 1 năm. Sau khi hết hạn, các khoản tín dụng sẽ bị mất và không thể truy xuất.
 
-Las cuentas de **pospago** cumplen con la [política de reembolsos de Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=es-419#request_a_refund).
+Tài khoản **trả sau** tuân theo [chính sách hoàn tiền của Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=vi#request_a_refund).
 
-## Cuentas de facturación de Cloud
+## Tài khoản thanh toán trên Cloud
 
-La API de Gemini usa [cuentas de facturación de Cloud](https://cloud.google.com/billing/docs/concepts?hl=es-419) para los servicios de facturación, que puedes [configurar directamente en AI Studio](#setup-billing).
-Puedes usar AI Studio para hacer un seguimiento de los gastos, comprender los costos y realizar pagos.
+Gemini API sử dụng [tài khoản thanh toán trên Cloud](https://cloud.google.com/billing/docs/concepts?hl=vi) cho các dịch vụ thanh toán. Bạn có thể [thiết lập tài khoản này ngay trong AI Studio](#setup-billing).
+Bạn có thể sử dụng AI Studio để theo dõi mức chi tiêu, tìm hiểu chi phí và thanh toán.
 
-Los niveles, los límites de frecuencia y los límites de las cuentas de facturación se determinan a nivel de la cuenta de facturación.
+Các cấp, hạn mức tốc độ và hạn mức tài khoản thanh toán đều được xác định ở cấp tài khoản thanh toán.
 
-### Proyectos y claves de API
+### Dự án và khoá API
 
-Todos los [proyectos](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) vinculados a una cuenta de Facturación de Cloud heredan el nivel de uso y los límites de tarifas y los límites de cuenta asociados de la cuenta de facturación. Si [cambias un proyecto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#change_the_billing_account_for_a_project) de una cuenta de facturación a otra, su nivel y, posteriormente, los límites de frecuencia y los límites de la cuenta cambiarán al nivel de la nueva cuenta de facturación.
+Tất cả [dự án](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) được liên kết với một tài khoản Thanh toán trên đám mây đều kế thừa cấp sử dụng, hạn mức liên quan và hạn mức tài khoản của tài khoản thanh toán đó. Nếu bạn [thay đổi dự án](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=vi#change_the_billing_account_for_a_project) từ tài khoản thanh toán này sang tài khoản thanh toán khác, thì cấp của dự án đó, cũng như hạn mức và giới hạn tài khoản, sẽ chuyển sang cấp của tài khoản thanh toán mới.
 
-El gasto acumulado (en todos los productos de Google Cloud) y la antigüedad de la cuenta en todos los proyectos vinculados a una cuenta de facturación se tienen en cuenta para las [calificaciones de nivel](#about-billing) de esa cuenta de facturación.
+Tổng mức chi tiêu (cho tất cả các sản phẩm của Google Cloud) và tuổi tài khoản trên tất cả các dự án được liên kết với một tài khoản thanh toán sẽ được tính vào [điều kiện để đạt được cấp](#about-billing) của tài khoản thanh toán đó.
 
-Puedes [desvincular un proyecto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#disable_billing_for_a_project) de su cuenta de facturación para volver al nivel gratuito.
+Bạn có thể [huỷ liên kết một dự án](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=vi#disable_billing_for_a_project) khỏi tài khoản thanh toán của dự án đó để quay lại bậc miễn phí.
 
-Las [claves de API](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419) son credenciales que se generan dentro de un proyecto.
-No tienen parámetros de configuración de facturación independientes, sino que heredan los límites de nivel y el estado de facturación del proyecto. El uso acumulativo de todas las claves de un proyecto se incluye en el límite de inversión de ese proyecto y en la inversión total de la cuenta de facturación.
+[Khoá API](https://ai.google.dev/gemini-api/docs/api-key?hl=vi) là thông tin xác thực được tạo trong một dự án.
+Chúng không có chế độ cài đặt thanh toán độc lập; chúng kế thừa hạn mức theo cấp và trạng thái thanh toán của dự án. Mức sử dụng tích luỹ của tất cả các khoá trong một dự án sẽ được tính vào hạn mức chi tiêu của dự án đó và tổng mức chi tiêu của tài khoản thanh toán.
 
-## Preguntas frecuentes
+## Câu hỏi thường gặp
 
-En las siguientes secciones, se proporcionan respuestas a las preguntas frecuentes.
+Các phần sau đây cung cấp câu trả lời cho các câu hỏi thường gặp.
 
-### ¿Qué me cobran?
+### Tôi bị tính phí cho những khoản nào?
 
-Los precios de la API de Gemini se basan en lo siguiente:
+Giá của Gemini API dựa trên những yếu tố sau:
 
-- La cantidad de tokens de entrada
-- La cantidad de tokens de salida
-- La cantidad de tokens almacenados en caché
-- La duración del almacenamiento de los tokens en caché
+- Số lượng mã thông báo đầu vào
+- Số lượng mã thông báo đầu ra
+- Số lượng mã thông báo đã lưu vào bộ nhớ đệm
+- Khoảng thời gian lưu trữ mã thông báo được lưu vào bộ nhớ đệm
 
-Para obtener información sobre los precios, consulta la [página de precios](https://ai.google.dev/pricing?hl=es-419).
+Để biết thông tin về giá, hãy xem [trang Giá](https://ai.google.dev/pricing?hl=vi).
 
-### ¿Dónde puedo ver mi cuota?
+### Tôi có thể xem hạn mức của mình ở đâu?
 
-Puedes ver tus límites de cuota y del sistema en [AI Studio](https://aistudio.google.com/usage?hl=es-419).
+Bạn có thể xem hạn mức và giới hạn hệ thống trong [AI Studio](https://aistudio.google.com/usage?hl=vi).
 
-### ¿Cómo puedo cambiar a un nivel de límite de frecuencia más alto o solicitar más cuota?
+### Làm cách nào để chuyển sang cấp hạn mức tốc độ cao hơn hoặc yêu cầu thêm hạn mức?
 
-Se te otorgará automáticamente más cuota cuando tu cuenta alcance los próximos [requisitos de nivel](https://ai.google.dev/gemini-api/docs/rate-limits?hl=es-419#usage-tiers).
+Bạn sẽ tự động được cấp thêm hạn mức khi tài khoản của bạn đạt đến [yêu cầu về cấp độ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi#usage-tiers) tiếp theo.
 
-### ¿Puedo usar la API de Gemini de forma gratuita en el EEE (incluida la UE), el Reino Unido y Suiza?
+### Tôi có thể sử dụng Gemini API miễn phí ở Khu vực kinh tế Châu Âu (bao gồm cả Liên minh Châu Âu), Vương quốc Anh và Thuỵ Sĩ không?
 
-Sí, ofrecemos el nivel gratuito y el nivel pagado en [muchas regiones](https://ai.google.dev/gemini-api/docs/available-regions?hl=es-419).
+Có. Chúng tôi cung cấp gói miễn phí và gói có tính phí ở [nhiều khu vực](https://ai.google.dev/gemini-api/docs/available-regions?hl=vi).
 
-### Si configuro la facturación con la API de Gemini, ¿se me cobrará por mi uso de Google AI Studio?
+### Nếu thiết lập thông tin thanh toán cho Gemini API, tôi có bị tính phí cho việc sử dụng Google AI Studio không?
 
-El uso de AI Studio sigue siendo gratuito, a menos que los usuarios vinculen una clave de API pagada para acceder a las funciones pagadas.
-Una vez que vincules una clave de API pagada como parte de un proyecto pagado en AI Studio, se te cobrará el uso de AI Studio para esa clave. Puedes cambiar entre proyectos del nivel pagado y proyectos del nivel gratuito según sea necesario con las claves de API respectivas vinculadas a cada tipo.
+Người dùng vẫn có thể sử dụng AI Studio miễn phí, trừ phi họ liên kết một khoá API có tính phí để truy cập vào các tính năng có tính phí.
+Sau khi liên kết một khoá API có tính phí trong một dự án có tính phí trong AI Studio, bạn sẽ bị tính phí sử dụng AI Studio cho khoá đó. Bạn có thể chuyển đổi giữa các dự án thuộc Cấp có tính phí và các dự án thuộc Cấp miễn phí khi cần bằng cách sử dụng các khoá API tương ứng được liên kết với từng loại.
 
-### Si estoy en el nivel gratuito, ¿cómo actualizo a niveles superiores?
+### Nếu đang sử dụng Bậc miễn phí, làm cách nào để nâng cấp lên các bậc cao hơn?
 
-Para acceder a niveles más altos, debes configurar la facturación en tu proyecto. Haz clic en [**Configurar facturación**](#setup-billing) en Google AI Studio. En este proceso, se te guiará para que selecciones o crees una cuenta de Facturación de Cloud. Si debes usar el modelo de facturación prepagada, el proceso de **configuración de la facturación** te guiará para crear tu cuenta prepagada vinculada a tu cuenta de Facturación de Cloud.
+Để sử dụng các cấp cao hơn, bạn phải thiết lập thông tin thanh toán cho dự án của mình. Nhấp vào [**Thiết lập thông tin thanh toán**](#setup-billing) trong Google AI Studio. Thao tác này sẽ hướng dẫn bạn chọn hoặc tạo một tài khoản thanh toán trên Cloud. Nếu bạn bắt buộc phải sử dụng mô hình thanh toán trả trước, thì quy trình **Thiết lập thông tin thanh toán** sẽ hướng dẫn bạn thực hiện quy trình tạo tài khoản Trả trước được liên kết với tài khoản thanh toán Cloud.
 
-### ¿Puedo usar 1 millón de tokens en el nivel gratuito?
+### Tôi có thể sử dụng 1 triệu mã thông báo trong gói miễn phí không?
 
-El nivel gratuito de la API de Gemini varía según el modelo seleccionado. Por el momento, puedes probar la ventana de contexto de 1 millón de tokens de las siguientes maneras:
+Cấp miễn phí cho Gemini API sẽ khác nhau tuỳ thuộc vào mô hình được chọn. Hiện tại, bạn có thể dùng cửa sổ ngữ cảnh 1 triệu token theo những cách sau:
 
-- En Google AI Studio
-- Con planes sin cargo para modelos seleccionados
-- Con planes pospago
+- Trong Google AI Studio
+- Với các gói miễn phí cho một số mẫu xe
+- Với gói trả sau
 
-### ¿Puedo volver al nivel gratuito después de actualizar a niveles superiores (pagados)?
+### Tôi có thể quay lại Gói miễn phí sau khi nâng cấp lên các gói cao hơn (trả phí) không?
 
-Para cambiar a la capa gratuita, puedes [inhabilitar la facturación](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#disable_billing_for_a_project) en cada uno de los proyectos a los que quieras cambiar.
+Để hạ cấp xuống Bậc miễn phí, bạn có thể [tắt tính năng thanh toán](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=vi#disable_billing_for_a_project) trên từng dự án mà bạn muốn hạ cấp.
 
-### ¿Cómo puedo calcular la cantidad de tokens que uso?
+### Làm cách nào để tính số lượng mã thông báo tôi đang sử dụng?
 
-Usa el método [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=es-419#count_tokens) para contar la cantidad de tokens. Consulta la [guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) para obtener más información sobre ellos.
+Sử dụng phương thức [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=vi#count_tokens) để đếm số lượng mã thông báo. Hãy tham khảo [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) để tìm hiểu thêm về mã thông báo.
 
-### Si me registro para obtener mi primera cuenta de Facturación de Cloud a través de AI Studio, ¿seguiré obteniendo una prueba gratuita de Google Cloud?
+### Nếu đăng ký Tài khoản thanh toán trên đám mây đầu tiên thông qua AI Studio, tôi có còn được dùng thử miễn phí Google Cloud không?
 
-Cuando te registras para obtener tu primera cuenta de Facturación de Cloud, comienza tu [prueba gratuita de Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=es-419#free-trial) y se te otorga un [crédito de bienvenida](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419#welcome-credits) de USD 300.
-Sin embargo, esos créditos no se pueden usar para pagar el uso de AI Studio. Puedes usar el crédito de bienvenida para pagar otros servicios aptos dentro de Google Cloud (ten en cuenta que, una vez que se consuman o venzan esos créditos (en un plazo de 90 días), los costos de uso adicionales se facturarán automáticamente a tu forma de pago establecida).
+Khi bạn đăng ký Tài khoản thanh toán trên Cloud lần đầu tiên, [Bản dùng thử miễn phí của Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=vi#free-trial) sẽ bắt đầu và bạn sẽ được cấp [Tín dụng chào mừng](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=vi#welcome-credits) trị giá 300 USD.
+Tuy nhiên, bạn không thể dùng những khoản tín dụng đó để thanh toán cho việc sử dụng AI Studio. Bạn có thể sử dụng khoản tín dụng Chào mừng để thanh toán cho các dịch vụ đủ điều kiện khác trong Google Cloud (xin lưu ý rằng sau khi sử dụng hết hoặc hết hạn (trong vòng 90 ngày), mọi chi phí sử dụng bổ sung sẽ tự động được tính vào phương thức thanh toán mà bạn đã thiết lập).
 
-### ¿Puedo usar mi crédito de bienvenida de Google Cloud con la API de Gemini?
+### Tôi có thể sử dụng khoản tín dụng chào mừng của Google Cloud với Gemini API không?
 
-No, el [crédito de bienvenida](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419#welcome-credits) o el crédito de prueba gratuita de Google Cloud no se pueden usar para la API de Gemini ni AI Studio.
+Không, bạn không thể dùng [Khoản tín dụng chào mừng](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=vi#welcome-credits) hoặc khoản tín dụng dùng thử miễn phí của Google Cloud cho Gemini API hoặc AI Studio.
 
-Si se te otorgó un crédito de bienvenida de Google Cloud antes de que los productos dejaran de ser aptos, puedes usar los créditos restantes en la API de Gemini y AI Studio hasta que venzan (después de 90 días).
+Nếu được cấp tín dụng chào mừng của Google Cloud trước khi không đủ điều kiện, bạn vẫn có thể chi tiêu số tín dụng còn lại cho Gemini API và AI Studio cho đến khi tín dụng hết hạn (sau 90 ngày).
 
-### ¿La prueba gratuita de Google Cloud se aplica al uso de la API de Gemini?
+### Chương trình Dùng thử miễn phí của Google Cloud có áp dụng cho việc sử dụng Gemini API không?
 
-No. A partir de marzo de 2026, los costos de uso de la API de Gemini se excluyen específicamente del programa de [prueba gratuita de Google Cloud de USD 300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=es-419#free-trial).
+Không. Kể từ tháng 3 năm 2026, chi phí sử dụng Gemini API sẽ không được tính vào chương trình [Dùng thử miễn phí Google Cloud trị giá 300 USD](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=vi#free-trial).
 
-### ¿Cómo funcionan los créditos de Google Cloud con la opción de prepago?
+### Khoản tín dụng Google Cloud hoạt động như thế nào với phương thức trả trước?
 
-Los usuarios prepagados primero deben [comprar créditos prepagados](#buy-credits) antes de que se puedan aplicar créditos de Google Cloud aptos al uso de la API de Gemini. Una vez que tengas un saldo de crédito prepagado activo, los créditos de Google Cloud aptos para la API de Gemini se consumirán antes que tu saldo de crédito prepagado. Cuando el saldo de crédito de prepago de la cuenta de facturación llegue a USD 0, ya no se consumirán los créditos de Google Cloud.
+Người dùng trả trước phải [mua Tín dụng trả trước](#buy-credits) trước khi có thể áp dụng bất kỳ khoản tín dụng đủ điều kiện nào của Google Cloud cho việc sử dụng Gemini API. Sau khi bạn có số dư tín dụng trả trước đang hoạt động, các khoản tín dụng Google Cloud đủ điều kiện cho Gemini API sẽ được sử dụng trước số dư tín dụng trả trước của bạn. Khi số dư tín dụng trả trước trong tài khoản thanh toán đạt 0 USD, tín dụng Google Cloud sẽ không còn được sử dụng nữa.
 
-No todos los créditos de Google Cloud, como el [crédito de bienvenida de Google Cloud](#cloud-credits), se pueden usar para la API de Gemini y AI Studio.
+Không phải khoản tín dụng Google Cloud nào (chẳng hạn như [khoản tín dụng Google Cloud dành cho người dùng mới](#cloud-credits)) cũng có thể dùng cho Gemini API và AI Studio.
 
-### ¿Cómo se maneja la facturación?
+### Việc thanh toán được xử lý như thế nào?
 
-El sistema de [facturación de Cloud](https://cloud.google.com/billing/docs/concepts?hl=es-419) se encarga de la facturación de la API de Gemini. Obtén más información sobre la configuración de la Facturación de Cloud en el producto en la [documentación de la Facturación de Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419).
+Hệ thống [Thanh toán trên Google Cloud](https://cloud.google.com/billing/docs/concepts?hl=vi) sẽ xử lý việc thanh toán cho Gemini API. Tìm hiểu về chế độ thiết lập Thanh toán qua đám mây trong sản phẩm trong [tài liệu về Thanh toán qua đám mây](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=vi).
 
-### ¿Se me cobra por las solicitudes con errores?
+### Tôi có bị tính phí cho các yêu cầu không thực hiện được không?
 
-Si tu solicitud falla con un error 400 o 500, no se te cobrarán los tokens que se usaron. Sin embargo, la solicitud se seguirá contando en tu cuota.
+Nếu yêu cầu của bạn không thành công và gặp lỗi 400 hoặc 500, bạn sẽ không bị tính phí cho các mã thông báo đã dùng. Tuy nhiên, yêu cầu này vẫn được tính vào hạn mức của bạn.
 
-### ¿Se factura `GetTokens`?
+### `GetTokens` có bị tính phí không?
 
-Las solicitudes a la API de `GetTokens` no se facturan y no se descuentan de la cuota de inferencia.
+Các yêu cầu gửi đến API `GetTokens` không bị tính phí và không được tính vào hạn mức suy luận.
 
-### ¿Cómo se manejan mis datos de Google AI Studio si tengo una cuenta de API pagada?
+### Dữ liệu của tôi trên Google AI Studio được xử lý như thế nào nếu tôi có tài khoản API trả phí?
 
-Consulta las [Condiciones del Servicio](https://ai.google.dev/gemini-api/terms?hl=es-419#paid-services) para obtener detalles sobre cómo se manejan los datos cuando se habilita la facturación de Cloud (consulta "Cómo Google Usa sus Datos" en "Servicios Pagados"). Ten en cuenta que tus instrucciones de Google AI Studio se tratan según las mismas condiciones de "Servicios Pagados", siempre y cuando al menos 1 proyecto de API tenga habilitada la facturación, lo que puedes validar en la [página de la clave de la API de Gemini](https://aistudio.google.com/api-keys?hl=es-419) si ves algún proyecto marcado como "Pagado" en "Plan".
+Hãy tham khảo [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi#paid-services) để biết thông tin chi tiết về cách dữ liệu được xử lý khi bạn bật tính năng thanh toán qua Cloud (xem phần "Cách Google sử dụng dữ liệu của bạn" trong phần "Dịch vụ có tính phí"). Xin lưu ý rằng các câu lệnh của bạn trên Google AI Studio sẽ được xử lý theo các điều khoản tương tự như "Dịch vụ có tính phí" miễn là bạn đã bật tính năng thanh toán cho ít nhất 1 dự án API. Bạn có thể xác thực điều này trên [trang khoá Gemini API](https://aistudio.google.com/api-keys?hl=vi) nếu thấy bất kỳ dự án nào được đánh dấu là "Có tính phí" trong mục "Gói".
 
-### ¿Qué es la facturación prepagada y quiénes deben usar el modelo de facturación prepagada?
+### Thanh toán trả trước là gì và những ai phải sử dụng mô hình thanh toán trả trước?
 
-La facturación prepagada permite a los usuarios de la API de Gemini en AI Studio comprar créditos por adelantado.
-A partir del 23 de marzo de 2026, es posible que los usuarios nuevos de AI Studio deban tener el plan de facturación prepago. Durante el proceso de [configuración de la facturación](#setup-billing) de AI Studio, la IU te guiará por el flujo de configuración de la facturación y te indicará si debes realizar un pago por adelantado.
+Tính năng thanh toán trả trước cho phép người dùng Gemini API trong AI Studio mua trước tín dụng.
+Kể từ ngày 23 tháng 3 năm 2026, người dùng mới của AI Studio có thể phải sử dụng gói thanh toán trả trước. Trong quá trình [Thiết lập thông tin thanh toán](#setup-billing) của AI Studio, giao diện người dùng sẽ hướng dẫn bạn thực hiện quy trình thiết lập thông tin thanh toán và cho biết liệu bạn có bắt buộc phải trả trước hay không.
 
-### ¿Cómo compro créditos de prepago? ¿Hay un importe mínimo o máximo?
+### Làm cách nào để mua tín dụng trả trước và có hạn mức tối thiểu hoặc tối đa không?
 
-Puedes [comprar créditos](#buy-credits) en la página de facturación de AI Studio. Durante el proceso de compra, la IU proporcionará el importe mínimo previo a la compra que se requiere para tu región y nivel, así como un importe máximo que puede haber en tu cuenta en un momento determinado.
+Bạn có thể [mua tín dụng](#buy-credits) trên trang Thanh toán của AI Studio. Trong quá trình mua, giao diện người dùng sẽ cung cấp số tiền tối thiểu cần trả trước theo yêu cầu của khu vực và cấp độ của bạn, cũng như số tiền tối đa mà bạn có thể có trong tài khoản tại một thời điểm.
 
-### ¿Puedo configurar mi cuenta de prepago para que compre automáticamente más créditos según sea necesario?
+### Tôi có thể định cấu hình tài khoản trả trước để tự động mua thêm tín dụng khi cần không?
 
-Sí, te recomendamos que configures la [recarga automática](#auto-reload) en la configuración de facturación de AI Studio. Especificas un saldo de créditos de "activación" (p.ej., "cuando mi saldo sea inferior a USD 30") y un "valor de recarga" (p.ej., "agregar USD 100").
+Có, bạn nên thiết lập tính năng [tự động nạp tiền](#auto-reload) trong phần Cài đặt thanh toán của AI Studio. Bạn chỉ định số dư tín dụng "kích hoạt" (ví dụ: "khi số dư của tôi thấp hơn 30 USD") và "giá trị nạp lại" (ví dụ: "thêm 100 USD").
 
-### ¿Puedo limitar la cantidad de cargos por recarga automática?
+### Tôi có thể giới hạn số tiền được tự động nạp không?
 
-Sí, los usuarios de Prepay pueden establecer un [límite de carga automática mensual](#monthly-auto-charge-limit) en el widget de **Recarga automática**. Cuando el importe total de las recargas automáticas en un ciclo de facturación alcanza este límite, el sistema inhabilita la recarga automática hasta el mes siguiente. Las compras de crédito manuales no se tienen en cuenta para este límite.
+Có. Người dùng trả trước có thể đặt [Hạn mức sạc tự động hằng tháng](#monthly-auto-charge-limit) trong tiện ích **Tự động nạp tiền**. Khi tổng số tiền tự động nạp lại trong một chu kỳ thanh toán đạt đến hạn mức này, hệ thống sẽ tắt tính năng tự động nạp lại cho đến tháng tiếp theo. Các giao dịch mua tín dụng theo cách thủ công không được tính vào hạn mức này.
 
-### ¿Puedo obtener un reembolso por los créditos que no usé?
+### Tôi có thể yêu cầu hoàn tiền cho các khoản tín dụng chưa sử dụng không?
 
-Todos los créditos de la API prepagada vencen después de 1 año y no se pueden reembolsar. Lee la [política de reembolsos para cuentas de prepago](#refunds).
+Tất cả các khoản tín dụng API trả trước đều hết hạn sau 1 năm và không được hoàn tiền. Đọc [chính sách hoàn tiền cho tài khoản trả trước](#refunds).
 
-### ¿Mis créditos de prepago vencen?
+### Các khoản tín dụng trả trước của tôi có hết hạn không?
 
-Sí, los créditos vencen 12 meses después de la fecha de compra.
+Có, tín dụng sẽ hết hạn sau 12 tháng kể từ ngày mua.
 
-### ¿Qué sucede cuando mi saldo de crédito prepagado llega a USD 0?
+### Điều gì sẽ xảy ra khi số dư tín dụng trả trước của tôi đạt mức 0?
 
-Todos los servicios de la API de Gemini en todos los proyectos pagados con esa cuenta prepagada de Facturación de Cloud se detendrán de inmediato para evitar que se generen más cargos. Tus proyectos no se cambian automáticamente al nivel gratuito.
+Tất cả các dịch vụ Gemini API trong mọi dự án được thanh toán bằng tài khoản Thanh toán trước trên Cloud đó sẽ ngừng hoạt động ngay lập tức để tránh phát sinh thêm phí. Các dự án của bạn sẽ không tự động hạ cấp xuống Hạng miễn phí.
 
-Para restablecer el servicio en tu nivel de nivel pagado actual, debes [comprar créditos adicionales](#buy-credits). Después de comprar créditos, deberías poder usar la API de Gemini. Ten en cuenta que puede haber una [demora](#processing-times) mientras nuestros sistemas se actualizan para reflejar el saldo de tu crédito.
+Để khôi phục dịch vụ ở Cấp có tính phí hiện tại, bạn phải [mua thêm tín dụng](#buy-credits). Sau khi mua tín dụng, bạn có thể sử dụng Gemini API. Xin lưu ý rằng có thể có [độ trễ](#processing-times) trong khi hệ thống của chúng tôi cập nhật để phản ánh số dư tín dụng của bạn.
 
-De manera opcional, para cambiar a la capa gratuita, puedes [inhabilitar la facturación](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#disable_billing_for_a_project) en los proyectos a los que deseas cambiar.
+Nếu muốn hạ cấp xuống Bậc miễn phí, bạn có thể [tắt tính năng thanh toán](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=vi#disable_billing_for_a_project) trên các dự án mà bạn muốn hạ cấp.
 
-### ¿Por qué se detuvo mi uso a pesar de que mi saldo de crédito de prepago es superior a USD 0?
+### Tại sao mức sử dụng của tôi dừng lại mặc dù số dư tín dụng trả trước của tôi lớn hơn 0?
 
-Es posible que hayas alcanzado el [límite de uso](#tier-spend-caps) de tu nivel actual.
-Los límites de uso aumentarán automáticamente a medida que avances a niveles más altos. El uso de la API de Gemini en AI Studio también puede verse afectado por [el estado de tu cuenta de Facturación de Cloud](#missed-payment).
+Bạn có thể đã đạt đến [hạn mức sử dụng](#tier-spend-caps) của cấp hiện tại.
+Hạn mức sử dụng sẽ tự động tăng lên khi bạn chuyển sang các cấp cao hơn. Mức sử dụng Gemini API trong AI Studio cũng có thể bị ảnh hưởng do [trạng thái của tài khoản thanh toán trên đám mây](#missed-payment).
 
-### ¿Por qué el saldo de crédito de mi cuenta de prepago es negativo?
+### Tại sao số dư tín dụng trong tài khoản trả trước của tôi lại là số âm?
 
-Debido a la complejidad de nuestros sistemas de facturación y procesamiento, es posible que haya [demoras](#processing-times) en nuestra capacidad de cortar el uso después de que consumas todos tus créditos. Este uso adicional puede aparecer como un saldo de crédito negativo en el panel de facturación de AI Studio. Si esto sucede, se pausará el servicio y el saldo negativo se deducirá de tu próxima compra de crédito.
+Do hệ thống thanh toán và xử lý của chúng tôi khá phức tạp, nên có thể xảy ra [tình trạng chậm trễ](#processing-times) trong việc chúng tôi ngừng tính phí sử dụng sau khi bạn dùng hết tất cả các khoản tín dụng. Mức sử dụng vượt quá này có thể xuất hiện dưới dạng số dư tín dụng âm trong trang tổng quan thanh toán của AI Studio. Nếu điều này xảy ra, dịch vụ của bạn sẽ bị tạm dừng và số dư âm sẽ được khấu trừ vào lần mua tín dụng tiếp theo.
 
-Para evitar que se pause tu servicio de la API de Gemini, te recomendamos que configures la [recarga automática](#auto-reload) para comprar más créditos automáticamente cuando tu saldo de créditos sea inferior a un valor que especifiques.
+Để tránh bị tạm dừng dịch vụ Gemini API, bạn nên thiết lập tính năng [tự động nạp tiền](#auto-reload) để tự động mua thêm tín dụng khi số dư tín dụng của bạn thấp hơn một giá trị mà bạn chỉ định.
 
-### ¿Puedo usar mis créditos de prepago para otros servicios de Google Cloud, como Gemini Enterprise Agent Platform?
+### Tôi có thể sử dụng tín dụng trả trước cho các dịch vụ khác của Google Cloud, chẳng hạn như Nền tảng tác nhân Gemini Enterprise không?
 
-No, los créditos prepagados están estrictamente vinculados al uso de la API de Gemini. Cualquier otro servicio de Google Cloud que uses (Compute, Storage, Gemini Enterprise Agent Platform) se factura con el [ciclo de cobro de Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419) estándar.
+Không. Khoản tín dụng trả trước chỉ được dùng cho việc sử dụng Gemini API. Mọi dịch vụ khác của Google Cloud mà bạn sử dụng (Điện toán, Bộ nhớ, Nền tảng tác nhân Gemini Enterprise) đều được tính phí theo [chu kỳ tính phí tiêu chuẩn của Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=vi).
 
-### ¿Puedo cambiarme a un plan de facturación pospago?
+### Tôi có thể chuyển sang gói thanh toán trả sau không?
 
-Cuando establezcas un historial de pagos y [alcances un nivel apto](#about-billing) para el plan de facturación pospago, puedes optar por transferir todos tus costos futuros de uso de la API de Gemini a un [ciclo de cobro pospago](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419#view-your-charging-cycle) estándar y consolidado de Google Cloud.
+Khi đã có lịch sử thanh toán và [đạt đến bậc đủ điều kiện](#about-billing) để sử dụng gói thanh toán Trả sau, bạn có thể chọn chuyển tất cả các khoản phí sử dụng Gemini API trong tương lai sang [chu kỳ tính phí Trả sau](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=vi#view-your-charging-cycle) tiêu chuẩn, hợp nhất của Google Cloud.
 
-### ¿Qué sucede con mis créditos prepagados si me cambio a la modalidad pospago?
+### Điều gì sẽ xảy ra với các khoản tín dụng trả trước của tôi nếu tôi chuyển sang gói trả sau?
 
-Cuando actualizas a [pospago](#postpay), la Facturación de Cloud cierra tu cuenta de pagos de prepago, desactiva la [recarga automática](#auto-reload) y te reembolsa automáticamente los créditos de prepago que no se usaron (sujeto al tiempo de procesamiento estándar de los reembolsos).
+Khi bạn nâng cấp lên phương thức [Trả sau](#postpay), Cloud Billing sẽ đóng tài khoản thanh toán Trả trước của bạn, tắt tính năng [tự động nạp tiền](#auto-reload) và tự động hoàn lại mọi khoản tín dụng Trả trước chưa sử dụng cho bạn (tuỳ thuộc vào thời gian xử lý hoàn tiền tiêu chuẩn).
 
-### ¿Dónde puedo ver mi saldo actual de crédito de prepago y mi historial de transacciones?
+### Tôi có thể xem số dư tín dụng trả trước hiện tại và nhật ký giao dịch ở đâu?
 
-Toda la administración del saldo y el historial de transacciones de la API de Gemini deben realizarse directamente en la pestaña Facturación de Google AI Studio.
+Bạn phải quản lý số dư và xem nhật ký giao dịch của Gemini API ngay trong thẻ Thanh toán của Google AI Studio.
 
-### ¿Por qué veo el mensaje "El tipo de cuenta de facturación está inactivo o no es compatible"?
+### Tại sao tôi thấy thông báo "Loại tài khoản thanh toán không hoạt động hoặc không được hỗ trợ"?
 
-Es posible que se bloqueen las interacciones de pagos en la [página Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419) y se reemplacen por el mensaje "El tipo de cuenta de facturación está inactivo o no se admite" si el tipo de cuenta de facturación o el estado de la cuenta de facturación que seleccionaste no son aptos para el nivel pagado de AI Studio.
+Các hoạt động thanh toán trên [trang Thanh toán của AI Studio](https://aistudio.google.com/billing?hl=vi) có thể bị chặn và thay thế bằng thông báo "Loại tài khoản thanh toán không hoạt động hoặc không được hỗ trợ" nếu loại tài khoản thanh toán hoặc trạng thái tài khoản thanh toán mà bạn chọn không đủ điều kiện sử dụng Cấp có tính phí trong AI Studio.
 
-Consulta la [consola de Cloud](https://console.cloud.google.com/billing/?hl=es-419) para ver el estado de tu cuenta de facturación. Un tipo no apto podría ser *Cuenta de prueba gratuita*, en cuyo caso puedes [activar la facturación](#setup-billing) en AI Studio para cumplir con los requisitos. Un estado inactivo podría ser *Cerrada*, en cuyo caso puedes [reabrir la cuenta](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=es-419).
+Kiểm tra [Bảng điều khiển Cloud](https://console.cloud.google.com/billing/?hl=vi) để xem trạng thái của tài khoản thanh toán. Một loại tài khoản không đủ điều kiện có thể là *Tài khoản dùng thử miễn phí*. Trong trường hợp này, bạn có thể [kích hoạt tính năng thanh toán](#setup-billing) trong AI Studio để đủ điều kiện. Một trạng thái không hoạt động có thể là *Đã đóng*. Trong trường hợp này, bạn có thể [mở lại tài khoản](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=vi).
 
-### ¿Los costos de uso de la API de Gemini aparecerán en la consola de Google Cloud?
+### Chi phí sử dụng Gemini API của tôi có xuất hiện trong Google Cloud Console không?
 
-Sí, los costos de la API de Gemini, junto con los costos asociados a cualquier otro servicio de Google Cloud que se pague con tu cuenta de Facturación de Cloud, se pueden ver en las [páginas de administración de costos](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=es-419#cost-reports) de la [consola de Facturación de Cloud](https://console.cloud.google.com/billing?hl=es-419). Ten en cuenta que solo puedes administrar tu saldo de crédito prepagado en AI Studio.
+Có, bạn có thể xem chi phí của Gemini API cùng với chi phí liên quan đến mọi dịch vụ khác của Google Cloud mà tài khoản thanh toán Cloud của bạn thanh toán trên [các trang Quản lý chi phí](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=vi#cost-reports) trong [bảng điều khiển Thanh toán Cloud](https://console.cloud.google.com/billing?hl=vi). Xin lưu ý rằng bạn chỉ có thể quản lý số dư tín dụng trả trước trong AI Studio.
 
-### ¿Por qué no se muestra mi uso de la API de Gemini en la consola de Cloud Billing, cuando puedo verlo en la facturación de AI Studio, junto con el consumo de mis créditos?
+### Tại sao mức sử dụng Gemini API của tôi không xuất hiện trong Cloud Billing Console, mặc dù tôi có thể thấy mức sử dụng này trong phần Thanh toán của AI Studio, cùng với mức sử dụng tín dụng của tôi?
 
-Google Cloud y AI Studio informan los datos de uso a la Facturación de Cloud en intervalos variables. Debido a la complejidad de nuestros sistemas de facturación y procesamiento, es posible que haya una demora entre el uso que hagas de los servicios y la disponibilidad para ver el uso y los costos en la Facturación de Cloud. Por lo general, los detalles de tus costos están disponibles en un plazo de un día, aunque, a veces, pueden tardar más de 24 horas.
-Obtén más información sobre la facturación diferida en la [documentación de Facturación de Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419#delayed-billing).
+Google Cloud và AI Studio báo cáo dữ liệu sử dụng cho Cloud Billing theo các khoảng thời gian khác nhau. Do hệ thống thanh toán và xử lý của chúng tôi khá phức tạp, nên có thể bạn sẽ thấy độ trễ giữa thời điểm bạn sử dụng dịch vụ và thời điểm bạn có thể xem mức sử dụng cũng như chi phí trong phần Thanh toán qua Cloud. Thông thường, thông tin chi tiết về chi phí sẽ có trong vòng một ngày, nhưng đôi khi có thể mất hơn 24 giờ.
+Tìm hiểu thêm về tính năng thanh toán chậm trong [tài liệu về Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=vi#delayed-billing).
 
-### Si uso otros servicios de Google Cloud con costos sujetos a un ciclo de facturación pospago, ¿qué sucede si no realizo un pago?
+### Nếu tôi sử dụng các dịch vụ khác của Google Cloud có chi phí phải chịu chu kỳ tính phí Trả sau, thì điều gì sẽ xảy ra nếu tôi không thanh toán?
 
-Si no pagas otros servicios de Google Cloud, es posible que se suspenda tu acceso a la API de Gemini en AI Studio, **independientemente de la cantidad de créditos prepagados que tengas disponibles**. El uso de AI Studio se basa en una cuenta de facturación de Google Cloud, que puede compartir la facturación prepagada para AI Studio y la facturación pospagada para otros servicios de Cloud. Si hay un problema con tu saldo de Postpay, se detendrán todos los servicios vinculados a esa cuenta. Se suspenderá tu uso de la API de Gemini si tu cuenta de Facturación de Cloud se marca por problemas como los siguientes:
+Nếu không thanh toán cho các dịch vụ khác của Google Cloud, bạn có thể bị tạm ngưng quyền truy cập vào Gemini API trong AI Studio, **bất kể bạn có bao nhiêu tín dụng trả trước**. Việc sử dụng AI Studio được hỗ trợ bởi một tài khoản thanh toán Google Cloud. Tài khoản này có thể dùng cả phương thức thanh toán trả trước cho AI Studio và thanh toán trả sau cho các dịch vụ khác trên Cloud. Sự cố liên quan đến số dư của bạn trong dịch vụ Postpay sẽ tạm dừng tất cả các dịch vụ liên kết với tài khoản đó. Việc sử dụng Gemini API của bạn sẽ bị tạm ngưng nếu Tài khoản thanh toán trên Cloud của bạn bị gắn cờ vì các vấn đề như:
 
-- Un saldo vencido o con morosidad
-- Un pago rechazado
-- Una forma de pago no válida o vencida
+- Số dư quá hạn hoặc chưa thanh toán
+- Khoản thanh toán bị từ chối
+- Phương thức thanh toán không hợp lệ hoặc đã hết hạn
 
-Para restablecer el servicio, debes [resolver el problema de la cuenta de pospago](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=es-419#resolving-declined-payments) en la consola de Facturación de Google Cloud. Una vez que resuelvas el problema, recuperarás el acceso a tus créditos y servicios prepagados de la API de Gemini.
+Để khôi phục dịch vụ, bạn phải [giải quyết vấn đề về tài khoản trả sau](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=vi#resolving-declined-payments) trong bảng điều khiển Thanh toán của Google Cloud. Sau khi giải quyết vấn đề, bạn sẽ lấy lại được quyền truy cập vào các khoản tín dụng và dịch vụ Gemini API trả trước.
 
-### ¿Dónde puedo obtener ayuda con la facturación?
+### Tôi có thể yêu cầu trợ giúp về việc thanh toán ở đâu?
 
-Para obtener ayuda con la facturación, consulta [Obtén asistencia para la facturación de Cloud](https://cloud.google.com/support/billing?hl=es-419).
+Để được trợ giúp về việc thanh toán, hãy xem phần [Yêu cầu hỗ trợ về việc thanh toán trên Cloud](https://cloud.google.com/support/billing?hl=vi).
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última actualización: 2026-07-07 (UTC)
+Cập nhật lần gần đây nhất: 2026-07-07 UTC.
 
-¿Quieres brindar más información?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-07 (UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-07 UTC."],[],[]]

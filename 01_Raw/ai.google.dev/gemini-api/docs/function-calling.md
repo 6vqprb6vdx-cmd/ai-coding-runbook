@@ -1,36 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=vi
-fetched_at: 2026-07-27T04:45:32.680986+00:00
-title: "G\u1ecdi h\u00e0m b\u1eb1ng Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=he
+fetched_at: 2026-08-03T04:26:33.450547+00:00
+title: "\u05e7\u05e8\u05d9\u05d0\u05d4 \u05dc\u05e4\u05d5\u05e0\u05e7\u05e6\u05d9\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Gọi hàm bằng Gemini API
+# קריאה לפונקציות באמצעות Gemini API
 
-Tính năng gọi hàm cho phép bạn kết nối các mô hình với các công cụ và API bên ngoài.
-Thay vì tạo phản hồi bằng văn bản, mô hình sẽ xác định thời điểm gọi các hàm cụ thể và cung cấp các tham số cần thiết để thực thi các hành động trong thế giới thực.
-Điều này cho phép mô hình đóng vai trò là cầu nối giữa ngôn ngữ tự nhiên và các hành động cũng như dữ liệu trong thế giới thực. Tính năng gọi hàm có 3 trường hợp sử dụng chính:
+התכונה 'הפעלת פונקציות' מאפשרת לכם לחבר מודלים לכלים ולממשקי API חיצוניים.
+במקום ליצור תשובות טקסטואליות, המודל קובע מתי לקרוא לפונקציות ספציפיות ומספק את הפרמטרים הנדרשים לביצוע פעולות בעולם האמיתי.
+כך המודל יכול לשמש כגשר בין שפה טבעית לבין פעולות ונתונים בעולם האמיתי. יש 3 תרחישי שימוש עיקריים לבקשה להפעלת פונקציה:
 
-- [**Thực hiện hành động:**](#meeting) Tương tác với các hệ thống bên ngoài bằng API, chẳng hạn như lên lịch hẹn, tạo hoá đơn, gửi email hoặc điều khiển các thiết bị nhà thông minh.
-- [**Tăng cường kiến thức:**](#weather) Truy cập thông tin từ các nguồn bên ngoài như cơ sở dữ liệu, API và cơ sở kiến thức.
-- [**Mở rộng khả năng:**](#chart) Sử dụng các công cụ bên ngoài để thực hiện phép tính và mở rộng các giới hạn của mô hình, chẳng hạn như sử dụng máy tính hoặc tạo biểu đồ.
+- [**ביצוע פעולות:**](#meeting) אינטראקציה עם מערכות חיצוניות באמצעות ממשקי API, כמו קביעת פגישות, יצירת חשבוניות, שליחת אימיילים או שליטה במכשירים חכמים לבית.
+- [**העשרת הידע:**](#weather) גישה למידע ממקורות חיצוניים כמו מסדי נתונים, ממשקי API ומאגרי ידע.
+- [**הרחבת היכולות:**](#chart) אפשר להשתמש בכלים חיצוניים כדי לבצע חישובים ולהרחיב את המגבלות של המודל, למשל באמצעות מחשבון או יצירת תרשימים.
 
-Bạn có thể duyệt xem ví dụ về các trường hợp sử dụng này bên dưới:
+בהמשך מפורטות דוגמאות לתרחישי שימוש כאלה:
 
-### Lên lịch họp
+### קביעת פגישה
 
-Ví dụ này cho thấy cách xác định một hàm lên lịch cuộc họp với người tham dự vào một thời điểm cụ thể, cho phép mô hình phân tích cú pháp các yêu cầu của người dùng và trả về các đối số có cấu trúc để kích hoạt các hành động trong hệ thống bên ngoài.
+בדוגמה הזו מוסבר איך להגדיר פונקציה שמתזמנת פגישה עם משתתפים בשעה ספציפית, כדי לאפשר למודל לנתח בקשות של משתמשים ולהחזיר ארגומנטים מובנים להפעלת פעולות במערכות חיצוניות.
 
 ### Python
 
@@ -120,7 +120,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         "parameters": {
           "type": "object",
           "properties": {
-            "attendees": {"type": "array", "items": {"type": "string"}},
+            "attendees": {"type": "array", "items": {"type&quot;: "string"}},
             "date": {"type": "string"},
             "time": {"type": "string"},
             "topic": {"type": "string"}
@@ -131,9 +131,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Nhận thông tin thời tiết
+### הצגת מזג האוויר
 
-Ví dụ này cho thấy cách xác định một hàm truy xuất dữ liệu nhiệt độ cho một vị trí, cho phép mô hình gọi các API bên ngoài để trả lời những truy vấn yêu cầu thông tin theo thời gian thực hoặc thông tin bên ngoài.
+בדוגמה הזו מוסבר איך להגדיר פונקציה שמחלצת נתוני טמפרטורה של מיקום מסוים, וכך מאפשרת למודל להפעיל ממשקי API חיצוניים כדי לענות על שאילתות שדורשות מידע בזמן אמת או מידע חיצוני.
 
 ### Python
 
@@ -221,7 +221,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
       "name": "get_current_temperature",
       "description": "Gets the current temperature for a given location.",
       "parameters": {
-        "type": "object",
+        "type";: "object",
         "properties": {
           "location": {"type": "string", "description": "The city name"}
         },
@@ -231,9 +231,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Tạo biểu đồ
+### יצירת תרשים
 
-Ví dụ này cho thấy cách xác định một hàm tạo biểu đồ thanh từ dữ liệu có cấu trúc, minh hoạ cách mô hình có thể sử dụng các công cụ bên ngoài để thực hiện các phép tính hoặc tạo tài sản trực quan:
+בדוגמה הזו מוגדרת פונקציה שמייצרת תרשים עמודות מנתונים מובְנים. הדוגמה הזו ממחישה איך המודל יכול להשתמש בכלים חיצוניים כדי לבצע חישובים או ליצור נכסים חזותיים:
 
 ### Python
 
@@ -258,7 +258,7 @@ create_chart_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model=";gemini-3.6-flash",
     input="Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
     tools=[create_chart_function],
 )
@@ -330,20 +330,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cách hoạt động của tính năng gọi hàm
+## איך פועלת התקשרות לפונקציות
 
-![tổng quan về tính năng gọi hàm](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=vi)
+![סקירה כללית על קריאה להפעלת פונקציות](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=he)
 
-Gọi hàm là một hoạt động tương tác có cấu trúc giữa ứng dụng, mô hình và các hàm bên ngoài:
+השימוש בפונקציות כולל אינטראקציה מובנית בין האפליקציה, המודל ופונקציות חיצוניות:
 
-1. **Xác định khai báo hàm:** Xác định tên, tham số và mục đích của hàm cho mô hình.
-2. **Gọi LLM bằng khai báo hàm:** Gửi câu lệnh của người dùng cùng với(các) khai báo hàm đến mô hình.
-3. **Thực thi mã hàm (Trách nhiệm của bạn):** Mô hình *không* tự thực thi hàm. Trích xuất tên và đối số rồi thực thi trong ứng dụng của bạn.
-4. **Tạo câu trả lời thân thiện với người dùng:** Gửi kết quả trở lại mô hình để có câu trả lời cuối cùng, thân thiện với người dùng.
+1. **הגדרת הצהרת פונקציה:** מגדירים למודל את שם הפונקציה, הפרמטרים והמטרה שלה.
+2. **קוראים למודל LLM עם הצהרות על פונקציות:** שולחים את ההנחיה של המשתמש יחד עם ההצהרות על הפונקציות למודל.
+3. **הפעלת קוד הפונקציה (באחריותכם):** המודל *לא* מפעיל את הפונקציה בעצמו. מחלקים את השם והארגומנטים ומבצעים את הפעולה באפליקציה.
+4. **יצירת תשובה ידידותית למשתמש:** שליחת התוצאה בחזרה למודל כדי לקבל תשובה סופית וידידותית למשתמש.
 
-Quá trình này có thể được lặp lại nhiều lần. Mô hình này hỗ trợ việc gọi nhiều hàm trong một lượt ([gọi hàm song song](#parallel_function_calling)) và theo trình tự ([gọi hàm kết hợp](#compositional_function_calling)).
+אפשר לחזור על התהליך הזה כמה פעמים. המודל תומך בהפעלת כמה פונקציות בתור אחד ([הפעלת פונקציות במקביל](#parallel_function_calling)) וברצף ([הפעלת פונקציות בהרכבה](#compositional_function_calling)).
 
-### Bước 1: Xác định một khai báo hàm
+### שלב 1: הגדרת הצהרה על פונקציה
 
 ### Python
 
@@ -361,7 +361,7 @@ set_light_values_declaration = {
             },
             "color_temp": {
                 "type": "string",
-                "enum": ["daylight", "cool", "warm"],
+                "enum": ["daylight", "cool&>quot;, "warm"],
                 "description": "Color temperature",
             },
         },
@@ -369,7 +369,7 @@ set_light_values_declaration = {
     },
 }
 
-def set_light_values(brightness: int, color_temp: str) -> dict:
+def set_light_values(brightness: int, color_temp: str) - dict:
     """Set the brightness and color temperature of a room light."""
     return {"brightness": brightness, "colorTemperature": color_temp}
 ```
@@ -396,7 +396,7 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Bước 2: Gọi mô hình bằng các khai báo hàm
+### שלב 2: קוראים למודל עם הצהרות על פונקציות
 
 ### Python
 
@@ -428,19 +428,19 @@ const interaction = await client.interactions.create({
   tools: [setLightValuesTool],
 });
 
-const fcStep = interaction.steps.find(s => s.type === 'function_call');
+const fcStep = in>teraction.steps.find(s = s.type === 'function_call');
 console.log(fcStep);
 ```
 
-Mô hình này trả về một bước `function_call` với `type`, `name` và `arguments`:
+המודל מחזיר שלב `function_call` עם `type`, `name` ו-`arguments`:
 
 ```
 type='function_call'
 name='set_light_values'
-arguments={'color_temp': 'warm', 'brightness': 25}
+arguments={'color_temp': &#39;warm', 'brightness': 25}
 ```
 
-### Bước 3: Thực thi hàm
+### שלב 3: הפעלת הפונקציה
 
 ### Python
 
@@ -464,7 +464,7 @@ if (fcStep.name === 'set_light_values') {
 }
 ```
 
-### Bước 4: Gửi kết quả về mô hình
+### שלב 4: שליחת התוצאה בחזרה למודל
 
 ### Python
 
@@ -504,14 +504,14 @@ const finalInteraction = await client.interactions.create({
 console.log(finalInteraction.output_text);
 ```
 
-### Gọi hàm không trạng thái
+### בקשה להפעלת פונקציה ללא שמירת מצב
 
-Bạn cũng có thể sử dụng tính năng gọi hàm ở chế độ không trạng thái bằng cách quản lý nhật ký trò chuyện ở phía máy khách và đặt `store=false`.
+אפשר גם להשתמש בהפעלת פונקציות במצב חסר מצב (stateless) על ידי ניהול היסטוריית השיחות בצד הלקוח והגדרת `store=false`.
 
-Ở chế độ không trạng thái, bạn phải truyền toàn bộ nhật ký cuộc trò chuyện trong trường `input` của mỗi yêu cầu tiếp theo. Nhật ký này phải bao gồm:
-1. Bước `user_input` ban đầu.
-2. Tất cả các bước do mô hình tạo được trả về trong Lượt 1 (bao gồm cả các bước `thought` và `function_call`) chính xác như đã nhận.
-3. Bước `function_result` chứa kết quả của hàm mà bạn đã thực thi.
+במצב חסר מצב, צריך להעביר את ההיסטוריה המלאה של השיחה בשדה `input` של כל בקשה עוקבת. ההיסטוריה הזו צריכה לכלול:
+‫1. השלב הראשוני `user_input`.
+2. כל השלבים שנוצרו על ידי המודל ומוחזרים בתור 1 (כולל השלבים `thought` ו-`function_call`) בדיוק כפי שהתקבלו.
+3. השלב `function_result` שמכיל את הפלט של הפונקציה שהופעלה.
 
 ### Python
 
@@ -581,9 +581,9 @@ async function main() {
     tools: [setLightValuesTool],
   });
 
-  history.push(...interaction.steps);
+  history.push(...interaction.st>eps);
 
-  const fcStep = interaction.steps.find(s => s.type === 'function_call');
+  const fcStep = interaction.steps.find(s = s.type === 'function_call');
   let result;
   if (fcStep.name === 'set_light_values') {
     result = setLightValues(fcStep.arguments.brightness, fcStep.arguments.color_temp);
@@ -683,25 +683,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Khai báo hàm
+## הצהרות על פונקציות
 
-Khai báo hàm được truyền dưới dạng một công cụ và bao gồm:
+הצהרה על פונקציה מועברת ככלי וכוללת:
 
-- `type` (chuỗi): Phải là `"function"` đối với các hàm tuỳ chỉnh.
-- `name` (chuỗi): Tên hàm riêng biệt (sử dụng dấu gạch dưới hoặc quy tắc viết hoa chữ cái đầu của từ thứ hai).
-- `description` (chuỗi): Giải thích rõ ràng về mục đích của hàm.
-- `parameters` (đối tượng): Các thông số đầu vào mà hàm này yêu cầu.
-  - `type` (chuỗi): Loại dữ liệu tổng thể, chẳng hạn như `object`.
-  - `properties` (đối tượng): Các tham số riêng lẻ có loại và nội dung mô tả.
-  - `required` (mảng): Tên tham số bắt buộc.
+- ‫`type` (מחרוזת): צריך להיות `"function"` עבור פונקציות בהתאמה אישית.
+- ‫`name` (string): שם ייחודי של הפונקציה (אפשר להשתמש בקו תחתון או ב-camelCase).
+- ‫`description` (string): הסבר ברור על מטרת הפונקציה.
+- ‫`parameters` (אובייקט): פרמטרי הקלט שהפונקציה מצפה לקבל.
+  - ‫`type` (string): סוג הנתונים הכולל, כמו `object`.
+  - ‫`properties` (אובייקט): פרמטרים נפרדים עם סוג ותיאור.
+  - ‫`required` (מערך): שמות פרמטרים נדרשים.
 
-## Gọi hàm bằng mô hình tư duy
+## בקשה להפעלת פונקציה באמצעות מודלים של חשיבה
 
-Các mô hình Gemini 3 sử dụng quy trình ["tư duy"](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) nội bộ giúp cải thiện chức năng gọi. Các SDK sẽ tự động xử lý [chữ ký ý tưởng](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) cho bạn.
+מודלים מסדרת Gemini 3 משתמשים בתהליך פנימי של ["חשיבה"](https://ai.google.dev/gemini-api/docs/thinking?hl=he) שמשפר את השימוש בפונקציות. ערכות ה-SDK מטפלות באופן אוטומטי ב[חתימות מחשבה](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he) בשבילכם.
 
-## Gọi hàm song song
+## בקשות מקבילות להפעלת פונקציות
 
-Gọi nhiều hàm cùng lúc khi chúng độc lập:
+הפעלת כמה פונקציות בבת אחת כשהן בלתי תלויות:
 
 ### Python
 
@@ -782,7 +782,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
           "type": "object",
           "properties": {
             "energetic": {"type": "boolean"},
-            "loud": {"type": "boolean"}
+            "loud": {"type": "boolean&quot;}
           },
           "required": ["energetic", "loud"]
         }
@@ -803,9 +803,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gọi hàm thành phần
+## בקשה להפעלת פונקציה עם קומפוזיציה
 
-Nối nhiều lệnh gọi hàm với nhau cho các yêu cầu phức tạp (ví dụ: trước tiên, hãy lấy vị trí, sau đó lấy thông tin thời tiết cho vị trí đó).
+אפשר לשרשר כמה קריאות לפונקציות כדי לבצע בקשות מורכבות (למשל, קודם לקבל את המיקום ואז לקבל את מזג האוויר באותו מיקום).
 
 ### Python
 
@@ -943,7 +943,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
       },
       {
         "type": "function",
-        "name": "set_thermostat_temperature",
+        "name": "set_thermostat_temperature&quot;,
         "description": "Sets the thermostat to a desired temperature.",
         "parameters": {
           "type": "object",
@@ -957,14 +957,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Chế độ gọi hàm
+## מצבים של בקשה להפעלת פונקציה
 
-Kiểm soát cách mô hình sử dụng các công cụ bằng cách sử dụng `tool_choice` trong `generation_config`:
+שליטה באופן השימוש של המודל בכלים באמצעות `tool_choice` ב-`generation_config`:
 
-- `auto` (Mặc định): Mô hình quyết định có gọi một hàm hay phản hồi trực tiếp.
-- `any`: Mô hình bị hạn chế để luôn dự đoán một lệnh gọi hàm.
-- `none`: Mô hình không được phép thực hiện lệnh gọi hàm.
-- `validated` (Xem trước): Mô hình đảm bảo tuân thủ giản đồ hàm.
+- ‫`auto` (ברירת מחדל): המודל מחליט אם להפעיל פונקציה או להגיב ישירות.
+- ‫`any`: המודל מוגבל כך שתמיד יחזה קריאה לפונקציה.
+- ‫`none`: המודל לא יכול לבצע קריאות לפונקציות.
+- ‫`validated`: המודל מוודא שהפונקציה תואמת לסכימה.
 
 ### Python
 
@@ -973,7 +973,7 @@ generation_config = {
     "tool_choice": {
         "allowed_tools": {
             "mode": "any",
-            "tools": ["get_current_temperature"]
+            "tools&quot;: ["get_current_temperature"]
         }
     }
 }
@@ -986,7 +986,7 @@ const generation_config = {
   tool_choice: {
     allowed_tools: {
       mode: 'any',
-      tools: ['get_current_temperature']
+      tools: ['get_current_temperature';]
     }
   }
 };
@@ -1024,9 +1024,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Sử dụng dụng cụ đa năng
+## שימוש במולטיטול
 
-Bạn có thể bật nhiều công cụ, kết hợp các công cụ tích hợp sẵn với tính năng gọi hàm trong cùng một yêu cầu. Các mô hình Gemini 3 có thể kết hợp các công cụ tích hợp với tính năng gọi hàm ngay lập tức trong phần Tương tác. Việc truyền `previous_interaction_id` sẽ tự động lưu hành ngữ cảnh công cụ tích hợp.
+אפשר להפעיל כמה כלים ולשלב בין כלים מובנים לבין קריאות לפונקציות באותה בקשה. מודלים של Gemini 3 יכולים לשלב כלים מובנים עם קריאה לפונקציות (function calling) מחוץ לקופסה באינטראקציות. העברת `previous_interaction_id`
+תפיץ אוטומטית את ההקשר של הכלי המובנה.
 
 ### Python
 
@@ -1175,7 +1176,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         "name": "get_weather",
         "description": "Gets the weather for a given location.",
         "parameters": {
-          "type": "object",
+          &quot;type": "object",
           "properties": {
             "location": {"type": "string", "description": "The city and state, e.g. San Francisco, CA"}
           },
@@ -1194,13 +1195,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Phản hồi của hàm đa phương thức
+## תשובות של פונקציות מרובות מצבים
 
-Đối với các mô hình Gemini 3, bạn có thể đưa nội dung đa phương thức vào các phần phản hồi của hàm mà bạn gửi đến mô hình. Mô hình có thể xử lý nội dung đa phương thức này trong lượt tiếp theo để đưa ra câu trả lời có nhiều thông tin hơn.
+במודלים מסדרת Gemini 3, אפשר לכלול תוכן מולטימודאלי בחלקים של תגובת הפונקציה ששולחים למודל. המודל יכול לעבד את התוכן הרב-מודאלי הזה בתור הבא כדי לספק תשובה מושכלת יותר.
 
-Để đưa dữ liệu đa phương thức vào phản hồi của hàm, hãy thêm dữ liệu đó dưới dạng một hoặc nhiều khối nội dung trong trường `result` của bước `function_result`. Mỗi khối nội dung phải chỉ định `type` (ví dụ: `"text"`, `"image"`).
+כדי לכלול נתונים מרובי-אופנים בתשובה של פונקציה, צריך לכלול אותם כאחד או יותר בלוקים של תוכן בשדה `result` של שלב `function_result`. בכל בלוק תוכן צריך לציין את `type` (למשל `"text"`,‏ `"image"`).
 
-Ví dụ sau đây cho thấy cách gửi phản hồi của hàm chứa dữ liệu hình ảnh trở lại mô hình trong một lượt tương tác:
+בדוגמה הבאה אפשר לראות איך לשלוח בחזרה למודל בתגובה לפונקציה נתוני תמונה במהלך אינטראקציה:
 
 ### Python
 
@@ -1248,7 +1249,7 @@ import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
 
-const toolCall = interaction.steps.find(s => s.type === 'function_call');
+const toolCall = interaction.step>s.find(s = s.type === 'function_call');
 
 const base64ImageData = "BASE64_IMAGE_DATA";
 
@@ -1300,28 +1301,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gọi hàm bằng đầu ra có cấu trúc
+## בקשה להפעלת פונקציה עם פלט מובנה
 
-Đối với các mô hình dòng Gemini 3, hãy kết hợp lệnh gọi hàm với [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi) để có các câu trả lời được định dạng nhất quán.
+במודלים מסדרת Gemini 3, אפשר לשלב קריאה לפונקציה עם [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) כדי לקבל תשובות בפורמט עקבי.
 
-## MCP (Giao thức ngữ cảnh mô hình) từ xa
+## ‫MCP (Model Context Protocol) מרוחק
 
-API Tương tác hỗ trợ việc kết nối với các máy chủ MCP từ xa để cấp cho mô hình quyền truy cập vào các công cụ và dịch vụ bên ngoài. Bạn cung cấp `name` và `url` của máy chủ trong cấu hình công cụ.
+‫Interactions API תומך בחיבור לשרתי MCP מרוחקים כדי לתת למודל גישה לכלים ולשירותים חיצוניים. אתם מספקים את השרת `name` ואת `url` בהגדרת הכלים.
 
-Khi sử dụng Remote MCP, hãy lưu ý những hạn chế sau:
+כשמשתמשים ב-Remote MCP, חשוב לשים לב למגבלות הבאות:
 
-- **Các loại máy chủ**: MCP từ xa chỉ hoạt động với các máy chủ HTTP có thể truyền phát. Không hỗ trợ máy chủ SSE (Sự kiện được gửi bởi máy chủ).
-- **Đặt tên**: Tên máy chủ MCP không được chứa ký tự `-`. Thay vào đó, hãy sử dụng tên máy chủ `snake_case`.
+- **סוגי שרתים**: שרת MCP מרוחק פועל רק עם שרתי HTTP שניתן להזרים מהם. אין תמיכה בשרתי SSE (אירועים שנשלחים מהשרת).
+- **שמות**: שמות של שרתי MCP לא יכולים לכלול את התו `-`. במקום זאת, צריך להשתמש בשמות השרתים `snake_case`.
 
-| Trường | Loại | Bắt buộc | Mô tả |
+| שדה | סוג | נדרש | תיאור |
 | --- | --- | --- | --- |
-| `type` | `string` | Có | Phải là `"mcp_server"`. |
-| `name` | `string` | Không | Tên hiển thị của máy chủ MCP. |
-| `url` | `string` | Không | URL đầy đủ cho điểm cuối của máy chủ MCP. |
-| `headers` | `object` | Không | Các cặp khoá-giá trị được gửi dưới dạng tiêu đề HTTP trong mỗi yêu cầu đến máy chủ (ví dụ: mã thông báo xác thực). |
-| `allowed_tools` | `array` | Không | Hạn chế những công cụ mà tác nhân có thể gọi từ máy chủ. |
+| `type` | `string` | כן | חייב להיות `"mcp_server"`. |
+| `name` | `string` | לא | השם המוצג של שרת ה-MCP. |
+| `url` | `string` | לא | כתובת ה-URL המלאה של נקודת הקצה של שרת ה-MCP. |
+| `headers` | `object` | לא | צמדי מפתח/ערך שנשלחים ככותרות HTTP עם כל בקשה לשרת (לדוגמה, אסימוני אימות). |
+| `allowed_tools` | `array` | לא | הגבלת הכלים בשרת שהסוכן יכול להשתמש בהם. |
 
-### Ví dụ
+### דוגמה
 
 ### Python
 
@@ -1337,7 +1338,7 @@ interaction = client.interactions.create(
         {
             "type": "mcp_server",
             "name": "weather",
-            "url": "https://gemini-api-demos.uc.r.appspot.com/mcp",
+            "url";: "https://gemini-api-demos.uc.r.appspot.com/mcp",
         }
     ]
 )
@@ -1375,16 +1376,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     "tools": [
         {
             "type": "mcp_server",
-            "name": "weather",
+            &quot;name": "weather",
             "url": "https://gemini-api-demos.uc.r.appspot.com/mcp"
         }
     ]
 }'
 ```
 
-## Truyền trực tuyến lệnh gọi công cụ
+## העברת קריאות לכלי בסטרימינג
 
-Khi sử dụng các công cụ có tính năng truyền phát trực tiếp, mô hình sẽ tạo các lệnh gọi hàm dưới dạng một chuỗi các sự kiện `step.delta` trên luồng. Bạn có thể truyền trực tuyến các đối số của công cụ dưới dạng đối số một phần bằng cách sử dụng `arguments`. Bạn phải tổng hợp các phần chênh lệch này để tạo lại các lệnh gọi công cụ hoàn chỉnh trước khi thực thi chúng.
+כשמשתמשים בכלים עם סטרימינג, המודל יוצר קריאות לפונקציות כרצף של אירועים בסטרימינג.`step.delta` אפשר להזרים ארגומנטים של כלים כארגומנטים חלקיים באמצעות `arguments`. כדי לשחזר את הקריאות המלאות לכלים לפני שמריצים אותן, צריך לצבור את השינויים האלה.
 
 ### Python
 
@@ -1511,8 +1512,8 @@ for await (const event of stream) {
         } else if (event.delta.type === 'text') {
             process.stdout.write(event.delta.text);
         }
-    } else if (evType === 'interaction.completed' || evType === 'interaction.complete') {
-        toolCalls = Array.from(currentCalls.values()).map(call => ({
+    } else if (evT>ype === 'interaction.completed' || evType === 'interaction.complete') {
+        toolCalls = Array.from(currentCalls.values()).map(call = ({
             type: 'function_call',
             id: call.id,
             name: call.name,
@@ -1539,7 +1540,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
         "description": "Gets the weather for a given location.",
         "parameters": {
             "type": "object",
-            "properties": {
+            "properties&quot;: {
                 "location": {"type": "string", "description": "The city and state"}
             },
             "required": ["location"]
@@ -1549,42 +1550,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## Các phương pháp hay nhất
+## שיטות מומלצות
 
-- **Nội dung mô tả về hàm và tham số:** Rõ ràng và cụ thể.
-- **Đặt tên:** Sử dụng tên mô tả không có dấu cách hoặc ký tự đặc biệt.
-- **Nhập mạnh:** Sử dụng các loại cụ thể (số nguyên, chuỗi, enum).
-- **Lựa chọn công cụ:** Giữ số lượng công cụ đang hoạt động ở mức tối đa là 10 đến 20.
-- **Kỹ thuật tạo câu lệnh:** Cung cấp bối cảnh và hướng dẫn.
-- **Xác thực:** Xác thực các lệnh gọi hàm trước khi thực thi.
-- **Xử lý lỗi:** Triển khai biện pháp xử lý lỗi hữu ích.
-- **Bảo mật:** Sử dụng phương thức xác thực phù hợp cho các API bên ngoài.
+- **תיאורים של פונקציות ופרמטרים:** הקפידו להיות ברורים וספציפיים.
+- **שמות:** צריך להשתמש בשמות תיאוריים ללא רווחים או תווים מיוחדים.
+- **הקלדה חזקה:** שימוש בסוגים ספציפיים (מספר שלם, מחרוזת, enum).
+- **בחירת כלים:** כדאי להגדיר את האפשרות 'פעיל' ל-10 עד 20 כלים לכל היותר.
+- **הנדסת הנחיות:** מספקים הקשר והוראות.
+- **אימות:** אימות של קריאות לפונקציות לפני ההפעלה.
+- **טיפול בשגיאות:** צריך להטמיע טיפול בשגיאות בצורה חזקה.
+- **אבטחה:** השתמשו באימות מתאים לממשקי API חיצוניים.
 
-## Giải pháp thay thế cho các yêu cầu về văn bản trước khi sử dụng công cụ
+## פתרונות עקיפים לדרישות הטקסט של כלי ההכנה
 
-**Vấn đề:** Nếu câu lệnh của bạn yêu cầu mô hình xuất văn bản có cấu trúc (XML, YAML, JSON, v.v.) (ví dụ: `<UPDATE>...</UPDATE>`) ngay trước khi thực hiện một lệnh gọi công cụ, đôi khi lệnh gọi công cụ có thể không thành công với `Malformed_Function_Call`.
+**בעיה:** אם ההנחיה שלכם דורשת מהמודל ליצור טקסט מובנה (XML,‏ YAML,‏ JSON וכו') (לדוגמה, `<UPDATE>...</UPDATE>`) מיד לפני ביצוע קריאה לכלי, יכול להיות שהקריאה לכלי תיכשל מדי פעם עם `Malformed_Function_Call`.
 
-**Giải pháp:** Các giải pháp sau đây sẽ giải quyết vấn đề này:
+**פתרונות:** הפתרונות הבאים יעזרו לכם לפתור את הבעיה:
 
-- **ƯU TIÊN:** Hướng dẫn mô hình đặt các ghi chú trước khi sử dụng công cụ vào một lệnh gọi hàm `update()` chuyên dụng thay vì văn bản thô (xem thông tin chi tiết bên dưới).
-- Hướng dẫn mô hình viết ghi chú dưới dạng tiêu đề Markdown (`# UPDATE`, `## PLAN`) thay vì văn bản có cấu trúc.
-- Không yêu cầu mô hình xuất văn bản trước khi gọi công cụ.
+- **מומלץ:** מנחים את המודל להוסיף את ההערות שלו לפני השימוש בכלי בתוך קריאה ייעודית לפונקציה `update()` במקום בטקסט גולמי (פרטים בהמשך).
+- מנחים את המודל לכתוב הערות ככותרות Markdown ‏ (`# UPDATE`, `## PLAN`) במקום כטקסט מובנה.
+- לא לחייב את המודל להפיק טקסט לפני קריאות לכלים.
 
-### Giải pháp thay thế ưu tiên: Gói ghi chú công việc trong một lệnh gọi hàm chuyên dụng
+### פתרון עדיף: עטיפת הערות העבודה בקריאה ייעודית לפונקציה
 
-Thay vì chỉ thị ban đầu:
+במקום ההוראה המקורית:
 
 ```
-Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags within `<UPDATE>`.
+Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags with<in `UP>DATE`.
 ```
 
-Hãy làm theo hướng dẫn mới này:
+צריך להשתמש בהוראה המעודכנת הזו:
 
 ```
 Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
 ```
 
-Đồng thời, hãy cập nhật tất cả các thông tin tham chiếu đến định dạng XML `<UPDATE>` cũ trong yêu cầu của khách hàng. Sau đó, hãy thêm nội dung khai báo hàm tương ứng cho hàm cập nhật:
+בנוסף, צריך לעדכן את כל ההפניות לפורמט ה-XML הישן של `<UPDATE>` בבקשת הלקוח. לאחר מכן מוסיפים את הצהרת הפונקציה המתאימה לפונקציית העדכון:
 
 ```
 {
@@ -1606,7 +1607,7 @@ Before calling any other tool, in every response you MUST first call `update` wi
         "description": "Brief explanation of the immediate next action according to the plan."
       },
       "external": {
-        "type": "STRING",
+        ";type": "STRING",
         "description": "A short, plain-language note shown to the User about what you are ABOUT TO DO next."
       }
     },
@@ -1620,20 +1621,20 @@ Before calling any other tool, in every response you MUST first call `update` wi
 }
 ```
 
-Sau đó, mô hình sẽ thực hiện hai lệnh gọi trong cùng một bước: lệnh gọi `update()` thay thế XML có cấu trúc và lệnh gọi hàm thực tế mà mô hình muốn thực hiện.
+לאחר מכן, המודל יבצע שתי קריאות באותו השלב: הקריאה `update()` שמחליפה את ה-XML המובנה, והקריאה בפועל לפונקציה שהוא רוצה לבצע.
 
-## Lưu ý và giới hạn
+## הערות ומגבלות
 
-- Chỉ hỗ trợ [một phần của giản đồ OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=vi#FunctionDeclaration).
-- Đối với chế độ `any`, API có thể từ chối các giản đồ rất lớn hoặc được lồng sâu.
-- Các loại tham số được hỗ trợ trong Python bị hạn chế.
+- יש תמיכה רק ב[קבוצת משנה של סכימת OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=he#FunctionDeclaration).
+- במצב `any`, יכול להיות שה-API ידחה סכימות גדולות מאוד או סכימות עם קינון עמוק.
+- סוגי הפרמטרים הנתמכים ב-Python מוגבלים.
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-07-21 UTC.
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-21 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

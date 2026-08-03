@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=he
-fetched_at: 2026-07-27T04:35:27.695006+00:00
+fetched_at: 2026-08-03T04:31:27.580155+00:00
 title: "\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e9\u05dc \u05ea\u05de\u05d9\u05db\u05ea \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Gemini \u05d5-CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -8,7 +8,7 @@ title: "\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e9\u05dc \u05ea\u05de\u05d9\u05db\u05
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
 - [דף הבית](https://ai.google.dev/?hl=he)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=he)

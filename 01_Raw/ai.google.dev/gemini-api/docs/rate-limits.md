@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-BR
-fetched_at: 2026-07-27T04:36:52.227413+00:00
+fetched_at: 2026-08-03T04:37:58.887389+00:00
 title: "Limites de taxas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -8,7 +8,7 @@ A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
 - [Página inicial](https://ai.google.dev/?hl=pt-br)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)

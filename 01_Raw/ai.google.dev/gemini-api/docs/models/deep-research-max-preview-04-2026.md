@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=ar
-fetched_at: 2026-07-27T04:45:39.590313+00:00
-title: "\u0645\u0639\u0627\u064a\u0646\u0629 Deep Research Max \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=de
+fetched_at: 2026-08-03T04:26:23.040701+00:00
+title: "Deep Research Max (Vorabversion) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-إرسال ملاحظات
+Feedback geben
 
-# معاينة Deep Research Max
+# Deep Research Max (Vorabversion)
 
-أقصى درجة من الشمولية لجمع السياق وتلخيصه تلقائيًا تم تحسين Deep Research Max للتحقيقات الطويلة التي تتطلّب دقة عالية وتلخّص معلومات معقّدة من مئات مصادر الويب العلنية وبيانات مساحة العمل الخاصة في تقارير شاملة ومستندة إلى مراجع. تتوفّر فيه ميزات التخطيط التعاوني والتصوّر وخوادم MCP والبحث عن الملفات.
+Maximale Vollständigkeit für die automatisierte Kontexterfassung und -synthese. Deep Research Max ist für zeitaufwendige, präzisionskritische Untersuchungen optimiert, bei denen komplexe Informationen aus Hunderten von öffentlichen Webquellen und privaten Arbeitsplatzdaten zu umfassenden, zitierten Berichten zusammengefasst werden. Es unterstützt die gemeinsame Planung, Visualisierung, MCP-Server und die Dateisuche.
 
-## الوثائق
+## Dokumentation
 
-يمكنك الانتقال إلى صفحة [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) للاطّلاع على تغطية كاملة
-للميزات والإمكانات.
+Besuchen Sie die Seite [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) für eine vollständige Übersicht
+über die Funktionen und Möglichkeiten.
 
 ## deep-research-max-preview-04-2026
 
-| الموقع | الوصف |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardرمز الوكيل | ‫**Interactions API**  `deep-research-max-preview-04-2026` |
-| saveأنواع البيانات المتوفرة | **الإدخال**  نص وصورة وملف PDF وملف صوتي وملف فيديو  **الناتج**  نص (تقارير مستندة إلى مراجع) وصور |
-| token\_autoحدود الرموز[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **قدرة استيعاب الإدخال**  1,048,576  **الحد الأقصى لرموز الناتج**  65,536 |
-| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - معاينة: `deep-research-max-preview-04-2026` |
-| calendar\_monthآخر تعديل | أبريل 2026 |
+| id\_cardAgent-Code | **Interactions API**  `deep-research-max-preview-04-2026` |
+| saveUnterstützte Datentypen | **Eingabe**  Text, Bild, PDF, Audio, Video  **Ausgabe**  Text (zitierte Berichte), Bilder |
+| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Kontextfenster für die Eingabe**  1.048.576  **Tokenausgabelimit**  65.536 |
+| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `deep-research-max-preview-04-2026` |
+| calendar\_monthLetzte Aktualisierung | April 2026 |
 
-إرسال ملاحظات
+Feedback geben
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Zuletzt aktualisiert: 2026-04-29 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Haben Sie Feedback für uns?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

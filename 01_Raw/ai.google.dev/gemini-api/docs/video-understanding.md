@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi
-fetched_at: 2026-07-27T04:44:28.019350+00:00
-title: "Hi\u1ec3u video \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=he
+fetched_at: 2026-08-03T04:25:41.298081+00:00
+title: "\u05d4\u05d1\u05e0\u05ea \u05e1\u05e8\u05d8\u05d5\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Hiểu video
+# הבנת סרטונים
 
-> Để tìm hiểu về tính năng tạo video, hãy xem hướng dẫn về [Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi).
+> מידע על יצירת סרטונים זמין במדריך [Veo](https://ai.google.dev/gemini-api/docs/video?hl=he).
 
-Các mô hình Gemini có thể xử lý video, cho phép nhiều trường hợp sử dụng của nhà phát triển tiên phong mà trước đây cần có các mô hình dành riêng cho miền.
-Một số khả năng thị giác của Gemini bao gồm: mô tả, phân đoạn và trích xuất thông tin từ video, trả lời câu hỏi về nội dung video và tham khảo các dấu thời gian cụ thể trong video.
+מודלים של Gemini יכולים לעבד סרטונים, וכך לאפשר למפתחים להשתמש בהם בתרחישי שימוש רבים ומתקדמים, שבדרך כלל נדרשים להם מודלים ספציפיים לדומיין.
+חלק מהיכולות של Gemini בתחום הראייה כוללות את האפשרות: לתאר, לפלח ולחלץ מידע מסרטונים, לענות על שאלות לגבי תוכן של סרטונים ולהתייחס לחותמות זמן ספציפיות בסרטון.
 
-Bạn có thể cung cấp video làm dữ liệu đầu vào cho Gemini theo những cách sau:
+יש כמה דרכים לספק סרטונים כקלט ל-Gemini:
 
-| Phương thức nhập | Kích thước tối đa | Trường hợp sử dụng được đề xuất |
+| שיטת קלט | גודל מקסימלי | תרחיש שימוש מומלץ |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 GB (có tính phí) / 2 GB (miễn phí) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp có thể dùng lại. |
-| [Đăng ký Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi#registration) | 2 GB (mỗi tệp, không giới hạn bộ nhớ) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp cố định, có thể dùng lại. |
-| [Dữ liệu nội tuyến](#inline-video) | < 100MB | Tệp nhỏ (<100 MB), thời lượng ngắn (<1 phút), dữ liệu đầu vào một lần. |
-| [URL trên YouTube](#youtube) | Không áp dụng | Video công khai trên YouTube. |
+| [File API](#upload-video) | ‫20GB (בתשלום) / 2GB (בחינם) | קבצים גדולים (100MB ומעלה), סרטונים ארוכים (10 דקות ומעלה), קבצים שאפשר לעשות בהם שימוש חוזר. |
+| [הרשמה ל-Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he#registration) | ‫2GB (לכל קובץ, ללא מגבלות אחסון) | קבצים גדולים (100MB ומעלה), סרטונים ארוכים (10 דקות ומעלה), קבצים קבועים שאפשר לעשות בהם שימוש חוזר. |
+| [נתונים מוטבעים](#inline-video) | < 100MB | קבצים קטנים (פחות מ-100MB), משך קצר (פחות מדקה), קלט חד-פעמי. |
+| [כתובות URL ב-YouTube](#youtube) | לא רלוונטי | סרטונים ציבוריים ב-YouTube. |
 
-> **Lưu ý:** Bạn nên dùng [File API](#upload-video) cho hầu hết các trường hợp sử dụng, đặc biệt là đối với những tệp có kích thước lớn hơn 100 MB hoặc khi bạn muốn dùng lại tệp trong nhiều yêu cầu.
+> **הערה:** מומלץ להשתמש ב-[File API](#upload-video) ברוב תרחישי השימוש, במיוחד בקבצים שגודלם גדול מ-100MB או כשרוצים לעשות שימוש חוזר בקובץ בכמה בקשות.
 
-Để tìm hiểu về các phương thức nhập tệp khác, chẳng hạn như sử dụng URL bên ngoài hoặc tệp được lưu trữ trong Google Cloud, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
+מידע על שיטות אחרות להזנת קבצים, כמו שימוש בכתובות URL חיצוניות או בקבצים שמאוחסנים ב-Google Cloud, מופיע במדריך [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
 
-### Tải tệp video lên
+### העלאת קובץ של סרטון
 
-Đoạn mã sau đây tải một video mẫu xuống, tải video đó lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi), đợi video được xử lý, sau đó dùng thông tin tham chiếu về tệp đã tải lên để tóm tắt video.
+הקוד הבא מוריד סרטון לאימון המודל, מעלה אותו באמצעות [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he), מחכה לסיום העיבוד שלו ואז משתמש בהפניה לקובץ שהועלה כדי לסכם את הסרטון.
 
 ### Python
 
@@ -57,7 +57,7 @@ while not myfile.state or myfile.state.name != "ACTIVE":
     myfile = client.files.get(name=myfile.name)
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "video", "uri": myfile.uri, "mime_type": myfile.mime_type},
         {"type": "text", "text": "Summarize this video. Then create a quiz with an answer key based on the information in this video."}
@@ -95,7 +95,7 @@ async function main() {
   }
 
   const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     input: [
       { type: "video", uri: myfile.uri, mime_type: myfile.mimeType },
       { type: "text", text: "Summarize this video. Then create a quiz with an answer key based on the information in this video." }
@@ -165,7 +165,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": [
         {"type": "video", "uri": "'${file_uri}'", "mime_type": "'${MIME_TYPE}'"},
         {"type": "text", "text": "Summarize this video. Then create a quiz with an answer key based on the information in this video."}
@@ -175,16 +175,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, lời nhắc bằng văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB, thời lượng video đáng kể hoặc nếu bạn dự định sử dụng cùng một video trong nhiều lời nhắc.
-File API chấp nhận trực tiếp các định dạng tệp video.
+תמיד צריך להשתמש ב-Files API אם הגודל הכולל של הבקשה (כולל הקובץ, פרומפט טקסטואלי, הוראות המערכת וכו') גדול מ-20MB, אם משך נכס הווידאו משמעותי או אם מתכוונים להשתמש באותו סרטון בכמה פרומפטים.
+‫File API מקבל ישירות פורמטים של קובצי וידאו.
 
-Để tìm hiểu thêm về cách làm việc với các tệp nội dung nghe nhìn, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
+מידע נוסף על עבודה עם קובצי מדיה זמין במאמר בנושא [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
-### Truyền dữ liệu video nội tuyến
+### העברת נתוני סרטונים בתוך התג
 
-Thay vì tải tệp video lên bằng File API, bạn có thể truyền trực tiếp các video nhỏ hơn trong yêu cầu. Phương thức này phù hợp với những video ngắn có tổng kích thước yêu cầu dưới 20 MB.
+במקום להעלות קובץ וידאו באמצעות File API, אפשר להעביר סרטונים קצרים יותר ישירות בבקשה. האפשרות הזו מתאימה לסרטונים קצרים יותר, שגודל הבקשה הכולל שלהם הוא פחות מ-20MB.
 
-Dưới đây là ví dụ về cách cung cấp dữ liệu video nội tuyến:
+דוגמה לאספקת נתוני וידאו מוטמעים:
 
 ### Python
 
@@ -197,7 +197,7 @@ video_bytes = open(video_file_name, 'rb').read()
 
 client = genai.Client()
 interaction = client.interactions.create(
-    model='gemini-3.5-flash',
+    model='gemini-3.6-flash',
     input=[
         {"type": "text", "text": "Please summarize the video in 3 sentences."},
         {
@@ -222,7 +222,7 @@ const base64VideoFile = fs.readFileSync("path/to/small-sample.mp4", {
 });
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: [
     { type: "text", text: "Please summarize the video in 3 sentences." },
     {
@@ -250,7 +250,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": [
         {"type": "text", "text": "Please summarize the video in 3 sentences."},
         {
@@ -262,9 +262,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### URL của YouTube
+### העברת כתובות URL ב-YouTube
 
-Bạn có thể truyền trực tiếp URL của YouTube đến Gemini API trong yêu cầu của mình như sau:
+אתם יכולים להעביר כתובות URL של YouTube ישירות אל Gemini API כחלק מהבקשה שלכם, באופן הבא:
 
 ### Python
 
@@ -273,7 +273,7 @@ from google import genai
 
 client = genai.Client()
 interaction = client.interactions.create(
-    model='gemini-3.5-flash',
+    model='gemini-3.6-flash',
     input=[
         {"type": "text", "text": "Please summarize the video in 3 sentences."},
         {
@@ -293,7 +293,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   input: [
     { type: "text", text: "Please summarize the video in 3 sentences." },
     {
@@ -312,7 +312,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.5-flash",
+      "model": "gemini-3.6-flash",
       "input": [
         {"type": "text", "text": "Please summarize the video in 3 sentences."},
         {
@@ -323,16 +323,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**Các điểm hạn chế:**
+**מגבלות:**
 
-- Đối với gói miễn phí, bạn không thể tải quá 8 giờ video trên YouTube lên mỗi ngày.
-- Đối với gói có tính phí, không có giới hạn dựa trên thời lượng video.
-- Đối với các mô hình trước Gemini 2.5, bạn chỉ có thể tải 1 video lên mỗi yêu cầu. Đối với Gemini 2.5 và các mô hình sau này, bạn có thể tải tối đa 10 video lên cho mỗi yêu cầu.
-- Bạn chỉ có thể tải video công khai lên (không thể tải video riêng tư hoặc không công khai lên).
+- בתוכנית החינמית, אי אפשר להעלות יותר מ-8 שעות של סרטוני YouTube ביום.
+- במינוי בתשלום, אין מכסה על אורך הסרטון.
+- במודלים שקדמו ל-Gemini 2.5, אפשר להעלות רק סרטון אחד לכל בקשה. במודלים של Gemini 2.5 ואילך, אפשר להעלות עד 10 סרטונים לכל בקשה.
+- אפשר להעלות רק סרטונים שגלויים לכולם (ולא סרטונים פרטיים או לא רשומים).
 
-## Tham khảo dấu thời gian trong nội dung
+## הפניה לחותמות זמן בתוכן
 
-Bạn có thể đặt câu hỏi về những thời điểm cụ thể trong video bằng cách sử dụng dấu thời gian có dạng `MM:SS`.
+אתם יכולים לשאול שאלות על נקודות זמן ספציפיות בסרטון באמצעות חותמות זמן בתבנית `MM:SS`.
 
 ### Python
 
@@ -352,11 +352,11 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## Trích xuất thông tin chi tiết từ video
+## חילוץ תובנות מפורטות מסרטון
 
-Các mô hình Gemini có khả năng mạnh mẽ trong việc hiểu nội dung video bằng cách xử lý thông tin từ cả luồng **âm thanh và hình ảnh**. Nhờ đó, bạn có thể trích xuất một bộ thông tin chi tiết phong phú, bao gồm cả việc tạo nội dung mô tả về những gì đang diễn ra trong video và trả lời các câu hỏi về nội dung của video.
+מודלים של Gemini מציעים יכולות מתקדמות להבנת תוכן וידאו על ידי עיבוד מידע מזרמי **האודיו והווידאו**. התכונה הזו מאפשרת לחלץ מגוון רחב של פרטים, כולל יצירת תיאורים של מה שקורה בסרטון ומענה לשאלות לגבי התוכן שלו.
 
-Đối với nội dung mô tả bằng hình ảnh, mô hình lấy mẫu video ở tốc độ **1 khung hình/giây** (FPS). Tỷ lệ lấy mẫu mặc định này phù hợp với hầu hết nội dung, nhưng lưu ý rằng tỷ lệ này có thể bỏ lỡ các chi tiết trong video có chuyển động nhanh hoặc cảnh thay đổi nhanh.
+בתיאורים חזותיים, המודל דוגם את הסרטון בקצב של **פרים אחד לשנייה** (FPS). קצב הדגימה הזה מתאים לרוב התוכן, אבל חשוב לזכור שהוא עלול לפספס פרטים בסרטונים עם תנועה מהירה או שינויי סצנה מהירים.
 
 ### Python
 
@@ -376,9 +376,9 @@ const prompt = "Describe the key events in this video, providing both audio and 
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## Định dạng video được hỗ trợ
+## פורמטים נתמכים של וידאו
 
-Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
+‫Gemini תומך בסוגי ה-MIME הבאים של פורמטים של סרטונים:
 
 - `video/mp4`
 - `video/mpeg`
@@ -390,46 +390,47 @@ Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
 - `video/wmv`
 - `video/3gpp`
 
-## Thông tin kỹ thuật về video
+## פרטים טכניים על סרטונים
 
-- **Các mô hình và ngữ cảnh được hỗ trợ**: Tất cả Gemini đều có thể xử lý dữ liệu video.
-  - Các mô hình có cửa sổ ngữ cảnh 1 triệu token có thể xử lý video dài tối đa 1 giờ ở độ phân giải mặc định hoặc video dài tối đa 3 giờ ở độ phân giải thấp.
-- **Xử lý bằng File API**: Khi sử dụng File API, video được lưu trữ ở tốc độ 1 khung hình/giây (FPS) và âm thanh được xử lý ở tốc độ 1 Kbps (một kênh).
-  Dấu thời gian được thêm vào mỗi giây.
-  - Những tỷ lệ này có thể thay đổi trong tương lai để cải thiện khả năng suy luận.
-- **Tính toán mã thông báo**: Mỗi giây video được mã hoá như sau:
-  - Khung hình riêng lẻ (lấy mẫu ở tốc độ 1 FPS):
-    - Nếu `media_resolution` được đặt thành thấp, các khung hình sẽ được mã hoá thành 66 mã thông báo cho mỗi khung hình.
-    - Nếu không, các khung hình sẽ được mã hoá thành 258 mã thông báo cho mỗi khung hình.
-  - Âm thanh: 32 mã thông báo mỗi giây.
-  - Siêu dữ liệu cũng được đưa vào.
-  - Tổng cộng: Khoảng 300 mã thông báo cho mỗi giây video ở độ phân giải mặc định của nội dung nghe nhìn hoặc 100 mã thông báo cho mỗi giây video ở độ phân giải thấp của nội dung nghe nhìn.
-- **Độ phân giải trung bình**: Gemini 3 giới thiệu khả năng kiểm soát chi tiết đối với quá trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
-  Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
+- **מודלים נתמכים והקשר**: כל ממשקי Gemini יכולים לעבד נתוני וידאו.
+  - מודלים עם חלון קשר של מיליון טוקנים יכולים לעבד סרטונים באורך של עד שעה ברזולוציית מדיה רגילה או באורך של עד 3 שעות ברזולוציית מדיה נמוכה.
+- **עיבוד באמצעות File API**: כשמשתמשים ב-File API, הסרטונים מאוחסנים ב-1 פריימים לשנייה (FPS) והשמע מעובד ב-1Kbps (ערוץ יחיד).
+  חותמות הזמן מתווספות כל שנייה.
+  - המחירים האלה עשויים להשתנות בעתיד בעקבות שיפורים בהסקת המסקנות.
+- **חישוב הטוקנים**: כל שנייה של סרטון עוברת טוקניזציה באופן הבא:
+  - פריימים בודדים (נדגמים ב-1 FPS):
+    - אם הערך של `media_resolution` מוגדר כנמוך, המערכת מבצעת טוקניזציה של הפריימים ב-66 טוקנים לכל פריים.
+    - אחרת, כל פריים עובר טוקניזציה ל-258 טוקנים.
+  - אודיו: 32 טוקנים לשנייה.
+  - המטא-נתונים כלולים גם הם.
+  - סך הכול: כ-300 טוקנים לשנייה של וידאו ברזולוציית מדיה שמוגדרת כברירת מחדל, או 100 טוקנים לשנייה של וידאו ברזולוציית מדיה נמוכה.
+- **רזולוציה בינונית**: ב-Gemini 3 יש שליטה מדויקת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונה או פריים של סרטון קלט.**
+  רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל מגדילות את השימוש בטוקנים ואת זמן האחזור.
 
-  Để biết thêm thông tin về cách tính mã thông báo, hãy xem hướng dẫn về [mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
-- **Định dạng dấu thời gian**: Khi đề cập đến những khoảnh khắc cụ thể trong video trong câu lệnh, hãy sử dụng định dạng `MM:SS` (ví dụ: `01:15` cho 1 phút 15 giây).
-- **Các phương pháp hay nhất**:
+  פרטים נוספים על חישוב אסימונים זמינים במדריך בנושא [אסימונים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
+- **פורמט חותמת הזמן**: כשמתייחסים לרגעים ספציפיים בסרטון בהנחיה, צריך להשתמש בפורמט `MM:SS` (למשל, `01:15` לציון דקה ו-15 שניות).
+- **שיטות מומלצות:**
 
-  - Chỉ sử dụng một video cho mỗi yêu cầu tạo câu lệnh để có kết quả tối ưu.
-  - Nếu kết hợp văn bản và một video, hãy đặt câu lệnh bằng văn bản *sau* phần video trong mảng `input`.
-  - Xin lưu ý rằng các cảnh hành động nhanh có thể bị mất chi tiết do tốc độ lấy mẫu 1 FPS. Cân nhắc làm chậm những đoạn video như vậy nếu cần.
+  - כדי לקבל תוצאות אופטימליות, מומלץ להשתמש רק בסרטון אחד בכל בקשת הנחיה.
+  - אם משלבים טקסט וסרטון אחד, צריך למקם את הנחיית הטקסט *אחרי* החלק של הסרטון במערך `input`.
+  - חשוב לדעת שרצפי פעולה מהירים עלולים לאבד פרטים בגלל קצב הדגימה של פרים אחד לשנייה. במקרה הצורך, אפשר להאט את הקליפים האלה.
 
-## Bước tiếp theo
+## המאמרים הבאים
 
-Hướng dẫn này trình bày cách tải tệp video lên và tạo đầu ra văn bản từ đầu vào video. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
+במדריך הזה מוסבר איך להעלות קובצי וידאו וליצור פלט טקסט מקלט וידאו. מידע נוסף זמין במקורות המידע הבאים:
 
-- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều chỉnh hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi): Tìm hiểu thêm về cách tải lên và quản lý tệp để sử dụng với Gemini.
-- [Chiến lược đưa ra câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đưa ra câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là câu lệnh đa phương thức.
-- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Việc xử lý hậu kỳ và đánh giá thủ công là điều cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
+- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
+  הוראות מערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
+- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): מידע נוסף על העלאה וניהול של קבצים לשימוש עם Gemini.
+- [אסטרטגיות לפרומפטים עם קבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בפרומפטים עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראים גם פרומפטים מולטי-מודאליים.
+- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים תוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. כדי להגביל את הסיכון לנזק שעלול להיגרם מהתוצאות האלה, חשוב לבצע עיבוד לאחר יצירת התוצאות והערכה אנושית.
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-07-06 UTC.
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-06 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

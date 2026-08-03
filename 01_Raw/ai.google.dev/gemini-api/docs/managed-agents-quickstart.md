@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=fr
-fetched_at: 2026-07-27T04:38:42.063685+00:00
-title: "Guide de d\u00e9marrage rapide des agents g\u00e9r\u00e9s \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id
+fetched_at: 2026-08-03T04:38:13.775051+00:00
+title: "Panduan Memulai Agen Terkelola \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envoyer des commentaires
+Kirim masukan
 
-# Guide de démarrage rapide des agents gérés
+# Panduan Memulai Agen Terkelola
 
-Ce guide vous explique comment créer et utiliser des agents gérés sur l'API Gemini à l'aide de l'[agent Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=fr). Vous allez effectuer votre premier appel d'agent, poursuivre une conversation multitour, afficher progressivement la réponse, télécharger des fichiers depuis le bac à sable et travailler avec l'agent géré Antigravity.
+Panduan ini menjelaskan cara membuat dan menggunakan Agen Terkelola di Gemini API, menggunakan agen [Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=id). Anda akan melakukan panggilan agen pertama, melanjutkan percakapan multi-giliran, melakukan streaming respons, mendownload file dari sandbox, dan menggunakan agen terkelola Antigravity.
 
-## Exécuter votre première interaction avec un agent
+## Menjalankan interaksi agen pertama
 
-Un seul appel à l'[API Interactions](https://ai.google.dev/gemini-api/docs?hl=fr) provisionne un bac à sable Linux, exécute la boucle de l'agent et renvoie le résultat. Vous allez définir trois paramètres :
+Satu panggilan ke [Interactions API](https://ai.google.dev/gemini-api/docs?hl=id) menyediakan sandbox Linux, menjalankan loop agen, dan menampilkan hasilnya. Anda akan menentukan tiga parameter:
 
-- Transmettez `agent` en tant que `"antigravity-preview-05-2026",`, qui est la version actuelle de notre agent géré prédéfini et à usage général.
-- Définissez `environment="remote"` pour provisionner un nouvel environnement de bac à sable.
-- Créez une entrée en définissant ce que vous attendez de l'agent.
+- Teruskan `agent` sebagai `"antigravity-preview-05-2026",` yang merupakan versi saat ini dari agen terkelola tujuan umum dan yang telah ditentukan sebelumnya.
+- Tentukan `environment="remote"`, untuk menyediakan lingkungan sandbox baru.
+- Buat input, yang menentukan tindakan yang Anda inginkan dari agen.
 
 ### Python
 
@@ -79,16 +79,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-La réponse renvoie un objet `Interaction`. Enregistrez `interaction.id` et `interaction.environment_id` pour poursuivre la conversation dans le même bac à sable. Utilisez `interaction.output_text` pour accéder à la réponse finale de l'agent. `interaction.steps` liste chaque étape effectuée par l'agent (raisonnement, appels d'outils, exécution de code).
+Respons menampilkan objek `Interaction`. Simpan `interaction.id` dan `interaction.environment_id` untuk melanjutkan percakapan di sandbox yang sama. Gunakan `interaction.output_text` untuk mengakses respons akhir agen. `interaction.steps` mencantumkan setiap langkah yang diambil agen (penalaran, panggilan alat, eksekusi kode).
 
-## Poursuivre la conversation (multitour)
+## Melanjutkan percakapan (multi-giliran)
 
-L'API suit deux dimensions d'état indépendantes :
+API melacak dua dimensi status independen:
 
-- **Contexte de la conversation** : historique des discussions, trace de raisonnement, utilisation d'outils, utilisation de `previous_interaction_id`.
-- [**État de l'environnement**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : fichiers, packages installés et état du bac à sable, à l'aide de `environment`.
+- **Konteks percakapan:** histori chat, pelacakan penalaran, penggunaan alat, menggunakan `previous_interaction_id`.
+- [**Status lingkungan:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) file, paket yang diinstal, dan status sandbox, menggunakan `environment`.
 
-Transmettez les deux à leur place respective pour reprendre :
+Teruskan keduanya di tempatnya masing-masing untuk melanjutkan:
 
 ### Python
 
@@ -130,20 +130,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Les fichiers du tour 1 (`fibonacci.txt`) sont conservés au tour 2. L'agent conserve également le contexte de la conversation.
+File dari giliran 1 (`fibonacci.txt`) tetap ada di giliran 2. Agen juga mempertahankan konteks percakapan.
 
-Vous pouvez combiner ces éléments indépendamment :
+Anda dapat memadupadankan keduanya secara independen:
 
-- **Effacer la conversation, conserver les fichiers** : omettez `previous_interaction_id` et ne transmettez que l'ID d'environnement à l'aide de `environment` pour une nouvelle conversation dans le même espace de travail.
-- **Conserver la conversation, nouvel espace de travail** : transmettez `previous_interaction_id`, définissez `environment="remote"` pour un bac à sable vierge.
+- **Hapus percakapan, simpan file:** Hapus `previous_interaction_id`, hanya teruskan ID lingkungan menggunakan `environment` untuk percakapan baru di ruang kerja yang sama.
+- **Pertahankan percakapan, ruang kerja baru:** Teruskan `previous_interaction_id`, tetapkan `environment="remote"` untuk sandbox baru.
 
-### Compression automatique du contexte
+### Pemadatan konteks otomatis
 
-Dans les conversations de longue durée et multitours, l'historique brut des étapes de raisonnement, des appels d'outils et du contenu des fichiers volumineux peut rapidement s'allonger et consommer beaucoup d'espace de contexte. Pour éviter les erreurs liées à la limite de jetons et maintenir la concentration de l'agent (en évitant la "détérioration du contexte"), l'API Managed Agents inclut une étape de compaction du contexte natif à environ 135 000 jetons. Ce processus est automatique.
+Dalam percakapan multi-giliran yang berjalan lama, histori mentah langkah-langkah penalaran, panggilan alat, dan konten file besar dapat bertambah dengan cepat dan menggunakan ruang konteks yang signifikan. Untuk mencegah error batas token dan mempertahankan fokus agen (mencegah "pembusukan konteks"), API Agen Terkelola memiliki langkah pemadatan konteks native sekitar 135 ribu token. Hal ini terjadi secara otomatis.
 
-## Diffuser la réponse
+## Melakukan streaming respons
 
-Pour les tâches de longue durée, vous pouvez diffuser la réponse pour voir l'agent travailler en temps réel :
+Untuk tugas yang berjalan lama, Anda dapat melakukan streaming respons untuk melihat agen bekerja secara real time:
 
 ### Python
 
@@ -161,6 +161,8 @@ stream = client.interactions.create(
 
 for event in stream:
     print(event)
+    if event.event_type == "step.stop" and event.usage:
+        print(event.usage)
 ```
 
 ### JavaScript
@@ -179,6 +181,9 @@ const stream = await client.interactions.create({
 
 for await (const event of stream) {
     console.log(event);
+    if (event.event_type === "step.stop" && event.usage) {
+        console.log(event.usage);
+    }
 }
 ```
 
@@ -196,11 +201,12 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-Le streaming renvoie un itérable de deltas d'étapes, qui sont des mises à jour incrémentales du texte, des jetons de raisonnement et des appels d'outils. Pour en savoir plus sur la diffusion de réponses, consultez le [guide sur le streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=fr).
+Streaming menampilkan delta langkah dengan update inkremental. Saat langkah selesai, peristiwa `step.stop` akan menyertakan statistik penggunaan yang terakumulasi. Pelajari lebih lanjut dalam panduan
+[Streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=id).
 
-## Télécharger des fichiers depuis l'environnement
+## Mendownload file dari lingkungan
 
-Lorsque l'agent crée des fichiers dans le bac à sable. Téléchargez-les à l'aide de l'API Files avec une requête HTTP directe (aucune méthode SDK n'est encore disponible) :
+Saat agen membuat file di dalam sandbox. Download file tersebut menggunakan Files API dengan permintaan HTTP langsung (belum ada metode SDK):
 
 ### Python
 
@@ -267,13 +273,13 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/environme
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## Enregistrer un agent géré
+## Menyimpan agen terkelola
 
-Lors des étapes précédentes, nous avons utilisé l'agent Antigravity par défaut et l'avons personnalisé en ligne. Une fois que vous avez itéré sur votre configuration (instructions, compétences, sélection de modèle et environnement), vous pouvez l'enregistrer en tant qu'agent géré réutilisable. Cela vous permet de l'appeler par ID sans répéter la configuration.
+Pada langkah sebelumnya, kita menggunakan agen Antigravity default dan menyesuaikannya secara inline. Setelah melakukan iterasi pada konfigurasi (petunjuk, keterampilan, pemilihan model, dan lingkungan), Anda dapat menyimpannya sebagai agen terkelola yang dapat digunakan kembali. Hal ini memungkinkan Anda memanggilnya berdasarkan ID tanpa mengulangi konfigurasi.
 
-Lorsque vous enregistrez un agent, notez la symétrie architecturale avec les interactions intégrées : vous spécifiez `base_agent: "antigravity-preview-05-2026"` et pouvez transmettre un `agent_config` avec votre `model` choisi, comme vous le feriez sur `interactions.create`. Vous définissez également un `base_environment` (à partir de sources ou en dupliquant un environnement existant). L'agent utilisera cette configuration d'environnement et de modèle pour chaque nouvelle interaction.
+Saat menyimpan agen, perhatikan simetri arsitektur dengan interaksi inline: Anda menentukan `base_agent: "antigravity-preview-05-2026"` dan dapat meneruskan `agent_config` dengan `model` yang Anda pilih seperti yang Anda lakukan di `interactions.create`. Anda juga menentukan `base_environment` (baik dari sumber maupun dengan membuat fork lingkungan yang ada). Agen akan menggunakan konfigurasi lingkungan dan model ini untuk setiap interaksi baru.
 
-**À partir de sources** : définissez des sources intégrées ou à partir d'autres sources telles que GitHub ou Cloud Storage.
+**Dari sumber:** Tentukan sumber secara inline, atau dari sumber lain seperti GitHub atau Cloud Storage.
 
 ### Python
 
@@ -369,9 +375,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## Appeler l'agent géré
+## Memanggil agen terkelola
 
-Une fois que vous avez enregistré un agent géré, vous pouvez l'appeler par son ID. Chaque appel duplique l'environnement de base, de sorte que chaque exécution commence de manière propre :
+Setelah menyimpan agen terkelola, Anda dapat memanggilnya berdasarkan ID. Setiap pemanggilan membuat fork lingkungan dasar, sehingga setiap proses dimulai dengan bersih:
 
 ### Python
 
@@ -412,19 +418,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Étape suivante
+## Langkah berikutnya
 
-- [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) : fonctionnalités, outils compatibles, entrée multimodale, tarifs et limites.
-- [Créer des agents gérés](https://ai.google.dev/gemini-api/docs/custom-agents?hl=fr) : étendez Antigravity avec vos propres instructions, compétences et données.
-- [Environnements](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : sources, mise en réseau, cycle de vie, limites de ressources.
-- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) : API sous-jacente pour les modèles et les agents.
+- [Agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id): kemampuan, alat yang didukung, input multimodal, harga, dan batasan.
+- [Membangun Agen Terkelola](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id): memperluas Antigravity dengan petunjuk, keterampilan, dan data Anda sendiri.
+- [Lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id): sumber, jaringan, siklus proses, batas resource.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id): API yang mendasar untuk model dan agen.
 
-Envoyer des commentaires
+Kirim masukan
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Dernière mise à jour le 2026/07/21 (UTC).
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Ada masukan untuk kami?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/21 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

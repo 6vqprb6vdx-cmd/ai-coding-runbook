@@ -1,49 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=zh-TW
-fetched_at: 2026-07-27T04:39:43.203532+00:00
-title: "Lyria 3 Pro \u9810\u5148\u767c\u5e03\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=pt-BR
+fetched_at: 2026-08-03T04:37:06.723487+00:00
+title: "Pr\u00e9-lan\u00e7amento do Lyria 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-提供意見
+Envie comentários
 
-# Lyria 3 Pro 預先發布版
+# Pré-lançamento do Lyria 3 Pro
 
-Lyria 3 Pro 預先發布版是 Google 的旗艦音樂生成模型，這項模型經過最佳化，可生成結構連貫的完整歌曲，包括多個主歌、副歌和橋段。只要輸入文字提示或圖片，即可生成高品質的 48 kHz 立體聲音訊。
+A prévia do Lyria 3 Pro é o principal modelo de geração de música do Google. Ele é otimizado para gerar músicas completas com coerência estrutural complexa, incluindo vários versos, refrões e pontes. Ele gera áudio estéreo de alta qualidade, 48 kHz, com base em comandos de texto ou entradas de imagem.
 
-[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=zh-tw)
+[Testar no Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=pt-br)
 
-## 說明文件
+## Documentação
 
-如要全面瞭解功能和用途，請參閱[音樂生成](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-tw)指南。
+Acesse o guia [Geração de música](https://ai.google.dev/gemini-api/docs/music-generation?hl=pt-br) para conferir a cobertura completa de recursos e funcionalidades.
 
 ## lyria-3-pro-preview
 
-| 屬性 | 說明 |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_card 模型代碼 | `lyria-3-clip-preview` |
-| save支援的資料類型 | **輸入裝置**  文字和圖像  **輸出內容**  音訊 (MP3)、文字 (歌詞) |
-| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  131,072 |
-| handyman功能 | **[生成音訊](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)**  支援  **[快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)**  不支援  **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**  不支援  **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**  不支援  **[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**  不支援  **[利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**  不支援  **[圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)**  不支援  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw)**  不支援  **[以搜尋為基準](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)**  不支援  **[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)**  不支援  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)**  不支援  **[網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**  不支援 |
-| speed計費方案 | **[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)**  不支援  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-tw)**  不支援  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-tw)**  不支援 |
-| 123 個版本 | 詳閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 預覽：`lyria-3-clip-preview` - 預覽：`lyria-3-pro-preview` |
-| calendar\_month最新更新 | 2026 年 3 月 |
+| Código do modelo id\_card | `lyria-3-clip-preview` |
+| saveTipos de dados aceitos | **Entradas** (link em inglês)  Texto e imagem  **Saída**  Áudio (MP3), texto (letra) |
+| Limites de tokens [[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br)token\_auto | **Limite de tokens de entrada**  131.072 |
+| handymanRecursos | **[Geração de áudio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pt-br)**  Compatível  **[Armazenamento em cache](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)**  incompatível  **[Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br)**  incompatível  **[Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br)**  incompatível  **[Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)**  incompatível  **[Embasamento com o Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br)**  incompatível  **[Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)**  incompatível  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br)**  incompatível  **[Embasamento da pesquisa](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br)**  incompatível  **[Respostas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)**  incompatível  **[Pensando](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br)**  incompatível  **[Contexto do URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br)**  incompatível |
+| speedOpções de consumo | **[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br)**  incompatível  **[Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br)**  incompatível  **[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)**  incompatível |
+| Versões 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `lyria-3-clip-preview` - Visualização: `lyria-3-pro-preview` |
+| calendar\_monthÚltima atualização | Março de 2026 |
 
-提供意見
+Envie comentários
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-上次更新時間：2026-06-23 (世界標準時間)。
+Última atualização 2026-06-23 UTC.
 
-想進一步說明嗎？
+Quer enviar seu feedback?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-23 (世界標準時間)。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-23 UTC."],[],[]]

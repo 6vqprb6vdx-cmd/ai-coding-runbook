@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi
-fetched_at: 2026-07-27T04:38:37.651840+00:00
-title: "B\u1ea3n xem tr\u01b0\u1edbc Gemini 3 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja
+fetched_at: 2026-08-03T04:38:46.678594+00:00
+title: "Gemini 3 Flash \u30d7\u30ec\u30d3\u30e5\u30fc \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Bản xem trước Gemini 3 Flash
+# Gemini 3 Flash プレビュー
 
-Mô hình tốt nhất trên thế giới về khả năng hiểu đa phương thức, đồng thời là mô hình tác nhân và mô hình mã hoá dựa trên cảm xúc mạnh mẽ nhất từ trước đến nay của chúng tôi, mang đến hình ảnh phong phú hơn và khả năng tương tác sâu sắc hơn, tất cả đều được xây dựng trên nền tảng suy luận tiên tiến.
+マルチモーダル理解において世界最高のモデルです。Google の最も強力なエージェント型モデルであり、バイブ コーディング
+モデルでもあります。最先端の推論技術を基盤として構築されており、より充実したビジュアルとより深いインタラクティビティを実現します。
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=vi)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=ja)
 
-## Tài liệu
+## ドキュメント
 
-Hãy truy cập vào trang [Hướng dẫn dành cho nhà phát triển Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=vi) để xem toàn bộ các tính năng và chức năng.
+機能の詳細については、[Gemini 3 デベロッパー ガイド](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ja)のページをご覧ください。
 
 ## gemini-3-flash-preview
 
-| Thuộc tính | Mô tả |
+| プロパティ | 説明 |
 | --- | --- |
-| id\_cardMã kiểu máy | `gemini-3-flash-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản, Hình ảnh, Video, Đoạn âm thanh và PDF  **Đầu ra**  Văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  1.048.576  **Giới hạn mã thông báo đầu ra**  65.536 |
-| handymanChức năng | **[Tạo âm thanh](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)**  Không được hỗ trợ  **[Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi)**  Được hỗ trợ  **[Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi)**  Được hỗ trợ  **[Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi)**  Được hỗ trợ  **[Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)**  Được hỗ trợ  **[Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)**  Được hỗ trợ  **[Neo bám vào Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)**  Được hỗ trợ  **[Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi)**  Không được hỗ trợ  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi)**  Không được hỗ trợ  **[Tìm trong phần liên kết thực tế](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)**  Được hỗ trợ  **[Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi)**  Được hỗ trợ  **[Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)**  Được hỗ trợ  **[Bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)**  Được hỗ trợ |
-| speedCác lựa chọn thưởng thức nội dung | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi)**  Được hỗ trợ  **[Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi)**  Được hỗ trợ  **[Suy luận mức độ ưu tiên](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi)**  Được hỗ trợ |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - `Preview: gemini-3-flash-preview` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 12 năm 2025 |
-| id\_cardThẻ mô hình | [Thẻ mô hình](https://deepmind.google/models/model-cards/gemini-3-flash/?hl=vi) |
+| id\_cardモデルコード | `gemini-3-flash-preview` |
+| saveサポートされるデータタイプ | **入力**  テキスト、画像、動画、音声、PDF  **出力**  テキスト |
+| token\_autoトークンの上限[[\*](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)] | **入力トークンの上限**  1,048,576  **出力トークンの上限**  65,536 |
+| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象  **[コンピュータ使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)**  サポート対象  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象外  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象 |
+| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象 |
+| 123バージョン | [詳細については、モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - `Preview: gemini-3-flash-preview` |
+| calendar\_month最終更新日 | 2025 年 12 月 |
+| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-3-flash/?hl=ja) |
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-07-21 UTC.
+最終更新日 2026-07-21 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-21 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-21 UTC。"],[],[]]

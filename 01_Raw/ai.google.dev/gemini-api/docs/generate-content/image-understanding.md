@@ -1,40 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=ja
-fetched_at: 2026-07-27T04:48:19.675767+00:00
-title: "\u753b\u50cf\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=id
+fetched_at: 2026-08-03T04:27:07.895640+00:00
+title: "Pemahaman gambar \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-フィードバックを送信
+Kirim masukan
 
-# 画像の理解
+# Pemahaman gambar
 
-Gemini モデルは、マルチモーダル AI として一から構築されています。そのため、画像キャプション、分類、視覚的な質問応答など、さまざまな画像処理タスクやコンピュータ ビジョン タスクを、専用の ML モデルをトレーニングすることなく実行できます。
+Model Gemini dibangun untuk menjadi multimodal dari awal, sehingga membuka berbagai tugas pemrosesan gambar dan computer vision termasuk, tetapi tidak terbatas pada pemberian teks gambar, klasifikasi, dan penjawaban pertanyaan visual tanpa harus melatih model ML khusus.
 
-Gemini モデルは、一般的なマルチモーダル機能に加えて、追加のトレーニングにより、[オブジェクト検出](#object-detection)などの特定のユースケースで**精度が向上**しています。
+Selain kemampuan multimodal umum, model Gemini menawarkan
+**akurasi yang ditingkatkan** untuk kasus penggunaan tertentu seperti [deteksi objek](#object-detection), melalui pelatihan tambahan.
 
-## Gemini に画像を渡す
+## Mengirimkan gambar ke Gemini
 
-Gemini に画像を渡す方法は 2 つあります。
+Anda dapat memberikan gambar sebagai input ke Gemini menggunakan dua metode:
 
-- [インライン画像データを渡す](#inline-image): 小さいファイル（プロンプトを含む合計リクエスト サイズが 20 MB 未満）に最適です。
-- [File API を使用して画像をアップロードする](#upload-image): 大きなファイルや、複数のリクエストで画像を再利用する場合におすすめします。
+- [Mengirimkan data gambar inline](#inline-image): Ideal untuk file yang lebih kecil (ukuran permintaan total
+  kurang dari 20 MB, termasuk perintah).
+- [Mengupload gambar menggunakan File API](#upload-image): Direkomendasikan untuk file yang lebih besar atau untuk
+  menggunakan kembali gambar di beberapa permintaan.
 
-### インライン画像データを渡す
+### Mengirimkan data gambar inline
 
-`generateContent` へのリクエストでインライン画像データを渡すことができます。画像データは、Base64 エンコード文字列として提供するか、ローカルファイルを直接読み取って提供できます（言語によって異なります）。
+Anda dapat mengirimkan data gambar inline dalam permintaan ke `generateContent`. Anda dapat memberikan data gambar sebagai string yang dienkode Base64 atau dengan membaca file lokal secara langsung (bergantung pada bahasa).
 
-次の例は、ローカル ファイルから画像を読み取り、処理のために `generateContent` API に渡す方法を示しています。
+Contoh berikut menunjukkan cara membaca gambar dari file lokal dan mengirimkannya ke `generateContent` API untuk diproses.
 
 ### Python
 
@@ -47,7 +50,7 @@ Gemini に画像を渡す方法は 2 つあります。
 
   client = genai.Client()
   response = client.models.generate_content(
-    model='gemini-3.5-flash',
+    model='gemini-3.6-flash',
     contents=[
       types.Part.from_bytes(
         data=image_bytes,
@@ -82,7 +85,7 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: contents,
 });
 console.log(response.text);
@@ -104,7 +107,7 @@ contents := []*genai.Content{
 
 result, _ := client.Models.GenerateContent(
   ctx,
-  "gemini-3.5-flash",
+  "gemini-3.6-flash",
   contents,
   nil,
 )
@@ -123,7 +126,7 @@ else
 B64FLAGS="-w0"
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -X POST \
@@ -142,7 +145,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }' 2> /dev/null
 ```
 
-次の例に示すように、URL から画像を取得してバイトに変換し、`generateContent` に渡すこともできます。
+Anda juga dapat mengambil gambar dari URL, mengonversinya menjadi byte, dan mengirimkannya ke `generateContent` seperti yang ditunjukkan dalam contoh berikut.
 
 ### Python
 
@@ -161,7 +164,7 @@ image = types.Part.from_bytes(
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=["What is this image?", image],
 )
 
@@ -183,7 +186,7 @@ async function main() {
   const base64ImageData = Buffer.from(imageArrayBuffer).toString('base64');
 
   const result = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: [
     {
       inlineData: {
@@ -237,7 +240,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
     ctx,
-    "gemini-3.5-flash",
+    "gemini-3.6-flash",
     contents,
     nil,
   )
@@ -265,7 +268,7 @@ else
   IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -w0)
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -284,9 +287,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }' 2> /dev/null
 ```
 
-### File API を使用して画像をアップロードする
+### Mengupload gambar menggunakan File API
 
-大きなファイルの場合や、同じ画像ファイルを繰り返し使用できるようにするには、Files API を使用します。次のコードは、画像ファイルをアップロードし、`generateContent` の呼び出しでそのファイルを使用します。詳細と例については、[Files API ガイド](https://ai.google.dev/gemini-api/docs/files?hl=ja)をご覧ください。
+Untuk file besar atau agar dapat menggunakan file gambar yang sama berulang kali, gunakan Files API. Kode berikut mengupload file gambar, lalu menggunakan file tersebut dalam panggilan ke `generateContent`. Lihat [panduan Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) untuk
+mengetahui informasi dan contoh selengkapnya.
 
 ### Python
 
@@ -298,7 +302,7 @@ client = genai.Client()
 my_file = client.files.upload(file="path/to/sample.jpg")
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=[my_file, "Caption this image."],
 )
 
@@ -323,7 +327,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Caption this image.",
@@ -367,7 +371,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.5-flash",
+      "gemini-3.6-flash",
       contents,
       nil,
   )
@@ -413,7 +417,7 @@ file_uri=$(jq -r ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -431,9 +435,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## 複数の画像を使用したプロンプト
+## Membuat perintah dengan beberapa gambar
 
-`contents` 配列に複数の画像 `Part` オブジェクトを含めることで、1 つのプロンプトで複数の画像を指定できます。インライン データ（ローカル ファイルまたは URL）と File API 参照を混在させることができます。
+Anda dapat memberikan beberapa gambar dalam satu perintah dengan menyertakan beberapa objek `Part` gambar dalam array `contents`. Objek ini dapat berupa campuran data inline (file lokal atau URL) dan referensi File API.
 
 ### Python
 
@@ -455,7 +459,7 @@ with open(image2_path, 'rb') as f:
 # Create the prompt with text and multiple images
 response = client.models.generate_content(
 
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     contents=[
         "What is different between these two images?",
         uploaded_file,  # Use the uploaded file reference
@@ -499,7 +503,7 @@ async function main() {
 
   const response = await ai.models.generateContent({
 
-    model: "gemini-3.5-flash",
+    model: "gemini-3.6-flash",
     contents: createUserContent([
       "What is different between these two images?",
       createPartFromUri(uploadedFile.uri, uploadedFile.mimeType),
@@ -540,7 +544,7 @@ contents := []*genai.Content{
 
 result, _ := client.Models.GenerateContent(
   ctx,
-  "gemini-3.5-flash",
+  "gemini-3.6-flash",
   contents,
   nil,
 )
@@ -593,7 +597,7 @@ fi
 IMAGE2_BASE64=$(base64 $B64FLAGS $IMAGE2_PATH)
 
 # Now generate content using both images
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -618,9 +622,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## オブジェクト検出
+## Deteksi objek
 
-モデルは、画像内のオブジェクトを検出し、その境界ボックスの座標を取得するようにトレーニングされます。画像の寸法を基準とした座標は、[0, 1000] にスケーリングされます。元の画像サイズに基づいて、これらの座標をスケールダウンする必要があります。
+Model dilatih untuk mendeteksi objek dalam gambar dan mendapatkan koordinat kotak pembatasnya. Koordinat, relatif terhadap dimensi gambar, diskalakan ke [0, 1000]. Anda harus mendeskalakan koordinat ini berdasarkan ukuran gambar asli.
 
 ### Python
 
@@ -639,7 +643,7 @@ config = types.GenerateContentConfig(
   response_mime_type="application/json"
   )
 
-response = client.models.generate_content(model="gemini-3.5-flash",
+response = client.models.generate_content(model="gemini-3.6-flash",
                                           contents=[image, prompt],
                                           config=config
                                           )
@@ -671,7 +675,7 @@ const base64ImageFile = fs.readFileSync("/path/to/image.png", {
 });
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
+  model: "gemini-3.6-flash",
   contents: [
     {
       inlineData: {
@@ -761,7 +765,7 @@ func main() {
 
   result, err := client.Models.GenerateContent(
     ctx,
-    "gemini-3.5-flash",
+    "gemini-3.6-flash",
     contents,
     config,
   )
@@ -800,7 +804,7 @@ else
   B64FLAGS="-w0"
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -822,14 +826,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }' 2> /dev/null
 ```
 
-その他の例については、[Gemini クックブック](https://github.com/google-gemini/cookbook)の次のノートブックをご覧ください。
+Untuk contoh lainnya, lihat notebook berikut di [Gemini Cookbook](https://github.com/google-gemini/cookbook):
 
-- [2D 空間認識ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=ja)
-- [試験運用版の 3D ポインティング ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=ja)
+- [Notebook pemahaman spasial 2D](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=id)
+- [Notebook penunjuk 3D eksperimental](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=id)
 
-## サポートされている画像形式
+## Format gambar yang didukung
 
-Gemini は、次の画像形式の MIME タイプをサポートしています。
+Gemini mendukung jenis MIME format gambar berikut:
 
 - PNG - `image/png`
 - JPEG - `image/jpeg`
@@ -837,60 +841,67 @@ Gemini は、次の画像形式の MIME タイプをサポートしています�
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-その他のファイル入力方法については、[ファイル入力方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja)ガイドをご覧ください。
+Untuk mempelajari metode input file lainnya, lihat panduan
+[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
 
-## 機能
+## Kemampuan
 
-すべての Gemini モデル バージョンはマルチモーダルであり、画像キャプション、Visual Question & Answering、画像分類、オブジェクト検出など、幅広い画像処理タスクやコンピュータ ビジョン タスクで使用できます。
+Semua versi model Gemini bersifat multimodal dan dapat digunakan dalam berbagai tugas pemrosesan gambar dan computer vision termasuk, tetapi tidak terbatas pada pemberian teks gambar, pertanyaan dan jawaban visual, klasifikasi gambar, dan deteksi objek.
 
-Gemini を使用すると、品質とパフォーマンスの要件に応じて、特殊な ML モデルを使用する必要性が軽減されます。
+Gemini dapat mengurangi kebutuhan untuk menggunakan model ML khusus, bergantung pada persyaratan kualitas dan performa Anda.
 
-最新のモデル バージョンは、一般的な機能に加えて、[オブジェクト検出](#object-detection)の強化など、専門的なタスクの精度を向上させるために特別にトレーニングされています。
+[Versi model terbaru dilatih secara khusus untuk meningkatkan akurasi tugas khusus selain kemampuan umum, seperti deteksi objek yang ditingkatkan.](#object-detection)
 
-## 制限事項と主な技術情報
+## Batasan dan informasi teknis utama
 
-### ファイルの上限
+### Batas file
 
-Gemini モデルは、リクエストあたり最大 3,600 個の画像ファイルをサポートしています。
+Model Gemini mendukung maksimum 3.600 file gambar per permintaan.
 
-### トークンの計算
+### Penghitungan token
 
-- 両方の寸法が 384 ピクセル以下の場合、258 個のトークン。大きな画像は 768x768 ピクセルのタイルに分割され、各タイルに 258 個のトークンが使用されます。
+- 258 token jika kedua dimensi <= 384 piksel.
+  Gambar yang lebih besar dipecah menjadi kotak 768x768 piksel, yang masing-masing berharga 258 token.
 
-タイルの数を計算するおおよその式は次のとおりです。
+Rumus kasar untuk menghitung jumlah kotak adalah sebagai berikut:
 
-- 切り抜き単位のサイズを計算します。これはおおよそ floor(min(width, height) / 1.5) です。
-- 各ディメンションをクロップ単位サイズで割り、乗算してタイルの数を取得します。
+- Hitung ukuran unit pangkas yang kira-kira: floor(min(width, height) / 1.5).
+- Bagi setiap dimensi dengan ukuran unit pangkas dan kalikan bersama untuk mendapatkan jumlah kotak.
 
-たとえば、960x540 のサイズの画像の場合、切り抜き単位のサイズは 360 になります。各ディメンションを 360 で割ると、タイルの数は 3 \* 2 = 6 になります。
+Misalnya, untuk gambar berdimensi 960x540 akan memiliki ukuran unit pangkas 360. Bagi setiap dimensi dengan 360 dan jumlah kotak adalah 3 \* 2 = 6.
 
-### メディアの解像度
+### Resolusi media
 
-Gemini 3 では、`media_resolution` パラメータを使用して、マルチモーダル ビジョン処理をきめ細かく制御できます。`media_resolution` パラメータは、**入力画像または動画フレームごとに割り当てられるトークンの最大数**を決定します。解像度が高いほど、モデルが細かいテキストを読み取ったり、小さな詳細を識別する能力が向上しますが、トークンの使用量とレイテンシが増加します。
+Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter `media_resolution`. Parameter `media_resolution` menentukan **jumlah maksimum token yang dialokasikan per gambar input atau frame video.**
+Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks halus atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
 
-パラメータとそのトークン計算への影響について詳しくは、[メディア解像度](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=ja)ガイドをご覧ください。
+Untuk mengetahui detail selengkapnya tentang parameter dan pengaruhnya terhadap penghitungan token,
+lihat panduan [resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
 
-## おすすめの方法やお役立ち情報
+## Tips dan praktik terbaik
 
-- 画像が正しく回転することを確認します。
-- 鮮明でぼやけていない画像を使用します。
-- テキストを含む 1 つの画像を使用する場合は、`contents` 配列の画像部分の後にテキスト プロンプトを配置します。
+- Pastikan gambar diputar dengan benar.
+- Gunakan gambar yang jelas dan tidak buram.
+- Saat menggunakan satu gambar dengan teks, tempatkan perintah teks *setelah* bagian gambar dalam array `contents`.
 
-## 次のステップ
+## Langkah berikutnya
 
-このガイドでは、画像ファイルをアップロードし、画像入力からテキスト出力を生成する方法について説明します。詳細については、次のリソースをご覧ください。
+Panduan ini menunjukkan cara mengupload file gambar dan membuat output teks dari input gambar. Untuk mempelajari lebih lanjut, lihat referensi berikut:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): Gemini で使用するファイルのアップロードと管理について説明します。
-- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions): システム指示を使用すると、特定のニーズやユースケースに基づいてモデルの動作を制御できます。
-- [ファイル プロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide): Gemini API は、テキスト、画像、音声、動画データを使用したプロンプト（マルチモーダル プロンプトとも呼ばれます）をサポートしています。
-- [安全に関するガイダンス](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja): 生成 AI モデルは、不正確、偏見がある、不快な出力など、予期しない出力を生成することがあります。このような出力による危害のリスクを軽減するには、後処理と人間による評価が不可欠です。
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id): Pelajari lebih lanjut cara mengupload dan mengelola file untuk digunakan dengan Gemini.
+- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
+  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan
+  kebutuhan dan kasus penggunaan tertentu.
+- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai multimodal prompting.
+- [Panduan keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id): Terkadang model AI generatif menghasilkan output yang tidak terduga, seperti output yang tidak akurat,
+  bias, atau menyinggung. Pascapemrosesan dan evaluasi manual sangat penting untuk membatasi risiko bahaya dari output tersebut.
 
-フィードバックを送信
+Kirim masukan
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最終更新日 2026-06-24 UTC。
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-ご意見をお聞かせください
+Ada masukan untuk kami?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-24 UTC。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

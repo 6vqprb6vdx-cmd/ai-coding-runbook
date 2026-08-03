@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=he
-fetched_at: 2026-07-27T04:39:48.103811+00:00
-title: "\u05d9\u05e6\u05d9\u05e8\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=de
+fetched_at: 2026-08-03T04:37:21.184462+00:00
+title: "Bilder mit Imagen generieren \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-שליחת משוב
+Feedback geben
 
-# יצירת תמונות באמצעות Imagen
+# Bilder mit Imagen generieren
 
-‫Imagen הוא מודל של Google ליצירת תמונות באיכות גבוהה, שיכול ליצור תמונות מציאותיות ואיכותיות מהנחיות טקסט. כל התמונות שנוצרו כוללות סימן מים של SynthID. מידע נוסף על הווריאציות הזמינות של מודל Imagen זמין בקטע [גרסאות המודל](#model-versions).
+Imagen ist das High-Fidelity-Modell zur Bildgenerierung von Google, mit dem sich realistische und hochwertige Bilder aus Text-Prompts generieren lassen. Alle generierten Bilder enthalten ein SynthID-Wasserzeichen. Weitere Informationen zu den verfügbaren Imagen-Modellvarianten finden Sie im Abschnitt [Modellversionen](#model-versions).
 
-## מעבר ל-Nano Banana
+## Migration zu Nano Banana
 
-הוצאנו משימוש את מודלי Imagen, והם יושבתו ב-17 באוגוסט 2026. מומלץ לעבור ל-Nano Banana כדי ליצור תמונות.
+Imagen-Modelle sind veraltet und werden am 17. August 2026 eingestellt. Wir empfehlen, für die Bildgenerierung zu Nano Banana zu migrieren.
 
-ההעברה כוללת את השינויים הבאים:
+Die Migration umfasst die folgenden Änderungen:
 
-- **שם המודל**: משתמשים ב-`gemini-2.5-flash-image` במקום בשמות של מודלי Imagen.
-- **שיטה**: במקום `client.models.generate_images`, צריך להשתמש ב-`client.models.generate_content`.
-- **טיפול בתשובה**: Nano Banana מחזיר חלקי תוכן, שעשויים לכלול נתוני תמונה, במקום אובייקט תשובה ספציפי של תמונה.
+- **Modellname**: Verwenden Sie `gemini-2.5-flash-image` anstelle von Imagen-Modellnamen.
+- **Methode**: Verwenden Sie `client.models.generate_content` anstelle von `client.models.generate_images`.
+- **Antwortverarbeitung**: Nano Banana gibt Inhaltsabschnitte zurück, die möglicherweise Bilddaten enthalten, anstelle eines bestimmten Bildantwortobjekts.
 
-[במדריך ליצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he) אפשר למצוא פרטים נוספים ודוגמאות.
+Weitere Informationen und Beispiele finden Sie im [Leitfaden zur Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de).
 
-## יצירת תמונות באמצעות מודלים של Imagen
+## Bilder mit den Imagen-Modellen generieren
 
-בדוגמה הזו מוסבר איך ליצור תמונות באמצעות [מודל Imagen](https://deepmind.google/technologies/imagen/?hl=he):
+In diesem Beispiel wird gezeigt, wie Sie Bilder mit einem [Imagen-Modell](https://deepmind.google/technologies/imagen/?hl=de) generieren:
 
 ### Python
 
@@ -87,7 +87,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Ok
 
 ```
 package main
@@ -144,365 +144,364 @@ curl -X POST \
       }'
 ```
 
-![תמונה שנוצרה על ידי AI של רובוט שמחזיק סקייטבורד אדום](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=he)
+![KI-generiertes Bild eines Roboters, der ein rotes Skateboard hält](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=de)
 
-תמונה שנוצרה על ידי AI של רובוט שמחזיק סקייטבורד אדום
+KI-generiertes Bild eines Roboters, der ein rotes Skateboard hält
 
-### הגדרות של Imagen
+### Imagen-Konfiguration
 
-בשלב הזה, Imagen תומך רק בהנחיות באנגלית ובפרמטרים הבאים:
+Imagen unterstützt derzeit nur Prompts in englischer Sprache und die folgenden Parameter:
 
-- ‫`numberOfImages`: מספר התמונות שייווצרו, מ-1 עד 4 (כולל).
-  ערך ברירת המחדל הוא 4.
-- ‫`imageSize`: הגודל של התמונה שנוצרה. התמיכה ניתנת רק במודלים Standard ו-Ultra. הערכים הנתמכים הם `1K` ו-`2K`.
-  ערך ברירת המחדל הוא `1K`.
-- ‫`aspectRatio`: שינוי יחס הגובה-רוחב של התמונה שנוצרה. הערכים הנתמכים הם `"1:1"`,‏ `"3:4"`,‏ `"4:3"`,‏ `"9:16"` ו-`"16:9"`. ערך ברירת המחדל הוא `"1:1"`.
-- ‫`personGeneration`: מאפשרים למודל ליצור תמונות של אנשים. יש תמיכה בערכים הבאים:
+- `numberOfImages`: Die Anzahl der zu generierenden Bilder, von 1 bis 4 (einschließlich).
+  Der Standardwert ist 4.
+- `imageSize`: Die Größe des generierten Bildes. Dies wird nur für die Modelle „Standard“ und „Ultra“ unterstützt. Die unterstützten Werte sind `1K` und `2K`.
+  Der Standardwert ist `1K`.
+- `aspectRatio`: Ändert das Seitenverhältnis des generierten Bildes. Unterstützte Werte sind `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` und `"16:9"`. Der Standardwert ist `"1:1"`.
+- `personGeneration`: Das Modell darf Bilder von Personen generieren. Folgende Werte werden unterstützt:
 
-  - ‫`"dont_allow"`: חסימת יצירת תמונות של אנשים.
-  - ‫`"allow_adult"`: יצירת תמונות של מבוגרים, אבל לא של ילדים. זוהי אפשרות ברירת המחדל.
-  - ‫`"allow_all"`: יצירת תמונות שכוללות מבוגרים וילדים.
+  - `"dont_allow"`: Generierung von Bildern von Personen blockieren.
+  - `"allow_adult"`: Bilder von Erwachsenen, aber nicht von Kindern generieren. Das ist die Standardeinstellung.
+  - `"allow_all"`: Bilder generieren, auf denen Erwachsene und Kinder zu sehen sind.
 
-## מדריך לכתיבת פרומפטים ל-Imagen
+## Imagen-Leitfaden für Prompts
 
-בקטע הזה במדריך ל-Imagen מוסבר איך שינוי של הנחיה ליצירת תמונות לפי טקסט יכול להניב תוצאות שונות, ומוצגות דוגמאות לתמונות שאפשר ליצור.
+In diesem Abschnitt des Imagen-Leitfadens erfahren Sie, wie sich durch Ändern einer Text-zu-Bild-Eingabeaufforderung unterschiedliche Ergebnisse erzielen lassen. Außerdem finden Sie Beispiele für Bilder, die Sie erstellen können.
 
-### יסודות כתיבת ההנחיות
+### Grundlagen zum Schreiben von Prompts
 
-הנחיה טובה היא תיאורית וברורה, וכוללת מילות מפתח ומשנים משמעותיים. מתחילים לחשוב על **הנושא**, **ההקשר** ו**הסגנון**.
+Ein guter Prompt ist beschreibend und klar und verwendet aussagekräftige Keywords und Modifikatoren. Beginnen Sie mit dem **Motiv**, dem **Kontext** und dem **Stil**.
 
-![הנחיה עם דגש על הנושא, ההקשר והסגנון](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=he)
+![Eingabeaufforderung mit Akzent auf Motiv, Kontext und Stil](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=de)
 
-טקסט התמונה: *סקיצה* (**סגנון**) של *בניין דירות מודרני* (**נושא**) מוקף *גורדי שחקים* (**הקשר ורקע**).
+Bildtext: Eine *Skizze* (**Stil**) eines *modernen Wohngebäudes* (**Motiv**) umgeben von *Wolkenkratzern* (**Kontext und Hintergrund**).
 
-1. **נושא**: הדבר הראשון שצריך לחשוב עליו כשכותבים הנחיה הוא *הנושא*: האובייקט, האדם, החיה או הנוף שרוצים ליצור מהם תמונה.
-2. **הקשר ורקע:** חשוב לא פחות הוא *הרקע או ההקשר* שבהם יוצג הנושא. נסו למקם את מושא הצילום על רקעים שונים. לדוגמה, סטודיו עם רקע לבן, בחוץ או בסביבות פנימיות.
-3. **סגנון:** לסיום, מוסיפים את סגנון התמונה הרצוי. *סגנונות* יכולים להיות כלליים (ציור, צילום, סקיצות) או ספציפיים מאוד (ציור פסטל, רישום בפחם, תלת-ממד איזומטרי). אפשר גם לשלב בין סגנונות.
+1. **Thema:** Das Erste, woran Sie bei jeder Eingabeaufforderung denken müssen, ist das *Motiv*. Das Objekt, eine Person, ein Tier oder eine Landschaft, von der Sie ein Bild möchten.
+2. **Kontext und Hintergrund:** Ebenso wichtig ist der *Hintergrund oder Kontext*, in dem das Motiv platziert wird. Platzieren Sie das Motiv vor verschiedenen Hintergründen. Zum Beispiel ein Studio mit weißem Hintergrund, im Freien oder in Gebäuden.
+3. **Stil:** Fügen Sie abschließend den Stil des gewünschten Bildes hinzu. *Stile* können allgemein (Malerei, Fotografie, Skizzen) oder sehr spezifisch sein (Pastel, Kohlezeichnung, isometrische 3D-Perspektive). Sie können auch Stile kombinieren.
 
-אחרי שכותבים גרסה ראשונה של ההנחיה, מוסיפים לה פרטים נוספים עד שמקבלים את התמונה הרצויה. חשוב לבצע איטרציות.
-מתחילים עם הרעיון המרכזי, ואז משפרים ומרחיבים אותו עד שהתמונה שנוצרת קרובה לחזון שלכם.
+Nachdem Sie eine erste Version Ihres Prompts geschrieben haben, können Sie ihn verfeinern, indem Sie weitere Details hinzufügen, bis Sie das gewünschte Bild erhalten. Iteration ist wichtig.
+Beginnen Sie mit Ihrer Kernidee und verfeinern und erweitern Sie diese dann, bis das generierte Bild Ihrer Vorstellung entspricht.
 
 |  |  |  |
 | --- | --- | --- |
-| תמונה פוטוריאליסטית לדוגמה 1   הנחיה: פארק באביב ליד אגם | תמונה פוטוריאליסטית לדוגמה 2   הנחיה: פארק באביב ליד אגם, **השמש שוקעת מעל האגם, שעת הזהב** | תמונת דוגמה פוטוריאליסטית 3   הנחיה: פארק באביב ליד אגם, ***השמש שוקעת מעבר לאגם, שעת הזהב, פרחי בר אדומים*** |
+| Fotorealistisches Beispielbild 1   Eingabeaufforderung: Ein Park im Frühling neben einem See | Fotorealistisches Beispielbild 2   Prompt: Ein Park im Frühling neben einem See, **die Sonne geht über dem See unter, goldene Stunde** | Fotorealistisches Beispielbild 3   Prompt: Ein Park im Frühling neben einem See, ***die Sonne geht über dem See unter, goldene Stunde, rote Wildblumen*** |
 
-מודלים של Imagen יכולים להפוך את הרעיונות שלכם לתמונות מפורטות, לא משנה אם ההנחיות שלכם קצרות או ארוכות ומפורטות. משפרים את החזון באמצעות הנחיות חוזרות, ומוסיפים פרטים עד שמגיעים לתוצאה המושלמת.
+Imagen-Modelle können Ihre Ideen in detaillierte Bilder umwandeln, unabhängig davon, ob Ihre Prompts kurz oder lang und detailliert sind. Verfeinern Sie Ihre Vision durch iterative Prompts und fügen Sie Details hinzu, bis Sie das perfekte Ergebnis erzielen.
 
 |  |  |
 | --- | --- |
-| הנחיות קצרות מאפשרות ליצור תמונה במהירות.  דוגמה להנחיה קצרה ב-Imagen 4   הנחיה: תמונה בתקריב של אישה בשנות ה-20 לחייה, צילום רחוב, פריים מסרט, גוונים חמים של כתום מושתק | הנחיות ארוכות יותר מאפשרות להוסיף פרטים ספציפיים ולבנות את התמונה.  דוגמה להנחיה ארוכה ב-Imagen 4   הנחיה: תמונה שובה לב של אישה בשנות ה-20 לחייה בסגנון צילום רחוב. התמונה צריכה להיראות כמו צילום סטילס עם גוונים חמים כתומים מושתקים. |
+| Mit kurzen Prompts können Sie schnell ein Bild generieren.  Beispiel für einen kurzen Prompt für Imagen 4   Prompt: Nahaufnahme einer Frau in ihren 20ern, Straßenfotografie, Standbild, gedeckte warme Orangetöne | Mit längeren Prompts können Sie spezifische Details hinzufügen und Ihr Bild erstellen.  Beispiel für einen langen Prompt für Imagen 4   Prompt: Beeindruckendes Foto einer Frau in ihren 20ern, das einen Straßenfotografie-Stil verwendet. Das Bild sollte wie ein Standfoto mit gedeckten, orangefarbenen, warmen Tönen aussehen. |
 
-עצות נוספות לכתיבת הנחיות ל-Imagen:
+Zusätzliche Tipps zum Verfassen von Prompts für Imagen:
 
-- **משתמשים בשפה תיאורית**: כדאי להשתמש בשמות תואר ובפעלים תיאוריים מפורטים כדי ליצור תמונה ברורה עבור Imagen.
-- **מספקים הקשר**: אם צריך, כוללים מידע רקע כדי לעזור ל-AI להבין את התוכן.
-- **הפניה לאומנים או לסגנונות ספציפיים**: אם יש לכם אסתטיקה מסוימת בראש, כדאי להפנות לאומנים או לזרמים באומנות ספציפיים.
-- **שימוש בכלים להנדסת פרומפטים**: כדאי לנסות כלים או משאבים להנדסת פרומפטים שיעזרו לכם לחדד את הפרומפטים ולהשיג תוצאות אופטימליות.
-- **שיפור הפרטים של הפנים בתמונות אישיות ובתמונות קבוצתיות**: מציינים את פרטי הפנים כנקודת המיקוד של התמונה (לדוגמה, משתמשים במילה "פורטרט" בהנחיה).
+- **Beschreibende Sprache verwenden**: Verwenden Sie detaillierte Adjektive und Adverbien, um Imagen ein klares Bild zu vermitteln.
+- **Kontext bereitstellen**: Fügen Sie bei Bedarf Hintergrundinformationen hinzu, damit die KI die Aufgabe besser versteht.
+- **Auf bestimmte Künstler oder Stile verweisen**: Wenn Sie eine bestimmte Ästhetik im Sinn haben, kann es hilfreich sein, auf bestimmte Künstler oder Kunstrichtungen zu verweisen.
+- **Tools für Prompt Engineering verwenden**: Sie können Tools oder Ressourcen für Prompt Engineering nutzen, um Ihre Prompts zu optimieren und optimale Ergebnisse zu erzielen.
+- **Gesichtsdetails in Ihren persönlichen Fotos und Gruppenfotos optimieren**: Geben Sie Gesichtsdetails als Fokus des Fotos an (verwenden Sie z. B. das Wort „Porträt“ im Prompt).
 
-### יצירת טקסט בתמונות
+### Text in Bildern generieren
 
-מודלים של Imagen יכולים להוסיף טקסט לתמונות, וכך מאפשרים ליצור תמונות בצורה יצירתית יותר. כדי להפיק את המרב מהתכונה הזו, מומלץ לפעול לפי ההנחיות הבאות:
+Imagen-Modelle können Text in Bilder einfügen und so mehr kreative Möglichkeiten bei der Bilderstellung eröffnen. Mit den folgenden Tipps können Sie diese Funktion optimal nutzen:
 
-- **חזרה על הפעולה עד לקבלת התוצאה הרצויה**: יכול להיות שתצטרכו ליצור מחדש את התמונות עד שתקבלו את המראה שרציתם. השילוב של טקסט ב-Imagen עדיין בתהליך פיתוח, ולפעמים צריך לנסות כמה פעמים כדי לקבל את התוצאות הטובות ביותר.
-- **הקפידו על ניסוח קצר**: כדי לקבל תוצאות אופטימליות, הגבילו את הטקסט ל-25 תווים או פחות.
-- **כמה ביטויים**: כדאי להתנסות עם שניים או שלושה ביטויים שונים כדי לספק מידע נוסף. כדי ליצור קומפוזיציות נקיות יותר, מומלץ להשתמש בלא יותר משלושה משפטים.
+- **Sicher iterieren**: Möglicherweise müssen Sie Bilder neu generieren, bis Sie das gewünschte Ergebnis erhalten. Die Textintegration von Imagen wird ständig weiterentwickelt. Manchmal sind mehrere Versuche erforderlich, um die besten Ergebnisse zu erzielen.
+- **Kurz fassen**: Der Text sollte maximal 25 Zeichen umfassen, damit er optimal generiert werden kann.
+- **Mehrere Formulierungen**: Testen Sie zwei oder drei unterschiedliche Formulierungen, um zusätzliche Informationen zu liefern. Verwenden Sie nicht mehr als drei Begriffe, um die Komposition übersichtlicher zu halten.
 
-  ![דוגמה ליצירת טקסט באמצעות Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=he)
+  ![Beispiel für die Textgenerierung mit Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=de)
 
-  הנחיה: פוסטר עם הטקסט Summerland בגופן מודגש ככותרת, מתחת לטקסט הזה מופיע הסלוגן Summer never felt so good
-- **מיקום הטקסט**: מודל Imagen יכול לנסות למקם את הטקסט לפי ההנחיות, אבל יכול להיות שיהיו מדי פעם שינויים. אנחנו כל הזמן משפרים את התכונה הזו.
-- **סגנון גופן מעורר השראה**: מציינים סגנון גופן כללי כדי להשפיע בעדינות על הבחירות של Imagen. אל תצפו לשכפול מדויק של הגופן, אלא לפרשנויות יצירתיות.
-- **גודל הגופן**: מציינים גודל גופן או אינדיקציה כללית לגודל (לדוגמה, *קטן*, *בינוני*, *גדול*) כדי להשפיע על יצירת גודל הגופן.
+  Prompt: Ein Poster mit dem Text „Summerland“ in fetter Schrift als Titel. Darunter der Slogan „Summer never felt so good“.
+- **Platzierung von Anleitungen**: Imagen kann versuchen, Text wie angegeben zu positionieren, aber es kann zu Abweichungen kommen. Diese Funktion wird kontinuierlich verbessert.
+- **Schriftstil für Inspiration**: Geben Sie einen allgemeinen Schriftstil an, um die Auswahl von Imagen subtil zu beeinflussen. Verlassen Sie sich nicht auf eine genaue Schriftartreplikation, sondern rechnen Sie mit kreativen Interpretationen.
+- **Schriftgröße**: Geben Sie eine Schriftgröße oder eine allgemeine Größenangabe (z. B. *klein*, *mittel*, *groß*) an, um die Generierung der Schriftgröße zu beeinflussen.
 
-### הגדרת פרמטרים להנחיות
+### Prompt-Parametrisierung
 
-כדי לשלוט טוב יותר בתוצאות הפלט, כדאי להגדיר פרמטרים לקלט ב-Imagen. לדוגמה, נניח שאתם רוצים שהלקוחות יוכלו ליצור לוגו לעסק שלהם, ואתם רוצים לוודא שהלוגו תמיד ייווצר על רקע בצבע אחיד. אתם רוצים גם להגביל את האפשרויות שהלקוח יכול לבחור מהתפריט.
+Um die Ausgaberesultate besser zu steuern, kann es hilfreich sein, die Eingaben in Imagen zu parametrisieren. Angenommen, Sie möchten, dass Ihre Kunden Logos für ihr Unternehmen generieren können, und Sie möchten sicherstellen, dass Logos immer auf einem einfarbigen Hintergrund generiert werden. Außerdem möchten Sie die Optionen einschränken, die der Kunde in einem Menü auswählen kann.
 
-בדוגמה הזו, אפשר ליצור הנחיה עם פרמטרים שדומה להנחיה הבאה:
+In diesem Beispiel können Sie einen parametrisierten Prompt ähnlich dem folgenden erstellen:
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-בממשק המשתמש המותאם אישית, הלקוח יכול להזין את הפרמטרים באמצעות תפריט, והערך שהוא בוחר מאכלס את ההנחיה שמתקבלת ב-Imagen.
+In Ihrer benutzerdefinierten Benutzeroberfläche kann der Kunde die Parameter über ein Menü eingeben. Der ausgewählte Wert wird dann in den Prompt eingefügt, den Imagen erhält.
 
-לדוגמה:
+Beispiel:
 
-1. הנחיה: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. Prompt: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![דוגמה 1 לפרמטרים של הנחיה ב-Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=he)
-2. הנחיה: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Beispiel 1 für die Parameterisierung von Prompts für Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=de)
+2. Prompt: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![דוגמה 2 לפרמטרים של הנחיה ב-Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=he)
-3. הנחיה: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Beispiel 2 für die Parametrisierung von Prompts für Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=de)
+3. Prompt: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![דוגמה 3 לפרמטרים של הנחיה ב-Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=he)
+   ![Beispiel 3 für die Parameterisierung von Prompts für Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=de)
 
-### טכניקות מתקדמות לכתיבת הנחיות
+### Erweiterte Techniken zum Schreiben von Eingabeaufforderungen
 
-אפשר להשתמש בדוגמאות הבאות כדי ליצור הנחיות ספציפיות יותר על סמך מאפיינים כמו תיאורי צילום, צורות וחומרים, תנועות אמנותיות היסטוריות ומשנים של איכות התמונה.
+Anhand der folgenden Beispiele können Sie anhand von Attributen wie Bilddeskriptoren, Formen und Materialien, historischen Kunstbewegungen und Bildqualitätsmodifikatoren spezifischere Prompts erstellen.
 
-#### צילום
+#### Fotografie
 
-- ההנחיה כוללת: *"תמונה של..."*
+- Eingabeaufforderung enthält: *„Ein Foto von...”*
 
-כדי להשתמש בסגנון הזה, מתחילים במילות מפתח שמציינות בבירור ל-Imagen שאתם מחפשים תמונה. ההנחיות צריכות להתחיל במילים
-*"תמונה של. . ‫."*. לדוגמה:
-
-|  |  |  |
-| --- | --- | --- |
-| תמונה פוטוריאליסטית לדוגמה 1   הנחיה: **תמונה של** פולי קפה במטבח על משטח עץ | תמונה פוטוריאליסטית לדוגמה 2   הנחיה: **תמונה של** חטיף שוקולד על משטח במטבח | תמונת דוגמה פוטוריאליסטית 3   הנחיה: **תמונה של** בניין מודרני עם מים ברקע |
-
-מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
-
-##### שינויים בצילום
-
-בדוגמאות הבאות אפשר לראות כמה פרמטרים ומשנים שספציפיים לצילום. אפשר לשלב כמה משנים כדי לקבל שליטה מדויקת יותר.
-
-1. **קירבה למצלמה** – *תקריב, צילום מרחוק*
-
-   |  |  |
-   | --- | --- |
-   | תמונה לדוגמה שצולמה במצלמה במצב תקריב   פרומפט: תמונה **מקרוב** של פולי קפה | תמונה לדוגמה של מצלמה בהגדלה מוקטנת   הנחיה: תמונה **ממרחק** של שקית קטנה של  פולי קפה במטבח מבולגן |
-2. **מיקום המצלמה** – *צילום אווירי, מלמטה*
-
-   |  |  |
-   | --- | --- |
-   | תמונה לדוגמה של תצלום אווירי   הנחיה: **תמונה אווירית** של עיר עם גורדי שחקים | תמונה לדוגמה של מבט מלמטה   הנחיה: תמונה של צמרת עצים ביער עם שמיים כחולים **מלמטה** |
-3. **תאורה** – *טבעית, דרמטית, חמה, קרה*
-
-   |  |  |
-   | --- | --- |
-   | תמונה לדוגמה עם תאורה טבעית   הנחיה: תמונה בסטודיו של כורסה מודרנית, **תאורה טבעית** | תמונה לדוגמה של תאורה דרמטית   הנחיה: תמונה בסגנון סטודיו של כורסה מודרנית, **תאורה דרמטית** |
-4. **הגדרות המצלמה** *– טשטוש תנועה, פוקוס רך, בוקה, צילום פורטרט*
-
-   |  |  |
-   | --- | --- |
-   | תמונה לדוגמה של טשטוש תנועה   הנחיה: תמונה של עיר עם גורדי שחקים מתוך מכונית עם **טשטוש תנועה** | תמונה לדוגמה של פוקוס רך   הנחיה: **תמונה עם מוקד רך** של גשר בעיר בלילה |
-5. **סוגי עדשות** – *35 מ"מ, 50 מ"מ, עין הדג, זווית רחבה, מאקרו*
-
-   |  |  |
-   | --- | --- |
-   | תמונה לדוגמה שצולמה בעדשת מאקרו   הנחיה: תמונה של עלה, **עדשת מאקרו** | תמונה לדוגמה בעדשת עין הדג   הנחיה: צילום רחוב, העיר ניו יורק, **עדשת עין הדג** |
-6. **סוגי סרטים** – *שחור-לבן, פולרואיד*
-
-   |  |  |
-   | --- | --- |
-   | תמונה לדוגמה של תמונת פולרואיד   הנחיה: **תמונת פולרואיד** של כלב עם משקפי שמש | תמונה לדוגמה בשחור-לבן   פרומפט: **תמונה בשחור-לבן** של כלב עם משקפי שמש |
-
-מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
-
-### איור ואומנות
-
-- ההנחיה כוללת: *"painting של..."*, *‫"sketch של…"*
-
-סגנונות האומנות משתנים מסגנונות מונוכרומטיים כמו שרטוטי עיפרון, ועד לאומנות דיגיטלית היפר-ריאליסטית. לדוגמה, בתמונות הבאות נעשה שימוש באותו הנחיה עם סגנונות שונים:
-
-*"תמונה של מכונית סדאן חשמלית ספורטיבית עם קווים זוויתיים, עם גורדי שחקים ברקע"*[art style or creation technique]
+Um diesen Stil zu verwenden, beginnen Sie mit der Verwendung von Keywords, die Imagen klar mitteilen, dass Sie nach einem Foto suchen. Starten Sie die Eingabeaufforderungen mit *„Ein Foto von. . .”*. Beispiel:
 
 |  |  |  |
 | --- | --- | --- |
-| תמונות לדוגמה של אומנות   הנחיה: **ציור טכני בעיפרון** של... | תמונות לדוגמה של אומנות   פרומפט: **רישום פחם** של... | תמונות לדוגמה של אומנות   פרומפט: **ציור בעיפרון צבעוני** של... |
+| Fotorealistisches Beispielbild 1   **Eingabeaufforderung:** Ein Foto von   Kaffeebohnen auf einer Holzoberfläche in einer Küche | Fotorealistisches Beispielbild 2   **Eingabeaufforderung:** Ein Foto von   einer Schokolade auf einem Küchentresen. | Fotorealistisches Beispielbild 3   Prompt: **Ein Foto eines** modernen Gebäudes mit Wasser im Hintergrund |
+
+Bildquelle: Jedes Bild wurde mit dem Imagen 4-Modell anhand des entsprechenden Text-Prompts generiert.
+
+##### Fotografische Modifikatotionen
+
+In den folgenden Beispielen sehen Sie mehrere fotospezifische Modifikatoren und Parameter. Sie können mehrere Modifikatoren kombinieren, um eine genauere Steuerung zu erreichen.
+
+1. **Kameranähe**: *aus der Nähe, von weit weg*
+
+   |  |  |
+   | --- | --- |
+   | Beispiel für Bild aus der Nähe   Eingabeaufforderung: Ein Foto von Kaffeebohnen **aus der Nähe** | Beispiel für herausgezoomtes Bild   Eingabeaufforderung: Ein **herausgezoomtes** Foto eines kleinen Beutels mit  Kaffeebohnen in einer unaufgeräumten Küche |
+2. **Kameraposition**: *Luftaufnahme, von unten*
+
+   |  |  |
+   | --- | --- |
+   | Beispielbild für Luftaufnahme   Eingabeaufforderung: **Luftaufnahme** einer Stadt mit Wolkenkratzern | Beispielbild von unten   Eingabeaufforderung: Ein Foto eines Waldstamms mit blauem Himmel **von unten** |
+3. **Beleuchtung**: *natürlich, dramatisch, warm, kalt*
+
+   |  |  |
+   | --- | --- |
+   | Beispielbild für natürliche Beleuchtung   Eingabeaufforderung: Studiofoto eines modernen Sessels, **natürliche Beleuchtung** | Beispielbild für dramatische Beleuchtung   Eingabeaufforderung: Studiofoto eines modernen Sessels, **dramatische Beleuchtung** |
+4. **Kameraeinstellungen**:  *Bewegungsunschärfe, Weichzeichnung, Bokeh, Hochformat*
+
+   |  |  |
+   | --- | --- |
+   | Beispielbild für Bewegungsunschärfe   Prompt: Foto einer Stadt mit Wolkenkratzern aus dem Inneren eines Autos mit **Bewegungsunschärfe** | Beispielbild für Weichzeichnung   Prompt: **Weichzeichnung** eines Fotos einer Brücke in einer Stadt bei Nacht |
+5. **Objektive**: *35 mm, 50 mm, Fischauge, Weitwinkel, Makro*
+
+   |  |  |
+   | --- | --- |
+   | Beispielbild für Makro   Eingabeaufforderung: Foto eines Blattes, **Makroobjektiv** | Beispielbild für Fischaugenobjektiv   Eingabeaufforderung: Straßenansicht, New York City, **Fischaugenobjektiv** |
+6. **Filmtypen**: *Schwarz-Weiß, Polaroid*
+
+   |  |  |
+   | --- | --- |
+   | Beispielbild für Polaroid   Prompt: Ein **Polaroid-Hochformatbild** eines Hundes mit Sonnenbrille | Beispielbild für Schwarz-Weiß-Foto   Eingabeaufforderung: **Schwarz-Weiß-Foto** eines Hundes mit Sonnenbrille |
+
+Bildquelle: Jedes Bild wurde mit dem Imagen 4-Modell anhand des entsprechenden Text-Prompts generiert.
+
+### Illustration und Kunst
+
+- Eingabeaufforderung enthält: *„Eine painting von...”*, *„Eine sketch von...”*
+
+Die Stile variieren von monochromen Stilen wie Bleistift bis hin zu hyperrealistischer digitaler Kunst. Die folgenden Bilder verwenden beispielsweise dieselbe Eingabeaufforderung mit unterschiedlichen Stilen:
+
+*„Eine [art style or creation technique] einer kantigen elektrischen Limousine mit Wolkenkratzern im Hintergrund“*
 
 |  |  |  |
 | --- | --- | --- |
-| תמונות לדוגמה של אומנות   פרומפט: **ציור בצבעי פסטל** של זוויתי... | תמונות לדוגמה של אומנות   פרומפט: **יצירת אומנות דיגיטלית** של... | תמונות לדוגמה של אומנות   הנחיה: **פוסטר בסגנון ארט דקו** של... |
-
-מקור התמונה: כל תמונה נוצרה באמצעות הפרומפט הטקסטואלי המתאים, בעזרת מודל Imagen 2.
-
-##### צורות וחומרים
-
-- ההנחיה כוללת: *"...made of..."*, *"...בצורה של..."*
-
-אחת מנקודות החוזק של הטכנולוגיה הזו היא האפשרות ליצור תמונות שקשה או בלתי אפשרי ליצור בדרך אחרת. לדוגמה, אפשר ליצור מחדש את הלוגו של החברה בחומרים ובמרקמים שונים.
+| Beispielbilder für Kunst   Eingabeaufforderung: Eine **technische Bleistiftskizze** eines kantigen... | Beispielbilder für Kunst   Eingabeaufforderung: Eine **Kohlezeichnung** eines kantigen... | Beispielbilder für Kunst   Prompt: Eine **Farbstiftzeichnung** eines kantigen... |
 
 |  |  |  |
 | --- | --- | --- |
-| תמונה 1 של דוגמה לצורות ולחומרים   פרומפט: תיק דאפל **עשוי** מגבינה | תמונה 2 של דוגמה לצורות ולחומרים   הנחיה: צינורות ניאון **בצורה** של ציפור | תמונה 3 של דוגמה לצורות ולחומרים   הנחיה: כורסה **עשויה מנייר**, תמונה שצולמה באולפן, בסגנון אוריגמי |
+| Beispielbilder für Kunst   Eingabeaufforderung: Ein **Pastelbild** eines kantigen... | Beispielbilder für Kunst   Eingabeaufforderung: Eine **digitale Kunst** eines kantigen... | Beispielbilder für Kunst   Eingabeaufforderung: Ein **Art-dèco-Poster** eines kantigen... |
 
-מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
+Bildquelle: Jedes Bild wurde mit dem Imagen 2-Modell über den entsprechenden Text-Prompt generiert.
 
-#### הפניות לאומנות היסטורית
+##### Formen und Materialien
 
-- ההנחיה כוללת: *"…בסגנון של…"*
+- Eingabeaufforderung: *„...aus...”*, *„...in Form von...”*
 
-סגנונות מסוימים הפכו לאייקוניים במהלך השנים. הנה כמה רעיונות לסגנונות ציור או אמנות היסטוריים שאפשר לנסות.
-
-*"צור תמונה בסגנון של [art period or movement]
-: חוות טורבינות רוח"*
+Eine der Stärken dieser Technologie ist, dass Sie Bilder erstellen können, die andernfalls schwer oder unmöglich wären. Sie können beispielsweise Ihr Firmenlogo in verschiedenen Materialien und Texturen neu erstellen.
 
 |  |  |  |
 | --- | --- | --- |
-| תמונה לדוגמה של אימפרסיוניזם   הנחיה: צור תמונה **בסגנון של *ציור אימפרסיוניסטי***: חוות טורבינות רוח | תמונה לדוגמה מתקופת הרנסנס   הנחיה: צור תמונה **בסגנון של *ציור מתקופת הרנסנס***: חוות רוח | תמונה לדוגמה של פופ ארט   הנחיה: צור תמונה **בסגנון *פופ ארט***: חוות רוח |
+| Beispielbild 1 für Formen und Materialien   Eingabeaufforderung: Duffle Bag **aus** Käse | Beispielbild 2 für Formen und Materialien   Prompt: Neonröhren **in Form** eines Vogels | Beispielbild 3 für Formen und Materialien   Eingabeaufforderung: Ein Sessel **aus Papier**, Studiofoto, Origami-Stil |
 
-מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
+Bildquelle: Jedes Bild wurde mit dem Imagen 4-Modell anhand des entsprechenden Text-Prompts generiert.
 
-#### משנים של איכות התמונה
+#### Bezüge auf historische Kunst
 
-מילות מפתח מסוימות יכולות להבהיר למודל שאתם מחפשים נכס באיכות גבוהה. דוגמאות למשני איכות:
+- Eingabeaufforderung: *„...im Stil von...”*
 
-- **משנים כלליים** – *איכות גבוהה, יפה, מסוגנן*
-- ‫**Photos** – *4K, ‏ HDR, ‏ Studio Photo*
-- **אומנות, איור** – *על ידי איש מקצוע, מפורט*
+Bestimmte Stile haben sich im Laufe der Jahre zu einem Mythos entwickelt. Im Folgenden finden Sie einige Ideen für historische Gemälde oder Kunststile, die Sie ausprobieren können.
 
-הנה כמה דוגמאות להנחיות ללא משפרי איכות ולהנחיות זהות עם משפרי איכות.
+*„Bild generieren im Stil von [art period or movement]
+: ein Windpark“*
+
+|  |  |  |
+| --- | --- | --- |
+| Beispielbild für Impressionsismus   Prompt: Bild generieren **im Stil von *einem Gemälde des Impressionismus***: ein Windpark | Beispielbild für Renaissance   Prompt: generate an image **in the style of *a renaissance painting***: a wind farm | Beispielbild für Pop Art   Prompt: Bild generieren **im Stil von *Pop-Art***: ein Windpark |
+
+Bildquelle: Jedes Bild wurde mit dem Imagen 4-Modell anhand des entsprechenden Text-Prompts generiert.
+
+#### Modifikatoren für die Bildqualität
+
+Bestimmte Keywords können dem Modell mitteilen, dass Sie nach einem qualitativ hochwertigen Bild suchen. Beispiele für Qualitätsmodifikatoren:
+
+- **Allgemeine Modifikatoren**: *hohe Qualität, ansprechend, stilisiert*
+- **Fotos**: *4K, HDR, Studiofoto*
+- **Kunst, Illustration**: *von einem Profi, detailliert*
+
+Im Folgenden finden Sie einige Beispiele für Eingabeaufforderungen ohne Qualitätsmodifikatoren und die gleiche Aufforderung mit Qualitätsmodifikatoren.
 
 |  |  |
 | --- | --- |
-| תמונה לדוגמה של תירס ללא משנים   הנחיה (ללא משפרי איכות): תמונה של גבעול תירס | דוגמה לתמונה של תירס עם משנים   הנחיה (עם משפרי איכות): **תמונה יפה באיכות 4K HDR**   של גבעול תירס **שצולמה על ידי   צלם מקצועי** |
+| Getreide-Beispielbild ohne Modifikatoren   Eingabeaufforderung (keine Qualitätsmodifikatoren): Ein Foto von einem Getreidehalm | Getreide-Beispielbild mit Modifikatoren   Eingabeaufforderung (mit Qualitätsmodifikatoren): **Schönes 4K-**   Foto eines Getreidehalms **von einem  Profi-Fotografen aufgenommen** |
 
-מקור התמונה: כל תמונה נוצרה באמצעות פרומפט טקסטואלי מתאים, באמצעות מודל Imagen 4.
+Bildquelle: Jedes Bild wurde mit dem Imagen 4-Modell anhand des entsprechenden Text-Prompts generiert.
 
-#### יחסי גובה-רוחב
+#### Seitenverhältnisse
 
-יצירת תמונות באמצעות Imagen מאפשרת להגדיר חמישה יחסי גובה-רוחב שונים.
+Mit der Imagen-Bildgenerierung können Sie fünf verschiedene Bild-Seitenverhältnisse festlegen.
 
-1. **ריבוע** (1:1, ברירת מחדל) – תמונה ריבועית רגילה. יחס הגובה-רוחב הזה נפוץ בפוסטים ברשתות חברתיות.
-2. **מסך מלא** (4:3) – יחס הגובה-רוחב הזה נפוץ בשימוש במדיה או בסרטים.
-   אלה גם המידות של רוב הטלוויזיות הישנות (לא רחבות) ושל מצלמות בפורמט בינוני. היחס הזה מאפשר לצלם חלק גדול יותר מהסצנה לרוחב (בהשוואה ליחס של 1:1),
-   ולכן הוא מועדף בצילום.
-
-   |  |  |
-   | --- | --- |
-   | דוגמה ליחס גובה-רוחב   הנחיה: תקריב של אצבעות של מוזיקאי שמנגן בפסנתר, סרט בשחור-לבן, וינטג' (יחס גובה-רוחב של 4:3) | דוגמה ליחס גובה-רוחב   הנחיה: תמונה מקצועית שצולמה בסטודיו של צ'יפס למסעדה יוקרתית, בסגנון של מגזין אוכל (יחס רוחב-גובה של 4:3) |
-3. **מסך מלא לאורך** (3:4) – יחס הגובה-רוחב למסך מלא מסובב ב-90 מעלות. כך אפשר לצלם חלק גדול יותר מהסצנה בצורה אנכית בהשוואה ליחס גובה-רוחב של 1:1.
+1. **Quadrat** (1:1, Standard) - Ein quadratisches Standardfoto. Typische Anwendungsfälle für dieses Seitenverhältnis sind Beiträge in sozialen Medien.
+2. **Vollbild** (4:3) - Dieses Seitenverhältnis wird häufig in Medien oder in Filmen verwendet.
+   Es bezeichnet auch die Abmessungen der meisten alten (Nicht-Breitbild-)Fernseher und Mittelformatkameras. Es erfasst horizontal mehr von der Szene (im Vergleich zu 1:1), dadurch gehört es zu den bevorzugten Seitenverhältnissen für die Fotografie.
 
    |  |  |
    | --- | --- |
-   | דוגמה ליחס גובה-רוחב   הנחיה: אישה מטיילת, תקריב של מגפיים שמשתקפים בשלולית, הרים גדולים ברקע, בסגנון של פרסומת, זוויות דרמטיות (יחס גובה-רוחב של 3:4) | דוגמה ליחס גובה-רוחב   הנחיה: צילום אווירי של נהר שזורם במעלה עמק מיסטי (יחס גובה-רוחב 3:4) |
-4. **מסך רחב** (16:9) – היחס הזה החליף את 4:3 והוא עכשיו יחס הגובה-רוחב הנפוץ ביותר בטלוויזיות, במסכים ובמסכי טלפונים ניידים (לרוחב).
-   כדאי להשתמש ביחס הגובה-רוחב הזה כשרוצים לצלם חלק גדול יותר מהרקע (לדוגמה, נופים).
+   | Seitenverhältnis-Beispiel   Prompt: Nahaufnahme der Finger eines Musikers, der Klavier spielt, Schwarz-Weiß-Film, Vintage (Seitenverhältnis 4:3) | Seitenverhältnis-Beispiel   Prompt: Ein professionelles Studiofoto von Pommes Frites für ein High-End-Restaurant im Stil einer Lebensmittelzeitschrift (Seitenverhältnis 4:3). |
+3. **Vollbild-Vollbild** (3:4) – Dies ist das um 90 Grad gedrehte Vollbild-Seitenverhältnis. So kann vertikal im Vergleich zum Seitenverhältnis 1:1 mehr von der Szene erfasst werden.
 
-   ![דוגמה ליחס גובה-רוחב](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=he)
+   |  |  |
+   | --- | --- |
+   | Seitenverhältnis-Beispiel   Prompt: Eine Frau wandert, Nahaufnahme ihrer Stiefel, die sich in einer Pfütze spiegeln, große Berge im Hintergrund, im Stil einer Werbung, dramatische Blickwinkel (Seitenverhältnis 3:4) | Seitenverhältnis-Beispiel   Prompt: Luftaufnahme eines Flusses, der in einem mystischen Tal fließt (Seitenverhältnis 3:4) |
+4. **Breitbild** (16:9): Dieses Seitenverhältnis hat 4:3 ersetzt und ist heute das gängigste Seitenverhältnis für Fernseher, Monitore und Bildschirme von Smartphones (Querformat).
+   Verwenden Sie dieses Seitenverhältnis, wenn Sie mehr vom Hintergrund erfassen möchten (z. B. malerische Landschaften).
 
-   הנחיה: צילום תקריב של גבר לבוש בבגדים לבנים יושב על החוף, תאורה של שעת הזהב (יחס גובה-רוחב של 16:9)
-5. **לאורך** (9:16) – יחס הגובה-רוחב הזה הוא מסך רחב אבל מסובב. זהו יחס רוחב-גובה חדש יחסית, שהפך לפופולרי בקרב אפליקציות של סרטונים קצרים (לדוגמה, סרטוני YouTube Shorts). השתמשו בערך הזה לאובייקטים גבוהים עם אוריינטציה אנכית חזקה, כמו בניינים, עצים, מפלים או אובייקטים דומים אחרים.
+   ![Seitenverhältnis-Beispiel](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=de)
 
-   ![דוגמה ליחס גובה-רוחב](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=he)
+   Prompt: Ein Mann ganz in weißer Kleidung, der am Strand sitzt, Nahaufnahme, Lichtverhältnisse einer goldenen Stunde (Seitenverhältnis 16:9)
+5. **Hochformat** (9:16): Dieses Seitenverhältnis entspricht dem Breitbild, aber gedreht. Dabei handelt es sich um ein relativ neues Seitenverhältnis, das in Kurzvideo-Apps beliebt ist (z. B. YouTube Shorts). Verwenden Sie es für hohe Objekte mit stark vertikalen Ausrichtungen wie Gebäude, Bäume, Wasserfälle oder ähnliche Objekte.
 
-   הנחיה: הדמיה דיגיטלית של גורד שחקים עצום, מודרני, מפואר, אפי עם שקיעה יפה ברקע (יחס גובה-רוחב של 9:16)
+   ![Seitenverhältnis-Beispiel](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=de)
 
-#### תמונות פוטוריאליסטיות
+   Prompt: ein digitales Rendering eines riesigen Wolkenkratzers, modern,
+   groß, monumental, mit einem schönen Sonnenuntergang im Hintergrund (Seitenverhältnis 9:16)
 
-גרסאות שונות של מודל יצירת התמונות עשויות להציע שילוב של פלט אמנותי ופוטו-ריאליסטי. כדי ליצור פלט היפר-ריאליסטי יותר, כדאי להשתמש בניסוחים הבאים בהנחיות, בהתאם לנושא שרוצים ליצור.
+#### Fotorealistische Bilder
 
-| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
+Verschiedene Versionen des Bildgenerierungsmodells können eine Mischung aus künstlerischer und fotorealistischer Ausgabe bieten. Verwenden Sie die folgende Formulierung in Prompts, um je nach dem zu generierenden Thema eine fotorealistischere Ausgabe zu generieren.
+
+| Anwendungsfall | Linsentyp | Brennweiten | Weitere Informationen |
 | --- | --- | --- | --- |
-| אנשים (דיוקנאות) | Prime, zoom | 24-35 מ״מ | סרט בשחור-לבן, סרט נואר, עומק שדה, דו-גווני (צריך לציין שני צבעים) |
-| אוכל, חרקים, צמחים (אובייקטים, טבע דומם) | Macro | ‫60-105 מ״מ | רמת פירוט גבוהה, מיקוד מדויק, תאורה מבוקרת |
-| ספורט, חיות בר (תנועה) | זום טלפוטו | ‫100-400 מ״מ | מהירות תריס גבוהה, מעקב אחרי פעולה או תנועה |
-| אסטרונומי, נוף (זווית רחבה) | זווית רחבה | ‫10-24 מ״מ | זמני חשיפה ארוכים, פוקוס חד, חשיפה ארוכה, מים או עננים חלקים |
+| Personen (Hochformat) | Prime, Zoom | 24-35mm | Schwarz-Weiß-Film, Film Noir, Tiefenschärfe, Duotone (erwähnt zwei Farben) |
+| Essen, Insekten, Pflanzen (Objekte, Stilleben) | Makro | 60-105mm | Hohe Details, präzise Fokussierung, kontrollierte Beleuchtung |
+| Sport, Tiere (Bewegung) | Telefotozoom | 100-400mm | Schnelle Belichtungszeit, Aktions- oder Bewegungsverfolgung |
+| Astronomisch, Landschaft (Weitwinkel) | Weitwinkel | 10-24mm | Langzeitbelichtung, scharfe Fokussierung, Langzeitbelichtung, glattes Wasser oder Wolken |
 
-##### צילומי פורטרט
+##### Porträts
 
-| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
+| Anwendungsfall | Linsentyp | Brennweiten | Weitere Informationen |
 | --- | --- | --- | --- |
-| אנשים (דיוקנאות) | Prime, zoom | 24-35 מ״מ | סרט בשחור-לבן, סרט אפל, עומק שדה, דו-גווני (מציינים שני צבעים) |
+| Personen (Hochformat) | Prime, Zoom | 24-35mm | Schwarz-Weiß-Film, Film Noir, Tiefenschärfe, Duotone (erwähnt zwei Farben) |
 
-בעזרת כמה מילות מפתח מהטבלה, Imagen יכול ליצור את הפורטרטים הבאים:
+Mit mehreren Suchbegriffen aus der Tabelle kann Imagen die folgenden Porträts generieren:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות |
+| Beispiel für Porträtfotos | Beispiel für Porträtfotos | Beispiel für Porträtfotos | Beispiel für Porträtfotos |
 
-הנחיה: *דיוקן של אישה, 35 מ"מ, גווני כחול ואפור*  
-מודל: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות | דוגמה לצילום דיוקנאות |
-
-הנחיה: *A woman, 35mm portrait, film noir*  
-מודל: `imagen-4.0-generate-001`
-
-##### אובייקטים
-
-| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
-| --- | --- | --- | --- |
-| אוכל, חרקים, צמחים (אובייקטים, טבע דומם) | Macro | ‫60-105 מ״מ | רמת פירוט גבוהה, מיקוד מדויק, תאורה מבוקרת |
-
-בעזרת כמה מילות מפתח מהטבלה, Imagen יכול ליצור את תמונות האובייקטים הבאות:
+Prompt: *Eine Frau, 35 mm Hochformat, blaue und graue Duotones*  
+Modell: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט |
+| Beispiel für Porträtfotos | Beispiel für Porträtfotos | Beispiel für Porträtfotos | Beispiel für Porträtfotos |
 
-הנחיה: *leaf of a prayer plant, macro lens, 60mm*  
-מודל: `imagen-4.0-generate-001`
+Eingabeaufforderung: *Eine Frau, 35 mm Hochformat, Film Noir*  
+Modell: `imagen-4.0-generate-001`
+
+##### Objekte
+
+| Anwendungsfall | Linsentyp | Brennweiten | Weitere Informationen |
+| --- | --- | --- | --- |
+| Essen, Insekten, Pflanzen (Objekte, Stilleben) | Makro | 60-105mm | Hohe Details, präzise Fokussierung, kontrollierte Beleuchtung |
+
+Mit mehreren Suchbegriffen aus der Tabelle kann Imagen die folgenden Objektbilder generieren:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט | דוגמה לצילום אובייקט |
+| Beispiel für Objektfotografie | Beispiel für Objektfotografie | Beispiel für Objektfotografie | Beispiel für Objektfotografie |
 
-הנחיה: *צלחת פסטה, עדשת מאקרו 100 מ"מ*  
-מודל: `imagen-4.0-generate-001`
-
-##### תנועה
-
-| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
-| --- | --- | --- | --- |
-| ספורט, חיות בר (תנועה) | זום טלפוטו | ‫100-400 מ״מ | מהירות תריס גבוהה, מעקב אחרי פעולה או תנועה |
-
-באמצעות כמה מילות מפתח מהטבלה, Imagen יכול ליצור את תמונות התנועה הבאות:
+Eingabeaufforderung: *Blatt einer Gebetspflanze, Makroobjektiv, 60 mm*  
+Modell: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה |
+| Beispiel für Objektfotografie | Beispiel für Objektfotografie | Beispiel für Objektfotografie | Beispiel für Objektfotografie |
 
-הנחיה: *a winning touchdown, מהירות התריס, movement tracking*  
-מודל: `imagen-4.0-generate-001`
+Eingabeaufforderung: *Eine Nudelplatte, 100-mm-Makroobjektiv*  
+Modell: `imagen-4.0-generate-001`
+
+##### Bewegung
+
+| Anwendungsfall | Linsentyp | Brennweiten | Weitere Informationen |
+| --- | --- | --- | --- |
+| Sport, Tiere (Bewegung) | Telefotozoom | 100-400mm | Schnelle Belichtungszeit, Aktions- oder Bewegungsverfolgung |
+
+Mit mehreren Suchbegriffen aus der Tabelle kann Imagen die folgenden Bewegungsbilder generieren:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה | דוגמה לצילום תמונות עם תנועה |
+| Beispiel für Fotos mit Bewegtbild | Beispiel für Fotos mit Bewegtbild | Beispiel für Fotos mit Bewegtbild | Beispiel für Fotos mit Bewegtbild |
 
-הנחיה: *אייל רץ ביער, מהירות תריס גבוהה, מעקב אחרי תנועה*  
-מודל: `imagen-4.0-generate-001`
-
-##### זווית רחבה
-
-| תרחיש שימוש | סוג העדשה | אורכי מוקד | פרטים נוספים |
-| --- | --- | --- | --- |
-| אסטרונומי, נוף (זווית רחבה) | זווית רחבה | ‫10-24 מ״מ | זמני חשיפה ארוכים, פוקוס חד, חשיפה ארוכה, מים או עננים חלקים |
-
-באמצעות כמה מילות מפתח מהטבלה, Imagen יכול ליצור את התמונות הבאות בזווית רחבה:
+Prompt: *Ein erfolgreicher Touchdown, schnelle Belichtungszeit, Bewegungsverfolgung*  
+Modell: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה |
+| Beispiel für Fotos mit Bewegtbild | Beispiel für Fotos mit Bewegtbild | Beispiel für Fotos mit Bewegtbild | Beispiel für Fotos mit Bewegtbild |
 
-הנחיה: *רכס הרים רחב, צילום נוף בזווית רחבה של 10 מ"מ*  
-מודל: `imagen-4.0-generate-001`
+Eingabeaufforderung: *Ein Reh läuft im Wald, schnelle Belichtungszeit, Bewegungsverfolgung*  
+Modell: `imagen-4.0-generate-001`
+
+##### Weitwinkel
+
+| Anwendungsfall | Linsentyp | Brennweiten | Weitere Informationen |
+| --- | --- | --- | --- |
+| Astronomisch, Landschaft (Weitwinkel) | Weitwinkel | 10-24mm | Langzeitbelichtung, scharfe Fokussierung, Langzeitbelichtung, glattes Wasser oder Wolken |
+
+Mit mehreren Suchbegriffen aus der Tabelle kann Imagen die folgenden Weitwinkelbilder generieren:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה | דוגמה לצילום בזווית רחבה |
+| Beispiel für Weitwinkelfotografie | Beispiel für Weitwinkelfotografie | Beispiel für Weitwinkelfotografie | Beispiel für Weitwinkelfotografie |
 
-הנחיה: *תמונה של הירח, צילום אסטרונומי, זווית רחבה של 10 מ"מ*  
-מודל: `imagen-4.0-generate-001`
+Eingabeaufforderung: *Großer Bergbereich, Querwinkel 10 mm*  
+Modell: `imagen-4.0-generate-001`
 
-## גרסאות המודלים
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Beispiel für Weitwinkelfotografie | Beispiel für Weitwinkelfotografie | Beispiel für Weitwinkelfotografie | Beispiel für Weitwinkelfotografie |
 
-### ‫Imagen 4 (הוצא משימוש)
+Prompt: *ein Foto des Mondes, Astrofotografie, Weitwinkel 10 mm*  
+Modell: `imagen-4.0-generate-001`
 
-| נכס | תיאור |
+## Modellversionen
+
+### Imagen 4 (eingestellt)
+
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardקוד מודל | ‫**Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveסוגי נתונים נתמכים | **קלט**  טקסט  **פלט**  תמונות |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  ‫480 טוקנים (טקסט)  **תמונות פלט**  ‫1 עד 4 (Ultra/Standard/Fast) |
-| calendar\_monthהעדכון האחרון | יוני 2025 |
+| id\_cardModellcode | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveUnterstützte Datentypen | **Eingabe**  Text  **Ausgabe**  Bilder |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  480 Tokens (Text)  **Ausgabe von Bildern**  1 bis 4 (Ultra/Standard/Schnell) |
+| calendar\_monthLetzte Aktualisierung | Juni 2025 |
 
-### Imagen 3
+### Imagen 3
 
-מודל Imagen 3 [יצא משימוש](https://ai.google.dev/gemini-api/docs/deprecations?hl=he).
+Das Imagen 3-Modell wurde [eingestellt](https://ai.google.dev/gemini-api/docs/deprecations?hl=de).
 
-שליחת משוב
+Feedback geben
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-עדכון אחרון: 2026-07-16 (שעון UTC).
+Zuletzt aktualisiert: 2026-07-16 (UTC).
 
-רוצה לתת לנו משוב?
+Haben Sie Feedback für uns?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-16 (שעון UTC)."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-16 (UTC)."],[],[]]

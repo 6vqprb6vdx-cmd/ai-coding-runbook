@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=ja
-fetched_at: 2026-07-27T04:45:55.507464+00:00
-title: "Vercel \u306e Gemini \u3068 AI SDK \u3092\u4f7f\u7528\u3057\u305f\u5e02\u5834\u8abf\u67fb\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=ar
+fetched_at: 2026-08-03T04:26:15.169319+00:00
+title: "\u0623\u062f\u0627\u0629 Market Research Agent \u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0629 \u0625\u0644\u0649 Gemini \u0648\u062d\u0632\u0645\u0629 \u062a\u0637\u0648\u064a\u0631 \u0627\u0644\u0628\u0631\u0627\u0645\u062c (SDK) \u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0629 \u0625\u0644\u0649 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0645\u0646 Vercel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-フィードバックを送信
+إرسال ملاحظات
 
-# Vercel の Gemini と AI SDK を使用した市場調査エージェント
+# أداة Market Research Agent المستندة إلى Gemini وحزمة تطوير البرامج (SDK) المستندة إلى الذكاء الاصطناعي من Vercel
 
-[Vercel の AI SDK](https://ai-sdk.dev) は、TypeScript で AI 搭載のアプリケーション、ユーザー インターフェース、エージェントを構築するための強力なオープンソース ライブラリです。
+‫[AI SDK من Vercel](https://ai-sdk.dev) هي مكتبة قوية مفتوحة المصدر تتيح إنشاء تطبيقات وواجهات مستخدم ووكلاء مستندين إلى الذكاء الاصطناعي في TypeScript.
 
-このガイドでは、AI SDK を使用して [Google Generative AI Provider](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) 経由で Gemini API に接続し、自動化された市場トレンド分析を行う Node.js アプリケーションを TypeScript
-で構築する手順について説明します。最終的なアプリケーションは次のようになります。
+سيرشدك هذا الدليل إلى كيفية إنشاء تطبيق Node.js باستخدام TypeScript
+يستخدِم حزمة تطوير البرامج (SDK) المستندة إلى الذكاء الاصطناعي للتواصل مع واجهة Gemini API من خلال [مزوّد الذكاء الاصطناعي التوليدي من Google](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) وإجراء تحليل آلي لاتجاهات السوق. سيتضمّن التطبيق النهائي ما يلي:
 
-1. Gemini と Google 検索を使用して、現在の市場トレンドを調査します。
-2. 調査から構造化データを抽出し、グラフを生成します。
-3. 調査とグラフを組み合わせて、プロフェッショナルな HTML レポートを作成し、PDF として保存します。
+1. استخدِم Gemini مع "بحث Google" للبحث عن مؤشرات السوق الحالية.
+2. استخراج بيانات منظَّمة من البحث لإنشاء رسوم بيانية
+3. يمكنك دمج البحث والرسومات البيانية في تقرير HTML احترافي وحفظه كملف PDF.
 
-## 前提条件
+## المتطلبات الأساسية
 
-このガイドを完了するには、次のものが必要です。
+لإكمال هذا الدليل، ستحتاج إلى:
 
-- Gemini API キー。[Google AI Studio](https://aistudio.google.com/apikey?hl=ja) で無料で作成できます。
-- [Node.js](https://nodejs.org/en/download) バージョン 18 以降。
-- パッケージ マネージャー（`npm`、`pnpm`、`yarn` など）。
+- مفتاح Gemini API يمكنك إنشاء واحد مجانًا في [Google AI Studio](https://aistudio.google.com/apikey?hl=ar).
+- الإصدار 18 من [Node.js](https://nodejs.org/en/download) أو الإصدارات الأحدث
+- أداة إدارة الحِزم، مثل `npm` أو `pnpm` أو `yarn`
 
-## アプリケーションの設定
+## إعداد تطبيقك
 
-まず、プロジェクト用の新しいディレクトリを作成し、初期化します。
+أولاً، أنشئ دليلاً جديدًا لمشروعك وابدأ تهيئته.
 
 ### npm
 
@@ -55,7 +55,7 @@ cd market-trend-app
 pnpm init
 ```
 
-### yarn
+### خيط غزل
 
 ```
 mkdir market-trend-app
@@ -63,9 +63,9 @@ cd market-trend-app
 yarn init -y
 ```
 
-### 依存関係のインストール
+### تثبيت الحِزم التابعة
 
-次に、AI SDK、Google Generative AI Provider、その他の必要な依存関係をインストールします。
+بعد ذلك، ثبِّت حزمة تطوير البرامج للذكاء الاصطناعي ومزوّد خدمة الذكاء الاصطناعي التوليدي من Google والتبعيات الأخرى اللازمة.
 
 ### npm
 
@@ -74,7 +74,7 @@ npm install ai @ai-sdk/google zod
 npm install -D @types/node tsx typescript && npx tsc --init
 ```
 
-TypeScript コンパイラのエラーを防ぐため、生成された `tsconfig.json` で次の行をコメントアウトします。
+لتجنُّب حدوث خطأ في برنامج الترجمة البرمجية TypeScript، علِّق على السطر التالي في ملف `tsconfig.json` الذي تم إنشاؤه:
 
 ```
 //"verbatimModuleSyntax": true,
@@ -87,22 +87,22 @@ pnpm add ai @ai-sdk/google zod
 pnpm add -D @types/node tsx typescript
 ```
 
-### yarn
+### خيط غزل
 
 ```
 yarn add ai @ai-sdk/google zod
 yarn add -D @types/node tsx typescript && yarn tsc --init
 ```
 
-TypeScript コンパイラのエラーを防ぐため、生成された `tsconfig.json` で次の行をコメントアウトします。
+لتجنُّب حدوث خطأ في برنامج الترجمة البرمجية TypeScript، علِّق على السطر التالي في ملف `tsconfig.json` الذي تم إنشاؤه:
 
 ```
 //"verbatimModuleSyntax": true,
 ```
 
-このアプリケーションでは、グラフのレンダリングと
-PDF の作成に、サードパーティ パッケージの[Puppeteer](https://pptr.dev/)
-と [Chart.js](https://www.chartjs.org) も使用します。
+سيستخدم هذا التطبيق أيضًا حِزم الجهات الخارجية [Puppeteer](https://pptr.dev/)
+و[Chart.js](https://www.chartjs.org) لعرض الرسوم البيانية
+وإنشاء ملف PDF:
 
 ### npm
 
@@ -118,20 +118,20 @@ pnpm add puppeteer chart.js
 pnpm add -D @types/chart.js
 ```
 
-### yarn
+### خيط غزل
 
 ```
 yarn add puppeteer chart.js
 yarn add -D @types/chart.js
 ```
 
-`puppeteer` パッケージでは、Chromium ブラウザをダウンロードするスクリプトを実行する必要があります。パッケージ マネージャーから承認を求められる場合があります。その場合は、スクリプトを承認してください。
+تتطلّب حزمة `puppeteer` تنفيذ نص برمجي لتنزيل متصفّح Chromium. قد يطلب منك مدير الحِزم الموافقة، لذا احرص على الموافقة على البرنامج النصي عند مطالبتك بذلك.
 
-### API キーを構成する
+### ضبط مفتاح واجهة برمجة التطبيقات
 
-`GOOGLE_GENERATIVE_AI_API_KEY` 環境変数に Gemini API キーを設定します。Google 生成 AI Provider は、この環境変数で API キーを自動的に検索します。
+اضبط متغيّر البيئة `GOOGLE_GENERATIVE_AI_API_KEY` باستخدام مفتاح Gemini API. يبحث "موفّر الذكاء الاصطناعي التوليدي من Google" تلقائيًا عن مفتاح واجهة برمجة التطبيقات في متغيّر البيئة هذا.
 
-### MacOS/Linux
+### ‫MacOS/Linux
 
 ```
 export GOOGLE_GENERATIVE_AI_API_KEY="YOUR_API_KEY_HERE"
@@ -143,11 +143,13 @@ export GOOGLE_GENERATIVE_AI_API_KEY="YOUR_API_KEY_HERE"
 setx GOOGLE_GENERATIVE_AI_API_KEY "YOUR_API_KEY_HERE"
 ```
 
-## アプリを作成する
+## إنشاء تطبيقك
 
-次に、アプリケーションのメインファイルを作成します。プロジェクト ディレクトリに `main.ts` という名前の新しいファイルを作成します。このファイルでロジックを段階的に構築します。
+الآن، لننشئ الملف الرئيسي لتطبيقنا. أنشئ ملفًا جديدًا باسم
+`main.ts` في دليل مشروعك. ستنشئ منطقًا في هذا الملف
+خطوة بخطوة.
 
-すべてが正しく設定されていることを確認する簡単なテストとして、次のコードを `main.ts` に追加します。この基本的な例では、`generateText` を使用して Gemini から簡単なレスポンスを取得します。
+لإجراء اختبار سريع للتأكّد من إعداد كل شيء بشكل صحيح، أضِف الرمز التالي إلى `main.ts`. يستخدم هذا المثال الأساسي `generateText` للحصول على ردّ بسيط من Gemini.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -165,7 +167,8 @@ async function main() {
 main().catch(console.error);
 ```
 
-複雑さを増す前に、このスクリプトを実行して、環境が正しく構成されていることを確認します。ターミナルで次のコマンドを実行します。
+قبل إضافة المزيد من التعقيد، شغِّل هذا النص البرمجي للتأكّد من أنّ بيئتك
+تم إعدادها بشكل صحيح. نفِّذ الأمر التالي في الوحدة الطرفية:
 
 ### npm
 
@@ -179,20 +182,22 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### yarn
+### خيط غزل
 
 ```
 yarn tsc && node main.js
 ```
 
-すべてが正しく設定されている場合は、Gemini のレスポンスがコンソールに出力されます。
+إذا تم إعداد كل شيء بشكل صحيح، سيظهر ردّ Gemini مطبوعًا على وحدة التحكّم.
 
-## Google 検索で市場調査を行う
+## إجراء أبحاث السوق باستخدام "بحث Google"
 
-最新の情報を取得するには、Gemini の
-[Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)ツールを有効にします。このツールが有効になっている場合、モデルはウェブを検索してプロンプトに回答し、使用したソースを返します。
+للحصول على معلومات حديثة، يمكنك تفعيل أداة
+[بحث Google](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) في Gemini. عندما تكون هذه الأداة
+مفعّلة، يمكن للنموذج البحث على الويب للرد على الطلب وسيعرض
+المصادر التي استخدمها.
 
-`main.ts` の内容を次のコードに置き換えて、分析の最初のステップを実行します。
+استبدِل محتوى `main.ts` بالرمز التالي لتنفيذ الخطوة الأولى من التحليل.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -218,13 +223,13 @@ async function main() {
 main().catch(console.error);
 ```
 
-## グラフデータを抽出する
+## استخراج بيانات الرسم البياني
 
-次に、調査テキストを処理して、グラフに適した構造化データを抽出します。AI SDK の `generateObject` 関数と `zod` スキーマを使用して、正確なデータ構造を定義します。
+بعد ذلك، لنعالج نص البحث لاستخراج بيانات منظَّمة مناسبة للرسومات البيانية. استخدِم الدالة `generateObject` في حزمة تطوير البرامج (SDK) الخاصة بالذكاء الاصطناعي مع مخطط `zod` لتحديد بنية البيانات الدقيقة.
 
-また、この構造化データを `Chart.js` が理解できる構成に変換するヘルパー関数も作成します。
+أنشئ أيضًا دالة مساعدة لتحويل هذه البيانات المنظَّمة إلى إعداد يمكن أن يفهمه `Chart.js`.
 
-次のコードを `main.ts` に追加します。新しいインポートと追加された「ステップ 2」に注意してください。
+أضِف الرمز التالي إلى `main.ts`. لاحظ عمليات الاستيراد الجديدة و "الخطوة 2" المضافة.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -306,13 +311,13 @@ ${marketTrends}
 main().catch(console.error);
 ```
 
-## 最終レポートを生成する
+## إنشاء التقرير النهائي
 
-最後のステップでは、Gemini にエキスパート レポート作成者として機能するように指示します。
-市場調査、グラフの構成、HTML レポートを作成するための明確な手順を提供します。次に、
-[Puppeteer](https://pptr.dev/) を使用してこの HTML をレンダリングし、PDF として保存します。
+في الخطوة الأخيرة، اطلب من Gemini أن يتولّى دور كاتب تقارير خبير.
+زوِّدها بأبحاث السوق وإعدادات الرسم البياني ومجموعة واضحة من التعليمات لإنشاء تقرير بتنسيق HTML. بعد ذلك، استخدِم
+[Puppeteer](https://pptr.dev/) لعرض ملف HTML هذا وحفظه كملف PDF.
 
-最後の `puppeteer` インポートと「ステップ 3」を `main.ts` ファイルに追加します。
+أضِف عملية الاستيراد النهائية `puppeteer` و "الخطوة 3" إلى ملف `main.ts`.
 
 ```
 // ... (imports from previous step)
@@ -373,9 +378,9 @@ async function main() {
 main().catch(console.error);
 ```
 
-## アプリケーションの実行
+## تشغيل تطبيقك
 
-これで、アプリケーションを実行する準備ができました。ターミナルで次のコマンドを実行します。
+أنت الآن جاهز لتشغيل التطبيق. نفِّذ الأمر التالي في الوحدة الطرفية:
 
 ### npm
 
@@ -389,33 +394,33 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### yarn
+### خيط غزل
 
 ```
 yarn tsc && node main.js
 ```
 
-スクリプトが各ステップを実行すると、ターミナルにログが表示されます。
-完了すると、プロジェクト ディレクトリに市場分析を含む `report.pdf` ファイルが作成されます。
+ستظهر لك عملية التسجيل في نافذة الأوامر أثناء تنفيذ البرنامج النصي لكل خطوة.
+بعد اكتمال العملية، سيتم إنشاء ملف `report.pdf` يحتوي على تحليل السوق في دليل مشروعك.
 
-以下に、PDF レポートの最初の 2 ページを示します。
+في ما يلي أول صفحتَين من نموذج تقرير بتنسيق PDF:
 
-![市場分析レポート](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=ja)
+![تقرير تحليل السوق](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=ar)
 
-## その他のリソース
+## موارد أخرى
 
-Gemini と AI SDK を使用したビルドの詳細については、次のリソースをご覧ください。
+لمزيد من المعلومات حول إنشاء التطبيقات باستخدام Gemini وAI SDK، يمكنك الاطّلاع على الموارد التالية:
 
-- [AI SDK のドキュメント](https://ai-sdk.dev/docs)
-- [AI SDK Google Generative AI のドキュメント](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
-- [AI SDK クックブック: Gemini を使ってみる](https://ai-sdk.dev/cookbook/guides/gemini)
+- [مستندات حزمة تطوير البرامج (SDK) المستندة إلى الذكاء الاصطناعي](https://ai-sdk.dev/docs)
+- [مستندات "الذكاء الاصطناعي التوليدي من Google" الخاصة بحزمة تطوير البرامج (SDK)](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
+- [كتاب وصفات حزمة تطوير البرامج (SDK) المستندة إلى الذكاء الاصطناعي: بدء استخدام Gemini](https://ai-sdk.dev/cookbook/guides/gemini)
 
-フィードバックを送信
+إرسال ملاحظات
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-05-19 UTC。
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-ご意見をお聞かせください
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
