@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi
-fetched_at: 2026-08-03T04:37:27.720887+00:00
+fetched_at: 2026-08-10T03:17:59.065452+00:00
 title: "Ch\u1eef k\u00fd c\u1ee7a Thought \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

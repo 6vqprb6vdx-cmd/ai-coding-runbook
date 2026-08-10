@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=id
-fetched_at: 2026-08-03T04:25:21.764445+00:00
-title: "Pemikiran Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=pt-BR
+fetched_at: 2026-08-10T03:09:51.094524+00:00
+title: "Pensamento do Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Kirim masukan
+Envie comentários
 
-# Pemikiran Gemini
+# Pensamento do Gemini
 
-Model seri [Gemini 3 dan 2.5](https://ai.google.dev/gemini-api/docs/models?hl=id) menggunakan
-"proses berpikir" yang meningkatkan kemampuan penalaran dan perencanaan multi-langkah secara signifikan, sehingga sangat efektif untuk tugas kompleks seperti
-coding, matematika tingkat lanjut, dan analisis data.
+Os modelos das séries [Gemini 3 e 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pt-br) usam um
+"processo de raciocínio" que melhora significativamente as habilidades de raciocínio e planejamento em várias etapas, tornando-os altamente eficazes para tarefas complexas, como
+programação, matemática avançada e análise de dados.
 
-Saat Anda menggunakan model berpikir, Gemini akan melakukan penalaran secara internal sebelum merespons. Interactions API menampilkan penalaran ini melalui langkah `thought`, langkah khusus yang muncul secara kronologis bersama dengan panggilan fungsi, input pengguna, atau output model dalam array `steps`.
+Ao usar um modelo de raciocínio, o Gemini raciocina internamente antes de responder. A API Interactions mostra esse raciocínio por meio de etapas `thought`, etapas dedicadas que aparecem cronologicamente ao lado de chamadas de função, entradas do usuário ou saídas do modelo na matriz `steps`.
 
-Setiap langkah berpikir berisi dua kolom:
+Cada etapa de raciocínio contém dois campos:
 
-| Kolom | Wajib | Deskripsi |
+| Campo | Obrigatório | Descrição |
 | --- | --- | --- |
-| `signature` | ✅ Ya | Representasi terenkripsi dari status penalaran internal model. Selalu ada, bahkan saat model melakukan penalaran minimal. |
-| `summary` | ❌ Tidak | Array konten (teks dan/atau gambar) yang meringkas penalaran. Mungkin kosong, bergantung pada konfigurasi [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=id), apakah model melakukan penalaran yang cukup, atau jenis konten (misalnya, latensi gambar mungkin tidak memiliki ringkasan teks). |
+| `signature` | ✅ Sim | Uma representação criptografada do estado de raciocínio interno do modelo. Sempre presente, mesmo quando o modelo realiza um raciocínio mínimo. |
+| `summary` | ❌ Não | Uma matriz de conteúdo (texto e/ou imagens) que resume o raciocínio. Pode estar vazia dependendo da configuração [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=pt-br), se o modelo realizou raciocínio suficiente ou do tipo de conteúdo (por exemplo, latentes de imagem podem não ter resumos de texto). |
 
-## Interaksi dengan pemikiran
+## Interações com raciocínio
 
-Memulai interaksi dengan model yang berbasis penalaran mirip dengan permintaan interaksi lainnya. Tentukan salah satu [model dengan dukungan pemikiran](#thinking-levels) di kolom `model` field:
+Iniciar uma interação com um modelo de raciocínio é semelhante a qualquer outra solicitação de interação. Especifique um dos [modelos com suporte de raciocínio](#thinking-levels) no campo `model`:
 
 ### Python
 
@@ -75,10 +75,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Ringkasan penalaran
+## Resumos de raciocínio
 
-Ringkasan penalaran memberikan insight tentang proses penalaran internal model.
-Secara default, hanya output akhir yang ditampilkan. Anda dapat mengaktifkan ringkasan penalaran dengan `thinking_summaries`:
+Os resumos de raciocínio fornecem insights sobre o processo de raciocínio interno do modelo.
+Por padrão, apenas a saída final é retornada. É possível ativar resumos de raciocínio com `thinking_summaries`:
 
 ### Python
 
@@ -160,23 +160,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Blok pemikiran mungkin **hanya berisi tanda tangan tanpa ringkasan** dalam kasus berikut:
+Um bloco de raciocínio pode conter **apenas uma assinatura sem resumo** nestes casos:
 
-- Permintaan sederhana, saat model tidak cukup bernalar untuk membuat ringkasan
-- `thinking_summaries: "none"`, saat ringkasan dinonaktifkan secara eksplisit
-- Jenis konten pemikiran tertentu, seperti gambar, mungkin tidak memiliki ringkasan teks
+- Solicitações simples, em que o modelo não raciocinou o suficiente para gerar um resumo
+- `thinking_summaries: "none"`, em que os resumos são explicitamente desativados
+- Alguns tipos de conteúdo de raciocínio, como imagens, podem não ter resumos de texto
 
-Kode Anda harus selalu menangani blok pemikiran saat `summary` kosong atau tidak ada.
+O código sempre precisa processar blocos de raciocínio em que `summary` está vazio ou ausente.
 
-## Streaming dengan pemikiran
+## Streaming com raciocínio
 
-Gunakan streaming untuk menerima ringkasan pemikiran inkremental selama pembuatan.
-Blok pemikiran dikirim menggunakan Server-Sent Events (SSE) dengan dua jenis delta yang berbeda:
+Use o streaming para receber resumos de raciocínio incrementais durante a geração.
+Os blocos de raciocínio são entregues usando eventos enviados pelo servidor (SSE, na sigla em inglês) com dois tipos de delta distintos:
 
-| Jenis delta | Berisi | Waktu pengiriman |
+| Tipo de delta | Contém | Quando o envio é feito |
 | --- | --- | --- |
-| `thought_summary` | Konten ringkasan teks atau gambar | Satu atau beberapa delta dengan ringkasan inkremental |
-| `thought_signature` | Tanda tangan kriptografi | delta terakhir sebelum `step.stop` |
+| `thought_summary` | Conteúdo de resumo de texto ou imagem | Um ou mais deltas com resumo incremental |
+| `thought_signature` | A assinatura criptográfica | o último delta antes de `step.stop` |
 
 ### Python
 
@@ -278,7 +278,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Respons streaming menggunakan Server-Sent Events (SSE) dan terdiri dari langkah-langkah dan peristiwa, misalnya:
+A resposta de streaming usa eventos enviados pelo servidor (SSE) e é composta de etapas e eventos, por exemplo:
 
 ```
 event: interaction.created
@@ -309,22 +309,22 @@ event: done
 data: [DONE]
 ```
 
-## Mengontrol pemikiran
+## Controlar o raciocínio
 
-Model Gemini melakukan pemikiran dinamis secara default, dan otomatis menyesuaikan jumlah upaya penalaran berdasarkan kompleksitas permintaan. Anda dapat mengontrol perilaku ini menggunakan parameter `thinking_level`.
+Os modelos do Gemini se envolvem no raciocínio dinâmico por padrão, ajustando automaticamente a quantidade de esforço de raciocínio com base na complexidade da solicitação. É possível controlar esse comportamento usando o parâmetro `thinking_level`.
 
-| Model | Pemikiran Default | Tingkat yang Didukung |
+| Modelo | Raciocínio padrão | Níveis com suporte |
 | --- | --- | --- |
-| gemini-3.6-flash | Aktif (sedang) | minimal, rendah, sedang, tinggi |
-| gemini-3.5-flash-lite | Aktif (minimal) | minimal, rendah, sedang, tinggi |
-| gemini-3.1-pro-preview | Aktif (tinggi) | rendah, sedang, tinggi |
-| gemini-3.1-flash-lite-image | Aktif (minimal) | minimal, tinggi |
-| gemini-3-flash-preview | Aktif (tinggi) | minimal, rendah, sedang, tinggi |
-| gemini-3-pro-preview | Aktif (tinggi) | rendah, tinggi |
-| gemini-3.5-flash | Aktif (sedang) | minimal, rendah, sedang, tinggi |
-| gemini-2.5-pro | Aktif | rendah, sedang, tinggi |
-| gemini-2.5-flash | Aktif | rendah, sedang, tinggi |
-| gemini-2.5-flash-lite | Nonaktif | rendah, sedang, tinggi |
+| gemini-3.6-flash | Ativado (médio) | mínimo, baixo, médio, alto |
+| gemini-3.5-flash-lite | Ativado (mínimo) | mínimo, baixo, médio, alto |
+| gemini-3.1-pro-preview | Ativado (alto) | baixo, médio, alto |
+| gemini-3.1-flash-lite-image | Ativado (mínimo) | mínimo, alto |
+| gemini-3-flash-preview | Ativado (alto) | mínimo, baixo, médio, alto |
+| gemini-3-pro-preview | Ativado (alto) | baixo, alto |
+| gemini-3.5-flash | Ativado (médio) | mínimo, baixo, médio, alto |
+| gemini-2.5-pro | Ativado | baixo, médio, alto |
+| gemini-2.5-flash | Ativado | baixo, médio, alto |
+| gemini-2.5-flash-lite | Desativado | baixo, médio, alto |
 
 ### Python
 
@@ -375,27 +375,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Tanda tangan penalaran
+## Assinaturas de raciocínio
 
-Tanda tangan penalaran adalah representasi terenkripsi dari penalaran internal model. Tanda tangan ini diperlukan untuk mempertahankan kontinuitas penalaran di seluruh interaksi multi-giliran.
+As assinaturas de raciocínio são representações criptografadas do raciocínio interno do modelo. Elas são necessárias para manter a continuidade do raciocínio em interações multiturno.
 
-Interactions API membuat penanganan tanda tangan penalaran jauh lebih sederhana daripada `generateContent` API.
+A API Interactions simplifica muito o processamento de assinaturas de raciocínio em comparação com a API `generateContent`.
 
-### Mode stateful (Direkomendasikan)
+### Modo com estado (recomendado)
 
-Secara default, saat Anda menggunakan Interactions API dalam mode stateful (dengan menetapkan `store: true` dan meneruskan `previous_interaction_id` pada giliran berikutnya), server akan otomatis mengelola status percakapan, termasuk semua blok dan tanda tangan pemikiran. Dalam mode ini, Anda tidak perlu melakukan apa pun terkait tanda tangan. Tanda tangan ditangani sepenuhnya di sisi server.
+Por padrão, quando você usa a API Interactions no modo com estado (definindo `store: true` e transmitindo o `previous_interaction_id` em turnos subsequentes), o servidor gerencia automaticamente o estado da conversa, incluindo todos os blocos e assinaturas de raciocínio. Nesse modo, não é necessário fazer nada em relação às assinaturas. Elas são processadas totalmente no lado do servidor.
 
-### Mode stateless
+### Modo sem estado
 
-Jika Anda mengelola status percakapan sendiri (mode stateless) dan meneruskan histori lengkap input dan output di setiap permintaan:
+Se você estiver gerenciando o estado da conversa (modo sem estado) e transmitindo o histórico completo de entradas e saídas em cada solicitação:
 
-- Anda **HARUS** selalu mengirim ulang semua blok `thought` persis seperti yang diterima dari model.
-- Anda **TIDAK BOLEH** menghapus atau mengubah blok pemikiran dari histori, karena blok tersebut berisi tanda tangan yang diperlukan agar model dapat melanjutkan penalarannya.
-- Saat beralih model dalam sesi, Anda tetap harus mengirim ulang blok pemikiran model sebelumnya. Backend mengelola kompatibilitas.
+- Você **PRECISA** sempre reenviar todos os blocos `thought` exatamente como foram recebidos do modelo.
+- **NÃO** remova nem modifique blocos de raciocínio do histórico, porque eles contêm as assinaturas necessárias para que o modelo continue o raciocínio.
+- Ao trocar de modelo em uma sessão, ainda é necessário reenviar os blocos de raciocínio do modelo anterior. O back-end gerencia a compatibilidade.
 
-## Harga
+## Preços
 
-Jika pemikiran diaktifkan, harga respons adalah jumlah token output dan token pemikiran. Anda bisa mendapatkan jumlah total token pemikiran yang dihasilkan dari kolom `total_thought_tokens`.
+Quando o raciocínio está ativado, o preço da resposta é a soma dos tokens de saída e de raciocínio. É possível acessar o número total de tokens de raciocínio gerados no campo `total_thought_tokens`.
 
 ### Python
 
@@ -411,33 +411,34 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-Model berpikir menghasilkan pemikiran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](#summaries) untuk memberikan insight tentang proses
-berpikir. Harga didasarkan pada token pemikiran lengkap yang perlu dihasilkan model, meskipun hanya ringkasan yang dihasilkan dari API.
+Os modelos de raciocínio geram raciocínios completos para melhorar a qualidade da resposta final
+e, em seguida, resumos de saída para fornecer insights sobre o
+processo de raciocínio. O preço é baseado nos tokens de raciocínio completos que o modelo precisa gerar, embora apenas o resumo seja gerado pela API.
 
-Anda dapat mempelajari token lebih lanjut di panduan [Penghitungan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id).
+Saiba mais sobre tokens no guia de [contagem de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br).
 
-## Praktik terbaik
+## Práticas recomendadas
 
-Gunakan model berpikir secara efisien dengan mengikuti panduan ini.
+Use modelos de raciocínio de maneira eficiente seguindo estas diretrizes.
 
-- **Tinjau penalaran**: Analisis ringkasan pemikiran untuk memahami kegagalan dan meningkatkan perintah.
-- **Kontrol anggaran pemikiran**: Minta model untuk berpikir lebih sedikit untuk output yang panjang guna menghemat token.
-- **Tugas sederhana**: Gunakan pemikiran minimal atau rendah untuk pengambilan atau klasifikasi fakta (misalnya, "Di mana DeepMind didirikan?").
-- **Tugas sedang**: Gunakan pemikiran default untuk membandingkan konsep atau penalaran kreatif (misalnya, Bandingkan mobil listrik dan mobil hybrid).
-- **Tugas kompleks**: Gunakan pemikiran maksimum untuk coding, matematika, atau perencanaan multi-langkah tingkat lanjut (misalnya, Selesaikan soal matematika AIME).
+- **Analisar o raciocínio**: analise os resumos de raciocínio para entender falhas e melhorar os comandos.
+- **Controlar o orçamento de raciocínio**: peça ao modelo para pensar menos em saídas longas para economizar tokens.
+- **Tarefas simples**: use raciocínio mínimo ou baixo para recuperação ou classificação de fatos (por exemplo, "Onde a DeepMind foi fundada?").
+- **Tarefas moderadas**: use o raciocínio padrão para comparar conceitos ou raciocínio criativo (por exemplo, compare carros elétricos e híbridos).
+- **Tarefas complexas**: use o raciocínio máximo para programação avançada, matemática ou planejamento de várias etapas (por exemplo, resolva problemas de matemática da AIME).
 
-## Langkah berikutnya
+## A seguir
 
-- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id): Respons teks dasar
-- [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id): Menghubungkan ke alat
-- [Panduan Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=id): Fitur khusus model
+- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br): respostas de texto básicas
+- [Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br): conectar-se a ferramentas
+- [Guia do Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=pt-br): recursos específicos do modelo
 
-Kirim masukan
+Envie comentários
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Última atualização 2026-07-30 UTC.
 
-Ada masukan untuk kami?
+Quer enviar seu feedback?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]

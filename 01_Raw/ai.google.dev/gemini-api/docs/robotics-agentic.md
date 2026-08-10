@@ -1,35 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=pt-BR
-fetched_at: 2026-08-03T04:38:49.931220+00:00
-title: "Vis\u00e3o ag\u00eantica \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ar
+fetched_at: 2026-08-10T03:12:04.480191+00:00
+title: "\u0627\u0644\u0631\u0624\u064a\u0629 \u0627\u0644\u0645\u0633\u062a\u0646\u0650\u062f\u0629 \u0625\u0644\u0649 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0627\u0644\u0648\u0643\u064a\u0644 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envie comentários
+إرسال ملاحظات
 
-# Visão agêntica
+# الرؤية المستنِدة إلى الذكاء الاصطناعي الوكيل
 
-Os modelos do Gemini Robotics ER podem escrever e executar código Python para manipular imagens e aplicar lógica antes de responder. Esta página aborda exemplos de execução de código: detecção de objetos com zoom e corte, leitura de instrumentos, medição de fluidos, leitura de placas de circuito e anotação de imagens.
+يمكن لنماذج Gemini Robotics ER كتابة رموز Python البرمجية وتنفيذها لمعالجة الصور وتطبيق المنطق قبل تقديم الإجابة. تتضمّن هذه الصفحة أمثلة على تنفيذ الرموز البرمجية، مثل رصد العناصر باستخدام التكبير والقص، وقراءة الأدوات، وقياس السوائل، وقراءة لوحات الدوائر الكهربائية، والتعليق التوضيحي على الصور.
 
-Para adaptar esses exemplos ao seu caso de uso, substitua o texto do comando e o arquivo de imagem enviado pelos seus. Você também pode ajustar o esquema JSON solicitado no comando para corresponder à estrutura de saída necessária para seu aplicativo ou adicionar uma `system_instruction` para aplicar o formato e a precisão da saída.
+لتكييف هذه الأمثلة مع حالة الاستخدام الخاصة بك، استبدِل نص الطلب وملف الصورة الذي تم تحميله بنصك وملفك. يمكنك أيضًا تعديل مخطط JSON المطلوب في الطلب ليتطابق مع بنية الإخراج التي يحتاجها تطبيقك، أو إضافة `system_instruction` لفرض تنسيق الإخراج ودقته.
 
-Para ver o código executável completo, consulte o
-[livro de receitas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+للاطّلاع على الرمز الكامل القابل للتنفيذ، راجِع
+[كتاب وصفات الروبوتات](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Nível de raciocínio
+## مستوى التفكير
 
-Você pode controlar o nível de raciocínio do modelo para trocar a latência pela precisão. Tarefas espaciais, como detecção de objetos, têm bom desempenho com um nível de raciocínio baixo. Tarefas complexas, como contagem ou estimativa de peso, se beneficiam de um nível de raciocínio mais alto.
+يمكنك التحكّم في مستوى التفكير للنموذج من أجل تحقيق التوازن بين وقت الاستجابة والدقة. تؤدي المهام المكانية، مثل رصد العناصر، أداءً جيدًا مع مستوى تفكير منخفض. تستفيد المهام المعقّدة، مثل
+العد أو تقدير الوزن، من مستوى تفكير أعلى.
 
-O exemplo a seguir define o nível de raciocínio como `high` para uma tarefa de contagem complexa:
+يضبط المثال التالي مستوى التفكير على `high` لمهمة عدّ معقّدة:
 
 ### Python
 
@@ -58,11 +59,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Consulte [Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para mais detalhes.
+لمزيد من التفاصيل، يُرجى الاطّلاع على [التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar).
 
-## Detecção de objetos (zoom e corte)
+## رصد العناصر (التكبير والاقتصاص)
 
-O exemplo a seguir usa a execução de código para aplicar zoom e cortar uma imagem para uma visualização mais clara ao detectar objetos e retornar caixas delimitadoras.
+يستخدم المثال التالي تنفيذ الرمز البرمجي لتكبير صورة واقتصاصها من أجل عرضها بشكل أوضح عند رصد العناصر وعرض المربّعات المحيطة.
 
 ### Python
 
@@ -96,7 +97,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-A saída do modelo seria semelhante à seguinte resposta JSON:
+ستكون مخرجات النموذج مشابهة لاستجابة JSON التالية:
 
 ```
 [
@@ -108,13 +109,13 @@ A saída do modelo seria semelhante à seguinte resposta JSON:
 ]
 ```
 
-A imagem a seguir mostra as caixas retornadas do modelo.
+تعرض الصورة التالية المربّعات التي تم إرجاعها من النموذج.
 
-![Exemplo mostrando caixas delimitadoras para objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=pt-br)
+![مثال يعرض مربّعات الإحاطة للعناصر التي تم العثور عليها](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ar)
 
-## Ler um medidor analógico e aplicar lógica
+## قراءة مقياس تناظري وتطبيق المنطق
 
-O exemplo a seguir demonstra como usar o modelo para ler um medidor analógico e realizar cálculos de tempo. Ele usa uma instrução do sistema para aplicar uma saída JSON.
+يوضّح المثال التالي كيفية استخدام النموذج لقراءة مقياس تناظري وإجراء عمليات حسابية متعلقة بالوقت. يستخدم تعليمات النظام لفرض إخراج JSON.
 
 ### Python
 
@@ -145,9 +146,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Medir fluido em um contêiner
+## قياس السائل في وعاء
 
-O exemplo a seguir demonstra como usar a execução de código para medir o nível de fluido em um contêiner.
+يوضّح المثال التالي كيفية استخدام تنفيذ الرمز البرمجي لقياس مستوى السائل في حاوية.
 
 ### Python
 
@@ -177,9 +178,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Ler marcações em uma placa de circuito
+## قراءة العلامات على لوحة الدوائر
 
-O exemplo a seguir demonstra como usar a execução de código para ler as marcações em uma placa de circuito.
+يوضّح المثال التالي كيفية استخدام تنفيذ الرمز البرمجي لقراءة العلامات على لوحة الدوائر.
 
 ### Python
 
@@ -209,11 +210,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-![Exemplo mostrando marcações em uma placa de circuito](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=pt-br)
+![مثال يعرض علامات على لوحة دوائر كهربائية](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ar)
 
-## Anotação da imagem
+## التعليق التوضيحي على الصور
 
-O exemplo a seguir demonstra como usar a execução de código para anotar uma imagem (por exemplo, desenhar setas para instruções de descarte) e retornar a imagem modificada.
+يوضّح المثال التالي كيفية استخدام تنفيذ الرمز البرمجي لإضافة تعليق توضيحي إلى صورة (مثل رسم أسهم لتعليمات التخلص من النفايات) وعرض الصورة المعدَّلة.
 
 ### Python
 
@@ -247,11 +248,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-A seguir, um exemplo de entrada de imagem.
+في ما يلي مثال على إدخال صورة.
 
-![Um exemplo mostrando um relógio para leitura](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=pt-br)
+![مثال يعرض ساعة للقراءة](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ar)
 
-A saída do modelo seria semelhante a esta:
+ستكون مخرجات النموذج مشابهة لما يلي:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -260,18 +261,18 @@ A saída do modelo seria semelhante a esta:
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## A seguir
+## الخطوات التالية
 
-- [Orquestração de tarefas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-br): tarefas de longo prazo com APIs de robôs personalizados.
-- [Robótica com streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br): streaming bidirecional em tempo real (somente no Gemini Robotics ER 2).
-- [Compreensão de vídeo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pt-br): localização de momentos e classificação de progresso (somente no Gemini Robotics ER 2).
+- [تنظيم المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأمد باستخدام واجهات برمجة تطبيقات مخصّصة للروبوتات
+- [الروبوتات التي تتضمّن بثًا مباشرًا](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): بث مباشر ثنائي الاتجاه في الوقت الفعلي (Gemini Robotics ER 2 فقط)
+- [فهم الفيديو](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): العثور على اللحظات وتصنيف مستوى التقدّم (الإصدار الثاني من Gemini Robotics فقط)
 
-Envie comentários
+إرسال ملاحظات
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última atualização 2026-07-30 UTC.
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-Quer enviar seu feedback?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

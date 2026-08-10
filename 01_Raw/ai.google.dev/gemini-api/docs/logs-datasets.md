@@ -1,51 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ar
-fetched_at: 2026-08-03T04:35:57.153325+00:00
-title: "\u0627\u0644\u0633\u062c\u0644\u0651\u0627\u062a \u0648\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=id
+fetched_at: 2026-08-10T03:25:47.891385+00:00
+title: "Log dan set data \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-# السجلّات ومجموعات البيانات
+# Log dan set data
 
-في هذا الدليل، ستتعرّفون على كيفية عرض السجلات من استخدام Gemini API في لوحة بيانات Google AI Studio لفهم سلوك النموذج بشكل أفضل وكيفية تفاعل المستخدمين مع تطبيقاتكم. يمكنكم استخدام ميزة تسجيل البيانات لمراقبة ملاحظات الاستخدام وتصحيح الأخطاء فيها، و*مشاركتها اختياريًا مع Google للمساعدة في تحسين Gemini في حالات استخدام المطوّرين*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=ar)
+Dalam panduan ini, Anda akan mempelajari cara
+melihat log dari penggunaan Gemini API di dasbor Google AI Studio
+untuk lebih memahami perilaku model dan cara pengguna berinteraksi dengan
+aplikasi Anda. Gunakan logging untuk mengamati, men-debug, dan *secara opsional membagikan masukan penggunaan
+kepada Google untuk membantu meningkatkan kualitas Gemini di berbagai kasus penggunaan developer*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id)
 
-تتوفّر إمكانية تسجيل البيانات لجميع طلبات البيانات من واجهة برمجة التطبيقات `GenerateContent` و`BatchGenerateContent` و`StreamGenerateContent` وطلبات البيانات من [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=ar) API باستثناء
-الوكلاء المُدارون. ويشمل ذلك الطلبات التي يتم إجراؤها من خلال
-[نقاط نهاية التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar).
+Semua panggilan API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent`, dan panggilan API [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=id), kecuali Agen Terkelola, didukung. Hal ini mencakup panggilan yang dilakukan melalui endpoint [kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id).
 
-## ضبط تسجيل بيانات المشروع
+## Mengonfigurasi logging project
 
-تخزّن واجهة برمجة التطبيقات تلقائيًا جميع عناصر التفاعل (`store=true`) لتسهيل استخدام ميزات إدارة حالة الخادم. في المقابل، لا تخزّن Generate Content API الطلبات تلقائيًا، وتتطلب تفعيل مساحة التخزين لكل طلب أو على مستوى المشروع من AI Studio.
+Secara default, API menyimpan semua objek interaksi (`store=true`) untuk
+menyederhanakan penggunaan fitur pengelolaan status sisi server. Sebaliknya, Generate Content API tidak menyimpan permintaan secara default, dan memerlukan penyimpanan diaktifkan per permintaan atau di tingkat project dari AI Studio.
 
-في Google [AI Studio](https://aistudio.google.com/logs?hl=ar)، يمكنكم تفعيل ميزة تسجيل البيانات أو
-إيقافها لجميع المشاريع أو لمشاريع معيّنة، وتغيير هذه
-الإعدادات المفضّلة في أي وقت من خلال لوحة **الإعدادات** في
-[صفحة "السجلات ومجموعات البيانات"](https://aistudio.google.com/logs?hl=ar). يمكن تفعيل ميزة تسجيل البيانات أو إيقافها
-بشكل مستقل لواجهة برمجة التطبيقات `generateContent` وواجهة
-[التفاعلات](https://ai.google.dev/gemini-api/docs/interactions?hl=ar) API
-لتغيير سلوك التخزين التلقائي لمشروع معيّن.
+Di [AI Studio](https://aistudio.google.com/logs?hl=id) Google, Anda dapat mengaktifkan atau menonaktifkan logging untuk semua project atau untuk project tertentu dan mengubah preferensi ini kapan saja melalui panel **Setelan** di halaman [Log dan Kumpulan Data](https://aistudio.google.com/logs?hl=id). Logging dapat diaktifkan atau dinonaktifkan secara terpisah untuk `generateContent` API dan [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=id) API untuk mengubah perilaku penyimpanan default untuk project.
 
-### تسجيل البيانات على مستوى الطلب
+### Logging tingkat permintaan
 
-يختلف سلوك التخزين وتسجيل البيانات حسب واجهة برمجة التطبيقات:
+Perilaku penyimpanan dan logging berbeda menurut API:
 
-- **[واجهة Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar):** تخزّن الطلبات تلقائيًا (`store=true`) لتسهيل إدارة حالة جهة الخادم.
-- **واجهة Generate Content API (`generateContent`):** لا تخزّن الطلبات تلقائيًا (`store=false`).
+- **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id):** Menyimpan permintaan secara default (`store=true`) untuk menyederhanakan pengelolaan status sisi server.
+- **Generate Content API (`generateContent`):** Tidak menyimpan permintaan secara default (`store=false`).
 
-إليكم كيفية ضبط السمة `store`:
+Berikut cara menetapkan properti `store`:
 
-**واجهة برمجة التطبيقات GenerateContent API**
+**GenerateContent API**
 
 ### Python
 
@@ -81,7 +78,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-**واجهة Interactions API**
+**Interactions API**
 
 ### Python
 
@@ -115,62 +112,61 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[interaction.outputs.length - 1].text);
 ```
 
-## عرض سجلات المشروع في AI Studio
+## Melihat log project di AI Studio
 
-1. انتقِلوا إلى صفحة "السجلات" في [AI Studio](https://aistudio.google.com/logs?hl=ar).
-2. اختَاروا مشروعًا من القائمة المنسدلة.
-3. ستظهر السجلات في الجدول بترتيب زمني عكسي لواجهة Interactions API، إذا كانت متوفّرة.
-4. لمراقبة سجلات المشروع في Generate Content API، فعِّلوا هذه الميزة أولاً في لوحة [الإعدادات](#configure-logging).
+1. Buka halaman Logs di [AI Studio](https://aistudio.google.com/logs?hl=id).
+2. Pilih project dari menu drop-down.
+3. Log akan muncul dalam tabel dalam urutan kronologis terbalik untuk Interactions API, jika ada.
+4. Untuk mengamati log project untuk Generate Content API, aktifkan terlebih dahulu di [panel setelan](#configure-logging).
 
-انقروا على إدخال لمعاينة الحمولة. يمكنكم الاطّلاع على الطلب والردّ الكاملَين من Gemini، والسياق من المحادثات السابقة. بالنسبة إلى طلبات **واجهة Interactions API**، تتضمّن السجلات أيضًا رابطًا مباشرًا إلى `previous_interaction_id`.
+Klik entri untuk melihat pratinjau payload. Anda dapat memeriksa perintah dan respons lengkap dari Gemini, serta konteks dari pernyataan sebelumnya. Untuk permintaan **Interactions API**, log juga menyertakan link
+langsung ke `previous_interaction_id`.
 
-## ضبط فترة الاحتفاظ بمساحة تخزين المشروع
+## Mengonfigurasi retensi penyimpanan project
 
-ستنتهي صلاحية السجلات وسيتم وضع علامة عليها للحذف بعد فترة الاحتفاظ التلقائية البالغة
-55 يومًا (ما لم يتم [حفظها في مجموعة بيانات](#create) لا تنتهي صلاحيتها).
-يمكنكم ضبط فترة الاحتفاظ بسجلات المشروع على 7 أو 14 أو 28 أو 55 يومًا كحد أقصى.
+Log akan berakhir dan ditandai untuk dihapus setelah periode retensi default selama 55 hari (kecuali jika [disimpan ke set data](#create), yang tidak akan berakhir).
+Anda dapat mengonfigurasi periode retensi log project hingga maksimum 7, 14, 28, atau 55 hari.
 
-## إنشاء مجموعات البيانات ومشاركتها
+## Membuat dan membagikan set data
 
-يمكنكم حفظ السجلات في مجموعات البيانات لتنظيمها وتصديرها بشكل أكثر فعالية.
+Anda dapat menyimpan log ke set data untuk mengelola dan mengekspornya secara lebih efektif.
 
-- من صفحة ["السجلات"](https://aistudio.google.com/logs?hl=ar)، ابحثوا عن شريط الفلترة
-  في أعلى الصفحة لاختيار سمة للفلترة حسبها.
-- من العرض الذي تم فلترته، استخدِموا مربّعات الاختيار لاختيار جميع السجلات أو سجلات فردية.
-- انقروا على الزر **إنشاء مجموعة بيانات** الذي يظهر في أعلى القائمة.
-- أدخِلوا اسمًا لمجموعة البيانات الجديدة ووصفًا اختياريًا لها.
-- ستظهر مجموعة البيانات التي أنشأتموها للتو مع مجموعة السجلات المنسّقة.
-- يمكنكم تصدير مجموعة البيانات لإجراء تحليل إضافي بتنسيق ملفات CSV أو JSONL أو إلى "جداول بيانات Google".
+- Dari [halaman Log](https://aistudio.google.com/logs?hl=id), temukan panel filter di bagian atas untuk memilih properti yang akan difilter.
+- Dari tampilan yang difilter, gunakan kotak centang untuk memilih semua atau masing-masing log.
+- Klik tombol **Buat set data** yang muncul di bagian atas daftar.
+- Beri nama dan deskripsi opsional untuk set data baru Anda.
+- Anda akan melihat set data yang baru saja dibuat dengan kumpulan log yang telah dikurasi.
+- Ekspor set data Anda untuk analisis lebih lanjut sebagai file CSV, JSONL, atau ke Google Spreadsheet.
 
-يمكن أن تكون مجموعات البيانات مفيدة لعدد من حالات الاستخدام المختلفة.
+Set data dapat berguna untuk sejumlah kasus penggunaan yang berbeda.
 
-- **تنسيق مجموعات التحديات:** يمكنكم إجراء تحسينات مستقبلية تستهدف المجالات التي تريدون تحسين أداء الذكاء الاصطناعي فيها.
-- **تنسيق مجموعات النماذج:** على سبيل المثال، يمكنكم استخدام نموذج من الاستخدام الفعلي لإنشاء ردود من نموذج آخر، أو مجموعة من الحالات القصوى لإجراء عمليات التحقّق الروتينية قبل النشر.
-- **مجموعات التقييم:** هي مجموعات تمثّل الاستخدام الفعلي في جميع الإمكانات المهمة، وذلك للمقارنة بين النماذج الأخرى أو تكرارات تعليمات النظام.
+- **Susun set tantangan:** Dorong peningkatan di masa mendatang yang menargetkan area tempat Anda ingin AI ditingkatkan.
+- **Menyusun set sampel:** Misalnya, sampel dari penggunaan nyata untuk menghasilkan respons dari model lain, atau kumpulan kasus ekstrem untuk pemeriksaan rutin sebelum deployment.
+- **Set evaluasi:** Set yang mewakili penggunaan nyata di seluruh kemampuan penting, untuk perbandingan di seluruh model atau iterasi petunjuk sistem lainnya.
 
-يمكنكم المساهمة في أبحاث Gemini وتطويره من خلال اختيار مشاركة مجموعات البيانات مع Google كأمثلة توضيحية.
+Anda dapat berkontribusi pada riset dan pengembangan Gemini dengan memilih untuk membagikan set data Anda kepada Google sebagai contoh demonstrasi.
 
-## القيود
+## Batasan
 
-لا تتوفّر حاليًا ميزة تسجيل البيانات لما يلي:
+Pencatatan saat ini tidak didukung untuk hal berikut:
 
-- نماذج Imagen وVeo
-- نماذج تضمين Gemini
-- نموذج Gemini Robotics
-- المدخلات التي تحتوي على فيديوهات أو ملفات GIF أو ملفات PDF
-- الوكلاء في المعاينة العلنية في Gemini API
+- Model Imagen dan Veo
+- Model embedding Gemini
+- Model Gemini Robotics
+- Input yang berisi video, GIF, atau PDF
+- Agen Pratinjau Publik di Gemini API
 
-## الخطوات التالية
+## Langkah berikutnya
 
-- **إنشاء نموذج أولي باستخدام سجلّ الجلسة:** يمكنكم استخدام [أداة Build في AI Studio](https://aistudio.google.com/apps?hl=ar) لإنشاء تطبيقات رموز برمجية وإضافة مفتاح واجهة برمجة التطبيقات لتفعيل سجلّ سجلات Gemini API لميزات الذكاء الاصطناعي.
-- **إعادة تشغيل السجلات باستخدام Gemini Batch API:** يمكنكم استخدام مجموعات البيانات لأخذ عيّنات من الردود وتقييم النماذج أو منطق التطبيق من خلال إعادة تشغيل السجلات باستخدام [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **Membuat prototipe dengan histori sesi:** Gunakan [Build AI Studio](https://aistudio.google.com/apps?hl=id) untuk melakukan vibe coding aplikasi dan menambahkan kunci API Anda untuk mengaktifkan histori log Gemini API untuk fitur AI.
+- **Menjalankan ulang log dengan Gemini Batch API:** Gunakan set data untuk pengambilan sampel respons dan evaluasi model atau logika aplikasi dengan menjalankan ulang log menggunakan [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-إرسال ملاحظات
+Kirim masukan
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاريخ التعديل الأخير: 2026-07-22 (حسب التوقيت العالمي المتفَّق عليه)
+Terakhir diperbarui pada 2026-07-22 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Ada masukan untuk kami?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-22 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-22 UTC."],[],[]]

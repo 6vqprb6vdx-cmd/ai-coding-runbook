@@ -1,88 +1,88 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=es-419
-fetched_at: 2026-08-03T04:37:13.699691+00:00
-title: "Solucionar problemas de Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pt-BR
+fetched_at: 2026-08-10T03:11:24.328680+00:00
+title: "Resolver problemas do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Enviar comentarios
+Envie comentários
 
-# Solucionar problemas de Google AI Studio
+# Resolver problemas do Google AI Studio
 
-En esta página, se ofrecen sugerencias para solucionar problemas de Google AI Studio si tienes algún inconveniente.
+Esta página oferece sugestões para resolver problemas do Google AI Studio.
 
-## Información sobre los errores 403 Access Restricted
+## Entender erros de acesso restrito 403
 
-Si ves un error 403 Access Restricted, significa que estás usando Google AI Studio de una
-manera que no cumple con las [Condiciones del Servicio](https://ai.google.dev/terms?hl=es-419). Una razón común es
-que no te encuentras en una [región admitida](https://ai.google.dev/available_regions?hl=es-419).
+Se você receber um erro de acesso restrito 403, significa que está usando o Google AI Studio de uma
+maneira que não segue os [Termos de Serviço](https://ai.google.dev/terms?hl=pt-br). Um motivo comum é
+que você não está em uma [região aceita](https://ai.google.dev/available_regions?hl=pt-br).
 
-## Cómo resolver las respuestas No Content en Google AI Studio
+## Resolver respostas sem conteúdo no Google AI Studio
 
-Si el contenido está bloqueado por algún motivo, aparecerá un mensaje de warning **No Content** en
-Google AI Studio. Para ver más detalles,
-mantén el puntero sobre **No Content** y haz clic
-warning **Safety**.
+Uma mensagem warning **Sem conteúdo** aparece no
+Google AI Studio se o conteúdo for bloqueado por qualquer motivo. Para mais detalhes,
+passe o ponteiro sobre **Sem conteúdo** e clique
+warning **Segurança**.
 
-Si la respuesta se bloqueó debido a la [configuración de seguridad](https://ai.google.dev/docs/safety_setting?hl=es-419) y
-consideraste los [riesgos de seguridad](https://ai.google.dev/docs/safety_guidance?hl=es-419) para tu caso de uso, puedes
-modificar la
-[configuración de seguridad](https://ai.google.dev/docs/safety_setting?hl=es-419#safety_settings_in_makersuite)
-para influir en la respuesta que se muestra.
+Se a resposta foi bloqueada devido às [configurações de segurança](https://ai.google.dev/docs/safety_setting?hl=pt-br) e
+você considerou os [riscos de segurança](https://ai.google.dev/docs/safety_guidance?hl=pt-br) para seu caso de uso, você
+pode modificar as
+[configurações de segurança](https://ai.google.dev/docs/safety_setting?hl=pt-br#safety_settings_in_makersuite)
+para influenciar a resposta retornada.
 
-Si la respuesta se bloqueó, pero no debido a la configuración de seguridad, es posible que la consulta o la
-respuesta infrinjan las [Condiciones del Servicio](https://ai.google.dev/terms?hl=es-419) o no sean compatibles.
+Se a resposta foi bloqueada, mas não devido às configurações de segurança, a consulta ou
+resposta pode violar os [Termos de Serviço](https://ai.google.dev/terms?hl=pt-br) ou não ser aceita.
 
-## Cómo verificar el uso y los límites de tokens
+## Verificar o uso e os limites de tokens
 
-Cuando tienes un mensaje abierto, el botón **Text Preview** en la parte inferior de la pantalla muestra los tokens actuales que se usan para el contenido de tu mensaje y el recuento máximo de tokens para el modelo que se usa.
+Quando você tem um comando aberto, o botão **Visualização de texto** na parte de baixo da tela mostra os tokens usados no momento para o conteúdo do comando e a contagem máxima de tokens para o modelo que está sendo usado.
 
-## Permisos de Cloud IAM de Google Cloud para AI Studio
+## Permissões do Cloud IAM do Google Cloud para o AI Studio
 
-Los miembros de un proyecto de Google Cloud necesitan permisos específicos de Identity and Access Management (IAM) para realizar acciones en Google AI Studio. Para obtener más información sobre estas identidades, consulta la [descripción general de las principales de IAM](https://cloud.google.com/iam/docs/principals?hl=es-419).
+Os membros de um projeto na nuvem do Google Cloud precisam de permissões específicas do Identity and Access Management (IAM) para realizar ações no Google AI Studio. Para mais informações sobre essas identidades, consulte a [visão geral dos principais do IAM](https://cloud.google.com/iam/docs/principals?hl=pt-br).
 
-Los usuarios con los roles de **Editor** o **Owner** en el proyecto de Google Cloud asociado tienen permisos completos para ver los paneles y administrar las claves de API de Gemini. Los usuarios con el rol de **Viewer** pueden ver los paneles y las claves de API, pero no pueden crearlos, actualizarlos ni borrarlos.
+Os usuários com as funções de **Editor** ou **Proprietário** no projeto associado do Google Cloud têm permissões completas para visualizar painéis e gerenciar chaves de API do Gemini. Os usuários com a função de **Leitor** podem visualizar painéis e chaves de API, mas não podem criar, atualizar ou excluir.
 
-Para obtener un control más detallado, consulta la siguiente tabla para conocer los permisos específicos que se requieren para cada función de AI Studio. Si quieres obtener instrucciones para otorgar estos permisos, consulta [Otorga, cambia y revoca el acceso a los recursos](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=es-419) en la documentación de Google Cloud.
+Para um controle mais granular, consulte a tabela a seguir para conferir as permissões específicas necessárias para cada recurso do AI Studio. Para instruções sobre como conceder essas permissões, consulte [Conceder, alterar e revogar o acesso a recursos](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=pt-br) na documentação do Google Cloud.
 
-| Función de AI Studio | Permisos de IAM obligatorios | Requisitos adicionales |
+| Recurso do AI Studio | Permissões do IAM obrigatórias | Outros requisitos |
 | --- | --- | --- |
-| **Search project** (importar proyectos) | `resourcemanager.projects.get` |  |
-| **Rename project** | `resourcemanager.projects.update` |  |
-| **Display quota tier** | N/A |  |
-| **Create API key** | Tener permisos de **Search project** y lo siguiente:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **List API keys** | Tener permisos de **Search project** y lo siguiente:  `apikeys.keys.list` `serviceusage.services.get` | El proyecto de Google Cloud debe tener habilitada la [API de Generative Language](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=es-419). |
-| **Rename API keys** | `apikeys.keys.update` |  |
-| **Delete API keys** | `apikeys.keys.delete` |  |
-| **Panel Uso de** | Tener permisos de **Search project** y lo siguiente:  `monitoring.timeSeries.list` |  |
-| **Panel de límites de frecuencia** | Tener permisos de **Panel Uso de** y lo siguiente:  `cloudquotas.quotas.get` |  |
-| **Inversión (límite de facturación)** | `billing.resourceCosts.get` (para ver la inversión) `billing.resourcebudgets.read` (para ver el límite) `billing.resourcebudgets.write` (para establecer el límite) |  |
-| **Panel de facturación** | `billing.accounts.get` |  |
+| **Pesquisar projeto** (importar projetos) | `resourcemanager.projects.get` |  |
+| **Renomear projeto** | `resourcemanager.projects.update` |  |
+| **Mostrar nível de cota** | N/A |  |
+| **Criar chave de API** | Ter permissões de **Pesquisar projeto** e:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **Listar chaves de API** | Ter permissões de **Pesquisar projeto** e:  `apikeys.keys.list` `serviceusage.services.get` | O projeto na nuvem do Google Cloud precisa ter a [API Generative Language](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=pt-br) ativada. |
+| **Renomear chaves de API** | `apikeys.keys.update` |  |
+| **Excluir chaves de API** | `apikeys.keys.delete` |  |
+| **Painel de uso** | Ter permissões de **Pesquisar projeto** e:  `monitoring.timeSeries.list` |  |
+| **Painel de limites de taxa** | Ter permissões do **Painel de uso** e:  `cloudquotas.quotas.get` |  |
+| **Gasto (limite de faturamento)** | `billing.resourceCosts.get` (para visualizar o gasto) `billing.resourcebudgets.read` (para visualizar o limite) `billing.resourcebudgets.write` (para definir o limite) |  |
+| **Painel de faturamento** | `billing.accounts.get` |  |
 
-### Otras verificaciones de acceso
+### Outras verificações de acesso
 
-Además de los permisos de IAM de Google Cloud, AI Studio también realiza verificaciones de seguridad y cumplimiento. Es posible que encuentres un error `PERMISSION_DENIED` o de restricción de acceso en la interfaz de AI Studio o en las respuestas de la API si no cumples con los siguientes requisitos:
+Além das permissões do IAM do Google Cloud, o AI Studio também realiza verificações de segurança e compliance. Você pode encontrar um erro `PERMISSION_DENIED` ou de restrição de acesso na interface do AI Studio ou nas respostas da API se não atender aos seguintes requisitos:
 
-- **Verificaciones de seguridad:** Tu solicitud debe pasar las verificaciones de seguridad automatizadas.
-- **Condiciones del Servicio:** Debes aceptar las Condiciones del Servicio de Google y las Condiciones del Servicio Adicionales para IA Generativas.
-- **Región admitida:** Debes encontrarte en una [región admitida](https://ai.google.dev/gemini-api/docs/available-regions?hl=es-419).
-- **Confianza y seguridad:** El proyecto de Google Cloud no debe estar marcado por abuso.
+- **Verificações de segurança**:sua solicitação precisa passar por verificações de segurança automatizadas.
+- **Termos de Serviço**:você precisa aceitar os Termos de Serviço do Google e os Termos de Serviço adicionais da IA generativa.
+- **Região aceita:** você precisa estar em uma [região aceita](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br).
+- **Confiança e segurança**:o projeto na nuvem do Google Cloud não pode ser sinalizado por abuso.
 
-Enviar comentarios
+Envie comentários
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última actualización: 2026-05-29 (UTC)
+Última atualização 2026-05-29 UTC.
 
-¿Quieres brindar más información?
+Quer enviar seu feedback?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-29 (UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-29 UTC."],[],[]]

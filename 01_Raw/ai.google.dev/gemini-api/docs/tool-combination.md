@@ -1,27 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=id
-fetched_at: 2026-08-03T04:33:36.767747+00:00
-title: "Menggabungkan alat bawaan dan panggilan fungsi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-TW
+fetched_at: 2026-08-10T03:15:47.567120+00:00
+title: "\u7d50\u5408\u5167\u5efa\u5de5\u5177\u548c\u51fd\u5f0f\u547c\u53eb \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Menggabungkan alat bawaan dan panggilan fungsi
+# 結合內建工具和函式呼叫
 
-Gemini memungkinkan kombinasi [alat bawaan](https://ai.google.dev/gemini-api/docs/tools?hl=id), seperti `google_search`, dan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) (juga dikenal sebagai *alat kustom*) dalam satu interaksi dengan mempertahankan dan mengekspos histori konteks panggilan alat. Kombinasi alat bawaan dan kustom memungkinkan alur kerja yang kompleks dan seperti agen, misalnya, model dapat mendasarkan dirinya pada data web real-time sebelum memanggil logika bisnis spesifik Anda.
+Gemini 允許在單一互動中組合[內建工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw) (例如 `google_search`) 和[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw) (也稱為*自訂工具*)，方法是保留及公開工具呼叫的脈絡記錄。內建和自訂工具組合可實現複雜的代理工作流程，例如模型可在呼叫特定商業邏輯之前，先根據即時網路資料建立基礎。
 
-Berikut adalah contoh yang memungkinkan kombinasi alat bawaan dan kustom dengan
-`google_search` dan fungsi kustom `getWeather`:
+以下範例會透過 `google_search` 和自訂函式 `getWeather`，啟用內建和自訂工具組合：
 
 ### Python
 
@@ -142,91 +141,87 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Cara kerjanya
+## 運作方式
 
-Model Gemini 3 menggunakan *sirkulasi konteks alat* untuk mengaktifkan kombinasi alat bawaan dan kustom. Sirkulasi konteks alat memungkinkan untuk mempertahankan dan
-mengekspos konteks alat bawaan serta membagikannya dengan alat kustom dalam interaksi yang sama.
+Gemini 3 模型會使用*工具脈絡循環*，啟用內建和自訂工具組合。工具脈絡資料循環可保留及公開內建工具的脈絡資料，並在同一互動中與自訂工具共用。
 
-### Mengaktifkan kombinasi alat
+### 啟用工具組合
 
-- Sertakan [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#function-declarations), beserta alat bawaan yang ingin Anda gunakan, untuk memicu perilaku kombinasi.
+- 加入 [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#function-declarations)，以及要使用的內建工具，即可觸發組合行為。
 
-### Langkah-langkah pengembalian API
+### API 傳回步驟
 
-Dalam respons interaksi, API menampilkan langkah-langkah terpisah untuk panggilan alat bawaan dan panggilan fungsi (alat kustom):
+在互動回應中，API 會針對內建工具呼叫和函式 (自訂工具) 呼叫，分別傳回步驟：
 
-- **Langkah-langkah alat bawaan**: API mengelola langkah-langkah ini secara otomatis, dengan mempertahankan konteks di seluruh giliran.
-- **Langkah-langkah panggilan fungsi**: API menampilkan `function_call` langkah untuk fungsi kustom Anda. Anda menjalankan fungsi dan memberikan hasilnya kembali.
+- **內建工具步驟**：API 會自動管理這些步驟，並在各個回合中保留脈絡。
+- **函式呼叫步驟**：API 會傳回自訂函式的 `function_call` 步驟。您會執行函式並傳回結果。
 
-### Kolom penting dalam langkah yang ditampilkan
+### 傳回步驟中的重要欄位
 
-Kolom tertentu dalam langkah yang ditampilkan sangat penting untuk mempertahankan konteks alat dan memungkinkan kombinasi alat:
+傳回步驟中的特定欄位對於維護工具環境和啟用工具組合至關重要：
 
-- **`id`**: Ditemukan pada langkah `function_call` dan `function_response`. ID unik yang memetakan panggilan ke responsnya.
-- **`signature`**: Ditemukan di langkah `thought`, serta semua langkah panggilan alat (misalnya, `function_call`) dan hasil (misalnya, `function_response`) untuk model Gemini 3+. Konteks terenkripsi ini memungkinkan **sirkulasi konteks alat** di seluruh interaksi.
+- **`id`**：在 `function_call` 和 `function_response` 步驟中找到。可將呼叫對應至回應的專屬 ID。
+- **`signature`**：位於 `thought` 步驟，以及 Gemini 3 以上模型的所有工具呼叫 (例如 `function_call`) 和結果 (例如 `function_response`) 步驟。這項加密脈絡可讓**工具脈絡在互動之間流通**。
 
-**Mengelola kolom ini:**
+**管理這些欄位：**
 
-- **Mode Stateful (Direkomendasikan)**: Saat Anda menggunakan `previous_interaction_id`, server akan otomatis menangani kolom `id` dan `signature`.
-- **Mode Tanpa Status**: Saat mengelola histori percakapan secara manual, Anda harus memastikan bahwa Anda meneruskan kembali kolom `id` dan `signature` ke model dalam permintaan berikutnya untuk memvalidasi keaslian dan mempertahankan konteks. SDK resmi menanganinya secara otomatis jika Anda meneruskan kembali objek respons lengkap ke histori.
+- **有狀態模式 (建議使用)**：使用 `previous_interaction_id` 時，伺服器會自動處理 `id` 和 `signature` 欄位。
+- **無狀態模式**：手動管理對話記錄時，請務必在後續要求中將 `id` 和 `signature` 欄位傳回模型，以驗證真偽並保留背景資訊。如果您將完整的回應物件傳回記錄，官方 SDK 會自動處理這項作業。
 
-### Data khusus alat
+### 工具專屬資料
 
-Beberapa alat bawaan menampilkan argumen data yang terlihat oleh pengguna dan khusus untuk jenis alat.
+部分內建工具會傳回使用者可見的資料引數，這些引數專屬於工具類型。
 
-| Alat | Argumen pemanggilan alat yang terlihat oleh pengguna (jika ada) | Respons alat yang dapat dilihat pengguna (jika ada) |
+| 工具 | 使用者可見的工具呼叫引數 (如有) | 使用者可見的工具回應 (如有) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` URL yang akan dijelajahi | `status`: Status penjelajahan `retrieved_url`: URL yang dijelajahi |
-| **file\_search** | Tidak ada | Tidak ada |
+| **url\_context** | `urls` 要瀏覽的網址 | `status`：瀏覽狀態 `retrieved_url`：瀏覽的網址 |
+| **file\_search** | 無 | 無 |
 
-## Token dan harga
+## 權杖和定價
 
-Perhatikan bahwa bagian panggilan alat bawaan dalam permintaan dihitung dalam
-`prompt_token_count`. Karena langkah-langkah alat perantara ini kini terlihat dan dikembalikan kepada Anda, langkah-langkah tersebut menjadi bagian dari histori percakapan. Hal ini hanya berlaku untuk *permintaan*, bukan *respons*.
+請注意，要求中內建工具的呼叫部分會計入 `prompt_token_count`。由於這些中間工具步驟現在會顯示並傳回給您，因此屬於對話記錄的一部分。這只適用於*要求*，不適用於*回應*。
 
-Alat Google Penelusuran dikecualikan dari aturan ini. Google Penelusuran sudah menerapkan model harganya sendiri di tingkat kueri, sehingga token tidak ditagih dua kali (lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)).
+Google 搜尋工具不在此限。Google 搜尋已在查詢層級套用自己的定價模式，因此不會重複收取權杖費用 (請參閱「[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)」頁面)。
 
-Baca halaman [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mengetahui informasi selengkapnya.
+詳情請參閱「[權杖](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)」頁面。
 
-## Batasan
+## 限制
 
-- Secara default menggunakan mode `validated` (mode `auto` tidak didukung) jika sirkulasi konteks alat diaktifkan.
-- Alat bawaan seperti `google_search` mengandalkan informasi lokasi dan waktu saat ini, jadi jika `system_instruction` atau `function_declaration.description` Anda memiliki informasi lokasi dan waktu yang bertentangan, fitur kombinasi alat mungkin tidak berfungsi dengan baik.
+- 啟用工具內容循環時，預設為 `validated` 模式 (不支援 `auto` 模式)。
+- `google_search` 等內建工具會使用位置和目前時間資訊，因此如果 `system_instruction` 或 `function_declaration.description` 的位置和時間資訊有衝突，工具組合功能可能無法正常運作。
 
-## Alat yang didukung
+## 支援的工具
 
-Sirkulasi konteks alat standar berlaku untuk alat sisi server (bawaan).
-Eksekusi Kode juga merupakan alat sisi server, tetapi memiliki solusi bawaan sendiri untuk
-sirkulasi konteks. Penggunaan Komputer dan panggilan fungsi adalah alat sisi klien,
-dan juga memiliki solusi bawaan untuk sirkulasi konteks.
+標準工具環境流通適用於伺服器端 (內建) 工具。
+程式碼執行也是伺服器端工具，但有自己的內建解決方案，可進行脈絡循環。電腦使用和函式呼叫是用戶端工具，也內建解決方案，可循環使用內容。
 
-| Alat | Sisi eksekusi | Dukungan Sirkulasi Konteks |
+| 工具 | 執行端 | 脈絡流通支援 |
 | --- | --- | --- |
-| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Sisi server | Didukung |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Sisi server | Didukung |
-| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Sisi server | Didukung |
-| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Sisi server | Didukung |
-| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Sisi server | Didukung (bawaan, menggunakan langkah-langkah `code_execution` dan `code_execution_result`) |
-| [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Sisi klien | Didukung (bawaan, menggunakan langkah-langkah `function_call` dan `function_response`) |
-| [Fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) | Sisi klien | Didukung (bawaan, menggunakan langkah-langkah `function_call` dan `function_response`) |
+| [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw) | 伺服器端 | 有權限 |
+| [Google 地圖](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw) | 伺服器端 | 有權限 |
+| [網址背景資訊](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw) | 伺服器端 | 有權限 |
+| [檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw) | 伺服器端 | 有權限 |
+| [程式碼執行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw) | 伺服器端 | 支援 (內建，使用 `code_execution` 和 `code_execution_result` 步驟) |
+| [電腦使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw) | 用戶端 | 支援 (內建，使用 `function_call` 和 `function_response` 步驟) |
+| [自訂函式](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw) | 用戶端 | 支援 (內建，使用 `function_call` 和 `function_response` 步驟) |
 
-## Langkah berikutnya
+## 後續步驟
 
-- Pelajari lebih lanjut [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API.
-- Jelajahi alat yang didukung:
-  - [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)
-  - [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
-  - [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id)
+- 進一步瞭解 Gemini API 中的[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+- 探索支援的工具：
+  - [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)
+  - [Google 地圖](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)
+  - [網址背景資訊](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)
+  - [檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+上次更新時間：2026-07-30 (世界標準時間)。
 
-Ada masukan untuk kami?
+想進一步說明嗎？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=vi
-fetched_at: 2026-08-03T04:30:08.605316+00:00
+fetched_at: 2026-08-10T03:16:33.046278+00:00
 title: "T\u00edch h\u1ee3p v\u1edbi \u0111\u1ed1i t\u00e1c v\u00e0 th\u01b0 vi\u1ec7n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

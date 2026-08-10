@@ -1,44 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=de
-fetched_at: 2026-08-03T04:33:06.153599+00:00
-title: "Tokens verstehen und z\u00e4hlen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=he
+fetched_at: 2026-08-10T03:10:52.916806+00:00
+title: "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d0\u05e1\u05d9\u05de\u05d5\u05e0\u05d9\u05dd \u05d5\u05e1\u05e4\u05d9\u05e8\u05d4 \u05e9\u05dc\u05d4\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Feedback geben
+שליחת משוב
 
-# Tokens verstehen und zählen
+# הסבר על אסימונים וספירה שלהם
 
-Gemini und andere generative KI-Modelle verarbeiten Eingaben und Ausgaben mit einer Granularität, die als *Token* bezeichnet wird.
+‫Gemini ומודלים אחרים של AI גנרטיבי מעבדים קלט ופלט ברמת פירוט שנקראת *טוקן*.
 
-**Bei Gemini-Modellen entspricht ein Token etwa 4 Zeichen.
-100 Tokens entsprechen etwa 60–80 englischen Wörtern.**
+**במודלים של Gemini, טוקן שווה בערך ל-4 תווים.
+‫100 טוקנים שווים לכ-60-80 מילים באנגלית.**
 
-## Informationen zu Tokens
+## מידע על טוקנים
 
-Tokens können einzelne Zeichen wie `z` oder ganze Wörter wie `cat` sein. Lange Wörter werden in mehrere Tokens aufgeteilt. Die Menge aller vom Modell verwendeten Tokens wird als Vokabular bezeichnet und der Vorgang, Text in Tokens aufzuteilen, als *Tokenisierung*.
+אסימונים יכולים להיות תווים בודדים כמו `z` או מילים שלמות כמו `cat`. מילים ארוכות
+מפוצלות לכמה טוקנים. קבוצת כל האסימונים שבהם נעשה שימוש במודל נקראת אוצר מילים, והתהליך של פיצול טקסט לאסימונים נקרא *טוקניזציה*.
 
-Wenn die Abrechnung aktiviert ist, werden die [Kosten eines Aufrufs der Gemini API](https://ai.google.dev/pricing?hl=de) teilweise durch die Anzahl der Eingabe- und Ausgabetokens bestimmt. Daher kann es hilfreich sein, zu wissen, wie Tokens gezählt werden.
+כשמופעל חיוב, [העלות של קריאה ל-Gemini API](https://ai.google.dev/pricing?hl=he) נקבעת בין היתר לפי מספר האסימונים של הקלט והפלט, ולכן כדאי לדעת איך לספור אסימונים.
 
-## Tokens zählen
+## ספירת טוקנים
 
-Alle Eingaben und Ausgaben der Gemini API werden tokenisiert, einschließlich Text, Bilddateien und anderer nicht textbasierter Modalitäten.
+כל הקלט והפלט של Gemini API עוברים טוקניזציה, כולל טקסט, קובצי תמונות וסוגים אחרים של נתונים שאינם טקסט.
 
-Sie können Tokens auf folgende Arten zählen:
+אפשר לספור טוקנים בדרכים הבאות:
 
-- **Rufen Sie `count_tokens` mit der Eingabe der Anfrage auf.** Gibt die Gesamtzahl der Tokens *nur in der Eingabe* zurück. Führen Sie diesen Aufruf aus, bevor Sie Eingaben senden, um die Größe Ihrer Anfragen zu prüfen.
-- **Verwenden Sie die `usage` in der Antwort auf die Interaktion.** Gibt die Anzahl der Tokens für Eingabe (`total_input_tokens`), Ausgabe (`total_output_tokens`), Überlegung (`total_thought_tokens`), Cache-Inhalte (`total_cached_tokens`), Toolnutzung (`total_tool_use_tokens`) und insgesamt (`total_tokens`) zurück.
+- **מתקשרים אל `count_tokens` ומזינים את הבקשה.** הפונקציה מחזירה את המספר הכולל של הטוקנים *בקלט בלבד*. כדאי לבצע את השיחה הזו לפני שליחת קלט כדי לבדוק את גודל הבקשות.
+- **משתמשים בלחצן `usage` בתגובה לאינטראקציה.** מחזירה את מספר הטוקנים של הקלט (`total_input_tokens`), הפלט (`total_output_tokens`), החשיבה (`total_thought_tokens`), התוכן שנשמר במטמון (`total_cached_tokens`), השימוש בכלי (`total_tool_use_tokens`) והסך הכולל (`total_tokens`).
 
-### Text-Tokens zählen
+### ספירת טוקנים של טקסט
 
 ### Python
 
@@ -98,9 +99,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Tokens für Mehrfachdialoge zählen
+### ספירת טוקנים רב-שלביים
 
-Zählen Sie Tokens im Unterhaltungsverlauf mit `previous_interaction_id`:
+כדי לספור את הטוקנים בהיסטוריית השיחות, משתמשים ב-`previous_interaction_id`:
 
 ### Python
 
@@ -146,16 +147,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Multimodale Tokens zählen
+### ספירת טוקנים מולטי-מודאליים
 
-Alle Eingaben für die Gemini API werden tokenisiert, einschließlich Bilder, Videos und Audio.
-Wichtige Informationen zur Tokenisierung:
+כל הקלט ל-Gemini API עובר טוקניזציה, כולל תמונות, סרטונים ואודיו.
+נקודות חשובות לגבי יצירת טוקנים:
 
-- **Bilder**: Bilder mit ≤ 384 Pixeln in beiden Dimensionen werden als 258 Tokens gezählt. Größere Bilder werden in 768 × 768 Pixel große Kacheln unterteilt, die jeweils als 258 Tokens gezählt werden.
-- **Video**: 263 Tokens pro Sekunde
-- **Audio**: 32 Tokens pro Sekunde
+- **תמונות**: תמונות בגודל של ‎384 פיקסלים או פחות בשני הממדים נחשבות כ-258 טוקנים. תמונות גדולות יותר מחולקות למקטעים בגודל ‎768x768 פיקסלים, וכל מקטע נחשב כ-258 טוקנים.
+- **וידאו**: 263 טוקנים לשנייה
+- **אודיו**: 32 טוקנים לשנייה
 
-#### Bild-Tokens
+#### טוקנים של תמונות
 
 ### Python
 
@@ -201,7 +202,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**Beispiel für Inline-Daten** :
+**דוגמה לנתונים מוטבעים:**
 
 ### Python
 
@@ -226,7 +227,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Video-Tokens
+#### טוקנים של סרטונים
 
 ### Python
 
@@ -259,7 +260,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Audio-Tokens
+#### טוקנים של אודיו
 
 ### Python
 
@@ -285,9 +286,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Tokens für Systemanweisungen zählen
+### ספירת טוקנים של הוראות למערכת
 
-Systemanweisungen werden als Teil der Eingabetokens gezählt:
+ההוראות למערכת נספרות כחלק מאסימוני הקלט:
 
 ### Python
 
@@ -303,9 +304,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Tool-Tokens zählen
+### ספירת טוקנים בכלי
 
-Tools (Funktionen, Code-Ausführung, Google Suche) werden ebenfalls gezählt:
+גם כלים (פונקציות, ביצוע קוד, חיפוש Google) נספרים:
 
 ### Python
 
@@ -335,11 +336,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Kontextfenster
+## חלון ההקשר
 
-Jedes Gemini-Modell hat eine maximale Anzahl von Tokens, die es verarbeiten kann. Das Kontextfenster definiert das kombinierte Limit für Eingabe- und Ausgabetokens.
+לכל מודל Gemini יש מספר מקסימלי של טוקנים שהוא יכול לטפל בהם. חלון ההקשר מגדיר את המגבלה המשולבת של טוקנים של קלט ופלט.
 
-### Größe des Kontextfensters programmatisch abrufen
+### קבלת גודל חלון ההקשר באופן פרוגרמטי
 
 ### Python
 
@@ -359,20 +360,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-Die Größen der Kontextfenster finden Sie auf der Seite „[Modelle](https://ai.google.dev/gemini-api/docs/models?hl=de)“.
+אפשר לראות את גודל חלון ההקשר בדף [מודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
 
-## Nächste Schritte
+## המאמרים הבאים
 
-- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de): Grundlagen der Generierung
-- [Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de): Kosten mit Caching senken
-- [Preise](https://ai.google.dev/gemini-api/docs/pricing?hl=de): Kosten verstehen
+- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he): יסודות היצירה
+- [שמירה במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he): הפחתת עלויות באמצעות שמירה במטמון
+- [תמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he): הסבר על העלויות
 
-Feedback geben
+שליחת משוב
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Zuletzt aktualisiert: 2026-07-30 (UTC).
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Haben Sie Feedback für uns?
+רוצה לתת לנו משוב?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

@@ -1,163 +1,181 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=zh-CN
-fetched_at: 2026-08-03T04:31:23.731226+00:00
-title: "\u95ee\u9898\u6392\u67e5\u6307\u5357 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=de
+fetched_at: 2026-08-10T03:19:31.542652+00:00
+title: "Tipps zur Fehlerbehebung \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-发送反馈
+Feedback geben
 
-# 问题排查指南
+# Tipps zur Fehlerbehebung
 
-本指南可帮助您诊断和解决调用 Gemini API 时出现的常见问题。您可能会遇到来自 Gemini API 后端服务或客户端 SDK 的问题。我们的客户端 SDK 在以下代码库中开源：
+In dieser Anleitung erfahren Sie, wie Sie häufige Probleme diagnostizieren und beheben, die beim Aufrufen der Gemini API auftreten. Probleme können entweder im Backend-Dienst der Gemini API oder in den Client-SDKs auftreten. Unsere Client-SDKs sind Open Source und in den folgenden Repositorys verfügbar:
 
 - [python-genai](https://github.com/googleapis/python-genai)
 - [js-genai](https://github.com/googleapis/js-genai)
 - [go-genai](https://github.com/googleapis/go-genai)
 
-如果您遇到 API 密钥问题，请按照 [API 密钥设置指南](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-cn)验证您是否已正确设置 API 密钥。
+Wenn Probleme mit dem API-Schlüssel auftreten, prüfen Sie, ob Sie
+Ihren API-Schlüssel gemäß der [Anleitung zur Einrichtung des API-Schlüssels](https://ai.google.dev/gemini-api/docs/api-key?hl=de) korrekt eingerichtet haben.
 
-## Gemini API 后端服务错误代码
+## Fehlercodes des Backend-Dienstes der Gemini API
 
-下表列出了您可能会遇到的常见后端错误代码，以及相应的原因说明和问题排查步骤：
+In der folgenden Tabelle sind häufige Backend-Fehlercodes aufgeführt, die auftreten können, sowie Erklärungen zu ihren Ursachen und Schritten zur Fehlerbehebung:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **HTTP 代码** | **状态** | **说明** | **示例** | **解决方案** |
-| 400 | INVALID\_ARGUMENT | 请求正文格式不正确。 | 您的请求中存在拼写错误或缺少必填字段。 | 如需查看请求格式、示例和支持的版本，请参阅 [API 参考文档](https://ai.google.dev/api?hl=zh-cn)。如果使用较新 API 版本中的功能，但端点版本较旧，可能会导致错误。 |
-| 400 | FAILED\_PRECONDITION | Gemini API 免费层级尚未在您所在的国家/地区推出。请在 Google AI Studio 中为您的项目启用结算功能。 | 您正在不受支持免费层的区域中发出请求，并且您尚未在 Google AI Studio 中为项目启用结算功能。 | 如需使用 Gemini API，您需要使用 [Google AI Studio](https://aistudio.google.com/apikey?hl=zh-cn) 设置付费方案。 |
-| 403 | PERMISSION\_DENIED | 您的 API 密钥没有所需的权限。 | 您使用的 API 密钥有误；您尝试使用经过调优的模型，但未通过[正确的身份验证](https://ai.google.dev/gemini-api/docs/model-tuning?hl=zh-cn)。 | 检查您的 API 密钥是否已设置且拥有适当的访问权限。请务必完成适当的身份验证，才能使用调整后的模型。 |
-| 404 | NOT\_FOUND | 找不到所请求的资源。 | 未找到您的请求中引用的图片、音频或视频文件。 | 检查您的请求中所有[参数对于您的 API 版本是否有效](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=zh-cn#check-api)。 |
-| 429 | RESOURCE\_EXHAUSTED | 您已超出某个 API 的速率限制（RPM、TPM、RPD、支出等）。 | 您发送的请求数量过多、使用的令牌数量过多，或者超出了账号的结算历史记录和层级对应的支出限额。 | 验证您是否在模型的[速率限制](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn)范围内。稍等片刻后重试。降低请求速率或减小请求大小。如有需要，请[申请提高速率限制](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn#request-rate-limit-increase)。 |
-| 499 | 已取消 | 操作已取消（通常是被调用者取消）。 | 在 API 完成响应之前，客户端关闭了连接。 | 检查您的客户端或网络基础架构是否过早关闭连接（例如，由于客户端超时）。 |
-| 500 | INTERNAL | Google 方面发生了意外错误。 | 您的输入上下文过长。 | 查看 [Gemini API 状态页面](https://aistudio.google.com/status?hl=zh-cn)，了解是否有任何正在发生的事件。减少输入上下文，或暂时切换到其他模型（例如从 Gemini 2.5 Pro 切换到 Gemini 2.5 Flash），看看是否有效。或者稍等片刻，然后重试您的请求。如果重试后问题仍然存在，请使用 Google AI Studio 中的**发送反馈**按钮报告此问题。 |
-| 503 | UNAVAILABLE | 服务可能暂时过载或关闭。 | 服务暂时容量不足。 | 查看 [Gemini API 状态页面](https://aistudio.google.com/status?hl=zh-cn)，了解是否有任何正在发生的事件。暂时切换到其他模型（例如从 Gemini 2.5 Pro 切换到 Gemini 2.5 Flash），看看是否有效。或者稍等片刻，然后重试您的请求。如果重试后问题仍然存在，请使用 Google AI Studio 中的**发送反馈**按钮报告此问题。 |
-| 504 | DEADLINE\_EXCEEDED | 服务无法在截止期限内完成处理。 | 您的提示（或上下文）过大，无法及时处理。 | 在客户端请求中设置更长的“超时”时间，以避免此错误。 |
+| **HTTP-Code** | **Status** | **Beschreibung** | **Beispiel** | **Lösung** |
+| 400 | INVALID\_ARGUMENT | Der Anfragetext ist fehlerhaft. | Ihre Anfrage enthält einen Tippfehler oder ein fehlendes Pflichtfeld. | In der [API-Referenz](https://ai.google.dev/api?hl=de) finden Sie Informationen zum Anfrageformat, Beispiele und unterstützte Versionen. Die Verwendung von Funktionen einer neueren API-Version mit einem älteren Endpunkt kann zu Fehlern führen. |
+| 400 | FAILED\_PRECONDITION | Die kostenlose Stufe der Gemini API ist in Ihrem Land nicht verfügbar. Aktivieren Sie die Abrechnung für Ihr Projekt in Google AI Studio. | Sie senden eine Anfrage in einer Region, in der die kostenlose Stufe nicht unterstützt wird, und Sie haben die Abrechnung für Ihr Projekt in Google AI Studio nicht aktiviert. | Wenn Sie die Gemini API verwenden möchten, müssen Sie in [Google AI Studio](https://aistudio.google.com/apikey?hl=de) einen kostenpflichtigen Plan einrichten. |
+| 403 | PERMISSION\_DENIED | Ihr API-Schlüssel hat nicht die erforderlichen Berechtigungen. | [Sie verwenden den falschen API-Schlüssel oder versuchen, ein optimiertes Modell zu verwenden, ohne sich ordnungsgemäß zu authentifizieren.](https://ai.google.dev/gemini-api/docs/model-tuning?hl=de) | Prüfen Sie, ob Ihr API-Schlüssel festgelegt ist und die richtigen Zugriffsberechtigungen hat. Außerdem müssen Sie sich ordnungsgemäß authentifizieren, um optimierte Modelle zu verwenden. |
+| 404 | NOT\_FOUND | Die angeforderte Ressource wurde nicht gefunden. | Eine in Ihrer Anfrage referenzierte Bild-, Audio- oder Videodatei wurde nicht gefunden. | Prüfen Sie, ob alle [Parameter in Ihrer Anfrage gültig sind](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=de#check-api) für Ihre API-Version. |
+| 429 | RESOURCE\_EXHAUSTED | Sie haben eines der Ratenlimits der API überschritten (Anfragen pro Minute, Tokens pro Minute, Anfragen pro Tag, Ausgaben usw.). | Sie senden zu viele Anfragen, verwenden zu viele Tokens oder überschreiten ausgabenbasierte Limits für den Abrechnungsverlauf und die Stufe Ihres Kontos. | Prüfen Sie, ob Sie die [Ratenlimits](https://ai.google.dev/gemini-api/docs/rate-limits?hl=de) des Modells einhalten. Warten Sie kurz und versuchen Sie es dann noch einmal. Reduzieren Sie die Rate oder Größe Ihrer Anfragen. [Fordern Sie bei Bedarf eine Erhöhung des Ratenlimits an](https://ai.google.dev/gemini-api/docs/rate-limits?hl=de#request-rate-limit-increase). |
+| 499 | CANCELLED | Der Vorgang wurde abgebrochen, üblicherweise vom Aufrufer. | Der Client hat die Verbindung geschlossen, bevor die API die Antwort senden konnte. | Prüfen Sie, ob Ihre Client- oder Netzwerkinfrastruktur die Verbindung vorzeitig schließt (z.B. aufgrund eines clientseitigen Timeouts). |
+| 500 | INTERN | Bei Google ist ein unerwarteter Fehler aufgetreten. | Ihr Eingabekontext ist zu lang. | Prüfen Sie auf der [Statusseite der Gemini API](https://aistudio.google.com/status?hl=de), ob es aktuelle Vorfälle gibt. Reduzieren Sie den Eingabekontext oder wechseln Sie vorübergehend zu einem anderen Modell (z.B. von Gemini 2.5 Pro zu Gemini 2.5 Flash) und prüfen Sie, ob das Problem dadurch behoben wird. Alternativ können Sie auch etwas warten und die Anfrage dann noch einmal senden. Wenn das Problem nach dem Wiederholen weiterhin besteht, melden Sie es bitte über die Schaltfläche **Feedback senden** in Google AI Studio. |
+| 503 | UNAVAILABLE | Der Dienst ist möglicherweise vorübergehend überlastet oder nicht verfügbar. | Die Kapazität des Dienstes ist vorübergehend erschöpft. | Prüfen Sie auf der [Statusseite der Gemini API](https://aistudio.google.com/status?hl=de), ob es aktuelle Vorfälle gibt. Wechseln Sie vorübergehend zu einem anderen Modell (z.B. von Gemini 2.5 Pro zu Gemini 2.5 Flash) und prüfen Sie, ob das Problem dadurch behoben wird. Alternativ können Sie auch etwas warten und die Anfrage dann noch einmal senden. Wenn das Problem nach dem Wiederholen weiterhin besteht, melden Sie es bitte über die Schaltfläche **Feedback senden** in Google AI Studio. |
+| 504 | DEADLINE\_EXCEEDED | Der Dienst kann die Verarbeitung nicht innerhalb des Zeitlimits abschließen. | Ihr Prompt (oder Kontext) ist zu groß, um rechtzeitig verarbeitet zu werden. | Legen Sie in Ihrer Clientanfrage ein höheres Zeitlimit fest, um diesen Fehler zu vermeiden. |
 
-## 重试策略
+## Wiederholungsstrategie
 
-如果您收到指示您应重试请求的错误（例如 `429 RESOURCE_EXHAUSTED` 或 `503 UNAVAILABLE`），我们建议您实现指数退避策略。这意味着您会在第一次重试之前等待一小段时间，然后逐渐增加后续重试之间的等待时间。
+Wenn Sie eine Fehlermeldung erhalten, die darauf hinweist, dass Sie die Anfrage wiederholen sollten (z. B. `429 RESOURCE_EXHAUSTED` oder `503 UNAVAILABLE`), empfehlen wir, eine Strategie für exponentiellen Backoff zu implementieren. Das bedeutet, dass Sie vor dem ersten Wiederholungsversuch eine kurze Zeit warten und dann die Wartezeit zwischen den nachfolgenden Wiederholungsversuchen schrittweise erhöhen.
 
-Gemini API 的官方客户端 SDK（例如 [Python SDK](https://github.com/googleapis/python-genai)）默认包含指数退避自动重试逻辑，用于处理暂时性错误，例如超时、网络问题和速率限制（`429` 和 `5xx` 状态代码）。例如，Python SDK 会自动重试暂时性错误，最多重试 4 次，初始延迟时间约为 1 秒，最长延迟时间为 60 秒。
+Die offiziellen Client-SDKs für die Gemini API, z. B. das [Python SDK](https://github.com/googleapis/python-genai), enthalten standardmäßig eine automatische Wiederholungslogik mit exponentiellem Backoff für die Behandlung vorübergehender Fehler wie Timeouts, Netzwerkprobleme und Ratenlimits (`429` und `5xx` Statuscodes). Das Python SDK wiederholt vorübergehende Fehler beispielsweise automatisch bis zu viermal mit einer anfänglichen Verzögerung von etwa 1 Sekunde und einer maximalen Verzögerung von 60 Sekunden.
 
-如果您要直接发出 REST API 请求或自定义重试逻辑，请遵循以下最佳实践，以提高请求成功率并防止服务过载：
+Wenn Sie direkte REST API-Anfragen senden oder Ihre Wiederholungslogik anpassen, sollten Sie die folgenden Best Practices beachten, um die Wahrscheinlichkeit einer erfolgreichen Anfrage zu erhöhen und den Dienst nicht zu überlasten:
 
-- **使用指数退避**：在第一次重试之前等待一小段时间（例如 1 秒），然后以指数方式增加延迟时间（例如 2 秒、4 秒、8 秒）。
-- **添加抖动**：在延迟中添加随机“抖动”，以防止所有客户端在完全相同的时间重试。
-- **针对特定错误进行重试**：仅针对暂时性错误（例如 `429`、`408` 或 `5xx`）进行重试。请勿针对客户端错误（例如 `400` 或 `403`）进行重试，因为这些错误表示存在无效的 API 密钥或语法错误等问题。
-- **设置重试次数上限**：定义重试次数上限，以防止无限循环。
+- **Exponentiellen Backoff verwenden**:Warten Sie vor dem ersten Wiederholungsversuch eine kurze Zeit (z. B. 1 Sekunde) und erhöhen Sie dann die Verzögerung exponentiell (z. B. 2 Sekunden, 4 Sekunden, 8 Sekunden).
+- **Jitter hinzufügen**:Fügen Sie der Verzögerung zufälligen „Jitter“ hinzu, um zu verhindern, dass alle Clients gleichzeitig Wiederholungsversuche durchführen.
+- **Wiederholungsversuche bei bestimmten Fehlern**:Wiederholen Sie nur vorübergehende Fehler (z. B. `429`, `408` oder `5xx`). Wiederholen Sie keine Clientfehler (z. B. `400` oder `403`), da diese auf Probleme wie ungültige API-Schlüssel oder eine fehlerhafte Syntax hinweisen.
+- **Maximale Anzahl von Wiederholungsversuchen festlegen**:Definieren Sie eine maximale Anzahl von Wiederholungsversuchen, um Endlosschleifen zu vermeiden.
 
-## 检查 API 调用是否存在模型参数错误
+## API-Aufrufe auf Fehler bei Modellparametern prüfen
 
-验证模型参数是否在以下值范围内：
+Prüfen Sie, ob Ihre Modellparameter innerhalb der folgenden Werte liegen:
 
 |  |  |
 | --- | --- |
-| **模型形参** | **值（范围）** |
-| 候选对象数量 | 1-8（整数） |
-| 温度 | 0.0-1.0 |
-| 输出 token 数量上限 | 您可以使用[模型页面](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn)确定所用模型的词元数量上限。 |
-| TopP | 0.0-1.0 |
+| **Modellparameter** | **Werte (Bereich)** |
+| Anzahl der Kandidaten | 1–8 (Ganzzahl) |
+| Temperatur | 0,0–1,0 |
+| Maximale Ausgabetokens | Verwenden Sie die Seite „[Modelle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de)“, um die maximale Anzahl von Tokens für das verwendete Modell zu ermitteln. |
+| TopP | 0,0–1,0 |
 
-除了检查参数值之外，还要确保您使用的是正确的 [API 版本](https://ai.google.dev/gemini-api/docs/api-versions?hl=zh-cn)（例如 `/v1` 或 `/v1beta`）和支持所需功能的型号。例如，如果某项功能处于 Beta 版发布阶段，则仅在 `/v1beta` API 版本中可用。
+Prüfen Sie nicht nur die Parameterwerte, sondern auch, ob Sie die richtige
+[API-Version](https://ai.google.dev/gemini-api/docs/api-versions?hl=de) (z.B. `/v1` oder `/v1beta`) und
+das richtige Modell verwenden, das die benötigten Funktionen unterstützt. Wenn sich eine Funktion beispielsweise in der Betaphase befindet, ist sie nur in der API-Version `/v1beta` verfügbar.
 
-## 检查您是否拥有合适的型号
+## Prüfen, ob Sie das richtige Modell verwenden
 
-确认您使用的是我们[模型页面](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn)上列出的受支持型号。
+Prüfen Sie, ob Sie ein unterstütztes Modell verwenden, das auf unserer [Seite „Modelle“
+aufgeführt ist](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de).
 
-## 使用 2.5 模型时延迟时间更长或 token 用量更高
+## Höhere Latenz oder Tokennutzung bei 2.5-Modellen
 
-如果您发现 2.5 Flash 和 Pro 模型的延迟时间或令牌用量更高，这可能是因为为了提高质量，这些模型**默认启用了思考功能**。如果您优先考虑速度或需要尽可能降低成本，可以调整或停用思考功能。
+Wenn Sie bei den Modellen 2.5 Flash und Pro eine höhere Latenz oder Tokennutzung feststellen, liegt das daran, dass **Thinking standardmäßig aktiviert** ist, um die Qualität zu verbessern. Wenn Sie Geschwindigkeit priorisieren oder Kosten minimieren müssen, können Sie Thinking anpassen oder deaktivieren.
 
-如需相关指南和示例代码，请参阅[思考页面](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn#set-budget)。
+Auf der Seite [„Thinking“](https://ai.google.dev/gemini-api/docs/thinking?hl=de#set-budget) finden Sie eine
+Anleitung und Beispielcode.
 
-## 安全问题
+## Sicherheitsprobleme
 
-如果您看到系统提示某个提示因 API 调用中的安全设置而被屏蔽，请根据您在 API 调用中设置的过滤条件检查该提示。
+Wenn ein Prompt aufgrund einer Sicherheitseinstellung in Ihrem API-Aufruf blockiert wurde, prüfen Sie den Prompt im Hinblick auf die Filter, die Sie im API-Aufruf festgelegt haben.
 
-如果您看到 `BlockedReason.OTHER`，则表示相应查询或回答可能违反了[服务条款](https://ai.google.dev/terms?hl=zh-cn)，或者不受支持。
+Wenn `BlockedReason.OTHER` angezeigt wird, verstößt die Anfrage oder Antwort möglicherweise gegen die [Nutzungsbedingungen](https://ai.google.dev/terms?hl=de) oder wird anderweitig nicht unterstützt.
 
-## 朗诵问题
+## Problem mit der Rezitation
 
-如果您发现模型因“RECITATION”原因而停止生成输出，则表示模型输出可能与某些数据相似。如需解决此问题，请尽量使提示 / 上下文保持唯一性，并使用较高的温度。
+Wenn das Modell die Ausgabe aufgrund des Grunds „RECITATION“ beendet, ähnelt die Modellausgabe bestimmten Daten. Um dieses Problem zu beheben, versuchen Sie, den Prompt / Kontext so eindeutig wie möglich zu gestalten und eine höhere Temperatur zu verwenden.
 
-## 重复令牌问题
+## Problem mit sich wiederholenden Tokens
 
-如果您看到重复的输出令牌，请尝试以下建议，以帮助减少或消除这些令牌。
+Wenn wiederholte Ausgabetokens angezeigt werden, versuchen Sie es mit den folgenden Vorschlägen, um sie zu reduzieren oder zu entfernen.
 
-| 说明 | 原因 | 建议的解决方法 |
+| Beschreibung | Ursache | Vorgeschlagene Problemumgehung |
 | --- | --- | --- |
-| Markdown 表格中的连字符重复 | 如果表格内容较长，模型会尝试创建视觉上对齐的 Markdown 表格，此时可能会出现此问题。不过，Markdown 中的对齐方式对于正确渲染而言并非必需。 | 在提示中添加说明，为模型提供有关生成 Markdown 表格的具体指南。提供符合这些准则的示例。您还可以尝试调节温度。对于生成代码或 Markdown 表格等结构化程度很高的输出，较高的温度值（>= 0.8）效果更好。  以下是一组您可以添加到提示中的准则示例，以防止出现此问题：     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
-| Markdown 表格中的重复令牌 | 与重复的连字符类似，当模型尝试直观地对齐表格内容时，就会出现这种情况。Markdown 中的对齐方式不是正确渲染的必要条件。 | - 尝试在系统提示中添加以下指令：      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - 尝试调整温度。较高的温度（>= 0.8）通常有助于消除输出中的重复或重复内容。 |
-| 结构化输出中存在重复的换行符 (`\n`) | 当模型输入包含 Unicode 或转义序列（例如 `\u` 或 `\t`）时，可能会导致出现重复的换行符。 | - 检查提示中是否存在禁止使用的转义序列，并将其替换为 UTF-8 字符。例如，JSON 示例中的 `\u` 转义序列可能会导致模型也在其输出中使用这些序列。 - 指示模型允许的转义。添加如下所示的系统指令：      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
-| 使用结构化输出时出现重复文本 | 如果模型输出的字段顺序与定义的结构化架构不同，可能会导致文本重复。 | - 请勿在提示中指定字段的顺序。 - 将所有输出字段设为必需字段。 |
-| 重复的工具调用 | 如果模型丢失了之前想法的上下文，并且/或者调用了它被迫调用的不可用端点，就可能会出现这种情况。 | 指示模型在思考过程中保持状态。 将以下内容添加到系统指令的末尾：    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
-| 不属于结构化输出的重复文本 | 如果模型卡在无法解决的请求上，就会出现这种情况。 | - 如果开启了思考功能，请避免在指令中明确指示如何思考问题。只需要求提供最终输出。 - 尝试将温度调高到 0.8 或更高。 - 添加“简洁明了”“不要重复”或“只提供一次答案”等指令。 |
+| Wiederholte Bindestriche in Markdown-Tabellen | Dies kann auftreten, wenn der Inhalt der Tabelle lang ist, da das Modell versucht, eine visuell ausgerichtete Markdown-Tabelle zu erstellen. Die Ausrichtung in Markdown ist jedoch für das korrekte Rendering nicht erforderlich. | Fügen Sie Ihrem Prompt Anweisungen hinzu, um dem Modell spezifische Richtlinien für die Generierung von Markdown-Tabellen zu geben. Geben Sie Beispiele an, die diesen Richtlinien entsprechen. Sie können auch versuchen, die Temperatur anzupassen. Für die Generierung Code oder sehr strukturierter Ausgabe wie Markdown-Tabellen, haben sich hohe Temperaturen (>= 0,8) als besser erwiesen.  Im Folgenden finden Sie ein Beispiel für Richtlinien, die Sie Ihrem Prompt hinzufügen können, um dieses Problem zu vermeiden:     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
+| Wiederholte Tokens in Markdown-Tabellen | Ähnlich wie bei den wiederholten Bindestrichen tritt dieses Problem auf, wenn das Modell versucht, den Inhalt der Tabelle visuell auszurichten. Die Ausrichtung in Markdown ist für das korrekte Rendering nicht erforderlich. | - Fügen Sie Ihrem Systemprompt Anweisungen wie die folgenden hinzu:      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - Versuchen Sie, die Temperatur anzupassen. Höhere Temperaturen (>= 0,8)   tragen in der Regel dazu bei, Wiederholungen oder Duplikate in   der Ausgabe zu vermeiden. |
+| Wiederholte Zeilenumbrüche (`\n`) in strukturierter Ausgabe | Wenn die Modelleingabe Unicode- oder Escapesequenzen wie `\u` oder `\t` enthält, kann das zu wiederholten Zeilenumbrüchen führen. | - Suchen Sie in Ihrem Prompt nach verbotenen Escapesequenzen und ersetzen Sie sie durch UTF-8-Zeichen. Die Escapesequenz `\u`   in Ihren JSON-Beispielen kann beispielsweise dazu führen, dass das Modell sie   auch in der Ausgabe verwendet. - Weisen Sie das Modell auf zulässige Escapesequenzen hin. Fügen Sie eine Systemanweisung wie   diese hinzu:      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
+| Wiederholter Text bei Verwendung strukturierter Ausgabe | Wenn die Modellausgabe eine andere Reihenfolge für die Felder hat als das definierte strukturierte Schema, kann das zu wiederholtem Text führen. | - Geben Sie die Reihenfolge der Felder nicht in Ihrem Prompt an. - Machen Sie alle Ausgabefelder zu Pflichtfeldern. |
+| Wiederholte Toolaufrufe | Dies kann auftreten, wenn das Modell den Kontext früherer Gedanken verliert und/oder einen nicht verfügbaren Endpunkt aufruft, zu dem es gezwungen ist. | Weisen Sie das Modell an, den Status im Denkprozess beizubehalten. Fügen Sie dies am Ende Ihrer Systemanweisungen hinzu:    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
+| Wiederholter Text, der nicht Teil der strukturierten Ausgabe ist | Dies kann auftreten, wenn das Modell bei einer Anfrage hängen bleibt, die es nicht lösen kann. | - Wenn Thinking aktiviert ist, geben Sie in den Anweisungen keine expliziten Anweisungen dazu, wie ein Problem durchdacht werden soll. Fordern Sie nur die endgültige   Ausgabe an. - Versuchen Sie es mit einer höheren Temperatur >= 0,8. - Fügen Sie Anweisungen wie „Sei prägnant“, „Wiederhole dich nicht“ oder   „Gib die Antwort einmal“ hinzu. |
 
-## 已遭屏蔽或无法正常使用的 API 密钥
+## Blockierte oder nicht funktionierende API-Schlüssel
 
-本部分介绍了如何检查 Gemini API 密钥是否被屏蔽，以及如何处理这种情况。
+In diesem Abschnitt wird beschrieben, wie Sie prüfen können, ob Ihr Gemini API-Schlüssel blockiert ist, und was Sie dagegen tun können.
 
-### 了解密钥被屏蔽的原因
+### Gründe für die Blockierung von Schlüsseln
 
-我们发现了一个漏洞，导致部分 API 密钥可能已公开泄露。为了保护您的数据并防止未经授权的访问，我们已主动阻止这些已知泄露的密钥访问 Gemini API。
+Wir haben eine Sicherheitslücke festgestellt, durch die einige API-Schlüssel öffentlich zugänglich gemacht wurden. Um Ihre Daten zu schützen und unbefugten Zugriff zu verhindern, haben wir diese bekannten, offengelegten Schlüssel proaktiv blockiert, damit sie nicht auf die Gemini API zugreifen können.
 
-### 确认您的密钥是否会受到影响
+### Prüfen, ob Ihre Schlüssel betroffen sind
 
-如果您的密钥被泄露，您将无法再将该密钥与 Gemini API 搭配使用。您可以使用 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-cn) 查看是否有任何 API 密钥被禁止调用 Gemini API，并生成新的密钥。尝试使用这些密钥时，您可能还会看到系统返回以下错误：
+Wenn Ihr Schlüssel offengelegt wurde, können Sie ihn nicht mehr mit der Gemini API verwenden. In [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=de) können Sie prüfen, ob einer Ihrer
+API-Schlüssel blockiert ist und keine Aufrufe an die Gemini API senden kann, und neue
+Schlüssel generieren. Wenn Sie versuchen, diese Schlüssel zu verwenden, wird möglicherweise auch der folgende Fehler zurückgegeben:
 
 ```
 Your API key was reported as leaked. Please use another API key.
 ```
 
-### 针对被屏蔽的 API 密钥采取的操作
+### Maßnahmen für blockierte API-Schlüssel
 
-您应使用 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-cn) 为 Gemini API 集成生成新的 API 密钥。我们强烈建议您检查 API 密钥管理实践，确保新密钥安全无虞，不会公开。
+Sie sollten in [Google
+AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=de) neue API-Schlüssel für Ihre Gemini API-Integrationen generieren. Wir empfehlen dringend, Ihre API-Schlüsselverwaltungspraktiken zu überprüfen, um sicherzustellen, dass Ihre neuen Schlüssel sicher aufbewahrt und nicht öffentlich zugänglich gemacht werden.
 
-### 因漏洞而产生的意外费用
+### Unerwartete Kosten aufgrund einer Sicherheitslücke
 
-[提交结算支持请求](https://console.cloud.google.com/support/chat?hl=zh-cn)。
-我们的结算团队正在处理此问题，我们会尽快通知您最新进展。
+[Reichen Sie eine Supportanfrage zur Abrechnung ein](https://console.cloud.google.com/support/chat?hl=de).
+Unser Abrechnungsteam arbeitet an diesem Problem und wir werden Sie so schnell wie möglich über Neuigkeiten informieren.
 
-### Google 针对泄露密钥采取的安全措施
+### Sicherheitsmaßnahmen von Google für offengelegte Schlüssel
 
-**如果我的 API 密钥泄露，Google 将如何帮助我保护账号免遭费用超支和滥用？**
+**Wie hilft Google, mein Konto vor Kostenüberschreitungen und Missbrauch zu schützen, wenn meine API-Schlüssel offengelegt werden?**
 
-- 我们正逐步过渡到以下模式：当您使用 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-cn) 请求新密钥时，系统会签发 API 密钥，该密钥默认仅限用于 Google AI Studio，且不接受来自其他服务的密钥。这有助于防止任何意外的跨密钥使用。
-- 我们默认会屏蔽泄露并与 Gemini API 一起使用的 API 密钥，以帮助防止滥用费用和应用数据。
-- 您将能够在 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-cn) 中查看 API 密钥的状态，并且当我们发现您的 API 密钥泄露时，我们会主动通知您立即采取行动。
+- Wir werden API-Schlüssel ausgeben, wenn Sie in
+  [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=de) einen neuen Schlüssel anfordern. Diese Schlüssel sind standardmäßig auf
+  Google AI Studio beschränkt und akzeptieren keine Schlüssel von anderen Diensten.
+  Dadurch wird eine unbeabsichtigte Verwendung von Schlüsseln verhindert.
+- Wir blockieren standardmäßig API-Schlüssel, die offengelegt und mit der Gemini API verwendet werden, um Missbrauch von Kosten und Ihren Anwendungsdaten zu verhindern.
+- Sie können den Status Ihrer API-Schlüssel in [Google AI
+  Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=de) einsehen. Wir werden Sie proaktiv informieren, wenn wir feststellen, dass Ihre API-Schlüssel offengelegt wurden, damit Sie sofort Maßnahmen ergreifen können.
 
-## 改进模型输出
+## Modellausgabe verbessern
 
-如需获得更高质量的模型输出，请尝试撰写结构更清晰的提示。[提示工程指南](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-cn)页面介绍了一些基本概念、策略和最佳实践，可帮助您入门。
+Wenn Sie qualitativ hochwertigere Modellausgaben wünschen, sollten Sie strukturiertere Prompts schreiben. Auf der
+[Prompt Engineering Guide](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de)-Seite
+werden einige grundlegende Konzepte, Strategien und Best Practices vorgestellt, die Ihnen den
+Einstieg erleichtern.
 
-## 了解令牌限制
+## Informationen zu Tokenlimits
 
-请仔细阅读我们的 [Token 指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn)，更好地了解如何统计 token 及其限制。
+In unserem [Leitfaden zu Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de) erfahren Sie mehr darüber, wie
+Sie Tokens zählen und welche Limits gelten.
 
-## 已知问题
+## Bekannte Probleme
 
-- 该 API 仅支持部分精选语言。以不支持的语言提交提示可能会生成意外甚至被屏蔽的回答。如需了解最新信息，请参阅[支持的语言](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn#supported-languages)。
+- Die API unterstützt nur eine begrenzte Anzahl von Sprachen. Wenn Sie Prompts in nicht unterstützten Sprachen senden, können unerwartete oder sogar blockierte Antworten zurückgegeben werden. [Auf der Seite „Verfügbare Sprachen“ finden Sie aktuelle Informationen.](https://ai.google.dev/gemini-api/docs/models?hl=de#supported-languages)
 
-## 提交 bug
+## Fehler melden
 
-如果您有任何疑问，请加入 [Google AI 开发者论坛](https://discuss.ai.google.dev?hl=zh-cn)参与讨论。
+Wenn Sie Fragen haben, können Sie sich im
+[Google AI-Entwicklerforum](https://discuss.ai.google.dev?hl=de)
+an der Diskussion beteiligen.
 
-发送反馈
+Feedback geben
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-最后更新时间 (UTC)：2026-07-08。
+Zuletzt aktualisiert: 2026-07-08 (UTC).
 
-需要向我们提供更多信息？
+Haben Sie Feedback für uns?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-08。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-08 (UTC)."],[],[]]

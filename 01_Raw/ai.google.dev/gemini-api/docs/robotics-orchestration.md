@@ -1,39 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ko
-fetched_at: 2026-08-03T04:34:54.495634+00:00
-title: "\ud0dc\uc2a4\ud06c \uc870\uc815 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=he
+fetched_at: 2026-08-10T03:22:45.079176+00:00
+title: "\u05ea\u05d6\u05de\u05d5\u05e8 \u05de\u05e9\u05d9\u05de\u05d5\u05ea \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-의견 보내기
+שליחת משוב
 
-# 태스크 조정
+# תזמור משימות
 
-Gemini Robotics ER 모델은 작업을 계획하고 공간에 대해 추론하여 목표를 달성하기 위해 취할 작업과 이동할 객체를 추론할 수 있습니다. 이 페이지
-에서는 맞춤 로봇 API를 통해 [선택 및 배치](https://ai.google.dev/gemini-api/docs/calling-custom-robot-api?hl=ko)
-작업을 실행하여 항목을
-그릇에 배치하는 작업을 오케스트레이션하는 예를 보여줍니다. 이 예에서는 표준 Gemini ER 2 모델을 사용합니다. 스트리밍
-예는 [Gemini ER 2 스트리밍 가이드](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko)를 참고하세요.
+מודלים של Gemini Robotics ER יכולים לתכנן משימות ולנמק לגבי מרחב, ולהסיק אילו פעולות צריך לבצע ואילו אובייקטים צריך להזיז כדי להשיג מטרה. בדף הזה מוצגת דוגמה ל[הפעלת פעולת הרמה והנחה](https://ai.google.dev/gemini-api/docs/calling-custom-robot-api?hl=he) באמצעות API מותאם אישית של רובוט, כדי לתזמן את המשימה של הנחת פריט בקערה. בדוגמה הזו נעשה שימוש במודל Gemini ER 2 הרגיל. דוגמה לסטרימינג מופיעה ב[מדריך לסטרימינג של Gemini ER 2](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=he).
 
-실행 가능한 전체 코드는
-[로봇공학 레시피](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)를 참고하세요.
+קוד מלא שניתן להרצה זמין ב-[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## 맞춤 로봇 API 사용
+## שימוש ב-API מותאם אישית של רובוט
 
-이 예에서는 맞춤 로봇 API를 사용한 작업 오케스트레이션을 보여줍니다. 선택 및 배치 작업을 위해 설계된 모의 API를 소개합니다. 작업은 파란색 블록을 집어 주황색 그릇에 배치하는 것입니다.
+בדוגמה הזו מוצגת תזמור משימות באמצעות API של רובוט בהתאמה אישית. הוא כולל API מדומה שנועד לפעולת הרמה והנחה. המשימה היא להרים קובייה כחולה ולהניח אותה בקערה בצבע כתום:
 
-![블록과 그릇의 이미지](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=ko)
+![תמונה של הבלוק והקערה](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=he)
 
-이 예에서는 다음 모의 로봇 API를 사용합니다.
+בדוגמה הזו נעשה שימוש ב-API מדומה של רובוט:
 
 ### Python
 
@@ -76,7 +71,7 @@ set_gripper_state_function = {
 }
 ```
 
-다음 예에서는 도구 정의와 함께 프롬프트와 이미지를 모델에 전송합니다. 그런 다음 에이전트 루프를 실행합니다. 각 모델 응답 후 요청된 함수 호출 (`move`, `setGripperState`)을 실행하고 `previous_interaction_id`를 사용하여 결과를 모델에 다시 반환하며 모델이 함수 호출을 중지하거나 단계 제한에 도달할 때까지 반복합니다.
+בדוגמה הבאה, ההנחיה והתמונה נשלחות למודל עם הגדרות כלי. לאחר מכן, הוא מריץ לולאה של סוכן: אחרי כל תגובה של המודל, הוא מבצע את כל הקריאות לפונקציות המבוקשות (`move`, `setGripperState`), מחזיר את התוצאות למודל באמצעות `previous_interaction_id` וחוזר על הפעולה עד שהמודל מפסיק לקרוא לפונקציות או עד שמגיעים למגבלת השלבים.
 
 ### Python
 
@@ -152,7 +147,7 @@ while step_count < max_steps:
     )
 ```
 
-다음은 프롬프트와 모의 로봇 API를 기반으로 모델의 가능한 출력을 보여줍니다. 출력에는 모델이 함께 시퀀싱한 로봇 함수 호출의 출력이 포함됩니다.
+בדוגמה הבאה מוצג פלט אפשרי של המודל על סמך ההנחיה וממשק ה-API של הרובוט המדומה. הפלט כולל את הפלט של קריאות הפונקציה של הרובוט שהמודל סידר ברצף.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -169,18 +164,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## 다음 단계
+## המאמרים הבאים
 
-- [스트리밍을 통한 로봇공학](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko) - 함수 호출을 통한 실시간 스트리밍 (Gemini Robotics ER 2만 해당)
-- [동영상 이해](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ko) - 동영상에서 작업 진행률 추적 (ER 2만 해당)
-- [공간 추론](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ko) - 가리키기, 추적, 경계 상자 예
+- [רובוטיקה עם סטרימינג](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=he) – סטרימינג בזמן אמת עם בקשות להפעלת פונקציות (Gemini Robotics ER 2 בלבד).
+- [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=he) – מעקב אחר התקדמות המשימה מתוך סרטון (ER 2 בלבד).
+- [היגיון מרחבי](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=he) – דוגמאות של הצבעה, מעקב ותיבה תוחמת.
 
-의견 보내기
+שליחת משוב
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-최종 업데이트: 2026-07-30(UTC)
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-의견을 전달하고 싶나요?
+רוצה לתת לנו משוב?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=it
-fetched_at: 2026-08-03T04:31:03.070235+00:00
-title: "Esecuzione in background \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=ja
+fetched_at: 2026-08-10T03:26:13.087227+00:00
+title: "\u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u5b9f\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-# Esecuzione in background
+# バックグラウンド実行
 
-Per le attività a lunga esecuzione come la ricerca approfondita, il ragionamento complesso o le esecuzioni di agenti in più passaggi, i timeout di connessione possono interrompere le richieste HTTP standard (che in genere si chiudono dopo 60 secondi). L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) fornisce l'**esecuzione in background** per eseguire queste attività in modo asincrono.
+詳細な調査、複雑な推論、多段階のエージェント実行などの長時間実行タスクの場合、接続タイムアウトにより標準の HTTP リクエスト（通常は 60 秒後に終了）が中断されることがあります。[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) は、これらのタスクを非同期で実行するための**バックグラウンド実行**を提供します。
 
-Per consentire all'interazione di essere eseguita fino al completamento dell'attività sul server, imposta `"background": true` quando crei l'interazione. L'API restituisce immediatamente un ID di interazione, che le applicazioni client possono utilizzare per eseguire il polling dello stato, lo streaming dei progressi o la riconnessione a uno stream disconnesso.
+サーバーでタスクが完了するまでインタラクションを実行するには、インタラクションの作成時に `"background": true` を設定します。API はすぐにインタラクション ID を返します。クライアント アプリケーションはこの ID を使用して、ステータスのポーリング、進行状況のストリーミング、切断されたストリームへの再接続を行うことができます。
 
-L'esecuzione in background è supportata per i modelli Gemini standard (ad esempio `gemini-3.6-flash` e `gemini-3.1-pro-preview`) e gli agenti gestiti (ad esempio `antigravity-preview-05-2026`).
+バックグラウンド実行は、標準の Gemini モデル（`gemini-3.6-flash` や `gemini-3.1-pro-preview` など）と Managed Agents（`antigravity-preview-05-2026` など）でサポートされています。
 
-## Creare un'interazione in background
+## バックグラウンド インタラクションを作成する
 
-Per avviare un'interazione in background, imposta il parametro `background` su `true` quando crei la risorsa.
+バックグラウンド インタラクションを開始するには、リソースの作成時に `background` パラメータを `true` に設定します。
 
 ### Python
 
@@ -72,31 +72,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Come funziona l'esecuzione in background
+## バックグラウンド実行の仕組み
 
-Quando crei un'interazione in background, l'attività viene eseguita in modo asincrono sul server. L'interazione passa attraverso vari stati di esecuzione:
+バックグラウンド操作を作成すると、タスクはサーバー上で非同期的に実行されます。インタラクションは、さまざまな実行状態に移行します。
 
-- `in_progress`: il server sta eseguendo attivamente l'interazione (ad esempio, eseguendo codice o effettuando ricerche).
-- `requires_action`: l'interazione è stata messa in pausa ed è in attesa dell'input del client (ad esempio, la conferma dell'esecuzione di uno strumento o la risposta a una domanda).
-- `completed`: l'interazione è stata completata correttamente e l'output è disponibile.
-- `failed`: si è verificato un errore durante l'esecuzione (ad esempio, un errore dello strumento o limiti di frequenza).
-- `cancelled`: una richiesta del client ha interrotto l'esecuzione.
+- `in_progress`: サーバーがインタラクション（コードの実行や調査など）をアクティブに実行しています。
+- `requires_action`: やり取りが一時停止し、クライアントの入力（ツールの実行の確認や質問への回答など）を待機しています。
+- `completed`: インタラクションが正常に完了し、出力が利用可能です。
+- `failed`: 実行中にエラーが発生しました（ツールの障害やレート制限など）。
+- `cancelled`: クライアント リクエストにより実行が停止しました。
 
-### Casi d'uso
+### ユースケース
 
-Utilizza l'esecuzione in background per:
+バックグラウンド実行は、次の目的で使用します。
 
-- **Esecuzioni di agenti:** attività che richiedono l'esecuzione di codice, la navigazione web o l'orchestrazione di sub-agenti (ad esempio `antigravity-preview-05-2026`).
-- **Ricerca approfondita:** esecuzioni che utilizzano `deep-research-preview-04-2026` o `deep-research-max-preview-04-2026` e che richiedono diversi minuti.
-- **Ragionamento lungo:** attività in cui i passaggi di pensiero del modello superano i limiti di connessione HTTP standard.
+- **エージェントの実行:** コード実行、ウェブ ブラウジング、サブエージェントのオーケストレーション（`antigravity-preview-05-2026` など）を必要とするタスク。
+- **Deep Research:** `deep-research-preview-04-2026` または `deep-research-max-preview-04-2026` を使用して実行され、数分かかります。
+- **長い推論:** モデルの思考ステップが標準の HTTP 接続制限を超えるタスク。
 
-## Recuperare i risultati
+## 結果を取得する
 
-Ottieni i risultati dell'interazione in background utilizzando il **polling** o lo **streaming**.
+**ポーリング**または**ストリーミング**を使用して、バックグラウンドでのインタラクションの結果を取得します。
 
-### Sequenza di polling (non bloccante)
+### ポーリング パターン（ブロックなし）
 
-Il polling controlla periodicamente lo stato dell'interazione utilizzando richieste GET non bloccanti finché non raggiunge uno stato terminale.
+ポーリングでは、非ブロッキング GET リクエストを使用してインタラクションのステータスを定期的に確認し、完了状態に達するまで続けます。
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### Sequenza di streaming
+### ストリーミング パターン
 
-Se un'interruzione della rete disconnette uno stream, lo streaming può riprendere dall'ultimo evento ricevuto. Ogni delta contiene un `event_id` univoco nel relativo payload. Se passi questo ID come `last_event_id`, lo stream riprende da quell'evento.
+ネットワークの中断によりストリームが切断された場合、最後に受信したイベントからストリーミングを再開できます。各デルタのペイロードには一意の `event_id` が含まれています。この ID を `last_event_id` として渡すと、そのイベントからストリームが再開されます。
 
 ### Python
 
@@ -240,14 +240,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Conversazioni multi-turno
+## マルチターンの会話
 
-Le interazioni successive possono essere concatenate a una conversazione in background utilizzando `previous_interaction_id`, soggetta a questi vincoli:
+後続のインタラクションは、次の制約に従って `previous_interaction_id` を使用してバックグラウンド会話にチェーンできます。
 
-1. **Le esecuzioni attive sono bloccate:** la concatenazione di un'interazione successiva a una con stato `in_progress` restituisce un errore `400 Bad Request`. Attendi che l'interazione raggiunga lo stato `completed` prima di iniziare la successiva.
-2. **Parametro dell'ambiente per gli agenti gestiti:** quando concateni le interazioni per gli agenti gestiti (ad esempio `antigravity-preview-05-2026`), le richieste devono includere sia `previous_interaction_id` sia `environment`.
+1. **アクティブな実行がブロックされる:** `in_progress` ステータスのインタラクションに後続のインタラクションをチェーンすると、`400 Bad Request` エラーが返されます。インタラクションが `completed` 状態になるまで待ってから、次のインタラクションを開始します。
+2. **マネージド エージェントの環境パラメータ:** マネージド エージェント（`antigravity-preview-05-2026` など）のインタラクションをチェーンする場合、リクエストには `previous_interaction_id` と `environment` の両方を含める必要があります。
 
-Gli esempi seguenti mostrano come concatenare le interazioni:
+次の例は、インタラクションをチェーンする方法を示しています。
 
 ### Python
 
@@ -335,12 +335,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Annullamento ed eliminazione
+## キャンセルと削除
 
-Controlla le esecuzioni in corso e gestisci lo spazio di archiviazione utilizzando le richieste di annullamento ed eliminazione:
+実行中の実行を制御し、キャンセル リクエストと削除リクエストを使用してストレージを管理します。
 
-- **Annulla (`POST /interactions/{id}/cancel`):** interrompe l'attività in esecuzione. Lo stato passa a `cancelled`. Le azioni di pulizia sul server possono causare un leggero ritardo prima che lo stato venga aggiornato nelle richieste GET.
-- **Elimina (`DELETE /interactions/{id}`):** rimuove i record di interazione dal server. Le richieste GET successive restituiscono un errore `404 Not Found`.
+- **キャンセル（`POST /interactions/{id}/cancel`）:** 実行中のタスクを停止します。ステータスが `cancelled` に移行します。サーバーでのクリーンアップ アクションにより、GET リクエストでのステータスの更新がわずかに遅れることがあります。
+- **削除（`DELETE /interactions/{id}`）:** サーバーからインタラクション レコードを削除します。以降の GET リクエストは `404 Not Found` エラーを返します。
 
 ### Python
 
@@ -384,18 +384,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Passaggi successivi
+## 次のステップ
 
-- Leggi la [panoramica dell'API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) per comprendere la gestione di sessioni e stati.
-- Consulta la guida [Interazioni di streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=it) per i dettagli sugli aggiornamenti degli eventi in tempo reale.
-- Esplora la [guida rapida Agenti gestiti](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=it) per creare agenti a più turni con stato.
+- セッションと状態の管理については、[Interactions API の概要](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)をご覧ください。
+- リアルタイム イベントの更新について詳しくは、[ストリーミングのインタラクション](https://ai.google.dev/gemini-api/docs/streaming?hl=ja) ガイドをご覧ください。
+- [マネージド エージェントのクイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja)を参照して、ステートフル マルチターン エージェントを構築します。
 
-Invia feedback
+フィードバックを送信
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ultimo aggiornamento 2026-07-30 UTC.
+最終更新日 2026-07-30 UTC。
 
-Vuoi dirci altro?
+ご意見をお聞かせください
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

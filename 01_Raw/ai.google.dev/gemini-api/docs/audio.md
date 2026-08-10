@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ja
-fetched_at: 2026-08-03T04:32:43.276420+00:00
-title: "\u97f3\u58f0\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=zh-TW
+fetched_at: 2026-08-10T03:17:29.914282+00:00
+title: "\u97f3\u8a0a\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# 音声の理解
+# 音訊理解
 
-Gemini は音声入力を分析してテキスト レスポンスを生成できます。
+Gemini 可以分析音訊輸入內容，並生成文字回覆。
 
 ### Python
 
@@ -90,26 +90,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 概要
+## 總覽
 
-Gemini は音声入力を分析して理解し、テキスト レスポンスを生成できます。これにより、次のようなユースケースが可能になります。
+Gemini 可以分析及理解音訊輸入內容，並生成文字回覆，
+適用於以下情境：
 
-- 音声コンテンツの説明、要約、質問への回答
-- 音声文字変換と翻訳（音声からテキスト）
-- 話者ダイアライゼーション（異なる話者の識別）
-- 音声と音楽の感情検出
-- タイムスタンプ付きの特定のセグメントの分析
+- 描述音訊內容、生成摘要或回答相關問題
+- 轉錄和翻譯 (語音轉文字)
+- 說話者分段標記 (識別不同的說話者)
+- 偵測語音和音樂中的情緒
+- 分析特定時間戳記的片段
 
-リアルタイムの音声と動画のインタラクションについては、
-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja)をご覧ください。
-リアルタイムの音声文字変換をサポートする専用の音声文字変換モデルについては、
-[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ja)を使用してください。
+如要進行即時語音和視訊互動，請參閱 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)。如要使用支援即時轉錄的專用語音轉文字模型，請使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-tw)。
 
-## 音声をテキストに変換する
+## 將語音轉錄成文字
 
-この例では、
-タイムスタンプ、話者ダイアライゼーション、感情検出を使用して音声を文字変換、翻訳、要約する方法を
-[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を使用して示します。
+這個範例說明如何使用[結構化輸出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)，轉錄、翻譯語音內容，並加上時間戳記、說話者區分和情緒偵測結果，以及摘要。
 
 ### Python
 
@@ -267,18 +263,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![多言語音声文字変換 Gemini アプリ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ja)
+![支援多種語言的語音轉錄 Gemini 應用程式](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-tw)
 
-## 入力音声
+## 輸入音訊
 
-音声データは次の方法で提供できます。
+你可以透過下列方式提供音訊資料：
 
-- [音声ファイルをアップロードします](#upload-audio) リクエストを行う前に。
-- [インライン音声データ](#inline-audio)をリクエストとともに渡します。
+- 請先[上傳音訊檔案](#upload-audio)，再提出要求。
+- 在要求中[傳遞內嵌音訊資料](#inline-audio)。
 
-### 音声ファイルをアップロードする
+### 上傳音訊檔案
 
-20 MB を超えるファイルには [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用します。
+如要上傳超過 20 MB 的檔案，請使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)。
 
 ### Python
 
@@ -349,9 +345,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 音声データをインラインで渡す
+### 內嵌傳遞音訊資料
 
-リクエストの合計サイズが 20 MB 未満の小さな音声ファイルの場合:
+如要上傳總大小小於 20 MB 的小型音訊檔案：
 
 ### Python
 
@@ -431,13 +427,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-インライン音声データに関する注意事項:
-\* リクエストの最大サイズは合計 20 MB（プロンプトとすべてのファイルを含む）です。
-\* 再利用する場合は、代わりに[ファイルをアップロード](#upload-audio)してください。
+內嵌音訊資料注意事項：
+\* 要求大小上限為 20 MB (包括提示和所有檔案)
+\* 如要重複使用，請[上傳檔案](#upload-audio)
 
-## 文字起こしを取得する
+## 取得轉錄稿
 
-文字起こしを取得するには、プロンプトでリクエストします。
+如要取得轉錄稿，請在提示中要求：
 
 ### Python
 
@@ -473,9 +469,9 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## タイムスタンプを参照する
+## 參考時間戳記
 
-`MM:SS` 形式を使用して、特定のセクションを参照します。
+使用 `MM:SS` 格式參照特定章節：
 
 ### Python
 
@@ -505,9 +501,9 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## トークンをカウントする
+## 計算詞元數
 
-音声ファイル内のトークンをカウントします。
+計算音訊檔案中的權杖數：
 
 ### Python
 
@@ -531,7 +527,7 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## サポートされているオーディオ形式
+## 支援的音訊格式
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -540,28 +536,28 @@ console.log(response.totalTokens);
 - OGG Vorbis - `audio/ogg`
 - FLAC - `audio/flac`
 
-## 音声に関する技術的な詳細
+## 音訊技術詳細資料
 
-- **トークン**: 音声 1 秒あたり 32 トークン（1 分 = 1,920 トークン）
-- **会話以外の音声**: Gemini は会話以外の音声（鳥の鳴き声、サイレンなど）を理解します。
-- **最大長**: プロンプトあたり 9.5 時間の音声
-- **解像度**: 16 Kbps にダウンサンプリング
-- **チャンネル**: マルチチャンネル音声をシングル チャンネルに結合
+- **詞元**：每秒音訊 32 個詞元 (1 分鐘 = 1,920 個詞元)
+- **非語音**：Gemini 可辨識非語音的聲音 (鳥鳴、警笛聲等)
+- **長度上限**：每個提示的音訊長度為 9.5 小時
+- **解決方法**：將取樣率降至 16 Kbps
+- **聲道**：將多個聲道合併為單一聲道
 
-## 次のステップ
+## 後續步驟
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): 音声ファイルをアップロードして管理する
-- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions):
-  モデルの動作をカスタマイズする
-- [構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja):
-  文字起こし結果を JSON 形式で取得する
+- [檔案 API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)：上傳及管理音訊檔案
+- [系統指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#system-instructions)：
+  自訂模型行為
+- [結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)：
+  取得 JSON 格式的轉錄結果
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-07-30 UTC。
+上次更新時間：2026-07-30 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

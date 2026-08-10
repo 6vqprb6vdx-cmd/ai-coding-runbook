@@ -1,36 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=id
-fetched_at: 2026-08-03T04:39:07.786905+00:00
-title: "Mempercepat penemuan dengan Gemini untuk Riset \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pt-BR
+fetched_at: 2026-08-10T03:19:12.620381+00:00
+title: "Acelere a descoberta com o Gemini for Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
 
-# Mempercepat penemuan dengan Gemini untuk Riset
+# Acelere a descoberta com o Gemini for Research
 
-[Mendapatkan Kunci Gemini API](https://aistudio.google.com/apikey?hl=id)
+[Gerar uma chave da API Gemini](https://aistudio.google.com/apikey?hl=pt-br)
 
-Model Gemini dapat digunakan untuk memajukan riset dasar di berbagai disiplin ilmu.
-Berikut cara Anda dapat menjelajahi Gemini untuk riset Anda:
+Os modelos Gemini podem ser usados para avançar a pesquisa fundamental em várias disciplinas.
+Confira algumas maneiras de usar o Gemini na sua pesquisa:
 
-- **Menganalisis dan mengontrol output model**: Untuk analisis lebih lanjut, Anda dapat memeriksa kandidat respons yang dihasilkan oleh model menggunakan alat seperti `CitationMetadata`. Anda juga dapat mengonfigurasi opsi untuk pembuatan dan
-  output model, seperti `responseSchema`, `topP`, dan `topK`. [Pelajari lebih lanjut](https://ai.google.dev/api/generate-content?hl=id).
-- **Input multimodal**: Gemini dapat memproses gambar, audio, dan video, sehingga memungkinkan berbagai arah penelitian yang menarik. [Pelajari lebih lanjut](https://ai.google.dev/gemini-api/docs/vision?hl=id).
-- **Kemampuan konteks panjang**: Gemini 3.0 Flash dan Pro dilengkapi dengan jendela konteks 1 juta token. [Pelajari lebih lanjut](https://ai.google.dev/gemini-api/docs/long-context?hl=id).
-- **Grow with Google**: Akses model Gemini dengan cepat melalui API dan Google AI Studio untuk kasus penggunaan produksi. Jika Anda mencari platform berbasis Google Cloud, Gemini Enterprise Agent Platform dapat menyediakan infrastruktur pendukung tambahan.
+- **Analisar e controlar as saídas do modelo**: para uma análise mais detalhada, examine um
+  candidato de resposta gerado pelo modelo usando ferramentas como
+  `CitationMetadata`. Também é possível configurar opções para a geração e as saídas do modelo, como `responseSchema`, `topP` e `topK`. [Saiba mais](https://ai.google.dev/api/generate-content?hl=pt-br).
+- **Entradas multimodais**: o Gemini pode processar imagens, áudio e vídeos, permitindo uma
+  infinidade de direções de pesquisa interessantes. [Saiba mais](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br).
+- **Recursos de contexto longo**: o Gemini 3.0 Flash e Pro vêm com uma janela de contexto de 1 milhão de tokens. [Saiba mais](https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br).
+- **Cresça com o Google**: acesse rapidamente os modelos do Gemini pela API e pelo Google AI
+  Studio para casos de uso de produção. Se você estiver procurando uma plataforma baseada no Google Cloud, a Gemini Enterprise Agent Platform poderá fornecer infraestrutura de suporte adicional.
 
-Untuk mendukung riset akademik dan mendorong riset mutakhir, Google menyediakan akses ke kredit Gemini API bagi ilmuwan dan peneliti akademik melalui [Program Akademik Gemini](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=id#gemini-academic-program).
+Para apoiar a pesquisa acadêmica e impulsionar a pesquisa de ponta, o Google oferece
+acesso a créditos da API Gemini para cientistas e pesquisadores acadêmicos pelo
+[Programa Acadêmico Gemini](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pt-br#gemini-academic-program).
 
-## Panduan awal menggunakan Gemini
+## Comece a usar o Gemini
 
-Gemini API dan Google AI Studio membantu Anda mulai bekerja dengan model terbaru Google dan mengubah ide Anda menjadi aplikasi yang dapat diskalakan.
+A API Gemini e o Google AI Studio ajudam você a começar a trabalhar com os modelos mais recentes do Google e a transformar suas ideias em aplicativos escalonáveis.
 
 ### Python
 
@@ -78,40 +83,51 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
    }'
 ```
 
-## Akademisi unggulan
+## Acadêmicos em destaque
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=id)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=pt-br)
 
-"Penelitian kami menyelidiki Gemini sebagai model bahasa visual (VLM) dan perilaku agentiknya di berbagai lingkungan dari perspektif ketahanan dan keamanan. Sejauh ini, kami telah mengevaluasi ketahanan Gemini terhadap gangguan seperti jendela pop-up saat agen VLM melakukan tugas komputer, dan telah memanfaatkan Gemini untuk menganalisis interaksi sosial, peristiwa temporal, serta faktor risiko berdasarkan input video."
+"Nossa pesquisa investiga o Gemini como um modelo de linguagem visual (VLM, na sigla em inglês) e seus comportamentos agênticos em diversos ambientes, do ponto de vista da robustez e da segurança. Até agora, avaliamos a robustez do Gemini contra distrações, como janelas pop-up, quando os agentes VLM realizam tarefas de computador, e usamos o Gemini para analisar a interação social, eventos temporais e fatores de risco com base na entrada de vídeo."
 
-[Situs Diyi Yang](https://cs.stanford.edu/~diyiy/)
+[Site de Diyi Yang (em inglês)](https://cs.stanford.edu/~diyiy/)
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=id)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=pt-br)
 
-"Gemini Pro dan Flash, dengan jendela konteks panjangnya, telah membantu kami dalam OK-Robot, project manipulasi seluler dengan kosakata terbuka kami. Gemini memungkinkan kueri dan perintah bahasa alami yang kompleks atas "memori" robot: dalam hal ini, pengamatan sebelumnya yang dilakukan oleh robot selama durasi operasi yang panjang. Mahi Shafiullah dan saya juga menggunakan Gemini untuk menguraikan tugas menjadi kode yang dapat dieksekusi robot di dunia nyata."
+"O Gemini Pro e o Flash, com a janela de contexto longa, têm nos ajudado no OK-Robot, nosso projeto de manipulação móvel de vocabulário aberto. O Gemini permite consultas e comandos complexos de linguagem natural na "memória" do robô: nesse caso, observações anteriores feitas pelo robô durante uma longa duração de operação. Mahi Shafiullah e eu também estamos usando o Gemini para decompor tarefas em código que o robô pode executar no mundo real."
 
-[Situs Lerrel Pinto](https://www.lerrelpinto.com/)
+[Site de Lerrel Pinto (em inglês)](https://www.lerrelpinto.com/)
 
-## Program Akademik Gemini
+## Programa Acadêmico Gemini
 
-Peneliti akademis yang memenuhi syarat (seperti pengajar, staf, dan mahasiswa PhD) di [negara yang didukung](https://ai.google.dev/gemini-api/docs/available-regions?hl=id) dapat mengajukan permohonan untuk menerima kredit Gemini API dan batas frekuensi yang lebih tinggi untuk project penelitian. Dukungan ini memungkinkan throughput yang lebih tinggi untuk eksperimen ilmiah dan memajukan riset.
+Pesquisadores acadêmicos qualificados (como professores, funcionários e estudantes de doutorado) em [países
+aceitos](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br) podem se inscrever para receber créditos da API Gemini
+e limites de taxa mais altos para projetos de pesquisa. Esse suporte permite maior capacidade de processamento para experimentos científicos e avanços na pesquisa.
 
-Kami sangat tertarik dengan area riset di bagian berikut, tetapi kami menerima lamaran dari berbagai disiplin ilmu:
+Estamos particularmente interessados nas áreas de pesquisa na seção a seguir, mas aceitamos inscrições de diversas disciplinas científicas:
 
-- **Evaluasi dan tolok ukur**: Metode evaluasi yang didukung komunitas yang dapat memberikan sinyal performa yang kuat di berbagai area seperti faktualitas, keamanan, kepatuhan terhadap petunjuk, penalaran, dan perencanaan.
-- **Mempercepat penemuan ilmiah untuk memberikan manfaat bagi umat manusia**: Potensi aplikasi AI dalam riset ilmiah interdisipliner, termasuk di bidang-bidang seperti penyakit langka dan terabaikan, biologi eksperimental, ilmu material, dan keberlanjutan.
-- **Perwujudan dan interaksi**: Memanfaatkan model bahasa besar untuk menyelidiki interaksi baru dalam bidang AI berwujud, interaksi sekitar, robotika, dan interaksi manusia-komputer.
-- **Kemampuan yang muncul**: Menjelajahi kemampuan baru seperti agen yang diperlukan untuk meningkatkan penalaran dan perencanaan, serta cara memperluas kemampuan selama inferensi (misalnya, dengan memanfaatkan Gemini Flash).
-- **Interaksi dan pemahaman multimodal**: Mengidentifikasi kesenjangan dan peluang untuk model dasar multimodal untuk analisis, penalaran, dan perencanaan di berbagai tugas.
+- **Avaliações e comparativos**: métodos de avaliação aprovados pela comunidade que podem fornecer um indicador de desempenho forte em áreas como veracidade, segurança, instruções, raciocínio e planejamento.
+- **Acelerar a descoberta científica para beneficiar a humanidade**: possíveis
+  aplicações de IA em pesquisas científicas interdisciplinares, incluindo áreas
+  como doenças raras e negligenciadas, biologia experimental, ciência dos materiais
+  e sustentabilidade.
+- **Incorporação e interações**: uso de modelos de linguagem grandes para
+  investigar novas interações nos campos de IA incorporada, interações ambientais,
+  robótica e interação humano-computador.
+- **Recursos emergentes**: explorar novos recursos agênticos necessários para
+  melhorar o raciocínio e o planejamento, e como os recursos podem ser expandidos durante a
+  inferência (por exemplo, usando o Gemini Flash).
+- **Interação e compreensão multimodal**: identificar lacunas e
+  oportunidades para modelos fundamentais multimodais para análise, raciocínio,
+  e planejamento em várias tarefas.
 
-Kelayakan: Hanya individu (anggota fakultas, peneliti, atau yang setara) yang berafiliasi dengan institusi akademik yang valid, atau organisasi riset akademik yang dapat mengajukan permohonan. Perhatikan bahwa akses dan kredit API akan diberikan dan dihapus atas pertimbangan Google. Kami meninjau aplikasi setiap bulan.
+Qualificação: somente pessoas (professores, pesquisadores ou equivalentes) afiliadas a uma instituição acadêmica válida ou organização de pesquisa acadêmica podem se inscrever. O acesso e os créditos da API serão concedidos e removidos a critério do Google. Analisamos as inscrições mensalmente.
 
-### Mulai melakukan riset dengan Gemini API
+### Comece a pesquisar com a API Gemini
 
-[Daftar sekarang](https://forms.gle/HMviQstU8PxC5iCt5)
+[Faça sua inscrição agora](https://forms.gle/HMviQstU8PxC5iCt5)
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Terakhir diperbarui pada 2026-07-01 UTC.
+Última atualização 2026-07-01 UTC.
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-01 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-01 UTC."],[],[]]

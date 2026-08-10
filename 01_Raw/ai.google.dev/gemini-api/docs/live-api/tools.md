@@ -1,48 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ja
-fetched_at: 2026-08-03T04:32:29.399754+00:00
-title: "Live API \u3067\u306e\u30c4\u30fc\u30eb\u306e\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=vi
+fetched_at: 2026-08-10T03:15:20.925730+00:00
+title: "S\u1eed d\u1ee5ng c\u00f4ng c\u1ee5 v\u1edbi Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# Live API でのツールの使用
+# Sử dụng công cụ với Live API
 
-ツールを使用すると、Live API は会話だけでなく、リアルタイム接続を維持しながら現実世界でアクションを実行したり、外部コンテキストを取り込んだりできます。
-Live API を使用して、[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)
-や [Google 検索](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)などのツールを定義できます。
+Tính năng sử dụng công cụ cho phép Live API không chỉ dừng lại ở việc trò chuyện mà còn có thể thực hiện các hành động trong thế giới thực và lấy ngữ cảnh bên ngoài trong khi vẫn duy trì kết nối theo thời gian thực.
+Bạn có thể xác định các công cụ như [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) và [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) bằng Live API.
 
-## サポートされているツールの概要
+## Tổng quan về các công cụ được hỗ trợ
 
-Live API モデルで使用できるツールを簡単に紹介します。
+Sau đây là thông tin tổng quan ngắn gọn về các công cụ có sẵn cho mô hình Live API:
 
-| ツール | Gemini 3.1 Flash Live プレビュー | Gemini 2.5 Flash Live プレビュー |
+| Công cụ | Bản xem trước Gemini 3.1 Flash Live | Bản xem trước trực tiếp Gemini 2.5 Flash |
 | --- | --- | --- |
-| **検索** | サポート対象 | サポート対象 |
-| **関数呼び出し** | サポート対象（同期のみ） | サポート対象（同期と[非同期](#async-function-calling)） |
-| **Google マップ** | サポート対象外 | サポート対象外 |
-| **コードの実行** | サポート対象外 | サポート対象外 |
-| **URL コンテキスト** | サポート対象外 | サポート対象外 |
+| **Tìm kiếm** | Được hỗ trợ | Được hỗ trợ |
+| **Gọi hàm** | Được hỗ trợ (chỉ đồng bộ) | Được hỗ trợ (đồng bộ và [không đồng bộ](#async-function-calling)) |
+| **Google Maps** | Không được hỗ trợ | Không được hỗ trợ |
+| **Thực thi mã** | Không được hỗ trợ | Không được hỗ trợ |
+| **Bối cảnh URL** | Không được hỗ trợ | Không được hỗ trợ |
 
-## 関数呼び出し
+## Gọi hàm
 
-Live API は、通常のコンテンツ生成リクエストと同様に、関数呼び出しをサポートしています。関数呼び出しを使用すると、Live API は外部データやプログラムとやり取りできるため、アプリケーションでできることが大幅に増えます。
+Live API hỗ trợ chức năng gọi, giống như các yêu cầu tạo nội dung thông thường. Tính năng gọi hàm cho phép Live API tương tác với dữ liệu và chương trình bên ngoài, giúp tăng đáng kể những gì ứng dụng của bạn có thể thực hiện.
 
-関数宣言は、セッション構成の一部として定義できます。
-ツール呼び出しを受け取ったら、クライアントは `session.send_tool_response` メソッドを使用して、`FunctionResponse` オブジェクトのリストをレスポンスとして返す必要があります。
+Bạn có thể xác định các khai báo hàm trong cấu hình phiên.
+Sau khi nhận được lệnh gọi công cụ, ứng dụng khách phải phản hồi bằng một danh sách các đối tượng `FunctionResponse` bằng phương thức `session.send_tool_response`.
 
-詳細については、[関数呼び出しのチュートリアル](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)をご覧ください
-。
+Hãy xem [Hướng dẫn gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) để tìm hiểu thêm.
 
 ### Python
 
@@ -219,14 +217,13 @@ async function main() {
 main();
 ```
 
-モデルは、単一のプロンプトから複数の関数呼び出しと、出力の連結に必要なコードを生成できます。このコードはサンドボックス
-環境で実行され、後続の [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=ja#bidigeneratecontenttoolcall) メッセージを生成します。
+Từ một câu lệnh duy nhất, mô hình có thể tạo nhiều lệnh gọi hàm và mã cần thiết để liên kết các đầu ra của chúng. Mã này thực thi trong một môi trường hộp cát, tạo ra các thông báo [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=vi#bidigeneratecontenttoolcall) tiếp theo.
 
-## 非同期関数呼び出し
+## Gọi hàm không đồng bộ
 
-デフォルトでは、関数呼び出しは順番に実行されます。つまり、各関数呼び出しの結果が表示されるまで実行は停止します。これにより、順番どおりに処理が行われます。つまり、関数が実行されている間はモデルとのやり取りを続行できません。
+Theo mặc định, tính năng gọi hàm sẽ thực thi tuần tự, tức là quá trình thực thi sẽ tạm dừng cho đến khi có kết quả của từng lệnh gọi hàm. Điều này đảm bảo quá trình xử lý tuần tự, tức là bạn sẽ không thể tiếp tục tương tác với mô hình trong khi các hàm đang chạy.
 
-会話をブロックしたくない場合は、関数を非同期で実行するようにモデルに指示できます。そのためには、まず関数定義に `behavior` を追加する必要があります。
+Nếu không muốn chặn cuộc trò chuyện, bạn có thể yêu cầu mô hình chạy các hàm không đồng bộ. Để làm như vậy, trước tiên bạn cần thêm một `behavior` vào định nghĩa hàm:
 
 ### Python
 
@@ -250,16 +247,13 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` を指定すると、関数は非同期で実行され、モデルとのやり取りを続行できます。
+`NON-BLOCKING` đảm bảo hàm chạy không đồng bộ trong khi bạn có thể tiếp tục tương tác với mô hình.
 
-次に、`scheduling` パラメータを使用して、`FunctionResponse` を受け取ったときのモデルの動作をモデルに指示する必要があります。次のいずれかになります。
+Sau đó, bạn cần cho mô hình biết cách hoạt động khi nhận được `FunctionResponse` bằng cách sử dụng tham số `scheduling`. Bạn có thể:
 
-- 実行中の処理を中断して、取得したレスポンスをすぐに通知する
-  (`scheduling="INTERRUPT"`)
-- 現在実行中の処理が完了するまで待機する
-  (`scheduling="WHEN_IDLE"`)
-- 何もせず、その知識を後でディスカッションで使用する
-  （`scheduling="SILENT"`）
+- Tạm dừng những gì đang làm và cho bạn biết ngay về câu trả lời mà nó nhận được (`scheduling="INTERRUPT"`),
+- Chờ đến khi hoàn tất việc đang làm (`scheduling="WHEN_IDLE"`),
+- Hoặc không làm gì cả và sử dụng kiến thức đó vào lúc khác trong cuộc thảo luận (`scheduling="SILENT"`)
 
 ### Python
 
@@ -291,10 +285,9 @@ const functionResponse = {
 }
 ```
 
-## Google 検索によるグラウンディング
+## Dựa trên kết quả của Google Tìm kiếm
 
-セッション構成の一部として、Google 検索によるグラウンディングを有効にできます。これにより、Live API の精度が向上し、ハルシネーションを防ぐことができます。詳細については、[グラウンディングのチュートリアル](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)を
-ご覧ください。
+Bạn có thể bật tính năng Grounding bằng Google Tìm kiếm trong quá trình định cấu hình phiên. Điều này giúp tăng độ chính xác của Live API và ngăn chặn hiện tượng ảo giác. Hãy xem [hướng dẫn về việc tiếp đất](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) để tìm hiểu thêm.
 
 ### Python
 
@@ -453,9 +446,9 @@ async function main() {
 main();
 ```
 
-## 複数のツールを組み合わせる
+## Kết hợp nhiều công cụ
 
-Live API 内で複数のツールを組み合わせることで、アプリケーションの機能をさらに強化できます。
+Bạn có thể kết hợp nhiều công cụ trong Live API, từ đó tăng cường hơn nữa các chức năng của ứng dụng:
 
 ### Python
 
@@ -503,19 +496,17 @@ const config = {
 // ... remaining model call
 ```
 
-## 次のステップ
+## Bước tiếp theo
 
-- Live API でツールを使用するその他の例については、
-  [ツールの使用クックブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ja)をご覧ください。
-- 機能と構成の詳細については、
-  [Live API の機能ガイド](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja)をご覧ください。
+- Hãy xem thêm các ví dụ về cách sử dụng công cụ với Live API trong [Sổ tay về cách sử dụng công cụ](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=vi).
+- Xem toàn bộ thông tin về các tính năng và cấu hình trong [hướng dẫn về Các chức năng của Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi).
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-06-01 UTC。
+Cập nhật lần gần đây nhất: 2026-06-01 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-01 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]

@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=he
-fetched_at: 2026-08-03T04:31:27.580155+00:00
-title: "\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e9\u05dc \u05ea\u05de\u05d9\u05db\u05ea \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Gemini \u05d5-CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=es-419
+fetched_at: 2026-08-10T03:15:59.027036+00:00
+title: "An\u00e1lisis de la asistencia al cliente con Gemini y CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-שליחת משוב
+Enviar comentarios
 
-# ניתוח של תמיכת לקוחות באמצעות Gemini ו-CrewAI
+# Análisis de la asistencia al cliente con Gemini y CrewAI
 
-‫[CrewAI](https://docs.crewai.com/introduction) הוא פריימוורק לניהול סוכני AI אוטונומיים שמשתפים פעולה כדי להשיג יעדים מורכבים. הוא מאפשר להגדיר סוכנים על ידי ציון תפקידים, יעדים וסיפורי רקע, ולאחר מכן להגדיר להם משימות.
+[CrewAI](https://docs.crewai.com/introduction) es un framework para organizar agentes de IA autónomos que colaboran para lograr objetivos complejos. Te permite definir agentes especificando roles, objetivos y antecedentes, y, luego, definir tareas para ellos.
 
-בדוגמה הזו נסביר איך לבנות מערכת מרובת סוכנים לניתוח נתונים של תמיכת לקוחות כדי לזהות בעיות ולהציע שיפורים בתהליכים באמצעות Gemini 3 Flash. המערכת יוצרת דוח שמיועד לקריאה על ידי מנהל תפעול ראשי (COO).
+En este ejemplo, se muestra cómo compilar un sistema multiagente para analizar los datos de asistencia al cliente, identificar problemas y proponer mejoras en los procesos con Gemini 3 Flash, y generar un informe que leerá el director de operaciones (COO).
 
-במדריך הזה נסביר איך ליצור 'צוות' של סוכני AI שיכולים לבצע את המשימות הבאות:
+En la guía, se muestra cómo crear un "equipo" de agentes de IA que pueden realizar las siguientes tareas:
 
-1. אחזור וניתוח של נתוני תמיכת לקוחות (סימולציה בדוגמה הזו).
-2. זיהוי בעיות חוזרות וצווארי בקבוק בתהליך.
-3. להציע שיפורים פרקטיים.
-4. לרכז את הממצאים בדוח תמציתי שמתאים למנהל תפעול ראשי.
+1. Recupera y analiza los datos de asistencia al cliente (simulados en este ejemplo).
+2. Identificar problemas recurrentes y cuellos de botella en los procesos
+3. Sugerir mejoras prácticas
+4. Compila los hallazgos en un informe conciso adecuado para un COO.
 
-אתם צריכים מפתח Gemini API. אם עדיין אין לכם חשבון, אתם יכולים [ליצור חשבון ב-Google AI Studio](https://aistudio.google.com/apikey?hl=he).
+Necesitas una clave de la API de Gemini. Si aún no tienes una, puedes [obtener una en Google AI Studio](https://aistudio.google.com/apikey?hl=es-419).
 
 ```
 pip install "crewai[tools]"
 ```
 
-מגדירים את מפתח Gemini API כמשתנה סביבה בשם `GEMINI_API_KEY`, ואז מגדירים את CrewAI כך שישתמש במודל Gemini.
+Establece tu clave de API de Gemini como una variable de entorno llamada `GEMINI_API_KEY` y, luego, configura CrewAI para que use el modelo de Gemini.
 
 ```
 import os
@@ -50,13 +50,13 @@ gemini_llm = LLM(
 )
 ```
 
-## הגדרת רכיבים
+## Define componentes
 
-פיתוח אפליקציות CrewAI באמצעות **Tools**,‏ **Agents**,‏ **Tasks** ו-**Crew**. בקטעים הבאים מוסבר על כל אחד מהרכיבים האלה.
+Crea aplicaciones de CrewAI con **Herramientas**, **Agentes**, **Tareas** y el **Equipo** en sí. En las siguientes secciones, se explica cada uno de estos componentes.
 
-### כלים
+### Herramientas
 
-כלים הם יכולות שסוכנים יכולים להשתמש בהן כדי ליצור אינטראקציה עם העולם החיצוני או לבצע פעולות ספציפיות. כאן מגדירים כלי placeholder כדי לדמות אחזור של נתוני תמיכת לקוחות. באפליקציה אמיתית, מתחברים למסד נתונים, ל-API או למערכת קבצים. מידע נוסף על כלים זמין [במדריך הכלים של CrewAI](https://docs.crewai.com/concepts/tools).
+Las herramientas son capacidades que los agentes pueden usar para interactuar con el mundo exterior o realizar acciones específicas. Aquí, definirás una herramienta de marcador de posición para simular la recuperación de datos de asistencia al cliente. En una aplicación real, te conectarías a una base de datos, una API o un sistema de archivos. Para obtener más información sobre las herramientas, consulta la [guía de herramientas de CrewAI](https://docs.crewai.com/concepts/tools).
 
 ```
 from crewai.tools import BaseTool
@@ -86,9 +86,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### סוכנים
+### Agentes
 
-סוכנים הם עובדי ה-AI האישיים בצוות. לכל סוכן יש `role`,‏ `goal`,‏ `backstory` ספציפיים, `llm` מוקצה ו`tools` אופציונלי. מידע נוסף על סוכנים זמין [במדריך לסוכני CrewAI](https://docs.crewai.com/concepts/agents).
+Los agentes son los trabajadores individuales de IA de tu equipo. Cada agente tiene un `role`, `goal`, `backstory`, un `llm` asignado y un `tools` opcional específicos. Para obtener más información sobre los agentes, consulta la [guía de agentes de CrewAI](https://docs.crewai.com/concepts/agents).
 
 ```
 from crewai import Agent
@@ -137,7 +137,7 @@ report_writer = Agent(
 
 ### Tasks
 
-המשימות מגדירות את המטלות הספציפיות של הסוכנים. לכל משימה יש `description`, ‏ `expected_output`, והיא מוקצית ל`agent`. כברירת מחדל, המשימות מופעלות ברצף וכוללות את ההקשר של המשימה הקודמת. מידע נוסף על משימות זמין ב[מדריך למשימות ב-CrewAI](https://docs.crewai.com/concepts/tasks).
+Las tareas definen las asignaciones específicas para los agentes. Cada tarea tiene un `description`, un `expected_output` y se asigna a un `agent`. De forma predeterminada, las tareas se ejecutan de forma secuencial y se incluye el contexto de la tarea anterior. Para obtener más información sobre las tareas, consulta la [guía de tareas de CrewAI](https://docs.crewai.com/concepts/tasks).
 
 ```
 from crewai import Task
@@ -196,9 +196,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### צוות ההפקה
+### Equipo de rodaje
 
-`Crew` מאחד בין הסוכנים והמשימות, ומגדיר את תהליך העבודה (למשל, 'רציף').
+El `Crew` reúne a los agentes y las tareas, y define el proceso del flujo de trabajo (por ejemplo, "secuencial").
 
 ```
 from crewai import Crew, Process
@@ -211,9 +211,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## הרצת הצוות
+## Ejecuta el equipo
 
-לבסוף, מפעילים את צוות הביצוע עם כל נתוני הקלט הנדרשים.
+Por último, inicia la ejecución del equipo con las entradas necesarias.
 
 ```
 # Start the crew's work
@@ -227,17 +227,17 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-הסקריפט יופעל. ‫`Data Analyst` ישתמש בכלי, `Process
-Optimizer` ינתח את הממצאים ו-`Report Writer` ירכז את הדוח הסופי, שיוצג במסוף. ההגדרה `verbose=True` תציג את תהליך החשיבה המפורט ואת הפעולות של כל סוכן.
+Ahora se ejecutará la secuencia de comandos. El `Data Analyst` usará la herramienta, el `Process
+Optimizer` analizará los resultados y el `Report Writer` compilará el informe final, que luego se imprimirá en la consola. El parámetro de configuración `verbose=True` mostrará el proceso de pensamiento y las acciones detallados de cada agente.
 
-מידע נוסף על CrewAI זמין ב[מבוא ל-CrewAI](https://docs.crewai.com/introduction).
+Para obtener más información sobre CrewAI, consulta la [introducción a CrewAI](https://docs.crewai.com/introduction).
 
-שליחת משוב
+Enviar comentarios
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-עדכון אחרון: 2026-06-10 (שעון UTC).
+Última actualización: 2026-06-10 (UTC)
 
-רוצה לתת לנו משוב?
+¿Quieres brindar más información?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-10 (שעון UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-10 (UTC)"],[],[]]

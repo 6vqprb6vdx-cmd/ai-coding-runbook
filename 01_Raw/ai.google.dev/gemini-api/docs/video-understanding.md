@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=he
-fetched_at: 2026-08-03T04:25:41.298081+00:00
+fetched_at: 2026-08-10T03:10:57.521680+00:00
 title: "\u05d4\u05d1\u05e0\u05ea \u05e1\u05e8\u05d8\u05d5\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

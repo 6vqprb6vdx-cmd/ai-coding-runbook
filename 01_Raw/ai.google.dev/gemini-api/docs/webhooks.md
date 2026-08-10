@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=pt-BR
-fetched_at: 2026-08-03T04:25:34.031024+00:00
-title: "Webhooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=th
+fetched_at: 2026-08-10T03:10:49.317554+00:00
+title: "\u0e40\u0e27\u0e47\u0e1a\u0e2e\u0e38\u0e04 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Envie comentários
+ส่งความคิดเห็น
 
-# Webhooks
+# เว็บฮุค
 
-Os webhooks permitem que a API Gemini envie notificações em tempo real para seu servidor quando operações assíncronas ou de longa duração (LROs, na sigla em inglês) forem concluídas. Isso substitui a necessidade de consultar a API para atualizações de status, reduzindo a latência e a sobrecarga.
+เว็บฮุคช่วยให้ Gemini API ส่งการแจ้งเตือนแบบเรียลไทม์ไปยังเซิร์ฟเวอร์ของคุณเมื่อการดำเนินการแบบไม่พร้อมกันหรือการดำเนินการที่ใช้เวลานาน (LRO) เสร็จสมบูรณ์ ซึ่งจะมาแทนที่ความจำเป็นในการโพล API เพื่อดูข้อมูลอัปเดตสถานะ จึงช่วยลดเวลาในการตอบสนองและค่าใช้จ่าย
 
-Os webhooks estão disponíveis para operações como [jobs em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br),
-[interações](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) e [geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br).
+เว็บฮุคพร้อมใช้งานสำหรับการดำเนินการต่างๆ เช่น [งานแบบกลุ่ม](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)
+[การโต้ตอบ](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) และ [การสร้างวิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)
 
-## Como funciona
+## วิธีการทำงาน
 
-Em vez de consultar `GET /operations` repetidamente para verificar se um job foi concluído, você pode configurar os webhooks da API Gemini para enviar uma solicitação HTTP POST ao URL do listener imediatamente após um acionador de evento.
+แทนที่จะโพล `GET /operations` ซ้ำๆ เพื่อตรวจสอบว่างานเสร็จแล้วหรือไม่ คุณสามารถกำหนดค่าเว็บฮุคของ Gemini API ให้ส่งคำขอ HTTP POST ไปยัง URL ของ Listener ทันทีเมื่อมีการทริกเกอร์เหตุการณ์
 
-A API Gemini oferece duas maneiras de configurar webhooks:
+Gemini API รองรับการกำหนดค่าเว็บฮุค 2 วิธีดังนี้
 
-- [**Webhooks estáticos**](#static-webhooks): endpoints no nível do projeto configurados
-  com a API Gemini [WebhookService](https://ai.google.dev/api?hl=pt-br). Indicado para integrações globais (por exemplo, notificar o Slack, sincronizar um banco de dados etc.).
-- [**Webhooks dinâmicos**](#dynamic-webhooks): substituições no nível da solicitação que transmitem um URL do webhook no payload de configuração de uma chamada de jobs específica. Ideal para rotear jobs específicos para endpoints dedicados.
+- [**เว็บฮุคแบบคงที่**](#static-webhooks): ปลายทางระดับโปรเจ็กต์ที่กำหนดค่า
+  ด้วย Gemini [WebhookService API](https://ai.google.dev/api?hl=th) เหมาะสำหรับการผสานรวมทั่วโลก (เช่น การแจ้งเตือน Slack, การซิงค์ฐานข้อมูล ฯลฯ)
+- [**เว็บฮุคแบบไดนามิก**](#dynamic-webhooks): การลบล้างระดับคำขอโดยส่ง
+  URL ของเว็บฮุคในเพย์โหลดการกำหนดค่าของการเรียกงานที่เฉพาะเจาะจง เหมาะสำหรับการกำหนดเส้นทางงานที่เฉพาะเจาะจงไปยังปลายทางเฉพาะ
 
-## Webhooks estáticos
+## เว็บฮุคแบบคงที่
 
-Os webhooks estáticos são registrados para um [projeto](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) inteiro e acionados para qualquer evento
-correspondente.
+เว็บฮุคแบบคงที่จะลงทะเบียนสำหรับทั้ง [โปรเจ็กต์](https://ai.google.dev/gemini-api/docs/api-key?hl=th#google-cloud-projects) และทริกเกอร์สำหรับเหตุการณ์ที่ตรงกัน
 
-### Criar um webhook
+### สร้างเว็บฮุค
 
-É possível criar endpoints usando o SDK ou a API REST.
+คุณสร้างปลายทางได้โดยใช้ SDK หรือ REST API
 
-**IMPORTANTE**: ao criar um webhook, a API retorna um **secret de assinatura**
-**apenas uma vez**. Você precisa armazenar isso com segurança (por exemplo, nas variáveis de ambiente) para verificar as assinaturas mais tarde. Se você perder o secret de assinatura, será necessário
-[rotacioná-lo](#rotate-signing-secret).
+**สำคัญ**: เมื่อสร้างเว็บฮุค API จะแสดง**ข้อมูลลับในการลงนาม**
+**เพียงครั้งเดียว** คุณต้องจัดเก็บข้อมูลนี้อย่างปลอดภัย (เช่น ในตัวแปรสภาพแวดล้อม) เพื่อยืนยันลายเซ็นในภายหลัง หากลืมข้อมูลลับในการลงนาม คุณจะต้อง
+[หมุนเวียน](#rotate-signing-secret)ข้อมูลลับดังกล่าว
 
 ### Python
 
@@ -100,12 +100,12 @@ curl -X POST \
   }'
 ```
 
-Para detalhes sobre como configurar o servidor para receber dados, consulte a
-[seção Processar solicitações de webhook](#handle-webhook-requests).
+ดูรายละเอียดเกี่ยวกับการตั้งค่าเซิร์ฟเวอร์เพื่อรับข้อมูลได้ที่ส่วน
+[จัดการคำขอเว็บฮุค](#handle-webhook-requests)
 
-### Receber um webhook
+### รับเว็บฮุค
 
-Recupere detalhes sobre um webhook específico pelo nome do recurso.
+ดึงข้อมูลรายละเอียดเกี่ยวกับเว็บฮุคที่เฉพาะเจาะจงตามชื่อทรัพยากร
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Listar webhooks
+### แสดงรายการเว็บฮุค
 
-Liste todos os webhooks configurados para o projeto atual, com paginação opcional.
+แสดงรายการเว็บฮุคทั้งหมดที่กำหนดค่าไว้สำหรับโปรเจ็กต์ปัจจุบัน พร้อมการแบ่งหน้า (ไม่บังคับ)
 
 ### Python
 
@@ -190,9 +190,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Atualizar um webhook
+### อัปเดตเว็บฮุค
 
-Atualize as propriedades de um webhook atual, como o nome de exibição, o URI de destino ou os eventos inscritos.
+อัปเดตพร็อพเพอร์ตี้ของเว็บฮุคที่มีอยู่ เช่น ชื่อที่แสดง, URI เป้าหมาย หรือเหตุการณ์ที่สมัครรับข้อมูล
 
 ### Python
 
@@ -242,9 +242,9 @@ curl -X PATCH \
   }'
 ```
 
-### Excluir um webhook
+### ลบเว็บฮุค
 
-Remova um endpoint de webhook do projeto. Isso interrompe as entregas de eventos futuras para esse endpoint.
+นำปลายทางของเว็บฮุคออกจากโปรเจ็กต์ ซึ่งจะเป็นการหยุดการส่งเหตุการณ์ในอนาคตไปยังปลายทางนั้น
 
 ### Python
 
@@ -282,12 +282,12 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Rotacionar um secret de assinatura
+### หมุนเวียนข้อมูลลับในการลงนาม
 
-Rotacione o secret de assinatura de um webhook. É possível configurar se os secrets ativos anteriormente serão revogados imediatamente ou após um período de carência de 24 horas.
+หมุนเวียนข้อมูลลับในการลงนามสำหรับเว็บฮุค คุณสามารถกำหนดค่าได้ว่าจะเพิกถอนข้อมูลลับที่ใช้งานก่อนหน้านี้ทันทีหรือหลังจากระยะเวลาผ่อนผัน 24 ชั่วโมง
 
-**IMPORTANTE**: o novo secret de assinatura é retornado **apenas uma vez** no momento da rotação
-time. Armazene-o com segurança antes de atualizar a lógica de verificação.
+**สำคัญ**: ระบบจะแสดงข้อมูลลับในการลงนามใหม่**เพียงครั้งเดียว**ในเวลาที่หมุนเวียน
+โปรดจัดเก็บข้อมูลลับดังกล่าวอย่างปลอดภัยก่อนอัปเดตตรรกะการยืนยัน
 
 ### Python
 
@@ -340,14 +340,14 @@ curl -X POST \
   }'
 ```
 
-### Processar solicitações de webhook em um servidor
+### จัดการคำขอเว็บฮุคในเซิร์ฟเวอร์
 
-Quando um evento ao qual você está inscrito acontece, o URL do webhook recebe uma solicitação HTTP POST. O endpoint precisa responder com um código de status 2xx em alguns segundos para evitar uma nova tentativa. Para garantir a entrega, a API Gemini repete automaticamente as solicitações com falha por 24 horas usando a espera exponencial.
+เมื่อเกิดเหตุการณ์ที่คุณสมัครรับข้อมูล URL ของเว็บฮุคจะได้รับคำขอ HTTP POST ปลายทางต้องตอบกลับด้วยรหัสสถานะ 2xx ภายในไม่กี่วินาทีเพื่อหลีกเลี่ยงการลองใหม่ Gemini API จะลองส่งคำขอที่ไม่สำเร็จอีกครั้งโดยอัตโนมัติเป็นเวลา 24 ชั่วโมงโดยใช้ Exponential Backoff เพื่อให้มั่นใจว่ามีการส่งข้อมูล
 
-O Gemini segue rigorosamente a especificação de [webhooks padrão](https://github.com/standard-webhooks/standard-webhooks) para
-cabeçalhos de segurança. Verifique o payload no servidor usando as assinaturas de cabeçalho assinadas e o secret de assinatura estático armazenado. Consulte a seção [Envelope de webhook](#webhook-envelope) para informações sobre o payload.
+Gemini ปฏิบัติตามข้อกำหนดของ[เว็บฮุคมาตรฐาน](https://github.com/standard-webhooks/standard-webhooks)สำหรับ
+ส่วนหัวด้านความปลอดภัยอย่างเคร่งครัด ยืนยันเพย์โหลดในเซิร์ฟเวอร์โดยใช้ลายเซ็นส่วนหัวที่ลงนามและข้อมูลลับในการลงนามแบบคงที่ที่จัดเก็บไว้ ดูข้อมูลเพย์โหลดได้ที่ส่วนซองจดหมายของเว็บฮุค [Webhook envelope](#webhook-envelope)
 
-Confira um exemplo usando o Flask para o listener HTTP:
+ตัวอย่างการใช้ Flask สำหรับ Listener HTTP มีดังนี้
 
 ### Python
 
@@ -440,14 +440,14 @@ app.listen(8000, () => {
 });
 ```
 
-## Webhooks dinâmicos
+## เว็บฮุคแบบไดนามิก
 
-Os webhooks dinâmicos permitem vincular um endpoint de webhook a uma **configuração de solicitação
-específica**, ideal para filas de orquestração de agentes. Os webhooks dinâmicos aproveitam as assinaturas JWKS de chave pública assimétrica em vez de secrets simétricos.
+เว็บฮุคแบบไดนามิกช่วยให้คุณผูกปลายทางของเว็บฮุคกับการ**กำหนดค่าคำขอที่
+เฉพาะเจาะจง** ซึ่งเหมาะสำหรับคิวการจัดระเบียบของเอเจนต์ เว็บฮุคแบบไดนามิกใช้ลายเซ็น JWKS คีย์สาธารณะแบบอสมมาตรแทนข้อมูลลับแบบสมมาตร
 
-### Enviar uma solicitação dinâmica
+### ส่งคำขอแบบไดนามิก
 
-Adicione uma `webhook_config` ao acionar um job assíncrono (por exemplo, criar um lote).
+เพิ่ม `webhook_config` เมื่อทริกเกอร์งานแบบไม่พร้อมกัน (เช่น การสร้างกลุ่ม)
 
 ### Python
 
@@ -516,10 +516,9 @@ curl -X POST \
   }'
 ```
 
-### Verificar assinaturas dinâmicas (JWKS)
+### ยืนยันลายเซ็นแบบไดนามิก (JWKS)
 
-As solicitações de webhook dinâmico emitem uma assinatura JSON Web Token (JWT). O listener
-precisa extrair a assinatura e verificá-la usando os endpoints de certificado público do [Google](https://www.googleapis.com/oauth2/v3/certs).
+คำขอเว็บฮุคแบบไดนามิกจะแสดงลายเซ็น JSON Web Token (JWT) Listener ต้องแยกข้อมูลลายเซ็นและยืนยันโดยใช้[ปลายทางใบรับรองสาธารณะของ Google](https://www.googleapis.com/oauth2/v3/certs)
 
 ### Python
 
@@ -620,11 +619,11 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 });
 ```
 
-## Envelope de webhook
+## ซองจดหมายของเว็บฮุค
 
-Para evitar o congestionamento da largura de banda, os webhooks do Gemini usam um modelo de **payload fino** para entregar dados. As entregas enviam um snapshot que contém detalhes de status e indicadores para resultados, em vez do próprio arquivo de saída bruto.
+เว็บฮุคของ Gemini ใช้โมเดล**เพย์โหลดขนาดเล็ก** เพื่อส่งข้อมูลเพื่อหลีกเลี่ยงการจราจรติดขัดของแบนด์วิดท์ โดยการส่งจะส่งสแนปช็อตที่มีรายละเอียดสถานะและตัวชี้ไปยังผลลัพธ์แทนที่จะส่งไฟล์เอาต์พุตดิบเอง
 
-Confira um exemplo de formato de payload:
+ตัวอย่างรูปแบบเพย์โหลดมีดังนี้
 
 ```
 {
@@ -638,42 +637,42 @@ Confira um exemplo de formato de payload:
 }
 ```
 
-## Referência do catálogo de eventos
+## ข้อมูลอ้างอิงแคตตาล็อกเหตุการณ์
 
-Os eventos a seguir são acionados para jobs de suporte:
+ระบบจะทริกเกอร์เหตุการณ์ต่อไปนี้สำหรับงานที่รองรับ
 
-| Tipo de evento | Gatilho | Item de payload (`data`) |
+| ประเภทของกิจกรรม | ทริกเกอร์ | รายการเพย์โหลด (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | O processamento foi concluído. | `id`, `output_file_uri` |
-| `batch.cancelled` | Solicitação cancelada pelo usuário | `id` |
-| `batch.expired` | O lote não foi processado (concluído) em um período de 24 horas | `id` |
-| `batch.failed` | Falha no job em lote (erro de sistema ou validação). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Chamada de função, o usuário precisa fazer algo | `id` |
-| `interaction.completed` | LRO na API Interactions bem-sucedida | `id` |
-| `interaction.failed` | LRO na API Interactions com falha (erro de sistema ou validação). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | LRO na API Interactions cancelada | `id` |
-| `video.generated` | LRO de geração de vídeo concluída. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | การประมวลผลเสร็จสมบูรณ์ | `id`, `output_file_uri` |
+| `batch.cancelled` | ผู้ใช้ยกเลิกคำขอ | `id` |
+| `batch.expired` | ระบบไม่ได้ประมวลผล (เสร็จสิ้น) กลุ่มภายในกรอบเวลา 24 ชั่วโมง | `id` |
+| `batch.failed` | งานแบบกลุ่มล้มเหลว (ข้อผิดพลาดของระบบหรือข้อผิดพลาดในการตรวจสอบ) | `id`, `error_code`, `error_message` |
+| `interaction.requires_action` | การเรียกฟังก์ชัน ผู้ใช้ต้องดำเนินการบางอย่าง | `id` |
+| `interaction.completed` | LRO ใน Interactions API สำเร็จ | `id` |
+| `interaction.failed` | LRO ใน Interactions API ล้มเหลว (ข้อผิดพลาดของระบบหรือข้อผิดพลาดในการตรวจสอบ) | `id`, `error_code`, `error_message` |
+| `interaction.cancelled` | LRO ใน Interactions API ยกเลิก | `id` |
+| `video.generated` | LRO การสร้างวิดีโอเสร็จสมบูรณ์ | `id`, `output_file_uri`, `file_name` |
 
-## Práticas recomendadas
+## แนวทางปฏิบัติแนะนำ
 
-Para garantir uma operação confiável e escalonável:
+สิ่งที่ควรทำเพื่อให้การดำเนินการมีความน่าเชื่อถือและรองรับการปรับขนาด
 
-- **Verificação rigorosa de proteção contra repetição**: todas as solicitações têm um `webhook-timestamp`
-  cabeçalho. Sempre valide esse carimbo de data/hora na camada de configuração do servidor para rejeitar payloads com mais de **5 minutos** (para atenuar ataques de repetição).
-- **Processar de forma assíncrona**: responda com `2xx OK` imediatamente após a detecção de assinatura válida
-  e coloque as operações de análise na fila internamente. Tempos de espera prolongados do listener vão acionar um ciclo de nova tentativa de entrega.
-- **Processamento de desduplicação**: os webhooks padrão entregam "pelo menos uma vez". Use o cabeçalho `webhook-id` consistente para processar possíveis duplicados em fluxos de congestionamento mais altos.
+- **การตรวจสอบการป้องกันการเล่นซ้ำอย่างเข้มงวด**: คำขอทั้งหมดมีส่วนหัว `webhook-timestamp`
+  ตรวจสอบการประทับเวลาในเลเยอร์การกำหนดค่าเซิร์ฟเวอร์เสมอเพื่อปฏิเสธเพย์โหลดที่เก่ากว่า **5 นาที** (เพื่อลดการโจมตีแบบเล่นซ้ำ)
+- **ประมวลผลแบบไม่พร้อมกัน**: ตอบกลับด้วย `2xx OK` ทันทีเมื่อตรวจพบ
+  ข้อมูลลับในการลงนามที่ถูกต้อง และจัดคิวการดำเนินการแยกวิเคราะห์ภายใน เวลาพัก Listener ที่นานเกินไปจะทริกเกอร์รอบการลองส่งใหม่
+- **การจัดการการหักล้างข้อมูลที่ซ้ำกัน**: เว็บฮุคมาตรฐานจะส่งข้อมูล "อย่างน้อย 1 ครั้ง" ใช้ส่วนหัว `webhook-id` ที่สอดคล้องกันเพื่อจัดการข้อมูลที่อาจซ้ำกันในโฟลว์ที่มีการจราจรติดขัดสูงขึ้น
 
-## A seguir
+## ขั้นตอนต่อไปคืออะไร
 
-- [API Batch](https://ai.google.dev/gemini-api/docs/batch?hl=pt-br): use webhooks para automatizar endpoints de alto volume.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=th): ใช้เว็บฮุคเพื่อทำให้ปลายทางที่มีปริมาณมากเป็นแบบอัตโนมัติ
 
-Envie comentários
+ส่งความคิดเห็น
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última atualização 2026-07-30 UTC.
+อัปเดตล่าสุด 2026-07-30 UTC
 
-Quer enviar seu feedback?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

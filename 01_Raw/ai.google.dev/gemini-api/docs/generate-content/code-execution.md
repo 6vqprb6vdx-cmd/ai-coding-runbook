@@ -1,31 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=ar
-fetched_at: 2026-08-03T04:38:03.485732+00:00
-title: "\u062a\u0646\u0641\u064a\u0630 \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u0645\u062c\u064a \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=es-419
+fetched_at: 2026-08-10T03:22:30.048352+00:00
+title: "Ejecuci\u00f3n de c\u00f3digo \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-# تنفيذ الرمز البرمجي
+# Ejecución de código
 
-توفّر Gemini API أداة لتنفيذ الرموز البرمجية تتيح للنموذج إنشاء رموز Python البرمجية وتشغيلها. يمكن للنموذج بعد ذلك أن يتعلّم بشكل متكرّر من نتائج تنفيذ الرمز البرمجي إلى أن يصل إلى الناتج النهائي. يمكنك استخدام تنفيذ التعليمات البرمجية لإنشاء تطبيقات تستفيد من الاستدلال المستند إلى التعليمات البرمجية. على سبيل المثال، يمكنك استخدام تطبيق الرموز البرمجية لحل المعادلات أو معالجة النصوص. يمكنك أيضًا استخدام [المكتبات](#supported-libraries) المضمّنة في بيئة تنفيذ الرمز البرمجي لتنفيذ مهام أكثر تخصصًا.
+La API de Gemini proporciona una herramienta de ejecución de código que permite que el modelo genere y ejecute código de Python. Luego, el modelo puede aprender de forma iterativa a partir de los resultados de la ejecución de código hasta llegar a un resultado final. Puedes usar la ejecución de código para crear aplicaciones que se beneficien del razonamiento basado en código. Por ejemplo, puedes usar la ejecución de código para resolver ecuaciones o procesar texto. También puedes
+usar las [bibliotecas](#supported-libraries) incluidas en el entorno de ejecución de código
+para realizar tareas más especializadas.
 
-يمكن لـ Gemini تنفيذ الرمز البرمجي بلغة Python فقط. سيظل بإمكانك أن تطلب من Gemini إنشاء رمز بلغة أخرى، ولكن لن يتمكّن النموذج من استخدام أداة تنفيذ الرمز البرمجي لتشغيله.
+Gemini solo puede ejecutar código en Python. Aun así, puedes pedirle a Gemini que genere código en otro lenguaje, pero el modelo no puede usar la herramienta de ejecución de código para ejecutarlo.
 
-## تفعيل تنفيذ الرموز البرمجية
+## Habilita la ejecución de código
 
-لتفعيل تنفيذ الرموز البرمجية، عليك ضبط أداة تنفيذ الرموز البرمجية على النموذج. يتيح ذلك للنموذج إنشاء الرمز وتشغيله.
+Para habilitar la ejecución de código, configura la herramienta de ejecución de código en el modelo. Esto permite que el modelo genere y ejecute código.
 
 ### Python
 
@@ -143,7 +145,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-قد يبدو الناتج على النحو التالي، وقد تم تنسيقه لتسهيل قراءته:
+El resultado podría ser similar al siguiente, que se formateó para mejorar la legibilidad:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,27 +194,31 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-يجمع هذا الناتج عدة أجزاء من المحتوى يعرضها النموذج عند استخدام تنفيذ الرمز البرمجي:
+Este resultado combina varias partes de contenido que el modelo muestra cuando se usa la ejecución de código:
 
-- ‫`text`: نص مضمّن تم إنشاؤه بواسطة النموذج
-- ‫`executableCode`: رمز تم إنشاؤه بواسطة النموذج ويهدف إلى التنفيذ
-- `codeExecutionResult`: نتيجة الرمز القابل للتنفيذ
+- `text`: Texto intercalado generado por el modelo
+- `executableCode`: Código generado por el modelo que se debe ejecutar
+- `codeExecutionResult`: Resultado del código ejecutable
 
-تختلف اصطلاحات التسمية لهذه الأجزاء حسب لغة البرمجة.
+Las convenciones de nomenclatura para estas partes varían según el lenguaje de programación.
 
-## تنفيذ الرمز البرمجي باستخدام الصور (Gemini 3)
+## Ejecución de código con imágenes (Gemini 3)
 
-يمكن لنموذج Gemini 3 Flash الآن كتابة رموز Python البرمجية وتنفيذها من أجل التعديل على الصور وفحصها بشكل نشط.
+El modelo Gemini 3 Flash ahora puede escribir y ejecutar código de Python para manipular y examinar imágenes de forma activa.
 
-**حالات الاستخدام**
+**Casos de uso**
 
-- **التكبير والتدقيق**: يرصد النموذج تلقائيًا عندما تكون التفاصيل صغيرة جدًا (على سبيل المثال، قراءة مقياس بعيد)، ويكتب رمزًا برمجيًا لاقتصاص المنطقة وإعادة فحصها بدقة أعلى.
-- **الرياضيات المرئية**: يمكن للنموذج إجراء عمليات حسابية متعددة الخطوات باستخدام الرموز البرمجية (مثل جمع بنود الإيصال).
-- **التعليق التوضيحي على الصور**: يمكن للنموذج إضافة تعليقات توضيحية إلى الصور للإجابة عن أسئلة، مثل رسم أسهم لتوضيح العلاقات.
+- **Acercar y examinar**: El modelo detecta de forma implícita cuando los detalles son demasiado pequeños
+  (p.ej., leer un indicador distante) y escribe código para recortar y volver a examinar el área
+  con una resolución más alta.
+- **Matemáticas visuales**: El modelo puede ejecutar cálculos de varios pasos con código (p.ej.,
+  sumar los artículos de una factura).
+- **Anotación de imágenes**: El modelo puede anotar imágenes para responder preguntas, como
+  dibujar flechas para mostrar relaciones.
 
-### تفعيل تنفيذ الرموز البرمجية باستخدام الصور
+### Habilita la ejecución de código con imágenes
 
-تتوفّر ميزة "تنفيذ التعليمات البرمجية" مع الصور رسميًا في Gemini 3 Flash. يمكنك تفعيل هذا السلوك من خلال تفعيل كلّ من "الاستخدام كأداة تنفيذ رموز برمجية" و"التفكير".
+La ejecución de código con imágenes se admite oficialmente en Gemini 3 Flash. Puedes activar este comportamiento habilitando la ejecución de código como herramienta y el razonamiento.
 
 ### Python
 
@@ -427,9 +433,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## استخدام ميزة "تنفيذ الرمز البرمجي" في المحادثة
+## Usa la ejecución de código en el chat
 
-يمكنك أيضًا استخدام تنفيذ التعليمات البرمجية كجزء من محادثة.
+También puedes usar la ejecución de código como parte de un chat.
 
 ### Python
 
@@ -587,75 +593,81 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-## الإدخال/الإخراج (I/O)
+## Entrada y salida (E/S)
 
-يتيح تنفيذ الرموز البرمجية إدخال الملفات وإخراج الرسوم البيانية. باستخدام إمكانات الإدخال والإخراج هذه، يمكنك تحميل ملفات CSV وملفات نصية وطرح أسئلة حول الملفات والحصول على رسومات بيانية من [Matplotlib](https://matplotlib.org/) كجزء من الرد. يتم عرض ملفات الإخراج كصور مضمّنة في الردّ.
+La ejecución de código admite la entrada de archivos y la salida de gráficos. Con estas capacidades de entrada y
+salida, puedes subir archivos CSV y de texto, hacer preguntas sobre los
+archivos y generar gráficos de [Matplotlib](https://matplotlib.org/) como parte
+de la respuesta. Los archivos de salida se muestran como imágenes intercaladas en la respuesta.
 
-### أسعار مؤتمر I/O
+### Precios de E/S
 
-عند استخدام تطبيق الرموز البرمجية لوحدات الإدخال والإخراج، يتم تحصيل رسوم منك مقابل الرموز المميزة للإدخال والرموز المميزة للإخراج:
+Cuando usas la E/S de ejecución de código, se te cobra por los tokens de entrada y salida:
 
-**الرموز المميّزة المدخَلة:**
+**Tokens de entrada:**
 
-- طلب المستخدم
+- Instrucción del usuario
 
-**الرموز المميزة الناتجة:**
+**Tokens de salida:**
 
-- الرمز البرمجي الذي أنشأه النموذج
-- ناتج تنفيذ الرمز البرمجي في بيئة الرمز البرمجي
-- رموز مميّزة للتفكير
-- ملخّص من إنشاء النموذج
+- Código generado por el modelo
+- Resultado de la ejecución de código en el entorno de código
+- Tokens de razonamiento
+- Resumen generado por el modelo
 
-### تفاصيل مؤتمر I/O
+### Detalles de E/S
 
-عند العمل على عمليات الإدخال والإخراج لتنفيذ الرمز، يجب الانتباه إلى التفاصيل الفنية التالية:
+Cuando trabajes con la E/S de ejecución de código, ten en cuenta los siguientes detalles técnicos:
 
-- الحدّ الأقصى لوقت تشغيل بيئة الرمز هو 30 ثانية.
-- إذا أدّى تنفيذ الرمز البرمجي إلى حدوث خطأ، قد يقرّر النموذج إعادة إنشاء مخرجات الرمز البرمجي. يمكن أن يحدث ذلك 5 مرات كحد أقصى.
-- يتم تحديد الحد الأقصى لحجم إدخال الملفات من خلال نافذة الرموز المميزة للنموذج. في AI Studio، يبلغ الحد الأقصى لحجم ملف الإدخال مليون رمز مميز (أي حوالي 2 ميغابايت لملفات النصوص من أنواع الإدخال المتوافقة). إذا حمّلت ملفًا كبيرًا جدًا، لن يسمح لك AI Studio بإرساله.
-- يعمل تنفيذ الرمز البرمجي بشكل أفضل مع ملفات النصوص وملفات CSV.
-- يمكن تمرير ملف الإدخال في `part.inlineData` أو `part.fileData` (يتم تحميله
-  عبر [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar))، ويتم دائمًا عرض ملف الإخراج
-  بتنسيق `part.inlineData`.
+- El tiempo de ejecución máximo del entorno de código es de 30 segundos.
+- Si el entorno de código genera un error, es posible que el modelo decida volver a generar el resultado del código. Esto puede suceder hasta 5 veces.
+- El tamaño máximo de entrada de archivos está limitado por la ventana de tokens del modelo. En AI Studio, el tamaño máximo del archivo de entrada es de 1 millón de tokens (aproximadamente 2 MB para archivos de texto de los tipos de entrada admitidos). Si subes un archivo demasiado grande, AI Studio no te permitirá enviarlo.
+- La ejecución de código funciona mejor con archivos de texto y CSV.
+- El archivo de entrada se puede pasar en `part.inlineData` o `part.fileData` (subido
+  a través de la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419)), y el archivo de salida siempre
+  se muestra como `part.inlineData`.
 
-## الفوترة
+## Facturación
 
-لن يتم تحصيل أي رسوم إضافية مقابل تفعيل تطبيق الرموز البرمجية من خلال Gemini API.
-سيتم تحصيل الرسوم منك وفقًا للمعدّل الحالي لرموز الإدخال والإخراج استنادًا إلى نموذج Gemini الذي تستخدمه.
+No hay cargos adicionales por habilitar la ejecución de código desde la API de Gemini.
+Se te facturará según la tarifa actual de los tokens de entrada y salida en función del modelo de Gemini que uses.
 
-في ما يلي بعض المعلومات الأخرى التي يجب معرفتها حول الفوترة مقابل تنفيذ الرموز البرمجية:
+Estos son algunos aspectos que debes tener en cuenta sobre la facturación de la ejecución de código:
 
-- يتم تحصيل الرسوم منك مرة واحدة فقط مقابل الرموز المميزة التي يتم إدخالها إلى النموذج، ويتم تحصيل الرسوم منك مقابل الرموز المميزة للناتج النهائي التي يعرضها النموذج.
-- يتم احتساب الرموز المميزة التي تمثّل الرمز البرمجي الذي تم إنشاؤه كرموز مميزة ناتجة. يمكن أن يتضمّن الرمز البرمجي الذي تم إنشاؤه نصًا ومخرجات متعددة الوسائط، مثل الصور.
-- يتم أيضًا احتساب نتائج تنفيذ الرمز البرمجي كرموز مميّزة ناتجة.
+- Solo se te factura una vez por los tokens de entrada que pasas al modelo, y se te factura por los tokens de salida finales que te muestra el modelo.
+- Los tokens que representan el código generado se cuentan como tokens de salida. El código generado puede incluir texto y salida multimodal, como imágenes.
+- Los resultados de la ejecución de código también se cuentan como tokens de salida.
 
-يظهر نموذج الفوترة في الرسم البياني التالي:
+El modelo de facturación se muestra en el siguiente diagrama:
 
-![نموذج الفوترة لتنفيذ الرموز البرمجية](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=ar)
+![Modelo de facturación de ejecución de código](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=es-419)
 
-- يتم تحصيل الرسوم منك بالسعر الحالي لرموز الإدخال والإخراج استنادًا إلى نموذج Gemini الذي تستخدمه.
-- إذا استخدم Gemini تنفيذ الرمز البرمجي عند إنشاء ردّك، سيتم تصنيف الطلب الأصلي والرمز البرمجي الذي تم إنشاؤه ونتيجة الرمز البرمجي المنفَّذ على أنّها *رموز مميزة وسيطة*، وسيتم تحصيل الرسوم منها باعتبارها *رموزًا مميزة للإدخال*.
-- بعد ذلك، ينشئ Gemini ملخّصًا ويعرض الرمز البرمجي الذي تم إنشاؤه ونتيجة الرمز البرمجي الذي تم تنفيذه والملخّص النهائي. تتم فوترة هذه الرموز المميزة على أنّها *رموز مميزة ناتجة*.
-- يتضمّن Gemini API عدد الرموز المميّزة الوسيط في الردّ من واجهة برمجة التطبيقات، ما يتيح لك معرفة سبب تلقّيك رموزًا مميزة إضافية للإدخال تتجاوز طلبك الأولي.
+- Se te facturará según la tarifa actual de los tokens de entrada y salida en función del modelo de Gemini que uses.
+- Si Gemini usa la ejecución de código cuando genera tu respuesta, la instrucción original, el código generado y el resultado del código ejecutado se etiquetan como *tokens intermedios* y se facturan como *tokens de entrada*.
+- Luego, Gemini genera un resumen y muestra el código generado, el resultado del código ejecutado y el resumen final. Estos se facturan como *tokens de salida*.
+- La API de Gemini incluye un recuento de tokens intermedios en la respuesta de la API, por lo que sabes por qué obtienes tokens de entrada adicionales más allá de tu instrucción inicial.
 
-## القيود
+## Limitaciones
 
-- يمكن للنموذج إنشاء الرمز البرمجي وتنفيذه فقط. ولا يمكنه عرض عناصر أخرى، مثل ملفات الوسائط.
-- في بعض الحالات، يمكن أن يؤدي تفعيل تطبيق الرموز البرمجية إلى حدوث تراجع في جوانب أخرى من مخرجات النموذج (على سبيل المثال، كتابة قصة).
-- تتفاوت النماذج المختلفة في قدرتها على تنفيذ الرموز البرمجية بنجاح.
+- El modelo solo puede generar y ejecutar código. No puede mostrar otros artefactos, como archivos multimedia.
+- En algunos casos, habilitar la ejecución de código puede provocar regresiones en otras áreas del resultado del modelo (por ejemplo, escribir una historia).
+- Existe cierta variación en la capacidad de los diferentes modelos para usar la ejecución de código de forma correcta.
 
-## مجموعات الأدوات المتوافقة
+## Combinaciones de herramientas compatibles
 
-يمكن دمج أداة تطبيق الرموز البرمجية مع [تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) لتفعيل المزيد من حالات الاستخدام المعقّدة.
+La herramienta de ejecución de código se puede combinar con
+[Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) para
+potenciar casos de uso más complejos.
 
-تتيح نماذج Gemini 3 الجمع بين الأدوات المضمّنة (مثل "تنفيذ الرمز البرمجي") والأدوات المخصّصة (استدعاء الدوال). يجب إعادة تمرير الحقلَين `id` و`thought_signature` لكي تعمل ميزة دمج الأدوات. يمكنك الاطّلاع على مزيد من المعلومات في صفحة [مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
+Los modelos de Gemini 3 admiten la combinación de herramientas integradas (como la ejecución de código) con herramientas personalizadas (llamadas a funciones). Debes volver a pasar los campos `id` y `thought_signature` para que funcione la combinación de herramientas. Obtén más información en la
+[página de combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
 
-## المكتبات المتوافقة
+## Bibliotecas compatibles
 
-تتضمّن بيئة تنفيذ الرمز البرمجي المكتبات التالية:
+El entorno de ejecución de código incluye las siguientes bibliotecas:
 
 - attrs
-- شطرنج
+- ajedrez
 - contourpy
 - fpdf
 - geopandas
@@ -670,9 +682,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 - numpy
 - opencv-python
 - openpyxl
-- حزمة محتوى التطبيق
-- باندا
-- وسادة
+- empaquetado
+- pandas
+- almohada
 - protobuf
 - pylatex
 - pyparsing
@@ -684,30 +696,30 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 - scikit-learn
 - scipy
 - seaborn
-- ستة
+- six
 - striprtf
 - sympy
-- جدولة
+- tabulate
 - tensorflow
 - toolz
 - xlrd
 
-لا يمكنك تثبيت مكتباتك الخاصة.
+No puedes instalar tus propias bibliotecas.
 
-## الخطوات التالية
+## ¿Qué sigue?
 
-- جرِّب
-  [تنفيذ الرمز البرمجي في Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=ar).
-- مزيد من المعلومات حول أدوات Gemini API الأخرى:
-  - [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
-  - [تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)
+- Prueba el
+  [Colab de ejecución de código](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=es-419).
+- Obtén información sobre otras herramientas de la API de Gemini:
+  - [Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)
+  - [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
+Última actualización: 2026-07-30 (UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+¿Quieres brindar más información?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

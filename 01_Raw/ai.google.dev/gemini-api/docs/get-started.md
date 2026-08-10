@@ -1,68 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=zh-CN
-fetched_at: 2026-08-03T04:32:01.143156+00:00
-title: "\u4f7f\u7528\u5165\u95e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=zh-TW
+fetched_at: 2026-08-10T03:08:59.318926+00:00
+title: "\u958b\u59cb\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-发送反馈
+提供意見
 
-# 使用入门
+# 開始使用
 
-本指南将介绍如何使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 开始使用 Gemini API。您将在不到一分钟的时间内发出第一个 API 调用，并探索文本生成、多模态理解能力、图片生成、结构化输出、工具、函数调用、智能体和后台执行。
+本指南將說明如何使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 開始使用 Gemini API。您將在一分鐘內完成第一次 API 呼叫，並探索文字生成、多模態理解、圖像生成、結構化輸出內容、工具、函式呼叫、代理程式和背景執行作業。
 
-Interactions API 可通过 [Python](https://github.com/googleapis/python-genai) 和 [JavaScript](https://github.com/googleapis/js-genai) SDK 以及 REST 使用。
+您可以透過 [Python](https://github.com/googleapis/python-genai) 和 [JavaScript](https://github.com/googleapis/js-genai) SDK，以及 REST 使用 Interactions API。
 
-## 1. 获取 API 密钥
+## 1. 取得 API 金鑰
 
-如需使用 Gemini API，您需要拥有 API 密钥，以便对请求进行身份验证、强制执行安全限制以及跟踪账号的使用情况。
+如要使用 Gemini API，您必須有 API 金鑰，才能驗證要求、強制執行安全限制，以及追蹤帳戶的使用情形。
 
-- Google AI Studio 会自动为新用户创建项目和 API 密钥。
-  您可以从 [API 密钥页面](https://aistudio.google.com/api-keys?hl=zh-cn) 复制该密钥。
-- 如果您需要新密钥，请在 AI Studio 中点击**创建 API 密钥** ，然后按照对话框中的说明添加新的密钥-项目对。
+- Google AI Studio 會自動為新使用者建立專案和 API 金鑰。您可以在「[API 金鑰](https://aistudio.google.com/api-keys?hl=zh-tw)」頁面複製金鑰。
+- 如需新金鑰，請在 AI Studio 中按一下「建立 API 金鑰」，然後按照對話方塊的指示新增金鑰/專案配對。
 
-[创建 Gemini API 密钥](https://aistudio.google.com/apikey?hl=zh-cn)
+[建立 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
 
-将密钥设置为环境变量：
+將金鑰設為環境變數：
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### 升级到付费层级
+### 升級至付費層級
 
-升级到付费层级会提高速率限制，并且需要设置 Cloud Billing。
+升級至付費層級可提高頻率限制，但需要設定 Cloud Billing。
 
-- 在 AI Studio 的
-  [API 密钥](https://aistudio.google.com/api-keys?hl=zh-cn)或
-  [项目](https://aistudio.google.com/projects?hl=zh-cn)页面上，点击**设置结算信息**。
-- 按照 Cloud Billing 对话框中的说明创建或关联结算账号、添加付款方式，并预付至少 10 美元（或等值的其他货币）的付费积分。
-- 在 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-cn) 中，依次点击 **信息中心** > **使用情况**，查看 API 使用情况。
+- 在 AI Studio 的「API keys」(API 金鑰) 或「Projects」(專案) 頁面上，按一下「Set up billing」(設定帳單)。
+- 按照 Cloud Billing 對話方塊的指示建立或連結帳單帳戶、新增付款方式，並預付至少 $10 美元 (或等值金額) 的付費抵免額。
+- 在 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 中，依序點選「資訊主頁」 >「用量」，即可查看 API 用量。
 
-如需了解详情，请参阅[结算页面](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
+詳情請參閱「[帳單頁面](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw)」。
 
-## 2. 安装 SDK 并发出首次调用
+## 2. 安裝 SDK 並進行第一次呼叫
 
-安装 SDK 并通过单个 API 调用生成文本。
+安裝 SDK，並透過單一 API 呼叫生成文字。
 
 ### Python
 
-安装 SDK：
+安裝 SDK：
 
 ```
 pip install -U google-genai
 ```
 
-初始化客户端并发出请求：
+初始化用戶端並發出要求：
 
 ```
 from google import genai
@@ -78,13 +75,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-安装 SDK：
+安裝 SDK：
 
 ```
 npm install @google/genai
 ```
 
-初始化客户端并发出请求：
+初始化用戶端並發出要求：
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -110,7 +107,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**响应**：
+**回覆：**
 
 ```
 {
@@ -142,13 +139,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-使用 REST 时，API 会返回完整的 `Interaction` 资源，其中包含元数据、使用情况统计信息以及轮次的分步历史记录。
+使用 REST 時，API 會傳回完整的 `Interaction` 資源，其中包含中繼資料、使用統計資料，以及回合的逐步記錄。
 
-虽然 SDK 会公开完整响应，但它们还提供便捷属性（例如 `interaction.output_text` 和 `interaction.output_image`）来直接访问最终输出。如需详细了解响应结构，请参阅 [Interactions 概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn)；如需详细了解系统说明和生成配置，请参阅 [文本生成指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn)。
+SDK 會公開完整的回應，同時提供 `interaction.output_text` 和 `interaction.output_image` 等便利屬性，可直接存取最終輸出內容。如要進一步瞭解回覆結構，請參閱「[互動總覽](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)」或「[文字生成指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)」，瞭解系統指令和生成設定的詳細資訊。
 
-## 3. 流式传输响应
+## 3. 逐句顯示回覆
 
-为了实现更流畅的互动，请在生成响应时流式传输响应。每个 `step.delta` 事件都会提供一个文本块，您可以立即显示该文本块。
+如要讓互動更流暢，請在生成回應時串流傳輸。每個 `step.delta` 事件都會傳送一組文字，您可以立即顯示。
 
 ### Python
 
@@ -198,9 +195,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-进行流式传输时，服务器会响应服务器发送的事件 (SSE) 流。每个事件都包含类型和 JSON 数据。
+串流時，伺服器會傳回伺服器傳送事件 (SSE) 串流。每個事件都包含類型和 JSON 資料。
 
-**响应**：
+**回覆：**
 
 ```
 event: interaction.created
@@ -231,18 +228,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-如需详细了解如何处理流式事件和 delta 类型，请参阅[流式互动指南](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-cn)。
+如要深入瞭解如何處理串流事件和 delta 類型，請參閱[串流互動指南](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-tw)。
 
-## 4. 多轮对话
+## 4. 多轉折對話
 
-Interactions API 支持通过以下两种方法进行多轮对话：
+Interactions API 支援多輪對話，方法有兩種：
 
-- **有状态（推荐）**：使用 `previous_interaction_id` 在服务器上继续对话。非常适合大多数聊天和智能体工作流，在这些工作流中，您希望服务器管理历史记录并优化缓存。
-- **无状态**：通过在每个请求中传递所有先前轮次（包括中间模型思考和工具步骤）来管理客户端上的对话历史记录。
+- **有狀態 (建議)**：使用 `previous_interaction_id` 在伺服器上繼續對話。適合用於多數的即時通訊和代理式工作流程，讓伺服器管理記錄並最佳化快取。
+- **無狀態**：在每個要求中傳遞所有先前的輪流對話 (包括中繼模型想法和工具步驟)，藉此在用戶端管理對話記錄。
 
-### 有状态（推荐）
+### 具狀態 (建議)
 
-通过传递 `previous_interaction_id` 来链接互动。服务器会为您管理完整的对话历史记录。
+傳遞 `previous_interaction_id` 即可串連互動。伺服器會為您管理完整對話記錄。
 
 ### Python
 
@@ -312,9 +309,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 无状态
+### 無狀態
 
-设置 `store=false` 并在客户端管理对话历史记录。您必须完全按接收到的方式保留并重新发送所有模型生成的步骤（包括 `thought` 和 `function_call` 步骤）。
+在用戶端設定 `store=false` 及管理對話記錄。您必須保留並重新傳送所有模型生成的步驟 (包括 `thought` 和 `function_call` 步驟)，且內容必須與收到的完全一致。
 
 ### Python
 
@@ -426,7 +423,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**响应**：
+**回覆：**
 
 ```
 {
@@ -453,11 +450,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-第二次互动会返回一个完整的响应对象，该对象仅包含新步骤，但以先前轮次的上下文为基础。如需详细了解如何在[多轮对话指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#multi-turn-conversations)中维护状态，或探索[无状态模式](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#stateless-conversations)以进行客户端历史记录管理。
+第二次互動會傳回完整回覆物件，其中只包含新步驟，但會以先前回合的脈絡為基礎。如要進一步瞭解如何維護狀態，請參閱[多輪對話指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#multi-turn-conversations)，或探索[無狀態模式](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#stateless-conversations)，瞭解如何管理用戶端記錄。
 
-## 5. 多模态理解能力
+## 5. 多模態理解
 
-Gemini 模型能够以原生方式理解图片、音频、视频和文档。在单个请求中同时传递媒体和文本。
+Gemini 模型可直接解讀圖片、音訊、影片和文件。在單一要求中傳遞媒體和文字。
 
 ### Python
 
@@ -549,7 +546,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**响应**：
+**回覆：**
 
 ```
 {
@@ -574,27 +571,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-了解如何在[图片理解指南](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-cn)中传递图片、视频和音频文件。
+請參閱[圖像解讀指南](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)，瞭解如何傳遞圖片、影片和音訊檔案。
 
 [hearing
 
-音频理解
+音訊理解
 
-转写、总结音频文件或回答有关音频文件的问题。](https://ai.google.dev/gemini-api/docs/audio?hl=zh-cn)
+轉錄音訊檔案、摘要內容或回答相關問題。](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)
 [videocam
 
-视频理解
+影片解讀
 
-分析视频内容、查找事件和描述操作。](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-cn)
+分析影片內容、找出事件並描述動作。](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)
 [description
 
-文档处理
+文件處理
 
-从 PDF 和其他文档格式中提取信息。](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-cn)
+從 PDF 和其他文件格式中擷取資訊。](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)
 
-## 6. 多模态生成
+## 6. 多模態生成
 
-Gemini 可以使用 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn) 图片模型以原生方式生成图片。
+Gemini 可使用 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw) 圖像模型生成圖像。
 
 ### Python
 
@@ -647,7 +644,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**响应**：
+**回覆：**
 
 ```
 {
@@ -670,22 +667,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-当模型生成图片时，它会在 `steps` 数组中的一个步骤内返回 base64 编码的图片数据，并通过 `output_image` 便捷属性返回。如需了解宽高比、图片编辑和参考，请查看[图片生成指南](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)。
+模型生成圖片時，會在 `steps` 陣列的步驟中，以及透過 `output_image` 便利屬性，傳回 Base64 編碼的圖片資料。請參閱[圖像生成指南](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)，瞭解顯示比例、圖片編輯和參考資料。
 
 [record\_voice\_over
 
-语音生成
+語音生成
 
-使用 Gemini 3.1 Flash TTS 生成富有表现力的多说话人语音。](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)
+使用 Gemini 3.1 Flash TTS 生成生動的多人語音。](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)
 [music\_note
 
-音乐创作
+音樂生成
 
-使用 Lyria 3 创建剪辑和完整歌曲。](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-cn)
+使用 Lyria 3 製作短片和完整歌曲。](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-tw)
 
-## 7. 采用结构化输出
+## 7. 使用結構化輸出內容
 
-将模型配置为返回与您定义的架构匹配的 JSON。结构化输出适用于 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript)。
+設定模型，傳回符合您定義結構定義的 JSON。結構化輸出內容適用於 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript)。
 
 ### Python
 
@@ -788,7 +785,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**响应**：
+**回覆：**
 
 ```
 {
@@ -810,11 +807,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-输出文本块包含一个完全符合所请求架构的有效 JSON 字符串。如需了解如何定义更复杂的结构和递归架构，请参阅[结构化输出指南](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
+輸出文字區塊包含符合要求結構定義的有效 JSON 字串。如要瞭解如何定義更複雜的結構和遞迴結構定義，請參閱[結構化輸出內容指南](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)。
 
 ## 8. 使用工具
 
-依托 Google 搜索中的实时信息对模型的回答进行接地。API 会自动搜索、处理结果并返回引用。
+使用 Google 搜尋查找資料，鞏固回覆的事實基礎。API 會自動搜尋、處理結果並傳回引文。
 
 ### Python
 
@@ -887,7 +884,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**响应**：
+**回覆：**
 
 ```
 {
@@ -937,41 +934,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-搜索步骤在互动历史记录中详细说明，最终输出包含指向网络来源的内嵌引用。
+互動記錄會詳細列出搜尋步驟，最終輸出內容則會內嵌引用網路來源。
 
-您可以参阅 [Google 搜索接地指南](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)，了解如何提取搜索引用，或参阅 [工具组合指南](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)，了解如何组合使用多种工具。
+如要瞭解如何擷取搜尋引用來源，請參閱 [Google 搜尋基礎指南](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)；如要瞭解如何合併使用多項工具，請參閱[工具組合指南](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)。
 
 [code
 
-代码执行
+執行程式碼
 
-在安全的沙盒 Borg 环境中运行 Python 代码。](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)
+在安全的沙箱 Borg 環境中執行 Python 程式碼。](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)
 [link
 
-网址上下文
+網址背景資訊
 
-直接传递公共网址，以依托网页内容对回答进行接地。](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)
+直接傳遞公開網頁網址，以網頁內容為依據生成回覆。](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)
 [search
 
-文件搜索
+檔案搜尋
 
-对上传的文档和媒体文件建立索引并进行搜索。](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)
+為上傳的文件和媒體檔案建立索引並進行搜尋。](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)
 [map
 
-Google 地图
+Google 地圖
 
-依托真实世界的地理空间和位置数据对回答进行接地。](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)
+根據現實世界的地理空間和位置資料建立回覆基準。](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)
 [computer
 
-使用电脑
+操作電腦
 
-浏览器自动化和屏幕互动。](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-cn)
+瀏覽器自動化和螢幕互動。](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)
 
-## 9. 调用自己的函数
+## 9. 呼叫自己的函式
 
-借助函数调用，您可以将模型连接到自己的代码。您需要声明函数的名称和形参，模型会决定何时调用该函数并返回结构化实参，然后您可以在本地执行该函数并将结果发送回去。
+函式呼叫功能可讓您將模型連結至程式碼。您會宣告函式的名稱和參數，模型會決定何時呼叫函式並傳回結構化引數，而您會在本地執行函式並傳回結果。
 
-### 有状态（推荐）
+### 具狀態 (建議)
 
 ### Python
 
@@ -1156,13 +1153,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 无状态
+### 無狀態
 
-您还可以通过在客户端管理对话历史记录并设置 `store=false`，在无状态模式下使用函数调用。在无状态模式下，您必须在每个后续请求的 `input` 字段中传递完整的对话历史记录。此历史记录必须包含：
+您也可以在無狀態模式中使用函式呼叫，方法是在用戶端管理對話記錄，並設定 `store=false`。在無狀態模式中，您必須在每個後續要求的 `input` 欄位中傳遞完整的對話記錄。這類記錄必須包括：
 
-1. 初始 `user_input` 步骤。
-2. 在第 1 轮中返回的所有模型生成的步骤（包括 `thought` 和 `function_call` 步骤），且完全按接收到的方式返回。
-3. 包含已执行函数输出的 `function_result` 步骤。
+1. 初始 `user_input` 步驟。
+2. 在第 1 輪中，所有模型生成的步驟 (包括 `thought` 和 `function_call` 步驟) 都會完全按照收到的內容傳回。
+3. `function_result` 步驟，其中包含已執行函式的輸出內容。
 
 ### Python
 
@@ -1370,9 +1367,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**响应**：
+**回覆：**
 
-在第 1 轮中，模型会返回状态为 `requires_action` 的响应以及 `function_call` 步骤：
+在第 1 輪中，模型會傳回狀態為 `requires_action` 的回應，以及 `function_call` 步驟：
 
 ```
 {
@@ -1393,7 +1390,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-在本地运行函数并提交结果（第 2 轮）后，最终完成的互动会返回：
+在您於本機執行函式並提交結果 (第 2 輪) 後，系統會傳回最終完成的互動：
 
 ```
 {
@@ -1423,11 +1420,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-如需了解并行函数调用或函数选择模式等高级功能，请参阅[函数调用指南](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+如要瞭解平行函式呼叫或函式選擇模式等進階功能，請參閱[函式呼叫指南](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
 
-## 10. 运行受管智能体
+## 10. 執行受管理代理程式
 
-受管智能体在远程沙盒中运行，可以访问代码执行和文件管理等工具。传递 `agent` 而不是 `model`，并设置 `environment="remote"`。
+受管理代理會在遠端沙箱中執行，並可存取程式碼執行和檔案管理等工具。傳遞 `agent` 而非 `model`，並設定 `environment="remote"`。
 
 ### Python
 
@@ -1474,27 +1471,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-您还可以使用自己的说明、技能和数据源定义和保存[自定义智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)。
+您也可以定義及儲存[自訂代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)，並提供自己的指令、技能和資料來源。
 
 [rocket\_launch
 
-快速入门
+快速入門導覽課程
 
-发出首次智能体调用、流式传输响应并构建自定义智能体。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)
+進行第一次代理呼叫、串流回應，以及建構自訂代理。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)
 [smart\_toy
 
-反重力智能体
+Antigravity 代理
 
-默认智能体的功能、工具、多模态输入和价格。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-cn)
+預設代理程式的功能、工具、多模態輸入和定價。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)
 [experiment
 
-AI Studio 中的智能体
+AI Studio 中的代理程式
 
-用于在不编写代码的情况下开发智能原型的可视化园地。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-cn)
+視覺化測試區，可設計代理程式原型，完全不必編寫程式碼。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw)
 
-## 11. 在后台运行任务
+## 11. 在背景執行工作
 
-设置 `background=True` 以异步运行长时间任务。使用 `interactions.get()` 轮询结果。如需了解详情，请参阅[后台执行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-cn)。
+設定 `background=True` 以非同步方式執行長時間執行的工作。使用 `interactions.get()` 輪詢結果。詳情請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)。
 
 ### Python
 
@@ -1589,9 +1586,9 @@ while true; do
 done
 ```
 
-**响应**：
+**回覆：**
 
-初始响应会立即返回，状态为 `in_progress`：
+初始回應會立即傳回，狀態為 `in_progress`：
 
 ```
 {
@@ -1602,7 +1599,7 @@ done
 }
 ```
 
-后台任务完全执行完毕后，检查互动状态会返回：
+背景工作完全執行完畢後，檢查互動狀態會傳回：
 
 ```
 {
@@ -1624,28 +1621,27 @@ done
 }
 ```
 
-如需了解如何在后台异步运行模型和智能体，请参阅[后台执行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-cn)。
+請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)，瞭解如何以非同步方式執行模型和代理程式。
 
-## 后续步骤
+## 後續步驟
 
-- [后台执行](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-cn)：异步运行长时间任务并管理状态。
-- [文本生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn)：系统说明、生成配置和高级文本模式。
-- [图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)：宽高比、图片编辑和样式参考。
-- [图片理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-cn)：分类、对象检测和视觉问答。
-- Thinking: The user wants to translate the source text while preserving the placeholder [and . The source text is "Thinking: Use chain-of-thought reasoning for complex tasks." The example translation for "Thinking: Use chain-of-thought reasoning for complex tasks." is "思考：针对复杂任务使用思维链推理。" I need to insert the placeholders and into the translated text at the corresponding positions. The word "Thinking" corresponds to "思考". So the translation should be "思考：针对复杂任务使用思维链推理。"
-  思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)：针对复杂任务使用思维链推理。
-- [函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)：并行、组合和受限函数模式。
-- [Google 搜索](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)：接地、引用和搜索建议。
-- [受管智能体](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)：预构建的智能体，具有代码执行和文件管理功能。
-- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn)：自主多步骤研究，具有规划和整合功能。
-- [结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)：JSON 架构、枚举和递归类型定义。
+- [背景執行](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)：以非同步方式執行長時間執行的工作，並管理狀態。
+- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)：系統指令、生成設定和進階文字模式。
+- [圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)：顯示比例、圖像編輯和風格參考。
+- [圖像解讀](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)：分類、物件偵測和圖像問與答。
+- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)：針對複雜工作使用連鎖思維推論。
+- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)：平行、組合和受限函式模式。
+- [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)：建立基準、引用來源和搜尋建議。
+- [受管理代理](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)：預先建構的代理，可執行程式碼及管理檔案。
+- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)：自主執行多步驟研究，並規劃和統整資訊。
+- [結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)：JSON 結構定義、列舉和遞迴型別定義。
 
-发送反馈
+提供意見
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最后更新时间 (UTC)：2026-07-30。
+上次更新時間：2026-07-30 (世界標準時間)。
 
-需要向我们提供更多信息？
+想進一步說明嗎？
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

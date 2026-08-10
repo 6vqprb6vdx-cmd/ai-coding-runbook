@@ -1,34 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=id
-fetched_at: 2026-08-03T04:38:09.413185+00:00
-title: "Inferensi prioritas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=de
+fetched_at: 2026-08-10T03:21:41.408125+00:00
+title: "Priorit\u00e4tsinferenz \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Kirim masukan
+Feedback geben
 
-# Inferensi prioritas
+# Prioritätsinferenz
 
-Deskripsi: Pelajari cara mengoptimalkan latensi dengan tingkat inferensi Prioritas di Interactions API
+Beschreibung: Informationen zur Optimierung der Latenz mit der Priority-Inferenzstufe in der Interactions API
 
-Gemini Priority API adalah tingkat inferensi premium yang dirancang untuk
-workload penting bisnis yang memerlukan latensi lebih rendah dan
-keandalan tertinggi dengan titik harga premium. Traffic tingkat prioritas diprioritaskan di atas traffic API standar dan tingkat Flex.
+Die Gemini Priority API ist eine Premium-Inferenzstufe, die für geschäftskritische Arbeitslasten entwickelt wurde, die eine geringere Latenz und höchste Zuverlässigkeit erfordern. Sie ist zu einem Premiumpreis verfügbar. Der Traffic der Priority-Stufe hat eine höhere Priorität als der Traffic der Standard-API und der Flex-Stufe.
 
-Inferensi prioritas tersedia di seluruh endpoint Interactions API.
+Die Priority-Inferenz ist für alle Endpunkte der Interactions API verfügbar.
 
-## Cara menggunakan Prioritas
+## Priority verwenden
 
-Untuk menggunakan tingkat Prioritas, tetapkan kolom `service_tier` dalam permintaan Anda ke `priority`. Paket defaultnya adalah standar jika kolom ini tidak diisi.
+Wenn Sie die Priority-Stufe verwenden möchten, legen Sie das Feld `service_tier` in Ihrer Anfrage auf `priority` fest. Wenn das Feld ausgelassen wird, ist die Standardstufe die Standardeinstellung.
 
 ### Python
 
@@ -77,87 +75,87 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cara kerja Inferensi prioritas
+## Funktionsweise der Priority-Inferenz
 
-Inferensi prioritas merutekan permintaan ke antrean komputasi dengan kritikalitas tinggi, sehingga menawarkan performa yang cepat dan dapat diprediksi untuk aplikasi yang ditampilkan kepada pengguna. Mekanisme
-utamanya adalah downgrade sisi server yang lancar ke pemrosesan standar untuk traffic
-yang melebihi batas dinamis, sehingga memastikan stabilitas aplikasi, bukan membuat
-permintaan gagal.
+Bei der Priority-Inferenz werden Anfragen an Rechenwarteschlangen mit hoher Kritikalität weitergeleitet, was eine vorhersehbare, schnelle Leistung für nutzerorientierte Anwendungen ermöglicht. Der primäre Mechanismus ist ein reibungsloser serverseitiger Downgrade auf die Standardverarbeitung für Traffic, der dynamische Limits überschreitet. So wird die Anwendungsstabilität gewährleistet, anstatt die Anfrage abzulehnen.
 
-| Fitur | Prioritas | Standar | Lipat | Batch |
+| Funktion | Priorität | Standard | Flex | Batch |
 | --- | --- | --- | --- | --- |
-| **Harga** | 75-100% lebih banyak daripada Standard | Harga penuh | Diskon 50% | Diskon 50% |
-| **Latensi** | Detik | Detik ke menit | Menit (target 1–15 menit) | Hingga 24 jam |
-| **Keandalan** | Tinggi (Tidak rontok) | Tinggi / Sedang-tinggi | Upaya terbaik (Dapat Dibatalkan) | Tinggi (untuk throughput) |
-| **Antarmuka** | Sinkron | Sinkron | Sinkron | Asinkron |
+| **Preise** | 75–100% mehr als Standard | Standardpreis | 50% Rabatt | 50% Rabatt |
+| **Latenz** | Sekunden | Sekunden bis Minuten | Minuten (Ziel: 1–15 Minuten) | Bis zu 24 Stunden |
+| **Zuverlässigkeit** | Hoch (nicht absetzbar) | Hoch / Mittel bis hoch | Best-Effort-Ansatz (absetzbar) | Hoch (für Durchsatz) |
+| **Schnittstelle** | Synchron | Synchron | Synchron | Asynchron |
 
-### Manfaat utama
+### Hauptvorteile
 
-- **Latensi rendah**: Dirancang untuk waktu respons dalam hitungan detik untuk alat AI interaktif yang ditujukan bagi pengguna.
-- **Keandalan tinggi**: Traffic diperlakukan dengan tingkat kritikalitas tertinggi dan
-  sangat tidak dapat dibatalkan.
-- **Degradasi halus**: Lonjakan traffic yang melebihi batas dinamis akan diturunkan secara otomatis ke tingkat Standard untuk diproses, bukan gagal, sehingga mencegah gangguan layanan.
-- **Gesekan rendah**: Menggunakan metode `create` sinkron yang sama dengan tingkat standar dan Flex.
+- **Geringe Latenz**: Entwickelt für Reaktionszeiten im Sekundenbereich für interaktive,
+  nutzerorientierte KI-Tools.
+- **Hohe Zuverlässigkeit**: Der Traffic wird mit höchster Kritikalität behandelt und ist
+  nicht absetzbar.
+- **Graceful Degradation**: Trafficspitzen, die dynamische Limits überschreiten, werden
+  automatisch auf die Standardstufe für die Verarbeitung herabgestuft, anstatt abzulehnen.
+  So werden Dienstausfälle verhindert.
+- **Geringe Reibung**: Verwendet dieselbe synchrone `create` Methode wie die
+  Standard- und Flex-Stufen.
 
-### Kasus penggunaan
+### Anwendungsfälle
 
-Pemrosesan prioritas sangat ideal untuk alur kerja penting bisnis yang mengutamakan performa dan keandalan.
+Die Priority-Verarbeitung ist ideal für geschäftskritische Arbeitsabläufe, bei denen Leistung und Zuverlässigkeit von größter Bedeutung sind.
 
-- **Aplikasi AI interaktif**: Chatbot dan kopilot layanan pelanggan yang
-  penggunanya membayar biaya premium dan mengharapkan respons yang cepat dan konsisten.
-- **Mesin pengambilan keputusan real-time**: Sistem yang memerlukan hasil yang sangat andal dan berlatensi rendah, seperti triase tiket live atau deteksi penipuan.
-- **Fitur pelanggan premium**: Developer yang perlu menjamin tujuan tingkat layanan (SLO) yang lebih tinggi untuk pelanggan berbayar.
+- **Interaktive KI-Anwendungen**: Kundenservice-Chatbots und Copiloten, bei denen
+  Nutzer einen Aufpreis zahlen und schnelle, konsistente Antworten erwarten.
+- **Entscheidungsmaschinen in Echtzeit**: Systeme, die hochzuverlässige Ergebnisse mit geringer Latenz
+  erfordern, z. B. Live-Ticket-Triage oder Betrugserkennung.
+- **Premium-Kundenfunktionen**: Entwickler, die höhere Service
+  Level Objectives (SLOs) für zahlende Kunden garantieren müssen.
 
-### Batas kapasitas
+### Ratenlimits
 
-Penggunaan prioritas memiliki batas kapasitasnya sendiri meskipun penggunaan dihitung dalam [batas kapasitas traffic interaktif secara keseluruhan](https://aistudio.google.com/rate-limit?hl=id). Batas frekuensi default
-untuk inferensi Prioritas adalah **batas frekuensi standar 0,3x untuk Model / Tingkat**
+Für die Priority-Nutzung gelten eigene Ratenlimits, auch wenn die Nutzung auf die [allgemeinen Ratenlimits für interaktiven Traffic angerechnet wird](https://aistudio.google.com/rate-limit?hl=de). Die Standardratenlimits für die Priority-Inferenz sind **0,3-mal das Standardratenlimit für Modell / Stufe**.
 
-### Logika downgrade yang lancar
+### Graceful-Downgrade-Logik
 
-Jika batas Prioritas terlampaui karena kemacetan, permintaan yang meluap akan
-**diturunkan secara otomatis dan lancar** ke pemrosesan Standar, bukan
-gagal dengan error 503 atau 429. Permintaan yang di-downgrade ditagih dengan tarif standar, bukan tarif premium Prioritas.
+Wenn die Priority-Limits aufgrund von Überlastung überschritten werden, werden Anfragen, die das Limit überschreiten, **automatisch und reibungslos** auf die Standardverarbeitung herabgestuft, anstatt mit einem 503- oder 429-Fehler abzulehnen. Herabgestufte Anfragen werden zum Standardpreis und nicht zum Premiumpreis für Priority abgerechnet.
 
-### Tanggung jawab klien
+### Verantwortung des Clients
 
-- **Pemantauan respons**: Developer harus memantau header `x-gemini-service-tier`
-  dalam respons API untuk mendeteksi apakah permintaan sering diturunkan ke
-  `standard`.
-- **Percobaan ulang**: Klien harus menerapkan logika percobaan ulang/backoff eksponensial untuk
-  error standar, seperti `DEADLINE_EXCEEDED`.
+- **Monitoring der Antwort**: Entwickler sollten den `x-gemini-service-tier`
+  Header in der API-Antwort beobachten, um festzustellen, ob Anfragen häufig auf
+  `standard` herabgestuft werden.
+- **Wiederholungen**: Clients müssen eine Logik für Wiederholungen/exponentielle Backoffs für
+  Standardfehler wie `DEADLINE_EXCEEDED` implementieren.
 
-## Harga
+## Preise
 
-Inferensi prioritas dihargai 75-100% lebih mahal daripada [API standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id) dan ditagih per token.
+Die Priority-Inferenz kostet 75–100% mehr als die [Standard-API](https://ai.google.dev/gemini-api/docs/pricing?hl=de) und wird pro Token abgerechnet.
 
-## Model yang didukung
+## Unterstützte Modelle
 
-Model berikut mendukung Inferensi prioritas:
+Die folgenden Modelle unterstützen die Priority-Inferenz:
 
-| Model | Inferensi prioritas |
+| Modell | Priority-Inferenz |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=id) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=id) | ✔️ |
-| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=id) | ✔️ |
-| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=id) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=id) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=id) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ |
+| [Gemini 3.1 Pro (Vorschau)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | ✔️ |
+| [Gemini 3 Flash (Vorschau)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de) | ✔️ |
 
-## Langkah berikutnya
+## Nächste Schritte
 
-- [Inferensi fleksibel](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id) untuk pengurangan biaya.
-- [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id): Pahami token.
+- [Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de) zur Kostensenkung.
+- [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de): Informationen zu Tokens.
 
-Kirim masukan
+Feedback geben
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-Ada masukan untuk kami?
+Haben Sie Feedback für uns?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

@@ -1,98 +1,99 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=zh-TW
-fetched_at: 2026-08-03T04:25:36.932456+00:00
-title: "\u642d\u914d Gemini API \u4f7f\u7528\u5de5\u5177 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=he
+fetched_at: 2026-08-10T03:16:59.844840+00:00
+title: "\u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05db\u05dc\u05d9 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-提供意見
+שליחת משוב
 
-# 搭配 Gemini API 使用工具
+# שימוש בכלי Gemini API
 
-工具可擴展 Gemini 模型的效能，讓模型在現實世界中採取行動、存取即時資訊，以及執行複雜的運算工作。模型可以使用工具，透過標準要求/回應互動和 [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=zh-tw) 進行即時串流工作階段。
+הכלים מרחיבים את היכולות של מודלים של Gemini, ומאפשרים להם לבצע פעולות בעולם, לגשת למידע בזמן אמת ולבצע משימות חישוביות מורכבות. מודלים יכולים להשתמש בכלים גם באינטראקציות רגילות של בקשה ותגובה וגם בסשנים של סטרימינג בזמן אמת באמצעות [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=he).
 
-工具是模型可用來回答查詢的特定功能 (例如 Google 搜尋或程式碼執行)。Gemini API 提供一系列全代管的內建工具，您也可以使用[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)定義自訂工具。
+כלים הם יכולות ספציפיות (כמו חיפוש Google או הרצת קוד) שמודל יכול להשתמש בהן כדי לענות על שאילתות. ‫Gemini API מספק חבילה של כלים מובנים ומנוהלים באופן מלא, או שאתם יכולים להגדיר כלים בהתאמה אישית באמצעות [קריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
-如要建構多步驟、以目標為導向的系統，請參閱「[代理程式總覽](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw)」。
+כדי ליצור מערכות מרובות שלבים שמכוונות להשגת יעדים, אפשר לעיין במאמר [סקירה כללית על סוכנים](https://ai.google.dev/gemini-api/docs/agents?hl=he).
 
-## 可用的內建工具
+## כלים מובנים זמינים
 
-| 工具 | 說明 | 應用實例 |
+| כלי | תיאור | תרחישים לדוגמה |
 | --- | --- | --- |
-| [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw) | 以網路上的時事和事實做為回覆基準，減少幻覺。 | 回答近期活動相關問題、透過各種來源驗證事實。 |
-| [Google 地圖](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw) | 建構位置辨識助理，可尋找地點、規劃路線及提供豐富的當地資訊。 | 規劃包含多個停靠點的旅遊行程，根據使用者條件尋找當地商家。 |
-| [程式碼執行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw) | 讓模型編寫及執行 Python 程式碼，準確解決數學問題或處理資料。 | 解出複雜的數學方程式，精確處理及分析文字資料。 |
-| [網址背景資訊](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw) | 指示模型讀取及分析特定網頁或文件的內容。 | 根據特定網址或文件回答問題，以及從不同網頁擷取資訊。 |
-| [電腦使用 (預覽)](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw) | 啟用 Gemini 來查看畫面，並生成與網頁瀏覽器 UI 互動的動作 (用戶端執行)。 | 自動執行重複的網頁工作流程，測試網頁應用程式使用者介面。 |
-| [檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw) | 為自己的文件建立索引並進行搜尋，啟用檢索增強生成 (RAG)。 | 搜尋技術手冊、根據專有資料回答問題。 |
+| [חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) | התשובות מבוססות על אירועים עכשוויים ועובדות מהאינטרנט כדי לצמצם את ההזיות. | לענות על שאלות לגבי אירועים מהזמן האחרון, לאמת עובדות באמצעות מגוון מקורות. |
+| [מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he) | פיתוח עוזרים וירטואליים שמודעים למיקום, שיכולים למצוא מקומות, לקבל מסלולים ולספק הקשר מקומי עשיר. | תכנון מסלולי נסיעה עם כמה עצירות, חיפוש עסקים מקומיים על סמך קריטריונים של המשתמש. |
+| [Code Execution](https://ai.google.dev/gemini-api/docs/code-execution?hl=he) | המודל יכול לכתוב ולהריץ קוד Python כדי לפתור בעיות מתמטיות או לעבד נתונים בצורה מדויקת. | פתרון משוואות מתמטיות מורכבות, עיבוד וניתוח מדויקים של נתוני טקסט. |
+| [הקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he) | הנחיית המודל לקרוא ולנתח תוכן מדפי אינטרנט או ממסמכים ספציפיים. | מענה לשאלות על סמך כתובות URL או מסמכים ספציפיים, אחזור מידע מדפי אינטרנט שונים. |
+| [שימוש במחשב (תצוגה מקדימה)](https://ai.google.dev/gemini-api/docs/computer-use?hl=he) | אפשר לאפשר ל-Gemini לצפות במסך וליצור פעולות לאינטראקציה עם ממשקי משתמש של דפדפני אינטרנט (ביצוע בצד הלקוח). | אוטומציה של תהליכי עבודה שחוזרים על עצמם באינטרנט, בדיקה של ממשקי משתמש של אפליקציות אינטרנט. |
+| [חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he) | יצירת אינדקס וחיפוש במסמכים שלכם כדי להפעיל Retrieval-Augmented Generation (יצירה משולבת-אחזור, RAG). | חיפוש במדריכים טכניים, מענה לשאלות לגבי נתונים קנייניים. |
 
-如要瞭解特定工具的相關費用，請參閱[定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#pricing_for_tools)。
+פרטים על העלויות שמשויכות לכלים ספציפיים מופיעים [בדף התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he#pricing_for_tools).
 
-## 工具執行的運作方式
+## איך מתבצעת ההפעלה של כלים
 
-模型可在對話期間透過工具要求執行動作。如果工具是內建 (由 Google 管理) 或自訂 (由您管理)，流程會有所不同。
+הכלים מאפשרים למודל לבקש פעולות במהלך שיחה. התהליך שונה בהתאם לסוג הכלי: כלי מובנה (בניהול Google) או כלי בהתאמה אישית (בניהול שלכם).
 
-### 內建工具流程
+### תהליך עבודה מובנה של כלי
 
-如果是內建工具 (Google 搜尋、Google 地圖、網址背景資訊、檔案搜尋、程式碼執行)，整個程序會在一次 API 呼叫中完成：
+בכלים המובנים (חיפוש Google, מפות Google, הקשר של כתובת URL, חיפוש קבצים, הרצת קוד), התהליך כולו מתבצע בקריאה אחת ל-API:
 
-1. **你**傳送提示：「GOOG 最新股價的平方根是多少？」
-2. **Gemini** 判斷需要工具，並在 Google 伺服器上執行這些工具 (例如搜尋股價，然後執行 Python 程式碼來計算平方根)。
-3. **Gemini** 會根據工具結果傳回最終答案。
+1. **אתם** שולחים הנחיה: "What is the square root of the latest stock price of
+   GOOG?"
+2. ‫**Gemini** מחליט שהוא צריך כלים ומפעיל אותם בשרתים של Google (למשל, מחפש את מחיר המניה ואז מריץ קוד Python כדי לחשב את השורש הריבועי).
+3. ‫**Gemini** מחזיר את התשובה הסופית שמבוססת על תוצאות הכלי.
 
-### 自訂工具流程 (函式呼叫)
+### תהליך מותאם אישית של שימוש בכלי (בקשה להפעלת פונקציה)
 
-如果是自訂工具和電腦使用，應用程式會處理執行作業：
+בכלים מותאמים אישית ובשימוש במחשב, האפליקציה מטפלת בהרצה:
 
-1. **你**會連同函式 (工具) 宣告傳送提示。
-2. **Gemini** 可能會傳回結構化 JSON，藉此呼叫特定函式 (例如 `{"name": "get_order_status", "args": {"order_id": "123"}}`)，且一律會附上專屬的 `id`。
-3. **您**可以在應用程式或環境中執行函式。
-4. 您會將函式結果連同函式呼叫的相同 `id`，傳送回 Gemini。
-5. **Gemini** 會根據結果生成最終回覆，或呼叫其他工具。
+1. **אתם** שולחים הנחיה עם הצהרות על פונקציות (כלים).
+2. ‫**Gemini** עשוי להחזיר JSON מובנה כדי לקרוא לפונקציה ספציפית (לדוגמה, `{"name": "get_order_status", "args": {"order_id": "123"}}`), תמיד עם `id` ייחודי.
+3. **אתם** מריצים את הפונקציה באפליקציה או בסביבה שלכם.
+4. **אתם** שולחים את תוצאות הפונקציה, עם אותו `id` כמו הקריאה לפונקציה, בחזרה אל Gemini.
+5. ‫**Gemini** משתמש בתוצאות כדי ליצור תשובה סופית או קריאה נוספת לכלי.
 
-詳情請參閱[函式呼叫指南](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+מידע נוסף מפורט [במדריך להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
-### 結合內建和自訂工具流程
+### שילוב של כלים מובנים וכלים בהתאמה אישית
 
-對於結合內建工具和自訂工具 (函式呼叫) 的要求，模型會使用[工具情境循環](https://ai.google.dev/gemini-api/docs/toold-combination?hl=zh-tw)，協調不同環境的執行作業：
+בבקשות שמשלבות בין כלים מובנים לבין כלים מותאמים אישית (קריאות לפונקציות), המודל משתמש ב[העברת הקשר של הכלים](https://ai.google.dev/gemini-api/docs/toold-combination?hl=he) כדי לתאם את הביצוע בסביבות שונות:
 
-1. **您**可以傳送提示，並宣告要啟用的內建工具和自訂函式，然後設定旗標來啟用組合支援功能。
-2. **Gemini** 會執行內建工具，並在生成任何用戶端函式呼叫時讓步給使用者 (執行順序取決於提示和模型判斷)。並傳回包含下列內容的回應：
-   - 確認工具呼叫
-   - 工具回應的結果 (如果模型生成兩個平行函式呼叫，這項結果可能會出現在 JSON 之後)
-   - 呼叫函式的結構化 JSON
-   - 加密的想法簽名，可保留情境
-3. **您**可以在應用程式或環境中執行函式。
-4. **你**會傳回 Gemini 回覆的所有部分，以及函式呼叫結果。
-5. **Gemini** 會使用所有合併的脈絡資訊生成最終回覆。
+1. **אתם** שולחים הנחיה ומצהירים על הכלים המובנים ועל הפונקציות בהתאמה אישית שאתם רוצים להפעיל, ומגדירים דגל כדי להפעיל תמיכה בשילוב.
+2. ‫**Gemini** מפעיל כלים מובנים ומתעדף את המשתמש אם נוצרים קריאות לפונקציות בצד הלקוח (הסדר שבו הן מופעלות תלוי בהנחיה ובמה שהמודל מחליט). הוא מחזיר תשובה עם:
+   - אישור הקריאה לכלי
+   - תוצאות התגובה של הכלי (יכול להיות שהן יופיעו אחרי ה-JSON אם המודל יצר שתי קריאות מקבילות לפונקציות)
+   - ‫JSON מובנה לקריאה לפונקציה
+   - חתימות מוצפנות של מחשבות כדי לשמור על ההקשר
+3. **אתם** מריצים את הפונקציה באפליקציה או בסביבה שלכם.
+4. **אתם** מחזירים את כל החלקים של התשובה של Gemini, בנוסף לתוצאות של קריאת הפונקציה.
+5. ‫**Gemini** יוצר את התשובה הסופית על סמך כל ההקשר המשולב.
 
-請參閱[工具組合指南](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)，瞭解如何啟用內建和自訂工具組合的支援功能，以及內容循環的範例。
+ב[מדריך לשילוב כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) מוסבר איך להפעיל תמיכה בשילוב של כלים מובנים וכלים בהתאמה אישית, ומוצגות דוגמאות להעברת הקשר.
 
-## 結構化輸出內容與函式呼叫
+## פלט מובנה לעומת קריאה להפעלת פונקציות
 
-Gemini 提供兩種產生結構化輸出的方法。如果模型需要連線至您自己的工具或資料系統，執行中繼步驟，請使用[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。如果模型最終回覆必須嚴格遵守特定結構 (例如用於算繪自訂 UI)，請使用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)。
+‫Gemini מציע שתי שיטות ליצירת פלט מובנה. כדאי להשתמש ב[קריאה לפונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) כשהמודל צריך לבצע שלב ביניים על ידי התחברות לכלים או למערכות נתונים משלכם. מומלץ להשתמש ב[פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) כשאתם צריכים שהתשובה הסופית של המודל תתאים לסכימה ספציפית, למשל כדי לעבד ממשק משתמש מותאם אישית.
 
-## 使用工具產生結構化輸出內容
+## פלט מובנה עם כלים
 
-您可以結合[結構化輸出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)與內建工具，確保模型回覆內容以外部資料或運算結果為依據，同時遵守嚴格的結構定義。
+אפשר לשלב [Structured Outputs](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) עם כלים מובנים כדי לוודא שהתשובות של המודל שמבוססות על נתונים חיצוניים או על חישובים עדיין עומדות בסכימה קפדנית.
 
-如需程式碼範例，請參閱「[使用工具產生結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=zh-tw#structured_outputs_with_tools)」。
+דוגמאות קוד מופיעות במאמר בנושא [פלט מובנה עם כלים](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=he#structured_outputs_with_tools).
 
-提供意見
+שליחת משוב
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-上次更新時間：2026-07-31 (世界標準時間)。
+עדכון אחרון: 2026-07-31 (שעון UTC).
 
-想進一步說明嗎？
+רוצה לתת לנו משוב?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-31 (世界標準時間)。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-31 (שעון UTC)."],[],[]]

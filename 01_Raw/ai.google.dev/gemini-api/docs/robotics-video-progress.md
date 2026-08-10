@@ -1,36 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=id
-fetched_at: 2026-08-03T04:27:02.132238+00:00
-title: "Pemahaman video \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja
+fetched_at: 2026-08-10T03:17:49.795450+00:00
+title: "\u52d5\u753b\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Pemahaman video
+# 動画理解
 
-Gemini Robotics ER 2 dapat melacak progres tugas dari feed video berkelanjutan menggunakan dua kemampuan:
+Gemini Robotics-ER 2 は、次の 2 つの機能を使用して、継続的な動画フィードからタスクの進行状況を追跡できます。
 
-- Penemuan momen: mengidentifikasi stempel waktu yang tepat saat peristiwa utama terjadi.
-- Klasifikasi progres: menetapkan setiap video ke salah satu dari lima rentang
-  penyelesaian (0–20%, 20–40%, 40–60%, 60–80%, 80–100%).
+- モーメント検出: キーイベントが発生した正確なタイムスタンプを特定します。
+- 進行状況の分類: 各動画を 5 つの完了率の範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てます。
 
-## Menemukan momen
+## モーメントの検出
 
-Penemuan momen mengidentifikasi frame video yang tepat saat peristiwa penting terjadi —
-misalnya, saat cangkir terisi penuh atau simpul terikat. Robot menggunakannya untuk memverifikasi keberhasilan, mengurutkan langkah-langkah, dan memicu koreksi.
+モーメント検出は、重大なイベントが発生した正確な動画フレーム（カップが満杯になったときや、結び目が結ばれたときなど）を特定します。ロボットはこれを使用して、成功の確認、ステップの順序付け、修正のトリガーを行います。
 
-Contoh perintah berikut meminta model untuk mengidentifikasi momen penyelesaian
-untuk tugas tertentu dalam video:
+次のプロンプトの例では、動画内の特定のタスクの完了時点を識別するようモデルに指示しています。
 
 ```
 from google import genai
@@ -60,16 +57,15 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Berikut ini menunjukkan contoh frame dari video pencarian momen, dengan model mengidentifikasi stempel waktu penyelesaian tugas:
+次の図は、モデルがタスク完了のタイムスタンプを特定している、モーメント検出動画のフレームの例を示しています。
 
-![Contoh frame video yang menunjukkan output penemuan momen dengan overlay stempel waktu](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=id)
+![タイムスタンプ オーバーレイ付きの検出結果が表示された動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=ja)
 
-## Klasifikasi progres
+## 進行状況の分類
 
-Klasifikasi progres menetapkan video ke salah satu dari lima rentang penyelesaian:
-0–20%, 20–40%, 40–60%, 60–80%, atau 80–100%. Hal ini memberi robot kesadaran situasional real-time sehingga mereka dapat menyesuaikan tindakan atau mencoba kembali langkah-langkah yang gagal tanpa memulai ulang seluruh alur kerja.
+進行状況の分類では、動画が 5 つの完了範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てられます。これにより、ロボットはリアルタイムで状況を認識し、ワークフロー全体を再起動することなく、アクションを調整したり、失敗したステップを再試行したりできます。
 
-Contoh perintah berikut meminta model untuk mengklasifikasikan tingkat progres saat ini dari video:
+次のプロンプトの例では、動画の現在の進行状況レベルを分類するようにモデルに求めています。
 
 ```
 from google import genai
@@ -99,27 +95,26 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Berikut menunjukkan contoh frame dari video klasifikasi progres, dengan model menetapkan rentang progres:
+次の図は、進行状況分類動画のフレームの例を示しています。モデルは進行状況の範囲を割り当てています。
 
-![Contoh frame video yang menampilkan output klasifikasi progres dengan label rentang progres](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=id)
+![進行状況の分類出力と進行状況の範囲ラベルを示す動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=ja)
 
-## Contoh
+## 例
 
-Untuk contoh yang dapat dijalankan sepenuhnya, termasuk pelacakan tugas multi-langkah, lihat
-[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+マルチステップ タスク トラッキングを含む実行可能な例については、[ロボティクス クックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## Langkah berikutnya
+## 次のステップ
 
-- [Live API untuk robotik](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id) — streaming dua arah real-time.
-- [Orkestrasi tugas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=id) — tugas dengan cakrawala panjang dengan penalaran spasial.
-- [Ringkasan Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=id) — perbandingan dan kemampuan model.
+- [ロボット工学用の Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイムの双方向ストリーミング。
+- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - 空間推論を伴う長期的なタスク。
+- [Gemini Robotics ER の概要](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ja) - モデルの比較と機能。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+最終更新日 2026-07-30 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

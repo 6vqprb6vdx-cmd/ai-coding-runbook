@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=it
-fetched_at: 2026-08-03T04:28:25.549602+00:00
-title: "Errori API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=id
+fetched_at: 2026-08-10T03:22:10.011038+00:00
+title: "Error API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Invia feedback
+Kirim masukan
 
-# Errori API
+# Error API
 
-Questa pagina fornisce un riferimento per i codici di errore del backend restituiti dall'API `GenerateContent`, descrive il formato della risposta di errore gRPC e fornisce i passaggi per la risoluzione dei problemi.
+Halaman ini memberikan referensi untuk kode error backend yang ditampilkan oleh `GenerateContent` API, menjelaskan format respons error gRPC, dan memberikan langkah-langkah pemecahan masalah.
 
-## Codici di errore HTTP
+## Kode error HTTP
 
-La seguente tabella elenca i codici di errore del backend comuni, le spiegazioni delle cause e le soluzioni consigliate:
+Tabel berikut mencantumkan kode error backend umum, penjelasan penyebabnya, dan solusi yang direkomendasikan:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Codice HTTP** | **Stato** | **Descrizione** | **Esempio** | **Soluzione** |
-| 400 | INVALID\_ARGUMENT | Il corpo della richiesta non è in un formato corretto. | Nella richiesta è presente un errore di battitura o manca un campo obbligatorio. | Consulta il [riferimento API](https://ai.google.dev/api?hl=it) per il formato della richiesta, gli esempi e le versioni supportate. L'utilizzo di funzionalità di una versione API più recente con un endpoint precedente può causare errori. |
-| 400 | FAILED\_PRECONDITION | Il livello senza costi dell'API Gemini non è disponibile nel tuo paese. Attiva la fatturazione per il tuo progetto in Google AI Studio. | Stai effettuando una richiesta in una regione in cui il livello senza costi non è supportato e non hai attivato la fatturazione per il tuo progetto in Google AI Studio. | Per utilizzare l'API Gemini, devi configurare un piano a pagamento utilizzando [Google AI Studio](https://aistudio.google.com/apikey?hl=it). |
-| 403 | PERMISSION\_DENIED | La tua chiave API non dispone delle autorizzazioni richieste. | Stai utilizzando la chiave API errata; stai tentando di utilizzare un modello ottimizzato senza eseguire [l'autenticazione corretta](https://ai.google.dev/gemini-api/docs/model-tuning?hl=it). | Verifica che la chiave API sia impostata e disponga dell'accesso corretto. Assicurati di eseguire l'autenticazione corretta per utilizzare i modelli ottimizzati. |
-| 404 | NOT\_FOUND | La risorsa richiesta non è stata trovata. | Non è stato trovato un file immagine, audio o video a cui viene fatto riferimento nella richiesta. | Verifica che tutti i parametri della richiesta siano validi per la tua versione API. |
-| 429 | RESOURCE\_EXHAUSTED | Hai superato uno dei limiti di frequenza dell'API (RPM, TPM, RPD, spesa e così via). | Stai inviando troppe richieste, utilizzando troppi token o superando i limiti basati sulla spesa per la cronologia della fatturazione e il livello del tuo account. | Verifica di rispettare i [limiti di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it) del modello. Attendi e riprova dopo un breve periodo. Riduci la frequenza o le dimensioni delle richieste. [Se necessario, richiedi un aumento del limite di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#request-rate-limit-increase). |
-| 499 | CANCELLED | L'operazione è stata annullata, in genere dal chiamante. | Il client ha chiuso la connessione prima che l'API potesse terminare la risposta. | Verifica se la tua infrastruttura di rete o client chiude prematuramente la connessione (ad es. a causa di un timeout lato client). |
-| 500 | INTERNAL | Si è verificato un errore imprevisto da parte di Google. | Il contesto di input è troppo lungo. | Controlla la [pagina di stato dell'API Gemini](https://aistudio.google.com/status?hl=it) per eventuali incidenti in corso. Riduci il contesto di input o passa temporaneamente a un altro modello (ad es. da Gemini 2.5 Pro a Gemini 2.5 Flash) e verifica se funziona. In alternativa, attendi un po' e riprova a inviare la richiesta. Se il problema persiste dopo aver riprovato, segnalalo utilizzando il pulsante **Invia feedback** in Google AI Studio. |
-| 503 | UNAVAILABLE | Il servizio potrebbe essere temporaneamente sovraccarico o non disponibile. | Il servizio sta temporaneamente esaurendo la capacità. | Controlla la [pagina di stato dell'API Gemini](https://aistudio.google.com/status?hl=it) per eventuali incidenti in corso. Passa temporaneamente a un altro modello (ad es. da Gemini 2.5 Pro a Gemini 2.5 Flash) e verifica se funziona. In alternativa, attendi un po' e riprova a inviare la richiesta. Se il problema persiste dopo aver riprovato, segnalalo utilizzando il pulsante **Invia feedback** in Google AI Studio. |
-| 504 | DEADLINE\_EXCEEDED | Il servizio non è in grado di completare l'elaborazione entro la scadenza. | Il prompt (o il contesto) è troppo grande per essere elaborato in tempo. | Imposta un "timeout" più lungo nella richiesta del client per evitare questo errore. |
+| **Kode HTTP** | **Status** | **Deskripsi** | **Contoh** | **Solusi** |
+| 400 | INVALID\_ARGUMENT | Isi permintaan salah format. | Ada kesalahan ketik, atau kolom wajib diisi yang tidak ada dalam permintaan Anda. | Lihat [referensi API](https://ai.google.dev/api?hl=id) untuk mengetahui format permintaan, contoh, dan versi yang didukung. Menggunakan fitur dari versi API yang lebih baru dengan endpoint yang lebih lama dapat menyebabkan error. |
+| 400 | FAILED\_PRECONDITION | Paket gratis Gemini API tidak tersedia di negara Anda. Aktifkan penagihan di project Anda di Google AI Studio. | Anda membuat permintaan di wilayah yang tidak mendukung paket gratis, dan Anda belum mengaktifkan penagihan di project Anda di Google AI Studio. | Untuk menggunakan Gemini API, Anda harus menyiapkan paket berbayar menggunakan [Google AI Studio](https://aistudio.google.com/apikey?hl=id). |
+| 403 | PERMISSION\_DENIED | Kunci API Anda tidak memiliki izin yang diperlukan. | Anda menggunakan kunci API yang salah; Anda mencoba menggunakan model yang di-tune tanpa melalui [autentikasi yang tepat](https://ai.google.dev/gemini-api/docs/model-tuning?hl=id). | Pastikan kunci API Anda ditetapkan dan memiliki akses yang tepat. Selain itu, pastikan untuk melakukan autentikasi yang tepat untuk menggunakan model yang di-tuning. |
+| 404 | NOT\_FOUND | Resource yang diminta tidak ditemukan. | File gambar, audio, atau video yang dirujuk dalam permintaan Anda tidak ditemukan. | Periksa apakah semua parameter dalam permintaan Anda valid untuk versi API Anda. |
+| 429 | RESOURCE\_EXHAUSTED | Anda telah melampaui salah satu batas frekuensi API (RPM, TPM, RPD, pembelanjaan, dll.). | Anda mengirim terlalu banyak permintaan, menggunakan terlalu banyak token, atau melampaui batas berbasis pembelanjaan untuk histori penagihan dan tingkat akun Anda. | Pastikan Anda berada dalam [batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id) model. Tunggu dan coba lagi setelah beberapa saat. Kurangi frekuensi atau ukuran permintaan Anda. [Minta peningkatan batas frekuensi panggilan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id#request-rate-limit-increase) jika diperlukan. |
+| 499 | DIBATALKAN | Operasi dibatalkan, biasanya oleh pemanggil. | Klien menutup koneksi sebelum API dapat menyelesaikan respons. | Periksa apakah klien atau infrastruktur jaringan Anda menutup koneksi sebelum waktunya (misalnya, karena waktu tunggu di sisi klien). |
+| 500 | INTERNAL | Terjadi error yang tidak terduga di pihak Google. | Konteks input Anda terlalu panjang. | Periksa [halaman status Gemini API](https://aistudio.google.com/status?hl=id) untuk mengetahui insiden yang sedang berlangsung. Kurangi konteks input Anda atau beralihlah sementara ke model lain (misalnya, dari Gemini 2.5 Pro ke Gemini 2.5 Flash) dan lihat apakah berhasil. Atau, tunggu sebentar dan coba lagi permintaan Anda. Jika masalah berlanjut setelah mencoba lagi, laporkan masalah tersebut menggunakan tombol **Kirim masukan** di Google AI Studio. |
+| 503 | UNAVAILABLE | Layanan mungkin mengalami kelebihan beban atau gangguan sementara. | Layanan ini untuk sementara kehabisan kapasitas. | Periksa [halaman status Gemini API](https://aistudio.google.com/status?hl=id) untuk mengetahui insiden yang sedang berlangsung. Beralihlah sementara ke model lain (misalnya, dari Gemini 2.5 Pro ke Gemini 2.5 Flash) dan lihat apakah model tersebut berfungsi. Atau, tunggu sebentar dan coba lagi permintaan Anda. Jika masalah berlanjut setelah mencoba lagi, laporkan masalah tersebut menggunakan tombol **Kirim masukan** di Google AI Studio. |
+| 504 | DEADLINE\_EXCEEDED | Layanan tidak dapat menyelesaikan pemrosesan dalam batas waktu. | Perintah (atau konteks) Anda terlalu besar untuk diproses tepat waktu. | Tetapkan 'timeout' yang lebih besar dalam permintaan klien Anda untuk menghindari error ini. |
 
-## Formato della risposta di errore
+## Format respons error
 
-Quando una richiesta `GenerateContent` non va a buon fine, l'API imposta il codice di stato HTTP (ad es. `400 Bad Request`, `403 Forbidden` o `429 Too Many Requests`) e restituisce un corpo della risposta JSON contenente i dettagli dello stato gRPC:
+Jika permintaan `GenerateContent` gagal, API akan menetapkan kode status HTTP (seperti `400 Bad Request`, `403 Forbidden`, atau `429 Too Many Requests`) dan menampilkan isi respons JSON yang berisi detail status gRPC:
 
 ```
 {
@@ -67,24 +67,24 @@ Quando una richiesta `GenerateContent` non va a buon fine, l'API imposta il codi
 }
 ```
 
-| Campo | Tipo | Descrizione |
+| Kolom | Jenis | Deskripsi |
 | --- | --- | --- |
-| `code` | integer | Il codice di stato HTTP. |
-| `message` | stringa | Una descrizione dell'errore leggibile da una persona. |
-| `status` | stringa | Il codice di stato gRPC in `SCREAMING_CASE`. |
-| `details` | matrice | Contesto di errore aggiuntivo, ad esempio `ErrorInfo` o `LocalizedMessage`. |
+| `code` | bilangan bulat | Kode status HTTP. |
+| `message` | string | Deskripsi error yang dapat dibaca manusia. |
+| `status` | string | Kode status gRPC di `SCREAMING_CASE`. |
+| `details` | array | Konteks error tambahan, seperti `ErrorInfo` atau `LocalizedMessage`. |
 
-## Passaggi successivi
+## Langkah berikutnya
 
-- [Risoluzione dei problemi dell'API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=it): risolvi problemi comuni e scenari di errore.
-- [Limiti di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it): scopri di più sui limiti di richiesta e sulla gestione delle quote.
+- [Pemecahan masalah API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=id): Atasi masalah dan skenario error umum.
+- [Batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id): Pelajari batas permintaan dan penanganan kuota.
 
-Invia feedback
+Kirim masukan
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ultimo aggiornamento 2026-07-30 UTC.
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-Vuoi dirci altro?
+Ada masukan untuk kami?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

@@ -1,45 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=ko
-fetched_at: 2026-08-03T04:28:13.085325+00:00
-title: "Gemini \ubc0f LangGraph\ub97c \uc0ac\uc6a9\ud558\uc5ec \ucc98\uc74c\ubd80\ud130 ReAct \uc5d0\uc774\uc804\ud2b8 \ub9cc\ub4e4\uae30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=zh-TW
+fetched_at: 2026-08-10T03:19:28.004744+00:00
+title: "\u4f7f\u7528 Gemini \u548c LangGraph \u5f9e\u982d\u958b\u59cb\u5efa\u69cb ReAct \u4ee3\u7406\u7a0b\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-의견 보내기
+提供意見
 
-# Gemini 및 LangGraph를 사용하여 처음부터 ReAct 에이전트 만들기
+# 使用 Gemini 和 LangGraph 從頭開始建構 ReAct 代理程式
 
-LangGraph는 상태 저장 LLM 애플리케이션을 빌드하기 위한 프레임워크이므로 ReAct (추론 및 행동) 에이전트를 구성하는 데 적합합니다.
+LangGraph 框架可用於建構有狀態的 LLM 應用程式，因此很適合建構 ReAct (推論和行動) 代理程式。
 
-ReAct 에이전트는 LLM 추론과 작업 실행을 결합합니다. 사용자 목표를 달성하기 위해 반복적으로 생각하고 도구를 사용하며 관찰에 따라 행동하여 접근 방식을 동적으로 조정합니다. '["ReAct: Synergizing Reasoning and Acting
-in Language Models"](https://arxiv.org/abs/2210.03629)'(2023)에서 소개된 이 패턴은
-엄격한 워크플로를 통해 인간과 유사한 유연한 문제 해결을 반영하려고 합니다.
+ReAct 代理會結合 LLM 推論與動作執行。AI 助理會反覆思考、使用工具，並根據觀察結果採取行動，以達成使用者目標，同時動態調整做法。這項模式於 2023 年的「ReAct：Synergizing Reasoning and Acting in Language Models」一文中推出，旨在模擬人類的彈性問題解決方式，而非僵化的工作流程。
 
-LangGraph는 ReAct 구현에 더 많은 제어 및 맞춤설정이 필요한 경우에 유용한 사전 빌드된 ReAct 에이전트 ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent))를 제공합니다. 이 가이드에서는 간소화된 버전을 보여줍니다.
+LangGraph 提供預先建構的 ReAct 代理程式 ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent))，
+當您需要對 ReAct 實作項目進行更多控制和自訂時，這個代理程式就能派上用場。本指南將說明簡化版。
 
-LangGraph는 세 가지 주요 구성요소를 사용하여 에이전트를 그래프로 모델링합니다.
+LangGraph 會使用三個主要元件，將代理程式建模為圖表：
 
-- `State`: 애플리케이션의 현재 스냅샷을 나타내는 공유 데이터 구조 (일반적으로 `TypedDict` 또는 `Pydantic BaseModel`).
-- `Nodes`: 에이전트의 로직을 인코딩합니다. 현재 상태를 입력으로 받고 일부 계산 또는 부작용을 실행하며 LLM 호출 또는 도구 호출과 같은 업데이트된 상태를 반환합니다.
-- `Edges`: 현재 `State`를 기반으로 실행할 다음 `Node`를 정의하여 조건부 로직 및 고정 전환을 허용합니다.
+- `State`：共用資料結構 (通常為 `TypedDict` 或 `Pydantic BaseModel`)，代表應用程式目前的快照。
+- `Nodes`：對代理程式的邏輯進行編碼。這些函式會接收目前的狀態做為輸入內容、執行一些運算或副作用，並傳回更新後的狀態，例如 LLM 呼叫或工具呼叫。
+- `Edges`：根據目前的 `State` 定義要執行的下一個 `Node`，允許條件式邏輯和固定轉換。
 
-아직 API 키가 없는 경우 [Google AI
-Studio](https://aistudio.google.com/apikey?hl=ko)에서 API 키를 가져올 수 있습니다.
+如果還沒有 API 金鑰，可以前往 [Google AI Studio](https://aistudio.google.com/apikey?hl=zh-tw) 取得。
 
 ```
 pip install langgraph langchain-google-genai geopy requests
 ```
 
-환경 변수 `GEMINI_API_KEY`에서 API 키를 설정합니다.
+在環境變數 `GEMINI_API_KEY` 中設定 API 金鑰。
 
 ```
 import os
@@ -48,11 +46,11 @@ import os
 api_key = os.getenv("GEMINI_API_KEY")
 ```
 
-LangGraph를 사용하여 ReAct 에이전트를 구현하는 방법을 더 잘 이해할 수 있도록 이 가이드에서는 실제 예시를 안내합니다. 목표가 도구를 사용하여 지정된 위치의 현재 날씨를 찾는 에이전트를 만듭니다.
+為協助您進一步瞭解如何使用 LangGraph 實作 ReAct 代理程式，本指南將逐步說明實用範例。您將建立一個代理程式，目標是使用工具尋找指定地點的目前天氣。
 
-이 날씨 에이전트의 경우 `State`는 진행 중인 대화 기록(메시지 목록)과 수행된 단계 수의 카운터(정수)를 유지합니다(설명을 위해).
+以這個天氣服務專員為例，`State` 會維護持續進行的對話記錄 (以訊息清單的形式)，以及所採取步驟數的計數器 (以整數形式)，以供說明之用。
 
-LangGraph는 상태 메시지 목록을 업데이트하기 위한 도우미 함수 `add_messages`를 제공합니다. 현재 목록과 새 메시지를 가져와 결합된 목록을 반환하는 [리듀서](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers) 역할을 합니다. 메시지 ID별로 업데이트를 처리하고 기본적으로 새 메시지에는 '추가 전용' 동작을 사용합니다.
+LangGraph 提供輔助函式 `add_messages`，可更新狀態訊息清單。這個函式會做為 [reducer](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers)，接收目前的清單和新訊息，並傳回合併清單。這項功能會依訊息 ID 處理更新，並預設為新訊息和未讀訊息採用「僅附加」行為。
 
 ```
 from typing import Annotated,Sequence, TypedDict
@@ -66,7 +64,7 @@ class AgentState(TypedDict):
     number_of_steps: int
 ```
 
-다음으로 날씨 도구를 정의합니다.
+接著定義天氣工具。
 
 ```
 from langchain_core.tools import tool
@@ -105,7 +103,7 @@ def get_weather_forecast(location: str, date: str):
 tools = [get_weather_forecast]
 ```
 
-이제 모델을 초기화하고 도구를 모델에 바인딩합니다.
+現在請初始化模型，並將工具繫結至模型。
 
 ```
 from datetime import datetime
@@ -128,14 +126,14 @@ res=model.invoke(f"What is the weather in Berlin on {datetime.today()}?")
 print(res)
 ```
 
-에이전트를 실행하기 전에 마지막 단계는 노드와 가장자리를 정의하는 것입니다.
-이 예시에는 노드 2개와 가장자리 1개가 있습니다.
+定義節點和邊緣是執行代理程式前的最後一個步驟。
+在這個範例中，您有兩個節點和一個邊緣。
 
-- 도구 메서드를 실행하는 `call_tool` 노드. [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/)
-- `model_with_tools`를 사용하여 모델을 호출하는 `call_model` 노드.
-- 도구를 호출할지 모델을 호출할지 결정하는 `should_continue` 가장자리.
+- `call_tool` 節點，用於執行工具方法。LangGraph 具有預先建構的節點，稱為 [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/)。
+- `call_model` 節點，使用 `model_with_tools` 呼叫模型。
+- `should_continue` 邊緣，決定要呼叫工具或模型。
 
-노드와 가장자리의 수는 고정되어 있지 않습니다. 그래프에 원하는 만큼 노드와 가장자리를 추가할 수 있습니다. 예를 들어 도구 또는 모델을 호출하기 전에 모델 출력을 확인하기 위해 구조화된 출력을 추가하는 노드 또는 자체 검증/반영 노드를 추가할 수 있습니다.
+節點和邊緣的數量不固定。您可以視需要在圖表中新增任意數量的節點和邊緣。舉例來說，您可以新增節點來新增結構化輸出內容，或是新增自我驗證/反思節點，在呼叫工具或模型前檢查模型輸出內容。
 
 ```
 from langchain_core.messages import ToolMessage
@@ -179,7 +177,7 @@ def should_continue(state: AgentState):
     return "continue"
 ```
 
-모든 에이전트 구성요소가 준비되면 이제 이를 조합할 수 있습니다.
+所有代理程式元件都準備就緒後，即可組裝。
 
 ```
 from langgraph.graph import StateGraph, END
@@ -215,7 +213,7 @@ workflow.add_edge("tools", "llm")
 graph = workflow.compile()
 ```
 
-`draw_mermaid_png` 메서드를 사용하여 그래프를 시각화할 수 있습니다.
+您可以使用 `draw_mermaid_png` 方法將圖表視覺化。
 
 ```
 from IPython.display import Image, display
@@ -223,9 +221,9 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=ko)
+![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=zh-tw)
 
-이제 에이전트를 실행합니다.
+現在執行代理程式。
 
 ```
 from datetime import datetime
@@ -238,7 +236,7 @@ for state in graph.stream(inputs, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-이제 대화를 계속하거나 다른 도시의 날씨를 묻거나 비교를 요청할 수 있습니다.
+現在可以繼續對話、詢問其他城市的天氣，或是要求比較。
 
 ```
 state["messages"].append(("user", "Would it be warmer in Munich?"))
@@ -248,12 +246,12 @@ for state in graph.stream(state, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-의견 보내기
+提供意見
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-최종 업데이트: 2026-06-22(UTC)
+上次更新時間：2026-06-22 (世界標準時間)。
 
-의견을 전달하고 싶나요?
+想進一步說明嗎？
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-22(UTC)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-22 (世界標準時間)。"],[],[]]

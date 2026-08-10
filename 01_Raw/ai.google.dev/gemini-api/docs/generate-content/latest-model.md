@@ -1,42 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ja
-fetched_at: 2026-08-03T04:25:50.593405+00:00
-title: "\u6700\u65b0\u306e Gemini \u30e2\u30c7\u30eb\u3092\u4f7f\u7528\u3059\u308b \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=pl
+fetched_at: 2026-08-10T03:20:58.486242+00:00
+title: "Z\u00a0u\u017cyciem najnowszych modeli Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-フィードバックを送信
+Prześlij opinię
 
-# 最新の Gemini モデルを使用する
+# Z użyciem najnowszych modeli Gemini
 
-[こちらのページ](#)
-[3.5 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=ja)
+[Ta strona](#)
+[3.5 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=pl)
 
-Gemini 3.6 Flash（`gemini-3.6-flash`）と Gemini 3.5 Flash-Lite（`gemini-3.5-flash-lite`）は一般提供（GA）されており、本番環境で使用できます。
+Modele Gemini 3.6 Flash (`gemini-3.6-flash`) i Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`) są ogólnie dostępne i gotowe do użycia w środowisku produkcyjnym.
 
-- **Gemini 3.6 Flash**: 複雑なエージェント タスクとマルチモーダル タスクでパフォーマンスが向上し、トークン使用量が削減され、3.5 Flash よりも低価格です。
-- **Gemini 3.5 Flash-Lite**: 3.5 ファミリーの中で最も高速で低コストのモデル。高スループットの実行において、以前の Flash-Lite 世代よりも優れたパフォーマンスを発揮します。
+- **Gemini 3.6 Flash**: większa skuteczność w złożonych zadaniach agentowych i multimodalnych przy mniejszym zużyciu tokenów i niższej cenie niż w przypadku modelu 3.5 Flash.
+- **Gemini 3.5 Flash-Lite**: najszybszy i najtańszy model z rodziny 3.5. W przypadku wykonywania zadań z dużą przepustowością przewyższa poprzednie generacje modelu Flash-Lite.
 
-このガイドでは、各モデルの新機能、コードに影響する API の変更点、移行方法について説明します。
+Z tego przewodnika dowiesz się, co nowego wprowadziliśmy w poszczególnych modelach, jakie zmiany w interfejsie API wpływają na Twój kod i jak przeprowadzić migrację.
+
+ 
 
 ### Gemini 3.6 Flash
 
-1. スキルをインストールします。
+1. Zainstaluj umiejętność:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. スキルを適用します。
+2. Zastosuj umiejętność:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.6 Flash
@@ -44,34 +46,34 @@ Gemini 3.6 Flash（`gemini-3.6-flash`）と Gemini 3.5 Flash-Lite（`gemini-3.5-
 
 ### Gemini 3.5 Flash-Lite
 
-1. スキルをインストールします。
+1. Zainstaluj umiejętność:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. スキルを適用します。
+2. Zastosuj umiejętność:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
    ```
 
-## 新モデル
+## Nowe modele
 
-| モデル | モデル ID | デフォルトの思考レベル | 料金 | 説明 |
+| Model | Identyfikator modelu | Domyślny poziom myślenia | Ceny | Opis |
 | --- | --- | --- | --- | --- |
-| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | 入力トークン 100 万個あたり $1.50、出力トークン 100 万個あたり $7.50 | エージェント型タスクとマルチモーダル タスクの速度とインテリジェンスのバランスを取ります。 |
-| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | 入力トークン 100 万個あたり $0.30、出力トークン 100 万個あたり $2.50 | 高スループット実行向けの最も高速で低コストの 3.5 モデル。 |
+| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | 1,50 USD za milion tokenów wejściowych i 7,50 USD za milion tokenów wyjściowych | Równoważy szybkość i inteligencję w zadaniach agentowych i multimodalnych. |
+| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | 0,30 USD za milion tokenów wejściowych i 2,50 USD za milion tokenów wyjściowych | Najszybszy i najtańszy model 3.5 do wykonywania zadań z dużą przepustowością. |
 
-どちらのモデルも、100 万トークンのコンテキスト ウィンドウ、最大 64,000 個の出力トークン、思考、[コンピュータの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)を含む組み込みツールのフルパッケージをサポートしています。
+Oba modele obsługują okno kontekstu o wielkości 1 mln tokenów, maksymalnie 64 tys. tokenów wyjściowych, myślenie i pełny zestaw wbudowanych narzędzi, w tym [korzystanie z komputera](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl).
 
-詳細な仕様については、モデルのページをご覧ください。
+Pełne specyfikacje znajdziesz na stronach modeli:
 
-- [Gemini 3.6 Flash モデルのページ](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja)
-- [Gemini 3.5 Flash-Lite モデルのページ](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja)
+- [Strona modelu Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pl)
+- [Strona modelu Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pl)
 
-料金の詳細については、[料金ページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)をご覧ください。
+Szczegółowe informacje o cenach znajdziesz na [stronie z cennikiem](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
 
-## クイックスタート
+## Krótkie wprowadzenie
 
 ### Python
 
@@ -120,42 +122,42 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Gemini 3.6 Flash の新機能
+## Co nowego w Gemini 3.6 Flash
 
-- **トークンとターンの削減:** Gemini 3.5 よりも少ない推論ステップ、会話ターン、ツール呼び出しでマルチステップ ワークフローを完了します。また、実行ループの螺旋状の動きも軽減されます。
-- **コード生成の改善:** 不要な編集やデバッグ ループが少なく、高品質で本番環境に対応したコードを生成します。
-- **指示の遵守の改善**: 診断タスク中の不要なファイル変更を減らします。
-- **強力なマルチモーダル推論と空間推論:** チャートの解釈、視覚的なブループリントの変換、複数要素のウェブ レイアウトの生成のパフォーマンスが向上しました。
-- **事前プログラマティック検査:** Gemini 3.5 Flash よりも頻繁に、変更を行う前に診断コード スクリプトを実行することを優先します。これにより、複雑なタスクの精度は向上しますが、シンプルなフロントエンド作業で余分な探索手順が追加される可能性があります。
-- **コンピュータ使用のサポート:** エージェント UI 自動化のネイティブ ツールとしてサポートされています。
-- **UI スタイリングの好み**: 機能的なコードの作成には優れていますが、人間の評価者はビジュアル レイアウトとスタイリングについては以前のモデルを好みました。明示的なデザイン ガイドラインを提供することで、この問題を軽減できます。
-- **デフォルトの思考労力（中）:** Gemini 3.5 Flash と同じ `medium` デフォルトの思考レベルを使用します。
-- **料金の引き下げ**: 出力トークンの費用が削減されました（3.5 Flash の 100 万トークンあたり $9.00 に対して、100 万トークンあたり $7.50）。入力トークンは引き続き $1.50/100 万です。
+- **Mniej tokenów i tur:** wykonuje wieloetapowe przepływy pracy z mniejszą liczbą kroków rozumowania, tur konwersacji i wywołań narzędzi niż Gemini 3.5. Ogranicza też spirale pętli wykonywania.
+- **Ulepszone generowanie kodu:** tworzy kod wyższej jakości, gotowy do użycia w środowisku produkcyjnym, z mniejszą liczbą niechcianych zmian i pętli debugowania.
+- **Lepsze wykonywanie instrukcji**: ogranicza niechciane zmiany plików podczas zadań diagnostycznych.
+- **Zaawansowane rozumowanie multimodalne i przestrzenne:** lepsza skuteczność w interpretacji wykresów, konwersji wizualnych planów i generowaniu układów stron internetowych z wieloma elementami.
+- **Wstępna inspekcja programowa:** częściej niż Gemini 3.5 Flash preferuje uruchamianie skryptów kodu diagnostycznego przed wprowadzeniem zmian. Zwiększa to dokładność w przypadku złożonych zadań, ale może dodać dodatkowe kroki eksploracyjne w przypadku prostych prac związanych z frontendem.
+- **Obsługa korzystania z komputera:** obsługiwana jako natywne narzędzie do automatyzacji interfejsu agenta.
+- **Preferencje dotyczące stylizacji interfejsu**: lepiej tworzy kod funkcjonalny, ale w przypadku układu wizualnego i stylizacji oceniający ludzie preferowali wcześniejsze modele. Możesz temu zapobiec, podając wyraźne wytyczne dotyczące projektowania.
+- **Domyślny poziom myślenia (średni):** używa tego samego domyślnego poziomu myślenia `medium` co Gemini 3.5 Flash.
+- **Niższe ceny**: niższe koszty tokenów wyjściowych (7,50 USD za milion w porównaniu z 9,00 USD za milion w przypadku modelu 3.5 Flash). Tokeny wejściowe nadal kosztują 1,50 USD za milion.
 
-## Gemini 3.5 Flash-Lite の新機能
+## Co nowego w Gemini 3.5 Flash-Lite
 
-- **タスク実行レイテンシの短縮:** 大量のデータ解析とドキュメント抽出で 3.5 ファミリー最高のスループットを実現します。
-- **推論とマルチモーダル パフォーマンスの強化:** Gemini 2.5 Flash からの強力な移行パス。HLE（18.0% 対 11.0%）などの推論タスクや、CharXIV（74.5% 対 63.7%）などのマルチモーダル ベンチマークで高いスコアを達成。
-- **サブエージェントのオーケストレーションとツールの信頼性:** コード実行、検索、MCP ワークフローのツール実行の信頼性が向上します。自律的な計画と複雑なサブエージェント タスクの思考レベルを引き上げます。
-- **ドキュメントの理解度の向上:** ドキュメントの解析と構造化されたデータの抽出の精度が向上します。ドキュメントの複雑さに応じて、最小限の思考レベルと高い思考レベルの両方を試します。
-- **インタラクティブなウェブ コーディングと表形式のデータ処理:** 軽量なコード実行によるプランニングにより、フロントエンド JavaScript と表形式のデータ処理で優れたパフォーマンスを発揮します。
-- **Chatbot とペルソナの永続性:** Gemini 3.1 Flash-Lite よりも、複数ターンの指示の遵守とペルソナの一貫性が向上しています。
-- **コンピュータ使用のサポート:** エージェント UI 自動化のネイティブ ツールとしてサポートされています。
+- **Krótszy czas oczekiwania na wykonanie zadania:** największa przepustowość w rodzinie 3.5 w przypadku analizowania dużych ilości danych i wyodrębniania dokumentów.
+- **Ulepszone rozumowanie i skuteczność multimodalna:** dobra ścieżka migracji z Gemini 2.5 Flash, z wyższymi wynikami w zadaniach rozumowania, takich jak HLE (18,0% w porównaniu z 11,0%), i testach porównawczych multimodalnych, takich jak CharXIV (74,5% w porównaniu z 63,7%).
+- **Administrowanie subagentami i niezawodność narzędzi:** zwiększa niezawodność wykonywania narzędzi w przypadku wykonywania kodu, wyszukiwania i przepływów pracy MCP. Zwiększ poziom myślenia w przypadku autonomicznego planowania i złożonych zadań subagentów.
+- **Lepsze rozumienie dokumentów:** zwiększa dokładność analizowania dokumentów i wyodrębniania uporządkowanych danych. W zależności od złożoności dokumentu eksperymentuj z minimalnym i wysokim poziomem myślenia.
+- **Interaktywne kodowanie w internecie i przetwarzanie danych tabelarycznych:** dobrze radzi sobie z przetwarzaniem danych tabelarycznych i JavaScriptu po stronie klienta, planując za pomocą lekkiego wykonywania kodu.
+- **Czatbot i trwałość persony:** lepsze wykonywanie instrukcji wieloetapowych i spójność persony w porównaniu z Gemini 3.1 Flash-Lite.
+- **Obsługa korzystania z komputera:** obsługiwana jako natywne narzędzie do automatyzacji interfejsu agenta.
 
-## 適切な Flash または Flash-Lite モデルの選択
+## Wybieranie odpowiedniego modelu Flash lub Flash-Lite
 
-この表を使用して、ワークロードに適したモデルと移行パスを選択します。
+Użyj tej tabeli, aby wybrać odpowiedni model i ścieżkę migracji dla swoich zbiorów zadań.
 
-どちらのモデルでも、非推奨のサンプリング パラメータ（`temperature`、`top_p`、`top_k`）と事前入力されたモデルのターンを削除する必要があります。詳しくは、[API の変更](#api-changes-and-parameter-updates)をご覧ください。
+Oba modele wymagają usunięcia wycofanych parametrów próbkowania (`temperature`, `top_p`, `top_k`) i wstępnie wypełnionych tur modelu. Więcej informacji znajdziesz w sekcji [Zmiany w interfejsie API](#api-changes-and-parameter-updates).
 
-| モデル | 主なユースケース: | 移行先として推奨される一般提供版 |
+| Model | Główne przypadki użycia | Zalecany cel migracji |
 | --- | --- | --- |
-| **Gemini 3.6 Flash** `gemini-3.6-flash` | コード生成、空間/マルチモーダル推論、マルチステップ エージェント ワークフロー | **Gemini 3.5 Flash**、**Gemini 3 Flash（プレビュー）**、**Gemini 3.1 Pro** |
-| **Gemini 3.5 Flash-Lite**  `gemini-3.5-flash-lite` | 自律型サブエージェントの実行、大量のデータ分析とドキュメントの抽出、構造化された JSON の解析 | **Gemini 3.1 Flash-Lite** または **Gemini 2.5 Flash** |
+| **Gemini 3.6 Flash** `gemini-3.6-flash` | Generowanie kodu, wnioskowanie przestrzenne/multimodalne, wieloetapowe przepływy pracy agentów | **Gemini 3.5 Flash**, **Gemini 3 Flash (wersja testowa)** lub **Gemini 3.1 Pro** |
+| **Gemini 3.5 Flash-Lite**  `gemini-3.5-flash-lite` | Autonomiczne wykonywanie zadań przez subagentów, analiza dużych ilości danych i wyodrębnianie dokumentów, analizowanie uporządkowanych danych JSON | **Gemini 3.1 Flash-Lite** lub **Gemini 2.5 Flash** |
 
-## Antigravity エージェントを更新しました
+## Zaktualizowany agent Antigravity
 
-パフォーマンスが向上したため、Gemini 3.6 Flash が Gemini Managed Agents の [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agentn?hl=ja)を強化する新しいデフォルト モデルになりました。これは、API に新しいフィールドを設定することで変更できます。
+Ze względu na lepszą skuteczność Gemini 3.6 Flash jest teraz nowym modelem domyślnym, który obsługuje agenta [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agentn?hl=pl) w zarządzanych agentach Gemini. Możesz to zmienić, ustawiając nowe pole w interfejsie API.
 
 ### Python
 
@@ -202,18 +204,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## API の変更とパラメータの更新
+## Zmiany w interfejsie API i aktualizacje parametrów
 
-Gemini 3.6 Flash と Gemini 3.5 Flash-Lite 以降、次の API の変更がこれらのモデルと今後のすべての Gemini モデルのリリースに適用されます。
+Począwszy od modeli Gemini 3.6 Flash i Gemini 3.5 Flash-Lite, te zmiany w interfejsie API dotyczą tych modeli i wszystkich przyszłych wersji modeli Gemini.
 
-- **サンプリング パラメータのサポート終了**: `temperature`、`top_p`、`top_k` のサポートが終了しました。API はこれらのパラメータを無視し、将来のモデル世代でエラーを返します。
-- **事前入力されたモデルターンの検証**: モデルターンの事前入力はサポートされなくなりました。リクエスト内の最後の空でないターンが `model` ターンである場合、API は `400` エラーを返します。
+- **Wycofanie parametrów próbkowania**: parametry `temperature`, `top_p` i `top_k` zostały wycofane. Interfejs API ignoruje te parametry i w przyszłych generacjach modeli zwraca błąd.
+- **Weryfikacja wstępnie wypełnionych tur modelu**: wstępne wypełnianie tur modelu nie jest już obsługiwane. Jeśli ostatnia niepusta tura w żądaniu jest turą `model`, interfejs API zwraca błąd `400`.
 
-以下に、各 API 変更の詳細な説明とコードサンプルを示します。
+Poniżej znajdziesz szczegółowe wyjaśnienia i przykłady kodu dotyczące każdej zmiany w interfejsie API.
 
-### 1. サンプリング パラメータの非推奨（`temperature`、`top_p`、`top_k`）
+### 1. Wycofanie parametrów próbkowania (`temperature`, `top_p`, `top_k`)
 
-`temperature`、`top_p`、`top_k` は非推奨となり、無視されます。将来のモデル世代では、これらのパラメータを指定すると HTTP 400 エラーが返されます。**すべてのリクエストからこれらのパラメータを削除します。**
+Parametry `temperature`, `top_p` i `top_k` zostały wycofane i są ignorowane. W przyszłych generacjach modeli podanie tych parametrów spowoduje zwrócenie błędu HTTP 400. **Usuń te parametry ze wszystkich żądań.**
 
 ```
 # ⚠️ Remove these parameters (deprecated)
@@ -224,15 +226,15 @@ generation_config = {
 }
 ```
 
-決定論を改善するには、特定のユースケースの明示的なルールを使用してシステム指示を定義します。
+Aby zwiększyć determinizm, zdefiniuj instrukcję systemową z wyraźnymi regułami dotyczącymi konkretnego przypadku użycia.
 
-### 2. 事前入力されたモデルターンの検証
+### 2. Weryfikacja wstępnie wypełnionych tur modelu
 
-空でないモデルロールで終わる API リクエストは許可されず、**HTTP 400 エラー**が返されます。
+Żądania API kończące się niepustą turą roli modelu są niedozwolone i zwracają **błąd HTTP 400**.
 
-#### ⚠️ 避ける
+#### ⚠️ Unikaj
 
-以前の `generateContent` または未加工の REST ペイロードで、モデルロールのターンで終わることは禁止になりました。
+W starszych wersjach `generateContent` lub surowych ładunkach REST kończenie tury roli modelu jest teraz niedozwolone:
 
 ```
 /* ❌ DO NOT: End payload contents with a 'model' role turn */
@@ -244,9 +246,9 @@ generation_config = {
 }
 ```
 
-#### ✅ 推奨される移行
+#### ✅ Zalecana migracja
 
-アプリケーションで以前にモデルのターンを事前入力して、前文を抑制したり、JSON 形式を強制したりしていた場合は、代わりに `system_instruction` または[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を使用してください。
+Jeśli Twoja aplikacja wcześniej wstępnie wypełniała turę modelu, aby pominąć wstępy lub wymusić formatowanie JSON, użyj `system_instruction` lub [uporządkowanych danych wyjściowych](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) zamiast tego.
 
 ```
 # ✅ RECOMMENDED: Use system_instruction to specify output format
@@ -257,16 +259,18 @@ response = client.models.generate_content(
 )
 ```
 
-## 移行チェックリスト
+## Lista kontrolna migracji
+
+ 
 
 ### Gemini 3.6 Flash
 
-1. スキルをインストールします。
+1. Zainstaluj umiejętność:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. スキルを適用します。
+2. Zastosuj umiejętność:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.6 Flash
@@ -274,55 +278,55 @@ response = client.models.generate_content(
 
 ### Gemini 3.5 Flash-Lite
 
-1. スキルをインストールします。
+1. Zainstaluj umiejętność:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. スキルを適用します。
+2. Zastosuj umiejętność:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
    ```
 
-### gemini-3.6-flash に移行する
+### Migracja do gemini-3.6-flash
 
-- **モデル ID を更新:** ターゲット モデル文字列を `gemini-3.6-flash` に変更します。
-- **サポートが終了したサンプリング パラメータを削除:**
-  - 生成構成から `temperature`、`top_p`、`top_k` を削除します。
-  - `thinking_budget` は、`"medium"` または `"high"` に設定された文字列列挙型 `thinking_level` に置き換えます。
-  - `candidate_count` を削除します（Gemini 3.x ではサポートされていません）。
-- **ターン検証ルールを適用する:**
-  - 事前入力されたモデルのターンを削除します。
-  - 最後のユーザーのターンに空でないテキストが含まれていることを確認します。
-- **関数呼び出しを監査する:**
-  - すべての `FunctionResponse` オブジェクトに `call_id` と `name` が含まれていることを確認します。
-  - マルチモーダル アセットをレスポンス ペイロード内に配置します。
-  - インラインの説明は `\\n\\n` を使用してフォーマットします。
-  - ツール前のテキストに関連する `Malformed_Function_Call` エラーが表示される場合は、[ツール前のテキストの要件の回避策](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=ja#workarounds-for-pre-tool-text-requirements)をご覧ください。
-- **Gemini 3.x のベースライン要件:** SDK の更新と思考シグネチャの保持については、[Gemini 3.5 移行チェックリスト](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=ja#migration)をご覧ください。
+- **Zaktualizuj identyfikator modelu:** zmień ciąg docelowego modelu na `gemini-3.6-flash`.
+- **Usuń wycofane parametry próbkowania:**
+  - Usuń parametry `temperature`, `top_p` i `top_k` z konfiguracji generowania.
+  - Zastąp `thinking_budget` ciągiem wyliczeniowym `thinking_level` ustawionym na `"medium"` lub `"high"`.
+  - Usuń `candidate_count` (nieobsługiwany w Gemini 3.x).
+- **Wymuś reguły weryfikacji tur:**
+  - Usuń wstępnie wypełnione tury modelu.
+  - Sprawdź, czy ostatnia tura użytkownika zawiera niepusty tekst.
+- **Sprawdź wywoływanie funkcji:**
+  - Sprawdź, czy wszystkie obiekty `FunctionResponse` zawierają `call_id` i `name`.
+  - Umieść zasoby multimodalne w ładunku odpowiedzi.
+  - Sformatuj instrukcje w tekście za pomocą `\\n\\n`.
+  - Jeśli widzisz błędy `Malformed_Function_Call` związane z tekstem przed narzędziem, zobacz [Obejścia wymagań dotyczących tekstu przed narzędziem](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=pl#workarounds-for-pre-tool-text-requirements).
+- **Podstawowe wymagania Gemini 3.x:** informacje o aktualizacjach pakietu SDK i zachowaniu sygnatury myślenia znajdziesz na [liście kontrolnej migracji do Gemini 3.5](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=pl#migration).
 
-### gemini-3.5-flash-lite に移行する
+### Migracja do gemini-3.5-flash-lite
 
-- **モデル ID を更新:** ターゲット モデル文字列を `gemini-3.5-flash-lite` に変更します。
-- **思考の労力レベルを構成する:**
-  - 大量の抽出、転送、分類の場合: 最大スループットを得るために、`thinking_level` を `"minimal"`（デフォルト）のままにします。
-  - ツール呼び出し、コード実行、複数ステップの推論を行う自律型サブエージェントの場合は、`thinking_level` を `"medium"` または `"high"` に設定して、ツールの早期終了を防ぎます。
-- **非推奨のパラメータを削除し、関数呼び出しを検証する:** [3.6 Flash と同じルール](#migrate-to-gemini-3-6-flash)を適用します。
-- **Gemini 3.x のベースライン要件:** [Gemini 3.5 移行チェックリスト](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=ja#migration)を参照してください。
+- **Zaktualizuj identyfikator modelu:** zmień ciąg docelowego modelu na `gemini-3.5-flash-lite`.
+- **Skonfiguruj poziom myślenia:**
+  - W przypadku wyodrębniania, routingu lub klasyfikacji dużych ilości danych: pozostaw `thinking_level` na wartości `"minimal"` (domyślnej), aby uzyskać maksymalną przepustowość.
+  - W przypadku autonomicznych subagentów z wywołaniami narzędzi, wykonywaniem kodu lub wieloetapowym wnioskowaniem: ustaw `thinking_level` na `"medium"` lub `"high"`, aby zapobiec przedwczesnemu zakończeniu narzędzia.
+- **Usuń wycofane parametry i zweryfikuj wywoływanie funkcji:** zastosuj [te same reguły co w przypadku modelu 3.6 Flash](#migrate-to-gemini-3-6-flash).
+- **Podstawowe wymagania Gemini 3.x:** informacje znajdziesz na [liście kontrolnej migracji do Gemini 3.5](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=pl#migration).
 
-## 次のステップ
+## Dalsze kroki
 
-- [モデルの概要](https://ai.google.dev/gemini-api/docs/models?hl=ja)で API 仕様を確認します。
-- マルチ エージェントのオーケストレーションについては、[Interactions API ガイド](https://ai.google.dev/gemini-api/docs/interactions?hl=ja)をご覧ください。
-- [Google AI Studio](https://aistudio.google.com/?hl=ja) でプロンプトをテストして調整する。
+- Zapoznaj się ze specyfikacjami interfejsu API w przeglądzie modeli [Models Overview](https://ai.google.dev/gemini-api/docs/models?hl=pl).
+- Dowiedz się więcej o administrowaniu wieloma agentami w przewodniku po interfejsie [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pl).
+- Testuj i ulepszaj prompty w [Google AI Studio](https://aistudio.google.com/?hl=pl).
 
-フィードバックを送信
+Prześlij opinię
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-最終更新日 2026-07-30 UTC。
+Ostatnia aktualizacja: 2026-07-30 UTC.
 
-ご意見をお聞かせください
+Chcesz przekazać coś jeszcze?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]

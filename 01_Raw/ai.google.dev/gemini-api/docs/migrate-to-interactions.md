@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=id
-fetched_at: 2026-08-03T04:35:31.593168+00:00
-title: "Bermigrasi ke Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=zh-TW
+fetched_at: 2026-08-10T03:24:23.529510+00:00
+title: "\u9077\u79fb\u81f3 Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Bermigrasi ke Interactions API
+# 遷移至 Interactions API
 
-Panduan ini membantu Anda melakukan migrasi dari `generateContent` API ke Interactions API.
+本指南將協助您從 `generateContent` API 遷移至 Interactions API。
 
-Interactions API adalah cara kami yang paling sederhana dan terbaik untuk membangun dengan model dan agen Gemini. Meskipun `generateContent` tetap didukung sepenuhnya, sebaiknya gunakan Interactions API untuk semua pengembangan baru.
+Interactions API 是使用 Gemini 模型和代理程式建構應用程式最簡單且最佳的方式。雖然我們仍會提供 `generateContent` 的完整支援，但建議所有新開發項目都使用 Interactions API。
 
-### Mengapa harus bermigrasi?
+### 為何要遷移？
 
-Interactions API adalah cara kami yang paling sederhana dan terbaik untuk membangun dengan model dan agen Gemini:
+Interactions API 是使用 Gemini 模型和代理程式建構應用程式最簡單且最有效的方法：
 
-- **Pengelolaan histori sisi server**: Alur multi-giliran yang disederhanakan melalui `previous_interaction_id`. Server mengaktifkan status secara default (`store=true`), tetapi Anda dapat memilih perilaku tanpa status dengan menetapkan `store=false`.
-- **Langkah-langkah eksekusi yang dapat diamati**: Langkah-langkah yang diketik memudahkan proses debug alur yang kompleks dan merender UI untuk peristiwa perantara (seperti pemikiran atau widget penelusuran).
-- **Penggunaan alat dan alur kerja agen**: Dukungan native untuk penggunaan alat multi-langkah, orkestrasi, dan alur penalaran yang kompleks melalui langkah-langkah eksekusi yang diketik.
-- **Tugas latar belakang dan berjalan lama**: Mendukung operasi yang memakan waktu seperti Deep Think dan Deep Research ke proses latar belakang menggunakan `background=true`.
+- **伺服器端記錄管理**：透過 `previous_interaction_id` 簡化多輪對話流程。伺服器預設會啟用狀態 (`store=true`)，但您可以設定 `store=false`，選擇無狀態行為。
+- **可觀察的執行步驟**：輸入步驟可輕鬆偵錯複雜流程，並為中繼事件 (例如想法或搜尋小工具) 算繪 UI。
+- **工具使用和代理工作流程**：透過型別執行步驟，原生支援多步驟工具使用、自動調度管理和複雜的推論流程。
+- **長期執行的工作和背景工作**：支援使用 `background=true` 將耗時的作業 (例如 Deep Think 和 Deep Research) 卸載至背景程序。
 
-## Input/output dasar
+## 基本輸入/輸出
 
-Bagian ini menunjukkan cara memigrasikan permintaan pembuatan teks sederhana.
+本節說明如何遷移簡單的文字生成要求。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-`generateContent` API tidak memiliki status dan menampilkan respons secara langsung. Struktur respons menggabungkan output dalam daftar `candidates`, yang masing-masing berisi `content` dengan daftar `parts` yang akan diuraikan.
+`generateContent` API 為無狀態，會直接傳回回應。回應結構會將輸出內容包裝在 `candidates` 清單中，每個 `candidates` 都包含 `content`，其中含有要剖析的 `parts` 清單。
 
 ### Python
 
@@ -105,9 +105,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-Interactions API menampilkan resource interaksi yang disimpan dengan linimasa `steps`. Meskipun Anda dapat memeriksa array `steps` secara manual untuk menemukan peristiwa perantara, Google GenAI SDK menyediakan properti praktis langsung pada objek `Interaction` yang ditampilkan untuk mengakses output akhir.
+Interactions API 會傳回儲存的互動資源，並附上 `steps` 時間軸。雖然您可以手動檢查 `steps` 陣列來尋找中繼事件，但 Google GenAI SDK 會在傳回的 `Interaction` 物件上直接提供便利屬性，方便您存取最終輸出內容。
 
-Properti praktis yang paling umum adalah **`.output_text`** (String), yang secara otomatis mengekstrak dan menggabungkan blok `TextContent` berurutan di akhir respons model. Meskipun berfungsi dengan baik untuk respons sederhana, properti ini tidak menyertakan blok teks sebelumnya yang dipisahkan oleh konten non-teks (seperti pemikiran, gambar, audio, atau panggilan alat). Untuk respons multimodal yang kompleks atau diselingi, Anda harus melakukan iterasi secara manual atas `steps`.
+最常見的便利性屬性是 **`.output_text`** (字串)，可自動擷取並合併模型回覆結尾的連續 `TextContent` 區塊。雖然這項功能非常適合簡單的回覆，但不會納入以非文字內容 (例如想法、圖片、音訊或工具呼叫) 分隔的先前文字區塊。如要處理複雜或交錯的多模態回應，請改為手動疊代 `steps`。
 
 ### Python
 
@@ -179,17 +179,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Percakapan multi-giliran
+## 多轉折對話
 
-Interactions API menyimpan interaksi secara default, sehingga memungkinkan pengelolaan status sisi server untuk percakapan multi-giliran.
+Interactions API 預設會儲存互動內容，方便您管理多輪對話的伺服器端狀態。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-Di `generateContent`, Anda harus mengelola histori percakapan secara manual menggunakan array `contents` atau helper chat sisi klien.
+在 `generateContent` 中，您必須使用 `contents` 陣列或用戶端即時通訊輔助程式，手動管理對話記錄。
 
 ### Python
 
-**Menggunakan helper chat (direkomendasikan)**
+**使用即時通訊小幫手 (建議做法)**
 
 ```
 from google import genai
@@ -204,7 +204,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**Mengelola histori secara manual**
+**手動管理記錄**
 
 ```
 from google import genai
@@ -232,7 +232,7 @@ print(response.text)
 
 ### JavaScript
 
-**Menggunakan helper chat (direkomendasikan)**
+**使用即時通訊小幫手 (建議做法)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -247,7 +247,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**Mengelola histori secara manual**
+**手動管理記錄**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -299,9 +299,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Interactions API mengelola status di server. Anda melanjutkan percakapan dengan mereferensikan `previous_interaction_id`.
+Interactions API 會管理伺服器上的狀態。如要繼續對話，請參照 `previous_interaction_id`。
 
 ### Python
 
@@ -394,13 +394,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Input multimodal
+## 多模態輸入內容
 
-Kedua API mendukung input multimodal (teks, gambar, video, dll.).
+這兩個 API 都支援多模態輸入內容 (文字、圖片、影片等)。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-Di `generateContent`, Anda meneruskan daftar `parts` dalam array `contents`. Respons menampilkan output di `parts` kandidat pertama.
+在 `generateContent` 中，您會在 `contents` 陣列中傳遞 `parts` 清單。回應會傳回第一個候選人的 `parts` 輸出內容。
 
 ### Python
 
@@ -488,9 +488,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Di Interactions API, Anda meneruskan array ke kolom `input`. Anda mengambil konten output dengan menemukan langkah `model_output` di linimasa.
+在 Interactions API 中，您會將陣列傳遞至 `input` 欄位。在時間軸中找到 `model_output` 步驟，即可擷取輸出內容。
 
 ### Python
 
@@ -600,13 +600,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Output terstruktur
+## 結構化輸出內容
 
-Agar model menampilkan JSON yang cocok dengan skema tertentu, konfigurasi format respons.
+如要讓模型傳回符合特定結構定義的 JSON，請設定回覆格式。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-Di `generateContent`, Anda mengonfigurasi format output menggunakan kolom `response_mime_type` dan `response_schema` yang berada di dalam objek `config` (atau `generationConfig`).
+在 `generateContent` 中，您可以使用 `config` (或 `generationConfig`) 物件內嵌的 `response_mime_type` 和 `response_schema` 欄位設定輸出格式。
 
 ### Python
 
@@ -706,9 +706,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Di Interactions API, kontrol format output dipindahkan ke array `response_format` tingkat atas.
+在 Interactions API 中，輸出格式控制項會移至頂層 `response_format` 陣列。
 
 ### Python
 
@@ -820,13 +820,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Pembuatan multimodal
+## 多模態生成
 
-Saat membuat konten dalam modalitas selain teks (seperti gambar atau audio), perbedaan utamanya adalah cara respons menyusun media yang dibuat.
+生成文字以外的內容 (例如圖片或音訊) 時，主要差異在於回覆如何建構生成的媒體。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-Di `generateContent`, respons menampilkan media yang dibuat langsung di `parts` kandidat, biasanya sebagai data base64 di `inlineData`.
+在 `generateContent` 中，回應會直接在候選人的 `parts` 中傳回生成的媒體，通常是 `inlineData` 中的 base64 資料。
 
 ```
 # Response structure concept
@@ -851,9 +851,9 @@ Di `generateContent`, respons menampilkan media yang dibuat langsung di `parts` 
 }
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Di Interactions API, media yang dibuat muncul sebagai item terpisah dalam array `content` dari langkah `model_output` di linimasa, sehingga mempertahankan alur kronologis interaksi.
+在 Interactions API 中，產生的媒體會顯示為時間軸中 `model_output` 步驟的 `content` 陣列內的不同項目，維持互動的時間順序。
 
 ```
 # Response structure concept
@@ -879,15 +879,15 @@ Di Interactions API, media yang dibuat muncul sebagai item terpisah dalam array 
 }
 ```
 
-Hal ini membuat penguraian respons konsisten dengan cara input dan output teks ditangani—semuanya adalah langkah dalam linimasa.
+這樣一來，回應剖析作業就會與輸入內容和文字輸出內容的處理方式保持一致，因為所有內容都是時間軸中的步驟。
 
-## Alat sisi server
+## 伺服器端工具
 
-Gemini mendukung alat sisi server bawaan seperti grounding Google Penelusuran. Perbedaan utamanya adalah cara respons merepresentasikan eksekusi alat.
+Gemini 支援內建的伺服器端工具，例如 Google 搜尋基礎。主要差異在於回應如何呈現工具執行作業。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-Di `generateContent`, alat sisi server sebagian besar bersifat buram. Anda mengaktifkan alat dan mendapatkan jawaban akhir dengan objek `groundingMetadata` terpisah. Yang terpenting, kutipan tidak sebaris; `groundingSupports` menggunakan indeks karakter untuk memetakan segmen teks kembali ke sumber web di `groundingChunks`.
+在 `generateContent` 中，伺服器端工具大多是不透明的。啟用工具並透過另一個 `groundingMetadata` 物件取得最終答案。重要事項：引文並非內嵌，請使用字元索引將文字片段對應回 `groundingChunks` 中的網路來源。`groundingSupports`
 
 ### Python
 
@@ -995,11 +995,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Di Interactions API, alat sisi server memberikan transparansi linimasa penuh. API mencatat panggilan dan hasil sebagai `steps` eksekusi yang berbeda (`google_search_call` dan `google_search_result`), sehingga menampilkan data yang diambil model secara persis.
+在 Interactions API 中，伺服器端工具可提供完整的時間軸透明度。API 會將呼叫和結果記錄為不同的執行項目 `steps` (`google_search_call` 和 `google_search_result`)，準確顯示模型擷取的資料。
 
-Selain itu, API menampilkan kutipan **sebaris**. Daripada memetakan indeks dari objek metadata terpisah, item teks dalam langkah `model_output` berisi array `annotations` sendiri yang ditautkan langsung ke sumber.
+此外，API 會**內嵌**傳回引文。`model_output` 步驟中的文字項目會包含自己的 `annotations` 陣列，直接連結至來源，不必從獨立的中繼資料物件對應索引。
 
 ### Python
 
@@ -1110,13 +1110,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Panggilan fungsi
+## 函式呼叫
 
-Struktur panggilan dan hasil fungsi juga telah diubah agar sesuai dengan skema Langkah.
+函式呼叫和結果的結構也已變更，以符合步驟結構定義。
 
-### Sebelum (`generateContent`)
+### 之前 (`generateContent`)
 
-Di `generateContent`, respons menampilkan panggilan fungsi dalam kandidat.\* {Python}
+在 `generateContent` 中，回應會傳回候選人中的函式呼叫。\* {Python}
 
 ```
 ```python
@@ -1250,9 +1250,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Panggilan dan hasil alat kini merupakan langkah terpisah dalam linimasa.
+時間軸現在會分別顯示工具呼叫和結果。
 
 ### Python
 
@@ -1437,15 +1437,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Streaming
+## 串流
 
-Perbedaan utama dalam streaming adalah Interactions API menggunakan endpoint yang sama dengan `"stream": true` di isi permintaan, sedangkan `generateContent` API mengharuskan panggilan endpoint khusus (`:streamGenerateContent`).
+串流的重大差異在於，Interactions API 使用相同的端點，且要求主體中含有 `"stream": true`，而 `generateContent` API 則需要呼叫專屬端點 (`:streamGenerateContent`)。
 
-Selain itu, peristiwa streaming kini menggunakan jenis khusus untuk memantau siklus proses interaksi dan melacak langkah-langkah eksekusi di sepanjang linimasa.
+此外，串流事件現在會使用專門類型，監控互動生命週期，並追蹤時間軸上的執行步驟。
 
-### Sebelum (`generateContentStream`)
+### 之前 (`generateContentStream`)
 
-Dengan `generateContent`, Anda menggunakan aliran potongan respons.
+使用 `generateContent` 時，您會接收一連串的回覆區塊。
 
 ### Python
 
@@ -1503,9 +1503,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### Setelah (Interactions API)
+### 之後 (Interactions API)
 
-Di Interactions API, streaming menggunakan Server-Sent Events (SSE) dan jenis delta khusus untuk merepresentasikan langkah-langkah eksekusi saat terjadi.
+在 Interactions API 中，串流會使用伺服器傳送事件 (SSE) 和特殊差異類型，代表執行步驟的發生時間。
 
 ### Python
 
@@ -1554,7 +1554,7 @@ for await (const event of stream) {
 
 ### REST
 
-# Contoh output aliran SSE
+# Example SSE stream output
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1564,24 +1564,24 @@ data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
 event: step.delta
 data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "User wants an explanation."}}
 event: step.stop
-data: {"type": "step.stop", "index": 0, "status": "done"}}
+data: {"type": "step.stop", "index": 0, "status": "done"}
 event: step.start
 data: {"type": "step.start", "index": 1, "step": {"type": "model\_output"}}
 event: step.delta
 data: {"type": "step.delta", "index": 1, "delta": {"type": "text", "text": "Hello"}}
 event: step.stop
-data: {"type": "step.stop", "index": 1, "status": "done"}}
+data: {"type": "step.stop", "index": 1, "status": "done"}
 event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### Alat streaming dan panggilan fungsi
+### 串流工具和函式呼叫
 
-Cara alat berperilaku dalam aliran telah berubah secara signifikan dari `generateContent` untuk memberikan kontrol dan visibilitas yang lebih terperinci.
+工具在串流中的運作方式已大幅改變，從 `generateContent` 轉移至提供更精細的控制和瀏覽權限。
 
-#### Sebelum (`generateContent`)
+#### 之前 (`generateContent`)
 
-Dengan `generateContent`, panggilan fungsi streaming tiba lengkap dalam satu potongan. Anda tidak dapat melihat argumen yang dibuat secara real-time, sehingga pengendali hanya memeriksa objek `functionCall` yang lengkap.
+使用 `generateContent` 時，串流函式呼叫會以單一區塊的形式完整傳送。您無法即時查看產生的引數，因此處理常式只會檢查完整的 `functionCall` 物件。
 
 ### Python
 
@@ -1645,9 +1645,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### Setelah (Interactions API)
+#### 之後 (Interactions API)
 
-Interactions API melakukan streaming argumen panggilan fungsi karakter demi karakter sebagai peristiwa `arguments`. Seluruh siklus proses alat — pemikiran, panggilan, hasil, dan output — berjalan sebagai serangkaian langkah yang berbeda.
+Interactions API 會以 `arguments` 事件的形式，逐一串流傳輸函式呼叫引數的字元。工具的整個生命週期 (想法、呼叫、結果和輸出) 會以一系列不同的步驟呈現。
 
 ### Python
 
@@ -1792,12 +1792,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-Kirim masukan
+提供意見
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+上次更新時間：2026-07-30 (世界標準時間)。
 
-Ada masukan untuk kami?
+想進一步說明嗎？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

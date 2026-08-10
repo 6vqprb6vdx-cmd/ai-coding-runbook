@@ -1,204 +1,210 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=es-419
-fetched_at: 2026-08-03T04:36:31.213365+00:00
-title: "Estrategias de dise\u00f1o de instrucciones \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-CN
+fetched_at: 2026-08-10T03:26:08.381960+00:00
+title: "\u63d0\u793a\u8bbe\u8ba1\u7b56\u7565 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Enviar comentarios
+发送反馈
 
-# Estrategias de diseño de instrucciones
+# 提示设计策略
 
-El *diseño de instrucciones* es el proceso de crear instrucciones o solicitudes de lenguaje natural que producen respuestas precisas y de alta calidad de un modelo de lenguaje.
+提示设计是指创建提示（即自然语言请求）的过程，目的是让语言模型生成准确、优质的回答。
 
-En esta página, se presentan conceptos básicos, estrategias y prácticas recomendadas para comenzar a diseñar instrucciones y aprovechar al máximo los modelos de IA de Gemini.
+本页介绍了基本概念、策略和最佳实践，可帮助您开始设计提示，以便充分利用 Gemini AI 模型。
 
-## Guías de instrucciones específicas para temas
+## 针对特定主题的提示指南
 
-¿Buscas estrategias de instrucciones más específicas? Consulta nuestras otras guías para crear instrucciones sobre los siguientes temas:
+想要了解更具体的提示策略？请查看我们的其他提示指南，了解以下内容：
 
-- [Cómo generar instrucciones con archivos multimedia](https://ai.google.dev/gemini-api/docs/files?hl=es-419#prompt-guide)
-- Escribir instrucciones para generar imágenes con [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=es-419#imagen-prompt-guide) y [Gemini Native Image Generation](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419#prompt-guide)
-- [Instrucciones para la generación de videos](https://ai.google.dev/gemini-api/docs/video?hl=es-419#prompt-guide)
+- [使用媒体文件进行提示](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn#prompt-guide)
+- 使用 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-cn#imagen-prompt-guide) 和 [Gemini 原生图片生成功能](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn#prompt-guide) 进行图片生成提示
+- [视频生成提示](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn#prompt-guide)
 
-Puedes encontrar otras muestras de instrucciones en la [galería de instrucciones](https://ai.google.dev/gemini-api/prompts?hl=es-419), diseñada para mostrar de forma interactiva muchos de los conceptos que se comparten en esta guía.
+您可以在[提示库](https://ai.google.dev/gemini-api/prompts?hl=zh-cn)
+中找到其他示例提示，这些提示旨在以互动方式展示本指南中分享的许多概念。
 
-## Instrucciones claras y específicas
+## 清晰具体的指令
 
-Una forma eficaz y eficiente de personalizar el comportamiento del modelo es proporcionarle instrucciones claras y específicas. Las instrucciones pueden tener la forma de una pregunta, tareas paso a paso o ser tan complejas como mapear la experiencia y la mentalidad de un usuario.
+通过向模型提供清晰具体的指令，可以有效且高效地自定义模型行为。指令可以采用问题的形式、分步任务的形式，也可以很复杂，例如反映用户的体验和思维模式。
 
-### Entrada
+### 输入
 
-La entrada es el texto obligatorio en la instrucción al que deseas que el modelo proporcione una respuesta. Las entradas pueden ser una pregunta que responda el modelo (entrada de pregunta), una tarea que realice el modelo (entrada de tarea), una entidad en la que opera el modelo (entrada de entidad) o una entrada parcial que completa el modelo o continúa (entrada de finalización).
+输入是您希望模型为其提供回答的提示中的必需文本。输入可以是模型回答的问题（问题输入）、模型执行的任务（任务输入）、模型操作的实体（实体输入），或模型完成或继续的部分输入（补全输入）。
 
-| **Tipo de entrada** | **Instrucción** | **Resultados generados** |
+| **输入类型** | **提示** | **生成的输出** |
 | --- | --- | --- |
-| Pregunta | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
-| Tarea | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
-| Entidad | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
+| 问题 | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
+| 任务 | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
+| 实体 | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
 
-#### Sugerencias de entrada parciales
+#### 部分输入补全
 
-Los modelos generativos de lenguaje funcionan como una herramienta de autocompletado avanzada. Cuando proporcionas contenido parcial, el modelo puede proporcionar el resto del contenido o lo que cree que es una continuación de ese contenido como respuesta. Cuando lo haces, si incluyes ejemplos o contextos, el modelo puede tener en cuenta esos ejemplos o el contexto.
+生成式语言模型的工作方式类似于高级自动补全工具。当您提供部分内容时，模型可以提供剩余的内容或者它认为是该内容的延续内容来作为回答。如果您添加了任何示例或上下文，模型可以参考这些示例或上下文。
 
-En el siguiente ejemplo, se proporciona un mensaje con una instrucción y una entrada de entidad:
-
-|  |
-| --- |
-| **Prompt:**    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Respuesta:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
-
-Si bien el modelo hizo lo que se le indicó, escribir las instrucciones en lenguaje natural a veces puede ser difícil y deja mucho a la interpretación del modelo.
-Por ejemplo, el menú de un restaurante puede contener muchos elementos. Para reducir el tamaño de la respuesta JSON, es probable que quieras omitir los elementos que no se ordenaron. En este caso, puedes dar un ejemplo y un prefijo de respuesta y dejar que el modelo lo complete:
+以下示例提供了包含指令和实体输入的提示：
 
 |  |
 | --- |
-| **Prompt:**    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Respuesta:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
+| **提示**：    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **回答**：    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
 
-Observa cómo se excluyó "hamburguesa con queso" del resultado porque no formaba parte del pedido.
-
-Si bien puedes especificar el formato de objetos de respuesta JSON simples con instrucciones, te recomendamos que uses la función de [salida estructurada](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) de la API de Gemini cuando especifiques un esquema JSON más complejo para la respuesta.
-
-### Limitaciones
-
-Especifica cualquier restricción para leer el prompt o generar una respuesta. Puedes indicarle al modelo qué hacer y qué no hacer. Por ejemplo, puedes especificar una restricción en la instrucción sobre la extensión que quieres que tenga un resumen:
+虽然模型按照提示提供了回答，但以自然语言编写指令有时可能并不容易，并且模型需要解释许多内容。
+例如，餐馆菜单可能包含许多菜品。为了减小 JSON 回答的大小，建议您省略没有点的菜品。在这种情况下，您可以提供一个示例和回答前缀，让模型来补全它：
 
 |  |
 | --- |
-| **Prompt:**     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Respuesta:**     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
+| **提示**：    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **回答**：    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
 
-### Formato de respuesta
+可以看到，输出中排除了“芝士汉堡”，因为点餐中没有芝士汉堡。
 
-Puedes proporcionar instrucciones que especifiquen el formato de la respuesta. Por ejemplo, puedes solicitar que la respuesta tenga el formato de una tabla, una lista con viñetas, una presentación breve, palabras clave, una oración o un párrafo. La siguiente instrucción del sistema le indica al modelo que sea más conversacional en su respuesta:
+虽然您可以使用提示指定简单 JSON 回答对象的格式，
+我们建议您在为回答指定
+更复杂的 JSON 架构时使用 Gemini API 的
+[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)功能。
 
-|  |
-| --- |
-| **Instrucción del sistema**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **Instrucción**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Respuesta:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
+### 限制条件
 
-#### Cómo dar formato a las respuestas con la estrategia de finalización
-
-La [estrategia de finalización](#completion) también puede ayudar a dar formato a la respuesta.
-En el siguiente ejemplo, se solicita al modelo crear un esquema de ensayo:
+指定有关读取提示或生成回答的任何限制条件。您可以告诉模型要做什么和不应该做什么。例如，您可以在提示中指定一个限制条件，以限制摘要长度：
 
 |  |
 | --- |
-| **Prompt:**    ``` Create an outline for an essay about hummingbirds. ```  **Respuesta:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
+| **提示**：     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **回答**：     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
 
-El mensaje no especificó el formato del esquema, y el modelo eligió un formato para ti. Para que el modelo muestre un esquema en un formato específico, puedes agregar texto que represente el inicio del esquema y dejar que el modelo lo complete según el patrón que iniciaste.
+### 回答格式
 
-|  |
-| --- |
-| **Prompt:**    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Respuesta:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
-
-## Comparación entre los mensajes de toma de cero y los de tomas individuales
-
-Puedes incluir ejemplos en la instrucción que muestren cómo se ve el modelo. El modelo intenta identificar los patrones y las relaciones de los ejemplos y los aplica cuando se genera una respuesta. Las instrucciones que contienen algunos ejemplos se denominan instrucciones *con ejemplos limitados*, mientras que las instrucciones que no proporcionan ejemplos se denominan instrucciones *sin ejemplos*. Por lo general, se usan pocas instrucciones con ejemplos limitados para regular el formato, la frase, el alcance o el patrón general de las respuestas del modelo. Usa ejemplos específicos y variados para ayudar al modelo a reducir su enfoque y generar resultados más precisos.
-
-Recomendamos que incluyas siempre ejemplos con pocos intentos en tus prompts. Es probable que las instrucciones sin ejemplos de pocas tomas sean menos eficaces. De hecho, puedes quitar instrucciones de tu instrucción si los ejemplos son lo suficientemente claros como para mostrar la tarea en cuestión.
-
-La siguiente instrucción sin ejemplos le pide al modelo que elija la mejor explicación.
+您可以提供指定回答格式的说明。例如，您可以要求将回答格式设置为表格、项目符号列表、电梯间推销、关键字、句子或段落。以下系统指令指示模型在回答时采用更具对话性的风格：
 
 |  |
 | --- |
-| **Prompt:**    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Respuesta:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
+| **系统指令**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **提示**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **回答**：    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
 
-Si tu caso de uso requiere que el modelo produzca respuestas concisas, puedes incluir ejemplos en la instrucción que den preferencia a respuestas concisas.
+#### 使用补全策略设置回答的格式
 
-En la siguiente instrucción, se proporcionan dos ejemplos que muestran una preferencia por las explicaciones más cortas. En la respuesta, puedes ver que los ejemplos guiaron al modelo para elegir la explicación más corta (`Explanation2`) en lugar de la explicación más larga (`Explanation1`) como lo hizo antes.
-
-|  |
-| --- |
-| **Prompt:**    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Respuesta:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
-
-### Cantidad óptima de ejemplos
-
-Los modelos como Gemini a menudo pueden recoger patrones con algunos ejemplos, aunque es posible que debas experimentar con la cantidad de ejemplos que proporcionas en la instrucción para obtener los mejores resultados. Al mismo tiempo, si incluyes demasiados ejemplos, el modelo puede comenzar a [sobreajustar](https://developers.google.com/machine-learning/glossary?hl=es-419#overfitting) la respuesta a los ejemplos.
-
-### Formato coherente
-
-Asegúrate de que la estructura y el formato de los ejemplos con pocos intentos sean los mismos para evitar respuestas con formatos no deseados. Uno de los objetivos principales de agregar ejemplos de pocas tomas en los prompts es mostrar al modelo el formato de respuesta. Por lo tanto, es esencial garantizar un formato coherente en todos los ejemplos, especialmente presta atención a las etiquetas XML, los espacios en blanco, los saltos de línea y los divisores de ejemplos.
-
-## Agrega contexto
-
-Puedes incluir instrucciones e información en una instrucción que el modelo necesita para resolver un problema, en lugar de suponer que el modelo tiene toda la información requerida. Esta información contextual ayuda al modelo a comprender las restricciones y los detalles de lo que le pides que haga.
-
-En el siguiente ejemplo, se le pide al modelo que proporcione orientación para solucionar problemas de un router:
+[补全策略](#completion)也有助于设置回答的格式。
+以下示例提示模型创建论文大纲：
 
 |  |
 | --- |
-| **Prompt:**    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Respuesta:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+| **提示**：    ``` Create an outline for an essay about hummingbirds. ```  **回答**：    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
 
-La respuesta parece información de solución de problemas genérica que no es específica del router ni del estado de las luces indicadoras LED.
-
-Para personalizar la respuesta del router específico, puedes agregar a la instrucción la guía de
-solución de problemas del router como contexto para que este haga referencia cuando se proporciona una respuesta.
+提示没有指定大纲的格式，模型为您选择了格式。如需使模型以特定格式返回大纲，您可以添加表示大纲开头的文本，并让模型根据您起头的模式补全大纲。
 
 |  |
 | --- |
-| **Prompt:**    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Respuesta:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+| **提示**：    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **回答**：    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
 
-## Desglosa los prompts en componentes
+## 零样本提示与少样本提示
 
-Para los casos de uso que requieren instrucciones complejas, puedes ayudar al modelo a administrar esta complejidad dividiendo las instrucciones en componentes más simples.
+您可以在提示中添加示例，以向模型示范想要的结果。模型会尝试识别示例中的模式和关系，并在生成回答时应用它们。包含少量
+示例的提示称为*少样本*提示，而不提供
+示例的提示称为*零样本*提示。少样本提示通常用于规定模型回答的格式、措辞、范围界定或一般模式。使用具体而多样的示例来帮助模型缩小其重点并生成更准确的结果。
 
-1. **Desglosa las instrucciones:** En lugar de tener muchas instrucciones en un solo mensaje, crea un mensaje por instrucción. Puedes elegir qué mensaje procesar según la entrada del usuario.
-2. **Encadena instrucciones:** Para tareas complejas que implican varios pasos secuenciales, haz que cada paso sea una instrucción y encadena las instrucciones en una secuencia. En esta cadena secuencial de instrucciones, el resultado de una instrucción de la secuencia se convierte en la entrada de la siguiente instrucción. El resultado del último prompt de la secuencia es el resultado final.
-3. **Agregar respuestas:** La agregación ocurre cuando deseas realizar diferentes tareas paralelas en diferentes partes de los datos y agregar los resultados para producir el resultado final. Por ejemplo, puedes indicarle al modelo que realice una operación en la primera parte de los datos, que realice otra operación en el resto de los datos y que agregue los resultados.
+我们建议始终在提示中包含少样本示例。不含少样本示例的提示可能效果不大。事实上，如果您的示例足够清晰地显示当前任务，则您可以从提示中移除指令。
 
-## Experimenta con los parámetros del modelo
+以下零样本提示要求模型选择最佳解释。
 
-Cada llamada que envías a un modelo incluye valores de parámetros que controlan cómo el modelo genera una respuesta. El modelo puede generar resultados diferentes para los valores de parámetros diferentes. Experimenta con diferentes valores de parámetros a fin de obtener los mejores valores para la tarea. Los parámetros disponibles para
-diferentes modelos pueden variar. Los más comunes son los siguientes:
+|  |
+| --- |
+| **提示**：    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **回答**：    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
 
-1. **Max output tokens:** Especifica la cantidad máxima de tokens que se pueden generar en la respuesta. Un token tiene aproximadamente cuatro caracteres. 100 tokens corresponden a aproximadamente 60 a 80 palabras.
-2. **Temperatura:** La temperatura controla el grado de aleatorización en la selección de tokens. La temperatura se usa para el muestreo durante la generación de respuesta, que se produce cuando se aplican `topP` y `topK`. Las temperaturas más bajas son buenas para las instrucciones que requieren una respuesta más determinística o menos abierta, mientras que las temperaturas más altas pueden generar resultados más diversos o creativos. Una temperatura de 0 es determinística, lo que significa que siempre se elige la respuesta de mayor probabilidad.
-3. **`topK`:** El parámetro `topK` cambia la forma en que el modelo selecciona los tokens para la salida. Un `topK` de 1 significa que el token seleccionado es el más probable entre todos los tokens en el vocabulario del modelo (también llamado decodificación codiciosa), mientras que un `topK` de 3 significa que el siguiente token se selecciona de los 3 más probables usando la temperatura. Para cada paso de selección de tokens, se realiza un muestreo de los tokens `topK` con las probabilidades más altas. Luego, los tokens se filtran según `topP` con el token final seleccionado a través del muestreo de temperatura.
-4. **`topP`:** El parámetro `topP` cambia la forma en que el modelo selecciona tokens para la salida. Los tokens se seleccionan de mayor a menor probabilidad hasta que la suma de sus probabilidades sea igual al valor de `topP`. Por ejemplo, si los tokens A, B y C tienen una probabilidad de 0.3, 0.2 y 0.1, y el valor de `topP` es 0.5, el modelo elegirá A o B como el siguiente token usando la temperatura y excluirá a C como candidato. El valor predeterminado de `topP` es 0.95.
-5. **`stop_sequences`:** Establece una secuencia de detención para indicarle al modelo que deje de generar contenido. Una secuencia de detención puede ser cualquier secuencia de caracteres. Intenta evitar el uso de una secuencia de caracteres que pueda aparecer en el contenido generado.
+如果您的用例要求模型生成简洁的回答，您可以在提示中添加偏好简洁回答的示例。
 
-## Estrategias de iteración de mensajes
+以下提示提供了两个偏好较短解释的示例。在回答中，您可以看到这些示例引导模型选择较短的解释（`Explanation2`），而不是像之前那样较长的解释（`Explanation1`）。
 
-A veces, el diseño de instrucciones puede requerir algunas iteraciones antes de que obtengas de forma coherente la respuesta que buscas. En esta sección, se proporciona orientación sobre algunos aspectos que puedes probar cuando se itera sobre las instrucciones:
+|  |
+| --- |
+| **提示**：    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **回答**：    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
 
-1. **Usa diferentes frases:** El uso de diferentes palabras o frases en tus instrucciones a menudo produce respuestas diferentes del modelo, aunque todas signifiquen lo mismo. Si no obtienes los resultados esperados de tu instrucción, intenta reformularla.
+### 最佳示例数量
+
+Gemini 等模型通常可以通过少量示例来学习模式，但您可能需要进行多次实验，以找到可产生最佳结果的提示示例数量。但是，如果您添加太多示例，
+模型的回答可能会与示例[过拟合](https://developers.google.com/machine-learning/glossary?hl=zh-cn#overfitting)
+。
+
+### 采用风格一致的内容形式
+
+确保少样本示例的结构和格式相同，以避免回答具有不需要的格式。在提示中添加少样本示例的主要目标之一是向模型展示回答格式。因此，必须确保在所有示例中使用一致的格式，尤其是注意 XML 标记、空格、换行符和示例分隔符。
+
+## 添加上下文
+
+您可以在提示中添加模型解决问题所需的指令和信息，而不是假设模型具备所有必要信息。这些上下文信息可帮助模型了解您要求其执行的操作的限制和详细信息。
+
+以下示例要求模型提供路由器的问题排查指导：
+
+|  |
+| --- |
+| **提示**：    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **回答**：    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+
+这个回答看起来是通用的问题排查信息，并非特定于路由器或 LED 指示灯的状态。
+
+如需针对特定路由器自定义回答，您可以在提示中添加该路由器的问题排查指南作为上下文，供模型在回答时参考。
+
+|  |
+| --- |
+| **提示**：    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **回答**：    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+
+## 将提示分解为多个组成部分
+
+对于需要复杂提示的用例，您可以将内容细分为更简单的组成部分，以帮助模型管理这种复杂情况。
+
+1. **分解指令**： 不要在一个提示中包含多条指令，而要为每条指令创建一个提示。您可以根据用户的输入选择要处理的提示。
+2. **串联提示**： 对于涉及多个连续步骤的复杂任务，请将每个步骤设为一个提示，并将这些提示按顺序串联在一起。在这一连串的提示中，序列中一个提示的输出将成为下一个提示的输入。序列中最后一个提示的输出将是最终输出。
+3. **汇总回答**： 汇总是指对数据的不同部分执行不同的并行任务，并汇总结果以生成最终输出。例如，您可以指示模型对数据的第一部分执行一项操作，对其余数据执行另一项操作并汇总结果。
+
+## 对模型参数进行实验
+
+您向模型发送的每次调用都包含控制模型如何生成回答的参数值。对于不同的参数值，模型会生成不同的结果。因此请尝试不同的参数值，以获得任务的最佳值。不同模型的可用参数可能有所不同。最常见的参数如下：
+
+1. **输出词元数上限**： 指定回答中可生成的词元数量上限。一个词元约为 4 个字符。100 个词元对应大约 60-80 个单词。
+2. **温度**： 温度可以控制词元选择的随机性。温度在生成回答期间用于采样，在应用 `topP` 和 `topK` 时会生成回答。较低的温度有利于需要更具确定性或更少开放性回答的提示，而较高的温度可以带来更具多样性或创造性的结果。温度为 0 表示确定性，即始终选择概率最高的回答。
+3. **`topK`**： `topK` 参数会更改模型选择输出词元的方式。如果 `topK` 设为 1，表示所选词元是模型词汇表的所有词元中概率最高的词元（也称为贪心解码）。如果 `topK` 设为 3，则表示系统将从 3 个概率最高的词元（通过温度确定）中选择下一个词元。在每个词元选择步骤中，系统都会对概率最高的 `topK` 个词元进行采样。然后，系统会根据 `topP` 进一步过滤词元，并使用温度采样选择最终的词元。
+4. **`topP`**： `topP` 参数会更改模型选择输出词元的方式。系统会按照概率从最高到最低的顺序选择词元，直到所选词元的概率总和等于 `topP` 的值。例如，如果词元 A、B 和 C 的概率分别为 0.3、0.2 和 0.1，并且 `topP` 的值为 0.5，则模型将选择 A 或 B 作为下一个词元（通过温度确定），并会排除 C 作为候选词元。`topP` 的默认值为 0.95。
+5. **`stop_sequences`**： 设置停止序列，以指示模型停止生成内容。停止序列可以是任何字符序列。请尽量避免使用可能会出现在生成内容中的字符序列。
+
+## 提示迭代策略
+
+提示设计有时可能需要进行几次迭代，然后才能稳定获得所需的回答。本部分提供了有关在迭代提示时可以尝试的做法的指导：
+
+1. **使用不同的措辞**： 即使含义相同，在提示中使用不同的字词或措辞通常也会使模型生成不同的回答。如果您的提示无法产生预期结果，请尝试重新措辞。
 
    |  |
    | --- |
    | ``` Version 1: How do I bake a pie?  Version 2: Suggest a recipe for a pie.  Version 3: What's a good pie recipe? ``` |
-2. **Cambia a una tarea análoga:** Si no puedes hacer que el modelo siga tus instrucciones para una tarea, intenta darle instrucciones para una tarea análoga que logre el mismo resultado.
+2. **切换到类似的任务**： 如果您无法让模型遵循您的任务指令，请尝试为其提供可实现相同结果的类似任务的指令。
 
-   Este mensaje le indica al modelo que clasifique un libro usando categorías predefinidas:
-
-   |  |
-   | --- |
-   | **Prompt:**    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Respuesta:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
-
-   La respuesta es correcta, pero el modelo no se mantiene dentro de los límites de las opciones. También puedes modelar para que solo responda con una de las opciones, en lugar de hacerlo en una oración completa. En este caso, puedes reformular las instrucciones como una pregunta de opción múltiple y pedir al modelo que elija una opción.
+   此提示指示模型使用预定义的类别对一本书进行分类：
 
    |  |
    | --- |
-   | **Prompt:**    ``` Multiple choice problem: Which of the following options describes the book The Odyssey? Options: ``` |
+   | **提示**：    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **回答**：    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
+
+   回答正确，但模型超出了选项的范围。您还希望模型仅使用其中一个选项（而不是完整的句子）来回答。在这种情况下，您可以将指令改为单选题，并要求模型选择一个选项。
+
+   |  |
+   | --- |
+   | **提示**：    ``` Multiple choice problem: Which of the following options describes the book The Odyssey? Options: ``` |
 
    - thriller
    - sci-fi
    - mythology
    - biography
-     **Respuesta:**
+     **回答**：
 
      ```
      The correct answer is mythology.
      ```
 
      (gemini-2.5-flash)
-   - **Cambia el orden del contenido de la instrucción:** A veces, el orden del contenido en la instrucción puede afectar la respuesta. Intenta cambiar el orden del contenido y observa cómo eso afecta la respuesta.
+   - **更改提示内容的顺序**： 提示中内容的顺序有时会影响回答。请尝试更改内容顺序，看看对回答有何影响。
 
      ```
      Version 1:
@@ -217,51 +223,57 @@ A veces, el diseño de instrucciones puede requerir algunas iteraciones antes de
      [context]
      ```
 
-## Respuestas de resguardo
+## 后备回答
 
-Una respuesta de resguardo es una respuesta que muestra el modelo cuando el mensaje o la respuesta activan un filtro de seguridad. Un ejemplo de una respuesta de resguardo es “No puedo ayudar con eso, solo soy un modelo de lenguaje”.
+后备回答是当提示或回答触发安全过滤条件时模型返回的回答。后备回答的一个示例是“我无法提供帮助，因为我只是一个语言模型”。
 
-Si el modelo responde con una respuesta de resguardo, intenta aumentar la temperatura.
+如果模型给出后备回答，请尝试提高温度。
 
-## Fundamentación y ejecución de código
+## 接地和代码执行
 
-Gemini puede usar herramientas para evitar alucinaciones en situaciones en las que, de lo contrario, podría producir respuestas incorrectas.
+Gemini 能够使用工具来避免在可能会生成不正确回答的场景中出现幻觉。
 
-La [Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) conecta el modelo de Gemini con contenido web en tiempo real y debe habilitarse siempre que el modelo necesite conocer datos recientes o poco conocidos.
+[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)，可将
+Gemini 模型与实时 Web 内容连接起来，并且每当模型
+可能需要了解晦涩难懂或最新的事实时，都应启用此功能。
 
-La [herramienta de ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419) de Gemini permite que el modelo genere y ejecute código de Python, y debe habilitarse siempre que el modelo necesite realizar cualquier tipo de cálculo, conteo o aritmética.
+Gemini 的 [代码执行工具](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn) 使
+模型能够生成和运行 Python 代码，并且每当模型
+需要执行任何类型的算术、计数或计算时，都应启用此工具。
 
 ## Gemini 3
 
-Los [modelos de Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=es-419#gemini-3) están diseñados para el razonamiento avanzado y el seguimiento de instrucciones.
-Responden mejor a las instrucciones que son directas, están bien estructuradas y definen claramente la tarea y las restricciones. Se recomiendan las siguientes prácticas para obtener resultados óptimos con Gemini 3:
+[Gemini 3 模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn#gemini-3)专为高级
+推理和指令遵从
+而设计。它们最适合直接、结构良好且明确定义了任务和任何限制条件的提示。为了获得最佳结果，建议您遵循以下 Gemini 3 实践：
 
-### Principios básicos de las instrucciones
+### 核心提示原则
 
-- **Sé preciso y directo:** Indica tu objetivo de forma clara y concisa. Evita el lenguaje innecesario o demasiado persuasivo.
-- **Usa una estructura coherente:** Emplea delimitadores claros para separar las diferentes partes de tu instrucción. Las etiquetas de estilo XML (p.ej., `<context>`, `<task>`) o los encabezados de Markdown son eficaces. Elige un formato y úsalo de manera coherente en una misma instrucción.
-- **Define los parámetros:** Explica de forma explícita cualquier término o parámetro ambiguo.
-- **Controla la verbosidad de la respuesta:** De forma predeterminada, los modelos de Gemini 3 proporcionan respuestas directas y eficientes. Si necesitas una respuesta más detallada o conversacional, debes solicitarla explícitamente en tus instrucciones.
-- **Maneja las entradas multimodales de forma coherente:** Cuando uses texto, imágenes, audio o video, trátalos como entradas de la misma clase. Asegúrate de que tus instrucciones hagan referencia claramente a cada modalidad según sea necesario.
-- **Prioriza las instrucciones críticas:** Coloca las restricciones de comportamiento esenciales, las definiciones de roles (personificación) y los requisitos de formato de salida en la instrucción del sistema o al principio de la instrucción del usuario.
-- **Estructura para contextos extensos:** Cuando proporciones grandes cantidades de contexto (p.ej., documentos, código), primero proporciona todo el contexto. Coloca tus instrucciones o preguntas específicas al *final* de la instrucción.
-- **Contexto de anclaje:** Después de un bloque grande de datos, usa una frase de transición clara para conectar el contexto y tu búsqueda, como "Según la información anterior…".
+- **准确直接**： 明确简洁地说明您的目标。避免使用不必要或过于具有说服力的语言。
+- **使用一致的结构**： 使用清晰的分隔符分隔提示的不同部分。XML 样式的标记（例如 `<context>`、`<task>`）或
+  Markdown 标题非常有效。选择一种格式，并在单个提示中始终使用该格式。
+- **定义参数**： 明确解释任何不明确的术语或参数。
+- **控制输出详细程度**： 默认情况下，Gemini 3 模型会提供直接高效的回答。如果您需要更具对话性或更详细的回答，则必须在指令中明确要求。
+- **连贯地处理多模态输入**： 使用文本、图片、音频或视频时，请将它们视为同等类型的输入。确保您的指令根据需要清晰地引用每种模态。
+- **优先处理关键指令**： 将必要的行为限制、角色定义（角色设定）和输出格式要求放在系统指令中或用户提示的最开头。
+- **为长上下文构建结构**： 提供大量上下文（例如文档、代码）时，请先提供所有上下文。将您的具体指令或问题放在提示的末尾。
+- **锚定上下文**： 在大量数据块之后，使用清晰的过渡短语将上下文和查询连接起来，例如“根据以上信息…”
 
-### Estrategias de Gemini 3 Flash
+### Gemini 3 Flash 策略
 
-- **Precisión del día actual:** Agrega la siguiente cláusula a las instrucciones del sistema para ayudar al modelo a prestar atención al hecho de que el día actual es en 2026:
+- **当前日期准确性**： 将以下子句添加到系统指令中，以帮助模型注意当前日期为 2026 年：
 
   ```
   For time-sensitive user queries that require up-to-date information, you
   MUST follow the provided current time (date and year) when formulating
   search queries in tool calls. Remember it is 2026 this year.
   ```
-- **Precisión del corte de conocimiento:** Agrega la siguiente cláusula a las instrucciones del sistema para que el modelo conozca su corte de conocimiento:
+- **知识截止日期准确性**： 将以下子句添加到系统指令中，以使模型了解其知识截止日期：
 
   ```
   Your knowledge cutoff date is January 2025.
   ```
-- **Rendimiento de la fundamentación:** Agrega la siguiente cláusula a las instrucciones del sistema (con las modificaciones que correspondan) para mejorar la capacidad del modelo de fundamentar las respuestas en el contexto proporcionado:
+- **接地性能**： 将以下子句添加到系统指令中（并根据需要进行修改），以提高模型在提供的上下文中接地回答的能力：
 
   ```
   You are a strictly grounded assistant limited to the information provided in
@@ -277,17 +289,17 @@ Responden mejor a las instrucciones que son directas, están bien estructuradas 
   the context, you must state that the information is not available.
   ```
 
-### Mejora del razonamiento y la planificación
+### 增强推理和规划能力
 
-Los modelos de las series Gemini 2.5 y 3 generan automáticamente texto interno de "razonamiento" para mejorar el rendimiento del razonamiento. Por lo tanto, en general, no es necesario que el modelo describa, planifique o detalle los pasos de razonamiento en la respuesta que se devuelve. Para los problemas que requieren un razonamiento complejo, las solicitudes simples, como "Piensa mucho antes de responder", pueden mejorar el rendimiento, aunque a costa de tokens de razonamiento adicionales.
+Gemini 2.5 和 3 系列模型会自动生成内部“思考”文本，以提高推理性能。因此，通常不需要模型在返回的回答本身中概述、规划或详细说明推理步骤。对于需要大量推理的问题，简单的请求（例如“回答前请认真思考”）可以提高性能，但会消耗额外的思考词元。
 
-Para obtener más detalles, consulta la documentación sobre el [pensamiento de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419).
+如需了解详情，请参阅 [Gemini 思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn) 文档。
 
-### Ejemplos de instrucciones estructuradas
+### 结构化提示示例
 
-El uso de etiquetas o Markdown ayuda al modelo a distinguir entre instrucciones, contexto y tareas.
+使用标记或 Markdown 可帮助模型区分指令、上下文和任务。
 
-**Ejemplo de XML:**
+**XML 示例**：
 
 ```
 <role>
@@ -308,7 +320,7 @@ You are a helpful assistant.
 </task>
 ```
 
-**Ejemplo de Markdown:**
+**Markdown 示例**：
 
 ```
 # Identity
@@ -322,11 +334,11 @@ You are a senior solution architect.
 Return a single code block.
 ```
 
-### Plantilla de ejemplo que combina prácticas recomendadas
+### 结合最佳实践的示例模板
 
-Esta plantilla captura los principios fundamentales para escribir instrucciones con Gemini 3. Asegúrate siempre de iterar y modificar el código para tu caso de uso específico.
+此模板捕获了使用 Gemini 3 进行提示的核心原则。请务必根据您的具体使用场景进行迭代和修改。
 
-**Instrucción del sistema:**
+**系统指令**：
 
 ```
 <role>
@@ -353,7 +365,7 @@ Structure your response as follows:
 </output_format>
 ```
 
-**Instrucción del usuario:**
+**用户提示**：
 
 ```
 <context>
@@ -369,41 +381,41 @@ Remember to think step-by-step before answering.
 </final_instruction>
 ```
 
-## Flujos de trabajo de agentes
+## 智能体工作流
 
-Para los flujos de trabajo de agentes profundos, a menudo se requieren instrucciones específicas para controlar cómo el modelo razona, planifica y ejecuta tareas. Si bien Gemini proporciona un rendimiento general sólido, los agentes complejos a menudo requieren que configures la compensación entre el costo computacional (latencia y tokens) y la precisión de la tarea.
+对于深度智能体工作流，通常需要提供具体指令来控制模型如何推理、规划和执行任务。虽然 Gemini 提供了强大的通用性能，但复杂的智能体通常需要您配置计算成本（延迟时间和词元）与任务准确性之间的权衡。
 
-Cuando diseñes instrucciones para los agentes, ten en cuenta las siguientes dimensiones de comportamiento que puedes dirigir en el agente:
+为智能体设计提示时，请考虑以下行为维度，您可以在智能体中引导这些行为：
 
-### Estrategia y razonamiento
+### 推理和策略
 
-Es la configuración de cómo el modelo piensa y planifica antes de actuar.
+配置模型在采取行动之前如何思考和规划。
 
-- **Descomposición lógica:** Define qué tan a fondo debe analizar el modelo las restricciones, los requisitos previos y el orden de las operaciones.
-- **Diagnóstico de problemas**: Controla la profundidad del análisis cuando se identifican causas y el uso del razonamiento abductivo por parte del modelo. Determina si el modelo debe aceptar la respuesta más obvia o explorar explicaciones complejas y menos probables.
-- **Exhaustividad de la información:** La compensación entre analizar cada política y documento disponibles y priorizar la eficiencia y la velocidad.
+- **逻辑分解**： 定义模型必须如何彻底分析限制条件、前提条件和操作顺序。
+- **问题诊断**：控制在识别原因时分析的深度以及模型使用溯因推理的方式。确定模型应接受最明显的答案，还是探索复杂且可能性较小的解释。
+- **信息详尽程度**： 分析所有可用政策和文档与优先考虑效率和速度之间的权衡。
 
-### Ejecución y confiabilidad
+### 执行和可靠性
 
-Es la configuración que indica cómo opera el agente de forma autónoma y cómo maneja los obstáculos.
+配置智能体如何自主运行和处理障碍。
 
-- **Adaptabilidad:** Es la forma en que el modelo reacciona a los datos nuevos. Determina si debe seguir estrictamente su plan inicial o cambiar de inmediato cuando las observaciones contradicen los supuestos.
-- **Persistencia y recuperación:** Es el grado en el que el modelo intenta corregir errores por sí mismo. Una alta persistencia aumenta los porcentajes de éxito, pero corre el riesgo de generar costos de tokens más altos o bucles.
-- **Evaluación de riesgos:** Es la lógica para evaluar las consecuencias. Distingue de forma explícita entre las acciones exploratorias de bajo riesgo (lecturas) y los cambios de estado de alto riesgo (escrituras).
+- **适应性**： 模型对新数据的反应方式。确定模型应严格遵守其初始计划，还是在观察结果与假设相矛盾时立即调整计划。
+- **持久性和恢复能力**： 模型尝试自行纠正错误的程度。持久性越高，成功率越高，但词元成本或循环的风险也越高。
+- **风险评估**： 评估后果的逻辑。明确区分低风险探索性操作（读取）和高风险状态更改（写入）。
 
-### Interacción y salida
+### 互动和输出
 
-Es la configuración de cómo el agente se comunica con el usuario y formatea los resultados.
+配置智能体如何与用户沟通以及如何设置结果的格式。
 
-- **Ambigüedad y manejo de permisos:** Define cuándo se le permite al modelo hacer suposiciones y cuándo debe pausar la ejecución para pedirle al usuario que aclare o dé su permiso.
-- **Verbosity:** Controla el volumen del texto generado junto con las llamadas a herramientas. Esto determina si el modelo explica sus acciones al usuario o permanece en silencio durante la ejecución.
-- **Precisión y exhaustividad:** Es la fidelidad requerida del resultado. Especifica si el modelo debe resolver cada caso límite y proporcionar cifras exactas o si se aceptan estimaciones aproximadas.
+- **歧义和权限处理**： 定义模型何时可以做出假设，以及何时必须暂停执行以请求用户澄清或权限。
+- **详细程度**： 控制与工具调用一起生成的文本量。这决定了模型是否向用户解释其操作，或者在执行期间保持沉默。
+- **准确性和完整性**： 输出所需的保真度。指定模型是否必须解决每个极端情况并提供确切的数字，或者是否可以接受粗略估计。
 
-### Plantilla de instrucción del sistema
+### 系统指令模板
 
-La siguiente instrucción del sistema es un ejemplo que los investigadores evaluaron para mejorar el rendimiento en las comparativas de agentes en las que el modelo debe cumplir con un reglamento complejo y, además, interactuar con un usuario. Alienta al agente a actuar como un razonador y planificador sólido, aplica comportamientos específicos en las dimensiones mencionadas anteriormente y requiere que el modelo planifique de forma proactiva antes de realizar cualquier acción.
+以下系统指令是一个示例，研究人员已对其进行评估，以提高模型必须遵守复杂规则手册并与用户互动的智能体基准的性能。它鼓励智能体充当强大的推理者和规划者，在上述各个维度上强制执行特定行为，并要求模型在采取任何行动之前主动规划。
 
-Puedes adaptar esta plantilla para que se ajuste a las restricciones de tu caso de uso específico.
+您可以根据您的具体使用场景限制调整此模板。
 
 ```
 You are a very strong reasoner and planner. Use these critical instructions to structure your plans, thoughts, and responses.
@@ -451,19 +463,22 @@ Before taking any action (either tool calls *or* responses to the user), you mus
 9) Inhibit your response: only take an action after all the above reasoning is completed. Once you've taken an action, you cannot take it back.
 ```
 
-## Próximos pasos
+## 后续步骤
 
-- Ahora que comprendes mejor el diseño de instrucciones, intenta escribir tus propias instrucciones con [Google AI Studio](http://aistudio.google.com?hl=es-419).
-- Para obtener información sobre las instrucciones multimodales, consulta [Cómo generar mensajes con archivos multimedia](https://ai.google.dev/gemini-api/docs/files?hl=es-419#prompt-guide).
-- Para obtener información sobre las instrucciones de imágenes, consulta las guías de instrucciones de [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419#prompt-guide) y [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=es-419#imagen-prompt-guide).
-- Para obtener información sobre las instrucciones de video, consulta la [guía de instrucciones de Veo](https://ai.google.dev/gemini-api/docs/video?hl=es-419#prompt-guide).
+- 现在您对提示设计有了更深入的了解，请尝试使用您的
+  自己的提示，使用 [Google AI Studio](http://aistudio.google.com?hl=zh-cn)。
+- 如需了解多模态提示，请参阅
+  [使用媒体文件进行提示](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn#prompt-guide)。
+- 如需了解图片提示，请参阅 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn#prompt-guide)
+  和 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-cn#imagen-prompt-guide) 提示指南。
+- 如需了解视频提示，请参阅 [Veo 提示指南](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn#prompt-guide)。
 
-Enviar comentarios
+发送反馈
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Última actualización: 2026-06-10 (UTC)
+最后更新时间 (UTC)：2026-06-10。
 
-¿Quieres brindar más información?
+需要向我们提供更多信息？
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-10 (UTC)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-10。"],[],[]]

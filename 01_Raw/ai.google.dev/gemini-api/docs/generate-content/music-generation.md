@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=es-419
-fetched_at: 2026-08-03T04:34:09.568988+00:00
-title: "Genera m\u00fasica con Lyria 3 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=fr
+fetched_at: 2026-08-10T03:19:03.408614+00:00
+title: "G\u00e9n\u00e9rer de la musique avec Lyria\u00a03 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Enviar comentarios
+Envoyer des commentaires
 
-# Genera música con Lyria 3
+# Générer de la musique avec Lyria 3
 
-Lyria 3 es la familia de modelos de generación de música de Google, disponible a través de la API de Gemini. Con Lyria 3, puedes generar audio estéreo de alta calidad a 44.1 kHz a partir de instrucciones de texto o imágenes. Estos modelos ofrecen coherencia estructural, incluidas las voces, las letras sincronizadas y los arreglos instrumentales completos.
+Lyria 3 est la famille de modèles de génération de musique de Google, disponible via l'API Gemini. Avec Lyria 3, vous pouvez générer de l'audio stéréo de haute qualité à 44, 1 kHz à partir de requêtes textuelles ou d'images. Ces modèles offrent une cohérence structurelle, y compris les voix, les paroles synchronisées et les arrangements instrumentaux complets.
 
-La familia Lyria 3 incluye dos modelos:
+La famille Lyria 3 comprend deux modèles :
 
-| Modelo | ID de modelo | Ideal para | Duración | Salida |
+| Modèle | ID du modèle | Application idéale | Durée | Sortie |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips cortos, bucles y adelantos | 30 segundos | MP3 |
-| **Lyria 3 Pro** | `lyria-3-pro-preview` | Canciones completas con versos, estribillos y puentes | Unos minutos (se puede controlar con la instrucción) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips courts, boucles, aperçus | 30 secondes | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | Chansons complètes avec des couplets, des refrains et des ponts | Quelques minutes (contrôlables via la requête) | MP3 |
 
-Ambos modelos se pueden usar con el método `generateContent` estándar y la nueva [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), admiten entradas multimodales (texto e imágenes) y producen audio **estéreo de alta fidelidad de 44.1 kHz**.
+Les deux modèles peuvent être utilisés avec la méthode `generateContent` standard et la nouvelle [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), qui accepte les entrées multimodales (texte et images) et produit de l'audio **stéréo haute fidélité à 44,1 kHz**.
 
-## Genera un clip musical
+## Générer un extrait musical
 
-El modelo Clip de Lyria 3 siempre genera un clip de **30 segundos**. Para generar un clip, llama al método `generateContent` con una instrucción de texto. La respuesta siempre incluye la letra y la estructura de la canción generadas junto con el audio.
+Le modèle Lyria 3 Clip génère toujours un extrait de **30 secondes**. Pour générer un extrait, appelez la méthode `generateContent` avec un prompt textuel. La réponse inclut toujours les paroles et la structure du morceau générées, ainsi que l'audio.
 
 ### Python
 
@@ -213,9 +213,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## Genera una canción completa
+## Générer une chanson complète
 
-Usa el modelo `lyria-3-pro-preview` para generar canciones de larga duración que duren un par de minutos. El modelo Pro comprende la estructura musical y puede crear composiciones con versos, estribillos y puentes distintos. Puedes influir en la duración especificándola en la instrucción (p.ej., "Crea una canción de 2 minutos") o usando [marcas de tiempo](#timing) para definir la estructura.
+Utilisez le modèle `lyria-3-pro-preview` pour générer des titres complets de quelques minutes. Le modèle Pro comprend la structure musicale et peut créer des compositions avec des couplets, des refrains et des ponts distincts. Vous pouvez influencer la durée en la spécifiant dans votre requête (par exemple, "crée une chanson de deux minutes") ou en utilisant des [codes temporels](#timing) pour définir la structure.
 
 ### Python
 
@@ -290,9 +290,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## Selecciona el formato de salida
+## Sélectionner un format de sortie
 
-De forma predeterminada, los modelos de Lyria 3 generan audio en formato **MP3**. En el caso de Lyria 3 Pro, también puedes solicitar el resultado en formato **WAV** configurando `response_format` en `generationConfig`.
+Par défaut, les modèles Lyria 3 génèrent de l'audio au format **MP3**. Pour Lyria 3 Pro, vous pouvez également demander le résultat au format **WAV** en définissant `response_format` dans `generationConfig`.
 
 ### Python
 
@@ -385,9 +385,9 @@ curl -s -X POST \
   }'
 ```
 
-## Analiza la respuesta
+## Analyser la réponse
 
-La respuesta de Lyria 3 contiene varias partes. Las partes de texto contienen la letra generada o una descripción en formato JSON de la estructura de la canción. Las partes con `inline_data` contienen los bytes de audio.
+La réponse de Lyria 3 comporte plusieurs parties. Les parties textuelles contiennent les paroles générées ou une description JSON de la structure du morceau. Les parties avec `inline_data` contiennent les octets audio.
 
 ### Python
 
@@ -513,9 +513,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## Genera música a partir de imágenes
+## Générer de la musique à partir d'images
 
-Lyria 3 admite entradas multimodales: puedes proporcionar hasta **10 imágenes** junto con tu instrucción de texto, y el modelo compondrá música inspirada en el contenido visual.
+Lyria 3 accepte les entrées multimodales. Vous pouvez fournir jusqu'à **10 images** en plus de votre prompt textuel. Le modèle composera de la musique inspirée du contenu visuel.
 
 ### Python
 
@@ -636,9 +636,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## Proporciona letras personalizadas
+## Fournir des paroles personnalisées
 
-Puedes escribir tu propia letra e incluirla en la instrucción. Usa etiquetas de sección, como `[Verse]`, `[Chorus]` y `[Bridge]`, para ayudar al modelo a comprender la estructura de la canción:
+Vous pouvez écrire vos propres paroles et les inclure dans la requête. Utilisez des balises de section comme `[Verse]`, `[Chorus]` et `[Bridge]` pour aider le modèle à comprendre la structure du morceau :
 
 ### Python
 
@@ -817,9 +817,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## Controla la sincronización y la estructura
+## Contrôler le timing et la structure
 
-Puedes especificar exactamente lo que sucede en momentos específicos de la canción con marcas de tiempo. Esto es útil para controlar cuándo entran los instrumentos, cuándo se entregan las letras y cómo progresa la canción:
+Vous pouvez spécifier exactement ce qui se passe à des moments précis de la chanson à l'aide de codes temporels. Cela permet de contrôler le moment où les instruments entrent en jeu, où les paroles sont diffusées et comment la chanson progresse :
 
 ### Python
 
@@ -934,9 +934,9 @@ curl -s -X POST \
   }'
 ```
 
-## Genera pistas instrumentales
+## Générer des pistes instrumentales
 
-Para la música de fondo, las bandas sonoras de juegos o cualquier caso de uso en el que no se requieran voces, puedes indicarle al modelo que produzca pistas solo instrumentales:
+Pour la musique de fond, les bandes originales de jeux ou tout cas d'utilisation où les voix ne sont pas nécessaires, vous pouvez demander au modèle de produire des pistes instrumentales uniquement :
 
 ### Python
 
@@ -1006,9 +1006,9 @@ curl -s -X POST \
   }'
 ```
 
-## Genera música en diferentes idiomas
+## Générer de la musique dans différentes langues
 
-Lyria 3 genera letras en el idioma de tu instrucción. Para generar una canción con letra en francés, escribe la instrucción en ese idioma. El modelo adapta su estilo vocal y pronunciación para que coincidan con el idioma.
+Lyria 3 génère des paroles dans la langue de votre requête. Pour générer une chanson avec des paroles en français, rédigez votre requête en français. Le modèle adapte son style vocal et sa prononciation à la langue.
 
 ### Python
 
@@ -1083,14 +1083,14 @@ curl -s -X POST \
   }'
 ```
 
-## Inteligencia del modelo
+## Intelligence du modèle
 
-Lyria 3 analiza el proceso de tu instrucción, en el que el modelo razona a través de la estructura musical (introducción, estrofa, estribillo, puente, etcétera) según tu instrucción.
-Esto sucede antes de que se genere el audio y garantiza la coherencia estructural y la musicalidad.
+Lyria 3 analyse le processus de votre requête, où le modèle raisonne à travers la structure musicale (intro, couplet, refrain, pont, etc.) en fonction de votre requête.
+Cela se produit avant la génération de l'audio et garantit la cohérence structurelle et la musicalité.
 
-## API de Interactions
+## API Interactions
 
-Puedes usar los modelos de Lyria 3 con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), una interfaz unificada para interactuar con modelos y agentes de Gemini. Simplifica la administración del estado y las tareas de larga duración para casos de uso multimodales complejos.
+Vous pouvez utiliser les modèles Lyria 3 avec l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), une interface unifiée pour interagir avec les modèles et les agents Gemini. Il simplifie la gestion de l'état et des tâches de longue durée pour les cas d'utilisation multimodaux complexes.
 
 ### Python
 
@@ -1152,75 +1152,75 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Guía de instrucciones
+## Guide sur les requêtes
 
-Tu instrucción puede ser tan simple como "una canción folclórica sobre gatos tiernos que evitan los charcos, voces femeninas y el ruido de la lluvia", o algo detallado y estructurado como lo siguiente:
+Votre requête peut être aussi simple que "une chanson folk sur des chats mignons qui évitent les flaques d'eau, avec des voix féminines et le bruit de la pluie", ou plus détaillée et structurée, comme :
 
-> Una pista de synth-pop al estilo de los años 80 con un ritmo potente, sintetizadores brillantes y un coro pegadizo y épico. La canción debe tener un estilo retrofuturista, que recuerde a los éxitos pop clásicos de los 80, con un toque de producción moderno. El tempo debe ser alegre y bailable, alrededor de 120 BPM, con una estructura clara de verso y estribillo, y un gancho instrumental memorable. La letra trata sobre la sensación de prepararse para una fiesta.
+> Un morceau synth-pop des années 1980 avec un rythme entraînant, des synthétiseurs scintillants et un refrain accrocheur et entraînant. La chanson doit avoir une ambiance rétro-futuriste, rappelant les tubes pop classiques des années 80, avec une production moderne et soignée. Le tempo doit être entraînant et dansant, autour de 120 BPM, avec une structure couplet-refrain claire et un hook instrumental mémorable. Les paroles parlent du sentiment de se préparer pour une fête.
 
-Las instrucciones simples y complejas pueden brindarte buenos resultados. Te recomendamos que pruebes estas sugerencias para encontrar lo que mejor te funcione.
+Les requêtes simples et complexes peuvent générer de bons résultats. Nous vous recommandons de tester ces conseils pour trouver ce qui vous convient le mieux.
 
-### Género
+### Genre
 
-Comienza tu instrucción con el género musical que deseas, como hip hop, rock y rap. Puedes especificar una combinación de géneros:
+Commencez votre requête par le genre de musique que vous souhaitez, comme le hip-hop, le rock ou le rap. Vous pouvez spécifier plusieurs genres :
 
-- Una fusión de metal y rap
-- Una combinación de death metal y ópera
-- Una pieza clásica con elementos electrónicos de zumbido
-- Música dance electrónica (EDM) moderna mezclada con Europop
+- Fusion de métal et de rap
+- Un mélange de death metal et d'opéra
+- Morceau classique avec des éléments de drone électronique
+- Musique électronique moderne pour danser (EDM) mélangée à de l'Europop
 
-También puedes incorporar una época:
+Vous pouvez également inclure une ère :
 
-- Hip hop de principios de los 90
-- Pop francés ye-yé de los años 60
-- Experimentación electrónica de los 80
-- Pop mainstream de la década del 2000
+- Hip-hop du début des années 90
+- Pop yé-yé française des années 60
+- Expérimentations électroniques des années 80
+- Pop mainstream des années 2000
 
-Si le pides que genere géneros personalizados o variantes regionales, como "tecno de Berlín" o "hyphy del Área de la Bahía", el modelo intentará captar esa esencia, pero es posible que no siempre lo logre.
+Si vous demandez des genres ou des variantes régionales spécifiques, comme la "techno berlinoise" ou le "hyphy de la baie de San Francisco", le modèle tentera de capturer cette essence, mais il ne réussira pas toujours.
 
-### Instrumentos
+### Instruments
 
-De forma predeterminada, Lyria 3 creará canciones con los instrumentos y las herramientas que esperarías para el género. No es necesario que seas prescriptivo.
+Par défaut, Lyria 3 crée des titres avec les instruments et les outils que vous attendez pour le genre. Vous n'avez pas besoin d'être prescriptif.
 
-Sin embargo, una pista de baile no incluirá un saxofón a menos que lo pidas. Por lo tanto, si quieres un solo de saxofón, debes indicarlo en la instrucción:
+Toutefois, un morceau de danse n'inclura pas de saxophone, sauf si vous le demandez. Pour obtenir un solo de saxophone, vous devez le demander :
 
-> Una pista de baile con un ritmo constante, sintetizadores brillantes y un coro pegadizo y épico. Un solo de saxofón debería entrar durante el puente.
+> Titre de danse avec un rythme entraînant, des synthétiseurs scintillants et un refrain accrocheur et hymne. Un solo de saxophone doit intervenir pendant le pont.
 
-Tu instrucción puede incluir instrumentos específicos, cómo suenan y cómo interactúan entre sí. Puedes usar esta combinación para crear ciertos estados de ánimo o texturas:
+Votre requête peut inclure des instruments spécifiques, leur sonorité et la façon dont ils interagissent les uns avec les autres. Vous pouvez utiliser cette combinaison pour créer certaines ambiances ou textures :
 
-- Una línea de bajo sucia y distorsionada que lucha contra hi-hats limpios y nítidos
-- Cálidos pads de sintetizador analógico que se expanden bajo una guitarra acústica íntima y seca
-- Una pared de sonido creada por varias capas de guitarras distorsionadas, con voces distantes y enterradas
+- Une ligne de basse sale et distordue qui se bat contre des charlestons clairs et nets
+- Pads de synthétiseur analogique chaleureux et gonflés sous une guitare acoustique sèche et intime
+- Mur de son créé par plusieurs couches de guitares saturées, avec des voix lointaines et enfouies
 
-### Estructura de la canción
+### Structure d'un titre
 
-Puedes describir la progresión de una canción en tu instrucción. Usa flechas o una lista para definir el flujo:
+Vous pouvez décrire la progression d'un titre dans votre requête. Utilisez des flèches ou une liste pour définir le flux :
 
-- `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
-  `[Bridge]` -> `[Outro]`
-- Comienza con una introducción de piano suave, aumenta el volumen en el verso, baja el volumen hasta el silencio y, luego, explota en el coro.
+- `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
+  `[Bridge]` -> `[Outro]`
+- Commence par une introduction au piano calme, monte en puissance pour le couplet, retombe dans le silence, puis explose pour le refrain.
 
-También puedes especificar cómo cambian los niveles de energía entre estas secciones:
+Vous pouvez également spécifier comment les niveaux d'énergie changent entre ces sections :
 
-- Genera tensión en el pre-estribillo y, luego, baja el volumen a silencio antes de un estribillo masivo y explosivo.
-- Crescendo gradual a lo largo de la canción, en el que se agrega un instrumento a la vez hasta formar una caótica pared de sonido
-- Detención repentina después del puente, seguida de un coro a capela
+- Créez de la tension dans le pré-refrain, puis passez au silence avant un refrain massif et explosif.
+- Crescendo progressif tout au long du morceau, ajoutant un instrument à la fois jusqu'à un mur de son chaotique
+- Arrêt soudain après le pont, suivi d'un refrain a cappella
 
-También puedes indicar la hora exacta en la que quieres que suceda algo:
+Vous pouvez également indiquer l'heure exacte à laquelle vous souhaitez qu'une action se produise :
 
-- Compila hasta una caída a los 12 s
-- Alguien dice "¿qué?" cada 2 segundos
-- El coro comienza a los 22 s.
+- Build to a drop at 12s
+- Quelqu'un dit "quoi" toutes les deux secondes
+- Le refrain commence à 22 s
 
-### Letra
+### Paroles
 
-Las voces y las letras se generan de forma predeterminada. Puedes proporcionar tu propia letra, pedir que no haya letra (o que sea instrumental) o dirigir la generación de la letra en la dirección que desees.
+Les voix et les paroles sont générées par défaut. Vous pouvez fournir vos propres paroles, demander à ce qu'il n'y en ait pas (ou qu'il s'agisse d'un instrumental) ou orienter la génération de paroles dans la direction de votre choix.
 
-La letra estará en el idioma en el que escribas la instrucción. También puedes pedir que la letra esté en otro idioma, como "Escribe la letra en francés".
+Vos paroles seront dans la langue dans laquelle vous rédigez votre requête. Vous pouvez également demander à ce que les paroles soient dans une autre langue, par exemple "Écris les paroles en français".
 
-#### Cómo usar tus propias letras
+#### Utiliser vos propres paroles
 
-Para proporcionarle al modelo tu propia letra, inclúyela en la instrucción con el prefijo "Letra:":
+Pour fournir vos propres paroles au modèle, incluez-les dans la requête avec le préfixe "Paroles :" :
 
 ```
 Lyrics:
@@ -1237,51 +1237,51 @@ Go with the flow
 ...
 ```
 
-Puedes agregar un prefijo a partes de la canción con títulos de sección como `[Intro]`, `[Verse 1]`, `[Pre-chorus]`, `[Chorus]` y `[Outro]`.
+Vous pouvez ajouter des titres de section comme `[Intro]`, `[Verse 1]`, `[Pre-chorus]`, `[Chorus]` et `[Outro]` au début de certaines parties du titre.
 
-Si quieres que se repita una palabra o línea, como un eco o con coristas, puedes incluirla entre paréntesis: "Vamos (vamos)".
+Si vous souhaitez qu'un mot ou une ligne soit répété, comme un écho ou par des choristes, vous pouvez l'inclure entre parenthèses : "Let's go (go)".
 
-#### Cómo indicarle al modelo que escriba letras de canciones
+#### Demander au modèle d'écrire des paroles
 
-Si quieres que Lyria 3 escriba la letra por ti, lo mejor es que incluyas detalles sobre el tema de la letra en tu instrucción. De lo contrario, el modelo deberá inferir un tema a partir de tu instrucción musical, y es posible que no sea lo que deseas.
+Si vous souhaitez que Lyria 3 crée des paroles pour vous, il est préférable d'inclure dans votre requête des détails sur le thème des paroles. Sinon, le modèle devra déduire un sujet à partir de votre requête musicale, et il se peut que le résultat ne soit pas celui que vous souhaitez.
 
-> La letra trata sobre el amor perdido y el dolor del desamor. La cantante recuerda una relación pasada y los recuerdos que vuelven a su mente.
+> Les paroles parlent d'un amour perdu et de la douleur d'un cœur brisé. La chanteuse se remémore une relation passée et les souvenirs qui lui reviennent en mémoire.
 
-Si quieres un coro que se repita, te recomendamos que lo pidas en la instrucción:
+Si vous souhaitez un refrain qui se répète, demandez-le dans votre requête :
 
-> La letra trata sobre el amor perdido y el dolor de una ruptura. La cantante recuerda una relación pasada y los recuerdos que vuelven a su mente. Un potente coro se centra en superar el dolor y seguir adelante.
+> Les paroles parlent d'un amour perdu et de la douleur d'un cœur brisé. La chanteuse se remémore une relation passée et les souvenirs qui lui reviennent en mémoire. Un refrain puissant se concentre sur le fait de surmonter la douleur et de passer à autre chose.
 
-Lyria 3 dirigirá automáticamente la estructura de la letra hacia el tipo de música que solicites, pero también puedes volver a enfatizar esto en tu instrucción. Por ejemplo:
+Lyria 3 orientera automatiquement la structure des paroles vers le type de musique que vous demandez, mais vous pouvez également le préciser dans votre requête. Exemple :
 
-> Una pista de EDM que repite la misma frase enérgica una y otra vez.
+> Un titre de musique électronique qui répète la même phrase énergique encore et encore.
 
-También puedes solicitar efectos vocales que no sean estrictamente letras, por ejemplo:
+Vous pouvez également demander des effets vocaux qui ne sont pas strictement des paroles, par exemple :
 
-- Una muestra repetitiva de una película dice "¡No puedo creerlo!" a lo largo de la canción.
-- Una pista de tecno de alta energía. Justo antes del drop, se detiene el sonido y una voz pequeña dice "No sé qué hago aquí", y luego comienza la música.
-- La canción comienza con una conversación sobre que las películas de los 90 eran mejores que las de hoy. Luego, la pista se une a una canción pop.
+- Un sample répété d'un film dit "Je n'arrive pas à y croire !" tout au long du titre.
+- Un morceau de techno très énergique, juste avant le drop, le son s'arrête et une petite voix dit "Je ne sais pas ce que je fais ici", puis la musique reprend.
+- Le titre s'ouvre sur une conversation sur les films des années 90, qui seraient meilleurs que ceux d'aujourd'hui. Le titre se transforme ensuite en chanson pop.
 
-### Canto
+### Chant
 
-Puedes indicar cómo quieres que se entregue la letra. Para obtener los mejores resultados, especifica un perfil detallado del cantante que incluya el género, el timbre y el rango vocal.
+Vous pouvez indiquer comment vous souhaitez que les paroles soient fournies. Pour obtenir les meilleurs résultats, spécifiez un profil de chanteur détaillé, en indiquant le genre, le timbre et la tessiture.
 
-- **Soprano femenina**: Timbre claro y cristalino con una calidad ágil y elevada. Es capaz de alcanzar notas altas silbantes con una textura aireada y respirada.
-- **Alto femenino**: Rango inferior rico, cálido y ronco. Timbre ahumado con un toque de fry vocal, conmovedor y resonante.
-- **Tenor masculino**: Brillante, penetrante y enérgico. Timbre juvenil con un ligero borde nasal, que se destaca en la mezcla con una gran potencia de belting.
-- **Barítono masculino**: Voz profunda, dulce y suave como el terciopelo. Voz de pecho resonante con una interpretación suave y melódica.
-- **Rockero curtido (hombre)**: Rasposa y texturizada con un timbre áspero, que recuerda al grunge de los 90. Rango superior forzado para la intensidad emocional.
+- **Soprano féminine** : timbre clair et cristallin, avec une qualité agile et aérienne. Capable d'atteindre des notes aiguës sifflantes avec une texture aérienne et haletante.
+- **Alto féminin** : registre grave riche, chaleureux et rauque. Timbre enfumé avec une touche de fry vocal, plein d'âme et résonnant.
+- **Ténor** : voix claire, perçante et énergique Timbre juvénile avec une légère nasalité, qui se démarque dans le mix avec une grande puissance de voix.
+- **Baryton masculin** : voix profonde, chocolatée et veloutée. Voix de poitrine résonnante avec un ton doux et mélodieux.
+- **Rockeur usé (homme)** : voix rauque et texturée avec un timbre graveleux, qui rappelle le grunge des années 90. Registre supérieur tendu pour l'intensité émotionnelle.
 
-### Otros parámetros de la instrucción
+### Autres paramètres de prompt
 
-También puedes incluir estos parámetros para definir mejor tu instrucción:
+Vous pouvez également inclure les paramètres suivants pour affiner davantage votre requête :
 
-- **Tonalidad/Escala**: Especifica una tonalidad musical (p.ej., "en sol mayor", "en re menor").
-- **Estado de ánimo y atmósfera**: Usa adjetivos descriptivos (p.ej., "nostálgico", "agresivo", "etéreo", "soñador").
-- **Duración**: El modelo de Clip siempre produce clips de 30 segundos. En el caso del modelo Pro, especifica la duración deseada en tu instrucción (p.ej., "crea una canción de 2 minutos") o usa marcas de tiempo para controlar la duración.
+- **Tonalité/Gamme** : spécifiez une tonalité musicale (par exemple, "en sol majeur", "en ré mineur").
+- **Ambiance** : utilisez des adjectifs descriptifs (par exemple, "nostalgique", "agressif", "éthéré", "rêveur").
+- **Durée** : le modèle Clip produit toujours des extraits de 30 secondes. Pour le modèle Pro, spécifiez la durée souhaitée dans votre requête (par exemple, "crée une chanson de deux minutes") ou utilisez des codes temporels pour contrôler la durée.
 
-### Ejemplos de instrucciones
+### Exemples de prompts
 
-Estos son algunos ejemplos de instrucciones eficaces:
+Voici quelques exemples de requêtes efficaces :
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -1291,37 +1291,37 @@ Estos son algunos ejemplos de instrucciones eficaces:
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## Prácticas recomendadas
+## Bonnes pratiques
 
-- **Primero, itera con Clip.** Usa el modelo `lyria-3-clip-preview` más rápido para experimentar con instrucciones antes de generar un video de larga duración con `lyria-3-pro-preview`.
-- **Sea específico.** Las instrucciones vagas producen resultados genéricos. Menciona los instrumentos, los BPM, la clave, el estado de ánimo y la estructura para obtener el mejor resultado.
-- **Usa etiquetas de sección.** Las etiquetas `[Verse]`, `[Chorus]` y `[Bridge]` le brindan al modelo una estructura clara que debe seguir.
-- **Separa la letra de las instrucciones.** Cuando proporciones letras personalizadas, sepáralas claramente de las instrucciones de dirección musical.
+- **Commencez par itérer avec Clip.** Utilisez le modèle `lyria-3-clip-preview` plus rapide pour tester des requêtes avant de vous engager dans une génération complète avec `lyria-3-pro-preview`.
+- **Soyez précis.** Les requêtes vagues génèrent des résultats génériques. Mentionne les instruments, le tempo, la tonalité, l'humeur et la structure pour obtenir le meilleur résultat.
+- **Utilisez des tags de section.** Les balises `[Verse]`, `[Chorus]` et `[Bridge]` fournissent au modèle une structure claire à suivre.
+- **Séparez les paroles des instructions.** Lorsque vous fournissez des paroles personnalisées, séparez-les clairement de vos instructions musicales.
 
-## Limitaciones
+## Limites
 
-- **Seguridad**: Todos los mensajes se verifican con filtros de seguridad. Se bloquearán las instrucciones que activen los filtros. Esto incluye las instrucciones que solicitan voces de artistas específicos o la generación de letras protegidas por derechos de autor.
-- **Marcas de agua**: Todo el audio generado incluye una [marca de agua de audio de SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=es-419) para su identificación. Esta marca de agua es imperceptible para el oído humano y no afecta la experiencia de escucha.
-- **Edición conversacional continua**: La generación de música es un proceso de un solo turno.
-  En la versión actual de Lyria 3, no se admite la edición o el perfeccionamiento iterativos de un clip generado a través de múltiples instrucciones.
-- **Duración**: El modelo de Clip siempre genera clips de 30 segundos. El modelo Pro genera canciones que duran un par de minutos. La duración exacta se puede influir a través de la instrucción.
-- **Determinismo**: Los resultados pueden variar entre llamadas, incluso con la misma instrucción.
+- **Sécurité** : toutes les requêtes sont vérifiées par des filtres de sécurité. Les requêtes qui déclenchent les filtres seront bloquées. Cela inclut les requêtes demandant des voix d'artistes spécifiques ou la génération de paroles protégées par des droits d'auteur.
+- **Filigranes** : tous les contenus audio générés incluent un [filigrane audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr) pour l'identification. Ce filigrane est imperceptible à l'oreille humaine et n'affecte pas l'expérience d'écoute.
+- **Édition avec chat multitour** : la génération de musique est un processus monotour.
+  L'édition itérative ou l'affinage d'un extrait généré à l'aide de plusieurs requêtes ne sont pas pris en charge dans la version actuelle de Lyria 3.
+- **Durée** : le modèle Clip génère toujours des extraits de 30 secondes. Le modèle Pro génère des titres qui durent quelques minutes. La durée exacte peut être influencée par votre requête.
+- **Déterminisme** : les résultats peuvent varier d'un appel à l'autre, même avec le même prompt.
 
-## ¿Qué sigue?
+## Étape suivante
 
-- Consulta los [precios](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=es-419) de los modelos de Lyria 3.
-- Prueba la [generación de música en tiempo real](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=es-419) con Lyria RealTime.
-- Generar conversaciones con varios oradores con los [modelos de TTS](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=es-419)
-- Descubre cómo generar [imágenes](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=es-419) o [videos](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=es-419).
-- Descubre cómo Gemini puede [comprender archivos de audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=es-419).
-- Mantén una conversación en tiempo real con Gemini usando la [API de Live](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=es-419).
+- Consultez les [tarifs](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=fr) des modèles Lyria 3.
+- Essayez la [génération de musique en streaming et en temps réel](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=fr) avec Lyria RealTime.
+- Générez des conversations à plusieurs locuteurs avec les [modèles TTS](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr).
+- Découvrez comment générer des [images](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=fr) ou des [vidéos](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=fr).
+- Découvrez comment Gemini peut [comprendre les fichiers audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=fr),
+- Discutez en temps réel avec Gemini à l'aide de l'[API Live](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=fr).
 
-Enviar comentarios
+Envoyer des commentaires
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Última actualización: 2026-07-30 (UTC)
+Dernière mise à jour le 2026/07/30 (UTC).
 
-¿Quieres brindar más información?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]

@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=it
-fetched_at: 2026-08-03T04:36:00.490709+00:00
-title: "Ragionamento spaziale \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=ko
+fetched_at: 2026-08-10T03:13:22.231913+00:00
+title: "\uacf5\uac04 \ucd94\ub860 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Invia feedback
+의견 보내기
 
-# Ragionamento spaziale
+# 공간 추론
 
-I modelli Gemini Robotics ER possono puntare agli oggetti, monitorarli nei video, rilevarli con riquadri di delimitazione e generare traiettorie di movimento. Tutti gli esempi in questa pagina utilizzano prompt in linguaggio naturale con `generateContent`.
+Gemini Robotics ER 모델은 객체를 가리키고, 동영상에서 객체를 추적하고, 경계 상자로 객체를 감지하고, 이동 궤적을 생성할 수 있습니다. 이 페이지의 모든 예시에서는 `generateContent`를 사용하는 자연어 프롬프트를 사용합니다.
 
-Per il codice eseguibile completo, consulta il
-[ricettario di robotica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+실행 가능한 전체 코드는
+[로봇공학 Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)을 참고하세요.
 
-## Puntare agli oggetti
+## 객체 가리키기
 
-Il seguente esempio trova oggetti specifici in un'immagine e restituisce le relative coordinate `[y, x]` normalizzate:
+다음 예시에서는 이미지에서 특정 객체를 찾고 정규화된 `[y, x]` 좌표를 반환합니다.
 
 ### Python
 
@@ -99,7 +99,7 @@ curl -X POST \
   }'
 ```
 
-L'output sarà un array JSON contenente oggetti, ognuno con un `point` (coordinate `[y, x]` normalizzate) e un'etichetta `label` che identifica l'oggetto.
+출력은 객체를 포함하는 JSON 배열이며, 각 객체에는 `point`(정규화된 `[y, x]` 좌표)와 객체를 식별하는 `label`이 있습니다.
 
 ### JSON
 
@@ -118,13 +118,14 @@ L'output sarà un array JSON contenente oggetti, ognuno con un `point` (coordina
 ]
 ```
 
-L'immagine seguente è un esempio di come possono essere visualizzati questi punti:
+다음 이미지는 이러한 점이 표시되는 방식을 보여주는 예시입니다.
 
-![Un esempio che mostra i punti degli oggetti in un'immagine](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=it)
+![이미지에서 객체의 점을 표시하는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ko)
 
-## Monitorare gli oggetti in un video
+## 동영상에서 객체 추적
 
-Gemini Robotics ER 2 può anche analizzare i frame video per monitorare gli oggetti nel tempo. Per un elenco dei formati video supportati, consulta [Input video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#supported-formats).
+Gemini Robotics ER 2는 동영상 프레임을 분석하여 시간이 지남에 따라 객체를 추적할 수도 있습니다. 지원되는 동영상 형식의 목록은 [동영상 입력](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko#supported-formats)
+을 참고하세요.
 
 ### Python
 
@@ -163,9 +164,9 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-## Rilevamento degli oggetti e riquadri di delimitazione
+## 객체 감지 및 경계 상자
 
-Oltre ai punti, puoi chiedere al modello di restituire riquadri di delimitazione 2D, che forniscono maggiori dettagli spaziali per gli oggetti rilevati.
+점을 사용하는 것 외에도 모델에 감지된 객체에 대한 더 많은 공간적 세부정보를 제공하는 2D 경계 상자를 반환하도록 프롬프트를 표시할 수 있습니다.
 
 ### Python
 
@@ -203,11 +204,11 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-## Traiettorie
+## 궤적
 
-Gemini Robotics ER 2 può generare sequenze di punti che definiscono una traiettoria, utile per guidare il movimento del robot.
+Gemini Robotics ER 2는 로봇 이동을 안내하는 데 유용한 궤적을 정의하는 점 시퀀스를 생성할 수 있습니다.
 
-Questo esempio richiede una traiettoria per spostare una penna rossa su un organizer, inclusa una stima dei waypoint intermedi. Il codice è stato ridotto per mostrare solo il prompt.
+이 예시에서는 중간 경유지의 추정치를 포함하여 빨간색 펜을 주최자로 이동하는 궤적을 요청합니다. 프롬프트만 표시되도록 코드가 축소되었습니다.
 
 ### Python
 
@@ -220,9 +221,9 @@ prompt = """
         """
 ```
 
-## Fare spazio per un laptop
+## 노트북을 위한 공간 만들기
 
-Questo esempio mostra come Gemini Robotics ER può ragionare su uno spazio. Il prompt chiede al modello di identificare l'oggetto da spostare per creare spazio per un altro elemento.
+이 예시에서는 Gemini Robotics ER이 공간에 대해 추론하는 방법을 보여줍니다. 프롬프트는 모델에 다른 항목을 위한 공간을 만들기 위해 이동해야 하는 객체를 식별하도록 요청합니다.
 
 ### Python
 
@@ -258,7 +259,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-La risposta contiene una coordinata 2D dell'oggetto che risponde alla domanda dell'utente, in questo caso l'oggetto che deve spostarsi per fare spazio a un laptop.
+응답에는 사용자의 질문에 답변하는 객체의 2D 좌표가 포함되어 있습니다. 이 경우 노트북을 위한 공간을 만들기 위해 이동해야 하는 객체입니다.
 
 ```
 [
@@ -266,11 +267,11 @@ La risposta contiene una coordinata 2D dell'oggetto che risponde alla domanda de
 ]
 ```
 
-![Un esempio che mostra quale oggetto deve essere spostato per un altro oggetto](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=it)
+![다른 객체를 위해 이동해야 하는 객체를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=ko)
 
-## Preparare un pranzo
+## 점심 포장하기
 
-Il modello può anche fornire istruzioni per attività in più passaggi e puntare agli oggetti pertinenti per ogni passaggio. Questo esempio mostra come il modello pianifica una serie di passaggi per preparare una borsa per il pranzo.
+모델은 여러 단계 작업에 관한 안내를 제공하고 각 단계와 관련된 객체를 가리킬 수도 있습니다. 이 예시에서는 모델이 점심 가방을 포장하기 위한 일련의 단계를 계획하는 방법을 보여줍니다.
 
 ### Python
 
@@ -307,13 +308,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-La risposta a questo prompt è un insieme di istruzioni passo passo su come preparare una borsa per il pranzo dall'immagine di input.
+이 프롬프트의 응답은 이미지 입력에서 점심 가방을 포장하는 방법에 관한 단계별 안내입니다.
 
-**Immagine di input**
+**입력 이미지**
 
-![Un'immagine di una scatola per il pranzo e degli oggetti da metterci dentro](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=it)
+![도시락과 도시락에 넣을 물건의 이미지](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=ko)
 
-**Output del modello**
+**모델 출력**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -336,19 +337,19 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-## Passaggi successivi
+## 다음 단계
 
-- [Capacità agentiche](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=it): esecuzione di codice, lettura degli strumenti, annotazione delle immagini.
-- [Orchestrazione delle attività](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=it): attività a lungo termine con API robot personalizzate.
-- [Robotica con streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it): streaming bidirezionale in tempo reale (solo Gemini Robotics ER 2).
-- [Comprensione dei video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=it): ricerca dei momenti e classificazione dei progressi (solo Gemini Robotics ER 2).
+- [에이전트 기능](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ko): 코드 실행, 기기 읽기, 이미지 주석 처리
+- [작업 조정](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ko): 커스텀 로봇 API를 사용하는 장기 작업
+- [스트리밍을 통한 로봇공학](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko): 실시간 양방향 스트리밍 (Gemini Robotics ER 2만 해당)
+- [동영상 이해](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ko): 순간 찾기 및 진행률 분류 (Gemini Robotics ER 2만 해당)
 
-Invia feedback
+의견 보내기
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Ultimo aggiornamento 2026-07-30 UTC.
+최종 업데이트: 2026-07-30(UTC)
 
-Vuoi dirci altro?
+의견을 전달하고 싶나요?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]

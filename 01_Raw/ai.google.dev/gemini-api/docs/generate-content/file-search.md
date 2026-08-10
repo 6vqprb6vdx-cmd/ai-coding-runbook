@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-search?hl=ko
-fetched_at: 2026-08-03T04:31:14.117157+00:00
+fetched_at: 2026-08-10T03:20:43.538410+00:00
 title: "\ud30c\uc77c \uac80\uc0c9 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

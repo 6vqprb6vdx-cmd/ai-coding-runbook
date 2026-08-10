@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=th
-fetched_at: 2026-08-03T04:29:06.606144+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=es-419
+fetched_at: 2026-08-10T03:20:54.798951+00:00
 title: "Gemini 3.5 Live Translate \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-ส่งความคิดเห็น
+Enviar comentarios
 
 # Gemini 3.5 Live Translate
 
-Gemini 3.5 Live Translate เป็นโมเดลเสียงต่อเสียงที่มีเวลาในการตอบสนองต่ำ ซึ่งได้รับการปรับให้เหมาะกับการแปลบทสนทนาแบบพูดเป็นภาษาต่างๆ แบบเรียลไทม์ โดยจะช่วยให้การแปลสองทางเป็นไปอย่างราบรื่นด้วยความแม่นยำสูงและเสียงเอาต์พุตที่เป็นธรรมชาติ
+Gemini 3.5 Live Translate es nuestro modelo de audio a audio con baja latencia optimizado para la traducción en tiempo real de conversaciones habladas. Permite una traducción bidireccional fluida con alta precisión y salida de voz natural.
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=th)
+[Probar en Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=es-419)
 
-## เอกสารประกอบ
+## Documentación
 
-ดูคู่มือ[การแปลแบบเรียลไทม์](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=th)เพื่อดูฟีเจอร์และความสามารถทั้งหมด
+Visita la guía de [Traducción instantánea](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=es-419) para obtener una cobertura completa de las funciones y capacidades.
 
 ## gemini-3.5-live-translate-preview
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| Propiedad | Descripción |
 | --- | --- |
-| id\_cardรหัสโมเดล | `gemini-3.5-live-translate-preview` |
-| saveประเภทข้อมูลที่รองรับ | **อินพุต**  เสียง (คำพูด)  **เอาต์พุต**  เสียง (คำพูดที่แปล) และข้อความ (ข้อความถอดเสียง) |
-| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  131,072  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
-| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  สิ่งที่ทำได้  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  ไม่รองรับ  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  ไม่รองรับ  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  สิ่งที่ทำไม่ได้  **[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  สิ่งที่ทำไม่ได้  **[การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  ไม่รองรับ  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  ไม่รองรับ  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  สิ่งที่ทำได้  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  สิ่งที่ทำไม่ได้  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  ไม่รองรับ  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  ไม่รองรับ  **[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  ไม่รองรับ |
-| speedตัวเลือกการใช้ | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  ไม่รองรับ  **[การอนุมานแบบยืดหยุ่น](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  ไม่รองรับ  **[การอนุมานแบบลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  ไม่รองรับ |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - เวอร์ชันตัวอย่าง: `gemini-3.5-live-translate-preview` |
-| calendar\_monthการอัปเดตล่าสุด | มิถุนายน 2026 |
-| id\_cardการ์ดโมเดล | [การ์ดโมเดล](https://deepmind.google/models/model-cards/gemini-3-5-audio/?hl=th) |
+| Código del modelo id\_card | `gemini-3.5-live-translate-preview` |
+| saveTipos de datos admitidos | **Entradas**  Audio (voz)  **Resultado**  Audio (voz traducida) y texto (transcripción) |
+| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  131,072  **Límite de tokens de salida**  65,536 |
+| handymanFunciones | **[Generación de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)**  Admitido  **[Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**  No compatible  **[Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)**  No compatible  **[Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)**  No compatible  **[Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)**  No compatible  **[Fundamentación con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)**  No compatible  **[Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)**  No compatible  **[API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419)**  Admitido  **[Fundamentación con la Búsqueda](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)**  No compatible  **[Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419)**  No compatible  **[Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419)**  No compatible  **[Contexto de la URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)**  No compatible |
+| speedOpciones de consumo | **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**  No compatible  **[Inferencia flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)**  No compatible  **[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)**  No compatible |
+| 123Versiones | Lee los [patrones de versiones del modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Vista previa: `gemini-3.5-live-translate-preview` |
+| calendar\_monthÚltima actualización | Junio de 2026 |
+| Ficha del modelo de id\_card | [Ficha del modelo](https://deepmind.google/models/model-cards/gemini-3-5-audio/?hl=es-419) |
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-อัปเดตล่าสุด 2026-07-21 UTC
+Última actualización: 2026-07-21 (UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+¿Quieres brindar más información?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-21 UTC"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-21 (UTC)"],[],[]]

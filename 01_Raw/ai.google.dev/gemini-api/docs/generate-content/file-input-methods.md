@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-input-methods?hl=pl
-fetched_at: 2026-08-03T04:28:55.889697+00:00
-title: "Metody wprowadzania plik\u00f3w \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-input-methods?hl=th
+fetched_at: 2026-08-10T03:25:23.066144+00:00
+title: "\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e1b\u0e49\u0e2d\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e44\u0e1f\u0e25\u0e4c \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-# Metody wprowadzania plików
+# วิธีการป้อนข้อมูลไฟล์
 
-W tym przewodniku opisujemy różne sposoby dołączania plików multimedialnych, takich jak obrazy, dźwięk, wideo i dokumenty, podczas wysyłania żądań do Gemini API.
-Nowe metody są obsługiwane we wszystkich punktach końcowych Gemini API, w tym w interfejsach
-Batch, Interactions i Live API.
-Wybór odpowiedniej metody zależy od rozmiaru pliku, miejsca, w którym są obecnie przechowywane dane, oraz częstotliwości korzystania z pliku.
+คำแนะนำนี้จะอธิบายวิธีต่างๆ ในการใส่ไฟล์สื่อ เช่น รูปภาพ เสียง วิดีโอ และเอกสาร เมื่อส่งคำขอไปยัง Gemini API
+โดยวิธีใหม่นี้รองรับในปลายทาง Gemini API ทั้งหมด ซึ่งรวมถึง
+Batch, Interactions และ Live API
+การเลือกวิธีที่เหมาะสมขึ้นอยู่กับขนาดไฟล์ ตำแหน่งที่จัดเก็บข้อมูลในปัจจุบัน และความถี่ที่คุณวางแผนจะใช้ไฟล์
 
-Najprostszym sposobem na dołączenie pliku jako danych wejściowych jest odczytanie pliku lokalnego i dołączenie go do prompta. Poniższy przykład pokazuje, jak odczytać lokalny plik PDF. W przypadku tej metody rozmiar plików PDF jest ograniczony do 50 MB. Pełną listę typów plików wejściowych i limitów znajdziesz w
-[tabeli porównania metod wprowadzania danych](#method-comparison).
+วิธีที่ง่ายที่สุดในการใส่ไฟล์เป็นอินพุตคือการอ่านไฟล์ในเครื่องแล้วใส่ลงในพรอมต์ ตัวอย่างต่อไปนี้แสดงวิธีอ่านไฟล์ PDF ในเครื่อง โดยวิธีนี้ PDF จะมีขนาดไม่เกิน 50 MB โปรดดูรายการประเภทอินพุตไฟล์และขีดจำกัดทั้งหมดใน
+[ตารางเปรียบเทียบวิธีการป้อนข้อมูล](#method-comparison)
 
 ### Python
 
@@ -114,26 +114,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   }'
 ```
 
-## Porównanie metod wprowadzania danych
+## การเปรียบเทียบวิธีการป้อนข้อมูล
 
-W tabeli poniżej porównujemy poszczególne metody wprowadzania danych z limitami plików i najlepszymi przypadkami użycia. Pamiętaj, że limit rozmiaru pliku może się różnić w zależności od typu pliku oraz modelu lub tokenizera używanego do przetwarzania pliku.
+ตารางต่อไปนี้จะเปรียบเทียบวิธีการป้อนข้อมูลแต่ละวิธีกับขีดจำกัดของไฟล์และ Use Case ที่ดีที่สุด โปรดทราบว่าขีดจำกัดขนาดไฟล์อาจแตกต่างกันไปตามประเภทไฟล์และโมเดล/ตัวแยกคำที่ใช้ประมวลผลไฟล์
 
-| Metoda | Urządzenia | Maks. rozmiar pliku | Trwałość |
+| วิธีการ | เหมาะสำหรับ | ขนาดไฟล์สูงสุด | ความต่อเนื่อง |
 | --- | --- | --- | --- |
-| **Dane w treści** | Szybkie testowanie, małe pliki, aplikacje działające w czasie rzeczywistym. | 100 MB na żądanie lub ładunek   (**50 MB w przypadku plików PDF**) | Brak (wysyłane z każdym żądaniem) |
-| **Przesyłanie plików za pomocą interfejsu File API** | Duże pliki, pliki używane wielokrotnie. | 2 GB na plik,   maksymalnie 20 GB na projekt | 48 godzin |
-| **Rejestracja URI GCS za pomocą interfejsu File API** | Duże pliki, które są już w Google Cloud Storage, pliki używane wielokrotnie. | 2 GB na plik, brak ogólnych limitów miejsca na dane | Brak (pobierane na żądanie). Jednorazowa rejestracja może zapewnić dostęp na maksymalnie 30 dni. |
-| **Zewnętrzne adresy URL** | Dane publiczne lub dane w zasobnikach w chmurze (AWS, Azure, GCS) bez ponownego przesyłania. | 100 MB na żądanie lub ładunek | Brak (pobierane na żądanie) |
+| **ข้อมูลแบบอินไลน์** | การทดสอบอย่างรวดเร็ว ไฟล์ขนาดเล็ก แอปพลิเคชันแบบเรียลไทม์ | 100 MB ต่อคำขอ/เพย์โหลด   (**50 MB สำหรับ PDF**) | ไม่มี (ส่งไปพร้อมกับทุกคำขอ) |
+| **การอัปโหลด File API** | ไฟล์ขนาดใหญ่ ไฟล์ที่ใช้หลายครั้ง | 2 GB ต่อไฟล์   สูงสุด 20 GB ต่อโปรเจ็กต์ | 48 ชั่วโมง |
+| **การลงทะเบียน URI ของ File API GCS** | ไฟล์ขนาดใหญ่ที่อยู่ใน Google Cloud Storage อยู่แล้ว ไฟล์ที่ใช้หลายครั้ง | 2 GB ต่อไฟล์ ไม่มีขีดจำกัดพื้นที่เก็บข้อมูลโดยรวม | ไม่มี (ดึงข้อมูลต่อคำขอ) การลงทะเบียนครั้งเดียวจะให้สิทธิ์เข้าถึงได้นานสูงสุด 30 วัน |
+| **URL ภายนอก** | ข้อมูลสาธารณะหรือข้อมูลใน Bucket ของระบบคลาวด์ (AWS, Azure, GCS) โดยไม่ต้องอัปโหลดซ้ำ | 100 MB ต่อคำขอ/เพย์โหลด | ไม่มี (ดึงข้อมูลต่อคำขอ) |
 
-## Dane w treści
+## ข้อมูลแบบอินไลน์
 
-W przypadku mniejszych plików (poniżej 100 MB lub 50 MB w przypadku plików PDF) możesz przekazywać dane bezpośrednio w ładunku żądania. Jest to najprostsza metoda do szybkich testów lub aplikacji obsługujących dane tymczasowe w czasie rzeczywistym. Dane możesz podawać jako ciągi znaków zakodowane w formacie base64 lub odczytywać bezpośrednio z plików lokalnych.
+สำหรับไฟล์ขนาดเล็กกว่า (ไม่เกิน 100 MB หรือ 50 MB สำหรับ PDF) คุณสามารถส่งข้อมูลในเพย์โหลดคำขอได้โดยตรง ซึ่งเป็นวิธีที่ง่ายที่สุดสำหรับการทดสอบอย่างรวดเร็วหรือแอปพลิเคชันที่จัดการข้อมูลชั่วคราวแบบเรียลไทม์ คุณสามารถระบุข้อมูลเป็นสตริงที่เข้ารหัส base64 หรืออ่านไฟล์ในเครื่องได้โดยตรง
 
-Przykład odczytywania z pliku lokalnego znajdziesz na początku tej strony.
+ดูตัวอย่างการอ่านจากไฟล์ในเครื่องได้ที่ตัวอย่างที่จุดเริ่มต้นของหน้านี้
 
-### Pobieranie z adresu URL
+### ดึงข้อมูลจาก URL
 
-Możesz też pobrać plik z adresu URL, przekonwertować go na bajty i dołączyć do danych wejściowych.
+นอกจากนี้ คุณยังดึงข้อมูลไฟล์จาก URL แปลงเป็นไบต์ แล้วใส่ลงในอินพุตได้ด้วย
 
 ### Python
 
@@ -237,11 +237,11 @@ jq ".candidates[].content.parts[].text" response.json
 
 ## Gemini File API
 
-File API jest przeznaczony do większych plików (do 2 GB) lub plików, których chcesz używać w wielu żądaniach.
+File API ออกแบบมาสำหรับไฟล์ขนาดใหญ่ (สูงสุด 2 GB) หรือไฟล์ที่คุณต้องการใช้ในคำขอหลายรายการ
 
-### Standardowe przesyłanie plików
+### การอัปโหลดไฟล์มาตรฐาน
 
-Prześlij plik lokalny do Gemini API. Pliki przesłane w ten sposób są przechowywane tymczasowo (48 godzin) i przetwarzane w celu efektywnego pobierania przez model.
+อัปโหลดไฟล์ในเครื่องไปยัง Gemini API ไฟล์ที่อัปโหลดด้วยวิธีนี้จะจัดเก็บไว้ชั่วคราว (48 ชั่วโมง) และประมวลผลเพื่อให้โมเดลดึงข้อมูลได้อย่างมีประสิทธิภาพ
 
 ### Python
 
@@ -348,46 +348,46 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Rejestrowanie plików w Google Cloud Storage
+### ลงทะเบียนไฟล์ Google Cloud Storage
 
-Jeśli Twoje dane są już w Google Cloud Storage, nie musisz ich pobierać ani przesyłać ponownie. Możesz je zarejestrować bezpośrednio za pomocą File API.
+หากข้อมูลอยู่ใน Google Cloud Storage อยู่แล้ว คุณไม่จำเป็นต้องดาวน์โหลดและอัปโหลดซ้ำ คุณสามารถลงทะเบียนข้อมูลกับ File API ได้โดยตรง
 
-1. Przyznaj **agentowi usługi** dostęp do każdego zasobnika.
+1. ให้สิทธิ์เข้าถึง **Service Agent** แก่แต่ละ Bucket
 
-   1. Włącz Gemini API w projekcie w chmurze Google.
-   2. Utwórz agenta usługi:
+   1. เปิดใช้ Gemini API ในโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google
+   2. สร้าง Service Agent ด้วยคำสั่งต่อไปนี้
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Przyznaj agentowi usługi Gemini API uprawnienia** do odczytu zasobników pamięci.
+   3. **ให้สิทธิ์เข้าถึง Bucket พื้นที่เก็บข้อมูลแก่ Service Agent ของ Gemini API**
 
-      Użytkownik musi przypisać agentowi usługi rolę `Storage Object Viewer`
-      [IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=pl#storage.objectViewer)
-      w konkretnych zasobnikach pamięci, których chce używać.
+      ผู้ใช้ต้องกำหนดบทบาท `Storage Object Viewer`
+      [IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=th#storage.objectViewer)
+      ให้กับตัวแทนบริการนี้ใน Bucket พื้นที่เก็บข้อมูลที่ต้องการใช้
 
-   Domyślnie ten dostęp nie wygasa, ale można go w każdej chwili zmienić. Do przyznawania uprawnień możesz
-   też używać
-   [poleceń pakietu Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=pl).
-2. Uwierzytelnij usługę
+   สิทธิ์เข้าถึงนี้จะไม่มีวันหมดอายุโดยค่าเริ่มต้น แต่คุณสามารถเปลี่ยนแปลงได้ทุกเมื่อ นอกจากนี้ คุณยังใช้
+   [คำสั่ง Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=th)
+   เพื่อให้สิทธิ์ได้ด้วย
+2. ตรวจสอบสิทธิ์บริการ
 
-   **Wymagania wstępne**
+   **ข้อกำหนดเบื้องต้น**
 
-   - Włącz API
-   - Utwórz konto usługi lub agenta z odpowiednimi uprawnieniami.
+   - เปิดใช้ API
+   - สร้างบัญชีบริการ/Agent ที่มีสิทธิ์ที่เหมาะสม
 
-   Najpierw musisz się uwierzytelnić jako usługa, która ma uprawnienia do wyświetlania obiektów w pamięci. Sposób uwierzytelniania zależy od środowiska, w którym będzie działać kod zarządzania plikami.
+   ก่อนอื่น คุณต้องตรวจสอบสิทธิ์ในฐานะบริการที่มีสิทธิ์เข้าถึงพื้นที่เก็บข้อมูล ซึ่งวิธีการตรวจสอบสิทธิ์จะขึ้นอยู่กับสภาพแวดล้อมที่โค้ดการจัดการไฟล์จะทำงาน
 
-   **Poza Google Cloud**
+   **ภายนอก Google Cloud**
 
-   Jeśli kod działa poza Google Cloud, np. na komputerze, pobierz dane logowania konta z konsoli Google Cloud, wykonując te czynności:
+   หากโค้ดทำงานจากภายนอก Google Cloud เช่น จากเดสก์ท็อป ให้ดาวน์โหลดข้อมูลเข้าสู่ระบบบัญชีจากคอนโซล Google Cloud โดยทำตามขั้นตอนต่อไปนี้
 
-   1. Otwórz konsolę [kont usługi](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=pl).
-   2. Wybierz odpowiednie konto usługi.
-   3. Kliknij kartę **Klucze i wybierz **Dodaj klucz** > Utwórz nowy klucz**.
-   4. Wybierz typ klucza **JSON** i zanotuj, gdzie plik został pobrany na komputerze.
+   1. ไปที่[คอนโซลบัญชีบริการ](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=th)
+   2. เลือกบัญชีบริการที่เกี่ยวข้อง
+   3. เลือกแท็บ**คีย์** แล้วเลือก**เพิ่มคีย์, สร้างคีย์ใหม่**
+   4. เลือกประเภทคีย์ **JSON** และจดบันทึกตำแหน่งที่ดาวน์โหลดไฟล์ลงในเครื่อง
 
-   Więcej informacji znajdziesz w oficjalnej dokumentacji Google Cloud na temat [zarządzania kluczami kont usługi](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=pl).
+   ดูรายละเอียดเพิ่มเติมได้ในเอกสารประกอบอย่างเป็นทางการของ Google Cloud เกี่ยวกับการจัดการ[คีย์บัญชีบริการ](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=th)
 
-   Następnie użyj tych poleceń, aby się uwierzytelnić. Te polecenia zakładają, że plik konta usługi znajduje się w bieżącym katalogu i ma nazwę `service-account.json`.
+   จากนั้นใช้คำสั่งต่อไปนี้เพื่อตรวจสอบสิทธิ์ คำสั่งเหล่านี้จะถือว่าไฟล์บัญชีบริการอยู่ในไดเรกทอรีปัจจุบันและมีชื่อว่า `service-account.json`
 
    ### Python
 
@@ -433,19 +433,18 @@ Jeśli Twoje dane są już w Google Cloud Storage, nie musisz ich pobierać ani 
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **W Google Cloud**
+   **ใน Google Cloud**
 
-   Jeśli korzystasz bezpośrednio z Google Cloud, np. używając funkcji [Cloud
-   Run](https://cloud.google.com/functions?hl=pl) lub instancji
-   [Compute Engine](https://cloud.google.com/products/compute?hl=pl), będziesz
-   mieć niejawne dane logowania, ale musisz się ponownie uwierzytelnić, aby przyznać
-   odpowiednie zakresy.
+   หากคุณใช้งานใน Google Cloud โดยตรง เช่น โดยใช้ [ฟังก์ชัน Cloud Run](https://cloud.google.com/functions?hl=th) หรือ
+   [อินสแตนซ์ Compute Engine](https://cloud.google.com/products/compute?hl=th) คุณจะ
+   มีข้อมูลเข้าสู่ระบบโดยนัย แต่จะต้องตรวจสอบสิทธิ์อีกครั้งเพื่อให้สิทธิ์เข้าถึง
+   ขอบเขตที่เหมาะสม
 
    ### Python
 
-   Ten kod zakłada, że usługa działa w środowisku, w którym
-   [domyślne uwierzytelnianie aplikacji](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pl)
-   można automatycznie uzyskać, np. w Cloud Run lub Compute Engine.
+   โค้ดนี้คาดหวังว่าบริการจะทำงานในสภาพแวดล้อมที่
+   [ข้อมูลรับรองเริ่มต้นของแอปพลิเคชัน](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=th)
+   ได้โดยอัตโนมัติ เช่น Cloud Run หรือ Compute Engine
 
    ```
    import google.auth
@@ -460,9 +459,9 @@ Jeśli Twoje dane są już w Google Cloud Storage, nie musisz ich pobierać ani 
 
    ### JavaScript
 
-   Ten kod zakłada, że usługa działa w środowisku, w którym
-   [domyślne uwierzytelnianie aplikacji](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pl)
-   można automatycznie uzyskać, np. w Cloud Run lub Compute Engine.
+   โค้ดนี้คาดหวังว่าบริการจะทำงานในสภาพแวดล้อมที่
+   [ข้อมูลรับรองเริ่มต้นของแอปพลิเคชัน](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=th)
+   ได้โดยอัตโนมัติ เช่น Cloud Run หรือ Compute Engine
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -477,15 +476,15 @@ Jeśli Twoje dane są już w Google Cloud Storage, nie musisz ich pobierać ani 
 
    ### CLI
 
-   To jest polecenie interaktywne. W przypadku usług takich jak Compute Engine możesz dołączyć zakresy do działającej usługi na poziomie konfiguracji. [Przykład znajdziesz w dokumentacji usługi zarządzanej przez użytkownika.](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=pl#using)
+   นี่เป็นคำสั่งแบบอินเทอร์แอกทีฟ สำหรับบริการอย่าง Compute Engine คุณสามารถแนบขอบเขตกับบริการที่ทำงานอยู่ที่ระดับการกำหนดค่าได้ ดูตัวอย่างได้ในเอกสารประกอบเกี่ยวกับบริการที่ผู้ใช้จัดการ
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. Rejestracja pliku (Files API)
+3. การลงทะเบียนไฟล์ (Files API)
 
-   Użyj Files API, aby zarejestrować pliki i utworzyć ścieżkę Files API, której można bezpośrednio używać w Gemini API.
+   ใช้ Files API เพื่อลงทะเบียนไฟล์และสร้างเส้นทาง Files API ที่ใช้ใน Gemini API ได้โดยตรง
 
    ### Python
 
@@ -530,14 +529,13 @@ Jeśli Twoje dane są już w Google Cloud Storage, nie musisz ich pobierać ani 
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## Zewnętrzne adresy URL HTTP / podpisane adresy URL
+## URL HTTP ภายนอก / URL ที่ลงชื่อแล้ว
 
-Możesz przekazywać publicznie dostępne adresy URL HTTPS lub wstępnie podpisane adresy URL (zgodne z
-[wstępnie podpisanymi
-adresami URL S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
-i Azure SAS) bezpośrednio w żądaniu generowania. Gemini API bezpiecznie pobierze treści podczas przetwarzania. Jest to idealne rozwiązanie w przypadku plików o rozmiarze do 100 MB, których nie chcesz przesyłać ponownie.
+คุณสามารถส่ง URL HTTPS ที่เข้าถึงได้แบบสาธารณะหรือ URL ที่ลงชื่อไว้ล่วงหน้า (เข้ากันได้กับ
+[URL ที่ลงชื่อไว้ล่วงหน้าของ S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
+และ SAS ของ Azure) ในคำขอสร้างได้โดยตรง Gemini API จะดึงข้อมูลเนื้อหาอย่างปลอดภัยระหว่างการประมวลผล วิธีนี้เหมาะสำหรับไฟล์ที่มีขนาดไม่เกิน 100 MB ที่คุณไม่ต้องการอัปโหลดซ้ำ
 
-Możesz używać publicznych lub podpisanych adresów URL jako danych wejściowych, umieszczając je w polu `file_uri`.
+คุณสามารถใช้ URL สาธารณะหรือ URL ที่ลงชื่อแล้วเป็นอินพุตได้โดยใช้ URL ในช่อง `file_uri`
 
 ### Python
 
@@ -611,20 +609,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
         }'
 ```
 
-### Ułatwienia dostępu
+### การช่วยเหลือพิเศษ
 
-Sprawdź, czy podane adresy URL nie prowadzą do stron, które wymagają logowania lub są płatne. W przypadku prywatnych baz danych utwórz podpisany URL z odpowiednimi uprawnieniami dostępu i datą ważności.
+ตรวจสอบว่า URL ที่คุณระบุไม่ได้นำไปยังหน้าที่ต้องเข้าสู่ระบบหรืออยู่หลังเพย์วอลล์ สำหรับฐานข้อมูลส่วนตัว โปรดสร้าง URL ที่ลงชื่อแล้วโดยมีสิทธิ์เข้าถึงและวันหมดอายุที่ถูกต้อง
 
-### Testy zabezpieczeń
+### การตรวจสอบความปลอดภัย
 
-System przeprowadza kontrolę moderacji treści pod kątem adresu URL, aby potwierdzić, że spełnia on standardy bezpieczeństwa i zasady (np. treści, które nie są wyłączone i nie są płatne). Jeśli podany adres URL nie przejdzie tego testu, otrzymasz wartość `url_retrieval_status` równą `URL_RETRIEVAL_STATUS_UNSAFE`.
+ระบบจะทำการตรวจสอบการกลั่นกรองเนื้อหาใน URL เพื่อยืนยันว่า URL เป็นไปตามมาตรฐานด้านความปลอดภัยและนโยบาย (เช่น เนื้อหาที่ไม่ได้เลือกไม่รับและเนื้อหาที่อยู่หลังเพย์วอลล์) หาก URL ที่คุณระบุไม่ผ่านการตรวจสอบนี้ คุณจะได้รับ `url_retrieval_status` เป็น `URL_RETRIEVAL_STATUS_UNSAFE`
 
-### Obsługiwane typy treści
+### ประเภทเนื้อหาที่รองรับ
 
-Ta lista obsługiwanych typów plików i ograniczeń ma charakter wstępny i nie jest wyczerpująca. Efektywny zestaw obsługiwanych typów może się zmieniać i różnić w zależności od konkretnego modelu oraz wersji tokenizera. Nieobsługiwane typy spowodują błąd.
-Ponadto pobieranie treści w przypadku tych typów plików obsługuje obecnie tylko publicznie dostępne adresy URL.
+รายการประเภทไฟล์และข้อจำกัดที่รองรับนี้มีไว้เพื่อเป็นแนวทางเบื้องต้นและไม่ครอบคลุมทั้งหมด ชุดประเภทที่รองรับจริงอาจมีการเปลี่ยนแปลงและแตกต่างกันไปตามโมเดลและเวอร์ชันตัวแยกคำที่ใช้ ประเภทที่ไม่รองรับจะทำให้เกิดข้อผิดพลาด
+นอกจากนี้ การดึงข้อมูลเนื้อหาสำหรับไฟล์ประเภทเหล่านี้ในปัจจุบันรองรับเฉพาะ URL ที่เข้าถึงได้แบบสาธารณะ
 
-#### Typy plików tekstowych
+#### ประเภทไฟล์ข้อความ
 
 - `text/html`
 - `text/css`
@@ -634,19 +632,19 @@ Ponadto pobieranie treści w przypadku tych typów plików obsługuje obecnie ty
 - `text/rtf`
 - `text/javascript`
 
-#### Typy plików aplikacji
+#### ประเภทไฟล์แอปพลิเคชัน
 
 - `application/json`
 - `application/pdf`
 
-#### Typy plików graficznych
+#### ประเภทไฟล์รูปภาพ
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Typy plików wideo
+#### ประเภทไฟล์วิดีโอ
 
 - `video/mp4`
 - `video/mpeg`
@@ -658,43 +656,41 @@ Ponadto pobieranie treści w przypadku tych typów plików obsługuje obecnie ty
 - `video/wmv`
 - `video/3gpp`
 
-## Sprawdzone metody
+## แนวทางปฏิบัติแนะนำ
 
-- **Wybierz odpowiednią metodę:** w przypadku małych, tymczasowych plików używaj danych w treści.
-  W przypadku większych lub często używanych plików używaj File API. W przypadku danych hostowanych online używaj zewnętrznych adresów URL.
-- **Określ typy MIME:** zawsze podawaj prawidłowy typ MIME danych pliku, aby zapewnić prawidłowe przetwarzanie.
-- **Obsługuj błędy:** zaimplementuj obsługę błędów w kodzie, aby zarządzać potencjalnymi problemami, takimi jak awarie sieci, problemy z dostępem do plików lub błędy interfejsu API.
-- **Zarządzaj uprawnieniami GCS:** w przypadku rejestracji GCS przyznaj agentowi usługi Gemini
-  API tylko niezbędną rolę `Storage Object Viewer` w konkretnych
-  zasobnikach.
-- **Bezpieczeństwo podpisanych adresów URL:** upewnij się, że podpisane adresy URL mają odpowiedni czas ważności i ograniczone uprawnienia.
+- **เลือกวิธีที่เหมาะสม:** ใช้ข้อมูลแบบอินไลน์สำหรับไฟล์ขนาดเล็กและชั่วคราว
+  ใช้ File API สำหรับไฟล์ขนาดใหญ่หรือไฟล์ที่ใช้บ่อย ใช้ URL ภายนอกสำหรับข้อมูลที่โฮสต์ออนไลน์อยู่แล้ว
+- **ระบุประเภท MIME:** ระบุประเภท MIME ที่ถูกต้องสำหรับข้อมูลไฟล์เสมอเพื่อให้แน่ใจว่าระบบจะประมวลผลได้อย่างถูกต้อง
+- **จัดการข้อผิดพลาด:** ใช้การจัดการข้อผิดพลาดในโค้ดเพื่อจัดการปัญหาที่อาจเกิดขึ้น เช่น เครือข่ายล่ม ปัญหาการเข้าถึงไฟล์ หรือข้อผิดพลาดของ API
+- **จัดการสิทธิ์ GCS:** เมื่อใช้การลงทะเบียน GCS ให้สิทธิ์เข้าถึงบทบาท `Storage Object Viewer` ที่จำเป็นเท่านั้นแก่ Service Agent ของ Gemini API ใน Bucket ที่เฉพาะเจาะจง
+- **ความปลอดภัยของ URL ที่ลงชื่อแล้ว:** ตรวจสอบว่า URL ที่ลงชื่อแล้วมีเวลาหมดอายุที่เหมาะสมและสิทธิ์ที่จำกัด
 
-## Ograniczenia
+## ข้อจำกัด
 
-- Limity rozmiaru pliku różnią się w zależności od metody (patrz [tabela porównania](#method-comparison))
-  i typu pliku.
-- Dane w treści zwiększają rozmiar ładunku żądania.
-- Przesyłanie plików za pomocą File API jest tymczasowe i wygasa po 48 godzinach.
-- Pobieranie zewnętrznych adresów URL jest ograniczone do 100 MB na ładunek i obsługuje określone typy treści.
-- Rejestracja w Google Cloud Storage wymaga prawidłowej konfiguracji IAM i zarządzania tokenami OAuth.
+- ขีดจำกัดขนาดไฟล์จะแตกต่างกันไปตามวิธี (ดู [ตารางเปรียบเทียบ](#method-comparison))
+  และประเภทไฟล์
+- ข้อมูลแบบอินไลน์จะเพิ่มขนาดเพย์โหลดคำขอ
+- การอัปโหลด File API เป็นการอัปโหลดชั่วคราวและจะหมดอายุหลังจากผ่านไป 48 ชั่วโมง
+- การดึงข้อมูล URL ภายนอกจำกัดไว้ที่ 100 MB ต่อเพย์โหลดและรองรับเนื้อหาบางประเภท
+- การลงทะเบียน Google Cloud Storage ต้องมีการตั้งค่า IAM ที่เหมาะสมและการจัดการโทเค็น OAuth
 
-## Co dalej?
+## ขั้นตอนถัดไป
 
-- Spróbuj napisać własne prompty multimodalne za pomocą
-  [Google AI Studio](http://aistudio.google.com/?hl=pl).
-- Informacje o dołączaniu plików do promptów znajdziesz w przewodnikach dotyczących przetwarzania
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=pl),
-  [dźwięku](https://ai.google.dev/gemini-api/docs/audio?hl=pl) i
-  [dokumentów](https://ai.google.dev/gemini-api/docs/document-processing?hl=pl).
-- Więcej wskazówek dotyczących projektowania promptów, np. dostrajania parametrów próbkowania, znajdziesz w
-  [przewodniku po strategiach tworzenia promptów](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=pl).
+- ลองเขียนพรอมต์มัลติโมดัลของคุณเองโดยใช้
+  [Google AI Studio](http://aistudio.google.com/?hl=th)
+- ดูข้อมูลเกี่ยวกับการใส่ไฟล์ในพรอมต์ได้ในคำแนะนำการประมวลผล
+  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=th),
+  [เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th) และ
+  [เอกสาร](https://ai.google.dev/gemini-api/docs/document-processing?hl=th)
+- ดูคำแนะนำเพิ่มเติมเกี่ยวกับการออกแบบพรอมต์ เช่น การปรับพารามิเตอร์การสุ่มตัวอย่างได้ใน
+  [คำแนะนำเกี่ยวกับกลยุทธ์พรอมต์](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ostatnia aktualizacja: 2026-07-30 UTC.
+อัปเดตล่าสุด 2026-07-30 UTC
 
-Chcesz przekazać coś jeszcze?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

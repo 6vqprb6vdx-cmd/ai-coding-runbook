@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=th
-fetched_at: 2026-08-03T04:37:42.484966+00:00
-title: "\u0e01\u0e32\u0e23\u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e43\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e15\u0e23\u0e35\u0e21 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=he
+fetched_at: 2026-08-10T03:08:19.074320+00:00
+title: "\u05d0\u05d9\u05e0\u05d8\u05e8\u05d0\u05e7\u05e6\u05d9\u05d5\u05ea \u05e2\u05dd \u05e1\u05d8\u05e8\u05d9\u05de\u05d9\u05e0\u05d2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-ส่งความคิดเห็น
+שליחת משוב
 
-# การโต้ตอบในการสตรีม
+# אינטראקציות עם סטרימינג
 
-เมื่อสร้างการโต้ตอบ คุณสามารถตั้งค่า `stream: true` เพื่อสตรีมการตอบกลับทีละส่วนโดยใช้ [เหตุการณ์ที่เซิร์ฟเวอร์ส่ง](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE)
+כשיוצרים אינטראקציה, אפשר להגדיר את `stream: true` להזרמה מצטברת של התגובה באמצעות [אירועים שנשלחים מהשרת](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
 
 ### Python
 
@@ -110,24 +110,24 @@ event: done
 data: [DONE]
 ```
 
-## ประเภทกิจกรรม
+## סוגי אירועים
 
-เหตุการณ์ที่เซิร์ฟเวอร์ส่งแต่ละรายการจะมี `event_type` ที่ตั้งชื่อไว้และข้อมูล JSON ที่เกี่ยวข้อง Interactions API ใช้โมเดลการสตรีมแบบสมมาตร ซึ่งเนื้อหาทั้งหมด ไม่ว่าจะเป็นข้อความ การเรียกใช้เครื่องมือ หรือการคิด จะไหลผ่านเหตุการณ์ที่**อิงตามขั้นตอน** ที่สอดคล้องกัน
+כל אירוע שנשלח מהשרת כולל שם `event_type` ונתוני JSON משויכים. ב-Interactions API נעשה שימוש במודל סימטרי של סטרימינג, שבו כל התוכן – טקסט, קריאות לכלים, חשיבה – עובר דרך אירוע **מבוסס-שלבים** עקבי.
 
-สตรีมแต่ละรายการจะเป็นไปตามโฟลว์เหตุการณ์นี้
+כל עדכון תוכן פועל לפי רצף האירועים הזה:
 
-1. `interaction.created`: การโต้ตอบถูกสร้างขึ้น ซึ่งรวมถึงข้อมูลเมตา (รหัส โมเดล สถานะ)
-2. ชุด**ขั้นตอน** ซึ่งแต่ละขั้นตอนประกอบด้วย:
-   - เหตุการณ์ `step.start` ซึ่งระบุประเภทขั้นตอน (เช่น `model_output`, `thought`, `function_call`)
-   - เหตุการณ์ `step.delta` อย่างน้อย 1 รายการที่มีข้อมูลทีละส่วนสำหรับขั้นตอนนั้น
-   - เหตุการณ์ `step.stop` ซึ่งทำเครื่องหมายขั้นตอนว่าเสร็จสมบูรณ์
-3. เหตุการณ์ `interaction.completed` ที่มีสถิติ `usage` สุดท้าย
+1. ‫`interaction.created`: האינטראקציה נוצרת וכוללת מטא-נתונים (מזהה, מודל, סטטוס).
+2. סדרה של **שלבים**, שכל אחד מהם מורכב מ:
+   - אירוע `step.start` שמציין את סוג השלב (למשל, `model_output`, `thought`, `function_call`).
+   - אירוע `step.delta` אחד או יותר עם נתונים מצטברים של השלב הזה.
+   - אירוע `step.stop` שמסמן את השלב כהושלם.
+3. אירוע `interaction.completed` עם נתוני `usage` סופיים.
 
-เมื่อตั้งค่า `stream: false` API จะแสดงผลออบเจ็กต์ `interaction` รายการเดียวที่มีอาร์เรย์ `steps` องค์ประกอบแต่ละรายการใน `steps` คือเวอร์ชันที่ประกอบขึ้นอย่างสมบูรณ์ของวงจร `step.start` → `step.delta`(s) → `step.stop`
+כשמגדירים את הערך `stream: false`, ה-API מחזיר אובייקט `interaction` יחיד עם מערך `steps`. כל אלמנט ב-`steps` הוא הגרסה המורכבת במלואה של מחזור אחד של `step.start` → `step.delta`(s) → `step.stop`.
 
 ### `interaction.created`
 
-ส่งเมื่อมีการสร้างการโต้ตอบเป็นครั้งแรก มีรหัสการโต้ตอบ โมเดล และสถานะเริ่มต้น
+האירוע הזה נשלח כשיוצרים את האינטראקציה בפעם הראשונה. מכיל את מזהה האינטראקציה, המודל והסטטוס הראשוני.
 
 ```
 event: interaction.created
@@ -136,7 +136,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3.5-flash", "status": "in_p
 
 ### `interaction.status_update`
 
-ส่งสัญญาณการเปลี่ยนสถานะระดับการโต้ตอบ อาจปรากฏระหว่างขั้นตอน
+האות הזה מציין מעבר סטטוס ברמת האינטראקציה. יכול להיות שיופיע בין השלבים.
 
 ```
 event: interaction.status_update
@@ -145,23 +145,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-ทำเครื่องหมายจุดเริ่มต้นของขั้นตอนใหม่ มี `type` และ `index` ของขั้นตอน ประเภทขั้นตอนจะกำหนดประเภทเดลต้าที่คาดหวังและลักษณะที่ขั้นตอนปรากฏในการตอบกลับที่ไม่ใช่การสตรีม
+מציין את תחילתו של שלב חדש. מכיל את השלבים `type` ו-`index`. סוג השלב קובע אילו סוגי דלתא צפויים ואיך השלב יופיע בתגובה שלא מועברת בסטרימינג:
 
-| ประเภทของขั้นตอน | ประเภทเดลต้าที่คาดหวัง | คำอธิบาย |
+| סוג השלב | סוגי הדלתא הצפויים | תיאור |
 | --- | --- | --- |
-| `model_output` | `text`, `image`, `audio` | เนื้อหาการตอบกลับสุดท้ายของโมเดล |
-| `thought` | `thought_signature`, `thought_summary` | การให้เหตุผลแบบ Chain-of-thought `summary` จะปรากฏขึ้นเมื่อเปิดใช้ `thinking_summaries` เท่านั้น |
-| `function_call` | `arguments_delta` | คำขอให้ไคลเอ็นต์เรียกใช้ฟังก์ชัน ตั้งค่าสถานะการโต้ตอบเป็น `requires_action` |
-| เครื่องมือฝั่งเซิร์ฟเวอร์ | แตกต่างกันไปตามเครื่องมือ | เครื่องมือที่ API เรียกใช้ (เช่น `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`) |
+| `model_output` | `text`,‏ `image`,‏ `audio` | תוכן התשובה הסופית של המודל. |
+| `thought` | `thought_signature`, `thought_summary` | נימוק לפי שרשרת מחשבות. הפרמטר `summary` מופיע רק אם הפרמטר `thinking_summaries` מופעל. |
+| `function_call` | `arguments_delta` | בקשה מהלקוח להפעיל פונקציה. הסטטוס של האינטראקציה מוגדר ל`requires_action`. |
+| כלים בצד השרת | משתנה בהתאם לכלי | כלים שמופעלים על ידי ה-API (לדוגמה, `google_search_call`, ‏ `google_search_result`, ‏ `code_execution_call`, ‏ `code_execution_result`). |
 
-ดูรายการทั้งหมดได้ที่ข้อมูลอ้างอิง [Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
+הרשימה המלאה מופיעה ב[הפניית API של אינטראקציות](https://ai.google.dev/api/interactions-api?hl=he).
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-สำหรับการเรียกใช้ฟังก์ชัน ขั้นตอนจะรวมถึงชื่อฟังก์ชัน รหัส และอาร์กิวเมนต์ว่างเปล่า `{}`
+במקרה של קריאות לפונקציות, השלב כולל את שם הפונקציה, המזהה שלה וארגומנטים ריקים `{}`.
 
 ```
 event: step.start
@@ -170,11 +170,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-ข้อมูลทีละส่วนสำหรับขั้นตอนปัจจุบัน ออบเจ็กต์ `delta` มีฟิลด์ `type` ที่กำหนดรูปร่าง
+נתונים מצטברים של השלב הנוכחי. האובייקט `delta` מכיל שדה `type` שקובע את הצורה שלו.
 
-**ตัวอย่างเช่น**
+**לדוגמה:**
 
-**`text`:** โทเค็นข้อความทีละส่วนจากขั้นตอน `model_output`
+‫**`text`:** אסימון טקסט מצטבר משלב `model_output`:
 
 ```
 event: step.delta
@@ -184,32 +184,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** ข้อมูลรูปภาพที่เข้ารหัส Base64 จากขั้นตอน `model_output`
+‫**`image`:** נתוני תמונה בקידוד Base64 משלב `model_output`:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** เนื้อหาข้อมูลสรุปการคิดจากขั้นตอน `thought`
+‫**`thought_summary`:** סיכום של תהליך החשיבה משלב `thought`:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** สตริง JSON (บางส่วน) สำหรับอาร์กิวเมนต์การเรียกใช้ฟังก์ชัน ต้องสะสมในเดลต้า
+‫**`arguments_delta`:** מחרוזת JSON (חלקית) של ארגומנטים לקריאה לפונקציה. הסכום המצטבר צריך להיות מחושב על סמך שינויים:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-นี่คือประเภทเดลต้าที่พบบ่อยที่สุด ดูรายการประเภทเดลต้าทั้งหมดได้ที่[ข้อมูลอ้างอิง Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
+אלה כמה מהסוגים הנפוצים ביותר של דלתא. רשימה מלאה של כל סוגי הדלתא זמינה במאמר [Interactions API reference](https://ai.google.dev/api/interactions-api?hl=he).
 
 ### `step.stop`
 
-ทำเครื่องหมายจุดสิ้นสุดของขั้นตอน มี `index` ของขั้นตอน
+סימון סוף השלב. הוא מכיל את השלב `index`.
 
 ```
 event: step.stop
@@ -218,7 +218,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-ส่งเมื่อการโต้ตอบเสร็จสิ้น มีออบเจ็กต์การโต้ตอบสุดท้ายพร้อมสถิติ `usage` ในโหมดที่ไม่ใช่การสตรีม นี่คือออบเจ็กต์การตอบกลับระดับบนสุด ไม่รวม `steps` ในการตอบกลับ
+האירוע נשלח בסיום האינטראקציה. מכיל את אובייקט האינטראקציה הסופי עם נתוני `usage`. במצב לא סטרימינג, זהו אובייקט התגובה ברמה העליונה עצמו. לא כולל את `steps` בתשובה.
 
 ```
 event: interaction.completed
@@ -227,24 +227,26 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-ส่งเมื่อเกิดข้อผิดพลาดระหว่างการโต้ตอบ มีออบเจ็กต์ข้อผิดพลาดพร้อมข้อความและรหัส
+האירוע נשלח כשמתרחשת שגיאה במהלך האינטראקציה. מכיל אובייקט שגיאה עם הודעה וקוד.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## การสตรีมด้วยเครื่องมือ
+## סטרימינג באמצעות כלים
 
-Interactions API รองรับการสตรีมด้วยเครื่องมือทั้งฝั่งไคลเอ็นต์ (การเรียกใช้ฟังก์ชัน) และฝั่งเซิร์ฟเวอร์ (Google Search, การดำเนินการโค้ด ฯลฯ) ในคำขอเดียว ระหว่างการสตรีม การเรียกใช้เครื่องมือจะปรากฏเป็นขั้นตอนที่พิมพ์ในสตรีมเหตุการณ์ สำหรับการเรียกใช้ฟังก์ชัน เหตุการณ์ `step.start` จะแสดงชื่อฟังก์ชัน และเหตุการณ์ `step.delta` จะสตรีมอาร์กิวเมนต์เป็นสตริง JSON (`arguments_delta`) คุณต้องสะสมเดลต้าเหล่านี้เพื่อรับอาร์กิวเมนต์ทั้งหมด
-API จะเรียกใช้เครื่องมือฝั่งเซิร์ฟเวอร์ เช่น Google Search โดยอัตโนมัติ ซึ่งจะสร้างขั้นตอน `google_search_call` และ `google_search_result`
+ממשק Interactions API תומך בסטרימינג גם עם כלים בצד הלקוח (הפעלת פונקציות) וגם עם כלים בצד השרת (חיפוש Google, הפעלת קוד וכו') בבקשה אחת. במהלך הסטרימינג, הפעלות של כלים מופיעות כשלבים מוקלדים בסטרימינג של האירועים. במקרה של קריאות לפונקציות, האירוע `step.start` מעביר את שם הפונקציה, והאירועים `step.delta` מעבירים את הארגומנטים כמחרוזות JSON‏ (`arguments_delta`). כדי לקבל את הארגומנטים המלאים, צריך לצבור את הדלתאות האלה.
+כלים בצד השרת כמו חיפוש Google מופעלים אוטומטית על ידי ה-API,
+ומפיקים את השלבים `google_search_call` ו-`google_search_result`.
 
-### การสตรีมด้วยการเรียกใช้ฟังก์ชัน
+### הזרמה עם בקשה להפעלת פונקציה
 
-หากต้องการทำการเรียกใช้ฟังก์ชันด้วยการสตรีม ไคลเอ็นต์ต้องจัดการการสนทนาหลายรอบดังนี้
+כדי לבצע קריאה לפונקציה עם סטרימינג, הלקוח צריך לנהל שיחה מרובת תפניות:
 
-1. **รอบที่ 1 (คำขอฟังก์ชัน):** เรียกใช้ `interactions.create` ด้วย `stream: true` และ `tools` ที่คุณกำหนด API จะสตรีมขั้นตอน `function_call` คุณต้องสะสมสตริง JSON ของอาร์กิวเมนต์ทีละส่วน (`arguments_delta`) จากเหตุการณ์ `step.delta` จนกว่าการโต้ตอบจะเสร็จสมบูรณ์ด้วยสถานะ `requires_action`
-2. **รอบที่ 2 (การส่งผลลัพธ์):** เรียกใช้ `interactions.create` อีกครั้ง โดยส่ง `previous_interaction_id` (ซึ่งตรงกับรหัสของการโต้ตอบแรก) และส่งบล็อก `function_result` ภายในอาร์เรย์ `input` ซึ่งจะดำเนินการสตรีมต่อ ทำให้โมเดลสร้างการตอบกลับสุดท้ายได้
+1. **תור 1 (בקשה לפונקציה):** קריאה לפונקציה `interactions.create` עם `stream: true`
+   והפונקציה `tools` שהגדרתם. ממשק ה-API ישדר שלב `function_call`. צריך לצבור את מחרוזות ה-JSON של הארגומנטים המצטברים (`arguments_delta`) מאירועי `step.delta` עד שהאינטראקציה מסתיימת עם הסטטוס `requires_action`.
+2. **תור 2 (שליחת תוצאה):** מתקשרים שוב אל `interactions.create`, מעבירים את `previous_interaction_id` (שמתאים למזהה של האינטראקציה הראשונה) ושולחים בלוק `function_result` במערך `input`. הפעולה הזו מחדשת את הסטרימינג, ומאפשרת למודל ליצור את התשובה הסופית.
 
 ### Python
 
@@ -401,7 +403,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**รอบที่ 1:** ขอเรียกใช้ฟังก์ชัน
+**תור 1:** בקשה להפעלת פונקציה
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -432,7 +434,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**รอบที่ 2:** ส่งผลลัพธ์ของฟังก์ชันโดยใช้ `previous_interaction_id` และ `call_id` จากรอบที่ 1
+**תור 2:** שליחת התוצאה של הפונקציה באמצעות `previous_interaction_id` ו-`call_id` מתור 1
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -461,9 +463,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### การสตรีมด้วยเครื่องมือหลายรายการ
+### סטרימינג באמצעות כמה כלים
 
-ตัวอย่างต่อไปนี้ใช้ทั้งเครื่องมือ `function` และ `google_search` ในคำขอเดียว
+בדוגמה הבאה נעשה שימוש גם בכלי `function` וגם ב-`google_search` בבקשה אחת:
 
 ### Python
 
@@ -664,9 +666,9 @@ event: done
 data: [DONE]
 ```
 
-## การสตรีมด้วยการคิด
+## סטרימינג עם חשיבה
 
-เมื่อโมเดลใช้การคิด คุณจะได้รับขั้นตอน `thought` ที่มีประเภทเดลต้า 2 ประเภท ได้แก่ `thought_summary` (เนื้อหาข้อมูลสรุปข้อความหรือรูปภาพทีละส่วน) และ `thought_signature` (การแสดงการให้เหตุผลภายในของโมเดลที่เข้ารหัส ซึ่งส่งเป็นเดลต้าสุดท้ายก่อน `step.stop`) หากเปิดใช้ `thinking_summaries` เดลต้า `thought_summary` จะสตรีมข้อมูลสรุปการให้เหตุผลของโมเดล ดูรายละเอียดเพิ่มเติมเกี่ยวกับการคิดได้ที่[คู่มือการคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+כשמשתמשים במודל חשיבה, מקבלים `thought` שלבים עם שני סוגים שונים של דלתא: `thought_summary` (תוכן מצטבר של סיכום טקסט או תמונה) ו-`thought_signature` (ייצוג מוצפן של ההיגיון הפנימי של המודל, שנשלח כדלתא האחרונה לפני `step.stop`). אם האפשרות `thinking_summaries` מופעלת, הדלתאות `thought_summary` מעבירות בסטרימינג סיכום של ההיגיון של המודל. מידע נוסף על חשיבה זמין ב[מדריך החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he).
 
 ### Python
 
@@ -766,9 +768,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## การสตรีมด้วยเอเจนต์
+## שידור באמצעות סוכנים
 
-Interactions API รองรับเอเจนต์ เช่น Deep Research เอเจนต์ใช้ `background=True` และแสดงผลแบบไม่พร้อมกัน แต่คุณยังสตรีมการโต้ตอบของเอเจนต์เพื่อรับการอัปเดตความคืบหน้าและขั้นตอนกลางได้เมื่อเกิดขึ้น ดูรายละเอียดเพิ่มเติมได้ที่[คู่มือการดำเนินการเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th)และ[คู่มือ Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th)
+‫Interactions API תומך בסוכנים כמו Deep Research. סוכנים משתמשים ב-`background=True` ומחזירים תוצאות באופן אסינכרוני, אבל אפשר גם להזרים אינטראקציות עם סוכנים כדי לקבל עדכונים על ההתקדמות ושלבי ביניים בזמן שהם מתרחשים. פרטים נוספים זמינים [במדריך להרצת אפליקציות ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he) וב[מדריך למחקר מעמיק](https://ai.google.dev/gemini-api/docs/deep-research?hl=he).
 
 ### Python
 
@@ -887,11 +889,11 @@ event: done
 data: [DONE]
 ```
 
-## การสตรีมการสร้างรูปภาพ
+## יצירת תמונות בסטרימינג
 
-Interactions API รองรับการสตรีมเอาต์พุตหลายรูปแบบพร้อมกัน เมื่อขอทั้ง `text` และ `image` ใน `response_format` คุณจะได้รับข้อความและรูปภาพที่สร้างขึ้นสลับกันในสตรีมเดียวกัน
+‫Interactions API תומך בסטרימינג של כמה מצבי פלט בו-זמנית. אם תבקשו גם `text` וגם `image` ב-`response_format`, תקבלו באותו הזרם טקסט משולב ותמונות שנוצרו.
 
-ตัวอย่างต่อไปนี้ใช้ `gemini-3.1-flash-image` (Nano Banana 2) เพื่อค้นหาข้อมูลและสร้างเรื่องราวที่มีภาพประกอบสลับกัน
+בדוגמה הבאה נעשה שימוש ב-`gemini-3.1-flash-image` (Nano Banana 2) כדי לחפש מידע וליצור סיפור עם איורים משולבים.
 
 ### Python
 
@@ -1044,24 +1046,24 @@ event: done
 data: [DONE]
 ```
 
-## การจัดการเหตุการณ์ที่ไม่รู้จัก
+## טיפול באירועים לא ידועים
 
-ระบบอาจเพิ่มประเภทเหตุการณ์และประเภทเดลต้าใหม่ๆ เมื่อเวลาผ่านไปตามนโยบายการควบคุมเวอร์ชันของ API โค้ดของคุณควรจัดการประเภทเหตุการณ์ที่ไม่รู้จักอย่างเหมาะสม โดยบันทึกและข้ามเหตุการณ์ที่คุณไม่รู้จักแทนที่จะแสดงข้อผิดพลาด
+בהתאם למדיניות בנושא ניהול גרסאות של ה-API, יכול להיות שנוסיף עם הזמן סוגים חדשים של אירועים וסוגים חדשים של שינויים מצטברים. הקוד צריך לטפל בסוגי אירועים לא מוכרים בצורה חלקה – לתעד ולדלג על אירועים שלא מזוהים במקום להציג שגיאה.
 
-## ขั้นตอนถัดไป
+## המאמרים הבאים
 
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
-- สำรวจ[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)ด้วยเครื่องมือ
-- ดูข้อมูลเกี่ยวกับการ[คิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)เพื่อการให้เหตุผลที่ดียิ่งขึ้น
-- ลองใช้ [Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) สำหรับงานที่ใช้เวลานาน
-- ดูข้อมูลอ้างอิง [Interactions API](https://ai.google.dev/api/interactions-api?hl=th) สำหรับประเภทเหตุการณ์และประเภทเดลต้าทั้งหมด
+- [מידע נוסף על Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he)
+- [הסבר על שימוש בפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) בעזרת כלים
+- [מידע נוסף על Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he)
+- כדאי לנסות את [סוכן Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) למשימות לטווח ארוך.
+- ב[הפניה ל-Interactions API](https://ai.google.dev/api/interactions-api?hl=he) מפורטים כל סוגי האירועים וסוגי הדלתא.
 
-ส่งความคิดเห็น
+שליחת משוב
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-อัปเดตล่าสุด 2026-07-07 UTC
+עדכון אחרון: 2026-07-07 (שעון UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+רוצה לתת לנו משוב?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-07 UTC"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-07 (שעון UTC)."],[],[]]

@@ -1,89 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=ar
-fetched_at: 2026-08-03T04:39:16.796662+00:00
-title: "\u062a\u062d\u0633\u064a\u0646 Gemini API \u0648\u0627\u0644\u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=fr
+fetched_at: 2026-08-10T03:25:26.226451+00:00
+title: "Optimisation et inf\u00e9rence de l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-# تحسين Gemini API والاستدلال
+# Optimisation et inférence de l'API Gemini
 
-توفّر Gemini API مجموعة متنوعة من آليات التحسين لمساعدتك في تحقيق التوازن بين السرعة والتكلفة والموثوقية استنادًا إلى احتياجات عبء العمل المحدّدة.
-سواء كنت بصدد إنشاء برامج حوارية في الوقت الفعلي أو تنفيذ عمليات مكثّفة لمعالجة البيانات بلا إنترنت، يمكن أن يساعدك اختيار النموذج المناسب في خفض التكاليف أو تحسين الأداء بشكل كبير.
+L'API Gemini propose différents mécanismes d'optimisation pour vous aider à équilibrer la vitesse, le coût et la fiabilité en fonction des besoins spécifiques de vos charges de travail.
+Que vous créiez des robots conversationnels en temps réel ou que vous exécutiez des pipelines de traitement de données hors connexion volumineux, le choix du bon paradigme peut réduire considérablement les coûts ou améliorer les performances.
 
-| الميزة | خطة "الرزمة العادية" | التعبير | الأولوية | الدفعة | التخزين المؤقت |
+| Fonctionnalité | Standard | Flex | Priorité | Lot | Mise en cache |
 | --- | --- | --- | --- | --- | --- |
-| **الأسعار** | السعر الكامل | خصم بنسبة% 50 | من% 75 إلى% 100 أكثر من المعدّل العادي | خصم بنسبة% 50 | خصم بنسبة ‎90% + مساحة تخزين الرموز المميزة بالتناسب مع المدة |
-| **وقت الاستجابة** | من ثوانٍ إلى دقائق | الدقائق (المدة المستهدَفة من دقيقة واحدة إلى 15 دقيقة) | الثواني | ما يصل إلى 24 ساعة | تقليل الوقت اللازم للحصول على الرمز المميز الأول |
-| **الموثوقية** | مرتفعة / مرتفعة إلى حد ما | أفضل جهد (يمكن إيقافه) | عالية (غير قابلة للتساقط) | عالية (لمعدّل نقل البيانات) | لا ينطبق |
-| **الواجهة** | متزامن | متزامن | متزامن | بدون تزامن | الحالة المحفوظة |
-| **أفضل حالة استخدام** | سير العمل العام للتطبيقات | السلاسل المتسلسلة غير العاجلة | تطبيقات الإنتاج المخصّصة للمستخدمين | مجموعات البيانات الضخمة وعمليات التقييم بلا إنترنت | طلبات بحث متكرّرة على الملف نفسه |
+| **Tarifs** | Plein tarif | 50% de remise | 75% à 100% de plus que la valeur standard | 50% de remise | Remise de 90% + stockage des jetons au prorata |
+| **Latence** | De secondes à minutes | Minutes (objectif de 1 à 15 min) | Secondes | Jusqu'à 24 heures | Délai d'émission du premier jeton plus rapide |
+| **Fiabilité** | Élevée / Moyenne-haute | Optimisation limitée (désactivable) | Élevée (non amovible) | Élevée (pour le débit) | N/A |
+| **Interface** | Synchrone | Synchrone | Synchrone | Asynchrone | État enregistré |
+| **Cas d'utilisation idéal** | Workflows généraux des applications | Chaînes séquentielles non urgentes | Applications de production destinées aux utilisateurs | Ensembles de données volumineux, évaluations hors connexion | Requêtes récurrentes sur le même fichier |
 
-## مستويات خدمة الاستدلال (متزامنة)
+## Niveaux de service d'inférence (synchrone)
 
-يمكنك التبديل بين حركة الزيارات المتزامنة المحسّنة من حيث الموثوقية وتلك المحسّنة من حيث التكلفة من خلال تمرير المَعلمة `service_tier` في طلبات الإنشاء العادية.
+Vous pouvez passer d'un trafic synchrone optimisé pour la fiabilité à un trafic synchrone optimisé pour les coûts en transmettant le paramètre `service_tier` dans vos appels de génération standards.
 
-### الاستدلال العادي (الخيار التلقائي)
+### Inférence standard (par défaut)
 
-الفئة العادية هي الخيار التلقائي لإنشاء المحتوى التسلسلي.
-ويوفّر أوقات استجابة عادية بدون رسوم إضافية أو انتظار طويل في قائمة الانتظار.
+Le niveau standard est l'option par défaut pour la génération de contenu séquentiel.
+Elle offre des temps de réponse normaux, sans frais supplémentaires ni longues files d'attente.
 
-- **الموثوقية:** مستوى الأهمية العادي
-- **السعر:** التسعير العادي
-- **الأفضل للاستخدامات التالية:** التطبيقات اليومية الأكثر تفاعلية
+- **Fiabilité** : niveau de gravité standard
+- **Prix** : tarifs standards.
+- **Recommandé pour** : la plupart des applications interactives du quotidien.
 
-### الاستنتاج ذو الأولوية (المحسّن من حيث وقت الاستجابة)
+### Inférence prioritaire (optimisée pour la latence)
 
-توجّه مسارات المعالجة [ذات الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar) طلباتك إلى قوائم انتظار الحوسبة ذات الأهمية القصوى.
-هذه الزيارات غير قابلة للتجاهل (لا يمكن أن تحلّ محلّها مستويات أخرى) وتوفّر أعلى مستوى من الموثوقية. في حال تجاوزت حدود الأولوية الديناميكية، سيخفض النظام مستوى الطلب إلى المعالجة العادية بدلاً من عرض رسالة خطأ.
+Le traitement [prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr) achemine vos demandes vers des files d'attente de calcul de haute criticité.
+Ce trafic ne peut en aucun cas être supprimé (il n'est jamais interrompu par d'autres niveaux) et offre la fiabilité la plus élevée. Si vous dépassez les limites de priorité dynamique, le système rétrogradera la requête vers un traitement standard au lieu d'échouer avec une erreur.
 
-- **الموثوقية:** أعلى مستوى من الأهمية
-- **السعر:** من ‎75% إلى ‎100% من الأسعار العادية
-- **الأفضل في:** روبوتات الدردشة المخصّصة للعملاء، ورصد عمليات الاحتيال في الوقت الفعلي، و&quot;المساعدون الآليون&quot; المهمون للأنشطة التجارية
+- **Fiabilité** : criticité la plus élevée
+- **Prix** : 75% à 100% au-dessus des tarifs standards.
+- **Idéal pour** : les chatbots clients, la détection de fraudes en temps réel et les copilotes essentiels pour l'entreprise.
 
-### Flex inference (محسّن من حيث التكلفة)
+### Inférence flexible (coût optimisé)
 
-توفّر [الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar) خصمًا بنسبة% 50 مقارنةً بالأسعار العادية من خلال الاستفادة من سعة الحوسبة المتاحة في أوقات خارج الذروة. تتم معالجة الطلبات بشكل متزامن، ما يعني أنّه ليس عليك إعادة كتابة الرمز البرمجي لإدارة عناصر الدُفعات.
-بما أنّها زيارات "قابلة للتجاهل"، قد يتم إيقاف الطلبات بشكل استباقي إذا شهد النظام ارتفاعات معتادة في عدد الزيارات.
+L'[inférence flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr) offre une remise de 50% par rapport aux tarifs standards en utilisant une capacité de calcul opportuniste hors pointe. Les requêtes sont traitées de manière synchrone, ce qui signifie que vous n'avez pas besoin de réécrire le code pour gérer les objets de lot.
+Comme il s'agit d'un trafic "éliminable", les requêtes peuvent être préemptées si le système connaît des pics de trafic standards.
 
-- **الموثوقية:** مستوى الأهمية غير مضمون وقابل للتخفيض
-- **السعر:**% 50 من السعر العادي (يتم تحصيل الرسوم لكل رمز مميز).
-- **الأفضل في الحالات التالية:** مهام سير العمل المتعدّدة الخطوات التي تعتمد على الوكلاء، حيث تعتمد المكالمة N+1 على ناتج المكالمة N، وتعديلات نظام إدارة علاقات العملاء في الخلفية، والتقييمات غير المباشرة.
+- **Fiabilité** : criticité non garantie et réductible
+- **Prix** : 50% du prix standard (facturé par jeton).
+- **Idéal pour** : les workflows agentiques en plusieurs étapes où l'appel N+1 dépend de la sortie de l'appel N, des mises à jour CRM en arrière-plan et des évaluations hors connexion.
 
-## واجهة برمجة التطبيقات المجمّعة (مجمّعة وغير متزامنة)
+## API Batch (par lot, asynchrone)
 
-تم تصميم [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) لمعالجة كميات كبيرة من الطلبات بشكل غير متزامن بتكلفة تبلغ% 50 من التكلفة العادية. يمكنك إرسال الطلبات كقواميس مضمّنة أو باستخدام ملف إدخال JSONL (يصل حجمه إلى 2 غيغابايت). وتتم معالجة الطلبات باستخدام قوائم انتظار معدل النقل في الخلفية، مع استهداف وقت استجابة يبلغ 24 ساعة.
+L'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr) est conçue pour traiter de grands volumes de requêtes de manière asynchrone à 50% du coût standard. Vous pouvez envoyer des requêtes sous forme de dictionnaires intégrés ou à l'aide d'un fichier d'entrée JSONL (jusqu'à 2 Go). Il traite les demandes à l'aide de files d'attente de débit en arrière-plan avec un délai de traitement cible de 24 heures.
 
-- **الموثوقية:** يمكن تجاهل الرسائل، ولكن مع إعادة المحاولة تلقائيًا كل 24 ساعة ونظام الانتظار
-- **السعر:**% 50 من السعر الأساسي
-- **الأفضل للاستخدام في:** المعالجة المسبقة لمجموعات البيانات الضخمة، وتشغيل مجموعات اختبارات الانحدار الدوري، وإنشاء أعداد كبيرة من الصور أو عمليات التضمين.
+- **Fiabilité** : peut être supprimé, mais avec des tentatives automatiques de 24 heures et un système de mise en file d'attente
+- **Prix** : 50% du prix standard.
+- **Idéal pour** : le prétraitement d'ensembles de données volumineux, l'exécution de suites de tests de régression périodiques et la génération d'images ou d'embeddings à grand volume.
 
-## التخزين المؤقت للسياق (توفير الإدخال)
+## Mise en cache du contexte (économies d'entrées)
 
-يتم استخدام [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar) عندما تتم الإشارة إلى سياق أولي كبير بشكل متكرر من خلال طلبات أقصر.
+La [mise en cache de contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) est utilisée lorsqu'un contexte initial important est référencé à plusieurs reprises par des requêtes plus courtes.
 
-- **التخزين المؤقت الضمني:** يتم تفعيله تلقائيًا على Gemini 2.5 والإصدارات الأحدث.
-  يوفّر النظام تكاليفك إذا كان طلبك يتطابق مع ذاكرات تخزين مؤقت حالية استنادًا إلى بادئات الطلبات الشائعة.
-- **التخزين المؤقت الصريح:** يمكنك إنشاء عنصر تخزين مؤقت يدويًا باستخدام مدة بقاء (TTL) محدّدة. بعد إنشاء الرموز المميزة، يمكنك الرجوع إلى الرموز المخزّنة مؤقتًا في الطلبات اللاحقة لتجنُّب تمرير حمولة المجموعة نفسها بشكل متكرّر.
-- **السعر:** تتم فوترة التكلفة استنادًا إلى عدد الرموز المميزة لذاكرة التخزين المؤقت ومدة التخزين (مدة البقاء).
-- **الأفضل للاستخدام في:** روبوتات الدردشة التي تتضمّن تعليمات نظام شاملة، أو التحليل المتكرّر لملفات الفيديو الطويلة، أو الاستعلامات عن مجموعات المستندات الكبيرة.
+- **Mise en cache implicite** : activée automatiquement sur les modèles Gemini 2.5 et ultérieurs.
+  Le système répercute les économies si votre demande touche des caches existants basés sur des préfixes d'invite courants.
+- **Mise en cache explicite** : vous pouvez créer manuellement un objet cache avec une valeur TTL (Time-To-Live) spécifique. Une fois les jetons mis en cache, vous pouvez vous y référer pour les requêtes ultérieures afin d'éviter de transmettre plusieurs fois la même charge utile de corpus.
+- **Prix** : facturé en fonction du nombre de jetons de cache et de la durée de stockage (TTL).
+- **Idéal pour** : les chatbots avec des instructions système détaillées, l'analyse répétitive de fichiers vidéo longs ou les requêtes sur des ensembles de documents volumineux.
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Dernière mise à jour le 2026/04/29 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Voulez-vous nous donner plus d'informations ?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

@@ -1,77 +1,79 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=it
-fetched_at: 2026-08-03T04:29:47.055260+00:00
-title: "Guida rapida di Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419
+fetched_at: 2026-08-10T03:23:41.762654+00:00
+title: "Gu\u00eda de inicio r\u00e1pido de Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Invia feedback
+Enviar comentarios
 
-# Guida rapida di Google AI Studio
+# Guía de inicio rápido de Google AI Studio
 
-[Google AI Studio](https://aistudio.google.com/?hl=it) ti consente di provare rapidamente modelli e sperimentare diversi prompt. Quando è tutto pronto, puoi selezionare "Ottieni codice " e il tuo linguaggio di programmazione preferito per utilizzare l'[API Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=it).
+[Google AI Studio](https://aistudio.google.com/?hl=es-419) te permite probar rápidamente
+modelos y experimentar con diferentes instrucciones. Cuando estés listo para compilar, puedes seleccionar "Obtener código" y tu lenguaje de programación preferido para usar la [API de Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
 
-## Prompt e impostazioni
+## Instrucciones y configuración
 
-Google AI Studio fornisce diverse interfacce per i prompt progettate per
-diversi casi d'uso. Questa guida tratta i **prompt di chat**, utilizzati per creare
-esperienze conversazionali. Questa tecnica di prompt consente più turni di input
-e risposta per generare l'output. Puoi scoprire di più con il nostro
-[esempio di prompt di chat riportato di seguito](#chat_example).
-Altre opzioni includono **Streaming in tempo reale**, **Generazione video** e
-altro ancora.
+Google AI Studio proporciona varias interfaces para las instrucciones que están diseñadas para diferentes casos de uso. En esta guía, se abordan las **instrucciones de chat**, que se usan para crear
+experiencias conversacionales. Esta técnica de instrucciones permite varios turnos de entrada
+y respuesta para generar resultados. Puedes obtener más información con nuestro
+[ejemplo de instrucción de chat a continuación](#chat_example).
+Otras opciones incluyen **transmisión en tiempo real**, **generación de video** y
+mucho más.
 
-AI Studio fornisce anche il riquadro **Impostazioni di esecuzione**, in cui puoi apportare modifiche ai [parametri del modello](https://ai.google.dev/docs/prompting-strategies?hl=it#model-parameters), alle [impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it) e attivare/disattivare strumenti come [output strutturato](https://ai.google.dev/gemini-api/docs/structured-output?hl=it), [chiamata di funzioni](https://ai.google.dev/gemini-api/docs/function-calling?hl=it), [esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) e [grounding](https://ai.google.dev/gemini-api/docs/grounding?hl=it).
+AI Studio también proporciona el panel **Configuración de ejecución** , en el que puedes ajustar
+los [parámetros del modelo](https://ai.google.dev/docs/prompting-strategies?hl=es-419#model-parameters),
+la [configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) y activar herramientas como el
+[resultado estructurado](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419), la [llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419), la [ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419) y la [fundamentación](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419).
 
-## Esempio di prompt di chat: crea un'applicazione di chat personalizzata
+## Ejemplo de instrucción de chat: Compila una aplicación de chat personalizada
 
-Se hai utilizzato un chatbot per uso generico come
-[Gemini](https://gemini.google.com/?hl=it), hai sperimentato in prima persona la potenza
-dei modelli di AI generativa per i dialoghi aperti. Sebbene questi chatbot per uso generico siano utili, spesso devono essere adattati a casi d'uso particolari.
+Si usaste un chatbot de uso general como
+[Gemini](https://gemini.google.com/?hl=es-419), experimentaste de primera mano lo potentes que pueden ser los modelos de IA
+generativa para el diálogo abierto. Si bien estos chatbots de uso general son útiles, a menudo deben adaptarse para casos de uso particulares.
 
-Ad esempio, potresti voler creare un chatbot di assistenza clienti che supporti solo le conversazioni che riguardano il prodotto di un'azienda. Potresti voler
-creare un chatbot che parli con un tono o uno stile particolare: un bot che faccia
-molte battute, rimi come un poeta o usi molte emoji nelle sue risposte.
+Por ejemplo, es posible que quieras compilar un chatbot de atención al cliente que solo admita conversaciones sobre el producto de una empresa. Es posible que quieras compilar un chatbot que hable con un tono o estilo en particular: un bot que cuente muchos chistes, rime como un poeta o use muchos emojis en sus respuestas.
 
-Questo esempio mostra come utilizzare Google AI Studio per creare un chatbot amichevole
-che comunica come se fosse un alieno che vive su una delle lune di Giove, Europa.
+En este ejemplo, se muestra cómo usar Google AI Studio para compilar un chatbot amigable que se comunica como si fuera un extraterrestre que vive en una de las lunas de Júpiter, Europa.
 
-### Passaggio 1: crea un prompt di chat
+### Paso 1: Crea una instrucción de chat
 
-Per creare un chatbot, devi fornire esempi di interazioni tra un utente e il chatbot per guidare il modello a fornire le risposte che stai cercando.
+Para compilar un chatbot, debes proporcionar ejemplos de interacciones entre un usuario y el chatbot para guiar al modelo para que proporcione las respuestas que buscas.
 
-Per creare un prompt di chat:
+Para crear una instrucción de chat, haz lo siguiente:
 
-1. Apri [Google AI Studio](https://aistudio.google.com/?hl=it). Il **Playground** si aprirà
-   per impostazione predefinita con un nuovo prompt di chat.
-2. Fai clic su **Impostazioni esecuzione** tune nell'angolo in alto a destra per espandere il riquadro e individua il campo di immissione [**Istruzioni di sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions). Incolla quanto segue nel campo di immissione del testo:
+1. Abre [Google AI Studio](https://aistudio.google.com/?hl=es-419). El **Playground** se abrirá de forma predeterminada con una nueva instrucción de chat.
+2. Haz clic en **Configuración de ejecución** tune en la esquina superior derecha
+   para expandir el panel y ubica el
+   [**Instrucciones del sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#system-instructions)
+   campo de entrada. Pega lo siguiente en el campo de entrada de texto:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-Dopo aver aggiunto le istruzioni di sistema, inizia a testare l'applicazione chattando con il modello:
+Después de agregar las instrucciones del sistema, comienza a probar tu aplicación chateando con el modelo:
 
-1. Nella casella di immissione di testo **Digita qualcosa…**, digita una domanda o un'osservazione che un utente potrebbe fare. Ad esempio:
+1. En el cuadro de entrada de texto con la etiqueta **Escribe algo...**, ingresa una pregunta u
+   observación que un usuario podría hacer. Por ejemplo:
 
-   **Utente:**
+   **Usuario:**
 
    ```
    What's the weather like?
    ```
-2. Fai clic sul pulsante **Esegui** per ricevere una risposta dal chatbot. Questa risposta
-   potrebbe essere simile alla seguente:
+2. Haz clic en el botón **Ejecutar** para obtener una respuesta del chatbot. Esta respuesta puede ser similar a la siguiente:
 
-   **Modello:**
+   **Modelo:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -80,17 +82,14 @@ Dopo aver aggiunto le istruzioni di sistema, inizia a testare l'applicazione cha
 
    (gemini-2.5-pro)
 
-### Passaggio 2: insegna al bot a chattare meglio
+### Paso 2: Enséñale a tu bot a chatear mejor
 
-Fornendo una singola istruzione, sei riuscito a creare un chatbot di base per gli alieni di Europa. Tuttavia, una singola istruzione potrebbe non essere sufficiente a garantire
-coerenza e qualità nelle risposte del modello. Senza istruzioni più specifiche, la risposta del modello a una domanda sul meteo tende a essere molto lunga e può assumere un tono personale.
+Si proporcionas una sola instrucción, puedes compilar un chatbot básico de extraterrestre de Europa. Sin embargo, una sola instrucción puede no ser suficiente para garantizar la coherencia y la calidad en las respuestas del modelo. Sin instrucciones más específicas, la respuesta del modelo a una pregunta sobre el clima tiende a ser muy larga y puede tener su propia opinión.
 
-Personalizza il tono del chatbot aggiungendo alle istruzioni di sistema:
+Para personalizar el tono de tu chatbot, agrega lo siguiente a las instrucciones del sistema:
 
-1. Avvia un nuovo prompt di chat o utilizza lo stesso. Le istruzioni di sistema sono
-   modificabili dopo l'inizio della sessione di chat.
-2. Nella sezione **Istruzioni di sistema**, modifica le istruzioni esistenti
-   con le seguenti:
+1. Inicia una nueva instrucción de chat o usa la misma. Las instrucciones del sistema se pueden modificar después de que se inicia la sesión de chat.
+2. En la sección **Instrucciones del sistema**, cambia las instrucciones que ya tienes por las siguientes:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -98,9 +97,9 @@ Personalizza il tono del chatbot aggiungendo alle istruzioni di sistema:
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. Inserisci di nuovo la domanda (`What's the weather like?`) e fai clic sul pulsante **Esegui**. Se non hai avviato una nuova chat, la risposta potrebbe essere simile a questa:
+3. Vuelve a ingresar tu pregunta (`What's the weather like?`) y haz clic en el botón **Ejecutar**. Si no iniciaste un chat nuevo, tu respuesta podría verse de la siguiente manera:
 
-   **Modello:**
+   **Modelo:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -111,27 +110,25 @@ Personalizza il tono del chatbot aggiungendo alle istruzioni di sistema:
 
    (gemini-2.5-pro)
 
-Puoi utilizzare questo approccio per aggiungere ulteriore profondità al chatbot. Poni altre
-domande, modifica le risposte e migliora la qualità del tuo chatbot. Continua
-ad aggiungere o modificare le istruzioni e verifica in che modo cambiano il comportamento
-del chatbot.
+Puedes usar este enfoque para agregar profundidad adicional al chatbot. Haz más preguntas, edita las respuestas y mejora la calidad de tu chatbot. Sigue agregando o modificando las instrucciones y prueba cómo cambian el comportamiento de tu chatbot.
 
-### Passaggio 3: azioni successive
+### Paso 3: Próximos pasos
 
-Come per gli altri tipi di prompt, una volta creato il prototipo del prompt in modo soddisfacente, puoi utilizzare il pulsante **Ottieni codice** per iniziare a programmare o salvare il prompt per lavorarci in un secondo momento e condividerlo con altri.
+Al igual que con los otros tipos de instrucciones, una vez que hayas creado un prototipo de tu instrucción a tu satisfacción, puedes usar el botón **Obtener código** para comenzar a programar o guardar la instrucción para trabajar en ella más adelante y compartirla con otras personas.
 
-## Per approfondire
+## Lecturas adicionales
 
-- Se vuoi passare al codice, consulta le [guide introduttive
-  alle API](https://ai.google.dev/gemini-api/docs/get-started?hl=it).
-- Per scoprire come creare prompt migliori, consulta le [linee guida per la progettazione dei prompt](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=it).
+- Si estás listo para pasar al código, consulta las [guías de introducción a la
+  API](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
+- Para obtener información sobre cómo crear mejores instrucciones, consulta los [lineamientos
+  de diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
 
-Invia feedback
+Enviar comentarios
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Ultimo aggiornamento 2026-07-30 UTC.
+Última actualización: 2026-07-30 (UTC)
 
-Vuoi dirci altro?
+¿Quieres brindar más información?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

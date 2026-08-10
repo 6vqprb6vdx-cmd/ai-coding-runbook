@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id
-fetched_at: 2026-08-03T04:38:13.775051+00:00
+fetched_at: 2026-08-10T03:10:21.118548+00:00
 title: "Panduan Memulai Agen Terkelola \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

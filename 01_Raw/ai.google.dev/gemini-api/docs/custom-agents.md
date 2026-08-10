@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr
-fetched_at: 2026-08-03T04:30:36.862913+00:00
-title: "Y\u00f6netilen Ajanlar Olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=hi
+fetched_at: 2026-08-10T03:10:14.145931+00:00
+title: "\u092e\u0948\u0928\u0947\u091c \u0915\u093f\u090f \u0917\u090f \u090f\u091c\u0947\u0902\u091f \u092c\u0928\u093e\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Geri bildirim gönderin
+सुझाव भेजें
 
-# Yönetilen Ajanlar Oluşturma
+# मैनेज किए गए एजेंट बनाना
 
-Gemini API'deki yönetilen ajanlar, Antigravity ajanını kendi talimatlarınız, becerileriniz ve verilerinizle genişletmenize olanak tanır. Etkileşim sırasında [aracıyı satır içinde özelleştirebilir](#customize-inline) veya [yapılandırmayı](#save-agent), kimliğe göre çağırdığınız yönetilen bir aracı olarak kaydedebilirsiniz.
+Gemini API से एजेंट बनाने और मैनेज करने की सुविधा की मदद से, Antigravity एजेंट को अपने निर्देशों, कौशल, और डेटा के साथ बढ़ाया जा सकता है. आपके पास इंटरैक्शन के दौरान, [एजेंट को इनलाइन तरीके से पसंद के मुताबिक बनाने](#customize-inline) का विकल्प होता है. इसके अलावा, [कॉन्फ़िगरेशन को सेव](#save-agent) करके, मैनेज किए गए एजेंट के तौर पर भी इस्तेमाल किया जा सकता है. इसके लिए, आपको आईडी का इस्तेमाल करना होगा.
 
-## Antigravity ajanını özelleştirme
+## Antigravity एजेंट को पसंद के मुताबिक बनाना
 
-Özel bir aracı oluşturmanın en hızlı yolu, yeni bir etkileşim oluştururken yapılandırmanızı satır içi olarak iletmektir. Bu işlem için kayıt adımı gerekmez. Aracı birkaç önemli şekilde genişletebilirsiniz:
+कस्टम एजेंट बनाने का सबसे तेज़ तरीका यह है कि आप कॉन्फ़िगरेशन को इनलाइन पास करें. इसके लिए, आपको रजिस्ट्रेशन करने की ज़रूरत नहीं है. एजेंट को कई मुख्य तरीकों से बढ़ाया जा सकता है:
 
-- **[Model seçimi](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#model-selection)**: `agent_config` simgesini kullanarak temel Gemini modelini seçin (varsayılan olarak **Gemini 3.6 Flash** seçilir).
-- **Sistem talimatları**: Davranışı şekillendirmek için satır içi metni `system_instruction` ile iletin.
-- **Araçlar**: Varsayılan araçları (Kod Yürütme, Arama, URL Bağlamı) geçersiz kılın, uzak MCP sunucularını kaydedin veya özel işlevler (İşlev Çağırma) tanımlayın.
-- **Dosyalar ve beceriler**: `AGENTS.md` ve `SKILL.md` gibi dosyaları ortama yerleştirin.
+- **[मॉडल चुनना](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#model-selection)**: `agent_config` की मदद से, Gemini का कोई मॉडल चुनें. डिफ़ॉल्ट रूप से, **Gemini 3.6 Flash** मॉडल चुना जाता है.
+- **सिस्टम के निर्देश**: `system_instruction` के ज़रिए, इनलाइन टेक्स्ट को शेप के व्यवहार में पास करें.
+- **टूल**: डिफ़ॉल्ट टूल (कोड एक्ज़ीक्यूशन, खोज, यूआरएल कॉन्टेक्स्ट) को बदलें, रिमोट एमसीपी सर्वर रजिस्टर करें या कस्टम फ़ंक्शन (फ़ंक्शन कॉलिंग) तय करें.
+- **फ़ाइलें और स्किल**: `AGENTS.md` और `SKILL.md` जैसी फ़ाइलों को एनवायरमेंट में माउंट करें.
 
-Üçünün de satır içi olarak iletilmesine ilişkin bir örnek:
+यहां तीनों को इनलाइन पास करने का उदाहरण दिया गया है:
 
 ### Python
 
@@ -121,22 +121,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Her şey etkileşim sırasında tanımlanır. Önceden herhangi bir kayıt işlemi yapmanız gerekmez. Antigravity ajan düzeneği, çalışma zamanını (kod yürütme, dosya yönetimi, web erişimi) sağlar ve yapılandırma katmanlarınız bunun üzerine eklenir.
+इंटरैक्शन के समय ही सब कुछ तय किया जाता है. इसके लिए, आपको पहले कुछ भी रजिस्टर करने की ज़रूरत नहीं है. Antigravity एजेंट का हार्नेस, रनटाइम (कोड एक्ज़ीक्यूशन, फ़ाइल मैनेजमेंट, वेब ऐक्सेस) और आपकी कॉन्फ़िगरेशन लेयर उपलब्ध कराता है.
 
-### Araçlar ve sistem talimatları
+### टूल और सिस्टम के निर्देश
 
-`system_instruction` ve `tools` parametrelerini kullanarak aracının davranışını ve özelliklerini belirli bir etkileşim için özelleştirebilirsiniz.
+`system_instruction` और `tools` पैरामीटर का इस्तेमाल करके, किसी खास इंटरैक्शन के लिए एजेंट के व्यवहार और क्षमताओं को अपनी पसंद के मुताबिक बनाया जा सकता है.
 
-- **Sistem talimatları**: Aracının davranışını şekillendiren satır içi metni iletmek için `system_instruction` parametresini kullanın. Bu özellik, her görüşmede değiştirmek istediğiniz hızlı düzenlemeler için idealdir. `system_instruction` ve `AGENTS.md` toplamsaldır. Her ikisi de mevcut olduğunda geçerlidir.
-- **Araçlar**: Antigravity aracısı varsayılan olarak `code_execution`, `google_search` ve `url_context`'e erişebilir. Etkileşim sırasında `tools` parametresini ileterek bu listeyi geçersiz kılabilirsiniz. Ayrıca, aracıyı kendi API'lerinize ve veritabanlarınıza bağlamak için [uzak MCP sunucuları](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#mcp-servers) kaydedebilir veya [özel işlevler (işlev çağırma)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#function-calling) tanımlayabilirsiniz. Kullanılabilen araçlarla ilgili tüm ayrıntılar için [Antigravity Agent: Desteklenen araçlar](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#supported-tools) başlıklı makaleyi inceleyin.
+- **सिस्टम के निर्देश**: एजेंट के व्यवहार को तय करने वाले इनलाइन टेक्स्ट को पास करने के लिए, `system_instruction` पैरामीटर का इस्तेमाल करें. यह सुविधा, उन बदलावों के लिए सबसे सही है जिन्हें आपको हर कॉल के हिसाब से बदलना है. `system_instruction` और `AGENTS.md`, दोनों को एक साथ इस्तेमाल किया जा सकता है. अगर ये दोनों मौजूद हैं, तो दोनों लागू होंगी.
+- **टूल**: डिफ़ॉल्ट रूप से, Antigravity एजेंट के पास `code_execution`, `google_search`, और `url_context` का ऐक्सेस होता है. इंटरैक्शन के समय `tools` पैरामीटर पास करके, इस सूची को बदला जा सकता है. अपने एपीआई और डेटाबेस से एजेंट को कनेक्ट करने के लिए, [रिमोट एमसीपी सर्वर](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#mcp-servers) भी रजिस्टर किए जा सकते हैं. इसके अलावा, [कस्टम फ़ंक्शन (फ़ंक्शन कॉलिंग)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#function-calling) भी तय किए जा सकते हैं. उपलब्ध टूल के बारे में पूरी जानकारी के लिए, [Antigravity Agent: काम करने वाले टूल](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#supported-tools) लेख पढ़ें.
 
-### Dosyaya dayalı özelleştirme
+### फ़ाइल के आधार पर मनमुताबिक बनाने की सुविधा
 
-#### Aracı dizin yapısı
+#### एजेंट डायरेक्ट्री स्ट्रक्चर
 
-Yapılandırmayı satır içi olarak iletebilirsiniz ancak aracınızın dosyalarını yapılandırılmış bir dizinde düzenlemenizi öneririz. Bu sayede yönetmek, sürüm denetimi yapmak ve aracının ortamına monte etmek daha kolay olur.
+कॉन्फ़िगरेशन को इनलाइन पास किया जा सकता है. हालांकि, हमारा सुझाव है कि आप अपने एजेंट की फ़ाइलों को व्यवस्थित डायरेक्ट्री में सेव करें. इससे, एजेंट के एनवायरमेंट में फ़ाइलों को मैनेज करना, वर्शन कंट्रोल करना, और माउंट करना आसान हो जाता है.
 
-Tipik bir aracı projesi dizini şu şekilde görünür:
+किसी एजेंट प्रोजेक्ट की डायरेक्ट्री आम तौर पर ऐसी दिखती है:
 
 ```
 my-agent/
@@ -147,13 +147,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Antigravity çalışma zamanı, bu dosyalar için `.agents/` (ve ortamın kökünü) tarar.
+Antigravity रनटाइम, इन फ़ाइलों के लिए `.agents/` (और एनवायरमेंट का रूट) स्कैन करता है.
 
 #### AGENTS.md
 
-Aracı, başlangıçta ortamdan `.agents/AGENTS.md` (veya `/.agents/AGENTS.md`) öğesini sistem talimatları olarak otomatik olarak yükler. Uzun persona tanımları, ayrıntılı yönergeler ve kodunuzla birlikte sürüm denetimi yapmak istediğiniz talimatlar için `AGENTS.md` kullanın.
+स्टार्टअप पर एजेंट, सिस्टम के निर्देशों के तौर पर एनवायरमेंट से `.agents/AGENTS.md` (या `/.agents/AGENTS.md`) को अपने-आप लोड करता है. `AGENTS.md` का इस्तेमाल, पर्सोना की लंबी परिभाषाओं, दिशा-निर्देशों, और उन निर्देशों के लिए करें जिन्हें आपको अपने कोड के साथ वर्शन कंट्रोल करना है.
 
-Satır içi kaynak kullanarak `AGENTS.md` bağlama:
+इनलाइन सोर्स का इस्तेमाल करके `AGENTS.md` को माउंट करें:
 
 ### Python
 
@@ -230,9 +230,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Beceriler: SKILL.md
+#### स्किल: SKILL.md
 
-Beceriler, ajanın yeteneklerini genişleten dosyalardır. Bunları `.agents/skills/<skill-name>/SKILL.md` altına yerleştirin. Böylece, donanım bunları otomatik olarak keşfedip kaydeder.
+स्किल ऐसी फ़ाइलें होती हैं जो एजेंट की क्षमताओं को बढ़ाती हैं. उन्हें `.agents/skills/<skill-name>/SKILL.md` के नीचे रखें. इसके बाद, हार्नेस उन्हें अपने-आप ढूंढ लेगा और रजिस्टर कर देगा.
 
 ```
 .agents/
@@ -242,7 +242,7 @@ Beceriler, ajanın yeteneklerini genişleten dosyalardır. Bunları `.agents/ski
         └── SKILL.md
 ```
 
-Satır içi kaynak kullanarak beceri yükleme:
+इनलाइन सोर्स का इस्तेमाल करके किसी स्किल को माउंट करने के लिए:
 
 ### Python
 
@@ -319,17 +319,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-`.agents/skills/` ve `/.agents/skills/` kaynaklarından yüklenen beceriler otomatik olarak keşfedilir.
+`.agents/skills/` और `/.agents/skills/` से लोड की गई दोनों तरह की स्किल अपने-आप दिख जाती हैं.
 
-## Yönetilen aracı oluşturma
+## मैनेज किया गया एजेंट बनाना
 
-Yapılandırmanızı yineledikten sonra `agents.create` ile yönetilen bir aracı olarak oluşturabilirsiniz. Bu sayede, yapılandırmayı her seferinde tekrarlamadan aracıyı kimliğe göre çağırabilirsiniz.
+कॉन्फ़िगरेशन को दोहराने के बाद, इसे `agents.create` की मदद से मैनेज किए जाने वाले एजेंट के तौर पर बनाया जा सकता है. इससे, हर बार कॉन्फ़िगरेशन को दोहराए बिना, आईडी के ज़रिए एजेंट को शुरू किया जा सकता है.
 
-Yönetilen bir aracı oluştururken belirttiğiniz `id`, projenize özgü olmalı ve ayrılmış ön eklerle (ör. `google-`, `gemini-`) başlamamalıdır. Kısıtlanmış ön eklerin tam listesi için [Aracı kimliği kısıtlamaları](#agent-id-restrictions) bölümüne bakın.
+मैनेज किया जा रहा एजेंट बनाते समय, आपको एक `id` तय करना होता है.यह `id` आपके प्रोजेक्ट के लिए यूनीक होना चाहिए. साथ ही, यह रिज़र्व किए गए प्रीफ़िक्स (जैसे, `google-`, `gemini-`) से शुरू नहीं होना चाहिए. रिज़र्व किए गए प्रीफ़िक्स की पूरी सूची देखने के लिए, [एजेंट आईडी से जुड़ी पाबंदियां](#agent-id-restrictions) देखें.
 
-### Kaynaklardan
+### सोर्स से
 
-Kaynaklarla birlikte `base_agent`, `id`, `agent_config`, `system_instruction` ve `base_environment` değerlerini belirtin. Platform, her çağırmada dosyalarınızla yeni bir sanal alan sağlar. Kullanılabilir kaynak türleri (Git, GCS, satır içi) için [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) bölümüne bakın.
+सोर्स के साथ `base_agent`, `id`, `agent_config`, `system_instruction`, और `base_environment` की जानकारी दें. यह प्लैटफ़ॉर्म, हर बार आपकी फ़ाइलों के साथ एक नया सैंडबॉक्स उपलब्ध कराता है. उपलब्ध सोर्स टाइप (Git, GCS, इनलाइन) के लिए, [एनवायरमेंट](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi) देखें.
 
 ### Python
 
@@ -448,9 +448,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### Mevcut bir ortamdan (fork)
+### किसी मौजूदा एनवायरमेंट से (फ़ोर्क करना)
 
-Ortam doğru olana kadar (paketler yüklendi, dosyalar yerinde) temel Antigravity aracısıyla yineleme yapın, ardından bunu yönetilen bir aracıya çatallayın.
+जब तक एनवायरमेंट सही न हो जाए (पैकेज इंस्टॉल हो जाएं, फ़ाइलें सही जगह पर हों), तब तक Antigravity के बेस एजेंट का इस्तेमाल करें. इसके बाद, इसे मैनेज किए जा सकने वाले एजेंट में फ़ोर्क करें.
 
 ### Python
 
@@ -514,11 +514,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Ağ kurallarıyla
+### नेटवर्क के नियमों वाले ऑफ़र
 
-Yönetilen bir aracı kaydederken giden erişimi kilitleyebilir veya kimlik bilgilerini ekleyebilirsiniz. İzin verilenler listesi şeması, kimlik bilgisi kalıpları ve joker karakterler hakkında ayrıntılı bilgi için [Ortamlar: Ağ yapılandırması](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#network-configuration) başlıklı makaleyi inceleyin.
+मैनेज किए जा रहे एजेंट को सेव करते समय, आउटबाउंड ऐक्सेस को लॉक किया जा सकता है या क्रेडेंशियल डाले जा सकते हैं. अनुमति वाली सूची के पूरे स्कीमा, क्रेडेंशियल पैटर्न, और वाइल्डकार्ड के लिए, [एनवायरमेंट: नेटवर्क कॉन्फ़िगरेशन](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi#network-configuration) देखें.
 
-Aşağıdaki örnekte, GitHub ve PyPI'ye erişebilen ve GitHub için kimlik bilgilerinin yerleştirildiği bir `issue-resolver` aracısı oluşturulur:
+यहां दिए गए उदाहरण में, एक `issue-resolver` एजेंट बनाया गया है. यह सिर्फ़ GitHub और PyPI को ऐक्सेस कर सकता है. साथ ही, इसमें GitHub के क्रेडेंशियल डाले गए हैं:
 
 ### Python
 
@@ -628,9 +628,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## Temsilciyi çağırma
+## एजेंट को शुरू करना
 
-Yeni bir etkileşim oluşturarak yönetilen aracınızı arayın. Her çağırma işlemi temel ortamı çatalladığından her çalıştırma temiz bir şekilde başlar.
+नया इंटरैक्शन बनाकर, अपने एजेंट आईडी से मैनेज किए जा रहे एजेंट को कॉल करें. हर इनवोकेशन, बेस एनवायरमेंट को फ़ोर्क करता है. इसलिए, हर रन क्लीन तरीके से शुरू होता है.
 
 ### Python
 
@@ -669,15 +669,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Çok aşamalı etkileşimli görüşmeler ve akış için [Hızlı Başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr) bölümüne bakın. Aynı `previous_interaction_id` ve `environment` kalıpları, yönetilen aracılar için de geçerlidir.
+सिलसिलेवार बातचीत और स्ट्रीमिंग के लिए, [क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi) देखें. मैनेज किए गए एजेंट पर भी `previous_interaction_id` और `environment` के यही पैटर्न लागू होते हैं.
 
-Yönetilen aracılar, arka planda yürütmeyi ve iptali de destekler. Ayrıntılar ve kod örnekleri için [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#background-execution) (Antigravity Agent: Arka planda yürütme) başlıklı makaleyi inceleyin.
+मैनेज किए गए एजेंट, बैकग्राउंड में टास्क पूरा करने और उसे रद्द करने की सुविधा भी देते हैं. ज़्यादा जानकारी और कोड के उदाहरणों के लिए, [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#background-execution) देखें.
 
-## Çağırma sırasında yapılandırmayı geçersiz kılma
+## फ़ंक्शन को कॉल करते समय कॉन्फ़िगरेशन को बदलना
 
-Bir etkileşim oluştururken aracının varsayılan `system_instruction`, `tools` ve `environment` ağ yapılandırmasını geçersiz kılabilirsiniz. Bu sayede, depolanan aracı tanımını değiştirmeden belirli bir çalıştırma için aracının davranışını, özelliklerini veya kimlik bilgilerini değiştirebilirsiniz.
+इंटरैक्शन बनाते समय, एजेंट के डिफ़ॉल्ट `system_instruction`, `tools`, और `environment` नेटवर्क कॉन्फ़िगरेशन को बदला जा सकता है. इससे, सेव की गई एजेंट की परिभाषा में बदलाव किए बिना, किसी खास रन के लिए एजेंट के व्यवहार, क्षमताओं या क्रेडेंशियल में बदलाव किया जा सकता है.
 
-### Sistem talimatını ve araçlarını geçersiz kılma
+### सिस्टम के निर्देशों और टूल को बदलना
 
 ### Python
 
@@ -721,9 +721,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Ağ yapılandırmasını geçersiz kılma (kimlik bilgilerini yenileme)
+### नेटवर्क कॉन्फ़िगरेशन बदलना (क्रेडेंशियल रीफ़्रेश करना)
 
-Yönetilen aracınızın `base_environment` kimlik bilgileri varsa, süresi dolmuş jetonları yenilemek veya API anahtarlarını döndürmek için bunları çağırma sırasında geçersiz kılabilirsiniz. Yeni bir `network` yapılandırmasıyla `environment` nesnesi iletin. Yeni ağ kuralları, söz konusu etkileşim için önceki kuralların tamamen yerini alır. Temel ortamın kaynakları (dosyalar, depolar) korunur.
+अगर आपके मैनेज किए जा रहे एजेंट में नेटवर्क क्रेडेंशियल पहले से मौजूद हैं, तो उन्हें कॉल करने के समय बदला जा सकता है. ऐसा इसलिए किया जाता है, ताकि खत्म हो चुके टोकन को रीफ़्रेश किया जा सके या एपीआई कुंजियों को रोटेट किया जा सके.`base_environment` नए `network` कॉन्फ़िगरेशन के साथ `environment` ऑब्जेक्ट पास करें. नए नेटवर्क नियमों के लागू होने के बाद, उस इंटरैक्शन के लिए पिछले नियम पूरी तरह से बदल जाते हैं. बेस एनवायरमेंट के सोर्स (फ़ाइलें, रिपॉज़िटरी) सुरक्षित रखे जाते हैं.
 
 ### Python
 
@@ -803,11 +803,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Aracıları yönet
+## एजेंट मैनेज करें
 
-Aracıları listeleyebilir, alabilir ve silebilirsiniz.
+आपके पास एजेंटों को सूची में शामिल करने, उन्हें पाने, और उन्हें मिटाने का विकल्प होता है.
 
-### Aracıları listeleyin
+### एजेंट की सूची बनाना
 
 ### Python
 
@@ -835,7 +835,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Aracı edinme
+### कोई एजेंट पाना
 
 ### Python
 
@@ -858,9 +858,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Temsilci silme
+### किसी एजेंट को मिटाना
 
-Silme işlemi, yapılandırmayı kaldırır. Mevcut ortamlar ve aracının oluşturduğu etkileşimler etkilenmez.
+मिटाने पर, कॉन्फ़िगरेशन हट जाता है. इससे, एजेंट के बनाए गए मौजूदा एनवायरमेंट और इंटरैक्शन पर कोई असर नहीं पड़ता.
 
 ### Python
 
@@ -881,24 +881,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Aracı tanımı referansı
+## एजेंट की परिभाषा का रेफ़रंस
 
-| Alan | Tür | Zorunlu | Açıklama |
+| फ़ील्ड | प्रकार | ज़रूरी है | ब्यौरा |
 | --- | --- | --- | --- |
-| `id` | dize | Evet | Google Cloud projesindeki benzersiz aracı tanımlayıcısı. Ajanı çağırmak için kullanılır. Ayrılmış önekler kullanılmamalıdır. [Aracı kimliği kısıtlamaları](#agent-id-restrictions) başlıklı makaleyi inceleyin. |
-| `description` | dize | Hayır | Temsilcinin kullanıcılar tarafından okunabilir açıklaması. |
-| `base_agent` | dize | Evet | Temel aracı kimliği (ör. `antigravity-preview-05-2026`). |
-| `agent_config` | nesne | Hayır | Model seçimi (`{"type": "antigravity", "model": "gemini-3.6-flash"}`) dahil olmak üzere temel aracı yapılandırması. Atlanırsa varsayılan olarak `gemini-3.6-flash` olur. Adlandırılmış aracıların etkileşim sırasında geçersiz kılınamaz. |
-| `system_instruction` | dize | Hayır | Davranışı ve kullanıcı profilini tanımlayan sistem istemi. |
-| `tools` | dizi | Hayır | Ajanın kullanabileceği araçlar. Boş bırakılırsa varsayılan olarak `code_execution`, `google_search` ve `url_context` değerleri kullanılır. Desteklenen araçlar arasında `code_execution`, `google_search`, `url_context`, `mcp_server` ve özel `function` tanımları yer alır. |
-| `base_environment` | dize veya nesne | Hayır | `"remote"`, `environment_id` veya `sources` ve `network` içeren bir yapılandırma nesnesi. Ortamlar bölümüne bakın. |
+| `id` | स्ट्रिंग | हां | Google Cloud प्रोजेक्ट में एजेंट का यूनीक आइडेंटिफ़ायर. इसका इस्तेमाल एजेंट को शुरू करने के लिए किया जाता है. पहले से तय किए गए प्रीफ़िक्स का इस्तेमाल नहीं किया जाना चाहिए. [एजेंट आईडी से जुड़ी पाबंदियां](#agent-id-restrictions) देखें. |
+| `description` | स्ट्रिंग | नहीं | इस फ़ील्ड में एजेंट के बारे में ऐसी जानकारी होती है जिसे कोई भी व्यक्ति आसानी से पढ़ सकता है. |
+| `base_agent` | स्ट्रिंग | हां | बेस एजेंट का आईडी (जैसे, `antigravity-preview-05-2026`). |
+| `agent_config` | ऑब्जेक्ट | नहीं | बेस एजेंट के लिए कॉन्फ़िगरेशन. इसमें मॉडल चुनने की सुविधा (`{"type": "antigravity", "model": "gemini-3.6-flash"}`) शामिल है. अगर इसे शामिल नहीं किया जाता है, तो डिफ़ॉल्ट रूप से `gemini-3.6-flash` का इस्तेमाल किया जाता है. नाम वाले एजेंट के लिए, इंटरैक्शन के दौरान इस सेटिंग को बदला नहीं जा सकता. |
+| `system_instruction` | स्ट्रिंग | नहीं | सिस्टम प्रॉम्प्ट, जो व्यवहार और पर्सोना के बारे में बताता है. |
+| `tools` | ऐरे | नहीं | ऐसे टूल जिनका इस्तेमाल एजेंट कर सकता है. अगर इसे शामिल नहीं किया जाता है, तो डिफ़ॉल्ट रूप से `code_execution`, `google_search`, और `url_context` पर सेट होता है. इन टूल का इस्तेमाल किया जा सकता है: `code_execution`, `google_search`, `url_context`, `mcp_server`, और कस्टम `function` डेफ़िनिशन. |
+| `base_environment` | स्ट्रिंग या ऑब्जेक्ट | नहीं | `"remote"`, `environment_id` या `sources` और `network` वाला कॉन्फ़िगरेशन ऑब्जेक्ट. एनवायरमेंट देखें. |
 
-### Aracı kimliği kısıtlamaları
+### एजेंट आईडी से जुड़ी पाबंदियां
 
-Yönetilen bir aracı oluştururken belirttiğiniz `id` şu kurallara uymalıdır:
+मैनेज किया गया एजेंट बनाते समय, आपके दिए गए `id` को इन नियमों का पालन करना होगा:
 
-- Google Cloud projenize özgü olmalıdır.
-- Aksi takdirde oluşturma işlemi başarısız olacağından, aşağıdaki ayrılmış öneklerden (büyük/küçük harfe duyarsız) biriyle **başlamamalıdır**:
+- यह आपके Google Cloud प्रोजेक्ट के लिए अलग होना चाहिए.
+- यह इनमें से किसी भी रिज़र्व किए गए प्रीफ़िक्स (केस-इनसेंसिटिव) से शुरू **नहीं** होना चाहिए. ऐसा न होने पर, इसे नहीं बनाया जा सकेगा:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -916,35 +916,35 @@ Yönetilen bir aracı oluştururken belirttiğiniz `id` şu kurallara uymalıdı
   - `nest-`
   - `kaggle-`
 
-## Yineleme iş akışı
+## इटरेशन वर्कफ़्लो
 
-1. Temel Antigravity aracısıyla **prototip oluşturun**. Sistem talimatını ve ortam kaynaklarını satır içi olarak iletin. Talimatları, becerileri ve ortam kurulumunu etkileşimli olarak test edin.
-2. Ortamı **dengeleyin**. Paketleri yükleyin, kaynakları bağlayın ve her şeyin çalıştığını doğrulayın.
-3. Kaynaklardan veya ortamı çatallayarak yeni bir aracı oluşturup yönetilen aracı olarak **kalıcı hale getirin**.
-4. Aracı tanımını **güncelleyin**. Sistem talimatını değiştirme, becerileri değiştirme veya kaynak ekleme Bir sonraki çağırmada yeni yapılandırma kullanılır.
+1. Antigravity के बेसिक एजेंट के साथ **प्रोटोटाइप**. सिस्टम के निर्देश और एनवायरमेंट के सोर्स को इनलाइन पास करें. निर्देशों, कौशल, और एनवायरमेंट सेटअप की इंटरैक्टिव तरीके से जांच करें.
+2. एनवायरमेंट को **स्थिर करें**. पैकेज इंस्टॉल करें, सोर्स माउंट करें, और पुष्टि करें कि सब कुछ काम कर रहा है.
+3. सोर्स से या एनवायरमेंट को फ़ोर्क करके, नया एजेंट बनाकर मैनेज किए गए एजेंट के तौर पर **बने रहें**.
+4. एजेंट की परिभाषा को **अपडेट करें**. सिस्टम के निर्देश बदलें, स्किल बदलें या सोर्स जोड़ें. अगला इनवोकेशन, नए कॉन्फ़िगरेशन को पिक अप करता है.
 
-## Sınırlamalar
+## सीमाएं
 
-- **Önizleme durumu**: Yönetilen aracıların önizleme sürümü kullanımdadır. Özellikler ve şemalar değişebilir.
-- **Temel aracı ve modeller**: `base_agent` olarak yalnızca `antigravity-preview-05-2026` desteklenir. `agent_config`'da desteklenen model seçenekleri `gemini-3.5-flash`, `gemini-3.6-flash` (varsayılan) ve `gemini-3.5-flash-lite`'dir. Adlandırılmış temsilcilerde model, etkileşim sırasında geçersiz kılınamaz.
-- **Sürüm oluşturma yok**: Ajan sürümü oluşturma ve geri alma henüz kullanılamıyor.
-- **Alt temsilci iç içe yerleştirme yok**: Alt temsilci yetkilendirme henüz desteklenmiyor.
-- En fazla 1.000 yönetilen aracınız olabilir.
+- **प्रीव्यू की स्थिति**: मैनेज किए गए एजेंट, प्रीव्यू में हैं. सुविधाओं और स्कीमा में बदलाव हो सकता है.
+- **बेस एजेंट और मॉडल**: `base_agent` के तौर पर सिर्फ़ `antigravity-preview-05-2026` का इस्तेमाल किया जा सकता है. `agent_config` में काम करने वाले मॉडल के विकल्प ये हैं: `gemini-3.5-flash`, `gemini-3.6-flash` (डिफ़ॉल्ट), और `gemini-3.5-flash-lite`. नाम वाले एजेंट के लिए, इंटरैक्शन के समय मॉडल को ओवरराइड नहीं किया जा सकता.
+- **वर्शनिंग की सुविधा उपलब्ध नहीं है**: एजेंट वर्शनिंग और रोलबैक की सुविधा फ़िलहाल उपलब्ध नहीं है.
+- **सब-एजेंट नेस्टिंग की सुविधा उपलब्ध नहीं है**: फ़िलहाल, सब-एजेंट को डेलिगेट करने की सुविधा उपलब्ध नहीं है.
+- आपके पास मैनेज किए जा रहे ज़्यादा से ज़्यादा 1,000 एजेंट हो सकते हैं.
 
-## Sırada ne var?
+## आगे क्या करना है
 
-- [Ajanlara Genel Bakış](https://ai.google.dev/gemini-api/docs/agents?hl=tr): Yönetilen ajanların temel kavramları hakkında bilgi edinin.
-- [Hızlı başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr): Çok aşamalı etkileşimler ve akışla geliştirmeye başlayın.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr): Varsayılan temsilcinin özelliklerini, araçlarını ve fiyatlandırmasını keşfedin.
-- [Aracı Ortamları](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): Sanal alanları, kaynakları ve ağı yapılandırın.
-- [Agent Platform'da Yönetilen Ajanlar API'si](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=tr): Yerleşik kurumsal yönetim özelliklerine sahip ajanlar oluşturmak için kullanılır.
+- [एजेंट की खास जानकारी](https://ai.google.dev/gemini-api/docs/agents?hl=hi): मैनेज किए जाने वाले एजेंट के मुख्य सिद्धांतों के बारे में जानें.
+- [क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi): सिलसिलेवार बातचीत और स्ट्रीमिंग की सुविधा का इस्तेमाल शुरू करें.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi): डिफ़ॉल्ट एजेंट की सुविधाओं, टूल, और कीमत के बारे में जानें.
+- [एजेंट एनवायरमेंट](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi): सैंडबॉक्स, सोर्स, और नेटवर्किंग कॉन्फ़िगर करें.
+- [Agent Platform पर Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=hi): संगठन के लिए पहले से मौजूद गवर्नेंस के साथ एजेंट बनाने और मैनेज करने की सुविधा के लिए.
 
-Geri bildirim gönderin
+सुझाव भेजें
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Son güncelleme tarihi: 2026-07-30 UTC.
+आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/computer-use?hl=it
-fetched_at: 2026-08-03T04:32:12.767793+00:00
+fetched_at: 2026-08-10T03:11:45.688904+00:00
 title: "Uso del computer \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ko
-fetched_at: 2026-08-03T04:30:54.348812+00:00
-title: "\uad6c\uc870\ud654\ub41c \ucd9c\ub825 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419
+fetched_at: 2026-08-10T03:12:41.955753+00:00
+title: "Resultados estructurados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-의견 보내기
+Enviar comentarios
 
-# 구조화된 출력
+# Resultados estructurados
 
-제공된 JSON 스키마를 준수하는 응답을 생성하도록 Gemini 모델을 구성할 수 있습니다. 이렇게 하면 예측 가능하고 유형이 안전한 결과를 얻을 수 있으며 구조화되지 않은 텍스트에서 구조화된 데이터를 추출하는 작업이 간소화됩니다.
+Puedes configurar los modelos de Gemini para que generen respuestas que cumplan con un esquema JSON proporcionado. Esto garantiza resultados predecibles y con seguridad de tipos, y simplifica la extracción de datos estructurados de texto no estructurado.
 
-구조화된 출력은 다음 작업에 적합합니다.
+El uso de resultados estructurados es ideal para lo siguiente:
 
-- **데이터 추출:** 텍스트에서 이름, 날짜와 같은 특정 정보를 가져옵니다.
-- **구조화된 분류:** 텍스트를 사전 정의된 카테고리로 분류합니다.
-- **에이전트 워크플로:** 도구 또는 API의 구조화된 입력을 생성합니다.
+- **Extracción de datos:** Extrae información específica, como nombres y fechas, del texto.
+- **Clasificación estructurada:** Clasifica el texto en categorías predefinidas.
+- **Flujos de trabajo de agentes:** Genera entradas estructuradas para herramientas o APIs.
 
-REST API에서 JSON 스키마를 지원하는 것 외에도 Google GenAI SDK를 사용하면
-다음과 같이 스키마를 정의할 수 있습니다.
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) 및
-[Zod](https://zod.dev/) (자바스크립트)
+Además de admitir el esquema JSON en la API de REST, los SDKs de GenAI de Google
+permiten definir esquemas con
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) y
+[Zod](https://zod.dev/) (JavaScript).
 
-## 구조화된 출력 예
+## Ejemplos de resultados estructurados
 
-### 레시피 추출기
+### Extractor de recetas
 
-이 예에서는 `object`, `array`, `string`, `integer`와 같은 기본 JSON 스키마 유형을 사용하여 텍스트에서 구조화된 데이터를 추출하는 방법을 보여줍니다.
+En este ejemplo, se muestra cómo extraer datos estructurados del texto con tipos básicos de esquema JSON, como `object`, `array`, `string` y `integer`.
 
 ### Python
 
@@ -199,7 +199,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**응답 예:**
+**Respuesta de ejemplo:**
 
 ```
 {
@@ -227,9 +227,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### 콘텐츠 검토
+### Moderación de contenido
 
-이 예에서는 조건부 스키마의 `anyOf`와 분류의 `enum`을 보여주며, 이를 통해 콘텐츠에 따라 출력 구조를 다르게 지정할 수 있습니다.
+En este ejemplo, se muestran `anyOf` para esquemas condicionales y `enum` para la clasificación, lo que permite que la estructura de salida varíe según el contenido.
 
 ### Python
 
@@ -378,7 +378,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**응답 예:**
+**Respuesta de ejemplo:**
 
 ```
 {
@@ -389,9 +389,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### 재귀 구조
+### Estructuras recursivas
 
-이 예에서는 조직도와 같은 재귀 스키마를 정의하는 방법을 보여줍니다.
+En este ejemplo, se muestra cómo definir un esquema recursivo, como un organigrama.
 
 ### Python
 
@@ -508,7 +508,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**응답 예:**
+**Respuesta de ejemplo:**
 
 ```
 {
@@ -535,9 +535,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## 스트리밍 결과
+## Transmisión de resultados
 
-구조화된 출력을 스트리밍하여 응답이 생성되는 즉시 처리를 시작할 수 있습니다. 스트리밍된 청크는 최종 JSON 객체를 형성하기 위해 연결할 수 있는 유효한 부분 JSON 문자열입니다.
+Puedes transmitir resultados estructurados, lo que te permite comenzar a procesar la respuesta a medida que se genera. Los fragmentos transmitidos son cadenas JSON parciales válidas que se pueden concatenar para formar el objeto JSON final.
 
 ### Python
 
@@ -634,14 +634,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## 도구를 사용한 구조화된 출력
+## Resultados estructurados con herramientas
 
-Gemini 3를 사용하면 Google 검색을 사용한 그라운딩
-, URL 컨텍스트
-, 코드 실행
-, 파일 검색
-, 함수 호출
-을 비롯한 기본 제공 도구와 구조화된 출력을 결합할 수 있습니다.
+Gemini 3 te permite combinar resultados estructurados con herramientas integradas, como
+[Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419),
+[contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419),
+[ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419),
+[búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419#structured-output), y
+[llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
 
 ### Python
 
@@ -734,80 +734,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## JSON 스키마 지원
+## Compatibilidad con el esquema JSON
 
-JSON 객체를 생성하려면 `text` 유형의 객체 (또는 객체를 포함하는 배열)로 `response_format`을 구성하고 `mime_type`을 `application/json`으로 설정합니다. 스키마는 `schema` 필드에 제공되어야 합니다.
+Para generar un objeto JSON, configura `response_format` con un objeto (o un array que contenga un objeto) de tipo `text` y establece su `mime_type` en `application/json`. El esquema debe proporcionarse en el campo `schema`.
 
-Gemini의 구조화된 출력 모드는
-[JSON 스키마](https://json-schema.org/) 사양의 하위 집합을 지원합니다.
+El modo de salida estructurada de Gemini admite un subconjunto de la
+[especificación del esquema JSON](https://json-schema.org/).
 
-다음 `type` 값이 지원됩니다.
+Se admiten los siguientes valores de `type`:
 
-- **`string`**: 텍스트용
-- **`number`**: 부동 소수점 숫자용
-- **`integer`**: 정수용
-- **`boolean`**: true 또는 false 값용
-- **`object`**: 키-값 쌍이 있는 구조화된 데이터용
-- **`array`**: 항목 목록용
-- **`null`**: 속성이 null이 되도록 허용하려면 유형 배열에 `"null"`을 포함합니다 (예: `{"type": ["string", "null"]}`).
+- **`string`**: Para texto
+- **`number`**: Para números de punto flotante
+- **`integer`**: Para números enteros
+- **`boolean`**: Para valores verdaderos o falsos
+- **`object`**: Para datos estructurados con pares clave-valor
+- **`array`**: Para listas de elementos
+- **`null`**: Para permitir que una propiedad sea nula, incluye `"null"` en el array de tipos (p.ej., `{"type": ["string", "null"]}`).
 
-이러한 설명 속성은 모델을 안내하는 데 도움이 됩니다.
+Estas propiedades descriptivas ayudan a guiar el modelo:
 
-- **`title`**: 속성에 대한 간단한 설명입니다.
-- **`description`**: 속성에 대한 더 길고 자세한 설명입니다.
+- **`title`**: Una breve descripción de una propiedad
+- **`description`**: Una descripción más larga y detallada de una propiedad
 
-### 유형별 속성
+### Propiedades específicas de los tipos
 
-**`object` 값의 경우:**
+**Para valores:**`object`
 
-- **`properties`**: 각 키가 속성 이름이고 각 값이 해당 속성의 스키마인 객체입니다.
-- **`required`**: 필수 속성을 나열하는 문자열 배열입니다.
-- **`additionalProperties`**: `properties`에 나열되지 않은 속성이 허용되는지 여부를 제어합니다. 불리언 또는 스키마일 수 있습니다.
+- **`properties`**: Un objeto en el que cada clave es un nombre de propiedad y cada valor es un esquema para esa propiedad
+- **`required`**: Un array de cadenas que indica qué propiedades son obligatorias
+- **`additionalProperties`**: Controla si se permiten las propiedades que no aparecen en `properties` Puede ser un valor booleano o un esquema.
 
-**`string` 값의 경우:**
+**Para valores `string`:**
 
-- **`enum`**: 분류 작업에 사용할 수 있는 특정 문자열 집합을 나열합니다.
-- **`format`**: `date-time`, `date`, `time`과 같은 문자열의 구문을 지정합니다.
+- **`enum`**: Enumera un conjunto específico de cadenas posibles para tareas de clasificación
+- **`format`**: Especifica una sintaxis para la cadena, como `date-time`, `date` y `time`.
 
-**`number` 및 `integer` 값의 경우:**
+**Para valores `number` y `integer`:**
 
-- **`enum`**: 가능한 특정 숫자 값 집합을 나열합니다.
-- **`minimum`**: 최소 포함 값입니다.
-- **`maximum`**: 최대 포함 값입니다.
+- **`enum`**: Enumera un conjunto específico de valores numéricos posibles
+- **`minimum`**: El valor inclusivo mínimo
+- **`maximum`**: El valor inclusivo máximo
 
-**`array` 값의 경우:**
+**Para `array` valores:**
 
-- **`items`**: 배열의 모든 항목에 대한 스키마를 정의합니다.
-- **`prefixItems`**: 첫 번째 N개 항목의 스키마 목록을 정의하여 튜플과 같은 구조를 허용합니다.
-- **`minItems`**: 배열의 최소 항목 수입니다.
-- **`maxItems`**: 배열의 최대 항목 수입니다.
+- **`items`**: Define el esquema para todos los elementos del array
+- **`prefixItems`**: Define una lista de esquemas para los primeros N elementos, lo que permite estructuras similares a tuplas
+- **`minItems`**: La cantidad mínima de elementos en el array
+- **`maxItems`**: La cantidad máxima de elementos en el array
 
-## 구조화된 출력과 함수 호출 비교
+## Resultados estructurados en comparación con la llamada a función
 
-| 기능 | 주된 사용 사례 |
+| Función | Caso de uso principal |
 | --- | --- |
-| **구조화된 출력** | **최종 응답의 형식을 지정합니다.** 모델의 *답변* 을 특정 형식으로 지정하려는 경우에 사용합니다. |
-| **함수 호출** | **대화 중에 작업을 실행합니다.** 모델이 최종 답변을 제공하기 전에 작업을 실행하도록 *요청* 해야 하는 경우에 사용합니다. |
+| **Resultados estructurados** | **Dar formato a la respuesta final.** Úsalo cuando quieras que la *respuesta* del modelo tenga un formato específico. |
+| **Llamada a función** | **Realizar acciones durante la conversación.** Úsalo cuando el modelo necesite *pedirte* que realices una tarea antes de proporcionar una respuesta final. |
 
-## 권장사항
+## Prácticas recomendadas
 
-- **명확한 설명:** `description` 필드를 사용하여 모델을 안내합니다.
-- **강력한 유형 지정:** 특정 유형 (`integer`, `string`, `enum`)을 사용합니다.
-- **프롬프트 엔지니어링:** 모델이 수행해야 하는 작업을 명확하게 명시합니다.
-- **유효성 검사:** 출력은 문법적으로 올바른 JSON이지만 항상 애플리케이션에서 값을 검증합니다.
-- **오류 처리:** 스키마를 준수하지만 의미상으로 잘못된 출력에 대해 강력한 오류 처리를 구현합니다.
+- **Descripciones claras:** Usa el campo `description` para guiar el modelo.
+- **Tipos sólidos:** Usa tipos específicos (`integer`, `string`, `enum`).
+- **Ingeniería de instrucciones:** Indica claramente lo que quieres que haga el modelo.
+- **Validación:** Si bien el resultado es un objeto JSON sintácticamente correcto, siempre valida los valores en tu aplicación.
+- **Manejo de errores:** Implementa un manejo de errores sólido para los resultados que cumplen con el esquema, pero que son semánticamente incorrectos.
 
-## 제한사항
+## Limitaciones
 
-- **스키마 하위 집합:** 모든 JSON 스키마 기능이 지원되는 것은 아닙니다.
-- **스키마 복잡성:** 매우 크거나 깊게 중첩된 스키마는 거부될 수 있습니다.
+- **Subconjunto de esquemas:** No se admiten todas las funciones del esquema JSON.
+- **Complejidad del esquema:** Es posible que se rechacen los esquemas muy grandes o anidados.
 
-의견 보내기
+Enviar comentarios
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-최종 업데이트: 2026-07-30(UTC)
+Última actualización: 2026-07-30 (UTC)
 
-의견을 전달하고 싶나요?
+¿Quieres brindar más información?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

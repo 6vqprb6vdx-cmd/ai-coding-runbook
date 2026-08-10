@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=de
-fetched_at: 2026-08-03T04:34:22.670715+00:00
-title: "Gemini-Einbettungsmodell \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=vi
+fetched_at: 2026-08-10T03:12:00.180353+00:00
+title: "M\u00f4 h\u00ecnh Gemini Embedding \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Feedback geben
+Gửi ý kiến phản hồi
 
-# Gemini-Einbettungsmodell
+# Mô hình Gemini Embedding
 
-Eine spezielle Engine für die hochdimensionale Vektordarstellung, die eine effiziente numerische Zuordnung von Text und Bildern ermöglicht. Das Gemini-Einbettungsmodell eignet sich am besten für die semantische Suche, den Dokumentabruf und Empfehlungssysteme, die schnelle, skalierbare Ähnlichkeitsberechnungen für große Datensätze erfordern.
+Một công cụ chuyên biệt để biểu diễn vectơ nhiều chiều, cung cấp tính năng ánh xạ số hiệu quả cho văn bản và hình ảnh. Mô hình Gemini Embedding phù hợp nhất cho tính năng tìm kiếm theo ngữ nghĩa, truy xuất tài liệu và hệ thống đề xuất đòi hỏi tính toán nhanh chóng và có thể mở rộng về mức độ tương đồng trên các tập dữ liệu lớn.
 
-## Dokumentation
+## Tài liệu
 
-Auf der Seite [Einbettungen](https://ai.google.dev/gemini-api/docs/embeddings?hl=de) finden Sie eine vollständige Übersicht
-der Funktionen.
+Hãy truy cập trang [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi) để xem đầy đủ các tính năng và chức năng.
 
 ## gemini-embedding-001
 
-| Attribut | Beschreibung |
+| Thuộc tính | Mô tả |
 | --- | --- |
-| id\_cardModellcode | **Gemini API**  `gemini-embedding-001` |
-| saveUnterstützte Datentypen | **Eingabe**  Text  **Ausgabe**  Texteinbettungen |
-| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Tokenlimit für Eingabe**  2.048  **Ausgabedimensionen**  Flexibel, unterstützt: 128–3072, empfohlen: 768, 1536, 3072 |
-| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stable: `gemini-embedding-001` |
-| calendar\_monthLetzte Aktualisierung | Juni 2025 |
+| id\_cardMã mô hình | **Gemini API**  `gemini-embedding-001` |
+| saveCác loại dữ liệu được hỗ trợ | **Input**  Văn bản  **Đầu ra**  Thông tin nhúng văn bản |
+| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  2.048  **Kích thước phương diện đầu ra**  Linh hoạt, hỗ trợ: 128 – 3072, Đề xuất: 768, 1536, 3072 |
+| 123Phiên bản | Đọc các [mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm chi tiết.  - Ổn định: `gemini-embedding-001` |
+| calendar\_monthNội dung cập nhật mới nhất | Tháng 6 năm 2025 |
 
-Feedback geben
+Gửi ý kiến phản hồi
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Zuletzt aktualisiert: 2026-04-29 (UTC).
+Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
-Haben Sie Feedback für uns?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

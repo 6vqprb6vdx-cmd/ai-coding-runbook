@@ -1,55 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=ja
-fetched_at: 2026-08-03T04:27:17.009745+00:00
-title: "Workspace \u30a2\u30ab\u30a6\u30f3\u30c8\u3067 Google AI Studio \u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=id
+fetched_at: 2026-08-10T03:17:25.366914+00:00
+title: "Mengakses Google AI Studio dengan akun Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-フィードバックを送信
+Kirim masukan
 
-# Workspace アカウントで Google AI Studio にアクセスする
+# Mengakses Google AI Studio dengan akun Workspace
 
-すべての [Google Workspace](https://workspace.google.com?hl=ja) ユーザーは、デフォルトで AI
-Studio にアクセスできます。Workspace ユーザーで、
-AI Studio の使用を開始する場合は、
-[AI Studio クイックスタート](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja)をご覧ください。
+Semua pengguna [Google Workspace](https://workspace.google.com?hl=id) memiliki akses ke AI Studio secara default. Jika Anda adalah pengguna Workspace dan ingin mulai menggunakan AI Studio, lihat [panduan memulai AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=id).
 
-## トラブルシューティング
+## Pemecahan masalah
 
-Google Workspace アカウントで AI Studio へのアクセスが無効になっている場合は、次のようなエラーが表示されることがあります。
+Jika akses ke AI Studio dinonaktifkan untuk akun Google Workspace Anda, Anda mungkin melihat error seperti berikut:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-AI Studio へのアクセス権が必要と思われる場合は、Workspace 管理者にお問い合わせください。
+Jika Anda merasa seharusnya Anda memiliki akses ke AI Studio, hubungi administrator Workspace Anda.
 
-## Workspace ユーザーに対して AI Studio を有効にする
+## Mengaktifkan AI Studio untuk pengguna Workspace
 
-Google Workspace 管理者は、AI Studio を使用できるユーザーを制御できます。
+Sebagai administrator Google Workspace, Anda dapat mengontrol siapa saja yang dapat menggunakan AI Studio:
 
-- AI Studio は、すべてのエディションでデフォルトで有効になっています。
-- 組織部門内または組織部門全体で、ユーザー グループに対して AI Studio を有効または無効にできます。
-- Google Workspace for Education エディション: 18 歳未満のユーザーは、Google Workspace for Education アカウントで AI Studio を使用できません。これは、AI Studio の設定がオンの場合にも当てはまります。詳しくは、[Google サービスへのアクセスを
-  年齢別に管理する方法](https://support.google.com/a/answer/10651918?hl=ja)をご覧ください。
+- AI Studio diaktifkan secara default untuk semua edisi.
+- Anda dapat menonaktifkan atau mengaktifkan AI Studio untuk sekumpulan pengguna di seluruh atau dalam unit organisasi.
+- Edisi Google Workspace for Education: Pengguna berusia di bawah 18 tahun tidak dapat menggunakan AI Studio dengan akun Google Workspace for Education mereka. Hal ini berlaku meskipun setelan AI Studio aktif. Untuk mengetahui detailnya, buka [Mengontrol akses ke layanan Google berdasarkan
+  usia](https://support.google.com/a/answer/10651918?hl=id).
 
-組織内のユーザーに対して AI Studio を有効または無効にするには、
-[ユーザーに対して Google AI Studio を有効または無効にする](https://support.google.com/a/answer/15004095?hl=ja)をご覧ください。
+Untuk mengaktifkan atau menonaktifkan AI Studio bagi pengguna di organisasi Anda, lihat
+[Mengaktifkan atau menonaktifkan Google AI Studio untuk pengguna](https://support.google.com/a/answer/15004095?hl=id).
 
-フィードバックを送信
+Kirim masukan
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最終更新日 2026-04-29 UTC。
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-ご意見をお聞かせください
+Ada masukan untuk kami?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/imagen?hl=tr
-fetched_at: 2026-08-03T04:29:50.297317+00:00
+fetched_at: 2026-08-10T03:15:50.939628+00:00
 title: "Imagen 4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

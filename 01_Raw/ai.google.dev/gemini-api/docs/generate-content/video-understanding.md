@@ -1,48 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=de
-fetched_at: 2026-08-03T04:25:59.197845+00:00
-title: "Videos verstehen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=pl
+fetched_at: 2026-08-10T03:22:59.493053+00:00
+title: "Rozpoznawanie film\u00f3w \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Feedback geben
+Prześlij opinię
 
-# Videos verstehen
+# Rozpoznawanie filmów
 
-> Informationen zur Videogenerierung finden Sie im [Veo](https://ai.google.dev/gemini-api/docs/video?hl=de) Leitfaden.
+> Więcej informacji o generowaniu filmów znajdziesz w przewodniku [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl).
 
-Gemini-Modelle können Videos verarbeiten und so viele neue Anwendungsfälle für Entwickler ermöglichen, für die in der Vergangenheit domänenspezifische Modelle erforderlich gewesen wären.
-Zu den Vision-Funktionen von Gemini gehören unter anderem die Möglichkeit, Videos zu beschreiben, zu segmentieren und Informationen daraus zu extrahieren, Fragen zu Videoinhalten zu beantworten und auf bestimmte Zeitstempel in einem Video zu verweisen.
+Modele Gemini mogą przetwarzać filmy, co umożliwia programistom korzystanie z wielu nowych przypadków użycia, które wcześniej wymagałyby modeli specyficznych dla danej domeny.
+Niektóre funkcje Gemini Vision obejmują możliwość opisywania, segmentowania i wyodrębniania informacji z filmów, odpowiadania na pytania dotyczące treści wideo oraz odwoływania się do konkretnych sygnatur czasowych w filmie.
 
-Sie können Videos auf folgende Weise als Eingabe für Gemini bereitstellen:
+Filmy możesz przekazywać do Gemini na te sposoby:
 
-| Eingabemethode | Max. Größe | Empfohlener Anwendungsfall |
+| Sposób wprowadzania tekstu | Wielkość maksymalna | Zalecany przypadek użycia |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 GB (kostenpflichtig) / 2 GB (kostenlos) | Große Dateien (über 100 MB), lange Videos (über 10 Minuten), wiederverwendbare Dateien |
-| [Cloud Storage-Registrierung](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de#registration) | 2 GB (pro Datei, keine Speicherlimits) | Große Dateien (über 100 MB), lange Videos (über 10 Minuten), dauerhafte, wiederverwendbare Dateien |
-| [Inlinedaten](#inline-video) | unter 100 MB | Kleine Dateien (unter 100 MB), kurze Dauer (unter 1 Minute), einmalige Eingaben |
-| [YouTube-URLs](#youtube) | – | Öffentliche YouTube-Videos |
+| [File API](#upload-video) | 20 GB (płatne) / 2 GB (bezpłatne) | Duże pliki (ponad 100 MB), długie filmy (ponad 10 minut), pliki wielokrotnego użytku. |
+| [Rejestracja w Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl#registration) | 2 GB (na plik, bez limitów miejsca na dane) | Duże pliki (ponad 100 MB), długie filmy (ponad 10 minut), trwałe pliki wielokrotnego użytku. |
+| [Dane w treści](#inline-video) | < 100 MB | Małe pliki (poniżej 100 MB), krótkie filmy (poniżej 1 minuty), jednorazowe dane wejściowe. |
+| [Adresy URL z YouTube](#youtube) | Nie dotyczy | Publiczne filmy w YouTube. |
 
-> **Hinweis:** Die [File API](#upload-video) wird für die meisten Anwendungsfälle empfohlen, insbesondere für Dateien, die größer als 100 MB sind, oder wenn Sie die Datei in mehreren Anfragen wiederverwenden möchten.
+> **Uwaga:** w większości przypadków zalecamy korzystanie z [File API](#upload-video), zwłaszcza w przypadku plików większych niż 100 MB lub gdy chcesz użyć tego samego pliku w wielu żądaniach.
 
-Informationen zu anderen Methoden für die Dateieingabe, z. B. die Verwendung externer URLs oder in Google Cloud gespeicherter Dateien, finden Sie im
-[Leitfaden zu Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
+Więcej informacji o innych metodach wprowadzania plików, takich jak używanie zewnętrznych adresów URL lub plików
+przechowywanych w Google Cloud, znajdziesz w przewodniku
+[Metody wprowadzania plików](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl).
 
-### Videodatei hochladen
+### Przesyłanie pliku wideo
 
-Mit dem folgenden Code wird ein Beispielvideo heruntergeladen, über die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hochgeladen,
-auf die Verarbeitung gewartet und dann die hochgeladene Dateireferenz verwendet, um
-das Video zusammenzufassen.
+Poniższy kod pobiera przykładowy film, przesyła go za pomocą [Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl),
+czeka na jego przetworzenie, a następnie używa odniesienia do przesłanego pliku, aby
+podsumować film.
 
 ### Python
 
@@ -90,7 +91,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 uploadedFile, _ := client.Files.UploadFromPath(ctx, "path/to/sample.mp4", nil)
@@ -167,17 +168,17 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 jq -r ".candidates[].content.parts[].text" response.json
 ```
 
-Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich Datei, Text-Prompt, Systemanweisungen usw.) größer als 20 MB ist, die Videodauer erheblich ist oder wenn Sie dasselbe Video in mehreren Prompts verwenden möchten.
-Die File API akzeptiert Videodateiformate direkt.
+Zawsze używaj Files API, gdy łączny rozmiar żądania (w tym pliku, prompta tekstowego, instrukcji systemowych itp.) przekracza 20 MB, czas trwania filmu jest znaczny lub gdy zamierzasz użyć tego samego filmu w wielu promptach.
+File API bezpośrednio akceptuje formaty plików wideo.
 
-Weitere Informationen zum Arbeiten mit Mediendateien finden Sie unter
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
+Więcej informacji o pracy z plikami multimedialnymi znajdziesz w artykule
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl).
 
-### Videodaten inline übergeben
+### Przekazywanie danych wideo w treści
 
-Anstatt eine Videodatei mit der File API hochzuladen, können Sie kleinere Videos direkt in der Anfrage an `generateContent` übergeben. Dies eignet sich für kürzere Videos mit einer Gesamtgröße der Anfrage von unter 20 MB.
+Zamiast przesyłać plik wideo za pomocą File API, możesz przekazywać mniejsze filmy bezpośrednio w żądaniu do `generateContent`. Jest to odpowiednie rozwiązanie w przypadku krótszych filmów, których łączny rozmiar żądania nie przekracza 20 MB.
 
-Hier ein Beispiel für die Bereitstellung von Inline-Videodaten:
+Oto przykład przekazywania danych wideo w treści:
 
 ### Python
 
@@ -262,9 +263,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }' 2> /dev/null
 ```
 
-### YouTube-URLs übergeben
+### Przekazywanie adresów URL z YouTube
 
-Sie können YouTube-URLs wie folgt direkt als Teil Ihrer Anfrage an die Gemini API übergeben:
+Adresy URL z YouTube możesz przekazywać bezpośrednio do Gemini API w ramach żądania w ten sposób:
 
 ### Python
 
@@ -310,7 +311,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -370,22 +371,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }' 2> /dev/null
 ```
 
-**Beschränkungen** :
+**Ograniczenia:**
 
-- Im kostenlosen Abo können Sie pro Tag maximal 8 Stunden YouTube-Video hochladen.
-- Im kostenpflichtigen Abo gibt es keine Beschränkung basierend auf der Videolänge.
-- Bei Modellen vor Gemini 2.5 können Sie pro Anfrage nur ein Video hochladen. Bei Gemini 2.5 und neueren Modellen können Sie pro Anfrage maximal 10 Videos hochladen.
-- Sie können nur öffentliche Videos hochladen (keine privaten oder nicht gelisteten Videos).
+- W przypadku bezpłatnego planu nie możesz przesyłać więcej niż 8 godzin filmów na YouTube dziennie.
+- W przypadku płatnego planu nie ma limitu opartego na długości wideo.
+- W przypadku modeli wcześniejszych niż Gemini 2.5 możesz przesłać tylko 1 film na żądanie. W przypadku modeli Gemini 2.5 i nowszych możesz przesłać maksymalnie 10 filmów na żądanie.
+- Możesz przesyłać tylko filmy publiczne (nie prywatne ani niepubliczne).
 
-## Kontext-Caching für lange Videos verwenden
+## Używanie buforowania kontekstu w przypadku długich filmów
 
-Bei Videos, die länger als 10 Minuten sind, oder wenn Sie mehrere Anfragen
-für dieselbe Videodatei stellen möchten, verwenden Sie [Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de), um
-Kosten zu senken und die Latenz zu verbessern. Mit Kontext-Caching können Sie das Video einmal verarbeiten und die Tokens für nachfolgende Anfragen wiederverwenden. Das ist ideal für Chats oder wiederholte Analysen von Inhalten im Langformat.
+W przypadku filmów dłuższych niż 10 minut lub gdy planujesz wysłać wiele żądań
+dotyczących tego samego pliku wideo, użyj [buforowania kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl) aby
+zmniejszyć koszty i skrócić czas oczekiwania. Buforowanie kontekstu umożliwia jednokrotne przetworzenie filmu i ponowne wykorzystanie tokenów w kolejnych zapytaniach, co jest idealne w przypadku sesji czatu lub powtarzanej analizy długich treści.
 
-## Auf Zeitstempel im Inhalt verweisen
+## Odwoływanie się do sygnatur czasowych w treści
 
-Sie können Fragen zu bestimmten Zeitpunkten im Video stellen, indem Sie Zeitstempel im Format `MM:SS` verwenden.
+Możesz zadawać pytania dotyczące konkretnych momentów w filmie, używając sygnatur czasowych w formacie `MM:SS`.
 
 ### Python
 
@@ -399,7 +400,7 @@ prompt = "What are the examples given at 00:05 and 00:10 supposed to show us?" #
 const prompt = "What are the examples given at 00:05 and 00:10 supposed to show us?";
 ```
 
-### Ok
+### Go
 
 ```
     prompt := []*genai.Part{
@@ -416,12 +417,12 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## Detaillierte Erkenntnisse aus Videos extrahieren
+## Wyodrębnianie szczegółowych informacji z filmu
 
-Gemini-Modelle bieten leistungsstarke Funktionen zum Verstehen von Videoinhalten, indem sie Informationen aus den **Audio- und visuellen** Streams verarbeiten. So können Sie eine Vielzahl von Details extrahieren, einschließlich Beschreibungen dessen, was in einem Video passiert, und Antworten auf Fragen zu den Inhalten.
+Modele Gemini oferują zaawansowane możliwości rozumienia treści wideo dzięki przetwarzaniu informacji ze strumieni **audio i wizualnych**. Dzięki temu możesz wyodrębnić bogaty zestaw szczegółów, w tym generować opisy tego, co dzieje się w filmie, i odpowiadać na pytania dotyczące jego treści.
 
-Für visuelle Beschreibungen nimmt das Modell **1 Frame pro Sekunde** auf. Diese Standard-Samplingrate funktioniert für die meisten Inhalte gut, aber es kann sein, dass Details in Videos mit schnellen Bewegungen oder schnellen Szenenwechseln verloren gehen.
-Für solche Inhalte mit schnellen Bewegungen sollten Sie [eine benutzerdefinierte Framerate festlegen](#custom-frame-rate).
+W przypadku opisów wizualnych model próbkuje film z szybkością **1 klatki na sekundę** (FPS). Ta domyślna szybkość próbkowania sprawdza się w przypadku większości treści, ale pamiętaj, że może pomijać szczegóły w filmach z szybkim ruchem lub szybkimi zmianami scen.
+W przypadku takich treści z szybkim ruchem rozważ [ustawienie niestandardowej liczby klatek na sekundę](#custom-frame-rate).
 
 ### Python
 
@@ -435,7 +436,7 @@ prompt = "Describe the key events in this video, providing both audio and visual
 const prompt = "Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments.";
 ```
 
-### Ok
+### Go
 
 ```
     prompt := []*genai.Part{
@@ -451,15 +452,15 @@ const prompt = "Describe the key events in this video, providing both audio and 
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## Videoverarbeitung anpassen
+## Dostosowywanie przetwarzania wideo
 
-Sie können die Videoverarbeitung in der Gemini API anpassen, indem Sie Clipping-Intervalle festlegen oder eine benutzerdefinierte Framerate-Samplingrate angeben.
+Przetwarzanie wideo w Gemini API możesz dostosować, ustawiając interwały przycinania lub podając niestandardową liczbę klatek na sekundę.
 
  
 
-### Clipping-Intervalle festlegen
+### Ustawianie interwałów przycinania
 
-Sie können Videos clippen, indem Sie `videoMetadata` mit Start- und End-Offsets angeben.
+Możesz przycinać filmy, określając `videoMetadata` z przesunięciami początku i końca.
 
 ### Python
 
@@ -526,9 +527,9 @@ console.log(response.text)
 await main();
 ```
 
-### Benutzerdefinierte Framerate festlegen
+### Ustawianie niestandardowej liczby klatek na sekundę
 
-Sie können eine benutzerdefinierte Framerate-Samplingrate festlegen, indem Sie ein `fps`-Argument an `videoMetadata` übergeben.
+Niestandardowe próbkowanie liczby klatek na sekundę możesz ustawić, przekazując argument `fps` do `videoMetadata`.
 
 ### Python
 
@@ -557,11 +558,11 @@ response = client.models.generate_content(
 )
 ```
 
-Standardmäßig wird 1 Frame pro Sekunde aus dem Video gesampelt. Für lange Videos sollten Sie eine niedrige Framerate (unter 1) festlegen. Das ist besonders nützlich für meist statische Videos (z.B. Vorträge). Verwenden Sie eine höhere Framerate für Videos, die eine detaillierte zeitliche Analyse erfordern, z. B. zum Verstehen von schnellen Aktionen oder zur Hochgeschwindigkeits-Bewegungserkennung.
+Domyślnie z filmu próbkowana jest 1 klatka na sekundę. W przypadku długich filmów możesz ustawić niską wartość FPS (< 1). Jest to szczególnie przydatne w przypadku filmów statycznych (np. wykładów). Użyj wyższej wartości FPS w przypadku filmów wymagających szczegółowej analizy czasowej, takich jak zrozumienie szybkiej akcji lub śledzenie ruchu z dużą prędkością.
 
-## Unterstützte Videoformate
+## Obsługiwane formaty wideo
 
-Gemini unterstützt die folgenden MIME-Typen für Videoformate:
+Gemini obsługuje te typy MIME formatów wideo:
 
 - `video/mp4`
 - `video/mpeg`
@@ -573,57 +574,56 @@ Gemini unterstützt die folgenden MIME-Typen für Videoformate:
 - `video/wmv`
 - `video/3gpp`
 
-## Technische Details zu Videos
+## Szczegóły techniczne dotyczące filmów
 
-- **Unterstützte Modelle und Kontext**: Alle Gemini-Modelle können Videodaten verarbeiten.
-  - Modelle mit einem Kontextfenster von 1 Million Tokens können Videos mit einer Länge von bis zu 1 Stunde bei Standard-Mediaauflösung oder 3 Stunden bei niedriger Mediaauflösung verarbeiten.
-- **Verarbeitung mit der File API**: Bei Verwendung der File API werden Videos mit 1
-  Frame pro Sekunde gespeichert und Audio mit 1 kbit/s (Einzelkanal) verarbeitet.
-  Zeitstempel werden jede Sekunde hinzugefügt.
-  - Diese Raten können sich in Zukunft ändern, um die Inferenz zu verbessern.
-  - Sie können die Samplingrate von 1 FPS überschreiben, indem Sie [eine benutzerdefinierte Framerate festlegen](#custom-frame-rate).
-- **Tokenberechnung**: Jede Sekunde Video wird so tokenisiert:
-  - Einzelne Frames (gesampelt mit 1 FPS):
-    - Wenn [`mediaResolution`](https://ai.google.dev/api/generate-content?hl=de#MediaResolution) auf „low“ gesetzt ist, werden Frames mit 66 Tokens pro Frame tokenisiert.
-    - Andernfalls werden Frames mit 258 Tokens pro Frame tokenisiert.
-  - Audio: 32 Tokens pro Sekunde.
-  - Metadaten sind ebenfalls enthalten.
-  - Gesamt: etwa 300 Tokens pro Sekunde Video bei Standard-Mediaauflösung oder 100 Tokens pro Sekunde Video bei niedriger Mediaauflösung.
-- **Mediaauflösung**: Gemini 3 bietet mit dem Parameter `media_resolution` eine detaillierte Steuerung der multimodalen
-  Vision-Verarbeitung. Der Parameter `media_resolution` bestimmt die **maximale Anzahl von Tokens, die pro Eingabebild oder Video-Frame zugewiesen werden**.
-  Höhere Auflösungen verbessern die Fähigkeit des Modells, kleinen Text zu lesen oder kleine Details zu erkennen, erhöhen aber die Tokennutzung und die Latenz.
+- **Obsługiwane modele i kontekst:** wszystkie modele Gemini mogą przetwarzać dane wideo.
+  - Modele z oknem kontekstu o rozmiarze 1 mln tokenów mogą przetwarzać filmy o długości do 1 godziny w domyślnej rozdzielczości multimediów lub do 3 godzin w niskiej rozdzielczości multimediów.
+- **Przetwarzanie za pomocą File API**: w przypadku korzystania z File API filmy są przechowywane z szybkością 1
+  klatki na sekundę, a dźwięk jest przetwarzany z szybkością 1 kb/s (jeden kanał).
+  Sygnatury czasowe są dodawane co sekundę.
+  - Te wartości mogą ulec zmianie w przyszłości w celu poprawy wnioskowania.
+  - Szybkość próbkowania 1 FPS możesz zastąpić, [ustawiając niestandardową liczbę klatek na sekundę](#custom-frame-rate).
+- **Obliczanie tokenów**: każda sekunda filmu jest tokenizowana w ten sposób:
+  - Pojedyncze klatki (próbkowane z szybkością 1 FPS):
+    - Jeśli [`mediaResolution`](https://ai.google.dev/api/generate-content?hl=pl#MediaResolution) jest ustawiona
+      na niską, klatki są tokenizowane z szybkością 66 tokenów na klatkę.
+    - W przeciwnym razie klatki są tokenizowane z szybkością 258 tokenów na klatkę.
+  - Dźwięk: 32 tokeny na sekundę.
+  - Metadane są też uwzględniane.
+  - Łącznie: około 300 tokenów na sekundę filmu w domyślnej rozdzielczości multimediów lub 100 tokenów na sekundę filmu w niskiej rozdzielczości multimediów.
+- **Rozdzielczość multimediów**: Gemini 3 wprowadza szczegółową kontrolę nad przetwarzaniem multimodalnym
+  za pomocą parametru `media_resolution`. Parametr `media_resolution` określa **maksymalną liczbę tokenów przydzielonych na obraz wejściowy lub klatkę wideo**.
+  Wyższe rozdzielczości zwiększają zdolność modelu do odczytywania drobnego tekstu lub identyfikowania małych szczegółów, ale zwiększają też zużycie tokenów i czas oczekiwania.
 
-  Weitere Informationen zum Parameter und zu den Auswirkungen auf die Token
-  berechnung finden Sie im [Leitfaden zur Mediaauflösung](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=de).
-- **Zeitstempelformat**: Wenn Sie in Ihrem Prompt auf bestimmte Momente in einem Video verweisen, verwenden Sie das `MM:SS` Format (z.B. `01:15` für 1 Minute und 15 Sekunden).
-- **Best Practices**:
+  Więcej informacji o tym parametrze i jego wpływie na obliczanie tokenów
+  znajdziesz w przewodniku [Rozdzielczość multimediów](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=pl).
+- **Format sygnatury czasowej**: gdy w prompcie odwołujesz się do konkretnych momentów w filmie, użyj formatu `MM:SS` (np. `01:15` oznacza 1 minutę i 15 sekund).
+- **Sprawdzone metody**:
 
-  - Verwenden Sie für optimale Ergebnisse nur ein Video pro Prompt-Anfrage.
-  - Wenn Sie Text und ein einzelnes Video kombinieren, platzieren Sie den Text-Prompt *nach* dem Videoteil im Array `contents`.
-  - Beachten Sie, dass bei schnellen Aktionssequenzen aufgrund der Samplingrate von 1 FPS Details verloren gehen können. Verlangsamen Sie solche Clips gegebenenfalls.
+  - Aby uzyskać optymalne wyniki, używaj tylko 1 filmu na żądanie prompta.
+  - Jeśli łączysz tekst i pojedynczy film, umieść prompta tekstowego *po* części wideo w tablicy `contents`.
+  - Pamiętaj, że sekwencje szybkiej akcji mogą utracić szczegóły ze względu na szybkość próbkowania 1 FPS. W razie potrzeby rozważ spowolnienie takich klipów.
 
-## Nächste Schritte
+## Co dalej?
 
-In diesem Leitfaden wird gezeigt, wie Sie Videodateien hochladen und Textausgaben aus Videoeingaben generieren. Weitere Informationen finden Sie in folgenden Dokumenten:
+Z tego przewodnika dowiesz się, jak przesyłać pliki wideo i generować dane wyjściowe w postaci tekstu na podstawie danych wejściowych wideo. Więcej informacji znajdziesz w tych materiałach:
 
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions):
-  Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren
-  spezifischen Anforderungen und Anwendungsfällen steuern.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de): Weitere Informationen zum Hochladen und Verwalten von
-  Dateien für die Verwendung mit Gemini.
-- [Strategien für Prompts mit Dateien](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die
-  Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch
-  multimodale Prompts genannt.
-- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Manchmal liefern generative
-  KI-Modelle unerwartete Ausgaben, z. B. Ausgaben, die falsch, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um
-  das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+- [Instrukcje systemowe](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl#system-instructions):
+  Instrukcje systemowe pozwalają sterować działaniem modelu na podstawie
+  konkretnych potrzeb i przypadków użycia.
+- [Interfejs API plików](https://ai.google.dev/gemini-api/docs/files?hl=pl): dowiedz się więcej o przesyłaniu plików i zarządzaniu nimi na potrzeby Gemini.
+- [Strategie tworzenia promptów plików](https://ai.google.dev/gemini-api/docs/files?hl=pl#prompt-guide): Gemini API obsługuje tworzenie promptów z danymi tekstowymi, obrazami, dźwiękiem i filmami, czyli tworzenie promptów multimodalnych.
+- [Wskazówki dotyczące bezpieczeństwa](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pl): modele generatywnej
+  AI czasami generują nieoczekiwane dane wyjściowe, takie jak dane nieprawidłowe,
+  obciążone lub obraźliwe. Przetwarzanie końcowe i ocena przez człowieka są niezbędne, aby
+  ograniczyć ryzyko szkód spowodowanych przez takie dane wyjściowe.
 
-Feedback geben
+Prześlij opinię
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Zuletzt aktualisiert: 2026-07-30 (UTC).
+Ostatnia aktualizacja: 2026-07-30 UTC.
 
-Haben Sie Feedback für uns?
+Chcesz przekazać coś jeszcze?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]

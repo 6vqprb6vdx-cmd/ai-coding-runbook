@@ -1,78 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=de
-fetched_at: 2026-08-03T04:25:50.309751+00:00
-title: "Datenerfassung und \u2011freigabe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr
+fetched_at: 2026-08-10T03:14:07.110877+00:00
+title: "Veri Kayd\u0131 ve Payla\u015f\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Feedback geben
+Geri bildirim gönderin
 
-# Datenerfassung und ‑freigabe
+# Veri Kaydı ve Paylaşımı
 
-Auf dieser Seite werden die Speicherung und Verwaltung von
-[Gemini API-Logs](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=de) beschrieben. Dabei handelt es sich um API-Daten von Entwicklern aus unterstützten Gemini API-Aufrufen für Projekte mit aktivierter Abrechnung. Logs umfassen den gesamten Prozess von der Anfrage eines Nutzers bis zur Antwort des Modells.
-Diese Logs sind privat für Ihr Google Cloud-Projekt und getrennt von allen
-Logs, die ausschließlich zur [Missbrauchsüberwachung](https://ai.google.dev/gemini-api/docs/usage-policies?hl=de)
-verwendet werden.
+Bu sayfada, faturalandırmanın etkinleştirildiği projeler için desteklenen Gemini API çağrılarından elde edilen ve geliştiricilere ait API verileri olan [Gemini API günlüklerinin](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) depolanması ve yönetilmesi açıklanmaktadır. Günlükler, kullanıcının isteğinden modelin yanıtına kadar olan tüm süreci kapsar.
+Google Cloud projenize özel olan bu günlükler, yalnızca [kötüye kullanımı izleme](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr) amacıyla tutulan günlüklerden ayrıdır.
 
-## Daten, die freigegeben werden können
+## Paylaşılabilecek veriler
 
-Als Projektinhaber haben Sie die Möglichkeit, die Protokollierung von Gemini API-Aufrufen zu aktivieren. Sie können die Logs für eigene Zwecke verwenden oder Google Feedback geben und die Logs mit Google teilen, damit wir unsere Modelle kontinuierlich verbessern können.
+Proje sahibi olarak, kendi kullanımınız için veya modellerimizi sürekli olarak iyileştirmemize yardımcı olmak üzere Google ile geri bildirim ve paylaşım amacıyla Gemini API çağrılarının günlüğe kaydedilmesini etkinleştirebilirsiniz.
 
-Wenn die Protokollierung aktiviert ist, können Sie uns helfen, KI-Systeme zu entwickeln, die für Entwickler in verschiedenen Bereichen und Anwendungsfällen weiterhin wertvoll sind. Dazu können Sie die folgenden Daten zur Produktverbesserung und zum Modelltraining beitragen:
+Günlük kaydı etkinleştirildiğinde, ürün iyileştirmeleri ve model eğitimi için aşağıdaki verileri göndermeyi seçerek çeşitli alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam eden yapay zeka sistemleri oluşturmamıza yardımcı olabilirsiniz:
 
-- **Datasets**:Über die Benutzeroberfläche „Logs und Datasets“ von Google AI Studio können Sie Logs (Anfragen, Antworten, Metadaten usw.) aus unterstützten Gemini API-Aufrufen auswählen. Diese werden durch Aufnahme in Datasets beigetragen. Sie haben die Möglichkeit, die Aufnahme während der Dataset-Erstellung zu deaktivieren.
-- **Feedback**:Wenn Sie Logs überprüfen, können Sie Feedback geben, z. B. mit „Mag ich“ und „Mag ich nicht“ bewerten und Kommentare schreiben.
+- **Veri kümeleri:** Desteklenen Gemini API çağrılarından ilgilendiğiniz günlükleri (istekler, yanıtlar, meta veriler vb.) seçmek için Google AI Studio'nun Günlükler ve Veri Kümeleri arayüzünü kullanın. Veri kümelerine dahil edilerek katkıda bulunulur. Veri kümesi oluşturma sırasında bu özelliği devre dışı bırakabilirsiniz.
+- **Geri bildirim:** Günlükleri incelerken geri bildirimde bulunabilirsiniz. Beğenme ve beğenmeme puanları ile yazdığınız yorumlar bu kapsamdadır.
 
-Wenn Sie ein Dataset mit Google teilen, werden Ihre Logs in diesem Dataset, einschließlich
-Anfragen und Antworten, gemäß unseren
-[Bedingungen](https://developers.google.com/terms?hl=de) für
-"[Kostenlose Dienste](https://ai.google.dev/gemini-api/terms?hl=de#data-use-unpaid)"
-verarbeitet. Das Dataset kann also verwendet werden, um Google
-Produkte, ‑Dienste und Technologien für maschinelles Lernen zu entwickeln und zu verbessern, einschließlich der Verbesserung und des
-Trainings unserer Modelle. **Geben Sie keine personenbezogenen, sensiblen oder vertraulichen Informationen an.**
+Google ile bir veri kümesi paylaştığınızda, istekler ve yanıtlar dahil olmak üzere bu veri kümesindeki günlükleriniz, "[Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid)" ile ilgili [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca işlenir. Bu, veri kümesinin modellerimizi iyileştirmek ve eğitmek de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini geliştirmek ve iyileştirmek için kullanılabileceği anlamına gelir. **Kişisel, hassas veya gizli bilgiler eklemeyin.**
 
-## Wie wir Ihre Daten verwenden
+## Verilerinizi nasıl kullanırız?
 
-Logs werden standardmäßig maximal 55 Tage lang aufbewahrt. Danach werden sie automatisch zur Löschung markiert. Der Aufbewahrungszeitraum für ein Projekt kann in AI Studio aktualisiert werden, sodass Logs nach 7, 14, 28 oder 55 Tagen automatisch zur Löschung markiert werden.
+Günlükler varsayılan olarak en fazla 55 gün boyunca saklanır. Bu sürenin ardından günlükler otomatik olarak silinmek üzere işaretlenir. Bir projenin saklama süresi penceresi, 7, 14, 28 veya 55 gün sonra günlükleri silinmek üzere otomatik olarak işaretlemek için AI Studio'da güncellenebilir.
 
-[Datasets](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=de) können erstellt werden, um Logs von
-Interesse über den festgelegten Aufbewahrungszeitraum hinaus für nachgelagerte Anwendungsfälle aufzubewahren und
-optional zur Verbesserung von Modellen beizutragen. Für Logs, die in Datasets gespeichert sind, gibt es keine festgelegten Aufbewahrungszeiträume.
+Aşağı akış kullanım alanları için belirlenen saklama süresinin ötesinde ilgi çekici günlükleri saklamak ve model iyileştirmelerine isteğe bağlı olarak katkıda bulunmak amacıyla [veri kümeleri](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) oluşturulabilir. Veri kümelerinde depolanan günlüklerin saklama süreleri ayarlanmaz.
 
-Da die Protokollierung standardmäßig nur für Projekte mit aktivierter Abrechnung verfügbar ist,
-werden Prompts und Antworten in Logs gemäß unseren [Bedingungen](https://developers.google.com/terms?hl=de)
-zur Datennutzung nicht zur Produktverbesserung oder
-‑entwicklung verwendet.
+Varsayılan olarak, günlük kaydı yalnızca faturalandırmanın etkinleştirildiği projelerde kullanılabilir. Bu nedenle, günlüklerdeki istemler ve yanıtlar, veri kullanımına ilişkin [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca ürün iyileştirme veya geliştirme için kullanılmaz.
 
-Wenn Sie Datasets Ihrer Logs mit Google teilen, werden diese Datasets als Daten aus der Praxis verwendet, um die Vielfalt der Bereiche und Kontexte besser zu verstehen, in denen KI-Systeme und ‑Anwendungen eingesetzt werden. Diese Daten können verwendet werden, um die Modellqualität zu verbessern und das Training und die Bewertung zukünftiger Modelle und Dienste zu unterstützen. Diese Daten werden gemäß unseren Bedingungen zur Datennutzung für [kostenlose Dienste](https://ai.google.dev/gemini-api/terms?hl=de#data-use-unpaid) verarbeitet.
+Günlüklerinizin veri kümelerini Google ile paylaşmayı seçerseniz bu veri kümeleri, yapay zeka sistemlerinin ve uygulamalarının kullanıldığı alanların ve bağlamların çeşitliliğini daha iyi anlamak için gerçek dünya gösterim verileri olarak kullanılır. Bu veriler, model kalitesini artırmak ve gelecekteki modellerin ve hizmetlerin eğitim ve değerlendirme süreçlerine bilgi sağlamak için kullanılabilir. Bu veriler, [Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid) için veri kullanım şartlarımıza uygun olarak işlenir.
 
-Prüfer können die von Ihnen freigegebenen API-Eingaben und ‑Ausgaben lesen, mit Anmerkungen versehen und verarbeiten. Bevor Daten zur Modellverbesserung verwendet werden, ergreift Google im Rahmen dieses Prozesses Maßnahmen, um die Privatsphäre der Nutzer zu schützen. Dazu wird unter anderem dafür gesorgt, dass entsprechende Daten nicht mit Ihrem Google-Konto, API-Schlüssel und Cloud-Projekt in Verbindung gebracht werden können, bevor sie von Prüfern eingesehen oder mit Vermerken versehen werden.
+Bu nedenle, inceleme uzmanları paylaştığınız API girişlerini ve çıkışlarını okuyabilir, işleyebilir ve bunlara açıklama ekleyebilir. Veriler model geliştirmede kullanılmadan önce Google, bu süreç kapsamında kullanıcı gizliliğini korumak için gerekli önlemleri alır. Örneğin, inceleme uzmanları görmeden veya açıklama eklemeden önce bu verilerin Google Hesabınız, API anahtarınız ve Cloud projenizle bağlantısını kaldırırız.
 
-## Datenberechtigungen
+## Veri izinleri
 
-Wenn Sie API-Daten beitragen, bestätigen Sie, dass Sie die erforderlichen Berechtigungen haben, damit Google die Daten wie in dieser Dokumentation beschrieben verarbeiten und verwenden kann. **Bitte tragen Sie keine Logs bei, die sensible, vertrauliche oder geschützte Informationen enthalten, die über den kostenpflichtigen Dienst erhalten wurden.**
-Die Befugnis, die Sie Google unter dem Abschnitt „[Einreichung von Inhalten](https://developers.google.com/terms?hl=de#b_submission_of_content)“ der API-Bedingungen erteilen, erstreckt sich auch auf alle Inhalte (z.B. Prompts, einschließlich zugehöriger Systemanweisungen, im Cache gespeicherter Inhalte und Dateien wie Bilder, Videos oder Dokumente), die Sie an die Dienste senden, und auf alle generierten Antworten, soweit dies nach geltendem Recht für deren Nutzung durch uns erforderlich ist.
+API verilerine katkıda bulunmayı etkinleştirerek Google'ın verileri bu dokümanda açıklandığı şekilde işlemesi ve kullanması için gerekli izinlere sahip olduğunuzu onaylarsınız. **Lütfen ücretli hizmet aracılığıyla elde edilen hassas, gizli veya özel bilgileri içeren günlükler göndermeyin**.
+API Şartları'ndaki "[İçerik Gönderme](https://developers.google.com/terms?hl=tr#b_submission_of_content)" bölümü uyarınca Google'a verdiğiniz lisans, Hizmetler'e gönderdiğiniz tüm içerikler (ör.ilişkili sistem talimatları da dahil olmak üzere istemler, önbelleğe alınmış içerikler ve resim, video ya da doküman gibi dosyalar) ve oluşturulan tüm yanıtlar için de geçerlidir. Bu geçerlilik, kullanımımız için geçerli yasalar uyarınca gerekli olduğu ölçüde geçerlidir.
 
-## Datenfreigabe und Feedback
+## Veri paylaşımı ve geri bildirim
 
-Sie können uns helfen, die KI-Forschung, die Gemini API und Google AI Studio weiterzuentwickeln, indem Sie Ihre Daten als Beispiele freigeben. So können wir unsere Modelle in verschiedenen Kontexten kontinuierlich verbessern und KI-Systeme entwickeln, die für Entwickler in verschiedenen Bereichen und Anwendungsfällen weiterhin wertvoll sind.
+Verilerinizi örnek olarak paylaşmayı kabul ederek yapay zeka araştırmalarının, Gemini API'nin ve Google AI Studio'nun sınırlarını genişletmemize yardımcı olabilirsiniz. Bu sayede, modellerimizi çeşitli bağlamlarda sürekli olarak iyileştirebilir ve farklı alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam edecek yapay zeka sistemleri oluşturabiliriz.
 
-Feedback geben
+Geri bildirim gönderin
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Zuletzt aktualisiert: 2026-07-09 (UTC).
+Son güncelleme tarihi: 2026-07-09 UTC.
 
-Haben Sie Feedback für uns?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-09 (UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-09 UTC."],[],[]]

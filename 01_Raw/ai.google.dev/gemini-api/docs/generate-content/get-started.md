@@ -1,70 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de
-fetched_at: 2026-08-03T04:32:20.823549+00:00
-title: "Erste Schritte \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th
+fetched_at: 2026-08-10T03:19:18.143727+00:00
+title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-# Erste Schritte
+# การเริ่มต้นใช้งาน
 
-Dieser Leitfaden hilft Ihnen bei den ersten Schritten mit der Legacy-API
-**generateContent**.
-Für neue Projekte und Anwendungen empfehlen wir
-dringend, stattdessen die neue **Interactions API** zu verwenden. Sie ist die
-einfachste und beste Möglichkeit, mit Gemini-Modellen und -Agenten zu
-arbeiten.
+คู่มือนี้จะช่วยให้คุณเริ่มต้นใช้งาน **generateContent** API แบบเดิม
+สำหรับโปรเจ็กต์และแอปพลิเคชันใหม่ๆ เราขอแนะนำอย่างยิ่งให้ใช้ **Interactions API** ใหม่แทน ซึ่งเป็นวิธีที่ง่ายที่สุดและดีที่สุดในการสร้างด้วยโมเดลและเอเจนต์ของ Gemini
 
-In dieser Kurzanleitung erfahren Sie, wie Sie unsere
-[Bibliotheken](https://ai.google.dev/gemini-api/docs/libraries?hl=de) installieren, Ihre erste Anfrage senden, Antworten streamen, Mehrfachdialoge erstellen und Tools mit der Standardmethode
-`generateContent` verwenden.
+การเริ่มต้นอย่างรวดเร็วนี้จะแสดงวิธีติดตั้ง
+[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)ของเราและส่งคำขอแรก สตรีม
+คำตอบ สร้างบทสนทนาหลายรอบ และใช้เครื่องมือโดยใช้วิธี
+`generateContent` มาตรฐาน
 
-## API-Schlüssel anfordern
+## รับคีย์ API
 
-Wenn Sie die Gemini API verwenden möchten, benötigen Sie einen API-Schlüssel, um Ihre Anfragen zu authentifizieren, Sicherheitslimits durchzusetzen und die Nutzung für Ihr Konto zu verfolgen.
+หากต้องการใช้ Gemini API คุณต้องมีคีย์ API เพื่อตรวจสอบสิทธิ์คำขอ บังคับใช้ขีดจำกัดด้านความปลอดภัย และติดตามการใช้งานกับบัญชีของคุณ
 
-- Google AI Studio erstellt automatisch ein Projekt und einen API-Schlüssel für neue Nutzer.
-  Sie können ihn auf der Seite „[API-Schlüssel](https://aistudio.google.com/api-keys?hl=de)“ kopieren.
-- Wenn Sie einen neuen Schlüssel benötigen, klicken Sie in AI Studio auf **API-Schlüssel erstellen** und folgen Sie der Anleitung, um ein neues Schlüssel-Projekt-Paar hinzuzufügen.
+- Google AI Studio จะสร้างโปรเจ็กต์และคีย์ API ให้กับผู้ใช้ใหม่โดยอัตโนมัติ
+  คุณสามารถคัดลอกคีย์ดังกล่าวได้จากหน้าคีย์ API
+- หากต้องการคีย์ใหม่ ให้คลิก**สร้างคีย์ API** ใน AI Studio แล้วทำตามกล่องโต้ตอบเพื่อเพิ่มคู่คีย์-โปรเจ็กต์ใหม่
 
-[Gemini API-Schlüssel erstellen](https://aistudio.google.com/apikey?hl=de)
+[สร้างคีย์ Gemini API](https://aistudio.google.com/apikey?hl=th)
 
-Legen Sie Ihren Schlüssel als Umgebungsvariable fest:
+ตั้งค่าคีย์เป็นตัวแปรสภาพแวดล้อมโดยทำดังนี้
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### Auf die kostenpflichtige Stufe upgraden
+### อัปเกรดเป็นระดับแบบชำระเงิน
 
-Wenn Sie auf die kostenpflichtige Stufe upgraden, werden Ihre Ratenlimits erhöht. Außerdem müssen Sie Cloud Billing einrichten.
+การอัปเกรดเป็นระดับแบบชำระเงินจะเพิ่มขีดจำกัดอัตราและต้องตั้งค่าการเรียกเก็บเงินใน Cloud
 
-- [[Klicken Sie auf den Seiten „API-Schlüssel“ oder „Projekte“ von AI Studio auf **Abrechnung einrichten**.](https://aistudio.google.com/api-keys?hl=de)](https://aistudio.google.com/projects?hl=de)
-- Folgen Sie der Anleitung im Dialogfeld „Cloud-Abrechnung“, um ein Abrechnungskonto zu erstellen oder zu verknüpfen, eine Zahlungsmethode hinzuzufügen und mindestens 10 $ (oder den entsprechenden Betrag in Ihrer Landeswährung) an kostenpflichtigen Guthaben im Voraus zu bezahlen.
-- Ihre API-Nutzung können Sie in [Google AI Studio](https://aistudio.google.com/usage?hl=de)
-  unter **Dashboard** > **Nutzung** einsehen.
+- คลิก**ตั้งค่าการเรียกเก็บเงิน** ในหน้าคีย์ API
+   หรือ
+  [โปรเจ็กต์](https://aistudio.google.com/projects?hl=th) ของ AI Studio
+- ทำตามกล่องโต้ตอบการเรียกเก็บเงินของ Cloud เพื่อสร้างหรือลิงก์บัญชีสำหรับการเรียกเก็บเงิน เพิ่มวิธีการชำระเงิน และชำระเงินล่วงหน้าอย่างน้อย $10 (หรือเทียบเท่าในสกุลเงินอื่น) ในเครดิตแบบชำระเงิน
+- ดูการใช้งาน API ใน [Google AI Studio](https://aistudio.google.com/usage?hl=th)
+  ได้ที่ **แดชบอร์ด** > **การใช้งาน**
 
-Weitere Informationen finden Sie auf der Seite [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
+ดูข้อมูลเพิ่มเติมได้ที่หน้า[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)
 
-## Google GenAI SDK installieren
+## ติดตั้ง Google GenAI SDK
 
 ### Python
 
-Installieren Sie mit [Python 3.9 oder höher](https://www.python.org/downloads/) das
-[`google-genai` Paket](https://pypi.org/project/google-genai/)
-mit dem folgenden
-[pip-Befehl](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+ใช้ [Python 3.9+](https://www.python.org/downloads/) ขึ้นไป แล้วติดตั้งแพ็กเกจ
+[`google-genai` โดยใช้
+[คำสั่ง pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) ต่อไปนี้](https://pypi.org/project/google-genai/)
 
 ```
 pip install -q -U google-genai
@@ -72,20 +70,16 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-Installieren Sie mit [Node.js Version 18 oder höher](https://nodejs.org/en/download/package-manager)
-das
-[Google Gen AI SDK für TypeScript und JavaScript](https://www.npmjs.com/package/@google/genai)
-mit dem folgenden
-[npm-Befehl](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+ใช้ [Node.js v18+](https://nodejs.org/en/download/package-manager) แล้วติดตั้ง [Google Gen AI SDK สำหรับ TypeScript และ JavaScript](https://www.npmjs.com/package/@google/genai) โดยใช้ [คำสั่ง npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) ต่อไปนี้:
 
 ```
 npm install @google/genai
 ```
 
-## Text generieren
+## สร้างข้อความ
 
-Verwenden Sie die `models.generate_content` Methode, um
-[eine Textantwort zu generieren](https://ai.google.dev/gemini-api/docs/text-generation?hl=de).
+ใช้วิธี `models.generate_content` เพื่อ
+[สร้างคำตอบเป็นข้อความ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th)
 
 ### Python
 
@@ -141,11 +135,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Antworten streamen
+## สตรีมคำตอบ
 
-Standardmäßig gibt das Modell erst dann eine Antwort zurück, wenn der gesamte Generierungsprozess abgeschlossen ist. Für eine schnellere und interaktivere Nutzung können Sie
-[die Antwort](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#stream) Teile streamen, sobald sie
-generiert werden.
+โดยค่าเริ่มต้น โมเดลจะแสดงคำตอบหลังจากกระบวนการสร้างทั้งหมดเสร็จสมบูรณ์แล้วเท่านั้น หากต้องการประสบการณ์การใช้งานที่รวดเร็วและโต้ตอบได้มากขึ้น คุณสามารถ
+[สตรีมคำตอบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#stream)เป็นส่วนๆ ขณะที่ระบบ
+สร้างคำตอบ
 
 ### Python
 
@@ -197,9 +191,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:s
   }'
 ```
 
-## Mehrfachdialoge
+## การสนทนาไปมา
 
-Für Mehrfachdialoge bieten die SDKs einen zustandsorientierten `chats` Helfer, mit dem Sie eine [Mehrfachdialog-Chat-Erfahrung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#chat) erstellen können, bei der der Unterhaltungsverlauf automatisch verwaltet wird.
+สำหรับบทสนทนาหลายรอบ SDK จะมีตัวช่วย `chats` ที่
+มีสถานะเพื่อ[สร้างประสบการณ์การแชทหลายรอบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#chat)
+ที่จัดการประวัติการสนทนาโดยอัตโนมัติ
 
 ### Python
 
@@ -255,11 +251,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Tools verwenden
+## ใช้เครื่องมือ
 
-Erweitern Sie die Möglichkeiten des Modells, indem Sie
-[Antworten mit der Google Suche fundieren](https://ai.google.dev/gemini-api/docs/google-search?hl=de)
-um auf Web-Inhalte in Echtzeit zuzugreifen. Das Modell entscheidet automatisch, wann eine Suche durchgeführt werden soll, führt Abfragen aus und erstellt eine Antwort.
+ขยายขีดความสามารถของโมเดลโดย
+[เชื่อมต่อแหล่งข้อมูลคำตอบกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)
+เพื่อเข้าถึงเนื้อหาเว็บแบบเรียลไทม์ โมเดลจะตัดสินใจโดยอัตโนมัติว่าจะค้นหาเมื่อใด ดำเนินการค้นหา และสังเคราะห์คำตอบ
 
 ### Python
 
@@ -346,24 +342,27 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-Die Gemini API unterstützt auch andere integrierte Tools:
+นอกจากนี้ Gemini API ยังรองรับเครื่องมืออื่นๆ ในตัวด้วย ดังนี้
 
-- **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**:
-  Das Modell kann Python-Code schreiben und ausführen, um komplexe mathematische Probleme zu lösen.
-- **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**: Sie können Antworten auf bestimmte Webseiten-URLs fundieren, die Sie angeben.
-- **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**: Sie können Dateien hochladen und Antworten mithilfe der semantischen Suche auf deren Inhalt fundieren.
-- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**: Sie können Antworten auf Standortdaten fundieren und nach Orten, Wegbeschreibungen und
-  Karten suchen.
-- **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**: Das
-  Modell kann mit einem virtuellen Computerbildschirm, einer Tastatur und einer Maus interagieren, um
-  Aufgaben auszuführen.
+- **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**:
+  ช่วยให้โมเดลเขียนและเรียกใช้โค้ด Python เพื่อแก้ปัญหาทางคณิตศาสตร์ที่ซับซ้อน
+- **[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**: ช่วยให้คุณ
+  เชื่อมต่อแหล่งข้อมูลคำตอบกับ URL ของหน้าเว็บที่เฉพาะเจาะจงที่คุณระบุ
+- **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**: ช่วยให้คุณ
+  อัปโหลดไฟล์และเชื่อมต่อแหล่งข้อมูลคำตอบกับเนื้อหาของไฟล์โดยใช้การค้นหาความหมาย
+- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**: ช่วยให้คุณ
+  เชื่อมต่อแหล่งข้อมูลคำตอบกับข้อมูลสถานที่ และค้นหาสถานที่ เส้นทาง และ
+  แผนที่
+- **[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)**: ช่วยให้
+  โมเดลโต้ตอบกับหน้าจอ แป้นพิมพ์ และเมาส์ของคอมพิวเตอร์เสมือนเพื่อ
+  ทำงานต่างๆ
 
-## Benutzerdefinierte Funktionen aufrufen
+## เรียกฟังก์ชันที่กำหนดเอง
 
-Mit **[Funktionsaufrufen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)** können Sie
-Modelle mit Ihren benutzerdefinierten Tools und APIs verbinden. Das Modell bestimmt, wann Ihre Funktion aufgerufen werden soll, und gibt in der Antwort einen `functionCall` zurück, der von Ihrer Anwendung ausgeführt werden kann.
+ใช้**[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)** เพื่อเชื่อมต่อ
+โมเดลกับเครื่องมือและ API ที่กำหนดเอง โมเดลจะกำหนดเวลาที่จะเรียกฟังก์ชันและแสดง `functionCall` ในคำตอบเพื่อให้แอปพลิเคชันของคุณดำเนินการ
 
-In diesem Beispiel wird eine Mock-Temperaturfunktion deklariert und geprüft, ob das Modell sie aufrufen möchte.
+ตัวอย่างนี้ประกาศฟังก์ชันอุณหภูมิจำลองและตรวจสอบว่าโมเดลต้องการเรียกฟังก์ชันดังกล่าวหรือไม่
 
 ### Python
 
@@ -525,25 +524,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Nächste Schritte
+## ขั้นตอนถัดไป
 
-Nachdem Sie nun die ersten Schritte mit der Gemini API gemacht haben, können Sie sich die folgenden Leitfäden ansehen, um komplexere Anwendungen zu erstellen:
+เมื่อเริ่มต้นใช้งาน Gemini API แล้ว ให้สำรวจคำแนะนำต่อไปนี้เพื่อสร้างแอปพลิเคชันขั้นสูงเพิ่มเติม
 
-- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de)
-- [Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)
-- [Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de)
-- [Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)
-- [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)
-- [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de)
-- [Langer Kontext](https://ai.google.dev/gemini-api/docs/long-context?hl=de)
-- [Einbettungen](https://ai.google.dev/gemini-api/docs/embeddings?hl=de)
+- [การสร้างข้อความ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th)
+- [การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
+- [การทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
+- [การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+- [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+- [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)
+- [บริบทแบบยาว](https://ai.google.dev/gemini-api/docs/long-context?hl=th)
+- [การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Zuletzt aktualisiert: 2026-07-30 (UTC).
+อัปเดตล่าสุด 2026-07-30 UTC
 
-Haben Sie Feedback für uns?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

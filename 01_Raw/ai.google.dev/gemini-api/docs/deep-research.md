@@ -1,31 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=id
-fetched_at: 2026-08-03T04:28:32.346911+00:00
-title: "Agen Deep Research Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=vi
+fetched_at: 2026-08-10T03:15:35.380590+00:00
+title: "T\u00e1c nh\u00e2n Deep Research c\u1ee7a Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Agen Deep Research Gemini
+# Tác nhân Deep Research của Gemini
 
-Agen Deep Research Gemini secara mandiri merencanakan, menjalankan, dan menyintesis tugas riset multilangkah. Didukung oleh Gemini, fitur ini menavigasi lanskap informasi yang kompleks untuk menghasilkan laporan mendetail yang disertai kutipan. Kemampuan baru memungkinkan Anda merencanakan secara kolaboratif dengan agen, terhubung ke alat eksternal menggunakan server MCP, menyertakan visualisasi (seperti diagram dan grafik), dan memberikan dokumen secara langsung sebagai input.
+Tác nhân Deep Research của Gemini tự động lập kế hoạch, thực hiện và tổng hợp các nhiệm vụ nghiên cứu nhiều bước. Được hỗ trợ bởi Gemini, công cụ này có thể tìm hiểu thông tin phức tạp để tạo ra các báo cáo chi tiết có trích dẫn. Các chức năng mới cho phép bạn lập kế hoạch cộng tác với tác nhân, kết nối với các công cụ bên ngoài bằng máy chủ MCP, bao gồm cả hình ảnh trực quan (chẳng hạn như biểu đồ và đồ thị) và cung cấp trực tiếp tài liệu làm dữ liệu đầu vào.
 
-Tugas riset melibatkan penelusuran dan pembacaan iteratif dan dapat memerlukan waktu beberapa menit untuk diselesaikan. Anda harus menggunakan [eksekusi di latar belakang](https://ai.google.dev/gemini-api/docs/background-execution?hl=id) (tetapkan `background=true`)
-untuk menjalankan agen secara asinkron dan melakukan polling untuk hasil atau streaming update. Lihat
-[Menangani tugas yang berjalan lama](#long-running-tasks) untuk mengetahui detail selengkapnya.
+Các tác vụ nghiên cứu bao gồm việc tìm kiếm và đọc lặp đi lặp lại, đồng thời có thể mất vài phút để hoàn thành. Bạn phải sử dụng [thực thi trong nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi) (đặt `background=true`) để chạy tác nhân một cách không đồng bộ và thăm dò kết quả hoặc thông tin cập nhật về luồng. Hãy xem phần [Xử lý các tác vụ chạy trong thời gian dài](#long-running-tasks) để biết thêm thông tin chi tiết.
 
-Contoh berikut menunjukkan cara memulai tugas riset di latar belakang
-dan melakukan polling untuk mendapatkan hasil.
+Ví dụ sau đây minh hoạ cách bắt đầu một tác vụ nghiên cứu ở chế độ nền và thăm dò kết quả.
 
 ### Python
 
@@ -100,22 +97,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Versi yang didukung
+## Phiên bản được hỗ trợ
 
-Agen Deep Research tersedia dalam dua versi:
+Trợ lý Deep Research có 2 phiên bản:
 
-- **Deep Research** (`deep-research-preview-04-2026`): Didesain untuk kecepatan dan efisiensi, ideal untuk di-streaming kembali ke UI klien.
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): Komprehensivitas maksimum untuk pengumpulan dan sintesis konteks otomatis.
+- **Deep Research** (`deep-research-preview-04-2026`): Được thiết kế để đạt tốc độ và hiệu quả cao, lý tưởng để truyền trực tuyến trở lại giao diện người dùng của ứng dụng.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Mức độ toàn diện tối đa để tự động thu thập và tổng hợp bối cảnh.
 
-## Perencanaan kolaboratif
+## Lập kế hoạch cộng tác
 
-Perencanaan kolaboratif memberi Anda kontrol atas arah riset sebelum agen memulai pekerjaannya dengan memungkinkan Anda meninjau dan menyempurnakan rencana riset sebelum pelaksanaan. Jika diaktifkan, agen akan menampilkan rencana riset yang diusulkan, bukan
-langsung menjalankannya. Kemudian, Anda dapat meninjau, mengubah, atau menyetujui rencana melalui interaksi multi-turn.
+Lập kế hoạch cộng tác giúp bạn kiểm soát hướng nghiên cứu trước khi tác nhân bắt đầu công việc bằng cách cho phép bạn xem xét và tinh chỉnh kế hoạch nghiên cứu trước khi thực hiện. Khi được bật, tác nhân sẽ trả về một kế hoạch nghiên cứu đề xuất thay vì thực thi ngay lập tức. Sau đó, bạn có thể xem xét, sửa đổi hoặc phê duyệt kế hoạch thông qua các lượt tương tác nhiều vòng.
 
-### Langkah 1: Minta paket
+### Bước 1: Yêu cầu tạo kế hoạch
 
-Tetapkan `collaborative_planning=True` dalam interaksi pertama. Agen
-mengembalikan rencana riset, bukan laporan lengkap.
+Đặt `collaborative_planning=True` trong lượt tương tác đầu tiên. Thay vì trả về một báo cáo đầy đủ, tác nhân sẽ trả về một kế hoạch nghiên cứu.
 
 ### Python
 
@@ -181,9 +176,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Langkah 2: Sempurnakan rencana (opsional)
+### Bước 2: Tinh chỉnh kế hoạch (không bắt buộc)
 
-Gunakan `previous_interaction_id` untuk melanjutkan percakapan dan melakukan iterasi pada rencana. Tetap tekan `collaborative_planning=True` untuk tetap berada dalam mode perencanaan.
+Sử dụng `previous_interaction_id` để tiếp tục cuộc trò chuyện và lặp lại kế hoạch. Giữ `collaborative_planning=True` để tiếp tục ở chế độ lập kế hoạch.
 
 ### Python
 
@@ -247,9 +242,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Langkah 3: Setujui dan jalankan
+### Bước 3: Phê duyệt và thực hiện
 
-Tetapkan `collaborative_planning=False` (atau hapus) untuk menyetujui rencana dan memulai riset.
+Đặt `collaborative_planning=False` (hoặc bỏ qua) để phê duyệt kế hoạch và bắt đầu nghiên cứu.
 
 ### Python
 
@@ -313,12 +308,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Visualisasi
+## Hình ảnh trực quan
 
-Jika `visualization` disetel ke `"auto"`, agen dapat membuat diagram, grafik, dan elemen visual lainnya untuk mendukung temuan risetnya.
-Gambar yang dihasilkan disertakan dalam langkah-langkah respons dan di-streaming sebagai delta `image`. Untuk hasil terbaik, minta visual secara eksplisit dalam kueri Anda — misalnya, "Sertakan diagram yang menunjukkan tren dari waktu ke waktu" atau "Buat grafik yang membandingkan pangsa pasar". Menetapkan `visualization` ke
-`"auto"` mengaktifkan kemampuan, tetapi agen hanya menghasilkan visual
-saat perintah memintanya.
+Khi `visualization` được đặt thành `"auto"`, tác nhân có thể tạo biểu đồ, đồ thị và các phần tử trực quan khác để hỗ trợ các kết quả nghiên cứu của mình.
+Hình ảnh được tạo sẽ có trong các bước của câu trả lời và được truyền dưới dạng các phần tử `image`. Để có kết quả tốt nhất, hãy yêu cầu rõ ràng về hình ảnh trong câu hỏi của bạn, ví dụ: "Đưa biểu đồ cho thấy xu hướng theo thời gian" hoặc "Tạo hình ảnh so sánh thị phần". Việc đặt `visualization` thành `"auto"` sẽ bật tính năng này, nhưng tác nhân chỉ tạo hình ảnh khi câu lệnh yêu cầu.
 
 ### Python
 
@@ -409,24 +402,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Alat yang didukung
+## Các công cụ được hỗ trợ
 
-Deep Research mendukung beberapa alat bawaan dan eksternal. Secara default
-(jika tidak ada parameter `tools`), agen memiliki akses ke Google
-Penelusuran, Konteks URL, dan Eksekusi Kode. Anda dapat secara eksplisit
-menentukan alat untuk membatasi atau memperluas kemampuan agen.
+Tính năng Deep Research hỗ trợ nhiều công cụ tích hợp và công cụ bên ngoài. Theo mặc định (khi không có tham số `tools` nào được cung cấp), tác nhân có quyền truy cập vào Google Tìm kiếm, Bối cảnh URL và Thực thi mã. Bạn có thể chỉ định rõ ràng các công cụ để hạn chế hoặc mở rộng khả năng của tác nhân.
 
-| Alat | Nilai jenis | Deskripsi |
+| Công cụ | Giá trị loại | Mô tả |
 | --- | --- | --- |
-| Google Penelusuran | `google_search` | Telusuri web publik. Diaktifkan secara default. |
-| Konteks URL | `url_context` | Membaca dan merangkum konten halaman web. Diaktifkan secara default. |
-| Eksekusi Kode | `code_execution` | Jalankan kode untuk melakukan penghitungan dan analisis data. Diaktifkan secara default. |
-| Server MCP | `mcp_server` | Terhubung ke server MCP jarak jauh untuk akses alat eksternal. |
-| Penelusuran File | `file_search` | Menelusuri korpora dokumen yang Anda upload. |
+| Google Tìm kiếm | `google_search` | Tìm kiếm trên web công khai. Bật theo mặc định. |
+| Bối cảnh từ URL | `url_context` | Đọc và tóm tắt nội dung trang web. Bật theo mặc định. |
+| Thực thi mã | `code_execution` | Thực thi mã để thực hiện các phép tính và phân tích dữ liệu. Bật theo mặc định. |
+| Máy chủ MCP | `mcp_server` | Kết nối với các máy chủ MCP từ xa để truy cập vào công cụ bên ngoài. |
+| Tìm kiếm tệp | `file_search` | Tìm kiếm tập hợp tài liệu đã tải lên. |
 
-### Google Penelusuran
+### Google Tìm kiếm
 
-Aktifkan Google Penelusuran secara eksplisit sebagai satu-satunya alat:
+Bật Google Tìm kiếm một cách rõ ràng làm công cụ duy nhất:
 
 ### Python
 
@@ -464,9 +454,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Konteks URL
+### Bối cảnh từ URL
 
-Memberi agen kemampuan untuk membaca dan meringkas halaman web tertentu:
+Cho phép tác nhân đọc và tóm tắt các trang web cụ thể:
 
 ### Python
 
@@ -504,9 +494,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Eksekusi Kode
+### Thực thi mã
 
-Mengizinkan agen mengeksekusi kode untuk penghitungan dan analisis data:
+Cho phép tác nhân thực thi mã để tính toán và phân tích dữ liệu:
 
 ### Python
 
@@ -544,22 +534,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Server MCP
+### Máy chủ MCP
 
-Hubungkan ke server MCP jarak jauh untuk memberi agen akses ke alat dan layanan eksternal.
+Kết nối với các máy chủ MCP từ xa để cấp cho tác nhân quyền truy cập vào các công cụ và dịch vụ bên ngoài.
 
-Berikan `name` dan `url` server dalam konfigurasi alat. Anda juga dapat
-meneruskan kredensial autentikasi dan membatasi alat yang dapat dipanggil agen.
+Cung cấp `name` và `url` của máy chủ trong cấu hình công cụ. Bạn cũng có thể truyền thông tin xác thực và hạn chế những công cụ mà trợ lý ảo có thể gọi.
 
-| Kolom | Jenis | Wajib diisi | Deskripsi |
+| Trường | Loại | Bắt buộc | Mô tả |
 | --- | --- | --- | --- |
-| `type` | `string` | Ya | Harus berupa `"mcp_server"`. |
-| `name` | `string` | Tidak | Nama tampilan untuk server MCP. |
-| `url` | `string` | Tidak | URL lengkap untuk endpoint server MCP. |
-| `headers` | `object` | Tidak | Pasangan nilai kunci yang dikirim sebagai header HTTP dengan setiap permintaan ke server (misalnya, token autentikasi). |
-| `allowed_tools` | `array` | Tidak | Membatasi alat dari server yang dapat dipanggil oleh agen. |
+| `type` | `string` | Có | Phải là `"mcp_server"`. |
+| `name` | `string` | Không | Tên hiển thị của máy chủ MCP. |
+| `url` | `string` | Không | URL đầy đủ cho điểm cuối của máy chủ MCP. |
+| `headers` | `object` | Không | Các cặp khoá-giá trị được gửi dưới dạng tiêu đề HTTP trong mỗi yêu cầu đến máy chủ (ví dụ: mã thông báo xác thực). |
+| `allowed_tools` | `array` | Không | Hạn chế những công cụ mà tác nhân có thể gọi từ máy chủ. |
 
-#### Penggunaan dasar
+#### Cách sử dụng cơ bản
 
 ### Python
 
@@ -618,9 +607,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Penelusuran File
+### Tìm kiếm tệp
 
-Beri agen akses ke data Anda sendiri menggunakan alat [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id).
+Cấp cho tác nhân quyền truy cập vào dữ liệu của riêng bạn bằng cách sử dụng công cụ [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi).
 
 ### Python
 
@@ -672,12 +661,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Kemampuan pengarahan dan pemformatan
+## Khả năng điều hướng và định dạng
 
-Anda dapat mengarahkan output agen dengan memberikan petunjuk pemformatan tertentu
-dalam perintah Anda. Hal ini memungkinkan Anda menyusun laporan ke dalam bagian dan subbagian tertentu, menyertakan tabel data, atau menyesuaikan gaya bahasa untuk audiens yang berbeda (misalnya, "teknis", "eksekutif", "santai").
+Bạn có thể điều hướng đầu ra của tác nhân bằng cách cung cấp hướng dẫn định dạng cụ thể trong câu lệnh. Nhờ đó, bạn có thể sắp xếp báo cáo thành các phần và tiểu mục cụ thể, thêm bảng dữ liệu hoặc điều chỉnh giọng điệu cho phù hợp với từng đối tượng (ví dụ: "chuyên môn", "dành cho ban lãnh đạo", "thân mật").
 
-Tentukan format output yang diinginkan secara eksplisit dalam teks input Anda.
+Xác định rõ định dạng đầu ra mong muốn trong văn bản đầu vào.
 
 ### Python
 
@@ -730,9 +718,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Input multimodal
+## Thông tin đầu vào đa phương thức
 
-Deep Research mendukung input multimodal, termasuk gambar dan dokumen (PDF), sehingga memungkinkan agen menganalisis konten visual dan melakukan riset berbasis web yang dikontekstualisasi oleh input yang diberikan.
+Tính năng Deep Research hỗ trợ nhiều phương thức nhập, bao gồm cả hình ảnh và tài liệu (tệp PDF), cho phép tác nhân phân tích nội dung trực quan và tiến hành nghiên cứu dựa trên web theo bối cảnh của thông tin đầu vào được cung cấp.
 
 ### Python
 
@@ -838,10 +826,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Pemahaman dokumen
+### Hiểu tài liệu
 
-Pemahaman dokumen memungkinkan dokumen diteruskan langsung sebagai input multimodal.
-Agen menganalisis dokumen yang diberikan dan melakukan riset berdasarkan kontennya.
+Tính năng hiểu tài liệu cho phép truyền trực tiếp tài liệu dưới dạng dữ liệu đầu vào đa phương thức.
+Trợ lý sẽ phân tích các tài liệu được cung cấp và tiến hành nghiên cứu dựa trên nội dung của các tài liệu đó.
 
 ### Python
 
@@ -902,36 +890,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Menangani tugas yang berjalan lama
+## Xử lý các tác vụ chạy trong thời gian dài
 
-Deep Research adalah proses multi-langkah yang melibatkan perencanaan, penelusuran, pembacaan, dan penulisan. Siklus ini biasanya melampaui batas waktu tunggu standar panggilan API sinkron.
+Deep Research là một quy trình gồm nhiều bước, bao gồm lập kế hoạch, tìm kiếm, đọc và viết. Chu kỳ này thường vượt quá giới hạn thời gian chờ tiêu chuẩn của các lệnh gọi API đồng bộ.
 
-Agen wajib menggunakan `background=True`. API segera menampilkan objek
-`Interaction` parsial. Anda dapat menggunakan properti `id` untuk mengambil
-interaksi untuk polling. Status interaksi akan bertransisi dari
-`in_progress` ke `completed` atau `failed`. Untuk panduan komprehensif tentang mengelola tugas latar belakang, lihat [Eksekusi latar belakang](https://ai.google.dev/gemini-api/docs/background-execution?hl=id).
+Nhân viên hỗ trợ bắt buộc phải sử dụng `background=True`. API này sẽ trả về ngay một đối tượng `Interaction` một phần. Bạn có thể dùng thuộc tính `id` để truy xuất một lượt tương tác cho hoạt động thăm dò ý kiến. Trạng thái tương tác sẽ chuyển từ `in_progress` sang `completed` hoặc `failed`. Để biết hướng dẫn đầy đủ về cách quản lý các tác vụ ở chế độ nền, hãy xem phần [Thực thi ở chế độ nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi).
 
-### Streaming
+### Phát trực tiếp
 
-Deep Research mendukung streaming untuk menerima pembaruan real-time tentang progres riset, termasuk ringkasan pemikiran, output teks, dan gambar yang dihasilkan.
-Anda harus menetapkan `stream=True` dan `background=True`.
+Tính năng Deep Research hỗ trợ truyền trực tuyến để nhận thông tin cập nhật theo thời gian thực về tiến trình nghiên cứu, bao gồm cả bản tóm tắt ý tưởng, đầu ra văn bản và hình ảnh được tạo.
+Bạn phải đặt `stream=True` và `background=True`.
 
-Untuk menerima langkah-langkah penalaran (pemikiran) dan update progres sementara,
-Anda harus mengaktifkan **ringkasan pemikiran** dengan menyetel `thinking_summaries` ke
-`"auto"` di `agent_config`. Tanpa ini, aliran data hanya dapat memberikan hasil akhir.
+Để nhận các bước lập luận trung gian (suy nghĩ) và thông tin cập nhật về tiến trình, bạn phải bật **bản tóm tắt suy nghĩ** bằng cách đặt `thinking_summaries` thành `"auto"` trong `agent_config`. Nếu không có tham số này, luồng có thể chỉ cung cấp kết quả cuối cùng.
 
-#### Jenis peristiwa streaming
+#### Loại sự kiện luồng phát
 
-| Jenis peristiwa | Jenis delta | Deskripsi |
+| Loại sự kiện | Loại Delta | Mô tả |
 | --- | --- | --- |
-| `step.delta` | `thought` | Langkah penalaran perantara dari agen. |
-| `step.delta` | `text` | Bagian dari output teks akhir. |
-| `step.delta` | `image` | Gambar yang dihasilkan (berenkode base64). |
+| `step.delta` | `thought` | Bước suy luận trung gian của tác nhân. |
+| `step.delta` | `text` | Một phần của văn bản đầu ra cuối cùng. |
+| `step.delta` | `image` | Một hình ảnh được tạo (được mã hoá bằng base64). |
 
-Contoh berikut memulai tugas riset dan memproses streaming dengan
-koneksi ulang otomatis. Objek ini melacak `interaction_id` dan `last_event_id` sehingga
-jika koneksi terputus (misalnya, setelah waktu tunggu 600 detik), objek tersebut dapat
-melanjutkan dari tempat terakhir.
+Ví dụ sau đây bắt đầu một tác vụ nghiên cứu và xử lý luồng bằng tính năng tự động kết nối lại. Thao tác này theo dõi `interaction_id` và `last_event_id` để nếu kết nối bị gián đoạn (ví dụ: sau khi hết thời gian chờ 600 giây), thao tác này có thể tiếp tục từ nơi bị gián đoạn.
 
 ### Python
 
@@ -1052,10 +1032,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Pertanyaan dan interaksi lanjutan
+## Câu hỏi nối tiếp và lượt tương tác
 
-Anda dapat melanjutkan percakapan setelah agen menampilkan laporan akhir dengan
-menggunakan `previous_interaction_id`. Dengan begitu, Anda dapat meminta klarifikasi, meringkas, atau menguraikan bagian tertentu dari riset tanpa memulai ulang seluruh tugas.
+Bạn có thể tiếp tục cuộc trò chuyện sau khi nhân viên hỗ trợ gửi báo cáo cuối cùng bằng cách sử dụng `previous_interaction_id`. Nhờ đó, bạn có thể yêu cầu làm rõ, tóm tắt hoặc giải thích chi tiết về các phần cụ thể của nghiên cứu mà không cần khởi động lại toàn bộ tác vụ.
 
 ### Python
 
@@ -1098,28 +1077,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Kapan harus menggunakan Agen Deep Research Gemini
+## Trường hợp sử dụng Tác nhân Deep Research của Gemini
 
-Deep Research adalah **agen**, bukan hanya model. Cara ini paling cocok untuk workload yang memerlukan pendekatan "analis dalam kotak" daripada chat latensi rendah.
+Deep Research là một **tác nhân**, chứ không chỉ là một mô hình. Công cụ này phù hợp nhất với những khối lượng công việc yêu cầu phương pháp "nhà phân tích trong hộp" thay vì trò chuyện có độ trễ thấp.
 
-| Fitur | Model Gemini Standar | Agen Deep Research Gemini |
+| Tính năng | Các mô hình Gemini tiêu chuẩn | Tác nhân Deep Research của Gemini |
 | --- | --- | --- |
-| **Latensi** | Detik | Menit (Asinkron/Latar Belakang) |
-| **Proses** | Buat -> Output | Rencanakan -> Cari -> Baca -> Lakukan iterasi -> Output |
-| **Output** | Teks percakapan, kode, ringkasan singkat | Laporan mendetail, analisis panjang, tabel perbandingan |
-| **Paling Cocok untuk** | Chatbot, ekstraksi, penulisan kreatif | Analisis pasar, uji tuntas, tinjauan pustaka, lanskap kompetitif |
+| **Độ trễ** | Giây | Phút (Không đồng bộ/Nền) |
+| **Quy trình** | Tạo -> Đầu ra | Lập kế hoạch -> Tìm kiếm -> Đọc -> Lặp lại -> Đầu ra |
+| **Đầu ra** | Văn bản trò chuyện, mã, bản tóm tắt ngắn | Báo cáo chi tiết, phân tích dài, bảng so sánh |
+| **Phù hợp nhất với** | Chatbot, trích xuất, viết sáng tạo | Phân tích thị trường, thẩm định, đánh giá tài liệu, bối cảnh cạnh tranh |
 
-## Konfigurasi agen
+## Cấu hình tác nhân
 
-Deep Research menggunakan parameter `agent_config` untuk mengontrol perilaku.
-Teruskan sebagai kamus dengan kolom berikut:
+Deep Research sử dụng tham số `agent_config` để kiểm soát hành vi.
+Truyền nó dưới dạng một từ điển có các trường sau:
 
-| Kolom | Jenis | Default | Deskripsi |
+| Trường | Loại | Mặc định | Mô tả |
 | --- | --- | --- | --- |
-| `type` | `string` | Wajib | Harus berupa `"deep-research"`. |
-| `thinking_summaries` | `string` | `"none"` | Setel ke `"auto"` untuk menerima langkah-langkah penalaran perantara selama streaming. Setel ke `"none"` untuk menonaktifkan. |
-| `visualization` | `string` | `"auto"` | Setel ke `"auto"` untuk mengaktifkan diagram dan gambar yang dibuat agen. Setel ke `"off"` untuk menonaktifkan. |
-| `collaborative_planning` | `boolean` | `false` | Setel ke `true` untuk mengaktifkan peninjauan rencana multi-putaran sebelum riset dimulai. |
+| `type` | `string` | Bắt buộc | Phải là `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Đặt thành `"auto"` để nhận các bước suy luận trung gian trong quá trình truyền phát trực tiếp. Đặt thành `"none"` để tắt. |
+| `visualization` | `string` | `"auto"` | Đặt thành `"auto"` để cho phép tạo biểu đồ và hình ảnh do tác nhân tạo. Đặt thành `"off"` để tắt. |
+| `collaborative_planning` | `boolean` | `false` | Đặt thành `true` để cho phép xem xét kế hoạch nhiều lượt trước khi bắt đầu nghiên cứu. |
 
 ### Python
 
@@ -1174,63 +1153,57 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Ketersediaan dan harga
+## Tình trạng còn hàng và giá
 
-Anda dapat mengakses Agen Riset Mendalam Gemini menggunakan Interactions API di Google AI Studio dan Gemini API.
+Bạn có thể truy cập vào Gemini Deep Research Agent bằng Interactions API trong Google AI Studio và Gemini API.
 
-Harga mengikuti [model bayar sesuai penggunaan](https://ai.google.dev/gemini-api/docs/pricing?hl=id#pricing-for-agents) berdasarkan model Gemini yang mendasarinya dan alat spesifik yang digunakan agen. Tidak seperti permintaan chat standar, yang menghasilkan satu output, tugas Deep Research adalah alur kerja agentic. Satu permintaan memicu loop otonom perencanaan, penelusuran, pembacaan, dan penalaran.
+Giá tuân theo [mô hình trả tiền theo mức sử dụng](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) dựa trên các mô hình Gemini cơ bản và các công cụ cụ thể mà tác nhân sử dụng. Không giống như các yêu cầu trò chuyện thông thường (một yêu cầu dẫn đến một kết quả đầu ra), tác vụ Deep Research là một quy trình làm việc dựa trên tác nhân. Một yêu cầu duy nhất sẽ kích hoạt một vòng lặp tự động gồm lập kế hoạch, tìm kiếm, đọc và suy luận.
 
-### Perkiraan biaya
+### Chi phí ước tính
 
-Biaya bervariasi berdasarkan kedalaman riset yang diperlukan. Agen secara otonom menentukan seberapa banyak membaca dan penelusuran yang diperlukan untuk menjawab perintah Anda.
+Chi phí sẽ khác nhau tuỳ thuộc vào mức độ nghiên cứu cần thiết. Trợ lý tự động xác định mức độ đọc và tìm kiếm cần thiết để trả lời câu lệnh của bạn.
 
-- **Deep Research** (`deep-research-preview-04-2026`): Untuk kueri umum yang memerlukan analisis sedang, agen dapat menggunakan ~80 kueri penelusuran, ~250 ribu token input (~50-70% di-cache), dan ~60 ribu token output.
-  - **Estimasi total:** ~$1.00 – $3.00 per tugas
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): Untuk analisis lanskap kompetitif yang mendalam atau uji tuntas yang ekstensif, agen dapat menggunakan hingga ~160 kueri penelusuran, ~900 ribu token input (~50-70% di-cache), dan ~80 ribu token output.
-  - **Estimasi total:** ~$3.00 – $7.00 per tugas
+- **Deep Research** (`deep-research-preview-04-2026`): Đối với một cụm từ tìm kiếm thông thường đòi hỏi mức độ phân tích vừa phải, tác nhân có thể sử dụng khoảng 80 cụm từ tìm kiếm, khoảng 250.000 mã thông báo đầu vào (khoảng 50-70% được lưu vào bộ nhớ đệm) và khoảng 60.000 mã thông báo đầu ra.
+  - **Tổng số tiền ước tính:** Khoảng 10.000 VND – 30.000 VND cho mỗi nhiệm vụ
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Để phân tích sâu về môi trường cạnh tranh hoặc thẩm định kỹ lưỡng, tác nhân có thể sử dụng tối đa khoảng 160 cụm từ tìm kiếm, khoảng 900.000 mã thông báo đầu vào (khoảng 50-70% được lưu vào bộ nhớ đệm) và khoảng 80.000 mã thông báo đầu ra.
+  - **Tổng số tiền ước tính:** Khoảng 30.000 VND – 70.000 VND cho mỗi nhiệm vụ
 
-## Pertimbangan keamanan
+## Lưu ý về sự an toàn
 
-Memberi agen akses ke web dan file pribadi Anda memerlukan pertimbangan yang cermat terhadap risiko keamanan.
+Việc cấp cho một đặc vụ quyền truy cập vào web và các tệp riêng tư của bạn đòi hỏi bạn phải cân nhắc kỹ lưỡng các rủi ro về an toàn.
 
-- **Injeksi perintah menggunakan file:** Agen membaca isi file yang Anda berikan. Pastikan dokumen yang diupload (PDF, file teks) berasal dari sumber tepercaya. File berbahaya dapat berisi teks tersembunyi yang dirancang untuk memanipulasi output agen.
-- **Risiko konten web:** Agen menelusuri web publik. Meskipun kami menerapkan filter keamanan yang andal, ada risiko bahwa agen dapat menemukan dan memproses halaman web berbahaya. Sebaiknya tinjau `citations` yang diberikan
-  dalam respons untuk memverifikasi sumber.
-- **Pencurian data:** Berhati-hatilah saat meminta agen untuk meringkas data internal sensitif jika Anda juga mengizinkannya menjelajahi web.
+- **Tấn công bằng cách chèn câu lệnh sử dụng tệp:** Trợ lý sẽ đọc nội dung của các tệp mà bạn cung cấp. Đảm bảo rằng các tài liệu đã tải lên (tệp PDF, tệp văn bản) đến từ các nguồn đáng tin cậy. Một tệp độc hại có thể chứa văn bản ẩn được thiết kế để thao túng đầu ra của tác nhân.
+- **Rủi ro về nội dung trên web:** Trợ lý tìm kiếm trên web công khai. Mặc dù chúng tôi triển khai các bộ lọc an toàn mạnh mẽ, nhưng vẫn có nguy cơ là tác nhân có thể gặp phải và xử lý các trang web độc hại. Bạn nên xem xét `citations` được cung cấp trong câu trả lời để xác minh các nguồn.
+- **Trích xuất:** Hãy thận trọng khi yêu cầu tác nhân tóm tắt dữ liệu nội bộ nhạy cảm nếu bạn cũng cho phép tác nhân duyệt web.
 
-## Praktik terbaik
+## Các phương pháp hay nhất
 
-- **Perintah untuk nilai yang tidak diketahui:** Beri tahu agen cara menangani data yang tidak ada.
-  Misalnya, tambahkan *"Jika angka spesifik untuk tahun 2025 tidak tersedia, nyatakan secara eksplisit bahwa angka tersebut adalah proyeksi atau tidak tersedia, bukan perkiraan"* ke perintah Anda.
-- **Berikan konteks:** Mendasari riset agen dengan memberikan informasi atau batasan latar belakang langsung dalam perintah input.
-- **Gunakan perencanaan kolaboratif:** Untuk kueri kompleks, aktifkan perencanaan kolaboratif untuk meninjau dan menyempurnakan rencana riset sebelum eksekusi.
-- **Input multimodal:** Agen Deep Research mendukung input multimodal.
-  Gunakan dengan hati-hati, karena hal ini akan meningkatkan biaya dan risiko meluapnya jendela konteks.
+- **Hỏi về những thông tin chưa biết:** Hướng dẫn nhân viên hỗ trợ cách xử lý dữ liệu bị thiếu.
+  Ví dụ: hãy thêm *"Nếu không có số liệu cụ thể cho năm 2025, hãy nêu rõ rằng đó là số liệu dự đoán hoặc không có sẵn thay vì ước tính"* vào câu lệnh của bạn.
+- **Cung cấp bối cảnh:** Đưa ra thông tin cơ bản hoặc các ràng buộc trực tiếp trong câu lệnh đầu vào để giúp tác nhân nghiên cứu.
+- **Sử dụng tính năng lập kế hoạch cộng tác:** Đối với các câu hỏi phức tạp, hãy bật tính năng lập kế hoạch cộng tác để xem xét và tinh chỉnh kế hoạch nghiên cứu trước khi thực hiện.
+- **Thông tin đầu vào đa phương thức:** Deep Research Agent hỗ trợ thông tin đầu vào đa phương thức.
+  Hãy sử dụng một cách thận trọng vì điều này làm tăng chi phí và nguy cơ tràn cửa sổ ngữ cảnh.
 
-## Batasan
+## Các điểm hạn chế
 
-- **Alat kustom:** Saat ini Anda tidak dapat menyediakan alat Pemanggilan Fungsi kustom, tetapi Anda dapat menggunakan server MCP (Model Context Protocol) jarak jauh dengan agen Riset Mendalam.
-- **Output terstruktur:** Agen Riset Mendalam saat ini tidak mendukung output terstruktur.
-- **Waktu riset maksimum:** Agen Deep Research memiliki waktu riset maksimum 60 menit. Sebagian besar tugas akan selesai dalam waktu 20 menit.
-- **Persyaratan penyimpanan:** Eksekusi agen menggunakan `background=True` memerlukan
-  `store=True`.
-- **Penelusuran Google:** [Google
-  Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) diaktifkan secara
-  default dan [pembatasan
-  tertentu](https://ai.google.dev/gemini-api/terms?hl=id#use-restrictions2)
-  berlaku untuk hasil yang di-grounding.
+- **Công cụ tuỳ chỉnh:** Hiện tại, bạn không thể cung cấp công cụ gọi hàm tuỳ chỉnh nhưng có thể sử dụng các máy chủ MCP (Giao thức ngữ cảnh mô hình) từ xa với tác nhân Nghiên cứu chuyên sâu.
+- **Đầu ra có cấu trúc:** Hiện tại, Deep Research Agent không hỗ trợ đầu ra có cấu trúc.
+- **Thời gian nghiên cứu tối đa:** Deep Research có thời gian nghiên cứu tối đa là 60 phút. Hầu hết các nhiệm vụ sẽ hoàn tất trong vòng 20 phút.
+- **Yêu cầu về cửa hàng:** Việc thực thi tác nhân bằng `background=True` yêu cầu `store=True`.
+- **Google Tìm kiếm:** [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) được bật theo mặc định và [các hạn chế cụ thể](https://ai.google.dev/gemini-api/terms?hl=vi#use-restrictions2) áp dụng cho kết quả có căn cứ.
 
-## Langkah berikutnya
+## Bước tiếp theo
 
-- Pelajari lebih lanjut [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id).
-- Pelajari cara menggunakan data Anda sendiri menggunakan alat [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id).
+- Tìm hiểu thêm về [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi).
+- Tìm hiểu cách sử dụng dữ liệu của riêng bạn bằng công cụ [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi).
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Terakhir diperbarui pada 2026-07-14 UTC.
+Cập nhật lần gần đây nhất: 2026-07-14 UTC.
 
-Ada masukan untuk kami?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-14 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-14 UTC."],[],[]]

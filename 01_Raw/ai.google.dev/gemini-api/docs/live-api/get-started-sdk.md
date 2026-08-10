@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ko
-fetched_at: 2026-08-03T04:36:20.670542+00:00
-title: "Google \uc0dd\uc131\ud615 AI SDK\ub97c \uc0ac\uc6a9\ud558\uc5ec Gemini Live API \uc2dc\uc791\ud558\uae30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=pt-BR
+fetched_at: 2026-08-10T03:08:42.340694+00:00
+title: "Come\u00e7ar a usar a API Gemini Live com o SDK da IA generativa do Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-의견 보내기
+Envie comentários
 
-# Google 생성형 AI SDK를 사용하여 Gemini Live API 시작하기
+# Começar a usar a API Gemini Live com o SDK da IA generativa do Google
 
-Gemini Live API를 사용하면 Gemini 모델과 실시간 양방향 상호작용이 가능하며 오디오, 동영상, 텍스트 입력과 네이티브 오디오 출력을 지원합니다. 이 가이드에서는 서버에서 Google 생성형 AI SDK를 사용하여 API와 통합하는 방법을 설명합니다.
+A API Gemini Live permite a interação bidirecional em tempo real com os modelos do Gemini, oferecendo suporte a entradas de áudio, vídeo e texto, além de saídas de áudio nativas. Neste guia, explicamos como fazer a integração com a API usando o SDK da GenAI do Google no seu servidor.
 
-[Google AI Studio에서 Live API 사용해 보기mic](https://aistudio.google.com/live?hl=ko)
-[GitHub에서 샘플 앱 클론code](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[코딩 에이전트 기술 사용하기terminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ko)
+[Testar a API Live no Google AI Studiomic](https://aistudio.google.com/live?hl=pt-br)
+[Clonar o app de exemplo do GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Usar as habilidades do agente de programaçãoterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br)
 
-## 개요
+## Visão geral
 
-Gemini Live API는 실시간 통신에 WebSockets를 사용합니다. `google-genai` SDK는 이러한 연결을 관리하기 위한 고급 비동기 인터페이스를 제공합니다.
+A API Gemini Live usa WebSockets para comunicação em tempo real. O SDK do `google-genai` oferece uma interface assíncrona de alto nível para gerenciar essas conexões.
 
-주요 개념
+Principais conceitos:
 
-- **세션**: 모델에 대한 영구 연결입니다.
-- **구성**: 모달리티 (오디오/텍스트), 음성, 시스템 안내를 설정합니다.
-- **실시간 입력**: 오디오 및 동영상 프레임을 blob으로 전송합니다.
+- **Sessão**: uma conexão persistente com o modelo.
+- **Config**: configuração de modalidades (áudio/texto), voz e instruções do sistema.
+- **Entrada em tempo real**: envio de frames de áudio e vídeo como blobs.
 
-## Live API에 연결
+## Como se conectar à API Live
 
-API 키로 Live API 세션을 시작합니다.
+Inicie uma sessão da API Live com uma chave de API:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## 텍스트 전송 중
+## Enviando texto
 
-텍스트는 `send_realtime_input` (Python) 또는 `sendRealtimeInput` (자바스크립트)을 사용하여 전송할 수 있습니다.
+O texto pode ser enviado usando `send_realtime_input` (Python) ou `sendRealtimeInput` (JavaScript).
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## 오디오 전송
+## Enviando áudio
 
-오디오는 원시 PCM 데이터 (원시 16비트 PCM 오디오, 16kHz, 리틀 엔디안)로 전송해야 합니다.
+O áudio precisa ser enviado como dados PCM brutos (áudio PCM bruto de 16 bits, 16 kHz, little endian).
 
 ### Python
 
@@ -143,12 +143,12 @@ session.sendRealtimeInput({
 });
 ```
 
-클라이언트 기기 (예: 브라우저)에서 오디오를 가져오는 방법의 예는
-[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70)의 포괄적인 예시를 참고하세요.
+Para um exemplo de como receber o áudio do dispositivo cliente (por exemplo, o navegador),
+consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
 
-## 동영상 전송 중
+## Enviando vídeo
 
-동영상 프레임은 특정 프레임 속도 (초당 최대 1프레임)로 개별 이미지 (예: JPEG 또는 PNG)로 전송됩니다.
+Os frames de vídeo são enviados como imagens individuais (por exemplo, JPEG ou PNG) em uma taxa de frames específica (máximo de 1 frame por segundo).
 
 ### Python
 
@@ -174,11 +174,12 @@ session.sendRealtimeInput({
 });
 ```
 
-클라이언트 기기 (예: 브라우저)에서 동영상을 가져오는 방법의 예는 [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120)의 포괄적인 예시를 참고하세요.
+Para ver um exemplo de como extrair o vídeo do dispositivo cliente (por exemplo, o navegador),
+consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
 
-## 오디오 수신 중
+## Recebendo áudio
 
-모델의 오디오 응답은 데이터 청크로 수신됩니다.
+As respostas de áudio do modelo são recebidas como blocos de dados.
 
 ### Python
 
@@ -206,11 +207,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-GitHub의 샘플 앱을 참고하여 서버에서 오디오를 [수신](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98)하고 브라우저에서 [재생](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174)하는 방법을 알아보세요.
+Consulte o app de exemplo no GitHub para saber como [receber o áudio no seu servidor](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) e [reproduzi-lo no navegador](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
 
-## 텍스트 수신 중
+## Recebendo texto
 
-사용자 입력과 모델 출력의 스크립트는 서버 콘텐츠에서 확인할 수 있습니다.
+As transcrições da entrada do usuário e da saída do modelo estão disponíveis no conteúdo do servidor.
 
 ### Python
 
@@ -237,9 +238,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## 도구 호출 처리
+## Como processar chamadas de ferramentas
 
-API는 도구 호출 (함수 호출)을 지원합니다. 모델이 도구 호출을 요청하면 함수를 실행하고 응답을 다시 전송해야 합니다.
+A API é compatível com a chamada de ferramentas (chamada de função). Quando o modelo solicita uma chamada de ferramenta, você precisa executar a função e enviar a resposta de volta.
 
 ### Python
 
@@ -280,20 +281,20 @@ if (response.toolCall) {
 }
 ```
 
-## 다음 단계
+## A seguir
 
-- 음성 활동 감지 및 네이티브 오디오 기능을 비롯한 주요 기능 및 구성은 전체 Live API [기능](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko) 가이드를 참고하세요.
-- [도구 사용](https://ai.google.dev/gemini-api/docs/live-tools?hl=ko) 가이드를 참고하여 Live API를 도구 및 함수 호출과 통합하는 방법을 알아보세요.
-- 장기 실행 대화를 관리하려면 [세션 관리](https://ai.google.dev/gemini-api/docs/live-session?hl=ko) 가이드를 참고하세요.
-- [클라이언트-서버 애플리케이션에서 보안 인증을 하려면 [임시 토큰](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ko) 가이드를 참고하세요.](https://ai.google.dev/gemini-api/docs/live-api?hl=ko#implementation-approach)
-- 기본 WebSockets API에 관한 자세한 내용은 [WebSockets API 참조](https://ai.google.dev/api/live?hl=ko)를 참고하세요.
+- Leia o guia completo de [Recursos](https://ai.google.dev/gemini-api/docs/live-guide?hl=pt-br) da API Live para conhecer os principais recursos e configurações, incluindo detecção de atividade de voz e recursos de áudio nativos.
+- Leia o guia [Uso de ferramentas](https://ai.google.dev/gemini-api/docs/live-tools?hl=pt-br) para saber como integrar a API Live com ferramentas e chamadas de função.
+- Leia o guia [Gerenciamento de sessões](https://ai.google.dev/gemini-api/docs/live-session?hl=pt-br) para gerenciar conversas longas.
+- Leia o guia [Tokens efêmeros](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=pt-br) para autenticação segura em aplicativos [cliente-servidor](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br#implementation-approach).
+- Para mais informações sobre a API WebSockets subjacente, consulte a [referência da API WebSockets](https://ai.google.dev/api/live?hl=pt-br).
 
-의견 보내기
+Envie comentários
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-최종 업데이트: 2026-07-08(UTC)
+Última atualização 2026-07-08 UTC.
 
-의견을 전달하고 싶나요?
+Quer enviar seu feedback?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-08(UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-08 UTC."],[],[]]

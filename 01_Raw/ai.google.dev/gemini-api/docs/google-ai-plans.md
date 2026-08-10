@@ -1,78 +1,77 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=es-419
-fetched_at: 2026-08-03T04:38:39.755640+00:00
-title: "Planes Google AI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=ar
+fetched_at: 2026-08-10T03:11:52.590543+00:00
+title: "\u062e\u0637\u0637 Google AI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Enviar comentarios
+إرسال ملاحظات
 
-# Planes Google AI
+# خطط Google AI
 
-Usa tu plan de suscripción a Google AI en AI Studio.
+استخدِم خطة اشتراك Google AI في AI Studio.
 
-Los planes de suscripción a Google AI Pro y Ultra proporcionan un mayor acceso a los modelos y límites de frecuencia más altos para la creación de prototipos y el desarrollo en AI Studio en comparación con el nivel gratuito.
+توفّر خطتا الاشتراك Google AI Pro وUltra إمكانية وصول أكبر إلى النماذج وحدود استخدام أعلى لإنشاء النماذج الأولية والتطوير في AI Studio مقارنةً بالمستوى المجاني.
 
-Para registrarte en un plan Google AI, puedes actualizar directamente desde Google AI Studio haciendo clic en el botón **Actualizar** en el menú de navegación de la izquierda. Como alternativa, puedes registrarte visitando la
-[página de planes Google AI](https://one.google.com/about/google-ai-plans/?hl=es-419).
+للاشتراك في خطة Google AI، يمكنك الترقية مباشرةً من داخل Google AI Studio من خلال النقر على الزر **ترقية** في قائمة التنقّل اليمنى. بدلاً من ذلك، يمكنك الاشتراك من خلال الانتقال إلى صفحة
+[خطط Google AI](https://one.google.com/about/google-ai-plans/?hl=ar).
 
-## Descripción general
+## نظرة عامة
 
-Las suscripciones a Google AI Pro y Ultra permiten a los desarrolladores desbloquear modelos pagados
-y límites de frecuencia más altos en el Playground de Google AI Studio y funciones
-como el Asistente de código en [el modo de compilación](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=es-419)
-para la codificación de ambiente. Los suscriptores reciben asignaciones de cuota diaria de referencia
-más altas que el nivel gratuito para usar en las interfaces de
-[Playground](https://aistudio.google.com/prompts/new_chat?hl=es-419) y
-[Build](https://aistudio.google.com/apps?hl=es-419). Los límites diarios se aplican con restablecimientos en lugar de ventanas de tiempo continuas, lo que garantiza una experiencia de desarrollo fluida antes de la transición al desarrollo a escala de producción con Facturación de Cloud.
+تتيح اشتراكات Google AI Pro وUltra للمطوّرين الوصول إلى النماذج المدفوعة
+وحدود استخدام أعلى في Google AI Studio Playground وميزات
+مثل "مساعد الترميز" في [وضع الإنشاء](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=ar)
+لترميز الأجواء. يحصل المشتركون على حصص أساسية يومية
+أعلى من المستوى المجاني لاستخدامها في
+[واجهة Playground](https://aistudio.google.com/prompts/new_chat?hl=ar) و
+[واجهة Build](https://aistudio.google.com/apps?hl=ar). يتم فرض الحدود اليومية باستخدام عمليات إعادة الضبط بدلاً من النوافذ الزمنية المتجدّدة، ما يضمن تجربة تطوير سلسة قبل الانتقال إلى التطوير على نطاق الإنتاج باستخدام Cloud Billing.
 
-| Plan | Uso de AI Studio | Acceso a modelos y beneficios |
+| الخطة | استخدام AI Studio | الوصول إلى النماذج والمزايا |
 | --- | --- | --- |
-| **Gratis** | Cuota modesta | Límites y acceso básicos, con la opción de actualizar para obtener más. |
-| **AI Pro** | Cuota más alta | Acceso a modelos premium como Gemini Pro, Nano Banana y Lyria. |
-| **AI Ultra** | Cuota más alta | Los límites más altos para la creación de prototipos, el desarrollo y los modelos de vanguardia avanzados. |
+| **Free** | حصة متواضعة | حدود أساسية وإمكانية وصول أساسية، مع خيار الترقية للحصول على المزيد |
+| **AI Pro** | حصة أعلى | الوصول إلى النماذج المميّزة، مثل Gemini Pro وNano Banana وLyria |
+| **AI Ultra** | أعلى حصة | أعلى حدود لإنشاء النماذج الأولية والتطوير والنماذج المتقدّمة |
 
-## Uso de la API de Gemini
+## استخدام Gemini API
 
-Cuando se agoten las cuotas diarias de referencia de la suscripción en AI Studio, puedes continuar con tus flujos de trabajo usando una clave de API de Gemini con Cloud Billing habilitado para el uso de pago por solicitud de la API de Gemini directamente.
-El uso de la API de Gemini para proyectos y claves de API se puede observar en el
-[panel de AI Studio](https://aistudio.google.com/projects?hl=es-419).
+عند استنفاد الحصص الأساسية اليومية للاشتراك في AI Studio، يمكنك مواصلة مهام سير العمل باستخدام مفتاح Gemini API مع تفعيل Cloud Billing للاستخدام المباشر لواجهة Gemini API بنظام الدفع حسب الطلب.
+يمكن الاطّلاع على استخدام Gemini API للمشاريع ومفاتيح واجهة برمجة التطبيقات في
+[لوحة بيانات AI Studio](https://aistudio.google.com/projects?hl=ar).
 
-Los suscriptores con cuentas de desarrollador de la API de Gemini y cuentas habilitadas para Facturación de Cloud pueden recibir créditos de Cloud mensuales del [Google Developer Program](https://developers.google.com/program?hl=es-419) para los servicios de Cloud, incluida la API de Gemini. El uso y la facturación prepagos y pospagos no cambian. Para los usuarios con facturación prepaga, se requiere un saldo pagado superior a USD 0 en AI Studio para activar los créditos promocionales. Si hay créditos de Google Cloud elegibles, se aplicarán primero.
-[Obtén más información](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#billing-plans).
+يحق للمشتركين الذين لديهم مشاريع على Google Cloud Platform (GCP) وتم تفعيل Cloud Billing
+الحصول على أرصدة شهرية في Cloud من
+[Google Developer Program](https://developers.google.com/program?hl=ar)
+لخدمات Cloud، بما في ذلك Gemini API. لن يتغيّر استخدام الدفع المسبق والدفع الآجل والفوترة. بالنسبة إلى المستخدمين الذين يستخدمون نظام الدفع المسبق، يجب أن يكون هناك رصيد مدفوع أكبر من 0 دولار أمريكي في AI Studio لتفعيل الأرصدة الترويجية. يتم أولاً تطبيق أرصدة Google Cloud المؤهَّلة، إن وُجدت.
+[مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/billing?hl=ar#billing-plans).
 
-La integración de la suscripción a un plan con IA de Google reduce la barrera de entrada para la experimentación y el desarrollo avanzados. Sin embargo, para las implementaciones de producción
-a gran escala, se recomiendan los proyectos de Google Cloud, el
-[nivel inicial de Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=es-419),
-y las claves de API de Gemini.
+يؤدي دمج اشتراك Google AI إلى تقليل عوائق الدخول إلى التجارب والتطوير المتقدّمين. [ومع ذلك، بالنسبة إلى عمليات النشر على نطاق واسع في مرحلة الإنتاج، ننصح باستخدام مشاريع Google Cloud وGoogle Cloud Starter Tier ومفاتيح Gemini API.](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=ar)
 
-## Limitaciones y compatibilidad
+## القيود والتوافق
 
-- **Solo IU de AI Studio:** Los beneficios del plan Google AI para el uso de desarrolladores solo se aplican dentro de la interfaz web de Google AI Studio. El uso directo de la API de Gemini (como el uso de claves de API o aplicaciones externas) se factura y administra por separado. Sin embargo, puedes usar tu suscripción en otros productos de Google (consulta los [planes Google AI](https://one.google.com/about/google-ai-plans/?hl=es-419)).
-- **Diferente de la facturación de la API:** Los planes Google AI para AI Studio son independientes
-  de los [niveles de uso de la API de Gemini](https://ai.google.dev/gemini-api/docs/billing?hl=es-419), que abarcan el uso de la API de desarrollo y producción.
-- **Créditos de Google One:** [Los créditos de IA de Google One](https://support.google.com/googleone/answer/16287445?hl=es-419) son un
-  sistema de créditos independiente que no es compatible con AI Studio y no se
-  superpone con los créditos de Google Cloud.
-- **Acceso a agentes:** El acceso a agentes (Deep Research y Antigravity Preview)
-  dentro de AI Studio no está incluido en los planes Google AI y requiere una
-  [clave de API pagada](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#setup-billing).
+- **واجهة مستخدم AI Studio فقط:** لا تنطبق مزايا خطة Google AI للمطوّرين إلا ضمن واجهة الويب Google AI Studio. تتم فوترة الاستخدام المباشر لواجهة Gemini API (مثل استخدام مفاتيح واجهة برمجة التطبيقات أو التطبيقات الخارجية) وإدارته بشكل منفصل. ومع ذلك، يمكنك استخدام اشتراكك في منتجات Google الأخرى (راجِع [خطط Google AI](https://one.google.com/about/google-ai-plans/?hl=ar)).
+- **يختلف عن فوترة واجهة برمجة التطبيقات:** تختلف خطط Google AI لـ AI Studio
+  عن [مستويات استخدام Gemini API](https://ai.google.dev/gemini-api/docs/billing?hl=ar)، التي تغطي
+  استخدام واجهة برمجة التطبيقات في مرحلتَي التطوير والإنتاج.
+- **أرصدة Google One:** [وحدات AI من Google One](https://support.google.com/googleone/answer/16287445?hl=ar) هي نظام أرصدة منفصل غير متوافق مع AI Studio ولا يتداخل مع أرصدة Google Cloud.
+- **الوصول إلى البرامج:** لا يشمل الوصول إلى البرامج (Deep Research وAntigravity Preview)
+  في AI Studio خطط Google AI ويتطلب
+  [مفتاح واجهة برمجة تطبيقات مدفوعًا](https://ai.google.dev/gemini-api/docs/billing?hl=ar#setup-billing).
 
-Enviar comentarios
+إرسال ملاحظات
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última actualización: 2026-07-27 (UTC)
+تاريخ التعديل الأخير: 2026-08-04 (حسب التوقيت العالمي المتفَّق عليه)
 
-¿Quieres brindar más información?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-27 (UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-08-04 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

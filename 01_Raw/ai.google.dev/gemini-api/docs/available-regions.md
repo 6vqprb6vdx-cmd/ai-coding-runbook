@@ -1,274 +1,274 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=ar
-fetched_at: 2026-08-03T04:30:24.552961+00:00
-title: "\u0627\u0644\u0645\u0646\u0627\u0637\u0642 \u0627\u0644\u062a\u064a \u062a\u062a\u0648\u0641\u0651\u0631 \u0641\u064a\u0647\u0627 \u0645\u064a\u0632\u0627\u062a Google AI Studio \u0648Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=vi
+fetched_at: 2026-08-10T03:08:46.190448+00:00
+title: "C\u00e1c khu v\u1ef1c \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 Google AI Studio v\u00e0 API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-# المناطق التي تتوفّر فيها ميزات Google AI Studio وGemini API
+# Các khu vực được hỗ trợ Google AI Studio và API Gemini
 
-إذا وصلت إلى هذه الصفحة أثناء محاولة الوصول إلى [Google AI Studio](https://aistudio.google.com/?hl=ar)، قد
-يرجع ذلك إلى أحد الأسباب التالية:
+Nếu bạn truy cập vào trang này khi cố gắng sử dụng [Google AI Studio](https://aistudio.google.com/?hl=vi), thì có thể
+là do một trong các nguyên nhân sau:
 
-- **القيود الإقليمية**: لا يتوفّر Google AI Studio في منطقتك. يُرجى الرجوع إلى القسم أدناه للاطّلاع على قائمة بالمناطق المتاحة.
-- **السنّ المسموح به**: أنت لا تستوفي الحدّ الأدنى للسنّ المسموح به (18 عامًا أو أكثر) للوصول إلى هذه الخدمة.
-- **تأكيد الحساب**: قد يكون بإمكانك الوصول إلى الخدمة، ولكن لم يتم بعد [إثبات عمرك](https://support.google.com/accounts/answer/10071085?hl=ar) في حسابك على Google.
+- **Quy định hạn chế theo khu vực**: Google AI Studio không có ở khu vực của bạn. Hãy tham khảo phần bên dưới để xem danh sách các khu vực được hỗ trợ.
+- **Yêu cầu về độ tuổi**: Bạn không đáp ứng yêu cầu về độ tuổi tối thiểu (từ 18 tuổi trở lên) để sử dụng dịch vụ này.
+- **Xác minh tài khoản**: Bạn có thể sử dụng dịch vụ này nhưng chưa [xác minh tuổi của mình](https://support.google.com/accounts/answer/10071085?hl=vi) trên Tài khoản Google.
 
-لمزيد من التفاصيل حول المتطلبات، يُرجى مراجعة [بنود الخدمة](https://ai.google.dev/gemini-api/terms?hl=ar).
+Để biết thêm thông tin chi tiết về các yêu cầu, hãy xem [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi) của chúng tôi.
 
-## المناطق المتاحة
+## Khu vực khả dụng
 
-يتوفّر Gemini API وGoogle AI Studio في البلدان والمناطق التالية. إذا لم تكن مقيمًا في أحد هذه البلدان أو المناطق، جرِّب الـ
-[Gemini API في Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=ar):
+Gemini API và Google AI Studio có ở các quốc gia và vùng lãnh thổ sau. Nếu bạn không ở một trong những quốc gia hoặc vùng lãnh thổ này, hãy thử
+[Gemini API trong Nền tảng đại lý Gemini Enterprise](https://cloud.google.com/gemini-enterprise-agent-platform?hl=vi):
 
-- ألبانيا
-- الجزائر
-- ساموا الأمريكية
-- أندورا
-- أنغولا
-- أنغويلا
-- أنتاركتيكا
-- أنتيغوا وبربودا
-- الأرجنتين
-- أرمينيا
-- أروبا
-- أستراليا
-- النمسا
-- أذربيجان
-- جزر البهاما
-- البحرين
-- بنغلاديش
-- بربادوس
-- بلجيكا
-- بليز
-- بنين
-- برمودا
-- بوتان
-- بوليفيا
-- البوسنة والهرسك
-- بوتسوانا
-- البرازيل
-- الإقليم البريطاني في المحيط الهندي
-- جزر فيرجن البريطانية
-- بروناي
-- بلغاريا
-- بوركينا فاسو
-- بوروندي
-- الرأس الأخضر
-- كمبوديا
-- الكاميرون
-- كندا
-- هولندا الكاريبية
-- جزر كايمان
-- جمهورية إفريقيا الوسطى
-- تشاد
-- تشيلي
-- جزيرة كريسماس
-- جزر كوكوس (كيلينغ)
-- كولومبيا
-- جزر القمر
-- جزر كوك
-- كوستاريكا
-- ساحل العاج
-- كرواتيا
-- كوراساو
-- جمهورية التشيك
-- جمهورية الكونغو الديمقراطية
-- الدانمارك
-- جيبوتي
-- دومينيكا
-- جمهورية الدومينيكان
-- الإكوادور
-- مصر
-- السلفادور
-- غينيا الاستوائية
-- إريتريا
-- إستونيا
-- إسواتيني
-- إثيوبيا
-- جزر فوكلاند - جزر مالفيناس
-- جزر فارو
-- فيجي
-- فنلندا
-- فرنسا
-- غويانا الفرنسية
-- الغابون
-- غامبيا
-- جورجيا
-- ألمانيا
-- غانا
-- جبل طارق
-- اليونان
-- غرينلاند
-- غرينادا
-- غوام
-- غواتيمالا
-- غيرنزي
-- غينيا
-- غينيا بيساو
-- غيانا
-- هايتي
-- جزيرة هيرد وجزر ماكدونالد
-- هندوراس
-- هنغاريا
-- آيسلندا
-- الهند
-- إندونيسيا
-- العراق
-- أيرلندا
-- جزيرة مان
-- إسرائيل
-- إيطاليا
-- جامايكا
-- اليابان
-- جيرسي
-- الأردن
-- كازاخستان
-- كينيا
-- كيريباتي
-- كوسوفو
-- الكويت
-- قيرغيزستان
-- لاوس
-- لاتفيا
-- لبنان
-- ليسوتو
-- ليبريا
-- ليبيا
-- ليختنشتاين
-- ليتوانيا
-- لوكسمبورغ
-- مدغشقر
-- مالاوي
-- ماليزيا
-- جزر المالديف
-- مالي
-- مالطا
-- جزر مارشال
-- موريتانيا
-- موريشيوس
-- المكسيك
-- ميكرونيزيا
-- مولدوفا
-- موناكو
-- منغوليا
-- الجبل الأسود
-- مونتسيرات
-- المغرب
-- موزمبيق
-- ناميبيا
-- ناورو
-- نيبال
-- هولندا
-- كاليدونيا الجديدة
-- نيوزيلندا
-- نيكاراغوا
-- النيجر
-- نيجيريا
-- نيوي
-- جزيرة نورفولك
-- مقدونيا الشمالية
-- جزر ماريانا الشمالية
-- النرويج
-- عُمان
-- باكستان
-- بالاو
-- فلسطين
-- بنما
-- بابوا غينيا الجديدة
-- باراغواي
-- بيرو
-- الفلبين
-- جزر بيتكيرن
-- بولندا
-- البرتغال
-- بورتوريكو
-- قطر
-- جمهورية قبرص
-- جمهورية الكونغو
-- رومانيا
-- رواندا
-- ريونيون
-- سان بارتيلمي
-- سانت هيلينا وأسينشيون وتريستان دا كونا
-- سانت كيتس ونيفيس
-- سانت لوسيا
-- سان بيير وميكلون
-- سانت فنسنت وجزر غرينادين
-- ساموا
-- سان مارينو
-- ساو تومي وبرينسيبي
-- المملكة العربية السعودية
-- السنغال
-- صربيا
-- سيشل
-- سيراليون
-- سنغافورة
-- سلوفاكيا
-- سلوفينيا
-- جزر سليمان
-- الصومال
-- جنوب إفريقيا
-- جورجيا الجنوبية وجزر ساندويتش الجنوبية
-- كوريا الجنوبية
-- جنوب السودان
-- إسبانيا
-- سريلانكا
-- السودان
-- سورينام
-- السويد
-- سويسرا
-- تايوان
-- طاجيكستان
-- تنزانيا
-- تايلاند
-- تيمور - ليشتي
-- توغو
-- توكيلو
-- تونغا
-- ترينيداد وتوباغو
-- تونس
-- تركمانستان
-- جزر توركس وكايكوس
-- توفالو
-- تركيا
-- أوغندا
-- أوكرانيا
-- الإمارات العربية المتحدة
-- المملكة المتحدة
-- الولايات المتحدة
-- جزر الولايات المتحدة الصغيرة النائية
-- أوروغواي
-- جزر فيرجن الأمريكية
-- أوزباكستان
-- فانواتو
-- الفاتيكان
-- فنزويلا
-- فيتنام
-- جزر والس وفوتونا
-- الصحراء الغربية
-- اليمن
-- زامبيا
-- زيمبابوي
-- جزر أولان
+- Albania
+- Algeria
+- Samoa thuộc Hoa Kỳ
+- Andorra
+- Angola
+- Anguilla
+- Nam Cực
+- Antigua và Barbuda
+- Argentina
+- Armenia
+- Aruba
+- Úc
+- Áo
+- Azerbaijan
+- Bahamas
+- Bahrain
+- Bangladesh
+- Barbados
+- Bỉ
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Bosnia và Herzegovina
+- Botswana
+- Brazil
+- Lãnh thổ Ấn Độ Dương thuộc Anh
+- Quần đảo Virgin thuộc Anh
+- Brunei
+- Bulgaria
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Campuchia
+- Cameroon
+- Canada
+- Caribbean thuộc Hà Lan
+- Quần đảo Cayman
+- Cộng hoà Trung Phi
+- Chad
+- Chile
+- Đảo Christmas
+- Quần đảo Cocos (Keeling)
+- Colombia
+- Comoros
+- Quần đảo Cook
+- Costa Rica
+- Bờ biển Ngà
+- Croatia
+- Curaçao
+- Cộng hoà Séc
+- Cộng hoà Dân chủ Congo
+- Đan Mạch
+- Djibouti
+- Dominica
+- Cộng hoà Dominica
+- Ecuador
+- Ai Cập
+- El Salvador
+- Guinea Xích đạo
+- Eritrea
+- Estonia
+- Eswatini
+- Ethiopia
+- Quần đảo Falkland (Islas Malvinas)
+- Quần đảo Faroe
+- Fiji
+- Phần Lan
+- Pháp
+- Guiana thuộc Pháp
+- Gabon
+- Gambia
+- Georgia
+- Đức
+- Ghana
+- Gibraltar
+- Hy Lạp
+- Greenland
+- Grenada
+- Guam
+- Guatemala
+- Guernsey
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Haiti
+- Đảo Heard và Quần đảo McDonald
+- Honduras
+- Hungary
+- Iceland
+- Ấn Độ
+- Indonesia
+- Iraq
+- Ireland
+- Đảo Man
+- Israel
+- Ý
+- Jamaica
+- Nhật Bản
+- Jersey
+- Jordan
+- Kazakhstan
+- Kenya
+- Kiribati
+- Kosovo
+- Kuwait
+- Kyrgyzstan
+- Lào
+- Latvia
+- Lebanon
+- Lesotho
+- Liberia
+- Libya
+- Liechtenstein
+- Lithuania
+- Luxembourg
+- Madagascar
+- Malawi
+- Malaysia
+- Maldives
+- Mali
+- Malta
+- Quần đảo Marshall
+- Mauritania
+- Mauritius
+- Mexico
+- Micronesia
+- Moldova
+- Monaco
+- Mông Cổ
+- Montenegro
+- Montserrat
+- Ma Rốc
+- Mozambique
+- Namibia
+- Nauru
+- Nepal
+- Hà Lan
+- New Caledonia
+- New Zealand
+- Nicaragua
+- Niger
+- Nigeria
+- Niue
+- Đảo Norfolk
+- Bắc Macedonia
+- Quần đảo Bắc Mariana
+- Na Uy
+- Oman
+- Pakistan
+- Palau
+- Palestine
+- Panama
+- Papua New Guinea
+- Paraguay
+- Peru
+- Philippines
+- Quần đảo Pitcairn
+- Ba Lan
+- Bồ Đào Nha
+- Puerto Rico
+- Qatar
+- Cộng hoà Síp
+- Cộng hoà Congo
+- Romania
+- Rwanda
+- Réunion
+- Saint Barthélemy
+- Saint Helena, Ascension và Tristan da Cunha
+- Saint Kitts và Nevis
+- Saint Lucia
+- Saint Pierre và Miquelon
+- Saint Vincent và Grenadines
+- Samoa
+- San Marino
+- São Tomé và Príncipe
+- Ả Rập Xê Út
+- Senegal
+- Serbia
+- Seychelles
+- Sierra Leone
+- Singapore
+- Slovakia
+- Slovenia
+- Quần đảo Solomon
+- Somalia
+- Nam Phi
+- Nam Georgia và quần đảo Nam Sandwich
+- Hàn Quốc
+- Nam Sudan
+- Tây Ban Nha
+- Sri Lanka
+- Sudan
+- Suriname
+- Thuỵ Điển
+- Thuỵ Sĩ
+- Đài Loan
+- Tajikistan
+- Tanzania
+- Thái Lan
+- Đông Timor
+- Togo
+- Tokelau
+- Tonga
+- Trinidad và Tobago
+- Tunisia
+- Turkmenistan
+- Quần đảo Turks và Caicos
+- Tuvalu
+- Thổ Nhĩ Kỳ
+- Uganda
+- Ukraina
+- Các Tiểu Vương quốc Ả Rập Thống nhất
+- Vương quốc Anh
+- Hoa Kỳ
+- Các tiểu đảo xa của Hoa Kỳ
+- Uruguay
+- Quần đảo Virgin thuộc Hoa Kỳ
+- Uzbekistan
+- Vanuatu
+- Thành quốc Vatican
+- Venezuela
+- Việt Nam
+- Wallis và Futuna
+- Tây Sahara
+- Yemen
+- Zambia
+- Zimbabwe
+- Quần đảo Åland
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

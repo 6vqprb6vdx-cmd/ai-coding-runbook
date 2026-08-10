@@ -1,66 +1,60 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it
-fetched_at: 2026-08-03T04:26:08.011458+00:00
-title: "Gemini 3.1 Pro (anteprima) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi
+fetched_at: 2026-08-10T03:20:50.441166+00:00
+title: "Gemini 3.1 Pro \u0915\u0940 \u091d\u0932\u0915 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Invia feedback
+सुझाव भेजें
 
-# Gemini 3.1 Pro (anteprima)
+# Gemini 3.1 Pro की झलक
 
-Progettato per perfezionare le prestazioni e l'affidabilità della serie Gemini 3 Pro,
-Gemini 3.1 Pro Preview offre un ragionamento migliore, un'efficienza
-dei token migliorata e un'esperienza più concreta e coerente dal punto di vista dei fatti. È ottimizzato
-per il comportamento e l'usabilità dell'ingegneria del software, nonché per i flussi di lavoro degli agenti
-che richiedono un utilizzo preciso degli strumenti e un'esecuzione affidabile in più passaggi in domini
-reali.
+Gemini 3 Pro सीरीज़ की परफ़ॉर्मेंस और भरोसेमंद होने की क्षमता को बेहतर बनाने के लिए, Gemini 3.1 Pro Preview उपलब्ध है. इससे, डेटा को बेहतर तरीके से प्रोसेस करके सवालों के जवाब देने की क्षमता मिलती है. साथ ही, टोकन का बेहतर तरीके से इस्तेमाल किया जा सकता है. इसके अलावा, यह मॉडल ज़्यादा भरोसेमंद है और इससे मिलने वाले जवाबों में तथ्यों की समानता होती है. इसे सॉफ़्टवेयर इंजीनियरिंग के व्यवहार और इस्तेमाल करने में आसानी के लिए ऑप्टिमाइज़ किया गया है. साथ ही, यह उन एजेंटिक वर्कफ़्लो के लिए भी ऑप्टिमाइज़ किया गया है जिनमें सटीक टूल का इस्तेमाल करना ज़रूरी होता है और असल दुनिया के डोमेन में कई चरणों वाले काम को भरोसेमंद तरीके से पूरा किया जा सकता है.
 
-[Prova in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=it)
+[Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=hi)
 
-## Documentazione
+## दस्तावेज़
 
-Visita la pagina della [Guida per sviluppatori di Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=it) per una copertura completa di funzionalità e capacità.
+सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए, [Gemini 3 के डेवलपर गाइड](https://ai.google.dev/gemini-api/docs/gemini-3?hl=hi) वाले पेज पर जाएं.
 
 ## gemini-3.1-pro-preview
 
-| Proprietà | Descrizione |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| Codice modello id\_card | `gemini-3.1-pro-preview` |
-| saveTipi di dati supportati | **Input**  Testo, immagine, video, audio e PDF  **Output**  Testo |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  1.048.576  **Limite di token di output**  65.536 |
-| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato (solo AI Studio)  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
-| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza flessibile](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Supportato  **[Inferenza prioritaria](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Supportato |
-| 123Versioni | Leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions) per ulteriori dettagli.  - Anteprima: `gemini-3.1-pro-preview` - Anteprima: `gemini-3.1-pro-preview-customtools` \* |
-| calendar\_monthUltimo aggiornamento | Febbraio 2026 |
-| id\_cardScheda del modello | [Scheda del modello](https://deepmind.google/models/model-cards/gemini-3-1-pro/?hl=it) |
+| id\_cardModel कोड | `gemini-3.1-pro-preview` |
+| saveकौन-कौनसे डेटा टाइप इसके साथ काम करते हैं | **इनपुट**  टेक्स्ट, इमेज, वीडियो, ऑडियो, और PDF  **आउटपुट**  टेक्स्ट |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  10,48,576  **आउटपुट टोकन की सीमा**  65,536 |
+| handymanसुविधाएं | **[ऑडियो जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/speech-generation?hl=hi)**  काम नहीं करता है  **[कैश मेमोरी में सेव होना](https://ai.google.dev/gemini-api/docs/caching?hl=hi)**  काम करता है  **[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi)**  काम करता है  **[फ़ाइल सर्च](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)**  काम करता है (सिर्फ़ AI Studio में)  **[फ़ंक्शन कॉल](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)**  काम करता है  **[Google Maps की मदद से भरोसेमंद स्रोतों से जानकारी लें](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)**  काम करता है  **[इमेज जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)**  काम नहीं करता है  **[लाइव एपीआई](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)**  काम नहीं करता है  **[भरोसेमंद स्रोतों से जानकारी लें](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)**  काम करता है  **[स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi)**  काम करता है  **[डेटा को प्रोसेस करके सवालों के जवाब देने की क्षमता](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)**  काम करता है  **[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)**  काम करता है |
+| speedइस्तेमाल के विकल्प | **[बैच एपीआई](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi)**  काम करता है  **[Flex अनुमान](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi)**  काम करता है  **[प्राथमिकता अनुमान](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi)**  काम करता है |
+| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल के वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - प्रीव्यू: `gemini-3.1-pro-preview` - प्रीव्यू: `gemini-3.1-pro-preview-customtools` \* |
+| calendar\_monthसबसे नया अपडेट | फ़रवरी 2026 |
+| id\_cardमॉडल कार्ड | [मॉडल कार्ड](https://deepmind.google/models/model-cards/gemini-3-1-pro/?hl=hi) |
 
 #### gemini-3.1-pro-preview-customtools
 
-\* *Per chi crea con un mix di bash e strumenti personalizzati, l'anteprima di Gemini 3.1 Pro
-include un endpoint separato disponibile tramite l'API chiamato
-`gemini-3.1-pro-preview-customtools`. Questo endpoint è più efficace nell'assegnare la priorità
-ai tuoi strumenti personalizzati (ad esempio `view_file` o `search_code`).*
+\* *Bash और कस्टम टूल के कॉम्बिनेशन का इस्तेमाल करके ऐप्लिकेशन बनाने वाले लोगों के लिए, Gemini 3.1 Pro Preview
+में एक अलग एंडपॉइंट उपलब्ध है. यह एंडपॉइंट, एपीआई के ज़रिए उपलब्ध है.
+`gemini-3.1-pro-preview-customtools` यह एंडपॉइंट, आपके कस्टम टूल (उदाहरण के लिए, `view_file` या `search_code`) को प्राथमिकता देने में बेहतर है.*
 
-*Tieni presente che, sebbene `gemini-3.1-pro-preview-customtools` sia ottimizzato per i flussi di lavoro
-che utilizzano strumenti personalizzati e bash, potresti notare fluttuazioni della qualità in
-alcuni casi d'uso che non traggono vantaggio da questi strumenti.*
+*ध्यान दें कि `gemini-3.1-pro-preview-customtools` को उन एजेंटिक
+वर्कफ़्लो के लिए ऑप्टिमाइज़ किया गया है जिनमें कस्टम टूल और bash का इस्तेमाल किया जाता है. हालांकि, कुछ इस्तेमाल के मामलों में आपको क्वालिटी में उतार-चढ़ाव दिख सकता है.
+ऐसा इसलिए, क्योंकि इन मामलों में इन टूल का कोई फ़ायदा नहीं मिलता है.*
 
-Invia feedback
+सुझाव भेजें
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Ultimo aggiornamento 2026-07-21 UTC.
+आखिरी बार 2026-07-21 (UTC) को अपडेट किया गया.
 
-Vuoi dirci altro?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-21 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-21 (UTC) को अपडेट किया गया."],[],[]]

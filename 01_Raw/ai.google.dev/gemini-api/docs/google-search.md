@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=vi
-fetched_at: 2026-08-03T04:39:30.938523+00:00
-title: "T\u00ecm hi\u1ec3u th\u00f4ng tin c\u01a1 b\u1ea3n tr\u00ean Google T\u00ecm ki\u1ebfm \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=id
+fetched_at: 2026-08-10T03:13:49.159485+00:00
+title: "Grounding with Google Search \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-# Tìm hiểu thông tin cơ bản trên Google Tìm kiếm
+# Grounding with Google Search
 
-Tính năng Bám sát nguồn bằng Google Tìm kiếm kết nối mô hình Gemini với nội dung trên web theo thời gian thực và hỗ trợ tất cả các ngôn ngữ hiện có. Nhờ đó, Gemini có thể đưa ra câu trả lời chính xác hơn và trích dẫn các nguồn có thể xác minh ngoài điểm cắt kiến thức.
+Grounding with Google Search menghubungkan model Gemini ke konten web real-time dan berfungsi dengan semua bahasa yang tersedia. Dengan fitur ini, Gemini dapat memberikan jawaban yang lebih akurat dan mengutip sumber yang dapat diverifikasi di luar batas informasinya.
 
-Cơ sở kiến thức giúp bạn xây dựng các ứng dụng có thể:
+Grounding membantu Anda membuat aplikasi yang dapat:
 
-- **Tăng độ chính xác về thông tin thực tế:** Giảm tình trạng ảo tưởng của mô hình bằng cách dựa vào thông tin thực tế để đưa ra câu trả lời.
-- **Truy cập thông tin theo thời gian thực:** Trả lời các câu hỏi về sự kiện và chủ đề gần đây.
-- **Cung cấp thông tin trích dẫn:** Xây dựng lòng tin của người dùng bằng cách cho thấy nguồn của các tuyên bố của mô hình.
+- **Meningkatkan akurasi faktual:** Mengurangi halusinasi model dengan mendasarkan respons pada informasi dunia nyata.
+- **Mengakses informasi real-time:** Menjawab pertanyaan tentang peristiwa dan topik terbaru.
+- **Memberikan kutipan:** Membangun kepercayaan pengguna dengan menampilkan sumber untuk klaim model.
 
 ### Python
 
@@ -71,21 +71,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cách hoạt động của tính năng neo bám vào Google Tìm kiếm
+## Cara kerja grounding dengan Google Penelusuran
 
-Khi bạn bật công cụ `google_search`, mô hình sẽ tự động xử lý toàn bộ quy trình tìm kiếm, xử lý và trích dẫn thông tin.
+Saat Anda mengaktifkan alat `google_search`, model akan menangani seluruh alur kerja penelusuran, pemrosesan, dan pengutipan informasi secara otomatis.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=vi)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=id)
 
-1. **Câu lệnh của người dùng:** Ứng dụng của bạn gửi câu lệnh của người dùng đến Gemini API khi bật công cụ `google_search`.
-2. **Phân tích câu lệnh:** Mô hình phân tích câu lệnh và xác định xem Google Tìm kiếm có thể cải thiện câu trả lời hay không.
-3. **Google Tìm kiếm:** Nếu cần, mô hình sẽ tự động tạo một hoặc nhiều cụm từ tìm kiếm và thực hiện các cụm từ đó.
-4. **Xử lý kết quả tìm kiếm:** Mô hình xử lý kết quả tìm kiếm, tổng hợp thông tin và đưa ra câu trả lời.
-5. **Câu trả lời bám sát nguồn:** API này trả về một câu trả lời cuối cùng, thân thiện với người dùng và bám sát nguồn là các kết quả tìm kiếm. Phản hồi này bao gồm câu trả lời bằng văn bản của mô hình có `annotations` nội tuyến chứa các trích dẫn, cũng như các bước `google_search_call` và `google_search_result` với cụm từ tìm kiếm và đề xuất tìm kiếm.
+1. **Perintah Pengguna:** Aplikasi Anda mengirimkan perintah pengguna ke Gemini API dengan alat `google_search` yang diaktifkan.
+2. **Analisis Perintah:** Model menganalisis perintah dan menentukan apakah Google Penelusuran dapat meningkatkan kualitas jawaban.
+3. **Google Penelusuran:** Jika diperlukan, model akan otomatis membuat satu atau beberapa kueri penelusuran dan menjalankannya.
+4. **Pemrosesan Hasil Penelusuran:** Model memproses hasil penelusuran, mensintesis informasi, dan merumuskan respons.
+5. **Respons yang Didasarkan pada Hasil Penelusuran:** API menampilkan respons akhir yang mudah digunakan dan didasarkan pada hasil penelusuran. Respons ini mencakup jawaban teks model dengan `annotations` inline yang berisi kutipan, serta langkah-langkah `google_search_call` dan `google_search_result` dengan kueri penelusuran dan saran penelusuran.
 
-## Tìm hiểu về câu trả lời có căn cứ
+## Memahami respons grounding
 
-Khi một câu trả lời được căn cứ thành công, đầu ra văn bản của mô hình sẽ bao gồm `annotations` nội tuyến ngay trên khối nội dung văn bản. Những chú thích này cung cấp thông tin trích dẫn, liên kết các phần của câu trả lời với nguồn của chúng.
+Jika respons berhasil didasarkan pada hasil penelusuran, output teks model akan menyertakan `annotations` inline langsung di blok konten teks. Anotasi ini memberikan informasi kutipan yang menautkan bagian respons ke sumbernya.
 
 ```
 {
@@ -144,18 +144,20 @@ Khi một câu trả lời được căn cứ thành công, đầu ra văn bản
 }
 ```
 
-Các trường khoá trong phản hồi:
+Kolom utama dalam respons:
 
-- `google_search_call` : Chứa cụm từ tìm kiếm `queries` mà mô hình đã thực thi.
-- `google_search_result` : Chứa `search_suggestions`, một đoạn mã HTML để hiển thị các đề xuất tìm kiếm trong giao diện người dùng của bạn. Các yêu cầu đầy đủ về việc sử dụng được nêu chi tiết trong [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi#grounding-with-google-search).
-- `text` với `annotations` : Câu trả lời tổng hợp của mô hình có trích dẫn nội dòng. Mỗi chú thích `url_citation` liên kết một đoạn văn bản (do `start_index` và `end_index` xác định) với một URL nguồn. Đây là chìa khoá để tạo trích dẫn nội dòng.
+- `google_search_call` : Berisi `queries` penelusuran yang dijalankan model.
+- `google_search_result` : Berisi `search_suggestions`, cuplikan HTML untuk merender saran penelusuran di UI Anda. Persyaratan penggunaan lengkap dijelaskan dalam [Persyaratan Layanan](https://ai.google.dev/gemini-api/terms?hl=id#grounding-with-google-search).
+- `text` dengan `annotations` : Jawaban model yang disintesis dengan kutipan inline. Setiap anotasi `url_citation` menautkan segmen teks (yang ditentukan oleh `start_index` dan `end_index`) ke URL sumber. Langkah ini merupakan kunci untuk membuat kutipan inline.
 
-Bạn cũng có thể sử dụng tính năng Neo bám vào Google Tìm kiếm kết hợp với [công cụ ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi) để neo bám các câu trả lời bằng cả dữ liệu trên web công khai và các URL cụ thể mà bạn cung cấp.
+Grounding with Google Search juga dapat digunakan bersama dengan alat konteks [URL
+untuk mendasarkan respons pada
+data web publik dan URL tertentu yang Anda berikan.](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
 
-## Phân bổ nguồn bằng trích dẫn ngay trong văn bản
+## Memberikan atribusi sumber dengan kutipan inline
 
-API này trả về chú thích `url_citation` nội tuyến trên khối nội dung văn bản, giúp bạn hoàn toàn kiểm soát cách hiển thị nguồn trong giao diện người dùng.
-Mỗi chú thích đều có `start_index` và `end_index` để xác định phần văn bản mà chú thích đó trích dẫn. Sau đây là cách trích xuất và hiển thị các giá trị này.
+API menampilkan anotasi `url_citation` inline di blok konten teks, sehingga Anda memiliki kontrol penuh atas cara menampilkan sumber di antarmuka pengguna.
+Setiap anotasi menyertakan `start_index` dan `end_index` untuk mengidentifikasi bagian teks yang dikutip. Berikut cara mengekstrak dan menampilkannya.
 
 ### Python
 
@@ -198,7 +200,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-Đầu ra sẽ cho thấy văn bản, theo sau là các trích dẫn:
+Output akan menampilkan teks yang diikuti dengan kutipannya:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -210,48 +212,55 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Giá
+## Harga
 
-Khi bạn sử dụng tính năng Neo bám vào Google Tìm kiếm với Gemini 3, dự án của bạn sẽ bị tính phí cho mỗi cụm từ tìm kiếm mà mô hình quyết định thực hiện. Nếu mô hình quyết định thực hiện nhiều cụm từ tìm kiếm để trả lời một câu lệnh duy nhất (ví dụ: tìm kiếm `"UEFA Euro 2024 winner"` và `"Spain vs England Euro 2024 final
-score"` trong cùng một lệnh gọi API), thì điều này được tính là hai lần sử dụng công cụ có tính phí cho yêu cầu đó. Để tính phí, chúng tôi bỏ qua các cụm từ tìm kiếm trống trên web khi tính số lượng cụm từ tìm kiếm riêng biệt. Mô hình tính phí này chỉ áp dụng cho các mô hình Gemini 3; khi bạn sử dụng tính năng tìm kiếm thông tin cơ sở với các mô hình Gemini 2.5 trở xuống, dự án của bạn sẽ được tính phí theo từng câu lệnh.
+Saat Anda menggunakan Grounding with Google Search dengan Gemini 3, project Anda akan ditagih untuk setiap kueri penelusuran yang diputuskan untuk dijalankan oleh model. Jika model memutuskan untuk
+menjalankan beberapa kueri penelusuran untuk menjawab satu perintah (misalnya,
+menelusuri `"UEFA Euro 2024 winner"` dan `"Spain vs England Euro 2024 final
+score"` dalam panggilan API yang sama), hal ini akan dihitung sebagai dua penggunaan alat yang dapat ditagih
+untuk permintaan tersebut. Untuk tujuan penagihan, kami mengabaikan kueri penelusuran web kosong saat menghitung kueri unik. Model penagihan ini hanya berlaku untuk model Gemini 3. Jika Anda menggunakan grounding penelusuran dengan model Gemini 2.5 atau yang lebih lama, project Anda akan ditagih per perintah.
 
-Để biết thông tin chi tiết về giá, hãy xem [trang định giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
+Untuk mengetahui informasi harga mendetail, lihat halaman harga [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
 
-## Mô hình được hỗ trợ
+## Model yang didukung
 
-Bạn có thể xem toàn bộ các chức năng trên trang [tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+Anda dapat menemukan kemampuan lengkap di halaman ringkasan [model
+overview](https://ai.google.dev/gemini-api/docs/models?hl=id).
 
-| Mô hình | Bám sát nguồn bằng Google Tìm kiếm |
+| Model | Grounding dengan Google Penelusuran |
 | --- | --- |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Bản xem trước hình ảnh Gemini 3.1 Flash | ✔️ |
-| Gemini 3.1 Pro (Bản xem trước) | ✔️ |
-| Bản xem trước hình ảnh của Gemini 3 Pro | ✔️ |
-| Bản xem trước Gemini 3 Flash | ✔️ |
+| Pratinjau Gambar Gemini 3.1 Flash | ✔️ |
+| Pratinjau Gemini 3.1 Pro | ✔️ |
+| Pratinjau Gambar Gemini 3 Pro | ✔️ |
+| Pratinjau Gemini 3 Flash | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Các tổ hợp công cụ được hỗ trợ
+## Kombinasi alat yang didukung
 
-Bạn có thể sử dụng tính năng Neo bám vào Google Tìm kiếm cùng với các công cụ khác như [thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi) và [Bối cảnh từ URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi) để hỗ trợ các trường hợp sử dụng phức tạp hơn.
+Anda dapat menggunakan Grounding with Google Search dengan alat lain seperti
+[eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) dan
+[konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) untuk mendukung kasus penggunaan yang lebih kompleks.
 
-Các mô hình Gemini 3 hỗ trợ kết hợp các công cụ tích hợp sẵn (như tính năng Bám sát nguồn bằng Google Tìm kiếm) với các công cụ tuỳ chỉnh (lệnh gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
+Model Gemini 3 mendukung kombinasi alat bawaan (seperti Grounding with Google Search) dengan alat kustom (panggilan fungsi). Pelajari lebih lanjut di halaman
+[kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
 
-## Bước tiếp theo
+## Langkah berikutnya
 
-- Tìm hiểu về các công cụ khác hiện có, chẳng hạn như [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi).
-- Tìm hiểu cách tăng cường câu lệnh bằng các URL cụ thể bằng [công cụ bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi).
+- Pelajari alat lain yang tersedia, seperti [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
+- Pelajari cara menambah perintah dengan URL tertentu menggunakan [alat konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id).
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Ada masukan untuk kami?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
