@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr
-fetched_at: 2026-08-10T03:18:09.326911+00:00
+fetched_at: 2026-08-17T02:28:38.835110+00:00
 title: "Antigravity Agent \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

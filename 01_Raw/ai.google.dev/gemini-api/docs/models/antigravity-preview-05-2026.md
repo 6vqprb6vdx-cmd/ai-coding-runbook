@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=fr
-fetched_at: 2026-08-10T03:13:26.713995+00:00
-title: "Aper\u00e7u Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=ar
+fetched_at: 2026-08-17T02:23:29.845951+00:00
+title: "\u0645\u0639\u0627\u064a\u0646\u0629 Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envoyer des commentaires
+إرسال ملاحظات
 
-# Aperçu Antigravity
+# معاينة Antigravity
 
-Un puissant agent géré à usage général conçu pour les workflows autonomes en plusieurs étapes. Ce modèle planifie, raisonne, exécute du code, gère des fichiers et effectue des recherches sur le Web dans un bac à sable Linux sécurisé et isolé hébergé par Google.
+وكيل مُدار قوي ومتعدّد الأغراض مصمّم لتنفيذ مهام سير العمل المستقلة والمتعدّدة الخطوات. يخطّط هذا النموذج ويحلّل ويشغّل الرموز البرمجية ويدير الملفات ويبحث على الويب داخل بيئة اختبار معزولة وآمنة من Linux تستضيفها Google.
 
-## Documentation
+## الوثائق
 
-Consultez la page de l'[agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) pour obtenir une couverture complète
-des fonctionnalités, des capacités et des exemples de code.
+انتقِل إلى صفحة [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات وعيّنات الرموز البرمجية.
 
 ## antigravity-preview-05-2026
 
-| Propriété | Description |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardCode de l'agent | **API Interactions**  `antigravity-preview-05-2026` |
-| saveTypes de données acceptés | **Entrée**  Texte, image  **Résultat**  Texte |
-| token\_auto[Limites de jetons[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Fenêtre de contexte d'entrée**  1 048 576 (compacté à environ 135 000)  **Limite de jetons de sortie**  65 536 |
-| 123Versions | Pour en savoir plus, consultez les [modèles de version](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Aperçu : `antigravity-preview-05-2026` |
-| calendar\_monthDernière mise à jour | Mai 2026 |
+| id\_cardرمز الوكيل | **Interactions API**  `antigravity-preview-05-2026` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص، صورة  **الناتج**  نص |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **قدرة الاستيعاب الخاصة بالمدخلات**  ‫1,048,576 (مضغوطة بحجم 135 ألفًا تقريبًا)  **الحد الأقصى لعدد الرموز المميزة في الناتج**  65,536 |
+| 123الإصدارات | لمزيد من التفاصيل، يُرجى الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions).  - معاينة: `antigravity-preview-05-2026` |
+| calendar\_monthآخر تعديل | مايو 2026 |
 
-Envoyer des commentaires
+إرسال ملاحظات
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Dernière mise à jour le 2026/05/19 (UTC).
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Voulez-vous nous donner plus d'informations ?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/19 (UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

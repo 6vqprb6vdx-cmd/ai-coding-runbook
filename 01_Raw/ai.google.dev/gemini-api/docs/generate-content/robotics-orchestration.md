@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=it
-fetched_at: 2026-08-10T03:13:29.953450+00:00
-title: "Orchestrazione delle attivit\u00e0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=es-419
+fetched_at: 2026-08-17T02:24:31.351160+00:00
+title: "Organizaci\u00f3n de tareas \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Invia feedback
+Enviar comentarios
 
-# Orchestrazione delle attività
+# Organización de tareas
 
-I modelli Gemini Robotics ER possono pianificare le attività e ragionare sullo spazio, deducendo quali azioni intraprendere e quali oggetti spostare per completare un obiettivo. Questa pagina
-mostra un esempio di [esecuzione di un'operazione di prelievo e posizionamento](#calling-custom-robot-api)
-tramite un'API robot personalizzata per orchestrare l'attività di posizionamento di un articolo
-in una ciotola.
+Los modelos de Gemini Robotics ER pueden planificar tareas y razonar sobre el espacio, inferir qué acciones tomar y qué objetos mover para completar un objetivo. En esta página
+se muestra un ejemplo para [controlar una operación de selección y colocación](#calling-custom-robot-api)
+a través de una API de robot personalizada para organizar la tarea de colocar un elemento
+en un tazón.
 
-Per il codice eseguibile completo, consulta il
-[ricettario di robotica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Para obtener el código ejecutable completo, consulta el
+[libro de recetas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Utilizzo di un'API robot personalizzata
+## Usa una API de robot personalizada
 
-Questo esempio mostra l'orchestrazione delle attività con un'API robot personalizzata. Introduce un'API di simulazione progettata per un'operazione di prelievo e posizionamento. L'attività consiste nel raccogliere un blocco blu e posizionarlo in una ciotola arancione:
+En este ejemplo, se muestra la organización de tareas con una API de robot personalizada. Se presenta una API simulada diseñada para una operación de selección y colocación. La tarea es recoger un bloque azul y colocarlo en un tazón naranja:
 
-![Un'immagine del blocco e della ciotola](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=it)
+![Imagen del bloque y el tazón](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=es-419)
 
-Questo esempio utilizza le seguenti definizioni di API robot e strumenti di simulazione:
+En este ejemplo, se usan las siguientes definiciones de herramientas y API de robot simulada:
 
 ### Python
 
@@ -81,7 +81,7 @@ set_gripper_state_declaration = types.FunctionDeclaration(
 robot_tools = types.Tool(function_declarations=[move_declaration, set_gripper_state_declaration])
 ```
 
-L'esempio seguente invia il prompt e l'immagine al modello con le definizioni degli strumenti. Esegue quindi un loop agentico: dopo ogni risposta del modello, esegue le chiamate di funzione richieste (`move`, `setGripperState`), restituisce i risultati al modello e ripete l'operazione finché il modello non smette di chiamare le funzioni o non viene raggiunto il limite di passaggi.
+En el siguiente ejemplo, se envía la instrucción y la imagen al modelo con las definiciones de herramientas. Luego, se ejecuta un bucle de agente: después de cada respuesta del modelo, se ejecutan las llamadas a función solicitadas (`move`, `setGripperState`), se devuelven los resultados al modelo y se repite hasta que el modelo deja de llamar a las funciones o se alcanza el límite de pasos.
 
 ### Python
 
@@ -155,7 +155,7 @@ while step_count < max_steps:
     contents.append(types.Content(role="user", parts=function_response_parts))
 ```
 
-Di seguito è riportato un possibile output del modello basato sul prompt e sull'API robot di simulazione. L'output include l'output delle chiamate di funzione del robot che il modello ha sequenziato insieme.
+A continuación, se muestra un posible resultado del modelo basado en la instrucción y la API de robot simulada. El resultado incluye el resultado de las llamadas a función del robot que el modelo secuenció.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -172,18 +172,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## Passaggi successivi
+## ¿Qué sigue?
 
-- [Robotica con streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it): streaming in tempo reale con chiamata di funzione (solo Gemini Robotics ER 2).
-- [Comprensione video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=it): monitora l'avanzamento delle attività dal video (solo ER 2).
-- [Ragionamento spaziale](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=it): esempi di puntamento, monitoraggio e riquadro di delimitazione.
+- [Robótica con transmisión](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419): transmisión en tiempo real con llamadas a función (solo Gemini Robotics ER 2)
+- [Comprensión de video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=es-419): seguimiento del progreso de la tarea desde el video (solo ER 2)
+- [Razonamiento espacial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=es-419): ejemplos de señalamiento, seguimiento y cuadros delimitadores
 
-Invia feedback
+Enviar comentarios
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Ultimo aggiornamento 2026-07-30 UTC.
+Última actualización: 2026-07-30 (UTC)
 
-Vuoi dirci altro?
+¿Quieres brindar más información?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

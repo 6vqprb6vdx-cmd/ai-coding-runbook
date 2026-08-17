@@ -1,139 +1,139 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=id
-fetched_at: 2026-08-10T03:11:16.583694+00:00
-title: "Agen di Playground AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=ar
+fetched_at: 2026-08-17T02:25:21.657952+00:00
+title: "\u0627\u0644\u0648\u0643\u0644\u0627\u0621 \u0641\u064a \u0645\u0633\u0627\u062d\u0629 \u062a\u062c\u0631\u0628\u0629 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0641\u064a Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Kirim masukan
+إرسال ملاحظات
 
-# Agen di Playground AI Studio
+# الوكلاء في مساحة تجربة الذكاء الاصطناعي في Studio
 
-Google AI Studio Playground menyediakan antarmuka visual untuk membuat prototipe dan mempelajari cara membuat agen terkelola tanpa harus membuat dan menulis panggilan API.
+توفّر ساحة لعب Google AI Studio واجهة مرئية لإنشاء نماذج أولية ومعرفة كيفية إنشاء وكلاء مُدارين بدون الحاجة إلى إنشاء طلبات من واجهة برمجة التطبيقات وكتابتها.
 
-Untuk memulai, buka tab **Playground** di panel navigasi Google AI Studio, dan alihkan tombol ke **Agents**.
+للبدء، انتقِل إلى علامة التبويب **ساحة اللعب** في لوحة التنقّل في Google AI Studio، وغيِّر مفتاح التبديل إلى **الوكلاء**.
 
-## Template bawaan
+## نماذج مُنشأة مسبقًا
 
-Tab **Agents** memiliki serangkaian template yang telah mengonfigurasi Agen Antigravity dasar dengan menetapkan konfigurasi alat dan lingkungan. Semua template bersifat open source dan dipublikasikan di
-repositori [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/). Mempelajari template ini adalah cara yang bagus untuk mempelajari cara membuat dan menyusun agen terkelola Anda sendiri.
+تحتوي علامة التبويب **الوكلاء** على سلسلة من النماذج التي تُعدّ مسبقًا "الوكيل الأساسي" من خلال ضبط إعدادات الأدوات والبيئة. جميع النماذج مفتوحة المصدر ومنشورة ضِمن
+مستودع [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/). إنّ استكشاف هذه النماذج طريقة رائعة لمعرفة كيفية إنشاء وكيل مُدار خاص بك وتنظيمه.
 
-Misalnya, saat Anda memilih template AI Radio, semua alat yang diizinkan akan diaktifkan, dan file `AGENTS.md` serta keterampilan khusus untuk produksi acara radio akan ditautkan. Anda dapat melihat setelan ini di UI Playground di bagian **Environment**, dengan mengklik tombol **Sources**.
+على سبيل المثال، عند اختيار نموذج "البرنامج الإذاعي بالذكاء الاصطناعي"، يتم تفعيل جميع الأدوات المسموح بها، ويتم ربط ملف `AGENTS.md` متخصص ومهارات لإنتاج البرامج الإذاعية. يمكنك الاطّلاع على هذه الإعدادات في واجهة مستخدم "ساحة اللعب" ضِمن قسم **البيئة** من خلال النقر على الزر **المصادر**.
 
-## Konfigurasi alat
+## إعدادات الأدوات
 
-Di bagian Agent settings di Playground, Anda dapat mengalihkan akses ke alat bawaan berikut:
+ضِمن إعدادات الوكيل في "ساحة اللعب"، يمكنك تفعيل الوصول إلى الأدوات المضمّنة التالية أو إيقافه:
 
-- **Google Search:** Mengakses web terbuka untuk grounding informasi real-time.
-- **URL Context:** Mengambil dan mengurai konten teks URL halaman web tertentu.
-- **Code Execution:** Menjalankan perintah Bash dan Python langsung dalam lingkungan sandbox terisolasi.
-- **Filesystem Tools:** Membaca, menulis, mencantumkan, dan menghapus file di dalam ruang kerja.
+- **بحث Google:** يمكنك الوصول إلى الويب المفتوح للحصول على معلومات في الوقت الفعلي.
+- **سياق عنوان URL:** يمكنك جلب المحتوى النصي لعناوين URL لصفحات ويب معيّنة وتحليله.
+- **تنفيذ الرموز البرمجية:** يمكنك تشغيل أوامر Bash وPython مباشرةً ضِمن بيئة الحماية المعزولة.
+- **أدوات نظام الملفات:** يمكنك قراءة الملفات وكتابتها وعرضها وحذفها داخل مساحة العمل.
 
-## Konfigurasi Lingkungan
+## إعدادات البيئة
 
-Agen terkelola berjalan dalam sandbox Linux efemeral yang aman (lingkungan) yang menyediakan ruang kerja dan alat yang diperlukan untuk beroperasi. Untuk mempelajari lebih lanjut, lihat panduan [lingkungan agen terkelola](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id).
+تعمل الوكلاء المُدارون ضِمن بيئة حماية آمنة ومؤقتة على Linux (البيئة) توفّر مساحة العمل والأدوات التي يحتاجون إليها للتشغيل. لمزيد من المعلومات، يُرجى الاطّلاع على دليل بيئة الوكيل المُدار .
 
-### Mengontrol perilaku agen
+### التحكّم في سلوك الوكيل
 
-Perilaku, persona, dan kemampuan agen sebagian besar ditentukan oleh file yang ada di lingkungannya. Agen akan otomatis mendeteksi dan memuat konfigurasi dari folder `.agents` khusus:
+يتم تحديد سلوك الوكيل وشخصيته وقدراته بشكل أساسي من خلال الملفات المتوفّرة في بيئته. يرصد الوكيل الإعدادات ويحمّلها تلقائيًا من مجلد خاص باسم `.agents`:
 
-- **`AGENTS.md`**: Dimuat sebelumnya ke dalam konteks agen untuk menentukan persona dan petunjuk sistem.
-- **`SKILL.md`**: Terletak di folder keterampilan masing-masing (misalnya, `.agents/skills/my-skill/SKILL.md`) untuk menentukan kemampuan dan alur kerja tertentu.
+- **`AGENTS.md`**: يتم تحميله مسبقًا في سياق الوكيل لتحديد تعليمات النظام وشخصيته.
+- **`SKILL.md`**: يقع ضِمن مجلدات المهارات المعنيّة (مثل `.agents/skills/my-skill/SKILL.md`) لتحديد قدرات وسير عمل معيّنين.
 
-### Menyediakan Lingkungan
+### توفير البيئة
 
-Anda dapat mengonfigurasi lingkungan yang akan digunakan oleh agen dengan memasang file ke lingkungan sebelum memulai sesi. Anda dapat membuat lingkungan baru dengan memasang sumber, atau memulihkan lingkungan sebelumnya:
+يمكنك ضبط البيئة التي سيستخدمها الوكيل من خلال ربط الملفات بالبيئة قبل بدء الجلسة. يمكنك إنشاء بيئة جديدة من خلال ربط المصادر، أو استعادة بيئة سابقة:
 
-- **Untuk membuat lingkungan baru**, klik **Add Sources** di panel Environment settings dan pilih dari jenis sumber berikut:
+- **لإنشاء بيئة جديدة**، انقر على **إضافة مصادر** في لوحة إعدادات البيئة واختَر من بين أنواع المصادر التالية:
 
-| Jenis sumber | Deskripsi | Jalur pemasangan |
+| نوع المصدر | الوصف | مسار الربط |
 | --- | --- | --- |
-| **File Sebaris** | Menulis atau menempel file konfigurasi, set data tiruan, atau skrip utilitas (hingga 100 KB) langsung ke UI Playground. | Jalur tujuan yang ditentukan pengguna (misalnya, `/workspace/scripts/parser.py`). |
-| **Google Cloud Storage** | Memasang bucket Cloud Storage publik atau pribadi.  Bucket pribadi memerlukan token Bearer OAuth 2.0 standar. Untuk mengetahui informasi selengkapnya, lihat [Sumber pribadi](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#private-sources). | Memetakan jalur bucket GCS (misalnya, `gs://your-bucket-name/data/`) ke direktori ruang kerja (misalnya, `/workspace/data/`). |
-| **Repositori GitHub** | Meng-clone codebase publik atau pribadi.  Repositori pribadi memerlukan Autentikasi dasar dengan Token Akses Pribadi (PAT) GitHub Anda. Untuk mengetahui informasi selengkapnya, lihat [Sumber pribadi](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#private-sources). | Di-clone langsung ke `/workspace/` (biasanya di bagian `/workspace/<repo-name>`). |
+| **الملفات المضمّنة** | يمكنك كتابة ملفات الإعدادات أو لصقها أو مجموعات البيانات التجريبية أو النصوص البرمجية للأدوات المساعدة (بحد أقصى 100 كيلوبايت) مباشرةً في واجهة مستخدم "ساحة اللعب". | مسار الوجهة الذي يحدّده المستخدم (مثل `/workspace/scripts/parser.py`) |
+| **Google Cloud Storage** | يمكنك ربط حزمة علنية أو خاصة على Cloud Storage.  تتطلب الحزم الخاصة رمزًا مميزًا عاديًا من نوع OAuth 2.0 Bearer. لمزيد من المعلومات، يُرجى الاطّلاع على [المصادر الخاصة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#private-sources). | يربط مسار حزمة GCS (مثل `gs://your-bucket-name/data/`) بدليل مساحة العمل (مثل `/workspace/data/`) |
+| **مستودعات GitHub** | يمكنك استنساخ قواعد بيانات علنية أو خاصة.  تتطلب المستودعات الخاصة مصادقة أساسية باستخدام رمز الوصول الشخصي (PAT) على GitHub. لمزيد من المعلومات، يُرجى الاطّلاع على [المصادر الخاصة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#private-sources). | يتم استنساخها مباشرةً في `/workspace/` (عادةً ضِمن `/workspace/<repo-name>`). |
 
-- **Untuk memulihkan lingkungan sebelumnya**, Anda dapat [menggunakan kembali ID lingkungan yang ada](#reusing-an-existing-environment-id) untuk meng-clone dan membuat fork statusnya yang sama persis.
+- **لاستعادة بيئة سابقة**، يمكنك [إعادة استخدام معرّف بيئة حالي](#reusing-an-existing-environment-id) لاستنساخ حالتها الدقيقة وإنشاء نسخة منها.
 
-### Menggunakan kembali ID lingkungan yang ada
+### إعادة استخدام معرّف بيئة حالي
 
-Jika sudah menghabiskan waktu untuk menyiapkan lingkungan sandbox, Anda tidak perlu memulai dari awal. Untuk menggunakan lingkungan yang ada:
+إذا سبق لك قضاء بعض الوقت في إعداد بيئة حماية، لن تحتاج إلى البدء من جديد. لاستخدام بيئة حالية:
 
-1. Buka panel Environments di AI Studio dan alihkan **Type** ke **Existing**
-2. Masukkan **Environment ID** (misalnya, `env_abc123`)
+1. انتقِل إلى لوحة "البيئات" في AI Studio وغيِّر **النوع** إلى **الحالية**.
+2. أدخِل **معرّف البيئة** (مثل `env_abc123`)
 
-Untuk mengetahui informasi selengkapnya, lihat [Mengonfigurasi lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#configure-an-environment). Anda juga dapat mengambil Environment ID sesi saat ini dari tab Environment di UI.
+لمزيد من المعلومات، يُرجى الاطّلاع على مقالة [إعداد بيئة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#configure-an-environment). يمكنك أيضًا استرداد معرّف البيئة للجلسة الحالية من علامة التبويب "البيئة" في واجهة المستخدم.
 
-Setelah Anda mengirim pesan pertama ke agen, konfigurasi lingkungan akan ditetapkan untuk sesi tersebut. Anda tidak dapat memasang sumber baru atau mengubah daftar yang diizinkan jaringan saat interaksi sedang berjalan aktif.
+بعد إرسال أول رسالة إلى الوكيل، يصبح إعداد البيئة ثابتًا لتلك الجلسة. لا يمكنك ربط مصادر جديدة أو تعديل القائمة المسموح بها للشبكة أثناء تشغيل التفاعل بنشاط.
 
-## Mendownload lingkungan
+## تنزيل البيئة
 
-Setelah lingkungan dibuat, Anda dapat mendownload snapshot lingkungan kapan saja menggunakan tombol **Download** di Environment settings AI Studio Playground untuk mengambil file lingkungan sebagai tarball.
+بعد إنشاء بيئة، يمكنك تنزيل لقطة البيئة في أي وقت باستخدام الزر **تنزيل** في إعدادات البيئة في "ساحة لعب AI Studio" لاسترداد ملفات البيئة كملف tarball.
 
-## Pengelolaan Keamanan dan Biaya
+## الأمان وإدارة التكاليف
 
-### Mengelola Penggunaan Token
+### إدارة استهلاك الرموز المميّزة
 
-Tidak seperti permintaan chat standar yang menghasilkan satu output, Agen Antigravity menjalankan alur kerja otonom. Agen ini merencanakan, menjalankan kode, mengamati hasil, dan melakukan iterasi. Artinya, satu perintah dapat menghasilkan penggunaan token tanpa batas.
+على عكس طلب محادثة عادي ينتج عنه رد واحد، يُنفّذ وكيل Antigravity سير عمل تلقائيًا. يخطّط الوكيل وينفّذ الرموز البرمجية ويراقب النتائج ويُجري عمليات تكرار. وهذا يعني أنّ طلبًا واحدًا يمكن أن يؤدي إلى استهلاك غير محدود للرموز المميّزة.
 
-Untuk mengelola biaya, **berikan kriteria penghentian yang jelas dalam perintah Anda dan batasi tugas untuk agen**. Contoh yang baik adalah perintah seperti *Tinjau permintaan pull dan berhenti setelah Anda membuat ringkasan markdown.
-Jangan mencoba menulis perbaikan sendiri*.
+لإدارة التكاليف، **قدِّم معايير إنهاء واضحة في طلباتك وحدِّد نطاق المهام بدقة للوكيل**. يمكن أن يكون مثالاً جيدًا على ذلك طلبًا مثل *راجِع طلب سحب التغييرات وتوقّف بعد إنشاء ملخّص بتنسيق Markdown.
+لا تحاول كتابة الإصلاح بنفسك*.
 
-### Biaya Tambahan
+### التكاليف الإضافية
 
-Secara default, semua template agen di Playground memiliki akses ke layanan Gemini API dan dapat melakukan panggilan API dari lingkungan untuk memenuhi permintaan. Hal ini dapat dikenai biaya tambahan yang tidak akan tercermin dalam penggunaan token.
+تلقائيًا، يمكن لجميع نماذج الوكلاء في "ساحة اللعب" الوصول إلى خدمة Gemini API وإجراء طلبات من واجهة برمجة التطبيقات من البيئة لتلبية الطلبات. قد يؤدي ذلك إلى تكاليف إضافية لن تظهر في استهلاك الرموز المميّزة.
 
-Demikian pula, jika Anda menambahkan layanan eksternal lainnya, agen dapat dikenai biaya tambahan dengan memanggil layanan ini atas nama Anda.
+وبالمثل، إذا أضفت خدمات خارجية أخرى، قد يتحمّل الوكيل تكاليف إضافية من خلال استدعاء هذه الخدمات نيابةً عنك.
 
-### Daftar yang Diizinkan Jaringan
+### القائمة المسموح بها للشبكة
 
-Secara default, di AI Studio, semua permintaan jaringan keluar dari dalam lingkungan sandbox agen Anda dikontrol dan dibatasi secara ketat untuk memastikan keamanan. Untuk memberikan kemampuan kepada agen Anda untuk menjangkau API eksternal, layanan web, atau pengelola paket, Anda harus mendeklarasikannya secara eksplisit:
+تلقائيًا، في AI Studio، يتم التحكّم بإحكام في جميع طلبات الشبكة الصادرة من بيئة الحماية الخاصة بالوكيل ويتم حصرها لضمان الأمان. لمنح الوكيل إمكانية الوصول إلى واجهات برمجة التطبيقات الخارجية أو خدمات الويب أو مديري الحِزم، عليك الإعلان عنها صراحةً:
 
-1. Buka panel Environments di AI Studio.
-2. Pilih tombol **rules** di samping **Network**.
-3. Di panel **Network configuration**, klik **Add to allowlist** dan isi detail yang relevan:
-   - **Domain Restriction:** Hanya domain atau pola karakter pengganti tertentu yang ditambahkan ke daftar yang dapat diakses oleh mesin virtual agen. Misalnya, Anda dapat memasukkan domain yang sama persis seperti `api.github.com` atau pola luas seperti `*.googleapis.com`.
-   - **Add HTTP Header and Token Injection:** Gunakan opsi **Add HTTP header** untuk menyuntikkan kredensial yang diperlukan (seperti token API) secara aman untuk domain tertentu. Kredensial ini diteruskan dengan aman melalui proxy keluar dan tidak pernah diekspos secara langsung sebagai teks mentah di dalam sandbox agen.
+1. انتقِل إلى لوحة "البيئات" في AI Studio.
+2. انقر على الزر **القواعد** بجانب **الشبكة**.
+3. في لوحة **إعدادات الشبكة** ، انقر على **الإضافة إلى القائمة المسموح بها** وأدخِل التفاصيل ذات الصلة:
+   - **قيود النطاق:** لا يمكن للجهاز الافتراضي للوكيل الوصول إلا إلى النطاقات المحدّدة أو الأنماط العامة التي تمت إضافتها إلى القائمة. على سبيل المثال، يمكنك إدخال نطاقات دقيقة مثل `api.github.com` أو أنماط عامة مثل `*.googleapis.com`.
+   - **إضافة عنوان HTTP ورمز مميّز:** استخدِم الخيار **إضافة عنوان HTTP** لإدخال بيانات الاعتماد المطلوبة بأمان (مثل رمز مميّز لواجهة برمجة التطبيقات) لنطاق معيّن. تمر بيانات الاعتماد هذه بأمان من خلال وكيل الخروج ولا يتم عرضها مطلقًا مباشرةً كنص عادي داخل بيئة الحماية الخاصة بالوكيل.
 
-Selalu berhati-hatilah saat menambahkan domain ke daftar yang diizinkan. Memberikan akses agen ke layanan yang diautentikasi berarti agen dapat bertindak atas nama Anda, yang dapat menyebabkan tindakan yang tidak diinginkan jika tidak dipantau dengan cermat.
+يُرجى توخي الحذر دائمًا عند إضافة نطاقات إلى القائمة المسموح بها. إنّ منح الوكيل إمكانية الوصول إلى الخدمات التي تتطلب المصادقة يعني أنّه يمكنه التصرّف نيابةً عنك، ما قد يؤدي إلى إجراءات غير مقصودة إذا لم تتم مراقبته بعناية.
 
-### Praktik terbaik kredensial
+### أفضل الممارسات المتعلّقة ببيانات الاعتماد
 
-Jika alur kerja Anda mengharuskan agen untuk melakukan autentikasi dengan layanan eksternal, Anda bertanggung jawab untuk menyediakan dan menentukan cakupan kredensial tersebut. Ikuti panduan ini untuk mengurangi risiko:
+إذا كان سير عملك يتطلب من الوكيل المصادقة باستخدام خدمات خارجية، أنت مسؤول عن توفير بيانات الاعتماد هذه وتحديد نطاقها. اتّبِع هذه الإرشادات لتقليل المخاطر:
 
-- **Gunakan kredensial hak istimewa terendah:** Buat akun layanan atau kunci API hanya dengan izin yang diperlukan agen Anda. Hindari meneruskan kredensial dengan akses administratif atau luas.
-- **Pilih token yang memiliki masa aktif singkat:** Jika memungkinkan, gunakan kredensial atau token yang memiliki batas waktu yang akan berakhir masa berlakunya, bukan kunci API yang memiliki masa aktif lama.
-- **Asumsikan akses penuh:** Agen dapat menggunakan kredensial apa pun yang dapat diaksesnya untuk menyelesaikan tugas yang telah Anda berikan. Hanya berikan kredensial yang cakupan aksesnya sepenuhnya ingin Anda berikan.
-- **Rotasi kredensial secara rutin:** Perlakukan kredensial yang dibagikan dengan agen dengan cara yang sama seperti Anda memperlakukan kredensial terprogram; rotasi secara rutin.
+- **استخدِم بيانات اعتماد بأقل الامتيازات:** أنشئ حسابات خدمة أو مفاتيح واجهة برمجة تطبيقات لا تتضمّن سوى الأذونات التي يحتاج إليها الوكيل. تجنَّب تمرير بيانات الاعتماد التي تمنح وصولاً واسع النطاق أو وصولاً إداريًا.
+- **استخدِم الرموز المميّزة القصيرة الأجل:** استخدِم بيانات الاعتماد أو الرموز المميّزة التي تنتهي صلاحيتها بعد فترة زمنية محدّدة بدلاً من مفاتيح واجهة برمجة التطبيقات الطويلة الأجل، إذا أمكن ذلك.
+- **افترِض الوصول الكامل:** قد يستخدم الوكيل أي بيانات اعتماد يمكنه الوصول إليها لإكمال المهمة التي أوكلتها إليه. لا تقدّم إلا بيانات الاعتماد التي أنت على استعداد لمنح نطاق الوصول الكامل إليها.
+- **غيِّر بيانات الاعتماد بانتظام:** تعامَل مع بيانات الاعتماد التي تتم مشاركتها مع الوكيل بالطريقة نفسها التي تتعامل بها مع أي بيانات اعتماد برمجية، أي غيِّرها بانتظام.
 
-### Menghubungkan alat dan API eksternal
+### ربط الأدوات الخارجية وواجهات برمجة التطبيقات
 
-Anda dapat menghubungkan alat dan API eksternal (seperti server Model Context Protocol / MCP) untuk memperluas kemampuan agen. Saat melakukannya:
+يمكنك ربط الأدوات الخارجية وواجهات برمجة التطبيقات (مثل خوادم بروتوكول سياق النموذج / MCP) لتوسيع إمكانات الوكيل. عند إجراء ذلك:
 
-- Hanya hubungkan alat dari sumber yang Anda percaya. Alat yang berbahaya atau ditulis dengan buruk dapat mengekspos data atau melakukan tindakan yang tidak diinginkan.
-- Konfigurasi alat dengan izin minimum yang diperlukan untuk kasus penggunaan Anda. Jika alat mendukung mode hanya baca, sebaiknya gunakan mode tersebut kecuali jika penulisan benar-benar diperlukan.
-- Sebelum menghubungkan alat ke sumber data produksi, uji alat tersebut terhadap data sampel atau sintetis untuk memverifikasi bahwa agen menggunakannya seperti yang diharapkan.
+- لا تربط إلا الأدوات من المصادر التي تثق بها. يمكن أن تكشف أداة ضارة أو مكتوبة بشكل سيئ عن البيانات أو تنفّذ إجراءات غير مقصودة.
+- اضبط الأدوات بأقل الأذونات المطلوبة لحالة الاستخدام. إذا كانت الأداة تتيح وضع القراءة فقط، استخدِم هذا الوضع ما لم تكن عمليات الكتابة ضرورية للغاية.
+- قبل ربط أداة بمصدر بيانات الإنتاج، اختبِرها باستخدام بيانات نموذجية أو بيانات اصطناعية للتأكّد من أنّ الوكيل يستخدمها على النحو المتوقّع.
 
-### Pengawasan manusia
+### الإشراف البشري
 
-Agen dapat melakukan penalaran, perencanaan, dan menjalankan alur kerja multi-langkah dengan tingkat otonomi yang tinggi. Meskipun efektif, hal ini juga berarti Anda harus menerapkan pengawasan yang sesuai, terutama untuk tugas yang mengubah data atau berinteraksi dengan sistem eksternal.
+يمكن للوكلاء الاستدلال والتخطيط وتنفيذ مهام سير العمل المتعدّدة الخطوات بدرجة عالية من الاستقلالية. على الرغم من أنّ هذه الإمكانية قوية، إلا أنّها تعني أيضًا أنّه عليك تطبيق إشراف مناسب، خاصةً للمهام التي تعدِّل البيانات أو تتفاعل مع الأنظمة الخارجية.
 
-Selalu verifikasi output penting seperti kode yang dihasilkan, transformasi data, atau perubahan konfigurasi sebelum Anda men-deploy-nya.
+تحقَّق دائمًا من النتائج المهمة، مثل الرموز البرمجية التي تم إنشاؤها أو عمليات تحويل البيانات أو تغييرات الإعدادات قبل نشرها.
 
-Kirim masukan
+إرسال ملاحظات
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Terakhir diperbarui pada 2026-05-20 UTC.
+تاريخ التعديل الأخير: 2026-05-20 (حسب التوقيت العالمي المتفَّق عليه)
 
-Ada masukan untuk kami?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-20 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-20 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

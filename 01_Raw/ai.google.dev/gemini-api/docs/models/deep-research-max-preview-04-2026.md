@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=es-419
-fetched_at: 2026-08-10T03:25:01.323994+00:00
+fetched_at: 2026-08-17T02:18:15.275587+00:00
 title: "Vista previa de Deep Research Max \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

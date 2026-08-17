@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=id
-fetched_at: 2026-08-10T03:22:10.011038+00:00
-title: "Error API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=ja
+fetched_at: 2026-08-17T02:16:51.833598+00:00
+title: "API \u30a8\u30e9\u30fc \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Error API
+# API エラー
 
-Halaman ini memberikan referensi untuk kode error backend yang ditampilkan oleh `GenerateContent` API, menjelaskan format respons error gRPC, dan memberikan langkah-langkah pemecahan masalah.
+このページでは、`GenerateContent` API から返されるバックエンド エラーコードのリファレンス、gRPC エラー レスポンスの形式、トラブルシューティングの手順について説明します。
 
-## Kode error HTTP
+## HTTP エラーコード
 
-Tabel berikut mencantumkan kode error backend umum, penjelasan penyebabnya, dan solusi yang direkomendasikan:
+次の表に、一般的なバックエンド エラーコード、その原因の説明、推奨される解決策を示します。
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Kode HTTP** | **Status** | **Deskripsi** | **Contoh** | **Solusi** |
-| 400 | INVALID\_ARGUMENT | Isi permintaan salah format. | Ada kesalahan ketik, atau kolom wajib diisi yang tidak ada dalam permintaan Anda. | Lihat [referensi API](https://ai.google.dev/api?hl=id) untuk mengetahui format permintaan, contoh, dan versi yang didukung. Menggunakan fitur dari versi API yang lebih baru dengan endpoint yang lebih lama dapat menyebabkan error. |
-| 400 | FAILED\_PRECONDITION | Paket gratis Gemini API tidak tersedia di negara Anda. Aktifkan penagihan di project Anda di Google AI Studio. | Anda membuat permintaan di wilayah yang tidak mendukung paket gratis, dan Anda belum mengaktifkan penagihan di project Anda di Google AI Studio. | Untuk menggunakan Gemini API, Anda harus menyiapkan paket berbayar menggunakan [Google AI Studio](https://aistudio.google.com/apikey?hl=id). |
-| 403 | PERMISSION\_DENIED | Kunci API Anda tidak memiliki izin yang diperlukan. | Anda menggunakan kunci API yang salah; Anda mencoba menggunakan model yang di-tune tanpa melalui [autentikasi yang tepat](https://ai.google.dev/gemini-api/docs/model-tuning?hl=id). | Pastikan kunci API Anda ditetapkan dan memiliki akses yang tepat. Selain itu, pastikan untuk melakukan autentikasi yang tepat untuk menggunakan model yang di-tuning. |
-| 404 | NOT\_FOUND | Resource yang diminta tidak ditemukan. | File gambar, audio, atau video yang dirujuk dalam permintaan Anda tidak ditemukan. | Periksa apakah semua parameter dalam permintaan Anda valid untuk versi API Anda. |
-| 429 | RESOURCE\_EXHAUSTED | Anda telah melampaui salah satu batas frekuensi API (RPM, TPM, RPD, pembelanjaan, dll.). | Anda mengirim terlalu banyak permintaan, menggunakan terlalu banyak token, atau melampaui batas berbasis pembelanjaan untuk histori penagihan dan tingkat akun Anda. | Pastikan Anda berada dalam [batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id) model. Tunggu dan coba lagi setelah beberapa saat. Kurangi frekuensi atau ukuran permintaan Anda. [Minta peningkatan batas frekuensi panggilan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id#request-rate-limit-increase) jika diperlukan. |
-| 499 | DIBATALKAN | Operasi dibatalkan, biasanya oleh pemanggil. | Klien menutup koneksi sebelum API dapat menyelesaikan respons. | Periksa apakah klien atau infrastruktur jaringan Anda menutup koneksi sebelum waktunya (misalnya, karena waktu tunggu di sisi klien). |
-| 500 | INTERNAL | Terjadi error yang tidak terduga di pihak Google. | Konteks input Anda terlalu panjang. | Periksa [halaman status Gemini API](https://aistudio.google.com/status?hl=id) untuk mengetahui insiden yang sedang berlangsung. Kurangi konteks input Anda atau beralihlah sementara ke model lain (misalnya, dari Gemini 2.5 Pro ke Gemini 2.5 Flash) dan lihat apakah berhasil. Atau, tunggu sebentar dan coba lagi permintaan Anda. Jika masalah berlanjut setelah mencoba lagi, laporkan masalah tersebut menggunakan tombol **Kirim masukan** di Google AI Studio. |
-| 503 | UNAVAILABLE | Layanan mungkin mengalami kelebihan beban atau gangguan sementara. | Layanan ini untuk sementara kehabisan kapasitas. | Periksa [halaman status Gemini API](https://aistudio.google.com/status?hl=id) untuk mengetahui insiden yang sedang berlangsung. Beralihlah sementara ke model lain (misalnya, dari Gemini 2.5 Pro ke Gemini 2.5 Flash) dan lihat apakah model tersebut berfungsi. Atau, tunggu sebentar dan coba lagi permintaan Anda. Jika masalah berlanjut setelah mencoba lagi, laporkan masalah tersebut menggunakan tombol **Kirim masukan** di Google AI Studio. |
-| 504 | DEADLINE\_EXCEEDED | Layanan tidak dapat menyelesaikan pemrosesan dalam batas waktu. | Perintah (atau konteks) Anda terlalu besar untuk diproses tepat waktu. | Tetapkan 'timeout' yang lebih besar dalam permintaan klien Anda untuk menghindari error ini. |
+| **HTTP コード** | ステータス | **説明** | **例** | **ソリューション** |
+| 400 | INVALID\_ARGUMENT | リクエストの本文の形式が正しくありません。 | リクエストに誤字脱字があるか、必須フィールドが入力されていません。 | リクエストの形式、例、サポートされているバージョンについては、[API リファレンス](https://ai.google.dev/api?hl=ja)をご覧ください。古いエンドポイントで新しい API バージョンの機能を使用すると、エラーが発生する可能性があります。 |
+| 400 | FAILED\_PRECONDITION | Gemini API の無料枠は、お住まいの国ではご利用いただけません。Google AI Studio でプロジェクトの課金を有効にしてください。 | 無料枠がサポートされていないリージョンでリクエストを行っているが、Google AI Studio のプロジェクトで課金が有効になっていない。 | Gemini API を使用するには、[Google AI Studio](https://aistudio.google.com/apikey?hl=ja) を使用して有料プランを設定する必要があります。 |
+| 403 | PERMISSION\_DENIED | API キーに必要な権限がありません。 | 誤った API キーを使用している。[適切な認証](https://ai.google.dev/gemini-api/docs/model-tuning?hl=ja)を行わずにチューニング済みモデルを使用しようとしている。 | API キーが設定され、適切なアクセス権が付与されていることを確認します。また、チューニング済みモデルを使用するには、適切な認証を行う必要があります。 |
+| 404 | NOT\_FOUND | リクエストされたリソースが見つかりませんでした。 | リクエストで参照されている画像、音声、動画ファイルが見つかりませんでした。 | リクエスト内のすべてのパラメータが API バージョンに対して有効かどうかを確認します。 |
+| 429 | RESOURCE\_EXHAUSTED | API のレート上限（RPM、TPM、RPD、費用など）のいずれかを超えています。 | リクエストの送信数が多すぎる、トークンの使用数が多すぎる、アカウントのお支払い履歴と階層に基づく上限を超えている。 | モデルの[レート上限](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja)を超えていないことを確認します。しばらく待ってから再試行してください。リクエストのレートまたはサイズを減らします。必要に応じて、[レート上限の引き上げをリクエスト](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#request-rate-limit-increase)します。 |
+| 499 | CANCELLED | オペレーションがキャンセルされました。通常、キャンセルは呼び出し元により行われます。 | API がレスポンスを完了する前に、クライアントが接続を閉じました。 | クライアントまたはネットワーク インフラストラクチャが接続を早期に終了しているかどうかを確認します（クライアントサイドのタイムアウトなど）。 |
+| 500 | INTERNAL | Google 側で予期しないエラーが発生しました。 | 入力コンテキストが長すぎます。 | [Gemini API のステータス ページ](https://aistudio.google.com/status?hl=ja)で、進行中のインシデントがないか確認します。入力コンテキストを減らすか、別のモデルに一時的に切り替えて（Gemini 2.5 Pro から Gemini 2.5 Flash など）、動作するかどうかを確認します。しばらく待ってから、もう一度リクエストしてみてください。再試行しても問題が解決しない場合は、Google AI Studio の [**フィードバックを送信**] ボタンを使用してご報告ください。 |
+| 503 | UNAVAILABLE | サービスが一時的に過負荷状態になっているか、ダウンしている可能性があります。 | サービスが一時的に容量不足になっています。 | [Gemini API のステータス ページ](https://aistudio.google.com/status?hl=ja)で、進行中のインシデントがないか確認します。別のモデルに一時的に切り替えて（Gemini 2.5 Pro から Gemini 2.5 Flash など）、動作するかどうかを確認します。しばらく待ってから、もう一度リクエストしてみてください。再試行しても問題が解決しない場合は、Google AI Studio の [**フィードバックを送信**] ボタンを使用してご報告ください。 |
+| 504 | DEADLINE\_EXCEEDED | サービスが期限内に処理を完了できません。 | プロンプト（またはコンテキスト）が大きすぎて、時間内に処理できません。 | このエラーを回避するには、クライアント リクエストで「タイムアウト」を大きく設定します。 |
 
-## Format respons error
+## エラー レスポンスの形式
 
-Jika permintaan `GenerateContent` gagal, API akan menetapkan kode status HTTP (seperti `400 Bad Request`, `403 Forbidden`, atau `429 Too Many Requests`) dan menampilkan isi respons JSON yang berisi detail status gRPC:
+`GenerateContent` リクエストが失敗すると、API は HTTP ステータス コード（`400 Bad Request`、`403 Forbidden`、`429 Too Many Requests` など）を設定し、gRPC ステータスの詳細を含む JSON レスポンス本文を返します。
 
 ```
 {
@@ -67,24 +67,24 @@ Jika permintaan `GenerateContent` gagal, API akan menetapkan kode status HTTP (s
 }
 ```
 
-| Kolom | Jenis | Deskripsi |
+| フィールド | タイプ | 説明 |
 | --- | --- | --- |
-| `code` | bilangan bulat | Kode status HTTP. |
-| `message` | string | Deskripsi error yang dapat dibaca manusia. |
-| `status` | string | Kode status gRPC di `SCREAMING_CASE`. |
-| `details` | array | Konteks error tambahan, seperti `ErrorInfo` atau `LocalizedMessage`. |
+| `code` | integer | HTTP ステータス コード。 |
+| `message` | 文字列 | エラーの説明（人が読める形式）。 |
+| `status` | 文字列 | `SCREAMING_CASE` の gRPC ステータス コード。 |
+| `details` | 配列 | `ErrorInfo` や `LocalizedMessage` などのエラーに関する追加のコンテキスト。 |
 
-## Langkah berikutnya
+## 次のステップ
 
-- [Pemecahan masalah API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=id): Atasi masalah dan skenario error umum.
-- [Batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id): Pelajari batas permintaan dan penanganan kuota.
+- [API のトラブルシューティング](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja): 一般的な問題とエラー シナリオを解決します。
+- [レート制限](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja): リクエストの上限と割り当ての処理について学習します。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+最終更新日 2026-07-30 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

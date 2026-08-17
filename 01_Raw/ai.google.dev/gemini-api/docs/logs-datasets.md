@@ -1,48 +1,53 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=id
-fetched_at: 2026-08-10T03:25:47.891385+00:00
-title: "Log dan set data \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it
+fetched_at: 2026-08-17T02:17:07.573214+00:00
+title: "Log e set di dati \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Kirim masukan
+Invia feedback
 
-# Log dan set data
+# Log e set di dati
 
-Dalam panduan ini, Anda akan mempelajari cara
-melihat log dari penggunaan Gemini API di dasbor Google AI Studio
-untuk lebih memahami perilaku model dan cara pengguna berinteraksi dengan
-aplikasi Anda. Gunakan logging untuk mengamati, men-debug, dan *secara opsional membagikan masukan penggunaan
-kepada Google untuk membantu meningkatkan kualitas Gemini di berbagai kasus penggunaan developer*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id)
+In questa guida imparerai a
+visualizzare i log dell'utilizzo dell'API Gemini nella dashboard di Google AI Studio
+per comprendere meglio il comportamento del modello e il modo in cui gli utenti potrebbero interagire con le tue
+applicazioni. Utilizza la registrazione per osservare, eseguire il debug e *condividere facoltativamente il feedback sull'utilizzo
+con Google per contribuire a migliorare Gemini in vari casi d'uso per gli sviluppatori*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=it)
 
-Semua panggilan API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent`, dan panggilan API [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=id), kecuali Agen Terkelola, didukung. Hal ini mencakup panggilan yang dilakukan melalui endpoint [kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id).
+Sono supportate tutte le chiamate API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` e le chiamate API [Interazioni](https://ai.google.dev/gemini-api/docs/interactions?hl=it), escluse quelle degli agenti gestiti. Sono incluse le chiamate effettuate tramite
+endpoint di [compatibilità con OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
 
-## Mengonfigurasi logging project
+## Configurare la registrazione del progetto
 
-Secara default, API menyimpan semua objek interaksi (`store=true`) untuk
-menyederhanakan penggunaan fitur pengelolaan status sisi server. Sebaliknya, Generate Content API tidak menyimpan permintaan secara default, dan memerlukan penyimpanan diaktifkan per permintaan atau di tingkat project dari AI Studio.
+Per impostazione predefinita, l'API archivia tutti gli oggetti di interazione (`store=true`) per semplificare l'utilizzo delle funzionalità di gestione dello stato lato server. Al contrario, l'API
+Generate Content non archivia le richieste per impostazione predefinita e richiede l'attivazione dell'archiviazione
+per richiesta o a livello di progetto da AI Studio.
 
-Di [AI Studio](https://aistudio.google.com/logs?hl=id) Google, Anda dapat mengaktifkan atau menonaktifkan logging untuk semua project atau untuk project tertentu dan mengubah preferensi ini kapan saja melalui panel **Setelan** di halaman [Log dan Kumpulan Data](https://aistudio.google.com/logs?hl=id). Logging dapat diaktifkan atau dinonaktifkan secara terpisah untuk `generateContent` API dan [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=id) API untuk mengubah perilaku penyimpanan default untuk project.
+In Google [AI Studio](https://aistudio.google.com/logs?hl=it) puoi attivare o disattivare la registrazione per tutti i progetti o per progetti specifici e modificare queste preferenze in qualsiasi momento tramite il pannello **Impostazioni** nella pagina [Log e set di dati](https://aistudio.google.com/logs?hl=it). La registrazione può essere attivata o disattivata
+in modo indipendente per l'API `generateContent` e l'API
+[Interazioni](https://ai.google.dev/gemini-api/docs/interactions?hl=it)
+per modificare il comportamento di archiviazione predefinito per un progetto.
 
-### Logging tingkat permintaan
+### Logging a livello di richiesta
 
-Perilaku penyimpanan dan logging berbeda menurut API:
+Il comportamento di archiviazione e logging varia a seconda dell'API:
 
-- **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id):** Menyimpan permintaan secara default (`store=true`) untuk menyederhanakan pengelolaan status sisi server.
-- **Generate Content API (`generateContent`):** Tidak menyimpan permintaan secara default (`store=false`).
+- **[API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=it):** memorizza le richieste per impostazione predefinita (`store=true`) per semplificare la gestione dello stato lato server.
+- **Genera API Content (`generateContent`):** per impostazione predefinita non memorizza le richieste (`store=false`).
 
-Berikut cara menetapkan properti `store`:
+Ecco come impostare la proprietà `store`:
 
-**GenerateContent API**
+**API GenerateContent**
 
 ### Python
 
@@ -78,7 +83,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-**Interactions API**
+**API Interactions**
 
 ### Python
 
@@ -112,61 +117,66 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[interaction.outputs.length - 1].text);
 ```
 
-## Melihat log project di AI Studio
+## Visualizzare i log del progetto in AI Studio
 
-1. Buka halaman Logs di [AI Studio](https://aistudio.google.com/logs?hl=id).
-2. Pilih project dari menu drop-down.
-3. Log akan muncul dalam tabel dalam urutan kronologis terbalik untuk Interactions API, jika ada.
-4. Untuk mengamati log project untuk Generate Content API, aktifkan terlebih dahulu di [panel setelan](#configure-logging).
+1. Vai alla pagina Log in [AI Studio](https://aistudio.google.com/logs?hl=it).
+2. Seleziona un progetto dal menu a discesa.
+3. Se esistono, i log vengono visualizzati nella tabella in ordine cronologico inverso per l'API Interactions.
+4. Per osservare i log del progetto per l'API Content, devi prima abilitarla nel [pannello delle impostazioni](#configure-logging).
 
-Klik entri untuk melihat pratinjau payload. Anda dapat memeriksa perintah dan respons lengkap dari Gemini, serta konteks dari pernyataan sebelumnya. Untuk permintaan **Interactions API**, log juga menyertakan link
-langsung ke `previous_interaction_id`.
+Fai clic su una voce per visualizzare un'anteprima del payload. Puoi
+esaminare il prompt e la risposta completi di Gemini, nonché il contesto dei
+turni precedenti. Per le richieste dell'**API Interactions**, i log includono anche un link diretto
+al `previous_interaction_id`.
 
-## Mengonfigurasi retensi penyimpanan project
+## Configura la conservazione dello spazio di archiviazione del progetto
 
-Log akan berakhir dan ditandai untuk dihapus setelah periode retensi default selama 55 hari (kecuali jika [disimpan ke set data](#create), yang tidak akan berakhir).
-Anda dapat mengonfigurasi periode retensi log project hingga maksimum 7, 14, 28, atau 55 hari.
+I log scadranno e verranno contrassegnati per l'eliminazione dopo un periodo di conservazione predefinito di
+55 giorni (a meno che non vengano [salvati in un set di dati](#create), che non scadono).
+Puoi configurare la finestra di conservazione dei log di un progetto su un massimo di 7, 14, 28 o 55 giorni.
 
-## Membuat dan membagikan set data
+## Creare e condividere set di dati
 
-Anda dapat menyimpan log ke set data untuk mengelola dan mengekspornya secara lebih efektif.
+Puoi salvare i log nei set di dati per organizzarli ed esportarli in modo più efficace.
 
-- Dari [halaman Log](https://aistudio.google.com/logs?hl=id), temukan panel filter di bagian atas untuk memilih properti yang akan difilter.
-- Dari tampilan yang difilter, gunakan kotak centang untuk memilih semua atau masing-masing log.
-- Klik tombol **Buat set data** yang muncul di bagian atas daftar.
-- Beri nama dan deskripsi opsional untuk set data baru Anda.
-- Anda akan melihat set data yang baru saja dibuat dengan kumpulan log yang telah dikurasi.
-- Ekspor set data Anda untuk analisis lebih lanjut sebagai file CSV, JSONL, atau ke Google Spreadsheet.
+- Nella [pagina Log](https://aistudio.google.com/logs?hl=it), individua la barra dei filtri
+  in alto per selezionare una proprietà in base alla quale filtrare.
+- Dalla visualizzazione filtrata, utilizza le caselle di controllo per selezionare tutti i log o i singoli log.
+- Fai clic sul pulsante **Crea set di dati** visualizzato nella parte superiore dell'elenco.
+- Assegna un nome e una descrizione facoltativa al nuovo set di dati.
+- Vedrai il set di dati appena creato con il set di log selezionato.
+- Esporta il set di dati per un'ulteriore analisi come file CSV, JSONL o in Fogli Google.
 
-Set data dapat berguna untuk sejumlah kasus penggunaan yang berbeda.
+I set di dati possono essere utili per una serie di casi d'uso diversi.
 
-- **Susun set tantangan:** Dorong peningkatan di masa mendatang yang menargetkan area tempat Anda ingin AI ditingkatkan.
-- **Menyusun set sampel:** Misalnya, sampel dari penggunaan nyata untuk menghasilkan respons dari model lain, atau kumpulan kasus ekstrem untuk pemeriksaan rutin sebelum deployment.
-- **Set evaluasi:** Set yang mewakili penggunaan nyata di seluruh kemampuan penting, untuk perbandingan di seluruh model atau iterasi petunjuk sistem lainnya.
+- **Crea set di sfide**:promuovi miglioramenti futuri che prendano di mira le aree in cui vuoi che la tua AI migliori.
+- **Crea set di campioni**:ad esempio, un campione di utilizzo reale per generare risposte da un altro modello o una raccolta di casi limite per i controlli di routine prima del deployment.
+- **Set di valutazione**:set rappresentativi dell'utilizzo reale delle funzionalità importanti, per il confronto con altri modelli o iterazioni delle istruzioni di sistema.
 
-Anda dapat berkontribusi pada riset dan pengembangan Gemini dengan memilih untuk membagikan set data Anda kepada Google sebagai contoh demonstrasi.
+Puoi contribuire alla ricerca e allo sviluppo di Gemini scegliendo di condividere
+i tuoi set di dati con Google come esempi dimostrativi.
 
-## Batasan
+## Limitazioni
 
-Pencatatan saat ini tidak didukung untuk hal berikut:
+La registrazione non è attualmente supportata per quanto segue:
 
-- Model Imagen dan Veo
-- Model embedding Gemini
-- Model Gemini Robotics
-- Input yang berisi video, GIF, atau PDF
-- Agen Pratinjau Publik di Gemini API
+- Modelli Imagen e Veo
+- Modelli di embedding Gemini
+- Modello Gemini Robotics
+- Input contenenti video, GIF o PDF
+- Agenti in anteprima pubblica nell'API Gemini
 
-## Langkah berikutnya
+## Passaggi successivi
 
-- **Membuat prototipe dengan histori sesi:** Gunakan [Build AI Studio](https://aistudio.google.com/apps?hl=id) untuk melakukan vibe coding aplikasi dan menambahkan kunci API Anda untuk mengaktifkan histori log Gemini API untuk fitur AI.
-- **Menjalankan ulang log dengan Gemini Batch API:** Gunakan set data untuk pengambilan sampel respons dan evaluasi model atau logika aplikasi dengan menjalankan ulang log menggunakan [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **Prototipo con la cronologia della sessione**:utilizza [AI Studio Build](https://aistudio.google.com/apps?hl=it) per creare app di codice e aggiungere la chiave API per attivare una cronologia dei log dell'API Gemini per le funzionalità di AI.
+- **Esegui di nuovo i log con l'API Gemini Batch:** utilizza i set di dati per il campionamento delle risposte e la valutazione dei modelli o della logica dell'applicazione eseguendo di nuovo i log con l'[API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-Kirim masukan
+Invia feedback
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Terakhir diperbarui pada 2026-07-22 UTC.
+Ultimo aggiornamento 2026-07-22 UTC.
 
-Ada masukan untuk kami?
+Vuoi dirci altro?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-22 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-22 UTC."],[],[]]

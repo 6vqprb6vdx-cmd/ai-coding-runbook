@@ -1,69 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=tr
-fetched_at: 2026-08-10T03:20:34.544733+00:00
-title: "WebSocket'leri kullanarak Gemini Live API'yi kullanmaya ba\u015flama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=ja
+fetched_at: 2026-08-17T02:16:06.703001+00:00
+title: "WebSocket \u3092\u4f7f\u7528\u3057\u3066 Gemini Live API \u3092\u4f7f\u3063\u3066\u307f\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Geri bildirim gönderin
+フィードバックを送信
 
-# WebSocket'leri kullanarak Gemini Live API'yi kullanmaya başlama
+# WebSocket を使用して Gemini Live API を使ってみる
 
-Gemini Live API, Gemini modelleriyle anlık ve çift yönlü etkileşime olanak tanır. Ses, video ve metin girişlerinin yanı sıra doğal ses çıkışlarını destekler. Bu kılavuzda, ham WebSocket'ler kullanarak API ile doğrudan nasıl entegrasyon yapılacağı açıklanmaktadır.
+Gemini Live API を使用すると、Gemini モデルとのリアルタイムの双方向インタラクションが可能になります。音声、動画、テキストの入力とネイティブ音声出力をサポートしています。このガイドでは、生の WebSocket を使用して API と直接統合する方法について説明します。
 
-[Google AI Studio'da Live API'yi deneyinmic](https://aistudio.google.com/live?hl=tr)
-[Örnek uygulamayı GitHub'dan klonlayıncode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
-[Kodlama aracısı becerilerini kullanınterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
+[Google AI Studio で Live API を試すmic](https://aistudio.google.com/live?hl=ja)
+[GitHub からサンプルアプリを複製するcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
+[コーディング エージェントのスキルを使用するterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ja)
 
-## Genel Bakış
+## 概要
 
-Gemini Live API, anlık iletişim için WebSocket'leri kullanır. Bu yaklaşımda, SDK kullanmanın aksine WebSocket bağlantısı doğrudan yönetilir ve API tarafından tanımlanan belirli bir JSON biçiminde mesajlar gönderilip alınır.
+Gemini Live API は、リアルタイム通信に WebSocket を使用します。SDK を使用する場合とは異なり、このアプローチでは、WebSocket 接続を直接管理し、API で定義された特定の JSON 形式でメッセージを送受信します。
 
-Temel kavramlar:
+クラウド セキュリティの主な概念には、
 
-- **WebSocket Uç Noktası**: Bağlanılacak URL.
-- **Mesaj Biçimi**: Tüm iletişim, [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentclientmessage) ve [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentservermessage) yapılarına uygun JSON mesajları aracılığıyla yapılır.
-- **Oturum Yönetimi**: WebSocket bağlantısını sürdürmek sizin sorumluluğunuzdadır.
+- **WebSocket エンドポイント**: 接続先の特定の URL。
+- **メッセージ形式**: すべての通信は、[`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentclientmessage) 構造と [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentservermessage) 構造に準拠した JSON メッセージを介して行われます。
+- **セッション管理**: WebSocket 接続の維持はユーザーの責任となります。
 
-## Kimlik doğrulama
+## 認証
 
-Kimlik doğrulama, API anahtarınızın WebSocket URL'sine sorgu parametresi olarak eklenmesiyle gerçekleştirilir.
+認証は、WebSocket URL に API キーをクエリ パラメータとして含めることで処理されます。
 
-Uç nokta biçimi şöyledir:
+エンドポイントの形式は次のとおりです。
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=YOUR_API_KEY
 ```
 
-`YOUR_API_KEY` kısmını gerçek API anahtarınızla değiştirin.
+`YOUR_API_KEY` は実際の API キーに置き換えます。
 
-## Geçici jetonlarla kimlik doğrulama
+## 一時トークンによる認証
 
-[Kısa ömürlü jetonlar](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=tr) kullanıyorsanız `v1beta` uç noktasına bağlanmanız gerekir.
-Geçici jeton, `access_token` sorgu parametresi olarak iletilmelidir.
+[エフェメラル トークン](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ja)を使用している場合は、`v1beta` エンドポイントに接続する必要があります。エフェメラル トークンは `access_token` クエリ パラメータとして渡す必要があります。
 
-Kısa ömürlü anahtarların uç nokta biçimi şöyledir:
+一時鍵のエンドポイントの形式は次のとおりです。
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained?access_token={short-lived-token}
 ```
 
-`{short-lived-token}` değerini gerçek geçici jetonla değiştirin.
+`{short-lived-token}` は、実際のエフェメラル トークンに置き換えます。
 
-## Live API'ye bağlanma
+## Live API に接続する
 
-Canlı oturum başlatmak için kimliği doğrulanmış uç noktaya bir WebSocket bağlantısı oluşturun.
-WebSocket üzerinden gönderilen ilk mesaj, `config` değerini içeren bir [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentsetup) olmalıdır.
-Tüm yapılandırma seçenekleri için [Live API - WebSockets API referansı](https://ai.google.dev/api/live?hl=tr) başlıklı makaleyi inceleyin.
+ライブ セッションを開始するには、認証済みエンドポイントへの WebSocket 接続を確立します。WebSocket で送信される最初のメッセージは、`config` を含む [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentsetup) である必要があります。構成オプションの詳細については、[Live API - WebSockets API リファレンス](https://ai.google.dev/api/live?hl=ja)をご覧ください。
 
 ### Python
 
@@ -144,9 +141,9 @@ websocket.onclose = () => {
 };
 ```
 
-## Mesaj gönder
+## テキストを送信
 
-Metin girişi göndermek için `text` alanıyla bir [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentrealtimeinput) mesajı oluşturun.
+テキスト入力を送信するには、`text` フィールドを含む [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentrealtimeinput) メッセージを構築します。
 
 ### Python
 
@@ -185,9 +182,9 @@ function sendTextMessage(text) {
 sendTextMessage("Hello, how are you?");
 ```
 
-## Ses gönder
+## 音声を送信します
 
-Ses, ham PCM verileri (ham 16 bit PCM ses, 16 kHz, little-endian) olarak gönderilmelidir. Ses verileriyle [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentrealtimeinput) mesajı oluşturun. `mimeType` çok önemlidir.
+音声は RAW PCM データ（RAW 16 ビット PCM 音声、16kHz、リトル エンディアン）として送信する必要があります。音声データを含む [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentrealtimeinput) メッセージを構築します。`mimeType` は非常に重要です。
 
 ### Python
 
@@ -232,11 +229,11 @@ function sendAudioChunk(chunk) {
 // Example usage: sendAudioChunk(audioBuffer);
 ```
 
-İstemci cihazdan (ör. tarayıcı) sesi alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74)'daki uçtan uca örneğe bakın.
+クライアント デバイス（ブラウザなど）から音声を取得する方法の例については、[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74) のエンドツーエンドの例をご覧ください。
 
-## Video gönder
+## 動画を送信します
 
-Video kareleri ayrı resimler (ör. JPEG veya PNG) olarak gönderilir. Sese benzer şekilde, doğru `mimeType` değerini belirterek `realtimeInput` ile birlikte `Blob` kullanın.
+動画フレームは個々の画像（JPEG、PNG など）として送信されます。音声と同様に、`Blob` で `realtimeInput` を使用し、正しい `mimeType` を指定します。
 
 ### Python
 
@@ -281,11 +278,11 @@ function sendVideoFrame(frame, mimeType = 'image/jpeg') {
 // Example usage: sendVideoFrame(jpegBuffer);
 ```
 
-Videoyu istemci cihazdan (ör. tarayıcı) alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222)'daki uçtan uca örneğe bakın.
+クライアント デバイス（ブラウザなど）から動画を取得する方法の例については、[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222) のエンドツーエンドの例をご覧ください。
 
-## Yanıt alma
+## レスポンスの受信
 
-WebSocket, [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentservermessage) mesajlarını geri gönderir. Bu JSON mesajlarını ayrıştırmanız ve farklı içerik türlerini işlemeniz gerekir.
+WebSocket は [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentservermessage) メッセージを返送します。これらの JSON メッセージを解析し、さまざまな種類のコンテンツを処理する必要があります。
 
 ### Python
 
@@ -356,11 +353,11 @@ websocket.onmessage = (event) => {
 };
 ```
 
-Yanıtın nasıl işleneceğine dair bir örnek için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75)'daki uçtan uca örneğe bakın.
+レスポンスの処理方法の例については、[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75) のエンドツーエンドの例をご覧ください。
 
-## Araç çağrılarını işleme
+## ツールの呼び出しを処理する
 
-Model bir araç çağrısı istediğinde [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontentservermessage), `toolCall` alanını içerir. İşlevi yerel olarak yürütmeli ve sonucu [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=tr#bidigeneratecontenttoolresponse) mesajı kullanarak WebSocket'e geri göndermelisiniz.
+モデルがツール呼び出しをリクエストすると、[`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentservermessage) に `toolCall` フィールドが含まれます。関数をローカルで実行し、[`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontenttoolresponse) メッセージを使用して結果を WebSocket に送信する必要があります。
 
 ### Python
 
@@ -447,20 +444,20 @@ function handleToolCall(toolCall) {
 // This function is called within websocket.onmessage when a toolCall is detected.
 ```
 
-## Sırada ne var?
+## 次のステップ
 
-- Konuşma Etkinliği Algılama ve yerel ses özellikleri de dahil olmak üzere temel özellikler ve yapılandırmalar için Live API [Özellikleri](https://ai.google.dev/gemini-api/docs/live-guide?hl=tr) kılavuzunun tamamını okuyun.
-- Live API'yi araçlarla ve işlev çağrısıyla nasıl entegre edeceğinizi öğrenmek için [Araç kullanımı](https://ai.google.dev/gemini-api/docs/live-tools?hl=tr) kılavuzunu okuyun.
-- Uzun süren görüşmeleri yönetmek için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-session?hl=tr) kılavuzunu okuyun.
-- [İstemciden sunucuya](#implementation-approach) uygulamalarda güvenli kimlik doğrulama için [Geçici jetonlar](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=tr) kılavuzunu okuyun.
-- Temel alınan WebSockets API hakkında daha fazla bilgi için [WebSockets API referansı](https://ai.google.dev/api/live?hl=tr) başlıklı makaleyi inceleyin.
+- 音声検出やネイティブ音声機能など、主な機能と構成については、Live API の[機能](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja)ガイドをご覧ください。
+- [ツールの使用](https://ai.google.dev/gemini-api/docs/live-tools?hl=ja)ガイドを読んで、Live API をツールや関数呼び出しと統合する方法を確認します。
+- 長時間にわたる会話を管理するには、[セッション管理](https://ai.google.dev/gemini-api/docs/live-session?hl=ja)ガイドをご覧ください。
+- [クライアントとサーバー間の](#implementation-approach)アプリケーションで安全な認証を行うには、[エフェメラル トークン](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ja)のガイドをご覧ください。
+- 基盤となる WebSockets API について詳しくは、[WebSockets API リファレンス](https://ai.google.dev/api/live?hl=ja)をご覧ください。
 
-Geri bildirim gönderin
+フィードバックを送信
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Son güncelleme tarihi: 2026-07-23 UTC.
+最終更新日 2026-07-23 UTC。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+ご意見をお聞かせください
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-23 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-23 UTC。"],[],[]]

@@ -1,44 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=ar
-fetched_at: 2026-08-10T03:09:45.928489+00:00
-title: "\u0646\u0645\u0648\u0630\u062c Gemini Embedding 2 \u0627\u0644\u062a\u062c\u0631\u064a\u0628\u064a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=id
+fetched_at: 2026-08-17T02:26:58.756305+00:00
+title: "Model Gemini Embedding 2 Preview \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-# نموذج Gemini Embedding 2 التجريبي
+# Model Gemini Embedding 2 Preview
 
-أول نموذج تضمين متعدد الوسائط، يوفّر عملية ربط رقمية فعّالة للنصوص والصور والفيديوهات والمقاطع الصوتية وملفات PDF في مساحة تضمين موحّدة واحدة. يُعدّ نموذج Gemini Embedding 2 الخيار الأفضل للبحث الدلالي المتعدّد الوسائط واسترجاع المستندات وأنظمة الاقتراحات التي تتطلّب إجراء حسابات سريعة وقابلة للتوسّع بشأن التشابه في مجموعات البيانات الكبيرة المتعدّدة الوسائط.
+Model embedding multimodal pertama kami, yang menyediakan pemetaan numerik yang efisien untuk teks, gambar, video, audio, dan PDF ke dalam satu ruang embedding terpadu. Model Gemini Embedding 2 paling cocok untuk penelusuran semantik lintas-modal, pengambilan dokumen, dan sistem rekomendasi yang memerlukan perhitungan kesamaan yang cepat dan skalabel di seluruh set data multimodal yang besar.
 
-## الوثائق
+## Dokumentasi
 
-يمكنك الانتقال إلى صفحة [التضمينات](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
+Buka halaman [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id) untuk mengetahui cakupan lengkap
+fitur dan kemampuannya.
 
 ## gemini-embedding-2-preview
 
-| الموقع | الوصف |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardرمز النموذج | **Gemini API**  `gemini-embedding-2-preview` |
-| saveأنواع البيانات المتوافقة | **الإدخال**  النصوص والصور والفيديوهات وملفات الصوت وملفات PDF  **الناتج**  تضمينات النص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  8,192  **حجم سمة الإخراج**  مرن، ويتوافق مع: 128 - 3072، الحجم المقترَح: 768 و1536 و3072 |
-| 123الإصدارات | لمزيد من التفاصيل، يُرجى الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions).  - معاينة: `gemini-embedding-2-preview` |
-| calendar\_monthآخر تعديل | مارس 2026 |
+| id\_cardKode model | **Gemini API**  `gemini-embedding-2-preview` |
+| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio, PDF  **Output**  Embedding teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  8.192  **Ukuran dimensi output**  Fleksibel, mendukung: 128 - 3072, Direkomendasikan: 768, 1536, 3072 |
+| 123Versi | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-embedding-2-preview` |
+| calendar\_monthUpdate terbaru | Maret 2026 |
 
-إرسال ملاحظات
+Kirim masukan
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Ada masukan untuk kami?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

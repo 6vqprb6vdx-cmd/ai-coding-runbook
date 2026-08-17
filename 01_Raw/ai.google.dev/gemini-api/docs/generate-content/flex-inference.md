@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=fr
-fetched_at: 2026-08-10T03:09:42.037975+00:00
-title: "Inf\u00e9rence flexible \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=he
+fetched_at: 2026-08-17T02:21:47.224035+00:00
+title: "\u05d4\u05e1\u05e7\u05ea \u05de\u05e1\u05e7\u05e0\u05d5\u05ea \u05d2\u05de\u05d9\u05e9\u05d4 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envoyer des commentaires
+שליחת משוב
 
-# Inférence flexible
+# הסקת מסקנות גמישה
 
-Description : Découvrez comment optimiser les coûts avec le niveau d'inférence Flex
+תיאור: איך לבצע אופטימיזציה של העלויות באמצעות רמת התמחור Flex inference
 
-L'API Gemini Flex est un niveau d'inférence qui offre une réduction des coûts de 50% par rapport aux tarifs standards, en échange d'une latence variable et d'une disponibilité optimale. Elle est conçue pour les charges de travail tolérantes à la latence qui nécessitent un traitement synchrone, mais qui n'ont pas besoin des performances en temps réel de l'API standard.
+‫Gemini Flex API הוא מסלול הסקה שמציע עלות נמוכה ב-50% בהשוואה לתעריפים הרגילים, בתמורה לזמן אחזור משתנה ולזמינות של 'מאמץ מרבי'. הוא מיועד לעומסי עבודה שסובלים השהיה ודורשים עיבוד סינכרוני, אבל לא צריכים את הביצועים בזמן אמת של ה-API הרגיל.
 
-## Utiliser Flex
+## איך משתמשים ב-Flex
 
-Pour utiliser le niveau Flex, spécifiez `service_tier` comme `flex` dans le corps de la requête. Par défaut, les requêtes utilisent le niveau standard si ce champ est omis.
+כדי להשתמש בשכבת Flex, מציינים את `service_tier` כ-`flex` בגוף הבקשה. אם לא מציינים ערך בשדה הזה, ברירת המחדל היא שהבקשות ישתמשו ברמה הרגילה.
 
 ### Python
 
@@ -116,65 +116,57 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## Fonctionnement de l'inférence Flex
+## איך פועל Flex inference
 
-L'inférence Gemini Flex comble le fossé entre l'API standard et le délai de traitement de 24 heures
-de l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr). Elle utilise une capacité de calcul "détachable" en dehors des heures de pointe pour fournir une solution économique pour les tâches en arrière-plan et les workflows séquentiels.
+ההסקה של Gemini Flex מגשרת על הפער בין ה-API הרגיל לבין זמן התגובה של 24 שעות של [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he). הוא משתמש בקיבולת מחשוב מחוץ לשעות השיא שאפשר להפחית כדי לספק פתרון חסכוני למשימות ברקע ולתהליכי עבודה רציפים.
 
-| Fonctionnalité | Flex | Priorité | Standard | Lot |
+| תכונה | שרירים של סלע | עדיפות | רגיל | Batch |
 | --- | --- | --- | --- | --- |
-| **Tarifs** | 50% de remise | 75 à 100% de plus que le niveau Standard | Plein tarif | 50% de remise |
-| **Latence** | Minutes (cible de 1 à 15 minutes) | Faible (secondes) | Secondes à minutes | Jusqu'à 24 heures |
-| **Fiabilité** | Optimisation limitée (détachable) | Élevée (non détachable) | Élevée / Moyenne haute | Élevée (pour le débit) |
-| **Interface** | Synchrone | Synchrone | Synchrone | Asynchrone |
+| **תמחור** | הנחה של 50% | ‫75% עד 100% יותר מבתוכנית Standard | מחיר מלא | הנחה של 50% |
+| **זמן אחזור** | דקות (יעד של 15-1 דקות) | נמוך (שניות) | שניות לדקות | עד 24 שעות |
+| **אמינות** | הכי טוב שאפשר (ניתן להשמטה) | גבוהה (לא נושרת) | גבוהה / בינונית-גבוהה | גבוהה (לתפוקה) |
+| **ממשק** | סינכרוני | סינכרוני | סינכרוני | אסינכרוני |
 
-### Principaux avantages
+### יתרונות עיקריים
 
-- **Rentabilité** : économies substantielles pour les évaluations hors production, les agents en arrière-plan et l'enrichissement des données.
-- **Faible friction** : pas besoin de gérer les objets par lot, les ID de tâche ni l'interrogation. Il vous suffit d'ajouter un seul paramètre à vos requêtes existantes.
-- **Workflows synchrones** : idéal pour les chaînes d'API séquentielles où la requête suivante dépend du résultat de la précédente, ce qui la rend plus flexible que Batch pour les workflows agentiques.
+- **יעילות בעלויות**: חיסכון משמעותי בהערכות שאינן בסביבת ייצור, בסוכני רקע ובהעשרת נתונים.
+- **פשוט וקל**: לא צריך לנהל אובייקטים של קבוצות, מזהי משימות או בדיקות. פשוט מוסיפים פרמטר יחיד לבקשות הקיימות.
+- **תהליכי עבודה סינכרוניים**: מתאימים במיוחד לשרשראות API רציפות שבהן הבקשה הבאה תלויה בפלט של הבקשה הקודמת. כך הם גמישים יותר מ-Batch לתהליכי עבודה של סוכנים.
 
-### Cas d'utilisation
+### תרחישים לדוגמה
 
-- **Évaluations hors connexion** : exécution de tests de régression ou de classements « LLM-as-a-judge ».
-- **Agents en arrière-plan** : tâches séquentielles telles que les mises à jour CRM, la création de profils ou la modération de contenu où quelques minutes de délai sont acceptables.
-- **Recherche avec budget limité** : expériences universitaires nécessitant un volume de jetons élevé avec un budget limité.
+- **הערכות אופליין**: הרצת בדיקות רגרסיה או טבלאות השוואה של מודלים גדולים של שפה (LLM) בתור שופטים.
+- **סוכנים ברקע**: משימות רציפות כמו עדכוני CRM, בניית פרופילים או משימות של מודרציה של תוכן, שבהן עיכוב של כמה דקות הוא סביר.
+- **מחקרים עם תקציב מוגבל**: ניסויים אקדמיים שדורשים נפח גבוה של טוקנים בתקציב מוגבל.
 
-### Limites de débit
+### מגבלות קצב
 
-Le trafic d'inférence Flex est comptabilisé dans vos [limites de débit](https://aistudio.google.com/rate-limit?hl=fr) générales. Il n'offre pas
-de limites de débit étendues comme l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr).
+תנועת ההסקה של Flex נספרת במסגרת [מגבלות הקצב](https://aistudio.google.com/rate-limit?hl=he) הכלליות, ולא מוצעות לה מגבלות קצב מורחבות כמו ב-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he).
 
-### Capacité détachable
+### קיבולת שאפשר להקצות מחדש
 
-Le trafic Flex est traité avec une priorité inférieure. En cas de pic de trafic standard, les requêtes Flex peuvent être préemptées ou supprimées pour garantir la capacité des utilisateurs prioritaires. Si vous recherchez une inférence prioritaire, consultez la section
-[Inférence prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr)
+התנועה הגמישה מקבלת עדיפות נמוכה יותר. אם יש עלייה חדה בתנועה הרגילה, יכול להיות שבקשות Flex יידחו או יבוטלו כדי להבטיח קיבולת למשתמשים בעדיפות גבוהה. אם אתם מחפשים הסקה בעדיפות גבוהה, כדאי לעיין במאמר בנושא [הסקה בעדיפות](https://ai.google.dev/gemini-api/docs/priority-inference?hl=he)
 
-### Codes d'erreur
+### קודי שגיאה
 
-Lorsque la capacité Flex n'est pas disponible ou que le système est saturé, l'API renvoie des codes d'erreur standards :
+אם הקיבולת הגמישה לא זמינה או שהמערכת עמוסה, ה-API יחזיר קודי שגיאה רגילים:
 
-- **503 Service indisponible** : le système a atteint sa capacité maximale.
-- **429 Trop de requêtes** : limites de débit ou épuisement des ressources.
+- **‫503 השירות לא זמין**: המערכת עמוסה כרגע.
+- ‫**429 Too Many Requests**: חריגה ממגבלות קצב או ניצול יתר של משאבים.
 
-### Responsabilité du client
+### באחריות הלקוח
 
-- **Aucune reprise en cas d'échec côté serveur** : pour éviter les frais inattendus, le système ne
-  met pas automatiquement à niveau une requête Flex vers le niveau Standard si la capacité Flex est
-  pleine.
-- **Nouvelles tentatives** : vous devez implémenter votre propre logique de nouvelle tentative côté client avec
-  un intervalle exponentiel entre les tentatives.
-- **Délais avant expiration** : étant donné que les requêtes Flex peuvent se trouver dans une file d'attente, nous vous recommandons
-  d’augmenter les délais avant expiration côté client à 10 minutes ou plus pour éviter une
-  fermeture prématurée de la connexion.
+- **אין מעבר אוטומטי לגיבוי בצד השרת**: כדי למנוע חיובים לא צפויים, המערכת לא תשדרג אוטומטית בקשת Flex לרמה Standard אם הקיבולת של Flex מלאה.
+- **ניסיונות חוזרים**: אתם צריכים להטמיע לוגיקה משלכם לביצוע ניסיונות חוזרים בצד הלקוח, עם השהיה מעריכית לפני ניסיון חוזר (exponential backoff).
+- **פסק זמן (timeout)**: בקשות Flex עשויות להמתין בתור, ולכן מומלץ להגדיל את פסק הזמן בצד הלקוח ל-10 דקות או יותר כדי למנוע סגירה מוקדמת של החיבור.
 
-## Ajuster les fenêtres de délai avant expiration
+## שינוי חלונות הזמן הקצוב לתפוגה
 
-Vous pouvez configurer des délais avant expiration par requête pour l'API REST et les bibliothèques clientes, et des délais avant expiration globaux uniquement lorsque vous utilisez les bibliothèques clientes.
+אפשר להגדיר פסק זמן לכל בקשה עבור API בארכיטקטורת REST וספריות לקוח, ופסק זמן גלובלי רק כשמשתמשים בספריות לקוח.
 
-Assurez-vous toujours que votre délai avant expiration côté client couvre la fenêtre de patience du serveur prévue (par exemple, 600 secondes ou plus pour les files d'attente Flex). Les SDK attendent des valeurs de délai avant expiration en millisecondes.
+חשוב לוודא תמיד שזמן הקצוב לתפוגה בצד הלקוח מכסה את חלון הזמן המיועד להמתנה בשרת (לדוגמה, 600 שניות ומעלה לתורי המתנה של Flex). ערכי הזמן הקצוב לתפוגה ב-SDK צריכים להיות באלפיות שנייה.
 
-### Délais avant expiration par requête
+### זמני קצוב לתפוגה לכל בקשה
 
 ### Python
 
@@ -321,12 +313,11 @@ func main() {
 
 ### REST
 
-Lorsque vous effectuez des appels REST, vous pouvez contrôler les délais avant expiration à l'aide d'une combinaison d'en-têtes HTTP et d'options `curl` :
+כשמבצעים קריאות REST, אפשר לשלוט בערכי הזמן הקצוב לתפוגה באמצעות שילוב של כותרות HTTP ואפשרויות `curl`:
 
-- **En-tête `X-Server-Timeout` (délai avant expiration côté serveur)** : cet en-tête suggère une durée de délai avant expiration préférée (600 secondes par défaut) au serveur d'API Gemini. Le serveur tentera de respecter cette valeur, mais cela n'est pas garanti. La valeur doit être exprimée en secondes.
-- **`--max-time` dans `curl` (délai avant expiration côté client)** : l'option `curl --max-time
-  <seconds>` définit une limite stricte sur le temps total (en secondes) pendant lequel `curl`
-  attendra la fin de l'opération. Il s'agit d'une protection côté client.
+- **הכותרת `X-Server-Timeout` (זמן קצוב לתפוגה בצד השרת)**: הכותרת הזו מציעה משך זמן קצוב לתפוגה (ברירת מחדל 600 שניות) לשרת Gemini API. השרת ינסה לפעול בהתאם, אבל אין לכך ערובה. הערך צריך להיות בשניות.
+- ‫**`--max-time` ב-`curl` (זמן קצוב לתפוגה בצד הלקוח)**: האפשרות `curl --max-time
+  <seconds>` מגדירה מגבלה קשיחה על הזמן הכולל (בשניות) שבו `curl` ימתין עד להשלמת הפעולה כולה. זהו אמצעי הגנה מצד הלקוח.
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -342,9 +333,9 @@ Lorsque vous effectuez des appels REST, vous pouvez contrôler les délais avant
  }'
 ```
 
-### Délais avant expiration globaux
+### הגדרת פסק זמן גלובלי
 
-Si vous souhaitez que tous les appels d'API effectués via une instance `genai.Client` spécifique (bibliothèques clientes uniquement) aient un délai avant expiration par défaut, vous pouvez le configurer lors de l'initialisation du client à l'aide de `http_options` et `genai.types.HttpOptions`.
+אם רוצים שכל הקריאות ל-API שמתבצעות דרך מופע `genai.Client` ספציפי (רק בספריות לקוח) יכללו פסק זמן שמוגדר כברירת מחדל, אפשר להגדיר את זה כשמפעילים את הלקוח באמצעות `http_options` ו-`genai.types.HttpOptions`.
 
 ### Python
 
@@ -491,9 +482,9 @@ await main();
  }
 ```
 
-## Implémenter des nouvelles tentatives
+## הטמעה של ניסיונות חוזרים
 
-Étant donné que Flex est détachable et échoue avec des erreurs 503, voici un exemple d'implémentation facultative d'une logique de nouvelle tentative pour poursuivre les requêtes ayant échoué :
+‫Flex ניתן להסרה, והוא נכשל עם שגיאות 503. הנה דוגמה להטמעה אופציונלית של לוגיקה של ניסיון חוזר כדי להמשיך עם בקשות שנכשלו:
 
 ### Python
 
@@ -635,43 +626,42 @@ print(response.text)
  }
 ```
 
-## Tarifs
+## תמחור
 
-[L'inférence Flex est facturée à 50% de l'API standard](https://ai.google.dev/gemini-api/docs/pricing?hl=fr)
-et facturée par jeton.
+התמחור של Flex inference הוא 50% מ[ה-API הרגיל](https://ai.google.dev/gemini-api/docs/pricing?hl=he), והחיוב הוא לפי טוקן.
 
-## Modèles compatibles
+## מודלים נתמכים
 
-Les modèles suivants sont compatibles avec l'inférence Flex :
+המודלים הבאים תומכים בהסקת מסקנות גמישה:
 
-| Modèle | Inférence Flex |
+| מודל | היקש ברמת Flex |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fr) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fr) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fr) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fr) | ✔️ |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr) | ✔️ |
-| [Preview Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fr) | ✔️ |
-| [Preview Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=fr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fr) | ✔️ |
+| ‫[Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=he) | ✔️ |
+| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
+| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
+| [תצוגה מקדימה של תמונות ב-Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
+| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
 
-## Étape suivante
+## המאמרים הבאים
 
-Découvrez les autres options d' [inférence et d'optimisation](https://ai.google.dev/gemini-api/docs/optimization?hl=fr) de Gemini :
+מידע נוסף על אפשרויות אחרות של [הסקת מסקנות ואופטימיזציה](https://ai.google.dev/gemini-api/docs/optimization?hl=he) ב-Gemini:
 
-- [Inférence prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr) pour une latence ultra-faible.
-- [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr) pour le traitement asynchrone sous 24 heures.
-- [Mise en cache de contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) pour réduire les coûts des jetons d'entrée.
+- [הסקת עדיפות](https://ai.google.dev/gemini-api/docs/priority-inference?hl=he) לזמן אחזור נמוך במיוחד.
+- ‫[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he) לעיבוד אסינכרוני תוך 24 שעות.
+- [שמירת מטמון של ההקשר](https://ai.google.dev/gemini-api/docs/caching?hl=he) כדי להפחית את העלויות של טוקנים של קלט.
 
-Envoyer des commentaires
+שליחת משוב
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Dernière mise à jour le 2026/07/30 (UTC).
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Voulez-vous nous donner plus d'informations ?
+רוצה לתת לנו משוב?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

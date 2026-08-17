@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=he
-fetched_at: 2026-08-10T03:08:19.074320+00:00
-title: "\u05d0\u05d9\u05e0\u05d8\u05e8\u05d0\u05e7\u05e6\u05d9\u05d5\u05ea \u05e2\u05dd \u05e1\u05d8\u05e8\u05d9\u05de\u05d9\u05e0\u05d2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=zh-TW
+fetched_at: 2026-08-17T02:26:08.629665+00:00
+title: "\u4e32\u6d41\u4e92\u52d5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-שליחת משוב
+提供意見
 
-# אינטראקציות עם סטרימינג
+# 串流互動
 
-כשיוצרים אינטראקציה, אפשר להגדיר את `stream: true` להזרמה מצטברת של התגובה באמצעות [אירועים שנשלחים מהשרת](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
+建立 Interaction 時，您可以設定 `stream: true`，使用[伺服器傳送事件](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE) 逐步串流回應。
 
 ### Python
 
@@ -110,24 +110,24 @@ event: done
 data: [DONE]
 ```
 
-## סוגי אירועים
+## 事件類型
 
-כל אירוע שנשלח מהשרת כולל שם `event_type` ונתוני JSON משויכים. ב-Interactions API נעשה שימוש במודל סימטרי של סטרימינג, שבו כל התוכן – טקסט, קריאות לכלים, חשיבה – עובר דרך אירוע **מבוסס-שלבים** עקבי.
+每個伺服器傳送的事件都包含名為 `event_type` 的事件和相關聯的 JSON 資料。Interactions API 使用對稱串流模型，所有內容 (文字、工具呼叫、思考) 都會透過一致的**步驟式**事件流動。
 
-כל עדכון תוכן פועל לפי רצף האירועים הזה:
+每個串流都會遵循下列事件流程：
 
-1. ‫`interaction.created`: האינטראקציה נוצרת וכוללת מטא-נתונים (מזהה, מודל, סטטוס).
-2. סדרה של **שלבים**, שכל אחד מהם מורכב מ:
-   - אירוע `step.start` שמציין את סוג השלב (למשל, `model_output`, `thought`, `function_call`).
-   - אירוע `step.delta` אחד או יותר עם נתונים מצטברים של השלב הזה.
-   - אירוע `step.stop` שמסמן את השלב כהושלם.
-3. אירוע `interaction.completed` עם נתוני `usage` סופיים.
+1. `interaction.created`：互動已建立，包含中繼資料 (ID、模型、狀態)。
+2. 一系列的**步驟**，每個步驟都包含：
+   - `step.start` 事件，表示步驟類型 (例如 `model_output`、`thought`、`function_call`)。
+   - 一或多個 `step.delta` 事件，其中包含該步驟的增量資料。
+   - `step.stop` 事件，將步驟標示為完成。
+3. 含有最終 `usage` 統計資料的 `interaction.completed` 事件。
 
-כשמגדירים את הערך `stream: false`, ה-API מחזיר אובייקט `interaction` יחיד עם מערך `steps`. כל אלמנט ב-`steps` הוא הגרסה המורכבת במלואה של מחזור אחד של `step.start` → `step.delta`(s) → `step.stop`.
+設定 `stream: false` 時，API 會傳回含有 `steps` 陣列的單一 `interaction` 物件。`steps` 中的每個元素都是一個 `step.start` → `step.delta`(s) → `step.stop` 週期完整組裝的版本。
 
 ### `interaction.created`
 
-האירוע הזה נשלח כשיוצרים את האינטראקציה בפעם הראשונה. מכיל את מזהה האינטראקציה, המודל והסטטוס הראשוני.
+首次建立互動時傳送。包含互動 ID、模型和初始狀態。
 
 ```
 event: interaction.created
@@ -136,7 +136,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3.5-flash", "status": "in_p
 
 ### `interaction.status_update`
 
-האות הזה מציין מעבר סטטוס ברמת האינטראקציה. יכול להיות שיופיע בין השלבים.
+發出互動層級狀態轉換的信號。可能會顯示在步驟之間。
 
 ```
 event: interaction.status_update
@@ -145,23 +145,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-מציין את תחילתו של שלב חדש. מכיל את השלבים `type` ו-`index`. סוג השלב קובע אילו סוגי דלתא צפויים ואיך השלב יופיע בתגובה שלא מועברת בסטרימינג:
+標示新步驟的開頭。包含步驟 `type` 和 `index`。步驟類型會決定預期的 delta 類型，以及步驟在非串流回應中的顯示方式：
 
-| סוג השלב | סוגי הדלתא הצפויים | תיאור |
+| 步驟類型 | 預期差異類型 | 說明 |
 | --- | --- | --- |
-| `model_output` | `text`,‏ `image`,‏ `audio` | תוכן התשובה הסופית של המודל. |
-| `thought` | `thought_signature`, `thought_summary` | נימוק לפי שרשרת מחשבות. הפרמטר `summary` מופיע רק אם הפרמטר `thinking_summaries` מופעל. |
-| `function_call` | `arguments_delta` | בקשה מהלקוח להפעיל פונקציה. הסטטוס של האינטראקציה מוגדר ל`requires_action`. |
-| כלים בצד השרת | משתנה בהתאם לכלי | כלים שמופעלים על ידי ה-API (לדוגמה, `google_search_call`, ‏ `google_search_result`, ‏ `code_execution_call`, ‏ `code_execution_result`). |
+| `model_output` | `text`、`image`、`audio` | 模型的最終回覆內容。 |
+| `thought` | `thought_signature`、`thought_summary` | 關聯思考推論。只有在啟用 `thinking_summaries` 時，才會顯示 `summary`。 |
+| `function_call` | `arguments_delta` | 要求用戶端執行函式。將互動狀態設為 `requires_action`。 |
+| 伺服器端工具 | 依工具而異 | API 執行的工具 (例如 `google_search_call`、`google_search_result`、`code_execution_call`、`code_execution_result`)。 |
 
-הרשימה המלאה מופיעה ב[הפניית API של אינטראקציות](https://ai.google.dev/api/interactions-api?hl=he).
+如需完整清單，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw)。
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-במקרה של קריאות לפונקציות, השלב כולל את שם הפונקציה, המזהה שלה וארגומנטים ריקים `{}`.
+如果是函式呼叫，這個步驟會包含函式名稱、ID 和空白引數 `{}`。
 
 ```
 event: step.start
@@ -170,11 +170,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-נתונים מצטברים של השלב הנוכחי. האובייקט `delta` מכיל שדה `type` שקובע את הצורה שלו.
+目前步驟的增量資料。`delta` 物件包含 `type` 欄位，可決定形狀。
 
-**לדוגמה:**
+**範例：**
 
-‫**`text`:** אסימון טקסט מצטבר משלב `model_output`:
+**`text`：**`model_output` 步驟的增量文字權杖：
 
 ```
 event: step.delta
@@ -184,32 +184,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-‫**`image`:** נתוני תמונה בקידוד Base64 משלב `model_output`:
+**`image`：**來自 `model_output` 步驟的 Base64 編碼圖片資料：
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-‫**`thought_summary`:** סיכום של תהליך החשיבה משלב `thought`:
+**`thought_summary`：**從 `thought` 步驟思考摘要內容：
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-‫**`arguments_delta`:** מחרוזת JSON (חלקית) של ארגומנטים לקריאה לפונקציה. הסכום המצטבר צריך להיות מחושב על סמך שינויים:
+**`arguments_delta`：** (部分) 函式呼叫引數的 JSON 字串。必須跨 Delta 累計：
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-אלה כמה מהסוגים הנפוצים ביותר של דלתא. רשימה מלאה של כל סוגי הדלתא זמינה במאמר [Interactions API reference](https://ai.google.dev/api/interactions-api?hl=he).
+以下列舉一些最常見的差異類型。如要查看所有差異類型的完整清單，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw)。
 
 ### `step.stop`
 
-סימון סוף השלב. הוא מכיל את השלב `index`.
+標示步驟的結尾。包含步驟 `index`。
 
 ```
 event: step.stop
@@ -218,7 +218,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-האירוע נשלח בסיום האינטראקציה. מכיל את אובייקט האינטראקציה הסופי עם נתוני `usage`. במצב לא סטרימינג, זהו אובייקט התגובה ברמה העליונה עצמו. לא כולל את `steps` בתשובה.
+互動結束時傳送。包含最終互動物件和 `usage` 統計資料。在非串流模式下，這是頂層的回應物件本身。回覆內容不含 `steps`。
 
 ```
 event: interaction.completed
@@ -227,26 +227,23 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-האירוע נשלח כשמתרחשת שגיאה במהלך האינטראקציה. מכיל אובייקט שגיאה עם הודעה וקוד.
+互動期間發生錯誤時傳送。包含含有訊息和代碼的錯誤物件。
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## סטרימינג באמצעות כלים
+## 使用工具串流播放
 
-ממשק Interactions API תומך בסטרימינג גם עם כלים בצד הלקוח (הפעלת פונקציות) וגם עם כלים בצד השרת (חיפוש Google, הפעלת קוד וכו') בבקשה אחת. במהלך הסטרימינג, הפעלות של כלים מופיעות כשלבים מוקלדים בסטרימינג של האירועים. במקרה של קריאות לפונקציות, האירוע `step.start` מעביר את שם הפונקציה, והאירועים `step.delta` מעבירים את הארגומנטים כמחרוזות JSON‏ (`arguments_delta`). כדי לקבל את הארגומנטים המלאים, צריך לצבור את הדלתאות האלה.
-כלים בצד השרת כמו חיפוש Google מופעלים אוטומטית על ידי ה-API,
-ומפיקים את השלבים `google_search_call` ו-`google_search_result`.
+在單一要求中，Interactions API 支援使用用戶端工具 (函式呼叫) 和伺服器端工具 (Google 搜尋、程式碼執行等) 進行串流。在串流期間，工具呼叫會以輸入步驟的形式顯示在事件串流中。如果是函式呼叫，`step.start` 事件會傳送函式名稱，而 `step.delta` 事件會將引數串流為 JSON 字串 (`arguments_delta`)。您必須累積這些差異，才能取得完整引數。API 會自動執行 Google 搜尋等伺服器端工具，產生 `google_search_call` 和 `google_search_result` 步驟。
 
-### הזרמה עם בקשה להפעלת פונקציה
+### 串流函式呼叫
 
-כדי לבצע קריאה לפונקציה עם סטרימינג, הלקוח צריך לנהל שיחה מרובת תפניות:
+如要使用串流執行函式呼叫，用戶端必須處理多輪對話：
 
-1. **תור 1 (בקשה לפונקציה):** קריאה לפונקציה `interactions.create` עם `stream: true`
-   והפונקציה `tools` שהגדרתם. ממשק ה-API ישדר שלב `function_call`. צריך לצבור את מחרוזות ה-JSON של הארגומנטים המצטברים (`arguments_delta`) מאירועי `step.delta` עד שהאינטראקציה מסתיימת עם הסטטוס `requires_action`.
-2. **תור 2 (שליחת תוצאה):** מתקשרים שוב אל `interactions.create`, מעבירים את `previous_interaction_id` (שמתאים למזהה של האינטראקציה הראשונה) ושולחים בלוק `function_result` במערך `input`. הפעולה הזו מחדשת את הסטרימינג, ומאפשרת למודל ליצור את התשובה הסופית.
+1. **第 1 輪 (函式要求)：**使用 `stream: true` 和您定義的 `tools` 呼叫 `interactions.create`。API 會串流 `function_call` 步驟。您必須從 `step.delta` 事件累積增量引數 JSON 字串 (`arguments_delta`)，直到互動完成並顯示 `requires_action` 狀態為止。
+2. **第 2 輪 (傳送結果)：**再次呼叫 `interactions.create`，傳遞 `previous_interaction_id` (與第一次互動的 ID 相符)，並在 `input` 陣列中傳送 `function_result` 區塊。這會繼續串流，讓模型生成最終回覆。
 
 ### Python
 
@@ -403,7 +400,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**תור 1:** בקשה להפעלת פונקציה
+**第 1 輪：**要求函式呼叫
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -434,7 +431,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**תור 2:** שליחת התוצאה של הפונקציה באמצעות `previous_interaction_id` ו-`call_id` מתור 1
+**第 2 輪：**使用第 1 輪的 `previous_interaction_id` 和 `call_id` 傳送函式結果
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -463,9 +460,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### סטרימינג באמצעות כמה כלים
+### 使用多種工具串流播放
 
-בדוגמה הבאה נעשה שימוש גם בכלי `function` וגם ב-`google_search` בבקשה אחת:
+以下範例在一個要求中同時使用 `function` 工具和 `google_search`：
 
 ### Python
 
@@ -666,9 +663,9 @@ event: done
 data: [DONE]
 ```
 
-## סטרימינג עם חשיבה
+## 串流與思考
 
-כשמשתמשים במודל חשיבה, מקבלים `thought` שלבים עם שני סוגים שונים של דלתא: `thought_summary` (תוכן מצטבר של סיכום טקסט או תמונה) ו-`thought_signature` (ייצוג מוצפן של ההיגיון הפנימי של המודל, שנשלח כדלתא האחרונה לפני `step.stop`). אם האפשרות `thinking_summaries` מופעלת, הדלתאות `thought_summary` מעבירות בסטרימינג סיכום של ההיגיון של המודל. מידע נוסף על חשיבה זמין ב[מדריך החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he).
+模型使用思考功能時，您會收到 `thought` 步驟，其中包含兩種不同的 delta 類型：`thought_summary` (遞增的文字或圖片摘要內容) 和 `thought_signature` (模型內部推論的加密表示法，會在 `step.stop` 前以最後一個 delta 傳送)。如果啟用 `thinking_summaries`，`thought_summary` delta 會串流傳送模型推論的摘要。如要進一步瞭解思考過程，請參閱[思考指南](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)。
 
 ### Python
 
@@ -768,9 +765,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## שידור באמצעות סוכנים
+## 使用代理串流播放
 
-‫Interactions API תומך בסוכנים כמו Deep Research. סוכנים משתמשים ב-`background=True` ומחזירים תוצאות באופן אסינכרוני, אבל אפשר גם להזרים אינטראקציות עם סוכנים כדי לקבל עדכונים על ההתקדמות ושלבי ביניים בזמן שהם מתרחשים. פרטים נוספים זמינים [במדריך להרצת אפליקציות ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he) וב[מדריך למחקר מעמיק](https://ai.google.dev/gemini-api/docs/deep-research?hl=he).
+Interactions API 支援 Deep Research 等代理程式。代理程式會使用 `background=True` 並以非同步方式傳回結果，但您也可以串流代理程式互動，以便在互動發生時接收進度更新和中間步驟。詳情請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)和[深入研究指南](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)。
 
 ### Python
 
@@ -889,11 +886,11 @@ event: done
 data: [DONE]
 ```
 
-## יצירת תמונות בסטרימינג
+## 串流生成圖像
 
-‫Interactions API תומך בסטרימינג של כמה מצבי פלט בו-זמנית. אם תבקשו גם `text` וגם `image` ב-`response_format`, תקבלו באותו הזרם טקסט משולב ותמונות שנוצרו.
+Interactions API 支援同時串流多種輸出模式。在 `response_format` 中同時要求 `text` 和 `image`，即可在同一串流中收到交錯的文字和生成的圖片。
 
-בדוגמה הבאה נעשה שימוש ב-`gemini-3.1-flash-image` (Nano Banana 2) כדי לחפש מידע וליצור סיפור עם איורים משולבים.
+以下範例使用 `gemini-3.1-flash-image` (Nano Banana 2) 搜尋資訊，並生成穿插插圖的故事。
 
 ### Python
 
@@ -1046,24 +1043,24 @@ event: done
 data: [DONE]
 ```
 
-## טיפול באירועים לא ידועים
+## 處理不明事件
 
-בהתאם למדיניות בנושא ניהול גרסאות של ה-API, יכול להיות שנוסיף עם הזמן סוגים חדשים של אירועים וסוגים חדשים של שינויים מצטברים. הקוד צריך לטפל בסוגי אירועים לא מוכרים בצורה חלקה – לתעד ולדלג על אירועים שלא מזוהים במקום להציג שגיאה.
+根據 API 的版本控管政策，系統可能會隨時間新增事件類型和差異類型。程式碼應妥善處理不明事件類型，記錄並略過無法辨識的事件，而非擲回錯誤。
 
-## המאמרים הבאים
+## 後續步驟
 
-- [מידע נוסף על Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he)
-- [הסבר על שימוש בפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) בעזרת כלים
-- [מידע נוסף על Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he)
-- כדאי לנסות את [סוכן Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) למשימות לטווח ארוך.
-- ב[הפניה ל-Interactions API](https://ai.google.dev/api/interactions-api?hl=he) מפורטים כל סוגי האירועים וסוגי הדלתא.
+- 進一步瞭解 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)。
+- 探索使用工具進行[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+- 瞭解如何[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)以提升推理能力。
+- 如要執行長時間的工作，請試用 [Deep Research 代理](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)。
+- 如需所有事件類型和 delta 類型，請參閱[互動 API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw)。
 
-שליחת משוב
+提供意見
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-עדכון אחרון: 2026-07-07 (שעון UTC).
+上次更新時間：2026-07-07 (世界標準時間)。
 
-רוצה לתת לנו משוב?
+想進一步說明嗎？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-07 (שעון UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-07 (世界標準時間)。"],[],[]]

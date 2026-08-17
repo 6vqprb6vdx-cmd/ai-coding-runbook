@@ -1,27 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-CN
-fetched_at: 2026-08-10T03:10:35.822728+00:00
-title: "\u6587\u4ef6\u8f93\u5165\u65b9\u6cd5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-BR
+fetched_at: 2026-08-17T02:22:21.446116+00:00
+title: "M\u00e9todos de entrada de arquivo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-发送反馈
+Envie comentários
 
-# 文件输入方法
+# Métodos de entrada de arquivo
 
-本指南介绍了在向 Gemini API 发出请求时，您可以通过哪些不同的方式添加媒体文件，例如图片、音频、视频和文档。所有 Gemini API 端点（包括 Batch、Interactions 和 Live API）均支持这些新方法。
-选择正确的方法取决于文件的大小、数据的存储位置以及您计划使用文件的频率。
+Este guia explica as diferentes maneiras de incluir arquivos de mídia, como imagens, áudio, vídeo e documentos, ao fazer solicitações à API Gemini.
+Os novos métodos são compatíveis com todos os endpoints da API Gemini, incluindo Batch, Interactions e Live API.
+A escolha do método certo depende do tamanho do arquivo, de onde os dados estão armazenados e da frequência com que você planeja usar o arquivo.
 
-将文件作为输入内容包含在提示中最简单的方法是读取本地文件，然后将其包含在提示中。以下示例展示了如何读取本地 PDF 文件。对于此方法，PDF 的大小上限为 50MB。如需查看文件输入类型和限制的完整列表，请参阅[输入法比较表](#method-comparison)。
+A maneira mais simples de incluir um arquivo como entrada é ler um arquivo local e incluí-lo em um comando. O exemplo a seguir mostra como ler um arquivo PDF local. Os PDFs são limitados a 50 MB para esse método. Consulte a
+[tabela de comparação de métodos de entrada](#method-comparison) para uma lista completa de tipos e limites de entrada de
+arquivos.
 
 ### Python
 
@@ -96,26 +99,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 输入法比较
+## Comparação de métodos de entrada
 
-下表比较了每种输入方法的文件限制和最佳使用情形。请注意，文件大小限制可能会因文件类型以及用于处理文件的模型或分词器而异。
+A tabela a seguir compara cada método de entrada com limites de arquivo e casos de uso recomendados. O limite de tamanho do arquivo pode variar dependendo do tipo de arquivo e do modelo ou tokenizador usado para processar o arquivo.
 
-| 方法 | 适用场景 | 文件大小的最大值 | 持久性 |
+| Método | Ideal para | Tamanho máximo do arquivo | Persistência |
 | --- | --- | --- | --- |
-| **内嵌数据** | 快速测试、小文件、实时应用。 | 每个请求或载荷 100 MB  （**PDF 为 50 MB**） | 无（随每个请求发送） |
-| **文件 API 上传** | 大型文件、多次使用的文件。 | 每个文件 2 GB， 每个项目最多 20 GB | 48 小时 |
-| **文件 API GCS URI 注册** | 已在 Google Cloud Storage 中的大型文件、多次使用的文件。 | 每个文件的大小上限为 2 GB，没有总体存储空间限制 | 无（按请求提取）。一次性注册可提供长达 30 天的访问权限。 |
-| **外部网址** | 公共数据或云存储分区（AWS、Azure、GCS）中的数据，无需重新上传。 | 每个请求/载荷 100 MB | 无（按请求提取） |
+| **Dados inline** | Testes rápidos, arquivos pequenos, aplicativos em tempo real. | 100 MB por solicitação ou payload   (**50 MB para PDFs**) | Nenhum (enviado com cada solicitação) |
+| **Upload de arquivo da API** | Arquivos grandes, arquivos usados várias vezes. | 2 GB por arquivo,   até 20 GB por projeto | 48 horas |
+| **Registro de URI do GCS da API File** | Arquivos grandes já no Google Cloud Storage, arquivos usados várias vezes. | 2 GB por arquivo, sem limites gerais de armazenamento | Nenhum (buscado por solicitação). O registro único pode dar acesso por até 30 dias. |
+| **URLs externos** | Dados públicos ou dados em buckets de nuvem (AWS, Azure, GCS) sem fazer o upload novamente. | 100 MB por solicitação/payload | Nenhum (buscado por solicitação) |
 
-## 内嵌数据
+## Dados inline
 
-对于较小的文件（小于 100MB，如果是 PDF 文件则小于 50MB），您可以直接在请求载荷中传递数据。这是最简单的方法，适用于快速测试或处理实时瞬态数据的应用。您可以提供 base64 编码的字符串形式的数据，也可以直接读取本地文件。
+Para arquivos menores (menos de 100 MB ou 50 MB para PDFs), é possível transmitir os dados diretamente no payload da solicitação. Esse é o método mais simples para testes rápidos ou aplicativos que processam dados temporários em tempo real. É possível fornecer dados como strings codificadas em base64 ou lendo arquivos locais diretamente.
 
-如需查看从本地文件读取数据的示例，请参阅本页开头的示例。
+Para um exemplo de leitura de um arquivo local, consulte o exemplo no início desta página.
 
-### 通过网址提取
+### Buscar em um URL
 
-您还可以从网址中提取文件，将其转换为字节，然后将其包含在输入中。
+Também é possível buscar um arquivo em um URL, convertê-lo em bytes e incluí-lo na entrada.
 
 ### Python
 
@@ -213,13 +216,13 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## Gemini File API
+## API Gemini File
 
-File API 专为较大文件（最大 2GB）或您打算在多个请求中使用的文件而设计。
+A API File foi projetada para arquivos maiores (até 2 GB) ou arquivos que você pretende usar em várias solicitações.
 
-### 标准文件上传
+### Upload de arquivo padrão
 
-将本地文件上传到 Gemini API。以这种方式上传的文件会临时存储（48 小时），并经过处理，以便模型高效检索。
+Faça upload de um arquivo local para a API Gemini. Os arquivos enviados dessa forma são armazenados temporariamente (48 horas) e processados para recuperação eficiente pelo modelo.
 
 ### Python
 
@@ -316,43 +319,47 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-### 注册 Google Cloud Storage 文件
+### Registrar arquivos do Google Cloud Storage
 
-如果您的数据已在 Google Cloud Storage 中，则无需下载并重新上传。您可以直接使用 File API 注册该服务。
+Se os dados já estiverem no Google Cloud Storage, não será necessário fazer o download e o upload novamente. É possível registrá-los diretamente com a API File.
 
-1. 向**服务代理**授予对每个存储分区的访问权限
+1. Conceda acesso do **agente de serviço** a cada bucket
 
-   1. 在您的 Google Cloud 云项目中启用 Gemini API。
-   2. 创建服务代理：
+   1. Ative a API Gemini no seu projeto do Google Cloud.
+   2. Crie o agente de serviço:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **向 Gemini API 服务代理授予读取存储分区的权限**。
+   3. **Conceda permissões do agente de serviço da API Gemini** para ler seus buckets de armazenamento.
 
-      用户需要在他们打算使用的特定存储分区中，为此服务代理分配 `Storage Object Viewer`
-      [IAM 角色](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=zh-cn#storage.objectViewer)。
+      O usuário precisa atribuir o `Storage Object Viewer`
+      [papel do IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=pt-br#storage.objectViewer)
+      a esse agente de serviço nos buckets de armazenamento específicos que pretende usar.
 
-   此访问权限默认不会过期，但您可以随时更改。您还可以使用 [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=zh-cn) 命令授予权限。
-2. 对您的服务进行身份验证
+   Esse acesso não expira por padrão, mas pode ser alterado a qualquer momento. Também é possível usar os
+   [comandos do SDK do IAM do Google Cloud Storage](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=pt-br)
+   para conceder permissões.
+2. Autenticar o serviço
 
-   **前提条件**
+   **Pré-requisitos**
 
-   - 启用 API
-   - 创建具有适当权限的服务账号或代理。
+   - Ativar API
+   - Crie uma conta de serviço ou um agente com as permissões adequadas.
 
-   您首先需要以具有存储分区对象查看者权限的服务进行身份验证。具体如何实现取决于文件管理代码将运行的环境。
+   Primeiro, é necessário fazer a autenticação como o serviço que tem permissões de leitor de objetos de armazenamento. A forma como isso acontece depende do ambiente em que o código de gerenciamento de arquivos será executado.
 
-   **Google Cloud 外部**
+   **Fora do Google Cloud**
 
-   如果您的代码在 Google Cloud 之外（例如在桌面设备上）运行，请按照以下步骤从 Google Cloud 控制台中下载账号凭据：
+   Se o código estiver sendo executado fora do Google Cloud, como no seu computador, faça o download das credenciais da conta no console do Google Cloud seguindo estas etapas:
 
-   1. 浏览到[服务账号控制台](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=zh-cn)
-   2. 选择相关服务账号
-   3. 选择**密钥**标签页，然后选择**添加密钥、创建新密钥**
-   4. 选择 **JSON** 密钥类型，并记下文件下载到您计算机上的哪个位置。
+   1. Acesse o [console da conta de serviço](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=pt-br).
+   2. Selecione a conta de serviço relevante.
+   3. Selecione a guia **Chaves** e escolha **Adicionar chave, Criar nova chave**.
+   4. Escolha o tipo de chave **JSON** e anote onde o arquivo foi baixado no seu computador.
 
-   如需了解详情，请参阅有关[服务账号密钥管理](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=zh-cn)的官方 Google Cloud 文档。
+   Para mais detalhes, consulte a documentação oficial do Google Cloud sobre
+   [o gerenciamento de chaves de contas de serviço](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=pt-br).
 
-   然后使用以下命令进行身份验证。这些命令假设您的服务账号文件位于当前目录中，且名为 `service-account.json`。
+   Em seguida, use os comandos a seguir para fazer a autenticação. Esses comandos pressupõem que o arquivo da conta de serviço esteja no diretório atual, chamado `service-account.json`.
 
    ### Python
 
@@ -372,7 +379,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
    )
    ```
 
-   ### JavaScript
+   ### Javascript
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -398,13 +405,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **在 Google Cloud 上**
+   **No Google Cloud**
 
-   如果您直接在 Google Cloud 中运行（例如使用 [Cloud Run 函数](https://cloud.google.com/functions?hl=zh-cn)或 [Compute Engine 实例](https://cloud.google.com/products/compute?hl=zh-cn)），则会拥有隐式凭据，但需要重新进行身份验证以授予适当的范围。
+   Se você estiver executando diretamente no Google Cloud, por exemplo, usando [funções do Cloud
+   Run](https://cloud.google.com/functions?hl=pt-br) ou uma
+   [instância do Compute Engine](https://cloud.google.com/products/compute?hl=pt-br), terá
+   credenciais implícitas, mas precisará fazer a autenticação novamente para conceder os
+   escopos adequados.
 
    ### Python
 
-   此代码假定服务在可以自动获取[应用默认凭证](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=zh-cn)的环境中运行，例如 Cloud Run 或 Compute Engine。
+   Esse código espera que o serviço esteja em execução em um ambiente em que
+   [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pt-br)
+   possam ser obtidas automaticamente, como o Cloud Run ou o Compute Engine.
 
    ```
    import google.auth
@@ -419,7 +432,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
    ### JavaScript
 
-   此代码假定服务在可以自动获取[应用默认凭证](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=zh-cn)的环境中运行，例如 Cloud Run 或 Compute Engine。
+   Esse código espera que o serviço esteja em execução em um ambiente em que
+   [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pt-br)
+   possam ser obtidas automaticamente, como o Cloud Run ou o Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -434,15 +449,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
    ### CLI
 
-   这是一个互动式命令。对于 Compute Engine 等服务，您可以在配置级层将范围附加到正在运行的服务。如需查看示例，请参阅[用户管理的服务文档](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=zh-cn#using)。
+   Esse é um comando interativo. Para serviços como o Compute Engine, é possível anexar escopos ao serviço em execução no nível de configuração. Consulte os [documentos de serviço gerenciados pelo usuário](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=pt-br#using)
+   para conferir um exemplo.
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. 文件注册（Files API）
+3. Registro de arquivos (API Files)
 
-   使用 Files API 注册文件，并生成可直接在 Gemini API 中使用的 Files API 路径。
+   Use a API Files para registrar arquivos e produzir um caminho da API Files que pode ser usado diretamente na API Gemini.
 
    ### Python
 
@@ -511,10 +527,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## 外部 HTTP / 签名网址
+## URLs HTTP externos / assinados
 
-您可以在请求中直接传递可公开访问的 HTTPS 网址或预签名网址。Gemini API 会在处理过程中安全地提取内容。
-此功能非常适合不想重新上传的 100MB 以下的文件。
+É possível transmitir URLs HTTPS acessíveis publicamente ou URLs pré-assinados diretamente na solicitação. A API Gemini vai buscar o conteúdo com segurança durante o processamento.
+Isso é ideal para arquivos de até 100 MB que você não quer fazer o upload novamente.
 
 ### Python
 
@@ -536,7 +552,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -579,20 +595,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         }'
 ```
 
-### 无障碍
+### Acessibilidade
 
-验证您提供的网址是否不会指向需要登录或付费才能访问的网页。对于私有数据库，请确保您创建的签名网址具有正确的访问权限和到期时间。
+Verifique se os URLs fornecidos não levam a páginas que exigem login ou estão atrás de um paywall. Para bancos de dados particulares, crie um URL assinado com as permissões de acesso e validade corretas.
 
-### 安全检查
+### Verificações de segurança
 
-系统会对网址进行内容审核检查，以确认其符合安全和政策标准。如果网址未通过此检查，您将获得 `URL_RETRIEVAL_STATUS_UNSAFE` 的 `url_retrieval_status`。
+O sistema realiza uma verificação de moderação de conteúdo no URL para confirmar se ele atende aos padrões de segurança e política. Se o URL falhar nessa verificação, você receberá um `url_retrieval_status` de `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### 支持的内容类型
+### Tipos de conteúdo compatíveis
 
-此支持的文件类型和限制列表仅供初步参考，并不全面。支持的有效类型集可能会发生变化，并且会因所用的具体模型和分词器版本而异。不支持的类型会导致错误。
-此外，对于这些文件类型，内容检索仅支持可公开访问的网址。
+Esta lista de tipos de arquivo e limitações compatíveis é fornecida como orientação inicial e não é abrangente. O conjunto efetivo de tipos compatíveis está sujeito a mudanças e pode variar com base no modelo específico e na versão do tokenizador em uso. Os tipos não compatíveis vão resultar em um erro.
+Além disso, a recuperação de conteúdo para esses tipos de arquivo só oferece suporte a URLs acessíveis publicamente.
 
-#### 文本文件类型
+#### Tipos de arquivo de texto
 
 - `text/html`
 - `text/css`
@@ -602,19 +618,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `text/rtf`
 - `text/javascript`
 
-#### 应用文件类型
+#### Tipos de arquivo de aplicativo
 
 - `application/json`
 - `application/pdf`
 
-#### 图片文件类型
+#### Tipos de arquivo de imagem
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### 视频文件类型
+#### Tipos de arquivo de vídeo
 
 - `video/mp4`
 - `video/mpeg`
@@ -626,31 +642,36 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `video/wmv`
 - `video/3gpp`
 
-## 最佳做法
+## Práticas recomendadas
 
-- **选择合适的方法**：对于小型临时文件，请使用内嵌数据。
-  对于较大或经常使用的文件，请使用 File API。使用已在线托管的数据的外部网址。
-- **指定 MIME 类型**：请务必为文件数据提供正确的 MIME 类型，以确保正确处理。
-- **处理错误**：在代码中实现错误处理，以管理潜在问题，例如网络故障、文件访问问题或 API 错误。
+- **Escolha o método certo**:use dados inline para arquivos pequenos e temporários.
+  Use a API File para arquivos maiores ou usados com frequência. Use URLs externos para dados já hospedados on-line.
+- **Especifique os tipos MIME**:sempre forneça o tipo MIME correto para os dados do arquivo para garantir o processamento adequado.
+- **Processar erros**:implemente o tratamento de erros no código para gerenciar possíveis problemas, como falhas de rede, problemas de acesso a arquivos ou erros de API.
 
-## 限制
+## Limitações
 
-- 文件大小限制因方法（请参阅[对照表](#method-comparison)）和文件类型而异。
-- 内嵌数据会增加请求载荷大小。
-- 文件 API 上传是临时性的，会在 48 小时后过期。
-- 外部网址提取功能限制为每个载荷 100 MB，并支持特定内容类型。
+- Os limites de tamanho do arquivo variam de acordo com o método (consulte [a tabela de comparação](#method-comparison))
+  e o tipo de arquivo.
+- Os dados inline aumentam o tamanho do payload da solicitação.
+- Os uploads da API File são temporários e expiram após 48 horas.
+- A busca de URLs externos é limitada a 100 MB por payload e oferece suporte a tipos de conteúdo específicos.
 
-## 后续步骤
+## A seguir
 
-- 不妨使用 [Google AI Studio](http://aistudio.google.com/?hl=zh-cn) 尝试自行撰写多模态提示。
-- 如需了解如何在提示中添加文件，请参阅[Vision](https://ai.google.dev/gemini-api/docs/vision?hl=zh-cn)、[音频](https://ai.google.dev/gemini-api/docs/audio?hl=zh-cn)和[文档处理](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-cn)指南。
+- Tente escrever seus próprios comandos multimodais usando
+  [o Google AI Studio](http://aistudio.google.com/?hl=pt-br).
+- Para informações sobre como incluir arquivos nos comandos, consulte os
+  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br),
+  [áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br) e
+  [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br).
 
-发送反馈
+Envie comentários
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最后更新时间 (UTC)：2026-07-30。
+Última atualização 2026-07-30 UTC.
 
-需要向我们提供更多信息？
+Quer enviar seu feedback?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]

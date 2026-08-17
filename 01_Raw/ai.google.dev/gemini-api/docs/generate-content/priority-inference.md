@@ -1,34 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=it
-fetched_at: 2026-08-10T03:13:07.731382+00:00
-title: "Inferenza della priorit\u00e0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=vi
+fetched_at: 2026-08-17T02:26:39.811225+00:00
+title: "Suy lu\u1eadn m\u1ee9c \u0111\u1ed9 \u01b0u ti\u00ean \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Invia feedback
+Gửi ý kiến phản hồi
 
-# Inferenza della priorità
+# Suy luận mức độ ưu tiên
 
-Descrizione: scopri come ottimizzare la latenza con il livello di inferenza Priority
+Nội dung mô tả: Tìm hiểu cách tối ưu hoá độ trễ bằng cấp suy luận Ưu tiên
 
-L'API Gemini Priority è un livello di inferenza premium progettato per workload mission critical che richiedono una latenza inferiore e la massima affidabilità a un prezzo premium. Il traffico del livello Priority ha la priorità rispetto al traffico dell'API standard e del livello Flex.
+Gemini Priority API là một cấp suy luận cao cấp được thiết kế cho các khối lượng công việc quan trọng đối với doanh nghiệp, yêu cầu độ trễ thấp hơn và độ tin cậy cao nhất với mức giá cao cấp. Lưu lượng truy cập ở cấp ưu tiên được ưu tiên hơn lưu lượng truy cập ở cấp API tiêu chuẩn và cấp linh hoạt.
 
-L'inferenza Priority è disponibile per gli utenti [di livello 2 e 3](https://ai.google.dev/gemini-api/docs/billing?hl=it#about-billing) negli endpoint dell'API GenerateContent
-e dell'API Interactions.
+Tính năng suy luận mức độ ưu tiên được cung cấp cho người dùng [Cấp 2 và Cấp 3](https://ai.google.dev/gemini-api/docs/billing?hl=vi#about-billing) trên các điểm cuối GenerateContent API và Interactions API.
 
-## Come utilizzare Priority
+## Cách sử dụng Mức độ ưu tiên
 
-Per utilizzare il livello Priority, imposta il campo `service_tier` nel corpo della richiesta su `priority`. Se il campo viene omesso, il livello predefinito è standard.
+Để sử dụng Cấp ưu tiên, hãy đặt trường `service_tier` trong nội dung yêu cầu thành `priority`. Cấp mặc định là cấp tiêu chuẩn nếu bạn bỏ qua trường này.
 
 ### Python
 
@@ -85,7 +84,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Go
 
 ```
 package main
@@ -139,93 +138,81 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## Come funziona l'inferenza Priority
+## Cách hoạt động của tính năng Suy luận ưu tiên
 
-L'inferenza Priority indirizza le richieste alle code di calcolo ad alta criticità, offrendo prestazioni veloci e prevedibili per le applicazioni rivolte agli utenti. Il suo meccanismo principale è un downgrade controllato lato server all'elaborazione standard per il traffico che supera i limiti dinamici, garantendo la stabilità dell'applicazione anziché la mancata riuscita della richiesta.
+Các yêu cầu về tuyến suy luận ưu tiên đến các hàng đợi điện toán có mức độ quan trọng cao, mang lại hiệu suất nhanh chóng và có thể dự đoán cho các ứng dụng hướng đến người dùng. Cơ chế chính của tính năng này là giảm cấp phía máy chủ một cách hợp lý xuống quy trình xử lý tiêu chuẩn cho lưu lượng truy cập vượt quá giới hạn động, đảm bảo tính ổn định của ứng dụng thay vì làm cho yêu cầu không thành công.
 
-| Funzionalità | Priorità | Standard | Flex | Batch |
+| Tính năng | Mức độ ưu tiên | Chuẩn | Gập | Theo nhóm |
 | --- | --- | --- | --- | --- |
-| **Prezzi** | 75-100% in più rispetto a Standard | Intero | Sconto del 50% | Sconto del 50% |
-| **Latenza** | Secondi | Da secondi a minuti | Minuti (target 1-15 min) | Fino a 24 ore |
-| **Affidabilità** | Elevata (non eliminabile) | Elevata / medio-alta | Best effort (eliminabile) | Elevata (per il throughput) |
-| **Interfaccia** | Sincrona | Sincrona | Sincrona | Asincrona |
+| **Định giá** | Cao hơn từ 75% đến 100% so với gói Standard | Giá đầy đủ | Giảm giá 50% | Giảm giá 50% |
+| **Độ trễ** | Giây | Giây sang phút | Phút (mục tiêu 1 – 15 phút) | Tối đa 24 giờ |
+| **Độ tin cậy** | Cao (Không rụng lông) | Cao / Trung bình cao | Nỗ lực tối đa (Có thể giảm tải) | Cao (đối với thông lượng) |
+| **Giao diện** | Đồng bộ | Đồng bộ | Đồng bộ | Không đồng bộ |
 
-### Vantaggi principali
+### Lợi ích chính
 
-- **Bassa latenza**: progettata per tempi di risposta in secondi per gli strumenti di AI interattivi
-  rivolti agli utenti.
-- **Elevata affidabilità**: il traffico viene trattato con la massima criticità ed è
-  strettamente non eliminabile.
-- **Riduzione controllata**: i picchi di traffico che superano i limiti dinamici vengono
-  automaticamente sottoposti a downgrade al livello Standard per l'elaborazione anziché non riuscire,
-  evitando interruzioni del servizio.
-- **Basso attrito**: utilizza lo stesso metodo sincrono `generateContent` dei livelli
-  Standard e Flex.
+- **Độ trễ thấp**: Được thiết kế để có thời gian phản hồi dưới một giây cho các công cụ AI tương tác, hướng đến người dùng.
+- **Độ tin cậy cao**: Lưu lượng truy cập được xử lý với mức độ quan trọng cao nhất và hoàn toàn không thể loại bỏ.
+- **Giảm hiệu suất một cách êm ái**: Các đợt tăng đột biến lưu lượng truy cập vượt quá hạn mức linh hoạt sẽ tự động được hạ cấp xuống cấp độ Tiêu chuẩn để xử lý thay vì thất bại, ngăn chặn tình trạng ngừng dịch vụ.
+- **Ít rắc rối**: Sử dụng cùng phương thức `generateContent` đồng bộ như các cấp tiêu chuẩn và linh hoạt.
 
-### Casi d'uso
+### Trường hợp sử dụng
 
-L'elaborazione Priority è ideale per i flussi di lavoro mission critical in cui le prestazioni e l'affidabilità sono fondamentali.
+Xử lý ưu tiên là lựa chọn lý tưởng cho các quy trình quan trọng đối với doanh nghiệp, trong đó hiệu suất và độ tin cậy là yếu tố tối quan trọng.
 
-- **Applicazioni di AI interattive**: chatbot e copiloti dell'assistenza clienti in cui
-  gli utenti pagano un premio e si aspettano risposte rapide e coerenti.
-- **Motori decisionali in tempo reale**: sistemi che richiedono risultati a bassa latenza e altamente affidabili
-  , come il triage dei ticket live o il rilevamento delle frodi.
-- **Funzionalità premium per i clienti**: sviluppatori che devono garantire obiettivi di livello
-  di servizio (SLO) più elevati per i clienti paganti.
+- **Các ứng dụng AI tương tác**: Chatbot và trợ lý dịch vụ khách hàng mà người dùng trả phí và mong đợi câu trả lời nhanh chóng, nhất quán.
+- **Công cụ đưa ra quyết định theo thời gian thực**: Hệ thống yêu cầu kết quả có độ tin cậy cao và độ trễ thấp, chẳng hạn như phân loại vé trực tiếp hoặc phát hiện hành vi gian lận.
+- **Các tính năng dành cho khách hàng cao cấp**: Nhà phát triển cần đảm bảo mục tiêu mức độ dịch vụ (SLO) cao hơn cho khách hàng trả phí.
 
-### Limiti di frequenza
+### Giới hạn số lượng yêu cầu
 
-Il consumo di Priority ha i propri limiti di frequenza, anche se il consumo viene
-conteggiato ai fini dei [limiti di frequenza del traffico interattivo complessivo](https://aistudio.google.com/rate-limit?hl=it). I limiti di frequenza predefiniti per l'inferenza Priority sono **0,3 volte il limite di frequenza standard per modello / livello**
+Mức tiêu thụ ưu tiên có giới hạn tốc độ riêng, mặc dù mức tiêu thụ được tính vào [giới hạn tốc độ lưu lượng truy cập tương tác tổng thể](https://aistudio.google.com/rate-limit?hl=vi). Giới hạn tốc độ mặc định cho suy luận Ưu tiên là **giới hạn tốc độ tiêu chuẩn gấp 0,3 lần cho Mô hình / Cấp**
 
-### Logica di downgrade controllato
+### Logic hạ cấp từng bước
 
-Se i limiti di Priority vengono superati a causa della congestione, le richieste di overflow vengono sottoposte a downgrade **automatico e controllato** all'elaborazione Standard anziché non riuscire con un errore 503 o 429. Le richieste sottoposte a downgrade vengono fatturate alla tariffa standard, non alla tariffa premium Priority.
+Nếu bạn vượt quá giới hạn Ưu tiên do tình trạng tắc nghẽn, thì các yêu cầu vượt quá sẽ được **tự động và giảm cấp một cách suôn sẻ** xuống mức xử lý Chuẩn thay vì gặp lỗi 503 hoặc 429. Các yêu cầu bị hạ cấp sẽ được tính phí theo mức giá tiêu chuẩn, chứ không phải mức giá ưu tiên.
 
-### Responsabilità del cliente
+### Trách nhiệm của khách hàng
 
-- **Monitoraggio delle risposte**: gli sviluppatori devono monitorare l'`x-gemini-service-tier`
-  intestazione nella risposta dell'API per rilevare se le richieste vengono sottoposte a downgrade frequente a
-  `standard`.
-- **Nuovi tentativi**: i client devono implementare la logica di nuovi tentativi/backoff esponenziale per gli
-  errori standard, ad esempio `DEADLINE_EXCEEDED`.
+- **Giám sát phản hồi**: Nhà phát triển nên giám sát tiêu đề `x-gemini-service-tier` trong phản hồi API để phát hiện xem các yêu cầu có thường xuyên bị hạ cấp xuống `standard` hay không.
+- **Thử lại**: Ứng dụng phải triển khai logic thử lại/thuật toán đợi luỹ tuyến cho các lỗi tiêu chuẩn, chẳng hạn như `DEADLINE_EXCEEDED`.
 
-## Prezzi
+## Giá
 
-L'inferenza Priority ha un prezzo superiore del 75-100% rispetto all'[API standard](https://ai.google.dev/gemini-api/docs/pricing?hl=it) e viene fatturata per token.
+Suy luận ưu tiên có giá cao hơn từ 75% đến 100% so với [API tiêu chuẩn](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) và được tính phí theo mã thông báo.
 
-## Modelli supportati
+## Mô hình được hỗ trợ
 
-I seguenti modelli supportano l'inferenza Priority:
+Các mô hình sau đây hỗ trợ suy luận Ưu tiên:
 
-| Modello | Inferenza Priority |
+| Mô hình | Suy luận mức độ ưu tiên |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=it) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=it) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it) | ✔️ |
-| [Gemini 3.1 Pro (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it) | ✔️ |
-| [Gemini 3 Flash (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=it) | ✔️ |
-| [Gemini 3 Pro Image (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=it) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=it) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=it) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=it) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=it) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
+| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
+| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
+| [Bản xem trước hình ảnh của Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=vi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
+| [Hình ảnh Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
 
-## Passaggi successivi
+## Bước tiếp theo
 
-Scopri le altre opzioni di [inferenza e ottimizzazione](https://ai.google.dev/gemini-api/docs/optimization?hl=it) di Gemini:
+Đọc về các lựa chọn [suy luận và tối ưu hoá](https://ai.google.dev/gemini-api/docs/optimization?hl=vi) khác của Gemini:
 
-- [Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it) per una riduzione dei costi del 50%.
-- [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) per l'elaborazione asincrona entro 24 ore.
-- [Memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it) per ridurre i costi dei token di input.
+- [Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi) để giảm 50% chi phí.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) để xử lý không đồng bộ trong vòng 24 giờ.
+- [Lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) để giảm chi phí mã thông báo đầu vào.
 
-Invia feedback
+Gửi ý kiến phản hồi
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Ultimo aggiornamento 2026-07-30 UTC.
+Cập nhật lần gần đây nhất: 2026-07-30 UTC.
 
-Vuoi dirci altro?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]

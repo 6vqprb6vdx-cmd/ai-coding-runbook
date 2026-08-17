@@ -1,52 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=id
-fetched_at: 2026-08-10T03:17:25.366914+00:00
-title: "Mengakses Google AI Studio dengan akun Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=hi
+fetched_at: 2026-08-17T02:31:03.899885+00:00
+title: "\u0905\u092a\u0928\u0947 Workspace \u0916\u093e\u0924\u0947 \u0938\u0947 Google AI Studio \u0915\u094b \u0910\u0915\u094d\u0938\u0947\u0938 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Mengakses Google AI Studio dengan akun Workspace
+# अपने Workspace खाते से Google AI Studio को ऐक्सेस करना
 
-Semua pengguna [Google Workspace](https://workspace.google.com?hl=id) memiliki akses ke AI Studio secara default. Jika Anda adalah pengguna Workspace dan ingin mulai menggunakan AI Studio, lihat [panduan memulai AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=id).
+[Google Workspace के सभी उपयोगकर्ताओं के पास, डिफ़ॉल्ट रूप से AI
+Studio का ऐक्सेस होता है.](https://workspace.google.com?hl=hi) अगर आपके पास Workspace का खाता है और आपको
+AI Studio का इस्तेमाल करना है, तो
+[AI Studio का इस्तेमाल शुरू करने से जुड़ी गाइड पढ़ें](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=hi).
 
-## Pemecahan masalah
+## समस्या का हल
 
-Jika akses ke AI Studio dinonaktifkan untuk akun Google Workspace Anda, Anda mungkin melihat error seperti berikut:
+अगर आपके Google Workspace खाते के लिए, AI Studio का ऐक्सेस बंद कर दिया गया है, तो आपको यह गड़बड़ी दिख सकती है:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-Jika Anda merasa seharusnya Anda memiliki akses ke AI Studio, hubungi administrator Workspace Anda.
+अगर आपको लगता है कि आपके पास AI Studio का ऐक्सेस होना चाहिए, तो अपने Workspace एडमिन से संपर्क करें.
 
-## Mengaktifkan AI Studio untuk pengguna Workspace
+## Workspace के उपयोगकर्ताओं के लिए AI Studio चालू करना
 
-Sebagai administrator Google Workspace, Anda dapat mengontrol siapa saja yang dapat menggunakan AI Studio:
+Google Workspace एडमिन के तौर पर, आपके पास यह कंट्रोल करने का विकल्प होता है कि AI Studio का इस्तेमाल कौन कर सकता है:
 
-- AI Studio diaktifkan secara default untuk semua edisi.
-- Anda dapat menonaktifkan atau mengaktifkan AI Studio untuk sekumpulan pengguna di seluruh atau dalam unit organisasi.
-- Edisi Google Workspace for Education: Pengguna berusia di bawah 18 tahun tidak dapat menggunakan AI Studio dengan akun Google Workspace for Education mereka. Hal ini berlaku meskipun setelan AI Studio aktif. Untuk mengetahui detailnya, buka [Mengontrol akses ke layanan Google berdasarkan
-  usia](https://support.google.com/a/answer/10651918?hl=id).
+- सभी वर्शन के लिए, AI Studio डिफ़ॉल्ट रूप से चालू रहता है.
+- संगठन की अलग-अलग इकाइयों के उपयोगकर्ताओं और उनके ग्रुप के लिए, AI Studio को बंद या चालू किया जा सकता है.
+- Google Workspace for Education के वर्शन: 18 साल से कम उम्र के उपयोगकर्ता, अपने Google Workspace for Education खातों से AI Studio का इस्तेमाल नहीं कर सकते. यह तब भी लागू होता है, जब AI Studio की सेटिंग चालू हो. ज़्यादा जानकारी के लिए, [उम्र के हिसाब से, Google की सेवाओं के ऐक्सेस को कंट्रोल करना
+  लेख पढ़ें](https://support.google.com/a/answer/10651918?hl=hi).
 
-Untuk mengaktifkan atau menonaktifkan AI Studio bagi pengguna di organisasi Anda, lihat
-[Mengaktifkan atau menonaktifkan Google AI Studio untuk pengguna](https://support.google.com/a/answer/15004095?hl=id).
+अपने संगठन के उपयोगकर्ताओं के लिए, AI Studio को चालू या बंद करने के बारे में जानने के लिए,
+[उपयोगकर्ताओं के लिए Google AI Studio को चालू या बंद करना](https://support.google.com/a/answer/15004095?hl=hi) लेख पढ़ें.
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]

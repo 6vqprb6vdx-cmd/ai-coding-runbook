@@ -1,80 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=id
-fetched_at: 2026-08-10T03:24:38.026615+00:00
-title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=he
+fetched_at: 2026-08-17T02:15:33.624706+00:00
+title: "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d0\u05e1\u05d9\u05de\u05d5\u05e0\u05d9\u05dd \u05d5\u05e1\u05e4\u05d9\u05e8\u05d4 \u05e9\u05dc\u05d4\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Memahami dan menghitung token
+# הסבר על אסימונים וספירה שלהם
 
-Gemini dan model AI generatif lainnya memproses input dan output pada perincian
-yang disebut *token*.
+‫Gemini ומודלים אחרים של AI גנרטיבי מעבדים קלט ופלט ברמת פירוט שנקראת *טוקן*.
 
-**Untuk model Gemini, satu token setara dengan sekitar 4 karakter.
-100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
+**במודלים של Gemini, טוקן שווה בערך ל-4 תווים.
+‫100 טוקנים שווים לכ-60-80 מילים באנגלית.**
 
-## Tentang token
+## מידע על טוקנים
 
-Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang
-dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses membagi teks menjadi token disebut *tokenisasi*.
+אסימונים יכולים להיות תווים בודדים כמו `z` או מילים שלמות כמו `cat`. מילים ארוכות
+מפוצלות לכמה טוקנים. קבוצת כל האסימונים שבהם נעשה שימוש במודל נקראת אוצר מילים, והתהליך של פיצול טקסט לאסימונים נקרא *טוקניזציה*.
 
-Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id) sebagian ditentukan oleh jumlah token input dan output, jadi mengetahui cara menghitung token dapat membantu.
+כשמופעל חיוב, [העלות של קריאה ל-Gemini API](https://ai.google.dev/pricing?hl=he) נקבעת בין היתר לפי מספר האסימונים של הקלט והפלט, ולכן כדאי לדעת איך לספור אסימונים.
 
-Anda dapat mencoba menghitung token di Colab kami.
+אתם יכולים לנסות לספור טוקנים ב-Colab שלנו.
 
 |  |  |  |
 | --- | --- | --- |
-| [Lihat di ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | [Coba notebook Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) | [Lihat notebook di GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) |
+| [לצפייה באתר ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | [ניסיון של נוטבוק של Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) | [הצגת ה-notebook ב-GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) |
 
-## Menghitung token
+## ספירת טוקנים
 
-Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
+כל הקלט והפלט של Gemini API עוברים טוקניזציה, כולל טקסט, קובצי תמונות וסוגים אחרים של נתונים שאינם טקסט.
 
-Anda dapat menghitung token dengan cara berikut:
+אפשר לספור טוקנים בדרכים הבאות:
 
-- **Panggil [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=id) dengan input
-  permintaan.**  
-   Fungsi ini menampilkan jumlah total token dalam *input
-  saja*. Anda dapat melakukan panggilan ini sebelum mengirim input ke model untuk memeriksa ukuran permintaan Anda.
-- **Gunakan atribut `usage_metadata` pada objek `response` setelah
-  memanggil `generate_content`.**  
-   Fungsi ini menampilkan jumlah total token
-  dalam *input dan output*: `total_token_count`.  
-   API ini
-  juga menampilkan jumlah token input dan output secara terpisah:
-  `prompt_token_count` (token input) dan `candidates_token_count`
-  (token output).
+- **מתקשרים אל [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=he) עם הקלט של הבקשה.**  
+   הפונקציה מחזירה את המספר הכולל של הטוקנים *בקלט בלבד*. אפשר לבצע את הקריאה הזו לפני ששולחים את הקלט למודל, כדי לבדוק את הגודל של הבקשות.
+- **משתמשים במאפיין `usage_metadata` באובייקט `response` אחרי הקריאה ל-`generate_content`.**‫  
+   הפונקציה מחזירה את המספר הכולל של הטוקנים *גם בקלט וגם בפלט*: `total_token_count`.  
+   בנוסף, היא מחזירה את מספר הטוקנים של הקלט והפלט בנפרד: `prompt_token_count` (טוקנים של קלט) ו-`candidates_token_count` (טוקנים של פלט).
 
-  Jika Anda menggunakan [model
-  penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id), token yang digunakan selama proses
-  penalaran akan ditampilkan di `thoughts_token_count`. Jika Anda menggunakan
-  [Context caching](https://ai.google.dev/gemini-api/docs/caching?hl=id), jumlah token yang di-cache
-  akan ada di `cached_content_token_count`.
+  אם אתם משתמשים ב[מודל חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he), הטוקנים שנעשה בהם שימוש במהלך תהליך החשיבה מוחזרים ב-`thoughts_token_count`. אם אתם משתמשים ב[שמירת נתונים במטמון לפי הקשר](https://ai.google.dev/gemini-api/docs/caching?hl=he), מספר האסימונים שנשמרו במטמון יופיע ב-`cached_content_token_count`.
 
-### Menghitung token teks
+### ספירת טוקנים של טקסט
 
-Jika Anda memanggil `count_tokens` dengan input hanya teks, fungsi ini akan menampilkan jumlah token
-teks di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum
-memanggil `generate_content` untuk memeriksa ukuran permintaan Anda.
+אם מתקשרים אל `count_tokens` עם קלט טקסט בלבד, הפונקציה מחזירה את כמות הטוקנים של הטקסט *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל `count_tokens` לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות.
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata`
-pada objek `response` untuk mendapatkan hal berikut:
+אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) yang terpisah
-- Jumlah token untuk proses berpikir (`thoughts_token_count`)
-- Jumlah total token di *input dan output*
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
   (`total_token_count`)
 
 ### Python
@@ -150,20 +136,19 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Menghitung token multi-giliran (chat)
+### ספירת טוקנים של שיחות עם זיכרון
 
-Jika Anda memanggil `count_tokens` dengan histori chat, fungsi ini akan menampilkan jumlah token total teks dari setiap peran dalam chat (`total_tokens`).
+אם מתקשרים אל `count_tokens` עם היסטוריית הצ'אט, הפונקציה מחזירה את המספר הכולל של הטוקנים של הטקסט מכל תפקיד בצ'אט (`total_tokens`).
 
-Opsi lainnya adalah memanggil `send_message`, lalu menggunakan atribut `usage_metadata`
-pada objek `response` untuk mendapatkan hal berikut:
+אפשרות נוספת היא להתקשר אל `send_message` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) yang terpisah
-- Jumlah token untuk proses berpikir (`thoughts_token_count`)
-- Jumlah total token di *input dan output*
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
   (`total_token_count`)
 
-Untuk memahami seberapa besar giliran percakapan Anda berikutnya, Anda perlu menambahkan
-giliran tersebut ke histori saat Anda memanggil `count_tokens`.
+כדי להבין מה יהיה גודל התגובה הבאה בשיחה, צריך לצרף אותה להיסטוריה כשמתקשרים אל `count_tokens`.
 
 ### Python
 
@@ -289,39 +274,34 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Menghitung token multimodal
+### ספירת טוקנים מולטי-מודאליים
 
-Semua input ke Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya. Perhatikan poin-poin penting tingkat tinggi berikut tentang tokenisasi
-input multimodal selama pemrosesan oleh Gemini API:
+כל הקלט ל-Gemini API עובר טוקניזציה, כולל טקסט, קובצי תמונה וסוגים אחרים של נתונים שאינם טקסט. הנה כמה נקודות חשובות לגבי טוקניזציה של קלט מולטימודאלי במהלך העיבוד על ידי Gemini API:
 
-- Input gambar dengan kedua dimensi <=384 piksel dihitung sebagai
-  258 token. Gambar yang lebih besar dalam satu atau kedua dimensi dipangkas dan diskalakan sesuai kebutuhan menjadi petak 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
-- File video dan audio dikonversi menjadi token dengan tarif tetap berikut:
-  video dengan 263 token per detik dan audio dengan 32 token per detik.
+- תמונות שהמידות שלהן קטנות מ-384 פיקסלים או שוות ל-384 פיקסלים נספרות כ-258 טוקנים. תמונות שגדולות יותר באחד מהממדים או בשניהם נחתכות ומשנות את הגודל שלהן לפי הצורך לאריחים של 768x768 פיקסלים, וכל אחת מהן נספרת כ-258 טוקנים.
+- קובצי וידאו ואודיו מומרים לטוקנים בשיעורים הקבועים הבאים:
+  וידאו ב-263 טוקנים לשנייה ואודיו ב-32 טוקנים לשנייה.
 
-#### Resolusi media
+#### רזולוציות מדיה
 
-[Model Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=id#gemini-3) memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter `media_resolution`. Parameter
-`media_resolution` menentukan
-**jumlah maksimum token yang dialokasikan per frame video atau gambar input.**
-Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks kecil atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
+[מודלים של Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=he#gemini-3) מציגים שליטה מפורטת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונה או פריים של סרטון קלט.**
+רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
 
-Untuk mengetahui detail selengkapnya tentang parameter dan pengaruhnya terhadap penghitungan token,
-lihat panduan [resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
+לפרטים נוספים על הפרמטר ועל האופן שבו הוא יכול להשפיע על חישובי האסימון, אפשר לעיין במדריך בנושא [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=he).
 
-#### File gambar
+#### קובצי תמונות
 
-Jika Anda memanggil `count_tokens` dengan input teks dan gambar, fungsi ini akan menampilkan jumlah token gabungan dari teks dan gambar *hanya dalam input* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan Anda. Anda juga dapat memanggil `count_tokens` secara terpisah pada teks dan file.
+אם קוראים לפונקציה `count_tokens` עם קלט של טקסט ותמונה, היא מחזירה את כמות הטוקנים המשולבת של הטקסט והתמונה *בקלט בלבד* (`total_tokens`). אפשר לקרוא לפונקציה הזו לפני שקוראים לפונקציה `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם לקרוא ל-`count_tokens` על הטקסט ועל הקובץ בנפרד.
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata`
-pada objek `response` untuk mendapatkan hal berikut:
+אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) yang terpisah
-- Jumlah token untuk proses berpikir (`thoughts_token_count`)
-- Jumlah total token di *input dan output*
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
   (`total_token_count`)
 
-Contoh yang menggunakan gambar yang diupload dari File API:
+דוגמה לשימוש בתמונה שהועלתה מ-File API:
 
 ### Python
 
@@ -421,7 +401,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Contoh yang menyediakan gambar sebagai data sebaris:
+דוגמה שבה התמונה מסופקת כנתונים מוטבעים:
 
 ### Python
 
@@ -518,26 +498,21 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### File video atau audio
+#### קובצי וידאו או אודיו
 
-Audio dan video masing-masing dikonversi menjadi token dengan tarif tetap berikut:
+ההמרה של אודיו ווידאו לטוקנים מתבצעת לפי השיעורים הקבועים הבאים:
 
-- Video: 263 token per detik
-- Audio: 32 token per detik
+- סרטון: 263 טוקנים לשנייה
+- אודיו: 32 טוקנים לשנייה
 
-Jika Anda memanggil `count_tokens` dengan input teks dan video/audio, fungsi ini akan menampilkan
-jumlah token gabungan dari teks dan file video/audio di *input saja*
-(`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk
-memeriksa ukuran permintaan Anda. Anda juga dapat secara opsional memanggil `count_tokens` pada
-teks dan file secara terpisah.
+אם מתקשרים אל `count_tokens` עם קלט של טקסט וסרטון או אודיו, הפונקציה מחזירה את כמות הטוקנים המשולבת של הטקסט ושל קובץ הווידאו או האודיו *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל הפונקציה הזו לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם להפעיל את `count_tokens` על הטקסט ועל הקובץ בנפרד.
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata`
-pada objek `response` untuk mendapatkan hal berikut:
+אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) yang terpisah
-- Jumlah token untuk proses berpikir (`thoughts_token_count`)
-- Jumlah total token dalam *input dan output*
-  (`total_token_count`).
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט* (`total_token_count`).
 
 ### Python
 
@@ -662,9 +637,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### Menghitung token pemikiran
+### ספירת טוקנים של מחשבות
 
-Jika Anda mengaktifkan penalaran, harga respons adalah jumlah token output dan token penalaran. Anda dapat mengambil total jumlah token pemikiran yang dihasilkan dari kolom `thoughtsTokenCount` (atau yang setara dengan SDK).
+כשמפעילים את התכונה 'חשיבה', המחיר של התשובה הוא סכום הטוקנים של הפלט והטוקנים של החשיבה. אפשר לאחזר את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `thoughtsTokenCount` (או מהמקבילה ב-SDK).
 
 ### Python
 
@@ -690,15 +665,13 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Model pemikiran menghasilkan pemikiran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](https://ai.google.dev/gemini-api/docs/thinking?hl=id#summaries) untuk memberikan pemahaman tentang proses pemikiran. Jadi, API mendasarkan harga pada token pemikiran penuh yang dihasilkan model untuk membuat ringkasan, meskipun API hanya menampilkan ringkasan.
+מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז מפיקים [סיכומים](https://ai.google.dev/gemini-api/docs/thinking?hl=he#summaries) כדי לספק תובנות לגבי תהליך החשיבה. לכן, התמחור של ה-API מבוסס על האסימונים המלאים של התהליך המחשבתי שהמודל יוצר כדי ליצור סיכום, גם אם ה-API מוציא רק את הסיכום.
 
-Anda dapat mempelajari lebih lanjut cara mengonfigurasi pemikiran di panduan [Pemikiran Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
+במדריך [Gemini thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he) תוכלו לקבל מידע נוסף על הגדרת חשיבה.
 
-## Jendela konteks
+## חלונות הקשר
 
-Model yang tersedia melalui Gemini API memiliki jendela konteks yang diukur dalam token. Jendela konteks menentukan jumlah input yang dapat Anda berikan dan jumlah output yang dapat dihasilkan model. Anda dapat menentukan ukuran
-jendela konteks dengan memanggil [endpoint `models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=id)
-atau dengan melihat [dokumentasi model](https://ai.google.dev/gemini-api/docs/models?hl=id).
+חלונות ההקשר של המודלים שזמינים דרך Gemini API נמדדים בטוקנים. חלון ההקשר מגדיר כמה קלט אפשר לספק וכמה פלט המודל יכול ליצור. אפשר לקבוע את הגודל של חלון ההקשר על ידי קריאה לנקודת הקצה [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=he) או על ידי עיון ב[מסמכי התיעוד של המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
 
 ### Python
 
@@ -743,12 +716,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

@@ -1,30 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-CN
-fetched_at: 2026-08-10T03:23:34.004165+00:00
-title: "\u4ee3\u7801\u6267\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419
+fetched_at: 2026-08-17T02:18:10.183983+00:00
+title: "Ejecuci\u00f3n de c\u00f3digo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-发送反馈
+Enviar comentarios
 
-# 代码执行
+# Ejecución de código
 
-Gemini API 提供了一个代码执行工具，可让模型生成和运行 Python 代码。然后，模型可以根据代码执行结果进行迭代学习，直到获得最终输出。您可以利用代码执行功能来构建可受益于基于代码的推理的应用。例如，您可以使用代码执行功能来求解方程式或处理文本。您还可以使用代码执行环境中包含的[库](#supported-libraries)来执行更专业的任务。
+La API de Gemini proporciona una herramienta de ejecución de código que permite que el modelo genere y ejecute código de Python. Luego, el modelo puede aprender de forma iterativa a partir de los resultados de la ejecución de código hasta llegar a un resultado final. Puedes usar la ejecución de código para crear aplicaciones que se beneficien del razonamiento basado en código. Por ejemplo, puedes usar la ejecución de código para resolver ecuaciones o procesar texto. También puedes
+usar las [bibliotecas](#supported-libraries) incluidas en el entorno de ejecución de código
+para realizar tareas más especializadas.
 
-Gemini 只能执行 Python 代码。您仍然可以要求 Gemini 以其他语言生成代码，但模型无法使用代码执行工具来运行该代码。
+Gemini solo puede ejecutar código en Python. Aun así, puedes pedirle a Gemini que genere código en otro lenguaje, pero el modelo no puede usar la herramienta de ejecución de código para ejecutarlo.
 
-## 启用代码执行功能
+## Habilita la ejecución de código
 
-如需启用代码执行功能，请在模型上配置代码执行工具。这样一来，模型便可生成并运行代码。
+Para habilitar la ejecución de código, configura la herramienta de ejecución de código en el modelo. Esto permite que el modelo genere y ejecute código.
 
 ### Python
 
@@ -93,7 +95,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-输出结果可能如下所示（为了便于阅读，已进行格式设置）：
+El resultado podría ser similar al siguiente, que se formateó para facilitar la lectura:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -142,25 +144,29 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-此输出结合了模型在使用代码执行功能时返回的多个内容部分：
+Este resultado combina varias partes de contenido que el modelo muestra cuando se usa la ejecución de código:
 
-- `text`：模型生成的内嵌文本
-- `code_execution_call`：由模型生成且旨在执行的代码
-- `code_execution_result`：可执行代码的结果
+- `text`: Texto intercalado generado por el modelo
+- `code_execution_call`: Código generado por el modelo que se ejecutará
+- `code_execution_result`: Resultado del código ejecutable
 
-## 使用图片执行代码 (Gemini 3)
+## Ejecución de código con imágenes (Gemini 3)
 
-Gemini 3 Flash 模型现在可以编写和执行 Python 代码，主动操纵和检查图片。
+El modelo Gemini 3 Flash ahora puede escribir y ejecutar código de Python para manipular y examinar imágenes de forma activa.
 
-**用例**
+**Casos de uso**
 
-- **缩放和检查**：模型会隐式检测细节何时过小（例如，读取远处的仪表），并编写代码来裁剪和重新检查更高分辨率的区域。
-- **可视化数学**：模型可以使用代码运行多步计算（例如，对收据上的各个商品项求和）。
-- **图片注释**：模型可以注释图片以回答问题，例如绘制箭头来显示关系。
+- **Acercar y examinar**: El modelo detecta de forma implícita cuando los detalles son demasiado pequeños
+  (p.ej., leer un indicador distante) y escribe código para recortar y volver a examinar el área
+  con una resolución más alta.
+- **Matemáticas visuales**: El modelo puede ejecutar cálculos de varios pasos con código (p.ej.,
+  sumar los artículos de una factura).
+- **Anotación de imágenes**: El modelo puede anotar imágenes para responder preguntas, como
+  dibujar flechas para mostrar relaciones.
 
-## 启用图片代码执行功能
+## Habilita la ejecución de código con imágenes
 
-Gemini 3 Flash 正式支持使用图片执行代码。您可以同时启用“将代码执行作为工具”和“思考”来激活此行为。
+La ejecución de código con imágenes se admite oficialmente en Gemini 3 Flash. Para activar este comportamiento, habilita la ejecución de código como herramienta y el razonamiento.
 
 ### Python
 
@@ -282,9 +288,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -d @payload.json
 ```
 
-## 在多轮交互中使用代码执行功能
+## Usa la ejecución de código en interacciones de varios turnos
 
-您还可以使用 `previous_interaction_id` 在多轮对话中使用代码执行功能。
+También puedes usar la ejecución de código como parte de una conversación de varios turnos con `previous_interaction_id`.
 
 ### Python
 
@@ -383,72 +389,82 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 输入/输出 (I/O)
+## Entrada y salida (E/S)
 
-在当前的 Gemini 模型（例如 [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-3.6-flash)）中，代码执行支持文件输入和图表输出。利用这些输入和输出功能，您可以上传 CSV 和文本文件，询问有关这些文件的问题，并让系统在回答中为您生成 [Matplotlib](https://matplotlib.org/) 图表。输出文件以内嵌图片的形式在响应中返回。
+En los modelos actuales de Gemini, como
+[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#gemini-3.6-flash), la ejecución de código
+admite la entrada de archivos y la salida de gráficos. Con estas capacidades de entrada y salida
+, puedes subir archivos CSV y de texto, hacer preguntas sobre los
+archivos y generar gráficos de [Matplotlib](https://matplotlib.org/) como parte
+de la respuesta. Los archivos de salida se muestran como imágenes intercaladas en la respuesta.
 
-### I/O 定价
+### Precios de E/S
 
-使用代码执行 I/O 时，您需要为输入 token 和输出 token 支付费用：
+Cuando usas la E/S de ejecución de código, se te cobra por los tokens de entrada y salida:
 
-**输入 token**：
+**Tokens de entrada:**
 
-- 用户提示
+- Instrucción del usuario
 
-**输出 token 数**：
+**Tokens de salida:**
 
-- 模型生成的代码
-- 代码环境中的代码执行输出
-- 思考 token
-- 由模型生成的摘要
+- Código generado por el modelo
+- Resultado de la ejecución de código en el entorno de código
+- Tokens de razonamiento
+- Resumen generado por el modelo
 
-### I/O 详情
+### Detalles de E/S
 
-使用代码执行 I/O 时，请注意以下技术细节：
+Cuando trabajes con la E/S de ejecución de código, ten en cuenta los siguientes detalles técnicos:
 
-- 代码环境的最长运行时间为 30 秒。
-- 如果代码环境生成错误，模型可能会决定重新生成代码输出。此过程最多可重复 5 次。
-- 文件输入大小上限受模型 token 窗口的限制。如果您上传的文件超出了模型的最大上下文窗口，API 将返回错误。
-- 代码执行最适合处理文本文件和 CSV 文件。
-- 输入文件可以作为内嵌数据传递，也可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传，而输出文件始终作为内嵌数据返回。
+- El tiempo de ejecución máximo del entorno de código es de 30 segundos.
+- Si el entorno de código genera un error, es posible que el modelo decida volver a generar el resultado del código. Esto puede suceder hasta 5 veces.
+- El tamaño máximo de entrada de archivos está limitado por la ventana de tokens del modelo. Si subes un archivo que supera la ventana de contexto máxima del modelo, la API mostrará un error.
+- La ejecución de código funciona mejor con archivos de texto y CSV.
+- El archivo de entrada se puede pasar como datos intercalados o subir con la
+  [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419),
+  y el archivo de salida siempre se muestra como datos intercalados.
 
-## 结算
+## Facturación
 
-通过 Gemini API 启用代码执行功能不会产生额外的费用。系统会根据您使用的 Gemini 模型，按当前的输入和输出 token 费率向您收费。
+No hay cargos adicionales por habilitar la ejecución de código desde la API de Gemini.
+Se te facturará según la tarifa actual de los tokens de entrada y salida en función del modelo de Gemini que uses.
 
-以下是关于代码执行结算的一些其他事项：
+Estos son algunos aspectos que debes tener en cuenta sobre la facturación de la ejecución de código:
 
-- 您只需为传递给模型的输入 token 支付一次费用，并需要为模型返回给您的最终输出 token 支付费用。
-- 表示生成的代码的 token 会计为输出 token。生成的代码可以包含文本和多模态输出结果（例如图片）。
-- 代码执行结果也会计为输出 token。
+- Solo se te factura una vez por los tokens de entrada que pasas al modelo, y se te factura por los tokens de salida finales que te muestra el modelo.
+- Los tokens que representan el código generado se cuentan como tokens de salida. El código generado puede incluir texto y resultados multimodales, como imágenes.
+- Los resultados de la ejecución de código también se cuentan como tokens de salida.
 
-结算模式如下图所示：
+El modelo de facturación se muestra en el siguiente diagrama:
 
-![代码执行结算模式](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=zh-cn)
+![Modelo de facturación de ejecución de código](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=es-419)
 
-- 系统会根据您使用的 Gemini 模型，按当前的输入和输出 token 费率向您收费。
-- 如果 Gemini 在生成回答时使用了代码执行功能，则原始提示、生成的代码以及已执行代码的相应结果会被标记为*中间 token*，并会按*输入 token* 计费。
-- 然后，Gemini 会生成摘要，并返回生成的代码、已执行代码的相应结果以及最终摘要。这些内容会按*输出 token* 计费。
-- Gemini API 在 API 响应中包含中间 token 数量，因此您可以了解为什么会获得除初始提示之外的其他输入 token。
+- Se te facturará según la tarifa actual de los tokens de entrada y salida en función del modelo de Gemini que uses.
+- Si Gemini usa la ejecución de código cuando genera tu respuesta, la instrucción original, el código generado y el resultado del código ejecutado se etiquetan como *tokens intermedios* y se facturan como *tokens de entrada*.
+- Luego, Gemini genera un resumen y muestra el código generado, el resultado del código ejecutado y el resumen final. Estos se facturan como *tokens de salida*.
+- La API de Gemini incluye un recuento de tokens intermedios en la respuesta de la API, por lo que sabes por qué obtienes tokens de entrada adicionales más allá de tu instrucción inicial.
 
-## 限制
+## Limitaciones
 
-- 该模型只能生成和执行代码。它无法返回其他制品，例如媒体文件。
-- 在某些情况下，启用代码执行功能可能会导致模型输出的其他方面（例如，编写故事）出现回归问题。
-- 不同模型成功使用代码执行功能的能力各不相同。
+- El modelo solo puede generar y ejecutar código. No puede mostrar otros artefactos, como archivos multimedia.
+- En algunos casos, habilitar la ejecución de código puede provocar regresiones en otras áreas del resultado del modelo (por ejemplo, escribir una historia).
+- Existe cierta variación en la capacidad de los diferentes modelos para usar la ejecución de código de forma correcta.
 
-## 支持的工具组合
+## Combinaciones de herramientas compatibles
 
-代码执行工具可以与[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)功能结合使用，以处理更复杂的用例。
+La herramienta de ejecución de código se puede combinar con
+[Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) para
+potenciar casos de uso más complejos.
 
-Gemini 3 模型支持将内置工具（例如代码执行）与自定义工具（函数调用）相结合。
+Los modelos de Gemini 3 admiten la combinación de herramientas integradas (como la ejecución de código) con herramientas personalizadas (llamadas a funciones).
 
-## 受支持的库
+## Bibliotecas compatibles
 
-代码执行环境包含以下库：
+El entorno de ejecución de código incluye las siguientes bibliotecas:
 
 - attrs
-- 国际象棋
+- ajedrez
 - contourpy
 - fpdf
 - geopandas
@@ -463,9 +479,9 @@ Gemini 3 模型支持将内置工具（例如代码执行）与自定义工具�
 - numpy
 - opencv-python
 - openpyxl
-- 打包
+- empaquetado
 - pandas
-- pillow
+- almohada
 - protobuf
 - pylatex
 - pyparsing
@@ -481,25 +497,25 @@ Gemini 3 模型支持将内置工具（例如代码执行）与自定义工具�
 - striprtf
 - sympy
 - tabulate
-- TensorFlow
+- tensorflow
 - toolz
 - xlrd
 
-您无法安装自己的库。
+No puedes instalar tus propias bibliotecas.
 
-## 后续步骤
+## ¿Qué sigue?
 
-- 不妨试试[Interactions API 快速入门](https://ai.google.dev/gemini-api/docs/quickstart?hl=zh-cn)。
-- 了解其他 Gemini API 工具：
-  - [函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)
-  - [使用 Google 搜索建立依据](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)
+- Prueba el [inicio rápido de la API de Interactions](https://ai.google.dev/gemini-api/docs/quickstart?hl=es-419).
+- Obtén información sobre otras herramientas de la API de Gemini:
+  - [Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)
+  - [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)
 
-发送反馈
+Enviar comentarios
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-最后更新时间 (UTC)：2026-07-30。
+Última actualización: 2026-07-30 (UTC)
 
-需要向我们提供更多信息？
+¿Quieres brindar más información?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

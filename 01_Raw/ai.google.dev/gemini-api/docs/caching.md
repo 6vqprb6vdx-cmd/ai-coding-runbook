@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=he
-fetched_at: 2026-08-10T03:13:00.077165+00:00
-title: "\u05e9\u05de\u05d9\u05e8\u05d4 \u05d1\u05de\u05d8\u05de\u05d5\u05df \u05e9\u05dc \u05d4\u05e7\u05e9\u05e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=vi
+fetched_at: 2026-08-17T02:23:21.044893+00:00
+title: "L\u01b0u ng\u1eef c\u1ea3nh v\u00e0o b\u1ed9 nh\u1edb \u0111\u1ec7m \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-# שמירה במטמון של הקשר
+# Lưu ngữ cảnh vào bộ nhớ đệm
 
-בתהליך עבודה טיפוסי של AI, יכול להיות שתעבירו את אותם אסימוני קלט שוב ושוב למודל. ‫Gemini API מציע שמירה מרומזת במטמון כדי לשפר את הביצועים ולצמצם את העלויות.
+Trong quy trình làm việc điển hình của AI, bạn có thể truyền đi truyền lại cùng một mã thông báo đầu vào cho một mô hình. Gemini API cung cấp tính năng lưu vào bộ nhớ đệm ngầm để tối ưu hoá hiệu suất và chi phí.
 
-## שמירה מרומזת במטמון
+## Lưu vào bộ nhớ đệm ngầm
 
-האפשרות 'שמירת נתונים במטמון באופן מרומז' מופעלת כברירת מחדל בכל המודלים של Gemini 2.5 ומעלה. הוא תומך במצבי שיחה [עם שמירת מצב](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#multi-turn-conversations) (באמצעות `previous_interaction_id`) ו[ללא שמירת מצב](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#stateless-conversations).
-אם הבקשה שלכם מגיעה למטמון, אנחנו מעבירים לכם באופן אוטומטי את החיסכון בעלויות. לא צריך לעשות שום דבר כדי להפעיל את התכונה הזו. בטבלה הבאה מפורטת כמות הטוקנים המינימלית של הקלט לכל מודל שנדרש כדי להשתמש במטמון ההקשר:
+Tính năng lưu vào bộ nhớ đệm ngầm định được bật theo mặc định cho tất cả các mô hình Gemini 2.5 trở lên. Chế độ này được hỗ trợ cho cả chế độ hội thoại [có trạng thái](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#multi-turn-conversations) (sử dụng `previous_interaction_id`) và [không có trạng thái](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#stateless-conversations).
+Chúng tôi tự động chuyển các khoản tiết kiệm chi phí nếu yêu cầu của bạn truy cập vào bộ nhớ đệm. Bạn không cần làm gì để bật tính năng này. Số lượng số token đầu vào tối thiểu để lưu vào bộ nhớ đệm theo bối cảnh được liệt kê trong bảng sau cho từng mô hình:
 
-| מודל | מגבלת טוקנים מינימלית |
+| Mô hình | Giới hạn mã thông báo tối thiểu |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| ‫Gemini 3.1 Pro Preview | 4096 |
-| Gemini ‎2.5 Flash | 2048 |
-| Gemini ‎2.5 Pro | 2048 |
+| Gemini 3.1 Pro (Bản xem trước) | 4096 |
+| Gemini 2.5 Flash | 2048 |
+| Gemini 2.5 Pro | 2048 |
 
-כדי להגדיל את הסיכוי לפגיעה במטמון משתמע:
+Để tăng cơ hội nhận được kết quả tìm kiếm trong bộ nhớ cache ngầm ẩn:
 
-- כדאי לנסות להוסיף בתחילת ההנחיה תוכן גדול ונפוץ
-- ניסיון לשלוח בקשות עם קידומת דומה בפרק זמן קצר
+- Hãy thử đặt nội dung lớn và phổ biến ở đầu câu lệnh
+- Hãy thử gửi các yêu cầu có tiền tố tương tự trong một khoảng thời gian ngắn
 
-אפשר לראות את מספר הטוקנים שהיו פגיעות במטמון בשדה `usage.total_cached_tokens` (Python ו-JavaScript) של אובייקט התגובה.
+Bạn có thể xem số lượng mã thông báo là lượt truy cập vào bộ nhớ đệm trong trường `usage.total_cached_tokens` (Python và JavaScript) của đối tượng phản hồi.
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-עדכון אחרון: 2026-07-30 (שעון UTC).
+Cập nhật lần gần đây nhất: 2026-07-30 UTC.
 
-רוצה לתת לנו משוב?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]

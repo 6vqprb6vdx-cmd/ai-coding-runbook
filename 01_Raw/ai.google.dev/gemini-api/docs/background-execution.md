@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=ja
-fetched_at: 2026-08-10T03:26:13.087227+00:00
-title: "\u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u5b9f\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=th
+fetched_at: 2026-08-17T02:21:33.811398+00:00
+title: "\u0e01\u0e32\u0e23\u0e14\u0e33\u0e40\u0e19\u0e34\u0e19\u0e01\u0e32\u0e23\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e2d\u0e22\u0e39\u0e48\u0e40\u0e1a\u0e37\u0e49\u0e2d\u0e07\u0e2b\u0e25\u0e31\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-フィードバックを送信
+ส่งความคิดเห็น
 
-# バックグラウンド実行
+# การดำเนินการเมื่ออยู่เบื้องหลัง
 
-詳細な調査、複雑な推論、多段階のエージェント実行などの長時間実行タスクの場合、接続タイムアウトにより標準の HTTP リクエスト（通常は 60 秒後に終了）が中断されることがあります。[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) は、これらのタスクを非同期で実行するための**バックグラウンド実行**を提供します。
+สำหรับงานที่ใช้เวลานาน เช่น การค้นหาเชิงลึก การให้เหตุผลที่ซับซ้อน หรือการดำเนินการของเอเจนต์แบบหลายขั้นตอน การหมดเวลาการเชื่อมต่ออาจขัดจังหวะคำขอ HTTP มาตรฐาน (ซึ่งโดยปกติจะปิดหลังจากผ่านไป 60 วินาที) [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) มี**การดำเนินการในเบื้องหลัง** เพื่อเรียกใช้งานเหล่านี้แบบไม่พร้อมกัน
 
-サーバーでタスクが完了するまでインタラクションを実行するには、インタラクションの作成時に `"background": true` を設定します。API はすぐにインタラクション ID を返します。クライアント アプリケーションはこの ID を使用して、ステータスのポーリング、進行状況のストリーミング、切断されたストリームへの再接続を行うことができます。
+หากต้องการให้การโต้ตอบทำงานจนกว่าจะทำงานบนเซิร์ฟเวอร์เสร็จสมบูรณ์ ให้ตั้งค่า `"background": true` เมื่อสร้างการโต้ตอบ API จะแสดงรหัสการโต้ตอบทันที ซึ่งแอปพลิเคชันไคลเอ็นต์สามารถใช้เพื่อสำรวจสถานะ สตรีมความคืบหน้า หรือเชื่อมต่อกับสตรีมที่ขาดการเชื่อมต่ออีกครั้ง
 
-バックグラウンド実行は、標準の Gemini モデル（`gemini-3.6-flash` や `gemini-3.1-pro-preview` など）と Managed Agents（`antigravity-preview-05-2026` など）でサポートされています。
+การดำเนินการในเบื้องหลังรองรับโมเดล Gemini มาตรฐาน (เช่น `gemini-3.6-flash` และ `gemini-3.1-pro-preview`) และ Agent ที่ได้รับการจัดการ (เช่น `antigravity-preview-05-2026`)
 
-## バックグラウンド インタラクションを作成する
+## สร้างการโต้ตอบในเบื้องหลัง
 
-バックグラウンド インタラクションを開始するには、リソースの作成時に `background` パラメータを `true` に設定します。
+หากต้องการเริ่มการโต้ตอบในเบื้องหลัง ให้ตั้งค่าพารามิเตอร์ `background` เป็น `true` เมื่อสร้างทรัพยากร
 
 ### Python
 
@@ -72,31 +72,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## バックグラウンド実行の仕組み
+## วิธีการทำงานของการดำเนินการในเบื้องหลัง
 
-バックグラウンド操作を作成すると、タスクはサーバー上で非同期的に実行されます。インタラクションは、さまざまな実行状態に移行します。
+เมื่อคุณสร้างการโต้ตอบในเบื้องหลัง งานจะทำงานแบบไม่พร้อมกันบนเซิร์ฟเวอร์ การโต้ตอบจะเปลี่ยนไปตามสถานะการดำเนินการต่างๆ ดังนี้
 
-- `in_progress`: サーバーがインタラクション（コードの実行や調査など）をアクティブに実行しています。
-- `requires_action`: やり取りが一時停止し、クライアントの入力（ツールの実行の確認や質問への回答など）を待機しています。
-- `completed`: インタラクションが正常に完了し、出力が利用可能です。
-- `failed`: 実行中にエラーが発生しました（ツールの障害やレート制限など）。
-- `cancelled`: クライアント リクエストにより実行が停止しました。
+- `in_progress`: เซิร์ฟเวอร์กำลังดำเนินการโต้ตอบอย่างแข็งขัน (เช่น การเรียกใช้โค้ดหรือการค้นคว้า)
+- `requires_action`: การโต้ตอบหยุดชั่วคราวและรออินพุตจากไคลเอ็นต์ (เช่น การยืนยันการดำเนินการของเครื่องมือหรือการตอบคำถาม)
+- `completed`: การโต้ตอบเสร็จสมบูรณ์แล้วและเอาต์พุตพร้อมใช้งาน
+- `failed`: เกิดข้อผิดพลาดระหว่างการดำเนินการ (เช่น เครื่องมือล้มเหลวหรือถึงขีดจำกัดอัตรา)
+- `cancelled`: คำขอจากไคลเอ็นต์หยุดการดำเนินการ
 
-### ユースケース
+### กรณีการใช้งาน
 
-バックグラウンド実行は、次の目的で使用します。
+ใช้การดำเนินการในเบื้องหลังสำหรับกรณีต่อไปนี้
 
-- **エージェントの実行:** コード実行、ウェブ ブラウジング、サブエージェントのオーケストレーション（`antigravity-preview-05-2026` など）を必要とするタスク。
-- **Deep Research:** `deep-research-preview-04-2026` または `deep-research-max-preview-04-2026` を使用して実行され、数分かかります。
-- **長い推論:** モデルの思考ステップが標準の HTTP 接続制限を超えるタスク。
+- **การดำเนินการของเอเจนต์:** งานที่ต้องมีการดำเนินการโค้ด การท่องเว็บ หรือการจัดระเบียบเอเจนต์ย่อย (เช่น `antigravity-preview-05-2026`)
+- **การค้นหาเชิงลึก:** ทำงานโดยใช้ `deep-research-preview-04-2026` หรือ `deep-research-max-preview-04-2026` ซึ่งใช้เวลาหลายนาที
+- **การให้เหตุผลที่ซับซ้อน:** งานที่ขั้นตอนการคิดของโมเดลเกินขีดจำกัดการเชื่อมต่อ HTTP มาตรฐาน
 
-## 結果を取得する
+## ดึงข้อมูลผลลัพธ์
 
-**ポーリング**または**ストリーミング**を使用して、バックグラウンドでのインタラクションの結果を取得します。
+รับผลลัพธ์การโต้ตอบในเบื้องหลังโดยใช้**การสำรวจ** หรือ**การสตรีม**
 
-### ポーリング パターン（ブロックなし）
+### รูปแบบการสำรวจ (แบบไม่บล็อก)
 
-ポーリングでは、非ブロッキング GET リクエストを使用してインタラクションのステータスを定期的に確認し、完了状態に達するまで続けます。
+การสำรวจจะตรวจสอบสถานะการโต้ตอบเป็นระยะโดยใช้คำขอ GET แบบไม่บล็อกจนกว่าจะถึงสถานะสิ้นสุด
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### ストリーミング パターン
+### รูปแบบการสตรีม
 
-ネットワークの中断によりストリームが切断された場合、最後に受信したイベントからストリーミングを再開できます。各デルタのペイロードには一意の `event_id` が含まれています。この ID を `last_event_id` として渡すと、そのイベントからストリームが再開されます。
+หากการหยุดชะงักของเครือข่ายทำให้สตรีมขาดการเชื่อมต่อ การสตรีมจะกลับมาทำงานต่อจากเหตุการณ์ที่ได้รับล่าสุด Delta แต่ละรายการจะมี `event_id` ที่ไม่ซ้ำกันในเพย์โหลด การส่งรหัสนี้เป็น `last_event_id` จะทำให้สตรีมกลับมาทำงานต่อจากเหตุการณ์นั้น
 
 ### Python
 
@@ -240,14 +240,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## マルチターンの会話
+## การสนทนาไปมา
 
-後続のインタラクションは、次の制約に従って `previous_interaction_id` を使用してバックグラウンド会話にチェーンできます。
+การโต้ตอบในภายหลังสามารถเชื่อมโยงกับการสนทนาในเบื้องหลังได้โดยใช้ `previous_interaction_id` โดยขึ้นอยู่กับข้อจำกัดต่อไปนี้
 
-1. **アクティブな実行がブロックされる:** `in_progress` ステータスのインタラクションに後続のインタラクションをチェーンすると、`400 Bad Request` エラーが返されます。インタラクションが `completed` 状態になるまで待ってから、次のインタラクションを開始します。
-2. **マネージド エージェントの環境パラメータ:** マネージド エージェント（`antigravity-preview-05-2026` など）のインタラクションをチェーンする場合、リクエストには `previous_interaction_id` と `environment` の両方を含める必要があります。
+1. **การดำเนินการที่ใช้งานอยู่จะถูกบล็อก:** การเชื่อมโยงการโต้ตอบในภายหลังกับการโต้ตอบที่มีสถานะ `in_progress` จะแสดงข้อผิดพลาด `400 Bad Request` รอให้การโต้ตอบไปถึงสถานะ `completed` ก่อนที่จะเริ่มการโต้ตอบถัดไป
+2. **พารามิเตอร์สภาพแวดล้อมสำหรับ Agent ที่ได้รับการจัดการ:** เมื่อเชื่อมโยงการโต้ตอบสำหรับ Agent ที่ได้รับการจัดการ (เช่น `antigravity-preview-05-2026`) คำขอต้องมีทั้ง `previous_interaction_id` และ `environment`
 
-次の例は、インタラクションをチェーンする方法を示しています。
+ตัวอย่างต่อไปนี้แสดงวิธีเชื่อมโยงการโต้ตอบ
 
 ### Python
 
@@ -335,12 +335,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## キャンセルと削除
+## การยกเลิกและการลบ
 
-実行中の実行を制御し、キャンセル リクエストと削除リクエストを使用してストレージを管理します。
+ควบคุมการดำเนินการที่กำลังทำงานและจัดการพื้นที่เก็บข้อมูลโดยใช้คำขอยกเลิกและลบ
 
-- **キャンセル（`POST /interactions/{id}/cancel`）:** 実行中のタスクを停止します。ステータスが `cancelled` に移行します。サーバーでのクリーンアップ アクションにより、GET リクエストでのステータスの更新がわずかに遅れることがあります。
-- **削除（`DELETE /interactions/{id}`）:** サーバーからインタラクション レコードを削除します。以降の GET リクエストは `404 Not Found` エラーを返します。
+- **ยกเลิก (`POST /interactions/{id}/cancel`):** หยุดงานที่กำลังทำงาน สถานะจะเปลี่ยนเป็น `cancelled` การดำเนินการล้างข้อมูลบนเซิร์ฟเวอร์อาจทำให้เกิดความล่าช้าเล็กน้อยก่อนที่สถานะจะอัปเดตในคำขอ GET
+- **ลบ (`DELETE /interactions/{id}`):** นำบันทึกการโต้ตอบออกจากเซิร์ฟเวอร์ คำขอ GET ในภายหลังจะแสดงข้อผิดพลาด `404 Not Found`
 
 ### Python
 
@@ -384,18 +384,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## 次のステップ
+## ขั้นตอนถัดไป
 
-- セッションと状態の管理については、[Interactions API の概要](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)をご覧ください。
-- リアルタイム イベントの更新について詳しくは、[ストリーミングのインタラクション](https://ai.google.dev/gemini-api/docs/streaming?hl=ja) ガイドをご覧ください。
-- [マネージド エージェントのクイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja)を参照して、ステートフル マルチターン エージェントを構築します。
+- อ่าน[ภาพรวมของ Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) เพื่อทำความเข้าใจการจัดการเซสชันและสถานะ
+- ดูรายละเอียดเกี่ยวกับการอัปเดตเหตุการณ์แบบเรียลไทม์ได้ที่คู่มือการโต้ตอบแบบสตรีม [Streaming interactions](https://ai.google.dev/gemini-api/docs/streaming?hl=th)
+- สำรวจ[การเริ่มต้นใช้งานฉบับย่อของเอเจนต์ที่มีการจัดการ](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=th)เพื่อสร้างเอเจนต์แบบหลายรอบที่มีสถานะ
 
-フィードバックを送信
+ส่งความคิดเห็น
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最終更新日 2026-07-30 UTC。
+อัปเดตล่าสุด 2026-07-30 UTC
 
-ご意見をお聞かせください
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

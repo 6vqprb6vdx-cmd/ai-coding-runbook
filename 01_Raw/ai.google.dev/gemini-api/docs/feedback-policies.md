@@ -1,58 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=de
-fetched_at: 2026-08-10T03:16:05.145098+00:00
-title: "Feedback \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=he
+fetched_at: 2026-08-17T02:28:14.977897+00:00
+title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Feedback geben
+שליחת משוב
 
-# Feedback
+# משוב
 
-## Inline-Abstimmung zu Präferenzen
+## הצבעה להעדפות מוטבעות
 
-In Google AI Studio wird Ihnen gelegentlich ein direkter Vergleich von zwei verschiedenen Antworten auf Ihren Prompt angezeigt. Dies ist Teil unseres Systems für die Inline-Abstimmung zu Präferenzen. Sie werden gebeten, die Antwort auszuwählen, die Ihnen besser gefällt. So können wir besser nachvollziehen, welche Modellausgaben Nutzer am hilfreichsten finden.
+ב-Google AI Studio, יכול להיות שמדי פעם תראו השוואה בין שתי תשובות שונות להנחיה שלכם. זה חלק ממערכת ההצבעה שלנו להעדפות בתוך התוכן. תתבקשו לבחור את התשובה המועדפת. כך אנחנו יכולים להבין אילו פלטים של המודל הכי מועילים למשתמשים.
 
-### Gründe für diese Neuerung
+### למה אנחנו עושים את זה?
 
-Wir arbeiten ständig daran, unsere KI-Modelle und ‑Dienste zu verbessern. Ihr Feedback
-über die Inline-Abstimmung zu Präferenzen hilft uns, Google-Produkte und ‑Dienste sowie Technologien für maschinelles Lernen bereitzustellen, zu verbessern und zu entwickeln. Dazu gehören auch die Funktionen, Produkte und Dienste von Google für Unternehmen. Dies geschieht in Übereinstimmung mit den
-[zusätzlichen Nutzungsbedingungen für die Gemini API](https://ai.google.dev/gemini-api/terms?hl=de) und der
-[Datenschutzerklärung](https://policies.google.com/privacy?hl=de).
+אנחנו כל הזמן פועלים לשיפור המודלים והשירותים שלנו מבוססי-AI. המשוב שלכם באמצעות ההצבעה על העדפות בתוך הטקסט עוזר לנו לספק, לשפר ולפתח מוצרים ושירותים של Google וטכנולוגיות למידת מכונה, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם [לתנאים והגבלות נוספים לממשקי Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות הפרטיות](https://policies.google.com/privacy?hl=he).
 
-### Welche Daten sind im Feedback enthalten?
+### אילו נתונים נכללים במשוב?
 
-Um fundierte Entscheidungen zu unseren Modellen treffen zu können, erheben wir bestimmte Daten, wenn Sie an der Inline-Abstimmung zu Präferenzen teilnehmen:
+כדי לקבל החלטות מושכלות לגבי המודלים שלנו, אנחנו אוספים נתונים מסוימים כשאתם משתתפים בהצבעה להעדפות בתוך הטקסט:
 
-- **Prompts und Antworten**:Wir zeichnen alle Prompts und Antworten auf, einschließlich aller hochgeladenen Inhalte in der Unterhaltung, zu der Sie Feedback gegeben haben. Außerdem erfassen wir die beiden Antwortoptionen, aus denen Sie ausgewählt haben. So können wir den Kontext Ihrer Präferenz besser nachvollziehen.
-- **Ihre Abstimmung**:Wir erfassen, welche Antwort Sie bevorzugt haben. Das ist der Kern des Feedbacks, das wir erheben.
-- **Nutzungsdetails**:Dazu gehören Informationen dazu, welches Modell die Antwort generiert hat, sowie andere technische und betriebliche Details zur Nutzung dieser Funktion.
+- **הנחיות ותשובות:** אנחנו מתעדים את כל ההנחיות והתשובות, כולל כל תוכן שהועלה, בשיחה ששלחתם עליה משוב. אנחנו גם מתעדים את שתי אפשרויות התשובה שבחרתם. כך נוכל להבין את ההקשר של ההעדפה שלכם.
+- **ההצבעה שלך:** אנחנו מתעדים איזו תשובה העדפתם. זהו עיקר המשוב שאנחנו אוספים.
+- **פרטי השימוש:** כולל מידע על המודל שיצר את התגובה ופרטים טכניים ותפעוליים אחרים על השימוש שלכם בתכונה הזו.
 
-### Datenschutz
+### הפרטיות שלך
 
-Wir nehmen den Schutz Ihrer Privatsphäre ernst. Google unternimmt im Rahmen dieser Verarbeitung Schritte, um Ihre Daten zu schützen. Dazu wird unter anderem dafür gesorgt, dass entsprechende Daten nicht mit Ihrem Google-Konto, API-Schlüssel und Cloud-Projekt in Verbindung gebracht werden können, bevor sie von Prüfern eingesehen oder mit Vermerken versehen werden. **Geben Sie kein Feedback zu Unterhaltungen, die sensible, vertrauliche oder personenbezogene Informationen enthalten.**
+הפרטיות שלכם חשובה לנו מאוד. במסגרת התהליך הזה, Google מבצעת פעולות כדי להגן על הפרטיות שלכם. לדוגמה, אנחנו מנתקים את הנתונים האלה מחשבון Google, ממפתח ה-API ומפרויקט הענן לפני שהבודקים רואים אותם או מוסיפים להם הערות. **אל תשלחו משוב על שיחות שכוללות מידע רגיש, סודי או אישי.**
 
-### Deaktivieren der Funktion
+### ביטול הסכמה להצטרפות
 
-Sie können die Inline-Abstimmung zu Präferenzen überspringen, wenn sie angezeigt wird.
+תוכלו לדלג על ההצבעה להעדפות בתוך הטקסט כשהיא תופיע.
 
-Vielen Dank, dass Sie uns helfen, Google AI Studio zu verbessern.
+תודה שעזרת לנו לשפר את Google AI Studio!
 
-Feedback geben
+שליחת משוב
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Zuletzt aktualisiert: 2026-04-29 (UTC).
+עדכון אחרון: 2026-04-29 (שעון UTC).
 
-Haben Sie Feedback für uns?
+רוצה לתת לנו משוב?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

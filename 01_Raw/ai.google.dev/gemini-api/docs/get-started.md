@@ -1,65 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=zh-TW
-fetched_at: 2026-08-10T03:08:59.318926+00:00
-title: "\u958b\u59cb\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=ja
+fetched_at: 2026-08-17T02:24:41.712689+00:00
+title: "\u30b9\u30bf\u30fc\u30c8 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-提供意見
+フィードバックを送信
 
-# 開始使用
+# スタート ガイド
 
-本指南將說明如何使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 開始使用 Gemini API。您將在一分鐘內完成第一次 API 呼叫，並探索文字生成、多模態理解、圖像生成、結構化輸出內容、工具、函式呼叫、代理程式和背景執行作業。
+このガイドでは、[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) を使用して Gemini API を使い始める方法について説明します。1 分以内に最初の API 呼び出しを行い、テキスト生成、マルチモーダル理解、画像生成、構造化出力、ツール、関数呼び出し、エージェント、バックグラウンド実行について学習します。
 
-您可以透過 [Python](https://github.com/googleapis/python-genai) 和 [JavaScript](https://github.com/googleapis/js-genai) SDK，以及 REST 使用 Interactions API。
+Interactions API は、[Python](https://github.com/googleapis/python-genai) と [JavaScript](https://github.com/googleapis/js-genai) の SDK と REST を通じて利用できます。
 
-## 1. 取得 API 金鑰
+## 1. API キーを取得する
 
-如要使用 Gemini API，您必須有 API 金鑰，才能驗證要求、強制執行安全限制，以及追蹤帳戶的使用情形。
+Gemini API を使用するには、リクエストの認証、セキュリティ上限の適用、アカウントの使用状況の追跡を行うための API キーが必要です。
 
-- Google AI Studio 會自動為新使用者建立專案和 API 金鑰。您可以在「[API 金鑰](https://aistudio.google.com/api-keys?hl=zh-tw)」頁面複製金鑰。
-- 如需新金鑰，請在 AI Studio 中按一下「建立 API 金鑰」，然後按照對話方塊的指示新增金鑰/專案配對。
+- Google AI Studio では、新規ユーザー向けにプロジェクトと API キーが自動的に作成されます。[API キーのページ](https://aistudio.google.com/api-keys?hl=ja)からコピーできます。
+- 新しいキーが必要な場合は、AI Studio で [**API キーを作成**] をクリックし、ダイアログに沿って新しいキーとプロジェクトのペアを追加します。
 
-[建立 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
+[Gemini API キーを作成する](https://aistudio.google.com/apikey?hl=ja)
 
-將金鑰設為環境變數：
+鍵を環境変数として設定します。
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### 升級至付費層級
+### 有料ティアにアップグレードする
 
-升級至付費層級可提高頻率限制，但需要設定 Cloud Billing。
+有料階層にアップグレードすると、レートの上限が引き上げられます。また、Cloud Billing の設定が必要になります。
 
-- 在 AI Studio 的「API keys」(API 金鑰) 或「Projects」(專案) 頁面上，按一下「Set up billing」(設定帳單)。
-- 按照 Cloud Billing 對話方塊的指示建立或連結帳單帳戶、新增付款方式，並預付至少 $10 美元 (或等值金額) 的付費抵免額。
-- 在 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 中，依序點選「資訊主頁」 >「用量」，即可查看 API 用量。
+- AI Studio の [API キー](https://aistudio.google.com/api-keys?hl=ja)ページまたは[プロジェクト](https://aistudio.google.com/projects?hl=ja)ページで、[**お支払い情報を設定**] をクリックします。
+- Cloud Billing ダイアログに沿って、請求先アカウントを作成またはリンクし、お支払い方法を追加して、有料クレジットで最低 10 ドル（または同等の通貨）を前払いします。
+- API の使用状況は、[Google AI Studio](https://aistudio.google.com/usage?hl=ja) の [**ダッシュボード**] > [**使用状況**] で確認できます。
 
-詳情請參閱「[帳單頁面](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw)」。
+詳細については、[お支払いページ](https://ai.google.dev/gemini-api/docs/billing?hl=ja)をご覧ください。
 
-## 2. 安裝 SDK 並進行第一次呼叫
+## 2. SDK をインストールして最初の呼び出しを行う
 
-安裝 SDK，並透過單一 API 呼叫生成文字。
+SDK をインストールし、1 回の API 呼び出しでテキストを生成します。
 
 ### Python
 
-安裝 SDK：
+SDK をインストールします。
 
 ```
 pip install -U google-genai
 ```
 
-初始化用戶端並發出要求：
+クライアントを初期化してリクエストを行います。
 
 ```
 from google import genai
@@ -75,13 +75,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-安裝 SDK：
+SDK をインストールします。
 
 ```
 npm install @google/genai
 ```
 
-初始化用戶端並發出要求：
+クライアントを初期化してリクエストを行います。
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -107,7 +107,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回覆：**
+**回答:**
 
 ```
 {
@@ -139,13 +139,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-使用 REST 時，API 會傳回完整的 `Interaction` 資源，其中包含中繼資料、使用統計資料，以及回合的逐步記錄。
+REST を使用すると、API はメタデータ、使用状況の統計情報、ターンのステップバイステップの履歴を含む完全な `Interaction` リソースを返します。
 
-SDK 會公開完整的回應，同時提供 `interaction.output_text` 和 `interaction.output_image` 等便利屬性，可直接存取最終輸出內容。如要進一步瞭解回覆結構，請參閱「[互動總覽](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)」或「[文字生成指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)」，瞭解系統指令和生成設定的詳細資訊。
+SDK は完全なレスポンスを公開しますが、最終的な出力に直接アクセスするための `interaction.output_text` や `interaction.output_image` などの便利なプロパティも提供します。レスポンス構造について詳しくは、[インタラクションの概要](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)をご覧ください。システム メッセージと生成構成の詳細については、[テキスト生成ガイド](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja)をご覧ください。
 
-## 3. 逐句顯示回覆
+## 3. レスポンスをストリーミングする
 
-如要讓互動更流暢，請在生成回應時串流傳輸。每個 `step.delta` 事件都會傳送一組文字，您可以立即顯示。
+よりスムーズなやり取りを実現するには、レスポンスを生成しながらストリーミングします。各 `step.delta` イベントは、すぐに表示できるテキストのチャンクを配信します。
 
 ### Python
 
@@ -195,9 +195,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-串流時，伺服器會傳回伺服器傳送事件 (SSE) 串流。每個事件都包含類型和 JSON 資料。
+ストリーミングの場合、サーバーはサーバー送信イベント（SSE）のストリームで応答します。各イベントには、タイプと JSON データが含まれます。
 
-**回覆：**
+**回答:**
 
 ```
 event: interaction.created
@@ -228,18 +228,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-如要深入瞭解如何處理串流事件和 delta 類型，請參閱[串流互動指南](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-tw)。
+ストリーミング イベントとデルタタイプの処理の詳細については、[ストリーミング操作ガイド](https://ai.google.dev/gemini-api/docs/streaming?hl=ja)をご覧ください。
 
-## 4. 多轉折對話
+## 4. マルチターンの会話
 
-Interactions API 支援多輪對話，方法有兩種：
+Interactions API は、次の 2 つのアプローチでマルチターンの会話をサポートしています。
 
-- **有狀態 (建議)**：使用 `previous_interaction_id` 在伺服器上繼續對話。適合用於多數的即時通訊和代理式工作流程，讓伺服器管理記錄並最佳化快取。
-- **無狀態**：在每個要求中傳遞所有先前的輪流對話 (包括中繼模型想法和工具步驟)，藉此在用戶端管理對話記錄。
+- **ステートフル（推奨）**: `previous_interaction_id` を使用してサーバーで会話を続けます。サーバーで履歴を管理し、キャッシュ保存を最適化するほとんどのチャット ワークフローとエージェント ワークフローに最適です。
+- **ステートレス**: 各リクエストで以前のすべてのターン（モデルの中間思考とツールステップを含む）を渡すことで、クライアントで会話履歴を管理します。
 
-### 具狀態 (建議)
+### ステートフル（推奨）
 
-傳遞 `previous_interaction_id` 即可串連互動。伺服器會為您管理完整對話記錄。
+`previous_interaction_id` を渡してインタラクションをチェーンします。サーバーが会話履歴全体を管理します。
 
 ### Python
 
@@ -309,9 +309,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 無狀態
+### ステートレス
 
-在用戶端設定 `store=false` 及管理對話記錄。您必須保留並重新傳送所有模型生成的步驟 (包括 `thought` 和 `function_call` 步驟)，且內容必須與收到的完全一致。
+`store=false` を設定し、クライアントサイドで会話履歴を管理します。モデルで生成されたすべてのステップ（`thought` ステップと `function_call` ステップを含む）は、受け取ったとおりに保持して再送信する必要があります。
 
 ### Python
 
@@ -423,7 +423,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**回覆：**
+**回答:**
 
 ```
 {
@@ -450,11 +450,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-第二次互動會傳回完整回覆物件，其中只包含新步驟，但會以先前回合的脈絡為基礎。如要進一步瞭解如何維護狀態，請參閱[多輪對話指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#multi-turn-conversations)，或探索[無狀態模式](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#stateless-conversations)，瞭解如何管理用戶端記錄。
+2 回目のインタラクションでは、新しいステップのみを含む完全なレスポンス オブジェクトが返されますが、これは前のターンのコンテキストに基づいています。状態の維持については、[マルチターン会話ガイド](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#multi-turn-conversations)をご覧ください。クライアントサイドの履歴管理については、[ステートレス モード](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#stateless-conversations)をご覧ください。
 
-## 5. 多模態理解
+## 5. マルチモーダルな理解
 
-Gemini 模型可直接解讀圖片、音訊、影片和文件。在單一要求中傳遞媒體和文字。
+Gemini モデルは、画像、音声、動画、ドキュメントをネイティブに理解します。1 つのリクエストでテキストとともにメディアを渡します。
 
 ### Python
 
@@ -546,7 +546,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**回覆：**
+**回答:**
 
 ```
 {
@@ -571,27 +571,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-請參閱[圖像解讀指南](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)，瞭解如何傳遞圖片、影片和音訊檔案。
+画像、動画、音声ファイルを渡す方法については、[画像理解ガイド](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja)をご覧ください。
 
 [hearing
 
-音訊理解
+音声の理解
 
-轉錄音訊檔案、摘要內容或回答相關問題。](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)
+音声ファイルの文字起こし、要約、質問への回答を行います。](https://ai.google.dev/gemini-api/docs/audio?hl=ja)
 [videocam
 
-影片解讀
+動画理解
 
-分析影片內容、找出事件並描述動作。](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)
+動画コンテンツを分析し、イベントを特定して、アクションを説明します。](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja)
 [description
 
-文件處理
+ドキュメント処理
 
-從 PDF 和其他文件格式中擷取資訊。](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)
+PDF などのドキュメント形式から情報を抽出します。](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)
 
-## 6. 多模態生成
+## 6. マルチモーダル生成
 
-Gemini 可使用 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw) 圖像模型生成圖像。
+Gemini は、[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) 画像モデルを使用して画像をネイティブに生成できます。
 
 ### Python
 
@@ -644,7 +644,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**回覆：**
+**回答:**
 
 ```
 {
@@ -667,22 +667,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-模型生成圖片時，會在 `steps` 陣列的步驟中，以及透過 `output_image` 便利屬性，傳回 Base64 編碼的圖片資料。請參閱[圖像生成指南](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)，瞭解顯示比例、圖片編輯和參考資料。
+モデルが画像を生成すると、`steps` 配列内のステップと `output_image` 便宜的プロパティを介して、base64 エンコードされた画像データが返されます。アスペクト比、画像編集、参照については、[画像生成ガイド](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)をご覧ください。
 
 [record\_voice\_over
 
-語音生成
+音声生成
 
-使用 Gemini 3.1 Flash TTS 生成生動的多人語音。](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)
+Gemini 3.1 Flash TTS を使用して、表現力豊かな複数話者の音声を生成します。](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)
 [music\_note
 
-音樂生成
+音楽生成
 
-使用 Lyria 3 製作短片和完整歌曲。](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-tw)
+Lyria 3 でクリップやフルレングスの楽曲を作成します。](https://ai.google.dev/gemini-api/docs/music-generation?hl=ja)
 
-## 7. 使用結構化輸出內容
+## 7. 構造化出力を使用する
 
-設定模型，傳回符合您定義結構定義的 JSON。結構化輸出內容適用於 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript)。
+定義したスキーマに一致する JSON を返すようにモデルを構成します。構造化出力は、[Pydantic](https://docs.pydantic.dev/latest/)（Python）と [Zod](https://zod.dev/)（JavaScript）で動作します。
 
 ### Python
 
@@ -785,7 +785,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回覆：**
+**回答:**
 
 ```
 {
@@ -807,11 +807,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-輸出文字區塊包含符合要求結構定義的有效 JSON 字串。如要瞭解如何定義更複雜的結構和遞迴結構定義，請參閱[結構化輸出內容指南](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)。
+出力テキスト ブロックには、リクエストされたスキーマに正確に準拠した有効な JSON 文字列が含まれます。より複雑な構造と再帰的スキーマを定義する方法については、[構造化出力ガイド](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)をご覧ください。
 
-## 8. 使用工具
+## 8. ツールを使用する
 
-使用 Google 搜尋查找資料，鞏固回覆的事實基礎。API 會自動搜尋、處理結果並傳回引文。
+Google 検索を使用して、モデルのレスポンスをリアルタイムの情報でグラウンディングします。API は自動的に検索し、結果を処理して引用を返します。
 
 ### Python
 
@@ -884,7 +884,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回覆：**
+**回答:**
 
 ```
 {
@@ -934,41 +934,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-互動記錄會詳細列出搜尋步驟，最終輸出內容則會內嵌引用網路來源。
+検索手順はサポート履歴に詳しく記載されており、最終的な出力にはウェブソースを指すインライン引用が含まれています。
 
-如要瞭解如何擷取搜尋引用來源，請參閱 [Google 搜尋基礎指南](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)；如要瞭解如何合併使用多項工具，請參閱[工具組合指南](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)。
+検索引用を抽出する方法については、[Google 検索のグラウンディング ガイド](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)をご覧ください。複数のツールを組み合わせる方法については、[ツール組み合わせガイド](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)をご覧ください。
 
 [code
 
-執行程式碼
+コード実行
 
-在安全的沙箱 Borg 環境中執行 Python 程式碼。](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)
+安全なサンドボックス化された Borg 環境で Python コードを実行します。](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)
 [link
 
-網址背景資訊
+URL コンテキスト
 
-直接傳遞公開網頁網址，以網頁內容為依據生成回覆。](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)
+公開ウェブ URL を直接渡して、ウェブページ コンテンツのレスポンスをグラウンディングします。](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)
 [search
 
-檔案搜尋
+ファイル検索
 
-為上傳的文件和媒體檔案建立索引並進行搜尋。](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)
+アップロードされたドキュメントとメディア ファイル全体にわたってインデックスを作成し、検索します。](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)
 [map
 
-Google 地圖
+Google マップ
 
-根據現實世界的地理空間和位置資料建立回覆基準。](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)
+現実世界の地理空間データと位置情報データに基づいて回答します。](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)
 [computer
 
-操作電腦
+パソコンの使用
 
-瀏覽器自動化和螢幕互動。](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)
+ブラウザの自動化と画面操作。](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)
 
-## 9. 呼叫自己的函式
+## 9. 独自の関数を呼び出す
 
-函式呼叫功能可讓您將模型連結至程式碼。您會宣告函式的名稱和參數，模型會決定何時呼叫函式並傳回結構化引數，而您會在本地執行函式並傳回結果。
+関数呼び出しを使用すると、モデルをコードに接続できます。関数の名前とパラメータを宣言すると、モデルが呼び出すタイミングを決定して構造化された引数を返し、ローカルで実行して結果を返送します。
 
-### 具狀態 (建議)
+### ステートフル（推奨）
 
 ### Python
 
@@ -1153,13 +1153,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 無狀態
+### ステートレス
 
-您也可以在無狀態模式中使用函式呼叫，方法是在用戶端管理對話記錄，並設定 `store=false`。在無狀態模式中，您必須在每個後續要求的 `input` 欄位中傳遞完整的對話記錄。這類記錄必須包括：
+クライアント側で会話履歴を管理し、`store=false` を設定することで、ステートレス モードで関数呼び出しを使用することもできます。ステートレス モードでは、後続の各リクエストの `input` フィールドで会話の履歴全体を渡す必要があります。この履歴には、以下を含める必要があります。
 
-1. 初始 `user_input` 步驟。
-2. 在第 1 輪中，所有模型生成的步驟 (包括 `thought` 和 `function_call` 步驟) 都會完全按照收到的內容傳回。
-3. `function_result` 步驟，其中包含已執行函式的輸出內容。
+1. 最初の `user_input` ステップ。
+2. ターン 1 で返されたモデル生成のすべてのステップ（`thought` ステップと `function_call` ステップを含む）を、受け取ったとおりに返します。
+3. 実行された関数の出力を含む `function_result` ステップ。
 
 ### Python
 
@@ -1367,9 +1367,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**回覆：**
+**回答:**
 
-在第 1 輪中，模型會傳回狀態為 `requires_action` 的回應，以及 `function_call` 步驟：
+ターン 1 で、モデルはステータス `requires_action` と `function_call` ステップを含むレスポンスを返します。
 
 ```
 {
@@ -1390,7 +1390,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-在您於本機執行函式並提交結果 (第 2 輪) 後，系統會傳回最終完成的互動：
+関数をローカルで実行して結果を送信すると（ターン 2）、最終的な完了したインタラクションが返されます。
 
 ```
 {
@@ -1420,11 +1420,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-如要瞭解平行函式呼叫或函式選擇模式等進階功能，請參閱[函式呼叫指南](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+並列関数呼び出しや関数選択モードなどの上級者向け機能については、[関数呼び出しガイド](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)をご覧ください。
 
-## 10. 執行受管理代理程式
+## 10. マネージド エージェントを実行する
 
-受管理代理會在遠端沙箱中執行，並可存取程式碼執行和檔案管理等工具。傳遞 `agent` 而非 `model`，並設定 `environment="remote"`。
+マネージド エージェントは、コード実行やファイル管理などのツールにアクセスできるリモート サンドボックスで実行されます。`model` の代わりに `agent` を渡し、`environment="remote"` を設定します。
 
 ### Python
 
@@ -1471,27 +1471,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-您也可以定義及儲存[自訂代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)，並提供自己的指令、技能和資料來源。
+独自の指示、スキル、データソースを使用して[カスタム エージェント](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ja)を定義して保存することもできます。
 
 [rocket\_launch
 
-快速入門導覽課程
+クイックスタート
 
-進行第一次代理呼叫、串流回應，以及建構自訂代理。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)
+最初のエージェント呼び出しを行い、レスポンスをストリーミングして、カスタム エージェントを構築します。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja)
 [smart\_toy
 
-Antigravity 代理
+Antigravity エージェント
 
-預設代理程式的功能、工具、多模態輸入和定價。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)
+デフォルト エージェントの機能、ツール、マルチモーダル入力、料金。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja)
 [experiment
 
-AI Studio 中的代理程式
+AI Studio のエージェント
 
-視覺化測試區，可設計代理程式原型，完全不必編寫程式碼。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw)
+コードを記述せずにエージェントのプロトタイピングを行うためのビジュアル プレイグラウンド。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=ja)
 
-## 11. 在背景執行工作
+## 11. バックグラウンドでタスクを実行する
 
-設定 `background=True` 以非同步方式執行長時間執行的工作。使用 `interactions.get()` 輪詢結果。詳情請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)。
+`background=True` を設定して、長時間実行タスクを非同期で実行します。`interactions.get()` を使用して結果をポーリングします。詳細については、[バックグラウンド実行ガイド](https://ai.google.dev/gemini-api/docs/background-execution?hl=ja)をご覧ください。
 
 ### Python
 
@@ -1586,9 +1586,9 @@ while true; do
 done
 ```
 
-**回覆：**
+**回答:**
 
-初始回應會立即傳回，狀態為 `in_progress`：
+最初のレスポンスは、ステータス `in_progress` で直ちに返されます。
 
 ```
 {
@@ -1599,7 +1599,7 @@ done
 }
 ```
 
-背景工作完全執行完畢後，檢查互動狀態會傳回：
+バックグラウンド タスクが完全に実行されると、インタラクションの状態を確認すると次の値が返されます。
 
 ```
 {
@@ -1621,27 +1621,27 @@ done
 }
 ```
 
-請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)，瞭解如何以非同步方式執行模型和代理程式。
+モデルとエージェントを非同期で実行する方法については、[バックグラウンド実行ガイド](https://ai.google.dev/gemini-api/docs/background-execution?hl=ja)をご覧ください。
 
-## 後續步驟
+## 次のステップ
 
-- [背景執行](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)：以非同步方式執行長時間執行的工作，並管理狀態。
-- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)：系統指令、生成設定和進階文字模式。
-- [圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)：顯示比例、圖像編輯和風格參考。
-- [圖像解讀](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)：分類、物件偵測和圖像問與答。
-- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)：針對複雜工作使用連鎖思維推論。
-- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)：平行、組合和受限函式模式。
-- [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)：建立基準、引用來源和搜尋建議。
-- [受管理代理](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)：預先建構的代理，可執行程式碼及管理檔案。
-- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)：自主執行多步驟研究，並規劃和統整資訊。
-- [結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)：JSON 結構定義、列舉和遞迴型別定義。
+- [バックグラウンド実行](https://ai.google.dev/gemini-api/docs/background-execution?hl=ja): 長時間実行タスクを非同期で実行し、状態を管理します。
+- [テキスト生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja): システム指示、生成構成、高度なテキスト パターン。
+- [画像の生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja): アスペクト比、画像編集、スタイル参照。
+- [画像理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja): 分類、オブジェクト検出、ビジュアル Q&A。
+- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja): 複雑なタスクに Chain-of-Thought 推論を使用します。
+- [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja): 並列、コンポジション、制約付きの関数モード。
+- [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja): グラウンディング、引用、検索候補。
+- [マネージド エージェント](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja): コード実行とファイル管理を備えた事前構築済みのエージェント。
+- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja): 計画と統合を伴う自律的な複数ステップの調査。
+- [構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja): JSON スキーマ、列挙型、再帰型定義。
 
-提供意見
+フィードバックを送信
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-上次更新時間：2026-07-30 (世界標準時間)。
+最終更新日 2026-07-30 UTC。
 
-想進一步說明嗎？
+ご意見をお聞かせください
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

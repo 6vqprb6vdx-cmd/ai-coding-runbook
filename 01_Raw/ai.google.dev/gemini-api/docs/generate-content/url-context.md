@@ -1,34 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=tr
-fetched_at: 2026-08-10T03:25:36.396217+00:00
-title: "URL ba\u011flam\u0131 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=th
+fetched_at: 2026-08-17T02:16:16.429010+00:00
+title: "\u0e1a\u0e23\u0e34\u0e1a\u0e17 URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# URL bağlamı
+# บริบท URL
 
-URL bağlamı aracı, URL biçiminde modellere ek bağlam sağlamanıza olanak tanır. İsteğinize URL'ler ekleyerek model, yanıtını bilgilendirmek ve geliştirmek için bu sayfalardaki içeriğe ([sınırlamalar bölümünde](#limitations) listelenen bir URL türü olmadığı sürece) erişir.
+[เครื่องมือบริบท URL ช่วยให้คุณระบุบริบทเพิ่มเติมให้กับโมเดลในรูปแบบ URL ได้ การใส่ URL ไว้ในคำขอจะช่วยให้โมเดลเข้าถึงเนื้อหาจากหน้าเว็บเหล่านั้นได้ (ตราบใดที่เป็น URL ประเภทที่ไม่ได้ระบุไว้ในส่วนข้อจำกัด) เพื่อให้ข้อมูลและปรับปรุงการตอบกลับ](#limitations)
 
-URL bağlamı aracı, aşağıdaki gibi görevler için kullanışlıdır:
+เครื่องมือบริบท URL มีประโยชน์สำหรับงานต่างๆ เช่น
 
-- **Veri Ayıklama**: Fiyatlar, adlar veya temel bulgular gibi belirli bilgileri birden fazla URL'den çekin.
-- **Belgeleri Karşılaştırma**: Farklılıkları belirlemek ve trendleri takip etmek için birden fazla raporu, makaleyi veya PDF'yi analiz edin.
-- **İçerik Sentezleme ve Oluşturma**: Doğru özetler, blog yayınları veya raporlar oluşturmak için çeşitli kaynak URL'lerden gelen bilgileri birleştirin.
-- **Kodu ve Dokümanları Analiz Etme**: Kodu açıklamak, kurulum talimatları oluşturmak veya soruları yanıtlamak için bir GitHub deposuna ya da teknik dokümanlara işaret edin.
+- **ดึงข้อมูล**: ดึงข้อมูลที่เฉพาะเจาะจง เช่น ราคา ชื่อ หรือผลการค้นพบที่สำคัญ
+  จาก URL หลายรายการ
+- **เปรียบเทียบเอกสาร**: วิเคราะห์รายงาน บทความ หรือ PDF หลายรายการเพื่อ
+  ระบุความแตกต่างและติดตามแนวโน้ม
+- **สังเคราะห์และสร้างเนื้อหา**: รวมข้อมูลจาก URL แหล่งที่มาหลายรายการเพื่อสร้างสรุปที่ถูกต้อง โพสต์ในบล็อก หรือรายงาน
+- **วิเคราะห์โค้ดและเอกสาร**: ชี้ไปยังที่เก็บ GitHub หรือเอกสารทางเทคนิคเพื่ออธิบายโค้ด สร้างวิธีการตั้งค่า หรือตอบคำถาม
 
-Aşağıdaki örnekte, farklı web sitelerindeki iki tarifin nasıl karşılaştırılacağı gösterilmektedir.
+ตัวอย่างต่อไปนี้แสดงวิธีเปรียบเทียบสูตรอาหาร 2 สูตรจากเว็บไซต์ต่างๆ
 
 ### Python
 
@@ -111,20 +113,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 cat result.json
 ```
 
-## İşleyiş şekli
+## วิธีการทำงาน
 
-URL Bağlamı aracı, hızı, maliyeti ve güncel verilere erişimi dengelemek için iki adımlı bir alma süreci kullanır. Bir URL sağladığınızda araç, önce içeriği dahili bir dizin önbelleğinden getirmeye çalışır. Bu, yüksek düzeyde optimize edilmiş bir önbellek görevi görür. Bir URL dizinde mevcut değilse (örneğin, çok yeni bir sayfaysa) araç otomatik olarak canlı getirme işlemine geri döner.
-Bu araç, içeriğini gerçek zamanlı olarak almak için doğrudan URL'ye erişir.
+เครื่องมือบริบท URL ใช้กระบวนการดึงข้อมูล 2 ขั้นตอนเพื่อสร้างสมดุลระหว่างความเร็ว ต้นทุน และการเข้าถึงข้อมูลล่าสุด เมื่อคุณระบุ URL เครื่องมือจะพยายามดึงข้อมูลเนื้อหาจากแคชดัชนีภายในก่อน ซึ่งทำหน้าที่เป็นแคชที่มีการเพิ่มประสิทธิภาพสูง หาก URL ไม่พร้อมใช้งานในดัชนี (เช่น หากเป็นหน้าเว็บใหม่มาก) เครื่องมือจะย้อนกลับไปดึงข้อมูลแบบสดโดยอัตโนมัติ
+ซึ่งจะเข้าถึง URL โดยตรงเพื่อดึงข้อมูลเนื้อหาแบบเรียลไทม์
 
-## Diğer araçlarla birlikte kullanma
+## การรวมกับเครื่องมืออื่นๆ
 
-Daha güçlü iş akışları oluşturmak için URL bağlamı aracını diğer araçlarla birlikte kullanabilirsiniz.
+คุณสามารถรวมเครื่องมือบริบท URL กับเครื่องมืออื่นๆ เพื่อสร้างเวิร์กโฟลว์ที่มีประสิทธิภาพมากขึ้น
 
-[Gemini 3 modelleri](#supported-models), yerleşik araçların (ör. URL bağlamı) özel araçlarla (işlev çağrısı) birleştirilmesini destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
+[โมเดล Gemini 3](#supported-models) รองรับการรวมเครื่องมือในตัว
+(เช่น บริบท URL) กับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ที่หน้าการรวมเครื่องมือ
 
-### Arama ile temellendirme
+### การเชื่อมต่อแหล่งข้อมูลกับ Search
 
-Hem URL bağlamı hem de [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/grounding?hl=tr) etkinleştirildiğinde model, arama özelliklerini kullanarak internette alakalı bilgiler bulabilir ve ardından bulduğu sayfalar hakkında daha ayrıntılı bilgi edinmek için URL bağlamı aracını kullanabilir. Bu yaklaşım, hem geniş kapsamlı arama hem de belirli sayfaların ayrıntılı analizini gerektiren istemler için oldukça etkilidir.
+เมื่อเปิดใช้ทั้งบริบท URL และ
+[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th) โมเดลจะใช้ความสามารถในการค้นหาเพื่อค้นหา
+ข้อมูลที่เกี่ยวข้องทางออนไลน์ แล้วใช้เครื่องมือบริบท URL เพื่อทำความเข้าใจหน้าเว็บที่พบในเชิงลึกมากขึ้น แนวทางนี้มีประสิทธิภาพสำหรับพรอมต์ที่ต้องมีการค้นหาในวงกว้างและการวิเคราะห์หน้าเว็บที่เฉพาะเจาะจงในเชิงลึก
 
 ### Python
 
@@ -209,11 +214,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 cat result.json
 ```
 
-## Yanıtı anlama
+## ทำความเข้าใจการตอบกลับ
 
-Model, URL bağlamı aracını kullandığında yanıtta bir `url_context_metadata` nesnesi bulunur. Bu nesne, modelin içerik aldığı URL'leri ve her alma denemesinin durumunu listeler. Bu bilgiler, doğrulama ve hata ayıklama için yararlıdır.
+เมื่อโมเดลใช้เครื่องมือบริบท URL การตอบกลับจะมีออบเจ็กต์ `url_context_metadata` ออบเจ็กต์นี้จะแสดง URL ที่โมเดลดึงข้อมูลเนื้อหามาและสถานะของความพยายามในการดึงข้อมูลแต่ละครั้ง ซึ่งมีประโยชน์สำหรับการยืนยันและการแก้ไขข้อบกพร่อง
 
-Aşağıda, yanıtın bu bölümüne ilişkin bir örnek verilmiştir (kısa olması için yanıtın bazı bölümleri çıkarılmıştır):
+ตัวอย่างส่วนหนึ่งของการตอบกลับ (เราละส่วนอื่นๆ ของการตอบกลับไว้เพื่อความกระชับ)
 
 ```
 {
@@ -245,16 +250,18 @@ Aşağıda, yanıtın bu bölümüne ilişkin bir örnek verilmiştir (kısa olm
 }
 ```
 
-Bu nesneyle ilgili tüm ayrıntılar için [`UrlContextMetadata` API referansı](https://ai.google.dev/api/generate-content?hl=tr#UrlContextMetadata) bölümüne bakın.
+ดูรายละเอียดทั้งหมดเกี่ยวกับออบเจ็กต์นี้ได้ที่เอกสารอ้างอิง API ของ
+[`UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=th#UrlContextMetadata)
 
-### Güvenlik kontrolleri
+### การตรวจสอบความปลอดภัย
 
-Sistem, URL'de içerik denetimi yaparak güvenlik standartlarına uygun olup olmadığını doğrular. Sağladığınız URL bu denetimi geçemezse `url_retrieval_status` `URL_RETRIEVAL_STATUS_UNSAFE` hatası alırsınız.
+ระบบจะทำการตรวจสอบการกลั่นกรองเนื้อหาใน URL เพื่อยืนยันว่า URL เป็นไปตามมาตรฐานความปลอดภัย หาก URL ที่คุณระบุไม่ผ่านการตรวจสอบนี้ คุณจะได้รับ `url_retrieval_status` เป็น `URL_RETRIEVAL_STATUS_UNSAFE`
 
-### Jeton sayısı
+### จำนวนโทเค็น
 
-İsteminizde belirttiğiniz URL'lerden alınan içerik, giriş jetonları kapsamında sayılır. İsteminizin jeton sayısını ve araç kullanımını model çıkışının [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=tr#UsageMetadata)
-nesnesinde görebilirsiniz. Aşağıda örnek bir çıkış verilmiştir:
+ระบบจะนับเนื้อหาที่ดึงข้อมูลจาก URL ที่คุณระบุในพรอมต์เป็นส่วนหนึ่งของโทเค็นอินพุต คุณดูจำนวนโทเค็นสำหรับการใช้งานพรอมต์และ
+เครื่องมือได้ใน [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=th#UsageMetadata)
+ของเอาต์พุตโมเดล ตัวอย่างเอาต์พุตมีดังนี้
 
 ```
 'usage_metadata': {
@@ -270,62 +277,66 @@ nesnesinde görebilirsiniz. Aşağıda örnek bir çıkış verilmiştir:
   }
 ```
 
-Jeton başına fiyat, kullanılan modele bağlıdır. Ayrıntılar için [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) sayfasına bakın.
+ราคาต่อโทเค็นจะขึ้นอยู่กับโมเดลที่ใช้ โปรดดูรายละเอียดในหน้าการกำหนดราคา
 
-## Desteklenen modeller
+## โมเดลที่รองรับ
 
-| Model | URL Bağlamı |
+| โมเดล | บริบท URL |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=tr) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=tr) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) | ✔️ |
-| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=tr) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
-| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
+| [Gemini 3.1 Pro (เวอร์ชันทดลอง)](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=th) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
+| [Gemini 3 Flash (เวอร์ชันทดลอง)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
 
-## En İyi Uygulamalar
+## แนวทางปฏิบัติแนะนำ
 
-- **Belirli URL'ler sağlama**: En iyi sonuçlar için modele analiz etmesini istediğiniz içeriğin doğrudan URL'lerini sağlayın. Model yalnızca sağladığınız URL'lerden içerik alır, yerleştirilmiş bağlantılardaki içerikleri almaz.
-- **Erişilebilirliği kontrol edin**: Sağladığınız URL'lerin, giriş yapılması gereken veya ödeme duvarının arkasında olan sayfalara yönlendirmediğini doğrulayın.
-- **Tam URL'yi kullanın**: Protokolü de dahil ederek tam URL'yi girin (ör. yalnızca google.com yerine https://www.google.com).
+- **ระบุ URL ที่เฉพาะเจาะจง**: เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ให้ระบุ URL โดยตรงไปยัง
+  เนื้อหาที่ต้องการให้โมเดลวิเคราะห์ โมเดลจะดึงข้อมูลเนื้อหาจาก URL ที่คุณระบุเท่านั้น ไม่ดึงข้อมูลเนื้อหาจากลิงก์ที่ซ้อนกัน
+- **ตรวจสอบการเข้าถึง**: ตรวจสอบว่า URL ที่คุณระบุไม่ได้นำไปยัง
+  หน้าเว็บที่ต้องเข้าสู่ระบบหรืออยู่หลังเพย์วอลล์
+- **ใช้ URL ที่สมบูรณ์**: ระบุ URL แบบเต็ม รวมถึงโปรโตคอล
+  (เช่น https://www.google.com แทนที่จะเป็น google.com)
 
-## Sınırlamalar
+## ข้อจำกัด
 
-- İşlev çağırma: İşlev çağırma ile araç kullanımı (URL bağlamı, Google Arama ile temellendirme vb.) şu anda desteklenmemektedir.
-- İstek sınırı: Araç, istek başına en fazla 20 URL işleyebilir.
-- URL içerik boyutu: Tek bir URL'den alınan içeriklerin maksimum boyutu 34 MB'tır.
-- Herkese açık erişim: URL'ler web'de herkesin erişimine açık olmalıdır.
-  Localhost adresleri (ör. localhost, 127.0.0.1), özel ağlar ve tünel oluşturma hizmetleri (ör. ngrok, pinggy) desteklenmez.
+- การเรียกใช้ฟังก์ชัน: ปัจจุบันระบบไม่รองรับการใช้เครื่องมือ (บริบท URL, การเชื่อมต่อแหล่งข้อมูลกับ Google Search ฯลฯ) ร่วมกับการเรียกใช้ฟังก์ชัน
+- ขีดจำกัดคำขอ: เครื่องมือสามารถประมวลผล URL ได้สูงสุด 20 รายการต่อคำขอ
+- ขนาดเนื้อหา URL: ขนาดสูงสุดของเนื้อหาที่ดึงข้อมูลจาก URL เดียวคือ 34 MB
+- การเข้าถึงแบบสาธารณะ: URL ต้องเข้าถึงได้แบบสาธารณะบนเว็บ
+  ระบบไม่รองรับที่อยู่ localhost (เช่น localhost, 127.0.0.1), เครือข่ายส่วนตัว และบริการทันเนล (เช่น ngrok, pinggy)
 
-### Desteklenen ve desteklenmeyen içerik türleri
+### ประเภทเนื้อหาที่รองรับและไม่รองรับ
 
-Araç, aşağıdaki içerik türlerine sahip URL'lerden içerik ayıklayabilir:
+เครื่องมือสามารถดึงข้อมูลเนื้อหาจาก URL ที่มีเนื้อหาประเภทต่อไปนี้
 
-- Metin (text/html, application/json, text/plain, text/xml, text/css,
-  text/javascript , text/csv, text/rtf)
-- Resim (image/png, image/jpeg, image/bmp, image/webp)
+- ข้อความ (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
+- รูปภาพ (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-Aşağıdaki içerik türleri **desteklenmez**:
+ระบบ**ไม่** รองรับเนื้อหาประเภทต่อไปนี้
 
-- Ödeme duvarlı içerik
-- YouTube videoları (YouTube URL'lerinin nasıl işleneceğini öğrenmek için [video anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr#youtube) bölümüne bakın)
-- Google Dokümanlar veya e-tablolar gibi Google Workspace dosyaları
-- Video ve ses dosyaları
+- เนื้อหาเพย์วอลล์
+- วิดีโอ YouTube (ดู
+  [การทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#youtube)เพื่อเรียนรู้วิธีประมวลผล URL ของ YouTube
+  )
+- ไฟล์ Google Workspace เช่น Google เอกสารหรือชีต
+- ไฟล์วิดีโอและไฟล์เสียง
 
-## Sırada ne var?
+## ขั้นตอนถัดไป
 
-- Daha fazla örnek için [URL bağlamı çözüm kitabını](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=tr#url-context) inceleyin.
+- ดูตัวอย่างเพิ่มเติมได้ที่คู่มือบริบท [URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=th#url-context)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-07-31 UTC.
+อัปเดตล่าสุด 2026-07-31 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-31 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-31 UTC"],[],[]]

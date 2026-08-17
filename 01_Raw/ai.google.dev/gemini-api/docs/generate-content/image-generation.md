@@ -1,114 +1,115 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=hi
-fetched_at: 2026-08-10T03:18:54.618354+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=fr
+fetched_at: 2026-08-17T02:32:33.852950+00:00
 title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-सुझाव भेजें
+Envoyer des commentaires
 
-# Nano Banana की मदद से इमेज जनरेट करने की सुविधा
+# Génération d'images Nano Banana
 
-प्रॉम्प्ट की मदद से, पूरी तरह से काम करने वाले और यूज़र इंटरफ़ेस (यूआई) वाले ऐप्लिकेशन के प्रोटोटाइप बनाए जा सकते हैं. साथ ही, Nano Banana 2 को असल दुनिया के टूल, डेटा, और Gemini के ईकोसिस्टम के साथ इंटिग्रेट किया जा सकता है. यह सब, कोड की एक लाइन लिखने से पहले ही हो जाता है.
+Créez des applications entièrement fonctionnelles avec une interface utilisateur complète à l'aide de requêtes, et découvrez
+Nano Banana 2 intégré à des outils, des données et l'écosystème Gemini réels. le tout sans écrire une seule ligne de code.
 
-- [Nano Banana 2 ऐप्लिकेशन आज़माएँ](https://aistudio.google.com/apps/bundled/pet_passport?hl=hi)
-- इसके अलावा, प्रॉम्प्ट का इस्तेमाल करके भी सर्वे बनाया जा सकता है:
+- [Essayer une application Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=fr)
+- Ou créez la vôtre à partir de requêtes :
 
-- ![पत्रिका](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
-  ![लंदन](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![पहले जैसा करें](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![केला](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![कैफ़े](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![लेख](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![कुत्ता](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![आइसोमेट्रिक](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![पत्रिका](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![magazine](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  ![restaurer](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+  ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![article](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![chien](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![isométrique](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![magazine](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Nano Banana 2 की मदद से जनरेट किया गया
+  Généré par Nano Banana 2
 
-  **प्रॉम्प्ट:** "ग्लॉसी मैगज़ीन के कवर की एक फ़ोटो. नीले रंग के इस कवर पर, बड़े और बोल्ड अक्षरों में Nano Banana लिखा है. टेक्स्ट, सेरिफ़ फ़ॉन्ट में है और पूरे व्यू में दिखता है. कोई और टेक्स्ट नहीं. टेक्स्ट के सामने, एक व्यक्ति का पोर्ट्रेट है. इसमें वह व्यक्ति, स्लीक और कम डिज़ाइन वाली ड्रेस पहने हुए है. वह मज़ाकिया अंदाज़ में नंबर 2 को पकड़े हुए है, जो फ़ोकल पॉइंट है.
+  **Requête** : "Photo d'une couverture de magazine brillant, la couverture bleue minimaliste comporte les mots Nano Banana en gros et en gras. Le texte est écrit dans une police avec empattement et remplit la vue. Aucun autre texte. Devant le texte se trouve le portrait d'une personne portant une robe élégante et minimaliste. Elle tient le chiffre 2 de manière ludique, qui est le point focal.
     
-  बारकोड के साथ-साथ, कोने में "फ़रवरी 2026" की तारीख और समस्या नंबर डालें. पत्रिका, डिज़ाइनर स्टोर में प्लास्टर की गई नारंगी रंग की दीवार के पास मौजूद शेल्फ़ पर रखी है."
+   Mets le numéro du problème et la date "février 2026" dans l'angle, avec un code-barres. Le magazine est posé sur une étagère contre un mur orange crépi, dans une boutique de créateurs."
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=hi) में, [प्रॉडक्ट की प्रोफ़ेशनल फ़ोटो](#4_product_mockups_commercial_photography) जनरेट करना
-- ![लंदन](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  Créez des [photos de produits professionnelles](#4_product_mockups_commercial_photography) dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=fr)
+- ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Nano Banana Pro की मदद से जनरेट की गई इमेज
+  Généré par Nano Banana Pro
 
-  **प्रॉम्प्ट:** "लंदन का एक साफ़-सुथरा, 45° टॉप-डाउन आइसोमेट्रिक मिनिएचर 3D कार्टून सीन दिखाओ. इसमें लंदन के सबसे मशहूर लैंडमार्क और आर्किटेक्चरल एलिमेंट शामिल हों. सॉफ़्ट और रिफ़ाइंड टेक्सचर का इस्तेमाल करें. साथ ही, रियलिस्टिक पीबीआर मटीरियल और हल्की, असली जैसी रोशनी और परछाई का इस्तेमाल करें. शहर के माहौल में मौसम की मौजूदा स्थितियों को सीधे तौर पर इंटिग्रेट करें, ताकि माहौल को और भी ज़्यादा दिलचस्प बनाया जा सके. साफ़-सुथरे और मिनिमलिस्ट कंपोज़िशन का इस्तेमाल करें. साथ ही, हल्के और एक रंग वाले बैकग्राउंड का इस्तेमाल करें. सबसे ऊपर बीच में, बड़े और बोल्ड टेक्स्ट में "लंदन" टाइटल को रखें. इसके नीचे, मौसम का आइकॉन और फिर तारीख (छोटे टेक्स्ट में) और तापमान (मीडियम टेक्स्ट में) दिखाएं. सभी टेक्स्ट को बीच में अलाइन किया जाना चाहिए. साथ ही, उनके बीच एक जैसा स्पेस होना चाहिए. इसके अलावा, टेक्स्ट, इमारतों के ऊपरी हिस्सों पर थोड़ा-बहुत ओवरलैप हो सकता है."
+  **Requête** : "Présente une scène de dessin animé 3D miniature, isométrique et claire, vue de dessus à 45°, de Londres, avec ses monuments et éléments architecturaux les plus emblématiques. Utilisez des textures douces et raffinées avec des matériaux PBR réalistes, ainsi que des éclairages et des ombres doux et réalistes. Intégrez les conditions météorologiques actuelles directement dans l'environnement urbain pour créer une ambiance immersive. Utilise une composition épurée et minimaliste avec un arrière-plan uni et doux. En haut au centre, placez le titre "Londres" en gros caractères gras, une icône météo bien visible en dessous, puis la date (en petits caractères) et la température (en caractères moyens). Tout le texte doit être centré avec un espacement cohérent et peut chevaucher légèrement le haut des bâtiments."
 
-  [खोज के नतीजों के आधार पर जवाब जनरेट करने की सुविधा](#use-with-grounding) के बारे में ज़्यादा जानें. साथ ही, इसे [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=hi) में आज़माएं
-- ![क्वेत्ज़ल](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  En savoir plus sur l'[ancrage dans la recherche](#use-with-grounding) et l'essayer dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=fr)
+- ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Nano Banana 2 की मदद से जनरेट किया गया
+  Généré par Nano Banana 2
 
-  **प्रॉम्प्ट:** "इमेज सर्च की सुविधा का इस्तेमाल करके, शानदार क्वेट्ज़ल पक्षी की सटीक इमेज ढूंढो. इस पक्षी का 3:2 वाला एक सुंदर वॉलपेपर बनाओ. इसमें ऊपर से नीचे तक नैचुरल ग्रेडिएंट हो और कंपोज़िशन कम से कम हो."
+  **Requête** : "Utilise la recherche d'images pour trouver des images précises d'un quetzal resplendissant. Crée un magnifique fond d'écran au format 3:2 de cet oiseau, avec un dégradé naturel de haut en bas et une composition minimaliste."
 
-  Nano Banana 2 के साथ, Google [इमेज सर्च](#image-search) ग्राउंडिंग का इस्तेमाल करें. [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=hi) में जाकर इसे आज़माएं
-- ![केला](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  Utilisez l'ancrage de la [recherche d'images](#image-search) Google avec Nano Banana 2. Essayer dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=fr)
+- ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Nano Banana Pro की मदद से जनरेट की गई इमेज
+  Généré par Nano Banana Pro
 
-  **प्रॉम्प्ट:** "इस लोगो को केले की खुशबू वाले परफ़्यूम के प्रीमियम विज्ञापन पर लगाओ. लोगो को बोतल में अच्छी तरह से इंटिग्रेट किया गया है."
+  **Requête** : "Place ce logo sur une publicité haut de gamme pour un parfum à la banane. Le logo est parfaitement intégré à la bouteille."
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=hi) में, Nano Banana की [ज़्यादा सटीक जानकारी बनाए रखने की सुविधा](#5_high-fidelity_detail_preservation) आज़माएं
-- ![कैफ़े](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  Essayez la [préservation des détails haute fidélité](#5_high-fidelity_detail_preservation) de Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=fr)
+- ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Nano Banana Pro की मदद से जनरेट की गई इमेज
+  Généré par Nano Banana Pro
 
-  **प्रॉम्प्ट:** "नाश्ता परोसने वाले एक व्यस्त कैफ़े की रोज़मर्रा की गतिविधि की फ़ोटो. फ़ोरग्राउंड में नीले बालों वाला एक ऐनिमे व्यक्ति है. इनमें से एक व्यक्ति पेंसिल स्केच है, दूसरा क्लेमेशन व्यक्ति है"
+  **Requête** : "Photo d'une scène de la vie quotidienne dans un café animé servant le petit-déjeuner. Au premier plan, un homme d'anime aux cheveux bleus, l'une des personnes est un croquis au crayon, l'autre est une personne en pâte à modeler"
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=hi) में Nano Banana की मदद से, अलग-अलग [आर्टिस्टिक स्टाइल](#3_style_transfer) के साथ एक्सपेरिमेंट करना
-- ![लेख](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  Testez différents [styles artistiques](#3_style_transfer) avec Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=fr).
+- ![article](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Nano Banana Pro की मदद से जनरेट की गई इमेज
+  Généré par Nano Banana Pro
 
-  **प्रॉम्प्ट:** "Gemini 3 Flash को लॉन्च करने के बाद, लोगों की क्या प्रतिक्रिया रही, यह जानने के लिए खोज का इस्तेमाल करो. इस जानकारी का इस्तेमाल करके, इसके बारे में एक छोटा लेख लिखो. इसमें हेडिंग भी शामिल करो. इस लेख की ऐसी फ़ोटो दिखाओ जो डिज़ाइन पर फ़ोकस करने वाली ग्लॉसी मैगज़ीन में दिखाई गई हो. यह एक फ़ोटो है. इसमें एक पेज को मोड़ा गया है. इसमें Gemini 3 Flash के बारे में लेख दिखाया गया है. एक हीरो फ़ोटो. सेरिफ़ फ़ॉन्ट में हेडलाइन."
+  **Requête** : "Utilise la recherche pour savoir comment le lancement de Gemini 3 Flash a été accueilli. Utilise ces informations pour écrire un court article à ce sujet (avec des titres). Retourne une photo de l'article tel qu'il est apparu dans un magazine brillant axé sur le design. Il s'agit d'une photo d'une seule page pliée, montrant l'article sur Gemini 3 Flash. Une photo principale. Titre en serif."
 
-  [खोज](#use-with-grounding) से [सही टेक्स्ट](#3_accurate_text_in_images) जनरेट करना. [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=hi) में Nano Banana आज़माएँ
-- ![कुत्ता](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  Générez du [texte précis](#3_accurate_text_in_images) à partir de la [recherche](#use-with-grounding). Essayer Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=fr)
+- ![chien](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Nano Banana Pro की मदद से जनरेट की गई इमेज
+  Généré par Nano Banana Pro
 
-  **प्रॉम्प्ट:** "एक प्यारे कुत्ते को दिखाने वाला आइकॉन. बैकग्राउंड का रंग सफ़ेद है. आइकॉन को रंगीन और टेक्टाइल 3D स्टाइल में बनाओ. कोई टेक्स्ट नहीं है."
+  **Requête** : "Une icône représentant un chien mignon. L'arrière-plan est blanc. Crée des icônes dans un style 3D coloré et tactile. Pas de texte."
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=hi) में Nano Banana की मदद से, [आइकॉन, स्टिकर, और ऐसेट](#2_stylized_illustrations_stickers) जनरेट करना
-- ![आइसोमेट्रिक](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  Créez des [icônes, des autocollants et des composants](#2_stylized_illustrations_stickers) avec Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=fr)
+- ![isométrique](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Nano Banana 2 की मदद से जनरेट किया गया
+  Généré par Nano Banana 2
 
-  **प्रॉम्प्ट:** "ऐसी फ़ोटो बनाओ जो पूरी तरह से आइसोमेट्रिक हो. यह कोई छोटी इमेज नहीं है, बल्कि एक फ़ोटो है. यह फ़ोटो, आइसोमेट्रिक व्यू में ली गई है. यह एक खूबसूरत मॉडर्न गार्डन की फ़ोटो है. इसमें दो के आकार का एक बड़ा पूल है. साथ ही, इसमें Nano Banana 2 लिखा है."
+  **Requête** : "Crée une photo parfaitement isométrique. Il ne s'agit pas d'une miniature, mais d'une photo qui s'est avérée parfaitement isométrique. Il s'agit d'une photo d'un magnifique jardin moderne. Il y a une grande piscine en forme de 2 et les mots "Nano Banana 2"."
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=hi) में, [फ़ोटो जैसी दिखने वाली इमेज जनरेट करने की सुविधा](#1_photorealistic_scenes) आज़माएं
+  Essayez la [génération d'images photoréalistes](#1_photorealistic_scenes) dans [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=fr)
 
-**Nano Banana**, Gemini में इमेज जनरेट करने की सुविधा का नाम है.
-Gemini, बातचीत के दौरान टेक्स्ट, इमेज, वीडियो या इनके कॉम्बिनेशन का इस्तेमाल करके इमेज जनरेट और प्रोसेस कर सकता है. इससे आपको विज़ुअल बनाने, उनमें बदलाव करने, और उन्हें बेहतर बनाने के लिए पहले से ज़्यादा कंट्रोल मिलता है.
+**Nano Banana** est le nom des fonctionnalités de génération d'images natives de Gemini.
+Gemini peut générer et traiter des images de manière conversationnelle avec du texte, des images, des vidéos ou une combinaison de ces éléments. Vous pouvez ainsi créer, modifier et itérer des éléments visuels avec un contrôle sans précédent.
 
-Nano Banana, Gemini API में उपलब्ध चार अलग-अलग मॉडल को कहते हैं:
+Nano Banana fait référence à quatre modèles distincts disponibles dans l'API Gemini :
 
-- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=hi))
-  (`gemini-3.1-flash-lite-image`):** यह Gemini का सबसे तेज़ और सस्ता इमेज मॉडल है. इसे तेज़ी से काम करने और बड़े पैमाने पर इमेज जनरेट करने के लिए डिज़ाइन किया गया है. इसमें तेज़ी से काम करने और कम लागत में इमेज जनरेट करने को प्राथमिकता दी जाती है. इसे एक से ज़्यादा रेफ़रंस इनपुट या क्रम से एक से ज़्यादा बार बदलाव करने के लिए ऑप्टिमाइज़ नहीं किया गया है.
-- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=hi))
-  (`gemini-3.1-flash-image`):** यह सबसे ज़्यादा काम आने वाला मॉडल है. यह सभी टास्क के लिए, सामान्य तौर पर इस्तेमाल किया जाने वाला वर्कहॉर्स मॉडल है. यह मॉडल, इमेज की बेहतर क्वालिटी, दुनिया भर के तथ्यों और बारीकियों की बेहतर समझ, और टेक्स्ट को सटीक तरीक़े से रेंडर करने के साथ-साथ तेज़ी से काम करता है. यह मॉडल, एक साथ कई रेफ़रंस इमेज को प्रोसेस करने और उनमें एकरूपता बनाए रखने में बेहतर है.
-- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=hi))
-  (`gemini-3-pro-image`):** यह सबसे मुश्किल विज़ुअल टास्क के लिए प्रीमियम विकल्प है. इसमें दुनिया भर की सबसे ज़्यादा जानकारी, ऐडवांस लोकलाइज़ेशन, सटीक ब्रैंड कंसिस्टेंसी, और क्रिएटिव कंट्रोल की सुविधा मिलती है.
-- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=hi))
-  (`gemini-2.5-flash-image`):** यह Nano Banana सीरीज़ का लेगसी पायनियर है.
-  यह मॉडल काफ़ी भरोसेमंद है. हालांकि, हमारा सुझाव है कि ग्राहक Nano Banana 2 Lite पर स्विच करें, ताकि उन्हें बेहतर क्वालिटी, इमेज को फटाफट जनरेट करने की सुविधा, और एपीआई की कम कीमत का फ़ायदा मिल सके.
+- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=fr))
+  (`gemini-3.1-flash-lite-image`)** : notre modèle Gemini pour les images le plus rapide et le moins cher, conçu pour la vitesse et l'évolutivité lorsque la rapidité et le coût sont les principales contraintes opérationnelles. Non optimisé pour plusieurs entrées de référence ni pour l'édition séquentielle multitour.
+- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=fr))
+  (`gemini-3.1-flash-image`)** : modèle polyvalent et généraliste pour toutes les tâches. Il équilibre la vitesse avec une génération 4K de pointe, une connaissance du monde et un rendu fiable du texte. Exceller dans le traitement et la cohérence de plusieurs images de référence.
+- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=fr))
+  (`gemini-3-pro-image`)** : le choix Premium pour les tâches visuelles les plus complexes. Il offre le plus haut niveau de connaissances sur le monde, une localisation avancée, une cohérence de marque précise et un contrôle créatif de haute précision.
+- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr))
+  (`gemini-2.5-flash-image`)** : le pionnier de la série Nano Banana.
+  Bien qu'il ait été un outil fiable, nous recommandons vivement aux clients de passer à Nano Banana 2 Lite pour bénéficier d'une qualité améliorée, de vitesses de génération plus rapides et de tarifs d'API plus bas.
 
-जनरेट की गई सभी इमेज में [SynthID वॉटरमार्क](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=hi) शामिल होता है.
+Toutes les images générées incluent un [filigrane SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr).
 
-## इमेज जनरेट करने की प्रोसेस (टेक्स्ट प्रॉम्प्ट से इमेज जनरेट करने की प्रोसेस)
+## Génération d'images (texte vers image)
 
 ### Python
 
@@ -165,7 +166,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -297,15 +298,15 @@ curl -s -X POST \
   }'
 ```
 
-## इमेज में बदलाव करना (टेक्स्ट और इमेज से इमेज जनरेट करना)
+## Retouche d'images (texte et image vers image)
 
-**याद रखें**: पक्का करें कि आपके पास, अपलोड की जाने वाली किसी भी इमेज से जुड़े सभी ज़रूरी अधिकार हों.
-ऐसा कॉन्टेंट जनरेट न करें जिससे किसी के अधिकारों का उल्लंघन होता हो. इसमें ऐसे वीडियो या इमेज शामिल हैं जो धोखा देने, उत्पीड़न करने या नुक़सान पहुँचाने के मक़सद बनाए गए हों. जनरेटिव एआई की इस सेवा के इस्तेमाल पर, हमारी [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) लागू होती है.
+**Rappel** : Assurez-vous de disposer des droits nécessaires sur toutes les images que vous importez.
+Ne générez aucun contenu qui porte atteinte aux droits d'autrui, y compris des vidéos ou images trompeuses, ou qui harcèlent ou nuisent à autrui. L'utilisation de ce service d'IA générative est soumise à notre [Règlement sur les utilisations interdites](https://policies.google.com/terms/generative-ai/use-policy?hl=fr).
 
-कोई इमेज दें और टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके, एलिमेंट जोड़ें, हटाएं या उनमें बदलाव करें. इसके अलावा, स्टाइल बदलें या कलर ग्रेडिंग अडजस्ट करें.
+Fournissez une image et utilisez des requêtes textuelles pour ajouter, supprimer ou modifier des éléments, changer le style ou ajuster la correction colorimétrique.
 
-यहां दिए गए उदाहरण में, `base64` कोड में बदले गए इमेज अपलोड करने का तरीका बताया गया है.
-एक से ज़्यादा इमेज, बड़े पेलोड, और काम करने वाले MIME टाइप के लिए, [इमेज को समझना](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi) पेज देखें.
+L'exemple suivant montre comment importer des images encodées au format `base64`.
+Pour en savoir plus sur les images multiples, les charges utiles plus importantes et les types MIME acceptés, consultez la page [Compréhension des images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr).
 
 ### Python
 
@@ -380,7 +381,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -548,9 +549,9 @@ curl -s -X POST \
     }"
 ```
 
-### सिलसिलेवार बातचीत में इमेज में बदलाव करने की सुविधा
+### Édition d'images multitour
 
-बातचीत के दौरान, इमेज जनरेट करने और उनमें बदलाव करने की सुविधा का इस्तेमाल जारी रखें. इमेज को बेहतर बनाने के लिए, चैट या सिलसिलेवार बातचीत का इस्तेमाल करने का सुझाव दिया जाता है. यहां दिए गए उदाहरण में, फ़ोटोसिंथिसिस के बारे में इन्फ़ोग्राफ़िक जनरेट करने के लिए प्रॉम्प्ट दिखाया गया है.
+Continuez à générer et à modifier des images de manière conversationnelle. Le chat ou la conversation multitour sont la méthode recommandée pour itérer sur les images. L'exemple suivant montre une requête permettant de générer une infographie sur la photosynthèse.
 
 ### Python
 
@@ -614,7 +615,7 @@ for (const part of response.candidates[0].content.parts) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -782,11 +783,11 @@ curl -s -X POST \
   }'
 ```
 
-![फ़ोटोसिंथेसिस के बारे में एआई से जनरेट किया गया इन्फ़ोग्राफ़िक](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=hi)
+![Infographie générée par IA sur la photosynthèse](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=fr)
 
-प्रकाश संश्लेषण के बारे में एआई से जनरेट किया गया इन्फ़ोग्राफ़िक
+Infographie générée par IA sur la photosynthèse
 
-इसके बाद, उसी चैट का इस्तेमाल करके ग्राफ़िक में मौजूद टेक्स्ट की भाषा को स्पैनिश में बदला जा सकता है.
+Vous pouvez ensuite utiliser la même discussion pour modifier la langue du graphique et la passer en espagnol.
 
 ### Python
 
@@ -840,7 +841,7 @@ for (const part of response.candidates[0].content.parts) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 message = "Update this infographic to be in Spanish. Do not change any other elements of the image."
@@ -980,36 +981,35 @@ curl -s -X POST \
   }'
 ```
 
-![स्पैनिश में, फ़ोटोसिंथिसिस के बारे में एआई से जनरेट किया गया इन्फ़ोग्राफ़िक](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=hi)
+![Infographie sur la photosynthèse générée par l'IA en espagnol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=fr)
 
-स्पैनिश में फ़ोटोसिंथिसिस का एआई से बनाया गया इन्फ़ोग्राफ़िक
+Infographie sur la photosynthèse générée par IA en espagnol
 
-## Gemini 3 के इमेज मॉडल की नई सुविधाएं
+## Nouveautés des modèles d'images Gemini 3
 
-Gemini 3 में, इमेज जनरेट करने और उनमें बदलाव करने के लिए बेहतरीन मॉडल उपलब्ध हैं. Gemini 3.1 Flash Image को तेज़ी से काम करने और ज़्यादा से ज़्यादा इस्तेमाल के लिए ऑप्टिमाइज़ किया गया है. वहीं, Gemini 3 Pro Image को प्रोफ़ेशनल ऐसेट बनाने के लिए ऑप्टिमाइज़ किया गया है.
-इन्हें मुश्किल से मुश्किल वर्कफ़्लो को पूरा करने के लिए डिज़ाइन किया गया है. ये ऐडवांस रीज़निंग की मदद से, मुश्किल और सिलसिलेवार बातचीत वाले टास्क को आसानी से पूरा कर सकते हैं. साथ ही, कॉन्टेंट को क्रिएट और उसमें बदलाव कर सकते हैं.
+Gemini 3 propose des modèles de pointe pour la génération et la retouche d'images. Gemini 3.1 Flash Image est optimisé pour la vitesse et les cas d'utilisation à fort volume, tandis que Gemini 3 Pro Image est optimisé pour la production d'assets professionnels.
+Conçus pour gérer les workflows les plus complexes grâce à un raisonnement avancé, ils excellent dans les tâches complexes de création et de modification multitour.
 
-- **हाई रिज़ॉल्यूशन वाला आउटपुट**: 1K, 2K, और 4K विज़ुअल जनरेट करने की सुविधाएं पहले से मौजूद हैं.
-  - **Gemini 3.1 Flash Image** में, 512 (0.5K) रिज़ॉल्यूशन वाली छोटी इमेज जोड़ने की सुविधा मिलती है.
-  - **Gemini 3.1 Flash Lite की इमेज** सिर्फ़ 1K रिज़ॉल्यूशन के साथ काम करती है.
-- **ऐडवांस टेक्स्ट रेंडरिंग**: यह इन्फ़ोग्राफ़िक, मेन्यू, डायग्राम, और मार्केटिंग ऐसेट के लिए, पढ़ने में आसान और स्टाइल वाला टेक्स्ट जनरेट कर सकता है.
-- **Google Search से जानकारी पाना**: मॉडल, Google Search का इस्तेमाल एक टूल के तौर पर कर सकता है.इससे तथ्यों की पुष्टि की जा सकती है और रीयल-टाइम डेटा के आधार पर इमेज जनरेट की जा सकती हैं. जैसे, मौसम के मौजूदा मैप, स्टॉक चार्ट, हाल ही के इवेंट.
-  - **Gemini 3.1 Flash Lite Image मॉडल के साथ काम नहीं करता.**
-  - **Gemini 3.1 Flash Image** में, वेब सर्च के साथ-साथ इमेज के लिए Google Search के साथ ग्राउंडिंग की सुविधा को इंटिग्रेट किया गया है.
-- **सोच-विचार वाला मोड**: इस मोड में मॉडल, मुश्किल प्रॉम्प्ट के जवाब देने के लिए "सोच-विचार" की प्रोसेस का इस्तेमाल करता है. यह अच्छी क्वालिटी का फ़ाइनल आउटपुट जनरेट करने से पहले, कंपोज़िशन को बेहतर बनाने के लिए "सोच वाली इमेज" (ये इमेज बैकएंड में दिखती हैं, लेकिन इनके लिए शुल्क नहीं लिया जाता) जनरेट करता है.
-- **ज़्यादा से ज़्यादा 14 रेफ़रंस इमेज**: अब फ़ाइनल इमेज बनाने के लिए, ज़्यादा से ज़्यादा 14 रेफ़रंस इमेज को एक साथ इस्तेमाल किया जा सकता है.
-- **नए आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात)**: Gemini 3.1 Flash Lite Image में `1:1`, `3:2`,
-  `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` [आसपेक्ट रेशियो](#aspect_ratios_and_image_size) जोड़े गए हैं.
+- **Sortie haute résolution** : fonctionnalités de génération intégrées pour les visuels 1K, 2K et 4K.
+  - **Gemini 3.1 Flash Image** ajoute la résolution plus petite de 512 pixels (0,5K).
+  - L'**image Gemini 3.1 Flash-Lite** n'est compatible qu'avec la résolution 1K.
+- **Rendu de texte avancé** : permet de générer du texte lisible et stylisé pour les infographies, les menus, les diagrammes et les supports marketing.
+- **Ancrage avec la recherche Google** : le modèle peut utiliser la recherche Google comme outil pour vérifier des faits et générer des images basées sur des données en temps réel (par exemple, des cartes météo actuelles, des graphiques boursiers ou des événements récents).
+  - **Non compatible avec le modèle Gemini 3.1 Flash Lite Image.**
+  - **Gemini 3.1 Flash Image** intègre l'ancrage avec la recherche Google pour les images et la recherche sur le Web.
+- **Mode Raisonnement** : le modèle utilise un processus de "réflexion" pour raisonner sur les requêtes complexes. Il génère des "images de réflexion" intermédiaires (visibles dans le backend, mais non facturées) pour affiner la composition avant de produire le résultat final de haute qualité.
+- **Jusqu'à 14 images de référence** : vous pouvez désormais combiner jusqu'à 14 images de référence pour générer l'image finale.
+- **Nouveaux formats** : Gemini 3.1 Flash Lite Image ajoute les [formats](#aspect_ratios_and_image_size) `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9` et `21:9`.
 
-### ज़्यादा से ज़्यादा 14 रेफ़रंस इमेज इस्तेमाल करें
+### Utiliser jusqu'à 14 images de référence
 
-Gemini 3 के इमेज मॉडल की मदद से, 14 रेफ़रंस इमेज को मिक्स किया जा सकता है. इन 14 इमेज में, यहां दी गई इमेज शामिल हो सकती हैं:
+Les modèles d'image Gemini 3 vous permettent de combiner jusqu'à 14 images de référence. Ces 14 images peuvent inclure les éléments suivants :
 
-| Gemini 3.1 Flash Lite की इमेज | Gemini 3.1 Flash की इमेज | Gemini 3 Pro की इमेज |
+| Image Gemini 3.1 Flash-Lite | Image Gemini 3.1 Flash | Gemini 3 Pro Image |
 | --- | --- | --- |
-| फ़ाइनल इमेज में शामिल करने के लिए, ऑब्जेक्ट की ज़्यादा से ज़्यादा 14 इमेज. ये इमेज, ओरिजनल इमेज से मिलती-जुलती होनी चाहिए | फ़ाइनल इमेज में शामिल करने के लिए, ज़्यादा से ज़्यादा 10 ऑब्जेक्ट की हाई-फ़िडेलिटी वाली इमेज | फ़ाइनल इमेज में शामिल करने के लिए, ज़्यादा से ज़्यादा छह ऑब्जेक्ट की हाई-फ़िडेलिटी वाली इमेज |
-| लागू नहीं | कैरेक्टर की कंसिस्टेंसी बनाए रखने के लिए, ज़्यादा से ज़्यादा चार इमेज | कैरेक्टर की कंसिस्टेंसी बनाए रखने के लिए, ज़्यादा से ज़्यादा पांच इमेज |
-| लागू नहीं | लागू नहीं | स्टाइल के रेफ़रंस के तौर पर इस्तेमाल करने के लिए, ज़्यादा से ज़्यादा तीन इमेज |
+| Jusqu'à 14 images d'objets haute fidélité à inclure dans l'image finale | Jusqu'à 10 images d'objets haute fidélité à inclure dans l'image finale | Jusqu'à six images d'objets haute fidélité à inclure dans l'image finale |
+| N/A | Jusqu'à quatre images de personnages pour assurer leur cohérence | Jusqu'à cinq images de personnages pour assurer leur cohérence |
+| N/A | N/A | Jusqu'à trois images à utiliser comme références de style |
 
 ### Python
 
@@ -1126,7 +1126,7 @@ const response = await ai.models.generateContent({
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1328,15 +1328,15 @@ curl -s -X POST \
     }"
 ```
 
-![एआई से जनरेट की गई ऑफ़िस ग्रुप फ़ोटो](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=hi)
+![Photo de groupe au bureau générée par l'IA](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=fr)
 
-एआई से जनरेट की गई ऑफ़िस ग्रुप फ़ोटो
+Photo de groupe au bureau générée par IA
 
-### Google Search से सटीक जानकारी पाने की सुविधा
+### Ancrage avec la recherche Google
 
-[Google Search टूल](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) का इस्तेमाल करके, रीयल-टाइम जानकारी के आधार पर इमेज जनरेट करें. जैसे, मौसम के पूर्वानुमान, स्टॉक चार्ट या हाल ही में हुई घटनाएँ.
+Utilise l'[outil de recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) pour générer des images basées sur des informations en temps réel, comme les prévisions météo, les graphiques boursiers ou les événements récents.
 
-ध्यान दें कि इमेज जनरेट करने के लिए, Google Search की मदद से भरोसेमंद स्रोतों से जानकारी लेने की सुविधा का इस्तेमाल करते समय, इमेज पर आधारित खोज के नतीजों को जनरेशन मॉडल को नहीं भेजा जाता है. साथ ही, उन्हें जवाब में शामिल नहीं किया जाता है. इसके बारे में ज़्यादा जानने के लिए, [इमेज के लिए Google Search की मदद से भरोसेमंद स्रोतों से जानकारी लेना](#image-search) लेख पढ़ें
+Notez que lorsque vous utilisez l'ancrage avec la recherche Google pour générer des images, les résultats de recherche basés sur des images ne sont pas transmis au modèle de génération et sont exclus de la réponse (voir [Ancrer avec la recherche Google pour les images](#image-search)).
 
 ### Python
 
@@ -1525,22 +1525,22 @@ curl -s -X POST \
   }'
 ```
 
-![सैन फ़्रांसिस्को के मौसम की जानकारी देने वाला पांच दिनों का चार्ट, जिसे एआई ने जनरेट किया है](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=hi)
+![Graphique météo sur cinq jours généré par IA pour San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=fr)
 
-सैन फ़्रांसिस्को के मौसम की जानकारी देने वाला पांच दिनों का चार्ट, जिसे एआई ने जनरेट किया है
+Tableau météo sur cinq jours généré par l'IA pour San Francisco
 
-जवाब में `groundingMetadata` शामिल है. इसमें ये ज़रूरी फ़ील्ड शामिल हैं:
+La réponse inclut `groundingMetadata`, qui contient les champs obligatoires suivants :
 
-- **`searchEntryPoint`**: इसमें ज़रूरी खोज के सुझावों को रेंडर करने के लिए एचटीएमएल और सीएसएस शामिल होता है.
-- **`groundingChunks`**: इससे, जनरेट की गई इमेज के लिए इस्तेमाल किए गए तीन सबसे लोकप्रिय वेब सोर्स मिलते हैं
+- **`searchEntryPoint`** : contient le code HTML et CSS permettant d'afficher les suggestions de recherche requises.
+- **`groundingChunks`** : renvoie les trois principales sources Web utilisées pour ancrer l'image générée.
 
-### इमेज के लिए, Google Search से सटीक जानकारी पाने की सुविधा (3.1 Flash)
+### Ancrage avec la recherche Google pour les images (3.1 Flash)
 
-Google Search की मदद से इमेज के लिए ग्राउंडिंग की सुविधा, मॉडल को Google Search से मिली वेब इमेज का इस्तेमाल करने की अनुमति देती है. इससे इमेज जनरेट करने के लिए विज़ुअल कॉन्टेक्स्ट मिलता है. इमेज सर्च, Google Search की मदद से जानकारी पाने वाले मौजूदा टूल में खोज का एक नया टाइप है. यह स्टैंडर्ड [वेब सर्च](#use-with-grounding) के साथ काम करता है.
+L'ancrage avec la recherche Google pour les images permet aux modèles d'utiliser les images Web récupérées via la recherche Google comme contexte visuel pour la génération d'images. La recherche d'images est un nouveau type de recherche au sein de l'outil existant d'ancrage avec la recherche Google. Elle fonctionne en parallèle de la [recherche sur le Web](#use-with-grounding) standard.
 
-इमेज सर्च की सुविधा चालू करने के लिए, अपने एपीआई अनुरोध में `googleSearch` टूल को कॉन्फ़िगर करें. साथ ही, `searchTypes` ऑब्जेक्ट में `imageSearch` को तय करें. इमेज सर्च का इस्तेमाल, वेब सर्च के साथ या अलग से किया जा सकता है.
+Pour activer la recherche d'images, configurez l'outil `googleSearch` dans votre requête d'API et spécifiez `imageSearch` dans l'objet `searchTypes`. La recherche d'images peut être utilisée indépendamment ou en même temps que la recherche sur le Web.
 
-ध्यान दें कि इमेज के लिए, Google Search से मिली जानकारी का इस्तेमाल करके लोगों को नहीं खोजा जा सकता.
+Notez que l'ancrage avec la recherche Google pour les images ne peut pas être utilisé pour rechercher des personnes.
 
 ### Python
 
@@ -1609,7 +1609,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1767,33 +1767,33 @@ curl -s -X POST \
   }'
 ```
 
-**विज्ञापन दिखाने के लिए ज़रूरी शर्तें**
+**Conditions requises pour l'affichage**
 
-Google Search के साथ इमेज या कैमरे की मदद से खोज करने की सुविधा का इस्तेमाल करते समय, आपको इन शर्तों का पालन करना होगा:
+Lorsque vous utilisez la recherche d'images dans l'ancrage avec la recherche Google, vous devez respecter les conditions suivantes :
 
-- **सोर्स एट्रिब्यूशन**: आपको उस वेबपेज का लिंक देना होगा जिस पर सोर्स इमेज मौजूद है. यह "कंटेनिंग पेज" होना चाहिए, न कि इमेज फ़ाइल. यह लिंक इस तरह से दिया जाना चाहिए कि उपयोगकर्ता इसे लिंक के तौर पर पहचान सके.
-- **सीधे तौर पर नेविगेट करना**: अगर आपको सोर्स इमेज भी दिखानी हैं, तो आपको सोर्स इमेज से सोर्स वेबपेज तक सीधे तौर पर जाने का एक क्लिक वाला पाथ देना होगा. ऐसा कोई भी तरीका इस्तेमाल करने की अनुमति नहीं है जिससे सोर्स वेबपेज को ऐक्सेस करने में उपयोगकर्ता को देरी हो या उसे ऐक्सेस करने में मुश्किल हो. इसमें कई क्लिक वाले पाथ या इंटरमीडिएट इमेज व्यूअर का इस्तेमाल करना शामिल है. हालांकि, इसमें इनके अलावा और भी चीज़ें शामिल हो सकती हैं.
+- **Attribution de la source** : vous devez fournir un lien vers la page Web contenant l'image source (la "page contenant l'image", et non le fichier image lui-même) de manière à ce que l'utilisateur puisse l'identifier comme un lien.
+- **Navigation directe** : si vous choisissez également d'afficher les images sources, vous devez fournir un chemin d'accès direct en un seul clic depuis les images sources vers la page Web source qui les contient. Toute autre implémentation qui retarde ou abstrait l'accès de l'utilisateur final à la page Web source, y compris, mais sans s'y limiter, tout chemin à plusieurs clics ou l'utilisation d'une visionneuse d'images intermédiaire, n'est pas autorisée.
 
-**जवाब**
+**Réponse**
 
-इमेज सर्च का इस्तेमाल करके भरोसेमंद स्रोतों से मिली जानकारी के आधार पर जवाब देने के लिए, एपीआई साफ़ तौर पर एट्रिब्यूशन और मेटाडेटा उपलब्ध कराता है. इससे, इसके आउटपुट को पुष्टि किए गए स्रोतों से लिंक किया जा सकता है. `groundingMetadata` ऑब्जेक्ट में मौजूद मुख्य फ़ील्ड में ये शामिल हैं:
+Pour les réponses ancrées utilisant la recherche d'images, l'API fournit une attribution et des métadonnées claires pour associer sa sortie à des sources validées. Voici les principaux champs de l'objet `groundingMetadata` :
 
-- **`imageSearchQueries`**: विज़ुअल कॉन्टेक्स्ट (इमेज खोज) के लिए, मॉडल की ओर से इस्तेमाल की गई क्वेरी.
-- **`groundingChunks`**: इसमें खोज के नतीजों के सोर्स की जानकारी होती है.
-  इमेज सोर्स के लिए, इन्हें रीडायरेक्ट यूआरएल के तौर पर दिखाया जाएगा. इसके लिए, इमेज के नए चंक टाइप का इस्तेमाल किया जाएगा. इस चंक में यह जानकारी शामिल है:
+- **`imageSearchQueries`** : requêtes spécifiques utilisées par le modèle pour le contexte visuel (recherche d'images).
+- **`groundingChunks`** : contient des informations sur la source des résultats récupérés.
+  Pour les sources d'images, elles seront renvoyées sous forme d'URL de redirection à l'aide d'un nouveau type de bloc d'image. Ce bloc comprend :
 
-  - **`uri`**: एट्रिब्यूशन के लिए वेब पेज का यूआरएल (लैंडिंग पेज).
-  - **`image_uri`**: इमेज का डायरेक्ट यूआरएल.
-- **`groundingSupports`**: यह जनरेट किए गए कॉन्टेंट को उसके उद्धरण के सोर्स से लिंक करने वाले खास मैपिंग उपलब्ध कराता है.
-- **`searchEntryPoint`**: इसमें "Google Search" चिप शामिल है. इसमें Search के सुझाव दिखाने के लिए, ज़रूरी शर्तों के मुताबिक एचटीएमएल और सीएसएस शामिल है.
+  - **`uri`** : URL de la page Web pour l'attribution (page de destination).
+  - **`image_uri`** : URL directe de l'image.
+- **`groundingSupports`** : fournit des mappages spécifiques qui associent le contenu généré à sa source de citation pertinente dans les blocs.
+- **`searchEntryPoint`** : inclut le chip "Recherche Google" contenant du code HTML et CSS conforme pour afficher les suggestions de recherche.
 
-### वीडियो से इमेज जनरेट करने की सुविधा (3.1 Flash)
+### Génération d'images à partir de vidéos (3.1 Flash)
 
-वीडियो से इमेज जनरेट करने की सुविधा की मदद से, वीडियो के कॉन्टेक्स्ट का इस्तेमाल करके नई इमेज जनरेट की जा सकती हैं. इसके लिए, मल्टीमॉडल रेफ़रंस का इस्तेमाल किया जाता है. यह अच्छी क्वालिटी के वीडियो थंबनेल, सिनेमैटिक पोस्टर, खास जानकारी देने वाले इन्फ़ोग्राफ़िक या वीडियो सीन से प्रेरित नई कलाकृति बनाने के लिए उपयोगी है.
+La génération d'images à partir de vidéos vous permet de créer des images en utilisant le contexte d'une vidéo comme référence multimodale. Cela est utile pour créer des miniatures vidéo de haute qualité, des affiches de films, des infographies récapitulatives ou de nouvelles illustrations inspirées d'une scène vidéo.
 
-इमेज जनरेट करते समय मॉडल, वीडियो फ़्रेम का विश्लेषण करता है. इसके लिए, वह मॉडल के इनपुट टोकन की सीमा (1,31,072 टोकन) तक के कॉन्टेक्स्ट का इस्तेमाल करता है. इससे उसे विज़ुअल थीम और मुख्य इवेंट निकालने में मदद मिलती है. इसके बाद, वह इन थीम और इवेंट का इस्तेमाल आपके टेक्स्ट प्रॉम्प्ट के साथ करता है, ताकि आउटपुट इमेज को सिंथेसाइज़ किया जा सके.
+Lors de la génération, le modèle analyse les images vidéo dans leur contexte (jusqu'à la limite de jetons d'entrée du modèle, soit 131 072 jetons) pour extraire les thèmes visuels et les événements clés. Il les utilise ensuite avec votre requête textuelle pour synthétiser l'image de sortie.
 
-एपीआई अनुरोध में सीधे तौर पर सार्वजनिक [YouTube यूआरएल](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#youtube) पास किए जा सकते हैं. इसके अलावा, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करके, स्थानीय वीडियो फ़ाइलें अपलोड की जा सकती हैं.
+Vous pouvez transmettre des [URL YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr#youtube) publiques directement dans votre requête d'API ou importer des fichiers vidéo locaux à l'aide de l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=fr).
 
 ### Python
 
@@ -1866,7 +1866,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -2049,15 +2049,15 @@ curl -s -X POST \
   }'
 ```
 
-![YouTube वीडियो से एआई की मदद से जनरेट किया गया इन्फ़ोग्राफ़िक](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=hi)
+![Infographie générée par IA à partir d'une vidéo YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=fr)
 
-YouTube वीडियो से जनरेट किया गया एआई इन्फ़ोग्राफ़िक
+Infographie générée par IA à partir d'une vidéo YouTube
 
-### 4K रिज़ॉल्यूशन तक की इमेज जनरेट करना
+### Générer des images jusqu'à la résolution 4K
 
-Gemini 3 के इमेज मॉडल, डिफ़ॉल्ट रूप से 1,000 इमेज जनरेट करते हैं. हालांकि, ये 2,000, 4,000, और 512 (0.5 हज़ार) इमेज भी जनरेट कर सकते हैं. Gemini 3.1 Flash Image सिर्फ़ 512 इमेज जनरेट कर सकता है. ज़्यादा रिज़ॉल्यूशन वाली ऐसेट जनरेट करने के लिए, `generation_config` में `image_size` की वैल्यू डालें.
+Les modèles d'images Gemini 3 génèrent 1 000 images par défaut, mais peuvent également générer des images de 2 000, 4 000 et 512 pixels (0,5 K) (Gemini 3.1 Flash Image uniquement). Pour générer des composants de résolution supérieure, spécifiez `image_size` dans `generation_config`.
 
-आपको कैपिटल लेटर में 'K' का इस्तेमाल करना होगा. जैसे, 1K, 2K, 4K. `512` वैल्यू में 'K' सफ़िक्स का इस्तेमाल नहीं किया गया है. छोटे अक्षरों वाले पैरामीटर (जैसे, 1k) स्वीकार नहीं किए जाएंगे.
+Vous devez utiliser un "K" en majuscule (par exemple, 1K, 2K, 4K). La valeur `512` n'utilise pas de suffixe "K". Les paramètres en minuscules (par exemple, 1k) seront refusés.
 
 ### Python
 
@@ -2132,7 +2132,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -2296,19 +2296,19 @@ curl -s -X POST \
   }'
 ```
 
-इस प्रॉम्प्ट से जनरेट की गई इमेज का उदाहरण यहां दिया गया है:
+Voici un exemple d'image générée à partir de cette requête :
 
-![एआई से जनरेट किया गया, दा विंची की स्टाइल में मोनार्क तितली के शरीर के अंगों का ऐनाटॉमिकल स्केच.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=hi)
+![Croquis anatomique d'un monarque disséqué, dans le style de Léonard de Vinci, généré par IA.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=fr)
 
-एआई से जनरेट किया गया, मोनार्क तितली के शरीर के अंगों का स्केच. इसे लियोनार्डो दा विंची की स्टाइल में बनाया गया है.
+Dessin anatomique d'un papillon monarque disséqué, généré par IA dans le style de Léonard de Vinci.
 
-### सोचने की प्रोसेस
+### Processus de raisonnement
 
-Gemini 3 के इमेज मॉडल, सूझ-बूझ वाले मॉडल हैं. ये मुश्किल प्रॉम्प्ट के लिए, गहराई से विश्लेषण करने की प्रोसेस ("गहराई से विचार") का इस्तेमाल करते हैं. यह सुविधा डिफ़ॉल्ट रूप से चालू रहती है. इसे एपीआई में बंद नहीं किया जा सकता. सोचने की प्रोसेस के बारे में ज़्यादा जानने के लिए, [Gemini के सोचने की प्रोसेस](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) गाइड देखें.
+Les modèles d'images Gemini 3 sont des modèles de réflexion qui utilisent un processus de raisonnement ("Réflexion") pour les requêtes complexes. Cette fonctionnalité est activée par défaut et ne peut pas être désactivée dans l'API. Pour en savoir plus sur le processus de réflexion, consultez le guide [Réflexion de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
 
-यह मॉडल, कंपोज़िशन और लॉजिक की जांच करने के लिए, ज़्यादा से ज़्यादा दो इंटरिम इमेज जनरेट करता है. 'सोच रहा है' सेक्शन में मौजूद आखिरी इमेज, रेंडर की गई फ़ाइनल इमेज भी होती है.
+Le modèle génère jusqu'à deux images intermédiaires pour tester la composition et la logique. La dernière image de la section "Réflexion" est également l'image finale rendue.
 
-आपके पास यह देखने का विकल्प होता है कि किन विचारों के आधार पर फ़ाइनल इमेज जनरेट की गई है.
+Vous pouvez consulter les réflexions qui ont conduit à la production de l'image finale.
 
 ### Python
 
@@ -2374,12 +2374,11 @@ foreach (var candidate in response.Candidates) {
 }
 ```
 
-#### सूझ-बूझ वाले मॉडल के लेवल को कंट्रोल करना
+#### Contrôler les niveaux de réflexion
 
-Gemini 3.1 Flash Image और Gemini 3.1 Flash Lite Image की मदद से, यह कंट्रोल किया जा सकता है कि मॉडल, क्वालिटी और लेटेन्सी को बैलेंस करने के लिए कितना सोच-विचार करे. डिफ़ॉल्ट `thinkingLevel` `minimal` है. साथ ही, `minimal` और `high` लेवल इस्तेमाल किए जा सकते हैं. `thinkingLevel` को `minimal` पर सेट करने से, कम से कम इंतज़ार के समय में जवाब मिलते हैं. ध्यान दें कि
-कम से कम सोच-विचार करने का मतलब यह नहीं है कि मॉडल बिलकुल भी सोच-विचार नहीं करता.
+Avec Gemini 3.1 Flash Image et Gemini 3.1 Flash Lite Image, vous pouvez contrôler la quantité de réflexion utilisée par le modèle pour équilibrer la qualité et la latence. La valeur par défaut de `thinkingLevel` est `minimal`, et les niveaux acceptés sont `minimal` et `high`. Définir `thinkingLevel` sur `minimal` permet d'obtenir les réponses avec la latence la plus faible. Notez que la pensée minimale ne signifie pas que le modèle ne réfléchit pas du tout.
 
-`includeThoughts` बूलियन वैल्यू को जोड़ा जा सकता है. इससे यह तय किया जा सकता है कि मॉडल के जनरेट किए गए विचार, जवाब में दिखाए जाएं या छिपे रहें.
+Vous pouvez ajouter le booléen `includeThoughts` pour déterminer si les réflexions générées par le modèle sont renvoyées dans la réponse ou restent masquées.
 
 ### Python
 
@@ -2446,7 +2445,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -2618,19 +2617,19 @@ curl -s -X POST \
   }'
 ```
 
-ध्यान दें कि थिंकिंग टोकन के लिए बिलिंग की जाती है. भले ही, `includeThoughts` को `true` या `false` पर सेट किया गया हो. ऐसा इसलिए, क्योंकि [जवाब ढूंढने की प्रोसेस](#thinking-process) हमेशा डिफ़ॉल्ट रूप से होती है. भले ही, आपने इस प्रोसेस को देखा हो या नहीं.
+Notez que les jetons de réflexion sont facturés, que `includeThoughts` soit défini sur `true` ou `false`, car le [processus de réflexion](#thinking-process) a toujours lieu par défaut, que vous le consultiez ou non.
 
-#### सोच-समझकर किए गए हस्ताक्षर
+#### Signatures de réflexion
 
-थॉट सिग्नेचर, मॉडल की इंटरनल थॉट प्रोसेस के एन्क्रिप्ट किए गए वर्शन होते हैं. इनका इस्तेमाल, एक से ज़्यादा बार किए गए इंटरैक्शन में तर्क के कॉन्टेक्स्ट को बनाए रखने के लिए किया जाता है. सभी जवाबों में `thought_signature` फ़ील्ड शामिल होता है. सामान्य तौर पर, अगर आपको मॉडल के जवाब में थॉट सिग्नेचर मिलता है, तो आपको उसे अगले टर्न में बातचीत का इतिहास भेजते समय, ठीक उसी तरह वापस भेजना चाहिए जिस तरह से वह मिला था. सोच के सिग्नेचर को शेयर न करने पर, जवाब जनरेट नहीं किया जा सकता. सिग्नेचर के बारे में ज़्यादा जानकारी के लिए, [थॉट सिग्नेचर](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=hi) का दस्तावेज़ देखें.
+Les signatures de pensée sont des représentations chiffrées du processus de réflexion interne du modèle. Elles sont utilisées pour préserver le contexte de raisonnement lors des interactions multitours. Toutes les réponses incluent un champ `thought_signature`. En règle générale, si vous recevez une signature de pensée dans une réponse du modèle, vous devez la renvoyer exactement telle qu'elle a été reçue lorsque vous envoyez l'historique des conversations au tour suivant. Si les signatures de pensée ne sont pas diffusées, la réponse peut échouer. Pour en savoir plus sur les signatures en général, consultez la documentation sur la [signature de pensée](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=fr).
 
-सोच के हस्ताक्षर इस तरह काम करते हैं:
+Voici comment fonctionnent les signatures de pensée :
 
-- जवाब में शामिल इमेज `mimetype` के साथ सभी `inline_data` हिस्सों में हस्ताक्षर होना चाहिए.
-- अगर जवाब की शुरुआत में (किसी इमेज से पहले) कुछ टेक्स्ट है, तो पहले टेक्स्ट वाले हिस्से में भी हस्ताक्षर होना चाहिए.
-- अगर `inline_data` इमेज वाले हिस्से `mimetype`, विचारों का हिस्सा हैं, तो उन पर हस्ताक्षर नहीं होंगे.
+- Toutes les parties `inline_data` avec l'image `mimetype` qui font partie de la réponse doivent comporter une signature.
+- S'il y a des parties de texte au début (avant toute image) juste après les pensées, la première partie de texte doit également avoir une signature.
+- Si des parties `inline_data` avec l'image `mimetype` font partie de réflexions, elles n'auront pas de signatures.
 
-यहां दिए गए कोड में, थॉट सिग्नेचर शामिल करने का एक उदाहरण दिखाया गया है:
+Le code suivant montre un exemple d'emplacement des signatures de pensée :
 
 ```
 [
@@ -2690,182 +2689,179 @@ curl -s -X POST \
 ]
 ```
 
-## इमेज जनरेट करने के अन्य मोड
+## Autres modes de génération d'images
 
-Gemini, इमेज के साथ इंटरैक्ट करने के अन्य मोड के साथ काम करता है. ये मोड, प्रॉम्प्ट के स्ट्रक्चर और कॉन्टेक्स्ट पर आधारित होते हैं. इनमें ये मोड शामिल हैं:
+Gemini est compatible avec d'autres modes d'interaction avec les images en fonction de la structure et du contexte de la requête, y compris :
 
-- **टेक्स्ट से इमेज और टेक्स्ट (इंटरलीव्ड):** इससे इमेज और उससे जुड़ा टेक्स्ट मिलता है.
-  - प्रॉम्प्ट का उदाहरण: "पाएला की रेसिपी को तस्वीरों के साथ दिखाओ."
-- **इमेज और टेक्स्ट से इमेज और टेक्स्ट (इंटरलीव्ड)**: यह सुविधा, इनपुट इमेज और टेक्स्ट का इस्तेमाल करके, उनसे मिलती-जुलती नई इमेज और टेक्स्ट जनरेट करती है.
-  - उदाहरण के लिए, प्रॉम्प्ट: (फ़र्नीचर वाले कमरे की इमेज के साथ) "मेरे कमरे में और किस रंग के सोफ़े अच्छे लगेंगे? क्या तुम इमेज को अपडेट कर सकते हो?"
+- **Texte vers image(s) et texte (entrelacé)** : génère des images avec du texte associé.
+  - Exemple de requête : "Génère une recette illustrée de paella."
+- **Image(s) et texte vers image(s) et texte (entrelacés)** : utilise des images et du texte en entrée pour créer de nouvelles images et du texte associés.
+  - Exemple de requête : (avec l'image d'une pièce meublée) "Quelles autres couleurs de canapés conviendraient dans ma pièce ? Peux-tu modifier l'image ?"
 
-## एक साथ कई इमेज जनरेट करना
+## Générer des images par lot
 
-अगर आपको कई इमेज जनरेट करनी हैं, तो [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi) का इस्तेमाल करें. आपको 24 घंटे के अंदर जवाब मिलने की गारंटी के साथ, [रेट लिमिट](https://ai.google.dev/gemini-api/docs/rate-limits?hl=hi) ज़्यादा मिलती हैं.
+Si vous devez générer de nombreuses images, vous pouvez utiliser l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr). Vous bénéficiez de [limites de fréquence](https://ai.google.dev/gemini-api/docs/rate-limits?hl=fr) plus élevées en échange d'un délai de traitement pouvant aller jusqu'à 24 heures.
 
-Batch API की मदद से इमेज जनरेट करने के उदाहरण और कोड के लिए, [Batch API की मदद से इमेज जनरेट करने से जुड़े दस्तावेज़](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi#image-generation) और [कुकबुक](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=hi) देखें.
+Consultez la [documentation sur la génération d'images avec l'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr#image-generation) et le [cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=fr) pour obtenir des exemples d'images et de code avec l'API Batch.
 
-## प्रॉम्प्ट से जुड़ी गाइड और रणनीतियां
+## Guide et stratégies de requête
 
-इमेज जनरेट करने में महारत हासिल करने के लिए, एक बुनियादी सिद्धांत को समझना ज़रूरी है:
+Pour maîtriser la génération d'images, vous devez d'abord comprendre un principe fondamental :
 
-> **सिर्फ़ कीवर्ड की सूची न बनाएं, बल्कि सीन के बारे में जानकारी दें.**
-> मॉडल की मुख्य ताकत, भाषा को गहराई से समझने की क्षमता है. किसी कहानी या ब्यौरे वाले पैराग्राफ़ से, शब्दों की सूची की तुलना में हमेशा बेहतर और ज़्यादा सटीक इमेज जनरेट होती है.
+> **Décrivez la scène, ne vous contentez pas de lister des mots clés.**
+> La principale force du modèle réside dans sa compréhension approfondie du langage. Un paragraphe descriptif et narratif produira presque toujours une image de meilleure qualité et plus cohérente qu'une liste de mots isolés.
 
-### इमेज जनरेट करने के लिए प्रॉम्प्ट
+### Requêtes pour générer des images
 
-यहां दी गई रणनीतियों की मदद से, ऐसे असरदार प्रॉम्प्ट बनाए जा सकते हैं जिनसे आपको मनमुताबिक इमेज मिलें.
+Les stratégies suivantes vous aideront à créer des requêtes efficaces pour générer exactement les images que vous recherchez.
 
-#### फ़ोटोग्राफ़ी
+#### Photographie
 
-असली जैसी इमेज पाने के लिए, फ़ोटोग्राफ़ी से जुड़े शब्दों का इस्तेमाल करें. कैमरे के ऐंगल, लेंस के टाइप, रोशनी, और बारीकियों के बारे में बताएं, ताकि मॉडल को असली जैसी इमेज बनाने में मदद मिल सके.
+Pour obtenir des images réalistes, utilisez des termes de photographie. Mentionnez les angles de caméra, les types d'objectif, l'éclairage et les détails pour guider le modèle vers un résultat réaliste.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| जापानी मूल के एक बुजुर्ग सेरेमिस्ट के क्लोज़-अप पोर्ट्रेट की फ़ोटो. उनके चेहरे पर गहरी झुर्रियां हैं और वे मुस्कुरा रहे हैं. वह हाल ही में ग्लेज किए गए टी-बाउल की सावधानी से जांच कर रहा है. यह इमेज, उनकी वर्कशॉप की है, जहां धूप पड़ रही है. सीन में, खिड़की से आ रही सुनहरी रोशनी से मिट्टी के बर्तन को रोशन किया गया है. इससे मिट्टी के बर्तन का बारीक टेक्सचर हाइलाइट हो रहा है. इस फ़ोटो को 85 मि॰मी॰ पोर्ट्रेट लेंस से कैप्चर किया गया है. इससे बैकग्राउंड हल्का और धुंधला (बोकेह) हो जाता है. कुल मिलाकर, माहौल शांत और शानदार होना चाहिए. वर्टिकल पोर्ट्रेट ओरिएंटेशन. | जापान की बुज़ुर्ग महिला, जो सिरेमिक आर्टिस्ट है |
+| Photo en gros plan d'un céramiste japonais âgé, au visage ridé par le soleil et au sourire chaleureux et complice. Il examine attentivement un bol à thé fraîchement émaillé. L'action se déroule dans son atelier rustique et ensoleillé. La scène est éclairée par la lumière douce de l'heure dorée qui entre par une fenêtre, mettant en valeur la texture fine de l'argile. L'image doit être capturée avec un objectif pour portrait de 85 mm, ce qui donne un arrière-plan flou et doux (bokeh). L'ambiance générale est sereine et magistrale. Orientation portrait verticale. | Céramiste japonais âgé |
 
-#### स्टाइलिश इलस्ट्रेशन और स्टिकर
+#### Illustrations et autocollants stylisés
 
-स्टिकर, आइकॉन या ऐसेट बनाने के लिए, स्टाइल के बारे में साफ़ तौर पर बताएं. साथ ही, सफ़ेद बैकग्राउंड का अनुरोध करें.
+Pour créer des autocollants, des icônes ou des composants, soyez explicite sur le style et demandez un arrière-plan blanc.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| खुश लाल पांडा का कावई स्टाइल वाला स्टिकर. इसने बांस की छोटी टोपी पहनी हुई है. वह हरे रंग की बांस की पत्ती खा रहा है. इस डिज़ाइन में बोल्ड और साफ़ आउटलाइन, सामान्य सेल-शेडिंग, और वाइब्रेंट कलर पैलेट का इस्तेमाल किया गया है. बैकग्राउंड का रंग सफ़ेद होना चाहिए. | प्यारा रेड पांडा स्टिकर |
+| Autocollant de style kawaii représentant un panda roux joyeux portant un petit chapeau de bambou. Il est en train de manger une feuille de bambou verte. Le design se caractérise par des contours épais et nets, une simple technique de cel-shading et une palette de couleurs vives. L'arrière-plan doit être blanc. | Autocollant panda roux kawaii |
 
-#### इमेज में मौजूद टेक्स्ट सटीक होना चाहिए
+#### Texte précis dans les images
 
-Gemini, टेक्स्ट को रेंडर करने में माहिर है. टेक्स्ट, फ़ॉन्ट स्टाइल (जानकारी के साथ), और पूरी डिज़ाइन के बारे में साफ़ तौर पर बताएं. प्रोफ़ेशनल ऐसेट बनाने के लिए, Gemini 3 Pro Image का इस्तेमाल करें.
+Gemini excelle dans le rendu de texte. Décrivez clairement le texte, le style de police et la conception globale. Utilisez Gemini 3 Pro Image pour produire des assets professionnels.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| 'द डेली ग्राइंड' नाम की कॉफ़ी शॉप के लिए, आधुनिक और मिनिमलिस्ट लोगो बनाओ. टेक्स्ट, साफ़-सुथरे, बोल्ड, और बिना सेरिफ़ वाले फ़ॉन्ट में होना चाहिए. कलर स्कीम ब्लैक ऐंड व्हाइट है. लोगो को सर्कल में रखें. कॉफ़ी बीन का इस्तेमाल समझदारी से करें. | कॉफ़ी शॉप का लोगो |
+| Crée un logo moderne et minimaliste pour un café appelé "The Daily Grind". Le texte doit être écrit dans une police Sans Serif propre et en gras. La palette de couleurs est en noir et blanc. Placez le logo dans un cercle. Utilise un grain de café de manière astucieuse. | Logo de café |
 
-#### प्रॉडक्ट के मॉकअप और कमर्शल फ़ोटोग्राफ़ी
+#### Maquettes de produits et photographie commerciale
 
-यह ई-कॉमर्स, विज्ञापन या ब्रैंडिंग के लिए, साफ़-सुथरे और प्रोफ़ेशनल प्रॉडक्ट शॉट बनाने के लिए सबसे सही है.
+Idéal pour créer des photos de produits claires et professionnelles pour l'e-commerce, la publicité ou le branding.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| स्टूडियो में ली गई प्रॉडक्ट की हाई रिज़ॉल्यूशन फ़ोटो. इसमें मैट ब्लैक रंग का, सिरेमिक से बना एक छोटा कॉफ़ी मग दिखाया गया है. इसे पॉलिश की गई कंक्रीट की सतह पर रखा गया है. लाइटिंग के लिए, तीन पॉइंट वाला सॉफ़्टबॉक्स सेटअप इस्तेमाल किया गया है. इससे फ़ोटो में हल्की और फैली हुई हाइलाइट मिलती है. साथ ही, गहरे हिस्सों को हल्का किया जा सकता है. कैमरे का ऐंगल थोड़ा ऊपर की ओर 45 डिग्री पर है, ताकि इसकी साफ़ लाइनें दिखाई जा सकें. कॉफ़ी से निकलती भाप पर फ़ोकस किया गया है और इसे बिलकुल असली दिखाया गया है. स्क्वेयर इमेज. | सिरेमिक कॉफ़ी मग का प्रॉडक्ट शॉट |
+| Photo de produit en haute résolution et éclairée en studio montrant une tasse à café minimaliste en céramique noire mate, présentée sur une surface en béton poli. L'éclairage est une configuration à trois points avec boîte à lumière conçue pour créer des lumières douces et diffuses, et éliminer les ombres trop marquées. L'angle de la caméra est légèrement surélevé à 45 degrés pour mettre en valeur ses lignes épurées. Ultra-réaliste, avec une mise au point nette sur la vapeur qui s'échappe du café. Image carrée. | Photo de produit d'une tasse à café en céramique |
 
-#### मिनिमलिस्ट और नेगेटिव स्पेस डिज़ाइन
+#### Design minimaliste et espace négatif
 
-यह वेबसाइटों, प्रज़ेंटेशन या मार्केटिंग के ऐसे मटीरियल के लिए बैकग्राउंड बनाने के लिए बेहतरीन है जहां टेक्स्ट को ओवरले किया जाएगा.
+Idéal pour créer des arrière-plans pour des sites Web, des présentations ou des supports marketing sur lesquels du texte sera superposé.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| यह एक मिनीमलिस्ट कंपोज़िशन है. इसमें मेपल के एक छोटे से लाल पत्ते को फ़्रेम के नीचे दाईं ओर रखा गया है. बैकग्राउंड में, ऑफ़-व्हाइट रंग का एक बड़ा और खाली कैनवस है. इससे टेक्स्ट के लिए काफ़ी नेगेटिव स्पेस मिलता है. सबसे ऊपर बाईं ओर से हल्की रोशनी आ रही है. स्क्वेयर इमेज. | मेपल के लाल पत्ते वाला सादा डिज़ाइन |
+| Composition minimaliste avec une seule et délicate feuille d'érable rouge placée en bas à droite du cadre. L'arrière-plan est une vaste toile blanc cassé vide, créant un espace négatif important pour le texte. Éclairage doux et diffus en haut à gauche. Image carrée. | Design minimaliste avec une feuille d'érable rouge |
 
-#### सीक्वेंशियल आर्ट (कॉमिक पैनल / स्टोरीबोर्ड)
+#### Art séquentiel (bande dessinée / storyboard)
 
-यह किरदार की कंसिस्टेंसी और सीन के ब्यौरे के आधार पर, विज़ुअल स्टोरीटेलिंग के लिए पैनल बनाता है. टेक्स्ट और कहानी कहने की क्षमता के मामले में, ये प्रॉम्प्ट Gemini 3.1 Pro और Gemini 3.1 Flash Image के साथ सबसे अच्छे तरीके से काम करते हैं.
+S'appuie sur la cohérence des personnages et la description des scènes pour créer des panneaux de narration visuelle. Pour obtenir des résultats précis avec du texte et des capacités de narration, ces requêtes fonctionnent mieux avec Gemini 3.1 Pro et Gemini 3.1 Flash Image.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  सफ़ेद चश्मा पहने हुए व्यक्ति की इमेज   इनपुट इमेज   **प्रॉम्प्ट:** तीन पैनल वाली एक कॉमिक बनाओ. यह कॉमिक, नोइर आर्ट स्टाइल में होनी चाहिए. साथ ही, इसमें हाई-कंट्रास्ट वाले ब्लैक ऐंड व्हाइट इंक का इस्तेमाल किया गया हो. किरदार को मज़ेदार सीन में दिखाओ. | ग्रिटी नॉइर कॉमिक पैनल |
+| **Image d'entrée** :  Homme portant des lunettes blanches   Image d'entrée   **Requête** : Crée une bande dessinée en trois cases dans un style artistique noir et réaliste, avec des encres en noir et blanc à fort contraste. Place le personnage dans une scène humoristique. | Bande dessinée noire et réaliste |
 
-#### Google Search से सटीक जानकारी पाने की सुविधा
+#### Ancrage avec la recherche Google
 
-Google Search का इस्तेमाल करके, हाल ही की या रीयल-टाइम जानकारी के आधार पर इमेज जनरेट करें.
-यह सुविधा, खबरों, मौसम की जानकारी, और समय के हिसाब से ज़रूरी अन्य विषयों के लिए फ़ायदेमंद है.
+Utilisez la recherche Google pour générer des images basées sur des informations récentes ou en temps réel.
+Cela est utile pour les actualités, la météo et d'autres sujets urgents.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| चैंपियन लीग में पिछली रात हुए आर्सेनल के गेम का एक सामान्य लेकिन स्टाइलिश ग्राफ़िक बनाओ | आर्सेनल के फ़ुटबॉल स्कोर का ग्राफ़िक |
+| Crée un graphique simple, mais élégant, du match d'Arsenal d'hier soir en Ligue des champions. | Graphique des scores de football d'Arsenal |
 
-### इमेज में बदलाव करने के लिए प्रॉम्प्ट
+### Requêtes pour modifier des images
 
-इन उदाहरणों में, इमेज में बदलाव करने, कंपोज़िशन, और स्टाइल ट्रांसफ़र के लिए, टेक्स्ट प्रॉम्प्ट के साथ इमेज देने का तरीका दिखाया गया है.
+Ces exemples montrent comment fournir des images en plus de vos requêtes textuelles pour l'édition, la composition et le transfert de style.
 
-#### एलिमेंट जोड़ना और हटाना
+#### Ajouter et supprimer des éléments
 
-कोई इमेज दें और उसमें किए जाने वाले बदलाव के बारे में बताएं. मॉडल, ओरिजनल इमेज की स्टाइल, लाइटिंग, और पर्सपेक्टिव से मेल खाएगा.
+Fournissez une image et décrivez votre modification. Le modèle correspondra au style, à la luminosité et à la perspective de l'image d'origine.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  फ़्लफ़ी अदरक रंग की बिल्ली की असल जैसी दिखने वाली तस्वीर...   इनपुट इमेज   **प्रॉम्प्ट:** मेरी बिल्ली की दी गई इमेज का इस्तेमाल करके, कृपया उसके सिर पर बुनी हुई एक छोटी विज़र्ड हैट जोड़ें. ऐसा दिखाएं कि वह आराम से बैठी हो और फ़ोटो की हल्की रोशनी से मेल खाती हो. | जादूगर वाली टोपी पहने हुए बिल्ली |
+| **Image d'entrée** :  Image photoréaliste d'un chat roux et duveteux…   Image d'entrée   **Requête** : À partir de l'image fournie de mon chat, veuillez ajouter un petit chapeau de sorcier tricoté sur sa tête. Faites en sorte qu'il semble assis confortablement et que l'éclairage corresponde à celui de la photo. | Chat avec un chapeau de sorcier |
 
-#### इनपेंटिंग (सिमेंटिक मास्किंग)
+#### Inpainting (masquage sémantique)
 
-इमेज के किसी खास हिस्से में बदलाव करने के लिए, बातचीत के दौरान "मास्क" तय करें. इससे इमेज के बाकी हिस्सों में कोई बदलाव नहीं होगा.
+Définissez de manière conversationnelle un "masque" pour modifier une partie spécifique d'une image tout en laissant le reste intact.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  एक मॉडर्न और अच्छी रोशनी वाले लिविंग रूम का वाइड शॉट...   इनपुट इमेज   **प्रॉम्प्ट:** लिविंग रूम की दी गई इमेज का इस्तेमाल करके, सिर्फ़ नीले रंग के सोफ़े को पुराने स्टाइल के ब्राउन लेदर वाले चेस्टरफ़ील्ड सोफ़े में बदलो. कमरे के बाकी हिस्से में कोई बदलाव न करें. जैसे, सोफ़े पर रखे तकिए और रोशनी. | ब्राउन लेदर सोफ़े वाला लिविंग रूम |
+| **Image d'entrée** :  Un plan large d'un salon moderne et bien éclairé…   Image d'entrée   **Requête** : À partir de l'image fournie d'un salon, remplace uniquement le canapé bleu par un canapé Chesterfield vintage en cuir marron. Ne modifiez pas le reste de la pièce, y compris les coussins sur le canapé et l'éclairage. | Salle de séjour avec un canapé en cuir marron |
 
-#### स्टाइल ट्रांसफ़र
+#### Transfert de style
 
-कोई इमेज दें और मॉडल से कहें कि वह उसके कॉन्टेंट को किसी दूसरी कलात्मक स्टाइल में फिर से बनाए.
+Fournissez une image et demandez au modèle de recréer son contenu dans un autre style artistique.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  शहर की व्यस्त सड़क की, असल जैसी दिखने वाली हाई-रिज़ॉल्यूशन फ़ोटो...   इनपुट इमेज   **प्रॉम्प्ट:** रात के समय की आधुनिक शहर की सड़क की दी गई फ़ोटो को, विंसेंट वैन गॉग की 'तारों भरी रात' की कलात्मक स्टाइल में बदलो. इमारतों और कारों की ओरिजनल कंपोज़िशन को बनाए रखें. हालांकि, सभी एलिमेंट को घुमावदार, इंपैस्टो ब्रशलस्ट्रोक और गहरे नीले और चमकीले पीले रंग के ड्रामैटिक पैलेट के साथ रेंडर करें. | तारों भरी रात की शैली में शहर की सड़क |
+| **Image d'entrée** :  Photo haute résolution et photoréaliste d'une rue animée…   Image d'entrée   **Requête** : Transforme la photo fournie d'une rue moderne en ville la nuit dans le style artistique de "La Nuit étoilée" de Vincent van Gogh. Conserve la composition d'origine des bâtiments et des voitures, mais rend tous les éléments avec des coups de pinceau tourbillonnants et empâtés, et une palette spectaculaire de bleus profonds et de jaunes vifs. | Rue de la ville dans le style Nuit étoilée |
 
-#### एडवांस कंपोज़िशन: एक साथ कई इमेज बनाना
+#### Composition avancée : combiner plusieurs images
 
-एक नई कंपोज़िट इमेज बनाने के लिए, कॉन्टेक्स्ट के तौर पर कई इमेज उपलब्ध कराएं. यह प्रॉडक्ट के मॉकअप या क्रिएटिव कोलाज के लिए सबसे सही है.
+Fournissez plusieurs images comme contexte pour créer une nouvelle scène composite. C'est l'outil idéal pour les maquettes de produits ou les collages créatifs.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  नीले रंग की फ़्लोरल समर ड्रेस की प्रोफ़ेशनल फ़ोटो...   इनपुट 1: ड्रेस   बालों का जूड़ा बनाए हुए महिला की पूरी बॉडी की फ़ोटो...   इनपुट 2: मॉडल   **प्रॉम्प्ट:** ई-कॉमर्स फ़ैशन की एक प्रोफ़ेशनल फ़ोटो बनाओ. पहली इमेज में दिख रही नीले रंग की फ़्लोरल ड्रेस को दूसरी इमेज में दिख रही महिला को पहनाओ. कपड़े पहने हुए महिला की बिलकुल असली दिखने वाली फ़ुल-बॉडी इमेज जनरेट करो. इसमें रोशनी और परछाई को इस तरह से अडजस्ट किया गया हो कि वह बाहर के माहौल से मेल खाए. | फ़ैशन ई-कॉमर्स शॉट |
+| **Images d'entrée** :  Une photo professionnelle d'une robe d'été bleue à fleurs…   Entrée 1 : Robe   Photo en pied d'une femme aux cheveux attachés en chignon…   Entrée 2 : Mannequin   **Requête** : Crée une photo de mode professionnelle pour l'e-commerce. Prends la robe à fleurs bleue de la première image et fais-la porter à la femme de la deuxième image. Génère une photo réaliste de la femme portant la robe, en ajustant la luminosité et les ombres pour qu'elles correspondent à l'environnement extérieur. | Photo de mode pour l'e-commerce |
 
-#### बारीकियों को हाई फ़िडेलिटी में बनाए रखना
+#### Préservation des détails haute fidélité
 
-बदलाव करते समय, यह पक्का करें कि ज़रूरी जानकारी (जैसे कि चेहरा या लोगो) सुरक्षित रहे. इसके लिए, बदलाव करने के अनुरोध के साथ-साथ, इनके बारे में पूरी जानकारी दें.
+Pour vous assurer que les détails importants (comme un visage ou un logo) sont conservés lors d'une modification, décrivez-les en détail dans votre demande de modification.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  भूरे बालों और नीली आंखों वाली महिला का प्रोफ़ेशनल हेडशॉट...   इनपुट 1: महिला   'G' और 'A' अक्षरों वाला एक सादा और आधुनिक लोगो...   इनपुट 2: लोगो   **प्रॉम्प्ट:** भूरे बालों, नीली आंखों, और सामान्य चेहरे के भाव वाली महिला की पहली इमेज जनरेट करो. दूसरी इमेज में मौजूद लोगो को उसकी काली टी-शर्ट पर जोड़ो. पक्का करें कि महिला के चेहरे और नैन-नक़्श में कोई बदलाव न हो. लोगो ऐसा दिखना चाहिए कि उसे शर्ट के फ़ैब्रिक पर नैचुरल तरीके से प्रिंट किया गया हो. साथ ही, वह शर्ट के फ़ोल्ड के हिसाब से भी दिखना चाहिए. | टी-शर्ट पर लोगो वाली महिला |
+| **Images d'entrée** :  Un portrait professionnel d'une femme aux cheveux bruns et aux yeux bleus…   Entrée 1 : Femme   Un logo simple et moderne avec les lettres &quot;G&quot; et &quot;A&quot;…   Entrée 2 : Logo   **Requête** : Prends la première image de la femme aux cheveux bruns, aux yeux bleus et à l'expression neutre. Ajoute le logo de la deuxième image sur son T-shirt noir. Assure-toi que le visage et les traits de la femme restent complètement inchangés. Le logo doit avoir l'air d'être imprimé naturellement sur le tissu, en suivant les plis de la chemise. | Femme portant un t-shirt avec un logo |
 
-#### किसी चीज़ को दिलचस्प बनाना
+#### Donner vie à quelque chose
 
-कोई रफ़ स्केच या ड्राइंग अपलोड करें और मॉडल से उसे बेहतर इमेज में बदलने के लिए कहें.
+Importez un croquis ou un dessin et demandez au modèle de le transformer en image finie.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  कार का स्केच   कार का रफ़ स्केच   **प्रॉम्प्ट:** आने वाले समय की कार के इस पेंसिल स्केच को, शोरूम में रखी गई कॉन्सेप्ट कार की शानदार फ़ोटो में बदलो. स्केच में दी गई पतली लाइनों और लो प्रोफ़ाइल को बनाए रखें. हालांकि, इसमें मेटैलिक नीले रंग का पेंट और नियॉन रिम लाइटिंग जोड़ें. | कॉन्सेप्ट कार की शानदार फ़ोटो |
+| **Image d'entrée** :  Croquis d'une voiture   Croquis approximatif d'une voiture   **Requête** : Transforme cette ébauche au crayon d'une voiture futuriste en photo soignée du concept car final dans un showroom. Conserve les lignes épurées et le profil bas de l'esquisse, mais ajoute une peinture bleu métallisé et un éclairage néon sur les jantes. | Photo retouchée d'un concept car |
 
-#### कैरेक्टर की स्टाइल एक जैसी रखना: 360 व्यू
+#### Cohérence des personnages : vue à 360°
 
-अलग-अलग ऐंगल से प्रॉम्प्ट देकर, किसी किरदार के 360 डिग्री व्यू जनरेट किए जा सकते हैं. बेहतर नतीजे पाने के लिए, बाद के प्रॉम्प्ट में पहले जनरेट की गई इमेज शामिल करें, ताकि एक जैसी इमेज जनरेट की जा सकें. मुश्किल पोज़ के लिए, अपनी पसंद के पोज़ की रेफ़रंस इमेज शामिल करें.
+Vous pouvez générer des vues à 360 degrés d'un personnage en demandant de manière itérative différents angles. Pour obtenir les meilleurs résultats, incluez les images générées précédemment dans les requêtes suivantes afin de maintenir la cohérence. Pour les poses complexes, incluez une image de référence de la pose souhaitée.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **इनपुट इमेज:**  सफ़ेद चश्मा पहने हुए व्यक्ति की ओरिजनल इमेज   ओरिजनल इमेज   **प्रॉम्प्ट:** इस आदमी का स्टूडियो पोर्ट्रेट, जिसमें वह सफ़ेद बैकग्राउंड के सामने खड़ा हो और उसकी प्रोफ़ाइल दाईं ओर दिख रही हो | सफ़ेद चश्मा पहने हुए व्यक्ति की दाईं ओर देखते हुए इमेज का आउटपुट   सफ़ेद चश्मा पहने हुए व्यक्ति की दाईं ओर देखते हुए फ़ोटो   सफ़ेद चश्मा पहने हुए व्यक्ति की आगे की ओर देखते हुए इमेज   सफ़ेद चश्मा पहने हुए व्यक्ति की सामने की ओर देखते हुए फ़ोटो |
+| **Image d'entrée** :  Entrée d'origine d'un homme portant des lunettes blanches   Image d'origine   **Prompt** : Portrait studio de cet homme sur fond blanc, de profil, regardant vers la droite | Sortie d'un homme portant des lunettes blanches et regardant vers la droite   Homme portant des lunettes blanches et regardant vers la droite   Sortie d'un homme portant des lunettes blanches et regardant droit devant lui   Homme portant des lunettes blanches et regardant vers l'avant |
 
-### सबसे सही तरीके
+### Bonnes pratiques
 
-अपने नतीजों को बेहतर बनाने के लिए, इन पेशेवर रणनीतियों को अपने वर्कफ़्लो में शामिल करें.
+Pour passer de bons à excellents résultats, intégrez ces stratégies professionnelles à votre workflow.
 
-- **ज़्यादा सटीक जानकारी दें:** जितनी ज़्यादा जानकारी दी जाएगी, आपको उतना ज़्यादा कंट्रोल मिलेगा. "फ़ैंटसी आर्मर" के बजाय, इसके बारे में ज़्यादा जानकारी दें: "सजावटी एल्विन प्लेट आर्मर, जिस पर चाँदी के पत्तों के पैटर्न बने हों. इसमें ऊँची कॉलर और बाज के पंखों के आकार के पॉल्ड्रॉन हों."
-- **कॉन्टेक्स्ट और मकसद बताएं:** इमेज का *मकसद* बताएं. मॉडल को कॉन्टेक्स्ट की कितनी जानकारी है, इससे फ़ाइनल आउटपुट पर असर पड़ेगा. उदाहरण के लिए, "एक हाई-एंड, कम से कम डिज़ाइन वाले स्किनकेयर ब्रैंड के लिए लोगो बनाओ" प्रॉम्प्ट से, "एक लोगो बनाओ" प्रॉम्प्ट की तुलना में बेहतर नतीजे मिलेंगे.
-- **बदलाव करना और बेहतर बनाना:** पहली बार में ही बेहतरीन इमेज मिलने की उम्मीद न रखें. मॉडल की बातचीत वाली सुविधा का इस्तेमाल करके, छोटे-मोटे बदलाव करें. इसके बाद, "यह बहुत अच्छा है, लेकिन क्या रोशनी को थोड़ा और बेहतर किया जा सकता है?" या "सब कुछ वैसा ही रखो, लेकिन किरदार के चेहरे के भाव को थोड़ा और गंभीर बनाओ" जैसे प्रॉम्प्ट का इस्तेमाल करें.
-- **सिलसिलेवार निर्देशों का इस्तेमाल करें:** कई एलिमेंट वाले जटिल सीन के लिए, अपने प्रॉम्प्ट को चरणों में बांटें. "सबसे पहले, सुबह के समय शांत और धुंधले जंगल का बैकग्राउंड बनाओ. इसके बाद, फ़ोरग्राउंड में काई से ढका हुआ पत्थर का एक पुराना वेदी जोड़ो.
-  आखिर में, चमकती हुई एक तलवार को वेदी के ऊपर रख दो."
-- **"सिमैंटिक नेगेटिव प्रॉम्प्ट" का इस्तेमाल करें:** "कोई कार नहीं" कहने के बजाय, अपनी पसंद के सीन के बारे में सकारात्मक तरीके से बताएं: "एक खाली, सुनसान सड़क, जहां कोई ट्रैफ़िक नहीं है."
-- **कैमरे को कंट्रोल करना:** फ़ोटोग्राफ़ी और सिनेमैटिक भाषा का इस्तेमाल करके, कंपोज़िशन को कंट्रोल करें. `wide-angle shot`, `macro shot`, `low-angle
-  perspective` जैसे शब्द.
+- **Soyez très précis** : plus vous fournissez de détails, plus vous avez de contrôle. Au lieu de "armure fantastique", décrivez-la : "armure de plates elfique ornée, gravée de motifs en feuille d'argent, avec un col montant et des épaulières en forme d'ailes de faucon".
+- **Fournissez le contexte et l'intention** : expliquez l'*objectif* de l'image. La compréhension du contexte par le modèle influencera le résultat final. Par exemple, "Crée un logo pour une marque de soins de la peau haut de gamme et minimaliste" donnera de meilleurs résultats que "Crée un logo".
+- **Répétez et affinez** : ne vous attendez pas à obtenir une image parfaite du premier coup. Utilisez la nature conversationnelle du modèle pour apporter de petites modifications. Faites un suivi avec des requêtes telles que "C'est super, mais peux-tu rendre l'éclairage un peu plus chaud ?" ou "Garde tout pareil, mais rends l'expression du personnage plus sérieuse".
+- **Utilisez des instructions détaillées** : pour les scènes complexes comportant de nombreux éléments, divisez votre requête en étapes. "Crée d'abord un arrière-plan représentant une forêt sereine et brumeuse à l'aube. Ensuite, au premier plan, ajoutez un ancien autel de pierre recouvert de mousse.
+  Enfin, placez une épée lumineuse sur l'autel."
+- **Utilisez des "requêtes négatives sémantiques"** : au lieu de dire "pas de voitures", décrivez la scène souhaitée de manière positive : "une rue vide et déserte sans aucun signe de circulation".
+- **Contrôlez la caméra** : utilisez le langage photographique et cinématographique pour contrôler la composition. Termes tels que `wide-angle shot`, `macro shot`, `low-angle
+  perspective`.
 
-## सीमाएं
+## Limites
 
-- बेहतरीन परफ़ॉर्मेंस के लिए, इन भाषाओं का इस्तेमाल करें: EN, ar-EG, de-DE, es-MX,
-  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
-- इमेज जनरेट करने की सुविधा, ऑडियो इनपुट के साथ काम नहीं करती. वीडियो इनपुट सिर्फ़ Gemini 3.1 Flash Image के लिए इस्तेमाल किए जा सकते हैं.
-- मॉडल, हमेशा उतनी ही इमेज जनरेट नहीं करेगा जितनी उपयोगकर्ता ने मांगी हैं.
-- `gemini-2.5-flash-image` में इनपुट के तौर पर ज़्यादा से ज़्यादा तीन इमेज इस्तेमाल की जा सकती हैं. वहीं, `gemini-3-pro-image` में अच्छी क्वालिटी वाली पांच इमेज और कुल 14 इमेज इस्तेमाल की जा सकती हैं. `gemini-3.1-flash-image` एक ही वर्कफ़्लो में, ज़्यादा से ज़्यादा चार वर्णों के मिलते-जुलते होने और ज़्यादा से ज़्यादा 10 ऑब्जेक्ट के सटीक होने की सुविधा देता है.
-- किसी इमेज के लिए टेक्स्ट जनरेट करते समय, Gemini सबसे अच्छा काम तब करता है, जब पहले टेक्स्ट जनरेट किया जाए और फिर उस टेक्स्ट के साथ इमेज जनरेट करने के लिए कहा जाए.
-- `gemini-3.1-flash-image` फ़िलहाल, Google Search की मदद से भरोसेमंद स्रोतों से जानकारी लेने की सुविधा, वेब खोज से लोगों की असल दुनिया की इमेज का इस्तेमाल करने की सुविधा के साथ काम नहीं करती.
-- जनरेट की गई सभी इमेज में [SynthID वॉटरमार्क](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=hi) शामिल होता है.
+- Pour des performances optimales, utilisez les langues suivantes : EN, ar-EG, de-DE, es-MX, fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
+- La génération d'images n'accepte pas les entrées audio. Les entrées vidéo ne sont acceptées que pour l'image Gemini 3.1 Flash.
+- Le modèle ne respecte pas toujours le nombre exact d'images de sortie que l'utilisateur demande explicitement.
+- `gemini-2.5-flash-image` fonctionne mieux avec un maximum de trois images en entrée, tandis que `gemini-3-pro-image` prend en charge cinq images haute fidélité et jusqu'à 14 images au total. `gemini-3.1-flash-image` accepte une ressemblance de caractères allant jusqu'à quatre caractères et une fidélité allant jusqu'à 10 objets dans un même workflow.
+- Lorsque vous générez du texte pour une image, Gemini fonctionne mieux si vous générez d'abord le texte, puis demandez une image avec le texte.
+- `gemini-3.1-flash-image` L'ancrage avec la recherche Google ne permet pas d'utiliser des images de personnes issues de la recherche sur le Web pour le moment.
+- Toutes les images générées incluent un [filigrane SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr).
 
-## वैकल्पिक कॉन्फ़िगरेशन
+## Configurations facultatives
 
-आपके पास `generate_content` कॉल के `config` फ़ील्ड में, मॉडल के आउटपुट के जवाब देने के तरीके और आसपेक्ट रेशियो को कॉन्फ़िगर करने का विकल्प होता है.
+Vous pouvez éventuellement configurer les modalités de réponse et le format de la sortie du modèle dans le champ `config` des appels `generate_content`.
 
-### आउटपुट प्रकार
+### Types de sortie
 
-मॉडल डिफ़ॉल्ट रूप से, टेक्स्ट और इमेज वाले जवाब देता है
-(जैसे, `response_modalities=['Text', 'Image']`).
-`response_modalities=['Image']` का इस्तेमाल करके, जवाब को सिर्फ़ इमेज दिखाने के लिए कॉन्फ़िगर किया जा सकता है.
+Par défaut, le modèle renvoie des réponses textuelles et imagées (c'est-à-dire `response_modalities=['Text', 'Image']`). Vous pouvez configurer la réponse pour qu'elle ne renvoie que des images sans texte à l'aide de `response_modalities=['Image']`.
 
 ### Python
 
@@ -2891,7 +2887,7 @@ const response = await ai.models.generateContent({
   });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 result, _ := client.Models.GenerateContent(
@@ -2948,10 +2944,10 @@ curl -s -X POST \
   }'
 ```
 
-### आस्पेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) और इमेज का साइज़
+### Formats et taille d'image
 
-मॉडल, डिफ़ॉल्ट रूप से आउटपुट इमेज के साइज़ को आपकी इनपुट इमेज के साइज़ से मैच करता है. इसके अलावा, यह 1:1 स्क्वेयर जनरेट करता है.
-जवाब के अनुरोध में, `response_format` फ़ील्ड में मौजूद `aspect_ratio` फ़ील्ड का इस्तेमाल करके, आउटपुट इमेज के आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) को कंट्रोल किया जा सकता है. इसे यहां दिखाया गया है:
+Par défaut, le modèle fait correspondre la taille de l'image de sortie à celle de votre image d'entrée, ou génère des carrés au format 1:1.
+Vous pouvez contrôler le format de l'image de sortie à l'aide du champ `aspect_ratio` sous `response_format` dans la demande de réponse, comme indiqué ici :
 
 ### Python
 
@@ -3006,7 +3002,7 @@ const response_gemini3 = await ai.models.generateContent({
   });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 // For gemini-2.5-flash-image
@@ -3138,103 +3134,102 @@ curl -s -X POST \
   }'
 ```
 
-यहां दी गई टेबल में, उपलब्ध अलग-अलग रेशियो और जनरेट की गई इमेज के साइज़ की जानकारी दी गई है:
+Les différents ratios disponibles et la taille de l'image générée sont listés dans les tableaux suivants :
 
-### 3.1 Flash Image
+### 3.1 Image Flash
 
-| आसपेक्ट रेशियो | 512 रिज़ॉल्यूशन | 500 टोकन | 1K रिज़ॉल्यूशन | 1,000 टोकन | 2K रिज़ॉल्यूशन | 2,000 टोकन | 4K रिज़ॉल्यूशन | 4 हज़ार टोकन |
+| Format | Résolution 512 | 0,5 k jetons | Résolution 1K | 1 000 jetons | Résolution 2K | 2 000 jetons | Résolution 4K | 4 000 jetons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
-| **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
-| **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
-| **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
-| **3:2** | 632x424 | 747 | 1264x848 | 1120 | 2528x1696 | 1680 | 5056x3392 | 2520 |
-| **3:4** | 448x600 | 747 | 896x1200 | 1120 | 1792x2400 | 1680 | 3584x4800 | 2520 |
-| **4:1** | 1024x256 | 747 | 2048x512 | 1120 | 4096x1024 | 1680 | 8192x2048 | 2520 |
-| **4:3** | 600x448 | 747 | 1200x896 | 1120 | 2400x1792 | 1680 | 4800x3584 | 2520 |
-| **4:5** | 464x576 | 747 | 928x1152 | 1120 | 1856x2304 | 1680 | 3712x4608 | 2520 |
-| **5:4** | 576x464 | 747 | 1152x928 | 1120 | 2304x1856 | 1680 | 4608x3712 | 2520 |
-| **8:1** | 1536x192 | 747 | 3072x384 | 1120 | 6144x768 | 1680 | 12288x1536 | 2520 |
-| **9:16** | 384x688 | 747 | 768x1376 | 1120 | 1536x2752 | 1680 | 3072x5504 | 2520 |
-| **16:9** | 688x384 | 747 | 1376x768 | 1120 | 2752x1536 | 1680 | 5504x3072 | 2520 |
-| **21:9** | 792x168 | 747 | 1584x672 | 1120 | 3168x1344 | 1680 | 6336x2688 | 2520 |
+| **1:1** | 512 x 512 | 747 | 1024x1024 | 1120 | 2048 x 2048 | 1680 | 4 096 x 4 096 | 2520 |
+| **1:4** | 256 x 1 024 | 747 | 512 x 2 048 | 1120 | 1024x4096 | 1680 | 2048 x 8192 | 2520 |
+| **1:8** | 192 x 1 536 | 747 | 384 x 3 072 | 1120 | 768 x 6 144 | 1680 | 1536 x 12288 | 2520 |
+| **2:3** | 424 x 632 | 747 | 848 x 1 264 | 1120 | 1696 x 2528 | 1680 | 3392 x 5056 | 2520 |
+| **3:2** | 632 x 424 | 747 | 1 264 x 848 | 1120 | 2528 x 1696 | 1680 | 5056 x 3392 | 2520 |
+| **3:4** | 448 x 600 | 747 | 896 x 1200 | 1120 | 1792x2400 | 1680 | 3584 x 4800 | 2520 |
+| **4:1** | 1024x256 | 747 | 2048 x 512 | 1120 | 4 096 x 1 024 | 1680 | 8192 x 2048 | 2520 |
+| **4:3** | 600 x 448 | 747 | 1 200 x 896 | 1120 | 2400x1792 | 1680 | 4 800 x 3 584 | 2520 |
+| **4:5** | 464 x 576 | 747 | 928 x 1 152 | 1120 | 1856 x 2304 | 1680 | 3712 x 4608 | 2520 |
+| **5:4** | 576 x 464 | 747 | 1152x928 | 1120 | 2304 x 1856 | 1680 | 4608 x 3712 | 2520 |
+| **8:1** | 1536x192 | 747 | 3072 x 384 | 1120 | 6 144 x 768 | 1680 | 12 288 x 1 536 | 2520 |
+| **9:16** | 384 x 688 | 747 | 768 x 1 376 | 1120 | 1536 x 2752 | 1680 | 3072 x 5504 | 2520 |
+| **16:9** | 688x384 | 747 | 1 376 x 768 | 1120 | 2752 x 1536 | 1680 | 5504 x 3072 | 2520 |
+| **21:9** | 792 x 168 | 747 | 1 584 x 672 | 1120 | 3168x1344 | 1680 | 6336 x 2688 | 2520 |
 
-### 3.1 Flash Lite Image
+### 3.1 Image Flash Lite
 
-| आसपेक्ट रेशियो | 512 रिज़ॉल्यूशन | 500 टोकन | 1K रिज़ॉल्यूशन | 1,000 टोकन |
+| Format | Résolution 512 | 0,5 k jetons | Résolution 1K | 1 000 jetons |
 | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 |
-| **1:4** | 256x1024 | 747 | 512x2048 | 1120 |
-| **1:8** | 192x1536 | 747 | 384x3072 | 1120 |
-| **2:3** | 424x632 | 747 | 848x1264 | 1120 |
-| **3:2** | 632x424 | 747 | 1264x848 | 1120 |
-| **3:4** | 448x600 | 747 | 896x1200 | 1120 |
-| **4:1** | 1024x256 | 747 | 2048x512 | 1120 |
-| **4:3** | 600x448 | 747 | 1200x896 | 1120 |
-| **4:5** | 464x576 | 747 | 928x1152 | 1120 |
-| **5:4** | 576x464 | 747 | 1152x928 | 1120 |
-| **8:1** | 1536x192 | 747 | 3072x384 | 1120 |
-| **9:16** | 384x688 | 747 | 768x1376 | 1120 |
-| **16:9** | 688x384 | 747 | 1376x768 | 1120 |
-| **21:9** | 792x168 | 747 | 1584x672 | 1120 |
+| **1:1** | 512 x 512 | 747 | 1024x1024 | 1120 |
+| **1:4** | 256 x 1 024 | 747 | 512 x 2 048 | 1120 |
+| **1:8** | 192 x 1 536 | 747 | 384 x 3 072 | 1120 |
+| **2:3** | 424 x 632 | 747 | 848 x 1 264 | 1120 |
+| **3:2** | 632 x 424 | 747 | 1 264 x 848 | 1120 |
+| **3:4** | 448 x 600 | 747 | 896 x 1200 | 1120 |
+| **4:1** | 1024x256 | 747 | 2048 x 512 | 1120 |
+| **4:3** | 600 x 448 | 747 | 1 200 x 896 | 1120 |
+| **4:5** | 464 x 576 | 747 | 928 x 1 152 | 1120 |
+| **5:4** | 576 x 464 | 747 | 1152x928 | 1120 |
+| **8:1** | 1536x192 | 747 | 3072 x 384 | 1120 |
+| **9:16** | 384 x 688 | 747 | 768 x 1 376 | 1120 |
+| **16:9** | 688x384 | 747 | 1 376 x 768 | 1120 |
+| **21:9** | 792 x 168 | 747 | 1 584 x 672 | 1120 |
 
-### 3.1 Pro Image
+### 3.1 Pro Image
 
-| आसपेक्ट रेशियो | 1K रिज़ॉल्यूशन | 1,000 टोकन | 2K रिज़ॉल्यूशन | 2,000 टोकन | 4K रिज़ॉल्यूशन | 4 हज़ार टोकन |
+| Format | Résolution 1K | 1 000 jetons | Résolution 2K | 2 000 jetons | Résolution 4K | 4 000 jetons |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
-| **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
-| **3:2** | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
-| **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
-| **4:3** | 1200x896 | 1120 | 2400x1792 | 1120 | 4800x3584 | 2000 |
-| **4:5** | 928x1152 | 1120 | 1856x2304 | 1120 | 3712x4608 | 2000 |
-| **5:4** | 1152x928 | 1120 | 2304x1856 | 1120 | 4608x3712 | 2000 |
-| **9:16** | 768x1376 | 1120 | 1536x2752 | 1120 | 3072x5504 | 2000 |
-| **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
-| **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4 096 x 4 096 | 2000 |
+| **2:3** | 848 x 1 264 | 1120 | 1696 x 2528 | 1120 | 3392 x 5056 | 2000 |
+| **3:2** | 1 264 x 848 | 1120 | 2528 x 1696 | 1120 | 5056 x 3392 | 2000 |
+| **3:4** | 896 x 1200 | 1120 | 1792x2400 | 1120 | 3584 x 4800 | 2000 |
+| **4:3** | 1 200 x 896 | 1120 | 2400x1792 | 1120 | 4 800 x 3 584 | 2000 |
+| **4:5** | 928 x 1 152 | 1120 | 1856 x 2304 | 1120 | 3712 x 4608 | 2000 |
+| **5:4** | 1152x928 | 1120 | 2304 x 1856 | 1120 | 4608 x 3712 | 2000 |
+| **9:16** | 768 x 1 376 | 1120 | 1536 x 2752 | 1120 | 3072 x 5504 | 2000 |
+| **16:9** | 1 376 x 768 | 1120 | 2752 x 1536 | 1120 | 5504 x 3072 | 2000 |
+| **21:9** | 1 584 x 672 | 1120 | 3168x1344 | 1120 | 6336 x 2688 | 2000 |
 
-### Gemini 2.5 Flash की इमेज
+### Gemini 2.5 Flash Image
 
-| आसपेक्ट रेशियो | रिज़ॉल्यूशन | टोकन |
+| Format | Solution | Jetons |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
-| 2:3 | 832x1248 | 1290 |
-| 3:2 | 1248x832 | 1290 |
-| 3:4 | 864x1184 | 1290 |
-| 4:3 | 1184x864 | 1290 |
-| 4:5 | 896x1152 | 1290 |
+| 2:3 | 832 x 1 248 | 1290 |
+| 3:2 | 1 248 x 832 | 1290 |
+| 3:4 | 864 x 1 184 | 1290 |
+| 4:3 | 1 184 x 864 | 1290 |
+| 4:5 | 896 x 1 152 | 1290 |
 | 5:4 | 1152x896 | 1290 |
-| 9:16 | 768x1344 | 1290 |
-| 16:9 | 1344x768 | 1290 |
-| 21:9 | 1536x672 | 1290 |
+| 9:16 | 768 x 1 344 | 1290 |
+| 16:9 | 1 344 x 768 | 1290 |
+| 21:9 | 1 536 x 672 | 1290 |
 
-## मॉडल चुनना
+## Sélection du modèle
 
-इस्तेमाल के अपने उदाहरण के लिए, सबसे सही मॉडल चुनें.
+Choisissez le modèle le mieux adapté à votre cas d'utilisation spécifique.
 
-- **Gemini 3.1 Flash Image (Nano Banana 2)** को इमेज जनरेट करने के लिए इस्तेमाल करें. यह सबसे अच्छा मॉडल है. यह कीमत और इंतज़ार के समय के हिसाब से सबसे अच्छा परफ़ॉर्म करता है और इसमें सबसे ज़्यादा इंटेलिजेंस है. ज़्यादा जानकारी के लिए, मॉडल की [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-3.1-flash-image) और [क्षमताएं](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=hi) वाला पेज देखें.
-- **Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite)** को इमेज जनरेट करने वाले परिवार के सबसे कारगर सदस्य के तौर पर डिज़ाइन किया गया है. यह बहुत कम समय में इमेज जनरेट और एडिट करने की सुविधा देता है. साथ ही, यह किफ़ायती भी है.
-  ज़्यादा जानकारी के लिए, मॉडल की [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-3.1-flash-lite-image) और [सुविधाओं](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=hi) वाला पेज देखें.
-- **Gemini 3 Pro Image (Nano Banana Pro)** को प्रोफ़ेशनल ऐसेट प्रोडक्शन और मुश्किल निर्देशों के लिए डिज़ाइन किया गया है. इस मॉडल में ये सुविधाएं हैं:
-  Google Search का इस्तेमाल करके, असल दुनिया से जुड़ी जानकारी देना. इसमें "सोचना" प्रोसेस डिफ़ॉल्ट रूप से शामिल होती है. यह प्रोसेस, जवाब जनरेट करने से पहले कंपोज़िशन को बेहतर बनाती है. साथ ही, यह 4K रिज़ॉल्यूशन तक की इमेज जनरेट कर सकता है. ज़्यादा जानकारी के लिए, मॉडल की [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-3-pro-image) और [क्षमताएं](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=hi) वाला पेज देखें.
-- **Gemini 2.5 Flash Image (Nano Banana)** को तेज़ी से और असरदार तरीके से काम करने के लिए डिज़ाइन किया गया है. इस मॉडल को, कम समय में ज़्यादा काम करने के लिए ऑप्टिमाइज़ किया गया है. यह 1024 पिक्सल के रिज़ॉल्यूशन में इमेज जनरेट करता है. ज़्यादा जानकारी के लिए, मॉडल की [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-2.5-flash-image) और [क्षमताएं](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=hi) पेज देखें.
+- **Gemini 3.1 Flash Image (Nano Banana 2)** devrait être votre modèle de génération d'images de référence, car il offre le meilleur équilibre entre performances globales, intelligence, coût et latence. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.1-flash-image) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=fr) des modèles.
+- **Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite)** est conçu pour être le spécialiste de l'efficacité de la famille de modèles de génération d'images. Il offre une latence ultra-faible ainsi qu'une génération et une retouche d'images rentables.
+  Pour en savoir plus, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.1-flash-lite-image) et [Fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=fr) des modèles.
+- **Gemini 3 Pro Image (Nano Banana Pro)** est conçu pour la production d'assets professionnels et les instructions complexes. Ce modèle est ancré dans le monde réel grâce à la recherche Google. Il dispose d'un processus de "réflexion" par défaut qui affine la composition avant la génération et peut générer des images d'une résolution allant jusqu'à 4K. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3-pro-image) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=fr) des modèles.
+- **Gemini 2.5 Flash Image (Nano Banana)** est conçu pour la rapidité et l'efficacité. Ce modèle est optimisé pour les tâches à faible latence et à volume élevé. Il génère des images d'une résolution de 1 024 px. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-2.5-flash-image) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr) des modèles.
 
-### Imagen का इस्तेमाल कब करें
+### Quand utiliser Imagen ?
 
-Gemini में इमेज जनरेट करने की सुविधा के साथ-साथ, Gemini API के ज़रिए [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=hi) को भी ऐक्सेस किया जा सकता है. यह इमेज जनरेट करने वाला हमारा खास मॉडल है. बंद होने की तारीख से पहले माइग्रेट करने का प्लान बनाएं.
+En plus d'utiliser les fonctionnalités de génération d'images intégrées à Gemini, vous pouvez également accéder à [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr), notre modèle de génération d'images spécialisé, via l'API Gemini. Prévoyez de migrer avant la date d'arrêt.
 
-## आगे क्या करना है
+## Étape suivante
 
-- ज़्यादा उदाहरण और कोड सैंपल देखने के लिए, [कुकबुक गाइड](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=hi) देखें.
-- Gemini API की मदद से वीडियो जनरेट करने का तरीका जानने के लिए, [Veo गाइड](https://ai.google.dev/gemini-api/docs/video?hl=hi) देखें.
-- Gemini के मॉडल के बारे में ज़्यादा जानने के लिए, [Gemini के मॉडल](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi) लेख पढ़ें.
+- Vous trouverez d'autres exemples et extraits de code dans le [guide Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=fr).
+- Consultez le [guide Veo](https://ai.google.dev/gemini-api/docs/video?hl=fr) pour découvrir comment générer des vidéos avec l'API Gemini.
+- Pour en savoir plus sur les modèles Gemini, consultez [Modèles Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr).
 
-सुझाव भेजें
+Envoyer des commentaires
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
+Dernière mise à jour le 2026/07/30 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Voulez-vous nous donner plus d'informations ?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]

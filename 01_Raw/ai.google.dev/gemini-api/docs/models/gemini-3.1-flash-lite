@@ -1,48 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-CN
-fetched_at: 2026-08-10T03:24:26.788175+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ja
+fetched_at: 2026-08-17T02:17:46.803078+00:00
 title: "Gemini 3.1 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-发送反馈
+フィードバックを送信
 
 # Gemini 3.1 Flash-Lite
 
-Gemini 3.1 Flash-Lite 是一款低延迟、经济实惠的多模态模型，针对高频轻量级任务进行了优化。该模型支持文本、图片、视频、音频和
-PDF 输入，专为大体量智能体工作流、简单数据提取以及延迟时间和 API 费用是主要限制的应用而设计。
+Gemini 3.1 Flash-Lite は、低レイテンシで費用対効果に優れたマルチモーダル モデルで、頻繁に実行される軽量タスク向けに最適化されています。このモデルは、テキスト、画像、動画、音声、PDF の入力をサポートしており、エージェント ワークフロー、シンプルなデータ抽出、レイテンシと API コストが主な制約となるアプリケーション向けに設計されています。
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=ja)
 
 ## gemini-3.1-flash-lite
 
-| 属性 | 说明 |
+| プロパティ | 説明 |
 | --- | --- |
-| id\_card模型代码 | `gemini-3.1-flash-lite` |
-| save支持的数据类型 | **输入**  文本、图片、视频、音频和 PDF  **输出**  文本 |
-| token\_autoToken 限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入 token 限制**  1,048,576  **输出 token 限制**  65,536 |
-| handyman功能 | **[音频生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)**  不支持  **[缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)**  支持  **[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)**  支持  **[计算机使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-cn)**  不支持  **[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)**  支持  **[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)**  支持  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)**  支持  **[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)**  不支持  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn)**  不支持  **[搜索接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)**  支持  **[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)**  支持  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)**  支持  **[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)**  支持 |
-| speed消耗选项 | **[批量 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)**  支持  **[灵活推理](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-cn)**  支持  **[优先推理](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)**  支持 |
-| 123版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - `Stable: gemini-3.1-flash-lite` |
-| calendar\_month最新更新 | 2026 年 5 月 |
-| id\_card模型卡片 | [模型卡片](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/?hl=zh-cn) |
+| id\_cardモデルコード | `gemini-3.1-flash-lite` |
+| saveサポートされるデータタイプ | **入力**  テキスト、画像、動画、音声、PDF  **出力**  テキスト |
+| token\_autoトークン上限[[\*](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)] | **入力トークンの上限**  1,048,576  **出力トークンの上限**  65,536 |
+| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象  **[コンピュータ使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)**  サポート対象外  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象外  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象 |
+| speed消費オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象 |
+| 123バージョン | [詳細については、モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - `Stable: gemini-3.1-flash-lite` |
+| calendar\_month最新の更新 | 2026 年 5 月 |
+| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/?hl=ja) |
 
-## 开发者指南
+## デベロッパー ガイド
 
-Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些最适合 Gemini 3.1 Flash-Lite
-的应用场景：
+Gemini 3.1 Flash-Lite は、大規模な単純なタスクの処理に最適です。Gemini 3.1 Flash-Lite に最適なユースケースをいくつかご紹介します。
 
-- **翻译**：快速、经济实惠、大体量的翻译，例如大规模处理
-  聊天消息、评价和支持工单。您可以使用系统说明将输出限制为仅包含翻译后的文本，而不包含额外的注释：
+- **翻訳**: チャット メッセージ、レビュー、サポート チケットなどの
+  大規模な処理など、高速で安価な大量翻訳。システム命令を使用して、出力が翻訳されたテキストのみになるように制限できます。
 
   ```
   from google import genai
@@ -60,7 +58,7 @@ Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些�
 
   print(response.text)
   ```
-- **转写**：处理录音、语音记事或任何需要文本转写的音频内容，而无需启动单独的语音转文本流水线。支持多模态输入，因此您可以直接传递音频文件进行转写：
+- **文字起こし**: 音声テキスト変換パイプラインを別途設定することなく、録音、音声メモ、その他の音声コンテンツを処理してテキストに変換します。マルチモーダル入力をサポートしているため、音声ファイルを直接渡して文字起こしを行うことができます。
 
   ```
   from google import genai
@@ -80,9 +78,8 @@ Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些�
 
   print(response.text)
   ```
-- **轻量级智能体任务和数据提取**：支持实体提取、
-  分类和轻量级数据处理流水线，并提供
-  结构化 JSON 输出。例如，从电子商务客户评价中提取结构化数据：
+- **軽量なエージェント タスクとデータ抽出**: エンティティ抽出、
+  分類、構造化 JSON 出力でサポートされる軽量データ処理パイプライン。たとえば、e コマースの購入者レビューから構造化データを抽出します。
 
   ```
   from google import genai
@@ -110,9 +107,8 @@ Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些�
 
   print(response.text)
   ```
-- **文档处理和摘要**：解析 PDF 并返回精简的
-  摘要，例如构建文档处理流水线或快速
-  分诊传入文件：
+- **ドキュメントの処理と要約**: PDF を解析して、ドキュメント処理パイプラインの構築や受信ファイルの迅速なトリアージなど、簡潔な
+  要約を返します。
 
   ```
   from google import genai
@@ -139,8 +135,8 @@ Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些�
 
   print(response.text)
   ```
-- **模型路由**：使用低延迟、低成本的模型作为分类器，
-  根据任务复杂程度将查询路由到适当的模型。这是生产环境中的真实模式 - 开源 [Gemini CLI](https://geminicli.com/docs/core/#model-fallback) 使用 Flash-Lite 对任务复杂程度进行分类，并相应地路由到 Flash 或 Pro。
+- **モデル ルーティング**: 低レイテンシで低コストのモデルを分類子として使用し、タスクの複雑さに応じてクエリを適切なモデルに
+  ルーティングします。これは実際のパターンです。オープンソースの [Gemini CLI](https://geminicli.com/docs/core/#model-fallback) は Flash-Lite を使用してタスクの複雑さを分類し、それに応じて Flash または Pro にルーティングします。
 
   ```
   from google import genai
@@ -193,9 +189,9 @@ Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些�
 
   print(response.text)
   ```
-- **思考**：对于需要逐步
-  推理的任务，为了提高准确率，请配置思考，以便模型在生成
-  最终输出之前花费额外的计算资源进行内部推理：
+- **思考**: ステップごとの
+  推論が役立つタスクの精度を高めるには、最終的な出力を生成する前にモデルが
+  内部推論に追加のコンピューティング リソースを使用するように思考を構成します。
 
   ```
   from google import genai
@@ -214,12 +210,12 @@ Gemini 3.1 Flash-Lite 最擅长处理大规模的简单任务。以下是一些�
   print(response.text)
   ```
 
-发送反馈
+フィードバックを送信
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最后更新时间 (UTC)：2026-07-21。
+最終更新日 2026-07-21 UTC。
 
-需要向我们提供更多信息？
+ご意見をお聞かせください
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-21。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-21 UTC。"],[],[]]

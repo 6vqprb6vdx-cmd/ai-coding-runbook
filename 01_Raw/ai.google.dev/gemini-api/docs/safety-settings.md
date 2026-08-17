@@ -1,112 +1,109 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-settings?hl=de
-fetched_at: 2026-08-10T03:22:37.297220+00:00
-title: "Sicherheits\u00adeinstellungen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-settings?hl=pl
+fetched_at: 2026-08-17T02:21:11.790635+00:00
+title: "Ustawienia bezpiecze\u0144stwa \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Feedback geben
+Prześlij opinię
 
-# Sicherheits­einstellungen
+# Ustawienia bezpieczeństwa
 
-Die Gemini API bietet Sicherheitseinstellungen, die Sie während der Prototyping-Phase anpassen können, um zu ermitteln, ob Ihre Anwendung eine mehr oder weniger restriktive Sicherheitskonfiguration erfordert. Sie können diese Einstellungen in vier Filterkategorien anpassen, um bestimmte Arten von Inhalten zuzulassen oder zu beschränken.
+Interfejs Gemini API udostępnia ustawienia bezpieczeństwa, które można dostosować na etapie prototypowania, aby określić, czy aplikacja wymaga bardziej czy mniej restrykcyjnej konfiguracji bezpieczeństwa. Możesz dostosować te ustawienia w 4 kategoriach filtrów, aby ograniczyć lub zezwolić na określone typy treści.
 
-In diesem Leitfaden wird beschrieben, wie die Gemini API Sicherheitseinstellungen und ‑filterung handhabt und wie Sie die Sicherheitseinstellungen für Ihre Anwendung ändern können.
+Ten przewodnik zawiera informacje o tym, jak interfejs Gemini API obsługuje ustawienia bezpieczeństwa i filtrowanie oraz jak możesz zmienić ustawienia bezpieczeństwa w swojej aplikacji.
 
-## Sicherheitsfilter
+## Filtry bezpieczeństwa
 
-Die anpassbaren Sicherheitsfilter der Gemini API decken die folgenden Kategorien ab:
+Dostosowywane filtry bezpieczeństwa Gemini API obejmują te kategorie:
 
-| Kategorie | Beschreibung |
+| Kategoria | Opis |
 | --- | --- |
-| Belästigung | Negative oder schädliche Kommentare, die auf Identität und/oder geschützte Merkmale ausgerichtet sind |
-| Hassrede | Unhöfliche, respektlose oder vulgäre Inhalte. |
-| Sexuell explizite Inhalte | Enthält Verweise auf sexuelle Handlungen oder andere vulgäre Inhalte |
-| Gefährlich | Fördert oder erleichtert schädliche Handlungen oder ermuntert dazu. |
+| Nękanie | Negatywne lub szkodliwe komentarze dotyczące tożsamości innej osoby lub cech chronionych. |
+| Szerzenie nienawiści | Treści, które są nieuprzejme, obraźliwe lub wulgarne. |
+| Treści o charakterze jednoznacznie seksualnym | Treści zawierające odniesienia do aktów seksualnych lub innych lubieżnych treści. |
+| Treści niebezpieczne | promują, wspierają lub ułatwiają podejmowanie szkodliwych działań; |
 
-Diese Kategorien sind in [`HarmCategory`](https://ai.google.dev/api/rest/v1/HarmCategory?hl=de) definiert. Sie können diese Filter verwenden, um die für Ihren Anwendungsfall passenden Einstellungen vorzunehmen. Wenn Sie beispielsweise einen Dialog für ein Videospiel erstellen, halten Sie es aufgrund der Art des Spiels möglicherweise für akzeptabel, mehr Inhalte zuzulassen, die als *gefährlich* eingestuft wurden.
+Kategorie te są zdefiniowane w [`HarmCategory`](https://ai.google.dev/api/rest/v1/HarmCategory?hl=pl). Możesz użyć tych filtrów, aby dostosować wyniki do swoich potrzeb. Jeśli na przykład tworzysz dialogi do gry wideo, możesz zezwolić na więcej treści ocenionych jako *niebezpieczne*, ponieważ taki jest charakter gry.
 
-Zusätzlich zu den anpassbaren Sicherheitsfiltern bietet die Gemini API integrierte Schutzmaßnahmen gegen grundlegend schädliche Inhalte wie solche, die die Sicherheit von Kindern gefährden.
-Diese Arten von Schäden werden immer blockiert und können nicht angepasst werden.
+Oprócz dostosowywanych filtrów bezpieczeństwa interfejs Gemini API ma wbudowane zabezpieczenia przed podstawowymi szkodami, takimi jak treści zagrażające bezpieczeństwu dzieci.
+Te rodzaje szkodliwych treści są zawsze blokowane i nie można ich dostosować.
 
-### Stufe der Inhaltsfilterung
+### Poziom filtrowania pod kątem bezpieczeństwa treści
 
-Die Gemini API kategorisiert die Wahrscheinlichkeit, dass Inhalte unsicher sind, als `HIGH`, `MEDIUM`, `LOW` oder `NEGLIGIBLE`.
+Interfejs Gemini API kategoryzuje poziom prawdopodobieństwa, że treść jest niebezpieczna, jako `HIGH`, `MEDIUM`, `LOW` lub `NEGLIGIBLE`.
 
-Die Gemini API blockiert Inhalte basierend auf der Wahrscheinlichkeit, dass Inhalte unsicher sind, nicht auf dem Schweregrad der Probleme. Dies ist wichtig, da einige Inhalte mit geringer Wahrscheinlichkeit unsicher sind, obwohl der Schweregrad des Schadens hoch sein kann. Vergleichen Sie beispielsweise folgende Sätze:
+Interfejs Gemini API blokuje treści na podstawie prawdopodobieństwa, że są one niebezpieczne, a nie na podstawie ich szkodliwości. Warto o tym pamiętać, ponieważ niektóre treści mogą mieć niskie prawdopodobieństwo bycia niebezpiecznymi, mimo że stopień szkodliwości może być wysoki. Na przykład porównując zdania:
 
-1. Der Roboter hat mich geboxt.
-2. Der Roboter hat mich in Stücke geschnitten.
+1. Robot mnie uderzył.
+2. Robot mnie pociął.
 
-Der erste Satz kann eine höhere Wahrscheinlichkeit für unsichere Ergebnisse verursachen, aber Sie können den zweiten Satz in Bezug auf Gewalt einen höheren Schweregrad zuweisen.
-Daher ist es wichtig, dass Sie Tests sorgfältig durchführen und überlegen, welches Maß an Sicherheitsblockaden zur Unterstützung Ihrer wichtigsten Anwendungsfälle erforderlich ist, während gleichzeitig der Schaden für Endnutzer minimiert wird.
+Pierwsze zdanie może mieć większe prawdopodobieństwo bycia niebezpiecznym, ale drugie zdanie może być bardziej poważne pod względem przemocy.
+Dlatego ważne jest, aby dokładnie przetestować i rozważyć, jaki poziom blokowania jest odpowiedni do obsługi kluczowych przypadków użycia przy jednoczesnym zminimalizowaniu szkód dla użytkowników.
 
-### Sicherheitsfilterung pro Anfrage
+### Filtrowanie treści pod kątem bezpieczeństwa w przypadku każdego żądania
 
-Sie können die Sicherheitseinstellungen für jede Anfrage an die API anpassen. Wenn Sie eine Anfrage senden, wird der Inhalt analysiert und erhält eine Sicherheitsbewertung. Die Sicherheitsbewertung umfasst sowohl die jeweilige Kategorie als auch die Wahrscheinlichkeit einer Klassifizierung als schädlich. Wenn der Inhalt beispielsweise blockiert wurde, weil die Wahrscheinlichkeit, dass er in der Kategorie der Belästigung unsicher ist, hoch ist, hat die zurückgegebene Sicherheitsbewertung die Kategorie `HARASSMENT` und die Wahrscheinlichkeit für schädliche Inhalte ist auf `HIGH` gesetzt.
+Ustawienia bezpieczeństwa możesz dostosowywać w przypadku każdego żądania wysyłanego do interfejsu API. Gdy wyślesz prośbę, treść zostanie przeanalizowana i otrzyma ocenę bezpieczeństwa. Ocena bezpieczeństwa obejmuje kategorię i prawdopodobieństwo klasyfikacji szkody. Jeśli na przykład treść została zablokowana, ponieważ system stwierdził wysokie prawdopodobieństwo wystąpienia treści nękających, zwrócona ocena bezpieczeństwa będzie miała kategorię równą `HARASSMENT` i prawdopodobieństwo szkody ustawione na `HIGH`.
 
-Aufgrund der inhärenten Sicherheit des Modells sind zusätzliche Filter standardmäßig **deaktiviert**.
-Wenn Sie sie aktivieren, können Sie das System so konfigurieren, dass Inhalte basierend auf der Wahrscheinlichkeit, dass sie unsicher sind, blockiert werden. Das Standardverhalten des Modells deckt die meisten Anwendungsfälle ab. Sie sollten diese Einstellungen also nur anpassen, wenn dies durchgehend für Ihre Anwendung erforderlich ist.
+Ze względu na wbudowane zabezpieczenia modelu dodatkowe filtry są domyślnie **wyłączone**.
+Jeśli zdecydujesz się je włączyć, możesz skonfigurować system tak, aby blokował treści na podstawie prawdopodobieństwa, że są one niebezpieczne. Domyślne działanie modelu obejmuje większość przypadków użycia, więc te ustawienia należy dostosowywać tylko wtedy, gdy jest to na dłuższą metę niezbędne w danej aplikacji.
 
-In der folgenden Tabelle werden die Blockierungseinstellungen beschrieben, die Sie für jede Kategorie anpassen können. Wenn Sie beispielsweise die Blockierungseinstellung für die Kategorie **Hassrede** auf **Wenige blockieren** setzen, werden alle Inhalte blockiert, die mit hoher Wahrscheinlichkeit Hassrede enthalten. Alles mit einer niedrigeren Wahrscheinlichkeit ist zulässig.
+W tabeli poniżej opisujemy ustawienia blokowania, które możesz dostosować w przypadku każdej kategorii. Jeśli na przykład w przypadku kategorii **Wypowiedzi szerzące nienawiść** ustawisz blokowanie na **Blokuj niewiele**, zablokowane zostaną wszystkie treści, które z dużym prawdopodobieństwem są wypowiedziami szerzącymi nienawiść. Dozwolone są jednak wszystkie treści o niższym prawdopodobieństwie.
 
-| Grenzwert (Google AI Studio) | Grenzwert (API) | Beschreibung |
+| Próg (Google AI Studio) | Próg (interfejs API) | Opis |
 | --- | --- | --- |
-| Aus | `OFF` | Sicherheitsfilter deaktivieren |
-| Keine blockieren | `BLOCK_NONE` | Unabhängig von der Wahrscheinlichkeit unsicherer Inhalte immer anzeigen |
-| Wenige blockieren | `BLOCK_ONLY_HIGH` | Blockieren, wenn die Wahrscheinlichkeit für unsichere Inhalte hoch ist |
-| Einige blockieren | `BLOCK_MEDIUM_AND_ABOVE` | Blockieren, wenn die Wahrscheinlichkeit für unsichere Inhalte mittel oder hoch ist |
-| Meiste blockieren | `BLOCK_LOW_AND_ABOVE` | Blockieren, wenn die Wahrscheinlichkeit für unsichere Inhalte niedrig, mittel oder hoch ist |
-| – | `HARM_BLOCK_THRESHOLD_UNSPECIFIED` | Der Grenzwert ist nicht angegeben, nach dem Standardschwellenwert blockieren |
+| Wył. | `OFF` | Wyłącz filtr bezpieczeństwa |
+| Nie blokuj niczego | `BLOCK_NONE` | Zawsze wyświetlaj treści niezależnie od prawdopodobieństwa wystąpienia treści niebezpiecznych |
+| Blokuj niektóre | `BLOCK_ONLY_HIGH` | Blokuj, gdy prawdopodobieństwo wystąpienia treści niebezpiecznych jest wysokie |
+| Blokuj część | `BLOCK_MEDIUM_AND_ABOVE` | Blokuj, gdy prawdopodobieństwo wystąpienia treści niebezpiecznych jest średnie lub wysokie |
+| Blokuj większość | `BLOCK_LOW_AND_ABOVE` | Blokuj, gdy prawdopodobieństwo wystąpienia treści niebezpiecznych jest niskie, średnie lub wysokie |
+| Nie dotyczy | `HARM_BLOCK_THRESHOLD_UNSPECIFIED` | Próg nie został określony, blokuj przy użyciu domyślnego progu |
 
-Wenn der Grenzwert nicht festgelegt ist, ist der Standardgrenzwert für die Blockierung für Gemini 2.5- und 3-Modelle **deaktiviert**.
+Jeśli próg nie jest ustawiony, domyślny próg blokowania jest **wyłączony** w przypadku modeli Gemini 2.5 i 3.
 
-Sie können diese Einstellungen für jede Anfrage an den generativen Dienst festlegen.
-Weitere Informationen finden Sie in der [`HarmBlockThreshold`](https://ai.google.dev/api/generate-content?hl=de#harmblockthreshold) API
-Referenz.
+Możesz określić te ustawienia dla każdego żądania wysyłanego do usługi generatywnej.
+Szczegółowe informacje znajdziesz w dokumentacji interfejsu [`HarmBlockThreshold`](https://ai.google.dev/api/generate-content?hl=pl#harmblockthreshold) API.
 
-### Sicherheitsfeedback
+### Opinie dotyczące bezpieczeństwa
 
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=de#method:-models.generatecontent)
-gibt ein
-[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=de#generatecontentresponse) zurück, das
-Sicherheitsfeedback enthält.
+[`generateContent`](https://ai.google.dev/api/generate-content?hl=pl#method:-models.generatecontent)
+zwraca
+[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=pl#generatecontentresponse), który
+zawiera informacje o bezpieczeństwie.
 
-Prompt-Feedback ist in
-[`promptFeedback`](https://ai.google.dev/api/generate-content?hl=de#promptfeedback) enthalten. Wenn `promptFeedback.blockReason` festgelegt ist, wurde der Inhalt des Prompts blockiert.
+Informacje o prompcie są uwzględnione w [`promptFeedback`](https://ai.google.dev/api/generate-content?hl=pl#promptfeedback). Jeśli ustawiona jest wartość
+`promptFeedback.blockReason`, oznacza to, że treść promptu została zablokowana.
 
-Feedback zu Antwortkandidaten ist in
-[`Candidate.finishReason`](https://ai.google.dev/api/generate-content?hl=de#candidate) und
-[`Candidate.safetyRatings`](https://ai.google.dev/api/generate-content?hl=de#candidate) enthalten. Wenn Antwortinhalte blockiert wurden und `finishReason` den Wert `SAFETY` hat, können Sie in `safetyRatings` weitere Details finden. Die blockierten Inhalte werden nicht zurückgegeben.
+Opinie o proponowanych odpowiedziach są uwzględniane w przypadku [`Candidate.finishReason`](https://ai.google.dev/api/generate-content?hl=pl#candidate) i [`Candidate.safetyRatings`](https://ai.google.dev/api/generate-content?hl=pl#candidate). Jeśli treść odpowiedzi została zablokowana, a `finishReason` było `SAFETY`, możesz sprawdzić `safetyRatings`, aby dowiedzieć się więcej. Zablokowane treści nie są zwracane.
 
-## Sicherheitseinstellungen anpassen
+## Dostosowywanie ustawień bezpieczeństwa
 
-In diesem Abschnitt wird beschrieben, wie Sie die Sicherheitseinstellungen sowohl in Google AI Studio als auch in Ihrem Code anpassen.
+Z tej sekcji dowiesz się, jak dostosować ustawienia bezpieczeństwa w Google AI Studio i w kodzie.
 
 ### Google AI Studio
 
-Sie können die Sicherheitseinstellungen in Google AI Studio anpassen.
+Ustawienia bezpieczeństwa możesz dostosować w Google AI Studio.
 
-Klicken Sie im Bereich **Laufeinstellungen** unter **Erweiterte Einstellungen** auf **Sicherheitseinstellungen** , um das modale Fenster **Sicherheitseinstellungen ausführen** zu öffnen. In diesem Fenster können Sie mit den Schiebereglern die Stufe der Inhaltsfilterung für jede Sicherheitskategorie anpassen:
+W panelu **Ustawienia uruchamiania** w sekcji **Ustawienia zaawansowane** kliknij **Ustawienia bezpieczeństwa**, aby otworzyć okno modalne **Ustawienia bezpieczeństwa uruchamiania**. W oknie możesz użyć suwaków, aby dostosować poziom filtrowania treści w poszczególnych kategoriach bezpieczeństwa:
 
-![](https://ai.google.dev/static/gemini-api/docs/images/safety_settings_ui.png?hl=de)
+![](https://ai.google.dev/static/gemini-api/docs/images/safety_settings_ui.png?hl=pl)
 
-Wenn Sie eine Anfrage senden (z. B. indem Sie dem Modell eine Frage stellen), wird die warning
-**Inhalt blockiert** angezeigt, wenn der Inhalt der Anfrage blockiert wird. Wenn Sie weitere Details sehen möchten, bewegen Sie den Mauszeiger auf den Text **Inhalt blockiert**. Dort werden die Kategorie und die Wahrscheinlichkeit der Klassifizierung als schädlich angezeigt.
+Gdy wyślesz żądanie (np. zadając modelowi pytanie), pojawi się komunikat warning
+**Treści zablokowane**, jeśli treści żądania są zablokowane. Aby zobaczyć więcej szczegółów, najedź wskaźnikiem na tekst **Treści zablokowane**, aby wyświetlić kategorię i prawdopodobieństwo klasyfikacji szkodliwości.
 
-### Codebeispiele
+### Przykłady kodu
 
-Das folgende Code-Snippet zeigt, wie Sie die Sicherheitseinstellungen in Ihrem `GenerateContent`-Aufruf festlegen. Dadurch wird der Grenzwert für die Kategorie Hassrede (`HARM_CATEGORY_HATE_SPEECH`) festgelegt. Wenn Sie diese Kategorie auf `BLOCK_LOW_AND_ABOVE` setzen, werden alle Inhalte blockiert, die mit niedriger oder höherer Wahrscheinlichkeit Hassrede enthalten. Informationen zu den Grenzwert-Einstellungen finden Sie unter [Sicherheitsfilterung
-pro Anfrage](#safety-filtering-per-request).
+Poniższy fragment kodu pokazuje, jak ustawić ustawienia bezpieczeństwa w wywołaniu `GenerateContent`. Ustawia to próg dla kategorii szerzenia nienawiści (`HARM_CATEGORY_HATE_SPEECH`). Ustawienie tej kategorii na `BLOCK_LOW_AND_ABOVE` blokuje wszystkie treści, które z niskim lub wyższym prawdopodobieństwem zawierają szerzenie nienawiści. Więcej informacji o ustawieniach progowych znajdziesz w sekcji [Filtrowanie treści pod kątem bezpieczeństwa
+w przypadku każdego żądania](#safety-filtering-per-request).
 
 ### Python
 
@@ -132,7 +129,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -236,27 +233,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-## Nächste Schritte
+## Dalsze kroki
 
-- Weitere Informationen zur vollständigen API finden Sie in der [API-Referenz](https://ai.google.dev/api?hl=de).
-- In den [Sicherheitsrichtlinien](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de) finden Sie allgemeine Informationen zu Sicherheits
-  aspekten bei der Entwicklung mit LLMs.
-- Weitere Informationen zur Bewertung von Wahrscheinlichkeit und Schweregrad finden Sie im Blog des [Jigsaw
-  Teams](https://developers.perspectiveapi.com/s/about-the-api-score).
-- Weitere Informationen zu den Produkten, die zu Sicherheitslösungen beitragen, z. B. die
-  [Perspective
-  API](https://medium.com/jigsaw/reducing-toxicity-in-large-language-models-with-perspective-api-c31c39b7a4d7).
-  \* Mit diesen Sicherheitseinstellungen können Sie einen Klassifikator für schädliche Inhalte
-  erstellen. Ein Beispiel für die [Klassifizierung
-  finden Sie hier,
-  um loszulegen.](https://ai.google.dev/examples/train_text_classifier_embeddings?hl=de)
+- Więcej informacji o pełnej wersji interfejsu API znajdziesz w [dokumentacji API](https://ai.google.dev/api?hl=pl).
+- Zapoznaj się z [wytycznymi dotyczącymi bezpieczeństwa](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pl), aby poznać ogólne kwestie związane z bezpieczeństwem podczas tworzenia aplikacji z użyciem dużych modeli językowych.
+- Więcej informacji o ocenianiu prawdopodobieństwa i poziomu ważności znajdziesz na [blogu zespołu Jigsaw](https://developers.perspectiveapi.com/s/about-the-api-score).
+- Dowiedz się więcej o usługach, które przyczyniają się do tworzenia rozwiązań w zakresie bezpieczeństwa, takich jak [Perspective API](https://medium.com/jigsaw/reducing-toxicity-in-large-language-models-with-perspective-api-c31c39b7a4d7).
+  \* Za pomocą tych ustawień bezpieczeństwa możesz utworzyć klasyfikator toksyczności. Aby rozpocząć, zapoznaj się z [przykładem klasyfikacji](https://ai.google.dev/examples/train_text_classifier_embeddings?hl=pl).
 
-Feedback geben
+Prześlij opinię
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Zuletzt aktualisiert: 2026-06-01 (UTC).
+Ostatnia aktualizacja: 2026-06-01 UTC.
 
-Haben Sie Feedback für uns?
+Chcesz przekazać coś jeszcze?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-01 (UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-01 UTC."],[],[]]

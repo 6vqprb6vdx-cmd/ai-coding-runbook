@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=th
-fetched_at: 2026-08-10T03:18:16.541094+00:00
-title: "\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19\u0e14\u0e49\u0e27\u0e22 Google Search \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=fr
+fetched_at: 2026-08-17T02:31:39.864329+00:00
+title: "Ancrage avec la recherche\u00a0Google \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-# พื้นฐานด้วย Google Search
+# Ancrage avec la recherche Google
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Search จะเชื่อมต่อโมเดล Gemini กับเนื้อหาเว็บแบบเรียลไทม์และจะใช้งานได้กับทุกภาษาที่มี ซึ่งจะช่วยให้ Gemini ให้คำตอบที่แม่นยำยิ่งขึ้นและอ้างอิงแหล่งข้อมูลที่ตรวจสอบได้แม้จะผ่านการตัดข้อมูลมาแล้ว
+L'ancrage avec la recherche Google permet d'associer le modèle Gemini à des contenus Web en temps réel et fonctionne avec toutes les langues disponibles. Cela permet à Gemini de fournir des réponses plus précises et de citer des sources vérifiables au-delà de sa date limite de connaissances.
 
-การเชื่อมต่อแหล่งข้อมูลช่วยให้คุณสร้างแอปพลิเคชันที่ทำสิ่งต่อไปนี้ได้
+L'ancrage vous aide à créer des applications capables de :
 
-- **เพิ่มความถูกต้องตามข้อเท็จจริง:** ลดการหลอนของโมเดลโดยอิงคำตอบตามข้อมูลในโลกแห่งความเป็นจริง
-- **เข้าถึงข้อมูลแบบเรียลไทม์:** ตอบคำถามเกี่ยวกับเหตุการณ์และหัวข้อล่าสุด
-- **ระบุแหล่งที่มา:** สร้างความเชื่อมั่นให้ผู้ใช้ด้วยการแสดงแหล่งที่มาของข้อมูลที่โมเดลอ้าง
+- **Augmenter la justesse factuelle** : réduisez les hallucinations du modèle en basant les réponses sur des informations réelles.
+- **Accéder à des informations en temps réel** : répondez à des questions sur des événements et des sujets récents.
+- **Fournir des citations** : renforcez la confiance des utilisateurs en indiquant les sources des affirmations du modèle.
 
 ### Python
 
@@ -99,23 +99,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-คุณดูข้อมูลเพิ่มเติมได้โดยลองใช้โน้ตบุ๊ก[เครื่องมือ Search](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=th)
+Pour en savoir plus, essayez le [notebook de l'outil de recherche](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=fr).
 
-## วิธีการทำงานของการเชื่อมต่อแหล่งข้อมูลกับ Google Search
+## Fonctionnement de l'ancrage avec la recherche Google
 
-เมื่อคุณเปิดใช้เครื่องมือ `google_search` โมเดลจะจัดการเวิร์กโฟลว์ทั้งหมดของการค้นหา ประมวลผล และอ้างอิงข้อมูลโดยอัตโนมัติ
+Lorsque vous activez l'outil `google_search`, le modèle gère automatiquement l'ensemble du workflow de recherche, de traitement et de citation des informations.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=th)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=fr)
 
-1. **พรอมต์ของผู้ใช้:** แอปพลิเคชันของคุณส่งพรอมต์ของผู้ใช้ไปยัง Gemini API โดยเปิดใช้เครื่องมือ `google_search`
-2. **การวิเคราะห์พรอมต์:** โมเดลจะวิเคราะห์พรอมต์และพิจารณาว่าการค้นหาใน Google Search จะช่วยปรับปรุงคำตอบได้หรือไม่
-3. **Google Search:** หากจำเป็น โมเดลจะสร้างคำค้นหาอย่างน้อย 1 รายการโดยอัตโนมัติและดำเนินการค้นหา
-4. **การประมวลผลผลการค้นหา:** โมเดลจะประมวลผลผลการค้นหา สังเคราะห์ข้อมูล และกำหนดคำตอบ
-5. **คำตอบที่เชื่อมต่อแหล่งข้อมูล:** API จะแสดงคำตอบสุดท้ายที่เข้าใจง่ายซึ่งเชื่อมต่อแหล่งข้อมูลกับผลการค้นหา คำตอบนี้ประกอบด้วยคำตอบที่เป็นข้อความของโมเดลและ `groundingMetadata` พร้อมคำค้นหา ผลการค้นหาเว็บ และการอ้างอิง
+1. **Invite de l'utilisateur** : votre application envoie l'invite d'un utilisateur à l'API Gemini avec l'outil `google_search` activé.
+2. **Analyse de l'invite** : le modèle analyse l'invite et détermine si une recherche Google peut améliorer la réponse.
+3. **Recherche Google** : si nécessaire, le modèle génère automatiquement une ou plusieurs requêtes de recherche et les exécute.
+4. **Traitement des résultats de recherche** : le modèle traite les résultats de recherche, synthétise les informations et formule une réponse.
+5. **Réponse ancrée** : l'API renvoie une réponse finale et conviviale qui est ancrée dans les résultats de recherche. Cette réponse inclut la réponse textuelle du modèle et `groundingMetadata` avec les requêtes de recherche, les résultats Web et les citations.
 
-## ทำความเข้าใจคำตอบที่เชื่อมต่อแหล่งข้อมูล
+## Comprendre la réponse d'ancrage
 
-เมื่อเชื่อมต่อแหล่งข้อมูลกับคำตอบได้สำเร็จ คำตอบจะมีช่อง `groundingMetadata` Structured Data นี้มีความสำคัญอย่างยิ่งต่อการยืนยันคำกล่าวอ้างและสร้างประสบการณ์การอ้างอิงที่สมบูรณ์ในแอปพลิเคชัน
+Lorsqu'une réponse est correctement ancrée, elle inclut un champ `groundingMetadata`. Ces données structurées sont essentielles pour vérifier les affirmations et créer une expérience de citation enrichie dans votre application.
 
 ```
 {
@@ -157,20 +157,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-Gemini API จะแสดงข้อมูลต่อไปนี้พร้อมกับ `groundingMetadata`
+L'API Gemini renvoie les informations suivantes avec `groundingMetadata` :
 
-- `webSearchQueries` : อาร์เรย์ของคำค้นหาที่ใช้ ซึ่งมีประโยชน์สำหรับการแก้ไขข้อบกพร่องและทำความเข้าใจกระบวนการให้เหตุผลของโมเดล
-- `searchEntryPoint` : มี HTML และ CSS สำหรับแสดงผลคำแนะนำการค้นหาที่จำเป็น ข้อกำหนดการใช้งานฉบับเต็มระบุไว้ใน [ข้อกำหนดในการให้บริการ](https://ai.google.dev/gemini-api/terms?hl=th#grounding-with-google-search)
-- `groundingChunks` : อาร์เรย์ของออบเจ็กต์ที่มีแหล่งที่มาของเว็บ (`uri` และ `title`)
-- `groundingSupports` : อาร์เรย์ของ Chunk เพื่อเชื่อมต่อ `text` คำตอบของโมเดลกับแหล่งที่มาใน `groundingChunks` Chunk แต่ละรายการจะลิงก์ `segment` ข้อความ (กำหนดโดย `startIndex` และ `endIndex`) กับ `groundingChunkIndices` อย่างน้อย 1 รายการ ซึ่งเป็นกุญแจสำคัญในการสร้างการอ้างอิงในบรรทัด
+- `webSearchQueries` : tableau des requêtes de recherche utilisées. Cela est utile pour le débogage et la compréhension du processus de raisonnement du modèle.
+- `searchEntryPoint` : contient le code HTML et CSS permettant d'afficher les suggestions de recherche requises. Les exigences d'utilisation complètes sont détaillées dans les [Conditions d'
+  utilisation](https://ai.google.dev/gemini-api/terms?hl=fr#grounding-with-google-search).
+- `groundingChunks` : tableau d'objets contenant les sources Web (`uri` et `title`).
+- `groundingSupports` : tableau de blocs permettant de connecter la réponse `text` du modèle aux sources dans `groundingChunks`. Chaque bloc associe un `segment` de texte (défini par `startIndex` et `endIndex`) à un ou plusieurs `groundingChunkIndices`. Il s'agit de la clé pour créer des citations intégrées.
 
-นอกจากนี้ คุณยังใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ร่วมกับเครื่องมือบริบท [URL
-เพื่อเชื่อมต่อแหล่งข้อมูลกับคำตอบทั้งในข้อมูลเว็บสาธารณะ
-และ URL ที่เฉพาะเจาะจงที่คุณระบุได้ด้วย](https://ai.google.dev/gemini-api/docs/url-context?hl=th)
+L'ancrage avec la recherche Google peut également être utilisé en combinaison avec l'outil de contexte d'[URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr) pour ancrer les réponses à la fois dans les données Web publiques
+et dans les URL spécifiques que vous fournissez.
 
-## การระบุแหล่งที่มาด้วยการอ้างอิงในบรรทัด
+## Attribuer des sources avec des citations intégrées
 
-API จะแสดงข้อมูลการอ้างอิงที่มีโครงสร้าง ซึ่งช่วยให้คุณควบคุมวิธีแสดงแหล่งที่มาในอินเทอร์เฟซผู้ใช้ได้อย่างสมบูรณ์ คุณสามารถใช้ช่อง `groundingSupports` และ `groundingChunks` เพื่อลิงก์คำกล่าวของโมเดลกับแหล่งที่มาโดยตรง ต่อไปนี้เป็นรูปแบบทั่วไปสำหรับการประมวลผลข้อมูลเมตาเพื่อสร้างคำตอบที่มีการอ้างอิงในบรรทัดที่คลิกได้
+L'API renvoie des données de citation structurées, ce qui vous permet de contrôler entièrement la façon dont vous affichez les sources dans votre interface utilisateur. Vous pouvez utiliser les champs `groundingSupports` et `groundingChunks` pour lier directement les affirmations du modèle à leurs sources. Voici un schéma courant pour traiter les métadonnées afin de créer une réponse avec des citations intégrées cliquables.
 
 ### Python
 
@@ -245,62 +245,64 @@ const textWithCitations = addCitations(response);
 console.log(textWithCitations);
 ```
 
-คำตอบใหม่ที่มีการอ้างอิงในบรรทัดจะมีลักษณะดังนี้
+La nouvelle réponse avec des citations intégrées se présentera comme suit :
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final.[1](https:/...), [2](https:/...), [4](https:/...), [5](https:/...) This victory marks Spain's record-breaking fourth European Championship title.[5]((https:/...), [2](https:/...), [3](https:/...), [4](https:/...)
 ```
 
-## ราคา
+## Tarifs
 
-เมื่อคุณใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ร่วมกับ Gemini 3 ระบบจะเรียกเก็บเงินจากโปรเจ็กต์ของคุณสำหรับคำค้นหาแต่ละรายการที่โมเดลตัดสินใจดำเนินการ หากโมเดลตัดสินใจที่จะ ดำเนินการคำค้นหาหลายรายการเพื่อตอบพรอมต์เดียว (เช่น ค้นหา `"UEFA Euro 2024 winner"` และ `"Spain vs England Euro 2024 final
-score"` ภายใน การเรียก API เดียวกัน) ระบบจะนับเป็นการใช้เครื่องมือที่เรียกเก็บเงินได้ 2 ครั้ง สำหรับคำขอนั้น ระบบจะละเว้นคำค้นหาเว็บที่ว่างเปล่าเมื่อนับคำค้นหาที่ไม่ซ้ำกันเพื่อวัตถุประสงค์ในการเรียกเก็บเงิน โมเดลการเรียกเก็บเงินนี้ใช้ได้กับโมเดล Gemini 3 เท่านั้น เมื่อคุณใช้การเชื่อมต่อแหล่งข้อมูลกับ Search ร่วมกับโมเดล Gemini 2.5 หรือโมเดลเก่ากว่า ระบบจะเรียกเก็บเงินจากโปรเจ็กต์ของคุณต่อพรอมต์
+Lorsque vous utilisez l'ancrage avec la recherche Google avec Gemini 3, votre projet est facturé pour chaque requête de recherche que le modèle décide d'exécuter. Si le modèle décide d'
+exécuter plusieurs requêtes de recherche pour répondre à une seule invite (par exemple,
+en recherchant `"UEFA Euro 2024 winner"` et `"Spain vs England Euro 2024 final
+score"` dans le même appel d'API), cela compte comme deux utilisations facturables de l'outil
+pour cette requête. À des fins de facturation, nous ignorons les requêtes de recherche Web vides lors du comptage des requêtes uniques. Ce modèle de facturation ne s'applique qu'aux modèles Gemini 3. Lorsque vous utilisez l'ancrage de recherche avec Gemini 2.5 ou des modèles plus anciens, votre projet est facturé par invite.
 
-ดูข้อมูลการกำหนดราคารายละเอียดได้ที่หน้า[การกำหนดราคา Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
+Pour en savoir plus sur les tarifs, consultez la page [Tarifs de l'API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
 
-## โมเดลที่รองรับ
+## Modèles compatibles
 
-คุณดูความสามารถทั้งหมดได้ในหน้าภาพรวม[โมเดล
-โมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
+Vous trouverez toutes les fonctionnalités sur la page de présentation du [modèle
+vue d'ensemble](https://ai.google.dev/gemini-api/docs/models?hl=fr).
 
-| โมเดล | การเชื่อมต่อแหล่งข้อมูลกับ Google Search |
+| Modèle | Ancrage avec la recherche Google |
 | --- | --- |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Flash Image Preview | ✔️ |
-| Gemini 3.1 Pro Preview | ✔️ |
-| Gemini 3 Pro Image Preview | ✔️ |
-| Gemini 3 Flash Preview | ✔️ |
-| Gemini 3.1 Flash-Lite Preview | ✔️ |
+| Preview de l'image Gemini 3.1 Flash | ✔️ |
+| Preview Gemini 3.1 Pro | ✔️ |
+| Preview de l'image Gemini 3 Pro | ✔️ |
+| Preview Gemini 3 Flash | ✔️ |
+| Preview Gemini 3.1 Flash-Lite | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## ชุดเครื่องมือที่รองรับ
+## Combinaisons d'outils compatibles
 
-คุณสามารถใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ร่วมกับเครื่องมืออื่นๆ เช่น
-[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th) และ
-[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th) เพื่อเพิ่มประสิทธิภาพ Use Case ที่ซับซ้อนมากขึ้น
+Vous pouvez utiliser l'ancrage avec la recherche Google avec d'autres outils tels que
+[l'exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) et
+[le contexte d'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr) pour des cas d'utilisation plus complexes.
 
-โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การเชื่อมต่อแหล่งข้อมูลกับ Google Search) กับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ในหน้า
-[ชุดเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Les modèles Gemini 3 sont compatibles avec la combinaison d'outils intégrés (comme l'ancrage avec la recherche Google) et d'outils personnalisés (appels de fonction). Pour en savoir plus, consultez la
+[page Combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
 
-## ขั้นตอนถัดไป
+## Étape suivante
 
-- ลองใช้[การเชื่อมต่อแหล่งข้อมูลกับ Google Search ใน Gemini API
-  สูตรการแก้ปัญหา](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=th)
-- ดูข้อมูลเกี่ยวกับเครื่องมืออื่นๆ ที่ใช้ได้ เช่น [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
-- ดูวิธีเพิ่มพรอมต์ด้วย URL ที่เฉพาะเจาะจงโดยใช้เครื่องมือ[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)
+- [Essayez l'ancrage avec la recherche Google dans le livre de recettes de l'API Gemini.](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=fr)
+- Découvrez d'autres outils disponibles, comme les [appels de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
+- [Découvrez comment augmenter les invites avec des URL spécifiques à l'aide de l'outil de contexte d'URL.](https://ai.google.dev/gemini-api/docs/url-context?hl=fr)
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Dernière mise à jour le 2026/07/30 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Voulez-vous nous donner plus d'informations ?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]

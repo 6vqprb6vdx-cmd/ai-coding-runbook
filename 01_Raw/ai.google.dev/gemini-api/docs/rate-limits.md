@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=id
-fetched_at: 2026-08-10T03:09:25.689157+00:00
+fetched_at: 2026-08-17T02:23:33.558357+00:00
 title: "Batas kapasitas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

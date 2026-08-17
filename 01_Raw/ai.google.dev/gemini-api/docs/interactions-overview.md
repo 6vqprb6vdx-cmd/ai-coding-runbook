@@ -1,161 +1,161 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de
-fetched_at: 2026-08-10T03:10:05.708946+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko
+fetched_at: 2026-08-17T02:26:36.178648+00:00
 title: "Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Feedback geben
+의견 보내기
 
 # Interactions API
 
-Die Interactions API ist die beste Möglichkeit, Anwendungen mit Gemini-Modellen und ‑Agents zu entwickeln. Seit Juni 2026 ist sie allgemein verfügbar und wird für alle neuen Projekte empfohlen. Die ursprüngliche [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=de) API wird weiterhin vollständig unterstützt.
+Interactions API는 Gemini 모델 및 에이전트로 빌드하는 가장 좋은 방법입니다. 2026년 6월부터 정식 버전으로 제공되며 모든 신규 프로젝트에 권장됩니다. 이제 기존 [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=ko) API는 레거시로 간주되지만 계속해서 완벽하게 지원됩니다.
 
-## Vorteile der Interactions API
+## Interactions API를 사용해야 하는 이유
 
-- **Universelle Schnittstelle für alle Anwendungen**: Diese Schnittstelle ist als Standardschnittstelle für alle Anwendungsfälle konzipiert, einschließlich der Textgenerierung in einem Durchgang, des multimodalen Verständnisses, strukturierter Ausgaben, der Tool-Orchestrierung und von Agent-Workflows.
-- **Eine API für Modelle und Agents**: Ein einheitlicher Endpunkt und einheitliches Muster zum direkten Aufrufen von Standard-Gemini-Modellen sowie spezialisierten Agents wie Deep Research und benutzerdefinierten verwalteten Agents.
-- **Neue Funktionen**: Funktionen wie der optionale serverseitige Unterhaltungsstatus mit `previous_interaction_id`, beobachtbare Ausführungsschritte für das Debugging und das Rendern der Benutzeroberfläche sowie die [Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de) für lang andauernde Aufgaben mit `background=true`.
-- **Geringere Kosten durch höhere Cache-Trefferraten**: Bei Verwendung von Unterhaltungen mit mehreren Durchgängen ermöglicht die optionale serverseitige Statusverwaltung ein effizienteres Kontext-Caching über mehrere Durchgänge hinweg, wodurch die Tokenkosten gesenkt werden.
-- **Einführung neuer Funktionen**: Künftig werden alle neuen Modelle, multimodalen Funktionen, Tools und Agent-Funktionen über die Interactions API eingeführt.
+- **모든 애플리케이션을 위한 범용 인터페이스**: 싱글턴 텍스트 생성, 멀티모달 이해, 구조화된 출력, 도구 오케스트레이션, 에이전트 워크플로 등 모든 사용 사례를 위한 표준 인터페이스로 설계되었습니다.
+- **모델 및 에이전트를 위한 단일 API**: 표준 Gemini 모델과 전문 에이전트 (예: Deep Research 및 맞춤 관리 에이전트)를 직접 호출하기 위한 통합 엔드포인트 및 패턴입니다.
+- **기본 제공되는 새로운 기능**: `previous_interaction_id`를 사용하는 선택적 서버 측 대화 상태, 디버깅 및 UI 렌더링을 위한 관찰 가능한 실행 단계, `background=true`를 사용하는 장기 실행 작업을 위한 [백그라운드 실행](https://ai.google.dev/gemini-api/docs/background-execution?hl=ko)과 같은 기능
+- **높은 캐시 적중률로 비용 절감**: 멀티턴 대화를 사용할 때 선택적 서버 측 상태 관리를 사용하면 턴 간에 더 효율적인 컨텍스트 캐싱이 가능해 토큰 비용이 절감됩니다.
+- **새 기능 출시 위치**: 앞으로 모든 새로운 모델, 멀티모달 기능, 도구, 에이전트 기능은 Interactions API에서 출시됩니다.
 
-Standardmäßig werden Anfragen in der Interactions API gespeichert, damit Sie die serverseitigen Funktionen zur Statusverwaltung mit `previous_interaction_id` nutzen können. Sie können das statuslose Verhalten aktivieren, indem Sie `store=false` festlegen. Weitere Informationen finden Sie im Abschnitt [Datenaufbewahrung](#data-storage-retention).
+기본적으로 Interactions API는 요청을 저장하므로 `previous_interaction_id`를 사용하여 서버 측 상태 관리 기능을 활용할 수 있습니다. `store=false`를 설정하여 상태 비저장 동작을 선택할 수 있습니다. 자세한 내용은 [데이터 보관](#data-storage-retention) 섹션을 참고하세요.
 
-## Jetzt starten
+## 시작하기
 
-- **KI-Programmieragenten einrichten**: Verbinden Sie sich mit dem **Gemini Docs MCP** und installieren Sie den `gemini-interactions-api`-Skill, um Ihrem Assistenten direkten Zugriff auf die neuesten Entwicklerdokumente und Best Practices zu ermöglichen. Eine ausführliche Anleitung finden Sie im [Leitfaden zum Einrichten Ihres Coding-Agents](https://ai.google.dev/gemini-api/docs/coding-agents?hl=de).
-- **Von `generateContent` migrieren**: Wenn Sie eine bestehende Integration haben, folgen Sie der [Migrationsanleitung](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=de), um zur Interactions API zu wechseln.
-- **Erste Schritte**: Folgen Sie der Anleitung unter [Erste Schritte mit der Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=de).
+- **코딩 에이전트 설정**: **Gemini Docs MCP**에 연결하고 `gemini-interactions-api` 스킬을 설치하여 어시스턴트가 최신 개발자 문서와 권장사항에 직접 액세스할 수 있도록 합니다. 자세한 단계는 [코딩 에이전트 설정 가이드](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ko)를 참고하세요.
+- **`generateContent`에서 이전**: 기존 통합이 있는 경우 [이전 가이드](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ko)에 따라 Interactions API로 전환하세요.
+- **시작하기**: [Interactions API 시작하기 가이드](https://ai.google.dev/gemini-api/docs/get-started?hl=ko)의 단계를 따릅니다.
 
-### Leitfäden für Funktionen
+### 기능 가이드
 
-In diesen Leitfäden erfahren Sie mehr über die spezifischen Funktionen der Interactions API. Mit dem Ein/Aus-Schalter auf diesen Seiten können Sie zwischen der generateContent API und der Interactions API wechseln:
+이 가이드를 통해 Interactions API의 구체적인 기능을 살펴보세요. 이 페이지의 전환 버튼을 사용하여 generateContent API와 Interactions API 간에 전환할 수 있습니다.
 
-- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de)
-- [Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)
-- [Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de)
-- [Audioverständnis](https://ai.google.dev/gemini-api/docs/audio?hl=de)
-- [Video-Understanding](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de)
-- [Dokumentverarbeitung](https://ai.google.dev/gemini-api/docs/document-processing?hl=de)
-- [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)
-- [Strukturierte Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)
-- [Deep Research-Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=de)
-- [Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)
-- [Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)
+- [텍스트 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)
+- [이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)
+- [이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko)
+- [오디오 이해](https://ai.google.dev/gemini-api/docs/audio?hl=ko)
+- [동영상 이해](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko)
+- [문서 처리](https://ai.google.dev/gemini-api/docs/document-processing?hl=ko)
+- [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)
+- [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)
+- [Deep Research 에이전트](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)
+- [유연한 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)
+- [우선순위 추론](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko)
 
-## Funktionsweise der Interactions API
+## Interactions API 작동 방식
 
-Die Interactions API dreht sich um eine zentrale Ressource: die [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=de#Resource:Interaction). Ein `Interaction` steht für einen vollständigen Zug in einer Unterhaltung oder Aufgabe. Es dient als Sitzungsaufzeichnung und enthält den gesamten Verlauf einer Interaktion als chronologische Abfolge von **Ausführungsschritten**. Diese Schritte umfassen Modellüberlegungen, serverseitige oder clientseitige Tool-Aufrufe und Ergebnisse (z. B. `function_call` und `function_result`) sowie die endgültige `model_output`. Die gespeicherte Ressource (abgerufen über `interactions.get`) enthält auch `user_input`-Schritte für den vollständigen Kontext. Die `interactions.create`-Antwort gibt jedoch nur vom Modell generierte Schritte zurück.
+Interactions API는 핵심 리소스인 [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=ko#Resource:Interaction)를 중심으로 합니다. `Interaction`는 대화 또는 작업의 완전한 턴을 나타냅니다. **실행 단계**의 시간순서로 상호작용의 전체 기록을 포함하는 세션 레코드 역할을 합니다. 이러한 단계에는 모델 생각, 서버 측 또는 클라이언트 측 도구 호출 및 결과 (예: `function_call` 및 `function_result`), 최종 `model_output`가 포함됩니다. 저장된 리소스 (`interactions.get`를 통해 검색됨)에는 전체 컨텍스트를 위한 `user_input` 단계도 포함되지만 `interactions.create` 응답은 모델 생성 단계만 반환합니다.
 
-Wenn Sie einen Aufruf an [`interactions.create`](https://ai.google.dev/api/interactions-api?hl=de#CreateInteraction) senden, erstellen Sie eine neue `Interaction`-Ressource.
+[`interactions.create`](https://ai.google.dev/api/interactions-api?hl=ko#CreateInteraction)에 대한 호출을 하면 새 `Interaction` 리소스가 생성됩니다.
 
-### Serverseitige Statusverwaltung
+### 서버 측 상태 관리
 
-Sie können die `id` einer abgeschlossenen Interaktion in einem nachfolgenden Aufruf mit dem Parameter `previous_interaction_id` verwenden, um die Unterhaltung fortzusetzen. Der Server verwendet diese ID, um den Unterhaltungsverlauf abzurufen. So müssen Sie nicht den gesamten Chatverlauf noch einmal senden.
+`previous_interaction_id` 매개변수를 사용하여 후속 호출에서 완료된 상호작용의 `id`를 사용하여 대화를 계속할 수 있습니다. 서버는 이 ID를 사용하여 대화 기록을 가져오므로 전체 채팅 기록을 다시 보낼 필요가 없습니다.
 
-Mit dem Parameter `previous_interaction_id` wird nur der Unterhaltungsverlauf (Ein- und Ausgaben) mit `previous_interaction_id` beibehalten. Die anderen Parameter sind **interaktionsbezogen** und gelten nur für die jeweilige Interaktion, die Sie gerade generieren:
+`previous_interaction_id` 파라미터는 `previous_interaction_id`를 사용하여 대화 기록 (입력 및 출력)만 보존합니다. 다른 매개변수는 **상호작용 범위**이며 현재 생성 중인 특정 상호작용에만 적용됩니다.
 
 - `tools`
 - `system_instruction`
-- `generation_config` (einschließlich `thinking_level`, `temperature` usw.)
+- `generation_config` (`thinking_level`, `temperature` 등 포함)
 
-Das bedeutet, dass Sie diese Parameter bei jeder neuen Interaktion neu angeben müssen, wenn sie angewendet werden sollen. Diese serverseitige Statusverwaltung ist optional. Sie können auch im zustandslosen Modus arbeiten, indem Sie den vollständigen Unterhaltungsverlauf in jeder Anfrage senden.
+즉, 이러한 매개변수를 적용하려면 새 상호작용마다 다시 지정해야 합니다. 이 서버 측 상태 관리는 선택사항입니다. 각 요청에서 전체 대화 기록을 전송하여 상태 비저장 모드로 작동할 수도 있습니다.
 
-### Datenspeicherung und ‑aufbewahrung
+### 데이터 스토리지 및 보관
 
-Standardmäßig speichert die API alle Interaktionsobjekte (`store=true`), um die Verwendung von serverseitigen Funktionen zur Statusverwaltung (mit `previous_interaction_id`), [Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de) (mit `background=true`) und Observability zu vereinfachen.
+기본적으로 API는 서버 측 상태 관리 기능 (`previous_interaction_id` 사용), [백그라운드 실행](https://ai.google.dev/gemini-api/docs/background-execution?hl=ko) (`background=true` 사용) 및 관측 가능성 목적의 사용을 간소화하기 위해 모든 상호작용 객체 (`store=true`)를 저장합니다.
 
-- **Aboversion**: Das System behält Interaktionen **55 Tage** lang bei.
-- **Kostenloses Kontingent**: Interaktionen werden **einen Tag** lang gespeichert.
+- **유료 등급**: 시스템에서 상호작용을 **55일** 동안 보관합니다.
+- **무료 등급**: 시스템에서 **1일** 동안 상호작용을 보관합니다.
 
-Wenn Sie das nicht möchten, können Sie in Ihrer Anfrage `store=false` festlegen. Diese Einstellung ist unabhängig von der Statusverwaltung. Sie können die Speicherung für jede Interaktion deaktivieren. `store=false` ist jedoch nicht mit der [Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de) kompatibel und verhindert die Verwendung von `previous_interaction_id` für nachfolgende Züge.
+이를 원치 않는 경우 요청에서 `store=false`를 설정하면 됩니다. 이 컨트롤은 상태 관리와 별개이며 모든 상호작용에 대해 저장소를 선택 해제할 수 있습니다. 하지만 `store=false`은 [백그라운드 실행](https://ai.google.dev/gemini-api/docs/background-execution?hl=ko)과 호환되지 않으며 후속 턴에 `previous_interaction_id`을 사용할 수 없습니다.
 
-Bei Projekten im kostenpflichtigen Tarif können Sie das Aufbewahrungszeitfenster in [AI Studio](https://aistudio.google.com/logs?hl=de) konfigurieren, um Protokolle nach 7, 14, 28 oder 55 Tagen automatisch zum Löschen aus dem Projektspeicher zu markieren. Eine kürzere Aufbewahrungsdauer kann sich auf das Abrufen vergangener Unterhaltungen auswirken.
+유료 등급 프로젝트의 경우 [AI Studio](https://aistudio.google.com/logs?hl=ko)에서 보관 기간을 구성하여 7일, 14일, 28일 또는 55일 후에 프로젝트 스토리지에서 삭제할 로그를 자동으로 표시할 수 있습니다. 보관 기간이 짧으면 이전 대화 검색에 영향을 미칠 수 있습니다.
 
-Sie können gespeicherte Interaktionen jederzeit programmatisch mit der Methode [`delete`](https://ai.google.dev/api/interactions-api?hl=de#deleteInteraction) löschen. Dazu ist die Interaktions-ID erforderlich. Sie können auch gespeicherte Interaktionslogs in [AI Studio](https://aistudio.google.com/logs?hl=de) ansehen und verwalten, einschließlich des Löschens aus dem Projektspeicher.
+상호작용 ID가 필요한 [`delete`](https://ai.google.dev/api/interactions-api?hl=ko#deleteInteraction) 메서드를 프로그래매틱 방식으로 사용하여 언제든지 저장된 상호작용을 삭제할 수 있습니다. [AI Studio](https://aistudio.google.com/logs?hl=ko)에서 프로젝트 스토리지에서의 삭제를 비롯한 저장된 상호작용 로그를 확인하고 관리할 수도 있습니다.
 
-Nach Ablauf der Aufbewahrungsdauer werden Ihre Daten automatisch gelöscht.
+보관 기간이 만료되면 데이터가 자동으로 삭제됩니다.
 
-Interaktionsobjekte werden gemäß den [Nutzungsbedingungen](https://ai.google.dev/gemini-api/terms?hl=de) verarbeitet.
+상호작용 객체는 [약관](https://ai.google.dev/gemini-api/terms?hl=ko)에 따라 처리됩니다.
 
-### Interaktionen in AI Studio ansehen
+### AI Studio에서 상호작용 보기
 
-Die API speichert Interactions API-Anfragen, die mit `store=true` für Projekte in der kostenpflichtigen Stufe ausgeführt werden. Sie können sie direkt auf der [Seite „Logs“ in Google AI Studio](https://ai.google.dev/gemini-api/docs/www.aistudio.google.com/logs?hl=de) aufrufen. Weitere Informationen finden Sie im [Leitfaden zu Logs](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=de).
+API는 유료 등급 프로젝트에 대해 `store=true`로 실행된 Interactions API 요청을 저장합니다. [Google AI Studio의 로그 페이지](https://ai.google.dev/gemini-api/docs/www.aistudio.google.com/logs?hl=ko)에서 직접 확인할 수 있습니다. 자세한 내용은 [로그 가이드](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ko)를 참고하세요.
 
-## Best Practices
+## 권장사항
 
-- **Cache-Trefferrate**: Implizites Caching wird sowohl im zustandsbehafteten als auch im zustandslosen Modus unterstützt (siehe [Kurzanleitung](https://ai.google.dev/gemini-api/docs/get-started?hl=de#4_multi-turn_conversations)). Wenn Sie `previous_interaction_id` (zustandsbehaftet) verwenden, um Unterhaltungen fortzusetzen, kann das System den Unterhaltungsverlauf einfacher implizit zwischenspeichern. Das verbessert die Leistung und senkt die Kosten.
-- **Interaktionen mischen**: Sie können Agent- und Modellinteraktionen in einem Gespräch mischen. Sie können beispielsweise einen spezialisierten Agenten wie den Deep Research Agent für die erste Datenerhebung verwenden und dann ein Standard-Gemini-Modell für Folgeaufgaben wie das Zusammenfassen oder Umformatieren nutzen. Diese Schritte lassen sich mit dem `previous_interaction_id` verknüpfen.
+- **캐시 적중률**: 암시적 캐싱은 스테이트풀 모드와 스테이트리스 모드 모두에서 지원됩니다 ([빠른 시작](https://ai.google.dev/gemini-api/docs/get-started?hl=ko#4_multi-turn_conversations) 참고). `previous_interaction_id` (상태 저장)를 사용하여 대화를 계속하면 시스템에서 대화 기록에 대한 암시적 캐싱을 더 쉽게 활용할 수 있으므로 성능이 향상되고 비용이 절감됩니다.
+- **상호작용 혼합**: 대화 내에서 에이전트와 모델 상호작용을 자유롭게 혼합할 수 있습니다. 예를 들어 심층 조사 에이전트와 같은 전문 에이전트를 사용하여 초기 데이터 수집을 수행한 다음 표준 Gemini 모델을 사용하여 요약 또는 재형식 지정과 같은 후속 작업을 수행하여 이러한 단계를 `previous_interaction_id`와 연결할 수 있습니다.
 
-## Unterstützte Modelle und KI-Agenten
+## 지원되는 모델 및 에이전트
 
-| Modellname | Typ | Modell-ID |
+| 모델 이름 | 유형 | 모델 ID |
 | --- | --- | --- |
-| Gemini 3.5 Flash | Modell | `gemini-3.5-flash` |
-| Gemini 3.1 Pro (Vorabversion) | Modell | `gemini-3.1-pro-preview` |
-| Gemini 3.1 Flash Lite | Modell | `gemini-3.1-flash-lite` |
-| Gemini 3 Flash (Vorabversion) | Modell | `gemini-3-flash-preview` |
-| Gemini 2.5 Pro | Modell | `gemini-2.5-pro` |
-| Gemini 2.5 Flash | Modell | `gemini-2.5-flash` |
-| Gemini 2.5 Flash-Lite | Modell | `gemini-2.5-flash-lite` |
-| Gemini 3 Pro Image | Modell | `gemini-3-pro-image` |
-| Gemini 3.1 Flash Image | Modell | `gemini-3.1-flash-image` |
-| Gemini 3.1 Flash TTS (Vorabversion) | Modell | `gemini-3.1-flash-tts-preview` |
-| Gemma 4 31B IT | Modell | `gemma-4-31b-it` |
-| Gemma 4 26B MoE IT | Modell | `gemma-4-26b-a4b-it` |
-| Lyria 3-Clip-Vorschau | Modell | `lyria-3-clip-preview` |
-| Lyria 3 Pro (Vorabversion) | Modell | `lyria-3-pro-preview` |
-| Deep Research-Vorabversion | Agent | `deep-research-preview-04-2026` |
-| Deep Research-Vorabversion | Agent | `deep-research-max-preview-04-2026` |
-| Antigravity-Vorschau | Agent | `antigravity-preview-05-2026` |
+| Gemini 3.5 Flash | 모델 | `gemini-3.5-flash` |
+| Gemini 3.1 Pro 프리뷰 | 모델 | `gemini-3.1-pro-preview` |
+| Gemini 3.1 Flash-Lite | 모델 | `gemini-3.1-flash-lite` |
+| Gemini 3 Flash 프리뷰 | 모델 | `gemini-3-flash-preview` |
+| Gemini 2.5 Pro | 모델 | `gemini-2.5-pro` |
+| Gemini 2.5 Flash | 모델 | `gemini-2.5-flash` |
+| Gemini 2.5 Flash-lite | 모델 | `gemini-2.5-flash-lite` |
+| Gemini 3 Pro Image | 모델 | `gemini-3-pro-image` |
+| Gemini 3.1 Flash Image | 모델 | `gemini-3.1-flash-image` |
+| Gemini 3.1 Flash TTS 프리뷰 | 모델 | `gemini-3.1-flash-tts-preview` |
+| Gemma 4 31B IT | 모델 | `gemma-4-31b-it` |
+| Gemma 4 26B MoE IT | 모델 | `gemma-4-26b-a4b-it` |
+| Lyria 3 클립 미리보기 | 모델 | `lyria-3-clip-preview` |
+| Lyria 3 Pro 프리뷰 | 모델 | `lyria-3-pro-preview` |
+| Deep Research 미리보기 | 에이전트 | `deep-research-preview-04-2026` |
+| Deep Research 미리보기 | 에이전트 | `deep-research-max-preview-04-2026` |
+| Antigravity 미리보기 | 에이전트 | `antigravity-preview-05-2026` |
 
-## SDKs
+## SDK
 
-Sie können die aktuelle Version der Google GenAI SDKs verwenden, um auf die Interactions API zuzugreifen.
+최신 버전의 Google 생성형 AI SDK를 사용하여 Interactions API에 액세스할 수 있습니다.
 
-- In Python ist dies das Paket `google-genai` ab Version `2.3.0`.
-- In JavaScript ist das das `@google/genai`-Paket ab Version `2.3.0`.
+- Python에서는 `2.3.0` 버전부터 `google-genai` 패키지입니다.
+- JavaScript에서는 `2.3.0` 버전부터 `@google/genai` 패키지입니다.
 
-Weitere Informationen zum Installieren der SDKs finden Sie auf der Seite [Bibliotheken](https://ai.google.dev/gemini-api/docs/libraries?hl=de).
+[라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko) 페이지에서 SDK를 설치하는 방법을 자세히 알아보세요.
 
-## Beschränkungen
+## 제한사항
 
-- **Remote-MCP**: Gemini 3 unterstützt kein Remote-MCP. Diese Funktion wird bald eingeführt.
-- **Kompatibilität von Modellen mit mehreren Durchgängen**: Wenn Sie verschiedene Modelle in einer Unterhaltung (mit oder ohne Status) kombinieren, müssen nachfolgende Modelle die Ausgabemodalitäten der vorherigen Modelle als Eingabe unterstützen. Wenn Sie beispielsweise ein Bild mit `gemini-3.1-flash-image` generieren, können Sie die Unterhaltung nicht mit einem Modell fortsetzen, das keine Bildeingaben akzeptiert, z. B. ein reines Textmodell oder ein Musikgenerierungsmodell wie Lyria.
+- **원격 MCP**: Gemini 3는 원격 MCP를 지원하지 않습니다. 곧 지원될 예정입니다.
+- **멀티턴 모델 호환성**: 대화에서 서로 다른 모델 (상태 저장 또는 상태 비저장)을 혼합할 때 후속 모델은 이전 모델의 출력 모달리티를 입력으로 지원해야 합니다. 예를 들어 `gemini-3.1-flash-image`를 사용하여 이미지를 생성하는 경우 이미지 입력을 허용하지 않는 모델 (예: 텍스트 전용 모델 또는 Lyria와 같은 음악 생성 모델)과의 대화를 계속할 수 없습니다.
 
-Die folgenden Funktionen werden von der [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=de) API unterstützt, sind aber **noch nicht** in der Interactions API verfügbar:
+다음 기능은 [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=ko) API에서 지원되지만 Interactions API에서는 **아직 사용할 수 없습니다**.
 
-- **[Videometadaten](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de)**: Das Feld `video_metadata` wird verwendet, um Clipping-Intervalle und benutzerdefinierte Frameraten für die Videoanalyse festzulegen.
-- **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**
-- **[Automatische Funktionsaufrufe (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=de#automatic_function_calling_python_only)**
-- **[Explizites Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**: Das serverseitige implizite Caching ist in der Interactions API über `previous_interaction_id` verfügbar.
-- **[Sicherheitseinstellungen](https://ai.google.dev/gemini-api/docs/safety-settings?hl=de)**: Benutzerdefinierte Sicherheitseinstellungen werden in der Interactions API nicht unterstützt.
+- **[동영상 메타데이터](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko)**: 동영상 이해를 위해 클리핑 간격과 맞춤 프레임 속도를 설정하는 데 사용되는 `video_metadata` 필드입니다.
+- **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**
+- **[자동 함수 호출 (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ko#automatic_function_calling_python_only)**
+- **[명시적 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**: 서버 측 암시적 캐싱은 `previous_interaction_id`를 통해 Interactions API에서 사용할 수 있습니다.
+- **[안전 설정](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ko)**: Interactions API에서는 맞춤 안전 설정이 지원되지 않습니다.
 
-## Feedback
+## 의견
 
-Ihr Feedback ist für die Entwicklung der Interactions API von entscheidender Bedeutung.
-Im [Google AI Developer Community-Forum](https://discuss.ai.google.dev/c/gemini-api/4?hl=de) können Sie Ihre Meinung äußern, Fehler melden oder Funktionen anfragen.
+여러분의 의견은 Interactions API 개발에 매우 중요합니다.
+[Google AI 개발자 커뮤니티 포럼](https://discuss.ai.google.dev/c/gemini-api/4?hl=ko)에서 의견을 공유하거나 버그를 신고하거나 기능을 요청하세요.
 
-## Nächste Schritte
+## 다음 단계
 
-- [Kurzanleitung für die Interactions API](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=de)
-- [Weitere Informationen zum Gemini Deep Research-Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=de)
+- [상호작용 API 빠른 시작 노트북](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=ko)을 사용해 보세요.
+- [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)에 대해 자세히 알아보세요.
 
-Feedback geben
+의견 보내기
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Zuletzt aktualisiert: 2026-07-16 (UTC).
+최종 업데이트: 2026-07-16(UTC)
 
-Haben Sie Feedback für uns?
+의견을 전달하고 싶나요?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-16 (UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-16(UTC)"],[],[]]

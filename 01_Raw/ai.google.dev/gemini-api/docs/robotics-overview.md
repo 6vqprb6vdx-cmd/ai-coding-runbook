@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=fr
-fetched_at: 2026-08-10T03:14:02.624123+00:00
+fetched_at: 2026-08-17T02:28:50.979453+00:00
 title: "Gemini Robotics ER \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

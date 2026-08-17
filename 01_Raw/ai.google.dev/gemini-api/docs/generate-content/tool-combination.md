@@ -1,29 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=ko
-fetched_at: 2026-08-10T03:12:10.619513+00:00
-title: "\uae30\ubcf8 \uc81c\uacf5 \ub3c4\uad6c\uc640 \ud568\uc218 \ud638\ucd9c \uacb0\ud569 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=ar
+fetched_at: 2026-08-17T02:22:15.332580+00:00
+title: "\u0627\u0644\u062c\u0645\u0639 \u0628\u064a\u0646 \u0627\u0644\u0623\u062f\u0648\u0627\u062a \u0627\u0644\u0645\u0636\u0645\u0651\u0646\u0629 \u0648\u0627\u0633\u062a\u062f\u0639\u0627\u0621 \u0627\u0644\u062f\u0648\u0627\u0644 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-의견 보내기
+إرسال ملاحظات
 
-# 기본 제공 도구와 함수 호출 결합
+# الجمع بين الأدوات المضمّنة واستدعاء الدوال
 
-[모델에서만 지원됩니다.](https://ai.google.dev/gemini-api/docs/models?hl=ko#gemini-3)
+يسمح Gemini بدمج [الأدوات المضمّنة](https://ai.google.dev/gemini-api/docs/tools?hl=ar)، مثل `google_search`، وميزة [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
+(المعروفة أيضًا باسم *الأدوات المخصّصة*) في عملية إنشاء واحدة من خلال الاحتفاظ بسجلّ سياق استدعاءات الأدوات وعرضه. تسمح مجموعات الأدوات المضمّنة والمخصّصة بسير عمل معقّد ومستقل، حيث يمكن للنموذج، على سبيل المثال، الاستناد إلى بيانات الويب في الوقت الفعلي قبل استدعاء منطق نشاطك التجاري المحدّد.
 
-Gemini를 사용하면 도구 호출의 컨텍스트 기록을 보존하고 노출하여 단일 생성에서 [기본 제공 도구](https://ai.google.dev/gemini-api/docs/tools?hl=ko)(예: `google_search`)와 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)(*커스텀 도구*라고도 함)을 결합할 수 있습니다. 기본 제공 도구와 커스텀 도구 조합을 사용하면 모델이 특정 비즈니스 로직을 호출하기 전에 실시간 웹 데이터를 기반으로 할 수 있는 복잡한 에이전트 워크플로가 가능합니다.
-
-`google_search` 및 커스텀 함수 `getWeather`를 사용하여 기본 제공 도구와 커스텀 도구 조합을 사용 설정하는 예는 다음과 같습니다.
+في ما يلي مثال يوضّح كيفية تفعيل مجموعات الأدوات المضمّنة والمخصّصة باستخدام `google_search` ودالة مخصّصة `getWeather`:
 
 ### Python
 
@@ -201,7 +200,7 @@ async function run() {
 run();
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -390,58 +389,63 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## 작동 방식
+## آلية العمل
 
-Gemini 3 모델은 *도구 컨텍스트 순환* 을 사용하여 기본 제공 도구와 커스텀 도구 조합을 사용 설정합니다. 도구 컨텍스트 순환을 사용하면 기본 제공 도구의 컨텍스트를 보존하고 노출하여 턴마다 동일한 호출에서 커스텀 도구와 공유할 수 있습니다.
+تستخدم طُرز Gemini 3 ميزة *تداول سياق الأداة* لتفعيل مجموعات الأدوات المضمّنة والمخصّصة. تتيح ميزة تداول سياق الأداة الاحتفاظ بسياق الأدوات المضمّنة وعرضه ومشاركته مع الأدوات المخصّصة في نفس الاستدعاء من دور إلى آخر.
 
-### 도구 조합 사용 설정
+### تفعيل ميزة دمج الأدوات
 
-- 도구 컨텍스트 순환을 사용 설정하려면 `include_server_side_tool_invocations` 플래그를 `true`로 설정해야 합니다.
-- 사용하려는
-  기본 제공 도구와 함께 [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#function-declarations)를 포함하여 조합 동작을 트리거합니다.
-  - `function_declarations`를 포함하지 않더라도 플래그가 설정되어 있는 한 도구 컨텍스트 순환은 포함된 기본 제공 도구에 계속 적용됩니다.
+- يجب ضبط العلامة `include_server_side_tool_invocations` على `true` لتفعيل ميزة تداول سياق الأداة.
+- يجب تضمين [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#function-declarations)، بالإضافة إلى الـ
+  أدوات المضمّنة التي تريد استخدامها، لتفعيل سلوك الدمج.
+  - إذا لم يتم تضمين `function_declarations`، ستظل ميزة تداول سياق الأداة تعمل على الأدوات المضمّنة المضمّنة، طالما تم ضبط العلامة.
 
-### API가 파트를 반환함
+### الأجزاء التي تعرضها واجهة برمجة التطبيقات
 
-단일 응답에서 API는 기본 제공 도구 호출의 `toolCall` 및 `toolResponse` 파트를 반환합니다. 함수 (커스텀 도구) 호출의 경우 API는 `functionCall` 호출 파트를 반환하며, 사용자는 다음 턴에서 `functionResponse` 파트를 제공합니다.
+في ردّ واحد، تعرض واجهة برمجة التطبيقات الجزأين `toolCall` و`toolResponse` لاستدعاء الأداة المضمّنة. بالنسبة إلى استدعاء الدالة (الأداة المخصّصة)، تعرض واجهة برمجة التطبيقات جزء استدعاء `functionCall`، الذي يقدّم المستخدم جزء `functionResponse` في الدور التالي.
 
-- `toolCall` 및 `toolResponse`: API는 이러한 파트를 반환하여 다음 턴을 위해 서버 측에서 실행되는 도구의 컨텍스트와 실행 결과를 보존합니다.
-- `functionCall` 및 `functionResponse`: API는 사용자가 작성할 함수 호출을 사용자에게 전송하고 사용자는 함수 응답에서 결과를 다시 전송합니다. 이러한 파트는 도구 조합 기능에 고유한 것이 아니라 Gemini API의 모든 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)에 표준입니다.
-- ([코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko) 도구만 해당)
-  `executableCode` 및 `codeExecutionResult`:
-  코드 실행 도구를 사용하는 경우 API는 `functionCall` 및
-  `functionResponse` 대신 `executableCode` (실행되도록 모델에서 생성된 코드)와 `codeExecutionResult` (실행 가능한 코드의 결과)를 반환합니다.
+- `toolCall` و`toolResponse`: تعرض واجهة برمجة التطبيقات هذين الجزأين للاحتفاظ بسياق الأدوات التي يتم تشغيلها على جهة الخادم، ونتيجة تنفيذها، للدور التالي.
+- `functionCall` و`functionResponse`: ترسل واجهة برمجة التطبيقات استدعاء الدالة إلى
+  المستخدم لملء البيانات، ويرسل المستخدم النتيجة مرة أخرى في
+  ردّ الدالة (هذه الأجزاء عادية لجميع [عمليات استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) في Gemini API، وليست فريدة لميزة
+  دمج الأدوات).
+- ([أداة تنفيذ التعليمات البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) فقط)
+  `executableCode` و`codeExecutionResult`:
+  عند استخدام أداة تنفيذ التعليمات البرمجية، بدلاً من `functionCall` و
+  `functionResponse`، تعرض واجهة برمجة التطبيقات `executableCode` (التعليمات البرمجية التي أنشأها النموذج والمخصّصة للتنفيذ) و`codeExecutionResult` (النتيجة
+  الناتجة عن التعليمات البرمجية القابلة للتنفيذ).
 
-컨텍스트를 유지하고 도구
-조합을 사용 설정하려면 각 턴에서 포함된 모든 [필드](#critical-fields)를 포함한 모든 파트를 모델에 다시 반환해야 합니다.
+يجب إعادة جميع الأجزاء إلى النموذج في كل دور، بما في ذلك جميع الـ [حقول](#critical-fields) التي
+تحتوي عليها، للحفاظ على السياق وتفعيل مجموعات الأدوات.
 
-### 반환된 파트의 중요 필드
+### الحقول المهمة في الأجزاء المعروضة
 
-API에서 반환된 특정 [파트](#api-returns-parts)에는 `id`,
-`tool_type`, 및 `thought_signature` 필드가 포함됩니다. 이러한 필드는 도구 컨텍스트를 유지하는 데 중요하며 따라서 도구 조합에 중요합니다. 후속 요청에서 *응답에 제공된 대로* 모든 파트를 반환해야 합니다.
+ستتضمّن بعض [الأجزاء التي تعرضها واجهة برمجة التطبيقات](#api-returns-parts) الحقول `id` و
+`tool_type` و`thought_signature`. تُعدّ هذه الحقول ضرورية للحفاظ على سياق الأداة (وبالتالي ضرورية لمجموعات الأدوات). يجب إعادة جميع الأجزاء *كما هي في الردّ* في الطلبات اللاحقة.
 
-- `id`: 호출을 응답에 매핑하는 고유 식별자입니다. `id`는 도구 컨텍스트 순환과 관계없이 **모든 함수 호출 응답에 설정** 됩니다.
-  API가 함수 호출에서 제공하는 것과 동일한 `id`를 함수 응답에서 제공*해야* 합니다. 기본 제공 도구는 도구 호출과 도구 응답 간에 `id`를 자동으로 공유합니다.
-  - 모든 도구 관련 파트에서 찾을 수 있음: `toolCall`, `toolResponse`, `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
-- `tool_type`: 사용 중인 특정 도구를 식별합니다. 리터럴 기본 제공 도구 또는 (예: `URL_CONTEXT`) 또는 함수 (예: `getWeather`) 이름입니다.
-  - `toolCall` 및 `toolResponse` 파트에서 찾을 수 있습니다.
-- `thought_signature`: **API에서 반환된 각 파트** 에 삽입된 실제 암호화된 컨텍스트입니다. 사고 서명 없이는 컨텍스트를 재구성할 수 없습니다. 모든 턴에서 모든 파트의 사고 서명을 반환하지 않으면 모델에서 오류가 발생합니다.
-  - *모든* 파트에서 찾을 수 있습니다.
+- `id`: معرّف فريد يربط استدعاءً بردّه. `id` يتم **ضبطه في
+  جميع ردود استدعاء الدوال**، بغض النظر عن ميزة تداول سياق الأداة.
+  *يجب* تقديم `id` نفسه في ردّ الدالة الذي تقدّمه واجهة برمجة التطبيقات في استدعاء الدالة. تشارك الأدوات المضمّنة تلقائيًا `id` بين استدعاء الأداة وردّ الأداة.
+  - يظهر في جميع الأجزاء ذات الصلة بالأداة: `toolCall` و`toolResponse` و`functionCall` و`functionResponse` و`executableCode` و `codeExecutionResult`
+- `tool_type`: يحدّد الأداة المحدّدة المستخدَمة، أو اسم الأداة المضمّنة الحرفي (مثل `URL_CONTEXT`) أو اسم الدالة (مثل `getWeather`).
+  - يظهر في الجزأين `toolCall` و`toolResponse`.
+- `thought_signature`: السياق المشفّر الفعلي المضمّن في **كل جزء تعرضه واجهة برمجة التطبيقات**. لا يمكن إعادة إنشاء السياق بدون توقيعات الأفكار. إذا لم يتم عرض توقيعات الأفكار لجميع الأجزاء في كل دور، سيحدث خطأ في النموذج.
+  - يظهر في *جميع* الأجزاء.
 
-### 도구별 데이터
+### البيانات الخاصة بالأداة
 
-일부 기본 제공 도구는 도구 유형에 고유한 사용자에게 표시되는 데이터 인수를 반환합니다.
+تعرض بعض الأدوات المضمّنة وسيطات بيانات مرئية للمستخدم خاصة بنوع الأداة.
 
-| 도구 | 사용자에게 표시되는 도구 호출 인수 (있는 경우) | 사용자에게 표시되는 도구 응답 (있는 경우) |
+| الأداة | وسيطات استدعاء الأداة المرئية للمستخدم (إن وُجدت) | ردّ الأداة المرئي للمستخدم (إن وُجد) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` 탐색할 URL | `urls_metadata` `retrieved_url`: 탐색된 URL `url_retrieval_status`: 탐색 상태 |
-| **FILE\_SEARCH** | 없음 | 없음 |
+| **URL\_CONTEXT** | `urls` عناوين URL التي سيتم تصفّحها | `urls_metadata` `retrieved_url`: عناوين URL التي تم تصفّحها `url_retrieval_status`: حالة التصفّح |
+| **FILE\_SEARCH** | بدون | بدون |
 
-## 도구 조합 요청 구조 예
+## مثال على بنية طلب دمج الأدوات
 
-다음 요청 구조는 '미국에서 가장 북쪽에 있는 도시는 어디인가요? 오늘 날씨는 어떤가요?'라는 프롬프트의 요청 구조를 보여줍니다. 기본 제공 Gemini 도구 `google_search` 및 `code_execution`과 커스텀 함수 `get_weather`라는 세 가지 도구를 결합합니다.
+تعرض بنية الطلب التالية بنية طلب الرسالة الفورية: "ما هي المدينة الواقعة في أقصى شمال الولايات المتحدة؟ وما هو الطقس فيها اليوم؟". يجمع هذا الطلب بين ثلاث أدوات: الأداتان المضمّنتان في Gemini `google_search` و`code_execution`، ودالة مخصّصة `get_weather`.
 
 ```
 {
@@ -510,52 +514,49 @@ API에서 반환된 특정 [파트](#api-returns-parts)에는 `id`,
 }
 ```
 
-## 토큰 및 가격 책정
+## الرموز والأسعار
 
-요청의 `toolCall` 및 `toolResponse` 파트는 `prompt_token_count`에 포함됩니다. 이러한 중간 도구 단계는 이제 표시되고 사용자에게 반환되므로 대화 기록의 일부입니다. 이는 *응답*이 아닌
-*요청*에만 해당합니다.
+يُرجى العِلم أنّ الجزأين `toolCall` و`toolResponse` في الطلبات يتم احتسابهما ضمن `prompt_token_count`. بما أنّ خطوات الأداة الوسيطة هذه أصبحت مرئية ويتم عرضها لك، فهي جزء من سجلّ المحادثة. ينطبق ذلك على *الطلبات* فقط، وليس *الردود*.
 
-Google 검색 도구는 이 규칙의 예외입니다. Google 검색은 이미
-쿼리 수준에서 자체 가격 책정 모델을 적용하므로 토큰이
-이중으로 청구되지 않습니다 ([가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko) 페이지 참고).
+تُستثنى أداة "بحث Google" من هذه القاعدة. تطبّق "بحث Google" نموذج التسعير الخاص بها على مستوى طلب البحث، لذا لا يتم تحصيل رسوم مضاعفة على الرموز (راجِع صفحة [التسعير](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)).
 
-자세한 내용은 [토큰](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) 페이지를 참고하세요.
+يمكنك قراءة صفحة [الرموز](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) لمزيد من المعلومات.
 
-## 제한사항
+## القيود
 
-- `include_server_side_tool_invocations` 플래그가 사용 설정된 경우 `VALIDATED` 모드를 기본값으로 설정합니다 (`AUTO` 모드는 지원되지 않음)
-- `google_search`와 같은 기본 제공 도구는 위치 및 현재 시간 정보를 사용하므로 `system_instruction` 또는 `function_declaration.description`에 위치 및 시간 정보가 충돌하는 경우 도구 조합 기능이 제대로 작동하지 않을 수 있습니다.
+- يتم تلقائيًا استخدام وضع `VALIDATED` (وضع `AUTO` غير متاح) عند تفعيل العلامة `include_server_side_tool_invocations`
+- تعتمد الأدوات المضمّنة، مثل `google_search`، على معلومات الموقع الجغرافي والوقت الحالي، لذا إذا كانت `system_instruction` أو `function_declaration.description` تتضمّن معلومات متضاربة عن الموقع الجغرافي والوقت، قد لا تعمل ميزة دمج الأدوات بشكل جيد.
 
-## 지원되는 도구
+## الأدوات المتاحة
 
-표준 도구 컨텍스트 순환은 서버 측 (기본 제공) 도구에 적용됩니다.
-코드 실행도 서버 측 도구이지만 컨텍스트 순환을 위한 자체 기본 제공 솔루션이 있습니다. 컴퓨터 사용 및 함수 호출은 클라이언트 측 도구이며 컨텍스트 순환을 위한 기본 제공 솔루션도 있습니다.
+ينطبق تداول سياق الأداة العادي على الأدوات من جهة الخادم (المضمّنة).
+تُعدّ أداة تنفيذ التعليمات البرمجية أيضًا أداة من جهة الخادم، ولكنها تتضمّن حلاً مضمّنًا خاصًا لتداول السياق. تُعدّ أداة استخدام الكمبيوتر وميزة استدعاء الدوال أدوات من جهة العميل، وتتضمّنان أيضًا حلولاً مضمّنة لتداول السياق.
 
-| 도구 | 실행 측 | 컨텍스트 순환 지원 |
+| الأداة | جهة التنفيذ | إتاحة تداول السياق |
 | --- | --- | --- |
-| [Google 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko) | 서버 측 | 지원됨 |
-| [Google 지도](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko) | 서버 측 | 지원됨 |
-| [URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko) | 서버 측 | 지원됨 |
-| [파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko) | 서버 측 | 지원됨 |
-| [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko) | 서버 측 | 지원됨 (기본 제공, `executableCode` 및 `codeExecutionResult` 파트 사용) |
-| [컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko) | 클라이언트 측 | 지원됨 (기본 제공, `functionCall` 및 `functionResponse` 파트 사용) |
-| [커스텀 함수](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko) | 클라이언트 측 | 지원됨 (기본 제공, `functionCall` 및 `functionResponse` 파트 사용) |
+| [بحث Google](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) | جهة الخادم | متاح |
+| [خرائط Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar) | جهة الخادم | متاح |
+| [سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) | جهة الخادم | متاح |
+| [البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar) | جهة الخادم | متاح |
+| [تنفيذ التعليمات البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) | جهة الخادم | متاح (مضمّن، يستخدم الجزأين `executableCode` و`codeExecutionResult`) |
+| [استخدام الكمبيوتر](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar) | من جهة العميل | متاح (مضمّن، يستخدم الجزأين `functionCall` و`functionResponse`) |
+| [الدوال المخصّصة](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) | من جهة العميل | متاح (مضمّن، يستخدم الجزأين `functionCall` و`functionResponse`) |
 
-## 다음 단계
+## الخطوات التالية
 
-- Gemini API의 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)에 대해 자세히 알아보세요.
-- 지원되는 도구를 살펴보세요.
-  - [Google 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)
-  - [Google 지도](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)
-  - [URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)
-  - [파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)
+- مزيد من المعلومات عن [ميزة استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) في Gemini API
+- استكشاف الأدوات المتاحة:
+  - [بحث Google](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)
+  - [خرائط Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)
+  - [سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)
+  - [البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)
 
-의견 보내기
+إرسال ملاحظات
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-최종 업데이트: 2026-07-30(UTC)
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-의견을 전달하고 싶나요?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

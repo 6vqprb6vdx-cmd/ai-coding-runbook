@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=vi
-fetched_at: 2026-08-10T03:21:53.905493+00:00
-title: "S\u1eed d\u1ee5ng m\u00e1y t\u00ednh \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=tr
+fetched_at: 2026-08-17T02:16:41.542380+00:00
+title: "Bilgisayar Kullan\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Sử dụng máy tính
+# Bilgisayar Kullanımı
 
-Công cụ Sử dụng máy tính cho phép bạn tạo các tác nhân kiểm soát trình duyệt, thiết bị di động và máy tính để bàn tương tác và tự động hoá các tác vụ. Bằng cách sử dụng ảnh chụp màn hình, mô hình này có thể "nhìn thấy" màn hình máy tính và "hành động" bằng cách tạo các thao tác cụ thể trên giao diện người dùng, chẳng hạn như nhấp chuột và nhập dữ liệu bằng bàn phím. Tương tự như việc gọi hàm, bạn sẽ cần triển khai môi trường thực thi phía máy khách để nhận và thực thi các thao tác Sử dụng máy tính.
+Bilgisayar Kullanımı aracı, tarayıcı, mobil ve masaüstü kontrol ajanları oluşturmanıza olanak tanır. Bu ajanlar, görevlerle etkileşime girer ve görevleri otomatikleştirir. Model, ekran görüntülerini kullanarak bilgisayar ekranını "görebilir" ve fare tıklamaları ile klavye girişleri gibi belirli kullanıcı arayüzü işlemlerini oluşturarak "hareket edebilir". İşlev çağrısına benzer şekilde, Bilgisayar Kullanımı işlemlerini almak ve yürütmek için istemci tarafı yürütme ortamını uygulamanız gerekir.
 
-Để xem danh sách các mô hình được hỗ trợ, hãy xem phần [Các phiên bản mô hình](#model-versions). Các mô hình Gemini 3.x hỗ trợ một số tính năng nâng cao:
+Desteklenen modellerin listesi için [Model sürümleri](#model-versions) başlıklı makaleyi inceleyin. Gemini 3.x modelleri, çeşitli gelişmiş özellikleri destekler:
 
-- **Hỗ trợ nhiều môi trường:** tạo các tác nhân cho môi trường [trình duyệt, thiết bị di động và máy tính](#supported-environments).
-- **Các hành động tinh giản bằng ý định:** các hành động bao gồm một trường `intent` giải thích lý do của mô hình đằng sau mỗi bước.
-- **Chính sách an toàn có thể định cấu hình:** tinh chỉnh [hành vi an toàn](#safety-policies) bằng các danh mục chính sách và chế độ ghi đè được tích hợp sẵn.
-- **Phát hiện tiêm câu lệnh (prompt injection):** chọn sử dụng tính năng [quét ảnh chụp màn hình](#prompt-injection) để phát hiện các câu lệnh đối nghịch bị ẩn.
+- **Çoklu ortam desteği:** [Tarayıcı, mobil ve masaüstü](#supported-environments) ortamları için aracı oluşturun.
+- **Intent'lerle basitleştirilmiş işlemler:** İşlemlerde, modelin her adımın arkasındaki mantığını açıklayan bir `intent` alanı bulunur.
+- **Yapılandırılabilir güvenlik politikaları:** Yerleşik politika kategorileri ve geçersiz kılma işlemleriyle [güvenlik davranışını](#safety-policies) hassas bir şekilde ayarlayın.
+- **İstem enjeksiyonu algılama:** Gizli saldırı talimatlarını algılamak için [ekran görüntüsü taramayı](#prompt-injection) etkinleştirin.
 
-Với tính năng Sử dụng máy tính, bạn có thể tạo các tác nhân có khả năng:
+Bilgisayar Kullanımı ile şu özellikleri içeren temsilciler oluşturabilirsiniz:
 
-- Tự động hoá việc nhập dữ liệu hoặc điền biểu mẫu lặp đi lặp lại trên các trang web.
-- Thực hiện kiểm thử tự động các ứng dụng web và quy trình của người dùng
-- Nghiên cứu trên nhiều trang web (ví dụ: thu thập thông tin sản phẩm, giá cả và bài đánh giá từ các trang web thương mại điện tử để đưa ra quyết định mua hàng)
+- Web sitelerinde tekrarlayan veri girişini veya form doldurma işlemlerini otomatikleştirin.
+- Web uygulamalarının ve kullanıcı akışlarının otomatik testini gerçekleştirme
+- Çeşitli web sitelerinde araştırma yapma (ör. satın alma işlemi hakkında bilgi vermek için e-ticaret sitelerinden ürün bilgileri, fiyatlar ve yorumlar toplama)
 
-Dưới đây là một ví dụ tối giản về việc khởi chạy ứng dụng và gửi một câu lệnh cho mô hình khi công cụ `computer_use` được bật cho môi trường trình duyệt:
+İstemciyi başlatma ve tarayıcı ortamında `computer_use` aracı etkinleştirilmişken modele istem gönderme ile ilgili en basit örneği aşağıda bulabilirsiniz:
 
 ### Python
 
@@ -67,45 +67,45 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## Cách hoạt động của tính năng Sử dụng máy tính
+## Bilgisayar Kullanımı nasıl çalışır?
 
-Để tạo một tác nhân bằng mô hình Sử dụng máy tính, bạn cần thiết lập một vòng lặp liên tục giữa ứng dụng và API. Sau đây là những việc mà mã của bạn sẽ làm ở mỗi bước:
+Bilgisayar Kullanımı modeliyle bir aracı oluşturmak için uygulamanız ile API arasında sürekli bir döngü oluşturmanız gerekir. Kodunuzun her adımda ne yapacağını aşağıda bulabilirsiniz:
 
-1. [**Gửi yêu cầu đến mô hình**](#send-request)
-   - Ứng dụng của bạn gửi một yêu cầu API có chứa công cụ Sử dụng máy tính, chế độ cài đặt cấu hình (chẳng hạn như môi trường mục tiêu), câu lệnh của người dùng và ảnh chụp màn hình hiện tại.
-2. [**Nhận câu trả lời của mô hình**](#model-response)
-   - Mô hình này phân tích màn hình và câu lệnh, trả về một phản hồi bao gồm `function_call` được đề xuất, đại diện cho một thao tác trên giao diện người dùng (chẳng hạn như lượt nhấp, lượt di chuyển hoặc lượt nhấn phím).
-   - Đối với **các mô hình Gemini 3.x**, câu trả lời cũng bao gồm một suy luận `intent` giải thích tại sao mô hình chọn hành động đó.
-   - Phản hồi cũng có thể bao gồm một `safety_decision` từ hệ thống an toàn nội bộ phân loại hành động là thông thường/được phép, `require_confirmation` (yêu cầu người dùng phê duyệt) hoặc bị chặn.
-3. [**Thực thi hành động đã nhận**](#execute-actions)
-   - Nếu hành động được cho phép (hoặc người dùng xác nhận hành động đó), thì mã phía máy khách của bạn sẽ phân tích cú pháp `function_call`, điều chỉnh tỷ lệ các toạ độ được chuẩn hoá cho phù hợp với khung hiển thị và thực thi hành động trong môi trường mục tiêu bằng các công cụ tự động hoá (chẳng hạn như Playwright). Nếu thao tác bị chặn, ứng dụng của bạn sẽ phải dừng thực thi hoặc xử lý gián đoạn.
-4. [**Chụp trạng thái môi trường mới**](#capture-state)
-   - Sau khi thao tác hoàn tất, ứng dụng của bạn sẽ chụp một ảnh chụp màn hình mới và gửi lại cho mô hình trong `function_result` để yêu cầu bước tiếp theo.
+1. [**Modele istek gönderme**](#send-request)
+   - Uygulamanız, Bilgisayar Kullanımı aracını, yapılandırma ayarlarınızı (ör. hedef ortam), kullanıcının istemini ve mevcut ekranın ekran görüntüsünü içeren bir API isteği gönderir.
+2. [**Model yanıtını alma**](#model-response)
+   - Model, ekranı ve istemi analiz ederek bir yanıt döndürür. Bu yanıtta, kullanıcı arayüzü işlemini (ör. tıklama, kaydırma veya tuş vuruşu) temsil eden önerilen bir `function_call` yer alır.
+   - **Gemini 3.x modellerinde** yanıt, modelin bu işlemi neden seçtiğini açıklayan bir gerekçe de içerir `intent`
+   - Yanıt, işlemin normal/izin verilen, `safety_decision` (kullanıcı onayı gerektiren) veya engellenen olarak sınıflandırıldığı bir dahili güvenlik sisteminden `require_confirmation` de içerebilir.
+3. [**Alınan işlemi yürütün**](#execute-actions)
+   - İşleme izin verildiyse (veya kullanıcı işlemi onayladıysa) istemci tarafı kodunuz `function_call` öğesini ayrıştırır, normalleştirilmiş koordinatları görünüm alanınızla eşleşecek şekilde ölçeklendirir ve otomasyon araçlarını (ör. Playwright) kullanarak hedef ortamınızda işlemi yürütür. İşlem engellenirse istemciniz yürütmeyi durdurmalı veya kesintiyi işlemelidir.
+4. [**Yeni ortam durumunu yakalama**](#capture-state)
+   - İşlem yürütülmeyi tamamladıktan sonra uygulamanız yeni bir ekran görüntüsü alır ve bir sonraki adımı istemek için `function_result` içinde modele geri gönderir.
 
-Sau đó, quy trình này lặp lại từ bước 2, liên tục yêu cầu mô hình thực hiện hành động tiếp theo cho đến khi tác vụ hoàn tất hoặc kết thúc.
+Bu işlem daha sonra 2. adımdan itibaren tekrarlanır ve görev tamamlanana veya sonlandırılana kadar modelden sürekli olarak bir sonraki işlem istenir.
 
-![Tổng quan về việc sử dụng máy tính](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=vi)
+![Bilgisayar Kullanımı'na genel bakış](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=tr)
 
-## Cách triển khai tính năng Sử dụng máy tính
+## Bilgisayar Kullanımı nasıl uygulanır?
 
-Trước khi tạo bằng công cụ Sử dụng máy tính, bạn cần thiết lập:
+Bilgisayar Kullanımı aracıyla oluşturmaya başlamadan önce şunları ayarlamanız gerekir:
 
-- **Môi trường thực thi an toàn:** Chạy tác nhân của bạn trong một VM hoặc vùng chứa được đưa vào hộp cát để tách tác nhân đó khỏi hệ thống lưu trữ và hạn chế tác động tiềm ẩn của tác nhân.
-  [Triển khai tham chiếu](https://github.com/google/computer-use-preview/) bao gồm một hộp cát dựa trên Docker mà bạn có thể sử dụng ngay làm điểm xuất phát.
-- **Trình xử lý thao tác phía máy khách:** Triển khai logic phía máy khách để thực thi toạ độ, nhập văn bản và chụp ảnh màn hình.
+- **Güvenli yürütme ortamı:** Aracılarınızı, ana makine sisteminizden izole etmek ve olası etkilerini sınırlamak için korumalı alanda çalışan bir sanal makinede veya kapsayıcıda çalıştırın.
+  [Referans uygulama](https://github.com/google/computer-use-preview/), başlangıç noktası olarak kullanabileceğiniz, kullanıma hazır Docker tabanlı bir sanal alan içerir.
+- **İstemci tarafı işlem işleyici:** Koordinatları yürütmek, metin yazmak ve ekran görüntüsü almak için istemci tarafı mantığını uygulayın.
 
-Các ví dụ bên dưới sử dụng trình duyệt web làm môi trường thực thi và [Playwright](https://playwright.dev/) làm trình xử lý phía máy khách.
+Aşağıdaki örneklerde, yürütme ortamı olarak web tarayıcısı, istemci taraflı işleyici olarak ise [Playwright](https://playwright.dev/) kullanılır.
 
-### 0. Thiết lập Playwright
+### 0. Playwright'ı ayarlama
 
-Trước tiên, hãy cài đặt các gói bắt buộc:
+Öncelikle gerekli paketleri yükleyin:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-Sau đó, hãy khởi chạy một phiên bản trình duyệt Playwright để sử dụng cho quá trình thực thi:
+Ardından, yürütme için kullanılacak bir Playwright tarayıcı örneği başlatın:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -133,15 +133,15 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. Gửi yêu cầu đến mô hình
+### 1. Modele istek gönderme
 
-Khởi chạy thư viện ứng dụng và định cấu hình công cụ Sử dụng máy tính. Xin lưu ý rằng bạn không cần chỉ định kích thước màn hình khi đưa ra yêu cầu; mô hình sẽ dự đoán toạ độ pixel được điều chỉnh theo chiều cao và chiều rộng của màn hình.
+İstemci kitaplığını başlatın ve Bilgisayar Kullanımı aracını yapılandırın. İstek gönderirken ekran boyutunu belirtmenize gerek olmadığını unutmayın. Model, piksel koordinatlarını ekranın yüksekliğine ve genişliğine göre ölçekleyerek tahmin eder.
 
 ### Gemini 3.x
 
 ### Python
 
-Sử dụng `google-genai` Python SDK (phiên bản `2.7.0` trở lên) để định cấu hình một yêu cầu nhắm đến môi trường trình duyệt:
+Tarayıcı ortamını hedefleyen bir isteği yapılandırmak için `google-genai` Python SDK'sını (`2.7.0` veya sonraki bir sürüm) kullanın:
 
 ```
 from google import genai
@@ -165,7 +165,7 @@ print(interaction)
 
 ### JavaScript
 
-Sử dụng SDK `@google/genai` Node.js để định cấu hình một yêu cầu nhắm đến môi trường trình duyệt:
+Tarayıcı ortamını hedefleyen bir isteği yapılandırmak için `@google/genai` Node.js SDK'sını kullanın:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -189,7 +189,7 @@ console.log(interaction);
 
 ### REST
 
-Sử dụng curl để gửi yêu cầu:
+İstek göndermek için curl'ü kullanın:
 
 ```
 curl -X POST \
@@ -209,7 +209,7 @@ curl -X POST \
   }'
 ```
 
-### Gemini 2.5 (Phiên bản cũ)
+### Gemini 2.5 (Legacy)
 
 ### Python
 
@@ -261,9 +261,9 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-### 2. Nhận câu trả lời của mô hình
+### 2. Model yanıtını alma
 
-Mô hình phản hồi đề xuất một lệnh gọi hàm. Đối với **các mô hình Gemini 3.x**, phản hồi chứa ý định suy luận phù hợp cùng với toạ độ. Sau đây là ví dụ về cả hai phản hồi:
+Yanıt modeli, bir işlev çağrısı öneriyor. **Gemini 3.x modellerinde** yanıt, koordinatların yanı sıra amaca uygun bir akıl yürütme niyeti içerir. Aşağıda her iki yanıtın da örnekleri verilmiştir:
 
 ### Gemini 3.x
 
@@ -283,7 +283,7 @@ Mô hình phản hồi đề xuất một lệnh gọi hàm. Đối với **các
 }
 ```
 
-### Gemini 2.5 (Phiên bản cũ)
+### Gemini 2.5 (Legacy)
 
 ```
 {
@@ -311,11 +311,11 @@ Mô hình phản hồi đề xuất một lệnh gọi hàm. Đối với **các
 }
 ```
 
-### 3. Thực thi các hành động đã nhận
+### 3. Alınan işlemleri yürütme
 
-Ứng dụng của bạn phải phân tích cú pháp toạ độ phản hồi, thực thi thao tác và điều chỉnh tỷ lệ các toạ độ đó từ toạ độ 1000x1000 được chuẩn hoá.
+Uygulamanız, yanıt koordinatlarını ayrıştırmalı, işlemi yürütmeli ve bunları normalleştirilmiş 1.000x1.000 koordinatlarından ölçeklendirmelidir.
 
-Đoạn mã dưới đây xử lý cả lệnh của công cụ cũ (`click_at`, `type_text_at`) và lệnh hiện đại được tinh giản (`click`, `type`).
+Aşağıdaki kod hem eski araç komutlarını (`click_at`, `type_text_at`) hem de modern, basitleştirilmiş komutları (`click`, `type`) işler.
 
 ### Python
 
@@ -480,9 +480,9 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
 }
 ```
 
-### 4. Ghi lại trạng thái môi trường mới
+### 4. Yeni ortam durumunu yakalama
 
-Sau khi thực hiện các hành động, hãy gửi kết quả thực thi hàm trở lại mô hình để mô hình có thể sử dụng thông tin này để tạo hành động tiếp theo. Nếu thực hiện nhiều thao tác (cuộc gọi song song), bạn phải gửi một `function_result` cho từng thao tác trong lượt tương tác tiếp theo của người dùng.
+İşlemleri yürüttükten sonra, işlev yürütme sonucunu modele geri gönderin. Böylece model, bu bilgileri kullanarak sonraki işlemi oluşturabilir. Birden fazla işlem (paralel çağrı) yürütüldüyse sonraki kullanıcı dönüşünde her biri için bir `function_result` göndermeniz gerekir.
 
 ### Python
 
@@ -545,14 +545,14 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
-Sau khi xác định cách ghi lại và định dạng trạng thái môi trường, bạn có thể kết hợp tất cả các bước này thành một vòng lặp thực thi liên tục.
+Ortam durumunun nasıl yakalanacağını ve biçimlendirileceğini tanımladıktan sonra tüm bu adımları sürekli bir yürütme döngüsünde birleştirebilirsiniz.
 
-## Tạo vòng lặp tác nhân
+## Aracı döngüsü oluşturma
 
-Để bật các lượt tương tác nhiều bước, hãy kết hợp 4 bước trong phần [Cách triển khai việc sử dụng máy tính](#implement-computer-use) thành một vòng lặp duy nhất.
-Vòng lặp này tiếp tục yêu cầu các hành động và truyền kết quả trở lại mô hình cho đến khi tác vụ hoàn tất.
+Çok adımlı etkileşimleri etkinleştirmek için [Bilgisayar kullanımını uygulama](#implement-computer-use) bölümündeki dört adımı tek bir döngüde birleştirin.
+Bu döngü, görev tamamlanana kadar işlem isteğinde bulunmaya ve sonuçları modele geri aktarmaya devam eder.
 
-Hãy nhớ quản lý lịch sử cuộc trò chuyện một cách chính xác bằng cách thêm cả câu trả lời của mô hình và câu trả lời của hàm vào lịch sử ở mỗi bước.
+Her adımda hem model yanıtlarını hem de işlev yanıtlarınızı geçmişe ekleyerek sohbet geçmişini doğru şekilde yönetmeyi unutmayın.
 
 ### Python
 
@@ -742,107 +742,107 @@ try {
 }
 ```
 
-## Các môi trường được hỗ trợ (Gemini 3.x)
+## Desteklenen ortamlar (Gemini 3.x)
 
-Các mô hình Gemini 3.x hỗ trợ 3 môi trường được chỉ định trong cấu hình `computer_use`:
+Gemini 3.x modelleri, `computer_use` yapılandırmalarında belirtilen üç ortamı destekler:
 
-### Môi trường trình duyệt (`ENVIRONMENT_BROWSER`)
+### Tarayıcı ortamı (`ENVIRONMENT_BROWSER`)
 
-Các thao tác có thể thực hiện trong công cụ trình duyệt:
+Tarayıcı aracında kullanılabilen işlemler:
 
-| Tên lệnh | Mô tả | Đối số (trong lệnh gọi hàm) |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
 | --- | --- | --- |
-| **click** | Nhấp chuột trái vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Nhấp đúp vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Nhấp ba lần vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Nhấp chuột giữa vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Nhấp chuột phải vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Nhấn và giữ nút chuột tại toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Nhả nút chuột tại toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **move** | Di chuyển con trỏ đến vị trí đã chỉ định. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | Nhập văn bản. | `text`: str `press_enter`: bool (Không bắt buộc, mặc định là `false`) `intent`: str |
-| **drag\_and\_drop** | Kéo một mục từ toạ độ bắt đầu đến toạ độ kết thúc. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Tạm dừng thực thi trong một số giây được chỉ định. | `seconds`: int (Không bắt buộc, mặc định là `1`) `intent`: str |
-| **press\_key** | Nhấn phím đã chỉ định rồi thả ra. | `key`: str `intent`: str |
-| **key\_down** | Nhấn và giữ phím đã chỉ định. | `key`: str `intent`: str |
-| **key\_up** | Nhả khoá đã chỉ định. | `key`: str `intent`: str |
-| **phím tắt** | Nhấn tổ hợp phím đã chỉ định. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Trả về ảnh chụp màn hình hiện tại. | `intent`: str |
-| **scroll** | Cuộn lên, xuống, sang trái hoặc sang phải tại một toạ độ theo khoảng cách pixel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Không bắt buộc, mặc định là `300`) `intent`: str |
-| **go\_back** | Quay lại trang web trước đó trong nhật ký trình duyệt. | `intent`: str |
-| **navigate** | Điều hướng trực tiếp đến một URL cụ thể. | `url`: str `intent`: str |
-| **go\_forward** | Chuyển tiếp đến trang web tiếp theo trong nhật ký duyệt web. | `intent`: str |
+| **tıklama** | Koordinatta sol tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Koordinatı çift tıklayın. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Koordinat üç kez tıklanır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Orta tıklama ile koordinat seçilir. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Koordinatta sağ tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Farenin düğmesini koordinatta basar ve basılı tutar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Fare düğmesini koordinatta bırakır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **move** | İmleci belirtilen konuma taşır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
+| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
+| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
+| **key\_down** | Belirtilen tuşa basar ve basılı tutar. | `key`: str `intent`: str |
+| **key\_up** | Belirtilen anahtarı serbest bırakır. | `key`: str `intent`: str |
+| **hotkey** | Belirtilen tuş kombinasyonuna basar. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
+| **scroll** | Bir koordinatta yukarı, aşağı, sola veya sağa doğru bir piksel mesafesi kaydırır. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, İsteğe bağlı, varsayılan `300`) `intent`: str |
+| **go\_back** | Tarama geçmişinde önceki web sayfasına geri döner. | `intent`: str |
+| **navigate** | Doğrudan belirtilen bir URL'ye gider. | `url`: str `intent`: str |
+| **go\_forward** | Tarayıcı geçmişinde sonraki web sayfasına gider. | `intent`: str |
 
-### Môi trường di động (`ENVIRONMENT_MOBILE`)
+### Mobil ortam (`ENVIRONMENT_MOBILE`)
 
-Các thao tác trong môi trường được tối ưu hoá cho Android:
+Android için optimize edilmiş ortam işlemleri:
 
-| Tên lệnh | Mô tả | Đối số (trong lệnh gọi hàm) |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
 | --- | --- | --- |
-| **open\_app** | Mở một ứng dụng theo tên. | `app_name`: str `intent`: str |
-| **click** | Nhấp chuột trái vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | Liệt kê các ứng dụng có trên thiết bị, trả về tên và tên gói của các ứng dụng đó. | `intent`: str |
-| **wait** | Tạm dừng thực thi trong một số giây được chỉ định. | `seconds`: int (Không bắt buộc, mặc định là `1`) `intent`: str |
-| **go\_back** | Quay lại màn hình hoặc trang web trước đó. | `intent`: str |
-| **type** | Nhập văn bản. | `text`: str `press_enter`: bool (Không bắt buộc, mặc định là `false`) `intent`: str |
-| **drag\_and\_drop** | Kéo một mục từ toạ độ bắt đầu đến toạ độ kết thúc. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | Thực hiện thao tác nhấn và giữ tại một toạ độ trên màn hình. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (Không bắt buộc, mặc định là `2`) `intent`: str |
-| **press\_key** | Nhấn phím đã chỉ định rồi thả ra. | `key`: str `intent`: str |
-| **take\_screenshot** | Trả về ảnh chụp màn hình hiện tại. | `intent`: str |
+| **open\_app** | Bir uygulamayı adıyla açar. | `app_name`: str `intent`: str |
+| **tıklama** | Koordinatta sol tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | Cihazdaki kullanılabilir uygulamaları adları ve paket adlarıyla birlikte listeler. | `intent`: str |
+| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
+| **go\_back** | Önceki ekrana veya web sayfasına geri döner. | `intent`: str |
+| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
+| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | Ekranda bir koordinata uzun basma işlemi gerçekleştirir. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (İsteğe bağlı, varsayılan `2`) `intent`: str |
+| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
+| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
 
-### Môi trường máy tính (`ENVIRONMENT_DESKTOP`)
+### Masaüstü ortamı (`ENVIRONMENT_DESKTOP`)
 
-Các lệnh con trỏ ở cấp hệ điều hành của môi trường máy tính:
+Masaüstü ortamlarında işletim sistemi düzeyinde imleç komutları:
 
-| Tên lệnh | Mô tả | Đối số (trong lệnh gọi hàm) |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
 | --- | --- | --- |
-| **click** | Nhấp chuột trái vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Nhấp đúp vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Nhấp ba lần vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Nhấp chuột giữa vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Nhấp chuột phải vào toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Nhấn và giữ nút chuột tại toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Nhả nút chuột tại toạ độ. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **move** | Di chuyển con trỏ đến vị trí đã chỉ định. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | Nhập văn bản. | `text`: str `press_enter`: bool (Không bắt buộc, mặc định là `false`) `intent`: str |
-| **drag\_and\_drop** | Kéo một mục từ toạ độ bắt đầu đến toạ độ kết thúc. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Tạm dừng thực thi trong một số giây được chỉ định. | `seconds`: int (Không bắt buộc, mặc định là `1`) `intent`: str |
-| **press\_key** | Nhấn phím đã chỉ định rồi thả ra. | `key`: str `intent`: str |
-| **key\_down** | Nhấn và giữ phím đã chỉ định. | `key`: str `intent`: str |
-| **key\_up** | Nhả khoá đã chỉ định. | `key`: str `intent`: str |
-| **phím tắt** | Nhấn tổ hợp phím đã chỉ định. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Trả về ảnh chụp màn hình hiện tại. | `intent`: str |
-| **scroll** | Cuộn lên, xuống, sang trái hoặc sang phải tại một toạ độ theo khoảng cách pixel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Không bắt buộc, mặc định là `300`) `intent`: str |
+| **tıklama** | Koordinatta sol tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Koordinatı çift tıklayın. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Koordinat üç kez tıklanır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Orta tıklama ile koordinat seçilir. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Koordinatta sağ tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Farenin düğmesini koordinatta basar ve basılı tutar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Fare düğmesini koordinatta bırakır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **move** | İmleci belirtilen konuma taşır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
+| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
+| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
+| **key\_down** | Belirtilen tuşa basar ve basılı tutar. | `key`: str `intent`: str |
+| **key\_up** | Belirtilen anahtarı serbest bırakır. | `key`: str `intent`: str |
+| **hotkey** | Belirtilen tuş kombinasyonuna basar. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
+| **scroll** | Bir koordinatta yukarı, aşağı, sola veya sağa doğru bir piksel mesafesi kaydırır. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, İsteğe bağlı, varsayılan `300`) `intent`: str |
 
-## Các thao tác trên giao diện người dùng cũ được hỗ trợ (Gemini 2.5)
+## Eski desteklenen kullanıcı arayüzü işlemleri (Gemini 2.5)
 
-Đối với các mô hình cũ (`gemini-2.5-computer-use-preview-10-2025`), các thao tác sau được hỗ trợ:
+Eski modeller (`gemini-2.5-computer-use-preview-10-2025`) için aşağıdaki işlemler desteklenir:
 
-| Tên lệnh | Mô tả | Đối số (trong lệnh gọi hàm) | Ví dụ về lệnh gọi hàm |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) | Örnek işlev çağrısı |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | Mở trình duyệt web. | Không có | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | Tạm dừng thực thi trong 5 giây. | Không có | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | Chuyển đến trang trước trong nhật ký. | Không có | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | Chuyển đến trang tiếp theo trong nhật ký. | Không có | `{"name": "go_forward", "arguments": {}}` |
-| **search** | Chuyển đến công cụ tìm kiếm mặc định. | Không có | `{"name": "search", "arguments": {}}` |
-| **navigate** | Điều hướng trình duyệt trực tiếp đến URL đã chỉ định. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | Nhấp vào một toạ độ cụ thể. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | Di chuột đến một toạ độ cụ thể. | `y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | Nhập văn bản tại một toạ độ. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (Không bắt buộc, mặc định là True), `clear_before_typing`: bool (Không bắt buộc, mặc định là True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | Nhấn các phím hoặc tổ hợp phím. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | Cuộn toàn bộ trang web. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | Cuộn tại toạ độ (x,y). | `y`: int, `x`: int, `direction`: str, `magnitude`: int (Không bắt buộc, mặc định là 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | Kéo giữa hai toạ độ. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+| **open\_web\_browser** | Web tarayıcısını açar. | Yok | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | Yürütmeyi 5 saniye duraklatır. | Yok | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | Geçmiş'te önceki sayfaya gider. | Yok | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | Geçmiş'te sonraki sayfaya gider. | Yok | `{"name": "go_forward", "arguments": {}}` |
+| **search** | Varsayılan arama motoruna gider. | Yok | `{"name": "search", "arguments": {}}` |
+| **navigate** | Tarayıcıyı doğrudan belirtilen URL'ye yönlendirir. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Belirli bir koordinattaki tıklamalar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | Fareyi belirli bir koordinat üzerinde tutar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Bir koordinata metin yazar. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (isteğe bağlı, varsayılan değer True), `clear_before_typing`: bool (isteğe bağlı, varsayılan değer True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | Tuşlara veya kombinasyonlara basın. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | Web sayfasının tamamını kaydırır. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | (x,y) koordinatında kaydırır. | `y`: int, `x`: int, `direction`: str, `magnitude`: int (isteğe bağlı, varsayılan 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | İki koordinat arasında sürükleme. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
 
-## Hàm tuỳ chỉnh do người dùng xác định
+## Özel kullanıcı tanımlı işlevler
 
-Bạn có thể mở rộng chức năng của mô hình bằng cách thêm các hàm tuỳ chỉnh do người dùng xác định. Ví dụ: trong các trường hợp có sự tham gia của con người (HITL), bạn có thể loại trừ các thao tác được xác định trước theo mặc định và đăng ký các thao tác tuỳ chỉnh.
+Özel kullanıcı tanımlı işlevler ekleyerek modelin işlevselliğini genişletebilirsiniz. Örneğin, sürece insanların dahil edildiği (HITL) senaryolarda varsayılan olarak önceden tanımlanmış işlemleri hariç tutabilir ve özel işlemleri kaydedebilirsiniz.
 
-#### Công cụ tuỳ chỉnh Gemini 3.x
+#### Gemini 3.x Özel Araçları
 
 ### Python
 
-Loại trừ các thao tác tiêu chuẩn được xác định trước trên trình duyệt (chẳng hạn như `click`) và đăng ký một công cụ `yield_to_user` tuỳ chỉnh:
+Standart önceden tanımlanmış tarayıcı işlemlerini (ör. `click`) hariç tutun ve özel bir `yield_to_user` aracı kaydedin:
 
 ```
 from google import genai
@@ -881,7 +881,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-Loại trừ các thao tác tiêu chuẩn được xác định trước trên trình duyệt (chẳng hạn như `click`) và đăng ký một công cụ `yield_to_user` tuỳ chỉnh:
+Standart önceden tanımlanmış tarayıcı işlemlerini (ör. `click`) hariç tutun ve özel bir `yield_to_user` aracı kaydedin:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -918,7 +918,7 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-#### Công cụ tuỳ chỉnh Gemini 2.5 (Phiên bản cũ)
+#### Gemini 2.5 (Legacy) Özel Araçlar
 
 ### Python
 
@@ -998,29 +998,29 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## Quản lý cấp độ tư duy (Gemini 3.x)
+## Düşünme düzeylerini yönetme (Gemini 3.x)
 
-Đối với các tác nhân sử dụng máy tính, bạn có thể định cấu hình các cấp độ tư duy khác nhau để cân bằng chất lượng hành động và tốc độ thực thi. Các cấp độ tư duy thấp hơn thường đạt được sự cân bằng tốt cho các tác vụ tự động hoá tiêu chuẩn.
+Bilgisayar kullanımına yönelik aracıları, işlem kalitesi ile yürütme hızını dengelemek için farklı düşünme düzeylerinde yapılandırabilirsiniz. Daha düşük düşünme seviyeleri, standart otomasyon görevleri için genellikle iyi bir denge sağlar.
 
-## An toàn và bảo mật
+## Güvenlik
 
-### Định cấu hình chính sách an toàn (Gemini 3.x)
+### Güvenlik politikalarını yapılandırma (Gemini 3.x)
 
-Các mô hình Gemini 3.x có các danh mục dịch vụ an toàn tích hợp sẵn để tự động xác định xem có cần người dùng xác nhận hay không.
+Gemini 3.x modellerinde, kullanıcı onayı gerekip gerekmediğini otomatik olarak belirleyen yerleşik güvenlik hizmeti kategorileri bulunur.
 
-| Danh mục chính sách an toàn | Mô tả |
+| Güvenlik politikası kategorisi | Açıklama |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | Chặn hoặc kích hoạt bước xác nhận cho các hành động liên quan đến khoản thanh toán, quy trình thanh toán bán lẻ hoặc hàng hoá thuộc diện quản lý. |
-| `SENSITIVE_DATA_MODIFICATION` | Bảo vệ hồ sơ sức khoẻ, tài chính hoặc hồ sơ của chính phủ khỏi bị sửa đổi trái phép. |
-| `COMMUNICATION_TOOL` | Hạn chế tác nhân tự động gửi email, tin nhắn trò chuyện hoặc bản nháp. |
-| `ACCOUNT_CREATION` | Hạn chế tác nhân tự động đăng ký tài khoản mới trên các trang web. |
-| `DATA_MODIFICATION` | Điều chỉnh các hoạt động sửa đổi hệ thống tệp tổng thể, chia sẻ dữ liệu và xoá bộ nhớ. |
-| `USER_CONSENT_MANAGEMENT` | Yêu cầu người dùng tiếp quản biểu ngữ yêu cầu đồng ý sử dụng cookie và lời nhắc về quyền riêng tư. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | Ngăn mô hình tự động chấp nhận Điều khoản dịch vụ hoặc các hợp đồng ràng buộc pháp lý. |
+| `FINANCIAL_TRANSACTIONS` | Ödemeler, perakende ödeme veya yasal düzenlemelere tabi ürünlerle ilgili işlemlerde onay verilmesini engeller ya da onay verilmesini tetikler. |
+| `SENSITIVE_DATA_MODIFICATION` | Sağlık, finans veya devlet kayıtlarını yetkisiz değişikliklere karşı korur. |
+| `COMMUNICATION_TOOL` | Temsilcinin bağımsız olarak e-posta, sohbet mesajı veya taslak göndermesini kısıtlar. |
+| `ACCOUNT_CREATION` | Aracının web sitelerinde bağımsız olarak yeni hesap kaydetmesini kısıtlar. |
+| `DATA_MODIFICATION` | Genel dosya sistemi değişikliklerini, veri paylaşımını ve depolama silme işlemlerini düzenler. |
+| `USER_CONSENT_MANAGEMENT` | Çerez izni banner'ları ve gizlilik istemleri için kullanıcı devralma işlemi gerektirir. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | Modelin, Hizmet Şartları'nı veya yasal olarak bağlayıcı sözleşmeleri bağımsız bir şekilde kabul etmesini engeller. |
 
-#### Chế độ ghi đè an toàn
+#### Güvenlik geçersiz kılmaları
 
-Bạn có thể ghi đè một số chính sách bằng cách truyền các giá trị ghi đè:
+Geçersiz kılmalar ileterek belirli politikaları geçersiz kılabilirsiniz:
 
 ### Python
 
@@ -1066,13 +1066,13 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-### Phát hiện kỹ thuật tấn công "tiêm câu lệnh" (Gemini 3.x)
+### İstem enjeksiyonu tespiti (Gemini 3.x)
 
-Cơ chế an toàn chọn tham gia quét các pixel ảnh chụp màn hình để tìm hướng dẫn ẩn của câu lệnh đối nghịch (ví dụ: "Bỏ qua các lệnh trước đó") và chặn thực thi khi phát hiện.
+Ekran görüntüsü piksellerini gizli yanıltıcı istem talimatları (ör. "Önceki komutları yoksay") için tarayan ve algılandığında yürütmeyi engelleyen isteğe bağlı güvenlik mekanizması.
 
-### Xác nhận quyết định về an toàn
+### Güvenlik kararını onaylama
 
-Phản hồi có thể bao gồm một tham số `safety_decision` trong các đối số của lệnh gọi hàm:
+Yanıt, işlev çağrısı bağımsız değişkenlerinde bir `safety_decision` parametresi içerebilir:
 
 ```
 {
@@ -1093,7 +1093,7 @@ Phản hồi có thể bao gồm một tham số `safety_decision` trong các đ
 }
 ```
 
-Nếu `safety_decision` là `require_confirmation`, hãy nhắc người dùng cuối. Nếu người dùng xác nhận, hãy đặt `safety_acknowledgement` thành `function_result`.
+`safety_decision` değeri `require_confirmation` ise son kullanıcıya istem gösterin. Kullanıcı onaylarsa `safety_acknowledgement` değerini `function_result` olarak ayarlayın.
 
 ### Python
 
@@ -1112,14 +1112,14 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### Các phương pháp hay nhất về an toàn
+### Güvenlikle ilgili en iyi uygulamalar
 
-Việc sử dụng máy tính có thể gây ra những rủi ro riêng về bảo mật và hoạt động, vì một mô hình hành động thay cho người dùng có thể gặp phải nội dung không đáng tin cậy trên màn hình hoặc mắc lỗi khi thực hiện các hành động. Hãy triển khai các phương pháp hay nhất sau đây để bảo vệ dữ liệu và hệ thống của người dùng:
+Bilgisayar Kullanımı, kullanıcı adına hareket eden bir modelin ekranlarda güvenilmeyen içerikle karşılaşabileceği veya işlemleri yürütürken hatalar yapabileceği için benzersiz güvenlik ve operasyonel riskler barındırır. Kullanıcı verilerini ve sistemlerini korumak için aşağıdaki en iyi uygulamaları hayata geçirin:
 
-1. **Con người tham gia vào quy trình (HITL):**
+1. **İnsan Destekli (Human-in-the-Loop - HITL):**
 
-   - **Thực thi xác nhận của người dùng:** Khi phản hồi về sự an toàn cho biết `require_confirmation` (hoặc quyết định an toàn cũ yêu cầu), hãy nhắc người dùng phê duyệt.
-   - **Cung cấp hướng dẫn an toàn tuỳ chỉnh:** Triển khai một chỉ dẫn tuỳ chỉnh cho hệ thống để xác định và thực thi ranh giới an toàn của riêng bạn. Ví dụ:
+   - **Kullanıcı onayını zorunlu kılma:** Güvenlik yanıtı `require_confirmation` simgesini gösterdiğinde (veya eski güvenlik kararı bunu gerektirdiğinde) kullanıcıdan onay isteyin.
+   - **Özel güvenlik talimatları sağlama:** Kendi güvenlik sınırlarınızı tanımlamak ve zorunlu kılmak için özel bir sistem talimatı uygulayın. Örneğin:
 
      ### Python
 
@@ -1332,38 +1332,38 @@ Việc sử dụng máy tính có thể gây ra những rủi ro riêng về b�
          }]
      });
      ```
-2. **Môi trường thực thi an toàn:** Chạy tác nhân của bạn trong một môi trường an toàn, được đưa vào hộp cát để hạn chế tác động tiềm ẩn của tác nhân. Đây có thể là một máy ảo (VM) được cách ly, một vùng chứa (ví dụ: Docker) hoặc một hồ sơ trình duyệt chuyên dụng có quyền hạn chế. Hãy xem [hoạt động triển khai tham chiếu trên GitHub](https://github.com/google/computer-use-preview/) để biết hướng dẫn thiết lập hộp cát bằng Docker.
-3. **Làm sạch dữ liệu đầu vào:** Làm sạch tất cả văn bản do người dùng tạo trong câu lệnh để giảm thiểu nguy cơ vô tình đưa ra hướng dẫn hoặc tiêm câu lệnh (prompt injection). Đây là một lớp bảo mật hữu ích, nhưng không thay thế được môi trường thực thi an toàn.
-4. **Quy định hạn chế về nội dung:** Sử dụng các quy định hạn chế và API An toàn nội dung để đánh giá tính phù hợp của thông tin đầu vào của người dùng, thông tin đầu vào và đầu ra của công cụ, cũng như các câu trả lời của tác nhân, đồng thời phát hiện hành vi tiêm câu lệnh (prompt injection) và vượt qua các quy định hạn chế.
-5. **Danh sách cho phép và danh sách chặn:** Triển khai cơ chế lọc để kiểm soát vị trí mà mô hình có thể điều hướng và những việc mà mô hình có thể làm. Danh sách chặn các trang web bị cấm là một điểm xuất phát tốt, trong khi danh sách cho phép hạn chế hơn sẽ an toàn hơn nữa.
-6. **Khả năng quan sát và ghi nhật ký:** Duy trì nhật ký chi tiết để gỡ lỗi, kiểm tra và xử lý sự cố. Ứng dụng của bạn nên ghi lại các câu lệnh, ảnh chụp màn hình, hành động do mô hình đề xuất (`function_call`), phản hồi an toàn và tất cả các hành động mà cuối cùng ứng dụng thực hiện.
-7. **Quản lý môi trường:** Đảm bảo môi trường GUI nhất quán.
-   Cửa sổ bật lên, thông báo hoặc thay đổi bố cục không mong muốn có thể khiến mô hình bị nhầm lẫn. Nếu có thể, hãy bắt đầu từ một trạng thái sạch, đã biết cho mỗi tác vụ mới.
+2. **Güvenli yürütme ortamı:** Potansiyel etkisini sınırlamak için aracınızı güvenli ve korumalı bir ortamda çalıştırın. Bu, sanal makine (VM), kapsayıcı (ör. Docker) veya sınırlı izinlere sahip özel bir tarayıcı profili olabilir. Docker kullanarak sanal alan kurulumuyla ilgili rehberlik için [GitHub referans uygulamasını](https://github.com/google/computer-use-preview/) inceleyin.
+3. **Giriş temizleme:** İstenmeyen talimatlar veya istem enjeksiyonu riskini azaltmak için istemlerdeki kullanıcı tarafından oluşturulan tüm metinleri temizleyin. Bu, faydalı bir güvenlik katmanı olsa da güvenli bir yürütme ortamının yerini almaz.
+4. **İçerik koruma sınırları:** Kullanıcı girişlerini, araç girişlerini ve çıkışlarını, aracının yanıtlarını uygunluk, istem enjeksiyonu ve jailbreak tespiti açısından değerlendirmek için koruma sınırlarını ve içerik güvenliği API'lerini kullanın.
+5. **İzin verilenler ve engellenenler listeleri:** Modelin nereye gidebileceğini ve neler yapabileceğini kontrol etmek için filtreleme mekanizmalarını uygulayın. Yasaklanmış web sitelerinin engellenenler listesi iyi bir başlangıç noktasıdır. Daha kısıtlayıcı bir izin verilenler listesi ise daha da güvenlidir.
+6. **Gözlemlenebilirlik ve günlük kaydı:** Hata ayıklama, denetleme ve olaylara müdahale için ayrıntılı günlükler tutun. Müşteriniz istemleri, ekran görüntülerini, model tarafından önerilen işlemleri (`function_call`), güvenlik yanıtlarını ve sonuç olarak müşteri tarafından gerçekleştirilen tüm işlemleri günlüğe kaydetmelidir.
+7. **Ortam yönetimi:** GUI ortamının tutarlı olmasını sağlayın.
+   Beklenmedik pop-up'lar, bildirimler veya düzendeki değişiklikler modelin kafasını karıştırabilir. Mümkünse her yeni görev için bilinen ve temiz bir durumdan başlayın.
 
-## Phiên bản mô hình
+## Model sürümleri
 
-Bạn có thể sử dụng tính năng Sử dụng máy tính với các mẫu sau:
+Bilgisayar Kullanımı'nı aşağıdaki modellerle kullanabilirsiniz:
 
-- [**Gemini 3.6 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) (`gemini-3.6-flash`): Mô hình được đề xuất để sử dụng trên máy tính, có các hành động tinh giản theo ý định, hỗ trợ môi trường trình duyệt, thiết bị di động và máy tính, chính sách an toàn có thể định cấu hình và tính năng phát hiện hành vi chèn câu lệnh.
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) (`gemini-3.5-flash-lite`): Một mô hình có độ trễ thấp, tiết kiệm chi phí và hỗ trợ việc sử dụng máy tính.
-- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) (`gemini-3.5-flash`): Mô hình ổn định trước đây hỗ trợ việc sử dụng máy tính.
-- [**Bản dùng thử Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) (`gemini-3-flash-preview`): Mô hình dùng thử hỗ trợ việc sử dụng máy tính.
-- [**Gemini 2.5 (Bản dùng thử cũ)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=vi) (`gemini-2.5-computer-use-preview-10-2025`): Mô hình dùng thử cũ được tối ưu hoá để sử dụng trên máy tính dựa trên trình duyệt.
+- [**Gemini 3.6 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=tr) (`gemini-3.6-flash`): Bilgisayar kullanımı için önerilen modeldir. Amaçlarla basitleştirilmiş işlemler, tarayıcı, mobil ve masaüstü ortamları için destek, yapılandırılabilir güvenlik politikaları ve istem ekleme algılama özelliklerine sahiptir.
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=tr) (`gemini-3.5-flash-lite`): Bilgisayar kullanımını destekleyen, düşük gecikmeli ve uygun maliyetli bir modeldir.
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) (`gemini-3.5-flash`): Bilgisayar kullanımını destekleyen önceki kararlı model.
+- [**Gemini 3 Flash Önizleme**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) (`gemini-3-flash-preview`): Bilgisayar kullanımını destekleyen önizleme modeli.
+- [**Gemini 2.5 (Eski Önizleme)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=tr) (`gemini-2.5-computer-use-preview-10-2025`): Tarayıcı tabanlı bilgisayar kullanımı için optimize edilmiş eski önizleme modeli.
 
-## Bước tiếp theo
+## Sırada ne var?
 
-- Thử nghiệm với việc sử dụng máy tính trong [môi trường minh hoạ Browserbase](http://gemini.browserbase.com).
-- Hãy xem [Triển khai tham chiếu](https://github.com/google/computer-use-preview) để biết mã ví dụ.
-- Tìm hiểu về các công cụ khác của Gemini API:
-  - [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)
-  - [Neo bám vào Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)
+- [Browserbase demo ortamında](http://gemini.browserbase.com) bilgisayar kullanımını deneyin.
+- Örnek kod için [Referans uygulama](https://github.com/google/computer-use-preview) bölümünü inceleyin.
+- Diğer Gemini API araçları hakkında bilgi edinin:
+  - [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
+  - [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+Son güncelleme tarihi: 2026-07-30 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]

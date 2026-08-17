@@ -1,46 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-BR
-fetched_at: 2026-08-10T03:15:14.730417+00:00
-title: "API Batch \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=id
+fetched_at: 2026-08-17T02:32:56.554936+00:00
+title: "Batch API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# API Batch
+# Batch API
 
-A API Gemini Batch foi projetada para processar grandes volumes de solicitações de forma assíncrona com [50% do custo padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
-O tempo de resposta desejado é de 24 horas, mas na maioria dos casos, é muito mais rápido.
+Gemini Batch API dirancang untuk memproses permintaan dalam volume besar secara asinkron dengan [50% dari biaya standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+Waktu penyelesaian yang ditargetkan adalah 24 jam, tetapi dalam sebagian besar kasus, hasilnya jauh lebih cepat.
 
-Use a API Batch para tarefas em grande escala e não urgentes, como pré-processamento de dados ou execução de avaliações em que não é necessária uma resposta imediata.
+Gunakan Batch API untuk tugas berskala besar yang tidak mendesak seperti pra-pemrosesan data atau menjalankan evaluasi yang tidak memerlukan respons langsung.
 
-## Como criar um job em lote
+## Membuat tugas batch
 
-Há duas maneiras de enviar solicitações na API Batch:
+Anda memiliki dua cara untuk mengirimkan permintaan di Batch API:
 
-- **[Solicitações inline](#inline-requests)**:uma lista de objetos
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest)
-  incluídos diretamente na sua solicitação de criação em lote. Isso é adequado para
-  lotes menores que mantêm o tamanho total da solicitação abaixo de 20 MB. A **saída**
-  retornada do modelo é uma lista de objetos `inlineResponse`.
-- **[Arquivo de entrada](#input-file)**:um arquivo [JSON Lines (JSONL)](https://jsonlines.org/)
-  em que cada linha contém um objeto [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest) completo.
-  Esse método é recomendado para solicitações maiores. A **saída** retornada do modelo é um arquivo JSONL em que cada linha é um `GenerateContentResponse` ou um objeto de status.
+- **[Permintaan inline](#inline-requests):** Daftar objek
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) yang
+  disertakan langsung dalam permintaan pembuatan batch Anda. Cara ini cocok untuk
+  batch yang lebih kecil yang menjaga ukuran total permintaan di bawah 20 MB. **Output**
+  yang ditampilkan dari model adalah daftar objek `inlineResponse`.
+- **[File input](#input-file):** File [JSON Lines (JSONL)](https://jsonlines.org/)
+  dengan setiap baris berisi objek
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) lengkap.
+  Metode ini direkomendasikan untuk permintaan yang lebih besar. **Output**
+  yang ditampilkan dari model adalah file JSONL dengan setiap barisnya berupa objek
+  `GenerateContentResponse` atau status.
 
-### Solicitações inline
+### Permintaan inline
 
-Para um pequeno número de solicitações, é possível incorporar diretamente os objetos
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest)
-no seu [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#request-body). O exemplo a seguir chama o método [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pt-br#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) com solicitações in-line:
+Untuk sejumlah kecil permintaan, Anda dapat menyematkan objek
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) secara langsung
+dalam [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#request-body) Anda. Contoh
+berikut memanggil
+metode [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=id#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+dengan permintaan inline:
 
 ### Python
 
@@ -142,13 +148,17 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }'
 ```
 
-### Arquivo de entrada
+### File masukan:
 
-Para conjuntos maiores de solicitações, prepare um arquivo JSON Lines (JSONL). Cada linha desse arquivo precisa ser um objeto JSON que contenha uma chave definida pelo usuário e um objeto de solicitação, em que a solicitação é um objeto [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest) válido. A chave definida pelo usuário é usada na resposta para indicar qual saída é o resultado de qual solicitação. Por exemplo, a solicitação com a chave definida como `request-1` terá a resposta anotada com o mesmo nome de chave.
+Untuk kumpulan permintaan yang lebih besar, siapkan file JSON Lines (JSONL). Setiap baris dalam
+file ini harus berupa objek JSON yang berisi kunci yang ditentukan pengguna dan objek
+permintaan, dengan permintaan adalah objek
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) yang valid. Kunci yang ditentukan pengguna digunakan dalam respons untuk menunjukkan output mana yang merupakan hasil dari permintaan mana. Misalnya, permintaan dengan kunci yang ditentukan sebagai `request-1`
+akan memiliki respons yang diberi anotasi dengan nama kunci yang sama.
 
-Esse arquivo é enviado usando a [API File](https://ai.google.dev/gemini-api/docs/files?hl=pt-br). O tamanho máximo permitido para um arquivo de entrada é de 2 GB.
+File ini diupload menggunakan [File API](https://ai.google.dev/gemini-api/docs/files?hl=id). Ukuran file input maksimum yang diizinkan adalah 2 GB.
 
-Confira abaixo um exemplo de arquivo JSONL. Salve em um arquivo chamado
+Berikut adalah contoh file JSONL. Anda dapat menyimpannya dalam file bernama
 `my-batch-requests.json`:
 
 ```
@@ -156,9 +166,12 @@ Confira abaixo um exemplo de arquivo JSONL. Salve em um arquivo chamado
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-Assim como nas solicitações in-line, é possível especificar outros parâmetros, como instruções do sistema, ferramentas ou outras configurações em cada JSON de solicitação.
+Mirip dengan permintaan inline, Anda dapat menentukan parameter lain seperti petunjuk
+sistem, alat, atau konfigurasi lain dalam setiap JSON permintaan.
 
-Faça upload desse arquivo usando a [API File](https://ai.google.dev/gemini-api/docs/files?hl=pt-br), conforme mostrado no exemplo a seguir. Se você estiver trabalhando com entrada multimodal, poderá referenciar outros arquivos enviados no arquivo JSONL.
+Anda dapat mengupload file ini menggunakan [File API](https://ai.google.dev/gemini-api/docs/files?hl=id) seperti yang ditunjukkan dalam contoh berikut. Jika
+Anda bekerja dengan input multimodal, Anda dapat mereferensikan file lain yang diupload
+dalam file JSONL Anda.
 
 ### Python
 
@@ -279,9 +292,9 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-O exemplo a seguir chama o método
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pt-br#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-com o arquivo de entrada enviado usando a API File:
+Contoh berikut memanggil metode
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=id#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+dengan file input yang diupload menggunakan File API:
 
 ### Python
 
@@ -335,21 +348,21 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }"
 ```
 
-Ao criar um job em lote, você recebe um nome de job. Use esse nome para [monitorar](#batch-job-status) o status do job e [recuperar os resultados](#retrieve-batch-results) quando ele for concluído.
+Saat membuat tugas batch, Anda akan mendapatkan nama tugas yang ditampilkan. Gunakan nama ini untuk [memantau](#batch-job-status) status tugas serta [mengambil hasilnya](#retrieve-batch-results) setelah tugas selesai.
 
-Confira abaixo um exemplo de saída que contém um nome de job:
+Berikut adalah contoh output yang berisi nama tugas:
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### Suporte para embeddings em lote
+### Dukungan penyematan batch
 
-É possível usar a API Batch para interagir com o
-[modelo de incorporações](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br) e aumentar a capacidade.
-Para criar um job em lote de embeddings com [solicitações in-line](#inline-requests)
-ou [arquivos de entrada](#input-file), use a API `batches.create_embeddings` e
-especifique o modelo de embeddings.
+Anda dapat menggunakan Batch API untuk berinteraksi dengan
+[model Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=id) untuk throughput yang lebih tinggi.
+Untuk membuat tugas batch embedding dengan [permintaan inline](#inline-requests)
+atau [file input](#input-file), gunakan `batches.create_embeddings` API dan
+tentukan model embedding.
 
 ### Python
 
@@ -397,13 +410,13 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-Leia a seção "Embeddings" no [livro de receitas da API em lote](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb) para ver mais exemplos.
+Baca bagian Embeddings di [Batch API cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
+untuk contoh lainnya.
 
-### Configuração das solicitações
+### Konfigurasi permintaan
 
-É possível incluir qualquer configuração de solicitação que você usaria em uma solicitação padrão sem lote. Por exemplo, você pode especificar a temperatura, instruções do sistema ou
-até mesmo transmitir outras modalidades. O exemplo a seguir mostra uma solicitação inline
-que contém uma instrução do sistema para uma das solicitações:
+Anda dapat menyertakan konfigurasi permintaan apa pun yang akan digunakan dalam permintaan non-batch standar. Misalnya, Anda dapat menentukan suhu, petunjuk sistem, atau bahkan meneruskan modalitas lain. Contoh berikut menunjukkan contoh permintaan inline
+yang berisi petunjuk sistem untuk salah satu permintaan:
 
 ### Python
 
@@ -431,8 +444,7 @@ inlineRequestsList = [
 ]
 ```
 
-Da mesma forma, é possível especificar as ferramentas a serem usadas em uma solicitação. O exemplo a seguir
-mostra uma solicitação que ativa a [ferramenta da Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br):
+Demikian pula, Anda dapat menentukan alat yang akan digunakan untuk permintaan. Contoh berikut menunjukkan permintaan yang mengaktifkan [alat Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id):
 
 ### Python
 
@@ -453,8 +465,8 @@ inlineRequestsList = [
 ]
 ```
 
-Também é possível especificar [saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
-O exemplo a seguir mostra como especificar para solicitações em lote.
+Anda juga dapat menentukan [output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
+Contoh berikut menunjukkan cara menentukan untuk permintaan batch Anda.
 
 ### Python
 
@@ -605,7 +617,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-Confira abaixo um exemplo da saída desse job:
+Berikut adalah contoh output tugas ini:
 
 ```
 --- Response 1 ---
@@ -701,21 +713,21 @@ Confira abaixo um exemplo da saída desse job:
 ]
 ```
 
-## Monitorar o status do job
+## Memantau status tugas
 
-Use o nome da operação obtido ao criar o job em lote para pesquisar o status dele.
-O campo "state" do job em lote indica o status atual dele. Um job em lote pode estar em um dos seguintes estados:
+Gunakan nama operasi yang diperoleh saat membuat tugas batch untuk melakukan polling statusnya.
+Kolom status tugas batch akan menunjukkan statusnya saat ini. Tugas batch
+dapat berada dalam salah satu status berikut:
 
-- `JOB_STATE_PENDING`: o job foi criado e está aguardando processamento pelo serviço.
-- `JOB_STATE_RUNNING`: o job está em andamento.
-- `JOB_STATE_SUCCEEDED`: o job foi concluído com sucesso. Agora você pode recuperar os resultados.
-- `JOB_STATE_FAILED`: o job falhou. Confira os detalhes do erro para mais informações.
-- `JOB_STATE_CANCELLED`: o job foi cancelado pelo usuário.
-- `JOB_STATE_EXPIRED`: o job expirou porque estava em execução ou pendente
-  por mais de 48 horas. O job não terá resultados para recuperar.
-  Tente enviar o job de novo ou dividir os pedidos em lotes menores.
+- `JOB_STATE_PENDING`: Tugas telah dibuat dan menunggu untuk diproses oleh layanan.
+- `JOB_STATE_RUNNING`: Tugas sedang berlangsung.
+- `JOB_STATE_SUCCEEDED`: Tugas berhasil diselesaikan. Sekarang Anda dapat mengambil hasilnya.
+- `JOB_STATE_FAILED`: Tugas gagal. Periksa detail error untuk mengetahui informasi selengkapnya.
+- `JOB_STATE_CANCELLED`: Tugas dibatalkan oleh pengguna.
+- `JOB_STATE_EXPIRED`: Tugas telah berakhir karena berjalan atau tertunda selama lebih dari 48 jam. Tugas tidak akan memiliki hasil yang akan diambil.
+  Anda dapat mencoba mengirimkan tugas lagi atau membagi permintaan menjadi beberapa batch yang lebih kecil.
 
-É possível pesquisar o status do job periodicamente para verificar se ele foi concluído.
+Anda dapat melakukan polling status tugas secara berkala untuk memeriksa penyelesaian.
 
 ### Python
 
@@ -781,13 +793,13 @@ try {
 }
 ```
 
-### Enquetes e webhooks
+### Polling dan webhook
 
-**Cansou de fazer pesquisas?** O Gemini agora oferece suporte a [Webhooks](https://ai.google.dev/gemini-api/docs/webhooks?hl=pt-br) para processar conclusões de forma assíncrona.
-Em vez de chamar `GET / operations` continuamente, inscreva-se em
-`batch.succeeded` diretamente para permitir que a API Gemini envie notificações
-em tempo real para seu servidor quando operações assíncronas ou de longa duração
-forem concluídas.
+**Bosan melakukan polling?** Gemini kini mendukung
+[Webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=id) untuk memproses penyelesaian secara asinkron.
+Daripada terus memanggil `GET / operations`, berlangganan
+`batch.succeeded` secara langsung agar Gemini API dapat mengirimkan notifikasi real-time
+ke server Anda saat operasi asinkron atau yang berjalan lama selesai.
 
 ### Python
 
@@ -839,10 +851,11 @@ curl -X POST \
   }'
 ```
 
-## Recuperando resultados
+## Mengambil hasil
 
-Quando o status do job indicar que o job em lote foi concluído, os resultados vão estar disponíveis no campo `response`.
-Por padrão, os resultados de jobs em lote são armazenados e ficam disponíveis para download por seis semanas antes de serem excluídos permanentemente.
+Setelah status tugas menunjukkan bahwa tugas batch Anda berhasil, hasilnya akan tersedia di kolom `response`.
+Secara default, hasil tugas batch disimpan dan tersedia untuk didownload selama 6 minggu,
+sebelum dihapus secara permanen.
 
 ### Python
 
@@ -995,9 +1008,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## Listar jobs em lote
+## Mencantumkan tugas batch
 
-Você pode listar seus jobs em lote recentes.
+Anda dapat mencantumkan tugas batch terbaru.
 
 ### Python
 
@@ -1031,9 +1044,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Como cancelar um job em lote
+## Membatalkan tugas batch
 
-É possível cancelar um job em lote em andamento usando o nome dele. Quando um job é cancelado, ele para de processar novas solicitações.
+Anda dapat membatalkan tugas batch yang sedang berlangsung menggunakan namanya. Jika dibatalkan, tugas akan berhenti memproses permintaan baru.
 
 ### Python
 
@@ -1062,11 +1075,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## Como excluir um job em lote
+## Menghapus tugas batch
 
-É possível excluir um job em lote usando o nome dele. Quando um job é
-excluído, ele para de processar novas solicitações e é removido da lista de
-jobs em lote.
+Anda dapat menghapus tugas batch yang ada menggunakan namanya. Jika dihapus, tugas akan berhenti memproses permintaan baru dan dihapus dari daftar tugas batch.
 
 ### Python
 
@@ -1090,13 +1101,14 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Gerar imagens em lote
+## Membuat gambar dalam batch
 
-Se você estiver usando o [Nano Banana do Gemini](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br) e precisar gerar muitas imagens, use a API Batch para ter [limites de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br) mais altos em troca de um tempo de resposta de até 24 horas.
+Jika Anda menggunakan [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=id) dan perlu membuat banyak gambar, Anda dapat menggunakan Batch API untuk mendapatkan [batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id) yang lebih tinggi dengan waktu penyelesaian hingga 24 jam.
 
-Você pode usar [solicitações inline](#inline-requests-images) para pequenos lotes de solicitações (menos de 20 MB) ou um [arquivo de entrada JSONL](#input-file-images) para lotes grandes (recomendado para geração de imagens):
+Anda dapat menggunakan [permintaan inline](#inline-requests-images) untuk batch kecil permintaan (di bawah 20 MB) atau
+[file input JSONL](#input-file-images) untuk batch besar (direkomendasikan untuk pembuatan gambar):
 
-### Solicitações inline de imagens
+### Permintaan gambar inline
 
 ### Python
 
@@ -1307,7 +1319,7 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-### Arquivo de entrada para imagens
+### File input untuk gambar
 
 ### Python
 
@@ -1539,41 +1551,49 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## Detalhes técnicos
+## Detail teknis
 
-- **Modelos compatíveis**:a API Batch é compatível com vários modelos do Gemini.
-  Consulte a [página "Modelos"](https://ai.google.dev/gemini-api/docs/models?hl=pt-br) para saber mais sobre a compatibilidade de cada modelo com a API Batch. As modalidades compatíveis com a API Batch são as mesmas da API interativa (ou não em lote).
-- **Preços**:o uso da API Batch custa 50% do preço padrão da API interativa para o modelo equivalente. Consulte a [página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br)
-  para mais detalhes. Consulte a [página de limites de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br#batch-mode) para mais detalhes sobre esse recurso.
-- **Objetivo de nível de serviço (SLO)**: os jobs em lote são projetados para serem concluídos
-  em um prazo de 24 horas. Muitos jobs podem ser concluídos muito mais rápido, dependendo do tamanho e da carga atual do sistema.
-- **Armazenamento em cache**:o [armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br) é compatível
-  com solicitações em lote. Reutilize o conteúdo em cache especificando o nome do recurso `cached_content` na configuração de solicitações individuais no lote.
-  Se uma solicitação no seu lote resultar em uma ocorrência em cache, você pagará as [taxas padrão de armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+- **Model yang didukung:** Batch API mendukung berbagai model Gemini.
+  Lihat [halaman Model](https://ai.google.dev/gemini-api/docs/models?hl=id) untuk mengetahui dukungan setiap model terhadap Batch API. Modalitas yang didukung untuk Batch API sama dengan yang didukung di API interaktif (atau non-batch).
+- **Harga:** Penggunaan Batch API dikenai biaya sebesar 50% dari biaya API interaktif standar untuk model yang setara. Lihat [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)
+  untuk mengetahui detailnya. Lihat [halaman batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id#batch-mode)
+  untuk mengetahui detail tentang batas kecepatan untuk fitur ini.
+- **Tujuan tingkat layanan (SLO):** Tugas batch dirancang untuk selesai
+  dalam waktu penyelesaian 24 jam. Banyak tugas dapat diselesaikan lebih cepat
+  bergantung pada ukuran dan beban sistem saat ini.
+- **Caching:** [Caching konteks](https://ai.google.dev/gemini-api/docs/caching?hl=id) didukung untuk permintaan batch. Gunakan kembali konten yang di-cache dengan menentukan nama resource `cached_content`
+  dalam konfigurasi setiap permintaan dalam batch Anda.
+  Jika permintaan dalam batch Anda menghasilkan hit cache, Anda akan membayar
+  [tarif caching konteks standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
 
-## Práticas recomendadas
+## Praktik terbaik
 
-- **Use arquivos de entrada para solicitações grandes**:para um grande número de solicitações, use sempre o método de entrada de arquivo para melhorar a capacidade de gerenciamento e evitar atingir os limites de tamanho da solicitação para a própria chamada [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pt-br#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent). O limite de tamanho de cada arquivo de entrada é de 2 GB.
-- **Tratamento de erros**:verifique o `batchStats` em busca de `failedRequestCount` depois que um
-  job for concluído. Se você estiver usando a saída de arquivo, analise cada linha para verificar se é um
-  `GenerateContentResponse` ou um objeto de status que indica um erro para essa
-  solicitação específica. Consulte o [guia de solução de problemas](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=pt-br#error-codes) para ver um conjunto completo de códigos de erro.
-- **Enviar jobs uma vez**:a criação de um job em lote não é idempotente.
-  Se você enviar a mesma solicitação de criação duas vezes, dois jobs em lote separados serão criados.
-- **Divida lotes muito grandes**:embora o tempo de resposta desejado seja de 24 horas, o tempo de processamento real pode variar de acordo com a carga do sistema e o tamanho do job.
-  Para jobs grandes, considere dividi-los em lotes menores se os resultados intermediários forem necessários antes.
+- **Gunakan file input untuk permintaan besar:** Untuk sejumlah besar permintaan,
+  selalu gunakan metode input file
+  agar lebih mudah dikelola dan untuk menghindari batas ukuran permintaan untuk panggilan
+  [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=id#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) itu sendiri. Perhatikan bahwa ada batas ukuran file 2 GB per file input.
+- **Penanganan error:** Periksa `batchStats` untuk `failedRequestCount` setelah
+  tugas selesai. Jika menggunakan output file, parsing setiap baris untuk memeriksa apakah itu
+  `GenerateContentResponse` atau objek status yang menunjukkan error untuk permintaan
+  tertentu tersebut. Lihat [panduan pemecahan masalah](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=id#error-codes) untuk mengetahui kumpulan lengkap kode error.
+- **Kirimkan tugas satu kali:** Pembuatan tugas batch tidak bersifat idempoten.
+  Jika Anda mengirim permintaan pembuatan yang sama dua kali, dua tugas batch terpisah akan dibuat.
+- **Membagi batch yang sangat besar:** Meskipun target waktu penyelesaian adalah 24 jam, waktu pemrosesan sebenarnya dapat bervariasi berdasarkan beban sistem dan ukuran tugas.
+  Untuk tugas besar, pertimbangkan untuk membaginya menjadi batch yang lebih kecil jika hasil sementara diperlukan lebih cepat.
 
-## A seguir
+## Langkah berikutnya
 
-- Confira o [notebook da API em lote](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=pt-br) para mais exemplos.
-- A camada de compatibilidade da OpenAI oferece suporte à API Batch. Leia os exemplos na página [Compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br#batch).
+- Lihat [notebook Batch API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=id)
+  untuk contoh lainnya.
+- Lapisan kompatibilitas OpenAI mendukung Batch API. Baca contoh di halaman
+  [Kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id#batch).
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-07-02 UTC.
+Terakhir diperbarui pada 2026-07-02 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-02 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-02 UTC."],[],[]]

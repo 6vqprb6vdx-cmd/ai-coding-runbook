@@ -1,41 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=es-419
-fetched_at: 2026-08-10T03:15:59.027036+00:00
-title: "An\u00e1lisis de la asistencia al cliente con Gemini y CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=id
+fetched_at: 2026-08-17T02:28:24.351398+00:00
+title: "Analisis dukungan pelanggan dengan Gemini dan CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Enviar comentarios
+Kirim masukan
 
-# Análisis de la asistencia al cliente con Gemini y CrewAI
+# Analisis dukungan pelanggan dengan Gemini dan CrewAI
 
-[CrewAI](https://docs.crewai.com/introduction) es un framework para organizar agentes de IA autónomos que colaboran para lograr objetivos complejos. Te permite definir agentes especificando roles, objetivos y antecedentes, y, luego, definir tareas para ellos.
+[CrewAI](https://docs.crewai.com/introduction) adalah framework untuk mengatur
+agen AI otonom yang berkolaborasi untuk mencapai sasaran yang kompleks. Framework ini memungkinkan Anda
+menentukan agen dengan menentukan peran, sasaran, dan latar belakang, lalu menentukan tugas
+untuk agen tersebut.
 
-En este ejemplo, se muestra cómo compilar un sistema multiagente para analizar los datos de asistencia al cliente, identificar problemas y proponer mejoras en los procesos con Gemini 3 Flash, y generar un informe que leerá el director de operaciones (COO).
+Contoh ini menunjukkan cara membuat sistem multi-agen untuk menganalisis data dukungan pelanggan guna mengidentifikasi masalah dan mengusulkan peningkatan proses menggunakan Gemini 3 Flash, yang menghasilkan laporan yang ditujukan untuk dibaca oleh Chief Operating Officer (COO).
 
-En la guía, se muestra cómo crear un "equipo" de agentes de IA que pueden realizar las siguientes tareas:
+Panduan ini akan menunjukkan cara membuat "kru" agen AI yang dapat melakukan tugas berikut:
 
-1. Recupera y analiza los datos de asistencia al cliente (simulados en este ejemplo).
-2. Identificar problemas recurrentes y cuellos de botella en los procesos
-3. Sugerir mejoras prácticas
-4. Compila los hallazgos en un informe conciso adecuado para un COO.
+1. Mengambil dan menganalisis data dukungan pelanggan (disimulasikan dalam contoh ini).
+2. Mengidentifikasi masalah berulang dan hambatan proses.
+3. Menyarankan peningkatan yang dapat ditindaklanjuti.
+4. Mengumpulkan temuan ke dalam laporan ringkas yang sesuai untuk COO.
 
-Necesitas una clave de la API de Gemini. Si aún no tienes una, puedes [obtener una en Google AI Studio](https://aistudio.google.com/apikey?hl=es-419).
+Anda memerlukan kunci Gemini API. Jika belum memilikinya, Anda bisa [mendapatkannya di
+Google AI Studio](https://aistudio.google.com/apikey?hl=id).
 
 ```
 pip install "crewai[tools]"
 ```
 
-Establece tu clave de API de Gemini como una variable de entorno llamada `GEMINI_API_KEY` y, luego, configura CrewAI para que use el modelo de Gemini.
+Tetapkan kunci Gemini API Anda sebagai variabel lingkungan bernama `GEMINI_API_KEY`, lalu konfigurasi CrewAI untuk menggunakan model Gemini.
 
 ```
 import os
@@ -50,13 +54,14 @@ gemini_llm = LLM(
 )
 ```
 
-## Define componentes
+## Menentukan komponen
 
-Crea aplicaciones de CrewAI con **Herramientas**, **Agentes**, **Tareas** y el **Equipo** en sí. En las siguientes secciones, se explica cada uno de estos componentes.
+Buat aplikasi CrewAI menggunakan **Alat**, **Agen**, **Tugas**, dan
+**Kru** itu sendiri. Bagian berikut menjelaskan setiap komponen ini.
 
-### Herramientas
+### Alat
 
-Las herramientas son capacidades que los agentes pueden usar para interactuar con el mundo exterior o realizar acciones específicas. Aquí, definirás una herramienta de marcador de posición para simular la recuperación de datos de asistencia al cliente. En una aplicación real, te conectarías a una base de datos, una API o un sistema de archivos. Para obtener más información sobre las herramientas, consulta la [guía de herramientas de CrewAI](https://docs.crewai.com/concepts/tools).
+Alat adalah kemampuan yang dapat digunakan agen untuk berinteraksi dengan dunia luar atau melakukan tindakan tertentu. Di sini, Anda menentukan alat placeholder untuk menyimulasikan pengambilan data dukungan pelanggan. Dalam aplikasi sebenarnya, Anda akan terhubung ke database, API, atau sistem file. Untuk mengetahui informasi selengkapnya tentang alat, lihat panduan alat [CrewAI](https://docs.crewai.com/concepts/tools).
 
 ```
 from crewai.tools import BaseTool
@@ -86,9 +91,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### Agentes
+### Agen
 
-Los agentes son los trabajadores individuales de IA de tu equipo. Cada agente tiene un `role`, `goal`, `backstory`, un `llm` asignado y un `tools` opcional específicos. Para obtener más información sobre los agentes, consulta la [guía de agentes de CrewAI](https://docs.crewai.com/concepts/agents).
+Agen adalah pekerja AI individual di kru Anda. Setiap agen memiliki `role`, `goal`, `backstory`, `llm` yang ditetapkan, dan `tools` opsional. Untuk mengetahui informasi selengkapnya tentang agen, lihat [panduan agen CrewAI](https://docs.crewai.com/concepts/agents).
 
 ```
 from crewai import Agent
@@ -135,9 +140,9 @@ report_writer = Agent(
 )
 ```
 
-### Tasks
+### Tugas
 
-Las tareas definen las asignaciones específicas para los agentes. Cada tarea tiene un `description`, un `expected_output` y se asigna a un `agent`. De forma predeterminada, las tareas se ejecutan de forma secuencial y se incluye el contexto de la tarea anterior. Para obtener más información sobre las tareas, consulta la [guía de tareas de CrewAI](https://docs.crewai.com/concepts/tasks).
+Tugas menentukan penugasan spesifik untuk agen. Setiap tugas memiliki `description`, `expected_output`, dan ditetapkan ke `agent`. Tugas dijalankan secara berurutan secara default dan menyertakan konteks tugas sebelumnya. Untuk mengetahui informasi selengkapnya tentang tugas, lihat [panduan tugas CrewAI](https://docs.crewai.com/concepts/tasks).
 
 ```
 from crewai import Task
@@ -196,9 +201,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Equipo de rodaje
+### Crew
 
-El `Crew` reúne a los agentes y las tareas, y define el proceso del flujo de trabajo (por ejemplo, "secuencial").
+`Crew` menggabungkan agen dan tugas, menentukan proses alur kerja (seperti "berurutan").
 
 ```
 from crewai import Crew, Process
@@ -211,9 +216,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## Ejecuta el equipo
+## Menjalankan kru
 
-Por último, inicia la ejecución del equipo con las entradas necesarias.
+Terakhir, mulai eksekusi kru dengan input yang diperlukan.
 
 ```
 # Start the crew's work
@@ -227,17 +232,19 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-Ahora se ejecutará la secuencia de comandos. El `Data Analyst` usará la herramienta, el `Process
-Optimizer` analizará los resultados y el `Report Writer` compilará el informe final, que luego se imprimirá en la consola. El parámetro de configuración `verbose=True` mostrará el proceso de pensamiento y las acciones detallados de cada agente.
+Skrip kini akan dijalankan. `Data Analyst` akan menggunakan alat, `Process
+Optimizer` akan menganalisis temuan, dan `Report Writer` akan menyusun
+laporan akhir, yang kemudian dicetak ke konsol. Setelan `verbose=True` akan menampilkan proses pemikiran dan tindakan mendetail dari setiap agen.
 
-Para obtener más información sobre CrewAI, consulta la [introducción a CrewAI](https://docs.crewai.com/introduction).
+Untuk mempelajari CrewAI lebih lanjut, lihat [CrewAI
+pengantar](https://docs.crewai.com/introduction).
 
-Enviar comentarios
+Kirim masukan
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última actualización: 2026-06-10 (UTC)
+Terakhir diperbarui pada 2026-06-10 UTC.
 
-¿Quieres brindar más información?
+Ada masukan untuk kami?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-10 (UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-10 UTC."],[],[]]

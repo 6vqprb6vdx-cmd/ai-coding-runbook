@@ -1,70 +1,71 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=ar
-fetched_at: 2026-08-10T03:14:58.675986+00:00
-title: "\u0634\u0631\u062d \u0625\u0635\u062f\u0627\u0631\u0627\u062a \u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=ja
+fetched_at: 2026-08-17T02:30:35.569433+00:00
+title: "API \u30d0\u30fc\u30b8\u30e7\u30f3\u306e\u8aac\u660e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api?hl=ar)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [API リファレンス](https://ai.google.dev/api?hl=ja)
 
-إرسال ملاحظات
+フィードバックを送信
 
-# شرح إصدارات واجهة برمجة التطبيقات
+# API バージョンの説明
 
-تقدّم هذه المستندات نظرة عامة عالية المستوى على الاختلافات بين الإصدارَين `v1`
-و `v1beta` من Gemini API.
+このドキュメントでは、Gemini API の `v1`
+と `v1beta` バージョンの違いの概要について説明します。
 
-- **v1**: هو إصدار مستقر من واجهة برمجة التطبيقات. تكون الميزات في الإصدار الثابت متوافقة تمامًا طوال فترة رقم الإصدار الرئيسي. في حال إجراء أي تغييرات قد تؤدي إلى عطل، سيتم إنشاء رقم إصدار رئيسي جديد من واجهة برمجة التطبيقات وسيتم إيقاف الإصدار الحالي نهائيًا بعد فترة زمنية معقولة.
-  يمكن إضافة تغييرات متوافقة إلى واجهة برمجة التطبيقات بدون تغيير رقم الإصدار الرئيسي. تتوفّر **‫Interactions API** وميزاتها الأساسية بشكل عام في الإصدار `v1`.
-- **v1beta**: يتضمّن هذا الإصدار ميزات وإمكانات مبكرة قيد التطوير حاليًا. قد تخضع الميزات في الإصدار `v1beta` للتغييرات أثناء تحسينها استنادًا إلى الملاحظات، ولكنها تتيح لك تجربة إمكانات جديدة قبل ترقيتها إلى إصدار مستقر.
+- **v1**: API の安定版。安定版の機能は、メジャー バージョンのライフサイクル全体にわたって完全にサポートされます。互換性を破る変更がある場合は、API の新しいメジャー バージョンが作成され、既存のバージョンは妥当な期間が経過した後に非推奨になります。
+  互換性を破らない変更は、メジャー バージョンを変更せずに API に導入できます。**Interactions API** とそのコア機能は、`v1` で一般提供されています。
+- **v1beta**: このバージョンには、
+  積極的に開発されている初期の機能が含まれています。`v1beta` の機能は、フィードバックに基づいて改良されるため変更される可能性がありますが、安定版に昇格する前に新機能を試すことができます。
 
-## الإمكانات والميزات المتوافقة
+## 機能と機能のサポート
 
-يوضّح الجدول التالي مدى توفّر الإمكانات في الإصدارَين `v1` (إصدار عام)
-و `v1beta` (إصدار تجريبي). تنطبق إمكانات وأدوات واجهة برمجة التطبيقات الأساسية على كلٍّ من Interactions API و`generateContent` ما لم يتم تحديد خلاف ذلك:
+次の表に、`v1`（GA）
+と `v1beta`（ベータ版）で利用できる機能の詳細を示します。特に指定がない限り、コア API の機能とツールは Interactions API と `generateContent` の両方に適用されます。
 
-| الميزة | v1 | v1beta |
+| 機能 | v1 | v1beta |
 | --- | --- | --- |
-| **إمكانات واجهة برمجة التطبيقات الأساسية** |  |  |
-| [‫Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=ar) |  |  |
-| [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) |  |  |
-| [الناتج المنظَّم](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar) |  |  |
-| [التفكير / الاستدلال](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) |  |  |
-| [تعليمات النظام](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ar) |  |  |
-| [إخراج الصوت (إعدادات الكلام)](https://ai.google.dev/gemini-api/docs/audio?hl=ar) |  |  |
-| [مستوى الخدمة (الأولوية / المرونة)](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar) |  |  |
-| **الأدوات** |  |  |
-| [أداة تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) |  |  |
-| [الاستناد إلى "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) |  |  |
-| [الاستناد إلى "خرائط Google"](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar) |  |  |
-| [أداة سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) |  |  |
-| [أداة البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar) |  |  |
-| [أداة استخدام الكمبيوتر](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar) |  |  |
-| [أداة خوادم MCP](https://ai.google.dev/gemini-api/docs/eap/remote_mcp?hl=ar) |  |  |
-| **واجهات برمجة التطبيقات في الوقت الفعلي** |  |  |
-| [‫Live API (بروتوكولات WebSockets)](https://ai.google.dev/gemini-api/docs/live-api?hl=ar) |  |  |
-| [‫Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ar) |  |  |
-| [الرموز المميّزة المؤقتة (‫Live API)](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ar) |  |  |
-| **واجهات برمجة التطبيقات للمنصات** |  |  |
-| [‫Models API](https://ai.google.dev/gemini-api/docs/models?hl=ar) |  |  |
-| [مسار خدمة الملفات](https://ai.google.dev/gemini-api/docs/files?hl=ar) |  |  |
-| [مسار مساحات تخزين البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar) |  |  |
-| [‫Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=ar) |  |  |
-| [‫Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=ar) |  |  |
-| [تخزين السياق مؤقتًا](https://ai.google.dev/gemini-api/docs/caching?hl=ar) |  |  |
+| **コア API の機能** |  |  |
+| [Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=ja) |  |  |
+| [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja) |  |  |
+| [構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja) |  |  |
+| [思考 / 推論](https://ai.google.dev/gemini-api/docs/thinking?hl=ja) |  |  |
+| [システム指示](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ja) |  |  |
+| [音声出力（音声構成）](https://ai.google.dev/gemini-api/docs/audio?hl=ja) |  |  |
+| [サービス階層（優先度 / フレックス）](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja) |  |  |
+| **ツール** |  |  |
+| [コード実行ツール](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja) |  |  |
+| [Google 検索グラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja) |  |  |
+| [Google マップのグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja) |  |  |
+| [URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja) |  |  |
+| [ファイル検索ツール](https://ai.google.dev/gemini-api/docs/file-search?hl=ja) |  |  |
+| [コンピュータ使用ツール](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja) |  |  |
+| [MCP サーバーツール](https://ai.google.dev/gemini-api/docs/eap/remote_mcp?hl=ja) |  |  |
+| **リアルタイム API** |  |  |
+| [Live API（WebSocket）](https://ai.google.dev/gemini-api/docs/live-api?hl=ja) |  |  |
+| [Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ja) |  |  |
+| [エフェメラル トークン（Live API）](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ja) |  |  |
+| **プラットフォーム API** |  |  |
+| [Models API](https://ai.google.dev/gemini-api/docs/models?hl=ja) |  |  |
+| [Files Service Route](https://ai.google.dev/gemini-api/docs/files?hl=ja) |  |  |
+| [File Search Stores Route](https://ai.google.dev/gemini-api/docs/file-search?hl=ja) |  |  |
+| [Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=ja) |  |  |
+| [Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=ja) |  |  |
+| [コンテキスト キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja) |  |  |
 
-- - متاح
+- - サポート対象
 
-## ضبط إصدار واجهة برمجة التطبيقات في حزمة تطوير برامج (SDK)
+## SDK で API バージョンを構成する
 
-تستخدم حزم تطوير البرامج (SDK) الخاصة بـ Gemini API الإصدار `v1beta` تلقائيًا، ولكن يمكنك تحديد الإصدارات بشكلٍ صريح من خلال ضبط إصدار واجهة برمجة التطبيقات كما هو موضّح في عينة التعليمات البرمجية التالية:
+Gemini API SDK のデフォルトは `v1beta` ですが、次のコードサンプルに示すように API バージョンを設定することで、バージョンを明示的に指定できます。
 
 ### Python
 
@@ -101,7 +102,7 @@ async function main() {
 await main();
 ```
 
-### راحة
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
@@ -113,12 +114,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
   }'
 ```
 
-إرسال ملاحظات
+フィードバックを送信
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-تاريخ التعديل الأخير: 2026-07-28 (حسب التوقيت العالمي المتفَّق عليه)
+最終更新日 2026-07-28 UTC。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+ご意見をお聞かせください
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-28 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-28 UTC。"],[],[]]

@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=de
-fetched_at: 2026-08-10T03:16:12.781275+00:00
-title: "Deep Research-Vorschau \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=pt-BR
+fetched_at: 2026-08-17T02:32:37.259166+00:00
+title: "Pr\u00e9via do Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Feedback geben
+Envie comentários
 
-# Deep Research-Vorschau
+# Prévia do Deep Research
 
-Ein leistungsstarker agentischer Researcher, der für autonome, mehrstufige Untersuchungen entwickelt wurde und komplexe Informationen in umfassenden Berichten mit Quellenangaben zusammenfasst. Dieses Modell unterstützt die gemeinsame Planung, Visualisierung, MCP-Server und die Dateisuche. Es ist in zwei Versionen verfügbar: Deep Research für Geschwindigkeit und Effizienz und Deep Research Max für maximale Vollständigkeit.
+Um pesquisador agente avançado criado para investigações autônomas de várias etapas que sintetizam informações complexas em relatórios abrangentes e citados. Esse modelo oferece suporte ao planejamento colaborativo, visualização, servidores MCP e pesquisa de arquivos. Ele está disponível em duas versões: Deep Research para velocidade e eficiência e Deep Research Max para máxima abrangência.
 
-## Dokumentation
+## Documentação
 
-Besuchen Sie die Seite [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) für eine vollständige Übersicht
-über die Funktionen und Möglichkeiten.
+Acesse a página do [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) para conferir a cobertura completa
+de recursos e funcionalidades.
 
 ## deep-research-preview-04-2026
 
-| Attribut | Beschreibung |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_cardAgent-Code | **Interactions API**  `deep-research-preview-04-2026` |
-| saveUnterstützte Datentypen | **Eingabe**  Text, Bild, PDF, Audio, Video  **Ausgabe**  Text (Berichte mit Quellenangaben), Bilder |
-| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Kontextfenster für die Eingabe**  1.048.576  **Tokenausgabelimit**  65.536 |
-| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `deep-research-preview-04-2026` - Max.: `deep-research-max-preview-04-2026` |
-| calendar\_monthLetzte Aktualisierung | April 2026 |
+| id\_cardCódigo do agente | **API Interactions**  `deep-research-preview-04-2026` |
+| saveTipos de dados com suporte | **Entrada**  Texto, imagem, PDF, áudio, vídeo  **Saída**  Texto (relatórios citados), imagens |
+| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Janela de contexto de entrada**  1.048.576  **Limite de token de saída**  65.536 |
+| 123Versões | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `deep-research-preview-04-2026` - Máx.: `deep-research-max-preview-04-2026` |
+| calendar\_monthAtualização mais recente | Abril de 2026 |
 
-Feedback geben
+Envie comentários
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Zuletzt aktualisiert: 2026-04-29 (UTC).
+Última atualização 2026-04-29 UTC.
 
-Haben Sie Feedback für uns?
+Quer enviar seu feedback?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

@@ -1,40 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-CN
-fetched_at: 2026-08-10T03:24:43.556414+00:00
-title: "\u6587\u5b57\u8f6c\u8bed\u97f3\u751f\u6210 (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr
+fetched_at: 2026-08-17T02:21:23.253941+00:00
+title: "Metin okuma \u00fcretimi (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-发送反馈
+Geri bildirim gönderin
 
-# 文字转语音生成 (TTS)
+# Metin okuma üretimi (TTS)
 
-Gemini API 可以使用 Gemini 文字转语音 (TTS) 生成功能将文本输入转换为单人或多人语音。文字转语音 (TTS) 生成是*[可控](#controllable)*的，这意味着您可以使用自然语言来构建互动，并指导音频的*风格*、*口音*、*语速*和*语气*。
+Gemini API, Gemini metin okuma (TTS) oluşturma özelliklerini kullanarak metin girişini tek veya çok hoparlörlü sese dönüştürebilir.
+Metin okuma (TTS) üretimi *[kontrol edilebilir](#controllable)*. Bu sayede, etkileşimleri yapılandırmak ve sesin *stilini*, *aksanını*, *hızını* ve *tonunu* yönlendirmek için doğal dil kullanabilirsiniz.
 
-TTS 功能不同于通过 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 提供的语音生成功能，后者专为互动式非结构化音频以及多模态输入和输出而设计。虽然 Live API 在动态对话上下文中表现出色，但通过 Gemini API 实现的 TTS 专为需要精确朗读文本并对风格和声音进行精细控制的场景而量身打造，例如播客或有声读物生成。
+TTS özelliği, etkileşimli, yapılandırılmamış ses ve çok formatlı girişler ve çıkışlar için tasarlanan [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr) aracılığıyla sağlanan konuşma oluşturma özelliğinden farklıdır. Live API, dinamik sohbet bağlamlarında mükemmel performans gösterirken Gemini API aracılığıyla TTS, stil ve ses üzerinde ayrıntılı kontrolle metnin tam olarak okunmasını gerektiren senaryolar (ör. podcast veya sesli kitap oluşturma) için özel olarak tasarlanmıştır.
 
-本指南介绍了如何根据文本生成单说话者和多说话者音频。
+Bu kılavuzda, metinden tek ve çok konuşmacılı seslerin nasıl oluşturulacağı gösterilmektedir.
 
-## 准备工作
+## Başlamadan önce
 
-请务必使用具有 Gemini 文字转语音 (TTS) 功能的 Gemini 2.5 模型变体，如[支持的模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#supported-models)部分中所列。为了获得最佳效果，请考虑哪种模型最适合您的具体用例。
+[Desteklenen modeller](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr#supported-models) bölümünde belirtildiği gibi, Gemini metin okuma (TTS) özelliklerine sahip bir Gemini 2.5 model varyantı kullandığınızdan emin olun. En iyi sonuçları elde etmek için hangi modelin kullanım alanınıza en uygun olduğunu belirleyin.
 
-在开始构建之前，您可能会发现[在 AI Studio 中测试 Gemini TTS 模型](https://aistudio.google.com/generate-speech?hl=zh-cn)很有用。
+Geliştirmeye başlamadan önce [Gemini TTS modellerini AI Studio'da test etmeniz](https://aistudio.google.com/generate-speech?hl=tr) faydalı olabilir.
 
-## 单说话者 TTS
+## Tek konuşmacılı TTS
 
-如需将文本转换为单人音频，请将响应模态设置为“音频”，并传递包含语音名称的 `speech_config` 对象。您需要从预建的[输出语音](#voices)中选择一个语音名称。
+Metni tek konuşmacılı sese dönüştürmek için yanıt biçimini "ses" olarak ayarlayın ve ses adıyla birlikte bir `speech_config` nesnesi iletin.
+Önceden oluşturulmuş [çıkış sesleri](#voices) arasından bir ses adı seçmeniz gerekir.
 
-此示例将模型生成的输出音频保存到 Wave 文件中：
+Bu örnekte, modelden gelen çıkış sesi bir wave dosyasına kaydedilir:
 
 ### Python
 
@@ -135,11 +137,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-您可以使用 `interaction.output_audio` 属性检索生成的音频数据，该属性会返回上次生成的音频块。如需详细了解便捷属性，请参阅[互动概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn#convenience-properties)。
+Oluşturulan son ses bloğunu döndüren `interaction.output_audio` özelliğini kullanarak oluşturulan ses verilerini alabilirsiniz. Kolaylık özellikleriyle ilgili ayrıntılar için [Etkileşimlere genel bakış](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr#convenience-properties) başlıklı makaleyi inceleyin.
 
-## 多说话人 TTS
+## Birden fazla konuşmacı için TTS
 
-对于多扬声器音频，您需要一个 `multi_speaker_voice_config` 对象，其中每个扬声器（最多 2 个）都配置为 `speaker_voice_config`。您需要使用 [提示](#controllable)中使用的相同名称来定义每个 `speaker`：
+Birden fazla konuşmacının yer aldığı ses için her konuşmacı (en fazla 2) `speaker_voice_config` olarak yapılandırılmış bir `multi_speaker_voice_config` nesnesi gerekir.
+Her `speaker` öğesini, [istemde](#controllable) kullanılan adlarla tanımlamanız gerekir:
 
 ### Python
 
@@ -252,10 +255,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 通过提示控制说话风格
+## İstemlerle konuşma stilini kontrol etme
 
-您可以使用自然语言提示词来控制单人或多人 TTS 的风格、语气、口音和语速。
-例如，在单人提示中，您可以说：
+Hem tek hem de çok hoparlörlü TTS için doğal dil istemlerini kullanarak stil, ton, vurgu ve hızı kontrol edebilirsiniz.
+Örneğin, tek konuşmacılı bir istemde şunları söyleyebilirsiniz:
 
 ```
 Say in an spooky whisper:
@@ -263,7 +266,7 @@ Say in an spooky whisper:
 Something wicked this way comes"
 ```
 
-在多位发言者的提示中，为模型提供每位发言者的姓名和相应的转写内容。您还可以单独为每个音箱提供指导：
+Birden fazla konuşmacının yer aldığı istemlerde, her konuşmacının adını ve ilgili transkripti modele sağlayın. Ayrıca her hoparlör için ayrı ayrı rehberlik de sağlayabilirsiniz:
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -272,11 +275,11 @@ Speaker1: So... what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-不妨尝试使用与您想要传达的风格或情感相对应的[语音选项](#voices)，以进一步强调。例如，在前面的提示中，*恩克拉多斯*的气息声可能强调“疲倦”和“无聊”，而 *Puck* 的欢快语气可能与“兴奋”和“快乐”相得益彰。
+Daha da vurgulamak için, iletmek istediğiniz stile veya duyguya karşılık gelen bir [ses seçeneği](#voices) kullanmayı deneyin. Örneğin, önceki istemde *Enceladus*'un fısıltılı sesi "yorgun" ve "sıkılmış" kelimelerini vurgulayabilirken *Puck*'ın neşeli tonu "heyecanlı" ve "mutlu" kelimelerini tamamlayabilir.
 
-## 生成用于转换为音频的提示
+## Sese dönüştürmek için istem oluşturma
 
-TTS 模型仅输出音频，但您可以先使用[其他模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)生成转写内容，然后将该转写内容传递给 TTS 模型以进行朗读。
+TTS modelleri yalnızca ses çıkışı verir ancak önce transkript oluşturmak için [diğer modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr) kullanabilir, ardından bu transkripti TTS modeline aktararak yüksek sesle okutabilirsiniz.
 
 ### Python
 
@@ -336,9 +339,9 @@ const ttsInteraction = await client.interactions.create({
 await main();
 ```
 
-## 流式语音生成
+## Gerçek zamanlı konuşma üretme
 
-您可以设置 `stream: true`，以便在模型生成音频时进行流式传输。
+`stream: true` ayarını yaparak oluşturulan sesi, model tarafından oluşturulurken yayınlayabilirsiniz.
 
 ### Python
 
@@ -417,125 +420,125 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"    
   }'
 ```
 
-## 语音选项
+## Ses seçenekleri
 
-TTS 模型在 `voice_name` 字段中支持以下 30 种语音选项：
+TTS modelleri, `voice_name` alanında aşağıdaki 30 ses seçeneğini destekler:
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** - *明亮* | **Puck** - *欢快* | **Charon** - *信息丰富* |
-| **Kore** - *坚定* | **Fenrir** - *易兴奋* | **Leda** - *青春* |
-| **Orus** - *公司* | **Aoede** - *Breezy* | **Callirrhoe** - *随和* |
-| **Autonoe** - *明亮* | **Enceladus** - *气声* | **Iapetus** - *清晰* |
-| **Umbriel** - *随和* | **Algieba** - *平滑* | **Despina** - *平滑* |
-| **Erinome** - *清除* | **Algenib** -- *Gravelly* | **Rasalgethi** - *信息丰富* |
-| **Laomedeia** - *欢快* | **Achernar** - *柔和* | **Alnilam** - *坚定* |
-| **Schedar** - *偶数* | **Gacrux** - *成熟* | **Pulcherrima** - *转发* |
-| **Achird** - *友好* | **Zubenelgenubi** - *随意* | **Vindemiatrix** - *温和* |
-| **Sadachbia** - *活泼* | **Sadaltager** - *知识渊博* | **Sulafat** - *偏高* |
+| **Zephyr** -- *Parlak* | **Puck** -- *Upbeat* | **Charon** -- *Bilgilendirici* |
+| **Kore** -- *Firm* | **Fenrir** -- *Heyecanlı* | **Leda** -- *Genç* |
+| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe** -- *Sakin* |
+| **Autonoe** -- *Parlak* | **Enceladus** -- *Nefesli* | **Iapetus** -- *Temizle* |
+| **Umbriel** -- *Rahat* | **Algieba** -- *Sorunsuz* | **Despina** -- *Akıcı* |
+| **Erinome** -- *Temizle* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *Bilgilendirici* |
+| **Laomedeia** -- *Upbeat* | **Achernar** -- *Soft* | **Alnilam** -- *Firm* |
+| **Schedar** -- *Eşit* | **Gacrux** -- *Yetişkin* | **Pulcherrima** -- *Yönlendir* |
+| **Achird** -- *Dostu* | **Zubenelgenubi** -- *Basit* | **Vindemiatrix** -- *Nazik* |
+| **Sadachbia** -- *Canlı* | **Sadaltager** -- *Bilgili* | **Sulafat** -- *Warm* |
 
-您可以在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-cn) 中试听所有语音选项。
+Tüm ses seçeneklerini [AI Studio](https://aistudio.google.com/generate-speech?hl=tr)'da dinleyebilirsiniz.
 
-## 支持的语言
+## Desteklenen diller
 
-TTS 模型会自动检测输入语言。支持以下语言：
+TTS modelleri, giriş dilini otomatik olarak algılar. Desteklenen diller:
 
-| 语言 | BCP-47 代码 | 语言 | BCP-47 代码 |
+| Dil | BCP-47 Kodu | Dil | BCP-47 Kodu |
 | --- | --- | --- | --- |
-| 阿拉伯语 | ar | 菲律宾语 | fil |
-| 孟加拉语 | bn | 芬兰语 | fi |
-| 荷兰语 | nl | 加利西亚语 | gl |
-| 英语 | en | 格鲁吉亚语 | ka |
-| 法语 | fr | 希腊语 | el |
-| 德语 | de | 古吉拉特语 | gu |
-| 印地语 | hi | 海地克里奥尔语 | ht |
-| 印度尼西亚语 | id | 希伯来语 | 他 |
-| 意大利语 | it | 匈牙利语 | hu |
-| 日语 | ja | 冰岛语 | is |
-| 韩语 | ko | 爪哇语 | jv |
-| 马拉地语 | mr | 卡纳达语 | kn |
-| 波兰语 | pl | 贡根语 | kok |
-| 葡萄牙语 | pt | 老挝语 | lo |
-| 罗马尼亚语 | ro | 拉丁语 | la |
-| 俄语 | ru | 拉脱维亚语 | lv |
-| 西班牙语 | es | 立陶宛语 | lt |
-| 泰米尔语 | ta | 卢森堡语 | lb |
-| 泰卢固语 | te | 马其顿语 | mk |
-| 泰语 | th | 迈蒂利语 | mai |
-| 土耳其语 | tr | 马尔加什语 | mg |
-| 乌克兰语 | uk | 马来语 | 毫秒 |
-| 越南语 | vi | 马拉雅拉姆语 | ml |
-| 南非荷兰语 | af | 蒙古语 | mn |
-| 阿尔巴尼亚语 | sq | 尼泊尔语 | ne |
-| 阿姆哈拉语 | am | 挪威语（博克马尔语） | nb |
-| 亚美尼亚语 | hy | 挪威语（尼诺斯克语） | nn |
-| 阿塞拜疆语 | az | 奥里亚语 | 或 |
-| 巴斯克语 | eu | 普什图语 | ps |
-| 白俄罗斯语 | be | 波斯语 | fa |
-| 保加利亚语 | bg | 旁遮普语 | pa |
-| 缅甸语 | my | 塞尔维亚语 | sr |
-| 加泰罗尼亚语 | ca | 信德语 | sd |
-| 宿务语 | ceb | 僧伽罗语 | si |
-| 中文（普通话） | cmn | 斯洛伐克语 | sk |
-| 克罗地亚语 | 小时 | 斯洛文尼亚语 | sl |
-| 捷克语 | cs | 斯瓦希里语 | sw |
-| 丹麦语 | da | 瑞典语 | sv |
-| 爱沙尼亚语 | et | 乌尔都语 | ur |
+| Arapça | ar | Filipince | fil |
+| Bengalce | bn | Fince | fi |
+| Felemenkçe | nl | Galiçyaca | gl |
+| İngilizce | en | Gürcüce | ka |
+| Fransızca | fr | Greek | el |
+| Almanca | de | Güceratça | gu |
+| Hintçe | hi | Haiti Creole Dili | ht |
+| Endonezce | id | İbranice | o |
+| İtalyanca | it | Macarca | hu |
+| Japonca | ja | İzlandaca | : |
+| Korece | ko | Cava dili | jv |
+| Marathi | mr | Kannada | kn |
+| Lehçe | pl | Konkani | kok |
+| Portekizce | pt | Laoca | lo |
+| Rumence | ro | Latince | la |
+| Rusça | ru | Letonca | lv |
+| İspanyolca | es | Litvanca | lt |
+| Tamilce | ta | Luxembourgish | lb |
+| Telugu dili | te | Makedonca | mk |
+| Tayca | th | Maithili dili | mai |
+| Türkçe | tr | Malgaşça | mg |
+| Ukraynaca | uk | Malayca | ms |
+| Vietnamca | vi | Malayalamca | ml |
+| Afrikaanca | af | Moğolca | mn |
+| Arnavutça | sq | Nepalce | ne |
+| Amharca | öö | Norveççe, Bokmål | nb |
+| Ermenice | hy | Norveççe, Nynorsk | nn |
+| Azerice | az | Oriya | veya |
+| Baskça | eu | Peştuca | ps |
+| Belarusça | be | Farsça | fa |
+| Bulgarca | bg | Pencapça | pa |
+| Burmaca | my | Sırpça | sr |
+| Katalanca | ca | Sindice | sd |
+| Sabuanca | ceb | Seylanca | si |
+| Çince, Mandarin | cmn | Slovakça | sk |
+| Hırvatça | s | Slovence | sl |
+| Çekya | cs | Swahili | sw |
+| Danca | da | İsveççe | sv |
+| Estonca | et | Urduca | UR |
 
-## 支持的模型
+## Desteklenen modeller
 
-| 模型 | 一位说话者 | 多音箱 |
+| Model | Tek konuşmacı | Çok hoparlörlü |
 | --- | --- | --- |
-| [Gemini 3.1 Flash TTS 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=zh-cn) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash 预览版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=zh-cn) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro 预览版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=zh-cn) | ✔️ | ✔️ |
+| [Gemini 3.1 Flash TTS Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=tr) | ✔️ | ✔️ |
+| [Gemini 2.5 Flash Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=tr) | ✔️ | ✔️ |
+| [Gemini 2.5 Pro Önizleme TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=tr) | ✔️ | ✔️ |
 
-## 提示指南
+## İstem yazma kılavuzu
 
-**Gemini 原生音频生成文字转语音 (TTS)** 模型与传统 TTS 模型的不同之处在于，它使用的大语言模型不仅知道***要说什么，还知道怎么说***。
+**Gemini tümleşik ses üretimi Text-to-Speech (TTS)** modeli, ***ne söyleyeceğini değil, nasıl söyleyeceğini de*** bilen bir büyük dil modeli kullanarak geleneksel TTS modellerinden ayrılır.
 
-您可以将高级提示视为模型要遵循的系统指令。这是一种为模型提供更多上下文并控制其性能的方法。
+Gelişmiş istemleri, modelin uyması gereken bir sistem talimatı olarak düşünebilirsiniz. Bu, modele daha fazla bağlam sunmanın ve performansı kontrol etmenin bir yoludur.
 
-若要解锁此功能，用户可以把自己想象成导演，为虚拟配音演员设置表演场景。若要精心设计提示，我们建议您考虑以下组成部分：**音频配置文件**，用于定义角色的核心身份和原型；**场景说明**，用于确定物理环境和情感“氛围”；以及**导演注释**，用于提供有关风格、口音和节奏控制的更精确的表演指导。
+Bu özelliği kullanmak için kullanıcılar kendilerini, sanal bir seslendirme sanatçısının performans sergileyeceği bir sahne hazırlayan yönetmenler olarak düşünebilir. İstem oluştururken aşağıdaki bileşenleri göz önünde bulundurmanızı öneririz: Karakterin temel kimliğini ve arketipini tanımlayan bir **Ses Profili**; fiziksel ortamı ve duygusal "havayı" belirleyen bir **Sahne Açıklaması**; stil, aksan ve tempo kontrolüyle ilgili daha hassas performans rehberliği sunan **Yönetmen Notları**.
 
-通过提供细致的指令，例如精确的地区口音、特定的副语言特征（例如气声）或语速，用户可以利用模型的上下文感知能力生成高度动态、自然且富有表现力的音频表演。为获得最佳性能，我们建议**转写（词/文稿）**和导演提示保持一致，*以便“谁在说”*与*“说了什么”*和*“怎么说的”*保持一致。
+Kullanıcılar, bölgesel aksan, belirli paralinguistik özellikler (ör. fısıltı) veya tempo gibi ayrıntılı talimatlar vererek modelin bağlam farkındalığından yararlanıp son derece dinamik, doğal ve etkileyici ses performansları oluşturabilir. En iyi performans için **Transkript** ve yönetmenlik istemlerinin uyumlu olması önerilir. *Böylece "kim söylüyor?"* sorusunun cevabı *"ne söyleniyor?"* ve *"nasıl söyleniyor?"* sorularının cevaplarıyla eşleşir.
 
-本指南旨在为您提供基本指导，并在您使用 Gemini TTS 音频生成功能开发音频体验时激发您的灵感。我们期待看到您的创作成果！
+Bu kılavuzun amacı, Gemini TTS ses üretimi kullanılarak ses deneyimleri geliştirilirken temel yönlendirme sağlamak ve fikirler üretmektir. Üreteceğiniz içerikleri merakla bekliyoruz.
 
-### 音频标签
+### Ses etiketleri
 
-标记是内嵌修饰符，例如 `[whispers]` 或 `[laughs]`，可让您对广告投放进行精细控制。您可以使用这些标记来更改转写内容中某行或某部分的语气、节奏和情感氛围。您还可以使用它们在表演中添加感叹词和其他一些非语言声音，例如 `[cough]`、`[sighs]` 或 `[gasp]`。
+Etiketler, yayını ayrıntılı bir şekilde kontrol etmenizi sağlayan `[whispers]` veya `[laughs]` gibi satır içi değiştiricilerdir. Bunları, transkriptin bir satırının veya bölümünün tonunu, hızını ve duygusal atmosferini değiştirmek için kullanabilirsiniz. Ayrıca bu sesleri kullanarak performansa ünlem ve birkaç başka sözel olmayan ses de ekleyebilirsiniz. Örneğin, `[cough]`, `[sighs]` veya `[gasp]`.
 
-我们无法提供详尽的列表来列出哪些标记有效，哪些标记无效，建议您尝试使用不同的情绪和表达方式，看看输出结果会发生怎样的变化。
+Hangi etiketlerin işe yaradığına ve yaramadığına dair kapsamlı bir liste yoktur. Çıkışın nasıl değiştiğini görmek için farklı duygular ve ifadelerle denemeler yapmanızı öneririz.
 
-如果您的转写内容不是英语，为了获得最佳效果，我们建议您仍然使用英语音频标记。
+Transkriptiniz İngilizce değilse en iyi sonuçları elde etmek için yine de İngilizce ses etiketleri kullanmanızı öneririz.
 
-**巧妙运用音频标记**
+**Ses etiketleriyle yaratıcı olun**
 
-为了展示音频标记可带来的各种变化，下面提供了一组示例，这些示例都表达了相同的内容，但传递方式会根据所用的标记而变化。
+Ses etiketleriyle elde edebileceğiniz değişkenliği göstermek için, her biri aynı şeyi söyleyen ancak kullanılan etiketlere göre farklı şekilde sunulan bir dizi örnek aşağıda verilmiştir.
 
-您可以在行开头添加标记，让朗读者的语气变得兴奋、无聊或不情愿，从而改变朗读的重点：
+Bir satırın başına etiket ekleyerek konuşmacının heyecanlı, sıkılmış veya isteksiz olmasını sağlayıp konuşmanın vurgusunu değiştirebilirsiniz:
 
-- `[excitedly]` 大家好，我是一个新的文字转语音模型，可以用多种不同的方式表达内容。今天需要我做些什么？
-- `[bored]` 您好，我是一个新的文字转语音模型…
-- `[reluctantly]` 您好，我是一个新的文字转语音模型…
+- `[excitedly]` Merhaba, ben yeni bir metin okuma modeliyim ve birçok farklı şekilde konuşabilirim. Bugün size nasıl yardımcı olabilirim?
+- `[bored]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[reluctantly]` Merhaba, ben yeni bir metin okuma modeliyim…
 
-标记还可用于改变朗读速度，或将朗读速度与强调相结合：
+Etiketler, yayın hızını değiştirmek veya hızı vurguyla birleştirmek için de kullanılabilir:
 
-- `[very fast]` 您好，我是一个新的文字转语音模型…
-- `[very slow]` 您好，我是一个新的文字转语音模型…
-- `[sarcastically, one painfully slow word at a time]` 大家好，我是一个新的文字转语音模型…
+- `[very fast]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[very slow]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[sarcastically, one painfully slow word at a time]` Merhaba, ben yeni bir metin okuma modeliyim…
 
-您还可以精确控制特定部分，这意味着您可以低声细语地朗读一部分，大声朗读另一部分。
+Ayrıca belirli bölümler üzerinde hassas kontrol sahibi olursunuz. Yani bir bölümü fısıldayabilir, başka bir bölümü bağırarak söyleyebilirsiniz.
 
-- `[whispers]`大家好，我是新的文字转语音模型，`[shouting]`我可以以多种不同的方式说话。`[whispers]` 您今天需要什么帮助
+- `[whispers]` Merhaba, ben yeni bir metin okuma modeliyim `[shouting]` ve birçok farklı şekilde konuşabilirim. `[whispers]` Bugün size nasıl yardımcı olabilirim?
 
-您还可以尝试任何您想到的创意：
+Dilediğiniz reklam öğesi fikrini de deneyebilirsiniz:
 
-- `[like a cartoon dog]` 您好，我是一个新的文字转语音模型…
-- `[like dracula]` 您好，我是一个新的文字转语音模型…
+- `[like a cartoon dog]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[like dracula]` Merhaba, ben yeni bir metin okuma modeliyim…
 
-常用的标记包括：
+En çok tercih edilen etiketler şunlardır:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -544,20 +547,20 @@ TTS 模型会自动检测输入语言。支持以下语言：
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-标记可让您快速控制转写的交付。为了实现更精细的控制，您可以将它们与上下文提示相结合，以设置表演的整体基调和氛围。
+Etiketler, transkriptinizin yayınlanması üzerinde hızlı kontrol sağlar. Daha da fazla kontrol için bunları, performansın genel tonunu ve atmosferini belirlemek üzere bir bağlam istemiyle birleştirebilirsiniz.
 
-### 提示结构
+### İstem yapısı
 
-一个出色的提示应包含以下要素，这些要素共同构成出色的效果：
+Güçlü bir istem, ideal olarak mükemmel bir performans oluşturmak için bir araya gelen aşağıdaki öğeleri içerir:
 
-- **音频配置文件** - 为语音建立角色，定义角色身份、原型和任何其他特征，例如年龄、背景等。
-- **场景** - 设置舞台。描述了实体环境和“氛围”。
-- **导演笔记** - 效果指南，您可以在其中细分哪些指令对虚拟人才来说是需要注意的重要事项。例如，风格、呼吸、节奏、发音和口音。
-- **示例上下文** - 为模型提供上下文起点，以便虚拟演员自然地进入您设置的场景。
-- **转写内容** - 模型将朗读的文本。为获得最佳性能，请注意转写内容的主题和写作风格应与您给出的指令相关。
-- **音频标记** - 您可以添加到转写内容中的修饰符，用于更改文本相应部分的朗读方式，例如 `[whispers]` 或 `[shouting]`。
+- **Ses Profili**: Ses için bir karakter oluşturur. Karakter kimliğini, arketipini ve yaş, geçmiş vb. diğer özellikleri tanımlar.
+- **Sahne**: Ortamı hazırlar. Hem fiziksel ortamı hem de "atmosferi" açıklar.
+- **Yönetmen Notları**: Sanal karakterinizin dikkate alması gereken talimatları ayrıntılı olarak inceleyebileceğiniz performans rehberliği. Örnek olarak stil, nefes, hız, telaffuz ve aksan verilebilir.
+- **Örnek bağlam**: Modele bağlamsal bir başlangıç noktası sağlar. Böylece sanal aktörünüz, oluşturduğunuz sahneye doğal bir şekilde girer.
+- **Transkript**: Modelin seslendireceği metin. En iyi performans için transkript konusunun ve yazım stilinin verdiğiniz talimatlarla ilişkili olması gerektiğini unutmayın.
+- **Ses etiketleri**: Metnin ilgili bölümünün nasıl okunacağını değiştirmek için transkripte ekleyebileceğiniz değiştiricilerdir (ör. `[whispers]` veya `[shouting]`).
 
-完整提示示例：
+Tam istem örneği:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -595,18 +598,18 @@ there pretending to work... stop it. Seriously, I see you. Turn this up!
 We've got the project roadmap landing in three, two... let's go!
 ```
 
-### 详细的提示策略
+### Ayrıntılı istem stratejileri
 
-将提示的每个元素分解如下：
+İstemdeki her bir öğeyi aşağıdaki gibi ayrıntılandırın:
 
-#### 音频配置
+#### Ses Profili
 
-简要描述角色的性格。
+Karakterin kişiliğini kısaca açıklayın.
 
-- **名称**：为角色命名有助于将模型和紧凑的表演联系起来，在设置场景和背景时，请使用角色的名称来指代角色
-- **角色。**场景中正在扮演的角色的核心身份和原型。例如，电台 DJ、播客主播、新闻记者等。
+- **Ad.** Karakterinize ad vermek, modeli ve performansını bir araya getirmenize yardımcı olur. Sahneyi ve bağlamı ayarlarken karakterden adıyla bahsedin.
+- **Rol** Sahnedeki karakterin temel kimliği ve arketipi. Örneğin, radyo DJ'i, podcast yayıncısı, haber muhabiri vb.
 
-示例：
+Örnekler:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -618,11 +621,11 @@ We've got the project roadmap landing in three, two... let's go!
 ## "The Beauty Influencer"
 ```
 
-#### 场景
+#### Sahne
 
-设置场景的背景信息，包括地点、氛围和环境细节，以确定基调和氛围。描述角色周围发生的事情以及这些事情对角色的影响。场景为整个互动提供了环境背景，并以微妙的自然方式引导表演。
+Konum, ruh hali ve ortamla ilgili ayrıntılar da dahil olmak üzere sahnenin bağlamını belirleyin. Bu ayrıntılar, tonu ve atmosferi oluşturur. Karakterin etrafında neler olduğunu ve bunun karakteri nasıl etkilediğini açıklayın. Sahne, etkileşimin tamamı için çevresel bağlamı sağlar ve oyunculuk performansını ince ve doğal bir şekilde yönlendirir.
 
-示例：
+Örnekler:
 
 ```
 ## THE SCENE: The London Studio
@@ -641,15 +644,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### 导演备注
+#### Yönetmen notları
 
-此关键部分包含具体的性能指导。您可以跳过所有其他元素，但我们建议您添加此元素。
+Bu önemli bölümde, performansla ilgili özel yönergeler yer alır. Diğer tüm öğeleri atlayabilirsiniz ancak bu öğeyi eklemenizi öneririz.
 
-仅定义对性能至关重要的内容，并注意不要过度指定。过于严格的规则会限制模型的创造力，并可能导致效果不佳。平衡角色和场景说明与具体的表演规则。
+Yalnızca performans için önemli olanı tanımlayın ve aşırı belirtmemeye dikkat edin. Çok fazla katı kural, modellerin yaratıcılığını sınırlar ve daha kötü bir performansa yol açabilir. Rol ve sahne açıklamasını, belirli performans kurallarıyla dengeleyin.
 
-最常见的指令是**风格、语速和口音**，但模型不限于这些指令，也不要求必须提供这些指令。您可以随意添加自定义说明，以涵盖对效果至关重要的任何其他细节，并根据需要提供尽可能详细或尽可能简略的说明。
+En yaygın talimatlar **Stil, Tempo ve Vurgu**'dur ancak model bunlarla sınırlı değildir ve bunları gerektirmez. Performansınız için önemli olan ek ayrıntıları kapsayacak özel talimatlar ekleyebilir ve gerektiği kadar ayrıntılı veya az bilgi verebilirsiniz.
 
-例如：
+Örneğin:
 
 ```
 ### DIRECTOR'S NOTES
@@ -662,13 +665,13 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**样式**：
+**Stil:**
 
-设置生成的语音的语气和风格。包括欢快、活力、放松、无聊等，以指导表演。请尽可能详细地描述，并提供必要的信息：*“富有感染力的热情。听众应该感觉自己正在参与一场盛大而令人兴奋的社区活动。”*比说*“充满活力和热情”*效果更好。
+Oluşturulan konuşmanın üslubunu ve stilini belirler. Performansa yön vermek için neşeli, enerjik, rahat, sıkılmış gibi ifadeler ekleyin. Açıklayıcı olun ve gerektiği kadar ayrıntı verin: *"Bulaşıcı bir coşku. Dinleyici, büyük ve heyecan verici bir topluluk etkinliğinin parçası olduğunu hissetmeli."* ifadesi, *"enerjik ve coşkulu"* ifadesinden daha iyi sonuç veriyor.
 
-您甚至可以尝试配音行业中常用的术语，例如“声音微笑”。您可以根据需要叠加任意数量的样式特征。
+Hatta seslendirme sektöründe popüler olan "vokal gülümsemesi" gibi terimleri de deneyebilirsiniz. İstediğiniz sayıda stil özelliği ekleyebilirsiniz.
 
-示例：
+Örnekler:
 
 Simple Emotion
 
@@ -679,7 +682,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-更深入
+Daha fazla derinlik
 
 ```
 DIRECTORS NOTES
@@ -688,7 +691,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-复杂
+Karmaşık
 
 ```
 DIRECTORS NOTES
@@ -699,11 +702,12 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**Accent**：
+**Aksan:**
 
-描述所选口音。描述越具体，结果就越好。例如，使用“*英国克罗伊登的英式英语口音*”而不是“*英式口音*”。
+Seçilen aksanı açıklayın. Ne kadar ayrıntılı olursanız sonuçlar o kadar iyi olur. Örneğin, "*British English accent as heard in Croydon,
+England*" (İngiltere, Croydon'da duyulan İngiliz İngilizcesi aksanı) yerine "*British Accent*" (İngiliz aksanı) ifadesini kullanın.
 
-示例：
+Örnekler:
 
 ```
 ### DIRECTORS NOTES
@@ -719,13 +723,13 @@ Accent: Jaz is a from Brixton, London
 ...
 ```
 
-**预算花费进度**：
+**İlerleme hızı:**
 
-整个作品的总体节奏和节奏变化。
+Parça boyunca genel tempo ve tempo değişimi.
 
-示例：
+Örnekler:
 
-简单
+Basit
 
 ```
 ### DIRECTORS NOTES
@@ -734,7 +738,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-更深入
+Daha fazla derinlik
 
 ```
 ### DIRECTORS NOTES
@@ -743,7 +747,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-复杂
+Karmaşık
 
 ```
 ### DIRECTORS NOTES
@@ -752,39 +756,39 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-**快来试试吧**
+**Deneyin**
 
-不妨在 [TTS 应用](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=zh-cn)中亲自尝试一下这些示例，让 Gemini 帮你成为导演。请谨记以下提示，以获得出色的演唱效果：
+Bu örneklerden bazılarını [TTS uygulamasında](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=tr) kendiniz deneyin ve Gemini'ın sizi yönetmen koltuğuna oturtmasına izin verin. Harika vokal performansları için şu ipuçlarını aklınızda bulundurun:
 
-- 请务必确保整个提示连贯一致，因为脚本和指令是打造精彩表演的关键。
-- 您不必描述所有内容，有时给模型留出填补空白的空间有助于提高自然度。（就像一位才华横溢的演员）
-- 如果您在任何时候感到卡壳，都可以让 Gemini 帮您撰写剧本或表演。
+- İsteminizin tamamının tutarlı olmasına dikkat edin. Senaryo ve yönlendirme, harika bir performans oluşturmak için birlikte çalışır.
+- Her şeyi açıklamanız gerekmez. Bazen modelin boşlukları doldurmasına izin vermek, doğal bir sonuç elde etmenize yardımcı olur. (Tıpkı yetenekli bir oyuncu gibi)
+- Takıldığınız noktalarda Gemini'dan yardım alarak senaryonuzu veya performansınızı şekillendirebilirsiniz.
 
-## 限制
+## Sınırlamalar
 
-- TTS 模型只能接收文本输入并生成音频输出。
-- 一个 TTS 会话的[上下文窗口](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-cn)限制为 3.2 万个 token。
-- 如需了解语言支持，请参阅[语言](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#languages)部分。
-- TTS 不支持流式传输，但使用 `gemini-3.1-flash-tts-preview` 时除外。
+- TTS modelleri yalnızca metin girişleri alabilir ve ses çıkışları oluşturabilir.
+- TTS oturumunun [bağlam penceresi](https://ai.google.dev/gemini-api/docs/long-context?hl=tr) sınırı 32 bin parçadır.
+- Dil desteği için [Diller](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr#languages) bölümünü inceleyin.
+- TTS, `gemini-3.1-flash-tts-preview` kullanılırken hariç olmak üzere akışı desteklemez.
 
-使用 Gemini 3.1 Flash TTS 预览版模型生成语音时，需遵循以下限制：
+Konuşma üretimi için Gemini 3.1 Flash TTS Önizleme modeli kullanılırken özellikle aşağıdaki kısıtlamalar geçerlidir:
 
-- **语音与提示指令不一致**：模型的输出可能并不总是与所选的朗读人完全一致，导致音频听起来与预期不同。为避免出现音调不匹配的情况（例如，低沉的男声试图像年轻女孩那样说话），请确保提示的文字语气和上下文与所选发言者的个人资料自然契合。
-- **较长输出的质量**：如果生成的输出时长超过几分钟，语音质量和一致性可能会开始下降。建议您将转写内容拆分成较小的块。
-- **偶尔返回文本令牌**：模型偶尔会返回文本令牌，而不是音频令牌，导致服务器因 `500` 错误而无法处理请求。由于这种情况仅在极少数请求中随机发生，因此您应在应用中实现自动重试逻辑来处理这些情况。
-- **提示分类器错误拒绝**：模糊的提示可能无法触发语音合成分类器，导致请求被拒绝 (`PROHIBITED_CONTENT`)，或者导致模型大声朗读您的风格说明和导演注释。添加清晰的序言，指示模型合成语音，并明确标记实际语音转写内容的开始位置，从而验证提示。
+- **İstem talimatlarıyla ses tutarsızlığı:** Modelin çıktısı her zaman seçilen konuşmacıyla tam olarak eşleşmeyebilir. Bu durumda ses, beklenenden farklı duyulur. Uyumsuz tonları (ör. genç bir kız gibi konuşmaya çalışan derin bir erkek sesi) önlemek için isteminizin yazılı tonunun ve bağlamının, seçilen konuşmacının profiliyle doğal olarak uyumlu olduğundan emin olun.
+- **Daha uzun çıktıların kalitesi:** Konuşma kalitesi ve tutarlılığı, birkaç dakikadan uzun olan oluşturulan çıktılarda değişmeye başlayabilir. Transkriptlerinizi daha küçük parçalara bölmenizi öneririz.
+- **Bazen metin belirteçleri döndürülüyor:** Model bazen ses belirteçleri yerine metin belirteçleri döndürerek sunucunun isteği `500` hatasıyla reddetmesine neden oluyor. Bu durum, isteklerin çok küçük bir yüzdesinde rastgele gerçekleştiğinden bunları işlemek için uygulamanızda otomatik yeniden deneme mantığı uygulamanız gerekir.
+- **İstem sınıflandırıcısının yanlış reddetmeleri:** Belirsiz istemler, konuşma sentezi sınıflandırıcısını tetikleyemeyebilir. Bu durumda istek reddedilir (`PROHIBITED_CONTENT`) veya model, stil talimatlarınızı ve yönetmen notlarınızı yüksek sesle okur. Modele konuşma sentezleme talimatı veren net bir giriş ekleyerek ve gerçek konuşulan transkriptin başladığı yeri açıkça etiketleyerek istemlerinizi doğrulayın.
 
-## 后续步骤
+## Sırada ne var?
 
-- Gemini 的 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 提供交互式音频生成选项，您可以将其与其他模态穿插使用。
-- 如需了解如何处理音频*输入*，请参阅[音频理解](https://ai.google.dev/gemini-api/docs/audio?hl=zh-cn)指南。
+- Gemini'ın [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'si, diğer yöntemlerle birlikte kullanabileceğiniz etkileşimli ses üretme seçenekleri sunar.
+- Ses *girişleriyle* çalışma hakkında bilgi edinmek için [Ses yorumlama](https://ai.google.dev/gemini-api/docs/audio?hl=tr) rehberini inceleyin.
 
-发送反馈
+Geri bildirim gönderin
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最后更新时间 (UTC)：2026-07-30。
+Son güncelleme tarihi: 2026-07-30 UTC.
 
-需要向我们提供更多信息？
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]

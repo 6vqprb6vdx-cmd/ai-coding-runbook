@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=th
-fetched_at: 2026-08-10T03:09:22.962673+00:00
-title: "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=id
+fetched_at: 2026-08-17T02:22:42.865554+00:00
+title: "Pemahaman dokumen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-ส่งความคิดเห็น
+Kirim masukan
 
-# การทำความเข้าใจเอกสาร
+# Pemahaman dokumen
 
-โมเดล Gemini สามารถประมวลผลเอกสารในรูปแบบ PDF ได้โดยใช้วิชันซิสเต็มเพื่อทำความเข้าใจบริบทของเอกสารทั้งหมด ซึ่งมีความสามารถมากกว่าการแยกข้อความเพียงอย่างเดียว โดยช่วยให้ Gemini ทำสิ่งต่อไปนี้ได้
+Model Gemini dapat memproses dokumen dalam format PDF, menggunakan vision native untuk memahami seluruh konteks dokumen. Hal ini tidak hanya sekadar mengekstrak teks, tetapi juga memungkinkan Gemini untuk:
 
-- วิเคราะห์และตีความเนื้อหา รวมถึงข้อความ รูปภาพ ไดอะแกรม แผนภูมิ และตาราง แม้ในเอกสารขนาดยาวที่มีความยาวสูงสุด 1,000 หน้า
-- แยกข้อมูลเป็นรูปแบบเอาต์พุตที่มี[โครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)
-- สรุปและตอบคำถามโดยอิงตามองค์ประกอบทั้งที่เป็นภาพและข้อความในเอกสาร
-- ถอดเสียงเนื้อหาเอกสาร (เช่น เป็น HTML) โดยรักษารูปแบบและการจัดรูปแบบไว้เพื่อใช้ในแอปพลิเคชันปลายทาง
+- Menganalisis dan menafsirkan konten, termasuk teks, gambar, diagram, diagram, dan tabel, bahkan dalam dokumen panjang hingga 1.000 halaman.
+- Mengekstrak informasi ke dalam [format output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
+- Merangkum dan menjawab pertanyaan berdasarkan elemen visual dan tekstual dalam dokumen.
+- Mentranskripsikan konten dokumen (misalnya, ke HTML), mempertahankan tata letak dan pemformatan, untuk digunakan dalam aplikasi hilir.
 
-นอกจากนี้ คุณยังส่งเอกสารที่ไม่ใช่ PDF ในลักษณะเดียวกันได้ แต่ Gemini จะเห็นเอกสารเหล่านั้นเป็นข้อความปกติ ซึ่งจะทำให้บริบท เช่น แผนภูมิหรือการจัดรูปแบบหายไป
+Anda juga dapat meneruskan dokumen non-PDF dengan cara yang sama, tetapi Gemini akan melihatnya sebagai teks normal yang akan menghilangkan konteks seperti diagram atau pemformatan.
 
-## การส่งข้อมูล PDF แบบอินไลน์
+## Meneruskan data PDF inline
 
-คุณสามารถส่งข้อมูล PDF แบบอินไลน์ในคำขอได้ วิธีนี้เหมาะที่สุดสำหรับเอกสารขนาดเล็กหรือการประมวลผลชั่วคราวที่คุณไม่จำเป็นต้องอ้างอิงไฟล์ในคำขอที่ตามมา เราขอแนะนำให้ใช้
-[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=th#large-pdfs)
-สำหรับเอกสารขนาดใหญ่ที่คุณต้องอ้างอิงในการสนทนาไปมาเพื่อ
-ปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์
+Anda dapat meneruskan data PDF inline dalam permintaan. Cara ini paling cocok untuk dokumen yang lebih kecil atau pemrosesan sementara yang tidak memerlukan referensi file dalam permintaan berikutnya. Sebaiknya gunakan
+[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=id#large-pdfs)
+untuk dokumen yang lebih besar yang perlu Anda referensikan dalam interaksi multi-turn untuk
+meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth.
 
-ตัวอย่างต่อไปนี้แสดงวิธีส่งข้อมูล PDF แบบอินไลน์
+Contoh berikut menunjukkan cara meneruskan data PDF inline:
 
 ### Python
 
@@ -119,7 +119,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-นอกจากนี้ คุณยังอัปโหลดไฟล์ PDF ในเครื่องเพื่อประมวลผลได้ด้วย
+Anda juga dapat mengupload file PDF lokal untuk diproses:
 
 ### Python
 
@@ -221,13 +221,13 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-## การอัปโหลด PDF โดยใช้ Files API
+## Mengupload PDF menggunakan Files API
 
-เราขอแนะนำให้คุณใช้ Files API สำหรับไฟล์ขนาดใหญ่หรือเมื่อต้องการนำเอกสารไปใช้ซ้ำในคำขอหลายรายการ วิธีนี้จะช่วยปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์ด้วยการแยกการอัปโหลดไฟล์ออกจากคำขอโมเดล
+Sebaiknya gunakan Files API untuk file yang lebih besar atau jika Anda ingin menggunakan kembali dokumen di beberapa permintaan. Hal ini meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth dengan memisahkan upload file dari permintaan model.
 
-### PDF ขนาดใหญ่จาก URL
+### PDF besar dari URL
 
-ใช้ File API เพื่อลดความซับซ้อนในการอัปโหลดและประมวลผลไฟล์ PDF ขนาดใหญ่จาก URL
+Gunakan File API untuk menyederhanakan upload dan pemrosesan file PDF besar dari URL:
 
 ### Python
 
@@ -380,7 +380,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### PDF ขนาดใหญ่ที่จัดเก็บไว้ในเครื่อง
+### PDF besar yang disimpan secara lokal
 
 ### Python
 
@@ -500,9 +500,8 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-คุณสามารถตรวจสอบว่า API จัดเก็บไฟล์ที่อัปโหลดไว้เรียบร้อยแล้วและรับ
-ข้อมูลเมตาของไฟล์ได้โดยเรียกใช้ [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=th) เฉพาะ `name`
-(และ `uri` ที่เกี่ยวข้อง) เท่านั้นที่จะไม่ซ้ำกัน
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
+metadatanya dengan memanggil [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=id). Hanya `name` (dan dengan ekstensi, `uri`) yang unik.
 
 ### Python
 
@@ -557,9 +556,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## การส่ง PDF หลายไฟล์
+## Meneruskan beberapa PDF
 
-Gemini API สามารถประมวลผลเอกสาร PDF หลายไฟล์ (สูงสุด 1, 000 หน้า) ในคำขอเดียวได้ ตราบใดที่ขนาดรวมของเอกสารและพรอมต์ข้อความยังคงอยู่ในหน้าต่างบริบทของโมเดล
+Gemini API dapat memproses beberapa dokumen PDF (hingga 1.000 halaman) dalam satu permintaan, selama ukuran gabungan dokumen dan perintah teks tetap berada dalam jendela konteks model.
 
 ### Python
 
@@ -750,56 +749,57 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## รายละเอียดทางเทคนิค
+## Detail teknis
 
-Gemini รองรับไฟล์ PDF ที่มีขนาดไม่เกิน 50 MB หรือ 1,000 หน้า ขีดจำกัดนี้ใช้ได้กับทั้งข้อมูลแบบอินไลน์และการอัปโหลด Files API หน้าเอกสารแต่ละหน้าเทียบเท่ากับ 258 โทเค็น
+Gemini mendukung file PDF hingga 50 MB atau 1.000 halaman. Batas ini berlaku untuk data inline dan upload Files API. Setiap halaman dokumen setara dengan 258 token.
 
-แม้ว่าจะไม่มีขีดจำกัดที่เฉพาะเจาะจงเกี่ยวกับจำนวนพิกเซลในเอกสารนอกเหนือจาก
-หน้าต่าง[บริบท](https://ai.google.dev/gemini-api/docs/long-context?hl=th)ของโมเดล แต่ระบบจะปรับขนาดหน้าที่มีขนาดใหญ่ลงให้มีความละเอียดสูงสุด 3072 x 3072 โดยรักษาสัดส่วน
-เดิมไว้ ในขณะที่หน้าที่มีขนาดเล็กกว่าจะปรับขนาดขึ้นเป็น 768 x 768 พิกเซล ไม่มีการลดค่าใช้จ่ายสำหรับหน้าที่มีขนาดเล็กลง นอกเหนือจากแบนด์วิดท์ หรือการปรับปรุงประสิทธิภาพสำหรับหน้าที่มีความละเอียดสูงขึ้น
+Meskipun tidak ada batasan khusus untuk jumlah piksel dalam dokumen selain
+jendela [konteks model](https://ai.google.dev/gemini-api/docs/long-context?hl=id), halaman yang lebih besar akan
+diperkecil hingga resolusi maksimum 3072 x 3072 sambil mempertahankan rasio
+aspek aslinya, sedangkan halaman yang lebih kecil akan diperbesar hingga 768 x 768 piksel. Tidak ada pengurangan biaya untuk halaman dengan ukuran yang lebih rendah, selain bandwidth, atau peningkatan performa untuk halaman dengan resolusi yang lebih tinggi.
 
-### โมเดล Gemini 3
+### Model Gemini 3
 
-Gemini 3 ขอแนะนำการควบคุมแบบละเอียดในการประมวลผลวิชันซิสเต็มแบบมัลติโมดัลด้วยพารามิเตอร์ `media_resolution` ตอนนี้คุณสามารถตั้งค่าความละเอียดเป็นต่ำ ปานกลาง หรือสูงสำหรับสื่อแต่ละส่วนได้แล้ว การเพิ่มพารามิเตอร์นี้ทำให้การประมวลผลเอกสาร PDF ได้รับการอัปเดตดังนี้
+Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan vision multimodal dengan parameter `media_resolution`. Sekarang Anda dapat menetapkan resolusi ke rendah, sedang, atau tinggi per bagian media. Dengan penambahan ini, pemrosesan dokumen PDF telah diperbarui:
 
-1. **การรวมข้อความแบบเนทีฟ:** ระบบจะแยกข้อความที่ฝังแบบเนทีฟใน PDF และส่งไปยังโมเดล
-2. **การเรียกเก็บเงินและการรายงานโทเค็น:**
-   - ระบบจะ**ไม่เรียกเก็บเงิน** สำหรับโทเค็นที่มาจาก**ข้อความแบบเนทีฟ** ที่แยกออกมาใน PDF
-   - ในส่วน `usage_metadata` ของการตอบกลับ API ตอนนี้ระบบจะนับโทเค็นที่สร้างขึ้นจากการประมวลผลหน้า PDF (เป็นรูปภาพ) ภายใต้โมดัลลิตี `IMAGE` ไม่ใช่โมดัลลิตี `DOCUMENT` แยกต่างหากเหมือนในบางเวอร์ชันก่อนหน้า
+1. **Penyertaan teks native:** Teks yang disematkan secara native dalam PDF diekstrak dan diberikan ke model.
+2. **Penagihan &pelaporan token:**
+   - Anda **tidak dikenai biaya** untuk token yang berasal dari **teks native** yang diekstrak dalam PDF.
+   - Di bagian `usage_metadata` dari respons API, token yang dihasilkan dari pemrosesan halaman PDF (sebagai gambar) kini dihitung dalam modalitas `IMAGE`, bukan modalitas `DOCUMENT` terpisah seperti pada beberapa versi sebelumnya.
 
-ดูรายละเอียดเพิ่มเติมเกี่ยวกับพารามิเตอร์ความละเอียดของสื่อได้ที่
-[คู่มือความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=th)
+Untuk mengetahui detail selengkapnya tentang parameter resolusi media, lihat panduan
+[Resolusi media](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=id).
 
-### ประเภทเอกสาร
+### Jenis dokumen
 
-ในทางเทคนิคแล้ว คุณสามารถส่ง MIME ประเภทอื่นๆ สำหรับการทำความเข้าใจเอกสาร เช่น TXT, Markdown, HTML, XML ฯลฯ ได้ อย่างไรก็ตาม วิชันซิสเต็มของเอกสาร***จะเข้าใจ PDF ได้อย่างมีความหมายเท่านั้น*** ระบบจะแยกเอกสารประเภทอื่นๆ ออกมาเป็นข้อความธรรมดา และโมเดลจะไม่สามารถตีความสิ่งที่เราเห็นในการแสดงผลไฟล์เหล่านั้นได้ ข้อมูลเฉพาะของประเภทไฟล์ เช่น แผนภูมิ ไดอะแกรม แท็ก HTML การจัดรูปแบบ Markdown ฯลฯ จะหายไป
+Secara teknis, Anda dapat meneruskan jenis MIME lain untuk pemahaman dokumen, seperti TXT, Markdown, HTML, XML, dll. Namun, vision dokumen ***hanya memahami PDF secara bermakna***. Jenis lainnya akan diekstrak sebagai teks murni, dan model tidak akan dapat menafsirkan apa yang kita lihat dalam rendering file tersebut. Spesifikasi jenis file seperti diagram, diagram, tag HTML, pemformatan Markdown, dll., akan hilang.
 
-ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ ได้ที่
-[คู่มือวิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
+Untuk mempelajari metode input file lainnya, lihat panduan
+[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
 
-### แนวทางปฏิบัติแนะนำ
+### Praktik terbaik
 
-เพื่อผลลัพธ์ที่ดีที่สุด ให้ทำดังนี้
+Untuk hasil terbaik:
 
-- หมุนหน้าให้เป็นแนวที่ถูกต้องก่อนอัปโหลด
-- หลีกเลี่ยงหน้าเบลอ
-- หากใช้หน้าเดียว ให้วางพรอมต์ข้อความไว้หลังหน้า
+- Putar halaman ke orientasi yang benar sebelum mengupload.
+- Hindari halaman yang buram.
+- Jika menggunakan satu halaman, tempatkan perintah teks setelah halaman.
 
-## ขั้นตอนถัดไป
+## Langkah berikutnya
 
-ดูข้อมูลเพิ่มเติมได้จากแหล่งข้อมูลต่อไปนี้
+Untuk mempelajari lebih lanjut, lihat referensi berikut:
 
-- [กลยุทธ์การเขียนพรอมต์กับไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide): Gemini API รองรับการเขียนพรอมต์กับข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ หรือที่เรียกว่าการเขียนพรอมต์แบบหลายรูปแบบ
-- [คำแนะนำของระบบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions):
-  คำแนะนำของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตาม
-  ความต้องการและกรณีการใช้งานที่เฉพาะเจาะจงได้
+- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai multimodal prompting.
+- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
+  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan
+  kebutuhan dan kasus penggunaan tertentu.
 
-ส่งความคิดเห็น
+Kirim masukan
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Ada masukan untuk kami?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

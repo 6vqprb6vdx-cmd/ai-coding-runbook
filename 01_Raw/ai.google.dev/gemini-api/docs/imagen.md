@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=id
-fetched_at: 2026-08-10T03:16:25.113701+00:00
-title: "Membuat gambar menggunakan Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=hi
+fetched_at: 2026-08-17T02:28:02.894889+00:00
+title: "Imagen \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0915\u0947 \u0907\u092e\u0947\u091c \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Membuat gambar menggunakan Imagen
+# Imagen का इस्तेमाल करके इमेज जनरेट करना
 
-Imagen adalah model pembuatan gambar fidelitas tinggi Google, yang mampu menghasilkan gambar realistis dan berkualitas tinggi dari perintah teks. Semua gambar yang dihasilkan menyertakan watermark SynthID. Untuk mempelajari lebih lanjut varian model Imagen yang tersedia, lihat bagian [Versi model](#model-versions).
+Imagen, Google का इमेज जनरेट करने वाला एक मॉडल है. यह टेक्स्ट प्रॉम्प्ट से, असली और अच्छी क्वालिटी की इमेज जनरेट कर सकता है. जनरेट की गई सभी इमेज में SynthID वॉटरमार्क होता है. उपलब्ध Imagen मॉडल के अलग-अलग वर्शन के बारे में ज़्यादा जानने के लिए, [मॉडल के वर्शन](#model-versions) सेक्शन देखें.
 
-## Migrasi ke Nano Banana
+## Nano Banana पर माइग्रेट करना
 
-Model Imagen tidak digunakan lagi dan akan dihentikan pada 17 Agustus 2026. Sebaiknya Anda bermigrasi ke Nano Banana untuk memenuhi kebutuhan pembuatan gambar Anda.
+Imagen मॉडल अब काम नहीं करेंगे. ये 17 अगस्त, 2026 को बंद हो जाएंगे. हमारा सुझाव है कि इमेज जनरेट करने के लिए, Nano Banana पर माइग्रेट करें.
 
-Migrasi melibatkan perubahan berikut:
+माइग्रेशन में ये बदलाव शामिल हैं:
 
-- **Nama model**: Gunakan `gemini-2.5-flash-image`, bukan nama model Imagen.
-- **Metode**: Gunakan `client.models.generate_content`, bukan `client.models.generate_images`.
-- **Penanganan respons**: Nano Banana menampilkan bagian konten, yang dapat mencakup data gambar, bukan objek respons gambar tertentu.
+- **मॉडल का नाम**: Imagen मॉडल के नामों के बजाय `gemini-2.5-flash-image` का इस्तेमाल करें.
+- **तरीका**: `client.models.generate_images` के बजाय `client.models.generate_content` का इस्तेमाल करें.
+- **जवाब मैनेज करना**: Nano Banana, इमेज रिस्पॉन्स ऑब्जेक्ट के बजाय कॉन्टेंट के हिस्से दिखाता है. इनमें इमेज का डेटा भी शामिल हो सकता है.
 
-Lihat [Panduan pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id) untuk mengetahui detail dan contoh selengkapnya.
+ज़्यादा जानकारी और उदाहरणों के लिए, [इमेज जनरेट करने से जुड़ी गाइड](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) देखें.
 
-## Membuat gambar menggunakan model Imagen
+## Imagen मॉडल का इस्तेमाल करके इमेज जनरेट करना
 
-Contoh ini menunjukkan pembuatan gambar dengan [model Imagen](https://deepmind.google/technologies/imagen/?hl=id):
+इस उदाहरण में, [Imagen मॉडल](https://deepmind.google/technologies/imagen/?hl=hi) की मदद से इमेज जनरेट करने का तरीका बताया गया है:
 
 ### Python
 
@@ -87,7 +87,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -144,395 +144,364 @@ curl -X POST \
       }'
 ```
 
-![Gambar buatan AI dari robot yang memegang papan seluncur merah](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=id)
+![एआई से जनरेट की गई, लाल रंग का स्केटबोर्ड पकड़े हुए रोबोट की इमेज](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=hi)
 
-Gambar buatan AI dari robot yang memegang papan seluncur merah
+लाल रंग का स्केटबोर्ड पकड़े हुए रोबोट की एआई से जनरेट की गई इमेज
 
-### Konfigurasi Imagen
+### Imagen कॉन्फ़िगरेशन
 
-Saat ini, Imagen hanya mendukung perintah dalam bahasa Inggris dan parameter berikut:
+फ़िलहाल, Imagen सिर्फ़ अंग्रेज़ी में दिए गए प्रॉम्प्ट और इन पैरामीटर के साथ काम करता है:
 
-- `numberOfImages`: Jumlah gambar yang akan dibuat, dari 1 hingga 4 (inklusif).
-  Defaultnya adalah 4.
-- `imageSize`: Ukuran gambar yang dihasilkan. Fitur ini hanya didukung untuk model Standard dan Ultra. Nilai yang didukung adalah `1K` dan `2K`.
-  Default-nya adalah `1K`.
-- `aspectRatio`: Mengubah rasio aspek gambar yang dihasilkan. Nilai
-  yang didukung adalah `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"`, dan `"16:9"`. Defaultnya adalah
-  `"1:1"`.
-- `personGeneration`: Mengizinkan model membuat gambar orang. Nilai berikut didukung:
+- `numberOfImages`: जनरेट की जाने वाली इमेज की संख्या. यह संख्या 1 से 4 (दोनों शामिल) के बीच होनी चाहिए.
+  डिफ़ॉल्ट वैल्यू 4 होती है.
+- `imageSize`: जनरेट की गई इमेज का साइज़. यह सुविधा सिर्फ़ Standard और Ultra मॉडल के लिए उपलब्ध है. `1K` और `2K` को वैल्यू के तौर पर इस्तेमाल किया जा सकता है.
+  डिफ़ॉल्ट वैल्यू `1K` है.
+- `aspectRatio`: इससे जनरेट की गई इमेज का आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) बदल जाता है. `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"`, और `"16:9"` वैल्यू इस्तेमाल की जा सकती हैं. डिफ़ॉल्ट वैल्यू `"1:1"` है.
+- `personGeneration`: मॉडल को लोगों की इमेज जनरेट करने की अनुमति दें. इन वैल्यू का इस्तेमाल किया जा सकता है:
 
-  - `"dont_allow"`: Memblokir pembuatan gambar orang.
-  - `"allow_adult"`: Menghasilkan gambar orang dewasa, tetapi bukan anak-anak. Ini adalah
-    defaultnya.
-  - `"allow_all"`: Buat gambar yang menyertakan orang dewasa dan anak-anak.
+  - `"dont_allow"`: लोगों की इमेज जनरेट करने की सुविधा को ब्लॉक करें.
+  - `"allow_adult"`: वयस्कों की इमेज जनरेट करें, लेकिन बच्चों की नहीं. यह डिफ़ॉल्ट विकल्प है.
+  - `"allow_all"`: ऐसी इमेज जनरेट करें जिनमें वयस्क और बच्चे शामिल हों.
 
-## Panduan perintah Imagen
+## Imagen के लिए प्रॉम्प्ट के लिए गाइड
 
-Bagian panduan Imagen ini menunjukkan cara memodifikasi perintah text-to-image
-dapat menghasilkan hasil yang berbeda, beserta contoh gambar yang dapat Anda buat.
+Imagen की इस गाइड के इस सेक्शन में बताया गया है कि टेक्स्ट प्रॉम्प्ट से इमेज जनरेट करने की प्रोसेस के लिए दिए गए प्रॉम्प्ट में बदलाव करके, अलग-अलग नतीजे कैसे पाए जा सकते हैं. साथ ही, इसमें ऐसी इमेज के उदाहरण भी दिए गए हैं जिन्हें बनाया जा सकता है.
 
-### Dasar-dasar penulisan perintah
+### प्रॉम्प्ट लिखने के बारे में बुनियादी जानकारी
 
-Perintah yang baik bersifat deskriptif dan jelas, serta menggunakan kata kunci dan pengubah yang bermakna. Mulailah dengan memikirkan **subjek**, **konteks**, dan **gaya** Anda.
+एक अच्छा प्रॉम्प्ट, जानकारी देने वाला और साफ़ होता है. साथ ही, इसमें काम के कीवर्ड और मॉडिफ़ायर का इस्तेमाल किया जाता है. सबसे पहले, अपने **विषय**, **संदर्भ**, और **स्टाइल** के बारे में सोचें.
 
-![Perintah dengan subjek, konteks, dan gaya yang ditekankan](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=id)
+![विषय, संदर्भ, और स्टाइल पर ज़ोर देने वाला प्रॉम्प्ट](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=hi)
 
-Teks gambar: *Sketsa* (**gaya**) dari *gedung apartemen modern*
-(**subjek**) dikelilingi *pilar* (**konteks dan latar belakang**).
+इमेज में मौजूद टेक्स्ट: *आधुनिक अपार्टमेंट बिल्डिंग* (**विषय**) की *स्केच* (**स्टाइल**) वाली इमेज. इसके आस-पास *ऊंची-ऊंची इमारतें* (**कॉन्टेक्स्ट और बैकग्राउंड**) हैं.
 
-1. **Subjek**: Hal pertama yang harus dipikirkan dengan perintah apa pun adalah
-   *subjek*: objek, orang, hewan, atau pemandangan yang Anda inginkan gambarnya.
-2. **Konteks dan latar belakang:** Sama pentingnya adalah *latar belakang atau konteks*
-   tempat subjek akan ditempatkan. Coba tempatkan subjek di berbagai
-   latar belakang. Misalnya, studio dengan latar belakang putih, di luar ruangan, atau
-   di dalam ruangan.
-3. **Gaya:** Terakhir, tambahkan gaya gambar yang Anda inginkan. *Gaya* dapat bersifat umum
-   (lukisan, foto, sketsa) atau yang sangat spesifik (lukisan pastel, gambar arang, 3D isometrik). Anda juga dapat menggabungkan gaya.
+1. **सब्जेक्ट**: किसी भी प्रॉम्प्ट के बारे में सोचते समय, सबसे पहले *सब्जेक्ट* के बारे में सोचें. यह वह ऑब्जेक्ट, व्यक्ति, जानवर या सीनरी होती है जिसकी आपको इमेज चाहिए.
+2. **कॉन्टेक्स्ट और बैकग्राउंड:** किसी इमेज में *बैकग्राउंड या कॉन्टेक्स्ट* उतना ही ज़रूरी होता है जितना कि इमेज में मौजूद मुख्य ऑब्जेक्ट. अपने विषय को अलग-अलग बैकग्राउंड में रखकर देखें. उदाहरण के लिए, सफ़ेद बैकग्राउंड वाला स्टूडियो, आउटडोर या इंडोर एनवायरमेंट.
+3. **स्टाइल:** आखिर में, अपनी पसंद के हिसाब से इमेज का स्टाइल चुनें. *स्टाइल* सामान्य (पेंटिंग, फ़ोटोग्राफ़, स्केच) या बहुत खास (पेस्टल पेंटिंग, चारकोल ड्राइंग, आइसोमेट्रिक 3D) हो सकते हैं. आपके पास स्टाइल को एक साथ इस्तेमाल करने का विकल्प भी होता है.
 
-Setelah menulis versi pertama perintah, perbaiki perintah dengan menambahkan
-lebih banyak detail hingga Anda mendapatkan gambar yang diinginkan. Iterasi penting.
-Mulailah dengan menentukan ide inti Anda, lalu sempurnakan dan kembangkan ide inti tersebut hingga gambar yang dihasilkan mendekati visi Anda.
+प्रॉम्प्ट का पहला वर्शन लिखने के बाद, उसमें ज़्यादा जानकारी जोड़कर उसे बेहतर बनाएँ. ऐसा तब तक करें, जब तक आपको अपनी पसंद की इमेज न मिल जाए. बार-बार जांच करना ज़रूरी है.
+सबसे पहले, अपने मुख्य आइडिया के बारे में बताएं. इसके बाद, उस मुख्य आइडिया को तब तक बेहतर बनाएं और उसके बारे में ज़्यादा जानकारी दें, जब तक जनरेट की गई इमेज आपकी सोच के मुताबिक न हो जाए.
 
 |  |  |  |
 | --- | --- | --- |
-| contoh gambar fotorealistik 1   Perintah: Taman di musim semi di samping danau | gambar contoh fotorealistik 2   Perintah: Taman di musim semi di samping danau, **matahari terbenam di seberang danau, golden hour** | gambar contoh fotorealistik 3   Perintah: Taman di musim semi di samping danau, ***matahari terbenam di seberang danau, golden hour, bunga liar merah*** |
+| फ़ोटोरियलिस्टिक सैंपल इमेज 1   प्रॉम्प्ट: झील के किनारे वसंत के मौसम में एक पार्क | फ़ोटोरियलिस्टिक सैंपल इमेज 2   प्रॉम्प्ट: झील के किनारे वसंत के मौसम में एक पार्क, **झील के उस पार सूरज डूब रहा है, गोल्डन आवर** | फ़ोटोरियलिस्टिक सैंपल इमेज 3   प्रॉम्प्ट: झील के किनारे वसंत के मौसम में एक पार्क, ***झील के उस पार सूरज डूब रहा है, गोल्डन आवर, लाल रंग के जंगली फूल*** |
 
-Model Imagen dapat mengubah ide Anda menjadi gambar yang mendetail, baik perintah Anda singkat maupun panjang dan mendetail. Sempurnakan visi Anda melalui perintah berulang, tambahkan detail hingga Anda mendapatkan hasil yang sempurna.
+Imagen मॉडल, आपके आइडिया को ज़्यादा जानकारी वाली इमेज में बदल सकते हैं. इससे कोई फ़र्क़ नहीं पड़ता कि आपके प्रॉम्प्ट छोटे हैं या बड़े और ज़्यादा जानकारी वाले हैं. प्रॉम्प्ट में बार-बार बदलाव करके, अपनी सोच को बेहतर बनाएं. साथ ही, मनचाहा नतीजा मिलने तक उसमें ज़्यादा जानकारी जोड़ें.
 
 |  |  |
 | --- | --- |
-| Perintah singkat memungkinkan Anda membuat gambar dengan cepat.  Contoh perintah singkat Imagen 4   Perintah: foto close-up seorang wanita berusia 20-an, fotografi jalanan, cuplikan film, nuansa hangat oranye lembut | Dengan perintah yang lebih panjang, Anda dapat menambahkan detail spesifik dan membuat gambar.  Contoh perintah panjang Imagen 4   Perintah: foto memukau seorang wanita berusia 20-an yang menggunakan gaya fotografi jalanan. Gambar harus terlihat seperti cuplikan film dengan warna hangat oranye yang lembut. |
+| छोटे प्रॉम्प्ट से, इमेज को तुरंत जनरेट किया जा सकता है.  Imagen 4 के लिए छोटे प्रॉम्प्ट का उदाहरण   प्रॉम्प्ट: 20 साल की महिला की क्लोज़-अप फ़ोटो, स्ट्रीट फ़ोटोग्राफ़ी, मूवी स्टिल, हल्के नारंगी रंग के वॉर्म टोन | लंबे प्रॉम्प्ट में, खास जानकारी जोड़ी जा सकती है और इमेज बनाई जा सकती है.  Imagen 4 के लिए लंबे प्रॉम्प्ट का उदाहरण   प्रॉम्प्ट: 20 साल की एक महिला की ऐसी फ़ोटो जो स्ट्रीट फ़ोटोग्राफ़ी स्टाइल में ली गई हो. इमेज किसी फ़िल्म के सीन की तरह दिखनी चाहिए. इसमें हल्के नारंगी रंग की वॉर्म टोन होनी चाहिए. |
 
-Saran tambahan untuk penulisan perintah Imagen:
+Imagen के लिए प्रॉम्प्ट लिखने के बारे में अन्य सलाह:
 
-- **Gunakan bahasa deskriptif**: Gunakan kata sifat dan kata keterangan yang mendetail untuk
-  menggambarkan dengan jelas kepada Imagen.
-- **Berikan konteks**: Jika perlu, sertakan informasi latar belakang untuk membantu AI memahami.
-- **Merujuk pada artis atau gaya tertentu**: Jika Anda memiliki estetika tertentu, merujuk pada artis atau gerakan seni tertentu dapat membantu.
-- **Gunakan alat rekayasa perintah**: Pertimbangkan untuk mempelajari alat atau referensi rekayasa perintah untuk membantu Anda menyempurnakan perintah dan mendapatkan hasil yang optimal.
-- **Meningkatkan kualitas detail wajah dalam gambar pribadi dan grup Anda**: Tentukan detail wajah sebagai fokus foto (misalnya, gunakan kata "potret" dalam perintah).
+- **ज़्यादा जानकारी देने वाली भाषा का इस्तेमाल करें**: Imagen को साफ़ तौर पर जानकारी देने के लिए, विशेषण और क्रियाविशेषण का इस्तेमाल करें.
+- **संदर्भ दें**: अगर ज़रूरी हो, तो एआई को समझने में मदद करने के लिए, बैकग्राउंड की जानकारी शामिल करें.
+- **किसी खास कलाकार या स्टाइल का रेफ़रंस दें**: अगर आपके दिमाग़ में कोई खास स्टाइल है, तो किसी खास कलाकार या कला आंदोलन का रेफ़रंस देना मददगार हो सकता है.
+- **प्रॉम्प्ट इंजीनियरिंग टूल का इस्तेमाल करें**: प्रॉम्प्ट इंजीनियरिंग टूल या संसाधनों का इस्तेमाल करें. इससे आपको अपने प्रॉम्प्ट को बेहतर बनाने और सबसे अच्छे नतीजे पाने में मदद मिलेगी.
+- **अपनी और ग्रुप की इमेज में चेहरे के नैन-नक्श को बेहतर बनाना**: फ़ोटो में चेहरे के नैन-नक्श को हाइलाइट करें. उदाहरण के लिए, प्रॉम्प्ट में "पोर्ट्रेट" शब्द का इस्तेमाल करें.
 
-### Membuat teks dalam gambar
+### इमेज में टेक्स्ट जनरेट करना
 
-Model Imagen dapat menambahkan teks ke dalam gambar, sehingga membuka lebih banyak kemungkinan pembuatan gambar yang kreatif. Gunakan panduan berikut untuk mendapatkan hasil maksimal dari fitur ini:
+Imagen मॉडल, इमेज में टेक्स्ट जोड़ सकते हैं. इससे इमेज जनरेट करने के लिए, क्रिएटिविटी के नए-नए विकल्प मिलते हैं. इस सुविधा का ज़्यादा से ज़्यादा फ़ायदा पाने के लिए, यहां दिए गए दिशा-निर्देशों का पालन करें:
 
-- **Lakukan iterasi dengan percaya diri**: Anda mungkin harus membuat ulang gambar hingga Anda mendapatkan tampilan yang diinginkan. Integrasi teks Imagen masih
-  berkembang, dan terkadang beberapa upaya akan memberikan hasil terbaik.
-- **Buat teks singkat**: Batasi teks hingga 25 karakter atau kurang untuk generasi yang optimal.
-- **Beberapa frasa**: Bereksperimenlah dengan dua atau tiga frasa berbeda untuk memberikan informasi tambahan. Hindari penggunaan lebih dari tiga frasa untuk komposisi yang lebih bersih.
+- **आत्मविश्वास के साथ दोहराएं**: आपको अपनी पसंद के मुताबिक इमेज मिलने तक, उन्हें फिर से जनरेट करना पड़ सकता है. Imagen में टेक्स्ट इंटिग्रेशन की सुविधा अब भी विकसित हो रही है. इसलिए, कभी-कभी कई बार कोशिश करने पर सबसे अच्छे नतीजे मिलते हैं.
+- **इसे छोटा रखें**: बेहतर जनरेशन के लिए, टेक्स्ट को 25 वर्ण या इससे कम रखें.
+- **एक से ज़्यादा वाक्यांश**: ज़्यादा जानकारी देने के लिए, दो या तीन अलग-अलग वाक्यांशों का इस्तेमाल करें. बेहतर कंपोज़िशन के लिए, तीन से ज़्यादा वाक्यांशों का इस्तेमाल न करें.
 
-  ![Contoh teks yang dihasilkan Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=id)
+  ![Imagen 4 की मदद से जनरेट किए गए टेक्स्ट का उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=hi)
 
-  Perintah: Poster dengan teks "Summerland" dalam font tebal sebagai
-  judul, di bawah teks ini terdapat slogan "Summer never felt so good"
-- **Penempatan Panduan**: Meskipun Imagen dapat mencoba memosisikan teks sesuai arahan, terkadang ada variasi. Fitur ini terus ditingkatkan.
-- **Gaya font Inspire**: Tentukan gaya font umum untuk memengaruhi pilihan Imagen secara halus. Jangan mengandalkan replikasi font yang presisi, tetapi harapkan interpretasi kreatif.
-- **Ukuran font**: Tentukan ukuran font atau indikasi ukuran umum (misalnya, *kecil*, *sedang*, *besar*) untuk memengaruhi pembuatan ukuran font.
+  प्रॉम्प्ट: एक ऐसा पोस्टर बनाओ जिसमें "Summerland" टेक्स्ट को बोल्ड फ़ॉन्ट में टाइटल के तौर पर लिखा गया हो. इसके नीचे "Summer never felt so good" स्लोगन लिखा गया हो
+- **टेक्स्ट को सही जगह पर रखना**: Imagen, टेक्स्ट को आपकी बताई गई जगह पर रखने की कोशिश करता है. हालांकि, कभी-कभी इसमें बदलाव हो सकता है. इस सुविधा को लगातार बेहतर बनाया जा रहा है.
+- **फ़ॉन्ट स्टाइल के लिए सुझाव**: फ़ॉन्ट की कोई सामान्य स्टाइल तय करें, ताकि Imagen को फ़ॉन्ट चुनने में मदद मिल सके. फ़ॉन्ट को सटीक तरीके से दोहराने पर भरोसा न करें, बल्कि क्रिएटिव इंटरप्रेटेशन की उम्मीद रखें.
+- **फ़ॉन्ट का साइज़**: फ़ॉन्ट का साइज़ जनरेट करने के लिए, फ़ॉन्ट का साइज़ या साइज़ के बारे में सामान्य जानकारी दें. उदाहरण के लिए, *छोटा*, *मीडियम*, *बड़ा*.
 
-### Parameterisasi perintah
+### प्रॉम्प्ट पैरामीटर सेट करना
 
-Untuk mengontrol hasil output dengan lebih baik, Anda mungkin merasa terbantu dengan memparameterisasi
-input ke Imagen. Misalnya, Anda ingin pelanggan dapat membuat logo untuk bisnis mereka, dan Anda ingin memastikan logo selalu dibuat dengan latar belakang warna solid. Anda
-juga ingin membatasi opsi yang dapat dipilih klien dari menu.
+आउटपुट के नतीजों को बेहतर तरीके से कंट्रोल करने के लिए, आपको Imagen में इनपुट को पैरामीटर के तौर पर इस्तेमाल करना फ़ायदेमंद लग सकता है. उदाहरण के लिए, मान लें कि आपको अपने ग्राहकों को उनके कारोबार के लिए लोगो जनरेट करने की सुविधा देनी है. साथ ही, आपको यह पक्का करना है कि लोगो हमेशा एक ही रंग के बैकग्राउंड पर जनरेट हों. आपको यह भी तय करना है कि क्लाइंट, मेन्यू से कितने विकल्प चुन सकता है.
 
-Dalam contoh ini, Anda dapat membuat perintah berparameter yang mirip dengan
-berikut:
+इस उदाहरण में, पैरामीटर वाला ऐसा प्रॉम्प्ट बनाया जा सकता है:
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-Di antarmuka pengguna kustom Anda, pelanggan dapat memasukkan parameter menggunakan
-menu, dan nilai yang dipilihnya akan mengisi perintah yang diterima Imagen.
+कस्टम यूज़र इंटरफ़ेस में, ग्राहक मेन्यू का इस्तेमाल करके पैरामीटर डाल सकता है. इसके बाद, चुनी गई वैल्यू, Imagen को मिलने वाले प्रॉम्प्ट में अपने-आप भर जाती है.
 
-Contoh:
+उदाहरण के लिए:
 
-1. Perintah: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. प्रॉम्प्ट: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Contoh 1 parameterisasi perintah Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=id)
-2. Perintah: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Imagen 4 के प्रॉम्प्ट में पैरामीटर जोड़ने का पहला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=hi)
+2. प्रॉम्प्ट: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Contoh parameterisasi perintah Imagen 4 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=id)
-3. Perintah: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Imagen 4 के लिए प्रॉम्प्ट में पैरामीटर जोड़ने का दूसरा उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=hi)
+3. प्रॉम्प्ट: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Contoh parameterisasi perintah Imagen 4 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=id)
+   ![Imagen 4 के प्रॉम्प्ट में पैरामीटर जोड़ने का तीसरा उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=hi)
 
-### Teknik penulisan perintah lanjutan
+### प्रॉम्प्ट लिखने की ऐडवांस तकनीकें
 
-Gunakan contoh berikut untuk membuat perintah yang lebih spesifik berdasarkan atribut
-seperti deskripsi fotografi, bentuk dan bahan, gerakan seni
-historis, dan pengubah kualitas gambar.
+यहां दिए गए उदाहरणों का इस्तेमाल करके, एट्रिब्यूट के आधार पर ज़्यादा सटीक प्रॉम्प्ट बनाएँ. जैसे, फ़ोटोग्राफ़ी के बारे में जानकारी देने वाले शब्द, आकार और मटीरियल, कला के ऐतिहासिक आंदोलन, और इमेज क्वालिटी को बेहतर बनाने वाले शब्द.
 
-#### Fotografi
+#### फ़ोटोग्राफ़ी
 
-- Perintah menyertakan: *"Foto..."*
+- प्रॉम्प्ट में यह शामिल है: *"... की फ़ोटो"*
 
-Untuk menggunakan gaya ini, mulai dengan menggunakan kata kunci yang dengan jelas memberi tahu
-Imagen bahwa Anda mencari foto. Mulailah perintah Anda dengan *"Foto. . ."*. Misalnya:
+इस स्टाइल का इस्तेमाल करने के लिए, ऐसे कीवर्ड का इस्तेमाल करें जिनसे Imagen को साफ़ तौर पर पता चले कि आपको कोई फ़ोटोग्राफ़ चाहिए. अपने प्रॉम्प्ट की शुरुआत इस तरह करें
+*"इसकी फ़ोटो. . ."*. उदाहरण के लिए:
 
 |  |  |  |
 | --- | --- | --- |
-| contoh gambar fotorealistik 1   Perintah: **Foto** biji kopi di dapur pada permukaan kayu | gambar contoh fotorealistik 2   Perintah: **Foto** cokelat batangan di meja dapur | gambar contoh fotorealistik 3   Perintah: **Foto** bangunan modern dengan latar belakang air |
+| फ़ोटोरियलिस्टिक सैंपल इमेज 1   प्रॉम्प्ट: **किचन में लकड़ी की सतह पर रखी हुई** कॉफ़ी बीन्स की फ़ोटो | फ़ोटोरियलिस्टिक सैंपल इमेज 2   प्रॉम्प्ट: **किचन काउंटर पर रखी हुई** चॉकलेट बार की फ़ोटो | फ़ोटोरियलिस्टिक सैंपल इमेज 3   प्रॉम्प्ट: **पानी के बैकग्राउंड वाली** एक मॉडर्न बिल्डिंग की फ़ोटो |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
 
-##### Pengubah fotografi
+##### फ़ोटोग्राफ़ी मॉडिफ़ायर
 
-Pada contoh berikut, Anda dapat melihat beberapa pengubah dan parameter khusus fotografi. Anda dapat menggabungkan beberapa pengubah untuk kontrol yang lebih akurat.
+यहां दिए गए उदाहरणों में, फ़ोटोग्राफ़ी से जुड़े कई मॉडिफ़ायर और पैरामीटर देखे जा सकते हैं. ज़्यादा सटीक कंट्रोल के लिए, कई मॉडिफ़ायर जोड़े जा सकते हैं.
 
-1. **Kedekatan Kamera** - *Jarak dekat, diambil dari jarak jauh*
-
-   |  |  |
-   | --- | --- |
-   | gambar contoh kamera jarak dekat   Perintah: Foto **jarak dekat** biji kopi | gambar contoh kamera yang diperkecil   Perintah: Foto **diperkecil** sekantong kecil biji kopi  di dapur yang berantakan |
-2. **Posisi Kamera** - *dari atas, dari bawah*
+1. **कैमरे की प्रॉक्सिमिटी** - *क्लोज़ अप, दूर से ली गई फ़ोटो*
 
    |  |  |
    | --- | --- |
-   | gambar contoh foto dari atas   Perintah: **foto dari atas** kota dengan gedung pencakar langit | contoh gambar tampilan dari bawah   Perintah: Foto kanopi hutan dengan langit biru **dari bawah** |
-3. **Pencahayaan** - *alami, dramatis, hangat, dingin*
+   | कैमरे से ली गई क्लोज़-अप इमेज का सैंपल   प्रॉम्प्ट: कॉफ़ी बीन्स की **क्लोज़-अप** फ़ोटो | कैमरे से ली गई ज़ूम आउट की गई सैंपल इमेज   प्रॉम्प्ट: एक **ज़ूम आउट** की गई फ़ोटो, जिसमें एक छोटी थैली में  कॉफ़ी बीन्स रखे हों और वह थैली एक बिखरी हुई रसोई में रखी हो |
+2. **कैमरे की पोज़िशन** - *एरियल, नीचे से*
 
    |  |  |
    | --- | --- |
-   | gambar contoh pencahayaan alami   Perintah: foto studio kursi berlengan modern, **cahaya alami** | gambar contoh pencahayaan dramatis   Perintah: foto studio kursi berlengan modern, **cahaya dramatis** |
-4. **Setelan Kamera** *- motion blur, soft focus, bokeh, potret*
+   | एरियल फ़ोटो के सैंपल की इमेज   प्रॉम्प्ट: गगनचुंबी इमारतों वाले शहर की **एरियल फ़ोटो** | नीचे से ली गई सैंपल इमेज   प्रॉम्प्ट: नीले आसमान के साथ जंगल के कैनोपी की फ़ोटो **नीचे से ली गई हो** |
+3. **लाइटिंग** - *नैचुरल, ड्रामैटिक, गर्म, ठंडा*
 
    |  |  |
    | --- | --- |
-   | gambar contoh motion blur   Perintah: foto kota dengan gedung pencakar langit dari dalam mobil dengan **motion blur** | gambar contoh soft focus   Perintah: Foto **soft focus** jembatan di kota perkotaan pada malam hari |
-5. **Jenis lensa** - *35 mm, 50 mm, mata ikan, sudut lebar, makro*
+   | नैचुरल लाइटिंग की सैंपल इमेज   प्रॉम्प्ट: मॉडर्न आर्म चेयर की स्टूडियो फ़ोटो, **नैचुरल लाइटिंग** | ड्रामैटिक लाइटिंग की सैंपल इमेज   प्रॉम्प्ट: मॉडर्न आर्म चेयर की स्टूडियो फ़ोटो, **ड्रामैटिक लाइटिंग** |
+4. **कैमरे की सेटिंग** *- मोशन ब्लर, हल्का फ़ोकस, बोके, पोर्ट्रेट*
 
    |  |  |
    | --- | --- |
-   | gambar contoh lensa makro   Perintah: foto daun, **lensa makro** | gambar contoh lensa mata ikan   Perintah: fotografi jalanan, kota new york, **lensa mata ikan** |
-6. **Jenis film** - *hitam dan putih, polaroid*
+   | मोशन ब्लर की सैंपल इमेज   प्रॉम्प्ट: कार के अंदर से गगनचुंबी इमारतों वाले शहर की फ़ोटो, जिसमें **मोशन ब्लर** इफ़ेक्ट हो | हल्का फ़ोकस वाली सैंपल इमेज   प्रॉम्प्ट: रात में शहर के पुल की **हल्का फ़ोकस** वाली फ़ोटोग्राफ़ |
+5. **लेंस के टाइप** - *35 मि॰मी॰, 50 मि॰मी॰, फ़िशआई, वाइड ऐंगल, मैक्रो*
 
    |  |  |
    | --- | --- |
-   | gambar sampel foto polaroid   Perintah: **potret polaroid** yang memakai kacamata hitam | gambar contoh foto hitam putih   Perintah: **foto hitam putih** yang memakai kacamata hitam |
+   | मैक्रो लेंस की सैंपल इमेज   प्रॉम्प्ट: पत्ती की फ़ोटो, **मैक्रो लेंस** | फ़िशआई लेंस की सैंपल इमेज   प्रॉम्प्ट: स्ट्रीट फ़ोटोग्राफ़ी, न्यूयॉर्क सिटी, **फ़िशआई लेंस** |
+6. **फ़िल्म के टाइप** - *ब्लैक ऐंड व्हाइट, पोलरॉइड*
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+   |  |  |
+   | --- | --- |
+   | पोलरॉइड फ़ोटो के सैंपल की इमेज   प्रॉम्प्ट: धूप का चश्मा पहने हुए कुत्ते का **पोलरॉइड पोर्ट्रेट** | ब्लैक ऐंड व्हाइट फ़ोटो के सैंपल की इमेज   प्रॉम्प्ट: धूप का चश्मा पहने हुए कुत्ते की **ब्लैक ऐंड व्हाइट फ़ोटो** |
 
-### Ilustrasi dan seni
+इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
 
-- Perintah menyertakan: *"painting dari..."*, *"sketch dari..."*
+### इलस्ट्रेशन और आर्ट
 
-Gaya seni bervariasi mulai dari gaya monokrom seperti sketsa pensil, hingga seni digital
-yang sangat realistis. Misalnya, gambar berikut menggunakan perintah yang sama dengan
-gaya yang berbeda:
+- प्रॉम्प्ट में ये शामिल हैं: *"painting का*, *"A sketch of..."*
 
-*"[art style or creation technique] sedan listrik sporty bersudut dengan
-pencakar langit di latar belakang"*
+आर्ट स्टाइल, मोनोक्रोम स्टाइल (जैसे, पेंसिल स्केच) से लेकर बिलकुल असली लगने वाली डिजिटल आर्ट तक अलग-अलग होती हैं. उदाहरण के लिए, यहां दी गई इमेज में एक ही प्रॉम्प्ट का इस्तेमाल किया गया है, लेकिन स्टाइल अलग-अलग हैं:
+
+*"बैकग्राउंड में गगनचुंबी इमारतों के साथ, एंगुलर डिज़ाइन वाली स्पोर्टी इलेक्ट्रिक सेडान की [art style or creation technique]"*
 
 |  |  |  |
 | --- | --- | --- |
-| gambar contoh karya seni   Perintah: **Gambar dengan teknik pensil** dari sebuah sudut... | gambar contoh karya seni   Perintah: **Gambar arang** dari sudut... | gambar contoh karya seni   Perintah: **Gambar pensil warna** dari sudut... |
+| कला के सैंपल की इमेज   प्रॉम्प्ट: एक **टेक्निकल पेंसिल ड्रॉइंग**, जिसमें एक एंगुलर... | कला के सैंपल की इमेज   प्रॉम्प्ट: एक **चारकोल ड्रॉइंग**, जिसमें एक कोणीय... | कला के सैंपल की इमेज   प्रॉम्प्ट: एक **कलर पेंसिल से बनाई गई ड्रॉइंग** में एक कोणीय... |
 
 |  |  |  |
 | --- | --- | --- |
-| gambar contoh karya seni   Perintah: **Lukisan pastel** dari sebuah sudut... | gambar contoh karya seni   Perintah: **Seni digital** dari sudut... | gambar contoh karya seni   Perintah: **Art deco (poster)** dari sudut... |
+| कला के सैंपल की इमेज   प्रॉम्प्ट: ऐंगल वाली... की **पेस्टल पेंटिंग**... | कला के सैंपल की इमेज   प्रॉम्प्ट: ऐंगल वाली... की **डिजिटल आर्ट**... | कला के सैंपल की इमेज   प्रॉम्प्ट: एक **आर्ट डेको (पोस्टर)**, जिसमें एक कोणीय... |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 2.
+इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 2 मॉडल का इस्तेमाल किया गया है.
 
-##### Bentuk dan bahan
+##### आकृतियां और मटीरियल
 
-- Perintah mencakup: *"...terbuat dari..."*, *"...dalam bentuk..."*
+- प्रॉम्प्ट में ये शामिल हैं: *"...से बना..."*, *"...के रूप में..."*
 
-Salah satu keunggulan teknologi ini adalah Anda dapat membuat citra yang
-sulit atau tidak mungkin dilakukan. Misalnya, Anda dapat membuat ulang
-logo perusahaan dengan bahan dan tekstur yang berbeda.
+इस टेक्नोलॉजी की एक ख़ासियत यह है कि इससे ऐसी इमेज बनाई जा सकती हैं जिन्हें बनाना मुश्किल होता है या बनाया ही नहीं जा सकता. उदाहरण के लिए, अपनी कंपनी के लोगो को अलग-अलग मटीरियल और टेक्सचर में फिर से बनाया जा सकता है.
 
 |  |  |  |
 | --- | --- | --- |
-| contoh gambar bentuk dan bahan 1   Perintah: tas wol **terbuat dari** keju | contoh gambar bentuk dan bahan 2   Perintah: tabung neon **dalam bentuk** burung | contoh gambar 3 bentuk dan bahan 3   Perintah: kursi berlengan **terbuat dari kertas**, foto studio, gaya origami |
+| आकृतियों और मटीरियल के उदाहरण की पहली इमेज   प्रॉम्प्ट: पनीर **से बना** डफ़ल बैग | आकृतियों और मटीरियल के उदाहरण की दूसरी इमेज   प्रॉम्प्ट: पक्षी **के आकार** की नियॉन ट्यूब | आकृतियों और मटीरियल के तीसरे उदाहरण की इमेज   प्रॉम्प्ट: **कागज़ से बनी** आर्मचेयर, स्टूडियो फ़ोटो, ओरिगामी स्टाइल |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
 
-#### Referensi seni bersejarah
+#### कला से जुड़े ऐतिहासिक रेफ़रंस
 
-- Perintah mencakup: *"...dalam gaya..."*
+- प्रॉम्प्ट में यह शामिल है: *"...की स्टाइल में..."*
 
-Gaya tertentu telah menjadi ikon selama bertahun-tahun. Berikut adalah beberapa ide
-lukisan sejarah atau gaya seni yang dapat Anda coba.
+कुछ स्टाइल, समय के साथ आइकॉनिक बन गए हैं. यहाँ पेंटिंग या कला की कुछ ऐतिहासिक शैलियों के बारे में बताया गया है. इन्हें आज़माया जा सकता है.
 
-*"buat gambar dengan gaya [art period or movement]
-: ladang kincir angin"*
+*"[art period or movement]
+ के स्टाइल में एक इमेज जनरेट करो: पवन ऊर्जा फ़ार्म"*
 
 |  |  |  |
 | --- | --- | --- |
-| gambar contoh impresionisme   Perintah: buat gambar **dengan gaya *lukisan impresionis***: ladang kincir angin | gambar contoh renaisans   Perintah: buat gambar **dengan gaya *lukisan renaisans***: ladang kincir angin | gambar contoh seni pop   Perintah: buat gambar **dengan gaya *seni pop***: ladang kincir angin |
+| इंप्रेशनिज़्म के उदाहरण वाली इमेज   प्रॉम्प्ट: *इंप्रेशनिस्ट पेंटिंग* **की स्टाइल में** विंड फ़ार्म की एक इमेज जनरेट करो | रेनेसां दौर की इमेज का उदाहरण   प्रॉम्प्ट: **रेनेसां काल की पेंटिंग *की स्टाइल में*** विंड फ़ार्म की इमेज जनरेट करो | पॉप आर्ट की उदाहरण इमेज   प्रॉम्प्ट: **पॉप आर्ट *स्टाइल*** में एक इमेज जनरेट करो: पवन ऊर्जा फ़ार्म |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
 
-#### Pengubah kualitas gambar
+#### इमेज क्वालिटी मॉडिफ़ायर
 
-Kata kunci tertentu dapat memberi tahu model bahwa Anda mencari aset berkualitas tinggi. Contoh pengubah kualitas mencakup hal berikut:
+कुछ कीवर्ड से मॉडल को यह पता चल सकता है कि आपको अच्छी क्वालिटी वाली ऐसेट चाहिए. क्वालिटी मॉडिफ़ायर के उदाहरणों में ये शामिल हैं:
 
-- **Pengubah Umum** - *berkualitas tinggi, indah, bergaya*
-- **Foto** - *4K, HDR, Foto Studio*
-- **Seni, Ilustrasi** - *oleh profesional, mendetail*
+- **सामान्य मॉडिफ़ायर** - *बेहतरीन क्वालिटी, सुंदर, स्टाइल वाला*
+- **फ़ोटो** - *4K, एचडीआर, Studio Photo*
+- **आर्ट, इलस्ट्रेशन** - *किसी पेशेवर ने बनाया हो, पूरी जानकारी दी गई हो*
 
-Berikut adalah beberapa contoh perintah tanpa pengubah kualitas dan
-perintah yang sama dengan pengubah kualitas.
+यहां क्वालिटी मॉडिफ़ायर के बिना और क्वालिटी मॉडिफ़ायर के साथ दिए गए प्रॉम्प्ट के कुछ उदाहरण दिए गए हैं.
 
 |  |  |
 | --- | --- |
-| gambar contoh jagung tanpa pengubah   Perintah (tanpa pengubah kualitas): foto batang jagung | gambar contoh jagung dengan pengubah   Perintah (dengan pengubah kualitas): **Foto 4k HDR yang indah**   dari sebuah foto batang jagung **diambil oleh   fotografer profesional** |
+| मॉडिफ़ायर के बिना मक्का की उदाहरण इमेज   प्रॉम्प्ट (क्वालिटी मॉडिफ़ायर नहीं): मक्के के पौधे की फ़ोटो | मॉडिफ़ायर के साथ मक्के की इमेज का उदाहरण   प्रॉम्प्ट (क्वालिटी मॉडिफ़ायर के साथ): **4K एचडीआर सुंदर**   मक्के के पौधे की फ़ोटो **जो किसी   प्रोफ़ेशनल फ़ोटोग्राफ़र ने ली हो** |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
 
-#### Rasio aspek
+#### आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात)
 
-Pembuatan gambar Imagen memungkinkan Anda menetapkan lima rasio aspek gambar yang berbeda.
+Imagen की मदद से इमेज जनरेट करने की सुविधा में, इमेज के लिए पांच अलग-अलग आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) सेट किए जा सकते हैं.
 
-1. **Persegi** (1:1, default) - Foto persegi standar. Penggunaan umum untuk rasio aspek ini mencakup postingan media sosial.
-2. **Layar penuh** (4:3) - Rasio aspek ini umumnya digunakan dalam media atau film.
-   Ukuran ini juga merupakan dimensi sebagian besar TV lama (non-layar lebar) dan kamera format
-   sedang. Rasio ini menangkap lebih banyak pemandangan secara horizontal (dibandingkan dengan 1:1),
-   sehingga menjadi rasio aspek pilihan untuk fotografi.
+1. **स्क्वेयर** (1:1, डिफ़ॉल्ट) - यह एक स्टैंडर्ड स्क्वेयर फ़ोटो होती है. इस पहलू अनुपात का इस्तेमाल आम तौर पर सोशल मीडिया पोस्ट के लिए किया जाता है.
+2. **फ़ुलस्क्रीन** (4:3) - इस आसपेक्ट रेशियो का इस्तेमाल आम तौर पर मीडिया या फ़िल्म में किया जाता है.
+   यह ज़्यादातर पुराने (नॉन-वाइडस्क्रीन) टीवी और मीडियम फ़ॉर्मैट वाले कैमरों का डाइमेंशन भी है. यह 1:1 के मुकाबले, सीन को हॉरिज़ॉन्टल तौर पर ज़्यादा कैप्चर करता है. इसलिए, फ़ोटोग्राफ़ी के लिए इसे बेहतर ऐस्पेक्ट रेशियो माना जाता है.
 
    |  |  |
    | --- | --- |
-   | contoh rasio aspek   Perintah: close up jari seorang musisi sedang bermain piano, film hitam putih, vintage (rasio aspek 4:3) | contoh rasio aspek   Perintah: Foto studio profesional kentang goreng untuk restoran kelas atas, dengan gaya majalah makanan (rasio aspek 4:3) |
-3. **Layar penuh potret** (3:4) - Ini adalah rasio aspek layar penuh yang diputar 90 derajat. Hal ini memungkinkan Anda merekam lebih banyak bagian pemandangan secara vertikal dibandingkan dengan rasio aspek 1:1.
+   | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: पियानो बजाते हुए संगीतकार की उंगलियों की क्लोज़ अप इमेज, ब्लैक ऐंड व्हाइट फ़िल्म, विंटेज (4:3 आसपेक्ट रेशियो) | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: किसी फ़ूड मैगज़ीन के स्टाइल में, फ़्रेंच फ़्राइज़ की प्रोफ़ेशनल स्टूडियो फ़ोटो. यह फ़ोटो, किसी महंगे रेस्टोरेंट के लिए होनी चाहिए (4:3 आसपेक्ट रेशियो) |
+3. **पोट्रेट मोड में फ़ुल स्क्रीन** (3:4) - यह फ़ुलस्क्रीन आसपेक्ट रेशियो है, जिसे 90 डिग्री पर घुमाया गया है. इससे 1:1 आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) की तुलना में, ज़्यादा सीन को वर्टिकल तौर पर कैप्चर किया जा सकता है.
 
    |  |  |
    | --- | --- |
-   | contoh rasio aspek   Perintah: seorang wanita sedang mendaki, close-up sepatu botnya terpantul di genangan air, pegunungan besar di latar belakang, dengan gaya iklan, sudut dramatis (rasio aspek 3:4) | contoh rasio aspek   Perintah: foto dari atas sungai yang mengalir ke atas lembah mistis (rasio aspek 3:4) |
-4. **Layar lebar** (16:9) - Rasio ini telah menggantikan 4:3 dan kini menjadi rasio aspek yang paling umum untuk TV, monitor, dan layar ponsel (lanskap).
-   Gunakan rasio aspek ini jika Anda ingin mengambil lebih banyak latar belakang (misalnya, pemandangan indah).
+   | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: एक महिला हाइकिंग कर रही है. उसके जूतों की क्लोज़-अप इमेज, जूतों की परछाई पानी में दिख रही है, बैकग्राउंड में बड़े-बड़े पहाड़ हैं, विज्ञापन के स्टाइल में इमेज है, इमेज का ऐंगल शानदार है (आस्पेक्ट रेशियो 3:4) | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: एक नदी के बहने का एरियल शॉट, जो एक रहस्यमयी घाटी से ऊपर की ओर बह रही है (3:4 आसपेक्ट रेशियो) |
+4. **वाइडस्क्रीन** (16:9) - इस रेशियो ने 4:3 को बदल दिया है. अब यह टीवी, मॉनिटर, और मोबाइल फ़ोन की स्क्रीन (लैंडस्केप) के लिए सबसे आम आसपेक्ट रेशियो है.
+   इस आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) का इस्तेमाल तब करें, जब आपको बैकग्राउंड का ज़्यादा हिस्सा कैप्चर करना हो. उदाहरण के लिए, सीनरी वाले लैंडस्केप.
 
-   ![contoh rasio aspek](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=id)
+   ![आस्पेक्ट रेशियो का उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=hi)
 
-   Perintah: seorang pria yang mengenakan pakaian serba putih sedang duduk di pantai, close up, pencahayaan golden hour (rasio aspek 16:9)
-5. **Potret** (9:16) - Rasio ini adalah layar lebar yang diputar. Rasio aspek ini relatif baru dan telah dipopulerkan oleh aplikasi video pendek (misalnya, YouTube Shorts). Gunakan ini untuk objek tinggi dengan orientasi vertikal yang kuat seperti bangunan, pohon, air terjun, atau objek serupa lainnya.
+   प्रॉम्प्ट: समुद्र तट पर बैठा हुआ एक आदमी, जिसने पूरी तरह से सफ़ेद रंग के कपड़े पहने हैं. क्लोज़ अप, गोल्डन आवर की रोशनी (16:9 आसपेक्ट रेशियो)
+5. **पोर्ट्रेट** (9:16) - यह रेशियो वाइडस्क्रीन होता है, लेकिन इसे घुमाया जाता है. यह आसपेक्ट रेशियो, अपेक्षाकृत नया है. इसे कम अवधि के वीडियो वाले ऐप्लिकेशन (उदाहरण के लिए, YouTube Shorts) ने लोकप्रिय बनाया है. इसका इस्तेमाल लंबी चीज़ों के लिए करें. जैसे, इमारतें, पेड़, झरने या इस तरह की अन्य चीज़ें.
 
-   ![contoh rasio aspek](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=id)
+   ![आस्पेक्ट रेशियो का उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=hi)
 
-   Perintah: rendering digital gedung pencakar langit besar, modern,
-   megah, epik dengan latar belakang matahari terbenam yang indah (rasio aspek 9:16)
+   प्रॉम्प्ट: एक विशाल गगनचुंबी इमारत का डिजिटल रेंडर, आधुनिक, शानदार, भव्य, और बैकग्राउंड में खूबसूरत सूर्यास्त (9:16 आसपेक्ट रेशियो)
 
-#### Gambar fotorealistik
+#### असल में खींची गई फ़ोटो जैसी दिखने वाली इमेज
 
-Model pembuatan gambar
-yang berbeda mungkin menawarkan campuran output artistik dan fotorealistik. Gunakan kata-kata berikut dalam perintah untuk menghasilkan output yang lebih fotorealistik, berdasarkan subjek yang ingin Anda buat.
+इमेज जनरेट करने वाले अलग-अलग मॉडल, आर्टिस्टिक और फ़ोटोरियलिस्टिक आउटपुट का मिक्स दे सकते हैं. आपको जिस विषय पर फ़ोटो जैसा आउटपुट जनरेट करना है उसके आधार पर, प्रॉम्ट में यहाँ दिए गए शब्दों का इस्तेमाल करें.
 
-| Kasus penggunaan | Jenis lensa | Panjang fokal | Detail tambahan |
+| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
 | --- | --- | --- | --- |
-| Orang (potret) | Tanda petik, zoom | 24-35mm | film hitam putih, Film noir, Kedalaman bidang, duoton (sebutkan dua warna) |
-| Makanan, serangga, tanaman (objek, still life) | Makro | 60-105mm | Detail tinggi, fokus yang presisi, pencahayaan yang terkontrol |
-| Olahraga, satwa liar (gerakan) | Zoom telefoto | 100-400mm | Kecepatan shutter cepat, Pelacakan tindakan atau gerakan |
-| Astronomi, lanskap (sudut lebar) | Sudut lebar | 10-24mm | Waktu eksposur panjang, fokus tajam, eksposur panjang, air atau awan yang halus |
+| लोग (पोर्ट्रेट) | प्राइम, ज़ूम | 24 से 35 मि॰मी॰ | ब्लैक ऐंड व्हाइट फ़िल्म, फ़िल्म नोइर, डेप्थ ऑफ़ फ़ील्ड, ड्यूटोन (दो रंगों का ज़िक्र करें) |
+| खाना, कीड़े, पौधे (ऑब्जेक्ट, स्टिल लाइफ़) | मैक्रो | 60-105 मि॰मी॰ | ज़्यादा बारीकी से, सटीक फ़ोकस, और कंट्रोल की गई रोशनी |
+| खेल-कूद, वन्यजीव (मोशन) | टेलीफ़ोटो ज़ूम | 100-400 मि॰मी॰ | तेज़ शटर स्पीड, ऐक्शन या मूवमेंट ट्रैकिंग |
+| खगोलीय, लैंडस्केप (वाइड-ऐंगल) | वाइड-एंगल | 10-24 मि॰मी॰ | लॉन्ग एक्सपोज़र टाइम, शार्प फ़ोकस, लॉन्ग एक्सपोज़र, पानी या बादलों की स्मूद इमेज |
 
-##### Potret
+##### पोर्ट्रेट
 
-| Kasus penggunaan | Jenis lensa | Panjang fokal | Detail tambahan |
+| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
 | --- | --- | --- | --- |
-| Orang (potret) | Tanda petik, zoom | 24-35mm | film hitam putih, Film noir, Kedalaman bidang, duoton (sebutkan dua warna) |
+| लोग (पोर्ट्रेट) | प्राइम, ज़ूम | 24 से 35 मि॰मी॰ | ब्लैक ऐंड व्हाइट फ़िल्म, फ़िल्म नोइर, डेप्थ ऑफ़ फ़ील्ड, ड्यूटोन (दो रंगों का ज़िक्र करें) |
 
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat potret berikut:
+टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन पोर्ट्रेट को जनरेट कर सकता है:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi potret | contoh fotografi potret | contoh fotografi potret | contoh fotografi potret |
+| पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *Potret wanita, 35 mm, duoton biru dan abu-abu*  
-Model: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| contoh fotografi potret | contoh fotografi potret | contoh fotografi potret | contoh fotografi potret |
-
-Perintah: *Potret wanita 35 mm, film noir*  
-Model: `imagen-4.0-generate-001`
-
-##### Objek
-
-| Kasus penggunaan | Jenis lensa | Panjang fokal | Detail tambahan |
-| --- | --- | --- | --- |
-| Makanan, serangga, tanaman (objek, still life) | Makro | 60-105mm | Detail tinggi, fokus yang presisi, pencahayaan yang terkontrol |
-
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat gambar objek berikut:
+प्रॉम्प्ट: *एक महिला, 35 मि॰मी॰ पोर्ट्रेट, नीले और स्लेटी रंग के ड्यूटोन*  
+मॉडल: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi objek | contoh fotografi objek | contoh fotografi objek | contoh fotografi objek |
+| पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *daun tanaman prayer, lensa makro, 60 mm*  
-Model: `imagen-4.0-generate-001`
+प्रॉम्प्ट: *एक महिला, 35 मि॰मी॰ पोर्ट्रेट, फ़िल्म नॉयर*  
+मॉडल: `imagen-4.0-generate-001`
+
+##### ऑब्जेक्ट
+
+| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
+| --- | --- | --- | --- |
+| खाना, कीड़े, पौधे (ऑब्जेक्ट, स्टिल लाइफ़) | मैक्रो | 60-105 मि॰मी॰ | ज़्यादा बारीकी से, सटीक फ़ोकस, और कंट्रोल की गई रोशनी |
+
+टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन ऑब्जेक्ट की इमेज जनरेट कर सकता है:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi objek | contoh fotografi objek | contoh fotografi objek | contoh fotografi objek |
+| ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *sepiring pasta, lensa Makro 100 mm*  
-Model: `imagen-4.0-generate-001`
-
-##### Gerakan
-
-| Kasus penggunaan | Jenis lensa | Panjang fokal | Detail tambahan |
-| --- | --- | --- | --- |
-| Olahraga, satwa liar (gerakan) | Zoom telefoto | 100-400mm | Kecepatan shutter cepat, Pelacakan tindakan atau gerakan |
-
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat gambar bergerak berikut:
+प्रॉम्प्ट: *प्रार्थना करने वाले पौधे की पत्ती, मैक्रो लेंस, 60 मि॰मी॰*  
+मॉडल: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi motion | contoh fotografi motion | contoh fotografi motion | contoh fotografi motion |
+| ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *touchdown kemenangan, kecepatan shutter cepat, pelacakan gerakan*  
-Model: `imagen-4.0-generate-001`
+प्रॉम्प्ट: *पास्ता की एक प्लेट, 100 मि॰मी॰ मैक्रो लेंस*  
+मॉडल: `imagen-4.0-generate-001`
+
+##### मोशन
+
+| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
+| --- | --- | --- | --- |
+| खेल-कूद, वन्यजीव (मोशन) | टेलीफ़ोटो ज़ूम | 100-400 मि॰मी॰ | तेज़ शटर स्पीड, ऐक्शन या मूवमेंट ट्रैकिंग |
+
+टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन मोशन इमेज को जनरेट कर सकता है:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi motion | contoh fotografi motion | contoh fotografi motion | contoh fotografi motion |
+| मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *Seekor rusa berlari di hutan, kecepatan shutter cepat, pelacakan gerakan*  
-Model: `imagen-4.0-generate-001`
-
-##### Sudut lebar
-
-| Kasus penggunaan | Jenis lensa | Panjang fokal | Detail tambahan |
-| --- | --- | --- | --- |
-| Astronomi, lanskap (sudut lebar) | Sudut lebar | 10-24mm | Waktu eksposur panjang, fokus tajam, eksposur panjang, air atau awan yang halus |
-
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat gambar sudut lebar berikut:
+प्रॉम्प्ट: *विनिंग टचडाउन, फ़ास्ट शटर स्पीड, मूवमेंट ट्रैकिंग*  
+मॉडल: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar |
+| मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *pegunungan yang luas, lanskap sudut lebar 10 mm*  
-Model: `imagen-4.0-generate-001`
+प्रॉम्प्ट: *जंगल में दौड़ता हुआ हिरण, शटर स्पीड तेज़, मूवमेंट ट्रैकिंग*  
+मॉडल: `imagen-4.0-generate-001`
+
+##### वाइड-एंगल
+
+| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
+| --- | --- | --- | --- |
+| खगोलीय, लैंडस्केप (वाइड-ऐंगल) | वाइड-एंगल | 10-24 मि॰मी॰ | लॉन्ग एक्सपोज़र टाइम, शार्प फ़ोकस, लॉन्ग एक्सपोज़र, पानी या बादलों की स्मूद इमेज |
+
+टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन वाइड-ऐंगल इमेज को जनरेट कर सकता है:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar |
+| वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण |
 
-Perintah: *foto bulan, fotografi astro, sudut lebar 10 mm*  
-Model: `imagen-4.0-generate-001`
+प्रॉम्प्ट: *पहाड़ों की लंबी श्रृंखला, लैंडस्केप वाइड ऐंगल 10 मि॰मी॰*  
+मॉडल: `imagen-4.0-generate-001`
 
-## Versi model
+|  |  |  |  |
+| --- | --- | --- | --- |
+| वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण |
 
-### Imagen 4 (Tidak digunakan lagi)
+प्रॉम्प्ट: *चांद की फ़ोटो, ऐस्ट्रो फ़ोटोग्राफ़ी, वाइड ऐंगल 10 मि॰मी॰*  
+मॉडल: `imagen-4.0-generate-001`
 
-| Properti | Deskripsi |
+## मॉडल के वर्शन
+
+### Imagen 4 (अब सेवा में नहीं है)
+
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks  **Output**  Gambar |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  480 token (teks)  **Output gambar**  1 hingga 4 (Ultra/Standard/Cepat) |
-| calendar\_monthPembaruan terbaru | Juni 2025 |
+| id\_cardमॉडल कोड | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट  **आउटपुट**  इमेज |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  480 टोकन (टेक्स्ट)  **आउटपुट इमेज**  1 से 4 (अल्ट्रा/स्टैंडर्ड/फ़ास्ट) |
+| calendar\_monthनया अपडेट | जून 2025 |
 
 ### Imagen 3
 
-Model Imagen 3 telah [dinonaktifkan](https://ai.google.dev/gemini-api/docs/deprecations?hl=id).
+Imagen 3 मॉडल को [बंद कर दिया गया है](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi).
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-07-16 UTC.
+आखिरी बार 2026-07-16 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-16 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-16 (UTC) को अपडेट किया गया."],[],[]]

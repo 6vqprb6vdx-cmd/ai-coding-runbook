@@ -1,41 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419
-fetched_at: 2026-08-10T03:12:41.955753+00:00
-title: "Resultados estructurados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-CN
+fetched_at: 2026-08-17T02:26:27.423875+00:00
+title: "\u7ed3\u6784\u5316\u8f93\u51fa \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Enviar comentarios
+发送反馈
 
-# Resultados estructurados
+# 结构化输出
 
-Puedes configurar los modelos de Gemini para que generen respuestas que cumplan con un esquema JSON proporcionado. Esto garantiza resultados predecibles y con seguridad de tipos, y simplifica la extracción de datos estructurados de texto no estructurado.
+您可以将 Gemini 模型配置为生成符合所提供的 JSON 架构的回答。这可确保获得可预测的类型安全结果，并简化从非结构化文本中提取结构化数据的过程。
 
-El uso de resultados estructurados es ideal para lo siguiente:
+使用结构化输出非常适合以下情况：
 
-- **Extracción de datos:** Extrae información específica, como nombres y fechas, del texto.
-- **Clasificación estructurada:** Clasifica el texto en categorías predefinidas.
-- **Flujos de trabajo de agentes:** Genera entradas estructuradas para herramientas o APIs.
+- **数据提取**：从文本中提取特定信息，例如姓名和日期。
+- **结构化分类**：将文本归入预定义的类别。
+- **Agentic 工作流**：为工具或 API 生成结构化输入。
 
-Además de admitir el esquema JSON en la API de REST, los SDKs de GenAI de Google
-permiten definir esquemas con
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) y
-[Zod](https://zod.dev/) (JavaScript).
+除了在 REST API 中支持 JSON 架构之外，Google GenAI SDK 还允许使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 定义架构。
 
-## Ejemplos de resultados estructurados
+## 结构化输出示例
 
-### Extractor de recetas
+### 食谱提取器
 
-En este ejemplo, se muestra cómo extraer datos estructurados del texto con tipos básicos de esquema JSON, como `object`, `array`, `string` y `integer`.
+此示例演示了如何使用 `object`、`array`、`string` 和 `integer` 等基本 JSON 架构类型从文本中提取结构化数据。
 
 ### Python
 
@@ -199,7 +196,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Respuesta de ejemplo:**
+**示例回答**：
 
 ```
 {
@@ -227,9 +224,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Moderación de contenido
+### 内容审核
 
-En este ejemplo, se muestran `anyOf` para esquemas condicionales y `enum` para la clasificación, lo que permite que la estructura de salida varíe según el contenido.
+此示例展示了 `anyOf`（用于条件架构）和 `enum`（用于分类），从而使输出结构能够根据内容而变化。
 
 ### Python
 
@@ -378,7 +375,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Respuesta de ejemplo:**
+**示例回答**：
 
 ```
 {
@@ -389,9 +386,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Estructuras recursivas
+### 递归结构
 
-En este ejemplo, se muestra cómo definir un esquema recursivo, como un organigrama.
+此示例展示了如何定义递归架构，例如组织结构图。
 
 ### Python
 
@@ -508,7 +505,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Respuesta de ejemplo:**
+**示例回答**：
 
 ```
 {
@@ -535,9 +532,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Transmisión de resultados
+## 流式传输结果
 
-Puedes transmitir resultados estructurados, lo que te permite comenzar a procesar la respuesta a medida que se genera. Los fragmentos transmitidos son cadenas JSON parciales válidas que se pueden concatenar para formar el objeto JSON final.
+您可以流式传输结构化输出，以便在生成回答的同时开始处理回答。流式传输的块是有效的 JSON 部分字符串，可以串联起来形成最终的 JSON 对象。
 
 ### Python
 
@@ -634,14 +631,9 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## Resultados estructurados con herramientas
+## 使用工具生成结构化输出
 
-Gemini 3 te permite combinar resultados estructurados con herramientas integradas, como
-[Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419),
-[contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419),
-[ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419),
-[búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419#structured-output), y
-[llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
+借助 Gemini 3，您可以将结构化输出与内置工具相结合，包括[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)、[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)、[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)、[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn#structured-output)和[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
 
 ### Python
 
@@ -734,80 +726,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Compatibilidad con el esquema JSON
+## JSON 架构支持
 
-Para generar un objeto JSON, configura `response_format` con un objeto (o un array que contenga un objeto) de tipo `text` y establece su `mime_type` en `application/json`. El esquema debe proporcionarse en el campo `schema`.
+如需生成 JSON 对象，请使用 `text` 类型的对象（或包含对象的数组）配置 `response_format`，并将其 `mime_type` 设置为 `application/json`。应在 `schema` 字段中提供架构。
 
-El modo de salida estructurada de Gemini admite un subconjunto de la
-[especificación del esquema JSON](https://json-schema.org/).
+Gemini 的结构化输出模式支持部分 [JSON 架构](https://json-schema.org/)规范。
 
-Se admiten los siguientes valores de `type`:
+支持以下 `type` 值：
 
-- **`string`**: Para texto
-- **`number`**: Para números de punto flotante
-- **`integer`**: Para números enteros
-- **`boolean`**: Para valores verdaderos o falsos
-- **`object`**: Para datos estructurados con pares clave-valor
-- **`array`**: Para listas de elementos
-- **`null`**: Para permitir que una propiedad sea nula, incluye `"null"` en el array de tipos (p.ej., `{"type": ["string", "null"]}`).
+- **`string`**：对于文本。
+- **`number`**：适用于浮点数。
+- **`integer`**：适用于整数。
+- **`boolean`**：对于 true 或 false 值。
+- **`object`**：适用于包含键值对的结构化数据。
+- **`array`**：适用于商品列表。
+- **`null`**：如需允许属性为 null，请在类型数组中添加 `"null"`（例如 `{"type": ["string", "null"]}`）。
 
-Estas propiedades descriptivas ayudan a guiar el modelo:
+这些描述性属性有助于引导模型：
 
-- **`title`**: Una breve descripción de una propiedad
-- **`description`**: Una descripción más larga y detallada de una propiedad
+- **`title`**：属性的简短说明。
+- **`description`**：属性的更长、更详细的说明。
 
-### Propiedades específicas de los tipos
+### 特定于类型的属性
 
-**Para valores:**`object`
+**对于 `object` 值**：
 
-- **`properties`**: Un objeto en el que cada clave es un nombre de propiedad y cada valor es un esquema para esa propiedad
-- **`required`**: Un array de cadenas que indica qué propiedades son obligatorias
-- **`additionalProperties`**: Controla si se permiten las propiedades que no aparecen en `properties` Puede ser un valor booleano o un esquema.
+- **`properties`**：一个对象，其中每个键都是属性名称，每个值都是相应属性的架构。
+- **`required`**：一个字符串数组，列出了哪些属性是必需的。
+- **`additionalProperties`**：控制是否允许使用未在 `properties` 中列出的属性。可以是布尔值或架构。
 
-**Para valores `string`:**
+**对于 `string` 值**：
 
-- **`enum`**: Enumera un conjunto específico de cadenas posibles para tareas de clasificación
-- **`format`**: Especifica una sintaxis para la cadena, como `date-time`, `date` y `time`.
+- **`enum`**：列出分类任务的一组特定可能字符串。
+- **`format`**：指定字符串的语法，例如 `date-time`、`date`、`time`。
 
-**Para valores `number` y `integer`:**
+**对于 `number` 和 `integer` 值**：
 
-- **`enum`**: Enumera un conjunto específico de valores numéricos posibles
-- **`minimum`**: El valor inclusivo mínimo
-- **`maximum`**: El valor inclusivo máximo
+- **`enum`**：列出了一组特定的可能数值。
+- **`minimum`**：包含在内的最小值。
+- **`maximum`**：最大值（含）。
 
-**Para `array` valores:**
+**对于 `array` 值**：
 
-- **`items`**: Define el esquema para todos los elementos del array
-- **`prefixItems`**: Define una lista de esquemas para los primeros N elementos, lo que permite estructuras similares a tuplas
-- **`minItems`**: La cantidad mínima de elementos en el array
-- **`maxItems`**: La cantidad máxima de elementos en el array
+- **`items`**：定义数组中所有元素的架构。
+- **`prefixItems`**：为前 N 个项定义架构列表，从而实现类似元组的结构。
+- **`minItems`**：数组中的最小项数。
+- **`maxItems`**：数组中的项数上限。
 
-## Resultados estructurados en comparación con la llamada a función
+## 结构化输出与函数调用
 
-| Función | Caso de uso principal |
+| 功能 | 主要使用场景 |
 | --- | --- |
-| **Resultados estructurados** | **Dar formato a la respuesta final.** Úsalo cuando quieras que la *respuesta* del modelo tenga un formato específico. |
-| **Llamada a función** | **Realizar acciones durante la conversación.** Úsalo cuando el modelo necesite *pedirte* que realices una tarea antes de proporcionar una respuesta final. |
+| **结构化输出** | **设置最终回答的格式。**当您希望模型以特定格式*回答*时使用。 |
+| **函数调用** | **在对话期间采取行动。**当模型需要*询问您*是否执行某项任务，然后才能提供最终答案时使用。 |
 
-## Prácticas recomendadas
+## 最佳做法
 
-- **Descripciones claras:** Usa el campo `description` para guiar el modelo.
-- **Tipos sólidos:** Usa tipos específicos (`integer`, `string`, `enum`).
-- **Ingeniería de instrucciones:** Indica claramente lo que quieres que haga el modelo.
-- **Validación:** Si bien el resultado es un objeto JSON sintácticamente correcto, siempre valida los valores en tu aplicación.
-- **Manejo de errores:** Implementa un manejo de errores sólido para los resultados que cumplen con el esquema, pero que son semánticamente incorrectos.
+- **清晰的说明**：使用 `description` 字段来引导模型。
+- **强类型**：使用特定类型（`integer`、`string`、`enum`）。
+- **提示工程**：明确说明您希望模型执行的操作。
+- **验证**：虽然输出是语法正确的 JSON，但请务必在应用中验证值。
+- **错误处理**：针对符合架构但语义不正确的输出实现强大的错误处理机制。
 
-## Limitaciones
+## 限制
 
-- **Subconjunto de esquemas:** No se admiten todas las funciones del esquema JSON.
-- **Complejidad del esquema:** Es posible que se rechacen los esquemas muy grandes o anidados.
+- **架构子集**：并非所有 JSON 架构功能都受支持。
+- **架构复杂程度**：如果架构过大或嵌套过深，可能会被拒绝。
 
-Enviar comentarios
+发送反馈
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Última actualización: 2026-07-30 (UTC)
+最后更新时间 (UTC)：2026-07-30。
 
-¿Quieres brindar más información?
+需要向我们提供更多信息？
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]

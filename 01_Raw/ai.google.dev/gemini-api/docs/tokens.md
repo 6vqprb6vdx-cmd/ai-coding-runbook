@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=he
-fetched_at: 2026-08-10T03:10:52.916806+00:00
-title: "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d0\u05e1\u05d9\u05de\u05d5\u05e0\u05d9\u05dd \u05d5\u05e1\u05e4\u05d9\u05e8\u05d4 \u05e9\u05dc\u05d4\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=th
+fetched_at: 2026-08-17T02:27:20.946549+00:00
+title: "\u0e17\u0e4d\u0e32\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e41\u0e25\u0e30\u0e19\u0e31\u0e1a\u0e42\u0e17\u0e40\u0e04\u0e47\u0e19 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-שליחת משוב
+ส่งความคิดเห็น
 
-# הסבר על אסימונים וספירה שלהם
+# ทําความเข้าใจและนับโทเค็น
 
-‫Gemini ומודלים אחרים של AI גנרטיבי מעבדים קלט ופלט ברמת פירוט שנקראת *טוקן*.
+Gemini และโมเดล Generative AI อื่นๆ จะประมวลผลอินพุตและเอาต์พุตที่ระดับความละเอียดที่เรียกว่า *โทเค็น*
 
-**במודלים של Gemini, טוקן שווה בערך ל-4 תווים.
-‫100 טוקנים שווים לכ-60-80 מילים באנגלית.**
+**สำหรับโมเดล Gemini โทเค็น 1 รายการจะเทียบเท่ากับอักขระประมาณ 4 ตัว
+และโทเค็น 100 รายการจะเทียบเท่ากับคำภาษาอังกฤษประมาณ 60-80 คำ**
 
-## מידע על טוקנים
+## เกี่ยวกับโทเค็น
 
-אסימונים יכולים להיות תווים בודדים כמו `z` או מילים שלמות כמו `cat`. מילים ארוכות
-מפוצלות לכמה טוקנים. קבוצת כל האסימונים שבהם נעשה שימוש במודל נקראת אוצר מילים, והתהליך של פיצול טקסט לאסימונים נקרא *טוקניזציה*.
+โทเค็นอาจเป็นอักขระเดียว เช่น `z` หรือคำทั้งคำ เช่น `cat` โดยคำยาวๆ จะถูกแบ่งออกเป็นโทเค็นหลายรายการ ชุดโทเค็นทั้งหมดที่โมเดลใช้เรียกว่าคำศัพท์ และกระบวนการแยกข้อความออกเป็นโทเค็นเรียกว่า *การทำโทเค็น*
 
-כשמופעל חיוב, [העלות של קריאה ל-Gemini API](https://ai.google.dev/pricing?hl=he) נקבעת בין היתר לפי מספר האסימונים של הקלט והפלט, ולכן כדאי לדעת איך לספור אסימונים.
+เมื่อเปิดใช้การเรียกเก็บเงินแล้ว [ต้นทุนของการเรียกใช้ Gemini API](https://ai.google.dev/pricing?hl=th) จะ
+พิจารณาจากจำนวนโทเค็นอินพุตและเอาต์พุตเป็นส่วนหนึ่ง ดังนั้นการรู้วิธี
+นับโทเค็นจึงอาจเป็นประโยชน์
 
-## ספירת טוקנים
+## นับโทเค็น
 
-כל הקלט והפלט של Gemini API עוברים טוקניזציה, כולל טקסט, קובצי תמונות וסוגים אחרים של נתונים שאינם טקסט.
+ระบบจะทำโทเค็นอินพุตและเอาต์พุตทั้งหมดของ Gemini API รวมถึงข้อความ ไฟล์รูปภาพ และรูปแบบอื่นๆ ที่ไม่ใช่ข้อความ
 
-אפשר לספור טוקנים בדרכים הבאות:
+คุณนับโทเค็นได้ด้วยวิธีต่อไปนี้
 
-- **מתקשרים אל `count_tokens` ומזינים את הבקשה.** הפונקציה מחזירה את המספר הכולל של הטוקנים *בקלט בלבד*. כדאי לבצע את השיחה הזו לפני שליחת קלט כדי לבדוק את גודל הבקשות.
-- **משתמשים בלחצן `usage` בתגובה לאינטראקציה.** מחזירה את מספר הטוקנים של הקלט (`total_input_tokens`), הפלט (`total_output_tokens`), החשיבה (`total_thought_tokens`), התוכן שנשמר במטמון (`total_cached_tokens`), השימוש בכלי (`total_tool_use_tokens`) והסך הכולל (`total_tokens`).
+- **เรียกใช้ `count_tokens` ด้วยอินพุตของคำขอ** ซึ่งจะแสดงผลจำนวนโทเค็นทั้งหมดใน *อินพุตเท่านั้น* โดยให้เรียกใช้ฟังก์ชันนี้ก่อนส่งอินพุตเพื่อตรวจสอบขนาดของคำขอ
+- **ใช้ `usage` ในการตอบกลับการโต้ตอบ** ซึ่งจะแสดงผลจำนวนโทเค็นสำหรับอินพุต (`total_input_tokens`), เอาต์พุต (`total_output_tokens`), การประมวลผล (`total_thought_tokens`), เนื้อหาที่แคชไว้ (`total_cached_tokens`), การใช้เครื่องมือ (`total_tool_use_tokens`) และทั้งหมด (`total_tokens`)
 
-### ספירת טוקנים של טקסט
+### นับโทเค็นข้อความ
 
 ### Python
 
@@ -99,9 +100,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### ספירת טוקנים רב-שלביים
+### นับโทเค็นการสนทนาไปมา
 
-כדי לספור את הטוקנים בהיסטוריית השיחות, משתמשים ב-`previous_interaction_id`:
+นับโทเค็นในประวัติการสนทนาโดยใช้ `previous_interaction_id` ดังนี้
 
 ### Python
 
@@ -147,16 +148,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### ספירת טוקנים מולטי-מודאליים
+### นับโทเค็นหลายรูปแบบ
 
-כל הקלט ל-Gemini API עובר טוקניזציה, כולל תמונות, סרטונים ואודיו.
-נקודות חשובות לגבי יצירת טוקנים:
+ระบบจะทำโทเค็นอินพุตทั้งหมดของ Gemini API รวมถึงรูปภาพ วิดีโอ และเสียง
+โดยมีประเด็นสำคัญเกี่ยวกับการทำโทเค็นดังนี้
 
-- **תמונות**: תמונות בגודל של ‎384 פיקסלים או פחות בשני הממדים נחשבות כ-258 טוקנים. תמונות גדולות יותר מחולקות למקטעים בגודל ‎768x768 פיקסלים, וכל מקטע נחשב כ-258 טוקנים.
-- **וידאו**: 263 טוקנים לשנייה
-- **אודיו**: 32 טוקנים לשנייה
+- **รูปภาพ**: รูปภาพที่มีขนาด ≤384 พิกเซลในทั้ง 2 มิติจะนับเป็น 258 โทเค็น ส่วนรูปภาพที่ใหญ่กว่าจะถูกแบ่งออกเป็นรูปภาพขนาด 768x768 พิกเซล ซึ่งแต่ละรูปภาพจะนับเป็น 258 โทเค็น
+- **วิดีโอ**: 263 โทเค็นต่อวินาที
+- **เสียง**: 32 โทเค็นต่อวินาที
 
-#### טוקנים של תמונות
+#### โทเค็นรูปภาพ
 
 ### Python
 
@@ -202,7 +203,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**דוגמה לנתונים מוטבעים:**
+**ตัวอย่างข้อมูลแบบอินไลน์**
 
 ### Python
 
@@ -227,7 +228,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### טוקנים של סרטונים
+#### โทเค็นวิดีโอ
 
 ### Python
 
@@ -260,7 +261,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### טוקנים של אודיו
+#### โทเค็นเสียง
 
 ### Python
 
@@ -286,9 +287,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### ספירת טוקנים של הוראות למערכת
+### นับโทเค็นคำแนะนำของระบบ
 
-ההוראות למערכת נספרות כחלק מאסימוני הקלט:
+คำแนะนำของระบบจะนับเป็นส่วนหนึ่งของโทเค็นอินพุต
 
 ### Python
 
@@ -304,9 +305,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### ספירת טוקנים בכלי
+### นับโทเค็นเครื่องมือ
 
-גם כלים (פונקציות, ביצוע קוד, חיפוש Google) נספרים:
+ระบบจะนับเครื่องมือ (ฟังก์ชัน การเรียกใช้โค้ด Google Search) ด้วย
 
 ### Python
 
@@ -336,11 +337,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## חלון ההקשר
+## หน้าต่างบริบท
 
-לכל מודל Gemini יש מספר מקסימלי של טוקנים שהוא יכול לטפל בהם. חלון ההקשר מגדיר את המגבלה המשולבת של טוקנים של קלט ופלט.
+โมเดล Gemini แต่ละโมเดลมีจำนวนโทเค็นสูงสุดที่จัดการได้ โดยหน้าต่างบริบทจะกำหนดขีดจำกัดรวมของโทเค็นอินพุตและเอาต์พุต
 
-### קבלת גודל חלון ההקשר באופן פרוגרמטי
+### รับขนาดหน้าต่างบริบทแบบเป็นโปรแกรม
 
 ### Python
 
@@ -360,20 +361,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-אפשר לראות את גודל חלון ההקשר בדף [מודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
+ดูขนาดหน้าต่างบริบทได้ในหน้า[โมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
 
-## המאמרים הבאים
+## ขั้นตอนถัดไป
 
-- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he): יסודות היצירה
-- [שמירה במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he): הפחתת עלויות באמצעות שמירה במטמון
-- [תמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he): הסבר על העלויות
+- [การสร้างข้อความ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th): ข้อมูลพื้นฐานเกี่ยวกับการสร้าง
+- [การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th): ลดค่าใช้จ่ายด้วยการแคช
+- [การตั้งราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th): ทำความเข้าใจค่าใช้จ่าย
 
-שליחת משוב
+ส่งความคิดเห็น
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-עדכון אחרון: 2026-07-30 (שעון UTC).
+อัปเดตล่าสุด 2026-07-30 UTC
 
-רוצה לתת לנו משוב?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

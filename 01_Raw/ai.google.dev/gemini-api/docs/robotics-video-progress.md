@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja
-fetched_at: 2026-08-10T03:17:49.795450+00:00
-title: "\u52d5\u753b\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=es-419
+fetched_at: 2026-08-17T02:33:08.919167+00:00
+title: "Comprensi\u00f3n de videos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-フィードバックを送信
+Enviar comentarios
 
-# 動画理解
+# Comprensión de videos
 
-Gemini Robotics-ER 2 は、次の 2 つの機能を使用して、継続的な動画フィードからタスクの進行状況を追跡できます。
+Gemini Robotics ER 2 puede hacer un seguimiento del progreso de las tareas a partir de transmisiones de video continuas con dos capacidades:
 
-- モーメント検出: キーイベントが発生した正確なタイムスタンプを特定します。
-- 進行状況の分類: 各動画を 5 つの完了率の範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てます。
+- Búsqueda de momentos: Identifica la marca de tiempo precisa en la que se produce un evento clave.
+- Clasificación de progreso: Asigna cada video a uno de los cinco intervalos de finalización (0–20%, 20–40%, 40–60%, 60–80%, 80–100%).
 
-## モーメントの検出
+## Búsqueda de momentos
 
-モーメント検出は、重大なイベントが発生した正確な動画フレーム（カップが満杯になったときや、結び目が結ばれたときなど）を特定します。ロボットはこれを使用して、成功の確認、ステップの順序付け、修正のトリガーを行います。
+La búsqueda de momentos identifica el fotograma exacto del video en el que se produce un evento crítico, por ejemplo, cuando una taza está llena o se ata un nudo. Los robots usan esto para verificar el éxito, secuenciar los pasos y activar las correcciones.
 
-次のプロンプトの例では、動画内の特定のタスクの完了時点を識別するようモデルに指示しています。
+En la siguiente instrucción de ejemplo, se le pide al modelo que identifique el momento de finalización de una tarea determinada en un video:
 
 ```
 from google import genai
@@ -57,15 +57,15 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-次の図は、モデルがタスク完了のタイムスタンプを特定している、モーメント検出動画のフレームの例を示しています。
+A continuación, se muestran fotogramas de ejemplo de un video de búsqueda de momentos, en el que el modelo identifica la marca de tiempo de finalización de la tarea:
 
-![タイムスタンプ オーバーレイ付きの検出結果が表示された動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=ja)
+![Ejemplo de fotogramas de video que muestran el resultado de la búsqueda de momentos con una superposición de marca de tiempo](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=es-419)
 
-## 進行状況の分類
+## Clasificación de progreso
 
-進行状況の分類では、動画が 5 つの完了範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てられます。これにより、ロボットはリアルタイムで状況を認識し、ワークフロー全体を再起動することなく、アクションを調整したり、失敗したステップを再試行したりできます。
+La clasificación de progreso asigna un video a uno de los cinco intervalos de finalización: 0–20%, 20–40%, 40–60%, 60–80% o 80–100%. Esto les brinda a los robots conciencia situacional en tiempo real para que puedan ajustar las acciones o volver a intentar los pasos fallidos sin reiniciar todo el flujo de trabajo.
 
-次のプロンプトの例では、動画の現在の進行状況レベルを分類するようにモデルに求めています。
+En la siguiente instrucción de ejemplo, se le pide al modelo que clasifique el nivel de progreso actual de un video:
 
 ```
 from google import genai
@@ -95,26 +95,27 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-次の図は、進行状況分類動画のフレームの例を示しています。モデルは進行状況の範囲を割り当てています。
+A continuación, se muestran fotogramas de ejemplo de un video de clasificación de progreso, en el que el modelo asigna un intervalo de progreso:
 
-![進行状況の分類出力と進行状況の範囲ラベルを示す動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=ja)
+![Ejemplo de fotogramas de video que muestran la salida de clasificación de progreso con una etiqueta de corchete de progreso](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=es-419)
 
-## 例
+## Ejemplos
 
-マルチステップ タスク トラッキングを含む実行可能な例については、[ロボティクス クックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
+Para obtener ejemplos ejecutables completos, incluido el seguimiento de tareas de varios pasos, consulta el
+[libro de recetas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## 次のステップ
+## ¿Qué sigue?
 
-- [ロボット工学用の Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイムの双方向ストリーミング。
-- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - 空間推論を伴う長期的なタスク。
-- [Gemini Robotics ER の概要](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ja) - モデルの比較と機能。
+- [API de Live para robótica](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419): Transmisión bidireccional en tiempo real
+- [Organización de tareas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=es-419): Tareas de largo plazo con razonamiento espacial
+- [Descripción general de Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=es-419): Comparación de modelos y capacidades
 
-フィードバックを送信
+Enviar comentarios
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-最終更新日 2026-07-30 UTC。
+Última actualización: 2026-07-30 (UTC)
 
-ご意見をお聞かせください
+¿Quieres brindar más información?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

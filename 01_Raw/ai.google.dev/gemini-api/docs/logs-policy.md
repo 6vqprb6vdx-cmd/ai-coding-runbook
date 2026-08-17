@@ -1,64 +1,79 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr
-fetched_at: 2026-08-10T03:14:07.110877+00:00
-title: "Veri Kayd\u0131 ve Payla\u015f\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=vi
+fetched_at: 2026-08-17T02:32:06.303528+00:00
+title: "Ghi nh\u1eadt k\u00fd v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# Veri Kaydı ve Paylaşımı
+# Ghi nhật ký và chia sẻ dữ liệu
 
-Bu sayfada, faturalandırmanın etkinleştirildiği projeler için desteklenen Gemini API çağrılarından elde edilen ve geliştiricilere ait API verileri olan [Gemini API günlüklerinin](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) depolanması ve yönetilmesi açıklanmaktadır. Günlükler, kullanıcının isteğinden modelin yanıtına kadar olan tüm süreci kapsar.
-Google Cloud projenize özel olan bu günlükler, yalnızca [kötüye kullanımı izleme](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr) amacıyla tutulan günlüklerden ayrıdır.
+Trang này trình bày cách lưu trữ và quản lý
+[nhật ký Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi). Đây là dữ liệu API thuộc sở hữu của nhà phát triển
+từ các lệnh gọi Gemini API được hỗ trợ cho các dự án đã bật tính năng thanh toán. Nhật ký bao gồm toàn bộ quy trình từ yêu cầu của người dùng đến phản hồi của mô hình.
+Những nhật ký này (riêng tư đối với dự án Google Cloud của bạn) tách biệt với mọi
+nhật ký chỉ được lưu giữ cho mục đích [giám sát hành vi sử dụng sai mục đích](https://ai.google.dev/gemini-api/docs/usage-policies?hl=vi).
 
-## Paylaşılabilecek veriler
+## Dữ liệu có thể được chia sẻ
 
-Proje sahibi olarak, kendi kullanımınız için veya modellerimizi sürekli olarak iyileştirmemize yardımcı olmak üzere Google ile geri bildirim ve paylaşım amacıyla Gemini API çağrılarının günlüğe kaydedilmesini etkinleştirebilirsiniz.
+Là chủ sở hữu dự án, bạn có thể chọn bật tính năng ghi nhật ký các lệnh gọi Gemini API cho mục đích sử dụng riêng hoặc để phản hồi và chia sẻ với Google nhằm giúp chúng tôi liên tục cải thiện các mô hình của mình.
 
-Günlük kaydı etkinleştirildiğinde, ürün iyileştirmeleri ve model eğitimi için aşağıdaki verileri göndermeyi seçerek çeşitli alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam eden yapay zeka sistemleri oluşturmamıza yardımcı olabilirsiniz:
+Khi bật tính năng ghi nhật ký, bạn có thể giúp chúng tôi xây dựng các hệ thống AI tiếp tục mang lại giá trị cho nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng bằng cách chọn đóng góp dữ liệu sau đây để cải thiện sản phẩm và huấn luyện mô hình:
 
-- **Veri kümeleri:** Desteklenen Gemini API çağrılarından ilgilendiğiniz günlükleri (istekler, yanıtlar, meta veriler vb.) seçmek için Google AI Studio'nun Günlükler ve Veri Kümeleri arayüzünü kullanın. Veri kümelerine dahil edilerek katkıda bulunulur. Veri kümesi oluşturma sırasında bu özelliği devre dışı bırakabilirsiniz.
-- **Geri bildirim:** Günlükleri incelerken geri bildirimde bulunabilirsiniz. Beğenme ve beğenmeme puanları ile yazdığınız yorumlar bu kapsamdadır.
+- **Tập dữ liệu:** Sử dụng giao diện Nhật ký và tập dữ liệu của Google AI Studio để chọn nhật ký (yêu cầu, phản hồi, siêu dữ liệu, v.v.) mà bạn quan tâm từ các lệnh gọi Gemini API được hỗ trợ; đóng góp thông qua việc đưa vào tập dữ liệu, với tuỳ chọn không tham gia trong quá trình tạo tập dữ liệu.
+- **Ý kiến phản hồi:** Khi xem xét nhật ký, bạn có thể đưa ra ý kiến phản hồi, bao gồm cả việc đánh giá thích và không thích cũng như mọi nhận xét bằng văn bản mà bạn cung cấp.
 
-Google ile bir veri kümesi paylaştığınızda, istekler ve yanıtlar dahil olmak üzere bu veri kümesindeki günlükleriniz, "[Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid)" ile ilgili [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca işlenir. Bu, veri kümesinin modellerimizi iyileştirmek ve eğitmek de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini geliştirmek ve iyileştirmek için kullanılabileceği anlamına gelir. **Kişisel, hassas veya gizli bilgiler eklemeyin.**
+Khi bạn chia sẻ một tập dữ liệu với Google, nhật ký của bạn trong tập dữ liệu đó (bao gồm cả
+yêu cầu và phản hồi) sẽ được xử lý theo
+[Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi đối với
+"[Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid),"
+Điều này có nghĩa là tập dữ liệu có thể được dùng để phát triển và cải thiện các
+sản phẩm, dịch vụ và công nghệ học máy của Google, bao gồm cả việc cải thiện và
+huấn luyện các mô hình của chúng tôi. **Đừng thêm thông tin cá nhân, thông tin nhạy cảm hoặc thông tin mật.**
 
-## Verilerinizi nasıl kullanırız?
+## Cách chúng tôi sử dụng dữ liệu của bạn
 
-Günlükler varsayılan olarak en fazla 55 gün boyunca saklanır. Bu sürenin ardından günlükler otomatik olarak silinmek üzere işaretlenir. Bir projenin saklama süresi penceresi, 7, 14, 28 veya 55 gün sonra günlükleri silinmek üzere otomatik olarak işaretlemek için AI Studio'da güncellenebilir.
+Nhật ký được giữ lại trong khoảng thời gian tối đa mặc định là 55 ngày. Sau khoảng thời gian này, nhật ký sẽ tự động được đánh dấu để xoá. Bạn có thể cập nhật khoảng thời gian lưu giữ bộ nhớ cho một dự án trong AI Studio để tự động đánh dấu nhật ký để xoá sau 7, 14, 28 hoặc 55 ngày.
 
-Aşağı akış kullanım alanları için belirlenen saklama süresinin ötesinde ilgi çekici günlükleri saklamak ve model iyileştirmelerine isteğe bağlı olarak katkıda bulunmak amacıyla [veri kümeleri](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) oluşturulabilir. Veri kümelerinde depolanan günlüklerin saklama süreleri ayarlanmaz.
+[Bạn có thể tạo](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi)tập dữ liệu để giữ lại nhật ký mà bạn quan tâm ngoài khoảng thời gian lưu giữ đã đặt cho các trường hợp sử dụng ở hạ nguồn và đóng góp không bắt buộc để cải thiện mô hình. Nhật ký được lưu trữ trong tập dữ liệu không có khoảng thời gian lưu giữ đã đặt.
 
-Varsayılan olarak, günlük kaydı yalnızca faturalandırmanın etkinleştirildiği projelerde kullanılabilir. Bu nedenle, günlüklerdeki istemler ve yanıtlar, veri kullanımına ilişkin [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca ürün iyileştirme veya geliştirme için kullanılmaz.
+Theo mặc định, vì tính năng ghi nhật ký chỉ có sẵn cho các dự án đã bật tính năng thanh toán,
+nên các câu lệnh và phản hồi trong nhật ký không được dùng để cải thiện hoặc
+phát triển sản phẩm theo [Điều khoản](https://developers.google.com/terms?hl=vi)
+của chúng tôi về việc sử dụng dữ liệu.
 
-Günlüklerinizin veri kümelerini Google ile paylaşmayı seçerseniz bu veri kümeleri, yapay zeka sistemlerinin ve uygulamalarının kullanıldığı alanların ve bağlamların çeşitliliğini daha iyi anlamak için gerçek dünya gösterim verileri olarak kullanılır. Bu veriler, model kalitesini artırmak ve gelecekteki modellerin ve hizmetlerin eğitim ve değerlendirme süreçlerine bilgi sağlamak için kullanılabilir. Bu veriler, [Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid) için veri kullanım şartlarımıza uygun olarak işlenir.
+Nếu bạn chọn chia sẻ tập dữ liệu nhật ký của mình với Google, thì những tập dữ liệu đó sẽ được dùng làm dữ liệu minh hoạ trong thế giới thực để hiểu rõ hơn về sự đa dạng của các miền và bối cảnh mà hệ thống và ứng dụng AI được dùng. Dữ liệu này có thể được dùng để cải thiện chất lượng mô hình và cung cấp thông tin cho việc huấn luyện và đánh giá các mô hình và dịch vụ trong tương lai. Dữ liệu này được xử lý theo các điều khoản sử dụng dữ liệu của chúng tôi đối với [Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid).
 
-Bu nedenle, inceleme uzmanları paylaştığınız API girişlerini ve çıkışlarını okuyabilir, işleyebilir ve bunlara açıklama ekleyebilir. Veriler model geliştirmede kullanılmadan önce Google, bu süreç kapsamında kullanıcı gizliliğini korumak için gerekli önlemleri alır. Örneğin, inceleme uzmanları görmeden veya açıklama eklemeden önce bu verilerin Google Hesabınız, API anahtarınız ve Cloud projenizle bağlantısını kaldırırız.
+Theo đó, nhân viên đánh giá có thể đọc, chú thích và xử lý dữ liệu đầu vào và đầu ra của API mà bạn chia sẻ. Trước khi dữ liệu được dùng để cải thiện mô hình, Google sẽ thực hiện các bước để bảo vệ quyền riêng tư của người dùng trong quá trình này. Chẳng hạn như huỷ mối liên kết giữa dữ liệu này với Tài khoản Google, khoá API và dự án trên Cloud của bạn trước khi nhân viên đánh giá xem hoặc chú thích.
 
-## Veri izinleri
+## Quyền đối với dữ liệu
 
-API verilerine katkıda bulunmayı etkinleştirerek Google'ın verileri bu dokümanda açıklandığı şekilde işlemesi ve kullanması için gerekli izinlere sahip olduğunuzu onaylarsınız. **Lütfen ücretli hizmet aracılığıyla elde edilen hassas, gizli veya özel bilgileri içeren günlükler göndermeyin**.
-API Şartları'ndaki "[İçerik Gönderme](https://developers.google.com/terms?hl=tr#b_submission_of_content)" bölümü uyarınca Google'a verdiğiniz lisans, Hizmetler'e gönderdiğiniz tüm içerikler (ör.ilişkili sistem talimatları da dahil olmak üzere istemler, önbelleğe alınmış içerikler ve resim, video ya da doküman gibi dosyalar) ve oluşturulan tüm yanıtlar için de geçerlidir. Bu geçerlilik, kullanımımız için geçerli yasalar uyarınca gerekli olduğu ölçüde geçerlidir.
+Bằng cách chọn đóng góp dữ liệu API, bạn xác nhận rằng bạn có các quyền cần thiết để Google xử lý và sử dụng dữ liệu như mô tả trong tài liệu này. **Vui lòng không đóng góp nhật ký chứa thông tin nhạy cảm, thông tin mật hoặc thông tin độc quyền thu được thông qua dịch vụ có tính phí**.
+Giấy phép mà bạn cấp cho Google theo phần "[Gửi nội dung](https://developers.google.com/terms?hl=vi#b_submission_of_content)"
+trong Điều khoản API cũng mở rộng (trong phạm vi cần thiết theo luật hiện hành để chúng tôi sử dụng)
+đối với mọi nội dung (ví dụ: câu lệnh, bao gồm cả hướng dẫn hệ thống liên quan, nội dung được lưu vào bộ nhớ đệm và các tệp như hình ảnh, video hoặc tài liệu)
+mà bạn gửi đến Dịch vụ và mọi phản hồi được tạo.
 
-## Veri paylaşımı ve geri bildirim
+## Chia sẻ dữ liệu và ý kiến phản hồi
 
-Verilerinizi örnek olarak paylaşmayı kabul ederek yapay zeka araştırmalarının, Gemini API'nin ve Google AI Studio'nun sınırlarını genişletmemize yardımcı olabilirsiniz. Bu sayede, modellerimizi çeşitli bağlamlarda sürekli olarak iyileştirebilir ve farklı alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam edecek yapay zeka sistemleri oluşturabiliriz.
+Bạn có thể giúp chúng tôi tiến xa hơn trong nghiên cứu về AI, Gemini API và Google AI Studio bằng cách chọn chia sẻ dữ liệu của bạn làm ví dụ, cho phép chúng tôi liên tục cải thiện các mô hình của mình trong nhiều bối cảnh và xây dựng các hệ thống AI tiếp tục mang lại giá trị cho nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng.
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Son güncelleme tarihi: 2026-07-09 UTC.
+Cập nhật lần gần đây nhất: 2026-07-09 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-09 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-09 UTC."],[],[]]

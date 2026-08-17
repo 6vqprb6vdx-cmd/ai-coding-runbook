@@ -1,68 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th
-fetched_at: 2026-08-10T03:19:18.143727+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja
+fetched_at: 2026-08-17T02:30:59.366118+00:00
+title: "\u30b9\u30bf\u30fc\u30c8 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-ส่งความคิดเห็น
+フィードバックを送信
 
-# การเริ่มต้นใช้งาน
+# スタート ガイド
 
-คู่มือนี้จะช่วยให้คุณเริ่มต้นใช้งาน **generateContent** API แบบเดิม
-สำหรับโปรเจ็กต์และแอปพลิเคชันใหม่ๆ เราขอแนะนำอย่างยิ่งให้ใช้ **Interactions API** ใหม่แทน ซึ่งเป็นวิธีที่ง่ายที่สุดและดีที่สุดในการสร้างด้วยโมเดลและเอเจนต์ของ Gemini
+このガイドでは、以前の **generateContent** API の使用を開始する方法について説明します。
+新しいプロジェクトやアプリケーションでは、Gemini モデルとエージェントを構築する最もシンプルで最適な方法である新しい **Interactions API** を使用することを強くおすすめします。
 
-การเริ่มต้นอย่างรวดเร็วนี้จะแสดงวิธีติดตั้ง
-[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)ของเราและส่งคำขอแรก สตรีม
-คำตอบ สร้างบทสนทนาหลายรอบ และใช้เครื่องมือโดยใช้วิธี
-`generateContent` มาตรฐาน
+[このクイックスタートでは、ライブラリをインストールして最初のリクエストを作成し、レスストリーミングし、マルチターンの会話を構築し、標準の
+`generateContent`メソッドを使用してツールを使用する方法について説明します。](https://ai.google.dev/gemini-api/docs/libraries?hl=ja)
 
-## รับคีย์ API
+## API キーを取得する
 
-หากต้องการใช้ Gemini API คุณต้องมีคีย์ API เพื่อตรวจสอบสิทธิ์คำขอ บังคับใช้ขีดจำกัดด้านความปลอดภัย และติดตามการใช้งานกับบัญชีของคุณ
+Gemini API を使用するには、リクエストの認証、セキュリティ制限の適用、アカウントの使用状況の追跡を行うための API キーが必要です。
 
-- Google AI Studio จะสร้างโปรเจ็กต์และคีย์ API ให้กับผู้ใช้ใหม่โดยอัตโนมัติ
-  คุณสามารถคัดลอกคีย์ดังกล่าวได้จากหน้าคีย์ API
-- หากต้องการคีย์ใหม่ ให้คลิก**สร้างคีย์ API** ใน AI Studio แล้วทำตามกล่องโต้ตอบเพื่อเพิ่มคู่คีย์-โปรเจ็กต์ใหม่
+- Google AI Studio では、新しいユーザー向けにプロジェクトと API キーが自動的に作成されます。
+  [API キーのページ](https://aistudio.google.com/api-keys?hl=ja)からコピーできます。
+- 新しいキーが必要な場合は、AI Studio で [**API キーを作成**] をクリックし、ダイアログに沿って新しいキーとプロジェクトのペアを追加します。
 
-[สร้างคีย์ Gemini API](https://aistudio.google.com/apikey?hl=th)
+[Gemini API キーを作成する](https://aistudio.google.com/apikey?hl=ja)
 
-ตั้งค่าคีย์เป็นตัวแปรสภาพแวดล้อมโดยทำดังนี้
+キーを環境変数として設定します。
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### อัปเกรดเป็นระดับแบบชำระเงิน
+### 有料階層にアップグレードする
 
-การอัปเกรดเป็นระดับแบบชำระเงินจะเพิ่มขีดจำกัดอัตราและต้องตั้งค่าการเรียกเก็บเงินใน Cloud
+有料階層にアップグレードすると、レート上限が引き上げられます。また、Cloud Billing の設定が必要になります。
 
-- คลิก**ตั้งค่าการเรียกเก็บเงิน** ในหน้าคีย์ API
-   หรือ
-  [โปรเจ็กต์](https://aistudio.google.com/projects?hl=th) ของ AI Studio
-- ทำตามกล่องโต้ตอบการเรียกเก็บเงินของ Cloud เพื่อสร้างหรือลิงก์บัญชีสำหรับการเรียกเก็บเงิน เพิ่มวิธีการชำระเงิน และชำระเงินล่วงหน้าอย่างน้อย $10 (หรือเทียบเท่าในสกุลเงินอื่น) ในเครดิตแบบชำระเงิน
-- ดูการใช้งาน API ใน [Google AI Studio](https://aistudio.google.com/usage?hl=th)
-  ได้ที่ **แดชบอร์ด** > **การใช้งาน**
+- AI Studio の
+  [[API キー](https://aistudio.google.com/api-keys?hl=ja)] ページまたは
+  [[プロジェクト](https://aistudio.google.com/projects?hl=ja)] ページで [**\*\*お支払い情報を設定\*\***] をクリックします。
+- Cloud Billing のダイアログに沿って、請求先アカウントを作成またはリンクし、お支払い方法を追加して、有料クレジットで最低 10 ドル（または相当額）を前払いします。
+- API の使用状況は、[Google AI Studio](https://aistudio.google.com/usage?hl=ja)
+  の [**ダッシュボード**] > [**使用状況**] で確認できます。
 
-ดูข้อมูลเพิ่มเติมได้ที่หน้า[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)
+詳細については、[お支払いページ](https://ai.google.dev/gemini-api/docs/billing?hl=ja)をご覧ください。
 
-## ติดตั้ง Google GenAI SDK
+## Google GenAI SDK をインストールする
 
 ### Python
 
-ใช้ [Python 3.9+](https://www.python.org/downloads/) ขึ้นไป แล้วติดตั้งแพ็กเกจ
-[`google-genai` โดยใช้
-[คำสั่ง pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) ต่อไปนี้](https://pypi.org/project/google-genai/)
+[Python 3.9+](https://www.python.org/downloads/) 以降を使用して、次の
+[pip コマンド](https://packaging.python.org/en/latest/tutorials/installing-packages/)で
+[`google-genai` パッケージ](https://pypi.org/project/google-genai/)をインストールします。
 
 ```
 pip install -q -U google-genai
@@ -70,16 +68,16 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-ใช้ [Node.js v18+](https://nodejs.org/en/download/package-manager) แล้วติดตั้ง [Google Gen AI SDK สำหรับ TypeScript และ JavaScript](https://www.npmjs.com/package/@google/genai) โดยใช้ [คำสั่ง npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) ต่อไปนี้:
+[Node.js v18+](https://nodejs.org/en/download/package-manager) 以降を使用して、次の [npm コマンド](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)で [TypeScript と JavaScript 用の Google Gen AI SDK](https://www.npmjs.com/package/@google/genai) をインストールします。
 
 ```
 npm install @google/genai
 ```
 
-## สร้างข้อความ
+## テキストを生成する
 
-ใช้วิธี `models.generate_content` เพื่อ
-[สร้างคำตอบเป็นข้อความ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th)
+`models.generate_content` メソッドを使用して
+[テキスト レスポンスを生成します](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja)。
 
 ### Python
 
@@ -135,11 +133,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## สตรีมคำตอบ
+## 回答をストリーミングする
 
-โดยค่าเริ่มต้น โมเดลจะแสดงคำตอบหลังจากกระบวนการสร้างทั้งหมดเสร็จสมบูรณ์แล้วเท่านั้น หากต้องการประสบการณ์การใช้งานที่รวดเร็วและโต้ตอบได้มากขึ้น คุณสามารถ
-[สตรีมคำตอบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#stream)เป็นส่วนๆ ขณะที่ระบบ
-สร้างคำตอบ
+デフォルトでは、モデルは生成プロセス全体が完了した後にのみレスポンスを返します。より高速でインタラクティブなエクスペリエンスを実現するために、
+[生成されたレスポンス](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#stream) チャンクを
+ストリーミングできます。
 
 ### Python
 
@@ -191,11 +189,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:s
   }'
 ```
 
-## การสนทนาไปมา
+## マルチターンの会話
 
-สำหรับบทสนทนาหลายรอบ SDK จะมีตัวช่วย `chats` ที่
-มีสถานะเพื่อ[สร้างประสบการณ์การแชทหลายรอบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#chat)
-ที่จัดการประวัติการสนทนาโดยอัตโนมัติ
+マルチターンの会話の場合、SDK はステートフルな `chats` ヘルパーを提供し、
+会話履歴を自動的に管理する [マルチターン チャット エクスペリエンス](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#chat)
+を構築します。
 
 ### Python
 
@@ -251,11 +249,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## ใช้เครื่องมือ
+## ツールを使用する
 
-ขยายขีดความสามารถของโมเดลโดย
-[เชื่อมต่อแหล่งข้อมูลคำตอบกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)
-เพื่อเข้าถึงเนื้อหาเว็บแบบเรียลไทม์ โมเดลจะตัดสินใจโดยอัตโนมัติว่าจะค้นหาเมื่อใด ดำเนินการค้นหา และสังเคราะห์คำตอบ
+[Google 検索でレスポンスをグラウンディングしてリアルタイムのウェブ コンテンツにアクセスすることで、モデルの機能を拡張できます。](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)モデルは、検索のタイミングを自動的に判断し、クエリを実行してレスポンスを合成します。
 
 ### Python
 
@@ -342,27 +338,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-นอกจากนี้ Gemini API ยังรองรับเครื่องมืออื่นๆ ในตัวด้วย ดังนี้
+Gemini API は、他の組み込みツールもサポートしています。
 
-- **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**:
-  ช่วยให้โมเดลเขียนและเรียกใช้โค้ด Python เพื่อแก้ปัญหาทางคณิตศาสตร์ที่ซับซ้อน
-- **[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**: ช่วยให้คุณ
-  เชื่อมต่อแหล่งข้อมูลคำตอบกับ URL ของหน้าเว็บที่เฉพาะเจาะจงที่คุณระบุ
-- **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**: ช่วยให้คุณ
-  อัปโหลดไฟล์และเชื่อมต่อแหล่งข้อมูลคำตอบกับเนื้อหาของไฟล์โดยใช้การค้นหาความหมาย
-- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**: ช่วยให้คุณ
-  เชื่อมต่อแหล่งข้อมูลคำตอบกับข้อมูลสถานที่ และค้นหาสถานที่ เส้นทาง และ
-  แผนที่
-- **[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)**: ช่วยให้
-  โมเดลโต้ตอบกับหน้าจอ แป้นพิมพ์ และเมาส์ของคอมพิวเตอร์เสมือนเพื่อ
-  ทำงานต่างๆ
+- **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**:
+  モデルが Python コードを記述して実行し、複雑な数学の問題を解決できるようにします。
+- **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**: 指定した特定のウェブページの URL でレスポンスを
+  グラウンディングできます。
+- **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**: ファイルをアップロードし、セマンティック検索を使用してコンテンツ内のレスポンスをグラウンディングできます。
+- **[Google マップ](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**: 位置情報データでレスポンスをグラウンディングし、場所、ルート、
+  地図を検索できます。
+- **[Computer Use](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)**: モデルが仮想コンピュータの画面、キーボード、マウスを操作してタスクを実行できるようにします。
 
-## เรียกฟังก์ชันที่กำหนดเอง
+## カスタム関数を呼び出す
 
-ใช้**[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)** เพื่อเชื่อมต่อ
-โมเดลกับเครื่องมือและ API ที่กำหนดเอง โมเดลจะกำหนดเวลาที่จะเรียกฟังก์ชันและแสดง `functionCall` ในคำตอบเพื่อให้แอปพลิเคชันของคุณดำเนินการ
+**[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**を使用して、
+モデルをカスタムツールと API に接続します。モデルは、関数を呼び出すタイミングを判断し、アプリケーションが実行するレスポンスで `functionCall` を返します。
 
-ตัวอย่างนี้ประกาศฟังก์ชันอุณหภูมิจำลองและตรวจสอบว่าโมเดลต้องการเรียกฟังก์ชันดังกล่าวหรือไม่
+この例では、モックの温度関数を宣言し、モデルがその関数を呼び出すかどうかを確認します。
 
 ### Python
 
@@ -524,25 +516,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## ขั้นตอนถัดไป
+## 次のステップ
 
-เมื่อเริ่มต้นใช้งาน Gemini API แล้ว ให้สำรวจคำแนะนำต่อไปนี้เพื่อสร้างแอปพลิเคชันขั้นสูงเพิ่มเติม
+Gemini API の使用を開始したら、次のガイドでより高度なアプリケーションの構築方法をご確認ください。
 
-- [การสร้างข้อความ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th)
-- [การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
-- [การทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
-- [การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
-- [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
-- [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)
-- [บริบทแบบยาว](https://ai.google.dev/gemini-api/docs/long-context?hl=th)
-- [การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)
+- [テキスト生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja)
+- [画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)
+- [画像理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja)
+- [思考モード](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)
+- [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)
+- [Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)
+- [長いコンテキスト](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)
+- [エンベディング](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)
 
-ส่งความคิดเห็น
+フィードバックを送信
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-อัปเดตล่าสุด 2026-07-30 UTC
+最終更新日 2026-07-30 UTC。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+ご意見をお聞かせください
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

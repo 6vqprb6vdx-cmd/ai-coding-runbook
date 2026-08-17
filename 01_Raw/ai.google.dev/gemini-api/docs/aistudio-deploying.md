@@ -1,101 +1,103 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=de
-fetched_at: 2026-08-10T03:15:24.942026+00:00
-title: "\u00dcber Google\u00a0AI Studio bereitstellen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=he
+fetched_at: 2026-08-17T02:31:09.316149+00:00
+title: "\u05e4\u05e8\u05d9\u05e1\u05d4 \u05de-Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Feedback geben
+שליחת משוב
 
-# Über Google AI Studio bereitstellen
+# פריסה מ-Google AI Studio
 
-Mit Google AI Studio können Sie Ihre Full-Stack-Anwendungen direkt über den Build-Modus bereitstellen. So können Sie schnell von einem Prototyp zu einer verwalteten, skalierbaren Produktionsumgebung wechseln.
+‫Google AI Studio מאפשר לכם לפרוס את אפליקציות הפול סטאק שלכם ישירות ממצב בנייה. כך אפשר לעבור במהירות מאב טיפוס לסביבת ייצור מנוהלת וניתנת להרחבה.
 
-## Optionen der Bereitstellung
+## אפשרויות פריסה
 
-Die Anforderungen für die Bereitstellung Ihrer Anwendung über den AI Studio Build-Modus hängen von der verwendeten Stufe ab:
+כדי לפרוס את האפליקציה ממצב Build ב-AI Studio, הדרישות משתנות בהתאם לרמה שבה אתם משתמשים:
 
-- [**Google Cloud-Starterpaket**](https://docs.cloud.google.com/docs/starter-tier?hl=de): Damit können Sie bis zu zwei Full-Stack-Anwendungen veröffentlichen, ohne ein Google Cloud-Projekt oder ein Abrechnungskonto einzurichten.
-- **Standardbereitstellung**: Hierfür ist ein Google Cloud-Projekt erforderlich, das mit Ihrem AI Studio-Konto verknüpft ist und für das die Abrechnung aktiviert ist.
+- ‫[**Google Cloud Starter Tier**](https://docs.cloud.google.com/docs/starter-tier?hl=he):
+  מאפשר לכם לפרסם עד 2 אפליקציות full-stack בלי להגדיר פרויקט ב-Google Cloud או חשבון לחיוב.
+- **פריסה רגילה**: נדרש פרויקט ב-Google Cloud שמקושר לחשבון שלכם ב-AI Studio, והחיוב צריך להיות מופעל בפרויקט הזה.
 
-## Starter-Stufe
+## מידע על התוכנית למתחילים
 
-Der Google Cloud Starter Tier bietet einen einfachen Weg, Anwendungen direkt aus Google AI Studio in Google Cloud bereitzustellen, ohne eine vollständige Google Cloud-Umgebung oder ein Abrechnungskonto einrichten zu müssen.
+מסלול Starter של Google Cloud מספק דרך פשוטה לפריסת אפליקציות ב-Google Cloud ישירות מ-Google AI Studio, בלי להגדיר סביבת Google Cloud מלאה או חשבון לחיוב.
 
-Bei jeder Google AI Studio-Bereitstellung wird ein entsprechender Dienst in Cloud Run erstellt. Für Dienste, die in Google AI Studio mit dem Starter-Abo bereitgestellt werden, gelten die folgenden Einschränkungen:
+כל פריסה של Google AI Studio יוצרת שירות תואם ב-Cloud Run. ההגבלות הבאות חלות על שירותים שנפרסו ב-Google AI Studio עם חבילת Starter:
 
-- Sie können bis zu zwei Dienste bereitstellen.
-- Ihre Dienste werden in einer [einzigen Cloud Run-Region](https://docs.cloud.google.com/run/docs/locations?hl=de) bereitgestellt.
+- אפשר לפרוס עד שני שירותים.
+- השירותים שלכם נפרסים ב[אזור יחיד של Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=he).
 
-## Bereitstellungsschritte für die Starter-Stufe
+## שלבי הפריסה של תוכנית למתחילים
 
-Nachdem Sie Ihre App im Build-Modus entworfen haben, können Sie sie mit dem Starter-Tarif bereitstellen:
+אחרי שמעצבים את האפליקציה במצב Build (בנייה), פורסים אותה באמצעות חבילת Starter:
 
-1. Klicken Sie rechts oben auf die Schaltfläche **Veröffentlichen**.
-2. Klicken Sie auf **Jetzt starten**.
-3. Klicken Sie auf **App veröffentlichen**.
+1. לוחצים על הלחצן **פרסום** בפינה השמאלית העליונה.
+2. לוחצים על **שנתחיל?**.
+3. לוחצים על **פרסום האפליקציה**.
 
-Nach Abschluss der Bereitstellung stellt AI Studio eine Cloud Run-URL bereit, über die Sie auf Ihre Live-Anwendung zugreifen können.
+אחרי שהפריסה מסתיימת, AI Studio מספק כתובת URL של Cloud Run שדרכה אפשר לגשת לאפליקציה הפעילה.
 
-## Benutzerdefinierte URLs für AI Studio
+## כתובות URL מותאמות אישית ל-AI Studio
 
-Wenn Sie eine Anwendung über Google AI Studio veröffentlichen, können Sie unter `ai.studio` eine benutzerdefinierte, einprägsame Subdomain festlegen, z. B. `https://your-app-name.ai.studio`.
+כשמפרסמים אפליקציה מ-Google AI Studio, אפשר להגדיר תת-דומיין מותאם אישית וקל לזכירה בקטע `ai.studio` (לדוגמה, `https://your-app-name.ai.studio`).
 
-Für Google AI Studio müssen Subdomains in allen Projekten global eindeutig sein. Sie werden nach dem Prinzip „First come, first served“ zugewiesen. Wenn ein anderer Name bereits in einem anderen Projekt verwendet wird, werden Sie in AI Studio aufgefordert, einen anderen Namen auszuwählen. Wenn Sie eine Anwendung aus dem Play Store entfernen oder löschen, wird die benutzerdefinierte URL freigegeben und kann von anderen Nutzern beansprucht werden.
+‫Google AI Studio דורש ששמות של תת-דומיינים יהיו ייחודיים באופן גלובלי בכל הפרויקטים,
+ומקצה אותם לפי סדר קבלת הבקשות. אם פרויקט אחר כבר משתמש בשם, AI Studio יבקש מכם לבחור שם אחר. אם מבטלים את הפרסום של אפליקציה או מוחקים אותה, כתובת ה-URL המותאמת אישית שלה מתפנה ומשתמשים אחרים יכולים להשתמש בה.
 
-### Benutzerdefinierte URL festlegen
+### הגדרת כתובת URL מותאמת אישית
 
-So legen Sie eine benutzerdefinierte URL für Ihre Anwendung fest oder aktualisieren sie:
+כדי להגדיר או לעדכן כתובת URL מותאמת אישית לאפליקציה:
 
-1. Öffnen Sie Ihre Anwendung in Google AI Studio im Modus **Build** (Erstellen).
-2. Klicken Sie rechts oben auf **Veröffentlichen**.
-3. Geben Sie in der Bereitstellungskonfiguration im Feld **Benutzerdefinierte URL** die gewünschte Subdomain ein oder übernehmen Sie die vorgeschlagene URL.
-4. Klicken Sie auf **App veröffentlichen**.
+1. פותחים את האפליקציה ב-Google AI Studio במצב **Build**.
+2. לוחצים על **פרסום** בפינה השמאלית העליונה.
+3. בהגדרת הפריסה, מזינים את תת-הדומיין המועדף בשדה **כתובת URL מותאמת אישית** או מאשרים את כתובת ה-URL המוצעת.
+4. לוחצים על **פרסום האפליקציה**.
 
-Wenn Sie eine vorhandene benutzerdefinierte URL auf eine andere Anwendung übertragen möchten, müssen Sie zuerst die Anwendung, der diese benutzerdefinierte URL zugewiesen ist, aus dem Play Store entfernen oder die Veröffentlichung aufheben. Anschließend können Sie Ihre neue Anwendung mit der ausgewählten Subdomain veröffentlichen.
+כדי להעביר כתובת URL מותאמת אישית קיימת לאפליקציה אחרת, קודם צריך לבטל את הפרסום של האפליקציה שהוקצתה לה כתובת ה-URL המותאמת אישית או למחוק אותה, ואז לפרסם את האפליקציה החדשה באמצעות תת הדומיין שנבחר.
 
-### Marken- oder Urheberrechtsprobleme melden
+### דיווח על בעיות שקשורות לסימנים מסחריים או לזכויות יוצרים
 
-Benutzerdefinierte Subdomains müssen den [Google-Nutzungsbedingungen](https://policies.google.com/terms?hl=de) entsprechen. Wenn Sie eine benutzerdefinierte URL sehen, die gegen das Markenrecht verstößt oder einen urheberrechtlich geschützten Namen ohne Erlaubnis verwendet, können Sie sie über die [Google-Fehlerbehebung für rechtliche Probleme](https://support.google.com/legal/troubleshooter/1114905?hl=de) melden.
+דומיינים משנה מותאמים אישית צריכים לעמוד [בתנאים ובהגבלות של Google](https://policies.google.com/terms?hl=he). אם נתקלתם בכתובת URL בהתאמה אישית שמפרה סימן מסחרי או משתמשת בשם שמוגן בזכויות יוצרים ללא אישור, אתם יכולים לדווח על כך באמצעות [פותר הבעיות המשפטיות של Google](https://support.google.com/legal/troubleshooter/1114905?hl=he).
 
-## Standardmäßige Bereitstellung
+## פריסה רגילה
 
-Wenn sich Ihre Anwendungen weiterentwickeln, benötigen Sie möglicherweise Funktionen, die über den Einstiegstarif hinausgehen, z. B. höhere Kontingente, mehr Rechenressourcen oder andere Google Cloud-Produkte, die im Einstiegstarif nicht verfügbar sind. Wenn Sie diese Funktionen nutzen möchten, können Sie Ihr vollständig verwaltetes Projekt im Einstiegstarif in ein Standard-Google Cloud-Projekt umwandeln.
+כשהאפליקציות מתפתחות, יכול להיות שתצטרכו יכולות שמעבר לרמת Starter, כמו מכסות גבוהות יותר, משאבי מחשוב מוגדלים או מוצרים אחרים של Google Cloud שלא זמינים ברמת Starter. כדי לקבל גישה ליכולות האלה, אתם יכולים להמיר את הפרויקט שלכם ברמת Starter המנוהל באופן מלא לפרויקט רגיל ב-Google Cloud.
 
-So können Sie nahtlos skalieren, ohne Ihren Fortschritt zu verlieren. Folgen Sie der Anleitung zum [Erstellen eines Cloud-Rechnungskontos](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=de#create-new-billing-account), akzeptieren Sie die standardmäßigen Google Cloud-Nutzungsbedingungen und [führen Sie ein Upgrade auf ein standardmäßiges Google Cloud-Projekt durch](https://docs.cloud.google.com/docs/starter-tier?hl=de#upgradee).
-Weitere Informationen finden Sie unter [Einrichtung für kostenpflichtige Konten](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=de#paid-setup).
+כך תוכלו להרחיב את הפעילות בצורה חלקה בלי לאבד את ההתקדמות. פועלים לפי השלבים ל[יצירת חשבון לחיוב ב-Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=he#create-new-billing-account), מאשרים באופן רשמי את התנאים וההגבלות הרגילים של Google Cloud ו[משדרגים לפרויקט רגיל ב-Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=he#upgradee).
+מידע נוסף זמין במאמר בנושא [הגדרה של חשבונות בתשלום](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#paid-setup).
 
-Weitere Informationen zu Abrechnungsstufen finden Sie unter [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
+מידע נוסף על רמות חיוב זמין במאמר [חיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he).
 
-## Anwendung löschen
+## מחיקת הבקשה
 
-Wenn Sie Ihre App nicht mehr benötigen, können Sie sie in Google AI Studio löschen. Gehen Sie dazu so vor:
+אם אין לכם יותר צורך באפליקציה, אתם יכולים למחוק אותה ב-Google AI Studio לפי ההוראות הבאות:
 
-1. Rufen Sie in Google AI Studio die Seite [Apps](https://aistudio.google.com/app/apps?hl=de) auf.
-2. Wählen Sie im Menü auf der linken Seite **Apps** aus.
-3. Bewegen Sie den Mauszeiger auf die App, die Sie löschen möchten.
-4. Klicken Sie rechts neben der Zeile auf das Papierkorbsymbol, um die App zu löschen.
+1. ב-Google AI Studio, עוברים אל [דף האפליקציות](https://aistudio.google.com/app/apps?hl=he).
+2. בתפריט הימני, לוחצים על **אפליקציות**.
+3. מעבירים את הסמן מעל האפליקציה שרוצים למחוק.
+4. כדי למחוק את האפליקציה, לוחצים על סמל פח האשפה בצד שמאל של השורה.
 
-## Nächste Schritte
+## המאמרים הבאים
 
-- [Weitere Informationen zur Google Cloud Starter-Stufe](https://docs.cloud.google.com/docs/starter-tier?hl=de)
-- [Weitere Informationen zur Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de)
+- [מידע נוסף על רמת ההתחלה ב-Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=he)
+- מידע נוסף על [חיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he) ב-Gemini API
 
-Feedback geben
+שליחת משוב
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Zuletzt aktualisiert: 2026-07-10 (UTC).
+עדכון אחרון: 2026-07-10 (שעון UTC).
 
-Haben Sie Feedback für uns?
+רוצה לתת לנו משוב?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-10 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-10 (שעון UTC)."],[],[]]

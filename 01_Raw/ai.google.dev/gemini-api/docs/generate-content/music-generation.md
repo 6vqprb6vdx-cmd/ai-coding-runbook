@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=fr
-fetched_at: 2026-08-10T03:19:03.408614+00:00
-title: "G\u00e9n\u00e9rer de la musique avec Lyria\u00a03 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=zh-TW
+fetched_at: 2026-08-17T02:33:04.502118+00:00
+title: "\u4f7f\u7528 Lyria 3 \u751f\u6210\u97f3\u6a02 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Envoyer des commentaires
+提供意見
 
-# Générer de la musique avec Lyria 3
+# 使用 Lyria 3 生成音樂
 
-Lyria 3 est la famille de modèles de génération de musique de Google, disponible via l'API Gemini. Avec Lyria 3, vous pouvez générer de l'audio stéréo de haute qualité à 44, 1 kHz à partir de requêtes textuelles ou d'images. Ces modèles offrent une cohérence structurelle, y compris les voix, les paroles synchronisées et les arrangements instrumentaux complets.
+Lyria 3 是 Google 的音樂生成模型系列，可透過 Gemini API 使用。使用 Lyria 3，你可以根據文字提示或圖片生成高品質的 44.1 kHz 立體聲音訊。這類模型可提供結構一致的音樂，包括人聲、歌詞時間碼和完整樂器編曲。
 
-La famille Lyria 3 comprend deux modèles :
+Lyria 3 系列包含兩種模型：
 
-| Modèle | ID du modèle | Application idéale | Durée | Sortie |
+| 模型 | 模型 ID | 適用情境 | 時間長度 | 輸出 |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips courts, boucles, aperçus | 30 secondes | MP3 |
-| **Lyria 3 Pro** | `lyria-3-pro-preview` | Chansons complètes avec des couplets, des refrains et des ponts | Quelques minutes (contrôlables via la requête) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | 短片、循環播放、預覽 | 30 秒 | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | 包含主歌、副歌和橋段的完整歌曲 | 幾分鐘 (可透過提示控制) | MP3 |
 
-Les deux modèles peuvent être utilisés avec la méthode `generateContent` standard et la nouvelle [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), qui accepte les entrées multimodales (texte et images) et produit de l'audio **stéréo haute fidélité à 44,1 kHz**.
+這兩款模型都可透過標準 `generateContent` 方法和新的 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 使用，支援多模態輸入 (文字和圖片)，並產生 **44.1 kHz 高保真立體聲**音訊。
 
-## Générer un extrait musical
+## 生成音樂短片
 
-Le modèle Lyria 3 Clip génère toujours un extrait de **30 secondes**. Pour générer un extrait, appelez la méthode `generateContent` avec un prompt textuel. La réponse inclut toujours les paroles et la structure du morceau générées, ainsi que l'audio.
+Lyria 3 Clip 模型一律會生成 **30 秒**片段。如要生成短片，請使用文字提示詞呼叫 `generateContent` 方法。回應一律會包含生成的歌詞和歌曲結構，以及音訊。
 
 ### Python
 
@@ -213,9 +213,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## Générer une chanson complète
+## 生成完整歌曲
 
-Utilisez le modèle `lyria-3-pro-preview` pour générer des titres complets de quelques minutes. Le modèle Pro comprend la structure musicale et peut créer des compositions avec des couplets, des refrains et des ponts distincts. Vous pouvez influencer la durée en la spécifiant dans votre requête (par exemple, "crée une chanson de deux minutes") ou en utilisant des [codes temporels](#timing) pour définir la structure.
+使用 `lyria-3-pro-preview` 模型生成幾分鐘的完整歌曲。Pro 版模型可理解音樂結構，並創作具有不同主歌、副歌和橋段的樂曲。如要影響時長，可以在提示中指定 (例如「創作 2 分鐘的歌曲」)，或使用[時間戳記](#timing)定義結構。
 
 ### Python
 
@@ -290,9 +290,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## Sélectionner un format de sortie
+## 選取輸出格式
 
-Par défaut, les modèles Lyria 3 génèrent de l'audio au format **MP3**. Pour Lyria 3 Pro, vous pouvez également demander le résultat au format **WAV** en définissant `response_format` dans `generationConfig`.
+根據預設，Lyria 3 模型會生成 **MP3** 格式的音訊。如果是 Lyria 3 Pro，您也可以在 `generationConfig` 中設定 `response_format`，要求以 **WAV** 格式輸出。
 
 ### Python
 
@@ -385,9 +385,9 @@ curl -s -X POST \
   }'
 ```
 
-## Analyser la réponse
+## 剖析回應
 
-La réponse de Lyria 3 comporte plusieurs parties. Les parties textuelles contiennent les paroles générées ou une description JSON de la structure du morceau. Les parties avec `inline_data` contiennent les octets audio.
+Lyria 3 的回覆包含多個部分，文字部分包含生成的歌詞或歌曲結構的 JSON 說明。含有音訊位元組的部分。`inline_data`
 
 ### Python
 
@@ -513,9 +513,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## Générer de la musique à partir d'images
+## 根據圖片生成音樂
 
-Lyria 3 accepte les entrées multimodales. Vous pouvez fournir jusqu'à **10 images** en plus de votre prompt textuel. Le modèle composera de la musique inspirée du contenu visuel.
+Lyria 3 支援多模態輸入內容，除了文字提示詞，你最多還可提供 **10 張圖片**，模型會根據視覺內容創作音樂。
 
 ### Python
 
@@ -636,9 +636,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## Fournir des paroles personnalisées
+## 提供自訂歌詞
 
-Vous pouvez écrire vos propres paroles et les inclure dans la requête. Utilisez des balises de section comme `[Verse]`, `[Chorus]` et `[Bridge]` pour aider le modèle à comprendre la structure du morceau :
+你可以自行撰寫歌詞，並加入提示。使用 `[Verse]`、`[Chorus]` 和 `[Bridge]` 等區段標記，協助模型瞭解歌曲結構：
 
 ### Python
 
@@ -817,9 +817,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## Contrôler le timing et la structure
+## 控制時間和結構
 
-Vous pouvez spécifier exactement ce qui se passe à des moments précis de la chanson à l'aide de codes temporels. Cela permet de contrôler le moment où les instruments entrent en jeu, où les paroles sont diffusées et comment la chanson progresse :
+你可以使用時間戳記，指定歌曲在特定時間點發生的事件。這項功能有助於控制樂器進入的時間、歌詞的傳送時間，以及歌曲的進展方式：
 
 ### Python
 
@@ -934,9 +934,9 @@ curl -s -X POST \
   }'
 ```
 
-## Générer des pistes instrumentales
+## 生成配樂
 
-Pour la musique de fond, les bandes originales de jeux ou tout cas d'utilisation où les voix ne sont pas nécessaires, vous pouvez demander au modèle de produire des pistes instrumentales uniquement :
+如要製作背景音樂、遊戲配樂或任何不需要人聲的音樂，可以提示模型製作純樂器演奏的曲目：
 
 ### Python
 
@@ -1006,9 +1006,9 @@ curl -s -X POST \
   }'
 ```
 
-## Générer de la musique dans différentes langues
+## 生成不同語言的音樂
 
-Lyria 3 génère des paroles dans la langue de votre requête. Pour générer une chanson avec des paroles en français, rédigez votre requête en français. Le modèle adapte son style vocal et sa prononciation à la langue.
+Lyria 3 會以提示語言生成歌詞。如要生成法文歌詞的歌曲，請用法文撰寫提示。模型會調整語氣和發音，配合所選語言。
 
 ### Python
 
@@ -1083,14 +1083,13 @@ curl -s -X POST \
   }'
 ```
 
-## Intelligence du modèle
+## 模型智慧
 
-Lyria 3 analyse le processus de votre requête, où le modèle raisonne à travers la structure musicale (intro, couplet, refrain, pont, etc.) en fonction de votre requête.
-Cela se produit avant la génération de l'audio et garantit la cohérence structurelle et la musicalité.
+Lyria 3 會分析提示程序，模型會根據提示推斷音樂結構 (前奏、主歌、副歌、橋段等)。這項程序會在生成音訊前執行，確保結構一致性和音樂性。
 
-## API Interactions
+## Interactions API
 
-Vous pouvez utiliser les modèles Lyria 3 avec l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), une interface unifiée pour interagir avec les modèles et les agents Gemini. Il simplifie la gestion de l'état et des tâches de longue durée pour les cas d'utilisation multimodaux complexes.
+您可以使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 存取 Lyria 3 模型，這個 API 是與 Gemini 模型和代理程式互動的統一介面。可簡化複雜多模態用途的狀態管理和長時間執行的工作。
 
 ### Python
 
@@ -1152,75 +1151,76 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Guide sur les requêtes
+## 提示指南
 
-Votre requête peut être aussi simple que "une chanson folk sur des chats mignons qui évitent les flaques d'eau, avec des voix féminines et le bruit de la pluie", ou plus détaillée et structurée, comme :
+提示可以很簡單，例如「一首關於可愛貓咪躲避水窪的民謠，女聲演唱，並加入雨聲」，也可以詳細且有結構，例如：
 
-> Un morceau synth-pop des années 1980 avec un rythme entraînant, des synthétiseurs scintillants et un refrain accrocheur et entraînant. La chanson doit avoir une ambiance rétro-futuriste, rappelant les tubes pop classiques des années 80, avec une production moderne et soignée. Le tempo doit être entraînant et dansant, autour de 120 BPM, avec une structure couplet-refrain claire et un hook instrumental mémorable. Les paroles parlent du sentiment de se préparer pour une fête.
+> 這首 1980 年代風格的合成器流行樂曲，節奏強勁、合成器音色閃耀，副歌洗腦又充滿力量。這首歌應帶有復古未來主義的感覺，讓人想起 80 年代的經典流行金曲，並經過現代製作技術的潤飾。節奏應歡快且適合跳舞，約為 120 BPM，並有清晰的主歌-副歌結構和令人難忘的樂器旋律。歌詞描述的是準備參加派對的心情。
 
-Les requêtes simples et complexes peuvent générer de bons résultats. Nous vous recommandons de tester ces conseils pour trouver ce qui vous convient le mieux.
+簡單和複雜的提示都能產生良好的輸出內容。建議您嘗試這些訣竅，找出最適合自己的做法。
 
-### Genre
+### 類型
 
-Commencez votre requête par le genre de musique que vous souhaitez, comme le hip-hop, le rock ou le rap. Vous pouvez spécifier plusieurs genres :
+在提示詞開頭輸入想要的音樂類型，例如嘻哈、搖滾和饒舌。你可以指定多種曲風：
 
-- Fusion de métal et de rap
-- Un mélange de death metal et d'opéra
-- Morceau classique avec des éléments de drone électronique
-- Musique électronique moderne pour danser (EDM) mélangée à de l'Europop
+- 融合金屬樂和饒舌樂
+- 結合死亡金屬和歌劇
+- 含有電子無人機元素的古典樂
+- 現代電子舞曲 (EDM) 混合歐洲流行音樂
 
-Vous pouvez également inclure une ère :
+你也可以加入年代：
 
-- Hip-hop du début des années 90
-- Pop yé-yé française des années 60
-- Expérimentations électroniques des années 80
-- Pop mainstream des années 2000
+- 90 年代初期的嘻哈
+- 60 年代法國 ye-ye 流行樂
+- 80 年代的電子實驗
+- 2000 年代主流流行樂
 
-Si vous demandez des genres ou des variantes régionales spécifiques, comme la "techno berlinoise" ou le "hyphy de la baie de San Francisco", le modèle tentera de capturer cette essence, mais il ne réussira pas toujours.
+如果提示模型生成特定類型或地區變體，例如「柏林鐵克諾」或「灣區 hyphy」，模型會嘗試捕捉該本質，但可能不一定能正確生成。
 
-### Instruments
+### 樂器
 
-Par défaut, Lyria 3 crée des titres avec les instruments et les outils que vous attendez pour le genre. Vous n'avez pas besoin d'être prescriptif.
+根據預設，Lyria 3 會使用該曲風的樂器和工具製作歌曲。不必過於嚴格。
 
-Toutefois, un morceau de danse n'inclura pas de saxophone, sauf si vous le demandez. Pour obtenir un solo de saxophone, vous devez le demander :
+不過，除非你要求，否則舞曲不會包含薩克斯風。因此，如要生成薩克斯風獨奏，請輸入以下提示：
 
-> Titre de danse avec un rythme entraînant, des synthétiseurs scintillants et un refrain accrocheur et hymne. Un solo de saxophone doit intervenir pendant le pont.
+> 這首舞曲節奏強勁、合成器閃閃發光，副歌琅琅上口，橋段應加入薩克斯風獨奏。
 
-Votre requête peut inclure des instruments spécifiques, leur sonorité et la façon dont ils interagissent les uns avec les autres. Vous pouvez utiliser cette combinaison pour créer certaines ambiances ou textures :
+提示可以包括特定樂器、樂器發出的聲音，以及樂器之間的互動方式。您可以運用這種組合營造特定情緒或質感：
 
-- Une ligne de basse sale et distordue qui se bat contre des charlestons clairs et nets
-- Pads de synthétiseur analogique chaleureux et gonflés sous une guitare acoustique sèche et intime
-- Mur de son créé par plusieurs couches de guitares saturées, avec des voix lointaines et enfouies
+- 失真低音線與乾淨清脆的 Hi-Hat 互相抗衡
+- 溫暖的類比合成器墊音，在乾淨親切的木吉他聲中逐漸擴大
+- 多層破音吉他堆疊出音牆，人聲則埋在其中，
+  聽起來很遙遠
 
-### Structure d'un titre
+### 歌曲結構
 
-Vous pouvez décrire la progression d'un titre dans votre requête. Utilisez des flèches ou une liste pour définir le flux :
+你可以在提示中列出歌曲的進展。使用箭頭或清單定義流程：
 
-- `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
-  `[Bridge]` -> `[Outro]`
-- Commence par une introduction au piano calme, monte en puissance pour le couplet, retombe dans le silence, puis explose pour le refrain.
+- `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
+  `[Bridge]` -> `[Outro]`
+- 先以輕柔的鋼琴前奏開場，接著進入激昂的段落，然後突然靜默，再爆發進入副歌。
 
-Vous pouvez également spécifier comment les niveaux d'énergie changent entre ces sections :
+你也可以指定這些區段之間的能量變化：
 
-- Créez de la tension dans le pré-refrain, puis passez au silence avant un refrain massif et explosif.
-- Crescendo progressif tout au long du morceau, ajoutant un instrument à la fois jusqu'à un mur de son chaotique
-- Arrêt soudain après le pont, suivi d'un refrain a cappella
+- 在副歌前段營造緊張感，然後在副歌爆發前歸於寂靜
+- 整首歌曲的音量逐漸變大，一次加入一種樂器，直到形成混亂的音牆
+- 在橋段後突然停止，接著是無伴奏合唱
 
-Vous pouvez également indiquer l'heure exacte à laquelle vous souhaitez qu'une action se produise :
+你也可以提示要執行動作的確切時間：
 
-- Build to a drop at 12s
-- Quelqu'un dit "quoi" toutes les deux secondes
-- Le refrain commence à 22 s
+- 在 12 秒時建構至低點
+- 每隔 2 秒說一次「什麼」
+- 副歌從 22 秒開始
 
-### Paroles
+### 歌詞
 
-Les voix et les paroles sont générées par défaut. Vous pouvez fournir vos propres paroles, demander à ce qu'il n'y en ait pas (ou qu'il s'agisse d'un instrumental) ou orienter la génération de paroles dans la direction de votre choix.
+系統預設會生成人聲和歌詞。你可以提供自己的歌詞、要求不要歌詞 (或純音樂)，或引導歌詞生成朝你想要的方向發展。
 
-Vos paroles seront dans la langue dans laquelle vous rédigez votre requête. Vous pouvez également demander à ce que les paroles soient dans une autre langue, par exemple "Écris les paroles en français".
+歌詞會以你輸入提示時使用的語言呈現。你也可以要求以其他語言撰寫歌詞，例如「用法文撰寫歌詞」。
 
-#### Utiliser vos propres paroles
+#### 使用自訂歌詞
 
-Pour fournir vos propres paroles au modèle, incluez-les dans la requête avec le préfixe "Paroles :" :
+如要讓模型使用你提供的歌詞，請在提示中加入歌詞，並加上「Lyrics:」前置字元：
 
 ```
 Lyrics:
@@ -1237,51 +1237,51 @@ Go with the flow
 ...
 ```
 
-Vous pouvez ajouter des titres de section comme `[Intro]`, `[Verse 1]`, `[Pre-chorus]`, `[Chorus]` et `[Outro]` au début de certaines parties du titre.
+你可以在歌曲的各個部分加上前置字串，例如 `[Intro]`、`[Verse 1]`、`[Pre-chorus]`、`[Chorus]` 和 `[Outro]`。
 
-Si vous souhaitez qu'un mot ou une ligne soit répété, comme un écho ou par des choristes, vous pouvez l'inclure entre parenthèses : "Let's go (go)".
+如要重複某個字或一行，例如回音或和聲，可以將其放在括號中：「Let's go (go)」。
 
-#### Demander au modèle d'écrire des paroles
+#### 提示模型撰寫歌詞
 
-Si vous souhaitez que Lyria 3 crée des paroles pour vous, il est préférable d'inclure dans votre requête des détails sur le thème des paroles. Sinon, le modèle devra déduire un sujet à partir de votre requête musicale, et il se peut que le résultat ne soit pas celui que vous souhaitez.
+如要讓 Lyria 3 為你創作歌詞，建議在提示中加入歌詞內容的詳細資訊。否則模型必須從音樂提示推斷主題，結果可能不符合您的需求。
 
-> Les paroles parlent d'un amour perdu et de la douleur d'un cœur brisé. La chanteuse se remémore une relation passée et les souvenirs qui lui reviennent en mémoire.
+> 歌詞描述失去愛情的痛苦，這位歌手回憶起過去的戀情，以及湧現的記憶。
 
-Si vous souhaitez un refrain qui se répète, demandez-le dans votre requête :
+如要重複播放副歌，請在提示中要求：
 
-> Les paroles parlent d'un amour perdu et de la douleur d'un cœur brisé. La chanteuse se remémore une relation passée et les souvenirs qui lui reviennent en mémoire. Un refrain puissant se concentre sur le fait de surmonter la douleur et de passer à autre chose.
+> 歌詞描述失去愛情的痛苦，這位歌手回憶起過去的戀情，以及隨之湧現的回憶。副歌氣勢磅礴，著重於克服痛苦並繼續前進。
 
-Lyria 3 orientera automatiquement la structure des paroles vers le type de musique que vous demandez, mais vous pouvez également le préciser dans votre requête. Exemple :
+Lyria 3 會根據你要求的音樂類型，自動調整歌詞結構，但你也可以在提示中重新強調這一點。例如：
 
-> Un titre de musique électronique qui répète la même phrase énergique encore et encore.
+> EDM 歌曲，不斷重複相同的活力四射詞組。
 
-Vous pouvez également demander des effets vocaux qui ne sont pas strictement des paroles, par exemple :
+你也可以提示加入非歌詞的聲音效果，例如：
 
-- Un sample répété d'un film dit "Je n'arrive pas à y croire !" tout au long du titre.
-- Un morceau de techno très énergique, juste avant le drop, le son s'arrête et une petite voix dit "Je ne sais pas ce que je fais ici", puis la musique reprend.
-- Le titre s'ouvre sur une conversation sur les films des années 90, qui seraient meilleurs que ceux d'aujourd'hui. Le titre se transforme ensuite en chanson pop.
+- 電影中的重複樣本在整首歌曲中說著「我不敢相信！」
+- 在音樂高潮前，所有聲音都會停止，然後會聽到小小的聲音說「我不知道我在這裡做什麼」，接著音樂就會進入高潮。
+- 這首歌曲的開頭是關於 90 年代電影比現今更出色的對話。接著，這首曲目會轉場至流行歌曲。
 
-### Chant
+### 人聲
 
-Vous pouvez indiquer comment vous souhaitez que les paroles soient fournies. Pour obtenir les meilleurs résultats, spécifiez un profil de chanteur détaillé, en indiquant le genre, le timbre et la tessiture.
+你可以提示歌詞的呈現方式，為獲得最佳效果，請詳細指定歌手的性別、音色和音域。
 
-- **Soprano féminine** : timbre clair et cristallin, avec une qualité agile et aérienne. Capable d'atteindre des notes aiguës sifflantes avec une texture aérienne et haletante.
-- **Alto féminin** : registre grave riche, chaleureux et rauque. Timbre enfumé avec une touche de fry vocal, plein d'âme et résonnant.
-- **Ténor** : voix claire, perçante et énergique Timbre juvénile avec une légère nasalité, qui se démarque dans le mix avec une grande puissance de voix.
-- **Baryton masculin** : voix profonde, chocolatée et veloutée. Voix de poitrine résonnante avec un ton doux et mélodieux.
-- **Rockeur usé (homme)** : voix rauque et texturée avec un timbre graveleux, qui rappelle le grunge des années 90. Registre supérieur tendu pour l'intensité émotionnelle.
+- **女高音**：音色清澈如水晶，音質靈活高亢。能以輕柔的氣音唱出高音。
+- **女中音**：低音域豐富、溫暖且沙啞，帶有煙燻感，略帶聲帶緊縮音，充滿靈魂且共鳴感十足。
+- **男高音**：明亮、高亢、充滿活力。音色年輕，略帶鼻音，高音爆發力十足，能穿透混音。
+- **男中音**：深沉、醇厚，如天鵝絨般柔滑。共鳴的胸腔聲音，以舒緩的吟唱方式呈現。
+- **飽經風霜的搖滾歌手 (男)**：嗓音沙啞粗獷，音色低沉，讓人想起 90 年代的垃圾搖滾。情緒強度處於高點。
 
-### Autres paramètres de prompt
+### 其他提示參數
 
-Vous pouvez également inclure les paramètres suivants pour affiner davantage votre requête :
+您也可以加入下列參數，進一步調整提示：
 
-- **Tonalité/Gamme** : spécifiez une tonalité musicale (par exemple, "en sol majeur", "en ré mineur").
-- **Ambiance** : utilisez des adjectifs descriptifs (par exemple, "nostalgique", "agressif", "éthéré", "rêveur").
-- **Durée** : le modèle Clip produit toujours des extraits de 30 secondes. Pour le modèle Pro, spécifiez la durée souhaitée dans votre requête (par exemple, "crée une chanson de deux minutes") ou utilisez des codes temporels pour contrôler la durée.
+- **調性/音階**：指定調性 (例如「G 大調」、「D 小調」)。
+- **情緒和氛圍**：使用描述性形容詞 (例如「懷舊」、「激昂」、「空靈」、「夢幻」)。
+- **長度**：短片模型一律會生成 30 秒的短片。如果是 Pro 模型，請在提示中指定所需長度 (例如「創作 2 分鐘的歌曲」)，或使用時間戳記控制長度。
 
-### Exemples de prompts
+### 提示詞範例
 
-Voici quelques exemples de requêtes efficaces :
+以下列舉幾個有效的提示：
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -1291,37 +1291,37 @@ Voici quelques exemples de requêtes efficaces :
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## Bonnes pratiques
+## 最佳做法
 
-- **Commencez par itérer avec Clip.** Utilisez le modèle `lyria-3-clip-preview` plus rapide pour tester des requêtes avant de vous engager dans une génération complète avec `lyria-3-pro-preview`.
-- **Soyez précis.** Les requêtes vagues génèrent des résultats génériques. Mentionne les instruments, le tempo, la tonalité, l'humeur et la structure pour obtenir le meilleur résultat.
-- **Utilisez des tags de section.** Les balises `[Verse]`, `[Chorus]` et `[Bridge]` fournissent au modèle une structure claire à suivre.
-- **Séparez les paroles des instructions.** Lorsque vous fournissez des paroles personnalisées, séparez-les clairement de vos instructions musicales.
+- **先使用 Clip 進行疊代。**使用速度較快的 `lyria-3-clip-preview` 模型測試提示，再使用 `lyria-3-pro-preview` 生成完整長度的內容。
+- 提供**清楚明確**的說明，模糊的提示會產生一般結果。提及樂器、BPM、調性、情境和結構，以獲得最佳輸出內容。
+- **使用章節標記。**`[Verse]`、`[Chorus]`、`[Bridge]` 標記可為模型提供清楚的結構，方便遵循。
+- **歌詞和指示請分開提供。**提供自訂歌詞時，請清楚區分歌詞和音樂方向指示。
 
-## Limites
+## 限制
 
-- **Sécurité** : toutes les requêtes sont vérifiées par des filtres de sécurité. Les requêtes qui déclenchent les filtres seront bloquées. Cela inclut les requêtes demandant des voix d'artistes spécifiques ou la génération de paroles protégées par des droits d'auteur.
-- **Filigranes** : tous les contenus audio générés incluent un [filigrane audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr) pour l'identification. Ce filigrane est imperceptible à l'oreille humaine et n'affecte pas l'expérience d'écoute.
-- **Édition avec chat multitour** : la génération de musique est un processus monotour.
-  L'édition itérative ou l'affinage d'un extrait généré à l'aide de plusieurs requêtes ne sont pas pris en charge dans la version actuelle de Lyria 3.
-- **Durée** : le modèle Clip génère toujours des extraits de 30 secondes. Le modèle Pro génère des titres qui durent quelques minutes. La durée exacte peut être influencée par votre requête.
-- **Déterminisme** : les résultats peuvent varier d'un appel à l'autre, même avec le même prompt.
+- **安全性**：所有提示都會經過安全篩選器檢查。系統會封鎖觸發篩選器的提示。包括要求特定藝人聲音的提示，或是生成受著作權保護的歌詞。
+- **浮水印**：所有生成的音訊都會加上 [SynthID 音訊浮水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-tw)，以利識別。這種浮水印人耳無法辨識，也不會影響聆聽體驗。
+- **多輪編輯**：生成音樂是單輪程序。
+  目前版本的 Lyria 3 不支援透過多個提示，反覆編輯或修正生成的片段。
+- **長度**：片段模型一律會生成 30 秒的片段。Pro 模型會生成幾分鐘的歌曲，確切時長取決於提示。
+- **決定性**：即使使用相同提示，每次通話的結果也可能不同。
 
-## Étape suivante
+## 後續步驟
 
-- Consultez les [tarifs](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=fr) des modèles Lyria 3.
-- Essayez la [génération de musique en streaming et en temps réel](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=fr) avec Lyria RealTime.
-- Générez des conversations à plusieurs locuteurs avec les [modèles TTS](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr).
-- Découvrez comment générer des [images](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=fr) ou des [vidéos](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=fr).
-- Découvrez comment Gemini peut [comprendre les fichiers audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=fr),
-- Discutez en temps réel avec Gemini à l'aide de l'[API Live](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=fr).
+- 查看 Lyria 3 模型的[定價](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=zh-tw)，
+- 使用 Lyria RealTime [即時串流音樂生成](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=zh-tw)，
+- 使用 [TTS 模型](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=zh-tw)生成多人對話，
+- 瞭解如何生成[圖片](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=zh-tw)或[影片](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=zh-tw)，
+- 瞭解 Gemini 如何[解讀音訊檔案](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=zh-tw)、
+- 使用 [Live API](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=zh-tw) 與 Gemini 即時對話。
 
-Envoyer des commentaires
+提供意見
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Dernière mise à jour le 2026/07/30 (UTC).
+上次更新時間：2026-07-30 (世界標準時間)。
 
-Voulez-vous nous donner plus d'informations ?
+想進一步說明嗎？
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

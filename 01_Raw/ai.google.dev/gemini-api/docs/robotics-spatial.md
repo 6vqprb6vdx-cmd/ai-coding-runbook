@@ -1,30 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=hi
-fetched_at: 2026-08-10T03:26:00.218752+00:00
-title: "\u0938\u094d\u092a\u0947\u0936\u0932 \u0930\u0940\u091c\u093c\u0928\u093f\u0902\u0917 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ar
+fetched_at: 2026-08-17T02:20:31.442511+00:00
+title: "\u0627\u0644\u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u0627\u0644\u0645\u0643\u0627\u0646\u064a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-सुझाव भेजें
+إرسال ملاحظات
 
-# स्पेशल रीज़निंग
+# الاستدلال المكاني
 
-Gemini Robotics ER मॉडल, ऑब्जेक्ट की ओर इशारा कर सकते हैं, वीडियो में उन्हें ट्रैक कर सकते हैं, उन्हें बाउंडिंग बॉक्स के साथ पहचान सकते हैं, और मूवमेंट ट्रैजेक्ट्री जनरेट कर सकते हैं.
+يمكن لنماذج Gemini Robotics ER الإشارة إلى الكائنات وتتبُّعها في الفيديو ورصدها باستخدام مربعات محيطة وإنشاء مسارات الحركة.
 
-पूरे रन करने लायक कोड के लिए, [रोबोटिक्स कुकबुक](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) देखें.
+للاطّلاع على الرمز الكامل القابل للتنفيذ، راجِع
+[كتاب وصفات الروبوتات](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## ऑब्जेक्ट की ओर पॉइंट करना
+## الإشارة إلى العناصر
 
-इस उदाहरण में, किसी इमेज में मौजूद कुछ ऑब्जेक्ट का पता लगाया जाता है और उनके सामान्य किए गए `[y, x]` कोऑर्डिनेट दिखाए जाते हैं:
+يعثر المثال التالي على عناصر معيّنة في صورة ويعرض إحداثياتها `[y, x]` العادية:
 
 ### Python
 
@@ -92,7 +93,8 @@ curl -X POST \
   }'
 ```
 
-आउटपुट के तौर पर एक JSON कलेक्शन मिलेगा. इसमें ऑब्जेक्ट शामिल होंगे. हर ऑब्जेक्ट में `point` (सामान्य किए गए `[y, x]` कोऑर्डिनेट) और ऑब्जेक्ट की पहचान करने वाला `label` होगा.
+سيكون الناتج مصفوفة JSON تحتوي على عناصر، كل منها يتضمّن `point`
+(إحداثيات `[y, x]` عادية) و`label` يحدّد العنصر.
 
 ### JSON
 
@@ -111,13 +113,14 @@ curl -X POST \
 ]
 ```
 
-नीचे दी गई इमेज में, इन पॉइंट को दिखाने का तरीका बताया गया है:
+في ما يلي مثال على كيفية عرض هذه النقاط:
 
-![इमेज में मौजूद ऑब्जेक्ट के पॉइंट दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=hi)
+![مثال يعرض نقاط العناصر في صورة](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ar)
 
-## वीडियो में ऑब्जेक्ट ट्रैक करना
+## تتبُّع العناصر في فيديو
 
-Gemini Robotics ER 2, वीडियो फ़्रेम का विश्लेषण करके, समय के साथ-साथ ऑब्जेक्ट को ट्रैक भी कर सकता है. काम करने वाले वीडियो फ़ॉर्मैट की सूची देखने के लिए, [वीडियो इनपुट](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#supported-formats) देखें.
+يمكن لـ Gemini Robotics ER 2 أيضًا تحليل لقطات الفيديو لتتبُّع العناصر بمرور الوقت. يمكنك الاطّلاع على [مدخلات الفيديو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar#supported-formats)
+للحصول على قائمة بتنسيقات الفيديو المتوافقة.
 
 ### Python
 
@@ -151,9 +154,10 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-## ऑब्जेक्ट का पता लगाना और बाउंडिंग बॉक्स
+## رصد العناصر والمربّعات المحيطة
 
-पॉइंट के अलावा, मॉडल को 2D बाउंडिंग बॉक्स दिखाने के लिए भी कहा जा सकता है. इससे, पहचाने गए ऑब्जेक्ट के बारे में ज़्यादा जानकारी मिलती है.
+بالإضافة إلى النقاط، يمكنك أن تطلب من النموذج عرض مربّعات حدود ثنائية الأبعاد،
+ما يوفّر تفاصيل مكانية أكثر للعناصر التي تم رصدها.
 
 ### Python
 
@@ -187,11 +191,11 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-## ट्रैजेक्ट्री
+## المسارات
 
-Gemini Robotics ER 2, ऐसे पॉइंट के सीक्वेंस जनरेट कर सकता है जो किसी ट्रैजेक्ट्री को तय करते हैं. ये पॉइंट, रोबोट को मूव करने के लिए गाइड करने में मददगार होते हैं.
+يمكن لـ Gemini Robotics ER 2 إنشاء تسلسلات من النقاط التي تحدّد مسارًا، ما يفيد في توجيه حركة الروبوت.
 
-इस उदाहरण में, लाल पेन को किसी ऑर्गेनाइज़र तक ले जाने के लिए, ट्रैजेक्ट्री का अनुरोध किया गया है. इसमें इंटरमीडिएट वेपॉइंट का अनुमान भी शामिल है. कोड को छोटा कर दिया गया है, ताकि सिर्फ़ प्रॉम्प्ट दिखे.
+يطلب هذا المثال مسارًا لتحريك قلم أحمر إلى منظّم، بما في ذلك تقدير لنقاط الطريق الوسيطة. تم تقليل حجم الرمز لعرض الطلب فقط.
 
 ### Python
 
@@ -204,9 +208,9 @@ prompt = """
         """
 ```
 
-## लैपटॉप के लिए जगह बनाना
+## توفير مساحة للكمبيوتر المحمول
 
-इस उदाहरण में दिखाया गया है कि Gemini Robotics ER, किसी जगह के बारे में कैसे सोच सकता है. प्रॉम्प्ट में मॉडल से यह पता लगाने के लिए कहा गया है कि किस ऑब्जेक्ट को हटाना है, ताकि किसी दूसरे आइटम के लिए जगह बनाई जा सके.
+يوضّح هذا المثال كيف يمكن لـ Gemini Robotics ER التفكير في مساحة. يطلب الطلب من النموذج تحديد العنصر الذي يجب نقله لإتاحة مساحة لعنصر آخر.
 
 ### Python
 
@@ -238,7 +242,7 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-जवाब में, उस ऑब्जेक्ट का 2D कोऑर्डिनेट होता है जो उपयोगकर्ता के सवाल का जवाब देता है. इस मामले में, वह ऑब्जेक्ट जो लैपटॉप के लिए जगह बनाने के लिए हिलना चाहिए.
+تحتوي الاستجابة على إحداثيات ثنائية الأبعاد للعنصر الذي يجيب عن سؤال المستخدم، وهو في هذه الحالة العنصر الذي يجب تحريكه لإفساح المجال لجهاز كمبيوتر محمول.
 
 ```
 [
@@ -246,11 +250,11 @@ print(image_response.output_text)
 ]
 ```
 
-![इस उदाहरण में दिखाया गया है कि किसी ऑब्जेक्ट को दूसरे ऑब्जेक्ट के लिए कहां ले जाना है](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=hi)
+![مثال يوضّح العنصر الذي يجب نقله إلى عنصر آخر](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=ar)
 
-## लंच पैक करना
+## توضيب وجبة غداء
 
-यह मॉडल, एक से ज़्यादा चरणों वाले टास्क के लिए निर्देश भी दे सकता है. साथ ही, हर चरण के लिए काम की चीज़ों की ओर इशारा कर सकता है. इस उदाहरण में दिखाया गया है कि मॉडल, लंच बैग पैक करने के लिए कई चरणों की योजना कैसे बनाता है.
+يمكن للنموذج أيضًا تقديم تعليمات للمهام المتعددة الخطوات والإشارة إلى الكائنات ذات الصلة بكل خطوة. يوضّح هذا المثال كيف يخطّط النموذج لسلسلة من الخطوات لتعبئة حقيبة الغداء.
 
 ### Python
 
@@ -283,13 +287,13 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-इस प्रॉम्प्ट के जवाब में, इमेज इनपुट से लंच बैग पैक करने के बारे में सिलसिलेवार निर्देश दिए गए हैं.
+تتضمّن الاستجابة لهذا الطلب مجموعة من التعليمات المفصَّلة حول كيفية تعبئة حقيبة غداء من الصورة التي تم إدخالها.
 
-**इनपुट इमेज**
+**الصورة المدخَلة**
 
-![लंच बॉक्स और उसमें रखने के लिए चीज़ों की इमेज](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=hi)
+![صورة لعلبة غداء وأشياء يمكن وضعها فيها](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=ar)
 
-**मॉडल आउटपुट**
+**مخرجات النموذج**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -312,19 +316,19 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-## आगे क्या करना है
+## الخطوات التالية
 
-- [एजेंटिक एआई की सुविधाएँ](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=hi) — कोड एक्ज़ीक्यूशन, इंस्ट्रुमेंट को पढ़ना, इमेज की व्याख्या करना.
-- [टास्क ऑर्केस्ट्रेशन](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=hi) — कस्टम रोबोट एपीआई के साथ लंबे समय तक चलने वाले टास्क.
-- [स्ट्रीमिंग के साथ रोबोटिक्स](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=hi) — रीयल-टाइम में दोनों तरफ़ से स्ट्रीमिंग (सिर्फ़ Gemini Robotics ER 2 के लिए).
-- [वीडियो को समझना](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=hi) — वीडियो में किसी खास पल को ढूंढना और प्रोग्रेस को कैटगरी में बांटना (सिर्फ़ Gemini Robotics ER 2 के लिए).
+- [إمكانات بالذكاء الاصطناعي الوكيل](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ar): تطبيق الرموز البرمجية، وقياس حالة التطبيق، وإضافة تعليقات توضيحية على الصور.
+- [تنظيم المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأمد باستخدام واجهات برمجة تطبيقات مخصّصة للروبوتات
+- [الروبوتات التي تتضمّن بثًا مباشرًا](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): بث مباشر ثنائي الاتجاه في الوقت الفعلي (Gemini Robotics ER 2 فقط)
+- [فهم الفيديو](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): العثور على اللحظات وتصنيف مستوى التقدّم (الإصدار الثاني من Gemini Robotics فقط)
 
-सुझाव भेजें
+إرسال ملاحظات
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-क्या आपको हमें और कुछ बताना है?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

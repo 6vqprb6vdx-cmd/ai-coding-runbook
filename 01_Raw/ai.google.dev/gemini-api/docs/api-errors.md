@@ -1,78 +1,78 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-errors?hl=id
-fetched_at: 2026-08-10T03:26:03.378748+00:00
-title: "Error API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-errors?hl=ar
+fetched_at: 2026-08-17T02:20:17.029502+00:00
+title: "\u0623\u062e\u0637\u0627\u0621 \u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Kirim masukan
+إرسال ملاحظات
 
-# Error API
+# أخطاء واجهة برمجة التطبيقات
 
-Halaman ini memberikan referensi untuk semua kode error Interactions API, menjelaskan format respons error, dan menjelaskan cara API menyampaikan error untuk berbagai jenis permintaan.
+تقدّم هذه الصفحة مرجعًا لجميع رموز الخطأ في Interactions API، وتصف تنسيق استجابة الخطأ، وتوضّح كيفية عرض واجهة برمجة التطبيقات للأخطاء لأنواع الطلبات المختلفة.
 
-## Kode error API standar
+## رموز الخطأ العادية في واجهة برمجة التطبيقات
 
-Kode error tingkat permintaan umum ini sesuai dengan kode status HTTP standar.
-Gunakan kolom `code` dalam logika aplikasi Anda untuk menangani error secara terprogram.
+تتطابق رموز الخطأ العامة على مستوى الطلب مع رموز حالة HTTP العادية.
+استخدِم حقل `code` في منطق تطبيقك للتعامل مع الأخطاء آليًا.
 
-| Kode | Status HTTP | Deskripsi | Tindakan yang disarankan |
+| الرمز | حالة HTTP | الوصف | الإجراء المقترَح |
 | --- | --- | --- | --- |
-| `invalid_request` | 400 Bad Request (400 Permintaan Tidak Valid) | Permintaan salah format atau berisi parameter yang tidak valid. | Periksa input Anda berdasarkan [referensi API](https://ai.google.dev/api/interactions-api?hl=id). |
-| `parameter_unknown` | 400 Bad Request (400 Permintaan Tidak Valid) | Permintaan berisi parameter yang tidak diketahui. | Hapus parameter yang tidak dikenal, lalu coba lagi. |
-| `authentication` | 401 Tidak Sah | Kunci API tidak ada atau tidak valid. | Verifikasi [kunci API](https://ai.google.dev/gemini-api/docs/api-key?hl=id) Anda. |
-| `permission_denied` | 403 Terlarang | Kunci API Anda tidak memiliki izin untuk resource ini. | Periksa izin kunci API dan akses project Anda. |
-| `not_found` | 404 Tidak Ditemukan | Resource yang diminta tidak ditemukan. | Verifikasi jalur dan parameter resource. |
-| `model_not_found` | 404 Tidak Ditemukan | Model yang ditentukan tidak ditemukan. | Verifikasi nama model atau beralih ke model lain. |
-| `rate_limit_exceeded` | 429 Too Many Requests | Anda telah melampaui batas permintaan atau token per menit atau per detik. | Tunggu dan coba lagi dengan backoff eksponensial. |
-| `quota_exceeded` | 429 Too Many Requests | Anda telah melampaui kuota harian. | Tunggu hingga kuota direset atau minta penambahan kuota. |
-| `cancelled` | 499 Client Closed Request | Klien membatalkan permintaan sebelum selesai. | Tidak perlu tindakan apa pun. Hal ini biasanya berarti klien terputus. |
-| `api_error` | 500 Error Server Internal | Terjadi error tak terduga di server. | Coba lagi permintaan tersebut. Jika masalah berlanjut, hubungi dukungan. |
-| `service_unavailable` | 503 Layanan Tidak Tersedia | Layanan sedang kelebihan beban atau tidak berfungsi untuk sementara. | Tunggu dan coba lagi dengan backoff eksponensial. |
+| `invalid_request` | 400 Bad Request | الطلب غير مكتمل أو يحتوي على مَعلمات غير صالحة. | راجِع الإدخالات في [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api/interactions-api?hl=ar). |
+| `parameter_unknown` | 400 Bad Request | يحتوي الطلب على مَعلمة غير معروفة. | أزِل المَعلمة غير المعروفة وأعِد المحاولة. |
+| `authentication` | ‫401 غير مصرّح به | مفتاح واجهة برمجة التطبيقات غير متوفّر أو غير صالح. | أثبِت ملكية [مفتاح واجهة برمجة التطبيقات](https://ai.google.dev/gemini-api/docs/api-key?hl=ar). |
+| `permission_denied` | 403 Forbidden | لا يملك مفتاح واجهة برمجة التطبيقات إذن الوصول إلى هذا المورد. | راجِع أذونات مفتاح واجهة برمجة التطبيقات وإذن الوصول إلى المشروع. |
+| `not_found` | ‫404 لم يتم العثور على الصفحة | لم يتم العثور على المورد المطلوب. | راجِع مسار المورد والمَعلمات. |
+| `model_not_found` | ‫404 لم يتم العثور على الصفحة | لم يتم العثور على النموذج المحدّد. | راجِع اسم النموذج أو استخدِم نموذجًا مختلفًا. |
+| `rate_limit_exceeded` | 429 Too Many Requests | تجاوزت الحدّ الأقصى لعدد الطلبات أو الرموز في الدقيقة أو الثانية. | انتظِر وأعِد المحاولة باستخدام خوارزمية الرقود الأسي الثنائي. |
+| `quota_exceeded` | 429 Too Many Requests | تجاوزت الحصة اليومية. | انتظِر إلى حين إعادة ضبط الحصة أو اطلب زيادة الحصة. |
+| `cancelled` | 499 Client Closed Request | ألغى العميل الطلب قبل اكتماله. | لا يلزم اتخاذ أي إجراء. يعني هذا عادةً أنّ العميل قد قطع الاتصال. |
+| `api_error` | 500 Internal Server Error | حدث خطأ غير متوقَّع على الخادم. | أعِد محاولة الطلب. في حال استمرار المشكلة، يُرجى التواصل مع فريق الدعم. |
+| `service_unavailable` | ‫503 الخدمة غير متاحة | هناك زيادة مؤقتة في التحميل على الخدمة أو أنّها معطّلة. | انتظِر وأعِد المحاولة باستخدام خوارزمية الرقود الأسي الثنائي. |
 
-## Kode yang diblokir pembuatan
+## رموز حظر الإنشاء
 
-Kode error ini menunjukkan bahwa pembatasan kebijakan, keamanan, atau konten memblokir output model. Saat Anda menerima salah satu kode ini, ubah input Anda dan coba lagi.
+تشير رموز الخطأ هذه إلى أنّ السياسة أو إعدادات الأمان أو قيود المحتوى حظرت ردّ النموذج. عند تلقّي أحد هذه الرموز، عدِّل الإدخال وأعِد المحاولة.
 
-| Kode | Deskripsi |
+| الرمز | الوصف |
 | --- | --- |
-| `safety` | Pelanggaran keamanan (konten berbahaya) memblokir permintaan. |
-| `recitation` | Pembatasan hak cipta atau pembacaan memblokir permintaan. |
-| `language` | Bahasa yang tidak didukung memblokir permintaan. |
-| `prohibited_content` | Pedoman konten terlarang memblokir permintaan. |
-| `spii` | Pembatasan Informasi Identitas Pribadi yang Bersifat Sensitif memblokir permintaan. |
-| `blocklist` | Istilah terlarang dalam daftar blokir memblokir permintaan. |
-| `image_safety` | Pelanggaran keamanan memblokir pembuatan gambar. |
-| `image_prohibited_content` | Pedoman konten terlarang memblokir pembuatan gambar. |
-| `image_recitation` | Pembatasan hak cipta atau pembacaan memblokir pembuatan gambar. |
-| `image_other` | Alasan yang tidak ditentukan memblokir pembuatan gambar. |
-| `content_blocked` | Permintaan diblokir karena alasan kebijakan yang tidak ditentukan. |
+| `safety` | حظرت انتهاكات إعدادات الأمان (المحتوى الضار) الطلب. |
+| `recitation` | حظرت قيود حقوق الطبع والنشر أو قيود التلاوة الطلب. |
+| `language` | حظرت لغة غير متاحة الطلب. |
+| `prohibited_content` | حظرت إرشادات المحتوى المحظور الطلب. |
+| `spii` | حظرت قيود المعلومات الحساسة التي تكشف عن الهوية الطلب. |
+| `blocklist` | حظرت المصطلحات المحظورة في قائمة الحظر الطلب. |
+| `image_safety` | حظرت انتهاكات إعدادات الأمان إنشاء الصور. |
+| `image_prohibited_content` | حظرت إرشادات المحتوى المحظور إنشاء الصور. |
+| `image_recitation` | حظرت قيود حقوق الطبع والنشر أو قيود التلاوة إنشاء الصور. |
+| `image_other` | حظرت أسباب غير محدّدة إنشاء الصور. |
+| `content_blocked` | حظرت سياسة غير محدّدة الطلب. |
 
-## Kode error pembuatan
+## رموز خطأ الإنشاء
 
-Kode error ini menunjukkan masalah struktural pada output yang dihasilkan model (seperti panggilan fungsi yang salah bentuk atau panggilan alat yang tidak dideklarasikan).
+تشير رموز الخطأ هذه إلى مشكلة هيكلية في الردّ الذي أنشأه النموذج (مثل استدعاء دالة غير مكتمل أو استدعاء أداة غير معلَن عنه).
 
-| Kode | Deskripsi |
+| الرمز | الوصف |
 | --- | --- |
-| `malformed_function_call` | Model menghasilkan panggilan fungsi yang tidak dapat diuraikan. |
-| `malformed_tool_call` | Model menghasilkan panggilan alat yang tidak dapat diuraikan. |
-| `unexpected_tool_call` | Model memanggil alat yang tidak dideklarasikan dalam permintaan. |
-| `no_image` | Model tidak dapat membuat gambar. |
-| `too_many_tool_calls` | Model menghasilkan lebih banyak panggilan alat daripada yang diizinkan. |
-| `missing_thought_signature` | Respons tidak memiliki tanda tangan pemikiran yang diperlukan. |
+| `malformed_function_call` | أنشأ النموذج استدعاء دالة تعذّر تحليله. |
+| `malformed_tool_call` | أنشأ النموذج استدعاء أداة تعذّر تحليله. |
+| `unexpected_tool_call` | استدعى النموذج أداة لم يتم الإعلان عنها في الطلب. |
+| `no_image` | تعذّر على النموذج إنشاء صورة. |
+| `too_many_tool_calls` | أنشأ النموذج عددًا من استدعاءات الأدوات يتجاوز الحدّ المسموح به. |
+| `missing_thought_signature` | لا يحتوي الردّ على توقيع الفكرة المطلوب. |
 
-## Format respons error
+## تنسيق استجابة الخطأ
 
-Semua error dari Interactions API menampilkan objek `error` yang berisi `code` dan `message`. Misalnya, meneruskan jenis alat yang tidak didukung akan menampilkan:
+تعرض جميع الأخطاء من Interactions API كائن `error` يحتوي على `code` و`message`. على سبيل المثال، يؤدي تمرير نوع أداة غير متاح إلى عرض:
 
 ```
 {
@@ -83,18 +83,18 @@ Semua error dari Interactions API menampilkan objek `error` yang berisi `code` d
 }
 ```
 
-| Kolom | Jenis | Deskripsi |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `code` | string | Kode error yang dapat dibaca mesin dalam `snake_case`. |
-| `message` | string | Deskripsi yang dapat dibaca manusia tentang apa yang salah. |
+| `code` | سلسلة | رمز خطأ يمكن قراءته آليًا بتنسيق `snake_case` |
+| `message` | سلسلة | وصف يمكن لشخص عادي قراءته لما حدث من خطأ |
 
-## Cara error dikirimkan
+## كيفية عرض الأخطاء
 
-API memberikan error secara berbeda, bergantung pada apakah Anda membuat permintaan HTTP standar atau permintaan streaming (SSE).
+تعرض واجهة برمجة التطبيقات الأخطاء بشكل مختلف حسب ما إذا كنت تُرسِل طلب HTTP عاديًا أو طلب بث (SSE).
 
-### Permintaan HTTP standar
+### طلبات HTTP العادية
 
-Untuk permintaan standar (non-streaming), API menetapkan kode status respons HTTP (seperti `400 Bad Request`, `401 Unauthorized`, atau `429 Too Many Requests`) dan menampilkan objek `error` dalam isi respons JSON:
+بالنسبة إلى الطلبات العادية (غير طلبات البث)، تضبط واجهة برمجة التطبيقات رمز حالة استجابة HTTP (مثل `400 Bad Request` أو `401 Unauthorized` أو `429 Too Many Requests`) وتعرض كائن `error` في نص استجابة JSON:
 
 ```
 {
@@ -105,9 +105,9 @@ Untuk permintaan standar (non-streaming), API menetapkan kode status respons HTT
 }
 ```
 
-### Permintaan streaming (SSE)
+### طلبات البث (SSE)
 
-Untuk permintaan streaming (`stream: true`), API mengirim peristiwa error melalui aliran Server-Sent Events (SSE) dengan `event_type` disetel ke `"error"`. Kolom `error` berisi struktur `code` dan `message` yang sama:
+بالنسبة إلى طلبات البث (`stream: true`)، تُرسِل واجهة برمجة التطبيقات أحداث الخطأ عبر بث Server-Sent Events (SSE) مع ضبط `event_type` على `"error"`. يحتوي حقل `error` على البنية نفسها لـ `code` و`message`:
 
 ```
 {
@@ -119,19 +119,19 @@ Untuk permintaan streaming (`stream: true`), API mengirim peristiwa error melalu
 }
 ```
 
-Untuk skema peristiwa SSE lengkap, lihat [Referensi Interactions API](https://ai.google.dev/api/interactions-api?hl=id).
+للاطّلاع على مخطط حدث SSE الكامل، يُرجى مراجعة [مرجع Interactions API](https://ai.google.dev/api/interactions-api?hl=ar).
 
-## Langkah berikutnya
+## الخطوات التالية
 
-- [Pemecahan masalah API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=id): Atasi masalah dan skenario error umum.
-- [Batas kecepatan](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id): Pelajari batas permintaan dan penanganan kuota.
+- [تحديد مشاكل واجهة برمجة التطبيقات وحلّها](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ar): يمكنك حلّ المشاكل الشائعة وسيناريوهات الأخطاء.
+- [الحدود القصوى لمعدّل الطلبات](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ar): يمكنك التعرّف على الحدود القصوى للطلبات وكيفية التعامل مع الحصص.
 
-Kirim masukan
+إرسال ملاحظات
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-Ada masukan untuk kami?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
