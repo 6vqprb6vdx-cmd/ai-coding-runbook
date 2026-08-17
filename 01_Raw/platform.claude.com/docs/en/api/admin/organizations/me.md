@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/organizations/me
-fetched_at: 2026-06-15T06:15:34.419979+00:00
+fetched_at: 2026-08-17T02:14:15.558249+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Get Current Organization
+url: https://platform.claude.com/docs/en/api/admin/organizations/me
 ---
 
 ## Get Current Organization

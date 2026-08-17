@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/code/artifacts/delete
-fetched_at: 2026-07-13T04:24:41.087309+00:00
+fetched_at: 2026-08-17T02:14:22.341564+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Delete Code Artifact
+url: https://platform.claude.com/docs/en/api/compliance/code/artifacts/delete
 ---
 
 ## Delete Code Artifact

@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/messages/batches/delete
-fetched_at: 2026-07-06T05:03:20.924191+00:00
+fetched_at: 2026-08-17T02:14:10.257943+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Delete a Message Batch
+url: https://platform.claude.com/docs/en/api/messages/batches/delete
 ---
 
 ## Delete a Message Batch

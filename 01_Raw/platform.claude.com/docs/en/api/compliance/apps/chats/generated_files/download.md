@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/chats/generated_files/download
-fetched_at: 2026-05-25T12:53:33.823472+00:00
+fetched_at: 2026-08-17T02:14:21.153577+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Download a Claude-generated file
+url: https://platform.claude.com/docs/en/api/compliance/apps/chats/generated_files/download
 ---
 
 ## Download a Claude-generated file

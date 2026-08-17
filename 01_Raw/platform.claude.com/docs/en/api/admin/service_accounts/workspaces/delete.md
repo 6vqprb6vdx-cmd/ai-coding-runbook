@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/delete
-fetched_at: 2026-06-22T06:22:36.372969+00:00
+fetched_at: 2026-08-17T02:14:19.097629+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Remove Workspace From Service Account
+url: https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/delete
 ---
 
 ## Remove Workspace From Service Account

@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/users/update
-fetched_at: 2026-07-20T04:31:56.929014+00:00
+fetched_at: 2026-08-17T02:14:15.884022+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Update User
+url: https://platform.claude.com/docs/en/api/admin/users/update
 ---
 
 ## Update User

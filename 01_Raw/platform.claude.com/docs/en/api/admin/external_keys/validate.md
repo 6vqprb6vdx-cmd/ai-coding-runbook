@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/external_keys/validate
-fetched_at: 2026-07-20T04:31:58.696131+00:00
+fetched_at: 2026-08-17T02:14:17.471343+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Validate External Key
+url: https://platform.claude.com/docs/en/api/admin/external_keys/validate
 ---
 
 ## Validate External Key
@@ -23,7 +28,7 @@ message if it failed or timed out.
 
 ### Returns
 
-- `error: string`
+- `error: string or null`
 
   Error message when status is `failure`. Null otherwise.
 

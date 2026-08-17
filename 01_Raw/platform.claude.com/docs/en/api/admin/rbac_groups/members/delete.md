@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/rbac_groups/members/delete
-fetched_at: 2026-07-20T04:31:57.274164+00:00
+fetched_at: 2026-08-17T02:14:16.182467+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Remove RBAC Group Member
+url: https://platform.claude.com/docs/en/api/admin/rbac_groups/members/delete
 ---
 
 ## Remove RBAC Group Member

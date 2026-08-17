@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/artifacts/retrieve
-fetched_at: 2026-05-25T12:53:34.120211+00:00
+fetched_at: 2026-08-17T02:14:21.800343+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Get artifact metadata
+url: https://platform.claude.com/docs/en/api/compliance/apps/artifacts/retrieve
 ---
 
 ## Get artifact metadata
@@ -31,7 +36,7 @@ without downloading every artifact.
 
   Artifact ID e.g. 'claude_artifact_abc123'
 
-- `artifact_type: string`
+- `artifact_type: string or null`
 
   MIME-like artifact type e.g. 'application/vnd.ant.code'
 
@@ -51,7 +56,7 @@ without downloading every artifact.
 
   Size in bytes of the artifact content (UTF-8 encoded)
 
-- `title: string`
+- `title: string or null`
 
   Artifact title
 

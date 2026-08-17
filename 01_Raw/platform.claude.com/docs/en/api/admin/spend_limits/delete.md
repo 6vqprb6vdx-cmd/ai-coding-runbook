@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/spend_limits/delete
-fetched_at: 2026-07-06T05:03:29.932804+00:00
+fetched_at: 2026-08-17T02:14:18.411515+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Delete Spend Limit
+url: https://platform.claude.com/docs/en/api/admin/spend_limits/delete
 ---
 
 ## Delete Spend Limit

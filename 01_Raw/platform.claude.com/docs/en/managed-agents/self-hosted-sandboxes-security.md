@@ -1,13 +1,13 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-security
-fetched_at: 2026-07-27T04:31:36.518831+00:00
+fetched_at: 2026-08-17T02:14:05.448747+00:00
 fetch_method: mintlify_md
 ---
 
-# Security model
-
-Shared responsibility model for self-hosted sandbox environments.
-
+---
+title: Security model
+url: https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-security
+description: Shared responsibility model for self-hosted sandbox environments.
 ---
 
 Anthropic secures the control plane across all environments: session and work queue integrity, multitenant isolation, and agent-context minimization. When you self-host, the following responsibilities fall to you.

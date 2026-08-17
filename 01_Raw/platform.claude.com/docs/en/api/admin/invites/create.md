@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/invites/create
-fetched_at: 2026-07-20T04:31:56.772970+00:00
+fetched_at: 2026-08-17T02:14:15.712491+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Create Invite
+url: https://platform.claude.com/docs/en/api/admin/invites/create
 ---
 
 ## Create Invite
@@ -46,7 +51,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
     ID of the Invite.
 
-  - `accepted_at: string`
+  - `accepted_at: string or null`
 
     RFC 3339 datetime string indicating when the Invite was accepted, or null.
 

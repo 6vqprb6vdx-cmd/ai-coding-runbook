@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/delete
-fetched_at: 2026-06-22T06:22:34.496826+00:00
+fetched_at: 2026-08-17T02:14:17.065638+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: Delete Service Account Workspace Member
+url: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/delete
 ---
 
 ## Delete Service Account Workspace Member
