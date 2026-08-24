@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=vi
-fetched_at: 2026-08-17T02:26:39.811225+00:00
+fetched_at: 2026-08-24T02:23:09.363345+00:00
 title: "Suy lu\u1eadn m\u1ee9c \u0111\u1ed9 \u01b0u ti\u00ean \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

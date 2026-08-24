@@ -1,32 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=zh-TW
-fetched_at: 2026-08-17T02:30:18.237715+00:00
-title: "\u4f7f\u7528 Gemini Omni Flash \u751f\u6210\u53ca\u7de8\u8f2f\u5f71\u7247 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=ko
+fetched_at: 2026-08-24T02:25:28.376646+00:00
+title: "Gemini Omni Flash\ub85c \ub3d9\uc601\uc0c1 \uc0dd\uc131 \ubc0f \ud3b8\uc9d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-提供意見
+의견 보내기
 
-# 使用 Gemini Omni Flash 生成及編輯影片
+# Gemini Omni Flash로 동영상 생성 및 편집
 
-Gemini Omni Flash (`gemini-omni-flash-preview`) 是高效能多模態模型，專為高速生成影片、編輯影片和電影控制而設計。Gemini Omni 具備下列核心功能，與先前的影片模型有所不同：
+Gemini Omni Flash (`gemini-omni-flash-preview`)는 고속 동영상 생성, 편집, 영화 같은 제어를 위해 설계된 고성능 멀티모달 모델입니다.
+Gemini Omni는 이전 동영상 모델과 차별화되는 다음과 같은 핵심 기능을 기반으로 구축되었습니다.
 
-- **原生多模態：**可同時處理文字、圖片、音訊和影片，提供更連貫、一致且可控的輸出內容。
-- **對話式修圖：**透過 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 啟用，可讓您透過自然語言對話，反覆調整和編輯影片。描述想變更的內容，模型就會套用編輯效果，同時保留影片中你不想變更的部分。
-- **世界知識：**Gemini Omni 結合了物理學知識與 Gemini 的歷史、科學和文化背景知識，彌合了寫實主義與有意義的敘事之間的差距。
+- **기본 멀티모달:** 텍스트, 이미지, 오디오, 동영상을 동시에 처리하여 더 일관되고 제어 가능한 출력을 제공합니다.
+- **대화형 편집:[상호작용 API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)로 지원되며, 자연어 대화를 통해 동영상을 반복적으로 미세 조정하고 편집할 수 있습니다.** 변경하려는 부분을 설명하면 모델이 동영상에서 유지하려는 부분을 보존하면서 수정사항을 적용합니다.
+- **세계 지식:** Gemini Omni는 물리학에 대한 이해와 Gemini의 역사, 과학, 문화적 맥락에 대한 지식을 결합하여 사실적인 이미지와 의미 있는 스토리텔링 사이의 간극을 해소합니다.
 
-## 文字轉影片生成
+## 텍스트로 동영상 생성
 
-根據文字提示詞生成影片。模型會根據文字說明生成含音訊的影片。撰寫提示時，請加入場景描述、攝影機移動、燈光和情境等詳細資訊，以獲得最佳效果。
+텍스트 프롬프트로 동영상을 생성합니다. 모델은 텍스트 설명을 기반으로 오디오가 포함된 동영상을 생성합니다. 최상의 결과를 얻으려면 장면 설명, 카메라 움직임, 조명, 분위기와 같은 세부정보를 포함하여 프롬프트를 작성하세요.
 
 ### Python
 
@@ -44,7 +45,7 @@ with open("marble.mp4", "wb") as f:
     f.write(base64.b64decode(interaction.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -72,11 +73,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### REST 回應結構定義
+### REST 응답 스키마
 
-便利性欄位 `interaction.output_video` **僅適用於 SDK**。直接使用 REST API 時，請從 `steps` 陣列取得影片輸出內容。
+편의 필드 `interaction.output_video`는 **SDK 전용**입니다.
+REST API를 직접 사용하는 경우 `steps` 배열에서 동영상 출력을 가져옵니다.
 
-**原始 REST JSON 結構：**
+**원시 REST JSON 구조:**
 
 ```
 {
@@ -101,9 +103,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 控制顯示比例
+### 가로세로 비율 관리
 
-將 `aspect_ratio` 設為 `"9:16"`，即可製作直向影片。預設為橫向 (16:9)。
+`aspect_ratio`을 `"9:16"`로 설정하여 세로 동영상을 만듭니다. 기본값은 가로 모드 (16:9)입니다.
 
 ### Python
 
@@ -125,7 +127,7 @@ with open("example.mp4", "wb") as f:
     f.write(base64.b64decode(interaction.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -161,21 +163,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-## 以圖片生成影片
+## 이미지 동영상 변환 생성
 
-你可以提供參考圖像和文字提示詞。模型會根據提示決定如何使用圖片。這項功能可讓產品照片、插圖或相片栩栩如生。
+텍스트 프롬프트와 함께 참고 이미지를 제공할 수 있습니다. 프롬프트에 따라 모델이 이미지를 사용하는 방법을 결정합니다. 제품 사진, 일러스트레이션 또는 사진에 생기를 불어넣는 데 유용합니다.
 
-以下範例說明如何使用魚兒躍出水面的手繪參考圖像：
+다음 예에서는 물에서 뛰어오르는 물고기 그림의 참고 이미지를 사용하는 방법을 보여줍니다.
 
-![魚躍出水面的繪圖](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=zh-tw)
+![물 밖으로 뛰어오르는 물고기 그림](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=ko)
 
-輸入下列提示詞：
+다음 프롬프트를 사용합니다.
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-生成寫實的繪圖影片。
+그림의 사실적인 동영상을 생성합니다.
 
 ### Python
 
@@ -196,7 +198,7 @@ with open("clownfish.mp4", "wb") as f:
     f.write(base64.b64decode(interaction.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -230,10 +232,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### 主題參考
+### 피사체 참조
 
-您可以生成影片，並加入參考圖像中的特定主體。
-舉例來說，下列程式碼說明如何提供貓和毛線的 2 張圖片，生成貓玩毛線的影片。
+참고 이미지로 제공된 특정 피사체를 포함하는 동영상을 생성할 수 있습니다.
+예를 들어 다음 코드는 고양이가 털실을 가지고 노는 동영상을 생성하기 위해 고양이와 털실의 이미지를 2개 제공하는 방법을 보여줍니다.
 
 ### Python
 
@@ -255,7 +257,7 @@ with open("cat.mp4", "wb") as f:
     f.write(base64.b64decode(interaction.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -291,19 +293,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### 工作參數
+### Tasks 매개변수
 
-在 `video-config` 中使用 `task` 參數清楚指出預期行為，例如，如要讓模型根據圖片生成影片，可以將參數設為 `image_to_video`。如未設定，模型會根據提示推斷您想要什麼。
+`video-config`에서 `task` 매개변수를 사용하여 원하는 동작을 명확하게 나타냅니다. 예를 들어 모델이 이미지에서 동영상을 생성하도록 하려면 매개변수를 `image_to_video`로 설정하면 됩니다. 설정하지 않으면 모델이 프롬프트에서 원하는 내용을 추론합니다.
 
-允許的值如下：
+허용되는 값은 다음과 같습니다.
 
 - `text_to_video`
 - `image_to_video`
 - `reference_to_video`
 - `edit`
 
-以下範例說明如何為先前顯示的圖片設定此屬性，
-以影片為例。
+다음 예는 이전에 표시된 이미지-동영상 예시에서 이를 설정하는 방법을 보여줍니다.
 
 ### Python
 
@@ -329,7 +330,7 @@ with open("example.mp4", "wb") as f:
     f.write(base64.b64decode(interaction.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -381,11 +382,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 有狀態的影片編輯
+## 상태 저장 동영상 편집
 
-生成影片，並使用後續提示詞反覆編輯。每一輪的結果都會以前一輪的結果為基礎。模型會記住影片內容，套用變更並保留您未提及的元素。使用 `previous_interaction_id` 追蹤對話記錄和生成的影片狀態，不必重新上傳先前的影片。
+후속 프롬프트를 사용하여 동영상을 생성하고 반복적으로 수정합니다. 각 턴은 이전 결과를 기반으로 합니다. 모델은 동영상 컨텍스트를 기억하여 변경사항을 적용하면서 언급하지 않은 요소는 유지합니다. `previous_interaction_id`를 사용하여 이전 동영상을 다시 업로드하지 않고도 대화 기록과 생성된 동영상 상태를 추적합니다.
 
-以下範例說明如何生成第一部影片，然後進行編輯：
+다음 예에서는 첫 번째 동영상을 생성한 후 수정하는 방법을 보여줍니다.
 
 ### Python
 
@@ -408,7 +409,7 @@ with open("example.mp4", "wb") as f:
     f.write(base64.b64decode(res2.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -445,17 +446,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-初始影片範例：
+초기 동영상 예시:
 
-編輯影片的範例：
+수정된 동영상의 예:
 
-對話中的每一輪都會產生新影片。模型會根據先前的對話瞭解情境，因此您不必重新描述整個場景，即可進行調整，例如調整光線和更換背景。
+대화의 각 턴마다 새로운 동영상이 생성됩니다. 이 모델은 이전 턴의 컨텍스트를 이해하므로 전체 장면을 다시 설명하지 않고도 조명 조정, 배경 바꾸기 등 점진적인 변경을 할 수 있습니다.
 
-### 編輯自己的影片
+### 내 동영상 수정하기
 
-使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳影片，然後使用 Gemini Omni Flash 編輯影片。
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용하여 동영상을 업로드하고 Gemini Omni Flash로 수정하세요.
 
-以下範例說明如何編輯原始影片：
+다음 예에서는 원본 동영상을 수정하는 방법을 보여줍니다.
 
 ### Python
 
@@ -490,7 +491,7 @@ with open("example.mp4", "wb") as f:
     f.write(base64.b64decode(interaction.output_video.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -560,11 +561,12 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-編輯影片的範例：
+수정된 동영상의 예:
 
-## 使用 URI 擷取影片
+## URI로 동영상 가져오기
 
-在 `response_format` 中使用 `delivery="uri"` 參數，擷取超過 4MB 的生成影片。這會傳回由 Google 代管的 URI，您可以輪詢該 URI，直到影片 `ACTIVE` 為止，再下載影片。
+`response_format`에서 `delivery="uri"` 매개변수를 사용하여 4MB보다 큰 생성된 동영상을 검색합니다.
+이렇게 하면 동영상이 `ACTIVE`될 때까지 폴링할 수 있는 Google 호스팅 URI가 반환됩니다.
 
 ### Python
 
@@ -600,7 +602,7 @@ with open("output.mp4", "wb") as f:
     f.write(video_bytes)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -679,7 +681,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**原始 REST JSON 結構 (URI)：**
+**원시 REST JSON 구조 (URI):**
 
 ```
 {
@@ -704,106 +706,107 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## 最佳做法
+## 권장사항
 
-- **使用 URI 傳送大型影片：**如要傳送大於 4 MB 的影片 (如果有的話，解析度須高於 720p)，請使用 `response_format` 中的 `delivery="uri"`，避免超出酬載大小限制。
-- **最佳化效能：**設定 `background=false`、`store=false` 和 `stream=false`，加快同步一元生成速度。請注意，設定 `store=false` 後，生成的影片就無法在後續輪次中使用 `previous_interaction_id` 編輯。
-- **提示詞精確度：**詳情請參閱[提示詞指南](#prompt-guide)一節。
+- **대형 동영상에 URI 전송 사용:** 4MB보다 큰 동영상(가능한 경우 720p 초과)의 경우 `response_format`에서 `delivery="uri"`를 사용하여 페이로드 크기 제한을 피하세요.
+- **최적화된 성능:** 더 빠른 동기 단항 생성을 위해 `background=false`, `store=false`, `stream=false`를 설정합니다. `store=false`를 설정하면 생성된 동영상을 `previous_interaction_id`를 사용하여 후속 턴에서 수정할 수 없습니다.
+- **프롬프트 정확성:** 자세한 내용은 [프롬프트 안내](#prompt-guide) 섹션을 참고하세요.
 
-## 限制
+## 제한사항
 
-- 歐洲經濟區、瑞士和英國不支援上傳及編輯含有未成年人的圖片。
-- 系統不支援上傳及編輯含有特定可辨識人物的圖片。
-- 歐洲經濟區、瑞士和英國的使用者目前無法編輯上傳的影片 (但可以編輯模型生成的影片)。
-- 目前的 API 版本不支援上傳音訊參考內容。
-- API 架構可接受長度最多 3 秒的影片參照，但模型目前無法正確處理。
-- 系統不支援參照或推理多部影片的內容。嘗試使用多部影片提示，可能會導致模型效能降低或輸出非預期的內容。
-- 不支援影片擴充功能和影片插補 (在第一幀和最後一幀之間生成影片)。
-- 不支援語音編輯。
-- 不支援佈建輸送量。
-- 不支援系統指令、溫度參數、`top_p`、停止序列和負面提示詞 (您可以將負面提示詞放在一般提示詞中，例如「請勿執行 X」)。
-- 系統不支援使用 YouTube 影片做為媒體來源。
+- 유럽 경제 지역, 스위스, 영국에서는 미성년자가 포함된 이미지를 업로드하거나 수정할 수 없습니다.
+- 특정 식별 가능한 인물이 포함된 이미지를 업로드하고 수정하는 것은 지원되지 않습니다.
+- 현재 유럽 경제 지역 (EEA), 스위스, 영국에서는 업로드된 동영상을 수정할 수 없습니다 (모델에서 생성된 동영상 수정은 지원됨).
+- 현재 버전의 API에서는 오디오 참조 업로드가 지원되지 않습니다.
+- 최대 3초 길이의 동영상 참조는 API 스키마에서 허용되지만 현재 모델에서 올바르게 처리되지 않습니다.
+- 여러 동영상에 걸쳐 참조하거나 추론하는 것은 지원되지 않습니다. 여러 동영상 프롬프트를 시도하면 모델 성능이 저하되거나 예기치 않은 출력이 발생할 수 있습니다.
+- 동영상 확장 프로그램과 동영상 보간 (첫 번째 프레임과 마지막 프레임 사이에 동영상 생성)은 지원되지 않습니다.
+- 음성 수정은 지원되지 않습니다.
+- 프로비저닝된 처리량은 지원되지 않습니다.
+- 시스템 안내, 온도, `top_p`, 중지 시퀀스, 부정적 프롬프트는 지원되지 않습니다. 부정적 프롬프트는 일반 프롬프트에 입력할 수 있습니다 (예: 'X를 하지 마세요').
+- YouTube 동영상을 미디어 소스로 사용하는 것은 지원되지 않습니다.
 
-## 技術詳細資料
+## 기술 세부정보
 
-- 所有生成的影片都會加上 SynthID 浮水印，觀眾無法察覺，但系統可以偵測，以驗證來源。
-- 影片生成時間會因影片長度、解析度和目前的 API 負載而異。影片越長、解析度越高，生成時間就越長。
-- 內容安全篩選器會套用至輸入提示和生成的影片 (視您所在區域而定)。系統會封鎖違反使用政策的提示。
-- 系統完全支援英文 (EN)，但尚未評估其他語言，因此其他語言可能可以運作，但結果可能有所不同。
+- 생성된 모든 동영상에는 시청자에게는 보이지 않지만 출처 확인을 위해 프로그래매틱 방식으로 감지할 수 있는 SynthID 워터마크가 포함됩니다.
+- 동영상 생성 시간은 길이, 해상도, 현재 API 부하에 따라 달라집니다. 길고 해상도가 높은 동영상은 생성하는 데 시간이 더 오래 걸립니다.
+- 콘텐츠 안전 필터는 입력 프롬프트와 생성된 동영상 모두에 적용되며 지역에 따라 다릅니다. 사용 정책을 위반하는 프롬프트는 차단됩니다.
+- 영어 (EN)는 완전히 지원되지만 다른 언어는 평가되지 않았으므로 작동할 수도 있지만 결과는 다를 수 있습니다.
 
-## Gemini Omni Flash 提示詞指南
+## Gemini Omni Flash 프롬프트 가이드
 
-本節提供提示和範例，說明如何有效提示 Gemini Omni Flash。
+이 섹션에는 Gemini Omni Flash에 효과적으로 프롬프트를 입력하는 방법에 관한 팁과 예시가 포함되어 있습니다.
 
-### 單一場景
+### 단일 장면
 
-根據預設，Omni Flash 會嘗試製作包含幾種不同鏡頭的影片。
-並根據提示嘗試製作有趣的敘述內容。
+기본적으로 Omni Flash는 몇 가지 다른 장면으로 동영상을 만들려고 시도합니다.
+프롬프트를 기반으로 흥미로운 이야기를 만들려고 시도합니다.
 
-如要讓輸出影片只包含單一場景，請務必在提示中說明：
+출력 동영상에 단일 장면이 포함되어야 하는 경우 다음과 같이 프롬프트를 입력해야 합니다.
 
-- 在單一不間斷的場景中
-- 一鏡到底
-- 沒有場景剪接
+- 끊김 없는 단일 장면
+- 하나의 연속된 샷으로
+- 장면 전환 없음
 
-例如：
+예를 들면 다음과 같습니다.
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### 移除不想要的元素
+### 원치 않는 요소 삭제
 
-如果生成的影片含有您不想要的內容，請加入簡單的負面提示來避免：
+생성된 동영상에 원치 않는 항목이 포함되어 있으면 간단한 부정적 프롬프트를 포함하여 이를 방지하세요.
 
-- 沒有對話
-- 沒有裝飾
-- 沒有額外音效
+- 대화 없음
+- 장식 없음
+- 추가 음향 효과 없음
 
-### 編輯提示
+### 수정 메시지
 
-簡單的提示最適合用於影片編輯。如果提示過於詳細，可能會導致非預期的變更。
+동영상 편집에는 간단한 프롬프트가 가장 적합합니다. 설명이 너무 많은 프롬프트는 의도하지 않은 변경을 초래할 수 있습니다.
 
-以下提供更多簡單的編輯提示範例：
+다음은 간단한 수정 프롬프트의 추가 예입니다.
 
-- 將這部影片轉換成動漫風格
-- 為這個人戴上時尚帽子
-- 讓亮度更戲劇化
-- 將招牌上的文字改為「Omni Flash」
+- 이 동영상을 애니메이션으로 만들어 줘.
+- 이 사람에게 세련된 모자를 씌워 줘
+- 조명을 더 극적으로 바꿔 줘
+- 표지판의 텍스트를 'Omni Flash'로 변경합니다.
 
-編輯影片的特定部分時，請加入 `"Keep everything else the same"`，確保視覺效果一致。
+동영상의 특정 측면을 수정할 때는 `"Keep everything else the same"`를 포함하여 시각적 일관성을 유지하세요.
 
-以下舉例說明如何套用這項技巧：
+다음은 이 기법을 적용하는 방법을 보여주는 몇 가지 예입니다.
 
-- **請避免：** `In the video of the man sitting on the sofa, please add a small
+- **피해야 할 사항:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **簡化：** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **단순화:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **請避免：** `Please remove the cell phone that the person is holding in
+- **피해야 할 사항:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **簡化：** `Make the phone invisible. Keep everything else the
+  - **단순화:** `Make the phone invisible. Keep everything else the
     same.`
 
-### 提示音訊
+### 오디오 프롬프트
 
-根據預設，模型會嘗試為影片生成合適的音軌。這可能不符合您的需求。你可以使用提示詞描述想要的音訊類型。如果影片中含有音樂，這點就特別重要：
+기본적으로 모델은 동영상에 적합한 오디오 트랙을 생성하려고 시도합니다. 원하는 결과가 아닐 수 있습니다. 프롬프트를 사용하여 원하는 오디오 유형을 설명할 수 있습니다. 이는 동영상에 음악을 포함하려는 경우 특히 중요합니다.
 
-- 加入平靜的背景音樂
-- 影片採用高能量鐵克諾節奏
-- 背景音訊是低音質的無線電廣播，正在播放歌曲
+- 차분한 배경 음악 포함
+- 동영상에 활기찬 테크노 비트가 있음
+- 오디오는 배경에서 노래를 재생하는 낮은 깡통 소리 라디오 방송입니다.
 
-### 時間碼事件
+### 타이밍 이벤트
 
-你可以提示在影片中的特定時間點發生某些事件，不需要使用精確的語法，只要使用自然語言即可。這項功能特別適合用來建立自己的場景剪接、節奏或快速連拍序列。請參閱以下範例：
+동영상에서 특정 시간에 발생할 일을 요청할 수 있으며, 정확한 문법이 필요하지 않고 자연어를 사용할 수 있습니다. 이 기능은 특히 나만의 장면 전환, 리듬 또는 연사 시퀀스를 만드는 데 유용합니다.
+예는 다음을 참고하세요.
 
-- 3 秒後，一名女子進入畫面。
-- 背景音訊會在 5 秒時開始播放副歌。
-- 每 2 秒切換到新影格。
-- 在快速連拍序列中，每半秒 (24 fps 時為 12 個影格) 將場景變更為新地點。
+- 3초 후 여성이 장면으로 들어옵니다.
+- 5초에 백그라운드 오디오에서 코러스가 시작됩니다.
+- 2초마다 새로운 프레임으로 전환됩니다.
+- 연속 사격 시퀀스에서 0.5초 (24fps에서 12프레임)마다 장면을 새 위치로 변경합니다.
 
-您也可以使用時間碼語法：
+타임코드 구문을 사용할 수도 있습니다.
 
 ```
 [0-3s] A person is walking
@@ -811,36 +814,37 @@ Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny wind
 [6-10s] They start running
 ```
 
-### 撰寫元提示詞
+### 메타 프롬프트 작성
 
-你可以問問 Gemini Omni Flash，請它注意影片生成的一般品質或原則：
+Gemini Omni Flash에게 동영상 생성의 일반적인 품질이나 원칙에 주의를 기울여 달라고 요청할 수 있습니다.
 
-- 請考慮微細節、表情和時間點，創造非常豐富、細緻但完全自然的場景。
-- 請盡可能詳細描述角色和環境。
-  將服裝設計原則套用至角色。請務必詳細說明場景中的人物、物品和物件。
-- 在背景元素中加入大量適當的細節，讓場景感覺真實自然。
-- 製作快速連發影片，每 1 秒顯示一個不同的稀有 `[thing]`，搭配輕快的音樂，並加入文字標籤。
+- 미세한 디테일, 표정, 타이밍을 고려하여 매우 풍부하고 섬세하지만 완전히 자연스러운 장면을 만드세요.
+- 캐릭터와 환경을 매우 자세하게 설명하세요.
+  캐릭터에 의상 디자인 원칙을 적용합니다. 장면에 있는 사람, 항목, 물체를 매우 구체적으로 설명하세요.
+- 배경 요소에 적절한 세부정보를 많이 포함하여 장면이 사실적이고 자연스럽게 느껴지도록 합니다.
+- 1초마다 다른 희귀한 `[thing]`를 보여주는 속사포 동영상을 만들어 줘. 신나는 음악을 넣고 텍스트를 포함해 사물을 라벨링해 줘.
 
-### 影片中的文字
+### 동영상의 텍스트
 
-你可以提示在影片中加入文字，Gemini Omni 會以正確且可讀的方式呈現。如果影片中會出現自然生成的文字 (即使是背景元素)，建議定義文字內容。
+동영상에 텍스트를 포함하도록 프롬프트를 입력하면 Gemini Omni가 올바르고 읽기 쉬운 방식으로 렌더링합니다. 동영상에 자연스럽게 발생하는 텍스트가 있는 경우(배경 요소 포함) 텍스트의 내용을 정의하는 것이 좋습니다.
 
-- 一次一個字：「你知道 Omni 可以生成很棒的文字嗎？」每個字詞會以不同的動畫樣式顯示 1 秒。沒有對話。
-- 街上有一個寫著「這是 Omni 生成的 AI 圖片」的路牌、一個寫著「All you need AI」的店面，以及一輛車牌號碼為「OMN111」的車
+- 화면에 한 번에 한 단어씩 표시됩니다. 'Omni는, 멋진, 텍스트를, 만들 수 있다는 것을, 알고 계셨나요?' 각 단어는 서로 다른 애니메이션 스타일로 1초 동안 표시됩니다. 대화가 없습니다.
+- 'This is an AI generation by Omni'라는 표지판이 있고, 'All you need AI'라는 상점 간판이 있으며, 번호판이 'OMN111'인 자동차가 있습니다.
 
-### 在提示中使用標記設定圖片角色
+### 프롬프트에서 태그를 사용하여 이미지 역할 설정
 
-你可以使用標記，將上傳的媒體繫結至特定生成角色。您可以藉此指定每張圖片是初始影格還是參照影格。
+태그를 사용하여 업로드된 미디어를 특정 생성 역할에 바인딩할 수 있습니다. 이를 통해 각 이미지가 초기 프레임인지 참조인지 지정할 수 있습니다.
 
-#### 1. 簡單標記 (建議)
+#### 1. 단순 태그 (권장)
 
-如果提示清楚指出圖片的角色，您可以直接將圖片繫結至角色：
+프롬프트에서 이미지 역할이 명확한 간단한 경우 이미지를 역할에 직접 바인딩할 수 있습니다.
 
-- **`<FIRST_FRAME>`**：將圖片做為影片的起始影格，例如：`<FIRST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**：將圖片做為參考，例如：`in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (結合第一張圖片的風格參考和第二張圖片的主體參考)。圖片參照從 0 開始。
+- **`<FIRST_FRAME>`**: 이미지를 동영상의 시작 프레임으로 사용합니다(예: `<FIRST_FRAME> a woman is walking`).
+- **`<IMAGE_REF_N>`**: 이미지를 참조로 사용합니다(예: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking`(첫 번째 이미지의 스타일 참조와 두 번째 이미지의 피사체 참조를 결합)).
+  이미지 참조는 0부터 시작합니다.
 
-以下是使用 6 張參考圖片的範例：
+다음은 참조 이미지가 6개인 예시입니다.
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -848,37 +852,37 @@ Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny wind
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. 明確宣告
+#### 2. 명시적 선언
 
-如果有多張圖片和多個角色，情況較為複雜，可以使用明確的前置字元標記，搭配自然語言指令後置字元。
+이미지가 여러 개이고 역할이 여러 개인 더 복잡한 경우에는 자연어 명령 접미사와 함께 명시적 접두사 태그를 사용할 수 있습니다.
 
-- **聲明來源和參考圖片**：
-  - `[# Sources <FIRST_FRAME>@Image1]` 會將第一張圖片做為起始影格。
-  - `[# References <IMAGE_REF_0>@Image1]` 會以第一張圖片做為參考。
-  - `[# References <IMAGE_REF_1>@Image2]` 會以第二張圖片做為參考。
-  - `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` 會將兩張圖片做為參考。
-  - `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` 會使用第一張圖片做為起始影格，並以第二張圖片做為參考。
-- **引導式指令**：在提示的最後加入引導式指令：
-  - 起始影格：`"Use this image as the starting frame."`
-  - 參考圖像：`"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- **소스 및 참조 이미지 선언**:
+  - `[# Sources <FIRST_FRAME>@Image1]`는 첫 번째 이미지를 시작 프레임으로 사용합니다.
+  - `[# References <IMAGE_REF_0>@Image1]`는 첫 번째 이미지를 참조로 사용합니다.
+  - `[# References <IMAGE_REF_1>@Image2]`는 두 번째 이미지를 참조로 사용합니다.
+  - `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]`는 두 이미지를 모두 참조로 사용합니다.
+  - `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]`는 첫 번째 이미지를 시작 프레임으로 사용하고 두 번째 이미지를 참조로 사용합니다.
+- **안내 요청 사항**: 프롬프트의 맨 끝에 안내 요청 사항을 추가합니다.
+  - 시작 프레임: `"Use this image as the starting frame."`
+  - 참고 이미지: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
 
-範例擴充提示：
+확장된 프롬프트의 예:
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-## 後續步驟
+## 다음 단계
 
-- 如要開始使用 Gemini Omni Flash，請在 [Omni 快速入門 Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=zh-tw) 中進行實驗。
-- 如要瞭解如何撰寫更有效的提示，請參閱「[提示設計簡介](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=zh-tw)」。
+- [Omni 빠른 시작 Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=ko)에서 실험하여 Gemini Omni Flash를 시작하세요.
+- [프롬프트 설계 소개](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ko)를 통해 더 나은 프롬프트를 작성하는 방법을 알아보세요.
 
-提供意見
+의견 보내기
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-上次更新時間：2026-07-30 (世界標準時間)。
+최종 업데이트: 2026-07-30(UTC)
 
-想進一步說明嗎？
+의견을 전달하고 싶나요?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]

@@ -1,32 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=ja
-fetched_at: 2026-08-17T02:19:41.749513+00:00
-title: "\u30d5\u30a1\u30a4\u30eb\u691c\u7d22 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=zh-TW
+fetched_at: 2026-08-24T02:29:59.315789+00:00
+title: "\u6a94\u6848\u641c\u5c0b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# ファイル検索
+# 檔案搜尋
 
-Gemini API では、ファイル検索ツールを使用して検索拡張生成（RAG）が可能です。ファイル検索は、プロンプトに基づいて関連情報を迅速に取得できるように、データをインポート、チャンク化、インデックス化します。取得した情報はモデルのコンテキストとして使用され、より正確で関連性の高い回答を提供できるようになります。ファイル検索では、`gemini-embedding-001` でサポートされているテキスト エンベディングと、`gemini-embedding-2` でサポートされている画像/マルチモーダル エンベディングを使用して、マルチモーダル機能を提供することもできます。
+Gemini API 可透過檔案搜尋工具啟用檢索增強生成 (RAG)。檔案搜尋會匯入、分塊及建立資料索引，以便根據提供的提示詞快速檢索相關資訊。接著，模型會將擷取的資訊做為背景資訊，提供更準確且相關的回覆。檔案搜尋功能也支援多模態功能，可使用 `gemini-embedding-001` 支援的文字嵌入，以及 `gemini-embedding-2` 支援的圖片/多模態嵌入。
 
-クエリ時のファイルの保存とエンベディングの生成は無料です。エンベディングの作成に対して料金が発生するのは、ファイルを初めてインデックス化するときと、通常の Gemini モデルの入力 / 出力トークンの費用のみです。この新しい課金パラダイムにより、ファイル検索ツールの構築とスケーリングが簡単かつ費用対効果の高いものになります。詳細については、
-[料金](#pricing)セクションをご覧ください。
+檔案儲存和查詢時的嵌入生成作業免費，您只需在首次為檔案建立索引時支付嵌入費用，以及正常的 Gemini 模型輸入 / 輸出權杖費用。這個新計費模式可讓您更輕鬆且經濟實惠地建構及擴充檔案搜尋工具。詳情請參閱[定價](#pricing)部分。
 
-## ファイル検索ストアに直接アップロードする
+## 直接上傳至檔案搜尋儲存庫
 
-この例では、ファイルを
-[ファイル検索ストア](https://ai.google.dev/api/file-search/file-search-stores?hl=ja#method:-media.uploadtofilesearchstore)に直接アップロードする方法を示します。
+這個範例說明如何直接將檔案上傳至[檔案搜尋儲存庫](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-tw#method:-media.uploadtofilesearchstore)：
 
 ### Python
 
@@ -57,7 +55,7 @@ while not operation.done:
     operation = client.operations.get(operation)
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     input="Can you tell me about [insert question]",
     tools=[{
         "type": "file_search",
@@ -106,7 +104,7 @@ async function run() {
   }
 
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     input: "Can you tell me about [insert question]",
     tools: [{
       type: "file_search",
@@ -176,7 +174,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H "Content-Type: application/json" \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.7-flash",
       "input": "Can you tell me about [insert question]",
       "tools": [{
         "type": "file_search",
@@ -185,11 +183,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-詳細については、[`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=ja#method:-media.uploadtofilesearchstore) の API リファレンスをご覧ください。
+詳情請參閱 [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-tw#method:-media.uploadtofilesearchstore) 的 API 參考資料。
 
-## ファイルのインポート
+## 匯入檔案
 
-または、既存のファイルをアップロードして、[ファイル検索ストアにインポート](https://ai.google.dev/api/file-search/file-search-stores?hl=ja#method:-filesearchstores.importfile)することもできます。
+或者，你也可以上傳現有檔案，然後[匯入檔案搜尋儲存庫](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-tw#method:-filesearchstores.importfile)：
 
 ### Python
 
@@ -219,7 +217,7 @@ while not operation.done:
     operation = client.operations.get(operation)
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     input="Can you tell me about [insert question]",
     tools=[{
         "type": "file_search",
@@ -265,7 +263,7 @@ async function run() {
   }
 
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     input: "Can you tell me about [insert question]",
     tools: [{
       type: "file_search",
@@ -332,7 +330,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H "Content-Type: application/json" \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.7-flash",
       "input": "Can you tell me about [insert question]",
       "tools": [{
         "type": "file_search",
@@ -341,14 +339,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-詳細については、[`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=ja#method:-filesearchstores.importfile) の API リファレンスをご覧ください。
+詳情請參閱 [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-tw#method:-filesearchstores.importfile) 的 API 參考資料。
 
-## チャンク化の構成
+## 分塊設定
 
-ファイルをファイル検索ストアにインポートすると、自動的にチャンクに分割され、埋め込み、インデックス化されて、ファイル検索ストアにアップロードされます。チャンク化戦略をより細かく制御する必要がある場合は、
-[`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=ja#request-body_5) 設定
-を指定して、チャンクあたりのトークンの最大数と重複する
-トークンの最大数を設定できます。
+將檔案匯入檔案搜尋儲存庫時，系統會自動將檔案分成多個區塊、嵌入、建立索引，然後上傳至檔案搜尋儲存庫。如要進一步控管分塊策略，可以指定 [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-tw#request-body_5) 設定，為每個分塊設定詞元數量上限，以及重疊詞元數量上限。
 
 ### Python
 
@@ -440,42 +435,35 @@ curl "${upload_url}" \
 cat upload_response.json
 ```
 
-ファイル検索ストアを使用するには、`interactions.create`
-メソッドにツールとして渡します。これは、[アップロード](#upload)と[インポート](#importing-files)の例に示されています。
+如要使用檔案搜尋儲存庫，請將其做為工具傳遞至 `interactions.create` 方法，如「[上傳](#upload)」和「[匯入](#importing-files)」範例所示。
 
-## 仕組み
+## 運作方式
 
-ファイル検索では、セマンティック検索と呼ばれる手法を使用して、ユーザー プロンプトに関連する情報を検索します。セマンティック検索は、標準のキーワード ベースの検索とは異なり、クエリの意味とコンテキストを理解します。
+檔案搜尋功能會使用語意搜尋技術，找出與使用者提示相關的資訊。與標準關鍵字搜尋不同，語意搜尋可解讀查詢的意義和上下文。
 
-ファイルをインポートすると、アップロードされたコンテンツのセマンティックな意味を捉える
-[エンベディング](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)と呼ばれる数値表現に変換されます。これらのエンベディングは、専用のファイル検索データベースに保存されます。
-クエリを実行すると、エンベディングに変換されます。次に、システムはファイル検索を実行して、ファイル検索ストアから最も類似した関連性の高いドキュメント チャンクを見つけます。
+匯入檔案時，系統會將檔案轉換為稱為「嵌入」的數值表示法，擷取上傳內容的語意。這些嵌入內容會儲存在專用的檔案搜尋資料庫中。
+您進行查詢時，系統也會將查詢內容轉換為嵌入。接著，系統會執行檔案搜尋，從檔案搜尋儲存庫找出最相似且相關的文件區塊。
 
-エンベディングには有効期間（TTL）はありません。手動で削除されるか、モデルが非推奨になるまで保持されます。ただし、ファイルは 48 時間後に削除されます。
+嵌入內容沒有存留時間 (TTL)，會一直存在，直到手動刪除或模型淘汰為止。但檔案會在 48 小時後刪除。
 
-ファイル検索 `uploadToFileSearchStore` API を使用するプロセスの内訳は次のとおりです。
+以下說明使用 File Search `uploadToFileSearchStore` API 的程序：
 
-1. **ファイル検索ストアを作成する**: ファイル検索ストアには、ファイルから処理された
-   データが含まれます。これは、セマンティック検索が動作するエンベディングの永続的なコンテナです。
-2. **ファイルをアップロードしてファイル検索ストアにインポートする**: ファイルをアップロードし、結果をファイル検索ストアにインポートします。これにより、元のドキュメントへの参照である一時的な `File` オブジェクトが作成されます。そのデータはチャンク化され、ファイル検索エンベディングに変換されてインデックス化されます。`File` オブジェクトは 48 時間後に削除されますが、ファイル検索ストアにインポートされたデータは、削除するまで無期限に保存されます。
-3. **ファイル検索でクエリを実行する**: 最後に、`FileSearch` ツールを
-   `generateContent` 呼び出しで使用します。ツール構成で、検索する `FileSearchStore` を指す `FileSearchRetrievalResource` を指定します。これにより、モデルは特定のファイル検索ストアでセマンティック検索を実行して、レスポンスのグラウンディングに関連する情報を検索します。
+1. **建立檔案搜尋儲存庫**：檔案搜尋儲存庫包含檔案中經過處理的資料。這是嵌入的永久性容器，語意搜尋將在其中運作。
+2. **上傳檔案並匯入檔案搜尋儲存庫**：同時上傳檔案並將結果匯入檔案搜尋儲存庫。這會建立暫時的 `File` 物件，也就是原始文件的參照。然後將資料分塊、轉換為檔案搜尋嵌入，並編入索引。`File`
+   物件會在 48 小時後刪除，而匯入檔案搜尋儲存空間的資料則會無限期保留，直到您選擇刪除為止。
+3. **使用檔案搜尋功能查詢**：最後，您會在 `generateContent` 呼叫中使用 `FileSearch` 工具。在工具設定中，您會指定 `FileSearchRetrievalResource`，指向要搜尋的 `FileSearchStore`。這會指示模型對該特定「檔案搜尋」儲存庫執行語意搜尋，找出相關資訊做為回覆的依據。
 
-![ファイル検索のインデックス登録とクエリのプロセス](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=ja)
+![檔案搜尋的索引和查詢程序](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=zh-tw)
 
-ファイル検索のインデックス作成とクエリのプロセス
+檔案搜尋的索引和查詢程序
 
-この図では、[*ドキュメント*] から [*エンベディング モデル*]
-（[`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja) を使用）への点線は、`uploadToFileSearchStore` API（[*ファイル ストレージ*] をバイパス）を表しています。
-*それ以外の場合は、[[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja)] を使用して個別に作成
-してからファイルをインポートすると、インデックス作成プロセスは [*ドキュメント*] から
-[*ファイル ストレージ*]、[エンベディング モデル]* に移動します。
+在這張圖表中，從「文件」到「嵌入模型」的虛線 (使用 [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)) 代表 `uploadToFileSearchStore` API (略過「檔案儲存空間」)。否則，使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 分別建立及匯入檔案，會將索引程序從「文件」移至「檔案儲存空間」，然後移至「嵌入模型」。
 
-## ファイル検索ストア
+## 檔案搜尋商店
 
-ファイル検索ストアは、ドキュメント エンベディングのコンテナです。File API を使用してアップロードされた元のファイルは 48 時間後に削除されますが、ファイル検索ストアにインポートされたデータは、手動で削除するまで無期限に保存されます。複数のファイル検索ストアを作成して、ドキュメントを整理できます。`FileSearchStore` API を使用すると、ファイル検索ストアの作成、一覧表示、取得、削除を行って管理できます。ファイル検索ストア名はグローバル スコープです。
+檔案搜尋儲存庫是文件嵌入內容的容器。透過 File API 上傳的原始檔案會在 48 小時後刪除，但匯入檔案搜尋儲存庫的資料會無限期儲存，直到您手動刪除為止。你可以建立多個檔案搜尋商店，整理文件。您可以使用 `FileSearchStore` API 建立、列出、取得及刪除檔案，藉此管理檔案搜尋商店。檔案搜尋商店名稱的範圍涵蓋全球。
 
-ファイル検索ストアを管理する方法の例を次に示します。
+以下舉例說明如何管理檔案搜尋商店：
 
 ### Python
 
@@ -534,9 +522,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123?key=${GEMINI_API_KEY}"
 ```
 
-## ファイル検索ドキュメント
+## 檔案搜尋文件
 
-[ファイル検索ドキュメント](https://ai.google.dev/api/file-search/documents?hl=ja) API を使用すると、ファイルストア内の個々のドキュメントを管理できます。ファイル検索ストア内の各ドキュメントを `list` し、ドキュメントに関する情報を `get` し、名前でドキュメントを `delete` できます。
+您可以使用 [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=zh-tw) API 管理檔案儲存庫中的個別文件，以便`list`檔案搜尋儲存庫中的每份文件、`get`文件相關資訊，以及`delete`依名稱搜尋文件。
 
 ### Python
 
@@ -580,9 +568,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents/sampletxt123?key=${GEMINI_API_KEY}&force=true"
 ```
 
-## ファイルのメタデータ
+## 檔案中繼資料
 
-ファイルにカスタム メタデータを追加して、フィルタリングや追加のコンテキストの提供に役立てることができます。メタデータは Key-Value ペアのセットです。
+你可以為檔案新增自訂中繼資料，以便篩選檔案或提供額外背景資訊。中繼資料是一組鍵/值組合。
 
 ### Python
 
@@ -614,13 +602,13 @@ let operation = await ai.fileSearchStores.importFile({
 });
 ```
 
-これは、ファイル検索ストアに複数のドキュメントがあり、そのサブセットのみを検索する場合に便利です。
+如果檔案搜尋商店中有多份文件，而您只想搜尋其中一部分，這項功能就非常實用。
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     input="Tell me about the book 'I, Claudius'",
     tools=[{
         "type": "file_search",
@@ -640,7 +628,7 @@ for step in interaction.steps:
 
 ```
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.7-flash",
   input: "Tell me about the book 'I, Claudius'",
   tools: [{
     type: "file_search",
@@ -668,7 +656,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
-            "model": "gemini-3.6-flash",
+            "model": "gemini-3.7-flash",
             "input": [{"type": "text", "text": "Tell me about the book I, Claudius"}],
             "tools": [{
                 "type": "file_search",
@@ -680,15 +668,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 cat response.json
 ```
 
-`metadata_filter` のリストフィルタ構文の実装に関するガイダンスについては、[google.aip.dev/160](https://google.aip.dev/160) をご覧ください。
+如需實作 `metadata_filter` 清單篩選器語法的指引，請參閱 [google.aip.dev/160](https://google.aip.dev/160)。
 
-## マルチモーダル ファイル検索
+## 多模態檔案搜尋
 
-マルチモーダル ファイル検索を使用すると、画像をネイティブに埋め込んで検索できるため、リッチなマルチモーダル RAG アプリケーションが可能になります。
+多模態檔案搜尋功能可讓您以原生方式嵌入及搜尋圖片，進而打造豐富的多模態 RAG 應用程式。
 
-### エンベディング モデルを構成する
+### 設定嵌入模型
 
-`FileSearchStore` を作成する場合は、デフォルトのテキストのみのエンベディング モデルをオーバーライドして、マルチモーダル モデルを使用する必要があります。`models/gemini-embedding-2` を使用して、テキストと画像の両方を処理します。
+建立 `FileSearchStore` 時，您必須覆寫預設的純文字嵌入模型，才能使用多模態模型。使用 `models/gemini-embedding-2` 處理文字和圖片。
 
 ### Python
 
@@ -723,21 +711,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### 画像のアップロード
+### 上傳圖片
 
-マルチモーダル エンベディング モデルを使用してストアを作成したら、
-ファイル検索ストアに直接アップロードする[または](#upload)[ファイルのインポート](#importing-files)で説明されているのと同じアップロード API を使用して、画像ファイルを直接アップロードできます。
+使用多模態嵌入模型建立儲存庫後，您可以直接使用「[直接上傳至檔案搜尋儲存庫](#upload)」或「[匯入檔案](#importing-files)」一節所述的相同上傳 API，上傳圖片檔案。
 
-**画像ファイルの要件:**
+**圖片檔案規定：**
 
-- 画像ファイルの解像度は 4K x 4K ピクセル以下にする必要があります。
-- サポートされている形式は PNG、JPEG です。
+- 圖片檔案的解析度不得超過 4K x 4K 像素。
+- 支援的格式為 PNG、JPEG。
 
-## 引用
+## 參考資料
 
-ファイル検索を使用すると、モデルのレスポンスに、アップロードしたドキュメントのどの部分が回答の生成に使用されたかを指定する引用が含まれることがあります。これは、ファクト チェックと検証に役立ちます。
+使用檔案搜尋功能時，模型的回覆可能會包含引文，指出生成答案時參考了上傳文件的哪些部分。有助於事實查核和驗證。
 
-引用情報には、レスポンスの `model_output` ステップの `content` ブロック内の `annotations` 属性からアクセスできます。
+您可以透過 `model_output` 步驟回應區塊中的 `annotations` 屬性，存取引文資訊。`content`
 
 ### Python
 
@@ -788,13 +775,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-引用の構造の詳細については、
-[インタラクションの API リファレンスをご覧ください](https://ai.google.dev/api/interactions-api?hl=ja#Resource:FileCitation)。
+如要進一步瞭解引文結構，請參閱 [Interactions 的 API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw#Resource:FileCitation)。
 
-### ページ番号
+### 頁碼
 
-ページがあるドキュメント（PDF など）でファイル検索を使用すると、モデルのレスポンスに情報が見つかったページ番号が含まれることがあります。
-この情報には、`file_citation` アノテーションの `page_number` 属性からアクセスできます。
+使用檔案搜尋功能時，如果搜尋的文件包含頁面 (例如 PDF)，模型的回覆可能會包含找到資訊的頁碼。您可以透過 `file_citation` 註解的 `page_number` 屬性存取這項資訊。
 
 ### Python
 
@@ -852,11 +837,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### メディアの引用
+### 媒體引用
 
-生成中にモデルが画像チャンクを参照すると、API は `media_id` を含むアノテーションに `file_citation` 型のアノテーションを返します。この ID を使用すると、モデルが参照した正確な画像チャンクをダウンロードできます。この `media_id` は複数の検索呼び出しで永続的に保持されるため、同じ画像を確実に取得したり、ID を使用してキャッシュに保存したりできます。
+模型在生成內容時參照圖片區塊，API 就會在註解中傳回 `file_citation` 類型的註解，其中包含 `media_id`。您可以使用這個 ID 下載模型參照的確切圖片區塊。這個 `media_id` 會在多個搜尋呼叫中持續存在，因此您可以使用 ID 可靠地擷取或快取同一張圖片。
 
-次のスニペットは、REST レスポンス ステップの例です。
+以下程式碼片段是 REST 回應步驟的範例：
 
 ```
 {
@@ -877,7 +862,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-次のコード スニペットは、`media_id` を取得してメディアをダウンロードする方法を示しています。
+下列程式碼片段示範如何擷取 `media_id` 並下載媒體：
 
 ### Python
 
@@ -920,15 +905,15 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## カスタム メタデータ
+## 自訂中繼資料
 
-ファイルにカスタム メタデータを追加した場合は、モデルのレスポンスのアノテーションでアクセスできます。これは、ソース ドキュメントからアプリケーション ロジックに追加のコンテキスト（URL、ページ番号、作成者など）を渡す場合に便利です。`file_citation` 型の各引用アノテーションには、このカスタム メタデータが含まれます。
+如果您已在檔案中新增自訂中繼資料，可以在模型回覆的註解中存取該資料。這項功能可將來源文件中的其他內容 (例如網址、頁碼或作者) 傳遞至應用程式邏輯，每個 `file_citation` 類型的引文註解都包含這項自訂中繼資料。
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     input="Tell me about [insert question]",
     tools=[{
         "type": "file_search",
@@ -948,7 +933,7 @@ for step in interaction.steps:
 
 ```
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.7-flash",
   input: "Tell me about [insert question]",
   tools: [{
     type: "file_search",
@@ -1003,10 +988,9 @@ for (const step of interaction.steps) {
 }
 ```
 
-## 構造化出力
+## 結構化輸出內容
 
-Gemini 3 モデル以降では、ファイル検索ツールと
-[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を組み合わせることができます。
+從 Gemini 3 模型開始，您可以將檔案搜尋工具與[結構化輸出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)結合使用。
 
 ### Python
 
@@ -1018,7 +1002,7 @@ class Money(BaseModel):
     currency: str = Field(description="The currency of amount.")
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     input="What is the minimum hourly wage in Tokyo right now?",
     tools=[{
         "type": "file_search",
@@ -1052,7 +1036,7 @@ const moneySchema = z.fromJSONSchema(moneyJsonSchema);
 
 async function run() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     input: "What is the minimum hourly wage in Tokyo right now?",
     tools: [{
       type: "file_search",
@@ -1080,7 +1064,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.7-flash",
     "input": "What is the minimum hourly wage in Tokyo right now?",
     "tools": [{
       "type": "file_search",
@@ -1101,24 +1085,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## サポートされているモデル
+## 支援的模型
 
-次のモデルはファイル検索をサポートしています。
+下列機型支援檔案搜尋：
 
-| モデル | ファイル検索 |
+| 模型 | 檔案搜尋 |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja) | ✔️ |
-| [Gemini 3.1 Pro プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ja) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ja) | ✔️ |
-| [Gemini 3 Flash プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja) | ✔️ |
+| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=zh-tw) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-tw) | ✔️ |
+| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ |
 
-## サポートされているファイル形式
+## 支援的檔案類型
 
-ファイル検索では、次のセクションに示すさまざまなファイル形式がサポートされています。
+檔案搜尋支援多種檔案格式，詳列於下列各節。
 
-### アプリケーション ファイル形式
+### 應用程式檔案類型
 
 - `application/dart`
 - `application/ecmascript`
@@ -1151,7 +1136,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `application/xml`
 - `application/zip`
 
-### テキスト ファイル形式
+### 文字檔案類型
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -1310,45 +1295,40 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## 制限事項
+## 限制
 
-- **Live API:** ファイル検索は
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja)ではサポートされていません。
-- **ツールの非互換性:** 組み込みのグラウンディング ツールを組み合わせることはできません。
-  たとえば、同じリクエストでファイル検索を [Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja) や
-  [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja) と同時に使用することはできません。
+- **Live API：**[Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 不支援檔案搜尋。
+- **工具不相容：**內建基礎工具無法合併使用；舉例來說，在同一個要求中，檔案搜尋無法同時與[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)或[網址背景資訊](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)搭配使用。
 
-### レート上限
+### 頻率限制
 
-サービスを安定させるため、ファイル検索 API には次の制限があります。
+為確保服務穩定性，File Search API 有下列限制：
 
-- **最大ファイルサイズ / ドキュメントあたりの上限**: 100 MB
-- **プロジェクトのファイル検索ストアの合計サイズ** （ユーザー階層に基づく）:
-  - **無料**: 1 GB
-  - **Tier 1**: 10 GB
-  - **Tier 2**: 100 GB
-  - **Tier 3**: 1 TB
-- **推奨事項**: 取得レイテンシを最適化するため、各ファイル検索ストアのサイズを 20 GB 未満に制限してください。
+- **檔案大小上限 / 單一文件限制**：100 MB
+- **專案檔案搜尋儲存空間總大小** (依使用者層級而定)：
+  - **免費**：1 GB
+  - **第 1 級**：10 GB
+  - **第 2 級**：100 GB
+  - **第 3 級**：1 TB
+- Aware **建議**：將每個檔案搜尋儲存庫的大小限制在 20 GB 以下，確保最佳的擷取延遲時間。
 
-## 料金
+## 定價
 
-- エンベディングの料金は、既存の
-  [エンベディングの料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#gemini-embedding-2)に基づいてインデックス作成時に請求されます。
-- ストレージは無料です。
-- クエリ時のエンベディングは無料です。
-- 取得したドキュメント トークンは、通常の
-  [コンテキスト トークン](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)として課金されます。
+- 系統會在建立索引時，根據現有的[嵌入定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-embedding-2)向您收取嵌入費用。
+- 儲存空間免費。
+- 查詢時嵌入功能不會產生費用。
+- 系統會將擷取的檔案權杖視為一般[內容權杖](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)計費。
 
-## 次のステップ
+## 後續步驟
 
-- [ファイル検索ストア](https://ai.google.dev/api/file-search/file-search-stores?hl=ja)とファイル検索[ドキュメント](https://ai.google.dev/api/file-search/documents?hl=ja)の API リファレンスをご覧ください。
+- 請參閱 [檔案搜尋商店](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-tw)和檔案搜尋[文件](https://ai.google.dev/api/file-search/documents?hl=zh-tw)的 API 參考資料。
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-07-30 UTC。
+上次更新時間：2026-08-19 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-08-19 (世界標準時間)。"],[],[]]

@@ -1,35 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=zh-TW
-fetched_at: 2026-08-17T02:28:30.186464+00:00
-title: "Files API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=id
+fetched_at: 2026-08-24T02:27:06.519620+00:00
+title: "API File \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-提供意見
+Kirim masukan
 
-# Files API
+# API File
 
-Gemini 可同時處理各種輸入資料，包括文字、圖片和音訊。
+Gemini dapat menangani berbagai jenis data input, termasuk teks, gambar, dan audio, secara bersamaan.
 
-本指南說明如何使用 Files API 處理媒體檔案。音訊檔案、圖片、影片、文件和其他支援的檔案類型，基本操作都相同。
+Panduan ini menunjukkan cara menggunakan file media menggunakan Files API. Operasi
+dasar sama untuk file audio, gambar, video, dokumen, dan
+jenis file lain yang didukung.
 
-如需檔案提示詞指南，請參閱「[檔案提示詞指南](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw#prompt-guide)」一節。
+Untuk panduan perintah file, lihat bagian [Panduan perintah file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide).
 
-## 上傳檔案
+## Upload file
 
-你可以使用 Files API 上傳媒體檔案。如果要求總大小 (包括檔案、文字提示詞、系統指令等) 超過 100 MB，請一律使用 Files API。PDF 檔案大小上限為 50 MB。
+Anda dapat menggunakan Files API untuk mengupload file media. Selalu gunakan Files API jika total ukuran permintaan (termasuk file, perintah teks, petunjuk sistem, dll.) lebih besar dari 100 MB. Untuk file PDF, batasnya adalah 50 MB.
 
-下列程式碼會上傳檔案，然後在呼叫 `generateContent` 時使用該檔案。
+Kode berikut mengupload file, lalu menggunakan file tersebut dalam panggilan ke
+`generateContent`.
 
 ### Python
 
@@ -156,10 +159,10 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## 取得檔案的中繼資料
+## Mendapatkan metadata untuk file
 
-您可以呼叫 `files.get`，確認 API 是否已成功儲存上傳的檔案並取得其
-中繼資料。
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
+metadatanya dengan memanggil `files.get`.
 
 ### Python
 
@@ -227,9 +230,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## 列出上傳的檔案
+## Mencantumkan file yang diupload
 
-下列程式碼會取得所有已上傳檔案的清單：
+Kode berikut akan mendapatkan daftar semua file yang diupload:
 
 ### Python
 
@@ -282,9 +285,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 刪除上傳的檔案
+## Menghapus file yang diupload
 
-檔案會在 48 小時後自動刪除。你也可以手動刪除上傳的檔案：
+File akan otomatis dihapus setelah 48 jam. Anda juga dapat menghapus file yang diupload secara manual:
 
 ### Python
 
@@ -336,188 +339,204 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 用量資訊
+## Info penggunaan
 
-您可以使用 Files API 上傳媒體檔案並與之互動。透過 Files API，每個專案最多可儲存 20 GB 的檔案，每個檔案的大小上限為 2 GB。檔案會儲存 48 小時。在這段期間，您可以使用 API 取得檔案的中繼資料，但無法下載檔案。在 Gemini API 支援的所有地區，都能免付費使用 Files API。
+Anda dapat menggunakan Files API untuk mengupload dan berinteraksi dengan file media. Files API memungkinkan Anda menyimpan hingga 20 GB file per project, dengan ukuran maksimum per file sebesar 2 GB. File disimpan selama 48 jam. Selama waktu tersebut, Anda dapat menggunakan API untuk mendapatkan metadata tentang file, tetapi Anda tidak dapat mendownload file.
+Files API tersedia tanpa biaya di semua wilayah tempat Gemini API tersedia.
 
-## 檔案提示策略
+## Strategi penulisan perintah file
 
-本節提供指南和最佳做法，說明如何搭配 Gemini API 的提示使用媒體檔案。
+Bagian ini memberikan panduan dan praktik terbaik untuk menggunakan file media dengan perintah untuk Gemini API.
 
-提示中可使用的資料類型越多，您就能越靈活地運用 Gemini API 處理各種工作。例如，你可以向模型傳送美味餐點的相片，並請模型撰寫有關該餐點的短篇網誌。
+Kemampuan untuk menggunakan berbagai jenis data dalam perintah memberi Anda lebih banyak fleksibilitas dalam hal tugas yang dapat Anda selesaikan dengan Gemini API. Misalnya, Anda dapat mengirimkan foto hidangan lezat ke model dan memintanya untuk menulis blog singkat tentang hidangan tersebut.
 
 |  |  |
 | --- | --- |
-| **提示** | **回應** |
-| 根據這張圖片撰寫簡短有趣的網誌文章。並說明相片中的餐點，以及我準備餐點的過程。   Cookie | 事先備餐不僅省時省錢，也有助於你吃得更健康。這道餐點是健康美味的絕佳範例，而且可以輕鬆提前準備。  這道餐點包含糙米、烤蔬菜和照燒雞肉。 糙米是健康且複雜的碳水化合物，可提供持久的能量。烤蔬菜富含維生素和礦物質，是補充每日營養的好選擇；照燒雞肉則美味可口，且含有豐富的蛋白質。  這道餐點也很容易準備，只要煮好糙米飯、烤好蔬菜，並烹調照燒雞肉，所有食材煮熟後， 將其分裝到備餐容器中，然後放入冰箱。 這樣就能在忙碌的早晨直接拿了就走！  如果你想吃健康美味的料理，而且可以輕鬆提前準備，這道料理就是絕佳選擇。這道料理營養豐富、風味十足，保證能讓您吃得飽足又滿足。  祝你餐點準備順利，吃得健康又美味！ |
+| **Perintah** | **Respons** |
+| Tulis postingan blog singkat yang menarik berdasarkan gambar ini. Postingan tersebut harus menyertakan deskripsi makanan dalam foto dan menceritakan perjalanan saya dalam menyiapkan makanan.   Cookie | Menyiapkan makanan adalah cara yang bagus untuk menghemat waktu dan uang, dan juga dapat membantu Anda makan lebih sehat. Hidangan ini adalah contoh yang bagus dari hidangan sehat dan lezat yang dapat disiapkan dengan mudah sebelumnya.  Makanan ini terdiri dari nasi merah, sayuran panggang, dan ayam teriyaki. Beras merah adalah karbohidrat kompleks yang sehat dan akan memberi Anda energi yang berkelanjutan. Sayuran panggang adalah cara yang bagus untuk mendapatkan dosis vitamin dan mineral harian Anda, dan ayam teriyaki adalah pilihan yang lezat dan kaya protein.  Makanan ini juga sangat mudah disiapkan. Cukup masak nasi merah, panggang sayuran, dan masak ayam teriyaki. Setelah semuanya matang, bagi menjadi beberapa porsi dan simpan di dalam wadah persiapan makanan di dalam kulkas. Kemudian, Anda dapat mengambil wadah dan pergi di pagi yang sibuk.  Jika Anda mencari makanan sehat dan lezat yang dapat disiapkan dengan mudah sebelumnya, makanan ini adalah pilihan yang tepat. Makanan ini penuh dengan nutrisi dan rasa, serta pasti membuat Anda merasa kenyang dan puas.  Selamat menikmati persiapan makanan yang sehat dan lezat! |
 
-如果使用媒體檔案的提示無法產生所需輸出內容，可以嘗試一些策略，協助你獲得想要的結果。下列各節提供設計方法和疑難排解提示，協助您改善使用多模態輸入內容的提示。
+Jika Anda mengalami kesulitan mendapatkan output yang diinginkan dari perintah yang menggunakan
+file media, ada beberapa strategi yang dapat membantu Anda mendapatkan hasil yang
+diinginkan. Bagian berikut memberikan pendekatan desain dan tips pemecahan masalah untuk meningkatkan kualitas perintah yang menggunakan input multimodal.
 
-如要改善多模態提示，請參考下列最佳做法：
+Anda dapat meningkatkan kualitas perintah multimodal dengan mengikuti praktik terbaik berikut:
 
-- ### [提示設計基礎知識](#specific-instructions)
+- ### [Dasar-dasar desain perintah](#specific-instructions)
 
-  - **提供明確的指示**：清楚簡潔地說明指示，盡量避免誤解。
-  - **在提示中加入幾個範例：**使用實際的少量樣本範例，說明您想達成的目標。
-  - **逐步分解**：將複雜工作分解為可管理的小目標，引導模型完成程序。
-  - **指定輸出格式**：在提示中要求輸出內容採用所需格式，例如 Markdown、JSON、HTML 等。
-  - **單一圖片提示詞請先放上圖片**：Gemini 可以處理任何順序的圖片和文字輸入內容，但如果提示詞只包含一張圖片，將圖片 (或影片) 放在文字提示詞前面，效果可能會更好。不過，如果提示需要圖片與文字高度交錯才能有意義，請使用最自然的順序。
-- ### [排解多模態提示詞問題](#troubleshooting)
+  - **Berikan petunjuk yang spesifik**: Buat petunjuk yang jelas dan ringkas yang hanya menyisakan sedikit ruang untuk salah penafsiran.
+  - **Tambahkan beberapa contoh ke perintah Anda:** Gunakan contoh few-shot yang realistis untuk menggambarkan apa yang ingin Anda capai.
+  - **Uraikan langkah demi langkah**: Bagi tugas yang kompleks menjadi sub-tujuan yang mudah dikelola, dengan memandu model melalui prosesnya.
+  - **Tentukan format output**: Dalam perintah Anda, minta output dalam format yang Anda inginkan, seperti markdown, JSON, HTML, dan lainnya.
+  - **Mengutamakan gambar untuk perintah satu gambar**: Meskipun Gemini dapat menangani input gambar dan teks dalam urutan apa pun, untuk perintah yang berisi satu gambar, performanya mungkin lebih baik jika gambar (atau video) tersebut ditempatkan sebelum perintah teks. Namun, untuk perintah yang memerlukan gambar diselingi dengan teks agar dapat dipahami, gunakan urutan apa pun yang paling alami.
+- ### [Memecahkan masalah perintah multimodal](#troubleshooting)
 
-  - **如果模型未從圖片的相關部分提取資訊：**請在提示中加入提示，說明要從圖片的哪些部分提取資訊。
-  - **如果模型輸出內容過於一般 (不夠符合輸入的圖片/影片)：** 在提示開頭，先要求模型描述圖片或影片，再提供工作指令，或要求模型參考圖片內容。
-  - **如要排解哪個部分發生錯誤：**要求模型描述圖片或說明推論過程，評估模型初步理解的內容。
-  - **如果提示詞導致模型生成幻覺內容：**請嘗試調低溫度參數設定，或要求模型提供較短的說明，這樣模型就不太可能推斷出額外的詳細資料。
-  - **調整取樣參數：**嘗試不同的溫度參數設定和 Top-K 選項，調整模型的創意程度。
+  - **Jika model tidak mengambil informasi dari bagian gambar yang relevan:** Berikan petunjuk tentang aspek gambar yang ingin Anda gunakan sebagai sumber informasi untuk perintah.
+  - **Jika output model terlalu umum (tidak cukup disesuaikan dengan input gambar/video):** Di awal perintah, coba minta model untuk mendeskripsikan gambar atau video sebelum memberikan petunjuk tugas, atau coba minta model untuk merujuk pada apa yang ada dalam gambar.
+  - **Untuk memecahkan masalah bagian mana yang gagal:** Minta model untuk mendeskripsikan gambar, atau minta model untuk menjelaskan penalarannya, guna mengukur pemahaman awal model.
+  - **Jika perintah Anda menghasilkan konten halusinasi:** Coba kurangi setelan temperatur atau minta model untuk memberikan deskripsi yang lebih singkat sehingga model cenderung tidak mengekstrapolasi detail tambahan.
+  - **Menyesuaikan parameter sampling:** Bereksperimenlah dengan berbagai setelan suhu dan pilihan top-k untuk menyesuaikan kreativitas model.
 
-### 指令應明確具體
+### Berikan petunjuk yang spesifik
 
-提示越清楚詳細，生成結果就越符合需求。如果您有特定輸出內容，最好在提示中加入該要求，確保獲得所需輸出內容。
+Perintah akan memberikan hasil terbaik jika jelas dan mendetail. Jika Anda memiliki output tertentu yang diinginkan, sebaiknya sertakan persyaratan tersebut dalam perintah untuk memastikan Anda mendapatkan output yang diinginkan.
 
-以這張機場看板圖片為例，如果只要求模型「描述這張圖片」，模型可能會生成一般描述。如要模型從圖片中剖析時間和城市，可以直接在提示中加入這項要求。
+Untuk gambar papan informasi bandara ini, meminta model untuk "mendeskripsikan gambar ini" saja dapat menghasilkan deskripsi umum. Jika Anda ingin model mengurai waktu dan kota dari gambar, Anda dapat menyertakan permintaan tersebut langsung dalam perintah.
 
-| 提示詞 | 模型回應 |
+| Perintah | Respons model |
 | --- | --- |
-| 描述這張圖片。 | 圖片：機場抵達和起飛時刻資訊看板。 |
+| Jelaskan gambar ini. | Gambar menampilkan papan kedatangan dan keberangkatan bandara. |
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 旅行時刻表 Parse the time and city from the airport board shown in this image into a list. | - 莫斯科 10:50 - 11:05 愛丁堡 - 11:05 倫敦 - 11:10 布加勒斯特 - 基輔時間 11:30 - 11:35 都柏林 - 11:45 東密德蘭 - 12:15 索非亞 - 倫敦時間 12:30 - 12:30 新堡 - 12:40 聖彼得堡 - 12:40 倫敦 - 12:45 曼徹斯特 |
+| Jadwal perjalanan Parse waktu dan kota dari papan bandara yang ditampilkan dalam gambar ini ke dalam daftar. | - 10.50 Moskow - 11:05 Edinburgh - 11.05 London - 11:10 Bucharest - 11.30 Kiev - 11:35 Dublin - 11.45 East Midlands - 12.15 Sofia - 12.30 London - 12:30 Newcastle - 12.40 St Petersburg - 12.40 London - 12.45 Manchester |
 
-### 新增幾個範例
+### Tambahkan beberapa contoh
 
-Gemini 模型可接受多個輸入內容，並將其做為範例，瞭解您想要的輸出內容。加入這些範例可協助模型找出模式，並將指定圖片和回應之間的關係套用至新範例。這也稱為「少量樣本」學習。
+Model Gemini dapat menerima beberapa input yang dapat digunakan sebagai contoh untuk memahami output yang Anda inginkan. Menambahkan contoh ini dapat membantu model mengidentifikasi pola dan menerapkan hubungan antara gambar dan respons yang diberikan ke contoh baru. Hal ini juga disebut pembelajaran "few-shot".
 
-在下方範例中，初始輸出內容是以句子形式撰寫，且包含國家/地區 (巴西)。假設您希望輸出內容採用不同格式或風格，而且只想要城市，而非國家/地區。在提示中加入少量樣本，可引導模型以您想要的方式回覆。
+Dalam contoh di bawah, output awal ditulis dalam bentuk kalimat, dan juga berisi
+negara (Brasil). Misalnya, Anda menginginkan output dalam format atau gaya yang berbeda, dan Anda hanya menginginkan kota, bukan negara. Menambahkan contoh few-shot ke perintah dapat mengarahkan model
+untuk merespons sesuai keinginan Anda.
 
-| **提示** | **模型回應** |
+| **Perintah** | **Respons model** |
 | --- | --- |
-| 旅行時刻表 判斷地標所在的城市。 | 地標是巴西里約熱內盧的救世基督像。 |
+| Jadwal perjalanan Tentukan kota beserta tempat terkenalnya. | Landmark tersebut adalah patung Kristus Penebus di Rio de Janeiro, Brasil. |
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 判斷地標所在的城市。 羅馬競技場 | 城市：羅馬，地標：羅馬競技場。 |
-| 紫禁城 | 城市：北京，地標：紫禁城 |
-| forbidden-city | 城市：里約熱內盧，地標：救世基督像 |
+| Tentukan kota beserta tempat terkenalnya. colosseum | kota: Roma, landmark: Colosseum. |
+| Kota Terlarang | kota: Beijing, landmark: Kota Terlarang |
+| kota-terlarang | kota: Rio de Janeiro, landmark: patung Kristus Penebus |
 
-### 逐步分解
+### Uraikan langkah demi langkah
 
-對於需要視覺理解和推論的複雜工作，建議將工作拆解成較簡單的步驟。或者，您也可以直接在提示中要求模型「逐步思考」，這也可能很有效。
+Untuk tugas kompleks seperti yang memerlukan pemahaman dan penalaran visual, sebaiknya pecah tugas menjadi langkah-langkah yang lebih kecil dan lebih mudah. Atau, Anda juga dapat meminta model secara langsung untuk “berpikir secara berurutan” dalam perintah Anda.
 
-| 提示詞 | 模型回應 |
+| Perintah | Respons model |
 | --- | --- |
-| 我何時會用完衛生紙？ | 不久後，你只剩下 3 卷底片。 |
+| Kapan tisu toilet saya akan habis? | Segera, Anda hanya memiliki 3 putaran tersisa. |
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 1. 首先，請計算這張圖片中有幾捲衛生紙。  2. 然後判斷一般人每天使用的衛生紙量。  3. 計算這些捲筒衛生紙可以使用多久。 | 1. 這張圖片中有 3 卷衛生紙。  2. 一般人每天約使用 20 張衛生紙。  3. 如果每捲有 200 張，則每捲約可使用 10 天。因此，3 卷膠帶約可使用一個月。 |
+| 1. Pertama, hitung berapa banyak gulungan tisu toilet yang ada dalam gambar ini.  2. Kemudian, tentukan berapa banyak tisu toilet yang digunakan orang pada umumnya per hari.  3. Hitung berapa lama gulungan tisu toilet ini akan habis. | 1. Ada 3 gulungan tisu toilet dalam gambar ini.  2. Orang biasanya menggunakan sekitar 20 lembar tisu toilet per hari.  3. Jika setiap gulungan berisi 200 lembar, maka setiap gulungan akan bertahan selama sekitar 10 hari. Oleh karena itu, 3 gulungan akan bertahan selama sekitar satu bulan. |
 
-數學題或其他類型的文字題很適合要求模型逐步思考。
+Soal matematika atau jenis soal cerita lainnya adalah kandidat yang tepat untuk meminta model berpikir langkah demi langkah.
 
-| **提示** | **回應** |
+| **Perintah** | **Respons** |
 | --- | --- |
-| 這個數列的第 4 項為何？ | -135 |
+| Berapa suku ke-4 dalam deret tersebut? | -135 |
 
-模型回覆的內容不正確。如要改善這點，可以要求模型先剖析問題，再回答提示。
+Respons dari model salah. Beberapa cara untuk meningkatkan kualitas respons adalah dengan meminta model mengurai masalah sebelum menjawab perintah.
 
-| **提示** | **回應** |
+| **Perintah** | **Respons** |
 | --- | --- |
-| 請先剖析圖片中的公式。  然後根據公式回答「這個數列的第 4 個項是什麼？」。 | *按一下即可展開結果* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. 將 n = 4 代入公式：  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. 我們不知道 b(3) 的值，因此將 n = 3 代入公式：  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. 我們不知道 b(2) 的值，因此將 n = 2 代入公式：  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. 我們知道 b(1) 的值為 15，因此將其代入公式：  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. 現在我們知道 b(2) 的值，因此可以將其代入 b(3) 的公式：  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. 現在我們知道 b(3) 的值，請將其代入 b(4) 的公式：  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   因此，這個數列的第 4 項是 -405。 |
+| Parse formula dalam gambar terlebih dahulu.  Kemudian, berdasarkan formula tersebut, jawab pertanyaan "apa suku ke-4 dalam deret tersebut?". | *Klik untuk meluaskan hasil* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Substitusikan n = 4 ke dalam rumus:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Kita tidak mengetahui nilai b(3), jadi substitusikan n = 3 ke dalam rumus:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Kita tidak mengetahui nilai b(2), jadi substitusikan n = 2 ke dalam rumus:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Kita tahu nilai b(1) adalah 15, jadi substitusikan ke dalam rumus:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Sekarang setelah kita mengetahui nilai b(2), substitusikan ke dalam rumus untuk b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Sekarang kita mengetahui nilai b(3), substitusikan ke dalam rumus untuk b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Oleh karena itu, suku ke-4 dalam deret tersebut adalah -405. |
 
-這個模型回覆正確無誤，現在為了讓回覆更精簡，你可以要求模型逐步思考。
+Respons model ini sudah benar. Sekarang, untuk membuat responsnya lebih efisien, Anda dapat meminta model untuk berpikir langkah demi langkah.
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 這個數列的第 4 項為何？請逐步思考。 | 第一個項是 15。  第二項是 b(1) \* (-3) = 15 \* (-3) = -45。  第三個項是 b(2) \* (-3) = -45 \* (-3) = 135。  第四個項是 b(3) \* (-3) = 135 \* (-3) = -405。 |
+| Berapa suku ke-4 dalam deret tersebut? Berpikirlah secara berurutan. | Istilah pertama adalah 15.  Istilah kedua adalah b(1) \* (-3) = 15 \* (-3) = -45.  Suku ketiga adalah b(2) \* (-3) = -45 \* (-3) = 135.  Suku keempat adalah b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### 指定輸出格式
+### Menentukan format output
 
-常見的問題是需要模型輸出特定格式的內容 (例如 Markdown、JSON、HTML)，尤其是當下游工作需要擷取模型輸出內容時。您可以在提示詞中指示模型以該格式輸出內容。以下提供兩個範例：
+Masalah umum adalah kebutuhan output model dalam format tertentu
+(misalnya, markdown, JSON, HTML), terutama jika output model perlu
+diproses oleh tugas downstream. Anda dapat mencoba menghasilkan output dalam format tersebut
+dengan menginstruksikan model untuk melakukannya dalam perintah. Berikut dua contohnya:
 
-| 提示詞 | 模型回應 |
+| Perintah | Respons model |
 | --- | --- |
-| 將這張圖片中的表格剖析為 Markdown 格式 | | 主題 | 狀態 | 時間 | 開始日期 | 截止日期 |  | ------- | ------ | ---- | ---------- | ------ |  | 數學 | 完成 | 1.5 小時 | 2023 年 11 月 29 日 | 2023 年 12 月 1 日 |  | 地理 | 完成 | 30 分鐘 | 2023 年 12 月 2 日 | 2023 年 12 月 4 日 |  | 物理 | 進行中 | 2 小時 | 2023 年 12 月 3 日 | 2023 年 12 月 5 日 |  | 生物學 | 未開始 | 6 小時 | 2016 年 11 月 2 日 | 2023 年 12 月 6 日 | |
+| Parse tabel dalam gambar ini ke dalam format markdown | | Subjek | Status | Waktu | Tanggal mulai | Jatuh tempo pada |  | ------- | ------ | ---- | ---------- | ------ |  | Matematika | Selesai | 1,5 jam | 29/11/2023 | 1/12/2023 |  | Geografi | Selesai | 30 menit | 2/12/2023 | 4/12/2023 |  | Fisika | Sedang berlangsung | 2 jam | 3/12/2023 | 5/12/2023 |  | Biologi | Belum dimulai | 6 jam | 2/11/2016 | 6/12/2023 | |
 
-| **提示** | **模型回應** |
+| **Perintah** | **Respons model** |
 | --- | --- |
-| 提供下列所有屬性的清單：  食材、菜餚類型、是否為素食，以 JSON 格式提供 | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| Berikan daftar semua atribut berikut:  bahan, jenis masakan, vegetarian atau tidak, dalam format JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### 單張圖片提示請先提供圖片
+### Menempatkan gambar Anda di urutan pertama untuk perintah gambar tunggal
 
-雖然 Gemini 可以解讀提示中的圖片和文字，但將單一圖片放在文字提示詞之前，可能會獲得更理想的結果。在下列範例中，你會發現每個提示的圖片都排在文字前面。
+Meskipun Gemini dapat menafsirkan gambar dan teks dalam urutan apa pun dalam perintah, menempatkan satu gambar sebelum perintah teks dapat memberikan hasil yang lebih baik.
+Dalam contoh berikut, Anda akan melihat gambar muncul terlebih dahulu sebelum teks di setiap perintah.
 
-### 排解多模態提示問題
+### Memecahkan masalah prompt multimodal
 
-如果沒有獲得實用回覆，可能需要排解提示問題。你可以嘗試下列幾種策略。
+Anda mungkin perlu memecahkan masalah perintah jika tidak mendapatkan respons yang
+bermanfaat. Berikut beberapa strategi yang dapat Anda coba.
 
-#### 如果模型未從圖片的相關部分擷取資訊
+#### Jika model tidak mengambil informasi dari bagian gambar yang relevan
 
-如要取得更具體的答覆，可以指出提示要從圖片的哪些方面汲取資訊，以利生成回覆。
+Untuk mendapatkan respons yang lebih spesifik, Anda dapat menunjukkan aspek gambar yang ingin Anda gunakan sebagai sumber informasi untuk perintahnya.
 
-| 提示詞 | 模型回應 |
+| Perintah | Respons model |
 | --- | --- |
-| 這些尿布夠寶寶用幾天？ | 這些尿布可使用 198 天。 |
+| Berapa hari popok ini akan bertahan untuk bayi? | Popok akan bertahan selama 198 hari sebelum habis. |
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 這些尿布可以用多久？  根據包裝盒上顯示的體重判斷孩子的年齡，並使用包裝盒中的尿布總數。  將總數除以孩子每天使用的尿布數量。 | 一箱有 198 片尿布。包裝盒上標示尿布適用於體重 22 至 37 磅的兒童。  這個體重範圍的兒童平均年齡可能介於 1 到 2 歲。  2 歲幼童通常每天會用掉 6 片尿布，因此 198 片尿布大約可用 33 天 (198/6)。 |
+| Berapa lama popok ini akan bertahan sebelum habis?  Gunakan berat yang tertera di kotak untuk menentukan usia anak, dan gunakan jumlah total popok dalam kotak.  Bagilah jumlah total dengan jumlah popok yang digunakan anak per hari. | Kotak berisi 198 popok. Kotak tersebut menyatakan bahwa popok ditujukan untuk anak dengan berat 10-17 kg.  Rata-rata anak dalam rentang berat ini kemungkinan berusia antara 1 dan 2 tahun.  Anak berusia 2 tahun biasanya menggunakan 6 popok per hari, sehingga popok akan bertahan sekitar 33 hari (198/6). |
 
-#### 如果模型輸出內容過於一般，不夠符合圖片輸入內容
+#### Jika output model terlalu umum dan tidak cukup disesuaikan dengan input gambar
 
-為協助模型根據圖片調整回覆內容，請先要求模型描述圖片，再執行推論工作。
+Untuk membantu model menyesuaikan responsnya dengan gambar, coba minta model untuk mendeskripsikan gambar sebelum melakukan tugas penalarannya.
 
-| 提示詞 | 模型回應 |
+| Perintah | Respons model |
 | --- | --- |
-| 這些圖片有什麼共通點？ | 這四張圖片都是風景攝影的例子。 |
+| Apa kesamaan antara gambar-gambar ini? | Keempat gambar tersebut adalah contoh fotografi lanskap. |
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 首先，請詳細描述每張圖片的內容。這些圖片有什麼共通點？ | 第一張圖片顯示有人在打包行李箱。第二張圖片顯示購物中心空蕩蕩的走廊。第三張圖片顯示一捲衛生紙。第四張圖片：狂風暴雨中的大海。  這些圖片的共同點是，它們都是過渡空間的例子。過渡空間是指介於兩個其他空間或情境之間的地方或情況。通常會帶有不確定或模稜兩可的感覺。  第一張圖片顯示使用者在家和旅行之間。第二張圖片顯示兩間商店之間的走廊。第三張圖片是衛生紙，代表浴室。浴室是私人和公共領域之間的過渡空間。我們在這裡準備進入或離開外在世界。  第四張圖片顯示平靜和暴風雨之間的海洋。  過渡空間既令人興奮又令人不安。可以是新的開始，也可以是結束。可以是反思或行動的場所。 |
+| Pertama, jelaskan secara mendetail apa yang ada di setiap gambar. Apa kesamaan antara gambar-gambar ini? | Gambar pertama menunjukkan seseorang sedang mengemas koper. Gambar kedua menampilkan lorong kosong di pusat perbelanjaan. Gambar ketiga menampilkan gulungan tisu toilet. Gambar keempat menampilkan laut yang gelap dan berbadai.  Kesamaan antara gambar-gambar ini adalah bahwa semuanya merupakan contoh ruang liminal. Ruang liminal adalah tempat atau situasi yang berada di antara dua tempat atau situasi lainnya. Hal ini sering kali ditandai dengan rasa tidak pasti atau ambigu.  Gambar pertama menunjukkan orang yang berada di antara rumah dan sedang dalam perjalanan. Gambar kedua menunjukkan lorong di antara dua toko. Gambar ketiga adalah tisu toilet, yang dapat mewakili kamar mandi. Kamar mandi adalah ruang transisi antara ranah pribadi dan publik. Ini adalah tempat di mana kita mempersiapkan diri untuk masuk atau keluar dari dunia luar.  Gambar keempat menunjukkan laut di antara kedua sisi yang tenang dan berbadai.  Ruang liminal bisa terasa menarik dan mengganggu. Tempat tersebut bisa menjadi tempat awal yang baru atau tempat akhir. Tempat tersebut dapat menjadi tempat untuk merenung atau tempat untuk bertindak. |
 
-你也可以明確要求模型參照圖片內容。
+Anda juga dapat mencoba meminta model secara eksplisit untuk merujuk pada objek yang ada dalam gambar.
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 這些圖片有什麼共通點？在回覆中提及圖片內容。 | 所有圖片都與旅遊相關。第一張圖片顯示有人正在打包行李箱，第二張圖片顯示購物中心空蕩蕩的走廊，第三張圖片顯示一疊衛生紙，第四張圖片顯示陰暗且暴風雨的海面。  這些圖片都與旅遊相關，因為都是人們在旅遊時需要或使用的物品。第一張圖片顯示一個人正在打包行李箱，這是旅行時會做的事。第二張圖片顯示購物中心空蕩蕩的走廊，人們經常會到這裡購買旅遊用品。第三張圖片顯示一疊衛生紙，這是人們旅行時經常使用的物品。第四張圖片顯示狂風暴雨的海面，這是人們旅行時經常會遇到的情況。 |
+| Apa kesamaan antara gambar-gambar ini? Rujuk isi gambar dalam respons Anda. | Semua gambar terkait dengan perjalanan. Gambar pertama menunjukkan seseorang sedang mengemas koper, gambar kedua menunjukkan lorong kosong di pusat perbelanjaan, gambar ketiga menunjukkan tumpukan tisu toilet, dan gambar keempat menunjukkan laut yang gelap dan badai.  Semua gambar ini terkait dengan perjalanan karena semuanya adalah hal-hal yang dibutuhkan atau digunakan orang saat bepergian. Gambar pertama menunjukkan seseorang sedang mengemas koper, yang merupakan sesuatu yang dilakukan orang saat mereka akan bepergian. Gambar kedua menampilkan lorong kosong di pusat perbelanjaan, yang merupakan tempat orang sering kali pergi untuk membeli barang untuk perjalanan mereka. Gambar ketiga menampilkan tumpukan tisu toilet, yang merupakan sesuatu yang sering digunakan orang saat bepergian. Gambar keempat menunjukkan laut yang gelap dan badai, yang sering dialami orang saat bepergian. |
 
-這些訣竅也適用於圖片生成的創意內容。在以下兔子範例中，明確要求模型納入圖片中的元素，可提升輸出結果品質。
+Tips yang sama berlaku untuk output kreatif dari gambar. Dalam contoh berikut dengan
+kelinci, meminta model secara eksplisit untuk menyertakan aspek dari gambar dapat
+meningkatkan kualitas output.
 
-| 提示詞 | 模型回應 |
+| Perintah | Respons model |
 | --- | --- |
-| 可以幫我寫一首關於這張圖片的詩嗎？ | 小兔兔，柔軟又棕色，  在田野間跳躍，上上下下。  你的耳朵好長，尾巴好小，  你是最可愛的生物。  你啃食青草，青翠又香甜，  一見到我就跳開。  但我永遠是你的朋友，  小兔子，直到最後一刻。 |
+| Dapatkah Anda menulis puisi tentang gambar ini untuk saya? | Kelinci kecil, begitu lembut dan cokelat,  Melompat di padang, naik dan turun.  Telingamu panjang, ekormu kecil,  Kamu adalah makhluk paling imut di antara semuanya.  Kamu mengunyah rumput, begitu hijau dan manis,  Dan melompat pergi saat melihatku.  Namun, aku akan selalu menjadi temanmu,  Kelinci kecil, hingga akhir hayatku. |
 
-| **更新提示** | **提升回應品質** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 請根據這張圖片撰寫一首描述性強烈且充滿戲劇性的詩，並加入地點資訊。 | 綠地上的小兔，  耳朵又長又尖。  你凝視遠方，  看見了什麼？  是海洋的藍色嗎？  在陽光下閃閃發光？  還是海浪拍打的轟隆聲，  你最愛的節奏？  小兔兒，請你告訴我，  是什麼吸引了你的目光？  是鹹鹹的海風，  還是海鷗的叫聲令人心曠神怡？  或許是這一切的浩瀚，  一個如此巨大又渺小的世界。  夢想在此漫遊，  冒險在此萌芽。  小兔子，我好奇你夢見了什麼，  你坐在草地上，如此寧靜。  你想探索深海，  還是留在陸地，盡情跳躍？  無論如何，小兔子，  請讓好奇心持續閃耀。  在你的夢想和抱負中，  存在著一個等待你創造的世界。 |
+| Dapatkah Anda menulis puisi deskriptif dan dramatis tentang gambar ini dan menyertakan lokasinya? | Kelinci kecil di padang rumput hijau,  Telinganya panjang, sangat tajam.  Apa yang Anda lihat di sana,  Di kejauhan, tempat Anda menatap?  Apakah biru laut,  Berkilau dalam warna matahari?  Atau ombak yang menghantam dan menderu,  Irama yang Anda sukai?  Kelinci kecil, katakan yang sebenarnya,  Apa yang menarik perhatianmu?  Apakah angin laut yang asin,  Atau teriakan burung camar yang menyenangkan?  Mungkin karena luasnya semua ini,  Dunia yang begitu besar dan kecil.  Tempat impian dapat menjelajah,  Dan petualangan dapat dimulai.  Kelinci kecil, aku ingin tahu apa yang kamu impikan,  Saat kamu duduk di atas rumput, begitu tenang.  Apakah kamu ingin menjelajahi lautan yang dalam,  Atau tetap di darat, tempat kamu bisa melompat?  Apa pun itu, kelinci kecil,  Jaga agar percikan keajaiban itu tetap menyala terang.  Dalam impian dan aspirasi Anda,  Terdapat dunia yang menunggu kreasi Anda. |
 
-#### 排解提示的哪個部分失敗
+#### Memecahkan masalah bagian perintah yang gagal
 
-很難判斷提示失敗的原因是模型一開始就**不瞭解圖片**，還是瞭解圖片但後續**推理步驟**有誤。如要釐清原因，請要求模型描述圖像內容。
+Mungkin sulit untuk mengetahui apakah perintah gagal karena model **tidak memahami gambar** sejak awal, atau jika model memahami gambar tetapi tidak melakukan **langkah-langkah penalaran** yang benar setelahnya.
+Untuk membedakan alasan tersebut, minta model mendeskripsikan isi gambar.
 
-在下列範例中，如果模型回應的點心與茶飲搭配起來似乎很奇怪 (例如爆米花)，您可以先進行疑難排解，判斷模型是否正確辨識出圖片含有茶飲。
+Dalam contoh berikut, jika model merespons dengan camilan yang tampaknya mengejutkan
+jika dipadukan dengan teh (misalnya, popcorn), Anda dapat memecahkan masalah terlebih dahulu untuk menentukan
+apakah model dengan benar mengenali bahwa gambar tersebut berisi teh.
 
-| 提示詞 | 提示排解問題 |
+| Perintah | Perintah untuk pemecahan masalah |
 | --- | --- |
-| 有什麼 1 分鐘內就能做好的點心，可以搭配這道料理？ | 描述這張圖片的內容。 |
+| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Jelaskan apa yang ada dalam gambar ini. |
 
-另一種策略是要求模型說明推論過程。這有助於縮小範圍，找出推理過程中的錯誤 (如有)。
+Strategi lainnya adalah meminta model untuk menjelaskan penalarannya. Hal ini dapat membantu Anda
+mempersempit bagian penalaran yang salah, jika ada.
 
-| 提示詞 | 提示排解問題 |
+| Perintah | Perintah untuk pemecahan masalah |
 | --- | --- |
-| 有什麼 1 分鐘內就能做好的點心，可以搭配這道料理？ | 有什麼零食可以在 1 分鐘內完成，而且很適合搭配這道料理？請說明原因。 |
+| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? Harap jelaskan alasannya. |
 
-## 後續步驟
+## Langkah berikutnya
 
-- 使用 [Google AI Studio](http://aistudio.google.com?hl=zh-tw) 撰寫自己的多模態提示。
-- 如要瞭解如何使用 Gemini Files API 上傳媒體檔案並加入提示，請參閱[Vision](https://ai.google.dev/gemini-api/docs/vision?hl=zh-tw)、[音訊](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)和[文件處理](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)指南。
-- 如需提示設計的更多指引 (例如微調取樣參數)，請參閱「[提示策略](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw)」頁面。
+- Coba tulis perintah multimodal Anda sendiri menggunakan [Google AI Studio](http://aistudio.google.com?hl=id).
+- Untuk mengetahui informasi tentang cara menggunakan Gemini Files API untuk mengupload file media dan menyertakannya dalam perintah Anda, lihat panduan [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan [Pemrosesan dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
+- Untuk panduan selengkapnya tentang desain perintah, seperti menyesuaikan parameter pengambilan sampel, lihat halaman [Strategi perintah](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id).
 
-提供意見
+Kirim masukan
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-上次更新時間：2026-07-30 (世界標準時間)。
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-想進一步說明嗎？
+Ada masukan untuk kami?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

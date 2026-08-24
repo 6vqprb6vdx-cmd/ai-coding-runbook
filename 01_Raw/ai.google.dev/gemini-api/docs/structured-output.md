@@ -1,38 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-CN
-fetched_at: 2026-08-17T02:26:27.423875+00:00
-title: "\u7ed3\u6784\u5316\u8f93\u51fa \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=th
+fetched_at: 2026-08-24T02:21:49.096371+00:00
+title: "\u0e40\u0e2d\u0e32\u0e15\u0e4c\u0e1e\u0e38\u0e15\u0e17\u0e35\u0e48\u0e21\u0e35\u0e42\u0e04\u0e23\u0e07\u0e2a\u0e23\u0e49\u0e32\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-发送反馈
+ส่งความคิดเห็น
 
-# 结构化输出
+# เอาต์พุตที่มีโครงสร้าง
 
-您可以将 Gemini 模型配置为生成符合所提供的 JSON 架构的回答。这可确保获得可预测的类型安全结果，并简化从非结构化文本中提取结构化数据的过程。
+คุณสามารถกำหนดค่าโมเดล Gemini ให้สร้างคำตอบที่เป็นไปตาม JSON Schema ที่ระบุได้ ซึ่งจะช่วยให้ได้ผลลัพธ์ที่คาดการณ์ได้และมีความปลอดภัยในการกำหนดประเภท รวมถึงลดความซับซ้อนในการดึง Structured Data จากข้อความที่ไม่มีโครงสร้าง
 
-使用结构化输出非常适合以下情况：
+การใช้เอาต์พุตที่มีโครงสร้างเหมาะสำหรับกรณีต่อไปนี้
 
-- **数据提取**：从文本中提取特定信息，例如姓名和日期。
-- **结构化分类**：将文本归入预定义的类别。
-- **Agentic 工作流**：为工具或 API 生成结构化输入。
+- **การดึงข้อมูล:** ดึงข้อมูลที่เฉพาะเจาะจง เช่น ชื่อและวันที่ จากข้อความ
+- **การจัดประเภทที่มีโครงสร้าง:** จัดประเภทข้อความเป็นหมวดหมู่ที่กำหนดไว้ล่วงหน้า
+- **เวิร์กโฟลว์แบบ Agent:** สร้างอินพุตที่มีโครงสร้างสำหรับเครื่องมือหรือ API
 
-除了在 REST API 中支持 JSON 架构之外，Google GenAI SDK 还允许使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 定义架构。
+นอกจากจะรองรับ JSON Schema ใน REST API แล้ว Google GenAI SDK ยังช่วยให้คุณกำหนดสคีมาโดยใช้
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) และ
+[Zod](https://zod.dev/) (JavaScript) ได้ด้วย
 
-## 结构化输出示例
+## ตัวอย่างเอาต์พุตที่มีโครงสร้าง
 
-### 食谱提取器
+### ตัวดึงข้อมูลสูตรอาหาร
 
-此示例演示了如何使用 `object`、`array`、`string` 和 `integer` 等基本 JSON 架构类型从文本中提取结构化数据。
+ตัวอย่างนี้แสดงวิธีดึง Structured Data จากข้อความโดยใช้ประเภท JSON Schema พื้นฐาน เช่น `object`, `array`, `string` และ `integer`
 
 ### Python
 
@@ -196,7 +198,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**示例回答**：
+**ตัวอย่างการตอบสนอง:**
 
 ```
 {
@@ -224,9 +226,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### 内容审核
+### การกลั่นกรองเนื้อหา
 
-此示例展示了 `anyOf`（用于条件架构）和 `enum`（用于分类），从而使输出结构能够根据内容而变化。
+ตัวอย่างนี้แสดง `anyOf` สำหรับสคีมาแบบมีเงื่อนไขและ `enum` สำหรับการจัดประเภท ซึ่งช่วยให้โครงสร้างเอาต์พุตแตกต่างกันไปตามเนื้อหาได้
 
 ### Python
 
@@ -375,7 +377,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**示例回答**：
+**ตัวอย่างการตอบสนอง:**
 
 ```
 {
@@ -386,9 +388,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### 递归结构
+### โครงสร้างแบบวนซ้ำ
 
-此示例展示了如何定义递归架构，例如组织结构图。
+ตัวอย่างนี้แสดงวิธีกำหนดสคีมาแบบวนซ้ำ เช่น แผนผังองค์กร
 
 ### Python
 
@@ -505,7 +507,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**示例回答**：
+**ตัวอย่างการตอบสนอง:**
 
 ```
 {
@@ -532,9 +534,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## 流式传输结果
+## การสตรีมผลลัพธ์
 
-您可以流式传输结构化输出，以便在生成回答的同时开始处理回答。流式传输的块是有效的 JSON 部分字符串，可以串联起来形成最终的 JSON 对象。
+คุณสามารถสตรีมเอาต์พุตที่มีโครงสร้าง ซึ่งช่วยให้คุณเริ่มประมวลผลการตอบสนองได้ทันทีที่ระบบสร้างการตอบสนอง ก้อนข้อมูลที่สตรีมเป็นสตริง JSON บางส่วนที่ถูกต้อง ซึ่งสามารถนำมารวมกันเพื่อสร้างออบเจ็กต์ JSON สุดท้ายได้
 
 ### Python
 
@@ -631,9 +633,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## 使用工具生成结构化输出
+## เอาต์พุตที่มีโครงสร้างพร้อมเครื่องมือ
 
-借助 Gemini 3，您可以将结构化输出与内置工具相结合，包括[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)、[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)、[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)、[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn#structured-output)和[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+Gemini 3 ช่วยให้คุณรวมเอาต์พุตที่มีโครงสร้างกับเครื่องมือในตัวได้ ซึ่งรวมถึง
+[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th),
+[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th),
+[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th),
+[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th#structured-output) และ
+[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
 
 ### Python
 
@@ -726,79 +733,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## JSON 架构支持
+## การรองรับ JSON Schema
 
-如需生成 JSON 对象，请使用 `text` 类型的对象（或包含对象的数组）配置 `response_format`，并将其 `mime_type` 设置为 `application/json`。应在 `schema` 字段中提供架构。
+หากต้องการสร้างออบเจ็กต์ JSON ให้กำหนดค่า `response_format` ด้วยออบเจ็กต์ (หรืออาร์เรย์ที่มีออบเจ็กต์) ประเภท `text` และตั้งค่า `mime_type` เป็น `application/json` โดยคุณควรระบุสคีมาในช่อง `schema`
 
-Gemini 的结构化输出模式支持部分 [JSON 架构](https://json-schema.org/)规范。
+โหมดเอาต์พุตที่มีโครงสร้างของ Gemini รองรับข้อมูลจำเพาะของ
+[JSON Schema](https://json-schema.org/) บางส่วน
 
-支持以下 `type` 值：
+ระบบรองรับค่า `type` ต่อไปนี้
 
-- **`string`**：对于文本。
-- **`number`**：适用于浮点数。
-- **`integer`**：适用于整数。
-- **`boolean`**：对于 true 或 false 值。
-- **`object`**：适用于包含键值对的结构化数据。
-- **`array`**：适用于商品列表。
-- **`null`**：如需允许属性为 null，请在类型数组中添加 `"null"`（例如 `{"type": ["string", "null"]}`）。
+- **`string`**: สำหรับข้อความ
+- **`number`**: สำหรับเลขจุดลอยตัว
+- **`integer`**: สำหรับจำนวนเต็ม
+- **`boolean`**: สำหรับค่าจริงหรือเท็จ
+- **`object`**: สำหรับ Structured Data พร้อมคู่คีย์-ค่า
+- **`array`**: สำหรับรายการไอเทม
+- **`null`**: หากต้องการอนุญาตให้พร็อพเพอร์ตี้เป็น null ให้ใส่ `"null"` ในอาร์เรย์ประเภท (เช่น `{"type": ["string", "null"]}`)
 
-这些描述性属性有助于引导模型：
+พร็อพเพอร์ตี้เชิงอธิบายเหล่านี้ช่วยแนะนำโมเดล
 
-- **`title`**：属性的简短说明。
-- **`description`**：属性的更长、更详细的说明。
+- **`title`**: คำอธิบายสั้นๆ ของพร็อพเพอร์ตี้
+- **`description`**: คำอธิบายที่ยาวและละเอียดมากขึ้นของพร็อพเพอร์ตี้
 
-### 特定于类型的属性
+### พร็อพเพอร์ตี้เฉพาะประเภท
 
-**对于 `object` 值**：
+**สำหรับค่า `object`**
 
-- **`properties`**：一个对象，其中每个键都是属性名称，每个值都是相应属性的架构。
-- **`required`**：一个字符串数组，列出了哪些属性是必需的。
-- **`additionalProperties`**：控制是否允许使用未在 `properties` 中列出的属性。可以是布尔值或架构。
+- **`properties`**: ออบเจ็กต์ที่แต่ละคีย์เป็นชื่อพร็อพเพอร์ตี้ และแต่ละค่าเป็นสคีมาสำหรับพร็อพเพอร์ตี้นั้น
+- **`required`**: อาร์เรย์ของสตริงที่แสดงรายการพร็อพเพอร์ตี้ที่ต้องระบุ
+- **`additionalProperties`**: ควบคุมว่าจะอนุญาตพร็อพเพอร์ตี้ที่ไม่ได้ระบุไว้ใน `properties` หรือไม่ โดยอาจเป็นบูลีนหรือสคีมา
 
-**对于 `string` 值**：
+**สำหรับค่า `string`**
 
-- **`enum`**：列出分类任务的一组特定可能字符串。
-- **`format`**：指定字符串的语法，例如 `date-time`、`date`、`time`。
+- **`enum`**: แสดงรายการชุดสตริงที่เป็นไปได้ที่เฉพาะเจาะจงสำหรับงานการจัดประเภท
+- **`format`**: ระบุไวยากรณ์สำหรับสตริง เช่น `date-time`, `date`, `time`
 
-**对于 `number` 和 `integer` 值**：
+**สำหรับค่า `number` และ `integer`**
 
-- **`enum`**：列出了一组特定的可能数值。
-- **`minimum`**：包含在内的最小值。
-- **`maximum`**：最大值（含）。
+- **`enum`**: แสดงรายการชุดค่าตัวเลขที่เป็นไปได้ที่เฉพาะเจาะจง
+- **`minimum`**: ค่าต่ำสุดแบบรวม
+- **`maximum`**: ค่าสูงสุดแบบรวม
 
-**对于 `array` 值**：
+**สำหรับค่า `array`**
 
-- **`items`**：定义数组中所有元素的架构。
-- **`prefixItems`**：为前 N 个项定义架构列表，从而实现类似元组的结构。
-- **`minItems`**：数组中的最小项数。
-- **`maxItems`**：数组中的项数上限。
+- **`items`**: กำหนดสคีมาสำหรับไอเทมทั้งหมดในอาร์เรย์
+- **`prefixItems`**: กำหนดรายการสคีมาสำหรับไอเทม N รายการแรก ซึ่งช่วยให้มีโครงสร้างคล้ายกับ Tuple
+- **`minItems`**: จำนวนไอเทมขั้นต่ำในอาร์เรย์
+- **`maxItems`**: จำนวนไอเทมสูงสุดในอาร์เรย์
 
-## 结构化输出与函数调用
+## เอาต์พุตที่มีโครงสร้างเทียบกับการเรียกใช้ฟังก์ชัน
 
-| 功能 | 主要使用场景 |
+| ฟีเจอร์ | กรณีการใช้งานหลัก |
 | --- | --- |
-| **结构化输出** | **设置最终回答的格式。**当您希望模型以特定格式*回答*时使用。 |
-| **函数调用** | **在对话期间采取行动。**当模型需要*询问您*是否执行某项任务，然后才能提供最终答案时使用。 |
+| **เอาต์พุตที่มีโครงสร้าง** | **การจัดรูปแบบการตอบสนองสุดท้าย** ใช้เมื่อต้องการให้ *คำตอบ* ของโมเดลอยู่ในรูปแบบที่เฉพาะเจาะจง |
+| **การเรียกใช้ฟังก์ชัน** | **การดำเนินการระหว่างการสนทนา** ใช้เมื่อโมเดลต้อง *ขอให้คุณ* ทำงานบางอย่างก่อนที่จะให้คำตอบสุดท้าย |
 
-## 最佳做法
+## แนวทางปฏิบัติแนะนำ
 
-- **清晰的说明**：使用 `description` 字段来引导模型。
-- **强类型**：使用特定类型（`integer`、`string`、`enum`）。
-- **提示工程**：明确说明您希望模型执行的操作。
-- **验证**：虽然输出是语法正确的 JSON，但请务必在应用中验证值。
-- **错误处理**：针对符合架构但语义不正确的输出实现强大的错误处理机制。
+- **คำอธิบายที่ชัดเจน:** ใช้ช่อง `description` เพื่อแนะนำโมเดล
+- **การพิมพ์ที่เข้มงวด:** ใช้ประเภทที่เฉพาะเจาะจง (`integer`, `string`, `enum`)
+- **วิศวกรรมพรอมต์ (Prompt Engineering):** ระบุสิ่งที่คุณต้องการให้โมเดลทำอย่างชัดเจน
+- **การตรวจสอบ:** แม้ว่าเอาต์พุตจะเป็น JSON ที่มีไวยากรณ์ถูกต้อง แต่ให้ตรวจสอบค่าในแอปพลิเคชันเสมอ
+- **การจัดการข้อผิดพลาด:** ใช้การจัดการข้อผิดพลาดที่มีประสิทธิภาพสำหรับเอาต์พุตที่เป็นไปตามสคีมาแต่มีความหมายไม่ถูกต้อง
 
-## 限制
+## ข้อจำกัด
 
-- **架构子集**：并非所有 JSON 架构功能都受支持。
-- **架构复杂程度**：如果架构过大或嵌套过深，可能会被拒绝。
+- **สคีมาบางส่วน:** ระบบไม่รองรับฟีเจอร์ทั้งหมดของ JSON Schema
+- **ความซับซ้อนของสคีมา:** ระบบอาจปฏิเสธสคีมาที่มีขนาดใหญ่มากหรือมีการซ้อนกันหลายชั้น
 
-发送反馈
+ส่งความคิดเห็น
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最后更新时间 (UTC)：2026-07-30。
+อัปเดตล่าสุด 2026-07-30 UTC
 
-需要向我们提供更多信息？
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

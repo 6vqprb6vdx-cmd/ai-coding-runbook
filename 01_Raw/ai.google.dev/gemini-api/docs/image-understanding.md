@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-TW
-fetched_at: 2026-08-17T02:19:25.344243+00:00
-title: "\u5716\u50cf\u89e3\u8b80 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=he
+fetched_at: 2026-08-24T02:28:49.707912+00:00
+title: "\u05d4\u05d1\u05e0\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-提供意見
+שליחת משוב
 
-# 圖像解讀
+# הבנת תמונות
 
-Gemini 模型從一開始就建構於多模態的基礎上，因此可執行各種圖像處理和電腦視覺工作，包括但不限於生成圖像說明文字、分類和回答圖像問題，無須訓練專門的機器學習模型。
+מודלים של Gemini מבוססים על מולטי-מודאליות מההתחלה, ולכן הם מאפשרים לבצע מגוון רחב של משימות עיבוד תמונות וראייה ממוחשבת, כולל תיוג תמונות, סיווג תמונות ומענה לשאלות על תמונות, בלי צורך לאמן מודלים מיוחדים של למידת מכונה.
 
-除了提供一般多模態功能，Gemini 模型還透過額外訓練，針對特定用途 (例如[物件偵測](#object-detection)和[區隔](#segmentation)) **提升準確度**。
+בנוסף ליכולות הכלליות שלהם בתחום המולטימודאליות, מודלים של Gemini מציעים **דיוק משופר** בתרחישי שימוש ספציפיים כמו [זיהוי אובייקטים](#object-detection) ו[פילוח](#segmentation), באמצעות אימון נוסף.
 
-## 將圖片傳送給 Gemini
+## העברת תמונות ל-Gemini
 
-你可以透過下列幾種方式，將圖片做為 Gemini 的輸入內容：
+יש כמה דרכים לספק תמונות כקלט ל-Gemini:
 
-- [使用網址傳遞圖片](#url-image)：適合公開存取的圖片。
-- [傳遞內嵌圖片資料](#inline-image)：適用於採用 Base64 編碼的圖片資料。
-- [使用 File API 上傳圖片](#upload-image)：建議用於較大的檔案，或在多個要求中重複使用圖片。
+- [העברת תמונה באמצעות כתובת URL](#url-image): מתאים לתמונות שזמינות לציבור.
+- [העברת נתוני תמונה בתוך השורה](#inline-image): נתוני תמונה בקידוד base64.
+- [העלאת תמונות באמצעות File API](#upload-image): מומלץ לקבצים גדולים יותר או לשימוש חוזר בתמונות בכמה בקשות.
 
-### 使用網址傳遞圖片
+### העברת תמונה באמצעות כתובת URL
 
-您可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳圖片，並在要求中傳遞圖片：
+אפשר להעלות תמונה באמצעות [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he) ולהעביר אותה בבקשה:
 
 ### Python
 
@@ -103,9 +103,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 傳遞內嵌圖片資料
+### העברת נתוני תמונות מוטבעות
 
-您可以提供採用 Base64 編碼的字串做為圖片資料：
+אפשר לספק נתוני תמונה כמחרוזות בקידוד Base64:
 
 ### Python
 
@@ -184,9 +184,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 使用 File API 上傳圖片
+### העלאת תמונות באמצעות File API
 
-如要處理大型檔案或重複使用同一張圖片，請使用 Files API。請參閱 [Files API 指南](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)。
+כדי להעלות קבצים גדולים או כדי להשתמש באותו קובץ תמונה שוב ושוב, צריך להשתמש ב-Files API. מידע נוסף מופיע [במדריך לשימוש ב-Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
 ### Python
 
@@ -259,9 +259,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 使用多張圖片提示
+## יצירת הנחיה עם כמה תמונות
 
-您可以在單一提示中提供多張圖片，方法是在 `input` 陣列中加入多個圖片物件：
+אפשר לספק כמה תמונות בהנחיה אחת על ידי הכללת כמה אובייקטים של תמונות במערך `input`:
 
 ### Python
 
@@ -339,9 +339,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 物件偵測
+## זיהוי אובייקטים
 
-模型經過訓練後，可偵測圖片中的物件並取得定界框座標。座標會根據圖片尺寸縮放至 [0, 1000]。您需要根據原始圖片大小，縮放這些座標。
+המודלים מאומנים לזהות אובייקטים בתמונה ולקבל את הקואורדינטות של התיבה התוחמת שלהם. הקואורדינטות, ביחס לממדי התמונה, מותאמות לטווח [0, 1000]. צריך לבטל את שינוי הגודל של הקואורדינטות האלה על סמך גודל התמונה המקורי.
 
 ### Python
 
@@ -462,13 +462,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-如需更多範例，請參閱 [Gemini Cookbook](https://github.com/google-gemini/cookbook)。
+דוגמאות נוספות זמינות ב[ספר המתכונים של Gemini](https://github.com/google-gemini/cookbook).
 
-## 區隔
+## פילוח
 
-Gemini 模型不僅能偵測項目，還能區隔項目並提供輪廓遮罩。
+מודלים של Gemini לא רק מזהים פריטים, אלא גם מבצעים פילוח שלהם ומספקים את מסכות המתאר שלהם.
 
-模型會預測 JSON 清單，其中每個項目代表一個區隔遮罩。每個項目都有一個定界框 (「`box_2d`」)，格式為 `[ymin, xmin, ymax, xmax]`，內含介於 0 到 1000 之間的正規化座標、識別物件的標籤 (「`label`」)，以及定界框內的區隔遮罩 (以正規化為 0 到 1000 的 `[x, y]` 座標多邊形表示)。
+המודל חוזה רשימת JSON, שבה כל פריט מייצג מסכת פילוח. לכל פריט יש תיבת תוחמת (`box_2d`) בפורמט `[ymin, xmin, ymax, xmax]` עם קואורדינטות מנורמלות בין 0 ל-1,000, תווית (`label`) שמזהה את האובייקט, ולבסוף מסכת הפילוח בתוך התיבה התוחמת כפוליגון של `[x, y]` קואורדינטות מנורמלות ל-0 עד 1,000.
 
 ### Python
 
@@ -609,75 +609,75 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![桌上擺著杯子蛋糕，木製和玻璃物品以醒目方式顯示](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=zh-tw)
+![שולחן עם קאפקייקים, כשהאובייקטים מעץ ומזכוכית מודגשים](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=he)
 
-含有物件和區隔遮罩的區隔輸出範例
+פלט לדוגמה של פילוח עם אובייקטים ומסכות פילוח
 
-## 支援的圖片格式
+## אילו פורמטים של תמונות נתמכים?
 
-Gemini 支援下列圖片格式 MIME 類型：
+‫Gemini תומך בסוגי ה-MIME של פורמטים התמונות הבאים:
 
-- PNG - `image/png`
-- JPEG - `image/jpeg`
-- WebP - `image/webp`
+- ‫PNG – `image/png`
+- ‫JPEG – `image/jpeg`
+- WEBP – `image/webp`
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-如要瞭解其他檔案輸入方式，請參閱「[檔案輸入方式](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-tw)」指南。
+מידע על שיטות אחרות להזנת קבצים זמין במדריך בנושא [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
 
-## 功能
+## יכולות
 
-所有 Gemini 模型版本都是多模態模型，可用於各種圖像處理和電腦視覺工作，包括但不限於圖像說明文字、圖像問答、圖像分類、物件偵測和分割。
+כל הגרסאות של מודל Gemini הן מולטי-מודאליות, ואפשר להשתמש בהן במגוון רחב של משימות עיבוד תמונות וראייה ממוחשבת, כולל, בין היתר, כיתוב תמונות, מענה על שאלות שקשורות לאובייקטים חזותיים, סיווג תמונות, זיהוי ופילוח אובייקטים.
 
-視品質和效能需求而定，Gemini 可減少使用專業機器學習模型的需求。
+בהתאם לדרישות האיכות והביצועים שלכם, Gemini יכול לצמצם את הצורך בשימוש במודלים מיוחדים של ML.
 
-最新模型版本經過特別訓練，除了通用功能外，還能提升特定工作的準確度，例如強化[物件偵測](#object-detection)和[區隔](#segmentation)。
+הגרסאות האחרונות של המודלים אומנו במיוחד כדי לשפר את הדיוק של משימות מיוחדות, בנוסף ליכולות כלליות, כמו [זיהוי אובייקטים](#object-detection) ו[פילוח](#segmentation) משופרים.
 
-## 限制和重要技術資訊
+## מגבלות ומידע טכני חשוב
 
-### 檔案限制
+### מכסת קבצים
 
-Gemini 模型每項要求最多可支援 3,600 個圖片檔案。
+מודלים של Gemini תומכים בעד 3,600 קובצי תמונות לכל בקשה.
 
-### 代幣計算
+### חישוב הטוקנים
 
-- 如果兩個維度都 <= 384 像素，則為 258 個權杖。
-  較大的圖片會分割成 768x768 像素的圖塊，每個圖塊需支付 258 個權杖。
+- ‫258 טוקנים אם שני המימדים הם ‎384 פיקסלים או פחות.
+  תמונות גדולות יותר מחולקות למשבצות של 768x768 פיקסלים, וכל משבצת עולה 258 טוקנים.
 
-計算圖塊數量的粗略公式如下：
+נוסחה משוערת לחישוב מספר האריחים:
 
-- 計算裁剪單元大小，大約是：`floor(min(width, height)` / 1.5)。
-- 將每個維度除以裁剪單元大小，然後相乘，即可取得圖塊數量。
+- מחשבים את גודל יחידת החיתוך, שהוא בערך: `floor(min(width, height)` / 1.5).
+- מחלקים כל מאפיין בגודל יחידת החיתוך ומכפילים את התוצאה כדי לקבל את מספר האריחים.
 
-舉例來說，如果圖片尺寸為 960x540，裁剪單位大小為 360。將每個維度除以 360，圖塊數量為 3 \* 2 = 6。
+לדוגמה, אם התמונה היא בגודל 960x540, גודל יחידת החיתוך יהיה 360. מחלקים כל מאפיין ב-360 ומקבלים את מספר המשבצות 3 \* 2 = 6.
 
-### 媒體解析度
+### רזולוציית המדיה
 
-Gemini 3 推出 `media_resolution` 參數，可精細控管多模態視覺處理作業。`media_resolution` 參數會決定**每個輸入圖片或影片影格分配到的詞元數量上限。**
-解析度越高，模型就越能辨識細小文字或細節，但也會增加權杖用量和延遲時間。
+‫Gemini 3 מציג שליטה מפורטת בעיבוד של ראייה מולטי-מודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונת קלט או פריים של סרטון.**
+רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
 
-## 提示與最佳做法
+## טיפים ושיטות מומלצות
 
-- 確認圖片已正確旋轉。
-- 使用清晰的圖片，避免模糊不清。
-- 使用含有文字的單一圖片時，請將文字提示詞*放在* `input` 陣列中的圖片前面。
+- מוודאים שהתמונות מסובבות בצורה נכונה.
+- השתמשו בתמונות ברורות ולא מטושטשות.
+- כשמשתמשים בתמונה אחת עם פרומפט טקסטואלי, צריך למקם את פרומפט הטקסטואלי *לפני* התמונה במערך `input`.
 
-## 後續步驟
+## המאמרים הבאים
 
-本指南說明如何上傳圖片檔案，以及如何從圖片輸入內容生成文字輸出內容。如要進一步瞭解相關內容，請參閱下列資源：
+במדריך הזה מוסבר איך להעלות קובצי תמונות וליצור פלט טקסט מקלט תמונה. מידע נוסף זמין במקורות המידע הבאים:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)：進一步瞭解如何上傳及管理檔案，以便搭配 Gemini 使用。
-- [系統指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#system-instructions)：
-  系統指令可根據特定需求和用途，引導模型行為。
-- [檔案提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw#prompt-guide)：Gemini API 支援使用文字、圖片、音訊和影片資料提示，也稱為多模態提示。
-- [安全指引](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-tw)：生成式 AI 模型有時會產生出乎意料的輸出內容，例如不準確、有偏見或令人反感的內容。後續處理和人工評估是不可或缺的環節，有助於降低這類輸出內容造成危害的風險。
+- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): מידע נוסף על העלאה וניהול של קבצים לשימוש עם Gemini
+- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
+  הוראות מערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
+- [אסטרטגיות לפרומפטים עם קבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בפרומפטים עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראים גם פרומפטים מולטי-מודאליים.
+- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים תוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. עיבוד תמונה (Post Processing) והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
 
-提供意見
+שליחת משוב
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-上次更新時間：2026-07-30 (世界標準時間)。
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-想進一步說明嗎？
+רוצה לתת לנו משוב?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

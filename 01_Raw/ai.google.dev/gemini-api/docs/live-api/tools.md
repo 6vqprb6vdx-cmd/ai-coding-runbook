@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-CN
-fetched_at: 2026-08-17T02:31:19.515218+00:00
+fetched_at: 2026-08-24T02:23:47.298429+00:00
 title: "\u4f7f\u7528 Live API \u7684\u5de5\u5177 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

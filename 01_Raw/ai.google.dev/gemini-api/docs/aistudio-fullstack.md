@@ -1,198 +1,183 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=it
-fetched_at: 2026-08-17T02:28:54.936144+00:00
-title: "Sviluppare app full-stack in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=th
+fetched_at: 2026-08-24T02:26:42.610895+00:00
+title: "\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e41\u0e2d\u0e1b\u0e41\u0e1a\u0e1a\u0e1f\u0e39\u0e25\u0e2a\u0e41\u0e15\u0e47\u0e01\u0e43\u0e19 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-# Sviluppare app full-stack in Google AI Studio
+# พัฒนาแอปแบบฟูลสแต็กใน Google AI Studio
 
-Google AI Studio ora supporta lo sviluppo full-stack, consentendoti di creare
-applicazioni che vanno oltre i prototipi lato client. Con un runtime lato server, puoi gestire i segreti, connetterti ad API esterne e creare esperienze multiplayer in tempo reale.
+ตอนนี้ Google AI Studio รองรับการพัฒนาแบบ Full-Stack แล้ว ซึ่งช่วยให้คุณสร้างแอปพลิเคชันที่มากกว่าต้นแบบฝั่งไคลเอ็นต์ได้ เมื่อมีรันไทม์ฝั่งเซิร์ฟเวอร์ คุณจะจัดการข้อมูลลับ เชื่อมต่อกับ API ภายนอก และสร้างประสบการณ์การใช้งานแบบผู้เล่นหลายคนแบบเรียลไทม์ได้
 
-## Runtime lato server
+## รันไทม์ฝั่งเซิร์ฟเวอร์
 
-Le applicazioni Google AI Studio ora possono includere un componente lato server (Node.js).
-In questo modo potrai:
+ตอนนี้แอปพลิเคชัน Google AI Studio สามารถมีคอมโพเนนต์ฝั่งเซิร์ฟเวอร์ (Node.js) ได้แล้ว
+ซึ่งจะช่วยให้คุณ
 
-- **Esegui logica lato server**: esegui codice che non deve essere esposto al client.
-- **Accedere ai pacchetti npm**: l'[agente antigravità](https://antigravity.google/docs/agent?hl=it)
-  può installare e utilizzare pacchetti del vasto ecosistema npm.
-- **Gestisci i secret**: utilizza in modo sicuro chiavi API e credenziali.
+- **เรียกใช้ตรรกะฝั่งเซิร์ฟเวอร์**: เรียกใช้โค้ดที่ไม่ควรเปิดเผยต่อ
+  ไคลเอ็นต์
+- **เข้าถึงแพ็กเกจ npm**: [Antigravity Agent](https://antigravity.google/docs/agent?hl=th)
+  สามารถติดตั้งและใช้แพ็กเกจจากระบบนิเวศ npm ขนาดใหญ่ได้
+- **จัดการข้อมูลลับ**: ใช้คีย์ API และข้อมูลเข้าสู่ระบบอย่างปลอดภัย
 
-### Utilizzare i pacchetti npm
+### ใช้แพ็กเกจ npm
 
-Non devi eseguire manualmente `npm install`. Basta chiedere all'agente di aggiungere una funzionalità che richiede un pacchetto e l'agente gestirà l'installazione e l'importazione.
+คุณไม่จำเป็นต้องเรียกใช้ `npm install` ด้วยตนเอง เพียงขอให้ Agent เพิ่มฟังก์ชันการทำงานที่ต้องใช้แพ็กเกจ แล้ว Agent จะจัดการการติดตั้งและการนำเข้าให้
 
-**Esempio**: > "Utilizza `axios` per recuperare i dati dall'API esterna."
+**ตัวอย่าง**: > "ใช้ `axios` เพื่อดึงข้อมูลจาก API ภายนอก"
 
-## Gestire i secret in modo sicuro
+## จัดการข้อมูลลับอย่างปลอดภัย
 
-Con la gestione del codice e dei secret lato server, ora puoi creare app che interagiscono con il mondo.
+เมื่อมีโค้ดฝั่งเซิร์ฟเวอร์และการจัดการข้อมูลลับ ตอนนี้คุณสามารถสร้างแอปที่โต้ตอบกับโลกภายนอกได้แล้ว
 
-### Chiave API Gemini
+### คีย์ Gemini API
 
-Quando crei una nuova app che utilizza l'API Gemini, AI Studio configura automaticamente la tua `GEMINI_API_KEY` come secret lato server, senza richiedere alcuna configurazione manuale. Puoi visualizzare questa chiave nel riquadro **Secret** delle Impostazioni. Le chiamate all'API Gemini della tua app vengono effettuate dal codice lato server utilizzando questa chiave, quindi non viene mai esposta nel browser.
+เมื่อคุณสร้างแอปใหม่ที่ใช้ Gemini API, AI Studio จะกำหนดค่า `GEMINI_API_KEY` เป็นข้อมูลลับฝั่งเซิร์ฟเวอร์โดยอัตโนมัติ คุณจึงไม่ต้องตั้งค่าด้วยตนเอง คุณดูคีย์นี้ได้ในแผง**ข้อมูลลับ** ในการตั้งค่า การเรียก Gemini API ของแอปจะดำเนินการจากโค้ดฝั่งเซิร์ฟเวอร์โดยใช้คีย์นี้ จึงไม่มีการเปิดเผยในเบราว์เซอร์
 
-### Chiavi API di terze parti
+### คีย์ API ของบุคคลที่สาม
 
-Per altri servizi, puoi aggiungere le chiavi API manualmente:
+สำหรับบริการอื่นๆ คุณสามารถเพิ่มคีย์ API ด้วยตนเองได้ดังนี้
 
-- **API di terze parti**: connettiti a servizi come Stripe, SendGrid o API REST personalizzate.
-- **Database**: connettiti a database esterni (ad es. tramite Supabase, Firebase o MongoDB Atlas) per conservare i dati oltre la sessione.
+- **API ของบุคคลที่สาม**: เชื่อมต่อกับบริการต่างๆ เช่น Stripe, SendGrid หรือ
+  REST API ที่กำหนดเอง
+- **ฐานข้อมูล**: เชื่อมต่อกับฐานข้อมูลภายนอก (เช่น ผ่าน Supabase, Firebase,
+  หรือ MongoDB Atlas) เพื่อเก็บข้อมูลไว้นานกว่าเซสชัน
 
-Quando crei app reali, spesso devi connetterti a servizi di terze parti
-(come Twilio, Slack o database) che richiedono chiavi API. Puoi aggiungere le chiavi
-manualmente seguendo questi passaggi:
+เมื่อสร้างแอปในโลกแห่งความเป็นจริง คุณมักจะต้องเชื่อมต่อกับบริการของบุคคลที่สาม (เช่น Twilio, Slack หรือฐานข้อมูล) ที่ต้องใช้คีย์ API คุณสามารถเพิ่มคีย์ด้วยตนเองได้โดยทำตามขั้นตอนต่อไปนี้
 
-1. **Aggiungi un secret**: vai al menu **Impostazioni** in Google AI Studio e cerca la sezione Secret.
-2. **Memorizza la chiave**: aggiungi qui le tue chiavi API o i tuoi token segreti.
-3. **Accesso nel codice**: l'agente può scrivere codice lato server che accede a questi
-   segreti in modo sicuro (in genere tramite variabili di ambiente), assicurandosi che non vengano
-   mai esposti al browser lato client.
+1. **เพิ่มข้อมูลลับ**: ไปที่เมนู**การตั้งค่า** ใน Google AI Studio แล้วมองหา
+   ส่วนข้อมูลลับ
+2. **จัดเก็บคีย์**: เพิ่มคีย์ API หรือโทเค็นลับที่นี่
+3. **เข้าถึงในโค้ด**: Agent สามารถเขียนโค้ดฝั่งเซิร์ฟเวอร์ที่เข้าถึงข้อมูลลับเหล่านี้
+   ได้อย่างปลอดภัย (โดยปกติจะผ่านตัวแปรสภาพแวดล้อม) เพื่อให้มั่นใจว่าจะไม่มีการเปิดเผยต่อเบราว์เซอร์ฝั่งไคลเอ็นต์
 
-Se necessario, l'agente
-mostrerà anche una scheda nella chat che ti chiede di aggiungere le chiavi ogni volta che è necessario un nuovo secret
-o quando viene rilevata una nuova chiave nelle variabili di ambiente del progetto.
+นอกจากนี้ Agent จะแสดงการ์ดในแชทเพื่อแจ้งให้คุณเพิ่มคีย์เมื่อจำเป็นต้องใช้ข้อมูลลับใหม่หรือเมื่อตรวจพบคีย์ใหม่ในตัวแปร env ของโปรเจ็กต์
 
-### Integrazione di Firebase per database e autenticazione
+### การผสานรวม Firebase สำหรับฐานข้อมูลและการตรวจสอบสิทธิ์
 
-Google AI Studio ora semplifica l'aggiunta di un database o dell'autenticazione alla tua
-app tramite un'
-[integrazione di Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=it).
-L'agente Antigravity può eseguire il provisioning e configurare automaticamente i seguenti servizi:
+ตอนนี้ Google AI Studio ช่วยให้คุณเพิ่มฐานข้อมูลหรือการตรวจสอบสิทธิ์ลงใน
+แอปได้อย่างง่ายดายผ่าน
+[การผสานรวม Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=th)
+Antigravity Agent สามารถจัดเตรียมและตั้งค่าบริการต่อไปนี้ให้คุณโดยอัตโนมัติ
 
-- **Database Firestore**: un database cloud NoSQL flessibile e scalabile per archiviare
-  e sincronizzare i dati per lo sviluppo lato client e lato server.
-- **Firebase Authentication**: consente agli utenti di accedere in modo sicuro alla tua
-  applicazione utilizzando i flussi "Accedi con Google".
+- **ฐานข้อมูล Firestore**: ฐานข้อมูล NoSQL บนระบบคลาวด์ที่ยืดหยุ่นและปรับขนาดได้เพื่อจัดเก็บ
+  และซิงค์ข้อมูลสำหรับการพัฒนาฝั่งไคลเอ็นต์และฝั่งเซิร์ฟเวอร์
+- **การตรวจสอบสิทธิ์ Firebase**: อนุญาตให้ผู้ใช้ลงชื่อเข้าใช้
+  แอปพลิเคชันของคุณได้อย่างปลอดภัยโดยใช้โฟลว์ "ลงชื่อเข้าใช้ด้วย Google"
 
-Basta chiedere all'agente di "aggiungere un database alla mia app" o di "configurare Google Sign-in".
-L'agente gestirà la configurazione e la generazione del codice necessarie.
+เพียงขอให้ Agent "เพิ่มฐานข้อมูลลงในแอปของฉัน" หรือ "ตั้งค่าการลงชื่อเข้าใช้ด้วยบัญชี Google" แล้ว Agent จะจัดการการกำหนดค่าและการสร้างโค้ดที่จำเป็นให้คุณ
 
-Firebase ti consente di iniziare senza costi e, se vuoi, di eseguire lo scale-up con un account a pagamento
-quando hai bisogno di una quota maggiore o di utilizzare funzionalità a pagamento.
+Firebase ให้คุณเริ่มต้นใช้งานได้ฟรี และเลือกปรับขนาดด้วยบัญชีแบบชำระเงินได้ทุกเมื่อที่พร้อมสำหรับโควต้าเพิ่มเติมหรือใช้ฟีเจอร์แบบชำระเงิน
 
-## API Google Workspace
+## Google Workspace API
 
-Google AI Studio ti consente di creare app che si connettono alle API Google Workspace, in modo che i tuoi utenti possano lavorare con i loro dati reali: email, fogli di lavoro, documenti, eventi di calendario e altro ancora, tutto all'interno della tua app. Non è più necessario configurare un progetto Google Cloud, configurare OAuth o gestire manualmente l'API.
+Google AI Studio ช่วยให้คุณสร้างแอปที่เชื่อมต่อกับ Google Workspace API ได้ เพื่อให้ผู้ใช้ทำงานกับข้อมูลจริงของตนเองได้ เช่น อีเมล สเปรดชีต เอกสาร กิจกรรมในปฏิทิน และอื่นๆ อีกมากมาย ทั้งหมดนี้ทำได้ภายในแอปของคุณ คุณจึงไม่จำเป็นต้องตั้งค่าโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google, กำหนดค่า OAuth หรือจัดการ API ด้วยตนเองอีกต่อไป
 
-### Come funziona
+### วิธีการทำงาน
 
-Puoi aggiungere un'integrazione di Workspace in due modi:
+คุณสามารถเพิ่มการผสานรวม Workspace ได้ 2 วิธีดังนี้
 
-- **Descrivilo nel riquadro della chat**: basta dire all'agente cosa vuoi nel riquadro della chat in basso. Ad esempio, *"Crea un tracker delle spese che registri le ricevute nel mio foglio Google"* o *"Crea una dashboard che riepiloghi i miei messaggi Gmail non letti"*.
-- **Seleziona dal riquadro delle integrazioni**: apri il riquadro **Integrazioni** nella barra laterale destra della modalità di creazione e attiva l'app Workspace che vuoi connettere.
+- **อธิบายในแผงแชท**: เพียงบอก Agent สิ่งที่คุณต้องการในแผงแชทที่ด้านล่าง เช่น *"สร้างเครื่องมือติดตามค่าใช้จ่ายที่บันทึกใบเสร็จลงใน Google ชีตของฉัน"* หรือ *"สร้างแดชบอร์ดที่สรุปข้อความ Gmail ที่ยังไม่ได้อ่านของฉัน"*
+- **เลือกจากแผงการผสานรวม**: เปิดแผง**การผสานรวม** ในแถบด้านข้างทางด้านขวาของโหมดสร้าง แล้วเปิดใช้แอปใน Workspace ที่ต้องการเชื่อมต่อ
 
-Quando aggiungi un'app Workspace, AI Studio esegue automaticamente le seguenti operazioni:
+เมื่อคุณเพิ่มแอปใน Workspace, AI Studio จะดำเนินการต่อไปนี้โดยอัตโนมัติ
 
-1. Collega l'API Google necessaria per la tua app.
-2. Genera il codice lato server per chiamare l'API.
-3. Aggiunge un flusso sicuro di "Accedi con Google" in modo che gli utenti finali della tua app possano autorizzare l'accesso ai propri dati.
+1. เชื่อมต่อ Google API ที่จำเป็นสำหรับแอปของคุณ
+2. สร้างโค้ดฝั่งเซิร์ฟเวอร์เพื่อเรียก API
+3. เพิ่มโฟลว์ "ลงชื่อเข้าใช้ด้วย Google" ที่ปลอดภัยเพื่อให้ผู้ใช้ปลายทางของแอปให้สิทธิ์เข้าถึงข้อมูลของตนเองได้
 
-### App supportate
+### แอปที่รองรับ
 
-Sono disponibili le seguenti app Google Workspace:
+แอป Google Workspace ต่อไปนี้พร้อมให้บริการ
 
-| App | Cosa puoi creare |
+| แอป | สิ่งที่คุณสร้างได้ |
 | --- | --- |
-| Google Calendar | Leggere, creare e gestire eventi e calendari |
-| Google Chat | Leggere e interagire con conversazioni e spazi di gruppo |
-| Documenti Google | Creare, leggere, aggiornare e formattare documenti |
-| Google Drive | Organizzare, cercare e gestire file e cartelle |
-| Moduli Google | Creare sondaggi, aggiornare le domande e recuperare le risposte |
-| Gmail | Leggere, inviare e gestire i contenuti delle email |
-| Google Keep | Gestire note, elenchi e allegati |
-| Google Meet | Pianificare e gestire le videochiamate |
-| Contatti | Sincronizzare e gestire i contatti |
-| Fogli Google | Leggere, scrivere e formattare i dati del foglio di lavoro |
-| Presentazioni Google | Creare e modificare presentazioni |
-| Google Tasks | Creare, gestire e organizzare le attività |
+| Google ปฏิทิน | อ่าน สร้าง และจัดการกิจกรรมและปฏิทิน |
+| Google Chat | อ่านและโต้ตอบกับการสนทนาและพื้นที่ทำงานแบบกลุ่ม |
+| Google เอกสาร | สร้าง อ่าน อัปเดต และจัดรูปแบบเอกสาร |
+| Google ไดรฟ์ | จัดระเบียบ ค้นหา และจัดการไฟล์และโฟลเดอร์ |
+| Google ฟอร์ม | สร้างแบบสำรวจ อัปเดตคำถาม และดึงข้อมูลคำตอบ |
+| Gmail | อ่าน ส่ง และจัดการเนื้อหาอีเมล |
+| Google Keep | จัดการโน้ต ลิสต์ และไฟล์แนบ |
+| Google Meet | กำหนดเวลาและจัดการวิดีโอคอล |
+| รายชื่อติดต่อ | ซิงค์และจัดการรายชื่อติดต่อ |
+| Google ชีต | อ่าน เขียน และจัดรูปแบบข้อมูลสเปรดชีต |
+| Google สไลด์ | สร้างและแก้ไขงานนำเสนอ |
+| Google Tasks | สร้าง จัดการ และจัดระเบียบงาน |
 
-### Autenticazione e autorizzazioni
+### การตรวจสอบสิทธิ์และสิทธิ์
 
-In qualità di builder, non devi configurare i client OAuth, gestire le credenziali
-o configurare un progetto Google Cloud. AI Studio gestisce tutto questo per te.
+ในฐานะผู้สร้าง คุณไม่จำเป็นต้องกำหนดค่าไคลเอ็นต์ OAuth, จัดการข้อมูลเข้าสู่ระบบ หรือตั้งค่าโปรเจ็กต์ Google Cloud AI Studio จะจัดการทุกอย่างให้คุณ
 
-Le app con le API Workspace integrate utilizzano "Accedi con Google" per autenticare
-gli utenti finali. Quando un utente apre la tua app, gli viene chiesto di accedere e concedere
-le autorizzazioni specifiche di cui la tua app ha bisogno (ad esempio, l'accesso in sola lettura al
-calendario o la possibilità di modificare un foglio di lavoro). La tua app accede solo ai dati della persona che la utilizza. Ogni utente autorizza l'accesso al proprio account.
+แอปที่มีการผสานรวม Workspace API จะใช้ "ลงชื่อเข้าใช้ด้วย Google" เพื่อตรวจสอบสิทธิ์ผู้ใช้ปลายทาง เมื่อผู้ใช้เปิดแอป ระบบจะแจ้งให้ผู้ใช้ลงชื่อเข้าใช้และให้สิทธิ์เฉพาะที่แอปต้องการ (เช่น สิทธิ์เข้าถึงปฏิทินแบบอ่านอย่างเดียว หรือความสามารถในการแก้ไขสเปรดชีต) แอปของคุณจะเข้าถึงเฉพาะข้อมูลของบุคคลที่ใช้แอปเท่านั้น ผู้ใช้แต่ละรายจะให้สิทธิ์เข้าถึงบัญชีของตนเอง
 
-### Prompt di esempio
+### ตัวอย่างพรอมต์
 
-Ecco alcune idee per iniziare a utilizzare le integrazioni di Workspace:
+ต่อไปนี้คือแนวคิดบางส่วนในการเริ่มต้นใช้งานการผสานรวม Workspace
 
-- *"Crea un'app che legga il mio Google Calendar e crei bozze di email di preparazione in
-  Gmail per ogni riunione".*
-- *"Crea uno strumento che prenda un documento Google e generi un riepilogo di 5 slide
-  in Presentazioni Google."*
-- *"Crea un monitoraggio delle spese in cui carico una ricevuta, Gemini estrae i
-  dettagli e registra una nuova riga nel mio Foglio Google."*
+- *"สร้างแอปที่อ่าน Google ปฏิทินของฉันและร่างอีเมลเตรียมการใน
+  Gmail สำหรับการประชุมแต่ละครั้ง"*
+- *"สร้างเครื่องมือที่รับ Google เอกสารและสร้างงานนำเสนอสรุป 5 สไลด์
+  ใน Google สไลด์"*
+- *"สร้างเครื่องมือติดตามค่าใช้จ่ายที่ฉันอัปโหลดใบเสร็จ Gemini แยก
+  รายละเอียด และระบบบันทึกแถวใหม่ใน Google ชีตของฉัน"*
 
-### Configura OAuth
+### ตั้งค่า OAuth
 
-Un caso d'uso chiave per la gestione dei secret è la configurazione di OAuth per connettersi ad altri
-siti web o app. Quando il prompt include istruzioni su come connettersi a un'app di terze parti che richiede l'autenticazione OAuth, l'agente fornirà istruzioni su come configurare OAuth per l'applicazione. Queste istruzioni
-includeranno gli URL di callback necessari per configurare l'applicazione OAuth.
-Puoi trovare gli URL di callback anche nella sezione **Integrazioni** nel pannello Impostazioni.
+กรณีการใช้งานที่สำคัญอย่างหนึ่งสำหรับการจัดการข้อมูลลับคือการตั้งค่า OAuth เพื่อเชื่อมต่อกับเว็บไซต์หรือแอปอื่นๆ เมื่อพรอมต์ของคุณมีวิธีการเกี่ยวกับการเชื่อมต่อกับแอปของบุคคลที่สามที่ต้องใช้การตรวจสอบสิทธิ์ OAuth, Agent จะให้วิธีการตั้งค่า OAuth สำหรับแอปพลิเคชันนั้น วิธีการเหล่านี้จะมี URL เรียกกลับที่จำเป็นสำหรับการกำหนดค่าแอปพลิเคชัน OAuth
+นอกจากนี้ คุณยังดู URL เรียกกลับได้ในส่วน**การผสานรวม** ในแผงการตั้งค่า
 
-## Creare esperienze multigiocatore
+## สร้างประสบการณ์การใช้งานแบบผู้เล่นหลายคน
 
-Il runtime full-stack attiva le funzionalità di collaborazione in tempo reale.
+รันไทม์แบบ Full-Stack ช่วยให้ฟีเจอร์การทำงานร่วมกันแบบเรียลไทม์ทำงานได้
 
-- **Stato in tempo reale**: puoi chiedere all'agente di creare funzionalità come "una chat live", "una lavagna collaborativa" o "un gioco multiplayer".
-- **Sessioni sincronizzate**: il server gestisce lo stato, consentendo a più utenti
-  di interagire con la stessa istanza dell'applicazione in tempo reale.
+- **สถานะแบบเรียลไทม์**: คุณสามารถขอให้ Agent สร้างฟีเจอร์ต่างๆ เช่น "แชทสด" "ไวท์บอร์ดสำหรับการทำงานร่วมกัน" หรือ "เกมแบบผู้เล่นหลายคน"
+- **เซสชันที่ซิงค์**: เซิร์ฟเวอร์จะจัดการสถานะ ซึ่งช่วยให้ผู้ใช้หลายคน
+  โต้ตอบกับอินสแตนซ์แอปพลิเคชันเดียวกันได้แบบเรียลไทม์
 
-**Esempio di prompt**: > "Crea un gioco multiplayer in cui i giocatori possono vedere i cursori
-degli altri."
+**ตัวอย่างพรอมต์**: > "ทำให้เกมนี้เป็นเกมแบบผู้เล่นหลายคนซึ่งผู้เล่นจะเห็นเคอร์เซอร์ของกันและกันได้"
 
-### Suggerimenti per testare le app multiplayer
+### เคล็ดลับสำหรับการทดสอบแอปแบบผู้เล่นหลายคน
 
-Puoi testare la modalità multigiocatore in due modi prima di eseguire il deployment dell'app.
+คุณสามารถทดสอบโหมดผู้เล่นหลายคนได้ 2 วิธีก่อนที่จะติดตั้งใช้งานแอป
 
-1. Apri l'app in modalità di creazione di Google AI Studio in più schede. Quando
-   sviluppi in modalità Build, la tua app si trova in un container di sviluppo. L'apertura dell'app in più schede ti consentirà di simulare più giocatori che utilizzano la tua app.
-2. Condividi l'app con altri utilizzando il menu **Condividi** in alto a destra.
-   Poi utilizza l'**URL condiviso** della scheda **Integrazioni**
-   del menu **Condividi** per utilizzare l'app con i giocatori con cui l'hai condivisa.
+1. เปิดแอปในโหมดสร้างของ Google AI Studio ในหลายแท็บ เมื่อพัฒนาในโหมดสร้าง แอปของคุณจะอยู่ในคอนเทนเนอร์สำหรับนักพัฒนาแอป การเปิดแอปในหลายแท็บจะช่วยให้คุณจำลองผู้เล่นหลายคนที่ใช้แอปของคุณได้
+2. แชร์แอปกับผู้อื่นโดยใช้เมนู**แชร์** ที่ด้านขวาบน จากนั้นใช้ **URL ที่แชร์** จากแท็บ**การผสานรวม** ของเมนู**แชร์** เพื่อใช้แอปกับผู้เล่นที่คุณแชร์แอปด้วย
 
-## Best practice
+## แนวทางปฏิบัติแนะนำ
 
-- **Chiamate API Gemini**: il tuo `GEMINI_API_KEY` viene configurato automaticamente come
-  secret lato server. Esegui chiamate all'API Gemini dal codice lato server utilizzando
-  questa chiave. Puoi visualizzarlo nel riquadro **Secret**.
-- **Sicurezza dei secret**: utilizza sempre Secret Manager per le chiavi sensibili.
-  Non codificarli mai nei file.
-- **Separazione delle responsabilità**: mantieni la logica dell'interfaccia utente nel framework lato client
-  (React/Angular) e la logica di business/gestione dei dati lato server.
-- **Gestione degli errori**: assicurati che il codice lato server gestisca in modo efficace gli errori
-  delle chiamate API esterne per evitare arresti anomali dell'app.
+- **การเรียก Gemini API**: ระบบจะกำหนดค่า `GEMINI_API_KEY` เป็น
+  ข้อมูลลับฝั่งเซิร์ฟเวอร์โดยอัตโนมัติ เรียก Gemini API จากโค้ดฝั่งเซิร์ฟเวอร์โดยใช้คีย์นี้ คุณดูคีย์นี้ได้ในแผง**ข้อมูลลับ**
+- **ความปลอดภัยของข้อมูลลับ**: ใช้ Secret Manager สำหรับคีย์ที่ละเอียดอ่อนเสมอ
+  และอย่าฮาร์ดโค้ดคีย์เหล่านั้นในไฟล์
+- **การแยกความกังวล**: เก็บตรรกะ UI ไว้ในเฟรมเวิร์กฝั่งไคลเอ็นต์
+  (React/Angular) และเก็บตรรกะทางธุรกิจ/การจัดการข้อมูลไว้ฝั่งเซิร์ฟเวอร์
+- **การจัดการข้อผิดพลาด**: ตรวจสอบว่าโค้ดฝั่งเซิร์ฟเวอร์จัดการข้อผิดพลาด
+  จากการเรียก API ภายนอกได้อย่างมีประสิทธิภาพเพื่อป้องกันไม่ให้แอปขัดข้อง
 
-## Passaggi successivi
+## ขั้นตอนต่อไปคือ
 
-- [Creare app in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it)
-- [Deployment da Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=it)
-- [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=it)
+- [สร้างแอปใน Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=th)
+- [การติดตั้งใช้งานจาก Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=th)
+- [แกลเลอรีแอป](https://aistudio.google.com/apps?source=showcase&hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ultimo aggiornamento 2026-05-19 UTC.
+อัปเดตล่าสุด 2026-08-19 UTC
 
-Vuoi dirci altro?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-19 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]

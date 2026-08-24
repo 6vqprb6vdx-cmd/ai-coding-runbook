@@ -1,39 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=fr
-fetched_at: 2026-08-17T02:19:15.778216+00:00
-title: "G\u00e9n\u00e9rer de la musique avec Lyria\u00a03 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=it
+fetched_at: 2026-08-24T02:32:36.756385+00:00
+title: "Generare musica con Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envoyer des commentaires
+Invia feedback
 
-# Générer de la musique avec Lyria 3
+# Generare musica con Lyria 3
 
-Lyria 3 est la famille de modèles de génération de musique de Google, disponible via l'API Gemini. Avec Lyria 3, vous pouvez générer un son stéréo de haute qualité à 44, 1 kHz à partir de requêtes textuelles ou d'images. Ces modèles offrent une cohérence structurelle, y compris des voix, des paroles synchronisées et des arrangements instrumentaux complets.
+Lyria 3 è la famiglia di modelli di generazione di musica di Google, disponibile tramite l'API Gemini. Con Lyria 3, puoi generare audio stereo di alta qualità a 44, 1 kHz da prompt di testo o da immagini. Questi modelli offrono coerenza strutturale, incluse voci, testi sincronizzati e arrangiamenti strumentali completi.
 
-La famille Lyria 3 comprend deux modèles :
+La famiglia Lyria 3 include due modelli:
 
-| Modèle | ID du modèle | Application idéale | Durée | Sortie |
+| Modello | ID modello | Ideale per | Durata | Output |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | Extraits courts, boucles, aperçus | 30 secondes | MP3 |
-| **Lyria 3 Pro** | `lyria-3-pro-preview` | Chansons complètes avec couplets, refrains et ponts | Quelques minutes (contrôlables à l'aide d'une requête) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clip corti, loop, anteprime | 30 secondi | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | Brani completi con strofe, ritornelli, ponti | Un paio di minuti (controllabile tramite prompt) | MP3 |
 
-Les deux modèles peuvent être utilisés avec la nouvelle
-[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), qui accepte les entrées multimodales (texte et images) et produit un son **stéréo haute fidélité à 44,1 kHz**
+Entrambi i modelli possono essere utilizzati con la nuova
+[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it), supportano input multimodali
+input (testo e immagini) e producono **audio stereo ad alta fedeltà a 44,1 kHz**
 .
 
-## Générer un clip musical
+## Generare un clip musicale
 
-Le modèle Lyria 3 Clip génère toujours un extrait de **30 secondes**. Pour générer un extrait, appelez la méthode `interactions.create` avec un prompt textuel. La réponse inclut toujours les paroles et la structure de la chanson générées, ainsi que l'audio dans le schéma `steps`.
+Il modello Lyria 3 Clip genera sempre un clip di **30 secondi**. Per generare un clip, chiama il metodo `interactions.create` con un prompt testuale. La risposta include sempre i testi e la struttura del brano generati insieme all'audio nello schema `steps`.
 
 ### Python
 
@@ -94,14 +95,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Vous pouvez récupérer les données musicales générées à l'aide de la propriété `interaction.output_audio`, qui renvoie le dernier bloc audio généré. Vous pouvez également récupérer les paroles et la structure de la chanson à l'aide de la propriété `interaction.output_text`. Pour en savoir plus sur les propriétés pratiques, consultez la
-[présentation des interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr#convenience-properties).
+Puoi recuperare i dati musicali generati utilizzando la proprietà `interaction.output_audio`, che restituisce l'ultimo blocco audio generato. Puoi anche recuperare i testi e la struttura del brano utilizzando la proprietà `interaction.output_text`. Per maggiori dettagli sulle proprietà di convenienza, consulta la
+[panoramica di Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it#convenience-properties).
 
-## Générer une chanson complète
+## Generare un brano completo
 
-Utilisez le modèle `lyria-3-pro-preview` pour générer des chansons complètes qui durent quelques minutes. Le modèle Pro comprend la structure musicale et peut créer des compositions avec des couplets, des refrains et des ponts distincts. Vous pouvez influencer la
-durée en la spécifiant dans votre requête (par exemple, "créer une chanson de 2 minutes") ou en
-utilisant [des horodatages](#timing) pour définir la structure.
+Utilizza il modello `lyria-3-pro-preview` per generare brani completi della durata di un paio di minuti. Il modello Pro comprende la struttura musicale e può creare composizioni con strofe, ritornelli e ponti distinti. Puoi influenzare la
+durata specificandola nel prompt (ad es. "crea un brano di 2 minuti") o
+utilizzando [i timestamp](#timing) per definire la struttura.
 
 ### Python
 
@@ -133,9 +134,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Sélectionner un format de sortie
+## Selezionare il formato di output
 
-Par défaut, les modèles Lyria 3 génèrent de l'audio au format **MP3**. Pour Lyria 3 Pro, vous pouvez également demander la sortie au format **WAV** en définissant le `response_format`.
+Per impostazione predefinita, i modelli Lyria 3 generano audio in formato **MP3**. Per Lyria 3 Pro, puoi anche richiedere l'output in formato **WAV** impostando `response_format`.
 
 ### Python
 
@@ -174,12 +175,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Analyser la réponse
+## Analizzare la risposta
 
-La réponse de Lyria 3 contient plusieurs blocs de contenu dans le schéma `steps`.
-Les interactions renvoient une séquence d'étapes, où les étapes `model_output` contiennent le contenu généré.
-Les blocs de contenu textuel contiennent les paroles générées ou une description JSON de la structure de la chanson.
-Les blocs de contenu de type `audio` contiennent les données audio encodées en base64.
+La risposta di Lyria 3 contiene più blocchi di contenuti nello schema `steps`.
+Le interazioni restituiscono una sequenza di passaggi, in cui i passaggi `model_output` contengono i contenuti generati.
+I blocchi di contenuti di testo contengono i testi generati o una descrizione JSON della struttura del brano.
+I blocchi di contenuti con tipo `audio` contengono i dati audio codificati in Base64.
 
 ### Python
 
@@ -223,11 +224,11 @@ if (lyrics) {
 curl ... | jq -r '.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio") | .data' | base64 -d > output.mp3
 ```
 
-#### Paroles et musique entrelacées
+#### Testi e musica intercalati
 
-Étant donné que la sortie de Lyria 3 est complexe (elle contient des étapes et des blocs distincts pour les paroles générées (texte) et la chanson elle-même (audio)), les propriétés pratiques offrent un raccourci rapide et recommandé.
+Poiché l'output di Lyria 3 è complesso e contiene passaggi e blocchi separati per i testi generati (testo) e il brano stesso (audio), le proprietà di convenienza offrono una scorciatoia rapida e consigliata.
 
-Toutefois, si vous souhaitez un contrôle total et programmatique sur la chronologie brute des étapes renvoyées par le serveur (par exemple, en enregistrant des blocs de contenu individuels à mesure qu'ils sont reçus), vous pouvez itérer manuellement sur `steps` :
+Tuttavia, se vuoi un controllo programmatico completo sulla sequenza temporale non elaborata dei passaggi restituiti dal server (ad esempio la registrazione dei singoli blocchi di contenuti man mano che vengono ricevuti), puoi eseguire manualmente l'iterazione su `steps`:
 
 ### Python
 
@@ -278,9 +279,9 @@ if (audioData) {
 }
 ```
 
-## Générer de la musique à partir d'images
+## Generare musica da immagini
 
-Lyria 3 accepte les entrées multimodales. Vous pouvez fournir jusqu'à **10 images** avec votre prompt textuel dans la liste `input`. Le modèle composera une musique inspirée du contenu visuel.
+Lyria 3 supporta input multimodali: puoi fornire fino a **10 immagini** insieme al prompt testuale nell'elenco `input` e il modello comporrà musica ispirata ai contenuti visivi.
 
 ### Python
 
@@ -346,9 +347,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Fournir des paroles personnalisées
+## Fornire testi personalizzati
 
-Vous pouvez écrire vos propres paroles et les inclure dans la requête. Utilisez des balises de section telles que `[Verse]`, `[Chorus]` et `[Bridge]` pour aider le modèle à comprendre la structure de la chanson :
+Puoi scrivere i tuoi testi e includerli nel prompt. Utilizza tag di sezione come `[Verse]`, `[Chorus]` e `[Bridge]` per aiutare il modello a comprendere la struttura del brano:
 
 ### Python
 
@@ -424,9 +425,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Contrôler le timing et la structure
+## Controllare la tempistica e la struttura
 
-Vous pouvez spécifier exactement ce qui se passe à des moments précis de la chanson à l'aide d'horodatages. Cela est utile pour contrôler le moment où les instruments entrent en jeu, le moment où les paroles sont prononcées et la progression de la chanson :
+Puoi specificare esattamente cosa succede in momenti specifici del brano utilizzando i timestamp. Questa funzionalità è utile per controllare quando entrano gli strumenti, quando vengono forniti i testi e come procede il brano:
 
 ### Python
 
@@ -478,9 +479,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Générer des pistes instrumentales
+## Generare tracce strumentali
 
-Pour la musique de fond, les bandes-son de jeux ou tout cas d'utilisation où les voix ne sont pas requises, vous pouvez demander au modèle de produire des pistes uniquement instrumentales :
+Per la musica di sottofondo, le colonne sonore dei giochi o qualsiasi caso d'uso in cui non sono richieste le voci, puoi chiedere al modello di produrre tracce solo strumentali:
 
 ### Python
 
@@ -512,9 +513,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Générer de la musique dans différentes langues
+## Generare musica in lingue diverse
 
-Lyria 3 génère des paroles dans la langue de votre requête. Pour générer une chanson avec des paroles en français, rédigez votre requête en français. Le modèle adapte son style vocal et sa prononciation à la langue.
+Lyria 3 genera i testi nella lingua del prompt. Per generare un brano con testi in francese, scrivi il prompt in francese. Il modello adatta lo stile vocale e la pronuncia in base alla lingua.
 
 ### Python
 
@@ -546,30 +547,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Intelligence du modèle
+## Intelligenza del modello
 
-Lyria 3 analyse le processus de votre requête, où le modèle raisonne sur la structure musicale (intro, couplet, refrain, pont, etc.) en fonction de votre requête.
-Cela se produit avant la génération de l'audio et garantit la cohérence structurelle et la musicalité.
+Lyria 3 analizza il processo del prompt in cui il modello ragiona sulla struttura musicale (introduzione, strofa, ritornello, ponte e così via) in base al prompt.
+Questa operazione viene eseguita prima della generazione dell'audio e garantisce la coerenza strutturale e la musicalità.
 
-## Guide sur les requêtes
+## Guida ai prompt
 
-Plus votre requête sera précise, meilleurs seront les résultats. Voici ce que vous pouvez inclure pour guider la génération :
+Più specifico è il prompt, migliori saranno i risultati. Ecco cosa puoi includere per guidare la generazione:
 
-- **Genre** : spécifiez un genre ou un mélange de genres (par exemple, « lo-fi hip hop »,
-  « jazz fusion », « orchestre cinématographique »).
-- **Instruments** : nommez des instruments spécifiques (par exemple, "piano Fender Rhodes",
-  "guitare slide", "boîte à rythmes TR-808").
-- **BPM** : définissez le tempo (par exemple, "120 BPM", "tempo lent autour de 70 BPM").
-- **Tonalité/Gamme** : spécifiez une tonalité musicale (par exemple, "en sol majeur", "en ré mineur").
-- **Ambiance et atmosphère** : utilisez des adjectifs descriptifs (par exemple, "nostalgique",
-  "agressif", "éthéré", "rêveur").
-- **Structure** : utilisez des balises telles que `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`,
-  `[Outro]` ou des horodatages pour contrôler la progression de la chanson.
-- **Durée** : le modèle Clip produit toujours des extraits de 30 secondes. Pour le modèle Pro, spécifiez la durée souhaitée dans votre requête (par exemple, "créer une chanson de 2 minutes") ou utilisez des horodatages pour contrôler la durée.
+- **Genere**: specifica un genere o una combinazione di generi (ad es. "lo-fi hip hop",
+  "jazz fusion", "orchestrale cinematografico").
+- **Strumenti**: indica strumenti specifici (ad es. "pianoforte Fender Rhodes",
+  "chitarra slide", "drum machine TR-808").
+- **BPM**: imposta il tempo (ad es. "120 BPM", "tempo lento intorno a 70 BPM").
+- **Tonalità/scala**: specifica una tonalità musicale (ad es. "in sol maggiore", "re minore").
+- **Stato d'animo e atmosfera**: utilizza aggettivi descrittivi (ad es. "nostalgico",
+  "aggressivo", "etereo", "sognante").
+- **Struttura**: utilizza tag come `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`,
+  `[Outro]` o timestamp per controllare la progressione del brano.
+- **Durata**: il modello Clip produce sempre clip di 30 secondi. Per il modello Pro, specifica la durata prevista nel prompt (ad es. "crea un brano di 2 minuti") o utilizza i timestamp per controllare la durata.
 
-### Exemples de prompts
+### Prompt di esempio
 
-Voici quelques exemples de requêtes efficaces :
+Ecco alcuni esempi di prompt efficaci:
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -580,43 +581,43 @@ Voici quelques exemples de requêtes efficaces :
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## Bonnes pratiques
+## Best practice
 
-- **Commencez par itérer avec Clip.** Utilisez le modèle `lyria-3-clip-preview` plus rapide pour tester les requêtes avant de vous engager dans une génération complète avec `lyria-3-pro-preview`.
-- **Soyez précis.** Les requêtes vagues produisent des résultats génériques. Mentionnez les instruments, le BPM, la tonalité, l'ambiance et la structure pour obtenir le meilleur résultat.
-- **Utilisez la même langue.** Rédigez votre requête dans la langue dans laquelle vous souhaitez que les paroles soient générées.
-- **Utilisez des balises de section.** Les balises `[Verse]`, `[Chorus]` et `[Bridge]` donnent au modèle une structure claire à suivre.
-- **Séparez les paroles des instructions.** Lorsque vous fournissez des paroles personnalisées, séparez-les clairement de vos instructions de direction musicale.
+- **Esegui prima l'iterazione con Clip.** Utilizza il modello `lyria-3-clip-preview` più veloce per sperimentare con i prompt prima di eseguire una generazione completa con `lyria-3-pro-preview`.
+- **Usa un testo specifico.** I prompt vaghi producono risultati generici. Per ottenere il miglior output, indica strumenti, BPM, tonalità, stato d'animo e struttura.
+- **Usa la lingua corretta.** Scrivi il prompt nella lingua in cui vuoi che siano i testi.
+- **Utilizza i tag di sezione.** I tag `[Verse]`, `[Chorus]` e `[Bridge]` forniscono al modello una struttura chiara da seguire.
+- **Separa i testi dalle istruzioni.** Quando fornisci testi personalizzati, separali chiaramente dalle istruzioni sulla direzione musicale.
 
-## Limites
+## Limitazioni
 
-- **Sécurité** : toutes les requêtes sont vérifiées par des filtres de sécurité. Les requêtes qui déclenchent les filtres seront bloquées. Cela inclut les requêtes qui demandent des voix d'artistes spécifiques ou la génération de paroles protégées par des droits d'auteur.
-- **Filigranes** : tous les contenus audio générés incluent un
-  [filigrane audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr) à des fins d'
-  identification. Ce filigrane est imperceptible à l'oreille humaine et n'affecte pas l'expérience d'écoute.
-- **Édition avec chat multitour** : la génération de musique est un processus à un seul tour.
-  L'édition itérative ou l'affinage d'un extrait généré via plusieurs requêtes ne sont pas compatibles avec la version actuelle de Lyria 3.
-- **Longueur** : le modèle Clip génère toujours des extraits de 30 secondes. Le modèle Pro génère des chansons qui durent quelques minutes. La durée exacte peut être influencée par votre requête.
-- **Déterminisme** : les résultats peuvent varier d'un appel à l'autre, même avec la même requête.
+- **Sicurezza**: tutti i prompt vengono controllati dai filtri di sicurezza. I prompt che attivano i filtri verranno bloccati. Sono inclusi i prompt che richiedono voci di artisti specifici o la generazione di testi protetti da copyright.
+- **Filigrana**: tutto l'audio generato include una
+  [filigrana audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=it) per
+  l'identificazione. Questa filigrana è impercettibile all'orecchio umano e non influisce sull'esperienza di ascolto.
+- **Modifica multi-turno**: la generazione di musica è un processo a turno singolo.
+  La modifica iterativa o il perfezionamento di un clip generato tramite più prompt non è supportato nella versione attuale di Lyria 3.
+- **Lunghezza**: il modello Clip genera sempre clip di 30 secondi. Il modello Pro genera brani della durata di un paio di minuti; la durata esatta può essere influenzata dal prompt.
+- **Determinismo**: i risultati possono variare tra le chiamate, anche con lo stesso prompt.
 
-## Étape suivante
+## Passaggi successivi
 
-- Consultez la [tarification](https://ai.google.dev/gemini-api/docs/pricing?hl=fr) des modèles Lyria 3.
-- Essayez la génération de musique en streaming et en temps réel 
-  avec Lyria RealTime.
-- Générez des conversations à plusieurs locuteurs avec les
-  [modèles TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr).
-- Découvrez comment générer des [images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr) ou des [vidéos](https://ai.google.dev/gemini-api/docs/video?hl=fr).
-- Découvrez comment Gemini peut [comprendre les fichiers audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr).
-- Discutez en temps réel avec Gemini à l'aide de l'
-  [API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr).
+- Controlla i [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it) dei modelli Lyria 3.
+- Prova la generazione di musica in streaming [in tempo reale](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=it)
+  con Lyria RealTime.
+- Genera conversazioni con più relatori con i
+  [modelli TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it).
+- Scopri come generare [immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it) o [video](https://ai.google.dev/gemini-api/docs/video?hl=it).
+- Scopri come Gemini può [comprendere i file audio](https://ai.google.dev/gemini-api/docs/audio?hl=it).
+- Avvia una conversazione in tempo reale con Gemini utilizzando l'
+  [API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
 
-Envoyer des commentaires
+Invia feedback
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Dernière mise à jour le 2026/07/30 (UTC).
+Ultimo aggiornamento 2026-07-30 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Vuoi dirci altro?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]

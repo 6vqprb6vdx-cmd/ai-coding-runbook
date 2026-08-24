@@ -1,245 +1,185 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it
-fetched_at: 2026-08-17T02:20:52.521741+00:00
-title: "Strategie di progettazione dei prompt \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pl
+fetched_at: 2026-08-24T02:30:28.113679+00:00
+title: "Strategie projektowania prompt\u00f3w \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Invia feedback
+Prześlij opinię
 
-# Strategie di progettazione dei prompt
+# Strategie projektowania promptów
 
-La *progettazione dei prompt* è il processo di creazione di prompt, ovvero richieste in linguaggio naturale,
-che generano risposte accurate e di alta qualità da un modello linguistico.
+*Projektowanie promptów* to proces tworzenia promptów, czyli zapytań w języku naturalnym, które służą do uzyskania dokładnych i wysokiej jakości odpowiedzi modelu językowego.
 
-Questa pagina introduce concetti, strategie e best practice di base per iniziare a progettare prompt per ottenere il massimo dai modelli di AI Gemini.
+Na tej stronie znajdziesz podstawowe koncepcje, strategie i sprawdzone metody, które pomogą Ci zacząć projektować prompty, aby w pełni wykorzystać możliwości modeli AI Gemini.
 
-## Guide per prompt specifiche per argomento
+## Przewodniki po promptach dotyczące konkretnych tematów
 
-Cerchi strategie di prompt più specifiche? Consulta le nostre altre guide ai prompt
-su:
+Szukasz bardziej szczegółowych strategii tworzenia promptów? Zapoznaj się z naszymi innymi przewodnikami po tworzeniu promptów, które dotyczą:
 
-- [Prompt con file multimediali](https://ai.google.dev/gemini-api/docs/files?hl=it#prompt-guide)
-- Prompt per la generazione di immagini con [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=it#imagen-prompt-guide) e [Gemini Native Image Generation](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#prompt-guide)
-- [Prompting per la generazione di video](https://ai.google.dev/gemini-api/docs/video?hl=it#prompt-guide)
+- [Promptowanie za pomocą plików multimedialnych](https://ai.google.dev/gemini-api/docs/files?hl=pl#prompt-guide)
+- Prompty do generowania obrazów za pomocą [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pl#imagen-prompt-guide) i [natywnego generowania obrazów w Gemini](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl#prompt-guide)
+- [Promptowanie w celu generowania filmów](https://ai.google.dev/gemini-api/docs/video?hl=pl#prompt-guide)
 
-Puoi trovare altri prompt di esempio nella [galleria dei prompt](https://ai.google.dev/gemini-api/prompts?hl=it), progettata per mostrare in modo interattivo molti dei concetti condivisi in questa guida.
+Więcej przykładowych promptów znajdziesz w [galerii promptów](https://ai.google.dev/gemini-api/prompts?hl=pl), która w interaktywny sposób prezentuje wiele koncepcji przedstawionych w tym przewodniku.
 
-## Istruzioni chiare e specifiche
+## jasne i konkretne instrukcje,
 
-Un modo efficace ed efficiente per personalizzare il comportamento del modello è fornirgli
-istruzioni chiare e specifiche. Le istruzioni possono essere sotto forma di domanda,
-di attività passo passo o complesse come la mappatura dell'esperienza e della mentalità di un utente.
+Skutecznym i wydajnym sposobem dostosowywania zachowania modelu jest przekazywanie mu jasnych i konkretnych instrukcji. Mogą one mieć formę pytania, zadań krok po kroku lub być tak złożone, jak opisanie doświadczeń i nastawienia użytkownika.
 
-### Input
+### Dane wejściowe
 
-L'input è il testo richiesto nel prompt a cui vuoi che il modello fornisca una
-risposta. Gli input possono essere una domanda a cui il modello
-risponde (input di domanda), un'attività che il modello esegue (input di attività), un'entità su cui il
-modello agisce (input di entità) o un input parziale che il modello completa o
-prosegue (input di completamento).
+Dane wejściowe to wymagany tekst w prompcie, na który model ma udzielić odpowiedzi. Dane wejściowe mogą być pytaniem, na które model odpowiada (dane wejściowe w postaci pytania), zadaniem, które model wykonuje (dane wejściowe w postaci zadania), podmiotem, na którym model działa (dane wejściowe w postaci podmiotu), lub częściowymi danymi wejściowymi, które model uzupełnia lub kontynuuje (dane wejściowe w postaci uzupełnienia).
 
-| **Tipo di input** | **Prompt** | **Output generato** |
+| **Typ danych** | **Prompt** | **Wygenerowane dane wyjściowe** |
 | --- | --- | --- |
-| Domanda | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
-| Attività | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
-| Entità | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
+| Pytanie | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
+| Zadanie | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
+| Jednostka | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
 
-#### Completamento parziale dell'input
+#### Częściowe uzupełnianie danych
 
-I modelli linguistici generativi funzionano come uno strumento avanzato di completamento automatico. Quando
-fornisci contenuti parziali, il modello può fornire il resto dei contenuti o ciò che
-ritiene sia la continuazione di questi contenuti come risposta. In questo modo, se
-includi esempi o contesto, il modello può tenerne conto.
+Generatywne modele językowe działają jak zaawansowane narzędzie do autouzupełniania. Gdy podasz część treści, model może dostarczyć resztę treści lub to, co uważa za jej kontynuację, w odpowiedzi. Jeśli podasz przykłady lub kontekst, model może je uwzględnić.
 
-L'esempio seguente fornisce un prompt con un'istruzione e un input di entità:
+Poniższy przykład zawiera prompt z instrukcją i danymi wejściowymi dotyczącymi jednostki:
 
 |  |
 | --- |
-| **Prompt:**    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Risposta:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
+| **Prompt:**    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Odpowiedź:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
 
-Anche se il modello ha eseguito le istruzioni, scriverle in linguaggio naturale
-a volte può essere difficile e lascia molto all'interpretazione del modello.
-Ad esempio, il menu di un ristorante potrebbe contenere molti articoli. Per ridurre le dimensioni
-della risposta JSON, probabilmente ti conviene omettere gli articoli che non sono stati ordinati. In
-questo caso, puoi fornire un esempio e un prefisso di risposta e lasciare che il modello
-lo completi:
+Model wykonał polecenie, ale zapisanie instrukcji w języku naturalnym może być czasami trudne i pozostawia wiele miejsca na interpretację przez model. Na przykład menu restauracji może zawierać wiele pozycji. Aby zmniejszyć rozmiar odpowiedzi JSON, prawdopodobnie chcesz pominąć pozycje, które nie zostały zamówione. W tym przypadku możesz podać przykład i prefiks odpowiedzi, a model sam go uzupełni:
 
 |  |
 | --- |
-| **Prompt:**    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Risposta:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
+| **Prompt:**    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Odpowiedź:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
 
-Nota come "cheeseburger" sia stato escluso dall'output perché non faceva parte
-dell'ordine.
+Zwróć uwagę, że „cheeseburger” został wykluczony z danych wyjściowych, ponieważ nie był częścią zamówienia.
 
-Sebbene tu possa specificare il formato di semplici oggetti di risposta JSON utilizzando i prompt, ti consigliamo di utilizzare la funzionalità di [output strutturato](https://ai.google.dev/gemini-api/docs/structured-output?hl=it) dell'API Gemini quando specifichi uno schema JSON più complesso per la risposta.
+Format prostych obiektów odpowiedzi JSON możesz określać za pomocą promptów, ale w przypadku bardziej złożonego schematu JSON odpowiedzi zalecamy używanie funkcji [danych wyjściowych o strukturze](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) interfejsu Gemini API.
 
-### Vincoli
+### Ograniczenia
 
-Specifica eventuali vincoli per la lettura del prompt o la generazione di una risposta. Puoi
-dire al modello cosa fare e cosa non fare. Ad esempio, puoi specificare un vincolo
-nel prompt sulla lunghezza del riepilogo:
+Określ wszelkie ograniczenia dotyczące odczytywania prompta lub generowania odpowiedzi. Możesz powiedzieć modelowi, co ma robić, a czego nie. Na przykład w prompcie możesz określić ograniczenie dotyczące długości podsumowania:
 
 |  |
 | --- |
-| **Prompt:**     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Risposta:**     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
+| **Prompt:**     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Odpowiedź:**     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
 
-### Formato della risposta
+### Format odpowiedzi
 
-Puoi fornire istruzioni che specificano il formato della risposta. Ad esempio,
-puoi chiedere che la risposta venga formattata come tabella, elenco puntato, elevator
-pitch, parole chiave, frase o paragrafo. La seguente istruzione di sistema indica
-al modello di utilizzare uno stile più conversazionale nella risposta:
+Możesz przekazać instrukcje określające format odpowiedzi. Możesz na przykład poprosić o sformatowanie odpowiedzi jako tabeli, listy punktowanej, krótkiej prezentacji, słów kluczowych, zdania lub akapitu. Poniższa instrukcja systemowa nakazuje modelowi udzielać bardziej konwersacyjnych odpowiedzi:
 
 |  |
 | --- |
-| **Istruzione di sistema**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **Prompt**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Risposta:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
+| **Instrukcja systemowa**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **Prompt**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Odpowiedź:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
 
-#### Formattare le risposte con la strategia di completamento
+#### Formatowanie odpowiedzi za pomocą strategii uzupełniania
 
-La [strategia di completamento](#completion) può anche contribuire a formattare la risposta.
-Il seguente esempio chiede al modello di creare una struttura del saggio:
-
-|  |
-| --- |
-| **Prompt:**    ``` Create an outline for an essay about hummingbirds. ```  **Risposta:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
-
-Il prompt non ha specificato il formato della struttura e il modello ne ha scelto uno per te. Per fare in modo che il modello restituisca una struttura in un formato specifico, puoi aggiungere
-un testo che rappresenti l'inizio della struttura e lasciare che il modello la completi in base
-al pattern che hai avviato.
+[Strategia uzupełniania](#completion) może też pomóc w sformatowaniu odpowiedzi.
+Poniższy przykład promptu zachęca model do utworzenia konspektu eseju:
 
 |  |
 | --- |
-| **Prompt:**    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Risposta:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
+| **Prompt:**    ``` Create an outline for an essay about hummingbirds. ```  **Odpowiedź:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
 
-## Prompt zero-shot e few-shot
-
-Puoi includere nel prompt esempi che mostrino al modello come dovrebbe essere una risposta corretta. Il modello tenta di identificare pattern e relazioni dagli esempi e li applica quando genera una risposta. I prompt che contengono alcuni esempi sono chiamati prompt *few-shot*, mentre i prompt che non forniscono esempi sono chiamati prompt *zero-shot*. I prompt few-shot vengono spesso utilizzati
-per regolare la formattazione, la formulazione, l'ambito o il pattern generale delle risposte del modello. Utilizza esempi specifici e vari per aiutare il modello a restringere il campo
-e generare risultati più accurati.
-
-Ti consigliamo di includere sempre esempi few-shot nei prompt. I prompt senza
-esempi few-shot hanno meno probabilità di essere efficaci. Infatti, puoi rimuovere le istruzioni dal prompt se gli esempi sono abbastanza chiari da mostrare l'attività da svolgere.
-
-Il seguente prompt zero-shot chiede al modello di scegliere la spiegazione migliore.
+Prompt nie określał formatu konspektu, więc model wybrał go za Ciebie. Aby model zwrócił konspekt w określonym formacie, możesz dodać tekst, który będzie stanowił początek konspektu, i pozwolić modelowi dokończyć go na podstawie zainicjowanego przez Ciebie wzorca.
 
 |  |
 | --- |
-| **Prompt:**    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Risposta:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
+| **Prompt:**    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Odpowiedź:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
 
-Se il tuo caso d'uso richiede che il modello produca risposte concise, puoi includere
-esempi nel prompt che danno la preferenza a risposte concise.
+## Prompty typu zero-shot a prompty typu few-shot
 
-Il seguente prompt fornisce due esempi che mostrano la preferenza per le spiegazioni più brevi. Nella risposta, puoi notare che gli esempi hanno guidato il modello a scegliere la spiegazione più breve (`Explanation2`) anziché quella più lunga (`Explanation1`), come aveva fatto in precedenza.
+W prompcie możesz podać przykłady, które pokażą modelowi, jak wygląda prawidłowa odpowiedź. Model próbuje identyfikować wzorce i relacje na podstawie przykładów i stosować je podczas generowania odpowiedzi. Prompty zawierające kilka przykładów to prompty *few-shot*, a prompty bez przykładów to prompty *zero-shot*. Prompty z kilkoma przykładami są często używane do regulowania formatowania, sformułowań, zakresu lub ogólnego wzorca odpowiedzi modelu. Korzystaj z konkretnych i zróżnicowanych przykładów, aby ukierunkować model i uzyskać dokładniejsze wyniki.
 
-|  |
-| --- |
-| **Prompt:**    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Risposta:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
+Zalecamy, aby w promptach zawsze uwzględniać przykłady few-shot. Prompty bez przykładów few-shot są zwykle mniej skuteczne. Jeśli przykłady wystarczająco jasno pokazują, jakie zadanie ma wykonać model, możesz usunąć instrukcje z promptu.
 
-### Numero ottimale di esempi
-
-Modelli come Gemini spesso riescono a individuare pattern utilizzando pochi esempi, anche se
-potresti dover sperimentare il numero di esempi da fornire nel prompt
-per ottenere i risultati migliori. Allo stesso tempo, se includi troppi esempi,
-il modello potrebbe iniziare a [fare overfitting](https://developers.google.com/machine-learning/glossary?hl=it#overfitting)
-della risposta agli esempi.
-
-### Formato coerente
-
-Assicurati che la struttura e la formattazione degli esempi few-shot siano le stesse per
-evitare risposte con formati indesiderati. Uno degli obiettivi principali dell'aggiunta
-di esempi few-shot nei prompt è mostrare al modello il formato della risposta. Pertanto,
-è essenziale garantire un formato coerente in tutti gli esempi, prestando particolare attenzione
-a tag XML, spazi vuoti, interruzioni di riga e separatori di esempi.
-
-## Aggiungi contesto
-
-Puoi includere istruzioni e informazioni in un prompt che il modello deve utilizzare per risolvere un problema, anziché presumere che il modello disponga di tutte le informazioni richieste. Queste informazioni contestuali aiutano il modello a comprendere i vincoli e i dettagli di ciò che gli stai chiedendo di fare.
-
-L'esempio seguente chiede al modello di fornire indicazioni per la risoluzione dei problemi di un router:
+Poniższy prompt bez przykładów prosi model o wybranie najlepszego wyjaśnienia.
 
 |  |
 | --- |
-| **Prompt:**    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Risposta:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+| **Prompt:**    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Odpowiedź:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
 
-La risposta sembra contenere informazioni generiche per la risoluzione dei problemi che non sono specifiche
-per il router o lo stato delle spie LED.
+Jeśli Twój przypadek użycia wymaga, aby model generował zwięzłe odpowiedzi, możesz uwzględnić w prompcie przykłady, które preferują zwięzłe odpowiedzi.
 
-Per personalizzare la risposta per il router specifico, puoi aggiungere alla richiesta la guida alla risoluzione dei problemi del router come contesto a cui fare riferimento quando fornisci una risposta.
+Poniższy prompt zawiera 2 przykłady, które wskazują na preferowanie krótszych wyjaśnień. W odpowiedzi widać, że przykłady pomogły modelowi wybrać krótsze wyjaśnienie (`Explanation2`) zamiast dłuższego (`Explanation1`), jak to miało miejsce wcześniej.
 
 |  |
 | --- |
-| **Prompt:**    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Risposta:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+| **Prompt:**    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Odpowiedź:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
 
-## Suddividere i prompt in componenti
+### Optymalna liczba przykładów
 
-Per i casi d'uso che richiedono prompt complessi, puoi aiutare il modello a gestire questa complessità
-suddividendo gli elementi in componenti più semplici.
+Modele takie jak Gemini często potrafią wykrywać wzorce na podstawie kilku przykładów, ale aby uzyskać najlepsze wyniki, może być konieczne eksperymentowanie z liczbą przykładów podawanych w prompcie. Jeśli jednak podasz zbyt wiele przykładów, model może zacząć [nadmiernie dopasowywać](https://developers.google.com/machine-learning/glossary?hl=pl#overfitting) odpowiedź do przykładów.
 
-1. **Suddividi le istruzioni**:invece di avere molte istruzioni in un unico prompt, crea un prompt per ogni istruzione. Puoi scegliere quale prompt elaborare in base all'input dell'utente.
-2. **Prompt concatenati**:per attività complesse che prevedono più passaggi sequenziali,
-   trasforma ogni passaggio in un prompt e concatenali in una sequenza. In questa
-   catena sequenziale di prompt, l'output di un prompt nella sequenza diventa
-   l'input del prompt successivo. L'output dell'ultimo prompt della sequenza
-   è l'output finale.
-3. **Aggregazione delle risposte**:l'aggregazione si verifica quando vuoi eseguire diverse attività parallele su diverse porzioni di dati e aggregare i risultati per produrre l'output finale. Ad esempio, puoi indicare al modello di eseguire un'operazione sulla prima parte dei dati, un'altra operazione sul resto dei dati e aggregare i risultati.
+### Spójny format
 
-## Sperimenta con i parametri del modello
+Upewnij się, że struktura i formatowanie przykładów z kilkoma próbkami są takie same, aby uniknąć odpowiedzi w niepożądanych formatach. Jednym z głównych celów dodawania przykładów w promptach jest pokazanie modelowi formatu odpowiedzi. Dlatego ważne jest, aby we wszystkich przykładach zachować spójny format, zwracając szczególną uwagę na tagi XML, spacje, znaki nowego wiersza i separatory przykładów.
 
-Ogni chiamata inviata a un modello include valori parametro che controllano il modo in cui il modello genera una risposta. Il modello può generare risultati diversi
-a seconda dei valori parametro. Sperimenta con diversi valori parametro per ottenere
-i valori migliori per l'attività. I parametri disponibili per
-i vari modelli possono variare. I parametri più comuni sono i seguenti:
+## Dodaj kontekst
 
-1. **Token di output massimi**:specifica il numero massimo di token che possono essere
-   generati nella risposta. Un token equivale a circa quattro caratteri. 100
-   token corrispondono a circa 60-80 parole.
-2. **Temperatura**:la temperatura controlla il grado di casualità nella selezione dei token. La temperatura viene utilizzata per il campionamento durante la generazione di risposte,
-   che si verifica quando vengono applicati `topP` e `topK`. Le temperature più basse sono ideali per prompt che richiedono risposte più deterministiche o meno aperte, mentre le temperature più alte possono portare a risultati più diversificati o creativi. Una
-   temperatura pari a 0 è deterministica, il che significa che viene sempre selezionata la risposta con la probabilità più alta.
-3. **`topK`:** il parametro `topK` modifica il modo in cui il modello seleziona i token per l'output. Un `topK` pari a 1 indica che il token selezionato è il più probabile tra tutti i token nel vocabolario del modello (chiamato anche decodifica greedy). Un `topK` pari a 3 indica invece che il token successivo viene selezionato tra i tre token più probabili (utilizzando la temperatura). Per ogni fase di selezione dei token, vengono campionati i
-   `topK` token con le probabilità più alte. I token vengono poi
-   ulteriormente filtrati in base a `topP` e il token finale viene selezionato utilizzando
-   il campionamento con temperatura.
-4. **`topP`:** il parametro `topP` modifica il modo in cui il modello seleziona i token per l'output. I token vengono selezionati dal più probabile al meno probabile finché la somma delle loro probabilità non corrisponde al valore di `topP`. Ad esempio, se i token A, B e C hanno una probabilità di 0,3, 0,2 e 0,1 e il valore di `topP` è 0,5, il modello seleziona A o B come token successivo utilizzando la temperatura ed esclude C come candidato. Il valore predefinito di `topP` è 0,95.
-5. **`stop_sequences`:** imposta una sequenza di interruzioni per
-   indicare al modello di interrompere la generazione di contenuti. Una sequenza di interruzioni può essere qualsiasi
-   sequenza di caratteri. Cerca di evitare di utilizzare una sequenza di caratteri che
-   potrebbe apparire nei contenuti generati.
+W prompcie możesz uwzględnić instrukcje i informacje, których model potrzebuje do rozwiązania problemu, zamiast zakładać, że ma on wszystkie wymagane dane. Te informacje kontekstowe pomagają modelowi zrozumieć ograniczenia i szczegóły tego, o co go prosisz.
 
-## Strategie di iterazione dei prompt
+W tym przykładzie model jest proszony o podanie wskazówek dotyczących rozwiązywania problemów z routerem:
 
-A volte, la progettazione dei prompt può richiedere alcune iterazioni prima di ottenere in modo coerente la risposta che stai cercando. Questa sezione fornisce indicazioni su alcune cose che puoi provare quando esegui l'iterazione dei prompt:
+|  |
+| --- |
+| **Prompt:**    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Odpowiedź:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
 
-1. **Utilizza una formulazione diversa**:l'utilizzo di parole o frasi diverse nei prompt
-   spesso produce risposte diverse dal modello, anche se significano la
-   stessa cosa. Se il prompt non produce i risultati che ti aspettavi, prova a riformularlo.
+Odpowiedź wygląda jak ogólne informacje dotyczące rozwiązywania problemów, które nie są specyficzne dla routera ani stanu diod LED.
+
+Aby dostosować odpowiedź do konkretnego routera, możesz dodać do prompta przewodnik rozwiązywania problemów z routerem jako kontekst, do którego model będzie się odwoływać podczas udzielania odpowiedzi.
+
+|  |
+| --- |
+| **Prompt:**    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Odpowiedź:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+
+## Dzielenie promptów na komponenty
+
+W przypadku zastosowań wymagających złożonych promptów możesz pomóc modelowi w zarządzaniu tą złożonością, dzieląc zadania na prostsze komponenty.
+
+1. **Podziel instrukcje:** zamiast umieszczać wiele instrukcji w jednym prompcie, utwórz po jednym prompcie dla każdej instrukcji. Na podstawie danych wejściowych użytkownika możesz wybrać prompt do przetworzenia.
+2. **Łącz prompty:** w przypadku złożonych zadań, które obejmują wiele kolejnych kroków, utwórz prompt dla każdego takiego etapu, a potem powiąż prompty w sekwencję. W tym sekwencyjnym łańcuchu promptów dane wyjściowe jednego promptu w sekwencji stają się danymi wejściowymi następnego promptu. Wynik ostatniego prompta w sekwencji
+   jest wynikiem końcowym.
+3. **Agregowanie odpowiedzi:** agregacja polega na wykonywaniu różnych zadań równoległych na różnych częściach danych i agregowaniu wyników w celu uzyskania ostatecznego wyniku. Możesz na przykład polecić modelowi wykonanie jednej operacji na pierwszej części danych, a innej operacji na pozostałych danych i zagregowanie wyników.
+
+## Eksperymentowanie z parametrami modelu
+
+Każde wywołanie wysłane do modelu zawiera wartości parametrów, które określają, jak model wygeneruje odpowiedź. Model może generować różne wyniki w zależności od wartości parametrów. Wypróbuj różne wartości parametrów, aby uzyskać najlepsze wyniki w tym zadaniu. W różnych modelach dostępne są różne parametry. Najczęstsze parametry to:
+
+1. **Maksymalna liczba tokenów wyjściowych**:określa maksymalną liczbę tokenów, które mogą zostać wygenerowane w odpowiedzi. Token ma około 4 znaków. 100 tokenów to około 60–80 słów.
+2. **Temperatura:** temperatura decyduje o stopniu losowości wyboru tokenów. Temperatura jest używana do próbkowania podczas generowania odpowiedzi, co ma miejsce, gdy stosowane są wartości `topP` i `topK`. Niższe temperatury są przydatne w przypadku promptów, na które oczekuje się bardziej deterministycznej lub mniej otwartej odpowiedzi, a wyższe mogą prowadzić do bardziej różnorodnych lub kreatywnych wyników. Temperatura o wartości 0 jest deterministyczna, co oznacza, że zawsze jest wybierana najbardziej prawdopodobna odpowiedź.
+3. **`topK`:** parametr `topK` zmienia sposób, w jaki model wybiera tokeny w celu wygenerowania odpowiedzi. Wartość 1 oznacza, że wybierany jest najbardziej prawdopodobny token spośród wszystkich tokenów w słowniku modelu (jest to też nazywane dekodowaniem zachłannym), natomiast wartość 3 oznacza, że następny token jest wybierany z użyciem temperatury spośród 3 najbardziej prawdopodobnych. Na każdym etapie wyboru tokena próbkowane są tokeny `topK` o najwyższym prawdopodobieństwie. Tokeny są następnie dodatkowo filtrowane na podstawie parametru `topP`, a ostateczny token jest wybierany za pomocą próbkowania temperatury.`topK``topK`
+4. **`topP`:** parametr `topP` zmienia sposób, w jaki model wybiera tokeny do wygenerowania. Tokeny są wybierane od najbardziej do najmniej prawdopodobnych, dopóki suma ich prawdopodobieństw nie osiągnie wartości `topP`. Jeśli na przykład tokeny A, B i C mają prawdopodobieństwa 0,3, 0,2 i 0,1, a wartość `topP` wynosi 0,5, jako kolejny token model wybierze A lub B (z użyciem temperatury), a token C zostanie wykluczony. Domyślna wartość `topP` to 0,95.
+5. **`stop_sequences`:** ustaw sekwencję zatrzymania, aby poinformować model, że ma przestać generować treści. Sekwencja zatrzymania może być dowolną sekwencją znaków. Staraj się unikać używania sekwencji znaków, które mogą pojawić się w wygenerowanych treściach.
+
+## Strategie iteracji promptów
+
+Projektowanie promptów może czasem wymagać kilku iteracji, zanim zaczniesz otrzymywać oczekiwane odpowiedzi. W tej sekcji znajdziesz wskazówki dotyczące tego, co możesz wypróbować podczas iteracji promptów:
+
+1. **Używaj różnych sformułowań:** używanie w promptach różnych słów lub sformułowań często daje różne odpowiedzi modelu, mimo że wszystkie oznaczają to samo. Jeśli prompt nie przynosi oczekiwanych rezultatów, spróbuj go przeformułować.
 
    |  |
    | --- |
    | ``` Version 1: How do I bake a pie?  Version 2: Suggest a recipe for a pie.  Version 3: What's a good pie recipe? ``` |
-2. **Passa a un'attività analoga:** se non riesci a far seguire al modello le tue
-   istruzioni per un'attività, prova a fornirgli istruzioni per un'attività analoga
-   che ottenga lo stesso risultato.
+2. **Przejdź do analogicznego zadania:** jeśli model nie wykonuje instrukcji dotyczących zadania, spróbuj podać instrukcje dotyczące analogicznego zadania, które daje ten sam wynik.
 
-   Questo prompt indica al modello di classificare un libro utilizzando categorie predefinite:
+   Ten prompt nakazuje modelowi sklasyfikowanie książki przy użyciu wstępnie zdefiniowanych kategorii:
 
    |  |
    | --- |
-   | **Prompt:**    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Risposta:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
+   | **Prompt:**    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Odpowiedź:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
 
-   La risposta è corretta, ma il modello non è rimasto entro i limiti delle opzioni. Inoltre, vuoi che il modello risponda solo con una delle opzioni
-   invece di una frase completa. In questo caso, puoi riformulare le istruzioni come una
-   domanda a scelta multipla e chiedere al modello di scegliere un'opzione.
+   Odpowiedź jest prawidłowa, ale model nie trzymał się podanych opcji. Chcesz też, aby model odpowiadał tylko jedną z opcji, a nie pełnym zdaniem. W takim przypadku możesz przeformułować instrukcje jako pytanie wielokrotnego wyboru i poprosić model o wybranie opcji.
 
    |  |
    | --- |
@@ -249,16 +189,14 @@ A volte, la progettazione dei prompt può richiedere alcune iterazioni prima di 
    - sci-fi
    - mythology
    - biography
-     **Risposta:**
+     **Odpowiedź:**
 
      ```
      The correct answer is mythology.
      ```
 
      (gemini-2.5-flash)
-   - **Modificare l'ordine dei contenuti del prompt:** l'ordine dei contenuti nel prompt
-     a volte può influire sulla risposta. Prova a modificare l'ordine dei contenuti e vedi
-     come influisce sulla risposta.
+   - **Zmień kolejność treści prompta:** kolejność treści w prompcie może czasami wpływać na odpowiedź. Spróbuj zmienić kolejność treści i sprawdź, jak wpłynie to na odpowiedź.
 
      ```
      Version 1:
@@ -277,57 +215,51 @@ A volte, la progettazione dei prompt può richiedere alcune iterazioni prima di 
      [context]
      ```
 
-## Risposte di riserva
+## Odpowiedzi zastępcze
 
-Una risposta di riserva è una risposta restituita dal modello quando il prompt o la risposta attiva un filtro di sicurezza. Un esempio di risposta di riserva è
-"Non posso aiutarti, perché sono solo un modello linguistico".
+Odpowiedź zastępcza to odpowiedź zwracana przez model, gdy prompt lub odpowiedź aktywują filtr bezpieczeństwa. Przykładowa odpowiedź to: „Nie mogę w tym pomóc, ponieważ jestem tylko modelem językowym”.
 
-Se il modello risponde con una risposta di riserva, prova ad aumentare la temperatura.
+Jeśli model odpowie odpowiedzią zastępczą, spróbuj zwiększyć temperaturę.
 
-## Grounding ed esecuzione del codice
+## Grounding i wykonywanie kodu
 
-Gemini è in grado di utilizzare strumenti per evitare le allucinazioni negli scenari in cui potrebbe
-altrimenti produrre risposte errate.
+Gemini może korzystać z narzędzi, aby unikać halucynacji w sytuacjach, w których mogłoby udzielić nieprawidłowych odpowiedzi.
 
-[Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) collega il modello Gemini ai contenuti web in tempo reale e deve essere attivato ogni volta che il modello potrebbe aver bisogno di conoscere fatti oscuri o recenti.
+[Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) łączy model Gemini z treściami z internetu w czasie rzeczywistym i powinno być włączone, gdy model może potrzebować wiedzy o mało znanych lub niedawnych faktach.
 
-Lo [strumento di esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) di Gemini consente al modello di generare ed eseguire codice Python e deve essere abilitato ogni volta che il modello deve eseguire qualsiasi tipo di operazione aritmetica, conteggio o calcolo.
+[Narzędzie do wykonywania kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) Gemini umożliwia modelowi generowanie i uruchamianie kodu w Pythonie. Należy je włączać, gdy model musi wykonać jakiekolwiek działania arytmetyczne, zliczyć coś lub przeprowadzić obliczenia.
 
-## Gemini 3
+## Gemini 3
 
-I [modelli Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-3) sono progettati per il ragionamento avanzato e il rispetto delle istruzioni. Rispondono meglio ai prompt diretti, ben strutturati e che definiscono chiaramente l'attività e qualsiasi vincolo. Per ottenere risultati ottimali con Gemini 3, ti consigliamo di seguire le seguenti pratiche:
+[Modele Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-3) zostały zaprojektowane pod kątem zaawansowanego rozumowania i postępowania zgodnie z instrukcjami.
+Najlepiej reagują na prompty, które są bezpośrednie, dobrze skonstruowane i jasno określają zadanie oraz wszelkie ograniczenia. Aby uzyskać optymalne wyniki w przypadku Gemini 3, zalecamy stosowanie tych metod:
 
-### Principi fondamentali del prompt
+### Podstawowe zasady dotyczące promptów
 
-- **Sii preciso e diretto**:indica il tuo obiettivo in modo chiaro e conciso. Evita
-  un linguaggio non necessario o eccessivamente persuasivo.
-- **Utilizza una struttura coerente**:utilizza delimitatori chiari per separare le diverse parti del prompt. I tag in stile XML (ad es. `<context>`, `<task>`) o
-  le intestazioni Markdown sono efficaci. Scegli un formato e utilizzalo in modo coerente
-  all'interno di un singolo prompt.
-- **Definisci i parametri:** spiega in modo esplicito eventuali termini o parametri ambigui.
-- **Controlla la verbosità dell'output:** per impostazione predefinita, i modelli Gemini 3 forniscono risposte dirette ed efficienti. Se hai bisogno di una risposta più colloquiale o dettagliata,
-  devi richiederla esplicitamente nelle istruzioni.
-- **Gestisci gli input multimodali in modo coerente**:quando utilizzi testo, immagini, audio o video, trattali come input di pari livello. Assicurati che le istruzioni facciano riferimento chiaramente a ogni modalità, se necessario.
-- **Dai la priorità alle istruzioni critiche:** inserisci i vincoli comportamentali essenziali, le definizioni dei ruoli (persona) e i requisiti del formato di output nelle istruzioni di sistema o all'inizio del prompt dell'utente.
-- **Struttura per contesti lunghi**:quando fornisci grandi quantità di contesto
-  (ad es. documenti, codice), fornisci prima tutto il contesto. Inserisci le tue istruzioni o domande specifiche alla *fine* del prompt.
-- **Contesto di ancoraggio**:dopo un blocco di dati di grandi dimensioni, utilizza una frase di transizione chiara per collegare il contesto e la query, ad esempio "In base alle informazioni riportate sopra..."
+- **Bądź precyzyjny i bezpośredni:** jasno i zwięźle określ swój cel. Unikaj niepotrzebnego lub zbyt perswazyjnego języka.
+- **Używaj spójnej struktury:** stosuj wyraźne ograniczniki, aby oddzielać różne części promptu. Skuteczne są tagi w stylu XML (np. `<context>`, `<task>`) lub nagłówki Markdown. Wybierz jeden format i używaj go konsekwentnie w ramach jednego prompta.
+- **Zdefiniuj parametry:** wyjaśnij wyraźnie wszelkie niejednoznaczne terminy lub parametry.
+- **Kontrolowanie szczegółowości danych wyjściowych:** domyślnie modele Gemini 3 udzielają bezpośrednich i zwięzłych odpowiedzi. Jeśli potrzebujesz bardziej konwersacyjnej lub szczegółowej odpowiedzi, musisz wyraźnie poprosić o to w instrukcjach.
+- **Spójne przetwarzanie danych wejściowych multimodalnych:** gdy używasz tekstu, obrazów, dźwięku lub filmu, traktuj je jako dane wejściowe tej samej klasy. Upewnij się, że instrukcje wyraźnie odwołują się do każdej modalności w razie potrzeby.
+- **Nadaj priorytet najważniejszym instrukcjom:** umieść najważniejsze ograniczenia behawioralne, definicje ról (osobowości) i wymagania dotyczące formatu wyjściowego w instrukcji systemowej lub na samym początku promptu użytkownika.
+- **Struktura długich kontekstów:** jeśli podajesz duże ilości kontekstu (np. dokumenty, kod), najpierw podaj cały kontekst. Umieść konkretne instrukcje lub pytania na samym *końcu* prompta.
+- **Kontekst kotwicy:** po dużym bloku danych użyj jasnego zwrotu przejściowego, aby połączyć kontekst z zapytaniem, np. „Na podstawie powyższych informacji…”.
 
-### Strategie di Gemini 3 Flash
+### Strategie Gemini 3 Flash
 
-- **Accuratezza del giorno corrente**:aggiungi la seguente clausola alle istruzioni di sistema per aiutare il modello a prestare attenzione al fatto che il giorno corrente è il 2026:
+- **Dokładność w bieżącym dniu:** dodaj do instrukcji systemowych tę klauzulę, aby model zwracał uwagę na to, że bieżący dzień przypada w 2026 r.:
 
   ```
   For time-sensitive user queries that require up-to-date information, you
   MUST follow the provided current time (date and year) when formulating
   search queries in tool calls. Remember it is 2026 this year.
   ```
-- **Accuratezza del knowledge cutoff**:aggiungi la seguente clausola alle istruzioni di sistema per rendere il modello consapevole del suo knowledge cutoff:
+- **Dokładność daty odcięcia wiedzy:** dodaj do instrukcji systemowych ten punkt, aby model wiedział, kiedy kończy się jego baza wiedzy:
 
   ```
   Your knowledge cutoff date is January 2025.
   ```
-- **Prestazioni di grounding**:aggiungi la seguente clausola alle istruzioni di sistema (con le modifiche appropriate) per migliorare la capacità del modello di basare le risposte sul contesto fornito:
+- **Poprawa jakości oparcia na faktach:** dodaj do instrukcji systemowych poniższą klauzulę (w razie potrzeby zmodyfikuj ją), aby poprawić zdolność modelu do oparcia odpowiedzi na faktach w podanym kontekście:
 
   ```
   You are a strictly grounded assistant limited to the information provided in
@@ -343,21 +275,17 @@ I [modelli Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-3
   the context, you must state that the information is not available.
   ```
 
-### Migliorare il ragionamento e la pianificazione
+### Ulepszone wnioskowanie i planowanie
 
-I modelli delle serie Gemini 2.5 e 3 generano automaticamente testo "pensato" interno
-per migliorare le prestazioni di ragionamento. Pertanto, in genere non è necessario includere
-la struttura, il piano o i passaggi di ragionamento dettagliati del modello nella risposta restituita. Per i problemi che richiedono un ragionamento complesso, richieste semplici come "Pensa
-molto attentamente prima di rispondere" possono migliorare le prestazioni, anche se a scapito di
-token di pensiero aggiuntivi.
+Modele z serii Gemini 2.5 i 3 automatycznie generują wewnętrzny tekst „myślenia”, aby poprawić wydajność rozumowania. Dlatego zwykle nie jest konieczne, aby model przedstawiał w odpowiedzi zarys, plan ani szczegółowe kroki rozumowania. W przypadku problemów wymagających intensywnego rozumowania proste prośby, takie jak „Zanim odpowiesz, dobrze się zastanów”, mogą poprawić wydajność, ale kosztem dodatkowych tokenów myślenia.
 
-Per ulteriori dettagli, consulta la documentazione su [Gemini Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+Więcej informacji znajdziesz w dokumentacji [Gemini thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
 
-### Esempi di prompt strutturati
+### Przykłady promptów strukturalnych
 
-L'utilizzo di tag o Markdown aiuta il modello a distinguere tra istruzioni, contesto e attività.
+Używanie tagów lub Markdownu pomaga modelowi odróżniać instrukcje, kontekst i zadania.
 
-**Esempio XML:**
+**Przykład w formacie XML:**
 
 ```
 <role>
@@ -378,7 +306,7 @@ You are a helpful assistant.
 </task>
 ```
 
-**Esempio di Markdown:**
+**Przykład formatowania Markdown:**
 
 ```
 # Identity
@@ -392,12 +320,11 @@ You are a senior solution architect.
 Return a single code block.
 ```
 
-### Esempio di modello che combina le best practice
+### Przykładowy szablon łączący sprawdzone metody
 
-Questo modello acquisisce i principi fondamentali per la creazione di prompt con Gemini 3. Assicurati sempre
-di eseguire iterazioni e modifiche per il tuo caso d'uso specifico.
+Ten szablon zawiera podstawowe zasady tworzenia promptów w Gemini 3. Zawsze pamiętaj, aby iteracyjnie modyfikować go pod kątem konkretnego przypadku użycia.
 
-**Istruzione di sistema:**
+**Instrukcja systemowa:**
 
 ```
 <role>
@@ -424,7 +351,7 @@ Structure your response as follows:
 </output_format>
 ```
 
-**Prompt dell'utente:**
+**Prompt użytkownika:**
 
 ```
 <context>
@@ -440,41 +367,41 @@ Remember to think step-by-step before answering.
 </final_instruction>
 ```
 
-## Workflow agentici
+## Przepływy pracy agenta
 
-Per i flussi di lavoro agentici profondi, spesso sono necessarie istruzioni specifiche per controllare il modo in cui il modello ragiona, pianifica ed esegue le attività. Sebbene Gemini offra prestazioni generali elevate, gli agenti complessi spesso richiedono di configurare il compromesso tra costo di calcolo (latenza e token) e precisione dell'attività.
+W przypadku złożonych przepływów pracy z udziałem agenta często wymagane są szczegółowe instrukcje, które określają, jak model ma rozumować, planować i wykonywać zadania. Gemini zapewnia wysoką ogólną skuteczność, ale w przypadku złożonych agentów często trzeba skonfigurować kompromis między kosztem obliczeniowym (opóźnieniem i tokenami) a dokładnością zadania.
 
-Quando progetti i prompt per gli agenti, considera le seguenti dimensioni del comportamento che puoi indirizzare nell'agente:
+Projektując prompty dla agentów, weź pod uwagę te aspekty zachowań, na które możesz wpływać:
 
-### Ragionamento e strategia
+### Rozumowanie i strategia
 
-Configurazione del modo in cui il modello pensa e pianifica prima di agire.
+Konfiguracja sposobu myślenia i planowania modelu przed podjęciem działania.
 
-- **Decomposizione logica**:definisce la profondità con cui il modello deve analizzare vincoli, prerequisiti e ordine delle operazioni.
-- **Diagnosi del problema**: controlla la profondità dell'analisi durante l'identificazione delle cause e l'utilizzo del ragionamento abduttivo da parte del modello. Determina se il modello deve accettare la risposta più ovvia o esplorare spiegazioni complesse e meno probabili.
-- **Completezza delle informazioni**:il compromesso tra l'analisi di ogni norma e documento disponibile e la priorità di efficienza e velocità.
+- **Rozkład logiczny:** określa, jak dokładnie model musi analizować ograniczenia, wymagania wstępne i kolejność operacji.
+- **Diagnozowanie problemów:** określa głębokość analizy podczas identyfikowania przyczyn i wykorzystanie przez model rozumowania abdukcyjnego. Określa, czy model ma akceptować najbardziej oczywistą odpowiedź, czy też badać złożone, mniej prawdopodobne wyjaśnienia.
+- **Wykorzystanie informacji:** kompromis między analizowaniem wszystkich dostępnych zasad i dokumentów a priorytetowym traktowaniem skuteczności i szybkości.
 
-### Esecuzione e affidabilità
+### Wykonanie i niezawodność
 
-Configurazione del funzionamento autonomo dell'agente e della gestione degli ostacoli.
+Konfiguracja sposobu, w jaki agent działa autonomicznie i radzi sobie z przeszkodami.
 
-- **Adattabilità**:il modo in cui il modello reagisce ai nuovi dati. Determina se deve rispettare rigorosamente il piano iniziale o cambiare immediatamente quando le osservazioni contraddicono le ipotesi.
-- **Persistenza e recupero**:il grado in cui il modello tenta di correggere automaticamente gli errori. Una persistenza elevata aumenta i tassi di successo, ma rischia di comportare costi o loop dei token più elevati.
-- **Valutazione del rischio**:la logica per valutare le conseguenze. Distingue esplicitamente tra azioni esplorative a basso rischio (letture) e modifiche dello stato ad alto rischio (scritture).
+- **Zdolność adaptacji:** sposób, w jaki model reaguje na nowe dane. Określa, czy powinien ściśle trzymać się początkowego planu, czy natychmiast zmienić strategię, gdy obserwacje są sprzeczne z założeniami.
+- **Wytrwałość i odzyskiwanie:** stopień, w jakim model próbuje samodzielnie korygować błędy. Wysoka trwałość zwiększa odsetek sukcesów, ale wiąże się z ryzykiem wyższych kosztów tokenów lub pętli.
+- **Ocena ryzyka:** logika oceny konsekwencji. Wyraźnie rozróżnia działania eksploracyjne o niskim ryzyku (odczyty) i zmiany stanu o wysokim ryzyku (zapisy).
 
-### Interazione e output
+### Interakcja i dane wyjściowe
 
-Configurazione della modalità di comunicazione dell'agente con l'utente e della formattazione dei risultati.
+Konfiguracja sposobu komunikacji agenta z użytkownikiem i formatowania wyników.
 
-- **Gestione dell'ambiguità e delle autorizzazioni**:definisce quando il modello è autorizzato a fare ipotesi rispetto a quando deve mettere in pausa l'esecuzione per chiedere all'utente chiarimenti o autorizzazioni.
-- **Livello di dettaglio**:controlla il volume di testo generato insieme alle chiamate di strumenti. Determina se il modello spiega le sue azioni all'utente o rimane in silenzio durante l'esecuzione.
-- **Precisione e completezza**:la fedeltà richiesta dell'output. Specifica se il modello deve risolvere ogni caso limite e fornire cifre esatte o se sono accettabili stime approssimative.
+- **Niejednoznaczność i obsługa uprawnień:** określa, kiedy model może przyjmować założenia, a kiedy musi wstrzymać działanie, aby poprosić użytkownika o wyjaśnienie lub pozwolenie.
+- **Wielosłowność:** określa ilość tekstu generowanego wraz z wywołaniami narzędzi. Decyduje o tym, czy model wyjaśnia użytkownikowi swoje działania, czy pozostaje cichy podczas wykonywania.
+- **Precyzja i kompletność:** wymagana dokładność danych wyjściowych. Określa, czy model musi rozwiązywać każdy przypadek brzegowy i podawać dokładne dane, czy też dopuszczalne są przybliżone szacunki.
 
-### Modello di istruzione di sistema
+### Szablon instrukcji systemowej
 
-La seguente istruzione di sistema è un esempio che è stato valutato dai ricercatori per migliorare le prestazioni nei benchmark agentici in cui il modello deve rispettare un insieme di regole complesso e interagire con un utente. Incoraggia l'agente ad agire come un forte ragionatore e pianificatore, impone comportamenti specifici nelle dimensioni elencate sopra e richiede al modello di pianificare in modo proattivo prima di intraprendere qualsiasi azione.
+Poniższa instrukcja systemowa to przykład, który został oceniony przez badaczy pod kątem poprawy wyników w testach porównawczych dotyczących agentów, w których model musi przestrzegać złożonych zasad i wchodzić w interakcje z użytkownikiem. Zachęca agenta do działania jako osoba, która potrafi dobrze uzasadniać i planować, wymusza określone zachowania w wymiarach wymienionych powyżej i wymaga od modelu aktywnego planowania przed podjęciem jakiegokolwiek działania.
 
-Puoi adattare questo modello per soddisfare i vincoli del tuo caso d'uso specifico.
+Możesz dostosować ten szablon do ograniczeń konkretnego przypadku użycia.
 
 ```
 You are a very strong reasoner and planner. Use these critical instructions to structure your plans, thoughts, and responses.
@@ -522,21 +449,19 @@ Before taking any action (either tool calls *or* responses to the user), you mus
 9) Inhibit your response: only take an action after all the above reasoning is completed. Once you've taken an action, you cannot take it back.
 ```
 
-## Passaggi successivi
+## Dalsze kroki
 
-- Ora che hai una conoscenza più approfondita della progettazione dei prompt, prova a scrivere i tuoi prompt utilizzando [Google AI Studio](http://aistudio.google.com?hl=it).
-- Per scoprire di più sui prompt multimodali, consulta la sezione
-  [Prompt con file multimediali](https://ai.google.dev/gemini-api/docs/files?hl=it#prompt-guide).
-- Per scoprire di più sul prompting di immagini, consulta le guide ai prompt di [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#prompt-guide)
-  e [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=it#imagen-prompt-guide).
-- Per scoprire di più sui prompt video, consulta la [guida ai prompt di Veo](https://ai.google.dev/gemini-api/docs/video?hl=it#prompt-guide).
+- Teraz, gdy masz już większą wiedzę o projektowaniu promptów, spróbuj napisać własne prompty w [Google AI Studio](http://aistudio.google.com?hl=pl).
+- Więcej informacji o tworzeniu promptów multimodalnych znajdziesz w artykule [Promptowanie za pomocą plików multimedialnych](https://ai.google.dev/gemini-api/docs/files?hl=pl#prompt-guide).
+- Więcej informacji o promptach do generowania obrazów znajdziesz w przewodnikach po promptach do [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl#prompt-guide) i [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pl#imagen-prompt-guide).
+- Więcej informacji o tworzeniu promptów wideo znajdziesz w [przewodniku po tworzeniu promptów Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl#prompt-guide).
 
-Invia feedback
+Prześlij opinię
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Ultimo aggiornamento 2026-06-10 UTC.
+Ostatnia aktualizacja: 2026-06-10 UTC.
 
-Vuoi dirci altro?
+Chcesz przekazać coś jeszcze?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-10 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-10 UTC."],[],[]]

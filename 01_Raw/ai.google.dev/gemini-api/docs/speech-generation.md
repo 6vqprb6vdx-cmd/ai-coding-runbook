@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr
-fetched_at: 2026-08-17T02:21:23.253941+00:00
-title: "Metin okuma \u00fcretimi (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko
+fetched_at: 2026-08-24T02:30:24.440440+00:00
+title: "\ud14d\uc2a4\ud2b8 \uc74c\uc131 \ubcc0\ud658 \uc0dd\uc131 (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Geri bildirim gönderin
+의견 보내기
 
-# Metin okuma üretimi (TTS)
+# 텍스트 음성 변환 생성 (TTS)
 
-Gemini API, Gemini metin okuma (TTS) oluşturma özelliklerini kullanarak metin girişini tek veya çok hoparlörlü sese dönüştürebilir.
-Metin okuma (TTS) üretimi *[kontrol edilebilir](#controllable)*. Bu sayede, etkileşimleri yapılandırmak ve sesin *stilini*, *aksanını*, *hızını* ve *tonunu* yönlendirmek için doğal dil kullanabilirsiniz.
+Gemini API는 Gemini 텍스트 음성 변환 (TTS) 생성 기능을 사용하여 텍스트 입력을 단일 화자 또는 다중 화자 오디오로 변환할 수 있습니다.
+텍스트 음성 변환 (TTS) 생성은 *[제어 가능](#controllable)*합니다. 즉, 자연어를 사용하여 상호작용을 구성하고 오디오의 *스타일*, *억양*, *속도*, *어조*를 안내할 수 있습니다.
 
-TTS özelliği, etkileşimli, yapılandırılmamış ses ve çok formatlı girişler ve çıkışlar için tasarlanan [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr) aracılığıyla sağlanan konuşma oluşturma özelliğinden farklıdır. Live API, dinamik sohbet bağlamlarında mükemmel performans gösterirken Gemini API aracılığıyla TTS, stil ve ses üzerinde ayrıntılı kontrolle metnin tam olarak okunmasını gerektiren senaryolar (ör. podcast veya sesli kitap oluşturma) için özel olarak tasarlanmıştır.
+TTS 기능은 대화형, 구조화되지 않은 오디오, 멀티모달 입력 및 출력을 위해 설계된 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 통해 제공되는 음성 생성과 다릅니다. Live API는 동적 대화 컨텍스트에 탁월하지만 Gemini API를 통한 TTS는 스타일과 사운드를 세부적으로 제어하여 정확한 텍스트 암송이 필요한 시나리오(예: 팟캐스트 또는 오디오북 생성)에 맞게 조정됩니다.
 
-Bu kılavuzda, metinden tek ve çok konuşmacılı seslerin nasıl oluşturulacağı gösterilmektedir.
+이 가이드에서는 텍스트에서 단일 화자 및 다중 화자 오디오를 생성하는 방법을 보여줍니다.
 
-## Başlamadan önce
+## 시작하기 전에
 
-[Desteklenen modeller](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr#supported-models) bölümünde belirtildiği gibi, Gemini metin okuma (TTS) özelliklerine sahip bir Gemini 2.5 model varyantı kullandığınızdan emin olun. En iyi sonuçları elde etmek için hangi modelin kullanım alanınıza en uygun olduğunu belirleyin.
+[지원되는 모델](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko#supported-models) 섹션에 나열된 대로 Gemini 텍스트 음성 변환 (TTS) 기능이 있는 Gemini 2.5 모델 변형을 사용해야 합니다. 최적의 결과를 얻으려면 특정 사용 사례에 가장 적합한 모델을 고려하세요.
 
-Geliştirmeye başlamadan önce [Gemini TTS modellerini AI Studio'da test etmeniz](https://aistudio.google.com/generate-speech?hl=tr) faydalı olabilir.
+빌드를 시작하기 전에 [AI Studio에서 Gemini TTS 모델을 테스트](https://aistudio.google.com/generate-speech?hl=ko)하는 것이 유용할 수 있습니다.
 
-## Tek konuşmacılı TTS
+## 단일 화자 TTS
 
-Metni tek konuşmacılı sese dönüştürmek için yanıt biçimini "ses" olarak ayarlayın ve ses adıyla birlikte bir `speech_config` nesnesi iletin.
-Önceden oluşturulmuş [çıkış sesleri](#voices) arasından bir ses adı seçmeniz gerekir.
+텍스트를 단일 화자 오디오로 변환하려면 응답 모달리티를 'audio'로 설정하고 음성 이름이 포함된 `speech_config` 객체를 전달합니다.
+사전 빌드된 [출력 음성](#voices)에서 음성 이름을 선택해야 합니다.
 
-Bu örnekte, modelden gelen çıkış sesi bir wave dosyasına kaydedilir:
+이 예시에서는 모델의 출력 오디오를 웨이브 파일에 저장합니다.
 
 ### Python
 
@@ -68,7 +68,7 @@ interaction = client.interactions.create(
 wave_file('out.wav', base64.b64decode(interaction.output_audio.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import {GoogleGenAI} from '@google/genai';
@@ -137,12 +137,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Oluşturulan son ses bloğunu döndüren `interaction.output_audio` özelliğini kullanarak oluşturulan ses verilerini alabilirsiniz. Kolaylık özellikleriyle ilgili ayrıntılar için [Etkileşimlere genel bakış](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr#convenience-properties) başlıklı makaleyi inceleyin.
+마지막으로 생성된 오디오 블록을 반환하는 `interaction.output_audio` 속성을 사용하여 생성된 오디오 데이터를 검색할 수 있습니다. 편의 속성에 관한 자세한 내용은 [상호작용 개요](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko#convenience-properties)를 참고하세요.
 
-## Birden fazla konuşmacı için TTS
+## 다중 화자 TTS
 
-Birden fazla konuşmacının yer aldığı ses için her konuşmacı (en fazla 2) `speaker_voice_config` olarak yapılandırılmış bir `multi_speaker_voice_config` nesnesi gerekir.
-Her `speaker` öğesini, [istemde](#controllable) kullanılan adlarla tanımlamanız gerekir:
+멀티 스피커 오디오의 경우 각 스피커 (최대 2개)가 `speaker_voice_config`로 구성된 `multi_speaker_voice_config` 객체가 필요합니다.
+[프롬프트](#controllable)에 사용된 것과 동일한 이름으로 각 `speaker`를 정의해야 합니다.
 
 ### Python
 
@@ -179,7 +179,7 @@ prompt = """TTS the following conversation between Joe and Jane:
 wave_file('out.wav', base64.b64decode(interaction.output_audio.data))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import {GoogleGenAI} from '@google/genai';
@@ -255,10 +255,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## İstemlerle konuşma stilini kontrol etme
+## 프롬프트로 음성 스타일 제어하기
 
-Hem tek hem de çok hoparlörlü TTS için doğal dil istemlerini kullanarak stil, ton, vurgu ve hızı kontrol edebilirsiniz.
-Örneğin, tek konuşmacılı bir istemde şunları söyleyebilirsiniz:
+단일 화자 및 다중 화자 TTS 모두에 자연어 프롬프트를 사용하여 스타일, 어조, 억양, 속도를 제어할 수 있습니다.
+예를 들어 단일 화자 프롬프트에서는 다음과 같이 말할 수 있습니다.
 
 ```
 Say in an spooky whisper:
@@ -266,7 +266,7 @@ Say in an spooky whisper:
 Something wicked this way comes"
 ```
 
-Birden fazla konuşmacının yer aldığı istemlerde, her konuşmacının adını ve ilgili transkripti modele sağlayın. Ayrıca her hoparlör için ayrı ayrı rehberlik de sağlayabilirsiniz:
+여러 화자가 있는 프롬프트에서는 각 화자의 이름과 해당 스크립트를 모델에 제공합니다. 각 스피커에 대해 개별적으로 안내를 제공할 수도 있습니다.
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -275,11 +275,11 @@ Speaker1: So... what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-Daha da vurgulamak için, iletmek istediğiniz stile veya duyguya karşılık gelen bir [ses seçeneği](#voices) kullanmayı deneyin. Örneğin, önceki istemde *Enceladus*'un fısıltılı sesi "yorgun" ve "sıkılmış" kelimelerini vurgulayabilirken *Puck*'ın neşeli tonu "heyecanlı" ve "mutlu" kelimelerini tamamlayabilir.
+전달하고 싶은 스타일이나 감정에 해당하는 [음성 옵션](#voices)을 사용하여 더욱 강조해 보세요. 예를 들어 이전 프롬프트에서 *엔셀라두스*의 숨소리는 '피곤함'과 '지루함'을 강조할 수 있고, *퍽*의 경쾌한 어조는 '신남'과 '행복함'을 보완할 수 있습니다.
 
-## Sese dönüştürmek için istem oluşturma
+## 오디오로 변환할 프롬프트 생성
 
-TTS modelleri yalnızca ses çıkışı verir ancak önce transkript oluşturmak için [diğer modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr) kullanabilir, ardından bu transkripti TTS modeline aktararak yüksek sesle okutabilirsiniz.
+TTS 모델은 오디오만 출력하지만 [다른 모델](https://ai.google.dev/gemini-api/docs/models?hl=ko)을 사용하여 먼저 스크립트를 생성한 다음 해당 스크립트를 TTS 모델에 전달하여 소리 내어 읽을 수 있습니다.
 
 ### Python
 
@@ -309,7 +309,7 @@ tts_interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -339,9 +339,9 @@ const ttsInteraction = await client.interactions.create({
 await main();
 ```
 
-## Gerçek zamanlı konuşma üretme
+## 음성 생성 스트리밍
 
-`stream: true` ayarını yaparak oluşturulan sesi, model tarafından oluşturulurken yayınlayabilirsiniz.
+`stream: true`를 설정하면 모델에서 생성된 오디오를 생성되는 대로 스트리밍할 수 있습니다.
 
 ### Python
 
@@ -370,7 +370,7 @@ for event in stream:
             # Process the audio chunk (e.g. play it or write to a file)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import {GoogleGenAI} from '@google/genai';
@@ -420,125 +420,125 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"    
   }'
 ```
 
-## Ses seçenekleri
+## 음성 옵션
 
-TTS modelleri, `voice_name` alanında aşağıdaki 30 ses seçeneğini destekler:
+TTS 모델은 `voice_name` 필드에서 다음 30가지 음성 옵션을 지원합니다.
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** -- *Parlak* | **Puck** -- *Upbeat* | **Charon** -- *Bilgilendirici* |
-| **Kore** -- *Firm* | **Fenrir** -- *Heyecanlı* | **Leda** -- *Genç* |
-| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe** -- *Sakin* |
-| **Autonoe** -- *Parlak* | **Enceladus** -- *Nefesli* | **Iapetus** -- *Temizle* |
-| **Umbriel** -- *Rahat* | **Algieba** -- *Sorunsuz* | **Despina** -- *Akıcı* |
-| **Erinome** -- *Temizle* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *Bilgilendirici* |
-| **Laomedeia** -- *Upbeat* | **Achernar** -- *Soft* | **Alnilam** -- *Firm* |
-| **Schedar** -- *Eşit* | **Gacrux** -- *Yetişkin* | **Pulcherrima** -- *Yönlendir* |
-| **Achird** -- *Dostu* | **Zubenelgenubi** -- *Basit* | **Vindemiatrix** -- *Nazik* |
-| **Sadachbia** -- *Canlı* | **Sadaltager** -- *Bilgili* | **Sulafat** -- *Warm* |
+| **Zephyr** -- *Bright* | **Puck** - *경쾌함* | **Charon** - *유용한 정보를 제공함* |
+| **Kore** - *Firm* | **Fenrir** - *Excitable* | **Leda** - *Youthful* |
+| **Orus** -- *Firm* | **Aoede** - *Breezy* | **Callirrhoe** - *느긋함* |
+| **Autonoe** -- *밝음* | **엔셀라두스** -- *숨소리* | **Iapetus** - *Clear* |
+| **Umbriel** - *느긋함* | **Algieba** -- *Smooth* | **Despina** - *Smooth* |
+| **Erinome** - *맑음* | **Algenib** - *자갈* | **Rasalgethi** - *유용한 정보를 전달함* |
+| **Laomedeia** - *경쾌함* | **Achernar** - *Soft* | **Alnilam** - *Firm* |
+| **Schedar** -- *Even* | **Gacrux** - *성인용* | **Pulcherrima** -- *앞으로* |
+| **Achird** - *친근함* | **Zubenelgenubi** - *캐주얼* | **Vindemiatrix** - *온화함* |
+| **Sadachbia** - *활기참* | **Sadaltager** -- *지식이 풍부함* | **Sulafat** - *따뜻함* |
 
-Tüm ses seçeneklerini [AI Studio](https://aistudio.google.com/generate-speech?hl=tr)'da dinleyebilirsiniz.
+[AI Studio](https://aistudio.google.com/generate-speech?hl=ko)에서 모든 음성 옵션을 들을 수 있습니다.
 
-## Desteklenen diller
+## 지원 언어
 
-TTS modelleri, giriş dilini otomatik olarak algılar. Desteklenen diller:
+TTS 모델은 입력 언어를 자동으로 감지합니다. 지원되는 언어는 다음과 같습니다.
 
-| Dil | BCP-47 Kodu | Dil | BCP-47 Kodu |
+| 언어 | BCP-47 코드 | 언어 | BCP-47 코드 |
 | --- | --- | --- | --- |
-| Arapça | ar | Filipince | fil |
-| Bengalce | bn | Fince | fi |
-| Felemenkçe | nl | Galiçyaca | gl |
-| İngilizce | en | Gürcüce | ka |
-| Fransızca | fr | Greek | el |
-| Almanca | de | Güceratça | gu |
-| Hintçe | hi | Haiti Creole Dili | ht |
-| Endonezce | id | İbranice | o |
-| İtalyanca | it | Macarca | hu |
-| Japonca | ja | İzlandaca | : |
-| Korece | ko | Cava dili | jv |
-| Marathi | mr | Kannada | kn |
-| Lehçe | pl | Konkani | kok |
-| Portekizce | pt | Laoca | lo |
-| Rumence | ro | Latince | la |
-| Rusça | ru | Letonca | lv |
-| İspanyolca | es | Litvanca | lt |
-| Tamilce | ta | Luxembourgish | lb |
-| Telugu dili | te | Makedonca | mk |
-| Tayca | th | Maithili dili | mai |
-| Türkçe | tr | Malgaşça | mg |
-| Ukraynaca | uk | Malayca | ms |
-| Vietnamca | vi | Malayalamca | ml |
-| Afrikaanca | af | Moğolca | mn |
-| Arnavutça | sq | Nepalce | ne |
-| Amharca | öö | Norveççe, Bokmål | nb |
-| Ermenice | hy | Norveççe, Nynorsk | nn |
-| Azerice | az | Oriya | veya |
-| Baskça | eu | Peştuca | ps |
-| Belarusça | be | Farsça | fa |
-| Bulgarca | bg | Pencapça | pa |
-| Burmaca | my | Sırpça | sr |
-| Katalanca | ca | Sindice | sd |
-| Sabuanca | ceb | Seylanca | si |
-| Çince, Mandarin | cmn | Slovakça | sk |
-| Hırvatça | s | Slovence | sl |
-| Çekya | cs | Swahili | sw |
-| Danca | da | İsveççe | sv |
-| Estonca | et | Urduca | UR |
+| 아랍어 | ar | 필리핀어 | fil |
+| 벵골어 | bn | 핀란드어 | fi |
+| 네덜란드어 | nl | 갈리시아어 | gl |
+| 영어 | en | 조지아어 | ka |
+| 프랑스어 | fr | 그리스어 | el |
+| 독일어 | de | 구자라트어 | gu |
+| 힌디어 | hi | 아이티 크리올어 | ht |
+| 인도네시아어 | id | 히브리어 | he |
+| 이탈리아어 | it | 헝가리어 | hu |
+| 일본어 | ja | 아이슬란드어 | is |
+| 한국어 | ko | 자바어 | jv |
+| 마라타어 | mr | 칸나다어 | kn |
+| 폴란드어 | pl | 콘칸어 | kok |
+| 포르투갈어 | pt | 라오어 | lo |
+| 루마니아어 | ro | 라틴 | la |
+| 러시아어 | ru | 라트비아어 | lv |
+| 스페인어 | es | 리투아니아어 | lt |
+| 타밀어 | ta | 룩셈부르크어 | lb |
+| 텔루구어 | te | 마케도니아어 | mk |
+| 태국어 | th | 마이틸리어 | mai |
+| 튀르키예어 | tr | 말라가시어 | mg |
+| 우크라이나어 | uk | 말레이어 | ms |
+| 베트남어 | vi | 말라얄람어 | ml |
+| 아프리칸스어 | af | 몽골어 | mn |
+| 알바니아어 | sq | 네팔어 | ne |
+| 암하라어 | am | 노르웨이어(보크말) | nb |
+| 아르메니아어 | hy | 노르웨이어(뉘노르스크) | nn |
+| 아제르바이잔어 | az | 오리야어 | 또는 |
+| 바스크어 | eu | 파슈토어 | ps |
+| 벨라루스어 | be | 페르시아어 | fa |
+| 불가리아어 | bg | 펀자브어 | pa |
+| 버마어 | my | 세르비아어 | sr |
+| 카탈로니아어 | ca | 신드어 | sd |
+| 세부아노어 | ceb | 싱할라어 | si |
+| 중국어, 북경어 | cmn | 슬로바키아어 | sk |
+| 크로아티아어 | 시간 | 슬로베니아어 | sl |
+| 체코어 | cs | 스와힐리어 | sw |
+| 덴마크어 | da | 스웨덴어 | sv |
+| 에스토니아어 | et | 우르두어 | ur |
 
-## Desteklenen modeller
+## 지원되는 모델
 
-| Model | Tek konuşmacı | Çok hoparlörlü |
+| 모델 | 단일 화자 | 다중 화자 |
 | --- | --- | --- |
-| [Gemini 3.1 Flash TTS Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=tr) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=tr) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro Önizleme TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=tr) | ✔️ | ✔️ |
+| [Gemini 3.1 Flash TTS 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ko) | ✔️ | ✔️ |
+| [Gemini 2.5 Flash 프리뷰 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=ko) | ✔️ | ✔️ |
+| [Gemini 2.5 Pro 프리뷰 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ko) | ✔️ | ✔️ |
 
-## İstem yazma kılavuzu
+## 프롬프트 가이드
 
-**Gemini tümleşik ses üretimi Text-to-Speech (TTS)** modeli, ***ne söyleyeceğini değil, nasıl söyleyeceğini de*** bilen bir büyük dil modeli kullanarak geleneksel TTS modellerinden ayrılır.
+**Gemini 네이티브 오디오 생성 TTS (텍스트 음성 변환)** 모델은 ***무엇을 말해야 하는지뿐만 아니라 어떻게 말해야 하는지도 아는*** 대규모 언어 모델을 사용하여 기존 TTS 모델과 차별화됩니다.
 
-Gelişmiş istemleri, modelin uyması gereken bir sistem talimatı olarak düşünebilirsiniz. Bu, modele daha fazla bağlam sunmanın ve performansı kontrol etmenin bir yoludur.
+고급 프롬프트는 모델이 따라야 하는 시스템 요청 사항이라고 생각하면 됩니다. 모델에 더 많은 컨텍스트를 제공하고 성능을 제어하는 방법입니다.
 
-Bu özelliği kullanmak için kullanıcılar kendilerini, sanal bir seslendirme sanatçısının performans sergileyeceği bir sahne hazırlayan yönetmenler olarak düşünebilir. İstem oluştururken aşağıdaki bileşenleri göz önünde bulundurmanızı öneririz: Karakterin temel kimliğini ve arketipini tanımlayan bir **Ses Profili**; fiziksel ortamı ve duygusal "havayı" belirleyen bir **Sahne Açıklaması**; stil, aksan ve tempo kontrolüyle ilgili daha hassas performans rehberliği sunan **Yönetmen Notları**.
+이 기능을 사용하려면 사용자가 가상 음성 연기자가 연기할 장면을 설정하는 감독이라고 생각하면 됩니다. 프롬프트를 작성하려면 캐릭터의 핵심 정체성과 원형을 정의하는 **오디오 프로필**, 물리적 환경과 감정적 '분위기'를 설정하는 **장면 설명**, 스타일, 억양, 속도 제어에 관한 더 정확한 연기 지침을 제공하는 **감독의 메모**를 고려하는 것이 좋습니다.
 
-Kullanıcılar, bölgesel aksan, belirli paralinguistik özellikler (ör. fısıltı) veya tempo gibi ayrıntılı talimatlar vererek modelin bağlam farkındalığından yararlanıp son derece dinamik, doğal ve etkileyici ses performansları oluşturabilir. En iyi performans için **Transkript** ve yönetmenlik istemlerinin uyumlu olması önerilir. *Böylece "kim söylüyor?"* sorusunun cevabı *"ne söyleniyor?"* ve *"nasıl söyleniyor?"* sorularının cevaplarıyla eşleşir.
+정확한 지역 억양, 구체적인 준언어적 특징 (예: 숨소리), 속도와 같은 미묘한 지침을 제공하면 사용자는 모델의 맥락 인식 기능을 활용하여 매우 역동적이고 자연스러우며 표현력이 풍부한 오디오 성능을 생성할 수 있습니다. 최적의 성능을 위해 **스크립트**와 연출 프롬프트가 일치하여 *'누가 말하는지'*가 *'무엇을 말하는지'* 및 *'어떻게 말하는지'*와 일치하는 것이 좋습니다.
 
-Bu kılavuzun amacı, Gemini TTS ses üretimi kullanılarak ses deneyimleri geliştirilirken temel yönlendirme sağlamak ve fikirler üretmektir. Üreteceğiniz içerikleri merakla bekliyoruz.
+이 가이드의 목적은 Gemini TTS 오디오 생성을 사용하여 오디오 환경을 개발할 때 기본적인 방향을 제시하고 아이디어를 제공하는 것입니다. 여러분이 만들 멋진 결과물을 기대하겠습니다.
 
-### Ses etiketleri
+### 오디오 태그
 
-Etiketler, yayını ayrıntılı bir şekilde kontrol etmenizi sağlayan `[whispers]` veya `[laughs]` gibi satır içi değiştiricilerdir. Bunları, transkriptin bir satırının veya bölümünün tonunu, hızını ve duygusal atmosferini değiştirmek için kullanabilirsiniz. Ayrıca bu sesleri kullanarak performansa ünlem ve birkaç başka sözel olmayan ses de ekleyebilirsiniz. Örneğin, `[cough]`, `[sighs]` veya `[gasp]`.
+태그는 `[whispers]` 또는 `[laughs]`과 같은 인라인 수정자로, 게재를 세부적으로 제어할 수 있습니다. 이러한 스타일을 사용하여 스크립트의 한 줄 또는 섹션의 어조, 속도, 감정적 분위기를 변경할 수 있습니다. `[cough]`, `[sighs]`, `[gasp]`와 같은 감탄사 및 기타 비언어적 소리를 공연에 추가하는 데 사용할 수도 있습니다.
 
-Hangi etiketlerin işe yaradığına ve yaramadığına dair kapsamlı bir liste yoktur. Çıkışın nasıl değiştiğini görmek için farklı duygular ve ifadelerle denemeler yapmanızı öneririz.
+작동하는 태그와 작동하지 않는 태그의 전체 목록은 없으므로 다양한 감정과 표현을 실험하여 출력이 어떻게 달라지는지 확인하는 것이 좋습니다.
 
-Transkriptiniz İngilizce değilse en iyi sonuçları elde etmek için yine de İngilizce ses etiketleri kullanmanızı öneririz.
+스크립트가 영어로 되어 있지 않은 경우 최상의 결과를 얻으려면 영어 오디오 태그를 사용하는 것이 좋습니다.
 
-**Ses etiketleriyle yaratıcı olun**
+**오디오 태그에 창의성 발휘하기**
 
-Ses etiketleriyle elde edebileceğiniz değişkenliği göstermek için, her biri aynı şeyi söyleyen ancak kullanılan etiketlere göre farklı şekilde sunulan bir dizi örnek aşağıda verilmiştir.
+오디오 태그로 얻을 수 있는 변동성을 보여주기 위해 각각 동일한 내용을 말하지만 사용된 태그에 따라 전달이 달라지는 일련의 예가 있습니다.
 
-Bir satırın başına etiket ekleyerek konuşmacının heyecanlı, sıkılmış veya isteksiz olmasını sağlayıp konuşmanın vurgusunu değiştirebilirsiniz:
+줄 시작 부분에 태그를 추가하여 화자가 신나거나, 지루하거나, 망설이는 것처럼 들리게 하여 전달의 강조를 변경할 수 있습니다.
 
-- `[excitedly]` Merhaba, ben yeni bir metin okuma modeliyim ve birçok farklı şekilde konuşabilirim. Bugün size nasıl yardımcı olabilirim?
-- `[bored]` Merhaba, ben yeni bir metin okuma modeliyim…
-- `[reluctantly]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[excitedly]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델로, 다양한 방식으로 말할 수 있습니다. 무엇을 도와드릴까요?
+- `[bored]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[reluctantly]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
 
-Etiketler, yayın hızını değiştirmek veya hızı vurguyla birleştirmek için de kullanılabilir:
+태그를 사용하여 전달 속도를 변경하거나 속도와 강조를 결합할 수도 있습니다.
 
-- `[very fast]` Merhaba, ben yeni bir metin okuma modeliyim…
-- `[very slow]` Merhaba, ben yeni bir metin okuma modeliyim…
-- `[sarcastically, one painfully slow word at a time]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[very fast]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[very slow]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[sarcastically, one painfully slow word at a time]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
 
-Ayrıca belirli bölümler üzerinde hassas kontrol sahibi olursunuz. Yani bir bölümü fısıldayabilir, başka bir bölümü bağırarak söyleyebilirsiniz.
+특정 섹션을 정확하게 제어할 수도 있으므로 한 부분은 속삭이고 다른 부분은 소리칠 수 있습니다.
 
-- `[whispers]` Merhaba, ben yeni bir metin okuma modeliyim `[shouting]` ve birçok farklı şekilde konuşabilirim. `[whispers]` Bugün size nasıl yardımcı olabilirim?
+- `[whispers]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델인 `[shouting]`입니다. 다양한 방식으로 말할 수 있습니다. `[whispers]` 무엇을 도와드릴까요?
 
-Dilediğiniz reklam öğesi fikrini de deneyebilirsiniz:
+원하는 창의적인 아이디어를 실험해 볼 수도 있습니다.
 
-- `[like a cartoon dog]` Merhaba, ben yeni bir metin okuma modeliyim…
-- `[like dracula]` Merhaba, ben yeni bir metin okuma modeliyim…
+- `[like a cartoon dog]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[like dracula]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
 
-En çok tercih edilen etiketler şunlardır:
+흔히 사용되는 태그는 다음과 같습니다.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -547,20 +547,20 @@ En çok tercih edilen etiketler şunlardır:
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-Etiketler, transkriptinizin yayınlanması üzerinde hızlı kontrol sağlar. Daha da fazla kontrol için bunları, performansın genel tonunu ve atmosferini belirlemek üzere bir bağlam istemiyle birleştirebilirsiniz.
+태그를 사용하면 스크립트의 전송을 빠르게 제어할 수 있습니다. 더욱 세밀하게 제어하려면 컨텍스트 프롬프트와 결합하여 공연의 전반적인 분위기와 느낌을 설정할 수 있습니다.
 
-### İstem yapısı
+### 프롬프트 구조
 
-Güçlü bir istem, ideal olarak mükemmel bir performans oluşturmak için bir araya gelen aşağıdaki öğeleri içerir:
+강력한 프롬프트에는 훌륭한 성능을 만들기 위해 함께 작동하는 다음 요소가 포함되어야 합니다.
 
-- **Ses Profili**: Ses için bir karakter oluşturur. Karakter kimliğini, arketipini ve yaş, geçmiş vb. diğer özellikleri tanımlar.
-- **Sahne**: Ortamı hazırlar. Hem fiziksel ortamı hem de "atmosferi" açıklar.
-- **Yönetmen Notları**: Sanal karakterinizin dikkate alması gereken talimatları ayrıntılı olarak inceleyebileceğiniz performans rehberliği. Örnek olarak stil, nefes, hız, telaffuz ve aksan verilebilir.
-- **Örnek bağlam**: Modele bağlamsal bir başlangıç noktası sağlar. Böylece sanal aktörünüz, oluşturduğunuz sahneye doğal bir şekilde girer.
-- **Transkript**: Modelin seslendireceği metin. En iyi performans için transkript konusunun ve yazım stilinin verdiğiniz talimatlarla ilişkili olması gerektiğini unutmayın.
-- **Ses etiketleri**: Metnin ilgili bölümünün nasıl okunacağını değiştirmek için transkripte ekleyebileceğiniz değiştiricilerdir (ör. `[whispers]` veya `[shouting]`).
+- **오디오 프로필** - 음성의 페르소나를 설정하여 캐릭터 정체성, 원형, 연령, 배경 등의 기타 특징을 정의합니다.
+- **장면** - 무대를 설정합니다. 물리적 환경과 '분위기'를 모두 설명합니다.
+- **감독의 메모** - 가상 인재가 참고해야 하는 중요한 지침을 분류할 수 있는 성능 가이드입니다. 예로는 스타일, 호흡, 페이싱, 조음, 강세가 있습니다.
+- **샘플 컨텍스트** - 모델에 컨텍스트 기반 시작점을 제공하므로 가상 배우자가 설정한 장면으로 자연스럽게 들어갑니다.
+- **스크립트** - 모델이 말할 텍스트입니다. 최상의 성능을 위해 스크립트 주제와 글쓰기 스타일이 제공하는 방향과 관련이 있어야 합니다.
+- **오디오 태그** - 텍스트의 해당 부분이 전달되는 방식을 변경하기 위해 스크립트에 넣을 수 있는 수정자입니다(예: `[whispers]` 또는 `[shouting]`).
 
-Tam istem örneği:
+전체 프롬프트 예시:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -598,18 +598,18 @@ there pretending to work... stop it. Seriously, I see you. Turn this up!
 We've got the project roadmap landing in three, two... let's go!
 ```
 
-### Ayrıntılı istem stratejileri
+### 자세한 프롬프트 작성 전략
 
-İstemdeki her bir öğeyi aşağıdaki gibi ayrıntılandırın:
+프롬프트의 각 요소를 다음과 같이 분류합니다.
 
-#### Ses Profili
+#### 오디오 프로필
 
-Karakterin kişiliğini kısaca açıklayın.
+캐릭터의 페르소나를 간략하게 설명해 줘.
 
-- **Ad.** Karakterinize ad vermek, modeli ve performansını bir araya getirmenize yardımcı olur. Sahneyi ve bağlamı ayarlarken karakterden adıyla bahsedin.
-- **Rol** Sahnedeki karakterin temel kimliği ve arketipi. Örneğin, radyo DJ'i, podcast yayıncısı, haber muhabiri vb.
+- **이름.** 캐릭터에 이름을 지정하면 모델과 긴밀한 연기를 함께 연결하는 데 도움이 됩니다. 장면과 맥락을 설정할 때 이름으로 캐릭터를 언급하세요.
+- **역할** 장면에 등장하는 캐릭터의 핵심 정체성과 원형입니다. 예를 들어 라디오 DJ, 팟캐스터, 뉴스 리포터 등이 있습니다.
 
-Örnekler:
+예:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -621,11 +621,11 @@ Karakterin kişiliğini kısaca açıklayın.
 ## "The Beauty Influencer"
 ```
 
-#### Sahne
+#### 장면
 
-Konum, ruh hali ve ortamla ilgili ayrıntılar da dahil olmak üzere sahnenin bağlamını belirleyin. Bu ayrıntılar, tonu ve atmosferi oluşturur. Karakterin etrafında neler olduğunu ve bunun karakteri nasıl etkilediğini açıklayın. Sahne, etkileşimin tamamı için çevresel bağlamı sağlar ve oyunculuk performansını ince ve doğal bir şekilde yönlendirir.
+톤과 분위기를 설정하는 위치, 분위기, 환경 세부정보 등 장면의 컨텍스트를 설정합니다. 캐릭터 주변에서 어떤 일이 일어나고 있으며 그 일이 캐릭터에게 어떤 영향을 미치는지 설명해 줘. 장면은 전체 상호작용의 환경 컨텍스트를 제공하고 연기 성능을 미묘하고 유기적인 방식으로 안내합니다.
 
-Örnekler:
+예:
 
 ```
 ## THE SCENE: The London Studio
@@ -644,15 +644,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### Yönetmen notları
+#### 디렉터 메모
 
-Bu önemli bölümde, performansla ilgili özel yönergeler yer alır. Diğer tüm öğeleri atlayabilirsiniz ancak bu öğeyi eklemenizi öneririz.
+이 중요한 섹션에는 구체적인 성능 안내가 포함되어 있습니다. 다른 요소는 모두 건너뛸 수 있지만 이 요소를 포함하는 것이 좋습니다.
 
-Yalnızca performans için önemli olanı tanımlayın ve aşırı belirtmemeye dikkat edin. Çok fazla katı kural, modellerin yaratıcılığını sınırlar ve daha kötü bir performansa yol açabilir. Rol ve sahne açıklamasını, belirli performans kurallarıyla dengeleyin.
+성능에 중요한 것만 정의하고 과도하게 지정하지 않도록 주의하세요. 엄격한 규칙이 너무 많으면 모델의 창의성이 제한되고 성능이 저하될 수 있습니다. 역할과 장면 설명의 균형을 특정 연기 규칙과 맞추세요.
 
-En yaygın talimatlar **Stil, Tempo ve Vurgu**'dur ancak model bunlarla sınırlı değildir ve bunları gerektirmez. Performansınız için önemli olan ek ayrıntıları kapsayacak özel talimatlar ekleyebilir ve gerektiği kadar ayrıntılı veya az bilgi verebilirsiniz.
+가장 일반적인 방향은 **스타일, 페이싱, 악센트**이지만 모델은 이에 국한되지 않으며 이러한 방향이 필요하지도 않습니다. 실적에 중요한 추가 세부정보를 포함하는 맞춤 안내를 자유롭게 포함하고 필요한 만큼 자세히 설명하세요.
 
-Örneğin:
+예를 들면 다음과 같습니다.
 
 ```
 ### DIRECTOR'S NOTES
@@ -665,13 +665,13 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**Stil:**
+**스타일:**
 
-Oluşturulan konuşmanın üslubunu ve stilini belirler. Performansa yön vermek için neşeli, enerjik, rahat, sıkılmış gibi ifadeler ekleyin. Açıklayıcı olun ve gerektiği kadar ayrıntı verin: *"Bulaşıcı bir coşku. Dinleyici, büyük ve heyecan verici bir topluluk etkinliğinin parçası olduğunu hissetmeli."* ifadesi, *"enerjik ve coşkulu"* ifadesinden daha iyi sonuç veriyor.
+생성된 음성의 어조와 스타일을 설정합니다. 공연을 안내하기 위해 신나는, 활기찬, 편안한, 지루한 등의 표현을 포함하세요. 자세히 설명하고 필요한 만큼 세부정보를 제공하세요. *'전염성 있는 열정. 청취자가 대규모의 흥미로운 커뮤니티 이벤트에 참여하고 있다는 느낌을 받아야 합니다.'*라는 표현이 *'활기차고 열정적'*이라는 표현보다 더 적합합니다.
 
-Hatta seslendirme sektöründe popüler olan "vokal gülümsemesi" gibi terimleri de deneyebilirsiniz. İstediğiniz sayıda stil özelliği ekleyebilirsiniz.
+'보컬 스마일'과 같이 성우 업계에서 인기 있는 용어를 사용해 볼 수도 있습니다. 원하는 만큼 스타일 특성을 레이어링할 수 있습니다.
 
-Örnekler:
+예:
 
 Simple Emotion
 
@@ -682,7 +682,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-Daha fazla derinlik
+더 깊은 내용
 
 ```
 DIRECTORS NOTES
@@ -691,7 +691,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-Karmaşık
+복잡
 
 ```
 DIRECTORS NOTES
@@ -702,12 +702,11 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**Aksan:**
+**억양:**
 
-Seçilen aksanı açıklayın. Ne kadar ayrıntılı olursanız sonuçlar o kadar iyi olur. Örneğin, "*British English accent as heard in Croydon,
-England*" (İngiltere, Croydon'da duyulan İngiliz İngilizcesi aksanı) yerine "*British Accent*" (İngiliz aksanı) ifadesini kullanın.
+선택한 악센트를 설명합니다. 구체적일수록 더 나은 결과를 얻을 수 있습니다. 예를 들어 '*영국 크로이던에서 들리는 영국 영어 억양*'을 '*영국 억양*' 대신 사용합니다.
 
-Örnekler:
+예:
 
 ```
 ### DIRECTORS NOTES
@@ -723,13 +722,13 @@ Accent: Jaz is a from Brixton, London
 ...
 ```
 
-**İlerleme hızı:**
+**예산 소진 속도:**
 
-Parça boyunca genel tempo ve tempo değişimi.
+전반적인 페이싱과 작품 전체의 페이스 변화
 
-Örnekler:
+예:
 
-Basit
+단순
 
 ```
 ### DIRECTORS NOTES
@@ -738,7 +737,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-Daha fazla derinlik
+더 깊이 있는 정보
 
 ```
 ### DIRECTORS NOTES
@@ -747,7 +746,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-Karmaşık
+복잡
 
 ```
 ### DIRECTORS NOTES
@@ -756,39 +755,39 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-**Deneyin**
+**사용해 보기**
 
-Bu örneklerden bazılarını [TTS uygulamasında](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=tr) kendiniz deneyin ve Gemini'ın sizi yönetmen koltuğuna oturtmasına izin verin. Harika vokal performansları için şu ipuçlarını aklınızda bulundurun:
+[TTS 앱](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=ko)에서 직접 이러한 예시를 사용해 보고 Gemini가 감독의 역할을 맡도록 해 보세요. 다음 팁을 참고하여 멋진 보컬 퍼포먼스를 만들어 보세요.
 
-- İsteminizin tamamının tutarlı olmasına dikkat edin. Senaryo ve yönlendirme, harika bir performans oluşturmak için birlikte çalışır.
-- Her şeyi açıklamanız gerekmez. Bazen modelin boşlukları doldurmasına izin vermek, doğal bir sonuç elde etmenize yardımcı olur. (Tıpkı yetenekli bir oyuncu gibi)
-- Takıldığınız noktalarda Gemini'dan yardım alarak senaryonuzu veya performansınızı şekillendirebilirsiniz.
+- 전체 프롬프트가 일관성을 유지해야 합니다. 스크립트와 연출은 훌륭한 공연을 만드는 데 함께 작용합니다.
+- 모든 것을 설명할 필요는 없습니다. 모델이 부족한 부분을 채울 수 있도록 공간을 두면 자연스러움을 유지하는 데 도움이 됩니다. (재능 있는 배우처럼)
+- 막히는 부분이 있다면 Gemini의 도움을 받아 스크립트나 공연을 만들어 보세요.
 
-## Sınırlamalar
+## 제한사항
 
-- TTS modelleri yalnızca metin girişleri alabilir ve ses çıkışları oluşturabilir.
-- TTS oturumunun [bağlam penceresi](https://ai.google.dev/gemini-api/docs/long-context?hl=tr) sınırı 32 bin parçadır.
-- Dil desteği için [Diller](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr#languages) bölümünü inceleyin.
-- TTS, `gemini-3.1-flash-tts-preview` kullanılırken hariç olmak üzere akışı desteklemez.
+- TTS 모델은 텍스트 입력만 수신하고 오디오 출력을 생성할 수 있습니다.
+- TTS 세션의 [컨텍스트 윈도우](https://ai.google.dev/gemini-api/docs/long-context?hl=ko) 한도는 32,000개의 토큰입니다.
+- 언어 지원은 [언어](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko#languages) 섹션을 참고하세요.
+- TTS는 `gemini-3.1-flash-tts-preview`를 사용하는 경우를 제외하고 스트리밍을 지원하지 않습니다.
 
-Konuşma üretimi için Gemini 3.1 Flash TTS Önizleme modeli kullanılırken özellikle aşağıdaki kısıtlamalar geçerlidir:
+음성 생성을 위해 Gemini 3.1 Flash TTS 프리뷰 모델을 사용할 때는 다음 제약 조건이 적용됩니다.
 
-- **İstem talimatlarıyla ses tutarsızlığı:** Modelin çıktısı her zaman seçilen konuşmacıyla tam olarak eşleşmeyebilir. Bu durumda ses, beklenenden farklı duyulur. Uyumsuz tonları (ör. genç bir kız gibi konuşmaya çalışan derin bir erkek sesi) önlemek için isteminizin yazılı tonunun ve bağlamının, seçilen konuşmacının profiliyle doğal olarak uyumlu olduğundan emin olun.
-- **Daha uzun çıktıların kalitesi:** Konuşma kalitesi ve tutarlılığı, birkaç dakikadan uzun olan oluşturulan çıktılarda değişmeye başlayabilir. Transkriptlerinizi daha küçük parçalara bölmenizi öneririz.
-- **Bazen metin belirteçleri döndürülüyor:** Model bazen ses belirteçleri yerine metin belirteçleri döndürerek sunucunun isteği `500` hatasıyla reddetmesine neden oluyor. Bu durum, isteklerin çok küçük bir yüzdesinde rastgele gerçekleştiğinden bunları işlemek için uygulamanızda otomatik yeniden deneme mantığı uygulamanız gerekir.
-- **İstem sınıflandırıcısının yanlış reddetmeleri:** Belirsiz istemler, konuşma sentezi sınıflandırıcısını tetikleyemeyebilir. Bu durumda istek reddedilir (`PROHIBITED_CONTENT`) veya model, stil talimatlarınızı ve yönetmen notlarınızı yüksek sesle okur. Modele konuşma sentezleme talimatı veren net bir giriş ekleyerek ve gerçek konuşulan transkriptin başladığı yeri açıkça etiketleyerek istemlerinizi doğrulayın.
+- **프롬프트 안내와 음성 불일치:** 모델의 출력이 선택한 화자와 항상 엄격하게 일치하지 않아 오디오가 예상과 다르게 들릴 수 있습니다. 톤이 일치하지 않는 경우 (예: 깊은 남성 목소리가 어린 소녀처럼 말하려고 하는 경우)를 방지하려면 프롬프트의 톤과 컨텍스트가 선택한 화자의 프로필과 자연스럽게 일치해야 합니다.
+- **긴 출력의 품질:** 몇 분보다 긴 생성된 출력의 경우 음성 품질과 일관성이 떨어질 수 있습니다. 스크립트를 더 작은 청크로 분할하는 것이 좋습니다.
+- **가끔 텍스트 토큰 반환:** 모델이 오디오 토큰 대신 텍스트 토큰을 반환하여 서버에서 `500` 오류와 함께 요청이 실패하는 경우가 있습니다. 이 오류는 매우 적은 비율의 요청에서 무작위로 발생하므로 애플리케이션에서 자동 재시도 로직을 구현하여 이를 처리해야 합니다.
+- **프롬프트 분류기 거짓 거부:** 모호한 프롬프트는 음성 합성 분류기를 트리거하지 못하여 요청이 거부(`PROHIBITED_CONTENT`)되거나 모델이 스타일 지침과 감독의 메모를 소리 내어 읽게 될 수 있습니다. 모델에 음성을 합성하도록 지시하는 명확한 서문을 추가하고 실제 음성 스크립트가 시작되는 위치를 명시적으로 라벨링하여 프롬프트를 검증합니다.
 
-## Sırada ne var?
+## 다음 단계
 
-- Gemini'ın [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'si, diğer yöntemlerle birlikte kullanabileceğiniz etkileşimli ses üretme seçenekleri sunar.
-- Ses *girişleriyle* çalışma hakkında bilgi edinmek için [Ses yorumlama](https://ai.google.dev/gemini-api/docs/audio?hl=tr) rehberini inceleyin.
+- Gemini의 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)는 다른 모달리티와 인터리브할 수 있는 대화형 오디오 생성 옵션을 제공합니다.
+- 오디오 *입력* 작업에 관한 내용은 [오디오 이해](https://ai.google.dev/gemini-api/docs/audio?hl=ko) 가이드를 참고하세요.
 
-Geri bildirim gönderin
+의견 보내기
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Son güncelleme tarihi: 2026-07-30 UTC.
+최종 업데이트: 2026-07-30(UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+의견을 전달하고 싶나요?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]

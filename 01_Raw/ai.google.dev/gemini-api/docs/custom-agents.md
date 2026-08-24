@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419
-fetched_at: 2026-08-17T02:23:03.067427+00:00
-title: "C\u00f3mo crear agentes administrados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=th
+fetched_at: 2026-08-24T02:22:26.973492+00:00
+title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07 Agent \u0e17\u0e35\u0e48\u0e21\u0e35\u0e01\u0e32\u0e23\u0e08\u0e31\u0e14\u0e01\u0e32\u0e23 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-# Cómo crear agentes administrados
+# การสร้าง Agent ที่มีการจัดการ
 
-Los agentes administrados en la API de Gemini te permiten extender el agente de Antigravity con tus propias instrucciones, habilidades y datos. Puedes [personalizar el agente intercalado](#customize-inline) en el momento de la interacción o [guardar la configuración](#save-agent) como un agente administrado que invocas por ID.
+Managed Agent ใน Gemini API ช่วยให้คุณขยาย Agent ของ Antigravity ด้วยวิธีการ ทักษะ และข้อมูลของคุณเอง คุณสามารถ [ปรับแต่ง Agent แบบอินไลน์](#customize-inline) ในระหว่างการโต้ตอบ หรือ [บันทึกการกำหนดค่า](#save-agent) เป็น Managed Agent ที่คุณเรียกใช้ด้วยรหัสก็ได้
 
-## Personaliza el agente de Antigravity
+## ปรับแต่ง Agent ของ Antigravity
 
-La forma más rápida de compilar un agente personalizado es pasar tu configuración en línea mientras creas una interacción nueva sin necesidad de un paso de registro. Puedes extender el agente de varias maneras clave:
+วิธีที่เร็วที่สุดในการสร้าง Agent ที่กำหนดเองคือการส่งการกำหนดค่าแบบอินไลน์ขณะสร้างการโต้ตอบใหม่โดยไม่ต้องลงทะเบียน คุณสามารถขยาย Agent ได้หลายวิธีหลักๆ ดังนี้
 
-- **[Selección de modelos](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419#model-selection)**: Elige el modelo subyacente de Gemini a través de `agent_config` (el valor predeterminado es **Gemini 3.6 Flash**).
-- **Instrucciones del sistema**: Pasa texto en línea a través de `system_instruction` para dar forma al comportamiento.
-- **Herramientas**: Anula las herramientas predeterminadas (ejecución de código, búsqueda, contexto de URL), registra servidores MCP remotos o define funciones personalizadas (llamada a funciones).
-- **Archivos y habilidades**: Monta archivos como `AGENTS.md` y `SKILL.md` en el entorno.
+- **[การเลือกโมเดล](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#model-selection)**: เลือกโมเดล Gemini ที่ใช้ผ่าน `agent_config` (ค่าเริ่มต้นคือ **Gemini 3.7 Flash**)
+- **วิธีการของระบบ**: ส่งข้อความแบบอินไลน์ผ่าน `system_instruction` เพื่อกำหนดลักษณะการทำงาน
+- **เครื่องมือ**: ลบล้างเครื่องมือเริ่มต้น (การรันโค้ด การค้นหา บริบท URL) ลงทะเบียนเซิร์ฟเวอร์ MCP ระยะไกล หรือกำหนดฟังก์ชันที่กำหนดเอง (การเรียกใช้ฟังก์ชัน)
+- **ไฟล์และทักษะ**: ติดตั้งไฟล์ เช่น `AGENTS.md` และ `SKILL.md` ลงในสภาพแวดล้อม
 
-Aquí tienes un ejemplo de cómo pasar los tres en línea:
+ตัวอย่างการส่งทั้ง 3 อย่างแบบอินไลน์มีดังนี้
 
 ### Python
 
@@ -121,22 +121,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Todo se define en el momento de la interacción. No es necesario registrar nada primero. El arnés del agente de Antigravity proporciona el entorno de ejecución (ejecución de código, administración de archivos, acceso web) y tus capas de configuración en la parte superior.
+ทุกอย่างจะกำหนดไว้ในระหว่างการโต้ตอบ โดยไม่จำเป็นต้องลงทะเบียนสิ่งใดก่อน ระบบควบคุมการทำงานของ Agent ของ Antigravity มีรันไทม์ (การเรียกใช้โค้ด การจัดการไฟล์ การเข้าถึงเว็บ) และเลเยอร์การกำหนดค่าของคุณอยู่ด้านบน
 
-### Herramientas e instrucciones del sistema
+### เครื่องมือและวิธีการของระบบ
 
-Puedes personalizar el comportamiento y las capacidades del agente para una interacción específica con los parámetros `system_instruction` y `tools`.
+คุณสามารถปรับแต่งลักษณะการทำงานและความสามารถของ Agent สำหรับการโต้ตอบที่เฉพาะเจาะจงได้โดยใช้พารามิเตอร์ `system_instruction` และ `tools`
 
-- **Instrucciones del sistema**: Usa el parámetro `system_instruction` para pasar texto en línea que dé forma al comportamiento del agente. Esto es ideal para los ajustes rápidos que deseas cambiar por llamada. `system_instruction` y `AGENTS.md` son aditivos; ambos se aplican cuando están presentes.
-- **Herramientas**: De forma predeterminada, el agente de Antigravity tiene acceso a `code_execution`, `google_search` y `url_context`. Puedes anular esta lista pasando el parámetro `tools` en el momento de la interacción. También puedes registrar [servidores MCP remotos](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419#mcp-servers) o definir [funciones personalizadas (llamada a funciones)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419#function-calling) para conectar el agente a tus propias APIs y bases de datos. Para obtener detalles completos sobre las herramientas disponibles, consulta [Agente Antigravity: Herramientas compatibles](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419#supported-tools).
+- **วิธีการของระบบ**: ใช้พารามิเตอร์ `system_instruction` เพื่อส่งข้อความแบบอินไลน์ที่กำหนดลักษณะการทำงานของ Agent วิธีนี้เหมาะอย่างยิ่งสำหรับการปรับเปลี่ยนเล็กน้อยที่คุณต้องการเปลี่ยนแปลงในแต่ละการเรียก `system_instruction` และ `AGENTS.md` เป็นแบบเพิ่มเติม โดยทั้ง 2 อย่างจะมีผลเมื่อมีอยู่
+- **เครื่องมือ**: โดยค่าเริ่มต้น Agent ของ Antigravity จะมีสิทธิ์เข้าถึง `code_execution`, `google_search` และ `url_context` คุณสามารถลบล้างรายการนี้ได้โดยส่งพารามิเตอร์ `tools` ในระหว่างการโต้ตอบ นอกจากนี้ คุณยังลงทะเบียน [เซิร์ฟเวอร์ MCP ระยะไกล](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#mcp-servers) หรือกำหนด [ฟังก์ชันที่กำหนดเอง (การเรียกใช้ฟังก์ชัน)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#function-calling) เพื่อเชื่อมต่อ Agent กับ API และฐานข้อมูลของคุณเองได้ด้วย ดูรายละเอียดทั้งหมดเกี่ยวกับเครื่องมือที่พร้อมใช้งานได้ที่ [Antigravity Agent: เครื่องมือที่รองรับ](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#supported-tools)
 
-### Personalización basada en archivos
+### การปรับแต่งตามไฟล์
 
-#### Estructura del directorio del agente
+#### โครงสร้างไดเรกทอรีของ Agent
 
-Si bien puedes pasar la configuración en línea, te recomendamos que organices los archivos de tu agente en un directorio estructurado. Esto facilita la administración, el control de versiones y el montaje en el entorno del agente.
+แม้ว่าคุณจะส่งการกำหนดค่าแบบอินไลน์ได้ แต่เราขอแนะนำให้จัดระเบียบไฟล์ของ Agent ในไดเรกทอรีที่มีโครงสร้าง ซึ่งจะช่วยให้จัดการ ควบคุมเวอร์ชัน และติดตั้งลงในสภาพแวดล้อมของ Agent ได้ง่ายขึ้น
 
-Un directorio típico de proyectos de agentes se ve de la siguiente manera:
+ไดเรกทอรีโปรเจ็กต์ของ Agent โดยทั่วไปจะมีลักษณะดังนี้
 
 ```
 my-agent/
@@ -147,13 +147,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-El tiempo de ejecución de Antigravity analiza `.agents/` (y la raíz del entorno) en busca de estos archivos.
+รันไทม์ของ Antigravity จะสแกนหาไฟล์เหล่านี้ใน `.agents/` (และรูทของสภาพแวดล้อม)
 
 #### AGENTS.md
 
-El agente carga automáticamente `.agents/AGENTS.md` (o `/.agents/AGENTS.md`) desde el entorno como instrucciones del sistema en el inicio. Usa `AGENTS.md` para definiciones de personajes de formato largo, instrucciones detalladas y las instrucciones que deseas controlar junto con tu código.
+Agent จะโหลด `.agents/AGENTS.md` (หรือ `/.agents/AGENTS.md`) จากสภาพแวดล้อมเป็นวิธีการของระบบโดยอัตโนมัติเมื่อเริ่มต้น ใช้ `AGENTS.md` สำหรับคำจำกัดความของบุคลิกภาพแบบยาว หลักเกณฑ์โดยละเอียด และวิธีการที่คุณต้องการควบคุมเวอร์ชันควบคู่ไปกับโค้ด
 
-Monta un `AGENTS.md` con una fuente en línea:
+ติดตั้ง `AGENTS.md` โดยใช้แหล่งข้อมูลแบบอินไลน์
 
 ### Python
 
@@ -230,9 +230,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Habilidades: SKILL.md
+#### ทักษะ: SKILL.md
 
-Las habilidades son archivos que extienden las capacidades del agente. Colócalos en `.agents/skills/<skill-name>/SKILL.md`, y el arnés los detectará y registrará automáticamente.
+ทักษะคือไฟล์ที่ขยายความสามารถของ Agent วางไฟล์ไว้ใน `.agents/skills/<skill-name>/SKILL.md` แล้วชุดเครื่องมือจะค้นพบและลงทะเบียนไฟล์เหล่านั้นโดยอัตโนมัติ
 
 ```
 .agents/
@@ -242,7 +242,7 @@ Las habilidades son archivos que extienden las capacidades del agente. Colócalo
         └── SKILL.md
 ```
 
-Monta una habilidad con una fuente en línea:
+ติดตั้งทักษะโดยใช้แหล่งข้อมูลแบบอินไลน์
 
 ### Python
 
@@ -319,17 +319,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Las habilidades cargadas desde `.agents/skills/` y `/.agents/skills/` se detectan automáticamente.
+ระบบจะค้นพบทักษะที่โหลดจาก `.agents/skills/` และ `/.agents/skills/` โดยอัตโนมัติ
 
-## Crea un agente administrado
+## สร้าง Managed Agent
 
-Una vez que hayas iterado en tu configuración, puedes crearla como un agente administrado con `agents.create`. Esto te permite invocar el agente por ID sin repetir la configuración cada vez.
+เมื่อทำซ้ำการกำหนดค่าแล้ว คุณสามารถสร้างการกำหนดค่าเป็น Managed Agent ได้ด้วย `agents.create` ซึ่งจะช่วยให้คุณเรียกใช้ Agent ด้วยรหัสได้โดยไม่ต้องทำซ้ำการกำหนดค่าทุกครั้ง
 
-El `id` que especifiques cuando crees un agente administrado debe ser único para tu proyecto y no debe comenzar con prefijos reservados (p.ej., `google-`, `gemini-`). Consulta [Restricciones de ID de agente](#agent-id-restrictions) para obtener la lista completa de prefijos restringidos.
+`id` ที่คุณระบุเมื่อสร้าง Managed Agent ต้องไม่ซ้ำกันในโปรเจ็กต์และต้องไม่ขึ้นต้นด้วยคำนำหน้าที่สงวนไว้ (เช่น `google-`, `gemini-`) ดูรายการคำนำหน้าที่จำกัดทั้งหมดได้ที่ [ข้อจำกัดรหัส Agent](#agent-id-restrictions)
 
-### Desde fuentes
+### จากแหล่งข้อมูล
 
-Especifica `base_agent`, `id`, `agent_config`, `system_instruction` y `base_environment` con fuentes. La plataforma aprovisiona un sandbox nuevo con tus archivos en cada invocación. Consulta [Entornos](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419) para conocer los tipos de fuentes disponibles (Git, GCS, en línea).
+ระบุ `base_agent`, `id`, `agent_config`, `system_instruction` และ `base_environment` พร้อมแหล่งข้อมูล แพลตฟอร์มจะจัดเตรียมแซนด์บ็อกซ์ใหม่ที่มีไฟล์ของคุณทุกครั้งที่เรียกใช้ ดูประเภทแหล่งข้อมูลที่พร้อมใช้งาน (Git, GCS, อินไลน์) ได้ที่ [สภาพแวดล้อม](https://ai.google.dev/gemini-api/docs/agent-environment?hl=th)
 
 ### Python
 
@@ -343,7 +343,7 @@ agent = client.agents.create(
     base_agent="antigravity-preview-05-2026",
     agent_config={
         "type": "antigravity",
-        "model": "gemini-3.6-flash",
+        "model": "gemini-3.7-flash",
     },
     system_instruction="You are a data analyst. Always include visualizations and export results as PDF.",
     base_environment={
@@ -383,7 +383,7 @@ const agent = await client.agents.create({
     base_agent: "antigravity-preview-05-2026",
     agent_config: {
         type: "antigravity",
-        model: "gemini-3.6-flash",
+        model: "gemini-3.7-flash",
     },
     system_instruction: "You are a data analyst. Always include visualizations and export results as PDF.",
     base_environment: {
@@ -422,7 +422,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
     "base_agent": "antigravity-preview-05-2026",
     "agent_config": {
         "type": "antigravity",
-        "model": "gemini-3.6-flash"
+        "model": "gemini-3.7-flash"
     },
     "system_instruction": "You are a data analyst. Always include visualizations and export results as PDF.",
     "base_environment": {
@@ -448,9 +448,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### Desde un entorno existente (bifurcación)
+### จากสภาพแวดล้อมที่มีอยู่ (fork)
 
-Itera con el agente de Antigravity base hasta que el entorno sea el adecuado (paquetes instalados, archivos en su lugar) y, luego, bifurcarlo en un agente administrado.
+ทำซ้ำด้วย Agent ของ Antigravity พื้นฐานจนกว่าสภาพแวดล้อมจะเหมาะสม (ติดตั้งแพ็กเกจแล้ว วางไฟล์เรียบร้อย) จากนั้น fork สภาพแวดล้อมเป็น Managed Agent
 
 ### Python
 
@@ -514,11 +514,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Con reglas de red
+### พร้อมกฎเครือข่าย
 
-Puedes bloquear el acceso saliente o insertar credenciales cuando guardas un agente administrado. Para obtener el esquema completo de la lista de entidades permitidas, los patrones de credenciales y los comodines, consulta [Entornos: Configuración de red](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#network-configuration).
+คุณสามารถล็อกการเข้าถึงขาออกหรือแทรกข้อมูลเข้าสู่ระบบเมื่อบันทึก Managed Agent ดูสคีมารายการที่อนุญาต รูปแบบข้อมูลเข้าสู่ระบบ และสัญลักษณ์แทนทั้งหมดได้ที่ [สภาพแวดล้อม: การกำหนดค่าเครือข่าย](https://ai.google.dev/gemini-api/docs/agent-environment?hl=th#network-configuration)
 
-En el siguiente ejemplo, se crea un agente `issue-resolver` que solo puede acceder a GitHub y PyPI, con credenciales insertadas para GitHub:
+ตัวอย่างต่อไปนี้จะสร้าง Agent `issue-resolver` ที่เข้าถึงได้เฉพาะ GitHub และ PyPI โดยมีการแทรกข้อมูลเข้าสู่ระบบสำหรับ GitHub
 
 ### Python
 
@@ -628,9 +628,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## Invoca al agente
+## เรียกใช้ Agent
 
-Llama a tu agente administrado con su ID creando una interacción nueva. Cada invocación bifurca el entorno base, por lo que cada ejecución comienza de forma limpia.
+เรียกใช้ Managed Agent ด้วยรหัส Agent โดยสร้างการโต้ตอบใหม่ การเรียกใช้แต่ละครั้งจะ fork สภาพแวดล้อมพื้นฐาน ดังนั้นการเรียกใช้ทุกครั้งจะเริ่มต้นใหม่
 
 ### Python
 
@@ -669,15 +669,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Para obtener información sobre las conversaciones y la transmisión de varios turnos, consulta la [guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419). Los mismos patrones `previous_interaction_id` y `environment` se aplican a los agentes administrados.
+ดูการสนทนาไปมาและการสตรีมได้ที่[คู่มือเริ่มใช้งานฉบับย่อ](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=th) รูปแบบ `previous_interaction_id` และ `environment` เดียวกันนี้ใช้ได้กับ Managed Agent
 
-Los agentes administrados también admiten la ejecución y la cancelación en segundo plano. Para obtener detalles y ejemplos de código, consulta [Agente Antigravity: Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419#background-execution).
+นอกจากนี้ Managed Agent ยังรองรับการรันเบื้องหลังและการยกเลิก ดูรายละเอียดและตัวอย่างโค้ดได้ที่ [Antigravity Agent: การรันเบื้องหลัง](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#background-execution)
 
-## Anula la configuración en la invocación
+## การลบล้างการกำหนดค่าเมื่อเรียกใช้
 
-Puedes anular la configuración de red `system_instruction`, `tools` y `environment` predeterminada del agente cuando creas una interacción. Esto te permite modificar el comportamiento, las capacidades o las credenciales del agente para una ejecución específica sin cambiar la definición del agente almacenada.
+คุณสามารถลบล้างการกำหนดค่าเครือข่าย `system_instruction`, `tools` และ `environment` เริ่มต้นของ Agent ได้เมื่อสร้างการโต้ตอบ ซึ่งจะช่วยให้คุณแก้ไขลักษณะการทำงาน ความสามารถ หรือข้อมูลเข้าสู่ระบบของ Agent สำหรับการรันที่เฉพาะเจาะจงได้โดยไม่ต้องเปลี่ยนคำจำกัดความของ Agent ที่จัดเก็บไว้
 
-### Anula las instrucciones del sistema y las herramientas
+### ลบล้างวิธีการของระบบและเครื่องมือ
 
 ### Python
 
@@ -721,9 +721,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Anula la configuración de red (actualiza las credenciales)
+### ลบล้างการกำหนดค่าเครือข่าย (รีเฟรชข้อมูลเข้าสู่ระบบ)
 
-Si tu agente administrado tiene credenciales de red integradas en su `base_environment`, puedes anularlas en el momento de la invocación para actualizar los tokens vencidos o rotar las claves de API. Pasa un objeto `environment` con una nueva configuración `network`. Las nuevas reglas de red reemplazan por completo las anteriores para esa interacción. Se conservan las fuentes del entorno base (archivos, repositorios).
+หาก Managed Agent มีข้อมูลเข้าสู่ระบบเครือข่ายฝังอยู่ใน `base_environment` คุณสามารถลบล้างข้อมูลดังกล่าวเมื่อเรียกใช้เพื่อรีเฟรชโทเค็นที่หมดอายุหรือหมุนเวียนคีย์ API ส่งออบเจ็กต์ `environment` ที่มีการกำหนดค่า `network` ใหม่ กฎเครือข่ายใหม่จะแทนที่กฎก่อนหน้าทั้งหมดสำหรับการโต้ตอบนั้น แหล่งข้อมูล (ไฟล์ ที่เก็บ) ของสภาพแวดล้อมพื้นฐานจะยังคงอยู่
 
 ### Python
 
@@ -803,11 +803,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Administra los agentes
+## จัดการ Agent
 
-Puedes enumerar, obtener y borrar agentes.
+คุณสามารถแสดงรายการ รับ และลบ Agent ได้
 
-### Mostrar lista de agentes
+### แสดงรายการ Agent
 
 ### Python
 
@@ -835,7 +835,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Obtén un agente
+### รับ Agent
 
 ### Python
 
@@ -858,9 +858,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Borra un agente
+### ลบ Agent
 
-Si borras la configuración, se quita. Los entornos y las interacciones existentes creados por el agente no se ven afectados.
+การลบจะนำการกำหนดค่าออก สภาพแวดล้อมและการโต้ตอบที่มีอยู่ซึ่งสร้างโดย Agent จะไม่ได้รับผลกระทบ
 
 ### Python
 
@@ -881,24 +881,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Referencia de la definición del agente
+## ข้อมูลอ้างอิงคำจำกัดความของ Agent
 
-| Campo | Tipo | Obligatorio | Descripción |
+| ช่อง | ประเภท | ต้องระบุ | คำอธิบาย |
 | --- | --- | --- | --- |
-| `id` | string | Sí | Identificador único del agente dentro del proyecto de Google Cloud. Se usa para invocar al agente. No debe usar prefijos reservados. Consulta [Restricciones de ID de agente](#agent-id-restrictions). |
-| `description` | string | No | Descripción del agente legible por humanos. |
-| `base_agent` | string | Sí | ID del agente base (p.ej., `antigravity-preview-05-2026`). |
-| `agent_config` | objeto | No | Configuración del agente base, incluida la selección de modelos (`{"type": "antigravity", "model": "gemini-3.6-flash"}`). Si se omite, el valor predeterminado es `gemini-3.6-flash`. No se puede anular en el momento de la interacción para los agentes con nombre. |
-| `system_instruction` | string | No | Indicación del sistema que define el comportamiento y el personaje. |
-| `tools` | array | No | Herramientas que el agente puede usar. Si se omite, el valor predeterminado es `code_execution`, `google_search` y `url_context`. Las herramientas compatibles incluyen `code_execution`, `google_search`, `url_context`, `mcp_server` y definiciones `function` personalizadas. |
-| `base_environment` | string u objeto | No | `"remote"`, un `environment_id` o un objeto de configuración con `sources` y `network`. Consulta Entornos. |
+| `id` | สตริง | ใช่ | ตัวระบุที่ไม่ซ้ำกันของ Agent ภายในโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google ใช้เพื่อเรียกใช้ Agent ต้องไม่ใช้คำนำหน้าที่สงวนไว้ ดูข้อจำกัดรหัส [Agent](#agent-id-restrictions) |
+| `description` | สตริง | ไม่ | คำอธิบาย Agent ที่มนุษย์อ่านได้ |
+| `base_agent` | สตริง | ใช่ | รหัส Agent พื้นฐาน (เช่น `antigravity-preview-05-2026`) |
+| `agent_config` | ออบเจ็กต์ | ไม่ | การกำหนดค่าสำหรับ Agent พื้นฐาน รวมถึงการเลือกโมเดล (`{"type": "antigravity", "model": "gemini-3.7-flash"}`) ค่าเริ่มต้นคือ `gemini-3.7-flash` หากละไว้ ไม่สามารถลบล้างได้ในระหว่างการโต้ตอบสำหรับ Agent ที่มีชื่อ |
+| `system_instruction` | สตริง | ไม่ | พรอมต์ของระบบที่กำหนดลักษณะการทำงานและบุคลิกภาพ |
+| `tools` | อาร์เรย์ | ไม่ | เครื่องมือที่ Agent ใช้ได้ หากละไว้ ค่าเริ่มต้นคือ `code_execution`, `google_search` และ `url_context` เครื่องมือที่รองรับ ได้แก่ `code_execution`, `google_search`, `url_context`, `mcp_server` และคำจำกัดความ `function` ที่กำหนดเอง |
+| `base_environment` | สตริงหรือออบเจ็กต์ | ไม่ | `"remote"`, `environment_id` หรือออบเจ็กต์การกำหนดค่าที่มี `sources` และ `network` ดูสภาพแวดล้อม |
 
-### Restricciones de ID de agente
+### ข้อจำกัดรหัส Agent
 
-Cuando creas un agente administrado, el `id` que especificas debe seguir estas reglas:
+เมื่อสร้าง Managed Agent `id` ที่คุณระบุต้องเป็นไปตามกฎต่อไปนี้
 
-- Debe ser único para tu proyecto de Google Cloud.
-- **No** debe comenzar con ninguno de los siguientes prefijos reservados (sin distinción entre mayúsculas y minúsculas); de lo contrario, la creación fallará:
+- ต้องไม่ซ้ำกันในโปรเจ็กต์ Google Cloud
+- ต้อง**ไม่** ขึ้นต้นด้วยคำนำหน้าที่สงวนไว้ต่อไปนี้ (ไม่คำนึงถึงตัวพิมพ์เล็กและตัวพิมพ์ใหญ่) ไม่เช่นนั้นการสร้างจะล้มเหลว
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -916,35 +916,35 @@ Cuando creas un agente administrado, el `id` que especificas debe seguir estas r
   - `nest-`
   - `kaggle-`
 
-## Flujo de trabajo de iteración
+## ขั้นตอนการทำซ้ำ
 
-1. **Crea prototipos** con el agente de Antigravity base. Pasa las instrucciones del sistema y las fuentes del entorno en línea. Prueba las instrucciones, las habilidades y la configuración del entorno de forma interactiva.
-2. **Estabiliza** el entorno. Instala paquetes, monta fuentes y verifica que todo funcione.
-3. **Persiste** como un agente administrado creando un agente nuevo, ya sea desde fuentes o bifurcando el entorno.
-4. **Actualiza** la definición del agente. Cambia las instrucciones del sistema, intercambia habilidades o agrega fuentes. La próxima invocación recupera la configuración nueva.
+1. **สร้างต้นแบบ** ด้วย Agent ของ Antigravity พื้นฐาน ส่งวิธีการของระบบและแหล่งข้อมูลสภาพแวดล้อมแบบอินไลน์ ทดสอบวิธีการ ทักษะ และการตั้งค่าสภาพแวดล้อมแบบอินเทอร์แอกทีฟ
+2. **ทำให้** สภาพแวดล้อมเสถียร ติดตั้งแพ็กเกจ ติดตั้งแหล่งข้อมูล ตรวจสอบว่าทุกอย่างทำงานได้
+3. **คงอยู่** เป็น Managed Agent โดยสร้าง Agent ใหม่ ไม่ว่าจะจากแหล่งข้อมูลหรือโดยการ fork สภาพแวดล้อม
+4. **อัปเดต** คำจำกัดความของ Agent เปลี่ยนวิธีการของระบบ สลับทักษะ หรือเพิ่มแหล่งข้อมูล การเรียกใช้ครั้งถัดไปจะใช้การกำหนดค่าใหม่
 
-## Limitaciones
+## ข้อจำกัด
 
-- **Estado de vista previa**: Los agentes administrados están en versión preliminar. Las funciones y los esquemas pueden cambiar.
-- **Agente base y modelos**: Solo se admite `antigravity-preview-05-2026` como `base_agent`. Las opciones de modelos compatibles en `agent_config` son `gemini-3.5-flash`, `gemini-3.6-flash` (predeterminado) y `gemini-3.5-flash-lite`. Para los agentes con nombre, el modelo no se puede anular en el momento de la interacción.
-- **Sin control de versiones**: El control de versiones y la reversión de agentes aún no están disponibles.
-- **Sin anidación de subagentes**: La delegación de subagentes aún no es compatible.
-- Puedes tener hasta 1,000 agentes administrados.
+- **สถานะเวอร์ชันทดลอง**: Managed Agent อยู่ในเวอร์ชันทดลอง ฟีเจอร์และสคีมาอาจมีการเปลี่ยนแปลง
+- **Agent และโมเดลพื้นฐาน**: รองรับเฉพาะ `antigravity-preview-05-2026` เป็น `base_agent` ตัวเลือกโมเดลที่รองรับใน `agent_config` ได้แก่ `gemini-3.7-flash` (ค่าเริ่มต้น), `gemini-3.6-flash`, `gemini-3.5-flash` และ `gemini-3.5-flash-lite` สำหรับ Agent ที่มีชื่อ จะไม่สามารถลบล้างโมเดลได้ในระหว่างการโต้ตอบ
+- **ไม่มีการกำหนดเวอร์ชัน**: การกำหนดเวอร์ชันและการย้อนกลับของ Agent ยังไม่พร้อมใช้งาน
+- **ไม่มีการซ้อน Agent ย่อย**: ระบบยังไม่รองรับการมอบหมายงานให้ Agent ย่อย
+- คุณมี Managed Agent ได้สูงสุด 1,000 รายการ
 
-## ¿Qué sigue?
+## ขั้นตอนถัดไป
 
-- [Descripción general de los agentes](https://ai.google.dev/gemini-api/docs/agents?hl=es-419): Obtén información sobre los conceptos básicos de los agentes administrados.
-- [Guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Comienza a compilar con conversaciones y transmisión de varios turnos.
-- [Agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419): Explora las capacidades, las herramientas y los precios del agente predeterminado.
-- [Entornos de agentes](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419): Configura sandboxes, fuentes y redes.
-- [API de agentes administrados en Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=es-419): Para crear agentes con administración organizacional integrada.
+- [ภาพรวมของ Agent](https://ai.google.dev/gemini-api/docs/agents?hl=th): ดูข้อมูลเกี่ยวกับแนวคิดหลักของ Managed Agent
+- [การเริ่มต้นอย่างรวดเร็ว](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=th): เริ่มสร้างด้วยการสนทนาไปมาและการสตรีม
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th): สำรวจความสามารถ เครื่องมือ และราคาของ Agent เริ่มต้น
+- [สภาพแวดล้อมของ Agent](https://ai.google.dev/gemini-api/docs/agent-environment?hl=th): กำหนดค่าแซนด์บ็อกซ์ แหล่งข้อมูล และเครือข่าย
+- [Managed Agents API ในแพลตฟอร์ม Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=th): สำหรับการสร้าง Agent ที่ได้รับการจัดการซึ่งมีการกำกับดูแลองค์กรในตัว
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última actualización: 2026-07-30 (UTC)
+อัปเดตล่าสุด 2026-08-19 UTC
 
-¿Quieres brindar más información?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]

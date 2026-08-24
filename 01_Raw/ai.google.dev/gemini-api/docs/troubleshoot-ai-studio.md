@@ -1,83 +1,87 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=hi
-fetched_at: 2026-08-17T02:23:59.654528+00:00
-title: "Google AI Studio \u0938\u0947 \u091c\u0941\u0921\u093c\u0940 \u0938\u092e\u0938\u094d\u092f\u093e \u0939\u0932 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=th
+fetched_at: 2026-08-24T02:19:05.029126+00:00
+title: "\u0e41\u0e01\u0e49\u0e1b\u0e31\u0e0d\u0e2b\u0e32 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-सुझाव भेजें
+ส่งความคิดเห็น
 
-# Google AI Studio से जुड़ी समस्या हल करना
+# แก้ปัญหา Google AI Studio
 
-इस पेज पर, Google AI Studio में आने वाली समस्याओं को हल करने के सुझाव दिए गए हैं.
+หน้านี้มีคำแนะนำในการแก้ปัญหา Google AI Studio หากคุณพบปัญหา
 
-## ऐक्सेस से जुड़ी पाबंदी की वजह से दिखने वाली 403 गड़बड़ी के बारे में जानकारी
+## ทำความเข้าใจข้อผิดพลาด 403 การเข้าถึงถูกจำกัด
 
-[अगर आपको 'ऐक्सेस से जुड़ी पाबंदी की वजह से दिखने वाली 403 गड़बड़ी' दिखती है, तो इसका मतलब है कि आपने Google AI Studio का इस्तेमाल, सेवा की शर्तों के मुताबिक नहीं किया है.](https://ai.google.dev/terms?hl=hi) इसकी एक आम वजह यह है कि
-आप किसी ऐसे [इलाके में मौजूद नहीं हैं जहां यह सुविधा उपलब्ध है](https://ai.google.dev/available_regions?hl=hi).
+หากเห็นข้อผิดพลาด 403 การเข้าถึงถูกจำกัด แสดงว่าคุณใช้ Google AI Studio ในลักษณะที่ไม่เป็นไปตาม[ข้อกำหนดในการให้บริการ](https://ai.google.dev/terms?hl=th) สาเหตุที่พบบ่อยอย่างหนึ่งคือ
+คุณไม่ได้อยู่ใน[ภูมิภาคที่รองรับ](https://ai.google.dev/available_regions?hl=th)
 
-## Google AI Studio पर, 'कोई कॉन्टेंट नहीं है' के जवाब से जुड़ी समस्या हल करना
+## แก้ไขการตอบกลับที่ไม่มีเนื้อหาใน Google AI Studio
 
-अगर किसी वजह से कॉन्टेंट को ब्लॉक किया जाता है, तो
-Google AI Studio पर warning **कोई कॉन्टेंट नहीं है** की चेतावनी दिखती है. ज़्यादा जानकारी देखने के लिए,
-**कोई कॉन्टेंट नहीं है** पर कर्सर घुमाएं और
-warning **सुरक्षा** पर क्लिक करें.
+ข้อความwarning **ไม่มีเนื้อหา** จะปรากฏใน
+Google AI Studio หากเนื้อหาถูกบล็อกด้วยเหตุผลใดก็ตาม หากต้องการดูรายละเอียดเพิ่มเติม
+ให้วางตัวชี้เหนือ **ไม่มีเนื้อหา** แล้วคลิก
+warning **ความปลอดภัย**
 
-अगर [सुरक्षा सेटिंग](https://ai.google.dev/docs/safety_setting?hl=hi) की वजह से जवाब ब्लॉक किया गया है और आपने अपने इस्तेमाल के उदाहरण के लिए [सुरक्षा से जुड़े जोखिमों](https://ai.google.dev/docs/safety_guidance?hl=hi) पर विचार किया है, तो [सुरक्षा सेटिंग](https://ai.google.dev/docs/safety_setting?hl=hi#safety_settings_in_makersuite) में बदलाव करके, दिखाए गए जवाब को बदला जा सकता है.
+หากการตอบกลับถูกบล็อกเนื่องจากการตั้งค่า[ความปลอดภัย](https://ai.google.dev/docs/safety_setting?hl=th) และ
+คุณพิจารณา[ความเสี่ยงด้านความปลอดภัย](https://ai.google.dev/docs/safety_guidance?hl=th)สำหรับกรณีการใช้งานแล้ว คุณ
+สามารถแก้ไข
+[การตั้งค่าความปลอดภัย](https://ai.google.dev/docs/safety_setting?hl=th#safety_settings_in_makersuite)
+เพื่อส่งผลต่อการตอบกลับที่แสดง
 
-अगर जवाब को सुरक्षा सेटिंग की वजह से ब्लॉक नहीं किया गया है, तो हो सकता है कि क्वेरी या
-जवाब, [सेवा की शर्तों](https://ai.google.dev/terms?hl=hi) का उल्लंघन करता हो या यह सुविधा उपलब्ध न हो.
+หากการตอบกลับถูกบล็อกแต่ไม่ใช่เนื่องจากการตั้งค่าความปลอดภัย แสดงว่าคําค้นหาหรือ
+การตอบกลับอาจละเมิด[ข้อกำหนดในการให้บริการ](https://ai.google.dev/terms?hl=th)หรือไม่ได้รับการรองรับ
 
-## टोकन के इस्तेमाल और उसकी सीमाओं की जानकारी देखना
+## ตรวจสอบการใช้โทเค็นและขีดจำกัด
 
-प्रॉम्प्ट खुला होने पर, स्क्रीन पर सबसे नीचे मौजूद **टेक्स्ट का प्रीव्यू** बटन, आपके प्रॉम्प्ट के कॉन्टेंट के लिए इस्तेमाल किए गए मौजूदा टोकन और इस्तेमाल किए जा रहे मॉडल के लिए टोकन की ज़्यादा से ज़्यादा संख्या दिखाता है.
+เมื่อคุณเปิดพรอมต์ไว้ ปุ่ม**แสดงตัวอย่างข้อความ** ที่ด้านล่างของหน้าจอจะแสดงโทเค็นปัจจุบันที่ใช้สำหรับเนื้อหาของพรอมต์และจำนวนโทเค็นสูงสุดสำหรับโมเดลที่ใช้
 
-## AI Studio के लिए Google Cloud IAM अनुमतियां
+## สิทธิ์ Google Cloud IAM สำหรับ AI Studio
 
-Google AI Studio में कार्रवाइयां करने के लिए, Google Cloud प्रोजेक्ट के सदस्यों के पास, पहचान और ऐक्सेस मैनेजमेंट (आईएएम) की खास अनुमतियां होनी चाहिए. इन पहचानों के बारे में ज़्यादा जानने के लिए, [IAM प्रिंसिपल की खास जानकारी](https://cloud.google.com/iam/docs/principals?hl=hi) देखें.
+สมาชิกของโปรเจ็กต์ Google Cloud ต้องมีสิทธิ์ Identity and Access Management (IAM) ที่เฉพาะเจาะจงเพื่อดำเนินการใน Google AI Studio ดูข้อมูลเพิ่มเติมเกี่ยวกับข้อมูลประจำตัวเหล่านี้ได้ที่[ภาพรวมของพรินซิเพิล IAM](https://cloud.google.com/iam/docs/principals?hl=th)
 
-लिंक किए गए Google Cloud प्रोजेक्ट में **एडिटर** या **मालिक** की भूमिका वाले उपयोगकर्ताओं के पास, डैशबोर्ड देखने और Gemini API पासकोड मैनेज करने की पूरी अनुमतियां होती हैं. **व्यूअर** की भूमिका वाले उपयोगकर्ता, डैशबोर्ड और एपीआई पासकोड देख सकते हैं. हालांकि, वे इन्हें बना, अपडेट या मिटा नहीं सकते.
+ผู้ใช้ที่มีบทบาท**ผู้แก้ไข** หรือ**เจ้าของ** ในโปรเจ็กต์ Google Cloud ที่เชื่อมโยงจะมีสิทธิ์เต็มรูปแบบในการดูแดชบอร์ดและจัดการคีย์ Gemini API ผู้ใช้ที่มีบทบาท**ผู้มีสิทธิ์ดู** จะดูแดชบอร์ดและคีย์ API ได้ แต่จะสร้าง อัปเดต หรือลบไม่ได้
 
-ज़्यादा कंट्रोल के लिए, हर AI Studio सुविधा के लिए ज़रूरी खास अनुमतियों के बारे में जानने के लिए, यह टेबल देखें. इन अनुमतियों को देने के तरीके के बारे में जानने के लिए, Google Cloud के दस्तावेज़ में, [संसाधनों का ऐक्सेस देना, बदलना, और वापस लेना](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=hi) लेख पढ़ें.
+หากต้องการควบคุมแบบละเอียดมากขึ้น โปรดดูตารางต่อไปนี้เพื่อดูสิทธิ์เฉพาะที่จำเป็นสำหรับฟีเจอร์แต่ละรายการของ AI Studio ดูวิธีการให้สิทธิ์เหล่านี้ได้ที่[การให้ เปลี่ยน และเพิกถอนสิทธิ์เข้าถึงทรัพยากร](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=th)ในเอกสารประกอบของ Google Cloud
 
-| AI Studio की सुविधा | आईएएम की ज़रूरी अनुमतियां | अन्य ज़रूरी शर्तें |
+| ฟีเจอร์ AI Studio | สิทธิ์ IAM ที่จำเป็น | ข้อกำหนดเพิ่มเติม |
 | --- | --- | --- |
-| **प्रोजेक्ट खोजना** (प्रोजेक्ट इंपोर्ट करना) | `resourcemanager.projects.get` |  |
-| **प्रोजेक्ट का नाम बदलना** | `resourcemanager.projects.update` |  |
-| **कोटा टियर दिखाना** | लागू नहीं |  |
-| **एपीआई पासकोड बनाना** | **प्रोजेक्ट खोजने** की अनुमतियां होना और:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **एपीआई पासकोड की सूची देखना** | **प्रोजेक्ट खोजने** की अनुमतियां होना और:  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud प्रोजेक्ट में, [जनरेटिव लैंग्वेज एपीआई](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=hi) चालू होना चाहिए. |
-| **एपीआई पासकोड के नाम बदलना** | `apikeys.keys.update` |  |
-| **एपीआई पासकोड मिटाना** | `apikeys.keys.delete` |  |
-| **इस्तेमाल की जानकारी वाला डैशबोर्ड** | **प्रोजेक्ट खोजने** की अनुमतियां होना और:  `monitoring.timeSeries.list` |  |
-| **रेट लिमिट डैशबोर्ड** | **इस्तेमाल की जानकारी वाले डैशबोर्ड** की अनुमतियां होना और:  `cloudquotas.quotas.get` |  |
-| **खर्च की सीमा (बिलिंग कैप)** | `billing.resourceCosts.get` (खर्च देखने के लिए) `billing.resourcebudgets.read` (कैप देखने के लिए) `billing.resourcebudgets.write` (कैप सेट करने के लिए) |  |
-| **बिलिंग डैशबोर्ड** | `billing.accounts.get` |  |
+| **ค้นหาโปรเจ็กต์** (นำเข้าโปรเจ็กต์) | `resourcemanager.projects.get` |  |
+| **เปลี่ยนชื่อโปรเจ็กต์** | `resourcemanager.projects.update` |  |
+| **แสดงระดับโควต้า** | ไม่มี |  |
+| **สร้างคีย์ API** | มีสิทธิ์**ค้นหาโปรเจ็กต์** และมีสิทธิ์ต่อไปนี้  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **แสดงรายการคีย์ API** | มีสิทธิ์**ค้นหาโปรเจ็กต์** และมีสิทธิ์ต่อไปนี้  `apikeys.keys.list` `serviceusage.services.get` | โปรเจ็กต์ Google Cloud ต้องเปิดใช้ [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=th) |
+| **เปลี่ยนชื่อคีย์ API** | `apikeys.keys.update` |  |
+| **ลบคีย์ API** | `apikeys.keys.delete` |  |
+| **แดชบอร์ดการใช้งาน** | มีสิทธิ์**ค้นหาโปรเจ็กต์** และมีสิทธิ์ต่อไปนี้  `monitoring.timeSeries.list` |  |
+| **แดชบอร์ดการจำกัดอัตรา** | มีสิทธิ์**แดชบอร์ดการใช้งาน** และมีสิทธิ์ต่อไปนี้  `cloudquotas.quotas.get` |  |
+| **ค่าใช้จ่าย (ขีดจำกัดการเรียกเก็บเงิน)** | `billing.resourceCosts.get` (เพื่อดูค่าใช้จ่าย) `billing.resourcebudgets.read` (เพื่อดูขีดจำกัด) `billing.resourcebudgets.write` (เพื่อกำหนดขีดจำกัด) |  |
+| **แดชบอร์ดการเรียกเก็บเงิน** | `billing.accounts.get` |  |
 
-### ऐक्सेस की अन्य जांच
+### การตรวจสอบสิทธิ์เข้าถึงอื่นๆ
 
-Google Cloud IAM अनुमतियों के अलावा, AI Studio सुरक्षा और अनुपालन की जांच भी करता है. अगर आपने यहां दी गई ज़रूरी शर्तें पूरी नहीं की हैं, तो आपको AI Studio इंटरफ़ेस या एपीआई के जवाबों में, `PERMISSION_DENIED` या ऐक्सेस से जुड़ी पाबंदी की गड़बड़ी दिख सकती है:
+นอกเหนือจากสิทธิ์ Google Cloud IAM แล้ว AI Studio ยังทำการตรวจสอบความปลอดภัยและการปฏิบัติตามข้อกำหนดด้วย คุณอาจพบข้อผิดพลาด `PERMISSION_DENIED` หรือข้อผิดพลาดการจำกัดการเข้าถึงในอินเทอร์เฟซ AI Studio หรือในการตอบกลับของ API หากไม่เป็นไปตามข้อกำหนดต่อไปนี้
 
-- **सुरक्षा जांच:** आपका अनुरोध, सुरक्षा से जुड़ी ऑटोमैटिक जांच में पास होना चाहिए.
-- **सेवा की शर्तें:** आपको Google की सेवा की शर्तें और जनरेटिव एआई (AI) की सेवा की अन्य शर्तें स्वीकार करनी होंगी.
-- **उपलब्धता वाला इलाका:** आपका किसी ऐसे इलाके में होना ज़रूरी है जहां यह सुविधा [उपलब्ध है](https://ai.google.dev/gemini-api/docs/available-regions?hl=hi).
-- **भरोसेमंद और सुरक्षित होने से जुड़ी ज़रूरी शर्तें:** Google Cloud प्रोजेक्ट को, गलत इस्तेमाल के लिए फ़्लैग नहीं किया जाना चाहिए.
+- **การตรวจสอบความปลอดภัย:** คำขอของคุณต้องผ่านการตรวจสอบความปลอดภัยอัตโนมัติ
+- **ข้อกำหนดในการให้บริการ:** คุณต้องยอมรับข้อกำหนดในการให้บริการของ Google และข้อกำหนดในการให้บริการเพิ่มเติมของ Generative AI
+- **ภูมิภาคที่รองรับ:** คุณต้องอยู่ใน[ภูมิภาคที่รองรับ](https://ai.google.dev/gemini-api/docs/available-regions?hl=th)
+- **ความน่าเชื่อถือและความปลอดภัย:** โปรเจ็กต์ Google Cloud ต้องไม่ถูกตั้งค่าสถานะว่ามีการละเมิด
 
-सुझाव भेजें
+ส่งความคิดเห็น
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-आखिरी बार 2026-05-29 (UTC) को अपडेट किया गया.
+อัปเดตล่าสุด 2026-05-29 UTC
 
-क्या आपको हमें और कुछ बताना है?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-29 (UTC) को अपडेट किया गया."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-29 UTC"],[],[]]

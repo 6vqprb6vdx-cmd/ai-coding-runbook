@@ -1,47 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=hi
-fetched_at: 2026-08-17T02:26:54.682111+00:00
-title: "Lyria RealTime \u090f\u0915\u094d\u0938\u092a\u0947\u0930\u093f\u092e\u0947\u0902\u091f \u0915\u0947 \u0924\u094c\u0930 \u092a\u0930 \u0909\u092a\u0932\u092c\u094d\u0927 \u0939\u0948 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=pt-BR
+fetched_at: 2026-08-24T02:18:52.702737+00:00
+title: "Lyria RealTime experimental \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-सुझाव भेजें
+Envie comentários
 
-# Lyria RealTime एक्सपेरिमेंट के तौर पर उपलब्ध है
+# Lyria RealTime experimental
 
-यह एक्सपेरिमेंट के तौर पर उपलब्ध एक इंजन है. इसका इस्तेमाल, संगीत को बेहतर तरीके से सिंथेसाइज़ करने के लिए किया जाता है. इसमें ऑडियो कॉन्टेंट जनरेट करने और उसे बदलने के लिए नई सुविधाएं मिलती हैं. Lyria RealTime, एआई की मदद से गाना लिखने, यूनीक इंस्ट्रुमेंटल जनरेट करने, और क्रिएटिव ऑडियो वर्कफ़्लो के लिए सबसे अच्छा है. इसके लिए, धुन और लय पर पूरा कंट्रोल होना ज़रूरी है. इसमें वोकल नहीं होते.
+Um mecanismo experimental para síntese musical de alta fidelidade, que oferece recursos inovadores para gerar e transformar conteúdo de áudio. O Lyria RealTime
+é ideal para composição de músicas com assistência de IA, geração de instrumentais exclusivos e
+fluxos de trabalho de áudio criativos que exigem controle total sobre melodia e ritmo, sem
+vocais.
 
-[Lyria RealTime को आज़माएँ](https://deepmind.google/models/lyria/lyria-realtime/?hl=hi)
+[Testar o Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=pt-br)
 
-## दस्तावेज़
+## Documentação
 
-सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए, [रीयलटाइम में संगीत जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=hi) वाले पेज पर जाएं.
+Acesse a página [Geração de música em tempo real](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=pt-br) para conferir todos os recursos e funcionalidades.
 
 ## lyria-realtime-exp
 
-| प्रॉपर्टी | ब्यौरा |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `lyria-realtime-exp` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट (वज़न वाले प्रॉम्प्ट)  **आउटपुट**  ऑडियो (रॉ 16-बिट पीसीएम) |
-| token\_autoस्ट्रीमिंग की सीमाएं | **सैंपल लेने की दर**  48kHz (स्टीरियो)  **कंट्रोल के इंतज़ार का समय**  ज़्यादा से ज़्यादा दो सेकंड |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - एक्सपेरिमेंट के तौर पर उपलब्ध: `lyria-realtime-exp` |
-| calendar\_monthनया अपडेट | मई 2025 |
+| Código do modelo id\_card | **API Gemini**  `lyria-realtime-exp` |
+| saveTipos de dados aceitos | **Entrada**  Texto (comandos ponderados)  **Saída**  Áudio (PCM bruto de 16 bits) |
+| token\_autoLimites de transmissão | **Taxa de amostragem**  48 kHz (estéreo)  **Controlar a latência**  Máximo de 2 segundos |
+| Versões do 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Experimental: `lyria-realtime-exp` |
+| calendar\_monthÚltima atualização | Maio de 2025 |
 
-सुझाव भेजें
+Envie comentários
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
+Última atualização 2026-04-29 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Quer enviar seu feedback?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

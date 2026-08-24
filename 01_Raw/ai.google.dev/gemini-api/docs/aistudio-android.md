@@ -1,135 +1,147 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=tr
-fetched_at: 2026-08-17T02:20:22.789624+00:00
-title: "Google AI Studio'da Android uygulamalar\u0131 geli\u015ftirme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=it
+fetched_at: 2026-08-24T02:31:53.544833+00:00
+title: "Crea app per Android in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Google AI Studio'da Android uygulamaları geliştirme
+# Crea app per Android in Google AI Studio
 
-Google AI Studio, doğal dil isteminden yerel Android uygulamaları oluşturmanıza olanak tanır. İstediğiniz uygulamayı tanımlayın. [Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr#antigravity-agent), eksiksiz bir Kotlin ve [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=tr) projesi oluşturur. Tarayıcınızdan uygulamanızı tarayıcı tabanlı bir Android emülatöründe önizleyebilir, fiziksel bir cihaza yükleyebilir ve test için yayınlayabilirsiniz.
+Google AI Studio ti consente di creare app Android native da un prompt in linguaggio naturale. Descrivi l'app che vuoi e l'
+[agente Antigravity](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it#antigravity-agent)
+genera un progetto completo in Kotlin e [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=it). Dal browser, puoi visualizzare l'anteprima dell'app in un emulatore Android basato su browser, installarla su un dispositivo fisico e pubblicarla per i test.
 
-## Başlayın
+## Inizia
 
-Android uygulaması geliştirmeye başlamak için:
+Per iniziare a creare un'app per Android:
 
-1. Sol taraftaki gezinme panelini kullanarak Google AI Studio'da [Oluşturma modu](https://aistudio.google.com/apps?hl=tr)'na gidin.
-2. Platform seçiciden **Android**'i seçin.
-3. Oluşturmak istediğiniz uygulamayı açıklayan bir istem girin (örneğin, *"Yerel depolama alanına sahip günlük görev takipçisi oluştur"* veya *"Basit bir hesap makinesi oluştur"*).
-4. Ajan, projeyi oluşturur ve tarayıcı tabanlı Android emülatöründe başlatır.
+1. Vai alla [modalità di creazione](https://aistudio.google.com/apps?hl=it) in Google AI Studio utilizzando il pannello di navigazione a sinistra.
+2. Seleziona **Android** dal selettore della piattaforma.
+3. Inserisci un prompt che descriva l'app che vuoi creare (ad es. *"Crea un tracker delle attività giornaliere con spazio di archiviazione locale"* o *"Crea una Calcolatrice semplice"*).
+4. L'agente genera il progetto e lo avvia nell'emulatore Android basato su browser.
 
-Ardından, web deneyiminde olduğu gibi sohbet panelini kullanarak uygulamanızı yineleyebilirsiniz. Temsilci, Android projenizdeki tüm dosyaları yönetir ve değişiklikleri kod tabanına yayar.
+Puoi quindi eseguire l'iterazione sull'app utilizzando il riquadro della chat, proprio come nell'esperienza web. L'agente gestisce tutti i file del progetto Android e propaga le modifiche nel codebase.
 
-## Tarayıcı tabanlı Android emülatörü
+## Emulatore Android basato su browser
 
-Android emülatörü tamamen bulutta çalışır ve tarayıcınıza yayın yapar.
-Android SDK'yı, Android Studio'yu veya yerel bir emülatörü yüklemeniz gerekmez.
+L'emulatore Android viene eseguito interamente nel cloud e viene trasmesso in streaming al browser.
+Non è necessario installare l'SDK Android, Android Studio o un emulatore locale.
 
-Emülatör şunları sağlar:
+L'emulatore fornisce:
 
-- **Pixel benzeri cihaz simülasyonu**: Uygulamanızla gerçek bir cihazda olduğu gibi dokunarak, kaydırarak ve etkileşimde bulunarak test edin.
-- **Döndürme desteği**: Dikey ve yatay yön arasında geçiş yapın.
-- **Canlı önizleme**: Temsilci kodda değişiklik yaptığında uygulama yeniden oluşturulur ve emülatör otomatik olarak yenilenir.
+- **Simulazione di un dispositivo simile a Pixel**: tocca, scorri e interagisci con l'app
+  come su un dispositivo reale.
+- **Supporto della rotazione**: passa dall'orientamento verticale a quello orizzontale.
+- **Anteprima live**: quando l'agente apporta modifiche al codice, l'app viene ricompilata e
+  l'emulatore si aggiorna automaticamente.
 
-### Emülatör sınırlamaları
+### Limitazioni dell'emulatore
 
-Tarayıcı tabanlı emülatör, tüm donanım özelliklerini desteklemez. Aşağıdakiler emülatörde kullanılamaz:
+L'emulatore basato su browser non supporta tutte le funzionalità hardware. Le seguenti funzionalità non sono disponibili nell'emulatore:
 
-- Kamera ve fotoğraf çekme
-- NFC ve Bluetooth
-- GPS (konum simüle ediliyor)
-- Google Play Hizmetleri (Google ile Oturum Açma, Haritalar ve diğer Play Hizmetleri özellikleri gerçek cihazda çalışır ancak emülatörde çalışmaz)
+- Acquisizione di foto e video
+- NFC e Bluetooth
+- GPS (la posizione è simulata)
+- Google Play Services (Accedi con Google, Maps e altre funzionalità di Play Services funzionano su un dispositivo reale, ma non nell'emulatore)
 
-## ADB'nin yüklü olduğu bir cihaza yükleme
+## Installazione su un dispositivo con ADB
 
-Oluşturulan APK'yı, USB ile bilgisayarınıza bağlı fiziksel bir Android cihaza doğrudan yükleyebilirsiniz. Bu işlem, tarayıcı üzerinden cihazınızla iletişim kurmak için [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=tr)'yi kullanır. Yerel ADB kurulumu gerekmez.
+Puoi installare l'APK creato direttamente su un dispositivo Android fisico collegato al computer tramite USB. Viene utilizzato
+[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=it) per
+comunicare con il dispositivo tramite il browser. Non è richiesta l'installazione di ADB locale.
 
-### Ön koşullar
+### Prerequisiti
 
-- WebUSB'yi destekleyen bir Chrome veya Edge tarayıcı
-- [Geliştirici Seçenekleri ve USB üzerinden hata ayıklama](https://developer.android.com/studio/debug/dev-options?hl=tr)'nın etkin olduğu bir Android cihaz.
-- Cihazınızı bilgisayarınıza bağlayan bir USB kablosu
+- Un browser Chrome o Edge che supporti WebUSB.
+- Un dispositivo Android con
+  [le opzioni sviluppatore e il debug USB](https://developer.android.com/studio/debug/dev-options?hl=it)
+  attivati.
+- Un cavo USB che collega il dispositivo al computer.
 
-### Uygulamayı cihazınıza yükleyin
+### Installare l'app sul dispositivo
 
-1. Önizleme panelinde **Cihaza Yükle**'yi tıklayın.
-2. Tarayıcının USB cihaz seçicisinden Android cihazınızı seçin.
-3. APK, cihazınıza aktarılıp yüklenir.
-4. Uygulama otomatik olarak başlatılır.
+1. Fai clic su **Installa sul dispositivo** nel riquadro di anteprima.
+2. Seleziona il tuo dispositivo Android dal selettore di dispositivi USB del browser.
+3. L'APK viene trasferito e installato sul dispositivo.
+4. L'app si avvia automaticamente.
 
-## Play Store'da yayınlama
+## Pubblicazione sul Play Store
 
-Android uygulamanızı [Google Play Console](https://play.google.com/console?hl=tr)'un dahili test kanalında yayınlayabilirsiniz. Bu kanal, uygulamayı 100'e kadar test kullanıcısına dağıtmanıza olanak tanır.
+Puoi pubblicare la tua app per Android nel
+[canale di test interno](https://play.google.com/console?hl=it) di
+Google Play Console, che ti consente di distribuire l'app a un massimo di 100 tester.
 
-### Ön koşullar
+### Prerequisiti
 
-- [Google Play Geliştirici hesabı](https://play.google.com/console/signup?hl=tr)
-  (bir defalık 25 ABD doları kayıt ücreti gerekir).
-- Play Console'da tamamlanmış bir geliştirici profili.
+- Un [account sviluppatore Google Play](https://play.google.com/console/signup?hl=it)
+  (richiede una commissione di registrazione una tantum di 25 $).
+- Un profilo sviluppatore completato in Play Console.
 
-### Uygulamanızı yayınlama
+### Pubblicare l'app
 
-1. Google AI Studio'da **Ayarlar > Yayınla**'yı açın.
-2. **Play Store'da yayınla**'yı tıklayın.
-3. Google Play Geliştirici Hesabınızla kimliğinizi doğrulayın.
-4. AI Studio, APK'yı imzalar, uygulama girişini oluşturur (veya yeni bir sürüm yükler) ve dahili test kanalında yayınlar.
-5. Test kullanıcılarınızla paylaşabileceğiniz bir bağlantı alırsınız.
+1. Apri **Impostazioni > Pubblica** in Google AI Studio.
+2. Fai clic su **Pubblica sul Play Store**.
+3. Esegui l'autenticazione con il tuo account sviluppatore Google Play.
+4. AI Studio firma l'APK, crea la scheda dell'app (o carica una nuova versione) e la pubblica nel canale di test interno.
+5. Riceverai un link da condividere con i tuoi tester.
 
-AI Studio, yönetilen bir anahtar deposu kullanarak APK imzalama işlemini otomatik olarak yönetir. Uygulama girişini (simge, ekran görüntüleri, açıklama) daha sonra Play Console'da özelleştirebilirsiniz.
+AI Studio gestisce automaticamente la firma dell'APK utilizzando un keystore gestito. Puoi personalizzare la scheda dell'app (icona, screenshot, descrizione) in un secondo momento in Play Console.
 
-## Oluşturulan içerikler
+## Cosa viene generato
 
-Bir Android uygulaması oluşturduğunuzda aracı, aşağıdaki yapıya sahip standart bir Gradle tabanlı proje oluşturur:
+Quando crei un'app per Android, l'agente genera un progetto standard basato su Gradle con la seguente struttura:
 
-- **Derleme yapılandırması**: Kotlin DSL kullanılarak `build.gradle.kts` dosyaları (proje ve uygulama düzeyi).
-- **Kullanıcı arayüzü katmanı**: [Material 3](https://m3.material.io/) temalı [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=tr) bileşenleri.
-- **Mimari**: ViewModel'ler ve veri sınıflarıyla tek etkinlikli mimari.
-- **Kaynaklar**: `AndroidManifest.xml`, drawables, dizeler ve diğer Android kaynakları.
+- **Configurazione di compilazione**: `build.gradle.kts` file (a livello di progetto e app) che utilizzano Kotlin DSL.
+- **Livello UI**: [componenti](https://developer.android.com/develop/ui/compose?hl=it)
+  Jetpack Compose con temi [Material 3](https://m3.material.io/).
+- **Architettura**: architettura a singola attività con ViewModel e classi di
+  dati.
+- **Risorse**: `AndroidManifest.xml`, elementi disegnabili, stringhe e altre risorse Android.
 
-Aracı, Gradle bağımlılıklarını otomatik olarak yönetir ve gerektiğinde Maven ile Google depolarından paketler ekler.
+L'agente gestisce automaticamente le dipendenze di Gradle, aggiungendo i pacchetti dai repository Maven e Google in base alle necessità.
 
-Oluşturulan kodu, önizleme panelindeki **Kod** sekmesini kullanarak görüntüleyebilir ve düzenleyebilirsiniz. Android Studio'da geliştirmeye devam etmek için projeyi **ZIP dosyası** olarak indirin.
+Puoi visualizzare e modificare il codice generato utilizzando la scheda **Codice** nel riquadro di anteprima. Per continuare lo sviluppo in Android Studio, scarica il progetto come **file ZIP**.
 
-## Sınırlamalar
+## Limitazioni
 
-AI Studio'da Android uygulaması oluşturma ile ilgili aşağıdaki sınırlamalar vardır:
+La creazione di app per Android in AI Studio presenta le seguenti limitazioni:
 
-### Platform sınırlamaları
+### Limitazioni della piattaforma
 
-- **Yalnızca istemci tarafı**: Android uygulamaları, sunucu tarafı bileşeni içermez.
-  Sunucu çalışma zamanı gerektiren özellikler (sır yönetimi, çok oyunculu, Firebase, Google Workspace API'leri) kullanılamaz.
-- **Tek etkinlikli mimari**: Yalnızca tek etkinlikli, tek modüllü projeler desteklenir.
-- **Yalnızca Jetpack Compose**: Uygulamalar Kotlin ve Jetpack Compose kullanır. Java ve XML düzenleri desteklenmez.
-- **NDK veya yerel kod yok**: C ve C++ kodu desteklenmez.
-- **Wear OS veya Android TV yok**: Yalnızca telefon ve tablet form faktörleri desteklenir.
+- **Solo lato client**: le app Android non includono un componente lato server.
+  Le funzionalità che richiedono un runtime del server (gestione dei secret, multigiocatore, Firebase, API Google Workspace) non sono disponibili.
+- **Architettura a singola attività**: sono supportati solo i progetti a singola attività e a singolo modulo.
+- **Solo Jetpack Compose**: le app utilizzano Kotlin e Jetpack Compose. I layout Java e XML non sono supportati.
+- **Nessun NDK o codice nativo**: il codice C e C++ non è supportato.
+- **Nessun Wear OS o Android TV**: sono supportati solo i fattori di forma di smartphone e tablet.
 
-### Dışa aktarma sınırlamaları
+### Limitazioni per l'esportazione
 
-- **Yalnızca ZIP olarak indirme**: Projeyi ZIP dosyası olarak indirebilirsiniz. GitHub dışa aktarma özelliği, Android projelerinde henüz kullanılamamaktadır.
+- **Solo download ZIP**: puoi scaricare il progetto come file ZIP. L'esportazione di GitHub non è ancora disponibile per i progetti Android.
 
-## Sırada ne var?
+## Passaggi successivi
 
-- [Google AI Studio'da uygulama geliştirme](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr)
-- [Tam Yığın Uygulamaları Geliştirme](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=tr) (web)
-- [Uygulama Galerisi](https://aistudio.google.com/apps?source=showcase&hl=tr)'ndeki örneklere bakın.
+- [Crea app in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it)
+- [Sviluppo di app full-stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=it) (web)
+- Consulta gli esempi nella [Galleria app](https://aistudio.google.com/apps?source=showcase&hl=it).
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-05-19 UTC.
+Ultimo aggiornamento 2026-08-19 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-19 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-08-19 UTC."],[],[]]

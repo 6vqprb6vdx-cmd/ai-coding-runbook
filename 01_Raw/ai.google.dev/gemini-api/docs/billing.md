@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/billing?hl=vi
-fetched_at: 2026-08-17T02:26:31.449134+00:00
+fetched_at: 2026-08-24T02:21:12.290559+00:00
 title: "L\u1eadp h\u00f3a \u0111\u01a1n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

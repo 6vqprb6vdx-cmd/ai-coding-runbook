@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=he
-fetched_at: 2026-08-17T02:31:09.316149+00:00
+fetched_at: 2026-08-24T02:25:36.992292+00:00
 title: "\u05e4\u05e8\u05d9\u05e1\u05d4 \u05de-Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

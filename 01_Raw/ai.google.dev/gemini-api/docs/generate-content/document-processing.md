@@ -1,38 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=pt-BR
-fetched_at: 2026-08-17T02:23:41.805409+00:00
-title: "Entendimento de documentos \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=id
+fetched_at: 2026-08-24T02:23:05.348106+00:00
+title: "Pemahaman dokumen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Entendimento de documentos
+# Pemahaman dokumen
 
-Os modelos do Gemini podem processar documentos em formato PDF, usando a visão nativa para entender contextos de documentos inteiros. Isso vai além da extração de texto, permitindo que o Gemini:
+Model Gemini dapat memproses dokumen dalam format PDF, menggunakan visi bawaan untuk memahami seluruh konteks dokumen. Hal ini tidak hanya
+mengekstraksi teks, tetapi juga memungkinkan Gemini untuk:
 
-- Analise e interprete conteúdo, incluindo texto, imagens, diagramas, gráficos e tabelas, mesmo em documentos longos de até 1.000 páginas.
-- Extraia informações em [formatos de saída estruturados](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
-- Resuma e responda a perguntas com base nos elementos visuais e textuais de um documento.
-- Transcreva o conteúdo do documento (por exemplo, para HTML), preservando layouts e formatação, para uso em aplicativos downstream.
+- Menganalisis dan menginterpretasikan konten, termasuk teks, gambar, diagram, bagan, dan tabel, bahkan dalam dokumen panjang hingga 1.000 halaman.
+- Mengekstrak informasi ke dalam format [output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
+- Meringkas dan menjawab pertanyaan berdasarkan elemen visual dan tekstual dalam dokumen.
+- Mentranskripsikan konten dokumen (misalnya, ke HTML), dengan mempertahankan tata letak dan pemformatan, untuk digunakan dalam aplikasi hilir.
 
-Também é possível transmitir documentos que não sejam em PDF da mesma maneira, mas o Gemini os verá como texto normal, o que eliminará o contexto, como gráficos ou formatação.
+Anda juga dapat meneruskan dokumen non-PDF dengan cara yang sama, tetapi Gemini akan melihatnya sebagai teks biasa yang akan menghilangkan konteks seperti diagram atau pemformatan.
 
-## Como transmitir dados PDF inline
+## Meneruskan data PDF secara inline
 
-É possível transmitir dados PDF inline na solicitação para `generateContent`. Isso é mais adequado para documentos menores ou processamento temporário em que não é necessário referenciar o arquivo em solicitações subsequentes. Recomendamos o uso da [API Files](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br#large-pdfs) para documentos maiores que precisam ser referenciados em interações multiturno para melhorar a latência da solicitação e reduzir o uso da largura de banda.
+Anda dapat meneruskan data PDF secara inline dalam permintaan ke `generateContent`. Metode ini paling cocok untuk dokumen yang lebih kecil atau pemrosesan sementara yang tidak memerlukan referensi file dalam permintaan berikutnya. Sebaiknya gunakan [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=id#large-pdfs)
+untuk dokumen yang lebih besar yang perlu Anda rujuk dalam interaksi multi-turn untuk
+meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth.
 
-O exemplo a seguir mostra como buscar um PDF de um URL e convertê-lo em bytes para processamento:
+Contoh berikut menunjukkan cara mengambil PDF dari URL dan mengonversinya menjadi byte untuk diproses:
 
 ### Python
 
@@ -190,7 +193,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-Também é possível ler um PDF de um arquivo local para processamento:
+Anda juga dapat membaca PDF dari file lokal untuk diproses:
 
 ### Python
 
@@ -291,13 +294,13 @@ func main() {
 }
 ```
 
-## Como fazer upload de PDFs usando a API Files
+## Mengupload PDF menggunakan Files API
 
-Recomendamos o uso da API Files para arquivos maiores ou quando você pretende reutilizar um documento em várias solicitações. Isso melhora a latência da solicitação e reduz o uso da largura de banda, desvinculando o upload do arquivo das solicitações do modelo.
+Sebaiknya gunakan Files API untuk file yang lebih besar atau saat Anda ingin menggunakan kembali dokumen di beberapa permintaan. Hal ini meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth dengan memisahkan upload file dari permintaan model.
 
-### PDFs grandes de URLs
+### PDF besar dari URL
 
-Use a API File para simplificar o upload e o processamento de arquivos PDF grandes de URLs:
+Gunakan File API untuk menyederhanakan upload dan pemrosesan file PDF besar dari URL:
 
 ### Python
 
@@ -505,7 +508,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-### PDFs grandes armazenados localmente
+### PDF besar yang disimpan secara lokal
 
 ### Python
 
@@ -677,8 +680,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-É possível verificar se a API armazenou o arquivo enviado e receber os
-metadados dele chamando [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=pt-br). Somente o `name` (e, por extensão, o `uri`) são exclusivos.
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
+metadatanya dengan memanggil [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=id). Hanya `name`
+(dan dengan demikian, `uri`) yang unik.
 
 ### Python
 
@@ -710,9 +714,11 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Como transmitir vários PDFs
+## Meneruskan beberapa PDF
 
-A API Gemini pode processar vários documentos PDF (até 1.000 páginas) em uma única solicitação, desde que o tamanho combinado dos documentos e o comando de texto permaneçam dentro da janela de contexto do modelo.
+Gemini API dapat memproses beberapa dokumen PDF (hingga 1.000 halaman)
+dalam satu permintaan, selama ukuran gabungan dokumen dan perintah
+teks tetap berada dalam jendela konteks model.
 
 ### Python
 
@@ -964,59 +970,59 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Detalhes técnicos
+## Detail teknis
 
-O Gemini oferece suporte a arquivos PDF de até 50 MB ou 1.000 páginas. Esse limite se aplica a dados inline e uploads da API Files. Cada página do documento é equivalente a 258 tokens.
+Gemini mendukung file PDF hingga 50 MB atau 1.000 halaman. Batas ini berlaku
+untuk data inline dan upload Files API. Setiap halaman dokumen setara dengan 258
+token.
 
-Embora não haja limites específicos para o número de pixels em um documento além da
-janela de [contexto](https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br) do modelo, páginas maiores são
-reduzidas para uma resolução máxima de 3072 x 3072, preservando a
-proporção original, enquanto páginas menores são aumentadas para 768 x 768 pixels. Não há redução de custos para páginas de tamanhos menores, além da largura de banda, ou melhoria de desempenho para páginas de resolução mais alta.
+Meskipun tidak ada batasan khusus untuk jumlah piksel dalam dokumen selain [jendela konteks](https://ai.google.dev/gemini-api/docs/long-context?hl=id) model, halaman yang lebih besar akan diperkecil hingga resolusi maksimum 3072 x 3072 dengan mempertahankan rasio aspek aslinya, sedangkan halaman yang lebih kecil akan diperbesar hingga 768 x 768 piksel. Tidak ada pengurangan biaya untuk halaman dengan ukuran yang lebih kecil, selain bandwidth, atau peningkatan performa untuk halaman dengan resolusi yang lebih tinggi.
 
-### Modelos do Gemini 3
+### Model Gemini 3
 
-O Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. Agora é possível definir a resolução como baixa, média ou alta por trecho de áudio individual. Com essa adição, o processamento de documentos PDF foi atualizado:
+Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter
+`media_resolution`. Anda kini dapat menyetel resolusi ke rendah, sedang, atau tinggi untuk setiap bagian media. Dengan penambahan ini, pemrosesan dokumen PDF telah diperbarui:
 
-1. **Inclusão de texto nativo**:o texto incorporado nativamente no PDF é extraído e fornecido ao modelo.
-2. **Faturamento e relatórios de tokens:**
-   - **Não há cobrança** de tokens originados do **texto nativo** extraído em PDFs.
-   - Na seção `usage_metadata` da resposta da API, os tokens gerados pelo processamento de páginas PDF (como imagens) agora são contados na modalidade `IMAGE`, não em uma modalidade `DOCUMENT` separada, como em algumas versões anteriores.
+1. **Pencantuman teks asli:** Teks yang disematkan secara native dalam PDF diekstrak dan diberikan ke model.
+2. **Penagihan & pelaporan token:**
+   - Anda **tidak dikenai biaya** untuk token yang berasal dari
+     **teks native** yang diekstrak dalam PDF.
+   - Di bagian `usage_metadata` respons API, token yang dihasilkan dari pemrosesan halaman PDF (sebagai gambar) kini dihitung dalam modalitas `IMAGE`, bukan modalitas `DOCUMENT` terpisah seperti pada beberapa versi sebelumnya.
 
-Para mais detalhes sobre o parâmetro de resolução de mídia, consulte o
-[guia de resolução de mídia](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=pt-br).
+Untuk mengetahui detail selengkapnya tentang parameter resolusi media, lihat panduan
+[Resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
 
-### Tipos de documentos
+### Jenis dokumen
 
-Tecnicamente, é possível transmitir outros tipos MIME para compreensão de documentos, como TXT, Markdown, HTML, XML etc. No entanto, a visão de documentos ***só entende PDFs de maneira significativa***. Outros tipos serão extraídos como texto puro, e o modelo não poderá interpretar o que vemos na renderização desses arquivos. Todas as especificidades de tipo de arquivo, como gráficos, diagramas, tags HTML, formatação Markdown etc., serão perdidas.
+Secara teknis, Anda dapat meneruskan jenis MIME lain untuk pemahaman dokumen, seperti TXT, Markdown, HTML, XML, dll. Namun, visi dokumen ***hanya dapat memahami PDF secara efektif***. Jenis lainnya akan diekstrak sebagai teks murni, dan model tidak akan dapat menafsirkan apa yang kita lihat dalam rendering file tersebut. Semua
+spesifikasi jenis file seperti diagram, HTML tag, pemformatan Markdown, dll.,
+akan hilang.
 
-Para saber mais sobre outros métodos de entrada de arquivos, consulte o
-[guia Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
+Untuk mempelajari metode input file lainnya, lihat panduan
+[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
 
-### Práticas recomendadas
+### Praktik terbaik
 
-Para conseguir os melhores resultados:
+Untuk hasil terbaik:
 
-- Gire as páginas para a orientação correta antes de fazer o upload.
-- Evite páginas desfocadas.
-- Se estiver usando uma única página, coloque o comando de texto após a página.
+- Putar halaman ke orientasi yang benar sebelum mengupload.
+- Hindari halaman yang buram.
+- Jika menggunakan satu halaman, tempatkan perintah teks setelah halaman.
 
-## A seguir
+## Langkah berikutnya
 
-Para saber mais, consulte os seguintes recursos:
+Untuk mempelajari lebih lanjut, lihat referensi berikut:
 
-- [Estratégias de comandos de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): a
-  API Gemini oferece suporte a comandos com dados de texto, imagem, áudio e vídeo, também
-  conhecidos como comandos multimodais.
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
-  As instruções do sistema permitem orientar o comportamento do modelo com base nas suas
-  necessidades e casos de uso específicos.
+- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video.
+- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
+  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-07-30 UTC.
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

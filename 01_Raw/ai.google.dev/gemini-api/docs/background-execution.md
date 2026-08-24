@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=th
-fetched_at: 2026-08-17T02:21:33.811398+00:00
-title: "\u0e01\u0e32\u0e23\u0e14\u0e33\u0e40\u0e19\u0e34\u0e19\u0e01\u0e32\u0e23\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e2d\u0e22\u0e39\u0e48\u0e40\u0e1a\u0e37\u0e49\u0e2d\u0e07\u0e2b\u0e25\u0e31\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-BR
+fetched_at: 2026-08-24T02:30:31.677004+00:00
+title: "Execu\u00e7\u00e3o em segundo plano \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-ส่งความคิดเห็น
+Envie comentários
 
-# การดำเนินการเมื่ออยู่เบื้องหลัง
+# Execução em segundo plano
 
-สำหรับงานที่ใช้เวลานาน เช่น การค้นหาเชิงลึก การให้เหตุผลที่ซับซ้อน หรือการดำเนินการของเอเจนต์แบบหลายขั้นตอน การหมดเวลาการเชื่อมต่ออาจขัดจังหวะคำขอ HTTP มาตรฐาน (ซึ่งโดยปกติจะปิดหลังจากผ่านไป 60 วินาที) [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) มี**การดำเนินการในเบื้องหลัง** เพื่อเรียกใช้งานเหล่านี้แบบไม่พร้อมกัน
+Para tarefas de longa duração, como pesquisa detalhada, raciocínio complexo ou execuções de agentes de várias etapas, os tempos limite de conexão podem interromper as solicitações HTTP padrão (que normalmente são fechadas após 60 segundos). A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) oferece **execução em segundo plano** para executar essas tarefas de forma assíncrona.
 
-หากต้องการให้การโต้ตอบทำงานจนกว่าจะทำงานบนเซิร์ฟเวอร์เสร็จสมบูรณ์ ให้ตั้งค่า `"background": true` เมื่อสร้างการโต้ตอบ API จะแสดงรหัสการโต้ตอบทันที ซึ่งแอปพลิเคชันไคลเอ็นต์สามารถใช้เพื่อสำรวจสถานะ สตรีมความคืบหน้า หรือเชื่อมต่อกับสตรีมที่ขาดการเชื่อมต่ออีกครั้ง
+Para permitir que a interação seja executada até concluir a tarefa no servidor, defina `"background": true` ao criar a interação. A API retorna imediatamente um ID de interação, que os aplicativos cliente podem usar para pesquisar o status, transmitir o progresso ou se reconectar a um stream desconectado.
 
-การดำเนินการในเบื้องหลังรองรับโมเดล Gemini มาตรฐาน (เช่น `gemini-3.6-flash` และ `gemini-3.1-pro-preview`) และ Agent ที่ได้รับการจัดการ (เช่น `antigravity-preview-05-2026`)
+A execução em segundo plano é compatível com modelos padrão do Gemini (como `gemini-3.6-flash` e `gemini-3.1-pro-preview`) e agentes gerenciados (como `antigravity-preview-05-2026`).
 
-## สร้างการโต้ตอบในเบื้องหลัง
+## Criar uma interação em segundo plano
 
-หากต้องการเริ่มการโต้ตอบในเบื้องหลัง ให้ตั้งค่าพารามิเตอร์ `background` เป็น `true` เมื่อสร้างทรัพยากร
+Para iniciar uma interação em segundo plano, defina o parâmetro `background` como `true` ao criar o recurso.
 
 ### Python
 
@@ -72,31 +72,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## วิธีการทำงานของการดำเนินการในเบื้องหลัง
+## Como funciona a execução em segundo plano
 
-เมื่อคุณสร้างการโต้ตอบในเบื้องหลัง งานจะทำงานแบบไม่พร้อมกันบนเซิร์ฟเวอร์ การโต้ตอบจะเปลี่ยนไปตามสถานะการดำเนินการต่างๆ ดังนี้
+Quando você cria uma interação em segundo plano, a tarefa é executada de forma assíncrona no servidor. A interação passa por vários estados de execução:
 
-- `in_progress`: เซิร์ฟเวอร์กำลังดำเนินการโต้ตอบอย่างแข็งขัน (เช่น การเรียกใช้โค้ดหรือการค้นคว้า)
-- `requires_action`: การโต้ตอบหยุดชั่วคราวและรออินพุตจากไคลเอ็นต์ (เช่น การยืนยันการดำเนินการของเครื่องมือหรือการตอบคำถาม)
-- `completed`: การโต้ตอบเสร็จสมบูรณ์แล้วและเอาต์พุตพร้อมใช้งาน
-- `failed`: เกิดข้อผิดพลาดระหว่างการดำเนินการ (เช่น เครื่องมือล้มเหลวหรือถึงขีดจำกัดอัตรา)
-- `cancelled`: คำขอจากไคลเอ็นต์หยุดการดำเนินการ
+- `in_progress`: o servidor está executando ativamente a interação (como executar código ou pesquisar).
+- `requires_action`: a interação foi pausada e está aguardando a entrada do cliente (como confirmar a execução de uma ferramenta ou responder a uma pergunta).
+- `completed`: a interação foi concluída e a saída está disponível.
+- `failed`: ocorreu um erro durante a execução (como falha na ferramenta ou limites de taxa).
+- `cancelled`: uma solicitação do cliente interrompeu a execução.
 
-### กรณีการใช้งาน
+### Casos de uso
 
-ใช้การดำเนินการในเบื้องหลังสำหรับกรณีต่อไปนี้
+Use a execução em segundo plano para:
 
-- **การดำเนินการของเอเจนต์:** งานที่ต้องมีการดำเนินการโค้ด การท่องเว็บ หรือการจัดระเบียบเอเจนต์ย่อย (เช่น `antigravity-preview-05-2026`)
-- **การค้นหาเชิงลึก:** ทำงานโดยใช้ `deep-research-preview-04-2026` หรือ `deep-research-max-preview-04-2026` ซึ่งใช้เวลาหลายนาที
-- **การให้เหตุผลที่ซับซ้อน:** งานที่ขั้นตอนการคิดของโมเดลเกินขีดจำกัดการเชื่อมต่อ HTTP มาตรฐาน
+- **Execuções de agentes**:tarefas que exigem execução de código, navegação na Web ou orquestração de subagentes (como `antigravity-preview-05-2026`).
+- **Pesquisa detalhada**:execuções usando `deep-research-preview-04-2026` ou `deep-research-max-preview-04-2026` que levam vários minutos.
+- **Raciocínio longo**:tarefas em que as etapas de pensamento do modelo excedem os limites de conexão HTTP padrão.
 
-## ดึงข้อมูลผลลัพธ์
+## Recuperar resultados
 
-รับผลลัพธ์การโต้ตอบในเบื้องหลังโดยใช้**การสำรวจ** หรือ**การสตรีม**
+Receba resultados de interação em segundo plano usando **polling** ou **streaming**.
 
-### รูปแบบการสำรวจ (แบบไม่บล็อก)
+### Padrão de polling (sem bloqueio)
 
-การสำรวจจะตรวจสอบสถานะการโต้ตอบเป็นระยะโดยใช้คำขอ GET แบบไม่บล็อกจนกว่าจะถึงสถานะสิ้นสุด
+O polling verifica o status da interação periodicamente usando solicitações GET sem bloqueio até que ela atinja um estado terminal.
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### รูปแบบการสตรีม
+### Padrão de streaming
 
-หากการหยุดชะงักของเครือข่ายทำให้สตรีมขาดการเชื่อมต่อ การสตรีมจะกลับมาทำงานต่อจากเหตุการณ์ที่ได้รับล่าสุด Delta แต่ละรายการจะมี `event_id` ที่ไม่ซ้ำกันในเพย์โหลด การส่งรหัสนี้เป็น `last_event_id` จะทำให้สตรีมกลับมาทำงานต่อจากเหตุการณ์นั้น
+Se uma interrupção de rede desconectar um stream, o streaming poderá ser retomado do último evento recebido. Cada delta contém um `event_id` exclusivo no payload. A transmissão desse ID como `last_event_id` retoma o stream desse evento.
 
 ### Python
 
@@ -240,14 +240,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## การสนทนาไปมา
+## Conversas multiturno
 
-การโต้ตอบในภายหลังสามารถเชื่อมโยงกับการสนทนาในเบื้องหลังได้โดยใช้ `previous_interaction_id` โดยขึ้นอยู่กับข้อจำกัดต่อไปนี้
+As interações subsequentes podem ser encadeadas a uma conversa em segundo plano usando `previous_interaction_id`, sujeitas a estas restrições:
 
-1. **การดำเนินการที่ใช้งานอยู่จะถูกบล็อก:** การเชื่อมโยงการโต้ตอบในภายหลังกับการโต้ตอบที่มีสถานะ `in_progress` จะแสดงข้อผิดพลาด `400 Bad Request` รอให้การโต้ตอบไปถึงสถานะ `completed` ก่อนที่จะเริ่มการโต้ตอบถัดไป
-2. **พารามิเตอร์สภาพแวดล้อมสำหรับ Agent ที่ได้รับการจัดการ:** เมื่อเชื่อมโยงการโต้ตอบสำหรับ Agent ที่ได้รับการจัดการ (เช่น `antigravity-preview-05-2026`) คำขอต้องมีทั้ง `previous_interaction_id` และ `environment`
+1. **As execuções ativas são bloqueadas**:o encadeamento de uma interação subsequente a uma com status `in_progress` retorna um erro `400 Bad Request`. Aguarde a interação atingir o estado `completed` antes de iniciar a próxima.
+2. **Parâmetro de ambiente para agentes gerenciados**:ao encadear interações para agentes gerenciados (como `antigravity-preview-05-2026`), as solicitações precisam incluir `previous_interaction_id` e `environment`.
 
-ตัวอย่างต่อไปนี้แสดงวิธีเชื่อมโยงการโต้ตอบ
+Os exemplos a seguir mostram como encadear interações:
 
 ### Python
 
@@ -335,12 +335,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การยกเลิกและการลบ
+## Cancelamento e exclusão
 
-ควบคุมการดำเนินการที่กำลังทำงานและจัดการพื้นที่เก็บข้อมูลโดยใช้คำขอยกเลิกและลบ
+Controle as execuções em andamento e gerencie o armazenamento usando solicitações de cancelamento e exclusão:
 
-- **ยกเลิก (`POST /interactions/{id}/cancel`):** หยุดงานที่กำลังทำงาน สถานะจะเปลี่ยนเป็น `cancelled` การดำเนินการล้างข้อมูลบนเซิร์ฟเวอร์อาจทำให้เกิดความล่าช้าเล็กน้อยก่อนที่สถานะจะอัปเดตในคำขอ GET
-- **ลบ (`DELETE /interactions/{id}`):** นำบันทึกการโต้ตอบออกจากเซิร์ฟเวอร์ คำขอ GET ในภายหลังจะแสดงข้อผิดพลาด `404 Not Found`
+- **Cancelar (`POST /interactions/{id}/cancel`)** : interrompe a tarefa em execução. O status faz a transição para `cancelled`. As ações de limpeza no servidor podem causar um pequeno atraso antes que o status seja atualizado nas solicitações GET.
+- **Excluir (`DELETE /interactions/{id}`)** : remove os registros de interação do servidor. As solicitações GET subsequentes retornam um erro `404 Not Found`.
 
 ### Python
 
@@ -384,18 +384,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## ขั้นตอนถัดไป
+## Próximas etapas
 
-- อ่าน[ภาพรวมของ Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) เพื่อทำความเข้าใจการจัดการเซสชันและสถานะ
-- ดูรายละเอียดเกี่ยวกับการอัปเดตเหตุการณ์แบบเรียลไทม์ได้ที่คู่มือการโต้ตอบแบบสตรีม [Streaming interactions](https://ai.google.dev/gemini-api/docs/streaming?hl=th)
-- สำรวจ[การเริ่มต้นใช้งานฉบับย่อของเอเจนต์ที่มีการจัดการ](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=th)เพื่อสร้างเอเจนต์แบบหลายรอบที่มีสถานะ
+- Leia a [visão geral da API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) para entender o gerenciamento de sessão e estado.
+- Consulte o guia de [interações de streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=pt-br) para detalhes sobre atualizações de eventos em tempo real.
+- Confira o [guia de início rápido de agentes gerenciados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pt-br) para criar agentes multiturno com estado.
 
-ส่งความคิดเห็น
+Envie comentários
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Última atualização 2026-07-30 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Quer enviar seu feedback?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]

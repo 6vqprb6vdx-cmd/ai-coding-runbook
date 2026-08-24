@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-TW
-fetched_at: 2026-08-17T02:23:12.405385+00:00
-title: "\u5229\u7528 Google \u5730\u5716\u5efa\u7acb\u57fa\u6e96 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr
+fetched_at: 2026-08-24T02:21:02.494810+00:00
+title: "Ancrage avec Google\u00a0Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-提供意見
+Envoyer des commentaires
 
-# 利用 Google 地圖建立基準
+# Ancrage avec Google Maps
 
-利用 Google 地圖建立基準，讓 Gemini 的生成式功能連結至 Google 地圖豐富、真實且最新的資料。開發人員可以輕鬆將位置辨識功能整合至自家應用程式。如果使用者查詢的內容與地圖資料相關，Gemini 模型會利用 Google 地圖提供準確且最新的答案，並與使用者指定的確切位置或大概區域相關。
+L'ancrage avec Google Maps associe les capacités génératives de Gemini aux données riches, factuelles et à jour de Google Maps. Cette fonctionnalité permet aux développeurs d'intégrer facilement des fonctionnalités de localisation dans leurs applications. Lorsqu'une requête utilisateur a un contexte lié aux données Maps, le modèle Gemini exploite Google Maps pour fournir des réponses factuellement exactes et récentes, pertinentes pour le lieu spécifié par l'utilisateur ou la zone géographique générale.
 
-- **準確的地理位置感知回覆：**針對特定地理位置的查詢，運用 Google 地圖的豐富最新資料。
-- **強化個人化功能：**根據使用者提供的地點，量身打造推薦內容和資訊。
+- **Réponses précises et géolocalisées** : exploitez les données complètes et actuelles de Google Maps pour les requêtes géographiques spécifiques.
+- **Personnalisation améliorée** : adaptez les recommandations et les informations en fonction des lieux fournis par l'utilisateur.
 
-## 開始使用
+## Premiers pas
 
-本範例說明如何將 Grounding with Google Maps 整合至應用程式，根據使用者查詢提供準確的回覆，並瞭解相關位置資訊。提示會要求提供當地建議，並可選擇提供使用者位置資訊，讓 Gemini 模型使用 Google 地圖資料。
+Cet exemple montre comment intégrer l'ancrage avec Google Maps dans votre application pour fournir des réponses précises et géolocalisées aux requêtes des utilisateurs. La requête demande des recommandations locales avec une position utilisateur facultative, ce qui permet au modèle Gemini d'utiliser les données Google Maps.
 
 ### Python
 
@@ -118,38 +118,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 如何利用 Google 地圖建立基準
+## Fonctionnement de l'ancrage avec Google Maps
 
-利用 Google 地圖建立基準時，系統會使用 Maps API 做為基準來源，將 Gemini API 與 Google 地理位置生態系統整合。如果使用者查詢包含地理位置資訊，Gemini 模型可以呼叫「以 Google 地圖建立基準」工具。模型接著會根據與所提供位置相關的 Google 地圖資料，生成回覆。
+L'ancrage avec Google Maps intègre l'API Gemini à l'écosystème Google Geo en utilisant l'API Google Maps comme source d'ancrage. Lorsque la requête d'un utilisateur contient un contexte géographique, le modèle Gemini peut appeler l'outil d'ancrage avec Google Maps. Le modèle peut ensuite générer des réponses basées sur les données Google Maps pertinentes pour le lieu fourni.
 
-整個程序通常涵蓋下列工作：
+Ce processus implique généralement les étapes suivantes :
 
-1. **使用者查詢：**使用者向應用程式提交查詢，可能包含地理位置背景資訊 (例如「我附近的咖啡店」、「舊金山的博物館」)。
-2. **工具呼叫：**Gemini 模型會辨識地理意圖，並呼叫「利用 Google 地圖建立基準」工具。這項工具可選擇性提供使用者的 `latitude` 和 `longitude`。這項工具是文字搜尋工具，運作方式與在 Google 地圖上搜尋類似，也就是說，系統會使用座標來處理本地查詢 (「我附近」)，而特定或非本地查詢則不太會受到明確位置的影響。
-3. **資料擷取：**「利用 Google 地圖建立基準」服務會查詢 Google 地圖，找出相關資訊 (例如地點、評論、相片、地址、營業時間)。
-4. **以擷取資料為基準生成內容：**系統會使用擷取的 Google 地圖資料，做為 Gemini 模型回覆的依據，確保內容符合事實且具關聯性。
-5. **回覆和註解：**模型會傳回文字回覆，並附上連結至 Google 地圖來源的內嵌註解，方便開發人員顯示引用內容。
+1. **Requête utilisateur** : un utilisateur envoie une requête à votre application, qui peut inclure un contexte géographique (par exemple, "cafés à proximité" ou "musées à San Francisco").
+2. **Appel d'outil** : le modèle Gemini, reconnaissant l'intention géographique, appelle l'outil d'ancrage avec Google Maps. Cet outil peut éventuellement être fourni avec la `latitude` et la `longitude` de l'utilisateur. L'outil est un outil de recherche textuelle et se comporte de la même manière que la recherche dans Maps. Les requêtes locales ("à proximité") utilisent les coordonnées, tandis que les requêtes spécifiques ou non locales sont peu susceptibles d'être influencées par le lieu explicite.
+3. **Récupération des données** : le service d'ancrage avec Google Maps interroge Google Maps pour obtenir des informations pertinentes (par exemple, des lieux, des avis, des photos, des adresses, des horaires d'ouverture).
+4. **Génération ancrée** : les données Maps récupérées sont utilisées pour informer la réponse du modèle Gemini, ce qui garantit l'exactitude et la pertinence des faits.
+5. **Réponse et annotations** : le modèle renvoie une réponse textuelle avec des annotations intégrées renvoyant aux sources Google Maps, ce qui permet aux développeurs d'afficher des citations.
 
-## 使用 Google 地圖建立基準的原因與時機
+## Pourquoi et quand utiliser l'ancrage avec Google Maps
 
-如果應用程式需要準確、最新且特定地點的資訊，就非常適合使用「利用 Google 地圖建立基準」功能。這項功能會根據 Google 地圖全球超過 2.5 億個地點的龐大資料庫，提供相關且個人化的內容，提升使用者體驗。
+L'ancrage avec Google Maps est idéal pour les applications qui nécessitent des informations précises, à jour et spécifiques à un lieu. Il améliore l'expérience utilisateur en fournissant des contenus pertinents et personnalisés, basés sur la vaste base de données Google Maps de plus de 250 millions de lieux dans le monde.
 
-如果應用程式需要執行下列操作，請使用「利用 Google 地圖建立基準」功能：
+Vous devez utiliser l'ancrage avec Google Maps lorsque votre application doit :
 
-- 完整且如實回答特定地區的問題。
-- 建構對話式旅遊行程規劃工具和當地導覽。
-- 根據位置和使用者偏好 (例如餐廳或商店) 推薦興趣點。
-- 為社交、零售或外送服務打造位置感知體驗。
+- fournir des réponses complètes et précises à des questions géographiques spécifiques ;
+- créer des planificateurs de voyage conversationnels et des guides locaux ;
+- recommander des points d'intérêt en fonction du lieu et des préférences de l'utilisateur, comme des restaurants ou des magasins ;
+- créer des expériences géolocalisées pour les services sociaux, de vente au détail ou de livraison de nourriture.
 
-在需要鄰近地區和當前事實資料的應用情境中，以 Google 地圖為基礎的搜尋功能表現出色，例如尋找「我附近最好的咖啡店」或取得路線。
+L'ancrage avec Google Maps excelle dans les cas d'utilisation où la proximité et les données factuelles actuelles sont essentielles, par exemple pour trouver le "meilleur café à proximité" ou obtenir un itinéraire.
 
-## 用途
+## Cas d'utilisation
 
-利用 Google 地圖建立基準支援各種需要位置資訊的用途。
+L'ancrage avec Google Maps est compatible avec différents cas d'utilisation géolocalisés.
 
-### 處理地點相關問題
+### Gérer les questions spécifiques à un lieu
 
-詳細詢問特定地點的問題，根據 Google 使用者評論和其他地圖資料取得解答。
+Posez des questions détaillées sur un lieu spécifique pour obtenir des réponses basées sur les avis des utilisateurs Google et d'autres données Maps.
 
 ### Python
 
@@ -222,9 +222,9 @@ async function main() {
 main();
 ```
 
-### 提供以位置為依據的個人化服務
+### Fournir une personnalisation basée sur la localisation
 
-根據使用者的偏好和特定地理區域提供建議。
+Obtenez des recommandations adaptées aux préférences d'un utilisateur et à une zone géographique spécifique.
 
 ### Python
 
@@ -297,9 +297,9 @@ async function main() {
 main();
 ```
 
-### 協助規劃行程
+### Aider à la planification d'itinéraires
 
-生成多日行程，提供各個地點的路線和資訊，非常適合用於旅遊應用程式。
+Générez des plans sur plusieurs jours avec des itinéraires et des informations sur différents lieux, parfaits pour les applications de voyage.
 
 ### Python
 
@@ -364,98 +364,102 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 服務使用規定
+## Conditions d'utilisation du service
 
-本節說明 Grounding with Google Maps 的服務使用規定。
+Cette section décrit les conditions d'utilisation du service pour l'ancrage avec Google Maps.
 
-### 告知使用者 Google 地圖來源的使用情形
+### Informer l'utilisateur de l'utilisation des sources Google Maps
 
-對於每項 Google 地圖 Grounded 結果，您都會在 `model_output` 步驟的內容區塊中收到來源註解，這些註解支援每項回覆。系統會傳回下列中繼資料：
+Pour chaque résultat ancré de Google Maps, vous recevrez des annotations de source sur les blocs de contenu de l'étape `model_output` qui prennent en charge chaque réponse. Les métadonnées suivantes sont renvoyées :
 
-- 來源網址
-- 名稱
+- URL de la source
+- nom
 
-呈現利用 Google 地圖建立基準的結果時，您必須指定相關聯的 Google 地圖來源，並告知使用者下列事項：
+Lorsque vous présentez des résultats de l'ancrage avec Google Maps, vous devez spécifier les sources Google Maps associées et informer vos utilisateurs des points suivants :
 
-- Google 地圖來源必須緊接在來源支援的生成內容後方。這類生成內容也稱為「Google 地圖基礎結果」。
-- Google 地圖來源必須在一次使用者互動中顯示。
+- Les sources Google Maps doivent suivre immédiatement le contenu généré qu'elles prennent en charge. Ce contenu généré est également appelé résultat ancré de Google Maps.
+- Les sources Google Maps doivent être visibles en une seule interaction de l'utilisateur.
 
-### 顯示 Google 地圖來源和連結
+### Afficher les sources Google Maps avec des liens Google Maps
 
-系統必須按照下列規定，為每個來源註解產生連結預覽畫面：
+Pour chaque annotation de source, un aperçu du lien doit être généré en respectant les exigences suivantes :
 
-- 請按照 Google 地圖文字[出處標示指南](#maps-attribution-guidelines)，將每個來源歸功於 Google 地圖。
-- 顯示回覆中提供的來源名稱。
-- 使用註解中的 `url` 連結至來源。
+- Attribuez chaque source à Google Maps en suivant les consignes d'attribution textuelle de Google Maps
+  .
+- Affichez le nom de la source fourni dans la réponse.
+- Créez un lien vers la source à l'aide de l'`url` de l'annotation.
 
-### Google 地圖文字出處註明規範
+### Consignes d'attribution textuelle de Google Maps
 
-在文字中將來源歸給 Google 地圖時，請遵循下列規範：
+Lorsque vous attribuez des sources à Google Maps dans du texte, suivez ces consignes :
 
-- 請勿以任何方式修改「Google 地圖」文字：
-  - 請勿變更 Google 地圖的英文大小寫。
-  - 請勿將 Google 地圖換行。
-  - 請勿將 Google 地圖本地化為其他語言。
-  - 使用 HTML 屬性 translate="no"，禁止瀏覽器翻譯 Google 地圖。
+- Ne modifiez en aucun cas le texte Google Maps :
+  - Ne modifiez pas la casse de Google Maps.
+  - N'insérez pas Google Maps sur plusieurs lignes.
+  - Ne traduisez pas Google Maps dans une autre langue.
+  - Empêchez les navigateurs de traduire Google Maps en utilisant l'attribut HTML translate="no".
 
-如要進一步瞭解部分 Google 地圖資料供應商及其授權條款，請參閱 [Google 地圖和 Google 地球法律聲明](https://www.google.com/help/legalnotices_maps/?hl=zh-tw)。
+Pour en savoir plus sur certains de nos fournisseurs de données Google Maps et leurs
+conditions de licence, consultez les [mentions légales de Google Maps et Google Earth](https://www.google.com/help/legalnotices_maps/?hl=fr).
 
-## 最佳做法
+## Bonnes pratiques
 
-- **提供使用者位置資訊：**如要提供最相關的個人化回覆，請在使用者位置資訊已知的情況下，一律在 `google_maps` 工具設定中加入 `latitude` 和 `longitude`。
-- **告知使用者：**清楚告知使用者系統會使用 Google 地圖資料回答查詢，尤其是在啟用這項工具時。
-- **在不需要時關閉：**根據預設，系統會關閉利用 Google 地圖建立基準的功能。只有在查詢有明確的地理位置脈絡時，才啟用這項功能 (`"tools": [{"type": "google_maps"}]`)，以提升效能並節省費用。
+- **Fournir la position de l'utilisateur** : pour obtenir les réponses les plus pertinentes et personnalisées, incluez toujours la `latitude` et la `longitude` dans la configuration de votre outil `google_maps` lorsque la position de l'utilisateur est connue.
+- **Informer les utilisateurs finaux** : indiquez clairement à vos utilisateurs finaux que les données Google Maps sont utilisées pour répondre à leurs requêtes, en particulier lorsque l'outil est activé.
+- **Désactiver lorsque ce n'est pas nécessaire** : l'ancrage avec Google Maps est désactivé par défaut. N'activez-le (`"tools": [{"type": "google_maps"}]`) que lorsqu'une requête a un
+  contexte géographique clair, afin d'optimiser les performances et les coûts.
 
-## 限制
+## Limites
 
-- 利用 Google 地圖建立基準功能目前僅支援英文提示和回覆。
-- 這項工具可能僅適用於部分地區。
-- 結果可能因定位精確度和可用的 Google 地圖資料而異。
-- **地理範圍：**利用 Google 地圖建立基準的服務已在全球推出。
-- **預設狀態：**「利用 Google 地圖建立基準」工具預設為關閉。
-  您必須在 API 要求中明確啟用這項功能。
+- L'ancrage avec Google Maps n'est actuellement compatible qu'avec les requêtes et les réponses en anglais.
+- L'outil peut ne pas être disponible dans toutes les régions.
+- Les résultats peuvent varier en fonction de la précision de la localisation et des données Maps disponibles.
+- **Couverture géographique** : l'ancrage avec Google Maps est disponible dans le monde entier.
+- **État par défaut** : l'outil d'ancrage avec Google Maps est désactivé par défaut.
+  Vous devez l'activer explicitement dans vos requêtes API.
 
-## 定價與頻率限制
+## Tarifs et limites de débit
 
-利用 Google 地圖建立基準的定價會因模型世代而異：
+Les tarifs de l'ancrage avec Google Maps varient en fonction de la génération du modèle :
 
-- **Gemini 3 模型：**如果模型決定執行**搜尋查詢**，專案就會產生費用。單一**搜尋提示** (您對模型發出的 API 要求) 可能會導致模型執行多項搜尋查詢，以找出必要資訊。每項查詢都會計為工具的計費使用量。
-- **Gemini 2.5 和舊版模型：**系統會根據**搜尋提示**向專案收費。
-  只有在提示成功傳回至少一個 Google 地圖基礎結果時，才會針對要求收費，無論模型在內部執行多少次個別搜尋查詢來取得該結果。
+- **Modèles Gemini 3** : votre projet est facturé pour chaque **requête de recherche** que le modèle décide d'exécuter. Une seule **requête de recherche** (votre requête API au modèle) peut entraîner l'exécution de plusieurs requêtes de recherche par le modèle pour trouver les informations nécessaires. Chacune de ces requêtes est comptabilisée comme une utilisation facturable de l'outil.
+- **Modèles Gemini 2.5 et versions antérieures** : votre projet est facturé par **requête de recherche**.
+  Une requête n'est facturée que si la requête renvoie au moins un résultat ancré de Google Maps, quel que soit le nombre de requêtes de recherche individuelles que le modèle a effectuées en interne pour obtenir ce résultat.
 
-如需詳細定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
+Pour en savoir plus sur les tarifs, consultez la page [Tarifs de l'API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
 
-## 支援的模型
+## Modèles compatibles
 
-下列模型支援「利用 Google 地圖建立基準」：
+Les modèles suivants sont compatibles avec l'ancrage avec Google Maps :
 
-| 模型 | 利用 Google 地圖建立基準 |
+| Modèle | Ancrage avec Google Maps |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-tw) | ✔️ |
-| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ |
-| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fr) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fr) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=fr) | ✔️ |
+| [Gemini 3.1 Pro (preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fr) | ✔️ |
+| [Gemini 3 Flash (preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fr) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fr) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fr) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fr) | ✔️ |
 
-## 支援的工具組合
+## Combinaisons d'outils compatibles
 
-Gemini 3 模型支援結合內建工具 (例如「以 Google 地圖強化事實基礎」) 和自訂工具 (函式呼叫)。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
+Les modèles Gemini 3 sont compatibles avec la combinaison d'outils intégrés (comme l'ancrage avec Google Maps) et d'outils personnalisés (appel de fonction). Pour en savoir plus, consultez la
+[page sur les combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
 
-## 後續步驟
+## Étape suivante
 
-- 瞭解其他[可用工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw)。
-- 如要進一步瞭解負責任的 AI 技術最佳做法和 Gemini API 的安全篩選器，請參閱[安全設定指南](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-tw)。
+- Découvrez d'autres [outils disponibles](https://ai.google.dev/gemini-api/docs/tools?hl=fr).
+- Pour en savoir plus sur les bonnes pratiques d'IA responsable et les filtres de sécurité de l'API Gemini, consultez [le guide des paramètres de sécurité](https://ai.google.dev/gemini-api/docs/safety-settings?hl=fr).
 
-提供意見
+Envoyer des commentaires
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-上次更新時間：2026-07-30 (世界標準時間)。
+Dernière mise à jour le 2026/07/30 (UTC).
 
-想進一步說明嗎？
+Voulez-vous nous donner plus d'informations ?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]

@@ -1,94 +1,85 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ja
-fetched_at: 2026-08-17T02:29:11.301086+00:00
-title: "OAuth \u306b\u3088\u308b\u8a8d\u8a3c\u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=he
+fetched_at: 2026-08-24T02:28:08.535931+00:00
+title: "\u05d0\u05d9\u05de\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05de\u05ea\u05d7\u05d9\u05dc\u05d9\u05dd \u05e9\u05dc OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-フィードバックを送信
+שליחת משוב
 
-# OAuth による認証のクイックスタート
+# אימות באמצעות מדריך למתחילים של OAuth
 
-Gemini API で認証を行う最も簡単な方法は、API
-キーを構成することです。これは、[Gemini API スタートガイド](https://ai.google.dev/gemini-api/docs/get-started?hl=ja)で説明されています。より厳格なアクセス制御が必要な場合は、代わりに OAuth を使用できます。このガイドでは、OAuth
-を使用して認証を設定する方法について説明します。
+הדרך הכי קלה לבצע אימות ל-Gemini API היא להגדיר מפתח API, כמו שמתואר ב[מדריך לתחילת העבודה עם Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=he). אם אתם צריכים אמצעי בקרה מחמירים יותר על הגישה, אתם יכולים להשתמש ב-OAuth במקום זאת. המדריך הזה יעזור לכם להגדיר אימות באמצעות OAuth.
 
-このガイドでは、テスト環境に適した簡素化された認証方法を使用します。[[本番環境の場合は、アプリに適したアクセス認証情報を選択する前に、認証と認可について学習してください。](https://developers.google.com/workspace/guides/auth-overview?hl=ja)](https://developers.google.com/workspace/guides/create-credentials?hl=ja#choose_the_access_credential_that_is_right_for_you)
+במדריך הזה נשתמש בגישה פשוטה לאימות, שמתאימה לסביבת בדיקה. בסביבת ייצור, מומלץ לקרוא על [אימות והרשאה](https://developers.google.com/workspace/guides/auth-overview?hl=he) לפני [שבוחרים את פרטי הגישה](https://developers.google.com/workspace/guides/create-credentials?hl=he#choose_the_access_credential_that_is_right_for_you) שמתאימים לאפליקציה שלכם.
 
-## 目標
+## מטרות
 
-- OAuth 用にクラウド プロジェクトを設定する
-- アプリケーションのデフォルト認証情報を設定する
-- `gcloud auth` を使用する代わりに、プログラムで認証情報を管理する
+- הגדרת פרויקט בענן ל-OAuth
+- הגדרה של Application Default Credentials
+- ניהול פרטי הכניסה בתוכנית במקום שימוש ב-`gcloud auth`
 
-## 前提条件
+## דרישות מוקדמות
 
-このクイックスタートを実行するには、次のものが必要です。
+כדי להפעיל את המדריך למתחילים הזה, אתם צריכים:
 
-- [Google Cloud プロジェクト](https://developers.google.com/workspace/guides/create-project?hl=ja)
-- [gcloud CLI のローカル インストール](https://cloud.google.com/sdk/docs/install?hl=ja)
+- [פרויקט ב-Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=he)
+- [התקנה מקומית של ה-CLI של gcloud](https://cloud.google.com/sdk/docs/install?hl=he)
 
-## クラウド プロジェクトを設定する
+## הגדרת הפרויקט בענן
 
-このクイックスタートを完了するには、まず Cloud プロジェクトを設定する必要があります。
+כדי להשלים את המדריך למתחילים הזה, קודם צריך להגדיר את פרויקט הענן.
 
-### 1. API を有効にする
+### 1. הפעלת ה-API
 
-Google API を使用する前に、Google Cloud プロジェクトで API を有効にする必要があります。
+לפני שאתם משתמשים בממשקי Google API, אתם צריכים להפעיל אותם בפרויקט ב-Google Cloud.
 
-- Google Cloud コンソールで、Google Generative Language API を有効にします。
+- במסוף Google Cloud, מפעילים את Google Generative Language API.
 
-  [API を有効にする](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ja)
+  [להפעלת ה-API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=he)
 
-### 2. OAuth 同意画面を構成する
+### 2. מגדירים את מסך ההסכמה של OAuth
 
-次に、プロジェクトの OAuth 同意画面を構成し、テストユーザーとして自分を追加します。Cloud
-プロジェクトでこの手順をすでに完了している場合は、次のセクションに進んでください。
+בשלב הבא מגדירים את מסך ההסכמה ל-OAuth של הפרויקט ומוסיפים את עצמכם כמשתמש לבדיקה. אם כבר ביצעתם את השלב הזה בפרויקט בענן שלכם, אתם יכולים לדלג לקטע הבא.
 
-1. Google Cloud コンソールで、**メニュー** > **Google Auth Platform** > **概要** に移動します。
+1. במסוף Google Cloud, לוחצים על **תפריט** > **פלטפורמת אימות של Google** > **סקירה כללית**.
 
-   [Google Auth Platform に移動](https://console.developers.google.com/auth/overview?hl=ja)
-2. プロジェクト構成フォームに記入し、[**対象ユーザー**] セクションでユーザータイプを [**外部**] に設定します。
-3. フォームの残りの部分に記入し、ユーザーデータに関するポリシーの条項に同意して、[**作成**] をクリックします。
-4. ここでは、スコープの追加をスキップして、[**保存して次へ**] をクリックします。今後、Google Workspace 組織外で使用するアプリを作成する場合は、アプリに必要な認可スコープを追加して確認する必要があります。
-5. テストユーザーを追加します。
+   [מעבר לפלטפורמת האימות של Google](https://console.developers.google.com/auth/overview?hl=he)
+2. ממלאים את טופס הגדרת הפרויקט ומגדירים את סוג המשתמש ל**External** (חיצוני) בקטע **Audience** (קהל).
+3. ממלאים את שאר השדות בטופס, מאשרים את התנאים של המדיניות בנושא נתוני משתמשים ולוחצים על **יצירה**.
+4. כרגע אתם יכולים לדלג על הוספת היקפי הרשאות וללחוץ על **שמירה והמשך**. בעתיד, כשתיצרו אפליקציה לשימוש מחוץ לארגון שלכם ב-Google Workspace, תצטרכו להוסיף ולאמת את היקפי ההרשאות שהאפליקציה דורשת.
+5. הוספת משתמשי בדיקה:
 
-   1. Google Auth Platform の
-      [[対象ユーザー] ページ](https://console.developers.google.com/auth/audience?hl=ja)に移動します。
-   2. [**テストユーザー**] で [**ユーザーを追加**] をクリックします。
-   3. メールアドレスと他の承認済みテストユーザーを入力し、[**保存**] をクリックします。
+   1. עוברים אל [דף הקהל](https://console.developers.google.com/auth/audience?hl=he) של פלטפורמת אימות Google.
+   2. בקטע **משתמשי בדיקה**, לוחצים על **הוספת משתמשים**.
+   3. מזינים את כתובת האימייל שלכם ושל משתמשים מורשים אחרים לבדיקה, ואז לוחצים על **שמירה**.
 
-### 3. デスクトップ アプリケーションの認証情報を承認する
+### 3. מאשרים את פרטי הכניסה של האפליקציה למחשב
 
-エンドユーザーとして認証を行い、アプリ内でユーザーデータにアクセスするには、1 つ以上の OAuth 2.0 クライアント ID
-を作成する必要があります。クライアント ID は、Google の OAuth
-サーバーで個々のアプリを識別するために使用します。アプリが複数のプラットフォームで実行される場合は、プラットフォームごとに個別のクライアント ID
-を作成する必要があります。
+כדי לבצע אימות כמשתמש קצה ולגשת לנתוני משתמשים באפליקציה, צריך ליצור מזהה לקוח אחד או יותר ב-OAuth 2.0. מזהה הלקוח משמש לזיהוי של אפליקציה אחת בשרתי OAuth של Google. אם האפליקציה פועלת בכמה פלטפורמות, צריך ליצור מזהה לקוח נפרד לכל פלטפורמה.
 
-1. Google Cloud コンソールで、**メニュー** > **Google Auth Platform** > **クライアント** に移動します。
+1. במסוף Google Cloud, לוחצים על **תפריט** > **פלטפורמת האימות של Google** > **לקוחות**.
 
-   [[認証情報] に移動](https://console.developers.google.com/auth/clients?hl=ja)
-2. [**クライアントの作成**] をクリックします。
-3. [**アプリケーション タイプ**] > [**デスクトップ アプリ**] をクリックします。
-4. [**名前**] フィールドに、認証情報の名前を入力します。この名前は Google Cloud コンソールにのみ表示されます。
-5. [**作成**] をクリックします。[OAuth クライアントを作成しました] 画面が表示され、新しいクライアント ID とクライアント シークレットが表示されます。
-6. [**OK**] をクリックします。新しく作成した認証情報が [**OAuth 2.0 クライアント ID**] に表示されます。
-7. ダウンロード ボタンをクリックして JSON ファイルを保存します。
-   `client_secret_<identifier>.json` として保存されます。名前を `client_secret.json`
-   に変更して、作業ディレクトリに移動します。
+   [לדף Credentials](https://console.developers.google.com/auth/clients?hl=he)
+2. לוחצים על **Create Client**.
+3. לוחצים על **Application type** > **Desktop app**.
+4. בשדה **Name**, מקלידים שם לפרטי הכניסה. השם הזה מוצג רק במסוף Google Cloud.
+5. לוחצים על **יצירה**. מופיע מסך עם לקוח OAuth שנוצר, שבו מוצגים מזהה הלקוח וסוד הלקוח החדשים.
+6. לוחצים על **אישור**. פרטי הכניסה החדשים שנוצרו מופיעים בקטע **מזהי לקוח OAuth 2.0**.
+7. לוחצים על לחצן ההורדה כדי לשמור את קובץ ה-JSON. הוא יישמר בשם `client_secret_<identifier>.json`. משנים את השם שלו ל-`client_secret.json` ומעבירים אותו לספריית העבודה.
 
-## アプリケーションのデフォルト認証情報を設定する
+## הגדרת Application Default Credentials
 
-`client_secret.json` ファイルを使用可能な認証情報に変換するには、その場所を `gcloud auth application-default login` コマンドの `--client-id-file` 引数に渡します。
+כדי להמיר את הקובץ `client_secret.json` לפרטי כניסה שניתן להשתמש בהם, מעבירים את המיקום שלו לארגומנט `--client-id-file` של הפקודה `gcloud auth application-default login`.
 
 ```
 gcloud auth application-default login \
@@ -96,9 +87,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-このチュートリアルの簡素化されたプロジェクト設定では、**「Google はこのアプリを確認していません。」** ダイアログが表示されます。これは正常です、[**続行**]を選択します。
+ההגדרה הפשוטה של הפרויקט במדריך הזה מפעילה את תיבת הדו-שיח **"Google לא אימתה את האפליקציה הזו"**. זה מצב תקין, לוחצים על **"המשך"**.
 
-これにより、結果のトークンが既知の場所に配置され、`gcloud` またはクライアント ライブラリからアクセスできるようになります。
+הפעולה הזו מציבה את האסימון שמתקבל במיקום מוכר, כך שניתן לגשת אליו באמצעות `gcloud` או ספריות הלקוח.
 
 ```` ```
 gcloud auth application-default login   
@@ -109,11 +100,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-アプリケーションのデフォルト認証情報（ADC）を設定すると、ほとんどの言語のクライアント ライブラリは、最小限の操作で認証情報を検索できます。
+אחרי שמגדירים את Application Default Credentials‏ (ADC), ספריות הלקוח ברוב השפות לא צריכות עזרה כדי למצוא אותן, או שהן צריכות עזרה מינימלית.
 
 ### Curl
 
-これが機能していることをテストする最も簡単な方法は、curl を使用して REST API にアクセスすることです。
+הדרך הכי מהירה לבדוק שהיא פועלת היא להשתמש בה כדי לגשת ל-REST API באמצעות curl:
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -126,13 +117,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Python では、クライアント ライブラリが自動的に検索します。
+ב-Python, ספריות הלקוח אמורות למצוא את פרטי הכניסה באופן אוטומטי:
 
 ```
 pip install google-genai
 ```
 
-テスト用の最小限のスクリプトは次のとおりです。
+סקריפט מינימלי לבדיקה יכול להיות:
 
 ```
 from google import genai
@@ -141,32 +132,28 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## 次のステップ
+## השלבים הבאים
 
-これが機能したら、テキストデータで
-[セマンティック検索](https://ai.google.dev/docs/semantic_retriever?hl=ja)を試すことができます。
+אם זה עובד, אפשר לנסות [אחזור סמנטי של נתוני הטקסט](https://ai.google.dev/docs/semantic_retriever?hl=he).
 
-## 認証情報を自分で管理する [Python]
+## ניהול פרטי הכניסה באופן עצמאי [Python]
 
-多くの場合、クライアント ID（`client_secret.json`）からアクセス トークンを作成するために `gcloud`
-コマンドを使用できません。Google は、アプリ内でそのプロセスを管理できるように、多くの言語でライブラリを提供しています。このセクションでは、Python
-でのプロセスについて説明します。他の言語での同様の手順の例については、
-[Drive API ドキュメント](https://developers.google.com/drive/api/quickstart/python?hl=ja)をご覧ください。
+במקרים רבים, הפקודה `gcloud` לא תהיה זמינה ליצירת אסימון הגישה ממזהה הלקוח (`client_secret.json`). Google מספקת ספריות בשפות רבות כדי לאפשר לכם לנהל את התהליך הזה בתוך האפליקציה. בקטע הזה מוצג התהליך ב-Python. דוגמאות מקבילות לסוג הזה של הליך, בשפות אחרות, זמינות ב[מסמכי התיעוד של Drive API](https://developers.google.com/drive/api/quickstart/python?hl=he).
 
-### 1. 必要なライブラリのインストール
+### 1. התקנת הספריות הנדרשות
 
-Python 用の Google クライアント ライブラリと Gemini クライアント ライブラリをインストールします。
+מתקינים את ספריית הלקוח של Google ל-Python ואת ספריית הלקוח של Gemini.
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. 認証情報マネージャーを作成する
+### 2. כתיבה של מנהל פרטי הכניסה
 
-認可画面を何度もクリックする必要がないように、作業ディレクトリに `load_creds.py` ファイルを作成します。このファイルは、後で再利用できる `token.json` ファイルをキャッシュします。有効期限が切れた場合は更新されます。
+כדי לצמצם את מספר הפעמים שצריך ללחוץ על מסכי ההרשאה, יוצרים קובץ בשם `load_creds.py` בספריית העבודה כדי לשמור במטמון קובץ `token.json` שאפשר לעשות בו שימוש חוזר בהמשך, או לרענן אותו אם הוא פג.
 
-次のコードから始めて、`client_secret.json` ファイルを `genai.configure` で使用できるトークンに変換します。
+מתחילים עם הקוד הבא כדי להמיר את הקובץ `client_secret.json` לטוקן שאפשר להשתמש בו עם `genai.configure`:
 
 ```
 import os.path
@@ -203,9 +190,9 @@ def load_creds():
     return creds
 ```
 
-### 3. プログラムを作成する
+### 3. כתיבת התוכנית
 
-次に、`script.py` を作成します。
+עכשיו יוצרים את `script.py`:
 
 ```
 import pprint
@@ -220,27 +207,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. プログラムを実行する
+### 4. הפעלת התוכנית
 
-作業ディレクトリで、サンプルを実行します。
+בספריית העבודה, מריצים את הדוגמה:
 
 ```
 python script.py
 ```
 
-スクリプトを初めて実行すると、ブラウザ ウィンドウが開き、アクセス権の承認を求められます。
+בפעם הראשונה שמריצים את הסקריפט, נפתח חלון דפדפן ומופיעה בקשה לאשר גישה.
 
-1. Google アカウントにログインしていない場合は、ログインを求められます。複数のアカウントにログインしている場合は、**プロジェクトの構成時に [テスト アカウント] として設定したアカウントを選択してください。**
-2. 認可情報はファイル システムに保存されるため、サンプルコードを次回実行するときに認可を求められることはありません。
+1. אם לא התחברתם לחשבון Google שלכם, תתבקשו להיכנס אליו. אם אתם מחוברים לכמה חשבונות, **חשוב לבחור את החשבון שהגדרתם כ'חשבון בדיקה' כשאתם מגדירים את הפרויקט.**
+2. פרטי ההרשאה מאוחסנים במערכת הקבצים, כך שבפעם הבאה שתריצו את הקוד לדוגמה, לא תתבקשו להעניק הרשאה.
 
-認証の設定が完了しました。
+הגדרת האימות בוצעה בהצלחה.
 
-フィードバックを送信
+שליחת משוב
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-最終更新日 2026-07-01 UTC。
+עדכון אחרון: 2026-07-01 (שעון UTC).
 
-ご意見をお聞かせください
+רוצה לתת לנו משוב?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-01 UTC。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-01 (שעון UTC)."],[],[]]

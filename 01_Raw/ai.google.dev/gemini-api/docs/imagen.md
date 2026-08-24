@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=hi
-fetched_at: 2026-08-17T02:28:02.894889+00:00
-title: "Imagen \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0915\u0947 \u0907\u092e\u0947\u091c \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=pl
+fetched_at: 2026-08-24T02:24:00.468656+00:00
+title: "Generowanie obraz\u00f3w za pomoc\u0105 Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-सुझाव भेजें
+Prześlij opinię
 
-# Imagen का इस्तेमाल करके इमेज जनरेट करना
+# Generowanie obrazów za pomocą Imagen
 
-Imagen, Google का इमेज जनरेट करने वाला एक मॉडल है. यह टेक्स्ट प्रॉम्प्ट से, असली और अच्छी क्वालिटी की इमेज जनरेट कर सकता है. जनरेट की गई सभी इमेज में SynthID वॉटरमार्क होता है. उपलब्ध Imagen मॉडल के अलग-अलग वर्शन के बारे में ज़्यादा जानने के लिए, [मॉडल के वर्शन](#model-versions) सेक्शन देखें.
+Imagen to model Google do generowania obrazów wysokiej jakości, który potrafi tworzyć realistyczne obrazy wysokiej jakości na podstawie promptów tekstowych. Wszystkie wygenerowane obrazy zawierają znak wodny SynthID. Więcej informacji o dostępnych wariantach modelu Imagen znajdziesz w sekcji [Wersje modelu](#model-versions).
 
-## Nano Banana पर माइग्रेट करना
+## Migracja do Nano Banana
 
-Imagen मॉडल अब काम नहीं करेंगे. ये 17 अगस्त, 2026 को बंद हो जाएंगे. हमारा सुझाव है कि इमेज जनरेट करने के लिए, Nano Banana पर माइग्रेट करें.
+Modele Imagen są wycofywane i zostaną wyłączone 17 sierpnia 2026 r. Zalecamy przejście na Nano Banana, jeśli potrzebujesz generować obrazy.
 
-माइग्रेशन में ये बदलाव शामिल हैं:
+Migracja obejmuje następujące zmiany:
 
-- **मॉडल का नाम**: Imagen मॉडल के नामों के बजाय `gemini-2.5-flash-image` का इस्तेमाल करें.
-- **तरीका**: `client.models.generate_images` के बजाय `client.models.generate_content` का इस्तेमाल करें.
-- **जवाब मैनेज करना**: Nano Banana, इमेज रिस्पॉन्स ऑब्जेक्ट के बजाय कॉन्टेंट के हिस्से दिखाता है. इनमें इमेज का डेटा भी शामिल हो सकता है.
+- **Nazwa modelu:** używaj symbolu `gemini-2.5-flash-image` zamiast nazw modeli Imagen.
+- **Metoda:** używaj `client.models.generate_content` zamiast `client.models.generate_images`.
+- **Obsługa odpowiedzi:** Nano Banana zwraca części treści, które mogą zawierać dane obrazu, zamiast konkretnego obiektu odpowiedzi obrazu.
 
-ज़्यादा जानकारी और उदाहरणों के लिए, [इमेज जनरेट करने से जुड़ी गाइड](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) देखें.
+Więcej informacji i przykładów znajdziesz w [przewodniku po generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
 
-## Imagen मॉडल का इस्तेमाल करके इमेज जनरेट करना
+## Generowanie obrazów za pomocą modeli Imagen
 
-इस उदाहरण में, [Imagen मॉडल](https://deepmind.google/technologies/imagen/?hl=hi) की मदद से इमेज जनरेट करने का तरीका बताया गया है:
+Ten przykład pokazuje generowanie obrazów za pomocą [modelu Imagen](https://deepmind.google/technologies/imagen/?hl=pl):
 
 ### Python
 
@@ -87,7 +87,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -144,364 +144,368 @@ curl -X POST \
       }'
 ```
 
-![एआई से जनरेट की गई, लाल रंग का स्केटबोर्ड पकड़े हुए रोबोट की इमेज](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=hi)
+![Obraz wygenerowany przez AI przedstawiający robota trzymającego czerwoną deskorolkę](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=pl)
 
-लाल रंग का स्केटबोर्ड पकड़े हुए रोबोट की एआई से जनरेट की गई इमेज
+Obraz wygenerowany przez AI przedstawiający robota trzymającego czerwoną deskorolkę
 
-### Imagen कॉन्फ़िगरेशन
+### Konfiguracja Imagen
 
-फ़िलहाल, Imagen सिर्फ़ अंग्रेज़ी में दिए गए प्रॉम्प्ट और इन पैरामीटर के साथ काम करता है:
+Obecnie Imagen obsługuje tylko prompty w języku angielskim i te parametry:
 
-- `numberOfImages`: जनरेट की जाने वाली इमेज की संख्या. यह संख्या 1 से 4 (दोनों शामिल) के बीच होनी चाहिए.
-  डिफ़ॉल्ट वैल्यू 4 होती है.
-- `imageSize`: जनरेट की गई इमेज का साइज़. यह सुविधा सिर्फ़ Standard और Ultra मॉडल के लिए उपलब्ध है. `1K` और `2K` को वैल्यू के तौर पर इस्तेमाल किया जा सकता है.
-  डिफ़ॉल्ट वैल्यू `1K` है.
-- `aspectRatio`: इससे जनरेट की गई इमेज का आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) बदल जाता है. `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"`, और `"16:9"` वैल्यू इस्तेमाल की जा सकती हैं. डिफ़ॉल्ट वैल्यू `"1:1"` है.
-- `personGeneration`: मॉडल को लोगों की इमेज जनरेट करने की अनुमति दें. इन वैल्यू का इस्तेमाल किया जा सकता है:
+- `numberOfImages`: liczba obrazów do wygenerowania, od 1 do 4 (włącznie).
+  Wartość domyślna to 4.
+- `imageSize`: rozmiar wygenerowanego obrazu. Ta funkcja jest obsługiwana tylko w przypadku modeli Standard i Ultra. Obsługiwane wartości to `1K` i `2K`.
+  Wartość domyślna to `1K`.
+- `aspectRatio`: zmienia format wygenerowanego obrazu. Obsługiwane wartości to `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` i `"16:9"`. Wartość domyślna to `"1:1"`.
+- `personGeneration`: zezwolenie modelowi na generowanie obrazów osób; Obsługiwane są te wartości:
 
-  - `"dont_allow"`: लोगों की इमेज जनरेट करने की सुविधा को ब्लॉक करें.
-  - `"allow_adult"`: वयस्कों की इमेज जनरेट करें, लेकिन बच्चों की नहीं. यह डिफ़ॉल्ट विकल्प है.
-  - `"allow_all"`: ऐसी इमेज जनरेट करें जिनमें वयस्क और बच्चे शामिल हों.
+  - `"dont_allow"`: blokowanie generowania obrazów przedstawiających ludzi.
+  - `"allow_adult"`: generować obrazy przedstawiające osoby dorosłe, ale nie dzieci. Jest to ustawienie domyślne.
+  - `"allow_all"`: generować obrazy przedstawiające dorosłych i dzieci;
 
-## Imagen के लिए प्रॉम्प्ट के लिए गाइड
+## Przewodnik po tworzeniu promptów Imagen
 
-Imagen की इस गाइड के इस सेक्शन में बताया गया है कि टेक्स्ट प्रॉम्प्ट से इमेज जनरेट करने की प्रोसेस के लिए दिए गए प्रॉम्प्ट में बदलाव करके, अलग-अलग नतीजे कैसे पाए जा सकते हैं. साथ ही, इसमें ऐसी इमेज के उदाहरण भी दिए गए हैं जिन्हें बनाया जा सकता है.
+W tej sekcji przewodnika po Imagen znajdziesz informacje o tym, jak modyfikowanie promptu do zamiany tekstu na obraz może dać różne wyniki, a także przykłady obrazów, które możesz utworzyć.
 
-### प्रॉम्प्ट लिखने के बारे में बुनियादी जानकारी
+### Podstawowe informacje o pisaniu promptów
 
-एक अच्छा प्रॉम्प्ट, जानकारी देने वाला और साफ़ होता है. साथ ही, इसमें काम के कीवर्ड और मॉडिफ़ायर का इस्तेमाल किया जाता है. सबसे पहले, अपने **विषय**, **संदर्भ**, और **स्टाइल** के बारे में सोचें.
+Dobry prompt jest opisowy i jasny, a także zawiera odpowiednie słowa kluczowe i modyfikatory. Zacznij od określenia **tematu**, **kontekstu** i **stylu**.
 
-![विषय, संदर्भ, और स्टाइल पर ज़ोर देने वाला प्रॉम्प्ट](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=hi)
+![Prompt z podkreślonym tematem, kontekstem i stylem](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=pl)
 
-इमेज में मौजूद टेक्स्ट: *आधुनिक अपार्टमेंट बिल्डिंग* (**विषय**) की *स्केच* (**स्टाइल**) वाली इमेज. इसके आस-पास *ऊंची-ऊंची इमारतें* (**कॉन्टेक्स्ट और बैकग्राउंड**) हैं.
+Tekst obrazu: *Szkic* (**styl**) *nowoczesnego budynku mieszkalnego* (**obiekt**) otoczonego *wieżowcami* (**kontekst i tło**).
 
-1. **सब्जेक्ट**: किसी भी प्रॉम्प्ट के बारे में सोचते समय, सबसे पहले *सब्जेक्ट* के बारे में सोचें. यह वह ऑब्जेक्ट, व्यक्ति, जानवर या सीनरी होती है जिसकी आपको इमेज चाहिए.
-2. **कॉन्टेक्स्ट और बैकग्राउंड:** किसी इमेज में *बैकग्राउंड या कॉन्टेक्स्ट* उतना ही ज़रूरी होता है जितना कि इमेज में मौजूद मुख्य ऑब्जेक्ट. अपने विषय को अलग-अलग बैकग्राउंड में रखकर देखें. उदाहरण के लिए, सफ़ेद बैकग्राउंड वाला स्टूडियो, आउटडोर या इंडोर एनवायरमेंट.
-3. **स्टाइल:** आखिर में, अपनी पसंद के हिसाब से इमेज का स्टाइल चुनें. *स्टाइल* सामान्य (पेंटिंग, फ़ोटोग्राफ़, स्केच) या बहुत खास (पेस्टल पेंटिंग, चारकोल ड्राइंग, आइसोमेट्रिक 3D) हो सकते हैं. आपके पास स्टाइल को एक साथ इस्तेमाल करने का विकल्प भी होता है.
+1. **Temat:** pierwszą rzeczą, o której należy pomyśleć w przypadku każdego prompta, jest *temat*, czyli obiekt, osoba, zwierzę lub sceneria, które mają się znaleźć na obrazie.
+2. **Kontekst i tło:** równie ważne jest *tło lub kontekst*, w którym umieścisz obiekt. Spróbuj umieścić fotografowany obiekt na różnych tłach. Na przykład studio z białym tłem, plener lub wnętrze.
+3. **Styl:** na koniec dodaj styl obrazu, który chcesz uzyskać. *Style* może być ogólny (obraz, zdjęcie, szkic) lub bardzo szczegółowy (pastel, rysunek węglem, izometryczny obraz 3D). Możesz też łączyć style.
 
-प्रॉम्प्ट का पहला वर्शन लिखने के बाद, उसमें ज़्यादा जानकारी जोड़कर उसे बेहतर बनाएँ. ऐसा तब तक करें, जब तक आपको अपनी पसंद की इमेज न मिल जाए. बार-बार जांच करना ज़रूरी है.
-सबसे पहले, अपने मुख्य आइडिया के बारे में बताएं. इसके बाद, उस मुख्य आइडिया को तब तक बेहतर बनाएं और उसके बारे में ज़्यादा जानकारी दें, जब तक जनरेट की गई इमेज आपकी सोच के मुताबिक न हो जाए.
+Po napisaniu pierwszej wersji prompta dopracuj go, dodając więcej szczegółów, aż uzyskasz obraz, który Cię zadowoli. Iteracja jest ważna.
+Zacznij od ustalenia głównego pomysłu, a następnie dopracowuj go i rozwijaj, aż wygenerowany obraz będzie zbliżony do Twojej wizji.
 
 |  |  |  |
 | --- | --- | --- |
-| फ़ोटोरियलिस्टिक सैंपल इमेज 1   प्रॉम्प्ट: झील के किनारे वसंत के मौसम में एक पार्क | फ़ोटोरियलिस्टिक सैंपल इमेज 2   प्रॉम्प्ट: झील के किनारे वसंत के मौसम में एक पार्क, **झील के उस पार सूरज डूब रहा है, गोल्डन आवर** | फ़ोटोरियलिस्टिक सैंपल इमेज 3   प्रॉम्प्ट: झील के किनारे वसंत के मौसम में एक पार्क, ***झील के उस पार सूरज डूब रहा है, गोल्डन आवर, लाल रंग के जंगली फूल*** |
+| Przykładowy obraz fotorealistyczny 1   Prompt: A park in the spring next to a lake | przykładowy fotorealistyczny obraz 2   Prompt: Park wiosną nad jeziorem, **słońce zachodzi nad jeziorem, złota godzina** | przykładowy fotorealistyczny obraz 3   Prompt: Park wiosną nad jeziorem, ***zachód słońca nad jeziorem, złota godzina, czerwone dzikie kwiaty*** |
 
-Imagen मॉडल, आपके आइडिया को ज़्यादा जानकारी वाली इमेज में बदल सकते हैं. इससे कोई फ़र्क़ नहीं पड़ता कि आपके प्रॉम्प्ट छोटे हैं या बड़े और ज़्यादा जानकारी वाले हैं. प्रॉम्प्ट में बार-बार बदलाव करके, अपनी सोच को बेहतर बनाएं. साथ ही, मनचाहा नतीजा मिलने तक उसमें ज़्यादा जानकारी जोड़ें.
+Modele Imagen mogą przekształcać Twoje pomysły w szczegółowe obrazy, niezależnie od tego, czy prompty są krótkie, czy długie i szczegółowe. Dopracuj swoją wizję,
+iteracyjnie dodając szczegóły, aż uzyskasz idealny
+rezultat.
 
 |  |  |
 | --- | --- |
-| छोटे प्रॉम्प्ट से, इमेज को तुरंत जनरेट किया जा सकता है.  Imagen 4 के लिए छोटे प्रॉम्प्ट का उदाहरण   प्रॉम्प्ट: 20 साल की महिला की क्लोज़-अप फ़ोटो, स्ट्रीट फ़ोटोग्राफ़ी, मूवी स्टिल, हल्के नारंगी रंग के वॉर्म टोन | लंबे प्रॉम्प्ट में, खास जानकारी जोड़ी जा सकती है और इमेज बनाई जा सकती है.  Imagen 4 के लिए लंबे प्रॉम्प्ट का उदाहरण   प्रॉम्प्ट: 20 साल की एक महिला की ऐसी फ़ोटो जो स्ट्रीट फ़ोटोग्राफ़ी स्टाइल में ली गई हो. इमेज किसी फ़िल्म के सीन की तरह दिखनी चाहिए. इसमें हल्के नारंगी रंग की वॉर्म टोन होनी चाहिए. |
+| Krótkie prompty umożliwiają szybkie wygenerowanie obrazu.  Przykład krótkiego prompta w Imagen 4   Prompt: zdjęcie z bliska kobiety w wieku 20 lat, fotografia uliczna, kadr z filmu, stonowane ciepłe odcienie pomarańczowego | Dłuższe prompty pozwalają dodawać szczegółowe informacje i budować obraz.  Przykład długiego prompta w Imagen 4   Prompt: captivating photo of a woman in her 20s utilizing a street photography style. Obraz powinien wyglądać jak kadr z filmu z przytłumionymi pomarańczowymi i ciepłymi odcieniami. |
 
-Imagen के लिए प्रॉम्प्ट लिखने के बारे में अन्य सलाह:
+Dodatkowe wskazówki dotyczące pisania promptów w usłudze Imagen:
 
-- **ज़्यादा जानकारी देने वाली भाषा का इस्तेमाल करें**: Imagen को साफ़ तौर पर जानकारी देने के लिए, विशेषण और क्रियाविशेषण का इस्तेमाल करें.
-- **संदर्भ दें**: अगर ज़रूरी हो, तो एआई को समझने में मदद करने के लिए, बैकग्राउंड की जानकारी शामिल करें.
-- **किसी खास कलाकार या स्टाइल का रेफ़रंस दें**: अगर आपके दिमाग़ में कोई खास स्टाइल है, तो किसी खास कलाकार या कला आंदोलन का रेफ़रंस देना मददगार हो सकता है.
-- **प्रॉम्प्ट इंजीनियरिंग टूल का इस्तेमाल करें**: प्रॉम्प्ट इंजीनियरिंग टूल या संसाधनों का इस्तेमाल करें. इससे आपको अपने प्रॉम्प्ट को बेहतर बनाने और सबसे अच्छे नतीजे पाने में मदद मिलेगी.
-- **अपनी और ग्रुप की इमेज में चेहरे के नैन-नक्श को बेहतर बनाना**: फ़ोटो में चेहरे के नैन-नक्श को हाइलाइट करें. उदाहरण के लिए, प्रॉम्प्ट में "पोर्ट्रेट" शब्द का इस्तेमाल करें.
+- **Używaj opisowego języka:** używaj szczegółowych przymiotników i przysłówków, aby stworzyć dla Imagen jasny obraz.
+- **Podaj kontekst:** w razie potrzeby podaj dodatkowe informacje, które pomogą AI zrozumieć Twoje potrzeby.
+- **Odwołuj się do konkretnych artystów lub stylów:** jeśli masz na myśli konkretną estetykę, pomocne może być odwołanie się do konkretnych artystów lub ruchów artystycznych.
+- **Korzystaj z narzędzi do tworzenia promptów:** rozważ użycie narzędzi lub materiałów do tworzenia promptów, które pomogą Ci je ulepszać i uzyskiwać optymalne wyniki.
+- **Poprawianie szczegółów twarzy na zdjęciach osobistych i grupowych:** określ szczegóły twarzy jako główny element zdjęcia (np. użyj słowa „portret” w prompcie).
 
-### इमेज में टेक्स्ट जनरेट करना
+### Generowanie tekstu na obrazach
 
-Imagen मॉडल, इमेज में टेक्स्ट जोड़ सकते हैं. इससे इमेज जनरेट करने के लिए, क्रिएटिविटी के नए-नए विकल्प मिलते हैं. इस सुविधा का ज़्यादा से ज़्यादा फ़ायदा पाने के लिए, यहां दिए गए दिशा-निर्देशों का पालन करें:
+Modele Imagen mogą dodawać tekst do obrazów, co otwiera nowe możliwości kreatywnego generowania obrazów. Aby w pełni korzystać z tej funkcji, postępuj zgodnie z tymi wskazówkami:
 
-- **आत्मविश्वास के साथ दोहराएं**: आपको अपनी पसंद के मुताबिक इमेज मिलने तक, उन्हें फिर से जनरेट करना पड़ सकता है. Imagen में टेक्स्ट इंटिग्रेशन की सुविधा अब भी विकसित हो रही है. इसलिए, कभी-कभी कई बार कोशिश करने पर सबसे अच्छे नतीजे मिलते हैं.
-- **इसे छोटा रखें**: बेहतर जनरेशन के लिए, टेक्स्ट को 25 वर्ण या इससे कम रखें.
-- **एक से ज़्यादा वाक्यांश**: ज़्यादा जानकारी देने के लिए, दो या तीन अलग-अलग वाक्यांशों का इस्तेमाल करें. बेहतर कंपोज़िशन के लिए, तीन से ज़्यादा वाक्यांशों का इस्तेमाल न करें.
+- **Iteruj z pewnością**: może być konieczne wielokrotne generowanie obrazów, aż uzyskasz pożądany efekt. Integracja tekstu w Imagen wciąż się rozwija, a czasami najlepsze wyniki uzyskuje się po kilku próbach.
+- **Krótko:** aby uzyskać optymalne wyniki, ogranicz tekst do maksymalnie 25 znaków.
+- **Kilka wyrażeń:** eksperymentuj z 2–3 różnymi wyrażeniami, aby podać dodatkowe informacje. Aby uzyskać bardziej przejrzyste kompozycje, unikaj przekraczania 3 wyrażeń.
 
-  ![Imagen 4 की मदद से जनरेट किए गए टेक्स्ट का उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=hi)
+  ![Przykład generowania tekstu przez Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=pl)
 
-  प्रॉम्प्ट: एक ऐसा पोस्टर बनाओ जिसमें "Summerland" टेक्स्ट को बोल्ड फ़ॉन्ट में टाइटल के तौर पर लिखा गया हो. इसके नीचे "Summer never felt so good" स्लोगन लिखा गया हो
-- **टेक्स्ट को सही जगह पर रखना**: Imagen, टेक्स्ट को आपकी बताई गई जगह पर रखने की कोशिश करता है. हालांकि, कभी-कभी इसमें बदलाव हो सकता है. इस सुविधा को लगातार बेहतर बनाया जा रहा है.
-- **फ़ॉन्ट स्टाइल के लिए सुझाव**: फ़ॉन्ट की कोई सामान्य स्टाइल तय करें, ताकि Imagen को फ़ॉन्ट चुनने में मदद मिल सके. फ़ॉन्ट को सटीक तरीके से दोहराने पर भरोसा न करें, बल्कि क्रिएटिव इंटरप्रेटेशन की उम्मीद रखें.
-- **फ़ॉन्ट का साइज़**: फ़ॉन्ट का साइज़ जनरेट करने के लिए, फ़ॉन्ट का साइज़ या साइज़ के बारे में सामान्य जानकारी दें. उदाहरण के लिए, *छोटा*, *मीडियम*, *बड़ा*.
+  Prompt: Plakat z pogrubioną czcionką tekstu „Summerland” jako tytułem, pod którym znajduje się slogan „Summer never felt so good”.
+- **Umieszczanie tekstu:** Imagen może próbować umieścić tekst zgodnie z instrukcjami, ale mogą wystąpić pewne odchylenia. Ta funkcja jest stale ulepszana.
+- **Styl czcionki Inspire:** określ ogólny styl czcionki, aby subtelnie wpłynąć na wybory Imagen. Nie polegaj na dokładnym odwzorowaniu czcionki, ale spodziewaj się kreatywnych interpretacji.
+- **Rozmiar czcionki:** określ rozmiar czcionki lub ogólny wskaźnik rozmiaru (np. *mały*, *średni*, *duży*), aby wpłynąć na generowanie rozmiaru czcionki.
 
-### प्रॉम्प्ट पैरामीटर सेट करना
+### Parametryzacja promptów
 
-आउटपुट के नतीजों को बेहतर तरीके से कंट्रोल करने के लिए, आपको Imagen में इनपुट को पैरामीटर के तौर पर इस्तेमाल करना फ़ायदेमंद लग सकता है. उदाहरण के लिए, मान लें कि आपको अपने ग्राहकों को उनके कारोबार के लिए लोगो जनरेट करने की सुविधा देनी है. साथ ही, आपको यह पक्का करना है कि लोगो हमेशा एक ही रंग के बैकग्राउंड पर जनरेट हों. आपको यह भी तय करना है कि क्लाइंट, मेन्यू से कितने विकल्प चुन सकता है.
+Aby lepiej kontrolować wyniki, możesz sparametryzować dane wejściowe Imagen. Załóżmy na przykład, że chcesz, aby klienci mogli generować logo dla swojej firmy, i chcesz mieć pewność, że logo są zawsze generowane na jednolitym tle. Chcesz też ograniczyć opcje, które klient może wybrać z menu.
 
-इस उदाहरण में, पैरामीटर वाला ऐसा प्रॉम्प्ट बनाया जा सकता है:
+W tym przykładzie możesz utworzyć prompt z parametrami podobny do tego:
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-कस्टम यूज़र इंटरफ़ेस में, ग्राहक मेन्यू का इस्तेमाल करके पैरामीटर डाल सकता है. इसके बाद, चुनी गई वैल्यू, Imagen को मिलने वाले प्रॉम्प्ट में अपने-आप भर जाती है.
+W niestandardowym interfejsie użytkownika klient może wprowadzać parametry za pomocą menu, a wybrana wartość jest wypełniana w prompcie otrzymywanym przez Imagen.
 
-उदाहरण के लिए:
+Na przykład:
 
-1. प्रॉम्प्ट: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. Prompt: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Imagen 4 के प्रॉम्प्ट में पैरामीटर जोड़ने का पहला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=hi)
-2. प्रॉम्प्ट: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Przykład parametryzacji prompta w Imagen 4 – 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=pl)
+2. Prompt: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Imagen 4 के लिए प्रॉम्प्ट में पैरामीटर जोड़ने का दूसरा उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=hi)
-3. प्रॉम्प्ट: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Przykład parametryzacji prompta w Imagen 4 – 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=pl)
+3. Prompt: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Imagen 4 के प्रॉम्प्ट में पैरामीटर जोड़ने का तीसरा उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=hi)
+   ![Przykład parametryzacji prompta w Imagen 4 – 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=pl)
 
-### प्रॉम्प्ट लिखने की ऐडवांस तकनीकें
+### Zaawansowane techniki pisania promptów
 
-यहां दिए गए उदाहरणों का इस्तेमाल करके, एट्रिब्यूट के आधार पर ज़्यादा सटीक प्रॉम्प्ट बनाएँ. जैसे, फ़ोटोग्राफ़ी के बारे में जानकारी देने वाले शब्द, आकार और मटीरियल, कला के ऐतिहासिक आंदोलन, और इमेज क्वालिटी को बेहतर बनाने वाले शब्द.
+Skorzystaj z tych przykładów, aby tworzyć bardziej szczegółowe prompty na podstawie atrybutów, takich jak deskryptory fotografii, kształty i materiały, historyczne kierunki w sztuce i modyfikatory jakości obrazu.
 
-#### फ़ोटोग्राफ़ी
+#### Fotografia
 
-- प्रॉम्प्ट में यह शामिल है: *"... की फ़ोटो"*
+- Prompt zawiera: *„Zdjęcie…”*
 
-इस स्टाइल का इस्तेमाल करने के लिए, ऐसे कीवर्ड का इस्तेमाल करें जिनसे Imagen को साफ़ तौर पर पता चले कि आपको कोई फ़ोटोग्राफ़ चाहिए. अपने प्रॉम्प्ट की शुरुआत इस तरह करें
-*"इसकी फ़ोटो. . ."*. उदाहरण के लिए:
-
-|  |  |  |
-| --- | --- | --- |
-| फ़ोटोरियलिस्टिक सैंपल इमेज 1   प्रॉम्प्ट: **किचन में लकड़ी की सतह पर रखी हुई** कॉफ़ी बीन्स की फ़ोटो | फ़ोटोरियलिस्टिक सैंपल इमेज 2   प्रॉम्प्ट: **किचन काउंटर पर रखी हुई** चॉकलेट बार की फ़ोटो | फ़ोटोरियलिस्टिक सैंपल इमेज 3   प्रॉम्प्ट: **पानी के बैकग्राउंड वाली** एक मॉडर्न बिल्डिंग की फ़ोटो |
-
-इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
-
-##### फ़ोटोग्राफ़ी मॉडिफ़ायर
-
-यहां दिए गए उदाहरणों में, फ़ोटोग्राफ़ी से जुड़े कई मॉडिफ़ायर और पैरामीटर देखे जा सकते हैं. ज़्यादा सटीक कंट्रोल के लिए, कई मॉडिफ़ायर जोड़े जा सकते हैं.
-
-1. **कैमरे की प्रॉक्सिमिटी** - *क्लोज़ अप, दूर से ली गई फ़ोटो*
-
-   |  |  |
-   | --- | --- |
-   | कैमरे से ली गई क्लोज़-अप इमेज का सैंपल   प्रॉम्प्ट: कॉफ़ी बीन्स की **क्लोज़-अप** फ़ोटो | कैमरे से ली गई ज़ूम आउट की गई सैंपल इमेज   प्रॉम्प्ट: एक **ज़ूम आउट** की गई फ़ोटो, जिसमें एक छोटी थैली में  कॉफ़ी बीन्स रखे हों और वह थैली एक बिखरी हुई रसोई में रखी हो |
-2. **कैमरे की पोज़िशन** - *एरियल, नीचे से*
-
-   |  |  |
-   | --- | --- |
-   | एरियल फ़ोटो के सैंपल की इमेज   प्रॉम्प्ट: गगनचुंबी इमारतों वाले शहर की **एरियल फ़ोटो** | नीचे से ली गई सैंपल इमेज   प्रॉम्प्ट: नीले आसमान के साथ जंगल के कैनोपी की फ़ोटो **नीचे से ली गई हो** |
-3. **लाइटिंग** - *नैचुरल, ड्रामैटिक, गर्म, ठंडा*
-
-   |  |  |
-   | --- | --- |
-   | नैचुरल लाइटिंग की सैंपल इमेज   प्रॉम्प्ट: मॉडर्न आर्म चेयर की स्टूडियो फ़ोटो, **नैचुरल लाइटिंग** | ड्रामैटिक लाइटिंग की सैंपल इमेज   प्रॉम्प्ट: मॉडर्न आर्म चेयर की स्टूडियो फ़ोटो, **ड्रामैटिक लाइटिंग** |
-4. **कैमरे की सेटिंग** *- मोशन ब्लर, हल्का फ़ोकस, बोके, पोर्ट्रेट*
-
-   |  |  |
-   | --- | --- |
-   | मोशन ब्लर की सैंपल इमेज   प्रॉम्प्ट: कार के अंदर से गगनचुंबी इमारतों वाले शहर की फ़ोटो, जिसमें **मोशन ब्लर** इफ़ेक्ट हो | हल्का फ़ोकस वाली सैंपल इमेज   प्रॉम्प्ट: रात में शहर के पुल की **हल्का फ़ोकस** वाली फ़ोटोग्राफ़ |
-5. **लेंस के टाइप** - *35 मि॰मी॰, 50 मि॰मी॰, फ़िशआई, वाइड ऐंगल, मैक्रो*
-
-   |  |  |
-   | --- | --- |
-   | मैक्रो लेंस की सैंपल इमेज   प्रॉम्प्ट: पत्ती की फ़ोटो, **मैक्रो लेंस** | फ़िशआई लेंस की सैंपल इमेज   प्रॉम्प्ट: स्ट्रीट फ़ोटोग्राफ़ी, न्यूयॉर्क सिटी, **फ़िशआई लेंस** |
-6. **फ़िल्म के टाइप** - *ब्लैक ऐंड व्हाइट, पोलरॉइड*
-
-   |  |  |
-   | --- | --- |
-   | पोलरॉइड फ़ोटो के सैंपल की इमेज   प्रॉम्प्ट: धूप का चश्मा पहने हुए कुत्ते का **पोलरॉइड पोर्ट्रेट** | ब्लैक ऐंड व्हाइट फ़ोटो के सैंपल की इमेज   प्रॉम्प्ट: धूप का चश्मा पहने हुए कुत्ते की **ब्लैक ऐंड व्हाइट फ़ोटो** |
-
-इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
-
-### इलस्ट्रेशन और आर्ट
-
-- प्रॉम्प्ट में ये शामिल हैं: *"painting का*, *"A sketch of..."*
-
-आर्ट स्टाइल, मोनोक्रोम स्टाइल (जैसे, पेंसिल स्केच) से लेकर बिलकुल असली लगने वाली डिजिटल आर्ट तक अलग-अलग होती हैं. उदाहरण के लिए, यहां दी गई इमेज में एक ही प्रॉम्प्ट का इस्तेमाल किया गया है, लेकिन स्टाइल अलग-अलग हैं:
-
-*"बैकग्राउंड में गगनचुंबी इमारतों के साथ, एंगुलर डिज़ाइन वाली स्पोर्टी इलेक्ट्रिक सेडान की [art style or creation technique]"*
+Aby użyć tego stylu, zacznij od słów kluczowych, które wyraźnie informują Imagen, że szukasz zdjęcia. Rozpocznij prompta od słów *„Zdjęcie”. . ."*. Na przykład:
 
 |  |  |  |
 | --- | --- | --- |
-| कला के सैंपल की इमेज   प्रॉम्प्ट: एक **टेक्निकल पेंसिल ड्रॉइंग**, जिसमें एक एंगुलर... | कला के सैंपल की इमेज   प्रॉम्प्ट: एक **चारकोल ड्रॉइंग**, जिसमें एक कोणीय... | कला के सैंपल की इमेज   प्रॉम्प्ट: एक **कलर पेंसिल से बनाई गई ड्रॉइंग** में एक कोणीय... |
+| Przykładowy obraz fotorealistyczny 1   Prompt: **Zdjęcie** ziaren kawy w kuchni na drewnianej powierzchni | przykładowy fotorealistyczny obraz 2   Prompt: **Zdjęcie** batona czekoladowego na blacie kuchennym | przykładowy fotorealistyczny obraz 3   Prompt: **Zdjęcie** nowoczesnego budynku z wodą w tle |
+
+Źródło obrazu: każdy obraz został wygenerowany przy użyciu odpowiedniego promptu tekstowego i modelu Imagen 4.
+
+##### Modyfikatory fotograficzne
+
+W przykładach poniżej znajdziesz kilka modyfikatorów i parametrów związanych z fotografią. Możesz połączyć kilka modyfikatorów, aby uzyskać większą kontrolę.
+
+1. **Bliskość aparatu** – *zbliżenie, zdjęcie z daleka*
+
+   |  |  |
+   | --- | --- |
+   | zdjęcie zrobione z bliska   Prompt: **Zdjęcie z bliska** ziaren kawy | pomniejszone zdjęcie z kamery   Prompt: **Oddalone** zdjęcie małej torebki z  ziarnami kawy w nieuporządkowanej kuchni |
+2. **Pozycja kamery** – *z góry, z dołu*
+
+   |  |  |
+   | --- | --- |
+   | Przykładowe zdjęcie lotnicze   Prompt: **zdjęcie lotnicze** miasta z wieżowcami | przykładowe zdjęcie z widokiem od dołu,   Prompt: Zdjęcie korony drzew w lesie z błękitnym niebem **z perspektywy od dołu** |
+3. **Oświetlenie** – *naturalne, efektowne, ciepłe, zimne*
+
+   |  |  |
+   | --- | --- |
+   | Przykładowe zdjęcie z naturalnym oświetleniem   Prompt: studio photo of a modern arm chair, **natural lighting** | Przykładowy obraz z dramatycznym oświetleniem   Prompt: studio photo of a modern arm chair, **dramatic lighting** |
+4. **Ustawienia aparatu** *– rozmycie ruchu, miękka ostrość, bokeh, portret*
+
+   |  |  |
+   | --- | --- |
+   | przykładowy obraz z rozmyciem ruchu   Prompt: zdjęcie miasta z wieżowcami zrobione z wnętrza samochodu z **rozmyciem w ruchu** | Przykładowy obraz z efektem nieostrości   Prompt: **soft focus** photograph of a bridge in an urban city at night |
+5. **Rodzaje obiektywów** – *35 mm, 50 mm, typu rybie oko, szerokokątny, makro*
+
+   |  |  |
+   | --- | --- |
+   | Przykładowe zdjęcie zrobione obiektywem makro   Prompt: zdjęcie liścia, **obiektyw makro** | przykładowe zdjęcie zrobione obiektywem typu rybie oko   Prompt: street photography, new york city, **fisheye lens** |
+6. **Rodzaje filmów** – *czarno-białe, polaroid*
+
+   |  |  |
+   | --- | --- |
+   | Przykładowe zdjęcie z Polaroida   Prompt: **zdjęcie polaroidowe** przedstawiające psa w okularach przeciwsłonecznych | przykładowe zdjęcie czarno-białe   Prompt: **czarno-białe zdjęcie** psa w okularach przeciwsłonecznych |
+
+Źródło obrazu: każdy obraz został wygenerowany przy użyciu odpowiedniego promptu tekstowego i modelu Imagen 4.
+
+### Ilustracje i dzieła sztuki
+
+- Prompt zawiera: *„A painting of...”*, *„sketch z …”*
+
+Style artystyczne są różne – od monochromatycznych, takich jak szkice ołówkiem, po hiperrealistyczne cyfrowe dzieła sztuki. Na przykład te obrazy zostały wygenerowane na podstawie tego samego prompta, ale w różnych stylach:
+
+*„Zdjęcie [art style or creation technique] kanciastego, sportowego sedana elektrycznego z wieżowcami w tle”*
 
 |  |  |  |
 | --- | --- | --- |
-| कला के सैंपल की इमेज   प्रॉम्प्ट: ऐंगल वाली... की **पेस्टल पेंटिंग**... | कला के सैंपल की इमेज   प्रॉम्प्ट: ऐंगल वाली... की **डिजिटल आर्ट**... | कला के सैंपल की इमेज   प्रॉम्प्ट: एक **आर्ट डेको (पोस्टर)**, जिसमें एक कोणीय... |
-
-इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 2 मॉडल का इस्तेमाल किया गया है.
-
-##### आकृतियां और मटीरियल
-
-- प्रॉम्प्ट में ये शामिल हैं: *"...से बना..."*, *"...के रूप में..."*
-
-इस टेक्नोलॉजी की एक ख़ासियत यह है कि इससे ऐसी इमेज बनाई जा सकती हैं जिन्हें बनाना मुश्किल होता है या बनाया ही नहीं जा सकता. उदाहरण के लिए, अपनी कंपनी के लोगो को अलग-अलग मटीरियल और टेक्सचर में फिर से बनाया जा सकता है.
+| przykładowe obrazy   Prompt: **Rysunek techniczny ołówkiem** przedstawiający kanciasty... | przykładowe obrazy   Prompt: **Rysunek węglem** przedstawiający kanciasty... | przykładowe obrazy   Prompt: **Rysunek kredkami** przedstawiający kanciasty... |
 
 |  |  |  |
 | --- | --- | --- |
-| आकृतियों और मटीरियल के उदाहरण की पहली इमेज   प्रॉम्प्ट: पनीर **से बना** डफ़ल बैग | आकृतियों और मटीरियल के उदाहरण की दूसरी इमेज   प्रॉम्प्ट: पक्षी **के आकार** की नियॉन ट्यूब | आकृतियों और मटीरियल के तीसरे उदाहरण की इमेज   प्रॉम्प्ट: **कागज़ से बनी** आर्मचेयर, स्टूडियो फ़ोटो, ओरिगामी स्टाइल |
+| przykładowe obrazy   Prompt: **Pastelowy obraz** przedstawiający kanciasty... | przykładowe obrazy   Prompt: **Cyfrowa grafika** przedstawiająca kanciasty... | przykładowe obrazy   Prompt: An **art deco (poster)** of an angular... |
 
-इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
+Źródło obrazu: każdy obraz został wygenerowany przy użyciu odpowiedniego promptu tekstowego w modelu Imagen 2.
 
-#### कला से जुड़े ऐतिहासिक रेफ़रंस
+##### Kształty i materiały
 
-- प्रॉम्प्ट में यह शामिल है: *"...की स्टाइल में..."*
+- Prompt zawiera: *„...wykonane z...”*, *„…w kształcie…”*
 
-कुछ स्टाइल, समय के साथ आइकॉनिक बन गए हैं. यहाँ पेंटिंग या कला की कुछ ऐतिहासिक शैलियों के बारे में बताया गया है. इन्हें आज़माया जा सकता है.
-
-*"[art period or movement]
- के स्टाइल में एक इमेज जनरेट करो: पवन ऊर्जा फ़ार्म"*
+Jedną z zalet tej technologii jest możliwość tworzenia obrazów, które w inny sposób byłyby trudne lub niemożliwe do uzyskania. Możesz na przykład odtworzyć logo firmy w różnych materiałach i teksturach.
 
 |  |  |  |
 | --- | --- | --- |
-| इंप्रेशनिज़्म के उदाहरण वाली इमेज   प्रॉम्प्ट: *इंप्रेशनिस्ट पेंटिंग* **की स्टाइल में** विंड फ़ार्म की एक इमेज जनरेट करो | रेनेसां दौर की इमेज का उदाहरण   प्रॉम्प्ट: **रेनेसां काल की पेंटिंग *की स्टाइल में*** विंड फ़ार्म की इमेज जनरेट करो | पॉप आर्ट की उदाहरण इमेज   प्रॉम्प्ट: **पॉप आर्ट *स्टाइल*** में एक इमेज जनरेट करो: पवन ऊर्जा फ़ार्म |
+| Przykład kształtów i materiałów 1   Prompt: torba płócienna **zrobiona** z sera | Przykład kształtów i materiałów 2   Prompt: neon tubes **in the shape** of a bird | kształty i materiały – przykład 3   Prompt: fotel **z papieru**, zdjęcie studyjne, styl origami |
 
-इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
+Źródło obrazu: każdy obraz został wygenerowany przy użyciu odpowiedniego promptu tekstowego i modelu Imagen 4.
 
-#### इमेज क्वालिटी मॉडिफ़ायर
+#### Odwołania do historycznych dzieł sztuki
 
-कुछ कीवर्ड से मॉडल को यह पता चल सकता है कि आपको अच्छी क्वालिटी वाली ऐसेट चाहिए. क्वालिटी मॉडिफ़ायर के उदाहरणों में ये शामिल हैं:
+- Prompt zawiera: *„...w stylu...”*
 
-- **सामान्य मॉडिफ़ायर** - *बेहतरीन क्वालिटी, सुंदर, स्टाइल वाला*
-- **फ़ोटो** - *4K, एचडीआर, Studio Photo*
-- **आर्ट, इलस्ट्रेशन** - *किसी पेशेवर ने बनाया हो, पूरी जानकारी दी गई हो*
+Niektóre style stały się kultowe na przestrzeni lat. Oto kilka pomysłów na style malarstwa historycznego lub style artystyczne, które możesz wypróbować.
 
-यहां क्वालिटी मॉडिफ़ायर के बिना और क्वालिटी मॉडिफ़ायर के साथ दिए गए प्रॉम्प्ट के कुछ उदाहरण दिए गए हैं.
+*„wygeneruj obraz w stylu [art period or movement]
+: farma wiatrowa”*
+
+|  |  |  |
+| --- | --- | --- |
+| Przykładowy obraz impresjonizmu   Prompt: wygeneruj obraz **w stylu *impresjonistycznego obrazu***: farma wiatrowa | renesansowy przykład obrazu   Prompt: wygeneruj obraz **w stylu *renesansowego obrazu***: farma wiatrowa | Przykładowy obraz w stylu pop-artu   Prompt: wygeneruj obraz **w stylu *pop-artu***: farma wiatrowa |
+
+Źródło obrazu: każdy obraz został wygenerowany przy użyciu odpowiedniego promptu tekstowego i modelu Imagen 4.
+
+#### Modyfikatory jakości obrazu
+
+Niektóre słowa kluczowe mogą informować model, że szukasz zasobu wysokiej jakości. Przykłady modyfikatorów jakości:
+
+- **Modyfikatory ogólne** – *wysoka jakość, piękny, stylizowany*
+- **Zdjęcia** – *4K, HDR, zdjęcie studyjne*
+- **Sztuka, ilustracja** – *profesjonalna, szczegółowa*
+
+Poniżej znajdziesz kilka przykładów promptów bez modyfikatorów jakości i tych samych promptów z modyfikatorami jakości.
 
 |  |  |
 | --- | --- |
-| मॉडिफ़ायर के बिना मक्का की उदाहरण इमेज   प्रॉम्प्ट (क्वालिटी मॉडिफ़ायर नहीं): मक्के के पौधे की फ़ोटो | मॉडिफ़ायर के साथ मक्के की इमेज का उदाहरण   प्रॉम्प्ट (क्वालिटी मॉडिफ़ायर के साथ): **4K एचडीआर सुंदर**   मक्के के पौधे की फ़ोटो **जो किसी   प्रोफ़ेशनल फ़ोटोग्राफ़र ने ली हो** |
+| Przykładowy obraz kukurydzy bez modyfikatorów   Prompt (bez modyfikatorów jakości): zdjęcie łodygi kukurydzy | Przykładowy obraz kukurydzy z modyfikatorami   Prompt (z modyfikatorami jakości): **4k HDR beautiful**   photo of a corn stalk **taken by a   professional photographer** |
 
-इमेज का सोर्स: हर इमेज को, उससे जुड़े टेक्स्ट प्रॉम्प्ट का इस्तेमाल करके जनरेट किया गया है. इसके लिए, Imagen 4 मॉडल का इस्तेमाल किया गया है.
+Źródło obrazu: każdy obraz został wygenerowany przy użyciu odpowiedniego promptu tekstowego i modelu Imagen 4.
 
-#### आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात)
+#### Formaty obrazu
 
-Imagen की मदद से इमेज जनरेट करने की सुविधा में, इमेज के लिए पांच अलग-अलग आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) सेट किए जा सकते हैं.
+Generowanie obrazów w Imagen umożliwia ustawienie 5 różnych formatów obrazu.
 
-1. **स्क्वेयर** (1:1, डिफ़ॉल्ट) - यह एक स्टैंडर्ड स्क्वेयर फ़ोटो होती है. इस पहलू अनुपात का इस्तेमाल आम तौर पर सोशल मीडिया पोस्ट के लिए किया जाता है.
-2. **फ़ुलस्क्रीन** (4:3) - इस आसपेक्ट रेशियो का इस्तेमाल आम तौर पर मीडिया या फ़िल्म में किया जाता है.
-   यह ज़्यादातर पुराने (नॉन-वाइडस्क्रीन) टीवी और मीडियम फ़ॉर्मैट वाले कैमरों का डाइमेंशन भी है. यह 1:1 के मुकाबले, सीन को हॉरिज़ॉन्टल तौर पर ज़्यादा कैप्चर करता है. इसलिए, फ़ोटोग्राफ़ी के लिए इसे बेहतर ऐस्पेक्ट रेशियो माना जाता है.
-
-   |  |  |
-   | --- | --- |
-   | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: पियानो बजाते हुए संगीतकार की उंगलियों की क्लोज़ अप इमेज, ब्लैक ऐंड व्हाइट फ़िल्म, विंटेज (4:3 आसपेक्ट रेशियो) | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: किसी फ़ूड मैगज़ीन के स्टाइल में, फ़्रेंच फ़्राइज़ की प्रोफ़ेशनल स्टूडियो फ़ोटो. यह फ़ोटो, किसी महंगे रेस्टोरेंट के लिए होनी चाहिए (4:3 आसपेक्ट रेशियो) |
-3. **पोट्रेट मोड में फ़ुल स्क्रीन** (3:4) - यह फ़ुलस्क्रीन आसपेक्ट रेशियो है, जिसे 90 डिग्री पर घुमाया गया है. इससे 1:1 आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) की तुलना में, ज़्यादा सीन को वर्टिकल तौर पर कैप्चर किया जा सकता है.
+1. **Kwadrat** (1:1, domyślny) – standardowe zdjęcie kwadratowe. Ten format jest często używany w postach w mediach społecznościowych.
+2. **Pełny ekran** (4:3) – ten format jest często używany w mediach i filmach.
+   Jest to też format większości starszych telewizorów (nie panoramicznych) i aparatów średnioformatowych. Obejmuje on większą część sceny w poziomie (w porównaniu z formatem 1:1),
+   dlatego jest preferowanym formatem w fotografii.
 
    |  |  |
    | --- | --- |
-   | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: एक महिला हाइकिंग कर रही है. उसके जूतों की क्लोज़-अप इमेज, जूतों की परछाई पानी में दिख रही है, बैकग्राउंड में बड़े-बड़े पहाड़ हैं, विज्ञापन के स्टाइल में इमेज है, इमेज का ऐंगल शानदार है (आस्पेक्ट रेशियो 3:4) | आस्पेक्ट रेशियो का उदाहरण   प्रॉम्प्ट: एक नदी के बहने का एरियल शॉट, जो एक रहस्यमयी घाटी से ऊपर की ओर बह रही है (3:4 आसपेक्ट रेशियो) |
-4. **वाइडस्क्रीन** (16:9) - इस रेशियो ने 4:3 को बदल दिया है. अब यह टीवी, मॉनिटर, और मोबाइल फ़ोन की स्क्रीन (लैंडस्केप) के लिए सबसे आम आसपेक्ट रेशियो है.
-   इस आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) का इस्तेमाल तब करें, जब आपको बैकग्राउंड का ज़्यादा हिस्सा कैप्चर करना हो. उदाहरण के लिए, सीनरी वाले लैंडस्केप.
+   | przykład formatu obrazu   Prompt: zbliżenie na palce muzyka grającego na pianinie, czarno-biały film, vintage (format obrazu 4:3) | przykład formatu obrazu   Prompt: Profesjonalne zdjęcie studyjne frytek dla ekskluzywnej restauracji w stylu magazynu kulinarnego (format obrazu 4:3) |
+3. **Pełny ekran w orientacji pionowej** (3:4) – to pełnoekranowy format obrazu obrócony o 90 stopni. Dzięki temu możesz uchwycić więcej sceny w pionie niż w przypadku formatu 1:1.
 
-   ![आस्पेक्ट रेशियो का उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=hi)
+   |  |  |
+   | --- | --- |
+   | przykład formatu obrazu   Prompt: kobieta wędrująca po górach, zbliżenie na jej buty odbijające się w kałuży, w tle duże góry, w stylu reklamy, dramatyczne ujęcia (format obrazu 3:4) | przykład formatu obrazu   Prompt: ujęcie z lotu ptaka przedstawiające rzekę płynącą w górę mistycznej doliny (format obrazu 3:4) |
+4. **Panoramiczny** (16:9) – ten format zastąpił format 4:3 i jest obecnie najpopularniejszym formatem obrazu w telewizorach, monitorach i ekranach telefonów komórkowych (w orientacji poziomej).
+   Użyj tego formatu, jeśli chcesz uchwycić większą część tła (np. malownicze krajobrazy).
 
-   प्रॉम्प्ट: समुद्र तट पर बैठा हुआ एक आदमी, जिसने पूरी तरह से सफ़ेद रंग के कपड़े पहने हैं. क्लोज़ अप, गोल्डन आवर की रोशनी (16:9 आसपेक्ट रेशियो)
-5. **पोर्ट्रेट** (9:16) - यह रेशियो वाइडस्क्रीन होता है, लेकिन इसे घुमाया जाता है. यह आसपेक्ट रेशियो, अपेक्षाकृत नया है. इसे कम अवधि के वीडियो वाले ऐप्लिकेशन (उदाहरण के लिए, YouTube Shorts) ने लोकप्रिय बनाया है. इसका इस्तेमाल लंबी चीज़ों के लिए करें. जैसे, इमारतें, पेड़, झरने या इस तरह की अन्य चीज़ें.
+   ![przykład formatu obrazu](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=pl)
 
-   ![आस्पेक्ट रेशियो का उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=hi)
+   Prompt: a man wearing all white
+   clothing sitting on the beach, close up, golden hour lighting (16:9
+   aspect ratio)
+5. **Pionowa** (9:16) – ten format jest panoramiczny, ale obrócony. Jest to stosunkowo nowy format obrazu, który zyskał popularność dzięki aplikacjom z krótkimi filmami (np. YouTube Shorts). Używaj tego trybu w przypadku wysokich obiektów o wyraźnej orientacji pionowej, takich jak budynki, drzewa, wodospady lub inne podobne obiekty.
 
-   प्रॉम्प्ट: एक विशाल गगनचुंबी इमारत का डिजिटल रेंडर, आधुनिक, शानदार, भव्य, और बैकग्राउंड में खूबसूरत सूर्यास्त (9:16 आसपेक्ट रेशियो)
+   ![przykład formatu obrazu](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=pl)
 
-#### असल में खींची गई फ़ोटो जैसी दिखने वाली इमेज
+   Prompt: cyfrowa wizualizacja ogromnego, nowoczesnego drapacza chmur, który wygląda imponująco i epicko, z pięknym zachodem słońca w tle (format obrazu 9:16)
 
-इमेज जनरेट करने वाले अलग-अलग मॉडल, आर्टिस्टिक और फ़ोटोरियलिस्टिक आउटपुट का मिक्स दे सकते हैं. आपको जिस विषय पर फ़ोटो जैसा आउटपुट जनरेट करना है उसके आधार पर, प्रॉम्ट में यहाँ दिए गए शब्दों का इस्तेमाल करें.
+#### Fotorealistyczne obrazy
 
-| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
+Różne wersje modelu generowania obrazów mogą oferować połączenie wyjść artystycznych i fotorealistycznych. W promptach używaj poniższych sformułowań, aby generować bardziej fotorealistyczne wyniki na podstawie tematu, który chcesz wygenerować.
+
+| Przypadek użycia | Rodzaj obiektywu | Ogniskowe | Informacje dodatkowe |
 | --- | --- | --- | --- |
-| लोग (पोर्ट्रेट) | प्राइम, ज़ूम | 24 से 35 मि॰मी॰ | ब्लैक ऐंड व्हाइट फ़िल्म, फ़िल्म नोइर, डेप्थ ऑफ़ फ़ील्ड, ड्यूटोन (दो रंगों का ज़िक्र करें) |
-| खाना, कीड़े, पौधे (ऑब्जेक्ट, स्टिल लाइफ़) | मैक्रो | 60-105 मि॰मी॰ | ज़्यादा बारीकी से, सटीक फ़ोकस, और कंट्रोल की गई रोशनी |
-| खेल-कूद, वन्यजीव (मोशन) | टेलीफ़ोटो ज़ूम | 100-400 मि॰मी॰ | तेज़ शटर स्पीड, ऐक्शन या मूवमेंट ट्रैकिंग |
-| खगोलीय, लैंडस्केप (वाइड-ऐंगल) | वाइड-एंगल | 10-24 मि॰मी॰ | लॉन्ग एक्सपोज़र टाइम, शार्प फ़ोकस, लॉन्ग एक्सपोज़र, पानी या बादलों की स्मूद इमेज |
+| Osoby (portrety) | Powiększenie główne | 24-35mm | film czarno-biały, film noir, głębia ostrości, duotone (wymień 2 kolory) |
+| Jedzenie, owady, rośliny (obiekty, martwa natura) | Makro | 60-105mm | Wysoka szczegółowość, precyzyjne ustawianie ostrości, kontrolowane oświetlenie |
+| Sport, dzika przyroda (ruch) | Powiększenie teleobiektywu | 100-400mm | Szybka szybkość migawki, śledzenie akcji lub ruchu |
+| Astronomiczne, krajobrazowe (szerokokątne) | Szerokokątny | 10-24mm | Długi czas naświetlania, ostra ostrość, długi czas naświetlania, gładka woda lub chmury |
 
-##### पोर्ट्रेट
+##### Portrety
 
-| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
+| Przypadek użycia | Rodzaj obiektywu | Ogniskowe | Informacje dodatkowe |
 | --- | --- | --- | --- |
-| लोग (पोर्ट्रेट) | प्राइम, ज़ूम | 24 से 35 मि॰मी॰ | ब्लैक ऐंड व्हाइट फ़िल्म, फ़िल्म नोइर, डेप्थ ऑफ़ फ़ील्ड, ड्यूटोन (दो रंगों का ज़िक्र करें) |
+| Osoby (portrety) | Powiększenie główne | 24-35mm | film czarno-biały, film noir, głębia ostrości, duotone (wymień 2 kolory) |
 
-टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन पोर्ट्रेट को जनरेट कर सकता है:
+Korzystając z kilku słów kluczowych z tabeli, Imagen może wygenerować te portrety:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण |
+| Przykład fotografii portretowej | Przykład fotografii portretowej | Przykład fotografii portretowej | Przykład fotografii portretowej |
 
-प्रॉम्प्ट: *एक महिला, 35 मि॰मी॰ पोर्ट्रेट, नीले और स्लेटी रंग के ड्यूटोन*  
-मॉडल: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण | पोर्ट्रेट फ़ोटोग्राफ़ी का उदाहरण |
-
-प्रॉम्प्ट: *एक महिला, 35 मि॰मी॰ पोर्ट्रेट, फ़िल्म नॉयर*  
-मॉडल: `imagen-4.0-generate-001`
-
-##### ऑब्जेक्ट
-
-| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
-| --- | --- | --- | --- |
-| खाना, कीड़े, पौधे (ऑब्जेक्ट, स्टिल लाइफ़) | मैक्रो | 60-105 मि॰मी॰ | ज़्यादा बारीकी से, सटीक फ़ोकस, और कंट्रोल की गई रोशनी |
-
-टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन ऑब्जेक्ट की इमेज जनरेट कर सकता है:
+Prompt: *Kobieta, portret 35 mm, duotony w odcieniach niebieskiego i szarego*  
+Model: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण |
+| Przykład fotografii portretowej | Przykład fotografii portretowej | Przykład fotografii portretowej | Przykład fotografii portretowej |
 
-प्रॉम्प्ट: *प्रार्थना करने वाले पौधे की पत्ती, मैक्रो लेंस, 60 मि॰मी॰*  
-मॉडल: `imagen-4.0-generate-001`
+Prompt: *Kobieta, portret 35 mm, film noir*  
+Model: `imagen-4.0-generate-001`
+
+##### Obiekty
+
+| Przypadek użycia | Rodzaj obiektywu | Ogniskowe | Informacje dodatkowe |
+| --- | --- | --- | --- |
+| Jedzenie, owady, rośliny (obiekty, martwa natura) | Makro | 60-105mm | Wysoka szczegółowość, precyzyjne ustawianie ostrości, kontrolowane oświetlenie |
+
+Korzystając z kilku słów kluczowych z tabeli, Imagen może wygenerować te obrazy obiektów:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण | ऑब्जेक्ट की फ़ोटोग्राफ़ी का उदाहरण |
+| przykład fotografii obiektu | przykład fotografii obiektu | przykład fotografii obiektu | przykład fotografii obiektu |
 
-प्रॉम्प्ट: *पास्ता की एक प्लेट, 100 मि॰मी॰ मैक्रो लेंस*  
-मॉडल: `imagen-4.0-generate-001`
-
-##### मोशन
-
-| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
-| --- | --- | --- | --- |
-| खेल-कूद, वन्यजीव (मोशन) | टेलीफ़ोटो ज़ूम | 100-400 मि॰मी॰ | तेज़ शटर स्पीड, ऐक्शन या मूवमेंट ट्रैकिंग |
-
-टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन मोशन इमेज को जनरेट कर सकता है:
+Prompt: *liść maranty, obiektyw makro, 60 mm*  
+Model: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण |
+| przykład fotografii obiektu | przykład fotografii obiektu | przykład fotografii obiektu | przykład fotografii obiektu |
 
-प्रॉम्प्ट: *विनिंग टचडाउन, फ़ास्ट शटर स्पीड, मूवमेंट ट्रैकिंग*  
-मॉडल: `imagen-4.0-generate-001`
+Prompt: *a plate of pasta, 100mm Macro lens*  
+Model: `imagen-4.0-generate-001`
+
+##### Ruch
+
+| Przypadek użycia | Rodzaj obiektywu | Ogniskowe | Informacje dodatkowe |
+| --- | --- | --- | --- |
+| Sport, dzika przyroda (ruch) | Powiększenie teleobiektywu | 100-400mm | Szybka szybkość migawki, śledzenie akcji lub ruchu |
+
+Korzystając z kilku słów kluczowych z tabeli, Imagen może wygenerować te obrazy w ruchu:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण | मोशन फ़ोटोग्राफ़ी का उदाहरण |
+| przykład fotografii ruchu, | przykład fotografii ruchu, | przykład fotografii ruchu, | przykład fotografii ruchu, |
 
-प्रॉम्प्ट: *जंगल में दौड़ता हुआ हिरण, शटर स्पीड तेज़, मूवमेंट ट्रैकिंग*  
-मॉडल: `imagen-4.0-generate-001`
-
-##### वाइड-एंगल
-
-| इस्तेमाल का उदाहरण | लेंस का टाइप | फ़ोकल लेंथ | ज़्यादा जानकारी |
-| --- | --- | --- | --- |
-| खगोलीय, लैंडस्केप (वाइड-ऐंगल) | वाइड-एंगल | 10-24 मि॰मी॰ | लॉन्ग एक्सपोज़र टाइम, शार्प फ़ोकस, लॉन्ग एक्सपोज़र, पानी या बादलों की स्मूद इमेज |
-
-टेबल में दिए गए कई कीवर्ड का इस्तेमाल करके, Imagen इन वाइड-ऐंगल इमेज को जनरेट कर सकता है:
+Prompt: *zwycięskie przyłożenie, krótki czas otwarcia migawki, śledzenie ruchu*  
+Model: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण |
+| przykład fotografii ruchu, | przykład fotografii ruchu, | przykład fotografii ruchu, | przykład fotografii ruchu, |
 
-प्रॉम्प्ट: *पहाड़ों की लंबी श्रृंखला, लैंडस्केप वाइड ऐंगल 10 मि॰मी॰*  
-मॉडल: `imagen-4.0-generate-001`
+Prompt: *Jeleń biegnący po lesie, szybka migawka, śledzenie ruchu*  
+Model: `imagen-4.0-generate-001`
+
+##### Szerokokątny
+
+| Przypadek użycia | Rodzaj obiektywu | Ogniskowe | Informacje dodatkowe |
+| --- | --- | --- | --- |
+| Astronomiczne, krajobrazowe (szerokokątne) | Szerokokątny | 10-24mm | Długi czas naświetlania, ostra ostrość, długi czas naświetlania, gładka woda lub chmury |
+
+Korzystając z kilku słów kluczowych z tabeli, Imagen może wygenerować te zdjęcia szerokokątne:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण | वाइड ऐंगल फ़ोटोग्राफ़ी का उदाहरण |
+| Przykład fotografii szerokokątnej | Przykład fotografii szerokokątnej | Przykład fotografii szerokokątnej | Przykład fotografii szerokokątnej |
 
-प्रॉम्प्ट: *चांद की फ़ोटो, ऐस्ट्रो फ़ोटोग्राफ़ी, वाइड ऐंगल 10 मि॰मी॰*  
-मॉडल: `imagen-4.0-generate-001`
+Prompt: *an expansive mountain range, landscape wide angle 10mm*  
+Model: `imagen-4.0-generate-001`
 
-## मॉडल के वर्शन
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Przykład fotografii szerokokątnej | Przykład fotografii szerokokątnej | Przykład fotografii szerokokątnej | Przykład fotografii szerokokątnej |
 
-### Imagen 4 (अब सेवा में नहीं है)
+Prompt: *zdjęcie księżyca, astrofotografia, obiektyw szerokokątny 10 mm*  
+Model: `imagen-4.0-generate-001`
 
-| प्रॉपर्टी | ब्यौरा |
+## Wersje modelu
+
+### Imagen 4 (wycofany)
+
+| Właściwość | Opis |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट  **आउटपुट**  इमेज |
-| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  480 टोकन (टेक्स्ट)  **आउटपुट इमेज**  1 से 4 (अल्ट्रा/स्टैंडर्ड/फ़ास्ट) |
-| calendar\_monthनया अपडेट | जून 2025 |
+| id\_cardKod modelu | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveObsługiwane typy danych | **Wejście**  Tekst  **Dane wyjściowe**  Obrazy |
+| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  480 tokenów (tekst)  **Obrazy wyjściowe**  1–4 (Ultra/Standard/Fast) |
+| calendar\_monthOstatnia aktualizacja | Czerwiec 2025 r. |
 
-### Imagen 3
+### Imagen 3
 
-Imagen 3 मॉडल को [बंद कर दिया गया है](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi).
+Model Imagen 3 został [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl).
 
-सुझाव भेजें
+Prześlij opinię
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-आखिरी बार 2026-07-16 (UTC) को अपडेट किया गया.
+Ostatnia aktualizacja: 2026-07-16 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Chcesz przekazać coś jeszcze?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-16 (UTC) को अपडेट किया गया."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-16 UTC."],[],[]]

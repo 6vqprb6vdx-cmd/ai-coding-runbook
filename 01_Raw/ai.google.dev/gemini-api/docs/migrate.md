@@ -1,32 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate?hl=tr
-fetched_at: 2026-08-17T02:33:28.547819+00:00
-title: "Google GenAI SDK'ya ge\u00e7i\u015f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate?hl=pt-BR
+fetched_at: 2026-08-24T02:24:10.712413+00:00
+title: "Migrar para o SDK de IA generativa do Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Geri bildirim gönderin
+Envie comentários
 
-# Google GenAI SDK'ya geçiş
+# Migrar para o SDK de IA generativa do Google
 
-2024'ün sonlarında Gemini 2.0 sürümüyle birlikte [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) adlı yeni bir kitaplık grubu kullanıma sunuldu. [Güncellenmiş istemci mimarisi](https://ai.google.dev/gemini-api/docs/migrate?hl=tr#client) sayesinde geliştirici deneyimini iyileştirir ve geliştirici ile kurumsal iş akışları arasındaki [geçişi kolaylaştırır](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=tr).
+A partir do lançamento do Gemini 2.0 no final de 2024, apresentamos um novo conjunto de
+bibliotecas chamado [SDK da IA generativa do Google](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br). Ele oferece
+uma experiência de desenvolvedor aprimorada com
+uma [arquitetura de cliente atualizada](https://ai.google.dev/gemini-api/docs/migrate?hl=pt-br#client) e
+[simplifica a transição](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=pt-br) entre fluxos de trabalho de desenvolvedores
+e empresas.
 
-Google GenAI SDK artık desteklenen tüm platformlarda [genel kullanıma](https://ai.google.dev/gemini-api/docs/libraries?hl=tr#new-libraries) sunulmuştur. [Eski kitaplıklarımızdan](https://ai.google.dev/gemini-api/docs/libraries?hl=tr#previous-sdks) birini kullanıyorsanız geçiş yapmanızı önemle tavsiye ederiz.
+O SDK da IA generativa do Google agora está em [disponibilidade geral (GA, na sigla em inglês)](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br#new-libraries) em todas as plataformas compatíveis. Se você estiver usando uma das nossas [bibliotecas legadas](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br#previous-sdks), recomendamos fazer a
+migração.
 
-Bu kılavuz, başlamanıza yardımcı olmak için taşınan kodun öncesi ve sonrası örneklerini sunar.
+Este guia oferece exemplos de código migrado antes e depois para ajudar você a começar.
 
-## Kurulum
+## Instalação
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -46,7 +52,7 @@ npm install @google/generative-ai
 go get github.com/google/generative-ai-go
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -66,16 +72,16 @@ npm install @google/genai
 go get google.golang.org/genai
 ```
 
-## API erişimi
+## Acesso à API
 
-Eski SDK, çeşitli geçici yöntemler kullanarak API istemcisini arka planda örtülü olarak işliyordu. Bu durum, istemciyi ve kimlik bilgilerini yönetmeyi zorlaştırıyordu.
-Artık merkezi bir `Client` nesnesi üzerinden etkileşimde bulunursunuz. Bu `Client` nesnesi, çeşitli API hizmetleri (ör.`models`, `chats`, `files`, `tunings`) için tek bir giriş noktası görevi görür. Bu sayede, tutarlılık sağlanır ve farklı API çağrıları arasında kimlik bilgisi ve yapılandırma yönetimi basitleştirilir.
+O SDK antigo processava implicitamente o cliente da API nos bastidores usando vários métodos ad hoc. Isso dificultava o gerenciamento do cliente e das credenciais.
+Agora, você interage por meio de um objeto `Client` central. Esse objeto `Client` atua como um único ponto de entrada para vários serviços de API (por exemplo, `models`, `chats`, `files`, `tunings`), promovendo a consistência e simplificando o gerenciamento de credenciais e configurações em diferentes chamadas de API.
 
-**Öncesi (Daha Az Merkezi API Erişimi)**
+**Antes (acesso à API menos centralizado)**
 
 ### Python
 
-Eski SDK, çoğu API çağrısı için açıkça üst düzey bir istemci nesnesi kullanmıyordu. `GenerativeModel` nesnelerini doğrudan oluşturup bunlarla etkileşim kurarsınız.
+O SDK antigo não usava explicitamente um objeto de cliente de nível superior para a maioria das chamadas de API. Você instanciaria e interagiria diretamente com objetos `GenerativeModel`.
 
 ```
 import google.generativeai as genai
@@ -88,7 +94,7 @@ chat = model.start_chat(...)
 
 ### JavaScript
 
-`GoogleGenerativeAI`, modeller ve sohbet için merkezi bir nokta olsa da dosya ve önbellek yönetimi gibi diğer işlevler genellikle tamamen ayrı istemci sınıflarının içe aktarılmasını ve oluşturulmasını gerektiriyordu.
+Embora `GoogleGenerativeAI` fosse um ponto central para modelos e chats, outras funcionalidades, como gerenciamento de arquivos e cache, geralmente exigiam a importação e a instanciação de classes de cliente totalmente separadas.
 
 ```
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -110,7 +116,7 @@ const cache = await cacheManager.create(...);
 
 ### Go
 
-`genai.NewClient` işlevi bir istemci oluşturdu ancak üretken model işlemleri genellikle bu istemciden alınan ayrı bir `GenerativeModel` örneğinde çağrıldı. Diğer hizmetlere farklı paketler veya kalıplar üzerinden erişilmiş olabilir.
+A função `genai.NewClient` criou um cliente, mas as operações de modelo generativo eram normalmente chamadas em uma instância `GenerativeModel` separada obtida desse cliente. Outros serviços podem ter sido acessados por pacotes ou padrões distintos.
 
 ```
 import (
@@ -131,7 +137,7 @@ cs := model.StartChat()
 uploadedFile, err := fileClient.UploadFile(...)
 ```
 
-**Sonra (Merkezi Müşteri Nesnesi)**
+**Depois (objeto de cliente centralizado)**
 
 ### Python
 
@@ -178,15 +184,17 @@ uploadedFile, err := client.Files.Upload(...)
 tuningJob, err := client.Tunings.Tune(...)
 ```
 
-## Kimlik doğrulama
+## Autenticação
 
-Hem eski hem de yeni kitaplıklar, API anahtarları kullanılarak kimlik doğrular. API anahtarınızı Google AI Studio'da [oluşturabilirsiniz](https://aistudio.google.com/apikey?hl=tr).
+As bibliotecas legadas e novas são autenticadas usando chaves de API. Você pode
+[criar](https://aistudio.google.com/apikey?hl=pt-br) sua chave de API no Google AI
+Studio.
 
-**Önce**
+**Antes**
 
 ### Python
 
-Eski SDK, API istemci nesnesini örtülü olarak işliyordu.
+O SDK antigo processava o objeto de cliente da API implicitamente.
 
 ```
 import google.generativeai as genai
@@ -204,7 +212,7 @@ const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 
 ### Go
 
-Google kitaplıklarını içe aktarın:
+Importe as bibliotecas do Google:
 
 ```
 import (
@@ -213,18 +221,18 @@ import (
 )
 ```
 
-İstemciyi oluşturun:
+Crie o cliente:
 
 ```
 client, err := genai.NewClient(ctx, option.WithAPIKey("GEMINI_API_KEY"))
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Google GenAI SDK ile önce API'yi çağırmak için kullanılan bir API istemcisi oluşturursunuz.
-Yeni SDK, istemciye bir API anahtarı iletmezseniz API anahtarınızı `GEMINI_API_KEY` ortam değişkenlerinden alır.
+Com o SDK da IA generativa do Google, você cria um cliente de API primeiro, que é usado para chamar a API.
+O novo SDK vai buscar sua chave de API nas variáveis de ambiente `GEMINI_API_KEY`, se você não transmitir uma para o cliente.
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
@@ -248,13 +256,13 @@ const ai = new GoogleGenAI({apiKey: "GEMINI_API_KEY"});
 
 ### Go
 
-GenAI kitaplığını içe aktarın:
+Importe a biblioteca GenAI:
 
 ```
 import "google.golang.org/genai"
 ```
 
-İstemciyi oluşturun:
+Crie o cliente:
 
 ```
 client, err := genai.NewClient(ctx, &genai.ClientConfig{
@@ -262,15 +270,15 @@ client, err := genai.NewClient(ctx, &genai.ClientConfig{
 })
 ```
 
-## İçerik oluşturma
+## Gerar conteúdo
 
-### Metin
+### Texto
 
-**Önce**
+**Antes**
 
 ### Python
 
-Daha önce istemci nesneleri yoktu ve API'lere doğrudan `GenerativeModel` nesneleri üzerinden erişiyordunuz.
+Anteriormente, não havia objetos de cliente. Você acessava as APIs diretamente por objetos `GenerativeModel`.
 
 ```
 import google.generativeai as genai
@@ -314,12 +322,11 @@ if err != nil {
 printResponse(resp) // utility for printing response parts
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Yeni Google GenAI SDK, `Client` nesnesi aracılığıyla tüm API yöntemlerine erişim sağlar. Birkaç durum bilgisi içeren özel durum (`chat` ve
-live-api `session`) dışında, bunların tümü durum bilgisi içermeyen işlevlerdir. Nesneler, kolaylık ve tutarlılık için `pydantic` sınıfları olarak döndürülür.
+O novo SDK da IA generativa do Google oferece acesso a todos os métodos de API pelo objeto `Client`. Com exceção de alguns casos especiais com estado (`chat` e `session`s de API em tempo real), todas essas são funções sem estado. Para utilidade e uniformidade, os objetos retornados são classes `pydantic`.
 
 ```
 from google import genai
@@ -365,9 +372,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-### Resim
+### Imagem
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -437,11 +444,11 @@ if err != nil {
 printResponse(resp) // utility for printing response
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Yeni SDK'da aynı kolaylık özelliklerinin çoğu bulunur. Örneğin, `PIL.Image` nesneleri otomatik olarak dönüştürülür.
+Muitos dos mesmos recursos de conveniência existem no novo SDK. Por exemplo, os objetos `PIL.Image` são convertidos automaticamente.
 
 ```
 from google import genai
@@ -511,9 +518,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-### Canlı Yayın
+### Streaming
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -570,7 +577,7 @@ for {
 }
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -626,9 +633,9 @@ for result, err := range client.Models.GenerateContentStream(
 }
 ```
 
-## Yapılandırma
+## Configuração
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -695,12 +702,11 @@ if err != nil {
 printResponse(resp) // utility for printing response
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Yeni SDK'daki tüm yöntemler için gerekli bağımsız değişkenler anahtar kelime bağımsız değişkenleri olarak sağlanır. Tüm isteğe bağlı girişler `config`
-argument içinde sağlanır. Yapılandırma bağımsız değişkenleri, `google.genai.types` ad alanında Python sözlükleri veya `Config` sınıfları olarak belirtilebilir. Kullanışlılık ve tutarlılık için `types` modülündeki tüm tanımlar `pydantic` sınıflarıdır.
+Para todos os métodos no novo SDK, os argumentos necessários são fornecidos como argumentos de palavra-chave. Todas as entradas opcionais são fornecidas no argumento `config`. Os argumentos de configuração podem ser especificados como dicionários Python ou classes `Config` no namespace `google.genai.types`. Para utilidade e uniformidade, todas as definições no módulo `types` são classes `pydantic`.
 
 ```
 from google import genai
@@ -776,11 +782,11 @@ if err != nil {
 debugPrint(result) // utility for printing response
 ```
 
-## Güvenlik ayarları
+## Configurações de segurança
 
-Güvenlik ayarlarıyla yanıt oluşturma:
+Gerar uma resposta com configurações de segurança:
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -828,7 +834,7 @@ try {
 }
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -880,9 +886,9 @@ console.log("Finish reason:", response.candidates[0].finishReason);
 console.log("Safety ratings:", response.candidates[0].safetyRatings);
 ```
 
-## Asenk.
+## Assíncrona
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -895,11 +901,12 @@ response = model.generate_content_async(
 )
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Yeni SDK'yı `asyncio` ile kullanmak için `client.aio` altındaki her yöntemin ayrı bir `async` uygulaması vardır.
+Para usar o novo SDK com `asyncio`, há uma implementação `async`
+separada de cada método em `client.aio`.
 
 ```
 from google import genai
@@ -912,11 +919,11 @@ response = await client.aio.models.generate_content(
 )
 ```
 
-## Sohbet
+## Chat
 
-Sohbet başlatma ve modele mesaj gönderme:
+Inicie um chat e envie uma mensagem para o modelo:
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -992,7 +999,7 @@ if err != nil {
 printResponse(res) // utility for printing the response
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1067,9 +1074,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-## İşlev çağırma
+## Chamadas de função
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1096,11 +1103,11 @@ response = model.generate_content("What is the weather in San Francisco?")
 function_call = response.candidates[0].parts[0].function_call
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Yeni SDK'da otomatik işlev çağrısı varsayılandır. Burada devre dışı bırakın.
+No novo SDK, a chamada de função automática é o padrão. Aqui, você a desativa.
 
 ```
 from google import genai
@@ -1130,14 +1137,13 @@ response = client.models.generate_content(
 function_call = response.candidates[0].content.parts[0].function_call
 ```
 
-### Otomatik işlev çağırma
+### Chamada de função automática
 
-**Önce**
+**Antes**
 
 ### Python
 
-Eski SDK yalnızca sohbette otomatik işlev çağrısını destekler. Yeni SDK'da
-bu, `generate_content` için varsayılan davranıştır.
+O SDK antigo só oferece suporte à chamada de função automática no chat. No novo SDK, esse é o comportamento padrão em `generate_content`.
 
 ```
 import google.generativeai as genai
@@ -1155,7 +1161,7 @@ chat = model.start_chat(
 result = chat.send_message("What is the weather in San Francisco?")
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1176,11 +1182,11 @@ response = client.models.generate_content(
 )
 ```
 
-## Kod yürütme
+## Execução de código
 
-Kod yürütme, modelin Python kodu oluşturmasına, bu kodu uygulamasına ve sonucu döndürmesine olanak tanıyan bir araçtır.
+A execução de código é uma ferramenta que permite que o modelo gere código Python, execute-o e retorne o resultado.
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1217,7 +1223,7 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1261,11 +1267,13 @@ console.log("-".repeat(80));
 console.log("\n", response.text);
 ```
 
-## Arama temellendirme
+## Embasamento da pesquisa
 
-`GoogleSearch` (Gemini>=2.0) ve `GoogleSearchRetrieval` (Gemini < 2.0), Google tarafından desteklenen ve modelin temellendirme için herkese açık web verilerini almasına olanak tanıyan araçlardır.
+`GoogleSearch` (Gemini>=2.0) e `GoogleSearchRetrieval` (Gemini < 2.0) são
+ferramentas que permitem que o modelo recupere dados da Web pública para embasamento, com tecnologia do
+Google.
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1279,7 +1287,7 @@ response = model.generate_content(
 )
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1302,15 +1310,17 @@ response = client.models.generate_content(
 )
 ```
 
-## JSON yanıtı
+## Resposta JSON
 
-Yanıtları JSON biçiminde oluştur.
+Gerar respostas no formato JSON.
 
-**Önce**
+**Antes**
 
 ### Python
 
-`response_schema` belirterek ve `response_mime_type="application/json"` ayarlayarak kullanıcılar, modeli belirli bir yapıya uygun `JSON` yanıt oluşturmaya zorlayabilir.
+Ao especificar um `response_schema` e definir
+`response_mime_type="application/json"`, os usuários podem restringir o modelo para
+produzir uma resposta `JSON` seguindo uma determinada estrutura.
 
 ```
 import google.generativeai as genai
@@ -1373,11 +1383,11 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
-Yeni SDK, şemayı sağlamak için `pydantic` sınıflarını kullanır (`genai.types.Schema` veya eşdeğer `dict` iletebilirsiniz). SDK, mümkün olduğunda döndürülen JSON'u ayrıştırır ve sonucu `response.parsed` olarak döndürür. Şema olarak bir `pydantic` sınıfı sağladıysanız SDK, bu `JSON` sınıfını sınıfın bir örneğine dönüştürür.
+O novo SDK usa classes `pydantic` para fornecer o esquema (embora seja possível transmitir um `genai.types.Schema` ou um `dict` equivalente). Quando possível, o SDK vai analisar o JSON retornado e retornar o resultado em `response.parsed`. Se você forneceu uma classe `pydantic` como o esquema, o SDK vai converter esse `JSON` em uma instância da classe.
 
 ```
 from google import genai
@@ -1434,13 +1444,13 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-## Dosyalar
+## Arquivos
 
-### Yükleyin
+### Fazer upload
 
-Dosya yükleme:
+Fazer upload de um arquivo:
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1464,7 +1474,7 @@ response = model.generate_content([
 print(response.text)
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1492,11 +1502,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Listeleme ve alma
+### Listar e receber
 
-Yüklenen dosyaları listeleme ve dosya adıyla yüklenen bir dosyayı alma:
+Liste os arquivos enviados e receba um arquivo enviado com um nome de arquivo:
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1509,7 +1519,7 @@ for file in genai.list_files():
 file = genai.get_file(name=file.name)
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1523,11 +1533,11 @@ for file in client.files.list():
 file = client.files.get(name=file.name)
 ```
 
-### Sil
+### Excluir
 
-Dosya silme:
+Excluir um arquivo:
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1541,7 +1551,7 @@ dummy_file = genai.upload_file(path='dummy.txt')
 file = genai.delete_file(name=dummy_file.name)
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1557,11 +1567,11 @@ dummy_file = client.files.upload(file='dummy.txt')
 response = client.files.delete(name=dummy_file.name)
 ```
 
-## Bağlamı önbelleğe alma
+## O armazenamento em cache de contexto
 
-Bağlamı önbelleğe alma özelliği, kullanıcının içeriği modele bir kez iletmesine, giriş jetonlarını önbelleğe almasına ve ardından maliyeti düşürmek için sonraki çağrılarda önbelleğe alınan jetonlara başvurmasına olanak tanır.
+O armazenamento em cache de contexto permite que o usuário transmita o conteúdo para o modelo uma vez, armazene os tokens de entrada em cache e, em seguida, consulte os tokens armazenados em cache em chamadas subsequentes para reduzir o custo.
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1633,7 +1643,7 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1715,11 +1725,11 @@ const response = await ai.models.generateContent({
 console.log("Response text:", response.text);
 ```
 
-## Parça sayma
+## Contar tokens
 
-Bir isteğin jeton sayısını hesaplar.
+Conte o número de tokens em uma solicitação.
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1761,7 +1771,7 @@ response = model.count_tokens(
  // { promptTokenCount: 11, candidatesTokenCount: 124, totalTokenCount: 135 }
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1796,11 +1806,11 @@ const generateResponse = await ai.models.generateContent({
 console.log(generateResponse.usageMetadata);
 ```
 
-## Resimleri oluştur
+## Gerar imagens
 
-Resim oluşturma:
+Gerar imagens:
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1819,7 +1829,7 @@ gen_images = imagen.generate_images(
 )
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1844,11 +1854,11 @@ for n, image in enumerate(gen_images.generated_images):
         image.image.image_bytes)
 ```
 
-## İçerik yerleştirme
+## Incorporar conteúdo
 
-İçerik yerleştirmeleri oluşturma
+Gerar embeddings de conteúdo.
 
-**Önce**
+**Antes**
 
 ### Python
 
@@ -1876,7 +1886,7 @@ const result = await model.embedContent("Hello world!");
 console.log(result.embedding);
 ```
 
-**Sonra**
+**Depois**
 
 ### Python
 
@@ -1906,12 +1916,12 @@ const result = await ai.models.embedContent({
 console.log(result.embeddings);
 ```
 
-Geri bildirim gönderin
+Envie comentários
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Son güncelleme tarihi: 2026-06-22 UTC.
+Última atualização 2026-06-22 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Quer enviar seu feedback?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]

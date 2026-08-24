@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=th
-fetched_at: 2026-08-17T02:18:36.946882+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e01\u0e43\u0e0a\u0e49\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e14\u0e49\u0e27\u0e22 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419
+fetched_at: 2026-08-24T02:32:02.824840+00:00
+title: "Llamada a funci\u00f3n con la API de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-# การเรียกใช้ฟังก์ชันด้วย Gemini API
+# Llamada a función con la API de Gemini
 
-การเรียกใช้ฟังก์ชันช่วยให้คุณเชื่อมต่อโมเดลกับเครื่องมือและ API ภายนอกได้
-แทนที่จะสร้างการตอบกลับเป็นข้อความ โมเดลจะกำหนดเวลาที่จะเรียกใช้ฟังก์ชันที่เฉพาะเจาะจงและระบุพารามิเตอร์ที่จำเป็นเพื่อดำเนินการต่างๆ ในโลกแห่งความเป็นจริง
-ซึ่งช่วยให้โมเดลทำหน้าที่เป็นสะพานเชื่อมระหว่างภาษาธรรมชาติกับข้อมูลและการดำเนินการต่างๆ ในโลกแห่งความเป็นจริง การเรียกใช้ฟังก์ชันมีกรณีการใช้งานหลัก 3 กรณีดังนี้
+La llamada a funciones te permite conectar modelos a herramientas y APIs externas.
+En lugar de generar respuestas de texto, el modelo determina cuándo llamar a funciones específicas y proporciona los parámetros necesarios para ejecutar acciones del mundo real.
+Esto permite que el modelo actúe como un puente entre el lenguaje natural y las acciones y los datos del mundo real. La llamada a funciones tiene 3 casos de uso principales:
 
-- [**ดำเนินการ:**](#meeting) โต้ตอบกับระบบภายนอกโดยใช้ API เช่น
-  การกำหนดเวลาการนัดหมาย การสร้างใบแจ้งหนี้ การส่งอีเมล หรือการควบคุม
-  อุปกรณ์สมาร์ทโฮม
-- [**เพิ่มพูนความรู้:**](#weather) เข้าถึงข้อมูลจากแหล่งที่มาภายนอก เช่น
-  ฐานข้อมูล API และฐานความรู้
-- [**ขยายขีดความสามารถ:**](#chart) ใช้เครื่องมือภายนอกเพื่อทำการคำนวณและ
-  ขยายข้อจำกัดของโมเดล เช่น การใช้เครื่องคิดเลขหรือการสร้าง
-  แผนภูมิ
+- [**Realizar acciones:**](#meeting) Interactúa con sistemas externos mediante APIs, como
+  programar citas, crear facturas, enviar correos electrónicos o controlar
+  dispositivos de casas inteligentes.
+- [**Aumentar el conocimiento:**](#weather) Accede a información de fuentes externas, como
+  bases de datos, APIs y bases de conocimiento.
+- [**Ampliar las capacidades:**](#chart) Usa herramientas externas para realizar cálculos y
+  ampliar las limitaciones del modelo, como usar una calculadora o crear
+  gráficos.
 
-คุณสามารถดูตัวอย่างกรณีการใช้งานเหล่านี้ได้ด้านล่าง
+Puedes explorar ejemplos de estos casos de uso a continuación:
 
-### กำหนดเวลาการประชุม
+### Programar reunión
 
-ตัวอย่างนี้แสดงวิธีกำหนดฟังก์ชันที่กำหนดเวลาการประชุมกับผู้เข้าร่วมในเวลาที่เฉพาะเจาะจง ซึ่งช่วยให้โมเดลแยกวิเคราะห์คำขอของผู้ใช้และแสดงอาร์กิวเมนต์ที่มีโครงสร้างเพื่อทริกเกอร์การดำเนินการในระบบภายนอกได้
+En este ejemplo, se muestra cómo definir una función que programa una reunión con los asistentes en un momento específico, lo que permite que el modelo analice las solicitudes de los usuarios y devuelva argumentos estructurados para activar acciones en sistemas externos.
 
 ### Python
 
@@ -136,9 +136,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### รับสภาพอากาศ
+### Consultar el tiempo
 
-ตัวอย่างนี้แสดงวิธีกำหนดฟังก์ชันที่ดึงข้อมูลอุณหภูมิของสถานที่หนึ่งๆ ซึ่งช่วยให้โมเดลเรียกใช้ API ภายนอกเพื่อตอบคำถามที่ต้องใช้ข้อมูลแบบเรียลไทม์หรือข้อมูลภายนอกได้
+En este ejemplo, se muestra cómo definir una función que recupera datos de temperatura para una ubicación, lo que permite que el modelo llame a APIs externas para responder consultas que requieren información externa o en tiempo real.
 
 ### Python
 
@@ -236,9 +236,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### สร้างแผนภูมิ
+### Crear gráfico
 
-ตัวอย่างนี้แสดงวิธีกำหนดฟังก์ชันที่สร้างแผนภูมิแท่งจากข้อมูลที่มีโครงสร้าง ซึ่งแสดงให้เห็นว่าโมเดลใช้เครื่องมือภายนอกเพื่อทำการคำนวณหรือสร้างชิ้นงานแบบภาพได้อย่างไร
+En este ejemplo, se muestra cómo definir una función que genera un gráfico de barras a partir de datos estructurados, lo que demuestra cómo el modelo puede usar herramientas externas para realizar cálculos o crear recursos visuales:
 
 ### Python
 
@@ -335,21 +335,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## วิธีการทำงานของการเรียกใช้ฟังก์ชัน
+## Cómo funciona la llamada a función
 
-![ภาพรวมการเรียกใช้ฟังก์ชัน](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=th)
+![Descripción general de las llamadas a funciones](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=es-419)
 
-การเรียกใช้ฟังก์ชันเกี่ยวข้องกับการโต้ตอบที่มีโครงสร้างระหว่างแอปพลิเคชัน โมเดล และฟังก์ชันภายนอก ดังนี้
+La llamada a funciones implica una interacción estructurada entre tu aplicación, el modelo y las funciones externas:
 
-1. **กำหนดการประกาศฟังก์ชัน:** กำหนดชื่อ พารามิเตอร์ และวัตถุประสงค์ของฟังก์ชันให้กับโมเดล
-2. **เรียกใช้ LLM ด้วยการประกาศฟังก์ชัน:** ส่งพรอมต์ของผู้ใช้พร้อมกับการประกาศฟังก์ชันไปยังโมเดล
-3. **เรียกใช้โค้ดฟังก์ชัน (ความรับผิดชอบของคุณ):** โมเดล *ไม่*
-   เรียกใช้ฟังก์ชันด้วยตัวเอง แยกชื่อและอาร์กิวเมนต์ แล้วเรียกใช้ในแอปพลิเคชัน
-4. **สร้างการตอบกลับที่เข้าใจง่าย:** ส่งผลลัพธ์กลับไปยังโมเดลเพื่อรับการตอบกลับสุดท้ายที่เข้าใจง่าย
+1. **Define la declaración de la función:** Define el nombre, los parámetros y el propósito de la función para el modelo.
+2. **Llama al LLM con declaraciones de funciones:** Envía la instrucción del usuario junto con las declaraciones de funciones al modelo.
+3. **Ejecuta el código de la función (es tu responsabilidad):** El modelo *no*
+   ejecuta la función en sí. Extrae el nombre y los argumentos, y ejecútalos en tu aplicación.
+4. **Crea una respuesta fácil de usar:** Envía el resultado al modelo para obtener una respuesta final y fácil de usar.
 
-คุณสามารถทำกระบวนการนี้ซ้ำได้หลายครั้ง โมเดลรองรับการเรียกใช้ฟังก์ชันหลายรายการในครั้งเดียว ([การเรียกใช้ฟังก์ชันแบบขนาน](#parallel_function_calling)) และตามลำดับ ([การเรียกใช้ฟังก์ชันแบบผสม](#compositional_function_calling))
+Este proceso se puede repetir varias veces. El modelo admite llamar a
+varias funciones en un solo turno ([llamada a función paralela](#parallel_function_calling)) y en secuencia ([llamada a función compositiva](#compositional_function_calling)).
 
-### ขั้นตอนที่ 1: กำหนดการประกาศฟังก์ชัน
+### Paso 1: Define una declaración de función
 
 ### Python
 
@@ -402,7 +403,7 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### ขั้นตอนที่ 2: เรียกใช้โมเดลด้วยการประกาศฟังก์ชัน
+### Paso 2: Llama al modelo con declaraciones de funciones
 
 ### Python
 
@@ -438,7 +439,7 @@ const fcStep = in>teraction.steps.find(s = s.type === 'function_call');
 console.log(fcStep);
 ```
 
-โมเดลจะแสดงผลขั้นตอน `function_call` พร้อม `type`, `name` และ `arguments` ดังนี้
+El modelo devuelve un paso `function_call` con `type`, `name` y `arguments`:
 
 ```
 type='function_call'
@@ -446,7 +447,7 @@ name='set_light_values'
 arguments={'color_temp': &#39;warm', 'brightness': 25}
 ```
 
-### ขั้นตอนที่ 3: เรียกใช้ฟังก์ชัน
+### Paso 3: Ejecuta la función
 
 ### Python
 
@@ -470,7 +471,7 @@ if (fcStep.name === 'set_light_values') {
 }
 ```
 
-### ขั้นตอนที่ 4: ส่งผลลัพธ์กลับไปยังโมเดล
+### Paso 4: Envía el resultado al modelo
 
 ### Python
 
@@ -510,13 +511,13 @@ const finalInteraction = await client.interactions.create({
 console.log(finalInteraction.output_text);
 ```
 
-### การเรียกใช้ฟังก์ชันแบบ Stateless
+### Llamada a función sin estado
 
-นอกจากนี้ คุณยังใช้การเรียกใช้ฟังก์ชันในโหมด Stateless ได้ด้วยการจัดการประวัติการสนทนาในฝั่งไคลเอ็นต์และตั้งค่า `store=false`
+También puedes usar la llamada a función en modo sin estado si administras el historial de conversaciones en el cliente y configuras `store=false`.
 
-ในโหมด Stateless คุณต้องส่งประวัติการสนทนาทั้งหมดในช่อง `input` ของคำขอที่ตามมาแต่ละรายการ ประวัติการสนทนานี้ต้องมีข้อมูลต่อไปนี้ 1. ขั้นตอน `user_input` เริ่มต้น
-2. ขั้นตอนทั้งหมดที่โมเดลสร้างขึ้นและแสดงผลใน Turn 1 (รวมถึงขั้นตอน `thought` และ `function_call`) ตรงตามที่ได้รับ
-3. ขั้นตอน `function_result` ที่มีเอาต์พุตของฟังก์ชันที่เรียกใช้
+En el modo sin estado, debes pasar el historial completo de la conversación en el campo `input` de cada solicitud posterior. Este historial debe incluir lo siguiente: 1. El paso `user_input` inicial.
+2. Todos los pasos generados por el modelo que se muestran en el turno 1 (incluidos los pasos `thought` y `function_call`) exactamente como se recibieron.
+3. El paso `function_result` que contiene el resultado de la función ejecutada.
 
 ### Python
 
@@ -688,25 +689,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## การประกาศฟังก์ชัน
+## Declaraciones de funciones
 
-ระบบจะส่งการประกาศฟังก์ชันเป็นเครื่องมือและมีข้อมูลต่อไปนี้
+Una declaración de función se pasa como una herramienta e incluye lo siguiente:
 
-- `type` (สตริง): ต้องเป็น `"function"` สำหรับฟังก์ชันที่กำหนดเอง
-- `name` (สตริง): ชื่อฟังก์ชันที่ไม่ซ้ำกัน (ใช้ขีดล่างหรือ camelCase)
-- `description` (สตริง): คำอธิบายที่ชัดเจนเกี่ยวกับวัตถุประสงค์ของฟังก์ชัน
-- `parameters` (ออบเจ็กต์): พารามิเตอร์อินพุตที่ฟังก์ชันคาดหวัง
-  - `type` (สตริง): ประเภทข้อมูลโดยรวม เช่น `object`
-  - `properties` (ออบเจ็กต์): พารามิเตอร์แต่ละรายการที่มีประเภทและคำอธิบาย
-  - `required` (อาร์เรย์): ชื่อพารามิเตอร์ที่ต้องระบุ
+- `type` (string): Debe ser `"function"` para las funciones personalizadas.
+- `name` (string): Nombre de función único (usa guiones bajos o camelCase).
+- `description` (string): Explicación clara del propósito de la función.
+- `parameters` (object): Parámetros de entrada que espera la función.
+  - `type` (string): Tipo de datos general, como `object`.
+  - `properties` (object): Parámetros individuales con tipo y descripción.
+  - `required` (array): Nombres de parámetros obligatorios.
 
-## การเรียกใช้ฟังก์ชันด้วยโมเดลการคิด
+## Llamada a función con modelos de razonamiento
 
-โมเดล Gemini 3 Series ใช้กระบวนการ ["คิด"](https://ai.google.dev/gemini-api/docs/thinking?hl=th) ภายในที่ช่วยปรับปรุงการเรียกใช้ฟังก์ชัน SDK จะจัดการ[ลายเซ็นการคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)ให้คุณโดยอัตโนมัติ
+Los modelos de la serie Gemini 3 usan un proceso interno de ["razonamiento"](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) que mejora la llamada a función. Los SDKs controlan automáticamente las [firmas de razonamiento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=es-419) por ti.
 
-## การเรียกใช้ฟังก์ชันแบบขนาน
+## Llamada a función paralela
 
-เรียกใช้ฟังก์ชันหลายรายการพร้อมกันเมื่อฟังก์ชันเหล่านั้นเป็นอิสระจากกัน
+Llama a varias funciones a la vez cuando sean independientes:
 
 ### Python
 
@@ -808,9 +809,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การเรียกใช้ฟังก์ชันแบบผสม
+## Llamada a función compositiva
 
-เชื่อมโยงการเรียกใช้ฟังก์ชันหลายรายการเข้าด้วยกันสำหรับคำขอที่ซับซ้อน (เช่น รับสถานที่ก่อน แล้วรับสภาพอากาศของสถานที่นั้น)
+Encadena varias llamadas a función para solicitudes complejas (p.ej., primero obtén la ubicación y, luego, el clima de esa ubicación).
 
 ### Python
 
@@ -962,14 +963,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## โหมดการเรียกใช้ฟังก์ชัน
+## Modos de llamada a función
 
-ควบคุมวิธีที่โมเดลใช้เครื่องมือโดยใช้ `tool_choice` ใน `generation_config`
+Controla cómo el modelo usa herramientas con `tool_choice` en `generation_config`:
 
-- `auto` (ค่าเริ่มต้น): โมเดลจะตัดสินใจว่าจะเรียกใช้ฟังก์ชันหรือตอบกลับโดยตรง
-- `any`: โมเดลจะถูกจำกัดให้คาดการณ์การเรียกใช้ฟังก์ชันเสมอ
-- `none`: โมเดลจะถูกห้ามไม่ให้ทำการเรียกใช้ฟังก์ชัน
-- `validated`: โมเดลจะตรวจสอบว่าฟังก์ชันเป็นไปตามสคีมา
+- `auto` (predeterminado): El modelo decide si llamar a una función o responder directamente.
+- `any`: El modelo está restringido para predecir siempre una llamada a función.
+- `none`: El modelo no puede realizar llamadas a función.
+- `validated`: El modelo garantiza el cumplimiento del esquema de funciones.
 
 ### Python
 
@@ -1029,9 +1030,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การใช้เครื่องมือหลายรายการ
+## Uso de varias herramientas
 
-คุณสามารถเปิดใช้เครื่องมือหลายรายการได้โดยรวมเครื่องมือในตัวกับการเรียกใช้ฟังก์ชันในคำขอเดียวกัน โมเดล Gemini 3 สามารถรวมเครื่องมือในตัวกับการเรียกใช้ฟังก์ชันได้ทันทีใน Interactions การส่ง `previous_interaction_id` จะหมุนเวียนบริบทของเครื่องมือในตัวโดยอัตโนมัติ
+Puedes habilitar varias herramientas y combinar herramientas integradas con la llamada a función en la misma solicitud. Los modelos de Gemini 3 pueden combinar herramientas integradas con la llamada a función lista para usar en las interacciones. Si pasas `previous_interaction_id`, se hace circular automáticamente el contexto de la herramienta integrada.
 
 ### Python
 
@@ -1199,13 +1200,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การตอบกลับของฟังก์ชันแบบมัลติโมดัล
+## Respuestas de funciones multimodales
 
-สำหรับโมเดล Gemini 3 Series คุณสามารถรวมเนื้อหาแบบมัลติโมดัลในส่วนการตอบกลับของฟังก์ชันที่คุณส่งไปยังโมเดลได้ โมเดลสามารถประมวลผลเนื้อหาแบบมัลติโมดัลนี้ใน Turn ถัดไปเพื่อสร้างการตอบกลับที่มีข้อมูลมากขึ้น
+Para los modelos de la serie Gemini 3, puedes incluir contenido multimodal en las partes de la respuesta de la función que envías al modelo. El modelo puede procesar este contenido multimodal en su siguiente turno para producir una respuesta más informada.
 
-หากต้องการรวมข้อมูลแบบมัลติโมดัลในการตอบกลับของฟังก์ชัน ให้รวมข้อมูลดังกล่าวเป็นบล็อกเนื้อหาอย่างน้อย 1 รายการในช่อง `result` ของขั้นตอน `function_result` บล็อกเนื้อหาแต่ละรายการต้องระบุ `type` (เช่น `"text"`, `"image"`)
+Para incluir datos multimodales en una respuesta de función, inclúyelos como uno o más bloques de contenido en el `result` campo del paso `function_result`. Cada bloque de contenido debe especificar su `type` (p.ej., `"text"`, `"image"`).
 
-ตัวอย่างต่อไปนี้แสดงวิธีส่งการตอบกลับของฟังก์ชันที่มีข้อมูลรูปภาพกลับไปยังโมเดลในการโต้ตอบ
+En el siguiente ejemplo, se muestra cómo enviar una respuesta de función que contiene datos de imagen al modelo en una interacción:
 
 ### Python
 
@@ -1305,30 +1306,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การเรียกใช้ฟังก์ชันพร้อมเอาต์พุตที่มีโครงสร้าง
+## Llamada a función con resultados estructurados
 
-สำหรับโมเดล Gemini 3 Series ให้รวมการเรียกใช้ฟังก์ชันกับ
-[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th) เพื่อ
-รับการตอบกลับที่มีรูปแบบสอดคล้องกัน
+Para los modelos de la serie Gemini 3, combina la llamada a función con
+[resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) para
+obtener respuestas con formato coherente.
 
-## MCP (Model Context Protocol) ระยะไกล
+## MCP (Protocolo de contexto del modelo) remoto
 
-Interactions API รองรับการเชื่อมต่อกับเซิร์ฟเวอร์ MCP ระยะไกลเพื่อให้โมเดลเข้าถึงเครื่องมือและบริการภายนอกได้ คุณระบุ `name` และ `url` ของเซิร์ฟเวอร์ในการกำหนดค่าเครื่องมือ
+La API de Interactions admite la conexión a servidores de MCP remotos para darle al modelo acceso a herramientas y servicios externos. Proporcionas el `name` y la `url` del servidor en la configuración de las herramientas.
 
-เมื่อใช้ MCP ระยะไกล โปรดคำนึงถึงข้อจำกัดต่อไปนี้
+Cuando uses MCP remoto, ten en cuenta las siguientes restricciones:
 
-- **ประเภทเซิร์ฟเวอร์**: MCP ระยะไกลใช้ได้กับเซิร์ฟเวอร์ HTTP ที่สตรีมได้เท่านั้น ไม่รองรับเซิร์ฟเวอร์ SSE (Server-Sent Events)
-- **การตั้งชื่อ**: ชื่อเซิร์ฟเวอร์ MCP ไม่ควรมีอักขระ `-` ให้ใช้ชื่อเซิร์ฟเวอร์ `snake_case` แทน
+- **Tipos de servidores**: El MCP remoto solo funciona con servidores HTTP transmitibles. No se admiten servidores SSE (eventos enviados por el servidor).
+- **Nombres**: Los nombres de los servidores de MCP no deben incluir el carácter `-`. Usa nombres de servidores `snake_case` en su lugar.
 
-| ช่อง | ประเภท | ต้องระบุ | คำอธิบาย |
+| Campo | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | ใช่ | ต้องเป็น `"mcp_server"` |
-| `name` | `string` | ไม่ | ชื่อที่แสดงสำหรับเซิร์ฟเวอร์ MCP |
-| `url` | `string` | ไม่ | URL แบบเต็มสำหรับอุปกรณ์ปลายทางของเซิร์ฟเวอร์ MCP |
-| `headers` | `object` | ไม่ | คู่คีย์-ค่าที่ส่งเป็นส่วนหัว HTTP พร้อมกับคำขอแต่ละรายการที่ส่งไปยังเซิร์ฟเวอร์ (เช่น โทเค็นการตรวจสอบสิทธิ์) |
-| `allowed_tools` | `array` | ไม่ | จำกัดเครื่องมือจากเซิร์ฟเวอร์ที่ Agent อาจเรียกใช้ |
+| `type` | `string` | Sí | Debe ser `"mcp_server"`. |
+| `name` | `string` | No | Un nombre visible para el servidor de MCP. |
+| `url` | `string` | No | La URL completa del extremo del servidor de MCP. |
+| `headers` | `object` | No | Pares clave-valor que se envían como encabezados HTTP con cada solicitud al servidor (por ejemplo, tokens de autenticación). |
+| `allowed_tools` | `array` | No | Restringe las herramientas del servidor a las que puede llamar el agente. |
 
-### ตัวอย่าง
+### Ejemplo
 
 ### Python
 
@@ -1389,9 +1390,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## สตรีมการเรียกใช้เครื่องมือ
+## Transmitir llamadas a herramientas
 
-เมื่อใช้เครื่องมือกับการสตรีม โมเดลจะสร้างการเรียกใช้ฟังก์ชันเป็นลำดับเหตุการณ์ `step.delta` ในสตรีม คุณสามารถสตรีมอาร์กิวเมนต์ของเครื่องมือเป็นอาร์กิวเมนต์บางส่วนได้โดยใช้ `arguments` คุณต้องรวม Delta เหล่านี้เพื่อสร้างการเรียกใช้เครื่องมือที่สมบูรณ์ก่อนที่จะเรียกใช้
+Cuando se usan herramientas con transmisión, el modelo genera llamadas a función como una secuencia de eventos `step.delta` en la transmisión. Los argumentos de la herramienta se pueden transmitir como argumentos parciales con `arguments`. Debes agregar estos deltas para reconstruir las llamadas a herramientas completas antes de ejecutarlas.
 
 ### Python
 
@@ -1556,42 +1557,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## แนวทางปฏิบัติแนะนำ
+## Prácticas recomendadas
 
-- **คำอธิบายฟังก์ชันและพารามิเตอร์:** ชัดเจนและเฉพาะเจาะจง
-- **การตั้งชื่อ:** ใช้ชื่อที่สื่อความหมายโดยไม่มีการเว้นวรรคหรือสัญลักษณ์พิเศษ
-- **การพิมพ์ที่เข้มงวด:** ใช้ประเภทที่เฉพาะเจาะจง (จำนวนเต็ม สตริง Enum)
-- **การเลือกเครื่องมือ:** ตั้งค่าเครื่องมือที่ใช้งานอยู่ไม่เกิน 10-20 รายการ
-- **การเขียนพรอมต์:** ระบุบริบทและวิธีการ
-- **การตรวจสอบ:** ตรวจสอบการเรียกใช้ฟังก์ชันก่อนที่จะเรียกใช้
-- **การจัดการข้อผิดพลาด:** ใช้การจัดการข้อผิดพลาดที่มีประสิทธิภาพ
-- **ความปลอดภัย:** ใช้การตรวจสอบสิทธิ์ที่เหมาะสมสำหรับ API ภายนอก
+- **Descripciones de funciones y parámetros:** Exprésate de forma clara y específica.
+- **Nombres:** Usa nombres descriptivos sin espacios ni caracteres especiales.
+- **Tipos estrictos:** Usa tipos específicos (número entero, cadena, enum).
+- **Selección de herramientas:** Mantén el conjunto activo en un máximo de 10 a 20 herramientas.
+- **Ingeniería de instrucciones:** Proporciona contexto y especificaciones.
+- **Validación:** Valida las llamadas a función antes de ejecutarlas.
+- **Manejo de errores:** Implementa un manejo de errores sólido.
+- **Seguridad:** Usa la autenticación adecuada para las APIs externas.
 
-## วิธีแก้ปัญหาสำหรับข้อกำหนดเกี่ยวกับข้อความก่อนใช้เครื่องมือ
+## Soluciones alternativas para los requisitos de texto previos a la herramienta
 
-**ปัญหา:** หากพรอมต์กำหนดให้โมเดลแสดงผลข้อความที่มีโครงสร้าง (XML, YAML, JSON ฯลฯ) (เช่น `<UPDATE>...</UPDATE>`) ทันทีก่อนที่จะทำการเรียกใช้เครื่องมือ การเรียกใช้เครื่องมืออาจล้มเหลวเป็นครั้งคราวโดยมีข้อความแสดงข้อผิดพลาด `Malformed_Function_Call`
+**Problema:** Si tu instrucción requiere que el modelo genere texto estructurado (XML, YAML, JSON, etc.) (p.ej., `<UPDATE>...</UPDATE>`) inmediatamente antes de realizar una llamada a herramienta, es posible que la llamada a herramienta falle ocasionalmente con `Malformed_Function_Call`.
 
-**วิธีแก้ปัญหา:** วิธีแก้ปัญหาต่อไปนี้จะช่วยแก้ปัญหานี้ได้
+**Soluciones:** Las siguientes soluciones alternativas resuelven este problema:
 
-- **แนะนำ:** สั่งให้โมเดลใส่หมายเหตุที่เขียนไว้ก่อนใช้เครื่องมือไว้ในการเรียกใช้ฟังก์ชัน `update()` ที่เฉพาะเจาะจงแทนที่จะเป็นข้อความธรรมดา (ดูรายละเอียดด้านล่าง)
-- สั่งให้โมเดลเขียนหมายเหตุเป็นส่วนหัวมาร์กดาวน์ (`# UPDATE`, `## PLAN`) แทนที่จะเป็นข้อความที่มีโครงสร้าง
-- ไม่ต้องกำหนดให้โมเดลแสดงผลข้อความก่อนการเรียกใช้เครื่องมือ
+- **PREFERIDO:** Indica al modelo que coloque sus notas previas a la herramienta dentro de una llamada a función `update()` dedicada en lugar de texto sin formato (detalles a continuación).
+- Indica al modelo que escriba notas como encabezados de Markdown (`# UPDATE`, `## PLAN`) en lugar de texto estructurado.
+- No requieras que el modelo genere texto antes de las llamadas a herramientas.
 
-### วิธีแก้ปัญหาที่แนะนำ: ใส่หมายเหตุที่เขียนไว้ก่อนใช้เครื่องมือไว้ในการเรียกใช้ฟังก์ชันที่เฉพาะเจาะจง
+### Solución alternativa preferida: Envuelve las notas de trabajo en una llamada a función dedicada
 
-แทนที่จะใช้คำสั่งเดิม
+En lugar de la instrucción original:
 
 ```
 Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags with<in `UP>DATE`.
 ```
 
-ให้ใช้คำสั่งที่อัปเดตแล้วนี้
+Usa esta instrucción actualizada:
 
 ```
 Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
 ```
 
-และอัปเดตการอ้างอิงทั้งหมดไปยังรูปแบบ XML `<UPDATE>` เดิมในคำขอของลูกค้า จากนั้นเพิ่มการประกาศฟังก์ชันที่เกี่ยวข้องสำหรับฟังก์ชันอัปเดต
+Y actualiza todas las referencias al formato XML `<UPDATE>` anterior en la solicitud del cliente. Luego, agrega la declaración de función correspondiente para la función de actualización:
 
 ```
 {
@@ -1627,20 +1628,20 @@ Before calling any other tool, in every response you MUST first call `update` wi
 }
 ```
 
-จากนั้นโมเดลจะทำการเรียกใช้ 2 ครั้งในขั้นตอนเดียวกัน ได้แก่ การเรียกใช้ `update()` ที่แทนที่ XML ที่มีโครงสร้าง และการเรียกใช้ฟังก์ชันจริงที่ต้องการ
+Luego, el modelo realizará dos llamadas en el mismo paso: la llamada `update()` que reemplaza el XML estructurado y la llamada a función real que desea realizar.
 
-## หมายเหตุและข้อจำกัด
+## Notas y limitaciones
 
-- รองรับเฉพาะ[ชุดย่อยของสคีมา OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=th#FunctionDeclaration) เท่านั้น
-- สำหรับโหมด `any` API อาจปฏิเสธสคีมาที่มีขนาดใหญ่มากหรือมีการซ้อนกันลึก
-- ประเภทพารามิเตอร์ที่รองรับใน Python มีจำนวนจำกัด
+- Solo se admite un [subconjunto del esquema de OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=es-419#FunctionDeclaration).
+- Para el modo `any`, es posible que la API rechace esquemas muy grandes o anidados.
+- Los tipos de parámetros admitidos en Python son limitados.
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Última actualización: 2026-07-30 (UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+¿Quieres brindar más información?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=th
-fetched_at: 2026-08-17T02:23:55.968572+00:00
+fetched_at: 2026-08-24T02:23:17.350391+00:00
 title: "\u0e40\u0e2d\u0e40\u0e08\u0e19\u0e15\u0e4c\u0e27\u0e34\u0e08\u0e31\u0e22\u0e15\u0e25\u0e32\u0e14\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 AI SDK \u0e42\u0e14\u0e22 Vercel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -155,7 +155,7 @@ import { generateText } from "ai";
 
 async function main() {
   const { text } = await generateText({
-    model: google("gemini-3.5-flash"),
+    model: google("gemini-3.7-flash"),
     prompt: 'What is plant-based milk?',
   });
 
@@ -201,7 +201,7 @@ import { generateText } from "ai";
 async function main() {
   // Step 1: Search market trends
   const { text: marketTrends, sources } = await generateText({
-    model: google("gemini-3.5-flash"),
+    model: google("gemini-3.7-flash"),
     tools: {
       google_search: google.tools.googleSearch({}),
     },
@@ -263,7 +263,7 @@ function createChartConfig({labels, data, label, type, colors,}: {
 async function main() {
   // Step 1: Search market trends
   const { text: marketTrends, sources } = await generateText({
-    model: google("gemini-3.5-flash"),
+    model: google("gemini-3.7-flash"),
     tools: {
       google_search: google.tools.googleSearch({}),
     },
@@ -276,7 +276,7 @@ async function main() {
 
   // Step 2: Extract chart data
   const { object: chartData } = await generateObject({
-    model: google("gemini-3.5-flash"),
+    model: google("gemini-3.7-flash"),
     schema: z.object({
       chartConfigurations: z
         .array(
@@ -325,7 +325,7 @@ async function main() {
 
   // Step 3: Generate the final HTML report and save it as a PDF
   const { text: htmlReport } = await generateText({
-    model: google("gemini-3.5-flash"),
+    model: google("gemini-3.7-flash"),
     prompt: `You are an expert financial analyst and report writer.
     Your task is to generate a comprehensive market analysis report in HTML format.
 
@@ -414,8 +414,8 @@ yarn tsc && node main.js
 
 เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-อัปเดตล่าสุด 2026-05-19 UTC
+อัปเดตล่าสุด 2026-08-19 UTC
 
 หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-19 UTC"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]

@@ -1,1197 +1,1196 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=zh-CN
-fetched_at: 2026-08-17T02:29:52.126544+00:00
-title: "Gemini Developer API \u4ef7\u683c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=ja
+fetched_at: 2026-08-24T02:25:23.062209+00:00
+title: "Gemini Developer API \u306e\u6599\u91d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-# Gemini Developer API 价格
+# Gemini Developer API の料金
 
-免费开始构建，享受宽裕的额度；待应用准备好投入生产后，可先选用预付费模式，再按需切换为随用随付模式进行扩容。
+十分な上限で無料で構築を開始し、本番環境対応アプリケーションのプリペイド料金と従量課金制料金でスケールアップします。
 
-### 免费
+### 無料
 
-适用于刚开始使用 Gemini API 的开发者和小型项目。
+Gemini API を使い始めたばかりのデベロッパーや小規模なプロジェクトに適しています。
 
-- check\_circle对特定模型的访问权限有限
-- check\_circle免费输入和输出 token
-- check\_circleGoogle AI Studio 访问权限
-- check\_circle内容会用于改进 Google 产品[\*](https://ai.google.dev/gemini-api/terms?hl=zh-cn)
+- check\_circle特定のモデルへのアクセスが制限される
+- check\_circle無料の入力トークンと出力トークン
+- check\_circleGoogle AI Studio へのアクセス
+- check\_circleプロダクトの改善に使用されるコンテンツ[\*](https://ai.google.dev/gemini-api/terms?hl=ja)
 
-[免费开始使用](https://aistudio.google.com?hl=zh-cn)
+[無料で開始](https://aistudio.google.com?hl=ja)
 
-### 付费
+### 有料
 
-适用于需要更高调用量和高级功能的生产级应用。
+より多くのボリュームと高度な機能を必要とする本番環境アプリケーション向け。
 
-- check\_circle针对生产部署放宽了速率限制
-- check\_circle可访问上下文缓存
-- check\_circleBatch API（成本降低 50%）
-- check\_circle使用 Google 的先进模型
-- check\_circle内容**不会**用于改进 Google 产品[\*](https://ai.google.dev/gemini-api/terms?hl=zh-cn)
+- check\_circle本番環境のデプロイのレート上限の引き上げ
+- check\_circleコンテキスト キャッシュ保存へのアクセス
+- check\_circleBatch API（コストを 50% 削減）
+- check\_circleGoogle の最先端モデルへのアクセス
+- check\_circleコンテンツはプロダクトの改善に使用されません[\*](https://ai.google.dev/gemini-api/terms?hl=ja)
 
-[升级到付费层级](https://aistudio.google.com/api-keys?hl=zh-cn)
+[有料アカウントにアップグレード](https://aistudio.google.com/api-keys?hl=ja)
 
-### 企业
+### Enterprise
 
-适用于在安全性、支持及合规性方面有自定义需求的大规模部署，由 [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=zh-cn) 提供支持。
+[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=ja) を活用した、セキュリティ、サポート、コンプライアンスに関するカスタム ニーズに対応する大規模なデプロイ。
 
-- check\_circle付费层级的所有功能，以及以下可选功能：
-- check\_circle专属支持渠道
-- check\_circle高级安全与合规功能
-- check\_circle预配吞吐量
-- check\_circle阶梯折扣（基于用量）
-- check\_circleMLOps、Model Garden 等
+- check\_circlePaid のすべての機能に加え、次の機能へのアクセスをオプションで利用できます。
+- check\_circle専用のサポート チャネル
+- check\_circle高度なセキュリティとコンプライアンス
+- check\_circleプロビジョンド スループット
+- check\_circleボリュームベースの割引（使用量に基づく）
+- check\_circleMLOps、Model Garden など
 
-[联系销售团队](https://cloud.google.com/contact?hl=zh-cn)
+[お問い合わせ](https://cloud.google.com/contact?hl=ja)
 
 ## Gemini 3.6 Flash
 
 *`gemini-3.6-flash`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-3.6-flash&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-3.6-flash&hl=ja)
 
-Google 最智能的模型，专为速度而打造，将前沿智能与卓越的搜索和接地能力完美结合。
+スピードを重視して構築された Google 史上最もインテリジェントなモデル。最先端のインテリジェンスと優れた検索およびグラウンディングを組み合わせます。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | $1.50 |
-| 输出价格（包括思考 token） | 免费 | $7.50 |
-| 上下文缓存价格 | 免费 | 0.15 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $1.50 |
+| 出力料金（思考トークンを含む） | 無料 | $7.50 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.15 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | $0.75 |
-| 输出价格（包括思考 token） | 不可用 | $3.75 |
-| 上下文缓存价格 | 不可用 | 0.075 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.75 |
+| 出力料金（思考トークンを含む） | 利用不可 | $3.75 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.075 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | $0.75 |
-| 输出价格（包括思考 token） | 不可用 | $3.75 |
-| 上下文缓存价格 | 不可用 | 0.075 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.75 |
+| 出力料金（思考トークンを含む） | 利用不可 | $3.75 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.075 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | $2.70 |
-| 输出价格（包括思考 token） | 免费 | $13.50 |
-| 上下文缓存价格 | 免费 | 0.27 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $2.70 |
+| 出力料金（思考トークンを含む） | 無料 | $13.50 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.27 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
 ## Gemini 3.5 Flash
 
 *`gemini-3.5-flash`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-3.5-flash&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-3.5-flash&hl=ja)
 
-Google 最智能的模型，专为速度而打造，将前沿智能与卓越的搜索和接地能力完美结合。
+スピードを重視して構築された Google 史上最もインテリジェントなモデル。最先端のインテリジェンスと優れた検索およびグラウンディングを組み合わせます。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | $1.50 |
-| 输出价格（包括思考 token） | 免费 | 9.00 美元 |
-| 上下文缓存价格 | 免费 | 0.15 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $1.50 |
+| 出力料金（思考トークンを含む） | 無料 | $9.00 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.15 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | $0.75 |
-| 输出价格（包括思考 token） | 不可用 | $4.50 |
-| 上下文缓存价格 | 不可用 | 0.075 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.75 |
+| 出力料金（思考トークンを含む） | 利用不可 | $4.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.075 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | $0.75 |
-| 输出价格（包括思考 token） | 不可用 | $4.50 |
-| 上下文缓存价格 | 不可用 | 0.08 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.75 |
+| 出力料金（思考トークンを含む） | 利用不可 | $4.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.08 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | $2.70 |
-| 输出价格（包括思考 token） | 免费 | 16.20 美元 |
-| 上下文缓存价格 | 免费 | 0.27 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $2.70 |
+| 出力料金（思考トークンを含む） | 無料 | $16.20 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.27 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
-## Gemini 3.5 实时翻译
+## Gemini 3.5 Live Translate
 
 *`gemini-3.5-live-translate-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=ja)
 
-Google 的低延迟实时语音翻译模型，支持 70 多种语言。
+70 以上の言語をサポートする、低レイテンシのリアルタイム音声翻訳モデル。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 3.50 美元或 0.0053 美元/分钟\*（音频） |
-| 输出价格（包括思考 token） | 免费 | 21.00 美元或 0.0315 美元/分钟\*（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $3.50 または $0.0053/分\*（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $21.00 または $0.0315/分\*（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 费用根据输入和输出音频 token 的总消耗量计算，换算标准为每秒音频 25 个 token，相当于每分钟的有效价格约为 0.0368 美元。
+\* 課金は、入力と出力のオーディオ トークンの合計消費量に基づいて行われます。オーディオ 1 秒あたり 25 トークンのレートで計算され、実質価格は 1 分あたり約 $0.0368 に相当します。
 
 ## Gemini 3.5 Flash-Lite
 
 *`gemini-3.5-flash-lite`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=ja)
 
-Google 最具成本效益的正式版模型，针对高调用量智能体任务、翻译和简单的数据处理进行了优化。
+最も費用対効果の高い GA モデル。大量のエージェント タスク、翻訳、簡単なデータ処理向けに最適化されています。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.30 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 免费 | $2.50 |
-| 上下文缓存价格 | 不可用 | 0.03 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.30（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 無料 | $2.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.03 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.15 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 免费 | $1.25 |
-| 上下文缓存价格 | 不可用 | 0.02 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.15（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 無料 | $1.25 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.02 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.15 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 免费 | $1.25 |
-| 上下文缓存价格 | 不可用 | 0.02 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.15（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 無料 | $1.25 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.02 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.54 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 免费 | $4.50 |
-| 上下文缓存价格 | 不可用 | 0.05 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.54（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 無料 | $4.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.05 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
 ## Gemini 3.1 Flash-Lite
 
 *`gemini-3.1-flash-lite`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=ja)
 
-Google 最具成本效益的模型，针对高调用量智能体任务、翻译和简单的数据处理进行了优化。
+最も費用対効果の高いモデル。大量のエージェント タスク、翻訳、簡単なデータ処理向けに最適化されています。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.25 美元（文本 / 图片 / 视频） 0.50 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $1.50 |
-| 上下文缓存价格 | 不可用 | 0.025 美元（文本/图片/视频） 0.05 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.25（テキスト / 画像 / 動画） $0.50（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $1.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.025（テキスト / 画像 / 動画） $0.05（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.125 美元（文本 / 图片 / 视频） 0.25 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $0.75 |
-| 上下文缓存价格 | 不可用 | 0.0125 美元（文本/图片/视频） 0.025 美元（音频） 0.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.125（テキスト / 画像 / 動画） $0.25（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $0.75 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.0125（テキスト / 画像 / 動画） $0.025（音声） $0.50 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.125 美元（文本 / 图片 / 视频） 0.25 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $0.75 |
-| 上下文缓存价格 | 不可用 | 0.0125 美元（文本/图片/视频） 0.025 美元（音频） 0.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.125（テキスト / 画像 / 動画） $0.25（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $0.75 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.0125（テキスト / 画像 / 動画） $0.025（音声） $0.50 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.45 美元（文本 / 图片 / 视频） 0.90 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $2.70 |
-| 上下文缓存价格 | 不可用 | 0.045 美元（文本/图片/视频） 0.09 美元（音频） 1.80 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.45（テキスト / 画像 / 動画） $0.90（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $2.70 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.045（テキスト / 画像 / 動画） $0.09（音声） $1.80 / 1 時間あたり 1,000,000 トークン（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
-## Gemini Omni Flash 预览版
+## Gemini Omni Flash プレビュー
 
 *`gemini-omni-flash-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=ja)
 
-Google 的新一代视频生成和编辑模型，现已面向使用 Gemini API 付费层级的开发者开放。
+次世代の動画生成および編集モデル。Gemini API の有料プランでデベロッパーが利用できます。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.50 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 不可用 | 9.00 美元（文本） 17.50 美元（视频）\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.50（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $9.00（テキスト） $17.50（動画）\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 结算依据是总输出 token 消耗量，按每秒 720p 视频 5,792 个 token 的费率计算。在标准价格下，这相当于每秒约 0.10 美元的有效价格。
+\* 課金は、出力トークンの合計使用量に基づいて行われます。これは、720p 動画の 1 秒あたり 5,792 トークンのレートで計算されます。標準料金の場合、これは 1 秒あたり約 $0.10 の有効価格に相当します。
 
-## Gemini 3 Pro 预览版
+## Gemini 3.1 Pro プレビュー版
 
-*`gemini-3.1-pro-preview` 和 `gemini-3.1-pro-preview-customtools`*
+*`gemini-3.1-pro-preview` と `gemini-3.1-pro-preview-customtools`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ja)
 
-针对全球领先的多模态理解能力、智能体功能和氛围编程 (vibe coding) 模型系列，在性能、智能和易用性方面进行了全新升级。
+マルチモーダル理解、エージェント機能、バイブ コーディングにおいて世界最高水準のモデル ファミリーのパフォーマンス、インテリジェンス、ユーザビリティが最新の改善により向上しています。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 2.00 美元：提示 <= 20 万个 token 4.00 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 不可用 | 12.00 美元：提示 <= 20 万个 token 18.00 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 0.20 美元：提示 <= 20 万个 token 0.40 美元：提示 > 20 万个 token 4.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $2.00、プロンプト <= 200, 000 トークン $4.00、プロンプト > 200, 000 トークン |
+| 出力料金（思考トークンを含む） | 利用不可 | $12.00、プロンプト <= 20 万トークン $18.00、プロンプト > 20 万 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.20（プロンプト <= 20 万トークン） $0.40（プロンプト > 20 万トークン） $4.50 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.00 美元：提示 <= 20 万个 token 2.00 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 不可用 | 6.00 美元：提示 <= 20 万个 token 9.00 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 与标准层级相同  0.20 美元：提示 <= 20 万个 token 0.40 美元：提示 > 20 万个 token 4.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.00、プロンプト <= 200, 000 トークン $2.00、プロンプト > 200, 000 トークン |
+| 出力料金（思考トークンを含む） | 利用不可 | $6.00（プロンプトが 20 万トークン以下） $9.00（プロンプトが 20 万トークン超） |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | *Standard と同じ*  $0.20、プロンプト <= 20 万トークン $0.40、プロンプト > 20 万 1 時間あたり 1,000,000 トークンあたり$4.50（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.00 美元：提示 <= 20 万个 token 2.00 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 不可用 | 6.00 美元：提示 <= 20 万个 token 9.00 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 与标准层级相同  0.20 美元：提示 <= 20 万个 token 0.40 美元：提示 > 20 万个 token 4.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.00、プロンプト <= 200, 000 トークン $2.00、プロンプト > 200, 000 トークン |
+| 出力料金（思考トークンを含む） | 利用不可 | $6.00（プロンプトが 20 万トークン以下） $9.00（プロンプトが 20 万トークン超） |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | *Standard と同じ*  $0.20、プロンプト <= 20 万トークン $0.40、プロンプト > 20 万 1 時間あたり 1,000,000 トークンあたり$4.50（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 3.60 美元：提示 <= 20 万个 token 7.20 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 不可用 | 21.60 美元：提示 <= 20 万个 token 32.40 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 0.36 美元：提示 <= 20 万个 token 0.72 美元：提示 > 20 万个 token 8.10 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $3.60、プロンプト <= 200k トークン $7.20、プロンプト > 200k トークン |
+| 出力料金（思考トークンを含む） | 利用不可 | $21.60、プロンプト <= 20 万トークン $32.40、プロンプト > 20 万 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.36（プロンプト <= 20 万トークン） $0.72（プロンプト > 20 万） $8.10 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
-## Gemini 3.1 Flash Live 预览版
+## Gemini 3.1 Flash Live プレビュー
 
 *`gemini-3.1-flash-live-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=ja)
 
-Google 的低延迟音频转音频模型，针对实时对话场景进行了优化，具备声学细微差别检测、数值精准处理及多模态感知能力。
+低レイテンシの音声対音声モデル。音響のニュアンス検出、数値の精度、マルチモーダル認識を備え、リアルタイムの対話に最適化されています。
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.75 美元（文本） 3.00 美元或 0.005 美元/分钟（音频） 1.00 美元或 0.002 美元/分钟（图片/视频） |
-| 输出价格（包括思考 token） | 免费 | 4.50 美元（文本） 12.00 美元或 0.018 美元/分钟（音频） |
-| 依托 Google 搜索进行接地\* | 支持 | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.75（テキスト） $3.00 または $0.005/分（音声） $1.00 または $0.002/分（画像/動画） |
+| 出力料金（思考トークンを含む） | 無料 | $4.50（テキスト） $12.00 または $0.018/分（音声） |
+| Google 検索によるグラウンディング\* | サポート対象 | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
+## Gemini 3.1 Flash Image（Nano Banana 2）🍌
 
 *`gemini-3.1-flash-image`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=ja)
 
-Gemini 3.1 Flash 图片生成模型专为速度和效率而打造，非常适合快速交互式响应和高吞吐量场景。
+速度と効率性を重視して設計された Gemini 3.1 Flash Image 生成モデルは、高速でインタラクティブなレスポンスと高スループットを実現します。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.50 美元（文本/图片） |
-| 输出价格 | 不可用 | 3 美元（文本和思考）  60.00 美元（图片）  相当于每张 0.5K 图片 0.045 美元\*  每张 1K 图片 0.067 美元\*、 每张 2K 图片 0.101 美元\*， 以及每张 4K 图片 0.151 美元\*。 |
-| 依托 Google 网页搜索和图片搜索进行接地\*\* | 无\*\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后针对基于文本和图片的接地，按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.50（テキスト/画像） |
+| 出力価格 | 利用不可 | $3（テキストと思考）  $60.00（画像）  0.5K 画像あたり $0.045 相当\*  1K 画像あたり $0.067\*、2K 画像あたり $0.101\*、4K 画像あたり $0.151\*。 |
+| Google ウェブ検索と画像検索によるグラウンディング\*\* | 利用不可\*\*\* | 毎月 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）。テキストと画像ベースのグラウンディングの場合、1,000 件のリクエストあたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.25 美元（文本、图片） |
-| 输出价格 | 不可用 | 1.50 美元（文本和思考）  30.00 美元（图片）  相当于每张 0.5K 图片 0.022 美元\*  每张 1K 图片 0.034 美元\*、  每张 2K 图片 0.050 美元\*，  以及每张 4K 图片 0.076 美元\*。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.25（テキスト、画像） |
+| 出力価格 | 利用不可 | $1.50（テキストと思考）  $30.00（画像）  0.5K 画像 1 枚あたり $0.022 相当\*  1K 画像 1 枚あたり $0.034\*、  2K 画像 1 枚あたり $0.050\*、  4K 画像 1 枚あたり $0.076\*。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 图片输出的价格为 60 美元/100 万个 token。分辨率为 0.5K (512px) 的输出图片会消耗 747 个 token，相当于每张图片 0.045 美元。分辨率为 1K (1024x1024px) 的输出图片会消耗 1120 个 token，相当于每张图片 0.067 美元。分辨率为 2K (2048x2048px) 的输出图片会消耗 1680 个 token，相当于每张图片 0.101 美元。分辨率为 4K (4096x4096px) 的输出图片会消耗 2520 个 token，相当于每张图片 0.151 美元。
+\* 画像出力の料金は、1,000,000 トークンあたり $60 です。0.5K（512 ピクセル）の出力画像は 747 トークンを消費し、画像 1 枚あたり $0.045 に相当します。1K（1,024×1,024 ピクセル）の出力画像は 1,120 トークンを消費し、画像あたり $0.067 に相当します。2K（2,048×2,048 ピクセル）の出力画像は 1,680 トークンを消費し、画像あたり $0.101 に相当します。4K（4,096×4,096 ピクセル）の出力画像は 2,520 個のトークンを消費し、画像 1 枚あたり $0.151 に相当します。
 
-\*\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。通过“依托 Google 搜索进行接地”功能检索到的上下文（文本或图片）不计入输入 token 费用。
+\*\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。Google 検索によるグラウンディングで取得されたコンテキスト（テキストまたは画像）は、入力トークンとして課金されません。
 
-\*\*\* 可以在 Google AI Studio 中进行测试。
+\*\*\* Google AI Studio でテストできます。
 
-## Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
+## Gemini 3.1 Flash Lite Image（Nano Banana 2 Lite）🍌
 
 *`gemini-3.1-flash-lite-image`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=ja)
 
-Gemini 3.1 Flash Lite Image 模型是图片生成系列中的效率专家，专为超低延迟和经济高效的图片生成和编辑而设计。
+画像生成ファミリーの効率性スペシャリストとして設計された Gemini 3.1 Flash Lite Image モデルは、超低レイテンシで費用対効果の高い画像生成と編集を実現するように設計されています。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.25 美元（文本/图片/视频） |
-| 输出价格 | 不可用 | 1.50 美元（文本和思考）  30.00 美元（图片）  相当于每张 1K 分辨率图片 0.0336 美元\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.25（テキスト/画像/動画） |
+| 出力価格 | 利用不可 | $1.50（テキストと思考）  $30.00（画像）  1K 解像度の画像 1 枚あたり $0.0336 に相当\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.125 美元（文本/图片/视频） |
-| 输出价格 | 不可用 | 0.75 美元（文本和思考）  15.00 美元（图片）  相当于每张 1K 分辨率图片 0.0168 美元\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.125（テキスト/画像/動画） |
+| 出力価格 | 利用不可 | $0.75（テキストと思考）  $15.00（画像）  1K 解像度の画像 1,000 枚あたり $0.0168 に相当\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 图片输出的价格为 30 美元/100 万个 token。分辨率为 1K (1024x1024px) 的输出图片会消耗 1120 个 token，相当于每张图片 0.0336 美元。
+\* 画像出力の料金は、1,000,000 トークンあたり $30 です。1K（1,024×1,024 ピクセル）の出力画像は 1,120 トークンを消費し、画像 1 枚あたり $0.0336 に相当します。
 
-## Gemini 3.1 Flash TTS 预览版
+## Gemini 3.1 Flash TTS プレビュー
 
 *`gemini-3.1-flash-tts-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=ja)
 
-Google 的 3.1 Flash 文字转语音音频模型，经过优化，可实现高性价比、低延迟且可控的语音生成。
+価格とパフォーマンス、低レイテンシ、制御可能な音声生成に最適化された 3.1 Flash Text-to-Speech 音声モデル。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 1.00 美元（文本） |
-| 输出价格 | 免费 | 20.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $1.00（テキスト） |
+| 出力価格 | 無料 | $20.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.50 美元（文本） |
-| 输出价格 | 不可用 | 10.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.50（テキスト） |
+| 出力価格 | 利用不可 | $10.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 音频 token 的换算标准为每秒音频 25 个 token。
+\* 音声トークンは、音声 1 秒あたり 25 トークンに対応します。
 
-## Gemini 3 Flash 预览版
+## Gemini 3 Flash プレビュー
 
 *`gemini-3-flash-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-3-flash-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-3-flash-preview&hl=ja)
 
-Google 最智能的模型，专为速度而打造，将前沿智能与卓越的搜索和接地能力完美结合。
+スピードを重視して構築された Google 史上最もインテリジェントなモデル。最先端のインテリジェンスと優れた検索およびグラウンディングを組み合わせます。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.50 美元（文本 / 图片 / 视频） 1.00 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $3.00 |
-| 上下文缓存价格 | 免费 | 0.05 美元（文本/图片/视频） 0.10 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.50（テキスト / 画像 / 動画） $1.00（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $3.00 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.05（テキスト / 画像 / 動画） $0.10（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.25 美元（文本 / 图片 / 视频） 0.50 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $1.50 |
-| 上下文缓存价格 | 不可用 | 与标准层级相同  0.05 美元（文本/图片/视频）  0.10 美元（音频）  1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.25（テキスト / 画像 / 動画） $0.50（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $1.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | *標準と同じ*  $0.05（テキスト / 画像 / 動画）  $0.10（音声）  $1.00 / 1 時間あたり 1,000,000 トークン（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.25 美元（文本 / 图片 / 视频） 0.50 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $1.50 |
-| 上下文缓存价格 | 不可用 | 与标准层级相同  0.05 美元（文本/图片/视频）  0.10 美元（音频）  1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 个请求（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.25（テキスト / 画像 / 動画） $0.50（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $1.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | *標準と同じ*  $0.05（テキスト / 画像 / 動画）  $0.10（音声）  $1.00 / 1 時間あたり 1,000,000 トークン（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 月あたり 5,000 件のリクエスト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.90 美元（文本 / 图片 / 视频） 1.80 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $5.40 |
-| 上下文缓存价格 | 免费 | 0.09 美元（文本/图片/视频） 0.18 美元（音频） 1.80 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地\* | 无\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 依托 Google 地图进行接地 | 无\*\* | 每月 5,000 条提示（免费，在 Gemini 3 中共享），超出后按每 1,000 次搜索查询 14 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.90（テキスト / 画像 / 動画） $1.80（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $5.40 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.09（テキスト / 画像 / 動画） $0.18（音声） 1 時間あたり 1,000,000 トークンあたり$1.80（ストレージ料金） |
+| Google 検索によるグラウンディング\* | 利用不可\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| Google マップによるグラウンディング | 利用不可\*\* | 1 か月あたり 5,000 件のプロンプト（無料、Gemini 3 で共有）、その後は 1,000 件の検索クエリあたり $14 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\* お客様が Gemini に送信したリクエストにより、Google 検索に対して 1 つ以上のクエリが実行されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\* 可在 Google AI Studio 中进行测试。
+\*\* Google AI Studio でテストできます。
 
-## Gemini 3 Pro Image (Nano Banana Pro) 🍌
+## Gemini 3 Pro Image（Nano Banana Pro）🍌
 
 *`gemini-3-pro-image`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=ja)
 
-Google 的原生图片生成模型，针对速度、灵活性和上下文理解进行了优化。**文本输入和输出**的价格与 [Gemini 3.1 Pro](#gemini-3.1-pro-preview) 相同。
+速度、柔軟性、コンテキストの理解に最適化された Google のネイティブ画像生成モデル。**テキストの入力と出力**の料金は、[Gemini 3.1 Pro](#gemini-3.1-pro-preview) と同じです。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 2.00 美元（文本/图片），  相当于每张图片 0.0011 美元\* |
-| 输出价格 | 不可用 | 12.00 美元（文本和思考）  120.00 美元（图片）  相当于每张 1K/2K 图片 0.134 美元\*\*  每张 4K 图片 0.24 美元\*\* |
-| 依托 Google 搜索进行接地\*\*\* | 无\*\*\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $2.00（テキスト/画像）、  画像 1 枚あたり $0.0011 に相当\* |
+| 出力価格 | 利用不可 | $12.00（テキストと思考）  $120.00（画像）  1K/2K 画像あたり $0.134、4K 画像あたり $0.24 に相当\*\*  \*\* |
+| Google 検索によるグラウンディング\*\*\* | 利用不可\*\*\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.00 美元（文本）， 0.0006 美元（图片）\* |
-| 输出价格 | 不可用 | 6.00 美元（文本和思考）  每张 1K/2K 图片 0.067 美元\*\*  每张 4K 图片 0.12 美元\*\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.00（テキスト）、 $0.0006（画像）\* |
+| 出力価格 | 利用不可 | $6.00（テキストと思考）  1K/2K 画像 1,000 枚あたり $0.067\*\*  4K 画像 1 枚あたり $0.12\*\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.00 美元（文本）， 0.0006 美元（图片）\* |
-| 输出价格 | 不可用 | 6.00 美元（文本和思考）  每张 1K/2K 图片 0.067 美元\*\*  每张 4K 图片 0.12 美元\*\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.00（テキスト）、 $0.0006（画像）\* |
+| 出力価格 | 利用不可 | $6.00（テキストと思考）  1K/2K 画像 1,000 枚あたり $0.067\*\*  4K 画像 1 枚あたり $0.12\*\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 3.60 美元（文本/图片） |
-| 输出价格 | 不可用 | 21.60 美元（文本和思考）  216.00 美元（图片） |
-| 依托 Google 搜索进行接地\*\*\* | 无\*\*\*\* | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $3.60（テキスト/画像） |
+| 出力価格 | 利用不可 | $21.60（テキストと思考）  $216.00（画像） |
+| Google 検索によるグラウンディング\*\*\* | 利用不可\*\*\*\* | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-\* 图片输入计费标准为每张图片 560 个 token 或 0.0011 美元。
+\* 画像入力は、画像あたり 560 トークンまたは $0.0011 に設定されています。
 
-\*\*图片输出的价格为 120 美元/100 万个 token。分辨率介于 1024x1024px (1K) 到 2048x2048px (2K) 之间的输出图片会消耗 1120 个 token，相当于每张图片 0.134 美元。分辨率最高为 4096x4096px (4K) 的输出图片会消耗 2000 个 token，相当于每张图片 0.24 美元。
+\*\* 画像出力の料金は、1,000,000 トークンあたり $120 です。1,024×1,024 ピクセル（1K）から 2,048×2,048 ピクセル（2K）までの出力画像は 1,120 トークンを消費し、画像あたり $0.134 に相当します。最大 4,096×4,096 ピクセル（4K）の出力画像は 2,000 トークンを消費し、画像 1 枚あたり $0.24 に相当します。
 
-\*\*\* 客户向 Gemini 提交的请求可能会触发一次或多次 Google 搜索查询。每执行一次搜索查询，系统都会单独收取费用。
+\*\*\* お客様が Gemini に送信したリクエストにより、Google 検索に対する 1 つ以上のクエリが生成されることがあります。実行された個々の検索クエリごとに課金されます。
 
-\*\*\*\* 可在 Google AI Studio 中进行测试。
+\*\*\*\* Google AI Studio でテストできます。
 
 ## Gemini 2.5 Pro
 
 *`gemini-2.5-pro`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-2.5-pro&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-2.5-pro&hl=ja)
 
-Google 的前沿多用途模型，在编程和复杂推理任务方面表现卓越。
+コーディングや複雑な推論タスクに優れた、最先端の多目的モデル。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 1.25 美元：提示 <= 20 万个 token 2.50 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 免费 | 10.00 美元：提示 <= 20 万个 token 15.00 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 0.125 美元：提示 <= 20 万个 token 0.25 美元：提示 > 20 万个 token 4.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 10,000 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $1.25（プロンプトが 200, 000 トークン以下の場合） $2.50（プロンプトが 200, 000 トークンを超える場合） |
+| 出力料金（思考トークンを含む） | 無料 | $10.00、プロンプト <= 20 万トークン $15.00、プロンプト > 20 万トークン |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.125（プロンプト <= 20 万トークン） $0.25（プロンプト > 20 万トークン） $4.50 / 100 万トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 10,000 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.625 美元：提示 <= 20 万个 token 1.25 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 不可用 | 5.00 美元：提示 <= 20 万个 token 7.50 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 0.125 美元：提示 <= 20 万个 token 0.25 美元：提示 > 20 万个 token 4.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.625、プロンプト <= 200, 000 トークン $1.25、プロンプト > 200, 000 トークン |
+| 出力料金（思考トークンを含む） | 利用不可 | $5.00（プロンプトが 20 万トークン以下） $7.50（プロンプトが 20 万トークン超） |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.125（プロンプト <= 20 万トークン） $0.25（プロンプト > 20 万トークン） $4.50 / 100 万トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.625 美元：提示 <= 20 万个 token 1.25 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 不可用 | 5.00 美元：提示 <= 20 万个 token 7.50 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 0.125 美元：提示 <= 20 万个 token 0.25 美元：提示 > 20 万个 token 4.50 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.625、プロンプト <= 200, 000 トークン $1.25、プロンプト > 200, 000 トークン |
+| 出力料金（思考トークンを含む） | 利用不可 | $5.00（プロンプトが 20 万トークン以下） $7.50（プロンプトが 20 万トークン超） |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.125（プロンプト <= 20 万トークン） $0.25（プロンプト > 20 万トークン） $4.50 / 100 万トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 2.25 美元：提示 <= 20 万个 token 4.50 美元：提示 > 20 万个 token |
-| 输出价格（包括思考 token） | 免费 | 18.00 美元：提示 <= 20 万个 token 27.00 美元：提示 > 20 万个 token |
-| 上下文缓存价格 | 不可用 | 0.225 美元：提示 <= 20 万个 token 0.45 美元：提示 > 20 万个 token 8.10 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 10,000 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $2.25（プロンプトが 200, 000 トークン以下） $4.50（プロンプトが 200, 000 トークン超） |
+| 出力料金（思考トークンを含む） | 無料 | $18.00、プロンプト <= 200k トークン $27.00、プロンプト > 200k |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.225（プロンプト <= 20 万トークン） $0.45（プロンプト > 20 万トークン） $8.10 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 10,000 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Gemini 2.5 Flash
 
 *`gemini-2.5-flash`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-2.5-flash&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-2.5-flash&hl=ja)
 
-Google 首款混合推理模型，支持 100 万 token 的上下文窗口，并配备了思考预算功能。
+100 万トークンのコンテキスト ウィンドウをサポートし、思考予算を備えた初のハイブリッド推論モデル。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.30 美元（文本 / 图片 / 视频） 1.00 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $2.50 |
-| 上下文缓存价格 | 不可用 | 0.03 美元（文本/图片/视频） 0.1 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 免费，最多 500 RPD（与 Flash-Lite RPD 共享此限额） | 1,500 RPD（免费，与 Flash-Lite RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 500 RPD | 1,500 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.30（テキスト / 画像 / 動画） $1.00（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $2.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.03（テキスト / 画像 / 動画） $0.1（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 無料、最大 500 RPD（Flash-Lite RPD との共有上限） | 1,500 RPD（無料、Flash-Lite RPD と共有される上限）、その後は 1,000 個のグラウンディングされたプロンプトあたり $35 |
+| Google マップによるグラウンディング | 500 RPD | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.15 美元（文本 / 图片 / 视频） 0.50 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $1.25 |
-| 上下文缓存价格 | 不可用 | 0.03 美元（文本/图片/视频） 0.1 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费，与 Flash-Lite RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.15（テキスト / 画像 / 動画） $0.50（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $1.25 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.03（テキスト / 画像 / 動画） $0.1（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料、Flash-Lite RPD と共有される上限）、その後は 1,000 個のグラウンディングされたプロンプトあたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.15 美元（文本 / 图片 / 视频） 0.50 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $1.25 |
-| 上下文缓存价格 | 不可用 | 0.03 美元（文本/图片/视频） 0.1 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费，与 Flash-Lite RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.15（テキスト / 画像 / 動画） $0.50（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $1.25 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.03（テキスト / 画像 / 動画） $0.1（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料、Flash-Lite RPD と共有される上限）、その後は 1,000 個のグラウンディングされたプロンプトあたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.54 美元（文本 / 图片 / 视频） 1.80 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $4.50 |
-| 上下文缓存价格 | 不可用 | 0.054 美元（文本/图片/视频） 0.18 美元（音频） 1.80 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 免费，最多 500 RPD（与 Flash-Lite RPD 共享此限额） | 1,500 RPD（免费，与 Flash-Lite RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 500 RPD | 1,500 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.54（テキスト / 画像 / 動画） $1.80（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $4.50 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.054（テキスト / 画像 / 動画） $0.18（音声） $1.80 / 1 時間あたり 1,000,000 トークン（ストレージ料金） |
+| Google 検索によるグラウンディング | 無料、最大 500 RPD（Flash-Lite RPD との共有上限） | 1,500 RPD（無料、Flash-Lite RPD と共有される上限）、その後は 1,000 個のグラウンディングされたプロンプトあたり $35 |
+| Google マップによるグラウンディング | 500 RPD | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Gemini 2.5 Flash-Lite
 
 *`gemini-2.5-flash-lite`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=ja)
 
-Google 体积最小、性价比最高的模型，专为大规模应用场景而打造。
+最も小型で費用対効果の高いモデル。大規模な使用向けに構築されています。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格（文字、图片、视频） | 免费 | 0.10 美元（文本 / 图片 / 视频） 0.30 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $0.40 |
-| 上下文缓存价格 | 不可用 | 0.01 美元（文本/图片/视频） 0.03 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 免费，最多 500 RPD（与 Flash RPD 共享此限额） | 1,500 RPD（免费，与 Flash RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 500 RPD | 1,500 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格（テキスト、画像、動画） | 無料 | $0.10（テキスト / 画像 / 動画） $0.30（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $0.40 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.01（テキスト / 画像 / 動画） $0.03（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 無料、最大 500 RPD（Flash RPD との共有上限） | 1,500 RPD（無料、Flash RPD と共有される上限）、その後は 1,000 件のグラウンディング プロンプトあたり $35 |
+| Google マップによるグラウンディング | 500 RPD | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格（文字、图片、视频） | 不可用 | 0.05 美元（文本 / 图片 / 视频） 0.15 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $0.20 |
-| 上下文缓存价格 | 不可用 | 0.01 美元（文本/图片/视频） 0.03 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费，与 Flash RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格（テキスト、画像、動画） | 利用不可 | $0.05（テキスト / 画像 / 動画） $0.15（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $0.20 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.01（テキスト / 画像 / 動画） $0.03（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料、Flash RPD と共有される上限）、その後は $35 / 1,000 件のグラウンディング プロンプト |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格（文字、图片、视频） | 不可用 | 0.05 美元（文本 / 图片 / 视频） 0.15 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $0.20 |
-| 上下文缓存价格 | 不可用 | 0.01 美元（文本/图片/视频） 0.03 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费，与 Flash RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格（テキスト、画像、動画） | 利用不可 | $0.05（テキスト / 画像 / 動画） $0.15（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $0.20 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.01（テキスト / 画像 / 動画） $0.03（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料、Flash RPD と共有される上限）、その後は $35 / 1,000 件のグラウンディング プロンプト |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格（文字、图片、视频） | 免费 | 0.18 美元（文本 / 图片 / 视频） 0.54 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $0.72 |
-| 上下文缓存价格 | 不可用 | 0.018 美元（文本/图片/视频） 0.054 美元（音频） 1.80 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 免费，最多 500 RPD（与 Flash RPD 共享此限额） | 1,500 RPD（免费，与 Flash RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 500 RPD | 1,500 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格（テキスト、画像、動画） | 無料 | $0.18（テキスト / 画像 / 動画） $0.54（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $0.72 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.018（テキスト / 画像 / 動画） $0.054（音声） $1.80 / 1 時間あたり 1,000,000 トークン（ストレージ料金） |
+| Google 検索によるグラウンディング | 無料、最大 500 RPD（Flash RPD との共有上限） | 1,500 RPD（無料、Flash RPD と共有される上限）、その後は 1,000 件のグラウンディング プロンプトあたり $35 |
+| Google マップによるグラウンディング | 500 RPD | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini 2.5 Flash-Lite 预览版
+## Gemini 2.5 Flash-Lite プレビュー版
 
 *`gemini-2.5-flash-lite-preview-09-2025`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=ja)
 
-基于 Gemini 2.5 Flash Lite 打造的全新模型，专为极致性价比、高吞吐量和卓越品质而优化。
+費用対効果、高スループット、高品質を重視して最適化された Gemini 2.5 Flash Lite に基づく最新モデル。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格（文字、图片、视频） | 免费 | 0.10 美元（文本 / 图片 / 视频） 0.30 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | $0.40 |
-| 上下文缓存价格 | 不可用 | 0.01 美元（文本/图片/视频） 0.03 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 免费，最多 500 RPD（与 Flash RPD 共享此限额） | 1,500 RPD（免费，与 Flash RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格（テキスト、画像、動画） | 無料 | $0.10（テキスト / 画像 / 動画） $0.30（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $0.40 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.01（テキスト / 画像 / 動画） $0.03（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 無料、最大 500 RPD（Flash RPD との共有上限） | 1,500 RPD（無料、Flash RPD と共有される上限）、その後は $35 / 1,000 件のグラウンディング プロンプト |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格（文字、图片、视频） | 不可用 | 0.05 美元（文本 / 图片 / 视频） 0.15 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $0.20 |
-| 上下文缓存价格 | 不可用 | 0.01 美元（文本/图片/视频） 0.03 美元（音频） 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费，与 Flash RPD 共享此限额），超出后按每 1,000 条接地提示 35 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格（テキスト、画像、動画） | 利用不可 | $0.05（テキスト / 画像 / 動画） $0.15（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $0.20 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.01（テキスト / 画像 / 動画） $0.03（音声） $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料、Flash RPD と共有される上限）、その後は 1,000 件のグラウンディング プロンプトあたり $35 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini 2.5 Flash Native Audio (Live API)
+## Gemini 2.5 Flash ネイティブ音声（Live API）
 
 *`gemini-2.5-flash-native-audio-preview-12-2025`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/app/live?hl=zh-cn#gemini-2.5-flash-native-audio-preview-12-2025)
+[Google AI Studio で試す](https://aistudio.google.com/app/live?hl=ja#gemini-2.5-flash-native-audio-preview-12-2025)
 
-Google 的 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 原生音频模型，经过优化，可输出更高质量的音频，在语速节奏、语音自然度、表达丰富度及情绪表现力上均有提升。
+Google の [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) ネイティブ音声モデルは、より高品質な音声出力に最適化されており、話し方のペースや自然さ、詳細度、ムードをより適切に表現できます。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.50 美元（文本） 3.00 美元（音频 / 视频） |
-| 输出价格（包括思考 token） | 免费 | 2.00 美元（文本） 12.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.50（テキスト） $3.00（音声 / 動画） |
+| 出力料金（思考トークンを含む） | 無料 | $2.00（テキスト） $12.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini 2.5 Flash Image (Nano Banana) 🍌
+## Gemini 2.5 Flash Image（Nano Banana）🍌
 
 *`gemini-2.5-flash-image`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=ja)
 
-Google 的原生图片生成模型，针对速度、灵活性和上下文理解进行了优化。文本输入和输出的价格与 [2.5 Flash](#gemini-2.5-flash) 相同。
+速度、柔軟性、コンテキストの理解に最適化された Google のネイティブ画像生成モデル。テキストの入力と出力の料金は、[2.5 Flash](#gemini-2.5-flash) と同じです。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.30 美元（文本 / 图片） |
-| 输出价格 | 不可用 | 0.039 美元/张图片\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.30（テキスト / 画像） |
+| 出力価格 | 利用不可 | 画像 1 枚あたり $0.039\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.15 美元（文本 / 图片） |
-| 输出价格 | 不可用 | 0.0195 美元/张图片\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.15（テキスト / 画像） |
+| 出力価格 | 利用不可 | 画像 1 枚あたり $0.0195\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ### Flex
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.15 美元（文本 / 图片） |
-| 输出价格 | 不可用 | 0.0195 美元/张图片\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.15（テキスト / 画像） |
+| 出力価格 | 利用不可 | 画像 1 枚あたり $0.0195\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 优先级
+### 優先度
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.54 美元（文本 / 图片） |
-| 输出价格 | 不可用 | 每张图片 0.0702 美元\* |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.54（テキスト / 画像） |
+| 出力価格 | 利用不可 | 画像 1 枚あたり $0.0702\* |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-[\*] 图片输出的价格为 30 美元/100 万个 token。分辨率最高为 1024x1024px 的输出图片会消耗 1290 个 token，相当于每张图片 0.039 美元。
+[\*] 画像出力の料金は、1,000,000 トークンあたり $30 です。最大 1,024×1,024 ピクセルの出力画像は 1,290 個のトークンを消費し、画像 1 枚あたり $0.039 に相当します。
 
-## Gemini 2.5 Flash 预览版 TTS
+## Gemini 2.5 Flash プレビュー TTS
 
 *`gemini-2.5-flash-preview-tts`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/generate-speech?hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/generate-speech?hl=ja)
 
-Google 的 2.5 Flash 文字转语音音频模型，经过优化，可实现高性价比、低延迟、可控的语音生成。
+価格とパフォーマンス、低レイテンシ、制御可能な音声生成に最適化された 2.5 Flash Text-to-Speech 音声モデル。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.50 美元（文本） |
-| 输出价格 | 免费 | 10.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.50（テキスト） |
+| 出力価格 | 無料 | $10.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.25 美元（文本） |
-| 输出价格 | 不可用 | 5.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.25（テキスト） |
+| 出力価格 | 利用不可 | $5.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini 2.5 Pro 预览版 TTS
+## Gemini 2.5 Pro プレビュー TTS
 
 *`gemini-2.5-pro-preview-tts`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/generate-speech?hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/generate-speech?hl=ja)
 
-Google 的 2.5 Pro 文字转语音音频模型，经过优化，具备强大的低延迟语音生成能力，语音输出更自然，提示引导也更易实现。
+Google の 2.5 Pro テキスト読み上げ音声モデルは、強力で低レイテンシの音声生成に最適化されており、より自然な出力を実現し、プロンプトを簡単に操作できます。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.00 美元（文本） |
-| 输出价格 | 不可用 | 20.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.00（テキスト） |
+| 出力価格 | 利用不可 | $20.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.50 美元（文本） |
-| 输出价格 | 不可用 | 10.00 美元（音频） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.50（テキスト） |
+| 出力価格 | 利用不可 | $10.00（音声） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Gemini 2.0 Flash
 
 *`gemini-2.0-flash`*
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 0.10 美元（文本 / 图片 / 视频） 0.70 美元（音频） |
-| 输出价格 | 免费 | $0.40 |
-| 上下文缓存价格 | 免费 | 0.025 美元 / 100 万个 token（文本/图片/视频） 0.175 美元 / 100 万个 token（音频） |
-| 上下文缓存（存储） | 不可用 | 1.00 美元/100 万个 token/小时 |
-| 图片生成价格 | 不适用（[已关停](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-cn#gemini-2.0-models)） | 不适用（[已关停](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-cn#gemini-2.0-models)） |
-| 调优价格 | 不可用 | 不可用 |
-| 依托 Google 搜索进行接地 | 免费，最多 500 RPD | 1,500 RPD（免费），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 500 RPD | 1,500 RPD（免费），超出后按每 1,000 条接地提示 25 美元计费 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.10（テキスト / 画像 / 動画） $0.70（音声） |
+| 出力価格 | 無料 | $0.40 |
+| コンテキスト キャッシュ保存の料金 | 無料 | $0.025 / 1,000,000 トークン（テキスト/画像/動画） $0.175 / 1,000,000 トークン（音声） |
+| コンテキスト キャッシュ保存（ストレージ） | 利用不可 | $1.00 / 1,000,000 トークン / 時間 |
+| 画像生成の料金 | 利用不可（[シャットダウン](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja#gemini-2.0-models)） | 利用不可（[シャットダウン](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja#gemini-2.0-models)） |
+| チューニング価格 | 利用不可 | 利用不可 |
+| Google 検索によるグラウンディング | 無料（最大 500 RPD） | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $35 |
+| Google マップによるグラウンディング | 500 RPD | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $25 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.05 美元（文本 / 图片 / 视频） 0.35 美元（音频） |
-| 输出价格 | 不可用 | $0.20 |
-| 上下文缓存价格 | 不可用 | 0.025 美元 / 100 万个 token（文本/图片/视频） 0.175 美元 / 100 万个 token（音频） |
-| 上下文缓存（存储） | 不可用 | 1.00 美元/100 万个 token/小时 |
-| 图片生成价格 | 不适用（[已关停](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-cn#gemini-2.0-models)） | 不适用（[已关停](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-cn#gemini-2.0-models)） |
-| 调优价格 | 不可用 | 不可用 |
-| 依托 Google 搜索进行接地 | 不可用 | 1,500 RPD（免费），超出后按每 1,000 条接地提示 35 美元计费 |
-| 依托 Google 地图进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.05（テキスト / 画像 / 動画） $0.35（音声） |
+| 出力価格 | 利用不可 | $0.20 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.025 / 1,000,000 トークン（テキスト/画像/動画） $0.175 / 1,000,000 トークン（音声） |
+| コンテキスト キャッシュ保存（ストレージ） | 利用不可 | $1.00 / 1,000,000 トークン / 時間 |
+| 画像生成の料金 | 利用不可（[シャットダウン](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja#gemini-2.0-models)） | 利用不可（[シャットダウン](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja#gemini-2.0-models)） |
+| チューニング価格 | 利用不可 | 利用不可 |
+| Google 検索によるグラウンディング | 利用不可 | 1,500 RPD（無料）、その後はグラウンディングされたプロンプト 1,000 個あたり $35 |
+| Google マップによるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-[\*] 图片输出的价格为 30 美元/100 万个 token。分辨率最高为 1024x1024px 的输出图片会消耗 1290 个 token，相当于每张图片 0.039 美元。
+[\*] 画像出力の料金は、1,000,000 トークンあたり $30 です。最大 1,024×1,024 ピクセルの出力画像は 1,290 個のトークンを消費し、画像 1 枚あたり $0.039 に相当します。
 
 ## Gemini 2.0 Flash-Lite
 
 *`gemini-2.0-flash-lite`*
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | $0.075 |
-| 输出价格 | 免费 | $0.30 |
-| 上下文缓存价格 | 不可用 | 不可用 |
-| 上下文缓存（存储） | 不可用 | 不可用 |
-| 调优价格 | 不可用 | 不可用 |
-| 依托 Google 搜索进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.075 |
+| 出力価格 | 無料 | $0.30 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | 利用不可 |
+| コンテキスト キャッシュ保存（ストレージ） | 利用不可 | 利用不可 |
+| チューニング価格 | 利用不可 | 利用不可 |
+| Google 検索によるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | $0.0375 |
-| 输出价格 | 不可用 | $0.15 |
-| 上下文缓存价格 | 不可用 | 不可用 |
-| 上下文缓存（存储） | 不可用 | 不可用 |
-| 调优价格 | 不可用 | 不可用 |
-| 依托 Google 搜索进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.0375 |
+| 出力価格 | 利用不可 | $0.15 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | 利用不可 |
+| コンテキスト キャッシュ保存（ストレージ） | 利用不可 | 利用不可 |
+| チューニング価格 | 利用不可 | 利用不可 |
+| Google 検索によるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Imagen 4
 
 *`imagen-4.0-generate-001`、`imagen-4.0-ultra-generate-001`、`imagen-4.0-fast-generate-001`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/generate-image?hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/generate-image?hl=ja)
 
-Google 最新的图像生成模型，文字渲染效果大幅提升，整体图片质量也更为出色。
+Google の最新の画像生成モデル。テキスト レンダリングが大幅に改善され、画像全体の品質も向上しています。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-|  | 免费层级 | 付费层级（美元/张图片） |
+|  | 無料枠 | 有料プラン、画像 1 枚あたりの料金（米ドル） |
 | --- | --- | --- |
-| Imagen 4 Fast 图片价格 | 不可用 | $0.02 |
-| Imagen 4 Standard 图片价格 | 不可用 | $0.04 |
-| Imagen 4 Ultra 图片价格 | 不可用 | $0.06 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| Imagen 4 Fast の画像料金 | 利用不可 | $0.02 |
+| Imagen 4 標準画像の料金 | 利用不可 | $0.04 |
+| Imagen 4 Ultra 画像の料金 | 利用不可 | $0.06 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Veo 3.1
 
 *`veo-3.1-generate-preview`、`veo-3.1-fast-generate-preview`、`veo-3.1-lite-generate-preview`*
 
-[试用 Veo 3.1](https://deepmind.google/models/veo/?hl=zh-cn)
+[Veo 3.1 を試す](https://deepmind.google/models/veo/?hl=ja)
 
-Google 最新的视频生成模型，现已面向使用 Gemini API 付费层级的开发者开放。
+Gemini API の有料プランでデベロッパーが利用できる、Google の最新の動画生成モデル。
 
-预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+プレビュー モデルは、安定版になる前に変更される可能性があり、レート上限が厳しくなる可能性があります。
 
-|  | 免费层级 | 付费层级（美元/秒） |
+|  | 無料枠 | 有料枠、1 秒あたりの料金（米ドル） |
 | --- | --- | --- |
-| Veo 3.1 Standard 视频（含音频）价格（默认） | 不可用 | 0.40 美元（720p 和 1080p） 0.60 美元 (4k) |
-| Veo 3.1 Fast 视频（含音频）价格（默认） | 不可用 | 0.10 美元 (720p) 0.12 美元 (1080p) 0.30 美元 (4k) |
-| Veo 3.1 Lite 视频（含音频）价格（默认） | 不可用 | 0.05 美元 (720p) 0.08 美元 (1080p) （不支持 4k 输出） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| Veo 3.1 標準動画（音声付き）の料金（デフォルト） | 利用不可 | $0.40（720p と 1080p） $0.60（4k） |
+| Veo 3.1 Fast 動画（音声付き）の料金（デフォルト） | 利用不可 | $0.10（720p） $0.12（1080p） $0.30（4k） |
+| Veo 3.1 Lite の音声付き動画の価格（デフォルト） | 利用不可 | $0.05（720p） $0.08（1080p） （4K 出力は対象外です） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Veo 3
 
-*`veo-3.0-generate-001`，`veo-3.0-fast-generate-001`*
+*`veo-3.0-generate-001`、`veo-3.0-fast-generate-001`*
 
-[试用 Veo 3](https://deepmind.google/models/veo/?hl=zh-cn)
+[Veo 3 を試す](https://deepmind.google/models/veo/?hl=ja)
 
-Google 的稳定版视频生成模型，现已面向使用 Gemini API 付费层级的开发者开放。
+Gemini API の有料プランでデベロッパーが利用できる、安定版の動画生成モデル。
 
-|  | 免费层级 | 付费层级（美元/秒） |
+|  | 無料枠 | 有料枠、1 秒あたりの料金（米ドル） |
 | --- | --- | --- |
-| Veo 3 Standard 视频（含音频）价格（默认） | 不可用 | $0.40 |
-| Veo 3 Fast 视频（含音频）价格（默认） | 不可用 | 0.10 美元 (720p) 0.12 美元 (1080p) 0.30 美元 (4k) |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| Veo 3 標準動画（音声付き）の料金（デフォルト） | 利用不可 | $0.40 |
+| Veo 3 Fast の音声付き動画の料金（デフォルト） | 利用不可 | $0.10（720p） $0.12（1080p） $0.30（4k） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Veo 2
 
 *`veo-2.0-generate-001`*
 
-[试用 API](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)
+[API を試す](https://ai.google.dev/gemini-api/docs/video?hl=ja)
 
-Google 的前沿视频生成模型，现已面向使用 Gemini API 付费层级的开发者开放。
+Gemini API の有料プランでデベロッパーが利用できる、Google の最先端の動画生成モデル。
 
-|  | 免费层级 | 付费层级（美元/秒） |
+|  | 無料枠 | 有料枠、1 秒あたりの料金（米ドル） |
 | --- | --- | --- |
-| 视频价格 | 不可用 | $0.35 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 動画の価格 | 利用不可 | $0.35 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Lyria 3
 
-*`lyria-3-clip-preview` 和 `lyria-3-pro-preview`*
+*`lyria-3-clip-preview` と `lyria-3-pro-preview`*
 
-Google 的音乐创作模型系列。预览版模型在转为稳定版之前可能会发生变化，且速率限制会更为严格。
+Google の音楽生成モデル ファミリー。プレビュー モデルは、安定版になる前に変更される可能性があり、レート制限が厳しくなる可能性があります。
 
-|  | 免费层级 | 付费层级（美元/次请求） |
+|  | 無料枠 | 有料プラン、リクエストあたりの料金（米ドル） |
 | --- | --- | --- |
-| Lyria 3 Clip 预览版（30 秒） | 不可用 | 0.04 美元/首歌曲 |
-| Lyria 3 Pro 预览版（完整歌曲） | 不可用 | 0.08 美元/首歌曲 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| Lyria 3 クリップのプレビュー（30 秒） | 利用不可 | 1 曲あたり $0.04 |
+| Lyria 3 Pro プレビュー（フルソング） | 利用不可 | 1 曲あたり $0.08 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini Embedding 2
+## Gemini エンベディング 2
 
 *`gemini-embedding-2`*
 
-[试用 API](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)
+[API を試す](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)
 
-Google 的首款多模态嵌入模型，可将文本、图片、视频、音频和 PDF 映射到统一的嵌入空间中。
+テキスト、画像、動画、音声、PDF を統合されたエンベディング空間にマッピングする、初のマルチモーダル エンベディング モデル。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 文本输入价格 | 免费 | $0.20 |
-| 图片输入价格 | 免费 | 0.45 美元（每张图片 0.00012 美元） |
-| 音频输入价格 | 免费 | 6.50 美元（每秒 0.00016 美元） |
-| 视频输入价格 | 免费 | 12.00 美元（每帧 0.00079 美元） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| テキスト入力の料金 | 無料 | $0.20 |
+| 画像入力の料金 | 無料 | $0.45（画像 1 枚あたり $0.00012） |
+| 音声入力の料金 | 無料 | $6.50（1 秒あたり $0.00016） |
+| 動画入力の料金 | 無料 | $12.00（1 フレームあたり $0.00079） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 文本输入价格 | 不可用 | $0.10 |
-| 图片输入价格 | 不可用 | 0.225 美元（每张图片 0.00006 美元） |
-| 音频输入价格 | 不可用 | 3.25 美元（每秒 0.00008 美元） |
-| 视频输入价格 | 不可用 | 6.00 美元（每帧 0.000395 美元） |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| テキスト入力の料金 | 利用不可 | $0.10 |
+| 画像入力の料金 | 利用不可 | $0.225（画像 1 枚あたり $0.00006） |
+| 音声入力の料金 | 利用不可 | $3.25（1 秒あたり $0.00008） |
+| 動画入力の料金 | 利用不可 | $6.00（1 フレームあたり $0.000395） |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini Embedding
+## Gemini エンベディング
 
 *`gemini-embedding-001`*
 
-[试用 API](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)
+[API を試す](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)
 
-Google 的 Gemini Embeddings 模型，专为纯文本应用场景打造，现已面向使用 Gemini API 免费层级和付费层级的开发者开放。
+テキストのみのユースケース向けの Gemini エンベディング モデル。Gemini API の無料枠と有料枠でデベロッパーが利用できます。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | $0.15 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $0.15 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | $0.075 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.075 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini Robotics ER 2 预览版
+## Gemini Robotics ER 2 プレビュー版
 
 *`gemini-robotics-er-2-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=ja)
 
-Gemini Robotics ER 2（全称为 Gemini Robotics Embodied Reasoning 2）是一个视觉语言模型端点，可让机器人精准了解其环境，支持机器人智能体编排、视频进度理解、多机器人协作和高级空间推理。
+Gemini Robotics ER 2（Gemini Robotics Embodied Reasoning 2 の略）は、ロボットが環境を正確に理解できるようにするビジョン言語モデル エンドポイントです。これにより、ロボットのエージェント オーケストレーション、動画の進行状況の理解、マルチロボット コラボレーション、高度な空間推論がサポートされます。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 2.00 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 免费 | 10.00 美元 |
-| 上下文缓存价格 | 不可用 | 0.20 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $2.00（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 無料 | $10.00 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.20 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.00 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格（包括思考 token） | 不可用 | 5.00 美元 |
-| 上下文缓存价格 | 不可用 | 0.10 美元 1.00 美元/100 万个 token/小时（存储价格） |
-| 依托 Google 搜索进行接地 | 不可用 | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.00（テキスト / 画像 / 動画 / 音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $5.00 |
+| コンテキスト キャッシュ保存の料金 | 利用不可 | $0.10 $1.00 / 1,000,000 トークン / 時間（ストレージ料金） |
+| Google 検索によるグラウンディング | 利用不可 | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini Robotics ER 2 流式预览版
+## Gemini Robotics ER 2 ストリーミング プレビュー
 
 *`gemini-robotics-er-2-streaming-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=ja)
 
-Gemini Robotics ER 2 Streaming 是一种面向机器人的视觉语言模型端点，经过优化，可使用 Live API 进行实时文本流式传输。它接受文本、图片、视频和音频输入，并支持双向流式传输和函数调用。
+Gemini Robotics ER 2 Streaming は、Live API を使用したリアルタイムのテキスト ストリーミング用に最適化されたロボット工学向けのビジョン言語モデル エンドポイントです。テキスト、画像、動画、音声の入力を受け付け、関数呼び出しによる双方向ストリーミングをサポートします。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 2.00 美元（文本 / 图片 / 视频 / 音频） |
-| 输出价格 | 免费 | 10.00 美元 |
-| 依托 Google 搜索进行接地 | 不可用 | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $2.00（テキスト / 画像 / 動画 / 音声） |
+| 出力価格 | 無料 | $10.00 |
+| Google 検索によるグラウンディング | 利用不可 | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini Robotics ER 1.6 预览版
+## Gemini Robotics ER 1.6 プレビュー版
 
 *`gemini-robotics-er-1.6-preview`*
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=ja)
 
-Gemini Robotics ER（全称为 Gemini Robotics-Embodied Reasoning）是一款思考模型，旨在增强机器人理解物理世界并与之交互的能力。
+Gemini Robotics ER（Gemini Robotics-Embodied Reasoning）は、ロボットが物理世界を理解して操作する能力を高める思考モデルです。
 
-### 标准
+### 標準
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 1.00 美元（文本 / 图片 / 视频） 2.00 美元（音频） |
-| 输出价格（包括思考 token） | 免费 | 5.00 美元 |
-| 依托 Google 搜索进行接地 | 不可用 | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | $1.00（テキスト / 画像 / 動画） $2.00（音声） |
+| 出力料金（思考トークンを含む） | 無料 | $5.00 |
+| Google 検索によるグラウンディング | 利用不可 | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-### 批量
+### バッチ
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 0.50 美元（文本 / 图片 / 视频） 1.00 美元（音频） |
-| 输出价格（包括思考 token） | 不可用 | $2.50 |
-| 依托 Google 搜索进行接地 | 不可用 | 每月 5,000 次免费搜索请求（在所有 Gemini 3.x 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $0.50（テキスト / 画像 / 動画） $1.00（音声） |
+| 出力料金（思考トークンを含む） | 利用不可 | $2.50 |
+| Google 検索によるグラウンディング | 利用不可 | 1 か月あたり 5,000 件の無料検索リクエスト（すべての Gemini 3.x モデルで共有）、その後は 1,000 件あたり $14。 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## Gemini 2.5 Computer Use 预览版
+## Gemini 2.5 コンピュータ使用プレビュー
 
 *`gemini-2.5-computer-use-preview-10-2025`*
 
-Google 的 Computer Use 模型，经过优化，专门用于构建可自动执行任务的浏览器控制智能体。
+タスクを自動化するブラウザ制御エージェントの構築に最適化されたコンピュータ使用モデル。
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 不可用 | 1.25 美元：提示 <= 20 万个 token 2.50 美元：提示 > 20 万个 token |
-| 输出价格 | 不可用 | 10.00 美元：提示 <= 20 万个 token 15.00 美元：提示 > 20 万个 token |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 利用不可 | $1.25、プロンプト <= 200, 000 トークン $2.50、プロンプト > 200, 000 トークン |
+| 出力価格 | 利用不可 | $10.00、プロンプトが 200, 000 トークン以下 $15.00、プロンプトが 200, 000 トークン超 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
 ## Gemma 4
 
-Google 的一款先进的轻量级开放模型，基于 Gemini 模型所用的相同技术构建而成。
+Gemini モデルの作成に使用されたものと同じテクノロジーに基づいて構築された、軽量かつ最先端のオープンモデルです。
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| 输入价格 | 免费 | 不可用 |
-| 输出价格 | 免费 | 不可用 |
-| 上下文缓存价格 | 免费 | 不可用 |
-| 上下文缓存（存储） | 免费 | 不可用 |
-| 调优价格 | 不可用 | 不可用 |
-| 依托 Google 搜索进行接地 | 不可用 | 不可用 |
-| 用于改进 Google 产品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-cn) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-cn) |
+| 入力価格 | 無料 | 利用不可 |
+| 出力価格 | 無料 | 利用不可 |
+| コンテキスト キャッシュ保存の料金 | 無料 | 利用不可 |
+| コンテキスト キャッシュ保存（ストレージ） | 無料 | 利用不可 |
+| チューニング価格 | 利用不可 | 利用不可 |
+| Google 検索によるグラウンディング | 利用不可 | 利用不可 |
+| プロダクトの改善に使用されます | [はい](https://ai.google.dev/gemini-api/terms?hl=ja) | [いいえ](https://ai.google.dev/gemini-api/terms?hl=ja) |
 
-## 工具价格
+## ツールの料金
 
-各类工具按自身费率计费，相关费用将计入调用该工具的模型费用中。
-查看[模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)页面，了解各模型分别支持哪些工具。
+ツールの料金は、ツールを使用するモデルに適用される独自のレートで設定されます。各モデルで利用可能なツールについては、[モデル](https://ai.google.dev/gemini-api/docs/models?hl=ja)のページをご覧ください。
 
-|  | 免费层级 | 付费层级（美元/100 万个 token） |
+|  | 無料枠 | 有料枠、100 万トークンあたりの料金（米ドル） |
 | --- | --- | --- |
-| [Google 搜索](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn#pricing) | 500 RPD（免费，Flash 和 Flash-Lite 共享此限额）。 不适用于 Pro。 | Gemini 2.5 模型：  1,500 RPD（免费，Flash 和 Flash-Lite 共享此限额）。 超出后按每 1,000 条接地提示 35 美元计费   Gemini 3 模型：  每月 5,000 次免费搜索请求（在所有 Gemini 模型中共享），超出后按每 1,000 次请求 14 美元计费。 |
-| [Google 地图](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn#pricing_and_rate_limits) | 500 RPD 不适用于 Pro。 | 1,500 RPD（免费，Flash 和 Flash-Lite 共享此限额） Pro 提供 10,000 RPD 免费额度。 超出后按每 1,000 条接地提示 25 美元计费 |
-| [代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn#billing) | 免费 | 代码执行将按照所选模型的标准 token 费率计费。 费用完全取决于工具的使用情况，会话运行时间不会产生任何费用。生成的代码和执行结果在创建时按**输出 token** 计费；当模型在迭代推理过程中使用它们时，则按**输入 token** 计费。 |
-| [网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn#limitations) | 免费 | 根据对应模型的价格，按输入 token 计费。 |
-| [计算机使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-cn) | 不可用 | 根据对应模型的价格，按照常规 token 计费（例如，标准 [Gemini 3.5 Flash](#gemini-3.6-flash) 价格）。如需了解旧版模型的费率，请参阅 [Gemini 2.5 Computer Use 预览版](#gemini-2.5-computer-use-preview-10-2025)价格表。 |
-| [文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn#pricing) | 免费 | [嵌入](#gemini-embedding)按 0.15 美元 / 100 万个 token 计费。 检索到的文档 token 根据对应模型的价格，按照常规 token 计费。 |
-| [自定义工具端点（Gemini 3.1 Pro 预览版）](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | 不可用 | 与 [Gemini 3.1 Pro 预览版](#gemini-3.1-pro-preview)价格相同 |
+| [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja#pricing) | 500 RPD 無料（Flash と Flash-Lite で上限を共有）。 Pro では利用できません。 | Gemini 2.5 モデル:  1,500 RPD まで無料（Flash と Flash-Lite で共有される上限）。 その後は、グラウンディングされたプロンプト 1,000 件あたり $35   Gemini 3 モデル:  月あたり 5,000 件の無料検索リクエスト（すべての Gemini モデルで共有）、その後は 1,000 件あたり $14。 |
+| [Google マップ](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja#pricing_and_rate_limits) | 500 RPD Pro では利用できません。 | 1,500 RPD 無料（Flash と Flash-Lite で共有される上限） Pro の場合は 10,000 RPD 無料。 その後は、グラウンディングされたプロンプト 1,000 個あたり $25 |
+| [コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja#billing) | 無料 | コード実行は、選択したモデルの標準トークン料金で課金されます。費用はツールの使用量のみによって決まり、セッションのランタイムに対する料金は発生しません。生成されたコードと実行結果は、作成時に**出力トークン**として課金され、モデルが反復推論プロセスの一部として使用するときに**入力トークン**として課金されます。 |
+| [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja#limitations) | 無料 | モデルの料金ごとの入力トークンとして課金されます。 |
+| [パソコンの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja) | 利用不可 | モデルの料金（標準の [Gemini 3.5 Flash](#gemini-3.6-flash) の料金など）に基づいて通常のトークンとして課金されます。以前のモデルの料金については、[Gemini 2.5 コンピュータ使用プレビュー](#gemini-2.5-computer-use-preview-10-2025)の料金表をご覧ください。 |
+| [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja#pricing) | 無料 | [エンベディング](#gemini-embedding)に対して 100 万トークンあたり $0.15 が課金されます。 取得したドキュメント トークンは、モデルの料金設定に基づいて通常のトークンとして課金されます。 |
+| [カスタムツール エンドポイント（Gemini 3.1 Pro プレビュー）](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ja) | 利用不可 | [Gemini 3.1 Pro プレビュー版](#gemini-3.1-pro-preview)と同じ料金 |
 
-## 智能体价格
+## エージェントの料金
 
-智能体使用费根据底层的 token 消耗量和工具使用情况计算。
+エージェントの使用料金は、基盤となるトークンの消費量とツールの使用量に基づいて計算されます。
 
-|  | 模型 | 工具 |
+|  | モデル | ツール |
 | --- | --- | --- |
-| [Gemini Deep Research 智能体](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) | 所有模型推理均按 Gemini 标准价格表费率计费，包括在智能体循环期间生成的输入、输出以及中间输入 / 推理 token。 | 工具使用费按照现有价格结构收取；针对搜索接地（检索到的 token 不计费）与 Url\_context / 文件搜索（检索到的 token 计入所有其他工具）仍沿用标准计费区分规则。 |
-| [Gemini API 中的托管式智能体](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn) | 所有模型推理均按 Gemini 标准价格表费率计费，包括在智能体循环期间生成的输入、输出以及中间输入 / 推理 token。（查看[价格详情](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn#pricing)）。 | 在预览版期间，环境计算资源（CPU、内存、沙盒执行）不计费。 |
-| [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-cn) | 所有模型推理均按 Gemini 标准价格表费率计费，包括在智能体循环期间生成的输入、输出以及中间输入 / 推理 token。（查看[价格详情](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn#pricing)）。 | 在预览版期间，环境计算资源（CPU、内存、沙盒执行）不计费。 |
+| [Gemini Deep Research エージェント](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) | すべてのモデル推論は、標準の Gemini リスト料金で課金されます。これには、入力、出力、エージェント ループ中に生成された中間入力 / 推論トークンが含まれます。 | ツール使用料は既存の料金体系ごとに適用されます。検索グラウンディング（取得したトークンは除外）と Url\_context / ファイル検索（取得したトークンは他のすべてのツールに含まれる）の標準的な区別は維持されます。 |
+| [Gemini API のマネージド エージェント](https://ai.google.dev/gemini-api/docs/agents?hl=ja) | すべてのモデル推論は、標準の Gemini リスト料金で課金されます。これには、入力、出力、エージェント ループ中に生成された中間入力 / 推論トークンが含まれます。（[料金の詳細](https://ai.google.dev/gemini-api/docs/agents?hl=ja#pricing)を参照）。 | プレビュー期間中は、環境コンピューティング（CPU、メモリ、サンドボックス実行）に対して課金されません。 |
+| [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja) | すべてのモデル推論は、標準の Gemini リスト料金で課金されます。これには、入力、出力、エージェント ループ中に生成された中間入力 / 推論トークンが含まれます。（[料金の詳細](https://ai.google.dev/gemini-api/docs/agents?hl=ja#pricing)を参照）。 | プレビュー期間中は、環境コンピューティング（CPU、メモリ、サンドボックス実行）に対して課金されません。 |
 
-## 备注
+## メモ
 
-- **文档 token 计费规则**：`DOCUMENT` 模态（例如 PDF）的 token 按照图片 token 费率计费。在 API 响应中，这些 token 会归类在 `promptTokensDetails` 内的 `DOCUMENT` 模态下。
-- 在所有[可用区域](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-cn)，Google AI Studio 均可免费使用。如需了解详情，请参阅[结算常见问题解答](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
-- 实际价格可能与此处列出的价格以及 Gemini Enterprise Agent Platform 上提供的价格有所不同。如需了解 Gemini Enterprise Agent Platform 的价格详情，请访问 [Gemini Enterprise Agent Platform 价格页面](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=zh-cn)。
-- 如果您正通过[动态检索](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)来优化成本，那么只有当响应中包含至少一个来自网络的接地支持网址时，该请求才会产生“依托 Google 搜索进行接地”的费用。使用 Gemini 始终会产生费用。速率限制可能会随时调整。
+- **ドキュメント トークンの課金:** `DOCUMENT` モダリティ（PDF など）のトークンは、画像トークンのレートで課金されます。API レスポンスでは、これらのトークンは `promptTokensDetails` 内の `DOCUMENT` モダリティの下に表示されます。
+- Google AI Studio は、[利用可能なすべてのリージョン](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)で料金なしでご利用いただけます。詳しくは、[お支払いに関するよくある質問](https://ai.google.dev/gemini-api/docs/billing?hl=ja)をご覧ください。
+- 価格は、ここに記載されている価格や Gemini Enterprise Agent Platform で提供されている価格と異なる場合があります。Gemini Enterprise Agent Platform の料金については、[Gemini Enterprise Agent Platform の料金ページ](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=ja)をご覧ください。
+- [動的取得](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)を使用して費用を最適化している場合、レスポンスにウェブからのグラウンディング サポート URL が 1 つ以上含まれているリクエストに対してのみ、Google 検索によるグラウンディングの料金が請求されます。Gemini の費用は常に発生します。レートの上限は変更されることがあります。
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最后更新时间 (UTC)：2026-08-11。
+最終更新日 2026-08-11 UTC。
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-08-11。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-08-11 UTC。"],[],[]]

@@ -1,72 +1,72 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja
-fetched_at: 2026-08-17T02:25:38.318385+00:00
-title: "\u30b9\u30c8\u30ea\u30fc\u30df\u30f3\u30b0\u306b\u3088\u308b\u30ed\u30dc\u30c3\u30c8\u5de5\u5b66 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419
+fetched_at: 2026-08-24T02:22:40.552805+00:00
+title: "Rob\u00f3tica con transmisi\u00f3n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-フィードバックを送信
+Enviar comentarios
 
-# ストリーミングによるロボット工学
+# Robótica con transmisión
 
-[`gemini-robotics-er-2-streaming-preview` モデル エンドポイントは、
-Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ja) と統合された専用の
-ストリーミング エンドポイントを公開し、アプリケーションとロボット間のリアルタイムの
-双方向通信を可能にします。これにより、迅速なフィードバック ループと環境への反応型レスポンスを必要とするエージェントに適しています。
+El extremo del modelo `gemini-robotics-er-2-streaming-preview` expone un extremo de transmisión dedicado
+que se integra con la API [Live](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=es-419), lo que permite la interacción bidireccional en tiempo real
+entre tu aplicación y el robot. Esto lo hace adecuado para agentes que necesitan bucles de retroalimentación rápidos y respuestas reactivas al entorno.
 
-[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=ja)
-[GitHub からサンプルアプリのクローンを作成する](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
+[Probar en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=es-419)
+[Clonar apps de ejemplo desde GitHub](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
 
-## ユースケース
+## Casos de uso
 
-- **マルチロボット連携**: 共有セッションを通じてタスクの状態を通信し、
-  サブタスクを委任する複数のロボット。
-- **継続的なモニタリング**: シーンを観察し、コンテナが満杯になったなどの特定のイベントが発生したときにアクションをトリガーするロボット。
-- **倉庫と物流**: 品物を
-  目視で確認し、梱包の進捗状況を追跡し、エラーから復旧するピッキングと梱包のエージェント。
+- **Coordinación de varios robots**: Varios robots que comunican el estado de la tarea
+  y delegan subtareas a través de una sesión compartida.
+- **Supervisión continua**: Robots que observan una escena y activan acciones
+  cuando ocurren eventos específicos, como un contenedor que alcanza un nivel de llenado.
+- **Almacén y logística**: Agentes de selección y empaquetado que verifican visualmente los artículos
+  , hacen un seguimiento del progreso del empaquetado y se recuperan de los errores.
 
-## 技術仕様
+## Especificaciones técnicas
 
-次の表に、Live API の技術仕様の概要を示します。
+En la siguiente tabla, se describen las especificaciones técnicas de la API de Live:
 
-| カテゴリ | 詳細 |
+| Categoría | Detalles |
 | --- | --- |
-| 入力モダリティ | 音声（RAW 16 ビット PCM 音声、16kHz、リトル エンディアン）、画像（JPEG <= 1FPS）、テキスト |
-| 出力モダリティ | テキスト |
-| プロトコル | ステートフル WebSocket 接続（WSS） |
+| Modalidades de entrada | Audio (audio PCM sin procesar de 16 bits, 16 kHz, little-endian), imágenes (JPEG <= 1 FPS) y texto |
+| Modalidades de salida | Texto |
+| Protocolo | Conexión WebSocket con estado (WSS) |
 
-## エージェントの設定を作成する
+## Crea una configuración de agente
 
-Live API で構築されたロボット工学エージェントは、次の 3 つのステップに従います。
+Cada agente de robótica creado en la API de Live sigue tres pasos:
 
-1. **ロボットの機能をツールとして宣言します。**ロボットが実行できる各アクション（移動、把握、発話）は、名前、説明、パラメータ スキーマを持つ関数宣言になります。物理アクションでは、
-   `"behavior": "BLOCKING"` を使用する必要があります。これにより、モデルはロボットが完了するまで待ってから
-   次のステップを選択します。
-2. **マルチモーダル入力を永続的なセッションにストリーミングします。**`live.connect` セッションを開き、タスクの実行中は開いたままにします。ロボットのセンサーから到着した動画フレーム、音声、テキストを送信します。
-3. **受信ループでツール呼び出しを処理します。**モデルがアクションを選択するたびに、`tool_call` メッセージが送信されます。受信ループは、ロボット SDK に対して関数を実行し、`tool_response` を返します。セッションは開いたままになり、モデルは結果に基づいて次のアクションを選択します。
+1. **Declara las capacidades del robot como herramientas.** Cada acción que puede realizar el robot (navegar, agarrar, hablar) se convierte en una declaración de función con un nombre, una descripción y un esquema de parámetros. Las acciones físicas deben usar
+   `"behavior": "BLOCKING"` para que el modelo espere a que el robot termine antes de
+   elegir el siguiente paso.
+2. **Transmite la entrada multimodal a una sesión persistente.** Abre una sesión de `live.connect` y mantenla abierta durante la vida útil de la tarea. Envía fotogramas de video, audio o texto a medida que llegan de los sensores del robot.
+3. **Controla las llamadas a herramientas en un bucle de recepción.** Cada vez que el modelo selecciona una acción, envía un mensaje `tool_call`. Tu bucle de recepción ejecuta la función en el SDK del robot y envía una `tool_response`. La sesión permanece abierta y el modelo elige la siguiente acción según el resultado.
 
-以降のセクションでは、これらのステップを 3 つの一般的なパターン（ベースライン エージェント ループ、ハートビートを使用したプロアクティブなシーン モニタリング、ツールとしての TTS を介した音声のルーティング）に適用する方法について説明します。
+En las siguientes secciones, se muestra cómo aplicar estos pasos a tres patrones comunes: un bucle de agente de línea de base, la supervisión proactiva de escenas con un latido y el enrutamiento de voz a través de TTS como herramienta.
 
-## 関数呼び出しでロボットをオーケストレートする
+## Organiza un robot a través de llamadas a funciones
 
-次の例は、3 つのステップすべてを 1 つの Python スクリプトにまとめたものです。
+En el siguiente ejemplo, se muestran los tres pasos conectados en una sola secuencia de comandos de Python.
 
-ステップ 1（ツールの定義）では、ロボットの機能を関数宣言として宣言します。`navigate` 関数は `"behavior": "BLOCKING"` を使用するため、
-モデルはロボットがウェイポイントに到達するまで待ってから別のツールを呼び出します。
-同じリストに関数宣言を追加して、ロボットの追加機能を公開します。
+El paso 1 (definiciones de herramientas) declara las capacidades del robot como declaraciones de funciones. La `navigate` función usa `"behavior": "BLOCKING"` para que el
+modelo espere a que el robot llegue al punto de referencia antes de llamar a otra herramienta.
+Agrega más declaraciones de funciones en la misma lista para exponer capacidades adicionales del robot.
 
-ステップ 2（入力ヘルパー）では、さまざまなモダリティ入力をセッションにストリーミングする 3 つの関数を示します。`send_text` はコマンド用、`send_image` はカメラフレーム用（テキスト プロンプトは省略可）、`send_audio` はマイクからの RAW PCM 音声用です。
+El paso 2 (helpers de entrada) muestra tres funciones que transmiten diferentes entradas de modalidad a la sesión: `send_text` para comandos, `send_image` para fotogramas de cámara con una instrucción de texto opcional y `send_audio` para audio PCM sin procesar de un micrófono.
 
-ステップ 3（受信ループ）は同時に実行され、`server_content` メッセージ（モデルのテキスト出力）と `tool_call` メッセージ（ロボット アクションをリクエストするモデル）の 2 種類のメッセージを処理します。ツール呼び出しが到着すると、ループは `execute_tool`（実際のロボット SDK に置き換えるスタブ）を呼び出し、`tool_response` を返して、モデルが次のアクションを選択できるようにします。
+El paso 3 (el bucle de recepción) se ejecuta de forma simultánea y controla dos tipos de mensajes: mensajes `server_content` (la salida de texto del modelo) y mensajes `tool_call` (el modelo que solicita una acción del robot). Cuando llega una llamada a herramienta, el bucle llama a `execute_tool` (un código auxiliar que reemplazas por el SDK real del robot) y, luego, envía una `tool_response` para que el modelo pueda seleccionar la siguiente acción.
 
 ```
 import asyncio
@@ -171,18 +171,19 @@ async def main():
 asyncio.run(main())
 ```
 
-受信ループは、各ツール レスポンスの後もアクティブなままです。モデルは、アクション シーケンス全体を事前にエンコードすることなく、長期的な計画を構築して修正します。
+El bucle de recepción permanece activo después de cada respuesta de la herramienta. El modelo construye y revisa un plan de horizonte largo sin que codifiques toda la secuencia de acciones con anticipación.
 
-## プロアクティブな空間的および時間的推論
+## Razonamiento espacio-temporal proactivo
 
-Live API は動画をストリーミングしますが、動画フレームだけでは新しい推論ターンはトリガーされません。モデル レスポンスをトリガーするには、動画フレームにテキストまたは音声プロンプトを添える必要があります。詳細については、
-[Live API の機能](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ja)をご覧ください。
+La API de Live transmite video, pero los fotogramas de video por sí solos no activan un nuevo turno de razonamiento. Los fotogramas de video deben ir acompañados de una instrucción de texto o audio para activar una respuesta del modelo. Consulta las capacidades de la API de
+[Live](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=es-419) para
+obtener más detalles.
 
-プロアクティブな推論を有効にするには、**ハートビート** を実装します。
-最新のカメラフレームを定期的に送信し、その後に短いテキスト プロンプトを送信して、モデルに
-シーンを検査して明示的な決定を下させます。動画入力は 1 秒あたり 1 フレームにレート制限されます。
+Para habilitar el razonamiento proactivo, implementa un **latido**: envía periódicamente el
+fotograma de cámara más reciente seguido de una instrucción de texto breve que obliga al modelo a
+inspeccionar la escena y tomar una decisión explícita. La entrada de video tiene una limitación de velocidad de un fotograma por segundo.
 
-前のセクションの受信ループとともに、このコルーチンを追加します。同じセッションで別の `asyncio` タスクとして実行されます。
+Agrega esta corrutina junto con el bucle de recepción de la sección anterior. Se ejecuta como una tarea `asyncio` independiente en la misma sesión:
 
 ```
 async def heartbeat(session, camera):  # camera is your robot camera API
@@ -203,22 +204,25 @@ async def heartbeat(session, camera):  # camera is your robot camera API
         await asyncio.sleep(1)
 ```
 
-ロボット アクション中にハートビートを一時停止する必要はありません。**暗黙的な成功検出機能**として使用すると、実行中のアクションをモデルが継続的に
-観察し（把握が安全かどうか、注ぎ込みがターゲット上にあるかどうか、オブジェクトが正しく配置されているかどうかをトラッキング）、結果が明確になった瞬間に反応できます。
+No es necesario pausar el latido durante las acciones del robot. Cuando se usa como un
+**detector de éxito implícito**, mantenerlo en ejecución permite que el modelo
+observe continuamente la acción en curso (hacer un seguimiento de si un agarre es seguro, si un vertido
+está en el objetivo o si un objeto se está asentando correctamente) y reaccione en el momento en que el
+resultado se vuelva claro.
 
-ハートビート メッセージはユーザーターンとして機能し、進行中のモデル生成を中断します。
-Live API がこの動作を処理する方法については、
-[中断に関する Live API ガイド](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ja#interruptions)
-をご覧ください。
+Los mensajes de latido actúan como turnos de usuario y interrumpen la generación de modelos en curso.
+Consulta la
+[guía de la API de Live sobre interrupciones](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=es-419#interruptions)
+para comprender cómo la API de Live controla este comportamiento.
 
-## 外部 TTS によるオーディオ出力
+## Salida de audio a través de TTS externo
 
-Gemini Robotics ER 2 はテキストを返します。アプリケーションは、挿入されたコールバックを介して、完了したレスポンス
-を別の TTS プロバイダ（
-[Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)など）にルーティングします。
-これにより、音声のレイテンシ、音声の選択、中断動作を制御し、エージェント ロジックを変更せずに TTS バックエンドを切り替えることができます。
+Gemini Robotics ER 2 muestra texto. Tu aplicación enruta las respuestas completadas
+a un proveedor de TTS independiente (como
+[Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)) a través de una devolución de llamada insertada.
+Esto mantiene bajo tu control la latencia de voz, la selección de voz y el comportamiento de interrupción, y te permite intercambiar backends de TTS sin cambiar la lógica del agente.
 
-TTS をツールとして宣言して、モデルが「何か言って」を「アームを動かして」と同じように扱うこともできます。 最初のセクションの `tools` リストに次の関数宣言を追加します。
+También puedes declarar TTS como una herramienta para que el modelo trate "decir algo" de la misma manera que "mover el brazo". Agrega la siguiente declaración de función a tu lista `tools` de la primera sección:
 
 ```
 TOOLS = [
@@ -248,26 +252,26 @@ TOOLS = [
 ]
 ```
 
-TTS を関数宣言でラップすることで、モデルは他のロボット アクションと同じツール呼び出しパスで音声を処理します。アプリケーションは、挿入されたコールバックで呼び出しを完了します。
+Si encapsulas TTS en una declaración de función, el modelo controla la voz a través de la misma ruta de llamada a herramienta que cualquier otra acción del robot. Tu aplicación cumple con la llamada con una devolución de llamada insertada.
 
-## GitHub の例
+## Ejemplos en GitHub
 
-Spot ロボットのスナック取得デモや Tinybot
-パン / チルト Hello World など、実際の動作例については、
-[Robotics Live API の例をご覧ください](https://github.com/google-gemini/robotics-samples/tree/main/live-api)。
+Para obtener ejemplos prácticos completos, incluida la demostración de búsqueda de bocadillos del robot Spot y el saludo de Tinybot
+con movimiento horizontal y vertical, consulta
+[los ejemplos de la API de Live de Robotics](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
 
-## 次のステップ
+## ¿Qué sigue?
 
-- [動画理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja) - 瞬間検出と進捗状況の分類。
-- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - ストリーミングなしの長期的なタスク。
-- [Live API の概要](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ja) - Live API の完全なドキュメント。
+- [Comprensión de video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=es-419): Búsqueda de momentos y clasificación de progreso
+- [Organización de tareas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=es-419): Tareas de horizonte largo sin transmisión
+- [Descripción general de la API de Live](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=es-419): Documentación completa de la API de Live
 
-フィードバックを送信
+Enviar comentarios
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-最終更新日 2026-07-31 UTC。
+Última actualización: 2026-07-31 (UTC)
 
-ご意見をお聞かせください
+¿Quieres brindar más información?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-31 UTC。"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-31 (UTC)"],[],[]]

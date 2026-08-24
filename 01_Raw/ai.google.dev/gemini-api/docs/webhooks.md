@@ -1,46 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=vi
-fetched_at: 2026-08-17T02:26:46.319349+00:00
-title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=de
+fetched_at: 2026-08-24T02:20:06.090750+00:00
+title: "Webhooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Gửi ý kiến phản hồi
+Feedback geben
 
-# Webhook
+# Webhooks
 
-Webhook cho phép Gemini API gửi thông báo theo thời gian thực đến máy chủ của bạn khi các Thao tác không đồng bộ hoặc Thao tác kéo dài (LRO) hoàn tất. Điều này giúp bạn không cần phải thăm dò API để biết thông tin cập nhật về trạng thái, giảm độ trễ và chi phí.
+Mit Webhooks kann die Gemini API Echtzeitbenachrichtigungen an Ihren Server senden, wenn asynchrone oder lang andauernde Vorgänge (Long-Running Operations, LROs) abgeschlossen sind. Dadurch entfällt die Notwendigkeit, die API nach Statusaktualisierungen abzufragen, was die Latenz und den Aufwand reduziert.
 
-Webhook có sẵn cho các thao tác như [Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) jobs (Công việc hàng loạt), [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) (Tương tác) và [video generation](https://ai.google.dev/gemini-api/docs/video?hl=vi) (tạo video).
+Webhooks sind für Vorgänge wie [Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=de) jobs,
+[Interaktionen](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) und [Videogenerierung](https://ai.google.dev/gemini-api/docs/video?hl=de) verfügbar.
 
-## Cách hoạt động
+## Funktionsweise
 
-Thay vì liên tục thăm dò `GET /operations` để kiểm tra xem một công việc đã hoàn tất hay chưa, bạn có thể định cấu hình Webhook của Gemini API để gửi yêu cầu POST qua HTTP đến URL trình nghe của bạn ngay khi có sự kiện kích hoạt.
+Anstatt `GET /operations` wiederholt abzufragen, um zu prüfen, ob ein Job abgeschlossen ist, können Sie Gemini API-Webhooks so konfigurieren, dass bei einem Ereignistrigger sofort eine HTTP-POST-Anfrage an Ihre Listener-URL gesendet wird.
 
-Gemini API hỗ trợ 2 cách định cấu hình webhook:
+Die Gemini API unterstützt zwei Möglichkeiten zum Konfigurieren von Webhooks:
 
-- [**Webhook tĩnh**](#static-webhooks): Các điểm cuối ở cấp dự án được định cấu hình bằng [Gemini WebhookService API](https://ai.google.dev/api?hl=vi). Phù hợp với các hoạt động tích hợp trên toàn cầu (ví dụ: thông báo cho Slack, đồng bộ hoá cơ sở dữ liệu, v.v.).
-- [**Webhook động**](#dynamic-webhooks): Các chế độ ghi đè ở cấp yêu cầu sẽ truyền một URL webhook trong tải trọng cấu hình của một lệnh gọi công việc cụ thể. Lý tưởng cho việc định tuyến các công việc cụ thể đến các điểm cuối chuyên dụng.
+- [**Statische Webhooks**](#static-webhooks): Endpunkte auf Projektebene, die mit der Gemini [WebhookService API](https://ai.google.dev/api?hl=de) konfiguriert wurden. Gut für globale Integrationen (z.B. Benachrichtigung von Slack, Synchronisierung einer Datenbank usw.).
+- [**Dynamische Webhooks**](#dynamic-webhooks): Überschreibungen auf Anfrageebene, bei denen eine
+  Webhook-URL in der Konfigurationsnutzlast eines bestimmten Jobaufrufs übergeben wird. Ideal, um bestimmte Jobs an dedizierte Endpunkte weiterzuleiten.
 
-## Webhook tĩnh
+## Statische Webhooks
 
-Webhook tĩnh được đăng ký cho toàn bộ [dự án](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) và kích hoạt cho mọi sự kiện trùng khớp.
+Statische Webhooks werden für ein ganzes [Projekt](https://ai.google.dev/gemini-api/docs/api-key?hl=de#google-cloud-projects) registriert und werden für jedes übereinstimmende
+Ereignis ausgelöst.
 
-### Tạo webhook
+### Webhook erstellen
 
-Bạn có thể tạo điểm cuối bằng SDK hoặc API REST.
+Sie können Endpunkte mit dem SDK oder der REST API erstellen.
 
-**QUAN TRỌNG**: Khi tạo một webhook, API chỉ trả về **khoá bí mật ký**
-**một lần**. Bạn phải lưu trữ khoá này một cách an toàn (ví dụ: trong các biến môi trường) để xác minh chữ ký sau này. Nếu mất khoá bí mật để ký, bạn sẽ phải [xoay vòng](#rotate-signing-secret) khoá đó.
+**WICHTIG**: Beim Erstellen eines Webhooks gibt die API
+**nur einmal** ein **Signatur-Secret** zurück. Sie müssen dieses Secret sicher speichern (z.B. in Ihren Umgebungsvariablen), um Signaturen später zu prüfen. Wenn Sie das Signatur-Secret verlieren, müssen Sie es
+[rotieren](#rotate-signing-secret)
 
 ### Python
 
@@ -96,11 +100,12 @@ curl -X POST \
   }'
 ```
 
-Để biết thông tin chi tiết về cách thiết lập máy chủ để nhận dữ liệu, hãy xem phần [Xử lý các yêu cầu webhook](#handle-webhook-requests).
+Weitere Informationen zum Einrichten Ihres Servers für den Empfang von Daten finden Sie im
+[Abschnitt Webhook-Anfragen verarbeiten](#handle-webhook-requests).
 
-### Nhận webhook
+### Webhook abrufen
 
-Truy xuất thông tin chi tiết về một webhook cụ thể theo tên tài nguyên của webhook đó.
+Rufen Sie Details zu einem bestimmten Webhook anhand seines Ressourcennamens ab.
 
 ### Python
 
@@ -142,9 +147,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Liệt kê webhook
+### Webhooks auflisten
 
-Liệt kê tất cả webhook đã định cấu hình cho dự án hiện tại, có thể phân trang.
+Listen Sie alle konfigurierten Webhooks für das aktuelle Projekt auf, optional mit Paginierung.
 
 ### Python
 
@@ -185,9 +190,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Cập nhật webhook
+### Webhook aktualisieren
 
-Cập nhật các thuộc tính của webhook hiện có, chẳng hạn như tên hiển thị, URI mục tiêu hoặc các sự kiện đã đăng ký.
+Aktualisieren Sie die Eigenschaften eines vorhandenen Webhooks, z. B. den Anzeigenamen, die Ziel-URI oder die abonnierten Ereignisse.
 
 ### Python
 
@@ -237,9 +242,9 @@ curl -X PATCH \
   }'
 ```
 
-### Xoá webhook
+### Webhook löschen
 
-Xoá một điểm cuối webhook khỏi dự án. Thao tác này sẽ dừng việc gửi các sự kiện trong tương lai đến điểm cuối đó.
+Entfernen Sie einen Webhook-Endpunkt aus dem Projekt. Dadurch werden zukünftige Ereignisübermittlungen an diesen Endpunkt beendet.
 
 ### Python
 
@@ -277,11 +282,12 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Xoay vòng khoá bí mật ký
+### Signatur-Secret rotieren
 
-Xoay vòng khoá bí mật ký cho webhook. Bạn có thể định cấu hình xem các bí mật đã hoạt động trước đó có bị thu hồi ngay lập tức hay sau thời gian gia hạn 24 giờ.
+Rotieren Sie das Signatur-Secret für einen Webhook. Sie können konfigurieren, ob zuvor aktive Secrets sofort oder nach einer Kulanzfrist von 24 Stunden widerrufen werden.
 
-**QUAN TRỌNG**: Khoá bí mật ký mới chỉ được trả về **một lần** tại thời điểm xoay vòng. Hãy lưu trữ khoá này một cách an toàn trước khi cập nhật logic xác minh.
+**WICHTIG**: Das neue Signatur-Secret wird **nur einmal** zum Zeitpunkt der Rotation
+zurückgegeben. Speichern Sie es sicher, bevor Sie Ihre Prüflogik aktualisieren.
 
 ### Python
 
@@ -334,13 +340,14 @@ curl -X POST \
   }'
 ```
 
-### Xử lý các yêu cầu webhook trên máy chủ
+### Webhook-Anfragen auf einem Server verarbeiten
 
-Khi một sự kiện mà bạn đã đăng ký xảy ra, URL webhook của bạn sẽ nhận được một yêu cầu HTTP POST. Điểm cuối của bạn phải phản hồi bằng mã trạng thái 2xx trong vòng vài giây để tránh thử lại. Để đảm bảo việc phân phối, Gemini API sẽ tự động thử lại các yêu cầu không thành công trong 24 giờ bằng cách sử dụng thuật toán thời gian đợi luỹ thừa.
+Wenn ein Ereignis eintritt, für das Sie sich angemeldet haben, empfängt Ihre Webhook-URL eine HTTP-POST-Anfrage. Ihr Endpunkt muss innerhalb weniger Sekunden mit einem 2xx-Statuscode antworten, um einen Wiederholungsversuch zu vermeiden. Um die Zustellung zu gewährleisten, wiederholt die Gemini API fehlgeschlagene Anfragen 24 Stunden lang automatisch mit exponentiellem Backoff.
 
-Gemini tuân thủ nghiêm ngặt quy cách [Standard Webhooks](https://github.com/standard-webhooks/standard-webhooks) (Webhook tiêu chuẩn) đối với tiêu đề bảo mật. Xác minh tải trọng trên máy chủ bằng cách sử dụng chữ ký tiêu đề đã ký và khoá bí mật ký tĩnh đã lưu trữ. Hãy xem phần [Gói webhook](#webhook-envelope) để biết thông tin về tải trọng.
+Gemini folgt strikt der [Spezifikation für Standard-Webhooks](https://github.com/standard-webhooks/standard-webhooks) für
+Sicherheitsheader. Prüfen Sie die Nutzlast auf Ihrem Server mit den Signaturen der signierten Header und Ihrem gespeicherten statischen Signatur-Secret. Informationen zur Nutzlast finden Sie im Abschnitt [Webhook-Umschlag](#webhook-envelope).
 
-Sau đây là ví dụ sử dụng Flask cho trình nghe HTTP:
+Hier ist ein Beispiel mit Flask für den HTTP-Listener:
 
 ### Python
 
@@ -433,13 +440,14 @@ app.listen(8000, () => {
 });
 ```
 
-## Webhook động
+## Dynamische Webhooks
 
-Webhook động cho phép bạn liên kết một điểm cuối webhook với một **cấu hình yêu cầu cụ thể**, phù hợp với các hàng đợi điều phối tác nhân. Webhook động tận dụng chữ ký JWKS khoá công khai bất đối xứng thay vì các bí mật đối xứng.
+Mit dynamischen Webhooks können Sie einen Webhook-Endpunkt an eine **bestimmte Anfrage
+konfiguration** binden, was ideal für Agent-Orchestrierungs-Warteschlangen ist. Dynamische Webhooks verwenden asymmetrische JWKS-Signaturen mit öffentlichen Schlüsseln anstelle von symmetrischen Secrets.
 
-### Gửi yêu cầu linh hoạt
+### Dynamische Anfrage senden
 
-Thêm một `webhook_config` khi kích hoạt một công việc không đồng bộ (ví dụ: tạo một Batch).
+Fügen Sie beim Auslösen eines asynchronen Jobs (z.B. beim Erstellen eines Batchjobs) eine `webhook_config` hinzu.
 
 ### Python
 
@@ -508,9 +516,11 @@ curl -X POST \
   }'
 ```
 
-### Xác minh chữ ký động (JWKS)
+### Dynamische Signaturen prüfen (JWKS)
 
-Các yêu cầu webhook động phát ra chữ ký Mã thông báo web JSON (JWT). Trình nghe của bạn phải trích xuất chữ ký và xác minh chữ ký đó bằng cách sử dụng [các điểm cuối chứng chỉ công khai của Google](https://www.googleapis.com/oauth2/v3/certs).
+Dynamische Webhook-Anfragen geben eine JSON Web Token-Signatur (JWT) aus. Ihr Listener
+muss die Signatur extrahieren und mit den [öffentlichen Zertifikat
+Endpunkten](https://www.googleapis.com/oauth2/v3/certs) von Google prüfen.
 
 ### Python
 
@@ -611,11 +621,11 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 });
 ```
 
-## Phong bì webhook
+## Webhook-Umschlag
 
-Để tránh tình trạng tắc nghẽn băng thông, webhook của Gemini sử dụng mô hình **tải trọng mỏng** để phân phối dữ liệu. Các lượt phân phối sẽ gửi một ảnh chụp nhanh chứa thông tin chi tiết về trạng thái và con trỏ đến kết quả, thay vì chính tệp đầu ra thô.
+Um eine Überlastung der Bandbreite zu vermeiden, verwenden Gemini-Webhooks ein Modell mit **geringer Nutzlast** , um Daten zu liefern. Bei -Übermittlungen wird ein Snapshot mit Statusdetails und Verweisen auf die Ergebnisse gesendet, nicht die Rohausgabedatei selbst.
 
-Sau đây là ví dụ về định dạng tải trọng:
+Hier ist ein Beispiel für das Nutzlastformat:
 
 ```
 {
@@ -629,40 +639,42 @@ Sau đây là ví dụ về định dạng tải trọng:
 }
 ```
 
-## Tài liệu tham khảo về danh mục sự kiện
+## Referenz zum Ereigniskatalog
 
-Các sự kiện sau đây được kích hoạt cho các công việc hỗ trợ:
+Die folgenden Ereignisse werden für unterstützende Jobs ausgelöst:
 
-| Loại sự kiện | Trigger | Mục tải trọng (`data`) |
+| Ereignistyp | Trigger | Nutzlastelement (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | Đã xử lý xong. | `id`, `output_file_uri` |
-| `batch.cancelled` | Người dùng đã huỷ yêu cầu | `id` |
-| `batch.expired` | Lô chưa được xử lý (hoàn tất) trong khung thời gian 24 giờ | `id` |
-| `batch.failed` | Thao tác hàng loạt không thành công (lỗi hệ thống hoặc lỗi xác thực). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Lệnh gọi hàm, người dùng cần làm gì đó | `id` |
-| `interaction.completed` | LRO trong API tương tác đã thành công | `id` |
-| `interaction.failed` | LRO trong API tương tác không thành công (lỗi hệ thống hoặc lỗi xác thực). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | LRO trong API tương tác bị huỷ | `id` |
-| `video.generated` | Đã hoàn tất LRO tạo video. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | Die Verarbeitung wurde erfolgreich abgeschlossen. | `id`, `output_file_uri` |
+| `batch.cancelled` | Nutzer hat die Anfrage abgebrochen | `id` |
+| `batch.expired` | Batch wurde nicht innerhalb von 24 Stunden verarbeitet (abgeschlossen) | `id` |
+| `batch.failed` | Batchjob ist fehlgeschlagen (System- oder Validierungsfehler). | `id`, `error_code`, `error_message` |
+| `interaction.requires_action` | Funktionsaufruf, Nutzer muss etwas tun | `id` |
+| `interaction.completed` | LRO in der Interactions API erfolgreich | `id` |
+| `interaction.failed` | LRO in der Interactions API ist fehlgeschlagen (System- oder Validierungsfehler). | `id`, `error_code`, `error_message` |
+| `interaction.cancelled` | LRO in der Interactions API abgebrochen | `id` |
+| `video.generated` | LRO für die Videogenerierung abgeschlossen. | `id`, `output_file_uri`, `file_name` |
 
-## Các phương pháp hay nhất
+## Best Practices
 
-Để đảm bảo hoạt động đáng tin cậy và có khả năng mở rộng:
+So sorgen Sie für einen zuverlässigen und skalierbaren Betrieb:
 
-- **Kiểm tra nghiêm ngặt khả năng bảo vệ chống phát lại**: Tất cả các yêu cầu đều có một tiêu đề `webhook-timestamp`. Luôn xác thực dấu thời gian này trên lớp cấu hình máy chủ để từ chối các tải trọng cũ hơn **5 phút** (để giảm thiểu các cuộc tấn công phát lại).
-- **Xử lý không đồng bộ**: Phản hồi bằng `2xx OK` ngay khi phát hiện chữ ký hợp lệ và xếp hàng các thao tác phân tích cú pháp nội bộ. Thời gian giữ máy của người nghe quá lâu sẽ kích hoạt một chu kỳ thử lại việc gửi.
-- **Xử lý việc loại bỏ dữ liệu trùng lặp**: Webhook tiêu chuẩn phân phối "Ít nhất một lần". Sử dụng tiêu đề `webhook-id` nhất quán để xử lý các bản sao tiềm ẩn trong các luồng tắc nghẽn cao hơn.
+- **Strenge Prüfung zum Schutz vor Replay-Angriffen**: Alle Anfragen enthalten einen `webhook-timestamp`
+  Header. Prüfen Sie diesen Zeitstempel immer auf der Konfigurationsebene Ihres Servers, um Nutzlasten abzulehnen, die älter als **5 Minuten** sind (um Replay-Angriffe zu verhindern).
+- **Asynchron verarbeiten**: Antworten Sie sofort mit `2xx OK`, wenn eine gültige
+  Signatur erkannt wird, und stellen Sie Parsing-Vorgänge intern in die Warteschlange. Längere Listener-Wartezeiten lösen einen Wiederholungszyklus für die Zustellung aus.
+- **Deduplizierung**: Standard-Webhooks liefern mindestens einmal. Verwenden Sie den konsistenten `webhook-id`-Header, um potenzielle Duplikate bei höherer Überlastung zu verarbeiten.
 
-## Tiếp theo là gì?
+## Nächste Schritte
 
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=vi): Sử dụng webhook để tự động hoá các điểm cuối có số lượng lớn.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=de): Nutzen Sie Webhooks, um Endpunkte mit hohem Volumen zu automatisieren.
 
-Gửi ý kiến phản hồi
+Feedback geben
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Haben Sie Feedback für uns?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

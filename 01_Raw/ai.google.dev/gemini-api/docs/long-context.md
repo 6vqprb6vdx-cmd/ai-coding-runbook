@@ -1,182 +1,155 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=pt-BR
-fetched_at: 2026-08-17T02:27:32.247568+00:00
-title: "Contexto longo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=it
+fetched_at: 2026-08-24T02:27:32.557323+00:00
+title: "Contesto lungo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envie comentários
+Invia feedback
 
-# Contexto longo
+# Contesto lungo
 
-Muitos modelos do Gemini vêm com janelas de contexto grandes de 1 milhão ou mais tokens.
-Historicamente, os modelos de linguagem grandes (LLMs) estavam significativamente limitados pela quantidade de texto (ou tokens) que poderiam ser transmitidos ao modelo de uma só vez.
-A janela de contexto longo do Gemini libera muitos novos casos de uso e paradigmas de desenvolvedor.
+Molti modelli Gemini sono dotati di finestre contestuali di grandi dimensioni, con 1 milione o più token.
+Storicamente, i modelli linguistici di grandi dimensioni (LLM) erano notevolmente limitati dalla quantità di testo (o token) che poteva essere passata al modello contemporaneamente.
+La finestra contestuale lunga di Gemini sblocca molti nuovi casi d'uso e paradigmi per gli sviluppatori.
 
-O código que você já usa para casos como [text
-generation](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br) ou [multimodal
-inputs](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br) vai funcionar sem mudanças com contexto longo.
+Il codice che utilizzi già per casi come la [generazione](https://ai.google.dev/gemini-api/docs/text-generation?hl=it) di
+testo
+o gli [input](https://ai.google.dev/gemini-api/docs/vision?hl=it)
+multimodali
+funzionerà senza modifiche con il contesto lungo.
 
-Este documento oferece uma visão geral do que você pode alcançar usando modelos com janelas de contexto de 1 milhão ou mais tokens. A página oferece uma breve visão geral de uma janela de contexto e explica como os desenvolvedores devem pensar sobre o contexto longo, vários casos de uso reais para contexto longo e maneiras de otimizar o uso do contexto longo.
+Questo documento fornisce una panoramica di ciò che puoi ottenere utilizzando modelli con finestre contestuali di 1 milione o più token. La pagina fornisce una breve panoramica di una finestra contestuale ed esplora il modo in cui gli sviluppatori dovrebbero pensare al contesto lungo, a vari casi d'uso reali per il contesto lungo e ai modi per ottimizzare l'utilizzo del contesto lungo.
 
-Para os tamanhos da janela de contexto de modelos específicos, consulte a
-[página Modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
+Per le dimensioni della finestra contestuale di modelli specifici, consulta la
+[pagina Modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
 
-## O que é uma janela de contexto?
+## Cos'è una finestra contestuale?
 
-A maneira básica de usar os modelos do Gemini é transmitindo informações (contexto) ao modelo, que vai gerar uma resposta. Uma analogia com a janela de contexto é a memória de curto prazo. Há uma quantidade limitada de informações
-que podem ser armazenadas na memória de curto prazo, e o mesmo vale para
-modelos generativos.
+Il modo di base in cui utilizzi i modelli Gemini consiste nel passare informazioni (contesto) al modello, che successivamente genererà una risposta. Una finestra contestuale è analoga alla memoria a breve termine. La quantità di informazioni che può essere memorizzata nella memoria a breve termine di una persona è limitata, così come per i modelli generativi.
 
-Leia mais sobre como os modelos funcionam no nosso [guia de modelos
-generativos](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br#under-the-hood).
+Puoi scoprire di più sul funzionamento dei modelli nel nostro [documento sui modelli generativi
+guide](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it#under-the-hood).
 
-## Introdução ao contexto longo
+## Inizia a utilizzare il contesto lungo
 
-As versões anteriores de modelos generativos só conseguiam processar 8.000 tokens de uma vez. Os modelos mais recentes avançaram ainda mais, aceitando 32.000 ou até 128.000 tokens. O Gemini é o primeiro modelo capaz de aceitar 1 milhão de tokens.
+Le versioni precedenti dei modelli generativi erano in grado di elaborare solo 8000 token alla volta. I modelli più recenti hanno spinto questo limite accettando 32.000 o persino 128.000 token. Gemini è il primo modello in grado di accettare 1 milione di token.
 
-Na prática, 1 milhão de tokens seria:
+In pratica, 1 milione di token sarebbero:
 
-- 50.000 linhas de código (com o padrão de 80 caracteres por linha)
-- Todas as mensagens de texto que você enviou nos últimos cinco anos
-- 8 romances ingleses de tamanho médio
-- Transcrição de mais de 200 episódios de podcast de duração média
+- 50.000 righe di codice (con gli 80 caratteri standard per riga)
+- Tutti gli SMS che hai inviato negli ultimi 5 anni
+- 8 romanzi in inglese di lunghezza media
+- Trascrizioni di oltre 200 puntate di podcast di lunghezza media
 
-As janelas de contexto mais limitadas comuns em muitos outros modelos geralmente exigem estratégias como descartar arbitrariamente mensagens antigas, resumir conteúdo, usar RAG com bancos de dados vetoriais ou filtrar comandos para salvar tokens.
+Le finestre contestuali più limitate comuni in molti altri modelli spesso richiedono strategie come l'eliminazione arbitraria di messaggi precedenti, il riepilogo dei contenuti, l'utilizzo di RAG con database vettoriali o il filtraggio dei prompt per salvare i token.
 
-Embora essas técnicas continuem valiosas em cenários específicos, a extensa janela de contexto do Gemini convida a uma abordagem mais direta: fornecer todas as informações relevantes antecipadamente. Como os modelos do Gemini foram criados especificamente com recursos de contexto enormes, eles demonstram um aprendizado poderoso no contexto. Por
-exemplo, usando apenas materiais instrucionais no contexto (uma gramática de referência de 500 páginas, um dicionário e cerca de 400 frases paralelas), o Gemini
-[aprendeu a traduzir](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
-do inglês para o Kalamang (um idioma papuano com menos de 200 falantes) com qualidade semelhante a um aluno humano usando os mesmos
-materiais. Isso ilustra a mudança de paradigma possibilitada pelo contexto longo do Gemini, capacitando novas possibilidades por meio de um aprendizado robusto no contexto.
+Sebbene queste tecniche rimangano preziose in scenari specifici, la finestra contestuale estesa di Gemini invita a un approccio più diretto: fornire in anticipo tutte le informazioni pertinenti. Poiché i modelli Gemini sono stati creati appositamente con funzionalità di contesto massicce, dimostrano un potente apprendimento in-context. Ad
+esempio, utilizzando solo materiali didattici in-context (una grammatica di riferimento di 500 pagine,
+un dizionario e circa 400 frasi parallele), Gemini
+[ha imparato a tradurre](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
+dall'inglese al kalamang, una lingua papuana con
+meno di 200 parlanti, con una qualità simile a quella di uno studente umano che utilizza gli stessi
+materiali. Questo illustra il cambio di paradigma reso possibile dal contesto lungo di Gemini, che offre nuove possibilità grazie a un solido apprendimento in-context.
 
-## Casos de uso de contexto longo
+## Casi d'uso del contesto lungo
 
-Embora o caso de uso padrão para a maioria dos modelos generativos ainda seja a entrada de texto, a família de modelos do Gemini possibilita um novo paradigma de casos de uso multimodais. Eles podem entender textos, vídeos, áudios e imagens de maneira nativa. Eles são
-acompanhados pela [API Gemini, que aceita tipos de arquivos multimodais
-por
-questões de comodidade.](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=pt-br)
+Sebbene il caso d'uso standard per la maggior parte dei modelli generativi sia ancora l'input di testo, la famiglia di modelli Gemini consente un nuovo paradigma di casi d'uso multimodali. Questi modelli possono comprendere in modo nativo testo, video, audio e immagini. Sono
+accompagnati dall'[API Gemini che accetta tipi di file multimodali
+per
+comodità.](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=it)
 
-### Texto longo
+### Testo in formato lungo
 
-O texto provou ser a camada de inteligência que sustenta grande parte do
-impulso em torno dos LLMs. Como mencionado anteriormente, grande parte da limitação prática dos
-LLMs se deve à falta de uma janela de contexto grande o suficiente para realizar determinadas
-tarefas. Isso levou à rápida adoção da geração aumentada de recuperação (RAG, na sigla em inglês) e outras técnicas que fornecem dinamicamente ao modelo informações contextuais. Agora, com janelas de contexto cada vez maiores, novas técnicas são disponibilizadas, o que possibilita novos casos de uso.
+Il testo si è dimostrato il livello di intelligence alla base di gran parte dello slancio intorno agli LLM. Come accennato in precedenza, gran parte della limitazione pratica degli LLM era dovuta al fatto di non avere una finestra contestuale sufficientemente grande per eseguire determinate attività. Ciò ha portato alla rapida adozione della generazione RAG (Retrieval Augmented Generation) e di altre tecniche che forniscono dinamicamente al modello informazioni contestuali pertinenti. Ora, con finestre contestuali sempre più grandi, sono disponibili nuove tecniche che sbloccano nuovi casi d'uso.
 
-Alguns casos de uso emergentes e padrão para contexto longo baseado em texto incluem o seguinte:
+Alcuni casi d'uso emergenti e standard per il contesto lungo basato su testo includono:
 
-- Resumir grandes corpus de texto
-  - As opções de resumo anteriores com modelos de contexto menores exigiam
-    uma janela deslizante ou outra técnica para manter o estado das seções anteriores
-    à medida que novos tokens eram transmitidos para o modelo.
-- Perguntas e respostas
-  - Historicamente, isso só era possível com o RAG, devido à quantidade limitada de
-    contexto e à baixa recuperação de fatos dos modelos.
-- Fluxos de trabalho agente
-  - O texto é a base de como os agentes mantêm o estado do que fizeram
-    e o que eles precisam fazer. Não ter informações suficientes sobre o mundo
-    e o objetivo do agente é uma limitação na confiabilidade dos agentes
+- Riassunto di grandi corpus di testo
+  - Le opzioni di riepilogo precedenti con modelli di contesto più piccoli richiederebbero una finestra scorrevole o un'altra tecnica per mantenere lo stato delle sezioni precedenti man mano che nuovi token vengono passati al modello
+- Domande e risposte
+  - Storicamente, ciò era possibile solo con RAG, data la quantità limitata di contesto e il richiamo fattuale dei modelli era basso
+- Workflow agentici
+  - Il testo è alla base del modo in cui gli agenti mantengono lo stato di ciò che hanno fatto e di ciò che devono fare; non avere informazioni sufficienti sul mondo e sull'obiettivo dell'agente è una limitazione dell'affidabilità degli agenti
 
-A [aprendizagem em contexto com muitas tentativas](https://arxiv.org/pdf/2404.11018) é um dos
-recursos mais exclusivos liberados pelos modelos de contexto longo. As pesquisas mostram
-que usar o exemplo de paradigma de "tentativa única" comum ou "muitas tentativas", em que
-o modelo é apresentado com um ou alguns exemplos de uma tarefa e escalonando-o até
-centenas, milhares ou mesmo centenas de milhares de exemplos, pode levar a
-novos recursos do modelo. Essa abordagem de várias fotos também apresentou um desempenho
-semelhante ao de modelos ajustados para uma tarefa específica. Para casos de uso
-em que a performance de um modelo do Gemini ainda não é suficiente para um lançamento
-em produção, tente a abordagem de várias tentativas. Como você pode explorar mais tarde
-na seção de otimização de contexto longo, o armazenamento em cache de contexto torna esse tipo de
-alta carga de trabalho de token de entrada muito mais viável e com latência ainda menor em alguns
-casos.
+[L'apprendimento in-context many-shot](https://arxiv.org/pdf/2404.11018) è una delle
+funzionalità più esclusive sbloccate dai modelli di contesto lungo. La ricerca ha dimostrato che l'adozione del paradigma di esempio comune "single shot" o "multi-shot", in cui al modello vengono presentati uno o pochi esempi di un'attività, e il suo aumento a centinaia, migliaia o persino centinaia di migliaia di esempi, può portare a nuove funzionalità del modello. È stato inoltre dimostrato che questo approccio many-shot ha un rendimento simile a quello dei modelli ottimizzati per un'attività specifica. Per i casi d'uso in cui il rendimento di un modello Gemini non è ancora sufficiente per un lancio in produzione, puoi provare l'approccio many-shot. Come potresti esplorare più avanti nella sezione sull'ottimizzazione del contesto lungo, la memorizzazione nella cache del contesto rende questo tipo di workload con token di input elevati molto più fattibile dal punto di vista economico e persino con una latenza inferiore in alcuni casi.
 
-### Vídeo mais longo
+### Video in formato lungo
 
-A utilidade do conteúdo de vídeo é, há muito tempo, limitada pela falta de acessibilidade
-da própria mídia. Era difícil ler o conteúdo, as transcrições muitas vezes não conseguiam capturar as nuances de um vídeo e a maioria das ferramentas não processava imagem, texto e áudio juntos. Com o Gemini, os recursos de texto de contexto longo se traduzem na capacidade de raciocinar e responder a perguntas sobre entradas multimodais com desempenho sustentável.
+L'utilità dei contenuti video è stata a lungo limitata dalla mancanza di accessibilità del mezzo stesso. Era difficile sfogliare i contenuti, le trascrizioni spesso non riuscivano a cogliere le sfumature di un video e la maggior parte degli strumenti non elabora immagini, testo e audio insieme. Con Gemini, le funzionalità di testo in contesto lungo si traducono nella capacità di ragionare e rispondere a domande su input multimodali con un rendimento costante.
 
-Alguns casos de uso emergentes e padrão para contexto de vídeo longo incluem:
+Alcuni casi d'uso emergenti e standard per il contesto lungo dei video includono:
 
-- Perguntas e respostas sobre vídeos
-- Memória de vídeo, como mostrado com o [Project Astra do Google](https://deepmind.google/technologies/gemini/project-astra/?hl=pt-br)
-- Legendas em vídeos
-- Sistemas de recomendação de vídeo, enriquecendo os metadados com nova
-  compreensão multimodal
-- Personalização de vídeo, analisando um conjunto de dados e metadados de vídeos associados e, em seguida, removendo partes dos vídeos que não são relevantes para o
-  leitor
-- Moderação de conteúdo em vídeo
-- Processamento de vídeo em tempo real
+- Domande e risposte sui video
+- Memoria video, come mostrato con [il progetto Astra di Google](https://deepmind.google/technologies/gemini/project-astra/?hl=it)
+- Sottotitolaggio video
+- Sistemi di consigli sui video, arricchendo i metadati esistenti con una nuova comprensione multimodale
+- Personalizzazione dei video, esaminando un corpus di dati e i metadati video associati e poi rimuovendo le parti dei video non pertinenti per lo spettatore
+- Moderazione dei contenuti video
+- Elaborazione video in tempo reale
 
-Ao trabalhar com vídeos, é importante considerar como os [vídeos são
-processados em tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br#media-token), o que afeta
-os limites de faturamento e uso. Saiba mais sobre comandos com arquivos de vídeo em
-o [Guia de comandos](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=pt-br#prompting-with-videos).
+Quando lavori con i video, è importante considerare come i [video vengono
+elaborati in token](https://ai.google.dev/gemini-api/docs/tokens?hl=it#media-token), il che influisce sulla
+fatturazione e sui limiti di utilizzo. Puoi scoprire di più sui prompt con i file video in
+la [guida ai prompt](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=it#prompting-with-videos).
 
-### Áudio de longa duração
+### Audio in formato lungo
 
-Os modelos do Gemini foram os primeiros modelos de linguagem grandes multimodais nativos que pudesse entender áudio. Historicamente, o fluxo de trabalho típico de um desenvolvedor envolveria unir vários modelos específicos de domínio, como um modelo de conversão de voz em texto e um modelo de texto para texto, a fim de processar o áudio. Isso levou a uma latência adicional necessária ao realizar várias solicitações de ida e volta e reduziu o desempenho, geralmente atribuído a arquiteturas desconexas da configuração de vários modelos.
+I modelli Gemini sono stati i primi modelli linguistici di grandi dimensioni nativamente multimodali in grado di comprendere l'audio. Storicamente, il workflow tipico degli sviluppatori prevedeva l'unione di più modelli specifici del dominio, come un modello di conversione della voce in testo e un modello da testo a testo, per elaborare l'audio. Ciò ha comportato una latenza aggiuntiva richiesta dall'esecuzione di più richieste di andata e ritorno e una riduzione del rendimento solitamente attribuita alle architetture disconnesse della configurazione di più modelli.
 
-Alguns casos de uso emergentes e padrão para contexto de áudio incluem o seguinte:
+Alcuni casi d'uso emergenti e standard per il contesto audio includono:
 
-- Transcrição e tradução em tempo real
-- Perguntas e respostas sobre podcasts / vídeos
-- Transcrição e resumo de reuniões
-- Assistentes por voz
+- Trascrizione e traduzione in tempo reale
+- Domande e risposte su podcast / video
+- Trascrizione e riepilogo delle riunioni
+- Assistenti vocali
 
-Saiba mais sobre comandos com arquivos de áudio em [Guia de comandos](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=pt-br#prompting-with-videos).
+Puoi scoprire di più sui prompt con i file audio nella [guida
+ai prompt](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=it#prompting-with-videos).
 
-## Otimizações de contexto longo
+## Ottimizzazioni del contesto lungo
 
-A otimização principal ao trabalhar com contexto longo e os modelos do Gemini
-é usar o armazenamento em cache de [contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br). Além da impossibilidade anterior de processar muitos tokens em uma única solicitação, a outra restrição principal era o custo. Se você tiver um app de "conversa com seus dados" em que um usuário
-carrega 10 PDFs, um vídeo e alguns documentos de trabalho, historicamente, você teria
-que trabalhar com uma ferramenta / framework de geração aumentada de recuperação (RAG) mais complexa para processar essas solicitações e pagar um valor significativo por
-tokens que foram movidos para a janela de contexto. Agora, é possível armazenar em cache os arquivos que o usuário envia e pagar para armazená-los por hora. O custo de entrada / saída por solicitação com o Gemini Flash, por exemplo, é cerca de 4 vezes menor do que o custo de entrada / saída padrão. Portanto, se o usuário conversar bastante com os dados, isso vai gerar uma grande economia de custos para você como desenvolvedor.
+L'ottimizzazione principale quando lavori con il contesto lungo e i modelli Gemini
+è l'utilizzo della memorizzazione nella cache del [contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it). Oltre alla precedente impossibilità di elaborare molti token in una singola richiesta, l'altro vincolo principale era il costo. Se hai un'app "Chatta con i tuoi dati" in cui un utente carica 10 PDF, un video e alcuni documenti di lavoro, in passato avresti dovuto lavorare con uno strumento/framework di generazione RAG (Retrieval Augmented Generation) più complesso per elaborare queste richieste e pagare un importo significativo per i token spostati nella finestra contestuale. Ora puoi memorizzare nella cache i file caricati dall'utente e pagare per archiviarli su base oraria. Il costo di input / output per richiesta con Gemini Flash, ad esempio, è circa 4 volte inferiore al costo di input / output standard, quindi se l'utente chatta abbastanza con i suoi dati, diventa un enorme risparmio sui costi per te come sviluppatore.
 
-## Limitações de contexto longo
+## Limitazioni del contesto lungo
 
-Em várias seções deste guia, falamos sobre como os modelos do Gemini alcançam alta performance em várias avaliações de recuperação de agulha no palheiro. Esses testes consideram a configuração mais básica, em que há apenas uma agulha que você está procurando. Nos casos em que você pode ter várias "agulhas" ou partes específicas de informações que está procurando, o modelo não tem o mesmo desempenho. A performance pode variar bastante dependendo do contexto. É importante considerar isso, pois há uma compensação inerente entre obter
-a recuperação de informações e custos corretos. Você pode receber cerca de 99% em uma única consulta, mas
-precisa pagar o custo do token de entrada sempre que enviar essa consulta. Portanto, para que 100 pedaços
-de informações sejam recuperadas, se você precisar de 99% de performance, provavelmente
-terá que enviar 100 solicitações. Este é um bom exemplo de quando o armazenamento em cache do contexto pode reduzir significativamente o custo associado ao uso de modelos do Gemini mantendo o alto desempenho.
+In varie sezioni di questa guida, abbiamo parlato di come i modelli Gemini raggiungono un rendimento elevato in varie valutazioni di recupero di un ago in un pagliaio. Questi test considerano la configurazione più semplice, in cui hai un singolo ago che stai cercando. Nei casi in cui potresti avere più "aghi" o informazioni specifiche che stai cercando, il modello non funziona con la stessa precisione. Il rendimento può variare notevolmente a seconda del contesto. È importante tenerlo presente perché esiste un compromesso intrinseco tra il recupero delle informazioni corrette e il costo. Puoi ottenere circa il 99% su una singola query, ma devi pagare il costo del token di input ogni volta che invii la query. Quindi, per recuperare 100 informazioni, se hai bisogno di un rendimento del 99%, probabilmente dovrai inviare 100 richieste. Questo è un buon esempio di dove la memorizzazione nella cache del contesto può ridurre significativamente il costo associato all'utilizzo dei modelli Gemini mantenendo un rendimento elevato.
 
-## Perguntas frequentes
+## Domande frequenti
 
-### Qual é o melhor lugar para colocar minha consulta na janela de contexto?
+### Qual è il posto migliore per inserire la query nella finestra contestuale?
 
-Na maioria dos casos, especialmente se o contexto total for longo, a performance do modelo será melhor se você colocar sua consulta / pergunta no final do comando (depois de todo o contexto).
+Nella maggior parte dei casi, soprattutto se il contesto totale è lungo, il rendimento del modello sarà migliore se inserisci la query / domanda alla fine del prompt (dopo tutto l'altro contesto).
 
-### Perco a performance do modelo quando adiciono mais tokens a uma consulta?
+### Perdo il rendimento del modello quando aggiungo altri token a una query?
 
-Em geral, se você não precisar que os tokens sejam transmitidos ao modelo, é melhor evitar a transmissão. No entanto, se você tiver um grande bloco de tokens com algumas informações e quiser fazer perguntas sobre essas informações, o modelo será altamente capaz de extrair essas informações (até 99% de precisão em muitos casos).
+In genere, se non hai bisogno che i token vengano passati al modello, è meglio evitarlo. Tuttavia, se hai un blocco di token di grandi dimensioni con alcune informazioni e vuoi porre domande su queste informazioni, il modello è in grado di estrarre queste informazioni (fino al 99% di accuratezza in molti casi).
 
-### Como posso reduzir meu custo com consultas de contexto longo?
+### Come posso ridurre i costi con le query di contesto lungo?
 
-Se você tiver um conjunto semelhante de tokens / contexto que queira reutilizar muitas
-vezes, [o armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br) poderá ajudar a reduzir os custos
-associados a perguntas sobre essas informações.
+[Se hai un insieme simile di token / contesto che vuoi riutilizzare più volte, la memorizzazione nella cache del contesto può aiutarti a ridurre i costi associati alla richiesta di informazioni su queste informazioni.](https://ai.google.dev/gemini-api/docs/caching?hl=it)
 
-### O tamanho do contexto afeta a latência do modelo?
+### La finestra contestuale influisce sulla latenza del modello?
 
-Há uma quantidade fixa de latência em qualquer solicitação, independentemente do tamanho, mas geralmente consultas mais longas têm maior latência (tempo para o primeiro token).
+Esiste una quantità fissa di latenza in qualsiasi richiesta, indipendentemente dalle dimensioni, ma in genere le query più lunghe avranno una latenza maggiore (tempo al primo token).
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-06-22 UTC.
+Ultimo aggiornamento 2026-06-22 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-22 UTC."],[],[]]

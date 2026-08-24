@@ -1,45 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=hi
-fetched_at: 2026-08-17T02:33:50.720193+00:00
-title: "Lyria RealTime \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0915\u0947, \u0930\u0940\u092f\u0932-\u091f\u093e\u0907\u092e \u092e\u0947\u0902 \u0938\u0902\u0917\u0940\u0924 \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi
+fetched_at: 2026-08-24T02:27:09.589346+00:00
+title: "T\u1ea1o nh\u1ea1c theo th\u1eddi gian th\u1ef1c b\u1eb1ng Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-# Lyria RealTime का इस्तेमाल करके, रीयल-टाइम में संगीत जनरेट करना
+# Tạo nhạc theo thời gian thực bằng Lyria RealTime
 
-Gemini API,
-[Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=hi) का इस्तेमाल करके, रीयल-टाइम में स्ट्रीमिंग के ज़रिए संगीत
-जनरेट करने वाले सबसे नए मॉडल का ऐक्सेस देता है. इससे डेवलपर ऐसे ऐप्लिकेशन बना सकते हैं जिनमें उपयोगकर्ता इंटरैक्टिव तरीके से, लगातार इंस्ट्रुमेंटल म्यूज़िक बना सकते हैं और उसे कंट्रोल कर सकते हैं.
+Gemini API, sử dụng [Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=vi), cung cấp quyền truy cập vào một mô hình tạo nhạc trực tuyến theo thời gian thực, hiện đại. Nó cho phép nhà phát triển xây dựng các ứng dụng mà người dùng có thể tương tác để tạo, điều khiển liên tục và biểu diễn nhạc cụ.
 
-Lyria RealTime की मदद से संगीत जनरेट करने के लिए, लगातार, दोनों दिशाओं में,
-कम-लेटेंसी वाला स्ट्रीमिंग कनेक्शन इस्तेमाल किया जाता है. इसके लिए,
-[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) का इस्तेमाल किया जाता है.
+Tính năng tạo nhạc theo thời gian thực của Lyria sử dụng một kết nối truyền phát trực tiếp liên tục, hai chiều và có độ trễ thấp bằng [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
 
-Lyria RealTime का इस्तेमाल करके क्या बनाया जा सकता है, यह जानने के लिए, AI Studio
-पर इसे आज़माएं. इसके लिए, [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=hi) या
-[MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=hi) ऐप्लिकेशन का इस्तेमाल करें.
+Để trải nghiệm những nội dung có thể tạo bằng Lyria RealTime, hãy dùng thử trên AI Studio bằng ứng dụng [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=vi) hoặc [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=vi).
 
-## संगीत जनरेट करना और उसे कंट्रोल करना
+## Tạo và điều khiển nhạc
 
-Lyria RealTime, [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)
-की तरह काम करता है. यह मॉडल के साथ रीयल-टाइम में कम्यूनिकेशन बनाए रखने के लिए, Websockets का इस्तेमाल करता है.
+Lyria RealTime hoạt động tương tự như [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi) ở chỗ nó sử dụng Websocket để duy trì giao tiếp theo thời gian thực với mô hình.
 
-यहां दिए गए कोड से पता चलता है कि संगीत कैसे जनरेट किया जाता है:
+Đoạn mã sau đây minh hoạ cách tạo nhạc:
 
 ### Python
 
-इस उदाहरण में, `client.aio.live.music.connect()` का इस्तेमाल करके, Lyria RealTime सेशन शुरू किया जाता है. इसके बाद, `session.set_weighted_prompts()` की मदद से शुरुआती प्रॉम्प्ट भेजा जाता है. साथ ही, `session.set_music_generation_config` का इस्तेमाल करके, शुरुआती कॉन्फ़िगरेशन भेजा जाता है. इसके बाद, `session.play()` का इस्तेमाल करके, संगीत जनरेट करना शुरू किया जाता है. साथ ही, `receive_audio()` को सेट अप किया जाता है, ताकि यह मिलने वाले ऑडियो चंक को प्रोसेस कर सके.
+Ví dụ này khởi tạo phiên Lyria RealTime bằng `client.aio.live.music.connect()`, sau đó gửi một lời nhắc ban đầu bằng `session.set_weighted_prompts()` cùng với cấu hình ban đầu bằng `session.set_music_generation_config`, bắt đầu tạo nhạc bằng `session.play()` và thiết lập `receive_audio()` để xử lý các đoạn âm thanh mà nó nhận được.
 
 ```
   import asyncio
@@ -82,7 +75,7 @@ Lyria RealTime, [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)
 
 ### JavaScript
 
-इस उदाहरण में, `client.live.music.connect()` का इस्तेमाल करके, Lyria RealTime सेशन शुरू किया जाता है. इसके बाद, `session.setWeightedPrompts()` की मदद से शुरुआती प्रॉम्प्ट भेजा जाता है. साथ ही, `session.setMusicGenerationConfig` का इस्तेमाल करके, शुरुआती कॉन्फ़िगरेशन भेजा जाता है. इसके बाद, `session.play()` का इस्तेमाल करके, संगीत जनरेट करना शुरू किया जाता है. साथ ही, `onMessage` कॉलबैक को सेट अप किया जाता है, ताकि यह मिलने वाले ऑडियो चंक को प्रोसेस कर सके.
+Ví dụ này khởi chạy phiên Lyria RealTime bằng `client.live.music.connect()`, sau đó gửi một lời nhắc ban đầu bằng `session.setWeightedPrompts()` cùng với cấu hình ban đầu bằng `session.setMusicGenerationConfig`, bắt đầu tạo nhạc bằng `session.play()` và thiết lập một lệnh gọi lại `onMessage` để xử lý các đoạn âm thanh mà nó nhận được.
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -138,17 +131,17 @@ async function main() {
 main().catch(console.error);
 ```
 
-इसके बाद, सेशन शुरू करने, रोकने, बंद करने या रीसेट करने के लिए, `session.play()`, `session.pause()`, `session.stop()` और `session.reset_context()` का इस्तेमाल किया जा सकता है.
+Sau đó, bạn có thể dùng `session.play()`, `session.pause()`, `session.stop()` và `session.reset_context()` để bắt đầu, tạm dừng, dừng hoặc đặt lại phiên.
 
-## रीयल-टाइम में संगीत को कंट्रोल करना
+## Điều chỉnh nhạc theo thời gian thực
 
-प्रॉम्प्ट भेजकर और जनरेशन पैरामीटर को रीयल-टाइम में अपडेट करके, रीयल-टाइम में संगीत जनरेट करने की सुविधा को कंट्रोल किया जा सकता है.
+Bạn có thể định hướng quá trình tạo nhạc theo thời gian thực bằng cách gửi câu lệnh và cập nhật các thông số tạo theo thời gian thực.
 
-### Lyria RealTime के लिए प्रॉम्प्ट
+### Prompt Lyria RealTime
 
-स्ट्रीम चालू रहने के दौरान, जनरेट किए गए संगीत में बदलाव करने के लिए, किसी भी समय नए `WeightedPrompt` मैसेज भेजे जा सकते हैं. मॉडल, नए इनपुट के आधार पर आसानी से ट्रांज़िशन करेगा.
+Trong khi sự kiện phát trực tiếp đang diễn ra, bạn có thể gửi tin nhắn `WeightedPrompt` mới bất cứ lúc nào để thay đổi nhạc được tạo. Mô hình sẽ chuyển đổi mượt mà dựa trên dữ liệu đầu vào mới.
 
-प्रॉम्प्ट, सही फ़ॉर्मैट में होने चाहिए. इनमें `text` (असल प्रॉम्प्ट) और `weight` शामिल होना चाहिए. `weight` के लिए, `0` के अलावा कोई भी वैल्यू इस्तेमाल की जा सकती है. आम तौर पर, `1.0` से शुरुआत करना बेहतर होता है.
+Câu lệnh cần tuân theo đúng định dạng với `text` (câu lệnh thực tế) và `weight`. `weight` có thể nhận bất kỳ giá trị nào ngoại trừ `0`. `1.0`thường là một điểm xuất phát tốt.
 
 ### Python
 
@@ -175,13 +168,13 @@ main().catch(console.error);
   });
 ```
 
-ध्यान दें कि प्रॉम्प्ट में अचानक बदलाव करने पर, मॉडल के ट्रांज़िशन थोड़े अचानक हो सकते हैं. इसलिए, मॉडल को इंटरमीडिएट वेट वैल्यू भेजकर, किसी तरह का क्रॉस-फ़ेडिंग लागू करने का सुझाव दिया जाता है.
+Xin lưu ý rằng quá trình chuyển đổi mô hình có thể diễn ra hơi đột ngột khi bạn thay đổi lời nhắc một cách đáng kể. Vì vậy, bạn nên triển khai một số loại hiệu ứng làm mờ bằng cách gửi các giá trị trọng số trung gian đến mô hình.
 
-### कॉन्फ़िगरेशन अपडेट करना
+### Cập nhật cấu hình
 
-रीयल-टाइम में संगीत जनरेट करने के पैरामीटर अपडेट करके, संगीत जनरेट करने की सुविधा को कंट्रोल किया जा सकता है. सिर्फ़ एक पैरामीटर अपडेट नहीं किया जा सकता. आपको पूरा कॉन्फ़िगरेशन सेट करना होगा. ऐसा न करने पर, अन्य फ़ील्ड अपनी डिफ़ॉल्ट वैल्यू पर रीसेट हो जाएंगे.
+Bạn có thể điều hướng quá trình tạo nhạc bằng cách cập nhật các thông số tạo nhạc theo thời gian thực. Bạn không thể chỉ cập nhật một tham số, mà cần phải đặt toàn bộ cấu hình. Nếu không, các trường khác sẽ được đặt lại về giá trị mặc định.
 
-बीपीएम या स्केल अपडेट करने से, मॉडल में बड़ा बदलाव होता है. इसलिए, आपको इसे `reset_context()` का इस्तेमाल करके, अपना कॉन्टेक्स्ट रीसेट करने के लिए भी कहना होगा, ताकि यह नए कॉन्फ़िगरेशन को ध्यान में रख सके. इससे स्ट्रीम बंद नहीं होगी, लेकिन यह एक मुश्किल ट्रांज़िशन होगा. आपको अन्य पैरामीटर के लिए ऐसा करने की ज़रूरत नहीं है.
+Vì việc cập nhật bpm hoặc thang âm là một thay đổi lớn đối với mô hình, bạn cũng cần cho mô hình biết rằng mô hình cần đặt lại ngữ cảnh bằng cách sử dụng `reset_context()` để tính đến cấu hình mới. Thao tác này sẽ không dừng luồng phát, nhưng sẽ là một quá trình chuyển đổi khó khăn. Bạn không cần làm việc này cho các tham số khác.
 
 ### Python
 
@@ -211,11 +204,11 @@ main().catch(console.error);
   await session.reset_context();
 ```
 
-## Lyria RealTime के लिए प्रॉम्प्ट गाइड
+## Hướng dẫn về câu lệnh cho Lyria RealTime
 
-यहां उन प्रॉम्प्ट की सूची दी गई है जिनका इस्तेमाल, Lyria RealTime के लिए प्रॉम्प्ट के तौर पर किया जा सकता है. यह सूची पूरी नहीं है:
+Sau đây là danh sách không đầy đủ các câu lệnh bạn có thể dùng để nhắc Lyria RealTime:
 
-- Instruments: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
+- Nhạc cụ: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
   Bagpipes, Balalaika Ensemble, Banjo, Bass Clarinet, Bongos, Boomy Bass,
   Bouzouki, Buchla Synths, Cello, Charango, Clavichord, Conga Drums,
   Didgeridoo, Dirty Synths, Djembe, Drumline, Dulcimer, Fiddle, Flamenco
@@ -226,7 +219,7 @@ main().catch(console.error);
   Guitar, Sitar, Slide Guitar, Smooth Pianos, Spacey Synths, Steel Drum, Synth
   Pads, Tabla, TR-909 Drum Machine, Trumpet, Tuba, Vibraphone, Viola Ensemble,
   Warm Acoustic Guitar, Woodwinds, ...`
-- Music Genre: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
+- Thể loại nhạc: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
   Bhangra, Bluegrass, Blues Rock, Bossa Nova, Breakbeat, Celtic Folk, Chillout,
   Chiptune, Classic Rock, Contemporary R&B, Cumbia, Deep House, Disco Funk,
   Drum & Bass, Dubstep, EDM, Electro Swing, Funk Metal, G-funk, Garage Rock,
@@ -237,109 +230,105 @@ main().catch(console.error);
   Rock, Psytrance, R&B, Reggae, Reggaeton, Renaissance Music, Salsa, Shoegaze,
   Ska, Surf Rock, Synthpop, Techno, Trance, Trap Beat, Trip Hop, Vaporwave,
   Witch house, ...`
-- Mood/Description: `Acoustic Instruments, Ambient, Bright Tones, Chill,
+- Tâm trạng/Nội dung mô tả: `Acoustic Instruments, Ambient, Bright Tones, Chill,
   Crunchy Distortion, Danceable, Dreamy, Echo, Emotional, Ethereal Ambience,
   Experimental, Fat Beats, Funky, Glitchy Effects, Huge Drop, Live Performance,
   Lo-fi, Ominous Drone, Psychedelic, Rich Orchestration, Saturated Tones,
   Subdued Melody, Sustained Chords, Swirling Phasers, Tight Groove,
   Unsettling, Upbeat, Virtuoso, Weird Noises, ...`
 
-ये सिर्फ़ कुछ उदाहरण हैं. Lyria RealTime, इससे कहीं ज़्यादा काम कर सकता है. अपने प्रॉम्प्ट के साथ एक्सपेरिमेंट करें!
+Đây chỉ là một số ví dụ, Lyria RealTime có thể làm được nhiều việc hơn thế. Thử nghiệm với câu lệnh của riêng bạn!
 
-## सबसे सही तरीके
+## Các phương pháp hay nhất
 
-- क्लाइंट ऐप्लिकेशन में, ऑडियो बफ़रिंग की मज़बूत सुविधा लागू होनी चाहिए, ताकि प्लेबैक आसानी से हो सके. इससे नेटवर्क जिटर और जनरेशन लेटेंसी में होने वाले मामूली बदलावों को ध्यान में रखा जा सकता है.
-- असरदार प्रॉम्प्ट:
-  - ब्यौरा दें. मूड, शैली, और इंस्ट्रुमेंटेशन के बारे में बताने वाले विशेषणों का इस्तेमाल करें.
-  - धीरे-धीरे बदलाव करें और धीरे-धीरे कंट्रोल करें. प्रॉम्प्ट को पूरी तरह से बदलने के बजाय, संगीत को ज़्यादा आसानी से बदलने के लिए, एलिमेंट जोड़ें या उनमें बदलाव करें.
-  - नए प्रॉम्प्ट का, मौजूदा जनरेशन पर कितना असर पड़ता है, यह तय करने के लिए, `WeightedPrompt` पर वेट के साथ एक्सपेरिमेंट करें.
+- Các ứng dụng khách phải triển khai tính năng đệm âm thanh mạnh mẽ để đảm bảo quá trình phát mượt mà. Điều này giúp tính đến độ trễ mạng và những thay đổi nhỏ về độ trễ tạo.
+- Đưa ra câu lệnh hiệu quả:
+  - Hãy cung cấp thông tin mô tả. Sử dụng tính từ mô tả tâm trạng, thể loại và nhạc cụ.
+  - Lặp lại và điều chỉnh dần dần. Thay vì thay đổi hoàn toàn câu lệnh, hãy thử thêm hoặc sửa đổi các phần tử để biến đổi nhạc một cách mượt mà hơn.
+  - Thử nghiệm với trọng số trên `WeightedPrompt` để tác động đến mức độ ảnh hưởng của một câu lệnh mới đối với quá trình tạo nội dung đang diễn ra.
 
-## तकनीकी जानकारी
+## Chi tiết kỹ thuật
 
-इस सेक्शन में, Lyria RealTime की मदद से संगीत जनरेट करने की सुविधा का इस्तेमाल करने के बारे में जानकारी दी गई है.
+Phần này mô tả cụ thể cách sử dụng tính năng tạo nhạc theo thời gian thực của Lyria.
 
-### विशेषताएं
+### Thông số kỹ thuật
 
-- आउटपुट फ़ॉर्मैट: Raw 16-bit PCM Audio
-- सैंपल रेट: 48 किलोहर्ट्ज़
-- चैनल: 2 (स्टीरियो)
+- Định dạng đầu ra: Âm thanh PCM 16 bit thô
+- Tốc độ lấy mẫu: 48 kHz
+- Kênh: 2 (âm thanh nổi)
 
-### कंट्रोल
+### Các chế độ kiểm soát
 
-मैसेज भेजकर, रीयल-टाइम में संगीत जनरेट करने की सुविधा को कंट्रोल किया जा सकता है. इन मैसेज में ये शामिल हो सकते हैं:
+Bạn có thể ảnh hưởng đến quá trình tạo nhạc theo thời gian thực bằng cách gửi tin nhắn có chứa:
 
-- `WeightedPrompt`: यह एक टेक्स्ट स्ट्रिंग है, जिसमें संगीत के आइडिया, शैली, इंस्ट्रुमेंट, मूड या खासियत के बारे में बताया जाता है. एक से ज़्यादा प्रॉम्प्ट दिए जा सकते हैं, ताकि अलग-अलग तरह के संगीत को मिक्स किया जा सके. Lyria RealTime के लिए सबसे सही प्रॉम्प्ट देने के तरीके के बारे में ज़्यादा जानकारी के लिए, [ऊपर](#steer-music) देखें.
-- `MusicGenerationConfig`: यह संगीत जनरेट करने की प्रोसेस का कॉन्फ़िगरेशन है. इससे आउटपुट ऑडियो की विशेषताओं पर असर पड़ता है.). पैरामीटर में ये शामिल हैं:
-  - `guidance`: (फ़्लोट) रेंज: `[0.0, 6.0]`. डिफ़ॉल्ट: `4.0`.
-    इससे यह कंट्रोल किया जाता है कि मॉडल, प्रॉम्प्ट को कितनी सख्ती से फ़ॉलो करता है. ज़्यादा गाइडेंस होने पर, प्रॉम्प्ट को बेहतर तरीके से फ़ॉलो किया जाता है. हालांकि, इससे ट्रांज़िशन ज़्यादा अचानक होते हैं.
-  - `bpm`: (int) रेंज: `[60, 200]`.
-    इससे जनरेट किए गए संगीत के लिए, बीट पर मिनट सेट किए जाते हैं. मॉडल को नए बीपीएम को ध्यान में रखने के लिए, आपको कॉन्टेक्स्ट को रोकना/चलाना या रीसेट करना होगा.
-  - `density`: (फ़्लोट) रेंज: `[0.0, 1.0]`.
-    इससे म्यूज़िकल नोट/साउंड की डेंसिटी कंट्रोल की जाती है. कम वैल्यू से, कम म्यूज़िक नोट वाला संगीत बनता है. वहीं, ज़्यादा वैल्यू से "ज़्यादा" म्यूज़िक नोट वाला संगीत बनता है.
-  - `brightness`: (फ़्लोट) रेंज: `[0.0, 1.0]`.
-    इससे टोनल क्वालिटी अडजस्ट की जाती है. ज़्यादा वैल्यू से "ब्राइटर" साउंड वाला ऑडियो बनता है. आम तौर पर, इससे ज़्यादा फ़्रीक्वेंसी पर ज़ोर दिया जाता है.
-  - `scale`: (Enum) इससे जनरेशन के लिए म्यूज़िकल स्केल (की और मोड) सेट किया जाता है. एसडीके से मिली
-    [`Scale` enum वैल्यू](#scale-enum) का इस्तेमाल करें. मॉडल को नए स्केल को ध्यान में रखने के लिए, आपको कॉन्टेक्स्ट को रोकना/चलाना या रीसेट करना होगा.
-  - `mute_bass`: (bool) डिफ़ॉल्ट: `False`.
-    इससे यह कंट्रोल किया जाता है कि मॉडल, आउटपुट के बास को कम करता है या नहीं.
-  - `mute_drums`: (bool) डिफ़ॉल्ट: `False`.
-    इससे यह कंट्रोल किया जाता है कि मॉडल, आउटपुट के ड्रम को कम करता है या नहीं.
-  - `only_bass_and_drums`: (bool) डिफ़ॉल्ट: `False`.
-    मॉडल को सिर्फ़ बास और ड्रम आउटपुट करने के लिए कंट्रोल करें.
-  - `music_generation_mode`: (Enum) इससे मॉडल को यह पता चलता है कि उसे संगीत की `QUALITY` (डिफ़ॉल्ट वैल्यू) या `DIVERSITY` पर फ़ोकस करना चाहिए. इसे `VOCALIZATION` पर भी सेट किया जा सकता है, ताकि मॉडल, वोकलाइज़ेशन को दूसरे इंस्ट्रुमेंट के तौर पर जनरेट कर सके. इसके लिए, उन्हें नए प्रॉम्प्ट के तौर पर जोड़ा जा सकता है.
-- `PlaybackControl`: यह प्लेबैक के पहलुओं को कंट्रोल करने के लिए कमांड है. जैसे, कॉन्टेक्स्ट को चलाना, रोकना, बंद करना या रीसेट करना.
+- `WeightedPrompt`: Một chuỗi văn bản mô tả ý tưởng âm nhạc, thể loại, nhạc cụ, tâm trạng hoặc đặc điểm. Bạn có thể cung cấp nhiều câu lệnh để kết hợp các yếu tố ảnh hưởng. Hãy xem [phía trên](#steer-music) để biết thêm thông tin chi tiết về cách đưa ra câu lệnh hiệu quả nhất cho Lyria RealTime.
+- `MusicGenerationConfig`: Cấu hình cho quy trình tạo nhạc, ảnh hưởng đến các đặc điểm của âm thanh đầu ra.). Các tham số bao gồm:
+  - `guidance`: (số thực có độ chính xác đơn) Phạm vi: `[0.0, 6.0]`. Mặc định: `4.0`.
+    Kiểm soát mức độ tuân thủ câu lệnh của mô hình. Hướng dẫn chi tiết hơn sẽ giúp cải thiện mức độ tuân thủ lời nhắc, nhưng khiến các chuyển cảnh trở nên đột ngột hơn.
+  - `bpm`: (int) Phạm vi: `[60, 200]`.
+    Đặt số nhịp mỗi phút bạn muốn cho bản nhạc được tạo. Bạn cần dừng/phát hoặc đặt lại ngữ cảnh để mô hình tính đến nhịp độ mới.
+  - `density`: (số thực có độ chính xác đơn) Phạm vi: `[0.0, 1.0]`.
+    Kiểm soát mật độ của các nốt nhạc/âm thanh. Giá trị thấp tạo ra nhạc thưa thớt hơn; giá trị cao tạo ra nhạc "dồn dập" hơn.
+  - `brightness`: (số thực có độ chính xác đơn) Phạm vi: `[0.0, 1.0]`.
+    Điều chỉnh chất lượng âm sắc. Giá trị càng cao thì âm thanh càng "sáng", thường nhấn mạnh các tần số cao hơn.
+  - `scale`: (Enum) Đặt thang âm nhạc (Khoá và chế độ) cho quá trình tạo. Sử dụng [các giá trị enum `Scale`](#scale-enum) do SDK cung cấp. Bạn cần dừng/phát hoặc đặt lại ngữ cảnh để mô hình tính đến tỷ lệ mới.
+  - `mute_bass`: (bool) Mặc định: `False`.
+    Kiểm soát xem mô hình có giảm âm trầm của đầu ra hay không.
+  - `mute_drums`: (bool) Mặc định: `False`.
+    Kiểm soát việc đầu ra của mô hình có giảm trống của đầu ra hay không.
+  - `only_bass_and_drums`: (bool) Mặc định: `False`.
+    Điều chỉnh mô hình để chỉ xuất ra âm trầm và trống.
+  - `music_generation_mode`: (Enum) Cho biết mô hình có nên tập trung vào `QUALITY` (giá trị mặc định) hay `DIVERSITY` của nhạc hay không. Bạn cũng có thể đặt thành `VOCALIZATION` để cho phép mô hình tạo ra các âm thanh như một nhạc cụ khác (thêm các âm thanh đó làm câu lệnh mới).
+- `PlaybackControl`: Các lệnh điều khiển các khía cạnh phát, chẳng hạn như phát, tạm dừng, dừng hoặc đặt lại ngữ cảnh.
 
-`bpm`, `density`, `brightness` और `scale` के लिए, अगर कोई वैल्यू नहीं दी जाती है, तो मॉडल, आपके शुरुआती प्रॉम्प्ट के हिसाब से सबसे सही वैल्यू तय करेगा.
+Đối với `bpm`, `density`, `brightness` và `scale`, nếu bạn không cung cấp giá trị, thì mô hình sẽ quyết định giá trị nào phù hợp nhất dựa trên câu lệnh ban đầu của bạn.
 
-`MusicGenerationConfig` में, क्लासिकल पैरामीटर भी पसंद के मुताबिक बनाए जा सकते हैं. जैसे, `temperature` (0.0 से 3.0, डिफ़ॉल्ट 1.1), `top_k` (1 से 1000, डिफ़ॉल्ट 40) और `seed` (0 से 2,147,483,647, डिफ़ॉल्ट रूप से रैंडम तरीके से चुना जाता है).
+Các thông số cổ điển khác như `temperature` (0,0 đến 3,0, mặc định là 1,1), `top_k` (1 đến 1000, mặc định là 40) và `seed` (0 đến 2.147.483.647, được chọn ngẫu nhiên theo mặc định) cũng có thể tuỳ chỉnh trong `MusicGenerationConfig`.
 
-#### स्केल enum वैल्यू
+#### Giá trị enum tỷ lệ
 
-यहां स्केल की सभी वैल्यू दी गई हैं जिन्हें मॉडल स्वीकार कर सकता है:
+Sau đây là tất cả các giá trị tỷ lệ mà mô hình có thể chấp nhận:
 
-| Enum वैल्यू | स्केल / की |
+| Giá trị enum | Gam / Khoá |
 | --- | --- |
-| `C_MAJOR_A_MINOR` | सी मेजर / ए माइनर |
-| `D_FLAT_MAJOR_B_FLAT_MINOR` | डी फ़्लैट मेजर / बी फ़्लैट माइनर |
-| `D_MAJOR_B_MINOR` | डी मेजर / बी माइनर |
-| `E_FLAT_MAJOR_C_MINOR` | ई फ़्लैट मेजर / सी माइनर |
-| `E_MAJOR_D_FLAT_MINOR` | ई मेजर / सी शार्प/डी फ़्लैट माइनर |
-| `F_MAJOR_D_MINOR` | एफ़ मेजर / डी माइनर |
-| `G_FLAT_MAJOR_E_FLAT_MINOR` | जी फ़्लैट मेजर / ई फ़्लैट माइनर |
-| `G_MAJOR_E_MINOR` | जी मेजर / ई माइनर |
-| `A_FLAT_MAJOR_F_MINOR` | ए फ़्लैट मेजर / एफ़ माइनर |
-| `A_MAJOR_G_FLAT_MINOR` | ए मेजर / एफ़ शार्प/जी फ़्लैट माइनर |
-| `B_FLAT_MAJOR_G_MINOR` | बी फ़्लैट मेजर / जी माइनर |
-| `B_MAJOR_A_FLAT_MINOR` | बी मेजर / जी शार्प/ए फ़्लैट माइनर |
-| `SCALE_UNSPECIFIED` | डिफ़ॉल्ट / मॉडल तय करता है |
+| `C_MAJOR_A_MINOR` | Đô trưởng / La thứ |
+| `D_FLAT_MAJOR_B_FLAT_MINOR` | Rê giáng trưởng / Si giáng thứ |
+| `D_MAJOR_B_MINOR` | D trưởng / B thứ |
+| `E_FLAT_MAJOR_C_MINOR` | Mi giáng trưởng / Đô thứ |
+| `E_MAJOR_D_FLAT_MINOR` | Mi trưởng / Đô thăng/Rê giáng thứ |
+| `F_MAJOR_D_MINOR` | Fa trưởng / Rê thứ |
+| `G_FLAT_MAJOR_E_FLAT_MINOR` | Sol giáng trưởng / Mi giáng thứ |
+| `G_MAJOR_E_MINOR` | Sol trưởng / Mi thứ |
+| `A_FLAT_MAJOR_F_MINOR` | La giáng trưởng / Fa thứ |
+| `A_MAJOR_G_FLAT_MINOR` | Giọng trưởng / Giọng thứ |
+| `B_FLAT_MAJOR_G_MINOR` | Si giáng trưởng / Sol thứ |
+| `B_MAJOR_A_FLAT_MINOR` | Giọng Si trưởng / Giọng Sol thăng/La giáng thứ |
+| `SCALE_UNSPECIFIED` | Mặc định / Mô hình quyết định |
 
-मॉडल, बजाए जाने वाले नोट को गाइड कर सकता है. हालांकि, यह रिलेटिव की के बीच अंतर नहीं करता. इसलिए, हर enum, रिलेटिव मेजर और माइनर, दोनों से मेल खाता है. उदाहरण के लिए, `C_MAJOR_A_MINOR` पियानो की सभी सफ़ेद की से मेल खाएगा. वहीं, `F_MAJOR_D_MINOR`, बी फ़्लैट को छोड़कर सभी सफ़ेद की से मेल खाएगा.
+Mô hình này có thể hướng dẫn các nốt nhạc được phát, nhưng không phân biệt giữa các khoá tương đối. Do đó, mỗi enum tương ứng với cả hai khoá chính và khoá phụ tương đối. Ví dụ: `C_MAJOR_A_MINOR` sẽ tương ứng với tất cả các phím trắng của đàn piano và `F_MAJOR_D_MINOR` sẽ là tất cả các phím trắng ngoại trừ phím B giáng.
 
-### सीमाएं
+### Các điểm hạn chế
 
-- सिर्फ़ इंस्ट्रुमेंटल: मॉडल, सिर्फ़ इंस्ट्रुमेंटल म्यूज़िक जनरेट करता है.
-- सुरक्षा: प्रॉम्प्ट की जांच, सुरक्षा फ़िल्टर से की जाती है. फ़िल्टर को ट्रिगर करने वाले प्रॉम्प्ट को अनदेखा कर दिया जाएगा. ऐसे में, आउटपुट के `filtered_prompt` फ़ील्ड में इसकी वजह लिखी जाएगी.
-- [वॉटरमार्किंग: ज़िम्मेदार एआई के सिद्धांतों के मुताबिक, आउटपुट ऑडियो की पहचान के लिए, उसमें हमेशा वॉटरमार्क जोड़ा जाता है.](https://ai.google/responsibility/principles/?hl=hi)
+- Chỉ nhạc không lời: Mô hình chỉ tạo nhạc không lời.
+- An toàn: Các bộ lọc an toàn sẽ kiểm tra câu lệnh. Các câu lệnh kích hoạt bộ lọc sẽ bị bỏ qua. Trong trường hợp đó, lời giải thích sẽ được viết trong trường `filtered_prompt` của đầu ra.
+- Tạo hình mờ: Âm thanh đầu ra luôn được tạo hình mờ để nhận dạng theo các nguyên tắc [AI có trách nhiệm](https://ai.google/responsibility/principles/?hl=vi) của chúng tôi.
 
-## आगे क्या करना है
+## Bước tiếp theo
 
-- [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=hi) की मदद से, पूरे गाने और वोकल ट्रैक जनरेट करना,
-- [म्यूज़िक के बजाय,
-  टीटीएस मॉडल](https://ai.google.dev/gemini-api/docs/speech-generation?hl=hi) का इस्तेमाल करके, एक से ज़्यादा लोगों की बातचीत जनरेट करने का तरीका जानना,
-- [[इमेज या वीडियो जनरेट करने का तरीका जानना,](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)](https://ai.google.dev/gemini-api/docs/video?hl=hi)
-- म्यूज़िक या ऑडियो जनरेट करने के बजाय, यह जानना कि Gemini,
-  [ऑडियो फ़ाइलें कैसे समझ सकता है,](https://ai.google.dev/gemini-api/docs/audio?hl=hi)
-- [Live API का इस्तेमाल करके, Gemini के साथ रीयल-टाइम में बातचीत करना.](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)
+- Tạo các bài hát hoàn chỉnh và bản nhạc có giọng hát bằng [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=vi),
+- Thay vì âm nhạc, hãy tìm hiểu cách tạo cuộc trò chuyện nhiều người nói bằng [các mô hình TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi),
+- Khám phá cách tạo [hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) hoặc [video](https://ai.google.dev/gemini-api/docs/video?hl=vi),
+- Thay vì tạo nhạc hoặc âm thanh, hãy tìm hiểu cách Gemini có thể [hiểu các tệp âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi),
+- Trò chuyện theo thời gian thực với Gemini bằng [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi).
 
-ज़्यादा
-कोड उदाहरणों और ट्यूटोरियल के लिए, [कुकबुक](https://github.com/google-gemini/cookbook) देखें.
+Khám phá [Sổ tay hướng dẫn](https://github.com/google-gemini/cookbook) để xem thêm các ví dụ về mã và hướng dẫn.
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-आखिरी बार 2026-07-28 (UTC) को अपडेट किया गया.
+Cập nhật lần gần đây nhất: 2026-07-28 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-28 (UTC) को अपडेट किया गया."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-28 UTC."],[],[]]

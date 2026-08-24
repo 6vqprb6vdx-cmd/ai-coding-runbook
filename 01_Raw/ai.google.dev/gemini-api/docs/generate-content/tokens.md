@@ -1,67 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=he
-fetched_at: 2026-08-17T02:15:33.624706+00:00
-title: "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d0\u05e1\u05d9\u05de\u05d5\u05e0\u05d9\u05dd \u05d5\u05e1\u05e4\u05d9\u05e8\u05d4 \u05e9\u05dc\u05d4\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=tr
+fetched_at: 2026-08-24T02:29:36.870105+00:00
+title: "Jetonlar\u0131 anlama ve sayma \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-שליחת משוב
+Geri bildirim gönderin
 
-# הסבר על אסימונים וספירה שלהם
+# Jetonları anlama ve sayma
 
-‫Gemini ומודלים אחרים של AI גנרטיבי מעבדים קלט ופלט ברמת פירוט שנקראת *טוקן*.
+Gemini ve diğer üretken yapay zeka modelleri, giriş ve çıkışı *token* adı verilen bir ayrıntı düzeyinde işler.
 
-**במודלים של Gemini, טוקן שווה בערך ל-4 תווים.
-‫100 טוקנים שווים לכ-60-80 מילים באנגלית.**
+**Gemini modellerinde bir jeton yaklaşık 4 karaktere eşittir.
+100 jeton yaklaşık 60-80 İngilizce kelimeye eşittir.**
 
-## מידע על טוקנים
+## Jetonlar hakkında
 
-אסימונים יכולים להיות תווים בודדים כמו `z` או מילים שלמות כמו `cat`. מילים ארוכות
-מפוצלות לכמה טוקנים. קבוצת כל האסימונים שבהם נעשה שימוש במודל נקראת אוצר מילים, והתהליך של פיצול טקסט לאסימונים נקרא *טוקניזציה*.
+Jetonlar, `z` gibi tek karakterler veya `cat` gibi tam kelimeler olabilir. Uzun kelimeler
+birkaç jetona ayrılır. Model tarafından kullanılan tüm jetonlar kümesine kelime hazinesi, metni jetonlara bölme işlemine ise *jetonlaştırma* adı verilir.
 
-כשמופעל חיוב, [העלות של קריאה ל-Gemini API](https://ai.google.dev/pricing?hl=he) נקבעת בין היתר לפי מספר האסימונים של הקלט והפלט, ולכן כדאי לדעת איך לספור אסימונים.
+Faturalandırma etkinleştirildiğinde [Gemini API'ye yapılan bir çağrının maliyeti](https://ai.google.dev/pricing?hl=tr) kısmen giriş ve çıkış jetonlarının sayısına göre belirlenir. Bu nedenle, jetonları nasıl sayacağınızı bilmek faydalı olabilir.
 
-אתם יכולים לנסות לספור טוקנים ב-Colab שלנו.
+Colab'imizde jeton saymayı deneyebilirsiniz.
 
 |  |  |  |
 | --- | --- | --- |
-| [לצפייה באתר ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | [ניסיון של נוטבוק של Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) | [הצגת ה-notebook ב-GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) |
+| [ai.google.dev adresinde görüntüle](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | [Colab not defterini deneyin](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=tr) | [Not defterini GitHub'da görüntüleyin](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=tr) |
 
-## ספירת טוקנים
+## Parça sayma
 
-כל הקלט והפלט של Gemini API עוברים טוקניזציה, כולל טקסט, קובצי תמונות וסוגים אחרים של נתונים שאינם טקסט.
+Metin, resim dosyaları ve metin dışı diğer formatlar da dahil olmak üzere Gemini API'ye yapılan tüm girişler ve API'den alınan tüm çıkışlar jetonlaştırılır.
 
-אפשר לספור טוקנים בדרכים הבאות:
+Jetonları aşağıdaki şekillerde sayabilirsiniz:
 
-- **מתקשרים אל [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=he) עם הקלט של הבקשה.**  
-   הפונקציה מחזירה את המספר הכולל של הטוקנים *בקלט בלבד*. אפשר לבצע את הקריאה הזו לפני ששולחים את הקלט למודל, כדי לבדוק את הגודל של הבקשות.
-- **משתמשים במאפיין `usage_metadata` באובייקט `response` אחרי הקריאה ל-`generate_content`.**‫  
-   הפונקציה מחזירה את המספר הכולל של הטוקנים *גם בקלט וגם בפלט*: `total_token_count`.  
-   בנוסף, היא מחזירה את מספר הטוקנים של הקלט והפלט בנפרד: `prompt_token_count` (טוקנים של קלט) ו-`candidates_token_count` (טוקנים של פלט).
+- **İsteğin girişiyle [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=tr) işlevini çağırın.**  
+   Bu işlev, *yalnızca giriş* bölümündeki toplam jeton sayısını döndürür. Bu aramayı, isteklerinizin boyutunu kontrol etmek için girişi modele göndermeden önce yapabilirsiniz.
+- **`generate_content` işlevi çağrıldıktan sonra `response` nesnesinde `usage_metadata` özelliğini kullanın.**  
+   Bu işlev, *hem girişte hem de çıkışta* toplam jeton sayısını döndürür: `total_token_count`.  
+   Ayrıca giriş ve çıkışın jeton sayılarını ayrı ayrı döndürür: `prompt_token_count` (giriş jetonları) ve `candidates_token_count` (çıkış jetonları).
 
-  אם אתם משתמשים ב[מודל חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he), הטוקנים שנעשה בהם שימוש במהלך תהליך החשיבה מוחזרים ב-`thoughts_token_count`. אם אתם משתמשים ב[שמירת נתונים במטמון לפי הקשר](https://ai.google.dev/gemini-api/docs/caching?hl=he), מספר האסימונים שנשמרו במטמון יופיע ב-`cached_content_token_count`.
+  [Düşünen modeli](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) kullanıyorsanız düşünme süreci sırasında kullanılan jetonlar `thoughts_token_count` içinde döndürülür. [Bağlamı önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr) özelliğini kullanıyorsanız önbelleğe alınan jeton sayısı `cached_content_token_count` içinde gösterilir.
 
-### ספירת טוקנים של טקסט
+### Metin jetonlarını sayma
 
-אם מתקשרים אל `count_tokens` עם קלט טקסט בלבד, הפונקציה מחזירה את כמות הטוקנים של הטקסט *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל `count_tokens` לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות.
+`count_tokens` işlevini yalnızca metin içeren bir girişle çağırırsanız *yalnızca girişteki* metnin jeton sayısını (`total_tokens`) döndürür. İsteklerinizin boyutunu kontrol etmek için `generate_content` işlevini çağırmadan önce bu çağrıyı yapabilirsiniz.
 
-אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Diğer bir seçenek ise `generate_content` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
-  (`total_token_count`)
+- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
+- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
+- *Hem girişte hem de çıkışta* toplam jeton sayısı (`total_token_count`)
 
 ### Python
 
@@ -136,19 +134,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### ספירת טוקנים של שיחות עם זיכרון
+### Çok aşamalı etkileşim (sohbet) jetonlarını sayma
 
-אם מתקשרים אל `count_tokens` עם היסטוריית הצ'אט, הפונקציה מחזירה את המספר הכולל של הטוקנים של הטקסט מכל תפקיד בצ'אט (`total_tokens`).
+Sohbet geçmişiyle birlikte `count_tokens` işlevini çağırırsanız sohbetteki her rolden gelen metnin toplam jeton sayısını (`total_tokens`) döndürür.
 
-אפשרות נוספת היא להתקשר אל `send_message` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Diğer bir seçenek ise `send_message` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
-  (`total_token_count`)
+- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
+- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
+- *Hem girişte hem de çıkışta* toplam jeton sayısı (`total_token_count`)
 
-כדי להבין מה יהיה גודל התגובה הבאה בשיחה, צריך לצרף אותה להיסטוריה כשמתקשרים אל `count_tokens`.
+Bir sonraki etkileşiminizin ne kadar büyük olacağını anlamak için `count_tokens` işlevini çağırdığınızda bunu geçmişe eklemeniz gerekir.
 
 ### Python
 
@@ -274,34 +270,32 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### ספירת טוקנים מולטי-מודאליים
+### Çok formatlı jetonları sayma
 
-כל הקלט ל-Gemini API עובר טוקניזציה, כולל טקסט, קובצי תמונה וסוגים אחרים של נתונים שאינם טקסט. הנה כמה נקודות חשובות לגבי טוקניזציה של קלט מולטימודאלי במהלך העיבוד על ידי Gemini API:
+Gemini API'ye yapılan tüm girişler (metin, resim dosyaları ve diğer metin dışı biçimler dahil) jetonlaştırılır. Gemini API tarafından işleme sırasında çok formatlı girişin jetonlaştırılmasıyla ilgili aşağıdaki üst düzey önemli noktaları unutmayın:
 
-- תמונות שהמידות שלהן קטנות מ-384 פיקסלים או שוות ל-384 פיקסלים נספרות כ-258 טוקנים. תמונות שגדולות יותר באחד מהממדים או בשניהם נחתכות ומשנות את הגודל שלהן לפי הצורך לאריחים של 768x768 פיקסלים, וכל אחת מהן נספרת כ-258 טוקנים.
-- קובצי וידאו ואודיו מומרים לטוקנים בשיעורים הקבועים הבאים:
-  וידאו ב-263 טוקנים לשנייה ואודיו ב-32 טוקנים לשנייה.
+- Her iki boyutu da <=384 piksel olan resim girişleri 258 jeton olarak sayılır. Bir veya iki boyutta daha büyük olan resimler, gerektiğinde 768x768 piksellik parçalar halinde kırpılıp ölçeklendirilir ve her biri 258 jeton olarak sayılır.
+- Video ve ses dosyaları, aşağıdaki sabit oranlarda jetonlara dönüştürülür:
+  Video: Saniyede 263 jeton, ses: saniyede 32 jeton.
 
-#### רזולוציות מדיה
+#### Medya çözünürlükleri
 
-[מודלים של Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=he#gemini-3) מציגים שליטה מפורטת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונה או פריים של סרטון קלט.**
-רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
+[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr#gemini-3), `media_resolution` parametresiyle çok formatlı görüntü işleme üzerinde ayrıntılı kontrol sağlar. `media_resolution` parametresi, **giriş resim veya video karesi başına ayrılan maksimum jeton sayısını** belirler.
+Daha yüksek çözünürlükler, modelin küçük metinleri okuma veya küçük ayrıntıları tanımlama becerisini artırır ancak jeton kullanımını ve gecikmeyi de artırır.
 
-לפרטים נוספים על הפרמטר ועל האופן שבו הוא יכול להשפיע על חישובי האסימון, אפשר לעיין במדריך בנושא [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=he).
+Parametre ve jeton hesaplamalarını nasıl etkileyebileceği hakkında daha fazla bilgi için [medya çözünürlüğü](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=tr) kılavuzuna bakın.
 
-#### קובצי תמונות
+#### Resim dosyaları
 
-אם קוראים לפונקציה `count_tokens` עם קלט של טקסט ותמונה, היא מחזירה את כמות הטוקנים המשולבת של הטקסט והתמונה *בקלט בלבד* (`total_tokens`). אפשר לקרוא לפונקציה הזו לפני שקוראים לפונקציה `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם לקרוא ל-`count_tokens` על הטקסט ועל הקובץ בנפרד.
+`count_tokens` işlevini metin ve resim girişiyle çağırırsanız *yalnızca girişteki* (`total_tokens`) metin ve resmin birleştirilmiş jeton sayısını döndürür. İsteklerinizin boyutunu kontrol etmek için `generate_content` işlevini çağırmadan önce bu işlevi çağırabilirsiniz. İsteğe bağlı olarak metin ve dosya üzerinde ayrı ayrı `count_tokens` işlevini de çağırabilirsiniz.
 
-אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Diğer bir seçenek ise `generate_content` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
-  (`total_token_count`)
+- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
+- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
+- *Hem girişte hem de çıkışta* toplam jeton sayısı (`total_token_count`)
 
-דוגמה לשימוש בתמונה שהועלתה מ-File API:
+File API'den yüklenen bir görüntünün kullanıldığı örnek:
 
 ### Python
 
@@ -401,7 +395,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-דוגמה שבה התמונה מסופקת כנתונים מוטבעים:
+Resmi satır içi veri olarak sağlayan örnek:
 
 ### Python
 
@@ -498,21 +492,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### קובצי וידאו או אודיו
+#### Video veya ses dosyaları
 
-ההמרה של אודיו ווידאו לטוקנים מתבצעת לפי השיעורים הקבועים הבאים:
+Ses ve video, aşağıdaki sabit oranlarda jetonlara dönüştürülür:
 
-- סרטון: 263 טוקנים לשנייה
-- אודיו: 32 טוקנים לשנייה
+- Video: Saniyede 263 jeton
+- Ses: Saniyede 32 jeton
 
-אם מתקשרים אל `count_tokens` עם קלט של טקסט וסרטון או אודיו, הפונקציה מחזירה את כמות הטוקנים המשולבת של הטקסט ושל קובץ הווידאו או האודיו *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל הפונקציה הזו לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם להפעיל את `count_tokens` על הטקסט ועל הקובץ בנפרד.
+`count_tokens` işlevini metin ve video/ses girişiyle çağırırsanız *yalnızca girişteki* metin ve video/ses dosyasının birleştirilmiş jeton sayısını döndürür (`total_tokens`). İsteklerinizin boyutunu kontrol etmek için `generate_content` işlevini çağırmadan önce bu çağrıyı yapabilirsiniz. İsterseniz metni ve dosyayı ayrı ayrı `count_tokens` çağırabilirsiniz.
 
-אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Diğer bir seçenek ise `generate_content` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- כמות הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט* (`total_token_count`).
+- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
+- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
+- *Hem girişte hem de çıkışta* toplam jeton sayısıdır (`total_token_count`).
 
 ### Python
 
@@ -637,9 +630,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### ספירת טוקנים של מחשבות
+### Düşünce parçalarını sayma
 
-כשמפעילים את התכונה 'חשיבה', המחיר של התשובה הוא סכום הטוקנים של הפלט והטוקנים של החשיבה. אפשר לאחזר את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `thoughtsTokenCount` (או מהמקבילה ב-SDK).
+Düşünme özelliğini etkinleştirdiğinizde yanıt fiyatı, çıkış jetonları ile düşünme jetonlarının toplamı olur. Oluşturulan düşünce jetonlarının toplam sayısını `thoughtsTokenCount` alanından (veya SDK eşdeğeri) alabilirsiniz.
 
 ### Python
 
@@ -665,13 +658,13 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז מפיקים [סיכומים](https://ai.google.dev/gemini-api/docs/thinking?hl=he#summaries) כדי לספק תובנות לגבי תהליך החשיבה. לכן, התמחור של ה-API מבוסס על האסימונים המלאים של התהליך המחשבתי שהמודל יוצר כדי ליצור סיכום, גם אם ה-API מוציא רק את הסיכום.
+Düşünme modelleri, nihai yanıtın kalitesini artırmak için tam düşünceler üretir ve ardından düşünce süreci hakkında bilgi vermek için [özetler](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#summaries) oluşturur. Bu nedenle, API yalnızca özeti çıkış olarak verse de fiyatlandırma, modelin özet oluşturmak için ürettiği tüm düşünce jetonlarına göre yapılır.
 
-במדריך [Gemini thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he) תוכלו לקבל מידע נוסף על הגדרת חשיבה.
+Düşünme özelliğini nasıl yapılandıracağınız hakkında daha fazla bilgiyi [Gemini düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) kılavuzunda bulabilirsiniz.
 
-## חלונות הקשר
+## Bağlam pencereleri
 
-חלונות ההקשר של המודלים שזמינים דרך Gemini API נמדדים בטוקנים. חלון ההקשר מגדיר כמה קלט אפשר לספק וכמה פלט המודל יכול ליצור. אפשר לקבוע את הגודל של חלון ההקשר על ידי קריאה לנקודת הקצה [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=he) או על ידי עיון ב[מסמכי התיעוד של המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
+Gemini API aracılığıyla kullanılabilen modellerin bağlam pencereleri jetonlarla ölçülür. Bağlam penceresi, ne kadar giriş sağlayabileceğinizi ve modelin ne kadar çıkış üretebileceğini tanımlar. Bağlam penceresinin boyutunu [`models.get` uç noktasını](https://ai.google.dev/api/rest/v1/models/get?hl=tr) çağırarak veya [modeller belgelerine](https://ai.google.dev/gemini-api/docs/models?hl=tr) bakarak belirleyebilirsiniz.
 
 ### Python
 
@@ -716,12 +709,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-שליחת משוב
+Geri bildirim gönderin
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-עדכון אחרון: 2026-07-30 (שעון UTC).
+Son güncelleme tarihi: 2026-07-30 UTC.
 
-רוצה לתת לנו משוב?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]

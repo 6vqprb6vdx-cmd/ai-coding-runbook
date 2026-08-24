@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=zh-TW
-fetched_at: 2026-08-17T02:31:52.764979+00:00
-title: "\u6587\u5b57\u751f\u6210 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=es-419
+fetched_at: 2026-08-24T02:24:38.146280+00:00
+title: "Generaci\u00f3n de texto \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-提供意見
+Enviar comentarios
 
-# 文字生成
+# Generación de texto
 
-Gemini API 可根據文字、圖片、影片和音訊輸入內容生成文字輸出內容。
+La API de Gemini puede generar texto a partir de texto, imágenes, video y audio.
 
-基本範例如下：
+Este es un ejemplo básico:
 
 ### Python
 
@@ -160,11 +160,13 @@ function main() {
 }
 ```
 
-## 與 Gemini 一起思考
+## Razonamiento con Gemini
 
-Gemini 模型預設會啟用「思考」功能，因此模型會在回覆要求前先進行推論。
+Los modelos de Gemini suelen tener habilitado el ["razonamiento"](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) de forma predeterminada
+lo que les permite razonar antes de responder a una solicitud.
 
-每種模型支援不同的思考設定，可讓您控管成本、延遲和智慧。詳情請參閱[思考指南](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#set-budget)。
+Cada modelo admite diferentes configuraciones de razonamiento, lo que te permite controlar el costo, la latencia y la inteligencia. Para obtener más detalles, consulta la
+[guía de razonamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419#set-budget).
 
 ### Python
 
@@ -336,9 +338,11 @@ function main() {
 }
 ```
 
-## 系統指令和其他設定
+## Instrucciones del sistema y otras configuraciones
 
-你可以使用系統指令引導 Gemini 模型行為。如要這麼做，請傳遞 [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig) 物件。
+Puedes guiar el comportamiento de los modelos de Gemini con instrucciones del sistema. Para ello,
+pasa un [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+objeto.
 
 ### Python
 
@@ -510,7 +514,9 @@ function main() {
 }
 ```
 
-[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig) 物件也允許您覆寫預設生成參數，例如 [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig)。
+El [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+objeto también te permite anular los parámetros de generación predeterminados, como
+[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig).
 
 ### Python
 
@@ -676,11 +682,13 @@ function main() {
 }
 ```
 
-如需可設定參數的完整清單及其說明，請參閱 API 參考資料中的 [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig)。
+Consulta [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+en nuestra referencia de la API para obtener una lista completa de los parámetros configurables y sus
+descripciones.
 
-## 多模態輸入內容
+## Entradas multimodales
 
-Gemini API 支援多模態輸入內容，可讓您結合文字和媒體檔案。以下範例說明如何提供圖片：
+La API de Gemini admite entradas multimodales, lo que te permite combinar texto con archivos multimedia. En el siguiente ejemplo, se muestra cómo proporcionar una imagen:
 
 ### Python
 
@@ -888,13 +896,16 @@ function getImageData(url) {
 }
 ```
 
-如需提供圖片的替代方法和更進階的圖片處理方式，請參閱[圖像解讀指南](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)。API 也支援[文件](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)、[影片](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)和[音訊](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)輸入和理解。
+Para obtener métodos alternativos para proporcionar imágenes y un procesamiento de imágenes más avanzado,
+consulta nuestra [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
+La API también admite la comprensión y las entradas de [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419), [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419) y [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
 
-## 逐句顯示回覆
+## Respuestas de transmisión
 
-根據預設，整個生成程序完成後，模型才會傳回回覆。
+De forma predeterminada, el modelo devuelve una respuesta solo después de que se completa todo el proceso de generación.
 
-如要獲得更流暢的互動體驗，請使用串流功能，逐步接收生成的 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerateContentResponse) 執行個體。
+Para obtener interacciones más fluidas, usa la transmisión para recibir [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse) instancias de forma incremental
+a medida que se generan.
 
 ### Python
 
@@ -1048,9 +1059,9 @@ function main() {
 }
 ```
 
-## 多輪對話 (即時通訊)
+## Conversaciones de varios turnos (chat)
 
-我們的 SDK 提供功能，可將多輪提示和回覆收集到對話中，方便您追蹤對話記錄。
+Nuestros SDKs proporcionan funcionalidad para recopilar varias rondas de instrucciones y respuestas en un chat, lo que te brinda una manera sencilla de hacer un seguimiento del historial de conversaciones.
 
 ### Python
 
@@ -1258,7 +1269,7 @@ function main() {
 }
 ```
 
-串流功能也可用於多輪對話。
+La transmisión también se puede usar para conversaciones de varios turnos.
 
 ### Python
 
@@ -1477,40 +1488,46 @@ function main() {
 }
 ```
 
-## 提示詞撰寫訣竅
+## Sugerencias para escribir instrucciones
 
-請參閱[提示工程指南](https://ai.google.dev/gemini/docs/prompting-strategies?hl=zh-tw)，瞭解如何充分發揮 Gemini 的效用。
+Consulta nuestra [guía de ingeniería de instrucciones](https://ai.google.dev/gemini/docs/prompting-strategies?hl=es-419) para
+obtener sugerencias sobre cómo aprovechar al máximo Gemini.
 
-## 後續步驟
+## ¿Qué sigue?
 
-- 在 [Google AI Studio 中試用 Gemini](https://aistudio.google.com?hl=zh-tw)。
-- 嘗試使用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)，取得類似 JSON 的回覆。
-- 探索 Gemini 的[圖片](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)、
-  [影片](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)、[音訊](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)
-  和[文件](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)理解功能。
-- 瞭解多模態[檔案提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw#prompt-guide)。
+- Prueba [Gemini en Google AI Studio](https://aistudio.google.com?hl=es-419).
+- Experimenta con [resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) para
+  obtener respuestas similares a JSON.
+- Explora las capacidades de comprensión de [imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419),
+  [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419), [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
+  y [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419) de Gemini.
+- Obtén información sobre las estrategias de instrucciones de archivos multimodales
+  .
 
-## 內容生成
+## Generación de contenido
 
-這是將提示傳送至模型的主要端點。生成內容的端點有兩個，主要差異在於接收回應的方式：
+Este es el extremo central para enviar instrucciones al modelo. Existen dos extremos para generar contenido. La diferencia clave es cómo recibes la respuesta:
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=zh-tw#method:-models.generatecontent)
-  (REST)**：
-  接收要求，並在模型完成整個生成程序後，提供單一回覆。
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=zh-tw#method:-models.streamgeneratecontent)
-  (SSE)**：接收完全相同的要求，但模型會在生成回覆時，將回覆內容分塊串流傳回。這項功能可立即顯示部分結果，因此能為互動式應用程式提供更優質的使用者體驗。
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=es-419#method:-models.generatecontent)
+  (REST)**: Recibe una solicitud y proporciona una sola respuesta después de que el modelo finaliza toda su generación.
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=es-419#method:-models.streamgeneratecontent)
+  (SSE)**: Recibe exactamente la misma solicitud, pero el modelo transmite fragmentos de la respuesta a medida que se generan. Esto proporciona una mejor experiencia del usuario para las aplicaciones interactivas, ya que te permite mostrar resultados parciales de inmediato.
 
-### 要求主體結構
+### Estructura del cuerpo de la solicitud
 
-[要求主體](https://ai.google.dev/api/generate-content?hl=zh-tw#request-body)是 JSON 物件，在標準和串流模式中**完全相同**，且由幾個核心物件建構而成：
+El [cuerpo de la solicitud](https://ai.google.dev/api/generate-content?hl=es-419#request-body) es un objeto JSON que es
+**idéntico** para los modos estándar y de transmisión, y se compila a partir de algunos objetos principales:
 
-- [`Content`](https://ai.google.dev/api/caching?hl=zh-tw#Content) 物件：代表對話中的單一回合。
-- [`Part`](https://ai.google.dev/api/caching?hl=zh-tw#Part) 物件：`Content` 回合中的一筆資料 (例如文字或圖片)。
-- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=zh-tw#Blob))：原始媒體位元組的容器，以及這些位元組的 MIME 類型。
+- [`Content`](https://ai.google.dev/api/caching?hl=es-419#Content) objeto: Representa un solo turno en una
+  conversación.
+- [`Part`](https://ai.google.dev/api/caching?hl=es-419#Part) objeto: Es una parte de los datos dentro de un turno `Content`
+  (como texto o una imagen).
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=es-419#Blob)): Es un contenedor para bytes de medios sin procesar
+  y su tipo de MIME.
 
-在最高層級，要求主體包含 `contents` 物件，這是 `Content` 物件的清單，每個物件都代表對話中的輪流發言。在大多數情況下，如要生成基本文字，您會使用單一 `Content` 物件，但如要保留對話記錄，則可使用多個 `Content` 物件。
+En el nivel más alto, el cuerpo de la solicitud contiene un objeto `contents`, que es una lista de objetos `Content`, cada uno de los cuales representa turnos en la conversación. En la mayoría de los casos, para la generación de texto básica, tendrás un solo objeto `Content`, pero, si deseas mantener el historial de conversaciones, puedes usar varios objetos `Content`.
 
-以下是典型的 `generateContent` 要求主體：
+A continuación, se muestra un cuerpo de solicitud `generateContent` típico:
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
@@ -1535,20 +1552,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### 回應內容結構
+### Estructura del cuerpo de la respuesta
 
-串流和標準模式的[回應內文](https://ai.google.dev/api/generate-content?hl=zh-tw#response-body)類似，但有以下例外狀況：
+El [cuerpo de la respuesta](https://ai.google.dev/api/generate-content?hl=es-419#response-body) es similar para ambos
+los modos de transmisión y estándar, excepto por lo siguiente:
 
-- 標準模式：回應主體會包含 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerateContentResponse) 的例項。
-- 串流模式：回應主體包含 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerateContentResponse) 例項的串流。
+- Modo estándar: El cuerpo de la respuesta contiene una instancia de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse).
+- Modo de transmisión: El cuerpo de la respuesta contiene un flujo de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse)
+  instancias.
 
-整體來說，回應主體包含 `candidates` 物件，這是 `Candidate` 物件的清單。`Candidate` 物件包含 `Content` 物件，該物件具有模型傳回的生成回覆。
+En un nivel superior, el cuerpo de la respuesta contiene un objeto `candidates`, que es una lista de objetos `Candidate`. El objeto `Candidate` contiene un objeto `Content` que tiene la respuesta generada que se muestra desde el modelo.
 
-## REST API 範例
+## Ejemplos de la API de REST
 
-### 多模態提示 (文字和圖片)
+### Instrucción multimodal (texto e imagen)
 
-如要在提示中同時提供文字和圖片，`parts` 陣列應包含兩個 `Part` 物件：一個用於文字，另一個用於圖片 `inline_data`。
+Para proporcionar texto y una imagen en una instrucción, el array `parts` debe contener dos objetos `Part`: uno para el texto y otro para la imagen `inline_data`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
@@ -1570,9 +1591,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### 多輪對話 (即時通訊)
+### Conversaciones de varios turnos (chat)
 
-如要建立包含多個輪流對話的對話，請定義包含多個 `Content` 物件的 `contents` 陣列。API 會將這整個記錄做為下一個回應的脈絡資訊。每個 `Content` 物件的 `role` 應在 `user` 和 `model` 之間交替。
+Para crear una conversación con varios turnos, define el array `contents` con varios objetos `Content`. La API usará todo este historial como contexto para la siguiente respuesta. El `role` de cada objeto `Content` debe alternar entre `user` y `model`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
@@ -1603,24 +1624,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### 重點整理
+### Conclusiones principales
 
-- `Content` 是信封：這是訊息回合的頂層容器，無論訊息來自使用者或模型都適用。
-- `Part` 啟用多模態：在單一 `Content` 物件中使用多個 `Part` 物件，即可合併不同類型的資料 (文字、圖片、影片 URI 等)。
-- 選擇資料方法：
-  - 如果是直接嵌入的小型媒體 (例如大多數圖片)，請使用 `Part`，並搭配 `inline_data`。
-  - 如要上傳較大的檔案，或在多個要求中重複使用檔案，請使用 File API 上傳檔案，並以 `file_data` 部分參照該檔案。
-- 管理對話記錄：如果是使用 REST API 的即時通訊應用程式，請為每個回合附加 `Content` 物件，交替使用 `"user"` 和 `"model"` 角色，藉此建構 `contents` 陣列。如果您使用 SDK，請參閱 SDK 說明文件，瞭解管理對話記錄的建議方式。
+- `Content` es el sobre: Es el contenedor de nivel superior para un turno de mensaje, ya sea del usuario o del modelo.
+- `Part` habilita la multimodalidad: Usa varios objetos `Part` dentro de un solo objeto `Content` para combinar diferentes tipos de datos (texto, imagen, URI de video, etcétera).
+- Elige tu método de datos:
+  - Para medios pequeños y directamente incorporados (como la mayoría de las imágenes), usa un `Part` con `inline_data`.
+  - Para archivos más grandes o que deseas reutilizar en varias solicitudes, usa la API de File para subir el archivo y hacer referencia a él con una parte `file_data`.
+- Administra el historial de conversaciones: Para las aplicaciones de chat que usan la API de REST, compila
+  el `contents` array agregando `Content` objetos para cada turno,
+  alternando entre `"user"` y `"model"` funciones. Si usas un SDK, consulta la documentación del SDK para conocer la forma recomendada de administrar el historial de conversaciones.
 
-## 回覆範例
+## Ejemplos de respuestas
 
-下列範例說明這些元件如何搭配運作，處理不同類型的要求。
+En los siguientes ejemplos, se muestra cómo se unen estos componentes para diferentes tipos de solicitudes.
 
-### 純文字回覆
+### Respuesta de solo texto
 
-預設文字回覆包含 `candidates` 陣列，其中有一或多個 `content` 物件，內含模型的回覆。
+Una respuesta de texto predeterminada consta de un array `candidates` con uno o más objetos `content` que contienen la respuesta del modelo.
 
-以下是**標準**回應的範例：
+A continuación, se muestra un ejemplo de una respuesta **estándar**:
 
 ```
 {
@@ -1641,7 +1664,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-以下是一連串的**串流**回應。每個回應都包含一個 `responseId`，可將完整的回應連結在一起：
+La siguiente es una serie de respuestas de **transmisión**. Cada respuesta contiene un `responseId` que une la respuesta completa:
 
 ```
 {
@@ -1689,37 +1712,42 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-## Live API (BidiGenerateContent) WebSockets API
+## API en vivo (BidiGenerateContent) API de WebSockets
 
-Live API 提供以 WebSocket 為基礎的具狀態 API，可進行雙向串流，實現即時串流用途。如需更多詳細資料，請參閱 [Live API 指南](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)和 [Live API 參考資料](https://ai.google.dev/api/live?hl=zh-tw)。
+La API en vivo ofrece una API con estado basada en WebSocket para la transmisión bidireccional que permite casos de uso de transmisión en tiempo real. Puedes consultar la [guía de la API en vivo](https://ai.google.dev/gemini-api/docs/live?hl=es-419) y la [referencia de la API en vivo](https://ai.google.dev/api/live?hl=es-419) para obtener más detalles.
 
-## 專用模型
+## Modelos especializados
 
-除了 Gemini 系列模型，Gemini API 也提供 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-tw)、[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-tw) 和[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)模型等專業模型的端點。請參閱「模型」部分中的指南。
+Además de la familia de modelos de Gemini, la API de Gemini ofrece extremos para
+modelos especializados, como [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=es-419),
+[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419) y
+[modelos de embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419). Puedes consultar estas guías en la sección Modelos.
 
-## 平台 API
+## APIs de plataforma
 
-其餘端點可啟用其他功能，與目前所述的主要端點搭配使用。如要瞭解詳情，請參閱「指南」部分的「[批次模式](https://ai.google.dev/gemini-api/docs/batch-mode?hl=zh-tw)」和「[檔案 API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)」主題。
+El resto de los extremos habilitan capacidades adicionales para usar con los extremos principales descritos hasta ahora. Consulta los temas
+[Modo por lotes](https://ai.google.dev/gemini-api/docs/batch-mode?hl=es-419) y
+[API de File](https://ai.google.dev/gemini-api/docs/files?hl=es-419) en la sección Guías para obtener más información.
 
-## 後續步驟
+## ¿Qué sigue?
 
-如果是剛開始使用，請參閱下列指南，瞭解 Gemini API 程式設計模型：
+Si recién comienzas, consulta las siguientes guías, que te ayudarán a comprender el modelo de programación de la API de Gemini:
 
-- [Gemini API 入門指南](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [Gemini 模型指南](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw)
+- [Guía de introducción a la API de Gemini](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Guía del modelo de Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419)
 
-您也可以參閱功能指南，瞭解不同的 Gemini API 功能並取得程式碼範例：
+También puedes consultar las guías de capacidades, que presentan diferentes funciones de la API de Gemini y proporcionan ejemplos de código:
 
-- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)
-- [脈絡快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)
-- [嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)
+- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419)
+- [Almacenamiento en caché de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)
+- [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419)
 
-提供意見
+Enviar comentarios
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-上次更新時間：2026-07-30 (世界標準時間)。
+Última actualización: 2026-07-30 (UTC)
 
-想進一步說明嗎？
+¿Quieres brindar más información?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

@@ -1,39 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=it
-fetched_at: 2026-08-17T02:30:49.904370+00:00
-title: "Chiamate di funzione con l'API Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=th
+fetched_at: 2026-08-24T02:26:17.047034+00:00
+title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e01\u0e43\u0e0a\u0e49\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e14\u0e49\u0e27\u0e22 Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-# Chiamate di funzione con l'API Gemini
+# การเรียกใช้ฟังก์ชันด้วย Gemini API
 
-La chiamata di funzioni consente di collegare i modelli a strumenti e API esterni.
-Anziché generare risposte di testo, il modello determina quando chiamare funzioni specifiche e fornisce i parametri necessari per eseguire azioni nel mondo reale.
-Ciò consente al modello di fungere da ponte tra il linguaggio naturale e le azioni e i dati del mondo reale. Le chiamate di funzione hanno tre casi d'uso principali:
+การเรียกใช้ฟังก์ชันช่วยให้คุณเชื่อมต่อโมเดลกับเครื่องมือและ API ภายนอกได้
+โมเดลจะพิจารณาเวลาที่จะเรียกใช้ฟังก์ชันที่เฉพาะเจาะจงและระบุพารามิเตอร์ที่จำเป็นเพื่อดำเนินการในโลกแห่งความเป็นจริงแทนที่จะสร้างคำตอบเป็นข้อความ
+ซึ่งช่วยให้โมเดลทำหน้าที่เป็นตัวเชื่อมระหว่างภาษาธรรมชาติกับ
+การดำเนินการและข้อมูลในโลกแห่งความเป็นจริงได้ การเรียกใช้ฟังก์ชันมีกรณีการใช้งานหลักๆ 3 กรณีดังนี้
 
-- [**Esegui azioni**](#meeting):interagisci con sistemi esterni utilizzando API, ad esempio
-  pianificare appuntamenti, creare fatture, inviare email o controllare
-  dispositivi per la smart home.
-- [**Aumenta le conoscenze**](#weather):accedi alle informazioni da fonti esterne come database, API e knowledge base.
-- [**Estendi le funzionalità**](#chart):utilizza strumenti esterni per eseguire calcoli ed estendere i limiti del modello, ad esempio utilizzando una calcolatrice o creando grafici.
+- [**ดำเนินการ:**](#meeting) โต้ตอบกับระบบภายนอกโดยใช้ API เช่น
+  กำหนดเวลานัดหมาย สร้างใบแจ้งหนี้ ส่งอีเมล หรือควบคุม
+  อุปกรณ์สมาร์ทโฮม
+- [**เพิ่มพูนความรู้:**](#weather) เข้าถึงข้อมูลจากแหล่งที่มาภายนอก เช่น
+  ฐานข้อมูล, API และฐานความรู้
+- [**ขยายขีดความสามารถ:**](#chart) ใช้เครื่องมือภายนอกเพื่อทำการคำนวณและ
+  ขยายข้อจำกัดของโมเดล เช่น การใช้เครื่องคิดเลขหรือการสร้าง
+  แผนภูมิ
 
-Di seguito puoi sfogliare alcuni esempi di questi casi d'uso:
+คุณสามารถเรียกดูตัวอย่างกรณีการใช้งานเหล่านี้ได้ที่ด้านล่าง
 
-### Pianifica riunione
+### กำหนดเวลาการประชุม
 
-Questo esempio mostra come definire una funzione che pianifica una riunione con i partecipanti a un'ora specifica, consentendo al modello di analizzare le richieste degli utenti e restituire argomenti strutturati per attivare azioni in sistemi esterni.
+ตัวอย่างนี้แสดงวิธีสร้างฟังก์ชันที่กำหนดเวลาการประชุมกับผู้เข้าร่วมในเวลาที่เฉพาะเจาะจง ซึ่งจะช่วยให้โมเดลแยกวิเคราะห์คำขอของผู้ใช้และแสดงอาร์กิวเมนต์ที่มีโครงสร้างเพื่อทริกเกอร์การดำเนินการในระบบภายนอกได้
 
 ### Python
 
@@ -211,9 +215,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### Visualizza meteo
+### ดูสภาพอากาศ
 
-Questo esempio mostra come definire una funzione che recupera i dati di temperatura per una località, consentendo al modello di chiamare API esterne per rispondere a query che richiedono informazioni esterne o in tempo reale.
+ตัวอย่างนี้แสดงวิธีสร้างฟังก์ชันที่ดึงข้อมูลอุณหภูมิของสถานที่ตั้ง ซึ่งช่วยให้โมเดลเรียกใช้ API ภายนอกเพื่อตอบคำค้นหาที่ต้องใช้ข้อมูลแบบเรียลไทม์หรือข้อมูลภายนอกได้
 
 ### Python
 
@@ -352,9 +356,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### Crea grafico
+### สร้างแผนภูมิ
 
-Questo esempio mostra come definire una funzione che genera un grafico a barre da dati strutturati, dimostrando come il modello può utilizzare strumenti esterni per eseguire calcoli o creare asset visivi:
+ตัวอย่างนี้แสดงวิธีกำหนดฟังก์ชันที่สร้างแผนภูมิแท่งจาก Structured Data ซึ่งแสดงให้เห็นว่าโมเดลใช้เครื่องมือภายนอกเพื่อทำการคำนวณหรือสร้างชิ้นงานภาพได้อย่างไร
 
 ### Python
 
@@ -524,41 +528,44 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Come funziona la chiamata di funzioni
+## วิธีการทำงานของการเรียกใช้ฟังก์ชัน
 
-![Panoramica della chiamata di funzione](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=it)
+![ภาพรวม
+การเรียกใช้ฟังก์ชัน](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=th)
 
-Le chiamate di funzione prevedono un'interazione strutturata tra l'applicazione, il modello e le funzioni esterne. Ecco una panoramica della procedura:
+การเรียกใช้ฟังก์ชันเกี่ยวข้องกับการโต้ตอบที่มีโครงสร้างระหว่างแอปพลิเคชัน โมเดล และฟังก์ชันภายนอก
+รายละเอียดของกระบวนการมีดังนี้
 
-1. **Definisci la dichiarazione di funzione**:definisci la dichiarazione di funzione nel codice dell'applicazione. Le dichiarazioni di funzione descrivono al modello il nome, i parametri e lo scopo della funzione.
-2. **Chiama l'API con le dichiarazioni di funzione:** invia il prompt utente insieme alle dichiarazioni di funzione al modello. Analizza la richiesta e determina
-   se una chiamata di funzione potrebbe essere utile. In questo caso, risponde con un oggetto JSON strutturato contenente il nome della funzione, gli argomenti e un `id` univoco
-   (questo `id` viene ora sempre restituito dall'API per i modelli Gemini 3\*).
-3. **Esegui il codice della funzione (tua responsabilità)**: il modello *non*
-   esegue la funzione stessa. È responsabilità della tua applicazione
-   elaborare la risposta e verificare la presenza di una chiamata di funzione. Se
-   - **Sì**: estrai il nome, gli argomenti e `id` della funzione ed esegui
-     la funzione corrispondente nella tua applicazione.
-   - **No**:il modello ha fornito una risposta di testo diretta al prompt
-     (questo flusso è meno enfatizzato nell'esempio, ma è un risultato possibile).
-4. **Crea una risposta intuitiva:** se è stata eseguita una funzione, acquisisci il risultato e invialo di nuovo al modello, assicurandoti di includere il `id` corrispondente in un turno successivo della conversazione. Utilizzerà il risultato per
-   generare una risposta finale e intuitiva che incorpori le informazioni
-   dalla chiamata di funzione.
+1. **กำหนดการประกาศฟังก์ชัน:** กำหนดการประกาศฟังก์ชันในโค้ดของแอปพลิเคชัน การประกาศฟังก์ชันจะอธิบายชื่อ พารามิเตอร์ และวัตถุประสงค์ของฟังก์ชันให้โมเดลทราบ
+2. **เรียกใช้ API ด้วยการประกาศฟังก์ชัน:** ส่งพรอมต์ของผู้ใช้พร้อมกับการประกาศฟังก์ชันไปยังโมเดล โดยจะวิเคราะห์คำขอและพิจารณาว่าการเรียกใช้ฟังก์ชันจะเป็นประโยชน์หรือไม่
+   หากเป็นเช่นนั้น โมเดลจะตอบกลับด้วยออบเจ็กต์ JSON ที่มีโครงสร้าง
+   ซึ่งมีชื่อฟังก์ชัน อาร์กิวเมนต์ และ `id`
+   ที่ไม่ซ้ำกัน (ตอนนี้ API จะส่งคืน `id` สำหรับโมเดล Gemini 3 เสมอ\*)
+3. **เรียกใช้โค้ดฟังก์ชัน (ความรับผิดชอบของคุณ):** โมเดล*ไม่*
+   เรียกใช้ฟังก์ชันด้วยตัวเอง แอปพลิเคชันของคุณมีหน้าที่
+   ประมวลผลการตอบกลับและตรวจสอบการเรียกใช้ฟังก์ชัน หาก
+   - **ใช่**: แยกชื่อ อาร์กิวเมนต์ และ`id`ของฟังก์ชัน แล้วเรียกใช้
+     ฟังก์ชันที่เกี่ยวข้องในแอปพลิเคชัน
+   - **ไม่ได้:** โมเดลได้ให้คำตอบเป็นข้อความโดยตรงต่อพรอมต์
+     (โฟลว์นี้ได้รับการเน้นย้ำน้อยกว่าในตัวอย่าง แต่ก็เป็นผลลัพธ์ที่เป็นไปได้)
+4. **สร้างคำตอบที่ใช้งานง่าย:** หากมีการเรียกใช้ฟังก์ชัน ให้บันทึกผลลัพธ์
+   และส่งกลับไปยังโมเดล โดยตรวจสอบว่าคุณได้รวม`id`ที่ตรงกัน
+   ไว้ในการสนทนาครั้งถัดไป โดยจะใช้ผลลัพธ์เพื่อ
+   สร้างคำตอบสุดท้ายที่ใช้งานง่ายซึ่งรวมข้อมูล
+   จากการเรียกใช้ฟังก์ชัน
 
-Questo processo può essere ripetuto più volte, consentendo interazioni e flussi di lavoro complessi. Il modello supporta anche la chiamata di più funzioni
-in un singolo turno ([chiamata di funzioni parallela](#parallel_function_calling)), in
-sequenza ([chiamata di funzioni compositiva](#compositional_function_calling))
-e con gli strumenti Gemini integrati ([utilizzo di più strumenti](#native-tools)).
+กระบวนการนี้สามารถทำซ้ำได้หลายรอบ ซึ่งช่วยให้เกิดการโต้ตอบและเวิร์กโฟลว์ที่ซับซ้อน นอกจากนี้ โมเดลยังรองรับการเรียกฟังก์ชันหลายรายการ
+ในเทิร์นเดียว ([การเรียกฟังก์ชันแบบขนาน](#parallel_function_calling)) ตาม
+ลำดับ ([การเรียกฟังก์ชันแบบคอมโพสิต](#compositional_function_calling))
+และด้วยเครื่องมือ Gemini ในตัว ([การใช้เครื่องมือหลายอย่าง](#native-tools))
 
-\* **Mappa sempre gli ID funzione:** Gemini 3 ora restituisce sempre un `id` univoco con ogni `functionCall`. Includi questo `id` esatto nel tuo
-`functionResponse` in modo che il modello possa mappare con precisione il risultato alla
-richiesta originale.
+\* **แมปรหัสฟังก์ชันเสมอ:** ตอนนี้ Gemini 3 จะส่งคืน`id`ที่ไม่ซ้ำกันเสมอ
+`functionCall` ใส่`id`นี้ใน
+`functionResponse`เพื่อให้โมเดลสามารถเชื่อมโยงผลลัพธ์กลับไปยังคำขอเดิมได้อย่างแม่นยำ
 
-### Passaggio 1: definisci una dichiarazione di funzione
+### ขั้นตอนที่ 1: กำหนดการประกาศฟังก์ชัน
 
-Definisci una funzione e la relativa dichiarazione all'interno del codice dell'applicazione che consente
-agli utenti di impostare i valori di luminosità ed effettuare una richiesta API. Questa funzione potrebbe chiamare
-servizi o API esterni.
+กำหนดฟังก์ชันและการประกาศภายในโค้ดของแอปพลิเคชันที่อนุญาตให้ผู้ใช้ตั้งค่าแสงและส่งคำขอ API ฟังก์ชันนี้อาจเรียกใช้บริการหรือ API ภายนอก
 
 ### Python
 
@@ -639,12 +646,11 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Passaggio 2: chiama il modello con le dichiarazioni di funzione
+### ขั้นตอนที่ 2: เรียกใช้โมเดลด้วยการประกาศฟังก์ชัน
 
-Una volta definite le dichiarazioni di funzioni, puoi chiedere al modello di
-utilizzarle. Analizza il prompt e le dichiarazioni di funzione e decide se
-rispondere direttamente o chiamare una funzione. Se viene chiamata una funzione, l'oggetto
-della risposta conterrà un suggerimento di chiamata di funzione.
+เมื่อกำหนดการประกาศฟังก์ชันแล้ว คุณสามารถแจ้งให้โมเดล
+ใช้ฟังก์ชันเหล่านั้นได้ โดยจะวิเคราะห์พรอมต์และการประกาศฟังก์ชัน แล้วตัดสินใจว่าจะตอบกลับโดยตรงหรือเรียกใช้ฟังก์ชัน หากมีการเรียกใช้ฟังก์ชัน ออบเจ็กต์การตอบกลับ
+จะมีคำแนะนำในการเรียกใช้ฟังก์ชัน
 
 ### Python
 
@@ -706,7 +712,9 @@ const response = await ai.models.generateContent({
 console.log(response.functionCalls[0]);
 ```
 
-Il modello restituisce quindi un oggetto `functionCall` in uno schema compatibile con OpenAPI che specifica come chiamare una o più delle funzioni dichiarate per rispondere alla domanda dell'utente.
+จากนั้นโมเดลจะแสดงออบเจ็กต์ `functionCall` ในสคีมาที่เข้ากันได้กับ OpenAPI
+ซึ่งระบุวิธีเรียกใช้ฟังก์ชันที่ประกาศไว้ตั้งแต่ 1 รายการขึ้นไปเพื่อ
+ตอบคำถามของผู้ใช้
 
 ### Python
 
@@ -724,10 +732,10 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 }
 ```
 
-### Passaggio 3: esegui il codice della funzione set\_light\_values
+### ขั้นตอนที่ 3: เรียกใช้โค้ดฟังก์ชัน set\_light\_values
 
-Estrai i dettagli della chiamata di funzione dalla risposta del modello, analizza gli argomenti
-ed esegui la funzione `set_light_values`.
+ดึงรายละเอียดการเรียกใช้ฟังก์ชันจากการตอบกลับของโมเดล แยกวิเคราะห์อาร์กิวเมนต์
+และเรียกใช้`set_light_values`ฟังก์ชัน
 
 ### Python
 
@@ -753,10 +761,10 @@ if (tool_call.name === 'set_light_values') {
 }
 ```
 
-### Passaggio 4: crea una risposta intuitiva con il risultato della funzione e chiama di nuovo il modello
+### ขั้นตอนที่ 4: สร้างคำตอบที่ใช้งานง่ายพร้อมผลลัพธ์ของฟังก์ชันและเรียกใช้โมเดลอีกครั้ง
 
-Infine, invia il risultato dell'esecuzione della funzione al modello in modo che possa
-incorporare queste informazioni nella risposta finale all'utente.
+สุดท้าย ให้ส่งผลลัพธ์ของการเรียกใช้ฟังก์ชันกลับไปยังโมเดลเพื่อให้โมเดลสามารถ
+รวมข้อมูลนี้ไว้ในคำตอบสุดท้ายที่ส่งให้ผู้ใช้
 
 ### Python
 
@@ -809,88 +817,76 @@ const final_response = await ai.models.generateContent({
 console.log(final_response.text);
 ```
 
-In questo modo, il flusso di chiamata di funzione è completato. Il modello ha utilizzato correttamente la funzione
-`set_light_values` per eseguire l'azione di richiesta dell'utente.
+ซึ่งจะเป็นการเสร็จสิ้นขั้นตอนการเรียกใช้ฟังก์ชัน โมเดลใช้ฟังก์ชัน
+`set_light_values` เพื่อดำเนินการตามคำขอของผู้ใช้ได้สำเร็จ
 
-## Dichiarazioni di funzione
+## การประกาศฟังก์ชัน
 
-Quando implementi la chiamata di funzione in un prompt, crei un oggetto `tools`,
-che contiene uno o più `function declarations`. Definisci le funzioni utilizzando
-JSON, in particolare con un [sottoinsieme di selezione](https://ai.google.dev/api/caching?hl=it#Schema)
-del formato dello [schema OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). Una
-singola dichiarazione di funzione può includere i seguenti parametri:
+เมื่อใช้การเรียกใช้ฟังก์ชันในพรอมต์ คุณจะสร้างออบเจ็กต์ `tools`
+ซึ่งมี `function declarations` อย่างน้อย 1 รายการ คุณกำหนดฟังก์ชันโดยใช้ JSON โดยเฉพาะกับ[ชุดย่อยที่เลือก](https://ai.google.dev/api/caching?hl=th#Schema)
+ของรูปแบบ[สคีมา OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw) การประกาศฟังก์ชันเดียวอาจมีพารามิเตอร์ต่อไปนี้
 
-- `name` (stringa): un nome univoco per la funzione (`get_weather_forecast`,
-  `send_email`). Utilizza nomi descrittivi senza spazi o caratteri speciali
-  (utilizza trattini bassi o camelCase).
-- `description` (stringa): una spiegazione chiara e dettagliata dello scopo e delle funzionalità della funzione. È fondamentale per il modello capire quando
-  utilizzare la funzione. Sii specifico e fornisci esempi se utili ("Trova
-  i cinema in base alla posizione e, facoltativamente, al titolo del film attualmente
-  in programmazione nei cinema").
-- `parameters` (oggetto): definisce i parametri di input previsti dalla funzione.
-  - `type` (stringa): specifica il tipo di dati complessivo, ad esempio `object`.
-  - `properties` (oggetto): elenca i singoli parametri, ognuno con:
-    - `type` (stringa): il tipo di dati del parametro, ad esempio `string`,
-      `integer`, `boolean, array`.
-    - `description` (stringa): una descrizione dello scopo e del formato del parametro. Fornisci esempi e vincoli ("La città e lo stato,
-      ad es. "San Francisco, CA" o un codice postale ad es. "95616".").
-    - `enum` (array, facoltativo): se i valori dei parametri provengono da un insieme fisso, utilizza "enum" per elencare i valori consentiti anziché descriverli semplicemente nella descrizione. Migliora l'accuratezza ("enum":
-      ["daylight", "cool", "warm"]).
-  - `required` (array): un array di stringhe che elenca i nomi dei parametri
-    obbligatori per il funzionamento della funzione.
+- `name` (สตริง): ชื่อที่ไม่ซ้ำกันสำหรับฟังก์ชัน (`get_weather_forecast`,
+  `send_email`) ใช้ชื่อที่สื่อความหมายโดยไม่มีช่องว่างหรืออักขระพิเศษ
+  (ใช้อักขระขีดล่างหรือ CamelCase)
+- `description` (string): คำอธิบายที่ชัดเจนและละเอียดเกี่ยวกับวัตถุประสงค์และความสามารถของฟังก์ชัน
+  ซึ่งเป็นสิ่งสำคัญเพื่อให้โมเดลเข้าใจว่าควรใช้ฟังก์ชันเมื่อใด ระบุรายละเอียดและยกตัวอย่างหากเป็นประโยชน์ ("ค้นหา
+  โรงภาพยนตร์ตามสถานที่ตั้งและชื่อภาพยนตร์ (ไม่บังคับ) ที่กำลัง
+  ฉายในโรงภาพยนตร์")
+- `parameters` (ออบเจ็กต์): กำหนดพารามิเตอร์อินพุตที่ฟังก์ชัน
+  คาดหวัง
+  - `type` (สตริง): ระบุประเภทข้อมูลโดยรวม เช่น `object`
+  - `properties` (ออบเจ็กต์): แสดงรายการพารามิเตอร์แต่ละรายการ โดยแต่ละรายการมีข้อมูลต่อไปนี้
+    - `type` (string): ประเภทข้อมูลของพารามิเตอร์ เช่น `string`,
+      `integer`, `boolean, array`
+    - `description` (สตริง): คำอธิบายวัตถุประสงค์และรูปแบบของพารามิเตอร์ ระบุตัวอย่างและข้อจำกัด ("เมืองและรัฐ เช่น 'ซานฟรานซิสโก แคลิฟอร์เนีย' หรือรหัสไปรษณีย์ เช่น '95616'")
+    - `enum` (อาร์เรย์ ไม่บังคับ): หากค่าพารามิเตอร์มาจากชุดที่กำหนด ให้ใช้ "enum" เพื่อแสดงค่าที่อนุญาตแทนการอธิบายค่าเหล่านั้นในคำอธิบาย ซึ่งจะช่วยเพิ่มความแม่นยำ ("enum":
+      ["daylight", "cool", "warm"])
+  - `required` (อาร์เรย์): อาร์เรย์ของสตริงที่แสดงชื่อพารามิเตอร์ที่
+    จำเป็นเพื่อให้ฟังก์ชันทำงานได้
 
-Puoi anche creare `FunctionDeclarations` direttamente dalle funzioni Python utilizzando
-`types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
+นอกจากนี้ คุณยังสร้าง `FunctionDeclarations` จากฟังก์ชัน Python ได้โดยตรงโดยใช้
+`types.FunctionDeclaration.from_callable(client=client, callable=your_function)`
 
-## Chiamata di funzione con modelli di ragionamento
+## การเรียกใช้ฟังก์ชันด้วยโมเดลการคิด
 
-I modelli delle serie Gemini 3 e 2.5 utilizzano un processo di ["ragionamento"](https://ai.google.dev/gemini-api/docs/thinking?hl=it) interno per elaborare le richieste. Ciò
-migliora significativamente le prestazioni delle chiamate di funzione,
-consentendo al modello di determinare meglio quando chiamare una funzione e quali
-parametri utilizzare. Poiché l'API Gemini è stateless, i modelli utilizzano le
-[firme del pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it) per mantenere il contesto
-nelle conversazioni multi-turno.
+โมเดล Gemini 3 และ 2.5 ใช้กระบวนการ["การคิด"](https://ai.google.dev/gemini-api/docs/thinking?hl=th) ภายในเพื่อหาเหตุผลสำหรับคำขอ การอัปเดตนี้จะช่วยปรับปรุงประสิทธิภาพการเรียกใช้ฟังก์ชันได้อย่างมาก
+ทำให้โมเดลระบุได้ดียิ่งขึ้นว่าจะเรียกใช้ฟังก์ชันเมื่อใดและควรใช้พารามิเตอร์ใด
+เนื่องจาก Gemini API เป็นแบบไม่มีสถานะ โมเดลจึงใช้[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)เพื่อรักษาบริบท
+ในการสนทนาแบบหลายรอบ
 
-Questa sezione tratta la gestione avanzata delle firme dei pensieri ed è necessaria solo se crei manualmente richieste API (ad es. tramite REST) o manipoli la cronologia delle conversazioni.
+ส่วนนี้ครอบคลุมการจัดการลายเซ็นความคิดขั้นสูง และจำเป็นเฉพาะในกรณีที่คุณสร้างคำขอ API ด้วยตนเอง (เช่น ผ่าน REST) หรือจัดการประวัติการสนทนา
 
-**Se utilizzi gli [SDK Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=it) (le nostre
-librerie ufficiali), non devi gestire questo processo**. Gli SDK
-gestiscono automaticamente i passaggi necessari, come mostrato nell'[esempio](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#step-4) precedente.
+**หากใช้ [SDK ของ GenAI ของ Google](https://ai.google.dev/gemini-api/docs/libraries?hl=th) (ไลบรารีอย่างเป็นทางการของเรา) คุณไม่จำเป็นต้องจัดการกระบวนการนี้** SDK
+จะจัดการขั้นตอนที่จำเป็นโดยอัตโนมัติ ดังที่แสดงใน[ตัวอย่าง](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#step-4)ก่อนหน้า
 
-### Gestire manualmente la cronologia delle conversazioni
+### การจัดการประวัติการสนทนาด้วยตนเอง
 
-Se modifichi manualmente la cronologia della conversazione, anziché inviare la
-[risposta precedente completa](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#step-4), devi
-gestire correttamente il `thought_signature` incluso nel turno del modello.
+หากคุณแก้ไขประวัติการสนทนาด้วยตนเองแทนที่จะส่ง[คำตอบก่อนหน้าทั้งหมด](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#step-4) คุณต้องจัดการ `thought_signature` ที่รวมอยู่ในเทิร์นของโมเดลอย่างถูกต้อง
 
-Segui queste regole per assicurarti che il contesto del modello venga preservato:
+ทำตามกฎต่อไปนี้เพื่อให้บริบทของโมเดลยังคงอยู่
 
-- Invia sempre il `thought_signature` al modello all'interno del suo
-  [`Part`](https://ai.google.dev/api?hl=it#request-body-structure) originale.
-- **Includi sempre l'`id` esatto di `function_call` nel tuo
-  `function_response` in modo che l'API possa mappare il risultato alla richiesta corretta.**
-- Non unire un `Part` contenente una firma con uno che non la contiene. In questo modo
-  viene interrotto il contesto posizionale del pensiero.
-- Non combinare due `Parts` che contengono entrambe firme, perché le stringhe
-  della firma non possono essere unite.
+- ส่ง `thought_signature` กลับไปยังโมเดลภายใน [`Part`](https://ai.google.dev/api?hl=th#request-body-structure) เดิมเสมอ
+- **ใส่ `id` ที่แน่นอนจาก `function_call` ใน `function_response` เสมอ เพื่อให้ API แมปผลลัพธ์กับคำขอที่ถูกต้องได้**
+- อย่าผสาน `Part` ที่มีลายเซ็นกับ `Part` ที่ไม่มีลายเซ็น ซึ่ง
+  จะทำลายบริบทเชิงตำแหน่งของความคิด
+- อย่ารวม `Parts` 2 รายการที่มีลายเซ็น เนื่องจากระบบจะผสานสตริงลายเซ็นไม่ได้
 
-#### Firme del pensiero di Gemini 3
+#### ลายเซ็นความคิดของ Gemini 3
 
-In Gemini 3, qualsiasi [`Part`](https://ai.google.dev/api?hl=it#request-body-structure) di una risposta del modello
-può contenere una firma del pensiero.
-Sebbene in genere consigliamo di restituire le firme di tutti i tipi di `Part`,
-la restituzione delle firme di pensiero è obbligatoria per la chiamata di funzioni. A meno che tu non
-manipoli manualmente la cronologia delle conversazioni, l'SDK Google GenAI
-gestirà automaticamente le firme dei pensieri.
+ใน Gemini 3 [`Part`](https://ai.google.dev/api?hl=th#request-body-structure) ของคำตอบจากโมเดล
+อาจมีลายเซ็นความคิด
+แม้ว่าโดยทั่วไปเราจะแนะนำให้ส่งคืนลายเซ็นจาก`Part`ทุกประเภท
+แต่การส่งคืนลายเซ็นความคิดเป็นข้อบังคับสำหรับการเรียกใช้ฟังก์ชัน เว้นแต่คุณจะ
+จัดการประวัติการสนทนาด้วยตนเอง Google GenAI SDK จะ
+จัดการลายเซ็นความคิดโดยอัตโนมัติ
 
-Se manipoli manualmente la cronologia delle conversazioni, consulta la pagina
-[Firme dei pensieri](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it) per indicazioni
-e dettagli completi sulla gestione delle firme dei pensieri per Gemini 3.
+หากคุณแก้ไขประวัติการสนทนาด้วยตนเอง โปรดดูคำแนะนำและรายละเอียดทั้งหมดเกี่ยวกับการจัดการลายเซ็นความคิดสำหรับ Gemini 3 ในหน้า[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)
 
-##### Ispezione delle firme del pensiero
+##### การตรวจสอบลายเซ็นความคิด
 
-Sebbene non sia necessario per l'implementazione, puoi esaminare la risposta per visualizzare il
-`thought_signature` a scopo di debug o didattico.
+แม้ว่าจะไม่จำเป็นสำหรับการติดตั้งใช้งาน แต่คุณสามารถตรวจสอบการตอบกลับเพื่อดู
+`thought_signature`เพื่อวัตถุประสงค์ในการแก้ไขข้อบกพร่องหรือเพื่อการศึกษา
 
 ### Python
 
@@ -918,22 +914,18 @@ if (part.thoughtSignature) {
 }
 ```
 
-Scopri di più sulle limitazioni e sull'utilizzo delle firme del pensiero e sui modelli di pensiero in generale nella pagina [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it#signatures).
+ดูข้อมูลเพิ่มเติมเกี่ยวกับข้อจำกัดและการใช้งานลายเซ็นความคิด รวมถึงโมเดลการคิดโดยทั่วไปได้ในหน้า[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#signatures)
 
-## Chiamata di funzione parallela
+## การเรียกใช้ฟังก์ชันแบบคู่ขนาน
 
-Oltre alla chiamata di funzioni a turno singolo, puoi anche chiamare più funzioni contemporaneamente. La chiamata di funzione parallela consente di eseguire più funzioni
-contemporaneamente e viene utilizzata quando le funzioni non dipendono l'una dall'altra. Ciò è
-utile in scenari come la raccolta di dati da più origini indipendenti, ad esempio
-il recupero dei dettagli dei clienti da database diversi o il controllo dei livelli
-di inventario in vari magazzini o l'esecuzione di più azioni, ad esempio
-la trasformazione del tuo appartamento in una discoteca.
+นอกจากฟังก์ชันการเรียกใช้ฟังก์ชันแบบเทิร์นเดียวแล้ว คุณยังเรียกใช้ฟังก์ชันหลายรายการพร้อมกันได้ด้วย
+การเรียกใช้ฟังก์ชันแบบขนานช่วยให้คุณเรียกใช้ฟังก์ชันหลายรายการ
+พร้อมกันได้ และใช้เมื่อฟังก์ชันไม่ได้ขึ้นอยู่กับฟังก์ชันอื่น ซึ่งมีประโยชน์ในสถานการณ์ต่างๆ เช่น การรวบรวมข้อมูลจากแหล่งข้อมูลอิสระหลายแหล่ง เช่น การดึงรายละเอียดลูกค้าจากฐานข้อมูลต่างๆ หรือการตรวจสอบระดับสินค้าคงคลังในคลังสินค้าต่างๆ หรือการดำเนินการหลายอย่าง เช่น การเปลี่ยนอพาร์ตเมนต์ให้เป็นดิสโก้
 
-Quando il modello avvia più chiamate di funzioni in un singolo turno, non
-devi restituire gli oggetti `function_result` nello stesso ordine in cui sono stati ricevuti gli oggetti
-`function_call`. L'API Gemini mappa ogni risultato alla chiamata corrispondente utilizzando `id` dall'output del modello. In questo modo puoi
-eseguire le funzioni in modo asincrono e aggiungere i risultati all'elenco
-man mano che vengono completati.
+เมื่อโมเดลเริ่มการเรียกใช้ฟังก์ชันหลายครั้งในเทิร์นเดียว คุณไม่จำเป็นต้องส่งคืนออบเจ็กต์ `function_result` ตามลำดับเดียวกับที่ได้รับออบเจ็กต์ `function_call` Gemini API จะแมปผลลัพธ์แต่ละรายการกลับไป
+ยังการเรียกที่เกี่ยวข้องโดยใช้ `id` จากเอาต์พุตของโมเดล ซึ่งจะช่วยให้คุณ
+เรียกใช้ฟังก์ชันแบบไม่พร้อมกันและต่อท้ายผลลัพธ์ในรายการเมื่อ
+ฟังก์ชันทำงานเสร็จ
 
 ### Python
 
@@ -1043,9 +1035,9 @@ const dimLights = {
 };
 ```
 
-Configura la modalità di chiamata di funzione per consentire l'utilizzo di tutti gli strumenti specificati.
-Per saperne di più, puoi leggere informazioni sulla
-[configurazione della chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function_calling_modes).
+กำหนดค่าโหมดการเรียกใช้ฟังก์ชันเพื่อให้ใช้เครื่องมือที่ระบุทั้งหมดได้
+ดูข้อมูลเพิ่มเติมได้ที่หัวข้อ
+[การกำหนดค่าการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#function_calling_modes)
 
 ### Python
 
@@ -1119,10 +1111,13 @@ for (const fn of response.functionCalls) {
 }
 ```
 
-Ciascuno dei risultati stampati riflette una singola chiamata di funzione richiesta dal modello. Per inviare di nuovo i risultati, includi le risposte nello stesso ordine in cui sono state richieste.
+ผลลัพธ์ที่พิมพ์แต่ละรายการแสดงถึงการเรียกใช้ฟังก์ชันเดียวที่โมเดลได้
+ขอ หากต้องการส่งผลลัพธ์กลับ ให้ใส่คำตอบตามลำดับเดียวกับที่ขอ
 
-L'SDK Python supporta la [chiamata automatica di funzioni](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#automatic_function_calling_python_only), che converte automaticamente le funzioni Python in dichiarazioni, gestisce l'esecuzione della chiamata di funzione e il ciclo di risposta. Di seguito è riportato un esempio per
-il caso d'uso di disco.
+Python SDK รองรับ[การเรียกใช้ฟังก์ชันอัตโนมัติ](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#automatic_function_calling_python_only)
+ซึ่งจะแปลงฟังก์ชัน Python เป็นการประกาศโดยอัตโนมัติ จัดการ
+วงจรการดำเนินการและการตอบกลับการเรียกใช้ฟังก์ชันให้คุณ ต่อไปนี้เป็นตัวอย่างสำหรับ
+กรณีการใช้งานดิสโก้
 
 ### Python
 
@@ -1185,18 +1180,19 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## Chiamata di funzione compositiva
+## การเรียกใช้ฟังก์ชันแบบคอมโพสิต
 
-La chiamata di funzione compositiva o sequenziale consente a Gemini di concatenare più chiamate di funzione per soddisfare una richiesta complessa. Ad esempio, per rispondere a
-"Qual è la temperatura nella mia posizione attuale?", l'API Gemini potrebbe prima richiamare
-una funzione `get_current_location()` seguita da una funzione `get_weather()` che
-prende la posizione come parametro.
+การเรียกใช้ฟังก์ชันแบบเรียงซ้อนหรือแบบลำดับช่วยให้ Gemini สามารถเชื่อมโยงการเรียกใช้ฟังก์ชันหลายรายการเข้าด้วยกันเพื่อตอบสนองคำขอที่ซับซ้อน เช่น หากต้องการตอบคำถาม "ขออุณหภูมิในตำแหน่งปัจจุบัน" Gemini API อาจเรียกใช้ฟังก์ชัน `get_current_location()` ก่อน แล้วจึงเรียกใช้ฟังก์ชัน `get_weather()` ที่ใช้ตำแหน่งเป็นพารามิเตอร์
 
-L'esempio seguente mostra come implementare la chiamata di funzioni compositive utilizzando l'SDK Python e la chiamata automatica di funzioni.
+ตัวอย่างต่อไปนี้แสดงวิธีใช้การเรียกใช้ฟังก์ชันแบบคอมโพสิชัน
+โดยใช้ Python SDK และการเรียกใช้ฟังก์ชันอัตโนมัติ
 
 ### Python
 
-Questo esempio utilizza la funzionalità di chiamata di funzione automatica dell'SDK Python `google-genai`. L'SDK converte automaticamente le funzioni Python nello schema richiesto, esegue le chiamate di funzione quando richieste dal modello e invia i risultati al modello per completare l'attività.
+ตัวอย่างนี้ใช้ฟีเจอร์การเรียกใช้ฟังก์ชันอัตโนมัติของ
+`google-genai` Python SDK SDK จะแปลงฟังก์ชัน Python
+เป็นสคีมาที่จำเป็นโดยอัตโนมัติ เรียกใช้ฟังก์ชันเมื่อโมเดลร้องขอ
+และส่งผลลัพธ์กลับไปยังโมเดลเพื่อทำงานให้เสร็จสมบูรณ์
 
 ```
 import os
@@ -1235,11 +1231,12 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**Output previsto**
+**ผลลัพธ์ที่คาดไว้**
 
-Quando esegui il codice, vedrai l'SDK orchestrare le chiamate di funzione. Il modello chiama prima `get_weather_forecast`, riceve la
-temperatura e poi chiama `set_thermostat_temperature` con il valore
-corretto in base alla logica nel prompt.
+เมื่อเรียกใช้โค้ด คุณจะเห็น SDK จัดการการเรียกฟังก์ชัน
+โมเดลจะเรียกใช้ `get_weather_forecast` ก่อน จากนั้นรับ
+อุณหภูมิ แล้วเรียกใช้ `set_thermostat_temperature` โดยมีค่าที่ถูกต้อง
+ตามตรรกะในพรอมต์
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1251,7 +1248,8 @@ OK. I've set the thermostat to 20°C.
 
 ### JavaScript
 
-Questo esempio mostra come utilizzare l'SDK JavaScript/TypeScript per eseguire chiamate di funzioni compositive utilizzando un ciclo di esecuzione manuale.
+ตัวอย่างนี้แสดงวิธีใช้ JavaScript/TypeScript SDK เพื่อเรียกใช้ฟังก์ชันแบบคอมโพสิชัน
+โดยใช้ลูปการดำเนินการด้วยตนเอง
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1380,11 +1378,12 @@ while (true) {
 }
 ```
 
-**Output previsto**
+**ผลลัพธ์ที่คาดไว้**
 
-Quando esegui il codice, vedrai l'SDK orchestrare le chiamate di funzione. Il modello chiama prima `get_weather_forecast`, riceve la
-temperatura e poi chiama `set_thermostat_temperature` con il valore
-corretto in base alla logica nel prompt.
+เมื่อเรียกใช้โค้ด คุณจะเห็น SDK จัดการการเรียกฟังก์ชัน
+โมเดลจะเรียกใช้ `get_weather_forecast` ก่อน จากนั้นรับ
+อุณหภูมิ แล้วเรียกใช้ `set_thermostat_temperature` โดยมีค่าที่ถูกต้อง
+ตามตรรกะในพรอมต์
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1394,8 +1393,9 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-La chiamata di funzione compositiva è una funzionalità nativa dell'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it). Ciò significa che l'API Live
-può gestire la chiamata di funzione in modo simile all'SDK Python.
+การเรียกใช้ฟังก์ชันแบบคอมโพสิชันเป็นฟีเจอร์ในตัวของ [Live
+API](https://ai.google.dev/gemini-api/docs/live?hl=th) ซึ่งหมายความว่า Live API
+สามารถจัดการการเรียกใช้ฟังก์ชันได้คล้ายกับ Python SDK
 
 ### Python
 
@@ -1435,26 +1435,25 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## Modalità di chiamata di funzione
+## โหมดการเรียกใช้ฟังก์ชัน
 
-L'API Gemini ti consente di controllare il modo in cui il modello utilizza gli strumenti forniti
-(dichiarazioni di funzioni). Nello specifico, puoi impostare la modalità all'interno
-di.`function_calling_config`.
+Gemini API ช่วยให้คุณควบคุมวิธีที่โมเดลใช้เครื่องมือที่ระบุ (การประกาศฟังก์ชัน) ได้
+โดยคุณสามารถตั้งค่าโหมดได้ภายใน
+`function_calling_config`
 
-- `VALIDATED`: modalità predefinita per la combinazione di strumenti (quando sono attivi anche gli strumenti integrati o
-  gli output strutturati). Il modello è vincolato a prevedere chiamate di funzioni o linguaggio naturale e garantisce il rispetto dello schema delle funzioni. Se non viene fornito `allowed_function_names`, il modello sceglie tra tutte le dichiarazioni di funzioni disponibili. Se viene fornito `allowed_function_names`, il
-  modello sceglie dall'insieme di funzioni consentite. Questa modalità riduce le chiamate di funzioni non valide (rispetto alla modalità `AUTO`).
-- `AUTO`: modalità predefinita quando è attivato solo lo strumento function\_declarations.
-  Il modello decide se generare una risposta in linguaggio naturale o suggerire
-  una chiamata di funzione in base al prompt e al contesto.
-- `ANY`: il modello è vincolato a prevedere sempre una chiamata di funzione e
-  garantisce il rispetto dello schema della funzione. Se `allowed_function_names` non è
-  specificato, il modello può scegliere tra una qualsiasi delle dichiarazioni di funzione fornite.
-  Se `allowed_function_names` viene fornito come elenco, il modello può scegliere solo tra le funzioni presenti nell'elenco. Utilizza questa modalità quando richiedi una risposta
-  di chiamata di funzione a ogni prompt (se applicabile).
-- `NONE`: al modello è *vietato* effettuare chiamate di funzione. Equivale
-  a inviare una richiesta senza dichiarazioni di funzioni. Utilizza questa opzione per
-  disattivare temporaneamente le chiamate di funzione senza rimuovere le definizioni degli strumenti.
+- `VALIDATED`: โหมดเริ่มต้นสำหรับการรวมเครื่องมือ (เมื่อเปิดใช้เครื่องมือในตัวหรือ
+  เอาต์พุตที่มีโครงสร้างด้วย) โมเดลถูกจำกัดให้คาดการณ์ได้ทั้งการเรียกใช้ฟังก์ชันหรือภาษาธรรมชาติ และรับประกันการยึดมั่นในสคีมาของฟังก์ชัน หากไม่ได้ระบุ `allowed_function_names` โมเดลจะเลือกจากประกาศฟังก์ชันที่ใช้ได้ทั้งหมด
+  หากระบุ `allowed_function_names` โมเดลจะเลือกจากชุดฟังก์ชันที่อนุญาต โหมดนี้ช่วยลดการเรียกใช้ฟังก์ชันที่รูปแบบไม่ถูกต้อง (เมื่อเทียบกับโหมด `AUTO`)
+- `AUTO`: โหมดเริ่มต้นเมื่อเปิดใช้เครื่องมือ function\_declarations เท่านั้น
+  โมเดลจะตัดสินใจว่าจะสร้างคำตอบที่เป็นภาษาธรรมชาติหรือแนะนำการเรียกใช้ฟังก์ชันโดยอิงตามพรอมต์และบริบท
+- `ANY`: โมเดลถูกจำกัดให้คาดการณ์การเรียกใช้ฟังก์ชันเสมอและ
+  ตรวจสอบว่าสคีมาฟังก์ชันเป็นไปตามข้อกำหนด หากไม่ได้ระบุ `allowed_function_names`
+  โมเดลจะเลือกจากประกาศฟังก์ชันที่ระบุไว้ได้
+  หากระบุ `allowed_function_names` เป็นรายการ โมเดลจะเลือกได้เฉพาะฟังก์ชันในรายการนั้น
+  ใช้โหมดนี้เมื่อคุณต้องการให้ฟังก์ชัน
+  เรียกใช้การตอบกลับทุกพรอมต์ (หากมี)
+- `NONE`: โมเดล*ถูกห้าม*ไม่ให้ทำการเรียกฟังก์ชัน ซึ่งเทียบเท่ากับการส่งคำขอโดยไม่มีการประกาศฟังก์ชันใดๆ ใช้เพื่อ
+  ปิดใช้การเรียกใช้ฟังก์ชันชั่วคราวโดยไม่ต้องนำคำจำกัดความเครื่องมือออก
 
 ### Python
 
@@ -1495,21 +1494,22 @@ const config = {
 };
 ```
 
-## Chiamata di funzione automatica (solo Python)
+## การเรียกใช้ฟังก์ชันอัตโนมัติ (Python เท่านั้น)
 
-Quando utilizzi l'SDK Python, puoi fornire direttamente le funzioni Python come strumenti.
-L'SDK converte queste funzioni in dichiarazioni, gestisce l'esecuzione della chiamata di funzione e gestisce il ciclo di risposta. Definisci la funzione con
-suggerimenti sul tipo e una docstring. Per risultati ottimali, è consigliabile utilizzare
-[docstring in stile Google.](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)
-L'SDK eseguirà automaticamente le seguenti operazioni:
+เมื่อใช้ Python SDK คุณจะระบุฟังก์ชัน Python เป็นเครื่องมือได้โดยตรง
+SDK จะแปลงฟังก์ชันเหล่านี้เป็นการประกาศ จัดการการเรียกใช้ฟังก์ชัน
+การดำเนินการ และจัดการวงจรการตอบกลับให้คุณ กำหนดฟังก์ชันด้วย
+คำแนะนำประเภทและสตริงเอกสาร ขอแนะนำให้ใช้[สตริงเอกสารสไตล์ Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods) เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
+จากนั้น SDK จะดำเนินการต่อไปนี้โดยอัตโนมัติ
 
-1. Rileva le risposte alla chiamata di funzione del modello.
-2. Chiama la funzione Python corrispondente nel codice.
-3. Invia la risposta della funzione al modello.
-4. Restituisce la risposta di testo finale del modello.
+1. ตรวจหาการตอบกลับการเรียกใช้ฟังก์ชันจากโมเดล
+2. เรียกใช้ฟังก์ชัน Python ที่เกี่ยวข้องในโค้ด
+3. ส่งการตอบกลับของฟังก์ชันกลับไปยังโมเดล
+4. แสดงผลข้อความตอบกลับสุดท้ายของโมเดล
 
-Al momento l'SDK non analizza le descrizioni degli argomenti negli slot
-della descrizione della proprietà della dichiarazione di funzione generata. Invece, invia l'intera docstring come descrizione della funzione di primo livello.
+ขณะนี้ SDK ยังไม่ได้แยกวิเคราะห์คำอธิบายอาร์กิวเมนต์ลงในช่องพร็อพเพอร์ตี้
+คำอธิบายของการประกาศฟังก์ชันที่สร้างขึ้น แต่จะส่ง
+สตริงเอกสารทั้งหมดเป็นคำอธิบายฟังก์ชันระดับบนสุดแทน
 
 ### Python
 
@@ -1546,7 +1546,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-Puoi disattivare la chiamata automatica di funzioni con:
+คุณปิดใช้การเรียกใช้ฟังก์ชันอัตโนมัติได้โดยใช้คำสั่งต่อไปนี้
 
 ### Python
 
@@ -1557,12 +1557,10 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### Dichiarazione automatica dello schema della funzione
+### การประกาศสคีมาฟังก์ชันอัตโนมัติ
 
-L'API è in grado di descrivere uno qualsiasi dei seguenti tipi. I tipi `Pydantic` sono
-consentiti, a condizione che anche i campi definiti siano composti da tipi
-consentiti. I tipi di dizionario (come `dict[str: int]`) non sono ben supportati qui, non
-utilizzarli.
+API สามารถอธิบายประเภทต่อไปนี้ได้ `Pydantic` ได้รับอนุญาต ตราบใดที่ฟิลด์ที่กำหนดไว้ในฟิลด์เหล่านั้นประกอบด้วยประเภทที่ได้รับอนุญาตด้วย
+ระบบไม่รองรับประเภท Dict (เช่น `dict[str: int]`) ที่นี่ ดังนั้นโปรดอย่าใช้
 
 ### Python
 
@@ -1571,8 +1569,8 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-Per vedere l'aspetto dello schema dedotto, puoi convertirlo utilizzando
-[`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
+หากต้องการดูว่าสคีมาที่อนุมานมีลักษณะอย่างไร คุณสามารถแปลงสคีมาได้โดยใช้
+[`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable)
 
 ### Python
 
@@ -1591,13 +1589,12 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## Utilizzo di più strumenti: combina gli strumenti integrati con la chiamata di funzione
+## การใช้เครื่องมือหลายอย่าง: รวมเครื่องมือในตัวกับการเรียกใช้ฟังก์ชัน
 
-Puoi attivare più strumenti, combinando quelli integrati con la chiamata a funzioni nella stessa richiesta.
+คุณเปิดใช้เครื่องมือหลายอย่างได้โดยการรวมเครื่องมือในตัวเข้ากับการเรียกใช้ฟังก์ชันในคำขอเดียวกัน
 
-I modelli Gemini 3 possono combinare strumenti integrati con la chiamata di funzioni predefinita,
-grazie alla funzionalità di circolazione del contesto dello strumento. Per saperne di più, leggi la pagina su
-[Combinazione di strumenti integrati e chiamata di funzione](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it).
+โมเดล Gemini 3 สามารถรวมเครื่องมือในตัวเข้ากับการเรียกใช้ฟังก์ชันได้ทันที
+ด้วยฟีเจอร์การหมุนเวียนบริบทของเครื่องมือ อ่านข้อมูลเพิ่มเติมได้ในหน้า[การรวมเครื่องมือในตัวและการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
 
 ### Python
 
@@ -1739,27 +1736,24 @@ async function run() {
 run();
 ```
 
-Per i modelli precedenti alla serie Gemini 3, utilizza l'[API Live](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=it).
+สำหรับโมเดลก่อนซีรีส์ Gemini 3 ให้ใช้ [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=th)
 
-## Risposte di funzioni multimodali
+## การตอบกลับฟังก์ชันหลายรูปแบบ
 
-Per i modelli della serie Gemini 3, puoi includere contenuti multimodali nelle parti di risposta della funzione che invii al modello. Il modello può elaborare
-questo contenuto multimodale nel turno successivo per produrre una risposta più informata.
-Per i contenuti multimodali nelle risposte delle funzioni sono supportati i seguenti tipi MIME:
+สำหรับโมเดลซีรีส์ Gemini 3 คุณสามารถรวมเนื้อหาหลายรูปแบบไว้ในส่วนการตอบกลับฟังก์ชันที่ส่งไปยังโมเดลได้ โมเดลสามารถประมวลผล
+เนื้อหามัลติโมดัลนี้ในรอบถัดไปเพื่อสร้างคำตอบที่อิงตามข้อมูลมากขึ้น
+ระบบรองรับประเภท MIME ต่อไปนี้สำหรับเนื้อหามัลติโมดอลในคำตอบของฟังก์ชัน
 
-- **Google Immagini**: `image/png`, `image/jpeg`, `image/webp`
-- **Documenti**: `application/pdf`, `text/plain`
+- **รูปภาพ**: `image/png`, `image/jpeg`, `image/webp`
+- **เอกสาร**: `application/pdf`, `text/plain`
 
-Per includere dati multimodali in una risposta della funzione, includili come una o più
-parti nidificate all'interno della parte `functionResponse`. Ogni parte multimodale deve
-contenere `inlineData`. Se fai riferimento a una parte multimodale
-all'interno del campo strutturato `response`, deve contenere un `displayName` univoco.
+หากต้องการรวมข้อมูลหลายรูปแบบในการตอบกลับของฟังก์ชัน ให้รวมข้อมูลเป็นส่วนอย่างน้อย 1 ส่วนที่ซ้อนอยู่ภายในส่วน `functionResponse` ชิ้นส่วนมัลติโมดัลแต่ละชิ้นต้องมี`inlineData` หากอ้างอิงชิ้นส่วนมัลติโมดัลจากภายในฟิลด์ `response` ที่มีโครงสร้าง จะต้องมี `displayName` ที่ไม่ซ้ำกัน
 
-Puoi anche fare riferimento a una parte multimodale dal campo `response` strutturato della parte `functionResponse` utilizzando il formato di riferimento JSON `{"$ref": "<displayName>"}`. Il modello sostituisce il riferimento con i contenuti multimodali durante l'elaborazione della risposta. Ogni `displayName` può essere
-menzionato una sola volta nel campo `response` strutturato.
+นอกจากนี้ คุณยังอ้างอิงชิ้นส่วนมัลติโมดัลจากภายใน`response`ฟิลด์ของ `functionResponse` ชิ้นส่วนที่มีโครงสร้างได้โดยใช้รูปแบบการอ้างอิง JSON `{"$ref": "<displayName>"}` โมเดลจะแทนที่ข้อมูลอ้างอิงด้วย
+เนื้อหามัลติโมดัลเมื่อประมวลผลคำตอบ `displayName` แต่ละรายการจะอ้างอิงได้เพียงครั้งเดียวในฟิลด์ `response` ที่มีโครงสร้าง
 
-L'esempio seguente mostra un messaggio contenente un `functionResponse` per una funzione denominata `get_image` e una parte nidificata contenente dati immagine con `displayName: "instrument.jpg"`. Il campo `functionResponse` `response`
-fa riferimento a questa parte dell'immagine:
+ตัวอย่างต่อไปนี้แสดงข้อความที่มี `functionResponse` สำหรับฟังก์ชันชื่อ `get_image` และส่วนที่ซ้อนกันซึ่งมีข้อมูลรูปภาพพร้อม `displayName: "instrument.jpg"` ฟิลด์ `functionResponse`'s `response`
+อ้างอิงส่วนของรูปภาพนี้
 
 ### Python
 
@@ -2003,32 +1997,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Chiamata di funzione con output strutturato
+## การเรียกใช้ฟังก์ชันที่มีเอาต์พุตที่มีโครงสร้าง
 
-Per i modelli della serie Gemini 3, puoi utilizzare la chiamata di funzione con
-[output strutturato](https://ai.google.dev/gemini-api/docs/structured-output?hl=it). In questo modo, il modello
-può prevedere chiamate di funzioni o output che rispettano uno schema specifico. Di conseguenza,
-ricevi risposte formattate in modo coerente quando il modello non genera
-chiamate di funzioni.
+สำหรับโมเดล Gemini 3 คุณสามารถใช้การเรียกใช้ฟังก์ชันกับ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)ได้ ซึ่งจะช่วยให้โมเดล
+คาดการณ์การเรียกใช้ฟังก์ชันหรือเอาต์พุตที่เป็นไปตามสคีมาที่เฉพาะเจาะจงได้ ด้วยเหตุนี้
+คุณจึงได้รับคำตอบที่มีการจัดรูปแบบอย่างสม่ำเสมอเมื่อโมเดลไม่ได้สร้าง
+การเรียกใช้ฟังก์ชัน
 
 ## Model Context Protocol (MCP)
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) è
-uno standard aperto per connettere applicazioni AI a strumenti e dati esterni.
-MCP fornisce un protocollo comune per l'accesso al contesto dei modelli, ad esempio funzioni
-(strumenti), origini dati (risorse) o prompt predefiniti.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) คือ
+มาตรฐานแบบเปิดสำหรับการเชื่อมต่อแอปพลิเคชัน AI กับเครื่องมือและข้อมูลภายนอก
+MCP มีโปรโตคอลทั่วไปสำหรับโมเดลในการเข้าถึงบริบท เช่น ฟังก์ชัน
+(เครื่องมือ) แหล่งข้อมูล (ทรัพยากร) หรือพรอมต์ที่กำหนดไว้ล่วงหน้า
 
-Gli SDK Gemini hanno un supporto integrato per MCP, riducendo il codice boilerplate e
-offrendo
-[chiamate automatiche agli strumenti](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#automatic_function_calling_python_only)
-per gli strumenti MCP. Quando il modello genera una chiamata allo strumento MCP, gli SDK client Python e JavaScript possono eseguire automaticamente lo strumento MCP e inviare la risposta al modello in una richiesta successiva, continuando questo ciclo finché il modello non effettua altre chiamate allo strumento.
+SDK ของ Gemini มีการรองรับ MCP ในตัว ซึ่งช่วยลดโค้ด Boilerplate และ
+มี[การเรียกใช้เครื่องมืออัตโนมัติ](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#automatic_function_calling_python_only)
+สำหรับเครื่องมือ MCP เมื่อโมเดลสร้างการเรียกใช้เครื่องมือ MCP แล้ว SDK ไคลเอ็นต์ Python และ JavaScript จะเรียกใช้เครื่องมือ MCP โดยอัตโนมัติและส่งการตอบกลับไปยังโมเดลในคำขอที่ตามมา โดยจะทำซ้ำลูปนี้จนกว่าโมเดลจะไม่เรียกใช้เครื่องมืออีก
 
-Qui puoi trovare un esempio di come utilizzare un server MCP locale con Gemini e
-`mcp` SDK.
+ในส่วนนี้ คุณจะเห็นตัวอย่างวิธีใช้เซิร์ฟเวอร์ MCP ในเครื่องกับ Gemini และ
+`mcp` SDK
 
 ### Python
 
-Assicurati che sia installata l'ultima versione dell'[SDK `mcp`](https://modelcontextprotocol.io/introduction) sulla piattaforma che preferisci.
+ตรวจสอบว่าได้ติดตั้ง SDK ของ
+[`mcp`](https://modelcontextprotocol.io/introduction) เวอร์ชันล่าสุดใน
+แพลตฟอร์มที่คุณเลือกแล้ว
 
 ```
 pip install mcp
@@ -2081,7 +2075,8 @@ asyncio.run(run())
 
 ### JavaScript
 
-Assicurati che sulla piattaforma che preferisci sia installata l'ultima versione dell'SDK `mcp`.
+ตรวจสอบว่าได้ติดตั้ง `mcp` SDK เวอร์ชันล่าสุดบนแพลตฟอร์ม
+ที่คุณเลือกแล้ว
 
 ```
 npm install @modelcontextprotocol/sdk
@@ -2129,92 +2124,96 @@ console.log(response.text)
 await client.close();
 ```
 
-### Limitazioni con il supporto MCP integrato
+### ข้อจำกัดของการรองรับ MCP ในตัว
 
-Il supporto MCP integrato è una funzionalità [sperimentale](https://ai.google.dev/gemini-api/docs/models?hl=it#preview) dei nostri SDK e presenta le seguenti limitazioni:
+การรองรับ MCP ในตัวเป็นฟีเจอร์[ทดลอง](https://ai.google.dev/gemini-api/docs/models?hl=th#preview)
+ใน SDK ของเราและมีข้อจำกัดต่อไปนี้
 
-- Sono supportati solo gli strumenti, non le risorse né i prompt
-- È disponibile per gli SDK Python e JavaScript/TypeScript.
-- Nelle release future potrebbero verificarsi modifiche che provocano un errore.
+- รองรับเฉพาะเครื่องมือ ไม่รองรับทรัพยากรหรือพรอมต์
+- พร้อมให้บริการสำหรับ Python และ JavaScript/TypeScript SDK
+- การเปลี่ยนแปลงที่ส่งผลกับส่วนอื่นในระบบอาจเกิดขึ้นในรุ่นต่อๆ ไป
 
-L'integrazione manuale dei server MCP è sempre un'opzione se questi limitano ciò che stai
-creando.
+การผสานรวมเซิร์ฟเวอร์ MCP ด้วยตนเองเป็นตัวเลือกเสมอหากข้อจำกัดเหล่านี้จำกัดสิ่งที่คุณ
+กำลังสร้าง
 
-## Modelli supportati
+## รุ่นที่รองรับ
 
-Questa sezione elenca i modelli e le relative funzionalità di chiamata di funzione. I modelli sperimentali non sono inclusi. Puoi trovare una panoramica completa delle funzionalità nella pagina [Panoramica modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
+ส่วนนี้แสดงรายการโมเดลและความสามารถในการเรียกใช้ฟังก์ชันของโมเดล ไม่รวมโมเดลเวอร์ชันทดลอง คุณดูภาพรวมความสามารถแบบละเอียดได้ในหน้า[ภาพรวมโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
 
-| Modello | Chiamata di funzione | Chiamata di funzione parallela | Chiamata di funzione compositiva |
+| รุ่น | การเรียกใช้ฟังก์ชัน | การเรียกใช้ฟังก์ชันแบบคู่ขนาน | การเรียกใช้ฟังก์ชันแบบคอมโพสิต |
 | --- | --- | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Pro (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=it) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th) | ✔️ | ✔️ | ✔️ |
+| [ตัวอย่าง Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ | ✔️ | ✔️ |
 
-## Best practice
+## แนวทางปฏิบัติแนะนำ
 
-- **Descrizioni di funzioni e parametri**:sii estremamente chiaro e specifico nelle descrizioni. Il modello si basa su questi per scegliere la funzione corretta
-  e fornire argomenti appropriati.
-- **Denominazione**:utilizza nomi di funzioni descrittivi (senza spazi, punti o
-  trattini).
-- **Tipizzazione forte**:utilizza tipi specifici (integer, stringa, enum) per i parametri
-  per ridurre gli errori. Se un parametro ha un insieme limitato di valori validi, utilizza un'enumerazione.
-- **Selezione degli strumenti**:anche se il modello può utilizzare un numero arbitrario di strumenti, fornirne troppi può aumentare il rischio di selezionare uno strumento errato o non ottimale. Per ottenere risultati ottimali, cerca di fornire solo gli strumenti pertinenti
-  per il contesto o l'attività, idealmente mantenendo il set attivo a un massimo di
-  10-20. Se hai un numero totale elevato di strumenti, valuta la possibilità di selezionare gli strumenti in modo dinamico in base al contesto della conversazione.
-- **Prompt Engineering:**
-  - Fornisci il contesto: indica al modello il suo ruolo (ad es. "Sei un assistente meteo
-    utile").
-  - Fornisci istruzioni: specifica come e quando utilizzare le funzioni (ad es. "Non
-    indovinare le date; utilizza sempre una data futura per le previsioni").
-  - Incoraggia i chiarimenti: chiedi al modello di porre domande chiarificatrici
-    se necessario.
-  - Per ulteriori strategie per la progettazione di questi prompt, consulta [Flussi di lavoro agentici](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it#agentic-workflows). Ecco un esempio di [istruzione di sistema](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it#agentic-si-template) testata.
-- **Temperatura**:utilizza una temperatura bassa (ad es. 0) per chiamate di funzioni più deterministiche e affidabili.
-- **Convalida**:se una chiamata di funzione ha conseguenze significative (ad es.
-  effettuare un ordine), convalidala con l'utente prima di eseguirla.
-- **Controlla il motivo del completamento**:controlla sempre il campo [`finishReason`](https://ai.google.dev/api/generate-content?hl=it#FinishReason)
-  nella risposta del modello per gestire i casi in cui il modello non è riuscito a generare una
-  chiamata di funzione valida.
-- **Gestione degli errori**: implementa una gestione degli errori efficace nelle tue funzioni per
-  gestire correttamente input imprevisti o errori API. Restituisci messaggi di errore informativi che il modello può utilizzare per generare risposte utili per l'utente.
-- **Sicurezza**:presta attenzione alla sicurezza quando chiami API esterne. Utilizza
-  meccanismi di autenticazione e autorizzazione appropriati. Evita di esporre
-  dati sensibili nelle chiamate di funzioni.
-- **Limiti dei token**:le descrizioni e i parametri delle funzioni vengono conteggiati ai fini del limite di token di input. Se raggiungi i limiti di token, valuta la possibilità di limitare il
-  numero di funzioni o la lunghezza delle descrizioni, suddividi le attività complesse
-  in set di funzioni più piccoli e mirati.
-- **Combinazione di bash e strumenti personalizzati** Per chi crea con una combinazione di bash e strumenti personalizzati, l'anteprima di Gemini 3.1 Pro include un endpoint separato disponibile tramite l'API chiamato [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it#gemini-31-pro-preview-customtools).
+- **คำอธิบายฟังก์ชันและพารามิเตอร์:** อธิบายให้ชัดเจนและเฉพาะเจาะจงที่สุด
+  โมเดลจะใช้ข้อมูลเหล่านี้เพื่อเลือกฟังก์ชันที่ถูกต้อง
+  และระบุอาร์กิวเมนต์ที่เหมาะสม
+- **การตั้งชื่อ:** ใช้ชื่อฟังก์ชันที่สื่อความหมาย (ไม่มีการเว้นวรรค จุด หรือ
+  ขีดกลาง)
+- **การพิมพ์ที่รัดกุม:** ใช้ประเภทที่เฉพาะเจาะจง (จำนวนเต็ม สตริง enum) สำหรับพารามิเตอร์
+  เพื่อลดข้อผิดพลาด หากพารามิเตอร์มีชุดค่าที่ถูกต้องแบบจำกัด ให้ใช้
+  enum
+- **การเลือกเครื่องมือ:** แม้ว่าโมเดลจะใช้เครื่องมือได้ไม่จำกัดจำนวน แต่การระบุเครื่องมือมากเกินไปอาจเพิ่มความเสี่ยงในการเลือกเครื่องมือที่ไม่ถูกต้องหรือไม่เหมาะสม เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ให้พยายามระบุเฉพาะเครื่องมือที่เกี่ยวข้อง
+  กับบริบทหรืองาน โดยควรจำกัดชุดเครื่องมือที่ใช้งานอยู่ให้ไม่เกิน
+  10-20 รายการ พิจารณาการเลือกเครื่องมือแบบไดนามิกตามบริบทการสนทนาหากคุณมีเครื่องมือจำนวนมาก
+- **การออกแบบพรอมต์:**
+  - ระบุบริบท: บอกบทบาทของโมเดล (เช่น "คุณเป็นผู้ช่วยด้านสภาพอากาศที่
+    มีประโยชน์")
+  - ให้คำสั่ง: ระบุวิธีและเวลาที่จะใช้ฟังก์ชัน (เช่น "อย่า
+    คาดเดาวันที่ ให้ใช้วันที่ในอนาคตเสมอสำหรับการคาดการณ์")
+  - กระตุ้นให้ขอคำชี้แจง: สั่งให้โมเดลถามคำถามเพื่อขอข้อมูลเพิ่มเติม
+    หากจำเป็น
+  - ดูกลยุทธ์เพิ่มเติมในการออกแบบพรอมต์เหล่านี้ได้ที่[เวิร์กโฟลว์แบบเอเจนต์](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=th#agentic-workflows)
+    ตัวอย่าง[คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=th#agentic-si-template)ที่ผ่านการทดสอบแล้วมีดังนี้
+- **อุณหภูมิ:** ใช้อุณหภูมิต่ำ (เช่น 0) เพื่อให้การเรียกใช้ฟังก์ชันมีความแน่นอนและเชื่อถือได้มากขึ้น
+- **การตรวจสอบ:** หากการเรียกใช้ฟังก์ชันมีผลกระทบอย่างมาก (เช่น
+  การสั่งซื้อ) ให้ตรวจสอบการเรียกใช้กับผู้ใช้ก่อนที่จะดำเนินการ
+- **ตรวจสอบเหตุผลที่เสร็จสิ้น:** ตรวจสอบ[`finishReason`](https://ai.google.dev/api/generate-content?hl=th#FinishReason)
+  ในคำตอบของโมเดลเสมอเพื่อจัดการกรณีที่โมเดลสร้าง
+  การเรียกใช้ฟังก์ชันที่ถูกต้องไม่สำเร็จ
+- **การจัดการข้อผิดพลาด**: ใช้การจัดการข้อผิดพลาดที่มีประสิทธิภาพในฟังก์ชันเพื่อ
+  จัดการอินพุตที่ไม่คาดคิดหรือความล้มเหลวของ API อย่างเหมาะสม แสดงข้อความแสดงข้อผิดพลาดที่ให้ข้อมูล
+  ซึ่งโมเดลใช้สร้างคำตอบที่เป็นประโยชน์แก่ผู้ใช้ได้
+- **ความปลอดภัย:** โปรดคำนึงถึงความปลอดภัยเมื่อเรียกใช้ API ภายนอก ใช้กลไกการตรวจสอบสิทธิ์และการให้สิทธิ์ที่เหมาะสม หลีกเลี่ยงการเปิดเผยข้อมูลที่ละเอียดอ่อนในการเรียกใช้ฟังก์ชัน
+- **ขีดจำกัดโทเค็น:** คำอธิบายฟังก์ชันและพารามิเตอร์จะนับรวมใน
+  ขีดจำกัดโทเค็นอินพุต หากใช้โทเค็นเกินขีดจำกัด ให้ลองจำกัดจำนวนฟังก์ชันหรือความยาวของคำอธิบาย แบ่งงานที่ซับซ้อนออกเป็นชุดฟังก์ชันที่เล็กลงและเฉพาะเจาะจงมากขึ้น
+- **การผสมผสานระหว่าง Bash และเครื่องมือที่กำหนดเอง** สำหรับผู้ที่สร้างโดยใช้การผสมผสานระหว่าง Bash และเครื่องมือที่กำหนดเอง
+  เวอร์ชันตัวอย่างของ Gemini 3.1 Pro
+  มาพร้อมกับปลายทางแยกต่างหากที่พร้อมใช้งานผ่าน API ที่ชื่อ [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th#gemini-31-pro-preview-customtools)
 
-## Soluzioni alternative per i requisiti di testo pre-strumento
+## วิธีแก้ปัญหาสำหรับข้อกำหนดของข้อความก่อนเครื่องมือ
 
-**Problema**:se il prompt richiede al modello di restituire testo strutturato (XML, YAML, JSON e così via). (ad es. `<UPDATE>...</UPDATE>`) immediatamente prima di effettuare una chiamata allo strumento, la chiamata allo strumento potrebbe occasionalmente non riuscire con `Malformed_Function_Call`.
+**ปัญหา:** หากพรอมต์ของคุณกำหนดให้โมเดลแสดงข้อความที่มีโครงสร้าง (XML, YAML, JSON ฯลฯ) (เช่น `<UPDATE>...</UPDATE>`) ทันทีก่อนที่จะเรียกใช้เครื่องมือ การเรียกใช้เครื่องมืออาจล้มเหลวเป็นครั้งคราวโดยมีข้อความ `Malformed_Function_Call`
 
-**Soluzioni**:le seguenti soluzioni alternative risolvono il problema:
+**วิธีแก้ปัญหา:** วิธีแก้ปัญหาต่อไปนี้จะช่วยแก้ไขปัญหานี้ได้
 
-- **PREFERITO:** indica al modello di inserire le note pre-strumento all'interno di una chiamata di funzione `update()` dedicata anziché in testo non elaborato (maggiori dettagli di seguito).
-- Chiedi al modello di scrivere le note come intestazioni Markdown (`# UPDATE`, `## PLAN`) anziché come testo strutturato.
-- Non richiedere al modello di restituire testo prima delle chiamate di strumenti.
+- **แนะนำ:** สั่งให้โมเดลใส่หมายเหตุก่อนใช้เครื่องมือไว้ในการเรียกใช้ฟังก์ชัน `update()` โดยเฉพาะแทนที่จะเป็นข้อความดิบ (รายละเอียดด้านล่าง)
+- สั่งให้โมเดลเขียนโน้ตเป็นส่วนหัวของมาร์กดาวน์ (`# UPDATE`, `## PLAN`) แทนข้อความที่มีโครงสร้าง
+- ไม่ต้องกำหนดให้โมเดลแสดงข้อความก่อนการเรียกใช้เครื่องมือ
 
-### Soluzione alternativa preferita: racchiudi le note di lavoro in una chiamata di funzione dedicata
+### วิธีแก้ปัญหาที่แนะนำ: ห่อหุ้มโน้ตการทำงานในการเรียกใช้ฟังก์ชันเฉพาะ
 
-Invece dell'istruzione originale:
+แทนที่จะเป็นคำสั่งเดิม
 
 ```
 Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags with<in `UP>DATE`.
 ```
 
-Utilizza questa istruzione aggiornata:
+ใช้วิธีการที่อัปเดตแล้วนี้
 
 ```
 Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
 ```
 
-Aggiorna tutti i riferimenti al vecchio formato XML `<UPDATE>` nella richiesta del cliente. Poi aggiungi la dichiarazione di funzione corrispondente per la funzione di aggiornamento:
+และอัปเดตการอ้างอิงทั้งหมดไปยังรูปแบบ XML ของ `<UPDATE>` แบบเก่าในคำขอของลูกค้า จากนั้นเพิ่มการประกาศฟังก์ชันที่เกี่ยวข้องสำหรับฟังก์ชันอัปเดต
 
 ```
 {
@@ -2250,28 +2249,24 @@ Aggiorna tutti i riferimenti al vecchio formato XML `<UPDATE>` nella richiesta d
 }
 ```
 
-Il modello effettuerà quindi due chiamate nello stesso passaggio: la chiamata `update()` che sostituisce l'XML strutturato e la chiamata di funzione effettiva che vuole effettuare.
+จากนั้นโมเดลจะทำการเรียก 2 ครั้งในขั้นตอนเดียวกัน ได้แก่ การเรียก `update()` ที่แทนที่ XML ที่มีโครงสร้าง และการเรียกฟังก์ชันจริงที่ต้องการทำ
 
-## Note e limitazioni
+## หมายเหตุและข้อจำกัด
 
-- Posizionamento delle parti della chiamata di funzione: quando utilizzi dichiarazioni di funzioni personalizzate
-  [insieme a strumenti integrati](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it) (come la Ricerca Google), il modello potrebbe restituire un mix di parti `functionCall`, `toolCall` e
-  `toolResponse` in un singolo turno. Per questo motivo, non dare per scontato che
-  `functionCall` sia sempre l'ultimo elemento dell'array delle parti. Se analizzi manualmente la risposta JSON, scorri sempre l'array parts anziché fare affidamento sulla posizione.
-- È supportato solo un [sottoinsieme dello schema OpenAPI](https://ai.google.dev/api/caching?hl=it#FunctionDeclaration).
-- Per la modalità `ANY`, l'API potrebbe rifiutare schemi molto grandi o con un livello di nidificazione elevato. Se
-  si verificano errori, prova a semplificare gli schemi dei parametri e delle risposte della funzione
-  riducendo i nomi delle proprietà, diminuendo il livello di nidificazione o limitando il
-  numero di dichiarazioni di funzioni.
-- I tipi di parametri supportati in Python sono limitati.
-- La chiamata automatica di funzioni è una funzionalità solo dell'SDK Python.
+- การวางตำแหน่งส่วนต่างๆ ของการเรียกใช้ฟังก์ชัน: เมื่อใช้การประกาศฟังก์ชันที่กำหนดเอง[ควบคู่ไปกับเครื่องมือในตัว](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th) (เช่น Google Search) โมเดลอาจแสดงส่วนต่างๆ ของ `functionCall`, `toolCall` และ `toolResponse` ในการโต้ตอบครั้งเดียว ด้วยเหตุนี้ อย่าคิดว่า `functionCall` จะเป็นรายการสุดท้ายในอาร์เรย์ชิ้นส่วนเสมอ หากคุณ
+  แยกวิเคราะห์การตอบกลับ JSON ด้วยตนเอง ให้วนซ้ำอาร์เรย์ชิ้นส่วนเสมอ
+  แทนที่จะอิงตามตำแหน่ง
+- รองรับเฉพาะ[ชุดย่อยของสคีมา OpenAPI](https://ai.google.dev/api/caching?hl=th#FunctionDeclaration)
+- สำหรับโหมด `ANY` API อาจปฏิเสธสคีมาที่มีขนาดใหญ่มากหรือซ้อนกันลึก หากพบข้อผิดพลาด ให้ลองลดความซับซ้อนของพารามิเตอร์ฟังก์ชันและสคีมาการตอบกลับโดยการย่อชื่อพร็อพเพอร์ตี้ ลดการซ้อน หรือจำกัดจำนวนการประกาศฟังก์ชัน
+- ประเภทพารามิเตอร์ที่รองรับใน Python มีจำกัด
+- การเรียกใช้ฟังก์ชันอัตโนมัติเป็นฟีเจอร์ของ Python SDK เท่านั้น
 
-Invia feedback
+ส่งความคิดเห็น
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ultimo aggiornamento 2026-07-30 UTC.
+อัปเดตล่าสุด 2026-07-30 UTC
 
-Vuoi dirci altro?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

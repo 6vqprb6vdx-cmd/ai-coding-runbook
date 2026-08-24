@@ -1,35 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=id
-fetched_at: 2026-08-17T02:22:30.062162+00:00
-title: "Visi agentic \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=vi
+fetched_at: 2026-08-24T02:19:37.703890+00:00
+title: "T\u1ea7m nh\u00ecn d\u1ef1a tr\u00ean t\u00e1c nh\u00e2n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Visi agentic
+# Tầm nhìn dựa trên tác nhân
 
-Model Gemini Robotics ER dapat menulis dan mengeksekusi kode Python untuk memanipulasi gambar dan menerapkan logika sebelum memberikan jawaban. Halaman ini mencakup contoh eksekusi kode: deteksi objek dengan zoom dan pangkas, pembacaan instrumen, pengukuran cairan, pembacaan papan sirkuit, dan anotasi gambar.
+Các mô hình Gemini Robotics ER có thể viết và thực thi mã Python để thao tác với hình ảnh và áp dụng logic trước khi trả lời. Trang này trình bày các ví dụ về việc thực thi mã: phát hiện đối tượng bằng cách thu phóng và cắt, đọc nhạc cụ, đo chất lỏng, đọc bảng mạch và chú thích hình ảnh.
 
-Untuk menyesuaikan contoh ini dengan kasus penggunaan Anda sendiri, ganti teks perintah dan file gambar yang diupload dengan milik Anda sendiri. Anda juga dapat menyesuaikan skema JSON yang diminta dalam perintah agar sesuai dengan struktur output yang dibutuhkan aplikasi Anda, atau menambahkan `system_instruction` untuk menerapkan format dan presisi output.
+Để điều chỉnh các ví dụ này cho trường hợp sử dụng của riêng bạn, hãy thay thế văn bản câu lệnh và tệp hình ảnh đã tải lên bằng văn bản và tệp hình ảnh của riêng bạn. Bạn cũng có thể điều chỉnh giản đồ JSON được yêu cầu trong câu lệnh để khớp với cấu trúc đầu ra mà ứng dụng của bạn cần, hoặc thêm `system_instruction` để thực thi định dạng và độ chính xác của đầu ra.
 
-Untuk kode yang dapat dijalankan sepenuhnya, lihat
-[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Để xem toàn bộ mã có thể chạy, hãy xem [Sổ tay về robot học](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Tingkat penalaran
+## Cấp độ tư duy
 
-Anda dapat mengontrol tingkat penalaran model untuk menyeimbangkan latensi dan akurasi. Tugas spasial seperti deteksi objek berperforma baik dengan tingkat pemikiran yang rendah. Tugas yang kompleks seperti penghitungan atau estimasi berat akan lebih baik jika dilakukan dengan tingkat pemikiran yang lebih tinggi.
+Bạn có thể kiểm soát mức độ tư duy của mô hình để đánh đổi độ trễ lấy độ chính xác. Các tác vụ không gian như phát hiện đối tượng hoạt động hiệu quả với mức độ tư duy thấp. Các nhiệm vụ phức tạp như đếm hoặc ước tính trọng lượng sẽ có lợi khi bạn có cấp độ tư duy cao hơn.
 
-Contoh berikut menetapkan tingkat pemikiran ke `high` untuk tugas penghitungan yang kompleks:
+Ví dụ sau đây đặt cấp độ tư duy thành `high` cho một nhiệm vụ đếm phức tạp:
 
 ### Python
 
@@ -58,11 +57,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Lihat [Berpikir](https://ai.google.dev/gemini-api/docs/thinking?hl=id) untuk mengetahui detailnya.
+Hãy xem phần [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) để biết thông tin chi tiết.
 
-## Deteksi objek (Zoom dan pangkas)
+## Phát hiện đối tượng (Thu phóng và cắt)
 
-Contoh berikut menggunakan eksekusi kode untuk melakukan zoom dan memangkas gambar agar tampilan lebih jelas saat mendeteksi objek dan menampilkan kotak pembatas.
+Ví dụ sau đây sử dụng tính năng thực thi mã để phóng to và cắt một hình ảnh nhằm có chế độ xem rõ ràng hơn khi phát hiện các đối tượng và trả về các hộp giới hạn.
 
 ### Python
 
@@ -96,7 +95,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Output model akan mirip dengan respons JSON berikut:
+Đầu ra của mô hình sẽ tương tự như phản hồi JSON sau:
 
 ```
 [
@@ -108,13 +107,13 @@ Output model akan mirip dengan respons JSON berikut:
 ]
 ```
 
-Gambar berikut menampilkan kotak yang ditampilkan dari model.
+Hình ảnh sau đây cho thấy các hộp được trả về từ mô hình.
 
-![Contoh yang menampilkan kotak pembatas untuk objek yang ditemukan](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=id)
+![Ví dụ minh hoạ các hộp giới hạn cho những đối tượng được tìm thấy](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=vi)
 
-## Membaca pengukur analog dan menerapkan logika
+## Đọc đồng hồ đo analog và áp dụng logic
 
-Contoh berikut menunjukkan cara menggunakan model untuk membaca pengukur analog dan melakukan penghitungan waktu. Tindakan ini menggunakan petunjuk sistem untuk menerapkan output JSON.
+Ví dụ sau đây minh hoạ cách sử dụng mô hình để đọc đồng hồ đo tương tự và thực hiện các phép tính thời gian. Công cụ này sử dụng một chỉ dẫn hệ thống để thực thi đầu ra JSON.
 
 ### Python
 
@@ -145,10 +144,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Mengukur cairan dalam wadah
+## Đo chất lỏng trong một hộp đựng
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk mengukur
-tingkat cairan dalam wadah.
+Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để đo mức chất lỏng trong một hộp chứa.
 
 ### Python
 
@@ -178,9 +176,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Membaca tanda pada papan sirkuit
+## Đọc các dấu hiệu trên bảng mạch
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk membaca tanda pada papan sirkuit.
+Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để đọc các dấu hiệu trên bảng mạch.
 
 ### Python
 
@@ -210,11 +208,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-![Contoh yang menampilkan tanda pada papan sirkuit](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=id)
+![Ví dụ minh hoạ các dấu hiệu trên bảng mạch](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=vi)
 
-## Anotasi gambar
+## Chú thích hình ảnh
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk memberi anotasi pada gambar (misalnya, menggambar panah untuk petunjuk pembuangan) dan menampilkan gambar yang telah dimodifikasi.
+Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để chú thích một hình ảnh (ví dụ: vẽ mũi tên cho hướng dẫn xử lý) và trả về hình ảnh đã sửa đổi.
 
 ### Python
 
@@ -248,11 +246,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Berikut adalah contoh input gambar.
+Sau đây là một ví dụ về dữ liệu đầu vào hình ảnh.
 
-![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=id)
+![Ví dụ minh hoạ một chiếc đồng hồ để đọc](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=vi)
 
-Output model akan mirip dengan berikut ini:
+Đầu ra của mô hình sẽ tương tự như sau:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -261,18 +259,18 @@ Output model akan mirip dengan berikut ini:
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Langkah berikutnya
+## Bước tiếp theo
 
-- [Orkestrasi tugas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=id) — tugas dengan cakupan panjang menggunakan API robot kustom.
-- [Robotika dengan streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id) — streaming dua arah real-time (khusus Gemini Robotics ER 2).
-- [Pemahaman video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=id) — penemuan momen dan klasifikasi progres (khusus Gemini Robotics ER 2).
+- [Điều phối tác vụ](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=vi) – các tác vụ dài hạn bằng API robot tuỳ chỉnh.
+- [Robot học có tính năng truyền trực tuyến](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=vi) – truyền trực tuyến hai chiều theo thời gian thực (chỉ Gemini Robotics ER 2).
+- [Hiểu video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=vi) – tìm khoảnh khắc và phân loại tiến trình (chỉ Gemini Robotics ER 2).
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Cập nhật lần gần đây nhất: 2026-07-30 UTC.
 
-Ada masukan untuk kami?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]

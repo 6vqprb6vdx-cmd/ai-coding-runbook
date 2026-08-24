@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=ja
-fetched_at: 2026-08-17T02:16:51.833598+00:00
-title: "API \u30a8\u30e9\u30fc \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=ar
+fetched_at: 2026-08-24T02:29:52.329794+00:00
+title: "\u0623\u062e\u0637\u0627\u0621 \u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-フィードバックを送信
+إرسال ملاحظات
 
-# API エラー
+# أخطاء واجهة برمجة التطبيقات
 
-このページでは、`GenerateContent` API から返されるバックエンド エラーコードのリファレンス、gRPC エラー レスポンスの形式、トラブルシューティングの手順について説明します。
+تقدّم هذه الصفحة مرجعًا لرموز أخطاء الخلفية التي تعرضها واجهة برمجة التطبيقات `GenerateContent`، وتصف تنسيق استجابة أخطاء gRPC، وتوفّر خطوات تحديد المشاكل وحلّها.
 
-## HTTP エラーコード
+## رموز أخطاء HTTP
 
-次の表に、一般的なバックエンド エラーコード、その原因の説明、推奨される解決策を示します。
+يسرد الجدول التالي رموز أخطاء الخلفية الشائعة، وتفسيرات لأسبابها، والحلول المقترَحة:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **HTTP コード** | ステータス | **説明** | **例** | **ソリューション** |
-| 400 | INVALID\_ARGUMENT | リクエストの本文の形式が正しくありません。 | リクエストに誤字脱字があるか、必須フィールドが入力されていません。 | リクエストの形式、例、サポートされているバージョンについては、[API リファレンス](https://ai.google.dev/api?hl=ja)をご覧ください。古いエンドポイントで新しい API バージョンの機能を使用すると、エラーが発生する可能性があります。 |
-| 400 | FAILED\_PRECONDITION | Gemini API の無料枠は、お住まいの国ではご利用いただけません。Google AI Studio でプロジェクトの課金を有効にしてください。 | 無料枠がサポートされていないリージョンでリクエストを行っているが、Google AI Studio のプロジェクトで課金が有効になっていない。 | Gemini API を使用するには、[Google AI Studio](https://aistudio.google.com/apikey?hl=ja) を使用して有料プランを設定する必要があります。 |
-| 403 | PERMISSION\_DENIED | API キーに必要な権限がありません。 | 誤った API キーを使用している。[適切な認証](https://ai.google.dev/gemini-api/docs/model-tuning?hl=ja)を行わずにチューニング済みモデルを使用しようとしている。 | API キーが設定され、適切なアクセス権が付与されていることを確認します。また、チューニング済みモデルを使用するには、適切な認証を行う必要があります。 |
-| 404 | NOT\_FOUND | リクエストされたリソースが見つかりませんでした。 | リクエストで参照されている画像、音声、動画ファイルが見つかりませんでした。 | リクエスト内のすべてのパラメータが API バージョンに対して有効かどうかを確認します。 |
-| 429 | RESOURCE\_EXHAUSTED | API のレート上限（RPM、TPM、RPD、費用など）のいずれかを超えています。 | リクエストの送信数が多すぎる、トークンの使用数が多すぎる、アカウントのお支払い履歴と階層に基づく上限を超えている。 | モデルの[レート上限](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja)を超えていないことを確認します。しばらく待ってから再試行してください。リクエストのレートまたはサイズを減らします。必要に応じて、[レート上限の引き上げをリクエスト](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#request-rate-limit-increase)します。 |
-| 499 | CANCELLED | オペレーションがキャンセルされました。通常、キャンセルは呼び出し元により行われます。 | API がレスポンスを完了する前に、クライアントが接続を閉じました。 | クライアントまたはネットワーク インフラストラクチャが接続を早期に終了しているかどうかを確認します（クライアントサイドのタイムアウトなど）。 |
-| 500 | INTERNAL | Google 側で予期しないエラーが発生しました。 | 入力コンテキストが長すぎます。 | [Gemini API のステータス ページ](https://aistudio.google.com/status?hl=ja)で、進行中のインシデントがないか確認します。入力コンテキストを減らすか、別のモデルに一時的に切り替えて（Gemini 2.5 Pro から Gemini 2.5 Flash など）、動作するかどうかを確認します。しばらく待ってから、もう一度リクエストしてみてください。再試行しても問題が解決しない場合は、Google AI Studio の [**フィードバックを送信**] ボタンを使用してご報告ください。 |
-| 503 | UNAVAILABLE | サービスが一時的に過負荷状態になっているか、ダウンしている可能性があります。 | サービスが一時的に容量不足になっています。 | [Gemini API のステータス ページ](https://aistudio.google.com/status?hl=ja)で、進行中のインシデントがないか確認します。別のモデルに一時的に切り替えて（Gemini 2.5 Pro から Gemini 2.5 Flash など）、動作するかどうかを確認します。しばらく待ってから、もう一度リクエストしてみてください。再試行しても問題が解決しない場合は、Google AI Studio の [**フィードバックを送信**] ボタンを使用してご報告ください。 |
-| 504 | DEADLINE\_EXCEEDED | サービスが期限内に処理を完了できません。 | プロンプト（またはコンテキスト）が大きすぎて、時間内に処理できません。 | このエラーを回避するには、クライアント リクエストで「タイムアウト」を大きく設定します。 |
+| **رمز HTTP** | **الحالة** | **الوصف** | **مثال** | **Solution** |
+| 400 | INVALID\_ARGUMENT | تمت صياغة نص الطلب بشكل غير صحيح. | هناك خطأ إملائي أو حقل مطلوب مفقود في طلبك. | راجِع [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api?hl=ar) لمعرفة تنسيق الطلب والأمثلة والإصدارات المتوافقة. يمكن أن يؤدي استخدام ميزات من إصدار أحدث من واجهة برمجة التطبيقات مع نقطة نهاية أقدم إلى حدوث أخطاء. |
+| 400 | FAILED\_PRECONDITION | المستوى المجاني من Gemini API غير متاح في بلدك. يُرجى تفعيل الفوترة في مشروعك في Google AI Studio. | أنت تُرسِل طلبًا في منطقة لا يتوفّر فيها المستوى المجاني، ولم تفعِّل الفوترة في مشروعك في Google AI Studio. | لاستخدام Gemini API، عليك إعداد خطة مدفوعة باستخدام [Google AI Studio](https://aistudio.google.com/apikey?hl=ar). |
+| 403 | PERMISSION\_DENIED | لا يملك مفتاح واجهة برمجة التطبيقات الأذونات المطلوبة. | أنت تستخدم مفتاح واجهة برمجة تطبيقات غير صحيح، وتحاول استخدام نموذج تم ضبطه بدون إجراء [المصادقة بشكل صحيح](https://ai.google.dev/gemini-api/docs/model-tuning?hl=ar). | تأكَّد من ضبط مفتاح واجهة برمجة التطبيقات ومنحه إذن الوصول المناسب. وتأكَّد من إجراء المصادقة بشكل صحيح لاستخدام النماذج التي تم ضبطها. |
+| 404 | NOT\_FOUND | لم يتم العثور على المصدر المطلوب. | لم يتم العثور على ملف صورة أو ملف صوت أو ملف فيديو تمت الإشارة إليه في طلبك. | تأكَّد من أنّ جميع المَعلمات في طلبك صالحة لإصدار واجهة برمجة التطبيقات. |
+| 429 | RESOURCE\_EXHAUSTED | تجاوزت أحد الحدود القصوى لمعدّل الطلبات في واجهة برمجة التطبيقات (الطلبات في الدقيقة أو الرموز المميّزة في الدقيقة أو الطلبات في اليوم أو الإنفاق وما إلى ذلك). | أنت تُرسِل عددًا كبيرًا جدًا من الطلبات، أو تستخدم عددًا كبيرًا جدًا من الرموز المميّزة، أو تتجاوز الحدود المستندة إلى الإنفاق لسجلّ الفوترة والمستوى في حسابك. | تأكَّد من أنّك ضمن [الحدود القصوى لمعدّل الطلبات](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ar) في النموذج. انتظِر وأعِد المحاولة بعد فترة قصيرة. قلِّل معدّل طلباتك أو حجمها. [اطلب زيادة الحدّ الأقصى لمعدّل الطلبات](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ar#request-rate-limit-increase) إذا لزم الأمر. |
+| 499 | CANCELLED | تم إلغاء العملية، وعادةً ما يكون ذلك من قِبل المتصل. | أغلق العميل الاتصال قبل أن تتمكّن واجهة برمجة التطبيقات من إنهاء الردّ. | تأكَّد مما إذا كان العميل أو البنية الأساسية للشبكة يغلقان الاتصال قبل الأوان (على سبيل المثال، بسبب انتهاء مهلة من جهة العميل). |
+| 500 | INTERNAL | حدث خطأ غير متوقَّع من جانب Google. | سياق الإدخال طويل جدًا. | راجِع [صفحة حالة Gemini API](https://aistudio.google.com/status?hl=ar) لمعرفة أي حوادث مستمرة. قلِّل سياق الإدخال أو انتقِل مؤقتًا إلى نموذج آخر (على سبيل المثال، من Gemini 2.5 Pro إلى Gemini 2.5 Flash) وتحقَّق مما إذا كان ذلك يحل المشكلة. أو انتظِر قليلاً وأعِد محاولة طلبك. إذا استمرت المشكلة بعد إعادة المحاولة، يُرجى الإبلاغ عنها باستخدام الزر **إرسال ملاحظات** في Google AI Studio. |
+| 503 | UNAVAILABLE | قد يكون الخادم محمّلاً بشكل مؤقت أو غير متاح. | توشك الخدمة مؤقتًا على استنفاد سعتها. | راجِع [صفحة حالة Gemini API](https://aistudio.google.com/status?hl=ar) لمعرفة أي حوادث مستمرة. انتقِل مؤقتًا إلى نموذج آخر (على سبيل المثال، من Gemini 2.5 Pro إلى Gemini 2.5 Flash) وتحقَّق مما إذا كان ذلك يحل المشكلة. أو انتظِر قليلاً وأعِد محاولة طلبك. إذا استمرت المشكلة بعد إعادة المحاولة، يُرجى الإبلاغ عنها باستخدام الزر **إرسال ملاحظات** في Google AI Studio. |
+| 504 | DEADLINE\_EXCEEDED | يتعذّر على الخدمة إنهاء المعالجة خلال المهلة المحدّدة. | الطلب (أو السياق) كبير جدًا بحيث لا يمكن معالجته في الوقت المناسب. | اضبط قيمة أكبر لـ "المهلة" في طلب العميل لتجنُّب هذا الخطأ. |
 
-## エラー レスポンスの形式
+## تنسيق استجابة الخطأ
 
-`GenerateContent` リクエストが失敗すると、API は HTTP ステータス コード（`400 Bad Request`、`403 Forbidden`、`429 Too Many Requests` など）を設定し、gRPC ステータスの詳細を含む JSON レスポンス本文を返します。
+عندما يفشل طلب `GenerateContent`، تضبط واجهة برمجة التطبيقات رمز حالة HTTP (مثل `400 Bad Request` أو `403 Forbidden` أو `429 Too Many Requests`) وتعرض نص استجابة JSON يحتوي على تفاصيل حالة gRPC:
 
 ```
 {
@@ -67,24 +67,24 @@ Google は AI 技術を使用して、コンテンツをご希望の言語に翻
 }
 ```
 
-| フィールド | タイプ | 説明 |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `code` | integer | HTTP ステータス コード。 |
-| `message` | 文字列 | エラーの説明（人が読める形式）。 |
-| `status` | 文字列 | `SCREAMING_CASE` の gRPC ステータス コード。 |
-| `details` | 配列 | `ErrorInfo` や `LocalizedMessage` などのエラーに関する追加のコンテキスト。 |
+| `code` | عدد صحيح | رمز حالة HTTP |
+| `message` | سلسلة | وصف للخطأ يمكن لشخص عادي قراءته |
+| `status` | سلسلة | رمز حالة gRPC في `SCREAMING_CASE` |
+| `details` | صفيف | سياق إضافي للخطأ، مثل `ErrorInfo` أو `LocalizedMessage` |
 
-## 次のステップ
+## الخطوات التالية
 
-- [API のトラブルシューティング](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja): 一般的な問題とエラー シナリオを解決します。
-- [レート制限](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja): リクエストの上限と割り当ての処理について学習します。
+- [تحديد المشاكل وحلّها في واجهة برمجة التطبيقات](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ar): حلّ المشاكل الشائعة وسيناريوهات الأخطاء
+- [الحدود القصوى لمعدّل الطلبات](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ar): التعرّف على الحدود القصوى للطلبات وكيفية التعامل مع الحصص
 
-フィードバックを送信
+إرسال ملاحظات
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-07-30 UTC。
+تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-ご意見をお聞かせください
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

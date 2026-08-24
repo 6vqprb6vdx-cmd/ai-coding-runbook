@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=tr
-fetched_at: 2026-08-17T02:29:57.356532+00:00
-title: "Sesleri anlama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=pl
+fetched_at: 2026-08-24T02:25:40.847341+00:00
+title: "Rozumienie mowy \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Geri bildirim gönderin
+Prześlij opinię
 
-# Sesleri anlama
+# Rozumienie mowy
 
-Gemini, ses girişini analiz edip metin yanıtları oluşturabilir.
+Gemini może analizować dane wejściowe audio i generować odpowiedzi tekstowe.
 
 ### Python
 
@@ -90,22 +90,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Genel Bakış
+## Przegląd
 
-Gemini, ses girişini analiz edip anlayabilir ve metin yanıtları oluşturabilir. Bu sayede aşağıdaki gibi kullanım alanları ortaya çıkar:
+Gemini może analizować i rozumieć dane wejściowe audio oraz generować odpowiedzi tekstowe, co umożliwia realizację takich przypadków użycia jak:
 
-- Ses içeriğini açıklama, özetleme veya ses içeriğiyle ilgili soruları yanıtlama
-- Metne dönüştürme ve çeviri (konuşmayı metne dönüştürme)
-- Konuşmacı ayırma (farklı konuşmacıları tanımlama)
-- Konuşma ve müzikte duygu algılama
-- Zaman damgalarıyla belirli segmentleri analiz etme
+- opisywanie, podsumowywanie lub odpowiadanie na pytania dotyczące treści audio,
+- transkrypcja i tłumaczenie (mowa na tekst),
+- rozdzielanie rozmówców (identyfikowanie różnych osób mówiących),
+- wykrywanie emocji w mowie i muzyce,
+- analizowanie konkretnych segmentów z sygnaturami czasowymi.
 
-Gerçek zamanlı ses ve video etkileşimleri için [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'ye bakın.
-Gerçek zamanlı transkripsiyonu destekleyen özel konuşmayı metne dönüştürme modelleri için [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=tr)'yi kullanın.
+W przypadku interakcji głosowych i wideo w czasie rzeczywistym zapoznaj się z
+[interfejsem Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl).
+Aby korzystać z modeli mowy na tekst, które obsługują transkrypcję w czasie rzeczywistym,
+użyj interfejsu [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=pl).
 
-## Konuşmayı metne dönüştürme
+## Transkrypcja mowy na tekst
 
-Bu örnekte, [yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) kullanarak konuşmayı zaman damgaları, konuşmacı ayrımı ve duygu algılama ile nasıl metne dönüştüreceğiniz, çevireceğiniz ve özetleyeceğiniz gösterilmektedir.
+Ten przykład pokazuje, jak transkrybować, tłumaczyć i podsumowywać mowę za pomocą
+sygnatur czasowych, rozdzielania rozmówców i wykrywania emocji przy użyciu
+[danych wyjściowych w postaci uporządkowanej](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl).
 
 ### Python
 
@@ -263,18 +267,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Çok dilli sesli transkripsiyon Gemini uygulaması](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=tr)
+![Wielojęzyczna aplikacja Gemini do transkrypcji audio](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=pl)
 
-## Giriş sesi
+## Dźwięk wejściowy
 
-Ses verilerini aşağıdaki şekillerde sağlayabilirsiniz:
+Dane audio możesz podać na te sposoby:
 
-- İstek göndermeden önce [ses dosyası yükleyin](#upload-audio).
-- İstekle birlikte [satır içi ses verilerini iletin](#inline-audio).
+- [Prześlij plik audio](#upload-audio) przed wysłaniem prośby.
+- [Przekaż dane audio](#inline-audio) w treści prośby.
 
-### Ses dosyası yükleme
+### Prześlij plik audio
 
-20 MB'tan büyük dosyalar için [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanın.
+W przypadku plików większych niż 20 MB użyj interfejsu [Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl).
 
 ### Python
 
@@ -345,9 +349,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Ses verilerini satır içi olarak iletme
+### Przekaż dane audio w treści
 
-Toplam istek boyutu 20 MB'tan küçük olan ses dosyaları için:
+W przypadku małych plików audio o łącznym rozmiarze poniżej 20 MB:
 
 ### Python
 
@@ -427,13 +431,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Satır içi ses verileriyle ilgili notlar:
-\* Maksimum istek boyutu toplam 20 MB'tır (istemler ve tüm dosyalar dahil).
-\* Yeniden kullanmak için [dosyayı yükleyin](#upload-audio).
+Uwagi dotyczące danych audio w treści:
+\* Maksymalny rozmiar prośby to 20 MB (w tym podpowiedzi i wszystkie pliki).
+\* Jeśli chcesz ponownie użyć pliku, [prześlij go](#upload-audio).
 
-## Transkript alma
+## Uzyskiwanie transkrypcji
 
-Transkript almak için istemde transkript isteyin:
+Aby uzyskać transkrypcję, poproś o nią w podpowiedzi:
 
 ### Python
 
@@ -469,9 +473,9 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## Zaman damgalarına bakın
+## Odwoływanie się do sygnatur czasowych
 
-Belirli bölümlere referans vermek için `MM:SS` biçimini kullanın:
+Aby odwołać się do konkretnych sekcji, użyj formatu `MM:SS`:
 
 ### Python
 
@@ -501,9 +505,9 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## Parça sayma
+## Zliczanie tokenów
 
-Ses dosyasındaki jetonları sayma:
+Zlicz tokeny w pliku audio:
 
 ### Python
 
@@ -527,37 +531,37 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## Desteklenen ses biçimleri
+## Obsługiwane formaty audio
 
-- WAV - `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
-- AAC - `audio/aac`
-- OGG Vorbis - `audio/ogg`
-- FLAC - `audio/flac`
+- WAV – `audio/wav`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
+- AAC – `audio/aac`
+- OGG Vorbis – `audio/ogg`
+- FLAC – `audio/flac`
 
-## Sesle ilgili teknik ayrıntılar
+## Szczegóły techniczne dotyczące dźwięku
 
-- **Jetonlar**: Saniyede 32 jeton (1 dakika = 1.920 jeton)
-- **Konuşma dışı sesler**: Gemini, konuşma dışı sesleri (kuş sesi, siren vb.) anlar.
-- **Maksimum uzunluk**: İstem başına 9,5 saatlik ses
-- **Çözünürlük**: 16 kbps'ye düşürülür.
-- **Kanallar**: Çok kanallı ses tek kanalda birleştirilir.
+- **Tokeny**: 32 tokeny na sekundę dźwięku (1 minuta = 1920 tokenów)
+- **Dźwięki inne niż mowa**: Gemini rozumie dźwięki inne niż mowa (śpiew ptaków, syreny itp.).
+- **Maksymalna długość**: 9,5 godziny dźwięku na podpowiedź.
+- **Rozdzielczość**: próbkowana do 16 Kbps.
+- **Kanały**: dźwięk wielokanałowy połączony w jeden kanał.
 
-## Sırada ne var?
+## Co dalej?
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr): Ses dosyalarını yükleme ve yönetme
-- [Sistem talimatları](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#system-instructions):
-  Model davranışını özelleştirme
-- [Yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr):
-  JSON biçiminde transkripsiyon sonuçları alma
+- [Interfejs Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl): przesyłanie plików audio i zarządzanie nimi
+- [Instrukcje systemowe](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl#system-instructions):
+  dostosowywanie działania modelu
+- [Dane wyjściowe w postaci uporządkowanej](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl):
+  otrzymywanie wyników transkrypcji w formacie JSON
 
-Geri bildirim gönderin
+Prześlij opinię
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Son güncelleme tarihi: 2026-07-30 UTC.
+Ostatnia aktualizacja: 2026-07-30 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Chcesz przekazać coś jeszcze?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]
