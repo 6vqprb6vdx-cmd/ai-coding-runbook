@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419
-fetched_at: 2026-08-24T02:32:02.824840+00:00
-title: "Llamada a funci\u00f3n con la API de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=id
+fetched_at: 2026-08-31T06:34:32.737942+00:00
+title: "Panggilan fungsi dengan Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Enviar comentarios
+Kirim masukan
 
-# Llamada a función con la API de Gemini
+# Panggilan fungsi dengan Gemini API
 
-La llamada a funciones te permite conectar modelos a herramientas y APIs externas.
-En lugar de generar respuestas de texto, el modelo determina cuándo llamar a funciones específicas y proporciona los parámetros necesarios para ejecutar acciones del mundo real.
-Esto permite que el modelo actúe como un puente entre el lenguaje natural y las acciones y los datos del mundo real. La llamada a funciones tiene 3 casos de uso principales:
+Panggilan fungsi memungkinkan Anda menghubungkan model ke alat dan API eksternal.
+Daripada membuat respons teks, model akan menentukan kapan harus memanggil fungsi tertentu dan memberikan parameter yang diperlukan untuk menjalankan tindakan dunia nyata.
+Hal ini memungkinkan model bertindak sebagai jembatan antara bahasa alami dan tindakan serta data dunia nyata. Panggilan fungsi memiliki 3 kasus penggunaan utama:
 
-- [**Realizar acciones:**](#meeting) Interactúa con sistemas externos mediante APIs, como
-  programar citas, crear facturas, enviar correos electrónicos o controlar
-  dispositivos de casas inteligentes.
-- [**Aumentar el conocimiento:**](#weather) Accede a información de fuentes externas, como
-  bases de datos, APIs y bases de conocimiento.
-- [**Ampliar las capacidades:**](#chart) Usa herramientas externas para realizar cálculos y
-  ampliar las limitaciones del modelo, como usar una calculadora o crear
-  gráficos.
+- [**Melakukan Tindakan:**](#meeting) Berinteraksi dengan sistem eksternal menggunakan API, seperti
+  menjadwalkan janji temu, membuat invoice, mengirim email, atau mengontrol
+  perangkat smart home.
+- [**Meningkatkan Pengetahuan:**](#weather) Mengakses informasi dari sumber eksternal seperti
+  database, API, dan pusat informasi.
+- [**Memperluas Kemampuan:**](#chart) Menggunakan alat eksternal untuk melakukan penghitungan dan
+  memperluas batasan model, seperti menggunakan kalkulator atau membuat
+  diagram.
 
-Puedes explorar ejemplos de estos casos de uso a continuación:
+Anda dapat melihat contoh kasus penggunaan ini di bawah:
 
-### Programar reunión
+### Menjadwalkan Rapat
 
-En este ejemplo, se muestra cómo definir una función que programa una reunión con los asistentes en un momento específico, lo que permite que el modelo analice las solicitudes de los usuarios y devuelva argumentos estructurados para activar acciones en sistemas externos.
+Contoh ini menunjukkan cara menentukan fungsi yang menjadwalkan rapat dengan peserta pada waktu tertentu, sehingga model dapat mengurai permintaan pengguna dan menampilkan argumen terstruktur untuk memicu tindakan dalam sistem eksternal.
 
 ### Python
 
@@ -136,9 +136,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Consultar el tiempo
+### Mendapatkan Cuaca
 
-En este ejemplo, se muestra cómo definir una función que recupera datos de temperatura para una ubicación, lo que permite que el modelo llame a APIs externas para responder consultas que requieren información externa o en tiempo real.
+Contoh ini menunjukkan cara menentukan fungsi yang mengambil data suhu untuk suatu lokasi, sehingga model dapat memanggil API eksternal untuk menjawab kueri yang memerlukan informasi real-time atau eksternal.
 
 ### Python
 
@@ -236,9 +236,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Crear gráfico
+### Membuat Diagram
 
-En este ejemplo, se muestra cómo definir una función que genera un gráfico de barras a partir de datos estructurados, lo que demuestra cómo el modelo puede usar herramientas externas para realizar cálculos o crear recursos visuales:
+Contoh ini menunjukkan cara menentukan fungsi yang membuat diagram batang dari data terstruktur, yang menunjukkan cara model dapat menggunakan alat eksternal untuk melakukan penghitungan atau membuat aset visual:
 
 ### Python
 
@@ -335,22 +335,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cómo funciona la llamada a función
+## Cara kerja panggilan fungsi
 
-![Descripción general de las llamadas a funciones](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=es-419)
+![ringkasan pemanggilan fungsi](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=id)
 
-La llamada a funciones implica una interacción estructurada entre tu aplicación, el modelo y las funciones externas:
+Panggilan fungsi melibatkan interaksi terstruktur antara aplikasi, model, dan fungsi eksternal:
 
-1. **Define la declaración de la función:** Define el nombre, los parámetros y el propósito de la función para el modelo.
-2. **Llama al LLM con declaraciones de funciones:** Envía la instrucción del usuario junto con las declaraciones de funciones al modelo.
-3. **Ejecuta el código de la función (es tu responsabilidad):** El modelo *no*
-   ejecuta la función en sí. Extrae el nombre y los argumentos, y ejecútalos en tu aplicación.
-4. **Crea una respuesta fácil de usar:** Envía el resultado al modelo para obtener una respuesta final y fácil de usar.
+1. **Menentukan Deklarasi Fungsi:** Menentukan nama, parameter, dan tujuan fungsi ke model.
+2. **Memanggil LLM dengan deklarasi fungsi:** Mengirim perintah pengguna beserta deklarasi fungsi ke model.
+3. **Menjalankan Kode Fungsi (Tanggung Jawab Anda):** Model *tidak*
+   menjalankan fungsi itu sendiri. Ekstrak nama dan argumen, lalu jalankan di aplikasi Anda.
+4. **Membuat respons yang mudah digunakan:** Kirim kembali hasilnya ke model untuk mendapatkan respons akhir yang mudah digunakan.
 
-Este proceso se puede repetir varias veces. El modelo admite llamar a
-varias funciones en un solo turno ([llamada a función paralela](#parallel_function_calling)) y en secuencia ([llamada a función compositiva](#compositional_function_calling)).
+Proses ini dapat diulang beberapa kali. Model mendukung pemanggilan
+beberapa fungsi dalam satu giliran ([panggilan fungsi paralel](#parallel_function_calling)) dan secara berurutan ([panggilan fungsi komposisi](#compositional_function_calling)).
 
-### Paso 1: Define una declaración de función
+### Langkah 1: Menentukan deklarasi fungsi
 
 ### Python
 
@@ -403,7 +403,7 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Paso 2: Llama al modelo con declaraciones de funciones
+### Langkah 2: Memanggil model dengan deklarasi fungsi
 
 ### Python
 
@@ -439,7 +439,7 @@ const fcStep = in>teraction.steps.find(s = s.type === 'function_call');
 console.log(fcStep);
 ```
 
-El modelo devuelve un paso `function_call` con `type`, `name` y `arguments`:
+Model menampilkan langkah `function_call` dengan `type`, `name`, dan `arguments`:
 
 ```
 type='function_call'
@@ -447,7 +447,7 @@ name='set_light_values'
 arguments={'color_temp': &#39;warm', 'brightness': 25}
 ```
 
-### Paso 3: Ejecuta la función
+### Langkah 3: Menjalankan fungsi
 
 ### Python
 
@@ -471,7 +471,7 @@ if (fcStep.name === 'set_light_values') {
 }
 ```
 
-### Paso 4: Envía el resultado al modelo
+### Langkah 4: Mengirim kembali hasil ke model
 
 ### Python
 
@@ -511,13 +511,13 @@ const finalInteraction = await client.interactions.create({
 console.log(finalInteraction.output_text);
 ```
 
-### Llamada a función sin estado
+### Panggilan fungsi tanpa status
 
-También puedes usar la llamada a función en modo sin estado si administras el historial de conversaciones en el cliente y configuras `store=false`.
+Anda juga dapat menggunakan panggilan fungsi dalam mode tanpa status dengan mengelola histori percakapan di sisi klien dan menetapkan `store=false`.
 
-En el modo sin estado, debes pasar el historial completo de la conversación en el campo `input` de cada solicitud posterior. Este historial debe incluir lo siguiente: 1. El paso `user_input` inicial.
-2. Todos los pasos generados por el modelo que se muestran en el turno 1 (incluidos los pasos `thought` y `function_call`) exactamente como se recibieron.
-3. El paso `function_result` que contiene el resultado de la función ejecutada.
+Dalam mode tanpa status, Anda harus meneruskan histori lengkap percakapan di kolom `input` setiap permintaan berikutnya. Histori ini harus mencakup: 1. Langkah `user_input` awal.
+2. Semua langkah yang dihasilkan model yang ditampilkan di Giliran 1 (termasuk langkah `thought` dan `function_call`) persis seperti yang diterima.
+3. Langkah `function_result` yang berisi output fungsi yang dijalankan.
 
 ### Python
 
@@ -689,25 +689,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Declaraciones de funciones
+## Deklarasi fungsi
 
-Una declaración de función se pasa como una herramienta e incluye lo siguiente:
+Deklarasi fungsi diteruskan sebagai alat dan mencakup:
 
-- `type` (string): Debe ser `"function"` para las funciones personalizadas.
-- `name` (string): Nombre de función único (usa guiones bajos o camelCase).
-- `description` (string): Explicación clara del propósito de la función.
-- `parameters` (object): Parámetros de entrada que espera la función.
-  - `type` (string): Tipo de datos general, como `object`.
-  - `properties` (object): Parámetros individuales con tipo y descripción.
-  - `required` (array): Nombres de parámetros obligatorios.
+- `type` (string): Harus berupa `"function"` untuk fungsi kustom.
+- `name` (string): Nama fungsi unik (gunakan garis bawah atau camelCase).
+- `description` (string): Penjelasan yang jelas tentang tujuan fungsi.
+- `parameters` (object): Parameter input yang diharapkan fungsi.
+  - `type` (string): Jenis data keseluruhan, seperti `object`.
+  - `properties` (object): Parameter individual dengan jenis dan deskripsi.
+  - `required` (array): Nama parameter wajib.
 
-## Llamada a función con modelos de razonamiento
+## Panggilan fungsi dengan model berpikir
 
-Los modelos de la serie Gemini 3 usan un proceso interno de ["razonamiento"](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) que mejora la llamada a función. Los SDKs controlan automáticamente las [firmas de razonamiento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=es-419) por ti.
+Model seri Gemini 3 menggunakan proses ["berpikir"](https://ai.google.dev/gemini-api/docs/thinking?hl=id) internal yang meningkatkan kualitas panggilan fungsi. SDK secara otomatis menangani [tanda tangan pemikiran](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=id) untuk Anda.
 
-## Llamada a función paralela
+## Panggilan fungsi paralel
 
-Llama a varias funciones a la vez cuando sean independientes:
+Panggil beberapa fungsi sekaligus jika fungsi tersebut independen:
 
 ### Python
 
@@ -809,9 +809,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Llamada a función compositiva
+## Panggilan fungsi komposisi
 
-Encadena varias llamadas a función para solicitudes complejas (p.ej., primero obtén la ubicación y, luego, el clima de esa ubicación).
+Rangkai beberapa panggilan fungsi sekaligus untuk permintaan yang kompleks (misalnya, dapatkan lokasi terlebih dahulu, lalu dapatkan cuaca untuk lokasi tersebut).
 
 ### Python
 
@@ -963,14 +963,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Modos de llamada a función
+## Mode panggilan fungsi
 
-Controla cómo el modelo usa herramientas con `tool_choice` en `generation_config`:
+Kontrol cara model menggunakan alat menggunakan `tool_choice` di `generation_config`:
 
-- `auto` (predeterminado): El modelo decide si llamar a una función o responder directamente.
-- `any`: El modelo está restringido para predecir siempre una llamada a función.
-- `none`: El modelo no puede realizar llamadas a función.
-- `validated`: El modelo garantiza el cumplimiento del esquema de funciones.
+- `auto` (Default): Model memutuskan apakah akan memanggil fungsi atau merespons secara langsung.
+- `any`: Model dibatasi untuk selalu memprediksi panggilan fungsi.
+- `none`: Model dilarang melakukan panggilan fungsi.
+- `validated`: Model memastikan kepatuhan skema fungsi.
 
 ### Python
 
@@ -1030,9 +1030,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Uso de varias herramientas
+## Penggunaan multi-alat
 
-Puedes habilitar varias herramientas y combinar herramientas integradas con la llamada a función en la misma solicitud. Los modelos de Gemini 3 pueden combinar herramientas integradas con la llamada a función lista para usar en las interacciones. Si pasas `previous_interaction_id`, se hace circular automáticamente el contexto de la herramienta integrada.
+Anda dapat mengaktifkan beberapa alat, menggabungkan alat bawaan dengan panggilan fungsi dalam permintaan yang sama. Model Gemini 3 dapat menggabungkan alat bawaan dengan panggilan fungsi siap pakai di Interaksi. Meneruskan `previous_interaction_id` akan otomatis mengedarkan konteks alat bawaan.
 
 ### Python
 
@@ -1200,13 +1200,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Respuestas de funciones multimodales
+## Respons fungsi multimodal
 
-Para los modelos de la serie Gemini 3, puedes incluir contenido multimodal en las partes de la respuesta de la función que envías al modelo. El modelo puede procesar este contenido multimodal en su siguiente turno para producir una respuesta más informada.
+Untuk model seri Gemini 3, Anda dapat menyertakan konten multimodal di bagian respons fungsi yang Anda kirim ke model. Model dapat memproses konten multimodal ini pada giliran berikutnya untuk menghasilkan respons yang lebih lengkap.
 
-Para incluir datos multimodales en una respuesta de función, inclúyelos como uno o más bloques de contenido en el `result` campo del paso `function_result`. Cada bloque de contenido debe especificar su `type` (p.ej., `"text"`, `"image"`).
+Untuk menyertakan data multimodal dalam respons fungsi, sertakan sebagai satu atau beberapa blok konten di kolom `result` langkah `function_result`. Setiap blok konten harus menentukan `type` (misalnya, `"text"`, `"image"`).
 
-En el siguiente ejemplo, se muestra cómo enviar una respuesta de función que contiene datos de imagen al modelo en una interacción:
+Contoh berikut menunjukkan cara mengirim respons fungsi yang berisi data gambar kembali ke model dalam interaksi:
 
 ### Python
 
@@ -1306,30 +1306,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Llamada a función con resultados estructurados
+## Panggilan fungsi dengan Output terstruktur
 
-Para los modelos de la serie Gemini 3, combina la llamada a función con
-[resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) para
-obtener respuestas con formato coherente.
+Untuk model seri Gemini 3, gabungkan panggilan fungsi dengan
+[output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id) untuk
+respons yang diformat secara konsisten.
 
-## MCP (Protocolo de contexto del modelo) remoto
+## MCP (Model Context Protocol) jarak jauh
 
-La API de Interactions admite la conexión a servidores de MCP remotos para darle al modelo acceso a herramientas y servicios externos. Proporcionas el `name` y la `url` del servidor en la configuración de las herramientas.
+Interactions API mendukung koneksi ke server MCP jarak jauh untuk memberikan akses model ke alat dan layanan eksternal. Anda memberikan `name` dan `url` server dalam konfigurasi alat.
 
-Cuando uses MCP remoto, ten en cuenta las siguientes restricciones:
+Saat menggunakan MCP Jarak Jauh, perhatikan batasan berikut:
 
-- **Tipos de servidores**: El MCP remoto solo funciona con servidores HTTP transmitibles. No se admiten servidores SSE (eventos enviados por el servidor).
-- **Nombres**: Los nombres de los servidores de MCP no deben incluir el carácter `-`. Usa nombres de servidores `snake_case` en su lugar.
+- **Jenis server**: MCP Jarak Jauh hanya berfungsi dengan server HTTP yang dapat di-streaming. Server SSE (Server-Sent Events) tidak didukung.
+- **Penamaan**: Nama server MCP tidak boleh menyertakan karakter `-`. Sebagai gantinya, gunakan nama server `snake_case`.
 
-| Campo | Tipo | Obligatorio | Descripción |
+| Kolom | Jenis | Wajib diisi | Deskripsi |
 | --- | --- | --- | --- |
-| `type` | `string` | Sí | Debe ser `"mcp_server"`. |
-| `name` | `string` | No | Un nombre visible para el servidor de MCP. |
-| `url` | `string` | No | La URL completa del extremo del servidor de MCP. |
-| `headers` | `object` | No | Pares clave-valor que se envían como encabezados HTTP con cada solicitud al servidor (por ejemplo, tokens de autenticación). |
-| `allowed_tools` | `array` | No | Restringe las herramientas del servidor a las que puede llamar el agente. |
+| `type` | `string` | Ya | Harus berupa `"mcp_server"`. |
+| `name` | `string` | Tidak | Nama tampilan untuk server MCP. |
+| `url` | `string` | Tidak | URL lengkap untuk endpoint server MCP. |
+| `headers` | `object` | Tidak | Pasangan kunci-nilai yang dikirim sebagai header HTTP dengan setiap permintaan ke server (misalnya, token autentikasi). |
+| `allowed_tools` | `array` | Tidak | Membatasi alat dari server yang dapat dipanggil oleh agen. |
 
-### Ejemplo
+### Contoh
 
 ### Python
 
@@ -1390,9 +1390,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Transmitir llamadas a herramientas
+## Panggilan alat streaming
 
-Cuando se usan herramientas con transmisión, el modelo genera llamadas a función como una secuencia de eventos `step.delta` en la transmisión. Los argumentos de la herramienta se pueden transmitir como argumentos parciales con `arguments`. Debes agregar estos deltas para reconstruir las llamadas a herramientas completas antes de ejecutarlas.
+Saat menggunakan alat dengan streaming, model akan membuat panggilan fungsi sebagai urutan peristiwa `step.delta` di streaming. Argumen alat dapat di-streaming sebagai argumen parsial menggunakan `arguments`. Anda harus mengagregasi delta ini untuk merekonstruksi panggilan alat lengkap sebelum menjalankannya.
 
 ### Python
 
@@ -1557,42 +1557,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## Prácticas recomendadas
+## Praktik terbaik
 
-- **Descripciones de funciones y parámetros:** Exprésate de forma clara y específica.
-- **Nombres:** Usa nombres descriptivos sin espacios ni caracteres especiales.
-- **Tipos estrictos:** Usa tipos específicos (número entero, cadena, enum).
-- **Selección de herramientas:** Mantén el conjunto activo en un máximo de 10 a 20 herramientas.
-- **Ingeniería de instrucciones:** Proporciona contexto y especificaciones.
-- **Validación:** Valida las llamadas a función antes de ejecutarlas.
-- **Manejo de errores:** Implementa un manejo de errores sólido.
-- **Seguridad:** Usa la autenticación adecuada para las APIs externas.
+- **Deskripsi Fungsi dan Parameter:** Gunakan kata-kata yang jelas dan spesifik.
+- **Penamaan:** Gunakan nama deskriptif tanpa spasi atau karakter khusus.
+- **Pengetikan yang Kuat:** Gunakan jenis tertentu (bilangan bulat, string, enum).
+- **Pemilihan Alat:** Pertahankan set aktif hingga maksimum 10-20 alat.
+- **Rekayasa Perintah:** Berikan konteks dan petunjuk.
+- **Validasi:** Validasi panggilan fungsi sebelum menjalankan.
+- **Penanganan Error:** Terapkan penanganan error yang andal.
+- **Keamanan:** Gunakan autentikasi yang sesuai untuk API eksternal.
 
-## Soluciones alternativas para los requisitos de texto previos a la herramienta
+## Solusi untuk persyaratan teks pra-alat
 
-**Problema:** Si tu instrucción requiere que el modelo genere texto estructurado (XML, YAML, JSON, etc.) (p.ej., `<UPDATE>...</UPDATE>`) inmediatamente antes de realizar una llamada a herramienta, es posible que la llamada a herramienta falle ocasionalmente con `Malformed_Function_Call`.
+**Masalah:** Jika perintah Anda mengharuskan model menghasilkan teks terstruktur (XML, YAML, JSON, dll.) (misalnya, `<UPDATE>...</UPDATE>`) segera sebelum melakukan panggilan alat, panggilan alat terkadang dapat gagal dengan `Malformed_Function_Call`.
 
-**Soluciones:** Las siguientes soluciones alternativas resuelven este problema:
+**Solusi:** Solusi berikut mengatasi masalah ini:
 
-- **PREFERIDO:** Indica al modelo que coloque sus notas previas a la herramienta dentro de una llamada a función `update()` dedicada en lugar de texto sin formato (detalles a continuación).
-- Indica al modelo que escriba notas como encabezados de Markdown (`# UPDATE`, `## PLAN`) en lugar de texto estructurado.
-- No requieras que el modelo genere texto antes de las llamadas a herramientas.
+- **DIREKOMENDASIKAN:** Instruksikan model untuk menempatkan catatan pra-alatnya di dalam panggilan fungsi `update()` khusus, bukan teks mentah (detail di bawah).
+- Instruksikan model untuk menulis catatan sebagai header Markdown (`# UPDATE`, `## PLAN`), bukan teks terstruktur.
+- Jangan mengharuskan model untuk menghasilkan teks sebelum panggilan alat.
 
-### Solución alternativa preferida: Envuelve las notas de trabajo en una llamada a función dedicada
+### Solusi yang direkomendasikan: Bungkus catatan kerja dalam panggilan fungsi khusus
 
-En lugar de la instrucción original:
+Daripada petunjuk asli:
 
 ```
 Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags with<in `UP>DATE`.
 ```
 
-Usa esta instrucción actualizada:
+Gunakan petunjuk yang diperbarui ini:
 
 ```
 Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
 ```
 
-Y actualiza todas las referencias al formato XML `<UPDATE>` anterior en la solicitud del cliente. Luego, agrega la declaración de función correspondiente para la función de actualización:
+Dan perbarui semua referensi ke format XML `<UPDATE>` lama dalam permintaan pelanggan. Kemudian, tambahkan deklarasi fungsi yang sesuai untuk fungsi pembaruan:
 
 ```
 {
@@ -1628,20 +1628,20 @@ Y actualiza todas las referencias al formato XML `<UPDATE>` anterior en la solic
 }
 ```
 
-Luego, el modelo realizará dos llamadas en el mismo paso: la llamada `update()` que reemplaza el XML estructurado y la llamada a función real que desea realizar.
+Kemudian, model akan melakukan dua panggilan pada langkah yang sama: panggilan `update()` yang menggantikan XML terstruktur, dan panggilan fungsi sebenarnya yang ingin dilakukan.
 
-## Notas y limitaciones
+## Catatan dan batasan
 
-- Solo se admite un [subconjunto del esquema de OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=es-419#FunctionDeclaration).
-- Para el modo `any`, es posible que la API rechace esquemas muy grandes o anidados.
-- Los tipos de parámetros admitidos en Python son limitados.
+- [Hanya sebagian skema OpenAPI yang didukung.](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=id#FunctionDeclaration)
+- Untuk mode `any`, API dapat menolak skema yang sangat besar atau bertingkat.
+- Jenis parameter yang didukung di Python terbatas.
 
-Enviar comentarios
+Kirim masukan
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última actualización: 2026-07-30 (UTC)
+Terakhir diperbarui pada 2026-07-30 UTC.
 
-¿Quieres brindar más información?
+Ada masukan untuk kami?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]

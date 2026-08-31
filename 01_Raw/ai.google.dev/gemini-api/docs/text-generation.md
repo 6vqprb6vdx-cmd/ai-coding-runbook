@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=tr
-fetched_at: 2026-08-24T02:23:51.641111+00:00
-title: "Metin olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=it
+fetched_at: 2026-08-31T06:40:31.614653+00:00
+title: "Generazione di testo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Metin oluşturma
+# Generazione di testo
 
-Gemini API, metin, resim, video ve ses girişlerinden metin çıkışı oluşturabilir.
+L'API Gemini può generare output di testo da input di testo, immagini, video e audio.
 
-Temel bir örnek:
+Ecco un esempio di base:
 
 ### Python
 
@@ -66,16 +66,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Google GenAI SDK'ları, modelin yanıtına erişmek için doğrudan döndürülen `Interaction` nesnesinde kolaylık özellikleri sağlar.
+Gli SDK GenAI di Google forniscono proprietà di convenienza direttamente sull'oggetto `Interaction` restituito per accedere alla risposta del modello.
 
-En yaygın yardımcı **`interaction.output_text`** (Dize) olup modelin yanıtındaki son metin bloklarını döndürür. Yanıt, birden fazla ardışık `TextContent` blok arasında bölünmüşse bu bloklar otomatik olarak birleştirilir.
-`.output_text`, metin dışı içeriklerle (ör. düşünceler, resimler, ses veya araç çağrıları) ayrılmış önceki metin bloklarını kapsamaz. Karmaşık veya iç içe geçmiş çok formatlı yanıtlarda bunun yerine `steps` üzerinde manuel olarak yineleme yapmanız gerekir. Diğer medya kolaylığı özellikleri hakkında daha fazla bilgi edinmek için [Etkileşimlere genel bakış](https://ai.google.dev/gemini-api/docs/interactions?hl=tr#convenience-properties) başlıklı makaleyi inceleyin.
+L'helper più comune è **`interaction.output_text`** (stringa), che restituisce gli ultimi blocchi di testo nella risposta del modello. Se la risposta è suddivisa in più blocchi `TextContent` consecutivi, li unisce automaticamente.
+Tieni presente che `.output_text` non include i blocchi di testo precedenti separati da contenuti non testuali (come pensieri, immagini, audio o chiamate di funzioni). Per risposte multimodali complesse o intercalate, devi eseguire manualmente l'iterazione su `steps`. Per saperne di più sulle altre proprietà di convenienza dei media, consulta la
+[panoramica delle interazioni](https://ai.google.dev/gemini-api/docs/interactions?hl=it#convenience-properties).
 
-## Gemini ile düşünme
+## Ragionare con Gemini
 
-Gemini modellerinde genellikle ["düşünme"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=tr) özelliği varsayılan olarak etkindir. Bu özellik, modelin bir isteğe yanıt vermeden önce akıl yürütmesini sağlar.
+I modelli Gemini spesso hanno la funzionalità ["thinking"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=it)
+attivata per impostazione predefinita, il che consente al modello di ragionare prima di rispondere a una
+richiesta.
 
-Her model, maliyet, gecikme ve zeka üzerinde kontrol sahibi olmanızı sağlayan farklı düşünme yapılandırmalarını destekler. Daha fazla ayrıntı için [düşünme kılavuzuna](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=tr#set-budget) bakın.
+Ogni modello supporta configurazioni di ragionamento diverse, che ti consentono di controllare costi, latenza e intelligenza. Per maggiori dettagli, consulta la
+[guida al ragionamento](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=it#set-budget).
 
 ### Python
 
@@ -130,9 +134,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Sistem talimatları ve diğer yapılandırmalar
+## Istruzioni di sistema e altre configurazioni
 
-Sistem talimatlarıyla Gemini modellerinin davranışını yönlendirebilirsiniz. Modelin davranışını yapılandırmak için `system_instruction` parametresini iletin.
+Puoi guidare il comportamento dei modelli Gemini con le istruzioni di sistema. Passa un parametro `system_instruction` per configurare il comportamento del modello.
 
 ### Python
 
@@ -182,7 +186,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Ayrıca `generation_config` parametresini kullanarak sıcaklık gibi varsayılan oluşturma parametrelerini de geçersiz kılabilirsiniz.
+Puoi anche sostituire i parametri di generazione predefiniti, come la temperatura, utilizzando il parametro `generation_config`.
 
 ### Python
 
@@ -237,11 +241,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Yapılandırılabilir parametrelerin ve açıklamalarının tam listesi için [Interactions API referansına](https://ai.google.dev/api/interactions-api?hl=tr) bakın.
+Per un elenco completo dei parametri configurabili e delle relative
+descrizioni, consulta la documentazione di riferimento dell'API [Interactions](https://ai.google.dev/api/interactions-api?hl=it).
 
-## Çok formatlı girişler
+## Input multimodali
 
-Gemini API, çok formatlı girişleri destekler. Bu sayede metinleri medya dosyalarıyla birleştirebilirsiniz. Aşağıdaki örnekte resim sağlama gösterilmektedir:
+L'API Gemini supporta gli input multimodali, consentendoti di combinare testo con file multimediali. L'esempio seguente mostra come fornire un'immagine:
 
 ### Python
 
@@ -316,14 +321,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Resim sağlamanın alternatif yöntemleri ve daha gelişmiş resim işleme hakkında bilgi edinmek için [Görüntü Anlama Rehberimizi](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=tr) inceleyin.
-API ayrıca [doküman](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=tr), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=tr) ve [ses](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=tr) girişlerini ve bu girişlerin anlaşılmasını da destekler.
+Per metodi alternativi per fornire immagini ed elaborazioni di immagini più avanzate,
+consulta la nostra [guida alla comprensione delle immagini](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=it).
+L'API supporta anche input e comprensione di [documenti](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=it), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=it) e
+[audio](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=it).
 
-## Yanıtları akış şeklinde gösterme
+## Risposte dinamiche
 
-Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir.
+Per impostazione predefinita, il modello restituisce una risposta solo al termine dell'intero processo di generazione.
 
-Daha akıcı etkileşimler için, yanıt parçaları oluşturuldukça işlemek üzere akışı kullanın. Etkinlik türleri, araçlarla yayın yapma, düşünme, aracı kullanma ve görüntü oluşturma konularını kapsayan kapsamlı bir kılavuz için özel [Yayın etkileşimleri](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=tr) kılavuzuna bakın.
+Per interazioni più fluide, utilizza lo streaming per gestire i blocchi di risposta man mano che vengono generati. Per una guida completa che tratta i tipi di eventi,
+lo streaming con gli strumenti, il ragionamento, gli agenti e la generazione di immagini, consulta la
+guida dedicata [alle interazioni di streaming](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=it).
 
 ### Python
 
@@ -383,9 +392,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## Çok aşamalı etkileşimli görüşmeler
+## Conversazioni multi-turno
 
-Etkileşimler API'si, `previous_interaction_id` kullanarak etkileşimleri zincirleme bağlayarak çok adımlı görüşmeleri destekler. Her dönüş ayrı bir etkileşimdir ve API, sohbet geçmişini otomatik olarak yönetir.
+L'API Interactions supporta le conversazioni multi-turno concatenando le interazioni utilizzando `previous_interaction_id`. Ogni turno è un'interazione separata e l'API gestisce automaticamente la cronologia delle conversazioni.
 
 ### Python
 
@@ -456,7 +465,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Akış, akış yöntemleriyle `previous_interaction_id` birleştirilerek çok aşamalı etkileşimlerde de kullanılabilir.
+Lo streaming può essere utilizzato anche per le conversazioni a più turni combinando `previous_interaction_id` con i metodi di streaming.
 
 ### Python
 
@@ -539,14 +548,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## Durum bilgisiz görüşmeler
+## Conversazioni senza stato
 
-Varsayılan olarak, `previous_interaction_id` kullandığınızda Interactions API, görüşme durumunu sunucu tarafında yönetir. Ancak, istemci tarafında görüşme geçmişini kendiniz yöneterek durumsuz modda da çalışabilirsiniz.
+Per impostazione predefinita, l'API Interactions gestisce lo stato della conversazione lato server quando utilizzi `previous_interaction_id`. Tuttavia, puoi anche operare in modalità senza stato gestendo autonomamente la cronologia delle conversazioni lato client.
 
-Durumsuz modu kullanmak için:
-1. Sunucu tarafı depolamayı devre dışı bırakma isteğinizde `store=false` değerini ayarlayın.
-2. İstemci tarafında etkileşim geçmişini bir **adımlar** dizisi olarak tutun.
-3. Sonraki isteklerde, `input` alanında birikmiş adımları iletin ve yeni dönüşünüzü `user_input` adımı olarak ekleyin.
+Per utilizzare la modalità senza stato: 1. Imposta `store=false` nella richiesta per disattivare l'archiviazione lato server.
+2. Mantieni la cronologia delle conversazioni come array di **passaggi** lato client.
+3. Nelle richieste successive, passa i passaggi accumulati nel campo `input` e aggiungi il nuovo turno come passaggio `user_input`.
 
 ### Python
 
@@ -667,23 +675,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## İstem ipuçları
+## Suggerimenti per i prompt
 
-Gemini'dan en iyi şekilde yararlanmayla ilgili öneriler için [istem mühendisliği kılavuzumuza](https://ai.google.dev/gemini/docs/prompting-strategies?hl=tr) göz atın.
+Consulta la nostra [guida all'ingegneria dei prompt](https://ai.google.dev/gemini/docs/prompting-strategies?hl=it) per
+suggerimenti su come ottenere il massimo da Gemini.
 
-## Sırada ne var?
+## Passaggi successivi
 
-- [Google AI Studio'da Gemini](https://aistudio.google.com?hl=tr)'ı deneyin.
-- JSON benzeri yanıtlar için [yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=tr) ile denemeler yapın.
-- Gemini'ın [görüntü](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=tr), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=tr), [ses](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=tr) ve [doküman](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=tr) anlama özelliklerini keşfedin.
-- Çok formatlı [dosya istemi stratejileri](https://ai.google.dev/gemini-api/docs/interactions/files?hl=tr#prompt-guide) hakkında bilgi edinin.
+- Prova [Gemini in Google AI Studio](https://aistudio.google.com?hl=it).
+- Sperimenta gli
+  [output strutturati](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=it) per
+  le risposte in formato JSON.
+- Esplora le funzionalità di comprensione di [immagini](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=it),
+  [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=it),
+  [audio](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=it) e
+  [documenti](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=it) di Gemini.
+- Scopri le strategie di prompt per file multimodali
+  .
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-07-30 UTC.
+Ultimo aggiornamento 2026-07-30 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]

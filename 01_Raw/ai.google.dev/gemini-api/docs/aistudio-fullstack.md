@@ -1,183 +1,167 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=th
-fetched_at: 2026-08-24T02:26:42.610895+00:00
-title: "\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e41\u0e2d\u0e1b\u0e41\u0e1a\u0e1a\u0e1f\u0e39\u0e25\u0e2a\u0e41\u0e15\u0e47\u0e01\u0e43\u0e19 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=tr
+fetched_at: 2026-08-31T06:38:16.604429+00:00
+title: "Google AI Studio'da tam y\u0131\u011f\u0131n uygulamalar geli\u015ftirme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# พัฒนาแอปแบบฟูลสแต็กใน Google AI Studio
+# Google AI Studio'da tam yığın uygulamalar geliştirme
 
-ตอนนี้ Google AI Studio รองรับการพัฒนาแบบ Full-Stack แล้ว ซึ่งช่วยให้คุณสร้างแอปพลิเคชันที่มากกว่าต้นแบบฝั่งไคลเอ็นต์ได้ เมื่อมีรันไทม์ฝั่งเซิร์ฟเวอร์ คุณจะจัดการข้อมูลลับ เชื่อมต่อกับ API ภายนอก และสร้างประสบการณ์การใช้งานแบบผู้เล่นหลายคนแบบเรียลไทม์ได้
+Google AI Studio artık tam yığın geliştirmeyi destekliyor. Bu sayede, istemci tarafı prototiplerin ötesine geçen uygulamalar oluşturabilirsiniz. Sunucu tarafı çalışma zamanı ile sırları yönetebilir, harici API'lere bağlanabilir ve gerçek zamanlı çok oyunculu deneyimler oluşturabilirsiniz.
 
-## รันไทม์ฝั่งเซิร์ฟเวอร์
+## Sunucu tarafı çalışma zamanı
 
-ตอนนี้แอปพลิเคชัน Google AI Studio สามารถมีคอมโพเนนต์ฝั่งเซิร์ฟเวอร์ (Node.js) ได้แล้ว
-ซึ่งจะช่วยให้คุณ
+Google AI Studio uygulamaları artık sunucu tarafı bileşeni (Node.js) içerebilir.
+Böylece aşağıdakileri yapabilirsiniz:
 
-- **เรียกใช้ตรรกะฝั่งเซิร์ฟเวอร์**: เรียกใช้โค้ดที่ไม่ควรเปิดเผยต่อ
-  ไคลเอ็นต์
-- **เข้าถึงแพ็กเกจ npm**: [Antigravity Agent](https://antigravity.google/docs/agent?hl=th)
-  สามารถติดตั้งและใช้แพ็กเกจจากระบบนิเวศ npm ขนาดใหญ่ได้
-- **จัดการข้อมูลลับ**: ใช้คีย์ API และข้อมูลเข้าสู่ระบบอย่างปลอดภัย
+- **Sunucu tarafı mantığını yürütme**: İstemciye gösterilmemesi gereken kodu çalıştırın.
+- **npm paketlerine erişme**: [Antigravity Agent](https://antigravity.google/docs/agent?hl=tr), geniş npm ekosistemindeki paketleri yükleyip kullanabilir.
+- **Gizli anahtarları işleme**: API anahtarlarını ve kimlik bilgilerini güvenli bir şekilde kullanın.
 
-### ใช้แพ็กเกจ npm
+### npm paketlerini kullanma
 
-คุณไม่จำเป็นต้องเรียกใช้ `npm install` ด้วยตนเอง เพียงขอให้ Agent เพิ่มฟังก์ชันการทำงานที่ต้องใช้แพ็กเกจ แล้ว Agent จะจัดการการติดตั้งและการนำเข้าให้
+`npm install`'ı manuel olarak çalıştırmanız gerekmez. Temsilciden paket gerektiren işlevler eklemesini istemeniz yeterlidir. Temsilci, yükleme ve içe aktarma işlemlerini gerçekleştirir.
 
-**ตัวอย่าง**: > "ใช้ `axios` เพื่อดึงข้อมูลจาก API ภายนอก"
+**Örnek**: > "Harici API'den veri getirmek için `axios` kullan."
 
-## จัดการข้อมูลลับอย่างปลอดภัย
+## Gizli anahtarları güvenli bir şekilde yönetme
 
-เมื่อมีโค้ดฝั่งเซิร์ฟเวอร์และการจัดการข้อมูลลับ ตอนนี้คุณสามารถสร้างแอปที่โต้ตอบกับโลกภายนอกได้แล้ว
+Sunucu tarafı kodu ve gizli anahtar yönetimi sayesinde artık dünyayla etkileşime geçen uygulamalar oluşturabilirsiniz.
 
-### คีย์ Gemini API
+### Gemini API anahtarı
 
-เมื่อคุณสร้างแอปใหม่ที่ใช้ Gemini API, AI Studio จะกำหนดค่า `GEMINI_API_KEY` เป็นข้อมูลลับฝั่งเซิร์ฟเวอร์โดยอัตโนมัติ คุณจึงไม่ต้องตั้งค่าด้วยตนเอง คุณดูคีย์นี้ได้ในแผง**ข้อมูลลับ** ในการตั้งค่า การเรียก Gemini API ของแอปจะดำเนินการจากโค้ดฝั่งเซิร์ฟเวอร์โดยใช้คีย์นี้ จึงไม่มีการเปิดเผยในเบราว์เซอร์
+Gemini API'yi kullanan yeni bir uygulama oluşturduğunuzda AI Studio, `GEMINI_API_KEY` değerinizi otomatik olarak sunucu tarafı gizli anahtarı olarak yapılandırır. Manuel kurulum gerekmez. Bu anahtarı Ayarlar'daki **Gizli Diziler** panelinde görüntüleyebilirsiniz. Uygulamanızın Gemini API çağrıları, bu anahtar kullanılarak sunucu tarafı kodundan yapılır. Bu nedenle, tarayıcıda hiçbir zaman gösterilmez.
 
-### คีย์ API ของบุคคลที่สาม
+### Üçüncü taraf API anahtarları
 
-สำหรับบริการอื่นๆ คุณสามารถเพิ่มคีย์ API ด้วยตนเองได้ดังนี้
+Diğer hizmetler için API anahtarlarını manuel olarak ekleyebilirsiniz:
 
-- **API ของบุคคลที่สาม**: เชื่อมต่อกับบริการต่างๆ เช่น Stripe, SendGrid หรือ
-  REST API ที่กำหนดเอง
-- **ฐานข้อมูล**: เชื่อมต่อกับฐานข้อมูลภายนอก (เช่น ผ่าน Supabase, Firebase,
-  หรือ MongoDB Atlas) เพื่อเก็บข้อมูลไว้นานกว่าเซสชัน
+- **Üçüncü taraf API'leri**: Stripe, SendGrid gibi hizmetlere veya özel REST API'lerine bağlanın.
+- **Veritabanları**: Oturumun ötesinde verileri kalıcı hale getirmek için harici veritabanlarına (ör. Supabase, Firebase veya MongoDB Atlas aracılığıyla) bağlanın.
 
-เมื่อสร้างแอปในโลกแห่งความเป็นจริง คุณมักจะต้องเชื่อมต่อกับบริการของบุคคลที่สาม (เช่น Twilio, Slack หรือฐานข้อมูล) ที่ต้องใช้คีย์ API คุณสามารถเพิ่มคีย์ด้วยตนเองได้โดยทำตามขั้นตอนต่อไปนี้
+Gerçek dünya uygulamaları oluştururken genellikle API anahtarları gerektiren üçüncü taraf hizmetlerine (ör. Twilio, Slack veya veritabanları) bağlanmanız gerekir. Aşağıdaki adımları uygulayarak anahtarları manuel olarak ekleyebilirsiniz:
 
-1. **เพิ่มข้อมูลลับ**: ไปที่เมนู**การตั้งค่า** ใน Google AI Studio แล้วมองหา
-   ส่วนข้อมูลลับ
-2. **จัดเก็บคีย์**: เพิ่มคีย์ API หรือโทเค็นลับที่นี่
-3. **เข้าถึงในโค้ด**: Agent สามารถเขียนโค้ดฝั่งเซิร์ฟเวอร์ที่เข้าถึงข้อมูลลับเหล่านี้
-   ได้อย่างปลอดภัย (โดยปกติจะผ่านตัวแปรสภาพแวดล้อม) เพื่อให้มั่นใจว่าจะไม่มีการเปิดเผยต่อเบราว์เซอร์ฝั่งไคลเอ็นต์
+1. **Gizli dizi ekleme**: Google AI Studio'da **Ayarlar** menüsüne gidip Gizli Diziler bölümünü bulun.
+2. **Anahtarınızı saklama**: API anahtarlarınızı veya gizli jetonlarınızı buraya ekleyin.
+3. **Kodda erişim**: Aracı, bu sırları güvenli bir şekilde (genellikle ortam değişkenleri aracılığıyla) erişen sunucu tarafı kodu yazabilir ve bunların hiçbir zaman istemci tarafı tarayıcıya gösterilmemesini sağlayabilir.
 
-นอกจากนี้ Agent จะแสดงการ์ดในแชทเพื่อแจ้งให้คุณเพิ่มคีย์เมื่อจำเป็นต้องใช้ข้อมูลลับใหม่หรือเมื่อตรวจพบคีย์ใหม่ในตัวแปร env ของโปรเจ็กต์
+Gerekli olduğunda, yeni bir sır gerektiğinde veya projenin ortam değişkenlerinde yeni bir anahtar algılandığında, aracı sohbet penceresinde anahtar eklemenizi isteyen bir kart da gösterir.
 
-### การผสานรวม Firebase สำหรับฐานข้อมูลและการตรวจสอบสิทธิ์
+### Veritabanı ve kimlik doğrulama için Firebase entegrasyonu
 
-ตอนนี้ Google AI Studio ช่วยให้คุณเพิ่มฐานข้อมูลหรือการตรวจสอบสิทธิ์ลงใน
-แอปได้อย่างง่ายดายผ่าน
-[การผสานรวม Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=th)
-Antigravity Agent สามารถจัดเตรียมและตั้งค่าบริการต่อไปนี้ให้คุณโดยอัตโนมัติ
+Google AI Studio, [Firebase entegrasyonu](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=tr) aracılığıyla uygulamanıza veritabanı veya kimlik doğrulama eklemeyi kolaylaştırır.
+Antigravity Agent, aşağıdaki hizmetleri sizin için otomatik olarak sağlayıp ayarlayabilir:
 
-- **ฐานข้อมูล Firestore**: ฐานข้อมูล NoSQL บนระบบคลาวด์ที่ยืดหยุ่นและปรับขนาดได้เพื่อจัดเก็บ
-  และซิงค์ข้อมูลสำหรับการพัฒนาฝั่งไคลเอ็นต์และฝั่งเซิร์ฟเวอร์
-- **การตรวจสอบสิทธิ์ Firebase**: อนุญาตให้ผู้ใช้ลงชื่อเข้าใช้
-  แอปพลิเคชันของคุณได้อย่างปลอดภัยโดยใช้โฟลว์ "ลงชื่อเข้าใช้ด้วย Google"
+- **Firestore veritabanı**: İstemci ve sunucu tarafı geliştirme için verileri depolamak ve senkronize etmek üzere kullanılan esnek ve ölçeklenebilir bir NoSQL bulut veritabanı.
+- **Firebase Authentication**: Kullanıcılarınızın "Google ile oturum açma" akışlarını kullanarak uygulamanızda güvenli bir şekilde oturum açmasına izin verin.
 
-เพียงขอให้ Agent "เพิ่มฐานข้อมูลลงในแอปของฉัน" หรือ "ตั้งค่าการลงชื่อเข้าใช้ด้วยบัญชี Google" แล้ว Agent จะจัดการการกำหนดค่าและการสร้างโค้ดที่จำเป็นให้คุณ
+Aracıdan "uygulamama veritabanı ekle" veya "Google ile Giriş'i ayarla" demeniz yeterlidir. Aracı, gerekli yapılandırmayı ve kod oluşturma işlemlerini sizin için yapar.
 
-Firebase ให้คุณเริ่มต้นใช้งานได้ฟรี และเลือกปรับขนาดด้วยบัญชีแบบชำระเงินได้ทุกเมื่อที่พร้อมสำหรับโควต้าเพิ่มเติมหรือใช้ฟีเจอร์แบบชำระเงิน
+Firebase'i ücretsiz olarak kullanmaya başlayabilir ve daha fazla kota veya ücretli özellikler kullanmaya hazır olduğunuzda ücretli bir hesapla ölçeklendirebilirsiniz.
 
-## Google Workspace API
+## Google Workspace API'leri
 
-Google AI Studio ช่วยให้คุณสร้างแอปที่เชื่อมต่อกับ Google Workspace API ได้ เพื่อให้ผู้ใช้ทำงานกับข้อมูลจริงของตนเองได้ เช่น อีเมล สเปรดชีต เอกสาร กิจกรรมในปฏิทิน และอื่นๆ อีกมากมาย ทั้งหมดนี้ทำได้ภายในแอปของคุณ คุณจึงไม่จำเป็นต้องตั้งค่าโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google, กำหนดค่า OAuth หรือจัดการ API ด้วยตนเองอีกต่อไป
+Google AI Studio, Google Workspace API'lerine bağlanan uygulamalar oluşturmanıza olanak tanır. Böylece kullanıcılarınız, e-postalar, elektronik tablolar, dokümanlar, takvim etkinlikleri ve daha fazlası gibi gerçek verileriyle doğrudan uygulamanızda çalışabilir. Artık Google Cloud projesi oluşturmanız, OAuth'u yapılandırmanız veya API'nizi manuel olarak yönetmeniz gerekmez.
 
-### วิธีการทำงาน
+### İşleyiş şekli
 
-คุณสามารถเพิ่มการผสานรวม Workspace ได้ 2 วิธีดังนี้
+Workspace entegrasyonunu iki şekilde ekleyebilirsiniz:
 
-- **อธิบายในแผงแชท**: เพียงบอก Agent สิ่งที่คุณต้องการในแผงแชทที่ด้านล่าง เช่น *"สร้างเครื่องมือติดตามค่าใช้จ่ายที่บันทึกใบเสร็จลงใน Google ชีตของฉัน"* หรือ *"สร้างแดชบอร์ดที่สรุปข้อความ Gmail ที่ยังไม่ได้อ่านของฉัน"*
-- **เลือกจากแผงการผสานรวม**: เปิดแผง**การผสานรวม** ในแถบด้านข้างทางด้านขวาของโหมดสร้าง แล้วเปิดใช้แอปใน Workspace ที่ต้องการเชื่อมต่อ
+- **Sohbet panelinde açıklayın**: Alt kısımdaki sohbet panelinde, temsilciye ne istediğinizi söylemeniz yeterlidir. Örneğin, *"Makbuzları Google E-Tablolar'a kaydeden bir gider izleyici oluştur"* veya *"Okunmamış Gmail mesajlarımı özetleyen bir kontrol paneli oluştur."*
+- **Entegrasyonlar panelinden seçme**: Oluşturma modunun sağ kenar çubuğunda **Entegrasyonlar** panelini açın ve bağlamak istediğiniz Workspace uygulamasını etkinleştirin.
 
-เมื่อคุณเพิ่มแอปใน Workspace, AI Studio จะดำเนินการต่อไปนี้โดยอัตโนมัติ
+Bir Workspace uygulaması eklediğinizde AI Studio otomatik olarak:
 
-1. เชื่อมต่อ Google API ที่จำเป็นสำหรับแอปของคุณ
-2. สร้างโค้ดฝั่งเซิร์ฟเวอร์เพื่อเรียก API
-3. เพิ่มโฟลว์ "ลงชื่อเข้าใช้ด้วย Google" ที่ปลอดภัยเพื่อให้ผู้ใช้ปลายทางของแอปให้สิทธิ์เข้าถึงข้อมูลของตนเองได้
+1. Uygulamanız için gerekli Google API'sini bağlar.
+2. API'yi çağırmak için sunucu tarafı kodu oluşturur.
+3. Uygulamanızın son kullanıcılarının kendi verilerine erişimi yetkilendirebilmesi için güvenli bir "Google ile oturum açma" akışı ekler.
 
-### แอปที่รองรับ
+### Desteklenen uygulamalar
 
-แอป Google Workspace ต่อไปนี้พร้อมให้บริการ
+Aşağıdaki Google Workspace uygulamaları kullanılabilir:
 
-| แอป | สิ่งที่คุณสร้างได้ |
+| Uygulama | Neler oluşturabilirsiniz? |
 | --- | --- |
-| Google ปฏิทิน | อ่าน สร้าง และจัดการกิจกรรมและปฏิทิน |
-| Google Chat | อ่านและโต้ตอบกับการสนทนาและพื้นที่ทำงานแบบกลุ่ม |
-| Google เอกสาร | สร้าง อ่าน อัปเดต และจัดรูปแบบเอกสาร |
-| Google ไดรฟ์ | จัดระเบียบ ค้นหา และจัดการไฟล์และโฟลเดอร์ |
-| Google ฟอร์ม | สร้างแบบสำรวจ อัปเดตคำถาม และดึงข้อมูลคำตอบ |
-| Gmail | อ่าน ส่ง และจัดการเนื้อหาอีเมล |
-| Google Keep | จัดการโน้ต ลิสต์ และไฟล์แนบ |
-| Google Meet | กำหนดเวลาและจัดการวิดีโอคอล |
-| รายชื่อติดต่อ | ซิงค์และจัดการรายชื่อติดต่อ |
-| Google ชีต | อ่าน เขียน และจัดรูปแบบข้อมูลสเปรดชีต |
-| Google สไลด์ | สร้างและแก้ไขงานนำเสนอ |
-| Google Tasks | สร้าง จัดการ และจัดระเบียบงาน |
+| Google Takvim | Etkinlikleri ve takvimleri okuma, oluşturma ve yönetme |
+| Google Chat | İleti dizilerini ve grup alanlarını okuma ve bunlarla etkileşime geçme |
+| Google Dokümanlar | Doküman oluşturma, okuma, güncelleme ve biçimlendirme |
+| Google Drive | Dosya ve klasörleri düzenleme, arama ve yönetme |
+| Google Formlar | Anket oluşturma, soruları güncelleme ve yanıtları alma |
+| Gmail | E-posta içeriğini okuma, gönderme ve yönetme |
+| Google Keep | Notları, listeleri ve ekleri yönetme |
+| Google Meet | Görüntülü görüşme planlama ve yönetme |
+| Kişiler | Kişileri senkronize etme ve yönetme |
+| Google E-Tablolar | E-tablo verilerini okuma, yazma ve biçimlendirme |
+| Google Slaytlar | Sunu oluşturma ve değiştirme |
+| Google Görevler | Görev oluşturma, yönetme ve düzenleme |
 
-### การตรวจสอบสิทธิ์และสิทธิ์
+### Kimlik doğrulama ve izinler
 
-ในฐานะผู้สร้าง คุณไม่จำเป็นต้องกำหนดค่าไคลเอ็นต์ OAuth, จัดการข้อมูลเข้าสู่ระบบ หรือตั้งค่าโปรเจ็กต์ Google Cloud AI Studio จะจัดการทุกอย่างให้คุณ
+Oluşturucu olarak OAuth istemcilerini yapılandırmanız, kimlik bilgilerini yönetmeniz veya Google Cloud projesi oluşturmanız gerekmez. AI Studio tüm bu işlemleri sizin için yapar.
 
-แอปที่มีการผสานรวม Workspace API จะใช้ "ลงชื่อเข้าใช้ด้วย Google" เพื่อตรวจสอบสิทธิ์ผู้ใช้ปลายทาง เมื่อผู้ใช้เปิดแอป ระบบจะแจ้งให้ผู้ใช้ลงชื่อเข้าใช้และให้สิทธิ์เฉพาะที่แอปต้องการ (เช่น สิทธิ์เข้าถึงปฏิทินแบบอ่านอย่างเดียว หรือความสามารถในการแก้ไขสเปรดชีต) แอปของคุณจะเข้าถึงเฉพาะข้อมูลของบุคคลที่ใช้แอปเท่านั้น ผู้ใช้แต่ละรายจะให้สิทธิ์เข้าถึงบัญชีของตนเอง
+Workspace API'lerinin entegre edildiği uygulamalar, son kullanıcıların kimliğini doğrulamak için "Google ile oturum açma" özelliğini kullanır. Kullanıcılar uygulamanızı açtığında oturum açmaları ve uygulamanızın ihtiyaç duyduğu belirli izinleri (örneğin, takvimlerine salt okunur erişim veya bir e-tabloyu düzenleme olanağı) vermeleri istenir. Uygulamanız yalnızca uygulamayı kullanan kişinin verilerine erişir. Her kullanıcı, kendi hesabına erişim yetkisi verir.
 
-### ตัวอย่างพรอมต์
+### Örnek istemler
 
-ต่อไปนี้คือแนวคิดบางส่วนในการเริ่มต้นใช้งานการผสานรวม Workspace
+Workspace entegrasyonlarını kullanmaya başlamak için birkaç öneri:
 
-- *"สร้างแอปที่อ่าน Google ปฏิทินของฉันและร่างอีเมลเตรียมการใน
-  Gmail สำหรับการประชุมแต่ละครั้ง"*
-- *"สร้างเครื่องมือที่รับ Google เอกสารและสร้างงานนำเสนอสรุป 5 สไลด์
-  ใน Google สไลด์"*
-- *"สร้างเครื่องมือติดตามค่าใช้จ่ายที่ฉันอัปโหลดใบเสร็จ Gemini แยก
-  รายละเอียด และระบบบันทึกแถวใหม่ใน Google ชีตของฉัน"*
+- *"Google Takvim'imi okuyup her toplantı için Gmail'de hazırlık e-postaları oluşturan bir uygulama geliştir."*
+- *"Google Dokümanı alıp Google Slaytlar'da 5 slaytlık bir özet sunu oluşturan bir araç geliştir."*
+- *"Makbuz yüklediğim, Gemini'ın ayrıntıları çıkardığı ve Google E-Tablomda yeni bir satırın kaydedildiği bir gider izleyici oluştur."*
 
-### ตั้งค่า OAuth
+### OAuth'u ayarlama
 
-กรณีการใช้งานที่สำคัญอย่างหนึ่งสำหรับการจัดการข้อมูลลับคือการตั้งค่า OAuth เพื่อเชื่อมต่อกับเว็บไซต์หรือแอปอื่นๆ เมื่อพรอมต์ของคุณมีวิธีการเกี่ยวกับการเชื่อมต่อกับแอปของบุคคลที่สามที่ต้องใช้การตรวจสอบสิทธิ์ OAuth, Agent จะให้วิธีการตั้งค่า OAuth สำหรับแอปพลิเคชันนั้น วิธีการเหล่านี้จะมี URL เรียกกลับที่จำเป็นสำหรับการกำหนดค่าแอปพลิเคชัน OAuth
-นอกจากนี้ คุณยังดู URL เรียกกลับได้ในส่วน**การผสานรวม** ในแผงการตั้งค่า
+Sır yönetimiyle ilgili temel kullanım alanlarından biri, diğer web sitelerine veya uygulamalara bağlanmak için OAuth'u ayarlamaktır. İsteminizde, OAuth kimlik doğrulaması gerektiren bir üçüncü taraf uygulamasına bağlanmayla ilgili talimatlar varsa aracı, bu uygulama için OAuth'u ayarlama talimatlarını sağlar. Bu talimatlar, OAuth uygulamanızı yapılandırmak için gerekli geri çağırma URL'lerini içerir.
+Geri çağırma URL'lerini Ayarlar panelindeki **Entegrasyonlar** bölümünde de bulabilirsiniz.
 
-## สร้างประสบการณ์การใช้งานแบบผู้เล่นหลายคน
+## Çok oyunculu deneyimler oluşturma
 
-รันไทม์แบบ Full-Stack ช่วยให้ฟีเจอร์การทำงานร่วมกันแบบเรียลไทม์ทำงานได้
+Tam yığın çalışma zamanı, gerçek zamanlı ortak çalışma özelliklerini etkinleştirir.
 
-- **สถานะแบบเรียลไทม์**: คุณสามารถขอให้ Agent สร้างฟีเจอร์ต่างๆ เช่น "แชทสด" "ไวท์บอร์ดสำหรับการทำงานร่วมกัน" หรือ "เกมแบบผู้เล่นหลายคน"
-- **เซสชันที่ซิงค์**: เซิร์ฟเวอร์จะจัดการสถานะ ซึ่งช่วยให้ผู้ใช้หลายคน
-  โต้ตอบกับอินสแตนซ์แอปพลิเคชันเดียวกันได้แบบเรียลไทม์
+- **Gerçek zamanlı durum**: Aracının "canlı sohbet", "ortak beyaz tahta" veya "çok oyunculu oyun" gibi özellikler oluşturmasını isteyebilirsiniz.
+- **Senkronize oturumlar**: Sunucu durumu yönetir ve birden fazla kullanıcının aynı uygulama örneğiyle gerçek zamanlı olarak etkileşim kurmasına olanak tanır.
 
-**ตัวอย่างพรอมต์**: > "ทำให้เกมนี้เป็นเกมแบบผู้เล่นหลายคนซึ่งผู้เล่นจะเห็นเคอร์เซอร์ของกันและกันได้"
+**Örnek istem**: > "Bunu, oyuncuların birbirlerinin imleçlerini görebileceği çok oyunculu bir oyun haline getir."
 
-### เคล็ดลับสำหรับการทดสอบแอปแบบผู้เล่นหลายคน
+### Çok oyunculu uygulamaları test etme ipuçları
 
-คุณสามารถทดสอบโหมดผู้เล่นหลายคนได้ 2 วิธีก่อนที่จะติดตั้งใช้งานแอป
+Uygulamanızı dağıtmadan önce çok oyunculu modu iki şekilde test edebilirsiniz.
 
-1. เปิดแอปในโหมดสร้างของ Google AI Studio ในหลายแท็บ เมื่อพัฒนาในโหมดสร้าง แอปของคุณจะอยู่ในคอนเทนเนอร์สำหรับนักพัฒนาแอป การเปิดแอปในหลายแท็บจะช่วยให้คุณจำลองผู้เล่นหลายคนที่ใช้แอปของคุณได้
-2. แชร์แอปกับผู้อื่นโดยใช้เมนู**แชร์** ที่ด้านขวาบน จากนั้นใช้ **URL ที่แชร์** จากแท็บ**การผสานรวม** ของเมนู**แชร์** เพื่อใช้แอปกับผู้เล่นที่คุณแชร์แอปด้วย
+1. Uygulamanızı Google AI Studio'nun Build (Oluştur) modunda birden fazla sekmede açın. Uygulamanız, Build modunda geliştirilirken bir geliştirme container'ında bulunur. Uygulamayı birden fazla sekmede açarak uygulamanızı kullanan birden fazla oyuncuyu simüle edebilirsiniz.
+2. Sağ üstteki **Paylaş** menüsünü kullanarak uygulamayı başkalarıyla paylaşın.
+   Ardından, uygulamayı paylaştığınız oyuncularla kullanmak için **Paylaş** menüsünün **Entegrasyonlar** sekmesindeki **Paylaşılan URL**'yi kullanın.
 
-## แนวทางปฏิบัติแนะนำ
+## En iyi uygulamalar
 
-- **การเรียก Gemini API**: ระบบจะกำหนดค่า `GEMINI_API_KEY` เป็น
-  ข้อมูลลับฝั่งเซิร์ฟเวอร์โดยอัตโนมัติ เรียก Gemini API จากโค้ดฝั่งเซิร์ฟเวอร์โดยใช้คีย์นี้ คุณดูคีย์นี้ได้ในแผง**ข้อมูลลับ**
-- **ความปลอดภัยของข้อมูลลับ**: ใช้ Secret Manager สำหรับคีย์ที่ละเอียดอ่อนเสมอ
-  และอย่าฮาร์ดโค้ดคีย์เหล่านั้นในไฟล์
-- **การแยกความกังวล**: เก็บตรรกะ UI ไว้ในเฟรมเวิร์กฝั่งไคลเอ็นต์
-  (React/Angular) และเก็บตรรกะทางธุรกิจ/การจัดการข้อมูลไว้ฝั่งเซิร์ฟเวอร์
-- **การจัดการข้อผิดพลาด**: ตรวจสอบว่าโค้ดฝั่งเซิร์ฟเวอร์จัดการข้อผิดพลาด
-  จากการเรียก API ภายนอกได้อย่างมีประสิทธิภาพเพื่อป้องกันไม่ให้แอปขัดข้อง
+- **Gemini API çağrıları**: `GEMINI_API_KEY`, otomatik olarak sunucu tarafı gizli anahtarı olarak yapılandırılır. Bu anahtarı kullanarak sunucu tarafı kodunuzdan Gemini API çağrıları yapın. Bu bilgiyi **Sırlar** panelinde görüntüleyebilirsiniz.
+- **Gizli anahtar güvenliği**: Hassas anahtarlar için her zaman Secret Manager'ı kullanın.
+  Bunları dosyalarınızda asla sabit kodlamayın.
+- **İlgi alanlarının ayrılması**: Kullanıcı arayüzü mantığınızı istemci tarafı çerçevesinde (React/Angular), iş mantığınızı/veri işlemeyi ise sunucu tarafında tutun.
+- **Hata işleme**: Uygulamanın kilitlenmesini önlemek için sunucu tarafı kodunuzun harici API çağrılarından kaynaklanan hataları etkili bir şekilde işlemesini sağlayın.
 
-## ขั้นตอนต่อไปคือ
+## Sırada ne var?
 
-- [สร้างแอปใน Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=th)
-- [การติดตั้งใช้งานจาก Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=th)
-- [แกลเลอรีแอป](https://aistudio.google.com/apps?source=showcase&hl=th)
+- [Google AI Studio'da uygulama geliştirme](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr)
+- [Google AI Studio'dan dağıtma](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=tr)
+- [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-08-19 UTC
+Son güncelleme tarihi: 2026-08-19 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]

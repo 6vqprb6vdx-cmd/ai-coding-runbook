@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=vi
-fetched_at: 2026-08-24T02:19:37.703890+00:00
-title: "T\u1ea7m nh\u00ecn d\u1ef1a tr\u00ean t\u00e1c nh\u00e2n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=zh-CN
+fetched_at: 2026-08-31T06:27:53.621520+00:00
+title: "Agentic Vision \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gửi ý kiến phản hồi
+发送反馈
 
-# Tầm nhìn dựa trên tác nhân
+# Agentic Vision
 
-Các mô hình Gemini Robotics ER có thể viết và thực thi mã Python để thao tác với hình ảnh và áp dụng logic trước khi trả lời. Trang này trình bày các ví dụ về việc thực thi mã: phát hiện đối tượng bằng cách thu phóng và cắt, đọc nhạc cụ, đo chất lỏng, đọc bảng mạch và chú thích hình ảnh.
+Gemini Robotics ER 模型可以编写和执行 Python 代码来处理图片，并在回答问题之前应用逻辑。本页介绍了代码执行示例：使用缩放和裁剪功能进行对象检测、乐器读数、液体测量、电路板读数和图片注释。
 
-Để điều chỉnh các ví dụ này cho trường hợp sử dụng của riêng bạn, hãy thay thế văn bản câu lệnh và tệp hình ảnh đã tải lên bằng văn bản và tệp hình ảnh của riêng bạn. Bạn cũng có thể điều chỉnh giản đồ JSON được yêu cầu trong câu lệnh để khớp với cấu trúc đầu ra mà ứng dụng của bạn cần, hoặc thêm `system_instruction` để thực thi định dạng và độ chính xác của đầu ra.
+如需根据自己的使用情形调整这些示例，请将提示文本和上传的图片文件替换为您自己的内容。您还可以调整提示中请求的 JSON 架构，以匹配应用所需的输出结构，或者添加 `system_instruction` 来强制执行输出格式和精度。
 
-Để xem toàn bộ mã có thể chạy, hãy xem [Sổ tay về robot học](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+如需查看完整的可运行代码，请参阅[机器人技术食谱](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)。
 
-## Cấp độ tư duy
+## 思考等级
 
-Bạn có thể kiểm soát mức độ tư duy của mô hình để đánh đổi độ trễ lấy độ chính xác. Các tác vụ không gian như phát hiện đối tượng hoạt động hiệu quả với mức độ tư duy thấp. Các nhiệm vụ phức tạp như đếm hoặc ước tính trọng lượng sẽ có lợi khi bạn có cấp độ tư duy cao hơn.
+您可以控制模型的思考水平，以牺牲延迟时间来换取准确性。对象检测等空间任务在低思维水平下表现良好。计数或重量估计等复杂任务需要更高的思维水平。
 
-Ví dụ sau đây đặt cấp độ tư duy thành `high` cho một nhiệm vụ đếm phức tạp:
+以下示例将复杂计数任务的思考水平设置为 `high`：
 
 ### Python
 
@@ -57,11 +57,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Hãy xem phần [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) để biết thông tin chi tiết.
+如需了解详情，请参阅[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)。
 
-## Phát hiện đối tượng (Thu phóng và cắt)
+## 对象检测（缩放和裁剪）
 
-Ví dụ sau đây sử dụng tính năng thực thi mã để phóng to và cắt một hình ảnh nhằm có chế độ xem rõ ràng hơn khi phát hiện các đối tượng và trả về các hộp giới hạn.
+以下示例使用代码执行功能来缩放和剪裁图片，以便在检测到对象并返回边界框时获得更清晰的视图。
 
 ### Python
 
@@ -95,7 +95,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Đầu ra của mô hình sẽ tương tự như phản hồi JSON sau:
+模型输出将类似于以下 JSON 响应：
 
 ```
 [
@@ -107,13 +107,13 @@ print(interaction.output_text)
 ]
 ```
 
-Hình ảnh sau đây cho thấy các hộp được trả về từ mô hình.
+下图显示了模型返回的方框。
 
-![Ví dụ minh hoạ các hộp giới hạn cho những đối tượng được tìm thấy](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=vi)
+![显示检测到的对象的边界框的示例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=zh-cn)
 
-## Đọc đồng hồ đo analog và áp dụng logic
+## 读取模拟仪表并应用逻辑
 
-Ví dụ sau đây minh hoạ cách sử dụng mô hình để đọc đồng hồ đo tương tự và thực hiện các phép tính thời gian. Công cụ này sử dụng một chỉ dẫn hệ thống để thực thi đầu ra JSON.
+以下示例演示了如何使用该模型读取模拟表盘并执行时间计算。它使用系统指令来强制生成 JSON 输出。
 
 ### Python
 
@@ -144,9 +144,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Đo chất lỏng trong một hộp đựng
+## 测量容器中的液体
 
-Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để đo mức chất lỏng trong một hộp chứa.
+以下示例演示了如何使用代码执行来测量容器中的液体量。
 
 ### Python
 
@@ -176,9 +176,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Đọc các dấu hiệu trên bảng mạch
+## 读取电路板上的标记
 
-Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để đọc các dấu hiệu trên bảng mạch.
+以下示例演示了如何使用代码执行功能读取电路板上的标记。
 
 ### Python
 
@@ -208,11 +208,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-![Ví dụ minh hoạ các dấu hiệu trên bảng mạch](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=vi)
+![显示电路板上标记的示例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=zh-cn)
 
-## Chú thích hình ảnh
+## 图片注释
 
-Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để chú thích một hình ảnh (ví dụ: vẽ mũi tên cho hướng dẫn xử lý) và trả về hình ảnh đã sửa đổi.
+以下示例演示了如何使用代码执行功能来注释图片（例如，绘制箭头以指示处置说明），并返回修改后的图片。
 
 ### Python
 
@@ -246,11 +246,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Sau đây là một ví dụ về dữ liệu đầu vào hình ảnh.
+以下是输入图片的示例。
 
-![Ví dụ minh hoạ một chiếc đồng hồ để đọc](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=vi)
+![显示时钟的示例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=zh-cn)
 
-Đầu ra của mô hình sẽ tương tự như sau:
+模型输出将类似如下所示：
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -259,18 +259,18 @@ Sau đây là một ví dụ về dữ liệu đầu vào hình ảnh.
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Bước tiếp theo
+## 后续步骤
 
-- [Điều phối tác vụ](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=vi) – các tác vụ dài hạn bằng API robot tuỳ chỉnh.
-- [Robot học có tính năng truyền trực tuyến](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=vi) – truyền trực tuyến hai chiều theo thời gian thực (chỉ Gemini Robotics ER 2).
-- [Hiểu video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=vi) – tìm khoảnh khắc và phân loại tiến trình (chỉ Gemini Robotics ER 2).
+- [任务编排](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=zh-cn) - 使用自定义机器人 API 的长时程任务。
+- [支持流式传输的机器人](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=zh-cn) - 实时双向流式传输（仅限 Gemini Robotics ER 2）。
+- [视频理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=zh-cn) - 时刻查找和进度分类（仅限 Gemini Robotics ER 2）。
 
-Gửi ý kiến phản hồi
+发送反馈
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+最后更新时间 (UTC)：2026-07-30。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+需要向我们提供更多信息？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]

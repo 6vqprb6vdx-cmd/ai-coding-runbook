@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=id
-fetched_at: 2026-08-24T02:26:39.366452+00:00
+fetched_at: 2026-08-31T06:40:40.356275+00:00
 title: "Pratinjau Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

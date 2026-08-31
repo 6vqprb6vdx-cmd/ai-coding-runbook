@@ -1,40 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=it
-fetched_at: 2026-08-24T02:32:36.756385+00:00
-title: "Generare musica con Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-CN
+fetched_at: 2026-08-31T06:35:38.022581+00:00
+title: "\u4f7f\u7528 Lyria 3 \u751f\u6210\u97f3\u4e50 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Invia feedback
+发送反馈
 
-# Generare musica con Lyria 3
+# 使用 Lyria 3 生成音乐
 
-Lyria 3 è la famiglia di modelli di generazione di musica di Google, disponibile tramite l'API Gemini. Con Lyria 3, puoi generare audio stereo di alta qualità a 44, 1 kHz da prompt di testo o da immagini. Questi modelli offrono coerenza strutturale, incluse voci, testi sincronizzati e arrangiamenti strumentali completi.
+Lyria 3 是 Google 的音乐创作模型系列，可通过 Gemini API 调用。借助 Lyria 3，您可以根据文本提示或图片生成高质量的 44.1 kHz 立体声音频。这些模型可提供结构连贯的音乐，包括人声、同步歌词及完整的器乐编排。
 
-La famiglia Lyria 3 include due modelli:
+Lyria 3 系列包含两款型号：
 
-| Modello | ID modello | Ideale per | Durata | Output |
+| 模型 | 模型 ID | 适用场景 | 时长 | 输出 |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clip corti, loop, anteprime | 30 secondi | MP3 |
-| **Lyria 3 Pro** | `lyria-3-pro-preview` | Brani completi con strofe, ritornelli, ponti | Un paio di minuti (controllabile tramite prompt) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | 短片、循环播放的视频、预览 | 30 秒 | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | 包含主歌、副歌和桥段的完整歌曲 | 几分钟（可通过提示控制） | MP3 |
 
-Entrambi i modelli possono essere utilizzati con la nuova
-[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it), supportano input multimodali
-input (testo e immagini) e producono **audio stereo ad alta fedeltà a 44,1 kHz**
-.
+这两种模型均可通过新的 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 使用，支持多模态输入（文本和图片），并生成 **44.1 kHz 高保真立体声**音频。
 
-## Generare un clip musicale
+## 生成音乐片段
 
-Il modello Lyria 3 Clip genera sempre un clip di **30 secondi**. Per generare un clip, chiama il metodo `interactions.create` con un prompt testuale. La risposta include sempre i testi e la struttura del brano generati insieme all'audio nello schema `steps`.
+Lyria 3 Clip 模型始终生成 **30 秒**的片段。如需生成剪辑，请使用文本提示调用 `interactions.create` 方法。响应始终包含生成的歌词和歌曲结构，以及 `steps` 架构中的音频。
 
 ### Python
 
@@ -95,14 +92,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Puoi recuperare i dati musicali generati utilizzando la proprietà `interaction.output_audio`, che restituisce l'ultimo blocco audio generato. Puoi anche recuperare i testi e la struttura del brano utilizzando la proprietà `interaction.output_text`. Per maggiori dettagli sulle proprietà di convenienza, consulta la
-[panoramica di Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it#convenience-properties).
+您可以使用 `interaction.output_audio` 属性检索生成的音乐数据，该属性会返回上次生成的音频块。您还可以使用 `interaction.output_text` 属性检索歌曲的歌词和结构。如需详细了解便捷属性，请参阅[互动概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn#convenience-properties)。
 
-## Generare un brano completo
+## 生成完整歌曲
 
-Utilizza il modello `lyria-3-pro-preview` per generare brani completi della durata di un paio di minuti. Il modello Pro comprende la struttura musicale e può creare composizioni con strofe, ritornelli e ponti distinti. Puoi influenzare la
-durata specificandola nel prompt (ad es. "crea un brano di 2 minuti") o
-utilizzando [i timestamp](#timing) per definire la struttura.
+使用 `lyria-3-pro-preview` 模型生成时长几分钟的完整歌曲。Pro 模型能理解音乐结构，并能创作出具有鲜明主歌、副歌和桥段的乐曲。您可以在提示中指定时长（例如“创作一首 2 分钟的歌曲”），也可以使用[时间戳](#timing)来定义结构，从而影响时长。
 
 ### Python
 
@@ -134,9 +128,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Selezionare il formato di output
+## 选择输出格式
 
-Per impostazione predefinita, i modelli Lyria 3 generano audio in formato **MP3**. Per Lyria 3 Pro, puoi anche richiedere l'output in formato **WAV** impostando `response_format`.
+默认情况下，Lyria 3 模型会生成 **MP3** 格式的音频。对于 Lyria 3 Pro，您还可以通过设置 `response_format` 以 **WAV** 格式请求输出。
 
 ### Python
 
@@ -175,12 +169,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Analizzare la risposta
+## 解析响应
 
-La risposta di Lyria 3 contiene più blocchi di contenuti nello schema `steps`.
-Le interazioni restituiscono una sequenza di passaggi, in cui i passaggi `model_output` contengono i contenuti generati.
-I blocchi di contenuti di testo contengono i testi generati o una descrizione JSON della struttura del brano.
-I blocchi di contenuti con tipo `audio` contengono i dati audio codificati in Base64.
+来自 Lyria 3 的响应包含 `steps` 架构中的多个内容块。互动会返回一系列步骤，其中 `model_output` 步包含生成的内容。文本内容块包含生成的歌词或歌曲结构的 JSON 说明。
+类型为 `audio` 的内容块包含 base64 编码的音频数据。
 
 ### Python
 
@@ -224,11 +216,11 @@ if (lyrics) {
 curl ... | jq -r '.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio") | .data' | base64 -d > output.mp3
 ```
 
-#### Testi e musica intercalati
+#### 交错显示歌词和音乐
 
-Poiché l'output di Lyria 3 è complesso e contiene passaggi e blocchi separati per i testi generati (testo) e il brano stesso (audio), le proprietà di convenienza offrono una scorciatoia rapida e consigliata.
+由于 Lyria 3 的输出较为复杂，包含用于生成歌词（文本）和歌曲本身（音频）的单独步骤和代码块，因此便利属性可提供快速且推荐的快捷方式。
 
-Tuttavia, se vuoi un controllo programmatico completo sulla sequenza temporale non elaborata dei passaggi restituiti dal server (ad esempio la registrazione dei singoli blocchi di contenuti man mano che vengono ricevuti), puoi eseguire manualmente l'iterazione su `steps`:
+不过，如果您想以程序化方式完全控制服务器返回的原始步进时间轴（例如在收到各个内容块时记录它们），可以手动迭代 `steps`：
 
 ### Python
 
@@ -279,9 +271,9 @@ if (audioData) {
 }
 ```
 
-## Generare musica da immagini
+## 根据图片生成音乐
 
-Lyria 3 supporta input multimodali: puoi fornire fino a **10 immagini** insieme al prompt testuale nell'elenco `input` e il modello comporrà musica ispirata ai contenuti visivi.
+Lyria 3 支持多模态输入 - 您可以在 `input` 列表中提供最多 **10 张图片**以及文本提示，模型将根据视觉内容创作音乐。
 
 ### Python
 
@@ -347,9 +339,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Fornire testi personalizzati
+## 提供自定义歌词
 
-Puoi scrivere i tuoi testi e includerli nel prompt. Utilizza tag di sezione come `[Verse]`, `[Chorus]` e `[Bridge]` per aiutare il modello a comprendere la struttura del brano:
+您可以自行撰写歌词，并将其添加到提示中。使用 `[Verse]`、`[Chorus]` 和 `[Bridge]` 等部分标记来帮助模型了解歌曲结构：
 
 ### Python
 
@@ -425,9 +417,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Controllare la tempistica e la struttura
+## 控制时间和结构
 
-Puoi specificare esattamente cosa succede in momenti specifici del brano utilizzando i timestamp. Questa funzionalità è utile per controllare quando entrano gli strumenti, quando vengono forniti i testi e come procede il brano:
+您可以使用时间戳来精确指定歌曲中特定时刻发生的情况。这有助于控制乐器何时进入、歌词何时出现以及歌曲的进展方式：
 
 ### Python
 
@@ -479,9 +471,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Generare tracce strumentali
+## 生成纯音乐轨道
 
-Per la musica di sottofondo, le colonne sonore dei giochi o qualsiasi caso d'uso in cui non sono richieste le voci, puoi chiedere al modello di produrre tracce solo strumentali:
+对于背景音乐、游戏配乐或不需要人声的任何使用场景，您可以提示模型生成纯乐器曲目：
 
 ### Python
 
@@ -513,9 +505,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Generare musica in lingue diverse
+## 生成不同语言的音乐
 
-Lyria 3 genera i testi nella lingua del prompt. Per generare un brano con testi in francese, scrivi il prompt in francese. Il modello adatta lo stile vocale e la pronuncia in base alla lingua.
+Lyria 3 会根据提示的语言生成歌词。如需生成带有法语歌词的歌曲，请使用法语撰写提示。模型会调整其发音风格和发音，以匹配相应语言。
 
 ### Python
 
@@ -547,30 +539,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Intelligenza del modello
+## 模型智能
 
-Lyria 3 analizza il processo del prompt in cui il modello ragiona sulla struttura musicale (introduzione, strofa, ritornello, ponte e così via) in base al prompt.
-Questa operazione viene eseguita prima della generazione dell'audio e garantisce la coerenza strutturale e la musicalità.
+Lyria 3 会分析您的提示流程，其中模型会根据您的提示推断音乐结构（前奏、主歌、副歌、桥段等）。此过程在生成音频之前进行，可确保结构连贯性和音乐性。
 
-## Guida ai prompt
+## 提示指南
 
-Più specifico è il prompt, migliori saranno i risultati. Ecco cosa puoi includere per guidare la generazione:
+提示越具体，结果就越好。以下是您可以添加的内容，以便引导生成：
 
-- **Genere**: specifica un genere o una combinazione di generi (ad es. "lo-fi hip hop",
-  "jazz fusion", "orchestrale cinematografico").
-- **Strumenti**: indica strumenti specifici (ad es. "pianoforte Fender Rhodes",
-  "chitarra slide", "drum machine TR-808").
-- **BPM**: imposta il tempo (ad es. "120 BPM", "tempo lento intorno a 70 BPM").
-- **Tonalità/scala**: specifica una tonalità musicale (ad es. "in sol maggiore", "re minore").
-- **Stato d'animo e atmosfera**: utilizza aggettivi descrittivi (ad es. "nostalgico",
-  "aggressivo", "etereo", "sognante").
-- **Struttura**: utilizza tag come `[Verse]`, `[Chorus]`, `[Bridge]`, `[Intro]`,
-  `[Outro]` o timestamp per controllare la progressione del brano.
-- **Durata**: il modello Clip produce sempre clip di 30 secondi. Per il modello Pro, specifica la durata prevista nel prompt (ad es. "crea un brano di 2 minuti") o utilizza i timestamp per controllare la durata.
+- **流派**：指定一种流派或多种流派的混合体（例如“低保真嘻哈”“爵士融合”“电影管弦乐”）。
+- **乐器**：指明具体乐器（例如“Fender Rhodes 钢琴”“滑棒吉他”“TR-808 鼓机”）。
+- **BPM**：设置节奏（例如“120 BPM”“70 BPM 左右的慢节奏”）。
+- **调/音阶**：指定音乐调（例如“G 大调”“D 小调”）。
+- **曲调和氛围**：使用描述性的形容词（例如“怀旧”“激进”“空灵”“梦幻”）。
+- **结构**：使用 `[Verse]`、`[Chorus]`、`[Bridge]`、`[Intro]`、`[Outro]` 等标记或时间戳来控制歌曲的播放进度。
+- **时长**：Clip 模型始终生成 30 秒的片段。对于 Pro 版，请在提示中指定预期时长（例如，“创作一首 2 分钟的歌曲”），或使用时间戳来控制时长。
 
-### Prompt di esempio
+### 示例提示
 
-Ecco alcuni esempi di prompt efficaci:
+以下是一些有效提示的示例：
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -581,43 +568,37 @@ Ecco alcuni esempi di prompt efficaci:
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## Best practice
+## 最佳做法
 
-- **Esegui prima l'iterazione con Clip.** Utilizza il modello `lyria-3-clip-preview` più veloce per sperimentare con i prompt prima di eseguire una generazione completa con `lyria-3-pro-preview`.
-- **Usa un testo specifico.** I prompt vaghi producono risultati generici. Per ottenere il miglior output, indica strumenti, BPM, tonalità, stato d'animo e struttura.
-- **Usa la lingua corretta.** Scrivi il prompt nella lingua in cui vuoi che siano i testi.
-- **Utilizza i tag di sezione.** I tag `[Verse]`, `[Chorus]` e `[Bridge]` forniscono al modello una struttura chiara da seguire.
-- **Separa i testi dalle istruzioni.** Quando fornisci testi personalizzati, separali chiaramente dalle istruzioni sulla direzione musicale.
+- **先使用 Clip 进行迭代。**使用速度更快的 `lyria-3-clip-preview` 模型来测试提示，然后再使用 `lyria-3-pro-preview` 生成完整内容。
+- **内容要具体。**模糊的提示会产生一般性的结果。提及乐器、BPM、调、基调和结构，以获得最佳输出。
+- **语言匹配。**使用您想要的歌词语言发出提示。
+- **使用部分标记。**`[Verse]`、`[Chorus]`、`[Bridge]` 标记为模型提供了清晰的结构，以便模型遵循。
+- **将歌词与说明分开。**提供自定义歌词时，请务必将其与音乐指导说明分开。
 
-## Limitazioni
+## 限制
 
-- **Sicurezza**: tutti i prompt vengono controllati dai filtri di sicurezza. I prompt che attivano i filtri verranno bloccati. Sono inclusi i prompt che richiedono voci di artisti specifici o la generazione di testi protetti da copyright.
-- **Filigrana**: tutto l'audio generato include una
-  [filigrana audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=it) per
-  l'identificazione. Questa filigrana è impercettibile all'orecchio umano e non influisce sull'esperienza di ascolto.
-- **Modifica multi-turno**: la generazione di musica è un processo a turno singolo.
-  La modifica iterativa o il perfezionamento di un clip generato tramite più prompt non è supportato nella versione attuale di Lyria 3.
-- **Lunghezza**: il modello Clip genera sempre clip di 30 secondi. Il modello Pro genera brani della durata di un paio di minuti; la durata esatta può essere influenzata dal prompt.
-- **Determinismo**: i risultati possono variare tra le chiamate, anche con lo stesso prompt.
+- **安全性**：所有提示都会经过安全过滤器的检查。触发过滤条件的提示将被屏蔽。这包括要求使用特定音乐人声音或生成受版权保护的歌词的提示。
+- **水印**：所有生成的音频都包含 [SynthID 音频水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-cn)，以便进行识别。这种水印人耳无法察觉，不会影响聆听体验。
+- **多轮编辑**：音乐创作是一个单轮过程。在当前版本的 Lyria 3 中，不支持通过多个提示迭代编辑或优化生成的剪辑。
+- **时长**：Clip 模型始终生成 30 秒的片段。Pro 模型生成的歌曲时长为几分钟；确切时长会受到提示的影响。
+- **确定性**：即使使用相同的提示，不同调用之间的结果也可能会有所不同。
 
-## Passaggi successivi
+## 后续步骤
 
-- Controlla i [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it) dei modelli Lyria 3.
-- Prova la generazione di musica in streaming [in tempo reale](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=it)
-  con Lyria RealTime.
-- Genera conversazioni con più relatori con i
-  [modelli TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it).
-- Scopri come generare [immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it) o [video](https://ai.google.dev/gemini-api/docs/video?hl=it).
-- Scopri come Gemini può [comprendere i file audio](https://ai.google.dev/gemini-api/docs/audio?hl=it).
-- Avvia una conversazione in tempo reale con Gemini utilizzando l'
-  [API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+- 查看 Lyria 3 模型的[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
+- 不妨试试 Lyria RealTime，体验[实时流式音乐创作](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)。
+- 使用 [TTS 模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)生成多说话人对话。
+- 了解如何生成[图片](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)或[视频](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)。
+- 了解 Gemini 如何[理解音频文件](https://ai.google.dev/gemini-api/docs/audio?hl=zh-cn)。
+- 使用 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 与 Gemini 进行实时对话。
 
-Invia feedback
+发送反馈
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Ultimo aggiornamento 2026-07-30 UTC.
+最后更新时间 (UTC)：2026-07-30。
 
-Vuoi dirci altro?
+需要向我们提供更多信息？
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]

@@ -1,61 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=he
-fetched_at: 2026-08-24T02:29:11.185477+00:00
-title: "\u05ea\u05de\u05d5\u05e0\u05d4 \u05e9\u05dc Gemini 3.1 Flash Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=es-419
+fetched_at: 2026-08-31T06:34:17.793104+00:00
+title: "Imagen de Gemini 3.1 Flash Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-שליחת משוב
+Enviar comentarios
 
-# תמונה של Gemini 3.1 Flash Lite
+# Imagen de Gemini 3.1 Flash Lite
 
-‫**Nano Banana 2 Lite** נועד להיות מומחה ליעילות במשפחת מודלים ליצירת תמונות. הוא מציע יצירה ועריכה של תמונות עם זמן טעינה קצר במיוחד ועלות משתלמת. המודל הזה מאפשר לפתח תרחישי שימוש אינטראקטיביים בהיקפים גדולים ויישומים לצרכנים בזמן אמת, על ידי טירגוט של זמן אחזור של פחות משנייה והפחתה משמעותית של עלויות החישוב ב-TPU.
+**Nano Banana 2 Lite** se diseñó como el especialista en eficiencia de la familia de generación de imágenes, ya que ofrece latencia ultrabaja y generación y edición de imágenes rentables. Al orientarse a una latencia inferior a 2 segundos y reducir significativamente los costos de procesamiento de TPU, este modelo permite casos de uso interactivos de desarrolladores de gran volumen y aplicaciones para consumidores en tiempo real.
 
-**יכולות מרכזיות:**
+**Funciones clave:**
 
-- **זמן אחזור כולל של פחות משתי שניות**
-- **יצירה ועריכה של שילוב תמונות עם טקסט** עם תמיכה מובנית בטקסט -> טקסט + תמונות ובתמונה + טקסט -> טקסט + תמונות.
-- **אופטימיזציה לרזולוציות נמוכות יותר** של 1K‏ (‎1024x1024px).
-- המערכת תומכת בקבוצה נפרדת של **14 יחסי גובה-רוחב**, כולל פורמטים סטנדרטיים.
-- **עריכות מקומיות מהירות רב-שלביות** (החלפת צבעים, יצירת סטיקרים, שינויים ברקע).
-- שומר על התאמה גבוהה של התווים בהתאם לסטנדרטים המקוריים של Nano Banana.
-- יחסי גובה-רוחב חדשים: `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`.
-- ערכים נתמכים של `image_size`: ‏ `1024px` (1K). *(הערה: רזולוציות 2K ו-4K לא נתמכות).*
-- **‫SynthID לסימני מים (תמיד מופעל) + C2PA**.
+- **Latencia de extremo a extremo inferior a 2 segundos**
+- **Generación y edición intercaladas** con compatibilidad nativa para Texto -> Texto + Imagen(es) e Imagen + Texto -> Texto + Imagen(es)
+- **Optimizado para resoluciones más bajas** de 1K (1024 x 1024 px)
+- Admite un conjunto discreto de **14 relaciones de aspecto** , incluidos los formatos estándar
+- **Ediciones locales rápidas de varias turnos** (intercambio de colores, creación de stickers, ajustes de fondo)
+- Mantiene una alta alineación de caracteres que coincide con los estándares originales de Nano Banana
+- Nuevas relaciones de aspecto `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`
+- Valores `image_size` admitidos: `1024px` (1K) *(Nota: No se admiten 2K ni 4K).*
+- **Marca de agua SynthID (siempre activada) + C2PA**
 
-[לניסיון ב-Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-lite-image&hl=he)
+[Probar en Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-lite-image&hl=es-419)
 
-## מאמרי עזרה
+## Documentación
 
-בדף [יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he) מופיע מידע מפורט על התכונות והיכולות.
+Visita la página [Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) para obtener una cobertura completa
+de las funciones y capacidades.
 
 ## gemini-3.1-flash-lite-image
 
-| נכס | תיאור |
+| Propiedad | Descripción |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-3.1-flash-lite-image` |
-| saveסוגי נתונים נתמכים | **קלטים**  טקסט ותמונה  **פלט**  תמונה וטקסט |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  65,536  **מגבלת טוקנים של פלט**  ‫4,096 |
-| handymanיכולות | **יצירת אודיו**  לא נתמך  **Batch API**  נתמך  **שמירת נתונים במטמון**  לא נתמך  **הרצת קוד**  לא נתמך  **חיפוש קבצים**  לא נתמך  **בקשה להפעלת פונקציה**  נתמך  **עיגון בעזרת מפות Google**  לא נתמך  **עיגון באמצעות חיפוש Google**  לא נתמך  **עריכת תמונות**  נתמך  **יצירת תמונות**  נתמך  ‫**Live API**  לא נתמך  **חיפוש עם עיגון בנתונים**  לא נתמך  **פלטים מובְנים**  לא נתמך  **חשיבה**  נתמך (מינימלי וגבוה)  **הקשר של כתובת ה-URL**  לא נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-3.1-flash-lite-image` |
-| calendar\_monthהעדכון האחרון | יוני 2026 |
-| id\_cardכרטיס מודל | [כרטיס מודל](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/?hl=he) |
+| id\_cardCódigo del modelo | `gemini-3.1-flash-lite-image` |
+| saveTipos de datos admitidos | **Entradas**  Texto e imagen  **Resultado**  Imagen y texto |
+| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  65,536  **Límite de tokens de salida**  4,096 |
+| handymanFunciones | **Generación de audio**  No admitido  **API de lotes**  Admitido  **Almacenamiento en caché**  No admitido  **Ejecución de código**  No admitido  **Búsqueda de archivos**  No admitido  **Llamada a función**  Admitido  **Fundamentación con Google Maps**  No admitido  **Fundamentación con la Búsqueda de Google**  No admitido  **Edición de imágenes**  Admitido  **Generación de imágenes**  Admitido  **API en vivo**  No admitido  **Fundamentación con la Búsqueda**  No admitido  **Salidas estructuradas**  No admitido  **Pensamiento**  Admitido (mínimo y alto)  **Contexto de la URL**  No admitido |
+| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Estable: `gemini-3.1-flash-lite-image` |
+| calendar\_monthÚltima actualización | Junio de 2026 |
+| id\_cardFicha del modelo | [Ficha del modelo](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/?hl=es-419) |
 
-שליחת משוב
+Enviar comentarios
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-עדכון אחרון: 2026-08-19 (שעון UTC).
+Última actualización: 2026-08-19 (UTC)
 
-רוצה לתת לנו משוב?
+¿Quieres brindar más información?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-08-19 (שעון UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-08-19 (UTC)"],[],[]]

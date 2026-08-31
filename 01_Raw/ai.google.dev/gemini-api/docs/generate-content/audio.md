@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=th
-fetched_at: 2026-08-24T02:30:20.699039+00:00
-title: "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=ko
+fetched_at: 2026-08-31T06:36:37.374213+00:00
+title: "\uc624\ub514\uc624 \uc774\ud574 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-ส่งความคิดเห็น
+의견 보내기
 
-# ความเข้าใจเกี่ยวกับเสียง
+# 오디오 이해
 
-Gemini สามารถวิเคราะห์อินพุตเสียงและสร้างการตอบกลับเป็นข้อความได้
+Gemini는 오디오 입력을 분석하고 텍스트 응답을 생성할 수 있습니다.
 
 ### Python
 
@@ -31,7 +31,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.7-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -55,7 +55,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -103,7 +103,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.7-flash",
         contents,
         nil,
     )
@@ -148,7 +148,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -166,25 +166,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## ภาพรวม
+## 개요
 
-Gemini สามารถวิเคราะห์และทำความเข้าใจอินพุตเสียง รวมถึงสร้างการตอบกลับเป็นข้อความสำหรับอินพุตเสียงดังกล่าว ซึ่งช่วยให้คุณใช้ Gemini ในกรณีการใช้งานต่างๆ ได้ เช่น
+Gemini는 오디오 입력을 분석하고 이해하여 텍스트 응답을 생성할 수 있으므로 다음과 같은 사용 사례를 지원합니다.
 
-- อธิบาย สรุป หรือตอบคำถามเกี่ยวกับเนื้อหาเสียง
-- ถอดเสียงและแปลเสียง (แปลงคำพูดเป็นข้อความ)
-- ตรวจจับอารมณ์ในคำพูดและเพลง
-- วิเคราะห์ส่วนที่เฉพาะเจาะจงของเสียงและระบุการประทับเวลา
+- 오디오 콘텐츠에 관해 설명하거나 요약하거나 질문에 답변합니다.
+- 오디오의 스크립트와 번역을 제공합니다 (음성을 텍스트로 변환).
+- 음성과 음악에서 감정을 감지합니다.
+- 오디오의 특정 세그먼트를 분석하고 타임스탬프를 제공합니다.
 
-ปัจจุบัน Gemini API ยังไม่รองรับกรณีการใช้งานการถอดเสียงแบบเรียลไทม์
-หากต้องการโต้ตอบด้วยเสียงและวิดีโอแบบเรียลไทม์ โปรดดู [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
-หากต้องการใช้โมเดลแปลงคำพูดเป็นข้อความโดยเฉพาะที่รองรับการถอดเสียงแบบเรียลไทม์
-ให้ใช้ [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=th)
+현재 Gemini API는 실시간 스크립트 작성 사용 사례를 지원하지 않습니다.
+실시간 음성 및 동영상 상호작용은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
+실시간 스크립트 작성을 지원하는 전용 음성을 텍스트로 변환 모델은
+[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ko)를 사용하세요.
 
-## ถอดเสียงคำพูดเป็นข้อความ
+## 음성을 텍스트로 변환
 
-แอปพลิเคชันตัวอย่างนี้แสดงวิธีใช้พรอมต์ Gemini API เพื่อถอดเสียง,
-แปล และสรุปคำพูด รวมถึงการประทับเวลาและการตรวจจับอารมณ์
-โดยใช้ [เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)
+이 샘플 애플리케이션은 구조화된 출력을 사용하여 타임스탬프와 감정 감지를 포함한 음성을 텍스트로 변환,
+번역, 요약하도록 Gemini API에 프롬프트를 표시하는 방법을 보여줍니다.
+[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)을 사용합니다.
 
 ### Python
 
@@ -209,7 +209,7 @@ def main():
   """
 
   response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     contents=[
       types.Content(
         parts=[
@@ -296,7 +296,7 @@ async function main() {
   };
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     contents: {
       parts: [
         {
@@ -352,7 +352,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -412,31 +412,28 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-คุณสามารถใช้พรอมต์ [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=th) เพื่อสร้าง
-แอปเช่นเดียวกับ
-[แอปถอดเสียงตัวอย่างนี้](https://aistudio.google.com/apps/bundled/echoscript?hl=th)
-ได้ด้วยการคลิกปุ่ม
+버튼 클릭 한 번으로 [이 예시 스크립트 작성 앱](https://aistudio.google.com/apps/bundled/echoscript?hl=ko)과 같은 앱을 만들도록 [AI Studio 빌드](https://aistudio.google.com/apps?e=0&hl=ko)에 프롬프트를 표시할 수 있습니다.
 
-![แอป Gemini ที่ถอดเสียงหลายภาษา](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=th)
+![다국어 오디오 스크립트 작성 Gemini 앱](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ko)
 
-## อินพุตเสียง
+## 입력 오디오
 
-คุณสามารถระบุข้อมูลเสียงให้ Gemini ได้ด้วยวิธีต่อไปนี้
+다음과 같은 방법으로 Gemini에 오디오 데이터를 제공할 수 있습니다.
 
-- [อัปโหลดไฟล์เสียง](#upload-audio) ก่อนส่งคำขอ
-  `generateContent`
-- [ส่งข้อมูลเสียงในบรรทัด](#inline-audio) พร้อมกับคำขอ
-  `generateContent`.
+- [오디오 파일](#upload-audio)을
+  `generateContent`에 요청하기 전에 업로드합니다.
+- [인라인 오디오 데이터](#inline-audio)를 요청과 함께
+  `generateContent`에 전달합니다.
 
-ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ ได้ที่
-[คู่มือวิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
+다른 파일 입력 방법에 관해 알아보려면
+[파일 입력 방법](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ko) 가이드를 참고하세요.
 
-### อัปโหลดไฟล์เสียง
+### 오디오 파일 업로드
 
-คุณสามารถใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th) เพื่ออัปโหลดไฟล์เสียงได้
-ให้ใช้ Files API เสมอเมื่อขนาดคำขอทั้งหมด (รวมถึงไฟล์ พรอมต์ข้อความ คำแนะนำของระบบ ฯลฯ) มีขนาดมากกว่า 20 MB
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용하여 오디오 파일을 업로드할 수 있습니다.
+파일, 텍스트 프롬프트, 시스템 안내 등을 포함한 총 요청 크기가 20MB보다 큰 경우 항상 Files API를 사용하세요.
 
-โค้ดต่อไปนี้จะอัปโหลดไฟล์เสียง แล้วใช้ไฟล์ดังกล่าวในการเรียก `generateContent`
+다음 코드는 오디오 파일을 업로드한 후 `generateContent` 호출에서 파일을 사용합니다.
 
 ### Python
 
@@ -448,7 +445,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.7-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -472,7 +469,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -520,7 +517,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.7-flash",
       contents,
       nil,
   )
@@ -565,7 +562,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -583,12 +580,12 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับการทำงานกับไฟล์สื่อได้ที่
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)
+미디어 파일 작업에 관해 자세히 알아보려면
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 참고하세요.
 
-### ส่งข้อมูลเสียงในบรรทัด
+### 오디오 데이터 인라인 전달
 
-คุณสามารถส่งข้อมูลเสียงในบรรทัดในคำขอ `generateContent` แทนการอัปโหลดไฟล์เสียงได้ดังนี้
+오디오 파일을 업로드하는 대신 `generateContent`에 요청에서 인라인 오디오 데이터를 전달할 수 있습니다.
 
 ### Python
 
@@ -601,7 +598,7 @@ with open('path/to/small-sample.mp3', 'rb') as f:
 
 client = genai.Client()
 response = client.models.generate_content(
-  model='gemini-3.6-flash',
+  model='gemini-3.7-flash',
   contents=[
     'Describe this audio clip',
     types.Part.from_bytes(
@@ -636,7 +633,7 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.7-flash",
   contents: contents,
 });
 console.log(response.text);
@@ -678,7 +675,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.7-flash",
       contents,
       nil,
   )
@@ -687,15 +684,14 @@ func main() {
 }
 ```
 
-สิ่งที่คุณควรคำนึงถึงเกี่ยวกับข้อมูลเสียงในบรรทัดมีดังนี้
+인라인 오디오 데이터와 관련된 몇 가지 주의사항은 다음과 같습니다.
 
-- ขนาดคำขอสูงสุดคือ 20 MB ซึ่งรวมถึงพรอมต์ข้อความ คำแนะนำของระบบ และไฟล์ที่ระบุในบรรทัด หากขนาดไฟล์จะทำให้ *ขนาดคำขอทั้งหมด* เกิน 20 MB ให้ใช้ Files API เพื่อ [อัปโหลดไฟล์เสียง](#upload-audio) สำหรับใช้ในคำขอ
-- หากคุณใช้ตัวอย่างเสียงหลายครั้ง การอัปโหลดไฟล์เสียงจะมีประสิทธิภาพมากกว่า
-  เพื่อ[อัปโหลดไฟล์เสียง](#upload-audio)
+- 최대 요청 크기는 20MB이며, 여기에는 텍스트 프롬프트, 시스템 안내, 인라인으로 제공된 파일이 포함됩니다. 파일 크기로 인해 *총 요청 크기*가 20MB를 초과하는 경우 Files API를 사용하여 [요청에 사용할 오디오 파일을 업로드](#upload-audio)하세요.
+- 오디오 샘플을 여러 번 사용하는 경우 오디오 파일을 업로드하는 것이 더 효율적입니다.
 
-## ดูข้อความถอดเสียง
+## 스크립트 가져오기
 
-หากต้องการดูข้อความถอดเสียงของข้อมูลเสียง เพียงขอในพรอมต์ดังนี้
+오디오 데이터의 스크립트를 가져오려면 프롬프트에서 요청하기만 하면 됩니다.
 
 ### Python
 
@@ -707,7 +703,7 @@ myfile = client.files.upload(file='path/to/sample.mp3')
 prompt = 'Generate a transcript of the speech.'
 
 response = client.models.generate_content(
-  model='gemini-3.6-flash',
+  model='gemini-3.7-flash',
   contents=[prompt, myfile]
 )
 
@@ -730,7 +726,7 @@ const myfile = await ai.files.upload({
 });
 
 const result = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.7-flash",
   contents: createUserContent([
     createPartFromUri(myfile.uri, myfile.mimeType),
     "Generate a transcript of the speech.",
@@ -775,7 +771,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.7-flash",
       contents,
       nil,
   )
@@ -784,12 +780,12 @@ func main() {
 }
 ```
 
-## อ้างอิงการประทับเวลา
+## 타임스탬프 참조
 
-คุณสามารถอ้างอิงส่วนที่เฉพาะเจาะจงของไฟล์เสียงได้โดยใช้การประทับเวลาในรูปแบบ `MM:SS` ตัวอย่างเช่น พรอมต์ต่อไปนี้จะขอข้อความถอดเสียงที่
+`MM:SS` 형식의 타임스탬프를 사용하여 오디오 파일의 특정 섹션을 참조할 수 있습니다. 예를 들어 다음 프롬프트는
 
-- เริ่มที่ 2 นาที 30 วินาทีนับจากจุดเริ่มต้นของไฟล์
-- สิ้นสุดที่ 3 นาที 29 วินาทีนับจากจุดเริ่มต้นของไฟล์
+- 파일 시작 부분에서 2분 30초에 시작합니다.
+- 파일 시작 부분에서 3분 29초에 종료합니다.
 
 ### Python
 
@@ -842,7 +838,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.7-flash",
       contents,
       nil,
   )
@@ -851,9 +847,9 @@ func main() {
 }
 ```
 
-## นับโทเค็น
+## 토큰 집계
 
-เรียกใช้เมธอด `countTokens` เพื่อดูจำนวนโทเค็นในไฟล์เสียง ตัวอย่างเช่น
+`countTokens` 메서드를 호출하여 오디오 파일의 토큰 수를 가져옵니다. 예를 들면 다음과 같습니다.
 
 ### Python
 
@@ -862,7 +858,7 @@ from google import genai
 
 client = genai.Client()
 response = client.models.count_tokens(
-  model='gemini-3.6-flash',
+  model='gemini-3.7-flash',
   contents=[myfile]
 )
 
@@ -885,7 +881,7 @@ const myfile = await ai.files.upload({
 });
 
 const countTokensResponse = await ai.models.countTokens({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.7-flash",
   contents: createUserContent([
     createPartFromUri(myfile.uri, myfile.mimeType),
   ]),
@@ -928,7 +924,7 @@ func main() {
 
   tokens, _ := client.Models.CountTokens(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.7-flash",
       contents,
       nil,
   )
@@ -937,44 +933,52 @@ func main() {
 }
 ```
 
-## รูปแบบไฟล์เสียงที่รองรับ
+## 지원되는 오디오 형식
 
-Gemini รองรับประเภท MIME ของรูปแบบไฟล์เสียงต่อไปนี้
+Gemini는 다음과 같은 오디오 형식 MIME 유형을 지원합니다.
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
 - AIFF - `audio/aiff`
 - AAC - `audio/aac`
-- OGG Vorbis - `audio/ogg`
+- OGG - `audio/ogg`
 - FLAC - `audio/flac`
+- MPEG - `audio/mpeg`
+- M4A - `audio/m4a`
+- L16 - `audio/l16`
+- Opus - `audio/opus`
+- ALAW - `audio/alaw`
+- MULAW - `audio/mulaw`
+- WebM - `audio/webm`
 
-## รายละเอียดทางเทคนิคเกี่ยวกับเสียง
+지원되는 MIME 유형 및 매개변수 스키마의 전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko#Resource:Content)를 확인하세요.
 
-- Gemini แสดงเสียงแต่ละวินาทีเป็น 32 โทเค็น เช่น เสียง 1 นาทีจะแสดงเป็น 1,920 โทเค็น
-- Gemini สามารถ "เข้าใจ" องค์ประกอบที่ไม่ใช่คำพูด เช่น เสียงนกร้องหรือเสียงไซเรน
-- ความยาวสูงสุดของข้อมูลเสียงที่รองรับในพรอมต์เดียวคือ 9.5 ชั่วโมง
-  Gemini ไม่จำกัด *จำนวน* ไฟล์เสียงในพรอมต์เดียว แต่ความยาวรวมทั้งหมดของไฟล์เสียงทั้งหมดในพรอมต์เดียวต้องไม่เกิน 9.5 ชั่วโมง
-- Gemini จะลดอัตราการสุ่มตัวอย่างไฟล์เสียงลงเป็นความละเอียดข้อมูล 16 Kbps
-- หากแหล่งที่มาของเสียงมีหลายช่อง Gemini จะรวมช่องเหล่านั้นเป็นช่องเดียว
+## 오디오에 관한 기술 세부정보
 
-## ขั้นตอนถัดไป
+- Gemini는 오디오의 각 초를 32개의 토큰으로 나타냅니다. 예를 들어 1분 길이의 오디오는 1,920개의 토큰으로 나타냅니다.
+- Gemini는 새소리나 사이렌과 같은 음성이 아닌 구성요소를 '이해'할 수 있습니다.
+- 단일 프롬프트에서 지원되는 오디오 데이터의 최대 길이는 9.5시간입니다.
+  Gemini는 단일 프롬프트의 오디오 파일 *수* 를 제한하지 않습니다. 하지만 단일 프롬프트에 있는 모든 오디오 파일의 총 결합 길이는 9.5시간을 초과할 수 없습니다.
+- Gemini는 오디오 파일을 16Kbps 데이터 해상도로 다운샘플링합니다.
+- 오디오 소스에 여러 채널이 포함된 경우 Gemini는 이러한 채널을 단일 채널로 결합합니다.
 
-คู่มือนี้แสดงวิธีสร้างข้อความเพื่อตอบสนองต่อข้อมูลเสียง ดูข้อมูลเพิ่มเติมได้จากแหล่งข้อมูลต่อไปนี้
+## 다음 단계
 
-- [กลยุทธ์การเขียนพรอมต์กับไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide): Gemini API รองรับการเขียนพรอมต์กับข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ หรือที่เรียกว่าการเขียนพรอมต์แบบหลายรูปแบบ
-- [คำแนะนำของระบบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions):
-  คำแนะนำของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตาม
-  ความต้องการและกรณีการใช้งานที่เฉพาะเจาะจงได้
-- [คำแนะนำด้านความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=th): บางครั้งโมเดล Generative AI
-  จะสร้างเอาต์พุตที่ไม่คาดคิด เช่น เอาต์พุตที่ไม่ถูกต้อง
-  มีอคติ หรือไม่เหมาะสม การประมวลผลภายหลังและการประเมินจากเจ้าหน้าที่เป็นสิ่งสำคัญในการจำกัดความเสี่ยงที่จะเกิดอันตรายจากเอาต์พุตดังกล่าว
+이 가이드에서는 오디오 데이터에 대한 응답으로 텍스트를 생성하는 방법을 보여줍니다. 자세한 내용은 다음 리소스를 참조하세요.
 
-ส่งความคิดเห็น
+- [파일 프롬프트 전략](https://ai.google.dev/gemini-api/docs/files?hl=ko#prompt-guide): Gemini API는 멀티모달 프롬프트 사용이라고도 하는 텍스트, 이미지, 오디오, 동영상 데이터로 프롬프트를 표시하는 것을 지원합니다.
+- [시스템 안내](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#system-instructions):
+  시스템 안내를 사용하면 특정 요구사항 및 사용 사례에 따라 모델의 동작을 조정할 수 있습니다.
+- [안전 가이드](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ko): 생성형 AI
+  모델은 때때로 부정확하거나
+  편향되거나 불쾌감을 주는 출력과 같은 예기치 않은 출력을 생성합니다. 이러한 출력으로 인한 피해 위험을 제한하려면 후처리 및 인간 평가가 필수적입니다.
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+의견 보내기
 
-อัปเดตล่าสุด 2026-07-30 UTC
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+최종 업데이트: 2026-08-28(UTC)
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+의견을 전달하고 싶나요?
+
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-08-28(UTC)"],[],[]]

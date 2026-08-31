@@ -1,44 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=th
-fetched_at: 2026-08-24T02:23:17.350391+00:00
-title: "\u0e40\u0e2d\u0e40\u0e08\u0e19\u0e15\u0e4c\u0e27\u0e34\u0e08\u0e31\u0e22\u0e15\u0e25\u0e32\u0e14\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 AI SDK \u0e42\u0e14\u0e22 Vercel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=tr
+fetched_at: 2026-08-31T06:28:39.837957+00:00
+title: "Vercel'in Gemini ve Yapay Zeka SDK's\u0131 ile pazar ara\u015ft\u0131rmas\u0131 arac\u0131s\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# เอเจนต์วิจัยตลาดด้วย Gemini และ AI SDK โดย Vercel
+# Vercel'in Gemini ve Yapay Zeka SDK'sı ile pazar araştırması aracısı
 
-[AI SDK ของ Vercel](https://ai-sdk.dev) เป็นไลบรารีโอเพนซอร์สที่มีประสิทธิภาพสำหรับ
-การสร้างแอปพลิเคชัน อินเทอร์เฟซผู้ใช้ และเอเจนต์ที่ขับเคลื่อนด้วย AI ใน TypeScript
+[Vercel'in AI SDK'sı](https://ai-sdk.dev), TypeScript'te yapay zeka destekli uygulamalar, kullanıcı arayüzleri ve aracıları oluşturmak için kullanılan güçlü bir açık kaynak kitaplıktır.
 
-คู่มือนี้จะแนะนำคุณในการสร้างแอปพลิเคชัน Node.js ด้วย TypeScript
-ที่ใช้ AI SDK เพื่อเชื่อมต่อกับ Gemini API ผ่าน[ผู้ให้บริการ Generative AI ของ Google](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) และทำการวิเคราะห์เทรนด์ตลาดโดยอัตโนมัติ แอปพลิเคชันสุดท้ายจะมีลักษณะดังนี้
+Bu kılavuzda, [Google Üretken Yapay Zeka Sağlayıcısı](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) aracılığıyla Gemini API'ye bağlanmak ve otomatik pazar trendi analizi yapmak için yapay zeka SDK'sını kullanan TypeScript ile bir Node.js uygulaması oluşturma adımları açıklanmaktadır. Son uygulama:
 
-1. ใช้ Gemini กับ Google Search เพื่อค้นคว้าวิจัยเทรนด์ตลาดปัจจุบัน
-2. แยก Structured Data จากการวิจัยเพื่อสร้างแผนภูมิ
-3. รวมการวิจัยและแผนภูมิไว้ในรายงาน HTML ระดับมืออาชีพ แล้วบันทึกเป็น PDF
+1. Mevcut pazar trendlerini araştırmak için Google Arama ile Gemini'ı kullanın.
+2. Grafik oluşturmak için araştırmadan yapılandırılmış verileri ayıklayın.
+3. Araştırmayı ve grafikleri profesyonel bir HTML raporunda birleştirip PDF olarak kaydedin.
 
-## ข้อกำหนดเบื้องต้น
+## Ön koşullar
 
-คุณต้องมีสิ่งต่อไปนี้จึงจะทำตามคู่มือนี้ได้
+Bu kılavuzu tamamlamak için ihtiyacınız olanlar:
 
-- คีย์ Gemini API คุณสร้างคีย์ได้ฟรีใน [Google AI Studio](https://aistudio.google.com/apikey?hl=th)
-- [Node.js](https://nodejs.org/en/download) เวอร์ชัน 18 ขึ้นไป
-- เครื่องมือจัดการแพ็กเกจ เช่น `npm`, `pnpm`, หรือ `yarn`
+- Gemini API anahtarı. [Google AI Studio](https://aistudio.google.com/apikey?hl=tr)'da ücretsiz olarak oluşturabilirsiniz.
+- [Node.js](https://nodejs.org/en/download) 18 veya sonraki sürümler.
+- `npm`, `pnpm` veya `yarn` gibi bir paket yöneticisi.
 
-## ตั้งค่าแอปพลิเคชัน
+## Uygulamanızı ayarlama
 
-ขั้นแรก ให้สร้างไดเรกทอรีใหม่สำหรับโปรเจ็กต์แล้วเริ่มต้นไดเรกทอรี
+Öncelikle projeniz için yeni bir dizin oluşturun ve bu dizini başlatın.
 
 ### npm
 
@@ -56,7 +54,7 @@ cd market-trend-app
 pnpm init
 ```
 
-### yarn
+### yumak
 
 ```
 mkdir market-trend-app
@@ -64,9 +62,9 @@ cd market-trend-app
 yarn init -y
 ```
 
-### ติดตั้งการอ้างอิง
+### Bağımlıları yükleme
 
-จากนั้นติดตั้ง AI SDK, ผู้ให้บริการ Generative AI ของ Google และการอ้างอิงอื่นๆ ที่จำเป็น
+Ardından, yapay zeka SDK'sını, Google Üretken Yapay Zeka sağlayıcısını ve diğer gerekli bağımlılıkları yükleyin.
 
 ### npm
 
@@ -75,7 +73,7 @@ npm install ai @ai-sdk/google zod
 npm install -D @types/node tsx typescript && npx tsc --init
 ```
 
-ให้ใส่ความคิดเห็นในบรรทัดต่อไปนี้ใน `tsconfig.json` ที่สร้างขึ้นเพื่อป้องกันข้อผิดพลาดของคอมไพเลอร์ TypeScript
+TypeScript derleyici hatasını önlemek için oluşturulan `tsconfig.json` dosyasında aşağıdaki satırı yorum satırı yapın:
 
 ```
 //"verbatimModuleSyntax": true,
@@ -88,21 +86,20 @@ pnpm add ai @ai-sdk/google zod
 pnpm add -D @types/node tsx typescript
 ```
 
-### yarn
+### yumak
 
 ```
 yarn add ai @ai-sdk/google zod
 yarn add -D @types/node tsx typescript && yarn tsc --init
 ```
 
-ให้ใส่ความคิดเห็นในบรรทัดต่อไปนี้ใน `tsconfig.json` ที่สร้างขึ้นเพื่อป้องกันข้อผิดพลาดของคอมไพเลอร์ TypeScript
+TypeScript derleyici hatasını önlemek için oluşturulan `tsconfig.json` dosyasında aşağıdaki satırı yorum satırı yapın:
 
 ```
 //"verbatimModuleSyntax": true,
 ```
 
-แอปพลิเคชันนี้จะใช้แพ็กเกจของบุคคลที่สามอย่าง [Puppeteer](https://pptr.dev/)
-และ [Chart.js](https://www.chartjs.org) สำหรับการแสดงแผนภูมิและการสร้าง PDF ด้วย
+Bu uygulama, grafikleri oluşturmak ve PDF oluşturmak için [Puppeteer](https://pptr.dev/) ve [Chart.js](https://www.chartjs.org) adlı üçüncü taraf paketlerini de kullanır:
 
 ### npm
 
@@ -118,18 +115,18 @@ pnpm add puppeteer chart.js
 pnpm add -D @types/chart.js
 ```
 
-### yarn
+### yumak
 
 ```
 yarn add puppeteer chart.js
 yarn add -D @types/chart.js
 ```
 
-แพ็กเกจ `puppeteer` ต้องใช้สคริปต์เพื่อดาวน์โหลดเบราว์เซอร์ Chromium เครื่องมือจัดการแพ็กเกจอาจขออนุมัติ ดังนั้นโปรดอนุมัติสคริปต์เมื่อได้รับข้อความแจ้ง
+`puppeteer` paketinin Chromium tarayıcısını indirmek için bir komut dosyası çalıştırması gerekir. Paket yöneticiniz onay isteyebilir. Bu nedenle, istendiğinde komut dosyasını onayladığınızdan emin olun.
 
-### กำหนดค่าคีย์ API
+### API anahtarınızı yapılandırma
 
-ตั้งค่าตัวแปรสภาพแวดล้อม `GOOGLE_GENERATIVE_AI_API_KEY` ด้วยคีย์ Gemini API ผู้ให้บริการ Generative AI ของ Google จะค้นหาคีย์ API ในตัวแปรสภาพแวดล้อมนี้โดยอัตโนมัติ
+`GOOGLE_GENERATIVE_AI_API_KEY` ortam değişkenini Gemini API anahtarınızla ayarlayın. Google Üretken Yapay Zeka Sağlayıcısı, API anahtarınızı bu ortam değişkeninde otomatik olarak arar.
 
 ### MacOS/Linux
 
@@ -143,11 +140,12 @@ export GOOGLE_GENERATIVE_AI_API_KEY="YOUR_API_KEY_HERE"
 setx GOOGLE_GENERATIVE_AI_API_KEY "YOUR_API_KEY_HERE"
 ```
 
-## สร้างแอปพลิเคชัน
+## Uygulamanızı oluşturma
 
-ตอนนี้เรามาสร้างไฟล์หลักสำหรับแอปพลิเคชันกัน สร้างไฟล์ใหม่ชื่อ `main.ts` ในไดเรกทอรีโปรเจ็กต์ คุณจะสร้างตรรกะในไฟล์นี้ทีละขั้นตอน
+Şimdi uygulamamızın ana dosyasını oluşturalım. Proje dizininizde
+`main.ts` adlı yeni bir dosya oluşturun. Bu dosyada mantığı adım adım oluşturacaksınız.
 
-หากต้องการทดสอบอย่างรวดเร็วเพื่อให้แน่ใจว่าตั้งค่าทุกอย่างถูกต้องแล้ว ให้เพิ่มโค้ดต่อไปนี้ลงใน `main.ts` ตัวอย่างพื้นฐานนี้ใช้ `generateText` เพื่อรับการตอบกลับอย่างง่ายจาก Gemini
+Her şeyin doğru şekilde ayarlandığından emin olmak için hızlı bir test yapmak üzere aşağıdaki kodu `main.ts`'ya ekleyin. Bu temel örnekte, Gemini'dan basit bir yanıt almak için `generateText` kullanılıyor.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -165,7 +163,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-ก่อนเพิ่มความซับซ้อน ให้เรียกใช้สคริปต์นี้เพื่อตรวจสอบว่าสภาพแวดล้อมของคุณได้รับการกำหนดค่าอย่างถูกต้อง เรียกใช้คำสั่งต่อไปนี้ในเทอร์มินัล
+Daha fazla karmaşıklık eklemeden önce ortamınızın doğru şekilde yapılandırıldığını doğrulamak için bu komut dosyasını çalıştırın. Terminalinizde aşağıdaki komutu çalıştırın:
 
 ### npm
 
@@ -179,20 +177,19 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### yarn
+### yumak
 
 ```
 yarn tsc && node main.js
 ```
 
-หากตั้งค่าทุกอย่างถูกต้อง คุณจะเห็นการตอบกลับของ Gemini พิมพ์ลงในคอนโซล
+Her şey doğru şekilde ayarlanmışsa Gemini'ın yanıtı konsola yazdırılır.
 
-## ทำการวิจัยตลาดด้วย Google Search
+## Google Arama ile pazar araştırması yapma
 
-หากต้องการรับข้อมูลล่าสุด คุณสามารถเปิดใช้เครื่องมือ
-[Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) สำหรับ Gemini ได้ เมื่อเครื่องมือนี้ทำงานอยู่ โมเดลจะค้นหาเว็บเพื่อตอบคำสั่งและแสดงแหล่งข้อมูลที่ใช้
+Güncel bilgilere ulaşmak için Gemini'da [Google Arama](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) aracını etkinleştirebilirsiniz. Bu araç etkinken model, istemi yanıtlamak için web'de arama yapabilir ve kullandığı kaynakları döndürür.
 
-แทนที่เนื้อหาของ `main.ts` ด้วยโค้ดต่อไปนี้เพื่อทำการวิเคราะห์ขั้นตอนแรก
+Analizimizin ilk adımını gerçekleştirmek için `main.ts` içeriğini aşağıdaki kodla değiştirin.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -218,13 +215,13 @@ async function main() {
 main().catch(console.error);
 ```
 
-## แยกข้อมูลแผนภูมิ
+## Grafik verilerini ayıklama
 
-จากนั้นมาประมวลผลข้อความการวิจัยเพื่อแยก Structured Data ที่เหมาะสำหรับแผนภูมิ ใช้ฟังก์ชัน `generateObject` ของ AI SDK พร้อมกับสคีมา `zod` เพื่อกำหนดโครงสร้างข้อมูลที่แน่นอน
+Ardından, araştırma metnini işleyerek grafiklere uygun yapılandırılmış verileri çıkaralım. Tam veri yapısını tanımlamak için `generateObject` işlevini `zod` şemasıyla birlikte kullanın.
 
-นอกจากนี้ ให้สร้างฟังก์ชันตัวช่วยเพื่อแปลง Structured Data นี้ให้เป็นการกำหนดค่าที่ `Chart.js` เข้าใจได้
+Ayrıca, bu yapılandırılmış verileri `Chart.js`'nın anlayabileceği bir yapılandırmaya dönüştürmek için yardımcı bir işlev oluşturun.
 
-เพิ่มโค้ดต่อไปนี้ลงใน `main.ts` โปรดสังเกตการนำเข้าใหม่และ "ขั้นตอนที่ 2" ที่เพิ่มเข้ามา
+Aşağıdaki kodu `main.ts` dosyasına ekleyin. Yeni içe aktarmaları ve eklenen "2. adım"ı inceleyin.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -306,13 +303,12 @@ ${marketTrends}
 main().catch(console.error);
 ```
 
-## สร้างรายงานขั้นสุดท้าย
+## Son raporu oluşturma
 
-ในขั้นตอนสุดท้าย ให้สั่งให้ Gemini ทำหน้าที่เป็นผู้เขียนรายงานผู้เชี่ยวชาญ
-ระบุการวิจัยตลาด การกำหนดค่าแผนภูมิ และชุดคำแนะนำที่ชัดเจนสำหรับการสร้างรายงาน HTML จากนั้นใช้
-[Puppeteer](https://pptr.dev/) เพื่อแสดง HTML นี้และบันทึกเป็น PDF
+Son adımda, Gemini'a uzman bir rapor yazarı gibi davranmasını söyleyin.
+Pazar araştırması, grafik yapılandırmaları ve HTML raporu oluşturmayla ilgili net talimatlar sağlayın. Ardından, bu HTML'yi oluşturmak ve PDF olarak kaydetmek için [Puppeteer](https://pptr.dev/)'ı kullanın.
 
-เพิ่มการนำเข้า `puppeteer` ขั้นสุดท้ายและ "ขั้นตอนที่ 3" ลงในไฟล์ `main.ts`
+Nihai `puppeteer` içe aktarma işlemini ve "3. Adım"ı `main.ts` dosyanıza ekleyin.
 
 ```
 // ... (imports from previous step)
@@ -373,9 +369,9 @@ async function main() {
 main().catch(console.error);
 ```
 
-## เรียกใช้แอปพลิเคชัน
+## Uygulamanızı çalıştırma
 
-ตอนนี้คุณพร้อมที่จะเรียกใช้แอปพลิเคชันแล้ว เรียกใช้คำสั่งต่อไปนี้ในเทอร์มินัล
+Artık uygulamayı çalıştırmaya hazırsınız. Terminalinizde aşağıdaki komutu çalıştırın:
 
 ### npm
 
@@ -389,33 +385,33 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### yarn
+### yumak
 
 ```
 yarn tsc && node main.js
 ```
 
-คุณจะเห็นการบันทึกในเทอร์มินัลเมื่อสคริปต์ดำเนินการแต่ละขั้นตอน
-เมื่อเสร็จแล้ว ระบบจะสร้างไฟล์ `report.pdf` ที่มีการวิเคราะห์ตลาดในไดเรกทอรีโปรเจ็กต์
+Komut dosyası her adımı uyguladığında terminalinizde günlük kaydı görürsünüz.
+İşlem tamamlandığında, pazar analizinizin yer aldığı bir `report.pdf` dosyası proje dizininizde oluşturulur.
 
-ด้านล่างนี้ คุณจะเห็น 2 หน้าแรกของรายงาน PDF ตัวอย่าง
+Aşağıda, örnek bir PDF raporunun ilk iki sayfasını görebilirsiniz:
 
-![รายงานการวิเคราะห์ตลาด](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=th)
+![Pazar analizi raporu](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=tr)
 
-## แหล่งข้อมูลเพิ่มเติม
+## Diğer kaynaklar
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับการสร้างด้วย Gemini และ AI SDK ได้จากแหล่งข้อมูลต่อไปนี้
+Gemini ve Yapay Zeka SDK'sı ile geliştirme hakkında daha fazla bilgi edinmek için şu kaynakları inceleyin:
 
-- [เอกสาร AI SDK](https://ai-sdk.dev/docs)
-- [เอกสาร Generative AI ของ Google สำหรับ AI SDK](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
-- [คู่มือ AI SDK: เริ่มต้นใช้งาน Gemini](https://ai-sdk.dev/cookbook/guides/gemini)
+- [AI SDK belgeleri](https://ai-sdk.dev/docs)
+- [Yapay Zeka SDK'sı Google Üretken Yapay Zeka belgeleri](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
+- [AI SDK cookbook: Get Started with Gemini](https://ai-sdk.dev/cookbook/guides/gemini) (AI SDK yemek kitabı: Gemini'ı kullanmaya başlama)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-08-19 UTC
+Son güncelleme tarihi: 2026-08-19 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]

@@ -1,40 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=th
-fetched_at: 2026-08-24T02:21:49.096371+00:00
-title: "\u0e40\u0e2d\u0e32\u0e15\u0e4c\u0e1e\u0e38\u0e15\u0e17\u0e35\u0e48\u0e21\u0e35\u0e42\u0e04\u0e23\u0e07\u0e2a\u0e23\u0e49\u0e32\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ko
+fetched_at: 2026-08-31T06:28:09.309290+00:00
+title: "\uad6c\uc870\ud654\ub41c \ucd9c\ub825 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-ส่งความคิดเห็น
+의견 보내기
 
-# เอาต์พุตที่มีโครงสร้าง
+# 구조화된 출력
 
-คุณสามารถกำหนดค่าโมเดล Gemini ให้สร้างคำตอบที่เป็นไปตาม JSON Schema ที่ระบุได้ ซึ่งจะช่วยให้ได้ผลลัพธ์ที่คาดการณ์ได้และมีความปลอดภัยในการกำหนดประเภท รวมถึงลดความซับซ้อนในการดึง Structured Data จากข้อความที่ไม่มีโครงสร้าง
+제공된 JSON 스키마를 준수하는 응답을 생성하도록 Gemini 모델을 구성할 수 있습니다. 이렇게 하면 예측 가능하고 유형이 안전한 결과를 얻을 수 있으며 구조화되지 않은 텍스트에서 구조화된 데이터를 추출하는 작업이 간소화됩니다.
 
-การใช้เอาต์พุตที่มีโครงสร้างเหมาะสำหรับกรณีต่อไปนี้
+구조화된 출력은 다음 작업에 적합합니다.
 
-- **การดึงข้อมูล:** ดึงข้อมูลที่เฉพาะเจาะจง เช่น ชื่อและวันที่ จากข้อความ
-- **การจัดประเภทที่มีโครงสร้าง:** จัดประเภทข้อความเป็นหมวดหมู่ที่กำหนดไว้ล่วงหน้า
-- **เวิร์กโฟลว์แบบ Agent:** สร้างอินพุตที่มีโครงสร้างสำหรับเครื่องมือหรือ API
+- **데이터 추출:** 텍스트에서 이름, 날짜와 같은 특정 정보를 가져옵니다.
+- **구조화된 분류:** 텍스트를 사전 정의된 카테고리로 분류합니다.
+- **에이전트 워크플로:** 도구 또는 API의 구조화된 입력을 생성합니다.
 
-นอกจากจะรองรับ JSON Schema ใน REST API แล้ว Google GenAI SDK ยังช่วยให้คุณกำหนดสคีมาโดยใช้
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) และ
-[Zod](https://zod.dev/) (JavaScript) ได้ด้วย
+REST API에서 JSON 스키마를 지원하는 것 외에도 Google GenAI SDK를 사용하면
+다음과 같이 스키마를 정의할 수 있습니다.
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) 및
+[Zod](https://zod.dev/) (자바스크립트)
 
-## ตัวอย่างเอาต์พุตที่มีโครงสร้าง
+## 구조화된 출력 예
 
-### ตัวดึงข้อมูลสูตรอาหาร
+### 레시피 추출기
 
-ตัวอย่างนี้แสดงวิธีดึง Structured Data จากข้อความโดยใช้ประเภท JSON Schema พื้นฐาน เช่น `object`, `array`, `string` และ `integer`
+이 예에서는 `object`, `array`, `string`, `integer`와 같은 기본 JSON 스키마 유형을 사용하여 텍스트에서 구조화된 데이터를 추출하는 방법을 보여줍니다.
 
 ### Python
 
@@ -198,7 +199,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**ตัวอย่างการตอบสนอง:**
+**응답 예:**
 
 ```
 {
@@ -226,9 +227,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### การกลั่นกรองเนื้อหา
+### 콘텐츠 검토
 
-ตัวอย่างนี้แสดง `anyOf` สำหรับสคีมาแบบมีเงื่อนไขและ `enum` สำหรับการจัดประเภท ซึ่งช่วยให้โครงสร้างเอาต์พุตแตกต่างกันไปตามเนื้อหาได้
+이 예에서는 조건부 스키마의 `anyOf`와 분류의 `enum`을 보여주며, 이를 통해 콘텐츠에 따라 출력 구조를 다르게 지정할 수 있습니다.
 
 ### Python
 
@@ -377,7 +378,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**ตัวอย่างการตอบสนอง:**
+**응답 예:**
 
 ```
 {
@@ -388,9 +389,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### โครงสร้างแบบวนซ้ำ
+### 재귀 구조
 
-ตัวอย่างนี้แสดงวิธีกำหนดสคีมาแบบวนซ้ำ เช่น แผนผังองค์กร
+이 예에서는 조직도와 같은 재귀 스키마를 정의하는 방법을 보여줍니다.
 
 ### Python
 
@@ -507,7 +508,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**ตัวอย่างการตอบสนอง:**
+**응답 예:**
 
 ```
 {
@@ -534,9 +535,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## การสตรีมผลลัพธ์
+## 스트리밍 결과
 
-คุณสามารถสตรีมเอาต์พุตที่มีโครงสร้าง ซึ่งช่วยให้คุณเริ่มประมวลผลการตอบสนองได้ทันทีที่ระบบสร้างการตอบสนอง ก้อนข้อมูลที่สตรีมเป็นสตริง JSON บางส่วนที่ถูกต้อง ซึ่งสามารถนำมารวมกันเพื่อสร้างออบเจ็กต์ JSON สุดท้ายได้
+구조화된 출력을 스트리밍하여 응답이 생성되는 즉시 처리를 시작할 수 있습니다. 스트리밍된 청크는 최종 JSON 객체를 형성하기 위해 연결할 수 있는 유효한 부분 JSON 문자열입니다.
 
 ### Python
 
@@ -633,14 +634,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## เอาต์พุตที่มีโครงสร้างพร้อมเครื่องมือ
+## 도구를 사용한 구조화된 출력
 
-Gemini 3 ช่วยให้คุณรวมเอาต์พุตที่มีโครงสร้างกับเครื่องมือในตัวได้ ซึ่งรวมถึง
-[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th),
-[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th),
-[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th),
-[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th#structured-output) และ
-[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+Gemini 3를 사용하면 Google 검색을 사용한 그라운딩
+, URL 컨텍스트
+, 코드 실행
+, 파일 검색
+, 함수 호출
+을 비롯한 기본 제공 도구와 구조화된 출력을 결합할 수 있습니다.
 
 ### Python
 
@@ -733,80 +734,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การรองรับ JSON Schema
+## JSON 스키마 지원
 
-หากต้องการสร้างออบเจ็กต์ JSON ให้กำหนดค่า `response_format` ด้วยออบเจ็กต์ (หรืออาร์เรย์ที่มีออบเจ็กต์) ประเภท `text` และตั้งค่า `mime_type` เป็น `application/json` โดยคุณควรระบุสคีมาในช่อง `schema`
+JSON 객체를 생성하려면 `text` 유형의 객체 (또는 객체를 포함하는 배열)로 `response_format`을 구성하고 `mime_type`을 `application/json`으로 설정합니다. 스키마는 `schema` 필드에 제공되어야 합니다.
 
-โหมดเอาต์พุตที่มีโครงสร้างของ Gemini รองรับข้อมูลจำเพาะของ
-[JSON Schema](https://json-schema.org/) บางส่วน
+Gemini의 구조화된 출력 모드는
+[JSON 스키마](https://json-schema.org/) 사양의 하위 집합을 지원합니다.
 
-ระบบรองรับค่า `type` ต่อไปนี้
+다음 `type` 값이 지원됩니다.
 
-- **`string`**: สำหรับข้อความ
-- **`number`**: สำหรับเลขจุดลอยตัว
-- **`integer`**: สำหรับจำนวนเต็ม
-- **`boolean`**: สำหรับค่าจริงหรือเท็จ
-- **`object`**: สำหรับ Structured Data พร้อมคู่คีย์-ค่า
-- **`array`**: สำหรับรายการไอเทม
-- **`null`**: หากต้องการอนุญาตให้พร็อพเพอร์ตี้เป็น null ให้ใส่ `"null"` ในอาร์เรย์ประเภท (เช่น `{"type": ["string", "null"]}`)
+- **`string`**: 텍스트용
+- **`number`**: 부동 소수점 숫자용
+- **`integer`**: 정수용
+- **`boolean`**: true 또는 false 값용
+- **`object`**: 키-값 쌍이 있는 구조화된 데이터용
+- **`array`**: 항목 목록용
+- **`null`**: 속성이 null이 되도록 허용하려면 유형 배열에 `"null"`을 포함합니다 (예: `{"type": ["string", "null"]}`).
 
-พร็อพเพอร์ตี้เชิงอธิบายเหล่านี้ช่วยแนะนำโมเดล
+이러한 설명 속성은 모델을 안내하는 데 도움이 됩니다.
 
-- **`title`**: คำอธิบายสั้นๆ ของพร็อพเพอร์ตี้
-- **`description`**: คำอธิบายที่ยาวและละเอียดมากขึ้นของพร็อพเพอร์ตี้
+- **`title`**: 속성에 대한 간단한 설명입니다.
+- **`description`**: 속성에 대한 더 길고 자세한 설명입니다.
 
-### พร็อพเพอร์ตี้เฉพาะประเภท
+### 유형별 속성
 
-**สำหรับค่า `object`**
+**`object` 값의 경우:**
 
-- **`properties`**: ออบเจ็กต์ที่แต่ละคีย์เป็นชื่อพร็อพเพอร์ตี้ และแต่ละค่าเป็นสคีมาสำหรับพร็อพเพอร์ตี้นั้น
-- **`required`**: อาร์เรย์ของสตริงที่แสดงรายการพร็อพเพอร์ตี้ที่ต้องระบุ
-- **`additionalProperties`**: ควบคุมว่าจะอนุญาตพร็อพเพอร์ตี้ที่ไม่ได้ระบุไว้ใน `properties` หรือไม่ โดยอาจเป็นบูลีนหรือสคีมา
+- **`properties`**: 각 키가 속성 이름이고 각 값이 해당 속성의 스키마인 객체입니다.
+- **`required`**: 필수 속성을 나열하는 문자열 배열입니다.
+- **`additionalProperties`**: `properties`에 나열되지 않은 속성이 허용되는지 여부를 제어합니다. 불리언 또는 스키마일 수 있습니다.
 
-**สำหรับค่า `string`**
+**`string` 값의 경우:**
 
-- **`enum`**: แสดงรายการชุดสตริงที่เป็นไปได้ที่เฉพาะเจาะจงสำหรับงานการจัดประเภท
-- **`format`**: ระบุไวยากรณ์สำหรับสตริง เช่น `date-time`, `date`, `time`
+- **`enum`**: 분류 작업에 사용할 수 있는 특정 문자열 집합을 나열합니다.
+- **`format`**: `date-time`, `date`, `time`과 같은 문자열의 구문을 지정합니다.
 
-**สำหรับค่า `number` และ `integer`**
+**`number` 및 `integer` 값의 경우:**
 
-- **`enum`**: แสดงรายการชุดค่าตัวเลขที่เป็นไปได้ที่เฉพาะเจาะจง
-- **`minimum`**: ค่าต่ำสุดแบบรวม
-- **`maximum`**: ค่าสูงสุดแบบรวม
+- **`enum`**: 가능한 특정 숫자 값 집합을 나열합니다.
+- **`minimum`**: 최소 포함 값입니다.
+- **`maximum`**: 최대 포함 값입니다.
 
-**สำหรับค่า `array`**
+**`array` 값의 경우:**
 
-- **`items`**: กำหนดสคีมาสำหรับไอเทมทั้งหมดในอาร์เรย์
-- **`prefixItems`**: กำหนดรายการสคีมาสำหรับไอเทม N รายการแรก ซึ่งช่วยให้มีโครงสร้างคล้ายกับ Tuple
-- **`minItems`**: จำนวนไอเทมขั้นต่ำในอาร์เรย์
-- **`maxItems`**: จำนวนไอเทมสูงสุดในอาร์เรย์
+- **`items`**: 배열의 모든 항목에 대한 스키마를 정의합니다.
+- **`prefixItems`**: 첫 번째 N개 항목의 스키마 목록을 정의하여 튜플과 같은 구조를 허용합니다.
+- **`minItems`**: 배열의 최소 항목 수입니다.
+- **`maxItems`**: 배열의 최대 항목 수입니다.
 
-## เอาต์พุตที่มีโครงสร้างเทียบกับการเรียกใช้ฟังก์ชัน
+## 구조화된 출력과 함수 호출 비교
 
-| ฟีเจอร์ | กรณีการใช้งานหลัก |
+| 기능 | 주된 사용 사례 |
 | --- | --- |
-| **เอาต์พุตที่มีโครงสร้าง** | **การจัดรูปแบบการตอบสนองสุดท้าย** ใช้เมื่อต้องการให้ *คำตอบ* ของโมเดลอยู่ในรูปแบบที่เฉพาะเจาะจง |
-| **การเรียกใช้ฟังก์ชัน** | **การดำเนินการระหว่างการสนทนา** ใช้เมื่อโมเดลต้อง *ขอให้คุณ* ทำงานบางอย่างก่อนที่จะให้คำตอบสุดท้าย |
+| **구조화된 출력** | **최종 응답의 형식을 지정합니다.** 모델의 *답변* 을 특정 형식으로 지정하려는 경우에 사용합니다. |
+| **함수 호출** | **대화 중에 작업을 실행합니다.** 모델이 최종 답변을 제공하기 전에 작업을 실행하도록 *요청* 해야 하는 경우에 사용합니다. |
 
-## แนวทางปฏิบัติแนะนำ
+## 권장사항
 
-- **คำอธิบายที่ชัดเจน:** ใช้ช่อง `description` เพื่อแนะนำโมเดล
-- **การพิมพ์ที่เข้มงวด:** ใช้ประเภทที่เฉพาะเจาะจง (`integer`, `string`, `enum`)
-- **วิศวกรรมพรอมต์ (Prompt Engineering):** ระบุสิ่งที่คุณต้องการให้โมเดลทำอย่างชัดเจน
-- **การตรวจสอบ:** แม้ว่าเอาต์พุตจะเป็น JSON ที่มีไวยากรณ์ถูกต้อง แต่ให้ตรวจสอบค่าในแอปพลิเคชันเสมอ
-- **การจัดการข้อผิดพลาด:** ใช้การจัดการข้อผิดพลาดที่มีประสิทธิภาพสำหรับเอาต์พุตที่เป็นไปตามสคีมาแต่มีความหมายไม่ถูกต้อง
+- **명확한 설명:** `description` 필드를 사용하여 모델을 안내합니다.
+- **강력한 유형 지정:** 특정 유형 (`integer`, `string`, `enum`)을 사용합니다.
+- **프롬프트 엔지니어링:** 모델이 수행해야 하는 작업을 명확하게 명시합니다.
+- **유효성 검사:** 출력은 문법적으로 올바른 JSON이지만 항상 애플리케이션에서 값을 검증합니다.
+- **오류 처리:** 스키마를 준수하지만 의미상으로 잘못된 출력에 대해 강력한 오류 처리를 구현합니다.
 
-## ข้อจำกัด
+## 제한사항
 
-- **สคีมาบางส่วน:** ระบบไม่รองรับฟีเจอร์ทั้งหมดของ JSON Schema
-- **ความซับซ้อนของสคีมา:** ระบบอาจปฏิเสธสคีมาที่มีขนาดใหญ่มากหรือมีการซ้อนกันหลายชั้น
+- **스키마 하위 집합:** 모든 JSON 스키마 기능이 지원되는 것은 아닙니다.
+- **스키마 복잡성:** 매우 크거나 깊게 중첩된 스키마는 거부될 수 있습니다.
 
-ส่งความคิดเห็น
+의견 보내기
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+최종 업데이트: 2026-07-30(UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+의견을 전달하고 싶나요?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]

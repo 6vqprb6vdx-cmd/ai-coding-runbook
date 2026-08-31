@@ -1,91 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=hi
-fetched_at: 2026-08-24T02:31:12.481395+00:00
-title: "Gemini API \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0911\u092a\u094d\u091f\u093f\u092e\u093e\u0907\u091c\u093c\u0947\u0936\u0928 \u0914\u0930 \u0905\u0928\u0941\u092e\u093e\u0928 \u0932\u0917\u093e\u0928\u093e \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=tr
+fetched_at: 2026-08-31T06:33:54.552143+00:00
+title: "Gemini API optimizasyonu ve \u00e7\u0131kar\u0131m\u0131 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-सुझाव भेजें
+Geri bildirim gönderin
 
-# Gemini API की मदद से ऑप्टिमाइज़ेशन और अनुमान लगाना
+# Gemini API optimizasyonu ve çıkarımı
 
-Gemini API, ऑप्टिमाइज़ेशन के कई तरीके उपलब्ध कराता है. इनकी मदद से, आपके वर्कलोड की ज़रूरतों के हिसाब से, स्पीड, लागत, और भरोसेमंद होने के बीच बैलेंस बनाया जा सकता है.
-चाहे आप रीयल-टाइम में बातचीत करने वाले बॉट बना रहे हों या ऑफ़लाइन डेटा-प्रोसेसिंग के लिए बड़े पाइपलाइन चला रहे हों, सही पैराडाइम चुनने से लागत को काफ़ी हद तक कम किया जा सकता है या परफ़ॉर्मेंस को बेहतर बनाया जा सकता है.
+Gemini API, belirli iş yükü ihtiyaçlarınıza göre hız, maliyet ve güvenilirlik arasında denge kurmanıza yardımcı olacak çeşitli optimizasyon mekanizmaları sunar.
+İster gerçek zamanlı sohbet botları oluşturuyor ister yoğun çevrimdışı veri işleme işlem hatları çalıştırıyor olun, doğru paradigmayı seçmek maliyetleri önemli ölçüde azaltabilir veya performansı artırabilir.
 
-| सुविधा | स्टैंडर्ड | Flex | प्राथमिकता | बैच | कैश मेमोरी में सेव करना |
+| Özellik | Standart | Yaratıcılığınızı | Öncelik | Toplu | Önbelleğe alma |
 | --- | --- | --- | --- | --- | --- |
-| **कीमत** | पूरी कीमत | 50% की छूट | स्टैंडर्ड कीमत से 75% से 100% ज़्यादा | 50% की छूट | 90% की छूट + टोकन स्टोरेज के लिए आनुपातिक शुल्क |
-| **लेटेंसी** | कुछ सेकंड से लेकर कुछ मिनट | कुछ मिनट (टारगेट 1–15 मिनट) | कुछ सेकंड | 24 घंटे लग सकते हैं | पहले टोकन के लिए कम समय |
-| **भरोसेमंद है** | ज़्यादा / मीडियम-ज़्यादा | पूरी कोशिश (कम अहमियत वाला) | ज़्यादा (अहमियत वाला) | ज़्यादा (थ्रूपुट के लिए) | लागू नहीं |
-| **इंटरफ़ेस** | सिंक्रोनस | सिंक्रोनस | सिंक्रोनस | एसिंक्रोनस | सेव की गई स्थिति |
-| **इस्तेमाल का सबसे अच्छा उदाहरण** | ऐप्लिकेशन के सामान्य वर्कफ़्लो | सीक्वेंशियल चेन (जिनके लिए तुरंत कार्रवाई की ज़रूरत न हो) | प्रोडक्शन, उपयोगकर्ता के लिए बने ऐप्लिकेशन | बड़े डेटासेट, ऑफ़लाइन आकलन | एक ही फ़ाइल के लिए बार-बार क्वेरी करना |
+| **Fiyatlandırma** | Tam Fiyat | %50 indirim | Standarttan% 75 ila% 100 daha fazla | %50 indirim | %90 indirim + Kullanıma göre hesaplanan jeton depolama alanı |
+| **Gecikme** | Saniyelerden dakikalara | Dakikalar (1-15 dakika hedef) | Saniye | En fazla 24 saat | Daha hızlı ilk jeton süresi |
+| **Güvenilirlik** | Yüksek / Biraz yüksek | En iyi sonuç (Sheddable) | Yüksek (tüy dökmeyen) | Yüksek (işleme hızı için) | Yok |
+| **Arayüz** | Senkronize | Senkronize | Senkronize | Eşzamansız | Kaydedilmiş durum |
+| **En iyi kullanım alanı** | Genel uygulama iş akışları | Acil olmayan sıralı zincirler | Üretim, kullanıcıya yönelik uygulamalar | Büyük veri kümeleri, çevrimdışı değerlendirmeler | Aynı dosya üzerinde yinelenen sorgular |
 
-## इन्फ़रेंस सेवा के लेवल (सिंक्रोनस)
+## Çıkarım hizmeti katmanları (Eşzamanlı)
 
-जनरेशन के स्टैंडर्ड कॉल में `service_tier` पैरामीटर पास करके, भरोसेमंद होने के लिए ऑप्टिमाइज़ किए गए और लागत के लिए ऑप्टिमाइज़ किए गए सिंक्रोनस ट्रैफ़िक के बीच स्विच किया जा सकता है.
+Standart oluşturma çağrılarınızda `service_tier` parametresini ileterek güvenilirlik için optimize edilmiş ve maliyet için optimize edilmiş senkron trafik arasında geçiş yapabilirsiniz.
 
-### स्टैंडर्ड इन्फ़रेंस (डिफ़ॉल्ट)
+### Standart çıkarım (varsayılan)
 
-सीक्वेंशियल कॉन्टेंट जनरेट करने के लिए, स्टैंडर्ड लेवल डिफ़ॉल्ट विकल्प है.
-इसमें, अतिरिक्त प्रीमियम या लंबी कतारों के बिना, सामान्य रिस्पॉन्स टाइम मिलता है.
+Standart katman, sıralı içerik oluşturma için varsayılan seçenektir.
+Ek primler veya yoğun kuyruklar olmadan normal yanıt süreleri sağlar.
 
-- **भरोसेमंद है:** स्टैंडर्ड अहमियत
-- **कीमत:** स्टैंडर्ड कीमत.
-- **इसके लिए सबसे सही विकल्प:** रोज़ाना इस्तेमाल होने वाले ज़्यादातर इंटरैक्टिव ऐप्लिकेशन.
+- **Güvenilirlik:** Standart önem düzeyi
+- **Fiyat:** Standart fiyatlandırma.
+- **En uygun kullanım alanı:** En etkileşimli günlük uygulamalar.
 
-### प्राथमिकता वाला इन्फ़रेंस (लेटेंसी के लिए ऑप्टिमाइज़ किया गया)
+### Öncelikli çıkarım (Gecikme için optimize edilmiş)
 
-[प्राथमिकता](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi) वाली प्रोसेसिंग, आपके अनुरोधों को ज़्यादा अहमियत वाली कंप्यूटिंग कतारों पर भेजती है.
-यह ट्रैफ़िक, अहमियत वाला होता है. इसका मतलब है कि इसे दूसरे लेवल से कभी भी रोका नहीं जा सकता. साथ ही, यह सबसे ज़्यादा भरोसेमंद होता है. अगर आपने प्राथमिकता वाली प्रोसेसिंग की डाइनैमिक सीमाओं को पार कर लिया है, तो सिस्टम गड़बड़ी दिखाने के बजाय, अनुरोध को स्टैंडर्ड प्रोसेसिंग पर डाउनग्रेड कर देगा.
+[Öncelikli](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr) işleme, isteklerinizi yüksek önem dereceli bilgi işlem kuyruklarına yönlendirir.
+Bu trafik kesinlikle öncelikli değildir (diğer katmanlar tarafından asla önceliklendirilmez) ve en yüksek güvenilirliği sunar. Dinamik öncelik sınırlarını aşarsanız sistem, isteği hatayla başarısız kılmak yerine sorunsuz bir şekilde standart işleme düşürür.
 
-- **भरोसेमंद है:** सबसे ज़्यादा अहमियत
-- **कीमत:** स्टैंडर्ड दरों से 75% से 100% ज़्यादा.
-- **इसके लिए सबसे सही विकल्प:** ग्राहक सेवा के लिए चैटबॉट, रीयल-टाइम में धोखाधड़ी का पता लगाना, और कारोबार के लिए अहम को-पायलट.
+- **Güvenilirlik:** En yüksek önem düzeyi
+- **Fiyat:** Standart ücretlerin% 75 ila% 100 üzerinde.
+- **En uygun kullanım alanları:** Müşteri sohbet botları, gerçek zamanlı sahtekarlık tespiti ve işletme açısından kritik öneme sahip yardımcılar.
 
-### Flex इन्फ़रेंस (लागत के लिए ऑप्टिमाइज़ किया गया)
+### Esnek çıkarım (maliyet açısından optimize edilmiş)
 
-[Flex इन्फ़रेंस](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi) में, स्टैंडर्ड दरों के मुकाबले 50% की छूट मिलती है.
-ऐसा इसलिए होता है, क्योंकि इसमें ऑफ़-पीक कंप्यूटिंग क्षमता का इस्तेमाल किया जाता है. अनुरोधों को सिंक्रोनस तरीके से प्रोसेस किया जाता है. इसका मतलब है कि बैच ऑब्जेक्ट मैनेज करने के लिए, आपको कोड फिर से लिखने की ज़रूरत नहीं होती.
-यह "कम अहमियत वाला" ट्रैफ़िक होता है. इसलिए, अगर सिस्टम में स्टैंडर्ड ट्रैफ़िक बढ़ता है, तो अनुरोधों को रोका जा सकता है.
+[Esnek çıkarım](https://ai.google.dev/gemini-api/docs/flex-inference?hl=tr), fırsatçı ve yoğun olmayan zamanlardaki işlem kapasitesini kullanarak standart ücretlere kıyasla% 50 indirim sunar. İstekler eşzamanlı olarak işlenir. Bu nedenle, toplu nesneleri yönetmek için kodu yeniden yazmanız gerekmez.
+Bu trafik "kaldırılabilir" bir trafik olduğundan, sistemde standart trafik artışları yaşanırsa istekler öncelikli olarak işlenebilir.
 
-- **भरोसेमंद है:** अहमियत की कोई गारंटी नहीं, कम अहमियत वाला
-- **कीमत:** स्टैंडर्ड कीमत का 50% (टोकन के हिसाब से बिल किया जाता है).
-- **इसके लिए सबसे सही विकल्प:** एजेंटिक वर्कफ़्लो (जिसमें कॉल N+1, कॉल N के आउटपुट पर निर्भर करता है), बैकग्राउंड में सीआरएम अपडेट, और ऑफ़लाइन आकलन.
+- **Güvenilirlik:** Garanti edilmeyen, azaltılabilir önem düzeyi
+- **Fiyat:** Standart fiyatlandırmanın% 50'si (jeton başına faturalandırılır).
+- **En uygun olduğu durumlar:** N+1 çağrısının N çağrısının çıkışına, arka plandaki CRM güncellemelerine ve çevrimdışı değerlendirmelere bağlı olduğu çok adımlı aracı iş akışları.
 
-## बैच एपीआई (बल्क, एसिंक्रोनस)
+## Batch API (Toplu, eşzamansız)
 
-[बैच एपीआई](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi) को, बड़ी संख्या में अनुरोधों को एसिंक्रोनस तरीके से प्रोसेस करने के लिए डिज़ाइन किया गया है. इसकी लागत, स्टैंडर्ड लागत का 50% होती है. अनुरोधों को इन-लाइन डिक्शनरी के तौर पर या JSONL इनपुट फ़ाइल (दो जीबी तक) का इस्तेमाल करके सबमिट किया जा सकता है. यह, बैकग्राउंड थ्रूपुट कतारों का इस्तेमाल करके अनुरोधों को प्रोसेस करता है. इसका टारगेट टर्नअराउंड टाइम 24 घंटे होता है.
+[Toplu İşlem API'si](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr), büyük hacimli istekleri standart maliyetin% 50'si karşılığında eşzamansız olarak işlemek için tasarlanmıştır. İstekleri satır içi sözlükler olarak veya JSONL giriş dosyası (en fazla 2 GB) kullanarak gönderebilirsiniz. İstekleri, 24 saatlik hedef yanıt süresiyle arka plan işleme hızına sahip kuyrukları kullanarak işler.
 
-- **भरोसेमंद है:** कम अहमियत वाला, लेकिन इसमें 24 घंटे में अपने-आप फिर से कोशिश करने और कतार में लगाने का सिस्टम मौजूद है
-- **कीमत:** स्टैंडर्ड कीमत का 50%
-- **इसके लिए सबसे सही विकल्प:** बड़े डेटासेट को पहले से प्रोसेस करना, समय-समय पर रिग्रेशन टेस्ट सुइट चलाना, और बड़ी संख्या में इमेज या एम्बेडिंग जनरेट करना.
+- **Güvenilirlik:** 24 saatlik otomatik yeniden deneme ve kuyruk sistemiyle birlikte, dökülebilir
+- **Fiyat:** Standart fiyatın% 50'si.
+- **En uygun olduğu durumlar:** Büyük veri kümelerini önceden işleme, düzenli regresyon test paketleri çalıştırma ve yüksek hacimli resim veya yerleştirme oluşturma.
 
-## कॉन्टेक्स्ट कैश मेमोरी में सेव करना (इनपुट की बचत)
+## Bağlamı önbelleğe alma (giriş tasarrufu)
 
-[कॉन्टेक्स्ट कैश मेमोरी में सेव करने की सुविधा](https://ai.google.dev/gemini-api/docs/caching?hl=hi) का इस्तेमाल तब किया जाता है, जब छोटे अनुरोधों में, शुरुआती
-कॉन्टेक्स्ट को बार-बार रेफ़र किया जाता है.
+[Bağlamı önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr), önemli bir ilk bağlama kısa isteklerle tekrar tekrar başvurulduğunda kullanılır.
 
-- **अपने-आप कैश मेमोरी में सेव करना:** यह सुविधा, Gemini 2.5 और उसके बाद के मॉडल पर अपने-आप चालू हो जाती है.
-  अगर आपका अनुरोध, सामान्य प्रॉम्प्ट प्रीफ़िक्स के आधार पर मौजूदा कैश मेमोरी में सेव किए गए डेटा से मेल खाता है, तो सिस्टम लागत में बचत करता है.
-- **मैन्युअल तरीके से कैश मेमोरी में सेव करना:** टाइम-टू-लिव (टीटीएल) के साथ, कैश मेमोरी में सेव किया गया ऑब्जेक्ट मैन्युअल तरीके से बनाया जा सकता है. कैश मेमोरी में सेव किए गए टोकन को, बाद के अनुरोधों के लिए रेफ़र किया जा सकता है. इससे, एक ही कॉर्पस पेलोड को बार-बार पास करने से बचा जा सकता है.
-- **कीमत:** कैश मेमोरी में सेव किए गए टोकन की संख्या और स्टोरेज की अवधि (टीटीएल) के आधार पर बिल किया जाता है.
-- **इसके लिए सबसे सही विकल्प:** ऐसे चैटबॉट जिनमें सिस्टम के लिए ज़्यादा निर्देश दिए गए हों, लंबी वीडियो फ़ाइलों का बार-बार विश्लेषण करना या दस्तावेज़ों के बड़े सेट के लिए क्वेरी करना.
+- **Örtülü önbelleğe alma:** Gemini 2.5 ve daha yeni modellerde otomatik olarak etkinleştirilir.
+  İsteğiniz, yaygın istem ön eklerine dayalı olarak mevcut önbelleklerle eşleşirse sistem maliyet tasarruflarını aktarır.
+- **Açık Önbelleğe Alma:** Belirli bir geçerlilik süresine (TTL) sahip bir önbellek nesnesini manuel olarak oluşturabilirsiniz. Oluşturulduktan sonra, aynı gövde yükünün tekrar tekrar iletilmesini önlemek için sonraki isteklerde önbelleğe alınmış jetonlara başvurursunuz.
+- **Fiyat:** Önbellek jetonu sayısı ve depolama süresine (TTL) göre faturalandırılır.
+- **En İyi Kullanım Alanları:** Kapsamlı sistem talimatları içeren chatbot'lar, uzun video dosyalarının tekrarlanan analizi veya büyük doküman kümelerine yönelik sorgular.
 
-सुझाव भेजें
+Geri bildirim gönderin
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

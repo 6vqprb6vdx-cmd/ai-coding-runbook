@@ -1,41 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=id
-fetched_at: 2026-08-24T02:23:05.348106+00:00
-title: "Pemahaman dokumen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=he
+fetched_at: 2026-08-31T06:32:00.171076+00:00
+title: "\u05d4\u05d1\u05e0\u05ea \u05de\u05e1\u05de\u05db\u05d9\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Pemahaman dokumen
+# הבנת מסמכים
 
-Model Gemini dapat memproses dokumen dalam format PDF, menggunakan visi bawaan untuk memahami seluruh konteks dokumen. Hal ini tidak hanya
-mengekstraksi teks, tetapi juga memungkinkan Gemini untuk:
+מודלים של Gemini יכולים לעבד מסמכים בפורמט PDF, באמצעות ראייה מובנית כדי להבין את ההקשרים של מסמכים שלמים. היכולת הזו חורגת ממיצוי טקסט בלבד, ומאפשרת ל-Gemini:
 
-- Menganalisis dan menginterpretasikan konten, termasuk teks, gambar, diagram, bagan, dan tabel, bahkan dalam dokumen panjang hingga 1.000 halaman.
-- Mengekstrak informasi ke dalam format [output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
-- Meringkas dan menjawab pertanyaan berdasarkan elemen visual dan tekstual dalam dokumen.
-- Mentranskripsikan konten dokumen (misalnya, ke HTML), dengan mempertahankan tata letak dan pemformatan, untuk digunakan dalam aplikasi hilir.
+- ניתוח ופירוש של תוכן, כולל טקסט, תמונות, דיאגרמות, תרשימים וטבלאות, גם במסמכים ארוכים של עד 1, 000 עמודים.
+- חילוץ מידע לפורמטים של [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he).
+- לסכם מסמך ולענות על שאלות על סמך הרכיבים החזותיים והטקסטואליים שבו.
+- תמלול תוכן של מסמך (למשל ל-HTML), תוך שמירה על הפריסות והעיצוב, לשימוש באפליקציות במורד הזרם.
 
-Anda juga dapat meneruskan dokumen non-PDF dengan cara yang sama, tetapi Gemini akan melihatnya sebagai teks biasa yang akan menghilangkan konteks seperti diagram atau pemformatan.
+אפשר גם להעביר מסמכים שאינם PDF באותו אופן, אבל Gemini יראה אותם כטקסט רגיל, כך שלא יהיה הקשר כמו תרשימים או עיצוב.
 
-## Meneruskan data PDF secara inline
+## העברת נתוני PDF בתוך השורה
 
-Anda dapat meneruskan data PDF secara inline dalam permintaan ke `generateContent`. Metode ini paling cocok untuk dokumen yang lebih kecil atau pemrosesan sementara yang tidak memerlukan referensi file dalam permintaan berikutnya. Sebaiknya gunakan [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=id#large-pdfs)
-untuk dokumen yang lebih besar yang perlu Anda rujuk dalam interaksi multi-turn untuk
-meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth.
+אפשר להעביר נתונים של PDF בתוך הבקשה אל `generateContent`. האפשרות הזו מתאימה במיוחד למסמכים קטנים או לעיבוד זמני שבו אין צורך להפנות לקובץ בבקשות הבאות. מומלץ להשתמש ב-[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=he#large-pdfs) עבור מסמכים גדולים שצריך להתייחס אליהם באינטראקציות רב-שלביות, כדי לשפר את זמן האחזור של הבקשה ולהקטין את השימוש ברוחב הפס.
 
-Contoh berikut menunjukkan cara mengambil PDF dari URL dan mengonversinya menjadi byte untuk diproses:
+בדוגמה הבאה אפשר לראות איך לאחזר קובץ PDF מכתובת URL ולהמיר אותו לבייטים לצורך עיבוד:
 
 ### Python
 
@@ -193,7 +190,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-Anda juga dapat membaca PDF dari file lokal untuk diproses:
+אפשר גם לקרוא קובץ PDF מקובץ מקומי לצורך עיבוד:
 
 ### Python
 
@@ -294,13 +291,13 @@ func main() {
 }
 ```
 
-## Mengupload PDF menggunakan Files API
+## העלאת קובצי PDF באמצעות Files API
 
-Sebaiknya gunakan Files API untuk file yang lebih besar atau saat Anda ingin menggunakan kembali dokumen di beberapa permintaan. Hal ini meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth dengan memisahkan upload file dari permintaan model.
+מומלץ להשתמש ב-Files API לקבצים גדולים יותר או כשרוצים לעשות שימוש חוזר במסמך בכמה בקשות. הפעולה הזו משפרת את זמן האחזור של הבקשות ומצמצמת את השימוש ברוחב הפס, כי היא מפרידה בין העלאת הקובץ לבין בקשות המודל.
 
-### PDF besar dari URL
+### קובצי PDF גדולים מכתובות URL
 
-Gunakan File API untuk menyederhanakan upload dan pemrosesan file PDF besar dari URL:
+אפשר להשתמש ב-File API כדי לפשט את ההעלאה והעיבוד של קובצי PDF גדולים מכתובות URL:
 
 ### Python
 
@@ -508,7 +505,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-### PDF besar yang disimpan secara lokal
+### קובצי PDF גדולים שמאוחסנים באופן מקומי
 
 ### Python
 
@@ -680,9 +677,7 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
-metadatanya dengan memanggil [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=id). Hanya `name`
-(dan dengan demikian, `uri`) yang unik.
+כדי לוודא שה-API שמר בהצלחה את הקובץ שהועלה ולקבל את המטא-נתונים שלו, אפשר לקרוא ל-[`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=he). רק `name` (ומכאן גם `uri`) הם ייחודיים.
 
 ### Python
 
@@ -714,11 +709,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Meneruskan beberapa PDF
+## העברת כמה קובצי PDF
 
-Gemini API dapat memproses beberapa dokumen PDF (hingga 1.000 halaman)
-dalam satu permintaan, selama ukuran gabungan dokumen dan perintah
-teks tetap berada dalam jendela konteks model.
+‫Gemini API יכול לעבד כמה מסמכי PDF (עד 1,000 דפים) בבקשה אחת, כל עוד הגודל המשולב של המסמכים וההנחיה הטקסטואלית לא חורג מחלון ההקשר של המודל.
 
 ### Python
 
@@ -970,59 +963,51 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Detail teknis
+## פרטים טכניים
 
-Gemini mendukung file PDF hingga 50 MB atau 1.000 halaman. Batas ini berlaku
-untuk data inline dan upload Files API. Setiap halaman dokumen setara dengan 258
-token.
+‫Gemini תומך בקובצי PDF בגודל של עד 50MB או עד 1,000 עמודים. המגבלה הזו חלה על נתונים מוטבעים ועל העלאות באמצעות Files API. כל דף במסמך שווה ל-258 טוקנים.
 
-Meskipun tidak ada batasan khusus untuk jumlah piksel dalam dokumen selain [jendela konteks](https://ai.google.dev/gemini-api/docs/long-context?hl=id) model, halaman yang lebih besar akan diperkecil hingga resolusi maksimum 3072 x 3072 dengan mempertahankan rasio aspek aslinya, sedangkan halaman yang lebih kecil akan diperbesar hingga 768 x 768 piksel. Tidak ada pengurangan biaya untuk halaman dengan ukuran yang lebih kecil, selain bandwidth, atau peningkatan performa untuk halaman dengan resolusi yang lebih tinggi.
+אין מגבלות ספציפיות על מספר הפיקסלים במסמך, מלבד [חלון ההקשר](https://ai.google.dev/gemini-api/docs/long-context?hl=he) של המודל. עם זאת, דפים גדולים יותר מצטמצמים לרזולוציה מקסימלית של 3,072x3,072 תוך שמירה על יחס הגובה-רוחב המקורי שלהם, ואילו דפים קטנים יותר מוגדלים לרזולוציה של 768x768 פיקסלים. אין הפחתה בעלויות של דפים בגדלים קטנים יותר, מלבד רוחב פס, או שיפור בביצועים של דפים ברזולוציה גבוהה יותר.
 
-### Model Gemini 3
+### המודלים של Gemini 3
 
-Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter
-`media_resolution`. Anda kini dapat menyetel resolusi ke rendah, sedang, atau tinggi untuk setiap bagian media. Dengan penambahan ini, pemrosesan dokumen PDF telah diperbarui:
+‫Gemini 3 מציג שליטה מפורטת בעיבוד של ראייה מולטי-מודאלית באמצעות הפרמטר `media_resolution`. מעכשיו אפשר להגדיר את הרזולוציה לערך נמוך, בינוני או גבוה לכל חלק מדיה בנפרד. בעקבות התוספת הזו, עודכן העיבוד של מסמכי PDF:
 
-1. **Pencantuman teks asli:** Teks yang disematkan secara native dalam PDF diekstrak dan diberikan ke model.
-2. **Penagihan & pelaporan token:**
-   - Anda **tidak dikenai biaya** untuk token yang berasal dari
-     **teks native** yang diekstrak dalam PDF.
-   - Di bagian `usage_metadata` respons API, token yang dihasilkan dari pemrosesan halaman PDF (sebagai gambar) kini dihitung dalam modalitas `IMAGE`, bukan modalitas `DOCUMENT` terpisah seperti pada beberapa versi sebelumnya.
+1. **הכללת טקסט מקורי:** טקסט שמוטמע באופן מקורי בקובץ ה-PDF מחולץ ומועבר למודל.
+2. **דיווח על חיובים ועל טוקנים:**
+   - **לא תחויבו** על טוקנים שמקורם ב**טקסט מקורי** שחולץ מקובצי PDF.
+   - בקטע `usage_metadata` בתגובה מה-API, טוקנים שנוצרו מעיבוד של דפי PDF (כתמונות) נספרים עכשיו בתוך `IMAGE`, ולא בתוך `DOCUMENT` נפרד כמו בכמה גרסאות קודמות.
 
-Untuk mengetahui detail selengkapnya tentang parameter resolusi media, lihat panduan
-[Resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
+פרטים נוספים על הפרמטר של רזולוציית המדיה זמינים במדריך בנושא [רזולוציית מדיה](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=he).
 
-### Jenis dokumen
+### סוגי מסמכים
 
-Secara teknis, Anda dapat meneruskan jenis MIME lain untuk pemahaman dokumen, seperti TXT, Markdown, HTML, XML, dll. Namun, visi dokumen ***hanya dapat memahami PDF secara efektif***. Jenis lainnya akan diekstrak sebagai teks murni, dan model tidak akan dapat menafsirkan apa yang kita lihat dalam rendering file tersebut. Semua
-spesifikasi jenis file seperti diagram, HTML tag, pemformatan Markdown, dll.,
-akan hilang.
+מבחינה טכנית, אפשר להעביר סוגי MIME אחרים לניתוח מסמכים, כמו TXT,‏ Markdown,‏ HTML,‏ XML וכו'. עם זאת, ***הניתוח של מסמכים מתבצע רק עבור קובצי PDF***. סוגים אחרים יחולצו כטקסט בלבד, והמודל לא יוכל לפרש את מה שרואים בעיבוד של הקבצים האלה. כל הפרטים הספציפיים לגבי סוג הקובץ, כמו תרשימים, דיאגרמות, תגי HTML, עיצוב Markdown וכו', יאבדו.
 
-Untuk mempelajari metode input file lainnya, lihat panduan
-[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
+מידע על שיטות אחרות להזנת קבצים זמין במדריך בנושא [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
 
-### Praktik terbaik
+### שיטות מומלצות
 
-Untuk hasil terbaik:
+לקבלת התוצאות הטובות ביותר:
 
-- Putar halaman ke orientasi yang benar sebelum mengupload.
-- Hindari halaman yang buram.
-- Jika menggunakan satu halaman, tempatkan perintah teks setelah halaman.
+- לפני ההעלאה, מסובבים את הדפים לכיוון הנכון.
+- אל תשתמשו בדפים מטושטשים.
+- אם משתמשים בדף יחיד, צריך להציב את הפרומפט הטקסטואלי אחרי הדף.
 
-## Langkah berikutnya
+## המאמרים הבאים
 
-Untuk mempelajari lebih lanjut, lihat referensi berikut:
+מידע נוסף זמין במקורות המידע הבאים:
 
-- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video.
-- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
-  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
+- [אסטרטגיות לפרומפטים עם קבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בפרומפטים עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראים גם פרומפטים מולטי-מודאליים.
+- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
+  הוראות מערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+עדכון אחרון: 2026-07-30 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]

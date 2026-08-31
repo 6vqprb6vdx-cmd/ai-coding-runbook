@@ -1,65 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=tr
-fetched_at: 2026-08-24T02:29:36.870105+00:00
-title: "Jetonlar\u0131 anlama ve sayma \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=ko
+fetched_at: 2026-08-31T06:36:49.275900+00:00
+title: "\ud1a0\ud070 \uc774\ud574 \ubc0f \uacc4\uc0b0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Geri bildirim gönderin
+의견 보내기
 
-# Jetonları anlama ve sayma
+# 토큰 이해 및 계산
 
-Gemini ve diğer üretken yapay zeka modelleri, giriş ve çıkışı *token* adı verilen bir ayrıntı düzeyinde işler.
+Gemini 및 기타 생성형 AI 모델은 *토큰* 이라는 세분화된 수준에서 입력과 출력을 처리합니다.
 
-**Gemini modellerinde bir jeton yaklaşık 4 karaktere eşittir.
-100 jeton yaklaşık 60-80 İngilizce kelimeye eşittir.**
+**Gemini 모델의 경우 토큰은 약 4자와 같습니다.
+100개의 토큰은 약 60~80개의 영어 단어와 같습니다.**
 
-## Jetonlar hakkında
+## 토큰 정보
 
-Jetonlar, `z` gibi tek karakterler veya `cat` gibi tam kelimeler olabilir. Uzun kelimeler
-birkaç jetona ayrılır. Model tarafından kullanılan tüm jetonlar kümesine kelime hazinesi, metni jetonlara bölme işlemine ise *jetonlaştırma* adı verilir.
+토큰은 단일 문자(예: `z`) 또는 전체 단어(예: `cat`)일 수 있습니다. 긴 단어는 여러 토큰으로 나뉩니다. 모델에서 사용하는 모든 토큰 집합을 어휘라고 하며, 텍스트를 토큰으로 분할하는 프로세스를 *토큰화* 라고 합니다.
 
-Faturalandırma etkinleştirildiğinde [Gemini API'ye yapılan bir çağrının maliyeti](https://ai.google.dev/pricing?hl=tr) kısmen giriş ve çıkış jetonlarının sayısına göre belirlenir. Bu nedenle, jetonları nasıl sayacağınızı bilmek faydalı olabilir.
+결제가 사용 설정된 경우 Gemini API 호출의 [비용](https://ai.google.dev/pricing?hl=ko)은
+입력 및 출력 토큰 수에 따라 결정되므로 토큰을
+집계하는 방법을 알아두면 유용합니다.
 
-Colab'imizde jeton saymayı deneyebilirsiniz.
+Colab에서 토큰 집계를 사용해 볼 수 있습니다.
 
 |  |  |  |
 | --- | --- | --- |
-| [ai.google.dev adresinde görüntüle](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | [Colab not defterini deneyin](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=tr) | [Not defterini GitHub'da görüntüleyin](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=tr) |
+| [ai.google.dev에서 보기](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | [Colab 노트북 사용해 보기](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ko) | [GitHub에서 노트북 보기](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ko) |
 
-## Parça sayma
+## 토큰 집계
 
-Metin, resim dosyaları ve metin dışı diğer formatlar da dahil olmak üzere Gemini API'ye yapılan tüm girişler ve API'den alınan tüm çıkışlar jetonlaştırılır.
+텍스트, 이미지 파일, 기타 텍스트가 아닌 모달리티를 비롯한 Gemini API의 모든 입력 및 출력은 토큰화됩니다.
 
-Jetonları aşağıdaki şekillerde sayabilirsiniz:
+다음과 같은 방법으로 토큰을 집계할 수 있습니다.
 
-- **İsteğin girişiyle [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=tr) işlevini çağırın.**  
-   Bu işlev, *yalnızca giriş* bölümündeki toplam jeton sayısını döndürür. Bu aramayı, isteklerinizin boyutunu kontrol etmek için girişi modele göndermeden önce yapabilirsiniz.
-- **`generate_content` işlevi çağrıldıktan sonra `response` nesnesinde `usage_metadata` özelliğini kullanın.**  
-   Bu işlev, *hem girişte hem de çıkışta* toplam jeton sayısını döndürür: `total_token_count`.  
-   Ayrıca giriş ve çıkışın jeton sayılarını ayrı ayrı döndürür: `prompt_token_count` (giriş jetonları) ve `candidates_token_count` (çıkış jetonları).
+- **요청의 입력
+  으로 [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=ko)를 호출합니다.**  
+   이렇게 하면 *입력에만* 있는 총 토큰 수가 반환됩니다. 모델에 입력을 전송하기 전에 이 호출을 실행하여 요청의 크기를 확인할 수 있습니다.
+- **`generate_content`를 호출한 후 `response` 객체에서 `usage_metadata` 속성을 사용합니다.**  
+   이렇게 하면
+  토큰의 총 수(*입력과 출력 모두*)가 반환됩니다. `total_token_count`.  
+   또한 입력 및 출력의 토큰 수를 별도로 반환합니다. `prompt_token_count` (입력 토큰) 및 `candidates_token_count`(출력 토큰)
 
-  [Düşünen modeli](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) kullanıyorsanız düşünme süreci sırasında kullanılan jetonlar `thoughts_token_count` içinde döndürülür. [Bağlamı önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr) özelliğini kullanıyorsanız önbelleğe alınan jeton sayısı `cached_content_token_count` içinde gösterilir.
+  [사고 모델을 사용하는 경우 사고 과정에서 사용된 토큰이 `thoughts_token_count`에 반환됩니다.](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) [컨텍스트 캐싱을 사용하는 경우 캐시된 토큰 수가 `cached_content_token_count`에 있습니다.](https://ai.google.dev/gemini-api/docs/caching?hl=ko)
 
-### Metin jetonlarını sayma
+### 텍스트 토큰 집계
 
-`count_tokens` işlevini yalnızca metin içeren bir girişle çağırırsanız *yalnızca girişteki* metnin jeton sayısını (`total_tokens`) döndürür. İsteklerinizin boyutunu kontrol etmek için `generate_content` işlevini çağırmadan önce bu çağrıyı yapabilirsiniz.
+텍스트 전용 입력으로 `count_tokens`를 호출하면 *입력에만* 있는 텍스트의 토큰 수 (`total_tokens`)가 반환됩니다. `generate_content`를 호출하기 전에 이 호출을 실행하여 요청의 크기를 확인할 수 있습니다.
 
-Diğer bir seçenek ise `generate_content` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
+또 다른 방법은 `generate_content`를 호출한 후 `response` 객체에서 `usage_metadata` 속성을 사용하여 다음을 가져오는 것입니다.
 
-- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
-- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
-- *Hem girişte hem de çıkışta* toplam jeton sayısı (`total_token_count`)
+- 입력 (`prompt_token_count`), 캐시된 콘텐츠 (`cached_content_token_count`), 출력(`candidates_token_count`)의 개별 토큰 수
+- 사고 과정의 토큰 수 (`thoughts_token_count`)
+- *입력과 출력 모두* 의 총 토큰 수(`total_token_count`)
 
 ### Python
 
@@ -134,17 +137,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Çok aşamalı etkileşim (sohbet) jetonlarını sayma
+### 멀티턴 (채팅) 토큰 집계
 
-Sohbet geçmişiyle birlikte `count_tokens` işlevini çağırırsanız sohbetteki her rolden gelen metnin toplam jeton sayısını (`total_tokens`) döndürür.
+채팅 기록으로 `count_tokens`를 호출하면 채팅의 각 역할에서 텍스트의 총 토큰 수 (`total_tokens`)가 반환됩니다.
 
-Diğer bir seçenek ise `send_message` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
+또 다른 방법은 `send_message`를 호출한 후 `response` 객체에서 `usage_metadata` 속성을 사용하여 다음을 가져오는 것입니다.
 
-- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
-- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
-- *Hem girişte hem de çıkışta* toplam jeton sayısı (`total_token_count`)
+- 입력 (`prompt_token_count`), 캐시된 콘텐츠 (`cached_content_token_count`), 출력(`candidates_token_count`)의 개별 토큰 수
+- 사고 과정의 토큰 수 (`thoughts_token_count`)
+- *입력과 출력 모두* 의 총 토큰 수(`total_token_count`)
 
-Bir sonraki etkileşiminizin ne kadar büyük olacağını anlamak için `count_tokens` işlevini çağırdığınızda bunu geçmişe eklemeniz gerekir.
+다음 대화 턴의 크기를 파악하려면 `count_tokens`를 호출할 때 기록에 추가해야 합니다.
 
 ### Python
 
@@ -270,32 +273,33 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Çok formatlı jetonları sayma
+### 멀티모달 토큰 집계
 
-Gemini API'ye yapılan tüm girişler (metin, resim dosyaları ve diğer metin dışı biçimler dahil) jetonlaştırılır. Gemini API tarafından işleme sırasında çok formatlı girişin jetonlaştırılmasıyla ilgili aşağıdaki üst düzey önemli noktaları unutmayın:
+텍스트, 이미지 파일, 기타 텍스트가 아닌 모달리티를 비롯한 Gemini API의 모든 입력은 토큰화됩니다. Gemini API에서 처리하는 동안 멀티모달 입력의 토큰화에 관한 다음 주요사항을 참고하세요.
 
-- Her iki boyutu da <=384 piksel olan resim girişleri 258 jeton olarak sayılır. Bir veya iki boyutta daha büyük olan resimler, gerektiğinde 768x768 piksellik parçalar halinde kırpılıp ölçeklendirilir ve her biri 258 jeton olarak sayılır.
-- Video ve ses dosyaları, aşağıdaki sabit oranlarda jetonlara dönüştürülür:
-  Video: Saniyede 263 jeton, ses: saniyede 32 jeton.
+- 두 치수가 모두 384픽셀 이하인 이미지 입력은 258개의 토큰으로 집계됩니다. 한쪽 또는 양쪽 치수가 더 큰 이미지는 필요에 따라 768x768픽셀의 타일로 잘리고 크기가 조정되며, 각 타일은 258개의 토큰으로 집계됩니다.
+- 동영상 및 오디오 파일은 다음과 같은 고정된 비율로 토큰으로 변환됩니다. 동영상은 초당 263개의 토큰, 오디오는 초당 32개의 토큰입니다.
 
-#### Medya çözünürlükleri
+#### 미디어 해상도
 
-[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr#gemini-3), `media_resolution` parametresiyle çok formatlı görüntü işleme üzerinde ayrıntılı kontrol sağlar. `media_resolution` parametresi, **giriş resim veya video karesi başına ayrılan maksimum jeton sayısını** belirler.
-Daha yüksek çözünürlükler, modelin küçük metinleri okuma veya küçük ayrıntıları tanımlama becerisini artırır ancak jeton kullanımını ve gecikmeyi de artırır.
+[Gemini 3 모델](https://ai.google.dev/gemini-api/docs/models?hl=ko#gemini-3)은
+멀티모달 비전 처리에 대한 세밀한 제어 기능을 `media_resolution` 파라미터를 통해 제공합니다. `media_resolution` 파라미터는 **입력 이미지 또는 동영상 프레임당 할당되는 최대 토큰 수** 를 결정합니다.
+해상도가 높을수록 모델이 작은 텍스트를 읽거나 세부 요소를 식별하는 능력을 향상시키지만, 토큰 사용량과 지연 시간이 증가합니다.
 
-Parametre ve jeton hesaplamalarını nasıl etkileyebileceği hakkında daha fazla bilgi için [medya çözünürlüğü](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=tr) kılavuzuna bakın.
+파라미터 및 토큰 계산에 미치는 영향에 관한 자세한 내용은
+[미디어 해상도](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=ko) 가이드를 참고하세요.
 
-#### Resim dosyaları
+#### 이미지 파일
 
-`count_tokens` işlevini metin ve resim girişiyle çağırırsanız *yalnızca girişteki* (`total_tokens`) metin ve resmin birleştirilmiş jeton sayısını döndürür. İsteklerinizin boyutunu kontrol etmek için `generate_content` işlevini çağırmadan önce bu işlevi çağırabilirsiniz. İsteğe bağlı olarak metin ve dosya üzerinde ayrı ayrı `count_tokens` işlevini de çağırabilirsiniz.
+텍스트 및 이미지 입력으로 `count_tokens`를 호출하면 *입력에만* 있는 텍스트와 이미지의 결합된 토큰 수 (`total_tokens`)가 반환됩니다. `generate_content`를 호출하기 전에 이 호출을 실행하여 요청의 크기를 확인할 수 있습니다. 선택적으로 텍스트와 파일에서 별도로 `count_tokens`를 호출할 수도 있습니다.
 
-Diğer bir seçenek ise `generate_content` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
+또 다른 방법은 `generate_content`를 호출한 후 `response` 객체에서 `usage_metadata` 속성을 사용하여 다음을 가져오는 것입니다.
 
-- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
-- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
-- *Hem girişte hem de çıkışta* toplam jeton sayısı (`total_token_count`)
+- 입력 (`prompt_token_count`), 캐시된 콘텐츠 (`cached_content_token_count`), 출력(`candidates_token_count`)의 개별 토큰 수
+- 사고 과정의 토큰 수 (`thoughts_token_count`)
+- *입력과 출력 모두* 의 총 토큰 수(`total_token_count`)
 
-File API'den yüklenen bir görüntünün kullanıldığı örnek:
+File API에서 업로드된 이미지를 사용하는 예:
 
 ### Python
 
@@ -395,7 +399,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Resmi satır içi veri olarak sağlayan örnek:
+이미지를 인라인 데이터로 제공하는 예:
 
 ### Python
 
@@ -492,20 +496,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### Video veya ses dosyaları
+#### 동영상 또는 오디오 파일
 
-Ses ve video, aşağıdaki sabit oranlarda jetonlara dönüştürülür:
+오디오와 동영상은 각각 다음과 같은 고정된 비율로 토큰으로 변환됩니다.
 
-- Video: Saniyede 263 jeton
-- Ses: Saniyede 32 jeton
+- 동영상: 초당 토큰 263개
+- 오디오: 초당 토큰 32개
 
-`count_tokens` işlevini metin ve video/ses girişiyle çağırırsanız *yalnızca girişteki* metin ve video/ses dosyasının birleştirilmiş jeton sayısını döndürür (`total_tokens`). İsteklerinizin boyutunu kontrol etmek için `generate_content` işlevini çağırmadan önce bu çağrıyı yapabilirsiniz. İsterseniz metni ve dosyayı ayrı ayrı `count_tokens` çağırabilirsiniz.
+텍스트 및 동영상/오디오 입력으로 `count_tokens`를 호출하면 *입력에만* 있는 텍스트와 동영상/오디오 파일의 결합된 토큰 수(`total_tokens`)가 반환됩니다. `generate_content`를 호출하기 전에 이 호출을 실행하여 요청의 크기를 확인할 수 있습니다. 선택적으로 텍스트와 파일에서 별도로 `count_tokens`를 호출할 수도 있습니다.
 
-Diğer bir seçenek ise `generate_content` işlevini çağırmak ve ardından `usage_metadata` özelliğini `response` nesnesinde kullanarak aşağıdakileri elde etmektir:
+또 다른 방법은 `generate_content`를 호출한 후 `response` 객체에서 `usage_metadata` 속성을 사용하여 다음을 가져오는 것입니다.
 
-- Giriş (`prompt_token_count`), önbelleğe alınmış içerik (`cached_content_token_count`) ve çıkışın (`candidates_token_count`) ayrı jeton sayıları
-- Düşünme süreci için jeton sayısı (`thoughts_token_count`)
-- *Hem girişte hem de çıkışta* toplam jeton sayısıdır (`total_token_count`).
+- 입력 (`prompt_token_count`), 캐시된 콘텐츠 (`cached_content_token_count`), 출력(`candidates_token_count`)의 개별 토큰 수
+- 사고 과정의 토큰 수 (`thoughts_token_count`)
+- *입력과 출력 모두* 의 총 토큰 수(`total_token_count`).
 
 ### Python
 
@@ -630,9 +634,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### Düşünce parçalarını sayma
+### 사고 토큰 집계
 
-Düşünme özelliğini etkinleştirdiğinizde yanıt fiyatı, çıkış jetonları ile düşünme jetonlarının toplamı olur. Oluşturulan düşünce jetonlarının toplam sayısını `thoughtsTokenCount` alanından (veya SDK eşdeğeri) alabilirsiniz.
+사고를 사용 설정하면 응답 가격은 출력 토큰과 사고 토큰의 합계입니다. `thoughtsTokenCount` 필드 (또는 SDK에 상응하는 필드)에서 생성된 총 사고 토큰 수를 가져올 수 있습니다.
 
 ### Python
 
@@ -658,13 +662,15 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Düşünme modelleri, nihai yanıtın kalitesini artırmak için tam düşünceler üretir ve ardından düşünce süreci hakkında bilgi vermek için [özetler](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#summaries) oluşturur. Bu nedenle, API yalnızca özeti çıkış olarak verse de fiyatlandırma, modelin özet oluşturmak için ürettiği tüm düşünce jetonlarına göre yapılır.
+사고 모델은 최종 응답의 품질을 개선하기 위해 전체 사고를 생성한 후 사고 과정을 파악할 수 있도록 [요약](https://ai.google.dev/gemini-api/docs/thinking?hl=ko#summaries)을 출력합니다. 따라서 API는 요약만 출력하더라도 모델이 요약을 만들기 위해 생성하는 전체 사고 토큰을 기준으로 가격을 책정합니다.
 
-Düşünme özelliğini nasıl yapılandıracağınız hakkında daha fazla bilgiyi [Gemini düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) kılavuzunda bulabilirsiniz.
+[Gemini 사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) 가이드에서 사고를 구성하는 방법을 자세히 알아보세요.
 
-## Bağlam pencereleri
+## 컨텍스트 윈도우
 
-Gemini API aracılığıyla kullanılabilen modellerin bağlam pencereleri jetonlarla ölçülür. Bağlam penceresi, ne kadar giriş sağlayabileceğinizi ve modelin ne kadar çıkış üretebileceğini tanımlar. Bağlam penceresinin boyutunu [`models.get` uç noktasını](https://ai.google.dev/api/rest/v1/models/get?hl=tr) çağırarak veya [modeller belgelerine](https://ai.google.dev/gemini-api/docs/models?hl=tr) bakarak belirleyebilirsiniz.
+Gemini API를 통해 사용할 수 있는 모델에는 토큰으로 측정되는 컨텍스트 윈도우가 있습니다. 컨텍스트 윈도우는 제공할 수 있는 입력의 양과 모델이 생성할 수 있는 출력의 양을 정의합니다.
+컨텍스트 윈도우의 크기를 [`models.get` 엔드포인트](https://ai.google.dev/api/rest/v1/models/get?hl=ko)
+를 호출하거나 [모델 문서](https://ai.google.dev/gemini-api/docs/models?hl=ko)에서 확인할 수 있습니다.
 
 ### Python
 
@@ -709,12 +715,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Geri bildirim gönderin
+의견 보내기
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Son güncelleme tarihi: 2026-07-30 UTC.
+최종 업데이트: 2026-07-30(UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+의견을 전달하고 싶나요?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-07-30(UTC)"],[],[]]

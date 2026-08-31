@@ -1,30 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=ar
-fetched_at: 2026-08-24T02:28:02.361175+00:00
-title: "\u0648\u0643\u064a\u0644 Deep Research \u0641\u064a Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419
+fetched_at: 2026-08-31T06:43:46.402758+00:00
+title: "Agente de Deep Research de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-# وكيل Deep Research في Gemini
+# Agente de Deep Research de Gemini
 
-يخطّط وكيل Deep Research من Gemini وينفّذ ويجمع مهام البحث المتعدّدة الخطوات بشكل مستقل. يستند هذا المنتج إلى Gemini، ويتنقّل بين المعلومات المعقّدة لإنشاء تقارير مفصّلة مع ذكر المصادر. تتيح لك الإمكانات الجديدة التخطيط بشكل تعاوني مع الوكيل، والربط بأدوات خارجية باستخدام خوادم MCP، وتضمين عمليات تصور (مثل المخططات والرسوم البيانية)، وتقديم المستندات مباشرةً كمدخلات.
+El agente de Deep Research de Gemini planifica, ejecuta y sintetiza de forma autónoma tareas de investigación de varios pasos. Con la tecnología de Gemini, navega por entornos de información complejos para producir informes detallados con citas. Las nuevas capacidades te permiten planificar de forma colaborativa con el agente, conectarte a herramientas externas con servidores de MCP, incluir visualizaciones (como gráficos) y proporcionar documentos directamente como entrada.
 
-تتضمّن مهام البحث عمليات بحث وقراءة متكرّرة، وقد يستغرق إكمالها عدة دقائق. يجب استخدام [التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar) (ضبط `background=true`)
-لتشغيل الوكيل بشكل غير متزامن وطلب النتائج أو بث التعديلات. لمزيد من التفاصيل، اطّلِع على [التعامل مع المهام التي تستغرق وقتًا طويلاً](#long-running-tasks).
+Las tareas de investigación implican búsquedas y lecturas iterativas, y pueden tardar varios minutos en completarse. Debes usar la [ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419) (establece `background=true`) para ejecutar el agente de forma asíncrona y sondear los resultados o transmitir actualizaciones. Consulta [Cómo controlar tareas de larga duración](#long-running-tasks) para obtener más detalles.
 
-يوضّح المثال التالي كيفية بدء مهمة بحث في الخلفية
-والتحقّق من النتائج.
+En el siguiente ejemplo, se muestra cómo iniciar una tarea de investigación en segundo plano y sondear los resultados.
 
 ### Python
 
@@ -99,20 +97,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## الإصدارات المتوافقة
+## Versiones compatibles
 
-يتوفّر وكيل Deep Research بإصدارَين:
+El agente de Deep Research está disponible en dos versiones:
 
-- ‫**Deep Research** (`deep-research-preview-04-2026`): تم تصميمه للعمل بسرعة وفعالية، وهو مثالي لبثه إلى واجهة مستخدم العميل.
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): توفّر هذه الميزة أقصى قدر من الشمولية لعملية جمع السياق وتلخيصه بشكل آلي.
+- **Deep Research** (`deep-research-preview-04-2026`): Se diseñó para ser rápido y eficiente, y es ideal para transmitirlo a la IU del cliente.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Máxima exhaustividad para la recopilación y síntesis automatizadas de contexto.
 
-## التخطيط التعاوني
+## Planificación colaborativa
 
-يمنحك التخطيط التعاوني التحكّم في اتجاه البحث قبل أن يبدأ الوكيل عمله، وذلك من خلال السماح لك بمراجعة خطة البحث وتحسينها قبل تنفيذها. عند تفعيل هذه الميزة، يعرض الوكيل خطة بحث مقترَحة بدلاً من تنفيذ البحث على الفور. يمكنك بعد ذلك مراجعة الخطة أو تعديلها أو الموافقة عليها من خلال التفاعلات المتعددة.
+La planificación colaborativa te permite controlar la dirección de la investigación antes de que el agente comience su trabajo, ya que te permite revisar y definir mejor el plan de investigación antes de la ejecución. Cuando se habilita, el agente devuelve un plan de investigación propuesto en lugar de ejecutar la investigación de inmediato. Luego, puedes revisar, modificar o aprobar el plan a través de interacciones de varios turnos.
 
-### الخطوة 1: طلب خطة
+### Paso 1: Solicita un plan
 
-اضبط `collaborative_planning=True` في التفاعل الأول. يعرض الوكيل خطة بحث بدلاً من تقرير كامل.
+Establece `collaborative_planning=True` en la primera interacción. El agente devuelve un plan de investigación en lugar de un informe completo.
 
 ### Python
 
@@ -178,9 +176,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### الخطوة 2: تحسين الخطة (اختيارية)
+### Paso 2: Define mejor el plan (opcional)
 
-استخدِم `previous_interaction_id` لمواصلة المحادثة وتكرار الخطة. اضغط مع الاستمرار على `collaborative_planning=True` للبقاء في وضع التخطيط.
+Usa `previous_interaction_id` para continuar la conversación y realizar iteraciones en el plan. Mantén presionado `collaborative_planning=True` para permanecer en el modo de planificación.
 
 ### Python
 
@@ -244,9 +242,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### الخطوة 3: الموافقة والتنفيذ
+### Paso 3: Aprueba y ejecuta
 
-اضبط القيمة على `collaborative_planning=False` (أو احذفها) للموافقة على الخطة وبدء البحث.
+Establece `collaborative_planning=False` (o omítelo) para aprobar el plan y comenzar la investigación.
 
 ### Python
 
@@ -310,11 +308,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## التمثيل البصري
+## Visualización
 
-عندما تكون قيمة `visualization` هي `"auto"`، يمكن للوكيل إنشاء رسومات بيانية ومخططات وعناصر مرئية أخرى لدعم نتائج البحث.
-يتم تضمين الصور التي تم إنشاؤها في خطوات الرد ويتم بثها كقيم
-`image` دلتا. للحصول على أفضل النتائج، اطلب بشكل صريح تضمين عناصر مرئية في طلب البحث، مثلاً "أدرِج رسومًا بيانية توضّح المؤشرات بمرور الوقت" أو "أنشئ رسومات تقارن الحصة السوقية". يؤدي ضبط `visualization` على `"auto"` إلى تفعيل هذه الإمكانية، ولكن لا ينشئ الوكيل مرئيات إلا عندما يطلبها الطلب.
+Cuando `visualization` se establece en `"auto"`, el agente puede generar gráficos y otros elementos visuales para respaldar los resultados de su investigación.
+Las imágenes generadas se incluyen en los pasos de la respuesta y se transmiten como deltas de `image`. Para obtener mejores resultados, pide explícitamente imágenes en tu búsqueda, por ejemplo, "Incluye gráficos que muestren las tendencias a lo largo del tiempo" o "Genera gráficos que comparen la participación de mercado". Si configuras `visualization` como `"auto"`, se habilita la capacidad, pero el agente genera elementos visuales solo cuando la instrucción los solicita.
 
 ### Python
 
@@ -405,21 +402,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## الأدوات المتوافقة
+## Herramientas compatibles
 
-تتيح ميزة Deep Research استخدام أدوات متعدّدة مضمّنة وخارجية. بشكل تلقائي (عند عدم توفير المَعلمة `tools`)، يمكن للوكيل الوصول إلى &quot;بحث Google&quot; و&quot;سياق عنوان URL&quot; و&quot;تنفيذ الرمز&quot;. يمكنك تحديد الأدوات بشكل صريح لحظر إمكانات الوكيل أو توسيع نطاقها.
+Deep Research admite varias herramientas integradas y externas. De forma predeterminada (cuando no se proporciona ningún parámetro `tools`), el agente tiene acceso a la Búsqueda de Google, al contexto de URL y a la ejecución de código. Puedes especificar de forma explícita las herramientas para restringir o extender las capacidades del agente.
 
-| الأداة | كتابة قيمة | الوصف |
+| Herramienta | Valor del tipo | Descripción |
 | --- | --- | --- |
-| بحث Google | `google_search` | البحث في شبكة الويب المتاحة للجميع يكون هذا الخيار مفعَّلاً تلقائيًا. |
-| سياق عناوين URL | `url_context` | قراءة محتوى صفحة الويب وتلخيصه يكون هذا الخيار مفعَّلاً تلقائيًا. |
-| تنفيذ الرموز البرمجية | `code_execution` | تنفيذ الرموز البرمجية لإجراء العمليات الحسابية وتحليل البيانات يكون هذا الخيار مفعَّلاً تلقائيًا. |
-| خادم MCP | `mcp_server` | الاتصال بخوادم MCP البعيدة للوصول إلى الأدوات الخارجية |
-| البحث عن الملفات | `file_search` | البحث في مجموعات مستنداتك المحمَّلة |
+| Búsqueda de Google | `google_search` | Buscar en la Web pública Habilitada de forma predeterminada. |
+| Contexto de URL | `url_context` | Leer y resumir el contenido de páginas web Habilitada de forma predeterminada. |
+| Ejecución de código | `code_execution` | Ejecutar código para realizar cálculos y análisis de datos Habilitada de forma predeterminada. |
+| Servidor MCP | `mcp_server` | Conectarse a servidores MCP remotos para acceder a herramientas externas |
+| Búsqueda de archivos | `file_search` | Busca en los corpus de documentos que subiste. |
 
-### بحث Google
+### Búsqueda de Google
 
-فعِّل "بحث Google" بشكل صريح كالأداة الوحيدة:
+Habilita explícitamente la Búsqueda de Google como la única herramienta:
 
 ### Python
 
@@ -457,9 +454,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### سياق عناوين URL
+### Contexto de URL
 
-امنح الوكيل إذن قراءة وتلخيص صفحات ويب معيّنة:
+Permite que el agente lea y resuma páginas web específicas:
 
 ### Python
 
@@ -497,9 +494,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### تنفيذ الرموز البرمجية
+### Ejecución de código
 
-السماح للوكيل بتنفيذ الرموز لإجراء العمليات الحسابية وتحليل البيانات:
+Permite que el agente ejecute código para realizar cálculos y análisis de datos:
 
 ### Python
 
@@ -537,21 +534,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### خوادم MCP
+### Servidores de MCP
 
-يمكنك الربط بخوادم MCP بعيدة لمنح الوكيل إذن الوصول إلى أدوات وخدمات خارجية.
+Conéctate a servidores de MCP remotos para darle al agente acceso a herramientas y servicios externos.
 
-قدِّم `name` و`url` الخادم في إعدادات الأدوات. يمكنك أيضًا تمرير بيانات اعتماد المصادقة وتقييد الأدوات التي يمكن للوكيل استدعاؤها.
+Proporciona el servidor `name` y `url` en la configuración de herramientas. También puedes pasar credenciales de autenticación y restringir las herramientas a las que puede llamar el agente.
 
-| الحقل | النوع | مطلوب | الوصف |
+| Campo | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | نعم | يجب أن تكون `"mcp_server"`. |
-| `name` | `string` | لا | اسم معروض لخادم MCP |
-| `url` | `string` | لا | عنوان URL الكامل لنقطة نهاية خادم MCP |
-| `headers` | `object` | لا | أزواج المفتاح والقيمة التي يتم إرسالها كعناوين HTTP مع كل طلب إلى الخادم (على سبيل المثال، رموز المصادقة المميزة). |
-| `allowed_tools` | `array` | لا | تقييد الأدوات التي يمكن للوكيل استدعاؤها من الخادم |
+| `type` | `string` | Sí | Debe ser `"mcp_server"`. |
+| `name` | `string` | No | Es un nombre visible para el servidor de MCP. |
+| `url` | `string` | No | Es la URL completa del extremo del servidor de MCP. |
+| `headers` | `object` | No | Pares clave-valor enviados como encabezados HTTP con cada solicitud al servidor (por ejemplo, tokens de autenticación). |
+| `allowed_tools` | `array` | No | Restringe las herramientas del servidor a las que puede llamar el agente. |
 
-#### الاستخدام الأساسي
+#### Uso básico
 
 ### Python
 
@@ -610,9 +607,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### البحث عن الملفات
+### Búsqueda de archivos
 
-امنح الوكيل إذن الوصول إلى بياناتك الخاصة باستخدام أداة [البحث في الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar).
+Otorga acceso al agente a tus propios datos con la herramienta [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419).
 
 ### Python
 
@@ -664,11 +661,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## إمكانية التوجيه والتنسيق
+## Capacidad de dirección y formato
 
-يمكنك توجيه ناتج الوكيل من خلال تقديم تعليمات تنسيق محدّدة في طلبك. يتيح لك ذلك تنظيم التقارير في أقسام وأقسام فرعية محدّدة، أو تضمين جداول بيانات، أو تعديل أسلوب النص ليناسب جمهورًا مختلفًا (مثل "فني" أو "تنفيذي" أو "عادي").
+Puedes guiar la respuesta del agente proporcionando instrucciones de formato específicas en tu instrucción. Esto te permite estructurar los informes en secciones y subsecciones específicas, incluir tablas de datos o ajustar el tono para diferentes públicos (p.ej., "técnico", "ejecutivo" o "informal").
 
-حدِّد تنسيق الناتج المطلوب بشكل صريح في النص الذي تدخله.
+Define el formato de salida deseado de forma explícita en el texto de entrada.
 
 ### Python
 
@@ -721,9 +718,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## إدخالات متعددة الوسائط
+## Entradas multimodales
 
-تتيح ميزة Deep Research إدخال طلبات متعددة الوسائط، بما في ذلك الصور والمستندات (ملفات PDF)، ما يسمح للوكيل بتحليل المحتوى المرئي وإجراء بحث على الويب مع مراعاة السياق الذي توفّره الطلبات.
+Deep Research admite entradas multimodales, incluidas imágenes y documentos (PDFs), lo que permite que el agente analice contenido visual y realice investigaciones basadas en la Web contextualizadas por las entradas proporcionadas.
 
 ### Python
 
@@ -829,10 +826,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### فهم المستندات
+### Comprensión de documentos
 
-تتيح ميزة "فهم المستندات" تمرير المستندات مباشرةً كمدخل متعدد الوسائط.
-يحلّل الوكيل المستندات المقدَّمة ويجري بحثًا يستند إلى محتواها.
+La comprensión de documentos permite pasar documentos directamente como entrada multimodal.
+El agente analiza los documentos proporcionados y realiza investigaciones basadas en su contenido.
 
 ### Python
 
@@ -893,29 +890,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## التعامل مع المهام الطويلة المدى
+## Cómo controlar tareas de larga duración
 
-‫Deep Research هي عملية متعددة الخطوات تشمل التخطيط والبحث والقراءة والكتابة. يتجاوز هذا الإجراء عادةً حدود المهلة الزمنية العادية لطلبات البيانات المتزامنة من واجهة برمجة التطبيقات.
+Deep Research es un proceso de varios pasos que incluye planificación, búsqueda, lectura y escritura. Por lo general, este ciclo supera los límites de tiempo de espera estándar de las llamadas a la API síncronas.
 
-على موظّفي الدعم استخدام `background=True`. تعرض واجهة برمجة التطبيقات عنصر `Interaction` جزئيًا على الفور. يمكنك استخدام السمة `id` لاسترداد تفاعل مع استطلاع. ستنتقل حالة التفاعل من
-`in_progress` إلى `completed` أو `failed`. للحصول على دليل شامل حول إدارة المهام التي تعمل في الخلفية، يُرجى الاطّلاع على [التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar).
+Se requieren agentes para usar `background=True`. La API devuelve un objeto `Interaction` parcial de inmediato. Puedes usar la propiedad `id` para recuperar una interacción para la votación. El estado de interacción pasará de `in_progress` a `completed` o `failed`. Para obtener una guía completa sobre la administración de tareas en segundo plano, consulta [Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
-### البث
+### Transmisión
 
-تتيح ميزة Deep Research البث المباشر لتلقّي آخر المعلومات في الوقت الفعلي حول تقدّم البحث، بما في ذلك ملخّصات الأفكار والنتائج النصية والصور التي تم إنشاؤها.
-يجب ضبط `stream=True` و`background=True`.
+Deep Research admite la transmisión para recibir actualizaciones en tiempo real sobre el progreso de la investigación, incluidos resúmenes de pensamientos, texto generado e imágenes.
+Debes configurar `stream=True` y `background=True`.
 
-لتلقّي خطوات التفكير الوسيطة (الأفكار) وإشعارات التقدّم، عليك تفعيل **ملخّصات التفكير** من خلال ضبط `thinking_summaries` على `"auto"` في `agent_config`. وبدون ذلك، قد لا يوفّر البث سوى النتائج النهائية.
+Para recibir pasos de razonamiento intermedios (pensamientos) y actualizaciones de progreso, debes habilitar los **resúmenes de pensamiento** configurando `thinking_summaries` en `"auto"` en `agent_config`. Sin esto, es posible que la transmisión solo proporcione los resultados finales.
 
-#### أنواع أحداث البث
+#### Tipos de eventos de transmisión
 
-| نوع الحدث | نوع التغيير | الوصف |
+| Tipo de evento | Tipo de delta | Descripción |
 | --- | --- | --- |
-| `step.delta` | `thought` | خطوة الاستدلال الوسيطة من الوكيل |
-| `step.delta` | `text` | جزء من النص النهائي الناتج |
-| `step.delta` | `image` | صورة تم إنشاؤها (مشفرة بترميز base64) |
+| `step.delta` | `thought` | Es un paso de razonamiento intermedio del agente. |
+| `step.delta` | `text` | Es parte del texto final. |
+| `step.delta` | `image` | Imagen generada (codificada en base64). |
 
-يبدأ المثال التالي مهمة بحث ويعالج البث مع إعادة الاتصال تلقائيًا. يتتبّع هذا المعرّف `interaction_id` و`last_event_id`، وبالتالي إذا انقطع الاتصال (على سبيل المثال، بعد انتهاء مهلة الـ 600 ثانية)، يمكن استئناف التنزيل من حيث توقّف.
+En el siguiente ejemplo, se inicia una tarea de investigación y se procesa la transmisión con reconexión automática. Realiza un seguimiento de `interaction_id` y `last_event_id` para que, si se interrumpe la conexión (por ejemplo, después del tiempo de espera de 600 segundos), pueda reanudarse desde donde se interrumpió.
 
 ### Python
 
@@ -1036,9 +1032,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## أسئلة المتابعة والتفاعلات
+## Preguntas y conversaciones de seguimiento
 
-يمكنك مواصلة المحادثة بعد أن يرسل لك الموظف التقرير النهائي باستخدام `previous_interaction_id`. يتيح لك ذلك طلب توضيح أو تلخيص أو تفصيل أقسام معيّنة من البحث بدون إعادة تشغيل المهمة بأكملها.
+Puedes continuar la conversación después de que el agente devuelva el informe final con `previous_interaction_id`. Esto te permite pedir aclaraciones, resúmenes o explicaciones sobre secciones específicas de la investigación sin tener que reiniciar toda la tarea.
 
 ### Python
 
@@ -1081,28 +1077,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## حالات استخدام "وكيل Deep Research في Gemini"
+## Cuándo usar el agente de Deep Research de Gemini
 
-‫Deep Research هي **وكيل**، وليست مجرد نموذج. وهي الأنسب لأحمال العمل التي تتطلّب أسلوب "محلّل جاهز للاستخدام" بدلاً من المحادثة ذات وقت الاستجابة المنخفض.
+Deep Research es un **agente**, no solo un modelo. Es más adecuado para cargas de trabajo que requieren un enfoque de "analista en una caja" en lugar de un chat de baja latencia.
 
-| الميزة | نماذج Gemini العادية | وكيل Deep Research من Gemini |
+| Función | Modelos de Gemini estándar | Agente de Deep Research de Gemini |
 | --- | --- | --- |
-| **وقت الاستجابة** | الثواني | الدقائق (غير متزامن/في الخلفية) |
-| **المعالجة** | إنشاء -> الناتج | التخطيط -> البحث -> القراءة -> التكرار -> الإخراج |
-| **الناتج** | نصوص حوارية ورموز وملخّصات قصيرة | التقارير التفصيلية والتحليل المطوّل وجداول المقارنة |
-| **الأفضل لـ** | برامج الدردشة الآلية واستخراج البيانات والكتابة الإبداعية | تحليل السوق، وبذل العناية الواجبة، ومراجعات الأبحاث، والتحليل التنافسي |
+| **Latencia** | Segundos | Minutos (asíncrono/en segundo plano) |
+| **Proceso** | Generar -> Resultado | Planificar > Buscar > Leer > Iterar > Generar |
+| **Resultado** | Texto conversacional, código y resúmenes breves | Informes detallados, análisis de formato largo y tablas comparativas |
+| **Ideal para** | Chatbots, extracción, escritura creativa | Análisis de mercado, diligencia debida, revisiones bibliográficas y análisis de la competencia |
 
-## إعدادات الوكيل
+## Configuración del agente
 
-تستخدِم ميزة Deep Research المَعلمة `agent_config` للتحكّم في السلوك.
-مرِّرها كقاموس يتضمّن الحقول التالية:
+La Investigación profunda usa el parámetro `agent_config` para controlar el comportamiento.
+Pásalo como un diccionario con los siguientes campos:
 
-| الحقل | النوع | القيمة التلقائية | الوصف |
+| Campo | Tipo | Predeterminado | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | مطلوب | يجب أن تكون `"deep-research"`. |
-| `thinking_summaries` | `string` | `"none"` | اضبط القيمة على `"auto"` لتلقّي خطوات الاستدلال الوسيطة أثناء البث. اضبط القيمة على `"none"` للإيقاف. |
-| `visualization` | `string` | `"auto"` | اضبط القيمة على `"auto"` لتفعيل المخططات والصور التي ينشئها الوكيل. اضبط القيمة على `"off"` للإيقاف. |
-| `collaborative_planning` | `boolean` | `false` | اضبط هذا الخيار على `true` لتفعيل مراجعة الخطة المتعددة الجولات قبل بدء البحث. |
+| `type` | `string` | Obligatorio | Debe ser `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Se establece en `"auto"` para recibir pasos de razonamiento intermedios durante la transmisión. Configúralo en `"none"` para inhabilitarlo. |
+| `visualization` | `string` | `"auto"` | Se establece en `"auto"` para habilitar los gráficos y las imágenes generados por el agente. Configúralo en `"off"` para inhabilitarlo. |
+| `collaborative_planning` | `boolean` | `false` | Se establece en `true` para habilitar la revisión del plan de varios turnos antes de que comience la investigación. |
 
 ### Python
 
@@ -1157,61 +1153,57 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## التوفّر والأسعار
+## Disponibilidad y precios
 
-يمكنك الوصول إلى "وكيل البحث العميق" من Gemini باستخدام Interactions API في Google AI Studio وGemini API.
+Puedes acceder al agente de Deep Research de Gemini con la API de Interactions en Google AI Studio y la API de Gemini.
 
-تتبع الأسعار [نموذج الدفع حسب الاستخدام](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#pricing-for-agents) استنادًا إلى نماذج Gemini الأساسية والأدوات المحدّدة التي يستخدمها الوكيل. على عكس طلبات الدردشة العادية التي تؤدي إلى نتيجة واحدة، فإنّ مهمة Deep Research هي سير عمل وكيل. يؤدي طلب واحد إلى تشغيل حلقة مستقلة من التخطيط والبحث والقراءة والاستدلال.
+Los precios siguen un [modelo de pago por uso](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#pricing-for-agents) basado en los modelos subyacentes de Gemini y las herramientas específicas que utiliza el agente. A diferencia de las solicitudes de chat estándar, en las que una solicitud genera una respuesta, una tarea de Deep Research es un flujo de trabajo de agente. Una sola solicitud activa un bucle autónomo de planificación, búsqueda, lectura y razonamiento.
 
-### التكاليف المقدَّرة
+### Costos estimados
 
-تختلف التكاليف حسب مدى تفصّل البحث المطلوب. يحدّد الوكيل بشكل مستقل مقدار القراءة والبحث اللازمَين للإجابة عن طلبك.
+Los costos varían según la profundidad de la investigación requerida. El agente determina de forma autónoma cuánta lectura y búsqueda son necesarias para responder tu instrucción.
 
-- **‫Deep Research** (`deep-research-preview-04-2026`): بالنسبة إلى طلب بحث نموذجي يتطلّب تحليلًا معتدلاً، قد يستخدم الوكيل حوالي 80 طلب بحث و250 ألف رمز مميز للإدخال (يتم تخزين حوالي %50 إلى %70 منها مؤقتًا) و60 ألف رمز مميز للإخراج.
-  - **الإجمالي المقدّر:** من 1.00 دولار أمريكي إلى 3.00 دولار أمريكي لكل مهمة
-- **‫Deep Research Max** (`deep-research-max-preview-04-2026`): لإجراء تحليل معمّق للمشهد التنافسي أو تدقيق شامل، قد يستخدم الوكيل ما يصل إلى 160 طلب بحث و900 ألف رمز مميز للإدخال (يتم تخزين %50 إلى %70 منها مؤقتًا) و80 ألف رمز مميز للإخراج.
-  - **الإجمالي المقدّر:** من 3.00 إلى 7.00 دولار أمريكي لكل مهمة
+- **Deep Research** (`deep-research-preview-04-2026`): Para una búsqueda típica que requiere un análisis moderado, el agente puede usar alrededor de 80 búsquedas, 250,000 tokens de entrada (entre el 50 y el 70% almacenados en caché) y 60,000 tokens de salida.
+  - **Total estimado:** De USD 1.00 a USD 3.00 por tarea
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Para un análisis profundo del panorama competitivo o una diligencia debida exhaustiva, el agente puede usar hasta 160 búsquedas, 900,000 tokens de entrada (entre el 50 y el 70% en caché) y 80,000 tokens de salida.
+  - **Total estimado:** De USD 3.00 a USD 7.00 por tarea
 
-## اعتبارات السلامة
+## Consideraciones de seguridad
 
-يتطلّب منح أحد العملاء إذن الوصول إلى الويب وملفاتك الخاصة مراعاة دقيقة لمخاطر الأمان.
+Darle acceso a un agente a la Web y a tus archivos privados requiere una consideración cuidadosa de los riesgos de seguridad.
 
-- **إدخال تعليمات ضارة باستخدام الملفات:** يقرأ الوكيل محتوى الملفات التي تقدّمها. تأكَّد من أنّ المستندات التي تم تحميلها (ملفات PDF وملفات نصية) واردة من مصادر موثوقة. قد يحتوي ملف ضار على نص مخفي مصمّم للتأثير في مخرجات الوكيل.
-- **مخاطر المحتوى على الويب:** يبحث الوكيل في شبكة الويب المتاحة للجميع. على الرغم من أنّنا نطبّق فلاتر أمان قوية، هناك خطر من أن يواجه الوكيل صفحات ويب ضارة ويعالجها. ننصحك بمراجعة `citations` الواردة
-  في الردّ للتأكّد من المصادر.
-- **استخراج البيانات:** يُرجى توخّي الحذر عند الطلب من الوكيل تلخيص بيانات داخلية حساسة إذا كنت تسمح له أيضًا بتصفّح الويب.
+- **Inyección de instrucciones con archivos:** El agente lee el contenido de los archivos que proporcionas. Asegúrate de que los documentos subidos (PDFs, archivos de texto) provengan de fuentes confiables. Un archivo malicioso podría contener texto oculto diseñado para manipular la salida del agente.
+- **Riesgos del contenido web:** El agente busca en la Web pública. Si bien implementamos filtros de seguridad sólidos, existe el riesgo de que el agente encuentre y procese páginas web maliciosas. Te recomendamos que revises el `citations` que se proporciona en la respuesta para verificar las fuentes.
+- **Exfiltración:** Ten cuidado cuando le pidas al agente que resuma datos internos sensibles si también le permites navegar por la Web.
 
-## أفضل الممارسات
+## Prácticas recomendadas
 
-- **طلب معلومات غير معروفة:** يمكنك توجيه الوكيل بشأن كيفية التعامل مع البيانات المفقودة.
-  على سبيل المثال، أضِف *"إذا لم تتوفّر أرقام محدّدة لعام 2025،
-  اذكر بوضوح أنّها توقّعات أو غير متوفّرة بدلاً من
-  تقديرها"* إلى طلبك.
-- **توفير السياق:** يمكنك توجيه بحث الوكيل من خلال تقديم معلومات أساسية أو قيود مباشرةً في طلب الإدخال.
-- **استخدام التخطيط التعاوني:** بالنسبة إلى طلبات البحث المعقّدة، فعِّل التخطيط التعاوني لمراجعة خطة البحث وتحسينها قبل تنفيذها.
-- **الإدخالات المتعدّدة الوسائط:** يتيح Deep Research Agent إدخالات متعدّدة الوسائط.
-  استخدِم هذه الميزة بحذر، لأنّها تزيد التكاليف وتزيد من خطر تجاوز قدرة الاستيعاب.
+- **Mensaje para desconocidos:** Indica al agente cómo controlar los datos faltantes.
+  Por ejemplo, agrega *"Si no hay cifras específicas disponibles para el 2025, indica explícitamente que son proyecciones o que no están disponibles en lugar de hacer una estimación"* a tu instrucción.
+- **Proporciona contexto:** Fundamenta la investigación del agente proporcionando información de antecedentes o restricciones directamente en la instrucción de entrada.
+- **Usa la planificación colaborativa:** Para las preguntas complejas, habilita la planificación colaborativa para revisar y definir mejor el plan de investigación antes de la ejecución.
+- **Entradas multimodales:** El agente de Deep Research admite entradas multimodales.
+  Úsala con precaución, ya que aumenta los costos y el riesgo de desbordamiento de la ventana de contexto.
 
-## القيود
+## Limitaciones
 
-- **الأدوات المخصّصة:** لا يمكنك حاليًا توفير أدوات مخصّصة لاستخدامها مع ميزة "استدعاء الدوال"، ولكن يمكنك استخدام خوادم MCP (بروتوكول سياق النموذج) عن بُعد مع وكيل "البحث العميق".
-- **الناتج المنظَّم:** لا يتيح Deep Research Agent حاليًا
-  الناتج المنظَّم.
-- **الحد الأقصى لمدة البحث:** يبلغ الحد الأقصى لمدة البحث التي يستغرقها وكيل Deep Research‏ 60 دقيقة. من المفترض أن تكتمل معظم المهام في غضون 20 دقيقة.
-- **متطلبات المتجر:** يتطلّب تنفيذ الوكيل باستخدام `background=True` توفّر `store=True`.
-- **بحث Google:** تكون ميزة [بحث Google](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) مفعّلة تلقائيًا، ويتم تطبيق [قيود معيّنة](https://ai.google.dev/gemini-api/terms?hl=ar#use-restrictions2) على النتائج المستندة إلى معلومات موثوقة.
+- **Herramientas personalizadas:** Actualmente, no puedes proporcionar herramientas personalizadas de Llamada a funciones, pero puedes usar servidores remotos de MCP (Protocolo de contexto del modelo) con el agente de Investigación profunda.
+- **Resultados estructurados:** Actualmente, el agente de Deep Research no admite resultados estructurados.
+- **Tiempo máximo de investigación:** El agente de Deep Research tiene un tiempo máximo de investigación de 60 minutos. La mayoría de las tareas deberían completarse en un plazo de 20 minutos.
+- **Requisito de la tienda:** La ejecución del agente con `background=True` requiere `store=True`.
+- **Búsqueda de Google:** La [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) está habilitada de forma predeterminada y se aplican [restricciones específicas](https://ai.google.dev/gemini-api/terms?hl=es-419#use-restrictions2) a los resultados fundamentados.
 
-## الخطوات التالية
+## ¿Qué sigue?
 
-- [مزيد من المعلومات عن Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar)
-- تعرَّف على كيفية استخدام بياناتك الخاصة باستخدام أداة [البحث في الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar).
+- Obtén más información sobre la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419).
+- Obtén información para usar tus propios datos con la herramienta [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419).
 
-إرسال ملاحظات
+Enviar comentarios
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-تاريخ التعديل الأخير: 2026-07-14 (حسب التوقيت العالمي المتفَّق عليه)
+Última actualización: 2026-07-14 (UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+¿Quieres brindar más información?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-14 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-14 (UTC)"],[],[]]

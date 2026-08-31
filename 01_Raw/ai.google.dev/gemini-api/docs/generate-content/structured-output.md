@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=he
-fetched_at: 2026-08-24T02:28:39.127616+00:00
-title: "\u05e4\u05dc\u05d8\u05d9\u05dd \u05de\u05d5\u05d1\u05b0\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=zh-CN
+fetched_at: 2026-08-31T06:36:28.835182+00:00
+title: "\u7ed3\u6784\u5316\u8f93\u51fa \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-שליחת משוב
+发送反馈
 
-# פלטים מובְנים
+# 结构化输出
 
-אתם יכולים להגדיר את מודלי Gemini כך שיצרו תשובות לפי סכימת JSON שסיפקתם. כך אפשר להבטיח תוצאות צפויות ובטוחות מבחינת סוג הנתונים, ולפשט את תהליך החילוץ של נתונים מובְנים מטקסט לא מובְנה.
+您可以将 Gemini 模型配置为生成符合所提供 JSON 架构的回答。这可确保获得可预测的类型安全结果，并简化从非结构化文本中提取结构化数据的过程。
 
-שימוש בפלט מובנה הוא אידיאלי במקרים הבאים:
+使用结构化输出非常适合以下情况：
 
-- **חילוץ נתונים:** חילוץ מידע ספציפי כמו שמות ותאריכים מטקסט.
-- **סיווג מובנה:** סיווג טקסט לקטגוריות מוגדרות מראש.
-- **תהליכי עבודה מבוססי-סוכן:** יצירת קלט מובנה לכלים או לממשקי API.
+- **数据提取**：从文本中提取特定信息，例如姓名和日期。
+- **结构化分类**：将文本归入预定义的类别。
+- **Agentic 工作流**：为工具或 API 生成结构化输入。
 
-בנוסף לתמיכה בסכימת JSON ב-API בארכיטקטורת REST, ערכות ה-SDK של Google GenAI מאפשרות להגדיר סכימות בקלות באמצעות [Pydantic](https://docs.pydantic.dev/latest/) (Python) ו-[Zod](https://zod.dev/) (JavaScript).
+除了在 REST API 中支持 JSON 架构之外，Google GenAI SDK 还可让您使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 轻松定义架构。
 
-## דוגמאות לפלט מובנה
+## 结构化输出示例
 
-### כלי לחילוץ מתכונים
+### 食谱提取器
 
-בדוגמה הזו מוסבר איך לחלץ נתונים מובְנים מטקסט באמצעות סוגים בסיסיים של סכימת JSON, כמו `object`, `array`, `string` ו-`integer`.
+此示例演示了如何使用 `object`、`array`、`string` 和 `integer` 等基本 JSON 架构类型从文本中提取结构化数据。
 
 ### Python
 
@@ -264,7 +264,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**דוגמה לתשובה:**
+**示例回答**：
 
 ```
 {
@@ -319,9 +319,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### ניהול תוכן
+### 内容审核
 
-בדוגמה הזו מוצגים `anyOf` לסכימות מותנות ו-`enum` לסיווג, כך שמבנה הפלט יכול להשתנות בהתאם לתוכן.
+此示例展示了 `anyOf`（用于条件架构）和 `enum`（用于分类），从而使输出结构能够根据内容而变化。
 
 ### Python
 
@@ -548,9 +548,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### מבנים רקורסיביים
+### 递归结构
 
-בדוגמה הזו מוסבר איך להגדיר סכימה רקורסיבית, כמו תרשים ארגוני.
+此示例展示了如何定义递归架构，例如组织结构图。
 
 ### Python
 
@@ -713,7 +713,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**דוגמה לתשובה:**
+**示例回答**：
 
 ```
 {
@@ -740,11 +740,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-## סטרימינג
+## 流式
 
-אתם יכולים להזרים פלט מובנה, וכך להתחיל לעבד את התגובה בזמן שהיא נוצרת, בלי לחכות לסיום יצירת הפלט כולו. כך אפשר לשפר את הביצועים של האפליקציה.
+您可以流式传输结构化输出，这样一来，您就可以在生成回答的同时开始处理回答，而无需等待整个输出完成。这有助于提升应用的感知性能。
 
-החלקים שמוזרמים יהיו מחרוזות JSON חלקיות ותקינות, שאפשר לשרשר כדי ליצור את אובייקט ה-JSON הסופי והמלא.
+流式传输的块将是有效的部分 JSON 字符串，可以连接起来形成最终的完整 JSON 对象。
 
 ### Python
 
@@ -800,9 +800,9 @@ for await (const chunk of stream) {
 }
 ```
 
-## פלט מובנה עם כלים
+## 使用工具生成结构化输出
 
-‫Gemini 3 מאפשר לכם לשלב פלט מובנה עם כלים מובנים, כולל [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he),‏ [URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=he),‏ [הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he),‏ [File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=he#structured-output) ו-[קריאה להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
+借助 Gemini 3，您可以将结构化输出与内置工具相结合，包括[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)、[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)、[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)、[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn#structured-output)和[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
 
 ### Python
 
@@ -907,101 +907,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## תמיכה בסכימת JSON
+## JSON 架构支持
 
-כדי ליצור אובייקט JSON, מגדירים את `response_format` בהגדרות היצירה. הסכימה חייבת להיות [סכימת JSON](https://json-schema.org/) תקינה שמתארת את פורמט הפלט הרצוי.
+如需生成 JSON 对象，请在生成配置中设置 `response_format`。架构必须是描述所需输出格式的有效 [JSON 架构](https://json-schema.org/)。
 
-המודל ייצור תשובה שהיא מחרוזת JSON תקינה מבחינת תחביר, שתואמת לסכימה שצוינה. כשמשתמשים בפלט מובנה, המודל יפיק פלט באותו סדר של המפתחות בסכימה.
+然后，模型会生成一个在语法上有效的 JSON 字符串，该字符串与所提供的架构相符。使用结构化输出时，模型将按架构中键的顺序生成输出。
 
-מצב הפלט המובנה של Gemini תומך בחלק ממפרט [JSON Schema](https://json-schema.org).
+Gemini 的结构化输出模式支持部分 [JSON 架构](https://json-schema.org)规范。
 
-יש תמיכה בערכים הבאים של `type`:
+支持以下 `type` 值：
 
-- ‫**`string`**: לטקסט.
-- ‫**`number`**: למספרים בשיטת נקודה צפה.
-- ‫**`integer`**: למספרים שלמים.
-- ‫**`boolean`**: לערכים מסוג True/False.
-- ‫**`object`**: לנתונים מובְנים עם צמדי מפתח/ערך.
-- ‫**`array`**: לרשימות של פריטים.
-- ‫**`null`**: כדי לאפשר שמאפיין יהיה null, צריך לכלול את `"null"` במערך הסוגים (לדוגמה, `{"type": ["string", "null"]}`).
+- **`string`**：对于文本。
+- **`number`**：适用于浮点数。
+- **`integer`**：适用于整数。
+- **`boolean`**：对于 true/false 值。
+- **`object`**：适用于包含键值对的结构化数据。
+- **`array`**：适用于商品列表。
+- **`null`**：如需允许属性为 null，请在类型数组中添加 `"null"`（例如 `{"type": ["string", "null"]}`）。
 
-מאפייני התיאור האלה עוזרים להנחות את המודל:
+这些描述性属性有助于引导模型：
 
-- ‫**`title`**: תיאור קצר של מאפיין.
-- **`description`**: תיאור ארוך ומפורט יותר של נכס.
+- **`title`**：属性的简短说明。
+- **`description`**：属性的更长、更详细的说明。
 
-### מאפיינים ספציפיים לסוג
+### 特定于类型的属性
 
-**לערכים של `object`:**
+**对于 `object` 值**：
 
-- ‫**`properties`**: אובייקט שבו כל מפתח הוא שם מאפיין וכל ערך הוא סכימה של המאפיין הזה.
-- ‫**`required`**: מערך של מחרוזות שמפרט את המאפיינים שחובה להגדיר.
-- ‫**`additionalProperties`**: מגדירה אם מותר להשתמש בנכסים שלא מופיעים ב-`properties`. יכול להיות ערך בוליאני או סכמה.
+- **`properties`**：一个对象，其中每个键都是属性名称，每个值都是相应属性的架构。
+- **`required`**：一个字符串数组，列出了哪些属性是必需的。
+- **`additionalProperties`**：控制是否允许使用未在 `properties` 中列出的属性。可以是布尔值或架构。
 
-**לערכים של `string`:**
+**对于 `string` 值**：
 
-- ‫**`enum`**: רשימה של קבוצה ספציפית של מחרוזות אפשריות למשימות סיווג.
-- ‫**`format`**: מציין תחביר למחרוזת, כמו `date-time`, ‏`date`, ‏`time`.
+- **`enum`**：列出分类任务的一组特定可能字符串。
+- **`format`**：指定字符串的语法，例如 `date-time`、`date`、`time`。
 
-**לערכים `number` ו-`integer`:**
+**对于 `number` 和 `integer` 值**：
 
-- ‫**`enum`**: רשימה של קבוצה ספציפית של ערכים נומריים אפשריים.
-- ‫**`minimum`**: ערך המינימום כולל.
-- ‫**`maximum`**: הערך המקסימלי כולל.
+- **`enum`**：列出了一组特定的可能数值。
+- **`minimum`**：包含在内的最小值。
+- **`maximum`**：最大值（含）。
 
-**לערכים של `array`:**
+**对于 `array` 值**：
 
-- ‫**`items`**: הגדרת הסכימה של כל הפריטים במערך.
-- ‫**`prefixItems`**: מגדיר רשימה של סכימות עבור הפריטים הראשונים, ומאפשר מבנים דמויי-tuple.
-- ‫**`minItems`**: המספר המינימלי של פריטים במערך.
-- ‫**`maxItems`**: המספר המקסימלי של פריטים במערך.
+- **`items`**：定义数组中所有元素的架构。
+- **`prefixItems`**：为前 N 个项定义架构列表，从而实现类似元组的结构。
+- **`minItems`**：数组中的最小项数。
+- **`maxItems`**：数组中的项数上限。
 
-## תמיכה במודלים
+## 模型支持
 
-המודלים הבאים תומכים בפלט מובנה:
+以下模型支持结构化输出：
 
-| מודל | פלט מובנה |
+| 模型 | 结构化输出 |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| ‫Gemini 3.1 Pro Preview | ✔️ |
+| Gemini 3 Pro 预览版 | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| ‫Gemini 3.1 Flash-Lite Preview | ✔️ |
-| Gemini ‎2.5 Pro | ✔️ |
-| Gemini ‎2.5 Flash | ✔️ |
+| Gemini 3.1 Flash-Lite 预览版 | ✔️ |
+| Gemini 2.5 Pro | ✔️ |
+| Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini ‎2.0 Flash | ✔️\* |
+| Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* שימו לב: כדי להגדיר את המבנה המועדף ב-Gemini 2.0, צריך להוסיף רשימה מפורשת של `propertyOrdering` בקלט ה-JSON. אפשר למצוא דוגמה ב[אוסף פתרונות](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) הזה.*
+*\* 请注意，Gemini 2.0 需要在 JSON 输入中明确指定 `propertyOrdering` 列表，以定义首选结构。您可以在此[实战宝典](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)中找到示例。*
 
-## פלט מובנה לעומת קריאה להפעלת פונקציות
+## 结构化输出与函数调用
 
-גם פלט מובנה וגם קריאה לפונקציה משתמשים בסכימות JSON, אבל הם משמשים למטרות שונות:
+结构化输出和函数调用都使用 JSON 架构，但用途不同：
 
-| תכונה | תרחיש שימוש ראשי |
+| 功能 | 主要使用场景 |
 | --- | --- |
-| **פלט מובנה** | **עיצוב התשובה הסופית למשתמש.** משתמשים בזה כשרוצים ש*התשובה* של המודל תהיה בפורמט ספציפי (למשל, שליפת נתונים ממסמך כדי לשמור אותם במסד נתונים). |
-| **בקשה להפעלת פונקציה** | **ביצוע פעולות במהלך השיחה** משתמשים בזה כשהמודל צריך *לשאול אתכם* לבצע משימה (למשל, "קבלת נתוני מזג האוויר הנוכחיים") לפני שהוא יכול לספק תשובה סופית. |
+| **结构化输出** | **设置最终用户响应的格式。**如果您希望模型的*回答*采用特定格式（例如，从文档中提取数据以保存到数据库），请使用此参数。 |
+| **函数调用** | **在对话期间采取行动。**当模型需要*询问您*才能执行任务（例如“获取当前天气”）时，请使用此值。 |
 
-## שיטות מומלצות
+## 最佳做法
 
-- **תיאורים ברורים:** משתמשים בשדה `description` בסכימה כדי לספק למודל הוראות ברורות לגבי מה מייצג כל מאפיין. ההנחיה הזו חשובה מאוד כדי להכווין את הפלט של המודל.
-- **הקלדה חזקה:** מומלץ להשתמש בסוגים ספציפיים (`integer`, ‏ `string`, ‏ `enum`) בכל הזדמנות. אם לפרמטר יש קבוצה מוגבלת של ערכים תקינים, משתמשים ב-`enum`.
-- **הנדסת פרומפטים:** בפרומפט צריך לציין בצורה ברורה מה רוצים שהמודל יעשה. לדוגמה: 'חלץ את המידע הבא מהטקסט...' או 'סווג את המשוב הזה לפי הסכימה שצוינה...'.
-- **אימות:** הפלט המובנה מבטיח שקובץ ה-JSON יהיה תקין מבחינת התחביר, אבל לא מבטיח שהערכים יהיו תקינים מבחינה סמנטית. תמיד צריך לאמת את הפלט הסופי בקוד האפליקציה לפני שמשתמשים בו.
-- **טיפול בשגיאות:** כדאי להטמיע טיפול חזק בשגיאות באפליקציה כדי לנהל בצורה תקינה מקרים שבהם הפלט של המודל עומד בדרישות הסכימה, אבל לא בדרישות הלוגיקה העסקית.
+- **清晰的说明**：使用架构中的 `description` 字段向模型清晰说明每个属性的含义。这对于引导模型的输出至关重要。
+- **强类型**：尽可能使用特定类型（`integer`、`string`、`enum`）。如果某个形参的有效值数量有限，请使用 `enum`。
+- **提示工程**：在提示中明确说明您希望模型执行的操作。例如，“从文本中提取以下信息…”或“根据提供的架构对这条反馈进行分类…”。
+- **验证**：虽然结构化输出可保证 JSON 在语法上正确，但无法保证值在语义上正确。请务必先验证应用代码中的最终输出，然后再使用。
+- **错误处理**：在应用中实现强大的错误处理机制，以便妥善管理模型输出虽然符合架构要求，但可能不符合业务逻辑要求的情况。
 
-## מגבלות
+## 限制
 
-- **קבוצת משנה של סכימה:** לא כל התכונות של מפרט סכימת ה-JSON נתמכות. המודל מתעלם ממאפיינים שלא נתמכים.
-- **מורכבות הסכימה:** יכול להיות שממשק ה-API ידחה סכימות גדולות מאוד או סכימות עם קינון עמוק. אם נתקלים בשגיאות, כדאי לפשט את הסכימה על ידי קיצור שמות המאפיינים, צמצום הקינון או הגבלת מספר האילוצים.
+- **架构子集**：不支持 JSON 架构规范的所有功能。模型会忽略不受支持的属性。
+- **架构复杂性**：API 可能会拒绝非常大或嵌套很深的架构。如果您遇到错误，请尝试缩短属性名称、减少嵌套或限制约束数量，以简化架构。
 
-שליחת משוב
+发送反馈
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-עדכון אחרון: 2026-07-30 (שעון UTC).
+最后更新时间 (UTC)：2026-07-30。
 
-רוצה לתת לנו משוב?
+需要向我们提供更多信息？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]

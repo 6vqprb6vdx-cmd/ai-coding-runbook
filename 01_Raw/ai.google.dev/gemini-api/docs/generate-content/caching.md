@@ -1,66 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=pt-BR
-fetched_at: 2026-08-24T02:27:43.424557+00:00
-title: "O armazenamento em cache de contexto \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=vi
+fetched_at: 2026-08-31T06:40:46.327114+00:00
+title: "L\u01b0u ng\u1eef c\u1ea3nh v\u00e0o b\u1ed9 nh\u1edb \u0111\u1ec7m \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-# O armazenamento em cache de contexto
+# Lưu ngữ cảnh vào bộ nhớ đệm
 
-Em um fluxo de trabalho de IA típico, você pode transmitir os mesmos tokens de entrada várias vezes para um modelo. A API Gemini oferece dois mecanismos de armazenamento em cache diferentes:
+Trong quy trình làm việc điển hình của AI, bạn có thể truyền đi truyền lại cùng một mã thông báo đầu vào cho một mô hình. Gemini API cung cấp 2 cơ chế lưu vào bộ nhớ đệm:
 
-- Armazenamento em cache implícito (ativado automaticamente nos modelos do Gemini 2.5 e mais recentes, sem garantia de economia de custos)
-- Armazenamento em cache explícito (pode ser ativado manualmente na maioria dos modelos, com garantia de economia de custos)
+- Lưu vào bộ nhớ đệm ngầm (tự động bật trên Gemini 2.5 và các mô hình mới hơn, không đảm bảo tiết kiệm chi phí)
+- Lưu vào bộ nhớ đệm rõ ràng (có thể bật theo cách thủ công trên hầu hết các mô hình, đảm bảo tiết kiệm chi phí)
 
-O armazenamento em cache explícito é útil nos casos em que você quer garantir economia de custos, mas com algum trabalho extra do desenvolvedor.
+Việc lưu vào bộ nhớ đệm rõ ràng sẽ hữu ích trong trường hợp bạn muốn đảm bảo tiết kiệm chi phí, nhưng cần thêm một số công việc của nhà phát triển.
 
-## Armazenamento em cache implícito
+## Lưu vào bộ nhớ đệm ngầm
 
-O armazenamento em cache implícito é ativado por padrão para todos os modelos do Gemini 2.5 e mais recentes. Transmitimos automaticamente a economia de custos se a solicitação atingir os caches. Não é necessário fazer nada para ativar isso. A contagem mínima de tokens de entrada para o armazenamento em cache de contexto está listada na tabela a seguir para cada modelo:
+Tính năng lưu vào bộ nhớ đệm ngầm định được bật theo mặc định cho tất cả các mô hình Gemini 2.5 trở lên. Chúng tôi tự động chuyển các khoản tiết kiệm chi phí nếu yêu cầu của bạn truy cập vào bộ nhớ đệm. Bạn không cần làm gì để bật tính năng này. Số lượng số token đầu vào tối thiểu để lưu vào bộ nhớ đệm theo bối cảnh được liệt kê trong bảng sau cho từng mô hình:
 
-| Modelo | Limite mínimo de tokens |
+| Mô hình | Giới hạn mã thông báo tối thiểu |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| Pré-lançamento do Gemini 3.1 Pro | 4096 |
+| Gemini 3.1 Pro (Bản xem trước) | 4096 |
 | Gemini 2.5 Flash | 2048 |
 | Gemini 2.5 Pro | 2048 |
 
-Para aumentar a chance de uma ocorrência em cache implícita:
+Để tăng cơ hội nhận được kết quả tìm kiếm trong bộ nhớ cache ngầm ẩn:
 
-- Tente colocar conteúdos grandes e comuns no início do comando
-- Tente enviar solicitações com prefixo semelhante em um curto período
+- Hãy thử đặt nội dung lớn và phổ biến ở đầu câu lệnh
+- Hãy thử gửi các yêu cầu có tiền tố tương tự trong một khoảng thời gian ngắn
 
-Você pode conferir o número de tokens que foram acertos de cache no campo `usage_metadata` do objeto de resposta.
+Bạn có thể xem số lượng mã thông báo là lượt truy cập vào bộ nhớ đệm trong trường `usage_metadata` của đối tượng phản hồi.
 
-## Armazenamento em cache explícito
+## Lưu vào bộ nhớ đệm một cách rõ ràng
 
-Usando o recurso de armazenamento em cache explícito da API Gemini, você pode transmitir algum conteúdo para o modelo uma vez, armazenar os tokens de entrada em cache e, em seguida, consultar os tokens armazenados em cache para solicitações subsequentes. Em determinados volumes, o uso de tokens armazenados em cache é mais barato do que transmitir o mesmo corpus de tokens repetidamente.
+Khi sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng của Gemini API, bạn có thể truyền một số nội dung đến mô hình một lần, lưu mã thông báo đầu vào vào bộ nhớ đệm, sau đó tham chiếu đến mã thông báo đã lưu vào bộ nhớ đệm cho các yêu cầu tiếp theo. Ở một số lượng nhất định, việc sử dụng mã thông báo được lưu vào bộ nhớ đệm sẽ có chi phí thấp hơn so với việc truyền cùng một tập hợp mã thông báo nhiều lần.
 
-Ao armazenar um conjunto de tokens em cache, você pode escolher por quanto tempo quer que o cache exista antes que os tokens sejam excluídos automaticamente. Essa duração do armazenamento em cache é chamada de *tempo de vida útil* (TTL, na sigla em inglês). Se não for definido, o TTL será de 1 hora por padrão. O custo do armazenamento em cache depende do tamanho do token de entrada e de quanto tempo você quer que os tokens persistam.
+Khi lưu trữ một nhóm mã thông báo vào bộ nhớ đệm, bạn có thể chọn khoảng thời gian bạn muốn bộ nhớ đệm tồn tại trước khi mã thông báo bị xoá tự động. Khoảng thời gian lưu vào bộ nhớ đệm này được gọi là *thời gian tồn tại* (TTL). Nếu bạn không đặt, TTL sẽ mặc định là 1 giờ. Chi phí lưu vào bộ nhớ đệm phụ thuộc vào kích thước mã thông báo đầu vào và thời gian bạn muốn mã thông báo duy trì.
 
-Esta seção pressupõe que você instalou um SDK do Gemini (ou tem o curl instalado)
-e configurou uma chave de API, conforme mostrado no
-[guia de introdução](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br).
+Phần này giả định rằng bạn đã cài đặt Gemini SDK (hoặc đã cài đặt curl) và bạn đã định cấu hình khoá API, như trong [Hướng dẫn bắt đầu sử dụng](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi).
 
-### Gerar conteúdo usando um cache
+### Tạo nội dung bằng bộ nhớ đệm
 
 ### Python
 
-O exemplo a seguir mostra como gerar conteúdo usando uma instrução do sistema armazenada em cache e um arquivo de vídeo.
+Ví dụ sau đây cho biết cách tạo nội dung bằng chỉ dẫn hệ thống và tệp video được lưu vào bộ nhớ đệm.
 
-### Vídeos
+### Video
 
 ```
 import os
@@ -119,7 +117,7 @@ print(response.usage_metadata)
 print(response.text)
 ```
 
-### PDFs
+### PDF
 
 ```
 from google import genai
@@ -167,7 +165,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-O exemplo a seguir mostra como gerar conteúdo usando uma instrução do sistema armazenada em cache e um arquivo de texto.
+Ví dụ sau đây cho thấy cách tạo nội dung bằng cách sử dụng một chỉ dẫn hệ thống được lưu vào bộ nhớ đệm và một tệp văn bản.
 
 ```
 import {
@@ -208,7 +206,7 @@ await main();
 
 ### Go
 
-O exemplo a seguir mostra como gerar conteúdo usando um cache.
+Ví dụ sau đây cho thấy cách tạo nội dung bằng bộ nhớ đệm.
 
 ```
 package main
@@ -278,9 +276,9 @@ func main() {
 
 ### REST
 
-O exemplo a seguir mostra como criar um cache e usá-lo para gerar conteúdo.
+Ví dụ sau đây cho biết cách tạo bộ nhớ đệm rồi dùng bộ nhớ đệm đó để tạo nội dung.
 
-### Vídeos
+### Video
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -331,7 +329,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
     }'
 ```
 
-### PDFs
+### PDF
 
 ```
 DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
@@ -429,22 +427,20 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Listar caches
+### Liệt kê bộ nhớ đệm
 
-Não é possível recuperar ou visualizar o conteúdo armazenado em cache, mas você pode recuperar
-metadados de cache (`name`, `model`, `display_name`, `usage_metadata`,
-`create_time`, `update_time` e `expire_time`).
+Bạn không thể truy xuất hoặc xem nội dung trong bộ nhớ đệm, nhưng có thể truy xuất siêu dữ liệu trong bộ nhớ đệm (`name`, `model`, `display_name`, `usage_metadata`, `create_time`, `update_time` và `expire_time`).
 
 ### Python
 
-Para listar os metadados de todos os caches enviados, use `CachedContent.list()`:
+Để liệt kê siêu dữ liệu cho tất cả bộ nhớ đệm đã tải lên, hãy sử dụng `CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-Para buscar os metadados de um objeto de cache, se você souber o nome dele, use `get`:
+Để tìm nạp siêu dữ liệu cho một đối tượng trong bộ nhớ đệm, nếu bạn biết tên của đối tượng đó, hãy sử dụng `get`:
 
 ```
 client.caches.get(name=name)
@@ -452,7 +448,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-Para listar os metadados de todos os caches enviados, use `GoogleGenAI.caches.list()`:
+Để liệt kê siêu dữ liệu cho tất cả bộ nhớ đệm đã tải lên, hãy sử dụng `GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -469,7 +465,7 @@ while (true) {
 
 ### Go
 
-O exemplo a seguir lista todos os caches.
+Ví dụ sau đây liệt kê tất cả các bộ nhớ đệm.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -482,7 +478,7 @@ for _, item := range caches {
 }
 ```
 
-O exemplo a seguir lista caches usando um tamanho de página de 2.
+Ví dụ sau đây liệt kê các bộ nhớ đệm bằng cách sử dụng kích thước trang là 2.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -515,13 +511,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### Atualizar um cache
+### Cập nhật bộ nhớ đệm
 
-Você pode definir um novo `ttl` ou `expire_time` para um cache. Não é possível mudar mais nada sobre o cache.
+Bạn có thể đặt `ttl` hoặc `expire_time` mới cho bộ nhớ đệm. Không hỗ trợ việc thay đổi bất kỳ thông tin nào khác về bộ nhớ đệm.
 
 ### Python
 
-O exemplo a seguir mostra como atualizar o `ttl` de um cache usando `client.caches.update()`.
+Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm bằng `client.caches.update()`.
 
 ```
 from google import genai
@@ -535,11 +531,7 @@ client.caches.update(
 )
 ```
 
-Para definir o expiry time, ele aceita um objeto `datetime`
-ou uma string de data e hora formatada em ISO (`dt.isoformat()`, como
-`2025-01-27T16:02:36.473528+00:00`). O horário precisa incluir um fuso horário
-(`datetime.utcnow()` não anexa um fuso horário,
-`datetime.now(datetime.timezone.utc)` anexa um fuso horário).
+Để đặt thời gian hết hạn, bạn có thể chấp nhận đối tượng `datetime` hoặc chuỗi ngày giờ theo định dạng ISO (`dt.isoformat()`, chẳng hạn như `2025-01-27T16:02:36.473528+00:00`). Thời gian của bạn phải bao gồm múi giờ (`datetime.utcnow()` không đính kèm múi giờ, `datetime.now(datetime.timezone.utc)` có đính kèm múi giờ).
 
 ```
 from google import genai
@@ -559,7 +551,7 @@ client.caches.update(
 
 ### JavaScript
 
-O exemplo a seguir mostra como atualizar o `ttl` de um cache usando `GoogleGenAI.caches.update()`.
+Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm bằng `GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -572,7 +564,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-O exemplo a seguir mostra como atualizar o `TTL` de um cache.
+Ví dụ sau đây cho thấy cách cập nhật `TTL` của một bộ nhớ đệm.
 
 ```
 // Update the TTL (2 hours).
@@ -588,7 +580,7 @@ fmt.Println(cache)
 
 ### REST
 
-O exemplo a seguir mostra como atualizar o `ttl` de um cache.
+Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -596,9 +588,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### Excluir um cache
+### Xoá bộ nhớ đệm
 
-O serviço de armazenamento em cache oferece uma operação de exclusão para remover manualmente o conteúdo do cache. O exemplo a seguir mostra como excluir um cache:
+Dịch vụ lưu vào bộ nhớ đệm cung cấp một thao tác xoá để xoá nội dung khỏi bộ nhớ đệm theo cách thủ công. Ví dụ sau đây cho thấy cách xoá bộ nhớ đệm:
 
 ### Python
 
@@ -628,49 +620,44 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### Armazenamento em cache explícito usando a biblioteca OpenAI
+### Bộ nhớ đệm rõ ràng bằng thư viện OpenAI
 
-Se você estiver usando uma [biblioteca OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br), poderá ativar o
-armazenamento em cache explícito usando a propriedade `cached_content` em
-[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br#extra-body).
+Nếu đang sử dụng [thư viện OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi), bạn có thể bật tính năng lưu vào bộ nhớ đệm rõ ràng bằng cách sử dụng thuộc tính `cached_content` trên [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=vi#extra-body).
 
-## Quando usar o armazenamento em cache explícito
+## Trường hợp sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng
 
-O armazenamento em cache de contexto é particularmente adequado para cenários em que um contexto inicial substancial é referenciado repetidamente por solicitações mais curtas. Use armazenamento em cache de contexto para casos de uso como estes:
+Tính năng lưu vào bộ nhớ đệm theo bối cảnh đặc biệt phù hợp với những trường hợp mà một ngữ cảnh ban đầu đáng kể được các yêu cầu ngắn hơn tham chiếu nhiều lần. Hãy cân nhắc sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh cho các trường hợp sử dụng như:
 
-- Chatbots com instruções [abrangentes do sistema](https://ai.google.dev/gemini-api/docs/system-instructions?hl=pt-br)
-- Análise repetitiva de arquivos de vídeo longos
-- Consultas recorrentes em grandes conjuntos de documentos
-- Análise frequente do repositório de código ou correção de bugs
+- Chatbot có [hướng dẫn chi tiết về hệ thống](https://ai.google.dev/gemini-api/docs/system-instructions?hl=vi)
+- Phân tích lặp đi lặp lại các tệp video dài
+- Truy vấn định kỳ đối với các tập tài liệu lớn
+- Thường xuyên phân tích kho lưu trữ mã hoặc sửa lỗi
 
-### Como o armazenamento em cache explícito reduz os custos
+### Cách bộ nhớ đệm rõ ràng giúp giảm chi phí
 
-O armazenamento em cache de contexto é um recurso pago projetado para reduzir o custo. O faturamento é baseado nos seguintes fatores:
+Lưu vào bộ nhớ đệm theo bối cảnh là một tính năng có tính phí được thiết kế để giảm chi phí. Việc tính phí dựa trên các yếu tố sau:
 
-1. **Contagem de tokens de cache**:o número de tokens de entrada armazenados em cache, faturados com uma taxa reduzida quando incluído nos comandos subsequentes.
-2. **Duração do armazenamento**:o tempo de armazenamento e cobrança dos tokens em cache (TTL), faturado com base na duração do TTL da contagem de tokens armazenados em cache. Não há limites mínimos ou máximos no TTL.
-3. **Outros fatores**:outras cobranças se aplicam, como tokens de entrada não armazenados em cache e tokens de saída.
+1. **Số token trong bộ nhớ đệm:** Số token đầu vào được lưu vào bộ nhớ đệm, được tính phí với mức giá thấp hơn khi có trong các câu lệnh tiếp theo.
+2. **Thời gian lưu trữ:** Khoảng thời gian lưu trữ mã thông báo được lưu vào bộ nhớ đệm (TTL), được tính phí dựa trên thời lượng TTL của số token được lưu vào bộ nhớ đệm. Không có giới hạn tối thiểu hoặc tối đa về TTL.
+3. **Các yếu tố khác:** Các khoản phí khác được áp dụng, chẳng hạn như đối với mã thông báo đầu vào và đầu ra không được lưu vào bộ nhớ đệm.
 
-Para detalhes de preços atualizados, consulte a página de preços da API Gemini [pricing
-page](https://ai.google.dev/pricing?hl=pt-br). Para saber como contar tokens, consulte o [guia
-de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br).
+Để biết thông tin chi tiết mới nhất về giá, hãy tham khảo [trang định giá](https://ai.google.dev/pricing?hl=vi) của Gemini API. Để tìm hiểu cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
 
-### Outras considerações
+### Các yếu tố cần cân nhắc khác
 
-Considere o seguinte ao usar o armazenamento em cache de contexto:
+Khi sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh, hãy lưu ý những điểm sau:
 
-- A contagem *mínima* de tokens de entrada para o armazenamento em cache de contexto varia de acordo com o modelo. O *máximo* é o mesmo do modelo em questão. Para mais informações sobre como contar tokens,
-  consulte o [guia de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br)).
-- O modelo não faz distinção entre tokens armazenados em cache e tokens de entrada normais. O conteúdo armazenado em cache é um prefixo do comando.
-- Não há limites de taxa ou uso especiais no armazenamento em cache de contexto. Os limites de taxa padrão para `GenerateContent` se aplicam, e os limites de tokens incluem tokens armazenados em cache.
-- O número de tokens armazenados em cache é retornado no `usage_metadata` das operações de criação, recebimento e listagem do serviço de cache, e também em `GenerateContent` ao usar o cache.
+- Số lượng mã thông báo đầu vào *tối thiểu* để lưu vào bộ nhớ đệm theo bối cảnh sẽ khác nhau tuỳ theo mô hình. *Tối đa* giống với giá trị tối đa của mô hình đã cho. (Để biết thêm thông tin về cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi)).
+- Mô hình này không phân biệt giữa các mã thông báo được lưu vào bộ nhớ đệm và các mã thông báo đầu vào thông thường. Nội dung trong bộ nhớ đệm là tiền tố của câu lệnh.
+- Không có hạn mức sử dụng hoặc mức giá đặc biệt nào đối với tính năng lưu vào bộ nhớ đệm theo ngữ cảnh; hạn mức tiêu chuẩn cho `GenerateContent` sẽ được áp dụng và hạn mức mã thông báo bao gồm cả mã thông báo được lưu vào bộ nhớ đệm.
+- Số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ được trả về trong `usage_metadata` từ các thao tác tạo, nhận và liệt kê của dịch vụ bộ nhớ đệm, cũng như trong `GenerateContent` khi sử dụng bộ nhớ đệm.
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última atualização 2026-07-30 UTC.
+Cập nhật lần gần đây nhất: 2026-07-30 UTC.
 
-Quer enviar seu feedback?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]

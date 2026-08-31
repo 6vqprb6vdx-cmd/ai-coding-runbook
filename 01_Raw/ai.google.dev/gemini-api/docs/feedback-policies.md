@@ -1,55 +1,60 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=he
-fetched_at: 2026-08-24T02:24:29.370985+00:00
-title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=id
+fetched_at: 2026-08-31T06:40:24.802901+00:00
+title: "Masukan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-# משוב
+# Masukan
 
-## הצבעה להעדפות מוטבעות
+## Pemungutan Suara Preferensi Sisipan
 
-ב-Google AI Studio, יכול להיות שמדי פעם תראו השוואה בין שתי תשובות שונות להנחיה שלכם. זה חלק ממערכת ההצבעה שלנו להעדפות בתוך התוכן. תתבקשו לבחור את התשובה המועדפת. כך אנחנו יכולים להבין אילו פלטים של המודל הכי מועילים למשתמשים.
+Di Google AI Studio, Anda mungkin sesekali melihat perbandingan berdampingan dari dua respons yang berbeda terhadap perintah Anda. Hal ini merupakan bagian dari sistem Pemungutan Suara Preferensi Sisipan kami. Anda akan diminta untuk memilih respons yang Anda sukai. Hal ini membantu kami memahami output model mana yang menurut pengguna paling bermanfaat.
 
-### למה אנחנו עושים את זה?
+### Mengapa kita melakukan hal ini?
 
-אנחנו כל הזמן פועלים לשיפור המודלים והשירותים שלנו מבוססי-AI. המשוב שלכם באמצעות ההצבעה על העדפות בתוך הטקסט עוזר לנו לספק, לשפר ולפתח מוצרים ושירותים של Google וטכנולוגיות למידת מכונה, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם [לתנאים והגבלות נוספים לממשקי Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות הפרטיות](https://policies.google.com/privacy?hl=he).
+Kami terus berupaya meningkatkan kualitas model dan layanan AI kami. Masukan Anda
+melalui Pemungutan Suara Preferensi Sisipan membantu kami menyediakan, meningkatkan kualitas, dan mengembangkan produk dan layanan Google
+serta teknologi machine learning, termasuk fitur, produk, dan layanan perusahaan Google
+, sesuai dengan
+[Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id) dan
+[Kebijakan Privasi](https://policies.google.com/privacy?hl=id).
 
-### אילו נתונים נכללים במשוב?
+### Data apa saja yang disertakan dalam Masukan?
 
-כדי לקבל החלטות מושכלות לגבי המודלים שלנו, אנחנו אוספים נתונים מסוימים כשאתם משתתפים בהצבעה להעדפות בתוך הטקסט:
+Untuk membuat keputusan yang tepat terkait model kami, kami mengumpulkan data tertentu saat Anda berpartisipasi dalam Pemungutan Suara Preferensi Sisipan:
 
-- **הנחיות ותשובות:** אנחנו מתעדים את כל ההנחיות והתשובות, כולל כל תוכן שהועלה, בשיחה ששלחתם עליה משוב. אנחנו גם מתעדים את שתי אפשרויות התשובה שבחרתם. כך נוכל להבין את ההקשר של ההעדפה שלכם.
-- **ההצבעה שלך:** אנחנו מתעדים איזו תשובה העדפתם. זהו עיקר המשוב שאנחנו אוספים.
-- **פרטי השימוש:** כולל מידע על המודל שיצר את התגובה ופרטים טכניים ותפעוליים אחרים על השימוש שלכם בתכונה הזו.
+- **Perintah dan Respons:** Kami mencatat semua perintah dan respons, termasuk konten yang diupload, dalam percakapan yang Anda kirimkan masukan. Kami juga mencatat dua opsi respons yang Anda pilih. Hal ini membantu kami memahami konteks preferensi Anda.
+- **Suara Anda:** Kami mencatat respons yang Anda sukai. Hal ini merupakan inti dari masukan yang kami kumpulkan.
+- **Detail Penggunaan:** Hal ini mencakup informasi tentang model yang menghasilkan respons dan detail teknis serta operasional lainnya tentang penggunaan fitur ini oleh Anda.
 
-### הפרטיות שלך
+### Privasi Anda
 
-הפרטיות שלכם חשובה לנו מאוד. במסגרת התהליך הזה, Google מבצעת פעולות כדי להגן על הפרטיות שלכם. לדוגמה, אנחנו מנתקים את הנתונים האלה מחשבון Google, ממפתח ה-API ומפרויקט הענן לפני שהבודקים רואים אותם או מוסיפים להם הערות. **אל תשלחו משוב על שיחות שכוללות מידע רגיש, סודי או אישי.**
+Privasi Anda sangat kami utamakan. Google mengambil langkah-langkah untuk melindungi privasi Anda sebagai bagian dari proses ini. Langkah yang dimaksud antara lain memutuskan sambungan data ini dari Akun Google, Kunci API, dan project Cloud Anda sebelum peninjau melihat atau menganotasi data tersebut. **Jangan kirimkan masukan tentang percakapan yang menyertakan informasi sensitif, rahasia, atau pribadi.**
 
-### ביטול הסכמה להצטרפות
+### Memilih Tidak Ikut
 
-תוכלו לדלג על ההצבעה להעדפות בתוך הטקסט כשהיא תופיע.
+Anda akan memiliki opsi untuk melewati Pemungutan Suara Preferensi Sisipan saat muncul.
 
-תודה שעזרת לנו לשפר את Google AI Studio!
+Terima kasih telah membantu kami meningkatkan kualitas Google AI Studio.
 
-שליחת משוב
+Kirim masukan
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-רוצה לתת לנו משוב?
+Ada masukan untuk kami?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

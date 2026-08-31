@@ -1,53 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=it
-fetched_at: 2026-08-24T02:28:32.844388+00:00
-title: "Token temporanei \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=fr
+fetched_at: 2026-08-31T06:37:08.472671+00:00
+title: "Jetons \u00e9ph\u00e9m\u00e8res \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Invia feedback
+Envoyer des commentaires
 
-# Token temporanei
+# Jetons éphémères
 
-I token effimeri sono token di autenticazione di breve durata per accedere all'API Gemini
-tramite [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Sono progettate per migliorare la sicurezza quando
-ti connetti direttamente dal dispositivo di un utente all'API (un'implementazione
-[da client a server](https://ai.google.dev/gemini-api/docs/live?hl=it#implementation-approach)). Come le chiavi API standard, i token effimeri possono essere estratti da
-applicazioni lato client come browser web o app mobile. Tuttavia, poiché i token effimeri scadono rapidamente e possono essere limitati, riducono significativamente i rischi per la sicurezza in un ambiente di produzione. Devi utilizzarle quando
-accedi all'API Live direttamente dalle applicazioni lato client per migliorare la sicurezza della chiave API.
+Les jetons éphémères sont des jetons d'authentification de courte durée permettant d'accéder à l'API Gemini via [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Elles sont conçues pour renforcer la sécurité lorsque vous vous connectez directement à l'API depuis l'appareil d'un utilisateur (une implémentation [client-serveur](https://ai.google.dev/gemini-api/docs/live?hl=fr#implementation-approach)). Comme les clés API standards, les jetons éphémères peuvent être extraits des applications côté client, telles que les navigateurs Web ou les applications mobiles. Toutefois, comme les jetons éphémères expirent rapidement et peuvent être limités, ils réduisent considérablement les risques de sécurité dans un environnement de production. Vous devez les utiliser lorsque vous accédez à l'API Live directement depuis des applications côté client pour renforcer la sécurité des clés API.
 
-## Come funzionano i token effimeri
+## Fonctionnement des jetons éphémères
 
-Ecco come funzionano i token effimeri a livello generale:
+Voici comment fonctionnent les jetons éphémères de manière générale :
 
-1. Il client (ad es. l'app web) esegue l'autenticazione con il backend.
-2. Il backend richiede un token effimero dal servizio di provisioning dell'API Gemini.
-3. L'API Gemini rilascia un token di breve durata.
-4. Il backend invia il token al client per le connessioni WebSocket all'API Live. Puoi farlo sostituendo la chiave API con un token effimero.
-5. Il client utilizza quindi il token come se fosse una chiave API.
+1. Votre client (par exemple, une application Web) s'authentifie auprès de votre backend.
+2. Votre backend demande un jeton éphémère au service de provisionnement de l'API Gemini.
+3. L'API Gemini émet un jeton de courte durée.
+4. Votre backend envoie le jeton au client pour les connexions WebSocket à l'API Live. Pour ce faire, remplacez votre clé API par un jeton éphémère.
+5. Le client utilise ensuite le jeton comme s'il s'agissait d'une clé API.
 
-![Panoramica dei token temporanei](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=it)
+![Présentation des jetons éphémères](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=fr)
 
-Ciò migliora la sicurezza perché, anche se estratto, il token ha una durata breve,
-a differenza di una chiave API di lunga durata implementata lato client. Poiché il client invia i dati
-direttamente a Gemini, ciò migliora anche la latenza ed evita che i backend debbano
-fare da proxy per i dati in tempo reale.
+Cela renforce la sécurité, car même s'il est extrait, le jeton est éphémère, contrairement à une clé API à longue durée de vie déployée côté client. Comme le client envoie les données directement à Gemini, cela améliore également la latence et évite à vos backends d'avoir à relayer les données en temps réel.
 
-## Creare un token temporaneo
+## Créer un jeton éphémère
 
-Ecco un esempio semplificato di come ottenere un token effimero da Gemini.
-Per impostazione predefinita, avrai 1 minuto per avviare nuove sessioni dell'API Live utilizzando il token
-di questa richiesta (`newSessionExpireTime`) e 30 minuti per inviare messaggi tramite
-questa connessione (`expireTime`).
+Voici un exemple simplifié de la façon d'obtenir un jeton éphémère de Gemini.
+Par défaut, vous disposez d'une minute pour démarrer de nouvelles sessions de l'API Live à l'aide du jeton de cette requête (`newSessionExpireTime`) et de 30 minutes pour envoyer des messages via cette connexion (`expireTime`).
 
 ### Python
 
@@ -101,15 +91,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-Per i vincoli, i valori predefiniti e altre specifiche dei campi `expireTime`, consulta il
-[Riferimento API](https://ai.google.dev/api/live?hl=it#ephemeral-auth-tokens).
-Entro il periodo di tempo `expireTime`, dovrai
-[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=it#session-resumption) per
-riconnettere la chiamata ogni 10 minuti (questa operazione può essere eseguita con lo stesso token anche
-se `uses: 1`).
+Pour connaître les contraintes de valeur, les valeurs par défaut et les autres spécifications des champs `expireTime`, consultez la [documentation de référence de l'API](https://ai.google.dev/api/live?hl=fr#ephemeral-auth-tokens).
+Dans le délai de `expireTime`, vous devrez [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=fr#session-resumption) reconnecter l'appel toutes les 10 minutes (cela peut être fait avec le même jeton, même si `uses: 1`).
 
-È anche possibile bloccare un token temporaneo per un insieme di configurazioni. Ciò
-potrebbe essere utile per migliorare ulteriormente la sicurezza della tua applicazione e mantenere le istruzioni di sistema sul lato server.
+Il est également possible de verrouiller un jeton éphémère sur un ensemble de configurations. Cela peut être utile pour améliorer davantage la sécurité de votre application et conserver vos instructions système côté serveur.
 
 ### Python
 
@@ -178,16 +163,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-Puoi anche bloccare un sottoinsieme di campi. Per saperne di più, consulta la [documentazione dell'SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
+Vous pouvez également verrouiller un sous-ensemble de champs. Pour en savoir plus, consultez la [documentation du SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
 
-## Connettiti all'API Live con un token effimero
+## Se connecter à l'API Live avec un jeton éphémère
 
-Una volta ottenuto un token effimero, lo utilizzi come se fosse una chiave API (ma
-ricorda che funziona solo con l'API live e solo con la versione `v1beta`
-dell'API).
+Une fois que vous disposez d'un jeton éphémère, vous l'utilisez comme s'il s'agissait d'une clé API (mais n'oubliez pas qu'il ne fonctionne que pour l'API en direct et uniquement avec la version `v1beta` de l'API).
 
-L'utilizzo di token effimeri aggiunge valore solo quando vengono implementate applicazioni
-che seguono l'approccio di [implementazione client-server](https://ai.google.dev/gemini-api/docs/live?hl=it#implementation-approach).
+L'utilisation de jetons éphémères n'est utile que lors du déploiement d'applications qui suivent l'approche d'[implémentation client-serveur](https://ai.google.dev/gemini-api/docs/live?hl=fr#implementation-approach).
 
 ### JavaScript
 
@@ -217,32 +199,29 @@ async function main() {
 main();
 ```
 
-Per altri esempi, consulta [Inizia a utilizzare l'API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+Pour obtenir d'autres exemples, consultez [Premiers pas avec l'API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr).
 
-## Best practice
+## Bonnes pratiques
 
-- Imposta una breve durata di scadenza utilizzando il parametro `expire_time`.
-- I token scadono, pertanto è necessario riavviare la procedura di provisioning.
-- Verifica l'autenticazione sicura per il tuo backend. I token temporanei saranno
-  sicuri quanto il tuo metodo di autenticazione backend.
-- In genere, evita di utilizzare token effimeri per le connessioni backend-Gemini,
-  in quanto questo percorso è in genere considerato sicuro.
+- Définissez une courte durée d'expiration à l'aide du paramètre `expire_time`.
+- Les jetons expirent, ce qui nécessite de relancer le processus de provisionnement.
+- Validez l'authentification sécurisée pour votre propre backend. La sécurité des jetons éphémères dépendra uniquement de la sécurité de votre méthode d'authentification backend.
+- En règle générale, évitez d'utiliser des jetons éphémères pour les connexions entre le backend et Gemini, car ce chemin est généralement considéré comme sécurisé.
 
-## Limitazioni
+## Limites
 
-Al momento, i token effimeri sono compatibili solo con l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+Les jetons éphémères ne sont compatibles qu'avec l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr) pour le moment.
 
-## Passaggi successivi
+## Étape suivante
 
-- Per saperne di più, consulta il [riferimento](https://ai.google.dev/api/live?hl=it#ephemeral-auth-tokens)
-  dell'API Live sui token effimeri.
+- Pour en savoir plus, consultez la [documentation de référence](https://ai.google.dev/api/live?hl=fr#ephemeral-auth-tokens) de l'API Live sur les jetons éphémères.
 
-Invia feedback
+Envoyer des commentaires
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Ultimo aggiornamento 2026-07-30 UTC.
+Dernière mise à jour le 2026/07/30 (UTC).
 
-Vuoi dirci altro?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]

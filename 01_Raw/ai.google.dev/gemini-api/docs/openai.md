@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/openai?hl=id
-fetched_at: 2026-08-24T02:20:22.896893+00:00
+fetched_at: 2026-08-31T06:31:19.562208+00:00
 title: "Kompatibilitas OpenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

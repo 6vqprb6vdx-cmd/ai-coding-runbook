@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr
-fetched_at: 2026-08-24T02:21:02.494810+00:00
-title: "Ancrage avec Google\u00a0Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi
+fetched_at: 2026-08-31T06:31:23.571132+00:00
+title: "Google Maps \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0917\u094d\u0930\u093e\u0909\u0902\u0921\u093f\u0902\u0917 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envoyer des commentaires
+सुझाव भेजें
 
-# Ancrage avec Google Maps
+# Google Maps की मदद से ग्राउंडिंग करना
 
-L'ancrage avec Google Maps associe les capacités génératives de Gemini aux données riches, factuelles et à jour de Google Maps. Cette fonctionnalité permet aux développeurs d'intégrer facilement des fonctionnalités de localisation dans leurs applications. Lorsqu'une requête utilisateur a un contexte lié aux données Maps, le modèle Gemini exploite Google Maps pour fournir des réponses factuellement exactes et récentes, pertinentes pour le lieu spécifié par l'utilisateur ou la zone géographique générale.
+Google Maps से सटीक जानकारी पाने की सुविधा, Gemini की जनरेटिव क्षमताओं को Google Maps के सटीक, तथ्यों पर आधारित, और अप-टू-डेट डेटा से कनेक्ट करती है. इस सुविधा की मदद से डेवलपर, अपने ऐप्लिकेशन में आसानी से जगह की जानकारी का इस्तेमाल कर सकते हैं. जब किसी उपयोगकर्ता की क्वेरी में Maps के डेटा से जुड़ा कॉन्टेक्स्ट होता है, तो Gemini मॉडल, Google Maps का इस्तेमाल करता है. इससे वह उपयोगकर्ता को तथ्यों पर आधारित और नई जानकारी दे पाता है. यह जानकारी, उपयोगकर्ता की बताई गई जगह या जगह की अनुमानित जानकारी के हिसाब से होती है.
 
-- **Réponses précises et géolocalisées** : exploitez les données complètes et actuelles de Google Maps pour les requêtes géographiques spécifiques.
-- **Personnalisation améliorée** : adaptez les recommandations et les informations en fonction des lieux fournis par l'utilisateur.
+- **सटीक जवाब, जो जगह के हिसाब से हों:** भौगोलिक रूप से खास क्वेरी के लिए, Google Maps के बड़े और मौजूदा डेटा का इस्तेमाल करें.
+- **बेहतर तरीके से मनमुताबिक बनाना:** उपयोगकर्ता की दी गई जगहों की जानकारी के आधार पर, सुझाव और जानकारी को मनमुताबिक बनाना.
 
-## Premiers pas
+## अपनी प्रोफ़ाइल बनाना शुरू करें
 
-Cet exemple montre comment intégrer l'ancrage avec Google Maps dans votre application pour fournir des réponses précises et géolocalisées aux requêtes des utilisateurs. La requête demande des recommandations locales avec une position utilisateur facultative, ce qui permet au modèle Gemini d'utiliser les données Google Maps.
+इस उदाहरण में, Google Maps के साथ ग्राउंडिंग को अपने ऐप्लिकेशन में इंटिग्रेट करने का तरीका बताया गया है. इससे उपयोगकर्ता की क्वेरी के जवाब सटीक और जगह के हिसाब से दिए जा सकते हैं. इस प्रॉम्प्ट में, स्थानीय सुझावों के बारे में पूछा गया है. इसमें उपयोगकर्ता की जगह की जानकारी देने का विकल्प भी है. इससे Gemini मॉडल को Google Maps का डेटा इस्तेमाल करने की अनुमति मिलती है.
 
 ### Python
 
@@ -118,38 +118,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Fonctionnement de l'ancrage avec Google Maps
+## Google Maps से जानकारी लेने की सुविधा कैसे काम करती है
 
-L'ancrage avec Google Maps intègre l'API Gemini à l'écosystème Google Geo en utilisant l'API Google Maps comme source d'ancrage. Lorsque la requête d'un utilisateur contient un contexte géographique, le modèle Gemini peut appeler l'outil d'ancrage avec Google Maps. Le modèle peut ensuite générer des réponses basées sur les données Google Maps pertinentes pour le lieu fourni.
+Google Maps के साथ ग्राउंडिंग की सुविधा, Gemini API को Google Geo के साथ इंटिग्रेट करती है. इसके लिए, Maps API को ग्राउंडिंग सोर्स के तौर पर इस्तेमाल किया जाता है. जब किसी उपयोगकर्ता की क्वेरी में भौगोलिक कॉन्टेक्स्ट शामिल होता है, तो Gemini मॉडल, Google Maps से जानकारी लेने की सुविधा को चालू कर सकता है. इसके बाद, मॉडल, दी गई जगह से जुड़े Google Maps के डेटा के आधार पर जवाब जनरेट कर सकता है.
 
-Ce processus implique généralement les étapes suivantes :
+आम तौर पर, इस प्रोसेस में ये शामिल होते हैं:
 
-1. **Requête utilisateur** : un utilisateur envoie une requête à votre application, qui peut inclure un contexte géographique (par exemple, "cafés à proximité" ou "musées à San Francisco").
-2. **Appel d'outil** : le modèle Gemini, reconnaissant l'intention géographique, appelle l'outil d'ancrage avec Google Maps. Cet outil peut éventuellement être fourni avec la `latitude` et la `longitude` de l'utilisateur. L'outil est un outil de recherche textuelle et se comporte de la même manière que la recherche dans Maps. Les requêtes locales ("à proximité") utilisent les coordonnées, tandis que les requêtes spécifiques ou non locales sont peu susceptibles d'être influencées par le lieu explicite.
-3. **Récupération des données** : le service d'ancrage avec Google Maps interroge Google Maps pour obtenir des informations pertinentes (par exemple, des lieux, des avis, des photos, des adresses, des horaires d'ouverture).
-4. **Génération ancrée** : les données Maps récupérées sont utilisées pour informer la réponse du modèle Gemini, ce qui garantit l'exactitude et la pertinence des faits.
-5. **Réponse et annotations** : le modèle renvoie une réponse textuelle avec des annotations intégrées renvoyant aux sources Google Maps, ce qui permet aux développeurs d'afficher des citations.
+1. **उपयोगकर्ता की क्वेरी:** कोई उपयोगकर्ता आपके ऐप्लिकेशन में क्वेरी सबमिट करता है.इसमें भौगोलिक जानकारी भी शामिल हो सकती है. उदाहरण के लिए, "मेरे आस-पास की कॉफ़ी शॉप", "सैन फ़्रांसिस्को के म्यूज़ियम".
+2. **टूल शुरू करना:** Gemini मॉडल, भौगोलिक जानकारी से जुड़ी क्वेरी को पहचानकर, Google Maps के साथ ग्राउंडिंग टूल शुरू करता है. इस टूल को उपयोगकर्ता के `latitude` और `longitude` के साथ भी इस्तेमाल किया जा सकता है. यह टूल, टेक्स्ट के आधार पर खोज करने वाला टूल है. यह Maps पर खोज करने के तरीके से मिलता-जुलता है. जैसे, स्थानीय क्वेरी ("मेरे आस-पास") के लिए निर्देशांकों का इस्तेमाल किया जाएगा. वहीं, खास या गैर-स्थानीय क्वेरी पर, जगह की जानकारी का असर नहीं पड़ेगा.
+3. **डेटा वापस पाना:** 'Google Maps के साथ ग्राउंडिंग' सेवा, Google Maps से काम की जानकारी (जैसे, जगहें, समीक्षाएं, फ़ोटो, पते, कारोबार के खुले होने का समय) के बारे में क्वेरी करती है.
+4. **भरोसेमंद सोर्स से जानकारी लेकर जवाब जनरेट करना:** Maps से मिले डेटा का इस्तेमाल, Gemini मॉडल के जवाब में किया जाता है. इससे यह पक्का किया जाता है कि जवाब में दी गई जानकारी सही और काम की हो.
+5. **जवाब और एनोटेशन:** मॉडल, Google Maps के सोर्स से लिंक करने वाले इनलाइन एनोटेशन के साथ टेक्स्ट वाला जवाब देता है. इससे डेवलपर, उद्धरण दिखा पाते हैं.
 
-## Pourquoi et quand utiliser l'ancrage avec Google Maps
+## Google Maps से जानकारी लेने की सुविधा का इस्तेमाल कब और क्यों करना चाहिए
 
-L'ancrage avec Google Maps est idéal pour les applications qui nécessitent des informations précises, à jour et spécifiques à un lieu. Il améliore l'expérience utilisateur en fournissant des contenus pertinents et personnalisés, basés sur la vaste base de données Google Maps de plus de 250 millions de lieux dans le monde.
+Google Maps के साथ ग्राउंडिंग की सुविधा उन ऐप्लिकेशन के लिए सबसे सही है जिन्हें सटीक, अप-टू-डेट, और जगह के हिसाब से जानकारी की ज़रूरत होती है. यह लोगों को काम का और उनके हिसाब से कॉन्टेंट उपलब्ध कराता है. इससे लोगों को बेहतर अनुभव मिलता है. यह कॉन्टेंट, Google Maps के विशाल डेटाबेस से लिया जाता है. इस डेटाबेस में दुनिया भर की 25 करोड़ से ज़्यादा जगहों की जानकारी मौजूद है.
 
-Vous devez utiliser l'ancrage avec Google Maps lorsque votre application doit :
+Google Maps से जानकारी लेने की सुविधा का इस्तेमाल तब करना चाहिए, जब आपके ऐप्लिकेशन को:
 
-- fournir des réponses complètes et précises à des questions géographiques spécifiques ;
-- créer des planificateurs de voyage conversationnels et des guides locaux ;
-- recommander des points d'intérêt en fonction du lieu et des préférences de l'utilisateur, comme des restaurants ou des magasins ;
-- créer des expériences géolocalisées pour les services sociaux, de vente au détail ou de livraison de nourriture.
+- जगह के हिसाब से पूछे गए सवालों के पूरे और सटीक जवाब दें.
+- बातचीत करके यात्रा का प्लान बनाने वाले टूल और स्थानीय गाइड तैयार करें.
+- जगह की जानकारी और उपयोगकर्ता की प्राथमिकताओं के आधार पर, लोकप्रिय जगहों के सुझाव देना. जैसे, रेस्टोरेंट या दुकानें.
+- सामाजिक, खुदरा या खाना डिलीवर करने वाली सेवाओं के लिए, जगह की जानकारी के हिसाब से अनुभव बनाएं.
 
-L'ancrage avec Google Maps excelle dans les cas d'utilisation où la proximité et les données factuelles actuelles sont essentielles, par exemple pour trouver le "meilleur café à proximité" ou obtenir un itinéraire.
+Google Maps के डेटा का इस्तेमाल करके जवाब देने की सुविधा, उन मामलों में सबसे ज़्यादा काम आती है जहां आस-पास की जगहों और मौजूदा तथ्यों से जुड़ा डेटा ज़रूरी होता है. जैसे, "मेरे आस-पास सबसे अच्छी कॉफ़ी शॉप ढूंढना" या "रास्ता ढूंढना".
 
-## Cas d'utilisation
+## उपयोग के उदाहरण
 
-L'ancrage avec Google Maps est compatible avec différents cas d'utilisation géolocalisés.
+Google Maps से जानकारी लेने की सुविधा, जगह की जानकारी के हिसाब से अलग-अलग तरह के कामों में इस्तेमाल की जा सकती है.
 
-### Gérer les questions spécifiques à un lieu
+### किसी जगह के बारे में पूछे गए सवालों के जवाब देना
 
-Posez des questions détaillées sur un lieu spécifique pour obtenir des réponses basées sur les avis des utilisateurs Google et d'autres données Maps.
+किसी जगह के बारे में ज़्यादा जानकारी वाले सवाल पूछें, ताकि Google पर लोगों की समीक्षाओं और Maps के अन्य डेटा के आधार पर जवाब मिल सकें.
 
 ### Python
 
@@ -222,9 +222,9 @@ async function main() {
 main();
 ```
 
-### Fournir une personnalisation basée sur la localisation
+### जगह के हिसाब से मनमुताबिक अनुभव देने की सुविधा उपलब्ध कराना
 
-Obtenez des recommandations adaptées aux préférences d'un utilisateur et à une zone géographique spécifique.
+किसी उपयोगकर्ता की प्राथमिकताओं और किसी खास इलाके के हिसाब से सुझाव पाएं.
 
 ### Python
 
@@ -297,9 +297,9 @@ async function main() {
 main();
 ```
 
-### Aider à la planification d'itinéraires
+### यात्रा का प्लान बनाने में मदद करना
 
-Générez des plans sur plusieurs jours avec des itinéraires et des informations sur différents lieux, parfaits pour les applications de voyage.
+कई दिनों की यात्रा के प्लान जनरेट करें. इनमें अलग-अलग जगहों के बारे में जानकारी और वहाँ जाने का रास्ता शामिल हो. ये प्लान, यात्रा से जुड़े ऐप्लिकेशन के लिए सबसे सही होते हैं.
 
 ### Python
 
@@ -364,102 +364,98 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Conditions d'utilisation du service
+## सेवा के इस्तेमाल से जुड़ी ज़रूरी शर्तें
 
-Cette section décrit les conditions d'utilisation du service pour l'ancrage avec Google Maps.
+इस सेक्शन में, Google Maps के साथ Grounding की सुविधा इस्तेमाल करने की ज़रूरी शर्तों के बारे में बताया गया है.
 
-### Informer l'utilisateur de l'utilisation des sources Google Maps
+### उपयोगकर्ता को Google Maps के सोर्स के इस्तेमाल के बारे में जानकारी देना
 
-Pour chaque résultat ancré de Google Maps, vous recevrez des annotations de source sur les blocs de contenu de l'étape `model_output` qui prennent en charge chaque réponse. Les métadonnées suivantes sont renvoyées :
+Google Maps के हर भरोसेमंद नतीजे के साथ, आपको `model_output` चरण के कॉन्टेंट ब्लॉक पर सोर्स एनोटेशन मिलेंगे. ये एनोटेशन, हर जवाब के साथ मौजूद होते हैं. यह मेटाडेटा दिखता है:
 
-- URL de la source
-- nom
+- सोर्स यूआरएल
+- नाम
 
-Lorsque vous présentez des résultats de l'ancrage avec Google Maps, vous devez spécifier les sources Google Maps associées et informer vos utilisateurs des points suivants :
+Google Maps से जानकारी लेने की सुविधा के ज़रिए मिले नतीजों को दिखाते समय, आपको Google Maps से जुड़े सोर्स के बारे में बताना होगा. साथ ही, उपयोगकर्ताओं को यह जानकारी देनी होगी:
 
-- Les sources Google Maps doivent suivre immédiatement le contenu généré qu'elles prennent en charge. Ce contenu généré est également appelé résultat ancré de Google Maps.
-- Les sources Google Maps doivent être visibles en une seule interaction de l'utilisateur.
+- Google Maps के सोर्स, जनरेट किए गए कॉन्टेंट के ठीक बाद होने चाहिए. साथ ही, सोर्स में मौजूद जानकारी, जनरेट किए गए कॉन्टेंट से मेल खानी चाहिए. जनरेट किए गए इस कॉन्टेंट को Google Maps के भरोसेमंद नतीजे भी कहा जाता है.
+- Google Maps के सोर्स, उपयोगकर्ता के एक इंटरैक्शन में दिखने चाहिए.
 
-### Afficher les sources Google Maps avec des liens Google Maps
+### Google Maps के लिंक के साथ Google Maps के सोर्स दिखाना
 
-Pour chaque annotation de source, un aperçu du lien doit être généré en respectant les exigences suivantes :
+हर सोर्स एनोटेशन के लिए, लिंक की झलक इन ज़रूरी शर्तों के मुताबिक जनरेट की जानी चाहिए:
 
-- Attribuez chaque source à Google Maps en suivant les consignes d'attribution textuelle de Google Maps
-  .
-- Affichez le nom de la source fourni dans la réponse.
-- Créez un lien vers la source à l'aide de l'`url` de l'annotation.
+- Google Maps के टेक्स्ट [एट्रिब्यूशन के दिशा-निर्देशों](#maps-attribution-guidelines) का पालन करते हुए, हर सोर्स को Google Maps के लिए एट्रिब्यूट करें.
+- जवाब में दिए गए सोर्स का नाम दिखाएं.
+- एनोटेशन में मौजूद `url` का इस्तेमाल करके, सोर्स से लिंक करें.
 
-### Consignes d'attribution textuelle de Google Maps
+### Google Maps में टेक्स्ट एट्रिब्यूशन के दिशा-निर्देश
 
-Lorsque vous attribuez des sources à Google Maps dans du texte, suivez ces consignes :
+टेक्स्ट में Google Maps को सोर्स के तौर पर एट्रिब्यूट करते समय, इन दिशा-निर्देशों का पालन करें:
 
-- Ne modifiez en aucun cas le texte Google Maps :
-  - Ne modifiez pas la casse de Google Maps.
-  - N'insérez pas Google Maps sur plusieurs lignes.
-  - Ne traduisez pas Google Maps dans une autre langue.
-  - Empêchez les navigateurs de traduire Google Maps en utilisant l'attribut HTML translate="no".
+- Google Maps के टेक्स्ट में किसी भी तरह का बदलाव न करें:
+  - Google Maps के कैपिटल लेटर में लिखे गए अक्षरों में बदलाव न करें.
+  - Google Maps को एक से ज़्यादा लाइनों में न लिखें.
+  - Google Maps को किसी दूसरी भाषा में स्थानीयकृत न करें.
+  - ब्राउज़र को Google Maps का अनुवाद करने से रोकने के लिए, HTML एट्रिब्यूट translate="no" का इस्तेमाल करें.
 
-Pour en savoir plus sur certains de nos fournisseurs de données Google Maps et leurs
-conditions de licence, consultez les [mentions légales de Google Maps et Google Earth](https://www.google.com/help/legalnotices_maps/?hl=fr).
+Google Maps के लिए डेटा उपलब्ध कराने वाली कुछ कंपनियों और उनके लाइसेंस की शर्तों के बारे में ज़्यादा जानने के लिए, [Google Maps और Google Earth की कानूनी सूचनाएं](https://www.google.com/help/legalnotices_maps/?hl=hi) देखें.
 
-## Bonnes pratiques
+## सबसे सही तरीके
 
-- **Fournir la position de l'utilisateur** : pour obtenir les réponses les plus pertinentes et personnalisées, incluez toujours la `latitude` et la `longitude` dans la configuration de votre outil `google_maps` lorsque la position de l'utilisateur est connue.
-- **Informer les utilisateurs finaux** : indiquez clairement à vos utilisateurs finaux que les données Google Maps sont utilisées pour répondre à leurs requêtes, en particulier lorsque l'outil est activé.
-- **Désactiver lorsque ce n'est pas nécessaire** : l'ancrage avec Google Maps est désactivé par défaut. N'activez-le (`"tools": [{"type": "google_maps"}]`) que lorsqu'une requête a un
-  contexte géographique clair, afin d'optimiser les performances et les coûts.
+- **उपयोगकर्ता की जगह की जानकारी दें:** उपयोगकर्ता की जगह की जानकारी मिलने पर, `google_maps` टूल कॉन्फ़िगरेशन में हमेशा `latitude` और `longitude` शामिल करें. इससे, उपयोगकर्ता को उसकी दिलचस्पी के हिसाब से सबसे काम के जवाब मिलेंगे.
+- **आखिरी उपयोगकर्ताओं को जानकारी दें:** अपने आखिरी उपयोगकर्ताओं को साफ़ तौर पर बताएँ कि उनकी क्वेरी के जवाब देने के लिए, Google Maps के डेटा का इस्तेमाल किया जा रहा है. ऐसा खास तौर पर तब करें, जब टूल चालू हो.
+- **ज़रूरत न होने पर टॉगल बंद करें:** Google Maps से जानकारी लेने की सुविधा डिफ़ॉल्ट रूप से बंद होती है. इसे सिर्फ़ तब चालू करें (`"tools": [{"type": "google_maps"}]`), जब किसी क्वेरी में जगह की जानकारी साफ़ तौर पर दी गई हो. इससे परफ़ॉर्मेंस और लागत को ऑप्टिमाइज़ किया जा सकेगा.
 
-## Limites
+## सीमाएं
 
-- L'ancrage avec Google Maps n'est actuellement compatible qu'avec les requêtes et les réponses en anglais.
-- L'outil peut ne pas être disponible dans toutes les régions.
-- Les résultats peuvent varier en fonction de la précision de la localisation et des données Maps disponibles.
-- **Couverture géographique** : l'ancrage avec Google Maps est disponible dans le monde entier.
-- **État par défaut** : l'outil d'ancrage avec Google Maps est désactivé par défaut.
-  Vous devez l'activer explicitement dans vos requêtes API.
+- फ़िलहाल, Google Maps से मिली जानकारी का इस्तेमाल करके जवाब देने की सुविधा सिर्फ़ अंग्रेज़ी भाषा में उपलब्ध है.
+- ऐसा हो सकता है कि यह टूल सभी देशों/इलाकों में उपलब्ध न हो.
+- नतीजे, जगह की सटीक जानकारी और Maps पर उपलब्ध डेटा के हिसाब से अलग-अलग हो सकते हैं.
+- **भौगोलिक दायरा:** Google Maps के साथ ग्राउंडिंग की सुविधा दुनिया भर में उपलब्ध है.
+- **डिफ़ॉल्ट स्थिति:** 'Google Maps से मिली जानकारी का इस्तेमाल करके जवाब दो' टूल डिफ़ॉल्ट रूप से बंद होता है.
+  आपको एपीआई अनुरोधों में इसे साफ़ तौर पर चालू करना होगा.
 
-## Tarifs et limites de débit
+## कीमत और दर की सीमाएं
 
-Les tarifs de l'ancrage avec Google Maps varient en fonction de la génération du modèle :
+Google Maps से जानकारी लेने की सुविधा की कीमत, मॉडल जनरेशन के हिसाब से अलग-अलग होती है:
 
-- **Modèles Gemini 3** : votre projet est facturé pour chaque **requête de recherche** que le modèle décide d'exécuter. Une seule **requête de recherche** (votre requête API au modèle) peut entraîner l'exécution de plusieurs requêtes de recherche par le modèle pour trouver les informations nécessaires. Chacune de ces requêtes est comptabilisée comme une utilisation facturable de l'outil.
-- **Modèles Gemini 2.5 et versions antérieures** : votre projet est facturé par **requête de recherche**.
-  Une requête n'est facturée que si la requête renvoie au moins un résultat ancré de Google Maps, quel que soit le nombre de requêtes de recherche individuelles que le modèle a effectuées en interne pour obtenir ce résultat.
+- **Gemini 3 मॉडल:** आपके प्रोजेक्ट के लिए, हर उस **खोज क्वेरी** का बिल भेजा जाता है जिसे मॉडल पूरा करता है. एक **खोज के लिए दिए गए प्रॉम्प्ट** (मॉडल को भेजा गया आपका एपीआई अनुरोध) के जवाब में, मॉडल ज़रूरी जानकारी ढूंढने के लिए कई खोज क्वेरी चला सकता है. इनमें से हर क्वेरी को, टूल के बिल किए जाने वाले इस्तेमाल के तौर पर गिना जाता है.
+- **Gemini 2.5 और इससे पुराने मॉडल:** आपके प्रोजेक्ट के लिए, हर **खोज प्रॉम्प्ट** के हिसाब से बिल भेजा जाता है.
+  किसी अनुरोध के लिए सिर्फ़ तब बिल भेजा जाता है, जब प्रॉम्प्ट से Google Maps के कम से कम एक भरोसेमंद नतीजे मिलते हैं. इससे कोई फ़र्क़ नहीं पड़ता कि उस नतीजे को पाने के लिए, मॉडल ने कितनी अलग-अलग खोज क्वेरी की हैं.
 
-Pour en savoir plus sur les tarifs, consultez la page [Tarifs de l'API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
+शुल्क के बारे में ज़्यादा जानकारी के लिए, [Gemini API के शुल्क वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) देखें.
 
-## Modèles compatibles
+## इन मॉडल के साथ काम करता है
 
-Les modèles suivants sont compatibles avec l'ancrage avec Google Maps :
+Google Maps से जानकारी लेने की सुविधा, इन मॉडल पर काम करती है:
 
-| Modèle | Ancrage avec Google Maps |
+| मॉडल | Google Maps से जानकारी लेने की सुविधा |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fr) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fr) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=fr) | ✔️ |
-| [Gemini 3.1 Pro (preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fr) | ✔️ |
-| [Gemini 3 Flash (preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fr) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=hi) | ✔️ |
+| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3 Flash की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
 
-## Combinaisons d'outils compatibles
+## साथ-साथ इस्तेमाल किए जा सकने वाले टूल
 
-Les modèles Gemini 3 sont compatibles avec la combinaison d'outils intégrés (comme l'ancrage avec Google Maps) et d'outils personnalisés (appel de fonction). Pour en savoir plus, consultez la
-[page sur les combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
+Gemini 3 मॉडल, बिल्ट-इन टूल (जैसे, Google Maps के साथ ग्राउंडिंग) को कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ इस्तेमाल करने की सुविधा देते हैं. [टूल के कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) पेज पर जाकर, इस बारे में ज़्यादा जानें.
 
-## Étape suivante
+## आगे क्या करना है
 
-- Découvrez d'autres [outils disponibles](https://ai.google.dev/gemini-api/docs/tools?hl=fr).
-- Pour en savoir plus sur les bonnes pratiques d'IA responsable et les filtres de sécurité de l'API Gemini, consultez [le guide des paramètres de sécurité](https://ai.google.dev/gemini-api/docs/safety-settings?hl=fr).
+- [उपलब्ध अन्य टूल](https://ai.google.dev/gemini-api/docs/tools?hl=hi) के बारे में जानें.
+- ज़िम्मेदारी से एआई का इस्तेमाल करने के सबसे सही तरीकों और Gemini API के सुरक्षा फ़िल्टर के बारे में ज़्यादा जानने के लिए, [सुरक्षा सेटिंग की गाइड](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) देखें.
 
-Envoyer des commentaires
+सुझाव भेजें
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Dernière mise à jour le 2026/07/30 (UTC).
+आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
 
-Voulez-vous nous donner plus d'informations ?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]

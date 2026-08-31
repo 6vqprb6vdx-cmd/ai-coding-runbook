@@ -1,35 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=he
-fetched_at: 2026-08-24T02:23:42.483181+00:00
-title: "\u05de\u05d0\u05d9\u05e6\u05d9\u05dd \u05d0\u05ea \u05ea\u05d4\u05dc\u05d9\u05da \u05d4\u05d2\u05d9\u05dc\u05d5\u05d9 \u05d1\u05e2\u05d6\u05e8\u05ea Gemini \u05dc\u05de\u05d7\u05e7\u05e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pl
+fetched_at: 2026-08-31T06:40:52.795154+00:00
+title: "przyspieszy\u0107 proces odkrywania za pomoc\u0105 Gemini do bada\u0144; \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
 
-# מאיצים את תהליך הגילוי בעזרת Gemini למחקר
+# przyspieszyć proces odkrywania za pomocą Gemini do badań;
 
-[קבלת מפתח Gemini API](https://aistudio.google.com/apikey?hl=he)
+[Uzyskiwanie klucza Gemini API](https://aistudio.google.com/apikey?hl=pl)
 
-אפשר להשתמש במודלים של Gemini כדי לקדם מחקר בסיסי במגוון תחומים.
-כך תוכלו להשתמש ב-Gemini כדי לבצע מחקר:
+Modele Gemini mogą być wykorzystywane do prowadzenia badań podstawowych w różnych dziedzinach.
+Oto kilka sposobów, w jakie możesz wykorzystać Gemini w swoich badaniach:
 
-- **ניתוח של פלט המודל ובקרה עליו**: כדי לבצע ניתוח נוסף, אתם יכולים לבדוק תשובה פוטנציאלית שנוצרה על ידי המודל באמצעות כלים כמו `CitationMetadata`. אפשר גם להגדיר אפשרויות ליצירת מודלים ולפלט, כמו `responseSchema`, `topP` ו-`topK`. [מידע נוסף](https://ai.google.dev/api/generate-content?hl=he)
-- **קלט מולטי-מודאלי**: Gemini יכול לעבד תמונות, אודיו וסרטונים, וכך לאפשר מגוון רחב של כיווני מחקר מעניינים. [מידע נוסף](https://ai.google.dev/gemini-api/docs/vision?hl=he)
-- **יכולות של הקשר ארוך**: ל-Gemini 3.0 Flash ול-Gemini 3.0 Pro יש חלון הקשר של מיליון טוקנים. [מידע נוסף](https://ai.google.dev/gemini-api/docs/long-context?hl=he)
-- **הסדנה הדיגיטלית של Google**: גישה מהירה למודלים של Gemini דרך ה-API ו-Google AI Studio לתרחישי שימוש בייצור. אם אתם מחפשים פלטפורמה מבוססת Google Cloud, ‏ Gemini Enterprise Agent Platform יכולה לספק תשתית תומכת נוספת.
+- **Analizowanie i kontrolowanie wyników modelu**: aby przeprowadzić dalszą analizę, możesz zbadać kandydata na odpowiedź wygenerowanego przez model za pomocą narzędzi takich jak
+  `CitationMetadata`. Możesz też skonfigurować opcje generowania i wyników modelu, takie jak `responseSchema`, `topP` i `topK`. [Więcej informacji](https://ai.google.dev/api/generate-content?hl=pl).
+- **Dane wejściowe multimodalne**: Gemini może przetwarzać obrazy, dźwięk i filmy, co otwiera
+  wiele ciekawych kierunków badań. [Więcej informacji](https://ai.google.dev/gemini-api/docs/vision?hl=pl).
+- **Możliwości długiego kontekstu**: Gemini 3.0 Flash i Pro mają okno kontekstu o wielkości 1 mln tokenów. [Więcej informacji](https://ai.google.dev/gemini-api/docs/long-context?hl=pl).
+- **Grow with Google**: szybki dostęp do modeli Gemini przez interfejs API i Google AI Studio w przypadku zastosowań produkcyjnych. Jeśli szukasz platformy opartej na Google Cloud, Gemini Enterprise Agent Platform może zapewnić dodatkową infrastrukturę pomocniczą.
 
-כדי לתמוך במחקר אקדמי ולקדם מחקר מתקדם, Google מספקת גישה לקרדיטים ל-Gemini API למדענים ולחוקרים אקדמיים באמצעות [Gemini Academic Program](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=he#gemini-academic-program).
+Aby wspierać badania akademickie i prowadzić nowatorskie badania, Google zapewnia
+naukowcom i badaczom akademickim dostęp do środków Gemini API w ramach
+[programu Gemini Academic Program](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pl#gemini-academic-program).
 
-## מתחילים לעבוד עם Gemini
+## Pierwsze kroki z Gemini
 
-‫Gemini API ו-Google AI Studio עוזרים לכם להתחיל לעבוד עם המודלים העדכניים ביותר של Google ולהפוך את הרעיונות שלכם לאפליקציות שניתנות להרחבה.
+Interfejs Gemini API i Google AI Studio pomagają rozpocząć pracę z najnowszymi modelami Google i przekształcić pomysły w aplikacje, które można skalować.
 
 ### Python
 
@@ -77,41 +81,52 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
    }'
 ```
 
-## אנשי אקדמיה מומלצים
+## Polecani naukowcy
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=he)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=pl)
 
-"במחקר שלנו אנחנו בודקים את Gemini כמודל שפה חזותי (VLM) ואת ההתנהגויות שלו בסביבות מגוונות מנקודות מבט של חוסן ובטיחות. עד עכשיו, בדקנו את העמידות של Gemini בפני הסחות דעת כמו חלונות קופצים כשסוכני VLM מבצעים משימות במחשב, והשתמשנו ב-Gemini כדי לנתח אינטראקציה חברתית, אירועים זמניים וגורמי סיכון על סמך קלט וידאו".
+„Nasze badania dotyczą Gemini jako wizualnego modelu językowego (VLM) oraz jego zachowań agentowych w różnych środowiskach z perspektywy odporności i bezpieczeństwa. Do tej pory oceniliśmy odporność Gemini na rozpraszacze, takie jak wyskakujące okienka, gdy agenci VLM wykonują zadania na komputerze, oraz wykorzystaliśmy Gemini do analizowania interakcji społecznych, zdarzeń czasowych i czynników ryzyka na podstawie danych wejściowych wideo”.
 
-[האתר של דייי יאנג](https://cs.stanford.edu/~diyiy/)
+[Witryna Diyi Yang](https://cs.stanford.edu/~diyiy/)
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=he)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=pl)
 
-‫"Gemini Pro ו-Flash, עם חלון ההקשר הארוך שלהם, עוזרים לנו ב-OK-Robot, פרויקט המניפולציה הניידת שלנו עם אוצר מילים פתוח. ‫Gemini מאפשר לשלוח שאילתות ופקודות מורכבות בשפה טבעית לזיכרון של הרובוט: במקרה הזה, תצפיות קודמות שהרובוט ביצע במהלך פעולה ארוכה. גם אני ומאהי שפיאוללה משתמשים ב-Gemini כדי לפרק משימות לקוד שהרובוט יכול להריץ בעולם האמיתי".
+„Gemini Pro i Flash z długim oknem kontekstu pomagają nam w OK-Robot, naszym projekcie manipulacji mobilnej z otwartym słownikiem. Gemini umożliwia złożone zapytania i polecenia w języku naturalnym dotyczące „pamięci” robota, czyli w tym przypadku wcześniejszych obserwacji robota podczas długiego okresu działania. Wraz z Mahi Shafiullah używamy też Gemini do rozkładania zadań na kod, który robot może wykonać w prawdziwym świecie”.
 
-[האתר של Lerrel Pinto](https://www.lerrelpinto.com/)
+[Witryna Lerrela Pinto](https://www.lerrelpinto.com/)
 
-## Gemini Academic Program
+## Program Gemini Academic Program
 
-חוקרים אקדמיים שעומדים בדרישות (כמו חברי סגל, עובדים וסטודנטים לתואר שלישי) ב[מדינות נתמכות](https://ai.google.dev/gemini-api/docs/available-regions?hl=he) יכולים להגיש בקשה לקבלת קרדיטים ל-Gemini API ומכסות שימוש גבוהות יותר לפרויקטים מחקריים. התמיכה הזו מאפשרת תפוקה גבוהה יותר בניסויים מדעיים ומקדמת את המחקר.
+Kwalifikujący się badacze akademiccy (np. wykładowcy, pracownicy i doktoranci) w [obsługiwanych
+krajach](https://ai.google.dev/gemini-api/docs/available-regions?hl=pl) mogą ubiegać się o środki Gemini API
+i wyższe limity liczby żądań w projektach badawczych. Dzięki temu można zwiększyć przepustowość eksperymentów naukowych i przyspieszyć badania.
 
-אנחנו מתעניינים במיוחד בתחומי המחקר שמפורטים בקטע הבא,
-אבל נשמח לקבל בקשות מתחומים מדעיים מגוונים:
+Szczególnie interesują nas obszary badań wymienione w sekcji poniżej, ale przyjmujemy zgłoszenia z różnych dziedzin nauki:
 
-- **הערכות ובנצ'מרקים**: שיטות הערכה שאושרו על ידי הקהילה ויכולות לספק אות חזק של ביצועים בתחומים כמו עובדתיות, בטיחות, ביצוע הוראות, חשיבה רציונלית ותכנון.
-- **קידום גילויים מדעיים לטובת האנושות**: יישומים פוטנציאליים של AI במחקר מדעי רב-תחומי, כולל תחומים כמו מחלות נדירות ומוזנחות, ביולוגיה ניסויית, מדע החומרים וקיימות.
-- **התגלמות ואינטראקציות**: שימוש במודלים גדולים של שפה כדי לחקור אינטראקציות חדשות בתחומים של AI מבוסס-גוף, אינטראקציות סביבתיות, רובוטיקה ואינטראקציית אדם-מחשב.
-- **יכולות מתפתחות**: בחינת יכולות אג'נטיות חדשות שנדרשות לשיפור חשיבה רציונלית ותכנון, ואיך אפשר להרחיב את היכולות במהלך היקש (למשל, באמצעות Gemini Flash).
-- **אינטראקציה והבנה מולטי-מודאליות**: זיהוי פערים והזדמנויות במודלים בסיסיים מולטי-מודאליים לניתוח, להסקת מסקנות ולתכנון במגוון משימות.
+- **Oceny i testy porównawcze**: metody oceny zatwierdzone przez społeczność, które
+  mogą zapewnić silny sygnał skuteczności w takich obszarach jak rzetelność, bezpieczeństwo, wykonywanie instrukcji, rozumowanie i planowanie.
+- **Przyspieszenie odkryć naukowych z korzyścią dla ludzkości**: Potencjalne
+  zastosowania AI w interdyscyplinarnych badaniach naukowych, w tym w takich obszarach
+  jak choroby rzadkie i zaniedbane, biologia eksperymentalna, materiałoznawstwo
+  i zrównoważony rozwój.
+- **Ucieleśnienie i interakcje**: wykorzystanie dużych modeli językowych do
+  badania nowych interakcji w dziedzinach ucieleśnionej AI, interakcji otoczenia,
+  robotyki i interakcji człowiek–komputer.
+- **Możliwości emergentne**: odkrywanie nowych możliwości agentowych wymaganych do
+  ulepszenia rozumowania i planowania oraz sposobów rozszerzania możliwości podczas
+  wnioskowania (np. przez wykorzystanie Gemini Flash).
+- **Interakcje i rozumienie multimodalne**: identyfikowanie luk i
+  możliwości w zakresie multimodalnych modeli podstawowych do analizowania, rozumowania,
+  i planowania w różnych zadaniach.
 
-הזכאות: רק אנשים פרטיים (חברי סגל, חוקרים או אנשים בתפקיד מקביל) שמשויכים למוסד אקדמי תקף או לארגון מחקר אקדמי יכולים להגיש בקשה. הערה: Google תעניק ותסיר גישה ל-API וקרדיטים לפי שיקול דעתה. אנחנו בודקים את הבקשות פעם בחודש.
+Kryteria kwalifikacji: zgłaszać się mogą tylko osoby (wykładowcy, badacze lub osoby o równoważnych kwalifikacjach) powiązane z uznaną instytucją akademicką lub organizacją prowadzącą badania akademickie. Pamiętaj, że dostęp do interfejsu API i środki będą przyznawane i usuwane według uznania Google. Zgłoszenia sprawdzamy co miesiąc.
 
-### איך מתחילים לחקור באמצעות Gemini API
+### Rozpoczęcie badań z użyciem Gemini API
 
-[להגשת בקשה](https://forms.gle/HMviQstU8PxC5iCt5)
+[Zgłoś się](https://forms.gle/HMviQstU8PxC5iCt5)
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-עדכון אחרון: 2026-07-01 (שעון UTC).
+Ostatnia aktualizacja: 2026-07-01 UTC.
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-01 (שעון UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-01 UTC."],[],[]]

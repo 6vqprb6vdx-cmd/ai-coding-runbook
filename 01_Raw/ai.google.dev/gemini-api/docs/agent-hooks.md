@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=id
-fetched_at: 2026-08-24T02:27:19.581466+00:00
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=pl
+fetched_at: 2026-08-31T06:44:00.614459+00:00
 title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Kirim masukan
+Prześlij opinię
 
 # Hooks
 
-Hook memungkinkan Anda menjalankan skrip kustom atau permintaan HTTP eksternal tepat sebelum atau setelah agen menjalankan kode atau mengubah file di dalam sandbox jarak jauhnya. Gunakan hook untuk memperluas loop agen dengan batasan otomatis dan alur kerja latar belakang, seperti:
+Haczyki umożliwiają uruchamianie niestandardowych skryptów lub zewnętrznych żądań HTTP bezpośrednio przed lub po wykonaniu kodu przez agenta albo po zmodyfikowaniu przez niego plików w zdalnej piaskownicy. Używaj haczyków, aby rozszerzyć pętlę agenta o automatyczne zabezpieczenia i przepływy pracy w tle, takie jak:
 
-- **Menerapkan batasan keamanan dan akses** sebelum perintah shell berisiko tinggi atau pembacaan file terbatas dijalankan.
-- **Mengotomatiskan transformasi pipeline data** tepat setelah agen membuat atau mengubah file.
-- **Streaming telemetri audit perusahaan** ke sistem pemantauan eksternal setelah eksekusi alat.
+- **egzekwowanie zabezpieczeń i ograniczeń dostępu** przed wykonaniem poleceń powłoki wysokiego ryzyka lub odczytaniem plików z ograniczeniami;
+- **automatyzowanie przekształceń w potoku danych** bezpośrednio po utworzeniu lub zmodyfikowaniu plików przez agenta;
+- **przesyłanie strumieniowe danych telemetrycznych kontroli przedsiębiorstwa** do zewnętrznych systemów monitorowania po wykonaniu narzędzia.
 
 ### Python
 
@@ -167,20 +167,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Peristiwa siklus proses yang didukung
+## Obsługiwane zdarzenia cyklu życia
 
-Hook mendukung 2 peristiwa di dalam sandbox:
+Haczyki obsługują 2 zdarzenia w piaskownicy:
 
-| Peristiwa | Waktu diaktifkan | Fungsinya |
+| Zdarzenie | Kiedy jest wywoływane | Działanie |
 | --- | --- | --- |
-| `pre_tool_execution` | Tepat sebelum alat dijalankan | Dapat menyetujui (`allow`) atau memblokir (`deny`) alat sebelum dijalankan. Saat diblokir, model akan melihat alasan penolakan Anda dan menyesuaikannya. |
-| `post_tool_execution` | Tepat setelah alat selesai | Menjalankan tugas lanjutan seperti memformat kode, menjalankan pengujian unit, atau mencatat telemetri. Tidak dapat memblokir atau mengurungkan tindakan yang telah selesai. |
+| `pre_tool_execution` | Bezpośrednio przed uruchomieniem narzędzia | Może zatwierdzić (`allow`) lub zablokować (`deny`) narzędzie przed jego wykonaniem. Gdy narzędzie jest zablokowane, model widzi powód odrzucenia i dostosowuje się. |
+| `post_tool_execution` | Bezpośrednio po zakończeniu działania narzędzia | Uruchamia zadania uzupełniające, takie jak formatowanie kodu, uruchamianie testów jednostkowych lub rejestrowanie danych telemetrycznych. Nie można zablokować ani cofnąć wykonanych działań. |
 
 ### `pre_tool_execution`
 
-Diaktifkan tepat sebelum alat dijalankan. Skrip Anda membaca detail panggilan alat dari `stdin` dan menampilkan JSON keputusannya (`allow` atau `deny`) ke `stdout`.
+Jest wywoływane bezpośrednio przed wykonaniem narzędzia. Twój skrypt odczytuje szczegóły wywołania narzędzia z `stdin` i wysyła decyzję w formacie JSON (`allow` lub `deny`) do `stdout`.
 
-**Payload input (`stdin`):**
+**Ładunek wejściowy (`stdin`):**
 
 ```
 {
@@ -195,9 +195,9 @@ Diaktifkan tepat sebelum alat dijalankan. Skrip Anda membaca detail panggilan al
 }
 ```
 
-**Respons output (`stdout`):**
+**Odpowiedź wyjściowa (`stdout`):**
 
-Untuk menyetujui panggilan alat:
+Aby zatwierdzić wywołanie narzędzia:
 
 ```
 {
@@ -205,7 +205,7 @@ Untuk menyetujui panggilan alat:
 }
 ```
 
-Untuk memblokir panggilan alat dan menampilkan masukan ke model:
+Aby zablokować wywołanie narzędzia i przekazać modelowi opinię:
 
 ```
 {
@@ -214,15 +214,15 @@ Untuk memblokir panggilan alat dan menampilkan masukan ke model:
 }
 ```
 
-Jika hook menolak perintah, panggilan alat akan segera dilewati. Agen akan melihat hasil error yang berisi alasan penolakan Anda tepat di dalam giliran saat ini. Model kemudian dapat mengoreksi diri sendiri dengan memilih perintah alternatif atau menjelaskan blokir kepada pengguna.
+Gdy haczyk odrzuci polecenie, wywołanie narzędzia zostanie natychmiast pominięte. Agent zobaczy w bieżącej turze wynik błędu zawierający powód odrzucenia. Model może wtedy samodzielnie poprawić błąd, wybierając alternatywne polecenie lub wyjaśniając użytkownikowi blokadę.
 
-Jika skrip Anda menampilkan JSON yang tidak dikenali, teks biasa, atau apa pun selain `{"decision": "deny"}`, runtime akan memperlakukan respons sebagai persetujuan (`allow`).
+Jeśli skrypt wyśle nierozpoznany format JSON, zwykły tekst lub cokolwiek innego niż `{"decision": "deny"}`, środowisko wykonawcze potraktuje odpowiedź jako zatwierdzenie (`allow`).
 
 ### `post_tool_execution`
 
-Diaktifkan tepat setelah alat selesai. Skrip Anda membaca detail eksekusi dan status error dari `stdin`.
+Jest wywoływane bezpośrednio po zakończeniu działania narzędzia. Twój skrypt odczytuje szczegóły wykonania i stan błędu z `stdin`.
 
-**Payload input (`stdin`):**
+**Ładunek wejściowy (`stdin`):**
 
 ```
 {
@@ -237,27 +237,27 @@ Diaktifkan tepat setelah alat selesai. Skrip Anda membaca detail eksekusi dan st
 }
 ```
 
-Jika perintah shell mencetak error ke error standar (`stderr`) atau operasi sistem file gagal, kolom `"error"` yang berisi teks error akan disertakan dalam payload. Jika perintah berhasil tanpa error, kolom `"error"` akan dihilangkan sepenuhnya.
+Jeśli polecenie powłoki wyświetli błędy w standardowym strumieniu błędów (`stderr`) lub operacja systemu plików się nie powiedzie, do ładunku zostanie dodane pole `"error"` zawierające tekst błędu. Gdy polecenie zakończy się bez błędów, pole `"error"` zostanie całkowicie pominięte.
 
-**Respons output (`stdout`):**
+**Odpowiedź wyjściowa (`stdout`):**
 
 ```
 {}
 ```
 
-Karena hook pasca-alat berjalan secara ketat untuk tugas latar belakang seperti pemformatan kode atau logging, runtime akan mengabaikan nilai keputusan apa pun yang ditampilkan di `stdout`.
+Ponieważ haczyki po wykonaniu narzędzia działają wyłącznie w przypadku zadań w tle, takich jak formatowanie kodu lub rejestrowanie, środowisko wykonawcze ignoruje wszystkie wartości decyzji zwracane w `stdout`.
 
-## Penemuan konfigurasi
+## Wykrywanie konfiguracji
 
-Runtime otomatis menemukan definisi hook dari `.agents/hooks.json` atau `/.agents/hooks.json` di dalam lingkungan sandbox. Anda dapat menyediakan `hooks.json` bersama skrip kustom menggunakan sumber [lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#mount_from_a_source) yang didukung:
+Środowisko wykonawcze automatycznie wykrywa definicje haczyków w pliku `.agents/hooks.json` lub `/.agents/hooks.json` w środowisku piaskownicy. Możesz podać `hooks.json` wraz ze skryptami niestandardowymi, korzystając z dowolnego obsługiwanego [źródła środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#mount_from_a_source):
 
-- **Pemasangan repositori**: Repositori Git yang berisi `.agents/hooks.json` bersama `AGENTS.md`.
-- **Cloud Storage (`gcs`)**: Bucket GCS yang berisi `hooks.json` yang disalin ke lingkungan.
-- **Sumber inline**: String JSON mentah dan konten skrip yang diteruskan di `environment.sources` saat memanggil `client.interactions.create`.
+- **Montowanie repozytorium**: repozytorium Git zawierające `.agents/hooks.json` oraz `AGENTS.md`.
+- **Cloud Storage (`gcs`):** zasobnik GCS zawierający plik `hooks.json` skopiowany do środowiska.
+- **Źródła wbudowane**: surowy ciąg JSON i zawartość skryptu przekazywane w `environment.sources` podczas wywoływania `client.interactions.create`.
 
-### Skema `hooks.json`
+### Schemat pliku `hooks.json`
 
-File `hooks.json` mengelompokkan definisi peristiwa (`pre_tool_execution` atau `post_tool_execution`) dengan nama kustom. Anda dapat mengaktifkan atau menonaktifkan setiap grup secara terpisah:
+Plik `hooks.json` grupuje definicje zdarzeń (`pre_tool_execution` lub `post_tool_execution`) pod nazwami niestandardowymi. Każdą grupę możesz włączać i wyłączać niezależnie:
 
 ```
 {
@@ -293,71 +293,71 @@ File `hooks.json` mengelompokkan definisi peristiwa (`pre_tool_execution` atau `
 }
 ```
 
-### Sintaksis dan aturan pencocok
+### Składnia i reguły dopasowywania
 
-Setiap grup aturan di `hooks.json` menentukan kapan dan bagaimana pengendali diaktifkan menggunakan properti `matcher` dan `hooks`:
+Każda grupa reguł w `hooks.json` określa, kiedy i jak mają być wywoływane procedury obsługi, za pomocą właściwości `matcher` i `hooks`:
 
-| Kolom | Jenis | Deskripsi |
+| Pole | Typ | Opis |
 | --- | --- | --- |
-| `enabled` | `boolean` | Opsional. Tetapkan ke `false` untuk menonaktifkan grup (`true` secara default). |
-| `matcher` | `string` | Pola ekspresi reguler yang cocok dengan nama alat target di dalam penampung. |
-| `hooks` | `array` | Daftar definisi pengendali yang diurutkan (`command` atau `http`). Pengendali berjalan secara berurutan dalam urutan deklarasi. |
+| `enabled` | `boolean` | Opcjonalnie. Ustaw wartość `false`, aby wyłączyć grupę (domyślnie `true`). |
+| `matcher` | `string` | Wzorzec wyrażenia regularnego pasujący do nazw narzędzi docelowych w kontenerze. |
+| `hooks` | `array` | Uporządkowana lista definicji procedur obsługi (`command` lub `http`). Procedury obsługi są uruchamiane sekwencyjnie w kolejności deklaracji. |
 
-#### Cara kerja evaluasi ekspresi reguler
+#### Jak działa ocena wyrażeń regularnych
 
-Saat agen memanggil alat di dalam sandbox, runtime akan mengevaluasi nama penampung alat terhadap pola `matcher` Anda menggunakan ekspresi reguler RE2 standar. Jika ekspresi reguler cocok dengan nama alat, semua pengendali dalam array `hooks` akan dijalankan secara berurutan. Jika beberapa grup aturan cocok dengan alat yang sama, semua array pengendali yang sesuai akan dijalankan.
+Gdy agent wywoła narzędzie w piaskownicy, środowisko wykonawcze oceni nazwę kontenera narzędzia na podstawie wzorca `matcher` za pomocą standardowych wyrażeń regularnych RE2. Jeśli wyrażenie regularne pasuje do nazwy narzędzia, wszystkie procedury obsługi w tablicy `hooks` zostaną wykonane w kolejności. Jeśli do tego samego narzędzia pasuje kilka grup reguł, zostaną uruchomione wszystkie odpowiednie tablice procedur obsługi.
 
-Anda dapat menargetkan nama alat penampung bawaan: eksekusi kode (`code_execution`) atau operasi sistem file (`read_file`, `write_file`, `list_files`, dan `delete_file`).
+Możesz kierować reklamy na dowolną wbudowaną nazwę narzędzia kontenera: wykonywanie kodu (`code_execution`) lub operacje systemu plików (`read_file`, `write_file`, `list_files` i `delete_file`).
 
-#### Ekspresi pencocok umum
+#### Typowe wyrażenia dopasowywania
 
-- `"code_execution"`: Pencocokan string yang tepat untuk perintah shell dan eksekusi skrip.
-- `"write_file"`: Pencocokan yang tepat untuk pembuatan file sistem file dan penulisan disk.
-- `"read_file|write_file"`: Pemisahan pipa cocok dengan beberapa nama alat tertentu dalam satu aturan.
-- `".*_file"`: Karakter pengganti ekspresi reguler yang cocok dengan alat apa pun yang diakhiri dengan `_file` (seperti `read_file`, `write_file`, atau `delete_file`). Ekspresi reguler RE2 standar memerlukan `.*`; glob shell sederhana seperti `*_file` adalah sintaksis ekspresi reguler yang tidak valid dan akan gagal dicocokkan.
-- `".*"` atau `"*"` atau `""`: Pola catch-all yang mencegat setiap panggilan alat di dalam penampung.
+- `"code_execution"`: dokładne dopasowanie ciągu znaków do poleceń powłoki i wykonywania skryptów.
+- `"write_file"`: dokładne dopasowanie do tworzenia plików w systemie plików i zapisywania na dysku.
+- `"read_file|write_file"`: rozdzielenie pionową kreską umożliwia dopasowanie kilku konkretnych nazw narzędzi w jednej regule.
+- `".*_file"`: symbol wieloznaczny wyrażenia regularnego pasujący do dowolnego narzędzia kończącego się na `_file` (np. `read_file`, `write_file` lub `delete_file`). Standardowe wyrażenia regularne RE2 wymagają użycia `.*`; proste symbole powłoki, takie jak `*_file`, są nieprawidłową składnią wyrażenia regularnego i nie będą pasować.
+- `".*"` lub `"*"` lub `""`: wzorzec obejmujący wszystkie przypadki, który przechwytuje każde wywołanie narzędzia w kontenerze.
 
-## Jenis pengendali
+## Typy procedur obsługi
 
-### Hook perintah
+### Haczyki poleceń
 
-Hook perintah menjalankan perintah atau skrip shell di dalam sandbox. Skrip menerima JSON peristiwa di `stdin` dan menampilkan JSON keputusannya di `stdout`.
+Haczyki poleceń wykonują polecenie powłoki lub skrypt w piaskownicy. Skrypt otrzymuje zdarzenie w formacie JSON w `stdin` i wysyła decyzję w formacie JSON w `stdout`.
 
-| Kolom | Jenis | Deskripsi |
+| Pole | Typ | Opis |
 | --- | --- | --- |
-| `type` | `string` | Harus berupa `"command"`. |
-| `command` | `string` | Baris perintah yang akan dijalankan di dalam sandbox (misalnya, `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | Batas waktu dalam detik. Default: `30`. |
+| `type` | `string` | Musi mieć wartość `"command"`. |
+| `command` | `string` | Wiersz poleceń do uruchomienia w piaskownicy (np. `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | Czas oczekiwania w sekundach. Domyślnie: `30`. |
 
-### Hook HTTP
+### Haczyki HTTP
 
-Hook HTTP mengirim JSON peristiwa sebagai permintaan POST ke URL HTTPS eksternal langsung dari dalam jaringan sandbox. Server target menampilkan keputusannya di isi respons HTTP menggunakan format JSON yang sama persis (`{"decision": "allow"}` atau `{"decision": "deny", "reason": "..."}`).
+Haczyki HTTP wysyłają zdarzenie w formacie JSON jako żądanie POST do zewnętrznego adresu URL HTTPS bezpośrednio z sieci piaskownicy. Serwer docelowy zwraca decyzję w treści odpowiedzi HTTP w dokładnie tym samym formacie JSON (`{"decision": "allow"}` lub `{"decision": "deny", "reason": "..."}`).
 
-| Kolom | Jenis | Deskripsi |
+| Pole | Typ | Opis |
 | --- | --- | --- |
-| `type` | `string` | Harus berupa `"http"`. |
-| `url` | `string` | Endpoint HTTPS eksternal untuk mem-POST payload peristiwa. |
-| `headers` | `object` | Pasangan nilai kunci opsional untuk header kustom non-sensitif (seperti `{"X-Event-Source": "agent-sandbox"}`). Untuk kredensial autentikasi, gunakan proxy jaringan. |
-| `timeout` | `integer` | Batas waktu dalam detik. Default: `30`. |
+| `type` | `string` | Musi mieć wartość `"http"`. |
+| `url` | `string` | Zewnętrzny punkt końcowy HTTPS, do którego należy wysłać ładunek zdarzenia. |
+| `headers` | `object` | Opcjonalne pary klucz-wartość dla niestandardowych nagłówków nie zawierających informacji poufnych (np. `{"X-Event-Source": "agent-sandbox"}`). W przypadku danych uwierzytelniających użyj serwera proxy sieci. |
+| `timeout` | `integer` | Czas oczekiwania w sekundach. Domyślnie: `30`. |
 
-#### Proxy keluar dan transformasi token
+#### Serwer proxy ruchu wychodzącego i przekształcanie tokenów
 
-Karena hook HTTP dijalankan langsung dari dalam namespace jaringan sandbox, permintaan keluar akan diteruskan melalui proxy keluar transparan. Arsitektur ini memberi Anda 2 keuntungan keamanan penting:
+Ponieważ haczyki HTTP są wykonywane bezpośrednio z przestrzeni nazw sieci piaskownicy, żądania wychodzące przechodzą przez przezroczysty serwer proxy ruchu wychodzącego. Ta architektura zapewnia 2 kluczowe zalety związane z bezpieczeństwem:
 
-- **Daftar yang diizinkan jaringan:** Endpoint target harus diizinkan secara eksplisit di `network.allowlist` lingkungan Anda. Traffic loopback (`127.0.0.1` atau `localhost`) diblokir oleh proxy; selalu targetkan endpoint eksternal yang diizinkan.
-- **Transformasi token:** Anda tidak perlu menyimpan kunci API atau token pembawa rahasia di dalam `.agents/hooks.json` atau memasangnya ke dalam penampung. Sebagai gantinya, konfigurasi aturan transformasi token di [konfigurasi jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration) Anda (`network.allowlist.transform`). Proxy keluar akan otomatis mencegat traffic hook HTTP keluar dan menyisipkan header autentikasi Anda yang sebenarnya di jaringan sebelum keluar dari sandbox.
+- **Lista dozwolonych adresów w sieci:** punkty końcowe docelowe muszą być wyraźnie dozwolone w `network.allowlist` środowiska. Serwer proxy blokuje ruch w pętli zwrotnej (`127.0.0.1` lub `localhost`); zawsze kieruj reklamy na zewnętrzne punkty końcowe znajdujące się na liście dozwolonych.
+- **Przekształcanie tokenów:** nie musisz przechowywać kluczy interfejsu API ani tajnych tokenów okaziciela w pliku `.agents/hooks.json` ani montować ich w kontenerze. Zamiast tego skonfiguruj reguły przekształcania tokenów w [konfiguracji sieci](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#network-configuration) (`network.allowlist.transform`). Serwer proxy ruchu wychodzącego automatycznie przechwytuje wychodzący ruch haczyków HTTP i wstawia rzeczywiste nagłówki uwierzytelniania przed opuszczeniem piaskownicy.
 
-## Cara runtime menangani keputusan dan kegagalan
+## Jak środowisko wykonawcze obsługuje decyzje i błędy
 
-- **Menunggu sinkron:** Agen akan berhenti dan menunggu hook Anda selesai sebelum melanjutkan.
-- **Memblokir eksekusi alat:** Jika hook pra-alat Anda menampilkan `{"decision": "deny", "reason": "<your reason>"}`, runtime akan segera membatalkan panggilan alat. Model akan melihat alasan penolakan Anda di histori percakapannya dan menyesuaikan dengan memilih alternatif yang aman atau menjelaskan blokir kepada pengguna.
-- **Menangani error skrip, error HTTP, dan batas waktu:** Jika skrip perintah mengalami error (status keluar bukan nol), hook HTTP menampilkan kode status non-2xx (seperti error server 4xx atau 5xx), atau operasi mencapai batas waktu atau menampilkan JSON yang tidak dikenali, runtime akan memperlakukannya sebagai persetujuan (`allow`). Eksekusi alat akan terus berjalan secara normal sehingga skrip yang rusak atau server telemetri yang tidak dapat dijangkau tidak akan pernah menyebabkan aplikasi Anda mengalami deadlock.
+- **Synchroniczne oczekiwanie:** agent wstrzymuje działanie i czeka na zakończenie działania haczyków przed kontynuowaniem.
+- **Blokowanie wykonywania narzędzia:** jeśli haczyk przed wykonaniem narzędzia zwróci `{"decision": "deny", "reason": "<your reason>"}`, środowisko wykonawcze natychmiast anuluje wywołanie narzędzia. Model zobaczy powód odrzucenia w historii rozmowy i dostosuje się, wybierając bezpieczną alternatywę lub wyjaśniając użytkownikowi blokadę.
+- **Obsługa awarii skryptów, błędów HTTP i przekroczeń limitu czasu:** jeśli skrypt polecenia ulegnie awarii (niezerowy kod zakończenia), haczyk HTTP zwróci kod stanu inny niż 2xx (np. błąd serwera 4xx lub 5xx) albo operacja przekroczy limit czasu lub zwróci nierozpoznany format JSON, środowisko wykonawcze potraktuje to jako zatwierdzenie (`allow`). Wykonywanie narzędzia będzie kontynuowane normalnie, więc uszkodzony skrypt lub niedostępny serwer telemetryczny nigdy nie spowoduje zakleszczenia aplikacji.
 
-## Kasus penggunaan umum
+## Częste zastosowania
 
-### Pemulihan multi-giliran untuk privasi dan kepatuhan data
+### Odzyskiwanie danych w wielu turach w celu zapewnienia prywatności danych i zgodności z przepisami
 
-Jika hook memblokir akses ke resource terbatas—seperti direktori yang berisi Informasi Identitas Pribadi (PII) atau catatan keuangan rahasia—Anda dapat meneruskan `previous_interaction_id` pada panggilan berikutnya untuk melanjutkan giliran di lingkungan yang sama. Agen akan membaca penjelasan penolakan dan otomatis memulihkan dengan membuat kueri tabel publik yang disetujui.
+Gdy haczyk zablokuje dostęp do zasobów z ograniczeniami, takich jak katalogi zawierające informacje umożliwiające identyfikację osoby lub poufne dane finansowe, możesz przekazać `previous_interaction_id` w następnym wywołaniu, aby kontynuować turę w tym samym środowisku. Agent odczyta wyjaśnienie odmowy i automatycznie odzyska dane, wysyłając zapytanie do zatwierdzonych tabel publicznych.
 
 ### Python
 
@@ -571,12 +571,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### Telemetri dan logging audit eksternal
+### Zewnętrzne rejestrowanie kontrolne i dane telemetryczne
 
-Kirim peristiwa audit real-time dari dalam sandbox ke server pemantauan eksternal setiap kali file dibaca atau diubah.
+Wysyłaj zdarzenia kontrolne w czasie rzeczywistym z piaskownicy do zewnętrznego serwera monitorowania za każdym razem, gdy pliki są odczytywane lub modyfikowane.
 
-- **Cocokkan beberapa alat:** Karena pencocok menggunakan ekspresi reguler standar, Anda dapat menggabungkan beberapa alat dalam satu aturan menggunakan pipa (`read_file|write_file`) atau karakter pengganti (`.*_file`).
-- **Jaga kerahasiaan informasi di luar konfigurasi Anda:** Tentukan token autentikasi di [konfigurasi jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration) lingkungan Anda (`network.allowlist.transform`). Proxy keluar akan otomatis menyisipkan token pembawa Anda yang sebenarnya pada permintaan keluar.
+- **Dopasowywanie wielu narzędzi:** ponieważ dopasowywanie używa standardowych wyrażeń regularnych, możesz łączyć kilka narzędzi w jednej regule za pomocą pionowych kresek (`read_file|write_file`) lub symboli wieloznacznych (`.*_file`).
+- **Ukrywanie informacji poufnych w konfiguracji:** zdefiniuj tokeny uwierzytelniania w [konfiguracji sieci](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#network-configuration) środowiska (`network.allowlist.transform`). Serwer proxy ruchu wychodzącego automatycznie wstawia rzeczywiste tokeny okaziciela w żądaniach wychodzących.
 
 ### Python
 
@@ -718,25 +718,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Batasan
+## Ograniczenia
 
-- **Cakupan alat sandbox:** Hook mencegat alat bawaan di dalam sandbox: eksekusi kode (`code_execution`) dan operasi sistem file (`read_file`, `write_file`, `list_files`, dan `delete_file`). Hook tidak diaktifkan untuk panggilan fungsi kustom (`function`) atau alat Model Context Protocol (`mcp_server`) eksternal yang ditangani di luar penampung.
-- **Daftar yang diizinkan jaringan:** Hook HTTP berjalan di dalam jaringan penampung. Anda harus mengizinkan URL target secara eksplisit di `network.allowlist` lingkungan Anda. Alamat loopback (`localhost`, `127.0.0.1`) diblokir oleh proxy.
-- **Persetujuan otomatis saat terjadi error:** Jika skrip hook mengalami error (status keluar bukan nol), mencapai batas waktu, atau gagal, runtime akan mencatat kegagalan dan mengizinkan panggilan alat untuk dilanjutkan. Hal ini memastikan skrip linter yang rusak atau proses yang terhenti tidak akan pernah menyebabkan aplikasi Anda mengalami deadlock.
-- **Perlindungan konfigurasi sandbox:** Karena hook dijalankan di dalam sandbox penampung, agen dengan alat tulis sistem file atau izin eksekusi kode shell dapat mengubah `.agents/hooks.json` atau skrip lokal di dalam ruang kerja yang dapat ditulis. Gunakan hook penampung sebagai panduan kebijakan otomatis dan batasan operasional; jika ketahanan terhadap gangguan yang ketat diperlukan terhadap eksekusi model yang tidak tepercaya, pasang sumber konfigurasi dari repositori hanya baca.
+- **Zakres narzędzi piaskownicy:** haczyki przechwytują wbudowane narzędzia w piaskownicy: wykonywanie kodu (`code_execution`) i operacje systemu plików (`read_file`, `write_file`, `list_files` i `delete_file`). Nie są wywoływane w przypadku niestandardowych wywołań funkcji (`function`) ani zewnętrznych narzędzi Model Context Protocol (`mcp_server`) obsługiwanych poza kontenerem.
+- **Listy dozwolonych adresów w sieci:** haczyki HTTP działają w sieci kontenera. Musisz wyraźnie zezwolić na adresy URL docelowe w `network.allowlist` środowiska. Serwer proxy blokuje adresy pętli zwrotnej (`localhost`, `127.0.0.1`).
+- **Automatyczne zatwierdzanie w przypadku błędów:** jeśli skrypt haczyka ulegnie awarii (niezerowy kod zakończenia), przekroczy limit czasu lub się nie powiedzie, środowisko wykonawcze zarejestruje błąd i zezwoli na kontynuowanie wywołania narzędzia. Dzięki temu uszkodzone skrypty linterów lub zawieszające się procesy nigdy nie spowodują zakleszczenia aplikacji.
+- **Ochrona konfiguracji piaskownicy:** ponieważ haczyki są wykonywane w piaskownicy kontenera, agenci z uprawnieniami do zapisywania w systemie plików lub wykonywania kodu powłoki mogą modyfikować lokalny plik `.agents/hooks.json` lub skrypty w obszarach roboczych z możliwością zapisu. Używaj haczyków kontenera jako automatycznych wskazówek dotyczących zasad i zabezpieczeń operacyjnych. Jeśli wymagana jest ścisła ochrona przed manipulacjami w przypadku wykonywania przez niezaufany model, zamontuj źródła konfiguracji z repozytoriów tylko do odczytu.
 
-## Langkah berikutnya
+## Co dalej?
 
-- [Pelajari cara mengonfigurasi sandbox dan lingkungan jarak jauh yang persisten.](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id)
-- Pelajari kemampuan dan alat bawaan agen [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id).
-- Tinjau [ringkasan Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) untuk sesi multi-giliran dan streaming.
+- Dowiedz się, jak skonfigurować trwałe [zdalne piaskownice i środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl).
+- Poznaj możliwości i wbudowane narzędzia agenta [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl).
+- Zapoznaj się z [omówieniem interfejsu API interakcji](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) w przypadku sesji wieloetapowych i przesyłania strumieniowego.
 
-Kirim masukan
+Prześlij opinię
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Ostatnia aktualizacja: 2026-07-30 UTC.
 
-Ada masukan untuk kami?
+Chcesz przekazać coś jeszcze?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]

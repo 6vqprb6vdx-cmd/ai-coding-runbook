@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/deprecations?hl=tr
-fetched_at: 2026-08-24T02:27:46.207585+00:00
+fetched_at: 2026-08-31T06:40:37.664858+00:00
 title: "Gemini deste\u011fi sonland\u0131r\u0131lan \u00f6zellikler \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

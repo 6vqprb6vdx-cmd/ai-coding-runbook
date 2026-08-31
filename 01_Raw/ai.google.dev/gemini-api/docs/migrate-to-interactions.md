@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=it
-fetched_at: 2026-08-24T02:30:14.565019+00:00
-title: "Migrazione all'API Interactions \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=th
+fetched_at: 2026-08-31T06:37:31.446953+00:00
+title: "\u0e01\u0e32\u0e23\u0e22\u0e49\u0e32\u0e22\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e44\u0e1b\u0e22\u0e31\u0e07 Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-# Migrazione all'API Interactions
+# การย้ายข้อมูลไปยัง Interactions API
 
-Questa guida ti aiuta a eseguire la migrazione dall'API `generateContent` all'API Interactions.
+คู่มือนี้จะช่วยคุณย้ายข้อมูลจาก `generateContent` API ไปยัง Interactions API
 
-L'API Interactions è il modo più semplice e migliore per creare con i modelli e gli agenti Gemini. Sebbene `generateContent` rimanga completamente supportata, consigliamo l'API Interactions per tutti i nuovi sviluppi.
+Interactions API เป็นวิธีที่ง่ายที่สุดและดีที่สุดในการสร้างด้วยโมเดลและเอเจนต์ Gemini แม้ว่าเราจะยังคงให้การสนับสนุน `generateContent` อย่างเต็มที่ แต่ขอแนะนำให้ใช้ Interactions API สำหรับการพัฒนาใหม่ทั้งหมด
 
-### Perché migrare?
+### เหตุผลที่ควรย้ายข้อมูล
 
-L'API Interactions è il modo più semplice e migliore per creare con i modelli e gli agenti Gemini:
+Interactions API เป็นวิธีที่ง่ายที่สุดและดีที่สุดในการสร้างด้วยโมเดลและเอเจนต์ของ Gemini
 
-- **Gestione della cronologia lato server**: flussi multi-turno semplificati tramite `previous_interaction_id`. Per impostazione predefinita, il server abilita lo stato (`store=true`), ma puoi attivare il comportamento senza stato impostando `store=false`.
-- **Passaggi di esecuzione osservabili**: i passaggi digitati semplificano il debug dei flussi complessi e il rendering dell'interfaccia utente per gli eventi intermedi (come pensieri o widget di ricerca).
-- **Utilizzo degli strumenti e flussi di lavoro agentici**: supporto nativo per l'utilizzo di strumenti multi-passaggio, l'orchestrazione e i flussi di ragionamento complessi tramite passaggi di esecuzione digitati.
-- **Attività in background e di lunga durata**: supporta l'offload di operazioni che richiedono molto tempo, come Deep Think e Deep Research, ai processi in background utilizzando `background=true`.
+- **การจัดการประวัติฝั่งเซิร์ฟเวอร์**: ลดความซับซ้อนของโฟลว์แบบหลายรอบผ่าน `previous_interaction_id` เซิร์ฟเวอร์จะเปิดใช้สถานะโดยค่าเริ่มต้น (`store=true`) แต่คุณเลือกใช้ลักษณะการทำงานแบบไม่มีสถานะได้โดยการตั้งค่า `store=false`
+- **ขั้นตอนการดำเนินการที่สังเกตได้**: ขั้นตอนที่พิมพ์ทำให้การแก้ไขข้อบกพร่องของโฟลว์ที่ซับซ้อนเป็นเรื่องง่าย และแสดงผล UI สำหรับเหตุการณ์ระดับกลาง (เช่น ความคิดหรือวิดเจ็ตการค้นหา)
+- **การใช้เครื่องมือและเวิร์กโฟลว์แบบเป็น Agent**: รองรับการใช้เครื่องมือแบบหลายขั้นตอน การจัดการเป็นกลุ่ม และการให้เหตุผลที่ซับซ้อนผ่านขั้นตอนการดำเนินการที่พิมพ์
+- **งานที่ทำอยู่เบื้องหลังซึ่งใช้เวลานาน**: รองรับการส่งต่อการดำเนินการที่ใช้เวลานาน เช่น Deep Think และ Deep Research ไปยังกระบวนการเบื้องหลังโดยใช้ `background=true`
 
-## Input/output di base
+## อินพุต/เอาต์พุตพื้นฐาน
 
-Questa sezione mostra come eseguire la migrazione di una semplice richiesta di generazione di testo.
+ส่วนนี้แสดงวิธีเปลี่ยนคำขอการสร้างข้อความอย่างง่าย
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-L'API `generateContent` è senza stato e restituisce direttamente la risposta. La struttura della risposta racchiude l'output in un elenco di `candidates`, ognuna contenente `content` con un elenco di `parts` da analizzare.
+`generateContent` API ไม่มีการเก็บสถานะและจะแสดงการตอบกลับโดยตรง โครงสร้างการตอบกลับจะรวมเอาต์พุตไว้ในรายการของ `candidates` ซึ่งแต่ละรายการจะมี `content` ที่มีรายการของ `parts` เพื่อแยกวิเคราะห์
 
 ### Python
 
@@ -105,9 +105,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-L'API Interactions restituisce una risorsa di interazione archiviata con una sequenza temporale `steps`. Sebbene tu possa esaminare manualmente l'array `steps` per trovare gli eventi intermedi, gli SDK Google GenAI forniscono proprietà di convenienza direttamente sull'oggetto `Interaction` restituito per accedere all'output finale.
+Interaction API จะแสดงผลแหล่งข้อมูลการโต้ตอบที่จัดเก็บไว้พร้อม`steps`
+ไทม์ไลน์ แม้ว่าคุณจะตรวจสอบอาร์เรย์ `steps` ด้วยตนเองเพื่อค้นหาเหตุการณ์ระดับกลางได้ แต่ Google GenAI SDK มีพร็อพเพอร์ตี้ที่สะดวก
+ในออบเจ็กต์ `Interaction` ที่ส่งคืนโดยตรงเพื่อให้เข้าถึงเอาต์พุตสุดท้ายได้
 
-La proprietà di convenienza più comune è **`.output_text`** (String), che estrae e unisce automaticamente i blocchi `TextContent` consecutivi alla fine della risposta del modello. Sebbene funzioni perfettamente per le risposte semplici, non include i blocchi di testo precedenti separati da contenuti non di testo (come pensieri, immagini, audio o chiamate di strumenti). Per le risposte multimodali complesse o intercalate, devi invece eseguire manualmente l'iterazione su `steps`.
+พร็อพเพอร์ตี้ความสะดวกที่พบบ่อยที่สุดคือ **`.output_text`** (String) ซึ่งจะ
+แยกและรวมบล็อก `TextContent` ที่ต่อเนื่องกันโดยอัตโนมัติที่
+ส่วนท้ายของการตอบกลับของโมเดล แม้ว่าวิธีนี้จะใช้ได้ดีกับคำตอบง่ายๆ
+แต่ก็ไม่ได้รวมบล็อกข้อความก่อนหน้าซึ่งคั่นด้วยเนื้อหาที่ไม่ใช่ข้อความ (เช่น
+ความคิด รูปภาพ เสียง หรือการเรียกใช้เครื่องมือ) สำหรับคำตอบแบบมัลติโมดอลที่ซับซ้อนหรือสลับกัน คุณต้องวนซ้ำผ่าน `steps` ด้วยตนเองแทน
 
 ### Python
 
@@ -179,17 +185,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Conversazioni a più turni
+## การสนทนาแบบหลายรอบ
 
-Per impostazione predefinita, l'API Interactions archivia le interazioni, consentendo la gestione dello stato lato server per le conversazioni a più turni.
+Interactions API จะจัดเก็บการโต้ตอบโดยค่าเริ่มต้น ซึ่งช่วยให้การจัดการสถานะฝั่งเซิร์ฟเวอร์สำหรับการสนทนาแบบหลายรอบ
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-In `generateContent`, devi gestire manualmente la cronologia delle conversazioni utilizzando l'array `contents` o un helper di chat lato client.
+ใน `generateContent` คุณต้องจัดการประวัติการสนทนาด้วยตนเองโดยใช้อาร์เรย์ `contents` หรือตัวช่วยแชทฝั่งไคลเอ็นต์
 
 ### Python
 
-**Utilizzo dell'helper di chat (opzione consigliata)**
+**ใช้แชทช่วย (แนะนำ)**
 
 ```
 from google import genai
@@ -204,7 +210,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**Gestione manuale della cronologia**
+**การจัดการประวัติด้วยตนเอง**
 
 ```
 from google import genai
@@ -232,7 +238,7 @@ print(response.text)
 
 ### JavaScript
 
-**Utilizzo dell'helper di chat (opzione consigliata)**
+**ใช้แชทช่วย (แนะนำ)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -247,7 +253,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**Gestione manuale della cronologia**
+**การจัดการประวัติด้วยตนเอง**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -299,9 +305,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-L'API Interactions gestisce lo stato sul server. Per continuare una conversazione, fai riferimento a `previous_interaction_id`.
+Interactions API จะจัดการสถานะในเซิร์ฟเวอร์ คุณสนทนาต่อได้โดยอ้างอิงถึง `previous_interaction_id`
 
 ### Python
 
@@ -394,13 +400,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Input multimodali
+## อินพุตหลายรูปแบบ
 
-Entrambe le API supportano input multimodali (testo, immagini, video e così via).
+ทั้ง 2 API รองรับอินพุตหลายรูปแบบ (ข้อความ รูปภาพ วิดีโอ ฯลฯ)
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-In `generateContent`, passi un elenco di `parts` all'interno dell'array `contents`. La risposta restituisce l'output in `parts` del primo candidato.
+ใน `generateContent` คุณจะส่งรายการ `parts` ภายในอาร์เรย์ `contents` การตอบกลับจะแสดงเอาต์พุตใน `parts` ของผู้สมัครคนแรก
 
 ### Python
 
@@ -488,9 +494,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-Nell'API Interactions, passi un array al campo `input`. Per recuperare i contenuti di output, trova il passaggio `model_output` nella sequenza temporale.
+ใน Interactions API คุณจะส่งอาร์เรย์ไปยังฟิลด์ `input` คุณดึงเนื้อหาเอาต์พุตได้โดยค้นหา`model_output`ในไทม์ไลน์
 
 ### Python
 
@@ -600,13 +606,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Output strutturato
+## เอาต์พุตที่มีโครงสร้าง
 
-Per fare in modo che il modello restituisca JSON corrispondente a uno schema specifico, configura il formato della risposta.
+หากต้องการให้โมเดลแสดงผล JSON ที่ตรงกับสคีมาที่เฉพาะเจาะจง ให้กำหนดค่ารูปแบบการตอบกลับ
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-In `generateContent`, configuri il formato di output utilizzando i campi `response_mime_type` e `response_schema` nidificati all'interno dell'oggetto `config` (o `generationConfig`).
+ใน `generateContent` คุณจะกำหนดค่ารูปแบบเอาต์พุตโดยใช้ฟิลด์ `response_mime_type` และ `response_schema` ที่ซ้อนอยู่ภายในออบเจ็กต์ `config` (หรือ `generationConfig`)
 
 ### Python
 
@@ -706,9 +712,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-Nell'API Interactions, i controlli del formato di output vengono spostati in un array `response_format` di primo livello.
+ใน Interactions API การควบคุมรูปแบบเอาต์พุตจะย้ายไปอยู่ที่อาร์เรย์ `response_format` ระดับบนสุด
 
 ### Python
 
@@ -820,13 +826,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Generazione multimodale
+## การสร้างแบบหลายรูปแบบ
 
-Quando generi contenuti in modalità diverse dal testo (ad esempio immagini o audio), la differenza principale è il modo in cui la risposta struttura i contenuti multimediali generati.
+เมื่อสร้างเนื้อหาในรูปแบบอื่นๆ นอกเหนือจากข้อความ (เช่น รูปภาพหรือเสียง) ความแตกต่างหลักคือวิธีที่คำตอบจัดโครงสร้างสื่อที่สร้างขึ้น
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-In `generateContent`, la risposta restituisce i contenuti multimediali generati direttamente in `parts` del candidato, in genere come dati base64 in `inlineData`.
+ใน `generateContent` คำตอบจะแสดงสื่อที่สร้างขึ้นโดยตรงใน `parts` ของผู้สมัคร โดยปกติจะเป็นข้อมูล base64 ใน `inlineData`
 
 ```
 # Response structure concept
@@ -851,9 +857,9 @@ In `generateContent`, la risposta restituisce i contenuti multimediali generati 
 }
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-Nell'API Interactions, i contenuti multimediali generati vengono visualizzati come elementi distinti all'interno dell'array `content` di un passaggio `model_output` nella sequenza temporale, mantenendo il flusso cronologico dell'interazione.
+ใน Interactions API สื่อที่สร้างขึ้นจะปรากฏเป็นรายการที่แตกต่างกันภายใน`content`อาร์เรย์ของ`model_output`ขั้นตอนในไทม์ไลน์ ซึ่งจะรักษาลำดับเวลาของการโต้ตอบไว้
 
 ```
 # Response structure concept
@@ -879,15 +885,15 @@ Nell'API Interactions, i contenuti multimediali generati vengono visualizzati co
 }
 ```
 
-In questo modo, l'analisi della risposta è coerente con la gestione degli input e degli output di testo: ogni elemento è un passaggio nella sequenza temporale.
+วิธีนี้จะช่วยให้การแยกวิเคราะห์การตอบกลับสอดคล้องกับวิธีจัดการอินพุตและเอาต์พุตข้อความ ซึ่งทุกอย่างจะเป็นขั้นตอนในไทม์ไลน์
 
-## Strumenti lato server
+## เครื่องมือฝั่งเซิร์ฟเวอร์
 
-Gemini supporta strumenti lato server integrati come il grounding della Ricerca Google. La differenza principale è il modo in cui la risposta rappresenta l'esecuzione dello strumento.
+Gemini รองรับเครื่องมือฝั่งเซิร์ฟเวอร์ในตัว เช่น การอ้างอิงข้อมูลของ Google Search ความแตกต่างหลักคือวิธีที่คำตอบแสดงการดำเนินการของเครื่องมือ
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-In `generateContent`, gli strumenti lato server sono in gran parte opachi. Abiliti lo strumento e ottieni una risposta finale con un oggetto `groundingMetadata` separato. È fondamentale notare che le citazioni non sono in linea; `groundingSupports` utilizza gli indici dei caratteri per mappare i segmenti di testo alle origini web in `groundingChunks`.
+ใน `generateContent` เครื่องมือฝั่งเซิร์ฟเวอร์ส่วนใหญ่จะทำงานแบบไม่โปร่งใส คุณเปิดใช้เครื่องมือและรับคำตอบสุดท้ายพร้อม`groundingMetadata`ออบเจ็กต์แยกต่างหาก ที่สำคัญคือ การอ้างอิงไม่ได้อยู่ในบรรทัด `groundingSupports` ใช้ดัชนีอักขระเพื่อแมปข้อความกลับไปยังแหล่งที่มาบนเว็บใน `groundingChunks`
 
 ### Python
 
@@ -995,11 +1001,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-Nell'API Interactions, gli strumenti lato server forniscono una trasparenza completa della sequenza temporale. L'API registra la chiamata e il risultato come `steps` di esecuzione distinti (`google_search_call` e `google_search_result`), esponendo esattamente i dati recuperati dal modello.
+ใน Interactions API เครื่องมือฝั่งเซิร์ฟเวอร์จะให้ความโปร่งใสของไทม์ไลน์ทั้งหมด API จะบันทึกการเรียกและผลลัพธ์เป็นการดำเนินการที่แตกต่างกัน `steps` (`google_search_call` และ `google_search_result`) ซึ่งจะแสดงข้อมูลที่โมเดลดึงมาอย่างชัดเจน
 
-Inoltre, l'API restituisce le citazioni **in linea**. Anziché mappare gli indici da un oggetto di metadati separato, l'elemento di testo all'interno del passaggio `model_output` contiene il proprio array `annotations` che rimanda direttamente all'origine.
+นอกจากนี้ API ยังแสดงการอ้างอิง**ในบรรทัด**ด้วย รายการข้อความภายใน`model_output` ขั้นตอนจะมีอาร์เรย์ `annotations` ของตัวเองที่ลิงก์ไปยังแหล่งที่มาโดยตรงแทนที่จะแมปดัชนีจากออบเจ็กต์ข้อมูลเมตาแยกต่างหาก
 
 ### Python
 
@@ -1110,13 +1116,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Chiamata di funzione
+## การเรียกใช้ฟังก์ชัน
 
-Anche la struttura delle chiamate di funzione e dei risultati è stata modificata per adattarsi allo schema Steps.
+นอกจากนี้ โครงสร้างของการเรียกใช้ฟังก์ชันและผลลัพธ์ยังเปลี่ยนไปเพื่อให้เข้ากับสคีมาขั้นตอนด้วย
 
-### Prima (`generateContent`)
+### ก่อน (`generateContent`)
 
-In `generateContent`, la risposta restituisce le chiamate di funzione all'interno dei candidati.\* {Python}
+ใน `generateContent` คำตอบจะแสดงการเรียกใช้ฟังก์ชันภายในผู้สมัคร\* {Python}
 
 ```
 ```python
@@ -1250,9 +1256,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-Le chiamate di strumenti e i risultati sono ora passaggi distinti nella sequenza temporale.
+ตอนนี้การเรียกใช้เครื่องมือและผลลัพธ์เป็นขั้นตอนที่แยกกันในไทม์ไลน์แล้ว
 
 ### Python
 
@@ -1437,15 +1443,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Streaming
+## สตรีมมิง
 
-Una differenza fondamentale nello streaming è che l'API Interactions utilizza lo stesso endpoint con `"stream": true` nel corpo della richiesta, mentre l'API `generateContent` richiedeva la chiamata di un endpoint dedicato (`:streamGenerateContent`).
+ความแตกต่างที่สำคัญในการสตรีมคือ Interactions API ใช้ปลายทางเดียวกันกับ `"stream": true` ในเนื้อหาคำขอ ในขณะที่ `generateContent` API ต้องเรียกปลายทางเฉพาะ (`:streamGenerateContent`)
 
-Inoltre, gli eventi di streaming ora utilizzano tipi specializzati per monitorare il ciclo di vita dell'interazione e tenere traccia dei passaggi di esecuzione lungo la sequenza temporale.
+นอกจากนี้ ตอนนี้กิจกรรมการสตรีมยังใช้ประเภทเฉพาะเพื่อตรวจสอบวงจรการโต้ตอบและติดตามขั้นตอนการดำเนินการตามไทม์ไลน์ด้วย
 
-### Prima (`generateContentStream`)
+### ก่อน (`generateContentStream`)
 
-Con `generateContent`, utilizzi uno stream di blocchi di risposta.
+เมื่อใช้ `generateContent` คุณจะใช้สตรีมของก้อนการตอบกลับ
 
 ### Python
 
@@ -1503,9 +1509,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### Dopo (API Interactions)
+### After (Interactions API)
 
-Nell'API Interactions, lo streaming utilizza gli eventi inviati dal server (SSE) e tipi delta specializzati per rappresentare i passaggi di esecuzione man mano che si verificano.
+ใน Interactions API การสตรีมจะใช้เหตุการณ์ที่เซิร์ฟเวอร์ส่ง (SSE) และประเภทเดลต้าเฉพาะเพื่อแสดงขั้นตอนการดำเนินการตามที่เกิดขึ้น
 
 ### Python
 
@@ -1554,7 +1560,7 @@ for await (const event of stream) {
 
 ### REST
 
-# Example SSE stream output
+# เอาต์พุตสตรีม SSE ตัวอย่าง
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1564,24 +1570,24 @@ data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
 event: step.delta
 data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "User wants an explanation."}}
 event: step.stop
-data: {"type": "step.stop", "index": 0, "status": "done"}}
+data: {"type": "step.stop", "index": 0, "status": "done"}
 event: step.start
 data: {"type": "step.start", "index": 1, "step": {"type": "model\_output"}}
 event: step.delta
 data: {"type": "step.delta", "index": 1, "delta": {"type": "text", "text": "Hello"}}
 event: step.stop
-data: {"type": "step.stop", "index": 1, "status": "done"}}
+data: {"type": "step.stop", "index": 1, "status": "done"}
 event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### Strumenti di streaming e chiamate di funzione
+### เครื่องมือการสตรีมและการเรียกฟังก์ชัน
 
-Il comportamento degli strumenti nello stream è cambiato in modo significativo da `generateContent` per fornire un controllo e una visibilità più granulari.
+ลักษณะการทำงานของเครื่องมือในสตรีมเปลี่ยนไปอย่างมากจาก `generateContent` เพื่อให้การควบคุมและการเข้าถึงที่ละเอียดยิ่งขึ้น
 
-#### Prima (`generateContent`)
+#### ก่อน (`generateContent`)
 
-Con `generateContent`, le chiamate di funzione di streaming sono arrivate complete in un unico blocco. Non era possibile visualizzare gli argomenti generati in tempo reale, quindi il gestore controllava semplicemente la presenza di un oggetto `functionCall` completo.
+เมื่อใช้ `generateContent` ฟังก์ชันการโทรแบบสตรีมมิงจะมาถึงอย่างสมบูรณ์ในก้อนเดียว คุณไม่สามารถดูอาร์กิวเมนต์ที่สร้างขึ้นแบบเรียลไทม์ได้ ตัวแฮนเดิลจึงเพียงตรวจสอบออบเจ็กต์ `functionCall` ที่สมบูรณ์
 
 ### Python
 
@@ -1645,9 +1651,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### Dopo (API Interactions)
+#### After (Interactions API)
 
-L'API Interactions trasmette in streaming gli argomenti della chiamata di funzione carattere per carattere come eventi `arguments`. L'intero ciclo di vita dello strumento (pensiero, chiamata, risultato e output) si svolge come una serie di passaggi distinti.
+Interactions API จะสตรีมอาร์กิวเมนต์การเรียกฟังก์ชันทีละอักขระเป็นเหตุการณ์ `arguments` วงจรทั้งหมดของเครื่องมือ ซึ่งประกอบด้วยความคิด การเรียกใช้ ผลลัพธ์ และเอาต์พุต จะทำงานเป็นชุดขั้นตอนที่แตกต่างกัน
 
 ### Python
 
@@ -1792,12 +1798,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-Invia feedback
+ส่งความคิดเห็น
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ultimo aggiornamento 2026-07-30 UTC.
+อัปเดตล่าสุด 2026-07-30 UTC
 
-Vuoi dirci altro?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

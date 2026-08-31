@@ -1,87 +1,88 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=th
-fetched_at: 2026-08-24T02:19:05.029126+00:00
-title: "\u0e41\u0e01\u0e49\u0e1b\u0e31\u0e0d\u0e2b\u0e32 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pt-BR
+fetched_at: 2026-08-31T06:27:49.985935+00:00
+title: "Resolver problemas do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-ส่งความคิดเห็น
+Envie comentários
 
-# แก้ปัญหา Google AI Studio
+# Resolver problemas do Google AI Studio
 
-หน้านี้มีคำแนะนำในการแก้ปัญหา Google AI Studio หากคุณพบปัญหา
+Esta página oferece sugestões para resolver problemas do Google AI Studio.
 
-## ทำความเข้าใจข้อผิดพลาด 403 การเข้าถึงถูกจำกัด
+## Entender erros de acesso restrito 403
 
-หากเห็นข้อผิดพลาด 403 การเข้าถึงถูกจำกัด แสดงว่าคุณใช้ Google AI Studio ในลักษณะที่ไม่เป็นไปตาม[ข้อกำหนดในการให้บริการ](https://ai.google.dev/terms?hl=th) สาเหตุที่พบบ่อยอย่างหนึ่งคือ
-คุณไม่ได้อยู่ใน[ภูมิภาคที่รองรับ](https://ai.google.dev/available_regions?hl=th)
+Se você receber um erro de acesso restrito 403, significa que está usando o Google AI Studio de uma
+maneira que não segue os [Termos de Serviço](https://ai.google.dev/terms?hl=pt-br). Um motivo comum é
+que você não está em uma [região aceita](https://ai.google.dev/available_regions?hl=pt-br).
 
-## แก้ไขการตอบกลับที่ไม่มีเนื้อหาใน Google AI Studio
+## Resolver respostas sem conteúdo no Google AI Studio
 
-ข้อความwarning **ไม่มีเนื้อหา** จะปรากฏใน
-Google AI Studio หากเนื้อหาถูกบล็อกด้วยเหตุผลใดก็ตาม หากต้องการดูรายละเอียดเพิ่มเติม
-ให้วางตัวชี้เหนือ **ไม่มีเนื้อหา** แล้วคลิก
-warning **ความปลอดภัย**
+Uma mensagem warning **Sem conteúdo** aparece no
+Google AI Studio se o conteúdo for bloqueado por qualquer motivo. Para mais detalhes,
+passe o ponteiro sobre **Sem conteúdo** e clique
+warning **Segurança**.
 
-หากการตอบกลับถูกบล็อกเนื่องจากการตั้งค่า[ความปลอดภัย](https://ai.google.dev/docs/safety_setting?hl=th) และ
-คุณพิจารณา[ความเสี่ยงด้านความปลอดภัย](https://ai.google.dev/docs/safety_guidance?hl=th)สำหรับกรณีการใช้งานแล้ว คุณ
-สามารถแก้ไข
-[การตั้งค่าความปลอดภัย](https://ai.google.dev/docs/safety_setting?hl=th#safety_settings_in_makersuite)
-เพื่อส่งผลต่อการตอบกลับที่แสดง
+Se a resposta foi bloqueada devido às [configurações de segurança](https://ai.google.dev/docs/safety_setting?hl=pt-br) e
+você considerou os [riscos de segurança](https://ai.google.dev/docs/safety_guidance?hl=pt-br) para seu caso de uso, você
+pode modificar as
+[configurações de segurança](https://ai.google.dev/docs/safety_setting?hl=pt-br#safety_settings_in_makersuite)
+para influenciar a resposta retornada.
 
-หากการตอบกลับถูกบล็อกแต่ไม่ใช่เนื่องจากการตั้งค่าความปลอดภัย แสดงว่าคําค้นหาหรือ
-การตอบกลับอาจละเมิด[ข้อกำหนดในการให้บริการ](https://ai.google.dev/terms?hl=th)หรือไม่ได้รับการรองรับ
+Se a resposta foi bloqueada, mas não devido às configurações de segurança, a consulta ou
+resposta pode violar os [Termos de Serviço](https://ai.google.dev/terms?hl=pt-br) ou não ser aceita.
 
-## ตรวจสอบการใช้โทเค็นและขีดจำกัด
+## Verificar o uso e os limites de tokens
 
-เมื่อคุณเปิดพรอมต์ไว้ ปุ่ม**แสดงตัวอย่างข้อความ** ที่ด้านล่างของหน้าจอจะแสดงโทเค็นปัจจุบันที่ใช้สำหรับเนื้อหาของพรอมต์และจำนวนโทเค็นสูงสุดสำหรับโมเดลที่ใช้
+Quando você tem um comando aberto, o botão **Visualização de texto** na parte de baixo da tela mostra os tokens usados no momento para o conteúdo do comando e a contagem máxima de tokens para o modelo que está sendo usado.
 
-## สิทธิ์ Google Cloud IAM สำหรับ AI Studio
+## Permissões do Cloud IAM do Google Cloud para o AI Studio
 
-สมาชิกของโปรเจ็กต์ Google Cloud ต้องมีสิทธิ์ Identity and Access Management (IAM) ที่เฉพาะเจาะจงเพื่อดำเนินการใน Google AI Studio ดูข้อมูลเพิ่มเติมเกี่ยวกับข้อมูลประจำตัวเหล่านี้ได้ที่[ภาพรวมของพรินซิเพิล IAM](https://cloud.google.com/iam/docs/principals?hl=th)
+Os membros de um projeto na nuvem do Google Cloud precisam de permissões específicas do Identity and Access Management (IAM) para realizar ações no Google AI Studio. Para mais informações sobre essas identidades, consulte a [visão geral dos principais do IAM](https://cloud.google.com/iam/docs/principals?hl=pt-br).
 
-ผู้ใช้ที่มีบทบาท**ผู้แก้ไข** หรือ**เจ้าของ** ในโปรเจ็กต์ Google Cloud ที่เชื่อมโยงจะมีสิทธิ์เต็มรูปแบบในการดูแดชบอร์ดและจัดการคีย์ Gemini API ผู้ใช้ที่มีบทบาท**ผู้มีสิทธิ์ดู** จะดูแดชบอร์ดและคีย์ API ได้ แต่จะสร้าง อัปเดต หรือลบไม่ได้
+Os usuários com as funções de **Editor** ou **Proprietário** no projeto associado do Google Cloud têm permissões completas para visualizar painéis e gerenciar chaves de API do Gemini. Os usuários com a função de **Leitor** podem visualizar painéis e chaves de API, mas não podem criar, atualizar ou excluir.
 
-หากต้องการควบคุมแบบละเอียดมากขึ้น โปรดดูตารางต่อไปนี้เพื่อดูสิทธิ์เฉพาะที่จำเป็นสำหรับฟีเจอร์แต่ละรายการของ AI Studio ดูวิธีการให้สิทธิ์เหล่านี้ได้ที่[การให้ เปลี่ยน และเพิกถอนสิทธิ์เข้าถึงทรัพยากร](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=th)ในเอกสารประกอบของ Google Cloud
+Para um controle mais granular, consulte a tabela a seguir para conferir as permissões específicas necessárias para cada recurso do AI Studio. Para instruções sobre como conceder essas permissões, consulte [Conceder, alterar e revogar o acesso a recursos](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=pt-br) na documentação do Google Cloud.
 
-| ฟีเจอร์ AI Studio | สิทธิ์ IAM ที่จำเป็น | ข้อกำหนดเพิ่มเติม |
+| Recurso do AI Studio | Permissões do IAM obrigatórias | Outros requisitos |
 | --- | --- | --- |
-| **ค้นหาโปรเจ็กต์** (นำเข้าโปรเจ็กต์) | `resourcemanager.projects.get` |  |
-| **เปลี่ยนชื่อโปรเจ็กต์** | `resourcemanager.projects.update` |  |
-| **แสดงระดับโควต้า** | ไม่มี |  |
-| **สร้างคีย์ API** | มีสิทธิ์**ค้นหาโปรเจ็กต์** และมีสิทธิ์ต่อไปนี้  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **แสดงรายการคีย์ API** | มีสิทธิ์**ค้นหาโปรเจ็กต์** และมีสิทธิ์ต่อไปนี้  `apikeys.keys.list` `serviceusage.services.get` | โปรเจ็กต์ Google Cloud ต้องเปิดใช้ [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=th) |
-| **เปลี่ยนชื่อคีย์ API** | `apikeys.keys.update` |  |
-| **ลบคีย์ API** | `apikeys.keys.delete` |  |
-| **แดชบอร์ดการใช้งาน** | มีสิทธิ์**ค้นหาโปรเจ็กต์** และมีสิทธิ์ต่อไปนี้  `monitoring.timeSeries.list` |  |
-| **แดชบอร์ดการจำกัดอัตรา** | มีสิทธิ์**แดชบอร์ดการใช้งาน** และมีสิทธิ์ต่อไปนี้  `cloudquotas.quotas.get` |  |
-| **ค่าใช้จ่าย (ขีดจำกัดการเรียกเก็บเงิน)** | `billing.resourceCosts.get` (เพื่อดูค่าใช้จ่าย) `billing.resourcebudgets.read` (เพื่อดูขีดจำกัด) `billing.resourcebudgets.write` (เพื่อกำหนดขีดจำกัด) |  |
-| **แดชบอร์ดการเรียกเก็บเงิน** | `billing.accounts.get` |  |
+| **Pesquisar projeto** (importar projetos) | `resourcemanager.projects.get` |  |
+| **Renomear projeto** | `resourcemanager.projects.update` |  |
+| **Mostrar nível de cota** | N/A |  |
+| **Criar chave de API** | Ter permissões de **Pesquisar projeto** e:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **Listar chaves de API** | Ter permissões de **Pesquisar projeto** e:  `apikeys.keys.list` `serviceusage.services.get` | O projeto na nuvem do Google Cloud precisa ter a [API Generative Language](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=pt-br) ativada. |
+| **Renomear chaves de API** | `apikeys.keys.update` |  |
+| **Excluir chaves de API** | `apikeys.keys.delete` |  |
+| **Painel de uso** | Ter permissões de **Pesquisar projeto** e:  `monitoring.timeSeries.list` |  |
+| **Painel de limites de taxa** | Ter permissões do **Painel de uso** e:  `cloudquotas.quotas.get` |  |
+| **Gasto (limite de faturamento)** | `billing.resourceCosts.get` (para visualizar o gasto) `billing.resourcebudgets.read` (para visualizar o limite) `billing.resourcebudgets.write` (para definir o limite) |  |
+| **Painel de faturamento** | `billing.accounts.get` |  |
 
-### การตรวจสอบสิทธิ์เข้าถึงอื่นๆ
+### Outras verificações de acesso
 
-นอกเหนือจากสิทธิ์ Google Cloud IAM แล้ว AI Studio ยังทำการตรวจสอบความปลอดภัยและการปฏิบัติตามข้อกำหนดด้วย คุณอาจพบข้อผิดพลาด `PERMISSION_DENIED` หรือข้อผิดพลาดการจำกัดการเข้าถึงในอินเทอร์เฟซ AI Studio หรือในการตอบกลับของ API หากไม่เป็นไปตามข้อกำหนดต่อไปนี้
+Além das permissões do IAM do Google Cloud, o AI Studio também realiza verificações de segurança e compliance. Você pode encontrar um erro `PERMISSION_DENIED` ou de restrição de acesso na interface do AI Studio ou nas respostas da API se não atender aos seguintes requisitos:
 
-- **การตรวจสอบความปลอดภัย:** คำขอของคุณต้องผ่านการตรวจสอบความปลอดภัยอัตโนมัติ
-- **ข้อกำหนดในการให้บริการ:** คุณต้องยอมรับข้อกำหนดในการให้บริการของ Google และข้อกำหนดในการให้บริการเพิ่มเติมของ Generative AI
-- **ภูมิภาคที่รองรับ:** คุณต้องอยู่ใน[ภูมิภาคที่รองรับ](https://ai.google.dev/gemini-api/docs/available-regions?hl=th)
-- **ความน่าเชื่อถือและความปลอดภัย:** โปรเจ็กต์ Google Cloud ต้องไม่ถูกตั้งค่าสถานะว่ามีการละเมิด
+- **Verificações de segurança**:sua solicitação precisa passar por verificações de segurança automatizadas.
+- **Termos de Serviço**:você precisa aceitar os Termos de Serviço do Google e os Termos de Serviço adicionais da IA generativa.
+- **Região aceita:** você precisa estar em uma [região aceita](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br).
+- **Confiança e segurança**:o projeto na nuvem do Google Cloud não pode ser sinalizado por abuso.
 
-ส่งความคิดเห็น
+Envie comentários
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-อัปเดตล่าสุด 2026-05-29 UTC
+Última atualização 2026-05-29 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Quer enviar seu feedback?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-29 UTC"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-29 UTC."],[],[]]

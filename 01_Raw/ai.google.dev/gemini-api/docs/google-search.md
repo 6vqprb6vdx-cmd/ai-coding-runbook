@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=tr
-fetched_at: 2026-08-24T02:18:46.727834+00:00
-title: "Google Arama temeli \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=vi
+fetched_at: 2026-08-31T06:28:31.797572+00:00
+title: "T\u00ecm hi\u1ec3u th\u00f4ng tin c\u01a1 b\u1ea3n tr\u00ean Google T\u00ecm ki\u1ebfm \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# Google Arama temeli
+# Tìm hiểu thông tin cơ bản trên Google Tìm kiếm
 
-Google Arama ile Temellendirme, Gemini modelini gerçek zamanlı web içeriğine bağlar ve tüm dillerde kullanılabilir. Bu sayede Gemini, son güncel bilgi tarihinin ötesinde daha doğru yanıtlar verebilir ve doğrulanabilir kaynaklardan alıntı yapabilir.
+Tính năng Bám sát nguồn bằng Google Tìm kiếm kết nối mô hình Gemini với nội dung trên web theo thời gian thực và hỗ trợ tất cả các ngôn ngữ hiện có. Nhờ đó, Gemini có thể đưa ra câu trả lời chính xác hơn và trích dẫn các nguồn có thể xác minh ngoài điểm cắt kiến thức.
 
-Temellendirme, aşağıdaki işlemleri yapabilen uygulamalar oluşturmanıza yardımcı olur:
+Cơ sở kiến thức giúp bạn xây dựng các ứng dụng có thể:
 
-- **Gerçeklere dayalı doğruluğu artırma:** Yanıtları gerçek dünya bilgilerine dayandırarak model halüsinasyonlarını azaltın.
-- **Anlık bilgilere erişme:** Yakın zamandaki olaylar ve konularla ilgili soruları yanıtlama
-- **Alıntı ekleyin:** Modelin iddialarının kaynaklarını göstererek kullanıcıların güvenini kazanın.
+- **Tăng độ chính xác về thông tin thực tế:** Giảm tình trạng ảo tưởng của mô hình bằng cách dựa vào thông tin thực tế để đưa ra câu trả lời.
+- **Truy cập thông tin theo thời gian thực:** Trả lời các câu hỏi về những sự kiện và chủ đề gần đây.
+- **Cung cấp thông tin trích dẫn:** Xây dựng lòng tin của người dùng bằng cách cho thấy nguồn của các tuyên bố của mô hình.
 
 ### Python
 
@@ -71,21 +71,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Google Arama ile temellendirme nasıl çalışır?
+## Cách hoạt động của tính năng neo bám vào Google Tìm kiếm
 
-`google_search` aracını etkinleştirdiğinizde model, bilgi arama, işleme ve alıntı yapma işlemlerinin tüm iş akışını otomatik olarak gerçekleştirir.
+Khi bạn bật công cụ `google_search`, mô hình sẽ tự động xử lý toàn bộ quy trình tìm kiếm, xử lý và trích dẫn thông tin.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=tr)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=vi)
 
-1. **Kullanıcı istemi:** Uygulamanız, kullanıcının istemini `google_search` aracı etkinleştirilmiş şekilde Gemini API'ye gönderiyor.
-2. **İstem Analizi:** Model, istemi analiz eder ve Google Arama'nın yanıtı iyileştirip iyileştiremeyeceğini belirler.
-3. **Google Arama:** Model, gerekirse otomatik olarak bir veya birden fazla arama sorgusu oluşturup bunları yürütür.
-4. **Arama sonuçlarını işleme:** Model, arama sonuçlarını işler, bilgileri sentezler ve bir yanıt oluşturur.
-5. **Temellendirilmiş Yanıt:** API, arama sonuçlarına dayalı, son ve kullanıcı dostu bir yanıt döndürür. Bu yanıtta, alıntıları içeren satır içi `annotations` ile modelin metin yanıtı, arama sorgularını ve arama önerilerini içeren `google_search_call` ve `google_search_result` adımları yer alır.
+1. **Câu lệnh của người dùng:** Ứng dụng của bạn gửi câu lệnh của người dùng đến Gemini API khi bật công cụ `google_search`.
+2. **Phân tích câu lệnh:** Mô hình phân tích câu lệnh và xác định xem Google Tìm kiếm có thể cải thiện câu trả lời hay không.
+3. **Google Tìm kiếm:** Nếu cần, mô hình sẽ tự động tạo một hoặc nhiều cụm từ tìm kiếm và thực hiện các cụm từ đó.
+4. **Xử lý kết quả tìm kiếm:** Mô hình xử lý kết quả tìm kiếm, tổng hợp thông tin và đưa ra câu trả lời.
+5. **Câu trả lời bám sát nguồn:** API trả về một câu trả lời cuối cùng, thân thiện với người dùng và bám sát nguồn là các kết quả tìm kiếm. Phản hồi này bao gồm câu trả lời bằng văn bản của mô hình có `annotations` nội tuyến chứa các trích dẫn, cũng như các bước `google_search_call` và `google_search_result` với cụm từ tìm kiếm và đề xuất tìm kiếm.
 
-## Temellendirme yanıtını anlama
+## Tìm hiểu về câu trả lời dựa trên thông tin thực tế
 
-Yanıt başarıyla temellendirildiğinde modelin metin çıkışı, metin içeriği bloğunda doğrudan satır içi `annotations` içerir. Bu ek açıklamalar, yanıtın bölümlerini kaynaklarına bağlayan alıntı bilgileri sağlar.
+Khi một câu trả lời được căn cứ thành công, đầu ra văn bản của mô hình sẽ bao gồm `annotations` nội tuyến ngay trên khối nội dung văn bản. Những chú thích này cung cấp thông tin trích dẫn, liên kết các phần của câu trả lời với nguồn của chúng.
 
 ```
 {
@@ -144,18 +144,18 @@ Yanıt başarıyla temellendirildiğinde modelin metin çıkışı, metin içeri
 }
 ```
 
-Yanıtın temel alanları:
+Các trường khoá trong phản hồi:
 
-- `google_search_call` : Modelin yürüttüğü arama `queries` içerir.
-- `google_search_result` : Arama önerilerini kullanıcı arayüzünüzde oluşturmak için kullanılan bir HTML snippet'i olan `search_suggestions` içerir. Kullanımla ilgili tüm şartlar [Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr#grounding-with-google-search)'nda ayrıntılı olarak açıklanmıştır.
-- `text` ile `annotations` : Modelin satır içi alıntılarla sentezlenmiş yanıtı. Her `url_citation` ek açıklaması, bir metin segmentini (`start_index` ve `end_index` ile tanımlanır) bir kaynak URL'ye bağlar. Bu, satır içi alıntı oluşturmanın anahtarıdır.
+- `google_search_call` : Chứa cụm từ tìm kiếm `queries` mà mô hình đã thực thi.
+- `google_search_result` : Chứa `search_suggestions`, một đoạn mã HTML để hiển thị các đề xuất tìm kiếm trong giao diện người dùng của bạn. Các yêu cầu đầy đủ về việc sử dụng được nêu chi tiết trong [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi#grounding-with-google-search).
+- `text` có `annotations` : Câu trả lời do mô hình tổng hợp có trích dẫn nội dòng. Mỗi chú thích `url_citation` liên kết một đoạn văn bản (do `start_index` và `end_index` xác định) với một URL nguồn. Đây là chìa khoá để tạo trích dẫn nội dòng.
 
-Google Arama ile temellendirme, yanıtları hem herkese açık web verileri hem de sağladığınız belirli URL'lerle temellendirmek için [URL bağlam aracı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) ile birlikte de kullanılabilir.
+Bạn cũng có thể sử dụng tính năng Neo bám vào Google Tìm kiếm kết hợp với [công cụ ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi) để neo bám các câu trả lời bằng cả dữ liệu trên web công khai và các URL cụ thể mà bạn cung cấp.
 
-## Satır içi alıntılarla kaynaklara atıfta bulunma
+## Phân bổ nguồn bằng trích dẫn ngay trong văn bản
 
-API, metin içeriği bloğunda satır içi `url_citation` ek açıklamalar döndürür. Bu sayede, kaynakları kullanıcı arayüzünüzde nasıl göstereceğiniz üzerinde tam kontrol sahibi olursunuz.
-Her ek açıklamada, metnin hangi bölümüne atıfta bulunulduğunu belirlemek için `start_index` ve `end_index` yer alır. Bunları nasıl ayıklayıp görüntüleyeceğinizi öğrenin.
+API này trả về chú thích `url_citation` nội tuyến trên khối nội dung văn bản, giúp bạn hoàn toàn kiểm soát cách hiển thị nguồn trong giao diện người dùng.
+Mỗi chú thích đều có `start_index` và `end_index` để xác định phần văn bản mà chú thích trích dẫn. Sau đây là cách trích xuất và hiển thị các giá trị này.
 
 ### Python
 
@@ -198,7 +198,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-Çıktıda, metin ve alıntıları gösterilir:
+Đầu ra sẽ cho thấy văn bản, theo sau là các trích dẫn:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -210,47 +210,47 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Fiyatlandırma
+## Giá
 
-Gemini 3 ile Google Arama'yı Temellendirme özelliğini kullandığınızda projeniz, modelin yürütmeye karar verdiği her arama sorgusu için faturalandırılır. Model, tek bir isteme yanıt vermek için birden fazla arama sorgusu yürütmeye karar verirse (örneğin, aynı API çağrısında `"UEFA Euro 2024 winner"` ve `"Spain vs England Euro 2024 final
-score"` için arama yaparsa) bu, söz konusu istek için aracın iki faturalandırılabilir kullanımı olarak sayılır. Faturalandırma amacıyla, benzersiz sorguları sayarken boş web arama sorgularını dikkate almayız. Bu faturalandırma modeli yalnızca Gemini 3 modelleri için geçerlidir. Gemini 2.5 veya daha eski modellerle arama temellendirmeyi kullandığınızda projeniz istem başına faturalandırılır.
+Khi bạn sử dụng tính năng Neo bám vào Google Tìm kiếm với Gemini 3, dự án của bạn sẽ bị tính phí cho mỗi cụm từ tìm kiếm mà mô hình quyết định thực hiện. Nếu mô hình quyết định thực hiện nhiều cụm từ tìm kiếm để trả lời một câu lệnh duy nhất (ví dụ: tìm kiếm `"UEFA Euro 2024 winner"` và `"Spain vs England Euro 2024 final
+score"` trong cùng một lệnh gọi API), thì điều này được tính là hai lần sử dụng công cụ có tính phí cho yêu cầu đó. Để tính phí, chúng tôi bỏ qua các cụm từ tìm kiếm trống trên web khi tính số lượng cụm từ tìm kiếm riêng biệt. Mô hình tính phí này chỉ áp dụng cho các mô hình Gemini 3; khi bạn sử dụng tính năng tìm kiếm thông tin cơ sở với các mô hình Gemini 2.5 trở xuống, dự án của bạn sẽ được tính phí theo từng câu lệnh.
 
-Ayrıntılı fiyatlandırma bilgileri için [Gemini API fiyatlandırma sayfasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) inceleyin.
+Để biết thông tin chi tiết về giá, hãy xem [trang định giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
 
-## Desteklenen modeller
+## Mô hình được hỗ trợ
 
-Tüm özellikleri [modele genel bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında bulabilirsiniz.
+Bạn có thể xem toàn bộ các chức năng trên trang [tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
 
-| Model | Google Arama ile Temellendirme |
+| Mô hình | Bám sát nguồn bằng Google Tìm kiếm |
 | --- | --- |
 | Gemini 3.7 Flash | ✔️ |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash Image Önizlemesi | ✔️ |
-| Gemini 3.1 Pro Önizlemesi | ✔️ |
-| Gemini 3 Pro Görüntü Önizlemesi | ✔️ |
-| Gemini 3 Flash Önizlemesi | ✔️ |
+| Bản xem trước hình ảnh Gemini 3.1 Flash | ✔️ |
+| Gemini 3.1 Pro (Bản xem trước) | ✔️ |
+| Bản xem trước hình ảnh của Gemini 3 Pro | ✔️ |
+| Bản xem trước Gemini 3 Flash | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Desteklenen araç kombinasyonları
+## Các tổ hợp công cụ được hỗ trợ
 
-Daha karmaşık kullanım alanlarını desteklemek için Google Arama ile Temellendirme'yi [kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr), [URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) ve [Google Haritalar ile Temellendirme](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr) (Gemini 3.5 Flash ve sonraki modellerde desteklenir) gibi diğer araçlarla birlikte kullanabilirsiniz. Gemini 3 modelleri, bu yerleşik araçların özel araçlarla (fonksiyon çağrısı) birleştirilmesini de destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
+Bạn có thể sử dụng tính năng Neo bám vào Google Tìm kiếm với các công cụ khác như [thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi), [Bối cảnh từ URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi) và [Neo bám vào Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi) (được hỗ trợ trên Gemini 3.5 Flash và các mô hình sau này) để hỗ trợ các trường hợp sử dụng phức tạp hơn. Các mô hình Gemini 3 cũng hỗ trợ kết hợp những công cụ tích hợp này với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
 
-## Sırada ne var?
+## Bước tiếp theo
 
-- [İşlev Çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) gibi diğer araçlar hakkında bilgi edinin.
-- [URL bağlamı aracını](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) kullanarak istemleri belirli URL'lerle nasıl zenginleştireceğinizi öğrenin.
+- Tìm hiểu về các công cụ khác hiện có, chẳng hạn như [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi).
+- Tìm hiểu cách tăng cường câu lệnh bằng các URL cụ thể bằng [công cụ bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi).
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Son güncelleme tarihi: 2026-08-20 UTC.
+Cập nhật lần gần đây nhất: 2026-08-20 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-20 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-08-20 UTC."],[],[]]

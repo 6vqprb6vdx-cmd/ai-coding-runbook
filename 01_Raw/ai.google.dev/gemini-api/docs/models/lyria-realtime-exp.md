@@ -1,50 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=pt-BR
-fetched_at: 2026-08-24T02:18:52.702737+00:00
-title: "Lyria RealTime experimental \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=it
+fetched_at: 2026-08-31T06:26:46.490243+00:00
+title: "Lyria RealTime sperimentale \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envie comentários
+Invia feedback
 
-# Lyria RealTime experimental
+# Lyria RealTime sperimentale
 
-Um mecanismo experimental para síntese musical de alta fidelidade, que oferece recursos inovadores para gerar e transformar conteúdo de áudio. O Lyria RealTime
-é ideal para composição de músicas com assistência de IA, geração de instrumentais exclusivos e
-fluxos de trabalho de áudio criativos que exigem controle total sobre melodia e ritmo, sem
-vocais.
+Un motore sperimentale per la sintesi musicale ad alta fedeltà, che offre funzionalità innovative
+per la generazione e la trasformazione di contenuti audio. Lyria RealTime
+è ideale per la composizione di canzoni con l'aiuto dell'AI, la generazione di strumentali unici e
+flussi di lavoro audio creativi che richiedono un controllo approfondito di melodia e ritmo, senza
+voci.
 
-[Testar o Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=pt-br)
+[Prova Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=it)
 
-## Documentação
+## Documentazione
 
-Acesse a página [Geração de música em tempo real](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=pt-br) para conferir todos os recursos e funcionalidades.
+Visita la pagina [Generazione di musica in tempo reale](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=it)
+per una copertura completa delle funzionalità.
 
 ## lyria-realtime-exp
 
-| Propriedade | Descrição |
+| Proprietà | Descrizione |
 | --- | --- |
-| Código do modelo id\_card | **API Gemini**  `lyria-realtime-exp` |
-| saveTipos de dados aceitos | **Entrada**  Texto (comandos ponderados)  **Saída**  Áudio (PCM bruto de 16 bits) |
-| token\_autoLimites de transmissão | **Taxa de amostragem**  48 kHz (estéreo)  **Controlar a latência**  Máximo de 2 segundos |
-| Versões do 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Experimental: `lyria-realtime-exp` |
-| calendar\_monthÚltima atualização | Maio de 2025 |
+| Codice modello id\_card | **API Gemini**  `lyria-realtime-exp` |
+| saveTipi di dati supportati | **Ingresso**  Testo (prompt ponderati)  **Output**  Audio (PCM a 16 bit non elaborato) |
+| token\_autoLimiti di streaming | **Frequenza di campionamento**  48 kHz (stereo)  **Controllare la latenza**  Massimo 2 secondi |
+| Versioni 123 | Per ulteriori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Sperimentale: `lyria-realtime-exp` |
+| calendar\_monthUltimo aggiornamento | Maggio 2025 |
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-04-29 UTC.
+Ultimo aggiornamento 2026-04-29 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=hi
-fetched_at: 2026-08-24T02:22:31.631870+00:00
+fetched_at: 2026-08-31T06:26:43.631225+00:00
 title: "Live API \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0938\u0947\u0936\u0928 \u092e\u0948\u0928\u0947\u091c \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

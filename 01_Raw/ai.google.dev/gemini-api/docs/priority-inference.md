@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl
-fetched_at: 2026-08-24T02:29:02.836164+00:00
-title: "Wnioskowanie o\u00a0priorytecie \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-BR
+fetched_at: 2026-08-31T06:36:57.933293+00:00
+title: "Infer\u00eancia de prioridade \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Wnioskowanie o priorytecie
+# Inferência de prioridade
 
-Opis: dowiedz się, jak zoptymalizować czas oczekiwania za pomocą poziomu wnioskowania Priority w interfejsie Interactions API
+Descrição: saiba como otimizar a latência com o nível de inferência Priority na API Interactions
 
-Gemini Priority API to płatny poziom wnioskowania przeznaczony do zbiorów zadań o kluczowym znaczeniu dla firmy, które wymagają mniejszego czasu oczekiwania i najwyższej niezawodności w wyższej cenie. Ruch na poziomie Priority ma wyższy priorytet niż ruch na poziomie Standard API i Flex.
+A API Gemini Priority é um nível de inferência premium projetado para cargas de trabalho essenciais aos negócios que exigem menor latência e maior confiabilidade a um preço premium. O tráfego do nível Priority tem prioridade sobre o tráfego da API Standard e do nível Flex.
 
-Wnioskowanie Priority jest dostępne we wszystkich punktach końcowych interfejsu Interactions API.
+A inferência Priority está disponível em todos os endpoints da API Interactions.
 
-## Jak korzystać z poziomu Priority
+## Como usar o nível Priority
 
-Aby korzystać z poziomu Priority, ustaw w żądaniu wartość `priority` w polu `service_tier`. Jeśli to pole zostanie pominięte, domyślnym poziomem będzie Standard.
+Para usar o nível Priority, defina o campo `service_tier` na solicitação como `priority`. O nível padrão é Standard se o campo for omitido.
 
 ### Python
 
@@ -75,85 +75,87 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Jak działa wnioskowanie Priority
+## Como a inferência Priority funciona
 
-Wnioskowanie Priority kieruje żądania do kolejek obliczeniowych o wysokim znaczeniu, co zapewnia przewidywalną i szybką wydajność w przypadku aplikacji dostępnych dla użytkowników. Jego głównym mechanizmem jest łagodna degradacja po stronie serwera do standardowego przetwarzania ruchu, który przekracza limity dynamiczne. Dzięki temu aplikacja zachowuje stabilność, a żądanie nie jest odrzucane.
+A inferência Priority encaminha solicitações para filas de computação de alta criticidade, oferecendo desempenho rápido e previsível para aplicativos voltados ao usuário. O mecanismo principal é um downgrade suave do lado do servidor para o processamento padrão de tráfego que excede os limites dinâmicos, garantindo a estabilidade do aplicativo em vez de falhar na solicitação.
 
-| Funkcja | Priorytet | Standardowe | Flex | Wsad |
+| Recurso | Priority | Standard | Flex | Lote |
 | --- | --- | --- | --- | --- |
-| **Ceny** | 75–100% więcej niż w przypadku poziomu Standard | Bilet normalny | 50% zniżki | 50% zniżki |
-| **Czas oczekiwania** | Sekundy | Sekundy do minut | Minuty (docelowo 1–15 min) | Do 24 godzin |
-| **Niezawodność** | Wysoka (nie można jej obniżyć) | Wysoka / średnio wysoka | Bez gwarancji (można ją obniżyć) | Wysoka (w przypadku przepustowości) |
-| **Interfejs** | Synchroniczna | Synchroniczna | Synchroniczna | Asynchroniczny |
+| **Preços** | 75 a 100% mais caro que o Standard | Preço total | 50% de desconto | 50% de desconto |
+| **Latência** | Segundos | Segundos a minutos | Minutos (meta de 1 a 15 min) | Até 24 horas |
+| **Confiabilidade** | Alta (não descartável) | Alta / média-alta | Melhor esforço (descartável) | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrona |
 
-### Główne korzyści
+### Principais benefícios
 
-- **Krótki czas oczekiwania**: poziom ten został zaprojektowany z myślą o czasie odpowiedzi wynoszącym kilka sekund w przypadku interaktywnych,
-  narzędzi AI dostępnych dla użytkowników.
-- **Wysoka niezawodność**: ruch jest traktowany z najwyższym priorytetem i jest
-  ściśle nieobniżalny.
-- **Łagodna degradacja**: w przypadku nagłego wzrostu ruchu przekraczającego limity dynamiczne następuje
-  automatyczne obniżenie poziomu przetwarzania do poziomu Standard, co zapobiega przerwom w działaniu usługi.
-- **Niewielkie utrudnienia**: poziom ten korzysta z tej samej synchronicznej `create` metody co poziomy
-  Standard i Flex.
+- **Baixa latência**: projetado para tempos de resposta de segundos para ferramentas de IA interativas,
+  voltadas ao usuário.
+- **Alta confiabilidade**: o tráfego é tratado com a maior criticidade e é
+  estritamente não descartável.
+- **Degradação suave**: picos de tráfego que excedem os limites dinâmicos são
+  automaticamente rebaixados para o nível Standard para processamento em vez de falhar,
+  evitando interrupções de serviço.
+- **Baixa fricção**: usa o mesmo método `create` síncrono que os níveis
+  Standard e Flex.
 
-### Przypadki użycia
+### Casos de uso
 
-Przetwarzanie Priority idealnie sprawdza się w przypadku zbiorów zadań o kluczowym znaczeniu dla firmy, w których najważniejsza jest wydajność i niezawodność.
+O processamento Priority é ideal para fluxos de trabalho essenciais aos negócios em que o desempenho e a confiabilidade são fundamentais.
 
-- **Interaktywne aplikacje AI**: czatboty i asystenci obsługi klienta, w przypadku których
-  użytkownicy płacą wyższą cenę i oczekują szybkich, spójnych odpowiedzi.
-- **Silniki podejmowania decyzji w czasie rzeczywistym**: systemy wymagające wysoce niezawodnych wyników o niskim czasie oczekiwania
-  , takich jak triage zgłoszeń na żywo czy wykrywanie oszustw.
-- **Funkcje dla klientów premium**: deweloperzy, którzy muszą zagwarantować wyższe cele poziomu usług (SLO) dla płacących klientów.
+- **Aplicativos de IA interativos**: chatbots de atendimento ao cliente e copilotos em que
+  os usuários pagam um valor premium e esperam respostas rápidas e consistentes.
+- **Mecanismos de decisão em tempo real**: sistemas que exigem resultados altamente confiáveis e de baixa latência
+  como triagem de tickets ao vivo ou detecção de fraudes.
+- **Recursos premium para clientes**: desenvolvedores que precisam garantir objetivos de nível de serviço (SLOs) mais altos para clientes pagantes.
 
-### Ograniczenia liczby żądań
+### Limites de taxas
 
-Zużycie na poziomie Priority ma własne ograniczenia liczby żądań, mimo że jest
-wliczane do [ogólnych ograniczeń liczby żądań dotyczących ruchu interaktywnego](https://aistudio.google.com/rate-limit?hl=pl). Domyślne ograniczenia liczby żądań w przypadku wnioskowania Priority to **0,3-krotność standardowego ograniczenia liczby żądań dla modelu / poziomu**.
+O consumo do nível Priority tem limites de taxa próprios, mesmo que o consumo seja
+contabilizado nos [limites gerais de taxa de tráfego interativo](https://aistudio.google.com/rate-limit?hl=pt-br). Os limites de taxa padrão para inferência Priority são **0,3 vezes o limite de taxa padrão para modelo / nível**.
 
-### Logika łagodnego obniżania poziomu
+### Lógica de downgrade suave
 
-Jeśli z powodu dużego natężenia ruchu zostaną przekroczone limity poziomu Priority, nadmiarowe żądania zostaną **automatycznie i łagodnie** obniżone do poziomu przetwarzania Standard zamiast odrzucenia z błędem 503 lub 429. Żądania obniżone do poziomu Standard są rozliczane według stawki standardowej, a nie według stawki premium Priority.
+Se os limites do nível Priority forem excedidos devido ao congestionamento, as solicitações de estouro serão **rebaixadas automaticamente e de maneira suave** para o processamento Standard em vez de falhar com um erro 503 ou 429. As solicitações rebaixadas são cobradas na taxa padrão, não na taxa premium do nível Priority.
 
-### Odpowiedzialność klienta
+### Responsabilidade do cliente
 
-- **Monitorowanie odpowiedzi**: deweloperzy powinni monitorować `x-gemini-service-tier`
-  nagłówek w odpowiedzi interfejsu API, aby wykryć, czy żądania są często obniżane do poziomu
+- **Monitoramento de respostas**: os desenvolvedores precisam monitorar o `x-gemini-service-tier`
+  cabeçalho na resposta da API para detectar se as solicitações estão sendo rebaixadas com frequência para
   `standard`.
-- **Ponawianie prób**: klienci muszą zaimplementować logikę ponawiania prób lub wzrastający czas do ponowienia w przypadku standardowych błędów, takich jak `DEADLINE_EXCEEDED`.
+- **Nova tentativa**: os clientes precisam implementar a lógica de nova tentativa/espera exponencial para
+  erros padrão, como `DEADLINE_EXCEEDED`.
 
-## Ceny
+## Preços
 
-Wnioskowanie Priority jest o 75–100% droższe niż [standardowy interfejs API](https://ai.google.dev/gemini-api/docs/pricing?hl=pl) i rozliczane za token.
+A inferência Priority custa de 75 a 100% mais do que a [API Standard](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) e é cobrada por token.
 
-## Obsługiwane modele
+## Modelos compatíveis
 
-Wnioskowanie Priority jest obsługiwane przez te modele:
+Os modelos a seguir oferecem suporte à inferência Priority:
 
-| Model | Wnioskowanie Priority |
+| Modelo | Inferência Priority |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pl) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.1 Pro (wersja zapoznawcza)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | ✔️ |
-| [Gemini 3 Flash (wersja zapoznawcza)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Pro (pré-lançamento)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Gemini 3 Flash (pré-lançamento)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## Co dalej?
+## A seguir
 
-- [Wnioskowanie Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl) w celu zmniejszenia kosztów.
-- [Tokeny](https://ai.google.dev/gemini-api/docs/tokens?hl=pl): dowiedz się więcej o tokenach.
+- [Inferência Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br) para redução de custos.
+- [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br): entenda os tokens.
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-07-30 UTC.
+Última atualização 2026-07-30 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]

@@ -1,51 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=hi
-fetched_at: 2026-08-24T02:32:06.290007+00:00
-title: "Veo 3.1 Lite \u0915\u0940 \u091d\u0932\u0915 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=fr
+fetched_at: 2026-08-31T06:34:44.978785+00:00
+title: "Preview de Veo\u00a03.1 Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-सुझाव भेजें
+Envoyer des commentaires
 
-# Veo 3.1 Lite की झलक
+# Preview de Veo 3.1 Lite
 
-Veo 3.1 Lite Preview, वीडियो जनरेट करने वाला एक ऐसा मॉडल है जो डेवलपर को ध्यान में रखकर बनाया गया है. यह मॉडल, कम समय में शानदार वीडियो जनरेट करता है. साथ ही, इसमें वीडियो में बदलाव करने और सिनेमाई कंट्रोल की सुविधा भी मिलती है. यह मॉडल, Veo 3.1 मॉडल की नई टेक्नोलॉजी का इस्तेमाल करता है. इससे, क्रिएटर और कंपनियां, एआई की मदद से प्रोफ़ेशनल क्वालिटी के वीडियो बना सकती हैं. इसके लिए, उन्हें एक ऐसा इंटरफ़ेस मिलता है जिसे अपनी ज़रूरत के हिसाब से स्केल किया जा सकता है और प्रोग्राम किया जा सकता है.
+Veo 3.1 Lite Preview est un modèle vidéo très efficace et conçu pour les développeurs. Il permet de générer et de modifier des vidéos haute fidélité, et offre un contrôle cinématographique. Il s'appuie sur le modèle Veo 3.1 de pointe pour démocratiser l'IA vidéo de qualité professionnelle en proposant une interface évolutive et programmable aux créateurs et aux entreprises.
 
-[Google AI Studio में आज़माएं](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=hi)
+[Essayer dans Google AI Studio](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=fr)
 
-## दस्तावेज़
+## Documentation
 
-Veo 3.1 Lite, उन डेवलपर और कंपनियों के लिए सबसे सही है जो बड़े पैमाने पर वीडियो ऐप्लिकेशन और वर्कफ़्लो बनाते हैं. ज़्यादा जानकारी और
-Veo 3.1 के अन्य मॉडल से तुलना करने के लिए, [कीमत वाला](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#veo-3.1) पेज देखें.
+Veo 3.1 Lite offre les meilleurs prix aux développeurs et aux entreprises qui créent des applications et des workflows vidéo à grande échelle. Pour en savoir plus et comparer les différents modèles
+Veo 3.1, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#veo-3.1).
 
-सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए, [वीडियो जनरेट करने वाला](https://ai.google.dev/gemini-api/docs/video?hl=hi) पेज देखें. ध्यान दें कि Veo 3.1 Lite Preview,
-[4K आउटपुट](https://ai.google.dev/gemini-api/docs/video?hl=hi#resolution) या
-[एक्सटेंशन](https://ai.google.dev/gemini-api/docs/video?hl=hi#extending-veo-videos) के साथ काम नहीं करता.
+Pour en savoir plus sur les
+fonctionnalités, consultez la page [Génération de vidéos](https://ai.google.dev/gemini-api/docs/video?hl=fr). Notez que Veo 3.1 Lite Preview n'est pas compatible avec les sorties
+[4K](https://ai.google.dev/gemini-api/docs/video?hl=fr#resolution) ni avec l'extension
+.
 
 ## veo-3.1-lite-generate-preview
 
-| प्रॉपर्टी | ब्यौरा |
+| Propriété | Description |
 | --- | --- |
-| id\_cardModel code | **Gemini API**  `veo-3.1-lite-generate-preview` |
-| saveकौन-कौनसे डेटा टाइप इसके साथ काम करते हैं | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  आवाज़ वाला वीडियो |
-| token\_autoLimits | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
-| calendar\_monthसबसे नया अपडेट | मार्च 2026 |
+| id\_cardCode du modèle | **API Gemini**  `veo-3.1-lite-generate-preview` |
+| saveTypes de données acceptés | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
+| token\_autoLimites | **Entrée de texte**  1 024 jetons  **Vidéo de sortie**  1 |
+| calendar\_monthDernière mise à jour | Mars 2026 |
 
-सुझाव भेजें
+Envoyer des commentaires
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-आखिरी बार 2026-08-19 (UTC) को अपडेट किया गया.
+Dernière mise à jour le 2026/08/19 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Voulez-vous nous donner plus d'informations ?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-08-19 (UTC) को अपडेट किया गया."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/08/19 (UTC)."],[],[]]

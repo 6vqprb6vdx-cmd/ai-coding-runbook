@@ -1,38 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=id
-fetched_at: 2026-08-24T02:27:06.519620+00:00
-title: "API File \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=fr
+fetched_at: 2026-08-31T06:38:38.537777+00:00
+title: "API Files \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Kirim masukan
+Envoyer des commentaires
 
-# API File
+# API Files
 
-Gemini dapat menangani berbagai jenis data input, termasuk teks, gambar, dan audio, secara bersamaan.
+Gemini peut traiter simultanément différents types de données d'entrée, y compris du texte, des images et de l'audio.
 
-Panduan ini menunjukkan cara menggunakan file media menggunakan Files API. Operasi
-dasar sama untuk file audio, gambar, video, dokumen, dan
-jenis file lain yang didukung.
+Ce guide vous explique comment utiliser des fichiers multimédias avec l'API Files. Les opérations de base sont les mêmes pour les fichiers audio, les images, les vidéos, les documents et les autres types de fichiers compatibles.
 
-Untuk panduan perintah file, lihat bagian [Panduan perintah file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide).
+Pour obtenir des conseils sur les prompts de fichier, consultez la section [Guide sur les prompts de fichier](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide).
 
-## Upload file
+## Importer un fichier
 
-Anda dapat menggunakan Files API untuk mengupload file media. Selalu gunakan Files API jika total ukuran permintaan (termasuk file, perintah teks, petunjuk sistem, dll.) lebih besar dari 100 MB. Untuk file PDF, batasnya adalah 50 MB.
+Vous pouvez utiliser l'API Files pour importer un fichier multimédia. Utilisez toujours l'API Files lorsque la taille totale de la requête (y compris les fichiers, le prompt textuel, les instructions système, etc.) est supérieure à 100 Mo. Pour les fichiers PDF, la limite est de 50 Mo.
 
-Kode berikut mengupload file, lalu menggunakan file tersebut dalam panggilan ke
-`generateContent`.
+Le code suivant importe un fichier, puis l'utilise dans un appel à `generateContent`.
 
 ### Python
 
@@ -44,7 +41,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.7-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -68,7 +65,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.7-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -89,7 +86,7 @@ if err != nil {
 }
 defer client.Files.Delete(ctx, file.Name)
 
-resp, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", []*genai.Content{
+resp, err := client.Models.GenerateContent(ctx, "gemini-3.7-flash", []*genai.Content{
   {
     Parts: []*genai.Part{
       genai.NewPartFromFile(*file),
@@ -141,7 +138,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -159,10 +156,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Mendapatkan metadata untuk file
+## Obtenir les métadonnées d'un fichier
 
-Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
-metadatanya dengan memanggil `files.get`.
+Vous pouvez vérifier que l'API a bien stocké le fichier importé et obtenir ses métadonnées en appelant `files.get`.
 
 ### Python
 
@@ -230,9 +226,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Mencantumkan file yang diupload
+## Lister les fichiers importés
 
-Kode berikut akan mendapatkan daftar semua file yang diupload:
+Le code suivant permet d'obtenir la liste de tous les fichiers importés :
 
 ### Python
 
@@ -285,9 +281,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Menghapus file yang diupload
+## Supprimer des fichiers importés
 
-File akan otomatis dihapus setelah 48 jam. Anda juga dapat menghapus file yang diupload secara manual:
+Les fichiers sont automatiquement supprimés au bout de 48 heures. Vous pouvez également supprimer manuellement un fichier importé :
 
 ### Python
 
@@ -339,204 +335,192 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Info penggunaan
+## Informations sur l'utilisation
 
-Anda dapat menggunakan Files API untuk mengupload dan berinteraksi dengan file media. Files API memungkinkan Anda menyimpan hingga 20 GB file per project, dengan ukuran maksimum per file sebesar 2 GB. File disimpan selama 48 jam. Selama waktu tersebut, Anda dapat menggunakan API untuk mendapatkan metadata tentang file, tetapi Anda tidak dapat mendownload file.
-Files API tersedia tanpa biaya di semua wilayah tempat Gemini API tersedia.
+Vous pouvez utiliser l'API Files pour importer des fichiers multimédias et interagir avec eux. L'API Files vous permet de stocker jusqu'à 20 Go de fichiers par projet, avec une taille maximale de 2 Go par fichier. Les fichiers sont stockés pendant 48 heures.
 
-## Strategi penulisan perintah file
+Pendant cette période, vous pouvez utiliser l'API pour obtenir des métadonnées sur les fichiers. Toutefois, vous ne pouvez pas télécharger les fichiers importés par les utilisateurs. Vous pouvez télécharger les fichiers générés par les modèles, tels que les vidéos, à l'aide de la méthode `files.download`. L'API Files est disponible sans frais dans toutes les régions où l'API Gemini est disponible.
 
-Bagian ini memberikan panduan dan praktik terbaik untuk menggunakan file media dengan perintah untuk Gemini API.
+## Stratégies de requête pour les fichiers
 
-Kemampuan untuk menggunakan berbagai jenis data dalam perintah memberi Anda lebih banyak fleksibilitas dalam hal tugas yang dapat Anda selesaikan dengan Gemini API. Misalnya, Anda dapat mengirimkan foto hidangan lezat ke model dan memintanya untuk menulis blog singkat tentang hidangan tersebut.
+Cette section fournit des conseils et des bonnes pratiques pour utiliser des fichiers multimédias avec des requêtes pour l'API Gemini.
+
+La possibilité d'utiliser différents types de données dans vos requêtes vous offre plus de flexibilité quant aux tâches que vous pouvez effectuer avec l'API Gemini. Par exemple, vous pouvez envoyer au modèle la photo d'un délicieux repas et lui demander d'écrire un court article de blog à ce sujet.
 
 |  |  |
 | --- | --- |
-| **Perintah** | **Respons** |
-| Tulis postingan blog singkat yang menarik berdasarkan gambar ini. Postingan tersebut harus menyertakan deskripsi makanan dalam foto dan menceritakan perjalanan saya dalam menyiapkan makanan.   Cookie | Menyiapkan makanan adalah cara yang bagus untuk menghemat waktu dan uang, dan juga dapat membantu Anda makan lebih sehat. Hidangan ini adalah contoh yang bagus dari hidangan sehat dan lezat yang dapat disiapkan dengan mudah sebelumnya.  Makanan ini terdiri dari nasi merah, sayuran panggang, dan ayam teriyaki. Beras merah adalah karbohidrat kompleks yang sehat dan akan memberi Anda energi yang berkelanjutan. Sayuran panggang adalah cara yang bagus untuk mendapatkan dosis vitamin dan mineral harian Anda, dan ayam teriyaki adalah pilihan yang lezat dan kaya protein.  Makanan ini juga sangat mudah disiapkan. Cukup masak nasi merah, panggang sayuran, dan masak ayam teriyaki. Setelah semuanya matang, bagi menjadi beberapa porsi dan simpan di dalam wadah persiapan makanan di dalam kulkas. Kemudian, Anda dapat mengambil wadah dan pergi di pagi yang sibuk.  Jika Anda mencari makanan sehat dan lezat yang dapat disiapkan dengan mudah sebelumnya, makanan ini adalah pilihan yang tepat. Makanan ini penuh dengan nutrisi dan rasa, serta pasti membuat Anda merasa kenyang dan puas.  Selamat menikmati persiapan makanan yang sehat dan lezat! |
+| **Prompt** (Requête) | **Réponse** |
+| Rédigez un article de blog court et attrayant basé sur cette photo. Il doit inclure une description du repas sur la photo et parler de ma méthode de préparation de repas.   Cookies | Préparer ses repas est un excellent moyen de gagner du temps et de l'argent, et cela peut aussi vous aider à manger plus sainement. Ce repas est un excellent exemple de plat sain et délicieux qui peut être facilement préparé à l'avance.  Ce plat se compose de riz brun, de légumes rôtis et de poulet teriyaki. Le riz brun est un glucide complexe et sain qui vous apportera une énergie durable. Les légumes rôtis sont un excellent moyen d'obtenir votre dose quotidienne de vitamines et de minéraux, et le poulet teriyaki est une option délicieuse et riche en protéines.  Ce plat est également très facile à préparer. Il vous suffit de cuire le riz brun, de faire rôtir les légumes et de cuire le poulet teriyaki. Une fois que tout est cuit, divisez-le en récipients pour la préparation des repas et conservez-les au réfrigérateur. Vous pouvez ensuite prendre un récipient et partir les matins chargés !  Si vous recherchez un repas sain et délicieux qui peut être facilement préparé à l'avance, cette recette est une excellente option. Il regorge de nutriments et de saveurs, et vous rassasiera à coup sûr.  À vos fourneaux pour des repas sains et délicieux ! |
 
-Jika Anda mengalami kesulitan mendapatkan output yang diinginkan dari perintah yang menggunakan
-file media, ada beberapa strategi yang dapat membantu Anda mendapatkan hasil yang
-diinginkan. Bagian berikut memberikan pendekatan desain dan tips pemecahan masalah untuk meningkatkan kualitas perintah yang menggunakan input multimodal.
+Si vous ne parvenez pas à obtenir le résultat souhaité à partir de requêtes utilisant des fichiers multimédias, voici quelques stratégies qui peuvent vous aider. Les sections suivantes fournissent des approches de conception et des conseils de dépannage pour améliorer les requêtes qui utilisent des entrées multimodales.
 
-Anda dapat meningkatkan kualitas perintah multimodal dengan mengikuti praktik terbaik berikut:
+Vous pouvez améliorer vos requêtes multimodales en suivant ces bonnes pratiques :
 
-- ### [Dasar-dasar desain perintah](#specific-instructions)
+- ### [Principes de base de la conception d'invites](#specific-instructions)
 
-  - **Berikan petunjuk yang spesifik**: Buat petunjuk yang jelas dan ringkas yang hanya menyisakan sedikit ruang untuk salah penafsiran.
-  - **Tambahkan beberapa contoh ke perintah Anda:** Gunakan contoh few-shot yang realistis untuk menggambarkan apa yang ingin Anda capai.
-  - **Uraikan langkah demi langkah**: Bagi tugas yang kompleks menjadi sub-tujuan yang mudah dikelola, dengan memandu model melalui prosesnya.
-  - **Tentukan format output**: Dalam perintah Anda, minta output dalam format yang Anda inginkan, seperti markdown, JSON, HTML, dan lainnya.
-  - **Mengutamakan gambar untuk perintah satu gambar**: Meskipun Gemini dapat menangani input gambar dan teks dalam urutan apa pun, untuk perintah yang berisi satu gambar, performanya mungkin lebih baik jika gambar (atau video) tersebut ditempatkan sebelum perintah teks. Namun, untuk perintah yang memerlukan gambar diselingi dengan teks agar dapat dipahami, gunakan urutan apa pun yang paling alami.
-- ### [Memecahkan masalah perintah multimodal](#troubleshooting)
+  - **Soyez précis dans vos instructions** : définissez des instructions claires et concises qui laissent peu de place aux erreurs d'interprétation.
+  - **Ajoutez quelques exemples à votre requête** :utilisez des exemples réalistes pour illustrer votre objectif.
+  - **Décomposez la tâche étape par étape** : divisez les tâches complexes en sous-objectifs gérables pour guider le modèle tout au long du processus.
+  - **Spécifiez le format de sortie** : dans votre requête, demandez la sortie au format souhaité, tel que Markdown, JSON, HTML, etc.
+  - **Mettez en avant votre image pour les requêtes liées à une seule image** : bien que Gemini puisse gérer les entrées d'image et de texte dans n'importe quel ordre, les requêtes qui contiennent une seule image peuvent fonctionner mieux si cette image (ou vidéo) est placée avant la requête de texte. Toutefois, pour les requêtes qui nécessitent que les images soient fortement imbriquées avec les textes pour avoir du sens, utilisez l'ordre le plus naturel.
+- ### [Résoudre les problèmes liés à un prompt multimodal](#troubleshooting)
 
-  - **Jika model tidak mengambil informasi dari bagian gambar yang relevan:** Berikan petunjuk tentang aspek gambar yang ingin Anda gunakan sebagai sumber informasi untuk perintah.
-  - **Jika output model terlalu umum (tidak cukup disesuaikan dengan input gambar/video):** Di awal perintah, coba minta model untuk mendeskripsikan gambar atau video sebelum memberikan petunjuk tugas, atau coba minta model untuk merujuk pada apa yang ada dalam gambar.
-  - **Untuk memecahkan masalah bagian mana yang gagal:** Minta model untuk mendeskripsikan gambar, atau minta model untuk menjelaskan penalarannya, guna mengukur pemahaman awal model.
-  - **Jika perintah Anda menghasilkan konten halusinasi:** Coba kurangi setelan temperatur atau minta model untuk memberikan deskripsi yang lebih singkat sehingga model cenderung tidak mengekstrapolasi detail tambahan.
-  - **Menyesuaikan parameter sampling:** Bereksperimenlah dengan berbagai setelan suhu dan pilihan top-k untuk menyesuaikan kreativitas model.
+  - **Si le modèle n'extrait pas d'informations de la partie pertinente de l'image** : ajoutez des indications sur les aspects de l'image à partir desquels vous souhaitez que la requête puise des informations.
+  - **Si le résultat du modèle est trop générique (non adapté à l'entrée image/vidéo)** : au début de la requête, essayez de demander au modèle de décrire les images ou les vidéos avant de fournir les instructions de la tâche. ou essayez de demander au modèle de faire référence à ce qui est illustré.
+  - **Dépannage** : demandez au modèle de décrire l'image ou demandez au modèle d'expliquer sa raisonnement pour évaluer sa compréhension initiale.
+  - **Si votre requête génère du contenu incohérent**, essayez de réduire le paramétrage de la température ou de demander au modèle des descriptions plus courtes afin de réduire les risques d'extrapolation.
+  - **Réglez les paramètres d'échantillonnage** : testez différents paramètres de température et des sélections en haut de la plage pour ajuster la créativité du modèle.
 
-### Berikan petunjuk yang spesifik
+### Soyez précis dans vos instructions
 
-Perintah akan memberikan hasil terbaik jika jelas dan mendetail. Jika Anda memiliki output tertentu yang diinginkan, sebaiknya sertakan persyaratan tersebut dalam perintah untuk memastikan Anda mendapatkan output yang diinginkan.
+Les requêtes sont plus efficaces lorsqu'elles sont claires et détaillées. Si vous avez une sortie spécifique en tête, il est préférable d'inclure cette exigence dans la requête pour vous assurer d'obtenir le résultat souhaité.
 
-Untuk gambar papan informasi bandara ini, meminta model untuk "mendeskripsikan gambar ini" saja dapat menghasilkan deskripsi umum. Jika Anda ingin model mengurai waktu dan kota dari gambar, Anda dapat menyertakan permintaan tersebut langsung dalam perintah.
+Pour cette image de tableau d'aéroport, demander au modèle de "décrire cette image" peut générer une description générale. Si vous avez besoin du modèle pour analyser une heure et une ville à partir de l'image, vous pouvez inclure cette requête directement dans votre prompt.
 
-| Perintah | Respons model |
+| Prompt | Réponse de modèle |
 | --- | --- |
-| Jelaskan gambar ini. | Gambar menampilkan papan kedatangan dan keberangkatan bandara. |
+| Décrivez cette image. | L'image montre un tableau des arrivées et des départs d'aéroport. |
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Jadwal perjalanan Parse waktu dan kota dari papan bandara yang ditampilkan dalam gambar ini ke dalam daftar. | - 10.50 Moskow - 11:05 Edinburgh - 11.05 London - 11:10 Bucharest - 11.30 Kiev - 11:35 Dublin - 11.45 East Midlands - 12.15 Sofia - 12.30 London - 12:30 Newcastle - 12.40 St Petersburg - 12.40 London - 12.45 Manchester |
+| Horaires de transport Analysez les heures et les villes du tableau d'aéroport présent l'image ci-dessous et affichez-les sous forme de liste. | - 10:50 Moscou - 11:05 Édimbourg - 11:05 Londres - 11:10 Bucarest - 11:30 Kiev - 11:35 Dublin - 11:45 Midlands de l'Est - 12:15 Sofia - 12:30 Londres - 12:30 Newcastle - 12:40 Saint-Pétersbourg - 12:40 Londres - 12:45 Manchester |
 
-### Tambahkan beberapa contoh
+### Ajouter quelques exemples
 
-Model Gemini dapat menerima beberapa input yang dapat digunakan sebagai contoh untuk memahami output yang Anda inginkan. Menambahkan contoh ini dapat membantu model mengidentifikasi pola dan menerapkan hubungan antara gambar dan respons yang diberikan ke contoh baru. Hal ini juga disebut pembelajaran "few-shot".
+Le modèle Gemini peut accepter plusieurs entrées qu'il peut utiliser comme exemples pour comprendre la sortie que vous souhaitez. L'ajout de ces exemples peut aider le modèle à identifier les schémas et à appliquer la relation entre les images et les réponses fournies au nouvel exemple. C'est ce qu'on appelle l'apprentissage few-shot.
 
-Dalam contoh di bawah, output awal ditulis dalam bentuk kalimat, dan juga berisi
-negara (Brasil). Misalnya, Anda menginginkan output dalam format atau gaya yang berbeda, dan Anda hanya menginginkan kota, bukan negara. Menambahkan contoh few-shot ke perintah dapat mengarahkan model
-untuk merespons sesuai keinginan Anda.
+Dans l'exemple ci-dessous, le résultat initial est rédigé sous forme de phrase et contient également le pays (Brésil). Supposons que vous souhaitiez obtenir le résultat dans un format ou un style différent, et que vous ne souhaitiez obtenir que la ville, et non le pays. En ajoutant des exemples few-shot à votre requête, vous pouvez orienter le modèle pour qu'il réponde comme vous le souhaitez.
 
-| **Perintah** | **Respons model** |
+| **Prompt** (Requête) | **Réponse de modèle** |
 | --- | --- |
-| Jadwal perjalanan Tentukan kota beserta tempat terkenalnya. | Landmark tersebut adalah patung Kristus Penebus di Rio de Janeiro, Brasil. |
+| Horaires de transport Déterminez la ville et le repère. | Le repère est la statue du Christ Rédempteur à Rio de Janeiro, au Brésil. |
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Tentukan kota beserta tempat terkenalnya. colosseum | kota: Roma, landmark: Colosseum. |
-| Kota Terlarang | kota: Beijing, landmark: Kota Terlarang |
-| kota-terlarang | kota: Rio de Janeiro, landmark: patung Kristus Penebus |
+| Déterminez la ville et le repère. colisée | ville : Rome ; repère : le Colisée. |
+| Cité interdite | ville : Pékin ; repère : la Cité interdite |
+| forbidden-city | Ville : Rio de Janeiro ; repère : statue du Christ Rédempteur |
 
-### Uraikan langkah demi langkah
+### Procéder étape par étape
 
-Untuk tugas kompleks seperti yang memerlukan pemahaman dan penalaran visual, sebaiknya pecah tugas menjadi langkah-langkah yang lebih kecil dan lebih mudah. Atau, Anda juga dapat meminta model secara langsung untuk “berpikir secara berurutan” dalam perintah Anda.
+Pour les tâches complexes telles que celles nécessitant une compréhension visuelle et un raisonnement, il peut être utile de diviser la tâche en étapes plus petites et plus simples. Cela peut également être efficace si vous demandez directement au modèle de "penser étape par étape" dans votre requête.
 
-| Perintah | Respons model |
+| Requête | Réponse de modèle |
 | --- | --- |
-| Kapan tisu toilet saya akan habis? | Segera, Anda hanya memiliki 3 putaran tersisa. |
+| Quand vais-je manquer de papier toilette ? | Bientôt, car il ne vous reste que trois rouleaux. |
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| 1. Pertama, hitung berapa banyak gulungan tisu toilet yang ada dalam gambar ini.  2. Kemudian, tentukan berapa banyak tisu toilet yang digunakan orang pada umumnya per hari.  3. Hitung berapa lama gulungan tisu toilet ini akan habis. | 1. Ada 3 gulungan tisu toilet dalam gambar ini.  2. Orang biasanya menggunakan sekitar 20 lembar tisu toilet per hari.  3. Jika setiap gulungan berisi 200 lembar, maka setiap gulungan akan bertahan selama sekitar 10 hari. Oleh karena itu, 3 gulungan akan bertahan selama sekitar satu bulan. |
+| 1. Commencez par compter le nombre de rouleaux de papier toilette apparaissant sur cette photo.  2. Déterminez ensuite la quantité de papier toilette qu'une personne type utilise par jour.  3. Calculez la durée de vie de ces rouleaux de papier toilette. | 1. Sur cette photo, on voit trois rouleaux de papier toilette.  2. Une personne type utilise environ 20 feuilles de papier toilette par jour.  3. Si un rouleau contient 200 feuilles, chaque rouleau dure environ 10 jours. Par conséquent, les trois rouleaux dureront environ un mois. |
 
-Soal matematika atau jenis soal cerita lainnya adalah kandidat yang tepat untuk meminta model berpikir langkah demi langkah.
+Les problèmes mathématiques ou les problèmes basés sur les mots sont d'excellents candidats pour demander au modèle de réfléchir étape par étape.
 
-| **Perintah** | **Respons** |
+| **Prompt** (Requête) | **Response** (Réponse) |
 | --- | --- |
-| Berapa suku ke-4 dalam deret tersebut? | -135 |
+| Quel est le quatrième terme de la séquence ? | -135 |
 
-Respons dari model salah. Beberapa cara untuk meningkatkan kualitas respons adalah dengan meminta model mengurai masalah sebelum menjawab perintah.
+La réponse du modèle est incorrecte. Pour améliorer cela, vous pouvez demander au modèle d'analyser le problème avant de répondre à la requête.
 
-| **Perintah** | **Respons** |
+| **Prompt** (Requête) | **Response** (Réponse) |
 | --- | --- |
-| Parse formula dalam gambar terlebih dahulu.  Kemudian, berdasarkan formula tersebut, jawab pertanyaan "apa suku ke-4 dalam deret tersebut?". | *Klik untuk meluaskan hasil* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Substitusikan n = 4 ke dalam rumus:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Kita tidak mengetahui nilai b(3), jadi substitusikan n = 3 ke dalam rumus:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Kita tidak mengetahui nilai b(2), jadi substitusikan n = 2 ke dalam rumus:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Kita tahu nilai b(1) adalah 15, jadi substitusikan ke dalam rumus:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Sekarang setelah kita mengetahui nilai b(2), substitusikan ke dalam rumus untuk b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Sekarang kita mengetahui nilai b(3), substitusikan ke dalam rumus untuk b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Oleh karena itu, suku ke-4 dalam deret tersebut adalah -405. |
+| Commencez par analyser la formule dans l'image.  Ensuite, en fonction de la formule, répondez à la question "Quel est le quatrième terme de la séquence ?". | *Cliquez pour développer le résultat* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Remplacez "n = 4" dans la formule :  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Nous ne connaissons pas la valeur de b(3). Remplacez donc n = 3 dans la formule :  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Nous ne connaissons pas la valeur de b(2). Remplacez donc n = 2 dans la formule :  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Nous savons que la valeur de b(1) est 15. Remplacez-la par la formule :  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Maintenant que nous connaissons la valeur de b(2), remplacez-la dans la formule de b(3) :  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Maintenant que nous connaissons la valeur de b(3), remplacez-la dans la formule de b(4) :  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Par conséquent, le quatrième terme de la séquence est -405. |
 
-Respons model ini sudah benar. Sekarang, untuk membuat responsnya lebih efisien, Anda dapat meminta model untuk berpikir langkah demi langkah.
+La réponse de ce modèle est correcte. Pour la rendre encore plus simple, vous pouvez demander au modèle de réfléchir par étapes.
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Berapa suku ke-4 dalam deret tersebut? Berpikirlah secara berurutan. | Istilah pertama adalah 15.  Istilah kedua adalah b(1) \* (-3) = 15 \* (-3) = -45.  Suku ketiga adalah b(2) \* (-3) = -45 \* (-3) = 135.  Suku keempat adalah b(3) \* (-3) = 135 \* (-3) = -405. |
+| Quel est le quatrième terme de la séquence ? Réfléchir étape par étape | Le premier terme est 15.  Le deuxième terme est b(1) \* (-3) = 15 \* (-3) = -45.  Le troisième terme est b(2) \* (-3) = -45 \* (-3) = 135.  Le quatrième terme est b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### Menentukan format output
+### Spécifier le format de sortie
 
-Masalah umum adalah kebutuhan output model dalam format tertentu
-(misalnya, markdown, JSON, HTML), terutama jika output model perlu
-diproses oleh tugas downstream. Anda dapat mencoba menghasilkan output dalam format tersebut
-dengan menginstruksikan model untuk melakukannya dalam perintah. Berikut dua contohnya:
+Un problème courant est le besoin d'avoir un format spécifique pour la sortie du modèle (par exemple, Markdown, JSON, HTML), en particulier si celle-ci doit être ingérée par une tâche en aval. Vous pouvez essayer de produire un résultat dans ce format en demandant au modèle via la requête. Vous trouverez deux exemples ci-dessous :
 
-| Perintah | Respons model |
+| Requête | Réponse de modèle |
 | --- | --- |
-| Parse tabel dalam gambar ini ke dalam format markdown | | Subjek | Status | Waktu | Tanggal mulai | Jatuh tempo pada |  | ------- | ------ | ---- | ---------- | ------ |  | Matematika | Selesai | 1,5 jam | 29/11/2023 | 1/12/2023 |  | Geografi | Selesai | 30 menit | 2/12/2023 | 4/12/2023 |  | Fisika | Sedang berlangsung | 2 jam | 3/12/2023 | 5/12/2023 |  | Biologi | Belum dimulai | 6 jam | 2/11/2016 | 6/12/2023 | |
+| Analysez le tableau de cette image au format Markdown | | Sujet | État | Heure | Date de début | Date limite |  | ------- | ------ | ---- | ---------- | ------ |  | Math | Done | 1.5 hrs | 11/29/2023 | 12/1/2023 |  | Zone géographique | Terminé | 30 min | 02/12/2023 | 04/12/2023 |  | Physique | En cours | 2 h | 03/12/2023 | 05/12/2023 |  | Biologie | Non commencé | 6 h | 02/11/2016 | 06/12/2023 | |
 
-| **Perintah** | **Respons model** |
+| **Prompt** (Requête) | **Réponse de modèle** |
 | --- | --- |
-| Berikan daftar semua atribut berikut:  bahan, jenis masakan, vegetarian atau tidak, dalam format JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| Fournissez la liste de tous les attributs suivants :  ingrédients, type de cuisine, végétarien ou non, au format JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### Menempatkan gambar Anda di urutan pertama untuk perintah gambar tunggal
+### Utilisez votre image en premier pour les requêtes liées à une seule image
 
-Meskipun Gemini dapat menafsirkan gambar dan teks dalam urutan apa pun dalam perintah, menempatkan satu gambar sebelum perintah teks dapat memberikan hasil yang lebih baik.
-Dalam contoh berikut, Anda akan melihat gambar muncul terlebih dahulu sebelum teks di setiap perintah.
+Bien que Gemini puisse interpréter l'image et le texte dans n'importe quel ordre dans un prompt, le fait de placer une seule image avant le prompt textuel peut offrir de meilleurs résultats.
+Dans les exemples suivants, vous remarquerez que l'image précède le texte dans chaque requête.
 
-### Memecahkan masalah prompt multimodal
+### Résoudre les problèmes liés à un prompt multimodal
 
-Anda mungkin perlu memecahkan masalah perintah jika tidak mendapatkan respons yang
-bermanfaat. Berikut beberapa strategi yang dapat Anda coba.
+Si vous n'obtenez pas de réponse utile, vous devrez peut-être résoudre les problèmes liés à votre requête. Voici quelques stratégies que vous pouvez essayer.
 
-#### Jika model tidak mengambil informasi dari bagian gambar yang relevan
+#### Si le modèle n'extrait pas d'informations de la partie pertinente de l'image
 
-Untuk mendapatkan respons yang lebih spesifik, Anda dapat menunjukkan aspek gambar yang ingin Anda gunakan sebagai sumber informasi untuk perintahnya.
+Pour obtenir une réponse plus spécifique, vous pouvez indiquer les aspects de l'image à partir desquels vous souhaitez que la requête extraie des informations pour éclairer sa réponse.
 
-| Perintah | Respons model |
+| Prompt | Réponse de modèle |
 | --- | --- |
-| Berapa hari popok ini akan bertahan untuk bayi? | Popok akan bertahan selama 198 hari sebelum habis. |
+| Combien de jours ces couches vont-elles durer avec un bébé ? | Les couches vont durer 198 jours avant d'être épuisées. |
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Berapa lama popok ini akan bertahan sebelum habis?  Gunakan berat yang tertera di kotak untuk menentukan usia anak, dan gunakan jumlah total popok dalam kotak.  Bagilah jumlah total dengan jumlah popok yang digunakan anak per hari. | Kotak berisi 198 popok. Kotak tersebut menyatakan bahwa popok ditujukan untuk anak dengan berat 10-17 kg.  Rata-rata anak dalam rentang berat ini kemungkinan berusia antara 1 dan 2 tahun.  Anak berusia 2 tahun biasanya menggunakan 6 popok per hari, sehingga popok akan bertahan sekitar 33 hari (198/6). |
+| Combien de temps vont durer ces couches avant d'être épuisées ?  Utilisez le poids indiqué sur la boîte pour déterminer l'âge de l'enfant et le nombre total de couches dans la boîte.  Divisez le nombre total par le nombre de couches utilisées par l'enfant chaque jour. | La boîte contient 198 couches. La boîte indique que les couches sont destinées à un enfant pesant entre 22 et 37 livres.  L'enfant correspondant à cette plage de poids a probablement 1 à 2 ans.  Un enfant de deux ans utilise généralement six couches par jour. Par conséquent, les couches vont durer environ 33 jours (198/6). |
 
-#### Jika output model terlalu umum dan tidak cukup disesuaikan dengan input gambar
+#### Si les résultats du modèle sont trop génériques et ne sont pas suffisamment adaptés à l'entrée de type image
 
-Untuk membantu model menyesuaikan responsnya dengan gambar, coba minta model untuk mendeskripsikan gambar sebelum melakukan tugas penalarannya.
+Pour aider le modèle à adapter sa réponse à l'image ou aux images, essayez de lui demander de les décrire avant d'effectuer sa tâche de raisonnement.
 
-| Perintah | Respons model |
+| Prompt | Réponse de modèle |
 | --- | --- |
-| Apa kesamaan antara gambar-gambar ini? | Keempat gambar tersebut adalah contoh fotografi lanskap. |
+| Quel est le point commun entre ces images ? | Les quatre images sont des exemples de photographie de paysage. |
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Pertama, jelaskan secara mendetail apa yang ada di setiap gambar. Apa kesamaan antara gambar-gambar ini? | Gambar pertama menunjukkan seseorang sedang mengemas koper. Gambar kedua menampilkan lorong kosong di pusat perbelanjaan. Gambar ketiga menampilkan gulungan tisu toilet. Gambar keempat menampilkan laut yang gelap dan berbadai.  Kesamaan antara gambar-gambar ini adalah bahwa semuanya merupakan contoh ruang liminal. Ruang liminal adalah tempat atau situasi yang berada di antara dua tempat atau situasi lainnya. Hal ini sering kali ditandai dengan rasa tidak pasti atau ambigu.  Gambar pertama menunjukkan orang yang berada di antara rumah dan sedang dalam perjalanan. Gambar kedua menunjukkan lorong di antara dua toko. Gambar ketiga adalah tisu toilet, yang dapat mewakili kamar mandi. Kamar mandi adalah ruang transisi antara ranah pribadi dan publik. Ini adalah tempat di mana kita mempersiapkan diri untuk masuk atau keluar dari dunia luar.  Gambar keempat menunjukkan laut di antara kedua sisi yang tenang dan berbadai.  Ruang liminal bisa terasa menarik dan mengganggu. Tempat tersebut bisa menjadi tempat awal yang baru atau tempat akhir. Tempat tersebut dapat menjadi tempat untuk merenung atau tempat untuk bertindak. |
+| Commencez par décrire en détail le contenu de chaque image. Quel est le point commun entre ces images ? | La première image montre une personne préparant une valise. La deuxième image montre un couloir vide dans un centre commercial. La troisième image montre un rouleau de papier toilette. La quatrième image montre une mer sombre et orageuse.  Le point commun de ces images est qu'elles sont toutes des exemples d'espaces liminaux. Les espaces liminaux sont des lieux ou des situations situés entre deux autres lieux ou situations. Elles sont souvent caractérisées par un sentiment d'incertitude ou d'ambiguïté.  La première image montre une personne entre chez elle et en voyage. La deuxième image montre le couloir entre deux magasins. La troisième image montre du papier toilette, ce qui peut représenter une salle de bain. Une salle de bain est un espace de transition entre les domaines privé et public. C'est un endroit où nous nous préparons à pénétrer ou à quitter le monde extérieur.  La quatrième image montre une mer calme et orageuse.  Les espaces liminaux peuvent être à la fois intéressants et étranges. Ils peuvent constituer un début ou une fin. Ils peuvent représenter un lieu de réflexion ou d'action. |
 
-Anda juga dapat mencoba meminta model secara eksplisit untuk merujuk pada objek yang ada dalam gambar.
+Vous pouvez également essayer de demander explicitement au modèle de faire référence au contenu de l'image.
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Apa kesamaan antara gambar-gambar ini? Rujuk isi gambar dalam respons Anda. | Semua gambar terkait dengan perjalanan. Gambar pertama menunjukkan seseorang sedang mengemas koper, gambar kedua menunjukkan lorong kosong di pusat perbelanjaan, gambar ketiga menunjukkan tumpukan tisu toilet, dan gambar keempat menunjukkan laut yang gelap dan badai.  Semua gambar ini terkait dengan perjalanan karena semuanya adalah hal-hal yang dibutuhkan atau digunakan orang saat bepergian. Gambar pertama menunjukkan seseorang sedang mengemas koper, yang merupakan sesuatu yang dilakukan orang saat mereka akan bepergian. Gambar kedua menampilkan lorong kosong di pusat perbelanjaan, yang merupakan tempat orang sering kali pergi untuk membeli barang untuk perjalanan mereka. Gambar ketiga menampilkan tumpukan tisu toilet, yang merupakan sesuatu yang sering digunakan orang saat bepergian. Gambar keempat menunjukkan laut yang gelap dan badai, yang sering dialami orang saat bepergian. |
+| Quel est le point commun entre ces images ? Reportez-vous au contenu des images dans votre réponse. | Toutes les images sont liées au voyage. La première image montre une personne préparant une valise, la deuxième montre un couloir vide dans un centre commercial, la troisième une pile de rouleaux de papier toilette, et la quatrième image montre une mer sombre et orageuse.  Ces images sont toutes liées au voyage, car elles correspondent à tout ce dont les gens ont besoin ou utilisent lorsqu'ils voyagent. La première image montre une personne préparant une valise. C'est une chose que font les personnes qui partent en voyage. La deuxième image montre un couloir vide dans un centre commercial. C'est un lieu où les gens se rendent pour acheter les articles dont ils ont besoin pour leur voyage. La troisième image montre une pile de rouleaux de papier toilette. C'est quelque chose que les gens utilisent lorsqu'ils voyagent. La quatrième image montre une mer sombre et orageuse. C'est ce que les gens rencontrent souvent lorsqu'ils voyagent. |
 
-Tips yang sama berlaku untuk output kreatif dari gambar. Dalam contoh berikut dengan
-kelinci, meminta model secara eksplisit untuk menyertakan aspek dari gambar dapat
-meningkatkan kualitas output.
+Il en va de même pour les sorties créatives issues des images. Dans l'exemple suivant, avec le lapin, demandez explicitement au modèle d'inclure certains aspects de l'image pouvant améliorer le résultat.
 
-| Perintah | Respons model |
+| Prompt | Réponse de modèle |
 | --- | --- |
-| Dapatkah Anda menulis puisi tentang gambar ini untuk saya? | Kelinci kecil, begitu lembut dan cokelat,  Melompat di padang, naik dan turun.  Telingamu panjang, ekormu kecil,  Kamu adalah makhluk paling imut di antara semuanya.  Kamu mengunyah rumput, begitu hijau dan manis,  Dan melompat pergi saat melihatku.  Namun, aku akan selalu menjadi temanmu,  Kelinci kecil, hingga akhir hayatku. |
+| Peux-tu m'écrire un poème sur cette image ? | Petit lapin, si doux et marron,  Sautant à travers champ, de haut en bas.  Tes oreilles sont si longues, ta queue si petite,  tu es la créature la plus mignonne de toutes.  Tu grignotes l'herbe, si verte et douce,  et tu sautes lorsque tu me vois.  Mais je serai toujours ton ami,  Petit lapin, jusqu'à la fin. |
 
-| **Perintah yang diperbarui** | **Respons yang lebih baik** |
+| **Prompt modifié** | **Réponse améliorée** |
 | --- | --- |
-| Dapatkah Anda menulis puisi deskriptif dan dramatis tentang gambar ini dan menyertakan lokasinya? | Kelinci kecil di padang rumput hijau,  Telinganya panjang, sangat tajam.  Apa yang Anda lihat di sana,  Di kejauhan, tempat Anda menatap?  Apakah biru laut,  Berkilau dalam warna matahari?  Atau ombak yang menghantam dan menderu,  Irama yang Anda sukai?  Kelinci kecil, katakan yang sebenarnya,  Apa yang menarik perhatianmu?  Apakah angin laut yang asin,  Atau teriakan burung camar yang menyenangkan?  Mungkin karena luasnya semua ini,  Dunia yang begitu besar dan kecil.  Tempat impian dapat menjelajah,  Dan petualangan dapat dimulai.  Kelinci kecil, aku ingin tahu apa yang kamu impikan,  Saat kamu duduk di atas rumput, begitu tenang.  Apakah kamu ingin menjelajahi lautan yang dalam,  Atau tetap di darat, tempat kamu bisa melompat?  Apa pun itu, kelinci kecil,  Jaga agar percikan keajaiban itu tetap menyala terang.  Dalam impian dan aspirasi Anda,  Terdapat dunia yang menunggu kreasi Anda. |
+| Peux-tu m'écrire un poème descriptif et théâtral sur cette image et y inclure le lieu ? | Petit lapin sur la pelouse,  Les oreilles sont si longues, si fines.  Que vois-tu là-bas,  Au loin, là où tu regardes ?  Est-ce le bleu de l'océan,  Étincelant dans la lumière du soleil ?  Ou les vagues qui s'écrasent et rugissent,  Un rythme que tu adores ?  Petit lapin, dis-moi la vérité,  Qu'est-ce qui retient tant ton attention ?  Est-ce la brise salée,  ou les cris des mouettes qui supplient ?  Peut-être est-ce toute cette immensité,  un monde si grand et si petit à la fois.  Un lieu où les rêves peuvent vagabonder  et où les aventures peuvent être créées.  Petit lapin, je me demande à quoi à quoi tu rêves,  Quand tu es assis sur l'herbe, si serein.  As-tu envie d'explorer les profondeurs,  ou de rester sur la terre ferme, là où tu peux sauter ?  Quoi qu'il en soit, petit lapin,  Garde cette étincelle qui brille en toi. Car dans tes rêves et tes aspirations,  se trouve un monde qui n'attend que d'être créé. |
 
-#### Memecahkan masalah bagian perintah yang gagal
+#### Savoir quelle partie de la requête a échoué
 
-Mungkin sulit untuk mengetahui apakah perintah gagal karena model **tidak memahami gambar** sejak awal, atau jika model memahami gambar tetapi tidak melakukan **langkah-langkah penalaran** yang benar setelahnya.
-Untuk membedakan alasan tersebut, minta model mendeskripsikan isi gambar.
+Il peut être difficile de savoir si une requête a échoué car le modèle n'a pas **compris l'image** avec laquelle commencer, ou s'il a compris l'image, mais n'a pas effectué les bonnes **étapes de raisonnement**.
+Pour faire la distinction entre les deux, demandez au modèle de décrire le contenu de l'image.
 
-Dalam contoh berikut, jika model merespons dengan camilan yang tampaknya mengejutkan
-jika dipadukan dengan teh (misalnya, popcorn), Anda dapat memecahkan masalah terlebih dahulu untuk menentukan
-apakah model dengan benar mengenali bahwa gambar tersebut berisi teh.
+Dans l'exemple suivant, si le modèle répond avec un aliment qui ne semble pas correspondre au thé (par exemple, du pop-corn), vous pouvez d'abord chercher à déterminer si le modèle a correctement reconnu que l'image contient du thé.
 
-| Perintah | Perintah untuk pemecahan masalah |
+| Prompt | Invite pour le dépannage |
 | --- | --- |
-| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Jelaskan apa yang ada dalam gambar ini. |
+| Quel aliment puis-je préparer en une minute qui pourrait être associé à cela ? | Décris ce que représente cette image. |
 
-Strategi lainnya adalah meminta model untuk menjelaskan penalarannya. Hal ini dapat membantu Anda
-mempersempit bagian penalaran yang salah, jika ada.
+Une autre stratégie consiste à demander au modèle d'expliquer son raisonnement. Cela peut vous aider à déterminer la partie du raisonnement qui a échoué, le cas échéant.
 
-| Perintah | Perintah untuk pemecahan masalah |
+| Prompt | Invite pour le dépannage |
 | --- | --- |
-| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? Harap jelaskan alasannya. |
+| Quel aliment puis-je préparer en une minute qui pourrait être associé à cela ? | Quel aliment puis-je préparer en une minute qui pourrait être associé à cela ? Merci d'indiquer pour quelle raison. |
 
-## Langkah berikutnya
+## Étape suivante
 
-- Coba tulis perintah multimodal Anda sendiri menggunakan [Google AI Studio](http://aistudio.google.com?hl=id).
-- Untuk mengetahui informasi tentang cara menggunakan Gemini Files API untuk mengupload file media dan menyertakannya dalam perintah Anda, lihat panduan [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan [Pemrosesan dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
-- Untuk panduan selengkapnya tentang desain perintah, seperti menyesuaikan parameter pengambilan sampel, lihat halaman [Strategi perintah](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id).
+- Essayez d'écrire vos propres requêtes multimodales à l'aide de [Google AI Studio](http://aistudio.google.com?hl=fr).
+- Pour savoir comment utiliser l'API Gemini Files pour importer des fichiers multimédias et les inclure dans vos requêtes, consultez les guides [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=fr), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr) et [Traitement de documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr).
+- Pour obtenir d'autres conseils sur la conception de requêtes, comme le réglage des paramètres d'échantillonnage, consultez la page [Stratégies de requête](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr).
 
-Kirim masukan
+Envoyer des commentaires
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Dernière mise à jour le 2026/08/30 (UTC).
 
-Ada masukan untuk kami?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/08/30 (UTC)."],[],[]]

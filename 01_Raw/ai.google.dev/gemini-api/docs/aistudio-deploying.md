@@ -1,103 +1,112 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=he
-fetched_at: 2026-08-24T02:25:36.992292+00:00
-title: "\u05e4\u05e8\u05d9\u05e1\u05d4 \u05de-Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ar
+fetched_at: 2026-08-31T06:42:54.509046+00:00
+title: "\u0627\u0644\u0646\u0634\u0631 \u0645\u0646 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-שליחת משוב
+إرسال ملاحظات
 
-# פריסה מ-Google AI Studio
+# النشر من Google AI Studio
 
-‫Google AI Studio מאפשר לכם לפרוס את אפליקציות הפול סטאק שלכם ישירות ממצב בנייה. כך אפשר לעבור במהירות מאב טיפוס לסביבת ייצור מנוהלת וניתנת להרחבה.
+يتيح لك Google AI Studio نشر تطبيقاتك الكاملة مباشرةً من "وضع الإنشاء". ويوفّر ذلك مسارًا سريعًا من النموذج الأوّلي إلى بيئة إنتاج مُدارة وقابلة للتوسّع.
 
-## אפשרויות פריסה
+## خيارات النشر
 
-כדי לפרוס את האפליקציה ממצב Build ב-AI Studio, הדרישות משתנות בהתאם לרמה שבה אתם משתמשים:
+لنشر تطبيقك من "وضع الإنشاء" في AI Studio، تعتمد المتطلبات على المستوى الذي تستخدمه:
 
-- ‫[**Google Cloud Starter Tier**](https://docs.cloud.google.com/docs/starter-tier?hl=he):
-  מאפשר לכם לפרסם עד 2 אפליקציות full-stack בלי להגדיר פרויקט ב-Google Cloud או חשבון לחיוב.
-- **פריסה רגילה**: נדרש פרויקט ב-Google Cloud שמקושר לחשבון שלכם ב-AI Studio, והחיוב צריך להיות מופעל בפרויקט הזה.
+- [**Google Cloud Starter Tier**](https://docs.cloud.google.com/docs/starter-tier?hl=ar):
+  يتيح لك نشر ما يصل إلى تطبيقَين كاملَين بدون إعداد مشروع Google Cloud أو حساب فوترة.
+- **النشر العادي**: يتطلّب مشروع Google Cloud مرتبطًا بحسابك على
+  AI Studio وتفعيل الفوترة في هذا المشروع.
 
-## מידע על התוכנית למתחילים
+## لمحة عن Starter Tier
 
-מסלול Starter של Google Cloud מספק דרך פשוטה לפריסת אפליקציות ב-Google Cloud ישירות מ-Google AI Studio, בלי להגדיר סביבת Google Cloud מלאה או חשבון לחיוב.
+يوفّر Google Cloud Starter Tier مسارًا مبسطًا لنشر التطبيقات على Google Cloud مباشرةً من Google AI Studio بدون إعداد بيئة Google Cloud كاملة أو حساب فوترة.
 
-כל פריסה של Google AI Studio יוצרת שירות תואם ב-Cloud Run. ההגבלות הבאות חלות על שירותים שנפרסו ב-Google AI Studio עם חבילת Starter:
+ينشئ كل عملية نشر في Google AI Studio خدمة مقابلة في Cloud Run. بالنسبة إلى الخدمات التي يتم نشرها في Google AI Studio باستخدام Starter Tier، تسري القيود التالية:
 
-- אפשר לפרוס עד שני שירותים.
-- השירותים שלכם נפרסים ב[אזור יחיד של Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=he).
+- يمكنك نشر ما يصل إلى خدمتَين.
+- [يتم نشر خدماتك في منطقة واحدة من Cloud Run.](https://docs.cloud.google.com/run/docs/locations?hl=ar)
 
-## שלבי הפריסה של תוכנית למתחילים
+## خطوات نشر Starter Tier
 
-אחרי שמעצבים את האפליקציה במצב Build (בנייה), פורסים אותה באמצעות חבילת Starter:
+بعد تصميم تطبيقك في "وضع الإنشاء"، يمكنك نشره باستخدام Starter Tier:
 
-1. לוחצים על הלחצן **פרסום** בפינה השמאלית העליונה.
-2. לוחצים על **שנתחיל?**.
-3. לוחצים על **פרסום האפליקציה**.
+1. انقر على الزر **نشر** في أعلى يسار الصفحة.
+2. انقر على **البدء**.
+3. انقر على **نشر التطبيق**.
 
-אחרי שהפריסה מסתיימת, AI Studio מספק כתובת URL של Cloud Run שדרכה אפשר לגשת לאפליקציה הפעילה.
+بعد اكتمال عملية النشر، يوفّر AI Studio عنوان URL لـ Cloud Run يمكنك من خلاله الوصول إلى تطبيقك المباشر.
 
-## כתובות URL מותאמות אישית ל-AI Studio
+## عناوين URL المخصّصة لـ AI Studio
 
-כשמפרסמים אפליקציה מ-Google AI Studio, אפשר להגדיר תת-דומיין מותאם אישית וקל לזכירה בקטע `ai.studio` (לדוגמה, `https://your-app-name.ai.studio`).
+عند نشر تطبيق من Google AI Studio، يمكنك ضبط نطاق فرعي مخصّص،
+لا يُنسى ضمن `ai.studio` (على سبيل المثال،
+`https://your-app-name.ai.studio`).
 
-‫Google AI Studio דורש ששמות של תת-דומיינים יהיו ייחודיים באופן גלובלי בכל הפרויקטים,
-ומקצה אותם לפי סדר קבלת הבקשות. אם פרויקט אחר כבר משתמש בשם, AI Studio יבקש מכם לבחור שם אחר. אם מבטלים את הפרסום של אפליקציה או מוחקים אותה, כתובת ה-URL המותאמת אישית שלה מתפנה ומשתמשים אחרים יכולים להשתמש בה.
+يتطلّب Google AI Studio أن تكون النطاقات الفرعية فريدة على مستوى العالم في جميع المشاريع، ويتم تخصيصها حسب أسبقية الطلب. إذا كان مشروع آخر يستخدم اسمًا، يطلب منك AI Studio اختيار اسم مختلف. إذا ألغيت نشر تطبيق أو حذفْته، يتم إطلاق عنوان URL المخصّص له ويصبح متاحًا للمستخدمين الآخرين للمطالبة به.
 
-### הגדרת כתובת URL מותאמת אישית
+### ضبط عنوان URL مخصّص
 
-כדי להגדיר או לעדכן כתובת URL מותאמת אישית לאפליקציה:
+لضبط عنوان URL مخصّص لتطبيقك أو تعديله، اتّبِع الخطوات التالية:
 
-1. פותחים את האפליקציה ב-Google AI Studio במצב **Build**.
-2. לוחצים על **פרסום** בפינה השמאלית העליונה.
-3. בהגדרת הפריסה, מזינים את תת-הדומיין המועדף בשדה **כתובת URL מותאמת אישית** או מאשרים את כתובת ה-URL המוצעת.
-4. לוחצים על **פרסום האפליקציה**.
+1. افتح تطبيقك في Google AI Studio في **وضع الإنشاء**.
+2. انقر على **نشر** في أعلى يسار الصفحة.
+3. في إعدادات النشر، أدخِل النطاق الفرعي المفضّل في حقل **عنوان URL المخصّص** أو اقبل عنوان URL المقترَح.
+4. انقر على **نشر التطبيق**.
 
-כדי להעביר כתובת URL מותאמת אישית קיימת לאפליקציה אחרת, קודם צריך לבטל את הפרסום של האפליקציה שהוקצתה לה כתובת ה-URL המותאמת אישית או למחוק אותה, ואז לפרסם את האפליקציה החדשה באמצעות תת הדומיין שנבחר.
+لنقل عنوان URL مخصّص حالي إلى تطبيق مختلف، عليك أولاً إلغاء نشر التطبيق الذي تم تخصيص عنوان URL المخصّص له أو حذفه، ثم نشر تطبيقك الجديد باستخدام النطاق الفرعي الذي تم اختياره.
 
-### דיווח על בעיות שקשורות לסימנים מסחריים או לזכויות יוצרים
+### الإبلاغ عن مشاكل العلامات التجارية أو حقوق الطبع والنشر
 
-דומיינים משנה מותאמים אישית צריכים לעמוד [בתנאים ובהגבלות של Google](https://policies.google.com/terms?hl=he). אם נתקלתם בכתובת URL בהתאמה אישית שמפרה סימן מסחרי או משתמשת בשם שמוגן בזכויות יוצרים ללא אישור, אתם יכולים לדווח על כך באמצעות [פותר הבעיות המשפטיות של Google](https://support.google.com/legal/troubleshooter/1114905?hl=he).
+يجب أن تتوافق النطاقات الفرعية المخصّصة مع الـ
+[بنود خدمة Google](https://policies.google.com/terms?hl=ar). [إذا لاحظت عنوان URL مخصّصًا ينتهك علامة تجارية أو يستخدم اسمًا محميًا بحقوق الطبع والنشر بدون إذن، يمكنك الإبلاغ عنه باستخدام أداة حلّ المشاكل القانونية من Google.](https://support.google.com/legal/troubleshooter/1114905?hl=ar)
 
-## פריסה רגילה
+## النشر العادي
 
-כשהאפליקציות מתפתחות, יכול להיות שתצטרכו יכולות שמעבר לרמת Starter, כמו מכסות גבוהות יותר, משאבי מחשוב מוגדלים או מוצרים אחרים של Google Cloud שלא זמינים ברמת Starter. כדי לקבל גישה ליכולות האלה, אתם יכולים להמיר את הפרויקט שלכם ברמת Starter המנוהל באופן מלא לפרויקט רגיל ב-Google Cloud.
+مع تطوّر تطبيقاتك، قد تحتاج إلى إمكانات تتجاوز Starter Tier، مثل حصص أعلى أو موارد حوسبة أكبر أو منتجات Google Cloud أخرى غير متاحة في Starter Tier. للاستفادة من هذه الإمكانات، يمكنك تحويل مشروعك المُدار بالكامل في Starter Tier إلى مشروع Google Cloud عادي.
 
-כך תוכלו להרחיב את הפעילות בצורה חלקה בלי לאבד את ההתקדמות. פועלים לפי השלבים ל[יצירת חשבון לחיוב ב-Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=he#create-new-billing-account), מאשרים באופן רשמי את התנאים וההגבלות הרגילים של Google Cloud ו[משדרגים לפרויקט רגיל ב-Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=he#upgradee).
-מידע נוסף זמין במאמר בנושא [הגדרה של חשבונות בתשלום](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#paid-setup).
+يضمن ذلك إمكانية التوسّع بسلاسة بدون فقدان التقدّم الذي أحرزته. اتّبِع الخطوات لـ
+[إنشاء حساب فوترة على Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=ar#create-new-billing-account)، و
+قبول بنود خدمة Google Cloud العادية رسميًا، و
+[الترقية إلى مشروع Google Cloud عادي](https://docs.cloud.google.com/docs/starter-tier?hl=ar#upgradee).
+لمزيد من المعلومات، يُرجى الاطّلاع على مقالة
+[إعداد الحسابات المدفوعة](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ar#paid-setup).
 
-מידע נוסף על רמות חיוב זמין במאמר [חיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he).
+لمزيد من المعلومات عن مستويات الفوترة، يُرجى الاطّلاع على مقالة [الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar).
 
-## מחיקת הבקשה
+## حذف تطبيقك
 
-אם אין לכם יותר צורך באפליקציה, אתם יכולים למחוק אותה ב-Google AI Studio לפי ההוראות הבאות:
+إذا لم تعُد بحاجة إلى تطبيقك، يمكنك حذفه في Google AI Studio باتّباع هذه التعليمات:
 
-1. ב-Google AI Studio, עוברים אל [דף האפליקציות](https://aistudio.google.com/app/apps?hl=he).
-2. בתפריט הימני, לוחצים על **אפליקציות**.
-3. מעבירים את הסמן מעל האפליקציה שרוצים למחוק.
-4. כדי למחוק את האפליקציה, לוחצים על סמל פח האשפה בצד שמאל של השורה.
+1. في Google AI Studio، انتقِل إلى صفحة "
+   [التطبيقات](https://aistudio.google.com/app/apps?hl=ar)".
+2. في القائمة اليمنى، انقر على **التطبيقات**.
+3. مرِّر المؤشر فوق التطبيق الذي تريد حذفه.
+4. انقر على رمز سلة المهملات على الجانب الأيسر من الصف لإزالة التطبيق.
 
-## המאמרים הבאים
+## الخطوات التالية
 
-- [מידע נוסף על רמת ההתחלה ב-Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=he)
-- מידע נוסף על [חיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he) ב-Gemini API
+- مزيد من المعلومات عن
+  [Google Cloud Starter Tier](https://docs.cloud.google.com/docs/starter-tier?hl=ar).
+- مزيد من المعلومات عن [الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar) في Gemini API
 
-שליחת משוב
+إرسال ملاحظات
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-עדכון אחרון: 2026-07-10 (שעון UTC).
+تاريخ التعديل الأخير: 2026-07-10 (حسب التوقيت العالمي المتفَّق عليه)
 
-רוצה לתת לנו משוב?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-10 (שעון UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-10 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

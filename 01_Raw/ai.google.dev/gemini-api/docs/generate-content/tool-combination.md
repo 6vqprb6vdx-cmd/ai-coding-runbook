@@ -1,27 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=de
-fetched_at: 2026-08-24T02:21:59.026988+00:00
-title: "Integrierte Tools und Funktionsaufrufe kombinieren \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=id
+fetched_at: 2026-08-31T06:30:41.740136+00:00
+title: "Menggabungkan alat bawaan dan panggilan fungsi \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Integrierte Tools und Funktionsaufrufe kombinieren
+# Menggabungkan alat bawaan dan panggilan fungsi
 
-Mit Gemini können Sie die Kombination von [integrierten Tools](https://ai.google.dev/gemini-api/docs/tools?hl=de) wie `google_search` und [Funktionsaufrufen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de) (auch als *benutzerdefinierte Tools* bezeichnet) in einer einzigen Generierung ermöglichen, indem der Kontextverlauf von Toolaufrufen beibehalten und verfügbar gemacht wird. Kombinationen aus integrierten und benutzerdefinierten Tools ermöglichen komplexe, agentenbasierte Workflows, bei denen sich das Modell beispielsweise auf Echtzeit-Webdaten stützen kann, bevor es Ihre spezifische Geschäftslogik aufruft.
+Gemini memungkinkan kombinasi [alat bawaan](https://ai.google.dev/gemini-api/docs/tools?hl=id), seperti
+`google_search`, dan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+(juga dikenal sebagai *alat kustom*) dalam satu generasi dengan mempertahankan dan mengekspos
+histori konteks panggilan alat. Kombinasi alat bawaan dan kustom memungkinkan alur kerja kompleks dan berbasis agen, yang dalam hal ini, misalnya, model dapat mendasarkan diri pada data web real-time sebelum memanggil logika bisnis spesifik Anda.
 
-Hier ein Beispiel, das Kombinationen aus integrierten und benutzerdefinierten Tools mit `google_search` und einer benutzerdefinierten Funktion `getWeather` ermöglicht:
+Berikut adalah contoh yang memungkinkan kombinasi alat bawaan dan kustom dengan `google_search` dan fungsi kustom `getWeather`:
 
 ### Python
 
@@ -48,13 +51,13 @@ getWeather = {
 
 # Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     contents="What is the northernmost city in the United States? What's the weather like there today?",
     config=types.GenerateContentConfig(
         tools=[
             types.Tool(
                 google_search=types.GoogleSearch(),  # Built-in tool
-                function_declarations=[getWeather]       # Custom tool
+                function_declarations=[getWeather],  # Custom tool
             ),
         ],
         tool_config=types.ToolConfig(
@@ -90,7 +93,7 @@ history = [
 ]
 
 response_2 = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.7-flash",
     contents=history,
     config=types.GenerateContentConfig(
         tools=[
@@ -114,7 +117,7 @@ for part in response_2.candidates[0].content.parts:
 ### JavaScript
 
 ```
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI, Type } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
@@ -122,10 +125,10 @@ const getWeather = {
     name: "getWeather",
     description: "Get the weather in a given location",
     parameters: {
-        type: "OBJECT",
+        type: Type.OBJECT,
         properties: {
             location: {
-                type: "STRING",
+                type: Type.STRING,
                 description: "The city and state, e.g. San Francisco, CA"
             }
         },
@@ -134,10 +137,6 @@ const getWeather = {
 };
 
 async function run() {
-    const model = client.getGenerativeModel({
-        model: "gemini-3.6-flash",
-    });
-
     const tools = [
       { googleSearch: {} },
       { functionDeclarations: [getWeather] }
@@ -146,13 +145,14 @@ async function run() {
     const toolConfig = { includeServerSideToolInvocations: true };
 
     // Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
-    const result1 = await model.generateContent({
+    const response1 = await client.models.generateContent({
+        model: "gemini-3.7-flash",
         contents: [{role: "user", parts: [{text: "What is the northernmost city in the United States? What's the weather like there today?"}]}],
-        tools: tools,
-        toolConfig: toolConfig,
+        config: {
+            tools: tools,
+            toolConfig: toolConfig,
+        },
     });
-
-    const response1 = result1.response;
 
     for (const part of response1.candidates[0].content.parts) {
         if (part.functionCall) {
@@ -160,7 +160,7 @@ async function run() {
         }
     }
 
-    const functionCallId = response1.candidates[0].content.parts.find(p => p.functionCall)?.functionCall?.id;
+   const functionCallId = response1.candidates[0].content.parts.find(p => p.functionCall)?.functionCall?.id;
 
     // Turn 2: Manually build history to circulate both tool and function context
     const history = [
@@ -183,13 +183,16 @@ async function run() {
         }
     ];
 
-    const result2 = await model.generateContent({
+    const response2 = await client.models.generateContent({
+        model: "gemini-3.7-flash",
         contents: history,
-        tools: tools,
-        toolConfig: toolConfig,
+        config: {
+            tools: tools,
+            toolConfig: toolConfig,
+        },
     });
 
-    for (const part of result2.response.candidates[0].content.parts) {
+    for (const part of response2.candidates[0].content.parts) {
         if (part.text) {
             console.log(part.text);
         }
@@ -199,7 +202,7 @@ async function run() {
 run();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -237,7 +240,7 @@ func main() {
         },
     }
 
-    model := client.GenerativeModel("gemini-3.6-flash")
+    model := client.GenerativeModel("gemini-3.7-flash")
     model.Tools = []*genai.Tool{
         {GoogleSearch: &genai.GoogleSearch{}}, // Built-in tool
         {FunctionDeclarations: []*genai.FunctionDeclaration{getWeather}}, // Custom tool
@@ -306,7 +309,7 @@ func main() {
 
 ```
 # Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -343,7 +346,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 # The following request assumes you have captured candidates[0].content from Turn 1 response,
 # and extracted function_call.id for getWeather.
 # Replace FUNCTION_CALL_ID and insert candidate content from turn 1.
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -388,67 +391,66 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## Funktionsweise
+## Cara kerjanya
 
-Gemini 3-Modelle verwenden die *Toolkontext-Zirkulation* , um Kombinationen aus integrierten und benutzerdefinierten Tools zu ermöglichen. Durch die Toolkontext-Zirkulation kann der Kontext von integrierten Tools beibehalten und verfügbar gemacht und in demselben Aufruf von Runde zu Runde mit benutzerdefinierten Tools geteilt werden.
+Model Gemini 3 menggunakan *sirkulasi konteks alat* untuk mengaktifkan kombinasi alat bawaan dan kustom. Sirkulasi konteks alat memungkinkan konteks alat bawaan dipertahankan dan diekspos, serta dibagikan dengan alat kustom dalam panggilan yang sama dari satu giliran ke giliran berikutnya.
 
-### Toolkombination aktivieren
+### Mengaktifkan kombinasi alat
 
-- Sie müssen das Flag `include_server_side_tool_invocations` auf `true` setzen, um die Toolkontext-Zirkulation zu aktivieren.
-- Fügen Sie die [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#function-declarations) zusammen mit den
-  integrierten Tools ein, die Sie verwenden möchten, um das Kombinationsverhalten auszulösen.
-  - Wenn Sie `function_declarations` nicht einfügen, wirkt sich die Toolkontext-Zirkulation trotzdem auf die eingeschlossenen integrierten Tools aus, solange das Flag gesetzt ist.
+- Anda harus menetapkan tanda `include_server_side_tool_invocations` ke `true` untuk mengaktifkan sirkulasi konteks alat.
+- Sertakan [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#function-declarations), beserta
+  alat bawaan yang ingin Anda gunakan, untuk memicu perilaku kombinasi.
+  - Jika Anda tidak menyertakan `function_declarations`, sirkulasi konteks alat akan tetap bertindak pada alat bawaan yang disertakan, selama tanda ditetapkan.
 
-### API gibt Teile zurück
+### Bagian yang ditampilkan API
 
-In einer einzigen Antwort gibt die API die Teile `toolCall` und `toolResponse` für den Aufruf des integrierten Tools zurück. Für den Aufruf der Funktion (benutzerdefiniertes Tool) gibt die API den Aufrufteil `functionCall` zurück, für den der Nutzer in der nächsten Runde den Teil `functionResponse` bereitstellt.
+Dalam satu respons, API menampilkan bagian `toolCall` dan `toolResponse` untuk panggilan alat bawaan. Untuk panggilan fungsi (alat kustom), API menampilkan bagian panggilan `functionCall`, yang akan diisi pengguna dengan bagian `functionResponse` pada giliran berikutnya.
 
-- `toolCall` und `toolResponse`: Die API gibt diese Teile zurück, um den Kontext beizubehalten, welche Tools serverseitig ausgeführt werden, und das Ergebnis ihrer Ausführung für die nächste Runde.
-- `functionCall` und `functionResponse`: Die API sendet den Funktionsaufruf an
-  den Nutzer, damit er ihn ausfüllt, und der Nutzer sendet das Ergebnis in der
-  Funktionsantwort zurück. Diese Teile sind für alle [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de) in der Gemini API Standard und nicht spezifisch für die
-  Toolkombinationsfunktion.
-- ([Nur Tool zur Codeausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de))
-  `executableCode` und `codeExecutionResult`:
-  Wenn Sie das Tool zur Codeausführung verwenden, gibt die API anstelle von `functionCall` und
-  `functionResponse` die Teile `executableCode` (der vom Modell generierte Code, der ausgeführt werden soll) und `codeExecutionResult` (das
-  Ergebnis des ausführbaren Codes) zurück.
+- `toolCall` dan `toolResponse`: API menampilkan bagian ini untuk mempertahankan konteks alat yang dijalankan di sisi server, dan hasil eksekusinya, untuk giliran berikutnya.
+- `functionCall` dan `functionResponse`: API mengirimkan panggilan fungsi kepada
+  pengguna untuk diisi, dan pengguna mengirimkan hasilnya kembali dalam
+  respons fungsi (bagian ini standar untuk semua [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API, bukan hanya untuk fitur kombinasi alat
+  ).
+- ([Hanya alat](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)eksekusi kode)
+  `executableCode` dan `codeExecutionResult`:
+  Saat menggunakan alat Eksekusi Kode, bukan `functionCall` dan
+  `functionResponse`, API menampilkan `executableCode` (kode yang dibuat
+  oleh model yang dimaksudkan untuk dieksekusi) dan `codeExecutionResult` (hasil
+  kode yang dapat dieksekusi).
 
-Sie müssen alle Teile, einschließlich aller darin enthaltenen [Felder](#critical-fields), in jeder Runde an das Modell zurückgeben, um den Kontext beizubehalten und Tool
-kombinationen zu ermöglichen.
+Anda harus menampilkan semua bagian, termasuk semua [kolom](#critical-fields) yang ada di dalamnya, kembali ke model pada setiap giliran untuk mempertahankan konteks dan mengaktifkan kombinasi alat.
 
-### Wichtige Felder in zurückgegebenen Teilen
+### Kolom penting di bagian yang ditampilkan
 
-Bestimmte [von der API zurückgegebene Teile](#api-returns-parts) enthalten die Felder `id`,
-`tool_type`, und `thought_signature`. Diese Felder sind entscheidend für die Beibehaltung des Toolkontexts (und daher entscheidend für Toolkombinationen). Sie müssen alle Teile *genau wie in der Antwort angegeben* in Ihren nachfolgenden Anfragen zurückgeben.
+Bagian [tertentu yang ditampilkan oleh API](#api-returns-parts) akan menyertakan kolom `id`,
+`tool_type`, dan `thought_signature`. Kolom ini sangat penting untuk mempertahankan konteks alat (dan oleh karena itu, sangat penting untuk kombinasi alat); Anda harus menampilkan semua bagian *seperti yang diberikan dalam respons* di permintaan berikutnya.
 
-- `id`: Eine eindeutige Kennung, die einen Aufruf seiner Antwort zuordnet. `id` wird **in
-  allen Funktionsaufrufantworten festgelegt**, unabhängig von der Toolkontext-Zirkulation.
-  Sie *müssen* in der Funktionsantwort dieselbe `id` angeben, die die API im Funktionsaufruf bereitstellt. Integrierte Tools teilen die `id` automatisch zwischen dem Toolaufruf und der Toolantwort.
-  - In allen toolbezogenen Teilen enthalten: `toolCall`, `toolResponse`, `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
-- `tool_type`: Gibt das verwendete Tool an, entweder das Literal des integrierten Tools (z.B. `URL_CONTEXT`) oder den Funktionsnamen (z.B. `getWeather`).
-  - In den Teilen `toolCall` und `toolResponse` enthalten.
-- `thought_signature`: Der tatsächliche verschlüsselte Kontext, der in **jedem von der API zurückgegebenen Teil** eingebettet ist. Ohne Thought Signatures kann der Kontext nicht wiederhergestellt werden. Wenn Sie die Thought Signatures für alle Teile nicht in jeder Runde zurückgeben, gibt das Modell einen Fehler aus.
-  - In *allen* Teilen enthalten.
+- `id`: ID unik yang memetakan panggilan ke responsnya. **`id` \*\*ditetapkan pada semua respons panggilan fungsi\*\* , terlepas dari sirkulasi konteks alat.**
+  Anda *harus* memberikan `id` yang sama dalam respons fungsi yang diberikan API dalam panggilan fungsi. Alat bawaan secara otomatis membagikan `id` antara panggilan alat dan respons alat.
+  - Ditemukan di semua bagian terkait alat: `toolCall`, `toolResponse`, `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
+- `tool_type`: Mengidentifikasi alat tertentu yang digunakan; alat bawaan literal atau (misalnya `URL_CONTEXT`) atau nama fungsi (misalnya `getWeather`).
+  - Ditemukan di bagian `toolCall` dan `toolResponse`.
+- `thought_signature`: Konteks terenkripsi sebenarnya yang disematkan di **setiap bagian yang ditampilkan oleh API**. Konteks tidak dapat direkonstruksi tanpa tanda pikiran; jika Anda tidak menampilkan tanda pikiran untuk semua bagian di setiap giliran, model akan menampilkan error.
+  - Ditemukan di *semua* bagian.
 
-### Toolspezifische Daten
+### Data khusus alat
 
-Einige integrierte Tools geben für den Nutzer sichtbare Datenargumente zurück, die für den Tooltyp spezifisch sind.
+Beberapa alat bawaan menampilkan argumen data yang terlihat oleh pengguna yang khusus untuk jenis alat.
 
-| Tool | Für den Nutzer sichtbare Toolaufrufargumente (falls vorhanden) | Für den Nutzer sichtbare Toolantwort (falls vorhanden) |
+| Alat | Argumen panggilan alat yang terlihat oleh pengguna (jika ada) | Respons alat yang terlihat oleh pengguna (jika ada) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` Zu durchsuchende URLs | `urls_metadata` `retrieved_url`: Durchsuchte URLs `url_retrieval_status`: Status der Suche |
-| **FILE\_SEARCH** | Keine | Keine |
+| **URL\_CONTEXT** | `urls` URL yang akan dijelajahi | `urls_metadata` `retrieved_url`: URL yang dijelajahi `url_retrieval_status`: Status penjelajahan |
+| **FILE\_SEARCH** | Tidak ada | Tidak ada |
 
-## Beispiel für die Anfragestruktur für Toolkombinationen
+## Contoh struktur permintaan kombinasi alat
 
-Die folgende Anfragestruktur zeigt die Anfragestruktur des Prompts: „Was ist die nördlichste Stadt in den Vereinigten Staaten? Wie ist das Wetter dort heute?“ Dabei werden drei Tools kombiniert: die integrierten Gemini-Tools `google_search` und `code_execution` sowie eine benutzerdefinierte Funktion `get_weather`.
+Struktur permintaan berikut menunjukkan struktur permintaan perintah: "What is the northernmost city in the United States? What's the weather like there today?". Struktur ini menggabungkan tiga alat: alat Gemini bawaan `google_search` dan `code_execution`, serta fungsi kustom `get_weather`.
 
 ```
 {
-  "model": "models/gemini-3.6-flash",
+  "model": "models/gemini-3.7-flash",
   "contents": [{
     "parts": [{
       "text": "What is the northernmost city in the United States? What's the weather like there today?"
@@ -513,52 +515,52 @@ Die folgende Anfragestruktur zeigt die Anfragestruktur des Prompts: „Was ist d
 }
 ```
 
-## Tokens und Preise
+## Token dan harga
 
-Die Teile `toolCall` und `toolResponse` in Anfragen werden auf `prompt_token_count` angerechnet. Da diese Zwischenschritte für Tools jetzt sichtbar sind und an Sie zurückgegeben werden, sind sie Teil des Unterhaltungsverlaufs. Dies gilt nur für den
-Fall von *Anfragen*, nicht für *Antworten*.
+Perhatikan bahwa bagian `toolCall` dan `toolResponse` dalam permintaan dihitung ke dalam `prompt_token_count`. Karena langkah-langkah alat perantara ini kini terlihat dan ditampilkan kepada Anda, langkah-langkah tersebut merupakan bagian dari histori percakapan. Hal ini hanya berlaku untuk
+kasus untuk *permintaan*, bukan *respons*.
 
-Das Tool Google Suche ist eine Ausnahme von dieser Regel. Google Suche wendet bereits
-ein eigenes Preismodell auf Abfrageebene an, sodass Tokens nicht
-doppelt berechnet werden (siehe die [Preisseite](https://ai.google.dev/gemini-api/docs/pricing?hl=de)).
+Alat Google Penelusuran adalah pengecualian untuk aturan ini. Google Penelusuran sudah
+menerapkan model harga sendiri di tingkat kueri, sehingga token tidak
+dikenai biaya dua kali (lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)).
 
-Weitere Informationen finden Sie auf der Seite [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de).
+Baca halaman [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mengetahui informasi selengkapnya.
 
-## Beschränkungen
+## Batasan
 
-- Standardmäßig wird der Modus `VALIDATED` verwendet (`AUTO` wird nicht unterstützt), wenn das Flag `include_server_side_tool_invocations` aktiviert ist.
-- Integrierte Tools wie `google_search` verwenden Informationen zum Standort und zur aktuellen Uhrzeit. Wenn Ihre `system_instruction` oder `function_declaration.description` widersprüchliche Standort- und Zeitinformationen enthält, funktioniert die Toolkombinationsfunktion möglicherweise nicht richtig.
+- Default ke mode `VALIDATED` (mode `AUTO` tidak didukung) saat tanda `include_server_side_tool_invocations` diaktifkan
+- Alat bawaan seperti `google_search` mengandalkan informasi lokasi dan waktu saat ini, jadi jika `system_instruction` atau `function_declaration.description` Anda memiliki informasi lokasi dan waktu yang bertentangan, fitur kombinasi alat mungkin tidak berfungsi dengan baik.
 
-## Unterstützte Tools
+## Alat yang didukung
 
-Die standardmäßige Toolkontext-Zirkulation gilt für serverseitige (integrierte) Tools.
-Die Codeausführung ist ebenfalls ein serverseitiges Tool, hat aber eine eigene integrierte Lösung für die Kontext-Zirkulation. Die Computernutzung und Funktionsaufrufe sind clientseitige Tools und haben ebenfalls integrierte Lösungen für die Kontext-Zirkulation.
+Sirkulasi konteks alat standar berlaku untuk alat sisi server (bawaan).
+Eksekusi Kode juga merupakan alat sisi server, tetapi memiliki solusi bawaan sendiri untuk sirkulasi konteks. Penggunaan Komputer dan panggilan fungsi adalah alat sisi klien, dan juga memiliki solusi bawaan untuk sirkulasi konteks.
 
-| Tool | Ausführungsseite | Unterstützung der Kontext-Zirkulation |
+| Alat | Sisi eksekusi | Dukungan Sirkulasi Konteks |
 | --- | --- | --- |
-| [Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) | Serverseitig | Unterstützt |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de) | Serverseitig | Unterstützt |
-| [URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de) | Serverseitig | Unterstützt |
-| [Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de) | Serverseitig | Unterstützt |
-| [Codeausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de) | Serverseitig | Unterstützt (integriert, verwendet die Teile `executableCode` und `codeExecutionResult`) |
-| [Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de) | Clientseitig | Unterstützt (integriert, verwendet die Teile `functionCall` und `functionResponse`) |
-| [Benutzerdefinierte Funktionen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de) | Clientseitig | Unterstützt (integriert, verwendet die Teile `functionCall` und `functionResponse`) |
+| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Sisi server | Didukung |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Sisi server | Didukung |
+| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Sisi server | Didukung |
+| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Sisi server | Didukung |
+| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Sisi server | Didukung (bawaan, menggunakan bagian `executableCode` dan `codeExecutionResult`) |
+| [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Sisi klien | Didukung (bawaan, menggunakan bagian `functionCall` dan `functionResponse`) |
+| [Fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) | Sisi klien | Didukung (bawaan, menggunakan bagian `functionCall` dan `functionResponse`) |
 
-## Nächste Schritte
+## Langkah berikutnya
 
-- Weitere Informationen zu [Funktionsaufrufen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de) in der Gemini API.
-- Unterstützte Tools:
-  - [Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)
-  - [URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)
-  - [Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)
+- Pelajari lebih lanjut [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API.
+- Jelajahi alat yang didukung:
+  - [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)
+  - [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
+  - [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id)
 
-Feedback geben
+Kirim masukan
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Zuletzt aktualisiert: 2026-07-30 (UTC).
+Terakhir diperbarui pada 2026-08-26 UTC.
 
-Haben Sie Feedback für uns?
+Ada masukan untuk kami?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-08-26 UTC."],[],[]]

@@ -1,31 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=ar
-fetched_at: 2026-08-24T02:26:55.478245+00:00
-title: "\u062a\u0641\u0643\u064a\u0631 Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=de
+fetched_at: 2026-08-31T06:39:14.777980+00:00
+title: "Gemini-Denken \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-إرسال ملاحظات
+Feedback geben
 
-# تفكير Gemini
+# Gemini-Denken
 
-تستخدم نماذج [Gemini 3 و2.5 سلسلة](https://ai.google.dev/gemini-api/docs/models?hl=ar) "عملية تفكير" داخلية تحسّن بشكل كبير من قدراتها على الاستدلال والتخطيط المتعدد الخطوات، ما يجعلها فعّالة للغاية في المهام المعقّدة، مثل الترميز والرياضيات المتقدّمة وتحليل البيانات.
+Die [Modelle der Gemini 3- und 2.5-Serie](https://ai.google.dev/gemini-api/docs/models?hl=de) verwenden einen internen
+"Denkprozess", der ihre Fähigkeiten zur logischen Schlussfolgerung und mehrstufigen
+Planung erheblich verbessert. Dadurch sind sie sehr effektiv für komplexe Aufgaben wie
+Programmieren, fortgeschrittene Mathematik und Datenanalyse.
 
-يوضّح لك هذا الدليل كيفية استخدام إمكانات التفكير في Gemini باستخدام Gemini API.
+In diesem Leitfaden erfahren Sie, wie Sie die Denkfunktionen von Gemini mit der Gemini API verwenden.
 
-## إنشاء محتوى باستخدام ميزة "التفكير"
+## Inhalte mit Denkprozess generieren
 
-إنشاء طلب باستخدام نموذج تفكير مشابه لأي طلب آخر لإنشاء المحتوى. ويكمن الاختلاف الرئيسي في تحديد أحد الن101}[ماذج التي تتوافق مع ميزة "التفكير"](#supported-models) في حقل `model`، كما هو101}موضّح في مثال [إنشاء النص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#text-input) التالي:
+Das Initiieren einer Anfrage mit einem Thinking-Modell ähnelt jeder anderen Generierungsanfrage. Der Hauptunterschied besteht darin, eines der
+[Modelle mit Thinking-Unterstützung](#supported-models) im `model` Feld anzugeben, wie
+im folgenden [Beispiel zur Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#text-input) gezeigt:
 
 ### Python
 
@@ -63,7 +68,7 @@ async function main() {
 main();
 ```
 
-### انتقال
+### Ok
 
 ```
 package main
@@ -113,13 +118,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
  ```
 ```
 
-## ملخّصات الأفكار
+## Zusammenfassungen der Gedanken
 
-ملخّصات الأفكار هي إصدارات مُلخّصة من الأفكار الأولية للنموذج، وتقدّم إحصاءات حول عملية الاستدلال الداخلية للنموذج. يُرجى العِلم أنّ مستويات التفكير والميزانيات تنطبق على الأفكار الأولية للنموذج وليس على ملخّصات الأفكار.
+Zusammenfassungen der Gedanken sind zusammengefasste Versionen der Rohgedanken des Modells und bieten Einblicke in den internen Denkprozess des Modells. Die Denkebenen und ‑budgets gelten für die Rohgedanken des Modells und nicht für Zusammenfassungen der Gedanken.
 
-يمكنك تفعيل ملخّصات الأفكار من خلال ضبط `includeThoughts` على `true` في إعدادات الطلب. بعد ذلك، يمكنك الوصول إلى الملخّص من خلال تكرار عناصر `parts` في المَعلمة `response` والتحقّق من القيمة المنطقية `thought`.
+Sie können Zusammenfassungen der Gedanken aktivieren, indem Sie in der Anfragekonfiguration `includeThoughts` auf `true` setzen. Anschließend können Sie auf die Zusammenfassung zugreifen, indem Sie die `parts` des Parameters `response` durchlaufen und den booleschen Wert `thought` prüfen.
 
-في ما يلي مثال يوضّح كيفية تفعيل ملخّصات الأفكار واستردادها بدون البث، ما يؤدي إلى عرض ملخّص نهائي واحد للأفكار مع الردّ:
+Hier ein Beispiel, wie Sie Zusammenfassungen der Gedanken ohne Streaming aktivieren und abrufen. In diesem Fall wird mit der Antwort eine einzelne, endgültige Zusammenfassung der Gedanken zurückgegeben:
 
 ### Python
 
@@ -188,7 +193,7 @@ async function main() {
 main();
 ```
 
-### انتقال
+### Ok
 
 ```
 package main
@@ -229,7 +234,7 @@ func main() {
 }
 ```
 
-في ما يلي مثال على استخدام ميزة "التفكير" مع البث، ما يؤدي إلى عرض ملخّصات متزايدة ومتجدّدة أثناء الإنشاء:
+Und hier ein Beispiel für die Verwendung von Thinking mit Streaming, bei dem während der Generierung fortlaufende, inkrementelle Zusammenfassungen zurückgegeben werden:
 
 ### Python
 
@@ -327,7 +332,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Ok
 
 ```
 package main
@@ -382,25 +387,25 @@ func main() {
 }
 ```
 
-## التحكّم في ميزة "التفكير"
+## Denkprozess steuern
 
-تستخدم نماذج Gemini ميزة "التفكير الديناميكي" تلقائيًا، ما يؤدي إلى تعديل مقدار جهد الاستدلال استنادًا إلى مدى تعقيد طلب المستخدم.
-مع ذلك، إذا كانت لديك قيود معيّنة على وقت الاستجابة أو كنت تريد أن يستخدم النموذج استدلالاً أعمق من المعتاد، يمكنك اختياريًا استخدام مَعلمات للتحكّم في سلوك ميزة "التفكير".
+Gemini-Modelle verwenden standardmäßig dynamische Denkprozesse und passen den Aufwand für die logische Schlussfolgerung automatisch an die Komplexität der Anfrage des Nutzers an.
+Wenn Sie jedoch bestimmte Latenzbeschränkungen haben oder das Modell eine tiefere logische Schlussfolgerung als üblich durchführen soll, können Sie optional Parameter verwenden, um das Denkverhalten zu steuern.
 
-### مستويات التفكير (Gemini 3)
+### Denkebenen (Gemini 3)
 
-تتيح لك المَعلمة `thinkingLevel`، التي ننصح باستخدامها مع نماذج Gemini 3 والإصدارات الأحدث، التحكّم في سلوك الاستدلال.
+Mit dem Parameter `thinkingLevel`, der für Gemini 3-Modelle und höher empfohlen wird, können Sie das Verhalten bei der logischen Schlussfolgerung steuern.
 
-يوضّح الجدول التالي إعدادات `thinkingLevel` لكل نوع من أنواع النماذج:
+In der folgenden Tabelle sind die Einstellungen für `thinkingLevel` für die einzelnen Modelltypen aufgeführt:
 
-| مستوى التفكير | ‫Gemini 3.6 و3.5 Flash | Gemini 3.1 Pro | ‫Gemini 3.5 و3.1 Flash-Lite | ‫Gemini 3.1 Flash-Lite Image | Gemini 3 Flash | الوصف |
+| Denkebene | Gemini 3.6 und 3.5 Flash | Gemini 3.1 Pro | Gemini 3.5 und 3.1 Flash-Lite | Gemini 3.1 Flash-Lite Image | Gemini 3 Flash | Beschreibung |
 | --- | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | متاح | غير متاح | متاح (تلقائي) | متاح (تلقائي) | متاح | يتطابق مع إعداد "بدون تفكير" لمعظم طلبات البحث. يُرجى العِلم أنّ `minimal` لا يضمن إيقاف ميزة "التفكير"، فقد يستخدم النموذج الحد الأدنى من الاستدلال للمهام المعقّدة. |
-| **`low`** | متاح | متاح | متاح | غير متاح | متاح | يقلّل وقت الاستجابة والتكلفة إلى الحد الأدنى. |
-| **`medium`** | متاح (تلقائي) | متاح | متاح | غير متاح | متاح | تفكير متوازن لمعظم المهام. |
-| **`high`** | متاح (ديناميكي) | متاح (تلقائي، ديناميكي) | متاح (ديناميكي) | متاح (ديناميكي) | متاح (تلقائي، ديناميكي) | يزيد من عمق الاستدلال إلى الحد الأقصى. قد يستغرق النموذج وقتًا أطول بكثير للوصول إلى أول رمز مميّز للناتج (بدون تفكير)، ولكن سيكون الناتج أكثر استدلالاً بعناية. |
+| **`minimal`** | Unterstützt | Nicht unterstützt | Unterstützt (Standardeinstellung) | Unterstützt (Standardeinstellung) | Unterstützt | Entspricht für die meisten Anfragen der Einstellung „Kein Denkprozess“. Beachten Sie, dass `minimal` nicht garantiert, dass der Denkprozess deaktiviert ist. Das Modell kann bei komplexen Aufgaben sehr minimal logische Schlussfolgerungen ziehen. |
+| **`low`** | Unterstützt | Unterstützt | Unterstützt | Nicht unterstützt | Unterstützt | Minimiert Latenz und Kosten. |
+| **`medium`** | Unterstützt (Standardeinstellung) | Unterstützt | Unterstützt | Nicht unterstützt | Unterstützt | Ausgewogener Denkprozess für die meisten Aufgaben. |
+| **`high`** | Unterstützt (dynamisch) | Unterstützt (Standardeinstellung, dynamisch) | Unterstützt (dynamisch) | Unterstützt (dynamisch) | Unterstützt (Standardeinstellung, dynamisch) | Maximiert die Tiefe der logischen Schlussfolgerung. Es kann deutlich länger dauern, bis das Modell ein erstes Ausgabetoken (ohne Denkprozess) erreicht, aber die Ausgabe ist sorgfältiger durchdacht. |
 
-يوضّح المثال التالي كيفية ضبط مستوى التفكير.
+Das folgende Beispiel zeigt, wie Sie die Denkebene festlegen.
 
 ### Python
 
@@ -445,7 +450,7 @@ async function main() {
 main();
 ```
 
-### انتقال
+### Ok
 
 ```
 package main
@@ -503,29 +508,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-لا يمكنك إيقاف ميزة "التفكير" في Gemini 3.1 Pro. لا يتيح Gemini 3 Flash وFlash-Lite
-أيضًا إيقاف ميزة "التفكير" بالكامل.
-إذا لم تحدّد مستوى التفكير، سيستخدم Gemini مستوى التفكير التلقائي لنماذج Gemini 3 (مثلاً، `"high"` لـ Gemini 3.1 Pro و`"medium"` لـ Gemini 3.5 Flash).
+Der Denkprozess kann für Gemini 3.1 Pro nicht deaktiviert werden. Gemini 3 Flash und Flash-Lite
+unterstützen ebenfalls keine vollständige Deaktivierung des Denkprozesses.
+Wenn Sie keine Denkebene angeben, verwendet Gemini die Standarddenkebene der Gemini 3-Modelle (z.B. `"high"` für Gemini 3.1 Pro und `"medium"` für Gemini 3.5 Flash).
 
-لا تتيح نماذج Gemini 2.5 سلسلة `thinkingLevel`، لذا استخدِم `thinkingBudget` بدلاً من ذلك.
+Die Modelle der Gemini 2.5-Serie unterstützen `thinkingLevel` nicht. Verwenden Sie stattdessen `thinkingBudget`.
 
-### ميزانيات التفكير
+### Thinking-Budgets
 
-توجّه المَعلمة `thinkingBudget`، التي تم طرحها مع سلسلة Gemini 2.5، النموذج بشأن العدد المحدّد من رموز التفكير المميّزة التي يجب استخدامها للاستدلال.
+Der Parameter `thinkingBudget`, der mit der Gemini 2.5-Serie eingeführt wurde, gibt dem Modell die spezifische Anzahl der Thinking-Tokens vor, die für die logische Schlussfolgerung verwendet werden sollen.
 
-في ما يلي تفاصيل إعدادات `thinkingBudget` لكل نوع من أنواع النماذج.
-يمكنك إيقاف ميزة "التفكير" من خلال ضبط `thinkingBudget` على 0.
-يؤدي ضبط `thinkingBudget` على -1 إلى تفعيل **التفكير الديناميكي**، ما يعني أنّ النموذج سيعدّل الميزانية استنادًا إلى مدى تعقيد الطلب.
+Im Folgenden finden Sie Details zur Konfiguration von `thinkingBudget` für die einzelnen Modelltypen.
+Sie können den Denkprozess deaktivieren, indem Sie `thinkingBudget` auf 0 setzen.
+Wenn Sie das `thinkingBudget` auf -1 setzen, wird der **dynamische Denkprozess** aktiviert. Das bedeutet, dass das Modell das Budget an die Komplexität der Anfrage anpasst.
 
-| الطراز | الإعداد التلقائي (لم يتم ضبط ميزانية التفكير) | النطاق | إيقاف ميزة "التفكير" | تفعيل ميزة "التفكير الديناميكي" |
+| Modell | Standardeinstellung (Thinking-Budget ist nicht festgelegt) | Bereich | Denkprozess deaktivieren | Dynamischen Denkprozess aktivieren |
 | --- | --- | --- | --- | --- |
-| ‫**2.5 Pro** | التفكير الديناميكي | من `128` إلى `32768` | لا ينطبق: لا يمكن إيقاف ميزة "التفكير" | `thinkingBudget = -1` (تلقائي) |
-| ‫**2.5 Flash** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
-| ‫**2.5 Flash Preview** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
-| ‫**2.5 Flash Lite** | لا يفكّر النموذج | من `512` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| ‫**2.5 Flash Lite Preview** | لا يفكّر النموذج | من `512` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| ‫**Robotics-ER 1.6 Preview** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
-| ‫**2.5 Flash Live Native Audio Preview (09-2025)** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
+| **2.5 Pro** | Dynamischer Denkprozess | `128` bis `32768` | Nicht zutreffend: Denkprozess kann nicht deaktiviert werden | `thinkingBudget = -1` (Standardeinstellung) |
+| **2.5 Flash** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
+| **2.5 Flash (Vorabversion)** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
+| **2.5 Flash Lite** | Modell denkt nicht | `512` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite (Vorabversion)** | Modell denkt nicht | `512` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 (Vorabversion)** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
+| **2.5 Flash Live Native Audio (Vorabversion, 09/2025)** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
 
 ### Python
 
@@ -578,7 +583,7 @@ async function main() {
 main();
 ```
 
-### انتقال
+### Ok
 
 ```
 package main
@@ -640,30 +645,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-استنادًا إلى الطلب، قد يتجاوز النموذج ميزانية الرموز المميّزة أو يقلّ عنها.
+Je nach Prompt kann das Modell das Tokenbudget über- oder unterschreiten.
 
-## توقيعات الأفكار
+## Gedankensignaturen
 
-‫Gemini API غير احتفاظي، لذا يتعامل النموذج مع كل طلب بيانات من واجهة برمجة التطبيقات بشكلٍ مستقل ولا يمكنه الوصول إلى سياق الأفكار من الأدوار السابقة في المحادثات المترابطة.
+Die Gemini API ist zustandslos. Das Modell behandelt daher jede API-Anfrage unabhängig und hat keinen Zugriff auf den Denkkontext aus früheren Runden in Mehrfachdialogen.
 
-من أجل تفعيل الاحتفاظ بسياق الأفكار في المحادثة المترابطة، يعرض Gemini توقيعات الأفكار، وهي تمثيلات مشفّرة لعملية التفكير الداخلية للنموذج.
+Damit der Denkkontext bei Mehrfachdialogen beibehalten werden kann, gibt Gemini Gedankensignaturen zurück. Das sind verschlüsselte Darstellungen des internen Denkprozesses des Modells.
 
-- **تعرض نماذج Gemini 2.5** توقيعات الأفكار عند تفعيل ميزة "التفكير" وتضمين الطلب [ميزة "استدعاء الدالة"](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#thinking)، وتحديدًا [إعلانات الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-2).
-- [**قد تعرض نماذج Gemini 3 توقيعات الأفكار لجميع أنواع الأجزاء.**](https://ai.google.dev/api/caching?hl=ar#Part)
-  ننصحك دائمًا بإعادة إرسال جميع التوقيعات كما تم استلامها، ولكن *يجب* ذلك لتوقيعات ميزة "استدعاء الدالة". يمكنك قراءة صفحة
-  [توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar) لمعرفة المزيد.
+- **Gemini 2.5-Modelle** geben Gedankensignaturen zurück, wenn der Denkprozess aktiviert ist und
+  die Anfrage [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#thinking) enthält,
+  insbesondere [Funktionsdeklarationen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#step-2).
+- **Gemini 3-Modelle** können Gedankensignaturen für alle Arten von [Teilen](https://ai.google.dev/api/caching?hl=de#Part) zurückgeben.
+  Wir empfehlen, alle Signaturen immer so zurückzugeben, wie sie empfangen wurden. Für Funktionsaufrufsignaturen ist dies *erforderlich*. Weitere Informationen finden Sie auf der
+  [Seite Gedankensignaturen](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=de).
 
-تشمل قيود الاستخدام الأخرى التي يجب أخذها في الاعتبار مع ميزة "استدعاء الدالة" ما يلي:
+Weitere Nutzungsbeschränkungen, die bei Funktionsaufrufen zu beachten sind:
 
-- يتم عرض التوقيعات من النموذج ضمن أجزاء أخرى في الردّ، مثلاً ميزة "استدعاء الدالة" أو أجزاء النص.
-  [أعِد إرسال الردّ بالكامل](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-4)
-  مع جميع الأجزاء إلى النموذج في الأدوار اللاحقة.
-- لا تدمِج الأجزاء التي تتضمّن توقيعات معًا.
-- لا تدمِج جزءًا يتضمّن توقيعًا مع جزء آخر لا يتضمّن توقيعًا.
+- Signaturen werden vom Modell innerhalb anderer Teile in der Antwort zurückgegeben, z. B. Funktionsaufrufe oder Textteile.
+  [Geben Sie die gesamte Antwort](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#step-4)
+  mit allen Teilen in nachfolgenden Runden an das Modell zurück.
+- Verketten Sie keine Teile mit Signaturen.
+- Führen Sie keinen Teil mit einer Signatur mit einem anderen Teil ohne Signatur zusammen.
 
-## الأسعار
+## Preise
 
-عند تفعيل ميزة "التفكير"، يكون سعر الردّ هو مجموع رموز الإخراج ورموز التفكير. يمكنك الحصول على إجمالي عدد رموز التفكير التي تم إنشاؤها من حقل `thoughtsTokenCount`.
+Wenn der Denkprozess aktiviert ist, setzt sich der Preis für die Antwort aus den Ausgabetokens und den Thinking-Tokens zusammen. Die Gesamtzahl der generierten Thinking-Tokens finden Sie im Feld `thoughtsTokenCount`.
 
 ### Python
 
@@ -681,7 +688,7 @@ console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
 console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
 ```
 
-### انتقال
+### Ok
 
 ```
 // ...
@@ -689,60 +696,61 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-تنشئ نماذج التفكير أفكارًا كاملة لتحسين جودة الردّ النهائي
-، ثم تعرض [ملخّصات](#summaries) لتقديم إحصاءات حول عملية التفكير. لذا، تستند الأسعار إلى رموز التفكير الكاملة التي يحتاج النموذج إلى إنشائها لإنشاء ملخّص، على الرغم من أنّ واجهة برمجة التطبيقات تعرض الملخّص فقط.
+Thinking-Modelle generieren vollständige Gedanken, um die Qualität der endgültigen
+Antwort zu verbessern, und geben dann [Zusammenfassungen](#summaries) aus, um Einblicke in den
+Denkprozess zu geben. Die Preise basieren also auf den vollständigen Thinking-Tokens, die das Modell zum Erstellen einer Zusammenfassung benötigt, obwohl nur die Zusammenfassung von der API ausgegeben wird.
 
-يمكنك التعرّف أكثر على الرموز المميّزة في [دليل عدّ الرموز المميّزة](https://ai.google.dev/gemini-api/docs/tokens?hl=ar).
+Weitere Informationen zu Tokens finden Sie im [Leitfaden zum Zählen von Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de).
 
-## أفضل الممارسات
+## Best Practices
 
-يتضمّن هذا القسم بعض الإرشادات لاستخدام نماذج التفكير بكفاءة.
-كما هو الحال دائمًا، سيساعدك اتّباع [إرشادات كتابة الطلبات وأفضل الممارسات](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar) في الحصول على أفضل النتائج.
+Dieser Abschnitt enthält einige Hinweise zur effizienten Verwendung von Thinking-Modellen.
+Wie immer erzielen Sie die besten Ergebnisse, wenn Sie unsere [Prompt-Anleitung und Best Practices](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de) befolgen.
 
-### تصحيح الأخطاء والتوجيه
+### Fehlerbehebung und Steuerung
 
-- **مراجعة الاستدلال**: عندما لا تحصل على الردّ المتوقّع من
-  نماذج التفكير، قد يساعدك تحليل ملخّصات أفكار Gemini بعناية.
-  يمكنك الاطّلاع على كيفية تقسيم النموذج للمهمة والوصول إلى استنتاجه، واستخدام هذه المعلومات لتصحيح النتائج والحصول على النتائج الصحيحة.
-- **تقديم إرشادات في الاستدلال**: إذا كنت تأمل في الحصول على ناتج طويل بشكلٍ خاص
-  ، قد تحتاج إلى تقديم إرشادات في طلبك لتقييد
-  [مقدار التفكير](#set-budget) الذي يستخدمه النموذج. يتيح لك ذلك حجز المزيد من رموز الإخراج لردّك.
+- **Logische Schlussfolgerung überprüfen**: Wenn Sie nicht die erwartete Antwort von den
+  Thinking-Modellen erhalten, kann es hilfreich sein, die Zusammenfassungen der Gedanken von Gemini sorgfältig zu analysieren.
+  Sie können sehen, wie die Aufgabe aufgeschlüsselt wurde und wie das Modell zu seiner Schlussfolgerung gelangt ist. Diese Informationen können Sie verwenden, um die Ergebnisse zu korrigieren.
+- **Anleitung für die logische Schlussfolgerung geben**: Wenn Sie eine besonders lange
+  Ausgabe erwarten, können Sie in Ihrem Prompt eine Anleitung geben, um den
+  [Aufwand für den Denkprozess](#set-budget) des Modells zu begrenzen. So können Sie mehr Ausgabetokens für Ihre Antwort reservieren.
 
-### مدى تعقيد المهام
+### Aufgabenkomplexität
 
-- **المهام السهلة (يمكن إيقاف ميزة "التفكير"):** بالنسبة إلى الطلبات البسيطة التي لا تتطلّب استدلالاً معقّدًا، مثل استرداد الحقائق أو التصنيف، لا تكون ميزة "التفكير" مطلوبة. تشمل الأمثلة ما يلي:
-  - "أين تم تأسيس DeepMind؟"
-  - "هل يطلب هذا البريد الإلكتروني اجتماعًا أم يقدّم معلومات فقط؟"
-- **المهام المتوسطة (تلقائي/بعض التفكير):** تستفيد العديد من الطلبات الشائعة من درجة من المعالجة خطوة بخطوة أو فهم أعمق. يمكن أن يستخدم Gemini بمرونة إمكانية التفكير في مهام مثل:
-  - تشبيه عملية التمثيل الضوئي بمرحلة النمو
-  - مقارنة السيارات الكهربائية والسيارات الهجينة
-- **المهام الصعبة (أقصى إمكانات التفكير):** بالنسبة إلى التحديات المعقّدة حقًا، مثل حلّ المسائل الرياضية المعقّدة أو مهام الترميز، ننصحك بضبط ميزانية تفكير عالية. تتطلّب هذه الأنواع من المهام أن يستخدم النموذج إمكاناته الكاملة في الاستدلال والتخطيط، وغالبًا ما تتضمّن العديد من الخطوات الداخلية قبل تقديم إجابة. تشمل الأمثلة ما يلي:
-  - حلّ المسألة 1 في AIME 2025: أوجِد مجموع جميع الأسس الصحيحة b > 9 التي يكون فيها
-    ‎17b قاسمًا لـ ‎97b.
-  - اكتب رمز Python لتطبيق ويب يعرض بيانات سوق الأسهم في الوقت الفعلي، بما في ذلك مصادقة المستخدم. اجعل الرمز فعّالاً قدر الإمكان.
+- **Einfache Aufgaben (Denkprozess kann deaktiviert werden)** : Bei einfachen Anfragen, bei denen keine komplexe logische Schlussfolgerung erforderlich ist, z. B. beim Abrufen von Fakten oder bei der Klassifizierung, ist der Denkprozess nicht erforderlich. Beispiele:
+  - „Wo wurde DeepMind gegründet?“
+  - „Wird in dieser E‑Mail ein Meeting angefragt oder werden nur Informationen bereitgestellt?“
+- **Mittelkomplexe Aufgaben (Standardeinstellung/teilweise Denkprozess)** : Viele häufige Anfragen profitieren von einer schrittweisen Verarbeitung oder einem tieferen Verständnis. Gemini kann die Denkfunktion flexibel für Aufgaben wie die folgenden verwenden:
+  - Analogie zwischen Photosynthese und Erwachsenwerden
+  - Vergleich und Gegenüberstellung von Elektroautos und Hybridautos
+- **Komplexe Aufgaben (maximale Denkfähigkeit)** : Bei wirklich komplexen Herausforderungen wie dem Lösen komplexer mathematischer Probleme oder Programmieraufgaben empfehlen wir, ein hohes Thinking-Budget festzulegen. Bei diesen Aufgaben muss das Modell seine gesamten Fähigkeiten zur logischen Schlussfolgerung und Planung einsetzen. Oft sind viele interne Schritte erforderlich, bevor eine Antwort gegeben wird. Beispiele:
+  - Lösen Sie Aufgabe 1 in AIME 2025: Ermitteln Sie die Summe aller ganzzahligen Basen b > 9 für
+    die 17b ein Teiler von 97b ist.
+  - Schreiben Sie Python-Code für eine Webanwendung, die Echtzeit-Börsendaten visualisiert, einschließlich Nutzerauthentifizierung. Die Anwendung soll so effizient wie möglich sein.
 
-## النماذج والأدوات والإمكانات المتوافقة
+## Unterstützte Modelle, Tools und Funktionen
 
-تتوفّر ميزات "التفكير" في جميع نماذج السلسلتَين 3 و2.5.
-يمكنك الاطّلاع على جميع إمكانات النموذج في صفحة
-[نظرة عامة على النموذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
+Die Denkfunktionen werden von allen Modellen der 3er- und 2.5er-Serie unterstützt.
+Alle Modellfunktionen finden Sie auf der
+[Seite Modellübersicht](https://ai.google.dev/gemini-api/docs/models?hl=de).
 
-تعمل نماذج التفكير مع جميع أدوات Gemini وإمكاناته. يتيح ذلك للنماذج التفاعل مع الأنظمة الخارجية أو تنفيذ الرموز أو الوصول إلى المعلومات في الوقت الفعلي، ودمج النتائج في عملية الاستدلال والردّ النهائي.
+Thinking-Modelle funktionieren mit allen Tools und Funktionen von Gemini. So können die Modelle mit externen Systemen interagieren, Code ausführen oder auf Echtzeitinformationen zugreifen und die Ergebnisse in ihre logische Schlussfolgerung und endgültige Antwort einbeziehen.
 
-يمكنك تجربة أمثلة على استخدام الأدوات مع نماذج التفكير في [كتاب الطبخ الخاص بميزة "التفكير"][Colab].
+Beispiele für die Verwendung von Tools mit Thinking-Modellen finden Sie im [Thinking-Kochbuch][Colab].
 
-## ما هي الخطوات التالية؟
+## Nächste Schritte
 
-- تتوفّر تغطية ميزة "التفكير" في دليل [التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar#thinking).
+- Informationen zur Thinking-Abdeckung finden Sie in unserem [Leitfaden zur OpenAI-Kompatibilität](https://ai.google.dev/gemini-api/docs/openai?hl=de#thinking).
 
 [Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
 
-إرسال ملاحظات
+Feedback geben
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Haben Sie Feedback für uns?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

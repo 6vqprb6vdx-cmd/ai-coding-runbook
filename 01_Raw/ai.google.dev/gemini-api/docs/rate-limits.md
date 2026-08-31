@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-BR
-fetched_at: 2026-08-24T02:20:49.707906+00:00
+fetched_at: 2026-08-31T06:29:00.627234+00:00
 title: "Limites de taxas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

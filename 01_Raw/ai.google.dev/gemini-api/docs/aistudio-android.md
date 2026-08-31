@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=it
-fetched_at: 2026-08-24T02:31:53.544833+00:00
+fetched_at: 2026-08-31T06:33:42.900235+00:00
 title: "Crea app per Android in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

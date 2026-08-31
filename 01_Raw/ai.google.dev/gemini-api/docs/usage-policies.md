@@ -1,66 +1,67 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr
-fetched_at: 2026-08-24T02:19:20.919336+00:00
-title: "K\u00f6t\u00fcye kullan\u0131m izleme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=de
+fetched_at: 2026-08-31T06:27:04.359169+00:00
+title: "Missbrauchs\u00fcberwachung \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Geri bildirim gönderin
+Feedback geben
 
-# Kötüye kullanım izleme
+# Missbrauchsüberwachung
 
-Google, yapay zekanın sorumlu bir şekilde geliştirilmesine ve kullanılmasına kendini adamıştır. Gemini API'nin güvenliğini ve bütünlüğünü sağlamak için bu politika yönergelerini oluşturduk. Gemini API'yi kullanarak aşağıdaki yönergeleri, [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'nı ve Üretken Yapay Zeka [Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr)'nı kabul etmiş olursunuz.
+Google verpflichtet sich zu einer verantwortungsbewussten Entwicklung und Nutzung von KI. Um die Sicherheit und Integrität der Gemini API zu gewährleisten, haben wir diese Richtlinien erstellt.
+Wenn Sie die Gemini API verwenden, stimmen Sie den folgenden Richtlinien, den [Zusatzbedingungen für die Gemini API](https://ai.google.dev/gemini-api/terms?hl=de) und der [Richtlinie zur unzulässigen Nutzung von generativer KI](https://policies.google.com/terms/generative-ai/use-policy?hl=de) zu.
 
-## Kötüye Kullanımı Nasıl İzleriz?
+## So überwachen wir auf Missbrauch
 
-Google'ın Güven ve Güvenlik Ekibi, politikalarımızı uygulamak için Gemini API ve Google AI Studio'nun olası kötüye kullanımını tespit etmek amacıyla hem otomatik hem de manuel süreçlerden yararlanır.
+Das Trust and Safety-Team von Google setzt eine Kombination aus automatisierten und manuellen Prozessen ein, um potenziellen Missbrauch der Gemini API und von Google AI Studio zu erkennen und unsere Richtlinien durchzusetzen.
 
-- **Otomatik Algılama:** Otomatik sistemler, API kullanımını yasaklanmış kullanım politikamızın ihlallerine (ör. nefret söylemi, taciz, müstehcen içerik ve tehlikeli içerik) karşı tarar.
-- **Manuel tespit:** Bir projede sürekli olarak şüpheli etkinlik görülürse yetkili Google personeli tarafından manuel inceleme için işaretlenebilir.
+- **Automatisierte Erkennung**:Automatisierte Systeme scannen die API-Nutzung auf Verstöße gegen unsere Richtlinie zur unzulässigen Nutzung, z. B. Hassreden, Belästigungen, sexuell explizite Inhalte und gefährliche Inhalte.
+- **Manuelle Erkennung**:Wenn in einem Projekt wiederholt verdächtige Aktivitäten auftreten, wird es möglicherweise zur manuellen Überprüfung durch autorisierte Google-Mitarbeiter gekennzeichnet.
 
-## Verileri Nasıl İşleriz?
+## So gehen wir mit Daten um
 
-Google, Hizmetler'in güvenliğini ve emniyetini sağlamak amacıyla Yasaklanan Kullanım Politikası'nın ihlallerini tespit edip önlemek ve gerekli yasal veya düzenleyici açıklamaları yapmak için aşağıdaki verileri elli beş (55) gün boyunca saklar:
+Google bewahrt die folgenden Daten 55 Tage lang auf, um Verstöße gegen die Richtlinie zur unzulässigen Nutzung zu erkennen und zu verhindern, die Sicherheit der Dienste zu gewährleisten und alle erforderlichen rechtlichen oder behördlichen Offenlegungen vorzunehmen:
 
-- **İstemler:** API'ye gönderdiğiniz metin istemleri.
-- **Bağlamsal Bilgiler:** İstemlerinizle birlikte sağladığınız ek bağlam bilgileri.
-- **Çıkış:** Gemini API tarafından oluşturulan yanıtlar.
+- **Prompts**:Die Text-Prompts, die Sie an die API senden.
+- **Kontextinformationen**:Zusätzlicher Kontext, den Sie mit Ihren Prompts bereitstellen.
+- **Ausgabe**:Die von der Gemini API generierten Antworten.
 
-## Olası Sorunları Nasıl İnceleriz?
+## So gehen wir bei der Untersuchung potenzieller Probleme vor
 
-Yukarıda açıklanan güvenlik filtreleri ve kötüye kullanım tespit sistemleri tarafından işaretlenen istemler veya model çıkışları, yetkili Google çalışanları tarafından değerlendirilebilir. Bu çalışanlar, önceden tanımlanmış kurallar ve politikalara göre sınıflandırmayı veya belirlemeyi onaylayabilir ya da düzeltebilir. Verilere, yalnızca yetkili Google çalışanları tarafından dahili bir yönetim değerlendirmesi ve inceleme yönetimi platformu aracılığıyla inceleme uzmanı incelemesi için erişilebilir. Kötüye kullanım izleme için veriler kaydedildiğinde yalnızca politika yaptırımı ve politika ihlallerini önleme amacıyla kullanılır.
-Bu veriler, özellikle politika yaptırımı için kullanılanlar dışında herhangi bir yapay zeka/makine öğrenimi modelini eğitmek veya ince ayar yapmak için kullanılmaz.
+Wenn Prompts oder Modellausgaben von den oben beschriebenen Sicherheitsfiltern und Missbrauchserkennungssystemen gekennzeichnet werden, können autorisierte Google-Mitarbeiter die gekennzeichneten Inhalte prüfen und die Klassifizierung oder Entscheidung anhand vordefinierter Richtlinien und Bestimmungen bestätigen oder korrigieren. Auf Daten kann nur von autorisierten Google-Mitarbeitern über eine interne Governance-Bewertungs- und Überprüfungsplattform zugegriffen werden. Wenn Daten für die Missbrauchsüberwachung protokolliert werden, werden sie ausschließlich zur Durchsetzung von Richtlinien und zur Verhinderung von Richtlinienverstößen verwendet.
+Sie werden nicht zum Trainieren oder Optimieren von KI-/ML-Modellen verwendet, die nicht speziell für die Richtliniendurchsetzung eingesetzt werden.
 
-## Politikaya Uygunluk Konusunda Sizinle Birlikte Çalışma
+## Zusammenarbeit mit Ihnen bei der Einhaltung von Richtlinien
 
-Gemini'ı kullanımınız politikalarımıza uygun değilse aşağıdaki adımları atabiliriz:
+Wenn Ihre Nutzung von Gemini nicht unseren Richtlinien entspricht, ergreifen wir möglicherweise die folgenden Maßnahmen:
 
-- **İletişime geçme:** Kullanım alanınızı anlamak ve kullanımınızı uygun hale getirmenin yollarını araştırmak için sizinle e-posta üzerinden iletişime geçebiliriz.
-- **Geçici kullanım sınırları:** Örneğin, hız sınırlarını ayarlayarak veya belirli bir isteğe hangi modelin yanıt vereceğini değiştirerek Gemini API'ye erişiminizi sınırlayabiliriz.
-- **Geçici askıya alma:** Gemini API'ye erişiminizi geçici olarak duraklatabiliriz.
-- **Hesabın kapatılması:** Son çare olarak ve ciddi ihlallerde Gemini API'ye ve diğer Google hizmetlerine erişiminizi kalıcı olarak kapatabiliriz.
+- **Kontakt aufnehmen**:Wir kontaktieren Sie möglicherweise per E-Mail, um mehr über Ihren Anwendungsfall zu erfahren und Möglichkeiten zu finden, wie Sie die Nutzungsbedingungen einhalten können.
+- **Vorübergehende Nutzungslimits**:Wir können Ihren Zugriff auf die Gemini API einschränken, indem wir beispielsweise Ratenlimits anpassen oder ändern, welches Modell eine bestimmte Anfrage beantwortet.
+- **Vorübergehende Sperrung**:Wir können Ihren Zugriff auf die Gemini API vorübergehend sperren.
+- **Kontoschließung**:Als letztes Mittel und bei schwerwiegenden Verstößen können wir Ihren Zugriff auf die Gemini API und andere Google-Dienste dauerhaft schließen.
 
-Askıya alma veya hesap kapatma ile ilgili olarak sizinle iletişime geçersek itirazda bulunabileceğiniz bir bağlantı da paylaşırız.
+Wenn wir Sie bezüglich einer Sperrung oder Kontoschließung kontaktieren, stellen wir Ihnen auch einen Link zur Verfügung, über den Sie Einspruch einlegen können.
 
-## Kapsam
+## Umfang
 
-Bu politika yönergeleri, Gemini API ve AI Studio'nun kullanımı için geçerlidir.
+Diese Richtlinien gelten für die Nutzung der Gemini API und von AI Studio.
 
-Geri bildirim gönderin
+Feedback geben
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Son güncelleme tarihi: 2026-06-09 UTC.
+Zuletzt aktualisiert: 2026-06-09 (UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Haben Sie Feedback für uns?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-09 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-09 (UTC)."],[],[]]

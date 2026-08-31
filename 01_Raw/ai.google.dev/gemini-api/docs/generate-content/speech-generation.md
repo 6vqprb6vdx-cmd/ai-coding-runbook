@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=zh-CN
-fetched_at: 2026-08-24T02:31:08.040578+00:00
-title: "\u6587\u5b57\u8f6c\u8bed\u97f3\u751f\u6210 (TTS) \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=ja
+fetched_at: 2026-08-31T06:37:44.895600+00:00
+title: "\u30c6\u30ad\u30b9\u30c8\u8aad\u307f\u4e0a\u3052\u751f\u6210\uff08TTS\uff09 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-发送反馈
+フィードバックを送信
 
-# 文字转语音生成 (TTS)
+# テキスト読み上げ生成（TTS）
 
-Gemini API 可以使用 Gemini 文字转语音 (TTS) 生成功能将文本输入转换为单人或多人语音。文字转语音 (TTS) 生成是*[可控](#controllable)*的，这意味着您可以使用自然语言来构建互动，并指导音频的*风格*、*口音*、*语速*和*语气*。
+Gemini API は、Gemini のテキスト読み上げ（TTS）生成機能を使用して、テキスト入力を単一話者または複数話者の音声に変換できます。テキスト読み上げ（TTS）生成は*[制御可能](#controllable)*です。つまり、自然言語を使用してインタラクションを構造化し、音声の*スタイル*、*アクセント*、*ペース*、*トーン*をガイドできます。
 
-[在 Google AI Studio 中试用](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=zh-cn)
+[Google AI Studio で試す](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=ja)
 
-TTS 功能不同于通过 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 提供的语音生成功能，后者专为互动式非结构化音频以及多模态输入和输出而设计。虽然 Live API 在动态对话上下文中表现出色，但通过 Gemini API 实现的 TTS 专为需要精确朗读文本并对风格和声音进行精细控制的场景而量身打造，例如播客或有声读物生成。
+TTS 機能は、インタラクティブな非構造化音声とマルチモーダルな入力と出力用に設計された [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) を介して提供される音声生成とは異なります。Live API は動的な会話コンテキストに優れていますが、Gemini API を介した TTS は、ポッドキャストやオーディオブックの生成など、スタイルやサウンドを細かく制御して正確なテキスト朗読が必要なシナリオ向けに調整されています。
 
-本指南介绍了如何根据文本生成单说话者和多说话者音频。
+このガイドでは、テキストから単一話者と複数話者の音声を生成する方法について説明します。
 
-## 准备工作
+## 始める前に
 
-请务必使用具有 Gemini 文字转语音 (TTS) 功能的 Gemini 模型变体，如[支持的模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#supported-models)部分中所列。为获得最佳效果，请考虑哪种模型最适合您的特定使用情形。
+[サポートされているモデル](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja#supported-models) セクションに記載されているように、Gemini テキスト読み上げ（TTS）機能を備えた Gemini モデル バリアントを使用してください。最適な結果を得るには、特定のユースケースに最適なモデルを検討してください。
 
-在开始构建之前，您可能会发现[在 AI Studio 中测试 Gemini TTS 模型](https://aistudio.google.com/generate-speech?hl=zh-cn)很有用。
+構築を開始する前に、[AI Studio で Gemini TTS モデルをテスト](https://aistudio.google.com/generate-speech?hl=ja)することをおすすめします。
 
-## 单说话者 TTS
+## 単一話者 TTS
 
-如需将文本转换为单人音频，请将响应模态设置为“audio”，并传递一个设置了 `VoiceConfig` 的 `SpeechConfig` 对象。您需要从预建的[输出语音](#voices)中选择一个语音名称。
+テキストを 1 人のスピーカーの音声に変換するには、レスポンス モダリティを「音声」に設定し、`VoiceConfig` を設定した `SpeechConfig` オブジェクトを渡します。事前構築された[出力音声](#voices)から音声名を選択する必要があります。
 
-此示例将模型生成的输出音频保存到 Wave 文件中：
+この例では、モデルからの出力音声を wave ファイルに保存します。
 
 ### Python
 
@@ -160,9 +160,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## 多说话人 TTS
+## マルチスピーカー TTS
 
-对于多扬声器音频，您需要一个 `MultiSpeakerVoiceConfig` 对象，其中每个扬声器（最多 2 个）都配置为 `SpeakerVoiceConfig`。您需要使用 [提示](#controllable)中使用的相同名称来定义每个 `speaker`：
+マルチスピーカー オーディオの場合は、各スピーカー（最大 2 つ）が `SpeakerVoiceConfig` として構成された `MultiSpeakerVoiceConfig` オブジェクトが必要です。各 `speaker` は、[プロンプト](#controllable)で使用されている名前と同じ名前で定義する必要があります。
 
 ### Python
 
@@ -336,10 +336,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## 通过提示控制说话风格
+## プロンプトで話し方を制御する
 
-您可以使用自然语言提示或[音频标记](#transcript-tags)来控制单人或多人 TTS 的风格、语气、口音和语速。
-例如，在单人提示中，您可以说：
+単一話者と複数話者の両方の TTS で、自然言語プロンプトまたは[音声タグ](#transcript-tags)を使用して、スタイル、トーン、アクセント、ペースを制御できます。たとえば、1 人のスピーカーのプロンプトでは、次のように言います。
 
 ```
 Say in an spooky voice:
@@ -347,7 +346,7 @@ Say in an spooky voice:
 [whisper] Something wicked this way comes"
 ```
 
-在多位发言者的提示中，为模型提供每位发言者的姓名和相应的转写内容。您还可以单独为每个音箱提供指导：
+複数話者のプロンプトでは、各話者の名前と対応する文字起こしをモデルに提供します。スピーカーごとに個別にガイダンスを提供することもできます。
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -356,11 +355,11 @@ Speaker1: So... [yawn] what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-不妨尝试使用与您想要传达的风格或情感相对应的[语音选项](#voices)，以进一步强调。例如，在前面的提示中，*恩克拉多斯*的气息声可能强调“疲倦”和“无聊”，而 *Puck* 的欢快语气可能与“兴奋”和“快乐”相得益彰。
+伝えたいスタイルや感情に対応する[音声オプション](#voices)を使用すると、さらに強調できます。たとえば、前のプロンプトでは、*エンケラドゥス*の息遣いが「疲れている」や「退屈している」を強調し、*パック*の明るいトーンが「興奮している」や「幸せ」を補完する可能性があります。
 
-## 生成用于转换为音频的提示
+## 音声に変換するプロンプトを生成しています
 
-TTS 模型仅输出音频，但您可以先使用[其他模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)生成转写内容，然后将该转写内容传递给 TTS 模型以进行朗读。
+TTS モデルは音声のみを出力しますが、[他のモデル](https://ai.google.dev/gemini-api/docs/models?hl=ja)を使用して最初に文字起こしを生成し、その文字起こしを TTS モデルに渡して読み上げることができます。
 
 ### Python
 
@@ -454,121 +453,121 @@ const response = await ai.models.generateContent({
 await main();
 ```
 
-## 语音选项
+## 音声オプション
 
-TTS 模型在 `voice_name` 字段中支持以下 30 种语音选项：
+TTS モデルは、`voice_name` フィールドで次の 30 種類の音声オプションをサポートしています。
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** - *明亮* | **Puck** - *欢快* | **Charon** - *信息丰富* |
-| **Kore** - *坚定* | **Fenrir** - *易兴奋* | **Leda** - *青春* |
-| **Orus** - *公司* | **Aoede** - *Breezy* | **Callirrhoe** - *随和* |
-| **Autonoe** - *明亮* | **Enceladus** - *气声* | **Iapetus** - *清晰* |
-| **Umbriel** - *随和* | **Algieba** - *平滑* | **Despina** - *平滑* |
-| **Erinome** - *清除* | **Algenib** -- *Gravelly* | **Rasalgethi** - *信息丰富* |
-| **Laomedeia** - *欢快* | **Achernar** - *柔和* | **Alnilam** - *坚定* |
-| **Schedar** - *偶数* | **Gacrux** - *成熟* | **Pulcherrima** - *转发* |
-| **Achird** - *友好* | **Zubenelgenubi** - *随意* | **Vindemiatrix** - *温和* |
-| **Sadachbia** - *活泼* | **Sadaltager** - *知识渊博* | **Sulafat** - *偏高* |
+| **Zephyr** -- *Bright* | **Puck** - *Upbeat* | **Charon** -- *情報が豊富* |
+| **Kore** -- *Firm* | **Fenrir** -- *Excitable* | **Leda** -- *Youthful* |
+| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe** - *のんびり屋* |
+| **Autonoe** -- *Bright* | **Enceladus** -- *Breathy* | **Iapetus** -- *Clear* |
+| **Umbriel** -- *Easy-going* | **Algieba** -- *Smooth* | **Despina** -- *Smooth* |
+| **Erinome** -- *晴れ* | **Algenib** -- *Gravelly* | **Rasalgethi** - *情報が豊富* |
+| **Laomedeia** - *アップビート* | **Achernar** -- *Soft* | **Alnilam** -- *Firm* |
+| **Schedar** -- *Even* | **Gacrux** -- *成人向け* | **Pulcherrima** - *転送* |
+| **Achird** -- *Friendly* | **Zubenelgenubi** -- *カジュアル* | **Vindemiatrix** - *Gentle* |
+| **Sadachbia** -- *Lively* | **Sadaltager** -- *知識が豊富* | **Sulafat** -- *Warm* |
 
-您可以在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-cn) 中试听所有语音选项。
+音声オプションはすべて [AI Studio](https://aistudio.google.com/generate-speech?hl=ja) で聞くことができます。
 
-## 支持的语言
+## サポートされている言語
 
-TTS 模型会自动检测输入语言。支持以下语言：
+TTS モデルは入力言語を自動的に検出します。サポートされている言語は次のとおりです。
 
-| 语言 | BCP-47 代码 | 语言 | BCP-47 代码 |
+| 言語 | BCP-47 コード | 言語 | BCP-47 コード |
 | --- | --- | --- | --- |
-| 阿拉伯语 | ar | 菲律宾语 | fil |
-| 孟加拉语 | bn | 芬兰语 | fi |
-| 荷兰语 | nl | 加利西亚语 | gl |
-| 英语 | en | 格鲁吉亚语 | ka |
-| 法语 | fr | 希腊语 | el |
-| 德语 | de | 古吉拉特语 | gu |
-| 印地语 | hi | 海地克里奥尔语 | ht |
-| 印度尼西亚语 | id | 希伯来语 | 他 |
-| 意大利语 | it | 匈牙利语 | hu |
-| 日语 | ja | 冰岛语 | is |
-| 韩语 | ko | 爪哇语 | jv |
-| 马拉地语 | mr | 卡纳达语 | kn |
-| 波兰语 | pl | 贡根语 | kok |
-| 葡萄牙语 | pt | 老挝语 | lo |
-| 罗马尼亚语 | ro | 拉丁语 | la |
-| 俄语 | ru | 拉脱维亚语 | lv |
-| 西班牙语 | es | 立陶宛语 | lt |
-| 泰米尔语 | ta | 卢森堡语 | lb |
-| 泰卢固语 | te | 马其顿语 | mk |
-| 泰语 | th | 迈蒂利语 | mai |
-| 土耳其语 | tr | 马尔加什语 | mg |
-| 乌克兰语 | uk | 马来语 | 毫秒 |
-| 越南语 | vi | 马拉雅拉姆语 | ml |
-| 南非荷兰语 | af | 蒙古语 | mn |
-| 阿尔巴尼亚语 | sq | 尼泊尔语 | ne |
-| 阿姆哈拉语 | am | 挪威语（博克马尔语） | nb |
-| 亚美尼亚语 | hy | 挪威语（尼诺斯克语） | nn |
-| 阿塞拜疆语 | az | 奥里亚语 | 或 |
-| 巴斯克语 | eu | 普什图语 | ps |
-| 白俄罗斯语 | be | 波斯语 | fa |
-| 保加利亚语 | bg | 旁遮普语 | pa |
-| 缅甸语 | my | 塞尔维亚语 | sr |
-| 加泰罗尼亚语 | ca | 信德语 | sd |
-| 宿务语 | ceb | 僧伽罗语 | si |
-| 中文（普通话） | cmn | 斯洛伐克语 | sk |
-| 克罗地亚语 | 小时 | 斯洛文尼亚语 | sl |
-| 捷克语 | cs | 斯瓦希里语 | sw |
-| 丹麦语 | da | 瑞典语 | sv |
-| 爱沙尼亚语 | et | 乌尔都语 | ur |
+| アラビア語 | ar | フィリピン語 | fil |
+| ベンガル語 | bn | フィンランド語 | fi |
+| オランダ語 | nl | ガリシア語 | gl |
+| 英語 | en | ジョージア語 | ka |
+| フランス語 | fr | ギリシャ語 | el |
+| ドイツ語 | de | グジャラート語 | gu |
+| ヒンディー語 | hi | ハイチ語 | ht |
+| インドネシア語 | id | ヘブライ語 | 彼 |
+| イタリア語 | it | ハンガリー語 | hu |
+| 日本語 | ja | アイスランド語 | = |
+| 韓国語 | ko | ジャワ語 | jv |
+| マラーティー語 | mr | カンナダ語 | kn |
+| ポーランド語 | pl | コンカニ語 | kok |
+| ポルトガル語 | pt | ラオ語 | lo |
+| ルーマニア語 | ro | ラテン語 | la |
+| ロシア語 | ru | ラトビア語 | lv |
+| スペイン語 | es | リトアニア語 | lt |
+| タミル語 | ta | ルクセンブルク語 | lb |
+| テルグ語 | te | マケドニア語 | mk |
+| タイ語 | th | マイティリー語 | mai |
+| トルコ語 | tr | マラガシ語 | mg |
+| ウクライナ語 | uk | マレー語 | ミリ秒 |
+| ベトナム語 | vi | マラヤーラム語 | ml |
+| アフリカーンス語 | af | モンゴル語 | mn |
+| アルバニア語 | sq | ネパール語 | ne |
+| アムハラ語 | am | ノルウェー語（ブークモール） | nb |
+| アルメニア語 | hy | ノルウェー語、ニーノシク | nn |
+| アゼルバイジャン語 | az | オディア語 | または |
+| バスク語 | eu | パシュト語 | ps |
+| ベラルーシ語 | be | ペルシャ語 | fa |
+| ブルガリア語 | bg | パンジャブ語 | pa |
+| ビルマ語 | my | セルビア語 | sr |
+| カタルーニャ語 | ca | シンド語 | sd |
+| セブアノ語 | ceb | シンハラ語 | si |
+| 中国語（標準語） | cmn | スロバキア語 | sk |
+| クロアチア語 | 時間 | スロベニア語 | sl |
+| チェコ語 | cs | スワヒリ語 | sw |
+| デンマーク語 | da | スウェーデン語 | sv |
+| エストニア語 | et | ウルドゥー語 | ur |
 
-## 支持的模型
+## サポートされているモデル
 
-| 模型 | 一位说话者 | 多音箱 |
+| モデル | 単一話者 | マルチスピーカー |
 | --- | --- | --- |
-| [Gemini 3.1 Flash TTS 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=zh-cn) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash 预览版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=zh-cn) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro 预览版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=zh-cn) | ✔️ | ✔️ |
+| [Gemini 3.1 Flash TTS プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ja) | ✔️ | ✔️ |
+| [Gemini 2.5 Flash プレビュー TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=ja) | ✔️ | ✔️ |
+| [Gemini 2.5 Pro プレビュー TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ja) | ✔️ | ✔️ |
 
-## 提示指南
+## プロンプト ガイド
 
-**Gemini 原生音频生成文字转语音 (TTS)** 模型与传统 TTS 模型的不同之处在于，它使用的大语言模型不仅知道***要说什么，还知道怎么说***。
+**Gemini ネイティブ音声生成テキスト読み上げ（TTS）**モデルは、***何を言うかだけでなく、どのように言うか***も知っている大規模言語モデルを使用することで、従来の TTS モデルと差別化を図っています。
 
-该模型开箱即可使用，能够以原生方式解读脚本，并确定您应如何表达文字。不含任何额外提示的简单转写内容听起来很自然。不过，Gemini TTS 还附带了一些可用于引导它的工具。
+このモデルは、トランスクリプトをネイティブに解釈し、単語の配信方法を決定します。追加のプロンプトなしのシンプルな文字起こしは自然に聞こえます。ただし、Gemini TTS には、操作に使用できるツールも付属しています。
 
-本指南旨在为开发音频体验提供基本指导，并激发创意。我们将先介绍用于快速内嵌控制的**标记**，然后探索用于全面指导性能的高级**提示结构**。
+このガイドの目的は、オーディオ エクスペリエンスを開発する際に基本的な方向性を示し、アイデアを生み出すことです。まず、インラインで簡単に制御できる**タグ**から始め、次にパフォーマンスを最大限に引き出すための高度な**プロンプト構造**について説明します。
 
-### 音频标签
+### 音声タグ
 
-标记是内嵌修饰符，例如 `[whispers]` 或 `[laughs]`，可让您对广告投放进行精细控制。您可以使用这些标记来更改转写内容中某行或某部分的语气、节奏和情感氛围。您还可以使用它们在表演中添加感叹词和其他一些非语言声音，例如 `[cough]`、`[sighs]` 或 `[gasp]`。
+タグは、配信を細かく制御できる `[whispers]` や `[laughs]` などのインライン修飾子です。これらを使用して、文字起こしの行やセクションのトーン、ペース、感情的な雰囲気を変更できます。また、`[cough]`、`[sighs]`、`[gasp]` などの間投詞やその他の非言語音をパフォーマンスに追加することもできます。
 
-我们无法提供详尽的列表来列出哪些标记有效，哪些标记无效，建议您尝试使用不同的情绪和表达方式，看看输出结果会发生怎样的变化。
+有効なタグと無効なタグの完全なリストはありません。さまざまな感情や表現を試して、出力がどのように変化するかを確認することをおすすめします。
 
-如果您的转写内容不是英语，为了获得最佳效果，我们建议您仍然使用英语音频标记。
+文字起こしが英語でない場合でも、最適な結果を得るには、英語の音声タグを使用することをおすすめします。
 
-**巧妙运用音频标记**
+**音声タグをクリエイティブに活用する**
 
-为了展示音频标记可带来的各种变化，下面提供了一组示例，这些示例都表达了相同的内容，但传递方式会根据所用的标记而变化。
+音声タグで得られるバリエーションを示すために、同じ内容を伝えているものの、使用されているタグによって配信方法が異なる一連の例を以下に示します。
 
-您可以在行开头添加标记，让朗读者的语气变得兴奋、无聊或不情愿，从而改变朗读的重点：
+行の先頭にタグを追加して、話者が興奮している、退屈している、気が進まないなどの感情を表現することで、配信の強調を変更できます。
 
-- `[excitedly]` 大家好，我是一个新的文字转语音模型，可以用多种不同的方式表达内容。今天需要我做些什么？
-- `[bored]` 您好，我是一个新的文字转语音模型…
-- `[reluctantly]` 您好，我是一个新的文字转语音模型…
+- `[excitedly]` こんにちは。私は新しいテキスト読み上げモデルです。さまざまな方法で発言できます。ご用件をお聞かせください。
+- `[bored]` こんにちは。私は新しいテキスト読み上げモデルです。
+- `[reluctantly]` こんにちは。私は新しいテキスト読み上げモデルです。
 
-标记还可用于改变朗读速度，或将朗读速度与强调相结合：
+タグを使用して、配信のペースを変更したり、ペースと強調を組み合わせたりすることもできます。
 
-- `[very fast]` 您好，我是一个新的文字转语音模型…
-- `[very slow]` 您好，我是一个新的文字转语音模型…
-- `[sarcastically, one painfully slow word at a time]` 大家好，我是一个新的文字转语音模型…
+- `[very fast]` こんにちは。私は新しいテキスト読み上げモデルです。
+- `[very slow]` こんにちは。私は新しいテキスト読み上げモデルです。
+- `[sarcastically, one painfully slow word at a time]` こんにちは。私は新しいテキスト読み上げモデルです。
 
-您还可以精确控制特定部分，这意味着您可以低声细语地朗读一部分，大声朗读另一部分。
+特定のセクションを正確に制御することもできます。つまり、ある部分を小声（機能）で、別の部分を大声（機能）で話すことができます。
 
-- `[whispers]`大家好，我是新的文字转语音模型，`[shouting]`我可以以多种不同的方式说话。`[whispers]` 您今天需要什么帮助
+- `[whispers]` こんにちは。私は新しいテキスト読み上げモデルの `[shouting]` です。さまざまな方法で発言できます。`[whispers]` 本日はどのようなご用件でしょうか？
 
-您还可以尝试任何您想到的创意：
+また、任意のクリエイティブなアイデアを試すこともできます。
 
-- `[like a cartoon dog]` 您好，我是一个新的文字转语音模型…
-- `[like dracula]` 您好，我是一个新的文字转语音模型…
+- `[like a cartoon dog]` こんにちは。私は新しいテキスト読み上げモデルです。
+- `[like dracula]` こんにちは。私は新しいテキスト読み上げモデルです。
 
-常用的标记包括：
+よく使用されるタグは次のとおりです。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -577,22 +576,22 @@ TTS 模型会自动检测输入语言。支持以下语言：
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-通过标记，您可以快速轻松地控制转写内容的交付。为了获得更精细的控制，您可以将它们与上下文提示相结合，以设置表演的整体基调和氛围。
+タグを使用すると、文字起こしの配信をすばやく簡単に制御できます。さらに細かく制御するには、コンテキスト プロンプトと組み合わせて、パフォーマンスの全体的なトーンと雰囲気を設定します。
 
-### 高级提示
+### 高度なプロンプト
 
-您可以将高级提示视为模型要遵循的系统指令。这是一种为模型提供更多上下文并控制其性能的方法。
+高度なプロンプトは、モデルが従うシステム指示と考えることができます。これは、モデルにコンテキストを追加し、パフォーマンスを制御する方法です。
 
-一个出色的提示应包含以下要素，这些要素共同构成出色的效果：
+堅牢なプロンプトには、優れたパフォーマンスを実現するために次の要素が含まれていることが理想的です。
 
-- **音频配置文件** - 为语音建立角色，定义角色身份、原型和任何其他特征，例如年龄、背景等。
-- **场景** - 设置舞台。描述了实体环境和“氛围”。
-- **导演笔记** - 效果指南，您可以在其中细分哪些指令对虚拟人才来说是需要注意的重要事项。例如，风格、呼吸、节奏、发音和口音。
-- **示例上下文** - 为模型提供上下文起点，以便虚拟演员自然地进入您设置的场景。
-- **转写内容** - 模型将朗读的文本。为获得最佳性能，请注意转写内容的主题和写作风格应与您给出的指令相关。
-- **音频标记** - 您可以添加到转写内容中的修饰符，用于更改文本相应部分的朗读方式，例如 `[whispers]` 或 `[shouting]`。
+- **音声プロファイル** - 音声のペルソナを確立し、キャラクターのアイデンティティ、アーキタイプ、年齢や背景などのその他の特徴を定義します。
+- **Scene** - 状況を設定します。物理的な環境と「雰囲気」の両方を説明します。
+- **ディレクターのメモ** - バーチャル タレントが注意すべき重要な指示を分類できるパフォーマンス ガイダンス。例: スタイル、呼吸、ペース、発音、アクセント。
+- **コンテキストのサンプル** - モデルにコンテキストの開始点を与え、設定したシーンに仮想アクターが自然に登場できるようにします。
+- **Transcript** - モデルが読み上げるテキスト。最適なパフォーマンスを得るには、文字起こしのトピックと文体が、指示内容と関連している必要があります。
+- **音声タグ** - 文字起こしに追加して、テキストのその部分の配信方法を変更できる修飾子（`[whispers]` や `[shouting]` など）。
 
-完整提示示例：
+プロンプトの例:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -631,18 +630,18 @@ just sat there pretending to work... stop it. Seriously, I see you.
 two... let's go!
 ```
 
-### 详细的提示策略
+### プロンプト戦略の詳細
 
-下面我们来逐一分析提示中的各个要素。
+プロンプトの各要素を分解してみましょう。
 
-#### 音频配置
+#### 音声プロファイル
 
-简要描述角色的性格。
+キャラクターのペルソナを簡単に説明します。
 
-- **名称**：为角色命名有助于将模型和紧凑的表演联系起来，在设置场景和背景时，请使用角色的名称来指代角色
-- **角色。**场景中正在扮演的角色的核心身份和原型。例如，电台 DJ、播客主播、新闻记者等。
+- **名前。**キャラクターに名前を付けると、モデルとパフォーマンスが密接に結びつきます。シーンとコンテキストを設定するときは、キャラクターを名前で参照します。
+- **ロール。**シーンで演じているキャラクターの核となるアイデンティティとアーキタイプ。例: ラジオ DJ、ポッドキャスター、ニュース レポーターなど。
 
-示例：
+例:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -654,11 +653,11 @@ two... let's go!
 ## "The Beauty Influencer"
 ```
 
-#### 场景
+#### シーン
 
-设置场景的背景信息，包括地点、氛围和环境细节，以确定基调和氛围。描述角色周围发生的事情以及这些事情对角色的影响。场景为整个互动提供了环境背景，并以微妙的自然方式引导表演。
+シーンのコンテキストを設定します。これには、トーンと雰囲気を確立する場所、ムード、環境の詳細が含まれます。キャラクターの周囲で何が起こっているか、それがキャラクターにどのような影響を与えているかを説明します。シーンは、インタラクション全体の環境コンテキストを提供し、演技のパフォーマンスを微妙かつ自然な形でガイドします。
 
-示例：
+例:
 
 ```
 ## THE SCENE: The London Studio
@@ -677,15 +676,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### 导演备注
+#### ディレクターのメモ
 
-此关键部分包含具体的性能指导。您可以跳过所有其他元素，但我们建议您添加此元素。
+この重要なセクションには、パフォーマンスに関する具体的なガイダンスが含まれています。他の要素はすべてスキップできますが、この要素を含めることをおすすめします。
 
-仅定义对性能至关重要的内容，并注意不要过度指定。过于严格的规则会限制模型的创造力，并可能导致效果不佳。平衡角色和场景说明与具体的表演规则。
+パフォーマンスにとって重要なものだけを定義し、過剰な指定をしないように注意してください。厳格なルールが多すぎると、モデルの創造性が制限され、パフォーマンスが低下する可能性があります。役柄と場面の説明と、具体的な演技のルールとのバランスを取ります。
 
-最常见的指令是**风格、语速和口音**，但模型不限于这些指令，也不要求必须提供这些指令。您可以随意添加自定义说明，以涵盖对效果至关重要的任何其他细节，并根据需要提供尽可能详细或尽可能简略的说明。
+最も一般的な方向性は**スタイル、ペース、アクセント**ですが、モデルはこれらに限定されず、これらを必要としません。パフォーマンスに重要な追加の詳細を説明するカスタム手順を自由に含めることができます。必要なだけ詳細に説明してください。
 
-例如：
+次に例を示します。
 
 ```
 ### DIRECTOR'S NOTES
@@ -698,13 +697,13 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**样式**：
+**スタイル:**
 
-设置生成的语音的语气和风格。包括欢快、活力、放松、无聊等，以指导表演。请尽可能详细地描述，并提供必要的细节：*“富有感染力的热情。听众应该感觉自己正在参与一场盛大而精彩的社区活动。”*比简单地说“充满活力和热情”效果更好。
+生成された音声のトーンとスタイルを設定します。アップビート、エネルギッシュ、リラックス、退屈などの要素を含めて、パフォーマンスをガイドします。説明的で、必要なだけ詳細な情報を提供します。*「伝染性の熱意。「リスナーが大規模でエキサイティングなコミュニティ イベントの一員であると感じるようにする」*の方が、「エネルギッシュで熱狂的」と表現するよりも効果的です。
 
-您甚至可以尝试配音行业中常用的术语，例如“声音微笑”。您可以根据需要叠加任意数量的样式特征。
+「ボーカル スマイル」など、ナレーション業界でよく使われる用語を試してみることもできます。スタイル特性は、必要なだけ重ねることができます。
 
-示例：
+例:
 
 Simple Emotion
 
@@ -715,7 +714,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-更深入
+より詳細なデータ
 
 ```
 DIRECTORS NOTES
@@ -724,7 +723,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-复杂
+複雑
 
 ```
 DIRECTORS NOTES
@@ -735,11 +734,11 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**Accent**：
+**アクセント:**
 
-描述所需的口音。描述越具体，结果就越好。例如，使用“*英国克罗伊登的英式英语口音*”而不是“*英式口音*”。
+希望するアクセントを説明します。プロンプトが具体的であるほど、より良い結果が得られます。たとえば、「*英国のクロイドンで聞かれる英国英語のアクセント*」と「*英国のアクセント*」のようにします。
 
-示例：
+例:
 
 ```
 ### DIRECTORS NOTES
@@ -755,13 +754,13 @@ Accent: Jaz is a DJ from Brixton, London
 ...
 ```
 
-**预算花费进度**：
+**ペース:**
 
-整个作品的总体节奏和节奏变化。
+全体的なペースと、作品全体でのペースのバリエーション。
 
-示例：
+例:
 
-简单
+シンプル
 
 ```
 ### DIRECTORS NOTES
@@ -770,7 +769,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-更深入
+詳細
 
 ```
 ### DIRECTORS NOTES
@@ -779,7 +778,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-复杂
+複雑
 
 ```
 ### DIRECTORS NOTES
@@ -788,9 +787,9 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-#### 转写内容和音频标记
+#### 文字起こしと音声タグ
 
-转写内容是模型将朗读的确切字词。音频标记是指方括号中的字词，用于指示某句话应如何说、语气变化或插话。
+文字起こしは、モデルが話す言葉そのものです。音声タグは、発言方法、トーンの変化、間投詞のいずれかを示す角かっこ内の単語です。
 
 ```
 ### TRANSCRIPT
@@ -801,17 +800,17 @@ at that point.
 [cough] Well, [sighs] I guess it doesn't matter now.
 ```
 
-**快来试试吧**
+**まずはお試しください**
 
-在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-cn) 中亲自尝试这些示例，体验我们的 [TTS 应用](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=zh-cn)，让 Gemini 助您成为导演。请谨记以下提示，以获得出色的演唱效果：
+[AI Studio](https://aistudio.google.com/generate-speech?hl=ja) でこれらの例を試したり、[TTS アプリ](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=ja)で遊んだりして、Gemini に監督の椅子に座らせてみましょう。素晴らしいボーカル パフォーマンスを実現するためのヒント:
 
-- 请务必确保整个提示连贯一致，因为脚本和指令是打造精彩表演的关键。
-- 您不必描述所有内容，有时给模型留出填补空白的空间有助于提高自然度。（就像一位才华横溢的演员）
-- 如果您在任何时候感到卡壳，都可以让 Gemini 帮您撰写剧本或表演。
+- プロンプト全体の一貫性を保つようにしてください。スクリプトと指示は、優れたパフォーマンスを生み出すために不可欠です。
+- すべてを説明する必要はありません。モデルがギャップを埋める余地を残すことで、自然な表現になります。（才能のある俳優のように）
+- 行き詰まったら、Gemini に手伝ってもらって、脚本やパフォーマンスを作成しましょう。
 
-## 流式语音生成
+## ストリーミング音声生成
 
-您可以流式传输模型生成的音频。这有助于缩短感知延迟时间。
+生成された音声は、モデルによって生成されると同時にストリーミングできます。これは、認識されるレイテンシを短縮するのに役立ちます。
 
 ### Python
 
@@ -903,32 +902,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
     }'
 ```
 
-## 限制
+## 制限事項
 
-- TTS 模型只能接收文本输入并生成音频输出。
-- 一个 TTS 会话的[上下文窗口](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-cn)限制为 3.2 万个 token。
-- 如需了解语言支持，请参阅[语言](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#languages)部分。
-- 对于 3.1 版之前的模型，TTS 不支持流式传输（`gemini-3.1-flash-tts-preview` 及更新版本的模型支持流式传输）。
+- TTS モデルはテキスト入力のみを受け取り、音声出力を生成します。
+- TTS セッションの[コンテキスト ウィンドウ](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)の上限は 32,000 トークンです。
+- 言語のサポートについては、[言語](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja#languages)セクションをご覧ください。
+- TTS は、バージョン 3.1 より前のモデルのストリーミングをサポートしていません（`gemini-3.1-flash-tts-preview` 以降ではストリーミングがサポートされています）。
 
-使用 Gemini 3.1 Flash TTS 预览版模型生成语音时，需遵循以下限制：
+Gemini 3.1 Flash TTS プレビュー モデルを音声生成に使用する場合は、次の制約が適用されます。
 
-- **语音与提示指令不一致**：模型的输出可能并不总是与所选的朗读人完全一致，导致音频听起来与预期不同。为避免出现音调不匹配的情况（例如，低沉的男声试图像年轻女孩那样说话），请确保提示的文字语气和上下文与所选发言者的个人资料自然契合。
-- **较长输出的质量**：如果生成的输出时长超过几分钟，语音质量和一致性可能会开始下降。建议您将转写内容拆分成较小的块。
-- **偶尔返回文本令牌**：模型偶尔会返回文本令牌而不是音频令牌，导致服务器因 `500` 错误而使请求失败。由于这种情况仅在极少数请求中随机发生，因此您应在应用中实现自动重试逻辑来处理这些情况。
-- **提示分类器错误拒绝**：模糊的提示可能无法触发语音合成分类器，导致请求被拒绝 (`PROHIBITED_CONTENT`)，或者导致模型大声朗读您的风格说明和导演注释。添加清晰的序言，指示模型合成语音，并明确标记实际语音转写内容的开始位置，从而验证提示。
+- **プロンプトの指示と音声の不一致:** モデルの出力が選択した話者と厳密に一致しない場合があり、音声が想定と異なる場合があります。トーンの不一致（若い女性のような話し方をしようとする男性の低い声など）を避けるため、プロンプトの文面のトーンとコンテキストが、選択した話者のプロフィールと自然に一致するようにしてください。
+- **長い出力の品質:** 数分を超える生成出力では、音声の品質と一貫性が低下する可能性があります。文字起こしを小さなチャンクに分割することをおすすめします。
+- **テキスト トークンが返されることがある:** モデルが音声トークンの代わりにテキスト トークンを返すことがあるため、サーバーが `500` エラーでリクエストに失敗します。このエラーはリクエストのほんの一部の割合でランダムに発生するため、アプリケーションに自動再試行ロジックを実装して、このエラーを処理する必要があります。
+- **プロンプト分類子の誤った拒否:** 曖昧なプロンプトでは、音声合成分類子がトリガーされず、リクエストが拒否（`PROHIBITED_CONTENT`）されたり、モデルがスタイル指示や監督のメモを読み上げたりする可能性があります。モデルに音声の合成を指示する明確な前文を追加し、実際の音声文字起こしが始まる場所を明示的にラベル付けして、プロンプトを検証します。
 
-## 后续步骤
+## 次のステップ
 
-- 不妨试试[音频生成实战宝典](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=zh-cn)。
-- Gemini 的 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 提供交互式音频生成选项，您可以将其与其他模态穿插使用。
-- 如需了解如何处理音频*输入*，请参阅[音频理解](https://ai.google.dev/gemini-api/docs/audio?hl=zh-cn)指南。
+- [音声生成のクックブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=ja)をお試しください。
+- Gemini の [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) は、他のモダリティと組み合わせることができるインタラクティブな音声生成オプションを提供します。
+- 音声*入力*の操作については、[音声認識](https://ai.google.dev/gemini-api/docs/audio?hl=ja)ガイドをご覧ください。
 
-发送反馈
+フィードバックを送信
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最后更新时间 (UTC)：2026-07-30。
+最終更新日 2026-07-30 UTC。
 
-需要向我们提供更多信息？
+ご意見をお聞かせください
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

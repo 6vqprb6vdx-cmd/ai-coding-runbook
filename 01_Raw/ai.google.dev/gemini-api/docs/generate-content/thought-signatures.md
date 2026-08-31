@@ -1,87 +1,102 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=zh-TW
-fetched_at: 2026-08-24T02:32:41.740971+00:00
-title: "\u60f3\u6cd5\u7c3d\u540d \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=pt-BR
+fetched_at: 2026-08-31T06:32:29.060404+00:00
+title: "Assinaturas de racioc\u00ednio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-提供意見
+Envie comentários
 
-# 想法簽名
+# Assinaturas de raciocínio
 
-想法簽章是模型內部思考過程的加密表示法，用於在多步驟互動中保留推理背景資訊。使用思考模型 (例如 Gemini 3 和 2.5 系列) 時，API 可能會在回應的[內容部分](https://ai.google.dev/api/caching?hl=zh-tw#Part)中傳回 `thoughtSignature` 欄位 (例如 `text` 或 `functionCall` 部分)。
+As assinaturas de pensamento são representações criptografadas do processo de pensamento interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias etapas.
+Ao usar modelos de pensamento (como as séries Gemini 3 e 2.5), a API pode
+retornar um campo `thoughtSignature` nas [partes de conteúdo](https://ai.google.dev/api/caching?hl=pt-br#Part)
+da resposta (por exemplo, partes `text` ou `functionCall`).
 
-一般來說，如果模型回覆中包含思維簽章，您應該在下一個回合傳送對話記錄時，完全按照收到的內容傳回該簽章。**使用 Gemini 3 模型時，您必須在函式呼叫期間傳回思維簽章，否則會收到驗證錯誤** (4xx 狀態碼)。包括使用 Gemini 3 Flash 的`minimal`
-[思考程度](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#thinking-levels)設定時。
+Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como recebida ao enviar o histórico da conversa na próxima interação.
+**Ao usar modelos do Gemini 3, é necessário transmitir assinaturas de pensamento durante a chamada de função. Caso contrário, você receberá um erro de validação** (código de status 4xx).
+Isso inclui o uso da configuração de `minimal`
+[nível de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#thinking-levels) para o Gemini 3
+Flash.
 
-## 運作方式
+## Como funciona
 
-下圖以視覺化方式呈現「回合」和「步驟」的意義，與 Gemini API 中的[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)相關。「回合」是指使用者與模型之間一次完整的對話。「步驟」是指模型執行的更精細動作或作業，通常是完成回合的較大程序之一。
+O gráfico abaixo mostra o significado de "interação" e "etapa" em relação a
+[chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) na API Gemini. Uma "interação" é uma troca única e completa em uma conversa entre um usuário e um modelo. Uma "etapa" é uma ação ou operação mais detalhada realizada pelo modelo, geralmente como parte de um processo maior para concluir uma interação.
 
-![函式呼叫回合和步驟圖](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=zh-tw)
+![Diagrama de turnos e etapas de chamada de função](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=pt-br)
 
-*本文著重於處理 Gemini 3 模型的函式呼叫。如要瞭解與 2.5 的差異，請參閱「[模型行為](#model-behavior)」一節。*
+*Este documento se concentra no processamento de chamadas de função para modelos do Gemini 3. Consulte
+a seção sobre o [comportamento do modelo](#model-behavior) para conferir discrepâncias com a versão 2.5.*
 
-Gemini 3 會針對所有模型回覆 (API 回覆) 傳回思維簽章，並呼叫函式。在下列情況中會顯示想法簽名：
+O Gemini 3 retorna assinaturas de pensamento para todas as respostas do modelo (respostas da API) com uma chamada de função. As assinaturas de pensamento aparecem nos seguintes casos:
 
-- 如果出現[平行函式](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#parallel_function_calling)呼叫，模型回應傳回的第一個函式呼叫部分會包含想法簽章。
-- 如果有多個連續函式呼叫 (多步驟)，每個函式呼叫都會有簽章，您必須將所有簽章傳回。
-- 如果模型回應未呼叫函式，模型傳回的最後一部分會包含思維簽章。
+- Quando há [chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#parallel_function_calling)
+  paralelas, a primeira parte da chamada de função retornada pela resposta do modelo terá uma
+  assinatura de pensamento.
+- Quando há chamadas de função sequenciais (várias etapas), cada chamada de função terá uma assinatura, e você precisará transmitir todas as assinaturas.
+- As respostas do modelo sem uma chamada de função vão retornar uma assinatura de pensamento na última parte retornada pelo modelo.
 
-下表以視覺化方式呈現多步驟函式呼叫，並結合回合和步驟的定義，以及上述簽章的概念：
+A tabela a seguir oferece uma visualização para chamadas de função de várias etapas, combinando as definições de interações e etapas com o conceito de assinaturas apresentado acima:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **開啟** | **Step** | **使用者要求** | **模型回應** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | 無 |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Nenhum |
 
-## 函式呼叫部分的簽章
+## Assinaturas em partes de chamada de função
 
-Gemini 生成 `functionCall` 時，會依據 `thought_signature` 在下一個回合中正確處理工具的輸出內容。
+Quando o Gemini gera um `functionCall`, ele depende da `thought_signature` para processar a saída da ferramenta corretamente na próxima interação.
 
-- **行為**：
-  - **單一函式呼叫**：`functionCall` 部分會包含 `thought_signature`。
-  - **平行函式呼叫**：如果模型在回覆中生成平行函式呼叫，`thought_signature` 只會附加至**第一個**
-    `functionCall` 部分。同一回應中的後續 `functionCall` 部分**不會**包含簽章。
-- **必要條件**：傳回對話記錄時，您**必須**在收到簽章的確切位置傳回簽章。
-- **驗證**：系統會對目前回合內的所有函式呼叫強制執行嚴格驗證。(只需要目前輪次，我們不會驗證先前的輪次)
-  - API 會回溯記錄 (從最新到最舊)，找出包含標準內容 (例如 `text`) 的最新**使用者**訊息 (這會是目前回合的開頭)。這不會**be** `functionResponse`。
-  - 在該特定使用訊息之後發生的**所有**模型 `functionCall` 回合，都視為該回合的一部分。
-  - 目前回合**每個步驟**的**第一個** `functionCall` 部分**必須**包含 `thought_signature`。
-  - 如果在目前回合的任何步驟中，省略第一個 `functionCall` 部分的 `thought_signature`，要求就會失敗並顯示 400 錯誤。
-- **如果未傳回正確簽章，您會收到以下錯誤訊息**：
-  - Gemini 3 模型：如未加入簽章，就會發生 400 錯誤。文字格式如下：
-    - `<index of contents array>` 內容區塊中的函式呼叫 `<Function Call>` 缺少 `thought_signature`。舉例來說，*`1.` 內容區塊中的函式呼叫 `FC1` 缺少 `thought_signature`。*
+- **Comportamento**:
+  - **Chamada de função única**: a parte `functionCall` vai conter uma `thought_signature`.
+  - **Chamadas de função paralelas**: se o modelo gerar chamadas de função paralelas
+    em uma resposta, a `thought_signature` será anexada **apenas à primeira**
+    `functionCall` parte. As partes `functionCall` subsequentes na mesma resposta **não** vão conter uma assinatura.
+- **Requisito**: você **precisa** retornar essa assinatura na parte exata em que ela
+  foi recebida ao enviar o histórico da conversa de volta.
+- **Validação**: a validação estrita é aplicada a todas as chamadas de função na
+  interação atual . Apenas a interação atual é necessária. Não validamos as interações anteriores.
+  - A API volta no histórico (do mais recente ao mais antigo) para encontrar a mensagem **do usuário** mais recente que contém conteúdo padrão (por exemplo, `text`) ( que seria o início da interação atual). Essa mensagem **be** será uma `functionResponse`.
+  - **Todas** as interações `functionCall` do modelo que ocorrem após essa mensagem de uso específica são consideradas parte da interação.
+  - A **primeira** parte `functionCall` em **cada etapa** da interação atual **precisa** incluir a `thought_signature`.
+  - Se você omitir uma `thought_signature` para a primeira parte `functionCall` em qualquer etapa da interação atual, a solicitação vai falhar com um erro 400.
+- **Se as assinaturas adequadas não forem retornadas, veja como você vai receber um erro**
+  - Modelos do Gemini 3: a falha ao incluir assinaturas vai resultar em um erro 400. A redação será do formulário:
+    - A chamada de função `<Function Call>` no bloco de conteúdo `<index of contents array>`
+      está sem um `thought_signature`. Por exemplo, *a chamada de função `FC1` no bloco de conteúdo `1.` está sem um `thought_signature`.*
 
-### 循序函式呼叫範例
+### Exemplo de chamada de função sequencial
 
-這個部分會顯示多個函式呼叫的範例，使用者提出需要多項工作的複雜問題。
+Esta seção mostra um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
 
-我們來逐步瞭解多輪函式呼叫範例，使用者提出需要多項工作的複雜問題：`"Check flight status for AA100 and
-book a taxi if delayed"`。
+Vamos analisar um exemplo de chamada de função de várias interações em que o usuário faz
+uma pergunta complexa que exige várias tarefas: `"Check flight status for AA100 and
+book a taxi if delayed"`.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **開啟** | **Step** | **使用者要求** | **模型回應** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-下列程式碼說明上表中的序列。
+O código a seguir ilustra a sequência na tabela acima.
 
-**第 1 輪，步驟 1 (使用者要求)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -136,7 +151,7 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 回合第 1 步 (模型回覆)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -157,7 +172,8 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪第 2 步 (使用者回覆 - 傳送工具輸出內容)**由於這個使用者回合只包含 `functionResponse` (沒有新文字)，我們仍處於第 1 輪。我們必須保留 `<Signature_A>`。
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Como essa interação do usuário contém apenas uma `functionResponse` (sem texto novo), ainda estamos na interação 1. Precisamos
+preservar `<Signature_A>`.
 
 ```
 {
@@ -198,7 +214,7 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪，步驟 2 (模型)**：模型現在會根據先前的工具輸出內容，決定是否預約計程車。
+**Interação 1, etapa 2 (modelo)** O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
 
 ```
 {
@@ -219,7 +235,8 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪，步驟 3 (使用者 - 傳送工具輸出內容)**：如要傳送計程車預約確認訊息，我們必須在這個迴圈中加入**所有**函式呼叫的簽章 (`<Signature A>` + `<Signature B>`)。
+**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)** Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para **TODAS** as chamadas de função neste loop
+(`<Signature A>` + `<Signature B>`).
 
 ```
 {
@@ -288,18 +305,19 @@ book a taxi if delayed"`。
 }
 ```
 
-### 平行函式呼叫範例
+### Exemplo de chamada de função paralela
 
-我們來看看平行函式呼叫的範例，使用者要求 `"Check weather in Paris and London"` 查看模型驗證的位置。
+Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
+`"Check weather in Paris and London"` para ver onde o modelo faz a validação.
 
-| **開啟** | **Step** | **使用者要求** | **模型回應** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 (「巴黎」) + 簽名  FC2 (「倫敦」) | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | 無 |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + signature  FC2 ("London") | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | Nenhum |
 
-下列程式碼說明上表中的序列。
+O código a seguir ilustra a sequência na tabela acima.
 
-**第 1 輪，步驟 1 (使用者要求)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -338,7 +356,7 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 回合，步驟 1 (模型回覆)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -366,7 +384,8 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪，步驟 2 (使用者回應 - 傳送工具輸出內容)** 我們必須保留第一部分，`<Signature_A>`與收到的內容完全一致。
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Precisamos preservar
+`<Signature_A>` na primeira parte exatamente como recebida.
 
 ```
 [
@@ -424,17 +443,20 @@ book a taxi if delayed"`。
 ]
 ```
 
-## 非 `functionCall` 部分的簽章
+## Assinaturas em partes não `functionCall`
 
-在非函式呼叫的部分，Gemini 也可能會在回覆的最後部分傳回 `thought_signatures`。
+O Gemini também pode retornar `thought_signatures` na parte final da resposta em partes que não são de chamada de função.
 
-- **行為**：模型傳回的最終內容部分 (`text, inlineData…`) 可能包含 `thought_signature`。
-- **建議**：**建議**傳回這些簽章，確保模型維持高品質的推論能力，特別是複雜的指令遵循或模擬 Agentic Workflows。
-- **驗證**：API「不會」嚴格執行驗證。如果省略這些屬性，您不會收到封鎖錯誤，但效能可能會降低。
+- **Comportamento**: a parte de conteúdo final (`text, inlineData…`) retornada pelo
+  modelo pode conter um `thought_signature`.
+- **Recomendação**: o retorno dessas assinaturas é **recomendado** para garantir que
+  o modelo mantenha um raciocínio de alta qualidade, especialmente para instruções complexas
+  seguindo ou fluxos de trabalho de agente simulados.
+- **Validação**: a API **não** aplica a validação de forma estrita. Você não vai receber um erro de bloqueio se omiti-las, embora a performance possa ser reduzida.
 
-### 文字/情境推論 (無驗證)
+### Raciocínio de texto/no contexto (sem validação)
 
-**第 1 回合，步驟 1 (模型回覆)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -448,7 +470,7 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 2 回合，步驟 1 (使用者)**
+**Interação 2, etapa 1 (usuário)**
 
 ```
 [
@@ -466,26 +488,27 @@ book a taxi if delayed"`。
 ]
 ```
 
-## OpenAI 相容性簽章
+## Assinaturas para compatibilidade com OpenAI
 
-以下範例說明如何使用 [OpenAI 相容性](https://ai.google.dev/gemini-api/docs/openai?hl=zh-tw)，處理聊天完成 API 的想法簽章。
+Os exemplos a seguir mostram como processar assinaturas de pensamento para uma API de conclusão de chat
+usando [compatibilidade com OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
 
-### 循序函式呼叫範例
+### Exemplo de chamada de função sequencial
 
-以下範例說明如何多次呼叫函式。使用者提出複雜問題，需要執行多項工作。
+Este é um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
 
-讓我們逐步瞭解多輪函式呼叫的範例，使用者會提出`Check flight status for AA100 and book a taxi if delayed`，您可以查看使用者提出需要多項工作的複雜問題時，會發生什麼情況。
+Vamos analisar um exemplo de chamada de função de várias interações em que o usuário pergunta `Check flight status for AA100 and book a taxi if delayed` e você pode ver o que acontece quando o usuário faz uma pergunta complexa que exige várias tarefas.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **開啟** | **Step** | **使用者要求** | **模型回應** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-下列程式碼會逐步說明指定序列。
+O código a seguir mostra a sequência fornecida.
 
-**第 1 輪，步驟 1 (使用者要求)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -539,7 +562,7 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪，步驟 1 (模型回應)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -562,9 +585,10 @@ book a taxi if delayed"`。
     }
 ```
 
-**第 1 回合，步驟 2 (使用者回應 - 傳送工具輸出內容)**
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
 
-由於這個使用者回合只包含 `functionResponse` (沒有新文字)，我們仍處於回合 1，因此必須保留 `<Signature_A>`。
+Como essa interação do usuário contém apenas um `functionResponse` (sem texto novo), ainda estamos
+na interação 1 e precisamos preservar `<Signature_A>`.
 
 ```
 "messages": [
@@ -599,9 +623,9 @@ book a taxi if delayed"`。
   ]
 ```
 
-**第 1 輪，步驟 2 (模型)**
+**Interação 1, etapa 2 (modelo)**
 
-模型現在會根據先前的工具輸出內容，決定是否預約計程車。
+O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
 
 ```
 {
@@ -624,9 +648,10 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪，步驟 3 (使用者 - 傳送工具輸出內容)**
+**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)**
 
-如要傳送計程車預約確認訊息，我們必須在這個迴圈中加入所有函式呼叫的簽章 (`<Signature A>` + `<Signature B>`)。
+Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para TODAS as
+chamadas de função neste loop (`<Signature A>` + `<Signature B>`).
 
 ```
 "messages": [
@@ -685,19 +710,21 @@ book a taxi if delayed"`。
   ]
 ```
 
-### 平行函式呼叫範例
+### Exemplo de chamada de função paralela
 
-我們來看看平行函式呼叫的範例，使用者會提出`"Check weather in Paris and London"`，您可以看到模型進行驗證的位置。
+Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
+`"Check weather in Paris and London"` e você pode ver onde o modelo faz
+validação.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **開啟** | **Step** | **使用者要求** | **模型回應** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-以下是逐步瞭解指定序列的程式碼。
+Confira o código para analisar a sequência fornecida.
 
-**第 1 輪，步驟 1 (使用者要求)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -736,7 +763,7 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 輪，步驟 1 (模型回應)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -767,9 +794,9 @@ book a taxi if delayed"`。
 }
 ```
 
-**第 1 回合，步驟 2 (使用者回應 - 傳送工具輸出內容)**
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
 
-您必須保留第一部分的 `<Signature_A>`，與收到的內容完全一致。
+É necessário preservar `<Signature_A>` na primeira parte exatamente como recebida.
 
 ```
 "messages": [
@@ -818,37 +845,52 @@ book a taxi if delayed"`。
   ]
 ```
 
-## 常見問題
+## Perguntas frequentes
 
-1. **如何將其他模型的記錄轉移至 Gemini 3，並在目前的輪次和步驟中加入函式呼叫部分？我需要提供 API 未生成的函式呼叫部分，因此沒有相關聯的思維簽章嗎？**
+1. **Como faço para transferir o histórico de um modelo diferente para o Gemini 3 com uma parte de chamada de função na interação e etapa atuais? Preciso fornecer partes de chamada de função
+   que não foram geradas pela API e, portanto, não têm uma assinatura de pensamento associada
+   ?**
 
-   強烈建議不要將自訂函式呼叫區塊插入要求中，但如果無法避免，例如向模型提供由用戶端確定執行的函式呼叫和回應資訊，或是從不含想法簽章的其他模型轉移追蹤記錄，您可以在想法簽章欄位中設定 `"context_engineering_is_the_way_to_go"` 或 `"skip_thought_signature_validator"` 的虛擬簽章，略過驗證。
-2. **我傳回交錯的平行函式呼叫和回應，但 API 傳回 400。為什麼？**
+   Embora a injeção de blocos de chamada de função personalizados na solicitação seja fortemente
+   desencorajada, em casos em que não é possível evitá-la, por exemplo, fornecer informações
+   ao modelo sobre chamadas de função e respostas que foram executadas
+   de forma determinística pelo cliente ou transferir um rastreamento de um modelo diferente
+   que não inclui assinaturas de pensamento, é possível definir as seguintes
+   assinaturas fictícias de `"context_engineering_is_the_way_to_go"` ou
+   `"skip_thought_signature_validator"` no campo de assinatura de pensamento para ignorar a
+   validação.
+2. **Estou enviando chamadas e respostas de função paralelas intercaladas, e a API está retornando um erro 400. Por quê?**
 
-   如果 API 傳回平行函式呼叫「FC1 + 簽章、FC2」，預期使用者回應為「FC1 + 簽章、FC2、FR1、FR2」。如果交錯排列為「FC1 + 簽章、FR1、FC2、FR2」，API 會傳回 400 錯誤。
-3. **串流時，如果模型未傳回函式呼叫，我找不到想法簽章**
+   Quando a API retorna chamadas de função paralelas "FC1 + assinatura, FC2", a resposta do usuário esperada é "FC1 + assinatura, FC2, FR1, FR2". Se você as tiver intercaladas como "FC1 + assinatura, FR1, FC2, FR2", a API vai retornar um erro 400.
+3. **Ao fazer streaming, e o modelo não retornar uma chamada de função, não consigo encontrar
+   a assinatura de pensamento**
 
-   在模型回覆期間，如果串流要求不含 FC，模型可能會在文字內容空白的部分傳回想法簽章。建議您剖析整個要求，直到模型傳回 `finish_reason` 為止。
+   Durante uma resposta do modelo que não contém uma FC com uma solicitação de streaming, o modelo pode retornar a assinatura de pensamento em uma parte com uma parte de conteúdo de texto vazia. É recomendável analisar toda a solicitação até que o `finish_reason` seja retornado pelo modelo.
 
-## 不同模型的想法簽名
+## Assinaturas de pensamento para diferentes modelos
 
-[Gemini 3 模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#gemini-3)和 Gemini 2.5 模型在函式呼叫中，會以不同方式處理思考簽章：
+[Os modelos do Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3) e do Gemini 2.5
+se comportam de maneira diferente com assinaturas de pensamento em chamadas de função:
 
-- 如果回覆中包含函式呼叫，
-  - Gemini 3 一律會在第一個函式呼叫部分加上簽章。
-    **必須**退回該零件。
-  - Gemini 2.5 會在第一部分加上簽名 (無論類型為何)。**選填**：退回該部分。
-- 如果回覆中沒有函式呼叫，- 如果模型生成想法，Gemini 3 會在最後一部分加上簽名。
-  - Gemini 2.5 不會在任何部分加上簽名。
+- Se houver chamadas de função em uma resposta,
+  - O Gemini 3 sempre terá a assinatura na primeira parte da chamada de função.
+    É **obrigatório** retornar essa parte.
+  - O Gemini 2.5 terá a assinatura na primeira parte (independente do tipo). É **opcional** retornar essa parte.
+- Se não houver chamadas de função em uma resposta,
+  - O Gemini 3 terá a assinatura na última parte se o modelo gerar um pensamento.
+  - O Gemini 2.5 não terá uma assinatura em nenhuma parte.
 
-如需比較詳細資料，請參閱「[Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#signatures)」頁面。如要瞭解 Gemini 3 Image 模型的思考過程，請參閱「[圖片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw#thinking-process)」指南的思考過程部分。
+Consulte a página [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#signatures) para mais
+detalhes sobre a comparação.
+Para modelos de imagem do Gemini 3, consulte a seção processo de pensamento do
+[guia de geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br#thinking-process).
 
-提供意見
+Envie comentários
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-上次更新時間：2026-08-19 (世界標準時間)。
+Última atualização 2026-08-19 UTC.
 
-想進一步說明嗎？
+Quer enviar seu feedback?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-08-19 (世界標準時間)。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-08-19 UTC."],[],[]]

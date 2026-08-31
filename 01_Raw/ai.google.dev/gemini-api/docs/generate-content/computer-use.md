@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/computer-use?hl=zh-TW
-fetched_at: 2026-08-24T02:21:20.413527+00:00
+fetched_at: 2026-08-31T06:29:38.383077+00:00
 title: "\u64cd\u4f5c\u96fb\u8166 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

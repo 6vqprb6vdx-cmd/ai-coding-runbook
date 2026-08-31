@@ -1,47 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=pl
-fetched_at: 2026-08-24T02:20:57.969308+00:00
-title: "Interfejs API interakcji: przewodnik po migracji w zwi\u0105zku ze zmianami powoduj\u0105cymi niezgodno\u015b\u0107 (maj 2026\u00a0r.) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=ar
+fetched_at: 2026-08-31T06:27:33.765280+00:00
+title: "\u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a Interactions API: \u062f\u0644\u064a\u0644 \u0646\u0642\u0644 \u0627\u0644\u062a\u063a\u064a\u064a\u0631\u0627\u062a \u063a\u064a\u0631 \u0627\u0644\u0645\u062a\u0648\u0627\u0641\u0642\u0629 (\u0645\u0627\u064a\u0648 2026) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Prześlij opinię
+إرسال ملاحظات
 
-# Interfejs API interakcji: przewodnik po migracji w związku ze zmianami powodującymi niezgodność (maj 2026 r.)
+# واجهة برمجة التطبيقات Interactions API: دليل نقل التغييرات غير المتوافقة (مايو 2026)
 
-W interfejsie Interactions API `v1beta` wprowadzamy istotne zmiany, które restrukturyzują kształt interfejsu API, aby obsługiwać przyszłe funkcje, takie jak sterowanie w trakcie działania i asynchroniczne wywołania narzędzi. Na tej stronie wyjaśniamy, co się zmienia, i podajemy przykłady kodu przed i po zmianach, aby ułatwić Ci migrację. Wyróżniamy 2 kategorie zmian:
+تُجري واجهة برمجة التطبيقات Interactions API في الإصدار `v1beta` تغييرات غير متوافقة مع الإصدارات السابقة تؤدي إلى إعادة هيكلة شكل واجهة برمجة التطبيقات لدعم الإمكانات المستقبلية، مثل التوجيه أثناء الرحلة واستدعاءات الأدوات غير المتزامنة. توضّح هذه الصفحة التغييرات وتوفّر أمثلة على الرموز البرمجية قبل وبعد التغييرات لمساعدتك في نقل البيانات. هناك فئتان من التغييرات:
 
-1. [**Schemat kroków**](#steps-schema): nowa tablica `steps` zastępuje tablicę
-   `outputs`, zapewniając uporządkowaną oś czasu każdej interakcji.
-2. [**Konfiguracja formatu wyjściowego**](#output-format-config): nowy polimorficzny
-   `response_format` łączy wszystkie elementy sterujące formatem wyjściowym i usuwa
+1. [**مخطط الخطوات**](#steps-schema): تحلّ مصفوفة `steps` جديدة محلّ مصفوفة
+   `outputs`، ما يوفّر مخططًا زمنيًا منظّمًا لكل دورة تفاعل.
+2. [**إعداد تنسيق الإخراج**](#output-format-config): يوحّد متعدد الأشكال الجديد
+   `response_format` جميع عناصر التحكّم في تنسيق الإخراج ويزيل
    `response_mime_type`.
 
-Aby zaktualizować integrację, wykonaj czynności opisane w artykule [Jak przeprowadzić migrację do nowego schematu](#how-to-migrate) w celu
-aktualizacji integracji.
+اتّبِع الخطوات الواردة في [كيفية نقل البيانات إلى المخطط الجديد](#how-to-migrate) لتعديل عملية التكامل.
 
-## Główna zmiana: `outputs` na `steps`
+## التغيير الأساسي: من `outputs` إلى `steps`
 
-Nowy schemat zastępuje tablicę `outputs` tablicą `steps`.
+يستبدل المخطط الجديد مصفوفة `outputs` بمصفوفة `steps`.
 
-- **Starsza wersja**: odpowiedzi zwracały płaską tablicę `outputs` zawierającą tylko wygenerowaną przez model treść.
-- **Nowy schemat**: odpowiedzi zwracają tablicę `steps` zawierającą uporządkowane kroki z dyskryminatorami typu.
+- **الإصدار القديم**: كانت الردود تعرض مصفوفة `outputs` مسطّحة لا تحتوي إلا على المحتوى الذي تم إنشاؤه بواسطة النموذج.
+- **المخطط الجديد**: تعرض الردود مصفوفة `steps` تحتوي على خطوات منظّمة مع مميّزات النوع.
 
-`POST /interactions` zwraca tylko kroki wyjściowe. `GET /interactions/{id}`
-zwraca pełną oś czasu kroków, w tym początkowy krok `user_input`.
+لا يعرض `POST /interactions` سوى خطوات الإخراج. يعرض `GET /interactions/{id}` المخطط الزمني الكامل للخطوات، بما في ذلك خطوة `user_input` الأولية.
 
-### Podstawowe dane wejściowe/wyjściowe (unarne)
+### الإدخال/الإخراج الأساسي (أحادي)
 
-#### Przed (starsza wersja)
+#### قبل (الإصدار القديم)
 
 ### Python
 
@@ -68,7 +66,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[-1].text);
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -93,7 +91,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### Po (nowy schemat)
+#### بعد (المخطط الجديد)
 
 ### Python
 
@@ -122,7 +120,7 @@ console.log(interaction.output_text);
 
 [sdk-convenience]: /gemini-api/docs/interactions-overview#sdk-sugar
 
-### REST
+### راحة
 
 ```
 # Opt-in needed before May 26th
@@ -175,11 +173,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### Wywoływanie funkcji
+### استدعاء الدالة
 
-Struktura żądania pozostaje bez zmian, ale odpowiedź zastępuje płaską zawartość `outputs` uporządkowanymi krokami.
+يبقى هيكل الطلب بدون تغيير، ولكن يستبدل الردّ محتوى `outputs` المسطّح بخطوات منظّمة.
 
-#### Przed (starsza wersja)
+#### قبل (الإصدار القديم)
 
 ### Python
 
@@ -201,7 +199,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 // Response
@@ -224,7 +222,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### Po (nowy schemat)
+#### بعد (المخطط الجديد)
 
 ### Python
 
@@ -246,7 +244,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 // POST Response
@@ -272,11 +270,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Narzędzia po stronie serwera
+### أدوات من جهة الخادم
 
-Narzędzia po stronie serwera (takie jak wyszukiwarka Google czy wykonywanie kodu) zwracają teraz określone typy kroków w tablicy `steps`. Starsza wersja schematu zwracała te operacje jako określone typy treści w tablicy `outputs`, a nowy schemat przenosi je do tablicy `steps`. W podanych niżej przykładach użyto wyszukiwarki Google.
+تنتج الأدوات من جهة الخادم (مثل "بحث Google" أو "تنفيذ الرموز البرمجية") الآن أنواعًا معيّنة من الخطوات في مصفوفة `steps`. في حين أنّ المخطط القديم كان يعرض هذه العمليات كأنواع محتوى معيّنة ضِمن مصفوفة `outputs`، ينقلها المخطط الجديد إلى مصفوفة `steps`. تستخدِم الأمثلة التالية "بحث Google".
 
-#### Przed (starsza wersja)
+#### قبل (الإصدار القديم)
 
 ### Python
 
@@ -302,7 +300,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -350,7 +348,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### Po (nowy schemat)
+#### بعد (المخطط الجديد)
 
 ### Python
 
@@ -376,7 +374,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 # Opt-in needed before May 26th
@@ -434,11 +432,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### Streaming
+### البث
 
-Streaming udostępnia nowe typy zdarzeń:
+يعرض البث أنواعًا جديدة من الأحداث:
 
-#### Nowe typy zdarzeń
+#### أنواع الأحداث الجديدة
 
 - `interaction.created`
 - `interaction.completed`
@@ -448,25 +446,25 @@ Streaming udostępnia nowe typy zdarzeń:
 - `step.delta`
 - `step.stop`
 
-#### Wycofane typy zdarzeń
+#### أنواع الأحداث التي تم إيقافها
 
-Te starsze typy zdarzeń zostały zastąpione nowymi typami zdarzeń wymienionymi powyżej:
+يتم استبدال أنواع الأحداث القديمة التالية بالأحداث الجديدة المذكورة أعلاه:
 
-- `interaction.start` → `interaction.created`
-- `content.start` → `step.start`
-- `content.delta` → `step.delta`
-- `content.stop` → `step.stop`
-- `interaction.complete` → `interaction.completed`
-- `interaction.status_update` → zastąpiony przez `interaction.in_progress`, `interaction.requires_action` itp.
+- `interaction.start` ← `interaction.created`
+- `content.start` ← `step.start`
+- `content.delta` ← `step.delta`
+- `content.stop` ← `step.stop`
+- `interaction.complete` ← `interaction.completed`
+- `interaction.status_update` ← تم استبدالها بـ `interaction.in_progress` و`interaction.requires_action` وما إلى ذلك
 
-**Wywołania funkcji przesyłane strumieniowo**: gdy używasz przesyłania strumieniowego z wywoływaniem funkcji,
-zdarzenie `step.start` dostarcza nazwę funkcji, a zdarzenia `step.delta`
-przesyłają argumenty jako częściowe ciągi JSON (za pomocą `arguments_delta`). Aby
-uzyskać pełne argumenty, musisz zgromadzić te delty. Różni się to od wywołań unarnych, w których od razu otrzymujesz pełny obiekt wywołania funkcji.
+**استدعاءات الدوال في البث**: عند استخدام البث مع استدعاء الدوال،
+يقدّم الحدث `step.start` اسم الدالة، وتعمل أحداث `step.delta` على
+بثّ الوسيطات كسلاسل JSON جزئية (باستخدام `arguments_delta`). يجب
+تجميع هذه التغييرات الجزئية للحصول على الوسيطات الكاملة. يختلف ذلك عن الاستدعاءات الأحادية التي تتلقّى فيها كائن استدعاء الدالة الكامل مرة واحدة.
 
-#### Przykłady
+#### أمثلة
 
-##### Przed (starsza wersja)
+##### قبل (الإصدار القديم)
 
 ### Python
 
@@ -503,7 +501,7 @@ for await (const chunk of stream) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -533,7 +531,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### Po (nowy schemat)
+##### بعد (المخطط الجديد)
 
 ### Python
 
@@ -568,7 +566,7 @@ for await (const event of stream) {
 }
 ```
 
-### REST
+### راحة
 
 ```
  # Opt-in needed before May 26th
@@ -610,32 +608,30 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### Historia rozmowy bezstanowej
+### سجلّ المحادثات بدون حالة
 
-Jeśli zarządzasz historią rozmowy ręcznie po stronie klienta (przypadek użycia bezstanowy), musisz zaktualizować sposób łączenia poprzednich tur.
+إذا كنت تدير سجلّ المحادثات يدويًا على جانب العميل (حالة الاستخدام بدون حالة)، عليك تعديل طريقة ربط الأدوار السابقة.
 
-- **Starsza wersja**: deweloperzy często zbierali tablicę `outputs` z odpowiedzi i wysyłali ją z powrotem w polu `input` w następnej turze.
-- **Nowy schemat**: teraz musisz zbierać tablicę `steps` z odpowiedzi i przekazywać ją w polu `input` następnego żądania, dołączając nową turę użytkownika jako krok `user_input`.
+- **الإصدار القديم**: غالبًا ما كان المطوّرون يجمعون مصفوفة `outputs` من الردود ويعيدون إرسالها في حقل `input` في الدور التالي.
+- **المخطط الجديد**: عليك الآن جمع مصفوفة `steps` من الردّ وتمريرها في حقل `input` للطلب التالي، مع إلحاق دورة المستخدم الجديدة كخطوة `user_input`.
 
-## Konfiguracja formatu wyjściowego: zmiany w `response_format`
+## إعداد تنسيق الإخراج: تغييرات `response_format`
 
-Zaktualizowany interfejs API łączy wszystkie elementy sterujące formatem wyjściowym w ujednolicone, polimorficzne pole `response_format`. Centralizuje to konfigurację wyjściową na najwyższym poziomie i sprawia, że `generation_config` skupia się na zachowaniu modelu (np. temperatura, top\_p i myślenie).
+يوحّد الإصدار المعدَّل من واجهة برمجة التطبيقات جميع عناصر التحكّم في تنسيق الإخراج في حقل `response_format` موحّد ومتعدد الأشكال. يؤدي ذلك إلى مركزة إعداد الإخراج على المستوى الأعلى ويحافظ على تركيز `generation_config` على سلوك النموذج (مثل درجة العشوائية وأعلى احتمال تراكمي والتفكير).
 
-### Najważniejsze zmiany
+### أهم التغييرات
 
-- **Interfejs API usuwa `response_mime_type`.** Teraz typ MIME określasz w przypadku każdego wpisu formatu w `response_format`.
-- **`response_format` jest teraz obiektem polimorficznym (lub tablicą).** Każdy wpis ma dyskryminator `type` (`text`, `audio`, `image`) i pola specyficzne dla typu. Aby poprosić o wiele modalności wyjściowych, przekaż tablicę wpisów formatu.
-- **`image_config` przenosi się z `generation_config` do `response_format`**.
-  Ustawienia wyjściowe obrazu, takie jak `aspect_ratio` i `image_size`
-  określasz teraz we wpisie `response_format` z parametrem `"type": "image"`.
+- **تزيل واجهة برمجة التطبيقات `response_mime_type`.** يمكنك الآن تحديد نوع MIME لكل إدخال تنسيق ضِمن `response_format`.
+- **أصبح `response_format` الآن كائنًا (أو مصفوفة) متعدد الأشكال.** يحتوي كل إدخال على مميّز `type` (`text` أو `audio` أو `image`) وحقول خاصة بالنوع. لطلب أوضاع إخراج متعددة، مرِّر مصفوفة من إدخالات التنسيق.
+- **ينتقل `image_config` من `generation_config` إلى `response_format`.**
+  يمكنك الآن تحديد إعدادات إخراج الصور، مثل `aspect_ratio` و`image_size`
+  في إدخال `response_format` مع `"type": "image"`.
 
-### Uporządkowane dane wyjściowe (JSON)
+### ناتج منظَّم (JSON)
 
-Nowy schemat usuwa pole `response_mime_type`. Zamiast tego określ typ
-MIME i schemat JSON w obiekcie `response_format` z
-`"type": "text"`.
+يزيل المخطط الجديد حقل `response_mime_type`. بدلاً من ذلك، حدِّد نوع MIME ومخطط JSON ضِمن كائن `response_format` مع `"type": "text"`.
 
-#### Przed (starsza wersja)
+#### قبل (الإصدار القديم)
 
 ### Python
 
@@ -673,7 +669,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[-1].text);
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -691,7 +687,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po (nowy schemat)
+#### بعد (المخطط الجديد)
 
 ### Python
 
@@ -739,7 +735,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### REST
+### راحة
 
 ```
 # Opt-in needed before May 26th
@@ -762,11 +758,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### Konfiguracja obrazu
+### إعدادات الصور
 
-Nowy schemat usuwa `image_config` z `generation_config`. Ustawienia wyjściowe obrazu określasz teraz we wpisie `response_format` z parametrem `"type": "image"`.
+يزيل المخطط الجديد `image_config` من `generation_config`. يمكنك الآن تحديد إعدادات إخراج الصور
+في إدخال `response_format`مع `"type": "image"`.
 
-#### Przed (starsza wersja)
+#### قبل (الإصدار القديم)
 
 ### Python
 
@@ -798,7 +795,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -815,7 +812,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po (nowy schemat)
+#### بعد (المخطط الجديد)
 
 ### Python
 
@@ -849,7 +846,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### REST
+### راحة
 
 ```
 # Opt-in needed before May 26th
@@ -868,11 +865,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### Konfiguracja dźwięku
+### إعدادات الصوت
 
-Nowy schemat zastępuje `response_modalities: ["audio"]` wpisem `response_format` z parametrem `"type": "audio"`.
+يستبدل المخطط الجديد `response_modalities: ["audio"]` بإدخال `response_format` من `"type": "audio"`.
 
-#### Przed (starsza wersja)
+#### قبل (الإصدار القديم)
 
 ### Python
 
@@ -904,7 +901,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -921,7 +918,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po (nowy schemat)
+#### بعد (المخطط الجديد)
 
 ### Python
 
@@ -959,7 +956,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### REST
+### راحة
 
 ```
 # Opt-in needed before May 26th
@@ -980,53 +977,53 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-Aby poprosić o wiele modalności wyjściowych (np. tekst i dźwięk), przekaż do `response_format` tablicę wpisów formatu zamiast pojedynczego obiektu.
+لطلب أوضاع إخراج متعددة (على سبيل المثال، النص والصوت معًا)، مرِّر مصفوفة من إدخالات التنسيق إلى `response_format` بدلاً من كائن واحد.
 
-## Jak przeprowadzić migrację do nowego schematu
+## كيفية نقل البيانات إلى المخطط الجديد
 
-### Użytkownicy pakietu SDK
+### مستخدِمو حزمة تطوير البرامج (SDK)
 
-Uaktualnij pakiet SDK do najnowszej wersji (Python ≥2.0.0, JavaScript ≥2.0.0). Pakiet SDK automatycznie włącza nowy schemat – nie musisz wprowadzać żadnych zmian w kodzie poza aktualizacją sposobu odczytywania odpowiedzi (patrz przykłady powyżej). Pamiętaj, że w tych wersjach pakietu SDK obsługiwany jest tylko nowy schemat. Starsze wersje pakietu SDK (Python 1.x.x, JavaScript 1.x.x) będą działać do momentu usunięcia starszej wersji schematu **8 czerwca 2026 r.**
+رقِّ إلى أحدث إصدار من حزمة تطوير البرامج (Python ≥2.0.0 وJavaScript ≥2.0.0). تختارك حزمة تطوير البرامج (SDK) تلقائيًا في المخطط الجديد، ولا تحتاج إلى إجراء أي تغييرات على الرمز البرمجي بخلاف تعديل طريقة قراءة الردود (راجِع الأمثلة أعلاه). يُرجى العِلم أنّه لا يتم دعم سوى المخطط الجديد في إصدارات حزمة تطوير البرامج (SDK) هذه. ستستمر إصدارات حزمة تطوير البرامج (SDK) الأقدم (Python 1.x.x وJavaScript 1.x.x) في العمل إلى أن تتم إزالة المخطط القديم في **8 يونيو 2026**.
 
-### Użytkownicy interfejsu REST API
+### مستخدِمو REST API
 
-Aby teraz włączyć nowy schemat, dodaj do żądań nagłówek `Api-Revision: 2026-05-20`. Po **26 maja** nowy schemat stanie się domyślny dla wszystkich
-żądań. Do **8 czerwca** możesz tymczasowo zrezygnować z nowego schematu, używając nagłówka `Api-Revision: 2026-05-07`
-. Po tej dacie interfejs API trwale usunie starszą wersję schematu.
+أضِف العنوان `Api-Revision: 2026-05-20` إلى طلباتك للاشتراك في المخطط الجديد الآن. بعد **26 مايو** ، يصبح المخطط الجديد هو المخطط التلقائي لجميع
+الطلبات. يمكنك إيقاف الاشتراك مؤقتًا باستخدام `Api-Revision: 2026-05-07`
+حتى **8 يونيو**، عندما تزيل واجهة برمجة التطبيقات المخطط القديم نهائيًا.
 
-### Oś czasu
+### المخطط الزمني
 
-| Data | Faza | Użytkownicy pakietu SDK | Użytkownicy interfejsu REST API |
+| التاريخ | المرحلة | مستخدِمو حزمة تطوير البرامج (SDK) | مستخدِمو REST API |
 | --- | --- | --- | --- |
-| **7 maja** | Zaakceptuj | Dostępna jest nowa wersja pakietu SDK (Python ≥2.0.0, JS ≥2.0.0). Uaktualnij pakiet SDK, aby automatycznie uzyskać nowy schemat. | Aby włączyć nowy schemat, dodaj nagłówek `Api-Revision: 2026-05-20`. Domyślnie nadal używana jest starsza wersja. |
-| **26 maja** | Domyślne odwrócenie | Jeśli pakiet SDK został już uaktualniony, nie musisz nic robić. Starsze wersje pakietu SDK (Python 1.x.x, JS 1.x.x) nadal działają, ale zwracają odpowiedzi w starszej wersji. | Nowy schemat jest teraz domyślny. Aby zrezygnować z nowego schematu, wyślij nagłówek `Api-Revision: 2026-05-07`. |
-| **8 czerwca** | Zachód słońca | Wersje pakietu SDK Python 1.x.x i JS 1.x.x przestaną działać w przypadku wywołań interfejsu Interactions API. | Starsza wersja schematu została usunięta z interfejsu Interactions API. Nagłówek `Api-Revision` jest ignorowany. |
+| **‫7 مايو** | اشتراك | يتوفّر إصدار جديد من حزمة تطوير البرامج (SDK) (Python ≥2.0.0 وJS ≥2.0.0). رقِّ للحصول على المخطط الجديد تلقائيًا. | أضِف العنوان `Api-Revision: 2026-05-20` للاشتراك. يبقى المخطط القديم هو المخطط التلقائي. |
+| **‫26 مايو** | قلب تلقائي | لا يلزم اتّخاذ أي إجراء إذا تم الترقية من قبل. تستمر حزم تطوير البرامج (SDK) الأقدم (Python 1.x.x وJS 1.x.x) في العمل ولكنها تعرض الردود القديمة. | أصبح المخطط الجديد هو المخطط التلقائي الآن. أرسِل العنوان `Api-Revision: 2026-05-07` لإيقاف الاشتراك. |
+| **‫8 يونيو** | الغروب | ستتوقف إصدارات حزمة تطوير البرامج (SDK) من Python 1.x.x وJS 1.x.x عن العمل لاستدعاءات Interactions API. | تمت إزالة المخطط القديم لواجهة برمجة التطبيقات Interactions API. تم تجاهل العنوان `Api-Revision`. |
 
-## Lista kontrolna migracji
+## قائمة التحقق من الترحيل
 
-### Schemat kroków (`steps`)
+### مخطط الخطوات (`steps`)
 
-- Zaktualizuj kod, aby odczytywać treść odpowiedzi z tablicy `steps` zamiast z `outputs`. [Zobacz przykłady](#basic-unary).
-- Sprawdź, czy Twój kod obsługuje typy kroków `user_input` i `model_output`. [Zobacz przykłady](#basic-unary).
-- (Wywoływanie funkcji) Zaktualizuj kod, aby znajdować kroki `function_call` w tablicy `steps`. [Zobacz przykłady](#function-calling).
-- (Narzędzia po stronie serwera) Zaktualizuj kod, aby obsługiwać kroki specyficzne dla narzędzia (np. `google_search_call`, `google_search_result`). [Zobacz przykłady](#server-side-tools).
-- (Historia bez stanu) Zaktualizuj zarządzanie historią, aby przekazywać tablicę `steps` w polu `input` następnego żądania. [Zobacz szczegóły](#stateless-history).
-- (Tylko streaming) Zaktualizuj klienta, aby nasłuchiwał nowych typów zdarzeń SSE (`interaction.created`, `step.delta` itp.). [Zobacz przykłady](#streaming).
+- عدِّل الرمز البرمجي لقراءة محتوى الردّ من مصفوفة `steps` بدلاً من `outputs`. [اطّلع على أمثلة](#basic-unary).
+- تأكَّد من أنّ الرمز البرمجي يعالج نوعَي الخطوات `user_input` و`model_output`. [اطّلع على أمثلة](#basic-unary).
+- (استدعاء الدالة) عدِّل الرمز البرمجي للعثور على خطوات `function_call` في مصفوفة `steps`. [اطّلع على أمثلة](#function-calling).
+- (أدوات من جهة الخادم) عدِّل الرمز البرمجي لمعالجة الخطوات الخاصة بالأداة (مثل `google_search_call` و`google_search_result`). [اطّلِع على أمثلة](#server-side-tools).
+- (السجلّ بدون حالة) عدِّل إدارة السجلّ لتمرير مصفوفة `steps` في حقل `input` للطلب التالي. [اطّلع على التفاصيل](#stateless-history).
+- (البث فقط) عدِّل العميل للاستماع إلى أنواع أحداث SSE الجديدة (`interaction.created` و`step.delta` وما إلى ذلك). [اطّلع على أمثلة](#streaming).
 
-### Konfiguracja formatu wyjściowego (`response_format`)
+### إعداد تنسيق الإخراج (`response_format`)
 
-- Zastąp `response_mime_type` polem `mime_type` w `response_format`. [Zobacz przykłady](#structured-output).
-- Owiń istniejący `response_format` schemat JSON w obiekt `{"type": "text", "schema": ...}`. [Zobacz przykłady](#structured-output).
-- (Generowanie obrazów) Przenieś `image_config` z `generation_config` do wpisu `{"type": "image", ...}` w `response_format`. [Zobacz przykłady](#image-config).
-- (Generowanie mowy) Zastąp `response_modalities=["audio"]` wpisem `{"type": "audio"}` w `response_format`. [Zobacz przykłady](#audio-config).
-- (Wielomodowość) Podczas wysyłania żądania wielu modalności wyjściowych zmień `response_format` z pojedynczego obiektu na tablicę.
+- استبدِل `response_mime_type` بحقل `mime_type` ضِمن `response_format`. [اطّلع على أمثلة](#structured-output).
+- غلِّف مخطط JSON الحالي `response_format` ضِمن كائن `{"type": "text", "schema": ...}`. [اطّلع على أمثلة](#structured-output).
+- (إنشاء الصور) انقل `image_config` من `generation_config` إلى إدخال `{"type": "image", ...}` في `response_format`. [اطّلع على أمثلة](#image-config).
+- (إنشاء الكلام) استبدِل `response_modalities=["audio"]` بإدخال `{"type": "audio"}` في `response_format`. [اطّلع على أمثلة](#audio-config).
+- (متعدد الوسائط) حوِّل `response_format` من كائن واحد إلى مصفوفة عند طلب أوضاع إخراج متعددة.
 
-Prześlij opinię
+إرسال ملاحظات
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ostatnia aktualizacja: 2026-07-07 UTC.
+تاريخ التعديل الأخير: 2026-07-07 (حسب التوقيت العالمي المتفَّق عليه)
 
-Chcesz przekazać coś jeszcze?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-07 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-07 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

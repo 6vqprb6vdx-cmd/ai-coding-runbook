@@ -1,78 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=th
-fetched_at: 2026-08-24T02:29:05.395736+00:00
-title: "\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Google AI Studio \u0e2d\u0e22\u0e48\u0e32\u0e07\u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=vi
+fetched_at: 2026-08-31T06:36:20.274834+00:00
+title: "H\u01b0\u1edbng d\u1eabn nhanh v\u1ec1 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# คู่มือเริ่มใช้งาน Google AI Studio อย่างรวดเร็ว
+# Hướng dẫn nhanh về Google AI Studio
 
-[Google AI Studio](https://aistudio.google.com/?hl=th) ช่วยให้คุณลองใช้
-โมเดลและทดลองใช้พรอมต์ต่างๆ ได้อย่างรวดเร็ว เมื่อพร้อมสร้างแล้ว คุณ
-สามารถเลือก "รับโค้ด" และภาษาโปรแกรมที่ต้องการเพื่อ
-ใช้ [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=th) ได้
+[Google AI Studio](https://aistudio.google.com/?hl=vi) giúp bạn nhanh chóng dùng thử các mô hình và thử nghiệm với nhiều câu lệnh. Khi đã sẵn sàng tạo, bạn có thể chọn "Lấy mã" và ngôn ngữ lập trình bạn muốn dùng để sử dụng [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi).
 
-## พรอมต์และการตั้งค่า
+## Câu lệnh và chế độ cài đặt
 
-Google AI Studio มีอินเทอร์เฟซหลายแบบสำหรับพรอมต์ที่ออกแบบมาสำหรับกรณีการใช้งานต่างๆ คู่มือนี้ครอบคลุม**พรอมต์แชท** ซึ่งใช้เพื่อสร้าง
-ประสบการณ์การสนทนา เทคนิคการป้อนพรอมต์นี้ช่วยให้มีการป้อนข้อมูล
-และตอบกลับหลายรอบเพื่อสร้างเอาต์พุต ดูข้อมูลเพิ่มเติมได้จาก
-[ตัวอย่างพรอมต์แชทด้านล่าง](#chat_example)
-ตัวเลือกอื่นๆ ได้แก่ **การสตรีมแบบเรียลไทม์**, **การสร้างวิดีโอ** และ
-อื่นๆ
+Google AI Studio cung cấp một số giao diện cho câu lệnh được thiết kế cho nhiều trường hợp sử dụng. Hướng dẫn này đề cập đến **Câu lệnh trò chuyện**, được dùng để xây dựng trải nghiệm đàm thoại. Kỹ thuật tạo câu lệnh này cho phép nhiều lượt nhập và phản hồi để tạo ra đầu ra. Bạn có thể tìm hiểu thêm qua [ví dụ về câu lệnh trò chuyện dưới đây](#chat_example).
+Các lựa chọn khác bao gồm **Phát trực tuyến theo thời gian thực**, **Video gen** và nhiều lựa chọn khác.
 
-นอกจากนี้ AI Studio ยังมีแผง**การตั้งค่าการทำงาน** ซึ่งคุณสามารถปรับ[พารามิเตอร์ของโมเดล](https://ai.google.dev/docs/prompting-strategies?hl=th#model-parameters), [การตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th) และเปิดใช้เครื่องมือต่างๆ เช่น [เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th), [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th), [การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th) และ [การเชื่อมต่อแหล่งข้อมูล](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
+AI Studio cũng cung cấp bảng điều khiển **Chế độ cài đặt chạy**. Tại đây, bạn có thể điều chỉnh [các thông số mô hình](https://ai.google.dev/docs/prompting-strategies?hl=vi#model-parameters), [chế độ cài đặt an toàn](https://ai.google.dev/gemini-api/docs/safety-settings?hl=vi) và bật các công cụ như [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi), [gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi), [thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi) và [căn cứ](https://ai.google.dev/gemini-api/docs/grounding?hl=vi).
 
-## ตัวอย่างพรอมต์แชท: สร้างแอปพลิเคชันแชทที่กำหนดเอง
+## Ví dụ về câu lệnh trong cuộc trò chuyện: Xây dựng một ứng dụng trò chuyện tuỳ chỉnh
 
-หากคุณเคยใช้แชทบ็อตอเนกประสงค์อย่าง
-[Gemini](https://gemini.google.com/?hl=th) คุณจะได้รับประสบการณ์โดยตรงว่าโมเดล
-Generative AI มีประสิทธิภาพเพียงใดสำหรับการสนทนาแบบเปิด แม้ว่าแชทบ็อตอเนกประสงค์เหล่านี้จะมีประโยชน์ แต่บ่อยครั้งที่ต้องปรับแต่งให้เหมาะกับกรณีการใช้งานเฉพาะ
+Nếu đã từng sử dụng một chatbot đa năng như [Gemini](https://gemini.google.com/?hl=vi), bạn sẽ tự mình trải nghiệm được sức mạnh của các mô hình AI tạo sinh trong cuộc trò chuyện không giới hạn. Mặc dù những chatbot đa năng này rất hữu ích, nhưng thường thì chúng cần được điều chỉnh cho phù hợp với các trường hợp sử dụng cụ thể.
 
-ตัวอย่างเช่น คุณอาจต้องการสร้างแชทบ็อตฝ่ายบริการลูกค้าที่รองรับเฉพาะการสนทนาเกี่ยวกับผลิตภัณฑ์ของบริษัท หรืออาจต้องการสร้างแชทบ็อตที่พูดด้วยโทนเสียงหรือสไตล์เฉพาะ เช่น บ็อตที่ชอบเล่าเรื่องตลก บ็อตที่ชอบแต่งกลอน หรือบ็อตที่ใช้ Emoji จำนวนมากในคำตอบ
+Ví dụ: có thể bạn muốn tạo một chatbot dịch vụ khách hàng chỉ hỗ trợ các cuộc trò chuyện về sản phẩm của một công ty. Bạn có thể muốn tạo một chatbot có giọng điệu hoặc phong cách cụ thể: một bot hay kể chuyện cười, gieo vần như một nhà thơ hoặc sử dụng nhiều biểu tượng cảm xúc trong câu trả lời.
 
-ตัวอย่างนี้แสดงวิธีใช้ Google AI Studio เพื่อสร้างแชทบ็อตที่เป็นมิตรซึ่งสื่อสารราวกับเป็นมนุษย์ต่างดาวที่อาศัยอยู่บนยูโรปา ซึ่งเป็นดวงจันทร์ของดาวพฤหัสบดี
+Ví dụ này cho thấy cách sử dụng Google AI Studio để tạo một chatbot thân thiện giao tiếp như thể đó là một người ngoài hành tinh sinh sống trên một trong các mặt trăng của Sao Mộc, Europa.
 
-### ขั้นตอนที่ 1 - สร้างพรอมต์แชท
+### Bước 1 – Tạo câu lệnh trò chuyện
 
-หากต้องการสร้างแชทบ็อต คุณต้องระบุตัวอย่างการโต้ตอบระหว่างผู้ใช้กับแชทบ็อตเพื่อแนะนำให้โมเดลแสดงคำตอบที่คุณต้องการ
+Để tạo một chatbot, bạn cần cung cấp ví dụ về các hoạt động tương tác giữa người dùng và chatbot để hướng dẫn mô hình cung cấp những câu trả lời mà bạn đang tìm kiếm.
 
-วิธีสร้างพรอมต์แชท
+Cách tạo câu lệnh trò chuyện:
 
-1. เปิด [Google AI Studio](https://aistudio.google.com/?hl=th) ระบบจะเปิด**เพลย์กราวด์** โดยค่าเริ่มต้นพร้อมพรอมต์แชทใหม่
-2. คลิก**การตั้งค่าการทำงาน** tune ที่มุมขวาบน
-   เพื่อขยายแผง แล้วค้นหา
-   [**คำแนะนำระบบ**](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions)
-   ช่องป้อนข้อมูล วางข้อความต่อไปนี้ลงในช่องป้อนข้อความ
+1. Mở [Google AI Studio](https://aistudio.google.com/?hl=vi). **Playground** sẽ mở theo mặc định cùng với một câu lệnh trò chuyện mới.
+2. Nhấp vào **Chạy chế độ cài đặt** tune ở góc trên cùng bên phải để mở rộng bảng điều khiển, rồi tìm trường nhập dữ liệu [**Hướng dẫn hệ thống**](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions). Dán nội dung sau vào trường nhập dữ liệu:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-หลังจากเพิ่มคำแนะนำระบบแล้ว ให้เริ่มทดสอบแอปพลิเคชันโดยแชทกับโมเดลด้วยวิธีต่อไปนี้
+Sau khi thêm chỉ dẫn hệ thống, hãy bắt đầu kiểm thử ứng dụng bằng cách trò chuyện với mô hình:
 
-1. ในช่องป้อนข้อความที่มีป้ายกำกับว่า **พิมพ์ข้อความ...** ให้พิมพ์คำถามหรือ
-   ข้อสังเกตที่ผู้ใช้อาจถามหรือแสดงความคิดเห็น เช่น
+1. Trong hộp nhập văn bản có nhãn **Nhập nội dung...**, hãy nhập một câu hỏi hoặc nhận xét mà người dùng có thể đưa ra. Ví dụ:
 
-   **ผู้ใช้:**
+   **Người dùng:**
 
    ```
    What's the weather like?
    ```
-2. คลิกปุ่ม**เรียกใช้** เพื่อรับคำตอบจากแชทบ็อต คำตอบนี้อาจมีลักษณะดังต่อไปนี้
+2. Nhấp vào nút **Chạy** để nhận được câu trả lời từ chatbot. Phản hồi này có thể có dạng như sau:
 
-   **โมเดล:**
+   **Kiểu máy:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -81,14 +68,14 @@ Generative AI มีประสิทธิภาพเพียงใดสำ
 
    (gemini-2.5-pro)
 
-### ขั้นตอนที่ 2 - สอนให้บ็อตแชทได้ดีขึ้น
+### Bước 2 – Dạy bot trò chuyện hiệu quả hơn
 
-การให้คำแนะนำเพียงข้อเดียวช่วยให้คุณสร้างแชทบ็อตมนุษย์ต่างดาวจากยูโรปาแบบพื้นฐานได้ อย่างไรก็ตาม คำแนะนำเพียงข้อเดียวอาจไม่เพียงพอที่จะรับประกันความสอดคล้องและคุณภาพของคำตอบจากโมเดล หากไม่มีคำแนะนำที่เฉพาะเจาะจงมากขึ้น คำตอบของโมเดลสำหรับคำถามเกี่ยวกับสภาพอากาศมักจะยาวมากและอาจไม่ตรงกับคำถาม
+Bằng cách đưa ra một chỉ dẫn duy nhất, bạn có thể tạo một chatbot cơ bản về người ngoài hành tinh Europa. Tuy nhiên, một chỉ dẫn duy nhất có thể không đủ để đảm bảo tính nhất quán và chất lượng trong các câu trả lời của mô hình. Nếu không có hướng dẫn cụ thể hơn, câu trả lời của mô hình cho một câu hỏi về thời tiết thường rất dài và có thể tự đưa ra ý kiến riêng.
 
-ปรับแต่งโทนเสียงของแชทบ็อตโดยเพิ่มคำแนะนำระบบดังนี้
+Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn hệ thống:
 
-1. เริ่มพรอมต์แชทใหม่หรือใช้พรอมต์เดิม คุณสามารถแก้ไขคำแนะนำระบบได้หลังจากเริ่มเซสชันแชทแล้ว
-2. ในส่วน**คำแนะนำระบบ** ให้เปลี่ยนคำแนะนำที่มีอยู่เป็นคำแนะนำต่อไปนี้
+1. Bắt đầu một câu lệnh trò chuyện mới hoặc dùng câu lệnh cũ. Bạn có thể sửa đổi chỉ dẫn hệ thống sau khi phiên trò chuyện bắt đầu.
+2. Trong phần **Hướng dẫn cho hệ thống**, hãy thay đổi hướng dẫn hiện có thành hướng dẫn sau:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -96,10 +83,9 @@ Generative AI มีประสิทธิภาพเพียงใดสำ
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. ป้อนคำถาม (`What's the weather like?`) อีกครั้ง แล้วคลิกปุ่ม**เรียกใช้**
-   หากไม่ได้เริ่มแชทใหม่ คำตอบอาจมีลักษณะดังนี้
+3. Nhập lại câu hỏi của bạn (`What's the weather like?`) rồi nhấp vào nút **Run** (Chạy). Nếu bạn không bắt đầu cuộc trò chuyện mới, thì câu trả lời của bạn có thể trông như sau:
 
-   **โมเดล:**
+   **Kiểu máy:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -110,25 +96,23 @@ Generative AI มีประสิทธิภาพเพียงใดสำ
 
    (gemini-2.5-pro)
 
-คุณสามารถใช้วิธีนี้เพื่อเพิ่มรายละเอียดให้กับแชทบ็อต ถามคำถามเพิ่มเติม แก้ไขคำตอบ และปรับปรุงคุณภาพของแชทบ็อต เพิ่มหรือแก้ไขคำแนะนำต่อไป และทดสอบว่าคำแนะนำเหล่านั้นเปลี่ยนลักษณะการทำงานของแชทบ็อตอย่างไร
+Bạn có thể sử dụng phương pháp này để tăng thêm chiều sâu cho chatbot. Đặt thêm câu hỏi, chỉnh sửa câu trả lời và cải thiện chất lượng của chatbot. Tiếp tục thêm hoặc sửa đổi chỉ dẫn và kiểm thử xem chỉ dẫn thay đổi hành vi của chatbot như thế nào.
 
-### ขั้นตอนที่ 3 - ขั้นตอนต่อไป
+### Bước 3 – Các bước tiếp theo
 
-เช่นเดียวกับพรอมต์ประเภทอื่นๆ เมื่อคุณสร้างต้นแบบพรอมต์จนพอใจแล้ว คุณสามารถใช้ปุ่ม**รับโค้ด** เพื่อเริ่มเขียนโค้ดหรือบันทึกพรอมต์ไว้เพื่อทำงานต่อในภายหลังและแชร์กับผู้อื่น
+Tương tự như các loại câu lệnh khác, sau khi tạo mẫu câu lệnh theo ý muốn, bạn có thể dùng nút **Lấy mã** để bắt đầu viết mã hoặc lưu câu lệnh để làm việc sau và chia sẻ với người khác.
 
-## อ่านเพิ่มเติม
+## Tài liệu đọc thêm
 
-- หากพร้อมที่จะไปยังโค้ดแล้ว โปรดดู[คู่มือเริ่มต้นใช้งาน
-  API](https://ai.google.dev/gemini-api/docs/get-started?hl=th)
-- ดูวิธีสร้างพรอมต์ที่ดีขึ้นได้ที่[หลักเกณฑ์
-  การออกแบบพรอมต์](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)
+- Nếu bạn đã sẵn sàng chuyển sang phần lập trình, hãy xem [Hướng dẫn Bắt đầu sử dụng API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi).
+- Để tìm hiểu cách viết câu lệnh hiệu quả hơn, hãy xem [Nguyên tắc thiết kế câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=vi).
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Cập nhật lần gần đây nhất: 2026-07-30 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]

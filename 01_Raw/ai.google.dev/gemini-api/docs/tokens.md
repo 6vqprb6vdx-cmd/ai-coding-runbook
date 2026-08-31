@@ -1,47 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=hi
-fetched_at: 2026-08-24T02:20:39.667495+00:00
-title: "\u091f\u094b\u0915\u0928 \u0915\u094b \u0938\u092e\u091d\u0947\u0902 \u0914\u0930 \u0909\u0928\u0915\u0940 \u0917\u093f\u0928\u0924\u0940 \u0915\u0930\u0947\u0902 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=fr
+fetched_at: 2026-08-31T06:30:36.530217+00:00
+title: "Comprendre et compter les jetons \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-सुझाव भेजें
+Envoyer des commentaires
 
-# टोकन को समझें और उनकी गिनती करें
+# Comprendre et compter les jetons
 
-Gemini और अन्य जनरेटिव एआई मॉडल, इनपुट और आउटपुट को *टोकन* नाम की एक यूनिट में प्रोसेस करते हैं.
+Gemini et d'autres modèles d'IA générative traitent les entrées et les sorties avec une granularité appelée *jeton*.
 
-**Gemini मॉडल के लिए, एक टोकन का मतलब करीब चार वर्ण होता है.
-100 टोकन, अंग्रेज़ी के करीब 60 से 80 शब्दों के बराबर होते हैं.**
+**Pour les modèles Gemini, un jeton équivaut à environ quatre caractères.
+100 jetons correspondent à environ 60 à 80 mots en anglais.**
 
-## टोकन के बारे में जानकारी
+## À propos des jetons
 
-टोकन, `z` जैसे सिंगल वर्ण या `cat` जैसे पूरे शब्द हो सकते हैं. लंबे शब्दों को कई टोकन में
-बांटा जाता है. मॉडल में इस्तेमाल किए गए सभी टोकन के सेट को शब्दावली कहा जाता है. साथ ही, टेक्स्ट को टोकन में बांटने की प्रोसेस को *टोकनाइज़ेशन* कहा जाता है.
+Les jetons peuvent être des caractères uniques, comme `z`, ou des mots entiers, comme `cat`. Les mots longs sont divisés en plusieurs jetons. L'ensemble de tous les jetons utilisés par le modèle est appelé vocabulaire, et le processus de division du texte en jetons est appelé *tokenisation*.
 
-बिलिंग की सुविधा चालू होने पर, [Gemini API को कॉल करने की लागत](https://ai.google.dev/pricing?hl=hi) का कुछ हिस्सा, इनपुट और आउटपुट टोकन की संख्या से तय होता है. इसलिए, टोकन की गिनती करने का तरीका जानना आपके लिए फ़ायदेमंद हो सकता है.
+Lorsque la facturation est activée, le [coût d'un appel à l'API Gemini](https://ai.google.dev/pricing?hl=fr) est
+déterminé en partie par le nombre de jetons d'entrée et de sortie. Il peut donc être utile de savoir comment
+compter les jetons.
 
-## टोकन गिनें
+## Compter les jetons
 
-Gemini API को दिए गए सभी इनपुट और उससे मिले सभी आउटपुट को टोकन में बदला जाता है. इनमें टेक्स्ट, इमेज फ़ाइलें, और बिना टेक्स्ट वाले अन्य मोडल शामिल हैं.
+Toutes les entrées et sorties de l'API Gemini sont tokenisées, y compris le texte, les fichiers image et d'autres modalités non textuelles.
 
-टोकन को इन तरीकों से गिना जा सकता है:
+Vous pouvez compter les jetons de différentes manières :
 
-- **अनुरोध के इनपुट के साथ `count_tokens` को कॉल करें.** यह फ़ंक्शन, *सिर्फ़ इनपुट* में मौजूद टोकन की कुल संख्या दिखाता है. अपने अनुरोधों का साइज़ देखने के लिए, इनपुट भेजने से पहले यह कॉल करें.
-- **इंटरैक्शन के जवाब पर मौजूद `usage` का इस्तेमाल करें.** यह इनपुट (`total_input_tokens`), आउटपुट (`total_output_tokens`),
-  सोचने की प्रोसेस (`total_thought_tokens`), कैश मेमोरी में सेव किया गया कॉन्टेंट (`total_cached_tokens`), टूल का इस्तेमाल (`total_tool_use_tokens`),
-  और कुल (`total_tokens`) के लिए टोकन की संख्या दिखाता है.
+- **Appelez `count_tokens` avec l'entrée de la requête.** Renvoie le nombre total de jetons *dans l'entrée uniquement*. Effectuez cet appel avant d'envoyer une entrée pour vérifier la taille de vos requêtes.
+- **Utilisez le `usage` dans la réponse d'interaction.** Renvoie le nombre de jetons pour l'entrée (`total_input_tokens`), la sortie (`total_output_tokens`), la réflexion (`total_thought_tokens`), le contenu mis en cache (`total_cached_tokens`), l'utilisation d'outils (`total_tool_use_tokens`) et le total (`total_tokens`).
 
-### टेक्स्ट टोकन की गिनती करना
+### Compter les jetons de texte
 
 ### Python
 
@@ -101,9 +100,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### सिलसिलेवार बातचीत के टोकन की गिनती करना
+### Compter les jetons multi-tours
 
-`previous_interaction_id` का इस्तेमाल करके, बातचीत के इतिहास में मौजूद टोकन की संख्या गिनें:
+Comptez les jetons dans l'historique des conversations à l'aide de `previous_interaction_id` :
 
 ### Python
 
@@ -149,16 +148,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### मल्टीमॉडल टोकन की गिनती करना
+### Compter les jetons multimodaux
 
-Gemini API को दिए गए सभी इनपुट को टोकन में बदला जाता है. इनमें इमेज, वीडियो, और ऑडियो शामिल हैं.
-टोकनाइज़ेशन के बारे में अहम बातें:
+Toutes les entrées de l'API Gemini sont tokenisées, y compris les images, les vidéos et l'audio.
+Points clés concernant la tokenisation :
 
-- **इमेज**: दोनों डाइमेंशन में 384 पिक्सल से कम या इसके बराबर साइज़ वाली इमेज को 258 टोकन माना जाता है. बड़ी इमेज को 768x768 पिक्सल वाली टाइल में बांटा जाता है. हर टाइल को 258 टोकन के तौर पर गिना जाता है.
-- **वीडियो**: हर सेकंड 263 टोकन
-- **ऑडियो**: हर सेकंड 32 टोकन
+- **Images** : les images dont les deux dimensions sont inférieures ou égales à 384 pixels comptent pour 258 jetons. Les images plus grandes sont divisées en vignettes de 768 x 768 pixels, chacune comptant pour 258 jetons.
+- **Vidéo** : 263 jetons par seconde
+- **Audio** : 32 jetons par seconde
 
-#### इमेज टोकन
+#### Jetons d'image
 
 ### Python
 
@@ -204,7 +203,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**इनलाइन डेटा का उदाहरण:**
+**Exemple de données intégrées :**
 
 ### Python
 
@@ -229,7 +228,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### वीडियो टोकन
+#### Jetons vidéo
 
 ### Python
 
@@ -262,7 +261,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### ऑडियो टोकन
+#### Jetons audio
 
 ### Python
 
@@ -288,9 +287,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### सिस्टम के निर्देशों वाले टोकन की संख्या गिनना
+### Compter les jetons d'instructions système
 
-सिस्टम के निर्देशों को इनपुट टोकन के तौर पर गिना जाता है:
+Les instructions système sont comptées comme faisant partie des jetons d'entrée :
 
 ### Python
 
@@ -306,9 +305,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### टूल के टोकन की गिनती करना
+### Compter les jetons d'outils
 
-टूल (फ़ंक्शन, कोड एक्ज़ीक्यूशन, Google Search) को भी गिना जाता है:
+Les outils (fonctions, exécution de code, recherche Google) sont également comptabilisés :
 
 ### Python
 
@@ -338,11 +337,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## कॉन्टेक्स्ट विंडो
+## Fenêtre de contexte
 
-हर Gemini मॉडल, ज़्यादा से ज़्यादा टोकन हैंडल कर सकता है. कॉन्टेक्स्ट विंडो से, इनपुट और आउटपुट टोकन की कुल सीमा तय होती है.
+Chaque modèle Gemini dispose d'un nombre maximal de jetons qu'il peut gérer. La fenêtre de contexte définit la limite combinée des jetons d'entrée et de sortie.
 
-### कॉन्टेक्स्ट विंडो का साइज़ प्रोग्राम के हिसाब से पाना
+### Obtenir la taille de la fenêtre de contexte par programmation
 
 ### Python
 
@@ -362,20 +361,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-[मॉडल](https://ai.google.dev/gemini-api/docs/models?hl=hi) पेज पर, कॉन्टेक्स्ट विंडो के साइज़ देखें.
+Vous trouverez les tailles des fenêtres de contexte sur la page des [modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr).
 
-## आगे क्या करना है
+## Étape suivante
 
-- [टेक्स्ट जनरेशन](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi): जनरेशन की बुनियादी बातें
-- [कैश मेमोरी में सेव करना](https://ai.google.dev/gemini-api/docs/caching?hl=hi): कैश मेमोरी में सेव करके लागत कम करना
-- [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi): लागत के बारे में जानकारी
+- [Génération de texte](https://ai.google.dev/gemini-api/docs/text-generation?hl=fr) : principes de base de la génération
+- [Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr) : réduire les coûts grâce à la mise en cache
+- [Tarification](https://ai.google.dev/gemini-api/docs/pricing?hl=fr) : comprendre les coûts
 
-सुझाव भेजें
+Envoyer des commentaires
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
+Dernière mise à jour le 2026/07/30 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Voulez-vous nous donner plus d'informations ?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]

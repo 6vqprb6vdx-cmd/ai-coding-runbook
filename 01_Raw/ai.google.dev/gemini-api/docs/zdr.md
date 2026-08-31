@@ -1,73 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=id
-fetched_at: 2026-08-24T02:30:34.571538+00:00
-title: "Retensi data nol di Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=he
+fetched_at: 2026-08-31T06:33:51.220534+00:00
+title: "\u05e9\u05de\u05d9\u05e8\u05ea \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05d0\u05e4\u05e1\u05d9\u05ea \u05d1-Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Retensi data nol di Gemini Developer API
+# שמירת נתונים אפסית ב-Gemini Developer API
 
-Halaman ini menguraikan detail tentang apa yang biasanya disebut sebagai "retensi data nol" di Gemini Developer API.
+בדף הזה מפורטים פרטים על מה שנקרא בדרך כלל 'שמירת נתונים אפסית' ב-Gemini Developer API.
 
-## Batasan pelatihan
+## הגבלת אימון
 
-Seperti yang diuraikan dalam [Persyaratan Layanan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id), saat Anda
-menggunakan Layanan Berbayar, Google tidak menggunakan perintah Anda (termasuk petunjuk sistem
-terkait, konten yang di-cache, dan file seperti gambar, video, atau dokumen) atau
-respons untuk meningkatkan kualitas produk kami. Layanan Berbayar didefinisikan
-[di sini](https://ai.google.dev/gemini-api/terms?hl=id#paid-services).
+כפי שמפורט [בתנאים ובהגבלות של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he), כשמשתמשים בשירותים בתשלום, Google לא משתמשת בהנחיות (כולל הוראות מערכת משויכות, תוכן במטמון וקבצים כמו תמונות, סרטונים או מסמכים) או בתשובות כדי לשפר את המוצרים שלה. הגדרת השירותים בתשלום מופיעה [כאן](https://ai.google.dev/gemini-api/terms?hl=he#paid-services).
 
-## Retensi data pelanggan dan pencapaian retensi data nol
+## שמירת נתוני לקוחות והשגת מצב של אפס שמירת נתונים
 
-Data pelanggan biasanya disimpan untuk jangka waktu terbatas dalam skenario dan kondisi berikut. Untuk mencapai retensi data nol, pelanggan harus mengambil tindakan tertentu atau menghindari fitur tertentu dalam setiap area berikut:
+בדרך כלל, נתוני הלקוחות נשמרים לפרקי זמן מוגבלים בתרחישים ובתנאים הבאים. כדי להגיע למצב של אפס שמירת נתונים, הלקוחות צריכים לבצע פעולות ספציפיות או להימנע משימוש בתכונות ספציפיות בכל אחד מהתחומים הבאים:
 
-- **Pencatatan log perintah untuk pemantauan penyalahgunaan**: Seperti yang diuraikan dalam [Persyaratan Layanan Tambahan](https://ai.google.dev/gemini-api/terms?hl=id)
-  Gemini API, untuk Layanan Berbayar, Google
-  mencatat log perintah dan respons selama jangka waktu terbatas hanya untuk mendeteksi
-  pelanggaran [Kebijakan Penggunaan Terlarang](https://policies.google.com/terms/generative-ai/use-policy?hl=id). Saat permintaan Anda untuk ZDR untuk project tertentu disetujui, semua konten pengguna (perintah dan respons) serta metadata yang dapat diidentifikasi (seperti alamat IP dan ID Akun Google) akan dihapus sebelum dicatat ke dalam log. Catatan yang dihasilkan ditandai sebagai data yang disanitasi dan tidak berisi data pengguna yang dapat diidentifikasi, sehingga memastikan kesetaraan dengan Retensi Data Nol Platform Agen Gemini Enterprise.
-- **Grounding dengan Google Penelusuran**: Seperti yang diuraikan dalam [Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id#grounding-with-google-search), Google menyimpan perintah, informasi kontekstual, dan output yang dihasilkan selama tiga puluh (30) hari untuk membuat hasil yang di-grounding dan saran penelusuran.
-  Informasi yang disimpan ini dapat digunakan untuk proses debug dan pengujian sistem yang mendukung grounding. **Tidak ada cara untuk menonaktifkan penyimpanan informasi ini jika Anda menggunakan Grounding dengan Google Penelusuran.**
-- **Grounding dengan Google Maps**: Seperti yang diuraikan dalam [Persyaratan Layanan Tambahan
-  Gemini API](https://ai.google.dev/gemini-api/terms?hl=id), Google menyimpan perintah, informasi kontekstual, dan output yang dihasilkan selama tiga puluh (30) hari untuk membuat hasil yang di-grounding. Informasi yang disimpan ini hanya dapat digunakan untuk rekayasa keandalan, seperti proses debug jika terjadi masalah layanan.
-  **Tidak ada cara untuk menonaktifkan penyimpanan informasi ini jika Anda menggunakan Grounding dengan Google Maps.**
-- **Interactions API**: Interactions API mengelola status aktif
-  percakapan untuk mengaktifkan percakapan multi-turn. **Secara default, Interactions API mengaktifkan penyimpanan status**. Untuk memastikan jejak data nol, Anda harus menetapkan parameter `store` ke `false` secara eksplisit dalam permintaan API untuk menonaktifkan retensi status default.
-- **Live API**: API stateful ini memungkinkan koneksi ulang real-time dengan menyimpan
-  status percakapan. Untuk mencapai retensi data nol, **jangan konfigurasi SessionResumptionConfig**. Jika handle sesi dibuat, status percakapan (termasuk teks, audio, dan video) akan disimpan hingga 24 jam.
-- **Penyimpanan File API**: File API memungkinkan pengguna mengupload aset berukuran besar.
-  File disimpan saat tidak digunakan hingga dihapus oleh pengguna atau hingga masa berlakunya berakhir.
-  Penggunaan File API tidak bergantung pada pencatatan log ZDR; pengguna harus menghapus file secara manual untuk memastikan jejak data nol.
-- **Caching Konteks Eksplisit**: Pengguna dapat melakukan cache dataset besar secara manual (misalnya,
-  video panjang atau library dokumen) menggunakan kolom `cached_content`. Meskipun log permintaan ini mengikuti kebijakan penghapusan ZDR, konteks yang di-cache itu sendiri disimpan dengan `ttl` atau `expire_time` yang ditentukan pengguna. Untuk mencapai jejak data nol absolut, jangan gunakan fitur cached\_content.
-- **Caching Dalam Memori Implisit**: Secara default, model Gemini melakukan cache data
-  dalam memori untuk mengurangi latensi dan biaya bagi developer. Data ini sepenuhnya berada di RAM (tidak saat tidak digunakan), diisolasi di tingkat project, dan memiliki TTL 24 jam.
-  **Hal ini tidak melanggar Retensi Data Nol.**
+- **רישום ביומן של הנחיות לצורך מעקב אחר שימוש לרעה**: כפי שמתואר [בתנאים והגבלות הנוספים למתן שירות של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he), בשירותים בתשלום, Google רושמת ביומן את ההנחיות והתשובות למשך זמן מוגבל, אך ורק לצורך זיהוי הפרות של [המדיניות בנושא שימוש אסור](https://policies.google.com/terms/generative-ai/use-policy?hl=he). כשהבקשה שלכם ל-ZDR עבור פרויקט מסוים מאושרת, כל תוכן המשתמשים (ההנחיות והתשובות) והמטא-נתונים שניתן לזהות (כמו כתובות IP ומזהי חשבון Google) נמחקים לפני הרישום ביומן. הרשומה שמתקבלת מסומנת כרשומה שעברה סניטציה, והיא לא מכילה מידע מזהה של משתמש. כך נשמרת התאימות עם פלטפורמת הסוכנים של Gemini Enterprise, שבה לא מתבצע שימור נתונים.
+- **עיגון באמצעות חיפוש Google**: כמו שמתואר [בתנאים הנוספים של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-search),‏ Google שומרת הנחיות, מידע הקשרי ותוצאות שנוצרו למשך שלושים (30) ימים לצורך יצירת תוצאות מעוגנות והצעות לחיפוש.
+  יכול להיות שנשתמש במידע השמור הזה לצורך ניפוי באגים ובדיקות של מערכות שתומכות בהארקה. **אם משתמשים ב-עיגון באמצעות חיפוש Google, אי אפשר להשבית את השמירה של המידע הזה.**
+- **עיגון בעזרת מפות Google**: כפי שמפורט [בתנאים ובהגבלות הנוספים של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he),‏ Google מאחסנת הנחיות, מידע הקשרי ותוצאות שנוצרו למשך שלושים (30) ימים לצורך יצירת תוצאות מבוססות. אפשר להשתמש במידע הזה רק לצורך הנדסת אמינות, למשל לצורך ניפוי באגים במקרה של בעיות בשירות.
+  **אם משתמשים ב-עיגון בעזרת מפות Google, אין אפשרות להשבית את האחסון של המידע הזה.**
+- ‫**Interactions API**: ‏Interactions API מנהל את המצב הפעיל של שיחה כדי לאפשר שיחות מרובות תורות. **כברירת מחדל, ה-API של האינטראקציות מאפשר אחסון של מצב**. כדי להבטיח שלא יישארו עקבות של נתונים, צריך להגדיר במפורש את הפרמטר `store` לערך `false` בבקשות ה-API כדי לבטל את ההסכמה לשמירת מצב ברירת המחדל.
+- ‫**Live API**: ממשק API עם שמירת מצב שמאפשר התחברות מחדש בזמן אמת על ידי שמירת מצב השיחה. כדי להשיג אפס שמירת נתונים, **אל תגדירו את SessionResumptionConfig**. אם נוצר כינוי לסשן, מצב השיחה (כולל טקסט, אודיו ווידאו) נשמר למשך עד 24 שעות.
+- ‫**File API Storage**: File API מאפשר למשתמשים להעלות נכסים גדולים.
+  הקבצים מאוחסנים במצב לא פעיל עד שהמשתמש מוחק אותם או עד שתוקף שלהם פג.
+  השימוש ב-File API לא תלוי ברישום ביומן של ZDR. כדי לוודא שלא נשארים נתונים, המשתמשים צריכים למחוק את הקבצים באופן ידני.
+- **שמירת הקשר במטמון באופן מפורש**: המשתמשים יכולים לשמור במטמון באופן ידני מערכי נתונים גדולים (למשל, סרטונים ארוכים או ספריות מסמכים) באמצעות השדה `cached_content`. היומנים של הבקשות האלה פועלים לפי מדיניות ההשמטה של ZDR, אבל ההקשר ששמור במטמון מאוחסן עם `ttl` או `expire_time` שהוגדרו על ידי המשתמש. כדי להשיג טביעת רגל של אפס נתונים, אל תשתמשו בתכונה cached\_content.
+- **שמירה במטמון בזיכרון באופן מרומז**: כברירת מחדל, מודלים של Gemini שומרים נתונים במטמון בזיכרון כדי להפחית את זמן האחזור ואת העלות למפתחים. הנתונים האלה נמצאים רק ב-RAM (לא במצב מנוחה), מבודדים ברמת הפרויקט, ויש להם TTL של 24 שעות.
+  **הפעולה הזו לא מהווה הפרה של מדיניות אפס שמירת נתונים.**
 
-## Langkah berikutnya
+## המאמרים הבאים
 
-- Pelajari [Kebijakan Penggunaan Terlarang untuk AI Generatif
-  Policy](https://policies.google.com/terms/generative-ai/use-policy?hl=id).
-- Tinjau [Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id).
-- Jika Anda memerlukan kontrol ZDR mandiri tingkat perusahaan, lihat panduan [Platform Agen Gemini Enterprise
-  Retensi Data Nol](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention?hl=id).
+- [מידע על המדיניות בנושא שימוש אסור ב-AI גנרטיבי](https://policies.google.com/terms/generative-ai/use-policy?hl=he)
+- קוראים את [התנאים וההגבלות הנוספים של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he).
+- אם אתם צריכים אמצעי בקרה של ZDR ברמה הארגונית בשירות עצמי, כדאי לעיין [במדריך בנושא שמירת נתונים אפסית בפלטפורמת הסוכנים של Gemini Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention?hl=he).
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-05-28 UTC.
+עדכון אחרון: 2026-05-28 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-28 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]

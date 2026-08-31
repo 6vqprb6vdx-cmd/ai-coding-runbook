@@ -1,62 +1,56 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview?hl=id
-fetched_at: 2026-08-24T02:29:46.885032+00:00
-title: "Gemini Robotics ER \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview?hl=de
+fetched_at: 2026-08-31T06:36:02.311494+00:00
+title: "Gemini Robotics\u00a0ER \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Kirim masukan
+Feedback geben
 
-# Gemini Robotics ER
+# Gemini Robotics ER
 
-Model Gemini Robotics ER (penalaran berwujud) adalah model bahasa visual (VLM) yang memungkinkan robot memahami dan berinteraksi dengan dunia fisik. Mereka menafsirkan data visual, melakukan penalaran spasial dan temporal, merencanakan tugas multi-langkah, serta mengatur robot dan alat.
+Gemini Robotics ER-Modelle (Embodied Reasoning) sind Vision-Language-Modelle (VLMs), mit denen Roboter die physische Welt wahrnehmen und mit ihr interagieren können. Sie interpretieren visuelle Daten, führen räumliche und zeitliche Schlussfolgerungen durch, planen mehrstufige Aufgaben und orchestrieren Roboter und Tools.
 
-## Model
+## Modelle
 
-Model Gemini Robotics ER 2 adalah model terbaru di Gemini Robotics.
-Model penalaran yang diperbarui ini memungkinkan robot memahami lingkungan mereka dengan tepat. Model ini dikhususkan untuk kemampuan penalaran berwujud, seperti orkestrasi agen robot (misalnya, menggunakan VLA), pemahaman video robot termasuk pemahaman progres dan deteksi keberhasilan, pembacaan instrumen, penunjuk, dan penalaran spasial.
+Das Gemini Robotics ER2-Modell ist das neueste Modell von Gemini Robotics.
+Es ist unser aktualisiertes Logikmodell, das es Robotern ermöglicht, ihre Umgebung genau zu erfassen. Es ist auf Funktionen für verkörpertes Denken spezialisiert, z. B. die Orchestrierung von Robotern durch Agenten (z. B. mit VLAs), das Verständnis von Robotervideos, einschließlich des Fortschritts und der Erkennung von Erfolgen, das Lesen von Instrumenten, das Zeigen und das räumliche Denken.
 
-Model Gemini Robotics ER 2 memperkenalkan dua endpoint model:
+Das Gemini Robotics ER2-Modell führt zwei Modellendpunkte ein:
 
-- **`gemini-robotics-er-2-preview`**: Model ER 2 standar. Dibuat berdasarkan
-  Gemini 3.5 Flash dengan penalaran spasial yang ditingkatkan, penemuan momen video,
-  klasifikasi progres video, orkestrasi multi-robot, dan penggunaan alat
-  multi-langkah.
-- **`gemini-robotics-er-2-streaming-preview`**: Dioptimalkan untuk streaming real-time melalui [Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id). Gunakan model ini untuk agen robot latensi rendah yang memproses input audio dan video berkelanjutan.
+- **`gemini-robotics-er-2-preview`**: Das Standardmodell für erweiterte Reichweite 2. Basiert auf Gemini 3.5 Flash und bietet verbessertes räumliches Denken, das Auffinden von Videomomenten, die Klassifizierung des Videofortschritts, die Orchestrierung mehrerer Roboter und die Nutzung von Tools in mehreren Schritten.
+- **`gemini-robotics-er-2-streaming-preview`**: Optimiert für Echtzeit-Streaming über die [Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de). Verwenden Sie dieses Modell für Roboter-Agents mit niedriger Latenz, die kontinuierliche Audio- und Videoeingaben verarbeiten.
 
-Jika Anda menggunakan Gemini Robotics ER 1.6, upgrade ke Gemini Robotics ER 2 dengan mengganti
-`model="gemini-robotics-er-1.6-preview"` dengan
-`model="gemini-robotics-er-2-preview"` atau
-`model="gemini-robotics-er-2-streaming-preview"` dalam panggilan API Anda. Perhatikan bahwa model Gemini Robotics ER 1.6 akan dinonaktifkan pada [akhir Agustus](https://ai.google.dev/gemini-api/docs/deprecations?hl=id#robotics-models).
+Wenn Sie Gemini Robotics ER 1.6 verwenden, aktualisieren Sie auf Gemini Robotics ER 2, indem Sie in Ihren API-Aufrufen `model="gemini-robotics-er-1.6-preview"` durch `model="gemini-robotics-er-2-preview"` oder `model="gemini-robotics-er-2-streaming-preview"` ersetzen. Das Modell Gemini Robotics ER 1.6 wird [Ende August](https://ai.google.dev/gemini-api/docs/deprecations?hl=de#robotics-models) eingestellt.
 
-[Mencoba Gemini Robotics ER 2 di Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=id)
+[Gemini Robotics ER 2 in Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=de)
 
-## Kemampuan robotika
+## Robotikfunktionen
 
-Gemini Robotics ER mendukung berbagai kemampuan penalaran berwujud.
-Pilih kemampuan untuk mempelajari lebih lanjut:
+Gemini Robotics ER unterstützt eine Reihe von Funktionen für verkörpertes Denken.
+Wählen Sie eine Funktion aus, um mehr zu erfahren:
 
-| Kemampuan | Deskripsi | Panduan |
+| Funktion | Beschreibung | Leitfaden |
 | --- | --- | --- |
-| Penalaran spasial | Arahkan ke objek, lacak dalam video, deteksi dengan kotak pembatas, rencanakan lintasan. | [Penalaran spasial](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=id) |
-| Visi agentic | Gunakan eksekusi kode untuk meningkatkan kemampuan lain dengan memanfaatkan alat manipulasi gambar. | [Visi agentik](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=id) |
-| Orkestrasi tugas | Menggabungkan penalaran spasial dengan API robot kustom untuk menyelesaikan tugas dengan cakupan waktu yang panjang. | [Orkestrasi tugas](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=id) |
-| Streaming (khusus endpoint Streaming Gemini Robotics ER 2) | Streaming dua arah untuk agen robot real-time dengan panggilan fungsi berlatensi rendah. | [Streaming untuk robotika](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id) |
-| Progres video (khusus Gemini Robotics ER 2) | Penemuan momen dan klasifikasi progres dari feed video berkelanjutan. | [Pemahaman video](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=id) |
+| Räumliches Denken | Auf Objekte zeigen, sie in Videos verfolgen, mit Begrenzungsrahmen erkennen und Trajektorien planen. | [Räumliches Denken](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=de) |
+| Agentic Vision | Code-Ausführung nutzen, um andere Funktionen mithilfe von Bildbearbeitungstools zu optimieren | [Agentic Vision](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=de) |
+| Aufgabenorchestrierung | Kombinieren Sie räumliches Denken mit benutzerdefinierten Roboter-APIs, um Aufgaben mit langer Zeitspanne zu erledigen. | [Aufgaben-Orchestrierung](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=de) |
+| Streaming (nur Gemini Robotics ER 2-Streamingendpunkt) | Bidirektionales Streaming für Echtzeit-Roboter-Agents mit Funktionsaufrufen mit niedriger Latenz. | [Streaming für Robotik](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de) |
+| Videofortschritt (nur Gemini Robotics ER 2) | Momentsuche und Fortschrittsklassifizierung aus kontinuierlichen Videofeeds. | [Video-Understanding](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=de) |
 
-## Memulai
+## Erste Schritte
 
-Contoh berikut menemukan objek dalam gambar dan menampilkan koordinat 2D dan labelnya yang dinormalisasi. Anda dapat meneruskan output ini langsung ke robotics API atau model VLA untuk menghasilkan tindakan robot.
+Im folgenden Beispiel werden Objekte in einem Bild gesucht und ihre normalisierten 2D-Koordinaten und Labels zurückgegeben. Sie können diese Ausgabe direkt an eine Robotics API oder ein VLA-Modell übergeben, um Roboteraktionen zu generieren.
 
 ### Python
 
@@ -127,8 +121,7 @@ curl -X POST \
   }'
 ```
 
-Outputnya akan berupa array JSON yang berisi objek, yang masing-masing memiliki `point`
-(koordinat `[y, x]` yang dinormalisasi) dan `label` yang mengidentifikasi objek.
+Die Ausgabe ist ein JSON-Array mit Objekten, die jeweils ein `point` (normalisierte `[y, x]`-Koordinaten) und ein `label` zur Identifizierung des Objekts enthalten.
 
 ### JSON
 
@@ -147,119 +140,109 @@ Outputnya akan berupa array JSON yang berisi objek, yang masing-masing memiliki 
 ]
 ```
 
-Gambar berikut adalah contoh cara titik-titik ini dapat ditampilkan:
+Das folgende Bild zeigt ein Beispiel dafür, wie diese Punkte dargestellt werden können:
 
-![Contoh yang menampilkan titik objek dalam gambar](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=id)
+![Beispiel für die Anzeige der Punkte von Objekten in einem Bild](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=de)
 
-## Cara kerjanya
+## Funktionsweise
 
-Gemini Robotics ER menerima input gambar, video, atau audio dengan perintah bahasa alami. Model ini mengidentifikasi objek, memahami konteks adegan dan hubungan spasial, serta menampilkan output terstruktur seperti koordinat atau kotak pembatas.
+Gemini Robotics ER verarbeitet Bild-, Video- oder Audioeingaben mit Prompts in natürlicher Sprache. Es werden Objekte identifiziert, der Szenenkontext und räumliche Beziehungen werden analysiert und strukturierte Ausgaben wie Koordinaten oder Begrenzungsrahmen werden zurückgegeben.
 
-Gemini Robotics ER juga bersifat agentik: Gemini memecah tugas yang kompleks menjadi sub-tugas dan mengeksekusinya dengan memanggil fungsi robot Anda atau menjalankan kode yang dihasilkan. Misalnya, "taruh apel di mangkuk" menjadi urutan langkah-langkah menemukan, menggenggam, dan
-menempatkan.
+Gemini Robotics ER ist auch agentisch: Es zerlegt komplexe Aufgaben in Teilaufgaben und führt sie aus, indem es Ihre Roboterfunktionen aufruft oder generierten Code ausführt. Beispiel: „Lege den Apfel in die Schüssel“ wird zu einer Folge von Schritten zum Suchen, Greifen und Platzieren.
 
-Lihat [Panggilan
-fungsi](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=id#how-it-works) untuk
-mengetahui detail tentang cara Gemini mengeksekusi panggilan alat.
+Weitere Informationen dazu, wie Gemini Tool-Aufrufe ausführt, finden Sie unter [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=de#how-it-works).
 
-## Keamanan
+## Sicherheit
 
-Meskipun Gemini Robotics ER dibuat dengan mempertimbangkan keselamatan, Anda bertanggung jawab untuk menjaga lingkungan yang aman di sekitar robot. Model AI generatif dapat membuat kesalahan, dan robot fisik dapat menyebabkan kerusakan. Untuk mempelajari lebih lanjut,
-buka
-[halaman keamanan robotik Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=id).
+Gemini Robotics ER wurde zwar mit Blick auf die Sicherheit entwickelt, es liegt jedoch in Ihrer Verantwortung, für eine sichere Umgebung rund um den Roboter zu sorgen. Modelle für generative KI können Fehler machen und physische Roboter können Schäden verursachen. Weitere Informationen finden Sie auf der [Google DeepMind-Seite zur Robotersicherheit](https://deepmind.google/models/gemini-robotics/safety?hl=de).
 
-## Praktik terbaik
+## Best Practices
 
-1. Gunakan bahasa yang sederhana dan alami. Jelaskan tindakan yang Anda inginkan dari robot seperti yang Anda lakukan kepada orang lain. Jika suatu istilah tidak berfungsi, coba sinonim umum.
-2. Mengoptimalkan input visual. Pangkas atau perbesar objek kecil atau tidak jelas sebelum
-   mengirim gambar. Pencahayaan dan kontras warna yang rendah dapat memengaruhi deteksi.
-3. Membagi tugas kompleks menjadi beberapa langkah. Kirim setiap langkah sebagai perintah terpisah untuk
-   mempertahankan fokus model dan meningkatkan akurasi.
-4. Lakukan kueri beberapa kali dan hitung rata-rata hasilnya untuk tugas dengan presisi tinggi. Pendekatan konsensus ini mengurangi varians pada output spasial.
+1. Verwenden Sie eine einfache, natürliche Sprache. Beschreiben Sie, was der Roboter tun soll, so, als würden Sie mit einer Person sprechen. Wenn ein Begriff nicht funktioniert, versuchen Sie es mit einem gängigen Synonym.
+2. Visuelle Eingabe optimieren Schneiden Sie kleine oder unklare Objekte zu oder zoomen Sie sie heran, bevor Sie das Bild senden. Die Beleuchtung und ein geringer Farbkontrast können sich auf die Erkennung auswirken.
+3. Teilen Sie komplexe Aufgaben in Schritte auf. Senden Sie jeden Schritt als separaten Prompt, damit das Modell fokussiert bleibt und die Genauigkeit verbessert wird.
+4. Führen Sie die Abfrage mehrmals aus und bilden Sie den Durchschnitt der Ergebnisse für Aufgaben, die eine hohe Präzision erfordern. Dieser Konsensansatz reduziert die Varianz bei räumlichen Ausgaben.
 
-## Batasan
+## Beschränkungen
 
-Pertimbangkan batasan berikut saat mengembangkan dengan Gemini Robotics ER:
+Beachten Sie beim Entwickeln mit Gemini Robotics ER die folgenden Einschränkungen:
 
-- **Pembatasan kunci API:** Gemini API tidak menerima permintaan dari kunci API yang tidak dibatasi dan menampilkan error `403 Forbidden`. Amankan kunci API Anda dengan menambahkan pembatasan di [AI Studio](https://aistudio.google.com/api-keys?hl=id).
-  Lihat [Mengamankan kunci API yang tidak dibatasi](https://ai.google.dev/gemini-api/docs/api-key?hl=id#secure-unrestricted-keys)
-  untuk mengetahui detailnya.
-- **Latensi vs. performa:** Kueri yang kompleks, input beresolusi tinggi, atau tingkat pemikiran yang tinggi dapat menyebabkan peningkatan waktu pemrosesan. Untuk level pemikiran, gunakan sedang untuk keseimbangan yang baik antara latensi dan performa.
-- **Halusinasi:** Seperti semua model bahasa besar, model Gemini Robotics ER terkadang dapat "berhalusinasi" atau memberikan informasi yang salah, terutama untuk perintah yang ambigu atau input di luar distribusi.
-- **Ketergantungan pada kualitas perintah:** Kualitas output bergantung pada kejelasan perintah input. Gunakan perintah yang spesifik dan terstruktur dengan baik.
-- **Biaya komputasi:** Menjalankan model, terutama dengan input video atau
-  `thinking_budget` tinggi, akan menggunakan resource komputasi dan menimbulkan biaya.
-  Lihat halaman [Pemikiran](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=id) untuk mengetahui detail selengkapnya.
-- **Jenis input:** Lihat topik berikut untuk mengetahui detail batasan untuk setiap mode.
-  - [Input gambar](https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=id#technical-details-image)
-  - [Input video](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=id#supported-formats)
-  - [Input audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=id#supported-formats)
+- **Einschränkungen für API-Schlüssel**:Die Gemini API akzeptiert keine Anfragen von uneingeschränkten API-Schlüsseln und gibt einen `403 Forbidden`-Fehler zurück. Sichern Sie Ihren API-Schlüssel, indem Sie in [AI Studio](https://aistudio.google.com/api-keys?hl=de) Einschränkungen hinzufügen.
+  Weitere Informationen finden Sie unter [Uneingeschränkte API-Schlüssel sichern](https://ai.google.dev/gemini-api/docs/api-key?hl=de#secure-unrestricted-keys).
+- **Latenz im Vergleich zur Leistung**:Komplexe Anfragen, Eingaben mit hoher Auflösung oder ein hohes Maß an Denkleistung können zu längeren Verarbeitungszeiten führen. Verwenden Sie für die Denkebene „Mittel“, um ein gutes Gleichgewicht zwischen Latenz und Leistung zu erzielen.
+- **Halluzinationen**:Wie alle Large Language Models können Gemini Robotics ER-Modelle gelegentlich „halluzinieren“ oder falsche Informationen liefern, insbesondere bei mehrdeutigen Prompts oder Out-of-Distribution-Eingaben.
+- **Abhängigkeit von der Promptqualität**:Die Qualität der Ausgabe hängt von der Klarheit des Eingabe-Prompts ab. Verwenden Sie spezifische, gut strukturierte Prompts.
+- **Rechenkosten**:Die Ausführung des Modells, insbesondere mit Videoeingaben oder hohem `thinking_budget`, verbraucht Rechenressourcen und verursacht Kosten.
+  Weitere Informationen finden Sie auf der Seite [Thinking](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=de).
+- **Eingabetypen**:In den folgenden Abschnitten finden Sie Details zu den Einschränkungen für die einzelnen Modi.
+  - [Bildeingaben](https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=de#technical-details-image)
+  - [Videoeingänge](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=de#supported-formats)
+  - [Audioeingänge](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=de#supported-formats)
 
-## Pemberitahuan Privasi
+## Datenschutzhinweise
 
-Anda memahami bahwa model yang dirujuk dalam dokumen ini ("Model Robotik") memanfaatkan data video dan audio untuk mengoperasikan dan menggerakkan hardware Anda sesuai dengan petunjuk Anda. Oleh karena itu, Anda dapat mengoperasikan Model Robotik sehingga data dari orang yang dapat diidentifikasi, seperti data suara, gambar, dan kemiripan ("Data Pribadi"), akan dikumpulkan oleh Model Robotik. Jika Anda memilih untuk mengoperasikan Model Robotik dengan cara yang mengumpulkan Data Pribadi, Anda setuju bahwa Anda tidak akan mengizinkan orang yang dapat diidentifikasi untuk berinteraksi dengan, atau berada di area sekitar, Model Robotik, kecuali dan hingga orang yang dapat diidentifikasi tersebut telah diberi tahu dan menyetujui secara memadai bahwa Data Pribadi mereka dapat diberikan kepada dan digunakan oleh Google sebagaimana diuraikan dalam Persyaratan Layanan Tambahan Gemini API yang dapat ditemukan di [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=id) (selanjutnya disebut "Persyaratan"), termasuk sesuai dengan bagian yang berjudul "Cara Google Menggunakan Data Anda". Anda akan memastikan bahwa pemberitahuan tersebut mengizinkan pengumpulan dan penggunaan Data Pribadi sebagaimana diuraikan dalam Persyaratan, dan Anda akan menggunakan upaya yang wajar secara komersial untuk meminimalkan pengumpulan dan distribusi Data Pribadi dengan menggunakan teknik seperti mengaburkan wajah dan mengoperasikan Model Robotik di area yang tidak berisi orang yang dapat diidentifikasi sejauh yang dapat dilakukan.
+Sie bestätigen, dass die in diesem Dokument genannten Modelle (die „Robotikmodelle“) Video- und Audiodaten verwenden, um Ihre Hardware gemäß Ihren Anweisungen zu betreiben und zu bewegen. Sie dürfen die Robotikmodelle daher so betreiben, dass Daten von identifizierbaren Personen, z. B. Sprach-, Bild- und Ähnlichkeitsdaten („personenbezogene Daten“), von den Robotikmodellen erhoben werden. Wenn Sie die Robotikmodelle so betreiben, dass personenbezogene Daten erhoben werden, stimmen Sie zu, dass Sie keine identifizierbaren Personen mit den Robotikmodellen interagieren lassen oder sich in der Umgebung der Robotikmodelle aufhalten lassen, es sei denn, diese identifizierbaren Personen wurden ausreichend darüber informiert und haben zugestimmt, dass ihre personenbezogenen Daten an Google weitergegeben und von Google verwendet werden dürfen, wie in den zusätzlichen Nutzungsbedingungen für Gemini API unter [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=de) (den „Nutzungsbedingungen“) beschrieben, einschließlich gemäß dem Abschnitt „Wie Google Ihre Daten verwendet“. Sie sorgen dafür, dass diese Mitteilung die Erhebung und Nutzung personenbezogener Daten gemäß den Nutzungsbedingungen erlaubt, und unternehmen wirtschaftlich angemessene Anstrengungen, um die Erhebung und Weitergabe personenbezogener Daten zu minimieren, indem Sie Techniken wie das Unkenntlichmachen von Gesichtern verwenden und die Robotikmodelle nach Möglichkeit in Bereichen betreiben, in denen sich keine identifizierbaren Personen aufhalten.
 
-## Harga
+## Preise
 
-Untuk mengetahui informasi mendetail tentang harga dan wilayah yang tersedia, lihat halaman
-[harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+Detaillierte Informationen zu Preisen und verfügbaren Regionen finden Sie auf der Seite [Preise](https://ai.google.dev/gemini-api/docs/pricing?hl=de).
 
-## Endpoint model
+## Modellendpunkte
 
-### Pratinjau Gemini Robotics ER 2
+### Gemini Robotics ER 2 (Vorabversion)
 
-| Properti | Deskripsi |
+| Attribut | Beschreibung |
 | --- | --- |
-| Kode model id\_card | `gemini-robotics-er-2-preview` |
-| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio  **Output**  Teks |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072  **Batas token output**  65.536 |
-| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Tidak didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Didukung  **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**  Didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Didukung  **[Melakukan grounding dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Tidak didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Didukung |
-| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Didukung  **[Inferensi fleksibel](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
-| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-robotics-er-2-preview` |
-| calendar\_monthPembaruan terbaru | Juli 2026 |
-| Kartu model id\_card | [Kartu model](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=id) |
+| id\_cardModellcode | `gemini-robotics-er-2-preview` |
+| saveUnterstützte Datentypen | **Eingaben**  Text, Bilder, Video, Audio  **Ausgabe**  Text |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  131.072  **Tokenausgabelimit**  65.536 |
+| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Nicht unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Unterstützt  **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Unterstützt  **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**  Unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Nicht unterstützt  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Nicht unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Unterstützt  **[Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Unterstützt  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Unterstützt |
+| speedNutzungsoptionen | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Unterstützt  **[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)**  Nicht unterstützt  **[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)**  Nicht unterstützt |
+| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `gemini-robotics-er-2-preview` |
+| calendar\_monthLetzte Aktualisierung | Juli 2026 |
+| id\_cardModellkarte | [Modellkarte](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=de) |
 
-### Pratinjau Streaming Gemini Robotics ER 2
+### Gemini Robotics ER 2 – Streaming-Vorabversion
 
-| Properti | Deskripsi |
+| Attribut | Beschreibung |
 | --- | --- |
-| Kode model id\_card | `gemini-robotics-er-2-streaming-preview` |
-| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio  **Output**  Teks |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072  **Batas token output**  65.536 |
-| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Tidak didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Tidak didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Tidak didukung  **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**  Tidak didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Tidak didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Didukung  **[Melakukan grounding dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Tidak didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Tidak didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Tidak didukung |
-| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Tidak didukung  **[Inferensi fleksibel](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
-| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-robotics-er-2-streaming-preview` |
-| calendar\_monthPembaruan terbaru | Juli 2026 |
-| Kartu model id\_card | [Kartu model](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=id) |
+| id\_cardModellcode | `gemini-robotics-er-2-streaming-preview` |
+| saveUnterstützte Datentypen | **Eingaben**  Text, Bilder, Video, Audio  **Ausgabe**  Text |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  131.072  **Tokenausgabelimit**  65.536 |
+| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Nicht unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Nicht unterstützt  **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Nicht unterstützt  **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**  Nicht unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Nicht unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Nicht unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Nicht unterstützt  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Nicht unterstützt  **[Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Unterstützt  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Nicht unterstützt |
+| speedNutzungsoptionen | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Nicht unterstützt  **[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)**  Nicht unterstützt  **[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)**  Nicht unterstützt |
+| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `gemini-robotics-er-2-streaming-preview` |
+| calendar\_monthLetzte Aktualisierung | Juli 2026 |
+| id\_cardModellkarte | [Modellkarte](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=de) |
 
-### Pratinjau Gemini Robotics ER 1.6
+### Gemini Robotics ER 1.6 (Vorabversion)
 
-| Properti | Deskripsi |
+| Attribut | Beschreibung |
 | --- | --- |
-| Kode model id\_card | `gemini-robotics-er-1.6-preview` |
-| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio  **Output**  Teks |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072  **Batas token output**  65.536 |
-| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Tidak didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Didukung  **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**  Didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Didukung  **[Melakukan grounding dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Tidak didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Didukung |
-| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Didukung  **[Inferensi fleksibel](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
-| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthPembaruan terbaru | Desember 2025 |
-| cognition\_2Batas informasi | Januari 2025 |
+| id\_cardModellcode | `gemini-robotics-er-1.6-preview` |
+| saveUnterstützte Datentypen | **Eingaben**  Text, Bilder, Video, Audio  **Ausgabe**  Text |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  131.072  **Tokenausgabelimit**  65.536 |
+| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Nicht unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Unterstützt  **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Unterstützt  **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**  Unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Nicht unterstützt  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Nicht unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Unterstützt  **[Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Unterstützt  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Unterstützt |
+| speedNutzungsoptionen | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Unterstützt  **[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)**  Nicht unterstützt  **[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)**  Nicht unterstützt |
+| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthLetzte Aktualisierung | Dezember 2025 |
+| cognition\_2Wissensstichtag | Januar 2025 |
 
-## Langkah berikutnya
+## Nächste Schritte
 
-- [Penalaran spasial](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=id) — penunjuk, pelacakan, kotak pembatas, lintasan.
-- [Kemampuan seperti agen](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=id) — eksekusi kode, pembacaan instrumen, anotasi gambar.
-- [Orkestrasi tugas](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=id) — tugas dengan cakupan panjang menggunakan API robot kustom.
-- [Robotika dengan streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id) — streaming dua arah real-time (khusus Gemini Robotics ER 2).
-- [Pemahaman video](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=id) — penemuan momen dan klasifikasi progres (khusus Gemini Robotics ER 2).
-- [Keamanan robotika Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=id) — riset keamanan di balik rangkaian model.
+- [Räumliches Denken](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=de): Zeigen, Tracking, Begrenzungsrahmen, Trajektorien.
+- [Agentische Funktionen](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=de): Code-Ausführung, Instrumentenablesung, Bildannotation.
+- [Aufgabenorchestration](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=de): Aufgaben mit langer Zeitspanne mit benutzerdefinierten Roboter-APIs.
+- [Robotik mit Streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de): bidirektionales Streaming in Echtzeit (nur Gemini Robotics ER 2).
+- [Videoanalyse](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=de): Suche nach Momenten und Fortschrittsklassifizierung (nur Gemini Robotics ER 2).
+- [Google DeepMind Robotics Safety](https://deepmind.google/models/gemini-robotics/safety?hl=de) – Sicherheitsforschung hinter der Modellfamilie.
 
-Kirim masukan
+Feedback geben
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-Ada masukan untuk kami?
+Haben Sie Feedback für uns?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

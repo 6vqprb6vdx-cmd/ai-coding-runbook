@@ -1,133 +1,141 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=zh-TW
-fetched_at: 2026-08-24T02:25:03.023617+00:00
-title: "\u4f7f\u7528 Gemini API \u91d1\u9470 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=pl
+fetched_at: 2026-08-31T06:43:21.602632+00:00
+title: "Korzystanie z kluczy interfejsu Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-提供意見
+Prześlij opinię
 
-# 使用 Gemini API 金鑰
+# Korzystanie z kluczy interfejsu Gemini API
 
-如要使用 Gemini API，必須驗證要求。您可以使用標準或授權 API 金鑰進行驗證。
+Aby korzystać z Gemini API, musisz uwierzytelnić swoje żądania. Możesz to zrobić za pomocą standardowego klucza interfejsu API lub klucza interfejsu API do autoryzacji.
 
-[建立或查看 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
+[Tworzenie lub wyświetlanie klucza interfejsu Gemini API](https://aistudio.google.com/apikey?hl=pl)
 
-## API 金鑰類型：標準與授權
+## Typy kluczy interfejsu API: standardowy i do autoryzacji
 
-API 金鑰可存取 Gemini API，但安全性特徵不同。為提升安全性，Gemini API 將從標準 API 金鑰改用授權金鑰：
+Klucze interfejsu API zapewniają dostęp do Gemini API, ale różnią się pod względem bezpieczeństwa. Aby zwiększyć bezpieczeństwo, Gemini API przechodzi ze standardowych kluczy interfejsu API na klucze do autoryzacji:
 
-- **標準 API 金鑰**：將要求與 Google Cloud 專案建立關聯，以利帳單和配額管理。標準金鑰不會識別呼叫者，因此可支援的權限和存取權控管精細度有限。
-- **授權 (auth) 金鑰**：直接繫結至 Google Cloud 服務帳戶。使用授權金鑰時，系統會以繫結服務帳戶的身分處理要求，方便您進行精細的存取權控管。授權金鑰預設只能用於 Generative Language API (Gemini API)，且可快速強制停用遭外洩的金鑰，一旦系統偵測到金鑰外洩，就會立即停止使用。
+- **Standardowe klucze interfejsu API**: powiązują żądania z projektem w chmurze Google Cloud na potrzeby
+  rozliczeń i limitów. Klucze standardowe nie identyfikują dzwoniącego, co ogranicza szczegółowość uprawnień i kontroli dostępu, które mogą obsługiwać.
+- **Klucze do autoryzacji**: są powiązane bezpośrednio z kontem usługi Google Cloud. Gdy używasz klucza do autoryzacji, Twoje żądania są przetwarzane w ramach tożsamości powiązanego konta usługi, co umożliwia szczegółową kontrolę dostępu. Klucze do autoryzacji są domyślnie ograniczone do Generative Language API (Gemini API) i zapewniają szybkie egzekwowanie zasad dotyczących wycieku kluczy, które szybko zatrzymuje użycie wyciekłych kluczy wykrytych przez nasze systemy.
 
-為確保安全使用，Gemini API 將從標準金鑰改用驗證金鑰：
+Aby zapewnić bezpieczne korzystanie, Gemini API przejdzie ze standardowych kluczy na klucze uwierzytelniające:
 
-- **預設驗證金鑰**：在 Google AI Studio 建立的所有新 API 金鑰，都會自動建立為驗證金鑰。
-- **拒絕未設限的金鑰**：Gemini API 會拒絕**未設限標準金鑰**的要求。已明確套用限制的標準 API 金鑰仍可繼續使用。這項限制可防止未經授權使用可能公開分享或連結至其他服務的金鑰。
-- **2026 年 9 月**：Gemini API 將拒絕**標準金鑰**的要求。請務必在上述日期前[遷移至驗證金鑰](#migrate-to-auth-key)，以免服務中斷。請務必在 2026 年 9 月前遷移至驗證金鑰。
+- **Domyślne klucze do autoryzacji**: wszystkie nowe klucze interfejsu API utworzone w Google AI Studio
+  są automatycznie tworzone jako klucze do autoryzacji.
+- **Odrzucanie kluczy bez ograniczeń**: Gemini API odrzuca żądania
+  z **nieograniczonych kluczy standardowych**. Standardowe klucze interfejsu API, do których zastosowano wyraźne ograniczenia, nadal działają. To ograniczenie zapobiega nieautoryzowanemu użyciu kluczy, które mogą być udostępniane publicznie lub powiązane z innymi usługami.
+- **We wrześniu 2026 r.:** Gemini API będzie odrzucać żądania z **kluczy
+  standardowych**. Aby uniknąć przerw w działaniu usługi, musisz [przeprowadzić migrację na klucze do autoryzacji](#migrate-to-auth-key)
+  przed tą datą. Pamiętaj, aby przeprowadzić migrację na klucze do autoryzacji przed wrześniem 2026 r.
 
-## 在 Google AI Studio 中管理 API 金鑰
+## Zarządzanie kluczami interfejsu API w Google AI Studio
 
-您可以在 [Google AI Studio](https://aistudio.google.com/apikey?hl=zh-tw) 中直接管理專案和金鑰。
+Projektami i kluczami możesz zarządzać bezpośrednio w [Google AI Studio](https://aistudio.google.com/apikey?hl=pl).
 
-### Google Cloud 專案
+### Projekty Google Cloud
 
-每個 Gemini API 金鑰都與 [Google Cloud 專案](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=zh-tw)相關聯。
-Google Cloud 專案可管理帳單、協作者和權限。Google AI Studio 提供輕量型介面，方便您存取這些專案。
+Każdy klucz interfejsu Gemini API jest powiązany z projektem [Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=pl).
+Projekty Google Cloud zarządzają rozliczeniami, współpracownikami i uprawnieniami. Google AI Studio udostępnia uproszczony interfejs umożliwiający dostęp do tych projektów.
 
-- **預設專案**：如果您是新使用者，接受《服務條款》後，Google AI Studio 會自動建立預設的 Google Cloud 雲端專案和 API 金鑰。如要重新命名這個專案，請前往資訊主頁的「專案」檢視畫面。
-- **現有專案**：如果您已有 Google Cloud 帳戶，AI Studio 不會建立預設專案。而是必須匯入現有專案。
+- **Projekt domyślny**: jeśli jesteś nowym użytkownikiem, po zaakceptowaniu Warunków korzystania z usługi Google AI Studio automatycznie utworzy domyślny projekt w chmurze Google Cloud i klucz interfejsu API. Możesz zmienić nazwę tego projektu, otwierając widok **Projekty** na panelu.
+- **Istniejące projekty**: jeśli masz już konto Google Cloud, AI
+  Studio nie utworzy projektu domyślnego. Zamiast tego musisz zaimportować istniejące projekty.
 
-### 匯入專案
+### Importowanie projektów
 
-根據預設，Google AI Studio 不會顯示所有 Google Cloud 專案。您必須匯入要使用的專案：
+Domyślnie Google AI Studio nie wyświetla wszystkich Twoich projektów Google Cloud. Musisz zaimportować projekty, których chcesz używać:
 
-1. 前往 [Google AI Studio](https://aistudio.google.com?hl=zh-tw)。
-2. 開啟左側面板的「資訊主頁」，然後選取「專案」。
-3. 按一下「匯入專案」按鈕。
-4. 搜尋並選取要匯入的 Google Cloud 雲端專案，然後按一下**匯入**。
-5. 匯入後，請前往資訊主頁的「API 金鑰」頁面，在該專案中建立金鑰。
+1. Otwórz [Google AI Studio](https://aistudio.google.com?hl=pl).
+2. W panelu po lewej stronie otwórz **Panel** i wybierz **Projekty**.
+3. Kliknij przycisk **Importuj projekty**.
+4. Wyszukaj i wybierz projekt Google Cloud, który chcesz zaimportować, a potem kliknij **Importuj**.
+5. Po zaimportowaniu otwórz stronę **Klucze interfejsu API** na panelu, aby utworzyć klucz w tym projekcie.
 
-### 排解金鑰建立權限問題
+### Rozwiązywanie problemów z uprawnieniami do tworzenia kluczy
 
-如果「建立 API 金鑰」按鈕無法使用，並顯示「您沒有權限在這個專案中建立金鑰」訊息，表示您沒有必要的 IAM 權限。
+Jeśli przycisk **Utwórz klucz interfejsu API** jest niedostępny i wyświetla się komunikat
+*„Nie masz uprawnień do tworzenia klucza w tym projekcie”*, oznacza to, że nie masz
+wymaganych uprawnień IAM.
 
-請 Google Cloud 專案或機構管理員授予您具備下列權限的角色 (例如專案編輯者)：
+Poproś administratora projektu w chmurze lub administratora organizacji Google Cloud o przyznanie Ci roli zawierającej te uprawnienia (np. Edytujący projekt):
 
-- `resourcemanager.projects.get`：允許 AI Studio 驗證專案。
-- `apikeys.keys.create`：允許產生金鑰。
-- `serviceusage.services.enable`：確認已啟用 Generative Language API。
-- `iam.serviceAccounts.create`：建立連結的服務帳戶時必須提供。
-- `iam.serviceAccountApiKeyBindings.create`：將服務帳戶繫結至 API 金鑰。
+- `resourcemanager.projects.get`: umożliwia AI Studio weryfikację projektu.
+- `apikeys.keys.create`: umożliwia generowanie kluczy.
+- `serviceusage.services.enable`: zapewnia włączenie Generative Language API.
+- `iam.serviceAccounts.create`: wymagane do utworzenia połączonego konta usługi.
+- `iam.serviceAccountApiKeyBindings.create`: wiąże konto usługi z kluczem interfejsu API.
 
-如果無法取得管理員存取權，可以建立未與機構相關聯的新 Google Cloud 專案，產生金鑰。
+Jeśli nie możesz uzyskać dostępu administracyjnego, możesz utworzyć nowy projekt Google Cloud, który nie jest powiązany z organizacją, aby wygenerować klucze.
 
-## 設定環境
+## Konfigurowanie środowiska
 
-取得金鑰後，請設定環境，以便在應用程式中安全地使用金鑰。
+Gdy masz już klucz, skonfiguruj środowisko, aby bezpiecznie używać go w aplikacjach.
 
-### 選項 1：使用環境變數 (建議)
+### Opcja 1. Używanie zmiennych środowiskowych (zalecane)
 
-設定環境變數 `GEMINI_API_KEY` 或 `GOOGLE_API_KEY`。Gemini API 用戶端程式庫會自動偵測並使用這些變數。如果兩者都已設定，系統會優先採用 `GOOGLE_API_KEY`。
+Ustaw zmienną środowiskową `GEMINI_API_KEY` lub `GOOGLE_API_KEY`. Biblioteki klienta Gemini API automatycznie wykrywają i używają tych zmiennych. Jeśli obie są ustawione, pierwszeństwo ma `GOOGLE_API_KEY`.
 
-選取作業系統來設定變數：
+Aby ustawić zmienną, wybierz system operacyjny:
 
-### Linux/macOS - Bash
+### Linux/macOS – Bash
 
-確認您是否有 Bash 設定檔：
+Sprawdź, czy masz plik konfiguracyjny bash:
 
 ```
 ~/.bashrc
 ```
 
-如果沒有，請建立並開啟：
+Jeśli nie, utwórz go i otwórz:
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-在檔案結尾新增匯出指令：
+Na końcu pliku dodaj polecenie eksportu:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-儲存檔案，然後套用變更：
+Zapisz plik, a potem zastosuj zmiany:
 
 ```
 source ~/.bashrc
 ```
 
-### macOS - Zsh
+### macOS – Zsh
 
-確認你是否有 zsh 設定檔：
+Sprawdź, czy masz plik konfiguracyjny zsh:
 
 ```
 ~/.zshrc
 ```
 
-如果沒有，請建立並開啟：
+Jeśli nie, utwórz go i otwórz:
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-新增匯出指令：
+Dodaj polecenie eksportu:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-儲存檔案，然後套用變更：
+Zapisz plik, a potem zastosuj zmiany:
 
 ```
 source ~/.zshrc
@@ -135,15 +143,15 @@ source ~/.zshrc
 
 ### Windows
 
-1. 在 Windows 搜尋列中搜尋「環境變數」。
-2. 在「系統內容」對話方塊中，按一下「環境變數」。
-3. 在「使用者變數」或「系統變數」下方，按一下「新增...」。
-4. 將變數名稱設為 `GEMINI_API_KEY`，並將值設為您的 API 金鑰。
-5. 按一下 [確定] 進行儲存。開啟新的終端機工作階段，載入變數。
+1. Na pasku wyszukiwania systemu Windows wyszukaj „Zmienne środowiskowe”.
+2. W oknie Właściwości systemu kliknij **Zmienne środowiskowe**.
+3. W sekcji **Zmienne użytkownika** lub **Zmienne systemowe** kliknij **Nowa…**.
+4. Ustaw nazwę zmiennej na `GEMINI_API_KEY`, a wartość na klucz interfejsu API.
+5. Kliknij **OK** , aby zapisać. Aby wczytać zmienną, otwórz nową sesję terminala.
 
-### 方法 2：在程式碼中明確提供 API 金鑰
+### Opcja 2. Jawne podanie klucza interfejsu API w kodzie
 
-初始化用戶端時，您可以明確傳遞 API 金鑰。只有在無法使用環境變數時，才需要這麼做。
+Podczas inicjowania klienta możesz jawnie przekazać klucz interfejsu API. Zrób to tylko wtedy, gdy nie możesz używać zmiennych środowiskowych.
 
 ### Python
 
@@ -269,97 +277,108 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 安全性和密鑰管理
+## Bezpieczeństwo i zarządzanie obiektami tajnymi
 
-請妥善保管 Gemini API 金鑰，如同其他密碼一般。一旦遭盜用，他人就能耗用專案配額、產生非預期的帳單費用，以及存取私人資源。
+Traktuj klucz interfejsu Gemini API jak hasło. Jeśli zostanie on naruszony, inne osoby mogą wykorzystać limit projektu, ponieść nieoczekiwane opłaty i uzyskać dostęp do zasobów prywatnych.
 
-### 重大安全性規則
+### Krytyczne reguły bezpieczeństwa
 
-- **確保金鑰機密性**：請勿將 API 金鑰登錄至 Git 等原始碼控管系統。
-- **切勿在正式版中向用戶端公開金鑰**：請勿直接在網頁或行動應用程式中以硬式編碼加入 API 金鑰。使用者可以擷取用戶端程式碼中編譯的鍵。如要保護用戶端應用程式，請執行後端 Proxy 伺服器，進行實際的 API 呼叫。
+- **Zachowaj klucze w tajemnicy**: nigdy nie sprawdzaj kluczy interfejsu API w systemach kontroli źródła
+  takich jak Git.
+- **Nigdy nie udostępniaj kluczy po stronie klienta w środowisku produkcyjnym**: nie koduj na stałe kluczy interfejsu API
+  bezpośrednio w aplikacjach internetowych ani mobilnych. Klucze skompilowane w kodzie po stronie klienta mogą zostać wyodrębnione przez użytkowników. Aby zabezpieczyć aplikacje po stronie klienta, uruchom serwer proxy backendu, aby wykonywać rzeczywiste wywołania interfejsu API.
 
-### 密鑰管理最佳做法
+### Sprawdzone metody zarządzania obiektami tajnymi
 
-- **環境變數**：從環境變數而非設定檔讀取金鑰。
-- **Secret Manager**：在實際工作環境中，請將金鑰儲存在安全的密鑰儲存空間，例如 [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=zh-tw)。
-- **帳單快訊**：在 Google Cloud 控制台中設定帳單快訊，當用量或費用暴增時，系統會通知您。
+- **Zmienne środowiskowe**: odczytuj klucze ze zmiennych środowiskowych, a nie z plików konfiguracyjnych.
+- **Secret Manager**: w środowisku produkcyjnym przechowuj klucze w bezpiecznym magazynie obiektów tajnych
+  takim jak [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=pl).
+- **Alerty dotyczące płatności**: skonfiguruj alerty dotyczące płatności w konsoli Google Cloud, aby
+  otrzymywać powiadomienia o nagłym wzroście wykorzystania lub kosztów.
 
-### 洩漏事件應對檢查清單
+### Lista kontrolna dotycząca reagowania na wyciek danych
 
-如果懷疑 API 金鑰外洩，請採取下列行動：
+Jeśli podejrzewasz, że Twój klucz interfejsu API wyciekł:
 
-1. **產生新金鑰**：在 Google AI Studio 或 Cloud Platform Console 中建立替代金鑰。
-2. **更新應用程式**：使用新金鑰部署程式碼。
-3. **停用或刪除遭入侵的金鑰**：新金鑰通過驗證後，請在 Cloud Console 中停用遭洩漏的金鑰。請勿刪除舊金鑰，直到新金鑰完全啟用為止，以免應用程式停機。
-4. **稽核使用情形**：在 Google Cloud 控制台中查看帳單記錄和 API 使用情形，找出未經授權的活動。
+1. **Wygeneruj nowy klucz**: utwórz klucz zastępczy w Google AI Studio lub
+   Cloud Console.
+2. **Zaktualizuj aplikację**: wdróż kod, używając nowego klucza.
+3. **Wyłącz lub usuń naruszony klucz**: po zweryfikowaniu nowego klucza wyłącz wyciekły klucz w
+   Cloud Console. Aby uniknąć przestoju aplikacji, nie usuwaj starego klucza, dopóki nowy klucz nie będzie w pełni aktywny.
+4. **Sprawdź wykorzystanie**: sprawdź logi płatności i wykorzystanie interfejsu API w konsoli Google Cloud
+   , aby zidentyfikować nieautoryzowaną aktywność.
 
-## 限制及保護金鑰
+## Ograniczanie i zabezpieczanie kluczy
 
-為 API 金鑰新增限制，可將金鑰遭盜用時造成的潛在損害降到最低。
+Dodanie ograniczeń do kluczy interfejsu API minimalizuje potencjalne szkody w przypadku naruszenia bezpieczeństwa klucza.
 
-### 套用要求來源限制
+### Stosowanie ograniczeń dotyczących pochodzenia żądania
 
-來源限制會規定哪些 IP 位址、網站或應用程式可以使用您的金鑰。
+Ograniczenia dotyczące pochodzenia ograniczają, które adresy IP, witryny lub aplikacje mogą używać Twojego klucza.
 
-1. 前往 [Google Cloud 控制台的「憑證」頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
-2. 選取專案，然後按一下要限制的 API 金鑰名稱。
-3. 在「應用程式限制」下方，選取「IP 位址」 (或適合您環境的限制類型)。
-4. 指定允許的 IP 位址或範圍，然後按一下「儲存」。
+1. Otwórz stronę [Dane logowania w konsoli Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pl).
+2. Wybierz projekt i kliknij nazwę klucza interfejsu API, który chcesz ograniczyć.
+3. W sekcji **Ograniczenia aplikacji** wybierz **Adresy IP** (lub
+   odpowiedni typ ograniczenia dla Twojego środowiska).
+4. Określ dozwolone adresy IP lub zakresy adresów IP, a potem kliknij **Zapisz**.
 
-### 保護未設限的標準 API 金鑰
+### Zabezpieczanie standardowych kluczy interfejsu API bez ograniczeń
 
-如要繼續使用 Gemini API，請務必保護未設限的金鑰。
+Aby nadal korzystać z Gemini API, musisz zabezpieczyć wszystkie klucze bez ograniczeń.
 
-#### 方法 A：將金鑰限制在僅限 Gemini API (AI Studio)
+#### Metoda A. Ogranicz klucz tylko do Gemini API (AI Studio)
 
-如果金鑰只用於 Gemini API，請直接在 AI Studio 中保護金鑰：
+Jeśli używasz klucza tylko do Gemini API, zabezpiecz go bezpośrednio w AI Studio:
 
-1. 在 [Google AI Studio](https://aistudio.google.com/api-keys?hl=zh-tw) 的「API 金鑰」頁面中，找出標有「無限制」標籤的金鑰。
-2. 將游標懸停在標籤上，然後按一下對話方塊中的「新增限制」。
-3. 選取「僅限 Gemini API」。
-4. 按一下「限制金鑰」確認操作。
+1. Na stronie **Klucze interfejsu API** w [Google AI Studio](https://aistudio.google.com/api-keys?hl=pl) znajdź klucze oznaczone etykietą
+   **Bez ograniczeń**.
+2. Najedź kursorem na etykietę i w oknie kliknij **Dodaj ograniczenia**.
+3. Wybierz **Ogranicz tylko do Gemini API**.
+4. Aby potwierdzić, kliknij **Ogranicz klucz**.
 
-#### 方法 B：限制其他服務的金鑰 (Google Cloud 控制台)
+#### Metoda B. Ogranicz klucz do innych usług (konsola Google Cloud)
 
-如果金鑰與其他 Google API 共用 (不建議)，請在 Cloud Console 中限制金鑰。**注意：套用這些限制後，使用這組金鑰的 Gemini API 要求將會失敗。**
+Jeśli klucz jest udostępniany innym interfejsom API Google (niezalecane), ogranicz go w Cloud Console. **Uwaga: po zastosowaniu tych ograniczeń żądania Gemini API używające tego klucza będą kończyć się niepowodzeniem.**
 
-1. 前往 [Google Cloud 控制台的「憑證」頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
-2. 選取專案和 API 金鑰。
-3. 在「API restrictions」下方，使用「Select API restrictions」下拉式選單，選取要讓這個金鑰存取的 API。請勿選取「Generative Language API」。
-4. 按一下 [儲存]。在 AI Studio 中建立獨立的受限金鑰，繼續使用 Gemini API。
+1. Otwórz stronę [Dane logowania w konsoli Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pl).
+2. Wybierz projekt i klucz interfejsu API.
+3. W sekcji **Ograniczenia interfejsów API** użyj menu **Wybierz ograniczenia interfejsu API** , aby
+   wybrać interfejsy API, do których ten klucz ma mieć dostęp. Nie wybieraj **Generative Language API**.
+4. Kliknij **Zapisz**. Aby nadal korzystać z Gemini API, utwórz w AI Studio osobny klucz z ograniczeniami.
 
-### 封鎖閒置金鑰
+### Zablokowane nieaktywne klucze
 
-2026 年 5 月 7 日起，Gemini API 會封鎖長期閒置的未設限 API 金鑰。這些金鑰在 AI Studio 中會顯示「已封鎖」標記。您必須產生新金鑰或使用現有的受限金鑰，才能繼續操作。
+Od 7 maja 2026 r. Gemini API będzie blokować klucze interfejsu API bez ograniczeń, które przez dłuższy czas były nieaktywne. Te klucze będą oznaczone w AI Studio tagiem **Zablokowany**. Aby kontynuować, musisz wygenerować nowy klucz lub użyć istniejącego klucza z ograniczeniami.
 
-## 改用驗證金鑰
+## Migracja na klucz do autoryzacji
 
-請按照下列步驟建立新的驗證型 API 金鑰，並更新應用程式：
+Aby utworzyć nowy klucz interfejsu API do autoryzacji i zaktualizować aplikacje, wykonaj te czynności:
 
-1. 前往 [AI Studio API 金鑰頁面](https://aistudio.google.com/api-keys?hl=zh-tw)。
-2. 檢查「金鑰類型」欄，找出列為「標準」的金鑰。
-3. 按一下「建立 API 金鑰」，產生新的金鑰。在 AI Studio 中建立的所有新金鑰，都會自動建立為授權金鑰。
-4. 複製新的驗證型 API 金鑰。
-5. 更新應用程式程式碼、環境變數和任何部署設定，以使用新的驗證 API 金鑰。
-6. 測試應用程式，確認新金鑰是否正常運作。
-7. 驗證完成後，請刪除或撤銷舊的流量金鑰，以免遭到濫用。
+1. Otwórz stronę [Klucze interfejsu API w AI Studio](https://aistudio.google.com/api-keys?hl=pl).
+2. Sprawdź kolumnę **Typ klucza** , aby zidentyfikować klucze oznaczone jako **Standardowy**.
+3. Aby wygenerować nowy klucz, kliknij **Utwórz klucz interfejsu API**. Wszystkie nowe klucze utworzone w AI Studio są automatycznie tworzone jako klucze do autoryzacji.
+4. Skopiuj nowy klucz interfejsu API do autoryzacji.
+5. Zaktualizuj kod aplikacji, zmienne środowiskowe i konfiguracje wdrożenia, aby używać nowego klucza interfejsu API do autoryzacji.
+6. Przetestuj aplikację, aby sprawdzić, czy działa prawidłowo z nowym kluczem.
+7. Po zweryfikowaniu usuń lub unieważnij stary klucz ruchu, aby zapobiec jego nadużyciu.
 
-## 限制
+## Ograniczenia
 
-Google AI Studio 對專案和金鑰管理設有下列限制：
+Google AI Studio nakłada te ograniczenia dotyczące zarządzania projektami i kluczami:
 
-- 您一次最多可從 Google AI Studio 的「專案」頁面建立 10 個專案。
-- 「API 金鑰」和「專案」頁面最多會顯示 100 個金鑰和 50 個專案。
-- 系統只會顯示未設限的 API 金鑰，或是專門設限於 Generative Language API (Gemini API) 的 API 金鑰。
+- Na stronie **Projekty** w Google AI Studio możesz utworzyć maksymalnie 10 projektów naraz.
+- Na stronach **Klucze interfejsu API** i **Projekty** wyświetla się maksymalnie 100 kluczy i 50 projektów.
+- Wyświetlane są tylko klucze interfejsu API, które nie mają ograniczeń lub są ograniczone do Generative Language API (Gemini API).
 
-如要進行進階專案管理，或修改具有其他限制的鍵，請使用 [Google Cloud 控制台的「憑證」頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
+Aby uzyskać dostęp do zaawansowanego zarządzania projektami lub modyfikować klucze z innymi ograniczeniami, użyj
+strony [Dane logowania w konsoli Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pl).
 
-提供意見
+Prześlij opinię
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-上次更新時間：2026-07-30 (世界標準時間)。
+Ostatnia aktualizacja: 2026-07-30 UTC.
 
-想進一步說明嗎？
+Chcesz przekazać coś jeszcze?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]

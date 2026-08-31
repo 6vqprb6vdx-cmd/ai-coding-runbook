@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-BR
-fetched_at: 2026-08-24T02:30:31.677004+00:00
-title: "Execu\u00e7\u00e3o em segundo plano \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419
+fetched_at: 2026-08-31T06:35:53.629973+00:00
+title: "Ejecuci\u00f3n en segundo plano \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Envie comentários
+Enviar comentarios
 
-# Execução em segundo plano
+# Ejecución en segundo plano
 
-Para tarefas de longa duração, como pesquisa detalhada, raciocínio complexo ou execuções de agentes de várias etapas, os tempos limite de conexão podem interromper as solicitações HTTP padrão (que normalmente são fechadas após 60 segundos). A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) oferece **execução em segundo plano** para executar essas tarefas de forma assíncrona.
+Para tareas de larga duración, como la investigación exhaustiva, el razonamiento complejo o las ejecuciones de agentes de varios pasos, los tiempos de espera de conexión pueden interrumpir las solicitudes HTTP estándar (que suelen cerrarse después de 60 segundos). La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) proporciona la **ejecución en segundo plano** para ejecutar estas tareas de forma asíncrona.
 
-Para permitir que a interação seja executada até concluir a tarefa no servidor, defina `"background": true` ao criar a interação. A API retorna imediatamente um ID de interação, que os aplicativos cliente podem usar para pesquisar o status, transmitir o progresso ou se reconectar a um stream desconectado.
+Para permitir que la interacción se ejecute hasta que complete la tarea en el servidor, establece `"background": true` cuando crees la interacción. La API muestra de inmediato un ID de interacción, que las aplicaciones cliente pueden usar para sondear el estado, transmitir el progreso o volver a conectarse a una transmisión desconectada.
 
-A execução em segundo plano é compatível com modelos padrão do Gemini (como `gemini-3.6-flash` e `gemini-3.1-pro-preview`) e agentes gerenciados (como `antigravity-preview-05-2026`).
+La ejecución en segundo plano es compatible con los modelos estándar de Gemini (como `gemini-3.6-flash` y `gemini-3.1-pro-preview`) y los agentes administrados (como `antigravity-preview-05-2026`).
 
-## Criar uma interação em segundo plano
+## Crea una interacción en segundo plano
 
-Para iniciar uma interação em segundo plano, defina o parâmetro `background` como `true` ao criar o recurso.
+Para iniciar una interacción en segundo plano, establece el parámetro `background` en `true` cuando crees el recurso.
 
 ### Python
 
@@ -72,31 +72,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Como funciona a execução em segundo plano
+## Cómo funciona la ejecución en segundo plano
 
-Quando você cria uma interação em segundo plano, a tarefa é executada de forma assíncrona no servidor. A interação passa por vários estados de execução:
+Cuando creas una interacción en segundo plano, la tarea se ejecuta de forma asíncrona en el servidor. La interacción pasa por varios estados de ejecución:
 
-- `in_progress`: o servidor está executando ativamente a interação (como executar código ou pesquisar).
-- `requires_action`: a interação foi pausada e está aguardando a entrada do cliente (como confirmar a execução de uma ferramenta ou responder a uma pergunta).
-- `completed`: a interação foi concluída e a saída está disponível.
-- `failed`: ocorreu um erro durante a execução (como falha na ferramenta ou limites de taxa).
-- `cancelled`: uma solicitação do cliente interrompeu a execução.
+- `in_progress`: El servidor está ejecutando la interacción de forma activa (como ejecutar código o investigar).
+- `requires_action`: La interacción se pausó y está esperando la entrada del cliente (como confirmar la ejecución de una herramienta o responder una pregunta).
+- `completed`: La interacción finalizó correctamente y el resultado está disponible.
+- `failed`: Se produjo un error durante la ejecución (como una falla de la herramienta o límites de frecuencia).
+- `cancelled`: Una solicitud del cliente detuvo la ejecución.
 
 ### Casos de uso
 
-Use a execução em segundo plano para:
+Usa la ejecución en segundo plano para lo siguiente:
 
-- **Execuções de agentes**:tarefas que exigem execução de código, navegação na Web ou orquestração de subagentes (como `antigravity-preview-05-2026`).
-- **Pesquisa detalhada**:execuções usando `deep-research-preview-04-2026` ou `deep-research-max-preview-04-2026` que levam vários minutos.
-- **Raciocínio longo**:tarefas em que as etapas de pensamento do modelo excedem os limites de conexão HTTP padrão.
+- **Ejecuciones de agentes:** Tareas que requieren ejecución de código, navegación web o coordinación de agentes secundarios (como `antigravity-preview-05-2026`).
+- **Investigación exhaustiva:** Ejecuciones con `deep-research-preview-04-2026` o `deep-research-max-preview-04-2026` que tardan varios minutos.
+- **Razonamiento extenso:** Tareas en las que los pasos de pensamiento del modelo superan los límites de conexión HTTP estándar.
 
-## Recuperar resultados
+## Recupera resultados
 
-Receba resultados de interação em segundo plano usando **polling** ou **streaming**.
+Obtén resultados de la interacción en segundo plano con **sondeo** o **transmisión**.
 
-### Padrão de polling (sem bloqueio)
+### Patrón de sondeo (sin bloqueo)
 
-O polling verifica o status da interação periodicamente usando solicitações GET sem bloqueio até que ela atinja um estado terminal.
+El sondeo verifica el estado de la interacción de forma periódica con solicitudes GET sin bloqueo hasta que alcanza un estado terminal.
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### Padrão de streaming
+### Patrón de transmisión
 
-Se uma interrupção de rede desconectar um stream, o streaming poderá ser retomado do último evento recebido. Cada delta contém um `event_id` exclusivo no payload. A transmissão desse ID como `last_event_id` retoma o stream desse evento.
+Si una interrupción de la red desconecta una transmisión, esta puede reanudarse desde el último evento recibido. Cada delta contiene un `event_id` único en su carga útil. Si pasas este ID como `last_event_id`, se reanuda la transmisión desde ese evento.
 
 ### Python
 
@@ -240,14 +240,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Conversas multiturno
+## Conversaciones de varios turnos
 
-As interações subsequentes podem ser encadeadas a uma conversa em segundo plano usando `previous_interaction_id`, sujeitas a estas restrições:
+Las interacciones posteriores se pueden encadenar a una conversación en segundo plano con `previous_interaction_id`, sujeto a estas restricciones:
 
-1. **As execuções ativas são bloqueadas**:o encadeamento de uma interação subsequente a uma com status `in_progress` retorna um erro `400 Bad Request`. Aguarde a interação atingir o estado `completed` antes de iniciar a próxima.
-2. **Parâmetro de ambiente para agentes gerenciados**:ao encadear interações para agentes gerenciados (como `antigravity-preview-05-2026`), as solicitações precisam incluir `previous_interaction_id` e `environment`.
+1. **Se bloquean las ejecuciones activas:** Si se encadena una interacción posterior a una con el estado `in_progress`, se muestra un error `400 Bad Request`. Espera a que la interacción alcance el estado `completed` antes de iniciar la siguiente.
+2. **Parámetro de entorno para agentes administrados:** Cuando se encadenan interacciones para agentes administrados (como `antigravity-preview-05-2026`), las solicitudes deben incluir `previous_interaction_id` y `environment`.
 
-Os exemplos a seguir mostram como encadear interações:
+En los siguientes ejemplos, se muestra cómo encadenar interacciones:
 
 ### Python
 
@@ -335,12 +335,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cancelamento e exclusão
+## Cancelación y eliminación
 
-Controle as execuções em andamento e gerencie o armazenamento usando solicitações de cancelamento e exclusão:
+Controla las ejecuciones en curso y administra el almacenamiento con solicitudes de cancelación y eliminación:
 
-- **Cancelar (`POST /interactions/{id}/cancel`)** : interrompe a tarefa em execução. O status faz a transição para `cancelled`. As ações de limpeza no servidor podem causar um pequeno atraso antes que o status seja atualizado nas solicitações GET.
-- **Excluir (`DELETE /interactions/{id}`)** : remove os registros de interação do servidor. As solicitações GET subsequentes retornam um erro `404 Not Found`.
+- **Cancelar (`POST /interactions/{id}/cancel`):** Detiene la tarea en ejecución. El estado pasa a `cancelled`. Las acciones de limpieza en el servidor pueden causar una pequeña demora antes de que se actualice el estado en las solicitudes GET.
+- **Borrar (`DELETE /interactions/{id}`):** Quita los registros de interacción del servidor. Las solicitudes GET posteriores muestran un error `404 Not Found`.
 
 ### Python
 
@@ -384,18 +384,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Próximas etapas
+## Próximos pasos
 
-- Leia a [visão geral da API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) para entender o gerenciamento de sessão e estado.
-- Consulte o guia de [interações de streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=pt-br) para detalhes sobre atualizações de eventos em tempo real.
-- Confira o [guia de início rápido de agentes gerenciados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pt-br) para criar agentes multiturno com estado.
+- Lee la [descripción general de la API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) para comprender la administración de sesiones y estados.
+- Consulta la guía de [interacciones de transmisión](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419) para obtener detalles sobre las actualizaciones de eventos en tiempo real.
+- Explora el [inicio rápido de agentes administrados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419) para compilar agentes de varios turnos con estado.
 
-Envie comentários
+Enviar comentarios
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Última atualização 2026-07-30 UTC.
+Última actualización: 2026-07-30 (UTC)
 
-Quer enviar seu feedback?
+¿Quieres brindar más información?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

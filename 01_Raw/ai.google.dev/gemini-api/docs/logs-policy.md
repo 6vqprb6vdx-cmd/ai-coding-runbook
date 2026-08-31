@@ -1,64 +1,81 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr
-fetched_at: 2026-08-24T02:23:54.997765+00:00
-title: "Veri g\u00fcnl\u00fck kayd\u0131 ve payla\u015f\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=ar
+fetched_at: 2026-08-31T06:42:44.247784+00:00
+title: "\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0648\u0645\u0634\u0627\u0631\u0643\u062a\u0647\u0627 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-# Veri günlük kaydı ve paylaşımı
+# تسجيل البيانات ومشاركتها
 
-Bu sayfada, faturalandırmanın etkinleştirildiği projeler için desteklenen Gemini API çağrılarından elde edilen ve geliştiricilere ait API verileri olan [Gemini API günlüklerinin](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) depolanması ve yönetilmesi açıklanmaktadır. Günlükler, kullanıcının isteğinden modelin yanıtına kadar olan tüm süreci kapsar.
-Google Cloud projenize özel olan bu günlükler, yalnızca [kötüye kullanımı izleme](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr) amacıyla tutulan günlüklerden ayrıdır.
+توضّح هذه الصفحة كيفية تخزين سجلّات
+[Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ar) وإدارتها، وهي بيانات واجهة برمجة التطبيقات التي يملكها المطوّرون من طلبات Gemini API المتوافقة للمشاريع التي تم تفعيل الفوترة فيها. تشمل السجلّات العملية بأكملها بدءًا من طلب المستخدم إلى ردّ النموذج.
+تختلف هذه السجلّات الخاصة بمشروعك على Google Cloud عن أي
+سجلّات يتم الاحتفاظ بها لأغراض [مراقبة إساءة الاستخدام](https://ai.google.dev/gemini-api/docs/usage-policies?hl=ar)
+فقط.
 
-## Paylaşılabilecek veriler
+## البيانات التي يمكن مشاركتها
 
-Proje sahibi olarak, kendi kullanımınız için veya modellerimizi sürekli olarak iyileştirmemize yardımcı olmak üzere Google ile geri bildirim ve paylaşım amacıyla Gemini API çağrılarının günlüğe kaydedilmesini etkinleştirebilirsiniz.
+بصفتك مالك مشروع، يمكنك الموافقة على تسجيل طلبات Gemini API لاستخدامك الخاص أو لتقديم ملاحظات ومشاركتها مع Google لمساعدتنا في تحسين نماذجنا باستمرار.
 
-Günlük kaydı etkinleştirildiğinde, ürün iyileştirmeleri ve model eğitimi için aşağıdaki verileri göndermeyi seçerek çeşitli alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam eden yapay zeka sistemleri oluşturmamıza yardımcı olabilirsiniz:
+عند تفعيل التسجيل، يمكنك مساعدتنا في إنشاء أنظمة ذكاء اصطناعي تظل قيّمة للمطوّرين في مختلف المجالات وحالات الاستخدام من خلال اختيار المساهمة بالبيانات التالية لتحسين المنتجات وتدريب النماذج:
 
-- **Veri kümeleri:** Desteklenen Gemini API çağrılarından ilgilendiğiniz günlükleri (istekler, yanıtlar, meta veriler vb.) seçmek için Google AI Studio'nun Günlükler ve Veri Kümeleri arayüzünü kullanın. Veri kümelerine dahil edilerek katkıda bulunulur. Veri kümesi oluşturma sırasında bu özelliği devre dışı bırakabilirsiniz.
-- **Geri bildirim:** Günlükleri incelerken geri bildirimde bulunabilirsiniz. Beğenme ve beğenmeme puanları ile yazdığınız yorumlar bu kapsamdadır.
+- **مجموعات البيانات:** استخدِم واجهة "السجلّات ومجموعات البيانات" في Google AI Studio لاختيار السجلّات (الطلبات والردود والبيانات الوصفية وما إلى ذلك) التي تهمّك من طلبات Gemini API المتوافقة، والتي يتم تقديمها من خلال تضمينها في مجموعات البيانات، مع خيار إيقاف هذه الميزة أثناء إنشاء مجموعة البيانات.
+- **الملاحظات:** عند مراجعة السجلّات، يمكنك تقديم ملاحظاتك، بما في ذلك التقييمات باستخدام رمزَي الإعجاب وعدم الإعجاب وأي تعليقات مكتوبة تقدّمها.
 
-Google ile bir veri kümesi paylaştığınızda, istekler ve yanıtlar dahil olmak üzere bu veri kümesindeki günlükleriniz, "[Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid)" ile ilgili [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca işlenir. Bu, veri kümesinin modellerimizi iyileştirmek ve eğitmek de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini geliştirmek ve iyileştirmek için kullanılabileceği anlamına gelir. **Kişisel, hassas veya gizli bilgiler eklemeyin.**
+عند مشاركة مجموعة بيانات مع Google، ستتم معالجة سجلّاتك في مجموعة البيانات هذه، بما في ذلك
+الطلبات والردود، وفقًا لـ
+[بنود](https://developers.google.com/terms?hl=ar)
+"[الخدمات غير المدفوعة](https://ai.google.dev/gemini-api/terms?hl=ar#data-use-unpaid)،"
+ما يعني أنّه قد يتم استخدام مجموعة البيانات لتطوير وتحسين منتجات Google
+وخدماتها وتكنولوجيات تعلُّم الآلة، بما في ذلك تحسين
+نماذجنا وتدريبها. **يُرجى عدم تضمين معلومات شخصية أو حساسة أو سرية.**
 
-## Verilerinizi nasıl kullanırız?
+## طريقة استخدامنا لبياناتك
 
-Günlükler varsayılan olarak en fazla 55 gün boyunca saklanır. Bu sürenin ardından günlükler otomatik olarak silinmek üzere işaretlenir. Bir projenin saklama süresi penceresi, 7, 14, 28 veya 55 gün sonra günlükleri silinmek üzere otomatik olarak işaretlemek için AI Studio'da güncellenebilir.
+يتم الاحتفاظ بالسجلّات لفترة قصوى تلقائية تبلغ 55 يومًا. وبعد هذه الفترة، يتم تلقائيًا وضع علامة على السجلّات لحذفها. يمكن تعديل فترة الاحتفاظ بالتخزين لمشروع في AI Studio لوضع علامة تلقائيًا على السجلّات لحذفها بعد 7 أو 14 أو 28 أو 55 يومًا.
 
-Aşağı akış kullanım alanları için belirlenen saklama süresinin ötesinde ilgi çekici günlükleri saklamak ve model iyileştirmelerine isteğe bağlı olarak katkıda bulunmak amacıyla [veri kümeleri](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) oluşturulabilir. Veri kümelerinde depolanan günlüklerin saklama süreleri ayarlanmaz.
+[يمكن إنشاء مجموعات بيانات](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ar) للاحتفاظ بالسجلّات التي تهمّك بعد فترة الاحتفاظ المحدّدة لحالات الاستخدام اللاحقة والمساهمة الاختيارية في تحسينات النموذج. لا تتضمّن السجلّات المخزّنة في مجموعات البيانات فترات احتفاظ محدّدة.
 
-Varsayılan olarak, günlük kaydı yalnızca faturalandırmanın etkinleştirildiği projelerde kullanılabilir. Bu nedenle, günlüklerdeki istemler ve yanıtlar, veri kullanımına ilişkin [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca ürün iyileştirme veya geliştirme için kullanılmaz.
+بشكلٍ تلقائي، بما أنّ التسجيل متاح فقط للمشاريع التي تم تفعيل الفوترة فيها،
+لا يتم استخدام الطلبات والردود في السجلّات لتحسين المنتجات أو
+تطويرها، وفقًا لـ [بنود الاستخدام](https://developers.google.com/terms?hl=ar)
+المتعلّقة باستخدام البيانات.
 
-Günlüklerinizin veri kümelerini Google ile paylaşmayı seçerseniz bu veri kümeleri, yapay zeka sistemlerinin ve uygulamalarının kullanıldığı alanların ve bağlamların çeşitliliğini daha iyi anlamak için gerçek dünya gösterim verileri olarak kullanılır. Bu veriler, model kalitesini artırmak ve gelecekteki modellerin ve hizmetlerin eğitim ve değerlendirme süreçlerine bilgi sağlamak için kullanılabilir. Bu veriler, [Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid) için veri kullanım şartlarımıza uygun olarak işlenir.
+إذا اخترت مشاركة مجموعات بيانات سجلّاتك مع Google، سيتم استخدام مجموعات البيانات هذه كبيانات توضيحية من العالم الحقيقي لفهم تنوّع النطاقات والسياقات التي يتم فيها استخدام أنظمة وتطبيقات الذكاء الاصطناعي بشكلٍ أفضل. قد يتم استخدام هذه البيانات لتحسين جودة النموذج، وتوجيه تدريب النماذج والخدمات المستقبلية وتقييمها. [تتم معالجة هذه البيانات وفقًا لبنود استخدام البيانات
+للخدمات غير المدفوعة](https://ai.google.dev/gemini-api/terms?hl=ar#data-use-unpaid).
 
-Bu nedenle, inceleme uzmanları paylaştığınız API girişlerini ve çıkışlarını okuyabilir, işleyebilir ve bunlara açıklama ekleyebilir. Veriler model geliştirmede kullanılmadan önce Google, bu süreç kapsamında kullanıcı gizliliğini korumak için gerekli önlemleri alır. Örneğin, inceleme uzmanları görmeden veya açıklama eklemeden önce bu verilerin Google Hesabınız, API anahtarınız ve Cloud projenizle bağlantısını kaldırırız.
+بناءً على ذلك، يمكن للمراجعين قراءة مدخلات ومخرجات واجهة برمجة التطبيقات التي تشاركها وإضافة تعليقات توضيحية إليها ومعالجتها. قبل استخدام البيانات لتحسين النموذج، تتّخذ Google خطوات لحماية خصوصية المستخدم كجزء من هذه العملية. ويشمل ذلك إلغاء ربط هذه البيانات بحسابك على Google ومفتاح واجهة برمجة التطبيقات ومشروعك على Cloud قبل أن يراها المراجعون أو يضيفوا تعليقات توضيحية إليها.
 
-## Veri izinleri
+## أذونات البيانات
 
-API verilerine katkıda bulunmayı etkinleştirerek Google'ın verileri bu dokümanda açıklandığı şekilde işlemesi ve kullanması için gerekli izinlere sahip olduğunuzu onaylarsınız. **Lütfen ücretli hizmet aracılığıyla elde edilen hassas, gizli veya özel bilgileri içeren günlükler göndermeyin**.
-API Şartları'ndaki "[İçerik Gönderme](https://developers.google.com/terms?hl=tr#b_submission_of_content)" bölümü uyarınca Google'a verdiğiniz lisans, Hizmetler'e gönderdiğiniz tüm içerikler (ör.ilişkili sistem talimatları da dahil olmak üzere istemler, önbelleğe alınmış içerikler ve resim, video ya da doküman gibi dosyalar) ve oluşturulan tüm yanıtlar için de geçerlidir. Bu geçerlilik, kullanımımız için geçerli yasalar uyarınca gerekli olduğu ölçüde geçerlidir.
+من خلال الموافقة على المساهمة ببيانات واجهة برمجة التطبيقات، أنت تؤكّد أنّ لديك الأذونات اللازمة لكي تعالج Google البيانات وتستخدمها كما هو موضّح في هذا المستند. **يُرجى عدم المساهمة بسجلّات تحتوي على معلومات حساسة أو سرية أو خاصة تم الحصول عليها من خلال الخدمة المدفوعة**.
+يسري الترخيص الذي تمنحه لشركة Google بموجب قسم "[إرسال المحتوى](https://developers.google.com/terms?hl=ar#b_submission_of_content)"
+في بنود واجهة برمجة التطبيقات أيضًا، بالقدر المطلوب بموجب القانون الساري
+لاستخدامنا، على أي محتوى (مثل الطلبات، بما في ذلك تعليمات النظام المرتبطة
+والمحتوى المخزّن مؤقتًا والملفات مثل الصور أو الفيديوهات أو المستندات)
+ترسله إلى الخدمات وأي ردود من إنشائها.
 
-## Veri paylaşımı ve geri bildirim
+## مشاركة البيانات والملاحظات
 
-Verilerinizi örnek olarak paylaşmayı kabul ederek yapay zeka araştırmalarının, Gemini API'nin ve Google AI Studio'nun sınırlarını genişletmemize yardımcı olabilirsiniz. Bu sayede, modellerimizi çeşitli bağlamlarda sürekli olarak iyileştirebilir ve farklı alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam edecek yapay zeka sistemleri oluşturabiliriz.
+يمكنك مساعدتنا في تطوير أبحاث الذكاء الاصطناعي وGemini API وGoogle AI Studio من خلال الموافقة على مشاركة بياناتك كأمثلة، ما يتيح لنا تحسين نماذجنا باستمرار في مختلف السياقات وإنشاء أنظمة ذكاء اصطناعي تظل قيّمة للمطوّرين في مختلف المجالات وحالات الاستخدام.
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Son güncelleme tarihi: 2026-08-19 UTC.
+تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
