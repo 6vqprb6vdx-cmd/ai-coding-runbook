@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/usage_report/retrieve_claude_code
-fetched_at: 2026-08-31T06:25:45.431794+00:00
+fetched_at: 2026-09-07T05:27:24.870681+00:00
 fetch_method: mintlify_md
 ---
 
@@ -190,7 +190,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ```bash
 curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
 ```
 
 ### Response (200)

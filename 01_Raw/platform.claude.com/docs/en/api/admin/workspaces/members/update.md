@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/workspaces/members/update
-fetched_at: 2026-08-31T06:25:44.772090+00:00
+fetched_at: 2026-09-07T05:27:23.987553+00:00
 fetch_method: mintlify_md
 ---
 
@@ -76,7 +76,7 @@ Update Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN" \
     -d '{
           "workspace_role": "workspace_admin"
         }'

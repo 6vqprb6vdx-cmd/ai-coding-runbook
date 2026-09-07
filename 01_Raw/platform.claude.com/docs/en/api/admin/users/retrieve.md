@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/users/retrieve
-fetched_at: 2026-08-31T06:25:44.029204+00:00
+fetched_at: 2026-09-07T05:27:22.836193+00:00
 fetch_method: mintlify_md
 ---
 
@@ -73,7 +73,7 @@ Retrieve a member of the organization by user ID.
 ```bash
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
 ```
 
 ### Response (200)

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/invites/create
-fetched_at: 2026-08-31T06:25:43.895646+00:00
+fetched_at: 2026-09-07T05:27:22.572638+00:00
 fetch_method: mintlify_md
 ---
 
@@ -124,7 +124,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 curl https://api.anthropic.com/v1/organizations/invites \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN" \
     -d '{
           "email": "user@emaildomain.com",
           "role": "user"
