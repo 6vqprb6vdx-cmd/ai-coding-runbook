@@ -1,46 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-CN
-fetched_at: 2026-08-31T06:41:49.776218+00:00
-title: "\u4f7f\u7528 Live API \u7684\u5de5\u5177 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ar
+fetched_at: 2026-09-07T05:32:40.236829+00:00
+title: "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0623\u062f\u0627\u0629 \u0645\u0639 Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-发送反馈
+إرسال ملاحظات
 
-# 使用 Live API 的工具
+# استخدام الأداة مع Live API
 
-借助工具，Live API 不仅能进行对话，还能在保持实时连接的同时，在现实世界中执行操作并提取外部背景信息。
-您可以使用 Live API 定义工具，例如[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)和 [Google 搜索](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
+يتيح استخدام الأدوات لواجهة برمجة التطبيقات Live API أن تتجاوز مجرد المحادثة من خلال تمكينها من تنفيذ إجراءات في العالم الحقيقي وجلب سياق خارجي مع الحفاظ على اتصال في الوقت الفعلي.
+يمكنك تحديد أدوات، مثل [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
+و[بحث Google](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)، باستخدام واجهة برمجة التطبيقات Live API.
 
-## 受支持的工具概览
+## نظرة عامة على الأدوات المتاحة
 
-以下简要介绍了适用于 Live API 模型的工具：
+في ما يلي نظرة عامة موجزة على الأدوات المتاحة لنماذج واجهة برمجة التطبيقات Live API:
 
-| 工具 | Gemini 3.1 Flash Live 预览版 | Gemini 2.5 Flash 实时预览版 |
+| الأداة | المعاينة المباشرة لـ Gemini 3.1 Flash | المعاينة المباشرة لـ Gemini 2.5 Flash |
 | --- | --- | --- |
-| **搜索** | 支持 | 支持 |
-| **函数调用** | 支持（仅限同步） | 支持（同步和[异步](#async-function-calling)） |
-| **Google 地图** | 不受支持 | 不受支持 |
-| **代码执行** | 不受支持 | 不受支持 |
-| **网址上下文** | 不受支持 | 不受支持 |
+| **البحث** | متاح | متاح |
+| **استدعاء الدالة** | متاح (متزامن فقط) | متاح (متزامن و[غير متزامن](#async-function-calling)) |
+| **خرائط Google** | غير متاح | غير متاح |
+| **تنفيذ الرمز البرمجي** | غير متاح | غير متاح |
+| **سياق عنوان URL** | غير متاح | غير متاح |
 
-## 函数调用
+## استدعاء الدالة
 
-与常规内容生成请求一样，Live API 也支持函数调用。函数调用功能可让 Live API 与外部数据和程序进行交互，从而大幅提升应用的功能。
+تتيح واجهة برمجة التطبيقات Live API استدعاء الدوال، تمامًا مثل طلبات إنشاء المحتوى العادية. يسمح استدعاء الدوال لواجهة برمجة التطبيقات Live API بالتفاعل مع البيانات والبرامج الخارجية، ما يزيد بشكل كبير من الإمكانات التي يمكن لتطبيقاتك تحقيقها.
 
-您可以将会话配置定义为函数声明的一部分。
-在收到工具调用后，客户端应使用 `session.send_tool_response` 方法返回 `FunctionResponse` 对象列表。
+يمكنك تحديد إعلانات الدوال كجزء من إعدادات الجلسة.
+بعد تلقّي طلبات استخدام الأدوات، على العميل الردّ باستخدام قائمة بكائنات `FunctionResponse` باستخدام طريقة `session.send_tool_response`.
 
-如需了解详情，请参阅[函数调用教程](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+لمزيد من المعلومات، يمكنك الاطّلاع على [البرنامج التعليمي حول استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) لمعرفة
+المزيد.
 
 ### Python
 
@@ -217,13 +219,14 @@ async function main() {
 main();
 ```
 
-根据单个提示，模型可以生成多个函数调用以及将这些函数的输出串联所需的代码。此代码在沙盒环境中执行，生成后续的 [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=zh-cn#bidigeneratecontenttoolcall) 消息。
+من خلال طلب واحد، يمكن للنموذج إنشاء طلبات متعددة لاستدعاء الدوال والرمز البرمجي اللازم لربط نتائجها. يتم تنفيذ هذا الرمز البرمجي في بيئة وضع الحماية
+، ما يؤدي إلى إنشاء رسائل [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=ar#bidigeneratecontenttoolcall) لاحقة.
 
-## 异步函数调用
+## استدعاء الدوال غير المتزامن
 
-函数调用默认按顺序执行，这意味着执行会暂停，直到每个函数调用的结果可用为止。这可确保按顺序处理，也就是说，在运行函数时，您将无法继续与模型互动。
+يتم تنفيذ استدعاء الدوال بالتسلسل تلقائيًا، ما يعني أنّ التنفيذ يتوقف إلى أن تتوفّر نتائج كل طلب لاستدعاء دالة. يضمن ذلك المعالجة التسلسلية، ما يعني أنّه لن يكون بإمكانك مواصلة التفاعل مع النموذج أثناء تشغيل الدوال.
 
-如果您不想阻塞对话，可以告知模型异步运行函数。为此，您首先需要向函数定义添加 `behavior`：
+إذا كنت لا تريد حظر المحادثة، يمكنك إخبار النموذج بتشغيل الدوال بشكل غير متزامن. لإجراء ذلك، عليك أولاً إضافة `behavior` إلى تعريفات الدوال:
 
 ### Python
 
@@ -247,13 +250,16 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` 可确保函数异步运行，同时您还可以继续与模型互动。
+يضمن `NON-BLOCKING` تشغيل الدالة بشكل غير متزامن بينما يمكنك مواصلة التفاعل مع النموذج.
 
-然后，您需要使用 `scheduling` 参数告知模型在收到 `FunctionResponse` 时应如何运行。它可以：
+بعد ذلك، عليك إخبار النموذج بكيفية التصرف عند تلقّي `FunctionResponse` باستخدام المَعلمة `scheduling`. يمكنه إجراء أحد الإجراءات التالية:
 
-- 中断其正在执行的操作，并立即告知您收到的回答 (`scheduling="INTERRUPT"`)，
-- 等待其完成当前正在执行的操作 (`scheduling="WHEN_IDLE"`)，
-- 或者什么都不做，稍后在讨论中使用这些知识 (`scheduling="SILENT"`)
+- مقاطعة ما يفعله وإعلامك بالردّ الذي تلقّاه على الفور
+  (`scheduling="INTERRUPT"`)
+- الانتظار إلى أن ينتهي مما يفعله حاليًا
+  (`scheduling="WHEN_IDLE"`)
+- عدم اتخاذ أي إجراء واستخدام هذه المعلومات لاحقًا في المناقشة
+  (`scheduling="SILENT"`)
 
 ### Python
 
@@ -285,9 +291,9 @@ const functionResponse = {
 }
 ```
 
-## 使用 Google 搜索建立依据
+## تحديد المصدر من خلال "بحث Google"
 
-您可以在会话配置中启用“依托 Google 搜索进行接地”功能。这有助于提高 Live API 的准确性并防止出现幻觉。如需了解详情，请参阅[建立依据教程](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
+يمكنك تفعيل تحديد المصدر من خلال "بحث Google" كجزء من إعدادات الجلسة. يؤدي ذلك إلى زيادة دقة واجهة برمجة التطبيقات Live API ويمنع الهلوسات. لمزيد من المعلومات، يمكنك الاطّلاع على البرنامج التعليمي حول تحديد المصدر .
 
 ### Python
 
@@ -446,9 +452,9 @@ async function main() {
 main();
 ```
 
-## 组合使用多种工具
+## الجمع بين أدوات متعددة
 
-您可以在 Live API 中组合使用多种工具，从而进一步提升应用的功能：
+يمكنك الجمع بين أدوات متعددة ضمن واجهة برمجة التطبيقات Live API، ما يزيد من إمكانات تطبيقك بشكل أكبر:
 
 ### Python
 
@@ -496,17 +502,19 @@ const config = {
 // ... remaining model call
 ```
 
-## 后续步骤
+## الخطوات التالية
 
-- 如需查看更多将工具与 Live API 搭配使用的示例，请参阅[工具使用实战宝典](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=zh-cn)。
-- 如需全面了解功能和配置，请参阅 [Live API 功能指南](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-cn)。
+- يمكنك الاطّلاع على مزيد من الأمثلة على استخدام الأدوات مع واجهة برمجة التطبيقات Live API في الـ
+  [دليل استخدام الأدوات](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ar).
+- يمكنك الحصول على المعلومات الكاملة عن الميزات والإعدادات من
+  [دليل إمكانات واجهة برمجة التطبيقات Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=ar).
 
-发送反馈
+إرسال ملاحظات
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最后更新时间 (UTC)：2026-06-01。
+تاريخ التعديل الأخير: 2026-09-04 (حسب التوقيت العالمي المتفَّق عليه)
 
-需要向我们提供更多信息？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-01。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-04 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,37 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=ar
-fetched_at: 2026-08-31T06:29:43.615369+00:00
-title: "\u062a\u0641\u0643\u064a\u0631 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=es-419
+fetched_at: 2026-09-07T05:38:15.462931+00:00
+title: "Pensamiento de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-# تفكير Gemini
+# Pensamiento de Gemini
 
-تستخدم [نماذج سلسلة Gemini 3 و2.5](https://ai.google.dev/gemini-api/docs/models?hl=ar) "عملية تفكير" تحسّن بشكل كبير قدراتها على الاستدلال والتخطيط المتعدّد الخطوات، ما يجعلها فعّالة للغاية في المهام المعقّدة، مثل الترميز والرياضيات المتقدّمة وتحليل البيانات.
+Los modelos de las series [Gemini 3 y 2.5](https://ai.google.dev/gemini-api/docs/models?hl=es-419) usan un
+"proceso de razonamiento" que mejora significativamente sus capacidades de razonamiento y planificación de varios pasos, lo que los hace muy eficaces para tareas complejas, como la
+codificación, las matemáticas avanzadas y el análisis de datos.
 
-عند استخدام نموذج التفكير، يحلّل Gemini طلبك داخليًا قبل الردّ. تعرض Interactions API هذا التفسير من خلال `thought` خطوات مخصّصة تظهر بترتيب زمني إلى جانب طلبات الدوال أو إدخالات المستخدم أو نواتج النموذج في مصفوفة `steps`.
+Cuando usas un modelo de razonamiento, Gemini razona internamente antes de responder. La API de Interactions muestra este razonamiento a través de pasos `thought`, que son pasos dedicados que aparecen de forma cronológica junto con las llamadas a función, las entradas del usuario o los resultados del modelo en el array `steps`.
 
-تحتوي كل خطوة تفكير على حقلَين:
+Cada paso de razonamiento contiene dos campos:
 
-| الحقل | مطلوب أو اختياري | الوصف |
+| Campo | Obligatorio | Descripción |
 | --- | --- | --- |
-| `signature` | ✅ نعم | تمثيل مشفّر لحالة الاستدلال الداخلي للنموذج تكون هذه السمة متوفّرة دائمًا، حتى عندما يقدّم النموذج الحد الأدنى من الاستنتاج. |
-| `summary` | ❌ لا | مجموعة من المحتوى (نصوص و/أو صور) تلخّص أسباب القرار. قد يكون هذا الحقل فارغًا استنادًا إلى إعدادات [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=ar)، أو ما إذا كان النموذج قد قدّم أسبابًا كافية، أو نوع المحتوى (على سبيل المثال، قد لا تتضمّن الصور الكامنة ملخّصات نصية). |
+| `signature` | ✅ Sí | Es una representación encriptada del estado de razonamiento interno del modelo. Siempre está presente, incluso cuando el modelo realiza un razonamiento mínimo. |
+| `summary` | ❌ No | Es un array de contenido (texto o imágenes) que resume el razonamiento. Puede estar vacío según la configuración de [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=es-419), si el modelo realizó suficiente razonamiento o el tipo de contenido (por ejemplo, es posible que las imágenes latentes no tengan resúmenes de texto). |
 
-## التفاعلات مع التفكير
+## Interacciones con el razonamiento
 
-إنّ بدء تفاعل مع نموذج تفكير يشبه أي طلب تفاعل آخر. حدِّد أحد [النماذج التي تتيح استخدام ميزة "التفكير"](#thinking-levels) في الحقل `model`:
+Iniciar una interacción con un modelo de razonamiento es similar a cualquier otra solicitud de interacción. Especifica uno de los [modelos con compatibilidad de razonamiento](#thinking-levels) en el campo `model`:
 
 ### Python
 
@@ -41,7 +43,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Explain the concept of Occam's Razor and provide a simple, everyday example."
 )
 print(interaction.output_text)
@@ -55,10 +57,37 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Explain the concept of Occam's Razor and provide a simple, everyday example."
 });
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain the concept of Occam's Razor and provide a simple example."))
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.HIGH).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -68,16 +97,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Explain the concept of Occam'\''s Razor and provide a simple example."
   }'
 ```
 
-## ملخّصات الأفكار
+## Resúmenes de razonamiento
 
-تقدّم ملخّصات الأفكار إحصاءات حول عملية الاستدلال الداخلية للنموذج.
-يتم عرض الناتج النهائي فقط بشكل تلقائي. يمكنك تفعيل ملخّصات الأفكار
-باستخدام `thinking_summaries`:
+Los resúmenes de razonamiento proporcionan información sobre el proceso de razonamiento interno del modelo.
+De forma predeterminada, solo se muestra el resultado final. Puedes habilitar los resúmenes de razonamiento con `thinking_summaries`:
 
 ### Python
 
@@ -87,7 +115,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="What is the sum of the first 50 prime numbers?",
     generation_config={
         "thinking_summaries": "auto"
@@ -118,7 +146,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "What is the sum of the first 50 prime numbers?",
     generation_config: {
         thinking_summaries: "auto"
@@ -144,6 +172,33 @@ for (const step of interaction.steps) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain the concept of Occam's Razor and provide a simple example."))
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.HIGH).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -151,7 +206,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "What is the sum of the first 50 prime numbers?",
     "generation_config": {
       "thinking_summaries": "auto"
@@ -159,23 +214,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-قد تحتوي فقرة التفكير على **توقيع فقط بدون ملخّص** في الحالات التالية:
+Un bloque de razonamiento puede contener **solo una firma sin resumen** en los siguientes casos:
 
-- الطلبات البسيطة التي لم يقدّم فيها النموذج أسبابًا كافية لإنشاء ملخّص
-- ‫`thinking_summaries: "none"`، حيث تكون الملخّصات غير مفعّلة بشكل صريح
-- قد لا تتضمّن بعض أنواع المحتوى الفكري، مثل الصور، ملخّصات نصية
+- Solicitudes simples, en las que el modelo no razonó lo suficiente para generar un resumen
+- `thinking_summaries: "none"`, en las que los resúmenes están inhabilitados de forma explícita
+- Es posible que ciertos tipos de contenido de razonamiento, como las imágenes, no tengan resúmenes de texto
 
-يجب أن يتعامل الرمز البرمجي دائمًا مع مربّعات الأفكار التي يكون فيها `summary` فارغًا أو غير متوفّر.
+Tu código siempre debe controlar los bloques de razonamiento en los que `summary` está vacío o ausente.
 
-## البث مع التفكير
+## Transmisión con razonamiento
 
-استخدِم ميزة البث لتلقّي ملخّصات الأفكار التزايدية أثناء إنشائها.
-يتم عرض &quot;فقرات الأفكار&quot; باستخدام Server-Sent Events (SSE) مع نوعَين مختلفَين من التغييرات التفاضلية:
+Usa la transmisión para recibir resúmenes de razonamiento incrementales durante la generación.
+Los bloques de razonamiento se entregan mediante eventos enviados por el servidor (SSE) con dos tipos de delta distintos:
 
-| نوع التغيير | يحتوي على | وقت الإرسال |
+| Tipo de delta | Contiene | Cuándo se envía |
 | --- | --- | --- |
-| `thought_summary` | محتوى ملخّص نصي أو مرئي | واحد أو أكثر من التغييرات مع ملخّص تدريجي |
-| `thought_signature` | التوقيع المشفّر | آخر فرق قبل `step.stop` |
+| `thought_summary` | Contenido de resumen de texto o imagen | Uno o más deltas con resumen incremental |
+| `thought_signature` | La firma criptográfica | el último delta antes de `step.stop` |
 
 ### Python
 
@@ -196,7 +251,7 @@ thoughts = ""
 answer = ""
 
 stream = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     generation_config={
         "thinking_summaries": "auto"
@@ -236,7 +291,7 @@ let thoughts = "";
 let answer = "";
 
 const stream = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: prompt,
     generation_config: {
         thinking_summaries: "auto"
@@ -260,6 +315,33 @@ for await (const event of stream) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain the concept of Occam's Razor and provide a simple example."))
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.HIGH).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -268,7 +350,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue. Alice does not live in the red house. Bob does not live in the green house. Carol does not live in the red or green house. Which house does each person live in?",
     "generation_config": {
       "thinking_summaries": "auto"
@@ -277,11 +359,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-تستخدم الاستجابة المتدفّقة أحداث Server-Sent Events (SSE) وتتألف من خطوات وأحداث، على سبيل المثال:
+La respuesta de transmisión usa eventos enviados por el servidor (SSE) y se compone de pasos y eventos, por ejemplo:
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.6-flash"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.8-flash"},"event_type":"interaction.created"}
 
 event: step.start
 data: {"index":0,"step":{"signature":"","summary":[{"text":"**Evaluating the clues**\n\nI'm considering...","type":"text"}],"type":"thought"},"event_type":"step.start"}
@@ -308,22 +390,24 @@ event: done
 data: [DONE]
 ```
 
-## التحكّم في التفكير
+## Control del razonamiento
 
-تعتمد نماذج Gemini التفكير الديناميكي تلقائيًا، ما يعني أنّها تعدّل تلقائيًا مقدار الجهد المبذول في الاستدلال استنادًا إلى مدى تعقيد الطلب. يمكنك التحكّم في هذا السلوك باستخدام المَعلمة `thinking_level`.
+Los modelos de Gemini participan en el razonamiento dinámico de forma predeterminada, y ajustan automáticamente la cantidad de esfuerzo de razonamiento según la complejidad de la solicitud. Puedes controlar este comportamiento con el parámetro `thinking_level`.
 
-| الطراز | التفكير التلقائي | المستويات المتاحة |
+| Modelo | Razonamiento predeterminado | Niveles admitidos |
 | --- | --- | --- |
-| gemini-3.6-flash | مفعَّل (متوسط) | الحد الأدنى، منخفض، متوسط، مرتفع |
-| gemini-3.5-flash-lite | مفعَّل (بحدّ أدنى) | الحد الأدنى، منخفض، متوسط، مرتفع |
-| gemini-3.1-pro-preview | مفعَّل (عالي) | منخفض، متوسط، مرتفع |
-| gemini-3.1-flash-lite-image | مفعَّل (بحدّ أدنى) | الحد الأدنى، الحد الأقصى |
-| gemini-3-flash-preview | مفعَّل (عالي) | الحد الأدنى، منخفض، متوسط، مرتفع |
-| gemini-3-pro-preview | مفعَّل (عالي) | منخفض، مرتفع |
-| gemini-3.5-flash | مفعَّل (متوسط) | الحد الأدنى، منخفض، متوسط، مرتفع |
-| gemini-2.5-pro | مفعّل | منخفض، متوسط، مرتفع |
-| gemini-2.5-flash | مفعّل | منخفض، متوسط، مرتفع |
-| gemini-2.5-flash-lite | إيقاف | منخفض، متوسط، مرتفع |
+| gemini-3.8-flash | Activado (medio) | bajo, medio, alto |
+| gemini-3.7-flash | Activado (medio) | bajo, medio, alto |
+| gemini-3.6-flash | Activado (medio) | mínimo, bajo, medio, alto |
+| gemini-3.5-flash-lite | Activado (mínimo) | mínimo, bajo, medio, alto |
+| gemini-3.1-pro-preview | Activado (alto) | bajo, medio, alto |
+| gemini-3.1-flash-lite-image | Activado (mínimo) | mínimo, alto |
+| gemini-3-flash-preview | Activado (alto) | mínimo, bajo, medio, alto |
+| gemini-3-pro-preview | Activado (alto) | bajo, alto |
+| gemini-3.5-flash | Activado (medio) | mínimo, bajo, medio, alto |
+| gemini-2.5-pro | Activado | bajo, medio, alto |
+| gemini-2.5-flash | Activado | bajo, medio, alto |
+| gemini-2.5-flash-lite | Desactivado | bajo, medio, alto |
 
 ### Python
 
@@ -333,7 +417,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Provide a list of 3 famous physicists and their key contributions",
     generation_config={
         "thinking_level": "low"
@@ -350,13 +434,40 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Provide a list of 3 famous physicists and their key contributions",
     generation_config: {
         thinking_level: "low"
     }
 });
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain the concept of Occam's Razor and provide a simple example."))
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.HIGH).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -366,7 +477,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Provide a list of 3 famous physicists and their key contributions",
     "generation_config": {
       "thinking_level": "low"
@@ -374,27 +485,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## توقيعات الأفكار
+## Firmas de razonamiento
 
-توقيعات الأفكار هي تمثيلات مشفّرة لعمليات الاستدلال الداخلية التي يجريها النموذج. ويجب أن تحافظ على استمرارية عملية الاستدلال في المحادثات المترابطة.
+Las firmas de razonamiento son representaciones encriptadas del razonamiento interno del modelo. Son necesarias para mantener la continuidad del razonamiento en las interacciones de varios turnos.
 
-تسهّل Interactions API التعامل مع توقيعات الأفكار مقارنةً بواجهة `generateContent` API.
+La API de Interactions hace que el manejo de las firmas de razonamiento sea mucho más simple que la API de `generateContent`.
 
-### وضع الاحتفاظ بالحالة (يُنصح به)
+### Modo con estado (recomendado)
 
-عند استخدام Interactions API في الوضع ذي الحالة (من خلال ضبط `store: true` وتمرير `previous_interaction_id` في الأدوار اللاحقة)، يدير الخادم تلقائيًا حالة المحادثة، بما في ذلك جميع كتل الأفكار والتوقيعات. في هذا الوضع، ليس عليك اتّخاذ أي إجراء بشأن التواقيع. ويتم التعامل معها بالكامل من جهة الخادم.
+De forma predeterminada, cuando usas la API de Interactions en modo con estado (si configuras `store: true` y pasas el `previous_interaction_id` en los turnos posteriores), el servidor administra automáticamente el estado de la conversación, incluidos todos los bloques y firmas de razonamiento. En este modo, no necesitas hacer nada con respecto a las firmas. Se controlan por completo en el servidor.
 
-### وضع عدم الاحتفاظ بالحالة
+### Modo sin estado
 
-إذا كنت تدير حالة المحادثة بنفسك (الوضع غير الاحتفاظ بالحالة) وتمرّر السجلّ الكامل للمدخلات والمخرجات في كل طلب:
+Si administras el estado de la conversación por tu cuenta (modo sin estado) y pasas el historial completo de entradas y salidas en cada solicitud:
 
-- **يجب** دائمًا إعادة إرسال جميع كتل `thought` تمامًا كما تم تلقّيها من النموذج.
-- **لا** ننصح بإزالة أو تعديل "مكعبات الأفكار" من السجلّ، لأنّها تحتوي على التوقيعات المطلوبة ليواصل النموذج عملية الاستنتاج.
-- عند تبديل النماذج خلال جلسة واحدة، يجب إعادة إرسال كتل الأفكار الخاصة بالنموذج السابق. يتولّى الخلفية إدارة التوافق.
+- **DEBES** volver a enviar todos los bloques `thought` exactamente como se recibieron del modelo.
+- **NO** debes quitar ni modificar los bloques de razonamiento del historial, ya que contienen las firmas necesarias para que el modelo continúe con su razonamiento.
+- Cuando cambies de modelo dentro de una sesión, debes volver a enviar los bloques de razonamiento del modelo anterior. El backend administra la compatibilidad.
 
-## الأسعار
+## Precios
 
-عند تفعيل ميزة "التفكير"، يكون سعر الردّ هو مجموع الرموز المميزة للناتج والرموز المميزة للتفكير. يمكنك الحصول على إجمالي عدد الرموز المميزة التي تم إنشاؤها من حقل `total_thought_tokens`.
+Cuando el razonamiento está activado, el precio de la respuesta es la suma de los tokens de salida y los tokens de razonamiento. Puedes obtener la cantidad total de tokens de razonamiento generados en el campo `total_thought_tokens`.
 
 ### Python
 
@@ -410,32 +521,61 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-تنشئ نماذج التفكير أفكارًا كاملة لتحسين جودة الرد النهائي، ثم تعرض [ملخّصات](#summaries) لتقديم نظرة ثاقبة حول عملية التفكير. تستند الأسعار إلى الرموز المميزة الكاملة التي يحتاج النموذج إلى إنشائها، على الرغم من أنّ الملخّص فقط هو الناتج من واجهة برمجة التطبيقات.
+### Java
 
-يمكنك الاطّلاع على مزيد من المعلومات حول الرموز المميزة في دليل [احتساب الرموز المميزة](https://ai.google.dev/gemini-api/docs/tokens?hl=ar).
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
 
-## أفضل الممارسات
+Client client = new Client();
 
-استخدِم نماذج التفكير بكفاءة من خلال اتّباع الإرشادات التالية.
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain the concept of Occam's Razor and provide a simple example."))
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.HIGH).build())
+        .build();
 
-- **مراجعة الاستدلال**: يمكنك تحليل ملخّصات الأفكار لفهم أسباب الرفض وتحسين الطلبات.
-- **التحكّم في ميزانية التفكير**: اطلب من النموذج التفكير بشكل أقل في النواتج الطويلة لتوفير الرموز المميزة.
-- **المهام البسيطة**: استخدام الحد الأدنى من التفكير أو التفكير البسيط لاسترجاع الحقائق أو التصنيف (مثل "أين تأسست DeepMind؟")
-- **المهام المعتدلة**: استخدِم التفكير التلقائي لمقارنة المفاهيم أو التفكير الإبداعي (مثلاً، مقارنة السيارات الكهربائية والسيارات الهجينة).
-- **المهام المعقّدة**: استخدِم الحدّ الأقصى للتفكير في الترميز المتقدّم أو الرياضيات أو التخطيط المتعدّد الخطوات (مثل حلّ مسائل الرياضيات في مسابقة AIME).
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
-## الخطوات التالية
+System.out.println(interaction.outputText().orElse(""));
+```
 
-- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar): الردود النصية الأساسية
-- [استدعاء الدالة](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar): الاتصال بالأدوات
-- [دليل Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ar): ميزات خاصة بالنموذج
+Los modelos de razonamiento generan razonamientos completos para mejorar la calidad de la respuesta final
+y, luego, muestran [resúmenes](#summaries) para proporcionar información sobre el
+proceso de razonamiento. El precio se basa en los tokens de razonamiento completos que el modelo necesita generar, a pesar de que solo se muestra el resumen de la API.
 
-إرسال ملاحظات
+Puedes obtener más información sobre los tokens en la guía de [conteo de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419).
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+## Prácticas recomendadas
 
-تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
+Usa los modelos de razonamiento de manera eficiente siguiendo estos lineamientos.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+- **Revisa el razonamiento**: Analiza los resúmenes de razonamiento para comprender las fallas y mejorar las instrucciones.
+- **Controla el presupuesto de razonamiento**: Indica al modelo que razone menos para obtener resultados extensos y ahorrar tokens.
+- **Tareas simples**: Usa un razonamiento mínimo o bajo para la recuperación o clasificación de hechos (p.ej., "¿Dónde se fundó DeepMind?").
+- **Tareas moderadas**: Usa el razonamiento predeterminado para comparar conceptos o razonamientos creativos (p.ej., compara autos eléctricos e híbridos).
+- **Tareas complejas**: Usa el razonamiento máximo para la codificación avanzada, las matemáticas o la planificación de varios pasos (p.ej., resuelve problemas matemáticos de AIME).
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+## ¿Qué sigue?
+
+- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419): Respuestas de texto básicas
+- [Llamadas a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419): Conéctate a las herramientas
+- [Guía de Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=es-419): Funciones específicas del modelo
+
+Enviar comentarios
+
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+
+Última actualización: 2026-09-04 (UTC)
+
+¿Quieres brindar más información?
+
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-04 (UTC)"],[],[]]

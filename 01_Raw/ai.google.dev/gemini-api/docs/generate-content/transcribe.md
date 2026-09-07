@@ -1,26 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/transcribe?hl=fr
-fetched_at: 2026-08-31T06:32:57.549959+00:00
-title: "Transcription audio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/transcribe?hl=zh-TW
+fetched_at: 2026-09-07T05:42:36.612774+00:00
+title: "\u97f3\u8a0a\u8f49\u9304 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Envoyer des commentaires
+提供意見
 
-# Transcription audio
+# 音訊轉錄
 
-L'API Gemini convertit la parole contenue dans les fichiers audio en texte à l'aide du modèle Gemini 3.5 Transcribe (`gemini-3.5-transcribe`). Grâce aux capacités de compréhension audio de Gemini, elle fournit une transcription précise avec identification automatique de la langue, attribution des locuteurs, codes temporels au niveau des mots et suggestions de vocabulaire personnalisé. Il propose également un mode de [transcription intelligente](#transcription-modes) qui supprime les hésitations et met en forme le texte de manière intelligente.
+Gemini API 會使用 Gemini 3.5 Transcribe 模型 (`gemini-3.5-transcribe`)，將音訊檔案中的語音轉換為文字。根據 Gemini 的音訊理解能力，這項 API 可提供準確的轉錄內容，並自動辨識語言、區分說話者、提供字詞層級的時間戳記，以及自訂詞彙提示。此外，這項功能還提供[智慧轉錄](#transcription-modes)模式，可移除贅詞並智慧格式化。
 
-Pour transcrire un fichier audio, importez-le et transmettez-le à `gemini-3.5-transcribe` :
+如要轉錄音訊檔案，請上傳音訊並傳遞至 `gemini-3.5-transcribe`：
 
 ### Python
 
@@ -82,26 +83,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## Présentation
+## 總覽
 
-Gemini 3.5 Transcribe est optimisé pour les tâches de reconnaissance vocale. Il gère les différents accents, les bruits de fond et les conversations multilingues.
+Gemini 3.5 Transcribe 專為語音轉文字工作而生，可處理各種口音、背景噪音和多語言對話。
 
-Voici les principales fonctionnalités de cette solution :
+主要功能如下所示：
 
-- **Reconnaissance vocale automatique (ASR)** : détecte automatiquement les langues dans [plus de 85 paramètres régionaux](#supported-languages). Gère le code-switching intra-phrase et inter-phrase sans configuration manuelle.
-- **Vocabulaire personnalisé** : oriente la reconnaissance vers les termes, acronymes et noms propres spécifiques à un domaine en transmettant jusqu'à 1 000 expressions.
-- **Diarisation des locuteurs** : permet de distinguer plusieurs locuteurs et d'attribuer les segments parlés à des identifiants distincts.
-- **Codes temporels au niveau du mot** : génèrent des décalages temporels de début et de fin précis pour chaque mot reconnu.
-- **Transcription intelligente** : supprime les hésitations, les mots de remplissage et les répétitions, et applique une mise en forme structurée.
-- **Mise en forme et normalisation** : applique la mise en majuscules, la ponctuation et la normalisation inverse du texte (par exemple, en convertissant "vingt-six millions de dollars" en "26 M$").
+- **自動語音辨識 (ASR)：**自動偵測 [85 種以上的語言](#supported-languages)。處理句子內和句子間的程式碼切換，無須手動設定。
+- **自訂詞彙：**傳遞最多 1,000 個詞組，讓辨識結果偏向特定領域的詞彙、縮寫和專有名詞。
+- **講者區分：**區分多位講者，並為說話片段加上不同標籤。
+- **字詞層級時間戳記：**為每個辨識出的字詞產生精確的開始和結束時間偏移。
+- **智慧轉錄：**清除贅字、重複內容和語病，並套用結構化格式。
+- **格式和正規化：**套用大小寫、標點符號和反向文字正規化，例如將「二十六 million dollars」轉換為「$26M」。
 
-Pour le raisonnement audio général ou les systèmes de questions-réponses sur le contenu audio, utilisez [Compréhension audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=fr). Pour la synthèse audio de texte en voix, utilisez [Text-to-Speech](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr).
+如要對音訊內容進行一般音訊推理或問答，請使用[音訊理解](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=zh-tw)。如要合成文字轉語音音訊，請使用 [Text-to-speech](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=zh-tw)。
 
-## Détection de la langue et suggestions
+## 語言偵測和提示
 
-Par défaut, le modèle détecte automatiquement la langue parlée. Il passe d'une langue à l'autre de manière dynamique lorsque les locuteurs alternent les langues.
+根據預設，模型會自動偵測說話者使用的語言。當講者切換語言時，這項功能會動態切換語言。
 
-Pour utiliser la détection automatique, omettez `language_codes` ou fournissez une liste vide :
+如要使用自動偵測功能，請省略 `language_codes` 或提供空白清單：
 
 ### Python
 
@@ -163,7 +164,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-Si vous connaissez la langue à l'avance, spécifiez les codes de langue BCP-47 dans `language_codes` pour améliorer la précision de la transcription (voir [Langues acceptées](#supported-languages)) :
+如果預先知道語言，請在 `language_codes` 中指定 BCP-47 語言代碼，以提高語音轉錄準確率 (請參閱「[支援的語言](#supported-languages)」)：
 
 ### Python
 
@@ -197,9 +198,9 @@ const config = {
 }
 ```
 
-## Vocabulaire personnalisé
+## 自訂詞彙
 
-Vous pouvez orienter le modèle vocal vers des mots inhabituels, du jargon technique, des noms de marques ou des noms propres. Fournissez jusqu'à 1 000 termes dans le tableau `custom_vocabulary` (les meilleurs résultats sont généralement obtenus avec un maximum de 100 termes) :
+你可以引導語音模型辨識不常見的字詞、專業術語、品牌名稱或專有名詞。在 `custom_vocabulary` 陣列中提供最多 1,000 個字詞 (通常最多 100 個字詞就能獲得最佳結果)：
 
 ### Python
 
@@ -261,11 +262,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## Identification du locuteur
+## 說話者分段標記
 
-L'identification des locuteurs permet d'identifier les différentes voix dans l'enregistrement et d'attribuer un identifiant à chaque segment, comme `spk_1` ou `spk_2`. Jusqu'à huit locuteurs sont pris en charge (l'attribution pour trois locuteurs ou plus est expérimentale).
+說話者分段標記功能會識別錄音中不同的聲音，並為每個片段加上說話者 ID，例如 `spk_1` 或 `spk_2`。最多支援 8 個音箱 (3 個以上音箱的歸因功能為實驗功能)。
 
-Activez l'identification des locuteurs en définissant `diarization` sur `True` :
+將 `diarization` 設為 `True`，即可啟用分段標記：
 
 ### Python
 
@@ -327,11 +328,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## Codes temporels au niveau du mot
+## 字詞層級時間戳記
 
-Les codes temporels au niveau du mot fournissent des décalages de début et de fin exacts pour chaque mot reconnu dans le flux audio.
+字詞層級時間戳記會提供音訊串流中每個辨識字詞的確切開始和結束偏移。
 
-Activez les codes temporels en définissant `word_timestamp` sur `True` :
+將 `word_timestamp` 設為 `True`，即可啟用時間戳記：
 
 ### Python
 
@@ -393,7 +394,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-Vous pouvez combiner `diarization` et `word_timestamp` dans une même requête pour recevoir à la fois les identifiants des intervenants et les codes temporels des mots :
+您可以在單一要求中合併 `diarization` 和 `word_timestamp`，同時取得發言者標籤和字詞時間戳記：
 
 ### Python
 
@@ -433,21 +434,21 @@ const config = {
 }
 ```
 
-## Modes de transcription
+## 轉錄模式
 
-Gemini 3.5 Transcribe est compatible avec deux modes de transcription via le paramètre `mode` :
+Gemini 3.5 Transcribe 支援兩種轉錄模式，可透過 `mode` 參數設定：
 
-- **`VERBATIM` (par défaut)** : renvoie une transcription exacte mot pour mot de tout ce qui a été dit, en conservant les mots de remplissage bruts ("euh", "enfin", "genre", "tu vois"), les répétitions, les pauses et les faux départs. Obligatoire lorsque vous utilisez des codes temporels ou la segmentation des locuteurs.
-- **`SMART` (Transcription intelligente)** : optimise la transcription pour la lecture en appliquant un post-traitement intelligent :
-  - **Suppression des hésitations** : élimine les mots de remplissage, les bégaiements et les faux départs.
-  - **Corrections spontanées** : les corrections orales sont résolues directement (par exemple, *"Rendez-vous mardi, non, mercredi à 14h"* devient *"Rendez-vous mercredi à 14h"*).
-  - **Mise en forme structurée automatique** : structure automatiquement les pensées exprimées en paragraphes, listes numérotées, listes à puces, dates, devises et nombres mis en forme.
-  - **Nettoyage grammatical** : applique une ponctuation, une mise en forme des phrases et un flux naturels.
+- **`VERBATIM` (預設)：**逐字轉錄所有說出的內容，保留原始的填充詞 (例如「嗯」、「呃」、「像」、「你知道」)、重複內容、停頓和錯誤開頭。使用時間戳記或說話者區分功能時，必須提供這項資訊。
+- **`SMART` (智慧轉錄)**：透過智慧後續處理，讓轉錄稿更易於閱讀：
+  - **移除贅詞**：移除對話中的贅詞、口吃和錯誤開場白。
+  - **即時修正**：直接解決口語修正內容 (例如「我們星期二碰面，不對，星期三下午兩點」會變成「我們星期三下午兩點碰面」)。
+  - **自動結構化格式**：自動將口述內容結構化為段落、編號清單、項目符號、格式化日期、貨幣和數字。
+  - **文法清理**：套用自然的標點符號、句子大小寫和流暢度。
 
-| Audio parlé | Résultat de la fonction `VERBATIM` | Résultat de la fonction `SMART` (transcription intelligente) |
+| 語音音訊 | `VERBATIM` 輸出 | `SMART` (智慧轉錄) 輸出內容 |
 | --- | --- | --- |
-| "Euh, pour la réunion, je pense qu'on devrait inviter Alice et, non, Bob et Carol." | "Euh, pour la réunion, je pense qu'on devrait inviter Alice, non, Bob et Carol." | "Pour la réunion, je pense que nous devrions inviter Bob et Carol." |
-| "First item review budget second item finalize timeline third item send recap" (Examine le budget en premier, finalise le calendrier en deuxième, envoie le récapitulatif en troisième) | "examine le premier élément, vérifie le budget du deuxième élément, finalise le calendrier du troisième élément, envoie le récapitulatif" | "1. Vérifiez le budget. 2. Finalisez la timeline 3. Envoyer le récapitulatif" |
+| 「嗯，所以我覺得我們應該邀請愛麗絲參加會議，等等，不是，是小明和卡羅。」 | 「嗯，所以我覺得我們應該邀請愛麗絲參加會議，等等，是鮑伯和卡羅。」 | 「我覺得應該邀請 Bob 和 Carol 參加會議。」 |
+| 「First item review budget second item finalize timeline third item send recap」(先審查預算，再確定時間表，最後傳送摘要) | 「first item review budget second item finalize timeline third item send recap」(第一個項目審查預算，第二個項目確定時間軸，第三個項目傳送摘要) | 「1. 查看預算 2. 完成時間軸 3. 傳送摘要」 |
 
 ### Python
 
@@ -511,13 +512,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## Analyser la transcription
+## 剖析轉錄輸出內容
 
-Le texte complet de la transcription est renvoyé dans `response.text`.
+完整轉錄稿文字會以 `response.text` 形式傳回。
 
-Lorsque `word_timestamp` ou `diarization` est activé, l'API renvoie également des annotations détaillées au niveau des mots et des identifiants des intervenants associés aux parties candidates.
+啟用 `word_timestamp` 或 `diarization` 時，API 也會傳回附加至候選部分的詳細字詞層級註解和發言者標籤。
 
-Voici comment extraire et parcourir les codes temporels des mots et les tours de parole :
+以下說明如何擷取及疊代字詞時間戳記和說話者輪流說話的片段：
 
 ### Python
 
@@ -617,116 +618,116 @@ for (const w of words) {
 }
 ```
 
-## Langues disponibles
+## 支援的語言
 
-Les langues et les codes de langue BCP-47 suivants sont compatibles avec Gemini 3.5 Transcribe :
+Gemini 3.5 Transcribe 支援下列語言和 BCP-47 語言代碼：
 
-| Langue | Code BCP-47 | Langue | Code BCP-47 |
+| 語言 | BCP-47 代碼 | 語言 | BCP-47 代碼 |
 | --- | --- | --- | --- |
-| Afrikaans | `af-ZA` | Japonais | `ja-JP` |
-| Amharique | `am-ET` | Javanais | `jv-ID` |
-| Arabe (Égypte) | `ar-EG` | Créole capverdien | `kea-CV` |
-| Arménien | `hy-AM` | Kannada | `kn-IN` |
-| Assamais | `as-IN` | Kazakh | `kk-KZ` |
-| Azéri | `az-AZ` | Coréen | `ko-KR` |
-| Biélorusse | `be-BY` | Kirghiz | `ky-KG` |
-| Bengali (Bangladesh) | `bn-BD` | Letton | `lv-LV` |
-| Bengali (Inde) | `bn-IN` | Lingala | `ln-CD` |
-| Bosniaque | `bs-BA` | Lituanien | `lt-LT` |
-| Bulgare | `bg-BG` | Macédonien | `mk-MK` |
-| Bulgare (aroumain) | `rup-BG` | Malaisien | `ms-MY` |
-| Birman | `my-MM` | Malayalam | `ml-IN` |
-| Cantonais (traditionnel) | `yue-Hant-HK` | Maltais | `mt-MT` |
-| Catalan | `ca-ES` | Chinois mandarin (simplifié) | `cmn-Hans-CN` |
-| Cebuano | `ceb` | Marathi | `mr-IN` |
-| Khmer central | `km-KH` | Mongol | `mn-MN` |
-| Croate | `hr-HR` | Népalais | `ne-NP` |
-| Tchèque | `cs-CZ` | Norvégien | `nb-NO` |
-| Danois | `da-DK` | Oriya | `or-IN` |
-| Néerlandais | `nl-NL` | Polonais | `pl-PL` |
-| Anglais (Grande-Bretagne) | `en-GB` | Portugais (Brésil) | `pt-BR` |
-| Anglais (Inde) | `en-IN` | Portugais (Portugal) | `pt-PT` |
-| Anglais (États-Unis) | `en-US` | Panjabi | `pa-IN` |
-| Estonien | `et-EE` | Panjabi (écriture gurmukhī) | `pa-Guru-IN` |
-| Farsi | `fa-IR` | Roumain | `ro-RO` |
-| Tagalog | `fil-PH` | Russe | `ru-RU` |
-| Finnois | `fi-FI` | Serbe | `sr-RS` |
-| Français | `fr-FR` | Sindhi (écriture arabe) | `sd-Arab-IN` |
-| Galicien | `gl-ES` | Slovaque | `sk-SK` |
-| Géorgien | `ka-GE` | Slovène | `sl-SI` |
-| Allemand | `de-DE` | Espagnol (Amérique latine) | `es-419` |
-| Grec | `el-GR` | Espagnol (États-Unis) | `es-US` |
-| Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
-| Haoussa | `ha-NG` | Suédois | `sv-SE` |
-| Hébreu | `he-IL` | Tadjik | `tg-TJ` |
-| Hindi | `hi-IN` | Telugu | `te-IN` |
-| Hongrois | `hu-HU` | Thaï | `th-TH` |
-| Islandais | `is-IS` | Turc | `tr-TR` |
-| Anglais (Inde) | `en-IN` | Ukrainien | `uk-UA` |
-| Indonésien | `id-ID` | Ouzbek | `uz-UZ` |
-| Italien | `it-IT` | Vietnamien | `vi-VN` |
+| 南非荷蘭文 | `af-ZA` | 日文 | `ja-JP` |
+| 阿姆哈拉文 | `am-ET` | 爪哇語 | `jv-ID` |
+| 阿拉伯文 (埃及) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| 亞美尼亞文 | `hy-AM` | 卡納達文 | `kn-IN` |
+| 阿薩姆文 | `as-IN` | 哈薩克文 | `kk-KZ` |
+| 亞塞拜然文 | `az-AZ` | 韓文 | `ko-KR` |
+| 白俄羅斯語 | `be-BY` | 吉爾吉斯文 | `ky-KG` |
+| 孟加拉文 (孟加拉) | `bn-BD` | 拉脫維亞文 | `lv-LV` |
+| 孟加拉文 (印度) | `bn-IN` | 林格拉文 | `ln-CD` |
+| 波士尼亞文 | `bs-BA` | 立陶宛文 | `lt-LT` |
+| 保加利亞文 | `bg-BG` | 馬其頓文 | `mk-MK` |
+| 保加利亞文 (阿羅馬尼亞文) | `rup-BG` | 馬來文 | `ms-MY` |
+| 緬甸文 | `my-MM` | 馬拉雅拉姆文 | `ml-IN` |
+| 粵語 (繁體) | `yue-Hant-HK` | 馬爾他文 | `mt-MT` |
+| 加泰隆尼亞文 | `ca-ES` | 中文 (簡體) | `cmn-Hans-CN` |
+| 宿霧文 | `ceb` | 馬拉地文 | `mr-IN` |
+| 中部高棉文 | `km-KH` | 蒙古文 | `mn-MN` |
+| 克羅埃西亞文 | `hr-HR` | 尼泊爾文 | `ne-NP` |
+| 捷克文 | `cs-CZ` | 挪威文 | `nb-NO` |
+| 丹麥文 | `da-DK` | 奧里雅文 | `or-IN` |
+| 荷蘭文 | `nl-NL` | 波蘭文 | `pl-PL` |
+| 英文 (英國) | `en-GB` | 葡萄牙文 (巴西) | `pt-BR` |
+| 英文 (印度) | `en-IN` | 葡萄牙文 (葡萄牙) | `pt-PT` |
+| 英文 (美國) | `en-US` | 旁遮普文 | `pa-IN` |
+| 愛沙尼亞文 | `et-EE` | 旁遮普文 (古爾穆基字母) | `pa-Guru-IN` |
+| 波斯文 | `fa-IR` | 羅馬尼亞文 | `ro-RO` |
+| 菲律賓文 | `fil-PH` | 俄文 | `ru-RU` |
+| 芬蘭文 | `fi-FI` | 塞爾維亞文 | `sr-RS` |
+| 法文 | `fr-FR` | 信德文 (阿拉伯字母) | `sd-Arab-IN` |
+| 加里西亞文 | `gl-ES` | 斯洛伐克文 | `sk-SK` |
+| 喬治亞文 | `ka-GE` | 斯洛維尼亞文 | `sl-SI` |
+| 德文 | `de-DE` | 西班牙文 (拉丁美洲) | `es-419` |
+| 希臘文 | `el-GR` | 西班牙文 (美國) | `es-US` |
+| 古吉拉特文 | `gu-IN` | 斯瓦希里文 (肯亞) | `sw-KE` |
+| 豪薩文 | `ha-NG` | 瑞典文 | `sv-SE` |
+| 希伯來文 | `he-IL` | 塔吉克文 | `tg-TJ` |
+| 北印度文 | `hi-IN` | 泰盧固文 | `te-IN` |
+| 匈牙利文 | `hu-HU` | 泰文 | `th-TH` |
+| 冰島文 | `is-IS` | 土耳其文 | `tr-TR` |
+| 印度英語 | `en-IN` | 烏克蘭文 | `uk-UA` |
+| 印尼文 | `id-ID` | 烏茲別克文 | `uz-UZ` |
+| 義大利文 | `it-IT` | 越南文 | `vi-VN` |
 
-## Formats audio acceptés
+## 支援的音訊格式
 
-Gemini 3.5 Transcribe est compatible avec les types MIME de format audio suivants :
+Gemini 3.5 Transcribe 支援下列音訊格式 MIME 類型：
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
-- AIFF – `audio/aiff`
+- AIFF - `audio/aiff`
 - AAC - `audio/aac`
 - OGG - `audio/ogg`
 - FLAC - `audio/flac`
 - MPEG - `audio/mpeg`
 - M4A - `audio/m4a`
-- L16 – `audio/l16`
-- Opus – `audio/opus`
+- L16 - `audio/l16`
+- Opus - `audio/opus`
 - ALAW - `audio/alaw`
 - MULAW - `audio/mulaw`
 - WebM - `audio/webm`
 
-Pour obtenir la liste complète des types MIME et des schémas de paramètres acceptés, consultez la [documentation de référence de l'API Interactions](https://ai.google.dev/api/interactions-api?hl=fr#Resource:Content).
+如需支援的 MIME 類型和參數結構定義完整清單，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw#Resource:Content)。
 
-## Référence de paramètre
+## 參數參照
 
-Configurez la transcription en définissant les champs de l'objet `audio_transcription_config` dans `GenerateContentConfig` :
+在 `GenerateContentConfig` 中設定 `audio_transcription_config` 物件內的欄位，即可設定轉錄功能：
 
-| Champ | Type | Description |
+| 欄位 | 類型 | 說明 |
 | --- | --- | --- |
-| `language_codes` | Tableau de chaînes | Codes de langue BCP-47 (par exemple, `["en-US"]`). S'ils sont omis ou vides (`[]`), le modèle détecte automatiquement la langue et gère le changement de code. |
-| `custom_vocabulary` | Tableau de chaînes | Jusqu'à 1 000 termes, acronymes ou noms propres personnalisés pour orienter la reconnaissance vocale. |
-| `word_timestamp` | Booléen | Définissez sur `True` pour inclure les décalages de début et de fin des mots. Si cette option est omise ou définie sur `False`, aucun code temporel de mot n'est renvoyé. |
-| `diarization` | Booléen | Définissez la valeur sur `True` pour identifier les différents intervenants et leur attribuer un identifiant. |
-| `mode` | Chaîne | Mode Transcription. Valeurs acceptées : `"VERBATIM"` (par défaut) et `"SMART"`. Incompatible avec les codes temporels et l'identification des locuteurs. |
+| `language_codes` | 字串陣列 | BCP-47 語言代碼 (例如 `["en-US"]`)。如果省略或空白 (`[]`)，模型會自動偵測語言並處理代碼切換。 |
+| `custom_vocabulary` | 字串陣列 | 最多 1,000 個自訂字詞、縮寫或專有名詞，可調整語音辨識結果。 |
+| `word_timestamp` | 布林值 | 設為 `True` 可納入字詞的開始和結束偏移量。如果省略或設為 `False`，就不會傳回字詞時間戳記。 |
+| `diarization` | 布林值 | 設為 `True` 可識別不同的說話者並加上標籤。 |
+| `mode` | 字串 | 轉錄模式。支援的值：`"VERBATIM"` (預設值) 和 `"SMART"`。不支援時間戳記和分段標記。 |
 
-## Bonnes pratiques
+## 最佳做法
 
-- **Fournissez un son clair** : assurez-vous que les enregistrements audio ont une séparation vocale claire et évitez les découpages importants.
-- **Fournissez des indications de langue si vous les connaissez** : si vous connaissez la langue de l'audio à l'avance, spécifiez `language_codes` pour maximiser la précision.
-- **Ciblez un vocabulaire personnalisé** : n'incluez que des termes de domaine distincts, des noms de marques ou des noms propres dans `custom_vocabulary`, plutôt que des mots courants.
-- **Utilisez l'API Files pour les enregistrements volumineux** : pour les fichiers de plus de quelques secondes, importez le fichier à l'aide de `client.files.upload` et transmettez le fichier renvoyé au contenu du modèle.
+- **提供清晰的音訊：**確保錄音的語音分離度良好，並避免嚴重剪輯。
+- **已知語言時提供語言提示：**如果預先知道音訊語言，請指定 `language_codes`，盡可能提高準確度。
+- **目標自訂詞彙：**請只在 `custom_vocabulary` 中加入不重複的網域字詞、品牌名稱或專有名詞，而非常見的日常用語。
+- **使用 Files API 處理大型錄音檔：**如要上傳長度超過幾秒的檔案，請使用 `client.files.upload`，並將傳回的檔案傳遞至模型內容。
 
-## Limites
+## 限制
 
-- **Durée de l'audio** : les requêtes unitaires standards sont compatibles avec les fichiers audio d'une durée maximale d'une heure. Le traitement audio est limité à 30 minutes lorsque des fonctionnalités telles que la segmentation des locuteurs ou les codes temporels au niveau des mots sont activées.
-- **Codes temporels au niveau du mot** : l'activation des codes temporels au niveau du mot peut dégrader la précision globale de la transcription.
-- **Identification du locuteur** : l'identification du locuteur est compatible avec un maximum de huit locuteurs. L'attribution des locuteurs pour trois locuteurs ou plus est une fonctionnalité expérimentale.
-- **Vocabulaire personnalisé** : vous pouvez fournir jusqu'à 1 000 termes dans `custom_vocabulary`, mais les meilleurs résultats sont généralement obtenus avec un maximum de 100 termes.
-- **Compatibilité des modes** : la transcription intelligente (`mode: "SMART"`) ne peut pas être combinée avec `word_timestamp` ni `diarization`.
+- **音訊長度：**標準一元要求支援最長 1 小時的音訊檔案。啟用說話者分段標記或個別字詞時間戳記等功能時，音訊處理時間上限為 30 分鐘。
+- **字詞層級時間戳記：**啟用字詞層級時間戳記可能會降低整體轉錄準確率。
+- **說話者分段標記：**說話者分段標記最多可支援 8 位說話者。3 個以上音箱的說話者辨識功能目前為實驗功能。
+- **自訂詞彙：**您最多可以在 `custom_vocabulary` 中提供 1,000 個字詞，但通常最多 100 個字詞就能獲得最佳結果。
+- **模式相容性：**智慧轉錄 (`mode: "SMART"`) 無法與 `word_timestamp` 或 `diarization` 合併使用。
 
-## Étape suivante
+## 後續步驟
 
-- Diffusez de l'audio en temps réel avec le [guide de transcription en direct](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=fr) à l'aide de l'API Live.
-- Explorez la [compréhension audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=fr) pour analyser, résumer ou interroger des contenus audio.
-- Découvrez comment synthétiser des contenus audio à partir de texte à l'aide de [Text-to-Speech](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr).
-- Consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.5-transcribe) pour connaître les tarifs des modèles et les limites de jetons.
-- Consultez le guide de l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=fr) pour savoir comment importer et gérer des fichiers multimédias.
+- 使用 Live API 透過[即時轉錄指南](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=zh-tw)串流即時音訊。
+- 探索「音訊理解」，分析、摘要或查詢音訊內容。
+- 瞭解如何使用 [Text-to-Speech](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=zh-tw) 從文字合成音訊。
+- 如需模型定價和權杖限制，請參閱[定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.5-transcribe)。
+- 如要瞭解如何上傳及管理媒體檔案，請參閱「[Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)」指南。
 
-Envoyer des commentaires
+提供意見
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Dernière mise à jour le 2026/08/28 (UTC).
+上次更新時間：2026-08-28 (世界標準時間)。
 
-Voulez-vous nous donner plus d'informations ?
+想進一步說明嗎？
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/08/28 (UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-08-28 (世界標準時間)。"],[],[]]

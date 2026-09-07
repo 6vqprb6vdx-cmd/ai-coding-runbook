@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=ko
-fetched_at: 2026-08-31T06:36:37.374213+00:00
-title: "\uc624\ub514\uc624 \uc774\ud574 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=zh-CN
+fetched_at: 2026-09-07T05:42:04.303498+00:00
+title: "\u97f3\u9891\u7406\u89e3 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-의견 보내기
+发送反馈
 
-# 오디오 이해
+# 音频理解
 
-Gemini는 오디오 입력을 분석하고 텍스트 응답을 생성할 수 있습니다.
+Gemini 可以分析音频输入并生成文本响应。
 
 ### Python
 
@@ -166,25 +166,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## 개요
+## 概览
 
-Gemini는 오디오 입력을 분석하고 이해하여 텍스트 응답을 생성할 수 있으므로 다음과 같은 사용 사례를 지원합니다.
+Gemini 可以分析和理解音频输入，并针对音频输入生成文本响应，从而实现以下用例：
 
-- 오디오 콘텐츠에 관해 설명하거나 요약하거나 질문에 답변합니다.
-- 오디오의 스크립트와 번역을 제공합니다 (음성을 텍스트로 변환).
-- 음성과 음악에서 감정을 감지합니다.
-- 오디오의 특정 세그먼트를 분석하고 타임스탬프를 제공합니다.
+- 描述、总结音频内容或回答有关音频内容的问题。
+- 提供音频的转写和翻译（语音转文字）。
+- 检测语音和音乐中的情绪。
+- 分析音频的特定片段，并提供时间戳。
 
-현재 Gemini API는 실시간 스크립트 작성 사용 사례를 지원하지 않습니다.
-실시간 음성 및 동영상 상호작용은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
-실시간 스크립트 작성을 지원하는 전용 음성을 텍스트로 변환 모델은
-[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ko)를 사용하세요.
+目前，Gemini API 不支持实时转写用例。
+如需进行实时语音和视频交互，请参阅 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn)。
+如需使用支持实时转写的专用语音转文字模型，
+请使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-cn)。
 
-## 음성을 텍스트로 변환
+## 将语音转写为文字
 
-이 샘플 애플리케이션은 구조화된 출력을 사용하여 타임스탬프와 감정 감지를 포함한 음성을 텍스트로 변환,
-번역, 요약하도록 Gemini API에 프롬프트를 표시하는 방법을 보여줍니다.
-[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)을 사용합니다.
+此示例应用展示了如何提示 Gemini API 转写、
+翻译和总结语音，包括使用结构化输出提供时间戳和情绪检测
+使用 [结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
 
 ### Python
 
@@ -412,28 +412,31 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-버튼 클릭 한 번으로 [이 예시 스크립트 작성 앱](https://aistudio.google.com/apps/bundled/echoscript?hl=ko)과 같은 앱을 만들도록 [AI Studio 빌드](https://aistudio.google.com/apps?e=0&hl=ko)에 프롬프트를 표시할 수 있습니다.
+只需点击一个按钮，您就可以提示 [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=zh-cn) 创建
+一个与
+[此示例转写应用](https://aistudio.google.com/apps/bundled/echoscript?hl=zh-cn)
+类似的应用。
 
-![다국어 오디오 스크립트 작성 Gemini 앱](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ko)
+![一款多语言音频转写 Gemini 应用](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-cn)
 
-## 입력 오디오
+## 输入音频
 
-다음과 같은 방법으로 Gemini에 오디오 데이터를 제공할 수 있습니다.
+您可以通过以下方式向 Gemini 提供音频数据：
 
-- [오디오 파일](#upload-audio)을
-  `generateContent`에 요청하기 전에 업로드합니다.
-- [인라인 오디오 데이터](#inline-audio)를 요청과 함께
-  `generateContent`에 전달합니다.
+- 在向
+  `generateContent`发出请求之前，先[上传音频文件](#upload-audio)。
+- [将内嵌音频数据](#inline-audio)与对
+  `generateContent`的请求一起传递。
 
-다른 파일 입력 방법에 관해 알아보려면
-[파일 입력 방법](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ko) 가이드를 참고하세요.
+如需了解其他文件输入方法，请参阅
+[文件输入方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-cn)指南。
 
-### 오디오 파일 업로드
+### 上传音频文件
 
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용하여 오디오 파일을 업로드할 수 있습니다.
-파일, 텍스트 프롬프트, 시스템 안내 등을 포함한 총 요청 크기가 20MB보다 큰 경우 항상 Files API를 사용하세요.
+您可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传音频文件。
+当总请求大小（包括文件、文本提示、系统说明等）超过 20 MB 时，请务必使用 Files API。
 
-다음 코드는 오디오 파일을 업로드한 후 `generateContent` 호출에서 파일을 사용합니다.
+以下代码会上传音频文件，然后在对 `generateContent` 的调用中使用该文件。
 
 ### Python
 
@@ -580,12 +583,12 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-미디어 파일 작업에 관해 자세히 알아보려면
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 참고하세요.
+如需详细了解如何使用媒体文件，请参阅
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn)。
 
-### 오디오 데이터 인라인 전달
+### 内嵌传递音频数据
 
-오디오 파일을 업로드하는 대신 `generateContent`에 요청에서 인라인 오디오 데이터를 전달할 수 있습니다.
+您可以在对 `generateContent` 的请求中内嵌传递音频数据，而无需上传音频文件：
 
 ### Python
 
@@ -684,14 +687,15 @@ func main() {
 }
 ```
 
-인라인 오디오 데이터와 관련된 몇 가지 주의사항은 다음과 같습니다.
+关于内嵌音频数据，请注意以下几点：
 
-- 최대 요청 크기는 20MB이며, 여기에는 텍스트 프롬프트, 시스템 안내, 인라인으로 제공된 파일이 포함됩니다. 파일 크기로 인해 *총 요청 크기*가 20MB를 초과하는 경우 Files API를 사용하여 [요청에 사용할 오디오 파일을 업로드](#upload-audio)하세요.
-- 오디오 샘플을 여러 번 사용하는 경우 오디오 파일을 업로드하는 것이 더 효율적입니다.
+- 请求大小上限为 20 MB，其中包括文本提示、系统说明和内嵌提供的文件。如果文件的大小会导致 *总请求大小* 超过 20 MB，请使用 Files API [上传音频文件](#upload-audio)，以便在请求中使用。
+- 如果您多次使用音频样本，上传音频文件会更高效
+  [。](#upload-audio)
 
-## 스크립트 가져오기
+## 获取转写内容
 
-오디오 데이터의 스크립트를 가져오려면 프롬프트에서 요청하기만 하면 됩니다.
+如需获取音频数据的转写内容，只需在提示中请求即可：
 
 ### Python
 
@@ -780,12 +784,12 @@ func main() {
 }
 ```
 
-## 타임스탬프 참조
+## 引用时间戳
 
-`MM:SS` 형식의 타임스탬프를 사용하여 오디오 파일의 특정 섹션을 참조할 수 있습니다. 예를 들어 다음 프롬프트는
+您可以使用 `MM:SS` 格式的时间戳引用音频文件的特定部分。例如，以下提示请求的转写内容
 
-- 파일 시작 부분에서 2분 30초에 시작합니다.
-- 파일 시작 부분에서 3분 29초에 종료합니다.
+- 从文件开头 2 分 30 秒处开始。
+- 在文件开头 3 分 29 秒处结束。
 
 ### Python
 
@@ -847,9 +851,9 @@ func main() {
 }
 ```
 
-## 토큰 집계
+## 统计 token 数量
 
-`countTokens` 메서드를 호출하여 오디오 파일의 토큰 수를 가져옵니다. 예를 들면 다음과 같습니다.
+调用 `countTokens` 方法以获取音频文件中的 token 数量。例如：
 
 ### Python
 
@@ -933,9 +937,9 @@ func main() {
 }
 ```
 
-## 지원되는 오디오 형식
+## 支持的音频格式
 
-Gemini는 다음과 같은 오디오 형식 MIME 유형을 지원합니다.
+Gemini 支持以下音频格式 MIME 类型：
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -951,34 +955,37 @@ Gemini는 다음과 같은 오디오 형식 MIME 유형을 지원합니다.
 - MULAW - `audio/mulaw`
 - WebM - `audio/webm`
 
-지원되는 MIME 유형 및 매개변수 스키마의 전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko#Resource:Content)를 확인하세요.
+如需查看受支持的 MIME 类型和参数架构的完整列表，请参阅 [Interactions API 参考文档](https://ai.google.dev/api/interactions-api?hl=zh-cn#Resource:Content)。
 
-## 오디오에 관한 기술 세부정보
+## 有关音频的技术详细信息
 
-- Gemini는 오디오의 각 초를 32개의 토큰으로 나타냅니다. 예를 들어 1분 길이의 오디오는 1,920개의 토큰으로 나타냅니다.
-- Gemini는 새소리나 사이렌과 같은 음성이 아닌 구성요소를 '이해'할 수 있습니다.
-- 단일 프롬프트에서 지원되는 오디오 데이터의 최대 길이는 9.5시간입니다.
-  Gemini는 단일 프롬프트의 오디오 파일 *수* 를 제한하지 않습니다. 하지만 단일 프롬프트에 있는 모든 오디오 파일의 총 결합 길이는 9.5시간을 초과할 수 없습니다.
-- Gemini는 오디오 파일을 16Kbps 데이터 해상도로 다운샘플링합니다.
-- 오디오 소스에 여러 채널이 포함된 경우 Gemini는 이러한 채널을 단일 채널로 결합합니다.
+- Gemini 将每秒音频表示为 32 个 token；例如，一分钟的音频表示为 1,920 个 token。
+- Gemini 可以“理解”非语音成分，例如鸟鸣或警报声。
+- 单个提示中支持的音频数据长度上限为 9.5 小时。
+  Gemini 不限制单个提示中的音频文件 *数量*；但是，单个提示中所有音频文件的总长度不能超过 9.5 小时。
+- Gemini 会将音频文件下采样到 16 Kbps 的数据分辨率。
+- 如果音频源包含多个声道，Gemini 会将这些声道合并为一个声道。
 
-## 다음 단계
+## 后续步骤
 
-이 가이드에서는 오디오 데이터에 대한 응답으로 텍스트를 생성하는 방법을 보여줍니다. 자세한 내용은 다음 리소스를 참조하세요.
+本指南介绍了如何生成文本以响应音频数据。如需了解详情，请参阅以下资源：
 
-- [파일 프롬프트 전략](https://ai.google.dev/gemini-api/docs/files?hl=ko#prompt-guide): Gemini API는 멀티모달 프롬프트 사용이라고도 하는 텍스트, 이미지, 오디오, 동영상 데이터로 프롬프트를 표시하는 것을 지원합니다.
-- [시스템 안내](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#system-instructions):
-  시스템 안내를 사용하면 특정 요구사항 및 사용 사례에 따라 모델의 동작을 조정할 수 있습니다.
-- [안전 가이드](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ko): 생성형 AI
-  모델은 때때로 부정확하거나
-  편향되거나 불쾌감을 주는 출력과 같은 예기치 않은 출력을 생성합니다. 이러한 출력으로 인한 피해 위험을 제한하려면 후처리 및 인간 평가가 필수적입니다.
+- [文件提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn#prompt-guide)：
+  Gemini API 支持使用文本、图片、音频和视频数据进行提示，也
+  称为多模态提示。
+- [系统说明](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#system-instructions)：
+  系统说明可让您根据
+  特定需求和使用情形来控制模型的行为。
+- [安全指南](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-cn)：生成式 AI
+  模型有时会生成意外输出，例如不准确、
+  有偏见或令人反感的输出。后处理和人工评估对于限制此类输出造成的危害风险至关重要。
 
-의견 보내기
+发送反馈
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-최종 업데이트: 2026-08-28(UTC)
+最后更新时间 (UTC)：2026-08-28。
 
-의견을 전달하고 싶나요?
+需要向我们提供更多信息？
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-08-28(UTC)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-08-28。"],[],[]]

@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=id
-fetched_at: 2026-08-31T06:32:06.365213+00:00
-title: "Membangun agen terkelola \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl
+fetched_at: 2026-09-07T05:36:51.938295+00:00
+title: "Tworzenie agent\u00f3w zarz\u0105dzanych \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Kirim masukan
+Prześlij opinię
 
-# Membangun agen terkelola
+# Tworzenie agentów zarządzanych
 
-Agen terkelola di Gemini API memungkinkan Anda memperluas agen Antigravity dengan petunjuk, keterampilan, dan data Anda sendiri. Anda dapat [menyesuaikan agen secara inline](#customize-inline) saat interaksi, atau [menyimpan konfigurasi](#save-agent) sebagai agen terkelola yang Anda panggil berdasarkan ID.
+Zarządzane agenty w Gemini API umożliwiają rozszerzenie agenta Antigravity o własne instrukcje, umiejętności i dane. Możesz [dostosować agenta w tekście](#customize-inline) w czasie interakcji lub [zapisać konfigurację](#save-agent) jako zarządzanego agenta, którego wywołujesz za pomocą identyfikatora.
 
-## Menyesuaikan agen Antigravity
+## Dostosowywanie agenta Antigravity
 
-Cara tercepat untuk membuat agen kustom adalah dengan meneruskan konfigurasi Anda secara inline saat membuat interaksi baru tanpa memerlukan langkah pendaftaran. Anda dapat memperluas agen dengan beberapa cara utama:
+Najszybszym sposobem na utworzenie agenta niestandardowego jest przekazanie konfiguracji w tekście podczas tworzenia nowej interakcji bez konieczności rejestracji. Agenta możesz rozszerzyć na kilka sposobów:
 
-- **[Pemilihan model](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#model-selection)**: Pilih model Gemini yang mendasarinya melalui `agent_config` (defaultnya adalah **Gemini 3.7 Flash**).
-- **Petunjuk sistem**: Teruskan teks inline melalui `system_instruction` untuk membentuk perilaku.
-- **Alat**: Ganti alat default (Eksekusi Kode, Penelusuran, Konteks URL), daftarkan server MCP jarak jauh, atau tentukan fungsi kustom (Panggilan Fungsi).
-- **File dan keterampilan**: Pasang file seperti `AGENTS.md` dan `SKILL.md` ke dalam lingkungan.
+- **[Wybór modelu](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#model-selection)**: wybierz model Gemini bazowy za pomocą parametru `agent_config` (domyślnie **Gemini 3.7 Flash**).
+- **Instrukcje systemowe**: przekaż tekst w tekście za pomocą parametru `system_instruction`, aby kształtować zachowanie.
+- **Narzędzia**: zastąp domyślne narzędzia (wykonywanie kodu, wyszukiwanie, kontekst adresu URL), zarejestruj zdalne serwery MCP lub zdefiniuj funkcje niestandardowe (wywoływanie funkcji).
+- **Pliki i umiejętności**: zamontuj pliki takie jak `AGENTS.md` i `SKILL.md` w środowisku.
 
-Berikut adalah contoh meneruskan ketiganya secara inline:
+Oto przykład przekazywania wszystkich 3 elementów w tekście:
 
 ### Python
 
@@ -121,22 +121,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Semuanya ditentukan saat interaksi. Tidak perlu mendaftarkan apa pun terlebih dahulu. Harness agen Antigravity menyediakan runtime (eksekusi kode, pengelolaan file, akses web) dan lapisan konfigurasi Anda di atasnya.
+Wszystko jest zdefiniowane w czasie interakcji. Nie musisz niczego rejestrować. Uprząż agenta Antigravity zapewnia środowisko wykonawcze (wykonywanie kodu, zarządzanie plikami, dostęp do internetu) i warstwy konfiguracji.
 
-### Alat dan petunjuk sistem
+### Narzędzia i instrukcje systemowe
 
-Anda dapat menyesuaikan perilaku dan kemampuan agen untuk interaksi tertentu menggunakan parameter `system_instruction` dan `tools`.
+Zachowanie i możliwości agenta w przypadku konkretnej interakcji możesz dostosować za pomocą parametrów `system_instruction` i `tools`.
 
-- **Petunjuk sistem**: Gunakan parameter `system_instruction` untuk meneruskan teks inline yang membentuk perilaku agen. Hal ini ideal untuk penyesuaian cepat yang ingin Anda ubah per panggilan. `system_instruction` dan `AGENTS.md` bersifat aditif; keduanya berlaku jika ada.
-- **Alat**: Secara default, agen Antigravity memiliki akses ke `code_execution`, `google_search`, dan `url_context`. Anda dapat mengganti daftar ini dengan meneruskan parameter `tools` saat interaksi. Anda juga dapat mendaftarkan [server MCP jarak jauh](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#mcp-servers) atau menentukan [fungsi kustom (panggilan fungsi)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#function-calling) untuk menghubungkan agen ke API dan database Anda sendiri. Untuk mengetahui detail lengkap tentang alat yang tersedia, lihat [Agen Antigravity: Alat yang didukung](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#supported-tools).
+- **Instrukcje systemowe**: użyj parametru `system_instruction`, aby przekazać tekst w tekście, który kształtuje zachowanie agenta. Jest to idealne rozwiązanie w przypadku szybkich zmian, które chcesz wprowadzić w każdej rozmowie. Parametry `system_instruction` i `AGENTS.md` są addytywne. Oba mają zastosowanie, gdy są obecne.
+- **Narzędzia**: domyślnie agent Antigravity ma dostęp do narzędzi `code_execution`, `google_search` i `url_context`. Tę listę możesz zastąpić, przekazując parametr `tools` w czasie interakcji. Możesz też zarejestrować [zdalne serwery MCP](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#mcp-servers) lub zdefiniować [funkcje niestandardowe (wywoływanie funkcji)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#function-calling), aby połączyć agenta z własnymi interfejsami API i bazami danych. Szczegółowe informacje o dostępnych narzędziach znajdziesz w artykule [Agent Antigravity: obsługiwane narzędzia](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#supported-tools).
 
-### Penyesuaian berbasis file
+### Dostosowywanie na podstawie plików
 
-#### Struktur direktori agen
+#### Struktura katalogu agenta
 
-Meskipun Anda dapat meneruskan konfigurasi secara inline, sebaiknya atur file agen Anda dalam direktori terstruktur. Hal ini akan memudahkan pengelolaan, kontrol versi, dan pemasangan ke lingkungan agen.
+Konfigurację możesz przekazać w tekście, ale zalecamy uporządkowanie plików agenta w uporządkowanym katalogu. Ułatwia to zarządzanie, kontrolę wersji i montowanie w środowisku agenta.
 
-Direktori project agen standar terlihat seperti ini:
+Typowy katalog projektu agenta wygląda tak:
 
 ```
 my-agent/
@@ -147,13 +147,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Runtime Antigravity memindai `.agents/` (dan root lingkungan) untuk file ini.
+Środowisko wykonawcze Antigravity skanuje te pliki w katalogu `.agents/` (i w katalogu głównym środowiska).
 
 #### AGENTS.md
 
-Agen otomatis memuat `.agents/AGENTS.md` (atau `/.agents/AGENTS.md`) dari lingkungan sebagai petunjuk sistem saat startup. Gunakan `AGENTS.md` untuk definisi persona bentuk panjang, panduan mendetail, dan petunjuk yang ingin Anda kontrol versinya bersama kode Anda.
+Podczas uruchamiania agent automatycznie wczytuje plik `.agents/AGENTS.md` (lub `/.agents/AGENTS.md`) ze środowiska jako instrukcje systemowe. Użyj pliku `AGENTS.md` do definiowania długich opisów person, szczegółowych wytycznych i instrukcji, które chcesz kontrolować za pomocą kontroli wersji wraz z kodem.
 
-Pasang `AGENTS.md` menggunakan sumber inline:
+Zamontuj plik `AGENTS.md` za pomocą źródła w tekście:
 
 ### Python
 
@@ -230,9 +230,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Keterampilan: SKILL.md
+#### Umiejętności: SKILL.md
 
-Keterampilan adalah file yang memperluas kemampuan agen. Tempatkan file tersebut di bawah `.agents/skills/<skill-name>/SKILL.md` dan harness akan otomatis menemukan serta mendaftarkannya.
+Umiejętności to pliki, które rozszerzają możliwości agenta. Umieść je w katalogu `.agents/skills/<skill-name>/SKILL.md`, a platforma automatycznie je wykryje i zarejestruje.
 
 ```
 .agents/
@@ -242,7 +242,7 @@ Keterampilan adalah file yang memperluas kemampuan agen. Tempatkan file tersebut
         └── SKILL.md
 ```
 
-Pasang keterampilan menggunakan sumber inline:
+Zamontuj umiejętność za pomocą źródła w tekście:
 
 ### Python
 
@@ -319,17 +319,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Keterampilan yang dimuat dari `.agents/skills/` dan `/.agents/skills/` akan otomatis ditemukan.
+Umiejętności wczytane z katalogów `.agents/skills/` i `/.agents/skills/` są wykrywane automatycznie.
 
-## Membuat agen terkelola
+## Tworzenie zarządzanego agenta
 
-Setelah mengulangi konfigurasi, Anda dapat membuatnya sebagai agen terkelola dengan `agents.create`. Dengan begitu, Anda dapat memanggil agen berdasarkan ID tanpa mengulangi konfigurasi setiap kali.
+Po przejrzeniu konfiguracji możesz utworzyć ją jako zarządzanego agenta za pomocą polecenia `agents.create`. Dzięki temu możesz wywoływać agenta za pomocą identyfikatora bez konieczności powtarzania konfiguracji.
 
-`id` yang Anda tentukan saat membuat agen terkelola harus unik untuk project Anda dan tidak boleh dimulai dengan awalan yang dicadangkan (misalnya, `google-`, `gemini-`). Lihat [Pembatasan ID agen](#agent-id-restrictions) untuk mengetahui daftar lengkap awalan yang dibatasi.
+Określony podczas tworzenia zarządzanego agenta `id` musi być unikalny w Twoim projekcie i nie może zaczynać się od zarezerwowanych prefiksów (np. `google-`, `gemini-`). Pełną listę zastrzeżonych prefiksów znajdziesz w sekcji [Ograniczenia dotyczące identyfikatora agenta](#agent-id-restrictions).
 
-### Dari sumber
+### Ze źródeł
 
-Tentukan `base_agent`, `id`, `agent_config`, `system_instruction`, dan `base_environment` dengan sumber. Platform ini menyediakan sandbox baru dengan file Anda pada setiap pemanggilan. Lihat [Lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) untuk mengetahui jenis sumber yang tersedia (Git, GCS, inline).
+Określ `base_agent`, `id`, `agent_config`, `system_instruction` i `base_environment` ze źródłami. Platforma udostępnia nową piaskownicę z Twoimi plikami przy każdym wywołaniu. Dostępne typy źródeł (Git, GCS, w tekście) znajdziesz w sekcji [Środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl).
 
 ### Python
 
@@ -448,9 +448,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### Dari lingkungan yang ada (fork)
+### Z istniejącego środowiska (fork)
 
-Ulangi dengan agen Antigravity dasar hingga lingkungan tepat (paket terinstal, file ada), lalu fork ke agen terkelola.
+Pracuj z podstawowym agentem Antigravity, aż środowisko będzie odpowiednie (zainstalowane pakiety, pliki na miejscu), a następnie utwórz z niego zarządzanego agenta.
 
 ### Python
 
@@ -514,11 +514,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Dengan aturan jaringan
+### Z regułami sieciowymi
 
-Anda dapat mengunci akses keluar atau menyisipkan kredensial saat menyimpan agen terkelola. Untuk mengetahui skema daftar yang diizinkan, pola kredensial, dan karakter pengganti selengkapnya, lihat [Lingkungan: Konfigurasi jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration).
+Podczas zapisywania zarządzanego agenta możesz zablokować dostęp wychodzący lub wstawić dane logowania. Pełny schemat listy dozwolonych, wzorce danych logowania i symbole wieloznaczne znajdziesz w sekcji [Środowiska: konfiguracja sieci](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#network-configuration).
 
-Contoh berikut membuat agen `issue-resolver` yang hanya dapat mengakses GitHub dan PyPI, dengan kredensial yang disisipkan untuk GitHub:
+Poniższy przykład tworzy agenta `issue-resolver`, który może uzyskiwać dostęp tylko do GitHuba i PyPI, z danymi logowania wstawionymi do GitHuba:
 
 ### Python
 
@@ -628,9 +628,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## Memanggil agen
+## Wywoływanie agenta
 
-Panggil agen terkelola Anda dengan ID agen Anda dengan membuat interaksi baru. Setiap pemanggilan akan melakukan fork lingkungan dasar, sehingga setiap operasi dimulai dengan bersih.
+Wywołaj zarządzanego agenta za pomocą jego identyfikatora, tworząc nową interakcję. Każde wywołanie tworzy kopię środowiska podstawowego, więc każde uruchomienie zaczyna się od nowa.
 
 ### Python
 
@@ -669,15 +669,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Untuk percakapan dan streaming multi-turn, lihat [Panduan Memulai](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id). Pola `previous_interaction_id` dan `environment` yang sama berlaku untuk agen terkelola.
+Informacje o rozmowach wieloetapowych i przesyłaniu strumieniowym znajdziesz w [krótkim wprowadzeniu](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl). Te same wzorce `previous_interaction_id` i `environment` mają zastosowanie do zarządzanych agentów.
 
-Agen terkelola juga mendukung eksekusi dan pembatalan latar belakang. Untuk mengetahui detail dan contoh kode, lihat [Agen Antigravity: Eksekusi latar belakang](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#background-execution).
+Zarządzani agenci obsługują też wykonywanie w tle i anulowanie. Szczegółowe informacje i przykłady kodu znajdziesz w artykule [Agent Antigravity: wykonywanie w tle](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#background-execution).
 
-## Mengganti konfigurasi saat pemanggilan
+## Zastępowanie konfiguracji podczas wywołania
 
-Anda dapat mengganti konfigurasi jaringan `system_instruction`, `tools`, dan `environment` default agen saat membuat interaksi. Hal ini memungkinkan Anda mengubah perilaku, kemampuan, atau kredensial agen untuk operasi tertentu tanpa mengubah definisi agen yang disimpan.
+Podczas tworzenia interakcji możesz zastąpić domyślną konfigurację sieci `system_instruction`, `tools` i `environment` agenta. Dzięki temu możesz modyfikować zachowanie, możliwości lub dane logowania agenta w przypadku konkretnego uruchomienia bez zmiany zapisanej definicji agenta.
 
-### Mengganti petunjuk dan alat sistem
+### Zastępowanie instrukcji systemowych i narzędzi
 
 ### Python
 
@@ -721,9 +721,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Mengganti konfigurasi jaringan (memperbarui kredensial)
+### Zastępowanie konfiguracji sieci (odświeżanie danych logowania)
 
-Jika agen terkelola Anda memiliki kredensial jaringan yang terintegrasi ke dalam `base_environment`, Anda dapat menggantinya saat pemanggilan untuk memperbarui token yang habis masa berlakunya atau merotasi kunci API. Teruskan objek `environment` dengan konfigurasi `network` baru. Aturan jaringan baru sepenuhnya menggantikan aturan sebelumnya untuk interaksi tersebut. Sumber lingkungan dasar (file, repositori) akan dipertahankan.
+Jeśli zarządzany agent ma dane logowania do sieci wbudowane w `base_environment`, możesz je zastąpić podczas wywołania, aby odświeżyć wygasłe tokeny lub zmienić klucze API. Przekaż obiekt `environment` z nową konfiguracją `network`. Nowe reguły sieciowe całkowicie zastępują poprzednie w przypadku tej interakcji. Źródła środowiska podstawowego (pliki, repozytoria) są zachowywane.
 
 ### Python
 
@@ -803,11 +803,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Mengelola agen
+## Zarządzanie agentami
 
-Anda dapat mencantumkan, mendapatkan, dan menghapus agen.
+Możesz wyświetlać listę agentów, pobierać ich i usuwać.
 
-### Mencantumkan agen
+### Wyświetlenie listy agentów
 
 ### Python
 
@@ -835,7 +835,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Mendapatkan agen
+### Pobieranie agenta
 
 ### Python
 
@@ -858,9 +858,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Menghapus agen
+### Usuwanie agenta
 
-Menghapus akan menghapus konfigurasi. Lingkungan dan interaksi yang ada yang dibuat oleh agen tidak terpengaruh.
+Usunięcie powoduje usunięcie konfiguracji. Nie ma to wpływu na istniejące środowiska i interakcje utworzone przez agenta.
 
 ### Python
 
@@ -881,24 +881,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Referensi definisi agen
+## Informacje o definicji agenta
 
-| Kolom | Jenis | Wajib diisi | Deskripsi |
+| Pole | Typ | Wymagane | Opis |
 | --- | --- | --- | --- |
-| `id` | string | Ya | ID agen unik dalam project Google Cloud. Digunakan untuk memanggil agen. Tidak boleh menggunakan awalan yang dicadangkan. Lihat [Pembatasan ID agen](#agent-id-restrictions). |
-| `description` | string | Tidak | Deskripsi agen yang dapat dibaca manusia. |
-| `base_agent` | string | Ya | ID agen dasar (misalnya, `antigravity-preview-05-2026`). |
-| `agent_config` | objek | Tidak | Konfigurasi untuk agen dasar, termasuk pemilihan model (`{"type": "antigravity", "model": "gemini-3.7-flash"}`). Defaultnya adalah `gemini-3.7-flash` jika dihilangkan. Tidak dapat diganti saat interaksi untuk agen bernama. |
-| `system_instruction` | string | Tidak | Perintah sistem yang menentukan perilaku dan persona. |
-| `tools` | array | Tidak | Alat yang dapat digunakan agen. Jika dihilangkan, defaultnya adalah `code_execution`, `google_search`, dan `url_context`. Alat yang didukung mencakup `code_execution`, `google_search`, `url_context`, `mcp_server`, dan definisi `function` kustom. |
-| `base_environment` | string atau objek | Tidak | `"remote"`, `environment_id`, atau objek konfigurasi dengan `sources` dan `network`. Lihat Lingkungan. |
+| `id` | tekst | Tak | Unikalny identyfikator agenta w projekcie w chmurze Google. Używany do wywoływania agenta. Nie może używać zarezerwowanych prefiksów. Więcej informacji znajdziesz w sekcji [Ograniczenia dotyczące identyfikatora agenta](#agent-id-restrictions). |
+| `description` | tekst | Nie | Zrozumiały dla człowieka opis agenta. |
+| `base_agent` | tekst | Tak | Identyfikator agenta podstawowego (np. `antigravity-preview-05-2026`). |
+| `agent_config` | obiekt | Nie | Konfiguracja agenta podstawowego, w tym wybór modelu (`{"type": "antigravity", "model": "gemini-3.7-flash"}`). Jeśli ten parametr zostanie pominięty, domyślnie używany jest model `gemini-3.7-flash`. W przypadku nazwanych agentów nie można go zastąpić w czasie interakcji. |
+| `system_instruction` | tekst | Nie | Prompt systemowy definiujący zachowanie i personę. |
+| `tools` | tablica | Nie | Narzędzia, których może używać agent. Jeśli ten parametr zostanie pominięty, domyślnie używane są narzędzia `code_execution`, `google_search` i `url_context`. Obsługiwane narzędzia to `code_execution`, `google_search`, `url_context`, `mcp_server` i definicje niestandardowych `function`. |
+| `base_environment` | tekst lub obiekt | Nie | `"remote"`, `environment_id` lub obiekt konfiguracji z parametrami `sources` i `network`. Więcej informacji znajdziesz w sekcji Środowiska. |
 
-### Pembatasan ID agen
+### Ograniczenia dotyczące identyfikatora agenta
 
-Saat membuat agen terkelola, `id` yang Anda tentukan harus mengikuti aturan berikut:
+Podczas tworzenia zarządzanego agenta określony identyfikator `id` musi spełniać te wymagania:
 
-- ID tersebut harus unik untuk project Google Cloud Anda.
-- ID tersebut **tidak boleh** dimulai dengan salah satu awalan yang dicadangkan berikut (tidak peka huruf besar/kecil), jika tidak, pembuatan akan gagal:
+- Musi być unikalny w Twoim projekcie Google Cloud.
+- **Nie może** zaczynać się od żadnego z tych zarezerwowanych prefiksów (bez uwzględniania wielkości liter), w przeciwnym razie utworzenie się nie powiedzie:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -916,35 +916,35 @@ Saat membuat agen terkelola, `id` yang Anda tentukan harus mengikuti aturan beri
   - `nest-`
   - `kaggle-`
 
-## Alur kerja iterasi
+## Przepływ pracy iteracji
 
-1. **Buat prototipe** dengan agen Antigravity dasar. Teruskan sumber petunjuk dan lingkungan sistem secara inline. Uji petunjuk, keterampilan, dan penyiapan lingkungan secara interaktif.
-2. **Stabilkan** lingkungan. Instal paket, pasang sumber, pastikan semuanya berfungsi.
-3. **Pertahankan** sebagai agen terkelola dengan membuat agen baru, baik dari sumber maupun dengan melakukan fork lingkungan.
-4. **Perbarui** definisi agen. Ubah petunjuk sistem, ganti keterampilan, atau tambahkan sumber. Pemanggilan berikutnya akan mengambil konfigurasi baru.
+1. **Prototyp** z podstawowym agentem Antigravity. Przekaż instrukcje systemowe i źródła środowiska w tekście. Interaktywnie testuj instrukcje, umiejętności i konfigurację środowiska.
+2. **Stabilizuj** środowisko. Zainstaluj pakiety, zamontuj źródła i sprawdź, czy wszystko działa.
+3. **Utrwal** jako zarządzanego agenta, tworząc nowego agenta ze źródeł lub przez utworzenie kopii środowiska.
+4. **Zaktualizuj** definicję agenta. Zmień instrukcje systemowe, zamień umiejętności lub dodaj źródła. Następne wywołanie spowoduje użycie nowej konfiguracji.
 
-## Batasan
+## Ograniczenia
 
-- **Status pratinjau**: Agen terkelola dalam status pratinjau. Fitur dan skema dapat berubah.
-- **Agen dan model dasar**: Hanya `antigravity-preview-05-2026` yang didukung sebagai `base_agent`. Opsi model yang didukung di `agent_config` adalah `gemini-3.7-flash` (default), `gemini-3.6-flash`, `gemini-3.5-flash`, dan `gemini-3.5-flash-lite`. Untuk agen bernama, model tidak dapat diganti saat interaksi.
-- **Tidak ada pembuatan versi**: Pembuatan versi dan rollback agen belum tersedia.
-- **Tidak ada subagen bertingkat**: Delegasi subagen belum didukung.
-- Anda dapat memiliki hingga 1.000 agen terkelola.
+- **Sprawdź, w jakim stopniu spełniasz wymagania**: zarządzani agenci są dostępni w wersji zapoznawczej. Funkcje i schematy mogą ulec zmianie.
+- **Agent podstawowy i modele**: jako `base_agent` obsługiwany jest tylko agent `antigravity-preview-05-2026`. Obsługiwane opcje modelu w `agent_config` to `gemini-3.7-flash` (domyślny), `gemini-3.6-flash`, `gemini-3.5-flash` i `gemini-3.5-flash-lite`. W przypadku nazwanych agentów nie można zastąpić modelu w czasie interakcji.
+- **Brak obsługi wersji**: obsługa wersji agentów i przywracanie poprzedniej wersji nie są jeszcze dostępne.
+- **Brak zagnieżdżania subagentów**: delegowanie subagentów nie jest jeszcze obsługiwane.
+- Możesz mieć maksymalnie 1000 zarządzanych agentów.
 
-## Langkah berikutnya
+## Co dalej?
 
-- [Ringkasan Agen](https://ai.google.dev/gemini-api/docs/agents?hl=id): Pelajari konsep inti agen terkelola.
-- [Panduan memulai](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id): Mulai membangun dengan percakapan dan streaming multi-turn.
-- [Agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id): Jelajahi kemampuan, alat, dan harga untuk agen default.
-- [Lingkungan Agen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id): Konfigurasi sandbox, sumber, dan jaringan.
-- [Managed Agents API di Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=id): Untuk membuat agen terkelola dengan tata kelola organisasi bawaan.
+- [Omówienie agentów](https://ai.google.dev/gemini-api/docs/agents?hl=pl): poznaj podstawowe koncepcje zarządzanych agentów.
+- [Krótkie wprowadzenie](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl): zacznij tworzyć rozmowy wieloetapowe i przesyłanie strumieniowe.
+- [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl): poznaj możliwości, narzędzia i ceny domyślnego agenta.
+- [Środowiska agentów](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl): konfiguruj piaskownice, źródła i sieć.
+- [Zarządzane agenty API w Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=pl): do tworzenia agentów z wbudowanym zarządzaniem organizacją.
 
-Kirim masukan
+Prześlij opinię
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Terakhir diperbarui pada 2026-08-19 UTC.
+Ostatnia aktualizacja: 2026-08-19 UTC.
 
-Ada masukan untuk kami?
+Chcesz przekazać coś jeszcze?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-08-19 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-08-19 UTC."],[],[]]

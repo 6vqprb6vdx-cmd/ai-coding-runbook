@@ -1,7 +1,7 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=id
-fetched_at: 2026-08-31T06:33:01.175882+00:00
-title: "Menggunakan model Gemini terbaru \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+fetched_at: 2026-09-07T05:41:08.120478+00:00
+title: "Yang baru di Gemini 3.8 Flash \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
@@ -17,59 +17,23 @@ Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilih
 
 Kirim masukan
 
-# Menggunakan model Gemini terbaru
+# Yang baru di Gemini 3.8 Flash
 
-[Halaman ini](#)
-[3.5 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=id)
+[Lihat semua model](https://ai.google.dev/gemini-api/docs/models?hl=id)
 
-Gemini 3.6 Flash (`gemini-3.6-flash`) dan Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`) tersedia secara umum (GA) dan siap digunakan untuk produksi.
+Gemini 3.8 Flash (`gemini-3.8-flash`) tersedia secara umum (GA) dan siap digunakan untuk produksi. Model Flash ini adalah model tercerdas kami, yang dirancang untuk rekayasa software dengan cakupan panjang, agen otonom, dan alur kerja perusahaan yang kompleks.
 
-- **Gemini 3.6 Flash**: Performa yang lebih baik untuk tugas multimodal dan agentik yang kompleks sekaligus mengurangi penggunaan token, dengan titik harga yang lebih rendah daripada 3.5 Flash.
-- **Gemini 3.5 Flash-Lite**: Model tercepat dan paling hemat biaya dalam rangkaian 3.5. Mengungguli generasi Flash-Lite sebelumnya untuk eksekusi throughput tinggi.
-
-Panduan ini menjelaskan hal-hal baru di setiap model, perubahan API yang memengaruhi kode Anda, dan cara melakukan migrasi.
-
-### Gemini 3.6 Flash
-
-1. Instal skill:
-
-   ```
-   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
-   ```
-2. Terapkan keahlian:
-
-   ```
-   /gemini-interactions-api migrate my app to Gemini 3.6 Flash
-   ```
-
-### Gemini 3.5 Flash-Lite
-
-1. Instal skill:
-
-   ```
-   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
-   ```
-2. Terapkan keahlian:
-
-   ```
-   /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
-   ```
+Panduan ini menjelaskan hal-hal baru di Gemini 3.8 Flash, perubahan API, contoh kode, dan panduan migrasi.
 
 ## Model baru
 
 | Model | ID Model | Tingkat penalaran default | Harga | Deskripsi |
 | --- | --- | --- | --- | --- |
-| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | $1,50/1 Juta token input dan $7,50/1 Juta token output | Menyeimbangkan kecepatan dengan kecerdasan untuk tugas agentic dan multimodal. |
-| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | $0,30/1 Juta token input dan $2,50/1 Juta token output | Model 3.5 tercepat dan berbiaya terendah untuk eksekusi throughput tinggi. |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | `medium` | 3.8 Flash tersedia hingga akhir tahun dengan harga perkenalan $0,75/1 juta token input dan $3,75/1 juta token output; lihat [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id) untuk mengetahui detail selengkapnya. | Model Flash tercerdas kami, yang dirancang untuk rekayasa software dengan cakupan waktu panjang, agen otonom, dan alur kerja perusahaan yang kompleks. |
 
-Kedua model mendukung jendela konteks 1 juta token, token output maksimum 64 ribu, kemampuan berpikir, dan rangkaian lengkap alat bawaan termasuk [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id).
+Gemini 3.8 Flash mendukung jendela konteks 1 juta token, token output maksimal 64 ribu, tingkat pemikiran yang dapat disesuaikan (`low`, `medium`, `high`), dan rangkaian alat bawaan yang sama.
 
-Untuk melihat spesifikasi lengkap, lihat halaman model:
-
-- [Halaman model Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=id)
-- [Halaman model Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id)
-
-Untuk mengetahui harga mendetail, lihat [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+Untuk mengetahui spesifikasi lengkapnya, lihat [halaman model Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=id). Untuk mengetahui detail harga perkenalan, lihat [bagian harga](#pricing) di bawah atau [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.8-flash).
 
 ## Panduan memulai
 
@@ -81,8 +45,8 @@ from google import genai
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
-    contents="Write a three.js script that renders an interactive 3D robot.",
+    model="gemini-3.8-flash",
+    contents="Write a three.js script that renders a realistic 3D black hole."
 )
 
 print(response.text)
@@ -95,82 +59,67 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
 
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
-    contents: "Write a three.js script that renders an interactive 3D robot.",
-  });
-  console.log(response.text);
-}
+const response = await ai.models.generateContent({
+  model: "gemini-3.8-flash",
+  contents: "Write a three.js script that renders a realistic 3D black hole.",
+});
 
-main();
+console.log(response.text);
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '{
     "contents": [{
-      "parts": [{"text": "Write a three.js script that renders an interactive 3D robot."}]
+      "parts": [{"text": "Write a three.js script that renders a realistic 3D black hole."}]
     }]
   }'
 ```
 
-## Yang baru di Gemini 3.6 Flash
+## Yang baru di Gemini 3.8 Flash
 
-- **Pengurangan token dan giliran:** Menyelesaikan alur kerja multi-langkah dengan lebih sedikit langkah penalaran, giliran percakapan, dan panggilan alat dibandingkan Gemini 3.5. Hal ini juga mengurangi spiral loop eksekusi.
-- **Peningkatan pembuatan kode:** Menghasilkan kode siap produksi berkualitas lebih tinggi dengan lebih sedikit pengeditan yang tidak diinginkan dan lebih sedikit loop proses debug.
-- **Kualitas mengikuti perintah yang lebih baik**: Mengurangi perubahan file yang tidak diinginkan selama tugas diagnostik.
-- **Kemampuan penalaran multimodal dan spasial yang kuat:** Peningkatan performa dalam interpretasi diagram, konversi cetak biru visual, dan pembuatan tata letak web multi-elemen.
-- **Pemeriksaan terprogram di awal:** Lebih sering menjalankan skrip kode diagnostik sebelum melakukan perubahan daripada Gemini 3.5 Flash. Hal ini meningkatkan akurasi pada tugas yang kompleks, tetapi dapat menambahkan langkah eksplorasi ekstra pada pekerjaan frontend yang sederhana.
-- **Dukungan Penggunaan Komputer:** Didukung sebagai alat native untuk otomatisasi UI berbasis agen.
-- **Preferensi gaya UI**: Lebih baik dalam membuat kode fungsional, meskipun evaluator manusia lebih menyukai model sebelumnya untuk tata letak visual dan gaya. Anda dapat memitigasi hal ini dengan memberikan panduan desain yang jelas.
-- **Upaya penalaran default (sedang):** Menggunakan tingkat penalaran default `medium` yang sama dengan Gemini 3.5 Flash.
-- **Harga yang lebih rendah**: Biaya token output yang lebih rendah ($7,50/1 juta vs. $9,00/1 juta untuk 3.5 Flash). Token input tetap $1,50/1M.
+- **Rekayasa software dengan cakupan luas:** Memberikan hasil yang kuat pada benchmark coding dunia nyata, refactoring multi-file yang kompleks, dan eksekusi alat deterministik. Lihat [metodologi evaluasi](https://deepmind.google/models/evals-methodology/gemini-3-8-flash/?hl=id) untuk mengetahui detailnya.
+- **Agen otonom:** Memungkinkan Anda membangun alur kerja perencanaan multilangkah dan orkestrasi alat yang tangguh, sehingga secara signifikan mengurangi kegagalan loop dan error.
+- **Alur kerja perusahaan yang kompleks:** Memberikan akurasi yang lebih baik, penalaran yang mendalam, dan ketelitian faktual yang tinggi di seluruh tugas domain yang menuntut dan pipeline data skala besar.
+- **Model default untuk Agen Terkelola:** Agen default untuk agen terkelola: [Agen Antigravitasi](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id), kini menggunakan Gemini 3.8 Flash. [Antigravity SDK](https://antigravity.google/docs/sdk/overview/?hl=id) juga menggunakan Gemini 3.8 Flash secara default.
+- **Harga perkenalan:** Gemini 3.8 Flash tersedia dengan tarif perkenalan sebesar $0,75/1 juta token input dan $3,75/1 juta token output hingga 31 Desember 2026. Harga standar sebesar $1,50/1 Jt token input dan $7,50/1 Jt token output akan berlaku mulai 1 Januari 2027.
 
-## Yang baru di Gemini 3.5 Flash-Lite
+Gemini 3.8 Flash dapat menggunakan lebih banyak token pada tugas yang berjalan lebih lama dan kompleks, berdasarkan desainnya. Untuk memberikan hasil yang berkualitas lebih tinggi pada tujuan multi-langkah yang sulit, model mengambil langkah-langkah penalaran yang lebih kecil, memanggil alat secara berulang, dan memverifikasi pekerjaannya di sepanjang proses. Tidak semua alur kerja memerlukan tingkat verifikasi ini. Untuk tugas sehari-hari, Anda dapat menurunkan upaya [penalaran](#understanding-reasoning-levels) untuk mengurangi konsumsi token. Atau, Gemini 3.7 Flash tetap didukung sepenuhnya.
 
-- **Latensi eksekusi tugas yang lebih rendah:** Throughput tertinggi dalam keluarga 3.5 untuk penguraian data dan ekstraksi dokumen dalam volume tinggi.
-- **Performa multimodal dan penalaran yang ditingkatkan:** Jalur migrasi yang kuat dari Gemini 2.5 Flash, dengan skor yang lebih tinggi pada tugas penalaran seperti HLE (18,0% vs. 11,0%) dan tolok ukur multimodal seperti CharXIV (74,5% vs. 63,7%).
-- **Orkestrasi sub-agen dan keandalan alat:** Meningkatkan keandalan eksekusi alat untuk eksekusi kode, penelusuran, dan alur kerja MCP. Meningkatkan tingkat pemikiran untuk perencanaan otonom dan tugas sub-agen yang kompleks.
-- **Peningkatan pemahaman dokumen:** Meningkatkan akurasi penguraian dokumen dan ekstraksi data terstruktur. Bereksperimenlah dengan tingkat penalaran minimal dan tinggi, bergantung pada kompleksitas dokumen.
-- **Pemrosesan data tabular dan coding web interaktif:** Berperforma baik dalam pemrosesan data tabular dan JavaScript frontend dengan merencanakan melalui eksekusi kode ringan.
-- **Ketekunan chatbot dan persona:** Mengikuti petunjuk multi-turn yang lebih kuat dan konsistensi persona dibandingkan Gemini 3.1 Flash-Lite.
-- **Dukungan Penggunaan Komputer:** Didukung sebagai alat native untuk otomatisasi UI berbasis agen.
+## Memahami tingkat penalaran
 
-## Memilih model Flash atau Flash-Lite yang tepat
+Gemini 3.8 Flash memberi Anda kontrol yang fleksibel atas latensi dan kecerdasan dengan menyesuaikan tingkat penalaran model:
 
-Gunakan tabel ini untuk memilih model dan jalur migrasi yang tepat untuk workload Anda.
+- **Upaya berpikir yang rendah**: Mengurangi waktu untuk menjawab tugas-tugas penting dengan latensi rendah seperti pipeline respons insiden, chat real-time, penulisan draf, dan analisis data cepat.
+- **Sedang (default):** Kualitas terbaik untuk sebagian besar tugas. Direkomendasikan untuk kode kompleks dan kasus penggunaan agentic, yang memberikan akurasi lintasan pertama yang lebih tinggi.
+- **Upaya penalaran tinggi**: Memaksimalkan kemampuan penalaran dan orkestrasi alat model. Terbaik untuk penalaran mendalam, matematika, dan tugas multi-langkah yang sulit.
 
-Kedua model memerlukan penghapusan parameter pengambilan sampel yang tidak digunakan lagi (`temperature`, `top_p`, `top_k`) dan giliran model yang telah diisi sebelumnya. Lihat [Perubahan API](#api-changes-and-parameter-updates) untuk mengetahui detailnya.
-
-| Model | Kasus penggunaan utama | Target migrasi yang direkomendasikan |
-| --- | --- | --- |
-| **Gemini 3.6 Flash** `gemini-3.6-flash` | Pembuatan kode, penalaran spasial/multimodal, alur kerja agentic multi-langkah | **Gemini 3.5 Flash**, **Gemini 3 Flash (Pratinjau)**, atau **Gemini 3.1 Pro** |
-| **Gemini 3.5 Flash-Lite**  `gemini-3.5-flash-lite` | Eksekusi sub-agen otonom, analisis data dan ekstraksi dokumen dalam volume tinggi, penguraian JSON terstruktur | **Gemini 3.1 Flash-Lite** atau **Gemini 2.5 Flash** |
-
-## Agen Antigravity yang diperbarui
-
-Berkat peningkatan performanya, Gemini 3.6 Flash kini menjadi model default baru yang mendukung [agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agentn?hl=id) di Agen Terkelola Gemini. Hal ini dapat diubah dengan menyetel kolom baru di API.
+Contoh berikut menetapkan `thinking_level` ke `medium` untuk permintaan analisis kode kompleks:
 
 ### Python
 
 ```
 from google import genai
+from google.genai import types
 
 client = genai.Client()
 
-interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
-    input="Read Hacker News, summarize the top 10 stories, and save the results as a PDF.",
-    environment="remote",
+response = client.models.generate_content(
+    model="gemini-3.8-flash",
+    contents="Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
+    config=types.GenerateContentConfig(
+        thinking_config=types.ThinkingConfig(
+            thinking_level="medium"  # Balanced reasoning effort for complex tasks
+        ),
+    ),
 )
 
-print(interaction.output_text)
+print(response.text)
 ```
 
 ### JavaScript
@@ -178,151 +127,81 @@ print(interaction.output_text)
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const client = new GoogleGenAI({});
+const ai = new GoogleGenAI({});
 
-const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
-    input: "Read Hacker News, summarize the top 10 stories, and save the results as a PDF.",
-    environment: "remote",
-}, { timeout: 300000 });
+const response = await ai.models.generateContent({
+  model: "gemini-3.8-flash",
+  contents: "Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
+  config: {
+    thinkingConfig: {
+      thinkingLevel: "medium", // Balanced reasoning effort for complex tasks
+    },
+  },
+});
 
-console.log(interaction.output_text);
+console.log(response.text);
 ```
 
 ### REST
 
 ```
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
--H "Content-Type: application/json" \
--H "x-goog-api-key: $GEMINI_API_KEY" \
--d '{
-    "agent": "antigravity-preview-05-2026",
-    "input": "Read Hacker News, summarize the top 10 stories, and save the results as a PDF.",
-    "environment": "remote"
-}'
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [{
+      "parts": [{"text": "Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely."}]
+    }],
+    "generationConfig": {
+      "thinkingConfig": {
+        "thinkingLevel": "medium"
+      }
+    }
+  }'
 ```
 
-## Perubahan API dan pembaruan parameter
-
-Mulai dari Gemini 3.6 Flash dan Gemini 3.5 Flash-Lite, perubahan API berikut berlaku untuk model ini dan semua rilis model Gemini mendatang.
-
-- **Penghentian parameter pengambilan sampel**: `temperature`, `top_p`, dan `top_k` tidak digunakan lagi. API mengabaikan parameter ini dan menampilkan error dalam pembuatan model mendatang.
-- **Validasi pergantian model yang telah diisi otomatis**: Pengisian otomatis pergantian model tidak lagi didukung. Jika giliran terakhir yang tidak kosong dalam permintaan adalah giliran `model`, API akan menampilkan error `400`.
-
-Berikut penjelasan mendetail dan contoh kode untuk setiap perubahan API.
-
-### 1. Penghentian penggunaan parameter pengambilan sampel (`temperature`, `top_p`, `top_k`)
-
-`temperature`, `top_p`, dan `top_k` tidak digunakan lagi dan diabaikan. Pada generasi model mendatang, penyediaan parameter ini akan menampilkan error HTTP 400. **Hapus parameter ini dari semua permintaan.**
-
-```
-# ⚠️ Remove these parameters (deprecated)
-generation_config = {
-     "temperature": 0.7,
-     "top_p": 0.9,
-     "top_k": 40,
-}
-```
-
-Untuk meningkatkan determinisme, tentukan petunjuk sistem dengan aturan eksplisit untuk kasus penggunaan spesifik Anda.
-
-### 2. Validasi pergantian model yang sudah diisi otomatis
-
-Permintaan API yang diakhiri dengan giliran peran model yang tidak kosong tidak diizinkan dan akan menampilkan **Error HTTP 400**.
-
-#### ⚠️ Hindari
-
-Dalam payload REST mentah atau `generateContent` lama, mengakhiri dengan pergantian peran model kini tidak diizinkan:
-
-```
-/* ❌ DO NOT: End payload contents with a 'model' role turn */
-{
-  "contents": [
-    {"role": "user", "parts": [{"text": "Translate 'Hello world' to Spanish."}]},
-    {"role": "model", "parts": [{"text": "Translation:"}]}  /* ❌ Returns error */
-  ]
-}
-```
-
-#### ✅ Migrasi yang Direkomendasikan
-
-Jika aplikasi Anda sebelumnya mengisi otomatis giliran model untuk menyembunyikan kata pengantar atau memaksakan pemformatan JSON, gunakan `system_instruction` atau [Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
-
-```
-# ✅ RECOMMENDED: Use system_instruction to specify output format
-response = client.models.generate_content(
-    model="gemini-3.6-flash",
-    contents="Translate 'Hello world' to Spanish.",
-    config={"system_instruction": "Output only the translation without introductory text."},
-)
-```
+## Agen Antigravity yang diperbarui
 
 ## Checklist migrasi
 
-### Gemini 3.6 Flash
+```
+  `/gemini-api-dev migrate my app to Gemini 3.8 Flash`
+```
 
-1. Instal skill:
+### Bermigrasi ke gemini-3.8-flash
 
-   ```
-   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
-   ```
-2. Terapkan keahlian:
-
-   ```
-   /gemini-interactions-api migrate my app to Gemini 3.6 Flash
-   ```
-
-### Gemini 3.5 Flash-Lite
-
-1. Instal skill:
-
-   ```
-   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
-   ```
-2. Terapkan keahlian:
-
-   ```
-   /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
-   ```
-
-### Bermigrasi ke gemini-3.6-flash
-
-- **Perbarui ID Model:** Ubah string model target Anda menjadi `gemini-3.6-flash`.
+- **Perbarui ID Model:** Ubah string model target Anda menjadi `gemini-3.8-flash`.
 - **Menghapus parameter pengambilan sampel yang tidak digunakan lagi:**
   - Hapus `temperature`, `top_p`, dan `top_k` dari konfigurasi pembuatan.
-  - Ganti `thinking_budget` dengan enum string `thinking_level` yang ditetapkan ke `"medium"` atau `"high"`.
-  - Menghapus `candidate_count` (tidak didukung di Gemini 3.x).
+  - Ganti `thinking_budget` dengan enum string `thinking_level`. Perhatikan bahwa `minimal` tidak didukung di Flash 3.8.
+  - Menghapus `candidate_count` (tidak didukung di Gemini 3 dan yang lebih baru).
 - **Menerapkan aturan validasi belokan:**
   - Menghapus giliran model yang telah diisi otomatis.
   - Pastikan giliran pengguna akhir berisi teks yang tidak kosong.
 - **Mengaudit pemanggilan fungsi:**
-  - Pastikan semua objek `FunctionResponse` menyertakan `call_id` dan `name`.
   - Tempatkan aset multimodal di dalam payload respons.
-  - Format petunjuk inline menggunakan `\\n\\n`.
+  - Format petunjuk inline menggunakan `\n\n`.
   - Jika Anda melihat error `Malformed_Function_Call` yang terkait dengan teks sebelum alat, lihat [Solusi untuk persyaratan teks sebelum alat](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=id#workarounds-for-pre-tool-text-requirements).
-- **Persyaratan dasar Gemini 3.x:** Untuk update SDK dan pelestarian tanda tangan pemikiran, lihat [Daftar Periksa Migrasi Gemini 3.5](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=id#migration).
+  - Khusus jika menggunakan generateContent API: Pastikan semua objek `FunctionResponse` menyertakan `call_id` dan `name`.
+- **Persyaratan dasar Gemini 3:** Untuk pembaruan SDK dan pelestarian tanda tangan pemikiran, lihat [Daftar Periksa Migrasi Gemini 3.5](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=id#migration).
 
-### Bermigrasi ke gemini-3.5-flash-lite
+## Harga
 
-- **Perbarui ID Model:** Ubah string model target Anda menjadi `gemini-3.5-flash-lite`.
-- **Mengonfigurasi tingkat upaya penalaran:**
-  - Untuk ekstraksi, pemilihan rute, atau klasifikasi volume tinggi: biarkan `thinking_level` di `"minimal"` (default) untuk throughput maksimum.
-  - Untuk sub-agen otonom dengan panggilan alat, eksekusi kode, atau penalaran multi-langkah: tetapkan `thinking_level` ke `"medium"` atau `"high"` untuk mencegah penghentian alat sebelum waktunya.
-- **Menghapus parameter yang tidak digunakan lagi dan memvalidasi panggilan fungsi:** Terapkan [aturan yang sama seperti 3.6 Flash](#migrate-to-gemini-3-6-flash).
-- **Persyaratan dasar Gemini 3.x:** Lihat [Daftar Periksa Migrasi Gemini 3.5](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=id#migration).
+Manfaatkan harga perkenalan di Google AI Studio dan Gemini Enterprise Agent Platform hingga 31 Desember 2026 untuk Gemini 3.8 Flash, Gemini 3.7 Flash, dan Gemini 3.6 Flash. Harga standar akan berlaku mulai 1 Januari 2027. Untuk mengetahui tingkat harga lengkap, lihat [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.8-flash).
 
 ## Langkah berikutnya
 
 - Tinjau spesifikasi API di [Ringkasan Model](https://ai.google.dev/gemini-api/docs/models?hl=id).
-- Pelajari orkestrasi multi-agen di [Panduan Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id).
-- Uji dan sempurnakan perintah di [Google AI Studio](https://aistudio.google.com/?hl=id).
+- Pelajari orkestrasi multi-agen di [Ringkasan Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id).
+- Uji dan sempurnakan perintah di [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
 
 Kirim masukan
 
 Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Terakhir diperbarui pada 2026-07-30 UTC.
+Terakhir diperbarui pada 2026-09-03 UTC.
 
 Ada masukan untuk kami?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-30 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-03 UTC."],[],[]]

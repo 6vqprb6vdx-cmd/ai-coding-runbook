@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=zh-CN
-fetched_at: 2026-08-31T06:36:41.322113+00:00
-title: "\u4efb\u52a1\u7f16\u6392 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja
+fetched_at: 2026-09-07T05:46:49.796774+00:00
+title: "\u30bf\u30b9\u30af \u30aa\u30fc\u30b1\u30b9\u30c8\u30ec\u30fc\u30b7\u30e7\u30f3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-发送反馈
+フィードバックを送信
 
-# 任务编排
+# タスク オーケストレーション
 
-Gemini Robotics ER 模型可以规划任务并推理空间，从而推断出要采取哪些行动以及要移动哪些对象才能完成目标。本页
-展示了一个示例，该示例通过自定义机器人 API 来驱动[拾放](https://ai.google.dev/gemini-api/docs/calling-custom-robot-api?hl=zh-cn)
-操作，以编排将物品放入碗中
-的任务。此示例使用标准 Gemini ER 2 模型，如需查看流式传输
-示例，请参阅 [Gemini ER 2 流式传输指南](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=zh-cn)。
+Gemini Robotics ER モデルは、タスクを計画し、空間について推論して、目標を達成するために実行するアクションと移動するオブジェクトを推測できます。このページ
+では、カスタムロボット API を介して[ピッキングと配置](https://ai.google.dev/gemini-api/docs/calling-custom-robot-api?hl=ja)
+のオペレーションを駆動し、アイテムをボウルに入れるタスクをオーケストレートする例を示します。この例では、標準の Gemini ER 2 モデルを使用します。ストリーミング
+の例については、[Gemini ER 2 ストリーミング ガイド](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja)をご覧ください。
 
-如需查看完整的可运行代码，请参阅
-[机器人技术 Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)。
+実行可能な完全なコードについては、
+[ロボット工学のクックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## 使用自定义机器人 API
+## カスタム ロボット API を使用する
 
-此示例演示了如何使用自定义机器人 API 进行任务编排。它引入了一个专为拾放操作设计的模拟 API。任务是拿起一个蓝色方块，然后将其放入橙色碗中：
+この例では、カスタム ロボット API を使用したタスクのオーケストレーションを示します。ピッキングと配置のオペレーション用に設計されたモック
+API を紹介します。タスクは、青いブロックを持ち上げてオレンジ色のボウルに入れることです。
 
-![方块和碗的图片](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=zh-cn)
+![ブロックとボウルの画像](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=ja)
 
-此示例使用以下模拟机器人 API：
+この例では、次のモック ロボット API を使用します。
 
 ### Python
 
@@ -76,7 +76,7 @@ set_gripper_state_function = {
 }
 ```
 
-以下示例使用工具定义将提示和图片发送给模型。然后，它会运行智能体循环：在每次模型响应后，它都会执行任何请求的函数调用（`move`、`setGripperState`），使用 `previous_interaction_id` 将结果返回给模型，并重复此过程，直到模型停止调用函数或达到步数限制为止。
+次の例では、プロンプトと画像をツール定義とともにモデルに送信します。次に、エージェント ループを実行します。モデルのレスポンスごとに、リクエストされた関数呼び出し（`move`、`setGripperState`）を実行し、`previous_interaction_id` を使用して結果をモデルに返します。モデルが関数の呼び出しを停止するか、ステップの上限に達するまで繰り返します。
 
 ### Python
 
@@ -152,7 +152,7 @@ while step_count < max_steps:
     )
 ```
 
-以下内容展示了模型基于提示和模拟机器人 API 的可能输出。输出包括模型按顺序排列的机器人函数调用的输出。
+以下に、プロンプトとモック ロボット API に基づくモデルの出力例を示します。出力には、モデルが順序付けたロボット関数呼び出しの出力が含まれます。
 
 ```
 --- Executing Orchestrated Plan ---
@@ -169,18 +169,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## 后续步骤
+## 次のステップ
 
-- [机器人技术与流式传输](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=zh-cn) - 使用函数调用进行实时流式传输（仅限 Gemini Robotics ER 2）。
-- [视频理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=zh-cn) - 通过视频跟踪任务进度（仅限 ER 2）。
-- [空间推理](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=zh-cn) - 指向、跟踪和边界框示例。
+- [ストリーミングによるロボット工学](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - 関数呼び出しによるリアルタイム ストリーミング（Gemini Robotics ER 2 のみ）。
+- [動画理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja) - 動画からタスクの進捗状況を追跡（ER 2 のみ）。
+- [空間推論](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ja) - ポインティング、トラッキング、境界ボックスの例。
 
-发送反馈
+フィードバックを送信
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最后更新时间 (UTC)：2026-07-30。
+最終更新日 2026-07-30 UTC。
 
-需要向我们提供更多信息？
+ご意見をお聞かせください
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

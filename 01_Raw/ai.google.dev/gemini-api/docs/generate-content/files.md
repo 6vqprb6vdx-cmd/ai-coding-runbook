@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=fr
-fetched_at: 2026-08-31T06:38:38.537777+00:00
-title: "API Files \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=he
+fetched_at: 2026-09-07T05:32:46.386476+00:00
+title: "\u05de\u05de\u05e9\u05e7 API \u05e9\u05dc \u05e7\u05d1\u05e6\u05d9\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envoyer des commentaires
+שליחת משוב
 
-# API Files
+# ממשק API של קבצים
 
-Gemini peut traiter simultanément différents types de données d'entrée, y compris du texte, des images et de l'audio.
+‫Gemini יכול לעבד סוגים שונים של נתוני קלט, כולל טקסט, תמונות ואודיו, בו-זמנית.
 
-Ce guide vous explique comment utiliser des fichiers multimédias avec l'API Files. Les opérations de base sont les mêmes pour les fichiers audio, les images, les vidéos, les documents et les autres types de fichiers compatibles.
+במדריך הזה מוסבר איך לעבוד עם קובצי מדיה באמצעות Files API. הפעולות הבסיסיות זהות לקובצי אודיו, תמונות, סרטונים, מסמכים ולסוגי קבצים נתמכים אחרים.
 
-Pour obtenir des conseils sur les prompts de fichier, consultez la section [Guide sur les prompts de fichier](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide).
+להנחיות לגבי כתיבת פרומפטים לקבצים, עיין בקטע [מדריך לכתיבת פרומפטים לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide).
 
-## Importer un fichier
+## העלאת קובץ
 
-Vous pouvez utiliser l'API Files pour importer un fichier multimédia. Utilisez toujours l'API Files lorsque la taille totale de la requête (y compris les fichiers, le prompt textuel, les instructions système, etc.) est supérieure à 100 Mo. Pour les fichiers PDF, la limite est de 50 Mo.
+אפשר להשתמש ב-Files API כדי להעלות קובץ מדיה. תמיד צריך להשתמש ב-Files API כשגודל הבקשה הכולל (כולל הקבצים, פרומפט טקסטואלי, הוראות המערכת וכו') גדול מ-100 MB. לקובצי PDF, המגבלה היא 50 MB.
 
-Le code suivant importe un fichier, puis l'utilise dans un appel à `generateContent`.
+בדוגמת הקוד הבאה, קובץ מועלה ואז נעשה בו שימוש בקריאה ל-`generateContent`.
 
 ### Python
 
@@ -156,9 +156,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Obtenir les métadonnées d'un fichier
+## אחזור מטא-נתונים של קובץ
 
-Vous pouvez vérifier que l'API a bien stocké le fichier importé et obtenir ses métadonnées en appelant `files.get`.
+כדי לוודא שה-API שמר בהצלחה את הקובץ שהועלה ולקבל את המטא-נתונים שלו, אפשר לקרוא ל-`files.get`.
 
 ### Python
 
@@ -226,9 +226,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Lister les fichiers importés
+## הצגת רשימת הקבצים שהועלו
 
-Le code suivant permet d'obtenir la liste de tous les fichiers importés :
+הקוד הבא מקבל רשימה של כל הקבצים שהועלו:
 
 ### Python
 
@@ -281,9 +281,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Supprimer des fichiers importés
+## מחיקת קבצים שהועלו
 
-Les fichiers sont automatiquement supprimés au bout de 48 heures. Vous pouvez également supprimer manuellement un fichier importé :
+הקבצים נמחקים אוטומטית אחרי 48 שעות. אפשר גם למחוק קובץ שהועלה באופן ידני:
 
 ### Python
 
@@ -335,192 +335,192 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Informations sur l'utilisation
+## נתוני השימוש
 
-Vous pouvez utiliser l'API Files pour importer des fichiers multimédias et interagir avec eux. L'API Files vous permet de stocker jusqu'à 20 Go de fichiers par projet, avec une taille maximale de 2 Go par fichier. Les fichiers sont stockés pendant 48 heures.
+אפשר להשתמש ב-Files API כדי להעלות קובצי מדיה ולבצע פעולות שונות בקבצים האלה. באמצעות Files API אפשר לאחסן עד 20 GB של קבצים לכל פרויקט, עם גודל מקסימלי של 2 GB לכל קובץ. הקבצים מאוחסנים למשך 48 שעות.
 
-Pendant cette période, vous pouvez utiliser l'API pour obtenir des métadonnées sur les fichiers. Toutefois, vous ne pouvez pas télécharger les fichiers importés par les utilisateurs. Vous pouvez télécharger les fichiers générés par les modèles, tels que les vidéos, à l'aide de la méthode `files.download`. L'API Files est disponible sans frais dans toutes les régions où l'API Gemini est disponible.
+במהלך הזמן הזה, אפשר להשתמש ב-API כדי לקבל מטא-נתונים על הקבצים. עם זאת, אי אפשר להוריד קבצים שהמשתמשים העלו. אפשר להוריד קבצים שנוצרו על ידי מודלים, כמו סרטונים, באמצעות ה-method‏ `files.download`. ‫Files API זמין בחינם בכל האזורים שבהם Gemini API זמין.
 
-## Stratégies de requête pour les fichiers
+## שיטות להצגת הנחיות בקובץ
 
-Cette section fournit des conseils et des bonnes pratiques pour utiliser des fichiers multimédias avec des requêtes pour l'API Gemini.
+בקטע הזה מפורטות הנחיות ושיטות מומלצות לשימוש בקובצי מדיה בהנחיות ל-Gemini API.
 
-La possibilité d'utiliser différents types de données dans vos requêtes vous offre plus de flexibilité quant aux tâches que vous pouvez effectuer avec l'API Gemini. Par exemple, vous pouvez envoyer au modèle la photo d'un délicieux repas et lui demander d'écrire un court article de blog à ce sujet.
+היכולת להשתמש בסוגים שונים של נתונים בפרומפטים מאפשרת לכם גמישות רבה יותר מבחינת המשימות שאתם יכולים לבצע באמצעות Gemini API. לדוגמה, אתם יכולים לשלוח למודל תמונה של ארוחה טעימה ולבקש ממנו לכתוב פוסט קצר בבלוג על הארוחה.
 
 |  |  |
 | --- | --- |
-| **Prompt** (Requête) | **Réponse** |
-| Rédigez un article de blog court et attrayant basé sur cette photo. Il doit inclure une description du repas sur la photo et parler de ma méthode de préparation de repas.   Cookies | Préparer ses repas est un excellent moyen de gagner du temps et de l'argent, et cela peut aussi vous aider à manger plus sainement. Ce repas est un excellent exemple de plat sain et délicieux qui peut être facilement préparé à l'avance.  Ce plat se compose de riz brun, de légumes rôtis et de poulet teriyaki. Le riz brun est un glucide complexe et sain qui vous apportera une énergie durable. Les légumes rôtis sont un excellent moyen d'obtenir votre dose quotidienne de vitamines et de minéraux, et le poulet teriyaki est une option délicieuse et riche en protéines.  Ce plat est également très facile à préparer. Il vous suffit de cuire le riz brun, de faire rôtir les légumes et de cuire le poulet teriyaki. Une fois que tout est cuit, divisez-le en récipients pour la préparation des repas et conservez-les au réfrigérateur. Vous pouvez ensuite prendre un récipient et partir les matins chargés !  Si vous recherchez un repas sain et délicieux qui peut être facilement préparé à l'avance, cette recette est une excellente option. Il regorge de nutriments et de saveurs, et vous rassasiera à coup sûr.  À vos fourneaux pour des repas sains et délicieux ! |
+| **פרומפט** | **תשובה** |
+| תכתוב פוסט קצר ומעניין לבלוג על סמך התמונה הזו. הוא צריך לכלול תיאור של הארוחה בתמונה ולספר על התהליך שלי בהכנת ארוחות מראש.   קובצי Cookie | הכנת ארוחות מראש היא דרך מצוינת לחסוך זמן וכסף, והיא גם יכולה לעזור לכם לאכול בריא יותר. הארוחה הזו היא דוגמה מצוינת לארוחה בריאה וטעימה שאפשר להכין מראש בקלות.  ארוחה שכוללת אורז מלא, ירקות צלויים ועוף טריאקי. האורז החום הוא פחמימה בריאה ומורכבת שתספק לכם אנרגיה לאורך זמן. הירקות הצלויים הם דרך מצוינת לקבל את המינון היומי של ויטמינים ומינרלים, והעוף טריאקי הוא אפשרות טעימה ועשירה בחלבון.  גם את הארוחה הזו קל מאוד להכין. פשוט מבשלים את האורז המלא, צולים את הירקות ומבשלים את העוף בטריאקי. אחרי שהכול מבושל, מחלקים את האוכל לקופסאות של הכנת ארוחות ושומרים במקרר. אז תוכלו לקחת קופסה ולצאת לדרך בבקרים העמוסים!  אם אתם מחפשים ארוחה בריאה וטעימה שאפשר להכין בקלות מראש, הארוחה הזו היא בחירה מצוינת. הוא מלא ברכיבים מזינים ובטעם, ואין ספק שהוא ישאיר אתכם שבעים ומרוצים.  שיהיה לכם תיאבון בריא וטעים! |
 
-Si vous ne parvenez pas à obtenir le résultat souhaité à partir de requêtes utilisant des fichiers multimédias, voici quelques stratégies qui peuvent vous aider. Les sections suivantes fournissent des approches de conception et des conseils de dépannage pour améliorer les requêtes qui utilisent des entrées multimodales.
+אם אתם מתקשים לקבל את הפלט הרצוי מהנחיות שמשתמשות בקובצי מדיה, יש כמה אסטרטגיות שיכולות לעזור לכם לקבל את התוצאות הרצויות. בקטעים הבאים מפורטות גישות עיצוב וטיפים לפתרון בעיות שיעזרו לכם לשפר הנחיות שמשתמשות בקלט מולטי-מודאלי.
 
-Vous pouvez améliorer vos requêtes multimodales en suivant ces bonnes pratiques :
+כדי לשפר את ההנחיות המולטימודאליות, כדאי לפעול לפי השיטות המומלצות הבאות:
 
-- ### [Principes de base de la conception d'invites](#specific-instructions)
+- ### [עקרונות בסיסיים לעיצוב פרומפטים](#specific-instructions)
 
-  - **Soyez précis dans vos instructions** : définissez des instructions claires et concises qui laissent peu de place aux erreurs d'interprétation.
-  - **Ajoutez quelques exemples à votre requête** :utilisez des exemples réalistes pour illustrer votre objectif.
-  - **Décomposez la tâche étape par étape** : divisez les tâches complexes en sous-objectifs gérables pour guider le modèle tout au long du processus.
-  - **Spécifiez le format de sortie** : dans votre requête, demandez la sortie au format souhaité, tel que Markdown, JSON, HTML, etc.
-  - **Mettez en avant votre image pour les requêtes liées à une seule image** : bien que Gemini puisse gérer les entrées d'image et de texte dans n'importe quel ordre, les requêtes qui contiennent une seule image peuvent fonctionner mieux si cette image (ou vidéo) est placée avant la requête de texte. Toutefois, pour les requêtes qui nécessitent que les images soient fortement imbriquées avec les textes pour avoir du sens, utilisez l'ordre le plus naturel.
-- ### [Résoudre les problèmes liés à un prompt multimodal](#troubleshooting)
+  - **הוראות ספציפיות:** חשוב לנסח הוראות ברורות ותמציתיות, שלא משאירות מקום לפרשנות מוטעית.
+  - **להוסיף כמה דוגמאות להנחיה:** כדאי להשתמש בדוגמאות ריאליסטיות כדי להמחיש את מה שרוצים להשיג.
+  - **פירוט של התהליך**: חלוקת משימות מורכבות למשימות משנה קלות לניהול, והנחיית המודל בתהליך.
+  - **מציינים את פורמט הפלט**: בהנחיה, מבקשים שהפלט יהיה בפורמט הרצוי, כמו markdown, ‏ JSON, ‏ HTML ועוד.
+  - **בפרומפטים עם תמונה אחת, כדאי להוסיף את התמונה לפני הטקסט**: Gemini יכול לעבד קלט של תמונה וטקסט בכל סדר, אבל בפרומפטים עם תמונה אחת, יכול להיות שהביצועים יהיו טובים יותר אם התמונה (או הסרטון) תופיע לפני הפרומפט הטקסטואלי. עם זאת, בהנחיות שבהן צריך לשלב תמונות עם טקסטים בצורה הדוקה כדי שההנחיה תהיה הגיונית, כדאי להשתמש בסדר הכי טבעי.
+- ### [פתרון בעיות בפרומפט מולטי-מודאלי](#troubleshooting)
 
-  - **Si le modèle n'extrait pas d'informations de la partie pertinente de l'image** : ajoutez des indications sur les aspects de l'image à partir desquels vous souhaitez que la requête puise des informations.
-  - **Si le résultat du modèle est trop générique (non adapté à l'entrée image/vidéo)** : au début de la requête, essayez de demander au modèle de décrire les images ou les vidéos avant de fournir les instructions de la tâche. ou essayez de demander au modèle de faire référence à ce qui est illustré.
-  - **Dépannage** : demandez au modèle de décrire l'image ou demandez au modèle d'expliquer sa raisonnement pour évaluer sa compréhension initiale.
-  - **Si votre requête génère du contenu incohérent**, essayez de réduire le paramétrage de la température ou de demander au modèle des descriptions plus courtes afin de réduire les risques d'extrapolation.
-  - **Réglez les paramètres d'échantillonnage** : testez différents paramètres de température et des sélections en haut de la plage pour ajuster la créativité du modèle.
+  - **אם המודל לא שואב מידע מהחלק הרלוונטי בתמונה:** כדאי להוסיף רמזים לגבי ההיבטים של התמונה שמהם רוצים שההנחיה תשלוף מידע.
+  - **אם התוצאה של המודל גנרית מדי (לא מותאמת מספיק לקלט של התמונה או הסרטון):** בתחילת ההנחיה, כדאי לבקש מהמודל לתאר את התמונות או הסרטון לפני שמספקים את הוראת המשימה, או לבקש מהמודל להתייחס למה שמופיע בתמונה.
+  - **כדי לפתור בעיות בחלק מסוים:** מבקשים מהמודל לתאר את התמונה או להסביר את ההיגיון שלו, כדי להעריך את ההבנה הראשונית של המודל.
+  - **אם הפרומפט שלכם מוביל לתוכן הזוי:** נסו להפחית את הגדרת רמת האקראיות או לבקש מהמודל תיאורים קצרים יותר, כדי שהסיכוי שהוא יסיק פרטים נוספים יהיה נמוך יותר.
+  - **כוונון הפרמטרים של הדגימה:** כדאי להתנסות בהגדרות שונות של רמת האקראיות ובבחירות שונות של Top-K כדי לשנות את רמת הקריאייטיביות של המודל.
 
-### Soyez précis dans vos instructions
+### הוראות ספציפיות
 
-Les requêtes sont plus efficaces lorsqu'elles sont claires et détaillées. Si vous avez une sortie spécifique en tête, il est préférable d'inclure cette exigence dans la requête pour vous assurer d'obtenir le résultat souhaité.
+ההנחיות הכי מוצלחות הן ברורות ומפורטות. אם יש לכם פלט ספציפי בראש, עדיף לכלול את הדרישה הזו בפרומפט כדי לוודא שתקבלו את הפלט הרצוי.
 
-Pour cette image de tableau d'aéroport, demander au modèle de "décrire cette image" peut générer une description générale. Si vous avez besoin du modèle pour analyser une heure et une ville à partir de l'image, vous pouvez inclure cette requête directement dans votre prompt.
+למשל, אם תבקשו מהמודל רק "לתאר את התמונה הזו" של לוח מידע בשדה תעופה, הוא עשוי ליצור תיאור כללי. אם אתם רוצים שהמודל ינתח את השעה והעיר שמופיעות בתמונה, אתם יכולים לכלול את הבקשה הזו ישירות בהנחיה.
 
-| Prompt | Réponse de modèle |
+| פרומפט | תשובה מהמודל |
 | --- | --- |
-| Décrivez cette image. | L'image montre un tableau des arrivées et des départs d'aéroport. |
+| מה מופיע בתמונה? | תמונה של לוח טיסות נכנסות ויוצאות בשדה תעופה. |
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Horaires de transport Analysez les heures et les villes du tableau d'aéroport présent l'image ci-dessous et affichez-les sous forme de liste. | - 10:50 Moscou - 11:05 Édimbourg - 11:05 Londres - 11:10 Bucarest - 11:30 Kiev - 11:35 Dublin - 11:45 Midlands de l'Est - 12:15 Sofia - 12:30 Londres - 12:30 Newcastle - 12:40 Saint-Pétersbourg - 12:40 Londres - 12:45 Manchester |
+| לוח זמנים לנסיעות Parse the time and city from the airport board shown in this image into a list. | - ‫10:50 מוסקבה - ‫11:05 אדינבורו - ‫11:05 לונדון - ‫11:10 בוקרשט - ‫11:30 קייב - ‫11:35 דבלין - ‫11:45 איסט מידלנדס - ‫12:15 סופיה - 12:30 London - ‫12:30 ניוקאסל - ‫12:40 סנט פטרסבורג - ‫12:40 לונדון - ‫12:45 מנצ'סטר |
 
-### Ajouter quelques exemples
+### הוספת כמה דוגמאות
 
-Le modèle Gemini peut accepter plusieurs entrées qu'il peut utiliser comme exemples pour comprendre la sortie que vous souhaitez. L'ajout de ces exemples peut aider le modèle à identifier les schémas et à appliquer la relation entre les images et les réponses fournies au nouvel exemple. C'est ce qu'on appelle l'apprentissage few-shot.
+מודל Gemini יכול לקבל כמה קלטים שאפשר להשתמש בהם כדוגמאות כדי להבין את הפלט שאתם רוצים. הוספת הדוגמאות האלה יכולה לעזור למודל לזהות את הדפוסים ולהחיל את הקשר בין התמונות והתשובות שצוינו על הדוגמה החדשה. השיטה הזו נקראת גם למידה עם מעט דוגמאות.
 
-Dans l'exemple ci-dessous, le résultat initial est rédigé sous forme de phrase et contient également le pays (Brésil). Supposons que vous souhaitiez obtenir le résultat dans un format ou un style différent, et que vous ne souhaitiez obtenir que la ville, et non le pays. En ajoutant des exemples few-shot à votre requête, vous pouvez orienter le modèle pour qu'il réponde comme vous le souhaitez.
+בדוגמה שלמטה, הפלט הראשוני כתוב בצורת משפט, והוא כולל גם את המדינה (ברזיל). נניח שאתם רוצים שהפלט יהיה בפורמט או בסגנון אחר, ושהוא יכלול רק את שם העיר ולא את שם המדינה. הוספה של דוגמאות להנחיה יכולה לעזור למודל להגיב בצורה הרצויה.
 
-| **Prompt** (Requête) | **Réponse de modèle** |
+| **פרומפט** | **תשובה מהמודל** |
 | --- | --- |
-| Horaires de transport Déterminez la ville et le repère. | Le repère est la statue du Christ Rédempteur à Rio de Janeiro, au Brésil. |
+| לוח זמנים לנסיעות מזהים את העיר שבה נמצא ציון הדרך. | האתר המפורסם הוא פסל ישו הגואל בריו דה ז'ניירו, ברזיל. |
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Déterminez la ville et le repère. colisée | ville : Rome ; repère : le Colisée. |
-| Cité interdite | ville : Pékin ; repère : la Cité interdite |
-| forbidden-city | Ville : Rio de Janeiro ; repère : statue du Christ Rédempteur |
+| מזהים את העיר שבה נמצא ציון הדרך. קולוסיאום | העיר: רומא, נקודת ציון: הקולוסיאום. |
+| העיר האסורה | city: Beijing, landmark: Forbidden City |
+| forbidden-city | city: Rio de Janeiro, landmark: Christ the Redeemer statue |
 
-### Procéder étape par étape
+### תסביר לי את זה שלב אחרי שלב
 
-Pour les tâches complexes telles que celles nécessitant une compréhension visuelle et un raisonnement, il peut être utile de diviser la tâche en étapes plus petites et plus simples. Cela peut également être efficace si vous demandez directement au modèle de "penser étape par étape" dans votre requête.
+במשימות מורכבות שדורשות גם הבנה חזותית וגם חשיבה רציונלית, כדאי לפצל את המשימה לשלבים קטנים ופשוטים יותר. אפשרות נוספת היא לבקש מהמודל ישירות בהנחיה 'לחשוב שלב אחרי שלב'.
 
-| Requête | Réponse de modèle |
+| פרומפט | תשובה מהמודל |
 | --- | --- |
-| Quand vais-je manquer de papier toilette ? | Bientôt, car il ne vous reste que trois rouleaux. |
+| מתי ייגמר לי נייר הטואלט? | בקרוב יישארו לכם רק 3 סרטים. |
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| 1. Commencez par compter le nombre de rouleaux de papier toilette apparaissant sur cette photo.  2. Déterminez ensuite la quantité de papier toilette qu'une personne type utilise par jour.  3. Calculez la durée de vie de ces rouleaux de papier toilette. | 1. Sur cette photo, on voit trois rouleaux de papier toilette.  2. Une personne type utilise environ 20 feuilles de papier toilette par jour.  3. Si un rouleau contient 200 feuilles, chaque rouleau dure environ 10 jours. Par conséquent, les trois rouleaux dureront environ un mois. |
+| 1. קודם כל, תספור כמה גלילי נייר טואלט יש בתמונה הזו.  2. אחר כך, צריך לקבוע כמה נייר טואלט אדם ממוצע משתמש ביום.  3. תחשב כמה זמן יספיקו גלילי נייר הטואלט האלה. | 1. בתמונה הזו יש 3 גלילי נייר טואלט.  2. אדם ממוצע משתמש בכ-20 פיסות נייר טואלט ביום.  3. אם כל גליל מכיל 200 דפים, כל גליל יספיק לכ-10 ימים. לכן, 3 הגלילות יספיקו בערך לחודש. |
 
-Les problèmes mathématiques ou les problèmes basés sur les mots sont d'excellents candidats pour demander au modèle de réfléchir étape par étape.
+בעיות מתמטיות או סוגים אחרים של בעיות מילוליות הן דוגמאות מצוינות לשאלות שבהן כדאי לבקש מהמודל לחשוב שלב אחרי שלב.
 
-| **Prompt** (Requête) | **Response** (Réponse) |
+| **פרומפט** | **תשובה** |
 | --- | --- |
-| Quel est le quatrième terme de la séquence ? | -135 |
+| מהו האיבר הרביעי בסדרה? | -135 |
 
-La réponse du modèle est incorrecte. Pour améliorer cela, vous pouvez demander au modèle d'analyser le problème avant de répondre à la requête.
+התשובה מהמודל שגויה. כדי לשפר את התוצאה, אפשר לבקש מהמודל לנתח את הבעיה לפני שהוא עונה על ההנחיה.
 
-| **Prompt** (Requête) | **Response** (Réponse) |
+| **פרומפט** | **תשובה** |
 | --- | --- |
-| Commencez par analyser la formule dans l'image.  Ensuite, en fonction de la formule, répondez à la question "Quel est le quatrième terme de la séquence ?". | *Cliquez pour développer le résultat* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Remplacez "n = 4" dans la formule :  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Nous ne connaissons pas la valeur de b(3). Remplacez donc n = 3 dans la formule :  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Nous ne connaissons pas la valeur de b(2). Remplacez donc n = 2 dans la formule :  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Nous savons que la valeur de b(1) est 15. Remplacez-la par la formule :  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Maintenant que nous connaissons la valeur de b(2), remplacez-la dans la formule de b(3) :  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Maintenant que nous connaissons la valeur de b(3), remplacez-la dans la formule de b(4) :  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Par conséquent, le quatrième terme de la séquence est -405. |
+| קודם מנתחים את הנוסחה שבתמונה.  לאחר מכן, על סמך הנוסחה, ענה על השאלה 'מה האיבר הרביעי בסדרה?'. | *כדי להרחיב את התוצאה, לוחצים עליה* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. מציבים n = 4 בנוסחה:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. אנחנו לא יודעים את הערך של b(3), לכן נציב n = 3 בנוסחה:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. אנחנו לא יודעים את הערך של b(2), אז נציב n = 2 בנוסחה:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. אנחנו יודעים שהערך של b(1) הוא 15, אז נציב אותו בנוסחה:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. עכשיו, אחרי שיש לנו את הערך של b(2), נציב אותו בנוסחה של b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. עכשיו אנחנו יודעים את הערך של b(3), אז נציב אותו בנוסחה של b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   לכן, האיבר הרביעי בסדרה הוא ‎-405. |
 
-La réponse de ce modèle est correcte. Pour la rendre encore plus simple, vous pouvez demander au modèle de réfléchir par étapes.
+התשובה של המודל נכונה. כדי שהתשובה תהיה תמציתית יותר, אפשר לבקש מהמודל לחשוב שלב אחר שלב.
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Quel est le quatrième terme de la séquence ? Réfléchir étape par étape | Le premier terme est 15.  Le deuxième terme est b(1) \* (-3) = 15 \* (-3) = -45.  Le troisième terme est b(2) \* (-3) = -45 \* (-3) = 135.  Le quatrième terme est b(3) \* (-3) = 135 \* (-3) = -405. |
+| מהו האיבר הרביעי בסדרה? תחשוב שלב אחרי שלב. | האיבר הראשון הוא 15.  האיבר השני הוא b(1) \* (-3) = 15 \* (-3) = -45.  האיבר השלישי הוא b(2) \* (-3) = -45 \* (-3) = 135.  האיבר הרביעי הוא b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### Spécifier le format de sortie
+### ציון פורמט הפלט
 
-Un problème courant est le besoin d'avoir un format spécifique pour la sortie du modèle (par exemple, Markdown, JSON, HTML), en particulier si celle-ci doit être ingérée par une tâche en aval. Vous pouvez essayer de produire un résultat dans ce format en demandant au modèle via la requête. Vous trouverez deux exemples ci-dessous :
+בעיה נפוצה היא הצורך שהפלט של המודל יהיה בפורמט מסוים (למשל, Markdown,‏ JSON,‏ HTML), במיוחד אם צריך להזין את הפלט של המודל למשימה בהמשך. אתם יכולים לנסות ליצור פלט בפורמט הזה על ידי מתן הנחיה למודל לעשות זאת בהנחיה. למטה מופיעות שתי דוגמאות:
 
-| Requête | Réponse de modèle |
+| פרומפט | תשובה מהמודל |
 | --- | --- |
-| Analysez le tableau de cette image au format Markdown | | Sujet | État | Heure | Date de début | Date limite |  | ------- | ------ | ---- | ---------- | ------ |  | Math | Done | 1.5 hrs | 11/29/2023 | 12/1/2023 |  | Zone géographique | Terminé | 30 min | 02/12/2023 | 04/12/2023 |  | Physique | En cours | 2 h | 03/12/2023 | 05/12/2023 |  | Biologie | Non commencé | 6 h | 02/11/2016 | 06/12/2023 | |
+| נתח את הטבלה בתמונה הזו לפורמט Markdown | | נושא | סטטוס | שעה | תאריך התחלה | תאריך יעד |  | ------- | ------ | ---- | ---------- | ------ |  | מתמטיקה | בוצע | שעה וחצי | 29/11/2023 | 1/12/2023 |  | גיאוגרפיה | בוצע | 30 דקות | 2/12/2023 | 4/12/2023 |  | פיזיקה | בתהליך | שעתיים | 3/12/2023 | 5/12/2023 |  ‫| Biology | Not started | 6 hrs | 11/2/2016 | 12/6/2023 | |
 
-| **Prompt** (Requête) | **Réponse de modèle** |
+| **פרומפט** | **תשובה מהמודל** |
 | --- | --- |
-| Fournissez la liste de tous les attributs suivants :  ingrédients, type de cuisine, végétarien ou non, au format JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| צריך לציין את כל המאפיינים הבאים:  רכיבים, סוג המטבח, צמחוני או לא, בפורמט JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### Utilisez votre image en premier pour les requêtes liées à une seule image
+### כשמנסחים פרומפטים עם תמונה אחת, כדאי להוסיף את התמונה בהתחלה
 
-Bien que Gemini puisse interpréter l'image et le texte dans n'importe quel ordre dans un prompt, le fait de placer une seule image avant le prompt textuel peut offrir de meilleurs résultats.
-Dans les exemples suivants, vous remarquerez que l'image précède le texte dans chaque requête.
+‫Gemini יכול לפרש תמונה וטקסט בכל סדר בפרומפט, אבל יכול להיות שמיקום של תמונה אחת לפני פרומפט טקסטואלי יוביל לתוצאות טובות יותר.
+בדוגמאות הבאות, אפשר לראות שהתמונה מופיעה לפני הטקסט בכל הנחיה.
 
-### Résoudre les problèmes liés à un prompt multimodal
+### פתרון בעיות בפרומפטים מולטי-מודאליים
 
-Si vous n'obtenez pas de réponse utile, vous devrez peut-être résoudre les problèmes liés à votre requête. Voici quelques stratégies que vous pouvez essayer.
+אם לא קיבלתם תשובה מועילה, יכול להיות שתצטרכו לפתור בעיות בהנחיה. הנה כמה אסטרטגיות שאפשר לנסות.
 
-#### Si le modèle n'extrait pas d'informations de la partie pertinente de l'image
+#### אם המודל לא שואב מידע מהחלק הרלוונטי בתמונה
 
-Pour obtenir une réponse plus spécifique, vous pouvez indiquer les aspects de l'image à partir desquels vous souhaitez que la requête extraie des informations pour éclairer sa réponse.
+כדי לקבל תשובה ספציפית יותר, אפשר לציין אילו היבטים של התמונה רוצים שההנחיה תתייחס אליהם כדי להשיב.
 
-| Prompt | Réponse de modèle |
+| פרומפט | תשובה מהמודל |
 | --- | --- |
-| Combien de jours ces couches vont-elles durer avec un bébé ? | Les couches vont durer 198 jours avant d'être épuisées. |
+| כמה ימים יספיקו חיתולים לתינוק? | החיתולים יספיקו ל-198 ימים לפני שיגמרו. |
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Combien de temps vont durer ces couches avant d'être épuisées ?  Utilisez le poids indiqué sur la boîte pour déterminer l'âge de l'enfant et le nombre total de couches dans la boîte.  Divisez le nombre total par le nombre de couches utilisées par l'enfant chaque jour. | La boîte contient 198 couches. La boîte indique que les couches sont destinées à un enfant pesant entre 22 et 37 livres.  L'enfant correspondant à cette plage de poids a probablement 1 à 2 ans.  Un enfant de deux ans utilise généralement six couches par jour. Par conséquent, les couches vont durer environ 33 jours (198/6). |
+| כמה זמן יספיקו החיתולים האלה עד שאצטרך לקנות חדשים?  משתמשים במשקל שמופיע על האריזה כדי לקבוע את גיל הילד או הילדה, ומשתמשים במספר הכולל של החיתולים באריזה.  מחלקים את המספר הכולל במספר החיתולים שהילד או הילדה משתמשים בהם ביום. | הקופסה מכילה 198 חיתולים. על הקופסה מצוין שהחיתולים מיועדים לילדים במשקל 10-17 ק"ג.  הגיל הממוצע של ילדים בטווח המשקל הזה הוא בדרך כלל בין שנה לשנתיים.  ילד בן שנתיים משתמש בדרך כלל ב-6 חיתולים ביום, ולכן החיתולים יספיקו לכ-33 ימים (198/6). |
 
-#### Si les résultats du modèle sont trop génériques et ne sont pas suffisamment adaptés à l'entrée de type image
+#### אם הפלט של המודל גנרי מדי ולא מותאם מספיק לקלט של התמונה
 
-Pour aider le modèle à adapter sa réponse à l'image ou aux images, essayez de lui demander de les décrire avant d'effectuer sa tâche de raisonnement.
+כדי לעזור למודל להתאים את התשובה שלו לתמונות, כדאי לבקש ממנו לתאר את התמונות לפני שהוא מבצע את משימת החשיבה הרציונלית.
 
-| Prompt | Réponse de modèle |
+| פרומפט | תשובה מהמודל |
 | --- | --- |
-| Quel est le point commun entre ces images ? | Les quatre images sont des exemples de photographie de paysage. |
+| מה המשותף לתמונות האלה? | כל ארבע התמונות הן דוגמאות לצילום נוף. |
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Commencez par décrire en détail le contenu de chaque image. Quel est le point commun entre ces images ? | La première image montre une personne préparant une valise. La deuxième image montre un couloir vide dans un centre commercial. La troisième image montre un rouleau de papier toilette. La quatrième image montre une mer sombre et orageuse.  Le point commun de ces images est qu'elles sont toutes des exemples d'espaces liminaux. Les espaces liminaux sont des lieux ou des situations situés entre deux autres lieux ou situations. Elles sont souvent caractérisées par un sentiment d'incertitude ou d'ambiguïté.  La première image montre une personne entre chez elle et en voyage. La deuxième image montre le couloir entre deux magasins. La troisième image montre du papier toilette, ce qui peut représenter une salle de bain. Une salle de bain est un espace de transition entre les domaines privé et public. C'est un endroit où nous nous préparons à pénétrer ou à quitter le monde extérieur.  La quatrième image montre une mer calme et orageuse.  Les espaces liminaux peuvent être à la fois intéressants et étranges. Ils peuvent constituer un début ou une fin. Ils peuvent représenter un lieu de réflexion ou d'action. |
+| קודם כל, תתאר בפירוט את מה שרואים בכל תמונה. מה המשותף לתמונות האלה? | בתמונה הראשונה רואים אדם אורז מזוודה. בתמונה השנייה מוצג מסדרון ריק בקניון. בתמונה השלישית מוצג גליל נייר טואלט. בתמונה הרביעית מוצג ים סוער וכהה.  המשותף לכל התמונות האלה הוא שהן דוגמאות למרחבים לימינליים. מרחבים לימינליים הם מקומות או מצבים שנמצאים בין שני מקומות או מצבים אחרים. לרוב הן מתאפיינות בתחושת חוסר ודאות או דו-משמעות.  התמונה הראשונה מראה את האדם כשהוא בבית וכשהוא בטיול. בתמונה השנייה מוצג המסדרון שבין שתי חנויות. התמונה השלישית היא של נייר טואלט, שיכול לייצג חדר אמבטיה. חדר אמבטיה הוא מרחב מעבר בין תחום פרטי לתחום ציבורי. זה מקום שבו אנחנו מתכוננים להיכנס לעולם החיצוני או לצאת ממנו.  בתמונה הרביעית מוצג הים, פעם רגוע ופעם סוער.  מרחבים לימינליים יכולים להיות מרגשים ומטרידים בו-זמנית. הם יכולים להיות מקום של התחלות חדשות או מקום של סיומים. הם יכולים להיות מקום למחשבה או מקום לפעולה. |
 
-Vous pouvez également essayer de demander explicitement au modèle de faire référence au contenu de l'image.
+אפשר גם לנסות לבקש מהמודל להתייחס למה שרואים בתמונה.
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Quel est le point commun entre ces images ? Reportez-vous au contenu des images dans votre réponse. | Toutes les images sont liées au voyage. La première image montre une personne préparant une valise, la deuxième montre un couloir vide dans un centre commercial, la troisième une pile de rouleaux de papier toilette, et la quatrième image montre une mer sombre et orageuse.  Ces images sont toutes liées au voyage, car elles correspondent à tout ce dont les gens ont besoin ou utilisent lorsqu'ils voyagent. La première image montre une personne préparant une valise. C'est une chose que font les personnes qui partent en voyage. La deuxième image montre un couloir vide dans un centre commercial. C'est un lieu où les gens se rendent pour acheter les articles dont ils ont besoin pour leur voyage. La troisième image montre une pile de rouleaux de papier toilette. C'est quelque chose que les gens utilisent lorsqu'ils voyagent. La quatrième image montre une mer sombre et orageuse. C'est ce que les gens rencontrent souvent lorsqu'ils voyagent. |
+| מה המשותף לתמונות האלה? להתייחס למה שרואים בתמונות בתשובה. | כל התמונות קשורות לנסיעות. בתמונה הראשונה רואים אדם אורז מזוודה, בתמונה השנייה רואים מסדרון ריק בקניון, בתמונה השלישית רואים ערימה של נייר טואלט ובתמונה הרביעית רואים ים סוער וחשוך.  כל התמונות האלה קשורות לנסיעות כי הן מציגות דברים שאנשים צריכים או משתמשים בהם כשהם נוסעים. התמונה הראשונה מציגה אדם אורז מזוודה, שזה משהו שאנשים עושים כשהם נוסעים לטיול. בתמונה השנייה מוצג מסדרון ריק בקניון, שהוא מקום שאנשים נוהגים ללכת אליו כדי לקנות דברים לנסיעות שלהם. בתמונה השלישית מוצגת ערימה של נייר טואלט, שזה משהו שאנשים משתמשים בו לעיתים קרובות כשהם נוסעים. בתמונה הרביעית מוצג ים סוער וחשוך, שזה משהו שאנשים נתקלים בו לעיתים קרובות כשהם נוסעים. |
 
-Il en va de même pour les sorties créatives issues des images. Dans l'exemple suivant, avec le lapin, demandez explicitement au modèle d'inclure certains aspects de l'image pouvant améliorer le résultat.
+אותם טיפים רלוונטיים גם ליצירת קריאייטיב מתמונות. בדוגמה הבאה עם הארנב, בקשה מפורשת מהמודל לכלול היבטים מהתמונה יכולה לשפר את הפלט.
 
-| Prompt | Réponse de modèle |
+| פרומפט | תשובה מהמודל |
 | --- | --- |
-| Peux-tu m'écrire un poème sur cette image ? | Petit lapin, si doux et marron,  Sautant à travers champ, de haut en bas.  Tes oreilles sont si longues, ta queue si petite,  tu es la créature la plus mignonne de toutes.  Tu grignotes l'herbe, si verte et douce,  et tu sautes lorsque tu me vois.  Mais je serai toujours ton ami,  Petit lapin, jusqu'à la fin. |
+| תכתוב שיר על התמונה הזו? | ארנב קטן, רך וחום,  קופץ בשדה, למעלה ולמטה.  האוזניים שלך כל כך ארוכות, הזנב שלך כל כך קטן,  אתה היצור הכי חמוד מכולם.  אתה מכרסם את העשב, כל כך ירוק ומתוק,  ואז קופץ כשאתה רואה אותי.  But I'll always be your friend,  Little bunny, until the very end. |
 
-| **Prompt modifié** | **Réponse améliorée** |
+| **פרומפט מעודכן** | **תשובה משופרת** |
 | --- | --- |
-| Peux-tu m'écrire un poème descriptif et théâtral sur cette image et y inclure le lieu ? | Petit lapin sur la pelouse,  Les oreilles sont si longues, si fines.  Que vois-tu là-bas,  Au loin, là où tu regardes ?  Est-ce le bleu de l'océan,  Étincelant dans la lumière du soleil ?  Ou les vagues qui s'écrasent et rugissent,  Un rythme que tu adores ?  Petit lapin, dis-moi la vérité,  Qu'est-ce qui retient tant ton attention ?  Est-ce la brise salée,  ou les cris des mouettes qui supplient ?  Peut-être est-ce toute cette immensité,  un monde si grand et si petit à la fois.  Un lieu où les rêves peuvent vagabonder  et où les aventures peuvent être créées.  Petit lapin, je me demande à quoi à quoi tu rêves,  Quand tu es assis sur l'herbe, si serein.  As-tu envie d'explorer les profondeurs,  ou de rester sur la terre ferme, là où tu peux sauter ?  Quoi qu'il en soit, petit lapin,  Garde cette étincelle qui brille en toi. Car dans tes rêves et tes aspirations,  se trouve un monde qui n'attend que d'être créé. |
+| תכתוב לי שיר תיאורי ודרמטי על התמונה הזו, ותציין את המיקום. | ארנב קטן על הדשא הירוק,  אוזניים ארוכות וחדות.  מה אתה רואה שם,  במרחק, לאן אתה בוהה?  Is it the ocean blue,  Sparkling in the sun's hue?  Or the waves that crash and roar,  A rhythm that you adore?  ארנב קטן, תגיד לי את האמת,  מה כל כך מושך את תשומת הלב שלך?  Is it the salty breeze,  Or the seagulls' cries that please?  אולי זה הגודל של הכל,  עולם כל כך גדול וקטן.  מקום שבו חלומות יכולים להתגשם,  ושבו אפשר לצאת להרפתקאות.  ארנב קטן, מעניין על מה אתה חולם,  כשאתה יושב על הדשא, כל כך רגוע.  האם תרצה לחקור את המעמקים,  או להישאר על היבשה, שבה תוכל לקפוץ?  לא משנה מה זה, ארנב קטן,  תשמור על ניצוץ התמיהה הזה בוער בעוצמה.  כי בחלומות ובשאיפות שלך,  יש עולם שמחכה ליצירה שלך. |
 
-#### Savoir quelle partie de la requête a échoué
+#### פתרון בעיות שקשורות לחלקים בפרומפט שנכשלו
 
-Il peut être difficile de savoir si une requête a échoué car le modèle n'a pas **compris l'image** avec laquelle commencer, ou s'il a compris l'image, mais n'a pas effectué les bonnes **étapes de raisonnement**.
-Pour faire la distinction entre les deux, demandez au modèle de décrire le contenu de l'image.
+יכול להיות שקשה לדעת אם הפרומפט נכשל כי המודל לא **הבין את התמונה** מלכתחילה, או שהוא הבין את התמונה אבל לא ביצע את **שלבי החשיבה הרציונלית** הנכונים לאחר מכן.
+כדי להבחין בין הסיבות האלה, אפשר לבקש מהמודל לתאר את מה שמופיע בתמונה.
 
-Dans l'exemple suivant, si le modèle répond avec un aliment qui ne semble pas correspondre au thé (par exemple, du pop-corn), vous pouvez d'abord chercher à déterminer si le modèle a correctement reconnu que l'image contient du thé.
+בדוגמה הבאה, אם המודל מציע חטיף שנראה מפתיע כשמשלבים אותו עם תה (למשל, פופקורן), אפשר קודם לפתור את הבעיה כדי לקבוע אם המודל זיהה נכון שהתמונה מכילה תה.
 
-| Prompt | Invite pour le dépannage |
+| פרומפט | פרומפט לפתרון בעיות |
 | --- | --- |
-| Quel aliment puis-je préparer en une minute qui pourrait être associé à cela ? | Décris ce que représente cette image. |
+| איזה נשנוש אפשר להכין בדקה שיתאים לזה? | מה רואים בתמונה? |
 
-Une autre stratégie consiste à demander au modèle d'expliquer son raisonnement. Cela peut vous aider à déterminer la partie du raisonnement qui a échoué, le cas échéant.
+אסטרטגיה נוספת היא לבקש מהמודל להסביר את ההיגיון שלו. כך תוכלו לצמצם את החלק בחשיבה הרציונלית שהתקלקל, אם יש כזה.
 
-| Prompt | Invite pour le dépannage |
+| פרומפט | פרומפט לפתרון בעיות |
 | --- | --- |
-| Quel aliment puis-je préparer en une minute qui pourrait être associé à cela ? | Quel aliment puis-je préparer en une minute qui pourrait être associé à cela ? Merci d'indiquer pour quelle raison. |
+| איזה נשנוש אפשר להכין בדקה שיתאים לזה? | איזה נשנוש אפשר להכין בדקה שיתאים לזה? תסביר למה. |
 
-## Étape suivante
+## המאמרים הבאים
 
-- Essayez d'écrire vos propres requêtes multimodales à l'aide de [Google AI Studio](http://aistudio.google.com?hl=fr).
-- Pour savoir comment utiliser l'API Gemini Files pour importer des fichiers multimédias et les inclure dans vos requêtes, consultez les guides [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=fr), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr) et [Traitement de documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr).
-- Pour obtenir d'autres conseils sur la conception de requêtes, comme le réglage des paramètres d'échantillonnage, consultez la page [Stratégies de requête](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr).
+- אתם יכולים לנסות לכתוב הנחיות מולטימודאליות משלכם באמצעות [Google AI Studio](http://aistudio.google.com?hl=he).
+- מידע על שימוש ב-Gemini Files API להעלאת קובצי מדיה ולצירוף שלהם להנחיות זמין במדריכים בנושא [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=he),‏ [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=he) ו[עיבוד מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he).
+- הנחיות נוספות לעיצוב הנחיות, כמו כוונון פרמטרים של דגימה, זמינות בדף [אסטרטגיות להנחיות](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he).
 
-Envoyer des commentaires
+שליחת משוב
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Dernière mise à jour le 2026/08/30 (UTC).
+עדכון אחרון: 2026-08-30 (שעון UTC).
 
-Voulez-vous nous donner plus d'informations ?
+רוצה לתת לנו משוב?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/08/30 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-08-30 (שעון UTC)."],[],[]]

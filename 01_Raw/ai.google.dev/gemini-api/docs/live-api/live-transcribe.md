@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe
-fetched_at: 2026-08-31T06:33:27.517139+00:00
+fetched_at: 2026-09-07T05:45:56.283807+00:00
 title: "Live transcription with Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.7 Flash is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-3.7-flash).
+Gemini 3.8 Flash is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash).
 
 - [Home](https://ai.google.dev/)
 - [Gemini API](https://ai.google.dev/gemini-api)

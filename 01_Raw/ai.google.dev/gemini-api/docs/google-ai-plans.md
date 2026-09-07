@@ -1,62 +1,60 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=he
-fetched_at: 2026-08-31T06:28:46.023679+00:00
-title: "\u05de\u05d9\u05e0\u05d5\u05d9\u05d9 Google AI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=ja
+fetched_at: 2026-09-07T05:40:22.511235+00:00
+title: "Google AI \u30d7\u30e9\u30f3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-שליחת משוב
+フィードバックを送信
 
-# מינויי Google AI
+# Google AI プラン
 
-שימוש במינוי AI של Google ב-AI Studio.
+AI Studio で Google AI サブスクリプション プランを使用する。
 
-תוכניות המינוי Google AI Pro ו-Google AI Ultra מספקות גישה נרחבת יותר למודלים ומכסות שימוש גבוהות יותר ליצירת אב טיפוס ופיתוח ב-AI Studio בהשוואה לרמת השימוש ללא תשלום.
+Google AI Pro と Ultra のサブスクリプション プランでは、無料枠と比較して、AI Studio でのプロトタイピングと開発のためのモデルへのアクセスが拡大し、レート制限が引き上げられます。
 
-כדי להירשם לתוכנית Google AI, אפשר לשדרג ישירות מתוך Google AI Studio. לשם כך, לוחצים על הלחצן **שדרוג** בתפריט הניווט הימני. אפשר גם להירשם דרך [דף התוכניות של Google AI](https://one.google.com/about/google-ai-plans/?hl=he).
+Google AI プランに登録するには、Google AI Studio 内から直接アップグレードできます。左側のナビゲーション メニューにある [**アップグレード**] ボタンをクリックします。または、[Google AI プランのページ](https://one.google.com/about/google-ai-plans/?hl=ja)にアクセスして登録することもできます。
 
-## סקירה כללית
+## 概要
 
-מינויים ל-Google AI Pro ול-Ultra מאפשרים למפתחים לגשת למודלים בתשלום ולמכסות גבוהות יותר ב-Playground של Google AI Studio, וגם לתכונות כמו Code Assistant ב[מצב Build](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=he), כדי לתכנת בשיטת Vibe coding. מנויים מקבלים מכסות יומיות בסיסיות גבוהות יותר מאלה של התוכנית בחינם לשימוש בממשקים של [Playground](https://aistudio.google.com/prompts/new_chat?hl=he) ושל [Build](https://aistudio.google.com/apps?hl=he). ההגבלות היומיות נאכפות באמצעות איפוסים ולא באמצעות חלונות זמן מתגלגלים, כדי להבטיח חוויית פיתוח חלקה לפני המעבר לפיתוח בקנה מידה של ייצור עם חיוב ב-Cloud.
+Google AI Pro と Ultra のサブスクリプションでは、Google AI Studio Playground で有料モデルとより高いレート制限を利用できるほか、[ビルドモード](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=ja)のコード アシスタントなどの機能を使用してバイブ コーディングを行うことができます。サブスクライバーには、[Playground](https://aistudio.google.com/prompts/new_chat?hl=ja) インターフェースと [Build](https://aistudio.google.com/apps?hl=ja) インターフェースで使用できる、無料枠よりも高いベースラインの日次割り当てが付与されます。1 日あたりの上限は、ローリング時間枠ではなくリセットを使用して適用されます。これにより、Cloud Billing を使用して本番環境規模の開発に移行する前に、スムーズな開発エクスペリエンスが保証されます。
 
-| תוכנית | שימוש ב-AI Studio | גישה למודלים והטבות |
+| 計画 | AI Studio の使用 | モデルへのアクセスと特典 |
 | --- | --- | --- |
-| **Free** | מכסה מוגבלת | מגבלות וגישה בסיסיות, עם אפשרות לשדרג כדי לקבל יותר. |
-| ‫**AI Pro** | מכסה גבוהה יותר | גישה למודלים מתקדמים כמו Gemini Pro,‏ Nano Banana ו-Lyria. |
-| ‫**AI Ultra** | המכסה הגבוהה ביותר | המכסות הכי גדולות ליצירת אב טיפוס, לפיתוח ולשימוש במודלים מתקדמים. |
+| **無料** | 適度な割り当て | 基本的な上限とアクセス権。アップグレードして上限を引き上げることもできます。 |
+| **AI Pro** | 割り当ての増加 | Gemini Pro、Nano Banana、Lyria などのプレミアム モデルを利用できる。 |
+| **AI Ultra** | 最大割り当て | プロトタイピング、開発、高度なフロンティア モデル向けの使用量上限が最大のプラン。 |
 
-## שימוש ב-Gemini API
+## Gemini API の使用状況
 
-כשמכסות המינוי היומיות הבסיסיות ב-AI Studio מוצו, אפשר להמשיך את תהליכי העבודה באמצעות מפתח Gemini API עם חיוב ב-Cloud, ולשלם על כל בקשה לשימוש ב-Gemini API ישירות.
-אפשר לראות את השימוש ב-Gemini API בפרויקטים ובמפתחות API ב[מרכז הבקרה של AI Studio](https://aistudio.google.com/projects?hl=he).
+AI Studio で 1 日あたりのベースライン サブスクリプション割り当てが使い果たされた場合は、Gemini API のリクエストごとの使用量に対して Cloud Billing が有効になっている Gemini API キーを使用して、ワークフローを続行できます。プロジェクトと API キーの Gemini API の使用状況は、[AI Studio ダッシュボード](https://aistudio.google.com/projects?hl=ja)で確認できます。
 
-מנויים עם פרויקטים ב-Google Cloud Platform‏ (GCP) וחיוב ב-Cloud יכולים לקבל קרדיטים חודשיים ל-Cloud מ-[Google Developer Program](https://developers.google.com/program?hl=he) עבור שירותי Cloud, כולל Gemini API. השימוש והחיוב בתשלום מראש ובתשלום לאחר השימוש (postpay) לא ישתנו. משתמשים עם חיוב מראש צריכים יתרה בתשלום של יותר מ-0 $ב-AI Studio כדי להפעיל קרדיטים שיווקיים. אם יש קרדיטים ל-Google Cloud שאתם זכאים להם, הם ינוכו קודם.
-[מידע נוסף](https://ai.google.dev/gemini-api/docs/billing?hl=he#billing-plans)
+Google Cloud Platform（GCP）プロジェクトと Cloud Billing が有効になっているサブスクライバーは、Gemini API などの Cloud サービスに対して、[Google Developer Program](https://developers.google.com/program?hl=ja) から毎月 Cloud クレジットを受け取ることができます。前払いと後払いの使用量と請求は変更されません。前払い課金をご利用のお客様がプロモーション クレジットを有効にするには、AI Studio で 0 ドルを超える有料残高が必要です。対象となる Google Cloud クレジットがある場合は、まずそのクレジットが適用されます。[詳細](https://ai.google.dev/gemini-api/docs/billing?hl=ja#billing-plans)
 
-שילוב של מינוי AI מקל על ההתנסות בפיתוח מתקדם. עם זאת, לפריסות בסביבת ייצור בהיקף גדול, מומלץ להשתמש בפרויקטים ב-Google Cloud, ב[תוכנית למתחילים של Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=he) ובמפתחות Gemini API.
+Google AI サブスクリプションの統合により、高度なテストと開発の参入障壁が下がります。ただし、大規模な本番環境デプロイの場合は、Google Cloud プロジェクト、[Google Cloud スターター ティア](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=ja)、Gemini API キーを使用することをおすすめします。
 
-## מגבלות ותאימות
+## 制限事項と互換性
 
-- **ממשק המשתמש של AI Studio בלבד:** ההטבות של תוכנית Google AI לשימוש מפתחים חלות רק בממשק האינטרנט של Google AI Studio. השימוש הישיר ב-Gemini API (למשל באמצעות מפתחות API או אפליקציות חיצוניות) מחויב ומנוהל בנפרד. עם זאת, אפשר להשתמש במינוי במוצרים אחרים של Google (ראו [תוכניות Google AI](https://one.google.com/about/google-ai-plans/?hl=he)).
-- **שונה מחיוב על API:** תוכניות Google AI ל-AI Studio נפרדות מ[רמות השימוש ב-Gemini API](https://ai.google.dev/gemini-api/docs/billing?hl=he), שכוללות שימוש ב-API לצורך פיתוח וייצור.
-- **קרדיטים ל-Google One:** [קרדיטים ל-AI ב-Google One](https://support.google.com/googleone/answer/16287445?hl=he) הם מערכת קרדיטים נפרדת שלא נתמכת ב-AI Studio ולא חופפת לקרדיטים ל-Google Cloud.
-- **גישה לסוכנים:** הגישה לסוכנים (Deep Research ו-Antigravity Preview) ב-AI Studio לא כלולה בתוכניות Google AI ונדרש [מפתח API בתשלום](https://ai.google.dev/gemini-api/docs/billing?hl=he#setup-billing).
+- **AI Studio UI のみ:** デベロッパーの使用に対する Google AI プランの特典は、Google AI Studio ウェブ インターフェース内でのみ適用されます。Gemini API の直接使用（API キーや外部アプリケーションの使用など）は、別途請求および管理されます。ただし、他の Google サービスでサブスクリプションを使用することはできます（[Google AI プラン](https://one.google.com/about/google-ai-plans/?hl=ja)を参照）。
+- **API の課金とは異なります:** AI Studio の Google AI プランは、開発と本番環境の API 使用量をカバーする [Gemini API の使用量ティア](https://ai.google.dev/gemini-api/docs/billing?hl=ja)とは異なります。
+- **Google One クレジット:** [Google One AI クレジット](https://support.google.com/googleone/answer/16287445?hl=ja)は、AI Studio でサポートされていない別のクレジット システムであり、Google Cloud クレジットとは重複しません。
+- **エージェントへのアクセス:** AI Studio 内のエージェント（Deep Research と Antigravity プレビュー）へのアクセスは Google AI プランに含まれておらず、[有料の API キー](https://ai.google.dev/gemini-api/docs/billing?hl=ja#setup-billing)が必要です。
 
-שליחת משוב
+フィードバックを送信
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-עדכון אחרון: 2026-08-19 (שעון UTC).
+最終更新日 2026-08-19 UTC。
 
-רוצה לתת לנו משוב?
+ご意見をお聞かせください
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-08-19 (שעון UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-08-19 UTC。"],[],[]]

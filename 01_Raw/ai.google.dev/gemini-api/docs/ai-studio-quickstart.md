@@ -1,81 +1,80 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=vi
-fetched_at: 2026-08-31T06:36:20.274834+00:00
-title: "H\u01b0\u1edbng d\u1eabn nhanh v\u1ec1 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja
+fetched_at: 2026-09-07T05:46:30.517949+00:00
+title: "Google AI Studio \u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Hướng dẫn nhanh về Google AI Studio
+# Google AI Studio のクイックスタート
 
-[Google AI Studio](https://aistudio.google.com/?hl=vi) giúp bạn nhanh chóng dùng thử các mô hình và thử nghiệm với nhiều câu lệnh. Khi đã sẵn sàng tạo, bạn có thể chọn "Lấy mã" và ngôn ngữ lập trình bạn muốn dùng để sử dụng [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi).
+[Google AI Studio](https://aistudio.google.com/?hl=ja) を使用すると、さまざまなプロンプトでモデルを簡単に試すことができます。構築の準備ができたら、[Get code] を選択し、好みのプログラミング言語で [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=ja) の使用を開始できます。
 
-## Câu lệnh và chế độ cài đặt
+## プロンプトと設定
 
-Google AI Studio cung cấp một số giao diện cho câu lệnh được thiết kế cho nhiều trường hợp sử dụng. Hướng dẫn này đề cập đến **Câu lệnh trò chuyện**, được dùng để xây dựng trải nghiệm đàm thoại. Kỹ thuật tạo câu lệnh này cho phép nhiều lượt nhập và phản hồi để tạo ra đầu ra. Bạn có thể tìm hiểu thêm qua [ví dụ về câu lệnh trò chuyện dưới đây](#chat_example).
-Các lựa chọn khác bao gồm **Phát trực tuyến theo thời gian thực**, **Video gen** và nhiều lựa chọn khác.
+Google AI Studio には、さまざまなユースケース向けに設計されたプロンプト用のインターフェースが複数用意されています。このガイドでは、会話機能の構築に使用される**チャット プロンプト**について説明します。このプロンプト技法では、複数の入力とレスポンスのターンを使用して出力を生成できます。詳しくは、[以下のチャット プロンプトの例](#chat_example)をご覧ください。他にも、**リアルタイム ストリーミング**、**動画生成**などのオプションがあります。
 
-AI Studio cũng cung cấp bảng điều khiển **Chế độ cài đặt chạy**. Tại đây, bạn có thể điều chỉnh [các thông số mô hình](https://ai.google.dev/docs/prompting-strategies?hl=vi#model-parameters), [chế độ cài đặt an toàn](https://ai.google.dev/gemini-api/docs/safety-settings?hl=vi) và bật các công cụ như [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi), [gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi), [thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi) và [căn cứ](https://ai.google.dev/gemini-api/docs/grounding?hl=vi).
+AI Studio には、**実行設定**パネルもあります。このパネルでは、[モデル パラメータ](https://ai.google.dev/docs/prompting-strategies?hl=ja#model-parameters)、[安全設定](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ja)を調整したり、[構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)、[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)、[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)、[グラウンディング](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)などのツールを切り替えたりできます。
 
-## Ví dụ về câu lệnh trong cuộc trò chuyện: Xây dựng một ứng dụng trò chuyện tuỳ chỉnh
+## チャット プロンプトの例: カスタム チャット アプリケーションを作成する
 
-Nếu đã từng sử dụng một chatbot đa năng như [Gemini](https://gemini.google.com/?hl=vi), bạn sẽ tự mình trải nghiệm được sức mạnh của các mô hình AI tạo sinh trong cuộc trò chuyện không giới hạn. Mặc dù những chatbot đa năng này rất hữu ích, nhưng thường thì chúng cần được điều chỉnh cho phù hợp với các trường hợp sử dụng cụ thể.
+[Gemini](https://gemini.google.com/?hl=ja) などの汎用 chatbot を使用したことがある場合は、生成 AI モデルがオープンエンドのダイアログにどれほど強力であるかを直接体験したことがあるでしょう。汎用チャットボットは便利ですが、特定のユースケースに合わせて調整する必要があることがよくあります。
 
-Ví dụ: có thể bạn muốn tạo một chatbot dịch vụ khách hàng chỉ hỗ trợ các cuộc trò chuyện về sản phẩm của một công ty. Bạn có thể muốn tạo một chatbot có giọng điệu hoặc phong cách cụ thể: một bot hay kể chuyện cười, gieo vần như một nhà thơ hoặc sử dụng nhiều biểu tượng cảm xúc trong câu trả lời.
+たとえば、自社製品に関する会話のみをサポートするカスタマー サービス chatbot を構築するとします。特定のトーンやスタイルで話す chatbot を作成したい場合があります。たとえば、ジョークをたくさん言う bot、詩人のように韻を踏む bot、回答に絵文字をたくさん使う bot などです。
 
-Ví dụ này cho thấy cách sử dụng Google AI Studio để tạo một chatbot thân thiện giao tiếp như thể đó là một người ngoài hành tinh sinh sống trên một trong các mặt trăng của Sao Mộc, Europa.
+この例では、Google AI Studio を使用して、木星の衛星の 1 つであるエウロパに住むエイリアンのように会話するフレンドリーなチャットボットを構築する方法を示します。
 
-### Bước 1 – Tạo câu lệnh trò chuyện
+### ステップ 1 - チャット プロンプトを作成する
 
-Để tạo một chatbot, bạn cần cung cấp ví dụ về các hoạt động tương tác giữa người dùng và chatbot để hướng dẫn mô hình cung cấp những câu trả lời mà bạn đang tìm kiếm.
+chatbot を構築するには、ユーザーと chatbot の間のやり取りの例を提供して、モデルが求める回答を提供できるようにする必要があります。
 
-Cách tạo câu lệnh trò chuyện:
+チャット プロンプトを作成するには:
 
-1. Mở [Google AI Studio](https://aistudio.google.com/?hl=vi). **Playground** sẽ mở theo mặc định cùng với một câu lệnh trò chuyện mới.
-2. Nhấp vào **Chạy chế độ cài đặt** tune ở góc trên cùng bên phải để mở rộng bảng điều khiển, rồi tìm trường nhập dữ liệu [**Hướng dẫn hệ thống**](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions). Dán nội dung sau vào trường nhập dữ liệu:
+1. [Google AI Studio](https://aistudio.google.com/?hl=ja) を開きます。**Playground** は、新しいチャット プロンプトとともにデフォルトで開きます。
+2. 右上にある [**実行設定**] tune をクリックしてパネルを開き、[[**システム指示**](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions)] 入力フィールドを見つけます。次の内容をテキスト入力フィールドに貼り付けます。
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-Sau khi thêm chỉ dẫn hệ thống, hãy bắt đầu kiểm thử ứng dụng bằng cách trò chuyện với mô hình:
+システム指示を追加したら、モデルとチャットしてアプリケーションのテストを開始します。
 
-1. Trong hộp nhập văn bản có nhãn **Nhập nội dung...**, hãy nhập một câu hỏi hoặc nhận xét mà người dùng có thể đưa ra. Ví dụ:
+1. [**Type something...**] とラベルの付いたテキスト入力ボックスに、ユーザーがする可能性のある質問や観察結果を入力します。次に例を示します。
 
-   **Người dùng:**
+   **ユーザー:**
 
    ```
    What's the weather like?
    ```
-2. Nhấp vào nút **Chạy** để nhận được câu trả lời từ chatbot. Phản hồi này có thể có dạng như sau:
+2. [**実行**] ボタンをクリックして、chatbot からレスポンスを取得します。レスポンスは次のようになります。
 
-   **Kiểu máy:**
+   **モデル:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
    yes? A curious concept from worlds with thick gas veils...
    ```
 
-   (gemini-2.5-pro)
+   （gemini-2.5-pro）
 
-### Bước 2 – Dạy bot trò chuyện hiệu quả hơn
+### ステップ 2 - ボットのチャット機能を強化する
 
-Bằng cách đưa ra một chỉ dẫn duy nhất, bạn có thể tạo một chatbot cơ bản về người ngoài hành tinh Europa. Tuy nhiên, một chỉ dẫn duy nhất có thể không đủ để đảm bảo tính nhất quán và chất lượng trong các câu trả lời của mô hình. Nếu không có hướng dẫn cụ thể hơn, câu trả lời của mô hình cho một câu hỏi về thời tiết thường rất dài và có thể tự đưa ra ý kiến riêng.
+1 つの指示で、基本的なエウロパのエイリアン チャットボットを作成できました。ただし、1 つの指示だけでは、モデルのレスポンスの一貫性と品質を確保するのに十分でない場合があります。具体的な指示がないと、天気に関する質問に対するモデルの回答は非常に長くなる傾向があり、独自の解釈が加わる可能性があります。
 
-Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn hệ thống:
+システム指示に追加して、chatbot のトーンをカスタマイズします。
 
-1. Bắt đầu một câu lệnh trò chuyện mới hoặc dùng câu lệnh cũ. Bạn có thể sửa đổi chỉ dẫn hệ thống sau khi phiên trò chuyện bắt đầu.
-2. Trong phần **Hướng dẫn cho hệ thống**, hãy thay đổi hướng dẫn hiện có thành hướng dẫn sau:
+1. 新しいチャット プロンプトを開始するか、同じプロンプトを使用します。システム指示は、チャット セッションの開始後に変更できます。
+2. [**システム指示**] セクションで、既存の指示を次のように変更します。
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -83,9 +82,9 @@ Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn 
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. Nhập lại câu hỏi của bạn (`What's the weather like?`) rồi nhấp vào nút **Run** (Chạy). Nếu bạn không bắt đầu cuộc trò chuyện mới, thì câu trả lời của bạn có thể trông như sau:
+3. 質問（`What's the weather like?`）を再入力し、[**実行**] ボタンをクリックします。新しいチャットを開始していない場合、回答は次のようになります。
 
-   **Kiểu máy:**
+   **モデル:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -94,25 +93,25 @@ Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn 
    (that's your Jupiter!)...
    ```
 
-   (gemini-2.5-pro)
+   （gemini-2.5-pro）
 
-Bạn có thể sử dụng phương pháp này để tăng thêm chiều sâu cho chatbot. Đặt thêm câu hỏi, chỉnh sửa câu trả lời và cải thiện chất lượng của chatbot. Tiếp tục thêm hoặc sửa đổi chỉ dẫn và kiểm thử xem chỉ dẫn thay đổi hành vi của chatbot như thế nào.
+このアプローチを使用すると、chatbot にさらに深みを追加できます。質問を追加したり、回答を編集したりして、チャットボットの品質を高めます。手順の追加や変更を続け、チャットボットの動作がどのように変化するかをテストします。
 
-### Bước 3 – Các bước tiếp theo
+### ステップ 3 - 次のステップ
 
-Tương tự như các loại câu lệnh khác, sau khi tạo mẫu câu lệnh theo ý muốn, bạn có thể dùng nút **Lấy mã** để bắt đầu viết mã hoặc lưu câu lệnh để làm việc sau và chia sẻ với người khác.
+他のプロンプト タイプと同様に、プロンプトのプロトタイプが完成したら、[**コードを取得**] ボタンを使用してコーディングを開始するか、プロンプトを保存して後で作業したり、他のユーザーと共有したりできます。
 
-## Tài liệu đọc thêm
+## 関連情報
 
-- Nếu bạn đã sẵn sàng chuyển sang phần lập trình, hãy xem [Hướng dẫn Bắt đầu sử dụng API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi).
-- Để tìm hiểu cách viết câu lệnh hiệu quả hơn, hãy xem [Nguyên tắc thiết kế câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=vi).
+- コードに進む準備ができたら、[API スタートガイド](https://ai.google.dev/gemini-api/docs/get-started?hl=ja)をご覧ください。
+- より良いプロンプトを作成する方法については、[プロンプト設計のガイドライン](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ja)をご覧ください。
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+最終更新日 2026-07-30 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

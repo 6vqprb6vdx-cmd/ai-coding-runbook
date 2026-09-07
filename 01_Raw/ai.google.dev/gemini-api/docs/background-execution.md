@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419
-fetched_at: 2026-08-31T06:35:53.629973+00:00
-title: "Ejecuci\u00f3n en segundo plano \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=hi
+fetched_at: 2026-09-07T05:44:57.505078+00:00
+title: "\u092c\u0948\u0915\u0917\u094d\u0930\u093e\u0909\u0902\u0921 \u092e\u0947\u0902 \u0915\u094b\u0921 \u090f\u0915\u094d\u091c\u093c\u0940\u0915\u094d\u092f\u0942\u091f \u0939\u094b\u0928\u0947 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Enviar comentarios
+सुझाव भेजें
 
-# Ejecución en segundo plano
+# बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा
 
-Para tareas de larga duración, como la investigación exhaustiva, el razonamiento complejo o las ejecuciones de agentes de varios pasos, los tiempos de espera de conexión pueden interrumpir las solicitudes HTTP estándar (que suelen cerrarse después de 60 segundos). La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) proporciona la **ejecución en segundo plano** para ejecutar estas tareas de forma asíncrona.
+डीप रिसर्च, मुश्किल तर्क-वितर्क या कई चरणों वाले एजेंट के एक्ज़ीक्यूशन जैसे लंबे समय तक चलने वाले टास्क के लिए, कनेक्शन टाइमआउट की वजह से स्टैंडर्ड एचटीटीपी अनुरोधों में रुकावट आ सकती है. आम तौर पर, ये अनुरोध 60 सेकंड बाद बंद हो जाते हैं. [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi), इन टास्क को एसिंक्रोनस तरीके से चलाने के लिए, **बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा** देता है.
 
-Para permitir que la interacción se ejecute hasta que complete la tarea en el servidor, establece `"background": true` cuando crees la interacción. La API muestra de inmediato un ID de interacción, que las aplicaciones cliente pueden usar para sondear el estado, transmitir el progreso o volver a conectarse a una transmisión desconectada.
+इंटरैक्शन को सर्वर पर टास्क पूरा होने तक चलाने के लिए, इंटरैक्शन बनाते समय `"background": true` सेट करें. एपीआई तुरंत एक इंटरैक्शन आईडी दिखाता है. क्लाइंट ऐप्लिकेशन, इस आईडी का इस्तेमाल करके, स्टेटस के लिए पोल कर सकते हैं, प्रोग्रेस को स्ट्रीम कर सकते हैं या डिसकनेक्ट हुई स्ट्रीम से फिर से कनेक्ट हो सकते हैं.
 
-La ejecución en segundo plano es compatible con los modelos estándar de Gemini (como `gemini-3.6-flash` y `gemini-3.1-pro-preview`) y los agentes administrados (como `antigravity-preview-05-2026`).
+बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा, Gemini के स्टैंडर्ड मॉडल (जैसे, `gemini-3.8-flash` और `gemini-3.1-pro-preview`) और एजेंट बनाने और मैनेज करने की सुविधा (जैसे, `antigravity-preview-05-2026`) के लिए उपलब्ध है.
 
-## Crea una interacción en segundo plano
+## बैकग्राउंड में इंटरैक्शन बनाना
 
-Para iniciar una interacción en segundo plano, establece el parámetro `background` en `true` cuando crees el recurso.
+बैकग्राउंड में इंटरैक्शन शुरू करने के लिए, संसाधन बनाते समय `background` पैरामीटर को `true` पर सेट करें.
 
 ### Python
 
@@ -36,7 +36,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Write a guide on space exploration.",
     background=True,
 )
@@ -51,11 +51,45 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Write a guide on space exploration.",
     background: true,
 });
 console.log(`Created background interaction ID: ${interaction.id}`);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.models.operations.GetInteractionByIdResponse;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Execute this background task."))
+        .background(true)
+        .environment(CreateModelInteractionEnvironment.of("remote"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+String interactionId = interaction.id().orElse("");
+
+// Poll status using GetInteractionByIdRequest
+GetInteractionByIdResponse getResponse =
+    client.interactions.get(new GetInteractionByIdRequest(interactionId));
+Interaction polled = getResponse.interaction().get();
+System.out.println("Status: " + polled.status().orElse(null));
 ```
 
 ### REST
@@ -66,37 +100,37 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Write a guide on space exploration.",
     "background": true
   }'
 ```
 
-## Cómo funciona la ejecución en segundo plano
+## बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा कैसे काम करती है
 
-Cuando creas una interacción en segundo plano, la tarea se ejecuta de forma asíncrona en el servidor. La interacción pasa por varios estados de ejecución:
+बैकग्राउंड में इंटरैक्शन बनाने पर, टास्क सर्वर पर एसिंक्रोनस तरीके से चलता है. इंटरैक्शन, एक्ज़ीक्यूशन की अलग-अलग स्थितियों से गुज़रता है:
 
-- `in_progress`: El servidor está ejecutando la interacción de forma activa (como ejecutar código o investigar).
-- `requires_action`: La interacción se pausó y está esperando la entrada del cliente (como confirmar la ejecución de una herramienta o responder una pregunta).
-- `completed`: La interacción finalizó correctamente y el resultado está disponible.
-- `failed`: Se produjo un error durante la ejecución (como una falla de la herramienta o límites de frecuencia).
-- `cancelled`: Una solicitud del cliente detuvo la ejecución.
+- `in_progress`: सर्वर, इंटरैक्शन को ऐक्टिव तौर पर एक्ज़ीक्यूट कर रहा है. जैसे, कोड चलाना या रिसर्च करना.
+- `requires_action`: इंटरैक्शन रुक गया है और क्लाइंट के इनपुट का इंतज़ार कर रहा है. जैसे, किसी टूल के एक्ज़ीक्यूशन की पुष्टि करना या किसी सवाल का जवाब देना.
+- `completed`: इंटरैक्शन, सफलतापूर्वक पूरा हो गया है और आउटपुट उपलब्ध है.
+- `failed`: एक्ज़ीक्यूशन के दौरान कोई गड़बड़ी हुई. जैसे, टूल में गड़बड़ी या रेट लिमिट.
+- `cancelled`: क्लाइंट के अनुरोध की वजह से, एक्ज़ीक्यूशन रुक गया.
 
-### Casos de uso
+### इस्तेमाल के उदाहरण
 
-Usa la ejecución en segundo plano para lo siguiente:
+बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा का इस्तेमाल इन कामों के लिए करें:
 
-- **Ejecuciones de agentes:** Tareas que requieren ejecución de código, navegación web o coordinación de agentes secundarios (como `antigravity-preview-05-2026`).
-- **Investigación exhaustiva:** Ejecuciones con `deep-research-preview-04-2026` o `deep-research-max-preview-04-2026` que tardan varios minutos.
-- **Razonamiento extenso:** Tareas en las que los pasos de pensamiento del modelo superan los límites de conexión HTTP estándar.
+- **एजेंट के एक्ज़ीक्यूशन:** ऐसे टास्क जिनके लिए कोड एक्ज़ीक्यूट करना, वेब ब्राउज़ करना या सब-एजेंट ऑर्केस्ट्रेशन करना ज़रूरी है. जैसे, `antigravity-preview-05-2026`.
+- **डीप रिसर्च:** `deep-research-preview-04-2026` या `deep-research-max-preview-04-2026` का इस्तेमाल करके की जाने वाली रिसर्च, जिसमें कई मिनट लगते हैं.
+- **लंबे तर्क-वितर्क:** ऐसे टास्क जिनमें मॉडल के सोचने के चरण, स्टैंडर्ड एचटीटीपी कनेक्शन की सीमाओं से ज़्यादा होते हैं.
 
-## Recupera resultados
+## नतीजे पाना
 
-Obtén resultados de la interacción en segundo plano con **sondeo** o **transmisión**.
+**पोलिंग** या **स्ट्रीमिंग** का इस्तेमाल करके, बैकग्राउंड में किए गए इंटरैक्शन के नतीजे पाएं.
 
-### Patrón de sondeo (sin bloqueo)
+### पोलिंग पैटर्न (नॉन-ब्लॉकिंग)
 
-El sondeo verifica el estado de la interacción de forma periódica con solicitudes GET sin bloqueo hasta que alcanza un estado terminal.
+पोलिंग, इंटरैक्शन के स्टेटस की समय-समय पर जांच करता है. इसके लिए, नॉन-ब्लॉकिंग जीईटी अनुरोधों का इस्तेमाल किया जाता है. यह तब तक जारी रहता है, जब तक इंटरैक्शन, टर्मिनल स्थिति में न पहुंच जाए.
 
 ### Python
 
@@ -139,6 +173,40 @@ if (interaction.status === "completed") {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.models.operations.GetInteractionByIdResponse;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Execute this background task."))
+        .background(true)
+        .environment(CreateModelInteractionEnvironment.of("remote"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+String interactionId = interaction.id().orElse("");
+
+// Poll status using GetInteractionByIdRequest
+GetInteractionByIdResponse getResponse =
+    client.interactions.get(new GetInteractionByIdRequest(interactionId));
+Interaction polled = getResponse.interaction().get();
+System.out.println("Status: " + polled.status().orElse(null));
+```
+
 ### REST
 
 ```
@@ -147,9 +215,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### Patrón de transmisión
+### स्ट्रीमिंग पैटर्न
 
-Si una interrupción de la red desconecta una transmisión, esta puede reanudarse desde el último evento recibido. Cada delta contiene un `event_id` único en su carga útil. Si pasas este ID como `last_event_id`, se reanuda la transmisión desde ese evento.
+अगर नेटवर्क में रुकावट की वजह से कोई स्ट्रीम डिसकनेक्ट हो जाती है, तो स्ट्रीमिंग को आखिरी बार मिले इवेंट से फिर से शुरू किया जा सकता है. हर डेल्टा के पेलोड में एक यूनीक `event_id` होता है. इस आईडी को `last_event_id` के तौर पर पास करने से, स्ट्रीम उस इवेंट से फिर से शुरू हो जाती है.
 
 ### Python
 
@@ -232,6 +300,40 @@ async function streamWithReconnect(id) {
 await streamWithReconnect(interactionId);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.models.operations.GetInteractionByIdResponse;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Execute this background task."))
+        .background(true)
+        .environment(CreateModelInteractionEnvironment.of("remote"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+String interactionId = interaction.id().orElse("");
+
+// Poll status using GetInteractionByIdRequest
+GetInteractionByIdResponse getResponse =
+    client.interactions.get(new GetInteractionByIdRequest(interactionId));
+Interaction polled = getResponse.interaction().get();
+System.out.println("Status: " + polled.status().orElse(null));
+```
+
 ### REST
 
 ```
@@ -240,14 +342,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Conversaciones de varios turnos
+## सिलसिलेवार बातचीत
 
-Las interacciones posteriores se pueden encadenar a una conversación en segundo plano con `previous_interaction_id`, sujeto a estas restricciones:
+`previous_interaction_id` का इस्तेमाल करके, बाद के इंटरैक्शन को बैकग्राउंड में की गई बातचीत से जोड़ा जा सकता है. हालांकि, इसके लिए ये शर्तें पूरी होनी चाहिए:
 
-1. **Se bloquean las ejecuciones activas:** Si se encadena una interacción posterior a una con el estado `in_progress`, se muestra un error `400 Bad Request`. Espera a que la interacción alcance el estado `completed` antes de iniciar la siguiente.
-2. **Parámetro de entorno para agentes administrados:** Cuando se encadenan interacciones para agentes administrados (como `antigravity-preview-05-2026`), las solicitudes deben incluir `previous_interaction_id` y `environment`.
+1. **ऐक्टिव एक्ज़ीक्यूशन ब्लॉक किए जाते हैं:** `in_progress` स्टेटस वाले इंटरैक्शन से, बाद के इंटरैक्शन को जोड़ने पर, `400 Bad Request` गड़बड़ी दिखती है. अगला इंटरैक्शन शुरू करने से पहले, पहले इंटरैक्शन के `completed` स्थिति में पहुंचने का इंतज़ार करें.
+2. **एजेंट बनाने और मैनेज करने की सुविधा के लिए एनवायरमेंट पैरामीटर:** एजेंट बनाने और मैनेज करने की सुविधा (जैसे, `antigravity-preview-05-2026`) के लिए इंटरैक्शन को जोड़ते समय, अनुरोधों में `previous_interaction_id` और `environment`, दोनों शामिल होने चाहिए.
 
-En los siguientes ejemplos, se muestra cómo encadenar interacciones:
+यहां दिए गए उदाहरणों में, इंटरैक्शन को जोड़ने का तरीका बताया गया है:
 
 ### Python
 
@@ -318,6 +420,40 @@ const interaction2 = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.models.operations.GetInteractionByIdResponse;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Execute this background task."))
+        .background(true)
+        .environment(CreateModelInteractionEnvironment.of("remote"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+String interactionId = interaction.id().orElse("");
+
+// Poll status using GetInteractionByIdRequest
+GetInteractionByIdResponse getResponse =
+    client.interactions.get(new GetInteractionByIdRequest(interactionId));
+Interaction polled = getResponse.interaction().get();
+System.out.println("Status: " + polled.status().orElse(null));
+```
+
 ### REST
 
 ```
@@ -335,12 +471,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cancelación y eliminación
+## रद्द करना और मिटाना
 
-Controla las ejecuciones en curso y administra el almacenamiento con solicitudes de cancelación y eliminación:
+रद्द करने और मिटाने के अनुरोधों का इस्तेमाल करके, चल रहे एक्ज़ीक्यूशन को कंट्रोल करें और स्टोरेज को मैनेज करें:
 
-- **Cancelar (`POST /interactions/{id}/cancel`):** Detiene la tarea en ejecución. El estado pasa a `cancelled`. Las acciones de limpieza en el servidor pueden causar una pequeña demora antes de que se actualice el estado en las solicitudes GET.
-- **Borrar (`DELETE /interactions/{id}`):** Quita los registros de interacción del servidor. Las solicitudes GET posteriores muestran un error `404 Not Found`.
+- **रद्द करें (`POST /interactions/{id}/cancel`):** चल रहे टास्क को रोकता है. स्टेटस बदलकर `cancelled` हो जाता है. सर्वर पर क्लीन-अप की कार्रवाइयों की वजह से, जीईटी अनुरोधों में स्टेटस अपडेट होने में थोड़ी देरी हो सकती है.
+- **मिटाएं (`DELETE /interactions/{id}`):** सर्वर से इंटरैक्शन के रिकॉर्ड मिटाता है. इसके बाद के जीईटी अनुरोधों में, `404 Not Found` गड़बड़ी दिखती है.
 
 ### Python
 
@@ -370,6 +506,40 @@ await client.interactions.cancel("YOUR_INTERACTION_ID");
 await client.interactions.delete("YOUR_INTERACTION_ID");
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.models.operations.GetInteractionByIdResponse;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Execute this background task."))
+        .background(true)
+        .environment(CreateModelInteractionEnvironment.of("remote"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+String interactionId = interaction.id().orElse("");
+
+// Poll status using GetInteractionByIdRequest
+GetInteractionByIdResponse getResponse =
+    client.interactions.get(new GetInteractionByIdRequest(interactionId));
+Interaction polled = getResponse.interaction().get();
+System.out.println("Status: " + polled.status().orElse(null));
+```
+
 ### REST
 
 ```
@@ -384,18 +554,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Próximos pasos
+## अगले चरण
 
-- Lee la [descripción general de la API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) para comprender la administración de sesiones y estados.
-- Consulta la guía de [interacciones de transmisión](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419) para obtener detalles sobre las actualizaciones de eventos en tiempo real.
-- Explora el [inicio rápido de agentes administrados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419) para compilar agentes de varios turnos con estado.
+- सेशन और स्टेटस मैनेजमेंट को समझने के लिए, [Interactions API की खास जानकारी](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) पढ़ें.
+- रीयल-टाइम इवेंट अपडेट के बारे में ज़्यादा जानने के लिए, [स्ट्रीमिंग इंटरैक्शन](https://ai.google.dev/gemini-api/docs/streaming?hl=hi) से जुड़ी गाइड देखें.
+- स्टेटफ़ुल सिलसिलेवार बातचीत वाले एजेंट बनाने के लिए, [मैनेज किए जाने वाले एजेंट का क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi) देखें.
 
-Enviar comentarios
+सुझाव भेजें
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última actualización: 2026-07-30 (UTC)
+आखिरी बार 2026-09-04 (UTC) को अपडेट किया गया.
 
-¿Quieres brindar más información?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-04 (UTC) को अपडेट किया गया."],[],[]]

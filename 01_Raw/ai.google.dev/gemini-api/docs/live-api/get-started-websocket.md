@@ -1,66 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=zh-TW
-fetched_at: 2026-08-31T06:33:09.981904+00:00
-title: "\u4f7f\u7528 WebSocket \u958b\u59cb\u4f7f\u7528 Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=th
+fetched_at: 2026-09-07T05:42:52.601963+00:00
+title: "\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Gemini Live API \u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 WebSockets \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-提供意見
+ส่งความคิดเห็น
 
-# 使用 WebSocket 開始使用 Gemini Live API
+# เริ่มต้นใช้งาน Gemini Live API โดยใช้ WebSockets
 
-Gemini Live API 支援與 Gemini 模型進行即時雙向互動，可輸入音訊、影片和文字，並輸出原生音訊。本指南說明如何使用原始 WebSocket 直接整合 API。
+Gemini Live API ช่วยให้โต้ตอบกับโมเดล Gemini ได้แบบเรียลไทม์และแบบ 2 ทาง โดยรองรับอินพุตเสียง วิดีโอ และข้อความ รวมถึงเอาต์พุตเสียงดั้งเดิม คู่มือนี้อธิบายวิธีผสานรวมกับ API โดยตรงโดยใช้ WebSocket แบบดิบ
 
-[在 Google AI Studio 中試用 Live APImic](https://aistudio.google.com/live?hl=zh-tw)
-[從 GitHub 複製範例應用程式code](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
-[使用程式碼編寫代理程式技能terminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=zh-tw)
+[ลองใช้ Live API ใน Google AI Studiomic](https://aistudio.google.com/live?hl=th)
+[โคลนแอปตัวอย่างจาก GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
+[ใช้ทักษะของเอเจนต์การเขียนโค้ดterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=th)
 
-## 總覽
+## ภาพรวม
 
-Gemini Live API 使用 WebSocket 進行即時通訊。與使用 SDK 不同，這種做法需要直接管理 WebSocket 連線，並以 API 定義的特定 JSON 格式傳送/接收訊息。
+Gemini Live API ใช้ WebSockets สำหรับการสื่อสารแบบเรียลไทม์ ซึ่งต่างจากการใช้ SDK ตรงที่วิธีนี้เกี่ยวข้องกับการจัดการการเชื่อมต่อ WebSocket โดยตรงและการส่ง/รับข้อความในรูปแบบ JSON ที่เฉพาะเจาะจงซึ่งกำหนดโดย API
 
-重要概念：
+แนวคิดหลัก
 
-- **WebSocket 端點**：用於連線的特定網址。
-- **訊息格式**：所有通訊都是透過符合 [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentclientmessage) 和 [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentservermessage) 結構的 JSON 訊息完成。
-- **工作階段管理**：您必須負責維護 WebSocket 連線。
+- **ปลายทาง WebSocket**: URL ที่เฉพาะเจาะจงเพื่อเชื่อมต่อ
+- **รูปแบบข้อความ**: การสื่อสารทั้งหมดจะดำเนินการผ่านข้อความ JSON ที่เป็นไปตามโครงสร้าง [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentclientmessage) และ [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservermessage)
+- **การจัดการเซสชัน**: คุณมีหน้าที่รับผิดชอบในการรักษาการเชื่อมต่อ WebSocket
 
-## 驗證
+## การตรวจสอบสิทธิ์
 
-驗證作業的處理方式，是在 WebSocket 網址中加入 API 金鑰做為查詢參數。
+ระบบจะจัดการการตรวจสอบสิทธิ์โดยการใส่คีย์ API เป็นพารามิเตอร์การค้นหาใน URL ของ WebSocket
 
-端點格式為：
+รูปแบบของปลายทางคือ
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=YOUR_API_KEY
 ```
 
-然後將 `YOUR_API_KEY` 替換成您的實際 API 金鑰。
+แทนที่ `YOUR_API_KEY` ด้วยคีย์ API จริงของคุณ
 
-## 使用臨時權杖進行驗證
+## การตรวจสอบสิทธิ์ด้วยโทเค็นชั่วคราว
 
-如果您使用[臨時權杖](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=zh-tw)，則需要連線至 `v1beta` 端點。臨時權杖必須以 `access_token` 查詢參數的形式傳遞。
+หากใช้[โทเค็นชั่วคราว](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=th) คุณต้องเชื่อมต่อกับปลายทาง `v1beta`
+ต้องส่งโทเค็นชั่วคราวเป็นพารามิเตอร์การค้นหา `access_token`
 
-臨時金鑰的端點格式為：
+รูปแบบปลายทางสำหรับคีย์ชั่วคราวคือ
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained?access_token={short-lived-token}
 ```
 
-請將 `{short-lived-token}` 換成實際的暫時性權杖。
+แทนที่ `{short-lived-token}` ด้วยโทเค็นชั่วคราวจริง
 
-## 連結至 Live API
+## เชื่อมต่อกับ Live API
 
-如要啟動即時工作階段，請與已驗證的端點建立 WebSocket 連線。透過 WebSocket 傳送的第一則訊息必須是 [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentsetup)，其中包含 `config`。如需完整設定選項，請參閱「[Live API - WebSockets API 參考資料](https://ai.google.dev/api/live?hl=zh-tw)」。
+หากต้องการเริ่มเซสชันสด ให้สร้างการเชื่อมต่อ WebSocket กับปลายทางที่ได้รับการตรวจสอบสิทธิ์
+ข้อความแรกที่ส่งผ่าน WebSocket ต้องเป็น [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentsetup) ที่มี `config`
+ดูตัวเลือกการกำหนดค่าทั้งหมดได้ที่[เอกสารอ้างอิง Live API - WebSockets API](https://ai.google.dev/api/live?hl=th)
 
 ### Python
 
@@ -141,9 +144,9 @@ websocket.onclose = () => {
 };
 ```
 
-## 傳送訊息
+## ส่งข้อความ
 
-如要傳送文字輸入內容，請使用 `text` 欄位建構 [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentrealtimeinput) 訊息。
+หากต้องการส่งข้อความที่ป้อน ให้สร้างข้อความ [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentrealtimeinput) ที่มีช่อง `text`
 
 ### Python
 
@@ -182,9 +185,9 @@ function sendTextMessage(text) {
 sendTextMessage("Hello, how are you?");
 ```
 
-## 傳送音訊
+## ส่งเสียง
 
-音訊必須以原始 PCM 資料 (原始 16 位元 PCM 音訊，16 kHz，小端序) 傳送。使用音訊資料建構 [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentrealtimeinput) 訊息。`mimeType` 至關重要。
+ต้องส่งเสียงเป็นข้อมูล PCM ดิบ (เสียง PCM ดิบ 16 บิต, 16 kHz, little-endian) สร้างข้อความ [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentrealtimeinput) ด้วยข้อมูลเสียง `mimeType` เป็นสิ่งสำคัญ
 
 ### Python
 
@@ -229,11 +232,11 @@ function sendAudioChunk(chunk) {
 // Example usage: sendAudioChunk(audioBuffer);
 ```
 
-如需如何從用戶端裝置 (例如瀏覽器) 取得音訊的範例，請參閱 [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74) 上的端對端範例。
+ดูตัวอย่างวิธีรับเสียงจากอุปกรณ์ไคลเอ็นต์ (เช่น เบราว์เซอร์) ได้ที่ตัวอย่างตั้งแต่ต้นจนจบใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74)
 
-## 傳送影片
+## ส่งวิดีโอ
 
-影片畫面會以個別圖片 (例如 JPEG 或 PNG) 傳送。與音訊類似，請使用 `realtimeInput` 和 `Blob`，並指定正確的 `mimeType`。
+ระบบจะส่งเฟรมวิดีโอเป็นรูปภาพแต่ละรูป (เช่น JPEG หรือ PNG) เช่นเดียวกับเสียง ให้ใช้ `realtimeInput` กับ `Blob` โดยระบุ `mimeType` ที่ถูกต้อง
 
 ### Python
 
@@ -278,11 +281,11 @@ function sendVideoFrame(frame, mimeType = 'image/jpeg') {
 // Example usage: sendVideoFrame(jpegBuffer);
 ```
 
-如要瞭解如何從用戶端裝置 (例如瀏覽器) 取得影片，請參閱 [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222) 上的端對端範例。
+ดูตัวอย่างวิธีรับวิดีโอจากอุปกรณ์ไคลเอ็นต์ (เช่น เบราว์เซอร์) ได้ที่ตัวอย่างตั้งแต่ต้นจนจบใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222)
 
-## 接收回覆
+## รับคำตอบ
 
-WebSocket 會傳回 [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentservermessage) 訊息。您需要剖析這些 JSON 訊息，並處理不同類型的內容。
+WebSocket จะส่งข้อความ [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservermessage) กลับมา คุณต้องแยกวิเคราะห์ข้อความ JSON เหล่านี้และจัดการเนื้อหาประเภทต่างๆ
 
 ### Python
 
@@ -353,11 +356,11 @@ websocket.onmessage = (event) => {
 };
 ```
 
-如需處理回應的範例，請參閱 [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75) 上的端對端範例。
+ดูตัวอย่างวิธีจัดการการตอบกลับได้ที่ตัวอย่างแบบครบวงจรใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75)
 
-## 處理工具呼叫
+## จัดการการเรียกใช้เครื่องมือ
 
-模型要求呼叫工具時，[`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentservermessage) 會包含 `toolCall` 欄位。您必須在本機執行函式，並使用 [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontenttoolresponse) 訊息將結果傳送回 WebSocket。
+เมื่อโมเดลขอการเรียกใช้เครื่องมือ [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservermessage) จะมีฟิลด์ `toolCall` คุณต้องเรียกใช้ฟังก์ชันในเครื่องและส่งผลลัพธ์กลับไปยัง WebSocket โดยใช้ข้อความ [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=th#bidigeneratecontenttoolresponse)
 
 ### Python
 
@@ -444,20 +447,20 @@ function handleToolCall(toolCall) {
 // This function is called within websocket.onmessage when a toolCall is detected.
 ```
 
-## 後續步驟
+## ขั้นตอนถัดไป
 
-- 如要瞭解主要功能和設定，包括語音活動偵測和原生音訊功能，請參閱完整的 Live API [功能](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw)指南。
-- 詳閱[工具使用](https://ai.google.dev/gemini-api/docs/live-tools?hl=zh-tw)指南，瞭解如何整合 Live API 與工具和函式呼叫。
-- 如要管理長時間進行的對話，請參閱[工作階段管理](https://ai.google.dev/gemini-api/docs/live-session?hl=zh-tw)指南。
-- 請參閱[臨時權杖](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=zh-tw)指南，瞭解如何在[用戶端對伺服器](#implementation-approach)應用程式中安全地進行驗證。
-- 如要進一步瞭解基礎 WebSockets API，請參閱 [WebSockets API 參考資料](https://ai.google.dev/api/live?hl=zh-tw)。
+- อ่านคู่มือ[ความสามารถ](https://ai.google.dev/gemini-api/docs/live-guide?hl=th)ของ Live API ฉบับเต็มเพื่อดูความสามารถและการกำหนดค่าที่สำคัญ รวมถึงการตรวจหากิจกรรมเสียงและฟีเจอร์เสียงดั้งเดิม
+- อ่านคำแนะนำ[การใช้เครื่องมือ](https://ai.google.dev/gemini-api/docs/live-tools?hl=th)เพื่อดูวิธีผสานรวม Live API กับเครื่องมือและการเรียกใช้ฟังก์ชัน
+- อ่านคู่มือ[การจัดการเซสชัน](https://ai.google.dev/gemini-api/docs/live-session?hl=th)เพื่อจัดการการสนทนาที่ใช้เวลานาน
+- อ่านคู่มือ[โทเค็นชั่วคราว](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=th)เพื่อดูการตรวจสอบสิทธิ์ที่ปลอดภัยในแอปพลิเคชัน[ไคลเอ็นต์ต่อเซิร์ฟเวอร์](#implementation-approach)
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับ WebSockets API พื้นฐานได้ที่[เอกสารอ้างอิง WebSockets API](https://ai.google.dev/api/live?hl=th)
 
-提供意見
+ส่งความคิดเห็น
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-上次更新時間：2026-07-23 (世界標準時間)。
+อัปเดตล่าสุด 2026-07-23 UTC
 
-想進一步說明嗎？
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-23 (世界標準時間)。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-23 UTC"],[],[]]

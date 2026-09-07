@@ -1,71 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de
-fetched_at: 2026-08-31T06:30:48.327265+00:00
-title: "Robotik mit Streaming \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=vi
+fetched_at: 2026-09-07T05:36:44.125323+00:00
+title: "Ng\u01b0\u1eddi m\u00e1y c\u00f3 t\u00ednh n\u0103ng truy\u1ec1n ph\u00e1t tr\u1ef1c tuy\u1ebfn \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Feedback geben
+Gửi ý kiến phản hồi
 
-# Robotik mit Streaming
+# Người máy có tính năng truyền phát trực tuyến
 
-Der `gemini-robotics-er-2-streaming-preview` Modellendpunkt stellt einen dedizierten
-Streaming-Endpunkt bereit, der in die [Live
-API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=de) eingebunden ist und eine bidirektionale Echtzeitinteraktion zwischen Ihrer Anwendung und dem Roboter ermöglicht. Daher eignet er sich für KI-Agenten, die schnelle Feedbackschleifen und reaktive Antworten auf die Umgebung benötigen.
+Điểm cuối mô hình `gemini-robotics-er-2-streaming-preview` cung cấp một điểm cuối truyền trực tuyến chuyên dụng, tích hợp với [Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=vi), cho phép tương tác hai chiều theo thời gian thực giữa ứng dụng của bạn và robot. Điều này khiến nó phù hợp với những tác nhân cần vòng phản hồi nhanh và phản ứng nhanh với môi trường.
 
-[In Google AI Studio testen](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=de)
-[Beispielanwendungen von GitHub klonen](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=vi)
+[Sao chép các ứng dụng mẫu từ GitHub](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
 
-## Anwendungsfälle
+## Trường hợp sử dụng
 
-- **Koordination mehrerer Roboter**: Mehrere Roboter, die den Aufgabenstatus kommunizieren
-  und Unteraufgaben über eine gemeinsame Sitzung delegieren.
-- **Kontinuierliches Monitoring**: Roboter, die eine Szene beobachten und Aktionen auslösen, wenn bestimmte Ereignisse eintreten, z. B. wenn ein Container einen bestimmten Füllstand erreicht.
-- **Lager und Logistik**: Kommissionierungs- und Verpackungs-KI-Agenten, die Artikel
-  visuell überprüfen, den Verpackungsfortschritt verfolgen und Fehler beheben.
+- **Điều phối nhiều robot**: Nhiều robot giao tiếp trạng thái tác vụ và uỷ quyền các tác vụ phụ thông qua một phiên dùng chung.
+- **Giám sát liên tục**: Các robot quan sát một cảnh và kích hoạt hành động khi các sự kiện cụ thể xảy ra, chẳng hạn như khi một thùng chứa đạt đến mức đổ đầy.
+- **Kho hàng và hoạt động kho vận**: Nhân viên chọn và đóng gói xác minh các mặt hàng bằng mắt, theo dõi tiến trình đóng gói và khắc phục lỗi.
 
-## Technische Spezifikationen
+## Quy cách kỹ thuật
 
-In der folgenden Tabelle sind die technischen Spezifikationen für die Live API aufgeführt:
+Bảng sau đây trình bày các quy cách kỹ thuật của Live API:
 
-| Kategorie | Details |
+| Danh mục | Thông tin chi tiết |
 | --- | --- |
-| Eingabemodalitäten | Audio (rohes 16-Bit-PCM-Audio, 16 kHz, Little-Endian), Bilder (JPEG <= 1 FPS), Text |
-| Ausgabemodalitäten | Text |
-| Protokoll | Zustandsbehaftete WebSocket-Verbindung (WSS) |
+| Phương thức nhập | Âm thanh (âm thanh PCM 16 bit thô, 16 kHz, little-endian), hình ảnh (JPEG <= 1 khung hình/giây), văn bản |
+| Phương thức đầu ra | Văn bản |
+| Giao thức | Kết nối WebSocket có trạng thái (WSS) |
 
-## Agentenkonfiguration erstellen
+## Xây dựng một chế độ thiết lập dựa trên tác nhân
 
-Jeder Robotics-KI-Agent, der auf der Live API basiert, folgt drei Schritten:
+Mọi tác nhân robot được xây dựng trên Live API đều tuân theo 3 bước:
 
-1. **Roboterfunktionen als Tools deklarieren.** Jede Aktion, die der Roboter ausführen kann (z. B. navigieren, greifen, sprechen), wird zu einer Funktionsdeklaration mit einem Namen, einer Beschreibung und einem Parameterschema. Für physische Aktionen muss
-   `"behavior": "BLOCKING"` verwendet werden, damit das Modell wartet, bis der Roboter die Aktion abgeschlossen hat, bevor
-   es den nächsten Schritt auswählt.
-2. **Multimodale Eingabe in eine persistente Sitzung streamen.** Öffnen Sie eine `live.connect`-Sitzung und lassen Sie sie für die gesamte Dauer der Aufgabe geöffnet. Senden Sie Videoframes, Audio oder Text, sobald sie von den Sensoren des Roboters empfangen werden.
-3. **Toolaufrufe in einer Empfangsschleife verarbeiten.** Jedes Mal, wenn das Modell eine Aktion auswählt, wird eine `tool_call`-Nachricht gesendet. Ihre Empfangsschleife führt die Funktion für Ihr Roboter-SDK aus und sendet eine `tool_response` zurück. Die Sitzung bleibt geöffnet und das Modell wählt die nächste Aktion basierend auf dem Ergebnis aus.
+1. **Khai báo các chức năng của robot dưới dạng công cụ.** Mỗi hành động mà robot có thể thực hiện (điều hướng, nắm bắt, nói) sẽ trở thành một khai báo hàm có tên, nội dung mô tả và giản đồ tham số. Các hành động thực tế phải sử dụng `"behavior": "BLOCKING"` để mô hình đợi robot hoàn thành trước khi chọn bước tiếp theo.
+2. **Truyền thông tin đầu vào đa phương thức vào một phiên liên tục.** Mở một phiên `live.connect` và giữ phiên đó mở trong suốt thời gian thực hiện nhiệm vụ. Gửi khung hình video, âm thanh hoặc văn bản khi chúng đến từ các cảm biến của robot.
+3. **Xử lý lệnh gọi công cụ trong một vòng lặp nhận.** Mỗi khi chọn một hành động, mô hình sẽ gửi thông báo `tool_call`. Vòng lặp nhận của bạn thực thi hàm đối với SDK robot và gửi lại một `tool_response`. Phiên vẫn mở và mô hình sẽ chọn hành động tiếp theo dựa trên kết quả.
 
-In den folgenden Abschnitten wird beschrieben, wie Sie diese Schritte auf drei gängige Muster anwenden: eine grundlegende Agentenschleife, proaktive Szenenüberwachung mit einem Heartbeat und die Weiterleitung von Sprache über TTS als Tool.
+Các phần sau đây cho biết cách áp dụng các bước này cho 3 mẫu phổ biến: vòng lặp tác nhân cơ sở, tính năng giám sát cảnh chủ động bằng tín hiệu nhịp tim và định tuyến lời nói thông qua TTS như một công cụ.
 
-## Roboter über Funktionsaufrufe orchestrieren
+## Điều phối một robot thông qua tính năng gọi hàm
 
-Im folgenden Beispiel sind alle drei Schritte in einem einzelnen Python-Skript miteinander verbunden.
+Ví dụ sau đây cho thấy cả 3 bước được kết nối với nhau trong một tập lệnh Python duy nhất.
 
-Schritt 1 – Tooldefinitionen – deklariert Roboterfunktionen als Funktionsdeklarationen. Die `navigate` Funktion verwendet `"behavior": "BLOCKING"`, damit das
-Modell wartet, bis der Roboter den Wegpunkt erreicht hat, bevor ein anderes Tool aufgerufen wird.
-Fügen Sie derselben Liste weitere Funktionsdeklarationen hinzu, um zusätzliche Roboterfunktionen verfügbar zu machen.
+Bước 1 – định nghĩa công cụ – khai báo các chức năng của robot dưới dạng khai báo hàm. Hàm `navigate` sử dụng `"behavior": "BLOCKING"` nên mô hình sẽ đợi robot đến điểm tham chiếu trước khi gọi một công cụ khác.
+Thêm nhiều khai báo hàm hơn vào cùng một danh sách để cho thấy các chức năng bổ sung của robot.
 
-Schritt 2 – Eingabehilfen – zeigt drei Funktionen, die verschiedene Modalitätseingaben in die Sitzung streamen: `send_text` für Befehle, `send_image` für Kameraframes mit einem optionalen Text-Prompt und `send_audio` für rohes PCM-Audio von einem Mikrofon.
+Bước 2 – trình trợ giúp đầu vào – cho thấy 3 hàm truyền trực tuyến các đầu vào có phương thức khác nhau vào phiên: `send_text` cho các lệnh, `send_image` cho khung hình camera có câu lệnh văn bản không bắt buộc và `send_audio` cho âm thanh PCM thô từ micrô.
 
-Schritt 3 – die Empfangsschleife – wird gleichzeitig ausgeführt und verarbeitet zwei Arten von Nachrichten: `server_content`-Nachrichten (die Textausgabe des Modells) und `tool_call`-Nachrichten (das Modell fordert eine Roboteraktion an). Wenn ein Toolaufruf eingeht, ruft die Schleife `execute_tool` auf – ein Stub, den Sie durch Ihr echtes Roboter-SDK ersetzen – und sendet dann eine `tool_response` zurück, damit das Modell die nächste Aktion auswählen kann.
+Bước 3 – vòng lặp nhận – chạy đồng thời và xử lý hai loại thông báo: thông báo `server_content` (đầu ra văn bản của mô hình) và thông báo `tool_call` (mô hình yêu cầu một hành động của robot). Khi một lệnh gọi công cụ đến, vòng lặp sẽ gọi `execute_tool` – một mã giả lập mà bạn thay thế bằng SDK robot thực của mình – sau đó gửi lại `tool_response` để mô hình có thể chọn hành động tiếp theo.
 
 ```
 import asyncio
@@ -170,19 +163,15 @@ async def main():
 asyncio.run(main())
 ```
 
-Die Empfangsschleife bleibt nach jeder Toolantwort aktiv. Das Modell erstellt und überarbeitet einen Plan mit langem Horizont, ohne dass Sie die gesamte Aktionssequenz im Voraus codieren müssen.
+Vòng lặp nhận vẫn hoạt động sau mỗi phản hồi của công cụ. Mô hình này xây dựng và sửa đổi kế hoạch dài hạn mà không cần bạn mã hoá trước toàn bộ chuỗi hành động.
 
-## Proaktive räumlich-zeitliche Schlussfolgerungen
+## Suy luận chủ động về không gian và thời gian
 
-Die Live API streamt Videoeingaben, aber Videoframes allein lösen keine neue Schlussfolgerungsrunde aus. Videoframes müssen von einem Text- oder Audio-Prompt begleitet werden, um eine Modellantwort auszulösen. Weitere Informationen finden Sie unter
-[Live API-Funktionen](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de) für
-mehr Details.
+Live API truyền trực tiếp video, nhưng chỉ khung hình video không kích hoạt lượt suy luận mới. Khung hình video phải đi kèm với một câu lệnh bằng văn bản hoặc âm thanh để kích hoạt phản hồi của mô hình. Hãy xem [Các chức năng của Live API](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi) để biết thêm thông tin chi tiết.
 
-Implementieren Sie einen **Heartbeat**, um proaktive Schlussfolgerungen zu ermöglichen: Senden Sie regelmäßig den
-neuesten Kameraframe, gefolgt von einem kurzen Text-Prompt, der das Modell zwingt, die Szene zu
-untersuchen und eine explizite Entscheidung zu treffen. Die Videoeingabe ist auf einen Frame pro Sekunde begrenzt.
+Để bật tính năng suy luận chủ động, hãy triển khai một **xung nhịp**: định kỳ gửi khung hình camera mới nhất, sau đó là một câu lệnh văn bản ngắn buộc mô hình kiểm tra cảnh và đưa ra quyết định rõ ràng. Tốc độ đầu vào của video bị giới hạn ở một khung hình mỗi giây.
 
-Fügen Sie diese Coroutine neben der Empfangsschleife aus dem vorherigen Abschnitt hinzu. Sie wird als separate `asyncio`-Aufgabe in derselben Sitzung ausgeführt:
+Thêm coroutine này cùng với vòng lặp nhận từ phần trước. Thao tác này chạy dưới dạng một tác vụ `asyncio` riêng biệt trong cùng một phiên:
 
 ```
 async def heartbeat(session, camera):  # camera is your robot camera API
@@ -203,22 +192,17 @@ async def heartbeat(session, camera):  # camera is your robot camera API
         await asyncio.sleep(1)
 ```
 
-Sie müssen den Heartbeat während Roboteraktionen nicht pausieren. Wenn er als
-**impliziter Erfolgsdetektor** verwendet wird, kann das Modell die laufende Aktion kontinuierlich
-beobachten (z. B. ob ein Griff sicher ist, ein Gießvorgang das Ziel erreicht oder ein Objekt richtig platziert wird) und reagieren, sobald das Ergebnis klar ist.
+Bạn không cần tạm dừng tín hiệu nhịp tim trong các thao tác của robot. Khi được dùng làm **trình phát hiện thành công ngầm**, việc duy trì hoạt động của nó cho phép mô hình liên tục quan sát hành động đang diễn ra (theo dõi xem thao tác nắm có chắc chắn hay không, thao tác đổ có đúng mục tiêu hay không hoặc một đối tượng có đang ổn định đúng cách hay không) và phản ứng ngay khi kết quả trở nên rõ ràng.
 
-Heartbeat-Nachrichten fungieren als Nutzerrunden und unterbrechen die laufende Modellgenerierung.
-Weitere Informationen zur Verarbeitung dieses Verhaltens durch die Live API finden Sie im
-[Leitfaden zur Live API unter Unterbrechungen](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de#interruptions).
+Thông báo nhịp tim đóng vai trò là lượt của người dùng và làm gián đoạn quá trình tạo mô hình đang diễn ra.
+Hãy xem [hướng dẫn về API Phát trực tiếp đối với các trường hợp gián đoạn](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi#interruptions) để tìm hiểu cách API Phát trực tiếp xử lý hành vi này.
 
-## Audioausgabe über externe TTS
+## Đầu ra âm thanh thông qua TTS bên ngoài
 
-Gemini Robotics ER 2 gibt Text zurück. Ihre Anwendung leitet abgeschlossene Antworten
-über einen eingefügten Callback an einen separaten TTS-Anbieter (z. B.
-[Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)) weiter.
-So behalten Sie die Kontrolle über die Sprachlatenz, die Auswahl der Stimme und das Unterbrechungsverhalten und können TTS-Back-Ends austauschen, ohne die Agentenlogik zu ändern.
+Gemini Robotics ER 2 trả về văn bản. Ứng dụng của bạn sẽ định tuyến các phản hồi đã hoàn tất đến một nhà cung cấp TTS riêng biệt (chẳng hạn như [Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)) thông qua một lệnh gọi lại được chèn.
+Điều này giúp bạn kiểm soát độ trễ của lời nói, lựa chọn giọng nói và hành vi gián đoạn, đồng thời cho phép bạn hoán đổi các phần phụ trợ TTS mà không cần thay đổi logic của tác nhân.
 
-Sie können TTS auch als Tool deklarieren, damit das Modell „etwas sagen“ genauso behandelt wie „den Arm bewegen“. Fügen Sie der Liste `tools` aus dem ersten Abschnitt die folgende Funktionsdeklaration hinzu:
+Bạn cũng có thể khai báo TTS là một công cụ để mô hình coi "nói điều gì đó" giống như "di chuyển cánh tay". Thêm khai báo hàm sau vào danh sách `tools` của bạn từ phần đầu tiên:
 
 ```
 TOOLS = [
@@ -248,26 +232,24 @@ TOOLS = [
 ]
 ```
 
-Wenn Sie TTS in eine Funktionsdeklaration einbinden, verarbeitet das Modell Sprache über denselben Toolaufruf-Pfad wie jede andere Roboteraktion. Ihre Anwendung führt den Aufruf mit einem eingefügten Callback aus.
+Bằng cách bao bọc TTS trong một khai báo hàm, mô hình sẽ xử lý lời nói thông qua cùng một đường dẫn gọi công cụ như mọi hành động khác của robot. Ứng dụng của bạn thực hiện lệnh gọi bằng một lệnh gọi lại được chèn.
 
-## Beispiele auf GitHub
+## Ví dụ trên GitHub
 
-Vollständige Arbeitsbeispiele, einschließlich der Spot-Roboter-Snack-Demo und der Tinybot
-Pan-Tilt-Hello-World-Demo, finden Sie unter
-[Robotics Live API-Beispiele](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
+Để xem các ví dụ đầy đủ về cách thức hoạt động, bao gồm cả bản minh hoạ về việc lấy đồ ăn nhẹ của robot Spot và bản minh hoạ về việc xoay và nghiêng Tinybot, hãy xem [Các ví dụ về Robotics Live API](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
 
-## Nächste Schritte
+## Bước tiếp theo
 
-- [Videoanalyse](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=de) – Momente finden und Fortschritt klassifizieren.
-- [Aufgabenorchestrierung](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=de) – Aufgaben mit langem Horizont ohne Streaming.
-- [Übersicht über die Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=de) – vollständige Dokumentation zur Live API.
+- [Hiểu video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=vi) – tìm khoảnh khắc và phân loại tiến trình.
+- [Điều phối tác vụ](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=vi) – các tác vụ dài hạn không có tính năng truyền trực tuyến.
+- [Tổng quan về Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=vi) – tài liệu đầy đủ về Live API.
 
-Feedback geben
+Gửi ý kiến phản hồi
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Zuletzt aktualisiert: 2026-07-31 (UTC).
+Cập nhật lần gần đây nhất: 2026-07-31 UTC.
 
-Haben Sie Feedback für uns?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-31 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-31 UTC."],[],[]]

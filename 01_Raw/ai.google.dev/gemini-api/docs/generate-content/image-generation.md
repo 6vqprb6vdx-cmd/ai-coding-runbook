@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=pt-BR
-fetched_at: 2026-08-31T06:40:19.041067+00:00
+fetched_at: 2026-09-07T05:32:28.770089+00:00
 title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

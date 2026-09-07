@@ -1,116 +1,180 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de
-fetched_at: 2026-08-31T06:30:44.896705+00:00
-title: "Richtlinien zu Sicherheit und Faktualit\u00e4t \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=th
+fetched_at: 2026-09-07T05:37:26.181959+00:00
+title: "\u0e04\u0e33\u0e41\u0e19\u0e30\u0e19\u0e33\u0e14\u0e49\u0e32\u0e19\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e16\u0e39\u0e01\u0e15\u0e49\u0e2d\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-# Richtlinien zu Sicherheit und Faktualität
+# คำแนะนำด้านความปลอดภัยและความถูกต้อง
 
-Modelle, die auf generativer künstlicher Intelligenz basieren, sind leistungsstarke Tools, haben aber auch ihre Grenzen. Ihre Vielseitigkeit und Anwendbarkeit können manchmal zu unerwarteten Ausgaben führen, z. B. zu Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und strenge manuelle Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+โมเดลปัญญาประดิษฐ์แบบ Generative เป็นเครื่องมือที่มีประสิทธิภาพ แต่ก็มีข้อจำกัดเช่นกัน ความสามารถรอบด้านและความสามารถในการนำไปใช้บางครั้งอาจทำให้เกิดเอาต์พุตที่ไม่คาดคิด เช่น เอาต์พุตที่ไม่ถูกต้อง มีอคติ หรือไม่เหมาะสม การประมวลผลภายหลังและการประเมินด้วยตนเองอย่างเข้มงวดจึงเป็นสิ่งจำเป็นเพื่อจำกัดความเสี่ยงที่จะเกิดอันตรายจากเอาต์พุตดังกล่าว
 
-Die von der Gemini API bereitgestellten Modelle können für eine Vielzahl von Anwendungen für generative KI und Verarbeitung natürlicher Sprache (Natural Language Processing, NLP) verwendet werden. Die Nutzung dieser Funktionen ist nur über die Gemini API oder die Google AI Studio Web-App möglich. Ihre Nutzung der Gemini API unterliegt außerdem der [Richtlinie zur unzulässigen Nutzung von generativer KI](https://policies.google.com/terms/generative-ai/use-policy?hl=de) und den [Nutzungsbedingungen für die Gemini API](https://ai.google.dev/terms?hl=de).
+โมเดลที่ Gemini API มีให้สามารถใช้กับแอปพลิเคชัน Generative AI และการประมวลผลภาษาธรรมชาติ (NLP) ได้หลากหลาย การใช้ฟังก์ชันเหล่านี้จะใช้ได้ผ่าน Gemini API หรือเว็บแอป Google AI Studio เท่านั้น การใช้ Gemini API ของคุณยังเป็นไปตาม[นโยบายการใช้งานที่ไม่อนุญาตของ Generative AI](https://policies.google.com/terms/generative-ai/use-policy?hl=th) และ[ข้อกำหนดในการให้บริการของ Gemini API](https://ai.google.dev/terms?hl=th) ด้วย
 
-Large Language Models (LLMs) sind unter anderem deshalb so nützlich, weil sie kreative Tools sind, die viele verschiedene sprachliche Aufgaben bewältigen können. Leider bedeutet das auch, dass Large Language Models unerwartete Ausgaben generieren können, einschließlich Text, der beleidigend, grob oder tatsächlich falsch ist.
-Außerdem ist es durch die unglaubliche Vielseitigkeit dieser Modelle schwierig, vorherzusagen, welche Art unerwünschter Ausgaben sie erzeugen könnten. Die Gemini API wurde unter Berücksichtigung der [KI-Grundsätze von Google](https://ai.google/principles/?hl=de) entwickelt. Es liegt jedoch in der Verantwortung der Entwickler, diese Modelle verantwortungsbewusst einzusetzen. Um Entwickler bei der Erstellung sicherer und verantwortungsbewusster Anwendungen zu unterstützen, bietet die Gemini API eine integrierte Inhaltsfilterung sowie anpassbare Sicherheitseinstellungen für vier Arten von schädlichen Inhalten. Weitere Informationen finden Sie im Leitfaden zu den [Sicherheitseinstellungen](https://ai.google.dev/gemini-api/docs/safety-settings?hl=de). Außerdem ist die Verknüpfung mit der Google Suche aktiviert, um die Faktizität zu verbessern. Diese Funktion kann jedoch für Entwickler deaktiviert werden, deren Anwendungsfälle eher kreativ sind und nicht auf die Suche nach Informationen ausgerichtet sind.
+ส่วนหนึ่งที่ทำให้โมเดลภาษาขนาดใหญ่ (LLM) มีประโยชน์มากก็คือเป็น
+เครื่องมือสร้างสรรค์ที่สามารถจัดการงานด้านภาษาที่แตกต่างกันได้มากมาย อย่างไรก็ตาม
+นั่นหมายความว่าโมเดลภาษาขนาดใหญ่สามารถสร้างเอาต์พุตที่คุณไม่
+คาดคิดได้ รวมถึงข้อความที่ไม่เหมาะสม ไม่คำนึงถึงความรู้สึก หรือไม่ถูกต้องตามข้อเท็จจริง
+นอกจากนี้ ความสามารถที่หลากหลายอย่างน่าทึ่งของโมเดลเหล่านี้ยังทำให้คาดเดาได้ยากว่าโมเดลอาจสร้างเอาต์พุตที่ไม่พึงประสงค์ประเภทใด แม้ว่า Gemini API จะได้รับการออกแบบโดยคำนึงถึง[หลักการด้าน AI ของ Google](https://ai.google/principles/?hl=th) แต่ภาระหน้าที่ในการ
+ใช้โมเดลเหล่านี้อย่างมีความรับผิดชอบก็ยังคงเป็นของนักพัฒนาแอป Gemini API มีการกรองเนื้อหาในตัว รวมถึงการตั้งค่าความปลอดภัยที่ปรับได้ใน 4 มิติของอันตราย เพื่อช่วยนักพัฒนาแอปในการสร้างแอปพลิเคชันที่ปลอดภัยและมีความรับผิดชอบ
+ดูข้อมูลเพิ่มเติมได้ที่คู่มือ[การตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th) นอกจากนี้ยังมีการเปิดใช้ Grounding
+with Google Search เพื่อปรับปรุงความถูกต้องของข้อเท็จจริงด้วย แม้ว่าอาจปิดใช้ได้
+สำหรับนักพัฒนาแอปที่มีกรณีการใช้งานที่สร้างสรรค์มากกว่าและไม่ได้มุ่งเน้นการค้นหาข้อมูล
 
-In diesem Dokument werden einige Sicherheitsrisiken vorgestellt, die bei der Verwendung von LLMs auftreten können. Außerdem werden neue Empfehlungen für das Sicherheitsdesign und die Sicherheitsentwicklung gegeben. Gesetze und Verordnungen können ebenfalls Einschränkungen auferlegen. Diese werden in dieser Anleitung jedoch nicht berücksichtigt.
+เอกสารนี้มีจุดประสงค์เพื่อแนะนำความเสี่ยงด้านความปลอดภัยบางอย่างที่อาจเกิดขึ้นเมื่อ
+ใช้ LLM และแนะนำการออกแบบและการพัฒนาด้านความปลอดภัยที่เกิดขึ้นใหม่
+(โปรดทราบว่ากฎหมายและกฎระเบียบอาจกำหนดข้อจำกัดด้วย
+แต่การพิจารณาดังกล่าวอยู่นอกขอบเขตของคู่มือนี้)
 
-Wir empfehlen die folgenden Schritte beim Erstellen von Anwendungen mit LLMs:
+เราขอแนะนำให้ทำตามขั้นตอนต่อไปนี้เมื่อสร้างแอปพลิเคชันด้วย LLM
 
-- Sicherheitsrisiken Ihrer Anwendung
-- Anpassungen zur Minimierung von Sicherheitsrisiken
-- Für Ihren Anwendungsfall geeignete Sicherheitstests durchführen
-- Nutzerfeedback einholen und Nutzung überwachen
+- ทำความเข้าใจความเสี่ยงด้านความปลอดภัยของแอปพลิเคชัน
+- พิจารณาการปรับเพื่อลดความเสี่ยงด้านความปลอดภัย
+- ทำการทดสอบความปลอดภัยที่เหมาะสมกับกรณีการใช้งานของคุณ
+- ขอความคิดเห็นจากผู้ใช้และตรวจสอบการใช้งาน
 
-Die Anpassungs- und Testphasen sollten iterativ durchlaufen werden, bis Sie eine für Ihre Anwendung geeignete Leistung erzielen.
+ระยะการปรับและการทดสอบควรทำซ้ำจนกว่าคุณจะได้รับ
+ประสิทธิภาพที่เหมาะสมกับแอปพลิเคชัน
 
-![Zyklus der Modellimplementierung](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=de)
+![วงจรการใช้งานโมเดล](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=th)
 
-## Sicherheitsrisiken Ihrer Anwendung verstehen
+## ทำความเข้าใจความเสี่ยงด้านความปลอดภัยของแอปพลิเคชัน
 
-In diesem Zusammenhang wird Sicherheit als die Fähigkeit eines LLM definiert, seinen Nutzern keinen Schaden zuzufügen, z. B. durch die Generierung von toxischen Formulierungen oder Inhalten, die Stereotype fördern. Die über die Gemini API verfügbaren Modelle wurden unter Berücksichtigung der [KI-Grundsätze von Google](https://ai.google/principles/?hl=de) entwickelt und Ihre Nutzung unterliegt der [Richtlinie zu verbotenen Anwendungsfällen für generative KI](https://policies.google.com/terms/generative-ai/use-policy?hl=de). Die API bietet integrierte Sicherheitsfilter, um einige häufige Probleme mit Sprachmodellen wie toxische Formulierungen und Hassreden zu beheben und Inklusivität und die Vermeidung von Stereotypen zu fördern. Jede Anwendung kann jedoch unterschiedliche Risiken für ihre Nutzer bergen. Als Anwendungsentwickler sind Sie daher dafür verantwortlich, Ihre Nutzer und die potenziellen Schäden zu kennen, die Ihre Anwendung verursachen kann, und dafür zu sorgen, dass Ihre Anwendung LLMs sicher und verantwortungsbewusst verwendet.
+ในบริบทนี้ ความปลอดภัยหมายถึงความสามารถของ LLM ในการหลีกเลี่ยง
+การก่อให้เกิดอันตรายต่อผู้ใช้ เช่น การสร้างภาษาหรือเนื้อหาที่เป็นพิษ
+ซึ่งส่งเสริมภาพเหมารวม โมเดลที่พร้อมใช้งานผ่าน Gemini API ได้รับการออกแบบโดยคำนึงถึง[หลักการเกี่ยวกับ AI ของ Google](https://ai.google/principles/?hl=th) และการใช้งานโมเดลดังกล่าวเป็นไปตาม[นโยบายการใช้งานที่ไม่อนุญาตสำหรับ Generative AI](https://policies.google.com/terms/generative-ai/use-policy?hl=th) API
+มีตัวกรองความปลอดภัยในตัวเพื่อช่วยแก้ปัญหาที่พบบ่อยเกี่ยวกับโมเดลภาษา
+เช่น ภาษาที่ไม่เหมาะสมและคำพูดที่สร้างความเกลียดชัง รวมถึงมุ่งมั่นที่จะครอบคลุม
+และหลีกเลี่ยงการเหมารวม อย่างไรก็ตาม แอปพลิเคชันแต่ละรายการอาจก่อให้เกิดความเสี่ยงที่แตกต่างกันต่อผู้ใช้ ดังนั้นในฐานะเจ้าของแอปพลิเคชัน คุณจึงมีหน้าที่
+ทำความรู้จักผู้ใช้และอันตรายที่อาจเกิดขึ้นจากแอปพลิเคชันของคุณ และ
+ตรวจสอบว่าแอปพลิเคชันใช้ LLM อย่างปลอดภัยและมีความรับผิดชอบ
 
-Im Rahmen dieser Bewertung sollten Sie die Wahrscheinlichkeit eines Schadens, dessen Schweregrad und die Maßnahmen zur Risikominderung berücksichtigen. Eine App, die beispielsweise Essays auf der Grundlage von Fakten erstellt, muss sorgfältiger darauf achten, Falschinformationen zu vermeiden, als eine App, die fiktive Geschichten zur Unterhaltung generiert. Eine gute Möglichkeit, potenzielle Sicherheitsrisiken zu untersuchen, besteht darin, Ihre Endnutzer und andere Personen, die von den Ergebnissen Ihrer Anwendung betroffen sein könnten, zu befragen. Das kann viele Formen annehmen, z. B. die Recherche nach dem aktuellen Stand der Forschung in Ihrer App-Domain, die Beobachtung, wie Nutzer ähnliche Apps verwenden, oder die Durchführung einer Nutzerstudie, Umfrage oder informeller Interviews mit potenziellen Nutzern.
+ในการประเมินนี้ คุณควรพิจารณาความเป็นไปได้ที่จะเกิดอันตราย รวมถึงพิจารณาความร้ายแรงและขั้นตอนการลดความเสี่ยง ตัวอย่างเช่น แอปที่สร้างเรียงความโดยอิงตามเหตุการณ์จริงจะต้องระมัดระวังเรื่องการหลีกเลี่ยงข้อมูลที่ไม่ถูกต้องมากกว่าแอปที่สร้างเรื่องราวสมมติเพื่อความบันเทิง วิธีที่ดีในการเริ่มสำรวจความเสี่ยงด้านความปลอดภัยที่อาจเกิดขึ้นคือการวิจัยผู้ใช้ปลายทางและบุคคลอื่นๆ ที่อาจได้รับผลกระทบจากผลลัพธ์ของแอปพลิเคชันของคุณ ซึ่งอาจทำได้หลายรูปแบบ เช่น การวิจัยการศึกษาที่ทันสมัยในโดเมนแอปของคุณ การสังเกตวิธีที่ผู้คนใช้แอปที่คล้ายกัน หรือการศึกษาผู้ใช้ การสำรวจ หรือการสัมภาษณ์แบบไม่เป็นทางการกับผู้ใช้ที่มีศักยภาพ
 
-### Weitere Tipps
+### เคล็ดลับขั้นสูง
 
-- Sprechen Sie mit einer vielfältigen Gruppe potenzieller Nutzer aus Ihrer Zielgruppe über Ihre Anwendung und ihren beabsichtigten Zweck, um eine breitere Perspektive auf potenzielle Risiken zu erhalten und die Diversitätskriterien bei Bedarf anzupassen.
-- Das [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) des National Institute of Standards and Technology (NIST) der US-Regierung bietet detailliertere Anleitungen und zusätzliche Lernressourcen für das Risikomanagement im Bereich KI.
-- In der [Publikation von DeepMind zu den ethischen und sozialen Risiken von Language Models](https://arxiv.org/abs/2112.04359) wird detailliert beschrieben, wie Anwendungen von Language Models Schaden anrichten können.
+- พูดคุยกับผู้ใช้ที่มีโอกาสเป็นลูกค้าหลากหลายกลุ่มภายในกลุ่มเป้าหมายเกี่ยวกับแอปพลิเคชันและวัตถุประสงค์ที่ตั้งใจไว้ เพื่อให้ได้มุมมองที่กว้างขึ้นเกี่ยวกับความเสี่ยงที่อาจเกิดขึ้น และปรับเกณฑ์ความหลากหลายตามความจำเป็น
+- [กรอบการจัดการความเสี่ยงของ AI](https://www.nist.gov/itl/ai-risk-management-framework)
+  ที่เผยแพร่โดยสถาบันมาตรฐานและเทคโนโลยีแห่งชาติ (NIST)
+  ของรัฐบาลสหรัฐอเมริกาให้คำแนะนำโดยละเอียดเพิ่มเติม
+  และแหล่งข้อมูลการเรียนรู้เพิ่มเติมสำหรับการจัดการความเสี่ยงของ AI
+- สิ่งพิมพ์ของ DeepMind เกี่ยวกับ
+  [ความเสี่ยงด้านจริยธรรมและสังคมที่เกิดจากอันตรายจากโมเดลภาษา](https://arxiv.org/abs/2112.04359)
+  อธิบายโดยละเอียดถึงวิธีที่แอปพลิเคชันโมเดลภาษา
+  อาจก่อให้เกิดอันตราย
 
-## Anpassungen vornehmen, um Risiken in Bezug auf Sicherheit und Faktualität zu minimieren
+## พิจารณาการปรับเพื่อลดความเสี่ยงด้านความปลอดภัยและความถูกต้อง
 
-Nachdem Sie die Risiken kennen, können Sie entscheiden, wie Sie sie minimieren. Die Entscheidung, welche Risiken priorisiert werden sollen und wie viel Sie tun sollten, um sie zu vermeiden, ist von entscheidender Bedeutung. Sie ähnelt der Priorisierung von Fehlern in einem Softwareprojekt. Nachdem Sie die Prioritäten festgelegt haben, können Sie überlegen, welche Arten von Maßnahmen am besten geeignet wären. Oft können schon einfache Änderungen einen Unterschied machen und Risiken verringern.
+ตอนนี้คุณเข้าใจความเสี่ยงแล้ว คุณสามารถตัดสินใจวิธีลดความเสี่ยงได้ การพิจารณาว่าควรจัดลำดับความสำคัญของความเสี่ยงใดและควรทำมากน้อยเพียงใดเพื่อพยายามป้องกันความเสี่ยงเหล่านั้นถือเป็นการตัดสินใจที่สำคัญ เช่นเดียวกับการจัดลำดับความสำคัญของข้อบกพร่องในโปรเจ็กต์ซอฟต์แวร์ เมื่อกำหนดลำดับความสำคัญแล้ว คุณจะเริ่มคิดถึงประเภทของการลดความเสี่ยงที่เหมาะสมที่สุดได้ การเปลี่ยนแปลงง่ายๆ มักจะสร้างความแตกต่างและลดความเสี่ยงได้
 
-Berücksichtigen Sie beispielsweise beim Entwerfen einer Anwendung Folgendes:
+ตัวอย่างเช่น เมื่อออกแบบแอปพลิเคชัน ให้พิจารณาสิ่งต่อไปนี้
 
-- **Modellausgabe anpassen**, damit sie besser widerspiegelt, was in Ihrem Anwendungskontext akzeptabel ist. Durch die Abstimmung kann die Ausgabe des Modells vorhersehbarer und konsistenter werden, was dazu beitragen kann, bestimmte Risiken zu mindern.
-- **Eine Eingabemethode, die sicherere Ausgaben ermöglicht**: Die genaue Eingabe, die Sie einem LLM geben, kann sich auf die Qualität der Ausgabe auswirken.
-  Es lohnt sich, mit Eingabeaufforderungen zu experimentieren, um herauszufinden, was in Ihrem Anwendungsfall am sichersten funktioniert. So können Sie eine UX bereitstellen, die dies erleichtert. Sie können beispielsweise festlegen, dass Nutzer nur aus einer Drop-down-Liste mit Eingabeaufforderungen auswählen dürfen, oder Pop-up-Vorschläge mit beschreibenden Formulierungen anbieten, die in Ihrem Anwendungskontext sicher sind.
-- **Blockieren unsicherer Eingaben und Filtern der Ausgabe, bevor sie dem Nutzer angezeigt wird**: In einfachen Fällen können Sperrlisten verwendet werden, um unsichere Wörter oder Formulierungen in Prompts oder Antworten zu identifizieren und zu blockieren.Alternativ können menschliche Prüfer solche Inhalte manuell ändern oder blockieren.
-- **Verwendung trainierter Klassifikatoren, um jedem Prompt Tags für mögliche schädliche Inhalte oder bösartige Signale hinzuzufügen.** Je nach der Art des erkannten schädlichen Inhalts können dann verschiedene Strategien für den Umgang mit der Anfrage angewendet werden. Wenn die Eingabe beispielsweise offensichtlich bösartig oder missbräuchlich ist, kann sie blockiert und stattdessen eine vordefinierte Antwort ausgegeben werden.
-  **Erweiterter Tipp**:Wenn Signale darauf hindeuten, dass die Ausgabe schädlich ist, kann die Anwendung die folgenden Optionen verwenden:
+- **การปรับเอาต์พุตโมเดล**ให้สะท้อนถึงสิ่งที่ยอมรับได้ในบริบทของแอปพลิเคชันของคุณได้ดียิ่งขึ้น การปรับแต่งจะช่วยให้เอาต์พุตโมเดลคาดการณ์ได้มากขึ้นและสอดคล้องกันมากขึ้น จึงช่วยลดความเสี่ยงบางอย่างได้
+- **จัดหาวิธีการป้อนข้อมูลที่ช่วยให้ได้ผลลัพธ์ที่ปลอดภัยยิ่งขึ้น** อินพุตที่แน่นอนที่คุณป้อนให้กับ LLM อาจส่งผลต่อคุณภาพของเอาต์พุตได้
+  การทดลองใช้พรอมต์อินพุตเพื่อค้นหาสิ่งที่ทำงานได้อย่างปลอดภัยที่สุดในกรณีการใช้งานของคุณนั้นคุ้มค่ากับความพยายาม เนื่องจากคุณจะสามารถมอบ UX ที่อำนวยความสะดวกได้ ตัวอย่างเช่น คุณอาจจำกัดให้ผู้ใช้เลือกได้เฉพาะจากรายการพรอมต์อินพุตแบบเลื่อนลง หรือเสนอคำแนะนำแบบป๊อปอัปพร้อมวลีอธิบายที่คุณพบว่าทำงานได้อย่างปลอดภัยในบริบทของแอปพลิเคชัน
+- **การบล็อกอินพุตที่ไม่ปลอดภัยและการกรองเอาต์พุตก่อนที่จะแสดงต่อผู้ใช้** ในสถานการณ์ที่ไม่ซับซ้อน คุณสามารถใช้รายการที่ถูกบล็อกเพื่อระบุและบล็อกคำหรือวลีที่ไม่ปลอดภัยในพรอมต์หรือคำตอบ หรือกำหนดให้ผู้ตรวจสอบที่เป็นมนุษย์แก้ไขหรือบล็อกเนื้อหาดังกล่าวด้วยตนเอง
+- **ใช้ตัวแยกประเภทที่ได้รับการฝึกมาเพื่อติดป้ายกำกับแต่ละพรอมต์ด้วยอันตรายที่อาจเกิดขึ้นหรือ
+  สัญญาณที่เป็นการต่อต้าน** จากนั้นจึงใช้กลยุทธ์ต่างๆ เกี่ยวกับวิธี
+  จัดการคำขอตามประเภทของอันตรายที่ตรวจพบได้ ตัวอย่างเช่น หาก
+  อินพุตเป็นการต่อต้านหรือเป็นการละเมิดอย่างโจ่งแจ้ง ระบบอาจบล็อกอินพุตนั้นและ
+  แสดงผลการตอบกลับที่เขียนสคริปต์ไว้ล่วงหน้าแทน
+  **เคล็ดลับขั้นสูง:** หากสัญญาณระบุว่าเอาต์พุตเป็นอันตราย แอปพลิเคชันจะใช้ตัวเลือกต่อไปนี้ได้
 
-  - Eine Fehlermeldung oder eine vordefinierte Ausgabe zurückgeben
-  - Versuchen Sie es noch einmal mit dem Prompt. Möglicherweise wird eine alternative, sichere Ausgabe generiert, da derselbe Prompt manchmal zu unterschiedlichen Ausgaben führt.
-- **Schutzmaßnahmen gegen vorsätzlichen Missbrauch**, z. B. durch Zuweisen einer eindeutigen ID für jeden Nutzer und Festlegen eines Limits für die Anzahl der Nutzeranfragen, die in einem bestimmten Zeitraum gesendet werden können. Eine weitere Schutzmaßnahme ist der Schutz vor möglichen Prompt Injections. Prompt-Injection ist wie SQL-Injection eine Methode, mit der böswillige Nutzer einen Eingabe-Prompt erstellen, der die Ausgabe des Modells manipuliert. Sie können beispielsweise einen Eingabe-Prompt senden, der das Modell anweist, alle vorherigen Beispiele zu ignorieren. Weitere Informationen zum vorsätzlichen Missbrauch finden Sie in der [Richtlinie zur unzulässigen Nutzung von generativer KI](https://policies.google.com/terms/generative-ai/use-policy?hl=de).
-- **Funktionen anpassen, um das Risiko zu senken**
-  Aufgaben mit einem engeren Umfang (z.B. das Extrahieren von Keywords aus Textpassagen) oder mit einer stärkeren menschlichen Aufsicht (z.B. das Generieren von Kurzvideos, die von einem Menschen überprüft werden) bergen oft ein geringeres Risiko. Anstatt eine Anwendung zu erstellen, die eine E‑Mail-Antwort von Grund auf neu schreibt, könnten Sie sie beispielsweise darauf beschränken, eine Gliederung zu erweitern oder alternative Formulierungen vorzuschlagen.
-- **Sicherheitseinstellungen für schädliche Inhalte anpassen, um die Wahrscheinlichkeit zu verringern, dass Antworten angezeigt werden, die möglicherweise schädlich sind**: Die Gemini API bietet Sicherheitseinstellungen, die Sie während der Prototyping-Phase anpassen können, um festzustellen, ob Ihre Anwendung eine mehr oder weniger restriktive Sicherheitskonfiguration erfordert. Sie können diese Einstellungen in fünf Filterkategorien anpassen, um bestimmte Arten von Inhalten zuzulassen oder zu beschränken. Weitere Informationen zu den über die Gemini API verfügbaren anpassbaren Sicherheitseinstellungen finden Sie im [Leitfaden zu Sicherheitseinstellungen](https://ai.google.dev/gemini-api/docs/safety-settings?hl=de).
-- **Potenzielle sachliche Ungenauigkeiten oder Halluzinationen verringern, indem Sie Fundierung mit der Google Suche aktivieren**. Viele KI-Modelle sind experimentell und können faktisch ungenaue Informationen liefern, halluzinieren oder auf andere Weise problematische Ausgaben erzeugen. Durch die Funktion „Fundierung mit der Google Suche“ wird das Gemini-Modell in Echtzeit mit Webinhalten verbunden und kann mit allen verfügbaren Sprachen genutzt werden. So kann Gemini genauere Antworten geben und überprüfbare Quellen zitieren, die über den Wissensstichtag des Modells hinausgehen.
+  - ระบุข้อความแสดงข้อผิดพลาดหรือเอาต์พุตที่เขียนสคริปต์ไว้ล่วงหน้า
+  - ลองใช้พรอมต์อีกครั้งในกรณีที่ระบบสร้างเอาต์พุตที่ปลอดภัยอื่น
+    เนื่องจากบางครั้งพรอมต์เดียวกันจะทำให้เกิดเอาต์พุตที่แตกต่างกัน
+- **การใช้มาตรการป้องกันการละเมิดโดยเจตนา** เช่น การกำหนดรหัสที่ไม่ซ้ำกันให้ผู้ใช้แต่ละรายและการกำหนดขีดจำกัดปริมาณคำค้นหาของผู้ใช้
+  ที่ส่งได้ในช่วงเวลาที่กำหนด มาตรการป้องกันอีกอย่างคือการพยายาม
+  ป้องกันการแทรกพรอมต์ที่อาจเกิดขึ้น การแทรกพรอมต์ก็เหมือนกับการแทรก SQL ตรงที่ผู้ใช้ที่เป็นอันตรายสามารถออกแบบพรอมต์อินพุตที่
+  บิดเบือนเอาต์พุตของโมเดลได้ เช่น โดยการส่งพรอมต์อินพุต
+  ที่สั่งให้โมเดลไม่สนใจตัวอย่างก่อนหน้า ดูรายละเอียดเกี่ยวกับการละเมิดโดยเจตนาได้ที่[นโยบายการใช้งานที่ไม่อนุญาตสำหรับ Generative AI](https://policies.google.com/terms/generative-ai/use-policy?hl=th)
+- **ปรับฟังก์ชันการทำงานให้มีความเสี่ยงต่ำโดยธรรมชาติ**
+  โดยทั่วไปแล้ว งานที่มีขอบเขตแคบกว่า (เช่น การแยกคีย์เวิร์ดจากข้อความ) หรือมีการกำกับดูแลจากมนุษย์มากกว่า (เช่น การสร้างเนื้อหาสั้นที่จะได้รับการตรวจสอบจากมนุษย์) มักมีความเสี่ยงต่ำกว่า เช่น แทนที่จะสร้างแอปพลิเคชันเพื่อเขียนการตอบอีเมลตั้งแต่ต้น คุณอาจจำกัดให้แอปพลิเคชันขยายโครงร่างหรือแนะนำการเรียบเรียงคำใหม่แทน
+- **การปรับการตั้งค่าความปลอดภัยของเนื้อหาที่เป็นอันตรายเพื่อลดโอกาสที่คุณจะเห็นคำตอบที่อาจเป็นอันตราย** Gemini API มีการตั้งค่าความปลอดภัยที่คุณปรับได้ในขั้นตอนการสร้างต้นแบบเพื่อพิจารณาว่าแอปพลิเคชันของคุณต้องมีการกำหนดค่าความปลอดภัยที่เข้มงวดมากขึ้นหรือน้อยลง คุณสามารถปรับการตั้งค่าเหล่านี้ในหมวดหมู่ตัวกรอง 5 หมวดหมู่เพื่อจำกัดหรืออนุญาตเนื้อหาบางประเภท โปรดดู[คู่มือการตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th)เพื่อดูข้อมูลเกี่ยวกับการตั้งค่าความปลอดภัยที่ปรับได้ซึ่งพร้อมใช้งานผ่าน Gemini API
+- **ลดโอกาสที่อาจเกิดข้อเท็จจริงที่ไม่ถูกต้องหรืออาการหลอนของ AI โดยการเปิดใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search โปรดทราบว่าโมเดล AI หลายๆ โมเดลยังอยู่ในขั้นทดลองและอาจแสดงข้อมูลที่ไม่ถูกต้องตามข้อเท็จจริง เกิดอาการหลอน หรือสร้างผลลัพธ์ที่อาจเป็นปัญหา ฟีเจอร์การเชื่อมต่อแหล่งข้อมูลกับ Google Search จะเชื่อมต่อโมเดล Gemini กับเนื้อหาเว็บแบบเรียลไทม์และจะใช้งานได้กับทุกภาษาที่มี** ซึ่งจะช่วยให้ Gemini สามารถให้คำตอบที่แม่นยำยิ่งขึ้นและอ้างอิงแหล่งที่มาที่ตรวจสอบได้นอกเหนือจากขีดจำกัดความรู้ของโมเดล
 
-## Führen Sie für Ihren Anwendungsfall geeignete Sicherheitstests durch.
+## ทำการทดสอบความปลอดภัยที่เหมาะสมกับกรณีการใช้งานของคุณ
 
-Tests sind ein wichtiger Bestandteil der Entwicklung robuster und sicherer Anwendungen. Umfang, Geltungsbereich und Strategien für Tests variieren jedoch. Ein Haiku-Generator, der nur zum Spaß verwendet wird, birgt wahrscheinlich weniger schwerwiegende Risiken als eine Anwendung, die für Anwaltskanzleien entwickelt wurde, um juristische Dokumente zusammenzufassen und Verträge zu entwerfen. Der Haiku-Generator kann jedoch von einer Vielzahl von Nutzern verwendet werden, was bedeutet, dass das Potenzial für feindselige Versuche oder sogar unbeabsichtigte schädliche Eingaben größer sein kann. Auch der Implementierungskontext ist wichtig. So kann beispielsweise eine Anwendung, deren Ausgaben vor dem Ergreifen von Maßnahmen von menschlichen Experten überprüft werden, als weniger wahrscheinlich eingestuft werden, dass sie schädliche Ausgaben erzeugt, als die identische Anwendung ohne diese Aufsicht.
+การทดสอบเป็นส่วนสำคัญในการสร้างแอปพลิเคชันที่แข็งแกร่งและปลอดภัย แต่ขอบเขต
+และกลยุทธ์ในการทดสอบจะแตกต่างกันไป ตัวอย่างเช่น ไฮกุที่สร้างขึ้นเพื่อความสนุกสนาน
+อาจมีความเสี่ยงน้อยกว่าแอปพลิเคชันที่ออกแบบมา
+สำหรับบริษัทกฎหมายเพื่อสรุปเอกสารทางกฎหมายและช่วยร่างสัญญา แต่ผู้ใช้จำนวนมากขึ้นอาจใช้โปรแกรมสร้างไฮกุ ซึ่งหมายความว่าอาจมีโอกาสมากขึ้นที่จะเกิดความพยายามที่เป็นการต่อต้านหรือแม้แต่การป้อนข้อมูลที่เป็นอันตรายโดยไม่ตั้งใจ บริบทของการติดตั้งใช้งานก็มีความสำคัญเช่นกัน เช่น แอปพลิเคชัน
+ที่มีเอาต์พุตซึ่งได้รับการตรวจสอบจากผู้เชี่ยวชาญก่อนที่จะมีการดำเนินการใดๆ
+อาจถือว่ามีแนวโน้มที่จะสร้างเอาต์พุตที่เป็นอันตรายน้อยกว่าแอปพลิเคชัน
+ที่เหมือนกันแต่ไม่มีการกำกับดูแลดังกล่าว
 
-Es ist nicht ungewöhnlich, dass Sie mehrere Iterationen durchlaufen, in denen Sie Änderungen vornehmen und testen, bevor Sie sich sicher fühlen, dass Sie bereit für die Veröffentlichung sind. Das gilt auch für Anwendungen mit relativ geringem Risiko. Für KI-Anwendungen sind zwei Arten von Tests besonders nützlich:
+การเปลี่ยนแปลงและการทดสอบหลายครั้งก่อนที่จะมั่นใจว่าพร้อมเปิดตัวเป็นเรื่องปกติ
+แม้แต่สำหรับแอปพลิเคชันที่มีความเสี่ยงค่อนข้างต่ำ การทดสอบ 2 ประเภทมีประโยชน์อย่างยิ่งสำหรับแอปพลิเคชัน AI
 
-- Beim **Sicherheits-Benchmarking** werden Sicherheitsmesswerte entwickelt, die widerspiegeln, wie Ihre Anwendung im Kontext der wahrscheinlichen Nutzung unsicher sein könnte. Anschließend wird anhand von Bewertungs-Datasets getestet, wie gut Ihre Anwendung bei den Messwerten abschneidet. Es empfiehlt sich, vor dem Testen über die minimal akzeptablen Werte für Sicherheitsmesswerte nachzudenken, damit Sie 1) die Testergebnisse anhand dieser Erwartungen bewerten und 2) das Bewertungs-Dataset basierend auf den Tests zusammenstellen können, mit denen die Messwerte bewertet werden, die Ihnen am wichtigsten sind.
+- **การเปรียบเทียบความปลอดภัย**เกี่ยวข้องกับการออกแบบเมตริกความปลอดภัยที่แสดงถึง
+  วิธีที่แอปพลิเคชันของคุณอาจไม่ปลอดภัยในบริบทของวิธีที่น่าจะ
+  มีการใช้งาน จากนั้นทดสอบประสิทธิภาพของแอปพลิเคชันในเมตริก
+  โดยใช้ชุดข้อมูลการประเมิน แนวทางปฏิบัติแนะนำคือการพิจารณาระดับต่ำสุดที่ยอมรับได้ของเมตริกความปลอดภัยก่อนทำการทดสอบ เพื่อให้ 1) คุณประเมินผลการทดสอบเทียบกับความคาดหวังเหล่านั้นได้ และ 2) คุณรวบรวมชุดข้อมูลการประเมินตามการทดสอบที่ประเมินเมตริกที่คุณสนใจมากที่สุดได้
 
-  **Tipps für Fortgeschrittene:**
+  **เคล็ดลับขั้นสูง:**
 
-  - Verlassen Sie sich nicht zu sehr auf Standardansätze, da Sie wahrscheinlich eigene Testdatensätze mit menschlichen Ratern erstellen müssen, um den Kontext Ihrer Anwendung vollständig zu berücksichtigen.
-  - Wenn Sie mehrere Messwerte haben, müssen Sie entscheiden, wie Sie vorgehen, wenn eine Änderung zu Verbesserungen bei einem Messwert führt, aber sich negativ auf einen anderen auswirkt. Wie bei anderen Leistungsoptimierungen sollten Sie sich eher auf die Worst-Case-Leistung in Ihrem Auswertungsset als auf die durchschnittliche Leistung konzentrieren.
-- Beim **Adversarial Testing** wird proaktiv versucht, Ihre Anwendung zu manipulieren. Ziel ist es, Schwachstellen zu identifizieren, damit Sie geeignete Maßnahmen ergreifen können, um sie zu beheben. Für Adversarial Testing sind möglicherweise erhebliche Zeit und Mühe von Prüfern mit Fachwissen in Ihrer Anwendung erforderlich. Je mehr Sie jedoch testen, desto größer ist die Wahrscheinlichkeit, Probleme zu erkennen, insbesondere solche, die selten oder erst nach wiederholten Ausführungen der Anwendung auftreten.
+  - โปรดระวังการพึ่งพาแนวทาง "สำเร็จรูป" มากเกินไป เนื่องจากคุณอาจต้องสร้างชุดข้อมูลการทดสอบของคุณเองโดยใช้ผู้ให้คะแนนที่เป็นมนุษย์เพื่อให้เหมาะกับบริบทของแอปพลิเคชันอย่างเต็มที่
+  - หากมีเมตริกมากกว่า 1 รายการ คุณจะต้องตัดสินใจว่าจะ
+    แลกเปลี่ยนอย่างไรหากการเปลี่ยนแปลงทําให้เมตริกหนึ่งดีขึ้น
+    แต่ทําให้เมตริกอื่นแย่ลง เช่นเดียวกับการเพิ่มประสิทธิภาพอื่นๆ
+    คุณอาจต้องการมุ่งเน้นที่ประสิทธิภาพในกรณีที่แย่ที่สุดในชุด
+    การประเมินมากกว่าประสิทธิภาพโดยเฉลี่ย
+- **การทดสอบแบบ Adversarial** เกี่ยวข้องกับการพยายามทำลายแอปพลิเคชันของคุณอย่างเชิงรุก เป้าหมายคือการระบุจุดอ่อนเพื่อให้คุณสามารถดำเนินการแก้ไขได้ตามความเหมาะสม การทดสอบแบบ Adversarial อาจต้องใช้เวลา/ความพยายามอย่างมากจากผู้ประเมินที่มีความเชี่ยวชาญในแอปพลิเคชันของคุณ แต่ยิ่งคุณทำมากเท่าใด โอกาสในการพบปัญหาจะยิ่งมากขึ้น โดยเฉพาะปัญหาที่เกิดขึ้นไม่บ่อยนักหรือเกิดขึ้นหลังจากเรียกใช้แอปพลิเคชันซ้ำๆ เท่านั้น
 
-  - Adversarial Testing ist ein Verfahren zur systematischen Bewertung eines ML-Modells, um zu ermitteln, wie es sich bei beabsichtigten oder unbeabsichtigten schädlichen Eingaben verhält:
-    - Eine Eingabe kann absichtlich schädlich sein, wenn sie eindeutig darauf abzielt, eine sicherheitsrelevante oder schädliche Ausgabe zu erzeugen. Ein Beispiel: Ein Modell zur Textgenerierung wird aufgefordert, eine Hassrede über eine bestimmte Religion zu generieren.
-    - Eine Eingabe ist unbeabsichtigt schädlich, wenn die Eingabe selbst zwar harmlos ist, aber eine schädliche Ausgabe erzeugt. Ein Beispiel: Ein Modell zur Textgenerierung wird durch eine Eingabe aufgefordert, eine Person mit einer bestimmten ethnischen Zugehörigkeit zu beschreiben. Es gibt anschließend eine rassistische Ausgabe zurück.
-  - Ein Adversarial Test unterscheidet sich von einer Standardauswertung durch die Zusammensetzung der für den Test verwendeten Daten. Wählen Sie für Adversarial Testing Testdaten aus, die mit hoher Wahrscheinlichkeit problematische Ausgaben des Modells hervorrufen. Das bedeutet, dass das Verhalten des Modells in Bezug auf alle Arten von möglichen Schäden untersucht wird, einschließlich seltener oder ungewöhnlicher Beispiele und Grenzfälle, die für Sicherheitsrichtlinien relevant sind. Außerdem sollte es Vielfalt in den verschiedenen Dimensionen eines Satzes wie Struktur, Bedeutung und Länge geben. Weitere Informationen dazu, was beim Erstellen eines Testdatensatzes zu beachten ist, finden Sie unter [Google's Responsible AI practices in fairness](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=de).
-    **Tipps für Fortgeschrittene:**
-  - Verwenden Sie [automatisierte Tests](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=de) anstelle der herkömmlichen Methode, bei der Personen in „Red Teams“ eingesetzt werden, um zu versuchen, Ihre Anwendung zu manipulieren. Beim automatisierten Testen ist das „Red Team“ ein weiteres Language Model, das Eingabetext findet, der schädliche Ausgaben des zu testenden Modells hervorruft.
+  - การทดสอบการจำลองปัญหาเป็นวิธีการประเมินโมเดล ML อย่างเป็นระบบโดยมีจุดประสงค์เพื่อเรียนรู้ลักษณะการทำงานของโมเดลเมื่อได้รับอินพุตที่เป็นอันตรายหรือก่อให้เกิดอันตรายโดยไม่ตั้งใจ
+    - อินพุตอาจเป็นอันตรายเมื่อได้รับการออกแบบอย่างชัดเจนเพื่อ
+      สร้างเอาต์พุตที่ไม่ปลอดภัยหรือเป็นอันตราย เช่น การขอให้โมเดล
+      การสร้างข้อความสร้างข้อความระบายความเกลียดชังเกี่ยวกับศาสนาใดศาสนาหนึ่ง
+    - อินพุตที่ก่อให้เกิดอันตรายโดยไม่ตั้งใจคืออินพุตที่อาจดู
+      ไม่เป็นอันตราย แต่สร้างเอาต์พุตที่เป็นอันตราย เช่น การขอให้โมเดล
+      การสร้างข้อความอธิบายบุคคลที่มีเชื้อชาติหนึ่งๆ แล้ว
+      ได้รับเอาต์พุตที่เหยียดเชื้อชาติ
+  - สิ่งที่ทำให้การทดสอบแบบ Adversarial แตกต่างจากการประเมินมาตรฐานคือองค์ประกอบของข้อมูลที่ใช้ในการทดสอบ สำหรับการทดสอบแบบ Adversarial ให้เลือกข้อมูลทดสอบที่มีแนวโน้มมากที่สุดที่จะกระตุ้นให้โมเดลแสดงผลลัพธ์ที่เป็นปัญหา ซึ่งหมายถึงการตรวจสอบลักษณะการทำงานของโมเดลสำหรับความเสี่ยงทุกประเภทที่อาจเกิดขึ้น รวมถึงตัวอย่างที่หายากหรือผิดปกติ และกรณีที่ขอบที่เกี่ยวข้องกับนโยบายด้านความปลอดภัย นอกจากนี้ ควรมีการพิจารณาความหลากหลายในมิติต่างๆ ของประโยค เช่น โครงสร้าง ความหมาย และความยาว คุณสามารถดูรายละเอียดเพิ่มเติมเกี่ยวกับสิ่งที่ควรพิจารณาเมื่อสร้างชุดข้อมูลทดสอบได้ใน[แนวทางปฏิบัติเกี่ยวกับ AI อย่างมีความรับผิดชอบของ Google ในเรื่องความเป็นธรรม](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=th)
+    **เคล็ดลับขั้นสูง:**
+  - ใช้[การทดสอบอัตโนมัติ](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=th)
+    แทนวิธีการแบบเดิมที่ต้องขอให้ผู้คนใน "ทีมสีแดง"
+    มาลองเจาะแอปพลิเคชันของคุณ ในการทดสอบอัตโนมัติ
+    "ทีมสีแดง" คือโมเดลภาษาอีกโมเดลหนึ่งที่ค้นหาข้อความอินพุต
+    ซึ่งกระตุ้นให้โมเดลที่กำลังทดสอบสร้างเอาต์พุตที่เป็นอันตราย
 
-## Auf Probleme achten
+## ตรวจสอบปัญหา
 
-Egal wie viel Sie testen und wie viele Maßnahmen Sie ergreifen, Sie können nie Perfektion garantieren. Planen Sie daher im Voraus, wie Sie auftretende Probleme erkennen und beheben. Gängige Ansätze sind das Einrichten eines überwachten Kanals, über den Nutzer Feedback geben können (z. B. „Gefällt mir“-Bewertung), und das Durchführen einer Nutzerstudie, um proaktiv Feedback von einer vielfältigen Gruppe von Nutzern einzuholen. Das ist besonders wertvoll, wenn die Nutzungsmuster von den Erwartungen abweichen.
+ไม่ว่าคุณจะทดสอบและลดความเสี่ยงมากเพียงใด ก็ไม่สามารถรับประกันได้ว่าจะไม่มีข้อบกพร่อง ดังนั้น
+โปรดวางแผนล่วงหน้าว่าจะระบุและจัดการกับปัญหาที่เกิดขึ้นอย่างไร แนวทางที่ใช้กันโดยทั่วไป ได้แก่ การตั้งค่าช่องที่ตรวจสอบเพื่อให้ผู้ใช้แชร์ความคิดเห็น
+(เช่น การให้คะแนนด้วยการกดชอบ/ไม่ชอบ) และการทําการศึกษาวิจัยผู้ใช้เพื่อขอความคิดเห็น
+จากผู้ใช้ที่หลากหลายอย่างเชิงรุก ซึ่งจะมีประโยชน์อย่างยิ่งหากรูปแบบการใช้งาน
+แตกต่างจากที่คาดไว้
 
-### Weitere Tipps
+### เคล็ดลับขั้นสูง
 
-- Wenn Nutzer Feedback zu KI-Produkten geben, kann dies die KI-Leistung und die Nutzerfreundlichkeit im Laufe der Zeit erheblich verbessern. So können Sie beispielsweise bessere Beispiele für die Optimierung von Prompts auswählen. Im [Kapitel „Feedback und Kontrolle“](https://pair.withgoogle.com/chapter/feedback-controls/) im [Leitfaden „Menschen und KI“ von Google](https://pair.withgoogle.com/guidebook/chapters) finden Sie wichtige Aspekte, die Sie bei der Entwicklung von Feedbackmechanismen berücksichtigen sollten.
+- เมื่อผู้ใช้แสดงความคิดเห็นเกี่ยวกับผลิตภัณฑ์ AI ก็จะช่วยปรับปรุงประสิทธิภาพของ AI และประสบการณ์การใช้งานของผู้ใช้ได้อย่างมากเมื่อเวลาผ่านไป เช่น ช่วยคุณเลือกตัวอย่างที่ดีขึ้นสำหรับการปรับพรอมต์ [บทที่ว่าด้วยความคิดเห็นและการควบคุม](https://pair.withgoogle.com/chapter/feedback-controls/)
+  ใน[คู่มือเกี่ยวกับผู้คนและ AI ของ Google](https://pair.withgoogle.com/guidebook/chapters)
+  เน้นย้ำข้อควรพิจารณาที่สำคัญเมื่อออกแบบ
+  กลไกการแสดงความคิดเห็น
 
-## Nächste Schritte
+## ขั้นตอนถัดไป
 
-- Im [Leitfaden zu Sicherheitseinstellungen](https://ai.google.dev/gemini-api/docs/safety-settings?hl=de) finden Sie Informationen zu den anpassbaren Sicherheitseinstellungen, die über die Gemini API verfügbar sind.
-- [Hier finden Sie eine Einführung in das Verfassen von Prompts](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=de).
+- โปรดดูคู่มือ[การตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th)เพื่อดูข้อมูลเกี่ยวกับการตั้งค่าความปลอดภัยที่ปรับได้
+  ซึ่งมีให้ใช้งานผ่าน Gemini API
+- ดู[ข้อมูลเบื้องต้นเกี่ยวกับการแจ้ง](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)เพื่อเริ่มเขียนพรอมต์แรก
 
-Feedback geben
+ส่งความคิดเห็น
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Zuletzt aktualisiert: 2026-06-05 (UTC).
+อัปเดตล่าสุด 2026-06-05 UTC
 
-Haben Sie Feedback für uns?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-05 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-05 UTC"],[],[]]

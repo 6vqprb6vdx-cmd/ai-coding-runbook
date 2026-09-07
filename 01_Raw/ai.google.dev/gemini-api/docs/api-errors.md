@@ -1,78 +1,78 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-errors?hl=th
-fetched_at: 2026-08-31T06:34:48.931207+00:00
-title: "\u0e02\u0e49\u0e2d\u0e1c\u0e34\u0e14\u0e1e\u0e25\u0e32\u0e14\u0e02\u0e2d\u0e07 API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-errors?hl=tr
+fetched_at: 2026-09-07T05:46:38.808639+00:00
+title: "API hatalar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# ข้อผิดพลาดของ API
+# API hataları
 
-หน้านี้มีข้อมูลอ้างอิงสำหรับรหัสข้อผิดพลาดทั้งหมดของ Interactions API, อธิบายรูปแบบการตอบกลับข้อผิดพลาด และอธิบายวิธีที่ API แสดงข้อผิดพลาดสำหรับคำขอประเภทต่างๆ
+Bu sayfada, tüm Interactions API hata kodları için referans sağlanmakta, hata yanıtı biçimi açıklanmakta ve API'nin farklı istek türleri için hataları nasıl ilettiği anlatılmaktadır.
 
-## รหัสข้อผิดพลาดมาตรฐานของ API
+## Standart API hata kodları
 
-รหัสข้อผิดพลาดระดับคำขอทั่วไปเหล่านี้สอดคล้องกับรหัสสถานะ HTTP มาตรฐาน
-ใช้ช่อง `code` ในตรรกะของแอปพลิเคชันเพื่อจัดการข้อผิดพลาดโดยอัตโนมัติ
+Bu genel istek düzeyindeki hata kodları, standart HTTP durum kodlarına karşılık gelir.
+Hataları programatik olarak işlemek için uygulama mantığınızdaki `code` alanını kullanın.
 
-| รหัส | สถานะ HTTP | คำอธิบาย | การดำเนินการที่แนะนำ |
+| Kod | HTTP Durumu | Açıklama | Önerilen işlem |
 | --- | --- | --- | --- |
-| `invalid_request` | 400 Bad Request | คำขอมีรูปแบบไม่ถูกต้องหรือมีพารามิเตอร์ที่ไม่ถูกต้อง | ตรวจสอบอินพุตกับเอกสารอ้างอิง [API](https://ai.google.dev/api/interactions-api?hl=th) |
-| `parameter_unknown` | 400 Bad Request | คำขอมีพารามิเตอร์ที่ไม่รู้จัก | นำพารามิเตอร์ที่ไม่รู้จักออกแล้วลองอีกครั้ง |
-| `authentication` | 401 ไม่ได้รับอนุญาต | ไม่มีคีย์ API หรือคีย์ API ไม่ถูกต้อง | ยืนยัน[คีย์ API](https://ai.google.dev/gemini-api/docs/api-key?hl=th) |
-| `permission_denied` | 403 ต้องห้าม | คีย์ API ของคุณไม่มีสิทธิ์เข้าถึงทรัพยากรนี้ | ตรวจสอบสิทธิ์ของคีย์ API และสิทธิ์เข้าถึงโปรเจ็กต์ |
-| `not_found` | 404 ไม่พบ | ไม่พบทรัพยากรที่ร้องขอ | ยืนยันเส้นทางและพารามิเตอร์ของทรัพยากร |
-| `model_not_found` | 404 ไม่พบ | ไม่พบโมเดลที่ระบุ | ยืนยันชื่อโมเดลหรือกลับไปใช้โมเดลอื่น |
-| `rate_limit_exceeded` | 429 มีคำขอมากเกินไป | คุณส่งคำขอหรือใช้โทเค็นเกินขีดจำกัดต่อนาทีหรือต่อวินาที | รอแล้วลองอีกครั้งโดยใช้ Exponential Backoff |
-| `quota_exceeded` | 429 มีคำขอมากเกินไป | คุณใช้โควต้าประจำวันเกินขีดจำกัดแล้ว | รอจนกว่าโควต้าจะรีเซ็ตหรือขอเพิ่มโควต้า |
-| `cancelled` | 499 คำขอที่ไคลเอ็นต์ปิดการเชื่อมต่อ | ไคลเอ็นต์ยกเลิกคำขอก่อนที่จะเสร็จสมบูรณ์ | คุณไม่ต้องดำเนินการใดๆ โดยปกติแล้วหมายความว่าไคลเอ็นต์ตัดการเชื่อมต่อ |
-| `api_error` | 500 ข้อผิดพลาดภายในเซิร์ฟเวอร์ | เกิดข้อผิดพลาดที่ไม่คาดคิดในเซิร์ฟเวอร์ | ลองส่งคำขออีกครั้ง หากยังพบปัญหาอยู่ โปรดติดต่อทีมสนับสนุน |
-| `service_unavailable` | 503 ไม่พร้อมให้บริการ | บริการไม่พร้อมใช้งานชั่วคราวหรือหยุดทำงาน | รอแล้วลองอีกครั้งโดยใช้ Exponential Backoff |
+| `invalid_request` | 400 Hatalı İstek | İstek yanlış biçimlendirilmiş veya geçersiz parametreler içeriyor. | Girişlerinizi [API referansıyla](https://ai.google.dev/api/interactions-api?hl=tr) karşılaştırın. |
+| `parameter_unknown` | 400 Hatalı İstek | İstek bilinmeyen bir parametre içeriyor. | Tanınmayan parametreyi kaldırıp tekrar deneyin. |
+| `authentication` | 401 Yetkilendirilmedi | API anahtarı eksik veya geçersiz. | [API anahtarınızı](https://ai.google.dev/gemini-api/docs/api-key?hl=tr) doğrulayın. |
+| `permission_denied` | 403 Yasak | API anahtarınızın bu kaynak için izni yok. | API anahtarı izinlerinizi ve proje erişiminizi kontrol edin. |
+| `not_found` | 404 Bulunamadı | İstenen kaynak bulunamadı. | Kaynak yolunu ve parametreleri doğrulayın. |
+| `model_not_found` | 404 Bulunamadı | Belirtilen model bulunamadı. | Model adını doğrulayın veya farklı bir modele geri dönün. |
+| `rate_limit_exceeded` | 429 Çok Fazla İstek Var | Dakika veya saniye başına istek ya da jeton sınırını aştınız. | Bekleyin ve eksponansiyel geri yüklemeyle yeniden deneyin. |
+| `quota_exceeded` | 429 Çok Fazla İstek Var | Günlük kotanızı aştınız. | Kota sıfırlanana kadar bekleyin veya kota artışı isteyin. |
+| `cancelled` | 499 İstemci İsteği Kapattı | İstemci, istek tamamlanmadan önce iptal etti. | Herhangi bir işlem yapmanız gerekmez. Bu durum genellikle istemcinin bağlantısının kesildiği anlamına gelir. |
+| `api_error` | 500 Dahili Sunucu Hatası | Sunucuda beklenmeyen bir hata oluştu. | İsteği yeniden deneyin. Sorun devam ederse destek ekibiyle iletişime geçin. |
+| `service_unavailable` | 503 Hizmet Kullanılamıyor | Hizmet geçici olarak aşırı yüklü veya kapalı. | Bekleyin ve eksponansiyel geri yüklemeyle yeniden deneyin. |
 
-## รหัสที่บล็อกการสร้าง
+## Oluşturma engellenen kodlar
 
-รหัสข้อผิดพลาดเหล่านี้บ่งชี้ว่าข้อจำกัดด้านนโยบาย ความปลอดภัย หรือการจำกัดเนื้อหาบล็อกเอาต์พุตของโมเดล เมื่อได้รับรหัสใดรหัสหนึ่งต่อไปนี้ ให้แก้ไขอินพุตแล้วลองอีกครั้ง
+Bu hata kodları, politika, güvenlik veya içerik kısıtlamalarının modelin çıkışını engellediğini gösterir. Bu kodlardan birini aldığınızda girişinizi değiştirip tekrar deneyin.
 
-| รหัส | คำอธิบาย |
+| Kod | Açıklama |
 | --- | --- |
-| `safety` | การละเมิดด้านความปลอดภัย (เนื้อหาที่เป็นอันตราย) บล็อกคำขอ |
-| `recitation` | ข้อจำกัดด้านลิขสิทธิ์หรือการท่องจำบล็อกคำขอ |
-| `language` | ภาษาที่ไม่รองรับบล็อกคำขอ |
-| `prohibited_content` | หลักเกณฑ์เกี่ยวกับเนื้อหาที่ไม่อนุญาตบล็อกคำขอ |
-| `spii` | ข้อจำกัดเกี่ยวกับข้อมูลส่วนบุคคลที่ละเอียดอ่อนและระบุตัวบุคคลนั้นได้บล็อกคำขอ |
-| `blocklist` | คำที่ไม่อนุญาตในรายการที่ถูกบล็อกบล็อกคำขอ |
-| `image_safety` | การละเมิดด้านความปลอดภัยบล็อกการสร้างรูปภาพ |
-| `image_prohibited_content` | หลักเกณฑ์เกี่ยวกับเนื้อหาที่ไม่อนุญาตบล็อกการสร้างรูปภาพ |
-| `image_recitation` | ข้อจำกัดด้านลิขสิทธิ์หรือการท่องจำบล็อกการสร้างรูปภาพ |
-| `image_other` | เหตุผลที่ไม่ได้ระบุบล็อกการสร้างรูปภาพ |
-| `content_blocked` | เหตุผลด้านนโยบายที่ไม่ได้ระบุบล็อกคำขอ |
+| `safety` | Güvenlik ihlalleri (zararlı içerik) nedeniyle istek engellendi. |
+| `recitation` | Telif hakkı veya alıntı kısıtlamaları nedeniyle istek engellendi. |
+| `language` | Desteklenmeyen bir dil, isteğin engellenmesine neden oldu. |
+| `prohibited_content` | Yasaklanmış içerik kuralları nedeniyle istek engellendi. |
+| `spii` | Hassas kimlik bilgileri kısıtlamaları nedeniyle istek engellendi. |
+| `blocklist` | Engellenenler listesindeki yasaklanmış terimler isteği engelledi. |
+| `image_safety` | Güvenlik ihlalleri nedeniyle görüntü oluşturma engellendi. |
+| `image_prohibited_content` | Yasaklanmış içerik yönergeleri, görüntü oluşturmayı engelledi. |
+| `image_recitation` | Telif hakkı veya alıntı kısıtlamaları, görüntü oluşturmayı engelledi. |
+| `image_other` | Belirtilmeyen nedenlerle görüntü üretme işlemi engellendi. |
+| `content_blocked` | Belirtilmeyen bir politika nedeniyle istek engellendi. |
 
-## รหัสข้อผิดพลาดในการสร้าง
+## Üretim hata kodları
 
-รหัสข้อผิดพลาดเหล่านี้บ่งชี้ว่ามีปัญหาเชิงโครงสร้างกับเอาต์พุตที่สร้างขึ้นของโมเดล (เช่น การเรียกใช้ฟังก์ชันที่มีรูปแบบไม่ถูกต้องหรือการเรียกใช้เครื่องมือที่ไม่ได้ประกาศ)
+Bu hata kodları, modelin oluşturduğu çıkışla ilgili yapısal bir sorun olduğunu (ör. hatalı biçimlendirilmiş bir işlev çağrısı veya bildirilmemiş bir araç çağrısı) gösterir.
 
-| รหัส | คำอธิบาย |
+| Kod | Açıklama |
 | --- | --- |
-| `malformed_function_call` | โมเดลสร้างการเรียกใช้ฟังก์ชันที่แยกวิเคราะห์ไม่ได้ |
-| `malformed_tool_call` | โมเดลสร้างการเรียกใช้เครื่องมือที่แยกวิเคราะห์ไม่ได้ |
-| `unexpected_tool_call` | โมเดลเรียกใช้เครื่องมือที่ไม่ได้ประกาศไว้ในคำขอ |
-| `no_image` | โมเดลสร้างรูปภาพไม่ได้ |
-| `too_many_tool_calls` | โมเดลสร้างการเรียกใช้เครื่องมือมากกว่าที่อนุญาต |
-| `missing_thought_signature` | การตอบกลับไม่มีลายเซ็นความคิดที่จำเป็น |
+| `malformed_function_call` | Model, ayrıştırılamayan bir işlev çağrısı oluşturdu. |
+| `malformed_tool_call` | Model, ayrıştırılamayan bir araç çağrısı oluşturdu. |
+| `unexpected_tool_call` | Model, istekte belirtilmeyen bir aracı çağırdı. |
+| `no_image` | Model, resim üretemedi. |
+| `too_many_tool_calls` | Model, izin verilenden daha fazla araç çağrısı oluşturdu. |
+| `missing_thought_signature` | Yanıtta gerekli düşünce imzası eksik. |
 
-## รูปแบบการตอบกลับข้อผิดพลาด
+## Hata yanıtı biçimi
 
-ข้อผิดพลาดทั้งหมดจาก Interactions API จะแสดงผลออบเจ็กต์ `error` ที่มี `code` และ `message` เช่น การส่งประเภทเครื่องมือที่ไม่รองรับจะแสดงผลดังนี้
+Etkileşimler API'sinden gelen tüm hatalar, `error` ve `message` içeren bir `code` nesnesi döndürür. Örneğin, desteklenmeyen bir araç türü iletildiğinde şu yanıt döndürülür:
 
 ```
 {
@@ -83,18 +83,18 @@ Google ใช้เทคโนโลยี AI เพื่อแปลเนื
 }
 ```
 
-| ช่อง | ประเภท | คำอธิบาย |
+| Alan | Tür | Açıklama |
 | --- | --- | --- |
-| `code` | สตริง | รหัสข้อผิดพลาดที่เครื่องอ่านได้ในรูปแบบ `snake_case` |
-| `message` | สตริง | คำอธิบายที่มนุษย์อ่านได้เกี่ยวกับสิ่งที่ผิดพลาด |
+| `code` | dize | `snake_case` içinde makine tarafından okunabilir bir hata kodu. |
+| `message` | dize | Neyin yanlış gittiğine dair, kullanıcılar tarafından okunabilir bir açıklama. |
 
-## วิธีแสดงข้อผิดพลาด
+## Hatalar nasıl iletilir?
 
-API จะแสดงข้อผิดพลาดแตกต่างกันไปตามว่าคุณส่งคำขอ HTTP มาตรฐานหรือคำขอสตรีมมิง (SSE)
+API, standart bir HTTP isteği mi yoksa akış (SSE) isteği mi gönderdiğinize bağlı olarak hataları farklı şekilde iletir.
 
-### คำขอ HTTP มาตรฐาน
+### Standart HTTP istekleri
 
-สำหรับคำขอมาตรฐาน (ที่ไม่ใช่การสตรีมมิง) API จะตั้งรหัสสถานะการตอบกลับ HTTP (เช่น `400 Bad Request`, `401 Unauthorized` หรือ `429 Too Many Requests`) และแสดงผลออบเจ็กต์ `error` ในเนื้อความการตอบกลับ JSON ดังนี้
+Standart (akış olmayan) istekler için API, HTTP yanıt durum kodunu (ör. `400 Bad Request`, `401 Unauthorized` veya `429 Too Many Requests`) ayarlar ve JSON yanıt gövdesinde bir `error` nesnesi döndürür:
 
 ```
 {
@@ -105,9 +105,9 @@ API จะแสดงข้อผิดพลาดแตกต่างกั�
 }
 ```
 
-### คำขอสตรีมมิง (SSE)
+### Akış (SSE) istekleri
 
-สำหรับคำขอสตรีมมิง (`stream: true`) API จะส่งเหตุการณ์ข้อผิดพลาดผ่านสตรีม Server-Sent Events (SSE) โดยตั้งค่า `event_type` เป็น `"error"` ช่อง `error` มีโครงสร้าง `code` และ `message` เหมือนกัน ดังนี้
+Akış istekleri (`stream: true`) için API, `event_type` değeri `"error"` olarak ayarlanmış Server-Sent Events (SSE) akışı üzerinden hata etkinlikleri gönderir. `error` alanı aynı `code` ve `message` yapısını içerir:
 
 ```
 {
@@ -119,19 +119,19 @@ API จะแสดงข้อผิดพลาดแตกต่างกั�
 }
 ```
 
-ดูสคีมาเหตุการณ์ SSE ทั้งหมดได้ที่เอกสารอ้างอิง [Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
+Tam SSE etkinlik şeması için [Interactions API Referansı](https://ai.google.dev/api/interactions-api?hl=tr)'na bakın.
 
-## ขั้นตอนถัดไป
+## Sırada ne var?
 
-- [การแก้ปัญหา API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=th): แก้ปัญหาและสถานการณ์ข้อผิดพลาดที่พบบ่อย
-- [การจำกัดอัตรา](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th): ดูข้อมูลเกี่ยวกับการจำกัดคำขอและการจัดการโควต้า
+- [API sorunlarını giderme](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=tr): Sık karşılaşılan sorunları ve hata senaryolarını çözün.
+- [Hız sınırları](https://ai.google.dev/gemini-api/docs/rate-limits?hl=tr): İstek sınırları ve kota işleme hakkında bilgi edinin.
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Son güncelleme tarihi: 2026-07-30 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-30 UTC."],[],[]]

@@ -1,85 +1,100 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=tr
-fetched_at: 2026-08-31T06:42:50.128398+00:00
-title: "OAuth ile kimlik do\u011frulama h\u0131zl\u0131 ba\u015flang\u0131\u00e7 k\u0131lavuzu \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=th
+fetched_at: 2026-09-07T05:29:17.110284+00:00
+title: "\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e14\u0e49\u0e27\u0e22\u0e01\u0e32\u0e23\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 OAuth \u0e2d\u0e22\u0e48\u0e32\u0e07\u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# OAuth ile kimlik doğrulama hızlı başlangıç kılavuzu
+# การตรวจสอบสิทธิ์ด้วยการเริ่มต้นใช้งาน OAuth อย่างรวดเร็ว
 
-Gemini API'de kimlik doğrulamanın en kolay yolu, [Gemini API'yi kullanmaya başlama kılavuzunda](https://ai.google.dev/gemini-api/docs/get-started?hl=tr) açıklandığı gibi bir API anahtarı yapılandırmaktır. Daha katı erişim kontrollerine ihtiyacınız varsa bunun yerine OAuth kullanabilirsiniz. Bu kılavuz, OAuth ile kimlik doğrulama ayarlamanıza yardımcı olacaktır.
+วิธีที่ง่ายที่สุดในการตรวจสอบสิทธิ์ Gemini API คือการกำหนดค่าคีย์ API ตามที่อธิบายไว้ใน[คู่มือการเริ่มต้นใช้งาน Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=th) หากต้องการการควบคุมการเข้าถึงที่เข้มงวดมากขึ้น
+คุณสามารถใช้ OAuth แทนได้ คู่มือนี้จะช่วยคุณตั้งค่าการตรวจสอบสิทธิ์ด้วย OAuth
 
-Bu kılavuzda, test ortamı için uygun olan basitleştirilmiş bir kimlik doğrulama yaklaşımı kullanılmaktadır. Üretim ortamı için, uygulamanıza uygun [erişim kimlik bilgilerini seçmeden](https://developers.google.com/workspace/guides/create-credentials?hl=tr#choose_the_access_credential_that_is_right_for_you) önce [kimlik doğrulama ve yetkilendirme](https://developers.google.com/workspace/guides/auth-overview?hl=tr) hakkında bilgi edinin.
+คู่มือนี้ใช้วิธีการตรวจสอบสิทธิ์แบบง่ายที่เหมาะ
+สำหรับสภาพแวดล้อมการทดสอบ สำหรับสภาพแวดล้อมฮาร์ดแวร์และซอฟต์แวร์ โปรดดูข้อมูล
+เกี่ยวกับ
+[การตรวจสอบสิทธิ์และการให้สิทธิ์](https://developers.google.com/workspace/guides/auth-overview?hl=th)
+ก่อน
+[เลือกข้อมูลเข้าสู่ระบบเพื่อเข้าถึง](https://developers.google.com/workspace/guides/create-credentials?hl=th#choose_the_access_credential_that_is_right_for_you)
+ที่เหมาะสมกับแอปของคุณ
 
-## Hedefler
+## วัตถุประสงค์
 
-- OAuth için Cloud projenizi ayarlama
-- Uygulama varsayılan kimlik bilgilerini ayarlama
-- `gcloud auth` kullanmak yerine programınızdaki kimlik bilgilerini yönetin
+- ตั้งค่าโปรเจ็กต์ที่อยู่ในระบบคลาวด์สำหรับ OAuth
+- ตั้งค่าข้อมูลเข้าสู่ระบบเริ่มต้นของแอปพลิเคชัน
+- จัดการข้อมูลเข้าสู่ระบบในโปรแกรมแทนการใช้ `gcloud auth`
 
-## Ön koşullar
+## ข้อกำหนดเบื้องต้น
 
-Bu hızlı başlangıç kılavuzunu çalıştırmak için ihtiyacınız olanlar:
+คุณต้องมีสิ่งต่อไปนี้จึงจะเรียกใช้การเริ่มต้นอย่างรวดเร็วนี้ได้
 
-- [Google Cloud projesi](https://developers.google.com/workspace/guides/create-project?hl=tr)
-- [gcloud CLI'nın yerel olarak yüklenmiş olması](https://cloud.google.com/sdk/docs/install?hl=tr)
+- [โปรเจ็กต์ Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=th)
+- [การติดตั้ง gcloud CLI ในเครื่อง](https://cloud.google.com/sdk/docs/install?hl=th)
 
-## Cloud projenizi oluşturma
+## ตั้งค่าโปรเจ็กต์ที่อยู่ในระบบคลาวด์
 
-Bu hızlı başlangıcı tamamlamak için önce Cloud projenizi ayarlamanız gerekir.
+หากต้องการทําคู่มือเริ่มใช้งานฉบับย่อนี้ให้เสร็จสมบูรณ์ คุณต้องตั้งค่าโปรเจ็กต์ที่อยู่ในระบบคลาวด์ก่อน
 
-### 1. API'yi etkinleştirme
+### 1. เปิดใช้ API
 
-Google API'lerini kullanmadan önce bir Google Cloud projesinde etkinleştirmeniz gerekir.
+ก่อนใช้ Google API คุณต้องเปิดใช้ API ในโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google
 
-- Google Cloud Console'da Google Generative Language API'yi etkinleştirin.
+- เปิดใช้ Google Generative Language API ในคอนโซล Google Cloud
 
-  [API'yi etkinleştirme](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=tr)
+  [เปิดใช้ API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=th)
 
-### 2. OAuth kullanıcı rızası ekranını yapılandırma
+### 2. กำหนดค่าหน้าจอขอความยินยอม OAuth
 
-Ardından, projenin OAuth kullanıcı rızası ekranını yapılandırın ve kendinizi test kullanıcısı olarak ekleyin. Cloud projeniz için bu adımı zaten tamamladıysanız bir sonraki bölüme geçin.
+จากนั้นกำหนดค่าหน้าจอขอความยินยอม OAuth ของโปรเจ็กต์และเพิ่มตัวคุณเองเป็นผู้ใช้ทดสอบ
+หากคุณดำเนินการขั้นตอนนี้สำหรับโปรเจ็กต์ที่อยู่ในระบบคลาวด์เสร็จแล้ว ให้ข้ามไปยัง
+ส่วนถัดไป
 
-1. Google Cloud Console'da **Menü** > **Google Auth platform** > **Overview**'a (Genel bakış) gidin.
+1. ในคอนโซล Google Cloud ให้ไปที่**เมนู** >
+   **แพลตฟอร์มการตรวจสอบสิทธิ์ของ Google** > **ภาพรวม**
 
-   [Google Auth platformuna gidin](https://console.developers.google.com/auth/overview?hl=tr)
-2. Proje yapılandırma formunu doldurun ve **Kitle** bölümünde kullanıcı türünü **Harici** olarak ayarlayın.
-3. Formun geri kalanını doldurun, Kullanıcı Verileri Politikası şartlarını kabul edin ve **Oluştur**'u tıklayın.
-4. Şimdilik kapsam eklemeyi atlayıp **Kaydet ve Devam Et**'i tıklayabilirsiniz. Gelecekte, Google Workspace kuruluşunuzun dışında kullanılacak bir uygulama oluşturduğunuzda, uygulamanızın gerektirdiği yetkilendirme kapsamlarını ekleyip doğrulamanız gerekir.
-5. Test kullanıcıları ekleyin:
+   [ไปที่แพลตฟอร์ม Google Auth](https://console.developers.google.com/auth/overview?hl=th)
+2. กรอกแบบฟอร์มการกำหนดค่าโปรเจ็กต์และตั้งค่าประเภทผู้ใช้เป็น**ภายนอก**
+   ในส่วน**กลุ่มเป้าหมาย**
+3. กรอกข้อมูลในแบบฟอร์มส่วนที่เหลือ ยอมรับข้อกำหนดของนโยบายข้อมูลผู้ใช้ แล้วคลิก**สร้าง**
+4. ตอนนี้คุณสามารถข้ามการเพิ่มขอบเขต แล้วคลิก**บันทึกและดำเนินการต่อ** ในอนาคต เมื่อสร้างแอปเพื่อใช้ภายนอกองค์กร Google Workspace คุณต้องเพิ่มและยืนยันขอบเขตการให้สิทธิ์ที่แอปของคุณต้องการ
+5. เพิ่มผู้ใช้ทดสอบ
 
-   1. Google Auth platformunun [Kitle sayfasına](https://console.developers.google.com/auth/audience?hl=tr) gidin.
-   2. **Test kullanıcıları** bölümünde **Kullanıcı ekle**'yi tıklayın.
-   3. E-posta adresinizi ve yetkili diğer test kullanıcılarını girip **Kaydet**'i tıklayın.
+   1. ไปที่[หน้ากลุ่มเป้าหมาย](https://console.developers.google.com/auth/audience?hl=th)ของแพลตฟอร์ม Google Auth
+   2. ในส่วน**ผู้ใช้ทดสอบ** ให้คลิก**เพิ่มผู้ใช้**
+   3. ป้อนอีเมลและผู้ใช้ทดสอบที่ได้รับอนุญาตอื่นๆ แล้วคลิก**บันทึก**
 
-### 3. Masaüstü uygulaması için kimlik bilgilerini yetkilendirme
+### 3. ให้สิทธิ์ข้อมูลเข้าสู่ระบบสำหรับแอปพลิเคชันบนเดสก์ท็อป
 
-Son kullanıcı olarak kimlik doğrulamak ve uygulamanızdaki kullanıcı verilerine erişmek için bir veya daha fazla OAuth 2.0 istemci kimliği oluşturmanız gerekir. İstemci kimliği, tek bir uygulamanın Google OAuth sunucularına tanıtılması için kullanılır. Uygulamanız birden fazla platformda çalışıyorsa her platform için ayrı bir istemci kimliği oluşturmanız gerekir.
+หากต้องการตรวจสอบสิทธิ์ในฐานะผู้ใช้ปลายทางและเข้าถึงข้อมูลผู้ใช้ในแอป คุณต้องสร้างรหัสไคลเอ็นต์ OAuth 2.0 อย่างน้อย 1 รายการ รหัสไคลเอ็นต์ใช้เพื่อระบุ
+แอปเดี่ยวไปยังเซิร์ฟเวอร์ OAuth ของ Google หากแอปทำงานบนหลายแพลตฟอร์ม คุณต้องสร้างรหัสไคลเอ็นต์แยกต่างหากสำหรับแต่ละแพลตฟอร์ม
 
-1. Google Cloud Console'da **Menü** > **Google Auth platformu** > **İstemciler**'e gidin.
+1. ในคอนโซล Google Cloud ให้ไปที่**เมนู** > **แพลตฟอร์มการตรวจสอบสิทธิ์ของ Google** >
+   **ไคลเอ็นต์**
 
-   [Kimlik Bilgileri'ne gidin](https://console.developers.google.com/auth/clients?hl=tr)
-2. **Create Client**'ı (İstemci Oluştur) tıklayın.
-3. **Uygulama türü** > **Masaüstü uygulaması**'nı tıklayın.
-4. **Ad** alanına, kimliğin adını yazın. Bu ad yalnızca Google Cloud Console'da gösterilir.
-5. **Oluştur**'u tıklayın. Yeni istemci kimliğinizi ve istemci gizli anahtarınızı gösteren, oluşturulan OAuth istemcisi ekranı görünür.
-6. **Tamam**'ı tıklayın. Yeni oluşturulan kimlik bilgisi, **OAuth 2.0 İstemci Kimlikleri** altında görünür.
-7. JSON dosyasını kaydetmek için indir düğmesini tıklayın. `client_secret_<identifier>.json` olarak kaydedilir. `client_secret.json` olarak yeniden adlandırın ve çalışma dizininize taşıyın.
+   [ไปที่ข้อมูลเข้าสู่ระบบ](https://console.developers.google.com/auth/clients?hl=th)
+2. คลิก**สร้างไคลเอ็นต์**
+3. คลิก**ประเภทแอปพลิเคชัน** > **แอปเดสก์ท็อป**
+4. พิมพ์ชื่อของข้อมูลเข้าสู่ระบบในช่อง**ชื่อ** ชื่อนี้จะแสดงในคอนโซล Google Cloud เท่านั้น
+5. คลิก**สร้าง** หน้าจอไคลเอ็นต์ OAuth ที่สร้างขึ้นจะปรากฏขึ้น โดยแสดงรหัสไคลเอ็นต์และรหัสลับไคลเอ็นต์ใหม่
+6. คลิก**ตกลง** ข้อมูลเข้าสู่ระบบที่สร้างขึ้นใหม่จะปรากฏในส่วน**รหัสไคลเอ็นต์ OAuth 2.0**
+7. คลิกปุ่มดาวน์โหลดเพื่อบันทึกไฟล์ JSON ระบบจะบันทึกเป็น
+   `client_secret_<identifier>.json` และเปลี่ยนชื่อเป็น `client_secret.json`
+   แล้วย้ายไปยังไดเรกทอรีการทำงาน
 
-## Uygulama Varsayılan Kimlik Bilgileri'ni ayarlama
+## ตั้งค่าข้อมูลรับรองเริ่มต้นของแอปพลิเคชัน
 
-`client_secret.json` dosyasını kullanılabilir kimlik bilgilerine dönüştürmek için dosyanın konumunu `gcloud auth application-default login` komutunun `--client-id-file` bağımsız değişkenine iletin.
+หากต้องการแปลงไฟล์ `client_secret.json` เป็นข้อมูลเข้าสู่ระบบที่ใช้ได้ ให้ส่งตำแหน่งของไฟล์ไปยังอาร์กิวเมนต์ `--client-id-file` ของคำสั่ง `gcloud auth application-default login`
 
 ```
 gcloud auth application-default login \
@@ -87,9 +102,11 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-Bu eğitimdeki basitleştirilmiş proje kurulumu, **"Google bu uygulamayı doğrulamadı."** iletişim kutusunu tetikler. Bu normal bir durumdur. **"Devam"**'ı seçin.
+การตั้งค่าโปรเจ็กต์แบบง่ายในบทแนะนำนี้จะทริกเกอร์กล่องโต้ตอบ **"Google ยังไม่ได้
+ยืนยันแอปนี้"** ซึ่งเป็นเรื่องปกติ ให้เลือก**"ดำเนินการต่อ"**
 
-Bu işlem, sonuç jetonunu iyi bilinen bir konuma yerleştirir. Böylece jetona `gcloud` veya istemci kitaplıkları tarafından erişilebilir.
+ซึ่งจะวางโทเค็นที่ได้ไว้ในตำแหน่งที่รู้จักกันดีเพื่อให้เข้าถึงได้
+โดย `gcloud` หรือไลบรารีของไคลเอ็นต์
 
 ```` ```
 gcloud auth application-default login   
@@ -100,11 +117,12 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-Uygulama Varsayılan Kimlik Bilgileri (ADC) ayarlandıktan sonra, çoğu dildeki istemci kitaplıklarının bunları bulmak için çok az yardıma veya hiç yardıma ihtiyacı olmaz.
+เมื่อตั้งค่าข้อมูลรับรองเริ่มต้นของแอปพลิเคชัน (ADC) แล้ว ไลบรารีของไคลเอ็นต์ในภาษาต่างๆ ส่วนใหญ่ไม่จำเป็นต้องได้รับความช่วยเหลือในการค้นหา
 
 ### Curl
 
-Bu işlemin çalıştığını test etmenin en hızlı yolu, curl kullanarak REST API'ye erişmek için kullanmaktır:
+วิธีที่รวดเร็วที่สุดในการทดสอบว่าการตั้งค่านี้ใช้งานได้คือการใช้เพื่อเข้าถึง REST
+API โดยใช้ curl ดังนี้
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -117,13 +135,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Python'da istemci kitaplıkları bunları otomatik olarak bulur:
+ใน Python ไลบรารีของไคลเอ็นต์ควรค้นหาโดยอัตโนมัติ
 
 ```
 pip install google-genai
 ```
 
-Bunu test etmek için kullanılabilecek minimum komut dosyası:
+สคริปต์ขั้นต่ำในการทดสอบอาจเป็นดังนี้
 
 ```
 from google import genai
@@ -132,28 +150,30 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## Sonraki adımlar
+## ขั้นตอนถัดไป
 
-Bu işlem işe yararsa [metin verilerinizde semantik almayı](https://ai.google.dev/docs/semantic_retriever?hl=tr) deneyebilirsiniz.
+หากใช้งานได้ แสดงว่าคุณพร้อมที่จะลองใช้[การดึงข้อมูลเชิงความหมายในข้อมูลข้อความ](https://ai.google.dev/docs/semantic_retriever?hl=th)แล้ว
 
-## Kimlik bilgilerini kendiniz yönetme [Python]
+## จัดการข้อมูลเข้าสู่ระบบด้วยตนเอง [Python]
 
-Çoğu durumda, istemci kimliğinden (`client_secret.json`) erişim jetonu oluşturmak için `gcloud` komutunu kullanamazsınız. Google, bu süreci uygulamanızda yönetmenize olanak tanıyan birçok dilde kitaplıklar sunar. Bu bölümde, süreç Python'da gösterilmektedir. Bu tür bir prosedürün diğer dillerdeki benzer örneklerini [Drive API belgelerinde](https://developers.google.com/drive/api/quickstart/python?hl=tr) bulabilirsiniz.
+ในหลายกรณี คุณจะไม่มีคำสั่ง `gcloud` เพื่อสร้างโทเค็นการเข้าถึงจากรหัสไคลเอ็นต์ (`client_secret.json`) Google มีไลบรารีในหลายภาษาเพื่อให้คุณจัดการกระบวนการดังกล่าวภายในแอปได้ ส่วนนี้จะแสดงกระบวนการใน Python ตัวอย่างที่เทียบเท่าของขั้นตอนประเภทนี้สำหรับภาษาอื่นๆ มีอยู่ใน[เอกสารประกอบของ Drive API](https://developers.google.com/drive/api/quickstart/python?hl=th)
 
-### 1. Gerekli kitaplıkları yükleme
+### 1. ติดตั้งไลบรารีที่จำเป็น
 
-Python için Google istemci kitaplığını ve Gemini istemci kitaplığını yükleyin.
+ติดตั้งไลบรารีของไคลเอ็นต์ Google สำหรับ Python และไลบรารีของไคลเอ็นต์ Gemini
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. Kimlik bilgisi yöneticisini yazma
+### 2. เขียนเครื่องมือจัดการข้อมูลเข้าสู่ระบบ
 
-Yetkilendirme ekranlarını tıklamanız gereken sayıyı en aza indirmek için çalışma dizininizde `load_creds.py` adlı bir dosya oluşturun. Bu dosya, daha sonra yeniden kullanılabilecek veya süresi dolarsa yenilenebilecek bir `token.json` dosyasını önbelleğe alır.
+หากต้องการลดจำนวนครั้งที่คุณต้องคลิกผ่านหน้าจอการให้สิทธิ์
+ให้สร้างไฟล์ชื่อ `load_creds.py` ในไดเรกทอรีการทำงานเพื่อ
+แคชไฟล์ `token.json` ที่สามารถนำกลับมาใช้ใหม่ได้ในภายหลัง หรือรีเฟรชหากหมดอายุ
 
-`client_secret.json` dosyasını `genai.configure` ile kullanılabilir bir jetona dönüştürmek için aşağıdaki kodla başlayın:
+เริ่มต้นด้วยโค้ดต่อไปนี้เพื่อแปลงไฟล์ `client_secret.json` เป็นโทเค็นที่ใช้กับ `genai.configure` ได้
 
 ```
 import os.path
@@ -190,9 +210,9 @@ def load_creds():
     return creds
 ```
 
-### 3. Programınızı yazma
+### 3. เขียนโปรแกรม
 
-Şimdi `script.py` özelliğinizi oluşturun:
+ตอนนี้มาสร้าง `script.py` กัน
 
 ```
 import pprint
@@ -207,27 +227,30 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. Programınızı çalıştırma
+### 4. เรียกใช้โปรแกรม
 
-Çalışma dizininizde örneği çalıştırın:
+ในไดเรกทอรีการทำงาน ให้เรียกใช้ตัวอย่างโดยทำดังนี้
 
 ```
 python script.py
 ```
 
-Komut dosyasını ilk kez çalıştırdığınızda bir tarayıcı penceresi açılır ve erişimi yetkilendirmeniz istenir.
+เมื่อเรียกใช้สคริปต์เป็นครั้งแรก สคริปต์จะเปิดหน้าต่างเบราว์เซอร์และแจ้งให้คุณ
+ให้สิทธิ์เข้าถึง
 
-1. Henüz Google Hesabınızda oturum açmadıysanız oturum açmanız istenir. Birden fazla hesapta oturum açtıysanız **projenizi yapılandırırken "Test Hesabı" olarak ayarladığınız hesabı seçtiğinizden emin olun.**
-2. Yetkilendirme bilgileri dosya sisteminde saklandığı için örnek kodu bir sonraki çalıştırmanızda yetkilendirme istenmez.
+1. หากยังไม่ได้ลงชื่อเข้าใช้บัญชี Google คุณจะได้รับข้อความแจ้งให้
+   ลงชื่อเข้าใช้ หากลงชื่อเข้าใช้ไว้หลายบัญชี **โปรดเลือกบัญชีที่คุณตั้งค่าเป็น "บัญชีทดสอบ" เมื่อกำหนดค่าโปรเจ็กต์**
+2. ระบบจะจัดเก็บข้อมูลการให้สิทธิ์ไว้ในระบบไฟล์ ดังนั้นในครั้งถัดไปที่คุณ
+   เรียกใช้โค้ดตัวอย่าง ระบบจะไม่แจ้งให้คุณขอรับการให้สิทธิ์
 
-Kimlik doğrulama işlemini başarıyla ayarladınız.
+คุณตั้งค่าการตรวจสอบสิทธิ์เรียบร้อยแล้ว
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-07-01 UTC.
+อัปเดตล่าสุด 2026-07-01 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-01 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-01 UTC"],[],[]]

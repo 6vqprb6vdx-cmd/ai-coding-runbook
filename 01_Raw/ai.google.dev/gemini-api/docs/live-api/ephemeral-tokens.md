@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=fr
-fetched_at: 2026-08-31T06:37:08.472671+00:00
+fetched_at: 2026-09-07T05:45:49.303890+00:00
 title: "Jetons \u00e9ph\u00e9m\u00e8res \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

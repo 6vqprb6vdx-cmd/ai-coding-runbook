@@ -1,147 +1,147 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=it
-fetched_at: 2026-08-31T06:33:42.900235+00:00
-title: "Crea app per Android in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=th
+fetched_at: 2026-09-07T05:42:19.383379+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e2d\u0e1b Android \u0e43\u0e19 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-# Crea app per Android in Google AI Studio
+# สร้างแอป Android ใน Google AI Studio
 
-Google AI Studio ti consente di creare app Android native da un prompt in linguaggio naturale. Descrivi l'app che vuoi e l'
-[agente Antigravity](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it#antigravity-agent)
-genera un progetto completo in Kotlin e [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=it). Dal browser, puoi visualizzare l'anteprima dell'app in un emulatore Android basato su browser, installarla su un dispositivo fisico e pubblicarla per i test.
+Google AI Studio ช่วยให้คุณสร้างแอป Android แบบเนทีฟจากพรอมต์ภาษาธรรมชาติได้ อธิบายแอปที่คุณต้องการ แล้ว[Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=th#antigravity-agent)
+จะสร้างโปรเจ็กต์ Kotlin และ [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=th)
+ที่สมบูรณ์ จากเบราว์เซอร์ คุณสามารถดูตัวอย่างแอปในโปรแกรมจำลอง Android ที่ใช้เบราว์เซอร์ ติดตั้งแอปในอุปกรณ์จริง และเผยแพร่แอปเพื่อทดสอบ
 
-## Inizia
+## เริ่มต้นใช้งาน
 
-Per iniziare a creare un'app per Android:
+วิธีเริ่มสร้างแอป Android
 
-1. Vai alla [modalità di creazione](https://aistudio.google.com/apps?hl=it) in Google AI Studio utilizzando il pannello di navigazione a sinistra.
-2. Seleziona **Android** dal selettore della piattaforma.
-3. Inserisci un prompt che descriva l'app che vuoi creare (ad es. *"Crea un tracker delle attività giornaliere con spazio di archiviazione locale"* o *"Crea una Calcolatrice semplice"*).
-4. L'agente genera il progetto e lo avvia nell'emulatore Android basato su browser.
+1. ไปที่[โหมดสร้าง](https://aistudio.google.com/apps?hl=th)ใน Google AI Studio โดยใช้แผงการนำทางด้านซ้าย
+2. เลือก **Android** จากเครื่องมือเลือกแพลตฟอร์ม
+3. ป้อนพรอมต์ที่อธิบายแอปที่คุณต้องการสร้าง (เช่น *"สร้างเครื่องมือติดตามงานประจำวันด้วยพื้นที่เก็บข้อมูลในเครื่อง"* หรือ *"สร้างเครื่องคิดเลขอย่างง่าย"*)
+4. Agent จะสร้างโปรเจ็กต์และเปิดใช้ในโปรแกรมจำลอง Android บนเบราว์เซอร์
 
-Puoi quindi eseguire l'iterazione sull'app utilizzando il riquadro della chat, proprio come nell'esperienza web. L'agente gestisce tutti i file del progetto Android e propaga le modifiche nel codebase.
+จากนั้นคุณจะทำซ้ำแอปโดยใช้แผงแชทได้เช่นเดียวกับประสบการณ์การใช้งานบนเว็บ
+Agent จะจัดการไฟล์ทั้งหมดในโปรเจ็กต์ Android และเผยแพร่
+การเปลี่ยนแปลงในฐานของโค้ด
 
-## Emulatore Android basato su browser
+## โปรแกรมจำลอง Android บนเบราว์เซอร์
 
-L'emulatore Android viene eseguito interamente nel cloud e viene trasmesso in streaming al browser.
-Non è necessario installare l'SDK Android, Android Studio o un emulatore locale.
+โปรแกรมจำลอง Android ทำงานในระบบคลาวด์ทั้งหมดและสตรีมไปยังเบราว์เซอร์ของคุณ
+คุณไม่จำเป็นต้องติดตั้ง Android SDK, Android Studio หรือโปรแกรมจำลองในเครื่อง
 
-L'emulatore fornisce:
+โปรแกรมจำลองมีฟีเจอร์ต่อไปนี้
 
-- **Simulazione di un dispositivo simile a Pixel**: tocca, scorri e interagisci con l'app
-  come su un dispositivo reale.
-- **Supporto della rotazione**: passa dall'orientamento verticale a quello orizzontale.
-- **Anteprima live**: quando l'agente apporta modifiche al codice, l'app viene ricompilata e
-  l'emulatore si aggiorna automaticamente.
+- **การจำลองอุปกรณ์ที่คล้าย Pixel**: แตะ เลื่อน และโต้ตอบกับแอป
+  เหมือนกับในอุปกรณ์จริง
+- **รองรับการหมุน**: สลับระหว่างการวางแนวตั้งและแนวนอน
+- **การแสดงตัวอย่างแบบเรียลไทม์**: เมื่อเอเจนต์ทำการเปลี่ยนแปลงโค้ด แอปจะสร้างใหม่และ
+  โปรแกรมจำลองจะรีเฟรชโดยอัตโนมัติ
 
-### Limitazioni dell'emulatore
+### ข้อจำกัดของโปรแกรมจำลอง
 
-L'emulatore basato su browser non supporta tutte le funzionalità hardware. Le seguenti funzionalità non sono disponibili nell'emulatore:
+โปรแกรมจำลองที่ใช้เบราว์เซอร์ไม่รองรับฟีเจอร์ฮาร์ดแวร์ทั้งหมด สิ่งต่อไปนี้ไม่พร้อมใช้งานในโปรแกรมจำลอง
 
-- Acquisizione di foto e video
-- NFC e Bluetooth
-- GPS (la posizione è simulata)
-- Google Play Services (Accedi con Google, Maps e altre funzionalità di Play Services funzionano su un dispositivo reale, ma non nell'emulatore)
+- การจับภาพด้วยกล้องและรูปภาพ
+- NFC และบลูทูธ
+- GPS (จำลองตำแหน่ง)
+- บริการ Google Play (Google Sign-In, Maps และฟีเจอร์อื่นๆ ของบริการ Play
+  จะทำงานในอุปกรณ์จริง แต่ไม่ทำงานในโปรแกรมจำลอง)
 
-## Installazione su un dispositivo con ADB
+## ติดตั้งในอุปกรณ์ที่มี ADB
 
-Puoi installare l'APK creato direttamente su un dispositivo Android fisico collegato al computer tramite USB. Viene utilizzato
-[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=it) per
-comunicare con il dispositivo tramite il browser. Non è richiesta l'installazione di ADB locale.
+คุณติดตั้ง APK ที่สร้างขึ้นโดยตรงบนอุปกรณ์ Android จริงที่เชื่อมต่อกับคอมพิวเตอร์ผ่าน USB ได้ ซึ่งใช้ [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=th) เพื่อสื่อสารกับอุปกรณ์ผ่านเบราว์เซอร์ ไม่จำเป็นต้องติดตั้ง ADB ในเครื่อง
 
-### Prerequisiti
+### ข้อกำหนดเบื้องต้น
 
-- Un browser Chrome o Edge che supporti WebUSB.
-- Un dispositivo Android con
-  [le opzioni sviluppatore e il debug USB](https://developer.android.com/studio/debug/dev-options?hl=it)
-  attivati.
-- Un cavo USB che collega il dispositivo al computer.
+- เบราว์เซอร์ Chrome หรือ Edge ที่รองรับ WebUSB
+- อุปกรณ์ Android ที่เปิดใช้[ตัวเลือกสำหรับนักพัฒนาแอปและการแก้ไขข้อบกพร่อง USB](https://developer.android.com/studio/debug/dev-options?hl=th)
+- สาย USB ที่เชื่อมต่ออุปกรณ์กับคอมพิวเตอร์
 
-### Installare l'app sul dispositivo
+### ติดตั้งแอปในอุปกรณ์
 
-1. Fai clic su **Installa sul dispositivo** nel riquadro di anteprima.
-2. Seleziona il tuo dispositivo Android dal selettore di dispositivi USB del browser.
-3. L'APK viene trasferito e installato sul dispositivo.
-4. L'app si avvia automaticamente.
+1. คลิก**ติดตั้งในอุปกรณ์**ในแผงแสดงตัวอย่าง
+2. เลือกอุปกรณ์ Android จากเครื่องมือเลือกอุปกรณ์ USB ของเบราว์เซอร์
+3. ระบบจะโอนและติดตั้ง APK ในอุปกรณ์
+4. แอปจะเปิดขึ้นโดยอัตโนมัติ
 
-## Pubblicazione sul Play Store
+## เผยแพร่ไปยัง Play Store
 
-Puoi pubblicare la tua app per Android nel
-[canale di test interno](https://play.google.com/console?hl=it) di
-Google Play Console, che ti consente di distribuire l'app a un massimo di 100 tester.
+คุณสามารถเผยแพร่แอป Android ไปยังแทร็กการทดสอบภายในของ [Google Play Console](https://play.google.com/console?hl=th) ซึ่งจะช่วยให้คุณจัดจำหน่ายแอปไปยังผู้ทดสอบได้สูงสุด 100 คน
 
-### Prerequisiti
+### ข้อกำหนดเบื้องต้น
 
-- Un [account sviluppatore Google Play](https://play.google.com/console/signup?hl=it)
-  (richiede una commissione di registrazione una tantum di 25 $).
-- Un profilo sviluppatore completato in Play Console.
+- [บัญชีนักพัฒนาแอป Google Play](https://play.google.com/console/signup?hl=th)
+  (ต้องชำระค่าลงทะเบียน $25 แบบครั้งเดียว)
+- โปรไฟล์นักพัฒนาแอปที่กรอกข้อมูลครบถ้วนใน Play Console
 
-### Pubblicare l'app
+### เผยแพร่แอป
 
-1. Apri **Impostazioni > Pubblica** in Google AI Studio.
-2. Fai clic su **Pubblica sul Play Store**.
-3. Esegui l'autenticazione con il tuo account sviluppatore Google Play.
-4. AI Studio firma l'APK, crea la scheda dell'app (o carica una nuova versione) e la pubblica nel canale di test interno.
-5. Riceverai un link da condividere con i tuoi tester.
+1. เปิด**การตั้งค่า > เผยแพร่**ใน Google AI Studio
+2. คลิก**เผยแพร่ไปยัง Play Store**
+3. ตรวจสอบสิทธิ์ด้วยบัญชีนักพัฒนาแอป Google Play
+4. AI Studio จะลงนามใน APK, สร้างข้อมูลแอป (หรืออัปโหลดเวอร์ชันใหม่)
+   และเผยแพร่ไปยังแทร็กการทดสอบภายใน
+5. คุณจะได้รับลิงก์เพื่อแชร์กับผู้ทดสอบ
 
-AI Studio gestisce automaticamente la firma dell'APK utilizzando un keystore gestito. Puoi personalizzare la scheda dell'app (icona, screenshot, descrizione) in un secondo momento in Play Console.
+AI Studio จะจัดการการลงนาม APK โดยอัตโนมัติโดยใช้ที่เก็บคีย์ที่จัดการ คุณปรับแต่งข้อมูลแอป (ไอคอน ภาพหน้าจอ คำอธิบาย) ได้ในภายหลังใน Play Console
 
-## Cosa viene generato
+## สิ่งที่สร้างขึ้น
 
-Quando crei un'app per Android, l'agente genera un progetto standard basato su Gradle con la seguente struttura:
+เมื่อคุณสร้างแอป Android เอเจนต์จะสร้างโปรเจ็กต์มาตรฐานที่ใช้ Gradle โดยมีโครงสร้างดังนี้
 
-- **Configurazione di compilazione**: `build.gradle.kts` file (a livello di progetto e app) che utilizzano Kotlin DSL.
-- **Livello UI**: [componenti](https://developer.android.com/develop/ui/compose?hl=it)
-  Jetpack Compose con temi [Material 3](https://m3.material.io/).
-- **Architettura**: architettura a singola attività con ViewModel e classi di
-  dati.
-- **Risorse**: `AndroidManifest.xml`, elementi disegnabili, stringhe e altre risorse Android.
+- **การกำหนดค่าบิลด์**: ไฟล์ `build.gradle.kts` (ระดับโปรเจ็กต์และแอป)
+  โดยใช้ Kotlin DSL
+- **เลเยอร์ UI**: คอมโพเนนต์ [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=th) ที่มีธีม [Material 3](https://m3.material.io/)
+- **สถาปัตยกรรม**: สถาปัตยกรรมแบบกิจกรรมเดียวที่มี ViewModel และคลาสข้อมูล
+- **ทรัพยากร**: `AndroidManifest.xml`, Drawable, สตริง และทรัพยากรอื่นๆ ของ Android
 
-L'agente gestisce automaticamente le dipendenze di Gradle, aggiungendo i pacchetti dai repository Maven e Google in base alle necessità.
+เอเจนต์จะจัดการทรัพยากร Dependency ของ Gradle โดยอัตโนมัติ และเพิ่มแพ็กเกจจากที่เก็บ Maven
+และ Google ตามที่จำเป็น
 
-Puoi visualizzare e modificare il codice generato utilizzando la scheda **Codice** nel riquadro di anteprima. Per continuare lo sviluppo in Android Studio, scarica il progetto come **file ZIP**.
+คุณดูและแก้ไขโค้ดที่สร้างขึ้นได้โดยใช้แท็บ**โค้ด**ในแผงแสดงตัวอย่าง
+หากต้องการพัฒนาต่อใน Android Studio ให้ดาวน์โหลดโปรเจ็กต์เป็น**ไฟล์ ZIP**
 
-## Limitazioni
+## ข้อจำกัด
 
-La creazione di app per Android in AI Studio presenta le seguenti limitazioni:
+การสร้างแอป Android ใน AI Studio มีข้อจำกัดต่อไปนี้
 
-### Limitazioni della piattaforma
+### ข้อจำกัดของแพลตฟอร์ม
 
-- **Solo lato client**: le app Android non includono un componente lato server.
-  Le funzionalità che richiedono un runtime del server (gestione dei secret, multigiocatore, Firebase, API Google Workspace) non sono disponibili.
-- **Architettura a singola attività**: sono supportati solo i progetti a singola attività e a singolo modulo.
-- **Solo Jetpack Compose**: le app utilizzano Kotlin e Jetpack Compose. I layout Java e XML non sono supportati.
-- **Nessun NDK o codice nativo**: il codice C e C++ non è supportato.
-- **Nessun Wear OS o Android TV**: sono supportati solo i fattori di forma di smartphone e tablet.
+- **ฝั่งไคลเอ็นต์เท่านั้น**: แอป Android ไม่มีคอมโพเนนต์ฝั่งเซิร์ฟเวอร์
+  ฟีเจอร์ที่ต้องใช้รันไทม์ของเซิร์ฟเวอร์ (การจัดการลับ, ผู้เล่นหลายคน,
+  Firebase, Google Workspace API) จะไม่พร้อมใช้งาน
+- **สถาปัตยกรรมแบบกิจกรรมเดียว**: รองรับเฉพาะโปรเจ็กต์แบบกิจกรรมเดียวและโมดูลเดียว
+- **Jetpack Compose เท่านั้น**: แอปใช้ Kotlin และ Jetpack Compose ไม่รองรับเลย์เอาต์ Java และ XML
+- **ไม่มี NDK หรือโค้ดแบบเนทีฟ**: ไม่รองรับโค้ด C และ C++
+- **ไม่มี Wear OS หรือ Android TV**: รองรับเฉพาะรูปแบบของโทรศัพท์และแท็บเล็ต
 
-### Limitazioni per l'esportazione
+### ข้อจำกัดในการส่งออก
 
-- **Solo download ZIP**: puoi scaricare il progetto come file ZIP. L'esportazione di GitHub non è ancora disponibile per i progetti Android.
+- **ดาวน์โหลด ZIP เท่านั้น**: คุณสามารถดาวน์โหลดโปรเจ็กต์เป็นไฟล์ ZIP ได้ การส่งออก GitHub ยังไม่พร้อมให้บริการสำหรับโปรเจ็กต์ Android
 
-## Passaggi successivi
+## ขั้นตอนถัดไป
 
-- [Crea app in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it)
-- [Sviluppo di app full-stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=it) (web)
-- Consulta gli esempi nella [Galleria app](https://aistudio.google.com/apps?source=showcase&hl=it).
+- [สร้างแอปใน Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=th)
+- [การพัฒนาแอปแบบ Full Stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=th) (เว็บ)
+- ดูตัวอย่างได้ใน [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ultimo aggiornamento 2026-08-19 UTC.
+อัปเดตล่าสุด 2026-08-19 UTC
 
-Vuoi dirci altro?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-08-19 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]

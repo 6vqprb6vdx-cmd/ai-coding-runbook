@@ -1,46 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=fr
-fetched_at: 2026-08-31T06:30:36.530217+00:00
-title: "Comprendre et compter les jetons \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=vi
+fetched_at: 2026-09-07T05:36:37.572059+00:00
+title: "T\u00ecm hi\u1ec3u v\u00e0 t\u00ednh m\u00e3 th\u00f4ng b\u00e1o \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-# Comprendre et compter les jetons
+# Tìm hiểu và tính mã thông báo
 
-Gemini et d'autres modèles d'IA générative traitent les entrées et les sorties avec une granularité appelée *jeton*.
+Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào và đầu ra ở mức độ chi tiết được gọi là *mã thông báo*.
 
-**Pour les modèles Gemini, un jeton équivaut à environ quatre caractères.
-100 jetons correspondent à environ 60 à 80 mots en anglais.**
+**Đối với các mô hình Gemini, một mã thông báo tương đương với khoảng 4 ký tự.
+100 mã thông báo tương đương với khoảng 60 đến 80 từ tiếng Anh.**
 
-## À propos des jetons
+## Giới thiệu về mã thông báo
 
-Les jetons peuvent être des caractères uniques, comme `z`, ou des mots entiers, comme `cat`. Les mots longs sont divisés en plusieurs jetons. L'ensemble de tous les jetons utilisés par le modèle est appelé vocabulaire, et le processus de division du texte en jetons est appelé *tokenisation*.
+Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả các mã thông báo mà mô hình sử dụng được gọi là từ vựng và quy trình phân tách văn bản thành mã thông báo được gọi là *mã hoá*.
 
-Lorsque la facturation est activée, le [coût d'un appel à l'API Gemini](https://ai.google.dev/pricing?hl=fr) est
-déterminé en partie par le nombre de jetons d'entrée et de sortie. Il peut donc être utile de savoir comment
-compter les jetons.
+Khi bật tính năng thanh toán, [chi phí của một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
 
-## Compter les jetons
+## Đếm mã thông báo
 
-Toutes les entrées et sorties de l'API Gemini sont tokenisées, y compris le texte, les fichiers image et d'autres modalités non textuelles.
+Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được mã hoá thành mã thông báo, bao gồm cả văn bản, tệp hình ảnh và các phương thức không phải văn bản khác.
 
-Vous pouvez compter les jetons de différentes manières :
+Bạn có thể đếm mã thông báo theo những cách sau:
 
-- **Appelez `count_tokens` avec l'entrée de la requête.** Renvoie le nombre total de jetons *dans l'entrée uniquement*. Effectuez cet appel avant d'envoyer une entrée pour vérifier la taille de vos requêtes.
-- **Utilisez le `usage` dans la réponse d'interaction.** Renvoie le nombre de jetons pour l'entrée (`total_input_tokens`), la sortie (`total_output_tokens`), la réflexion (`total_thought_tokens`), le contenu mis en cache (`total_cached_tokens`), l'utilisation d'outils (`total_tool_use_tokens`) et le total (`total_tokens`).
+- **Gọi `count_tokens` bằng dữ liệu đầu vào của yêu cầu.** Trả về tổng số mã thông báo *chỉ trong dữ liệu đầu vào*. Thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào để kiểm tra kích thước của các yêu cầu.
+- **Sử dụng `usage` trên câu trả lời tương tác.** Trả về số lượng mã thông báo cho dữ liệu đầu vào (`total_input_tokens`), đầu ra (`total_output_tokens`), suy nghĩ (`total_thought_tokens`), nội dung được lưu vào bộ nhớ đệm (`total_cached_tokens`), việc sử dụng công cụ (`total_tool_use_tokens`) và tổng số (`total_tokens`).
 
-### Compter les jetons de texte
+### Đếm số lượng mã thông báo văn bản
 
 ### Python
 
@@ -100,9 +98,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Compter les jetons multi-tours
+### Đếm mã thông báo nhiều lượt
 
-Comptez les jetons dans l'historique des conversations à l'aide de `previous_interaction_id` :
+Đếm số mã thông báo trong nhật ký trò chuyện bằng cách sử dụng `previous_interaction_id`:
 
 ### Python
 
@@ -148,16 +146,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Compter les jetons multimodaux
+### Đếm mã thông báo đa phương thức
 
-Toutes les entrées de l'API Gemini sont tokenisées, y compris les images, les vidéos et l'audio.
-Points clés concernant la tokenisation :
+Mọi dữ liệu đầu vào cho Gemini API đều được mã hoá thành mã thông báo, bao gồm cả hình ảnh, video và âm thanh.
+Các điểm chính về việc mã hoá:
 
-- **Images** : les images dont les deux dimensions sont inférieures ou égales à 384 pixels comptent pour 258 jetons. Les images plus grandes sont divisées en vignettes de 768 x 768 pixels, chacune comptant pour 258 jetons.
-- **Vidéo** : 263 jetons par seconde
-- **Audio** : 32 jetons par seconde
+- **Hình ảnh**: Hình ảnh có kích thước ≤384 pixel ở cả hai chiều được tính là 258 mã thông báo. Các hình ảnh lớn hơn được chia thành các ô có kích thước 768x768 pixel, mỗi ô được tính là 258 mã thông báo.
+- **Video**: 263 mã thông báo mỗi giây
+- **Âm thanh**: 32 mã thông báo mỗi giây
 
-#### Jetons d'image
+#### Mã thông báo hình ảnh
 
 ### Python
 
@@ -203,7 +201,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**Exemple de données intégrées :**
+**Ví dụ về dữ liệu nội tuyến:**
 
 ### Python
 
@@ -228,7 +226,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Jetons vidéo
+#### Mã thông báo video
 
 ### Python
 
@@ -261,7 +259,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Jetons audio
+#### Mã thông báo âm thanh
 
 ### Python
 
@@ -287,9 +285,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Compter les jetons d'instructions système
+### Đếm mã thông báo hướng dẫn hệ thống
 
-Les instructions système sont comptées comme faisant partie des jetons d'entrée :
+Các chỉ dẫn hệ thống được tính là một phần của mã thông báo đầu vào:
 
 ### Python
 
@@ -305,9 +303,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Compter les jetons d'outils
+### Đếm số token của công cụ
 
-Les outils (fonctions, exécution de code, recherche Google) sont également comptabilisés :
+Các công cụ (hàm, thực thi mã, Google Tìm kiếm) cũng được tính:
 
 ### Python
 
@@ -337,11 +335,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Fenêtre de contexte
+## Cửa sổ ngữ cảnh
 
-Chaque modèle Gemini dispose d'un nombre maximal de jetons qu'il peut gérer. La fenêtre de contexte définit la limite combinée des jetons d'entrée et de sortie.
+Mỗi mô hình Gemini đều có số lượng mã thông báo tối đa mà mô hình đó có thể xử lý. Cửa sổ ngữ cảnh xác định giới hạn kết hợp của mã thông báo đầu vào và đầu ra.
 
-### Obtenir la taille de la fenêtre de contexte par programmation
+### Lấy kích thước cửa sổ ngữ cảnh theo phương thức lập trình
 
 ### Python
 
@@ -361,20 +359,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-Vous trouverez les tailles des fenêtres de contexte sur la page des [modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr).
+Tìm kích thước cửa sổ ngữ cảnh trên trang [các mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
 
-## Étape suivante
+## Bước tiếp theo
 
-- [Génération de texte](https://ai.google.dev/gemini-api/docs/text-generation?hl=fr) : principes de base de la génération
-- [Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr) : réduire les coûts grâce à la mise en cache
-- [Tarification](https://ai.google.dev/gemini-api/docs/pricing?hl=fr) : comprendre les coûts
+- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi): Các kiến thức cơ bản về việc tạo văn bản
+- [Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi): Giảm chi phí bằng cách lưu vào bộ nhớ đệm
+- [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi): Tìm hiểu về chi phí
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Dernière mise à jour le 2026/07/30 (UTC).
+Cập nhật lần gần đây nhất: 2026-07-30 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]

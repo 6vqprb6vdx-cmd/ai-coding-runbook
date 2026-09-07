@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=pl
-fetched_at: 2026-08-31T06:44:00.614459+00:00
-title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419
+fetched_at: 2026-09-07T05:29:22.991657+00:00
+title: "Ganchos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Prześlij opinię
+Enviar comentarios
 
-# Hooks
+# Ganchos
 
-Haczyki umożliwiają uruchamianie niestandardowych skryptów lub zewnętrznych żądań HTTP bezpośrednio przed lub po wykonaniu kodu przez agenta albo po zmodyfikowaniu przez niego plików w zdalnej piaskownicy. Używaj haczyków, aby rozszerzyć pętlę agenta o automatyczne zabezpieczenia i przepływy pracy w tle, takie jak:
+Los hooks te permiten ejecutar secuencias de comandos personalizadas o solicitudes HTTP externas justo antes o después de que el agente ejecute código o modifique archivos dentro de su zona de pruebas remota. Usa hooks para extender el bucle del agente con protecciones automatizadas y flujos de trabajo en segundo plano, como los siguientes:
 
-- **egzekwowanie zabezpieczeń i ograniczeń dostępu** przed wykonaniem poleceń powłoki wysokiego ryzyka lub odczytaniem plików z ograniczeniami;
-- **automatyzowanie przekształceń w potoku danych** bezpośrednio po utworzeniu lub zmodyfikowaniu plików przez agenta;
-- **przesyłanie strumieniowe danych telemetrycznych kontroli przedsiębiorstwa** do zewnętrznych systemów monitorowania po wykonaniu narzędzia.
+- **Aplicar protecciones de seguridad y acceso** antes de que se ejecuten comandos de shell de alto riesgo o lecturas de archivos restringidas
+- **Automatizar las transformaciones de canalizaciones de datos** justo después de que un agente cree o modifique archivos
+- **Transmitir telemetría de auditoría empresarial** a sistemas de supervisión externos después de la ejecución de la herramienta
 
 ### Python
 
@@ -167,20 +167,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Obsługiwane zdarzenia cyklu życia
+## Eventos del ciclo de vida compatibles
 
-Haczyki obsługują 2 zdarzenia w piaskownicy:
+Los hooks admiten 2 eventos dentro de la zona de pruebas:
 
-| Zdarzenie | Kiedy jest wywoływane | Działanie |
+| Evento | Cuándo se activa | Qué hace |
 | --- | --- | --- |
-| `pre_tool_execution` | Bezpośrednio przed uruchomieniem narzędzia | Może zatwierdzić (`allow`) lub zablokować (`deny`) narzędzie przed jego wykonaniem. Gdy narzędzie jest zablokowane, model widzi powód odrzucenia i dostosowuje się. |
-| `post_tool_execution` | Bezpośrednio po zakończeniu działania narzędzia | Uruchamia zadania uzupełniające, takie jak formatowanie kodu, uruchamianie testów jednostkowych lub rejestrowanie danych telemetrycznych. Nie można zablokować ani cofnąć wykonanych działań. |
+| `pre_tool_execution` | Justo antes de que se ejecute una herramienta | Puede aprobar (`allow`) o bloquear (`deny`) la herramienta antes de que se ejecute. Cuando se bloquea, el modelo ve el motivo del rechazo y se adapta. |
+| `post_tool_execution` | Justo después de que finaliza una herramienta | Ejecuta tareas de seguimiento, como dar formato al código, ejecutar pruebas de unidades o registrar telemetría. No puede bloquear ni deshacer acciones completadas. |
 
 ### `pre_tool_execution`
 
-Jest wywoływane bezpośrednio przed wykonaniem narzędzia. Twój skrypt odczytuje szczegóły wywołania narzędzia z `stdin` i wysyła decyzję w formacie JSON (`allow` lub `deny`) do `stdout`.
+Se activa justo antes de que se ejecute una herramienta. Tu secuencia de comandos lee los detalles de la llamada a la herramienta desde `stdin` y muestra su decisión JSON (`allow` o `deny`) en `stdout`.
 
-**Ładunek wejściowy (`stdin`):**
+**Carga útil de entrada (`stdin`):**
 
 ```
 {
@@ -195,9 +195,9 @@ Jest wywoływane bezpośrednio przed wykonaniem narzędzia. Twój skrypt odczytu
 }
 ```
 
-**Odpowiedź wyjściowa (`stdout`):**
+**Respuesta de salida (`stdout`):**
 
-Aby zatwierdzić wywołanie narzędzia:
+Para aprobar la llamada a la herramienta, haz lo siguiente:
 
 ```
 {
@@ -205,7 +205,7 @@ Aby zatwierdzić wywołanie narzędzia:
 }
 ```
 
-Aby zablokować wywołanie narzędzia i przekazać modelowi opinię:
+Para bloquear la llamada a la herramienta y mostrar comentarios al modelo, haz lo siguiente:
 
 ```
 {
@@ -214,15 +214,15 @@ Aby zablokować wywołanie narzędzia i przekazać modelowi opinię:
 }
 ```
 
-Gdy haczyk odrzuci polecenie, wywołanie narzędzia zostanie natychmiast pominięte. Agent zobaczy w bieżącej turze wynik błędu zawierający powód odrzucenia. Model może wtedy samodzielnie poprawić błąd, wybierając alternatywne polecenie lub wyjaśniając użytkownikowi blokadę.
+Cuando un hook rechaza un comando, se omite la llamada a la herramienta de inmediato. El agente ve un resultado de error que contiene el motivo del rechazo directamente en su turno actual. Luego, el modelo puede corregirse por sí mismo eligiendo un comando alternativo o explicando el bloqueo al usuario.
 
-Jeśli skrypt wyśle nierozpoznany format JSON, zwykły tekst lub cokolwiek innego niż `{"decision": "deny"}`, środowisko wykonawcze potraktuje odpowiedź jako zatwierdzenie (`allow`).
+Si tu secuencia de comandos muestra JSON no reconocido, texto sin formato o cualquier otro elemento que no sea `{"decision": "deny"}`, el entorno de ejecución trata la respuesta como una aprobación (`allow`).
 
 ### `post_tool_execution`
 
-Jest wywoływane bezpośrednio po zakończeniu działania narzędzia. Twój skrypt odczytuje szczegóły wykonania i stan błędu z `stdin`.
+Se activa justo después de que se completa una herramienta. Tu secuencia de comandos lee los detalles de la ejecución y cualquier estado de error de `stdin`.
 
-**Ładunek wejściowy (`stdin`):**
+**Carga útil de entrada (`stdin`):**
 
 ```
 {
@@ -237,27 +237,27 @@ Jest wywoływane bezpośrednio po zakończeniu działania narzędzia. Twój skry
 }
 ```
 
-Jeśli polecenie powłoki wyświetli błędy w standardowym strumieniu błędów (`stderr`) lub operacja systemu plików się nie powiedzie, do ładunku zostanie dodane pole `"error"` zawierające tekst błędu. Gdy polecenie zakończy się bez błędów, pole `"error"` zostanie całkowicie pominięte.
+Si un comando de shell imprime errores en el error estándar (`stderr`) o falla una operación del sistema de archivos, se incluye un campo `"error"` que contiene el texto del error en la carga útil. Cuando el comando se ejecuta correctamente sin errores, se omite por completo el campo `"error"`.
 
-**Odpowiedź wyjściowa (`stdout`):**
+**Respuesta de salida (`stdout`):**
 
 ```
 {}
 ```
 
-Ponieważ haczyki po wykonaniu narzędzia działają wyłącznie w przypadku zadań w tle, takich jak formatowanie kodu lub rejestrowanie, środowisko wykonawcze ignoruje wszystkie wartości decyzji zwracane w `stdout`.
+Debido a que los hooks posteriores a la herramienta se ejecutan estrictamente para tareas en segundo plano, como el formato de código o el registro, el entorno de ejecución ignora cualquier valor de decisión que se muestre en `stdout`.
 
-## Wykrywanie konfiguracji
+## Detección de configuración
 
-Środowisko wykonawcze automatycznie wykrywa definicje haczyków w pliku `.agents/hooks.json` lub `/.agents/hooks.json` w środowisku piaskownicy. Możesz podać `hooks.json` wraz ze skryptami niestandardowymi, korzystając z dowolnego obsługiwanego [źródła środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#mount_from_a_source):
+El entorno de ejecución descubre automáticamente las definiciones de hook de `.agents/hooks.json` o `/.agents/hooks.json` dentro del entorno de zona de pruebas. Puedes proporcionar `hooks.json` junto con tus secuencias de comandos personalizadas usando cualquier [fuente de entorno](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#mount_from_a_source):
 
-- **Montowanie repozytorium**: repozytorium Git zawierające `.agents/hooks.json` oraz `AGENTS.md`.
-- **Cloud Storage (`gcs`):** zasobnik GCS zawierający plik `hooks.json` skopiowany do środowiska.
-- **Źródła wbudowane**: surowy ciąg JSON i zawartość skryptu przekazywane w `environment.sources` podczas wywoływania `client.interactions.create`.
+- **Montaje de repositorio**: Un repositorio de Git que contiene `.agents/hooks.json` junto con `AGENTS.md`.
+- **Cloud Storage (`gcs`)**: Un bucket de GCS que contiene `hooks.json` copiado en el entorno.
+- **Fuentes intercaladas**: Cadena JSON sin procesar y contenido de la secuencia de comandos que se pasan en `environment.sources` cuando se llama a `client.interactions.create`.
 
-### Schemat pliku `hooks.json`
+### Esquema de `hooks.json`
 
-Plik `hooks.json` grupuje definicje zdarzeń (`pre_tool_execution` lub `post_tool_execution`) pod nazwami niestandardowymi. Każdą grupę możesz włączać i wyłączać niezależnie:
+Un archivo `hooks.json` agrupa las definiciones de eventos (`pre_tool_execution` o `post_tool_execution`) con nombres personalizados. Puedes habilitar o inhabilitar cada grupo de forma independiente:
 
 ```
 {
@@ -293,71 +293,71 @@ Plik `hooks.json` grupuje definicje zdarzeń (`pre_tool_execution` lub `post_too
 }
 ```
 
-### Składnia i reguły dopasowywania
+### Sintaxis y reglas del comparador
 
-Każda grupa reguł w `hooks.json` określa, kiedy i jak mają być wywoływane procedury obsługi, za pomocą właściwości `matcher` i `hooks`:
+Cada grupo de reglas en `hooks.json` define cuándo y cómo se activan los controladores con las propiedades `matcher` y `hooks`:
 
-| Pole | Typ | Opis |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `enabled` | `boolean` | Opcjonalnie. Ustaw wartość `false`, aby wyłączyć grupę (domyślnie `true`). |
-| `matcher` | `string` | Wzorzec wyrażenia regularnego pasujący do nazw narzędzi docelowych w kontenerze. |
-| `hooks` | `array` | Uporządkowana lista definicji procedur obsługi (`command` lub `http`). Procedury obsługi są uruchamiane sekwencyjnie w kolejności deklaracji. |
+| `enabled` | `boolean` | Es opcional. Configúralo en `false` para inhabilitar el grupo (`true` de forma predeterminada). |
+| `matcher` | `string` | Patrón de expresión regular que coincide con los nombres de las herramientas de destino dentro del contenedor. |
+| `hooks` | `array` | Lista ordenada de definiciones de controladores (`command` o `http`). Los controladores se ejecutan de forma secuencial en orden de declaración. |
 
-#### Jak działa ocena wyrażeń regularnych
+#### Cómo funciona la evaluación de regex
 
-Gdy agent wywoła narzędzie w piaskownicy, środowisko wykonawcze oceni nazwę kontenera narzędzia na podstawie wzorca `matcher` za pomocą standardowych wyrażeń regularnych RE2. Jeśli wyrażenie regularne pasuje do nazwy narzędzia, wszystkie procedury obsługi w tablicy `hooks` zostaną wykonane w kolejności. Jeśli do tego samego narzędzia pasuje kilka grup reguł, zostaną uruchomione wszystkie odpowiednie tablice procedur obsługi.
+Cuando el agente invoca una herramienta dentro de la zona de pruebas, el entorno de ejecución evalúa el nombre del contenedor de la herramienta con tu patrón `matcher` usando expresiones regulares RE2 estándar. Si la regex coincide con el nombre de la herramienta, todos los controladores del array `hooks` se ejecutan en orden. Si varios grupos de reglas coinciden con la misma herramienta, se ejecutan todos los arrays de controladores correspondientes.
 
-Możesz kierować reklamy na dowolną wbudowaną nazwę narzędzia kontenera: wykonywanie kodu (`code_execution`) lub operacje systemu plików (`read_file`, `write_file`, `list_files` i `delete_file`).
+Puedes segmentar cualquier nombre de herramienta de contenedor integrada: ejecución de código (`code_execution`) o operaciones del sistema de archivos (`read_file`, `write_file`, `list_files` y `delete_file`).
 
-#### Typowe wyrażenia dopasowywania
+#### Expresiones de comparador comunes
 
-- `"code_execution"`: dokładne dopasowanie ciągu znaków do poleceń powłoki i wykonywania skryptów.
-- `"write_file"`: dokładne dopasowanie do tworzenia plików w systemie plików i zapisywania na dysku.
-- `"read_file|write_file"`: rozdzielenie pionową kreską umożliwia dopasowanie kilku konkretnych nazw narzędzi w jednej regule.
-- `".*_file"`: symbol wieloznaczny wyrażenia regularnego pasujący do dowolnego narzędzia kończącego się na `_file` (np. `read_file`, `write_file` lub `delete_file`). Standardowe wyrażenia regularne RE2 wymagają użycia `.*`; proste symbole powłoki, takie jak `*_file`, są nieprawidłową składnią wyrażenia regularnego i nie będą pasować.
-- `".*"` lub `"*"` lub `""`: wzorzec obejmujący wszystkie przypadki, który przechwytuje każde wywołanie narzędzia w kontenerze.
+- `"code_execution"`: Coincidencia exacta de cadenas para comandos de shell y ejecuciones de secuencias de comandos
+- `"write_file"`: Coincidencia exacta para la creación de archivos del sistema de archivos y las escrituras de disco
+- `"read_file|write_file"`: La separación de canalizaciones coincide con varios nombres de herramientas específicos en una sola regla.
+- `".*_file"`: Comodín de regex que coincide con cualquier herramienta que termine en `_file` (como `read_file`, `write_file` o `delete_file`). Las expresiones regulares RE2 estándar requieren `.*`; los globs de shell simples como `*_file` no son una sintaxis de regex válida y no coincidirán.
+- `".*"` o `"*"` o `""`: Patrón de captura que intercepta cada llamada a la herramienta dentro del contenedor
 
-## Typy procedur obsługi
+## Tipos de controladores
 
-### Haczyki poleceń
+### Hooks de comandos
 
-Haczyki poleceń wykonują polecenie powłoki lub skrypt w piaskownicy. Skrypt otrzymuje zdarzenie w formacie JSON w `stdin` i wysyła decyzję w formacie JSON w `stdout`.
+Los hooks de comandos ejecutan un comando o una secuencia de comandos de shell dentro de la zona de pruebas. La secuencia de comandos recibe el JSON del evento en `stdin` y muestra su decisión JSON en `stdout`.
 
-| Pole | Typ | Opis |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `type` | `string` | Musi mieć wartość `"command"`. |
-| `command` | `string` | Wiersz poleceń do uruchomienia w piaskownicy (np. `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | Czas oczekiwania w sekundach. Domyślnie: `30`. |
+| `type` | `string` | Debe ser `"command"`. |
+| `command` | `string` | Línea de comandos para ejecutar dentro de la zona de pruebas (por ejemplo, `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | Tiempo de espera en segundos. Valor predeterminado: `30`. |
 
-### Haczyki HTTP
+### Hooks HTTP
 
-Haczyki HTTP wysyłają zdarzenie w formacie JSON jako żądanie POST do zewnętrznego adresu URL HTTPS bezpośrednio z sieci piaskownicy. Serwer docelowy zwraca decyzję w treści odpowiedzi HTTP w dokładnie tym samym formacie JSON (`{"decision": "allow"}` lub `{"decision": "deny", "reason": "..."}`).
+Los hooks HTTP envían el JSON del evento como una solicitud POST a una URL HTTPS externa directamente desde la red de la zona de pruebas. El servidor de destino muestra su decisión en el cuerpo de la respuesta HTTP con el mismo formato JSON (`{"decision": "allow"}` o `{"decision": "deny", "reason": "..."}`).
 
-| Pole | Typ | Opis |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `type` | `string` | Musi mieć wartość `"http"`. |
-| `url` | `string` | Zewnętrzny punkt końcowy HTTPS, do którego należy wysłać ładunek zdarzenia. |
-| `headers` | `object` | Opcjonalne pary klucz-wartość dla niestandardowych nagłówków nie zawierających informacji poufnych (np. `{"X-Event-Source": "agent-sandbox"}`). W przypadku danych uwierzytelniających użyj serwera proxy sieci. |
-| `timeout` | `integer` | Czas oczekiwania w sekundach. Domyślnie: `30`. |
+| `type` | `string` | Debe ser `"http"`. |
+| `url` | `string` | Es el extremo HTTPS externo al que se enviará la carga útil del evento. |
+| `headers` | `object` | Son pares clave-valor opcionales para encabezados personalizados no sensibles (como `{"X-Event-Source": "agent-sandbox"}`). Para las credenciales de autenticación, usa el proxy de red. |
+| `timeout` | `integer` | Tiempo de espera en segundos. Valor predeterminado: `30`. |
 
-#### Serwer proxy ruchu wychodzącego i przekształcanie tokenów
+#### Proxy de salida y transformación de tokens
 
-Ponieważ haczyki HTTP są wykonywane bezpośrednio z przestrzeni nazw sieci piaskownicy, żądania wychodzące przechodzą przez przezroczysty serwer proxy ruchu wychodzącego. Ta architektura zapewnia 2 kluczowe zalety związane z bezpieczeństwem:
+Debido a que los hooks HTTP se ejecutan directamente desde el espacio de nombres de la red de la zona de pruebas, las solicitudes salientes pasan por el proxy de salida transparente. Esta arquitectura te brinda 2 ventajas de seguridad fundamentales:
 
-- **Lista dozwolonych adresów w sieci:** punkty końcowe docelowe muszą być wyraźnie dozwolone w `network.allowlist` środowiska. Serwer proxy blokuje ruch w pętli zwrotnej (`127.0.0.1` lub `localhost`); zawsze kieruj reklamy na zewnętrzne punkty końcowe znajdujące się na liście dozwolonych.
-- **Przekształcanie tokenów:** nie musisz przechowywać kluczy interfejsu API ani tajnych tokenów okaziciela w pliku `.agents/hooks.json` ani montować ich w kontenerze. Zamiast tego skonfiguruj reguły przekształcania tokenów w [konfiguracji sieci](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#network-configuration) (`network.allowlist.transform`). Serwer proxy ruchu wychodzącego automatycznie przechwytuje wychodzący ruch haczyków HTTP i wstawia rzeczywiste nagłówki uwierzytelniania przed opuszczeniem piaskownicy.
+- **Lista de entidades permitidas de la red:** Los extremos de destino deben permitirse de forma explícita en `network.allowlist` de tu entorno. El proxy bloquea el tráfico de bucle invertido (`127.0.0.1` o `localhost`); siempre segmenta los extremos externos permitidos.
+- **Transformación de tokens:** No es necesario almacenar claves de API ni tokens de portador secretos dentro de `.agents/hooks.json` ni montarlos en el contenedor. En cambio, configura reglas de transformación de tokens en la [configuración de red](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#network-configuration) (`network.allowlist.transform`). El proxy de salida intercepta automáticamente el tráfico de hook HTTP saliente y, luego, inserta tus encabezados de autenticación reales en la conexión antes de salir de la zona de pruebas.
 
-## Jak środowisko wykonawcze obsługuje decyzje i błędy
+## Cómo el entorno de ejecución controla las decisiones y las fallas
 
-- **Synchroniczne oczekiwanie:** agent wstrzymuje działanie i czeka na zakończenie działania haczyków przed kontynuowaniem.
-- **Blokowanie wykonywania narzędzia:** jeśli haczyk przed wykonaniem narzędzia zwróci `{"decision": "deny", "reason": "<your reason>"}`, środowisko wykonawcze natychmiast anuluje wywołanie narzędzia. Model zobaczy powód odrzucenia w historii rozmowy i dostosuje się, wybierając bezpieczną alternatywę lub wyjaśniając użytkownikowi blokadę.
-- **Obsługa awarii skryptów, błędów HTTP i przekroczeń limitu czasu:** jeśli skrypt polecenia ulegnie awarii (niezerowy kod zakończenia), haczyk HTTP zwróci kod stanu inny niż 2xx (np. błąd serwera 4xx lub 5xx) albo operacja przekroczy limit czasu lub zwróci nierozpoznany format JSON, środowisko wykonawcze potraktuje to jako zatwierdzenie (`allow`). Wykonywanie narzędzia będzie kontynuowane normalnie, więc uszkodzony skrypt lub niedostępny serwer telemetryczny nigdy nie spowoduje zakleszczenia aplikacji.
+- **Espera síncrona:** El agente se detiene y espera a que terminen tus hooks antes de continuar.
+- **Bloqueo de la ejecución de la herramienta:** Si tu hook anterior a la herramienta muestra `{"decision": "deny", "reason": "<your reason>"}`, el entorno de ejecución cancela de inmediato la llamada a la herramienta. El modelo ve el motivo del rechazo en su historial de conversaciones y se adapta eligiendo una alternativa segura o explicando el bloqueo al usuario.
+- **Control de fallas de secuencias de comandos, errores HTTP y tiempos de espera:** Si falla una secuencia de comandos (estado de salida distinto de cero), un hook HTTP muestra un código de estado que no es 2xx (como un error del servidor 4xx o 5xx), o bien se agota el tiempo de espera de una operación o muestra JSON no reconocido, el entorno de ejecución lo trata como una aprobación (`allow`). La ejecución de la herramienta continúa con normalidad, por lo que una secuencia de comandos dañada o un servidor de telemetría inalcanzable nunca bloquean tu aplicación.
 
-## Częste zastosowania
+## Casos de uso habituales
 
-### Odzyskiwanie danych w wielu turach w celu zapewnienia prywatności danych i zgodności z przepisami
+### Recuperación de varios turnos para la privacidad y el cumplimiento de datos
 
-Gdy haczyk zablokuje dostęp do zasobów z ograniczeniami, takich jak katalogi zawierające informacje umożliwiające identyfikację osoby lub poufne dane finansowe, możesz przekazać `previous_interaction_id` w następnym wywołaniu, aby kontynuować turę w tym samym środowisku. Agent odczyta wyjaśnienie odmowy i automatycznie odzyska dane, wysyłając zapytanie do zatwierdzonych tabel publicznych.
+Cuando un hook bloquea el acceso a recursos restringidos, como directorios que contienen información de identificación personal (PII) o registros financieros confidenciales, puedes pasar `previous_interaction_id` en la siguiente llamada para continuar el turno en el mismo entorno. El agente lee la explicación del rechazo y se recupera automáticamente consultando tablas públicas aprobadas.
 
 ### Python
 
@@ -571,12 +571,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### Zewnętrzne rejestrowanie kontrolne i dane telemetryczne
+### Telemetría y registro de auditoría externos
 
-Wysyłaj zdarzenia kontrolne w czasie rzeczywistym z piaskownicy do zewnętrznego serwera monitorowania za każdym razem, gdy pliki są odczytywane lub modyfikowane.
+Envía eventos de auditoría en tiempo real desde la zona de pruebas a un servidor de supervisión externo cada vez que se leen o modifican archivos.
 
-- **Dopasowywanie wielu narzędzi:** ponieważ dopasowywanie używa standardowych wyrażeń regularnych, możesz łączyć kilka narzędzi w jednej regule za pomocą pionowych kresek (`read_file|write_file`) lub symboli wieloznacznych (`.*_file`).
-- **Ukrywanie informacji poufnych w konfiguracji:** zdefiniuj tokeny uwierzytelniania w [konfiguracji sieci](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#network-configuration) środowiska (`network.allowlist.transform`). Serwer proxy ruchu wychodzącego automatycznie wstawia rzeczywiste tokeny okaziciela w żądaniach wychodzących.
+- **Haz coincidir varias herramientas:** Debido a que los comparadores usan regex estándar, puedes combinar varias herramientas en una sola regla con canalizaciones (`read_file|write_file`) o comodines (`.*_file`).
+- **Mantén los secretos fuera de tu configuración:** Define tokens de autenticación en la [configuración de red](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#network-configuration) de tu entorno (`network.allowlist.transform`). El proxy de salida inserta automáticamente tus tokens de portador reales en las solicitudes salientes.
 
 ### Python
 
@@ -718,25 +718,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Ograniczenia
+## Limitaciones
 
-- **Zakres narzędzi piaskownicy:** haczyki przechwytują wbudowane narzędzia w piaskownicy: wykonywanie kodu (`code_execution`) i operacje systemu plików (`read_file`, `write_file`, `list_files` i `delete_file`). Nie są wywoływane w przypadku niestandardowych wywołań funkcji (`function`) ani zewnętrznych narzędzi Model Context Protocol (`mcp_server`) obsługiwanych poza kontenerem.
-- **Listy dozwolonych adresów w sieci:** haczyki HTTP działają w sieci kontenera. Musisz wyraźnie zezwolić na adresy URL docelowe w `network.allowlist` środowiska. Serwer proxy blokuje adresy pętli zwrotnej (`localhost`, `127.0.0.1`).
-- **Automatyczne zatwierdzanie w przypadku błędów:** jeśli skrypt haczyka ulegnie awarii (niezerowy kod zakończenia), przekroczy limit czasu lub się nie powiedzie, środowisko wykonawcze zarejestruje błąd i zezwoli na kontynuowanie wywołania narzędzia. Dzięki temu uszkodzone skrypty linterów lub zawieszające się procesy nigdy nie spowodują zakleszczenia aplikacji.
-- **Ochrona konfiguracji piaskownicy:** ponieważ haczyki są wykonywane w piaskownicy kontenera, agenci z uprawnieniami do zapisywania w systemie plików lub wykonywania kodu powłoki mogą modyfikować lokalny plik `.agents/hooks.json` lub skrypty w obszarach roboczych z możliwością zapisu. Używaj haczyków kontenera jako automatycznych wskazówek dotyczących zasad i zabezpieczeń operacyjnych. Jeśli wymagana jest ścisła ochrona przed manipulacjami w przypadku wykonywania przez niezaufany model, zamontuj źródła konfiguracji z repozytoriów tylko do odczytu.
+- **Alcance de la herramienta de zona de pruebas:** Los hooks interceptan herramientas integradas dentro de la zona de pruebas: ejecución de código (`code_execution`) y operaciones del sistema de archivos (`read_file`, `write_file`, `list_files` y `delete_file`). No se activan para la llamada a funciones personalizadas (`function`) ni para las herramientas externas del Protocolo de contexto del modelo (`mcp_server`) que se controlan fuera del contenedor.
+- **Listas de entidades permitidas de la red:** Los hooks HTTP se ejecutan dentro de la red del contenedor. Debes permitir de forma explícita las URLs de destino en `network.allowlist` de tu entorno. El proxy bloquea las direcciones de bucle invertido (`localhost`, `127.0.0.1`).
+- **Aprobación automática en caso de errores:** Si falla una secuencia de comandos de hook (estado de salida distinto de cero), se agota el tiempo de espera o falla, el entorno de ejecución registra la falla y permite que continúe la llamada a la herramienta. Esto garantiza que las secuencias de comandos de linter dañadas o los procesos colgantes nunca provoquen interbloqueos en tus aplicaciones.
+- **Protección de la configuración de la zona de pruebas:** Debido a que los hooks se ejecutan dentro de la zona de pruebas del contenedor, los agentes con herramientas de escritura del sistema de archivos o permisos de ejecución de código de shell pueden modificar `.agents/hooks.json` o secuencias de comandos locales dentro de espacios de trabajo grabables. Usa hooks de contenedor como guía de políticas automatizada y protecciones operativas. Si se requiere una resistencia estricta a la manipulación contra ejecuciones de modelos no confiables, monta fuentes de configuración desde repositorios de solo lectura.
 
-## Co dalej?
+## ¿Qué sigue?
 
-- Dowiedz się, jak skonfigurować trwałe [zdalne piaskownice i środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl).
-- Poznaj możliwości i wbudowane narzędzia agenta [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl).
-- Zapoznaj się z [omówieniem interfejsu API interakcji](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) w przypadku sesji wieloetapowych i przesyłania strumieniowego.
+- [Obtén información para configurar zonas de pruebas y entornos remotos persistentes.](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419)
+- Explora las capacidades y las herramientas integradas del [agente de Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419).
+- Revisa la [descripción general de la API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) para sesiones de varios turnos y transmisión.
 
-Prześlij opinię
+Enviar comentarios
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Ostatnia aktualizacja: 2026-07-30 UTC.
+Última actualización: 2026-07-30 (UTC)
 
-Chcesz przekazać coś jeszcze?
+¿Quieres brindar más información?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-30 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

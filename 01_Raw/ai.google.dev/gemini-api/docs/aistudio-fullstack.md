@@ -1,167 +1,184 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=tr
-fetched_at: 2026-08-31T06:38:16.604429+00:00
-title: "Google AI Studio'da tam y\u0131\u011f\u0131n uygulamalar geli\u015ftirme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=zh-CN
+fetched_at: 2026-09-07T05:28:43.683243+00:00
+title: "\u5728 Google AI Studio \u4e2d\u5f00\u53d1\u5168\u6808\u5e94\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Geri bildirim gönderin
+发送反馈
 
-# Google AI Studio'da tam yığın uygulamalar geliştirme
+# 在 Google AI Studio 中开发全栈应用
 
-Google AI Studio artık tam yığın geliştirmeyi destekliyor. Bu sayede, istemci tarafı prototiplerin ötesine geçen uygulamalar oluşturabilirsiniz. Sunucu tarafı çalışma zamanı ile sırları yönetebilir, harici API'lere bağlanabilir ve gerçek zamanlı çok oyunculu deneyimler oluşturabilirsiniz.
+Google AI Studio 现已支持全栈开发，让您能够构建超出客户端原型范围的应用。借助服务器端运行时，您可以管理 Secret、连接到外部 API，以及打造实时多人游戏体验。
 
-## Sunucu tarafı çalışma zamanı
+## 服务器端运行时
 
-Google AI Studio uygulamaları artık sunucu tarafı bileşeni (Node.js) içerebilir.
-Böylece aşağıdakileri yapabilirsiniz:
+Google AI Studio 应用现在可以包含服务器端组件 (Node.js)。
+借助此功能，您可以：
 
-- **Sunucu tarafı mantığını yürütme**: İstemciye gösterilmemesi gereken kodu çalıştırın.
-- **npm paketlerine erişme**: [Antigravity Agent](https://antigravity.google/docs/agent?hl=tr), geniş npm ekosistemindeki paketleri yükleyip kullanabilir.
-- **Gizli anahtarları işleme**: API anahtarlarını ve kimlik bilgilerini güvenli bir şekilde kullanın.
+- **执行服务器端逻辑**：运行不应向
+  客户端公开的代码。
+- **访问 npm 软件包**：[Antigravity 智能体](https://antigravity.google/docs/agent?hl=zh-cn)
+  可以从庞大的 npm 生态系统中安装和使用软件包。
+- **处理 Secret**：安全地使用 API 密钥和凭据。
 
-### npm paketlerini kullanma
+### 使用 npm 软件包
 
-`npm install`'ı manuel olarak çalıştırmanız gerekmez. Temsilciden paket gerektiren işlevler eklemesini istemeniz yeterlidir. Temsilci, yükleme ve içe aktarma işlemlerini gerçekleştirir.
+您无需手动运行 `npm install`。只需让智能体添加需要软件包的功能，它就会处理安装和导入。
 
-**Örnek**: > "Harici API'den veri getirmek için `axios` kullan."
+**示例**：>“使用 `axios` 从外部 API 提取数据。”
 
-## Gizli anahtarları güvenli bir şekilde yönetme
+## 安全地管理 Secret
 
-Sunucu tarafı kodu ve gizli anahtar yönetimi sayesinde artık dünyayla etkileşime geçen uygulamalar oluşturabilirsiniz.
+借助服务器端代码和 Secret 管理功能，您现在可以构建与外界互动的应用。
 
-### Gemini API anahtarı
+### Gemini API 密钥
 
-Gemini API'yi kullanan yeni bir uygulama oluşturduğunuzda AI Studio, `GEMINI_API_KEY` değerinizi otomatik olarak sunucu tarafı gizli anahtarı olarak yapılandırır. Manuel kurulum gerekmez. Bu anahtarı Ayarlar'daki **Gizli Diziler** panelinde görüntüleyebilirsiniz. Uygulamanızın Gemini API çağrıları, bu anahtar kullanılarak sunucu tarafı kodundan yapılır. Bu nedenle, tarayıcıda hiçbir zaman gösterilmez.
+当您创建使用 Gemini API 的新应用时，AI Studio 会自动将 `GEMINI_API_KEY` 配置为服务器端 Secret，无需手动设置。您可以在“设置”中的 **Secrets** 面板中查看此密钥。应用的 Gemini API 调用是使用此密钥通过服务器端代码进行的，因此绝不会在浏览器中公开。
 
-### Üçüncü taraf API anahtarları
+### 第三方 API 密钥
 
-Diğer hizmetler için API anahtarlarını manuel olarak ekleyebilirsiniz:
+对于其他服务，您可以手动添加 API 密钥：
 
-- **Üçüncü taraf API'leri**: Stripe, SendGrid gibi hizmetlere veya özel REST API'lerine bağlanın.
-- **Veritabanları**: Oturumun ötesinde verileri kalıcı hale getirmek için harici veritabanlarına (ör. Supabase, Firebase veya MongoDB Atlas aracılığıyla) bağlanın.
+- **第三方 API**：连接到 Stripe、SendGrid 或自定义
+  REST API 等服务。
+- **数据库**：连接到外部数据库（例如，通过 Supabase、Firebase、
+  或 MongoDB Atlas），以便在会话结束后保留数据。
 
-Gerçek dünya uygulamaları oluştururken genellikle API anahtarları gerektiren üçüncü taraf hizmetlerine (ör. Twilio, Slack veya veritabanları) bağlanmanız gerekir. Aşağıdaki adımları uygulayarak anahtarları manuel olarak ekleyebilirsiniz:
+在构建实际应用时，您通常需要连接到需要 API 密钥的第三方服务（例如 Twilio、Slack 或数据库）。您可以按照以下步骤手动添加密钥：
 
-1. **Gizli dizi ekleme**: Google AI Studio'da **Ayarlar** menüsüne gidip Gizli Diziler bölümünü bulun.
-2. **Anahtarınızı saklama**: API anahtarlarınızı veya gizli jetonlarınızı buraya ekleyin.
-3. **Kodda erişim**: Aracı, bu sırları güvenli bir şekilde (genellikle ortam değişkenleri aracılığıyla) erişen sunucu tarafı kodu yazabilir ve bunların hiçbir zaman istemci tarafı tarayıcıya gösterilmemesini sağlayabilir.
+1. **添加 Secret**：前往 Google AI Studio 中的**设置** 菜单，然后找到
+   “Secrets”部分。
+2. **存储密钥**：在此处添加您的 API 密钥或 Secret 令牌。
+3. **在代码中访问**：智能体可以编写服务器端代码，以安全地访问这些
+   Secret（通常通过环境变量），确保它们绝不会向客户端浏览器公开。
 
-Gerekli olduğunda, yeni bir sır gerektiğinde veya projenin ortam değişkenlerinde yeni bir anahtar algılandığında, aracı sohbet penceresinde anahtar eklemenizi isteyen bir kart da gösterir.
+在需要时，智能体还会在聊天中显示一张卡片，提示您在需要新 Secret 或在项目的 env 变量中检测到新密钥时添加密钥。
 
-### Veritabanı ve kimlik doğrulama için Firebase entegrasyonu
+### Firebase 集成，用于数据库和身份验证
 
-Google AI Studio, [Firebase entegrasyonu](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=tr) aracılığıyla uygulamanıza veritabanı veya kimlik doğrulama eklemeyi kolaylaştırır.
-Antigravity Agent, aşağıdaki hizmetleri sizin için otomatik olarak sağlayıp ayarlayabilir:
+Google AI Studio 现在可以通过
+[Firebase 集成](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=zh-cn)轻松地向
+应用添加数据库或身份验证。
+Antigravity 智能体可以自动为您配置和设置以下服务：
 
-- **Firestore veritabanı**: İstemci ve sunucu tarafı geliştirme için verileri depolamak ve senkronize etmek üzere kullanılan esnek ve ölçeklenebilir bir NoSQL bulut veritabanı.
-- **Firebase Authentication**: Kullanıcılarınızın "Google ile oturum açma" akışlarını kullanarak uygulamanızda güvenli bir şekilde oturum açmasına izin verin.
+- **Firestore 数据库**：一种灵活且可扩缩的 NoSQL 云数据库，用于存储
+  和同步数据，以便进行客户端及服务器端的开发。
+- **Firebase Authentication**：让用户可以使用“使用 Google 账号登录”流程安全地登录您的
+  应用。
 
-Aracıdan "uygulamama veritabanı ekle" veya "Google ile Giriş'i ayarla" demeniz yeterlidir. Aracı, gerekli yapılandırmayı ve kod oluşturma işlemlerini sizin için yapar.
+只需让智能体“向我的应用添加数据库”或“设置 Google 登录”，它就会为您处理必要的配置和代码生成。
 
-Firebase'i ücretsiz olarak kullanmaya başlayabilir ve daha fazla kota veya ücretli özellikler kullanmaya hazır olduğunuzda ücretli bir hesapla ölçeklendirebilirsiniz.
+Firebase 可让您免费开始使用，并可选择在您准备好使用更多配额或使用付费功能时，通过付费账号进行扩缩。
 
-## Google Workspace API'leri
+## Google Workspace API
 
-Google AI Studio, Google Workspace API'lerine bağlanan uygulamalar oluşturmanıza olanak tanır. Böylece kullanıcılarınız, e-postalar, elektronik tablolar, dokümanlar, takvim etkinlikleri ve daha fazlası gibi gerçek verileriyle doğrudan uygulamanızda çalışabilir. Artık Google Cloud projesi oluşturmanız, OAuth'u yapılandırmanız veya API'nizi manuel olarak yönetmeniz gerekmez.
+借助 Google AI Studio，您可以构建连接到 Google Workspace API 的应用，以便用户可以在应用中使用真实数据：电子邮件、电子表格、文档、日历活动等。您不再需要设置 Google Cloud 云项目、配置 OAuth 或手动管理 API。
 
-### İşleyiş şekli
+### 运作方式
 
-Workspace entegrasyonunu iki şekilde ekleyebilirsiniz:
+您可以通过以下两种方式添加 Workspace 集成：
 
-- **Sohbet panelinde açıklayın**: Alt kısımdaki sohbet panelinde, temsilciye ne istediğinizi söylemeniz yeterlidir. Örneğin, *"Makbuzları Google E-Tablolar'a kaydeden bir gider izleyici oluştur"* veya *"Okunmamış Gmail mesajlarımı özetleyen bir kontrol paneli oluştur."*
-- **Entegrasyonlar panelinden seçme**: Oluşturma modunun sağ kenar çubuğunda **Entegrasyonlar** panelini açın ve bağlamak istediğiniz Workspace uygulamasını etkinleştirin.
+- **在聊天面板中进行描述**：只需在底部的聊天面板中告知智能体您想要的内容。例如，*“构建一个费用跟踪器，将收据记录到我的 Google 表格”*或*“创建一个信息中心，用于汇总我的未读 Gmail 邮件。”*
+- **从集成面板中进行选择**：在构建模式的右侧边栏中打开**集成**面板，然后启用您要连接的 Workspace 应用。
 
-Bir Workspace uygulaması eklediğinizde AI Studio otomatik olarak:
+添加 Workspace 应用后，AI Studio 会自动执行以下操作：
 
-1. Uygulamanız için gerekli Google API'sini bağlar.
-2. API'yi çağırmak için sunucu tarafı kodu oluşturur.
-3. Uygulamanızın son kullanıcılarının kendi verilerine erişimi yetkilendirebilmesi için güvenli bir "Google ile oturum açma" akışı ekler.
+1. 为您的应用连接必要的 Google API。
+2. 生成用于调用 API 的服务器端代码。
+3. 添加安全的“使用 Google 账号登录”流程，以便应用的最终用户可以授权访问自己的数据。
 
-### Desteklenen uygulamalar
+### 支持的应用
 
-Aşağıdaki Google Workspace uygulamaları kullanılabilir:
+以下 Google Workspace 应用可用：
 
-| Uygulama | Neler oluşturabilirsiniz? |
+| 应用 | 您可以构建的内容 |
 | --- | --- |
-| Google Takvim | Etkinlikleri ve takvimleri okuma, oluşturma ve yönetme |
-| Google Chat | İleti dizilerini ve grup alanlarını okuma ve bunlarla etkileşime geçme |
-| Google Dokümanlar | Doküman oluşturma, okuma, güncelleme ve biçimlendirme |
-| Google Drive | Dosya ve klasörleri düzenleme, arama ve yönetme |
-| Google Formlar | Anket oluşturma, soruları güncelleme ve yanıtları alma |
-| Gmail | E-posta içeriğini okuma, gönderme ve yönetme |
-| Google Keep | Notları, listeleri ve ekleri yönetme |
-| Google Meet | Görüntülü görüşme planlama ve yönetme |
-| Kişiler | Kişileri senkronize etme ve yönetme |
-| Google E-Tablolar | E-tablo verilerini okuma, yazma ve biçimlendirme |
-| Google Slaytlar | Sunu oluşturma ve değiştirme |
-| Google Görevler | Görev oluşturma, yönetme ve düzenleme |
+| Google 日历 | 读取、创建和管理活动及日历 |
+| Google Chat | 读取对话和群组聊天室并与之互动 |
+| Google 文档 | 创建、读取、更新和设置文档格式 |
+| Google 云端硬盘 | 整理、搜索和管理文件及文件夹 |
+| Google 表单 | 创建调查问卷、更新问题和检索回答 |
+| Gmail | 读取、发送和管理电子邮件内容 |
+| Google Keep | 管理记事、清单和附件 |
+| Google Meet | 安排和管理视频通话 |
+| 通讯录 | 同步和管理联系人 |
+| Google 表格 | 读取、写入和设置电子表格数据格式 |
+| Google 幻灯片 | 创建和修改演示文稿 |
+| Google Tasks | 创建、管理和整理任务 |
 
-### Kimlik doğrulama ve izinler
+### 身份验证和权限
 
-Oluşturucu olarak OAuth istemcilerini yapılandırmanız, kimlik bilgilerini yönetmeniz veya Google Cloud projesi oluşturmanız gerekmez. AI Studio tüm bu işlemleri sizin için yapar.
+作为构建者，您无需配置 OAuth 客户端、管理凭据或设置 Google Cloud 项目。AI Studio 会为您处理所有这些事宜。
 
-Workspace API'lerinin entegre edildiği uygulamalar, son kullanıcıların kimliğini doğrulamak için "Google ile oturum açma" özelliğini kullanır. Kullanıcılar uygulamanızı açtığında oturum açmaları ve uygulamanızın ihtiyaç duyduğu belirli izinleri (örneğin, takvimlerine salt okunur erişim veya bir e-tabloyu düzenleme olanağı) vermeleri istenir. Uygulamanız yalnızca uygulamayı kullanan kişinin verilerine erişir. Her kullanıcı, kendi hesabına erişim yetkisi verir.
+集成了 Workspace API 的应用使用“使用 Google 账号登录”对最终用户进行身份验证。当用户打开您的应用时，系统会提示他们登录并授予应用所需的特定权限（例如，对其日历的只读权限，或编辑电子表格的权限）。您的应用只能访问使用该应用的人员的数据。每位用户都会授权访问自己的账号。
 
-### Örnek istemler
+### 示例提示
 
-Workspace entegrasyonlarını kullanmaya başlamak için birkaç öneri:
+以下这些方法可帮助您开始使用 Workspace 集成：
 
-- *"Google Takvim'imi okuyup her toplantı için Gmail'de hazırlık e-postaları oluşturan bir uygulama geliştir."*
-- *"Google Dokümanı alıp Google Slaytlar'da 5 slaytlık bir özet sunu oluşturan bir araç geliştir."*
-- *"Makbuz yüklediğim, Gemini'ın ayrıntıları çıkardığı ve Google E-Tablomda yeni bir satırın kaydedildiği bir gider izleyici oluştur."*
+- *“构建一个应用，用于读取我的 Google 日历，并在
+  Gmail 中为每次会议起草准备电子邮件。”*
+- *“创建一个工具，用于获取 Google 文档，并在 Google 幻灯片中生成 5 张幻灯片的摘要
+  演示文稿。”*
+- *“创建一个费用跟踪器，用于让我上传收据，让 Gemini 提取
+  详细信息，并在我的 Google 表格中记录新行。”*
 
-### OAuth'u ayarlama
+### 设置 OAuth
 
-Sır yönetimiyle ilgili temel kullanım alanlarından biri, diğer web sitelerine veya uygulamalara bağlanmak için OAuth'u ayarlamaktır. İsteminizde, OAuth kimlik doğrulaması gerektiren bir üçüncü taraf uygulamasına bağlanmayla ilgili talimatlar varsa aracı, bu uygulama için OAuth'u ayarlama talimatlarını sağlar. Bu talimatlar, OAuth uygulamanızı yapılandırmak için gerekli geri çağırma URL'lerini içerir.
-Geri çağırma URL'lerini Ayarlar panelindeki **Entegrasyonlar** bölümünde de bulabilirsiniz.
+Secret 管理的一个主要用例是设置 OAuth 以连接到其他网站或应用。当您的提示包含有关连接到需要 OAuth 身份验证的第三方应用的说明时，智能体会提供有关如何为该应用设置 OAuth 的说明。这些说明将包含配置 OAuth 应用所需的回调网址。
+您还可以在“设置”面板的**集成** 下找到回调网址。
 
-## Çok oyunculu deneyimler oluşturma
+## 打造多人游戏体验
 
-Tam yığın çalışma zamanı, gerçek zamanlı ortak çalışma özelliklerini etkinleştirir.
+全栈运行时支持实时协作功能。
 
-- **Gerçek zamanlı durum**: Aracının "canlı sohbet", "ortak beyaz tahta" veya "çok oyunculu oyun" gibi özellikler oluşturmasını isteyebilirsiniz.
-- **Senkronize oturumlar**: Sunucu durumu yönetir ve birden fazla kullanıcının aynı uygulama örneğiyle gerçek zamanlı olarak etkileşim kurmasına olanak tanır.
+- **实时状态**：您可以让智能体构建“实时
+  聊天”“协作白板”或“多人游戏”等功能。
+- **同步会话**：服务器管理状态，允许多个用户
+  实时与同一应用实例互动。
 
-**Örnek istem**: > "Bunu, oyuncuların birbirlerinin imleçlerini görebileceği çok oyunculu bir oyun haline getir."
+**提示示例**：>“将其设为多人游戏，让玩家可以看到彼此的光标。”
 
-### Çok oyunculu uygulamaları test etme ipuçları
+### 测试多人游戏应用的提示
 
-Uygulamanızı dağıtmadan önce çok oyunculu modu iki şekilde test edebilirsiniz.
+您可以通过以下两种方式测试多人游戏模式，然后再部署应用。
 
-1. Uygulamanızı Google AI Studio'nun Build (Oluştur) modunda birden fazla sekmede açın. Uygulamanız, Build modunda geliştirilirken bir geliştirme container'ında bulunur. Uygulamayı birden fazla sekmede açarak uygulamanızı kullanan birden fazla oyuncuyu simüle edebilirsiniz.
-2. Sağ üstteki **Paylaş** menüsünü kullanarak uygulamayı başkalarıyla paylaşın.
-   Ardından, uygulamayı paylaştığınız oyuncularla kullanmak için **Paylaş** menüsünün **Entegrasyonlar** sekmesindeki **Paylaşılan URL**'yi kullanın.
+1. 在多个标签页中以 Google AI Studio 构建模式打开应用。在构建模式下开发时，您的应用位于开发容器中。在多个标签页中打开应用可让您模拟多个玩家使用您的应用。
+2. 使用右上角的**分享** 菜单与他人分享应用。然后，使用**分享** 菜单的**集成** 标签页中的**分享的网址** ，以便与您分享了应用的其他玩家一起使用该应用。
 
-## En iyi uygulamalar
+## 最佳做法
 
-- **Gemini API çağrıları**: `GEMINI_API_KEY`, otomatik olarak sunucu tarafı gizli anahtarı olarak yapılandırılır. Bu anahtarı kullanarak sunucu tarafı kodunuzdan Gemini API çağrıları yapın. Bu bilgiyi **Sırlar** panelinde görüntüleyebilirsiniz.
-- **Gizli anahtar güvenliği**: Hassas anahtarlar için her zaman Secret Manager'ı kullanın.
-  Bunları dosyalarınızda asla sabit kodlamayın.
-- **İlgi alanlarının ayrılması**: Kullanıcı arayüzü mantığınızı istemci tarafı çerçevesinde (React/Angular), iş mantığınızı/veri işlemeyi ise sunucu tarafında tutun.
-- **Hata işleme**: Uygulamanın kilitlenmesini önlemek için sunucu tarafı kodunuzun harici API çağrılarından kaynaklanan hataları etkili bir şekilde işlemesini sağlayın.
+- **Gemini API 调用**：您的 `GEMINI_API_KEY` 会自动配置为
+  服务器端 Secret。使用此密钥通过服务器端代码进行 Gemini API 调用。您可以在 **Secrets** 面板中查看它。
+- **Secret 安全性**：对于敏感密钥，请始终使用 Secret 管理器。
+  切勿在文件中对它们进行硬编码。
+- **关注点分离**：将界面逻辑保留在客户端框架
+  (React/Angular) 中，并将业务逻辑/数据处理保留在服务器端。
+- **错误处理**：确保服务器端代码能够稳健地处理来自外部 API 调用的错误
+  ，以防止应用崩溃。
 
-## Sırada ne var?
+## 后续步骤
 
-- [Google AI Studio'da uygulama geliştirme](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr)
-- [Google AI Studio'dan dağıtma](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=tr)
-- [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=tr)
+- [在 Google AI Studio 中构建应用](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=zh-cn)
+- [从 Google AI Studio 进行部署](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-cn)
+- [应用库](https://aistudio.google.com/apps?source=showcase&hl=zh-cn)
 
-Geri bildirim gönderin
+发送反馈
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Son güncelleme tarihi: 2026-08-19 UTC.
+最后更新时间 (UTC)：2026-08-19。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+需要向我们提供更多信息？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-08-19。"],[],[]]

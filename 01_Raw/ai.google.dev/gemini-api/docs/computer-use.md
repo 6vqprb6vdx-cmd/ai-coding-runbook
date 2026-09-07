@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=he
-fetched_at: 2026-08-31T06:35:22.978781+00:00
-title: "\u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05de\u05d7\u05e9\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=id
+fetched_at: 2026-09-07T05:43:07.958222+00:00
+title: "Penggunaan komputer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-# שימוש במחשב
+# Penggunaan komputer
 
-הכלי Computer Use מאפשר לכם לבנות סוכני בקרה לדפדפן, לנייד ולמחשב, שמבצעים אינטראקציות ומשימות אוטומטיות. באמצעות צילומי מסך, המודל יכול "לראות" מסך מחשב ו "לפעול" על ידי יצירת פעולות ספציפיות בממשק המשתמש, כמו קליקים בעכבר וקלט מהמקלדת. בדומה לקריאה לפונקציה, תצטרכו להטמיע את סביבת ההפעלה בצד הלקוח כדי לקבל ולהפעיל את הפעולות של השימוש במחשב.
+Alat Penggunaan Komputer memungkinkan Anda membuat agen kontrol browser, seluler, dan desktop yang berinteraksi dengan dan mengotomatiskan tugas. Dengan menggunakan screenshot, model dapat "melihat" layar komputer, dan "bertindak" dengan membuat tindakan UI tertentu seperti klik mouse dan input keyboard. Mirip dengan panggilan fungsi, Anda harus menerapkan lingkungan eksekusi sisi klien untuk menerima dan mengeksekusi tindakan Penggunaan Komputer.
 
-רשימת המודלים הנתמכים מופיעה במאמר [גרסאות של מודלים](#model-versions). מודלים של Gemini 3.x תומכים בכמה יכולות מתקדמות:
+Untuk mengetahui daftar model yang didukung, lihat [Versi model](#model-versions). Model Gemini 3.x mendukung beberapa kemampuan lanjutan:
 
-- **תמיכה בסביבות מרובות:** אפשר ליצור סוכנים לסביבות [דפדפן, נייד ומחשב](#supported-environments).
-- **פעולות יעילות עם כוונות:** הפעולות כוללות שדה `intent` שמסביר את ההיגיון של המודל מאחורי כל שלב.
-- **מדיניות בטיחות שאפשר להגדיר:** אפשר לכוונן את [התנהגות הבטיחות](#safety-policies) באמצעות קטגוריות מדיניות מובנות ושינויים בהגדרות ברירת המחדל.
-- **זיהוי הזרקת הנחיות:** הפעלה של [סריקת צילומי מסך](#prompt-injection) כדי לזהות הוראות נסתרות של תוקפים.
+- **Dukungan multi-lingkungan:** agen build untuk lingkungan [browser, seluler, dan desktop](#supported-environments).
+- **Tindakan yang disederhanakan dengan maksud:** tindakan mencakup kolom `intent` yang menjelaskan alasan model di balik setiap langkah.
+- **Kebijakan keamanan yang dapat dikonfigurasi:** sesuaikan [perilaku keamanan](#safety-policies) dengan kategori dan penggantian kebijakan bawaan.
+- **Deteksi injeksi perintah:** aktifkan [pemindaian screenshot](#prompt-injection) untuk mendeteksi petunjuk berbahaya tersembunyi.
 
-באמצעות 'שימוש במחשב', אתם יכולים ליצור סוכנים שיכולים:
+Dengan Penggunaan Komputer, Anda dapat membuat agen yang:
 
-- להפוך לאוטומטית משימות חוזרות של הזנת נתונים או מילוי טפסים באתרים.
-- ביצוע בדיקות אוטומטיות של אפליקציות אינטרנט ותהליכי משתמש
-- ביצוע מחקר באתרים שונים (למשל, איסוף מידע על מוצרים, מחירים וביקורות מאתרי מסחר אלקטרוני כדי לקבל החלטה לגבי רכישה)
+- Mengotomatiskan entri data atau pengisian formulir yang berulang di situs.
+- Melakukan pengujian otomatis aplikasi web dan alur pengguna
+- Melakukan riset di berbagai situs (misalnya, mengumpulkan informasi produk, harga, dan ulasan dari situs e-commerce untuk membantu pembelian)
 
-הנה דוגמה מינימלית לאתחול הלקוח ושליחת הנחיה למודל עם הכלי `computer_use` שמופעל בסביבת דפדפן:
+Berikut adalah contoh minimal untuk menginisialisasi klien dan mengirimkan perintah ke model dengan alat `computer_use` yang diaktifkan untuk lingkungan browser:
 
 ### Python
 
@@ -67,46 +67,54 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## איך פועלת התכונה 'שימוש במחשב'
+## Cara kerja Penggunaan Komputer
 
-כדי ליצור סוכן באמצעות מודל השימוש במחשב, צריך להגדיר לולאה רציפה בין האפליקציה לבין ה-API. מה הקוד יעשה בכל שלב:
+Untuk membuat agen dengan model Penggunaan Komputer, Anda perlu menyiapkan loop berkelanjutan antara aplikasi dan API. Berikut adalah fungsi kode Anda di setiap langkah:
 
-1. [**שליחת בקשה למודל**](#send-request)
-   - האפליקציה שולחת בקשת API שמכילה את הכלי לשימוש במחשב, את הגדרות התצורה (כמו סביבת היעד), את ההנחיה של המשתמש וצילום מסך של המסך הנוכחי.
-2. [**קבלת התשובה של המודל**](#model-response)
-   - המודל מנתח את המסך ואת ההנחיה ומחזיר תשובה שכוללת `function_call` שמייצג פעולה בממשק המשתמש (כמו קליק, גלילה או הקשה על מקש).
-   - ב**מודלים של Gemini 3.x**, התשובה כוללת גם נימוק `intent`
-     שמסביר למה המודל בחר בפעולה הזו.
-   - התגובה עשויה לכלול גם `safety_decision` ממערכת בטיחות פנימית שמסווגת את הפעולה כרגילה/מותרת, `require_confirmation` (נדרש אישור משתמש) או חסומה.
-3. [**מבצעים את הפעולה שהתקבלה**](#execute-actions)
-   - אם הפעולה מותרת (או אם המשתמש מאשר אותה), הקוד בצד הלקוח מנתח את `function_call`, משנה את קנה המידה של הקואורדינטות המנורמלות כך שיתאימו לאזור התצוגה, ומבצע את הפעולה בסביבת היעד באמצעות כלי אוטומציה (כמו Playwright). אם הפעולה חסומה, הלקוח צריך להפסיק את ההפעלה או לטפל בהפרעה.
-4. [**תיעוד המצב החדש של הסביבה**](#capture-state)
-   - אחרי שהפעולה מסתיימת, האפליקציה מצלמת צילום מסך חדש ושולחת אותו בחזרה למודל ב-`function_result` כדי לבקש את השלב הבא.
+1. [**Mengirim permintaan ke model**](#send-request)
+   - Aplikasi Anda mengirimkan permintaan API yang berisi alat Penggunaan Komputer, setelan konfigurasi Anda (seperti lingkungan target), perintah pengguna, dan screenshot layar saat ini.
+2. [**Menerima respons model**](#model-response)
+   - Model menganalisis layar dan perintah, lalu menampilkan respons
+     yang mencakup `function_call` yang disarankan yang merepresentasikan tindakan UI (seperti
+     klik, scroll, atau penekanan tombol).
+   - Untuk **model Gemini 3.x**, respons juga mencakup alasan `intent`
+     yang menjelaskan mengapa model memilih tindakan tersebut.
+   - Respons juga dapat mencakup `safety_decision` dari sistem keamanan internal yang mengklasifikasikan tindakan sebagai reguler/diizinkan, `require_confirmation` (memerlukan persetujuan pengguna), atau diblokir.
+3. [**Jalankan tindakan yang diterima**](#execute-actions)
+   - Jika tindakan diizinkan (atau pengguna mengonfirmasinya), kode
+     sisi klien Anda akan mengurai `function_call`, menskalakan koordinat yang dinormalisasi agar sesuai
+     dengan area tampilan, dan menjalankan tindakan di lingkungan target menggunakan
+     alat otomatisasi (seperti Playwright). Jika tindakan diblokir, klien Anda harus menghentikan eksekusi atau menangani gangguan.
+4. [**Merekam status lingkungan baru**](#capture-state)
+   - Setelah tindakan selesai dieksekusi, aplikasi Anda akan mengambil screenshot baru dan mengirimkannya kembali ke model dalam `function_result` untuk meminta langkah berikutnya.
 
-התהליך הזה חוזר על עצמו משלב 2, והמודל מתבקש שוב ושוב לבצע את הפעולה הבאה עד שהמשימה תושלם או תופסק.
+Kemudian, proses ini diulang dari langkah 2, terus-menerus meminta tindakan berikutnya
+dari model hingga tugas selesai atau dihentikan.
 
-![סקירה כללית על שימוש במחשב](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=he)
+![Ringkasan Penggunaan Komputer](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=id)
 
-## איך מטמיעים את התכונה 'שימוש במחשב'
+## Cara menerapkan Penggunaan Komputer
 
-לפני שמתחילים להשתמש בכלי 'שימוש במחשב', צריך להגדיר:
+Sebelum membangun dengan alat Penggunaan Komputer, Anda harus menyiapkan:
 
-- **סביבת ביצוע מאובטחת:** מריצים את הסוכן במכונה וירטואלית או במאגר מבודד כדי לבודד אותו ממערכת המארח ולהגביל את ההשפעה הפוטנציאלית שלו.
-  [הטמעה לדוגמה](https://github.com/google/computer-use-preview/) כוללת ארגז חול מבוסס Docker שמוכן לשימוש, ואפשר להשתמש בו כנקודת התחלה.
-- **מטפל בפעולות מצד הלקוח:** הטמעת לוגיקה מצד הלקוח כדי להפעיל קואורדינטות, להקליד טקסט ולצלם צילומי מסך.
+- **Lingkungan eksekusi yang aman:** Jalankan agen Anda di VM atau container sandbox untuk mengisolasinya dari sistem host Anda dan membatasi potensi dampaknya.
+  [Penerapan referensi](https://github.com/google/computer-use-preview/)
+  mencakup sandbox berbasis Docker yang siap digunakan dan dapat Anda gunakan sebagai titik awal.
+- **Handler tindakan sisi klien:** Terapkan logika sisi klien untuk menjalankan koordinat, mengetik teks, dan mengambil screenshot.
 
-בדוגמאות שבהמשך נעשה שימוש בדפדפן אינטרנט כסביבת ההפעלה וב-[Playwright](https://playwright.dev/) כמטפל בצד הלקוח.
+Contoh di bawah menggunakan browser web sebagai lingkungan eksekusi dan
+[Playwright](https://playwright.dev/) sebagai handler sisi klien.
 
-### ‫0. הגדרת Playwright
+### 0. Menyiapkan Playwright
 
-קודם כול, מתקינים את החבילות הנדרשות:
+Pertama, instal paket yang diperlukan:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-לאחר מכן, מאתחלים מופע של דפדפן Playwright לשימוש בהרצה:
+Kemudian, inisialisasi instance browser Playwright untuk digunakan dalam eksekusi:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -134,15 +142,15 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. שליחת בקשה למודל
+### 1. Mengirim permintaan ke model
 
-מאתחלים את ספריית הלקוח ומגדירים את הכלי 'שימוש במחשב'. שימו לב: אין צורך לציין את גודל התצוגה כשמגישים בקשה. המודל חוזה את קואורדינטות הפיקסלים שמותאמות לגובה ולרוחב של המסך.
+Lakukan inisialisasi library klien dan konfigurasi alat Penggunaan Komputer. Perhatikan bahwa tidak perlu menentukan ukuran tampilan saat mengeluarkan permintaan; model memprediksi koordinat piksel yang diskalakan ke tinggi dan lebar layar.
 
 ### Gemini 3.x
 
 ### Python
 
-משתמשים ב-`google-genai` Python SDK (גרסה `2.7.0` ואילך) כדי להגדיר בקשה לטירגוט סביבת הדפדפן:
+Gunakan `google-genai` Python SDK (versi `2.7.0` atau yang lebih tinggi) untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
 
 ```
 from google import genai
@@ -166,7 +174,7 @@ print(interaction)
 
 ### JavaScript
 
-משתמשים ב-Node.js SDK‏ `@google/genai` כדי להגדיר בקשה שמטרגטת את סביבת הדפדפן:
+Gunakan `@google/genai` Node.js SDK untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -190,7 +198,7 @@ console.log(interaction);
 
 ### REST
 
-משתמשים ב-curl כדי לשלוח בקשה:
+Gunakan curl untuk mengirim permintaan:
 
 ```
 curl -X POST \
@@ -210,7 +218,7 @@ curl -X POST \
   }'
 ```
 
-### ‫Gemini 2.5 (גרסה קודמת)
+### Gemini 2.5 (Versi Lama)
 
 ### Python
 
@@ -262,9 +270,10 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-### 2. קבלת התשובה מהמודל
+### 2. Menerima respons model
 
-מודל התגובה מציע קריאה לפונקציה. ב**מודלים של Gemini 3.x**, התשובה מכילה כוונת חשיבה רציונלית מותאמת אישית לצד קואורדינטות. בדוגמה הבאה מוצגות שתי התשובות:
+Model respons menyarankan panggilan fungsi. Untuk **model Gemini 3.x**, respons berisi maksud penalaran yang disesuaikan bersama dengan koordinat. Berikut
+contoh kedua respons:
 
 ### Gemini 3.x
 
@@ -284,7 +293,7 @@ console.log(interaction);
 }
 ```
 
-### ‫Gemini 2.5 (גרסה קודמת)
+### Gemini 2.5 (Versi Lama)
 
 ```
 {
@@ -312,11 +321,11 @@ console.log(interaction);
 }
 ```
 
-### 3. ביצוע הפעולות שהתקבלו
+### 3. Menjalankan tindakan yang diterima
 
-האפליקציה צריכה לנתח את קואורדינטות התגובה, לבצע את הפעולה ולשנות את קנה המידה שלהן מקואורדינטות נורמליות של 1,000x1,000.
+Aplikasi Anda harus mengurai koordinat respons, menjalankan tindakan, dan menskalakannya dari koordinat 1000x1000 yang dinormalisasi.
 
-הקוד שלמטה מטפל גם בפקודות של כלי מדור קודם (`click_at`, `type_text_at`) וגם בפקודות מודרניות יעילות (`click`, `type`).
+Kode di bawah menangani perintah alat lama (`click_at`, `type_text_at`) dan perintah yang disederhanakan modern (`click`, `type`).
 
 ### Python
 
@@ -481,9 +490,11 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
 }
 ```
 
-### 4. תיעוד מצב הסביבה החדש
+### 4. Merekam status lingkungan baru
 
-אחרי שמבצעים את הפעולות, שולחים את התוצאה של הפעלת הפונקציה בחזרה למודל כדי שהוא יוכל להשתמש במידע הזה כדי ליצור את הפעולה הבאה. אם בוצעו כמה פעולות (קריאות מקבילות), צריך לשלוח `function_result` לכל אחת מהן בתור הבא של המשתמש.
+Setelah menjalankan tindakan, kirim hasil eksekusi fungsi kembali ke model agar model dapat menggunakan informasi ini untuk membuat tindakan berikutnya. Jika
+beberapa tindakan (panggilan paralel) dijalankan, Anda harus mengirimkan
+`function_result` untuk setiap tindakan pada giliran pengguna berikutnya.
 
 ### Python
 
@@ -546,14 +557,14 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
-אחרי שמגדירים איך ללכוד ולעצב את מצב הסביבה, אפשר לשלב את כל השלבים האלה בלולאת ביצוע רציפה.
+Setelah menentukan cara merekam dan memformat status lingkungan, Anda dapat menggabungkan semua langkah ini ke dalam loop eksekusi berkelanjutan.
 
-## יצירת לולאת סוכן
+## Membangun loop agen
 
-כדי להפעיל אינטראקציות מרובות שלבים, משלבים את ארבעת השלבים מהקטע [איך מטמיעים את התכונה 'שימוש במחשב'](#implement-computer-use) בלולאה אחת.
-הלולאה הזו ממשיכה לבקש פעולות ולהעביר את התוצאות בחזרה למודל עד שהמשימה מסתיימת.
+Untuk mengaktifkan interaksi multi-langkah, gabungkan empat langkah dari bagian [Cara menerapkan Penggunaan Komputer](#implement-computer-use) menjadi satu loop.
+Loop ini terus meminta tindakan dan mengirimkan kembali hasilnya ke model hingga tugas selesai.
 
-חשוב לנהל את היסטוריית השיחות בצורה נכונה. בכל שלב, צריך להוסיף להיסטוריה את התשובות של המודל ואת התשובות של הפונקציה.
+Ingatlah untuk mengelola histori percakapan dengan benar dengan menambahkan respons model dan respons fungsi Anda ke histori di setiap langkah.
 
 ### Python
 
@@ -743,107 +754,108 @@ try {
 }
 ```
 
-## סביבות נתמכות (Gemini 3.x)
+## Lingkungan yang didukung (Gemini 3.x)
 
-מודלים של Gemini 3.x תומכים בשלוש סביבות שמוגדרות ב`computer_use`הגדרות:
+Model Gemini 3.x mendukung tiga lingkungan yang ditentukan dalam `computer_use`
+konfigurasi:
 
-### סביבת הדפדפן (`ENVIRONMENT_BROWSER`)
+### Lingkungan browser (`ENVIRONMENT_BROWSER`)
 
-הפעולות הזמינות בכלי הדפדפן:
+Tindakan yang tersedia di alat browser:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
 | --- | --- | --- |
-| **קליק** | קליקים שמאליים בקואורדינטה. | `y` Aware\_of\_time\_zone: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | לחיצות כפולות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | שלוש לחיצות על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | לחיצה אמצעית על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | לחיצות ימניות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | לחיצה ארוכה על כפתור העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | משחרר את לחצן העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **move** | העברת הסמן למיקום שצוין. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | הקלדת טקסט. | `text`: str `press_enter`: bool (Optional, default `false`) `intent`: str |
-| **drag\_and\_drop** | גורר פריט מקואורדינטת ההתחלה לקואורדינטת הסיום. | ‫`start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | הפסקת ההרצה למספר שניות שצוין. | ‫`seconds`: int (אופציונלי, ברירת מחדל `1`) `intent`: str |
-| **press\_key** | לחיצה על המקש שצוין ושחרור שלו. | ‫`key`: str `intent`: str |
-| **key\_down** | לחיצה ארוכה על המקש שצוין. | ‫`key`: str `intent`: str |
-| **key\_up** | משחרר את המקש שצוין. | ‫`key`: str `intent`: str |
-| **מקש קיצור** | לחיצה על שילוב המקשים שצוין. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | מחזירה צילום מסך של המסך הנוכחי. | ‫`intent`: str |
-| **scroll** | גלילה למעלה, למטה, שמאלה או ימינה בנקודה מסוימת בפיקסל אחד. | ‫`y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Optional, default `300`) `intent`: str |
-| **go\_back** | חזרה לדף האינטרנט הקודם בהיסטוריית הדפדפן. | ‫`intent`: str |
-| **navigate** | ניווט ישירות לכתובת URL ספציפית. | ‫`url`: str `intent`: str |
-| **go\_forward** | מעבר קדימה לדף האינטרנט הבא בהיסטוריית הגלישה. | `intent`: str |
+| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
+| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
+| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
+| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
+| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
+| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
+| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
+| **go\_back** | Kembali ke halaman web sebelumnya dalam histori browser. | `intent`: str |
+| **navigate** | Membuka langsung URL tertentu. | `url`: str `intent`: str |
+| **go\_forward** | Membuka halaman web berikutnya dalam histori browser. | `intent`: str |
 
-### סביבה לנייד (`ENVIRONMENT_MOBILE`)
+### Lingkungan seluler (`ENVIRONMENT_MOBILE`)
 
-פעולות בסביבה שעברה אופטימיזציה ל-Android:
+Tindakan lingkungan yang dioptimalkan untuk Android:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
 | --- | --- | --- |
-| **open\_app** | פותח אפליקציה לפי השם שלה. | ‫`app_name`: str `intent`: str |
-| **קליק** | קליקים שמאליים בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | מציג רשימה של האפליקציות שזמינות במכשיר, ומחזיר את השמות ושמות החבילות שלהן. | `intent`: str |
-| **wait** | הפסקת ההרצה למספר שניות שצוין. | ‫`seconds`: int (אופציונלי, ברירת מחדל `1`) `intent`: str |
-| **go\_back** | חזרה למסך הקודם או לדף האינטרנט הקודם. | `intent`: str |
-| **type** | הקלדת טקסט. | `text`: str `press_enter`: bool (Optional, default `false`) `intent`: str |
-| **drag\_and\_drop** | גורר פריט מקואורדינטת ההתחלה לקואורדינטת הסיום. | ‫`start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | מבצע לחיצה ארוכה בקואורדינטה במסך. | ‫`y`: int (0-999) `x`: int (0-999) `seconds`: int (אופציונלי, ברירת מחדל `2`) `intent`: str |
-| **press\_key** | לחיצה על המקש שצוין ושחרור שלו. | ‫`key`: str `intent`: str |
-| **take\_screenshot** | מחזירה צילום מסך של המסך הנוכחי. | `intent`: str |
+| **open\_app** | Membuka aplikasi berdasarkan namanya. | `app_name`: str `intent`: str |
+| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | Mencantumkan aplikasi yang tersedia di perangkat, menampilkan nama dan nama paketnya. | `intent`: str |
+| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
+| **go\_back** | Kembali ke layar atau halaman web sebelumnya. | `intent`: str |
+| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
+| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | Melakukan tekan lama pada koordinat di layar. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (Opsional, default `2`) `intent`: str |
+| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
+| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
 
-### סביבת שולחן עבודה (`ENVIRONMENT_DESKTOP`)
+### Lingkungan desktop (`ENVIRONMENT_DESKTOP`)
 
-פקודות לשימוש בסמן ברמת מערכת ההפעלה בסביבות שולחן עבודה:
+Perintah kursor tingkat OS lingkungan desktop:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
 | --- | --- | --- |
-| **קליק** | קליקים שמאליים בקואורדינטה. | `y` Aware\_of\_time\_zone: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | לחיצות כפולות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | שלוש לחיצות על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | לחיצה אמצעית על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | לחיצות ימניות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | לחיצה ארוכה על כפתור העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | משחרר את לחצן העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **move** | העברת הסמן למיקום שצוין. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | הקלדת טקסט. | `text`: str `press_enter`: bool (Optional, default `false`) `intent`: str |
-| **drag\_and\_drop** | גורר פריט מקואורדינטת ההתחלה לקואורדינטת הסיום. | ‫`start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | הפסקת ההרצה למספר שניות שצוין. | ‫`seconds`: int (אופציונלי, ברירת מחדל `1`) `intent`: str |
-| **press\_key** | לחיצה על המקש שצוין ושחרור שלו. | ‫`key`: str `intent`: str |
-| **key\_down** | לחיצה ארוכה על המקש שצוין. | ‫`key`: str `intent`: str |
-| **key\_up** | משחרר את המקש שצוין. | ‫`key`: str `intent`: str |
-| **מקש קיצור** | לחיצה על שילוב המקשים שצוין. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | מחזירה צילום מסך של המסך הנוכחי. | ‫`intent`: str |
-| **scroll** | גלילה למעלה, למטה, שמאלה או ימינה בנקודה מסוימת בפיקסל אחד. | ‫`y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Optional, default `300`) `intent`: str |
+| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
+| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
+| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
+| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
+| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
+| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
+| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
 
-## פעולות בממשק המשתמש שנתמכות בגרסה מדור קודם (Gemini 2.5)
+## Tindakan UI yang Didukung Lama (Gemini 2.5)
 
-במודלים מדור קודם (`gemini-2.5-computer-use-preview-10-2025`), הפעולות הבאות נתמכות:
+Untuk model lama (`gemini-2.5-computer-use-preview-10-2025`), tindakan berikut didukung:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) | דוגמה לבקשה להפעלת פונקציה |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) | Contoh panggilan fungsi |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | הפעולה הזו תפתח את דפדפן האינטרנט. | ללא | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | ההרצה מושהית למשך 5 שניות. | ללא | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | מעבר לדף הקודם בהיסטוריה. | ללא | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | מעבר לדף הבא בהיסטוריה. | ללא | `{"name": "go_forward", "arguments": {}}` |
-| **search** | עוברים למנוע החיפוש שמוגדר כברירת מחדל. | ללא | `{"name": "search", "arguments": {}}` |
-| **navigate** | הדפדפן עובר ישירות לכתובת ה-URL שצוינה. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | קליקים בקואורדינטה ספציפית. | ‫`y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | העכבר מרחף מעל קואורדינטה ספציפית. | ‫`y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | הקלדת טקסט בקואורדינטה. | ‫`y`: int ‏ (0-999), ‏ `x`: int ‏ (0-999), ‏ `text`: str, ‏ `press_enter`: bool (אופציונלי, ברירת המחדל היא True), ‏ `clear_before_typing`: bool (אופציונלי, ברירת המחדל היא True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | לוחצים על מקשים או על שילובים של מקשים. | ‫`keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | גלילה בכל דף האינטרנט. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | גלילה בקואורדינטות (x,y). | ‫`y`: int, `x`: int, `direction`: str, `magnitude`: int (אופציונלי, ברירת מחדל 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | גרירה בין שתי קואורדינטות. | ‫`y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+| **open\_web\_browser** | Membuka browser web. | Tidak ada | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | Menjeda eksekusi selama 5 detik. | Tidak ada | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | Membuka halaman sebelumnya dalam histori. | Tidak ada | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | Membuka halaman berikutnya dalam histori. | Tidak ada | `{"name": "go_forward", "arguments": {}}` |
+| **search** | Membuka mesin telusur default. | Tidak ada | `{"name": "search", "arguments": {}}` |
+| **navigate** | Membuka URL yang ditentukan secara langsung di browser. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Mengklik pada koordinat tertentu. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | Mengarahkan kursor mouse pada koordinat tertentu. | `y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Mengetik teks pada koordinat. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (Opsional, default Benar), `clear_before_typing`: bool (Opsional, default Benar) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | Tekan tombol atau kombinasi tombol. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | Men-scroll seluruh halaman web. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | Men-scroll di koordinat (x,y). | `y`: int, `x`: int, `direction`: str, `magnitude`: int (Opsional, default 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | Menarik antara dua koordinat. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
 
-## פונקציות מותאמות אישית בהגדרת המשתמש
+## Fungsi kustom yang ditentukan pengguna
 
-אפשר להרחיב את הפונקציונליות של המודל באמצעות פונקציות מותאמות אישית בהגדרת המשתמש. לדוגמה, בתרחישים של התערבות אנושית (HITL), אפשר להחריג פעולות מוגדרות מראש ולרשום פעולות בהתאמה אישית.
+Anda dapat memperluas fungsi model dengan menyertakan fungsi kustom yang ditentukan pengguna. Misalnya, dalam skenario human-in-the-loop (HITL), Anda dapat mengecualikan tindakan default yang telah ditentukan sebelumnya dan mendaftarkan tindakan kustom.
 
-#### כלים מותאמים אישית של Gemini 3.x
+#### Alat Kustom Gemini 3.x
 
 ### Python
 
-להחריג פעולות סטנדרטיות שהוגדרו מראש בדפדפן (כמו `click`) ולרשום כלי מותאם אישית `yield_to_user`:
+Kecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan daftarkan alat `yield_to_user` kustom:
 
 ```
 from google import genai
@@ -882,7 +894,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-להחריג פעולות סטנדרטיות שהוגדרו מראש בדפדפן (כמו `click`) ולרשום כלי מותאם אישית `yield_to_user`:
+Mengecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan mendaftarkan alat `yield_to_user` kustom:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -919,7 +931,7 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-#### כלים מותאמים אישית של Gemini 2.5 (גרסה מדור קודם)
+#### Alat Kustom Gemini 2.5 (Versi Lama)
 
 ### Python
 
@@ -999,29 +1011,29 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## ניהול רמות ההעמקה (Gemini 3.x)
+## Mengelola tingkat penalaran (Gemini 3.x)
 
-בסוכנים לשימוש במחשב, אפשר להגדיר רמות חשיבה שונות כדי ליצור איזון בין איכות הפעולה למהירות הביצוע. בדרך כלל, רמות חשיבה נמוכות יותר מאפשרות להשיג איזון טוב במשימות אוטומציה רגילות.
+Untuk agen penggunaan komputer, Anda dapat mengonfigurasi tingkat pemikiran yang berbeda untuk menyeimbangkan kualitas tindakan dan kecepatan eksekusi. Tingkat pemikiran yang lebih rendah umumnya mencapai keseimbangan yang baik untuk tugas otomatisasi standar.
 
-## בטיחות ואבטחה
+## Keselamatan dan keamanan
 
-### הגדרת מדיניות בנושא בטיחות (Gemini 3.x)
+### Mengonfigurasi kebijakan keamanan (Gemini 3.x)
 
-מודלים של Gemini 3.x כוללים קטגוריות מוּבְנות של שירותי בטיחות שקובעות באופן אוטומטי אם נדרש אישור מהמשתמש.
+Model Gemini 3.x mencakup kategori layanan keamanan bawaan yang secara otomatis menentukan apakah konfirmasi pengguna diperlukan.
 
-| קטגוריית מדיניות בנושא בטיחות | תיאור |
+| Kategori kebijakan keselamatan | Deskripsi |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | חסימה או הפעלה של אישור לפעולות שקשורות לתשלומים, לתשלום בקמעונאות או למוצרים מפוקחים. |
-| `SENSITIVE_DATA_MODIFICATION` | הגנה על רשומות בריאותיות, פיננסיות או ממשלתיות מפני שינויים לא מורשים. |
-| `COMMUNICATION_TOOL` | הגבלה של הסוכן כך שלא יוכל לשלוח אימיילים, הודעות צ'אט או טיוטות באופן אוטונומי. |
-| `ACCOUNT_CREATION` | ההגדרה הזו מגבילה את הסוכן ומונעת ממנו לרשום באופן אוטונומי חשבונות חדשים באתרים. |
-| `DATA_MODIFICATION` | ההרשאה הזו מסדירה שינויים במערכת הקבצים, שיתוף נתונים ומחיקת אחסון. |
-| `USER_CONSENT_MANAGEMENT` | נדרשת השתלטות על המשתמשים כדי להציג באנרים לבקשת הסכמה לשימוש בקובצי Cookie והודעות בנושא פרטיות. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | מונעת מהמודל לאשר באופן אוטונומי תנאים והגבלות או חוזים מחייבים מבחינה משפטית. |
+| `FINANCIAL_TRANSACTIONS` | Memblokir atau memicu konfirmasi untuk tindakan yang melibatkan pembayaran, checkout retail, atau barang yang diatur oleh hukum. |
+| `SENSITIVE_DATA_MODIFICATION` | Melindungi catatan kesehatan, keuangan, atau pemerintah dari modifikasi yang tidak sah. |
+| `COMMUNICATION_TOOL` | Membatasi agen agar tidak mengirim email, pesan chat, atau draf secara mandiri. |
+| `ACCOUNT_CREATION` | Membatasi agen agar tidak mendaftarkan akun baru secara mandiri di situs. |
+| `DATA_MODIFICATION` | Mengatur modifikasi sistem file secara keseluruhan, berbagi data, dan penghapusan penyimpanan. |
+| `USER_CONSENT_MANAGEMENT` | Memerlukan pengambilalihan pengguna untuk banner izin cookie dan dialog privasi. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | Mencegah model menerima Persyaratan Layanan atau kontrak yang mengikat secara hukum secara mandiri. |
 
-#### שינויים בהגדרות האבטחה
+#### Penggantian keamanan
 
-אפשר לשנות מדיניות ספציפית על ידי העברת שינויים:
+Anda dapat mengganti kebijakan tertentu dengan meneruskan penggantian:
 
 ### Python
 
@@ -1067,13 +1079,13 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-### זיהוי החדרת פרומפטים (Gemini 3.x)
+### Deteksi injeksi perintah (Gemini 3.x)
 
-מנגנון בטיחות אופציונלי שסורק פיקסלים בצילומי מסך כדי לזהות הוראות פרומפט זדוני נסתרות (למשל, "התעלם מהפקודות הקודמות") וחוסם את הביצוע שלהן אם הן מזוהות.
+Mekanisme keamanan keikutsertaan yang memindai piksel screenshot untuk menemukan petunjuk perintah berniat jahat tersembunyi (misalnya, "Abaikan perintah sebelumnya") dan memblokir eksekusi saat terdeteksi.
 
-### אישור החלטה בנושא בטיחות
+### Mengonfirmasi keputusan keamanan
 
-התשובה יכולה לכלול את הפרמטר `safety_decision` בארגומנטים של קריאת הפונקציה:
+Respons dapat menyertakan parameter `safety_decision` dalam argumen panggilan fungsi:
 
 ```
 {
@@ -1094,7 +1106,7 @@ const interaction = await ai.interactions.create({
 }
 ```
 
-אם הערך של `safety_decision` הוא `require_confirmation`, מציגים למשתמש הקצה הנחיה. אם המשתמש מאשר, מגדירים את `safety_acknowledgement` ב-`function_result`.
+Jika `safety_decision` adalah `require_confirmation`, minta pengguna akhir. Jika pengguna mengonfirmasi, tetapkan `safety_acknowledgement` di `function_result`.
 
 ### Python
 
@@ -1113,15 +1125,15 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### שיטות מומלצות לשמירה על האבטחה
+### Praktik terbaik keamanan
 
-שימוש במחשב מציב סיכוני אבטחה ותפעול ייחודיים, כי מודל שפועל בשם משתמש עלול להיתקל בתוכן לא מהימן במסכים או לבצע שגיאות בהפעלת פעולות. כדי להגן על נתוני המשתמשים ועל המערכות, מומלץ להטמיע את השיטות המומלצות הבאות:
+Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karena model yang bertindak atas nama pengguna dapat menemukan konten yang tidak tepercaya di layar atau melakukan kesalahan dalam menjalankan tindakan. Terapkan praktik terbaik berikut untuk melindungi data dan sistem pengguna:
 
 1. **Human-in-the-Loop (HITL):**
 
-   - **אכיפת אישור המשתמש:** אם התגובה בנושא בטיחות מציינת
-     `require_confirmation` (או אם נדרש אישור לפי החלטת הבטיחות הקודמת), המשתמש יתבקש לאשר.
-   - **הוספת הוראות בטיחות בהתאמה אישית:** אפשר להטמיע הוראות מערכת בהתאמה אישית כדי להגדיר ולאכוף את גבולות הבטיחות שלכם. לדוגמה:
+   - **Menerapkan konfirmasi pengguna:** Jika respons keamanan menunjukkan
+     `require_confirmation` (atau keputusan keamanan lama memerlukannya), minta persetujuan pengguna.
+   - **Memberikan petunjuk keamanan kustom:** Terapkan petunjuk sistem kustom untuk menentukan dan menerapkan batas keamanan Anda sendiri. Contoh:
 
      ### Python
 
@@ -1334,39 +1346,44 @@ if 'safety_decision' in function_call.arguments:
          }]
      });
      ```
-2. **סביבת ביצוע מאובטחת:** הפעלת הסוכן בסביבה מאובטחת של ארגז חול כדי להגביל את ההשפעה הפוטנציאלית שלו. יכול להיות שמדובר במכונה וירטואלית (VM) בסביבת ארגז חול, בקונטיינר (למשל, Docker) או בפרופיל דפדפן ייעודי עם הרשאות מוגבלות. הוראות להגדרת ארגז חול באמצעות Docker מופיעות ב[הטמעה לדוגמה ב-GitHub](https://github.com/google/computer-use-preview/).
-3. **ניקוי קלט:** ניקוי של כל הטקסט שנוצר על ידי משתמשים בהנחיות, כדי לצמצם את הסיכון להוראות לא מכוונות או להחדרת פרומפטים. זו שכבת אבטחה מועילה, אבל היא לא תחליף לסביבת ביצוע מאובטחת.
-4. **אמצעי הגנה על תוכן:** אפשר להשתמש באמצעי הגנה ובממשקי API של בטיחות תוכן כדי להעריך את הקלט של המשתמשים, את הקלט והפלט של כלי העזר ואת התשובות של הסוכן, ולבדוק אם הם מתאימים, אם יש בהם הזרקת הנחיות ואם הם מאפשרים עקיפת הגבלות.
-5. **רשימות היתרים ורשימות חסימה:** כדאי להטמיע מנגנוני סינון כדי לשלוט במיקומים שבהם המודל יכול לנווט ובפעולות שהוא יכול לבצע. רשימת חסימה של אתרים אסורים היא נקודת התחלה טובה, אבל רשימת היתרים מגבילה יותר ומספקת אבטחה טובה יותר.
-6. **יכולת מעקב ורישום ביומן:** שמירה של יומנים מפורטים לצורך ניפוי באגים, ביקורת ותגובה לאירועים. הלקוח צריך לתעד הנחיות, צילומי מסך, פעולות שהמודל מציע (`function_call`), תגובות שקשורות לבטיחות וכל הפעולות שהלקוח מבצע בסופו של דבר.
-7. **ניהול סביבה:** מוודאים שהסביבה של ממשק המשתמש הגרפי עקבית.
-   חלונות קופצים, התראות או שינויים בפריסה שלא ציפיתם להם עלולים לבלבל את המודל. אם אפשר, מתחילים ממצב נקי ומוכר לכל משימה חדשה.
+2. **Lingkungan eksekusi yang aman:** Jalankan agen Anda di lingkungan yang aman dan sandbox untuk membatasi potensi dampaknya. Hal ini dapat berupa mesin virtual (VM) sandbox, container (misalnya, Docker), atau profil browser khusus dengan izin terbatas. Lihat
+   [implementasi referensi GitHub](https://github.com/google/computer-use-preview/)
+   untuk panduan penyiapan sandbox menggunakan Docker.
+3. **Pembersihan input:** Bersihkan semua teks buatan pengguna dalam perintah untuk
+   memitigasi risiko perintah yang tidak diinginkan atau injeksi perintah. Ini adalah lapisan keamanan yang berguna, tetapi bukan pengganti lingkungan eksekusi yang aman.
+4. **Pembatasan konten:** Gunakan pembatasan dan API keamanan konten untuk mengevaluasi input pengguna, input dan output alat, serta respons agen untuk kesesuaian, deteksi injeksi perintah, dan jailbreak.
+5. **Daftar yang diizinkan dan daftar yang tidak diizinkan:** Terapkan mekanisme pemfilteran untuk mengontrol ke mana model dapat membuka dan apa yang dapat dilakukannya. Daftar situs yang dilarang yang tidak diizinkan adalah titik awal yang baik, sementara daftar yang diizinkan yang lebih ketat akan lebih aman.
+6. **Observabilitas dan logging:** Pertahankan log mendetail untuk proses debug, audit, dan respons insiden. Klien Anda harus mencatat perintah, screenshot, tindakan yang disarankan model (`function_call`), respons keamanan, dan semua tindakan yang akhirnya dilakukan oleh klien.
+7. **Pengelolaan lingkungan:** Pastikan lingkungan GUI konsisten.
+   Pop-up, notifikasi, atau perubahan tata letak yang tidak terduga dapat membingungkan model. Mulai dari status bersih yang diketahui untuk setiap tugas baru jika memungkinkan.
 
-## גרסאות המודלים
+## Versi model
 
-אפשר להשתמש ב'שימוש במחשב' עם המודלים הבאים:
+Anda dapat menggunakan Penggunaan Komputer dengan model berikut:
 
-- ‫[**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=he) (`gemini-3.7-flash`): המודל המומלץ לשימוש במחשב, עם פעולות יעילות באמצעות כוונות, תמיכה בסביבות דפדפן, נייד ושולחן עבודה, מדיניות אבטחה שניתנת להגדרה וזיהוי של הזרקת הנחיות.
-- ‫[**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=he) (`gemini-3.5-flash-lite`): מודל חסכוני עם זמן אחזור נמוך, שתומך בשימוש במחשב.
-- ‫[**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) (`gemini-3.5-flash`): מודל יציב קודם שתומך בשימוש במחשב.
-- ‫[**Gemini 3 Flash Preview**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) (`gemini-3-flash-preview`): מודל בתצוגה מקדימה
-  עם תמיכה בשימוש במחשב.
-- ‫[**Gemini 2.5 (גרסת טרום-השקה מדור קודם)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=he) (`gemini-2.5-computer-use-preview-10-2025`): מודל טרום-השקה מדור קודם שעבר אופטימיזציה לשימוש במחשב מבוסס-דפדפן.
+- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=id) (`gemini-3.7-flash`): Model yang direkomendasikan untuk
+  penggunaan komputer, yang menampilkan tindakan yang disederhanakan dengan maksud, dukungan untuk
+  lingkungan browser, seluler, dan desktop, kebijakan keamanan yang dapat dikonfigurasi, dan
+  deteksi injeksi perintah.
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) (`gemini-3.5-flash-lite`): Model hemat biaya dengan latensi rendah yang mendukung penggunaan komputer.
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) (`gemini-3.5-flash`): Model stabil sebelumnya yang mendukung penggunaan komputer.
+- [**Pratinjau Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) (`gemini-3-flash-preview`): Model pratinjau yang mendukung penggunaan komputer.
+- [**Gemini 2.5 (Pratinjau Lama)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=id) (`gemini-2.5-computer-use-preview-10-2025`): Model pratinjau lama yang dioptimalkan untuk penggunaan komputer berbasis browser.
 
-## המאמרים הבאים
+## Langkah berikutnya
 
-- אפשר להתנסות בשימוש במחשב ב[סביבת ההדגמה של Browserbase](http://gemini.browserbase.com).
-- בדף [Reference implementation](https://github.com/google/computer-use-preview) יש דוגמאות לקוד.
-- מידע על כלים אחרים של Gemini API:
-  - [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
-  - [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he)
+- Bereksperimen dengan Penggunaan Komputer di [lingkungan demo Browserbase](http://gemini.browserbase.com).
+- Lihat [Implementasi referensi](https://github.com/google/computer-use-preview) untuk melihat contoh kode.
+- Pelajari alat Gemini API lainnya:
+  - [Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+  - [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-עדכון אחרון: 2026-08-19 (שעון UTC).
+Terakhir diperbarui pada 2026-08-19 UTC.
 
-רוצה לתת לנו משוב?
+Ada masukan untuk kami?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-08-19 (שעון UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-08-19 UTC."],[],[]]

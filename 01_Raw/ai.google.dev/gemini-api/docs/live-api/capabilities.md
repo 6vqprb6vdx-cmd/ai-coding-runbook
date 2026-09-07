@@ -1,53 +1,56 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de
-fetched_at: 2026-08-31T06:29:26.818144+00:00
-title: "Leitfaden zu den Live API-Funktionen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=th
+fetched_at: 2026-09-07T05:39:15.769774+00:00
+title: "\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e02\u0e2d\u0e07 Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-# Leitfaden zu den Live API-Funktionen
+# คู่มือความสามารถของ Live API
 
-Dieser umfassende Leitfaden behandelt die Funktionen und Konfigurationen, die mit der Live API verfügbar sind.
-Auf der Seite [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) finden Sie eine Übersicht und Beispielcode für gängige Anwendungsfälle.
+นี่คือคู่มือที่ครอบคลุมความสามารถและการกำหนดค่า
+ที่ใช้ได้กับ Live API
+ดูหน้า[เริ่มต้นใช้งาน Live API](https://ai.google.dev/gemini-api/docs/live?hl=th) เพื่อดูภาพรวมและโค้ดตัวอย่างสำหรับ Use Case ที่พบบ่อย
 
-## Hinweis
+## ก่อนเริ่มต้น
 
-- **Mit den grundlegenden Konzepten vertraut machen**:Wenn Sie das noch nicht getan haben, lesen Sie zuerst die Seite [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) .
-  Hier erfahren Sie mehr über die grundlegenden Prinzipien der Live API, ihre Funktionsweise und die verschiedenen [Implementierungsansätze](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach).
-- **Live API in AI Studio ausprobieren**:Es kann hilfreich sein, die Live API in [Google AI Studio](https://aistudio.google.com/app/live?hl=de) auszuprobieren, bevor Sie mit der Entwicklung beginnen. Wenn Sie die Live API in Google AI Studio verwenden möchten, wählen Sie **Stream** aus.
+- **ทำความคุ้นเคยกับแนวคิดหลัก:** หากยังไม่ได้ดำเนินการ โปรดอ่านหน้า[เริ่มต้นใช้งาน Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)  ก่อน
+  ซึ่งจะแนะนำหลักการพื้นฐานของ Live API วิธีการทำงาน และ[แนวทางการติดตั้งใช้งาน](https://ai.google.dev/gemini-api/docs/live?hl=th#implementation-approach)ต่างๆ
+- **ลองใช้ Live API ใน AI Studio:** คุณอาจพบว่าการลองใช้
+  Live API ใน [Google AI Studio](https://aistudio.google.com/app/live?hl=th) มีประโยชน์ก่อนที่จะเริ่มสร้าง หากต้องการใช้
+  Live API ใน Google AI Studio ให้เลือก**สตรีม**
 
-## Modellvergleich
+## การเปรียบเทียบรูปแบบ
 
-In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Modellen [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de) und [Gemini 2.5 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=de) zusammengefasst:
+ตารางต่อไปนี้จะสรุปความแตกต่างที่สําคัญระหว่างโมเดล[Gemini 3.1 Flash เวอร์ชันตัวอย่างแบบสด](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=th)กับโมเดล [Gemini 2.5 Flash เวอร์ชันตัวอย่างแบบสด](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=th)
 
-| Funktion | Gemini 3.1 Flash Live Preview | Gemini 2.5 Flash Live Preview |
+| ฟีเจอร์ | เวอร์ชันตัวอย่างของ Gemini 3.1 Flash | ตัวอย่าง Gemini 2.5 Flash แบบเรียลไทม์ |
 | --- | --- | --- |
-| **[Antwort wird generiert](#native-audio-output-thinking)** | Verwendet `thinkingLevel`, um den Detailgrad des Denkprozesses mit Einstellungen wie `minimal`, `low`, `medium` und `high` zu steuern. Die Standardeinstellung ist `minimal`, um die Latenz zu minimieren. [Weitere Informationen zu Denkebenen und Budgets](https://ai.google.dev/gemini-api/docs/thinking?hl=de#levels-budgets) | Verwendet `thinkingBudget`, um die Anzahl der Tokens für den Thinking-Modus festzulegen. Die Funktion „Dynamisches Denken“ ist standardmäßig aktiviert. Setzen Sie `thinkingBudget` auf `0`, um die Funktion zu deaktivieren. [Weitere Informationen zu Denkebenen und Budgets](https://ai.google.dev/gemini-api/docs/thinking?hl=de#levels-budgets) |
-| **[Antwort erhalten](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservercontent)** | Ein einzelnes Serverereignis kann mehrere Inhaltsteile gleichzeitig enthalten, z. B. `inlineData` und ein Transkript. Achten Sie darauf, dass in Ihrem Code alle Teile jedes Ereignisses verarbeitet werden, damit keine Inhalte fehlen. | Jedes Serverereignis enthält nur einen Inhaltsteil. Teile werden in separaten Ereignissen bereitgestellt. |
-| **[Kundeninhalte](#incremental-updates)** | `send_client_content` wird nur zum Erstellen des Verlaufs des ursprünglichen Kontexts unterstützt. Dazu muss `initial_history_in_client_content` in der Sitzungskonfiguration festgelegt werden. Wenn Sie während der Unterhaltung Textupdates senden möchten, verwenden Sie stattdessen `send_realtime_input`. | `send_client_content` wird während der gesamten Unterhaltung unterstützt, um inkrementelle Inhaltsaktualisierungen zu senden und Kontext zu schaffen. |
-| **[Abdeckung für die Navigation](https://ai.google.dev/api/live?hl=de#turncoverage)** | Die Standardeinstellung ist `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Der Zug des Modells umfasst erkannte Audioaktivitäten und alle Videoframes. | Die Standardeinstellung ist `TURN_INCLUDES_ONLY_ACTIVITY`. Der Zug des Modells umfasst nur die erkannte Aktivität. |
-| **[Benutzerdefinierte VAD](#disable-automatic-vad)** (`activity_start`/`activity_end`) | Unterstützt. Deaktivieren Sie die automatische VAD und senden Sie `activityStart`- und `activityEnd`-Nachrichten manuell, um die Sprecherwechsel zu steuern. | Unterstützt. Deaktivieren Sie die automatische VAD und senden Sie `activityStart`- und `activityEnd`-Nachrichten manuell, um die Sprecherwechsel zu steuern. |
-| **[Automatische VAD-Konfiguration](#configure-automatic-vad)** | Unterstützt. Konfigurieren Sie Parameter wie `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` und `silence_duration_ms`. | Unterstützt. Konfigurieren Sie Parameter wie `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` und `silence_duration_ms`. |
-| **[Asynchrone Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/live-tools?hl=de#async-function-calling)** (`behavior: NON_BLOCKING`) | Nicht unterstützt. Funktionsaufrufe sind nur sequenziell möglich. Das Modell beginnt erst mit der Antwort, wenn Sie die Tool-Antwort gesendet haben. | Unterstützt. Legen Sie `behavior` für eine Funktionsdeklaration auf `NON_BLOCKING` fest, damit das Modell während der Ausführung der Funktion weiter interagieren kann. Mit dem Parameter `scheduling` (`INTERRUPT`, `WHEN_IDLE` oder `SILENT`) können Sie festlegen, wie das Modell Antworten verarbeitet. |
-| **[Proaktive Audiofunktionen](#proactive-audio)** | Nicht unterstützt | Unterstützt. Wenn diese Option aktiviert ist, kann das Modell proaktiv entscheiden, nicht zu antworten, wenn die Eingabeinhalte nicht relevant sind. Legen Sie in der `proactivity`-Konfiguration `proactive_audio` auf `true` fest (erfordert `v1beta`). |
-| **[Empathischer Dialog](#affective-dialog)** | Nicht unterstützt | Unterstützt. Das Modell passt seinen Antwortstil an die Ausdrucksweise und den Tonfall der Eingabe an. Legen Sie `enable_affective_dialog` in der Sitzungskonfiguration auf `true` fest (erfordert `v1beta`). |
+| **[การคิด](#native-audio-output-thinking)** | ใช้ `thinkingLevel` เพื่อควบคุมความลึกในการคิดด้วยการตั้งค่าต่างๆ เช่น `minimal`, `low`, `medium` และ `high` ค่าเริ่มต้นคือ `minimal` เพื่อเพิ่มประสิทธิภาพให้มีเวลาในการตอบสนองต่ำที่สุด ดู[ระดับและงบประมาณการทดสอบ](https://ai.google.dev/gemini-api/docs/thinking?hl=th#levels-budgets) | ใช้ `thinkingBudget` เพื่อตั้งค่าจำนวนโทเค็นการคิด ระบบจะเปิดใช้การคิดแบบไดนามิกโดยค่าเริ่มต้น ตั้งค่า `thinkingBudget` เป็น `0` เพื่อปิดใช้ ดู[ระดับและงบประมาณการทดสอบ](https://ai.google.dev/gemini-api/docs/thinking?hl=th#levels-budgets) |
+| **[การรับคำตอบ](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservercontent)** | เหตุการณ์ฝั่งเซิร์ฟเวอร์เดียวอาจมีเนื้อหาหลายส่วนพร้อมกัน (เช่น `inlineData`และข้อความถอดเสียง) ตรวจสอบว่าโค้ดประมวลผลทุกส่วนในแต่ละเหตุการณ์เพื่อไม่ให้พลาดเนื้อหา | เหตุการณ์ฝั่งเซิร์ฟเวอร์แต่ละรายการจะมีเนื้อหาเพียงส่วนเดียว โดยระบบจะส่งมอบชิ้นส่วนในเหตุการณ์แยกกัน |
+| **[เนื้อหาของลูกค้า](#incremental-updates)** | `send_client_content` รองรับเฉพาะการเริ่มต้นประวัติบริบทเริ่มต้น (ต้องตั้งค่า `initial_history_in_client_content` ในการกำหนดค่าเซสชัน) หากต้องการส่งข้อความอัปเดตระหว่างการสนทนา ให้ใช้ `send_realtime_input` แทน | `send_client_content` ได้รับการรองรับตลอดการสนทนาสำหรับการส่งการอัปเดตเนื้อหาที่เพิ่มขึ้นและการสร้างบริบท |
+| **[เปิดความครอบคลุม](https://ai.google.dev/api/live?hl=th#turncoverage)** | ค่าเริ่มต้นคือ `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO` เทิร์นของโมเดลประกอบด้วยกิจกรรมเสียงที่ตรวจพบและเฟรมวิดีโอทั้งหมด | ค่าเริ่มต้นคือ `TURN_INCLUDES_ONLY_ACTIVITY` เทิร์นของโมเดลจะรวมเฉพาะกิจกรรมที่ตรวจพบ |
+| **[VAD ที่กำหนดเอง](#disable-automatic-vad)** (`activity_start`/`activity_end`) | รองรับ ปิดใช้ VAD อัตโนมัติและส่งข้อความ `activityStart` และ `activityEnd` ด้วยตนเองเพื่อควบคุมขอบเขตการพูด | รองรับ ปิดใช้ VAD อัตโนมัติและส่งข้อความ `activityStart` และ `activityEnd` ด้วยตนเองเพื่อควบคุมขอบเขตการพูด |
+| **[การกำหนดค่า VAD อัตโนมัติ](#configure-automatic-vad)** | รองรับ กำหนดค่าพารามิเตอร์ เช่น `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` และ `silence_duration_ms` | รองรับ กำหนดค่าพารามิเตอร์ เช่น `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` และ `silence_duration_ms` |
+| **[การเรียกใช้ฟังก์ชันแบบไม่พร้อมกัน](https://ai.google.dev/gemini-api/docs/live-tools?hl=th#async-function-calling)** (`behavior: NON_BLOCKING`) | ไม่รองรับ การเรียกใช้ฟังก์ชันจะทำได้ตามลำดับเท่านั้น โมเดลจะไม่เริ่มตอบจนกว่าคุณจะส่งการตอบกลับของเครื่องมือ | รองรับ ตั้งค่า `behavior` เป็น `NON_BLOCKING` ในการประกาศฟังก์ชันเพื่อให้โมเดลโต้ตอบต่อไปได้ในขณะที่ฟังก์ชันทำงาน ควบคุมวิธีที่โมเดลจัดการคำตอบด้วยพารามิเตอร์ `scheduling` (`INTERRUPT`, `WHEN_IDLE` หรือ `SILENT`) |
+| **[เสียงเชิงรุก](#proactive-audio)** | สิ่งที่ทำไม่ได้ | รองรับ เมื่อเปิดใช้ โมเดลจะตัดสินใจได้ล่วงหน้าว่าจะไม่ตอบหากเนื้อหาอินพุตไม่เกี่ยวข้อง ตั้งค่า `proactive_audio` เป็น `true` ในการกำหนดค่า `proactivity` (ต้องใช้ `v1beta`) |
+| **[การโต้ตอบที่สะท้อนถึงความรู้สึก](#affective-dialog)** | สิ่งที่ทำไม่ได้ | รองรับ โมเดลจะปรับรูปแบบคำตอบให้ตรงกับการแสดงออกและระดับภาษาของอินพุต ตั้งค่า `enable_affective_dialog` เป็น `true` ในการกำหนดค่าเซสชัน (ต้องใช้ `v1beta`) |
 
-Informationen zur Migration von Gemini 2.5 Flash Live zu Gemini 3.1 Flash Live finden Sie im [Migrationsleitfaden](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de#migrating).
+หากต้องการย้ายข้อมูลจาก Gemini 2.5 Flash Live ไปยัง Gemini 3.1 Flash Live โปรดดู[คำแนะนำในการย้ายข้อมูล](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=th#migrating)
 
-## Verbindung herstellen
+## การสร้างการเชื่อมต่อ
 
-Im folgenden Beispiel wird gezeigt, wie Sie eine Verbindung mit einem API-Schlüssel erstellen:
+ตัวอย่างต่อไปนี้แสดงวิธีสร้างการเชื่อมต่อด้วยคีย์ API
 
 ### Python
 
@@ -108,13 +111,13 @@ async function main() {
 main();
 ```
 
-## Interaktionsmodalitäten
+## รูปแบบการโต้ตอบ
 
-In den folgenden Abschnitten finden Sie Beispiele und Kontext für die verschiedenen Eingabe- und Ausgabemodalitäten, die in der Live API verfügbar sind.
+ส่วนต่อไปนี้มีตัวอย่างและบริบทที่สนับสนุนสำหรับรูปแบบอินพุตและเอาต์พุตต่างๆ ที่มีใน Live API
 
-### Audio senden
+### การส่งเสียง
 
-Audio muss als rohe PCM-Daten gesendet werden (rohes 16-Bit-PCM-Audio, 16 kHz, Little Endian).
+ต้องส่งเสียงเป็นข้อมูล PCM ดิบ (เสียง PCM ดิบ 16 บิต, 16 kHz, little-endian)
 
 ### Python
 
@@ -140,13 +143,18 @@ session.sendRealtimeInput({
 });
 ```
 
-### Audioformate
+### รูปแบบเสียง
 
-Audiodaten in der Live API sind immer unkomprimiert, Little-Endian und 16-Bit-PCM. Die Audioausgabe erfolgt immer mit einer Abtastrate von 24 kHz. Die Eingabe-Audiodaten haben nativ eine Abtastrate von 16 kHz. Die Live API führt jedoch bei Bedarf ein Resampling durch, sodass jede Abtastrate gesendet werden kann. Um die Samplerate des eingegebenen Audiosignals anzugeben, legen Sie den MIME-Typ jedes [Blob](https://ai.google.dev/api/caching?hl=de#Blob), das Audio enthält, auf einen Wert wie `audio/pcm;rate=16000` fest.
+ข้อมูลเสียงใน Live API จะเป็น PCM แบบ 16 บิต, Little-Endian ดิบเสมอ
+เอาต์พุตเสียงจะใช้อัตราการสุ่มตัวอย่าง 24kHz เสมอ เสียงอินพุต
+มีค่า 16kHz โดยค่าเริ่มต้น แต่ Live API จะทำการสุ่มตัวอย่างใหม่หากจำเป็น
+จึงส่งอัตราการสุ่มตัวอย่างใดก็ได้ หากต้องการระบุอัตราการสุ่มตัวอย่างของเสียงที่ป้อน ให้ตั้งค่า
+ประเภท MIME ของ [Blob](https://ai.google.dev/api/caching?hl=th#Blob) ที่มีเสียงแต่ละรายการเป็นค่า
+เช่น `audio/pcm;rate=16000`
 
-### Audio empfangen
+### การรับเสียง
 
-Die Audioantworten des Modells werden als Datenblöcke empfangen.
+ระบบจะรับคำตอบเสียงของโมเดลเป็นกลุ่มข้อมูล
 
 ### Python
 
@@ -174,9 +182,9 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-### SMS wird gesendet
+### กำลังส่งข้อความ
 
-Text kann mit `send_realtime_input` (Python) oder `sendRealtimeInput` (JavaScript) gesendet werden.
+คุณส่งข้อความได้โดยใช้ `send_realtime_input` (Python) หรือ `sendRealtimeInput` (JavaScript)
 
 ### Python
 
@@ -192,9 +200,9 @@ session.sendRealtimeInput({
 });
 ```
 
-### Video wird gesendet
+### กำลังส่งวิดีโอ
 
-Videoframes werden als einzelne Bilder (z. B. JPEG oder PNG) mit einer bestimmten Framerate (max. 1 Frame pro Sekunde) gesendet.
+ระบบจะส่งเฟรมวิดีโอเป็นรูปภาพแต่ละรูป (เช่น JPEG หรือ PNG) ที่อัตราเฟรมที่เฉพาะเจาะจง (สูงสุด 1 เฟรมต่อวินาที)
 
 ### Python
 
@@ -220,9 +228,11 @@ session.sendRealtimeInput({
 });
 ```
 
-#### Inkrementelle Aktualisierungen von Inhalten
+#### การอัปเดตเนื้อหาแบบเพิ่มทีละรายการ
 
-Verwenden Sie inkrementelle Updates, um Texteingaben zu senden, Sitzungskontext herzustellen oder wiederherzustellen. Bei kurzen Kontexten können Sie Turn-by-Turn-Interaktionen senden, um die genaue Abfolge der Ereignisse darzustellen:
+ใช้การอัปเดตแบบเพิ่มทีละรายการเพื่อส่งอินพุตข้อความ สร้างบริบทของเซสชัน หรือ
+กู้คืนบริบทของเซสชัน สำหรับบริบทสั้นๆ คุณสามารถส่งการโต้ตอบแบบเลี้ยวต่อเลี้ยว
+เพื่อแสดงลำดับเหตุการณ์ที่แน่นอนได้โดยทำดังนี้
 
 ### Python
 
@@ -254,13 +264,14 @@ inputTurns = [{ "role": "user", "parts": [{ "text": "What is the capital of Germ
 session.sendClientContent({ turns: inputTurns, turnComplete: true })
 ```
 
-Bei längeren Kontexten empfiehlt es sich, eine Zusammenfassung der einzelnen Nachrichten bereitzustellen, um das Kontextfenster für nachfolgende Interaktionen freizugeben. Eine weitere Methode zum Laden des Sitzungskontexts finden Sie unter [Sitzungswiederaufnahme](https://ai.google.dev/gemini-api/docs/live-session?hl=de#session-resumption).
+สำหรับบริบทที่ยาวขึ้น ขอแนะนำให้สรุปข้อความเดียวเพื่อเพิ่มพื้นที่หน้าต่างบริบทสำหรับการโต้ตอบในภายหลัง ดูอีกวิธีในการโหลดบริบทของเซสชันได้ที่[การกลับมาใช้เซสชันต่อ](https://ai.google.dev/gemini-api/docs/live-session?hl=th#session-resumption)
 
-### Audiotranskripte
+### การถอดเสียงเป็นคำ
 
-Zusätzlich zur Modellantwort können Sie auch Transkriptionen der Audioausgabe und der Audioeingabe erhalten.
+นอกจากคำตอบของโมเดลแล้ว คุณยังรับข้อความถอดเสียงของทั้งเอาต์พุตเสียงและอินพุตเสียงได้ด้วย
 
-Wenn Sie die Transkription der Audioausgabe des Modells aktivieren möchten, senden Sie `output_audio_transcription` in der Einrichtungskonfiguration. Die Sprache der Transkription wird aus der Antwort des Modells abgeleitet.
+หากต้องการเปิดใช้การถอดเสียงเอาต์พุตเสียงของโมเดล ให้ส่ง
+`output_audio_transcription` ในการกำหนดค่าการตั้งค่า ระบบจะอนุมานภาษาในการถอดเสียงเป็นคำจากคำตอบของโมเดล
 
 ### Python
 
@@ -378,7 +389,8 @@ async function main() {
 main();
 ```
 
-Wenn Sie die Transkription der Audioeingabe des Modells aktivieren möchten, senden Sie `input_audio_transcription` in der Einrichtungskonfiguration.
+หากต้องการเปิดใช้การถอดเสียงอินพุตเสียงของโมเดล ให้ส่ง
+`input_audio_transcription` ในการกำหนดค่าการตั้งค่า
 
 ### Python
 
@@ -523,11 +535,12 @@ async function main() {
 main();
 ```
 
-### Stimme und Sprache ändern
+### เปลี่ยนเสียงและภาษา
 
-[Modelle mit nativer Audioausgabe](#native-audio-output) unterstützen alle Stimmen, die für unsere [TTS-Modelle (Text-to-Speech)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de#voices) verfügbar sind. Alle Stimmen sind in [AI Studio](https://aistudio.google.com/app/live?hl=de) verfügbar.
+โมเดล[เอาต์พุตเสียงแบบเนทีฟ](#native-audio-output)รองรับเสียงใดก็ได้ที่ใช้ได้กับโมเดล[การอ่านออกเสียงข้อความ (TTS)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th#voices) คุณฟังเสียงทั้งหมดได้ใน [AI Studio](https://aistudio.google.com/app/live?hl=th)
 
-Wenn Sie eine Stimme angeben möchten, legen Sie den Namen der Stimme im `speechConfig`-Objekt als Teil der Sitzungskonfiguration fest:
+หากต้องการระบุเสียง ให้ตั้งชื่อเสียงภายในออบเจ็กต์ `speechConfig` เป็นส่วนหนึ่ง
+ของการกำหนดค่าเซสชัน
 
 ### Python
 
@@ -549,16 +562,20 @@ const config = {
 };
 ```
 
-Die Live API unterstützt [mehrere Sprachen](#supported-languages).
-Bei Modellen mit [nativer Audioausgabe](#native-audio-output) wird die passende Sprache automatisch ausgewählt. Das explizite Festlegen des Sprachcodes wird nicht unterstützt.
+Live API รองรับ[หลายภาษา](#supported-languages)
+โมเดล[เอาต์พุตเสียงแบบเนทีฟ](#native-audio-output)จะเลือกภาษาที่เหมาะสมโดยอัตโนมัติ และไม่รองรับการตั้งค่ารหัสภาษาอย่างชัดเจน
 
-## Native Audiofunktionen
+## ความสามารถด้านเสียงแบบเนทีฟ
 
-Unsere neuesten Modelle bieten [native Audioausgabe](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de), die für natürlich und realistisch klingende Sprache und eine verbesserte mehrsprachige Leistung sorgt.
+โมเดลล่าสุดของเรามี[เอาต์พุตเสียงแบบเนทีฟ](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=th) ซึ่งให้เสียงพูดที่เป็นธรรมชาติและสมจริง รวมถึงประสิทธิภาพแบบหลายภาษาที่ดียิ่งขึ้น
 
-### Thinking
+### กำลังคิด
 
-Gemini 3.1-Modelle verwenden `thinkingLevel`, um die Tiefe der Überlegungen zu steuern. Dazu gibt es Einstellungen wie `minimal`, `low`, `medium` und `high`. Der Standardwert ist `minimal`, um die Latenz zu minimieren. Bei Gemini 2.5-Modellen wird stattdessen `thinkingBudget` verwendet, um die Anzahl der Tokens für den Thinking-Modus festzulegen. Weitere Informationen zu Ebenen und Budgets finden Sie unter [Ebenen und Budgets](https://ai.google.dev/gemini-api/docs/thinking?hl=de#levels-budgets).
+โมเดล Gemini 3.1 ใช้ `thinkingLevel` เพื่อควบคุมระดับความลึกของการคิด โดยมีการตั้งค่าต่างๆ เช่น `minimal`, `low`, `medium` และ `high` ค่าเริ่มต้นคือ `minimal` เพื่อ
+เพิ่มประสิทธิภาพให้มีเวลาในการตอบสนองต่ำที่สุด โมเดล Gemini 2.5 ใช้
+`thinkingBudget` เพื่อตั้งค่าจำนวนโทเค็นการคิดแทน ดูรายละเอียดเพิ่มเติม
+เกี่ยวกับระดับเทียบกับงบประมาณได้ที่
+[การพิจารณาระดับและงบประมาณ](https://ai.google.dev/gemini-api/docs/thinking?hl=th#levels-budgets)
 
 ### Python
 
@@ -603,7 +620,8 @@ async function main() {
 main();
 ```
 
-Außerdem können Sie Zusammenfassungen von Gedanken aktivieren, indem Sie in der Konfiguration `includeThoughts` auf `true` setzen. Weitere Informationen finden Sie unter [Zusammenfassungen von Gedanken](https://ai.google.dev/gemini-api/docs/thinking?hl=de#summaries):
+นอกจากนี้ คุณยังเปิดใช้สรุปความคิดได้โดยตั้งค่า `includeThoughts` เป็น
+`true` ในการกำหนดค่า ดูข้อมูลเพิ่มเติมได้ที่[สรุปความคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#summaries)
 
 ### Python
 
@@ -632,11 +650,13 @@ const config = {
 };
 ```
 
-### Empathischer Dialog
+### การโต้ตอบที่สะท้อนถึงความรู้สึก
 
-Mit dieser Funktion kann Gemini seinen Antwortstil an die Ausdrucksweise und den Tonfall der Eingabe anpassen.
+ฟีเจอร์นี้ช่วยให้ Gemini ปรับรูปแบบคำตอบให้เข้ากับรูปแบบการป้อนข้อมูลและ
+โทนเสียง
 
-Wenn Sie affektive Dialoge verwenden möchten, legen Sie die API-Version in der Einrichtungsnachricht auf `v1beta` und `enable_affective_dialog` auf `true` fest:
+หากต้องการใช้การโต้ตอบที่สะท้อนถึงความรู้สึก ให้ตั้งค่าเวอร์ชัน API เป็น `v1beta` และตั้งค่า
+`enable_affective_dialog` เป็น `true` ในข้อความการตั้งค่า
 
 ### Python
 
@@ -660,11 +680,13 @@ const config = {
 };
 ```
 
-### Proaktive Audioeingabe
+### เสียงเชิงรุก
 
-Wenn diese Funktion aktiviert ist, kann Gemini proaktiv entscheiden, nicht zu antworten, wenn die Inhalte nicht relevant sind.
+เมื่อเปิดใช้ฟีเจอร์นี้ Gemini จะตัดสินใจไม่ตอบได้
+หากเนื้อหาไม่เกี่ยวข้อง
 
-Wenn Sie die API verwenden möchten, legen Sie die API-Version auf `v1beta` fest, konfigurieren Sie das Feld `proactivity` in der Einrichtungsnachricht und legen Sie `proactive_audio` auf `true` fest:
+หากต้องการใช้ ให้ตั้งค่าเวอร์ชัน API เป็น `v1beta` และกำหนดค่าฟิลด์ `proactivity`
+ในข้อความการตั้งค่า แล้วตั้งค่า `proactive_audio` เป็น `true` ดังนี้
 
 ### Python
 
@@ -688,19 +710,21 @@ const config = {
 }
 ```
 
-## Live-Übersetzung
+## การแปลสด
 
-Die Live API unterstützt die Übersetzung gesprochener Unterhaltungen in Echtzeit mit geringer Latenz. Damit können Sie Anwendungen für die Echtzeitübersetzung von Sprache in Sprache entwickeln.
+Live API รองรับการแปลการสนทนาด้วยคำพูดแบบเรียลไทม์ที่มีเวลาในการตอบสนองต่ำ ความสามารถนี้ช่วยให้คุณสร้างแอปพลิเคชันแปลเสียงเป็นเสียงแบบเรียลไทม์ได้
 
-Weitere Informationen und Beispiele finden Sie im [Leitfaden zur Live-Übersetzung](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=de).
+ดูข้อมูลเพิ่มเติมและตัวอย่างได้ที่[คู่มือการแปลสด](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=th)
 
-## Erkennung von Sprachaktivität (Voice Activity Detection, VAD)
+## การตรวจจับกิจกรรมเสียงพูด (VAD)
 
-Mit der Spracherkennungsfunktion (Voice Activity Detection, VAD) kann das Modell erkennen, wann eine Person spricht. Das ist wichtig, um natürliche Unterhaltungen zu ermöglichen, da Nutzer das Modell jederzeit unterbrechen können.
+การตรวจจับกิจกรรมเสียงพูด (VAD) ช่วยให้โมเดลจดจำได้เมื่อมีคน
+พูด ซึ่งเป็นสิ่งสำคัญในการสร้างการสนทนาที่เป็นธรรมชาติ เนื่องจากช่วยให้ผู้ใช้ขัดจังหวะโมเดลได้ทุกเมื่อ
 
-Wenn VAD eine Unterbrechung erkennt, wird die laufende Generierung abgebrochen und verworfen. Im Sitzungsverlauf werden nur die Informationen gespeichert, die bereits an den Kunden gesendet wurden. Der Server sendet dann eine [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservercontent)-Nachricht, um die Unterbrechung zu melden.
+เมื่อ VAD ตรวจพบการขัดจังหวะ ระบบจะยกเลิกและทิ้งการสร้างที่กำลังดำเนินการอยู่ ระบบจะเก็บเฉพาะข้อมูลที่ส่งไปยังไคลเอ็นต์แล้วไว้ใน
+ประวัติเซสชัน จากนั้นเซิร์ฟเวอร์จะส่งข้อความ [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservercontent) เพื่อรายงานการหยุดชะงัก
 
-Der Gemini-Server verwirft dann alle ausstehenden Funktionsaufrufe und sendet eine `BidiGenerateContentServerContent`-Nachricht mit den IDs der abgebrochenen Aufrufe.
+จากนั้นเซิร์ฟเวอร์ Gemini จะทิ้งการเรียกใช้ฟังก์ชันที่รอดำเนินการและส่งข้อความ `BidiGenerateContentServerContent` พร้อมรหัสของการเรียกที่ยกเลิก
 
 ### Python
 
@@ -728,11 +752,16 @@ for (const turn of turns) {
 }
 ```
 
-### Automatische VAD
+### VAD อัตโนมัติ
 
-Standardmäßig führt das Modell automatisch eine VAD für einen kontinuierlichen Audioeingabestream durch. VAD kann mit dem Feld [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=de#RealtimeInputConfig.AutomaticActivityDetection) der [Einrichtungskonfiguration](https://ai.google.dev/api/live?hl=de#BidiGenerateContentSetup) konfiguriert werden.
+โดยค่าเริ่มต้น โมเดลจะดำเนินการ VAD โดยอัตโนมัติใน
+สตรีมอินพุตเสียงอย่างต่อเนื่อง คุณกำหนดค่า VAD ได้ด้วยฟิลด์
+[`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=th#RealtimeInputConfig.AutomaticActivityDetection)
+ของ[การกำหนดค่าการตั้งค่า](https://ai.google.dev/api/live?hl=th#BidiGenerateContentSetup)
 
-Wenn der Audiostream länger als eine Sekunde pausiert wird (z. B. weil der Nutzer das Mikrofon deaktiviert hat), sollte ein [`audioStreamEnd`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end)-Ereignis gesendet werden, um zwischengespeicherte Audiodaten zu leeren. Der Client kann das Senden von Audiodaten jederzeit fortsetzen.
+เมื่อหยุดสตรีมเสียงชั่วคราวเป็นเวลานานกว่า 1 วินาที (เช่น เนื่องจากผู้ใช้ปิดไมโครโฟน) ควรส่งเหตุการณ์
+[`audioStreamEnd`](https://ai.google.dev/api/live?hl=th#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end)
+เพื่อล้างเสียงที่แคชไว้ ไคลเอ็นต์สามารถกลับมาส่งข้อมูลเสียงได้ทุกเมื่อ
 
 ### Python
 
@@ -868,11 +897,13 @@ async function main() {
 main();
 ```
 
-Mit `send_realtime_input` reagiert die API automatisch auf Audio basierend auf VAD. Bei `send_client_content` werden Nachrichten in der richtigen Reihenfolge zum Modellkontext hinzugefügt, während `send_realtime_input` auf Reaktionsfähigkeit optimiert ist, was auf Kosten der deterministischen Reihenfolge geht.
+เมื่อใช้ `send_realtime_input` API จะตอบกลับเสียงโดยอัตโนมัติตาม VAD
+แม้ว่า `send_client_content` จะเพิ่มข้อความลงในบริบทของโมเดลตามลำดับ แต่ `send_realtime_input` ได้รับการเพิ่มประสิทธิภาพเพื่อการตอบสนองโดยแลกกับการเรียงลำดับที่แน่นอน
 
-### Automatische VAD-Konfiguration
+### การกำหนดค่า VAD อัตโนมัติ
 
-Wenn Sie die VAD-Aktivität besser steuern möchten, können Sie die folgenden Parameter konfigurieren. Weitere Informationen finden Sie in der [API-Referenz](https://ai.google.dev/api/live?hl=de#automaticactivitydetection).
+หากต้องการควบคุมกิจกรรม VAD เพิ่มเติม คุณสามารถกําหนดค่าพารามิเตอร์ต่อไปนี้ได้
+ดูข้อมูลเพิ่มเติมได้ที่[เอกสารอ้างอิง API](https://ai.google.dev/api/live?hl=th#automaticactivitydetection)
 
 ### Python
 
@@ -912,9 +943,14 @@ const config = {
 };
 ```
 
-### Automatische VAD deaktivieren
+### ปิดใช้ VAD อัตโนมัติ
 
-Alternativ kann die automatische VAD deaktiviert werden, indem Sie in der Einrichtungsnachricht `realtimeInputConfig.automaticActivityDetection.disabled` auf `true` setzen. In dieser Konfiguration ist der Client dafür verantwortlich, die Sprache des Nutzers zu erkennen und [`activityStart`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start)- und [`activityEnd`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end)-Nachrichten zum richtigen Zeitpunkt zu senden. In dieser Konfiguration wird kein `audioStreamEnd` gesendet. Stattdessen wird jede Unterbrechung des Streams durch eine `activityEnd`-Meldung gekennzeichnet.
+หรือจะปิดใช้ VAD อัตโนมัติโดยตั้งค่า
+`realtimeInputConfig.automaticActivityDetection.disabled` เป็น `true` ในข้อความการตั้งค่า
+ก็ได้ ในการกำหนดค่านี้ ไคลเอ็นต์มีหน้าที่ตรวจหาคำพูดของผู้ใช้และส่งข้อความ
+[`activityStart`](https://ai.google.dev/api/live?hl=th#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start)
+และ [`activityEnd`](https://ai.google.dev/api/live?hl=th#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end)
+ในเวลาที่เหมาะสม ระบบจะไม่ส่ง `audioStreamEnd` ในการกำหนดค่านี้ แต่จะมีการทำเครื่องหมายการหยุดชะงักของสตรีมด้วยข้อความ `activityEnd` แทน
 
 ### Python
 
@@ -961,34 +997,48 @@ session.sendRealtimeInput(
 session.sendRealtimeInput({ activityEnd: {} })
 ```
 
-### VAD-Parameter und ihre Auswirkungen auf die Qualität
+### ทำความเข้าใจพารามิเตอร์ VAD และผลกระทบต่อคุณภาพ
 
-Bei der automatischen VAD steuern zwei wichtige Parameter, wie Audio in Sprechabschnitte segmentiert wird, bevor es an das Modell gesendet wird:
+เมื่อใช้ VAD อัตโนมัติ พารามิเตอร์หลัก 2 รายการจะควบคุมวิธี
+การแบ่งเสียงเป็นช่วงคำพูดก่อนส่งไปยังโมเดล ดังนี้
 
-- **`prefixPaddingMs`**: Die Menge an Audio, die *vor* der Erkennung von Sprache enthalten sein soll. Durch diesen „Rückblick“ wird sichergestellt, dass das Modell den vollständigen Beginn der Sprache erfasst, einschließlich der ersten Silbe, die möglicherweise vor dem Auslösen des VAD beginnt. Bei einem Wert von `0` werden möglicherweise die Anfänge von Wörtern abgeschnitten.
-- **`silenceDurationMs`**: Wie lange der Server bei Stille wartet, bevor er einen Sprachabschnitt beendet. Damit wird festgelegt, wie tolerant das System gegenüber natürlichen Pausen mitten im Satz ist (z.B. zum Nachdenken, Atmen oder an Satzgrenzen).
+- **`prefixPaddingMs`**: ปริมาณเสียงที่จะรวม*ก่อน*ตรวจพบคำพูด
+  "การย้อนกลับ" นี้ช่วยให้มั่นใจได้ว่าโมเดลจะบันทึกการเริ่มพูดทั้งหมด รวมถึงพยางค์แรกซึ่งอาจเริ่มก่อนที่ VAD จะทริกเกอร์ ค่า `0` อาจทำให้ส่วนต้นของคำถูกตัดออก
+- **`silenceDurationMs`**: ระยะเวลาที่เซิร์ฟเวอร์รอเมื่อไม่มีเสียงพูด
+  ก่อนที่จะสิ้นสุดการพูด ซึ่งจะกำหนดว่าระบบ
+  จะยอมรับการหยุดชั่วคราวกลางประโยคตามธรรมชาติได้มากน้อยเพียงใด (เช่น การคิด การหายใจ หรือ
+  ขอบเขตของอนุประโยค)
 
-#### Auswirkungen von `silenceDurationMs` auf die Audioqualität
+#### ผลกระทบของ `silenceDurationMs` ต่อคุณภาพเสียง
 
-Der Wert `silenceDurationMs` wirkt sich direkt auf die Größe und Vollständigkeit der Audio-Chunks aus, die das Modell zur Verarbeitung erhält:
+ค่า `silenceDurationMs` ส่งผลโดยตรงต่อขนาดและความสมบูรณ์
+ของกลุ่มเสียงที่โมเดลได้รับเพื่อประมวลผล
 
-- **Empfohlen (500–800 ms)**: Bietet ein gutes Gleichgewicht. Das Modell erhält vollständige, kontextreiche Audioblöcke, während die Latenz angemessen bleibt. Der interne Standardwert des Servers beträgt etwa 800 ms.
-- **Zu niedrig (z.B. 100–200 ms)**: Das System beendet Sprechrunden während natürlicher Pausen und teilt eine einzelne Äußerung in mehrere kleine Audiofragmente auf. Das Modell empfängt diese Fragmente einzeln, wodurch der fragmentübergreifende Kontext verloren geht und die Qualität der Transkription und Antwort sinkt.
-- **Zu hoch (z. B. 2.000 ms oder mehr)**: Das System wartet lange, nachdem der Nutzer aufgehört hat zu sprechen. Dadurch wird die wahrgenommene Latenz erhöht, bevor das Modell antwortet.
+- **แนะนำ (500 มิลลิวินาที - 800 มิลลิวินาที):** ให้ความสมดุลที่ดี โดยโมเดลจะได้รับ
+  เสียงที่สมบูรณ์และมีบริบทที่หลากหลาย ขณะเดียวกันก็รักษาเวลาในการตอบสนอง
+  ให้อยู่ในระดับที่เหมาะสม ค่าเริ่มต้นภายในของเซิร์ฟเวอร์คือประมาณ 800 มิลลิวินาที
+- **ต่ำเกินไป (เช่น 100-200 มิลลิวินาที):** ระบบจะสิ้นสุดการพูดในช่วงหยุดชั่วคราวตามธรรมชาติ ซึ่งจะแบ่งคำพูดเดียวออกเป็นเสียงขนาดเล็กหลายส่วน
+  โมเดลจะได้รับข้อมูลแต่ละส่วนแยกกัน ทำให้สูญเสียบริบทข้ามส่วน และส่งผลให้คุณภาพการถอดเสียงและการตอบกลับลดลง
+- **สูงเกินไป (เช่น 2,000 มิลลิวินาทีขึ้นไป):** ระบบจะรอนานหลังจากที่ผู้ใช้หยุดพูด ซึ่งจะเพิ่มเวลาในการตอบสนองที่รับรู้ได้ก่อนที่โมเดลจะตอบกลับ
 
-#### Best Practices für die manuelle (clientseitige) VAD
+#### แนวทางปฏิบัติแนะนำสำหรับ VAD ด้วยตนเอง (ฝั่งไคลเอ็นต์)
 
-Wenn Sie die automatische VAD deaktivieren und `activityStart`/`activityEnd`-Signale über Ihre eigene clientseitige Spracherkennung verwalten, werden die integrierten Audio-Puffermechanismen des Servers umgangen. Das bedeutet:
+เมื่อปิดใช้ VAD อัตโนมัติและจัดการสัญญาณ `activityStart`/`activityEnd`
+จากการตรวจจับเสียงฝั่งไคลเอ็นต์ของคุณเอง โปรดทราบว่าระบบจะข้ามกลไกการบัฟเฟอร์เสียงในตัวของเซิร์ฟเวอร์ ซึ่งหมายความว่า
 
-1. **Kein Pre-Speech-Puffer**:Der Server fügt kein Audio mehr vor dem erkannten Sprachbeginn ein. Ihr Kunde sollte vor dem Senden von `activityStart` ausreichend Audio-Kontext bereitstellen.
-2. **Keine Stille-Toleranz**:Der Server reagiert sofort auf Ihr `activityEnd`-Signal, ohne zusätzliche Wartezeit. Wenn Ihr clientseitiges VAD einen aggressiven End-of-Speech-Schwellenwert verwendet (z.B. 200 ms Stille), kann es sein, dass die Sprache während natürlicher Pausen mitten im Satz unterbrochen wird.
+1. **ไม่มีบัฟเฟอร์ก่อนการพูด:** เซิร์ฟเวอร์จะไม่เพิ่มเสียงก่อน
+   การเริ่มต้นการพูดที่ตรวจพบอีกต่อไป ลูกค้าควรใส่บริบทเสียงที่เพียงพอก่อนส่ง `activityStart`
+2. **ไม่ยอมรับความเงียบ:** เซิร์ฟเวอร์จะดำเนินการกับสัญญาณ
+   `activityEnd`ทันทีโดยไม่ต้องรอเพิ่มเติม หาก VAD ฝั่งไคลเอ็นต์
+   ใช้เกณฑ์สิ้นสุดการพูดที่เข้มงวด (เช่น เงียบ 200 มิลลิวินาที)
+   ระบบอาจตัดคำพูดกลางประโยคระหว่างหยุดพูดตามปกติ
 
-Damit die Audioqualität bei der manuellen VAD erhalten bleibt, sollten Sie in der Spracherkennung des Clients einen Stille-Grenzwert für das Ende der Sprache von mindestens **500 ms** verwenden.
-Schwellenwerte unter diesem Wert führen häufig zu fragmentierten Audioinhalten, was die Qualität der Transkription und der Modellantworten beeinträchtigt.
+หากต้องการรักษาคุณภาพเสียงด้วย VAD แบบกำหนดเอง ให้ใช้เกณฑ์ความเงียบเมื่อสิ้นสุดการพูดอย่างน้อย **500 มิลลิวินาที**ในเครื่องตรวจจับกิจกรรมการใช้เสียงของไคลเอ็นต์
+โดยปกติแล้วค่าเกณฑ์ที่ต่ำกว่าค่านี้มักทำให้เสียงขาดหาย ซึ่งจะทำให้คุณภาพการถอดเสียงและการตอบกลับของโมเดลลดลง
 
-## Tokenanzahl
+## จำนวนโทเค็น
 
-Die Gesamtzahl der verbrauchten Tokens finden Sie im Feld [usageMetadata](https://ai.google.dev/api/live?hl=de#usagemetadata) der zurückgegebenen Servernachricht.
+คุณดูจำนวนโทเค็นที่ใช้ทั้งหมดได้ในฟิลด์ [usageMetadata](https://ai.google.dev/api/live?hl=th#usagemetadata) ของข้อความเซิร์ฟเวอร์ที่ส่งคืน
 
 ### Python
 
@@ -1022,9 +1072,10 @@ for (const turn of turns) {
 }
 ```
 
-## Auflösung von Medien
+## ความละเอียดของสื่อ
 
-Sie können die Media-Auflösung für die Eingabemedien festlegen, indem Sie das Feld `mediaResolution` als Teil der Sitzungskonfiguration festlegen:
+คุณระบุความละเอียดของสื่อสำหรับสื่ออินพุตได้โดยตั้งค่าฟิลด์
+`mediaResolution` เป็นส่วนหนึ่งของการกำหนดค่าเซสชัน
 
 ### Python
 
@@ -1048,99 +1099,107 @@ const config = {
 };
 ```
 
-## Beschränkungen
+## ข้อจำกัด
 
-Beachten Sie beim Planen Ihres Projekts die folgenden Einschränkungen der Live API.
+โปรดคำนึงถึงข้อจำกัดต่อไปนี้ของ Live API
+เมื่อวางแผนโปรเจ็กต์
 
-### Antwortmodalitäten
+### รูปแบบการตอบสนอง
 
-Die nativen Audiomodelle unterstützen nur den Antworttyp „AUDIO“. Wenn Sie die Modellantwort als Text benötigen, verwenden Sie die Funktion [output audio transcription](#audio-transcription).
+โมเดลเสียงดั้งเดิมรองรับเฉพาะรูปแบบการตอบกลับ `AUDIO เท่านั้น หากต้องการคำตอบของโมเดลเป็นข้อความ ให้ใช้ฟีเจอร์[การถอดเสียงจากเอาต์พุตเสียง](#audio-transcription)
 
-### Clientauthentifizierung
+### การตรวจสอบสิทธิ์ไคลเอ็นต์
 
-Die Live API bietet standardmäßig nur die Server-zu-Server-Authentifizierung. Wenn Sie Ihre Live API-Anwendung mit einem [Client-zu-Server-Ansatz](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach) implementieren, müssen Sie [ephemere Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=de) verwenden, um Sicherheitsrisiken zu minimieren.
+Live API จะให้การตรวจสอบสิทธิ์แบบเซิร์ฟเวอร์ต่อเซิร์ฟเวอร์เท่านั้น
+โดยค่าเริ่มต้น หากคุณใช้แอปพลิเคชัน Live API โดยใช้[แนวทางไคลเอ็นต์ต่อเซิร์ฟเวอร์](https://ai.google.dev/gemini-api/docs/live?hl=th#implementation-approach) คุณต้องใช้[โทเค็นชั่วคราว](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=th)เพื่อลดความเสี่ยงด้านความปลอดภัย
 
-### Sitzungsdauer
+### ระยะเวลาเซสชัน
 
-Sitzungen mit nur Audio sind auf 15 Minuten begrenzt, Sitzungen mit Audio und Video auf 2 Minuten.
-Sie können jedoch verschiedene [Methoden zur Sitzungsverwaltung](https://ai.google.dev/gemini-api/docs/live-session?hl=de) konfigurieren, um die Sitzungsdauer unbegrenzt zu verlängern.
+เซสชันเสียงอย่างเดียวจะจำกัดไว้ที่ 15 นาที
+และเซสชันเสียงและวิดีโอจะจำกัดไว้ที่ 2 นาที
+อย่างไรก็ตาม คุณสามารถกำหนดค่า[เทคนิคการจัดการเซสชัน](https://ai.google.dev/gemini-api/docs/live-session?hl=th)ที่แตกต่างกันเพื่อขยายระยะเวลาเซสชันได้ไม่จำกัด
 
-### Kontextfenster
+### หน้าต่างบริบท
 
-Eine Sitzung hat ein Kontextfensterlimit von:
+เซสชันมีขีดจํากัดของหน้าต่างบริบทดังนี้
 
-- 128.000 Tokens für Modelle mit [nativer Audioausgabe](#native-audio-output)
-- 32.000 Tokens für andere Live API-Modelle
+- 128,000 โทเค็นสำหรับโมเดล[เอาต์พุตเสียงแบบเนทีฟ](#native-audio-output)
+- โทเค็น 32,000 รายการสำหรับโมเดล Live API อื่นๆ
 
-## Unterstützte Sprachen
+## ภาษาที่รองรับ
 
-Die Live API unterstützt die folgenden 97 Sprachen.
+Live API รองรับภาษาต่อไปนี้ 97 ภาษา
 
-| Sprache | BCP-47-Code | Sprache | BCP-47-Code |
+| ภาษา | รหัส BCP-47 | ภาษา | รหัส BCP-47 |
 | --- | --- | --- | --- |
-| Afrikaans | `af` | Lettisch | `lv` |
-| Akan | `ak` | Litauisch | `lt` |
-| Albanisch | `sq` | Mazedonisch | `mk` |
-| Amharisch | `am` | Malaiisch | `ms` |
-| Arabisch | `ar` | Malayalam | `ml` |
-| Armenisch | `hy` | Maltesisch | `mt` |
-| Assamesisch | `as` | Maori | `mi` |
-| Aserbaidschanisch | `az` | Marathi | `mr` |
-| Baskisch | `eu` | Mongolisch | `mn` |
-| Belarussisch | `be` | Nepalesisch | `ne` |
-| Bengalisch | `bn` | Norwegisch | `no` |
-| Bosnisch | `bs` | Oriya | `or` |
-| Bulgarisch | `bg` | Oromo | `om` |
-| Burmesisch | `my` | Paschtu | `ps` |
-| Katalanisch | `ca` | Persisch | `fa` |
-| Cebuano | `ceb` | Polnisch | `pl` |
-| Chinesisch | `zh` | Portugiesisch | `pt` |
-| Kroatisch | `hr` | Punjabi | `pa` |
-| Tschechisch | `cs` | Quechua | `qu` |
-| Dänisch | `da` | Rumänisch | `ro` |
-| Niederländisch | `nl` | Rätoromanisch | `rm` |
-| Englisch | `en` | Russisch | `ru` |
-| Estnisch | `et` | Serbisch | `sr` |
-| Färöisch | `fo` | Sindhi | `sd` |
-| Filipino | `fil` | Singhalesisch | `si` |
-| Finnisch | `fi` | Slowakisch | `sk` |
-| Französisch | `fr` | Slowenisch | `sl` |
-| Galizisch | `gl` | Somali | `so` |
-| Georgisch | `ka` | Sesotho | `st` |
-| Deutsch | `de` | Spanisch | `es` |
-| Griechisch | `el` | Swahili | `sw` |
-| Gujarati | `gu` | Schwedisch | `sv` |
-| Hausa | `ha` | Tadschikisch | `tg` |
-| Hebräisch | `iw` | Tamil | `ta` |
-| Hindi | `hi` | Telugu | `te` |
-| Ungarisch | `hu` | Thailändisch | `th` |
-| Isländisch | `is` | Setswana | `tn` |
-| Indonesisch | `id` | Türkisch | `tr` |
-| Irisch | `ga` | Turkmenisch | `tk` |
-| Italienisch | `it` | Ukrainisch | `uk` |
-| Japanisch | `ja` | Urdu | `ur` |
-| Kannada | `kn` | Usbekisch | `uz` |
-| Kasachisch | `kk` | Vietnamesisch | `vi` |
-| Khmer | `km` | Walisisch | `cy` |
-| Kinyarwanda | `rw` | Westfriesisch | `fy` |
-| Koreanisch | `ko` | Wolof | `wo` |
-| Kurdisch | `ku` | Yoruba | `yo` |
-| Kirgisisch | `ky` | Zulu | `zu` |
-| Lao | `lo` |  |  |
+| อาฟรีกานส์ | `af` | ลัตเวีย | `lv` |
+| อะคัน | `ak` | ลิทัวเนีย | `lt` |
+| แอลเบเนีย | `sq` | มาซีโดเนีย | `mk` |
+| อัมฮาริก | `am` | มาเลย์ | `ms` |
+| อาหรับ | `ar` | มาลายาลัม | `ml` |
+| อาร์เมเนีย | `hy` | มอลตา | `mt` |
+| อัสสัม | `as` | เมารี | `mi` |
+| อาร์เซอร์ไบจัน | `az` | มราฐี | `mr` |
+| บาสก์ | `eu` | มองโกเลีย | `mn` |
+| เบลารุส | `be` | เนปาล | `ne` |
+| เบงกอล | `bn` | นอร์เวย์ | `no` |
+| บอสเนีย | `bs` | โอเดีย | `or` |
+| บัลแกเรีย | `bg` | โอโรโม | `om` |
+| พม่า | `my` | พาชตู | `ps` |
+| คาตาลัน | `ca` | เปอร์เซีย | `fa` |
+| ซีบัวโน | `ceb` | โปแลนด์ | `pl` |
+| จีน | `zh` | โปรตุเกส | `pt` |
+| โครเอเชีย | `hr` | ปัญจาบ | `pa` |
+| เช็ก | `cs` | เคชัว | `qu` |
+| เดนมาร์ก | `da` | โรมาเนีย | `ro` |
+| ดัตช์ | `nl` | โรมานช์ | `rm` |
+| อังกฤษ | `en` | รัสเซีย | `ru` |
+| เอสโตเนีย | `et` | เซอร์เบีย | `sr` |
+| แฟโร | `fo` | สินธี | `sd` |
+| ฟิลิปปินส์ | `fil` | สิงหล | `si` |
+| ฟินแลนด์ | `fi` | สโลวัก | `sk` |
+| ฝรั่งเศส | `fr` | สโลวีเนีย | `sl` |
+| กาลิเชียน | `gl` | โซมาลี | `so` |
+| จอร์เจีย | `ka` | โซโทใต้ | `st` |
+| เยอรมัน | `de` | สเปน | `es` |
+| กรีก | `el` | สวาฮิลี | `sw` |
+| คุชราต | `gu` | สวีเดน | `sv` |
+| เฮาซา | `ha` | ทาจิก | `tg` |
+| ฮีบรู | `iw` | ทมิฬ | `ta` |
+| ฮินดี | `hi` | เตลูกู | `te` |
+| ฮังการี | `hu` | ไทย | `th` |
+| ไอซ์แลนด์ | `is` | ซวานา | `tn` |
+| อินโดนีเซีย | `id` | ตุรกี | `tr` |
+| ไอริช | `ga` | เติร์กเมน | `tk` |
+| อิตาลี | `it` | ยูเครน | `uk` |
+| ญี่ปุ่น | `ja` | อูรดู | `ur` |
+| กันนาดา | `kn` | อุซเบก | `uz` |
+| คาซัค | `kk` | เวียดนาม | `vi` |
+| เขมร | `km` | เวลส์ | `cy` |
+| คินยารวันดา | `rw` | ฟริเซียนตะวันตก | `fy` |
+| เกาหลี | `ko` | วูลอฟ | `wo` |
+| เคิร์ด | `ku` | โยรูบา | `yo` |
+| คีร์กิซ | `ky` | ซูลู | `zu` |
+| ภาษาลาว | `lo` |  |  |
 
-## Nächste Schritte
+## ขั้นตอนถัดไป
 
-- In den Anleitungen [Tool Use](https://ai.google.dev/gemini-api/docs/live-tools?hl=de) (Tool-Nutzung) und [Session Management](https://ai.google.dev/gemini-api/docs/live-session?hl=de) (Sitzungsverwaltung) finden Sie wichtige Informationen zur effektiven Nutzung der Live API.
-- Testen Sie die Live API in [Google AI Studio](https://aistudio.google.com/app/live?hl=de).
-- Weitere Informationen zu den Live API-Modellen finden Sie auf der Seite „Modelle“ unter [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=de#gemini-2.5-flash-native-audio).
-- Weitere Beispiele finden Sie im [Live API-Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=de), im [Live API Tools-Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=de) und im [Live API-Script für die ersten Schritte](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
+- อ่านคำแนะนำ[การใช้เครื่องมือ](https://ai.google.dev/gemini-api/docs/live-tools?hl=th)และ
+  [การจัดการเซสชัน](https://ai.google.dev/gemini-api/docs/live-session?hl=th)เพื่อดูข้อมูลสำคัญ
+  เกี่ยวกับการใช้ Live API อย่างมีประสิทธิภาพ
+- ลองใช้ Live API ใน [Google AI Studio](https://aistudio.google.com/app/live?hl=th)
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับโมเดล Live API ได้ที่ [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-native-audio)
+  ในหน้าโมเดล
+- ลองดูตัวอย่างเพิ่มเติมใน[สูตรการใช้ Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=th)
+  [สูตรการใช้เครื่องมือ Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=th)
+  และ[สคริปต์เริ่มต้นใช้งาน Live API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py)
 
-Feedback geben
+ส่งความคิดเห็น
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Zuletzt aktualisiert: 2026-07-31 (UTC).
+อัปเดตล่าสุด 2026-07-31 UTC
 
-Haben Sie Feedback für uns?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-31 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-31 UTC"],[],[]]

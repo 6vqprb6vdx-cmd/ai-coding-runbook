@@ -1,33 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=de
-fetched_at: 2026-08-31T06:39:42.579317+00:00
-title: "Videos mit Gemini Omni Flash generieren und bearbeiten \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=zh-CN
+fetched_at: 2026-09-07T05:30:22.362838+00:00
+title: "\u4f7f\u7528 Gemini Omni Flash \u751f\u6210\u548c\u7f16\u8f91\u89c6\u9891 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Feedback geben
+发送反馈
 
-# Videos mit Gemini Omni Flash generieren und bearbeiten
+# 使用 Gemini Omni Flash 生成和编辑视频
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`) ist ein leistungsstarkes multimodales Modell, das für die schnelle Videogenerierung, ‑bearbeitung und filmische Steuerung entwickelt wurde.
-Gemini Omni basiert auf den folgenden Kernfunktionen, die es von früheren Videomodellen unterscheiden:
+Gemini Omni Flash (`gemini-omni-1.1-flash`) 是一款高性能多模态模型，专为高速视频生成、编辑和电影级控制而设计。
+Gemini Omni 基于以下核心功能构建，这些功能使其有别于之前的视频模型：
 
-- **Native Multimodalität**:Das Modell verarbeitet Text, Bilder, Audio und Video gleichzeitig und liefert so kohärentere, konsistentere und besser steuerbare Ausgaben.
-- **Dialogorientierte Bearbeitung**:Diese Funktion wird durch die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ermöglicht und erlaubt es Ihnen, Ihre Videos durch Konversation in natürlicher Sprache iterativ zu verfeinern und zu bearbeiten. Beschreiben Sie, was Sie ändern möchten, und das Modell nimmt die Bearbeitung vor, wobei die Teile des Videos, die Sie behalten möchten, erhalten bleiben.
-- **Weltwissen**:Gemini Omni kombiniert ein Verständnis von Physik mit dem Wissen von Gemini über Geschichte, Wissenschaft und kulturellen Kontext und schlägt so die Brücke vom Fotorealismus zum aussagekräftigen Storytelling.
+- **原生多模态**： 它可同时处理文本、图片、音频和视频，为您提供更具凝聚力、一致性和可控性的输出。
+- **对话式编辑**： 通过 [Interactions
+  API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 实现，让您可以通过自然语言对话迭代优化
+  和编辑视频。描述您想要更改的内容，模型会在应用编辑的同时保留您想要保留的视频部分。
+- **世界知识**： Gemini Omni 将对物理的理解与 Gemini 的历史、科学和文化背景知识相结合，弥合了从照片写实主义到有意义的故事讲述之间的差距。
 
-## Text-zu-Video-Generierung
+## 文生视频
 
-Video aus einem Text-Prompt generieren Das Modell generiert anhand Ihrer Textbeschreibung ein Video mit Audio. Für optimale Ergebnisse sollten Sie Prompts mit Details wie Szenenbeschreibung, Kamerabewegung, Beleuchtung und Stimmung verfassen.
+根据文本提示生成视频。模型会根据您的文本说明生成带音频的视频。撰写提示时，请添加场景说明、镜头移动、光效和氛围等详细信息，以获得最佳效果。
 
 ### Python
 
@@ -73,12 +75,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### REST-Antwortschema
+### REST 响应 schema
 
-Das Convenience-Feld `interaction.output_video` ist **nur für das SDK** verfügbar.
-Wenn Sie die REST API direkt verwenden, rufen Sie die Videoausgabe aus dem `steps`-Array ab.
+便捷字段 `interaction.output_video` 仅适用于 **SDK** 。
+直接使用 REST API 时，请从 `steps` 数组获取视频输出。
 
-**Rohe REST-JSON-Struktur:**
+**原始 REST JSON 结构**：
 
 ```
 {
@@ -103,9 +105,9 @@ Wenn Sie die REST API direkt verwenden, rufen Sie die Videoausgabe aus dem `step
 }
 ```
 
-### Seitenverhältnis anpassen
+### 控制宽高比
 
-Stelle das `aspect_ratio` auf `"9:16"` ein, um Videos im Hochformat zu erstellen. Das Standardformat ist das Querformat (16:9).
+将 `aspect_ratio` 设置为 `"9:16"` 以创建竖屏视频。默认值为横向 (16:9)。
 
 ### Python
 
@@ -163,16 +165,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Ausgabeauflösung
+### 输出分辨率
 
-Mit dem Parameter `resolution` in `response_format` können Sie die Ausgabauflösung Ihres generierten Videos festlegen. Die Standardauflösung ist 720p.
+使用 `response_format` 中的 `resolution` 参数控制生成的视频的输出分辨率。默认分辨率为 720p。
 
-| Wert | Beschreibung |
+| 值 | 说明 |
 | --- | --- |
-| `360p` | Ausgabeauflösung: 360p |
-| `720p` | Ausgabeauflösung: 720p (Standard) |
-| `1080p` | 1080p-Ausgabe (hochskaliert) |
-| `4k` | 4K-Ausgabe (hochskaliert) |
+| `360p` | 360p 输出分辨率 |
+| `720p` | 720p 输出分辨率（默认） |
+| `1080p` | 1080p 输出（画质提升） |
+| `4k` | 4K 输出（画质提升） |
 
 ### Python
 
@@ -230,21 +232,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-## Bild-zu-Video-Generierung
+## 图生视频
 
-Sie können Ihrem Text-Prompt ein Referenzbild hinzufügen. Je nach Prompt entscheidet das Modell, wie das Bild verwendet werden soll. Das ist nützlich, um Produktaufnahmen, Illustrationen oder Fotos zum Leben zu erwecken.
+您可以提供参考图片和文本提示。模型会根据您的提示决定如何使用图片。这对于让产品照片、插图或照片栩栩如生非常有用。
 
-Im folgenden Beispiel wird gezeigt, wie Sie das Referenzbild einer Zeichnung eines Fisches verwenden, der aus dem Wasser springt:
+以下示例展示了如何使用鱼从水中跳出的绘画的参考图片：
 
-![Zeichnung eines Fisches, der aus dem Wasser springt](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=de)
+![一张鱼跃出水面的绘画](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=zh-cn)
 
-Mit dem folgenden Prompt:
+使用以下提示：
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-Ein realistisches Video der Zeichnung generieren
+生成绘画的逼真视频。
 
 ### Python
 
@@ -299,11 +301,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Interpolation des ersten und letzten Frames
+### 第一帧和最后一帧插值
 
-Gemini Omni Flash unterstützt die Videointerpolation. So können Sie ein Video erstellen, das nahtlos zwischen einem Startbild (erstes Frame) und einem Endbild (letztes Frame) übergeht.
+Gemini Omni Flash 支持视频插值，让您能够生成在起始图片（第一帧）和结束图片（最后一帧）之间平滑过渡的视频。
 
-Stellen Sie zwei Bilder in der Liste `input` bereit und beschreiben Sie den gewünschten Übergang in Ihrem Prompt. Das Modell animiert die Szene vom ersten bis zum letzten Frame.
+在 `input` 列表中提供两张图片，并在提示中描述所需的转场效果。模型会将场景从第一帧到最后一帧呈现动画效果。
 
 ### Python
 
@@ -361,10 +363,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Motivreferenz
+### 正文参考
 
-Sie können ein Video mit bestimmten Motiven generieren, die als Referenzbilder bereitgestellt werden.
-Im folgenden Codebeispiel sehen Sie, wie Sie zwei Bilder einer Katze und eines Wollknäuels bereitstellen, um ein Video zu generieren, in dem die Katze mit dem Wollknäuel spielt.
+您可以生成包含作为参考图片提供的特定正文的视频。
+例如，以下代码展示了如何提供猫和毛线的 2 张图片，以生成猫玩毛线的视频。
 
 ### Python
 
@@ -422,11 +424,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Parameter „Tasks“
+### 任务参数
 
-Verwenden Sie den Parameter `task` in `video_config`, um das gewünschte Verhalten explizit anzugeben. Wenn Sie beispielsweise möchten, dass das Modell ein Video aus einem Bild generiert, können Sie den Parameter auf `image_to_video` festlegen. Wenn dies nicht festgelegt ist, leitet das Modell ab, was Sie vom Prompt erwarten.
+使用 `video_config` 中的 `task` 参数明确指定预期行为，例如，如果您希望模型根据图片生成视频，可以将该参数设置为 `image_to_video`。如果未设置此参数，模型将根据提示推断您的意图。
 
-Folgende Werte sind zulässig:
+允许的值如下：
 
 - `text_to_video`
 - `image_to_video`
@@ -434,7 +436,7 @@ Folgende Werte sind zulässig:
 - `edit`
 - `extend`
 
-Im folgenden Beispiel wird gezeigt, wie Sie dies für das oben gezeigte Beispiel für Bild zu Video festlegen.
+以下示例展示了如何为之前显示的图生视频示例设置此参数。
 
 ### Python
 
@@ -512,11 +514,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Zustandsbehaftete Videobearbeitung
+## 有状态视频编辑
 
-Videos generieren und mithilfe von Folge-Prompts iterativ bearbeiten Jeder Zug baut auf dem vorherigen Ergebnis auf. Das Modell merkt sich den Videokontext und wendet Ihre Änderungen an, ohne Elemente zu verändern, die Sie nicht erwähnt haben. Verwenden Sie den `previous_interaction_id`, um den Unterhaltungsverlauf und den generierten Videostatus zu verfolgen, ohne das vorherige Video noch einmal hochzuladen.
+生成视频并使用后续提示迭代编辑。每个轮次都基于上一个结果。模型会记住视频上下文，应用您的更改，同时保留您未提及的元素。使用 `previous_interaction_id` 跟踪对话历史记录和生成的视频状态，而无需重新上传之前的视频。
 
-Das folgende Beispiel zeigt, wie Sie zuerst ein Video generieren und es dann bearbeiten:
+以下示例展示了如何先生成第一个视频，然后对其进行编辑：
 
 ### Python
 
@@ -576,17 +578,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-Beispiel für ein ursprüngliches Video:
+初始视频示例：
 
-Beispiel für ein bearbeitetes Video:
+编辑后的视频示例：
 
-Bei jeder Unterhaltungsrunde wird ein neues Video erstellt. Das Modell berücksichtigt den Kontext aus vorherigen Anfragen. So können Sie inkrementelle Änderungen vornehmen, z. B. die Beleuchtung anpassen oder den Hintergrund ändern, ohne die gesamte Szene neu zu beschreiben.
+对话中的每个轮次都会生成一个新视频。模型会理解之前轮次的上下文，让您能够进行增量更改，例如调整光效和更换背景，而无需重新描述整个场景。
 
-### Eigene Videos bearbeiten
+### 编辑自己的视频
 
-Laden Sie Ihre Videos über die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hoch, um sie mit Gemini Omni Flash zu bearbeiten.
+使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传视频，以便使用 Gemini Omni Flash 对其进行编辑
+。
 
-Das folgende Beispiel zeigt, wie das folgende Originalvideo bearbeitet wird:
+以下示例展示了如何编辑以下原始视频：
 
 ### Python
 
@@ -691,12 +694,13 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-Beispiel für ein bearbeitetes Video:
+编辑后的视频示例：
 
-## Videos mit einem URI abrufen
+## 使用 URI 检索视频
 
-Verwenden Sie den Parameter `delivery="uri"` in `response_format`, um generierte Videos abzurufen, die größer als 4 MB sind.
-Dadurch wird ein von Google gehosteter URI zurückgegeben, den Sie abfragen können, bis das Video `ACTIVE` ist, bevor Sie es herunterladen.
+使用 `delivery="uri"` 参数在
+`response_format` 中检索大于 4MB 的生成的视频。
+这会返回一个 Google 托管的 URI，您可以轮询该 URI，直到视频变为 `ACTIVE` 状态，然后才能下载。
 
 ### Python
 
@@ -809,7 +813,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Rohe REST-JSON-Struktur (URI):**
+**原始 REST JSON 结构 (URI)**：
 
 ```
 {
@@ -834,15 +838,17 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## Videoverlängerung
+## 视频延长
 
-Ein vorhandenes Video verlängern, indem Sie am Ende des Clips eine nahtlose Fortsetzung generieren. Beschreiben Sie in Ihrem Prompt, wie das Video weitergehen soll, z. B. `"Extend this video"` oder `"Continue the scene: the camera pans across the mountains"`.
-Das Modell analysiert das eingegebene Video, um eine Fortsetzung von 3 bis 10 Sekunden zu generieren.
+通过在视频片段的末尾生成无缝延续内容来延长现有视频。在提示中描述您希望视频如何延续，例如
+`"Extend this video"` 或 `"Continue the scene: the camera pans across the mountains"`。
+模型会分析输入视频，生成 3-10 秒的延续内容。
 
-Sie können Folgendes verlängern:
+您可以延长：
 
-- **Vom Modell generierte Videos (Mehrfachdialog)**: Sie können ein zuvor generiertes Video erweitern, indem Sie auf seinen `previous_interaction_id` verweisen.
-- **Hochgeladene Videos**: Stellen Sie eine hochgeladene Videodatei (über die Files API) zusammen mit Ihrem Erweiterungsprompt bereit.
+- **模型生成的视频（多轮次）**：通过引用先前生成的
+  视频的 `previous_interaction_id` 来延长该视频。
+- **上传的视频**：提供上传的视频文件（通过 Files API）以及延长提示。
 
 ### Python
 
@@ -910,9 +916,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Mit Referenzmedien erweitern
+### 使用参考媒体延长
 
-Sie können im `input`-Array zusammen mit Ihrem Prompt Referenzbilder angeben, um neue Charaktere oder Elemente in das erweiterte Video einzufügen:
+您可以在 `input` 数组中提供参考图片以及提示，以便在延长的视频中引入新的人物或元素：
 
 ### Python
 
@@ -984,120 +990,124 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Einschränkungen und Richtlinien für Erweiterungen
+### 延长限制和准则
 
-Beachten Sie beim Verlängern von Videos die folgenden Regeln und Einschränkungen:
+延长视频时，请注意以下规则和限制：
 
-- **Gesprochene Dialoge in hochgeladenen Videos**: Derzeit können Sie ein hochgeladenes Video, in dem jemand spricht, nicht verlängern, um zusätzliche Dialoge hinzuzufügen. Das ist nur möglich, wenn die Figur stumm bleibt oder wenn durch den Prompt keine Dialoge hinzugefügt werden.
-- **Sprach-Erweiterung im Mehrfachdialog**: Das Generieren von gesprochenen Dialogen oder Sprache wird unterstützt, wenn zuvor generierte Videos im Mehrfachdialog (`previous_interaction_id`) erweitert werden.
-- **Nur am Ende des Clips**: Die Erweiterung kann nur am Ende des Videos angehängt werden.
-  Sie können keine Inhalte vor einen Clip setzen oder die Mitte eines Clips verlängern.
-- **Dauerbeschränkung**: Eingabe-Videos für Erweiterungen dürfen beim Hochladen nicht länger als 10 Sekunden sein (es sei denn, Sie verwenden Mehrfachdialog).
-- **Regionale Verfügbarkeit**: Das Verlängern hochgeladener Videos ist derzeit nicht für Nutzer im Europäischen Wirtschaftsraum (EWR), in der Schweiz und im Vereinigten Königreich verfügbar. Das Verlängern von Videos, die vom Modell generiert wurden, wird in allen verfügbaren Regionen unterstützt.
+- **上传的视频中的口语对话**：目前，您无法延长
+  上传的视频，在其中添加额外的对话（如果人物保持沉默或提示不添加对话，则支持此操作）。
+- **多轮次语音延长**：通过多轮次 (`previous_interaction_id`) 延长先前生成的视频时，支持生成口语对话或语音。
+- **仅限视频片段末尾**：延长仅限于附加到视频末尾。
+  您无法在视频片段开头添加内容或延长视频片段中间的内容。
+- **时长限制**：上传用于延长的输入视频时，时长必须不超过 10 秒
+  （除非使用多轮次）。
+- **地区可用性**：欧洲经济区 (EEA)、瑞士和英国境内的用户目前无法延长上传的视频
+  （所有可用地区都支持延长模型生成的视频）。
 
-## Best Practices
+## 最佳实践
 
-- **URI-Bereitstellung für große Videos verwenden**:Verwenden Sie für Videos, die größer als 4 MB sind (bei Verfügbarkeit > 720p), `delivery="uri"` in `response_format`, um Beschränkungen der Nutzlastgröße zu vermeiden.
-- **Optimierte Leistung**:Legen Sie `background=false`, `store=false` und `stream=false` für eine schnellere, synchrone unäre Generierung fest. Wenn Sie `store=false` festlegen, kann das generierte Video in nachfolgenden Zügen nicht mit dem `previous_interaction_id` bearbeitet werden.
-- **Prompt-Präzision**:Weitere Informationen finden Sie im Abschnitt [Anleitung für Prompts](#prompt-guide).
+- **对大型视频使用 URI 传送**： 对于大于 4MB 的视频（>720p 如果可用），请在 `response_format` 中使用 `delivery="uri"`，以避免载荷大小限制。
+- **优化性能**： 将 `background=false`、`store=false` 和 `stream=false` 设置为更快、同步的一元生成。请注意，将 `store=false` 设置为表示生成的视频无法在后续轮次中使用 `previous_interaction_id` 进行编辑。
+- **提示准确性**： 如需了解
+  详情，请参阅[提示指南](#prompt-guide)部分。
 
-## Beschränkungen
+## 限制
 
-- Das Hochladen und Bearbeiten von Bildern, auf denen Minderjährige zu sehen sind, wird im Europäischen Wirtschaftsraum, in der Schweiz und im Vereinigten Königreich nicht unterstützt.
-- Das Hochladen und Bearbeiten von Bildern, auf denen bestimmte erkennbare Personen zu sehen sind, wird nicht unterstützt.
-- Das Bearbeiten oder Verlängern hochgeladener Videos ist derzeit für Nutzer im Europäischen Wirtschaftsraum (EWR), in der Schweiz und im Vereinigten Königreich nicht verfügbar. Das Bearbeiten oder Verlängern von Videos, die vom Modell generiert wurden, wird unterstützt.
-- Eingabevideos für die Bearbeitung und Verlängerung dürfen beim Hochladen maximal 10 Sekunden lang sein, es sei denn, es handelt sich um Videos, die vom Modell im Mehrfachdialog generiert wurden.
-- Die Videoerweiterung ist auf das Anhängen an das Ende eines Videos beschränkt. Das Voranstellen oder Erweitern der Mitte eines Clips wird nicht unterstützt.
-- Sie können ein hochgeladenes Video, in dem jemand spricht, nicht verlängern, um zusätzlichen Dialog hinzuzufügen. Die Charaktere können stumm bleiben oder es kann eine Mehrfachdialog-Erweiterung mit `previous_interaction_id` verwendet werden.
-- Die Bearbeitung von Sprache wird nicht unterstützt.
-- Das Hochladen von Audio-Referenzen wird in der aktuellen Version der API nicht unterstützt.
-- Video-Referenzen funktionieren am besten mit Abbildungen. Audio in einer Video-Referenz wird ignoriert. Für Videoreferenzen können maximal drei Clips mit einer Länge von jeweils bis zu drei Sekunden verwendet werden.
-- Das Verweisen auf oder Begründen mit mehreren Videos wird nicht unterstützt. Wenn Sie versuchen, mehrere Videos als Prompt zu verwenden, kann dies zu einer schlechteren Modellleistung oder unerwarteten Ausgaben führen.
-- Bereitgestellter Durchsatz wird nicht unterstützt.
-- Systemanweisungen, Temperatur, `top_p`, Stoppsequenzen und negative Prompts werden nicht unterstützt. Sie können Ihre negativen Prompts in den regulären Prompt einfügen, z. B. „Do not do X“ (Mache nicht X).
-- YouTube-Videos können nicht als Media-Quelle verwendet werden.
+- 欧洲经济区、瑞士和英国不支持上传和编辑包含未成年人的图片。
+- 不支持上传和编辑包含某些可识别人物的图片。
+- 欧洲经济区 (EEA)、瑞士和英国境内的用户目前无法编辑或延长上传的视频（支持编辑或延长模型生成的视频）。
+- 上传用于编辑和延长的输入视频时，时长必须不超过 10 秒（除非在多轮次中延长模型生成的视频）。
+- 视频延长仅限于附加到视频末尾；不支持在视频片段开头添加内容或延长视频片段中间的内容。
+- 您无法延长上传的视频，在其中添加额外的对话（人物可以保持沉默，也可以使用 `previous_interaction_id` 进行多轮次延长）。
+- 不支持语音编辑。
+- API 的当前版本不支持上传音频参考。
+- 视频参考最适合用于相似性；视频参考中的任何音频都会被忽略。视频参考最多支持 3 个视频片段，每个视频片段最长 3 秒。
+- 不支持跨多个视频进行引用或推理。尝试多视频提示可能会导致模型性能下降或产生意外输出。
+- 不支持预配吞吐量。
+- 不支持系统说明、温度、`top_p`、停止序列和负面提示（您可以将负面提示放在常规提示中：例如，“不要执行 X”）。
+- 不支持使用 YouTube 视频作为媒体来源。
 
-## Technische Details
+## 技术详情
 
-- Alle generierten Videos enthalten ein SynthID-Wasserzeichen, das für Zuschauer unsichtbar ist, aber programmatisch zur Überprüfung der Herkunft erkannt werden kann.
-- Die Zeit, die für die Videogenerierung benötigt wird, hängt von der Dauer, der Auflösung und der aktuellen API-Last ab. Das Generieren längerer Videos mit höherer Auflösung dauert länger.
-- Omni wendet Inhaltsfilter auf Eingabeaufforderungen und generierte Videos an. Diese Filter variieren je nach Region. Prompts, die gegen die Nutzungsrichtlinien verstoßen, werden blockiert.
-- Englisch (EN) wird vollständig unterstützt. Andere Sprachen wurden nicht getestet. Sie funktionieren möglicherweise, aber die Ergebnisse können variieren.
+- 所有生成的视频都包含 SynthID 水印，该水印对观看者不可见，但可以通过编程方式检测以进行来源验证。
+- 视频生成时间因时长、分辨率和当前 API 负载而异。时长较长、分辨率较高的视频需要更多时间生成。
+- Omni 会对输入提示和生成的视频应用内容安全过滤器（因地区而异）。违反使用政策的提示会被屏蔽。
+- 完全支持英语 (EN)，但其他语言尚未经过评估，因此可能有效，但结果可能会有所不同。
 
-## Anleitung zu Prompts für Gemini Omni Flash
+## Gemini Omni Flash 提示指南
 
-Dieser Abschnitt enthält Tipps und Beispiele für effektive Prompts für Gemini Omni Flash.
+本部分包含有关如何有效提示 Gemini Omni Flash 的提示和示例。
 
-### Einzelne Szene
+### 单场景
 
-Standardmäßig versucht Omni Flash, ein Video mit mehreren verschiedenen Aufnahmen zu erstellen.
-Es wird versucht, basierend auf dem Prompt eine interessante Geschichte zu erstellen.
+默认情况下，Omni Flash 会尝试创建包含几个不同镜头的视频。
+它会尝试根据提示制作有趣的叙事内容。
 
-Wenn das Ausgabevideo nur eine Szene enthalten soll, müssen Sie das im Prompt angeben:
+如果您需要输出视频包含单个场景，则必须提示：
 
-- In einer einzigen ununterbrochenen Szene
-- In einer einzigen durchgehenden Aufnahme
-- Keine Szenenschnitte
+- 在单个不间断的场景中
+- 在一个连续镜头中
+- 无场景切换
 
-Beispiel:
+例如：
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### Unerwünschte Elemente entfernen
+### 移除不需要的元素
 
-Wenn das generierte Video Elemente enthält, die Sie nicht möchten, können Sie einfache negative Prompts verwenden, um sie zu vermeiden:
+如果生成的视频包含您不需要的内容，请添加简单的负面提示以避免这些内容：
 
-- Kein Dialog
-- Keine Verzierungen
-- Keine zusätzlichen Soundeffekte
+- 无对话
+- 无装饰
+- 无额外音效
 
-### Aufforderungen zum Bearbeiten
+### 用于编辑的提示
 
-Einfache Prompts eignen sich am besten für die Videobearbeitung. Zu detaillierte Prompts können zu unbeabsichtigten Änderungen führen.
+简单的提示最适合用于视频编辑。过于详细的提示可能会导致意外更改。
 
-Hier sind weitere Beispiele für einfache Bearbeitungsprompts:
+以下是更多简单的编辑提示示例：
 
-- Verwandle dieses Video in einen Anime
-- Setze dieser Person einen modischen Hut auf
-- Ändere die Beleuchtung, damit sie dramatischer wirkt.
-- Ändere den Text auf dem Schild in „Omni Flash“.
+- 将此视频制作成动漫
+- 给此人戴上一顶时尚的帽子
+- 将光效更改为更具戏剧性
+- 将标志上的文字更改为“Omni Flash”
 
-Wenn Sie einen bestimmten Aspekt des Videos bearbeiten, fügen Sie `"Keep everything else the same"` ein, um die visuelle Konsistenz beizubehalten.
+编辑视频的特定方面时，请添加 `"Keep everything else the same"` 以保持视觉一致性。
 
-Im Folgenden finden Sie einige Beispiele für die Anwendung dieser Technik:
+以下是一些示例，展示了如何应用此技术：
 
-- **Zu vermeiden**:`In the video of the man sitting on the sofa, please add a small
+- **应避免以下做法**： `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Vereinfachen**:`Add a cat that jumps onto his lap, he begins to pet it.
+  - **化繁为简**： `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **Zu vermeiden**:`Please remove the cell phone that the person is holding in
+- **应避免以下做法**： `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Vereinfachen**:`Make the phone invisible. Keep everything else the
+  - **化繁为简**： `Make the phone invisible. Keep everything else the
     same.`
 
-### Audio-Prompt
+### 提示音频
 
-Standardmäßig versucht das Modell, einen geeigneten Audiotrack für ein Video zu generieren. Das ist möglicherweise nicht immer das, was Sie möchten. Mit Ihrem Prompt können Sie die Art von Audio beschreiben, die Sie möchten. Das ist besonders wichtig, wenn du Musik in deinem Video verwenden möchtest:
+默认情况下，模型会尝试为视频生成合适的音轨。这可能并不总是您想要的结果。您可以使用提示来描述所需的音频类型。如果您希望视频中包含音乐，这一点尤其重要：
 
-- Ruhige Hintergrundmusik einfügen
-- Das Video hat einen energiegeladenen Techno-Beat
-- Im Hintergrund ist eine leise, blecherne Radiosendung zu hören, in der ein Song gespielt wird.
+- 包含平静的背景音乐
+- 视频具有高能量的电子节拍
+- 音频是背景中播放歌曲的低沉的无线电广播
 
-### Zeitangaben
+### 定时事件
 
-Sie können festlegen, dass bestimmte Dinge zu bestimmten Zeiten im Video passieren sollen. Dazu ist keine genaue Syntax erforderlich. Sie können natürliche Sprache verwenden. Das ist besonders nützlich, wenn Sie eigene Szenenschnitte, Rhythmus- oder Rapid-Fire-Sequenzen erstellen möchten.
-Hier einige Beispiele:
+您可以提示在视频中的特定时间发生某些事件，无需精确的语法，可以使用自然语言。这对于创建自己的场景切换、节奏或快速序列尤其有用。
+请参阅以下示例：
 
-- Nach 3 Sekunden betritt eine Frau die Szene.
-- Bei 5 Sekunden beginnt der Refrain im Hintergrund-Audio.
-- Alle 2 Sekunden wird ein neuer Frame eingeblendet.
-- Bei einer Schnellfeuersequenz sollte alle halbe Sekunde (12 Frames bei 24 fps) die Szene an einen neuen Ort wechseln.
+- 3 秒后，一名女子进入场景。
+- 在 5 秒时，背景音频中开始播放合唱。
+- 每 2 秒切换到新帧。
+- 在快速序列中，每半秒（24fps 时为 12 帧）将场景更改为新位置。
 
-Sie können auch eine Timecode-Syntax verwenden:
+您还可以使用时间码语法：
 
 ```
 [0-3s] A person is walking
@@ -1105,53 +1115,55 @@ Sie können auch eine Timecode-Syntax verwenden:
 [6-10s] They start running
 ```
 
-### Meta-Prompting
+### 元提示
 
-Sie können Gemini Omni Flash bitten, auf allgemeine Aspekte oder Grundsätze der Videogenerierung zu achten:
+您可以要求 Gemini Omni Flash 注意视频生成的一般质量或原则：
 
-- Achten Sie auf Mikrodetails, Mimik und Timing, um eine sehr detaillierte, aber völlig natürliche Szene zu schaffen.
-- Beschreiben Sie Charaktere und Umgebungen sehr detailliert.
-  Grundsätze des Kostümdesigns auf Charaktere anwenden Beschreiben Sie die Personen, Elemente und Objekte in der Szene so genau wie möglich.
-- Fügen Sie den Hintergrundelementen viele passende Details hinzu, damit die Szene realistisch und natürlich wirkt.
-- Erstelle ein Video mit schnellen Schnitten, in dem alle 1 Sekunde ein anderes seltenes `[thing]` zu sehen ist. Verwende fröhliche Musik und füge Text hinzu, um die Dinge zu beschriften.
+- 考虑微细节、表情和时间，以创建非常丰富、详细但完全自然的场景。
+- 在描述人物和环境时要非常详细。
+  对人物应用服装设计原则。明确场景中的人物、物品和对象。
+- 在背景元素中添加大量适当的细节，使场景感觉真实自然。
+- 制作一个快速视频，每 1 秒显示一个不同的稀有 `[thing]`，播放欢快的音乐，并添加文字来标记该事物。
 
-### Text in Videos
+### 视频中的文字
 
-Sie können einen Prompt eingeben, um Text in Ihr Video einzufügen. Gemini Omni rendert den Text dann so, dass er korrekt und lesbar ist. Wenn in Ihrem Video Text vorkommt, auch in Hintergrundelementen, kann es hilfreich sein, festzulegen, was dort stehen soll.
+您可以提示在视频中添加文字，Gemini Omni 会以正确且可读的方式呈现。如果视频中会出现自然出现的文字（即使在背景元素中），定义文字内容也会很有帮助。
 
-- Es wird jeweils ein Wort auf dem Bildschirm angezeigt: „Wusstest, du, dass, Omni, tollen, Text, erstellen, kann?“ Jedes Wort wird eine Sekunde lang in einem anderen animierten Stil angezeigt. Keine Dialoge.
-- Es gibt ein Straßenschild mit der Aufschrift „This is an AI generation by Omni“, ein Schaufenster mit der Aufschrift „All you need AI“ und ein Auto mit dem Nummernschild „OMNI1.1“.
+- 屏幕上一次显示一个字词：“did, you, know, that, Omni, can, do, awesome, text?” 每个字词以不同的动画样式显示 1 秒。无对话。
+- 有一个路标写着：“This is an AI generation by Omni”，有一个店面写着：“All you need AI”，有一辆汽车的车牌号是：“OMNI1.1”
 
-### Prompts zum Verlängern eines Videos
+### 用于延长视频的提示
 
-Mit Gemini Omni 1.1 Flash können Sie Videos mit Prompts wie `"Extend this video"` oder `"The scene continues"` verlängern. Sie können Videos um jeweils 10 Sekunden verlängern, bis zu einer Gesamtlänge von 40 Sekunden.
+借助 Gemini Omni 1.1 Flash，您可以使用 `"Extend this video"` 或 `"The scene continues"` 等提示延长视频。您可以将视频延长 10 秒，总时长最多为 40 秒。
 
-Omni erstellt eine Erweiterung, bei der Video, Bewegung, Charaktere und Audio mithilfe der letzten 10 Sekunden Ihres Originalvideos als Kontext kohärent bleiben. Einige der letzten Frames in Ihrem Eingabevideo werden bearbeitet, um den Übergang nahtlos zu gestalten.
+Omni 会使用原始视频的最后 10 秒作为上下文，创建可保持视频、动作、人物和音频连贯性的延长内容。输入视频中的一些最后一帧将被编辑，以实现无缝过渡。
 
-Wenn Sie die Funktion erweitern, gelten weiterhin alle Tipps für Omni-Prompts aus diesem Leitfaden:
+延长时，本指南中的所有 Omni 提示技巧仍然适用：
 
-- Beschreiben Sie die Audioinhalte in der erweiterten Szene, insbesondere wenn sie sich ändern sollen: `"The music continues into the chorus"`
-- Beschreibe, ob die Szene fortgesetzt wird oder ob es einen Schnitt zu einer neuen Szene gibt (vielleicht mit denselben Figuren): `"Show the same characters in the next scene"`
-- Fügen Sie Bilder und Videos als Referenzen hinzu, um die Genauigkeit der Ausgaben zu erhöhen oder neue Charaktere einzuführen: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- Wenn Sie Zeitstempel oder eine Timecode-Syntax verwenden, bezieht sich „0s“ auf den Beginn des erweiterten Teils des Videos. Wenn Sie ein 10‑Sekunden-Video verlängern, erfolgt der Szenenschnitt in diesem Prompt nach 12 Sekunden: `"After 2s cut to a new scene with the same characters"`
+- 描述延长场景中的音频，尤其是在需要更改音频时：`"The music continues into the chorus"`
+- 描述场景是否延续，或者是否切换到新场景（可能包含相同的人物）：`"Show the same characters in the next scene"`
+- 延长时添加图片和视频作为参考，有助于保持输出准确，或引入新的人物：`"The person shown in the reference image enters the scene"`、`"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- 如果使用时间戳或时间码语法，0 秒是指视频延长部分的开头。如果延长 10 秒的视频，此提示中的场景切换将在 12 秒后发生：`"After 2s cut to a new scene with the same characters"`
 
-### Mit Tags in Prompts Bild- und Videorollen festlegen
+### 在提示中使用标记来设置图片和视频角色
 
-Mit Tags können Sie hochgeladene Medien an bestimmte Generierungsrollen binden. So können Sie angeben, ob jedes Bild oder Video ein Startframe, ein Endframe oder eine Referenz ist.
+您可以使用标记将上传的媒体绑定到特定的生成角色。这样，您就可以指定每张图片或每个视频是起始帧、最终帧还是参考。
 
-#### 1. Einfache Tags (empfohlen)
+#### 1. 简单标记（推荐）
 
-In einfachen Fällen, in denen die Media-Rollen aus dem Prompt hervorgehen, können Sie Bilder und Videos direkt an Rollen binden:
+对于媒体角色在提示中明确的简单情况，您可以将图片和视频直接绑定到角色：
 
-- **`<FIRST_FRAME>`**: Verwenden Sie das Bild als Startframe des Videos, z. B. `<FIRST_FRAME> a woman is walking`.
-- **`<LAST_FRAME>`**: Das Bild wird als letzter Frame des Videos verwendet, zu dem übergegangen wird. Muss zusammen mit `<FIRST_FRAME>` verwendet werden, z. B. `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**: Verwenden Sie das Bild als Referenz, z. B. `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (kombiniert die Stilreferenz aus dem ersten Bild und die Motivreferenz aus dem zweiten Bild).
-  Bildreferenzen beginnen bei 0.
-- **`<VIDEO_REF_N>`**: Verwenden Sie das Video als Referenz für eine Figur oder ein Objekt, z. B.:
-  `the person in <VIDEO_REF_0> is playing the violin`. Auch Videoreferenzen beginnen bei 0.
+- **`<FIRST_FRAME>`**：将图片用作视频的起始帧，例如：
+  `<FIRST_FRAME> a woman is walking`
+- **`<LAST_FRAME>`**：将图片用作视频的最终帧以进行过渡。必须与 `<FIRST_FRAME>` 搭配使用，例如：`<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**：将图片用作参考，例如：`in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking`（结合了第一张图片的样式
+  参考和第二张图片的正文参考）。
+  图片参考从 0 开始。
+- **`<VIDEO_REF_N>`**：将视频用作人物或对象参考，例如：
+  `the person in <VIDEO_REF_0> is playing the violin`。视频参考也从 0 开始。
 
-Hier ein Beispiel mit sechs Referenzbildern:
+以下是包含 6 张参考图片的示例：
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -1159,54 +1171,54 @@ Hier ein Beispiel mit sechs Referenzbildern:
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. Quellen und Referenzen angeben
+#### 2. 声明来源和参考
 
-Bei komplexeren Fällen mit mehreren Media-Eingaben und mehreren Rollen können Sie explizite Präfix-Tags in Kombination mit Anweisungen in natürlicher Sprache verwenden. Sie sollten diese Quellen und Referenzen am Anfang Ihres Prompts angeben.
+对于包含多个媒体输入和多个角色的更复杂情况，您可以将显式前缀标记与自然语言说明搭配使用。您应在提示开头声明这些来源和参考。
 
-- `[# Sources <FIRST_FRAME>@Image1]` verwendet das erste Bild als Startframe.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` verwendet das erste Bild als Startframe und das zweite Bild als Endframe.
-- Bei `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` wird das erste Bild sowohl als erster als auch als letzter Frame verwendet, sodass ein Video mit Endlosschleife entsteht.
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` verwendet das erste Bild als Startframe und das zweite Bild als Referenz.
-- `[# Sources <VIDEO_0>@Video1]` verwendet das Video als primäres Quellvideo zum Bearbeiten oder Ändern.
-- `[# Sources <PREVIOUS_VIDEO>@Video1]` verwendet das Video aus dem vorherigen Zug, um es zu verlängern.
-- `[# References <IMAGE_REF_0>@Image1]` verwendet das erste Bild als Referenz.
-- `[# References <IMAGE_REF_1>@Image2]` verwendet das zweite Bild als Referenz.
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` verwendet beide Bilder als Referenzen.
-- `[# References <VIDEO_REF_0>@Video1]` verwendet das erste Video als Referenz.
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` verwendet sowohl ein Bild als auch ein Video als Referenz.
+- `[# Sources <FIRST_FRAME>@Image1]` 会将第一张图片用作起始帧。
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` 会将第一张图片用作起始帧，将第二张图片用作最终帧。
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` 会将第一张图片同时用作第一帧和最后一帧，从而创建一个循环播放的视频。
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` 会将第一张图片用作起始帧，将第二张图片用作参考。
+- `[# Sources <VIDEO_0>@Video1]` 会将视频用作要编辑或修改的主要来源视频。
+- `[# Sources <PREVIOUS_VIDEO>@Video1]` 会使用上一个轮次的视频进行延长。
+- `[# References <IMAGE_REF_0>@Image1]` 会将第一张图片用作参考。
+- `[# References <IMAGE_REF_1>@Image2]` 会将第二张图片用作参考。
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` 会将两张图片都用作参考。
+- `[# References <VIDEO_REF_0>@Video1]` 会将第一个视频用作参考。
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` 会将图片和视频都用作参考。
 
-Fügen Sie am Ende des Prompts eine Anleitung hinzu:
+在提示末尾添加指导说明：
 
-- Für einen Startframe: `"Use this image as the starting frame."`
-- Für ein Video, das über Start- und End-Frames wiederholt wird: `"Use this image as the first frame and the last frame."`
-- Referenzbilder: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- Referenzvideos: `"Use the given video(s) as references. Do not use them as a source for video editing."`
+- 对于起始帧：`"Use this image as the starting frame."`
+- 对于通过起始帧和结束帧循环播放的视频：`"Use this image as the first frame and the last frame."`
+- 对于参考图片：`"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- 对于参考视频：`"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-Beispiele für Prompts mit Quell- und Referenzangaben:
+以下是一些包含来源和参考声明的提示示例：
 
-**Start-Frame in Kombination mit einem Referenzbild**:
+**起始帧与参考图片相结合**：
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**Referenzvideo für die Figur in Kombination mit einem Referenzbild für das Objekt:**
+**人物参考视频与对象参考图片相结合**：
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## Nächste Schritte
+## 后续步骤
 
-- Beginnen Sie mit Gemini Omni Flash, indem Sie im [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=de) experimentieren.
-- [Einführung in das Prompt-Design](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=de)
+- 在 [Omni 快速入门 Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=zh-cn) 中进行实验，开始使用 Gemini Omni Flash。
+- 通过我们的[提示设计简介](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=zh-cn)，了解如何撰写更好的提示。
 
-Feedback geben
+发送反馈
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Zuletzt aktualisiert: 2026-08-30 (UTC).
+最后更新时间 (UTC)：2026-08-30。
 
-Haben Sie Feedback für uns?
+需要向我们提供更多信息？
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-08-30 (UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-08-30。"],[],[]]

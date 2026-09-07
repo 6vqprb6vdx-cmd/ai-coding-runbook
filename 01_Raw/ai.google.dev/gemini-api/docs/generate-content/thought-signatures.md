@@ -1,102 +1,92 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=pt-BR
-fetched_at: 2026-08-31T06:32:29.060404+00:00
-title: "Assinaturas de racioc\u00ednio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=he
+fetched_at: 2026-09-07T05:43:59.864396+00:00
+title: "\u05d7\u05ea\u05d9\u05de\u05d5\u05ea \u05e9\u05dc \u05de\u05d7\u05e9\u05d1\u05d5\u05ea \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envie comentários
+שליחת משוב
 
-# Assinaturas de raciocínio
+# חתימות של מחשבות
 
-As assinaturas de pensamento são representações criptografadas do processo de pensamento interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias etapas.
-Ao usar modelos de pensamento (como as séries Gemini 3 e 2.5), a API pode
-retornar um campo `thoughtSignature` nas [partes de conteúdo](https://ai.google.dev/api/caching?hl=pt-br#Part)
-da resposta (por exemplo, partes `text` ou `functionCall`).
+חתימות מחשבה הן ייצוגים מוצפנים של תהליך החשיבה הפנימי של המודל, והן משמשות לשמירה על הקשר של הנימוקים במהלך אינטראקציות מרובות שלבים.
+כשמשתמשים במודלים של חשיבה (כמו סדרות Gemini 3 ו-2.5), ה-API עשוי להחזיר `thoughtSignature` שדה בתוך [חלקי התוכן](https://ai.google.dev/api/caching?hl=he#Part) של התגובה (למשל, חלקים `text` או `functionCall`).
 
-Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como recebida ao enviar o histórico da conversa na próxima interação.
-**Ao usar modelos do Gemini 3, é necessário transmitir assinaturas de pensamento durante a chamada de função. Caso contrário, você receberá um erro de validação** (código de status 4xx).
-Isso inclui o uso da configuração de `minimal`
-[nível de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#thinking-levels) para o Gemini 3
-Flash.
+ככלל, אם קיבלתם חתימת מחשבה בתשובה של מודל, אתם צריכים להעביר אותה בדיוק כמו שהיא כשאתם שולחים את היסטוריית השיחה בתור הבא.
+**כשמשתמשים במודלים של Gemini 3, צריך להעביר חתימות של מחשבות במהלך קריאה לפונקציה, אחרת תוצג שגיאת אימות** (קוד סטטוס 4xx).
+זה כולל שימוש בהגדרה `minimal`
+[רמת החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he#thinking-levels) של Gemini 3 Flash.
 
-## Como funciona
+## איך זה עובד
 
-O gráfico abaixo mostra o significado de "interação" e "etapa" em relação a
-[chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) na API Gemini. Uma "interação" é uma troca única e completa em uma conversa entre um usuário e um modelo. Uma "etapa" é uma ação ou operação mais detalhada realizada pelo modelo, geralmente como parte de um processo maior para concluir uma interação.
+בתרשים שלמטה אפשר לראות את המשמעות של המונחים 'תור' ו'שלב' בהקשר של [בקשות להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) ב-Gemini API. "תור" הוא תגובה אחת מלאה בשיחה בין משתמש לבין מודל. 'שלב' הוא פעולה או תהליך מפורטים יותר שהמודל מבצע, לרוב כחלק מתהליך גדול יותר להשלמת תור.
 
-![Diagrama de turnos e etapas de chamada de função](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=pt-br)
+![תרשים של תורות ושלבים של קריאה להפעלת פונקציות](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=he)
 
-*Este documento se concentra no processamento de chamadas de função para modelos do Gemini 3. Consulte
-a seção sobre o [comportamento do modelo](#model-behavior) para conferir discrepâncias com a versão 2.5.*
+*המאמר הזה מתמקד בטיפול בבקשות להפעלת פונקציות במודלים של Gemini 3. בקטע [התנהגות המודל](#model-behavior) מוסבר על אי-התאמות בגרסה 2.5.*
 
-O Gemini 3 retorna assinaturas de pensamento para todas as respostas do modelo (respostas da API) com uma chamada de função. As assinaturas de pensamento aparecem nos seguintes casos:
+‫Gemini 3 מחזיר חתימות של מחשבות לכל התשובות של המודל (תשובות מ-API) עם קריאה לפונקציה. חתימות מחשבה מופיעות במקרים הבאים:
 
-- Quando há [chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#parallel_function_calling)
-  paralelas, a primeira parte da chamada de função retornada pela resposta do modelo terá uma
-  assinatura de pensamento.
-- Quando há chamadas de função sequenciais (várias etapas), cada chamada de função terá uma assinatura, e você precisará transmitir todas as assinaturas.
-- As respostas do modelo sem uma chamada de função vão retornar uma assinatura de pensamento na última parte retornada pelo modelo.
+- כשמתבצעות קריאות ל[פונקציות מקבילות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#parallel_function_calling), לחלק הראשון של קריאת הפונקציה שמוחזר בתגובת המודל תהיה חתימת מחשבה.
+- כשמבצעים קריאות לפונקציות ברצף (כמה שלבים), לכל קריאה לפונקציה יש חתימה, ואתם צריכים להעביר את כל החתימות בחזרה.
+- תשובות של מודלים ללא קריאה לפונקציה יחזירו חתימה של מחשבה בחלק האחרון שהוחזר על ידי המודל.
 
-A tabela a seguir oferece uma visualização para chamadas de função de várias etapas, combinando as definições de interações e etapas com o conceito de assinaturas apresentado acima:
+בטבלה הבאה מוצגת ויזואליזציה של קריאות לפונקציות מרובות שלבים, שמשלבת את ההגדרות של תורות ושלבים עם המושג של חתימות שהוצג למעלה:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **התור שלך** | **שלב** | **בקשת משתמש** | **תשובת המודל** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Nenhum |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | ללא |
 
-## Assinaturas em partes de chamada de função
+## חתימות בחלקים של קריאה להפעלת פונקציות
 
-Quando o Gemini gera um `functionCall`, ele depende da `thought_signature` para processar a saída da ferramenta corretamente na próxima interação.
+כש-Gemini יוצר `functionCall`, הוא מסתמך על `thought_signature`
+כדי לעבד את הפלט של הכלי בצורה נכונה בתור הבא.
 
-- **Comportamento**:
-  - **Chamada de função única**: a parte `functionCall` vai conter uma `thought_signature`.
-  - **Chamadas de função paralelas**: se o modelo gerar chamadas de função paralelas
-    em uma resposta, a `thought_signature` será anexada **apenas à primeira**
-    `functionCall` parte. As partes `functionCall` subsequentes na mesma resposta **não** vão conter uma assinatura.
-- **Requisito**: você **precisa** retornar essa assinatura na parte exata em que ela
-  foi recebida ao enviar o histórico da conversa de volta.
-- **Validação**: a validação estrita é aplicada a todas as chamadas de função na
-  interação atual . Apenas a interação atual é necessária. Não validamos as interações anteriores.
-  - A API volta no histórico (do mais recente ao mais antigo) para encontrar a mensagem **do usuário** mais recente que contém conteúdo padrão (por exemplo, `text`) ( que seria o início da interação atual). Essa mensagem **be** será uma `functionResponse`.
-  - **Todas** as interações `functionCall` do modelo que ocorrem após essa mensagem de uso específica são consideradas parte da interação.
-  - A **primeira** parte `functionCall` em **cada etapa** da interação atual **precisa** incluir a `thought_signature`.
-  - Se você omitir uma `thought_signature` para a primeira parte `functionCall` em qualquer etapa da interação atual, a solicitação vai falhar com um erro 400.
-- **Se as assinaturas adequadas não forem retornadas, veja como você vai receber um erro**
-  - Modelos do Gemini 3: a falha ao incluir assinaturas vai resultar em um erro 400. A redação será do formulário:
-    - A chamada de função `<Function Call>` no bloco de conteúdo `<index of contents array>`
-      está sem um `thought_signature`. Por exemplo, *a chamada de função `FC1` no bloco de conteúdo `1.` está sem um `thought_signature`.*
+- **התנהגות**:
+  - **קריאה לפונקציה אחת**: החלק `functionCall` יכיל `thought_signature`.
+  - **קריאות מקבילות לפונקציות**: אם המודל יוצר קריאות מקבילות לפונקציות בתגובה, `thought_signature` מצורף **רק לחלק הראשון**
+    `functionCall`. חלקים הבאים של אותה תשובה `functionCall`**לא** יכילו חתימה.
+- **דרישה**: כששולחים בחזרה את היסטוריית השיחה, **חובה** להחזיר את החתימה הזו בדיוק בחלק שבו היא התקבלה.
+- **אימות**: מתבצע אימות קפדני של כל הקריאות לפונקציות במהלך התור הנוכחי . (נדרש רק התור הנוכחי, אנחנו לא מאמתים תורות קודמים)
+  - ה-API יחפש בהיסטוריה (מהחדש לישן) את ההודעה האחרונה של **המשתמש** שמכילה תוכן רגיל (למשל, `text`) ( שזו תהיה תחילת התור הנוכחי). הפעולה הזו לא **be** יהיה `functionResponse`.
+  - כל התורות של מודל **All** `functionCall` שמתרחשות אחרי הודעת השימוש הספציפית הזו נחשבות לחלק מהתור.
+  - החלק **הראשון** `functionCall` **בכל שלב** של התור הנוכחי **חייב** לכלול את `thought_signature` שלו.
+  - אם לא תציינו `thought_signature` עבור החלק הראשון `functionCall` בכל שלב של התור הנוכחי, הבקשה תיכשל ותוחזר שגיאת 400.
+- **אם לא מוחזרות חתימות תקינות, כך תופיע השגיאה**
+  - מודלים של Gemini 3: אם לא תכללו חתימות, תופיע שגיאת 400. הניסוח יהיה בפורמט הבא:
+    - בקריאה לפונקציה `<Function Call>` בחסימת התוכן `<index of contents array>` חסר `thought_signature`. לדוגמה, *Function
+      call `FC1` in the `1.` content block is missing a `thought_signature`.*
 
-### Exemplo de chamada de função sequencial
+### דוגמה לבקשה להפעלת פונקציה באופן רציף
 
-Esta seção mostra um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
+בקטע הזה מוצגת דוגמה לכמה קריאות לפונקציה, שבהן המשתמש שואל שאלה מורכבת שדורשת כמה משימות.
 
-Vamos analisar um exemplo de chamada de função de várias interações em que o usuário faz
-uma pergunta complexa que exige várias tarefas: `"Check flight status for AA100 and
+הנה דוגמה לשימוש בפונקציות עם כמה תורות, שבה המשתמש שואל שאלה מורכבת שדורשת כמה משימות: `"Check flight status for AA100 and
 book a taxi if delayed"`.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **התור שלך** | **שלב** | **בקשת משתמש** | **תשובת המודל** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-O código a seguir ilustra a sequência na tabela acima.
+הקוד הבא מדגים את הרצף שמופיע בטבלה שלמעלה.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**תור 1, שלב 1 (בקשת משתמש)**
 
 ```
 {
@@ -151,7 +141,7 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**תור 1, שלב 1 (תשובה לדוגמה)**
 
 ```
 {
@@ -172,8 +162,8 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Como essa interação do usuário contém apenas uma `functionResponse` (sem texto novo), ainda estamos na interação 1. Precisamos
-preservar `<Signature_A>`.
+**תור 1, שלב 2 (תגובת המשתמש – שליחת פלט של כלי)** מכיוון שהתור הזה של המשתמש
+מכיל רק `functionResponse` (ללא טקסט חדש), אנחנו עדיין בתור 1. אנחנו חייבים לשמור על `<Signature_A>`.
 
 ```
 {
@@ -214,7 +204,7 @@ preservar `<Signature_A>`.
 }
 ```
 
-**Interação 1, etapa 2 (modelo)** O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
+**תור 1, שלב 2 (מודל)** המודל מחליט להזמין מונית על סמך הפלט הקודם של הכלי.
 
 ```
 {
@@ -235,8 +225,7 @@ preservar `<Signature_A>`.
 }
 ```
 
-**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)** Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para **TODAS** as chamadas de função neste loop
-(`<Signature A>` + `<Signature B>`).
+**תור 1, שלב 3 (משתמש – שליחת פלט הכלי)** כדי לשלוח את אישור הזמנת המונית, צריך לכלול חתימות ל**כל** הקריאות לפונקציות בלולאה הזו (`<Signature A>` + `<Signature B>`).
 
 ```
 {
@@ -305,19 +294,18 @@ preservar `<Signature_A>`.
 }
 ```
 
-### Exemplo de chamada de função paralela
+### דוגמה לקריאה לפונקציות במקביל
 
-Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
-`"Check weather in Paris and London"` para ver onde o modelo faz a validação.
+בואו נראה דוגמה לשימוש מקביל בפונקציות, שבה המשתמש מבקש מ-`"Check weather in Paris and London"` לראות איפה המודל מבצע אימות.
 
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **התור שלך** | **שלב** | **בקשת משתמש** | **תשובת המודל** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + signature  FC2 ("London") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | Nenhum |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | ‫FC1 ("Paris") + signature  FC2 ("London") | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (אין כרטיסיות) | ללא |
 
-O código a seguir ilustra a sequência na tabela acima.
+הקוד הבא מדגים את הרצף שמופיע בטבלה שלמעלה.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**תור 1, שלב 1 (בקשת משתמש)**
 
 ```
 {
@@ -356,7 +344,7 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**תור 1, שלב 1 (תשובה לדוגמה)**
 
 ```
 {
@@ -384,8 +372,8 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Precisamos preservar
-`<Signature_A>` na primeira parte exatamente como recebida.
+**תור 1, שלב 2 (תגובת המשתמש – שליחת תוצאות של כלי)** אנחנו צריכים לשמור על
+`<Signature_A>` בחלק הראשון בדיוק כמו שהוא התקבל.
 
 ```
 [
@@ -443,20 +431,17 @@ O código a seguir ilustra a sequência na tabela acima.
 ]
 ```
 
-## Assinaturas em partes não `functionCall`
+## חתימות בחלקים שלא שייכים ל-`functionCall`
 
-O Gemini também pode retornar `thought_signatures` na parte final da resposta em partes que não são de chamada de função.
+יכול להיות ש-Gemini יחזיר גם `thought_signatures` בחלק האחרון של התשובה בחלקים שלא קשורים לקריאה לפונקציה.
 
-- **Comportamento**: a parte de conteúdo final (`text, inlineData…`) retornada pelo
-  modelo pode conter um `thought_signature`.
-- **Recomendação**: o retorno dessas assinaturas é **recomendado** para garantir que
-  o modelo mantenha um raciocínio de alta qualidade, especialmente para instruções complexas
-  seguindo ou fluxos de trabalho de agente simulados.
-- **Validação**: a API **não** aplica a validação de forma estrita. Você não vai receber um erro de bloqueio se omiti-las, embora a performance possa ser reduzida.
+- **התנהגות**: החלק האחרון של התוכן (`text, inlineData…`) שמוחזר על ידי המודל עשוי להכיל `thought_signature`.
+- **המלצה**: **מומלץ** להחזיר את החתימות האלה כדי לוודא שהמודל ישמור על יכולת חשיבה רציונלית באיכות גבוהה, במיוחד כשמדובר בהוראות מורכבות או בתהליכי עבודה מבוססי-סוכן מדומה.
+- **אימות**: ממשק ה-API **לא** אוכף אימות באופן מחמיר. אם לא תכללו אותם, לא תקבלו שגיאת חסימה, אבל יכול להיות שהביצועים ייפגעו.
 
-### Raciocínio de texto/no contexto (sem validação)
+### טקסט/הסקה בהקשר (ללא אימות)
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**תור 1, שלב 1 (תשובה לדוגמה)**
 
 ```
 {
@@ -470,7 +455,7 @@ O Gemini também pode retornar `thought_signatures` na parte final da resposta e
 }
 ```
 
-**Interação 2, etapa 1 (usuário)**
+**תור 2, שלב 1 (משתמש)**
 
 ```
 [
@@ -488,27 +473,26 @@ O Gemini também pode retornar `thought_signatures` na parte final da resposta e
 ]
 ```
 
-## Assinaturas para compatibilidade com OpenAI
+## חתימות לתאימות עם OpenAI
 
-Os exemplos a seguir mostram como processar assinaturas de pensamento para uma API de conclusão de chat
-usando [compatibilidade com OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
+בדוגמה הבאה מוצגות דרכים לטפל בחתימות של מחשבות ב-API להשלמת צ'אט באמצעות [תאימות ל-OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=he).
 
-### Exemplo de chamada de função sequencial
+### דוגמה לבקשה להפעלת פונקציה באופן רציף
 
-Este é um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
+זו דוגמה לקריאה לכמה פונקציות, שבה המשתמש שואל שאלה מורכבת שדורשת כמה משימות.
 
-Vamos analisar um exemplo de chamada de função de várias interações em que o usuário pergunta `Check flight status for AA100 and book a taxi if delayed` e você pode ver o que acontece quando o usuário faz uma pergunta complexa que exige várias tarefas.
+בדוגמה הבאה נראה שימוש בפונקציות עם כמה תפניות שיחה. המשתמש שואל `Check flight status for AA100 and book a taxi if delayed` ואפשר לראות מה קורה כשהמשתמש שואל שאלה מורכבת שדורשת כמה משימות.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **התור שלך** | **שלב** | **בקשת משתמש** | **תשובת המודל** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-O código a seguir mostra a sequência fornecida.
+הקוד הבא מסביר את הרצף הנתון.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**תור 1, שלב 1 (בקשת משתמש)**
 
 ```
 {
@@ -562,7 +546,7 @@ O código a seguir mostra a sequência fornecida.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**תור 1, שלב 1 (תגובת המודל)**
 
 ```
 {
@@ -585,10 +569,9 @@ O código a seguir mostra a sequência fornecida.
     }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
+**תור 1, שלב 2 (תגובת המשתמש – שליחת פלט של כלי)**
 
-Como essa interação do usuário contém apenas um `functionResponse` (sem texto novo), ainda estamos
-na interação 1 e precisamos preservar `<Signature_A>`.
+בגלל שהתור הזה של המשתמש מכיל רק `functionResponse` (ללא טקסט חדש), אנחנו עדיין בתור 1 וחייבים לשמור על `<Signature_A>`.
 
 ```
 "messages": [
@@ -623,9 +606,9 @@ na interação 1 e precisamos preservar `<Signature_A>`.
   ]
 ```
 
-**Interação 1, etapa 2 (modelo)**
+**תור 1, שלב 2 (מודל)**
 
-O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
+עכשיו המודל מחליט להזמין מונית על סמך הפלט הקודם של הכלי.
 
 ```
 {
@@ -648,10 +631,9 @@ O modelo agora decide reservar um táxi com base na saída da ferramenta anterio
 }
 ```
 
-**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)**
+**תור 1, שלב 3 (משתמש – שליחת פלט של כלי)**
 
-Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para TODAS as
-chamadas de função neste loop (`<Signature A>` + `<Signature B>`).
+כדי לשלוח את אישור הזמנת המונית, אנחנו צריכים לכלול חתימות לכל קריאות הפונקציה בלולאה הזו (`<Signature A>` + `<Signature B>`).
 
 ```
 "messages": [
@@ -710,21 +692,19 @@ chamadas de função neste loop (`<Signature A>` + `<Signature B>`).
   ]
 ```
 
-### Exemplo de chamada de função paralela
+### דוגמה לקריאה לפונקציות במקביל
 
-Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
-`"Check weather in Paris and London"` e você pode ver onde o modelo faz
-validação.
+נבחן דוגמה של קריאה לפונקציות במקביל, שבה המשתמש שואל `"Check weather in Paris and London"` ואפשר לראות איפה המודל מבצע אימות.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **התור שלך** | **שלב** | **בקשת משתמש** | **תשובת המודל** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-Confira o código para analisar a sequência fornecida.
+הנה הקוד להרצת הרצף הנתון.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**תור 1, שלב 1 (בקשת משתמש)**
 
 ```
 {
@@ -763,7 +743,7 @@ Confira o código para analisar a sequência fornecida.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**תור 1, שלב 1 (תגובת המודל)**
 
 ```
 {
@@ -794,9 +774,9 @@ Confira o código para analisar a sequência fornecida.
 }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
+**תור 1, שלב 2 (תגובת המשתמש – שליחת פלט של כלי)**
 
-É necessário preservar `<Signature_A>` na primeira parte exatamente como recebida.
+חובה לשמור על `<Signature_A>` בחלק הראשון בדיוק כפי שהתקבל.
 
 ```
 "messages": [
@@ -845,52 +825,40 @@ Confira o código para analisar a sequência fornecida.
   ]
 ```
 
-## Perguntas frequentes
+## שאלות נפוצות
 
-1. **Como faço para transferir o histórico de um modelo diferente para o Gemini 3 com uma parte de chamada de função na interação e etapa atuais? Preciso fornecer partes de chamada de função
-   que não foram geradas pela API e, portanto, não têm uma assinatura de pensamento associada
-   ?**
+1. **איך מעבירים היסטוריה ממודל אחר ל-Gemini 3 עם חלק של קריאה לפונקציה בתור ובשלב הנוכחיים? אני צריך לספק חלקים של בקשה להפעלת פונקציה שלא נוצרו על ידי ה-API, ולכן אין להם חתימה משויכת של מחשבה?**
 
-   Embora a injeção de blocos de chamada de função personalizados na solicitação seja fortemente
-   desencorajada, em casos em que não é possível evitá-la, por exemplo, fornecer informações
-   ao modelo sobre chamadas de função e respostas que foram executadas
-   de forma determinística pelo cliente ou transferir um rastreamento de um modelo diferente
-   que não inclui assinaturas de pensamento, é possível definir as seguintes
-   assinaturas fictícias de `"context_engineering_is_the_way_to_go"` ou
-   `"skip_thought_signature_validator"` no campo de assinatura de pensamento para ignorar a
-   validação.
-2. **Estou enviando chamadas e respostas de função paralelas intercaladas, e a API está retornando um erro 400. Por quê?**
+   לא מומלץ להוסיף בלוקים של בקשות להפעלת פונקציות בהתאמה אישית, אבל במקרים שבהם אין ברירה, למשל כשמספקים למודל מידע על בקשות להפעלת פונקציות ותשובות שהלקוח ביצע באופן דטרמיניסטי, או כשמעבירים מעקב ממודל אחר שלא כולל חתימות של תהליך החשיבה, אפשר להגדיר את החתימות הבאות של placeholder ‏`"context_engineering_is_the_way_to_go"` או `"skip_thought_signature_validator"` בשדה של חתימת תהליך החשיבה כדי לדלג על האימות.
+2. **אני שולח קריאות לפונקציות מקבילות ותשובות משולבות, וה-API מחזיר 400. למה?**
 
-   Quando a API retorna chamadas de função paralelas "FC1 + assinatura, FC2", a resposta do usuário esperada é "FC1 + assinatura, FC2, FR1, FR2". Se você as tiver intercaladas como "FC1 + assinatura, FR1, FC2, FR2", a API vai retornar um erro 400.
-3. **Ao fazer streaming, e o modelo não retornar uma chamada de função, não consigo encontrar
-   a assinatura de pensamento**
+   כשה-API מחזיר קריאות מקבילות לפונקציות FC1 + signature, FC2, התגובה הצפויה מהמשתמש היא FC1+ signature, FC2, FR1, FR2. אם הם משולבים כמו 'FC1 + signature, FR1, FC2, FR2', ה-API יחזיר שגיאה 400.
+3. **בסטרימינג, אם המודל לא מחזיר קריאה לפונקציה, אי אפשר למצוא את חתימת המחשבה**
 
-   Durante uma resposta do modelo que não contém uma FC com uma solicitação de streaming, o modelo pode retornar a assinatura de pensamento em uma parte com uma parte de conteúdo de texto vazia. É recomendável analisar toda a solicitação até que o `finish_reason` seja retornado pelo modelo.
+   במהלך תגובה של מודל שלא מכילה FC עם בקשת סטרימינג, המודל עשוי להחזיר את חתימת המחשבה בחלק עם תוכן טקסט ריק. מומלץ לנתח את כל הבקשה עד שהמודל מחזיר את התו `finish_reason`.
 
-## Assinaturas de pensamento para diferentes modelos
+## חתימות מחשבה למודלים שונים
 
-[Os modelos do Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3) e do Gemini 2.5
-se comportam de maneira diferente com assinaturas de pensamento em chamadas de função:
+[מודלים של Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=he#gemini-3) ומודלים של Gemini 2.5
+מתנהגים באופן שונה עם חתימות מחשבה בבקשות להפעלת פונקציות:
 
-- Se houver chamadas de função em uma resposta,
-  - O Gemini 3 sempre terá a assinatura na primeira parte da chamada de função.
-    É **obrigatório** retornar essa parte.
-  - O Gemini 2.5 terá a assinatura na primeira parte (independente do tipo). É **opcional** retornar essa parte.
-- Se não houver chamadas de função em uma resposta,
-  - O Gemini 3 terá a assinatura na última parte se o modelo gerar um pensamento.
-  - O Gemini 2.5 não terá uma assinatura em nenhuma parte.
+- אם יש קריאות לפונקציות בתשובה,
+  - החתימה של Gemini 3 תמיד תופיע בחלק הראשון של קריאת הפונקציה.
+    **חובה** להחזיר את החלק הזה.
+  - החתימה תופיע בחלק הראשון של Gemini 2.5 (בלי קשר לסוג). **לא חייבים** להחזיר את החלק הזה.
+- אם אין קריאות לפונקציות בתשובה,
+  - אם המודל יוצר מחשבה, החתימה של Gemini 3 תופיע בחלק האחרון.
+  - ל-Gemini 2.5 לא תהיה חתימה באף חלק.
 
-Consulte a página [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#signatures) para mais
-detalhes sobre a comparação.
-Para modelos de imagem do Gemini 3, consulte a seção processo de pensamento do
-[guia de geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br#thinking-process).
+פרטים נוספים על ההשוואה מופיעים בדף [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he#signatures).
+בקטע 'תהליך החשיבה' במדריך [יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he#thinking-process) מוסבר על מודלים של Gemini 3 Image.
 
-Envie comentários
+שליחת משוב
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última atualização 2026-08-19 UTC.
+עדכון אחרון: 2026-08-19 (שעון UTC).
 
-Quer enviar seu feedback?
+רוצה לתת לנו משוב?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-08-19 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-08-19 (שעון UTC)."],[],[]]

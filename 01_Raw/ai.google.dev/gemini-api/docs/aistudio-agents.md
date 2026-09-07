@@ -1,141 +1,138 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=tr
-fetched_at: 2026-08-31T06:27:07.262043+00:00
-title: "AI Studio deneme alan\u0131ndaki temsilciler \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=vi
+fetched_at: 2026-09-07T05:40:14.292487+00:00
+title: "T\u00e1c nh\u00e2n trong AI Studio Playground \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# AI Studio deneme alanındaki temsilciler
+# Tác nhân trong AI Studio Playground
 
-Google AI Studio Playground, API çağrıları oluşturup yazmak zorunda kalmadan yönetilen temsilcilerin nasıl oluşturulacağını öğrenmek ve prototip oluşturmak için görsel bir arayüz sağlar.
+Google AI Studio Playground cung cấp một giao diện trực quan để tạo nguyên mẫu và tìm hiểu cách xây dựng các tác nhân được quản lý mà không cần phải tạo và viết lệnh gọi API.
 
-Başlamak için Google AI Studio'nun gezinme panelinde **Playground** sekmesine gidin ve açma/kapatma düğmesini **Agents** olarak değiştirin.
+Để bắt đầu, hãy chuyển đến thẻ **Playground** (Sân chơi) trong bảng điều hướng của Google AI Studio, rồi chuyển nút bật/tắt sang **Agents** (Trợ lý AI).
 
-## Önceden oluşturulmuş şablonlar
+## Mẫu tạo sẵn
 
-**Ajanlar** sekmesinde, araç ve ortam yapılandırmalarını ayarlayarak temel Antigravity Ajanı'nı önceden yapılandıran bir dizi şablon bulunur. Tüm şablonlar açık kaynaklıdır ve [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/) deposunda yayınlanır. Bu şablonları inceleyerek kendi yönetilen aracınızı nasıl oluşturacağınızı ve yapılandıracağınızı öğrenebilirsiniz.
+Thẻ **Agents** (Tác nhân) có một loạt mẫu định cấu hình sẵn Antigravity Agent cơ bản bằng cách thiết lập cấu hình công cụ và môi trường. Tất cả các mẫu đều là nguồn mở và được xuất bản trong kho lưu trữ [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/). Khám phá những mẫu này là một cách tuyệt vời để tìm hiểu cách xây dựng và cấu trúc tác nhân được quản lý của riêng bạn.
 
-Örneğin, Yapay Zeka Radyosu şablonunu seçtiğinizde izin verilen tüm araçlar etkinleştirilir ve radyo programı üretimi için özel bir `AGENTS.md` dosyası ve becerileri bağlanır. Bu ayarları, **Kaynaklar** düğmesini tıklayarak Playground kullanıcı arayüzündeki **Ortam** bölümünde görüntüleyebilirsiniz.
+Ví dụ: khi bạn chọn mẫu AI Radio, mẫu này sẽ bật tất cả các công cụ được phép và liên kết một tệp `AGENTS.md` chuyên dụng cùng các kỹ năng để sản xuất chương trình phát thanh. Bạn có thể xem các chế độ cài đặt này trên giao diện người dùng Sân chơi trong mục **Môi trường** bằng cách nhấp vào nút **Nguồn**.
 
-## Araç yapılandırması
+## Cấu hình công cụ
 
-Playground'daki Agent ayarları bölümünde aşağıdaki yerleşik araçlara erişimi açıp kapatabilirsiniz:
+Trong phần Cài đặt tác nhân của Sân chơi, bạn có thể bật/tắt quyền truy cập vào các công cụ tích hợp sau đây:
 
-- **Google Arama:** Gerçek zamanlı bilgi temellendirmesi için açık web'e erişin.
-- **URL Bağlamı:** Belirli web sayfası URL'lerinin metin içeriğini getirip ayrıştırın.
-- **Kod Yürütme:** Bash ve Python komutlarını doğrudan izole edilmiş korumalı alan ortamında çalıştırın.
-- **Dosya Sistemi Araçları:** Çalışma alanındaki dosyaları okuma, yazma, listeleme ve silme.
+- **Google Tìm kiếm:** Truy cập vào web mở để có thông tin theo thời gian thực.
+- **Ngữ cảnh URL:** Tìm nạp và phân tích nội dung văn bản của các URL trang web cụ thể.
+- **Thực thi mã:** Chạy các lệnh Bash và Python ngay trong môi trường hộp cát biệt lập.
+- **Công cụ hệ thống tệp:** Đọc, ghi, liệt kê và xoá các tệp trong không gian làm việc.
 
-## Ortam Yapılandırması
+## Cấu hình môi trường
 
-Yönetilen aracılar, güvenli ve kısa ömürlü bir Linux korumalı alanında (ortam) çalışır. Bu ortam, aracılara çalışmak için ihtiyaç duydukları çalışma alanını ve araçları sağlar. Daha fazla bilgi için [yönetilen aracı ortamı](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) kılavuzuna bakın.
+Các tác nhân được quản lý chạy trong một hộp cát Linux tạm thời, bảo mật (môi trường) cung cấp không gian làm việc và các công cụ cần thiết để hoạt động. Để tìm hiểu thêm, hãy xem hướng dẫn về [môi trường tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi).
 
-### Ajan davranışını kontrol etme
+### Kiểm soát hành vi của tác nhân
 
-Ajanın davranışı, karakteri ve yetenekleri büyük ölçüde ortamındaki dosyalar tarafından belirlenir. Aracı, yapılandırmaları özel bir `.agents` klasörden otomatik olarak algılayıp yükler:
+Hành vi, tính cách và khả năng của tác nhân chủ yếu được xác định bởi các tệp có trong môi trường của tác nhân. Tác nhân này tự động phát hiện và tải các cấu hình từ một thư mục `.agents` đặc biệt:
 
-- **`AGENTS.md`**: Sistem talimatlarını ve karakterini tanımlamak için aracının bağlamına önceden yüklenir.
-- **`SKILL.md`**: Belirli özellikleri ve iş akışlarını tanımlamak için ilgili beceri klasörlerinin (ör. `.agents/skills/my-skill/SKILL.md`) altında yer alır.
+- **`AGENTS.md`**: Được tải sẵn vào ngữ cảnh của tác nhân để xác định hướng dẫn và tính cách của hệ thống.
+- **`SKILL.md`**: Nằm trong các thư mục kỹ năng tương ứng (ví dụ: `.agents/skills/my-skill/SKILL.md`) để xác định các chức năng và quy trình cụ thể.
 
-### Ortamın temel hazırlığını yapma
+### Cung cấp môi trường
 
-Bir oturum başlatmadan önce dosyaları ortama bağlayarak aracının kullanacağı ortamı yapılandırabilirsiniz. Kaynakları bağlayarak yeni bir ortam oluşturabilir veya önceki bir ortamı geri yükleyebilirsiniz:
+Bạn có thể định cấu hình môi trường mà tác nhân sẽ sử dụng bằng cách gắn các tệp vào môi trường trước khi bắt đầu một phiên. Bạn có thể tạo một môi trường mới bằng cách gắn các nguồn hoặc khôi phục một môi trường trước đó:
 
-- **Yeni bir ortam oluşturmak için** Ortam ayarları panelinde **Kaynak ekle**'yi tıklayın ve aşağıdaki kaynak türlerinden birini seçin:
+- **Để tạo một môi trường mới**, hãy nhấp vào **Thêm nguồn** trong bảng điều khiển Cài đặt môi trường rồi chọn một trong các loại nguồn sau:
 
-| Kaynak türü | Açıklama | Bağlantı yolu |
+| Loại nguồn | Mô tả | Đường dẫn gắn kết |
 | --- | --- | --- |
-| **Satır İçi Dosyalar** | Yapılandırma dosyalarını, sahte veri kümelerini veya yardımcı program komut dosyalarını (100 KB'a kadar) doğrudan Playground kullanıcı arayüzüne yazın ya da yapıştırın. | Kullanıcı tanımlı hedef yolu (ör. `/workspace/scripts/parser.py`). |
-| **Google Cloud Storage** | Herkese açık veya özel bir Cloud Storage paketi bağlayın.  Özel paketler için standart bir OAuth 2.0 Bearer jetonu gerekir. Daha fazla bilgi için [Özel kaynaklar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#private-sources) başlıklı makaleyi inceleyin. | Bir GCS paketi yolunu (ör. `gs://your-bucket-name/data/`) bir çalışma alanı diziniyle (ör. `/workspace/data/`) eşler. |
-| **GitHub depoları** | Herkese açık veya özel kod tabanlarını klonlayın.  Özel depolar için GitHub kişisel erişim jetonunuzla (PAT) temel kimlik doğrulama gerekir. Daha fazla bilgi için [Özel kaynaklar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#private-sources) başlıklı makaleyi inceleyin. | Doğrudan `/workspace/` içine kopyalanır (genellikle `/workspace/<repo-name>` saniyeden kısa sürer). |
+| **Tệp nội tuyến** | Viết hoặc dán tệp cấu hình, tập dữ liệu mô phỏng hoặc tập lệnh tiện ích (tối đa 100 KB) trực tiếp vào giao diện người dùng Playground. | Đường dẫn đích do người dùng xác định (ví dụ: `/workspace/scripts/parser.py`). |
+| **Google Cloud Storage** | Gắn một bộ chứa Cloud Storage công khai hoặc riêng tư.  Bộ chứa riêng tư yêu cầu mã thông báo Bearer OAuth 2.0 tiêu chuẩn. Để biết thêm thông tin, hãy xem phần [Nguồn riêng tư](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#private-sources). | Liên kết một đường dẫn bộ chứa GCS (ví dụ: `gs://your-bucket-name/data/`) với một thư mục không gian làm việc (ví dụ: `/workspace/data/`). |
+| **Kho lưu trữ GitHub** | Sao chép cơ sở mã công khai hoặc riêng tư.  Kho lưu trữ riêng tư yêu cầu xác thực cơ bản bằng Mã truy cập cá nhân (PAT) của bạn trên GitHub. Để biết thêm thông tin, hãy xem phần [Nguồn riêng tư](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#private-sources). | Được sao chép trực tiếp vào `/workspace/` (thường là trong `/workspace/<repo-name>`). |
 
-- **Önceki bir ortamı geri yüklemek için**, tam durumunu klonlamak ve çatallamak üzere [mevcut bir ortam kimliğini yeniden kullanabilirsiniz](#reusing-an-existing-environment-id).
+- **Để khôi phục một môi trường trước đó**, bạn có thể [sử dụng lại một mã môi trường hiện có](#reusing-an-existing-environment-id) để sao chép và phân nhánh trạng thái chính xác của môi trường đó.
 
-### Mevcut bir ortam kimliğini yeniden kullanma
+### Sử dụng lại mã môi trường hiện có
 
-Bir test ortamı oluşturmak için zaman harcadıysanız sıfırdan başlamanız gerekmez. Mevcut bir ortamı kullanmak için:
+Nếu đã dành thời gian thiết lập một môi trường hộp cát, bạn không cần phải bắt đầu lại từ đầu. Cách sử dụng một môi trường hiện có:
 
-1. AI Studio'da Ortamlar paneline gidin ve **Tür**'ü **Mevcut** olarak değiştirin.
-2. **Ortam kimliğini** girin (ör.`env_abc123`).
+1. Chuyển đến bảng điều khiển Environments (Môi trường) trong AI Studio rồi chuyển **Type** (Loại) thành **Existing** (Hiện có)
+2. Nhập **Mã môi trường** (ví dụ: `env_abc123`)
 
-Daha fazla bilgi için [Ortam yapılandırma](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#configure-an-environment) başlıklı makaleyi inceleyin. Ayrıca, mevcut oturumun ortam kimliğini kullanıcı arayüzündeki Ortam sekmesinden de alabilirsiniz.
+Để biết thêm thông tin, hãy xem phần [Định cấu hình môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#configure-an-environment). Bạn cũng có thể truy xuất Mã nhận dạng môi trường của phiên hiện tại trong thẻ Môi trường của giao diện người dùng.
 
-Temsilciye ilk mesajınızı gönderdiğinizde ortam yapılandırması, söz konusu oturum için sabitlenir. Etkileşim etkin olarak çalışırken yeni kaynaklar bağlayamaz veya ağ izin verilenler listesini değiştiremezsiniz.
+Sau khi bạn gửi tin nhắn đầu tiên cho nhân viên hỗ trợ, cấu hình môi trường sẽ cố định cho phiên đó. Bạn không thể gắn các nguồn mới hoặc sửa đổi danh sách cho phép mạng trong khi hoạt động tương tác đang chạy.
 
-## Ortamı indirme
+## Tải môi trường xuống
 
-Bir ortam oluşturulduktan sonra, ortam dosyalarını tarball olarak almak için AI Studio Playground'un Ortam ayarlarındaki **İndir** düğmesini kullanarak ortam anlık görüntüsünü istediğiniz zaman indirebilirsiniz.
+Sau khi tạo một môi trường, bạn có thể tải ảnh chụp nhanh môi trường xuống bất cứ lúc nào bằng cách sử dụng nút **Tải xuống** trong phần Cài đặt môi trường của AI Studio Playground để truy xuất các tệp môi trường dưới dạng một tệp tar.
 
-## Güvenlik ve Maliyet Yönetimi
+## Quản lý chi phí và an toàn
 
-### Jeton tüketimini yönetme
+### Quản lý việc sử dụng mã thông báo
 
-Tek bir çıktı üreten standart bir sohbet isteğinin aksine, Antigravity Agent bağımsız bir iş akışı yürütür. Planlama yapar, kodu çalıştırır, sonuçları gözlemler ve tekrarlar. Bu, tek bir istemin sınırsız jeton tüketimine yol açabileceği anlamına gelir.
+Không giống như yêu cầu trò chuyện tiêu chuẩn chỉ tạo ra một đầu ra, Antigravity Agent thực thi một quy trình công việc tự động. Nó lên kế hoạch, chạy mã, quan sát kết quả và lặp lại. Điều này có nghĩa là một câu lệnh duy nhất có thể dẫn đến mức tiêu thụ mã thông báo không giới hạn.
 
-Maliyetleri yönetmek için **istemlerinizde net sonlandırma ölçütleri sağlayın ve görevleri, aracı için dar bir kapsamda tutun**. İyi bir örnek olarak şu istem verilebilir:
-*Çekme isteğini incele ve Markdown özetini oluşturduktan sonra dur.
-Düzeltmeyi kendiniz yazmaya çalışmayın*.
+Để quản lý chi phí, hãy **cung cấp tiêu chí chấm dứt rõ ràng trong câu lệnh và thu hẹp phạm vi nhiệm vụ cho tác nhân**. Một ví dụ hay có thể là câu lệnh như *Xem xét yêu cầu kéo và dừng lại sau khi bạn đã tạo bản tóm tắt bằng markdown.
+Đừng tự mình tìm cách khắc phục*.
 
-**Durdur** düğmesini kullanarak aracı istediğiniz zaman durdurabilirsiniz.
+### Chi phí bổ sung
 
-### Ek Maliyetler
+Theo mặc định, tất cả các mẫu tác nhân trên Playground đều có quyền truy cập vào dịch vụ Gemini API và có thể thực hiện các lệnh gọi API từ môi trường để thực hiện các yêu cầu. Những thao tác này có thể phát sinh thêm chi phí và sẽ không được phản ánh trong mức tiêu thụ mã thông báo.
 
-Varsayılan olarak, Playground'daki tüm aracı şablonları Gemini API hizmetine erişebilir ve istekleri karşılamak için ortamdan API çağrıları yapabilir. Bunlar, jeton tüketimine yansıtılmayacak ek maliyetlere neden olabilir.
+Tương tự, nếu bạn thêm các dịch vụ bên ngoài khác, thì tác nhân có thể phát sinh thêm chi phí khi gọi các dịch vụ này thay cho bạn.
 
-Benzer şekilde, başka harici hizmetler eklerseniz aracı, bu hizmetleri sizin adınıza çağırarak ek maliyetlere neden olabilir.
+### Danh sách mạng được phép
 
-### Ağ izin verilenler listesi
+Theo mặc định, trên AI Studio, tất cả các yêu cầu mạng gửi đi từ môi trường hộp cát của tác nhân đều được kiểm soát chặt chẽ và hạn chế để đảm bảo an toàn. Để cấp cho tác nhân của bạn khả năng truy cập vào các API bên ngoài, dịch vụ web hoặc trình quản lý gói, bạn phải khai báo rõ ràng các API đó:
 
-Varsayılan olarak, AI Studio'da aracınızın korumalı alan ortamından gelen tüm giden ağ istekleri, güvenliği sağlamak için sıkı bir şekilde kontrol edilir ve kısıtlanır. Aracınıza harici API'lere, web hizmetlerine veya paket yöneticilerine ulaşma izni vermek için bunları açıkça belirtmeniz gerekir:
+1. Chuyển đến bảng điều khiển Environments (Môi trường) trong AI Studio.
+2. Chọn nút **quy tắc** bên cạnh **Mạng**.
+3. Trong bảng điều khiển **Cấu hình mạng**, hãy nhấp vào **Thêm vào danh sách cho phép** rồi điền thông tin chi tiết có liên quan:
+   - **Hạn chế về miền:** Chỉ những miền cụ thể hoặc mẫu ký tự đại diện được thêm vào danh sách mới có thể truy cập vào máy ảo của tác nhân. Ví dụ: bạn có thể nhập các miền chính xác như `api.github.com` hoặc các mẫu rộng như `*.googleapis.com`.
+   - **Thêm tiêu đề HTTP và chèn mã thông báo:** Sử dụng lựa chọn **Thêm tiêu đề HTTP** để chèn thông tin đăng nhập bắt buộc (chẳng hạn như mã thông báo API) một cách an toàn cho một miền cụ thể. Những thông tin đăng nhập này được truyền an toàn thông qua một proxy xuất và không bao giờ bị lộ trực tiếp dưới dạng văn bản thô bên trong hộp cát của tác nhân.
 
-1. AI Studio'da Ortamlar paneline gidin.
-2. **Ağ**'ın yanındaki **kurallar** düğmesini seçin.
-3. **Ağ yapılandırması** panelinde **İzin verilenler listesine ekle**'yi tıklayın ve ilgili ayrıntıları girin:
-   - **Alan adı kısıtlaması:** Yalnızca listeye eklenen belirli alan adlarına veya joker karakter kalıplarına aracının sanal makinesi tarafından erişilebilir. Örneğin, `api.github.com` gibi tam alan adları veya `*.googleapis.com` gibi geniş kalıplar girebilirsiniz.
-   - **HTTP Üstbilgisi ve Jeton Ekleme:** Belirli bir alan için gerekli kimlik bilgilerini (ör. API jetonu) güvenli bir şekilde eklemek üzere **HTTP üstbilgisi ekle** seçeneğini kullanın. Bu kimlik bilgileri, çıkış proxy'si üzerinden güvenli bir şekilde iletilir ve hiçbir zaman aracı özel korumalı alanında doğrudan ham metin olarak gösterilmez.
+Luôn thận trọng khi thêm miền vào danh sách cho phép. Việc cấp cho tác nhân quyền truy cập vào các dịch vụ đã xác thực có nghĩa là tác nhân có thể thay mặt bạn hành động, điều này có thể dẫn đến những hành động ngoài ý muốn nếu bạn không giám sát cẩn thận.
 
-İzin verilenler listenize alan eklerken her zaman dikkatli olun. Aracıya kimliği doğrulanmış hizmetlere erişim izni vermek, aracının sizin adınıza hareket edebileceği anlamına gelir. Bu durum, dikkatli bir şekilde izlenmediği takdirde istenmeyen işlemlere yol açabilir.
+### Các phương pháp hay nhất về thông tin đăng nhập
 
-### Kimlik bilgileriyle ilgili en iyi uygulamalar
+Nếu quy trình làm việc của bạn yêu cầu tác nhân xác thực bằng các dịch vụ bên ngoài, thì bạn chịu trách nhiệm cung cấp và xác định phạm vi cho những thông tin đăng nhập đó. Hãy làm theo các nguyên tắc sau để giảm rủi ro:
 
-İş akışınızda aracının harici hizmetlerle kimliğini doğrulaması gerekiyorsa bu kimlik bilgilerini sağlama ve kapsamını belirleme sorumluluğu size aittir. Riski azaltmak için aşağıdaki yönergeleri uygulayın:
+- **Sử dụng thông tin đăng nhập có ít đặc quyền nhất:** Tạo tài khoản dịch vụ hoặc khoá API chỉ có các quyền mà tác nhân của bạn cần. Tránh truyền thông tin đăng nhập có quyền truy cập rộng hoặc quyền quản trị.
+- **Ưu tiên mã thông báo ngắn hạn:** Nếu có thể, hãy sử dụng thông tin đăng nhập hoặc mã thông báo có giới hạn thời gian và hết hạn thay vì khoá API dài hạn.
+- **Giả định có toàn quyền truy cập:** Tác nhân có thể sử dụng mọi thông tin đăng nhập mà tác nhân có quyền truy cập để hoàn thành nhiệm vụ mà bạn đã giao. Chỉ cung cấp thông tin đăng nhập mà bạn sẵn sàng cấp toàn bộ phạm vi quyền truy cập.
+- **Thường xuyên xoay vòng thông tin đăng nhập:** Xử lý thông tin đăng nhập được chia sẻ với tác nhân theo cách tương tự như cách bạn xử lý mọi thông tin đăng nhập có lập trình; xoay vòng thông tin đăng nhập theo lịch trình thường xuyên.
 
-- **En az ayrıcalık ilkesine uygun kimlik bilgileri kullanın:** Yalnızca aracınızın ihtiyaç duyduğu izinlere sahip hizmet hesapları veya API anahtarları oluşturun. Geniş veya yönetici erişimi olan kimlik bilgilerini iletmekten kaçının.
-- **Kısa ömürlü jetonları tercih edin:** Mümkün olduğunda uzun ömürlü API anahtarları yerine, geçerlilik süresi sınırlı kimlik bilgileri veya süresi dolan jetonlar kullanın.
-- **Tam erişim varsay:** Ajan, kendisine verdiğiniz görevi tamamlamak için erişebildiği tüm kimlik bilgilerini kullanabilir. Yalnızca tam kapsamlı erişim izni vermeye hazır olduğunuz kimlik bilgilerini sağlayın.
-- **Kimlik bilgilerini düzenli olarak değiştirin:** Aracıyla paylaşılan kimlik bilgilerine, diğer tüm programatik kimlik bilgilerine davrandığınız gibi davranın ve bunları düzenli olarak değiştirin.
+### Kết nối các công cụ và API bên ngoài
 
-### Harici araçları ve API'leri bağlama
+Bạn có thể kết nối các công cụ và API bên ngoài (chẳng hạn như máy chủ Giao thức ngữ cảnh mô hình / MCP) để mở rộng các chức năng của tác nhân. Khi làm như vậy:
 
-Ajanın özelliklerini genişletmek için harici araçları ve API'leri (ör. Model Context Protocol / MCP sunucuları) bağlayabilirsiniz. Bu işlemi yaparken:
+- Chỉ kết nối các công cụ từ những nguồn mà bạn tin tưởng. Một công cụ độc hại hoặc được viết kém có thể làm lộ dữ liệu hoặc thực hiện các hành động không mong muốn.
+- Định cấu hình các công cụ với quyền tối thiểu cần thiết cho trường hợp sử dụng của bạn. Nếu một công cụ hỗ trợ chế độ chỉ có thể đọc, hãy ưu tiên chế độ đó trừ phi bạn thực sự cần ghi.
+- Trước khi kết nối một công cụ với nguồn dữ liệu sản xuất, hãy kiểm thử công cụ đó dựa trên dữ liệu mẫu hoặc dữ liệu tổng hợp để xác minh rằng tác nhân sử dụng công cụ đó như dự kiến.
 
-- Yalnızca güvendiğiniz kaynaklardan gelen araçları bağlayın. Kötü amaçlı veya kötü yazılmış bir araç, verileri açığa çıkarabilir ya da istenmeyen işlemler gerçekleştirebilir.
-- Araçları, kullanım alanınız için gereken minimum izinlerle yapılandırın. Bir araç salt okuma modunu destekliyorsa yazma işlemi kesinlikle gerekli olmadığı sürece bu modu tercih edin.
-- Bir aracı üretim veri kaynağına bağlamadan önce, aracının beklendiği gibi kullandığını doğrulamak için örnek veya sentetik verilerle test edin.
+### Sự giám sát của con người
 
-### İnsan gözetimi
+Các tác nhân có thể suy luận, lập kế hoạch và thực thi quy trình làm việc nhiều bước với mức độ tự chủ cao. Mặc dù có nhiều tính năng, nhưng điều này cũng có nghĩa là bạn nên áp dụng chế độ giám sát thích hợp; đặc biệt là đối với những tác vụ sửa đổi dữ liệu hoặc tương tác với các hệ thống bên ngoài.
 
-Ajanlar, çok adımlı iş akışlarını yüksek düzeyde bağımsızlıkla akıl yürüterek, planlayarak ve uygulayarak gerçekleştirebilir. Bu özellik güçlü olsa da özellikle verileri değiştiren veya harici sistemlerle etkileşimde bulunan görevler için uygun gözetim uygulamanız gerekir.
+Luôn xác minh các kết quả đầu ra quan trọng như mã được tạo, quá trình chuyển đổi dữ liệu hoặc các thay đổi về cấu hình trước khi triển khai.
 
-Oluşturulan kod, veri dönüşümleri veya yapılandırma değişiklikleri gibi kritik çıkışları dağıtmadan önce her zaman doğrulayın.
+Gửi ý kiến phản hồi
 
-Geri bildirim gönderin
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Cập nhật lần gần đây nhất: 2026-08-19 UTC.
 
-Son güncelleme tarihi: 2026-08-19 UTC.
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
-
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-08-19 UTC."],[],[]]

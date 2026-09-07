@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ja
-fetched_at: 2026-08-31T06:44:10.724136+00:00
-title: "\u97f3\u58f0\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=hi
+fetched_at: 2026-09-07T05:29:01.163989+00:00
+title: "\u0911\u0921\u093f\u092f\u094b \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-# 音声の理解
+# ऑडियो को समझना
 
-Gemini は音声入力を分析してテキスト レスポンスを生成できます。
+Gemini, ऑडियो इनपुट का विश्लेषण करके टेक्स्ट वाले जवाब जनरेट कर सकता है.
 
 ### Python
 
@@ -129,26 +129,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 概要
+## खास जानकारी
 
-Gemini は音声入力を分析して理解し、テキスト レスポンスを生成できます。これにより、次のようなユースケースが可能になります。
+Gemini, ऑडियो इनपुट का विश्लेषण कर सकता है और उसे समझ सकता है. साथ ही, टेक्स्ट फ़ॉर्मैट में जवाब जनरेट कर सकता है. इससे इन कामों को पूरा किया जा सकता है:
 
-- 音声コンテンツの説明、要約、質問への回答
-- 音声文字変換と翻訳（音声からテキスト）
-- 話者ダイアライゼーション（異なる話者の識別）
-- 音声と音楽の感情検出
-- タイムスタンプを使用した特定のセグメントの分析
+- ऑडियो कॉन्टेंट के बारे में जानकारी देना, खास जानकारी देना या सवालों के जवाब देना
+- ट्रांसक्रिप्शन और अनुवाद (बोली को लिखाई में बदलने की सुविधा)
+- स्पीकर डायराइज़ेशन (अलग-अलग स्पीकर की पहचान करना)
+- भाषण और संगीत में भावनाओं का पता लगाना
+- टाइमस्टैंप की मदद से, किसी सेगमेंट का विश्लेषण करना
 
-リアルタイムの音声と動画のインタラクションについては、
-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja)をご覧ください。
-リアルタイムの音声文字変換をサポートする専用の音声文字変換モデルについては、
-[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ja)を使用してください。
+रीयल-टाइम में आवाज़ और वीडियो से इंटरैक्ट करने के लिए, [Live API](https://ai.google.dev/gemini-api/docs/live?hl=hi) देखें.
+रीयल-टाइम ट्रांसक्रिप्शन की सुविधा के साथ काम करने वाले, बोली को लिखाई में बदलने वाले मॉडल के लिए, [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=hi) का इस्तेमाल करें.
 
-## 音声をテキストに変換する
+## बोले जा रहे शब्दों को टेक्स्ट में बदलना
 
-この例では、
-タイムスタンプ、話者ダイアライゼーション、感情検出を使用して音声を文字変換、翻訳、要約する方法を
-[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を使用して示します。
+इस उदाहरण में, [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) का इस्तेमाल करके, टाइमस्टैंप, स्पीकर डायराइज़ेशन, और भावनाओं का पता लगाने की सुविधा के साथ, स्पीच को ट्रांसक्राइब करने, उसका अनुवाद करने, और उसकी खास जानकारी पाने का तरीका दिखाया गया है.
 
 ### Python
 
@@ -345,18 +341,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![多言語音声文字変換 Gemini アプリ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ja)
+![Gemini ऐप्लिकेशन में, कई भाषाओं में ऑडियो ट्रांसक्रिप्शन की सुविधा](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=hi)
 
-## 入力音声
+## ऑडियो इनपुट
 
-音声データは次の方法で提供できます。
+ऑडियो डेटा इन तरीकों से दिया जा सकता है:
 
-- [音声ファイルをアップロードします](#upload-audio) リクエストを行う前に。
-- [インライン音声データ](#inline-audio)をリクエストとともに渡します。
+- अनुरोध करने से पहले, [ऑडियो फ़ाइल अपलोड करें](#upload-audio).
+- अनुरोध के साथ [इनलाइन ऑडियो डेटा पास करें](#inline-audio).
 
-### 音声ファイルをアップロードする
+### ऑडियो फ़ाइल अपलोड करना
 
-20 MB を超えるファイルには [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用します。
+20 एमबी से बड़ी फ़ाइलों के लिए, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करें.
 
 ### Python
 
@@ -466,9 +462,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 音声データをインラインで渡す
+### ऑडियो डेटा को इनलाइन पास करना
 
-リクエストの合計サイズが 20 MB 未満の小さな音声ファイルの場合:
+अगर ऑडियो फ़ाइलें छोटी हैं और अनुरोध का कुल साइज़ 20 एमबी से कम है, तो:
 
 ### Python
 
@@ -587,13 +583,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-インライン音声データに関する注意事項:
-\* リクエストの最大サイズは合計 20 MB（プロンプトとすべてのファイルを含む）です。
-\* 再利用する場合は、代わりに[ファイルをアップロード](#upload-audio)してください。
+इनलाइन ऑडियो डेटा के बारे में जानकारी:
+\* अनुरोध का कुल साइज़ 20 एमबी से ज़्यादा नहीं होना चाहिए. इसमें प्रॉम्प्ट और सभी फ़ाइलें शामिल हैं
+\* दोबारा इस्तेमाल करने के लिए, [फ़ाइल अपलोड करें](#upload-audio)
 
-## 文字起こしを取得する
+## ट्रांसक्रिप्ट पाना
 
-文字起こしを取得するには、プロンプトでリクエストします。
+ट्रांसक्रिप्ट पाने के लिए, प्रॉम्प्ट में ट्रांसक्रिप्ट पाने का अनुरोध करें:
 
 ### Python
 
@@ -668,9 +664,9 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-## タイムスタンプを参照する
+## टाइमस्टैंप देखें
 
-`MM:SS` 形式を使用して特定のセクションを参照します。
+किसी खास सेक्शन का रेफ़रंस देने के लिए, `MM:SS` फ़ॉर्मैट का इस्तेमाल करें:
 
 ### Python
 
@@ -739,9 +735,9 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-## トークンをカウントする
+## टोकन गिनें
 
-音声ファイル内のトークンをカウントします。
+किसी ऑडियो फ़ाइल में टोकन की गिनती करना:
 
 ### Python
 
@@ -804,9 +800,9 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-## サポートされているオーディオ形式
+## इस्तेमाल किए जा सकने वाले ऑडियो फ़ॉर्मैट
 
-Gemini は、次の音声形式の MIME タイプをサポートしています。
+Gemini में, इन ऑडियो फ़ॉर्मैट के MIME टाइप इस्तेमाल किए जा सकते हैं:
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -822,30 +818,30 @@ Gemini は、次の音声形式の MIME タイプをサポートしています�
 - MULAW - `audio/mulaw`
 - WebM - `audio/webm`
 
-サポートされている MIME タイプとパラメータ スキーマの完全なリストについては、[Interactions API リファレンス](https://ai.google.dev/api/interactions-api?hl=ja#Resource:Content)をご覧ください。
+इस्तेमाल किए जा सकने वाले MIME टाइप और पैरामीटर स्कीमा की पूरी सूची देखने के लिए, [Interactions API का रेफ़रंस](https://ai.google.dev/api/interactions-api?hl=hi#Resource:Content) देखें.
 
-## 音声に関する技術的な詳細
+## ऑडियो के बारे में तकनीकी जानकारी
 
-- **トークン**: 音声 1 秒あたり 32 トークン（1 分 = 1,920 トークン）
-- **会話以外の音声**: Gemini は会話以外の音声（鳥の鳴き声、サイレンなど）を理解します。
-- **最大長**: プロンプトあたり 9.5 時間の音声
-- **解像度**: 16 Kbps にダウンサンプリング
-- **チャンネル**: マルチチャンネル音声をシングル チャンネルに結合
+- **टोकन**: ऑडियो के हर सेकंड के लिए 32 टोकन (1 मिनट = 1,920 टोकन)
+- **बोली न जाने वाली आवाज़ें**: Gemini, बोली न जाने वाली आवाज़ों (पक्षियों के चहचहाने, सायरन वगैरह) को समझता है
+- **ज़्यादा से ज़्यादा लंबाई**: हर प्रॉम्प्ट के लिए 9.5 घंटे का ऑडियो
+- **रिज़ॉल्यूशन**: 16 केबीपीएस पर डाउनसैंपल किया गया
+- **चैनल**: मल्टी-चैनल ऑडियो को एक चैनल में मिलाया गया है
 
-## 次のステップ
+## आगे क्या करना है
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja): 音声ファイルをアップロードして管理する
-- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions):
-  モデルの動作をカスタマイズする
-- [構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja):
-  JSON 形式で文字起こし結果を取得する
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi): ऑडियो फ़ाइलें अपलोड और मैनेज करें
+- [सिस्टम के निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
+  मॉडल के व्यवहार को पसंद के मुताबिक बनाएं
+- [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi):
+  ट्रांसक्रिप्शन के नतीजे JSON फ़ॉर्मैट में पाएं
 
-フィードバックを送信
+सुझाव भेजें
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最終更新日 2026-08-28 UTC。
+आखिरी बार 2026-08-28 (UTC) को अपडेट किया गया.
 
-ご意見をお聞かせください
+क्या आपको हमें और कुछ बताना है?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-08-28 UTC。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-08-28 (UTC) को अपडेट किया गया."],[],[]]

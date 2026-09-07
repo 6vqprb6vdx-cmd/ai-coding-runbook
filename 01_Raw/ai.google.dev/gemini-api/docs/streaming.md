@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=vi
-fetched_at: 2026-08-31T06:30:15.791071+00:00
-title: "L\u01b0\u1ee3t t\u01b0\u01a1ng t\u00e1c khi ph\u00e1t tr\u1ef1c tuy\u1ebfn \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=fr
+fetched_at: 2026-09-07T05:36:12.548480+00:00
+title: "Interactions de streaming \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Gửi ý kiến phản hồi
+Envoyer des commentaires
 
-# Lượt tương tác khi phát trực tuyến
+# Interactions de streaming
 
-Khi tạo một Lượt tương tác, bạn có thể đặt `stream: true` để truyền trực tuyến phản hồi theo gia số bằng cách sử dụng [sự kiện do máy chủ gửi](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
+Lorsque vous créez une interaction, vous pouvez définir `stream: true` pour diffuser la réponse de manière incrémentielle à l'aide d'[événements envoyés par le serveur](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
 
 ### Python
 
@@ -110,24 +110,24 @@ event: done
 data: [DONE]
 ```
 
-## Loại sự kiện
+## Types d'événement
 
-Mỗi sự kiện do máy chủ gửi đều bao gồm một `event_type` được đặt tên và dữ liệu JSON được liên kết. API Tương tác sử dụng mô hình truyền trực tuyến đối xứng, trong đó tất cả nội dung (văn bản, lệnh gọi công cụ, suy nghĩ) đều truyền qua một sự kiện **dựa trên bước** nhất quán.
+Chaque événement envoyé par le serveur inclut un `event_type` nommé et des données JSON associées. L'API Interactions utilise un modèle de streaming symétrique dans lequel tout le contenu (texte, appels d'outils, réflexion) transite par un événement **par étape** cohérent.
 
-Mỗi luồng tuân theo quy trình sự kiện này:
+Chaque flux suit ce flux d'événements :
 
-1. `interaction.created`: Lượt tương tác được tạo, bao gồm siêu dữ liệu (mã nhận dạng, mô hình, trạng thái).
-2. Một loạt **các bước**, mỗi bước bao gồm:
-   - Sự kiện `step.start`, cho biết loại bước (ví dụ: `model_output`, `thought`, `function_call`).
-   - Một hoặc nhiều sự kiện `step.delta` có dữ liệu gia tăng cho bước đó.
-   - Sự kiện `step.stop` đánh dấu bước là hoàn tất.
-3. Sự kiện `interaction.completed` có số liệu thống kê `usage` cuối cùng.
+1. `interaction.created` : l'interaction est créée et inclut des métadonnées (ID, modèle, état).
+2. Une série d'**étapes**, chacune comprenant :
+   - Un événement `step.start`, indiquant le type d'étape (par exemple, `model_output`, `thought`, `function_call`).
+   - Un ou plusieurs événements `step.delta` avec des données incrémentielles pour cette étape.
+   - Un événement `step.stop` marquant l'étape comme terminée.
+3. Un événement `interaction.completed` avec des statistiques `usage` finales.
 
-Khi bạn đặt `stream: false`, API sẽ trả về một đối tượng `interaction` duy nhất có mảng `steps`. Mỗi phần tử trong `steps` là phiên bản được lắp ráp đầy đủ của một chu kỳ `step.start` → `step.delta`(s) → `step.stop`.
+Lorsque vous définissez `stream: false`, l'API renvoie un seul objet `interaction` avec un tableau `steps`. Chaque élément de `steps` est la version entièrement assemblée d'un cycle `step.start` → `step.delta`(s) → `step.stop`.
 
 ### `interaction.created`
 
-Được gửi khi lượt tương tác được tạo lần đầu tiên. Chứa mã nhận dạng lượt tương tác, mô hình và trạng thái ban đầu.
+Envoyé lors de la création de l'interaction. Contient l'ID d'interaction, le modèle et l'état initial.
 
 ```
 event: interaction.created
@@ -136,7 +136,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3.5-flash", "status": "in_p
 
 ### `interaction.status_update`
 
-Báo hiệu quá trình chuyển đổi trạng thái ở cấp lượt tương tác. Có thể xuất hiện giữa các bước.
+Signale une transition de l'état au niveau de l'interaction. Peut apparaître entre les étapes.
 
 ```
 event: interaction.status_update
@@ -145,23 +145,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-Đánh dấu sự bắt đầu của một bước mới. Chứa `type` và `index` của bước. Loại bước xác định những loại delta cần dự kiến và cách bước xuất hiện trong phản hồi không truyền trực tuyến:
+Marque le début d'une nouvelle étape. Contient les étapes `type` et `index`. Le type d'étape détermine les types de delta attendus et la façon dont l'étape apparaît dans une réponse sans streaming :
 
-| Loại bước | Loại delta dự kiến | Mô tả |
+| Type d'étape | Types de delta attendus | Description |
 | --- | --- | --- |
-| `model_output` | `text`, `image`, `audio` | Nội dung phản hồi cuối cùng của mô hình. |
-| `thought` | `thought_signature`, `thought_summary` | Lý luận theo chuỗi suy nghĩ. `summary` chỉ xuất hiện khi `thinking_summaries` được bật. |
-| `function_call` | `arguments_delta` | Yêu cầu khách hàng thực thi một hàm. Đặt trạng thái lượt tương tác thành `requires_action`. |
-| Công cụ phía máy chủ | Tuỳ theo công cụ | Các công cụ do API thực thi (ví dụ: `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
+| `model_output` | `text`, `image`, `audio` | Contenu de la réponse finale du modèle. |
+| `thought` | `thought_signature`, `thought_summary` | Raisonnement en chaîne de pensée `summary` n'est présent que lorsque `thinking_summaries` est activé. |
+| `function_call` | `arguments_delta` | Requête permettant au client d'exécuter une fonction. Définit l'état de l'interaction sur `requires_action`. |
+| Outils côté serveur | Varie selon l'outil | Outils exécutés par l'API (par exemple, `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
 
-Xem tài liệu tham khảo về [API Tương tác](https://ai.google.dev/api/interactions-api?hl=vi) để biết danh sách đầy đủ.
+Pour obtenir la liste complète, consultez la [documentation de référence de l'API Interactions](https://ai.google.dev/api/interactions-api?hl=fr).
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-Đối với lệnh gọi hàm, bước này bao gồm tên hàm, mã nhận dạng và các đối số trống `{}`.
+Pour les appels de fonction, l'étape inclut le nom et l'ID de la fonction, ainsi que des arguments vides `{}`.
 
 ```
 event: step.start
@@ -170,11 +170,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-Dữ liệu gia tăng cho bước hiện tại. Đối tượng `delta` chứa một trường `type` xác định hình dạng của đối tượng đó.
+Données incrémentielles pour l'étape actuelle. L'objet `delta` contient un champ `type` qui détermine sa forme.
 
-**Ví dụ:**
+**Exemples** :
 
-**`text`:** Mã thông báo văn bản gia tăng từ bước `model_output`:
+**`text`** : jeton de texte incrémentiel à partir d'une étape `model_output` :
 
 ```
 event: step.delta
@@ -184,32 +184,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** Dữ liệu hình ảnh được mã hoá bằng Base64 từ bước `model_output`:
+**`image`** : données d'image encodées en base64 à partir d'une étape `model_output` :
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** Nội dung tóm tắt suy nghĩ từ bước `thought`:
+**`thought_summary`** : contenu récapitulatif de la réflexion à partir d'une étape `thought` :
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** Chuỗi JSON (một phần) cho các đối số lệnh gọi hàm. Phải được tích luỹ trên các delta:
+**`arguments_delta`** : chaîne JSON (partielle) pour les arguments d'appel de fonction. Doit être cumulé sur les deltas :
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-Đây là một số loại delta phổ biến nhất. Để biết danh sách đầy đủ tất cả các loại delta, hãy xem tài liệu tham khảo về API Tương tác .
+Voici quelques-uns des types de delta les plus courants. Pour obtenir la liste complète de tous les types de delta, consultez la [documentation de référence de l'API Interactions](https://ai.google.dev/api/interactions-api?hl=fr).
 
 ### `step.stop`
 
-Đánh dấu sự kết thúc của một bước. Chứa `index` của bước.
+Marque la fin d'une étape. Contient l'étape `index`.
 
 ```
 event: step.stop
@@ -218,7 +218,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-Được gửi khi lượt tương tác kết thúc. Chứa đối tượng lượt tương tác cuối cùng có số liệu thống kê `usage`. Ở chế độ không truyền trực tuyến, đây là chính đối tượng phản hồi cấp cao nhất. Không bao gồm `steps` trong phản hồi.
+Envoyé lorsque l'interaction est terminée. Contient l'objet d'interaction final avec les statistiques `usage`. En mode non streaming, il s'agit de l'objet de réponse de premier niveau lui-même. N'inclut pas `steps` dans la réponse.
 
 ```
 event: interaction.completed
@@ -227,24 +227,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-Được gửi khi xảy ra lỗi trong lượt tương tác. Chứa một đối tượng lỗi có thông báo và mã.
+Envoyé lorsqu'une erreur se produit lors de l'interaction. Contient un objet d'erreur avec un message et un code.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## Truyền trực tuyến bằng các công cụ
+## Streaming avec des outils
 
-API Tương tác hỗ trợ truyền trực tuyến bằng cả công cụ phía máy khách (gọi hàm) và công cụ phía máy chủ (Google Tìm kiếm, Thực thi mã, v.v.) trong một yêu cầu. Trong quá trình truyền trực tuyến, các lệnh gọi công cụ sẽ xuất hiện dưới dạng các bước đã nhập trong luồng sự kiện. Đối với lệnh gọi hàm, sự kiện `step.start` sẽ cung cấp tên hàm và các sự kiện `step.delta` sẽ truyền trực tuyến các đối số dưới dạng chuỗi JSON (`arguments_delta`). Bạn phải tích luỹ các delta này để nhận được các đối số đầy đủ.
-Các công cụ phía máy chủ như Google Tìm kiếm sẽ được API tự động thực thi, tạo ra các bước `google_search_call` và `google_search_result`.
+L'API Interactions est compatible avec le streaming avec des outils côté client (appel de fonction) et côté serveur (Recherche Google, exécution de code, etc.) dans une seule requête. Lors du streaming, les appels d'outils apparaissent sous forme d'étapes saisies dans le flux d'événements. Pour les appels de fonction, l'événement `step.start` fournit le nom de la fonction, et les événements `step.delta` transmettent les arguments sous forme de chaînes JSON (`arguments_delta`). Vous devez cumuler ces deltas pour obtenir les arguments complets.
+Les outils côté serveur tels que la recherche Google sont exécutés automatiquement par l'API, ce qui génère des étapes `google_search_call` et `google_search_result`.
 
-### Truyền trực tuyến bằng tính năng gọi hàm
+### Streaming avec appel de fonction
 
-Để thực hiện lệnh gọi hàm bằng tính năng truyền trực tuyến, máy khách phải xử lý cuộc trò chuyện nhiều lượt:
+Pour effectuer un appel de fonction avec le streaming, le client doit gérer une conversation multitour :
 
-1. **Lượt 1 (Yêu cầu hàm):** Gọi `interactions.create` bằng `stream: true` và `tools` mà bạn đã xác định. API sẽ truyền trực tuyến một bước `function_call`. Bạn phải tích luỹ các chuỗi JSON đối số gia tăng (`arguments_delta`) từ các sự kiện `step.delta` cho đến khi lượt tương tác hoàn tất với trạng thái `requires_action`.
-2. **Lượt 2 (Gửi kết quả):** Gọi lại `interactions.create`, truyền `previous_interaction_id` (khớp với mã nhận dạng của lượt tương tác đầu tiên) và gửi một khối `function_result` trong mảng `input`. Thao tác này sẽ tiếp tục luồng, cho phép mô hình tạo phản hồi cuối cùng.
+1. **Tour 1 (demande de fonction)** : appelez `interactions.create` avec `stream: true` et votre `tools` défini. L'API diffusera une étape `function_call`. Vous devez cumuler les chaînes JSON d'arguments incrémentaux (`arguments_delta`) des événements `step.delta` jusqu'à ce que l'interaction se termine avec l'état `requires_action`.
+2. **Tour 2 (envoi du résultat)** : appelez à nouveau `interactions.create`, en transmettant `previous_interaction_id` (correspondant à l'ID de la première interaction) et en envoyant un bloc `function_result` dans le tableau `input`. Le flux est alors repris, ce qui permet au modèle de générer sa réponse finale.
 
 ### Python
 
@@ -401,7 +401,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**Lượt 1:** Yêu cầu lệnh gọi hàm
+**Tour 1** : Demander un appel de fonction
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -432,7 +432,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Lượt 2:** Gửi kết quả hàm bằng `previous_interaction_id` và `call_id` từ Lượt 1
+**Tour 2** : Envoyez le résultat de la fonction à l'aide de `previous_interaction_id` et `call_id` du tour 1.
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -461,9 +461,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Truyền trực tuyến bằng nhiều công cụ
+### Streaming avec plusieurs outils
 
-Ví dụ sau đây sử dụng cả công cụ `function` và `google_search` trong một yêu cầu:
+L'exemple suivant utilise à la fois un outil `function` et `google_search` dans une même requête :
 
 ### Python
 
@@ -664,9 +664,9 @@ event: done
 data: [DONE]
 ```
 
-## Truyền trực tuyến bằng tính năng suy nghĩ
+## Streaming avec réflexion
 
-Khi mô hình sử dụng tính năng suy nghĩ, bạn sẽ nhận được các bước `thought` với 2 loại delta riêng biệt: `thought_summary` (nội dung tóm tắt văn bản hoặc hình ảnh gia tăng) và `thought_signature` (biểu diễn được mã hoá về quá trình suy luận nội bộ của mô hình, được gửi dưới dạng delta cuối cùng trước `step.stop`). Nếu `thinking_summaries` được bật, các delta `thought_summary` sẽ truyền trực tuyến bản tóm tắt về quá trình suy luận của mô hình. Để biết thêm thông tin chi tiết về tính năng suy nghĩ, hãy xem [Hướng dẫn về tính năng suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi).
+Lorsque le modèle utilise la réflexion, vous recevez des étapes `thought` avec deux types de delta distincts : `thought_summary` (contenu incrémentiel de résumé de texte ou d'image) et `thought_signature` (représentation chiffrée du raisonnement interne du modèle, envoyée comme dernier delta avant `step.stop`). Si `thinking_summaries` est activé, les deltas `thought_summary` diffusent un résumé du raisonnement du modèle. Pour en savoir plus sur la réflexion, consultez le [guide de réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
 
 ### Python
 
@@ -766,9 +766,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## Truyền trực tuyến bằng tác nhân
+## Streaming avec des agents
 
-API Tương tác hỗ trợ các tác nhân như Deep Research. Các tác nhân sử dụng `background=True` và trả về kết quả không đồng bộ, nhưng bạn cũng có thể truyền trực tuyến các lượt tương tác của tác nhân để nhận thông tin cập nhật về tiến trình và các bước trung gian khi chúng xảy ra. Để biết thêm thông tin chi tiết, hãy xem [Hướng dẫn thực thi ở chế độ nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi) và [Hướng dẫn về Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi).
+L'API Interactions est compatible avec les agents tels que Deep Research. Les agents utilisent `background=True` et renvoient les résultats de manière asynchrone. Toutefois, vous pouvez également diffuser les interactions des agents pour recevoir des informations sur la progression et les étapes intermédiaires au fur et à mesure. Pour en savoir plus, consultez le [guide sur l'exécution en arrière-plan](https://ai.google.dev/gemini-api/docs/background-execution?hl=fr) et le [guide sur la recherche approfondie](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr).
 
 ### Python
 
@@ -887,11 +887,11 @@ event: done
 data: [DONE]
 ```
 
-## Truyền trực tuyến quá trình tạo hình ảnh
+## Génération d'images en streaming
 
-API Tương tác hỗ trợ truyền trực tuyến đồng thời nhiều phương thức đầu ra. Bằng cách yêu cầu cả `text` và `image` trong `response_format`, bạn có thể nhận văn bản xen kẽ và hình ảnh được tạo trong cùng một luồng.
+L'API Interactions permet de diffuser simultanément plusieurs modalités de sortie. En demandant à la fois `text` et `image` dans `response_format`, vous pouvez recevoir du texte et des images générées entrelacés dans le même flux.
 
-Ví dụ sau đây sử dụng `gemini-3.1-flash-image` (Nano Banana 2) để tìm kiếm thông tin và tạo một câu chuyện có hình minh hoạ xen kẽ.
+L'exemple suivant utilise `gemini-3.1-flash-image` (Nano Banana 2) pour rechercher des informations et générer une histoire avec des illustrations intercalées.
 
 ### Python
 
@@ -1044,24 +1044,24 @@ event: done
 data: [DONE]
 ```
 
-## Xử lý các sự kiện không xác định
+## Gérer les événements inconnus
 
-Theo chính sách kiểm soát phiên bản của API, các loại sự kiện và loại delta mới có thể được thêm theo thời gian. Mã của bạn sẽ xử lý các loại sự kiện không xác định một cách suôn sẻ – ghi nhật ký và bỏ qua mọi sự kiện mà bạn không nhận ra thay vì báo lỗi.
+Conformément au règlement sur le versionnage de l'API, de nouveaux types d'événements et de deltas pourront être ajoutés au fil du temps. Votre code doit gérer les types d'événements inconnus de manière appropriée. Enregistrez et ignorez les événements que vous ne reconnaissez pas au lieu de générer une erreur.
 
-## Bước tiếp theo
+## Étape suivante
 
-- Tìm hiểu thêm về [API Tương tác](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi).
-- Khám phá tính năng [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) bằng các công cụ.
-- Tìm hiểu về [tính năng Suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) để nâng cao khả năng suy luận.
-- Dùng thử [Tác nhân Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) cho các tác vụ chạy trong thời gian dài.
-- Xem tài liệu tham khảo về [API Tương tác](https://ai.google.dev/api/interactions-api?hl=vi) để biết tất cả các loại sự kiện và loại delta.
+- En savoir plus sur l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr)
+- Découvrez l'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr) avec des outils.
+- Découvrez la [réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr) pour un raisonnement amélioré.
+- Essayez l'[agent Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) pour les tâches de longue durée.
+- Consultez la [documentation de référence de l'API Interactions](https://ai.google.dev/api/interactions-api?hl=fr) pour connaître tous les types d'événements et de deltas.
 
-Gửi ý kiến phản hồi
+Envoyer des commentaires
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Cập nhật lần gần đây nhất: 2026-07-07 UTC.
+Dernière mise à jour le 2026/07/07 (UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-07 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/07 (UTC)."],[],[]]

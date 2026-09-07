@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=it
-fetched_at: 2026-08-31T06:32:22.009594+00:00
-title: "Ambienti negli agenti gestiti \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar
+fetched_at: 2026-09-07T05:41:52.296288+00:00
+title: "\u0627\u0644\u0628\u064a\u0626\u0627\u062a \u0641\u064a \u0627\u0644\u0648\u0643\u0644\u0627\u0621 \u0627\u0644\u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-# Ambienti negli agenti gestiti
+# البيئات في الوكلاء المُدارين
 
-Gli ambienti sono sandbox Linux gestite che forniscono agli agenti un luogo isolato in cui eseguire il codice e conservare i file. Sono disaccoppiati dal contesto di interazione, quindi puoi riutilizzare lo stesso ambiente in più interazioni o ricominciare da zero in qualsiasi momento.
+البيئات هي مساحات معزولة في Linux تتم إدارتها وتوفّر للوكلاء مكانًا معزولاً لتنفيذ الرموز البرمجية والاحتفاظ بالملفات. وهي منفصلة عن سياق التفاعل، لذا يمكنك إعادة استخدام البيئة نفسها في تفاعلات متعددة أو البدء من جديد في أي وقت.
 
-Il seguente esempio mostra come creare un'interazione con un nuovo ambiente remoto e recuperarne l'ID:
+يوضّح المثال التالي كيفية إنشاء تفاعل مع بيئة بعيدة جديدة واسترداد معرّفها:
 
 ### Python
 
@@ -67,17 +67,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Il parametro `environment`
+## المَعلمة `environment`
 
-Il parametro `environment` accetta tre forme:
+تقبل المَعلمة `environment` ثلاثة أشكال:
 
-| Postura | Esempio | Quando utilizzarle |
+| النموذج | مثال | حالات الاستخدام |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | Esegui il provisioning di una nuova sandbox. |
-| ID ambiente | `environment="env_abc123"` | Riutilizza una sandbox esistente con tutti i relativi file e pacchetti. |
-| Oggetto di configurazione | `environment={...}` | Esegui il provisioning di una nuova sandbox con origini, regole di rete o entrambe. |
+| `"remote"` | `environment="remote"` | توفير وضع حماية جديد |
+| رقم تعريف البيئة | `environment="env_abc123"` | إعادة استخدام بيئة اختبار حالية تتضمّن جميع ملفاتها وحِزمها |
+| عنصر الإعداد | `environment={...}` | توفير بيئة اختبار جديدة تتضمّن مصادر أو قواعد شبكة أو كليهما |
 
-Gli esempi seguenti mostrano i tre modi di utilizzare il parametro `environment`.
+توضّح الأمثلة التالية الطرق الثلاث لاستخدام المَعلمة `environment`.
 
 ### Python
 
@@ -205,10 +205,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Configurare un ambiente
+## ضبط بيئة
 
-Un modo per configurare un ambiente è indicare all'agente i pacchetti da installare.
-L'agente gestisce la risoluzione delle dipendenze e la risoluzione dei problemi. Una volta che l'ambiente è pronto, salva l'`environment_id` e riutilizzalo.
+إحدى طرق إعداد بيئة هي إخبار الوكيل بما تحتاج إلى تثبيته.
+يتعامل مع حلّ التبعيات وتحديد المشاكل وحلّها. بعد أن تصبح البيئة جاهزة، احفظ `environment_id` وأعِد استخدامه.
 
 ### Python
 
@@ -285,15 +285,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Eseguire il mount da un'origine
+### التحميل من مصدر
 
-Se sai esattamente di quali file ha bisogno l'agente, esegui il mount in una singola chiamata anziché eseguire l'iterazione. L'oggetto di configurazione `environment` accetta un array `sources` con tre tipi:
+إذا كنت تعرف بالضبط الملفات التي يحتاجها الوكيل، يمكنك تحميلها في طلب واحد بدلاً من تكرار العملية. يقبل عنصر الضبط `environment` مصفوفة `sources` تتضمّن ثلاثة أنواع:
 
-| Tipo di origine | Valore `type` | Descrizione | Limite |
+| نوع المصدر | قيمة `type` | الوصف | الحدّ |
 | --- | --- | --- | --- |
-| Repository Git | `repository` | Clona un repository da un URL nella sandbox in `target`. | 500 MB |
-| Cloud Storage | `gcs` | Copia un file o una directory da Cloud Storage nella sandbox in `target`. | 2 GB |
-| Contenuti in linea | `inline` | Scrive contenuti di testo non elaborati in un file nella sandbox in `target`. | 1 MB per file, 2 MB in totale |
+| مستودع Git | `repository` | يستنسخ هذا الأمر مستودعًا من عنوان URL إلى وضع الحماية في `target`. | ‫500 ميغابايت |
+| Cloud Storage | `gcs` | تنسخ هذه السمة ملفًا أو دليلاً من Cloud Storage إلى وضع الحماية في `target`. | 2 غيغابايت |
+| المحتوى المضمّن | `inline` | يكتب محتوى نصيًا أوليًا في ملف في وضع الحماية على `target`. | ‫1 ميغابايت لكل ملف، و2 ميغابايت إجمالاً |
 
 ### Python
 
@@ -398,19 +398,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Puoi combinare entrambi gli approcci: esegui il mount delle origini note in modo dichiarativo, quindi esegui l'iterazione con le interazioni di follow-up per installare i pacchetti o eseguire gli script di configurazione. Non puoi impostare la root (`/`) come target quando aggiungi un'origine personalizzata, devi sempre specificare una sottodirectory.
+يمكنك الجمع بين الطريقتين: تثبيت المصادر المعروفة بشكل تعريفي، ثم تكرار العملية مع تفاعلات المتابعة لتثبيت الحِزم أو تشغيل نصوص الإعداد البرمجية. لا يمكنك ضبط الجذر (`/`) كهدف عند إضافة مصدر مخصّص، بل عليك دائمًا تحديد دليل فرعي.
 
-### Hook
+### عناصر الجذب
 
-Puoi anche eseguire il mount di un file di configurazione `.agents/hooks.json` e di script di intercettazione personalizzati nella sandbox per applicare le misure di sicurezza o eseguire le convalide automatiche ogni volta che vengono eseguiti gli strumenti. Per le definizioni dello schema e gli esempi di codice, vedi [Hook](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=it).
+يمكنك أيضًا تحميل ملف إعداد `.agents/hooks.json` وبرامج نصية مخصّصة للاعتراض في وضع الحماية لفرض ضوابط الأمان أو تنفيذ عمليات التحقّق الآلية كلما تم تنفيذ الأدوات. للاطّلاع على تعريفات المخطّط وأمثلة الرموز، يُرجى الرجوع إلى [خطافات](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=ar).
 
-### Origini private
+### المصادر الخاصة
 
-Puoi anche scaricare da repository GitHub privati o bucket Cloud Storage privati aggiungendo le credenziali nella configurazione di rete:
+يمكنك أيضًا تنزيل البيانات من مستودعات GitHub الخاصة أو حِزم Cloud Storage الخاصة من خلال إضافة بيانات الاعتماد في إعدادات الشبكة:
 
-Per i **repository Git privati**, utilizza l'autenticazione `Basic` con il tuo
-[token di accesso personale (PAT) di GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-Codifica il token utilizzando `x-oauth-basic` come nome utente:
+بالنسبة إلى **مستودعات Git الخاصة**، استخدِم مصادقة `Basic` مع [رمز الوصول الشخصي (PAT) في GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+ترميز الرمز المميز باستخدام `x-oauth-basic` كاسم المستخدم:
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -515,7 +514,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Per i **bucket Cloud Storage privati**, utilizza un token di connessione OAuth 2.0 standard:
+بالنسبة إلى **حِزم Cloud Storage الخاصة**، استخدِم رمزًا مميزًا عاديًا من النوع Bearer لبروتوكول OAuth 2.0:
 
 ```
 gcloud auth print-access-token
@@ -620,25 +619,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Software preinstallato
+## البرامج المثبَّتة مسبقًا
 
-La sandbox viene eseguita su Ubuntu e include runtime e pacchetti comuni preinstallati. L'agente può installare pacchetti aggiuntivi in fase di runtime utilizzando `pip
-install` o `npm install`. I pacchetti installati durante un'interazione vengono mantenuti quando riutilizzi lo stesso `environment_id`.
+uana-sandbox runs on Ubuntu and comes with runtimes and common packages
+pre-installed. يمكن للعامل تثبيت حِزم إضافية في وقت التشغيل باستخدام `pip
+install` أو `npm install`. تظل الحِزم المثبَّتة أثناء التفاعل متوفّرة عند إعادة استخدام `environment_id` نفسه.
 
-| Categoria | Pacchetti preinstallati |
+| الفئة | الحِزم المثبَّتة مسبقًا |
 | --- | --- |
-| **Strumenti UNIX** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
-| **Python 3.12** | `numpy`, `pandas`, `requests`, `google-genai`, `beautifulsoup4`, `pyyaml`, `ast-grep-cli` |
-| **Node.js 22** | `create-next-app`, `create-vite`, `typescript` |
+| **أدوات UNIX** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
+| **Python 3.12** | ‫`numpy`، `pandas`، `requests`، `google-genai`، `beautifulsoup4`، `pyyaml`، `ast-grep-cli` |
+| **Node.js 22** | ‫`create-next-app`، `create-vite`، `typescript` |
 
-## Configurazione di rete
+## إعدادات الشبكة
 
-Per impostazione predefinita, gli ambienti hanno accesso alla rete in uscita senza restrizioni. Utilizza il campo `network` per limitare il traffico in uscita a domini specifici. Ogni regola specifica un `domain` e un oggetto `transform` facoltativo per inserire le intestazioni nelle richieste corrispondenti. Queste intestazioni possono essere univoche per ogni interazione e puoi aggiornarle per lo stesso ambiente.
+تتضمّن البيئات تلقائيًا إمكانية وصول غير محدودة إلى الشبكة الصادرة. استخدِم الحقل
+`network` لحصر عدد الزيارات الصادرة على نطاقات محدّدة. تحدّد كل قاعدة `domain` وكائن `transform` اختياري لإدراج العناوين في الطلبات المطابقة. يمكن أن تكون هذه العناوين فريدة لكل تفاعل، ويمكنك تعديلها للبيئة نفسها.
 
-| Campo | Tipo | Descrizione |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `domain` | `string` | Dominio da abbinare. Utilizza un nome host esatto o `*` per tutti i domini. |
-| `transform` | `object` | Oggetto contenente coppie chiave-valore semplici che rappresentano le intestazioni da inserire nelle richieste corrispondenti, ad es. `{"Authorization": "Bearer ..."}`. |
+| `domain` | `string` | النطاق المطلوب مطابقته استخدِم اسم مضيف مطابقًا أو `*` لجميع النطاقات. |
+| `transform` | `object` | كائن يحتوي على أزواج مفتاح/قيمة مسطّحة تمثّل العناوين المطلوب إدراجها في الطلبات المطابقة، مثل `{"Authorization": "Bearer ..."}`. |
 
 ### Python
 
@@ -727,13 +728,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Quando viene impostata una lista consentita, sono consentite solo le richieste ai domini elencati in modo esplicito. Puoi utilizzare i caratteri jolly per trovare la corrispondenza con i sottodomini (ad es. `{"domain":
-"*.example.com"}`), ma tieni presente che questa operazione non trova la corrispondenza con il dominio principale
-`example.com`, che deve essere aggiunto separatamente. Per consentire tutto il resto del traffico, ad esempio il routing dei domini non elencati senza intestazioni inserite, aggiungi `{"domain": "*"}` come voce catch-all.
+عند ضبط قائمة مسموح بها، لا يُسمح إلا بالطلبات التي يتم إرسالها إلى النطاقات المدرَجة بشكل صريح. يمكنك استخدام أحرف بدل لمطابقة النطاقات الفرعية (مثل `{"domain":
+"*.example.com"}`)، ولكن يُرجى العِلم أنّ ذلك لا يطابق النطاق الجذر
+`example.com`، الذي يجب إضافته بشكل منفصل. للسماح بجميع الزيارات الأخرى، مثل توجيه النطاقات غير المدرَجة بدون رؤوس رسائل مُدرَجة، أضِف `{"domain": "*"}` كإدخال شامل.
 
-### Credenziali
+### بيانات الاعتماد
 
-Puoi aggiungere le credenziali da utilizzare per l'agente aggiungendo le trasformazioni delle intestazioni. Le credenziali vengono inserite nelle rispettive intestazioni HTTP da un proxy di uscita e non vengono mai esposte all'interno della sandbox come variabili di ambiente o file.
+يمكنك إضافة بيانات اعتماد ليستخدمها برنامجك من خلال إضافة عمليات تحويل العناوين. يتم إدخال بيانات الاعتماد في عناوين HTTP المعنية من خلال خادم وكيل للخروج، ولا يتم عرضها مطلقًا داخل وضع الحماية كمتغيرات أو ملفات بيئية.
 
 ### Python
 
@@ -826,9 +827,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Disattivare l'accesso alla rete
+### إيقاف إمكانية الوصول إلى الشبكة
 
-Per bloccare tutto l'accesso alla rete in uscita, imposta `network` su `disabled`:
+لحظر جميع عمليات الوصول إلى الشبكة الصادرة، اضبط `network` على `disabled`:
 
 ### Python
 
@@ -884,10 +885,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Aggiornare le credenziali
+### إعادة تحميل بيانات الاعتماد
 
-Le credenziali come i token di accesso e le chiavi API di breve durata scadono.
-Puoi aggiornarle passando l'`environment_id` esistente insieme a una nuova configurazione `network` nell'interazione successiva. Le nuove regole di rete sostituiscono completamente quelle precedenti, mentre lo stato del file system dell'ambiente (pacchetti installati, file, repository) viene mantenuto.
+تنتهي صلاحية بيانات الاعتماد، مثل رموز الدخول ومفاتيح واجهة برمجة التطبيقات القصيرة الأمد.
+يمكنك إعادة تحميلها من خلال تمرير `environment_id` الحالي مع إعداد `network` جديد في التفاعل التالي. تحلّ قواعد الشبكة الجديدة محل القواعد السابقة بالكامل، مع الحفاظ على حالة نظام الملفات في البيئة (الحِزم والملفات والمستودعات المثبّتة).
 
 ### Python
 
@@ -1014,26 +1015,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Ciclo di vita dell'ambiente
+## مراحل نشاط البيئة
 
-Gli ambienti seguono questo ciclo di vita:
+تتّبع البيئات دورة الحياة التالية:
 
-| Stato | Comportamento |
+| ولاية | السلوك |
 | --- | --- |
-| **Creato** | Viene eseguito il provisioning quando un'interazione specifica `environment: "remote"` o un oggetto di configurazione. |
-| **Attivi** | In esecuzione durante un'interazione. |
-| **Inattivo** | Viene eseguito automaticamente lo snapshot e l'arresto dopo 15 minuti di inattività. |
-| **Offline** | Viene conservato per 7 giorni dall'ultima attività. Può essere ripreso passando il relativo ID. |
-| **Eliminato** | Viene rimosso automaticamente dal sistema dopo la scadenza del periodo di conservazione TTL di 7 giorni o in caso di eliminazione manuale. |
+| **تاريخ الإنشاء** | يتم توفيرها عندما يحدّد تفاعل `environment: "remote"` أو كائن إعداد. |
+| **نشطة** | يتم تشغيلها أثناء إجراء تفاعل. |
+| **غير مستخدَم من قِبل أي برنامج حاليًا** | تم أخذ لقطة تلقائية وتوقّفت بعد 15 دقيقة من عدم النشاط. |
+| **بلا إنترنت** | تم الاحتفاظ بها لمدة 7 أيام منذ آخر نشاط. يمكن استئنافها من خلال إدخال رقم تعريفها. |
+| **تم الحذف** | تتم إزالتها من النظام تلقائيًا بعد انتهاء مدة الاحتفاظ بالبيانات لمدة 7 أيام أو عند حذفها يدويًا. |
 
-## API Environments
+## Environments API
 
-Puoi utilizzare l'API Environments per gestire in modo programmatico le sessioni sandbox.
-L'enumerazione degli ambienti ti consente di scoprire gli ID delle sessioni attive e di recuperare lo stato se una connessione client viene terminata durante un'attività a lunga esecuzione. Puoi anche esaminare i metadati della sessione ed eliminare esplicitamente gli ambienti al termine dei flussi di lavoro anziché attendere la scadenza automatica del TTL.
+يمكنك استخدام Environments API لإدارة جلسات وضع الحماية آليًا.
+يتيح لك تعداد البيئات اكتشاف أرقام تعريف الجلسات النشطة واستعادة الحالة
+في حال انتهاء اتصال العميل أثناء تنفيذ مهمة طويلة الأمد. يمكنك أيضًا فحص بيانات الجلسة الوصفية وحذف البيئات بشكل صريح عند انتهاء مهام سير العمل بدلاً من انتظار انتهاء صلاحية TTL تلقائيًا.
 
-### Elenco ambienti
+### عرض قائمة بالبيئات
 
-Elenca gli ambienti attivi appartenenti al tuo progetto. Utilizza i parametri di paginazione per controllare le dimensioni del batch di risposte.
+تعرض هذه السمة قائمة بالبيئات النشطة التابعة لمشروعك. استخدِم مَعلمات تقسيم الصفحات
+للتحكّم في حجم مجموعة الردود.
 
 ### Python
 
@@ -1066,7 +1069,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments?pageS
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La risposta è simile alla seguente:
+ستبدو الاستجابة مشابهة لما يلي:
 
 ```
 {
@@ -1084,9 +1087,9 @@ La risposta è simile alla seguente:
 }
 ```
 
-### Recuperare un ambiente
+### الحصول على بيئة
 
-Recupera i metadati e i dettagli di configurazione di un ambiente specifico in base al relativo nome risorsa.
+استرداد البيانات الوصفية وتفاصيل الإعدادات لبيئة معيّنة من خلال اسم المورد
 
 ### Python
 
@@ -1117,7 +1120,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/YOUR_
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La risposta è simile alla seguente:
+ستبدو الاستجابة مشابهة لما يلي:
 
 ```
 {
@@ -1143,9 +1146,9 @@ La risposta è simile alla seguente:
 }
 ```
 
-### Eliminare un ambiente
+### حذف بيئة
 
-Termina ed elimina esplicitamente un ambiente per liberare spazio dalle risorse sandbox al termine delle attività o delle pipeline.
+يجب إنهاء البيئة وحذفها بشكل صريح لتنظيف موارد وضع الحماية عند انتهاء المهام أو خطوط الأنابيب.
 
 ### Python
 
@@ -1174,9 +1177,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/environments/YO
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Scaricare file dall'ambiente
+## تنزيل ملفات من البيئة
 
-L'agente crea file all'interno della sandbox durante l'esecuzione. Puoi scaricare lo snapshot completo dell'ambiente come file tar utilizzando l'API Files:
+ينشئ الوكيل ملفات داخل وضع الحماية أثناء التنفيذ. يمكنك تنزيل لقطة البيئة الكاملة كملف tar باستخدام Files API:
 
 ### Python
 
@@ -1271,42 +1274,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## Prezzi e risorse
+## الأسعار والمراجع
 
-Ogni ambiente viene eseguito con allocazioni di risorse fisse:
+تعمل كل بيئة مع تخصيصات ثابتة للموارد:
 
-| Risorsa | Valore |
+| المورد | القيمة |
 | --- | --- |
-| **CPU** | 4 core |
-| **Memoria** | 16 GB |
+| **وحدة المعالجة المركزية** | 4 نوى |
+| **الذاكرة** | 16 غيغابايت |
 
-Il calcolo dell'ambiente (CPU, memoria, esecuzione sandbox) **non viene fatturato** durante il periodo di anteprima. Per i costi dei token dell'agente, vedi
-[Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#pricing-for-agents).
+**لا يتم تحصيل رسوم** مقابل حوسبة البيئة (وحدة المعالجة المركزية والذاكرة والتنفيذ في وضع الحماية) خلال فترة المعاينة. اطّلِع على [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#pricing-for-agents) لمعرفة تكاليف رموز وكلاء الدعم.
 
-## Limitazioni
+## القيود
 
-- **Stato di anteprima:** gli ambienti e gli agenti gestiti sono in anteprima. Le funzionalità e gli schemi potrebbero cambiare.
-- **Dimensioni dell'origine in linea:** le origini in linea sono limitate a 1 MB per file e a 2 MB in totale per tutti i file.
-- **Dimensioni dell'origine**: i repository Git sono limitati a 500 MB e i repository Cloud Storage a 2 GB.
-- **Avvio dell'ambiente:** il provisioning di un nuovo ambiente richiede fino a circa 5 secondi. I repository di origine di grandi dimensioni potrebbero aumentare questo tempo.
-- **Scadenza dell'ambiente:** gli ambienti offline inattivi vengono conservati per 7 giorni prima della scadenza utilizzando la pulizia automatica del TTL. Il passaggio di un ID ambiente scaduto o non valido restituisce un errore `404 Not Found`.
-- **Supporto dei file:** al momento l'agente è limitato alla lettura di file di testo e immagine. Il supporto dei file binari non è ancora disponibile.
-- **Nessun mount dalla root:** non puoi impostare la root (`/`) come target quando aggiungi un'origine personalizzata, devi sempre specificare una sottodirectory.
+- **حالة المعاينة:** البيئات والوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
+- **حجم المصدر المضمّن:** يقتصر حجم المصادر المضمّنة على 1 ميغابايت لكل ملف، و2 ميغابايت إجمالاً في جميع الملفات.
+- **حجم المصدر**: يقتصر حجم مستودعات Git على 500 ميغابايت، بينما يقتصر حجم مستودعات Cloud Storage على 2 غيغابايت.
+- **بدء تشغيل البيئة:** يستغرق توفير بيئة جديدة حوالي 5 ثوانٍ. قد تؤدي مستودعات المصادر الكبيرة إلى زيادة هذا الوقت.
+- **انتهاء صلاحية البيئة:** يتم الاحتفاظ بالبيئات غير النشطة بلا إنترنت لمدة 7 أيام قبل انتهاء صلاحيتها باستخدام عملية التنظيف التلقائي حسب مدة البقاء (TTL). سيؤدي إدخال معرّف بيئة منتهي الصلاحية أو غير صالح إلى عرض الخطأ `404 Not Found`.
+- **توافق الملفات:** يقتصر عمل الوكيل حاليًا على قراءة الملفات النصية وملفات الصور. لا تتوفّر بعد إمكانية استخدام الملفات الثنائية.
+- **عدم الربط من الجذر:** لا يمكنك ضبط الجذر (`/`) كهدف عند إضافة مصدر مخصّص، ويجب دائمًا تحديد دليل فرعي.
 
-## Passaggi successivi
+## الخطوات التالية
 
-- [Panoramica degli agenti](https://ai.google.dev/gemini-api/docs/agents?hl=it): scopri i concetti fondamentali degli agenti gestiti.
-- [Guida rapida](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=it): inizia a creare con conversazioni multi-turno e streaming.
-- [Agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it): esplora funzionalità, strumenti, selezione del modello e prezzi per l'agente predefinito.
-- [Creazione di agenti personalizzati](https://ai.google.dev/gemini-api/docs/custom-agents?hl=it): definisci i tuoi agenti utilizzando `AGENTS.md` e `SKILL.md`.
-- [Hook](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=it): applica le misure di sicurezza ed esegui le convalide degli effetti collaterali all'interno della sandbox.
+- llamado [Agents Overview](https://ai.google.dev/gemini-api/docs/agents?hl=ar): يمكنك التعرّف على المفاهيم الأساسية للوكلاء المُدارين.
+- [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): ابدأ إنشاء محادثات مترابطة وبث المحتوى.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): استكشِف الإمكانات والأدوات واختيار النماذج والأسعار الخاصة بالوكيل التلقائي.
+- [إنشاء وكلاء مخصّصين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar): يمكنك تحديد الوكلاء الخاصين بك باستخدام `AGENTS.md` و`SKILL.md`.
+- [خطافات](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=ar): فرض ضوابط الأمان وتشغيل عمليات التحقّق من الآثار الجانبية داخل وضع الحماية
 
-Invia feedback
+إرسال ملاحظات
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ultimo aggiornamento 2026-08-19 UTC.
+تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Vuoi dirci altro?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-08-19 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

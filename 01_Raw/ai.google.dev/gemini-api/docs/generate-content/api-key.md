@@ -1,136 +1,144 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-key?hl=hi
-fetched_at: 2026-08-31T06:35:00.946530+00:00
-title: "Gemini API \u092a\u093e\u0938\u0915\u094b\u0921 \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-key?hl=de
+fetched_at: 2026-09-07T05:42:43.925218+00:00
+title: "Gemini API-Schl\u00fcssel verwenden \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-सुझाव भेजें
+Feedback geben
 
-# Gemini API पासकोड का इस्तेमाल करना
+# Gemini API-Schlüssel verwenden
 
-Gemini API का इस्तेमाल करने के लिए, आपको अपने अनुरोधों की पुष्टि करनी होगी. मानक या पुष्टि करने वाले एपीआई पासकोड का इस्तेमाल करके, पुष्टि की जा सकती है.
+Wenn Sie die Gemini API verwenden möchten, müssen Sie Ihre Anfragen authentifizieren. Sie können sich mit einem Standard- oder Autorisierungs-API-Schlüssel authentifizieren.
 
-[Gemini API पासकोड बनाना या देखना](https://aistudio.google.com/apikey?hl=hi)
+[Gemini API-Schlüssel erstellen oder ansehen](https://aistudio.google.com/apikey?hl=de)
 
-## एपीआई पासकोड के टाइप: स्टैंडर्ड वर्सेस ऑथराइज़ेशन
+## API-Schlüsseltypen: Standard vs. Autorisierung
 
-एपीआई पासकोड से Gemini API को ऐक्सेस किया जा सकता है. हालांकि, इनकी सुरक्षा से जुड़ी विशेषताएं अलग-अलग होती हैं. Gemini API, सुरक्षा को बेहतर बनाने के लिए स्टैंडर्ड एपीआई पासकोड से ऑथराइज़ेशन पासकोड पर स्विच कर रहा है:
+API-Schlüssel ermöglichen den Zugriff auf die Gemini API, unterscheiden sich jedoch in ihren Sicherheitsmerkmalen. Die Gemini API wechselt von Standard-API-Schlüsseln zu Autorisierungsschlüsseln, um die Sicherheit zu verbessern:
 
-- **स्टैंडर्ड एपीआई कुंजियां**: बिलिंग और कोटा के लिए, अनुरोधों को Google Cloud प्रोजेक्ट से जोड़ें. स्टैंडर्ड कुंजियों से कॉल करने वाले की पहचान नहीं होती. इसलिए, वे अनुमतियों और ऐक्सेस कंट्रोल के लिए ज़्यादा जानकारी नहीं दे सकतीं.
-- **अनुमति (auth) कुंजियां**: ये सीधे तौर पर Google Cloud सेवा खाते से जुड़ी होती हैं. ऑथराइज़ेशन कुंजी का इस्तेमाल करने पर, आपके अनुरोधों को उस सेवा खाते की पहचान के तहत प्रोसेस किया जाता है जिससे कुंजी जुड़ी होती है. इससे, ऐक्सेस को ज़्यादा बारीकी से कंट्रोल किया जा सकता है. डिफ़ॉल्ट रूप से, अनुमति देने वाली कुंजियों का इस्तेमाल सिर्फ़ Generative Language API (Gemini API) के लिए किया जा सकता है. साथ ही, ये कुंजियां लीक होने पर तुरंत काम करना बंद कर देती हैं. इससे, हमारे सिस्टम से पता लगाई गई लीक हुई कुंजियों का इस्तेमाल तुरंत बंद हो जाता है.
+- **Standard-API-Schlüssel**: Verknüpfen Anfragen mit einem Google Cloud-Projekt für
+  Abrechnungs- und Kontingentzwecke. Standard-API-Schlüssel identifizieren keinen Aufrufer, was die Granularität der Berechtigungen und der Zugriffssteuerung einschränkt, die sie unterstützen können.
+- **Autorisierungsschlüssel**: Sind direkt an ein Google Cloud-Dienstkonto gebunden. Wenn Sie einen Autorisierungsschlüssel verwenden, werden Ihre Anfragen unter der Identität dieses gebundenen Dienstkontos verarbeitet, wodurch eine detaillierte Zugriffssteuerung möglich ist. Autorisierungsschlüssel sind standardmäßig auf die Generative Language API (Gemini API) beschränkt und bieten eine schnell wirkende Durchsetzung bei Lecks, die die Verwendung von durch unsere Systeme erkannten Lecks schnell beendet.
 
-सुरक्षित तरीके से इस्तेमाल करने के लिए, Gemini API स्टैंडर्ड पासकोड से पुष्टि करने वाले पासकोड पर स्विच करेगा:
+Um eine sichere Verwendung zu gewährleisten, wechselt die Gemini API von Standard- zu Autorisierungsschlüsseln:
 
-- **डिफ़ॉल्ट रूप से पुष्टि करने वाले पासकोड**: Google AI Studio में बनाए गए सभी नए एपीआई पासकोड, पुष्टि करने वाले पासकोड के तौर पर अपने-आप जनरेट होते हैं.
-- **बिना किसी पाबंदी वाले पासकोड से किए गए अनुरोध अस्वीकार कर दिए जाते हैं**: Gemini API, **बिना किसी पाबंदी वाले स्टैंडर्ड पासकोड** से किए गए अनुरोधों को अस्वीकार कर देता है. जिन स्टैंडर्ड एपीआई कुंजियों पर साफ़ तौर पर पाबंदियां लगाई गई हैं वे काम करती रहेंगी. इस पाबंदी से, उन कुंजियों के अनधिकृत इस्तेमाल को रोका जा सकता है जिन्हें सार्वजनिक तौर पर शेयर किया जा सकता है या अन्य सेवाओं से लिंक किया जा सकता है.
-- **सितंबर 2026 से**: Gemini API, **स्टैंडर्ड
-  कुंजियों** से मिले अनुरोधों को अस्वीकार कर देगा. सेवा में रुकावट से बचने के लिए, आपको इस तारीख से पहले [अनुमति देने वाले कुंजियों पर माइग्रेट करना होगा](#migrate-to-auth-key). पक्का करें कि आपने सितंबर 2026 से पहले, पुष्टि करने वाली कुंजियों पर माइग्रेट कर लिया हो.
+- **Standardmäßig Autorisierungsschlüssel**: Alle neuen API-Schlüssel, die in Google AI Studio
+  werden automatisch als Autorisierungsschlüssel erstellt.
+- **Nicht eingeschränkte Schlüssel werden abgelehnt**: Die Gemini API lehnt Anfragen
+  von **nicht eingeschränkten Standardschlüsseln** ab. Standard-API-Schlüssel, auf die explizite Einschränkungen angewendet wurden, funktionieren weiterhin. Diese Einschränkung verhindert die unbefugte Verwendung von Schlüsseln, die öffentlich freigegeben oder mit anderen Diensten verknüpft sein könnten.
+- **Im September 2026** lehnt die Gemini API Anfragen von **Standard
+  schlüsseln** ab. Sie müssen [vor diesem Datum zu Autorisierungsschlüsseln migrieren](#migrate-to-auth-key)
+  , um Dienstunterbrechungen zu vermeiden. Migrieren Sie vor September 2026 zu Autorisierungsschlüsseln.
 
-## Google AI Studio में एपीआई पासकोड मैनेज करना
+## API-Schlüssel in Google AI Studio verwalten
 
-अपने प्रोजेक्ट और पासकोड को सीधे [Google AI Studio](https://aistudio.google.com/apikey?hl=hi) में मैनेज किया जा सकता है.
+Sie können Ihre Projekte und Schlüssel direkt in [Google AI Studio](https://aistudio.google.com/apikey?hl=de) verwalten.
 
-### Google Cloud प्रोजेक्ट
+### Google Cloud-Projekte
 
-हर Gemini API पासकोड, किसी [Google Cloud प्रोजेक्ट](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=hi) से जुड़ा होता है.
-Google Cloud प्रोजेक्ट, बिलिंग, सहयोगियों, और अनुमतियों को मैनेज करते हैं. Google AI Studio, इन प्रोजेक्ट को ऐक्सेस करने के लिए एक आसान इंटरफ़ेस उपलब्ध कराता है.
+Jeder Gemini API-Schlüssel ist mit einem [Google Cloud-Projekt](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=de) verknüpft.
+In Google Cloud-Projekten werden Abrechnung, Mitarbeiter und Berechtigungen verwaltet. Google AI Studio bietet eine einfache Oberfläche für den Zugriff auf diese Projekte.
 
-- **डिफ़ॉल्ट प्रोजेक्ट**: अगर आप नए उपयोगकर्ता हैं, तो सेवा की शर्तों को स्वीकार करने के बाद, Google AI Studio अपने-आप एक डिफ़ॉल्ट Google Cloud प्रोजेक्ट और एपीआई पासकोड बना देता है. अपने डैशबोर्ड में **प्रोजेक्ट** व्यू पर जाकर, इस प्रोजेक्ट का नाम बदला जा सकता है.
-- **मौजूदा प्रोजेक्ट**: अगर आपके पास पहले से ही Google Cloud खाता है, तो AI Studio कोई डिफ़ॉल्ट प्रोजेक्ट नहीं बनाता है. इसके बजाय, आपको अपने मौजूदा प्रोजेक्ट इंपोर्ट करने होंगे.
+- **Standardprojekt**: Wenn Sie ein neuer Nutzer sind, erstellt Google AI Studio automatisch
+  ein Standard-Google Cloud-Projekt und einen API-Schlüssel, nachdem Sie die
+  Nutzungsbedingungen akzeptiert haben. Sie können dieses Projekt umbenennen, indem Sie in Ihrem Dashboard zur Ansicht **Projekte** navigieren.
+- **Vorhandene Projekte**: Wenn Sie bereits ein Google Cloud-Konto haben, erstellt AI
+  Studio kein Standardprojekt. Stattdessen müssen Sie Ihre vorhandenen Projekte importieren.
 
-### प्रोजेक्ट इंपोर्ट करना
+### Projekte importieren
 
-डिफ़ॉल्ट रूप से, Google AI Studio आपके सभी Google Cloud प्रोजेक्ट नहीं दिखाता है. आपको उन प्रोजेक्ट को इंपोर्ट करना होगा जिनका इस्तेमाल करना है:
+Standardmäßig werden in Google AI Studio nicht alle Ihre Google Cloud-Projekte angezeigt. Sie müssen die Projekte importieren, die Sie verwenden möchten:
 
-1. [Google AI Studio](https://aistudio.google.com?hl=hi) पर जाएं.
-2. बाईं ओर मौजूद पैनल से, **डैशबोर्ड** खोलें और **प्रोजेक्ट** चुनें.
-3. **प्रोजेक्ट इंपोर्ट करें** बटन पर क्लिक करें.
-4. वह Google Cloud प्रोजेक्ट खोजें और चुनें जिसे आपको इंपोर्ट करना है. इसके बाद, **इंपोर्ट करें** पर क्लिक करें.
-5. इंपोर्ट करने के बाद, उस प्रोजेक्ट में पासकोड बनाने के लिए, डैशबोर्ड में **एपीआई पासकोड** पेज पर जाएं.
+1. Rufen Sie [Google AI Studio](https://aistudio.google.com?hl=de) auf.
+2. Öffnen Sie im linken Bereich das **Dashboard** und wählen Sie **Projekte** aus.
+3. Klicken Sie auf die Schaltfläche **Projekte importieren**.
+4. Suchen Sie nach dem Google Cloud-Projekt, das Sie importieren möchten, und wählen Sie es aus. Klicken Sie dann auf **Importieren**.
+5. Navigieren Sie nach dem Importieren im Dashboard zur Seite **API-Schlüssel**, um einen Schlüssel in diesem Projekt zu erstellen.
 
-### कुंजी बनाने की अनुमतियों से जुड़ी समस्या हल करना
+### Fehlerbehebung bei Berechtigungen zum Erstellen von Schlüsseln
 
-अगर **एपीआई पासकोड बनाएं** बटन उपलब्ध नहीं है और यह मैसेज दिखता है:
-*"आपके पास इस प्रोजेक्ट में पासकोड बनाने की अनुमति नहीं है"*, तो इसका मतलब है कि आपके पास आईएएम की ज़रूरी अनुमतियां नहीं हैं.
+Wenn die Schaltfläche **API-Schlüssel erstellen** nicht verfügbar ist und die Meldung
+*„Sie sind nicht berechtigt, einen Schlüssel in diesem Projekt zu erstellen“* angezeigt wird, fehlen Ihnen die
+erforderlichen IAM-Berechtigungen.
 
-अपने Google Cloud प्रोजेक्ट या संगठन के एडमिन से, आपको ऐसी भूमिका देने के लिए कहें जिसमें ये अनुमतियां शामिल हों. जैसे, प्रोजेक्ट एडिटर:
+Bitten Sie Ihren Google Cloud-Projekt- oder Organisationsadministrator, Ihnen eine Rolle mit den folgenden Berechtigungen zuzuweisen (z. B. Projektbearbeiter):
 
-- `resourcemanager.projects.get`: इससे AI Studio को प्रोजेक्ट की पुष्टि करने की अनुमति मिलती है.
-- `apikeys.keys.create`: इससे पासकोड जनरेट किया जा सकता है.
-- `serviceusage.services.enable`: इससे यह पक्का किया जाता है कि Generative Language API चालू हो.
-- `iam.serviceAccounts.create`: लिंक किया गया सेवा खाता बनाने के लिए ज़रूरी है.
-- `iam.serviceAccountApiKeyBindings.create`: यह सेवा खाते को एपीआई पासकोड से जोड़ता है.
+- `resourcemanager.projects.get`: Ermöglicht AI Studio, das Projekt zu überprüfen.
+- `apikeys.keys.create`: Ermöglicht die Schlüsselgenerierung.
+- `serviceusage.services.enable`: Stellt sicher, dass die Generative Language API aktiviert ist.
+- `iam.serviceAccounts.create`: Erforderlich, um das verknüpfte Dienstkonto zu erstellen.
+- `iam.serviceAccountApiKeyBindings.create`: Bindet das Dienstkonto an den API-Schlüssel.
 
-अगर आपको एडमिन के तौर पर ऐक्सेस नहीं मिलता है, तो कुंजियां जनरेट करने के लिए, संगठन से जुड़ा न होने वाला नया Google Cloud प्रोजेक्ट बनाया जा सकता है.
+Wenn Sie keinen Administratorzugriff erhalten, können Sie ein neues Google Cloud-Projekt erstellen, das nicht mit einer Organisation verknüpft ist, um Ihre Schlüssel zu generieren.
 
-## अपना एनवायरमेंट सेट अप करना
+## Umgebung einrichten
 
-कुंजी मिलने के बाद, अपने एनवायरमेंट को कॉन्फ़िगर करें, ताकि आपके ऐप्लिकेशन में इसका सुरक्षित तरीके से इस्तेमाल किया जा सके.
+Sobald Sie einen Schlüssel haben, konfigurieren Sie Ihre Umgebung so, dass er sicher in Ihren Anwendungen verwendet werden kann.
 
-### एनवायरमेंट वैरिएबल का इस्तेमाल करें (सुझाया गया)
+### Umgebungsvariablen verwenden (empfohlen)
 
-एनवायरमेंट वैरिएबल `GEMINI_API_KEY` या `GOOGLE_API_KEY` सेट करें. Gemini API की क्लाइंट लाइब्रेरी, इन वैरिएबल का अपने-आप पता लगाती हैं और इनका इस्तेमाल करती हैं. अगर दोनों सेट हैं, तो `GOOGLE_API_KEY` को प्राथमिकता दी जाती है.
+Legen Sie die Umgebungsvariable `GEMINI_API_KEY` oder `GOOGLE_API_KEY` fest. Die Gemini API-Clientbibliotheken erkennen und verwenden diese Variablen automatisch. Wenn beide festgelegt sind, hat `GOOGLE_API_KEY` Vorrang.
 
-वैरिएबल सेट करने के लिए, अपना ऑपरेटिंग सिस्टम चुनें:
+Wählen Sie Ihr Betriebssystem aus, um die Variable festzulegen:
 
-### Linux/macOS - Bash
+### Linux/macOS – Bash
 
-पुष्टि करें कि आपके पास बैश कॉन्फ़िगरेशन फ़ाइल है या नहीं:
+Prüfen Sie, ob Sie eine Bash-Konfigurationsdatei haben:
 
 ```
 ~/.bashrc
 ```
 
-अगर आपके पास कोई प्रोजेक्ट नहीं है, तो एक प्रोजेक्ट बनाएं और उसे खोलें:
+Wenn nicht, erstellen Sie eine und öffnen Sie sie:
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-फ़ाइल के आखिर में एक्सपोर्ट करने का निर्देश जोड़ें:
+Fügen Sie am Ende der Datei den Exportbefehl hinzu:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-फ़ाइल को सेव करें. इसके बाद, बदलाव लागू करें:
+Speichern Sie die Datei und übernehmen Sie die Änderungen:
 
 ```
 source ~/.bashrc
 ```
 
-### macOS - Zsh
+### macOS – Zsh
 
-पुष्टि करें कि आपके पास zsh कॉन्फ़िगरेशन फ़ाइल है या नहीं:
+Prüfen Sie, ob Sie eine Zsh-Konfigurationsdatei haben:
 
 ```
 ~/.zshrc
 ```
 
-अगर आपके पास कोई प्रोजेक्ट नहीं है, तो एक प्रोजेक्ट बनाएं और उसे खोलें:
+Wenn nicht, erstellen Sie eine und öffnen Sie sie:
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-एक्सपोर्ट कमांड जोड़ें:
+Fügen Sie den Exportbefehl hinzu:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-फ़ाइल को सेव करें. इसके बाद, बदलाव लागू करें:
+Speichern Sie die Datei und übernehmen Sie die Änderungen:
 
 ```
 source ~/.zshrc
@@ -138,15 +146,15 @@ source ~/.zshrc
 
 ### Windows
 
-1. Windows के खोज बार में "Environment Variables" खोजें.
-2. सिस्टम प्रॉपर्टी डायलॉग में, **एनवायरमेंट वैरिएबल** पर क्लिक करें.
-3. **उपयोगकर्ता वैरिएबल** या **सिस्टम वैरिएबल** में जाकर, **नया...** पर क्लिक करें.
-4. वैरिएबल का नाम `GEMINI_API_KEY` और वैल्यू को अपने एपीआई पासकोड पर सेट करें.
-5. सेव करने के लिए **ठीक है** पर क्लिक करें. वैरिएबल लोड करने के लिए, नया टर्मिनल सेशन खोलें.
+1. Suchen Sie in der Windows-Suchleiste nach „Umgebungsvariablen“.
+2. Klicken Sie im Dialogfeld „Systemeigenschaften“ auf **Umgebungsvariablen**.
+3. Klicken Sie unter **Benutzervariablen** oder **Systemvariablen** auf **Neu...**.
+4. Legen Sie den Variablennamen auf `GEMINI_API_KEY` und den Wert auf Ihren API-Schlüssel fest.
+5. Klicken Sie zum Speichern auf **OK**. Öffnen Sie eine neue Terminalsitzung, um die Variable zu laden.
 
-### कोड में एपीआई पासकोड साफ़ तौर पर दें
+### API-Schlüssel explizit im Code angeben
 
-क्लाइंट को शुरू करते समय, एपीआई पासकोड को साफ़ तौर पर पास किया जा सकता है. ऐसा सिर्फ़ तब करें, जब एनवायरमेंट वैरिएबल का इस्तेमाल न किया जा सके.
+Sie können den API-Schlüssel explizit übergeben, wenn Sie den Client initialisieren. Tun Sie dies nur, wenn Sie keine Umgebungsvariablen verwenden können.
 
 ### Python
 
@@ -180,7 +188,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 package main
@@ -254,98 +262,110 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## सुरक्षा और सीक्रेट मैनेजमेंट
+## Sicherheits- und Secret-Verwaltung
 
-अपने Gemini API पासकोड को पासवर्ड की तरह इस्तेमाल करें. अगर यह समझौता किया जाता है, तो अन्य लोग आपके प्रोजेक्ट के कोटे का इस्तेमाल कर सकते हैं. साथ ही, आपको बिलिंग के अनचाहे शुल्क लग सकते हैं और निजी संसाधनों को ऐक्सेस किया जा सकता है.
+Behandeln Sie Ihren Gemini API-Schlüssel wie ein Passwort. Wenn er kompromittiert wird, können andere das Kontingent Ihres Projekts nutzen, unerwartete Abrechnungsgebühren verursachen und auf private Ressourcen zugreifen.
 
-### सुरक्षा से जुड़े गंभीर नियम
+### Wichtige Sicherheitsregeln
 
-- **कुंजियों को गोपनीय रखें**: एपीआई कुंजियों को कभी भी Git जैसे सोर्स कंट्रोल सिस्टम में न डालें.
-- **प्रोडक्शन में क्लाइंट-साइड पर कभी भी कुंजियां न दिखाएं**: एपीआई पासकोड को सीधे तौर पर वेब या मोबाइल ऐप्लिकेशन में हार्डकोड न करें. क्लाइंट-साइड कोड में कंपाइल की गई कुंजियों को उपयोगकर्ता निकाल सकते हैं. क्लाइंट-साइड ऐप्लिकेशन को सुरक्षित रखने के लिए, बैकएंड प्रॉक्सी सर्वर चलाएं. इससे एपीआई कॉल किए जा सकेंगे.
+- **Schlüssel vertraulich behandeln**: Checken Sie API-Schlüssel niemals in Quellverwaltungssysteme
+  wie Git ein.
+- **Schlüssel in der Produktion niemals clientseitig freigeben**: Codieren Sie API-Schlüssel
+  nicht direkt in Web- oder mobilen Apps. Schlüssel, die in clientseitigen Code kompiliert wurden, können von Nutzern extrahiert werden. Um clientseitige Apps zu schützen, führen Sie einen Backend-Proxyserver aus, um die eigentlichen API-Aufrufe auszuführen.
 
-### सीक्रेट मैनेजमेंट के सबसे सही तरीके
+### Best Practices für die Secret-Verwaltung
 
-- **एनवायरमेंट वैरिएबल**: कॉन्फ़िगरेशन फ़ाइलों के बजाय, एनवायरमेंट वैरिएबल से कुंजियां पढ़ें.
-- **Secret Manager**: प्रोडक्शन के लिए, अपनी कुंजियों को किसी सुरक्षित सीक्रेट स्टोर में सेव करें. जैसे, [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=hi).
-- **बिलिंग से जुड़ी सूचनाएं**: Google Cloud Console में बिलिंग से जुड़ी सूचनाएं सेट अप करें. इससे आपको इस्तेमाल या लागत में अचानक बढ़ोतरी होने पर सूचना मिलेगी.
+- **Umgebungsvariablen**: Lesen Sie Schlüssel aus Umgebungsvariablen und nicht aus
+  Konfigurationsdateien.
+- **Secret Manager**: Speichern Sie Ihre Schlüssel für die Produktion in einem sicheren Secret-Speicher
+  wie [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=de).
+- **Abrechnungsbenachrichtigungen**: Richten Sie in der Google Cloud Console Abrechnungsbenachrichtigungen ein, um
+  benachrichtigt zu werden, wenn die Nutzung oder die Kosten steigen.
 
-### जवाब लीक होने से जुड़ी चेकलिस्ट
+### Checkliste für die Reaktion auf Lecks
 
-अगर आपको लगता है कि आपका एपीआई पासकोड लीक हो गया है, तो:
+Wenn Sie vermuten, dass Ihr API-Schlüssel offengelegt wurde, gehen Sie so vor:
 
-1. **नया पासकोड जनरेट करें**: Google AI Studio या Cloud Console में जाकर, नया पासकोड बनाएं.
-2. **अपने ऐप्लिकेशन को अपडेट करें**: नई कुंजी का इस्तेमाल करके, अपना कोड डिप्लॉय करें.
-3. **लीक हुए पासकोड को बंद करें या मिटाएं**: नए पासकोड की पुष्टि हो जाने के बाद, Cloud Console में लीक हुए पासकोड को बंद करें. ऐप्लिकेशन के डाउनटाइम से बचने के लिए, नई कुंजी पूरी तरह से चालू होने तक पुरानी कुंजी को न मिटाएं.
-4. **इस्तेमाल की ऑडिट करना**: Google Cloud Console में बिलिंग लॉग और एपीआई के इस्तेमाल की जांच करें, ताकि बिना अनुमति वाली गतिविधि का पता लगाया जा सके.
+1. **Neuen Schlüssel generieren**: Erstellen Sie in Google AI Studio oder der
+   Cloud Console einen Ersatzschlüssel.
+2. **Anwendung aktualisieren**: Stellen Sie Ihren Code mit dem neuen Schlüssel bereit.
+3. **Kompromittierten Schlüssel deaktivieren oder löschen**: Deaktivieren Sie den offengelegten Schlüssel in der
+   Cloud Console, sobald der neue Schlüssel bestätigt wurde. Löschen Sie den alten Schlüssel erst, wenn der neue Schlüssel vollständig aktiv ist, um Ausfallzeiten der Anwendung zu vermeiden.
+4. **Nutzung prüfen**: Prüfen Sie in der Google Cloud
+   Console Abrechnungsprotokolle und API-Nutzung, um unbefugte Aktivitäten zu erkennen.
 
-## कुंजियों को सुरक्षित रखना और उन पर पाबंदी लगाना
+## Schlüssel einschränken und sichern
 
-एपीआई पासकोड पर पाबंदियां लगाने से, पासकोड के गलत इस्तेमाल की वजह से होने वाले संभावित नुकसान को कम किया जा सकता है.
+Wenn Sie Ihren API-Schlüsseln Einschränkungen hinzufügen, wird der potenzielle Schaden minimiert, falls ein Schlüssel kompromittiert wird.
 
-### अनुरोध के ऑरिजिन पर पाबंदियां लागू करें
+### Einschränkungen für den Ursprung von Anfragen anwenden
 
-ओरिजन से जुड़ी पाबंदियों से यह तय किया जाता है कि कौनसे आईपी पते, वेबसाइटें या ऐप्लिकेशन आपकी कुंजी का इस्तेमाल कर सकते हैं.
+Einschränkungen für den Ursprung beschränken, welche IP-Adressen, Websites oder Anwendungen Ihren Schlüssel verwenden können.
 
-1. [Google Cloud Console के क्रेडेंशियल पेज](https://console.cloud.google.com/apis/credentials?hl=hi) पर जाएं.
-2. अपना प्रोजेक्ट चुनें. इसके बाद, उस एपीआई पासकोड के नाम पर क्लिक करें जिस पर आपको पाबंदी लगानी है.
-3. **ऐप्लिकेशन पर पाबंदियां** में जाकर, **आईपी पते** चुनें. इसके अलावा, अपने एनवायरमेंट के लिए पाबंदी का सही टाइप भी चुना जा सकता है.
-4. अनुमति वाले आईपी पते या रेंज डालें. इसके बाद, **सेव करें** पर क्लिक करें.
+1. Rufen Sie in der [Google Cloud Console die Seite „Anmeldedaten“ auf](https://console.cloud.google.com/apis/credentials?hl=de).
+2. Wählen Sie Ihr Projekt aus und klicken Sie auf den Namen des API-Schlüssels, den Sie einschränken möchten.
+3. Wählen Sie unter **Anwendungseinschränkungen** die Option **IP-Adressen** (oder den
+   entsprechenden Einschränkungstyp für Ihre Umgebung) aus.
+4. Geben Sie die zulässigen IP-Adressen oder ‑Bereiche an und klicken Sie auf **Speichern**.
 
-### बिना किसी पाबंदी वाली स्टैंडर्ड एपीआई कुंजियों को सुरक्षित करना
+### Nicht eingeschränkte Standard-API-Schlüssel sichern
 
-Gemini API का इस्तेमाल जारी रखने के लिए, आपको बिना किसी पाबंदी वाले सभी पासकोड को सुरक्षित करना होगा.
+Wenn Sie die Gemini API weiterhin verwenden möchten, müssen Sie alle nicht eingeschränkten Schlüssel sichern.
 
-#### AI Studio के ज़रिए, पासकोड को सिर्फ़ Gemini API के लिए सीमित करें
+#### Schlüssel nur auf die Gemini API beschränken (über AI Studio)
 
-अगर आपको सिर्फ़ Gemini API के लिए पासकोड का इस्तेमाल करना है, तो इसे सीधे AI Studio में सुरक्षित करें:
+Wenn Sie den Schlüssel nur für die Gemini API verwenden, sichern Sie ihn direkt in AI Studio:
 
-1. [Google AI Studio](https://aistudio.google.com/api-keys?hl=hi) में **एपीआई पासकोड** पेज पर, **कोई पाबंदी नहीं** लेबल वाली कुंजियां ढूंढें.
-2. लेबल पर कर्सर घुमाएं और डायलॉग बॉक्स में, **पाबंदियां जोड़ें** पर क्लिक करें.
-3. **सिर्फ़ Gemini API के लिए पाबंदी लगाएं** को चुनें.
-4. पुष्टि करने के लिए, **कुंजी को सीमित करें** पर क्लिक करें.
+1. Suchen Sie auf der Seite **API-Schlüssel** in [Google AI Studio](https://aistudio.google.com/api-keys?hl=de) nach Schlüsseln, die mit dem
+   **Nicht eingeschränkt** Label gekennzeichnet sind.
+2. Bewegen Sie den Mauszeiger auf das Label und klicken Sie im Dialogfeld auf **Einschränkungen hinzufügen**.
+3. Wählen Sie **Nur auf die Gemini API beschränken** aus.
+4. Klicken Sie zur Bestätigung auf **Schlüssel einschränken**.
 
-#### Google Cloud Console की मदद से, अन्य सेवाओं के लिए कुंजी को सीमित करना
+#### Schlüssel für andere Dienste über die Google Cloud Console einschränken
 
-अगर कुंजी को अन्य Google API के साथ शेयर किया जाता है (इसका सुझाव नहीं दिया जाता), तो Cloud Console में इसे सीमित करें. **ध्यान दें: इन पाबंदियों को लागू करने के बाद, इस कुंजी का इस्तेमाल करके Gemini API के लिए किए गए अनुरोध पूरे नहीं किए जा सकेंगे.**
+Wenn der Schlüssel für andere Google APIs freigegeben ist (nicht empfohlen), schränken Sie ihn in der Cloud Console ein. **Hinweis: Anfragen an die Gemini API mit diesem Schlüssel schlagen fehl, nachdem
+diese Einschränkungen angewendet wurden.**
 
-1. [Google Cloud Console के क्रेडेंशियल पेज](https://console.cloud.google.com/apis/credentials?hl=hi) पर जाएं.
-2. प्रोजेक्ट और एपीआई पासकोड चुनें.
-3. **एपीआई से जुड़ी पाबंदियां** में जाकर, **कुंजी को सीमित करें** को चुनें.
-4. ड्रॉप-डाउन से, वे एपीआई चुनें जिनका ऐक्सेस आपको इस कुंजी को देना है. **Generative Language API** को न चुनें.
-5. **सेव करें** पर क्लिक करें. Gemini API का इस्तेमाल जारी रखने के लिए, AI Studio में एक अलग और सीमित ऐक्सेस वाला पासकोड बनाएं.
+1. Rufen Sie in der [Google Cloud Console die Seite „Anmeldedaten“](https://console.cloud.google.com/apis/credentials?hl=de) auf.
+2. Wählen Sie das Projekt und den API-Schlüssel aus.
+3. Wählen Sie unter **API-Einschränkungen** die Option **Schlüssel einschränken** aus.
+4. Wählen Sie im Drop-down-Menü die APIs aus, auf die dieser Schlüssel zugreifen soll. Wählen Sie nicht die **Generative Language API** aus.
+5. Klicken Sie auf **Speichern**. Erstellen Sie in AI Studio einen separaten, eingeschränkten Schlüssel, um die Gemini API weiterhin verwenden zu können.
 
-### निष्क्रिय कुंजियों को ब्लॉक किया गया
+### Blockierte inaktive Schlüssel
 
-Gemini API, 7 मई, 2026 से उन एपीआई पासकोड को ब्लॉक कर देगा जिनका इस्तेमाल लंबे समय से नहीं किया गया है. इन कुंजियों पर, AI Studio में **ब्लॉक किया गया** टैग दिखता है. जारी रखने के लिए, आपको नई कुंजी जनरेट करनी होगी या पाबंदी वाली किसी मौजूदा कुंजी का इस्तेमाल करना होगा.
+Ab dem 7. Mai 2026 blockiert die Gemini API nicht eingeschränkte API-Schlüssel, die längere Zeit inaktiv waren. Diese Schlüssel haben in AI Studio das Tag **Blockiert**. Sie müssen einen neuen Schlüssel generieren oder einen vorhandenen eingeschränkten Schlüssel verwenden, um fortzufahren.
 
-## पुष्टि करने वाली कुंजी पर माइग्रेट करना
+## Zu einem Autorisierungsschlüssel migrieren
 
-नई पुष्टि करने वाली एपीआई कुंजी बनाने और अपने ऐप्लिकेशन अपडेट करने के लिए, यह तरीका अपनाएं:
+Führen Sie die folgenden Schritte aus, um einen neuen Autorisierungs-API-Schlüssel zu erstellen und Ihre Anwendungen zu aktualisieren:
 
-1. [AI Studio के एपीआई पासकोड वाले पेज](https://aistudio.google.com/api-keys?hl=hi) पर जाएं.
-2. **कुंजी का टाइप** कॉलम देखें. इससे आपको **स्टैंडर्ड** के तौर पर लिस्ट की गई कुंजियों की पहचान करने में मदद मिलेगी.
-3. नई कुंजी जनरेट करने के लिए, **एपीआई पासकोड बनाएं** पर क्लिक करें. AI Studio में बनाई गई सभी नई कुंजियां, पुष्टि करने वाली कुंजियों के तौर पर अपने-आप बन जाती हैं.
-4. नए पुष्टि करने वाले एपीआई पासकोड को कॉपी करें.
-5. नई पुष्टि करने वाली एपीआई कुंजी का इस्तेमाल करने के लिए, अपने ऐप्लिकेशन कोड, एनवायरमेंट वैरिएबल, और किसी भी डिप्लॉयमेंट कॉन्फ़िगरेशन को अपडेट करें.
-6. अपने ऐप्लिकेशन की जांच करें, ताकि यह पुष्टि की जा सके कि वह नई कुंजी के साथ सही तरीके से काम कर रहा है.
-7. पुष्टि हो जाने के बाद, ट्रैफ़िक की पुरानी कुंजी को मिटा दें या रद्द कर दें, ताकि उसका गलत इस्तेमाल न हो.
+1. Rufen Sie die Seite „[API-Schlüssel](https://aistudio.google.com/api-keys?hl=de)“ in AI Studio auf.
+2. Prüfen Sie in der Spalte **Schlüsseltyp** , ob Schlüssel als **Standard** aufgeführt sind.
+3. Klicken Sie auf **API-Schlüssel erstellen** , um einen neuen Schlüssel zu generieren. Alle neuen Schlüssel, die in AI Studio erstellt werden, werden automatisch als Autorisierungsschlüssel erstellt.
+4. Kopieren Sie den neuen Autorisierungs-API-Schlüssel.
+5. Aktualisieren Sie Ihren Anwendungscode, Ihre Umgebungsvariablen und alle Bereitstellungskonfigurationen, um den neuen Autorisierungs-API-Schlüssel zu verwenden.
+6. Testen Sie Ihre Anwendung, um zu bestätigen, dass sie mit dem neuen Schlüssel ordnungsgemäß funktioniert.
+7. Löschen oder widerrufen Sie nach der Bestätigung Ihren alten Trafficschlüssel, um Missbrauch zu verhindern.
 
-## सीमाएं
+## Beschränkungen
 
-Google AI Studio में, प्रोजेक्ट और पासकोड मैनेज करने से जुड़ी ये सीमाएं लागू होती हैं:
+In Google AI Studio gelten die folgenden Einschränkungen für die Projekt- und Schlüsselverwaltung:
 
-- Google AI Studio के **प्रोजेक्ट** पेज पर जाकर, एक बार में ज़्यादा से ज़्यादा 10 प्रोजेक्ट बनाए जा सकते हैं.
-- **एपीआई पासकोड** और **प्रोजेक्ट** पेजों पर, ज़्यादा से ज़्यादा 100 पासकोड और 50 प्रोजेक्ट दिखते हैं.
-- सिर्फ़ वे एपीआई पासकोड दिखाए जाते हैं जिन पर कोई पाबंदी नहीं है या जिन पर खास तौर पर Generative Language API (Gemini API) के लिए पाबंदी लगाई गई है.
+- Sie können maximal 10 Projekte gleichzeitig auf der Seite **Projekte** in Google AI Studio erstellen.
+- Auf den Seiten **API-Schlüssel** und **Projekte** werden maximal 100 Schlüssel und 50 Projekte angezeigt.
+- Es werden nur API-Schlüssel angezeigt, die nicht eingeschränkt oder speziell auf die Generative Language API (Gemini API) beschränkt sind.
 
-प्रोजेक्ट को बेहतर तरीके से मैनेज करने या अन्य पाबंदियों के साथ कुंजियों में बदलाव करने के लिए, [Google Cloud Console के क्रेडेंशियल पेज](https://console.cloud.google.com/apis/credentials?hl=hi) का इस्तेमाल करें.
+Für die erweiterte Projektverwaltung oder zum Ändern von Schlüsseln mit anderen Einschränkungen verwenden Sie
+die [Seite „Anmeldedaten“ in der Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=de).
 
-सुझाव भेजें
+Feedback geben
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया.
+Zuletzt aktualisiert: 2026-07-30 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Haben Sie Feedback für uns?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-30 (UTC) को अपडेट किया गया."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]

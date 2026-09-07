@@ -1,31 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=ar
-fetched_at: 2026-08-31T06:34:11.319169+00:00
-title: "\u0627\u0644\u0628\u062d\u062b \u0639\u0646 \u0645\u0644\u0641 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=de
+fetched_at: 2026-09-07T05:40:49.387024+00:00
+title: "Dateisuche \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-إرسال ملاحظات
+Feedback geben
 
-# البحث عن ملف
+# Dateisuche
 
-تتيح Gemini API ميزة "التوليد المعزّز بالاسترجاع" من خلال أداة "البحث في الملفات". تستورد ميزة "البحث في الملفات" بياناتك وتقسّمها إلى أجزاء وتفهرسها لتتيح استرجاع المعلومات ذات الصلة بسرعة استنادًا إلى طلب مقدَّم. يتم بعد ذلك استخدام هذه المعلومات المسترجَعة كسياق للنموذج، ما يتيح له تقديم إجابات أكثر دقة وملاءمةً. تتوفّر أيضًا إمكانات البحث المتعدّد الوسائط في ميزة "البحث عن الملفات"، وذلك من خلال تضمين النصوص باستخدام `gemini-embedding-001`، وتضمين الصور والوسائط المتعددة باستخدام `gemini-embedding-2`.
+Die Gemini API ermöglicht Retrieval-Augmented Generation („RAG“) über das Tool „Dateisuche“. Bei der Dateisuche werden Ihre Daten importiert, in Chunks aufgeteilt und indexiert, damit relevante Informationen auf Grundlage eines bereitgestellten Prompts schnell abgerufen werden können. Diese abgerufenen Informationen werden dann als Kontext für das Modell verwendet, damit es genauere und relevantere Antworten liefern kann. Die Dateisuche bietet auch multimodale Funktionen mit Texteinbettungen, die von `gemini-embedding-001` unterstützt werden, und Bild-/multimodalen Einbettungen, die von `gemini-embedding-2` unterstützt werden.
 
-تكون عملية تخزين الملفات وإنشاء عمليات التضمين عند وقت طلب البحث مجانية، ولن تدفع إلا مقابل إنشاء عمليات التضمين عند فهرسة ملفاتك لأول مرة وتكلفة الرموز المميزة العادية الخاصة بمدخلات ومخرجات نموذج Gemini. يساهم نموذج الفوترة الجديد هذا في تسهيل عملية إنشاء &quot;أداة البحث عن الملفات&quot; وتوسيع نطاقها، كما يقلّل من تكلفتها. راجِع قسم [الأسعار](#pricing) لمعرفة التفاصيل.
+Das Speichern von Dateien und das Generieren von Einbettungen zur Abfragezeit ist kostenlos. Sie zahlen nur für das Erstellen von Einbettungen, wenn Sie Ihre Dateien zum ersten Mal indexieren, sowie für die normalen Kosten für Gemini-Modell-Ein- und Ausgabetokens. Dieses neue Abrechnungsmodell macht es einfacher und kostengünstiger, das Tool zur Dateisuche zu entwickeln und zu skalieren. Weitere Informationen finden Sie im Abschnitt zu [Preisen](#pricing).
 
-## التحميل مباشرةً إلى "متجر البحث عن الملفات"
+## Direkt in den File Search-Speicher hochladen
 
-يوضّح المثال التالي كيفية تحميل ملف مباشرةً إلى
-[مخزن البحث عن الملفات](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#method:-media.uploadtofilesearchstore):
+In diesem Beispiel wird gezeigt, wie Sie eine Datei direkt in den [Dateisuchspeicher](https://ai.google.dev/api/file-search/file-search-stores?hl=de#method:-media.uploadtofilesearchstore) hochladen:
 
 ### Python
 
@@ -184,11 +183,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-راجِع مرجع واجهة برمجة التطبيقات [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#method:-media.uploadtofilesearchstore) للحصول على مزيد من المعلومات.
+Weitere Informationen finden Sie in der API-Referenz für [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=de#method:-media.uploadtofilesearchstore).
 
-## استيراد الملفات
+## Dateien importieren
 
-بدلاً من ذلك، يمكنك تحميل ملف حالي و[استيراده إلى متجر البحث عن الملفات](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#method:-filesearchstores.importfile) باتّباع الخطوات التالية:
+Alternativ können Sie eine vorhandene Datei hochladen und [in Ihren Dateisuchspeicher importieren](https://ai.google.dev/api/file-search/file-search-stores?hl=de#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -340,11 +339,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-راجِع مرجع واجهة برمجة التطبيقات [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#method:-filesearchstores.importfile) للحصول على مزيد من المعلومات.
+Weitere Informationen finden Sie in der API-Referenz für [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=de#method:-filesearchstores.importfile).
 
-## warriors\_chunking\_config
+## Konfiguration der Blockaufteilung
 
-عند استيراد ملف إلى مستودع &quot;البحث عن الملفات&quot;، يتم تقسيمه تلقائيًا إلى أجزاء، وتضمينه، وفهرسته، وتحميله إلى مستودع &quot;البحث عن الملفات&quot;. إذا كنت بحاجة إلى المزيد من التحكّم في استراتيجية التقسيم، يمكنك تحديد إعداد [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#request-body_5) لضبط الحد الأقصى لعدد الرموز المميزة لكل جزء والحد الأقصى لعدد الرموز المميزة المتداخلة.
+Wenn Sie eine Datei in einen File Search-Speicher importieren, wird sie automatisch in Chunks aufgeteilt, eingebettet, indexiert und in Ihren File Search-Speicher hochgeladen. Wenn Sie mehr Kontrolle über die Chunking-Strategie benötigen, können Sie die Einstellung [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=de#request-body_5) verwenden, um eine maximale Anzahl von Tokens pro Chunk und eine maximale Anzahl von sich überschneidenden Tokens festzulegen.
 
 ### Python
 
@@ -436,43 +435,35 @@ curl "${upload_url}" \
 cat upload_response.json
 ```
 
-لاستخدام متجر "بحث الملفات"، مرِّره كأداة إلى طريقة `interactions.create`، كما هو موضّح في المثالَين [تحميل](#upload) و[استيراد](#importing-files).
+Wenn Sie Ihren File Search-Speicher verwenden möchten, übergeben Sie ihn als Tool an die `interactions.create`-Methode, wie in den Beispielen [Upload](#upload) und [Import](#importing-files) gezeigt.
 
-## آلية العمل
+## Funktionsweise
 
-تستخدم ميزة &quot;البحث عن الملفات&quot; أسلوبًا يُعرف باسم البحث الدلالي للعثور على معلومات ذات صلة بطلب المستخدم. على عكس البحث العادي المستند إلى الكلمات الرئيسية، يفهم البحث الدلالي المعنى والسياق الخاصَّين بطلب البحث.
+Bei der Dateisuche wird ein Verfahren namens „semantische Suche“ verwendet, um Informationen zu finden, die für den Nutzer-Prompt relevant sind. Im Gegensatz zur standardmäßigen stichwortbasierten Suche werden bei der semantischen Suche die Bedeutung und der Kontext Ihrer Anfrage berücksichtigt.
 
-عند استيراد ملف، يتم تحويله إلى تمثيلات رقمية تُعرف باسم
-[التضمينات](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar)، وهي تلتقط المعنى الدلالي للمحتوى الذي تم تحميله. يتم تخزين هذه التضمينات في قاعدة بيانات متخصصة في "البحث عن الملفات".
-عند إجراء طلب بحث، يتم تحويله أيضًا إلى تضمين. بعد ذلك، يجري النظام عملية &quot;البحث في الملفات&quot; للعثور على أجزاء المستندات الأكثر تشابهًا وملاءمةً من مستودع &quot;البحث في الملفات&quot;.
+Wenn Sie eine Datei importieren, wird sie in numerische Darstellungen umgewandelt, die als [Einbettungen](https://ai.google.dev/gemini-api/docs/embeddings?hl=de) bezeichnet werden und die semantische Bedeutung der hochgeladenen Inhalte erfassen. Diese Einbettungen werden in einer speziellen File Search-Datenbank gespeichert.
+Wenn Sie eine Anfrage stellen, wird diese ebenfalls in eine Einbettung umgewandelt. Anschließend führt das System eine Dateisuche durch, um die ähnlichsten und relevantesten Dokument-Chunks aus dem Dateisuchspeicher zu finden.
 
-لا تتوفّر مدة بقاء (TTL) للتضمينات،
-بل تبقى متاحة إلى أن يتم حذفها يدويًا أو عند إيقاف النموذج نهائيًا. أما الملفات، فيتم حذفها بعد 48 ساعة.
+Für Einbettungen gibt es keine Gültigkeitsdauer (Time To Live, TTL). Sie bleiben erhalten, bis sie manuell gelöscht werden oder das Modell eingestellt wird. Dateien werden jedoch nach 48 Stunden gelöscht.
 
-في ما يلي تفصيل لعملية استخدام واجهة برمجة التطبيقات File Search
-`uploadToFileSearchStore`:
+So verwenden Sie die File Search `uploadToFileSearchStore` API:
 
-1. **إنشاء مستودع بحث في الملفات**: يحتوي مستودع بحث في الملفات على البيانات المعالَجة من ملفاتك. وهي الحاوية الدائمة لعمليات التضمين التي سيتم إجراء البحث الدلالي عليها.
-2. **تحميل ملف واستيراده إلى مستودع &quot;البحث عن الملفات&quot;**: يمكنك تحميل ملف واستيراد النتائج إلى مستودع &quot;البحث عن الملفات&quot; في الوقت نفسه. يؤدي ذلك إلى إنشاء كائن `File` مؤقت، وهو مرجع إلى المستند الأولي. يتم بعد ذلك تقسيم هذه البيانات إلى أجزاء، وتحويلها إلى تضمينات في &quot;بحث الملفات&quot;، وفهرستها. يتم حذف عنصر `File` بعد 48 ساعة، بينما يتم تخزين البيانات التي تم استيرادها إلى مساحة تخزين &quot;البحث عن الملفات&quot; لأجل غير مسمى إلى أن تختار حذفها.
-3. **طلب البحث باستخدام "البحث عن ملف"**: أخيرًا، يمكنك استخدام أداة `FileSearch` في مكالمة `generateContent`. في إعدادات الأداة، عليك تحديد
-   `FileSearchRetrievalResource`، الذي يشير إلى `FileSearchStore` الذي تريد البحث فيه. يطلب هذا الإجراء من النموذج إجراء بحث دلالي في مخزن &quot;بحث الملفات&quot; المحدّد للعثور على المعلومات ذات الصلة التي يمكنه الاستناد إليها في رده.
+1. **File Search-Speicher erstellen**: Ein File Search-Speicher enthält die verarbeiteten Daten aus Ihren Dateien. Er ist der persistente Container für die Einbettungen, auf denen die semantische Suche basiert.
+2. **Datei hochladen und in einen File Search-Speicher importieren**: Sie können gleichzeitig eine Datei hochladen und die Ergebnisse in Ihren File Search-Speicher importieren. Dadurch wird ein temporäres `File`-Objekt erstellt, das eine Referenz zu Ihrem Rohdokument ist. Diese Daten werden dann in Chunks aufgeteilt, in File Search-Einbettungen umgewandelt und indexiert. Das `File`-Objekt wird nach 48 Stunden gelöscht. Die in den Dateisuchspeicher importierten Daten werden dagegen auf unbestimmte Zeit gespeichert, bis Sie sie löschen.
+3. **Abfrage mit der Dateisuche**: Schließlich verwenden Sie das Tool `FileSearch` in einem `generateContent`-Aufruf. In der Toolkonfiguration geben Sie einen `FileSearchRetrievalResource` an, der auf die `FileSearchStore` verweist, die Sie durchsuchen möchten. Dadurch wird das Modell angewiesen, eine semantische Suche in diesem bestimmten File Search-Speicher durchzuführen, um relevante Informationen für die Fundierung der Antwort zu finden.
 
-![عملية الفهرسة وطلب البحث في &quot;بحث الملفات&quot;](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=ar)
+![Indexierungs- und Abfrageprozess der Dateisuche](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=de)
 
-عملية الفهرسة والبحث في &quot;بحث الملفات&quot;
+Indexierungs- und Abfrageprozess der Dateisuche
 
-في هذا المخطط، يمثّل الخط المتقطّع من *المستندات* إلى *نموذج التضمين*
-(باستخدام [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar))
-واجهة برمجة التطبيقات `uploadToFileSearchStore` (مع تجاوز *تخزين الملفات*).
-في حال عدم توفّر ذلك، يؤدي استخدام [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar) لإنشاء الملفات بشكل منفصل ثم استيرادها إلى نقل عملية الفهرسة من *المستندات* إلى *مساحة تخزين الملفات* ثم إلى *نموذج التضمين*.
+Im Diagramm stellt die gepunktete Linie von *Dokumente* zu *Embedding-Modell* (mit [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=de)) die `uploadToFileSearchStore` API dar (*Dateispeicher* wird umgangen).
+Andernfalls wird durch die separate Erstellung und den anschließenden Import von Dateien mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) der Indexierungsprozess von *Dokumente* zu *Dateispeicher* und dann zu *Embedding-Modell* verschoben.
 
-## متاجر "بحث الملفات"
+## Dateispeicher
 
-مستودع "البحث عن الملفات" هو حاوية لتضمينات المستندات. في حين يتم حذف الملفات الأولية التي تم تحميلها من خلال File API بعد 48 ساعة، يتم تخزين البيانات التي تم استيرادها إلى مستودع &quot;بحث الملفات&quot; إلى أجل غير مسمى إلى أن تحذفها يدويًا. يمكنك إنشاء عدة مستودعات بحث في الملفات لتنظيم مستنداتك. تتيح لك واجهة برمجة التطبيقات
-`FileSearchStore` إنشاء قوائم بملفاتك وحذفها والحصول عليها وإدارتها
-في متاجر البحث. يتم تحديد نطاق أسماء متاجر "بحث الملفات" على مستوى العالم.
+Ein File Search-Speicher ist ein Container für Ihre Dokumenteinbettungen. Rohdateien, die über die File API hochgeladen werden, werden nach 48 Stunden gelöscht. Die in einem File Search-Speicher importierten Daten werden jedoch auf unbestimmte Zeit gespeichert, bis Sie sie manuell löschen. Sie können mehrere File Search-Speicher erstellen, um Ihre Dokumente zu organisieren. Mit der `FileSearchStore` API können Sie Ihre Dateisuchspeicher erstellen, auflisten, abrufen und löschen. Die Namen von File Search-Speichern sind global.
 
-في ما يلي بعض الأمثلة على كيفية إدارة متاجر "بحث الملفات":
+Hier sind einige Beispiele für die Verwaltung Ihrer File Search-Speicher:
 
 ### Python
 
@@ -531,12 +522,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123?key=${GEMINI_API_KEY}"
 ```
 
-## مستندات "البحث في الملفات"
+## Dokumente für die Dateisuche
 
-يمكنك إدارة المستندات الفردية في مخازن الملفات باستخدام واجهة برمجة التطبيقات
-[File Search Documents](https://ai.google.dev/api/file-search/documents?hl=ar) من أجل `list` كل مستند
-في مخزن بحث الملفات، و`get` معلومات حول مستند، و`delete` مستند
-حسب الاسم.
+Mit der API [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=de) können Sie einzelne Dokumente in Ihren Dateispeichern verwalten. Sie können `list` jedes Dokument in einem Dateisuchspeicher, `get` Informationen zu einem Dokument und `delete` ein Dokument nach Namen.
 
 ### Python
 
@@ -580,9 +568,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents/sampletxt123?key=${GEMINI_API_KEY}&force=true"
 ```
 
-## البيانات الوصفية للملف
+## Dateimetadaten
 
-يمكنك إضافة بيانات وصفية مخصّصة إلى ملفاتك للمساعدة في فلترتها أو تقديم سياق إضافي. بيانات التعريف هي مجموعة من أزواج المفاتيح والقيم.
+Sie können Ihren Dateien benutzerdefinierte Metadaten hinzufügen, um sie zu filtern oder zusätzlichen Kontext bereitzustellen. Metadaten sind eine Reihe von Schlüssel/Wert-Paaren.
 
 ### Python
 
@@ -614,7 +602,7 @@ let operation = await ai.fileSearchStores.importFile({
 });
 ```
 
-يكون ذلك مفيدًا عندما يكون لديك مستندات متعددة في متجر &quot;بحث الملفات&quot; وتريد البحث في مجموعة فرعية منها فقط.
+Das ist nützlich, wenn Sie mehrere Dokumente in einem Dateisuchspeicher haben und nur in einer Teilmenge davon suchen möchten.
 
 ### Python
 
@@ -680,15 +668,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 cat response.json
 ```
 
-يمكنك الاطّلاع على إرشادات حول تنفيذ بنية فلتر القائمة `metadata_filter` على [google.aip.dev/160](https://google.aip.dev/160).
+Eine Anleitung zur Implementierung der Listenfiltersyntax für `metadata_filter` finden Sie unter [google.aip.dev/160](https://google.aip.dev/160).
 
-## মহিলা ফাইল সার্চ
+## Multimodale Dateisuche
 
-تتيح لك ميزة "البحث المتعدد الوسائط في الملفات" تضمين الصور والبحث فيها بشكلٍ مدمج، ما يتيح إنشاء تطبيقات غنية ومتعددة الوسائط تستخدم التوليد المعزّز بالاسترجاع.
+Mit der multimodalen Dateisuche können Sie Bilder nativ einbetten und durchsuchen, was umfangreiche, multimodale RAG-Anwendungen ermöglicht.
 
-### ضبط نموذج التضمين
+### Einbettungsmodell konfigurieren
 
-عند إنشاء `FileSearchStore`، عليك تجاهل نموذج التضمين التلقائي النصي فقط واستخدام نموذج متعدد الوسائط. استخدِم `models/gemini-embedding-2` لمعالجة كل من النص والصور.
+Wenn Sie ein `FileSearchStore` erstellen, müssen Sie das Standardmodell für Nur-Text-Einbettungen überschreiben, um ein multimodales Modell zu verwenden. Mit `models/gemini-embedding-2` können sowohl Text als auch Bilder verarbeitet werden.
 
 ### Python
 
@@ -723,20 +711,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### تحميل صور
+### Bilder hochladen
 
-بعد إنشاء المتجر باستخدام نموذج التضمين المتعدّد الوسائط، يمكنك تحميل ملفات الصور مباشرةً باستخدام واجهات برمجة التطبيقات نفسها الخاصة بالتحميل والموضّحة في [التحميل مباشرةً إلى متجر "بحث الملفات"](#upload) أو [استيراد الملفات](#importing-files).
+Nachdem Sie den Speicher mit einem multimodalen Einbettungsmodell erstellt haben, können Sie Bilddateien direkt mit denselben Upload-APIs hochladen, die unter [Direkt in File Search-Speicher hochladen](#upload) oder [Dateien importieren](#importing-files) beschrieben werden.
 
-**متطلبات ملف الصورة:**
+**Anforderungen an Bilddateien**:
 
-- يجب ألا تزيد دقة ملفات الصور عن 4K x 4K بكسل.
-- التنسيقات المتوافقة هي PNG وJPEG.
+- Bilddateien dürfen maximal 4K × 4K Pixel groß sein.
+- Unterstützte Formate sind PNG und JPEG.
 
-## الاقتباسات
+## Zitationen
 
-عند استخدام &quot;البحث عن الملفات&quot;، قد يتضمّن ردّ النموذج اقتباسات تحدّد الأجزاء من المستندات التي حمّلتها والتي تم استخدامها لإنشاء الإجابة. ويساعد ذلك في التحقّق من صحة المعلومات.
+Wenn Sie die Dateisuche verwenden, kann die Antwort des Modells Zitationen enthalten, in denen angegeben wird, welche Teile Ihrer hochgeladenen Dokumente zum Generieren der Antwort verwendet wurden. Das hilft bei Faktenchecks und der Überprüfung.
 
-يمكنك الوصول إلى معلومات المصدر من خلال السمة `annotations` داخل مربّعات `content` في خطوة `model_output` من الردّ.
+Sie können über das Attribut `annotations` in den `content`-Blöcken des Schritts `model_output` der Antwort auf Zitationsinformationen zugreifen.
 
 ### Python
 
@@ -787,13 +775,12 @@ for (const step of interaction.steps) {
 }
 ```
 
-للحصول على معلومات تفصيلية حول بنية الاقتباسات، يُرجى الاطّلاع على
-[مرجع واجهة برمجة التطبيقات للتفاعلات](https://ai.google.dev/api/interactions-api?hl=ar#Resource:FileCitation).
+Ausführliche Informationen zur Struktur der Zitationen finden Sie in der [API-Referenz für Interaktionen](https://ai.google.dev/api/interactions-api?hl=de#Resource:FileCitation).
 
-### أرقام الصفحات
+### Seitennummern
 
-عند استخدام ميزة "البحث في الملفات" مع المستندات التي تتضمّن صفحات (مثل ملفات PDF)، قد يتضمّن ردّ النموذج رقم الصفحة التي تم العثور على المعلومات فيها.
-يمكنك الوصول إلى هذه المعلومات من خلال السمة `page_number` الخاصة بالتعليق التوضيحي `file_citation`.
+Wenn Sie die Dateisuche mit Dokumenten verwenden, die Seiten haben (z. B. PDFs), kann die Antwort des Modells die Seitenzahl enthalten, auf der die Informationen gefunden wurden.
+Sie können über das Attribut `page_number` einer `file_citation`-Annotation auf diese Informationen zugreifen.
 
 ### Python
 
@@ -851,11 +838,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### اقتباسات من الوسائط
+### Quellenangaben für Medien
 
-عندما يشير النموذج إلى جزء من صورة أثناء الإنشاء، تعرض واجهة برمجة التطبيقات تعليقًا توضيحيًا من النوع `file_citation` في التعليقات التوضيحية يتضمّن `media_id`. يمكنك استخدام هذا المعرّف لتنزيل جزء الصورة الذي أشار إليه النموذج. يكون `media_id` هذا ثابتًا في طلبات البحث المتعددة، ما يتيح لك استرداد الصورة نفسها أو تخزينها مؤقتًا بشكل موثوق باستخدام المعرّف.
+Wenn das Modell während der Generierung auf einen Bild-Chunk verweist, gibt die API in den Anmerkungen eine Anmerkung vom Typ `file_citation` zurück, die ein `media_id` enthält. Mit dieser ID können Sie den genauen Bildausschnitt herunterladen, auf den sich das Modell bezogen hat. Diese `media_id` ist über mehrere Suchaufrufe hinweg persistent. So können Sie dasselbe Bild zuverlässig abrufen oder mithilfe der ID im Cache speichern.
 
-المقتطف التالي هو مثال على خطوة استجابة REST:
+Das folgende Snippet ist ein Beispiel für einen REST-Antwortschritt:
 
 ```
 {
@@ -876,7 +863,8 @@ for (const step of interaction.steps) {
 }
 ```
 
-توضّح مقتطفات الرموز البرمجية التالية كيفية استرداد `media_id` وتنزيل الوسائط:
+NPCs können mit den folgenden Code-Snippets abgerufen `media_id` und
+die Medien heruntergeladen werden:
 
 ### Python
 
@@ -919,9 +907,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## البيانات الوصفية المخصّصة
+## Benutzerdefinierte Metadaten
 
-إذا أضفت بيانات وصفية مخصّصة إلى ملفاتك، يمكنك الوصول إليها في التعليقات التوضيحية الخاصة برد النموذج. ويكون ذلك مفيدًا في تمرير سياق إضافي (مثل عناوين URL أو أرقام الصفحات أو المؤلّفين) من المستندات المصدر إلى منطق التطبيق. يحتوي كل تعليق توضيحي للاقتباس من النوع `file_citation` على هذه البيانات الوصفية المخصّصة.
+Wenn Sie Ihren Dateien benutzerdefinierte Metadaten hinzugefügt haben, können Sie in den Anmerkungen der Antwort des Modells darauf zugreifen. Das ist nützlich, um zusätzlichen Kontext (z. B. URLs, Seitenzahlen oder Autoren) aus Ihren Quelldokumenten an Ihre Anwendungslogik zu übergeben. Jede Zitationsanmerkung vom Typ `file_citation` enthält diese benutzerdefinierten Metadaten.
 
 ### Python
 
@@ -1002,9 +990,9 @@ for (const step of interaction.steps) {
 }
 ```
 
-## ناتج منظَّم
+## Strukturierte Ausgabe
 
-بدءًا من نماذج Gemini 3، يمكنك دمج أداة البحث عن الملفات مع [النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar).
+Ab Gemini 3-Modellen können Sie das Tool zur Dateisuche mit [strukturierten Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de) kombinieren.
 
 ### Python
 
@@ -1099,25 +1087,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## النماذج المتوافقة
+## Unterstützte Modelle
 
-تتيح الطُرز التالية استخدام ميزة "البحث عن الملفات":
+Die folgenden Modelle unterstützen die Dateisuche:
 
-| الطراز | البحث عن الملفات |
+| Modell | Dateisuche |
 | --- | --- |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=ar) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ar) | ✔️ |
-| [‫Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ar) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ |
-| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
-| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
-| [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
+| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=de) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ |
+| [Gemini 3.1 Pro (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ |
+| [Gemini 3 Flash (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de) | ✔️ |
 
-## أنواع الملفات المعتمدة
+## Unterstützte Dateitypen
 
-يتيح &quot;بحث الملفات&quot; مجموعة كبيرة من تنسيقات الملفات، والمدرَجة في الأقسام التالية.
+Die Dateisuche unterstützt eine Vielzahl von Dateiformaten, die in den folgenden Abschnitten aufgeführt sind.
 
-### أنواع ملفات التطبيقات
+### Anwendungsdateitypen
 
 - `application/dart`
 - `application/ecmascript`
@@ -1150,7 +1138,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `application/xml`
 - `application/zip`
 
-### أنواع الملفات النصية
+### Textdateitypen
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -1309,43 +1297,40 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## القيود
+## Beschränkungen
 
-- **Live API:** لا تتوافق ميزة &quot;البحث عن الملفات&quot; مع [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar).
-- **عدم توافق الأدوات:** لا يمكن دمج أدوات تحديد المصدر المضمّنة مع بعضها البعض،
-  على سبيل المثال، لا يمكن استخدام "البحث عن الملفات" في الوقت نفسه مع [تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) أو
-  [سياق عناوين URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) في الطلب نفسه.
+- **Live API**:Die Dateisuche wird in der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) nicht unterstützt.
+- **Inkompatibilität von Tools**:Integrierte Fundierungs-Tools können nicht miteinander kombiniert werden. So kann beispielsweise die Dateisuche nicht gleichzeitig mit [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) oder [URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=de) in derselben Anfrage verwendet werden.
 
-### حدود معدّل الاستخدام
+### Ratenlimits
 
-تفرض واجهة برمجة التطبيقات "البحث عن الملفات" الحدود التالية لضمان استقرار الخدمة:
+Die File Search API unterliegt den folgenden Einschränkungen, um die Stabilität des Dienstes zu gewährleisten:
 
-- **الحدّ الأقصى لحجم الملف / الحدّ الأقصى لكل مستند**: 100 ميغابايت
-- **إجمالي حجم مساحات تخزين "البحث عن الملفات" في المشروع** (استنادًا إلى فئة المستخدم):
-  - **الخطة المجانية**: 1 غيغابايت
-  - **المستوى 1**: 10 غيغابايت
-  - **المستوى 2**: ‏100 غيغابايت
-  - **المستوى 3**: 1 تيرابايت
-- **اقتراح**: يجب ألا يتجاوز حجم كل مستودع بيانات في "بحث الملفات" 20 غيغابايت لضمان أفضل أوقات استرجاع.
+- **Maximale Dateigröße / Beschränkung pro Dokument**: 100 MB
+- **Gesamtgröße der von der Projektsuche gespeicherten Dateien** (basierend auf der Nutzerstufe):
+  - **Kostenlos**: 1 GB
+  - **Stufe 1**: 10 GB
+  - **Stufe 2**: 100 GB
+  - **Stufe 3**: 1 TB
+- **Empfehlung**: Beschränken Sie die Größe jedes File Search-Speichers auf unter 20 GB, um optimale Abruflatenzen zu erzielen.
 
-## الأسعار
+## Preise
 
-- يتم تحصيل رسوم منك مقابل التضمينات في وقت الفهرسة استنادًا إلى [أسعار التضمينات](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#gemini-embedding-2) الحالية.
-- تتوفر خدمة تخزين الأمتعة مجانًا.
-- تكون تضمينات وقت طلب البحث مجانية.
-- يتم تحصيل رسوم من الرموز المميزة للمستندات التي تم استرجاعها باعتبارها
-  [رموزًا مميزة للسياق](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) عادية.
+- Die Kosten für Einbettungen werden Ihnen zum Zeitpunkt der Indexierung gemäß den bestehenden [Preisen für Einbettungen](https://ai.google.dev/gemini-api/docs/pricing?hl=de#gemini-embedding-2) in Rechnung gestellt.
+- Die Speicherung ist kostenlos.
+- Einbettungen zur Abfragezeit sind kostenlos.
+- Abgerufene Dokument-Tokens werden als reguläre [Kontext-Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de) abgerechnet.
 
-## الخطوات التالية
+## Nächste Schritte
 
-- يمكنك الانتقال إلى مرجع واجهة برمجة التطبيقات [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=ar) و[Documents](https://ai.google.dev/api/file-search/documents?hl=ar) في File Search.
+- [API-Referenz für File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=de) und [API-Referenz für File Search-Dokumente](https://ai.google.dev/api/file-search/documents?hl=de)
 
-إرسال ملاحظات
+Feedback geben
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)
+Zuletzt aktualisiert: 2026-08-19 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Haben Sie Feedback für uns?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-08-19 (UTC)."],[],[]]

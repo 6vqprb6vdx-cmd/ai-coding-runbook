@@ -1,36 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=de
-fetched_at: 2026-08-31T06:39:14.777980+00:00
-title: "Gemini-Denken \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=pt-BR
+fetched_at: 2026-09-07T05:34:39.453602+00:00
+title: "Pensamento do Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Feedback geben
+Envie comentários
 
-# Gemini-Denken
+# Pensamento do Gemini
 
-Die [Modelle der Gemini 3- und 2.5-Serie](https://ai.google.dev/gemini-api/docs/models?hl=de) verwenden einen internen
-"Denkprozess", der ihre Fähigkeiten zur logischen Schlussfolgerung und mehrstufigen
-Planung erheblich verbessert. Dadurch sind sie sehr effektiv für komplexe Aufgaben wie
-Programmieren, fortgeschrittene Mathematik und Datenanalyse.
+Os modelos das séries [Gemini 3 e 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pt-br) usam um
+"processo de raciocínio" interno que melhora significativamente as habilidades de raciocínio e planejamento de várias etapas, tornando-os altamente eficazes para tarefas complexas, como
+programação, matemática avançada e análise de dados.
 
-In diesem Leitfaden erfahren Sie, wie Sie die Denkfunktionen von Gemini mit der Gemini API verwenden.
+Este guia mostra como trabalhar com os recursos de raciocínio do Gemini usando a API Gemini.
 
-## Inhalte mit Denkprozess generieren
+## Gerar conteúdo com raciocínio
 
-Das Initiieren einer Anfrage mit einem Thinking-Modell ähnelt jeder anderen Generierungsanfrage. Der Hauptunterschied besteht darin, eines der
-[Modelle mit Thinking-Unterstützung](#supported-models) im `model` Feld anzugeben, wie
-im folgenden [Beispiel zur Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#text-input) gezeigt:
+Iniciar uma solicitação com um modelo de raciocínio é semelhante a qualquer outra solicitação de geração de conteúdo. A principal diferença está em especificar um dos
+[modelos com suporte de raciocínio](#supported-models) no campo `model`, conforme
+demonstrado no exemplo de [geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#text-input) a seguir:
 
 ### Python
 
@@ -40,7 +39,7 @@ from google import genai
 client = genai.Client()
 prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example."
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=prompt
 )
 
@@ -58,7 +57,7 @@ async function main() {
   const prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example.";
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: prompt,
   });
 
@@ -68,7 +67,7 @@ async function main() {
 main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -89,7 +88,7 @@ func main() {
   }
 
   prompt := "Explain the concept of Occam's Razor and provide a simple, everyday example."
-  model := "gemini-3.6-flash"
+  model := "gemini-3.8-flash"
 
   resp, _ := client.Models.GenerateContent(ctx, model, genai.Text(prompt), nil)
 
@@ -100,7 +99,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
  -H "x-goog-api-key: $GEMINI_API_KEY" \
  -H 'Content-Type: application/json' \
  -X POST \
@@ -118,13 +117,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
  ```
 ```
 
-## Zusammenfassungen der Gedanken
+## Resumos de raciocínio
 
-Zusammenfassungen der Gedanken sind zusammengefasste Versionen der Rohgedanken des Modells und bieten Einblicke in den internen Denkprozess des Modells. Die Denkebenen und ‑budgets gelten für die Rohgedanken des Modells und nicht für Zusammenfassungen der Gedanken.
+Os resumos de raciocínio são versões resumidas dos pensamentos brutos do modelo e oferecem insights sobre o processo de raciocínio interno do modelo. Os níveis e orçamentos de raciocínio se aplicam aos pensamentos brutos do modelo e não aos resumos de raciocínio.
 
-Sie können Zusammenfassungen der Gedanken aktivieren, indem Sie in der Anfragekonfiguration `includeThoughts` auf `true` setzen. Anschließend können Sie auf die Zusammenfassung zugreifen, indem Sie die `parts` des Parameters `response` durchlaufen und den booleschen Wert `thought` prüfen.
+É possível ativar os resumos de raciocínio definindo `includeThoughts` como `true` na configuração da solicitação. Em seguida, acesse o resumo iterando pelas `parts` do parâmetro `response` e verificando o booleano `thought`.
 
-Hier ein Beispiel, wie Sie Zusammenfassungen der Gedanken ohne Streaming aktivieren und abrufen. In diesem Fall wird mit der Antwort eine einzelne, endgültige Zusammenfassung der Gedanken zurückgegeben:
+Confira um exemplo que demonstra como ativar e recuperar resumos de raciocínio sem streaming, que retorna um único resumo de raciocínio final com a resposta:
 
 ### Python
 
@@ -135,7 +134,7 @@ from google.genai import types
 client = genai.Client()
 prompt = "What is the sum of the first 50 prime numbers?"
 response = client.models.generate_content(
-  model="gemini-3.6-flash",
+  model="gemini-3.8-flash",
   contents=prompt,
   config=types.GenerateContentConfig(
     thinking_config=types.ThinkingConfig(
@@ -166,7 +165,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: "What is the sum of the first 50 prime numbers?",
     config: {
       thinkingConfig: {
@@ -193,7 +192,7 @@ async function main() {
 main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -213,7 +212,7 @@ func main() {
   }
 
   contents := genai.Text("What is the sum of the first 50 prime numbers?")
-  model := "gemini-3.6-flash"
+  model := "gemini-3.8-flash"
   resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
       IncludeThoughts: true,
@@ -234,7 +233,7 @@ func main() {
 }
 ```
 
-Und hier ein Beispiel für die Verwendung von Thinking mit Streaming, bei dem während der Generierung fortlaufende, inkrementelle Zusammenfassungen zurückgegeben werden:
+Confira um exemplo de uso do raciocínio com streaming, que retorna resumos incrementais durante a geração:
 
 ### Python
 
@@ -258,7 +257,7 @@ thoughts = ""
 answer = ""
 
 for chunk in client.models.generate_content_stream(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config=types.GenerateContentConfig(
       thinking_config=types.ThinkingConfig(
@@ -299,7 +298,7 @@ let answer = "";
 
 async function main() {
   const response = await ai.models.generateContentStream({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: prompt,
     config: {
       thinkingConfig: {
@@ -332,7 +331,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -363,7 +362,7 @@ func main() {
   }
 
   contents := genai.Text(prompt)
-  model := "gemini-3.6-flash"
+  model := "gemini-3.8-flash"
 
   resp := client.Models.GenerateContentStream(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
@@ -387,25 +386,25 @@ func main() {
 }
 ```
 
-## Denkprozess steuern
+## Controlar o raciocínio
 
-Gemini-Modelle verwenden standardmäßig dynamische Denkprozesse und passen den Aufwand für die logische Schlussfolgerung automatisch an die Komplexität der Anfrage des Nutzers an.
-Wenn Sie jedoch bestimmte Latenzbeschränkungen haben oder das Modell eine tiefere logische Schlussfolgerung als üblich durchführen soll, können Sie optional Parameter verwenden, um das Denkverhalten zu steuern.
+Os modelos do Gemini se envolvem no raciocínio dinâmico por padrão, ajustando automaticamente a quantidade de esforço de raciocínio com base na complexidade da solicitação do usuário.
+No entanto, se você tiver restrições de latência específicas ou exigir que o modelo se envolva em um raciocínio mais profundo do que o normal, use parâmetros para controlar o comportamento de raciocínio.
 
-### Denkebenen (Gemini 3)
+### Níveis de raciocínio (Gemini 3)
 
-Mit dem Parameter `thinkingLevel`, der für Gemini 3-Modelle und höher empfohlen wird, können Sie das Verhalten bei der logischen Schlussfolgerung steuern.
+O parâmetro `thinkingLevel`, recomendado para modelos do Gemini 3 e versões mais recentes, permite controlar o comportamento de raciocínio.
 
-In der folgenden Tabelle sind die Einstellungen für `thinkingLevel` für die einzelnen Modelltypen aufgeführt:
+A tabela a seguir detalha as configurações de `thinkingLevel` para cada tipo de modelo:
 
-| Denkebene | Gemini 3.6 und 3.5 Flash | Gemini 3.1 Pro | Gemini 3.5 und 3.1 Flash-Lite | Gemini 3.1 Flash-Lite Image | Gemini 3 Flash | Beschreibung |
-| --- | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | Unterstützt | Nicht unterstützt | Unterstützt (Standardeinstellung) | Unterstützt (Standardeinstellung) | Unterstützt | Entspricht für die meisten Anfragen der Einstellung „Kein Denkprozess“. Beachten Sie, dass `minimal` nicht garantiert, dass der Denkprozess deaktiviert ist. Das Modell kann bei komplexen Aufgaben sehr minimal logische Schlussfolgerungen ziehen. |
-| **`low`** | Unterstützt | Unterstützt | Unterstützt | Nicht unterstützt | Unterstützt | Minimiert Latenz und Kosten. |
-| **`medium`** | Unterstützt (Standardeinstellung) | Unterstützt | Unterstützt | Nicht unterstützt | Unterstützt | Ausgewogener Denkprozess für die meisten Aufgaben. |
-| **`high`** | Unterstützt (dynamisch) | Unterstützt (Standardeinstellung, dynamisch) | Unterstützt (dynamisch) | Unterstützt (dynamisch) | Unterstützt (Standardeinstellung, dynamisch) | Maximiert die Tiefe der logischen Schlussfolgerung. Es kann deutlich länger dauern, bis das Modell ein erstes Ausgabetoken (ohne Denkprozess) erreicht, aber die Ausgabe ist sorgfältiger durchdacht. |
+| Nível de raciocínio | Gemini 3.8 e 3.7 Flash | Gemini 3.6 e 3.5 Flash | Gemini 3.1 Pro | Gemini 3.5 e 3.1 Flash-Lite | Imagem do Gemini 3.1 Flash-Lite | Gemini 3 Flash | Descrição |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **`minimal`** | Indisponível (erro) | Compatível | Indisponível | Compatível (padrão) | Compatível (padrão) | Compatível | Corresponde à configuração "sem raciocínio" para a maioria das consultas. Observação: `minimal` não garante que o raciocínio esteja desativado. O modelo pode raciocinar de forma muito mínima para tarefas complexas. |
+| **`low`** | Compatível | Compatível | Compatível | Compatível | Não compatível | Compatível | Minimiza a latência e o custo. |
+| **`medium`** | Compatível (padrão) | Compatível (padrão) | Compatível | Compatível | Indisponível | Compatível | Raciocínio equilibrado para a maioria das tarefas. |
+| **`high`** | Compatível (dinâmico) | Compatível (dinâmico) | Compatível (padrão, dinâmico) | Compatível (dinâmico) | Compatível (dinâmico) | Compatível (padrão, dinâmico) | Maximiza a profundidade do raciocínio. O modelo pode levar muito mais tempo para alcançar um primeiro token de saída (sem raciocínio), mas a saída será mais cuidadosamente raciocinada. |
 
-Das folgende Beispiel zeigt, wie Sie die Denkebene festlegen.
+O exemplo a seguir mostra como definir o nível de raciocínio.
 
 ### Python
 
@@ -416,7 +415,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="Provide a list of 3 famous physicists and their key contributions",
     config=types.GenerateContentConfig(
         thinking_config=types.ThinkingConfig(thinking_level="low")
@@ -435,7 +434,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: "Provide a list of 3 famous physicists and their key contributions",
     config: {
       thinkingConfig: {
@@ -450,7 +449,7 @@ async function main() {
 main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -472,7 +471,7 @@ func main() {
   thinkingLevelVal := "low"
 
   contents := genai.Text("Provide a list of 3 famous physicists and their key contributions")
-  model := "gemini-3.6-flash"
+  model := "gemini-3.8-flash"
   resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
       ThinkingLevel: &thinkingLevelVal,
@@ -486,7 +485,7 @@ fmt.Println(resp.Text())
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -X POST \
@@ -508,29 +507,31 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-Der Denkprozess kann für Gemini 3.1 Pro nicht deaktiviert werden. Gemini 3 Flash und Flash-Lite
-unterstützen ebenfalls keine vollständige Deaktivierung des Denkprozesses.
-Wenn Sie keine Denkebene angeben, verwendet Gemini die Standarddenkebene der Gemini 3-Modelle (z.B. `"high"` für Gemini 3.1 Pro und `"medium"` für Gemini 3.5 Flash).
+Não é possível desativar o raciocínio do Gemini 3.1 Pro. O Gemini 3 Flash e o Flash-Lite
+também não oferecem suporte ao raciocínio completo.
+Se você não especificar um nível de raciocínio, o Gemini vai usar o nível de raciocínio padrão dos modelos do Gemini 3 (por exemplo, `"high"` para o Gemini 3.1 Pro e `"medium"` para o Gemini 3.5 Flash).
 
-Die Modelle der Gemini 2.5-Serie unterstützen `thinkingLevel` nicht. Verwenden Sie stattdessen `thinkingBudget`.
+Os modelos da série Gemini 2.5 não oferecem suporte a `thinkingLevel`. Use `thinkingBudget`.
 
-### Thinking-Budgets
+### Orçamentos de raciocínio
 
-Der Parameter `thinkingBudget`, der mit der Gemini 2.5-Serie eingeführt wurde, gibt dem Modell die spezifische Anzahl der Thinking-Tokens vor, die für die logische Schlussfolgerung verwendet werden sollen.
+O parâmetro `thinkingBudget`, introduzido com a série Gemini 2.5, orienta o modelo sobre o número específico de tokens de raciocínio a serem usados para o raciocínio.
 
-Im Folgenden finden Sie Details zur Konfiguration von `thinkingBudget` für die einzelnen Modelltypen.
-Sie können den Denkprozess deaktivieren, indem Sie `thinkingBudget` auf 0 setzen.
-Wenn Sie das `thinkingBudget` auf -1 setzen, wird der **dynamische Denkprozess** aktiviert. Das bedeutet, dass das Modell das Budget an die Komplexität der Anfrage anpasst.
+A seguir, confira os detalhes de configuração de `thinkingBudget` para cada tipo de modelo.
+É possível desativar o raciocínio definindo `thinkingBudget` como 0.
+Definir o `thinkingBudget` como -1 ativa o
+**raciocínio dinâmico**, o que significa que o modelo vai ajustar o orçamento com base na
+complexidade da solicitação.
 
-| Modell | Standardeinstellung (Thinking-Budget ist nicht festgelegt) | Bereich | Denkprozess deaktivieren | Dynamischen Denkprozess aktivieren |
+| Modelo | Configuração padrão (o orçamento de raciocínio não está definido) | Intervalo | Desativar raciocínio | Ativar raciocínio dinâmico |
 | --- | --- | --- | --- | --- |
-| **2.5 Pro** | Dynamischer Denkprozess | `128` bis `32768` | Nicht zutreffend: Denkprozess kann nicht deaktiviert werden | `thinkingBudget = -1` (Standardeinstellung) |
-| **2.5 Flash** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
-| **2.5 Flash (Vorabversion)** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
-| **2.5 Flash Lite** | Modell denkt nicht | `512` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **2.5 Flash Lite (Vorabversion)** | Modell denkt nicht | `512` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **Robotics-ER 1.6 (Vorabversion)** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
-| **2.5 Flash Live Native Audio (Vorabversion, 09/2025)** | Dynamischer Denkprozess | `0` bis `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Standardeinstellung) |
+| **2.5 Pro** | Raciocínio dinâmico | `128` a `32768` | N/A: não é possível desativar o raciocínio | `thinkingBudget = -1` (padrão) |
+| **2.5 Flash** | Raciocínio dinâmico | `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (padrão) |
+| **2.5 Flash Preview** | Raciocínio dinâmico | `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (padrão) |
+| **2.5 Flash Lite** | O modelo não pensa | `512` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite Preview** | O modelo não pensa | `512` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 Preview** | Raciocínio dinâmico | `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (padrão) |
+| **2.5 Flash Live Native Audio Preview (09-2025)** | Raciocínio dinâmico | `0` a `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (padrão) |
 
 ### Python
 
@@ -583,7 +584,7 @@ async function main() {
 main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -645,32 +646,33 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-Je nach Prompt kann das Modell das Tokenbudget über- oder unterschreiten.
+Dependendo do prompt, o modelo pode exceder ou ficar abaixo do orçamento de tokens.
 
-## Gedankensignaturen
+## Assinaturas de raciocínio
 
-Die Gemini API ist zustandslos. Das Modell behandelt daher jede API-Anfrage unabhängig und hat keinen Zugriff auf den Denkkontext aus früheren Runden in Mehrfachdialogen.
+A API Gemini não tem estado, então o modelo trata cada solicitação de API de forma independente e não tem acesso ao contexto de raciocínio de turnos anteriores em interações multiturno.
 
-Damit der Denkkontext bei Mehrfachdialogen beibehalten werden kann, gibt Gemini Gedankensignaturen zurück. Das sind verschlüsselte Darstellungen des internen Denkprozesses des Modells.
+Para manter o contexto de raciocínio em interações multiturno, o Gemini retorna assinaturas de raciocínio, que são representações criptografadas do processo de raciocínio interno do modelo.
 
-- **Gemini 2.5-Modelle** geben Gedankensignaturen zurück, wenn der Denkprozess aktiviert ist und
-  die Anfrage [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#thinking) enthält,
-  insbesondere [Funktionsdeklarationen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#step-2).
-- **Gemini 3-Modelle** können Gedankensignaturen für alle Arten von [Teilen](https://ai.google.dev/api/caching?hl=de#Part) zurückgeben.
-  Wir empfehlen, alle Signaturen immer so zurückzugeben, wie sie empfangen wurden. Für Funktionsaufrufsignaturen ist dies *erforderlich*. Weitere Informationen finden Sie auf der
-  [Seite Gedankensignaturen](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=de).
+- **Os modelos do Gemini 2.5** retornam assinaturas de raciocínio quando o raciocínio está ativado e
+  a solicitação inclui [chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#thinking),
+  especificamente [declarações de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#step-2).
+- Os **modelos do Gemini 3** podem retornar assinaturas de raciocínio para todos os tipos de [partes](https://ai.google.dev/api/caching?hl=pt-br#Part).
+  Recomendamos que você sempre transmita todas as assinaturas de volta conforme recebidas, mas isso é *necessário* para assinaturas de chamadas de função. Leia a
+  [página Assinaturas de raciocínio](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pt-br) para
+  saber mais.
 
-Weitere Nutzungsbeschränkungen, die bei Funktionsaufrufen zu beachten sind:
+Outras limitações de uso a serem consideradas com a chamada de função incluem:
 
-- Signaturen werden vom Modell innerhalb anderer Teile in der Antwort zurückgegeben, z. B. Funktionsaufrufe oder Textteile.
-  [Geben Sie die gesamte Antwort](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#step-4)
-  mit allen Teilen in nachfolgenden Runden an das Modell zurück.
-- Verketten Sie keine Teile mit Signaturen.
-- Führen Sie keinen Teil mit einer Signatur mit einem anderen Teil ohne Signatur zusammen.
+- As assinaturas são retornadas do modelo em outras partes da resposta, por exemplo, chamadas de função ou partes de texto.
+  [Retorne a resposta inteira](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#step-4)
+  com todas as partes para o modelo em turnos subsequentes.
+- Não concatene partes com assinaturas.
+- Não mescle uma parte com uma assinatura com outra parte sem uma assinatura.
 
-## Preise
+## Preços
 
-Wenn der Denkprozess aktiviert ist, setzt sich der Preis für die Antwort aus den Ausgabetokens und den Thinking-Tokens zusammen. Die Gesamtzahl der generierten Thinking-Tokens finden Sie im Feld `thoughtsTokenCount`.
+Quando o raciocínio está ativado, o preço da resposta é a soma dos tokens de saída e dos tokens de raciocínio. É possível acessar o número total de tokens de raciocínio gerados no campo `thoughtsTokenCount`.
 
 ### Python
 
@@ -688,7 +690,7 @@ console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
 console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
 ```
 
-### Ok
+### Go
 
 ```
 // ...
@@ -696,61 +698,59 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Thinking-Modelle generieren vollständige Gedanken, um die Qualität der endgültigen
-Antwort zu verbessern, und geben dann [Zusammenfassungen](#summaries) aus, um Einblicke in den
-Denkprozess zu geben. Die Preise basieren also auf den vollständigen Thinking-Tokens, die das Modell zum Erstellen einer Zusammenfassung benötigt, obwohl nur die Zusammenfassung von der API ausgegeben wird.
+Os modelos de raciocínio geram pensamentos completos para melhorar a qualidade da resposta final
+e, em seguida, resumos de saída para fornecer insights sobre o processo de raciocínio. Portanto, o preço é baseado nos tokens de pensamento completos que o modelo precisa gerar para criar um resumo, embora apenas o resumo seja gerado pela API.
 
-Weitere Informationen zu Tokens finden Sie im [Leitfaden zum Zählen von Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de).
+Saiba mais sobre tokens no [guia Contagem de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br).
 
-## Best Practices
+## Práticas recomendadas
 
-Dieser Abschnitt enthält einige Hinweise zur effizienten Verwendung von Thinking-Modellen.
-Wie immer erzielen Sie die besten Ergebnisse, wenn Sie unsere [Prompt-Anleitung und Best Practices](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de) befolgen.
+Esta seção inclui algumas orientações para usar modelos de raciocínio de forma eficiente.
+Como sempre, seguir nossas [orientações e práticas recomendadas de prompt](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br) vai gerar os melhores resultados.
 
-### Fehlerbehebung und Steuerung
+### Depuração e direção
 
-- **Logische Schlussfolgerung überprüfen**: Wenn Sie nicht die erwartete Antwort von den
-  Thinking-Modellen erhalten, kann es hilfreich sein, die Zusammenfassungen der Gedanken von Gemini sorgfältig zu analysieren.
-  Sie können sehen, wie die Aufgabe aufgeschlüsselt wurde und wie das Modell zu seiner Schlussfolgerung gelangt ist. Diese Informationen können Sie verwenden, um die Ergebnisse zu korrigieren.
-- **Anleitung für die logische Schlussfolgerung geben**: Wenn Sie eine besonders lange
-  Ausgabe erwarten, können Sie in Ihrem Prompt eine Anleitung geben, um den
-  [Aufwand für den Denkprozess](#set-budget) des Modells zu begrenzen. So können Sie mehr Ausgabetokens für Ihre Antwort reservieren.
+- **Analisar o raciocínio**: quando você não recebe a resposta esperada dos
+  modelos de raciocínio, pode ser útil analisar cuidadosamente os resumos de raciocínio do Gemini.
+  É possível conferir como ele dividiu a tarefa e chegou à conclusão, e usar essas informações para corrigir os resultados certos.
+- **Fornecer orientação no raciocínio**: se você espera uma saída particularmente longa, forneça orientação no prompt para restringir a
+  [quantidade de raciocínio](#set-budget) que o modelo usa. Isso permite reservar mais da saída de token para sua resposta.
 
-### Aufgabenkomplexität
+### Complexidade da tarefa
 
-- **Einfache Aufgaben (Denkprozess kann deaktiviert werden)** : Bei einfachen Anfragen, bei denen keine komplexe logische Schlussfolgerung erforderlich ist, z. B. beim Abrufen von Fakten oder bei der Klassifizierung, ist der Denkprozess nicht erforderlich. Beispiele:
-  - „Wo wurde DeepMind gegründet?“
-  - „Wird in dieser E‑Mail ein Meeting angefragt oder werden nur Informationen bereitgestellt?“
-- **Mittelkomplexe Aufgaben (Standardeinstellung/teilweise Denkprozess)** : Viele häufige Anfragen profitieren von einer schrittweisen Verarbeitung oder einem tieferen Verständnis. Gemini kann die Denkfunktion flexibel für Aufgaben wie die folgenden verwenden:
-  - Analogie zwischen Photosynthese und Erwachsenwerden
-  - Vergleich und Gegenüberstellung von Elektroautos und Hybridautos
-- **Komplexe Aufgaben (maximale Denkfähigkeit)** : Bei wirklich komplexen Herausforderungen wie dem Lösen komplexer mathematischer Probleme oder Programmieraufgaben empfehlen wir, ein hohes Thinking-Budget festzulegen. Bei diesen Aufgaben muss das Modell seine gesamten Fähigkeiten zur logischen Schlussfolgerung und Planung einsetzen. Oft sind viele interne Schritte erforderlich, bevor eine Antwort gegeben wird. Beispiele:
-  - Lösen Sie Aufgabe 1 in AIME 2025: Ermitteln Sie die Summe aller ganzzahligen Basen b > 9 für
-    die 17b ein Teiler von 97b ist.
-  - Schreiben Sie Python-Code für eine Webanwendung, die Echtzeit-Börsendaten visualisiert, einschließlich Nutzerauthentifizierung. Die Anwendung soll so effizient wie möglich sein.
+- **Tarefas fáceis (o raciocínio pode estar DESATIVADO)** : para solicitações simples em que o raciocínio complexo não é necessário, como recuperação ou classificação de fatos, o raciocínio não é necessário. Exemplos:
+  - "Onde a DeepMind foi fundada?"
+  - "Este e-mail está pedindo uma reunião ou apenas fornecendo informações?"
+- **Tarefas médias (padrão/algum raciocínio)** : muitas solicitações comuns se beneficiam de um grau de processamento passo a passo ou de um entendimento mais profundo. O Gemini pode usar a capacidade de raciocínio de forma flexível para tarefas como:
+  - Analogizar a fotossíntese e o crescimento.
+  - Comparar e contrastar carros elétricos e híbridos.
+- **Tarefas difíceis (capacidade máxima de raciocínio)** : para desafios realmente complexos, como resolver problemas de matemática complexos ou tarefas de programação, recomendamos definir um orçamento de raciocínio alto. Esses tipos de tarefas exigem que o modelo envolva todos os recursos de raciocínio e planejamento, geralmente envolvendo muitas etapas internas antes de fornecer uma resposta. Exemplos:
+  - Resolva o problema 1 no AIME 2025: encontre a soma de todas as bases inteiras b > 9 para
+    as quais 17b é um divisor de 97b.
+  - Escreva um código Python para um aplicativo da Web que visualize dados do mercado de ações em tempo real, incluindo a autenticação do usuário. Deixe-o o mais eficiente possível.
 
-## Unterstützte Modelle, Tools und Funktionen
+## Modelos, ferramentas e recursos compatíveis
 
-Die Denkfunktionen werden von allen Modellen der 3er- und 2.5er-Serie unterstützt.
-Alle Modellfunktionen finden Sie auf der
-[Seite Modellübersicht](https://ai.google.dev/gemini-api/docs/models?hl=de).
+Os recursos de raciocínio são compatíveis com todos os modelos das séries 3 e 2.5.
+Você pode encontrar todos os recursos do modelo na
+[página de visão geral do modelo](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
 
-Thinking-Modelle funktionieren mit allen Tools und Funktionen von Gemini. So können die Modelle mit externen Systemen interagieren, Code ausführen oder auf Echtzeitinformationen zugreifen und die Ergebnisse in ihre logische Schlussfolgerung und endgültige Antwort einbeziehen.
+Os modelos de raciocínio funcionam com todas as ferramentas e recursos do Gemini. Isso permite que os modelos interajam com sistemas externos, executem códigos ou acessem informações em tempo real, incorporando os resultados ao raciocínio e à resposta final.
 
-Beispiele für die Verwendung von Tools mit Thinking-Modellen finden Sie im [Thinking-Kochbuch][Colab].
+Você pode conferir exemplos de uso de ferramentas com modelos de raciocínio no [cookbook de raciocínio][Colab].
 
-## Nächste Schritte
+## A seguir
 
-- Informationen zur Thinking-Abdeckung finden Sie in unserem [Leitfaden zur OpenAI-Kompatibilität](https://ai.google.dev/gemini-api/docs/openai?hl=de#thinking).
+- A cobertura de raciocínio está disponível no nosso guia de [compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br#thinking).
 
 [Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
 
-Feedback geben
+Envie comentários
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Zuletzt aktualisiert: 2026-07-30 (UTC).
+Última atualização 2026-09-04 UTC.
 
-Haben Sie Feedback für uns?
+Quer enviar seu feedback?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-04 UTC."],[],[]]
