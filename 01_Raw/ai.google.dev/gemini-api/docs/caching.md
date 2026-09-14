@@ -1,50 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ar
-fetched_at: 2026-09-07T05:39:31.176728+00:00
-title: "\u0627\u0644\u062a\u062e\u0632\u064a\u0646 \u0627\u0644\u0645\u0624\u0642\u062a \u0644\u0644\u0633\u064a\u0627\u0642 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=hi
+fetched_at: 2026-09-14T05:49:16.370778+00:00
+title: "\u0915\u0949\u0928\u094d\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u0915\u0948\u0936 \u092e\u0947\u092e\u094b\u0930\u0940 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-إرسال ملاحظات
+सुझाव भेजें
 
-# التخزين المؤقت للسياق
+# कॉन्टेक्स्ट कैश मेमोरी
 
-في سير عمل الذكاء الاصطناعي النموذجي، قد يتم تمرير رموز الإدخال نفسها بشكل متكرّر إلى أحد النماذج. توفّر Gemini API ميزة التخزين المؤقت الضمني لتحسين الأداء والتكاليف.
+एआई के सामान्य वर्कफ़्लो में, किसी मॉडल को एक ही इनपुट टोकन बार-बार पास किया जा सकता है. Gemini API, परफ़ॉर्मेंस और लागत को ऑप्टिमाइज़ करने के लिए, इंप्लिसिट कैशिंग की सुविधा देता है.
 
-## التخزين المؤقت الضمني
+## इंप्लिसिट कैशिंग
 
-يتم تفعيل التخزين المؤقت الضمني تلقائيًا لجميع نماذج Gemini 2.5 والإصدارات الأحدث. [[وهو متاح لكل من أوضاع المحادثة التي تحتفظ بالحالة (باستخدام `previous_interaction_id`) والتي لا تحتفظ بالحالة.](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#multi-turn-conversations)](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#stateless-conversations)
-نمرّر تلقائيًا وفورات التكلفة إذا تم العثور على طلبك في ذاكرات التخزين المؤقت. ليس عليك اتّخاذ أي إجراء لتفعيل هذه الميزة. يتم إدراج الحد الأدنى لعدد الرموز المميّزة للإدخال من أجل التخزين المؤقت للسياق في الجدول التالي لكل نموذج:
+Gemini 2.5 और इसके बाद के सभी मॉडल के लिए, इंप्लिसिट कैशिंग की सुविधा डिफ़ॉल्ट रूप से चालू होती है. यह सुविधा, [स्टेटफ़ुल](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#multi-turn-conversations) (जिसमें `previous_interaction_id` का इस्तेमाल किया जाता है)
+और [स्टेटलेस](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#stateless-conversations), दोनों तरह के बातचीत के मोड के लिए उपलब्ध है.
+अगर आपका अनुरोध कैश हिट करता है, तो हम लागत में होने वाली बचत को अपने-आप पास कर देते हैं. इसे चालू करने के लिए, आपको कुछ भी करने की ज़रूरत नहीं है. कॉन्टेक्स्ट कैशिंग के लिए, हर मॉडल के लिए इनपुट टोकन की गिनती की कम से कम संख्या यहां दी गई है:
 
-| الطراز | الحد الأدنى لعدد الرموز |
+| मॉडल | टोकन की कम से कम सीमा |
 | --- | --- |
-| Gemini 3.5 Flash | 4096 |
-| ‫Gemini 3.1 Pro (معاينة) | 4096 |
-| Gemini 2.5 Flash | 2048 |
-| Gemini 2.5 Pro | 2048 |
+| Gemini 3.8 Flash | 4,096 |
+| Gemini 3.7 Flash | 4,096 |
+| Gemini 3.6 Flash | 4,096 |
+| Gemini 3.5 Flash | 4,096 |
+| Gemini 3.1 Pro का प्रीव्यू | 4,096 |
+| Gemini 2.5 Flash | 2,048 |
+| Gemini 2.5 Pro | 2,048 |
 
-لزيادة فرصة العثور على البيانات في ذاكرة التخزين المؤقت الضمنية:
+इंप्लिसिट कैश हिट होने की संभावना बढ़ाने के लिए:
 
-- حاوِل وضع المحتويات الكبيرة والشائعة في بداية طلبك.
-- حاوِل إرسال الطلبات التي تتضمّن بادئة مشابهة خلال فترة زمنية قصيرة.
+- अपने प्रॉम्प्ट की शुरुआत में, बड़ा और सामान्य कॉन्टेंट शामिल करें
+- कम समय में, एक जैसे प्रीफ़िक्स वाले अनुरोध भेजने की कोशिश करें
 
-يمكنك الاطّلاع على عدد الرموز التي تم العثور عليها في ذاكرة التخزين المؤقت في حقل `usage.total_cached_tokens` (Python وJavaScript) في عنصر الاستجابة.
+रिस्पॉन्स ऑब्जेक्ट के `usage.total_cached_tokens` (Python और JavaScript) फ़ील्ड में, कैश हिट करने वाले टोकन की संख्या देखी जा सकती है.
 
-إرسال ملاحظات
+सुझाव भेजें
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)
+आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+क्या आपको हमें और कुछ बताना है?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया."],[],[]]

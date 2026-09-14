@@ -1,50 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=it
-fetched_at: 2026-09-07T05:29:12.729700+00:00
-title: "Anteprima di Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=th
+fetched_at: 2026-09-14T05:50:51.263176+00:00
+title: "\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07 Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-# Anteprima di Deep Research
+# ตัวอย่าง Deep Research
 
-Un potente ricercatore agentico progettato per indagini autonome in più fasi
-che sintetizzano informazioni complesse in report completi e citati. Questo
-modello supporta la pianificazione collaborativa, la visualizzazione, i server MCP e la ricerca
-di file. È disponibile in due versioni: Deep Research per velocità ed efficienza e
-Deep Research Max per la massima completezza.
+นักวิจัยที่มีความสามารถด้าน Agentic AI ที่มีประสิทธิภาพ ซึ่งออกแบบมาสำหรับการวิจัยแบบหลายขั้นตอนโดยอัตโนมัติที่สังเคราะห์ข้อมูลที่ซับซ้อนให้เป็นรายงานที่ครอบคลุมพร้อมการอ้างอิง โมเดลนี้รองรับการวางแผนร่วมกัน การแสดงภาพ เซิร์ฟเวอร์ MCP และการค้นหาไฟล์ โดยมี 2 เวอร์ชัน ได้แก่ Deep Research เพื่อความรวดเร็วและมีประสิทธิภาพ และ Deep Research Max เพื่อความครอบคลุมสูงสุด
 
-## Documentazione
+## เอกสารประกอบ
 
-Visita la pagina [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) per una copertura completa
-di funzionalità e capacità.
+ไปที่หน้า [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) เพื่อดูฟีเจอร์และความสามารถทั้งหมด
 
 ## deep-research-preview-04-2026
 
-| Proprietà | Descrizione |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_cardCodice agente | **API Interactions**  `deep-research-preview-04-2026` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine, PDF, audio, video  **Output**  Testo (report citati), immagini |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Finestra contestuale di input**  1.048.576  **Limite di token di output**  65.536 |
-| Versioni 123 | Per ulteriori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Anteprima: `deep-research-preview-04-2026` - Max: `deep-research-max-preview-04-2026` |
-| calendar\_monthUltimo aggiornamento | Aprile 2026 |
+| id\_cardรหัส Agent | **Interactions API**  `deep-research-preview-04-2026` |
+| saveประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ PDF เสียง วิดีโอ  **เอาต์พุต**  ข้อความ (รายงานที่มีการอ้างอิง) รูปภาพ |
+| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **หน้าต่างบริบทอินพุต**  1,048,576  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `deep-research-preview-04-2026` - สูงสุด: `deep-research-max-preview-04-2026` |
+| calendar\_monthการอัปเดตล่าสุด | เมษายน 2026 |
 
-Invia feedback
+ส่งความคิดเห็น
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ultimo aggiornamento 2026-04-29 UTC.
+อัปเดตล่าสุด 2026-04-29 UTC
 
-Vuoi dirci altro?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/transcribe?hl=fr
-fetched_at: 2026-09-07T05:43:18.039973+00:00
+fetched_at: 2026-09-14T05:37:18.165483+00:00
 title: "Transcription audio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
@@ -12,7 +12,6 @@ Google utilise la technologie IA pour traduire le contenu dans votre langue pré
 
 - [Accueil](https://ai.google.dev/?hl=fr)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
 Envoyer des commentaires
 

@@ -1,92 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=ko
-fetched_at: 2026-09-07T05:45:38.296474+00:00
-title: "Gemini API \ucd5c\uc801\ud654 \ubc0f \ucd94\ub860 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=fr
+fetched_at: 2026-09-14T05:48:37.102166+00:00
+title: "Optimisation et inf\u00e9rence de l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-의견 보내기
+Envoyer des commentaires
 
-# Gemini API 최적화 및 추론
+# Optimisation et inférence de l'API Gemini
 
-Gemini API는 특정 워크로드 요구사항에 따라 속도, 비용, 안정성의 균형을 맞추는 데 도움이 되는 다양한 최적화 메커니즘을 제공합니다.
-실시간 대화형 봇을 빌드하든 대규모 오프라인 데이터 처리 파이프라인을 실행하든 올바른 패러다임을 선택하면 비용을 크게 절감하거나 성능을 높일 수 있습니다.
+L'API Gemini propose différents mécanismes d'optimisation pour vous aider à équilibrer la vitesse, le coût et la fiabilité en fonction des besoins spécifiques de vos charges de travail.
+Que vous créiez des robots conversationnels en temps réel ou que vous exécutiez des pipelines de traitement de données hors connexion volumineux, le choix du bon paradigme peut réduire considérablement les coûts ou améliorer les performances.
 
-| 기능 | 표준 | Flex | 우선순위 | 일괄 | 캐싱 |
+| Fonctionnalité | Standard | Flex | Priorité | Lot | Mise en cache |
 | --- | --- | --- | --- | --- | --- |
-| **가격 책정** | 정상가 | 50% 할인 | 표준보다 75~100% 더 높음 | 50% 할인 | 90% 할인 + 비례 할당 토큰 스토리지 |
-| **지연 시간** | 수 초에서 수 분 | 분 (1~15분 목표) | 초 | 최대 24시간 | 첫 번째 토큰까지의 시간 단축 |
-| **안정성** | 높음 / 중간-높음 | 최대한 노력 (삭제 가능) | 높음 (삭제 불가) | 높음 (처리량) | 해당 사항 없음 |
-| **인터페이스** | 동기식 | 동기식 | 동기식 | 비동기식 | 저장된 상태 |
-| **최적의 사용 사례** | 일반 애플리케이션 워크플로 | 급하지 않은 순차적 체인 | 프로덕션, 사용자 대상 앱 | 방대한 데이터 세트, 오프라인 평가 | 동일한 파일에 대한 반복 쿼리 |
+| **Tarifs** | Plein tarif | 50% de remise | 75% à 100% de plus que la valeur standard | 50% de remise | Remise de 90% + stockage des jetons au prorata |
+| **Latence** | De secondes à minutes | Minutes (objectif de 1 à 15 min) | Secondes | Jusqu'à 24 heures | Délai d'émission du premier jeton plus rapide |
+| **Fiabilité** | Élevée / Moyenne-haute | Optimisation limitée (désactivable) | Élevée (non amovible) | Élevée (pour le débit) | N/A |
+| **Interface** | Synchrone | Synchrone | Synchrone | Asynchrone | État enregistré |
+| **Cas d'utilisation idéal** | Workflows généraux des applications | Chaînes séquentielles non urgentes | Applications de production destinées aux utilisateurs | Ensembles de données volumineux, évaluations hors connexion | Requêtes récurrentes sur le même fichier |
 
-## 추론 서비스 등급 (동기식)
+## Niveaux de service d'inférence (synchrone)
 
-표준 생성 호출에서 `service_tier` 매개변수를 전달하여 안정성 최적화 동기식 트래픽과 비용 최적화 동기식 트래픽 간에 전환할 수 있습니다.
+Vous pouvez passer d'un trafic synchrone optimisé pour la fiabilité à un trafic synchrone optimisé pour les coûts en transmettant le paramètre `service_tier` dans vos appels de génération standards.
 
-### 표준 추론 (기본값)
+### Inférence standard (par défaut)
 
-표준 등급은 순차적 콘텐츠 생성을 위한 기본 옵션입니다.
-추가 프리미엄이나 대기열 없이 정상적인 응답 시간을 제공합니다.
+Le niveau standard est l'option par défaut pour la génération de contenu séquentiel.
+Elle offre des temps de réponse normaux, sans frais supplémentaires ni longues files d'attente.
 
-- **안정성:** 표준 중요도
-- **가격:** 표준 가격 책정
-- **최적:** 대부분의 대화형 일상 애플리케이션
+- **Fiabilité** : niveau de gravité standard
+- **Prix** : tarifs standards.
+- **Recommandé pour** : la plupart des applications interactives du quotidien.
 
-### 우선순위 추론 (지연 시간 최적화)
+### Inférence prioritaire (optimisée pour la latence)
 
-[우선순위](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko) 처리는 요청을
-중요도가 높은 컴퓨팅 대기열로 라우팅합니다.
-이 트래픽은 엄격하게 삭제할 수 없으며 (다른 등급에 의해 선점되지 않음) 가장 높은 안정성을 제공합니다. 동적 우선순위 한도를 초과하면 시스템은 오류로 인해 실패하는 대신 요청을 표준 처리로 정상적으로 다운그레이드합니다.
+Le traitement [prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr) achemine vos demandes vers des files d'attente de calcul de haute criticité.
+Ce trafic ne peut en aucun cas être supprimé (il n'est jamais interrompu par d'autres niveaux) et offre la fiabilité la plus élevée. Si vous dépassez les limites de priorité dynamique, le système rétrogradera la requête vers un traitement standard au lieu d'échouer avec une erreur.
 
-- **안정성:** 가장 높은 중요도
-- **가격:** 표준 요금보다 75~100% 높음
-- **최적:** 고객 챗봇, 실시간 사기 감지, 비즈니스에 중요한 코파일럿
+- **Fiabilité** : criticité la plus élevée
+- **Prix** : 75% à 100% au-dessus des tarifs standards.
+- **Idéal pour** : les chatbots clients, la détection de fraudes en temps réel et les copilotes essentiels pour l'entreprise.
 
-### Flex 추론 (비용 최적화)
+### Inférence flexible (coût optimisé)
 
-[Flex 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)은 기회적 비피크 컴퓨팅 용량을 활용하여
-표준 요금에 비해 50% 할인을 제공합니다. 요청은 동기식으로 처리되므로 일괄 객체를 관리하기 위해 코드를 다시 작성할 필요가 없습니다.
-'삭제 가능' 트래픽이므로 시스템에 표준 트래픽 급증이 발생하면 요청이 선점될 수 있습니다.
+L'[inférence flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr) offre une remise de 50% par rapport aux tarifs standards en utilisant une capacité de calcul opportuniste hors pointe. Les requêtes sont traitées de manière synchrone, ce qui signifie que vous n'avez pas besoin de réécrire le code pour gérer les objets de lot.
+Comme il s'agit d'un trafic "éliminable", les requêtes peuvent être préemptées si le système connaît des pics de trafic standards.
 
-- **안정성:** 보장되지 않음, 삭제 가능 중요도
-- **가격:** 표준 가격 책정의 50%(토큰당 청구)
-- **최적:** 호출 N+1이 호출 N의 출력에 종속되는 다단계 에이전트 워크플로, 백그라운드 CRM 업데이트, 오프라인 평가
+- **Fiabilité** : criticité non garantie et réductible
+- **Prix** : 50% du prix standard (facturé par jeton).
+- **Idéal pour** : les workflows agentiques en plusieurs étapes où l'appel N+1 dépend de la sortie de l'appel N, des mises à jour CRM en arrière-plan et des évaluations hors connexion.
 
-## Batch API (대량, 비동기식)
+## API Batch (par lot, asynchrone)
 
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)는 표준 비용의 50% 로 대량의 요청을 비동기식으로 처리하도록 설계되었습니다. 요청을 인라인 사전으로 제출하거나 JSONL 입력 파일 (최대 2GB)을 사용하여 제출할 수 있습니다. 목표 처리 시간이 24시간인 백그라운드 처리량 대기열을 사용하여 요청을 처리합니다.
+L'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr) est conçue pour traiter de grands volumes de requêtes de manière asynchrone à 50% du coût standard. Vous pouvez envoyer des requêtes sous forme de dictionnaires intégrés ou à l'aide d'un fichier d'entrée JSONL (jusqu'à 2 Go). Il traite les demandes à l'aide de files d'attente de débit en arrière-plan avec un délai de traitement cible de 24 heures.
 
-- **안정성:** 삭제 가능하지만 24시간 자동 재시도 및 대기열 시스템 포함
-- **가격:** 표준 가격 책정의 50%
-- **최적:** 대규모 데이터 세트 전처리, 정기 회귀 테스트 모음 실행, 대량 이미지 또는 임베딩 생성
+- **Fiabilité** : peut être supprimé, mais avec des tentatives automatiques de 24 heures et un système de mise en file d'attente
+- **Prix** : 50% du prix standard.
+- **Idéal pour** : le prétraitement d'ensembles de données volumineux, l'exécution de suites de tests de régression périodiques et la génération d'images ou d'embeddings à grand volume.
 
-## 컨텍스트 캐싱 (입력 절감)
+## Mise en cache du contexte (économies d'entrées)
 
-[컨텍스트 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)은 짧은 요청에서 상당한 양의 초기
-컨텍스트를 반복적으로 참조할 때 사용됩니다.
+La [mise en cache de contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) est utilisée lorsqu'un contexte initial important est référencé à plusieurs reprises par des requêtes plus courtes.
 
-- **암시적 캐싱:** Gemini 2.5 이상 모델에서 자동으로 사용 설정됩니다.
-  요청이 일반적인 프롬프트 접두어를 기반으로 기존 캐시에 적중하면 시스템에서 비용 절감을 전달합니다.
-- **명시적 캐싱:** 특정 TTL (Time-To-Live)로 캐시 객체를 수동으로 만들 수 있습니다. 생성되면 동일한 말뭉치 페이로드를 반복적으로 전달하지 않도록 후속 요청에 대해 캐시된 토큰을 참조합니다.
-- **가격:** 캐시 토큰 수 및 스토리지 기간 (TTL)에 따라 청구됩니다.
-- **최적:** 다양한 시스템 안내를 제공하는 챗봇, 긴 동영상 파일의 반복 분석, 대규모 문서 세트에 대한 쿼리
+- **Mise en cache implicite** : activée automatiquement sur les modèles Gemini 2.5 et ultérieurs.
+  Le système répercute les économies si votre demande touche des caches existants basés sur des préfixes d'invite courants.
+- **Mise en cache explicite** : vous pouvez créer manuellement un objet cache avec une valeur TTL (Time-To-Live) spécifique. Une fois les jetons mis en cache, vous pouvez vous y référer pour les requêtes ultérieures afin d'éviter de transmettre plusieurs fois la même charge utile de corpus.
+- **Prix** : facturé en fonction du nombre de jetons de cache et de la durée de stockage (TTL).
+- **Idéal pour** : les chatbots avec des instructions système détaillées, l'analyse répétitive de fichiers vidéo longs ou les requêtes sur des ensembles de documents volumineux.
 
-의견 보내기
+Envoyer des commentaires
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-최종 업데이트: 2026-04-29(UTC)
+Dernière mise à jour le 2026/04/29 (UTC).
 
-의견을 전달하고 싶나요?
+Voulez-vous nous donner plus d'informations ?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

@@ -1,31 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de
-fetched_at: 2026-09-07T05:35:51.443207+00:00
-title: "Fundierung mit Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id
+fetched_at: 2026-09-14T05:51:27.259119+00:00
+title: "Grounding dengan Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Fundierung mit Google Maps
+# Grounding dengan Google Maps
 
-Die Fundierung mit Google Maps verbindet die generativen Funktionen von Gemini mit den umfangreichen, faktischen und aktuellen Daten von Google Maps. Mit dieser Funktion können Entwickler standortbezogene Funktionen ganz einfach in ihre Anwendungen einbinden. Wenn eine Nutzeranfrage einen Kontext mit Bezug auf Maps-Daten hat, nutzt das Gemini-Modell Google Maps, um faktisch korrekte und aktuelle Antworten zu geben, die für den angegebenen Standort oder den ungefähren Ort des Nutzers relevant sind.
+Grounding with Google Maps menghubungkan kemampuan generatif Gemini dengan data Google Maps yang kaya, faktual, dan terbaru. Fitur ini memungkinkan
+developer dengan mudah menyertakan fungsi yang mendukung lokasi ke dalam
+aplikasi mereka. Saat kueri pengguna memiliki konteks yang terkait dengan data Maps, model Gemini akan memanfaatkan Google Maps untuk memberikan jawaban yang akurat secara faktual dan terbaru yang relevan dengan lokasi atau area umum yang ditentukan pengguna.
 
-- **Genaue, standortbezogene Antworten**:Nutzen Sie die umfangreichen und aktuellen Daten von Google Maps für geografisch spezifische Anfragen.
-- **Verbesserte Personalisierung**:Passen Sie Empfehlungen und Informationen an die vom Nutzer angegebenen Standorte an.
+- **Respons yang akurat dan mengetahui lokasi:** Manfaatkan data Google Maps yang ekstensif dan terbaru untuk kueri yang spesifik secara geografis.
+- **Personalisasi yang ditingkatkan:** Menyesuaikan rekomendasi dan informasi berdasarkan lokasi yang disediakan pengguna.
 
-## Jetzt starten
+## Mulai
 
-In diesem Beispiel wird gezeigt, wie Sie die Fundierung mit Google Maps in Ihre Anwendung einbinden, um genaue, standortbezogene Antworten auf Nutzeranfragen zu geben. Der Prompt fragt nach lokalen Empfehlungen mit einem optionalen Nutzerstandort, sodass das Gemini-Modell Google Maps-Daten verwenden kann.
+Contoh ini menunjukkan cara mengintegrasikan Perujukan dengan Google Maps ke dalam aplikasi Anda untuk memberikan respons yang akurat dan sesuai lokasi terhadap kueri pengguna. Perintah
+meminta rekomendasi lokal dengan lokasi pengguna opsional, sehingga model Gemini dapat menggunakan data Google Maps.
 
 ### Python
 
@@ -118,38 +121,40 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## So funktioniert die Fundierung mit Google Maps
+## Cara kerja fitur Grounding dengan Google Maps
 
-Bei der Fundierung mit Google Maps wird die Gemini API in das Google Geo-Ökosystem eingebunden, indem die Maps API als Fundierungsquelle verwendet wird. Wenn die Anfrage eines Nutzers einen geografischen Kontext enthält, kann das Gemini-Modell das Tool „Fundierung mit Google Maps“ aufrufen. Das Modell kann dann Antworten generieren, die auf Google Maps-Daten basieren, die für den angegebenen Standort relevant sind.
+Grounding with Google Maps mengintegrasikan Gemini API dengan ekosistem Geo Google menggunakan Maps API sebagai sumber perujukan. Jika kueri pengguna berisi konteks geografis, model Gemini dapat memanggil alat Perujukan dengan Google Maps. Kemudian, model dapat menghasilkan respons yang didasarkan pada data Google Maps yang relevan dengan lokasi yang diberikan.
 
-Der Prozess umfasst in der Regel Folgendes:
+Proses ini biasanya melibatkan:
 
-1. **Nutzeranfrage**:Ein Nutzer sendet eine Anfrage an Ihre Anwendung, die möglicherweise einen geografischen Kontext enthält (z.B. „Cafés in meiner Nähe“, „Museen in San Francisco“).
-2. **Toolaufruf**:Das Gemini-Modell erkennt die geografische Absicht und ruft das Tool „Fundierung mit Google Maps“ auf. Optional können diesem Tool die `latitude` und `longitude` des Nutzers übergeben werden. Das Tool ist ein Textsuchtool und verhält sich ähnlich wie die Suche in Google Maps. Bei lokalen Anfragen („in meiner Nähe“) werden die Koordinaten verwendet, während spezifische oder nicht lokale Anfragen wahrscheinlich nicht vom expliziten Standort beeinflusst werden.
-3. **Datenabruf**:Der Dienst „Fundierung mit Google Maps“ fragt Google Maps nach relevanten Informationen ab (z.B. Orte, Rezensionen, Fotos, Adressen, Öffnungszeiten).
-4. **Fundierte Generierung**:Die abgerufenen Maps-Daten werden verwendet, um die Antwort des Gemini-Modells zu informieren und so die faktische Richtigkeit und Relevanz zu gewährleisten.
-5. **Antwort und Anmerkungen**:Das Modell gibt eine Textantwort mit Inline-Anmerkungen zurück, die auf Google Maps-Quellen verweisen, sodass Entwickler Zitate anzeigen können.
+1. **Kueri pengguna:** Pengguna mengirimkan kueri ke aplikasi Anda, yang berpotensi
+   mencakup konteks geografis (misalnya, "kafe di dekat saya", "museum di
+   San Francisco").
+2. **Pemanggilan alat:** Model Gemini, yang mengenali maksud geografis, memanggil alat Grounding with Google Maps. Alat ini dapat secara opsional diberikan bersama dengan `latitude` dan `longitude` pengguna. Alat ini adalah alat penelusuran berbasis teks dan berperilaku serupa dengan penelusuran di Maps, yaitu kueri lokal ("di sekitar sini") akan menggunakan koordinat, sedangkan kueri spesifik atau non-lokal cenderung tidak dipengaruhi oleh lokasi eksplisit.
+3. **Pengambilan data:** Layanan Perujukan dengan Google Maps mengkueri Google Maps untuk mendapatkan informasi yang relevan (misalnya, tempat, ulasan, foto, alamat, jam buka).
+4. **Generasi dengan rujukan:** Data Maps yang diambil digunakan untuk menginformasikan respons model Gemini, sehingga memastikan akurasi dan relevansi faktual.
+5. **Respons & anotasi:** Model menampilkan respons teks dengan anotasi inline yang ditautkan ke sumber Google Maps, sehingga developer dapat menampilkan kutipan.
 
-## Gründe und Anwendungsfälle für die Fundierung mit Google Maps
+## Alasan dan waktu penggunaan Grounding dengan Google Maps
 
-Die Fundierung mit Google Maps ist ideal für Anwendungen, die genaue, aktuelle und standortspezifische Informationen erfordern. Sie verbessert die Nutzererfahrung, indem sie relevante und personalisierte Inhalte bereitstellt, die auf der umfangreichen Google Maps-Datenbank mit über 250 Millionen Orten weltweit basieren.
+Penyesuaian dengan Google Maps sangat ideal untuk aplikasi yang memerlukan informasi yang akurat, terbaru, dan spesifik per lokasi. Aplikasi ini meningkatkan pengalaman pengguna dengan menyediakan konten yang relevan dan dipersonalisasi yang didukung oleh database ekstensif Google Maps yang berisi lebih dari 250 juta tempat di seluruh dunia.
 
-Sie sollten die Fundierung mit Google Maps verwenden, wenn Ihre Anwendung Folgendes leisten muss:
+Anda harus menggunakan Grounding dengan Google Maps saat aplikasi Anda perlu:
 
-- Vollständige und genaue Antworten auf geografisch spezifische Fragen geben
-- Konversationelle Reiseplaner und lokale Reiseführer erstellen
-- Sehenswürdigkeiten basierend auf dem Standort und den Nutzerpräferenzen wie Restaurants oder Geschäfte empfehlen
-- Standortbezogene Funktionen für soziale Dienste, Einzelhandelsdienste oder Essenslieferdienste erstellen
+- Memberikan respons yang lengkap dan akurat terhadap pertanyaan khusus geografis.
+- Buat perencana perjalanan percakapan dan panduan lokal.
+- Merekomendasikan lokasi menarik berdasarkan lokasi dan preferensi pengguna seperti restoran atau toko.
+- Buat pengalaman yang mengetahui lokasi untuk layanan pengiriman makanan, retail, atau media sosial.
 
-Die Fundierung mit Google Maps eignet sich besonders für Anwendungsfälle, in denen Nähe und aktuelle faktische Daten entscheidend sind, z. B. um das „beste Café in meiner Nähe“ zu finden oder eine Wegbeschreibung zu erhalten.
+Perujukan dengan Google Maps unggul dalam kasus penggunaan yang memerlukan data faktual saat ini dan kedekatan, seperti menemukan "kedai kopi terbaik di dekat saya" atau mendapatkan rute.
 
-## Anwendungsfälle
+## Kasus penggunaan
 
-Die Fundierung mit Google Maps unterstützt eine Vielzahl von standortbezogenen Anwendungsfällen.
+Perujukan dengan Google Maps mendukung berbagai kasus penggunaan yang sadar lokasi.
 
-### Ortsbezogene Fragen beantworten
+### Menangani pertanyaan khusus tempat
 
-Stellen Sie detaillierte Fragen zu einem bestimmten Ort, um Antworten zu erhalten, die auf Google-Nutzerrezensionen und anderen Maps-Daten basieren.
+Ajukan pertanyaan mendetail tentang tempat tertentu untuk mendapatkan jawaban berdasarkan ulasan pengguna Google dan data Maps lainnya.
 
 ### Python
 
@@ -222,9 +227,9 @@ async function main() {
 main();
 ```
 
-### Standortbezogene Personalisierung bereitstellen
+### Menyediakan personalisasi berbasis lokasi
 
-Erhalten Sie Empfehlungen, die auf die Präferenzen eines Nutzers und eine bestimmte geografische Region zugeschnitten sind.
+Mendapatkan rekomendasi yang disesuaikan dengan preferensi pengguna dan area geografis tertentu.
 
 ### Python
 
@@ -297,9 +302,9 @@ async function main() {
 main();
 ```
 
-### Bei der Reiseplanung helfen
+### Membantu perencanaan itinerari
 
-Erstellen Sie mehrtägige Pläne mit Wegbeschreibungen und Informationen zu verschiedenen Orten, die sich perfekt für Reiseanwendungen eignen.
+Buat rencana perjalanan multi-hari dengan petunjuk arah dan informasi tentang berbagai lokasi, cocok untuk aplikasi perjalanan.
 
 ### Python
 
@@ -364,102 +369,102 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Anforderungen an die Dienstnutzung
+## Persyaratan penggunaan layanan
 
-In diesem Abschnitt werden die Anforderungen an die Dienstnutzung für die Fundierung mit Google Maps beschrieben.
+Bagian ini menjelaskan persyaratan penggunaan layanan untuk Perujukan dengan Google Maps.
 
-### Nutzer über die Verwendung von Google Maps-Quellen informieren
+### Memberi tahu pengguna tentang penggunaan sumber Google Maps
 
-Bei jedem Ergebnis, das auf Google Maps basiert, erhalten Sie Quellenangaben zu den Inhaltsblöcken des Schritts `model_output`, die die jeweilige Antwort unterstützen. Die folgenden Metadaten werden zurückgegeben:
+Dengan setiap hasil yang Sesuai dengan Kondisi di Google Maps, Anda akan menerima anotasi sumber pada blok konten langkah `model_output` yang mendukung setiap respons. Metadata berikut akan ditampilkan:
 
-- Quell-URL
-- Name
+- URL sumber
+- nama
 
-Wenn Sie Ergebnisse aus der Fundierung mit Google Maps präsentieren, müssen Sie die zugehörigen Google Maps-Quellen angeben und Ihre Nutzer über Folgendes informieren:
+Saat menyajikan hasil dari Grounding with Google Maps, Anda harus menentukan sumber Google Maps terkait, dan memberi tahu pengguna Anda tentang hal berikut:
 
-- Die Google Maps-Quellen müssen direkt auf die generierten Inhalte folgen, die von den Quellen unterstützt werden. Diese generierten Inhalte werden auch als auf Google Maps basierendes Ergebnis bezeichnet.
-- Die Google Maps-Quellen müssen innerhalb einer Nutzerinteraktion sichtbar sein.
+- Sumber Google Maps harus segera mengikuti konten yang dihasilkan yang didukung oleh sumber tersebut. Konten yang dihasilkan ini juga disebut sebagai Hasil yang Di-grounding Google Maps.
+- Sumber Google Maps harus dapat dilihat dalam satu interaksi pengguna.
 
-### Google Maps-Quellen mit Google Maps-Links anzeigen
+### Menampilkan sumber Google Maps dengan link Google Maps
 
-Für jede Quellenangabe muss eine Linkvorschau generiert werden, die die folgenden Anforderungen erfüllt:
+Untuk setiap anotasi sumber, pratinjau link harus dibuat dengan mengikuti persyaratan berikut:
 
-- Geben Sie jede Quelle gemäß den Richtlinien für die Quellenangabe als Text
-  [für Google Maps an](#maps-attribution-guidelines).
-- Zeigen Sie den in der Antwort angegebenen Quellennamen an.
-- Verlinken Sie die Quelle mit der `url` aus der Anmerkung.
+- Berikan atribusi setiap sumber ke Google Maps dengan mengikuti [pedoman atribusi](#maps-attribution-guidelines) teks Google Maps.
+- Menampilkan nama sumber yang diberikan dalam respons.
+- Tautkan ke sumber menggunakan `url` dari anotasi.
 
-### Richtlinien für die Quellenangabe als Text für Google Maps
+### Panduan atribusi teks Google Maps
 
-Wenn Sie Quellen in Texten Google Maps zuordnen, beachten Sie die folgenden Richtlinien:
+Saat Anda mengatribusikan sumber ke Google Maps dalam teks, ikuti panduan berikut:
 
-- Ändern Sie den Text „Google Maps“ in keiner Weise:
-  - Ändern Sie die Groß- und Kleinschreibung von „Google Maps“ nicht.
-  - Fügen Sie keinen Zeilenumbruch in „Google Maps“ ein.
-  - Lokalisieren Sie „Google Maps“ nicht in eine andere Sprache.
-  - Verhindern Sie, dass Browser „Google Maps“ übersetzen, indem Sie das HTML-Attribut translate="no" verwenden.
+- Jangan mengubah teks Google Maps dengan cara apa pun:
+  - Jangan mengubah kapitalisasi Google Maps.
+  - Jangan pindahkan Google Maps ke beberapa baris.
+  - Jangan melokalkan Google Maps ke bahasa lain.
+  - Mencegah browser menerjemahkan Google Maps dengan menggunakan atribut HTML
+    translate="no".
 
-Weitere Informationen zu einigen unserer Google Maps-Datenanbieter und ihren
-Lizenzbedingungen finden Sie in den [rechtlichen Hinweisen zu Google Maps und Google Earth](https://www.google.com/help/legalnotices_maps/?hl=de).
+Untuk mengetahui informasi selengkapnya tentang beberapa penyedia data Google Maps kami dan persyaratan lisensi mereka, lihat [pemberitahuan hukum Google Maps dan Google Earth](https://www.google.com/help/legalnotices_maps/?hl=id).
 
-## Best Practices
+## Praktik terbaik
 
-- **Nutzerstandort angeben**:Um die relevantesten und personalisiertesten Antworten zu erhalten, geben Sie in der Toolkonfiguration für `google_maps` immer den Breiten- und Längengrad (`latitude` und `longitude`) an, wenn der Standort des Nutzers bekannt ist.
-- **Endnutzer informieren**:Informieren Sie Ihre Endnutzer deutlich darüber, dass Google Maps-Daten verwendet werden, um ihre Anfragen zu beantworten, insbesondere wenn das Tool aktiviert ist.
-- **Deaktivieren, wenn nicht erforderlich**:Die Fundierung mit Google Maps ist standardmäßig deaktiviert. Aktivieren Sie sie nur (`"tools": [{"type": "google_maps"}]`), wenn eine Anfrage einen
-  klaren geografischen Kontext hat, um Leistung und Kosten zu optimieren.
+- **Berikan lokasi pengguna:** Untuk respons yang paling relevan dan dipersonalisasi, selalu sertakan `latitude` dan `longitude` dalam konfigurasi alat `google_maps` Anda saat lokasi pengguna diketahui.
+- **Memberi Tahu Pengguna Akhir:** Beri tahu pengguna akhir Anda dengan jelas bahwa data Google Maps digunakan untuk menjawab kueri mereka, terutama saat alat ini diaktifkan.
+- **Nonaktifkan Jika Tidak Diperlukan:** Penentuan lokasi dengan Google Maps dinonaktifkan secara default. Aktifkan hanya (`"tools": [{"type": "google_maps"}]`) saat kueri memiliki
+  konteks geografis yang jelas, untuk mengoptimalkan performa dan biaya.
 
-## Beschränkungen
+## Batasan
 
-- Die Fundierung mit Google Maps unterstützt derzeit nur Prompts und Antworten in englischer Sprache.
-- Das Tool ist möglicherweise nicht in allen Regionen verfügbar.
-- Die Ergebnisse können je nach Standortgenauigkeit und verfügbaren Maps-Daten variieren.
-- **Geografischer Umfang**:Die Fundierung mit Google Maps ist weltweit verfügbar.
-- **Standardstatus**:Das Tool „Fundierung mit Google Maps“ ist standardmäßig deaktiviert.
-  Sie müssen es in Ihren API-Anfragen explizit aktivieren.
+- Perujukan dengan Google Maps saat ini hanya mendukung perintah dan respons dalam bahasa Inggris.
+- Alat ini mungkin hanya tersedia di wilayah tertentu.
+- Hasil dapat bervariasi berdasarkan akurasi lokasi dan data Maps yang tersedia.
+- **Cakupan Geografis:** Fitur Grounding dengan Google Maps tersedia secara global.
+- **Status Default:** Alat Perujukan dengan Google Maps dinonaktifkan secara default.
+  Anda harus mengaktifkannya secara eksplisit dalam permintaan API.
 
-## Preise und Ratenlimits
+## Harga dan batas kapasitas
 
-Die Preise für die Fundierung mit Google Maps variieren je nach Modellgeneration:
+Harga Grounding with Google Maps berbeda-beda bergantung pada generasi model:
 
-- **Gemini 3-Modelle**:Ihrem Projekt wird jede **Suchanfrage** in Rechnung gestellt, die das Modell ausführt. Eine einzelne **Suchanfrage** (Ihre API-Anfrage an das Modell) kann dazu führen, dass das Modell mehrere Suchanfragen ausführt, um die erforderlichen Informationen zu finden. Jede dieser Anfragen zählt als kostenpflichtige Nutzung des Tools.
-- **Gemini 2.5 und ältere Modelle**:Ihrem Projekt wird jede **Suchanfrage** in Rechnung gestellt.
-  Eine Anfrage wird nur dann in Rechnung gestellt, wenn die Anfrage mindestens ein auf Google Maps basierendes Ergebnis zurückgibt, unabhängig davon, wie viele einzelne Suchanfragen das Modell intern ausgeführt hat, um dieses Ergebnis zu erhalten.
+- **Model Gemini 3:** Project Anda ditagih untuk setiap **kueri penelusuran** yang
+  diputuskan untuk dieksekusi oleh model. Satu **perintah penelusuran** (permintaan API Anda ke model) dapat menyebabkan model menjalankan beberapa kueri penelusuran untuk menemukan informasi yang diperlukan. Setiap kueri ini dihitung sebagai penggunaan alat yang dapat ditagih.
+- **Gemini 2.5 dan model yang lebih lama:** Project Anda ditagih per **perintah penelusuran**.
+  Permintaan hanya ditagih jika perintah berhasil menampilkan setidaknya satu hasil berbasis Google Maps, terlepas dari jumlah kueri penelusuran individual yang dilakukan model secara internal untuk mendapatkan hasil tersebut.
 
-Ausführliche Informationen zu den Preisen finden Sie auf der Seite [Gemini API-Preise](https://ai.google.dev/gemini-api/docs/pricing?hl=de).
+Untuk mengetahui informasi harga mendetail, lihat [halaman harga Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
 
-## Unterstützte Modelle
+## Model yang didukung
 
-Die folgenden Modelle unterstützen die Fundierung mit Google Maps:
+Model berikut mendukung Perujukan dengan Google Maps:
 
-| Modell | Fundierung mit Google Maps |
+| Model | Grounding with Google Maps |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ |
-| [Gemini 3.1 Pro (Vorschau)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ |
-| [Gemini 3 Flash (Vorschau)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=id) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) | ✔️ |
+| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=id) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=id) | ✔️ |
+| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=id) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=id) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=id) | ✔️ |
 
-## Unterstützte Toolkombinationen
+## Kombinasi alat yang didukung
 
-Gemini 3-Modelle unterstützen die Kombination von integrierten Tools (z. B. Fundierung mit Google Maps) mit benutzerdefinierten Tools (Funktionsaufruf). Weitere Informationen finden Sie auf der
-[Seite Toolkombinationen](https://ai.google.dev/gemini-api/docs/tool-combination?hl=de).
+Model Gemini 3 mendukung penggabungan alat bawaan (seperti Grounding dengan Google Maps) dengan alat kustom (panggilan fungsi). Pelajari lebih lanjut di halaman
+[kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
 
-## Nächste Schritte
+## Langkah berikutnya
 
-- Weitere Informationen zu anderen [verfügbaren Tools](https://ai.google.dev/gemini-api/docs/tools?hl=de).
-- Weitere Informationen zu Best Practices für die verantwortungsbewusste Anwendung von KI und den Sicherheitsfiltern der Gemini API finden Sie unter [Sicherheitseinstellungen](https://ai.google.dev/gemini-api/docs/safety-settings?hl=de).
+- Pelajari [alat lain yang tersedia](https://ai.google.dev/gemini-api/docs/tools?hl=id).
+- Untuk mempelajari lebih lanjut praktik terbaik AI yang bertanggung jawab dan filter keamanan Gemini API, lihat [panduan Setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id).
 
-Feedback geben
+Kirim masukan
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Zuletzt aktualisiert: 2026-07-30 (UTC).
+Terakhir diperbarui pada 2026-09-12 UTC.
 
-Haben Sie Feedback für uns?
+Ada masukan untuk kami?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-30 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]

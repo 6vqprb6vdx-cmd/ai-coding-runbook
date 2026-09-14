@@ -1,38 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=ja
-fetched_at: 2026-09-07T05:33:01.859935+00:00
-title: "Gemini \u3068 LlamaIndex \u3092\u4f7f\u7528\u3057\u305f\u30ea\u30b5\u30fc\u30c1 \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=hi
+fetched_at: 2026-09-14T05:34:43.634430+00:00
+title: "Gemini \u0914\u0930 LlamaIndex \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0930\u093f\u0938\u0930\u094d\u091a \u090f\u091c\u0947\u0902\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-# Gemini と LlamaIndex を使用したリサーチ エージェント
+# Gemini और LlamaIndex की मदद से रिसर्च एजेंट
 
-LlamaIndex は、データに接続された LLM を使用してナレッジ エージェントを構築するためのフレームワークです。この例では、リサーチ エージェント用のマルチエージェント ワークフローを構築する方法を示します。LlamaIndex では、[`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
-はエージェント システムとマルチエージェント システムの構成要素です。
+LlamaIndex, एक ऐसा फ़्रेमवर्क है जिसकी मदद से, एलएलएम का इस्तेमाल करके नॉलेज एजेंट बनाए जा सकते हैं. ये एलएलएम, आपके डेटा से कनेक्ट होते हैं. इस उदाहरण में, रिसर्च एजेंट के लिए मल्टी-एजेंट वर्कफ़्लो बनाने का तरीका बताया गया है. LlamaIndex में, [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
+एजेंट और मल्टी-एजेंट सिस्टम के बिल्डिंग ब्लॉक होते हैं.
 
-Gemini API キーが必要です。キーがない場合は、Google AI Studio で
-[取得できます](https://aistudio.google.com/apikey?hl=ja)。
-まず、必要な LlamaIndex ライブラリをすべてインストールします。LlamaIndex は、内部で `google-genai` パッケージを使用します。
+आपके पास Gemini API पासकोड होना चाहिए. अगर आपके पास पहले से कोई Gemini Pro 1.5 का ऐक्सेस नहीं है, तो [Google AI Studio में जाकर इसका ऐक्सेस पाएं](https://aistudio.google.com/apikey?hl=hi).
+सबसे पहले, LlamaIndex की सभी ज़रूरी लाइब्रेरी इंस्टॉल करें. LlamaIndex, बैकग्राउंड में `google-genai` पैकेज का इस्तेमाल करता है.
 
 ```
 pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai llama-index-tools-google
 ```
 
-## LlamaIndex で Gemini を設定する
+## LlamaIndex में Gemini को सेट अप करना
 
-LlamaIndex エージェントのエンジンは、推論とテキスト処理を処理する LLM です。この例では、Gemini 3 Flash を使用します。API キーを環境変数として[設定してください
-。](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)
+LlamaIndex के किसी भी एजेंट का इंजन, एक एलएलएम होता है. यह एलएलएम, तर्क करने और टेक्स्ट को प्रोसेस करने का काम करता है. इस उदाहरण में Gemini 3 Flash का इस्तेमाल किया गया है. पक्का करें कि आपने [अपने एपीआई पासकोड को एनवायरमेंट वैरिएबल के तौर पर सेट किया हो](https://ai.google.dev/gemini-api/docs/api-key?hl=hi).
 
 ```
 import os
@@ -41,14 +39,13 @@ from llama_index.llms.google_genai import GoogleGenAI
 # Set your API key in the environment elsewhere, or with os.environ['GEMINI_API_KEY'] = '...'
 assert 'GEMINI_API_KEY' in os.environ
 
-llm = GoogleGenAI(model="gemini-3.5-flash")
+llm = GoogleGenAI(model="gemini-3.6-flash")
 ```
 
-## ビルドツール
+## बिल्ड टूल
 
-エージェントはツールを使用して、ウェブの検索や情報の保存など、外部の世界とやり取りします。[LlamaIndex のツール](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
-は、通常の Python 関数にすることも、既存の `ToolSpecs` からインポートすることもできます。
-Gemini には、Google 検索を使用するための組み込みツールが用意されています。ここでは、このツールを使用します。
+एजेंट, बाहरी दुनिया से इंटरैक्ट करने के लिए टूल का इस्तेमाल करते हैं. जैसे, वेब पर खोजना या जानकारी सेव करना. [LlamaIndex में मौजूद टूल](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/), सामान्य Python फ़ंक्शन हो सकते हैं या पहले से मौजूद `ToolSpecs` से इंपोर्ट किए जा सकते हैं.
+Gemini में Google Search का इस्तेमाल करने के लिए, पहले से मौजूद टूल होता है. इसका इस्तेमाल यहां किया जाता है.
 
 ```
 from google.genai import types
@@ -58,26 +55,26 @@ google_search_tool = types.Tool(
 )
 
 llm_with_search = GoogleGenAI(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     generation_config=types.GenerateContentConfig(tools=[google_search_tool])
 )
 ```
 
-検索が必要なクエリを使用して、LLM インスタンスをテストします。このガイドでは、実行中のイベント ループ（`python -m asyncio` や Google Colab など）を想定しています。
+अब एलएलएम इंस्टेंस को ऐसी क्वेरी के साथ टेस्ट करें जिसके लिए खोज करने की ज़रूरत होती है. इस गाइड में यह माना गया है कि इवेंट लूप चल रहा है. जैसे, `python -m asyncio` या Google Colab.
 
 ```
 response = await llm_with_search.acomplete("What's the weather like today in Biarritz?")
 print(response)
 ```
 
-リサーチ エージェントは、Python 関数をツールとして使用します。このタスクを実行するシステムを構築する方法はたくさんあります。この例では、次のものを使用します。
+रिसर्च एजेंट, Python फ़ंक्शन को टूल के तौर पर इस्तेमाल करेगा. इस काम को पूरा करने के लिए, सिस्टम बनाने के कई तरीके हैं. इस उदाहरण में, इनका इस्तेमाल किया जाएगा:
 
-1. `search_web` は、Gemini と Google 検索を使用して、指定されたトピックに関する情報をウェブで検索します。
-2. `record_notes` は、ウェブで見つかった調査結果を状態に保存して、他のツールで使用できるようにします。
-3. `write_report` は、`ResearchAgent` が見つけた情報を使用してレポートを作成します。
-4. `review_report` はレポートを確認し、フィードバックを提供します。
+1. `search_web` दिए गए विषय के बारे में जानकारी खोजने के लिए, Google Search के साथ Gemini का इस्तेमाल करता है.
+2. `record_notes` वेब पर मिली रिसर्च को सेव करता है, ताकि दूसरे टूल इसका इस्तेमाल कर सकें.
+3. `write_report`, `ResearchAgent` से मिली जानकारी का इस्तेमाल करके रिपोर्ट लिखता है
+4. `review_report` रिपोर्ट की समीक्षा करता है और सुझाव/राय देता है या शिकायत करता है.
 
-`Context` クラスは、エージェントとツールの間で状態を渡します。各エージェントは、システムの現在の状態にアクセスできます。
+`Context` क्लास, एजेंट/टूल के बीच स्टेट पास करती है. साथ ही, हर एजेंट के पास सिस्टम की मौजूदा स्थिति का ऐक्सेस होगा.
 
 ```
 from llama_index.core.workflow import Context
@@ -112,18 +109,18 @@ async def review_report(ctx: Context, review: str) -> str:
     return "Report reviewed."
 ```
 
-## マルチエージェント アシスタントを構築する
+## मल्टी-एजेंट असिस्टेंट बनाना
 
-マルチエージェント システムを構築するには、エージェントとそのインタラクションを定義します。
-システムには 3 つのエージェントがあります。
+मल्टी-एजेंट सिस्टम बनाने के लिए, एजेंट और उनके इंटरैक्शन तय किए जाते हैं.
+आपके सिस्टम में तीन एजेंट होंगे:
 
-1. `ResearchAgent` は、指定されたトピックに関する情報をウェブで検索します。
-2. `WriteAgent` は、`ResearchAgent` が見つけた情報を使用してレポートを作成します。
-3. `ReviewAgent` はレポートを確認し、フィードバックを提供します。
+1. `ResearchAgent` दिए गए विषय के बारे में जानकारी खोजने के लिए, वेब पर खोज करता है.
+2. `WriteAgent`, `ResearchAgent` से मिली जानकारी का इस्तेमाल करके रिपोर्ट लिखता है.
+3. `ReviewAgent` रिपोर्ट की समीक्षा करता है और सुझाव या राय देता है.
 
-この例では、`AgentWorkflow` クラスを使用して、これらのエージェントを順番に実行するマルチエージェント システムを作成します。各エージェントは、実行する内容を指示する `system_prompt` を受け取り、他のエージェントとの連携方法を提案します。
+इस उदाहरण में, `AgentWorkflow` क्लास का इस्तेमाल करके एक मल्टी-एजेंट सिस्टम बनाया गया है. यह सिस्टम, इन एजेंट को क्रम से लागू करेगा. हर एजेंट एक `system_prompt` लेता है, जो उसे बताता है कि उसे क्या करना चाहिए. साथ ही, यह भी बताता है कि उसे अन्य एजेंट के साथ कैसे काम करना चाहिए.
 
-必要に応じて、`can_handoff_to` を使用して、マルチエージェント システムが通信できる他のエージェントを指定できます（指定しない場合、システムは独自に判断しようとします）。
+आपके पास यह तय करने का विकल्प होता है कि मल्टी-एजेंट सिस्टम, `can_handoff_to` का इस्तेमाल करके किन अन्य एजेंट से बातचीत कर सकता है. अगर ऐसा नहीं किया जाता है, तो सिस्टम खुद ही इसका पता लगाने की कोशिश करेगा.
 
 ```
 from llama_index.core.agent.workflow import (
@@ -173,7 +170,7 @@ review_agent = FunctionAgent(
 )
 ```
 
-エージェントが定義されたので、`AgentWorkflow` を作成して実行できます。
+एजेंट तय कर लिए गए हैं. अब `AgentWorkflow` बनाया जा सकता है और उसे चलाया जा सकता है.
 
 ```
 from llama_index.core.agent.workflow import AgentWorkflow
@@ -189,7 +186,7 @@ agent_workflow = AgentWorkflow(
 )
 ```
 
-ワークフローの実行中に、イベント、ツール呼び出し、更新をコンソールにストリーミングできます。
+वर्कफ़्लो के लागू होने के दौरान, इवेंट, टूल कॉल, और अपडेट को कंसोल पर स्ट्रीम किया जा सकता है.
 
 ```
 from llama_index.core.agent.workflow import (
@@ -237,7 +234,7 @@ async for event in handler.stream_events():
         print(f"  With arguments: {event.tool_kwargs}")
 ```
 
-ワークフローが完了したら、レポートの最終出力と、レビュー エージェントからの最終レビューの状態を出力できます。
+वर्कफ़्लो पूरा होने के बाद, रिपोर्ट का फ़ाइनल आउटपुट प्रिंट किया जा सकता है. साथ ही, समीक्षा करने वाले एजेंट से समीक्षा की फ़ाइनल स्थिति भी प्रिंट की जा सकती है.
 
 ```
 state = await handler.ctx.store.get("state")
@@ -245,26 +242,24 @@ print("Report Content:\n", state["report_content"])
 print("\n------------\nFinal Review:\n", state["review"])
 ```
 
-## カスタム ワークフローでさらに活用する
+## कस्टम वर्कफ़्लो की मदद से, ज़्यादा काम करें
 
-`AgentWorkflow` は、マルチエージェント システムを始めるのに最適な方法です。ただし、より詳細な制御が必要な場合はどうすればよいでしょうか。 ワークフローを最初から構築できます。独自のワークフローを構築する理由としては、次のようなものがあります。
+मल्टी-एजेंट सिस्टम का इस्तेमाल शुरू करने के लिए, `AgentWorkflow` एक बेहतरीन तरीका है. हालांकि, अगर आपको ज़्यादा कंट्रोल की ज़रूरत हो, तो क्या करें? आपके पास नए सिरे से वर्कफ़्लो बनाने का विकल्प होता है. यहां कुछ ऐसी वजहें बताई गई हैं जिनकी वजह से, आपको अपना वर्कफ़्लो बनाने की ज़रूरत पड़ सकती है:
 
-- **プロセスをより詳細に制御する**: エージェントがたどる正確なパスを決定できます。これには、ループの作成、特定の時点での意思決定、エージェントが異なるタスクを並行して実行することが含まれます。
-- **複雑なデータを使用する**: プレーン テキストを超えて、カスタム ワークフローでは、入力と出力に JSON オブジェクトやカスタム クラスなど、より構造化されたデータを使用できます。
-- **さまざまなメディアを扱う**: テキストだけでなく、画像、音声、動画も理解して処理できるエージェントを構築します。
-- **よりスマートな計画**: エージェントが作業を開始する前に
-  詳細な計画を作成するワークフローを設計できます。これは、複数のステップを必要とする複雑なタスクに便利です。
-- **自己修正を有効にする**: 自分の作業を確認できるエージェントを作成します。出力が十分でない場合、エージェントは結果が完璧になるまで改善を繰り返します。
+- **प्रक्रिया पर ज़्यादा कंट्रोल**: आपके पास यह तय करने का विकल्प होता है कि आपके एजेंट किस तरीके से काम करेंगे. इसमें लूप बनाना, कुछ पॉइंट पर फ़ैसले लेना या एजेंटों को अलग-अलग टास्क पर एक साथ काम करने के लिए कहना शामिल है.
+- **जटिल डेटा का इस्तेमाल करें**: सिर्फ़ सामान्य टेक्स्ट का इस्तेमाल न करें. कस्टम वर्कफ़्लो की मदद से, इनपुट और आउटपुट के लिए ज़्यादा स्ट्रक्चर्ड डेटा इस्तेमाल किया जा सकता है. जैसे, JSON ऑब्जेक्ट या कस्टम क्लास.
+- **अलग-अलग मीडिया फ़ॉर्मैट के साथ काम करना**: ऐसे एजेंट बनाएं जो न सिर्फ़ टेक्स्ट को समझ सकें और उसे प्रोसेस कर सकें, बल्कि इमेज, ऑडियो, और वीडियो को भी समझ सकें और उन्हें प्रोसेस कर सकें.
+- **बेहतर प्लानिंग**: ऐसा वर्कफ़्लो डिज़ाइन किया जा सकता है जो एजेंटों के काम शुरू करने से पहले, एक विस्तृत प्लान तैयार करे. यह मुश्किल टास्क के लिए मददगार है. ऐसे टास्क में कई चरण शामिल होते हैं.
+- **खुद से सुधार करने की सुविधा चालू करें**: ऐसे एजेंट बनाएं जो अपने काम की समीक्षा कर सकें. अगर आउटपुट उम्मीद के मुताबिक नहीं है, तो एजेंट फिर से कोशिश कर सकता है. इससे, नतीजे को बेहतर बनाने की प्रोसेस तब तक चलती रहती है, जब तक नतीजा सही नहीं हो जाता.
 
-LlamaIndex Workflows の詳細については、[LlamaIndex Workflows
-ドキュメント](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)をご覧ください。
+LlamaIndex Workflows के बारे में ज़्यादा जानने के लिए, [LlamaIndex Workflows का दस्तावेज़](https://docs.llamaindex.ai/en/stable/module_guides/workflow/) देखें.
 
-フィードバックを送信
+सुझाव भेजें
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最終更新日 2026-06-10 UTC。
+आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
 
-ご意見をお聞かせください
+क्या आपको हमें और कुछ बताना है?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-10 UTC。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]

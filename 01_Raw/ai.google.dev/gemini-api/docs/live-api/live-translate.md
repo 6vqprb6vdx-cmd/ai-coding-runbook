@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=zh-CN
-fetched_at: 2026-09-07T05:38:40.350826+00:00
-title: "\u4f7f\u7528 Gemini Live API \u8fdb\u884c\u5b9e\u65f6\u7ffb\u8bd1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=vi
+fetched_at: 2026-09-14T05:40:05.925609+00:00
+title: "D\u1ecbch tr\u1ef1c ti\u1ebfp b\u1eb1ng Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-发送反馈
+Gửi ý kiến phản hồi
 
-# 使用 Gemini Live API 进行实时翻译
+# Dịch trực tiếp bằng Gemini Live API
 
-Gemini Live API 支持使用 [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=zh-cn) 模型在 70 多种语言之间进行低延迟的实时语音翻译。通过使用翻译设置配置 Live API，您可以以一种语言流式传输音频，并以另一种语言接收翻译后的音频输出，从而实现无缝的实时语音翻译。
+Gemini Live API hỗ trợ tính năng dịch lời nói sang lời nói theo thời gian thực với độ trễ thấp giữa hơn 70 ngôn ngữ bằng mô hình [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=vi). Bằng cách định cấu hình Live API với chế độ cài đặt dịch, bạn có thể phát trực tiếp âm thanh bằng một ngôn ngữ và nhận đầu ra âm thanh đã dịch bằng một ngôn ngữ khác, nhờ đó có thể dịch liền mạch từ giọng nói sang giọng nói theo thời gian thực.
 
-[在 Google AI Studio 中试用实时翻译mic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=zh-cn)
-[从 GitHub 克隆示例应用code](https://github.com/google-gemini/gemini-live-api-examples)
-[使用编码代理技能terminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=zh-cn#gemini-live-api-dev)
+[Dùng tính năng Dịch trực tiếp trong Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=vi)
+[Sao chép ứng dụng mẫu từ GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[Sử dụng các kỹ năng của trợ lý lập trìnhterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=vi#gemini-live-api-dev)
 
-## 人工客服与实时翻译
+## Nhân viên hỗ trợ trực tiếp so với tính năng Dịch trực tiếp
 
-虽然两者都使用 Live API，但实时翻译的心理模型与对话式实时代理互动不同。
+Mặc dù cả hai đều sử dụng Live API, nhưng mô hình tư duy cho tính năng Dịch trực tiếp khác với các lượt tương tác theo thời gian thực của tác nhân đàm thoại.
 
-| 人工客服 | 实时翻译 |
+| Nhân viên hỗ trợ trực tiếp | Dịch trực tiếp |
 | --- | --- |
-| **模型充当助理。**它会倾听、推理并代表您采取行动。 | **模型充当翻译。**它的行为类似于实时翻译管道。 |
-| **使用基于轮流的互动。**依赖于暂停、意图检测和处理中断。 | **使用连续流处理。**在说话者说话时进行翻译，无需等待轮流。 |
-| **支持工具和代理。**原生支持函数调用、Google 搜索和说明。 | **仅支持翻译。**纯低延迟翻译；不支持工具或说明。 |
-| **完全多模态。**支持文本、音频、视频和图片输入。 | **音频受限。**输入仅限于音频，以确保严格的实时延迟阈值。 |
-| **精细配置。**使用生成、语音、工具和系统说明。 | **简化配置。**设置 `target_language_code` 和 `echo_target_language` 等切换开关。 |
+| **Mô hình này đóng vai trò là một trợ lý.** Gemini có thể lắng nghe, suy luận và hành động thay cho bạn. | **Mô hình đóng vai trò là một trình thông dịch.** Nó hoạt động như một quy trình dịch theo thời gian thực. |
+| **Sử dụng các lượt tương tác theo lượt.** Dựa vào các khoảng tạm dừng, tính năng phát hiện ý định và xử lý các trường hợp gián đoạn. | **Sử dụng xử lý theo luồng liên tục.** Dịch ngay khi người nói trò chuyện mà không cần chờ đến lượt. |
+| **Hỗ trợ các công cụ và tác nhân.** Hỗ trợ gốc cho tính năng gọi hàm, Google Tìm kiếm và hướng dẫn. | **Chỉ hỗ trợ tính năng dịch.** Bản dịch thuần tuý có độ trễ thấp; không hỗ trợ các công cụ hoặc hướng dẫn. |
+| **Hoàn toàn đa phương thức.** Hỗ trợ thông tin đầu vào ở dạng văn bản, âm thanh, video và hình ảnh. | **Âm thanh bị hạn chế.** Dữ liệu đầu vào chỉ giới hạn ở âm thanh để đảm bảo ngưỡng độ trễ theo thời gian thực nghiêm ngặt. |
+| **Cấu hình chi tiết.** Sử dụng các hướng dẫn về việc tạo, lời nói, công cụ và hệ thống. | **Đơn giản hoá cấu hình.** Đặt `target_language_code` và các nút bật/tắt như `echo_target_language`. |
 
-## 开始使用
+## Bắt đầu
 
-以下示例演示了如何初始化客户端并使用翻译配置连接到 Live API。
+Các ví dụ sau đây minh hoạ cách khởi tạo một ứng dụng và kết nối với Live API bằng cấu hình dịch.
 
 ### Python
 
@@ -185,15 +185,15 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## 发送音频
+## Đang gửi âm thanh
 
-如需流式传输语音输入以进行翻译，请发送原始的小端序 16 位 PCM 音频。
+Để truyền trực tuyến dữ liệu đầu vào bằng giọng nói để dịch, bạn sẽ gửi âm thanh PCM 16 bit, little-endian thô.
 
-- **输入音频格式**：原始 16 位 PCM，采样率 16kHz（单声道，小端序）。
-- **输出音频格式**：原始 16 位 PCM，采样率 24kHz（单声道，小端序）。
-- **块大小和延迟时间**：以 100 毫秒的块发送音频。
+- **Định dạng âm thanh đầu vào**: PCM 16 bit thô ở tốc độ 16 kHz (đơn âm, little-endian).
+- **Định dạng âm thanh đầu ra**: PCM 16 bit thô ở 24 kHz (đơn âm, little-endian).
+- **Kích thước và độ trễ của phân đoạn**: Gửi âm thanh theo phân đoạn 100 mili giây.
 
-以下示例展示了如何向会话发送音频块。
+Các ví dụ sau đây cho biết cách gửi các đoạn âm thanh đến phiên.
 
 ### Python
 
@@ -238,23 +238,23 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## 配置
+## Cấu hình
 
-如需启用翻译，您必须在会话设置期间在 `generationConfig` 中指定 `translationConfig`。
+Để bật tính năng dịch, bạn phải chỉ định `translationConfig` trong `generationConfig` trong quá trình thiết lập phiên.
 
-### 设置消息配置
+### Thiết lập cấu hình thông báo
 
-`generationConfig` 支持以下字段以启用转录：
+`generationConfig` hỗ trợ các trường sau để bật bản chép lời:
 
-- **`inputAudioTranscription`**：一个对象，如果存在，则允许模型发送输入音频的文本转录。
-- **`outputAudioTranscription`**：一个对象，如果存在，则允许模型发送输出（翻译后的）音频的文本转录。
+- **`inputAudioTranscription`**: Một đối tượng (nếu có) cho phép mô hình gửi bản chép lời bằng văn bản của âm thanh đầu vào.
+- **`outputAudioTranscription`**: Một đối tượng (nếu có) cho phép mô hình gửi bản chép lời bằng văn bản của âm thanh đầu ra (đã dịch).
 
-`translationConfig` 支持以下字段：
+`translationConfig` hỗ trợ các trường sau:
 
-- **`targetLanguageCode`**：您希望模型翻译成的语言的 [BCP-47 语言代码](#supported-languages)（例如，波兰语为 `"pl"`，西班牙语为 `"es"`）。默认值为 `"en"`。
-- **`echoTargetLanguage`**：一个布尔值，用于指示应如何处理已采用目标语言的输入音频。如果设置为 `true`，模型将回显（鹦鹉学舌）已采用目标语言的输入音频。如果设置为 `false`，当输入语音已采用目标语言时，模型将保持静默。默认值为 `false`。
+- **`targetLanguageCode`**: [Mã ngôn ngữ BCP-47](#supported-languages) của ngôn ngữ mà bạn muốn mô hình dịch sang (ví dụ: `"pl"` cho tiếng Ba Lan, `"es"` cho tiếng Tây Ban Nha). Giá trị mặc định là `"en"`.
+- **`echoTargetLanguage`**: Một giá trị boolean cho biết cách xử lý âm thanh đầu vào đã có bằng ngôn ngữ đích. Nếu được đặt thành `true`, mô hình sẽ lặp lại (nhại) âm thanh đầu vào đã có sẵn bằng ngôn ngữ đích. Nếu bạn đặt thành `false`, mô hình sẽ giữ im lặng khi lời nói đầu vào đã ở ngôn ngữ đích. Giá trị mặc định là `false`.
 
-以下是设置消息结构的示例：
+Dưới đây là ví dụ về cấu trúc thông báo thiết lập:
 
 ```
 "setup": {
@@ -273,19 +273,19 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## 在客户端应用中使用临时令牌
+## Sử dụng mã thông báo tạm thời trong các ứng dụng phía máy khách
 
-对于客户端到服务器的应用，您可以使用 [临时令牌](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=zh-cn)（目前为 `v1beta`）来避免公开您的 API 密钥。
+Đối với các ứng dụng từ ứng dụng đến máy chủ, bạn có thể sử dụng [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=vi) (hiện ở trạng thái `v1beta`) để tránh lộ khoá API.
 
-将临时令牌与实时翻译搭配使用时：
+Khi sử dụng mã thông báo tạm thời với tính năng Dịch trực tiếp:
 
-1. 您必须使用 `v1beta` 端点。
-2. **锁定配置** ：默认情况下，您应在服务器上的令牌创建限制条件中指定 `translationConfig`。这样可确保翻译配置被锁定，并且客户端无法篡改。
-3. **解锁配置**：如果您希望能够在客户端设置 `translationConfig`（例如，让用户选择自己的目标语言），则必须从令牌创建请求中省略该配置，并改为设置 `"lock_additional_fields": []`。这样会解锁 `translationConfig` 以在客户端设置。
+1. Bạn phải sử dụng điểm cuối `v1beta`.
+2. **Khoá cấu hình:** Theo mặc định, bạn nên chỉ định `translationConfig` trong các ràng buộc tạo mã thông báo trên máy chủ. Điều này đảm bảo cấu hình dịch được khoá và ứng dụng không thể giả mạo.
+3. **Cấu hình mở khoá:** Nếu muốn có thể đặt `translationConfig` ở phía máy khách (ví dụ: để cho phép người dùng chọn ngôn ngữ đích của riêng họ), bạn phải bỏ qua tham số này trong yêu cầu tạo mã thông báo và đặt `"lock_additional_fields": []` thay thế. Thao tác này sẽ mở khoá `translationConfig` để được đặt ở phía máy khách.
 
-### 创建受限的临时令牌
+### Tạo mã thông báo tạm thời bị hạn chế
 
-以下示例演示了如何创建具有翻译限制条件的临时令牌。
+Các ví dụ sau đây minh hoạ cách tạo mã thông báo tạm thời có các quy tắc ràng buộc về bản dịch.
 
 ### Python
 
@@ -366,74 +366,74 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-## 限制
+## Các điểm hạn chế
 
-- **输入模态**：翻译仅支持音频输入。不支持文本输入。
-- **语音复制**：语音复制可能不一致。语音可能会在长时间暂停后发生变化，根据语音的开头分配错误的性别，或者在快速的多说话者对话期间停留在一种语音上。
-- **语言检测**：语言检测难以处理重口音、相似语言（例如西班牙语与葡萄牙语）或快速语言切换。**注意** ：这只会影响输入转录。语言代码和最终翻译仍应准确无误。
-- **背景音频**：该模型旨在过滤掉噪声和音乐以生成清晰的语音，但并非所有背景音频都可能会被忽略。
-- **回显目标语言**：当 `echoTargetLanguage: true` 时，如果输入音频已采用目标语言，背景噪声或音乐可能会在翻译后的音频中引入伪影。
+- **Phương thức nhập**: Chỉ hỗ trợ phương thức nhập bằng âm thanh để dịch. Không hỗ trợ nhập văn bản.
+- **Nhân bản giọng nói**: Tính năng nhân bản giọng nói có thể không nhất quán. Giọng nói có thể thay đổi sau khi tạm dừng lâu, gán sai giới tính dựa trên cách bắt đầu lời nói hoặc bị kẹt ở một giọng nói trong các cuộc trò chuyện nhanh có nhiều người nói.
+- **Phát hiện ngôn ngữ**: Tính năng phát hiện ngôn ngữ gặp khó khăn khi giọng nói có nhiều âm sắc, ngôn ngữ tương tự (ví dụ: tiếng Tây Ban Nha so với tiếng Bồ Đào Nha) hoặc khi ngôn ngữ chuyển đổi nhanh chóng. **Lưu ý:** Điều này chỉ ảnh hưởng đến bản chép lời đầu vào. Mã ngôn ngữ và bản dịch cuối cùng vẫn phải chính xác.
+- **Âm thanh nền**: Mô hình này được thiết kế để lọc bỏ tiếng ồn và nhạc nhằm tạo ra lời nói rõ ràng, nhưng có thể không bỏ qua được tất cả âm thanh nền.
+- **Echo Target Language** (Lặp lại ngôn ngữ đích): Khi `echoTargetLanguage: true`, tạp âm hoặc nhạc nền có thể tạo ra các hiện tượng lạ trong bản âm thanh được dịch khi âm thanh đầu vào đã ở ngôn ngữ đích.
 
-## 支持的语言
+## Ngôn ngữ được hỗ trợ
 
-实时翻译支持以下语言。
+Tính năng Dịch trực tiếp hỗ trợ những ngôn ngữ sau.
 
-| 语言 | BCP-47 代码 | 语言 | BCP-47 代码 |
+| Ngôn ngữ | Mã BCP-47 | Ngôn ngữ | Mã BCP-47 |
 | --- | --- | --- | --- |
-| 南非荷兰语 | af | 哈萨克语 | kk |
-| Akan | ak | 高棉语 | km |
-| 阿尔巴尼亚语 | sq | 卢旺达语 | rw |
-| 阿姆哈拉语 | am | 韩语 | ko |
-| 阿拉伯语 | ar | 老挝语 | lo |
-| 亚美尼亚语 | hy | 拉脱维亚语 | lv |
-| 阿塞拜疆语 | az | 立陶宛语 | lt |
-| 巴斯克语 | eu | 马其顿语 | mk |
-| 白俄罗斯语 | be | 马来语 | ms |
-| 孟加拉语 | bn | 马拉雅拉姆语 | ml |
-| 保加利亚语 | bg | 马拉地语 | mr |
-| 缅甸语（缅甸） | my | 蒙古语 | mn |
-| 加泰罗尼亚语 | ca | 尼泊尔语 | ne |
-| 中文（简体） | zh-Hans | 挪威语 | no、nb |
-| 繁体中文 (台湾) | zh-Hant | 波斯语 | fa |
-| 克罗地亚语 | hr | 波兰语 | pl |
-| 捷克语 | cs | 葡萄牙语（巴西） | pt-BR |
-| 丹麦语 | da | 葡萄牙语（葡萄牙） | pt-PT |
-| 荷兰语 | nl | 旁遮普语 | pa |
-| 英语 | en | 罗马尼亚语 | ro |
-| 爱沙尼亚语 | et | 俄语 | ru |
-| 菲律宾语 | fil | 塞尔维亚语 | sr |
-| 芬兰语 | fi | 信德语 | sd |
-| 法语 | fr | 僧伽罗语 | si |
-| 加利西亚语 | gl | 斯洛伐克语 | sk |
-| 格鲁吉亚语 | ka | 斯洛文尼亚语 | sl |
-| 德语 | de | 西班牙语 | es |
-| 希腊语 | el | 巽他语 | su |
-| 古吉拉特语 | gu | 斯瓦希里语 | sw |
-| 豪萨语 | ha | 瑞典语 | sv |
-| 希伯来语 | he | 泰米尔语 | ta |
-| 印地语 | hi | 泰卢固语 | te |
-| 匈牙利语 | hu | 泰语 | th |
-| 冰岛语 | is | 土耳其语 | tr |
-| 印度尼西亚语 | id | 乌克兰语 | uk |
-| 意大利语 | it | 乌尔都语 | ur |
-| 日语 | ja | 乌兹别克语 | uz |
-| 爪哇语 | jv | 越南语 | vi |
-| 卡纳达语 | kn | 祖鲁语 | zu |
+| Tiếng Hà Lan ở Nam Phi | af | Tiếng Kazakh | kk |
+| Tiếng Akan | ak | Tiếng Khmer | km |
+| Tiếng Albania | sq | Tiếng Kinyarwanda | rw |
+| Tiếng Amhara | am | Tiếng Hàn | ko |
+| Tiếng Ả Rập | ar | Tiếng Lào | lo |
+| Tiếng Armenia | hy | Tiếng Latvia | lv |
+| Tiếng Azerbaijan | az | Tiếng Lithuania | lt |
+| Tiếng Basque | eu | Tiếng Macedonia | mk |
+| Tiếng Belarus | be | Tiếng Malay | ms |
+| Tiếng Bengal | bn | Tiếng Malayalam | ml |
+| Tiếng Bungary | bg | Tiếng Marathi | mr |
+| Tiếng Miến Điện (Myanmar) | my | Tiếng Mông Cổ | mn |
+| Tiếng Catalan | ca | Tiếng Nepal | ne |
+| Tiếng Trung (Giản thể) | zh-Hans | Tiếng Na Uy | không, nb |
+| Tiếng Trung (Phồn thể) | zh-Hant | Persian | fa |
+| Croatian | giờ | Tiếng Ba Lan | pl |
+| Tiếng Séc | cs | Tiếng Bồ Đào Nha (Brazil) | pt-BR |
+| Tiếng Đan Mạch | da | Tiếng Bồ Đào Nha (Bồ Đào Nha) | pt-PT |
+| Tiếng Hà Lan | nl | Tiếng Punjab | pa |
+| Tiếng Anh | vi | Tiếng Rumani | ro |
+| Tiếng Estonia | et | Tiếng Nga | ru |
+| Tiếng Philippines | fil | Tiếng Serbia | sr |
+| Tiếng Phần Lan | fi | Tiếng Sindh | sd |
+| Tiếng Pháp | fr | Tiếng Sinhala | si |
+| Tiếng Galicia | gl | Tiếng Slovak | sk |
+| Tiếng Gruzia | ka | Tiếng Slovenia | sl |
+| Tiếng Đức | de | Tiếng Tây Ban Nha | es |
+| Tiếng Hy Lạp | el | Tiếng Sunda | su |
+| Tiếng Gujarat | gu | Tiếng Swahili | sw |
+| Tiếng Hausa | ha | Tiếng Thuỵ Điển | sv |
+| Tiếng Do Thái | hi hi | Tiếng Tamil | ta |
+| Tiếng Hindi | hi | Tiếng Telugu | te |
+| Tiếng Hungary | hu | Tiếng Thái | th |
+| Tiếng Iceland | is | Tiếng Thổ Nhĩ Kỳ | tr |
+| Tiếng Indonesia | id | Tiếng Ukraina | uk |
+| Tiếng Ý | it | Tiếng Urdu | ur |
+| Tiếng Nhật | ja | Tiếng Uzbek | uz |
+| Tiếng Java | jv | Tiếng Việt | vi |
+| Tiếng Kannada | kn | Tiếng Zulu | zu |
 
-## 后续步骤
+## Bước tiếp theo
 
-- 阅读完整的 Live API [功能](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=zh-cn)指南。
-- 阅读 [SDK 使用入门](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=zh-cn) 指南。
-- 阅读 [WebSocket 使用入门](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=zh-cn) 指南。
-- 阅读[临时令牌](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=zh-cn)指南，了解如何在客户端到服务器的应用中进行安全身份验证。
-- 从 GitHub 克隆 [Live API 示例](https://github.com/google-gemini/gemini-live-api-examples)。
+- Đọc hướng dẫn đầy đủ về [Các chức năng](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi) của Live API.
+- Đọc hướng dẫn [Bắt đầu sử dụng SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=vi).
+- Đọc hướng dẫn [Bắt đầu sử dụng WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=vi).
+- Đọc hướng dẫn về [Mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=vi) để xác thực an toàn trong các ứng dụng từ ứng dụng đến máy chủ.
+- Sao chép [các ví dụ về Live API](https://github.com/google-gemini/gemini-live-api-examples) trên GitHub.
 
-发送反馈
+Gửi ý kiến phản hồi
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最后更新时间 (UTC)：2026-07-23。
+Cập nhật lần gần đây nhất: 2026-07-23 UTC.
 
-需要向我们提供更多信息？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-23。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-23 UTC."],[],[]]

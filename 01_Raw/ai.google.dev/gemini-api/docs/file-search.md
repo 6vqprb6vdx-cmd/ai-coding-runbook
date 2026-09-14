@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=de
-fetched_at: 2026-09-07T05:40:49.387024+00:00
+fetched_at: 2026-09-14T05:43:50.534662+00:00
 title: "Dateisuche \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
@@ -18,9 +18,9 @@ Feedback geben
 
 # Dateisuche
 
-Die Gemini API ermöglicht Retrieval-Augmented Generation („RAG“) über das Tool „Dateisuche“. Bei der Dateisuche werden Ihre Daten importiert, in Chunks aufgeteilt und indexiert, damit relevante Informationen auf Grundlage eines bereitgestellten Prompts schnell abgerufen werden können. Diese abgerufenen Informationen werden dann als Kontext für das Modell verwendet, damit es genauere und relevantere Antworten liefern kann. Die Dateisuche bietet auch multimodale Funktionen mit Texteinbettungen, die von `gemini-embedding-001` unterstützt werden, und Bild-/multimodalen Einbettungen, die von `gemini-embedding-2` unterstützt werden.
+Die Gemini API ermöglicht Retrieval-Augmented Generation („RAG“) über das Tool „File Search“. Bei der Dateisuche werden Ihre Daten importiert, in Chunks aufgeteilt und indexiert, damit relevante Informationen auf Grundlage eines bereitgestellten Prompts schnell abgerufen werden können. Diese abgerufenen Informationen werden dann als Kontext für das Modell verwendet, damit es genauere und relevantere Antworten liefern kann. Die Dateisuche bietet auch multimodale Funktionen mit Texteinbettungen, die von `gemini-embedding-001` unterstützt werden, und Bild-/multimodalen Einbettungen, die von `gemini-embedding-2` unterstützt werden.
 
-Das Speichern von Dateien und das Generieren von Einbettungen zur Abfragezeit ist kostenlos. Sie zahlen nur für das Erstellen von Einbettungen, wenn Sie Ihre Dateien zum ersten Mal indexieren, sowie für die normalen Kosten für Gemini-Modell-Ein- und Ausgabetokens. Dieses neue Abrechnungsmodell macht es einfacher und kostengünstiger, das Tool zur Dateisuche zu entwickeln und zu skalieren. Weitere Informationen finden Sie im Abschnitt zu [Preisen](#pricing).
+Die Dateispeicherung und die Generierung von Einbettungen zur Abfragezeit sind kostenlos. Sie zahlen nur für das Erstellen von Einbettungen, wenn Sie Ihre Dateien zum ersten Mal indexieren, sowie für die normalen Kosten für Gemini-Modell-Ein- und Ausgabetokens. Dieses neue Abrechnungsmodell macht es einfacher und kostengünstiger, das Tool zur Dateisuche zu entwickeln und zu skalieren. Weitere Informationen finden Sie im Abschnitt zu [Preisen](#pricing).
 
 ## Direkt in den File Search-Speicher hochladen
 
@@ -55,7 +55,7 @@ while not operation.done:
     operation = client.operations.get(operation)
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Can you tell me about [insert question]",
     tools=[{
         "type": "file_search",
@@ -104,7 +104,7 @@ async function run() {
   }
 
   const interaction = await ai.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: "Can you tell me about [insert question]",
     tools: [{
       type: "file_search",
@@ -174,7 +174,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H "Content-Type: application/json" \
     -d '{
-      "model": "gemini-3.7-flash",
+      "model": "gemini-3.6-flash",
       "input": "Can you tell me about [insert question]",
       "tools": [{
         "type": "file_search",
@@ -187,7 +187,7 @@ Weitere Informationen finden Sie in der API-Referenz für [`uploadToFileSearchSt
 
 ## Dateien importieren
 
-Alternativ können Sie eine vorhandene Datei hochladen und [in Ihren Dateisuchspeicher importieren](https://ai.google.dev/api/file-search/file-search-stores?hl=de#method:-filesearchstores.importfile):
+Alternativ können Sie eine vorhandene Datei hochladen und [in Ihren Dateispeicher für die Suche importieren](https://ai.google.dev/api/file-search/file-search-stores?hl=de#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -217,7 +217,7 @@ while not operation.done:
     operation = client.operations.get(operation)
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Can you tell me about [insert question]",
     tools=[{
         "type": "file_search",
@@ -263,7 +263,7 @@ async function run() {
   }
 
   const interaction = await ai.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: "Can you tell me about [insert question]",
     tools: [{
       type: "file_search",
@@ -330,7 +330,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H "Content-Type: application/json" \
     -d '{
-      "model": "gemini-3.7-flash",
+      "model": "gemini-3.6-flash",
       "input": "Can you tell me about [insert question]",
       "tools": [{
         "type": "file_search",
@@ -449,15 +449,15 @@ Für Einbettungen gibt es keine Gültigkeitsdauer (Time To Live, TTL). Sie bleib
 So verwenden Sie die File Search `uploadToFileSearchStore` API:
 
 1. **File Search-Speicher erstellen**: Ein File Search-Speicher enthält die verarbeiteten Daten aus Ihren Dateien. Er ist der persistente Container für die Einbettungen, auf denen die semantische Suche basiert.
-2. **Datei hochladen und in einen File Search-Speicher importieren**: Sie können gleichzeitig eine Datei hochladen und die Ergebnisse in Ihren File Search-Speicher importieren. Dadurch wird ein temporäres `File`-Objekt erstellt, das eine Referenz zu Ihrem Rohdokument ist. Diese Daten werden dann in Chunks aufgeteilt, in File Search-Einbettungen umgewandelt und indexiert. Das `File`-Objekt wird nach 48 Stunden gelöscht. Die in den Dateisuchspeicher importierten Daten werden dagegen auf unbestimmte Zeit gespeichert, bis Sie sie löschen.
+2. **Datei hochladen und in einen File Search-Speicher importieren**: Sie können gleichzeitig eine Datei hochladen und die Ergebnisse in Ihren File Search-Speicher importieren. Dadurch wird ein temporäres `File`-Objekt erstellt, das eine Referenz zu Ihrem Rohdokument ist. Diese Daten werden dann in Chunks aufgeteilt, in File Search-Einbettungen umgewandelt und indexiert. Das `File`-Objekt wird nach 48 Stunden gelöscht. Die in den File Search-Speicher importierten Daten werden dagegen auf unbestimmte Zeit gespeichert, bis Sie sie löschen.
 3. **Abfrage mit der Dateisuche**: Schließlich verwenden Sie das Tool `FileSearch` in einem `generateContent`-Aufruf. In der Toolkonfiguration geben Sie einen `FileSearchRetrievalResource` an, der auf die `FileSearchStore` verweist, die Sie durchsuchen möchten. Dadurch wird das Modell angewiesen, eine semantische Suche in diesem bestimmten File Search-Speicher durchzuführen, um relevante Informationen für die Fundierung der Antwort zu finden.
 
 ![Indexierungs- und Abfrageprozess der Dateisuche](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=de)
 
 Indexierungs- und Abfrageprozess der Dateisuche
 
-Im Diagramm stellt die gepunktete Linie von *Dokumente* zu *Embedding-Modell* (mit [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=de)) die `uploadToFileSearchStore` API dar (*Dateispeicher* wird umgangen).
-Andernfalls wird durch die separate Erstellung und den anschließenden Import von Dateien mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) der Indexierungsprozess von *Dokumente* zu *Dateispeicher* und dann zu *Embedding-Modell* verschoben.
+Im Diagramm stellt die gepunktete Linie von *Dokumente* zu *Einbettungsmodell* (mit [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=de)) die `uploadToFileSearchStore` API dar (*Dateispeicher* wird umgangen).
+Andernfalls wird der Indexierungsprozess durch die separate Erstellung und den anschließenden Import von Dateien mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) von *Dokumente* zu *Dateispeicher* und dann zu *Einbettungsmodell* verschoben.
 
 ## Dateispeicher
 
@@ -608,7 +608,7 @@ Das ist nützlich, wenn Sie mehrere Dokumente in einem Dateisuchspeicher haben u
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Tell me about the book 'I, Claudius'",
     tools=[{
         "type": "file_search",
@@ -628,7 +628,7 @@ for step in interaction.steps:
 
 ```
 const interaction = await ai.interactions.create({
-  model: "gemini-3.7-flash",
+  model: "gemini-3.6-flash",
   input: "Tell me about the book 'I, Claudius'",
   tools: [{
     type: "file_search",
@@ -656,7 +656,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
-            "model": "gemini-3.7-flash",
+            "model": "gemini-3.6-flash",
             "input": [{"type": "text", "text": "Tell me about the book I, Claudius"}],
             "tools": [{
                 "type": "file_search",
@@ -863,8 +863,7 @@ Das folgende Snippet ist ein Beispiel für einen REST-Antwortschritt:
 }
 ```
 
-NPCs können mit den folgenden Code-Snippets abgerufen `media_id` und
-die Medien heruntergeladen werden:
+Die folgenden Code-Snippets zeigen, wie Sie die `media_id` abrufen und die Medien herunterladen:
 
 ### Python
 
@@ -915,7 +914,7 @@ Wenn Sie Ihren Dateien benutzerdefinierte Metadaten hinzugefügt haben, können 
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Tell me about [insert question]",
     tools=[{
         "type": "file_search",
@@ -935,7 +934,7 @@ for step in interaction.steps:
 
 ```
 const interaction = await ai.interactions.create({
-  model: "gemini-3.7-flash",
+  model: "gemini-3.6-flash",
   input: "Tell me about [insert question]",
   tools: [{
     type: "file_search",
@@ -1004,7 +1003,7 @@ class Money(BaseModel):
     currency: str = Field(description="The currency of amount.")
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="What is the minimum hourly wage in Tokyo right now?",
     tools=[{
         "type": "file_search",
@@ -1038,7 +1037,7 @@ const moneySchema = z.fromJSONSchema(moneyJsonSchema);
 
 async function run() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: "What is the minimum hourly wage in Tokyo right now?",
     tools: [{
       type: "file_search",
@@ -1066,7 +1065,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": "What is the minimum hourly wage in Tokyo right now?",
     "tools": [{
       "type": "file_search",
@@ -1093,10 +1092,9 @@ Die folgenden Modelle unterstützen die Dateisuche:
 
 | Modell | Dateisuche |
 | --- | --- |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=de) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
 | [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ |
 | [Gemini 3.1 Pro (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | ✔️ |
 | [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ |
 | [Gemini 3 Flash (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de) | ✔️ |
@@ -1300,7 +1298,7 @@ Die Dateisuche unterstützt eine Vielzahl von Dateiformaten, die in den folgende
 ## Beschränkungen
 
 - **Live API**:Die Dateisuche wird in der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) nicht unterstützt.
-- **Inkompatibilität von Tools**:Integrierte Fundierungs-Tools können nicht miteinander kombiniert werden. So kann beispielsweise die Dateisuche nicht gleichzeitig mit [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) oder [URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=de) in derselben Anfrage verwendet werden.
+- **Inkompatibilität von Tools**:Integrierte Fundierungstools können nicht miteinander kombiniert werden. So kann beispielsweise die Dateisuche nicht gleichzeitig mit [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) oder [URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=de) in derselben Anfrage verwendet werden.
 
 ### Ratenlimits
 
@@ -1323,14 +1321,14 @@ Die File Search API unterliegt den folgenden Einschränkungen, um die Stabilitä
 
 ## Nächste Schritte
 
-- [API-Referenz für File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=de) und [API-Referenz für File Search-Dokumente](https://ai.google.dev/api/file-search/documents?hl=de)
+- [API-Referenz für File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=de) und [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=de)
 
 Feedback geben
 
 Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Zuletzt aktualisiert: 2026-08-19 (UTC).
+Zuletzt aktualisiert: 2026-09-12 (UTC).
 
 Haben Sie Feedback für uns?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-08-19 (UTC)."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]

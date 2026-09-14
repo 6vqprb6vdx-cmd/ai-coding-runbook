@@ -1,35 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=zh-CN
-fetched_at: 2026-09-07T05:30:22.362838+00:00
-title: "\u4f7f\u7528 Gemini Omni Flash \u751f\u6210\u548c\u7f16\u8f91\u89c6\u9891 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=th
+fetched_at: 2026-09-14T05:47:40.808195+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e25\u0e30\u0e41\u0e01\u0e49\u0e44\u0e02\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d\u0e14\u0e49\u0e27\u0e22 Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-发送反馈
+ส่งความคิดเห็น
 
-# 使用 Gemini Omni Flash 生成和编辑视频
+# สร้างและแก้ไขวิดีโอด้วย Gemini Omni Flash
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`) 是一款高性能多模态模型，专为高速视频生成、编辑和电影级控制而设计。
-Gemini Omni 基于以下核心功能构建，这些功能使其有别于之前的视频模型：
+Gemini Omni Flash (`gemini-omni-1.1-flash`) เป็นโมเดลแบบหลายรูปแบบที่มีประสิทธิภาพสูง
+ซึ่งออกแบบมาเพื่อการสร้าง การตัดต่อ และการควบคุมวิดีโอระดับภาพยนตร์ด้วยความเร็วสูง
+Gemini Omni สร้างขึ้นจากความสามารถหลักต่อไปนี้ที่ทำให้แตกต่างจาก
+โมเดลวิดีโอก่อนหน้า
 
-- **原生多模态**： 它可同时处理文本、图片、音频和视频，为您提供更具凝聚力、一致性和可控性的输出。
-- **对话式编辑**： 通过 [Interactions
-  API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 实现，让您可以通过自然语言对话迭代优化
-  和编辑视频。描述您想要更改的内容，模型会在应用编辑的同时保留您想要保留的视频部分。
-- **世界知识**： Gemini Omni 将对物理的理解与 Gemini 的历史、科学和文化背景知识相结合，弥合了从照片写实主义到有意义的故事讲述之间的差距。
+- **ความสามารถในการประมวลผลข้อมูลหลายรูปแบบโดยกำเนิด:** ประมวลผลข้อความ รูปภาพ เสียง และวิดีโอ
+  พร้อมกัน ทำให้คุณได้เอาต์พุตที่สอดคล้องกันมากขึ้น ควบคุมได้มากขึ้น และมีความสอดคล้องกัน
+- **การแก้ไขโดยใช้การสนทนา:** [Interactions
+  API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) ช่วยให้คุณปรับแต่ง
+  และแก้ไขวิดีโอซ้ำๆ ได้ผ่านการสนทนาด้วยภาษาธรรมชาติ อธิบายสิ่งที่คุณต้องการเปลี่ยนแปลง แล้วโมเดลจะใช้การแก้ไขพร้อมทั้งรักษา
+  ส่วนของวิดีโอที่คุณต้องการเก็บไว้
+- **ความรู้เกี่ยวกับโลก:** Gemini Omni ผสานความเข้าใจด้าน
+  ฟิสิกส์เข้ากับความรู้ด้านประวัติศาสตร์ วิทยาศาสตร์ และบริบททางวัฒนธรรมของ Gemini
+  เพื่อเชื่อมช่องว่างจากภาพถ่ายสมจริงไปสู่การเล่าเรื่องที่มีความหมาย
 
-## 文生视频
+## การสร้างวิดีโอจากข้อความ
 
-根据文本提示生成视频。模型会根据您的文本说明生成带音频的视频。撰写提示时，请添加场景说明、镜头移动、光效和氛围等详细信息，以获得最佳效果。
+สร้างวิดีโอจากพรอมต์ข้อความ โมเดลจะสร้างวิดีโอพร้อมเสียง
+โดยอิงตามคำอธิบายข้อความของคุณ เขียนพรอมต์โดยระบุรายละเอียด เช่น คำอธิบายฉาก
+การเคลื่อนไหวของกล้อง แสง และอารมณ์ เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
 
 ### Python
 
@@ -64,6 +72,36 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.of("A marble rolling fast on a chain reaction style track, continuous smooth shot."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("marble.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -75,12 +113,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### REST 响应 schema
+### สคีมาการตอบกลับ REST
 
-便捷字段 `interaction.output_video` 仅适用于 **SDK** 。
-直接使用 REST API 时，请从 `steps` 数组获取视频输出。
+ฟิลด์ความสะดวก `interaction.output_video` เป็น**SDK เท่านั้น**
+รับเอาต์พุตวิดีโอจากอาร์เรย์ `steps` เมื่อใช้ REST API โดยตรง
 
-**原始 REST JSON 结构**：
+**โครงสร้าง JSON ของ REST แบบดิบ:**
 
 ```
 {
@@ -105,9 +143,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 控制宽高比
+### ควบคุมสัดส่วนภาพ
 
-将 `aspect_ratio` 设置为 `"9:16"` 以创建竖屏视频。默认值为横向 (16:9)。
+ตั้งค่า `aspect_ratio` เป็น `"9:16"` เพื่อสร้างวิดีโอแนวตั้ง โดยมีค่าเริ่มต้นเป็นแนวนอน (16:9)
 
 ### Python
 
@@ -150,6 +188,46 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.VideoResponseFormat;
+import com.google.genai.gaos.models.interactions.VideoResponseFormatAspectRatio;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
+
+Client client = new Client();
+
+VideoResponseFormat videoFormat =
+    VideoResponseFormat.builder()
+        .aspectRatio(VideoResponseFormatAspectRatio.of("9:16"))
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.of("A futuristic city with neon lights and flying cars, cyberpunk style"))
+        .responseFormat(CreateModelInteractionResponseFormat.of(ResponseFormat.of(videoFormat)))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("example.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -165,16 +243,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### 输出分辨率
+### ความละเอียดเอาต์พุต
 
-使用 `response_format` 中的 `resolution` 参数控制生成的视频的输出分辨率。默认分辨率为 720p。
+ควบคุมความละเอียดเอาต์พุตของวิดีโอที่สร้างขึ้นโดยใช้พารามิเตอร์ `resolution`
+ใน `response_format` ความละเอียดเริ่มต้นคือ 720p
 
-| 值 | 说明 |
+| ค่า | คำอธิบาย |
 | --- | --- |
-| `360p` | 360p 输出分辨率 |
-| `720p` | 720p 输出分辨率（默认） |
-| `1080p` | 1080p 输出（画质提升） |
-| `4k` | 4K 输出（画质提升） |
+| `360p` | ความละเอียดเอาต์พุต 360p |
+| `720p` | ความละเอียดเอาต์พุต 720p (ค่าเริ่มต้น) |
+| `1080p` | เอาต์พุต 1080p (เพิ่มความละเอียด) |
+| `4k` | เอาต์พุต 4K (เพิ่มความละเอียด) |
 
 ### Python
 
@@ -217,6 +296,46 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Resolution;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.VideoResponseFormat;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
+
+Client client = new Client();
+
+VideoResponseFormat videoFormat =
+    VideoResponseFormat.builder()
+        .resolution(Resolution.of("1080p"))
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.of("A drone shot of a mountain landscape at sunrise."))
+        .responseFormat(CreateModelInteractionResponseFormat.of(ResponseFormat.of(videoFormat)))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("hires.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -232,21 +351,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-## 图生视频
+[
 
-您可以提供参考图片和文本提示。模型会根据您的提示决定如何使用图片。这对于让产品照片、插图或照片栩栩如生非常有用。
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+](https://storage.googleapis.com/generativeai-downloads/videos/omni_misty_mountains_1080p.mp4)
 
-以下示例展示了如何使用鱼从水中跳出的绘画的参考图片：
+## การสร้างวิดีโอจากรูปภาพ
 
-![一张鱼跃出水面的绘画](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=zh-cn)
+คุณระบุรูปภาพอ้างอิงพร้อมกับพรอมต์ข้อความได้ โมเดลจะตัดสินใจวิธีใช้รูปภาพตามพรอมต์ของคุณ ซึ่งมีประโยชน์ในการทำให้ภาพผลิตภัณฑ์ ภาพวาด
+หรือภาพถ่ายดูมีชีวิตชีวา
 
-使用以下提示：
+ตัวอย่างต่อไปนี้แสดงวิธีใช้รูปภาพอ้างอิงของภาพวาด
+ปลาที่กระโดดขึ้นจากน้ำ
+
+![ภาพวาดปลากระโดดขึ้นจากน้ำ](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=th)
+
+ด้วยพรอมต์ต่อไปนี้
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-生成绘画的逼真视频。
+เพื่อสร้างวิดีโอภาพวาดที่สมจริง
 
 ### Python
 
@@ -287,6 +413,58 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("first_frame.png"));
+String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+Content imageContent =
+    ImageContent.builder()
+        .data(base64Image)
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+Content textContent =
+    TextContent.builder()
+        .text("A mythical dragon perched on a craggy peak slowly unfolds its wings and lets out a roar.")
+        .build();
+
+List<Content> contents = Arrays.asList(imageContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("dragon.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -301,11 +479,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### 第一帧和最后一帧插值
+### การแทรกเฟรมแรกและเฟรมสุดท้าย
 
-Gemini Omni Flash 支持视频插值，让您能够生成在起始图片（第一帧）和结束图片（最后一帧）之间平滑过渡的视频。
+Gemini Omni Flash รองรับการประมาณค่าระหว่างเฟรมของวิดีโอ ซึ่งช่วยให้คุณสร้าง
+วิดีโอที่เปลี่ยนผ่านได้อย่างราบรื่นระหว่างรูปภาพเริ่มต้น (เฟรมแรก) กับ
+รูปภาพสิ้นสุด (เฟรมสุดท้าย)
 
-在 `input` 列表中提供两张图片，并在提示中描述所需的转场效果。模型会将场景从第一帧到最后一帧呈现动画效果。
+ระบุรูปภาพ 2 รูปในรายการ `input` และอธิบายการเปลี่ยนฉากที่ต้องการในพรอมต์ โมเดลจะสร้างภาพเคลื่อนไหวของฉากตั้งแต่เฟรมแรกไปจนถึง
+เฟรมสุดท้าย
 
 ### Python
 
@@ -348,6 +529,64 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+String firstFrameB64 = Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("first_frame.jpg")));
+String lastFrameB64 = Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("last_frame.jpg")));
+
+Content firstFrame =
+    ImageContent.builder()
+        .data(firstFrameB64)
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+        .build();
+
+Content lastFrame =
+    ImageContent.builder()
+        .data(lastFrameB64)
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+        .build();
+
+Content prompt =
+    TextContent.builder()
+        .text("A smooth cinematic transition from a lush green forest at sunrise to a snowy forest under a starry night sky.")
+        .build();
+
+List<Content> contents = Arrays.asList(firstFrame, lastFrame, prompt);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("interpolation.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -363,10 +602,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### 正文参考
+[
 
-您可以生成包含作为参考图片提供的特定正文的视频。
-例如，以下代码展示了如何提供猫和毛线的 2 张图片，以生成猫玩毛线的视频。
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+](https://storage.googleapis.com/generativeai-downloads/videos/omni_keyframe_interpolation.mp4)
+
+### การอ้างอิงหัวเรื่อง
+
+คุณสร้างวิดีโอโดยใช้ตัวละคร/ตัวแบบที่เฉพาะเจาะจงซึ่งระบุเป็นรูปภาพอ้างอิงได้
+ตัวอย่างเช่น โค้ดต่อไปนี้แสดงวิธีระบุรูปภาพแมวและเส้นด้าย 2 รูป
+เพื่อสร้างวิดีโอแมวเล่นกับเส้นด้าย
 
 ### Python
 
@@ -409,6 +654,58 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("reference.png"));
+String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+Content imageContent =
+    ImageContent.builder()
+        .data(base64Image)
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+Content textContent =
+    TextContent.builder()
+        .text("A cute small creature like the one in <image_1> is running in a sunny park chasing a butterfly.")
+        .build();
+
+List<Content> contents = Arrays.asList(imageContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("creature.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -424,11 +721,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### 任务参数
+### พารามิเตอร์งาน
 
-使用 `video_config` 中的 `task` 参数明确指定预期行为，例如，如果您希望模型根据图片生成视频，可以将该参数设置为 `image_to_video`。如果未设置此参数，模型将根据提示推断您的意图。
+ใช้พารามิเตอร์ `task` ใน `video_config` เพื่อระบุลักษณะการทำงานที่ต้องการอย่างชัดเจน เช่น หากต้องการให้โมเดลสร้างวิดีโอจากรูปภาพ คุณสามารถตั้งค่าพารามิเตอร์เป็น `image_to_video` หากไม่ได้ตั้งค่านี้ไว้
+โมเดลจะอนุมานสิ่งที่คุณต้องการจากพรอมต์
 
-允许的值如下：
+ค่าที่ใช้ได้มีดังนี้
 
 - `text_to_video`
 - `image_to_video`
@@ -436,7 +734,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 - `edit`
 - `extend`
 
-以下示例展示了如何为之前显示的图生视频示例设置此参数。
+ตัวอย่างต่อไปนี้แสดงวิธีตั้งค่านี้สำหรับรูปภาพที่แสดงก่อนหน้านี้
+เป็นตัวอย่างวิดีโอ
 
 ### Python
 
@@ -487,6 +786,67 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Task;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.VideoConfig;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("reference.png"));
+String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+Content imageContent =
+    ImageContent.builder()
+        .data(base64Image)
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+Content textContent =
+    TextContent.builder()
+        .text("A fast red sports car drives down an empty desert highway at dusk.")
+        .build();
+
+List<Content> contents = Arrays.asList(imageContent, textContent);
+
+GenerationConfig generationConfig =
+    GenerationConfig.builder()
+        .videoConfig(VideoConfig.builder().task(Task.IMAGE_TO_VIDEO).build())
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .generationConfig(generationConfig)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("task_output.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -514,11 +874,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 有状态视频编辑
+## การตัดต่อวิดีโอแบบมีสถานะ
 
-生成视频并使用后续提示迭代编辑。每个轮次都基于上一个结果。模型会记住视频上下文，应用您的更改，同时保留您未提及的元素。使用 `previous_interaction_id` 跟踪对话历史记录和生成的视频状态，而无需重新上传之前的视频。
+สร้างวิดีโอและแก้ไขซ้ำๆ โดยใช้พรอมต์ต่อเนื่อง แต่ละเทิร์น
+จะอิงตามผลลัพธ์ก่อนหน้า โมเดลจะจดจำบริบทของวิดีโอและใช้การเปลี่ยนแปลงของคุณพร้อมทั้งรักษาองค์ประกอบที่คุณไม่ได้กล่าวถึง ใช้
+`previous_interaction_id` เพื่อติดตามประวัติการสนทนาและสถานะวิดีโอที่สร้างขึ้น
+โดยไม่ต้องอัปโหลดวิดีโอก่อนหน้าซ้ำ
 
-以下示例展示了如何先生成第一个视频，然后对其进行编辑：
+ตัวอย่างต่อไปนี้แสดงวิธีสร้างวิดีโอแรกแล้วแก้ไข
 
 ### Python
 
@@ -566,6 +929,48 @@ if (res2.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
+
+Client client = new Client();
+
+// Turn 1: Generate initial video
+CreateModelInteraction turn1Params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.of("A person in a red jacket standing in a snowy landscape."))
+        .build();
+
+Interaction turn1 =
+    client.interactions.create(CreateInteractionRequestBody.of(turn1Params)).interaction().get();
+
+// Turn 2: Edit the previous video using previousInteractionId
+CreateModelInteraction turn2Params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.of("Change the jacket to bright yellow."))
+        .previousInteractionId(turn1.id().get())
+        .build();
+
+Interaction turn2 =
+    client.interactions.create(CreateInteractionRequestBody.of(turn2Params)).interaction().get();
+
+if (turn2.outputVideo().isPresent() && turn2.outputVideo().get().data().isPresent()) {
+    byte[] videoBytes = Base64.getDecoder().decode(turn2.outputVideo().get().data().get());
+    Files.write(Paths.get("edited.mp4"), videoBytes);
+}
+```
+
 ### REST
 
 ```
@@ -578,18 +983,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-初始视频示例：
+ตัวอย่างวิดีโอเริ่มต้น
 
-编辑后的视频示例：
+ตัวอย่างวิดีโอที่แก้ไขแล้ว
 
-对话中的每个轮次都会生成一个新视频。模型会理解之前轮次的上下文，让您能够进行增量更改，例如调整光效和更换背景，而无需重新描述整个场景。
+การสนทนาแต่ละรอบจะสร้างวิดีโอใหม่ โมเดลจะเข้าใจบริบทจากรอบก่อนๆ ซึ่งช่วยให้คุณทำการเปลี่ยนแปลงทีละน้อยได้ เช่น การปรับแสงและการสลับพื้นหลัง โดยไม่ต้องอธิบายฉากทั้งหมดอีกครั้ง
 
-### 编辑自己的视频
+### แก้ไขวิดีโอของคุณเอง
 
-使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传视频，以便使用 Gemini Omni Flash 对其进行编辑
-。
+อัปโหลดวิดีโอโดยใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th) เพื่อแก้ไขด้วย Gemini Omni Flash
 
-以下示例展示了如何编辑以下原始视频：
+ตัวอย่างต่อไปนี้แสดงวิธีแก้ไขวิดีโอต้นฉบับต่อไปนี้
 
 ### Python
 
@@ -616,7 +1020,7 @@ print(f'Video processing complete: ' + video_file.uri)
 interaction = client.interactions.create(
     model="gemini-omni-1.1-flash",
     input=[
-        {"type": "document", "uri": video_file.uri},
+        {"type": "video", "uri": video_file.uri},
         {"type": "text", "text": "When the person touches the mirror, make the mirror ripple beautifully like liquid, and the person's arm turns into reflective mirror material"}
     ],
 )
@@ -651,13 +1055,65 @@ console.log('Video processing complete: ' + videoFile.uri);
 const interaction = await ai.interactions.create({
   model: 'gemini-omni-1.1-flash',
   input: [
-    { type: 'document', uri: videoFile.uri },
+    { type: 'video', uri: videoFile.uri },
     { type: 'text', text: "When the person touches the mirror, make the mirror ripple beautifully like liquid, and the person's arm turns into reflective mirror material" }
   ],
 });
 
 if (interaction.output_video?.data) {
   fs.writeFileSync('example.mp4', Buffer.from(interaction.output_video.data, 'base64'));
+}
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.VideoContent;
+import com.google.genai.gaos.models.interactions.VideoContentMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+byte[] videoBytes = Files.readAllBytes(Paths.get("my_video.mp4"));
+String base64Video = Base64.getEncoder().encodeToString(videoBytes);
+
+Content videoContent =
+    VideoContent.builder()
+        .data(base64Video)
+        .mimeType(VideoContentMimeType.VIDEO_MP4)
+        .build();
+
+Content textContent =
+    TextContent.builder()
+        .text("Make the violin completely invisible while keeping the musician playing normally in the air.")
+        .build();
+
+List<Content> contents = Arrays.asList(videoContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] editedBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("edited_invisible_violin.mp4"), editedBytes);
 }
 ```
 
@@ -694,13 +1150,13 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-编辑后的视频示例：
+ตัวอย่างวิดีโอที่แก้ไขแล้ว
 
-## 使用 URI 检索视频
+## การดึงข้อมูลวิดีโอด้วย URI
 
-使用 `delivery="uri"` 参数在
-`response_format` 中检索大于 4MB 的生成的视频。
-这会返回一个 Google 托管的 URI，您可以轮询该 URI，直到视频变为 `ACTIVE` 状态，然后才能下载。
+ใช้พารามิเตอร์ `delivery="uri"` ใน
+`response_format` เพื่อเรียกข้อมูลวิดีโอที่สร้างขึ้นซึ่งมีขนาดใหญ่กว่า 4 MB
+ซึ่งจะแสดง URI ที่โฮสต์โดย Google ซึ่งคุณสามารถสำรวจได้จนกว่าวิดีโอจะ`ACTIVE`ก่อนดาวน์โหลด
 
 ### Python
 
@@ -768,6 +1224,44 @@ await ai.files.download({
 console.log("💾 Saved video to output.mp4");
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.VideoResponseFormat;
+import com.google.genai.gaos.models.interactions.VideoResponseFormatDelivery;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+// 1. Request video via URI delivery
+VideoResponseFormat videoFormat =
+    VideoResponseFormat.builder()
+        .delivery(VideoResponseFormatDelivery.URI)
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.of("A camera flies over a misty redwood forest at sunrise."))
+        .responseFormat(CreateModelInteractionResponseFormat.of(ResponseFormat.of(videoFormat)))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+// 2. Extract file URI
+interaction.outputVideo().flatMap(v -> v.uri()).ifPresent(uri -> {
+    System.out.println("Video URI: " + uri);
+});
+```
+
 ### REST
 
 ```
@@ -813,7 +1307,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**原始 REST JSON 结构 (URI)**：
+**โครงสร้าง JSON ของ REST แบบดิบ (URI):**
 
 ```
 {
@@ -838,17 +1332,18 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## 视频延长
+## ส่วนขยายวิดีโอ
 
-通过在视频片段的末尾生成无缝延续内容来延长现有视频。在提示中描述您希望视频如何延续，例如
-`"Extend this video"` 或 `"Continue the scene: the camera pans across the mountains"`。
-模型会分析输入视频，生成 3-10 秒的延续内容。
+ขยายวิดีโอที่มีอยู่ด้วยการสร้างส่วนต่อขยายที่ราบรื่นที่ส่วนท้าย
+ของคลิป อธิบายว่าคุณต้องการให้วิดีโอดำเนินต่อไปอย่างไรในพรอมต์ เช่น
+`"Extend this video"` หรือ `"Continue the scene: the camera pans across the mountains"`
+โมเดลจะวิเคราะห์วิดีโออินพุตเพื่อสร้างวิดีโอต่อเนื่องความยาว 3-10 วินาที
 
-您可以延长：
+คุณขยายเวลาได้ดังนี้
 
-- **模型生成的视频（多轮次）**：通过引用先前生成的
-  视频的 `previous_interaction_id` 来延长该视频。
-- **上传的视频**：提供上传的视频文件（通过 Files API）以及延长提示。
+- **วิดีโอที่โมเดลสร้างขึ้น (การสนทนาไปมา)**: ขยายวิดีโอที่สร้างขึ้นก่อนหน้านี้
+  โดยอ้างอิง`previous_interaction_id`
+- **วิดีโอที่อัปโหลด**: ระบุไฟล์วิดีโอที่อัปโหลด (ผ่าน Files API) พร้อมกับพรอมต์ของส่วนขยาย
 
 ### Python
 
@@ -865,7 +1360,7 @@ video_file = client.files.upload(file="my_video.mp4")
 interaction = client.interactions.create(
     model="gemini-omni-1.1-flash",
     input=[
-        {"type": "document", "uri": video_file.uri},
+        {"type": "video", "uri": video_file.uri},
         {"type": "text", "text": "Continue the scene."}
     ],
 )
@@ -894,7 +1389,7 @@ while (videoFile.state === 'PROCESSING') {
 const interaction = await ai.interactions.create({
   model: 'gemini-omni-1.1-flash',
   input: [
-    { type: 'document', uri: videoFile.uri },
+    { type: 'video', uri: videoFile.uri },
     { type: 'text', text: 'Continue the scene.' }
   ],
 });
@@ -904,21 +1399,86 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.VideoContent;
+import com.google.genai.gaos.models.interactions.VideoContentMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+// Load base video
+byte[] videoBytes = Files.readAllBytes(Paths.get("my_video.mp4"));
+String base64Video = Base64.getEncoder().encodeToString(videoBytes);
+
+Content videoContent =
+    VideoContent.builder()
+        .data(base64Video)
+        .mimeType(VideoContentMimeType.VIDEO_MP4)
+        .build();
+
+// Prompt describing seamless continuation
+Content promptContent =
+    TextContent.builder()
+        .text("Continue the scene.")
+        .build();
+
+List<Content> contents = Arrays.asList(videoContent, promptContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] extendedBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("extended.mp4"), extendedBytes);
+}
+```
+
 ### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$API_KEY"     -H "Content-Type: application/json"     -d '{
  "model": "gemini-omni-1.1-flash",
  "input": [
-   {"type": "document", "uri": "'"$VIDEO_URI"'"},
+   {"type": "video", "uri": "'"$VIDEO_URI"'"},
    {"type": "text", "text": "Continue the scene."}
  ]
 }'
 ```
 
-### 使用参考媒体延长
+[
 
-您可以在 `input` 数组中提供参考图片以及提示，以便在延长的视频中引入新的人物或元素：
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_base.mp4)
+
+[
+
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_extended.mp4)
+
+### การขยายด้วยสื่ออ้างอิง
+
+คุณระบุรูปภาพอ้างอิงใน`input`อาร์เรย์พร้อมกับพรอมต์เพื่อ
+แนะนำตัวละครหรือองค์ประกอบใหม่ๆ ลงในวิดีโอแบบขยายได้โดยทำดังนี้
 
 ### Python
 
@@ -936,8 +1496,8 @@ character_img = client.files.upload(file="character.png")
 interaction = client.interactions.create(
     model="gemini-omni-1.1-flash",
     input=[
-        {"type": "document", "uri": video_file.uri},
-        {"type": "document", "uri": character_img.uri},
+        {"type": "video", "uri": video_file.uri},
+        {"type": "image", "uri": character_img.uri},
         {"type": "text", "text": "Extend this video: have the character shown in <IMAGE_REF_0> enter the scene and wave."}
     ],
 )
@@ -966,8 +1526,8 @@ while (videoFile.state === 'PROCESSING' || characterImg.state === 'PROCESSING') 
 const interaction = await ai.interactions.create({
   model: 'gemini-omni-1.1-flash',
   input: [
-    { type: 'document', uri: videoFile.uri },
-    { type: 'document', uri: characterImg.uri },
+    { type: 'video', uri: videoFile.uri },
+    { type: 'image', uri: characterImg.uri },
     { type: 'text', text: 'Extend this video: have the character shown in <IMAGE_REF_0> enter the scene and wave.' }
   ],
 });
@@ -977,137 +1537,208 @@ if (interaction.output_video?.data) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.VideoContent;
+import com.google.genai.gaos.models.interactions.VideoContentMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+// Load base video and reference character image
+byte[] videoBytes = Files.readAllBytes(Paths.get("my_video.mp4"));
+byte[] charBytes = Files.readAllBytes(Paths.get("character.png"));
+
+Content baseVideo =
+    VideoContent.builder()
+        .data(Base64.getEncoder().encodeToString(videoBytes))
+        .mimeType(VideoContentMimeType.VIDEO_MP4)
+        .build();
+
+Content characterImg =
+    ImageContent.builder()
+        .data(Base64.getEncoder().encodeToString(charBytes))
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+Content prompt =
+    TextContent.builder()
+        .text("Extend the video: the car stops, and the traveler from <image_1> steps out and waves at the sunset.")
+        .build();
+
+List<Content> contents = Arrays.asList(baseVideo, characterImg, prompt);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-omni-1.1-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
+    byte[] extendedBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+    Files.write(Paths.get("extended_with_character.mp4"), extendedBytes);
+}
+```
+
 ### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$API_KEY"     -H "Content-Type: application/json"     -d '{
  "model": "gemini-omni-1.1-flash",
- "input": [
-   {"type": "document", "uri": "'$VIDEO_URI'"},
-   {"type": "document", "uri": "'$CHARACTER_IMG_URI'"},
-   {"type": "text", "text": "Extend this video: have the character shown in <IMAGE_REF_0> enter the scene and wave."}
- ]
+  "input": [
+    {"type": "video", "uri": "'$VIDEO_URI'"},
+    {"type": "image", "uri": "'$CHARACTER_IMG_URI'"},
+    {"type": "text", "text": "Extend this video: have the character shown in <IMAGE_REF_0> enter the scene and wave."}
+  ]
 }'
 ```
 
-### 延长限制和准则
+[
 
-延长视频时，请注意以下规则和限制：
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+](https://storage.googleapis.com/generativeai-downloads/videos/omni_traveler_extension.mp4)
 
-- **上传的视频中的口语对话**：目前，您无法延长
-  上传的视频，在其中添加额外的对话（如果人物保持沉默或提示不添加对话，则支持此操作）。
-- **多轮次语音延长**：通过多轮次 (`previous_interaction_id`) 延长先前生成的视频时，支持生成口语对话或语音。
-- **仅限视频片段末尾**：延长仅限于附加到视频末尾。
-  您无法在视频片段开头添加内容或延长视频片段中间的内容。
-- **时长限制**：上传用于延长的输入视频时，时长必须不超过 10 秒
-  （除非使用多轮次）。
-- **地区可用性**：欧洲经济区 (EEA)、瑞士和英国境内的用户目前无法延长上传的视频
-  （所有可用地区都支持延长模型生成的视频）。
+### ข้อจำกัดและหลักเกณฑ์ของส่วนขยาย
 
-## 最佳实践
+โปรดคำนึงถึงกฎและข้อจำกัดต่อไปนี้เมื่อขยายวิดีโอ
 
-- **对大型视频使用 URI 传送**： 对于大于 4MB 的视频（>720p 如果可用），请在 `response_format` 中使用 `delivery="uri"`，以避免载荷大小限制。
-- **优化性能**： 将 `background=false`、`store=false` 和 `stream=false` 设置为更快、同步的一元生成。请注意，将 `store=false` 设置为表示生成的视频无法在后续轮次中使用 `previous_interaction_id` 进行编辑。
-- **提示准确性**： 如需了解
-  详情，请参阅[提示指南](#prompt-guide)部分。
+- **บทพูดในวิดีโอที่อัปโหลด**: ปัจจุบันคุณไม่สามารถขยายวิดีโอที่อัปโหลดซึ่งมีคนพูดเพื่อเพิ่มบทพูดได้ (ระบบรองรับในกรณีที่ตัวละครไม่พูดหรือหากพรอมต์ไม่ได้เพิ่มบทพูด)
+- **การขยายเสียงแบบหลายรอบ**: ระบบรองรับการสร้างบทสนทนาหรือคำพูดที่พูด
+  เมื่อขยายวิดีโอที่สร้างไว้ก่อนหน้าผ่านการสนทนาไปมา (`previous_interaction_id`)
+- **ท้ายคลิปเท่านั้น**: ส่วนขยายจะจำกัดไว้ที่การต่อท้ายวิดีโอ
+  คุณไม่สามารถเพิ่มเนื้อหาที่ด้านหน้าหรือขยายช่วงกลางของคลิปได้
+- **ขีดจำกัดระยะเวลา**: วิดีโออินพุตสำหรับการขยายต้องมีความยาวไม่เกิน 10 วินาที เมื่ออัปโหลด (เว้นแต่จะใช้การสนทนาไปมา)
+- **ความพร้อมให้บริการในภูมิภาค**: ขณะนี้การขยายวิดีโอที่อัปโหลดไม่พร้อมให้บริการ
+  สำหรับผู้ใช้ในเขตเศรษฐกิจยุโรป (EEA), สวิตเซอร์แลนด์ และสหราชอาณาจักร (ระบบรองรับการขยายวิดีโอที่โมเดลสร้างขึ้นในทุกภูมิภาคที่พร้อมให้บริการ)
 
-## 限制
+## แนวทางปฏิบัติแนะนำ
 
-- 欧洲经济区、瑞士和英国不支持上传和编辑包含未成年人的图片。
-- 不支持上传和编辑包含某些可识别人物的图片。
-- 欧洲经济区 (EEA)、瑞士和英国境内的用户目前无法编辑或延长上传的视频（支持编辑或延长模型生成的视频）。
-- 上传用于编辑和延长的输入视频时，时长必须不超过 10 秒（除非在多轮次中延长模型生成的视频）。
-- 视频延长仅限于附加到视频末尾；不支持在视频片段开头添加内容或延长视频片段中间的内容。
-- 您无法延长上传的视频，在其中添加额外的对话（人物可以保持沉默，也可以使用 `previous_interaction_id` 进行多轮次延长）。
-- 不支持语音编辑。
-- API 的当前版本不支持上传音频参考。
-- 视频参考最适合用于相似性；视频参考中的任何音频都会被忽略。视频参考最多支持 3 个视频片段，每个视频片段最长 3 秒。
-- 不支持跨多个视频进行引用或推理。尝试多视频提示可能会导致模型性能下降或产生意外输出。
-- 不支持预配吞吐量。
-- 不支持系统说明、温度、`top_p`、停止序列和负面提示（您可以将负面提示放在常规提示中：例如，“不要执行 X”）。
-- 不支持使用 YouTube 视频作为媒体来源。
+- **ใช้การนำส่ง URI สำหรับวิดีโอขนาดใหญ่:** สำหรับวิดีโอที่มีขนาดใหญ่กว่า 4 MB (>720p
+  เมื่อพร้อมใช้งาน) ให้ใช้ `delivery="uri"` ใน `response_format` เพื่อหลีกเลี่ยงข้อจำกัดด้านขนาดของเพย์โหลด
+- **ประสิทธิภาพที่เพิ่มขึ้น:** ตั้งค่า `background=false`, `store=false` และ
+  `stream=false` เพื่อสร้างคำตอบแบบเอกพจน์พร้อมกันได้เร็วขึ้น โปรดทราบว่าการตั้งค่า
+  `store=false` หมายความว่าคุณจะแก้ไขวิดีโอที่สร้างขึ้นไม่ได้ใน
+  เทิร์นถัดๆ ไปโดยใช้ `previous_interaction_id`
+- **ความแม่นยำของพรอมต์:** ดูรายละเอียดในส่วน[คำแนะนำในการใช้พรอมต์](#prompt-guide)
 
-## 技术详情
+## ข้อจำกัด
 
-- 所有生成的视频都包含 SynthID 水印，该水印对观看者不可见，但可以通过编程方式检测以进行来源验证。
-- 视频生成时间因时长、分辨率和当前 API 负载而异。时长较长、分辨率较高的视频需要更多时间生成。
-- Omni 会对输入提示和生成的视频应用内容安全过滤器（因地区而异）。违反使用政策的提示会被屏蔽。
-- 完全支持英语 (EN)，但其他语言尚未经过评估，因此可能有效，但结果可能会有所不同。
+- การอัปโหลดและแก้ไขรูปภาพที่มีผู้เยาว์ไม่รองรับในเขตเศรษฐกิจยุโรป สวิตเซอร์แลนด์ และสหราชอาณาจักร
+- ระบบไม่รองรับการอัปโหลดและแก้ไขรูปภาพที่มีบุคคลที่ระบุตัวตนได้บางคน
+- ขณะนี้การแก้ไขหรือขยายวิดีโอที่อัปโหลดไม่พร้อมให้บริการสำหรับผู้ใช้ในเขตเศรษฐกิจยุโรป (EEA), สวิตเซอร์แลนด์ และสหราชอาณาจักร (ระบบรองรับการแก้ไขหรือขยายวิดีโอที่โมเดลสร้างขึ้น)
+- วิดีโออินพุตสำหรับการตัดต่อและการขยายต้องมีความยาวไม่เกิน 10 วินาทีเมื่ออัปโหลด (ยกเว้นการขยายวิดีโอที่โมเดลสร้างขึ้นในการสนทนาไปมา)
+- การขยายวิดีโอจะจำกัดไว้ที่การต่อท้ายวิดีโอเท่านั้น ระบบไม่รองรับการต่อต้นหรือการขยายช่วงกลางของคลิป
+- คุณไม่สามารถขยายวิดีโอที่อัปโหลดซึ่งมีคนพูดเพื่อเพิ่มบทสนทนา (ตัวละครอาจเงียบหรือใช้การสนทนาไปมาด้วย `previous_interaction_id` ได้)
+- ไม่รองรับการแก้ไขด้วยเสียง
+- API เวอร์ชันปัจจุบันไม่รองรับการอัปโหลดข้อมูลอ้างอิงเสียง
+- การอ้างอิงวิดีโอจะทำงานได้ดีที่สุดเมื่อใช้กับภาพเหมือน ระบบจะไม่สนใจเสียงใดๆ ในการอ้างอิงวิดีโอ การอ้างอิงวิดีโอรองรับคลิปได้สูงสุด 3 คลิป โดยแต่ละคลิปมีความยาวได้สูงสุด 3 วินาที
+- ระบบไม่รองรับการอ้างอิงหรือการให้เหตุผลในวิดีโอหลายรายการ การพยายามใช้พรอมต์แบบหลายวิดีโออาจส่งผลให้ประสิทธิภาพของโมเดลลดลงหรือได้เอาต์พุตที่ไม่คาดคิด
+- ไม่รองรับปริมาณงานที่จัดสรร
+- ไม่รองรับคำสั่งของระบบ อุณหภูมิ `top_p` ลำดับการหยุด และพรอมต์เชิงลบ (คุณใส่พรอมต์เชิงลบในพรอมต์ปกติได้ เช่น "อย่าทำ X")
+- ไม่รองรับการใช้วิดีโอ YouTube เป็นแหล่งที่มาของสื่อ
 
-## Gemini Omni Flash 提示指南
+## รายละเอียดทางเทคนิค
 
-本部分包含有关如何有效提示 Gemini Omni Flash 的提示和示例。
+- วิดีโอที่สร้างขึ้นทั้งหมดจะมีลายน้ำ SynthID ซึ่งผู้ชมมองไม่เห็น แต่สามารถตรวจจับได้โดยอัตโนมัติเพื่อการยืนยันแหล่งที่มา
+- เวลาในการสร้างวิดีโอจะแตกต่างกันไปตามระยะเวลา ความละเอียด และการโหลด API ปัจจุบัน วิดีโอที่ยาวขึ้นและมีความละเอียดสูงขึ้นจะใช้เวลาในการสร้างนานขึ้น
+- Omni ใช้ตัวกรองความปลอดภัยของเนื้อหากับทั้งพรอมต์อินพุตและวิดีโอที่สร้างขึ้น (ซึ่งจะแตกต่างกันไปตามภูมิภาค) ระบบจะบล็อกพรอมต์ที่ละเมิดนโยบายการใช้งาน
+- ระบบรองรับภาษาอังกฤษ (EN) อย่างเต็มรูปแบบ แต่ยังไม่ได้ประเมินภาษาอื่นๆ ดังนั้นภาษาอื่นๆ อาจใช้งานได้ แต่ผลลัพธ์อาจแตกต่างกันไป
 
-### 单场景
+## คู่มือการใช้พรอมต์สำหรับ Gemini Omni Flash
 
-默认情况下，Omni Flash 会尝试创建包含几个不同镜头的视频。
-它会尝试根据提示制作有趣的叙事内容。
+ส่วนนี้มีเคล็ดลับและตัวอย่างเกี่ยวกับวิธีพรอมต์ Gemini Omni Flash อย่างมีประสิทธิภาพ
 
-如果您需要输出视频包含单个场景，则必须提示：
+### ฉากเดียว
 
-- 在单个不间断的场景中
-- 在一个连续镜头中
-- 无场景切换
+โดยค่าเริ่มต้น Omni Flash จะพยายามสร้างวิดีโอที่มีช็อตต่างๆ
+โดยจะพยายามสร้างเรื่องราวที่น่าสนใจตามพรอมต์
 
-例如：
+หากต้องการให้วิดีโอเอาต์พุตมีฉากเดียว คุณต้องป้อนพรอมต์ดังนี้
+
+- ในฉากเดียวที่ไม่มีการตัดต่อ
+- เป็นช็อตเดียวต่อเนื่อง
+- ไม่มีการตัดฉาก
+
+เช่น
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### 移除不需要的元素
+### การนำองค์ประกอบที่ไม่ต้องการออก
 
-如果生成的视频包含您不需要的内容，请添加简单的负面提示以避免这些内容：
+หากวิดีโอที่สร้างขึ้นมีสิ่งที่คุณไม่ต้องการ ให้ใส่พรอมต์เชิงลบแบบง่ายๆ เพื่อหลีกเลี่ยงสิ่งเหล่านั้น
 
-- 无对话
-- 无装饰
-- 无额外音效
+- ไม่มีบทพูด
+- ไม่มีการตกแต่ง
+- ไม่มีซาวด์เอฟเฟ็กต์เพิ่มเติม
 
-### 用于编辑的提示
+### พรอมต์สำหรับการแก้ไข
 
-简单的提示最适合用于视频编辑。过于详细的提示可能会导致意外更改。
+พรอมต์ที่เรียบง่ายจะทำงานได้ดีที่สุดสำหรับการตัดต่อวิดีโอ พรอมต์ที่มีคำอธิบายมากเกินไปอาจทำให้เกิดการเปลี่ยนแปลงที่ไม่ต้องการ
 
-以下是更多简单的编辑提示示例：
+ตัวอย่างเพิ่มเติมของพรอมต์การแก้ไขแบบง่ายมีดังนี้
 
-- 将此视频制作成动漫
-- 给此人戴上一顶时尚的帽子
-- 将光效更改为更具戏剧性
-- 将标志上的文字更改为“Omni Flash”
+- เปลี่ยนวิดีโอนี้ให้เป็นสไตล์อนิเมะ
+- ใส่หมวกที่ดูดีให้บุคคลนี้
+- เปลี่ยนแสงให้ดูน่าทึ่งมากขึ้น
+- เปลี่ยนข้อความบนป้ายเป็น "Omni Flash"
 
-编辑视频的特定方面时，请添加 `"Keep everything else the same"` 以保持视觉一致性。
+เมื่อแก้ไขลักษณะเฉพาะของวิดีโอ ให้ใส่ `"Keep everything else the same"` เพื่อรักษาความสอดคล้องของภาพ
 
-以下是一些示例，展示了如何应用此技术：
+ตัวอย่างต่อไปนี้แสดงวิธีใช้เทคนิคนี้
 
-- **应避免以下做法**： `In the video of the man sitting on the sofa, please add a small
+- **สิ่งที่ควรหลีกเลี่ยง** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **化繁为简**： `Add a cat that jumps onto his lap, he begins to pet it.
+  - **ปรับให้อ่านง่าย:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **应避免以下做法**： `Please remove the cell phone that the person is holding in
+- **สิ่งที่ควรหลีกเลี่ยง** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **化繁为简**： `Make the phone invisible. Keep everything else the
+  - **ปรับให้อ่านง่าย:** `Make the phone invisible. Keep everything else the
     same.`
 
-### 提示音频
+### การแจ้งเสียง
 
-默认情况下，模型会尝试为视频生成合适的音轨。这可能并不总是您想要的结果。您可以使用提示来描述所需的音频类型。如果您希望视频中包含音乐，这一点尤其重要：
+โดยค่าเริ่มต้น โมเดลจะพยายามสร้างแทร็กเสียงที่เหมาะสมสำหรับวิดีโอ ซึ่งอาจไม่ใช่สิ่งที่คุณต้องการเสมอไป คุณใช้พรอมต์เพื่อ
+อธิบายประเภทเสียงที่ต้องการได้ ซึ่งเป็นเรื่องที่สำคัญอย่างยิ่งหากคุณต้องการ
+ใช้เพลงในวิดีโอ
 
-- 包含平静的背景音乐
-- 视频具有高能量的电子节拍
-- 音频是背景中播放歌曲的低沉的无线电广播
+- ใส่เพลงบรรเลงเบาๆ
+- วิดีโอมีบีทเทคโนสุดเร้าใจ
+- เสียงเป็นเสียงวิทยุที่เบาและแหลมซึ่งเปิดอยู่เบื้องหลังและกำลังเล่นเพลง
 
-### 定时事件
+### ช่วงเวลาของเหตุการณ์
 
-您可以提示在视频中的特定时间发生某些事件，无需精确的语法，可以使用自然语言。这对于创建自己的场景切换、节奏或快速序列尤其有用。
-请参阅以下示例：
+คุณสามารถแจ้งให้ระบบดำเนินการบางอย่างในวิดีโอในช่วงเวลาที่เฉพาะเจาะจงได้โดยไม่ต้องใช้ไวยากรณ์ที่
+แน่นอนและใช้ภาษาธรรมชาติได้ ซึ่งมีประโยชน์อย่างยิ่งในการสร้างฉากตัด จังหวะ หรือลำดับภาพแบบรวดเร็วของคุณเอง
+โปรดดูตัวอย่างต่อไปนี้
 
-- 3 秒后，一名女子进入场景。
-- 在 5 秒时，背景音频中开始播放合唱。
-- 每 2 秒切换到新帧。
-- 在快速序列中，每半秒（24fps 时为 12 帧）将场景更改为新位置。
+- หลังจากผ่านไป 3 วินาที ผู้หญิงคนหนึ่งก็ปรากฏตัวขึ้น
+- ที่ 5 วินาที ท่อนคอรัสจะเริ่มในเสียงเบื้องหลัง
+- ตัดไปที่เฟรมใหม่ทุกๆ 2 วินาที
+- ในฉากที่ยิงอย่างรวดเร็ว ให้เปลี่ยนฉากเป็นสถานที่ใหม่ทุกๆ ครึ่งวินาที (12 เฟรมที่ 24fps)
 
-您还可以使用时间码语法：
+คุณยังใช้ไวยากรณ์รหัสเวลาได้ด้วย
 
 ```
 [0-3s] A person is walking
@@ -1115,55 +1746,60 @@ Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny wind
 [6-10s] They start running
 ```
 
-### 元提示
+### การเขียนพรอมต์แบบเมตา
 
-您可以要求 Gemini Omni Flash 注意视频生成的一般质量或原则：
+คุณขอให้ Gemini Omni Flash ให้ความสำคัญกับคุณภาพทั่วไปหรือ
+หลักการสร้างวิดีโอได้โดยทำดังนี้
 
-- 考虑微细节、表情和时间，以创建非常丰富、详细但完全自然的场景。
-- 在描述人物和环境时要非常详细。
-  对人物应用服装设计原则。明确场景中的人物、物品和对象。
-- 在背景元素中添加大量适当的细节，使场景感觉真实自然。
-- 制作一个快速视频，每 1 秒显示一个不同的稀有 `[thing]`，播放欢快的音乐，并添加文字来标记该事物。
+- พิจารณารายละเอียดเล็กๆ น้อยๆ การแสดงออก และจังหวะเวลาเพื่อสร้างฉากที่สมบูรณ์และมีรายละเอียด
+  แต่ดูเป็นธรรมชาติอย่างยิ่ง
+- อธิบายตัวละครและสภาพแวดล้อมอย่างละเอียด
+  ใช้หลักการออกแบบเครื่องแต่งกายกับตัวละคร ระบุรายละเอียดเกี่ยวกับ
+  ผู้คน สิ่งของ และวัตถุในฉากให้ชัดเจน
+- ใส่รายละเอียดที่เหมาะสมในองค์ประกอบฉากหลังให้เพียงพอเพื่อทำให้
+  ฉากดูสมจริงและเป็นธรรมชาติ
+- สร้างวิดีโอแบบรัวๆ ที่แสดง`[thing]`หายากที่แตกต่างกันทุกๆ 1 วินาที พร้อมเพลงสนุกๆ
+  และใส่ข้อความเพื่อติดป้ายกำกับสิ่งนั้น
 
-### 视频中的文字
+### ข้อความในวิดีโอ
 
-您可以提示在视频中添加文字，Gemini Omni 会以正确且可读的方式呈现。如果视频中会出现自然出现的文字（即使在背景元素中），定义文字内容也会很有帮助。
+คุณสามารถป้อนพรอมต์ให้ใส่ข้อความในวิดีโอ แล้ว Gemini Omni จะแสดงข้อความในลักษณะที่ถูกต้องและอ่านได้ หากมีข้อความที่เกิดขึ้นตามธรรมชาติในวิดีโอ แม้จะเป็นองค์ประกอบพื้นหลัง ก็จะช่วยกำหนดสิ่งที่ควรพูดได้
 
-- 屏幕上一次显示一个字词：“did, you, know, that, Omni, can, do, awesome, text?” 每个字词以不同的动画样式显示 1 秒。无对话。
-- 有一个路标写着：“This is an AI generation by Omni”，有一个店面写着：“All you need AI”，有一辆汽车的车牌号是：“OMNI1.1”
+- คำทีละคำบนหน้าจอ: "คุณ, รู้, ไหม, ว่า, Omni, ทำ, ข้อความ, สุด, เจ๋ง, ได้" คำแต่ละคำจะปรากฏเป็นเวลา 1 วินาทีพร้อมสไตล์ภาพเคลื่อนไหวที่แตกต่างกัน ไม่มี
+  คำพูด
+- มีป้ายถนนที่เขียนว่า "นี่คือภาพที่ AI สร้างขึ้นโดย Omni" มีหน้าร้านที่เขียนว่า "All you need AI" มีรถยนต์ที่มีป้ายทะเบียน "OMNI1.1"
 
-### 用于延长视频的提示
+### พรอมต์สำหรับการขยายวิดีโอ
 
-借助 Gemini Omni 1.1 Flash，您可以使用 `"Extend this video"` 或 `"The scene continues"` 等提示延长视频。您可以将视频延长 10 秒，总时长最多为 40 秒。
+Gemini Omni 1.1 Flash ช่วยให้คุณขยายวิดีโอได้ด้วยพรอมต์ เช่น `"Extend this video"` หรือ `"The scene continues"` คุณขยายวิดีโอได้ครั้งละ 10 วินาที โดยมีความยาวรวมสูงสุด 40 วินาที
 
-Omni 会使用原始视频的最后 10 秒作为上下文，创建可保持视频、动作、人物和音频连贯性的延长内容。输入视频中的一些最后一帧将被编辑，以实现无缝过渡。
+Omni จะสร้างส่วนขยายที่ทำให้วิดีโอ การเคลื่อนไหว ตัวละคร และเสียงสอดคล้องกันโดยใช้ 10 วินาทีสุดท้ายของวิดีโอต้นฉบับเป็นบริบท ระบบจะแก้ไขเฟรมสุดท้ายบางเฟรมในวิดีโออินพุตเพื่อให้การเปลี่ยนฉากเป็นไปอย่างราบรื่น
 
-延长时，本指南中的所有 Omni 提示技巧仍然适用：
+เมื่อขยายการทำงาน เคล็ดลับการแจ้ง Omni ทั้งหมดในคู่มือนี้จะยังคงใช้ได้
 
-- 描述延长场景中的音频，尤其是在需要更改音频时：`"The music continues into the chorus"`
-- 描述场景是否延续，或者是否切换到新场景（可能包含相同的人物）：`"Show the same characters in the next scene"`
-- 延长时添加图片和视频作为参考，有助于保持输出准确，或引入新的人物：`"The person shown in the reference image enters the scene"`、`"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- 如果使用时间戳或时间码语法，0 秒是指视频延长部分的开头。如果延长 10 秒的视频，此提示中的场景切换将在 12 秒后发生：`"After 2s cut to a new scene with the same characters"`
+- อธิบายเสียงในฉากที่ขยาย โดยเฉพาะอย่างยิ่งหากคุณต้องการให้มีการเปลี่ยนแปลง `"The music continues into the chorus"`
+- อธิบายว่าฉากดำเนินต่อไปหรือมีการตัดภาพไปยังฉากใหม่ (อาจมีตัวละครเดียวกัน): `"Show the same characters in the next scene"`
+- ใส่รูปภาพและวิดีโอเป็นข้อมูลอ้างอิงเมื่อขยายความเพื่อช่วยให้เอาต์พุตมีความแม่นยำ หรือเพื่อแนะนำตัวละครใหม่: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- หากใช้ไทม์สแตมป์หรือไวยากรณ์รหัสเวลา 0s จะหมายถึงจุดเริ่มต้นของส่วนที่ขยายของวิดีโอ หากขยายวิดีโอ 10 วินาที การตัดฉากในพรอมต์นี้จะเกิดขึ้นหลังจากผ่านไป 12 วินาที: `"After 2s cut to a new scene with the same characters"`
 
-### 在提示中使用标记来设置图片和视频角色
+### การใช้แท็กในพรอมต์เพื่อกำหนดบทบาทของรูปภาพและวิดีโอ
 
-您可以使用标记将上传的媒体绑定到特定的生成角色。这样，您就可以指定每张图片或每个视频是起始帧、最终帧还是参考。
+คุณใช้แท็กเพื่อเชื่อมโยงสื่อที่อัปโหลดกับบทบาทการสร้างที่เฉพาะเจาะจงได้ ซึ่งจะช่วยให้คุณระบุได้ว่ารูปภาพหรือวิดีโอแต่ละรายการเป็นเฟรมเริ่มต้น เฟรมสุดท้าย หรือเฟรมอ้างอิง
 
-#### 1. 简单标记（推荐）
+#### 1. แท็กอย่างง่าย (แนะนำ)
 
-对于媒体角色在提示中明确的简单情况，您可以将图片和视频直接绑定到角色：
+ในกรณีที่ง่ายๆ ซึ่งบทบาทของสื่อชัดเจนจากพรอมต์ คุณสามารถเชื่อมโยง
+รูปภาพและวิดีโอกับบทบาทได้โดยตรง ดังนี้
 
-- **`<FIRST_FRAME>`**：将图片用作视频的起始帧，例如：
-  `<FIRST_FRAME> a woman is walking`
-- **`<LAST_FRAME>`**：将图片用作视频的最终帧以进行过渡。必须与 `<FIRST_FRAME>` 搭配使用，例如：`<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**：将图片用作参考，例如：`in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking`（结合了第一张图片的样式
-  参考和第二张图片的正文参考）。
-  图片参考从 0 开始。
-- **`<VIDEO_REF_N>`**：将视频用作人物或对象参考，例如：
-  `the person in <VIDEO_REF_0> is playing the violin`。视频参考也从 0 开始。
+- **`<FIRST_FRAME>`**: ใช้รูปภาพเป็นเฟรมเริ่มต้นของวิดีโอ เช่น `<FIRST_FRAME> a woman is walking`
+- **`<LAST_FRAME>`**: ใช้รูปภาพเป็นเฟรมสุดท้ายของวิดีโอเพื่อเปลี่ยนฉาก ต้องใช้กับ `<FIRST_FRAME>` เช่น `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: ใช้รูปภาพเป็นข้อมูลอ้างอิง เช่น `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (รวมข้อมูลอ้างอิงสไตล์จากรูปภาพแรกและข้อมูลอ้างอิงเรื่องจากรูปภาพที่สอง)
+  การอ้างอิงรูปภาพจะเริ่มจาก 0
+- **`<VIDEO_REF_N>`**: ใช้เป็นข้อมูลอ้างอิงตัวละครหรือวัตถุ เช่น
+  `the person in <VIDEO_REF_0> is playing the violin` ข้อมูลอ้างอิงวิดีโอจะเริ่มต้นจาก 0 ด้วย
 
-以下是包含 6 张参考图片的示例：
+ตัวอย่างต่อไปนี้มีรูปภาพอ้างอิง 6 ภาพ
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -1171,54 +1807,56 @@ Omni 会使用原始视频的最后 10 秒作为上下文，创建可保持视�
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. 声明来源和参考
+#### 2. การประกาศแหล่งที่มาและการอ้างอิง
 
-对于包含多个媒体输入和多个角色的更复杂情况，您可以将显式前缀标记与自然语言说明搭配使用。您应在提示开头声明这些来源和参考。
+สำหรับกรณีที่ซับซ้อนมากขึ้นซึ่งมีอินพุตสื่อและบทบาทหลายรายการ คุณสามารถใช้
+แท็กคำนำหน้าที่ชัดเจนซึ่งจับคู่กับคำสั่งที่เป็นภาษาธรรมชาติได้ คุณควร
+ประกาศแหล่งที่มาและการอ้างอิงเหล่านี้ที่จุดเริ่มต้นของพรอมต์
 
-- `[# Sources <FIRST_FRAME>@Image1]` 会将第一张图片用作起始帧。
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` 会将第一张图片用作起始帧，将第二张图片用作最终帧。
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` 会将第一张图片同时用作第一帧和最后一帧，从而创建一个循环播放的视频。
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` 会将第一张图片用作起始帧，将第二张图片用作参考。
-- `[# Sources <VIDEO_0>@Video1]` 会将视频用作要编辑或修改的主要来源视频。
-- `[# Sources <PREVIOUS_VIDEO>@Video1]` 会使用上一个轮次的视频进行延长。
-- `[# References <IMAGE_REF_0>@Image1]` 会将第一张图片用作参考。
-- `[# References <IMAGE_REF_1>@Image2]` 会将第二张图片用作参考。
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` 会将两张图片都用作参考。
-- `[# References <VIDEO_REF_0>@Video1]` 会将第一个视频用作参考。
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` 会将图片和视频都用作参考。
+- `[# Sources <FIRST_FRAME>@Image1]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้น
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้นและรูปภาพที่ 2 เป็นเฟรมสุดท้าย
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` จะใช้รูปภาพแรกเป็นทั้งเฟรมแรกและเฟรมสุดท้ายเพื่อสร้างวิดีโอที่เล่นซ้ำ
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้นและรูปภาพที่ 2 เป็นข้อมูลอ้างอิง
+- `[# Sources <VIDEO_0>@Video1]` จะใช้วิดีโอเป็นวิดีโอต้นฉบับหลักในการแก้ไขหรือดัดแปลง
+- `[# Sources <PREVIOUS_VIDEO>@Video1]` จะใช้วิดีโอจากเทิร์นก่อนหน้าเพื่อขยาย
+- `[# References <IMAGE_REF_0>@Image1]` จะใช้รูปภาพแรกเป็นข้อมูลอ้างอิง
+- `[# References <IMAGE_REF_1>@Image2]` จะใช้รูปภาพที่ 2 เป็นข้อมูลอ้างอิง
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` จะใช้รูปภาพทั้ง 2 รูปเป็นข้อมูลอ้างอิง
+- `[# References <VIDEO_REF_0>@Video1]` จะใช้วิดีโอแรกเป็นข้อมูลอ้างอิง
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` จะใช้ทั้งรูปภาพและวิดีโอเป็นข้อมูลอ้างอิง
 
-在提示末尾添加指导说明：
+เพิ่มคำแนะนำที่ท้ายพรอมต์
 
-- 对于起始帧：`"Use this image as the starting frame."`
-- 对于通过起始帧和结束帧循环播放的视频：`"Use this image as the first frame and the last frame."`
-- 对于参考图片：`"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- 对于参考视频：`"Use the given video(s) as references. Do not use them as a source for video editing."`
+- สำหรับเฟรมเริ่มต้น ให้ทำดังนี้ `"Use this image as the starting frame."`
+- สำหรับวิดีโอที่เล่นวนผ่านเฟรมเริ่มต้นและเฟรมสิ้นสุด ให้ทำดังนี้ `"Use this image as the first frame and the last frame."`
+- สำหรับรูปภาพอ้างอิง `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- สำหรับวิดีโออ้างอิง: `"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-以下是一些包含来源和参考声明的提示示例：
+ตัวอย่างพรอมต์ที่มีการประกาศแหล่งที่มาและการอ้างอิง
 
-**起始帧与参考图片相结合**：
+**เฟรมเริ่มต้นที่รวมกับรูปภาพอ้างอิง:**
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**人物参考视频与对象参考图片相结合**：
+**วิดีโออ้างอิงตัวละครที่รวมกับรูปภาพอ้างอิงวัตถุ:**
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## 后续步骤
+## ขั้นตอนถัดไป
 
-- 在 [Omni 快速入门 Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=zh-cn) 中进行实验，开始使用 Gemini Omni Flash。
-- 通过我们的[提示设计简介](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=zh-cn)，了解如何撰写更好的提示。
+- เริ่มต้นใช้งาน Gemini Omni Flash โดยทดลองใช้ใน [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=th)
+- ดูวิธีเขียนพรอมต์ให้ดียิ่งขึ้นด้วย[ข้อมูลเบื้องต้นเกี่ยวกับการออกแบบพรอมต์](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)
 
-发送反馈
+ส่งความคิดเห็น
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最后更新时间 (UTC)：2026-08-30。
+อัปเดตล่าสุด 2026-09-10 UTC
 
-需要向我们提供更多信息？
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-08-30。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-10 UTC"],[],[]]

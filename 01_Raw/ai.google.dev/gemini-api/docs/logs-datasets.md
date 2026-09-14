@@ -1,50 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-BR
-fetched_at: 2026-09-07T05:46:45.726920+00:00
-title: "Registros e conjuntos de dados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it
+fetched_at: 2026-09-14T05:38:42.920478+00:00
+title: "Log e set di dati \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envie comentários
+Invia feedback
 
-# Registros e conjuntos de dados
+# Log e set di dati
 
-Neste guia, você vai aprender a
-ver registros do uso da API Gemini no painel do Google AI Studio
-para entender melhor o comportamento do modelo e como os usuários interagem com seus
-aplicativos. Use o registro em registros para observar, depurar e *compartilhar feedback de uso com o Google para ajudar a melhorar o Gemini em casos de uso de desenvolvedores*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=pt-br)
+In questa guida imparerai a
+visualizzare i log dell'utilizzo dell'API Gemini nella dashboard di Google AI Studio
+per comprendere meglio il comportamento del modello e il modo in cui gli utenti potrebbero interagire con le tue
+applicazioni. Utilizza la registrazione per osservare, eseguire il debug e *condividere facoltativamente il feedback sull'utilizzo
+con Google per contribuire a migliorare Gemini in vari casi d'uso per gli sviluppatori*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=it)
 
-Todas as chamadas de API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` e [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br), exceto as de agentes gerenciados, são compatíveis. Isso inclui chamadas feitas pelos endpoints de
-[compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
+Sono supportate tutte le chiamate API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` e le chiamate API [Interazioni](https://ai.google.dev/gemini-api/docs/interactions?hl=it), escluse quelle degli agenti gestiti. Sono incluse le chiamate effettuate tramite gli endpoint di [compatibilità con OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
 
-## Configurar o registro do projeto
+## Configurare la registrazione del progetto
 
-Por padrão, a API armazena todos os objetos de interação (`store=true`) para simplificar o uso dos recursos de gerenciamento de estado do lado do servidor. Por outro lado, a API Generate Content não armazena solicitações por padrão e exige que o armazenamento seja ativado por solicitação ou no nível do projeto no AI Studio.
+Per impostazione predefinita, l'API archivia tutti gli oggetti di interazione (`store=true`) per semplificare l'utilizzo delle funzionalità di gestione dello stato lato server. Al contrario, l'API
+Generate Content non archivia le richieste per impostazione predefinita e richiede l'attivazione dell'archiviazione
+per richiesta o a livello di progetto da AI Studio.
 
-No [AI Studio](https://aistudio.google.com/logs?hl=pt-br) do Google, é possível ativar ou desativar o registro em todos os projetos ou em projetos específicos e mudar essas preferências a qualquer momento no painel **Configurações** da página [Registros e conjuntos de dados](https://aistudio.google.com/logs?hl=pt-br). É possível ativar ou desativar o registro em log
-de forma independente para a API `generateContent` e a API
-[Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
-para mudar o comportamento de armazenamento padrão de um projeto.
+In Google [AI Studio](https://aistudio.google.com/logs?hl=it) puoi attivare o disattivare la registrazione per tutti i progetti o per progetti specifici e modificare queste preferenze in qualsiasi momento tramite il riquadro **Impostazioni** nella pagina [Log e set di dati](https://aistudio.google.com/logs?hl=it). La registrazione può essere attivata o disattivata
+in modo indipendente per l'API `generateContent` e l'API
+[Interazioni](https://ai.google.dev/gemini-api/docs/interactions?hl=it)
+per modificare il comportamento di archiviazione predefinito per un progetto.
 
-### Geração de registros no nível da solicitação
+### Logging a livello di richiesta
 
-O comportamento de armazenamento e geração de registros varia de acordo com a API:
+Il comportamento di archiviazione e logging varia a seconda dell'API:
 
-- **[API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)**:armazena solicitações por padrão (`store=true`) para simplificar o gerenciamento de estado do lado do servidor.
-- **API Generate Content (`generateContent`)**: não armazena solicitações por padrão (`store=false`).
+- **[API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=it):** memorizza le richieste per impostazione predefinita (`store=true`) per semplificare la gestione dello stato lato server.
+- **Genera API Content (`generateContent`):** per impostazione predefinita non memorizza le richieste (`store=false`).
 
-Veja como definir a propriedade `store`:
+Ecco come impostare la proprietà `store`:
 
-**API GenerateContent**
+**API `generateContent`**
 
 ### Python
 
@@ -114,61 +116,66 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[interaction.outputs.length - 1].text);
 ```
 
-## Ver registros do projeto no AI Studio
+## Visualizzare i log del progetto in AI Studio
 
-1. Acesse a página "Registros" no [AI Studio](https://aistudio.google.com/logs?hl=pt-br).
-2. Selecione um projeto no menu suspenso.
-3. Os registros vão aparecer na tabela em ordem cronológica inversa para a API Interactions, se existirem.
-4. Para observar os registros do projeto da API Content, primeiro ative essa opção no [painel de configurações](#configure-logging).
+1. Vai alla pagina Log in [AI Studio](https://aistudio.google.com/logs?hl=it).
+2. Seleziona un progetto dal menu a discesa.
+3. Se esistono, i log vengono visualizzati nella tabella in ordine cronologico inverso per l'API Interactions.
+4. Per osservare i log del progetto per l'API Generate Content, devi prima abilitarla nel [pannello delle impostazioni](#configure-logging).
 
-Clique em uma entrada para ver uma prévia do payload. Você pode inspecionar o comando e a resposta completos do Gemini, além do contexto das trocas anteriores. Para solicitações da **API Interactions**, os registros também incluem um link direto para o `previous_interaction_id`.
+Fai clic su una voce per visualizzare un'anteprima del payload. Puoi
+esaminare il prompt e la risposta completi di Gemini, nonché il contesto dei
+turni precedenti. Per le richieste dell'**API Interactions**, i log includono anche un link diretto
+al `previous_interaction_id`.
 
-## Configurar a retenção de armazenamento do projeto
+## Configura la conservazione dello spazio di archiviazione del progetto
 
-Os registros expiram e são marcados para exclusão após um período de retenção padrão de 55 dias, a menos que sejam [salvos em um conjunto de dados](#create), que não expira.
-É possível configurar a janela de retenção dos registros de um projeto para, no máximo, 7, 14, 28 ou 55 dias.
+I log scadranno e verranno contrassegnati per l'eliminazione dopo un periodo di conservazione predefinito di
+55 giorni (a meno che non vengano [salvati in un set di dati](#create), che non scadono).
+Puoi configurare la finestra di conservazione dei log di un progetto su un massimo di 7, 14, 28 o 55 giorni.
 
-## Criar e compartilhar conjuntos de dados
+## Creare e condividere set di dati
 
-É possível salvar registros em conjuntos de dados para organizar e exportar com mais eficiência.
+Puoi salvare i log nei set di dati per organizzarli ed esportarli in modo più efficace.
 
-- Na [página "Registros"](https://aistudio.google.com/logs?hl=pt-br), localize a barra de filtro
-  na parte de cima para selecionar uma propriedade de filtragem.
-- Na visualização filtrada, use as caixas de seleção para selecionar todos os registros ou apenas alguns.
-- Clique no botão **Criar conjunto de dados** que aparece na parte de cima da lista.
-- Dê um nome e uma descrição opcional ao novo conjunto de dados.
-- Você vai encontrar o conjunto de dados que acabou de criar com o conjunto selecionado de registros.
-- Exporte seu conjunto de dados para análise posterior como arquivos CSV, JSONL ou para o Google Planilhas.
+- Nella [pagina Log](https://aistudio.google.com/logs?hl=it), individua la barra dei filtri
+  in alto per selezionare una proprietà in base alla quale filtrare.
+- Dalla visualizzazione filtrata, utilizza le caselle di controllo per selezionare tutti i log o i singoli log.
+- Fai clic sul pulsante **Crea set di dati** visualizzato nella parte superiore dell'elenco.
+- Assegna un nome e una descrizione facoltativa al nuovo set di dati.
+- Vedrai il set di dati appena creato con il set curato di log.
+- Esporta il set di dati per un'ulteriore analisi come file CSV, JSONL o in Fogli Google.
 
-Os conjuntos de dados podem ser úteis para vários casos de uso diferentes.
+I set di dati possono essere utili per una serie di casi d'uso diversi.
 
-- **Organize conjuntos de desafios**:impulsione melhorias futuras que visam áreas em que você quer que a IA melhore.
-- **Organizar conjuntos de amostras**:por exemplo, uma amostra de uso real para gerar respostas de outro modelo ou uma coleção de casos extremos para verificações de rotina antes da implantação.
-- **Conjuntos de avaliação**:conjuntos representativos do uso real em recursos importantes, para comparação entre outros modelos ou iterações de instruções do sistema.
+- **Crea set di sfide**:promuovi miglioramenti futuri che prendano di mira le aree in cui vuoi che la tua AI migliori.
+- **Crea set di campioni**:ad esempio, un campione di utilizzo reale per generare risposte da un altro modello o una raccolta di casi limite per i controlli di routine prima del deployment.
+- **Set di valutazione**:set rappresentativi dell'utilizzo reale delle funzionalità importanti, per il confronto con altri modelli o iterazioni delle istruzioni di sistema.
 
-Você pode contribuir para a pesquisa e o desenvolvimento do Gemini compartilhando seus conjuntos de dados com o Google como exemplos de demonstração.
+Puoi contribuire alla ricerca e allo sviluppo di Gemini scegliendo di condividere
+i tuoi set di dati con Google come esempi dimostrativi.
 
-## Limitações
+## Limitazioni
 
-No momento, o registro em log não é compatível com o seguinte:
+La registrazione non è attualmente supportata per quanto segue:
 
-- Modelos do Imagen e do Veo
-- Modelos de incorporação do Gemini
-- Modelo do Gemini Robotics
-- Entradas com vídeos, GIFs ou PDFs
-- Agentes de pré-lançamento público na API Gemini
+- Modelli Imagen e Veo
+- Modelli di embedding Gemini
+- Modello Gemini Robotics
+- Input contenenti video, GIF o PDF
+- Agenti in anteprima pubblica nell'API Gemini
 
-## A seguir
+## Passaggi successivi
 
-- **Crie protótipos com o histórico da sessão**:use o [AI Studio Build](https://aistudio.google.com/apps?hl=pt-br) para programar apps com vibe coding e adicione sua chave de API para ativar um histórico de registros da API Gemini para recursos de IA.
-- **Executar novamente os registros com a API Gemini Batch**:use conjuntos de dados para amostragem de respostas e avaliação de modelos ou lógica de aplicativos executando novamente os registros com a [API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **Prototipo con la cronologia della sessione**:utilizza [AI Studio Build](https://aistudio.google.com/apps?hl=it) per creare app con codice e aggiungere la chiave API per attivare una cronologia dei log dell'API Gemini per le funzionalità di AI.
+- **Esegui di nuovo i log con l'API Gemini Batch:** utilizza i set di dati per il campionamento delle risposte e la valutazione dei modelli o della logica dell'applicazione eseguendo di nuovo i log con l'[API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-07-22 UTC.
+Ultimo aggiornamento 2026-09-12 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-22 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]

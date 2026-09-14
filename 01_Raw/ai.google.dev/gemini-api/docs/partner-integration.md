@@ -1,144 +1,153 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=tr
-fetched_at: 2026-09-07T05:32:50.059770+00:00
-title: "\u0130\u015f orta\u011f\u0131 ve kitapl\u0131k entegrasyonlar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=ar
+fetched_at: 2026-09-14T05:38:20.573330+00:00
+title: "\u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u062f\u0645\u062c \u0645\u0639 \u0627\u0644\u0634\u0631\u0643\u0627\u0621 \u0648\u0627\u0644\u0645\u0643\u062a\u0628\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-# İş ortağı ve kitaplık entegrasyonları
+# عمليات الدمج مع الشركاء والمكتبات
 
-Bu kılavuzda, Gemini API'nin üzerinde kitaplıklar, platformlar ve ağ geçitleri oluşturmaya yönelik mimari stratejiler özetlenmektedir. Resmi üretken yapay zeka SDK'larını, Direct API'yi (REST/gRPC) ve OpenAI uyumluluk katmanını kullanmanın teknik avantaj ve dezavantajları ayrıntılı olarak açıklanır.
+يقدّم هذا الدليل استراتيجيات معمارية لإنشاء مكتبات ومنصات وبوابات استنادًا إلى Gemini API. ويقدّم هذا الدرس تفاصيل حول المفاضلات الفنية بين استخدام حِزم تطوير البرامج (SDK) الرسمية للذكاء الاصطناعي التوليدي وDirect API (REST/gRPC) وطبقة التوافق مع OpenAI.
 
-Diğer geliştiriciler için araçlar (ör. açık kaynaklı çerçeveler, kurumsal ağ geçitleri veya SaaS toplayıcılar) oluşturuyorsanız ve bağımlılık temizliği, paket boyutu ya da özellik eşliği için optimizasyon yapmanız gerekiyorsa bu kılavuzu kullanın.
+استخدِم هذا الدليل إذا كنت بصدد إنشاء أدوات لمطوّرين آخرين، مثل أُطر عمل مفتوحة المصدر أو بوابات المؤسسات أو أدوات تجميع البرامج كخدمة (SaaS)، وكنت بحاجة إلى تحسينها من حيث سلامة التبعيات أو حجم الحِزمة أو تكافؤ الميزات.
 
-## İş ortağı entegrasyonu nedir?
+## ما هو دمج الشريك؟
 
-İş ortağı, Gemini API ile son kullanıcı geliştiricileri arasında entegrasyon oluşturan herkesi ifade eder. İş ortaklarını dört arketipe ayırırız. Hangisiyle en çok eşleştiğinizi belirlemek doğru entegrasyon yolunu seçmenize yardımcı olur.
+الشريك هو أي شخص يعمل على إنشاء عملية دمج بين Gemini API والمطوّرين من المستخدمين النهائيين. نصنّف الشركاء إلى أربعة نماذج أولية. سيساعدك تحديد النوع الذي يتطابق مع حالتك بشكلٍ كبير في اختيار مسار الدمج المناسب.
 
-#### Ekosistem çerçevesi
+#### إطار عمل المنظومة المتكاملة
 
-- **Kim olduğunuz:** Açık kaynaklı bir çerçeve (ör. LangChain, LlamaIndex, Spring AI) veya dile özgü istemcilerin bakımını yapan kişi.
-- **Hedefiniz:** Geniş kapsamlı uyumluluk. Kitaplığınızın, kullanıcınızın seçtiği herhangi bir ortamda çakışmaya neden olmadan çalışmasını istiyorsunuz.
+- **هويتك:** أنت المسؤول عن صيانة إطار عمل مفتوح المصدر (مثل LangChain أو LlamaIndex أو Spring AI) أو برامج عملاء خاصة بلغة معيّنة.
+- **هدفكم:** التوافق على نطاق واسع يجب أن تعمل المكتبة في أي بيئة يختارها المستخدم بدون فرض تعارضات.
 
-#### Çalışma zamanı ve kenar platformu
+#### بيئة التشغيل ومنصّة الحافة
 
-- **Kim olduğunuz:** Kod yürütmenin kısıtlanmış ortamlarda gerçekleştiği SaaS platformları, yapay zeka ağ geçitleri veya bulut altyapısı sağlayıcıları (ör. Vercel, Cloudflare, Zapier).
-- **Hedefiniz:** Performans. Düşük gecikme süresi, minimum paket boyutu ve hızlı soğuk başlatma gerekir.
+- **الجهات التي تمثّلها:** منصات البرامج كخدمة أو بوابات الذكاء الاصطناعي أو مقدّمو خدمات البنية التحتية السحابية (مثل Vercel أو Cloudflare أو Zapier) حيث يتم تنفيذ الرموز البرمجية في بيئات مقيّدة
+- **هدفكم:** الأداء يجب أن يكون وقت الاستجابة منخفضًا، وحجم الحِزمة صغيرًا، وأن يكون التشغيل المجرّد سريعًا.
 
-#### Toplayıcı
+#### موقع تجميع
 
-- **Kim olduğunuz:** Birçok farklı büyük dil modeli sağlayıcısında (ör. OpenAI, Anthropic, Google) erişimi tek bir arayüzde normalleştiren platformlar, proxy'ler veya dahili "Model Bahçeleri".
-- **Hedefiniz:** Taşınabilirlik ve tekdüzelik.
+- **هويتك:** المنصات أو الخوادم الوكيلة أو "حدائق النماذج" الداخلية التي تتيح الوصول الموحّد إلى العديد من موفّري النماذج اللغوية الكبيرة المختلفة (مثل OpenAI وAnthropic وGoogle) من خلال واجهة واحدة.
+- **هدفكم:** إمكانية النقل والتوافق
 
-#### Kurumsal ağ geçidi
+#### بوابة المؤسسة
 
-- **Kimler için uygundur?** Büyük şirketlerdeki dahili platform mühendisliği ekipleri, yüzlerce dahili geliştirici için "altın yollar" oluşturur.
-- **Hedefiniz:** Standartlaştırma, yönetim ve birleştirilmiş kimlik doğrulama.
+- **نوع المستخدم:** فِرق هندسة المنصات الداخلية في الشركات الكبيرة التي تنشئ "مسارات ذهبية" لمئات المطوّرين الداخليين.
+- **هدفك:** التوحيد والحوكمة والمصادقة الموحّدة
 
-## Bir bakışta karşılaştırma
+## مقارنة سريعة
 
-**Küresel en iyi uygulama:** Seçilen yoldan bağımsız olarak tüm iş ortakları [`x-goog-api-client`
-başlığını](#client-id) göndermelidir.
+**أفضل الممارسات على مستوى العالم:** يجب أن يرسل جميع الشركاء عنوان [`x-goog-api-client`](#client-id) بغض النظر عن المسار الذي تم اختياره.
 
-| Şu durumlarda: | Önerilen yol | Temel avantaj | Önemli denge | En iyi uygulama |
+| إذا كنت... | المسار المقترَح | الميزة الرئيسية | المفاضلة الرئيسية | أفضل ممارسة |
 | --- | --- | --- | --- | --- |
-| **Kurumsal ağ geçidi, ekosistem çerçevesi** | **[Google GenAI SDK'sı](#genai-sdk)** | **Gemini Enterprise Ajan Platformu'nun eşitliği ve hızı** Türler, kimlik doğrulama ve karmaşık özellikler (ör. dosya yüklemeleri) için yerleşik işleme. Google Cloud'a sorunsuz taşıma | **Bağımlılık ağırlığı.** Geçişli bağımlılıklar karmaşık olabilir ve kontrolünüz dışında kalabilir. Desteklenen dillerle (Python/Node/Go/Java) sınırlıdır. | **Sürümleri kilitleme** Ekipler arasında tutarlılık sağlamak için dahili temel resimlerinizdeki SDK sürümlerini sabitleyin. |
-| **Ekosistem çerçevesi, uç platformlar ve toplayıcılar** | **[Direct API](#rest)**  *(REST / gRPC)* | **Bağımlılık yok.** HTTP istemcisini ve tam paket boyutunu kontrol edebilirsiniz. Tüm API ve model özelliklerine tam erişim. | **Geliştiricinin yüksek ek yükü.** JSON yapıları derinlemesine iç içe yerleştirilebilir ve sıkı manuel doğrulama ile tür kontrolü gerektirir. | **OpenAPI spesifikasyonlarını kullanın.** Türleri manuel olarak yazmak yerine resmi spesifikasyonlarımızı kullanarak otomatik olarak oluşturun. |
-| **Yalnızca metin tabanlı iş akışları gerektiren OpenAI SDK'larını kullanan toplayıcı**  *(Eski taşınabilirlik için optimizasyon)* | **[OpenAI uyumluluğu](#openai)** | **Anında taşınabilirlik.** Mevcut OpenAI uyumlu kodları veya kitaplıkları yeniden kullanın. | **Özellik sınırı.** Modele özgü özellikler (doğal video reklam, önbelleğe alma) kullanılamayabilir. | **Taşıma planı.** Hızlı doğrulama için bu yöntemi kullanın ancak API'nin tüm özelliklerinden yararlanmak için Direct API'ye yükseltmeyi planlayın. |
+| **بوابة المؤسسة، إطار المنظومة المتكاملة** | **[Google GenAI SDK](#genai-sdk)** | **التكافؤ والسرعة في "منصة وكيل Gemini Enterprise":** إمكانية التعامل المضمّنة مع الأنواع والمصادقة والميزات المعقّدة (مثل تحميل الملفات) نقل البيانات بسلاسة إلى Google Cloud | **وزن التبعية:** يمكن أن تكون التبعيات المتعدية معقّدة وخارجة عن نطاق تحكّمك. يقتصر على اللغات المتوافقة (Python/Node/Go/Java). | **قفل الإصدارات:** ثبِّت إصدارات حزمة SDK في صورك الأساسية الداخلية لضمان الاستقرار بين الفِرق. |
+| **إطار المنظومة المتكاملة ومنصات الحافة ومجمّعات البيانات** | **[Direct API](#rest)**  *(REST / gRPC)* | **عدم وجود تبعيات:** يمكنك التحكّم في عميل HTTP وحجم الحزمة الدقيق. إمكانية الوصول الكامل إلى جميع ميزات واجهة برمجة التطبيقات والنموذج | **تكاليف عالية يتحمّلها المطوّرون:** يمكن أن تكون بنى JSON متداخلة بشكل كبير وتتطلّب التحقّق اليدوي الصارم من الصحة والتحقّق من النوع. | **استخدام مواصفات OpenAPI** يمكنك إعداد أنواع البيانات تلقائيًا باستخدام مواصفاتنا الرسمية بدلاً من كتابتها يدويًا. |
+| **الجهات المجمّعة التي تستخدم حِزم تطوير البرامج (SDK) من OpenAI والتي تتطلّب فقط سير عمل مستندًا إلى النصوص**  *(التحسين من أجل إمكانية النقل القديمة)* | **[التوافق مع OpenAI](#openai)** | **إمكانية النقل الفوري:** إعادة استخدام الرموز البرمجية أو المكتبات الحالية المتوافقة مع OpenAI | **الحدّ الأقصى للميزة:** قد لا تتوفّر الميزات الخاصة بطراز معيّن (الفيديو الأصلي والتخزين المؤقت). | **خطة نقل البيانات** استخدِم هذه الطريقة للتحقّق السريع، ولكن خطِّط للترقية إلى Direct API للاستفادة من ميزات واجهة برمجة التطبيقات الكاملة. |
 
-## Google GenAI SDK entegrasyonu
+## دمج حزمة تطوير البرامج (SDK) للذكاء الاصطناعي التوليدي من Google
 
-Desteklenen dillerde en az kod satırı içeren [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=tr)'sını uygulamak, çerçeveler için genellikle en basit yoldur.
+بالنسبة إلى الأُطر، غالبًا ما يكون تنفيذ [حزمة تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي](https://ai.google.dev/gemini-api/docs/libraries?hl=ar)
+هو أبسط مسار، وذلك لأنّه يتضمّن أقل عدد من أسطر الرمز في اللغات المتوافقة.
 
-Dahili platform ekipleri için temel çıktı genellikle ürün mühendislerinin güvenlik politikalarına uyarken hızlı hareket etmesini sağlayan bir "altın yol"dur.
+بالنسبة إلى فِرق المنصات الداخلية، يكون المنتج الأساسي الذي تقدّمه غالبًا هو "المسار الذهبي" الذي يتيح لمهندسي المنتجات إحراز تقدّم سريع مع الالتزام بسياسات الأمان.
 
-**Avantajları:**
+**المزايا:**
 
-- **Gemini Enterprise Agent Platform'a taşıma için birleşik arayüz:** Şirket içi geliştiriciler genellikle API anahtarlarını (Gemini API) kullanarak prototip oluşturur ve üretim uyumluluğu için Gemini Enterprise Agent Platform'a (IAM) dağıtım yapar. SDK, bu kimlik doğrulama farklılıklarını soyutlar.
-  Benzer şekilde, çerçeveler için tek bir kod yolu uygulayabilir ve iki kullanıcı grubunu destekleyebilirsiniz.
-- **İstemci tarafı yardımcıları:** SDK, karmaşık görevler için standart kodları azaltan deyimsel yardımcı programlar içerir.
-  - *Örnekler:* Doğrudan istemlerde `PIL` görüntü nesnelerini destekleme, otomatik işlev çağrısı ve kapsamlı türler.
-- **İlk günden itibaren özellik erişimi:** Yeni API özellikleri, SDK'lar aracılığıyla lansman sırasında kullanılabilir.
-- **Geliştirilmiş kod oluşturma desteği:** Yerel SDK yüklemesi, tür tanımlarını ve doküman dizelerini kodlama asistanlarına (ör. Cursor, Copilot) sunar.
-  Bu bağlam, ham REST istekleri oluşturmaya kıyasla kod oluşturma doğruluğunu artırır.
+- **واجهة موحّدة لنقل البيانات إلى Gemini Enterprise Agent Platform:** غالبًا ما يضع المطوّرون الداخليون نماذج أولية باستخدام مفاتيح واجهة برمجة التطبيقات (Gemini API) وينشرونها على Gemini Enterprise Agent Platform (إدارة الهوية وإمكانية الوصول) لضمان التوافق مع متطلبات الإنتاج. وتعمل حزمة تطوير البرامج (SDK) على تجريد هذه الاختلافات في المصادقة.
+  وبالمثل بالنسبة إلى الأُطر، يمكنك تنفيذ مسار رمزي واحد وتوفير مجموعتَين من المستخدمين.
+- **أدوات مساعدة من جهة العميل:** تتضمّن حزمة تطوير البرامج (SDK) أدوات مساعدة اصطلاحية تقلّل من
+  النماذج الجاهزة للمهام المعقّدة.
+  - *أمثلة:* دعم عناصر صور `PIL` مباشرةً في الطلبات،
+    واستدعاء الدوال تلقائيًا، وأنواع شاملة
+- **الوصول إلى الميزات في اليوم الأول:** تتوفّر ميزات واجهة برمجة التطبيقات الجديدة عند الإطلاق
+  من خلال حِزم SDK.
+- **توافُق محسّن مع إنشاء الرموز البرمجية:** يتيح تثبيت حزمة SDK المحلية عرض تعريفات الأنواع وسلاسل المستندات لمساعدي الترميز (مثل Cursor وCopilot).
+  يؤدي توفير هذا السياق إلى تحسين دقة إنشاء الرموز مقارنةً بإنشاء طلبات REST غير المعالجة.
 
-**Değiş-tokuş:**
+**المفاضلة:**
 
-- **Bağımlılık ağırlığı ve karmaşıklığı:** SDK'ların kendi bağımlılıkları vardır. Bu bağımlılıklar, paket boyutunu artırabilir ve tedarik zinciri riskine yol açabilir.
-- **Sürüm oluşturma:** Yeni API özellikleri genellikle minimum SDK sürümlerine sabitlenir.
-  Yeni özelliklere veya modellere erişmek için kullanıcıları güncellemeye zorlamanız gerekebilir. Bu durumda, kullanıcılarınızı etkileyen geçişli bağımlılıklarda değişiklik yapmanız gerekebilir.
-- **Protokol sınırları:** SDK'lar, ana API için yalnızca HTTPS'yi, Canlı API için ise yalnızca WebSocket'leri (WSS) destekler. gRPC, üst düzey SDK istemcileri kullanılarak desteklenmez.
-- **Dil desteği:** SDK'lar, *mevcut* dil sürümlerini destekler. Destek sonu sürümlerini (ör. Python 3.9) desteklemeniz gerekiyorsa bir çatallanmayı sürdürmeniz gerekir.
+- **وزن الاعتمادية ومدى تعقيدها:** تحتوي حِزم تطوير البرامج (SDK) على اعتماديات خاصة بها، ما قد يؤدي إلى زيادة حجم الحِزمة ومخاطر سلسلة الإمداد المحتملة.
+- **التحكّم في الإصدارات:** غالبًا ما تكون ميزات واجهة برمجة التطبيقات الجديدة مرتبطة بالحد الأدنى من إصدارات حزمة تطوير البرامج (SDK).
+  قد تحتاج إلى إرسال تحديثات إلى المستخدمين للوصول إلى الميزات أو النماذج الجديدة،
+  والتي قد تتطلّب في بعض الحالات إجراء تغييرات في التبعيات المتعدّية التي
+  تؤثّر في المستخدمين.
+- **قيود البروتوكول:** لا تتوافق حِزم SDK إلا مع HTTPS لواجهة برمجة التطبيقات الرئيسية وWebSockets (WSS) لواجهة برمجة التطبيقات Live. ولا يتوافق gRPC مع عملاء حِزم SDK ذات المستوى العالي.
+- **اللغات المتوافقة:** تتوافق حِزم SDK مع إصدارات اللغة *الحالية*. إذا كنت بحاجة إلى استخدام إصدارات متوقّفة نهائيًا (مثل Python 3.9)، عليك الاحتفاظ بنسخة معدَّلة.
 
-**En iyi uygulama:**
+**أفضل الممارسات:**
 
-- **Sürümleri kilitleme:** Ekipler arasında kararlılığı sağlamak için dahili temel resimlerinizdeki SDK sürümünü sabitleyin.
+- **إصدارات القفل:** يمكنك تثبيت إصدار حزمة SDK في صورك الأساسية الداخلية لضمان الثبات في جميع الفِرق.
 
-## Doğrudan API entegrasyonu
+## الربط المباشر بواجهة برمجة التطبيقات
 
-Binlerce geliştiriciye kitaplık dağıtıyorsanız, kısıtlanmış bir ortamda çalışıyorsanız veya Gemini'ın en yeni özelliklerini gerektiren bir toplayıcı oluşturuyorsanız REST veya gRPC kullanarak doğrudan API ile entegrasyon yapmanız gerekebilir.
+إذا كنت توزّع مكتبة على آلاف المطوّرين، أو تشغّلها في بيئة محدودة، أو تنشئ أداة تجميع تتطلّب أحدث ميزات Gemini، قد تحتاج إلى الدمج مع واجهة برمجة التطبيقات مباشرةً باستخدام REST أو gRPC.
 
-**Avantajları:**
+**المزايا:**
 
-- **Tüm özelliklere erişim:** OpenAI uyumluluk katmanının aksine, API'yi doğrudan kullanmak, Gemini'a özgü özellikleri (ör. File API'ye yükleme, içerik önbelleğe alma oluşturma ve çift yönlü Live API'yi kullanma) etkinleştirir.
-- **Minimum bağımlılık:** Bağımlılıkların boyut veya denetim maliyetleri nedeniyle hassas olduğu bir ortamda. API'yi doğrudan `fetch` gibi standart bir kitaplık veya `httpx` gibi bir sarmalayıcı aracılığıyla kullanmak kitaplığınızın hafif kalmasını sağlar.
-- **Dilden bağımsız:** Dil kısıtlaması olmadığından bu, SDK'ların kapsamadığı diller (ör. Rust, PHP ve Ruby) için tek yoldur.
-- **Performans:** Direct API'nin başlatma ek yükü yoktur. Bu sayede, sunucusuz işlevlerdeki soğuk başlatmalar en aza indirilir.
+- **الوصول الكامل إلى الميزات:** على عكس طبقة التوافق مع OpenAI، يتيح استخدام واجهة برمجة التطبيقات مباشرةً ميزات خاصة بـ Gemini، مثل التحميل إلى File API، وإنشاء ذاكرة تخزين مؤقت للمحتوى، واستخدام واجهة برمجة التطبيقات الثنائية الاتجاه Live API.
+- **الحد الأدنى من التبعيات:** في بيئة تكون فيها التبعيات حساسة بسبب الحجم أو تكاليف التدقيق. يضمن استخدام واجهة برمجة التطبيقات مباشرةً من خلال مكتبة عادية، مثل `fetch`، أو من خلال برنامج تضمين، مثل `httpx`، أن تظل مكتبتك خفيفة الوزن.
+- **غير مرتبط بلغة معيّنة:** هذا هو المسار الوحيد للغات التي لا تغطيها حِزم تطوير البرامج (SDK)، مثل Rust وPHP وRuby، إذ لا توجد قيود على اللغة.
+- **الأداء:** لا تتضمّن Direct API أي تكلفة إضافية عند بدء التشغيل، ما يقلّل من عمليات بدء التشغيل الباردة في الدوال غير الخادمية.
 
-**Değiş-tokuş:**
+**المفاضلة:**
 
-- **Gemini Enterprise Agent Platform'un manuel olarak uygulanması:** SDK'dan farklı olarak, API'nin doğrudan kullanılması, AI Studio (API anahtarı) ile Gemini Enterprise Agent Platform (IAM) arasındaki kimlik doğrulama farklılıklarını otomatik olarak işlemez. Her iki ortamı da desteklemek istiyorsanız ayrı kimlik doğrulama işleyicileri uygulamanız gerekir.
-- **Yerel türler veya yardımcılar yok:** İstek nesneleri için kod tamamlama veya derleme zamanı kontrolleri almazsınız. Bunları kendiniz uygulamanız gerekir. İstemci "yardımcıları" (ör. işlevden şemaya dönüştürücüler) olmadığından bu mantığı kendiniz manuel olarak yazmanız gerekir.
+- **التنفيذ اليدوي لمنصة Gemini Enterprise Agent Platform:** على عكس حزمة SDK، لا يؤدي استخدام واجهة برمجة التطبيقات مباشرةً إلى التعامل تلقائيًا مع اختلافات المصادقة بين AI
+  Studio (مفتاح واجهة برمجة التطبيقات) ومنصة Gemini Enterprise Agent Platform (إدارة الهوية وإمكانية الوصول). يجب تنفيذ معالجات مصادقة منفصلة إذا كنت تريد إتاحة البيئتين.
+- **لا تتوفّر أنواع أو أدوات مساعدة مدمجة:** لا يمكنك الحصول على عمليات إكمال الرموز أو عمليات التحقّق في وقت الترجمة لكائنات الطلبات إلا إذا نفّذتها بنفسك. لا تتوفّر أي "أدوات مساعدة" للعملاء (مثل أدوات تحويل الدوال إلى مخططات)، لذا عليك كتابة هذه المنطقية يدويًا.
 
-**En iyi uygulama**
+**أفضل الممارسات**
 
-Kitaplığınız için tür tanımları oluşturmak üzere kullanabileceğiniz, makine tarafından okunabilir bir spesifikasyon sunuyoruz. Böylece, bu tanımları manuel olarak yazmak zorunda kalmazsınız. Derleme işleminiz sırasında spesifikasyonu indirin, türleri oluşturun ve derlenmiş kodu gönderin.
+نوفّر مواصفات قابلة للقراءة آليًا يمكنك استخدامها لإنشاء تعريفات الأنواع لمكتبتك، ما يغنيك عن كتابتها يدويًا. نزِّل مواصفات
+الواجهة أثناء عملية الإنشاء، وأنشئ الأنواع، وأرسِل الرمز البرمجي المجمَّع.
 
-- **Uç nokta:** `https://generativelanguage.googleapis.com/$discovery/OPENAPI3_0`
+- **نقطة النهاية:** `https://generativelanguage.googleapis.com/$discovery/OPENAPI3_0`
 
-## OpenAI SDK entegrasyonu
+## دمج حزمة تطوير البرامج (SDK) من OpenAI
 
-Modelden bağımsız özellikler yerine birleşik şemaya (OpenAI Chat Completions) öncelik veren bir platformsanız bu, en hızlı rotanızdır.
+إذا كنت تستخدم منصة تعطي الأولوية لمخطط موحّد (OpenAI Chat
+Completions) على الميزات الخاصة بنموذج معيّن، هذا هو أسرع مسار لك.
 
-**Avantajları:**
+**المزايا:**
 
-- **Kolaylık:** Genellikle `baseURL` ve `apiKey` değiştirerek Gemini desteği ekleyebilirsiniz. Bu, "Kendi Anahtarını Getir" uygulamalarını entegre etmenin ve yeni kod yazmadan Gemini desteği eklemenin hızlı bir yoludur.
-- **Kısıtlamalar:** Bu yol yalnızca OpenAI SDK ile sınırlıysanız ve File API gibi gelişmiş Gemini özelliklerine ya da Google Arama ile Temellendirme gibi araçlar için manuel olarak destek eklemeye ihtiyacınız yoksa önerilir.
+- **سهولة الاستخدام:** يمكنك غالبًا إضافة إمكانية استخدام Gemini من خلال تغيير `baseURL`
+  و`apiKey`. هذه طريقة سريعة لدمج عمليات تنفيذ ميزة "استخدام مفتاحك الخاص"، ما يتيح إضافة توافق مع Gemini بدون كتابة رمز برمجي جديد.
+- **القيود:** لا يُنصح بهذا المسار إلا إذا كان بإمكانك استخدام حزمة SDK من OpenAI فقط ولا تحتاج إلى ميزات Gemini المتقدّمة، مثل File API، أو إذا كنت تريد إضافة إمكانية استخدام أدوات مثل تحديد المصدر من خلال "بحث Search" يدويًا.
 
-**Değiş-tokuş:**
+**المفاضلة:**
 
-- **Özellik sınırlamaları:** Uyumluluk katmanı, temel Gemini özelliklerinde sınırlamalar sunar. Kullanılabilir sunucu tarafı araçları platformlar arasında farklılık gösterir ve Gemini API araçlarıyla çalışmak için manuel işlem gerektirebilir.
-- **Çeviri ek yükü:** OpenAI şeması Gemini'ın mimarisiyle bire bir eşlenmediğinden uyumluluk katmanını kullanmak, çözmek için ek uygulama çalışması gerektiren bazı karmaşıklıklara yol açar. Örneğin, kullanıcının "arama" aracını doğru platform aracıyla eşlemek gibi.
-  Özel durumların önemli bir bölümünü ele almanız gerekiyorsa her platform için özel bir SDK veya API kullanmak daha faydalı olabilir.
+- **قيود الميزات:** تفرض طبقة التوافق قيودًا على إمكانات Gemini الأساسية. تختلف الأدوات المتاحة من جهة الخادم باختلاف المنصات، وقد تتطلّب معالجة يدوية لتعمل مع أدوات Gemini API.
+- **تكلفة الترجمة:** بما أنّ مخطط OpenAI لا يتوافق تمامًا مع بنية Gemini، يؤدي الاعتماد على طبقة التوافق إلى بعض التعقيدات التي تتطلّب جهودًا إضافية لتنفيذها، مثل ربط أداة "البحث" الخاصة بالمستخدم بأداة المنصة المناسبة.
+  إذا كنت بحاجة إلى قدر كبير من المعالجة الخاصة، قد يكون من الأفضل استخدام حزمة تطوير برامج (SDK) أو واجهة برمجة تطبيقات (API) مخصّصة لكل نظام أساسي.
 
-**En iyi uygulama**
+**أفضل الممارسات**
 
-Mümkün olduğunda doğrudan Gemini API ile entegrasyon yapın. Ancak maksimum uyumluluk için farklı sağlayıcıların farkında olan ve araç ile mesaj eşlemeyi sizin için yapabilen bir kitaplık kullanmayı düşünebilirsiniz.
+يمكنك دمج واجهة Gemini API مباشرةً حيثما أمكن ذلك. ومع ذلك، لتحقيق أقصى قدر من التوافق، ننصحك باستخدام مكتبة على دراية بمختلف مقدّمي الخدمات ويمكنها التعامل مع ربط الأدوات والرسائل نيابةً عنك.
 
-## Tüm iş ortakları için en iyi uygulama: müşteri tanımlama
+## أفضل الممارسات لجميع الشركاء: تحديد هوية العميل
 
-Platform veya kitaplık olarak Gemini API'ye çağrı yaparken `x-goog-api-client` üstbilgisini kullanarak istemcinizi tanımlamanız gerekir.
+عند إجراء طلبات إلى Gemini API بصفتك منصة أو مكتبة، عليك تحديد هوية العميل باستخدام العنوان `x-goog-api-client`.
 
-Bu sayede Google, belirli trafik segmentlerinizi tanımlayabilir. Kitaplığınız belirli bir hata kalıbı üretiyorsa hata ayıklama konusunda yardımcı olmak için sizinle iletişime geçebiliriz.
+يتيح ذلك لشركة Google تحديد شرائح الزيارات المحدّدة، وإذا كانت مكتبتك تعرض نمطًا معيّنًا من الأخطاء، يمكننا التواصل معك للمساعدة في تصحيح الأخطاء.
 
-`company-product/version` biçimini kullanın (ör. `acme-framework/1.2.0`).
+استخدِم التنسيق `company-product/version` (مثلاً، `acme-framework/1.2.0`).
 
-### Uygulama örnekleri
+### أمثلة على التنفيذ
 
 ### GenAI SDK
 
-API istemcisini sağladığınızda SDK, özel başlığınızı dahili başlıklarına otomatik olarak ekler.
+من خلال توفير عميل واجهة برمجة التطبيقات، تُلحِق حزمة تطوير البرامج (SDK) تلقائيًا العنوان المخصّص بالعناوين الداخلية.
 
 ```
 from google import genai
@@ -153,16 +162,16 @@ client = genai.Client(
 )
 ```
 
-### Direct API (REST)
+### واجهة برمجة التطبيقات المباشرة (REST)
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=$GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -H 'x-goog-api-client: acme-framework/1.2.0' \
     -d '{...}'
 ```
 
-### OpenAI SDK'sı
+### حزمة تطوير البرامج (SDK) من OpenAI
 
 ```
 from openai import OpenAI
@@ -176,18 +185,18 @@ client = OpenAI(
 )
 ```
 
-## Sonraki adımlar
+## الخطوات التالية
 
-- GenAI SDK'ları hakkında bilgi edinmek için [kitaplığa genel bakış](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) sayfasını ziyaret edin.
-- [API referansına](https://ai.google.dev/api?hl=tr) göz atın.
-- [OpenAI uyumluluk kılavuzunu](https://ai.google.dev/gemini-api/docs/openai?hl=tr) okuyun.
+- انتقِل إلى [نظرة عامة على المكتبة](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) للتعرّف على حِزم تطوير البرامج (SDK) الخاصة بالذكاء الاصطناعي التوليدي.
+- تصفُّح [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api?hl=ar)
+- قراءة [دليل التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar)
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Son güncelleme tarihi: 2026-06-22 UTC.
+تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

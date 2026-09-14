@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/imagen?hl=ko
-fetched_at: 2026-09-07T05:30:31.900490+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/imagen?hl=id
+fetched_at: 2026-09-14T05:41:45.695425+00:00
 title: "Imagen 4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-의견 보내기
+Kirim masukan
 
 # Imagen 4
 
-정교한 크리에이티브 제어 및 사실적인 출력을 제공하는 고급 시각적 합성용 고성능 엔진입니다. 정확한 텍스트 렌더링과 복잡한 조명이 필요한 전문적인 브랜딩, 복잡한 장면 구성, 고품질 디자인 작업에 Imagen 4를 사용하세요.
+Mesin berperforma tinggi untuk sintesis visual tingkat lanjut, yang menawarkan kontrol kreatif yang canggih dan output fotorealistis. Gunakan Imagen 4 untuk tugas desain fidelitas tinggi, komposisi adegan yang rumit, dan branding profesional yang memerlukan rendering teks yang presisi dan pencahayaan yang kompleks.
 
-[Google AI Studio에서 사용해 보기](https://aistudio.google.com?model=imagen-4.0-generate-001&hl=ko)
+[Coba di Google AI Studio](https://aistudio.google.com?model=imagen-4.0-generate-001&hl=id)
 
-## 문서
+## Dokumentasi
 
-기능 및 기능에 대한 전체 내용은 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=ko) 페이지를 참고하세요.
+Buka halaman [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=id) untuk mengetahui cakupan lengkap fitur dan kemampuan.
 
 ## imagen-4.0-generate-001
 
-| 속성 | 설명 |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_card모델 코드 | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| save지원되는 데이터 유형 | **입력**  텍스트  **출력**  이미지 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  토큰 480개 (텍스트)  **출력 이미지**  1~4개 (Ultra/스탠더드/빠름) |
-| calendar\_month최근 업데이트 | 2025년 6월 |
+| Kode model id\_card | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveJenis data yang didukung | **Input**  Teks  **Output**  Gambar |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  480 token (teks)  **Output gambar**  1 hingga 4 (Ultra/Standard/Cepat) |
+| calendar\_monthPembaruan terbaru | Juni 2025 |
 
-의견 보내기
+Kirim masukan
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-최종 업데이트: 2026-06-15(UTC)
+Terakhir diperbarui pada 2026-06-15 UTC.
 
-의견을 전달하고 싶나요?
+Ada masukan untuk kami?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-15(UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-15 UTC."],[],[]]

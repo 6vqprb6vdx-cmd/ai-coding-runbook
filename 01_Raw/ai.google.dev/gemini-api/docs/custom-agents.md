@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl
-fetched_at: 2026-09-07T05:36:51.938295+00:00
-title: "Tworzenie agent\u00f3w zarz\u0105dzanych \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-TW
+fetched_at: 2026-09-14T05:44:56.928356+00:00
+title: "\u5efa\u69cb\u53d7\u7ba1\u7406\u4ee3\u7406 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Prześlij opinię
+提供意見
 
-# Tworzenie agentów zarządzanych
+# 建構受管理代理
 
-Zarządzane agenty w Gemini API umożliwiają rozszerzenie agenta Antigravity o własne instrukcje, umiejętności i dane. Możesz [dostosować agenta w tekście](#customize-inline) w czasie interakcji lub [zapisać konfigurację](#save-agent) jako zarządzanego agenta, którego wywołujesz za pomocą identyfikatora.
+透過 Gemini API 的 Managed Agents，您可以運用自己的指令、技能和資料，擴充 Antigravity 代理程式。您可以在互動時[自訂代理程式內嵌功能](#customize-inline)，或[將設定儲存](#save-agent)為受管理代理程式，並透過 ID 叫用。
 
-## Dostosowywanie agenta Antigravity
+## 自訂 Antigravity 代理程式
 
-Najszybszym sposobem na utworzenie agenta niestandardowego jest przekazanie konfiguracji w tekście podczas tworzenia nowej interakcji bez konieczności rejestracji. Agenta możesz rozszerzyć na kilka sposobów:
+如要快速建構自訂代理程式，最簡單的方法是在建立新互動時，直接傳遞設定，不需要註冊步驟。您可以透過幾種主要方式擴充代理程式：
 
-- **[Wybór modelu](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#model-selection)**: wybierz model Gemini bazowy za pomocą parametru `agent_config` (domyślnie **Gemini 3.7 Flash**).
-- **Instrukcje systemowe**: przekaż tekst w tekście za pomocą parametru `system_instruction`, aby kształtować zachowanie.
-- **Narzędzia**: zastąp domyślne narzędzia (wykonywanie kodu, wyszukiwanie, kontekst adresu URL), zarejestruj zdalne serwery MCP lub zdefiniuj funkcje niestandardowe (wywoływanie funkcji).
-- **Pliki i umiejętności**: zamontuj pliki takie jak `AGENTS.md` i `SKILL.md` w środowisku.
+- **[模型選取](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#model-selection)**：透過 `agent_config` 選擇基礎 Gemini 模型 (預設為 **Gemini 3.8 Flash**)。
+- **系統指令**：透過 `system_instruction` 傳遞內嵌文字，以塑造行為。
+- **工具**：覆寫預設工具 (程式碼執行、搜尋、網址內容)、註冊遠端 MCP 伺服器，或定義自訂函式 (函式呼叫)。
+- **檔案和技能**：將 `AGENTS.md` 和 `SKILL.md` 等檔案掛載至環境。
 
-Oto przykład przekazywania wszystkich 3 elementów w tekście:
+以下是內嵌傳遞所有三個參數的範例：
 
 ### Python
 
@@ -41,7 +41,7 @@ client = genai.Client()
 interaction = client.interactions.create(
     agent="antigravity-preview-05-2026",
     input="Analyze the Q1 revenue data and create a slide deck.",
-    system_instruction="You are a data analyst. Always include visualizations and export results as PDF.",        
+    system_instruction="You are a data analyst. Always include visualizations and export results as PDF.",
     environment={
         "type": "remote",
         "sources": [
@@ -72,7 +72,7 @@ const client = new GoogleGenAI({});
 const interaction = await client.interactions.create({
     agent: "antigravity-preview-05-2026",
     input: "Analyze the Q1 revenue data and create a slide deck.",
-    system_instruction: "You are a data analyst. Always include visualizations and export results as PDF.",        
+    system_instruction: "You are a data analyst. Always include visualizations and export results as PDF.",
     environment: {
         type: "remote",
         sources: [
@@ -91,6 +91,30 @@ const interaction = await client.interactions.create({
 }, { timeout: 300000 });
 
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -121,22 +145,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Wszystko jest zdefiniowane w czasie interakcji. Nie musisz niczego rejestrować. Uprząż agenta Antigravity zapewnia środowisko wykonawcze (wykonywanie kodu, zarządzanie plikami, dostęp do internetu) i warstwy konfiguracji.
+所有項目都是在互動時定義。不必事先註冊任何項目，Antigravity 代理程式架構提供執行階段 (程式碼執行、檔案管理、網路存取)，以及頂層的設定層。
 
-### Narzędzia i instrukcje systemowe
+### 工具和系統指令
 
-Zachowanie i możliwości agenta w przypadku konkretnej interakcji możesz dostosować za pomocą parametrów `system_instruction` i `tools`.
+您可以使用 `system_instruction` 和 `tools` 參數，自訂特定互動的代理程式行為和功能。
 
-- **Instrukcje systemowe**: użyj parametru `system_instruction`, aby przekazać tekst w tekście, który kształtuje zachowanie agenta. Jest to idealne rozwiązanie w przypadku szybkich zmian, które chcesz wprowadzić w każdej rozmowie. Parametry `system_instruction` i `AGENTS.md` są addytywne. Oba mają zastosowanie, gdy są obecne.
-- **Narzędzia**: domyślnie agent Antigravity ma dostęp do narzędzi `code_execution`, `google_search` i `url_context`. Tę listę możesz zastąpić, przekazując parametr `tools` w czasie interakcji. Możesz też zarejestrować [zdalne serwery MCP](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#mcp-servers) lub zdefiniować [funkcje niestandardowe (wywoływanie funkcji)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#function-calling), aby połączyć agenta z własnymi interfejsami API i bazami danych. Szczegółowe informacje o dostępnych narzędziach znajdziesz w artykule [Agent Antigravity: obsługiwane narzędzia](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#supported-tools).
+- **系統指令**：使用 `system_instruction` 參數傳遞內嵌文字，以塑造代理程式的行為。非常適合在每次通話時快速調整。《`system_instruction`》和《`AGENTS.md`》是加成效果，如果兩者都存在，則會同時套用。
+- **工具**：根據預設，Antigravity 代理程式可存取 `code_execution`、`google_search` 和 `url_context`。您可以在互動時傳遞 `tools` 參數，覆寫這份清單。您也可以註冊[遠端 MCP 伺服器](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#mcp-servers)，或定義[自訂函式 (函式呼叫)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#function-calling)，將代理程式連結至您自己的 API 和資料庫。如要瞭解可用的完整工具，請參閱「[Antigravity Agent：支援的工具](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#supported-tools)」。
 
-### Dostosowywanie na podstawie plików
+### 以檔案為基礎的自訂
 
-#### Struktura katalogu agenta
+#### 代理程式目錄結構
 
-Konfigurację możesz przekazać w tekście, ale zalecamy uporządkowanie plików agenta w uporządkowanym katalogu. Ułatwia to zarządzanie, kontrolę wersji i montowanie w środowisku agenta.
+雖然您可以內嵌傳遞設定，但我們建議您在結構化目錄中整理代理程式的檔案。方便您管理、控管版本，以及掛接到代理程式環境。
 
-Typowy katalog projektu agenta wygląda tak:
+典型的代理程式專案目錄如下所示：
 
 ```
 my-agent/
@@ -147,13 +171,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Środowisko wykonawcze Antigravity skanuje te pliki w katalogu `.agents/` (i w katalogu głównym środowiska).
+Antigravity 執行階段會掃描 `.agents/` (和環境的根目錄) 是否有這些檔案。
 
 #### AGENTS.md
 
-Podczas uruchamiania agent automatycznie wczytuje plik `.agents/AGENTS.md` (lub `/.agents/AGENTS.md`) ze środowiska jako instrukcje systemowe. Użyj pliku `AGENTS.md` do definiowania długich opisów person, szczegółowych wytycznych i instrukcji, które chcesz kontrolować za pomocą kontroli wersji wraz z kodem.
+代理程式會在啟動時，從環境中自動載入 `.agents/AGENTS.md` (或 `/.agents/AGENTS.md`) 做為系統指令。使用 `AGENTS.md` 進行長篇角色定義、詳細規範和說明，並與程式碼一起進行版本管控。
 
-Zamontuj plik `AGENTS.md` za pomocą źródła w tekście:
+使用內嵌來源掛接 `AGENTS.md`：
 
 ### Python
 
@@ -207,6 +231,30 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -230,9 +278,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Umiejętności: SKILL.md
+#### 技能：SKILL.md
 
-Umiejętności to pliki, które rozszerzają możliwości agenta. Umieść je w katalogu `.agents/skills/<skill-name>/SKILL.md`, a platforma automatycznie je wykryje i zarejestruje.
+技能是擴充代理程式功能的檔案。將它們放在 `.agents/skills/<skill-name>/SKILL.md` 下方，安全帶就會自動探索及註冊這些裝置。
 
 ```
 .agents/
@@ -242,7 +290,7 @@ Umiejętności to pliki, które rozszerzają możliwości agenta. Umieść je w 
         └── SKILL.md
 ```
 
-Zamontuj umiejętność za pomocą źródła w tekście:
+使用內嵌來源掛接技能：
 
 ### Python
 
@@ -296,6 +344,30 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -319,17 +391,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Umiejętności wczytane z katalogów `.agents/skills/` i `/.agents/skills/` są wykrywane automatycznie.
+系統會自動探索從 `.agents/skills/` 和 `/.agents/skills/` 載入的技能。
 
-## Tworzenie zarządzanego agenta
+## 建立代管代理程式
 
-Po przejrzeniu konfiguracji możesz utworzyć ją jako zarządzanego agenta za pomocą polecenia `agents.create`. Dzięki temu możesz wywoływać agenta za pomocą identyfikatora bez konieczności powtarzania konfiguracji.
+完成設定的疊代作業後，您可以使用 `agents.create` 將設定建立為受管理代理程式。這樣一來，您就能透過 ID 叫用代理程式，不必每次都重複設定。
 
-Określony podczas tworzenia zarządzanego agenta `id` musi być unikalny w Twoim projekcie i nie może zaczynać się od zarezerwowanych prefiksów (np. `google-`, `gemini-`). Pełną listę zastrzeżonych prefiksów znajdziesz w sekcji [Ograniczenia dotyczące identyfikatora agenta](#agent-id-restrictions).
+建立託管代理程式時指定的 `id` 必須是專案中唯一的，並且不能以保留前綴（例如 `google-`、`gemini-`）開頭。有關受限前綴的完整列表，請參閱 [代理 ID 限制](#agent-id-restrictions)。
 
-### Ze źródeł
+### 來自來源
 
-Określ `base_agent`, `id`, `agent_config`, `system_instruction` i `base_environment` ze źródłami. Platforma udostępnia nową piaskownicę z Twoimi plikami przy każdym wywołaniu. Dostępne typy źródeł (Git, GCS, w tekście) znajdziesz w sekcji [Środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl).
+指定 `base_agent`、`id`、`agent_config`、`system_instruction` 和 `base_environment` 的來源。平台會在每次叫用時，使用您的檔案佈建新的沙箱。如要瞭解可用的來源類型 (Git、GCS、內嵌)，請參閱「[環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)」。
 
 ### Python
 
@@ -343,7 +415,7 @@ agent = client.agents.create(
     base_agent="antigravity-preview-05-2026",
     agent_config={
         "type": "antigravity",
-        "model": "gemini-3.7-flash",
+        "model": "gemini-3.8-flash",
     },
     system_instruction="You are a data analyst. Always include visualizations and export results as PDF.",
     base_environment={
@@ -383,7 +455,7 @@ const agent = await client.agents.create({
     base_agent: "antigravity-preview-05-2026",
     agent_config: {
         type: "antigravity",
-        model: "gemini-3.7-flash",
+        model: "gemini-3.8-flash",
     },
     system_instruction: "You are a data analyst. Always include visualizations and export results as PDF.",
     base_environment: {
@@ -411,6 +483,30 @@ const agent = await client.agents.create({
 console.log(`Created agent: ${agent.id}`);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -422,7 +518,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
     "base_agent": "antigravity-preview-05-2026",
     "agent_config": {
         "type": "antigravity",
-        "model": "gemini-3.7-flash"
+        "model": "gemini-3.8-flash"
     },
     "system_instruction": "You are a data analyst. Always include visualizations and export results as PDF.",
     "base_environment": {
@@ -448,9 +544,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### Z istniejącego środowiska (fork)
+### 從現有環境 (分叉)
 
-Pracuj z podstawowym agentem Antigravity, aż środowisko będzie odpowiednie (zainstalowane pakiety, pliki na miejscu), a następnie utwórz z niego zarządzanego agenta.
+使用基本 Antigravity 代理程式進行疊代，直到環境正確為止 (已安裝套件、檔案就位)，然後將其分叉到受管理代理程式。
 
 ### Python
 
@@ -501,6 +597,30 @@ const agent = await client.agents.create({
 console.log(`Forked agent successfully: ${agent.id}`);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -514,11 +634,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Z regułami sieciowymi
+### 使用網路規則
 
-Podczas zapisywania zarządzanego agenta możesz zablokować dostęp wychodzący lub wstawić dane logowania. Pełny schemat listy dozwolonych, wzorce danych logowania i symbole wieloznaczne znajdziesz w sekcji [Środowiska: konfiguracja sieci](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl#network-configuration).
+儲存受管理代理程式時，您可以鎖定輸出存取權或插入憑證。如需完整的許可清單結構定義、憑證模式和萬用字元，請參閱「[環境：網路設定](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#network-configuration)」。
 
-Poniższy przykład tworzy agenta `issue-resolver`, który może uzyskiwać dostęp tylko do GitHuba i PyPI, z danymi logowania wstawionymi do GitHuba:
+以下範例會建立只能存取 GitHub 和 PyPI 的 `issue-resolver` 代理程式，並為 GitHub 插入憑證：
 
 ### Python
 
@@ -594,6 +714,30 @@ const agent = await client.agents.create({
 console.log(`Created issue-resolver agent successfully: ${agent.id}`);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -628,9 +772,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## Wywoływanie agenta
+## 叫用代理程式
 
-Wywołaj zarządzanego agenta za pomocą jego identyfikatora, tworząc nową interakcję. Każde wywołanie tworzy kopię środowiska podstawowego, więc każde uruchomienie zaczyna się od nowa.
+建立新的互動，並使用代理程式 ID 呼叫受管理代理程式。每次叫用都會分叉基礎環境，因此每次執行都會從乾淨的狀態開始。
 
 ### Python
 
@@ -656,6 +800,30 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -669,15 +837,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Informacje o rozmowach wieloetapowych i przesyłaniu strumieniowym znajdziesz w [krótkim wprowadzeniu](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl). Te same wzorce `previous_interaction_id` i `environment` mają zastosowanie do zarządzanych agentów.
+如要瞭解多輪對話和串流，請參閱[快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)。受管理代理程式也適用相同的 `previous_interaction_id` 和 `environment` 模式。
 
-Zarządzani agenci obsługują też wykonywanie w tle i anulowanie. Szczegółowe informacje i przykłady kodu znajdziesz w artykule [Agent Antigravity: wykonywanie w tle](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl#background-execution).
+代管代理程式也支援背景執行和取消作業。如需詳細資料和程式碼範例，請參閱「[Antigravity Agent：背景執行](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#background-execution)」。
 
-## Zastępowanie konfiguracji podczas wywołania
+## 在叫用時覆寫設定
 
-Podczas tworzenia interakcji możesz zastąpić domyślną konfigurację sieci `system_instruction`, `tools` i `environment` agenta. Dzięki temu możesz modyfikować zachowanie, możliwości lub dane logowania agenta w przypadku konkretnego uruchomienia bez zmiany zapisanej definicji agenta.
+建立互動時，您可以覆寫代理程式的預設 `system_instruction`、`tools` 和 `environment` 網路設定。這樣您就能修改特定執行的代理行為、功能或憑證，不必變更儲存的代理定義。
 
-### Zastępowanie instrukcji systemowych i narzędzi
+### 覆寫系統指令和工具
 
 ### Python
 
@@ -706,6 +874,30 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -721,9 +913,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Zastępowanie konfiguracji sieci (odświeżanie danych logowania)
+### 覆寫網路設定 (重新整理憑證)
 
-Jeśli zarządzany agent ma dane logowania do sieci wbudowane w `base_environment`, możesz je zastąpić podczas wywołania, aby odświeżyć wygasłe tokeny lub zmienić klucze API. Przekaż obiekt `environment` z nową konfiguracją `network`. Nowe reguły sieciowe całkowicie zastępują poprzednie w przypadku tej interakcji. Źródła środowiska podstawowego (pliki, repozytoria) są zachowywane.
+如果受管理代理程式已將網路憑證納入 `base_environment`，您可以在叫用時覆寫憑證，藉此更新過期的權杖或輪替 API 金鑰。傳遞具有新 `network` 設定的 `environment` 物件。新版網路規則會完全取代該互動的舊版規則。系統會保留基礎環境的來源 (檔案、存放區)。
 
 ### Python
 
@@ -777,6 +969,30 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -803,11 +1019,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Zarządzanie agentami
+## 管理代理
 
-Możesz wyświetlać listę agentów, pobierać ich i usuwać.
+您可以列出、取得及刪除代理程式。
 
-### Wyświetlenie listy agentów
+### 列出代理程式
 
 ### Python
 
@@ -828,6 +1044,30 @@ if (agents.agents) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -835,7 +1075,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Pobieranie agenta
+### 取得代理程式
 
 ### Python
 
@@ -851,6 +1091,30 @@ const agent = await client.agents.get("data-analyst");
 console.log(agent);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -858,9 +1122,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Usuwanie agenta
+### 刪除代理程式
 
-Usunięcie powoduje usunięcie konfiguracji. Nie ma to wpływu na istniejące środowiska i interakcje utworzone przez agenta.
+刪除後，系統會移除設定。代理程式建立的現有環境和互動不會受到影響。
 
 ### Python
 
@@ -874,6 +1138,30 @@ client.agents.delete(id="data-analyst")
 await client.agents.delete("data-analyst");
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent(AgentOption.of("antigravity-preview-05-2026"))
+        .input(InteractionsInput.of("Build a simple REST API server in Node.js."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -881,24 +1169,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Informacje o definicji agenta
+## 代理定義參考資料
 
-| Pole | Typ | Wymagane | Opis |
+| 欄位 | 類型 | 必要 | 說明 |
 | --- | --- | --- | --- |
-| `id` | tekst | Tak | Unikalny identyfikator agenta w projekcie w chmurze Google. Używany do wywoływania agenta. Nie może używać zarezerwowanych prefiksów. Więcej informacji znajdziesz w sekcji [Ograniczenia dotyczące identyfikatora agenta](#agent-id-restrictions). |
-| `description` | tekst | Nie | Zrozumiały dla człowieka opis agenta. |
-| `base_agent` | tekst | Tak | Identyfikator agenta podstawowego (np. `antigravity-preview-05-2026`). |
-| `agent_config` | obiekt | Nie | Konfiguracja agenta podstawowego, w tym wybór modelu (`{"type": "antigravity", "model": "gemini-3.7-flash"}`). Jeśli ten parametr zostanie pominięty, domyślnie używany jest model `gemini-3.7-flash`. W przypadku nazwanych agentów nie można go zastąpić w czasie interakcji. |
-| `system_instruction` | tekst | Nie | Prompt systemowy definiujący zachowanie i personę. |
-| `tools` | tablica | Nie | Narzędzia, których może używać agent. Jeśli ten parametr zostanie pominięty, domyślnie używane są narzędzia `code_execution`, `google_search` i `url_context`. Obsługiwane narzędzia to `code_execution`, `google_search`, `url_context`, `mcp_server` i definicje niestandardowych `function`. |
-| `base_environment` | tekst lub obiekt | Nie | `"remote"`, `environment_id` lub obiekt konfiguracji z parametrami `sources` i `network`. Więcej informacji znajdziesz w sekcji Środowiska. |
+| `id` | 字串 | 是 | Google Cloud 雲端專案中的專屬代理 ID。用於叫用代理程式。不得使用保留的前置字元。請參閱「[代理程式 ID 限制](#agent-id-restrictions)」。 |
+| `description` | 字串 | 否 | 人類可讀的代理說明。 |
+| `base_agent` | 字串 | 是 | 基本代理 ID (例如 `antigravity-preview-05-2026`)。 |
+| `agent_config` | 物件 | 否 | 基礎代理程式的設定，包括模型選取 (`{"type": "antigravity", "model": "gemini-3.8-flash"}`)。如果省略，預設為 `gemini-3.8-flash`。無法在互動期間覆寫具名代理程式。 |
+| `system_instruction` | 字串 | 否 | 定義行為和角色的系統提示。 |
+| `tools` | 陣列 | 否 | 代理可使用的工具。如果省略此屬性，系統會預設為 `code_execution`、`google_search` 和 `url_context`。支援的工具包括 `code_execution`、`google_search`、`url_context`、`mcp_server` 和自訂 `function` 定義。 |
+| `base_environment` | 字串或物件 | 否 | `"remote"`、`environment_id`，或是包含 `sources` 和 `network` 的設定物件。請參閱「環境」。 |
 
-### Ograniczenia dotyczące identyfikatora agenta
+### 代理 ID 限制
 
-Podczas tworzenia zarządzanego agenta określony identyfikator `id` musi spełniać te wymagania:
+建立代管代理程式時，您指定的 `id` 必須遵守下列規則：
 
-- Musi być unikalny w Twoim projekcie Google Cloud.
-- **Nie może** zaczynać się od żadnego z tych zarezerwowanych prefiksów (bez uwzględniania wielkości liter), w przeciwnym razie utworzenie się nie powiedzie:
+- 在 Google Cloud 雲端專案中不得重複。
+- 開頭**不得**為下列任何預留前置字元 (不分大小寫)，否則建立作業會失敗：
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -916,35 +1204,35 @@ Podczas tworzenia zarządzanego agenta określony identyfikator `id` musi spełn
   - `nest-`
   - `kaggle-`
 
-## Przepływ pracy iteracji
+## 疊代工作流程
 
-1. **Prototyp** z podstawowym agentem Antigravity. Przekaż instrukcje systemowe i źródła środowiska w tekście. Interaktywnie testuj instrukcje, umiejętności i konfigurację środowiska.
-2. **Stabilizuj** środowisko. Zainstaluj pakiety, zamontuj źródła i sprawdź, czy wszystko działa.
-3. **Utrwal** jako zarządzanego agenta, tworząc nowego agenta ze źródeł lub przez utworzenie kopii środowiska.
-4. **Zaktualizuj** definicję agenta. Zmień instrukcje systemowe, zamień umiejętności lub dodaj źródła. Następne wywołanie spowoduje użycie nowej konfiguracji.
+1. 使用基礎 Antigravity 代理**原型**。直接傳遞系統指令和環境來源。以互動方式測試指令、技能和環境設定。
+2. **穩定**環境。安裝套件、掛接來源，並確認一切正常運作。
+3. 建立新代理程式 (可從來源建立，或透過分叉環境建立)，以**保留**為受管理代理程式。
+4. **更新**代理程式定義。變更系統指示、更換技能或新增來源。下次叫用時，系統就會採用新設定。
 
-## Ograniczenia
+## 限制
 
-- **Sprawdź, w jakim stopniu spełniasz wymagania**: zarządzani agenci są dostępni w wersji zapoznawczej. Funkcje i schematy mogą ulec zmianie.
-- **Agent podstawowy i modele**: jako `base_agent` obsługiwany jest tylko agent `antigravity-preview-05-2026`. Obsługiwane opcje modelu w `agent_config` to `gemini-3.7-flash` (domyślny), `gemini-3.6-flash`, `gemini-3.5-flash` i `gemini-3.5-flash-lite`. W przypadku nazwanych agentów nie można zastąpić modelu w czasie interakcji.
-- **Brak obsługi wersji**: obsługa wersji agentów i przywracanie poprzedniej wersji nie są jeszcze dostępne.
-- **Brak zagnieżdżania subagentów**: delegowanie subagentów nie jest jeszcze obsługiwane.
-- Możesz mieć maksymalnie 1000 zarządzanych agentów.
+- **預覽狀態**：受管理代理程式目前為預覽版。功能和結構定義可能會有所異動。
+- **基礎代理程式和模型**：系統僅支援 `antigravity-preview-05-2026` 做為 `base_agent`。`agent_config` 支援的模式選項為 `gemini-3.8-flash` (預設)、`gemini-3.7-flash`、`gemini-3.6-flash`、`gemini-3.5-flash` 和 `gemini-3.5-flash-lite`。如果是具名代理程式，則無法在互動時覆寫模型。
+- **不支援版本管理**：目前不支援代理程式版本管理和復原。
+- **不支援子代理巢狀結構**：目前不支援子代理委派。
+- 最多可有 1000 個受管理代理程式。
 
-## Co dalej?
+## 後續步驟
 
-- [Omówienie agentów](https://ai.google.dev/gemini-api/docs/agents?hl=pl): poznaj podstawowe koncepcje zarządzanych agentów.
-- [Krótkie wprowadzenie](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl): zacznij tworzyć rozmowy wieloetapowe i przesyłanie strumieniowe.
-- [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl): poznaj możliwości, narzędzia i ceny domyślnego agenta.
-- [Środowiska agentów](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl): konfiguruj piaskownice, źródła i sieć.
-- [Zarządzane agenty API w Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=pl): do tworzenia agentów z wbudowanym zarządzaniem organizacją.
+- [代理程式總覽](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw)：瞭解受管理代理程式的核心概念。
+- [快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)：開始建構多輪對話和串流。
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)：瞭解預設代理的功能、工具和價格。
+- [代理程式環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)：設定沙箱、來源和網路。
+- [Agent Platform 的 Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=zh-tw)：用於建立內建機構管理功能的代理。
 
-Prześlij opinię
+提供意見
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Ostatnia aktualizacja: 2026-08-19 UTC.
+上次更新時間：2026-09-08 (世界標準時間)。
 
-Chcesz przekazać coś jeszcze?
+想進一步說明嗎？
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-08-19 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-08 (世界標準時間)。"],[],[]]

@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=pl
-fetched_at: 2026-09-07T05:40:18.413563+00:00
-title: "Grounding z\u00a0u\u017cyciem wyszukiwarki Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=he
+fetched_at: 2026-09-14T05:47:14.491682+00:00
+title: "\u05e2\u05d9\u05d2\u05d5\u05df \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05d7\u05d9\u05e4\u05d5\u05e9 Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Prześlij opinię
+שליחת משוב
 
-# Grounding z użyciem wyszukiwarki Google
+# עיגון באמצעות חיפוש Google
 
-Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google łączy model Gemini z treściami z internetu w czasie rzeczywistym i działa we wszystkich dostępnych językach. Pozwala to Gemini udzielać dokładniejszych odpowiedzi i cytować zweryfikowane źródła poza jego granicą wiedzy.
+העיגון באמצעות חיפוש Google מחבר את מודל Gemini לתוכן מהאינטרנט שמתעדכן בזמן אמת, ועובד בכל השפות הזמינות. כך Gemini יכול לתת תשובות מדויקות יותר ולצטט מקורות ניתנים לאימות, מעבר לתאריך סף הידע שלו.
 
-Grounding pomaga tworzyć aplikacje, które mogą:
+ההארקה עוזרת לכם ליצור אפליקציות שיכולות:
 
-- **zwiększać dokładność faktów:** zmniejszają halucynacje modelu, opierając odpowiedzi na informacjach ze świata rzeczywistego;
-- **uzyskiwać dostęp do informacji w czasie rzeczywistym:** odpowiadają na pytania dotyczące najnowszych wydarzeń i tematów;
-- **podawać cytaty:** budują zaufanie użytkowników, pokazując źródła twierdzeń modelu.
+- **שיפור הדיוק העובדתי:** כדי לצמצם את ההזיות של המודל, התשובות מבוססות על מידע מהעולם האמיתי.
+- **גישה למידע בזמן אמת:** מענה לשאלות על אירועים ונושאים עדכניים.
+- **לספק ציטוטים:** כדי לבנות את אמון המשתמשים, כדאי להציג את המקורות של הטענות של המודל.
 
 ### Python
 
@@ -34,7 +34,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Who won the euro 2024?",
     tools=[{"type": "google_search"}]
 )
@@ -50,7 +50,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: "Who won the euro 2024?",
     tools: [{ type: "google_search" }]
 });
@@ -65,27 +65,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": "Who won the euro 2024?",
     "tools": [{"type": "google_search"}]
   }'
 ```
 
-## Jak działa powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google
+## איך עיגון באמצעות חיפוש Google פועל
 
-Gdy włączysz narzędzie `google_search`, model automatycznie obsługuje cały proces wyszukiwania, przetwarzania i cytowania informacji.
+כשמפעילים את הכלי `google_search`, המודל מטפל בכל תהליך העבודה של חיפוש, עיבוד וציטוט מידע באופן אוטומטי.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=pl)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=he)
 
-1. **Prompt użytkownika:** Twoja aplikacja wysyła prompta użytkownika do interfejsu Gemini API z włączonym narzędziem `google_search`.
-2. **Analiza prompta:** model analizuje prompta i określa, czy wyszukiwanie w Google może poprawić odpowiedź.
-3. **Wyszukiwanie w Google:** w razie potrzeby model automatycznie generuje co najmniej 1 zapytanie i je wykonuje.
-4. **Przetwarzanie wyników wyszukiwania:** model przetwarza wyniki wyszukiwania, syntetyzuje informacje i formułuje odpowiedź.
-5. **Odpowiedź oparta na źródłach:** interfejs API zwraca ostateczną, przyjazną dla użytkownika odpowiedź opartą na wynikach wyszukiwania. Ta odpowiedź zawiera tekstową odpowiedź modelu z wbudowanymi `annotations` zawierającymi cytaty, a także kroki `google_search_call` i `google_search_result` z zapytaniami i sugestiami wyszukiwania.
+1. **הנחיית משתמש:** האפליקציה שולחת הנחיית משתמש אל Gemini API עם הכלי `google_search` מופעל.
+2. **ניתוח ההנחיה:** המודל מנתח את ההנחיה וקובע אם חיפוש ב-Google יכול לשפר את התשובה.
+3. **חיפוש Google:** אם צריך, המודל יוצר באופן אוטומטי שאילתת חיפוש אחת או יותר ומריץ אותן.
+4. **עיבוד תוצאות החיפוש:** המודל מעבד את תוצאות החיפוש, מסנתז את המידע ומנסח תשובה.
+5. **תשובה מבוססת:** ה-API מחזיר תשובה סופית וידידותית למשתמש שמבוססת על תוצאות החיפוש. התשובה הזו כוללת את תשובת הטקסט של המודל עם `annotations` מוטבעות שמכילות את הציטוטים, וגם את השלבים `google_search_call` ו-`google_search_result` עם שאילתות החיפוש וההצעות לחיפוש.
 
-## Informacje o odpowiedzi opartej na źródłach
+## הסבר על התשובה המעוגנת
 
-Gdy odpowiedź jest oparta na źródłach, tekst wygenerowany przez model zawiera wbudowane `annotations` bezpośrednio w bloku treści tekstowej. Te adnotacje zawierają informacje o cytatach, które łączą części odpowiedzi z ich źródłami.
+אם התשובה מבוססת על מקורות מידע, פלט הטקסט של המודל יכלול `annotations` מוטבע בתוך בלוק התוכן של הטקסט. ההערות האלה
+כוללות פרטי ציטוט שמקשרים בין חלקים בתשובה לבין המקורות שלהם.
 
 ```
 {
@@ -144,20 +145,19 @@ Gdy odpowiedź jest oparta na źródłach, tekst wygenerowany przez model zawier
 }
 ```
 
-Kluczowe pola w odpowiedzi:
+שדות המפתח בתגובה:
 
-- `google_search_call` : zawiera `queries` wyszukiwania wykonane przez model.
-- `google_search_result` : zawiera `search_suggestions`, czyli fragment kodu HTML do renderowania sugestii wyszukiwania w interfejsie. Pełne wymagania dotyczące użytkowania są
-  opisane w [Warunkach korzystania z usługi](https://ai.google.dev/gemini-api/terms?hl=pl#grounding-with-google-search).
-- `text` z `annotations` : syntetyzowana odpowiedź modelu z wbudowanymi cytatami. Każda adnotacja `url_citation` łączy segment tekstu (zdefiniowany przez `start_index` i `end_index`) z adresem URL źródła. Jest to klucz do tworzenia wbudowanych cytatów.
+- ‫`google_search_call` : מכיל את החיפוש `queries` שהמודל ביצע.
+- ‫`google_search_result` : מכיל את `search_suggestions`, קטע HTML להצגת הצעות לחיפוש בממשק המשתמש. דרישות השימוש המלאות מפורטות [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-search).
+- ‫`text` עם `annotations` : התשובה המסונתזת של המודל עם ציטוטים מוטבעים. כל הערה `url_citation` מקשרת פלח טקסט (מוגדר על ידי `start_index` ו-`end_index`) לכתובת URL של מקור. זהו המפתח ליצירת ציטוטים מוטמעים.
 
-Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google można też stosować w połączeniu z narzędziem do kontekstu [adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl), aby opierać odpowiedzi zarówno na publicznych danych internetowych
-, jak i na konkretnych adresach URL, które podasz.
+אפשר גם להשתמש בעיגון באמצעות חיפוש Google בשילוב עם [כלי ההקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he) כדי לעגן תשובות גם בנתונים ציבוריים באינטרנט וגם בכתובות ה-URL הספציפיות שאתם מספקים.
 
-## Przypisywanie źródeł za pomocą wbudowanych cytatów
+## שיוך מקורות באמצעות ציטוטים מוטמעים
 
-Interfejs API zwraca wbudowane adnotacje `url_citation` w bloku treści tekstowej, co daje Ci pełną kontrolę nad sposobem wyświetlania źródeł w interfejsie użytkownika.
-Każda adnotacja zawiera `start_index` i `end_index`, aby określić, którą część tekstu cytuje. Oto jak je wyodrębnić i wyświetlić.
+ממשק ה-API מחזיר הערות משולבות בתוכן `url_citation` בבלוק של תוכן הטקסט,
+כך שאתם יכולים לשלוט באופן מלא באופן שבו המקורות מוצגים בממשק המשתמש.
+כל הערה כוללת את התגים `start_index` ו-`end_index` כדי לזהות את החלק בטקסט שהיא מצטטת. כך מחלצים ומציגים אותם.
 
 ### Python
 
@@ -200,7 +200,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-Dane wyjściowe będą zawierać tekst, a następnie jego cytaty:
+הפלט יציג את הטקסט ואחריו את הציטוטים שלו:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -212,55 +212,48 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Ceny
+## תמחור
 
-Gdy używasz powiązania ze źródłami informacji przy użyciu wyszukiwarki Google z Gemini 3, za każde zapytanie, które model zdecyduje się wykonać, zostanie naliczona opłata. Jeśli model zdecyduje się
-wykonać kilka zapytań, aby odpowiedzieć na jednego prompta (np.
-wyszukać hasła `"UEFA Euro 2024 winner"` i `"Spain vs England Euro 2024 final
-score"` w ramach tego samego wywołania interfejsu API), będzie to liczone jako 2 płatne użycia narzędzia
-w przypadku tego żądania. Na potrzeby rozliczeń ignorujemy puste zapytania w wyszukiwarce podczas zliczania unikalnych zapytań. Ten model rozliczeń dotyczy tylko modeli Gemini 3. Gdy używasz groundingu przy użyciu wyszukiwarki z Gemini 2.5 lub starszymi modelami, opłata jest naliczana za prompta.
+כשמשתמשים בעיגון באמצעות חיפוש Google עם Gemini 3, הפרויקט מחויב על כל שאילתת חיפוש שהמודל מחליט לבצע. אם המודל מחליט להריץ כמה שאילתות חיפוש כדי לענות על הנחיה אחת (לדוגמה, חיפוש של `"UEFA Euro 2024 winner"` ושל `"Spain vs England Euro 2024 final
+score"` באותה קריאה ל-API), זה ייחשב כשני שימושים בתשלום בכלי עבור הבקשה הזו. לצורך חיוב, אנחנו מתעלמים משאילתות ריקות בחיפוש באינטרנט כשסופרים שאילתות ייחודיות. מודל החיוב הזה רלוונטי רק למודלים של Gemini 3. כשמשתמשים בהארקה של חיפוש עם Gemini 2.5 או מודלים ישנים יותר, החיוב על הפרויקט הוא לפי הנחיה.
 
-Szczegółowe informacje o cenach znajdziesz na stronie z cennikiem interfejsu [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
+למידע מפורט על התמחור, אפשר לעיין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## Obsługiwane modele
+## מודלים נתמכים
 
-Pełne możliwości znajdziesz na stronie z omówieniem [modelu](https://ai.google.dev/gemini-api/docs/models?hl=pl).
+אפשר למצוא את כל היכולות בדף [סקירה כללית של המודל](https://ai.google.dev/gemini-api/docs/models?hl=he).
 
-| Model | Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google |
+| מודל | עיגון באמצעות חיפוש Google |
 | --- | --- |
-| Gemini 3.7 Flash | ✔️ |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash Image (wersja testowa) | ✔️ |
-| Gemini 3.1 Pro (wersja testowa) | ✔️ |
-| Gemini 3 Pro Image (wersja testowa) | ✔️ |
-| Gemini 3 Flash (wersja testowa) | ✔️ |
-| Gemini 2.5 Pro | ✔️ |
-| Gemini 2.5 Flash | ✔️ |
+| תצוגה מקדימה של תמונות ב-Gemini 3.1 Flash | ✔️ |
+| ‫Gemini 3.1 Pro Preview | ✔️ |
+| תצוגה מקדימה של תמונות ב-Gemini 3 Pro | ✔️ |
+| ‫Gemini 3 Flash Preview | ✔️ |
+| Gemini ‎2.5 Pro | ✔️ |
+| Gemini ‎2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Obsługiwane kombinacje narzędzi
+## שילובים נתמכים של כלים
 
-Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google możesz używać z innymi narzędziami, takimi jak
-[wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl),
-[kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl) i
-[powiązanie ze źródłami informacji przy użyciu Map Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl) (obsługiwane w modelach
-Gemini 3.5 Flash i nowszych), aby obsługiwać bardziej złożone przypadki użycia. Modele Gemini 3 obsługują też łączenie tych wbudowanych narzędzi z narzędziami niestandardowymi (wywoływanie funkcji). Więcej informacji znajdziesz na
-[stronie dotyczącej kombinacji narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+אתם יכולים להשתמש ב-עיגון באמצעות חיפוש Google בשילוב עם כלים אחרים כמו [הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he) ו[URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=he) כדי להפעיל תרחישי שימוש מורכבים יותר.
 
-## Co dalej?
+מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו עיגון באמצעות חיפוש Google) עם כלים בהתאמה אישית (קריאה לפונקציה). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
 
-- Dowiedz się więcej o innych dostępnych narzędziach, takich jak [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
-- Dowiedz się, jak rozszerzać prompty o konkretne adresy URL za pomocą narzędzia do kontekstu adresu URL .
+## המאמרים הבאים
 
-Prześlij opinię
+- אפשר לקרוא על כלים זמינים אחרים, כמו [הפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
+- [כאן](https://ai.google.dev/gemini-api/docs/url-context?hl=he) מוסבר איך להוסיף לתיאורים כתובות URL ספציפיות באמצעות הכלי 'הקשר של כתובת URL'.
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+שליחת משוב
 
-Ostatnia aktualizacja: 2026-08-20 UTC.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Chcesz przekazać coś jeszcze?
+עדכון אחרון: 2026-09-12 (שעון UTC).
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-08-20 UTC."],[],[]]
+רוצה לתת לנו משוב?
+
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]

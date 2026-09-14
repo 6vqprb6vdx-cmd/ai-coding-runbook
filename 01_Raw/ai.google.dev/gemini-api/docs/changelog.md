@@ -1,421 +1,458 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/changelog?hl=pl
-fetched_at: 2026-09-07T05:44:51.982468+00:00
-title: "Informacje o wersjach \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/changelog?hl=it
+fetched_at: 2026-09-14T05:49:20.238858+00:00
+title: "Note di rilascio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Prześlij opinię
+Invia feedback
 
-# Informacje o wersjach
+# Note di rilascio
 
-Ta strona zawiera informacje o aktualizacjach interfejsu Gemini API.
+Questa pagina documenta gli aggiornamenti dell'API Gemini.
 
-## 3 września 2026 r.
+## 21 luglio 2026
 
-- **Lyria 3.5 w publicznej wersji przedpremierowej:** udostępniliśmy model nowej generacji do generowania muzyki:
+- **Disponibilità generale (GA) di Gemini 3.6 Flash e Gemini 3.5 Flash-Lite**:
+  Sono state rilasciate versioni stabili e pronte per la produzione dei nostri modelli Flash 3.x più recenti:
 
-  - [`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=pl): generowanie pełnych utworów z większą spójnością muzyczną, naturalnym wokalem oraz precyzyjną kontrolą czasu trwania i struktury.
+  - **Gemini 3.6 Flash** (`gemini-3.6-flash`): offre una migliore efficienza dei token e funzionalità di pianificazione di codice/agenti a un prezzo inferiore rispetto a 3.5 Flash, risolvendo i feedback degli sviluppatori relativi alla verbosità dell'output.
+  - **Gemini 3.5 Flash-Lite** (`gemini-3.5-flash-lite`): offre un'opzione di subagente a bassa latenza e altamente conveniente progettata per l'automazione di volumi elevati.
 
-  Model obsługuje dane wejściowe w formie tekstu i obrazu oraz generuje wysokiej jakości dźwięk stereo o częstotliwości próbkowania 44,1 kHz. Szczegółowe informacje i przykłady kodu znajdziesz w [przewodniku po generowaniu muzyki](https://ai.google.dev/gemini-api/docs/music-generation?hl=pl).
+  Per saperne di più, consulta la guida [Ultimo modello Gemini](https://ai.google.dev/gemini-api/docs/latest-model?hl=it).
+- **Parametri obsoleti**: i parametri di campionamento `temperature`, `top_p`
+  e `top_k` sono ora obsoleti. Per maggiori dettagli, consulta la sezione
+  [Ultimo modello Gemini](https://ai.google.dev/gemini-api/docs/latest-model?hl=it#sampling-parameter-deprecation).
 
-## 2 września 2026 r.
+## 6 luglio 2026
 
-- **Ogólnie dostępny model Gemini 3.8 Flash:** wydany`gemini-3.8-flash`, nasz najbardziej inteligentny model Flash, zaprojektowany z myślą o inżynierii oprogramowania o długim horyzoncie, autonomicznych agentach i złożonych przepływach pracy w przedsiębiorstwach.
+- Supporto dei [log degli sviluppatori](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it) per l'API Interactions: i log per le chiamate API Interactions supportate sono ora visualizzabili nella [dashboard di AI Studio](https://aistudio.google.com/logs?hl=it).
 
-  Aby rozpocząć, zapoznaj się ze stroną modelu [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pl) i [przewodnikiem po najnowszych modelach](https://ai.google.dev/gemini-api/docs/latest-model?hl=pl).
+## 30 giugno 2026
 
-## 1 września 2026 r.
+- **Gemini Omni Flash in anteprima pubblica**: rilasciato il giorno `gemini-omni-flash-preview`,
+  un modello multimodale ad alte prestazioni progettato per la generazione di video ad alta velocità
+  e l'editing di video conversazionali. Utilizzando l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it),
+  puoi generare video di 3-10 secondi a 720p da descrizioni di testo o animare immagini statiche,
+  quindi modificare e perfezionare gli output in modo conversazionale. Per iniziare, consulta la guida a
+  [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=it) e la
+  scheda del modello [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=it).
+- Rilasciato `gemini-3.1-flash-lite-image` (Nano Banana 2 Lite) per la disponibilità generale, il nostro modello multimodale integrato ottimizzato per una latenza e una generazione e modifica delle immagini a costi contenuti. Consulta la scheda del modello [Gemini 3.1
+  Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=it) e la guida alla [generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
 
-- **Agentic video understanding:** udostępniliśmy funkcję agentic video understanding w przypadku modeli Gemini 3.7 Flash, 3.6 Flash i 3.5 Flash-Lite w interfejsach API Interactions i GenerateContent. Model dynamicznie porusza się po osi czasu filmu, żądając transkrypcji, klatek lub ścieżek audio na żądanie. W przypadku długich treści ta metoda wykorzystuje nawet o 88% mniej tokenów niż przetwarzanie statyczne.
+## 24 giugno 2026
 
-  Aby rozpocząć, zapoznaj się z przewodnikiem [Analizowanie filmów przez agenta](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl#agentic-video-understanding).
+- **Uso del computer**: è stata lanciata l'anteprima pubblica del supporto per lo strumento
+  [Uso del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) in Gemini 3.5 Flash. Questa
+  release include azioni semplificate con intent, supporto integrato per
+  ambienti browser, mobile e desktop, policy di sicurezza configurabili e
+  rilevamento avanzato dell'iniezione di prompt.
 
-## 27 sierpnia 2026 r.
+## 17 giugno 2026
 
-- **Gemini Omni Flash ogólnie dostępny:** wydany
-  `gemini-omni-1.1-flash`, ogólnie dostępna wersja naszego szybkiego modelu do generowania i edytowania filmów w formie rozmowy. Ta wersja zawiera ważne nowe funkcje:
+- **Supporto dello streaming per la generazione vocale**: lo streaming tramite `streamGenerateContent`
+  (e `stream: true` nell'API Interactions) è ora supportato per il
+  modello `gemini-3.1-flash-tts-preview`. Per saperne di più, consulta la guida
+  [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it#streaming).
 
-  - **Rozszerzenie wideo:** bezproblemowo rozszerzaj istniejące filmy, generując kontynuacje na końcu klipu za pomocą zadania `extend` lub bezpośrednio za pomocą prompta.
-  - **Interpolacja (pierwsza i ostatnia klatka):** wygeneruj film, który będzie przechodzić między 2 obrazami, używając zadania `image_to_video` z maksymalnie 2 obrazami.
-  - **Kontrola rozdzielczości:** nowy parametr `resolution` w `video_config`
-    obsługuje dane wyjściowe `360p`, `720p` (domyślne), `1080p` i `4k`.
-    Wyniki w jakości 1080p i 4K są generowane przy użyciu zwiększania rozdzielczości.
+## 15 giugno 2026
 
-  Obecny punkt końcowy `gemini-omni-flash-preview` zostanie wycofany 30 września 2026 r.
+- **Annuncio del ritiro**: i seguenti modelli di generazione di immagini
+  verranno ritirati e [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il **17 agosto 2026**:
 
-  Aby rozpocząć, zapoznaj się ze stroną modelu [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=pl) i [przewodnikiem po Omni](https://ai.google.dev/gemini-api/docs/omni?hl=pl).
+  - **Modelli Imagen 4 e Gemini 3 Image**:
 
-## 26 sierpnia 2026 r.
-
-- **Ogólna dostępność Gemini 3.5 Transcribe:** udostępniliśmy 2 modele do transkrypcji mowy oparte na funkcji rozumienia dźwięku Gemini:
-
-  - **Gemini 3.5 Transcribe** (`gemini-3.5-transcribe`): bardzo dokładna, działająca z niskim opóźnieniem funkcja zamiany mowy na tekst bez przesyłania strumieniowego, z wykrywaniem języka na podstawie wypowiedzi w ponad 85 językach, rozróżnianiem mówców, znacznikami czasu na poziomie słów i ustawianiem preferencji dla słownictwa niestandardowego (do 1000 terminów).
-  - **Gemini 3.5 Transcribe Live** (`gemini-3.5-transcribe-live`):
-    dwukierunkowe przesyłanie strumieniowe mowy na tekst o niskim opóźnieniu za pomocą protokołu WebSockets z użyciem interfejsu Live API, obsługujące zdarzenia transkrypcji tymczasowej i końcowej, tryb inteligentnej transkrypcji oraz wiele strategii wykrywania aktywności głosowej (VAD).
-
-  Aby rozpocząć, zapoznaj się z [przewodnikiem po transkrypcji dźwięku](https://ai.google.dev/gemini-api/docs/transcribe?hl=pl), [przewodnikiem po transkrypcji na żywo](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=pl) i [stroną modelu Gemini 3.5 do transkrypcji](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=pl).
-
-## 13 sierpnia 2026 r.
-
-- **Ogólna dostępność modelu Gemini 3.7 Flash:** udostępniliśmy nasz najbardziej inteligentny model do kodowania i współpracy z agentem:
-
-  - **Gemini 3.7 Flash** (`gemini-3.7-flash`): znaczne ulepszenia w zakresie inżynierii oprogramowania, tworzenia stron internetowych i przepływów pracy agenta, dostępne w cenie początkowej do 31 grudnia 2026 r.
-
-  Aby rozpocząć, zapoznaj się ze stroną modelu [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=pl) i [przewodnikiem po najnowszych modelach](https://ai.google.dev/gemini-api/docs/latest-model?hl=pl).
-
-## 30 lipca 2026 r.
-
-- **Gemini Robotics ER 2 w publicznej wersji przedpremierowej:** udostępniliśmy 2 nowe punkty końcowe modelu rozumowania w kontekście robotyki:
-
-  - `gemini-robotics-er-2-preview`: zaawansowane rozumowanie przestrzenne, wykonywanie kodu przez agenta, wieloetapowe koordynowanie narzędzi, wyszukiwanie momentów w filmie, klasyfikowanie postępów i koordynacja wielu robotów.
-  - `gemini-robotics-er-2-streaming-preview`: zoptymalizowany pod kątem przesyłania strumieniowego tekstu w czasie rzeczywistym za pomocą interfejsu Live API, co umożliwia działanie robotów z niskimi opóźnieniami i dwukierunkowym wejściem audio i wideo.
-
-  Oba punkty końcowe modelu akceptują dane wejściowe w formie tekstu, obrazu, wideo i dźwięku oraz obsługują wywoływanie funkcji z blokowaniem w przypadku działań fizycznych robotów.
-  Aby rozpocząć, zapoznaj się z [omówieniem Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pl). Przykłady zastosowań strumieniowania w czasie rzeczywistym znajdziesz w artykule [Robotyka ze strumieniowaniem](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pl).
-- **Ogłoszenie o wycofaniu:** model `gemini-robotics-er-1.6-preview` zostanie [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) 31 sierpnia 2026 r.
-
-## 21 lipca 2026 r.
-
-- **Ogólnie dostępne (GA) modele Gemini 3.6 Flash i Gemini 3.5 Flash-Lite:**
-  udostępniliśmy stabilne wersje produkcyjne naszych najnowszych modeli Flash z serii 3.x:
-
-  - **Gemini 3.6 Flash** (`gemini-3.6-flash`): model o większej wydajności tokenów i lepszych możliwościach planowania kodu/agentów w porównaniu z modelem 3.5 Flash, ale w niższej cenie. Odpowiada na uwagi deweloperów dotyczące nadmiernej szczegółowości danych wyjściowych.
-  - **Gemini 3.5 Flash-Lite** (`gemini-3.5-flash-lite`): opcja podagenta o niskich opóźnieniach i wysokiej opłacalności, zaprojektowana do automatyzacji dużych ilości danych.
-
-  Więcej informacji znajdziesz w przewodniku [Najnowszy model Gemini](https://ai.google.dev/gemini-api/docs/latest-model?hl=pl).
-- **Wycofane parametry:** parametry próbkowania `temperature`, `top_p` i `top_k` zostały wycofane. Więcej informacji znajdziesz w sekcji [Najnowszy model Gemini](https://ai.google.dev/gemini-api/docs/latest-model?hl=pl#sampling-parameter-deprecation).
-
-## 6 lipca 2026 r.
-
-- [Logi deweloperskie](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pl) interfejsu Interactions API: logi obsługiwanych wywołań interfejsu Interactions API są teraz widoczne na [panelu AI Studio](https://aistudio.google.com/logs?hl=pl).
-
-## 30 czerwca 2026 r.
-
-- **Gemini Omni Flash w wersji testowej**: udostępniony `gemini-omni-flash-preview`, wysokowydajny model multimodalny zaprojektowany do szybkiego generowania filmów i konwersacyjnej edycji filmów. Za pomocą [interfejsu Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) możesz generować 3–10-sekundowe filmy w rozdzielczości 720p na podstawie opisów tekstowych lub animować obrazy statyczne, a następnie edytować i dopracowywać wyniki w formie rozmowy. Aby rozpocząć, zapoznaj się z przewodnikiem po [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=pl) i kartą modelu [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=pl).
-- Udostępniliśmy ogólnie `gemini-3.1-flash-lite-image` (Nano Banana 2 Lite) nasz wbudowany model multimodalny zoptymalizowany pod kątem bardzo niskich opóźnień oraz opłacalnego generowania i edytowania obrazów. Zapoznaj się z [kartą modelu Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=pl) i przewodnikiem po [generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
-
-## 24 czerwca 2026 r.
-
-- **Korzystanie z komputera:** udostępniliśmy publiczną wersję testową narzędzia [Korzystanie z komputera](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl) w Gemini 3.5 Flash. Ta wersja zawiera uproszczone działania z intencjami, wbudowaną obsługę środowisk przeglądarki, urządzeń mobilnych i komputerów, konfigurowalne zasady bezpieczeństwa oraz zaawansowane wykrywanie wstrzykiwania promptów.
-
-## 17 czerwca 2026 r.
-
-- **Obsługa przesyłania strumieniowego w przypadku generowania mowy:** przesyłanie strumieniowe za pomocą `streamGenerateContent` (i `stream: true` w interfejsie Interactions API) jest teraz obsługiwane w przypadku modelu `gemini-3.1-flash-tts-preview`. Więcej informacji znajdziesz w przewodniku [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl#streaming).
-
-## 15 czerwca 2026 r.
-
-- **Ogłoszenie o wycofaniu:**  te modele generowania obrazów zostaną wycofane i [wyłączone](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) **17 sierpnia 2026 r.**:
-
-  - **Modele Imagen 4 i Gemini 3 do generowania obrazów:**
     - `imagen-4.0-generate-001`
     - `imagen-4.0-ultra-generate-001`
     - `imagen-4.0-fast-generate-001`
 
-  Aby przenieść kod do nowszych stabilnych lub testowych punktów końcowych, zapoznaj się ze stroną [Wycofywanie Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl#imagen-models).
-- **Ogłoszenie o wycofaniu:**  te modele do generowania filmów zostaną wycofane i [wyłączone](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) **30 czerwca 2026 r.:**
+    Per eseguire la migrazione del codice a endpoint di anteprima o stabili più recenti, consulta la pagina
+    [Ritiri di Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#imagen-models).
+- **Annuncio del ritiro**: i seguenti modelli di generazione video verranno ritirati e [arrestati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il **30 giugno 2026**:
 
-  - **Modele Veo**:
+  - **Modelli Veo**:
+
     - `veo-2.0-generate-001`
     - `veo-3.0-generate-001`
     - `veo-3.0-fast-generate-001`
 
-  Zaktualizuj integrację, aby używać identyfikatorów modeli w wersji testowej Veo 3.1 (`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`) lub modeli 3.1 w wersji ogólnodostępnej, które są dostępne na [platformie agentów Gemini Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=pl), aby uniknąć przerw w działaniu usługi.
-- **Powiadomienie o wycofaniu:** eksperymentalne narzędzie GMP Contextual View (stały interfejs do ugruntowywania z wykorzystaniem danych wyjściowych Map Google) zostanie [wyłączone](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) **15 czerwca 2026 r.**
+    Aggiorna l'integrazione in modo da utilizzare gli ID modello di anteprima di Veo 3.1
+    (`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`) o i
+    modelli 3.1 GA disponibili tramite
+    [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=it)
+    per evitare interruzioni del servizio.
+- **Annuncio del ritiro**: lo strumento sperimentale GMP Contextual View (un'interfaccia fissa per Grounding con Google Maps) verrà [chiuso](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il **15 giugno 2026**:
 
-## 1 czerwca 2026 r.
+## 1° giugno 2026
 
-- Te modele Gemini 2.0 zostały [wyłączone](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl):
-
-  - `gemini-2.0-flash`
-  - `gemini-2.0-flash-001`
-  - `gemini-2.0-flash-lite`
-  - `gemini-2.0-flash-lite-001`
-
-  Zamiast niej użyj zasady [`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) lub [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl).
-
-## 28 maja 2026 r.
-
-- Wprowadziliśmy `gemini-3.1-flash-image` (Nano Banana 2) i `gemini-3-pro-image` (Nano Banana Pro), czyli ogólnodostępne wersje naszych natywnych modeli wizualnych: [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=pl) i [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=pl).
-- **Generowanie obrazów na podstawie filmów:** możesz teraz przekazywać plik wideo (przez bezpośrednie przesyłanie lub jako publiczny adres URL w YouTube) jako kontekst multimodalny wraz z promptem tekstowym, aby generować wysokiej jakości miniatury, plakaty filmowe lub infografiki podsumowujące. Ta funkcja jest obsługiwana wyłącznie na modelu `gemini-3.1-flash-image`. Więcej informacji znajdziesz w przewodniku [Generowanie obrazów z filmów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl#video-to-image).
-- Ogłoszenie o wycofaniu: modele `gemini-3.1-flash-image-preview` i `gemini-3-pro-image-preview` zostały wycofane i [zostaną wyłączone](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) 25 czerwca 2026 r.
-
-## 25 maja 2026 r.
-
-- Model `gemini-3.1-flash-lite-preview` został [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl). Zamiast niej używaj zasady [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl).
-
-## 19 maja 2026 r.
-
-- Wprowadziliśmy `gemini-3.5-flash` ogólnodostępną wersję [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl), naszego najbardziej inteligentnego modelu, który zapewnia stałą, przełomową wydajność w zadaniach agentowych i związanych z kodowaniem. Jest to teraz model, który obsługuje `gemini-flash-latest`.
-- Udostępniliśmy w publicznej wersji przedpremierowej **zarządzane agenty w Gemini API**. Umożliwia to programistom tworzenie i wdrażanie autonomicznych agentów stanowych, którzy działają w bezpiecznych, odizolowanych środowiskach piaskownicy Linuxa hostowanych przez Google. Więcej informacji znajdziesz na stronie [Omówienie agentów](https://ai.google.dev/gemini-api/docs/agents?hl=pl) i w [krótkim wprowadzeniu](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl).
-- Udostępniliśmy w publicznej wersji przedpremierowej zarządzanego agenta do zwykłych obciążeń **Antigravity Agent**.
-  [`antigravity-preview-05-2026`](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=pl)
-  Agent Antigravity może samodzielnie planować, analizować, pisać i uruchamiać kod, zarządzać plikami oraz przeglądać internet w swoim kontenerze piaskownicy. Więcej informacji o kodzie znajdziesz w przewodniku [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl).
-
-## 7 maja 2026 r.
-
-- Wprowadziliśmy `gemini-3.1-flash-lite` ogólnodostępną wersję [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl), zoptymalizowaną pod kątem szybkości, skali i opłacalności.
-- Ogłoszenie o wycofaniu: model `gemini-3.1-flash-lite-preview` zostanie wycofany 11 maja 2026 r. i [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) 25 maja 2026 r.
-
-## 6 maja 2026 r.
-
-- **Nadchodząca zmiana powodująca niezgodność:** zmienia się schemat żądań i odpowiedzi [interfejsu Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) (`outputs` → `steps`) oraz konfiguracja formatu wyjściowego (`response_format`). Nowy schemat stanie się domyślnym **26 maja**, a starszy schemat zostanie usunięty **8 czerwca**.
-  Szczegółowe informacje znajdziesz w [przewodniku po migracji](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=pl).
-
-## 5 maja 2026 r.
-
-- Zaktualizowano **wyszukiwanie plików**, aby obsługiwało wyszukiwanie wielomodalne. Możesz teraz natywnie osadzać obrazy i wyszukiwać je za pomocą modelu `gemini-embedding-2`.
-  Metadane podstawowe zawierają teraz `media_id` w przypadku cytatów wizualnych i `page_numbers`, które wskazują, gdzie można znaleźć informacje. Więcej informacji znajdziesz w przewodniku [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl).
-
-## 4 maja 2026 r.
-
-- Uruchomiliśmy w interfejsie Gemini API obsługę [webhooków](https://ai.google.dev/gemini-api/docs/webhooks?hl=pl) opartych na zdarzeniach, aby zastąpić przepływy pracy oparte na odpytywaniu w przypadku interfejsu Batch API i długotrwałych operacji.
-
-## 30 kwietnia 2026 r.
-
-- Model `gemini-robotics-er-1.5-preview` został [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl). Zamiast niej używaj zasady [`gemini-robotics-er-1.6-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=pl).
-
-## 22 kwietnia 2026 r.
-
-- Wersja `gemini-embedding-2` została udostępniona w ramach ogólnej dostępności. Więcej informacji znajdziesz na stronie [Osadzanie](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl).
-
-## 21 kwietnia 2026 r.
-
-- Wprowadziliśmy nowe wersje agenta [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) z funkcjami planowania współpracy, obsługą wizualizacji, integracją z serwerem MCP i wyszukiwaniem plików:
-
-  - [`deep-research-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=pl): zaprojektowany z myślą o szybkości i wydajności, idealny do przesyłania strumieniowego do interfejsu klienta.
-  - [`deep-research-max-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=pl): maksymalna kompleksowość w przypadku automatycznego zbierania i syntezy kontekstu.
-
-## 15 kwietnia 2026 r.
-
-- Wprowadziliśmy [Gemini 3.1 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=pl), nasz ekonomiczny, ekspresyjny i sterowalny model zamiany tekstu na mowę. Więcej informacji znajdziesz w dokumentacji [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl).
-
-## 14 kwietnia 2026 r.
-
-- Wprowadziliśmy `gemini-robotics-er-1.6-preview`, nasz zaktualizowany model robotyki.
-  Ma teraz nowe funkcje, takie jak odczytywanie wskazań przyrządów pomiarowych oraz ulepszone możliwości rozumowania przestrzennego i fizycznego. Więcej informacji znajdziesz na stronie [Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pl) i na [blogu](https://deepmind.google/blog/gemini-robotics-er-1-6?hl=pl).
-- Ogłoszenie o wycofaniu: `gemini-robotics-er-1.5-preview` model zostanie [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) 30 kwietnia 2026 r. o godzinie 9:00 czasu PST.
-
-## 2 kwietnia 2026 r.
-
-- Wydane `gemma-4-26b-a4b-it` i `gemma-4-31b-it`, dostępne w [AI Studio](https://aistudio.google.com?hl=pl) i przez Gemini API w ramach premiery [Gemma 4](https://ai.google.dev/gemma/docs/core?hl=pl).
-
-## 1 kwietnia 2026 r.
-
-- Wprowadziliśmy nowe poziomy wnioskowania [Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl) i [Priority](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl), które oferują więcej opcji optymalizacji kosztów lub opóźnień.
-
-## 31 marca 2026 r.
-
-- Udostępniliśmy wersję zapoznawczą Veo 3.1 Lite, [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=pl), naszego najbardziej ekonomicznego modelu [generowania filmów](https://ai.google.dev/gemini-api/docs/video?hl=pl), który został zaprojektowany z myślą o szybkim iterowaniu i tworzeniu aplikacji o dużej skali.
-- Model `gemini-2.5-flash-lite-preview-09-2025` został wyłączony. Zamiast niej używaj zasady [`gemini-3.1-flash-lite-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pl).
-
-## 26 marca 2026 r.
-
-- Wprowadzony [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=pl) najnowszy model audio-to-audio (A2A) zaprojektowany z myślą o dialogach w czasie rzeczywistym i aplikacjach AI opartych na głosie. Aby rozpocząć, zapoznaj się z dokumentacją [interfejsu Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=pl).
-
-## 25 marca 2026 r.
-
-- Wprowadziliśmy modele generowania muzyki [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=pl): [`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=pl) (30-sekundowe klipy) i [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=pl) (pełne utwory). Oba modele akceptują dane wejściowe w formie tekstu i obrazu oraz generują wysokiej jakości dźwięk stereo o częstotliwości próbkowania 48 kHz. Szczegółowe informacje i przykłady kodu znajdziesz w przewodniku [Generowanie muzyki](https://ai.google.dev/gemini-api/docs/music-generation?hl=pl).
-
-## 23 marca 2026 r.
-
-- Wprowadziliśmy w AI Studio [abonamenty przedpłacone i z płatnością po wykonaniu usługi](https://ai.google.dev/gemini-api/docs/billing?hl=pl). Może to mieć wpływ na istniejące konta. Więcej informacji znajdziesz w dokumentacji [Rozliczenia](https://ai.google.dev/gemini-api/docs/billing?hl=pl).
-
-## 18 marca 2026 r.
-
-- Wprowadziliśmy nową funkcję [Połączenie wbudowanych narzędzi i wywoływania funkcji](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl), która umożliwia korzystanie z wbudowanych narzędzi Gemini wraz z niestandardowymi narzędziami do wywoływania funkcji w ramach jednego wywołania interfejsu API.
-- [Powiązanie ze źródłami informacji przy użyciu Map Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl#supported_models) jest teraz obsługiwane w przypadku modeli Gemini 3.
-
-## 16 marca 2026 r.
-
-- Wprowadziliśmy odświeżone [poziomy wykorzystania](https://ai.google.dev/gemini-api/docs/billing?hl=pl#about-billing) i [limity wydatków na koncie rozliczeniowym](https://ai.google.dev/gemini-api/docs/billing?hl=pl#tier-spend-caps), aby ułatwić użytkownikom rozliczenia.
-
-## 12 marca 2026 r.
-
-- Wprowadziliśmy [limity wydatków na poziomie projektu](https://ai.google.dev/gemini-api/docs/billing?hl=pl#project-spend-caps) w rozliczeniach w AI Studio.
-
-## 10 marca 2026 r.
-
-- Udostępniliśmy `gemini-embedding-2-preview`, nasz pierwszy multimodalny model wektorów dystrybucyjnych.
-  Obsługuje dane wejściowe w formie tekstu, obrazu, filmu, dźwięku i pliku PDF, mapując wszystkie typy treści na ujednoliconą przestrzeń wektorów dystrybucyjnych. Więcej informacji znajdziesz w artykule [Osadzanie](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl).
-- Ogłoszenie o wycofaniu: `gemini-2.5-flash-lite-preview-09-2025` model zostanie [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) 31 marca 2026 r.
-
-## 9 marca 2026 r.
-
-- Model Gemini 3 Pro w wersji testowej został [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl). Wskaźnik `gemini-3-pro-preview` wskazuje teraz na
-  [`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl).
-
-## 3 marca 2026 r.
-
-- Udostępniliśmy wersję testową Gemini 3.1 Flash-Lite, pierwszego modelu Flash-Lite z serii Gemini 3. Więcej informacji o specyfikacjach, konkretnych aktualizacjach i wskazówkach dla deweloperów znajdziesz na [stronie modelu](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pl).
-
-## 26 lutego 2026 r.
-
-- Wprowadziliśmy Nano Banana 2, [Gemini 3.1 Flash Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=pl), czyli wysoce wydajny model zoptymalizowany pod kątem szybkości i dużej liczby zastosowań.
-- Ogłoszenie o wycofaniu: wersja testowa Gemini 3 Pro (`gemini-3-pro-preview`) zostanie [wyłączona](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) 9 marca 2026 r.
-
-## 19 lutego 2026 r.
-
-- Wprowadziliśmy [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl), naszą najnowszą wersję z nowej serii Gemini 3.
-- Uruchomiliśmy osobny punkt końcowy`gemini-3.1-pro-preview-customtools`, który lepiej ustala priorytety narzędzi niestandardowych w przypadku użytkowników korzystających z bash i narzędzi.
-
-## 18 lutego 2026 r.
-
-- Ogłoszenie o wycofaniu: 1 czerwca 2026 r. [wyłączymy](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) te modele:
+- I seguenti modelli Gemini 2.0 sono ora [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it):
 
   - `gemini-2.0-flash`
   - `gemini-2.0-flash-001`
   - `gemini-2.0-flash-lite`
   - `gemini-2.0-flash-lite-001`
 
-## 17 lutego 2026 r.
+  Utilizza [`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it) o
+  [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it)
+  in alternativa.
 
-- Te modele zostały [wyłączone](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl):
+## 28 maggio 2026
+
+- Sono state rilasciate `gemini-3.1-flash-image` (Nano Banana 2) e `gemini-3-pro-image`
+  (Nano Banana Pro), le versioni disponibili a livello generale (GA) dei nostri modelli
+  visivi nativi, [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=it)
+  e [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=it).
+- **Supporto della generazione di immagini da video**: ora puoi passare un file video (tramite caricamento diretto o come URL pubblico di YouTube) come contesto multimodale insieme a un prompt testuale per generare miniature di alta qualità, locandine cinematografiche o infografiche riassuntive. Questa funzionalità è supportata esclusivamente sul modello
+  `gemini-3.1-flash-image`. Per saperne di più, consulta la guida
+  [Generazione di immagini da video](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#video-to-image).
+- Annuncio di ritiro: i modelli `gemini-3.1-flash-image-preview` e
+  `gemini-3-pro-image-preview` sono deprecati
+  e verranno [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 25 giugno 2026.
+
+## 25 maggio 2026
+
+- Il modello `gemini-3.1-flash-lite-preview` è stato
+  [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it). Utilizza
+  [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it).
+
+## 19 maggio 2026
+
+- Rilasciata il giorno `gemini-3.5-flash`, la versione in disponibilità generale (GA) di
+  [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it),
+  il nostro modello più intelligente per prestazioni all'avanguardia sostenute in
+  attività agentiche e di programmazione. Ora questo è il modello alla base di `gemini-flash-latest`.
+- Lanciati gli **agenti gestiti nell'API Gemini** in anteprima pubblica. In questo modo, gli sviluppatori possono creare e implementare agent autonomi e stateful che vengono eseguiti in ambienti sandbox Linux sicuri, isolati e ospitati da Google. Per saperne di più,
+  consulta la pagina [Panoramica degli agenti](https://ai.google.dev/gemini-api/docs/agents?hl=it) e la
+  [guida rapida](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=it).
+- È stato rilasciato l'agente gestito **Antigravity Agent** per uso generico,
+  [`antigravity-preview-05-2026`](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=it), in anteprima pubblica.
+  L'agente Antigravity può pianificare, ragionare, scrivere ed eseguire codice autonomamente,
+  gestire file e navigare sul web all'interno del suo container sandbox. Per esempi di codice e specifiche, consulta la guida
+  [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it).
+
+## 7 maggio 2026
+
+- Rilasciata il giorno `gemini-3.1-flash-lite`, la versione di disponibilità generale (GA) di
+  [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it),
+  ottimizzata per velocità, scalabilità ed efficienza in termini di costi.
+- Annuncio di ritiro: il modello `gemini-3.1-flash-lite-preview` verrà ritirato l'11/05/26 e [disattivato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 25 maggio 2026.
+
+## 6 maggio 2026
+
+- **Modifica che causa interruzione imminente**: lo schema di richiesta e risposta (`outputs` → `steps`) e la configurazione del formato di output (`response_format`) dell'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) stanno cambiando. Il nuovo schema diventerà
+  quello predefinito il **26 maggio** e lo schema legacy verrà rimosso l'**8 giugno**.
+  Per maggiori dettagli, consulta la
+  [guida alla migrazione](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=it).
+
+## 5 maggio 2026
+
+- Aggiornamento della **Ricerca file** per supportare la ricerca multimodale. Ora puoi incorporare e cercare immagini in modo nativo utilizzando il modello `gemini-embedding-2`.
+  I metadati di base ora includono `media_id` per le citazioni visive e
+  `page_numbers` che indicano dove si trovano le informazioni. Per saperne
+  di più, consulta la guida alla [ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it).
+
+## 4 maggio 2026
+
+- È stato lanciato il supporto dei [webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=it) basati su eventi nell'API Gemini per sostituire i flussi di lavoro di polling per l'API Batch e le operazioni a lunga esecuzione.
+
+## 30 aprile 2026
+
+- Il modello `gemini-robotics-er-1.5-preview` è stato
+  [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it). Utilizza
+  [`gemini-robotics-er-1.6-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=it).
+
+## 22 aprile 2026
+
+- Rilasciato `gemini-embedding-2` come disponibile pubblicamente
+  (GA). Per saperne di più, consulta la pagina [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it).
+
+## 21 aprile 2026
+
+- Sono state rilasciate nuove versioni dell'agente [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it)
+  con pianificazione collaborativa, supporto della visualizzazione, integrazione
+  del server MCP e ricerca di file:
+
+  - [`deep-research-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=it): progettato per
+    velocità ed efficienza, ideale per essere trasmesso in streaming a un'interfaccia utente client.
+  - [`deep-research-max-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=it): massima
+    completezza per la raccolta e la sintesi automatica del contesto.
+
+## 15 aprile 2026
+
+- È stata lanciata l'[anteprima di Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=it), il nostro modello di sintesi vocale economico, espressivo e controllabile. Per saperne di più, leggi la documentazione su
+  [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it).
+
+## 14 aprile 2026
+
+- È stato rilasciato `gemini-robotics-er-1.6-preview`, il nostro modello di robotica aggiornato.
+  Ora ha nuove funzionalità come la lettura degli strumenti e capacità di ragionamento spaziale e fisico migliorate. Per scoprire di più, consulta la pagina [Gemini Robotics-ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=it) e il [blog](https://deepmind.google/blog/gemini-robotics-er-1-6?hl=it).
+- Annuncio di ritiro: il modello `gemini-robotics-er-1.5-preview` verrà [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 30 aprile 2026 alle 9:00 PST.
+
+## 2 aprile 2026
+
+- Rilasciati il giorno `gemma-4-26b-a4b-it` e il giorno `gemma-4-31b-it`, disponibili su
+  [AI Studio](https://aistudio.google.com?hl=it) e tramite l'API Gemini,
+  nell'ambito del lancio di [Gemma 4](https://ai.google.dev/gemma/docs/core?hl=it).
+
+## 1° aprile 2026
+
+- Sono stati introdotti i nuovi livelli di inferenza [Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it) e [Priorità](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it), che offrono più opzioni
+  per ottimizzare i costi o la latenza.
+
+## 31 marzo 2026
+
+- È stata lanciata l'anteprima di Veo 3.1 Lite, [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=it), il nostro modello di [generazione di video](https://ai.google.dev/gemini-api/docs/video?hl=it) più conveniente, progettato per l'iterazione rapida e la creazione di applicazioni ad alto volume.
+- Il modello `gemini-2.5-flash-lite-preview-09-2025` è stato arrestato. Utilizza
+  [`gemini-3.1-flash-lite-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=it).
+
+## 26 marzo 2026
+
+- Rilasciato il [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=it), l'ultimo modello
+  audio-to-audio (A2A) progettato per dialoghi in tempo reale e applicazioni
+  AI vocali. Leggi la documentazione dell'[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it) per iniziare.
+
+## 25 marzo 2026
+
+- Sono stati lanciati i modelli di generazione di musica [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=it): [`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=it)
+  (clip di 30 secondi) e [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=it)
+  (brani integrali). Entrambi i modelli accettano input di testo e immagini e generano
+  audio stereo di alta qualità a 48 kHz. Per dettagli ed esempi di codice, consulta la guida alla [generazione di musica](https://ai.google.dev/gemini-api/docs/music-generation?hl=it).
+
+## 23 marzo 2026
+
+- Sono stati implementati i [piani di fatturazione con pagamento anticipato e posticipato](https://ai.google.dev/gemini-api/docs/billing?hl=it) in
+  AI Studio. Gli account esistenti potrebbero essere interessati. Per saperne di più, leggi la documentazione sulla [fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it).
+
+## 18 marzo 2026
+
+- È stata rilasciata la nuova funzionalità [Combinazione di strumenti integrati e chiamate di funzione](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it), che consente
+  di utilizzare gli strumenti integrati di Gemini insieme a strumenti di chiamata di funzione personalizzati
+  in un'unica chiamata API.
+- [Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it#supported_models)
+  è ora supportato per i modelli Gemini 3.
+
+## 16 marzo 2026
+
+- Sono stati introdotti [livelli di utilizzo](https://ai.google.dev/gemini-api/docs/billing?hl=it#about-billing)
+  e [limiti di spesa per l'account di fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it#tier-spend-caps)
+  migliorati per un'esperienza di fatturazione utente migliore.
+
+## 12 marzo 2026
+
+- Sono stati introdotti i [limiti di spesa a livello di progetto](https://ai.google.dev/gemini-api/docs/billing?hl=it#project-spend-caps) nella fatturazione di AI Studio.
+
+## 10 marzo 2026
+
+- È stato rilasciato `gemini-embedding-2-preview`, il nostro primo modello di embedding multimodale.
+  Supporta input di testo, immagini, video, audio e PDF,
+  mappa tutte le modalità in uno spazio di embedding unificato. Per saperne di più, consulta
+  [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it).
+- Annuncio di ritiro: il modello `gemini-2.5-flash-lite-preview-09-2025` verrà [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 31 marzo 2026.
+
+## 9 marzo 2026
+
+- Il modello Gemini 3 Pro Preview è stato [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it). Ora `gemini-3-pro-preview` rimanda a
+  [`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it).
+
+## 3 marzo 2026
+
+- È stata lanciata l'anteprima di Gemini 3.1 Flash-Lite, il primo modello Flash-Lite della
+  serie Gemini 3. Consulta la [pagina del modello](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=it) per specifiche, aggiornamenti specifici e indicazioni per gli sviluppatori.
+
+## 26 febbraio 2026
+
+- È stato lanciato Nano Banana 2, [Gemini 3.1 Flash Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=it), un modello ad alta efficienza
+  ottimizzato per la velocità e i casi d'uso ad alto volume.
+- Annuncio del ritiro: l'anteprima di Gemini 3 Pro (`gemini-3-pro-preview`)
+  verrà [chiusa](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 9 marzo 2026.
+
+## 19 febbraio 2026
+
+- È stata rilasciata l'[anteprima di Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it), la nostra ultima iterazione della nuova famiglia di modelli Gemini 3.
+- È stato lanciato un endpoint separato `gemini-3.1-pro-preview-customtools`, che è
+  più efficace nel dare la priorità agli strumenti personalizzati, per gli utenti che creano con un mix di bash
+  e strumenti.
+
+## 18 febbraio 2026
+
+- Annuncio relativo al ritiro: i seguenti modelli verranno
+  [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 1° giugno 2026:
+
+  - `gemini-2.0-flash`
+  - `gemini-2.0-flash-001`
+  - `gemini-2.0-flash-lite`
+  - `gemini-2.0-flash-lite-001`
+
+## 17 febbraio 2026
+
+- I seguenti modelli sono [in fase di arresto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it):
 
   - `gemini-2.5-flash-preview-09-25`
   - `imagen-4.0-generate-preview-06-06`
   - `imagen-4.0-ultra-generate-preview-06-06`
 
-## 29 stycznia 2026 r.
+## 29 gennaio 2026
 
-- Uruchomiliśmy obsługę narzędzia Korzystanie z komputera w `gemini-3-pro-preview` i `gemini-3-flash-preview`.
+- È stato lanciato il supporto per lo strumento Utilizzo del computer in `gemini-3-pro-preview` e
+  `gemini-3-flash-preview`.
 
-## 21 stycznia 2026 r.
+## 21 gennaio 2026
 
-- Zmieniono aliasy `latest`:
+- Modificati gli alias di `latest`:
 
-  - `gemini-pro-latest` przełączono na `gemini-3-pro-preview`
-  - `gemini-flash-latest` przełączono na `gemini-3-flash-preview`
+  - `gemini-pro-latest` è passato a `gemini-3-pro-preview`
+  - `gemini-flash-latest` è passato a `gemini-3-flash-preview`
 
-## 15 stycznia 2026 r.
+## 15 gennaio 2026
 
-- Ogłoszenie o wycofaniu: 17 lutego 2026 r. [wyłączymy](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl) te modele:
+- Annuncio di ritiro: i seguenti modelli verranno
+  [arrestati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 17 febbraio 2026:
 
   - `gemini-2.5-flash-preview-09-25`
   - `imagen-4.0-generate-preview-06-06`
   - `imagen-4.0-ultra-generate-preview-06-06`
-- Model `gemini-2.5-flash-image-preview` został wyłączony.
+- Il modello `gemini-2.5-flash-image-preview` è stato arrestato.
 
-## 14 stycznia 2026 r.
+## 14 gennaio 2026
 
-- Model `text-embedding-004` został [wyłączony](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl).
+- Il modello `text-embedding-004` è stato [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it).
 
-## 13 stycznia 2026 r.
+## 13 Gennaio 2026
 
-- Dodaliśmy rozdzielczość wyjściową 4K dla [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl) i większą obsługę filmów w orientacji pionowej we wszystkich rozdzielczościach.
+- Sono state aggiunte risoluzioni di output 4K per [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it) e un maggiore
+  supporto per i video verticali in tutte le risoluzioni.
 
-## 12 stycznia 2026 r.
+## 12 gennaio 2026
 
-- Udostępniono funkcję cyklu życia modelu. W przypadku niektórych modeli podamy teraz etap cyklu życia i harmonogram wycofania. Więcej informacji znajdziesz w tych dokumentach:
+- È stata lanciata la funzionalità del ciclo di vita del modello. Alcuni modelli ora specificano la fase del ciclo di vita e la cronologia di ritiro. Per ulteriori informazioni, consulta la seguente documentazione:
 
-  - [Etapy modelu](https://ai.google.dev/api/generate-content?hl=pl#ModelStatus)
+  - [Fasi del modello](https://ai.google.dev/api/generate-content?hl=it#ModelStatus)
 
-## 8 stycznia 2026 r.
+## 8 gennaio 2026
 
-- Wprowadziliśmy obsługę zasobników Cloud Storage oraz dowolnych publicznych i prywatnych baz danych z wstępnie podpisanymi adresami URL jako źródła danych wejściowych dla interfejsu Gemini API. Zwiększyliśmy też limit rozmiaru pliku z 20 MB do 100 MB. Więcej informacji znajdziesz w [przewodniku po metodach wprowadzania plików](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl).
+- È stato lanciato il supporto per i bucket Cloud Storage e per qualsiasi URL pre-firmato di database pubblico e privato come sorgente di ingresso dei dati per l'API Gemini. Il limite di dimensione del file
+  è stato aumentato da 20 MB a 100 MB. Per maggiori dettagli, consulta la [guida ai metodi di input dei file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=it).
 
-## 19 grudnia 2025 r.
+## 19 dicembre 2025
 
-- Wprowadziliśmy w wersji 1 beta interfejsu Interactions API zmianę powodującą niezgodność wsteczną. Nazwa pola `total_reasoning_tokens` została zmieniona na `total_thought_tokens`, aby lepiej odzwierciedlać koncepcję „myśli” w modelach myślenia.
+- È stata introdotta una modifica che causa interruzioni all'API Interactions nella versione v1 beta. Il campo `total_reasoning_tokens` è stato rinominato in
+  `total_thought_tokens` per allinearsi meglio al concetto di "pensieri" nei
+  modelli di pensiero.
 
-## 17 grudnia 2025 r.
+## 17 dicembre 2025
 
-- Udostępniliśmy wersję testową Gemini 3 Flash`gemini-3-flash-preview`, która zapewnia szybką wydajność na poziomie najnowocześniejszych modeli, porównywalną z większymi modelami, ale przy znacznie niższych kosztach. Ulepszone rozumowanie wizualne i przestrzenne oraz możliwości kodowania agentowego. Zapoznaj się z dokumentacją niektórych nowych funkcji, w tym:
+- È stata lanciata l'anteprima di Gemini 3 Flash, `gemini-3-flash-preview`, che offre prestazioni veloci
+  di livello avanzato che competono con modelli più grandi a una frazione del
+  costo. Con ragionamento visivo e spaziale migliorato e funzionalità di programmazione agentica. Leggi la documentazione su alcune nuove funzionalità, tra cui:
 
-  - [Odpowiedzi funkcji multimodalnych](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#multimodal)
-  - [Wykonanie kodu z obrazami](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl#images)
+  - [Risposte di funzioni multimodali](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#multimodal)
+  - [Esecuzione di codice con immagini](https://ai.google.dev/gemini-api/docs/code-execution?hl=it#images)
 
-## 12 grudnia 2025 r.
+## 12 dicembre 2025
 
-- Wprowadziliśmy `gemini-2.5-flash-native-audio-preview-12-2025`, nowy natywny model audio dla interfejsu Live API. Ta aktualizacja zwiększa możliwości modelu w zakresie obsługi złożonych przepływów pracy. Więcej informacji znajdziesz w [przewodniku po interfejsie Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=pl) i w artykule [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-live?hl=pl).
+- Rilasciato il giorno `gemini-2.5-flash-native-audio-preview-12-2025`,
+  un nuovo modello audio nativo per l'API Live. Questo aggiornamento migliora la capacità del modello
+  di gestire workflow complessi. Per saperne di più, consulta la
+  [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=it) e
+  [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-live?hl=it).
 
-## 11 grudnia 2025 r.
+## 11 dicembre 2025
 
-- Udostępniliśmy interfejs Interactions API. Ten interfejs API udostępnia ujednolicony interfejs do korzystania z modeli i agentów Gemini. Więcej informacji znajdziesz w przewodniku po [interfejsie Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl).
-- Udostępniliśmy w wersji testowej agenta Deep Research w Gemini. Może ona samodzielnie planować, wykonywać i syntetyzować wyniki wieloetapowych zadań badawczych. Szczegółowe informacje znajdziesz w przewodniku po [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl).
+- È stata lanciata l'API Interactions. Questa API fornisce un'interfaccia unificata
+  per interagire con i modelli e gli agenti Gemini. Per saperne di più, consulta la guida all'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it).
+- È stato lanciato l'agente Gemini Deep Research in anteprima. Può pianificare, eseguire e sintetizzare autonomamente i risultati per attività di ricerca in più passaggi. Per
+  maggiori dettagli, consulta la guida [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it).
 
-## 10 grudnia 2025 r.
+## 10 dicembre 2025
 
-- Wprowadziliśmy ulepszenia naszych [modeli zamiany tekstu na mowę](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl), w tym wersje przedpremierowe Gemini 2.5 Flash TTS (zoptymalizowany pod kątem niskiego opóźnienia) i Gemini 2.5 Pro TTS (zoptymalizowany pod kątem jakości), które zapewniają większą ekspresję, precyzyjne tempo i płynne dialogi.
+- Sono stati lanciati miglioramenti ai nostri [modelli di sintesi vocale](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it), all'anteprima di Gemini 2.5 Flash TTS (ottimizzata per la bassa latenza) e all'anteprima di Gemini 2.5 Pro TTS (ottimizzata per la qualità), tra cui espressività migliorata, ritmo preciso e dialoghi fluidi.
 
-## 9 grudnia 2025 r.
+## 9 dicembre 2025
 
-- Te modele Gemini Live API zostały wyłączone:
+- I seguenti modelli API Gemini Live non sono più disponibili:
   - `gemini-2.0-flash-live-001`
   - `gemini-live-2.5-flash-preview`
 
-## 5 grudnia 2025 r.
+## 5 dicembre 2025
 
-- Naliczanie opłat za Gemini 3 w przypadku [powiązania ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) rozpocznie się 5 stycznia 2026 r.
+- La fatturazione di Gemini 3 per il [grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) inizierà il 5 gennaio 2026.
 
-## 4 grudnia 2025 r.
+## 4 dicembre 2025
 
-- Ogłoszenie o wycofaniu: model `gemini-2.5-flash-image-preview` zostanie wyłączony 15 stycznia 2026 r.
+- Annuncio di ritiro: il modello `gemini-2.5-flash-image-preview` verrà
+  disattivato il 15 gennaio 2026.
 
-## 3 grudnia 2025 r.
+## 3 dicembre 2025
 
-- Ogłoszenie o wycofaniu: model `text-embedding-004` zostanie wyłączony 14 stycznia 2026 r.
+- Annuncio di ritiro: il modello `text-embedding-004` verrà disattivato il 14 gennaio 2026.
 
-## 20 listopada 2025 r.
+## 20 novembre 2025
 
-- Wprowadziliśmy wersję testową Gemini 3 Pro Image Preview, `gemini-3-pro-image-preview`, czyli kolejną wersję modelu Nano Banana. Więcej informacji znajdziesz na stronie [Generowanie obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
+- È stata rilasciata l'anteprima delle immagini di Gemini 3 Pro, `gemini-3-pro-image-preview`, la
+  prossima iterazione del modello Nano Banana. Per ulteriori dettagli, consulta la pagina [Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
 
-## 18 listopada 2025 r.
+## 18 novembre 2025
 
-- Wprowadziliśmy pierwszy model z serii Gemini 3, `gemini-3-pro-preview`, nasz najnowocześniejszy model do rozumowania i rozpoznawania multimodalnego z zaawansowanymi funkcjami agentowymi i kodowania.
+- È stato lanciato il primo modello della serie Gemini 3, `gemini-3-pro-preview`, il nostro
+  modello allo stato dell'arte per il ragionamento e la comprensione multimodale con potenti
+  funzionalità agentiche e di programmazione.
 
-  Oprócz ulepszeń w zakresie inteligencji i wydajności wersja testowa Gemini 3 Pro wprowadza nowe zachowania w zakresie:
+  Oltre ai miglioramenti in termini di intelligenza e prestazioni,
+  l'anteprima di Gemini 3 Pro introduce nuovi comportamenti relativi a:
 
-  - [Rozdzielczość multimediów](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pl)
-  - [Podpisy myśli](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pl)
-  - [Poziomy myślenia](https://ai.google.dev/gemini-api/docs/thinking?hl=pl#thinking-levels)
+  - [Risoluzione dei contenuti multimediali](https://ai.google.dev/gemini-api/docs/media-resolution?hl=it)
+  - [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it)
+  - [Livelli di pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it#thinking-levels)
 
-  Więcej informacji o migracji, nowych funkcjach i specyfikacjach znajdziesz w [przewodniku dla programistów Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=pl).
+  Leggi la [Guida per gli sviluppatori di Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=it) per
+  migrazione, nuove funzionalità e specifiche.
 
-## 11 listopada 2025 r.
+## 11 novembre 2025
 
-- Ogłoszenie o wycofaniu: wyłączymy te modele:
+- Annuncio del ritiro: i seguenti modelli verranno chiusi:
 
-  - 12 listopada:
+  - 12 novembre:
 
     - `veo-3.0-fast-generate-preview`
     - `veo-3.0-generate-preview`
-  - 14 listopada:
+  - 14 novembre:
 
     - `gemini-2.0-flash-exp-image-generation`
     - `gemini-2.0-flash-preview-image-generation`
 
-## 10 listopada 2025 r.
+## 10 novembre 2025
 
-- Ten model zostanie wyłączony:
+- Il seguente modello è stato arrestato:
 
   - `imagen-3.0-generate-002`
 
-  Zamiast tego użyj [Imagen 4](https://ai.google.dev/gemini-api/docs/imagen?hl=pl#imagen-4). Więcej informacji znajdziesz w [tabeli wycofanych funkcji Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=pl).
+  Usa [Imagen 4](https://ai.google.dev/gemini-api/docs/imagen?hl=it#imagen-4). Per ulteriori dettagli, consulta la
+  [tabella dei ritiri di Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=it).
 
-## 6 listopada 2025 r.
+## 6 novembre 2025
 
-- Udostępniliśmy interfejs File Search API w publicznej wersji przedpremierowej, dzięki czemu deweloperzy mogą opierać odpowiedzi na własnych danych. Więcej informacji znajdziesz na nowej stronie [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl).
+- È stata lanciata l'API File Search in anteprima pubblica, consentendo agli sviluppatori di
+  basare le risposte sui propri dati. Per saperne di più, consulta la nuova pagina [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it).
 
-## 4 listopada 2025 r.
+## November 4, 2025
 
-- W przypadku [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl) liczba tokenów wejściowych dla obrazów została zmniejszona z 1290 do 258, co obniża koszt edytowania obrazów.
-- Ogłoszenie o wycofaniu: wyłączymy te modele:
+- Per [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/image-generation?hl=it), il conteggio dei token di input per le immagini è stato ridotto da 1290 a 258, diminuendo il costo della modifica delle immagini.
+- Annuncio del ritiro: i seguenti modelli verranno chiusi:
 
-  - 18 listopada:
+  - 18 novembre:
 
     - `gemini-2.5-flash-lite-preview-06-17`
     - `gemini-2.5-flash-preview-05-20`
-  - 2 grudnia:
+  - 2 dicembre:
 
     - `gemini-2.0-flash-thinking-exp`
     - `gemini-2.0-flash-thinking-exp-01-21`
@@ -423,7 +460,7 @@ Ta strona zawiera informacje o aktualizacjach interfejsu Gemini API.
     - `gemini-2.5-pro-preview-03-25`
     - `gemini-2.5-pro-preview-05-06`
     - `gemini-2.5-pro-preview-06-05`
-  - 9 grudnia:
+  - 9 dicembre:
 
     - `gemini-2.0-flash-lite-preview`
     - `gemini-2.0-flash-lite-preview-02-05`
@@ -431,543 +468,671 @@ Ta strona zawiera informacje o aktualizacjach interfejsu Gemini API.
     - `gemini-2.0-pro-exp`
     - `gemini-2.0-pro-exp-02-05`
 
-## 29 października 2025 r.
+## 29 ottobre 2025
 
-- Udostępniliśmy nowe narzędzie [do rejestrowania i zbiorów danych](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pl) dla Gemini API.
+- È stato lanciato il nuovo strumento [logging e set di dati](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it)
+  per l'API Gemini.
 
-## 20 października 2025 r.
+## 20 ottobre 2025
 
-- Te modele Gemini Live API zostały wyłączone:
+- I seguenti modelli API Gemini Live sono ora arrestati:
 
   - `gemini-2.5-flash-preview-native-audio-dialog`
   - `gemini-2.5-flash-exp-native-audio-thinking-dialog`
 
-  Zamiast tego możesz użyć `gemini-2.5-flash-native-audio-preview-09-2025`.
-- Ogłoszenie o wycofaniu: wyłączenie usług `gemini-2.0-flash-live-001` i `gemini-live-2.5-flash-preview` nastąpi 9 grudnia 2025 r.
+  Puoi utilizzare `gemini-2.5-flash-native-audio-preview-09-2025`.
+- Annuncio di ritiro: chiusura di `gemini-2.0-flash-live-001` e
+  `gemini-live-2.5-flash-preview` a partire dal 9 dicembre 2025.
 
-## 17 października 2025 r.
+## 17 ottobre 2025
 
-- **Powiązanie ze źródłami informacji przy użyciu Map Google** jest już ogólnie dostępne. Więcej informacji znajdziesz w dokumentacji [powiązanie ze źródłami informacji przy użyciu Map Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl).
+- **Grounding con Google Maps** è ora
+  disponibile a livello generale. Per saperne di più, consulta la documentazione relativa a
+  [Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it).
 
-## 15 października 2025 r.
+## 15 ottobre 2025
 
-- Udostępniliśmy publicznie wersje testowe modeli [Veo 3.1 i 3.1 Fast](https://ai.google.dev/gemini-api/docs/video?hl=pl#veo-3.1) z nowymi funkcjami, takimi jak:
+- Sono stati rilasciati i modelli [Veo 3.1 e 3.1 Fast](https://ai.google.dev/gemini-api/docs/video?hl=it#veo-3.1) in anteprima pubblica, con nuove funzionalità, tra cui:
 
-  - Przedłużanie filmów utworzonych przez Veo.
-  - odwoływać się do maksymalnie 3 obrazów, aby wygenerować film;
-  - Podaj obrazy pierwszej i ostatniej klatki, aby wygenerować filmy.
+  - Estensione dei video creati con Veo.
+  - Fare riferimento a un massimo di tre immagini per generare un video.
+  - Fornire immagini del primo e dell'ultimo fotogramma per generare video.
 
-  Wprowadziliśmy też więcej opcji długości filmów wyjściowych z Veo 3: 4, 6 i 8 sekund.
-- Ogłoszenie o wycofaniu: wyłączenie usług `veo-3.0-generate-preview` i `veo-3.0-fast-generate-preview` nastąpi 12 listopada 2025 r.
+  Questo lancio ha aggiunto anche altre opzioni per le durate dei video di output di Veo 3: 4, 6 e 8 secondi.
+- Annuncio di ritiro: chiusura di `veo-3.0-generate-preview` e
+  `veo-3.0-fast-generate-preview` a partire dal 12 novembre 2025.
 
-## 7 października 2025 r.
+## 7 ottobre 2025
 
-- Udostępniliśmy [wersję testową Gemini 2.5 do użytku na komputerach](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl).
+- È stata lanciata l'[anteprima dell'utilizzo di Gemini 2.5 su computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)
 
-## 2 października 2025 r.
+## 2 ottobre 2025
 
-- Udostępniliśmy ogólnie Gemini 2.5 Flash Image: [generowanie obrazów za pomocą Gemini](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl)
+- Lancio della disponibilità generale di Gemini 2.5 Flash Image: [Generazione di immagini con Gemini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)
 
-## 29 września 2025 r.
+## 29 settembre 2025
 
-- Te modele Gemini 1.5 zostały wyłączone:
+- I seguenti modelli Gemini 1.5 sono stati disattivati:
   - `gemini-1.5-pro`
   - `gemini-1.5-flash-8b`
   - `gemini-1.5-flash`
 
-## 25 września 2025 r.
+## 25 settembre 2025
 
-- Wprowadziliśmy wersję testową modelu Gemini Robotics ER 1.5. Więcej informacji o korzystaniu z modelu w aplikacji robotycznej znajdziesz w [tym artykule](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pl).
-- Udostępniono te modele w wersji testowej:
+- È stato rilasciato il modello Gemini Robotics-ER 1.5 in anteprima. Consulta la
+  [panoramica della robotica](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=it)
+  per scoprire come utilizzare il modello per la tua applicazione di robotica.
+- Sono stati lanciati i seguenti modelli di anteprima:
 
   - `gemini-2.5-flash-preview-09-2025`
   - `gemini-2.5-flash-lite-preview-09-2025`
 
-  Więcej informacji znajdziesz na stronie [Modele](https://ai.google.dev/gemini-api/docs/models?hl=pl).
+  Per maggiori dettagli, consulta la pagina [Modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
 
-## 23 września 2025 r.
+## 23 settembre 2025
 
-- Wprowadziliśmy `gemini-2.5-flash-native-audio-preview-09-2025`nowy natywny model audio dla interfejsu Live API z ulepszonym wywoływaniem funkcji i obsługą odcinania mowy. Więcej informacji znajdziesz w [przewodniku po interfejsie Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=pl) i w artykule [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-native-audio).
+- Rilasciato `gemini-2.5-flash-native-audio-preview-09-2025`, un nuovo modello audio nativo per l'API Live con gestione migliorata delle chiamate di funzioni e dell'interruzione del parlato. Per saperne di più, consulta la
+  [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=it) e
+  [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-native-audio).
 
-## 16 września 2025 r.
+## 16 settembre 2025
 
-- Ogłoszenie o wycofaniu: w październiku 2025 r. wyłączymy te modele:
+- Annuncio di ritiro: i seguenti modelli verranno arrestati a ottobre 2025:
 
   - `embedding-001`
   - `embedding-gecko-001`
   - `gemini-embedding-exp-03-07` (`gemini-embedding-exp`)
 
-  Szczegółowe informacje o najnowszym modelu wektorów dystrybucyjnych znajdziesz na stronie [Wektory dystrybucyjne](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl).
+  Per informazioni dettagliate sull'ultimo modello di embedding, consulta la pagina [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=it).
 
-## 10 września 2025 r.
+## 10 settembre 2025
 
-- Udostępniliśmy obsługę [modelu Embeddings w interfejsie Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl#batch-embedding) i dodaliśmy interfejs Batch API do [biblioteki zgodności z OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl#batch), aby jeszcze bardziej ułatwić rozpoczęcie korzystania z zapytań zbiorczych.
+- È stato rilasciato il supporto per il
+  [modello Embeddings nell'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it#batch-embedding)
+  ed è stata aggiunta l'API Batch alla
+  [libreria di compatibilità con OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it#batch) per
+  semplificare ulteriormente l'inizio delle query batch.
 
-## 9 września 2025 r.
+## 9 settembre 2025
 
-- Udostępniliśmy ogólnie modele Veo 3 i Veo 3 Fast w niższych cenach oraz z nowymi opcjami dotyczącymi proporcji obrazu, rozdzielczości i inicjowania. Więcej informacji znajdziesz w [dokumentacji Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl#model-features).
+- Lancio di Veo 3 e Veo 3 Fast GA, con prezzi più bassi e nuove opzioni per
+  proporzioni, risoluzione e seeding. Per saperne di più, leggi la
+  [documentazione di Veo](https://ai.google.dev/gemini-api/docs/video?hl=it#model-features).
 
-## 26 sierpnia 2025 r.
+## 26 agosto 2025
 
-- Wprowadziliśmy [Gemini 2.5 Image Preview](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-image-preview), nasz najnowszy model do generowania obrazów.
+- È stato lanciato [Gemini 2.5 Image Preview](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-image-preview),
+  il nostro modello di generazione di immagini nativo più recente.
 
-## 18 sierpnia 2025 r.
+## 18 agosto 2025
 
-- Udostępniliśmy ogólnie [narzędzie do kontekstu adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl), które umożliwia podawanie adresów URL jako dodatkowego kontekstu w promptach. Za tydzień wyłączymy obsługę kontekstu adresu URL w przypadku modelu `gemini-2.0-flash` (dostępną w ramach wersji eksperymentalnej).
+- È stato rilasciato lo [strumento di contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) per la disponibilità generale (GA), uno strumento per fornire URL come contesto aggiuntivo ai prompt. Il supporto per l'utilizzo del contesto URL con il modello `gemini-2.0-flash`
+  (disponibile durante la release sperimentale) verrà interrotto tra una settimana.
 
-## 14 sierpnia 2025 r.
+## 14 agosto 2025
 
-- Udostępniliśmy modele Imagen 4 Ultra, Standard i Fast w wersji ogólnodostępnej. Więcej informacji znajdziesz na stronie [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pl).
+- Sono stati rilasciati i modelli Imagen 4 Ultra, Standard e Fast come disponibili a livello generale
+  (GA). Per saperne di più, consulta la pagina [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=it).
 
-## 7 sierpnia 2025 r.
+## 7 agosto 2025
 
-- `allow_adult` ustawienia generowania filmów z obrazu są teraz dostępne w regionach objętych ograniczeniami. Więcej informacji znajdziesz na stronie poświęconej [Veo](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=pl#veo-model-parameters).
+- L'impostazione `allow_adult` nella generazione Da immagine a video è ora disponibile nelle regioni con limitazioni. Per informazioni dettagliate, visita la pagina
+  [Veo](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=it#veo-model-parameters).
 
-## 31 lipca 2025 r.
+## 31 luglio 2025
 
-- Udostępniliśmy generowanie filmów na podstawie obrazów w przypadku modelu Veo 3 w wersji podglądowej.
-- Udostępniliśmy model Veo 3 Fast w wersji testowej.
-- Więcej informacji o Veo 3 znajdziesz na stronie [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl).
+- È stata lanciata la generazione di video da immagini per il modello Veo 3 Preview.
+- È stato rilasciato il modello di anteprima di Veo 3 Fast.
+- Per scoprire di più su Veo 3, visita la pagina [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it).
 
-## 22 lipca 2025 r.
+## 22 luglio 2025
 
-- Wprowadziliśmy `gemini-2.5-flash-lite` nasz szybki, tani i wydajny model Gemini 2.5. Więcej informacji znajdziesz w artykule [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-lite).
+- Rilasciato il giorno `gemini-2.5-flash-lite`, il nostro modello Gemini 2.5 veloce, economico e ad alte prestazioni. Per saperne di più, consulta [Gemini 2.5 Flash Lite](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-lite).
 
-## July 17, 2025
+## Luglio 17, 2025
 
-- Wprowadziliśmy `veo-3.0-generate-preview`, najnowszą aktualizację Veo, która umożliwia generowanie filmów z dźwiękiem. Więcej informacji o Veo 3 znajdziesz na stronie [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl).
-- Zwiększone limity liczby żądań w przypadku modeli Imagen 4 Standard i Ultra. Więcej informacji znajdziesz na stronie [Limity żądań](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl).
+- È stato lanciato `veo-3.0-generate-preview`, l'ultimo aggiornamento di Veo che introduce la generazione di video con audio. Per scoprire di più su Veo 3, visita la pagina [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it).
+- Limiti di frequenza aumentati per Imagen 4 Standard e Ultra. Per ulteriori dettagli, visita la pagina [Limiti di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it).
 
-## 14 lipca 2025 r.
+## 14 luglio 2025
 
-- Wprowadziliśmy na rynek `gemini-embedding-001`, stabilną wersję naszego modelu wektora dystrybucyjnego tekstu. Więcej informacji znajdziesz w artykule [osadzanie](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl). Model `gemini-embedding-exp-03-07` zostanie wycofany 14 sierpnia 2025 r.
+- È stata rilasciata `gemini-embedding-001`, la versione stabile del nostro
+  modello di text embedding. Per saperne di più, consulta
+  [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it). Il modello `gemini-embedding-exp-03-07` verrà ritirato il 14 agosto 2025.
 
-## 7 lipca 2025 r.
+## 7 luglio 2025
 
-- Udostępniliśmy tryb wsadowy Gemini API. Grupuj żądania i wysyłaj je do przetworzenia
-  asynchronicznie. Więcej informacji znajdziesz w artykule [Tryb wsadowy](https://ai.google.dev/gemini-api/docs/batch-mode?hl=pl).
+- È stata lanciata la modalità batch dell'API Gemini. Raggruppa le richieste e inviale per l'elaborazione
+  in modo asincrono. Per saperne di più, vedi [Modalità batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=it).
 
-## 26 czerwca 2025 r.
+## 26 giugno 2025
 
-- Modele w wersji testowej `gemini-2.5-pro-preview-05-06` i `gemini-2.5-pro-preview-03-25` przekierowują teraz do najnowszej wersji stabilnej `gemini-2.5-pro`.
-- Usługa `gemini-2.5-pro-exp-03-25` została wyłączona.
+- I modelli in anteprima `gemini-2.5-pro-preview-05-06` e
+  `gemini-2.5-pro-preview-03-25` ora reindirizzano alla
+  versione stabile più recente `gemini-2.5-pro`.
+- `gemini-2.5-pro-exp-03-25` è stato chiuso.
 
-## 24 czerwca 2025 r.
+## 24 giugno 2025
 
-- Wprowadziliśmy modele Imagen 4 Ultra i Standard w wersji testowej. Więcej informacji znajdziesz na stronie [Generowanie obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
+- Sono stati rilasciati i modelli di anteprima Imagen 4 Ultra e Standard. Per saperne di più, consulta la pagina
+  [Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
 
-## 17 czerwca 2025 r.
+## 17 giugno 2025
 
-- Udostępniliśmy `gemini-2.5-pro`, stabilną wersję naszego najpotężniejszego modelu, która teraz ma funkcję adaptacyjnego myślenia. Więcej informacji znajdziesz w sekcjach [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-pro) i [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl). `gemini-2.5-pro-preview-05-06`
-  zostanie przekierowana na stronę `gemini-2.5-pro` 26 czerwca 2025 r.
-- Wprowadziliśmy `gemini-2.5-flash`, nasz pierwszy stabilny model 2.5 Flash. Więcej informacji znajdziesz w artykule [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash).
-  15 lipca 2025 r. wycofamy `gemini-2.5-flash-preview-04-17`.
-- Wprowadziliśmy na rynek `gemini-2.5-flash-lite-preview-06-17`, tani i wydajny model Gemini 2.5. Więcej informacji znajdziesz w artykule [Gemini 2.5 Flash-Lite (wersja testowa)](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-lite).
+- È stato rilasciato `gemini-2.5-pro`, la versione stabile del nostro modello più potente, ora con il pensiero adattivo. Per saperne di più, vedi
+  [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro)
+  e [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it). `gemini-2.5-pro-preview-05-06`
+  verrà reindirizzato a `gemini-2.5-pro` il 26 giugno 2025.
+- È stato rilasciato `gemini-2.5-flash`, il nostro primo modello 2.5 Flash stabile. Per saperne di più, consulta [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash).
+  `gemini-2.5-flash-preview-04-17` verrà ritirato il 15 luglio 2025.
+- Rilasciato il giorno `gemini-2.5-flash-lite-preview-06-17`, un modello Gemini 2.5 a basso costo e ad alte prestazioni. Per saperne di più, consulta [Gemini 2.5 Flash Lite (anteprima)](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-lite).
 
-## 5 czerwca 2025 r.
+## 5 giugno 2025
 
-- Udostępniliśmy `gemini-2.5-pro-preview-06-05`, nową wersję naszego najpotężniejszego modelu, która teraz ma funkcję adaptacyjnego myślenia. Więcej informacji znajdziesz w artykułach [Podgląd Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-pro-preview-06-05) i [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
-  26 czerwca 2025 r. domena `gemini-2.5-pro-preview-05-06` zostanie przekierowana na `gemini-2.5-pro`.
+- È stato rilasciato `gemini-2.5-pro-preview-06-05`, una nuova versione del nostro modello più potente, ora con il pensiero adattivo. Per saperne di più, consulta
+  [Anteprima di Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro-preview-06-05)
+  e [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+  `gemini-2.5-pro-preview-05-06` verrà reindirizzato a `gemini-2.5-pro` il
+  26 giugno 2025.
 
-## 27 maja 2025 r.
+## 27 maggio 2025
 
-- Ostatni dostępny model dostrajania, Gemini 1.5 Flash 001, został wyłączony.
-  Dostrajanie nie jest już obsługiwane w żadnych modelach.
-  Więcej informacji znajdziesz w artykule [Dostrajanie za pomocą interfejsu Gemini API](https://ai.google.dev/gemini-api/docs/model-tuning?hl=pl).
+- L'ultimo modello di ottimizzazione disponibile, Gemini 1.5 Flash 001, è stato arrestato.
+  L'ottimizzazione non è più supportata su nessun modello.
+  Consulta [Ottimizzazione con l'API Gemini](https://ai.google.dev/gemini-api/docs/model-tuning?hl=it).
 
-## 20 maja 2025 r.
+## 20 maggio 2025
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
+
+- È stato lanciato il supporto per la
+  [pre-elaborazione video personalizzata](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#customize-video-processing)
+  utilizzando intervalli di ritaglio e campionamento della frequenza fotogrammi configurabile.
+- È stato lanciato l'utilizzo di più strumenti, che supporta la configurazione
+  dell'[esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) e del
+  [Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it) nella stessa
+  richiesta `generateContent`.
+- È stato lanciato il supporto per le
+  [chiamate di funzioni asincrone](https://ai.google.dev/gemini-api/docs/live-tools?hl=it#async-function-calling)
+  nell'API Live.
+- È stato lanciato uno
+  [strumento di contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)
+  sperimentale per fornire URL come contesto aggiuntivo per i prompt.
+
+**Aggiornamenti del modello:**
+
+- È stato rilasciato `gemini-2.5-flash-preview-05-20`, un modello Gemini
+  [in anteprima](https://ai.google.dev/gemini-api/docs/models?hl=it#model-versions) ottimizzato per
+  il rapporto prezzo/prestazioni e il pensiero adattivo. Per saperne di più, consulta
+  [Anteprima di Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-preview)
+  e [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+- Sono stati rilasciati i modelli
+  [`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro-preview-tts)
+  e
+  [`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-preview-tts), in grado di
+  [generare discorsi](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it) con uno o due
+  oratori.
+- È stato rilasciato il modello `lyria-realtime-exp`, che
+  [genera musica](https://ai.google.dev/gemini-api/docs/music-generation?hl=it) in tempo reale.
+- Sono stati rilasciati `gemini-2.5-flash-preview-native-audio-dialog` e
+  `gemini-2.5-flash-exp-native-audio-thinking-dialog`,
+  nuovi modelli Gemini per l'API Live con funzionalità di output audio native. Per
+  scoprire di più, consulta la
+  [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#native-audio-output) e
+  [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-native-audio).
+- Rilasciata l'anteprima di `gemma-3n-e4b-it`, disponibile su
+  [AI Studio](https://aistudio.google.com?hl=it) e tramite l'API Gemini,
+  nell'ambito del lancio di [Gemma 3n](https://ai.google.dev/gemma/docs/3n?hl=it).
+
+## 7 maggio 2025
+
+- È stato rilasciato `gemini-2.0-flash-preview-image-generation`, un modello di anteprima per
+  generare e modificare immagini. Per saperne di più, consulta [Generazione
+  di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it) e
+  [Generazione di immagini di anteprima di Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.0-flash-preview-image-generation).
 
-- Wprowadziliśmy obsługę [niestandardowego przetwarzania wstępnego filmów](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl#customize-video-processing) za pomocą przedziałów przycinania i konfigurowalnego próbkowania liczby klatek.
-- Wprowadziliśmy obsługę wielu narzędzi, która umożliwia konfigurowanie [wykonywania kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) i [powiązania ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl) w ramach tego samego `generateContent`żądania.
-- Wprowadziliśmy obsługę [asynchronicznych wywołań funkcji](https://ai.google.dev/gemini-api/docs/live-tools?hl=pl#async-function-calling) w interfejsie Live API.
-- Uruchomiliśmy eksperymentalne [narzędzie do kontekstu adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl), które umożliwia podawanie adresów URL jako dodatkowego kontekstu w promptach.
+## 6 maggio 2025
+
+- È stato rilasciato `gemini-2.5-pro-preview-05-06`, una nuova versione del nostro modello più potente, con miglioramenti al codice e alle chiamate di funzione. `gemini-2.5-pro-preview-03-25`
+  punterà automaticamente alla nuova versione del modello.
 
-**Aktualizacje modeli:**
+## 17 aprile 2025
 
-- Udostępniliśmy `gemini-2.5-flash-preview-05-20`, czyli model Gemini w [wersji testowej](https://ai.google.dev/gemini-api/docs/models?hl=pl#model-versions) zoptymalizowany pod kątem stosunku ceny do wydajności i adaptacyjnego myślenia. Więcej informacji znajdziesz w sekcjach [Gemini 2.5 Flash w wersji testowej](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-preview) i [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
-- Wprowadziliśmy modele [`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-pro-preview-tts) i [`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-preview-tts), które potrafią [generować mowę](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl) z udziałem 1 lub 2 osób.
-- Wprowadziliśmy model `lyria-realtime-exp`, który [generuje muzykę](https://ai.google.dev/gemini-api/docs/music-generation?hl=pl) w czasie rzeczywistym.
-- Wprowadziliśmy `gemini-2.5-flash-preview-native-audio-dialog` i `gemini-2.5-flash-exp-native-audio-thinking-dialog`, nowe modele Gemini dla interfejsu Live API z natywnym wyjściem audio. Więcej informacji znajdziesz w [przewodniku po interfejsie Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=pl#native-audio-output) i [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-native-audio).
-- Wersja `gemma-3n-e4b-it`testowa, dostępna w [AI Studio](https://aistudio.google.com?hl=pl) i przez Gemini API, w ramach premiery [Gemma 3n](https://ai.google.dev/gemma/docs/3n?hl=pl).
+- È stato rilasciato `gemini-2.5-flash-preview-04-17`, un modello Gemini
+  [in anteprima](https://ai.google.dev/gemini-api/docs/models?hl=it#model-versions) ottimizzato per
+  il rapporto prezzo/prestazioni e il pensiero adattivo. Per saperne di più, consulta
+  [Anteprima di Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-preview)
+  e [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
 
-## 7 maja 2025 r.
+## 16 Aprile 2025
 
-- Wprowadziliśmy `gemini-2.0-flash-preview-image-generation`, model w wersji podglądowej do generowania i edytowania obrazów. Więcej informacji znajdziesz w sekcjach [Generowanie obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl) i [Generowanie obrazów w Gemini 2.0 Flash Image (wersja testowa)](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.0-flash-preview-image-generation).
+- È stata lanciata la memorizzazione nella cache del contesto per
+  [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.0-flash).
 
-## 6 maja 2025 r.
+## 9 aprile 2025
 
-- Udostępniliśmy `gemini-2.5-pro-preview-05-06`, nową wersję naszego najpotężniejszego modelu, która została ulepszona pod kątem kodu i wywoływania funkcji. `gemini-2.5-pro-preview-03-25`
-  będzie automatycznie wskazywać nową wersję modelu.
+**Aggiornamenti del modello:**
 
-## 17 kwietnia 2025 r.
+- È stato rilasciato `veo-2.0-generate-001`, un modello di generazione video da testo e immagini disponibile a livello generale (GA) in grado di generare video dettagliati e artisticamente sfumati. Per saperne di più, consulta la [documentazione di Veo](https://ai.google.dev/gemini-api/docs/video?hl=it).
+- È stata rilasciata il giorno `gemini-2.0-flash-live-001` una versione di anteprima pubblica del modello
+  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=it) con la fatturazione abilitata.
 
-- Udostępniliśmy `gemini-2.5-flash-preview-04-17`, czyli model Gemini w [wersji testowej](https://ai.google.dev/gemini-api/docs/models?hl=pl#model-versions) zoptymalizowany pod kątem stosunku ceny do wydajności i adaptacyjnego myślenia. Więcej informacji znajdziesz w sekcjach [Gemini 2.5 Flash w wersji testowej](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-flash-preview) i [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
+  - **Gestione e affidabilità delle sessioni migliorate**
 
-## 16 kwietnia 2025 r.
+    - **Ripresa della sessione**:mantieni attive le sessioni in caso di interruzioni temporanee della rete. L'API ora supporta l'archiviazione dello stato della sessione lato server (fino a 24 ore) e fornisce handle (session\_resumption) per riconnettersi e riprendere da dove avevi interrotto.
+    - **Sessioni più lunghe tramite la compressione del contesto:** consente interazioni più lunghe rispetto ai limiti di tempo precedenti. Configura la compressione della finestra contestuale con un meccanismo a finestra scorrevole per gestire automaticamente la lunghezza del contesto, evitando interruzioni improvvise dovute ai limiti del contesto.
+    - **Notifica di disconnessione controllata**:ricevi un messaggio del server `GoAway` che indica quando una connessione sta per chiudersi, consentendo una gestione controllata prima della chiusura.
+  - **Maggiore controllo sulle dinamiche di interazione**
+  - **Rilevamento dell'attività vocale (VAD) configurabile**: scegli i livelli di sensibilità o disattiva completamente il VAD automatico e utilizza i nuovi eventi client (`activityStart`, `activityEnd`) per il controllo manuale del turno.
+  - **Gestione configurabile delle interruzioni:** decidi se l'input dell'utente
+    deve interrompere la risposta del modello.
+  - **Copertura della rotazione configurabile**:scegli se l'API elabora continuamente tutti gli input audio e video o li acquisisce solo quando viene rilevato che l'utente finale sta parlando.
+  - **Risoluzione dei contenuti multimediali configurabile:** ottimizza la qualità o l'utilizzo dei token
+    selezionando la risoluzione per i contenuti multimediali di input.
+  - **Output e funzionalità più ricchi**
+  - **Opzioni di voce e lingua ampliate:** scegli tra due nuove voci e
+    30 nuove lingue per l'uscita audio. La lingua di output è ora
+    configurabile in `speechConfig`.
+  - **Streaming di testo**:ricevi risposte di testo in modo incrementale man mano che vengono generate, consentendo una visualizzazione più rapida per l'utente.
+  - **Report sull'utilizzo dei token:** ottieni approfondimenti sull'utilizzo con conteggi dettagliati dei token forniti nel campo `usageMetadata` dei messaggi del server, suddivisi per modalità e fasi di prompt o risposta.
 
-- Wprowadziliśmy buforowanie kontekstu w przypadku [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.0-flash).
+## 4 aprile 2025
 
-## 9 kwietnia 2025 r.
+- Rilasciata il giorno `gemini-2.5-pro-preview-03-25`, una versione di Gemini 2.5 Pro in anteprima pubblica
+  con la fatturazione abilitata. Puoi continuare a utilizzare `gemini-2.5-pro-exp-03-25`
+  nel livello senza costi.
 
-**Aktualizacje modeli:**
+## 25 marzo 2025
 
-- Udostępniliśmy `veo-2.0-generate-001`, ogólnie dostępny model (GA) do generowania filmów na podstawie tekstu i obrazów, który umożliwia tworzenie szczegółowych i artystycznie dopracowanych filmów. Więcej informacji znajdziesz w [dokumentacji Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl).
-- Wprowadziliśmy `gemini-2.0-flash-live-001`, publiczną wersję podglądową modelu [Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl) z włączonymi płatnościami.
+- Rilasciato `gemini-2.5-pro-exp-03-25`, un modello Gemini sperimentale pubblico
+  con la modalità di ragionamento sempre attiva per impostazione predefinita.
+  Per saperne di più, consulta [Gemini 2.5 Pro Experimental](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro-preview-03-25).
 
-  - **Ulepszone zarządzanie sesjami i niezawodność**
+## 12 marzo 2025
 
-    - **Wznawianie sesji:** utrzymywanie aktywności sesji w przypadku tymczasowych przerw w działaniu sieci. Interfejs API obsługuje teraz przechowywanie stanu sesji po stronie serwera (do 24 godzin) i udostępnia uchwyty (session\_resumption) umożliwiające ponowne połączenie i wznowienie sesji w miejscu, w którym została przerwana.
-    - **Dłuższe sesje dzięki kompresji kontekstu:** umożliwia dłuższe interakcje niż dotychczasowe limity czasowe. Skonfiguruj kompresję okna kontekstu za pomocą mechanizmu okna przesuwnego, aby automatycznie zarządzać długością kontekstu i zapobiegać nagłym zakończeniom z powodu ograniczeń kontekstu.
-    - **Powiadomienie o grzecznym rozłączeniu:** otrzymuj komunikat `GoAway` serwera
-      wskazujący, kiedy połączenie ma zostać zamknięte, co umożliwia
-      grzeczne zakończenie przed przerwaniem.
-  - **Większa kontrola nad dynamiką interakcji**
-  - **Konfigurowalne wykrywanie aktywności głosowej (VAD):** wybierz poziomy czułości lub całkowicie wyłącz automatyczne wykrywanie aktywności głosowej i używaj nowych zdarzeń klienta (`activityStart`, `activityEnd`) do ręcznego sterowania turami.
-  - **Konfigurowane obsługiwanie przerw:** zdecyduj, czy dane wejściowe użytkownika
-    mają przerywać odpowiedź modelu.
-  - **Konfigurowane pokrycie tury:** wybierz, czy interfejs API ma przetwarzać wszystkie dane wejściowe audio i wideo w sposób ciągły, czy tylko wtedy, gdy wykryje, że użytkownik końcowy mówi.
-  - **Konfigurowalna rozdzielczość multimediów:** możesz zoptymalizować jakość lub wykorzystanie tokenów, wybierając rozdzielczość multimediów wejściowych.
-  - **Bogatsze dane wyjściowe i funkcje**
-  - **Rozszerzone opcje głosu i języka:** wybierz jeden z 2 nowych głosów i 30 nowych języków dla wyjścia audio. Język wyjściowy można teraz skonfigurować w `speechConfig`.
-  - **Strumieniowanie tekstu:** otrzymuj odpowiedzi tekstowe przyrostowo w miarę ich generowania, co umożliwia szybsze wyświetlanie ich użytkownikowi.
-  - **Raportowanie wykorzystania tokenów:** uzyskuj szczegółowe informacje o wykorzystaniu dzięki liczbie tokenów podawanej w polu `usageMetadata` wiadomości serwera, z podziałem na tryby i fazy promptu lub odpowiedzi.
+**Aggiornamenti del modello:**
 
-## 4 kwietnia 2025 r.
+- È stato lanciato un modello sperimentale [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#gemini)
+  in grado di generare e modificare immagini.
+- Rilasciato il giorno `gemma-3-27b-it`, disponibile su
+  [AI Studio](https://aistudio.google.com?hl=it) e tramite l'API Gemini,
+  nell'ambito del lancio di [Gemma 3](https://ai.google.dev/gemma/docs/core?hl=it).
 
-- Wprowadziliśmy `gemini-2.5-pro-preview-03-25`, publiczną wersję przedpremierową Gemini 2.5 Pro z włączonym rozliczeniem. Możesz nadal korzystać z usługi `gemini-2.5-pro-exp-03-25` w ramach bezpłatnego poziomu.
+**Aggiornamenti dell'API:**
 
-## 25 marca 2025 r.
+- È stato aggiunto il supporto per gli [URL di YouTube](https://ai.google.dev/gemini-api/docs/vision?hl=it#youtube) come origine media.
+- È stato aggiunto il supporto per l'inclusione di un
+  [video incorporato](https://ai.google.dev/gemini-api/docs/vision?hl=it#inline-video) di dimensioni inferiori a 20 MB.
 
-- Udostępniliśmy `gemini-2.5-pro-exp-03-25`, publiczny eksperymentalny model Gemini, w którym tryb myślenia jest domyślnie zawsze włączony.
-  Więcej informacji znajdziesz w artykule [Gemini 2.5 Pro w wersji eksperymentalnej](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-2.5-pro-preview-03-25).
+## 11 marzo 2025
 
-## 12 marca 2025 r.
+**Aggiornamenti dell'SDK:**
 
-**Aktualizacje modeli:**
+- È stata rilasciata l'[SDK Google Gen AI per TypeScript e JavaScript](https://googleapis.github.io/js-genai) in anteprima pubblica.
 
-- Udostępniliśmy eksperymentalny model [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl#gemini)
-  do generowania i edytowania obrazów.
-- Wprowadzony `gemma-3-27b-it`, dostępny w [AI Studio](https://aistudio.google.com?hl=pl) i przez Gemini API w ramach premiery [Gemma 3](https://ai.google.dev/gemma/docs/core?hl=pl).
+## 7 marzo 2025
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti del modello:**
 
-- Dodaliśmy obsługę [adresów URL YouTube](https://ai.google.dev/gemini-api/docs/vision?hl=pl#youtube) jako źródła multimediów.
-- Dodaliśmy obsługę [filmu wstawionego w treść](https://ai.google.dev/gemini-api/docs/vision?hl=pl#inline-video) o rozmiarze mniejszym niż 20 MB.
+- Rilasciato il giorno `gemini-embedding-exp-03-07`, un
+  [modello di incorporamento sperimentale](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=it)
+  basato su Gemini in anteprima pubblica.
 
-## 11 marca 2025 r.
+## 28 febbraio 2025
 
-**Aktualizacje pakietu SDK:**
+**Aggiornamenti dell'API:**
 
-- Udostępniliśmy publicznie wersję podglądową [pakietu Google Gen AI SDK dla TypeScriptu i JavaScriptu](https://googleapis.github.io/js-genai).
+- Supporto della funzionalità [Ricerca come strumento](https://ai.google.dev/gemini-api/docs/grounding?hl=it)
+  aggiunta a `gemini-2.0-pro-exp-02-05`, un modello sperimentale basato su
+  Gemini 2.0 Pro.
 
-## 7 marca 2025 r.
+## 25 febbraio 2025
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Udostępniliśmy `gemini-embedding-exp-03-07` [eksperymentalny](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=pl) model osadzania oparty na Gemini w publicznej wersji przedpremierowej.
+- È stata rilasciata il giorno `gemini-2.0-flash-lite` una versione disponibile a livello generale (GA) di
+  [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash-lite),
+  ottimizzata per velocità, scalabilità ed efficienza in termini di costi.
 
-## 28 lutego 2025 r.
+## 19 febbraio 2025
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti di AI Studio:**
 
-- Dodaliśmy obsługę [wyszukiwania jako narzędzia](https://ai.google.dev/gemini-api/docs/grounding?hl=pl) w `gemini-2.0-pro-exp-02-05`, eksperymentalnym modelu opartym na Gemini 2.0 Pro.
+- Supporto per
+  [regioni aggiuntive](https://ai.google.dev/gemini-api/docs/available-regions?hl=it)
+  (Kosovo, Groenlandia e Isole Fær Øer).
 
-## 25 lutego 2025 r.
+**Aggiornamenti dell'API:**
 
-**Aktualizacje modeli:**
+- Supporto per
+  [regioni aggiuntive](https://ai.google.dev/gemini-api/docs/available-regions?hl=it)
+  (Kosovo, Groenlandia e Isole Fær Øer).
 
-- Udostępniliśmy `gemini-2.0-flash-lite` ogólnodostępną wersję [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-2.0-flash-lite), która jest zoptymalizowana pod kątem szybkości, skali i opłacalności.
+## 18 febbraio 2025
 
-## 19 lutego 2025 r.
+**Aggiornamenti del modello:**
 
-**Aktualizacje AI Studio:**
+- Gemini 1.0 Pro non è più supportato. Per l'elenco dei modelli supportati, consulta
+  [Modelli Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it).
 
-- Dodaliśmy obsługę [kolejnych regionów](https://ai.google.dev/gemini-api/docs/available-regions?hl=pl) (Kosowo, Grenlandia i Wyspy Owcze).
+## 11 febbraio 2025
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- Dodaliśmy obsługę [kolejnych regionów](https://ai.google.dev/gemini-api/docs/available-regions?hl=pl) (Kosowo, Grenlandia i Wyspy Owcze).
+- Aggiornamenti sulla
+  [compatibilità delle librerie OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
 
-## 18 lutego 2025 r.
+## 6 febbraio 2025
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Model Gemini 1.0 Pro nie jest już obsługiwany. Listę obsługiwanych modeli znajdziesz w artykule [Modele Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl).
+- È stata rilasciata il giorno `imagen-3.0-generate-002` una versione disponibile a livello generale (GA) di
+  [Imagen 3 nell'API Gemini](https://ai.google.dev/gemini-api/docs/imagen?hl=it).
 
-## 11 lutego 2025 r.
+**Aggiornamenti dell'SDK:**
 
-**Aktualizacje interfejsu API:**
+- È stato rilasciato l'[SDK Google Gen AI per Java](https://github.com/googleapis/java-genai)
+  per l'anteprima pubblica.
 
-- Aktualizacje dotyczące [zgodności bibliotek OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl).
+## 5 febbraio 2025
 
-## 6 lutego 2025 r.
+**Aggiornamenti del modello:**
 
-**Aktualizacje modeli:**
+- Rilasciata il giorno `gemini-2.0-flash-001` una versione con disponibilità generale (GA) di
+  [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash) che
+  supporta l'output di solo testo.
+- Rilasciata il giorno `gemini-2.0-pro-exp-02-05`,
+  una versione di anteprima
+  pubblica [sperimentale](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=it) di Gemini 2.0 Pro.
+- È stato rilasciato `gemini-2.0-flash-lite-preview-02-05`, un [modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash-lite) sperimentale in anteprima pubblica ottimizzato per l'efficienza dei costi.
 
-- Wprowadziliśmy ogólnodostępną wersję `imagen-3.0-generate-002` [Imagen 3 w interfejsie Gemini API](https://ai.google.dev/gemini-api/docs/imagen?hl=pl).
+**Aggiornamenti dell'API:**
 
-**Aktualizacje pakietu SDK:**
+- È stato aggiunto il supporto
+  [dell'input di file e dell'output di grafici](https://ai.google.dev/gemini-api/docs/code-execution?hl=it#input-output)
+  all'esecuzione del codice.
 
-- Udostępniliśmy [pakiet SDK Gen AI od Google w wersji na Javę](https://github.com/googleapis/java-genai) w ramach publicznej wersji przedpremierowej.
+**Aggiornamenti dell'SDK:**
 
-## 5 lutego 2025 r.
+- È stata rilasciata la
+  [SDK Google Gen AI per Python](https://googleapis.github.io/python-genai/)
+  in disponibilità generale (GA).
 
-**Aktualizacje modeli:**
+## 21 gennaio 2025
 
-- Udostępniliśmy `gemini-2.0-flash-001` ogólnodostępną wersję [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-2.0-flash), która obsługuje tylko tekstowe dane wyjściowe.
-- Wprowadziliśmy `gemini-2.0-pro-exp-02-05`[eksperymentalną](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=pl) wersję publiczną Gemini 2.0 Pro.
-- Udostępniliśmy `gemini-2.0-flash-lite-preview-02-05`eksperymentalny model w ramach publicznej wersji przedpremierowej[, który jest zoptymalizowany pod kątem opłacalności.](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-2.0-flash-lite)
+**Aggiornamenti del modello:**
 
-**Aktualizacje interfejsu API:**
+- Rilasciata il giorno `gemini-2.0-flash-thinking-exp-01-21`, l'ultima versione di anteprima del modello alla base del [modello Gemini 2.0 Flash Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
 
-- Dodaliśmy do wykonywania kodu obsługę [wprowadzania plików i wyświetlania wykresów](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl#input-output).
+## 19 dicembre 2024
 
-**Aktualizacje pakietu SDK:**
+**Aggiornamenti del modello:**
 
-- Udostępniliśmy ogólnie dostępny [pakiet SDK Gen AI od Google dla Pythona](https://googleapis.github.io/python-genai/).
+- È stata rilasciata la modalità Gemini 2.0 Flash Thinking per l'anteprima pubblica. La modalità di pensiero è
+  un modello di calcolo in fase di test che ti consente di vedere il processo di pensiero del modello
+  mentre genera una risposta e produce risposte con capacità di ragionamento
+  più solide.
 
-## 21 stycznia 2025 r.
+  Scopri di più sulla modalità Flash Thinking di Gemini 2.0 nella nostra [pagina di panoramica](https://ai.google.dev/gemini-api/docs/thinking-mode?hl=it).
 
-**Aktualizacje modeli:**
+## 11 dicembre 2024
 
-- Wersja `gemini-2.0-flash-thinking-exp-01-21`, najnowsza wersja przedpremierowa modelu, na którym oparty jest [model Gemini 2.0 Flash Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
+**Aggiornamenti del modello:**
 
-## 19 grudnia 2024 r.
+- È stato rilasciato [Gemini 2.0 Flash Experimental](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash)
+  per l'anteprima pubblica. L'elenco parziale delle funzionalità di Gemini 2.0 Flash Experimental include:
+  - Due volte più veloce di Gemini 1.5 Pro
+  - Streaming bidirezionale con la nostra API Live
+  - Generazione di risposte multimodali sotto forma di testo, immagini e voce
+  - Utilizzo di strumenti integrati con il ragionamento multi-turn per utilizzare funzionalità come l'esecuzione di codice, la ricerca, la chiamata di funzione e altro ancora
 
-**Aktualizacje modeli:**
+Scopri di più su Gemini 2.0 Flash nella nostra [pagina
+di panoramica](https://ai.google.dev/gemini-api/docs/models/gemini-v2?hl=it).
 
-- Udostępniliśmy publiczną wersję przedpremierową trybu Gemini 2.0 Flash Thinking. Tryb myślenia to model obliczeniowy, który pozwala zobaczyć proces myślowy modelu podczas generowania odpowiedzi i tworzyć odpowiedzi o większych możliwościach rozumowania.
+## 21 novembre 2024
 
-  Więcej informacji o trybie Gemini 2.0 Flash Thinking znajdziesz na naszej [stronie z omówieniem](https://ai.google.dev/gemini-api/docs/thinking-mode?hl=pl).
+**Aggiornamenti del modello:**
 
-## 11 grudnia 2024 r.
+- È stato rilasciato `gemini-exp-1121`, un modello sperimentale dell'API Gemini ancora più potente.
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Udostępniliśmy [Gemini 2.0 Flash Experimental](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-2.0-flash) w publicznej wersji przedpremierowej. Częściowa lista funkcji Gemini 2.0 Flash Experimental obejmuje:
-  - 2 razy szybszy niż Gemini 1.5 Pro
-  - Strumieniowanie dwukierunkowe za pomocą interfejsu Live API
-  - Generowanie odpowiedzi multimodalnych w postaci tekstu, obrazów i mowy
-  - korzystanie z wbudowanych narzędzi z wieloetapowym rozumowaniem, aby używać funkcji takich jak wykonywanie kodu, wyszukiwanie, wywoływanie funkcji itp.;
+- Aggiornati gli alias dei modelli `gemini-1.5-flash-latest` e `gemini-1.5-flash`
+  per utilizzare `gemini-1.5-flash-002`.
+  - Modifica del parametro `top_k`: il modello `gemini-1.5-flash-002`
+    supporta valori `top_k` compresi tra 1 e 41 (esclusi).
+    I valori superiori a 40 verranno modificati in 40.
 
-Więcej informacji o Gemini 2.0 Flash znajdziesz na naszej [stronie z omówieniem](https://ai.google.dev/gemini-api/docs/models/gemini-v2?hl=pl).
+## 14 novembre 2024
 
-## 21 listopada 2024 r.
+**Aggiornamenti del modello:**
 
-**Aktualizacje modeli:**
+- È stato rilasciato `gemini-exp-1114`, un potente modello sperimentale dell'API Gemini.
 
-- Wprowadziliśmy `gemini-exp-1121`, jeszcze bardziej zaawansowany eksperymentalny model interfejsu Gemini API.
+## 8 novembre 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti dell'API:**
 
-- Zaktualizowano aliasy modeli `gemini-1.5-flash-latest` i `gemini-1.5-flash`, aby używać `gemini-1.5-flash-002`.
-  - Zmiana parametru `top_k`: model `gemini-1.5-flash-002`
-    obsługuje wartości `top_k` z przedziału od 1 do 41 (obustronnie otwartego).
-    Wartości większe niż 40 zostaną zmienione na 40.
+- Aggiunto il [supporto di Gemini](https://ai.google.dev/gemini-api/docs/openai?hl=it) nelle librerie OpenAI / API REST.
 
-## 14 listopada 2024 r.
+## 31 ottobre 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti dell'API:**
 
-- Udostępniliśmy `gemini-exp-1114`, zaawansowany eksperymentalny model interfejsu Gemini API.
+- È stato aggiunto il [supporto per il grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it).
 
-## 8 listopada 2024 r.
+## 3 ottobre 2024
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti del modello:**
 
-- Dodano [obsługę Gemini](https://ai.google.dev/gemini-api/docs/openai?hl=pl) w bibliotekach OpenAI i interfejsie API REST.
+- Rilasciata il giorno `gemini-1.5-flash-8b-001`, una versione stabile del nostro modello di API Gemini più piccolo.
 
-## 31 października 2024 r.
+## 24 settembre 2024
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti del modello:**
 
-- Dodaliśmy [obsługę powiązania ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl).
+- Sono state rilasciate `gemini-1.5-pro-002` e `gemini-1.5-flash-002`, due nuove versioni stabili
+  di Gemini 1.5 Pro e 1.5 Flash, per la disponibilità generale.
+- È stato aggiornato il codice del modello `gemini-1.5-pro-latest` per utilizzare `gemini-1.5-pro-002`
+  e il codice del modello `gemini-1.5-flash-latest` per utilizzare `gemini-1.5-flash-002`.
+- Rilasciato `gemini-1.5-flash-8b-exp-0924` per sostituire `gemini-1.5-flash-8b-exp-0827`.
+- È stato rilasciato il [filtro di sicurezza per l'integrità civica](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it#safety-filters)
+  per l'API Gemini e AI Studio.
+- È stato rilasciato il supporto per due nuovi parametri per Gemini 1.5 Pro e 1.5 Flash in
+  Python e NodeJS:
+  [`frequencyPenalty`](https://ai.google.dev/api/generate-content?hl=it#FIELDS.frequency_penalty) e
+  [`presencePenalty`](https://ai.google.dev/api/generate-content?hl=it#FIELDS.presence_penalty).
 
-## 3 października 2024 r.
+## 19 settembre 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti di AI Studio:**
 
-- Udostępniliśmy `gemini-1.5-flash-8b-001`, stabilną wersję naszego najmniejszego modelu API Gemini.
+- Sono stati aggiunti i pulsanti Mi piace e Non mi piace alle risposte del modello per consentire agli utenti di
+  fornire un feedback sulla qualità di una risposta.
 
-## 24 września 2024 r.
+**Aggiornamenti dell'API:**
 
-**Aktualizacje modeli:**
+- È stato aggiunto il supporto per i crediti Google Cloud, che ora possono essere utilizzati per
+  l'utilizzo dell'API Gemini.
 
-- Udostępniliśmy `gemini-1.5-pro-002` i `gemini-1.5-flash-002`, czyli 2 nowe wersje stabilne modeli Gemini 1.5 Pro i 1.5 Flash, w ramach ogólnej dostępności.
-- Zaktualizowaliśmy kod modelu `gemini-1.5-pro-latest`, aby korzystał z `gemini-1.5-pro-002`, a kod modelu `gemini-1.5-flash-latest`, aby korzystał z `gemini-1.5-flash-002`.
-- Wydano wersję `gemini-1.5-flash-8b-exp-0924`, która zastępuje wersję `gemini-1.5-flash-8b-exp-0827`.
-- Udostępniliśmy [filtr bezpieczeństwa dotyczący uczciwości obywatelskiej](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pl#safety-filters) w Gemini API i AI Studio.
-- Wprowadziliśmy obsługę 2 nowych parametrów modeli Gemini 1.5 Pro i 1.5 Flash w językach Python i NodeJS: [`frequencyPenalty`](https://ai.google.dev/api/generate-content?hl=pl#FIELDS.frequency_penalty) i [`presencePenalty`](https://ai.google.dev/api/generate-content?hl=pl#FIELDS.presence_penalty).
+## 17 settembre 2024
 
-## 19 września 2024 r.
+**Aggiornamenti di AI Studio:**
 
-**Aktualizacje AI Studio:**
+- È stato aggiunto un pulsante **Apri in Colab** che esporta un prompt e il codice per eseguirlo in un notebook Colab. La funzionalità non supporta ancora
+  i prompt con strumenti (modalità JSON, chiamata di funzione o esecuzione del codice).
 
-- Dodaliśmy przyciski „Lubię” i „Nie lubię” przy odpowiedziach modelu, aby umożliwić użytkownikom przekazywanie opinii o jakości odpowiedzi.
+## 13 settembre 2024
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti di AI Studio:**
 
-- Dodaliśmy obsługę środków Google Cloud, które można teraz wykorzystać na korzystanie z Gemini API.
+- È stato aggiunto il supporto della modalità di confronto, che consente di confrontare le risposte di modelli e prompt per trovare la soluzione migliore per il tuo caso d'uso.
 
-## 17 września 2024 r.
+## 30 agosto 2024
 
-**Aktualizacje AI Studio:**
+**Aggiornamenti del modello:**
 
-- Dodaliśmy przycisk **Otwórz w Colab**, który eksportuje prompt i kod do jego uruchomienia do notatnika Colab. Ta funkcja nie obsługuje jeszcze promptów z narzędziami (tryb JSON, wywoływanie funkcji ani wykonywanie kodu).
+- Gemini 1.5 Flash supporta
+  [la fornitura di schemi JSON tramite la configurazione del modello](https://ai.google.dev/gemini-api/docs/json-mode?hl=it#supply-schema-in-config).
 
-## 13 września 2024 r.
+## 27 agosto 2024
 
-**Aktualizacje AI Studio:**
+**Aggiornamenti del modello:**
 
-- Dodaliśmy obsługę trybu porównywania, który umożliwia porównywanie odpowiedzi z różnych modeli i promptów, aby znaleźć najlepsze rozwiązanie dla Twojego zastosowania.
-
-## 30 sierpnia 2024 r.
-
-**Aktualizacje modeli:**
-
-- Gemini 1.5 Flash obsługuje [dostarczanie schematu JSON za pomocą konfiguracji modelu](https://ai.google.dev/gemini-api/docs/json-mode?hl=pl#supply-schema-in-config).
-
-## 27 sierpnia 2024 r.
-
-**Aktualizacje modeli:**
-
-- Wprowadziliśmy te [modele eksperymentalne](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=pl):
+- Sono stati rilasciati i seguenti
+  [modelli sperimentali](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=it):
   - `gemini-1.5-pro-exp-0827`
   - `gemini-1.5-flash-exp-0827`
   - `gemini-1.5-flash-8b-exp-0827`
 
-## 9 sierpnia 2024 r.
+## 9 agosto 2024
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- Dodaliśmy obsługę [przetwarzania plików PDF](https://ai.google.dev/gemini-api/docs/document-processing?hl=pl).
+- È stato aggiunto il supporto per l'[elaborazione dei PDF](https://ai.google.dev/gemini-api/docs/document-processing?hl=it).
 
-## 5 sierpnia 2024 r.
+## 5 agosto 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Udostępniliśmy obsługę dostrajania modelu Gemini 1.5 Flash.
+- È stato rilasciato il supporto per il fine-tuning per Gemini 1.5 Flash.
 
-## 1 sierpnia 2024 r.
+## 1° agosto 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Wprowadziliśmy `gemini-1.5-pro-exp-0801`, nową wersję eksperymentalną [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-1.5-pro).
+- È stata rilasciata `gemini-1.5-pro-exp-0801`, una nuova versione sperimentale di
+  [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-pro).
 
-## 12 lipca 2024 r.
+## 12 luglio 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Usunięcie obsługi Gemini 1.0 Pro Vision z usług i narzędzi AI od Google.
+- Supporto per Gemini 1.0 Pro Vision rimosso dai servizi e dagli strumenti di Google AI.
 
-## 27 czerwca 2024 r.
+## 27 giugno 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Ogólna dostępność okna kontekstu o wielkości 2 mln tokenów w Gemini 1.5 Pro.
+- Rilascio della disponibilità generale della finestra contestuale da 2 milioni di token di Gemini 1.5 Pro.
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- Dodaliśmy obsługę [wykonywania kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl).
+- È stato aggiunto il supporto per l'[esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it).
 
-## 18 czerwca 2024 r.
+## 18 giugno 2024
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- Dodaliśmy obsługę [pamięci podręcznej kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl).
+- È stato aggiunto il supporto per la [memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it).
 
-## 12 czerwca 2024 r.
+## 12 giugno 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Wycofanie Gemini 1.0 Pro Vision.
+- Gemini 1.0 Pro Vision è stato ritirato.
 
-## 23 maja 2024 r.
+## 23 maggio 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-1.5-pro) (`gemini-1.5-pro-001`) jest ogólnie dostępny.
-- [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-1.5-flash) (`gemini-1.5-flash-001`) jest ogólnie dostępny.
+- [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-pro)
+  (`gemini-1.5-pro-001`) è disponibile a livello generale (GA).
+- [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-flash)
+  (`gemini-1.5-flash-001`) è disponibile pubblicamente (GA).
 
-## 14 maja 2024 r.
+## 14 maggio 2024
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- Wprowadziliśmy okno kontekstu o wielkości 2 mln tokenów w przypadku Gemini 1.5 Pro (lista oczekujących).
-- Wprowadziliśmy [płatności](https://ai.google.dev/gemini-api/docs/billing?hl=pl) za Gemini 1.0 Pro w systemie „płatność według wykorzystania”. Wkrótce wprowadzimy też płatności za Gemini 1.5 Pro i Gemini 1.5 Flash.
-- Wprowadziliśmy wyższe limity liczby żądań dla nadchodzącego płatnego poziomu Gemini 1.5 Pro.
-- Dodano wbudowaną obsługę wideo do [interfejsu File API](https://ai.google.dev/api/rest/v1beta/files?hl=pl).
-- Dodano obsługę zwykłego tekstu w [interfejsie File API](https://ai.google.dev/api/rest/v1beta/files?hl=pl).
-- Dodaliśmy obsługę równoległego wywoływania funkcji, które zwraca więcej niż jedno wywołanie naraz.
+- È stata introdotta una finestra contestuale di 2 milioni di token per Gemini 1.5 Pro (lista di attesa).
+- È stata introdotta la [fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it) con pagamento a consumo per Gemini 1.0 Pro, mentre la fatturazione per Gemini 1.5 Pro e Gemini 1.5 Flash sarà disponibile a breve.
+- Sono stati introdotti limiti di frequenza più elevati per il futuro livello a pagamento di Gemini 1.5
+  Pro.
+- Aggiunto il supporto video integrato all'[API File](https://ai.google.dev/api/rest/v1beta/files?hl=it).
+- Aggiunto il supporto del testo normale all'[API File](https://ai.google.dev/api/rest/v1beta/files?hl=it).
+- È stato aggiunto il supporto per la chiamata di funzioni parallela, che restituisce più di una
+  chiamata alla volta.
 
-## 10 maja 2024 r.
+## 10 maggio 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Wprowadziliśmy [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-1.5-flash)
-  (`gemini-1.5-flash-latest`) w wersji testowej.
+- È stato rilasciato [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-flash)
+  (`gemini-1.5-flash-latest`) in anteprima.
 
-## 9 kwietnia 2024 r.
+## 9 aprile 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Wprowadziliśmy [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#gemini-1.5-pro)
-  (`gemini-1.5-pro-latest`) w wersji testowej.
-- Wprowadziliśmy nowy model wektora dystrybucyjnego tekstu `text-embeddings-004`, który obsługuje [elastyczne wektory dystrybucyjne](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl#elastic-embedding) o rozmiarach poniżej 768.
+- È stato rilasciato [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-pro)
+  (`gemini-1.5-pro-latest`) in anteprima.
+- È stato rilasciato un nuovo modello di text embedding, `text-embeddings-004`, che supporta
+  [l'embedding elastico](https://ai.google.dev/gemini-api/docs/embeddings?hl=it#elastic-embedding)
+  con dimensioni inferiori a 768.
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- Udostępniliśmy [interfejs File API](https://ai.google.dev/api/rest/v1beta/files?hl=pl) do tymczasowego przechowywania plików multimedialnych na potrzeby promptów.
-- Dodaliśmy obsługę promptów z danymi tekstowymi, obrazami i dźwiękami, czyli promptów *multimodalnych*. Więcej informacji znajdziesz w artykule [Promptowanie za pomocą multimediów](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=pl).
-- Wprowadziliśmy w wersji beta [instrukcje systemowe](https://ai.google.dev/gemini-api/docs/system-instructions?hl=pl).
-- Dodano [tryb wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#function_calling_mode), który określa sposób wykonywania wywołań funkcji.
-- Dodaliśmy obsługę opcji konfiguracji `response_mime_type`, która umożliwia żądanie odpowiedzi w [formacie JSON](https://ai.google.dev/gemini-api/docs/api-overview?hl=pl#json).
+- È stata rilasciata l'[API File](https://ai.google.dev/api/rest/v1beta/files?hl=it) per l'archiviazione temporanea
+  di file multimediali da utilizzare nei prompt.
+- È stato aggiunto il supporto per i prompt con dati di testo, immagini e audio, noti anche come prompt *multimodali*. Per scoprire di più, consulta
+  [Prompt con contenuti multimediali](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=it).
+- Sono state rilasciate le [istruzioni di sistema](https://ai.google.dev/gemini-api/docs/system-instructions?hl=it) in
+  versione beta.
+- È stata aggiunta la
+  [modalità di chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function_calling_mode),
+  che definisce il comportamento di esecuzione per la chiamata di funzione.
+- È stato aggiunto il supporto per l'opzione di configurazione `response_mime_type`, che consente di richiedere risposte in [formato JSON](https://ai.google.dev/gemini-api/docs/api-overview?hl=it#json).
 
-## 19 marca 2024 r.
+## 19 marzo 2024
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- Dodano obsługę [dostrajania Gemini 1.0 Pro](https://developers.googleblog.com/en/tune-gemini-pro-in-google-ai-studio-or-with-the-gemini-api/) w Google AI Studio lub za pomocą Gemini API.
+- Aggiunto il supporto per
+  [l'ottimizzazione di Gemini 1.0 Pro](https://developers.googleblog.com/en/tune-gemini-pro-in-google-ai-studio-or-with-the-gemini-api/)
+  in Google AI Studio o con l'API Gemini.
 
-## 13 grudnia 2023 r.
+## 13 dicembre 2023
 
-**Aktualizacje modeli:**
+**Aggiornamenti del modello:**
 
-- gemini-pro: nowy model tekstowy do wielu różnych zadań. Równoważy możliwości i wydajność.
-- gemini-pro-vision: nowy model multimodalny do wielu różnych zadań.
-  Równoważy możliwości i wydajność.
-- embedding-001: nowy model wektorów dystrybucyjnych.
-- aqa: nowy, specjalnie dostrojony model, który jest trenowany pod kątem odpowiadania na pytania przy użyciu fragmentów tekstu do ugruntowania wygenerowanych odpowiedzi;
+- gemini-pro: nuovo modello di testo per un'ampia gamma di attività. Equilibra capacità ed efficienza.
+- gemini-pro-vision: nuovo modello multimodale per un'ampia gamma di attività.
+  Equilibra capacità ed efficienza.
+- embedding-001: Nuovo modello di embedding.
+- aqa: Un nuovo modello appositamente ottimizzato e addestrato per rispondere alle domande
+  utilizzando passaggi di testo per basare le risposte generate.
 
-Więcej informacji znajdziesz w sekcji [Modele Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl).
+Per ulteriori dettagli, consulta la sezione [Modelli Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it).
 
-**Aktualizacje wersji interfejsu API:**
+**Aggiornamenti della versione dell'API:**
 
-- v1: stabilny kanał interfejsu API.
-- v1beta: kanał wersji beta. Ten kanał ma funkcje, które mogą być w trakcie opracowywania.
+- v1: Il canale API stabile.
+- v1beta: canale beta. Questo canale ha funzionalità che potrebbero essere in fase di
+  sviluppo.
 
-Więcej informacji znajdziesz w [artykule o wersjach interfejsu API](https://ai.google.dev/gemini-api/docs/api-versions?hl=pl).
+Per ulteriori dettagli, consulta l'[argomento sulle versioni dell'API](https://ai.google.dev/gemini-api/docs/api-versions?hl=it).
 
-**Aktualizacje interfejsu API:**
+**Aggiornamenti dell'API:**
 
-- `GenerateContent` to jeden ujednolicony punkt końcowy do obsługi czatu i tekstu.
-- Strumieniowanie jest dostępne za pomocą metody `StreamGenerateContent`.
-- Możliwości multimodalne: obraz to nowy obsługiwany tryb
-- Nowe funkcje w wersji beta:
-  - [Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
-  - Odpowiadanie na pytania z atrybucją (AQA)
-- Zaktualizowana liczba kandydatów: modele Gemini zwracają tylko 1 kandydata.
-- Różne ustawienia bezpieczeństwa i kategorie oceny bezpieczeństwa. Więcej informacji znajdziesz w [ustawieniach bezpieczeństwa](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pl).
-- Dostrajanie modeli Gemini nie jest jeszcze obsługiwane (trwają prace).
+- `GenerateContent` è un unico endpoint unificato per chat e messaggi.
+- Streaming disponibile tramite il metodo `StreamGenerateContent`.
+- Funzionalità multimodale: l'immagine è una nuova modalità supportata
+- Nuove funzionalità beta:
+  - [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
+  - [Semantic Retriever](https://ai.google.dev/gemini-api/docs/semantic_retrieval?hl=it)
+  - Question Answering con attribuzione (AQA)
+- Conteggio dei candidati aggiornato: i modelli Gemini restituiscono un solo candidato.
+- Diverse impostazioni di sicurezza e categorie di classificazione di sicurezza. Per maggiori dettagli, consulta le
+  [impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it).
+- L'ottimizzazione dei modelli non è ancora supportata per i modelli Gemini (in corso).
 
-Prześlij opinię
+Invia feedback
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Ostatnia aktualizacja: 2026-09-04 UTC.
+Ultimo aggiornamento 2026-09-12 UTC.
 
-Chcesz przekazać coś jeszcze?
+Vuoi dirci altro?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-04 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]

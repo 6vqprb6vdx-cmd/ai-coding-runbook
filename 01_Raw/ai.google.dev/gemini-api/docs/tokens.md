@@ -1,44 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=vi
-fetched_at: 2026-09-07T05:36:37.572059+00:00
-title: "T\u00ecm hi\u1ec3u v\u00e0 t\u00ednh m\u00e3 th\u00f4ng b\u00e1o \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=ja
+fetched_at: 2026-09-14T05:37:26.760693+00:00
+title: "\u30c8\u30fc\u30af\u30f3\u3092\u7406\u89e3\u3057\u3066\u30ab\u30a6\u30f3\u30c8\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Tìm hiểu và tính mã thông báo
+# トークンを理解してカウントする
 
-Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào và đầu ra ở mức độ chi tiết được gọi là *mã thông báo*.
+Gemini やその他の生成 AI モデルは、入力と出力をトークンという粒度で処理します。
 
-**Đối với các mô hình Gemini, một mã thông báo tương đương với khoảng 4 ký tự.
-100 mã thông báo tương đương với khoảng 60 đến 80 từ tiếng Anh.**
+**Gemini モデルの場合、1 個のトークンは約 4 文字に相当します。
+100 個のトークンは約 60 ～ 80 ワード（英語）に相当します。**
 
-## Giới thiệu về mã thông báo
+## トークンについて
 
-Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả các mã thông báo mà mô hình sử dụng được gọi là từ vựng và quy trình phân tách văn bản thành mã thông báo được gọi là *mã hoá*.
+トークンは、`z` などの単一の文字、`cat` などの単語全体にすることができます。長い単語は複数のトークンに分割されます。モデルで使用されるすべてのトークンのセットを語彙と呼び、テキストをトークンに分割するプロセスをトークン化と呼びます。
 
-Khi bật tính năng thanh toán, [chi phí của một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
+課金が有効になっている場合、[Gemini API の呼び出しの費用](https://ai.google.dev/pricing?hl=ja)は
+入力トークンと出力トークンの数によって決まります。そのため、トークンの
+カウント方法を知っておくと便利です。
 
-## Đếm mã thông báo
+## トークンをカウントする
 
-Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được mã hoá thành mã thông báo, bao gồm cả văn bản, tệp hình ảnh và các phương thức không phải văn bản khác.
+Gemini API とのすべての入出力は、テキスト、画像ファイル、その他のテキスト以外のモダリティを含めてトークン化されます。
 
-Bạn có thể đếm mã thông báo theo những cách sau:
+トークンは次の方法でカウントできます。
 
-- **Gọi `count_tokens` bằng dữ liệu đầu vào của yêu cầu.** Trả về tổng số mã thông báo *chỉ trong dữ liệu đầu vào*. Thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào để kiểm tra kích thước của các yêu cầu.
-- **Sử dụng `usage` trên câu trả lời tương tác.** Trả về số lượng mã thông báo cho dữ liệu đầu vào (`total_input_tokens`), đầu ra (`total_output_tokens`), suy nghĩ (`total_thought_tokens`), nội dung được lưu vào bộ nhớ đệm (`total_cached_tokens`), việc sử dụng công cụ (`total_tool_use_tokens`) và tổng số (`total_tokens`).
+- **リクエストの入力で `count_tokens` を呼び出します。**入力のみのトークンの合計数を返します。 リクエストのサイズを確認するには、入力を送信する前にこの呼び出しを行います。
+- **インタラクション レスポンスで `usage` を使用します。**入力（`total_input_tokens`）、出力（`total_output_tokens`）、思考（`total_thought_tokens`）、キャッシュされたコンテンツ（`total_cached_tokens`）、ツール使用（`total_tool_use_tokens`）、合計（`total_tokens`）のトークン数を返します。
 
-### Đếm số lượng mã thông báo văn bản
+### テキスト トークンをカウントする
 
 ### Python
 
@@ -98,9 +100,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Đếm mã thông báo nhiều lượt
+### 複数ターンのトークンをカウントする
 
-Đếm số mã thông báo trong nhật ký trò chuyện bằng cách sử dụng `previous_interaction_id`:
+`previous_interaction_id` を使用して、会話履歴全体のトークンをカウントします。
 
 ### Python
 
@@ -146,16 +148,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Đếm mã thông báo đa phương thức
+### マルチモーダル トークンをカウントする
 
-Mọi dữ liệu đầu vào cho Gemini API đều được mã hoá thành mã thông báo, bao gồm cả hình ảnh, video và âm thanh.
-Các điểm chính về việc mã hoá:
+Gemini API へのすべての入力は、画像、動画、音声を含めてトークン化されます。
+トークン化に関する重要なポイント:
 
-- **Hình ảnh**: Hình ảnh có kích thước ≤384 pixel ở cả hai chiều được tính là 258 mã thông báo. Các hình ảnh lớn hơn được chia thành các ô có kích thước 768x768 pixel, mỗi ô được tính là 258 mã thông báo.
-- **Video**: 263 mã thông báo mỗi giây
-- **Âm thanh**: 32 mã thông báo mỗi giây
+- **画像**: 画像の両方の寸法が 384 ピクセル以下の場合は、258 個のトークンとしてカウントされます。大きい画像は 768x768 ピクセルのタイルに分割され、それぞれ 258 個のトークンとしてカウントされます。
+- **動画**: 1 秒あたり 263 トークン
+- **音声**: 1 秒あたり 32 トークン
 
-#### Mã thông báo hình ảnh
+#### 画像トークン
 
 ### Python
 
@@ -201,7 +203,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**Ví dụ về dữ liệu nội tuyến:**
+**インラインデータの例:**
 
 ### Python
 
@@ -226,7 +228,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Mã thông báo video
+#### 動画トークン
 
 ### Python
 
@@ -259,7 +261,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Mã thông báo âm thanh
+#### 音声トークン
 
 ### Python
 
@@ -285,9 +287,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Đếm mã thông báo hướng dẫn hệ thống
+### システム指示トークンをカウントする
 
-Các chỉ dẫn hệ thống được tính là một phần của mã thông báo đầu vào:
+システム指示は入力トークンの一部としてカウントされます。
 
 ### Python
 
@@ -303,9 +305,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Đếm số token của công cụ
+### ツールトークンをカウントする
 
-Các công cụ (hàm, thực thi mã, Google Tìm kiếm) cũng được tính:
+ツール（関数、コード実行、Google 検索）もカウントされます。
 
 ### Python
 
@@ -335,11 +337,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Cửa sổ ngữ cảnh
+## コンテキスト ウィンドウ
 
-Mỗi mô hình Gemini đều có số lượng mã thông báo tối đa mà mô hình đó có thể xử lý. Cửa sổ ngữ cảnh xác định giới hạn kết hợp của mã thông báo đầu vào và đầu ra.
+各 Gemini モデルには、処理できるトークンの最大数があります。コンテキスト ウィンドウは、入力トークンと出力トークンの合計上限を定義します。
 
-### Lấy kích thước cửa sổ ngữ cảnh theo phương thức lập trình
+### コンテキスト ウィンドウのサイズをプログラムで取得する
 
 ### Python
 
@@ -359,20 +361,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-Tìm kích thước cửa sổ ngữ cảnh trên trang [các mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+コンテキスト ウィンドウのサイズは、[[モデル](https://ai.google.dev/gemini-api/docs/models?hl=ja)] ページで確認できます。
 
-## Bước tiếp theo
+## 次のステップ
 
-- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi): Các kiến thức cơ bản về việc tạo văn bản
-- [Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi): Giảm chi phí bằng cách lưu vào bộ nhớ đệm
-- [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi): Tìm hiểu về chi phí
+- [テキスト生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja): 生成の基本
+- [キャッシュ](https://ai.google.dev/gemini-api/docs/caching?hl=ja): キャッシュを使用して費用を削減する
+- [料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja): 費用について
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+最終更新日 2026-09-12 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]

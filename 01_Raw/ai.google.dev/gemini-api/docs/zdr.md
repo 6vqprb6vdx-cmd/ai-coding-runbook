@@ -1,72 +1,75 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=hi
-fetched_at: 2026-09-07T05:43:49.617136+00:00
-title: "Gemini Developer API \u092e\u0947\u0902 \u0921\u0947\u091f\u093e \u0930\u0916\u0930\u0916\u093e\u0935 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e \u0909\u092a\u0932\u092c\u094d\u0927 \u0928\u0939\u0940\u0902 \u0939\u0948 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=zh-CN
+fetched_at: 2026-09-14T05:46:46.499039+00:00
+title: "Gemini Developer API \u4e2d\u7684\u96f6\u6570\u636e\u4fdd\u7559 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-सुझाव भेजें
+发送反馈
 
-# Gemini Developer API में डेटा रखरखाव की सुविधा उपलब्ध नहीं है
+# Gemini Developer API 中的零数据保留
 
-इस पेज पर, Gemini Developer API में "ज़ीरो डेटा रिटेंशन" के तौर पर जानी जाने वाली सुविधा के बारे में जानकारी दी गई है.
+本页面详细介绍了 Gemini Developer API 中通常所说的“零数据保留”。
 
-## ट्रेनिंग से जुड़ी पाबंदी
+## 训练限制
 
-[Gemini API की सेवा की शर्तों में बताया गया है कि पैसे देकर ली जाने वाली सेवाओं का इस्तेमाल करने पर, Google आपके प्रॉम्प्ट (इनमें, सिस्टम के निर्देशों, कैश मेमोरी में सेव किए गए कॉन्टेंट, और फ़ाइलें शामिल हैं. जैसे, इमेज, वीडियो या दस्तावेज़) या जवाबों का इस्तेमाल, अपने प्रॉडक्ट को बेहतर बनाने के लिए नहीं करता है.](https://ai.google.dev/gemini-api/terms?hl=hi) पैसे देकर ली जाने वाली सेवाओं की जानकारी
-[यहां दी गई है](https://ai.google.dev/gemini-api/terms?hl=hi#paid-services).
+如 [Gemini API 服务条款](https://ai.google.dev/gemini-api/terms?hl=zh-cn) 中所述，当您
+使用付费服务时，Google 不会使用您的提示（包括关联的系统
+说明、缓存的内容以及图片、视频或文档等文件）或
+回答来改进我们的产品。付费服务的定义见
+[此处](https://ai.google.dev/gemini-api/terms?hl=zh-cn#paid-services)。
 
-## ग्राहक के डेटा का रखरखाव और ज़ीरो डेटा रिटेंशन की सुविधा
+## 客户数据保留和实现零数据保留
 
-आम तौर पर, ग्राहक का डेटा इन स्थितियों और शर्तों में सीमित समय के लिए सेव किया जाता है. ज़ीरो डेटा रिटेंशन की सुविधा पाने के लिए, ग्राहकों को इनमें से हर क्षेत्र में कुछ खास कार्रवाइयां करनी होंगी या कुछ खास सुविधाओं का इस्तेमाल नहीं करना होगा:
+在以下场景和条件下，客户数据通常会保留有限的时间。若要实现零数据保留，客户必须在以下各个方面采取特定措施或避免使用特定功能：
 
-- **गलत इस्तेमाल की निगरानी के लिए, प्रॉम्प्ट लॉग करना**: [Gemini API
-  की अतिरिक्त सेवा की शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi) में बताया गया है कि पैसे देकर ली जाने वाली सेवाओं के लिए, Google
-  प्रॉम्प्ट और जवाबों को सीमित समय के लिए लॉग करता है. ऐसा सिर्फ़,
-  इस्तेमाल से जुड़ी पाबंदी की[नीति
-  के उल्लंघन का पता लगाने के लिए किया जाता है.](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) किसी खास प्रोजेक्ट के लिए, ज़ीरो डेटा रिटेंशन (ज़ेडडीआर) के आपके अनुरोध को मंज़ूरी मिलने पर, लॉग करने से पहले, उपयोगकर्ता का सारा कॉन्टेंट (प्रॉम्प्ट और जवाब) और पहचान से जुड़ा मेटाडेटा (जैसे, आईपी पते और Google खाते के आईडी) मिटा दिया जाता है. इसके बाद, रिकॉर्ड को सैनिटाइज़ के तौर पर मार्क किया जाता है. इसमें, उपयोगकर्ता की पहचान से जुड़ा कोई डेटा नहीं होता. इससे, Gemini Enterprise एजेंट प्लैटफ़ॉर्म के ज़ीरो डेटा रिटेंशन की सुविधा के साथ समानता बनी रहती है.
-- **Google Search के साथ ग्राउंडिंग**: [Gemini API की अतिरिक्त
-  सेवा की शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi#grounding-with-google-search) में बताया गया है कि Google, ग्राउंडेड नतीजे और खोज के सुझाव बनाने के लिए, प्रॉम्प्ट, कॉन्टेक्चुअल जानकारी, और जनरेट किए गए आउटपुट को तीस (30)
-  दिनों तक सेव करके रखता है.
-  सेव की गई इस जानकारी का इस्तेमाल, ग्राउंडिंग की सुविधा देने वाले सिस्टम को डीबग करने और उनकी जांच करने के लिए किया जा सकता है. **अगर Google Search के साथ ग्राउंडिंग की सुविधा का इस्तेमाल किया जाता है, तो इस जानकारी को सेव करने की सुविधा बंद नहीं की जा सकती.**
-- **Google Maps के साथ ग्राउंडिंग**: [Gemini API की अतिरिक्त
-  सेवा की शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi) में बताया गया है कि Google, ग्राउंडेड नतीजे बनाने के लिए, प्रॉम्प्ट, कॉन्टेक्चुअल
-  जानकारी, और जनरेट किए गए आउटपुट को 30 दिनों तक सेव करके रखता है. सेव की गई इस जानकारी का इस्तेमाल, सिर्फ़ भरोसेमंद इंजीनियरिंग के लिए किया जा सकता है. जैसे, सेवा से जुड़ी समस्याओं को डीबग करना.
-  **अगर Google Maps के साथ ग्राउंडिंग की सुविधा का इस्तेमाल किया जाता है, तो इस जानकारी को सेव करने की सुविधा बंद नहीं की जा सकती.**
-- **Interactions API**: Interactions API, बातचीत की चालू स्थिति को मैनेज करता है, ताकि मल्टी-टर्न की सुविधा दी जा सके. **डिफ़ॉल्ट रूप से, Interactions API, बातचीत की स्थिति को सेव करने की सुविधा चालू करता है**. यह पक्का करने के लिए कि कोई डेटा सेव न हो, आपको एपीआई के अपने अनुरोधों में `store` पैरामीटर को साफ़ तौर पर `false` पर सेट करना होगा. इससे, डिफ़ॉल्ट रूप से बातचीत की स्थिति को सेव करने की सुविधा बंद हो जाएगी.
-- **Live API**: यह स्टेटफ़ुल एपीआई, बातचीत की स्थिति को सेव करके, रीयल-टाइम में फिर से कनेक्ट करने की सुविधा देता है. ज़ीरो डेटा रिटेंशन की सुविधा पाने के लिए, **SessionResumptionConfig को कॉन्फ़िगर न करें**. अगर सेशन हैंडल जनरेट किया जाता है, तो बातचीत की स्थिति (इसमें टेक्स्ट, ऑडियो, और वीडियो शामिल हैं) को 24 घंटे तक सेव करके रखा जाता है.
-- **File API Storage**: File API की मदद से, लोग बड़ी ऐसेट अपलोड कर सकते हैं.
-  फ़ाइलें तब तक सेव रहती हैं, जब तक उन्हें उपयोगकर्ता मिटा नहीं देता या उनकी समयसीमा खत्म नहीं हो जाती.
-  File API का इस्तेमाल, ज़ेडडीआर लॉगिंग से अलग है. यह पक्का करने के लिए कि कोई डेटा सेव न हो, लोगों को फ़ाइलें मैन्युअल तरीके से मिटानी होंगी.
-- **साफ़ तौर पर कॉन्टेक्स्ट को कैश मेमोरी में सेव करना**: लोग, `cached_content` फ़ील्ड का इस्तेमाल करके, बड़े डेटासेट (जैसे,
-  लंबे वीडियो या दस्तावेज़ों की लाइब्रेरी) को मैन्युअल तरीके से कैश मेमोरी में सेव कर सकते हैं. इन अनुरोधों के लॉग, ज़ेडडीआर ड्रॉपिंग की नीतियों के मुताबिक होते हैं. हालांकि, कैश मेमोरी में सेव किया गया कॉन्टेक्स्ट, उपयोगकर्ता की तय की गई `ttl` या `expire_time` के साथ सेव किया जाता है. यह पक्का करने के लिए कि कोई डेटा सेव न हो, cached\_content सुविधा का इस्तेमाल न करें.
-- **इन-मेमोरी कैशिंग**: डिफ़ॉल्ट रूप से, Gemini मॉडल, डेवलपर के लिए लेटेंसी और लागत कम करने के लिए, डेटा को
-  इन-मेमोरी में कैश करते हैं. यह डेटा, सिर्फ़ रैम में होता है (सेव नहीं किया जाता). इसे प्रोजेक्ट के लेवल पर अलग किया जाता है. साथ ही, इसकी टीटीएल 24 घंटे होती है.
-  **इससे, ज़ीरो डेटा रिटेंशन की नीति का उल्लंघन नहीं होता.**
+- **用于滥用行为监控的提示日志记录**：如[Gemini API
+  附加服务条款](https://ai.google.dev/gemini-api/terms?hl=zh-cn)中所述，对于付费服务，Google
+  会在有限的一段时间内记录提示和回答，仅用于检测
+  违反[使用限制
+  政策](https://policies.google.com/terms/generative-ai/use-policy?hl=zh-cn)的行为。当您针对特定项目的 ZDR 请求获得批准后，所有用户内容（提示和回答）和可识别的元数据（例如 IP 地址和 Google 账号 ID）都会在记录之前清除。生成的记录会被标记为已清理，并且不包含任何可识别的用户数据，确保与 Gemini Enterprise Agent Platform 零数据保留保持一致。
+- **依托 Google 搜索进行接地**：如[Gemini API 附加
+  服务条款](https://ai.google.dev/gemini-api/terms?hl=zh-cn#grounding-with-google-search)中所述，Google
+  会存储提示、上下文信息和生成的输出内容三十 (30)
+  天，以用于创建有依据的结果和搜索建议。
+  这些存储的信息可用于调试和测试支持接地的系统。**如果您使用“依托 Google 搜索进行接地”，则无法禁止存储此信息。**
+- **Grounding with Google Maps**：如 [Gemini API 附加服务条款](https://ai.google.dev/gemini-api/terms?hl=zh-cn)中所述，Google 会存储提示、上下文信息和生成的输出内容三十 (30) 天，以用于创建有依据的结果。这些存储的信息可能仅用于可靠性工程，例如在出现服务问题时进行调试。**如果您使用“Grounding with Google Maps”，则无法禁止存储此信息。**
+- **Interactions API**：Interactions API 可管理对话的活跃状态，以实现多轮对话。**默认情况下，Interactions API 会启用状态存储** 。为确保零数据足迹，您必须在 API 请求中将 `store` 参数显式设置为 `false`，以选择停用默认状态保留。
+- **Live API**：此有状态 API 通过存储
+  对话状态来实现实时重新连接。若要实现零数据保留，**请勿配置 SessionResumptionConfig** 。如果生成了会话句柄，对话状态（包括文本、音频和视频）最多会保留 24 小时。
+- **File API 存储**：借助 File API，用户可以上传大型素材资源。
+  文件会以静态方式存储，直到用户删除或过期为止。
+  File API 的使用与 ZDR 日志记录无关；用户必须手动删除文件，以确保零数据足迹。
+- **显式上下文缓存**：用户可以使用 `cached_content` 字段手动缓存大型数据集（例如
+  长视频或文档库）。虽然这些请求的日志遵循 ZDR 丢弃政策，但缓存的上下文本身会使用用户定义的 `ttl` 或 `expire_time` 进行存储。若要实现绝对零数据足迹，请勿使用 cached\_content 功能。
+- **隐式内存缓存**：默认情况下，Gemini 模型会将数据缓存在
+  内存中，以缩短延迟时间并降低开发者的费用。此数据严格存储在 RAM 中（而非静态存储），在项目级层进行隔离，并且 TTL 为 24 小时。
+  **这不会违反零数据保留。**
 
-## आगे क्या करना है
+## 后续步骤
 
-- [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति के बारे में जानें.](https://policies.google.com/terms/generative-ai/use-policy?hl=hi)
-- [Gemini API की अतिरिक्त सेवा की शर्तें](https://ai.google.dev/gemini-api/terms?hl=hi) देखें.
-- अगर आपको एंटरप्राइज़-ग्रेड के, सेल्फ़-सर्विस वाले ज़ेडडीआर कंट्रोल चाहिए, तो [Gemini Enterprise एजेंट प्लैटफ़ॉर्म
-  ज़ीरो डेटा रिटेंशन
-  के लिए बना गाइड](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention?hl=hi) देखें.
+- 了解[生成式 AI 使用限制
+  政策](https://policies.google.com/terms/generative-ai/use-policy?hl=zh-cn)。
+- 查看 [Gemini API 附加服务条款](https://ai.google.dev/gemini-api/terms?hl=zh-cn)。
+- 如果您需要企业级自助式 ZDR 控制功能，请参阅 [Gemini Enterprise Agent Platform
+  零数据保留
+  指南](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention?hl=zh-cn)。
 
-सुझाव भेजें
+发送反馈
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया.
+最后更新时间 (UTC)：2026-05-28。
 
-क्या आपको हमें और कुछ बताना है?
+需要向我们提供更多信息？
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-28。"],[],[]]

@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja
-fetched_at: 2026-09-07T05:42:56.336467+00:00
-title: "\u512a\u5148\u5ea6\u63a8\u8ad6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-BR
+fetched_at: 2026-09-14T05:38:27.286714+00:00
+title: "Infer\u00eancia de prioridade \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-フィードバックを送信
+Envie comentários
 
-# 優先度推論
+# Inferência de prioridade
 
-説明: Interactions API の優先度推論階層を使用してレイテンシを最適化する方法について説明します
+Descrição: saiba como otimizar a latência com o nível de inferência prioritário na API Interactions
 
-Gemini Priority API は、低レイテンシと最高の信頼性を必要とするビジネス クリティカルなワークロード向けに設計されたプレミアム推論ティアです。優先度ティアのトラフィックは、標準 API と Flex ティアのトラフィックよりも優先されます。
+A API Gemini Priority é um nível de inferência premium projetado para cargas de trabalho essenciais para os negócios que exigem menor latência e maior confiabilidade a um preço premium. O tráfego de nível prioritário tem prioridade sobre o tráfego da API padrão e do nível Flex.
 
-優先順位の推論は、Interactions API エンドポイント全体で利用できます。
+A inferência prioritária está disponível em todos os endpoints da API Interactions.
 
-## 優先度の使用方法
+## Como usar a prioridade
 
-優先度階層を使用するには、リクエストの `service_tier` フィールドを `priority` に設定します。フィールドが省略されている場合、デフォルトの階層は標準です。
+Para usar o nível Prioridade, defina o campo `service_tier` na solicitação como `priority`. O nível padrão será usado se o campo for omitido.
 
 ### Python
 
@@ -75,76 +75,87 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 優先度推論の仕組み
+## Como funciona a inferência prioritária
 
-優先度推論ルートは、リクエストを高クリティカルなコンピューティング キューに転送し、ユーザー向けアプリケーションに予測可能で高速なパフォーマンスを提供します。主なメカニズムは、動的上限を超えるトラフィックに対して、サーバーサイドで標準処理にグレースフルにダウングレードすることです。これにより、リクエストが失敗するのではなく、アプリケーションの安定性が確保されます。
+A inferência prioritária encaminha solicitações para filas de computação de alta criticidade, oferecendo desempenho rápido e previsível para aplicativos voltados ao usuário. O mecanismo principal é um downgrade suave do lado do servidor para o processamento padrão de tráfego que excede os limites dinâmicos, garantindo a estabilidade do aplicativo em vez de falhar na solicitação.
 
-| 機能 | 優先度 | 標準 | Flex | バッチ |
+| Recurso | Prioridade | Padrão | Flex | Lote |
 | --- | --- | --- | --- | --- |
-| **料金** | Standard の 75 ～ 100% 増 | 通常料金 | 50% 割引 | 50% 割引 |
-| **レイテンシ** | 秒 | 数秒～数分 | 分（1 ～ 15 分の目標） | 最大 24 時間 |
-| **信頼性** | 高（抜け毛が少ない） | 高 / 中高 | ベスト エフォート（Sheddable） | 高（スループットの場合） |
-| **インターフェース** | 同期 | 同期 | 同期 | 非同期 |
+| **Preços** | 75 a 100% mais caro que o padrão | Preço total | 50% de desconto | 50% de desconto |
+| **Latência** | Segundos | Segundos a minutos | Minutos (meta de 1 a 15 min) | Até 24 horas |
+| **Confiabilidade** | Alta (não descartável) | Alta / média-alta | Melhor esforço (descartável) | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrona |
 
-### 主なメリット
+### Principais benefícios
 
-- **低レイテンシ**: インタラクティブなユーザー向け AI ツールで、応答時間が 1 秒になるように設計されています。
-- **高い信頼性**: トラフィックは最も高い重要度で処理され、厳密に非シェディングです。
-- **グレースフル デグラデーション**: 動的上限を超えるトラフィックの急増は、処理に失敗するのではなく、自動的に Standard 階層にダウングレードされ、サービス停止を防ぎます。
-- **摩擦が少ない**: 標準階層と Flex 階層と同じ同期 `create` メソッドを使用します。
+- **Baixa latência**: projetado para tempos de resposta de segundos para ferramentas de IA interativas,
+  voltadas ao usuário.
+- **Alta confiabilidade**: o tráfego é tratado com a maior criticidade e é
+  estritamente não descartável.
+- **Degradação suave**: picos de tráfego que excedem os limites dinâmicos são
+  automaticamente rebaixados para o nível padrão para processamento em vez de falhar,
+  evitando interrupções de serviço.
+- **Baixa fricção**: usa o mesmo método `create` síncrono que os
+  níveis padrão e Flex.
 
-### ユースケース
+### Casos de uso
 
-優先処理は、パフォーマンスと信頼性が最も重要なビジネス クリティカルなワークフローに最適です。
+O processamento prioritário é ideal para fluxos de trabalho essenciais para os negócios em que o desempenho e a confiabilidade são fundamentais.
 
-- **インタラクティブ AI アプリケーション**: ユーザーがプレミアム料金を支払い、迅速で一貫性のある応答を期待するカスタマー サービス chatbot と copilot。
-- **リアルタイムの意思決定エンジン**: ライブ チケットのトリアージや不正行為の検出など、信頼性が高く、レイテンシの低い結果を必要とするシステム。
-- **Premium 顧客向け機能**: 有料顧客に対してより高いサービスレベル目標（SLO）を保証する必要があるデベロッパー。
+- **Aplicativos de IA interativos**: chatbots e copilotos de atendimento ao cliente em que
+  os usuários pagam um valor premium e esperam respostas rápidas e consistentes.
+- **Mecanismos de decisão em tempo real**: sistemas que exigem resultados altamente confiáveis e de baixa latência
+  como triagem de tickets ao vivo ou detecção de fraudes.
+- **Recursos premium para clientes**: desenvolvedores que precisam garantir objetivos de nível de serviço (SLOs) mais altos para clientes pagantes.
 
-### レート上限
+### Limites de taxas
 
-優先度の高い消費は、[インタラクティブ トラフィックの全体的なレート上限](https://aistudio.google.com/rate-limit?hl=ja)に対してカウントされますが、独自のレート上限が適用されます。優先度推論のデフォルトのレート上限は、**モデル / 階層の標準レート上限の 0.3 倍**です。
+O consumo prioritário tem limites de taxa próprios, mesmo que o consumo seja
+contabilizado nos [limites gerais de taxa de tráfego interativo](https://aistudio.google.com/rate-limit?hl=pt-br). Os limites de taxa padrão para inferência prioritária são **0,3 vezes o limite de taxa padrão para modelo / nível**
 
-### グレースフル ダウングレード ロジック
+### Lógica de downgrade suave
 
-輻輳により優先度の上限を超えた場合、オーバーフロー リクエストは 503 エラーまたは 429 エラーで失敗するのではなく、**自動的に正常に** Standard 処理にダウングレードされます。ダウングレードされたリクエストは、優先度の高いプレミアム料金ではなく、標準料金で課金されます。
+Se os limites de prioridade forem excedidos devido ao congestionamento, as solicitações de overflow serão **rebaixadas automaticamente e de maneira suave** para o processamento padrão em vez de falhar com um erro 503 ou 429. As solicitações rebaixadas são cobradas na taxa padrão, não na taxa premium prioritária.
 
-### お客様の責任
+### Responsabilidade do cliente
 
-- **レスポンスのモニタリング**: リクエストが `standard` に頻繁にダウングレードされているかどうかを検出するために、API レスポンスの `x-gemini-service-tier` ヘッダーをモニタリングする必要があります。
-- **再試行**: クライアントは、`DEADLINE_EXCEEDED` などの標準エラーに対して再試行ロジック/指数バックオフを実装する必要があります。
+- **Monitoramento de respostas**: os desenvolvedores precisam monitorar o `x-gemini-service-tier`
+  cabeçalho na resposta da API para detectar se as solicitações estão sendo rebaixadas com frequência para
+  `standard`.
+- **Repetições**: os clientes precisam implementar a lógica de repetição/espera exponencial para
+  erros padrão, como `DEADLINE_EXCEEDED`.
 
-## 料金
+## Preços
 
-優先推論の料金は、[標準 API](https://ai.google.dev/gemini-api/docs/pricing?hl=ja) の 75 ～ 100% 増しで、トークンごとに課金されます。
+A inferência prioritária custa de 75 a 100% mais do que a [API padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) e é cobrada por token.
 
-## サポートされているモデル
+## Modelos compatíveis
 
-次のモデルは優先度推論をサポートしています。
+Os seguintes modelos oferecem suporte à inferência prioritária:
 
-| モデル | 優先度推論 |
+| Modelo | Inferência prioritária |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ja) | ✔️ |
-| [Gemini 3.1 Pro プレビュー版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ja) | ✔️ |
-| [Gemini 3 Flash プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ja) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ja) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ja) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## 次のステップ
+## A seguir
 
-- 費用削減のための [Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)。
-- [トークン](https://ai.google.dev/gemini-api/docs/tokens?hl=ja): トークンについて理解します。
+- [Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br) para redução de custos.
+- [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br): entenda os tokens.
 
-フィードバックを送信
+Envie comentários
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最終更新日 2026-07-30 UTC。
+Última atualização 2026-09-12 UTC.
 
-ご意見をお聞かせください
+Quer enviar seu feedback?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-12 UTC."],[],[]]

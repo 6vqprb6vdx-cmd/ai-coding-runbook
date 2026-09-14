@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ar
-fetched_at: 2026-09-07T05:32:40.236829+00:00
-title: "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0623\u062f\u0627\u0629 \u0645\u0639 Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=id
+fetched_at: 2026-09-14T05:34:56.452259+00:00
+title: "Penggunaan alat dengan Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-# استخدام الأداة مع Live API
+# Penggunaan alat dengan Live API
 
-يتيح استخدام الأدوات لواجهة برمجة التطبيقات Live API أن تتجاوز مجرد المحادثة من خلال تمكينها من تنفيذ إجراءات في العالم الحقيقي وجلب سياق خارجي مع الحفاظ على اتصال في الوقت الفعلي.
-يمكنك تحديد أدوات، مثل [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
-و[بحث Google](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)، باستخدام واجهة برمجة التطبيقات Live API.
+Penggunaan alat memungkinkan Live API tidak hanya sekadar percakapan, tetapi juga melakukan tindakan di dunia nyata dan mengambil konteks eksternal sambil mempertahankan koneksi real time.
+Anda dapat menentukan alat seperti [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+dan [Google Penelusuran](https://ai.google.dev/gemini-api/docs/grounding?hl=id) dengan Live API.
 
-## نظرة عامة على الأدوات المتاحة
+## Ringkasan alat yang didukung
 
-في ما يلي نظرة عامة موجزة على الأدوات المتاحة لنماذج واجهة برمجة التطبيقات Live API:
+Berikut ringkasan singkat alat yang tersedia untuk model Live API:
 
-| الأداة | المعاينة المباشرة لـ Gemini 3.1 Flash | المعاينة المباشرة لـ Gemini 2.5 Flash |
+| Alat | Pratinjau Langsung Gemini 3.1 Flash | Pratinjau Langsung Gemini 2.5 Flash |
 | --- | --- | --- |
-| **البحث** | متاح | متاح |
-| **استدعاء الدالة** | متاح (متزامن فقط) | متاح (متزامن و[غير متزامن](#async-function-calling)) |
-| **خرائط Google** | غير متاح | غير متاح |
-| **تنفيذ الرمز البرمجي** | غير متاح | غير متاح |
-| **سياق عنوان URL** | غير متاح | غير متاح |
+| **Penelusuran** | Didukung | Didukung |
+| **Panggilan fungsi** | Didukung (sinkron saja) | Didukung (sinkron dan [asinkron](#async-function-calling)) |
+| **Google Maps** | Tidak didukung | Tidak didukung |
+| **Eksekusi kode** | Tidak didukung | Tidak didukung |
+| **Konteks URL** | Tidak didukung | Tidak didukung |
 
-## استدعاء الدالة
+## Panggilan fungsi
 
-تتيح واجهة برمجة التطبيقات Live API استدعاء الدوال، تمامًا مثل طلبات إنشاء المحتوى العادية. يسمح استدعاء الدوال لواجهة برمجة التطبيقات Live API بالتفاعل مع البيانات والبرامج الخارجية، ما يزيد بشكل كبير من الإمكانات التي يمكن لتطبيقاتك تحقيقها.
+Live API mendukung panggilan fungsi, seperti permintaan pembuatan konten reguler. Panggilan fungsi memungkinkan Live API berinteraksi dengan data dan program eksternal, sehingga meningkatkan kemampuan aplikasi Anda.
 
-يمكنك تحديد إعلانات الدوال كجزء من إعدادات الجلسة.
-بعد تلقّي طلبات استخدام الأدوات، على العميل الردّ باستخدام قائمة بكائنات `FunctionResponse` باستخدام طريقة `session.send_tool_response`.
+Anda dapat menentukan deklarasi fungsi sebagai bagian dari konfigurasi sesi.
+Setelah menerima panggilan alat, klien harus merespons dengan daftar objek `FunctionResponse` menggunakan metode `session.send_tool_response`.
 
-لمزيد من المعلومات، يمكنك الاطّلاع على [البرنامج التعليمي حول استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) لمعرفة
-المزيد.
+Lihat [tutorial Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) untuk mempelajari
+lebih lanjut.
 
 ### Python
 
@@ -219,14 +219,13 @@ async function main() {
 main();
 ```
 
-من خلال طلب واحد، يمكن للنموذج إنشاء طلبات متعددة لاستدعاء الدوال والرمز البرمجي اللازم لربط نتائجها. يتم تنفيذ هذا الرمز البرمجي في بيئة وضع الحماية
-، ما يؤدي إلى إنشاء رسائل [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=ar#bidigeneratecontenttoolcall) لاحقة.
+Dari satu perintah, model dapat membuat beberapa panggilan fungsi dan kode yang diperlukan untuk merangkai outputnya. Kode ini dijalankan di lingkungan sandbox, yang menghasilkan pesan [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=id#bidigeneratecontenttoolcall) berikutnya.
 
-## استدعاء الدوال غير المتزامن
+## Panggilan fungsi asinkron
 
-يتم تنفيذ استدعاء الدوال بالتسلسل تلقائيًا، ما يعني أنّ التنفيذ يتوقف إلى أن تتوفّر نتائج كل طلب لاستدعاء دالة. يضمن ذلك المعالجة التسلسلية، ما يعني أنّه لن يكون بإمكانك مواصلة التفاعل مع النموذج أثناء تشغيل الدوال.
+Panggilan fungsi dieksekusi secara berurutan secara default, yang berarti eksekusi akan dijeda hingga hasil setiap panggilan fungsi tersedia. Hal ini memastikan pemrosesan berurutan, yang berarti Anda tidak dapat terus berinteraksi dengan model saat fungsi sedang dijalankan.
 
-إذا كنت لا تريد حظر المحادثة، يمكنك إخبار النموذج بتشغيل الدوال بشكل غير متزامن. لإجراء ذلك، عليك أولاً إضافة `behavior` إلى تعريفات الدوال:
+Jika tidak ingin memblokir percakapan, Anda dapat meminta model untuk menjalankan fungsi secara asinkron. Untuk melakukannya, Anda harus menambahkan `behavior` ke definisi fungsi terlebih dahulu:
 
 ### Python
 
@@ -250,15 +249,15 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-يضمن `NON-BLOCKING` تشغيل الدالة بشكل غير متزامن بينما يمكنك مواصلة التفاعل مع النموذج.
+`NON-BLOCKING` memastikan fungsi berjalan secara asinkron saat Anda dapat terus berinteraksi dengan model.
 
-بعد ذلك، عليك إخبار النموذج بكيفية التصرف عند تلقّي `FunctionResponse` باستخدام المَعلمة `scheduling`. يمكنه إجراء أحد الإجراءات التالية:
+Kemudian, Anda harus memberi tahu model cara berperilaku saat menerima `FunctionResponse` menggunakan parameter `scheduling`. Model dapat:
 
-- مقاطعة ما يفعله وإعلامك بالردّ الذي تلقّاه على الفور
-  (`scheduling="INTERRUPT"`)
-- الانتظار إلى أن ينتهي مما يفعله حاليًا
-  (`scheduling="WHEN_IDLE"`)
-- عدم اتخاذ أي إجراء واستخدام هذه المعلومات لاحقًا في المناقشة
+- Mengganggu aktivitasnya dan langsung memberi tahu Anda tentang respons yang diterimanya
+  (`scheduling="INTERRUPT"`),
+- Menunggu hingga selesai dengan aktivitas yang sedang dilakukannya
+  (`scheduling="WHEN_IDLE"`),
+- Atau tidak melakukan apa pun dan menggunakan pengetahuan tersebut nanti dalam diskusi
   (`scheduling="SILENT"`)
 
 ### Python
@@ -291,9 +290,10 @@ const functionResponse = {
 }
 ```
 
-## تحديد المصدر من خلال "بحث Google"
+## Grounding dengan Google Penelusuran
 
-يمكنك تفعيل تحديد المصدر من خلال "بحث Google" كجزء من إعدادات الجلسة. يؤدي ذلك إلى زيادة دقة واجهة برمجة التطبيقات Live API ويمنع الهلوسات. لمزيد من المعلومات، يمكنك الاطّلاع على البرنامج التعليمي حول تحديد المصدر .
+Anda dapat mengaktifkan Grounding dengan Google Penelusuran sebagai bagian dari konfigurasi sesi. Hal ini meningkatkan akurasi Live API dan mencegah halusinasi. Lihat [tutorial Grounding](https://ai.google.dev/gemini-api/docs/grounding?hl=id) untuk
+mempelajari lebih lanjut.
 
 ### Python
 
@@ -452,9 +452,9 @@ async function main() {
 main();
 ```
 
-## الجمع بين أدوات متعددة
+## Menggabungkan beberapa alat
 
-يمكنك الجمع بين أدوات متعددة ضمن واجهة برمجة التطبيقات Live API، ما يزيد من إمكانات تطبيقك بشكل أكبر:
+Anda dapat menggabungkan beberapa alat dalam Live API, sehingga meningkatkan kemampuan aplikasi Anda:
 
 ### Python
 
@@ -502,19 +502,19 @@ const config = {
 // ... remaining model call
 ```
 
-## الخطوات التالية
+## Langkah berikutnya
 
-- يمكنك الاطّلاع على مزيد من الأمثلة على استخدام الأدوات مع واجهة برمجة التطبيقات Live API في الـ
-  [دليل استخدام الأدوات](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ar).
-- يمكنك الحصول على المعلومات الكاملة عن الميزات والإعدادات من
-  [دليل إمكانات واجهة برمجة التطبيقات Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=ar).
+- Lihat contoh penggunaan alat dengan Live API lainnya di
+  [Cookbook penggunaan alat](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=id).
+- Dapatkan informasi lengkap tentang fitur dan konfigurasi dari
+  [panduan Kemampuan Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=id).
 
-إرسال ملاحظات
+Kirim masukan
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاريخ التعديل الأخير: 2026-09-04 (حسب التوقيت العالمي المتفَّق عليه)
+Terakhir diperbarui pada 2026-09-08 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Ada masukan untuk kami?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-04 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-08 UTC."],[],[]]

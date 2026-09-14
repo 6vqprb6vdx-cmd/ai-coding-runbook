@@ -1,101 +1,102 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=de
-fetched_at: 2026-09-07T05:29:26.189244+00:00
-title: "\u00dcber Google\u00a0AI Studio bereitstellen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=tr
+fetched_at: 2026-09-14T05:50:56.858499+00:00
+title: "Google AI Studio'dan da\u011f\u0131tma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Feedback geben
+Geri bildirim gönderin
 
-# Über Google AI Studio bereitstellen
+# Google AI Studio'dan dağıtma
 
-Mit Google AI Studio können Sie Ihre Full-Stack-Anwendungen direkt über den Build-Modus bereitstellen. So können Sie schnell von einem Prototyp zu einer verwalteten, skalierbaren Produktionsumgebung wechseln.
+Google AI Studio, full-stack uygulamalarınızı doğrudan Oluşturma Modu'ndan dağıtmanıza olanak tanır. Bu sayede prototipten yönetilen ve ölçeklenebilir bir üretim ortamına hızlı bir şekilde geçebilirsiniz.
 
-## Optionen der Bereitstellung
+## Dağıtım seçenekleri
 
-Die Anforderungen für die Bereitstellung Ihrer Anwendung über den AI Studio Build-Modus hängen von der verwendeten Stufe ab:
+Uygulamanızı AI Studio'nun Oluşturma Modu'ndan dağıtmak için kullandığınız katmana bağlı olarak aşağıdaki şartları karşılamanız gerekir:
 
-- [**Google Cloud-Starterpaket**](https://docs.cloud.google.com/docs/starter-tier?hl=de): Damit können Sie bis zu zwei Full-Stack-Anwendungen veröffentlichen, ohne ein Google Cloud-Projekt oder ein Abrechnungskonto einzurichten.
-- **Standardbereitstellung**: Hierfür ist ein Google Cloud-Projekt erforderlich, das mit Ihrem AI Studio-Konto verknüpft ist und für das die Abrechnung aktiviert ist.
+- [**Google Cloud Başlangıç Katmanı**](https://docs.cloud.google.com/docs/starter-tier?hl=tr):
+  Google Cloud projesi veya faturalandırma hesabı oluşturmadan 2 tam yığın uygulaması yayınlamanıza olanak tanır.
+- **Standart dağıtım**: AI Studio hesabınıza bağlı bir Google Cloud projesi ve bu projede faturalandırmanın etkinleştirilmesi gerekir.
 
-## Starter-Stufe
+## Başlangıç Seviyesi hakkında
 
-Der Google Cloud Starter Tier bietet einen einfachen Weg, Anwendungen direkt aus Google AI Studio in Google Cloud bereitzustellen, ohne eine vollständige Google Cloud-Umgebung oder ein Abrechnungskonto einrichten zu müssen.
+Google Cloud Başlangıç Katmanı, tam bir Google Cloud ortamı veya faturalandırma hesabı oluşturmadan uygulamaları doğrudan Google AI Studio'dan Google Cloud'a dağıtmak için kolay bir yol sunar.
 
-Bei jeder Google AI Studio-Bereitstellung wird ein entsprechender Dienst in Cloud Run erstellt. Für Dienste, die in Google AI Studio mit dem Starter-Abo bereitgestellt werden, gelten die folgenden Einschränkungen:
+Her Google AI Studio dağıtımı, Cloud Run'da karşılık gelen bir hizmet oluşturur. Başlangıç Katmanı ile Google AI Studio'da dağıtılan hizmetler için aşağıdaki sınırlamalar geçerlidir:
 
-- Sie können bis zu zwei Dienste bereitstellen.
-- Ihre Dienste werden in einer [einzigen Cloud Run-Region](https://docs.cloud.google.com/run/docs/locations?hl=de) bereitgestellt.
+- En fazla iki hizmet dağıtabilirsiniz.
+- Hizmetleriniz [tek bir Cloud Run bölgesinde](https://docs.cloud.google.com/run/docs/locations?hl=tr) dağıtılmış olmalıdır.
 
-## Bereitstellungsschritte für die Starter-Stufe
+## Başlangıç Seviyesi dağıtım adımları
 
-Nachdem Sie Ihre App im Build-Modus entworfen haben, können Sie sie mit dem Starter-Tarif bereitstellen:
+Uygulamanızı Oluşturma modunda tasarladıktan sonra Başlangıç Katmanı ile dağıtın:
 
-1. Klicken Sie rechts oben auf die Schaltfläche **Veröffentlichen**.
-2. Klicken Sie auf **Jetzt starten**.
-3. Klicken Sie auf **App veröffentlichen**.
+1. Sağ üst köşedeki **Yayınla** düğmesini tıklayın.
+2. **Get Started**'ı (Başlayın) tıklayın.
+3. **Uygulamayı Yayınla**'yı tıklayın.
 
-Nach Abschluss der Bereitstellung stellt AI Studio eine Cloud Run-URL bereit, über die Sie auf Ihre Live-Anwendung zugreifen können.
+Dağıtım tamamlandıktan sonra AI Studio, canlı uygulamanıza erişebileceğiniz bir Cloud Run URL'si sağlar.
 
-## Benutzerdefinierte URLs für AI Studio
+## AI Studio için özel URL'ler
 
-Wenn Sie eine Anwendung über Google AI Studio veröffentlichen, können Sie unter `ai.studio` eine benutzerdefinierte, einprägsame Subdomain festlegen, z. B. `https://your-app-name.ai.studio`.
+Google AI Studio'dan bir uygulama yayınlarken `ai.studio` altında özel ve akılda kalıcı bir alt alan adı ayarlayabilirsiniz (örneğin, `https://your-app-name.ai.studio`).
 
-Für Google AI Studio müssen Subdomains in allen Projekten global eindeutig sein. Sie werden nach dem Prinzip „First come, first served“ zugewiesen. Wenn ein anderer Name bereits in einem anderen Projekt verwendet wird, werden Sie in AI Studio aufgefordert, einen anderen Namen auszuwählen. Wenn Sie eine Anwendung aus dem Play Store entfernen oder löschen, wird die benutzerdefinierte URL freigegeben und kann von anderen Nutzern beansprucht werden.
+Google AI Studio, alt alan adlarının tüm projelerde genel olarak benzersiz olmasını gerektirir ve bunları ilk gelene ilk hizmet esasına göre atar. Başka bir proje zaten bir ad kullanıyorsa AI Studio, farklı bir ad seçmenizi ister. Bir uygulamayı yayından kaldırırsanız veya silerseniz özel URL'si serbest bırakılır ve diğer kullanıcılar tarafından talep edilebilir.
 
-### Benutzerdefinierte URL festlegen
+### Özel URL ayarlama
 
-So legen Sie eine benutzerdefinierte URL für Ihre Anwendung fest oder aktualisieren sie:
+Uygulamanız için özel URL ayarlamak veya güncellemek üzere:
 
-1. Öffnen Sie Ihre Anwendung in Google AI Studio im Modus **Build** (Erstellen).
-2. Klicken Sie rechts oben auf **Veröffentlichen**.
-3. Geben Sie in der Bereitstellungskonfiguration im Feld **Benutzerdefinierte URL** die gewünschte Subdomain ein oder übernehmen Sie die vorgeschlagene URL.
-4. Klicken Sie auf **App veröffentlichen**.
+1. Google AI Studio'da uygulamanızı **Build** (Oluştur) modunda açın.
+2. Sağ üst köşedeki **Yayınla**'yı tıklayın.
+3. Dağıtım yapılandırmasında, tercih ettiğiniz alt alan adını **Özel URL** alanına girin veya önerilen URL'yi kabul edin.
+4. **Uygulamayı Yayınla**'yı tıklayın.
 
-Wenn Sie eine vorhandene benutzerdefinierte URL auf eine andere Anwendung übertragen möchten, müssen Sie zuerst die Anwendung, der diese benutzerdefinierte URL zugewiesen ist, aus dem Play Store entfernen oder die Veröffentlichung aufheben. Anschließend können Sie Ihre neue Anwendung mit der ausgewählten Subdomain veröffentlichen.
+Mevcut bir özel URL'yi farklı bir uygulamaya aktarmak için önce bu özel URL'nin atandığı uygulamayı yayından kaldırmanız veya silmeniz, ardından seçilen alt alan adını kullanarak yeni uygulamanızı yayınlamanız gerekir.
 
-### Marken- oder Urheberrechtsprobleme melden
+### Ticari marka veya telif hakkı sorunlarını bildirme
 
-Benutzerdefinierte Subdomains müssen den [Google-Nutzungsbedingungen](https://policies.google.com/terms?hl=de) entsprechen. Wenn Sie eine benutzerdefinierte URL sehen, die gegen das Markenrecht verstößt oder einen urheberrechtlich geschützten Namen ohne Erlaubnis verwendet, können Sie sie über die [Google-Fehlerbehebung für rechtliche Probleme](https://support.google.com/legal/troubleshooter/1114905?hl=de) melden.
+Özel alt alan adları, [Google Hizmet Şartları](https://policies.google.com/terms?hl=tr)'na uygun olmalıdır. Ticari markayı ihlal eden veya telif hakkıyla korunan bir adı izinsiz kullanan özel URL'leri [Google Yasal Sorun Giderici](https://support.google.com/legal/troubleshooter/1114905?hl=tr)'yi kullanarak bildirebilirsiniz.
 
-## Standardmäßige Bereitstellung
+## Standart dağıtım
 
-Wenn sich Ihre Anwendungen weiterentwickeln, benötigen Sie möglicherweise Funktionen, die über den Einstiegstarif hinausgehen, z. B. höhere Kontingente, mehr Rechenressourcen oder andere Google Cloud-Produkte, die im Einstiegstarif nicht verfügbar sind. Wenn Sie diese Funktionen nutzen möchten, können Sie Ihr vollständig verwaltetes Projekt im Einstiegstarif in ein Standard-Google Cloud-Projekt umwandeln.
+Uygulamalarınız geliştikçe Başlangıç Katmanı'nın ötesinde özelliklere (ör. daha yüksek kotalar, daha fazla işlem kaynağı veya Başlangıç Katmanı'nda bulunmayan diğer Google Cloud ürünleri) ihtiyacınız olabilir. Bu özelliklerden yararlanmak için tamamen yönetilen Başlangıç Katmanı projenizi standart bir Google Cloud projesine dönüştürebilirsiniz.
 
-So können Sie nahtlos skalieren, ohne Ihren Fortschritt zu verlieren. Folgen Sie der Anleitung zum [Erstellen eines Cloud-Rechnungskontos](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=de#create-new-billing-account), akzeptieren Sie die standardmäßigen Google Cloud-Nutzungsbedingungen und [führen Sie ein Upgrade auf ein standardmäßiges Google Cloud-Projekt durch](https://docs.cloud.google.com/docs/starter-tier?hl=de#upgradee).
-Weitere Informationen finden Sie unter [Einrichtung für kostenpflichtige Konten](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=de#paid-setup).
+Bu sayede, ilerlemenizi kaybetmeden sorunsuz bir şekilde ölçeklendirme yapabilirsiniz. [Cloud Billing hesabı oluşturma](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=tr#create-new-billing-account), standart Google Cloud Hizmet Şartları'nı resmen kabul etme ve [standart Google Cloud projesine yükseltme](https://docs.cloud.google.com/docs/starter-tier?hl=tr#upgradee) adımlarını uygulayın.
+Daha fazla bilgi için [Ücretli hesaplar için kurulum](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=tr#paid-setup) başlıklı makaleyi inceleyin.
 
-Weitere Informationen zu Abrechnungsstufen finden Sie unter [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
+Faturalandırma katmanları hakkında daha fazla bilgi edinmek için [Faturalandırma](https://ai.google.dev/gemini-api/docs/billing?hl=tr) başlıklı makaleyi inceleyin.
 
-## Anwendung löschen
+## Başvurunuzu silme
 
-Wenn Sie Ihre App nicht mehr benötigen, können Sie sie in Google AI Studio löschen. Gehen Sie dazu so vor:
+Uygulamanıza artık ihtiyacınız yoksa aşağıdaki talimatları uygulayarak Google AI Studio'da silebilirsiniz:
 
-1. Rufen Sie in Google AI Studio die Seite [Apps](https://aistudio.google.com/app/apps?hl=de) auf.
-2. Wählen Sie im Menü auf der linken Seite **Apps** aus.
-3. Bewegen Sie den Mauszeiger auf die App, die Sie löschen möchten.
-4. Klicken Sie rechts neben der Zeile auf das Papierkorbsymbol, um die App zu löschen.
+1. Google AI Studio'da [Uygulamalar sayfanıza](https://aistudio.google.com/app/apps?hl=tr) gidin.
+2. Sol menüden **Uygulamalar**'ı seçin.
+3. İşaretçiyi silmek istediğiniz uygulamanın üzerine getirin.
+4. Uygulamayı silmek için satırın sağ tarafındaki çöp kutusu simgesini tıklayın.
 
-## Nächste Schritte
+## Sırada ne var?
 
-- [Weitere Informationen zur Google Cloud Starter-Stufe](https://docs.cloud.google.com/docs/starter-tier?hl=de)
-- [Weitere Informationen zur Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de)
+- [Google Cloud Başlangıç Katmanı](https://docs.cloud.google.com/docs/starter-tier?hl=tr) hakkında daha fazla bilgi edinin.
+- Gemini API'de [Faturalandırma](https://ai.google.dev/gemini-api/docs/billing?hl=tr) hakkında bilgi edinin.
 
-Feedback geben
+Geri bildirim gönderin
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Zuletzt aktualisiert: 2026-07-10 (UTC).
+Son güncelleme tarihi: 2026-07-10 UTC.
 
-Haben Sie Feedback für uns?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-10 (UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-10 UTC."],[],[]]

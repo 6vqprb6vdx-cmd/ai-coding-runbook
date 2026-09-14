@@ -1,117 +1,107 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=pt-BR
-fetched_at: 2026-09-07T05:32:54.823125+00:00
-title: "Como usar chaves da API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=ko
+fetched_at: 2026-09-14T05:43:09.897822+00:00
+title: "Gemini API \ud0a4 \uc0ac\uc6a9 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Envie comentários
+의견 보내기
 
-# Como usar chaves da API Gemini
+# Gemini API 키 사용
 
-Para usar a API Gemini, autentique suas solicitações. Você pode fazer a autenticação usando uma chave de API padrão ou de autorização.
+Gemini API를 사용하려면 요청을 인증해야 합니다. 표준 또는 승인 API 키를 사용하여 인증할 수 있습니다.
 
-[Criar ou consultar uma chave da API Gemini](https://aistudio.google.com/apikey?hl=pt-br)
+[Gemini API 키 만들기 또는 보기](https://aistudio.google.com/apikey?hl=ko)
 
-## Tipos de chave de API: padrão versus autorização
+## API 키 유형: 표준과 승인
 
-As chaves de API fornecem acesso à API Gemini, mas as características de segurança delas são diferentes. A API Gemini está fazendo a transição de chaves de API padrão para chaves de autorização para melhorar a segurança:
+API 키는 Gemini API에 대한 액세스를 제공하지만 보안 특성은 다릅니다. Gemini API는 보안을 강화하기 위해 표준 API 키에서 승인 키로 전환하고 있습니다.
 
-- **Chaves de API padrão**: associam solicitações a um projeto do Google Cloud para
-  fins de faturamento e cota. As chaves padrão não identificam um autor da chamada, o que limita a granularidade das permissões e o controle de acesso que elas podem oferecer.
-- **Chaves de autorização (auth)**: vinculadas diretamente a uma conta de serviço do Google Cloud. Quando você usa uma chave de autorização, as solicitações são processadas na identidade dessa conta de serviço vinculada, permitindo o controle de acesso granular. As chaves de autorização são restritas à API Generative Language (API Gemini) por padrão e fornecem uma aplicação de chave vazada de ação rápida que interrompe rapidamente o uso de chaves vazadas detectadas pelos nossos sistemas.
+- **표준 API 키**: 청구 및 할당량 목적으로 요청을 Google Cloud 프로젝트와 연결합니다. 표준 키는 호출자를 식별하지 않으므로 지원할 수 있는 권한 및 액세스 제어의 세부사항이 제한됩니다.
+- **승인 (auth) 키**: Google Cloud 서비스 계정에 직접 바인딩됩니다. 승인 키를 사용하면 바인딩된 서비스 계정의 ID로 요청이 처리되므로 세부적인 액세스 제어가 가능합니다. 승인 키는 기본적으로 Generative Language API(Gemini API)로 제한되며, Google 시스템에서 감지한 유출된 키의 사용을 신속하게 중지하는 신속한 유출 키 시행을 제공합니다.
 
-Para garantir o uso seguro, a API Gemini vai migrar de chaves padrão para chaves de autorização:
+안전한 사용을 위해 Gemini API가 표준 키에서 인증 키로 이동합니다.
 
-- **Chaves de autorização padrão**: todas as novas chaves de API criadas no Google AI Studio
-  são criadas automaticamente como chaves de autorização.
-- **Chaves irrestritas rejeitadas**: a API Gemini rejeita solicitações
-  de **chaves padrão irrestritas**. As chaves de API padrão que têm restrições explícitas aplicadas continuam funcionando. Essa restrição impede o uso não autorizado de chaves que podem ser compartilhadas publicamente ou vinculadas a outros serviços.
-- **Em setembro de 2026**: a API Gemini vai rejeitar solicitações de **chaves
-  padrão**. Você deve [migrar para chaves de autorização](#migrate-to-auth-key)
-  antes dessa data para evitar interrupções no serviço. Migre para chaves de autorização antes de setembro de 2026.
+- **인증 키 기본값**: Google AI Studio에서 생성된 모든 새 API 키는 인증 키로 자동 생성됩니다.
+- **제한되지 않은 키 거부됨**: Gemini API가 **제한되지 않은 표준 키**의 요청을 거부합니다. 명시적 제한사항이 적용된 표준 API 키는 계속 작동합니다. 이 제한은 공개적으로 공유되거나 다른 서비스에 연결될 수 있는 키의 무단 사용을 방지합니다.
+- **2026년 9월**: Gemini API가 **표준 키**의 요청을 거부합니다. 서비스 중단을 방지하려면 이 날짜 전에 [인증 키로 마이그레이션](#migrate-to-auth-key)해야 합니다. 2026년 9월 전에 인증 키로 이전해야 합니다.
 
-## Como gerenciar chaves de API no Google AI Studio
+## Google AI Studio에서 API 키 관리
 
-Você pode gerenciar seus projetos e chaves diretamente no [Google AI Studio](https://aistudio.google.com/apikey?hl=pt-br).
+[Google AI Studio](https://aistudio.google.com/apikey?hl=ko)에서 프로젝트와 키를 직접 관리할 수 있습니다.
 
-### Projetos do Google Cloud
+### Google Cloud 프로젝트
 
-Cada chave da API Gemini está associada a um [projeto do Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=pt-br).
-Os projetos do Google Cloud gerenciam o faturamento, os colaboradores e as permissões. O Google AI Studio oferece uma interface leve para acessar esses projetos.
+모든 Gemini API 키는 [Google Cloud 프로젝트](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ko)와 연결됩니다.
+Google Cloud 프로젝트는 결제, 공동작업자, 권한을 관리합니다. Google AI Studio는 이러한 프로젝트에 액세스할 수 있는 경량 인터페이스를 제공합니다.
 
-- **Projeto padrão**: se você for um novo usuário, o Google AI Studio vai criar automaticamente
-  um projeto na nuvem do Google Cloud e uma chave de API padrão depois que você aceitar os
-  Termos de Serviço. Você pode renomear esse projeto navegando até a visualização **Projetos** no painel.
-- **Projetos atuais**: se você já tiver uma conta do Google Cloud, o AI
-  Studio não vai criar um projeto padrão. Em vez disso, importe seus projetos atuais.
+- **기본 프로젝트**: 신규 사용자의 경우 서비스 약관에 동의하면 Google AI Studio에서 기본 Google Cloud 프로젝트와 API 키를 자동으로 생성합니다. 대시보드의 **프로젝트** 뷰로 이동하여 이 프로젝트의 이름을 바꿀 수 있습니다.
+- **기존 프로젝트**: Google Cloud 계정이 이미 있는 경우 AI Studio에서 기본 프로젝트를 만들지 않습니다. 대신 기존 프로젝트를 가져와야 합니다.
 
-### Como importar projetos
+### 프로젝트 가져오기
 
-Por padrão, o Google AI Studio não mostra todos os seus projetos do Google Cloud. Você precisa importar os projetos que quer usar:
+기본적으로 Google AI Studio에는 모든 Google Cloud 프로젝트가 표시되지 않습니다. 사용할 프로젝트를 가져와야 합니다.
 
-1. Acesse o [Google AI Studio](https://aistudio.google.com?hl=pt-br).
-2. Abra o **painel** no painel esquerdo e selecione **Projetos**.
-3. Clique no botão **Importar projetos**.
-4. Pesquise e selecione o projeto do Google Cloud que você quer importar e clique em **Importar**.
-5. Depois de importado, navegue até a página **Chaves de API** no painel para criar uma chave nesse projeto.
+1. [Google AI Studio](https://aistudio.google.com?hl=ko)로 이동합니다.
+2. 왼쪽 패널에서 **대시보드**를 열고 **프로젝트**를 선택합니다.
+3. **프로젝트 가져오기** 버튼을 클릭합니다.
+4. 가져올 Google Cloud 프로젝트를 검색하여 선택한 다음 **가져오기**를 클릭합니다.
+5. 가져온 후 대시보드의 **API 키** 페이지로 이동하여 해당 프로젝트에서 키를 만듭니다.
 
-### Resolver problemas de permissões de criação de chaves
+### 키 생성 권한 문제 해결
 
-Se o botão **Criar chave de API** não estiver disponível e mostrar a mensagem:
-*"Você não tem permissão para criar uma chave neste projeto"*, você não tem as
-permissões necessárias do IAM.
+**API 키 만들기** 버튼을 사용할 수 없고 *'이 프로젝트에서 키를 만들 권한이 없습니다'*라는 메시지가 표시되면 필요한 IAM 권한이 없는 것입니다.
 
-Peça ao administrador do projeto ou da organização do Google Cloud para conceder a você um papel que contenha as seguintes permissões (como Editor de projetos):
+Google Cloud 프로젝트 또는 조직 관리자에게 다음 권한이 포함된 역할 (예: 프로젝트 편집자)을 부여해 달라고 요청하세요.
 
-- `resourcemanager.projects.get`: permite que o AI Studio verifique o projeto.
-- `apikeys.keys.create`: permite a geração de chaves.
-- `serviceusage.services.enable`: garante que a API Generative Language esteja ativada.
-- `iam.serviceAccounts.create`: necessária para criar a conta de serviço vinculada.
-- `iam.serviceAccountApiKeyBindings.create`: vincula a conta de serviço à chave de API.
+- `resourcemanager.projects.get`: AI Studio에서 프로젝트를 확인할 수 있습니다.
+- `apikeys.keys.create`: 키 생성을 허용합니다.
+- `serviceusage.services.enable`: Generative Language API가 사용 설정되어 있는지 확인합니다.
+- `iam.serviceAccounts.create`: 연결된 서비스 계정을 만드는 데 필요합니다.
+- `iam.serviceAccountApiKeyBindings.create`: 서비스 계정을 API 키에 바인딩합니다.
 
-Se você não conseguir acesso administrativo, crie um novo projeto do Google Cloud que não esteja associado a uma organização para gerar suas chaves.
+관리 액세스 권한을 얻을 수 없는 경우 조직과 연결되지 않은 새 Google Cloud 프로젝트를 만들어 키를 생성할 수 있습니다.
 
-## Como configurar o ambiente
+## 환경 설정 중
 
-Depois de ter uma chave, configure seu ambiente para usá-la com segurança nos aplicativos.
+키가 있으면 애플리케이션에서 안전하게 사용할 수 있도록 환경을 구성합니다.
 
-### Opção 1: usar variáveis de ambiente (recomendado)
+### 옵션 1: 환경 변수 사용 (권장)
 
-Defina a variável de ambiente `GEMINI_API_KEY` ou `GOOGLE_API_KEY`. As bibliotecas de cliente da API Gemini detectam e usam essas variáveis automaticamente. Se as duas estiverem definidas, `GOOGLE_API_KEY` terá precedência.
+`GEMINI_API_KEY` 또는 `GOOGLE_API_KEY` 환경 변수를 설정합니다. Gemini API 클라이언트 라이브러리는 이러한 변수를 자동으로 감지하고 사용합니다. 두 가지 모두 설정된 경우 `GOOGLE_API_KEY`가 우선 적용됩니다.
 
-Selecione seu sistema operacional para definir a variável:
+운영체제를 선택하여 변수를 설정합니다.
 
 ### Linux/macOS - Bash
 
-Verifique se você tem um arquivo de configuração do Bash:
+bash 구성 파일이 있는지 확인합니다.
 
 ```
 ~/.bashrc
 ```
 
-Se não tiver, crie um e abra-o:
+그렇지 않은 경우 하나를 만들어 엽니다.
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-Adicione o comando de exportação no final do arquivo:
+파일 끝에 내보내기 명령어를 추가합니다.
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Salve o arquivo e aplique as mudanças:
+파일을 저장한 후 변경사항을 적용합니다.
 
 ```
 source ~/.bashrc
@@ -119,25 +109,25 @@ source ~/.bashrc
 
 ### macOS - Zsh
 
-Verifique se você tem um arquivo de configuração do Zsh:
+zsh 구성 파일이 있는지 확인합니다.
 
 ```
 ~/.zshrc
 ```
 
-Se não tiver, crie um e abra-o:
+그렇지 않은 경우 하나를 만들어 엽니다.
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-Adicione o comando de exportação:
+내보내기 명령어를 추가합니다.
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Salve o arquivo e aplique as mudanças:
+파일을 저장한 후 변경사항을 적용합니다.
 
 ```
 source ~/.zshrc
@@ -145,15 +135,15 @@ source ~/.zshrc
 
 ### Windows
 
-1. Pesquise "Variáveis de ambiente" na barra de pesquisa do Windows.
-2. Clique em **Variáveis de ambiente** na caixa de diálogo "Propriedades do sistema".
-3. Em **Variáveis de usuário** ou **Variáveis do sistema**, clique em **Novo...**.
-4. Defina o nome da variável como `GEMINI_API_KEY` e o valor como sua chave de API.
-5. Clique em **OK** para salvar. Abra uma nova sessão de terminal para carregar a variável.
+1. Windows 검색창에서 '환경 변수'를 검색합니다.
+2. 시스템 속성 대화상자에서 **환경 변수**를 클릭합니다.
+3. **사용자 변수** 또는 **시스템 변수**에서 **새로 만들기...**를 클릭합니다.
+4. 변수 이름을 `GEMINI_API_KEY`로, 값을 API 키로 설정합니다.
+5. **확인**을 클릭하여 저장합니다. 새 터미널 세션을 열어 변수를 로드합니다.
 
-### Opção 2: fornecer a chave de API explicitamente no código
+### 옵션 2: 코드에서 API 키 명시적으로 제공
 
-Você pode transmitir a chave de API explicitamente ao inicializar o cliente. Faça isso apenas se não for possível usar variáveis de ambiente.
+클라이언트를 초기화할 때 API 키를 명시적으로 전달할 수 있습니다. 환경 변수를 사용할 수 없는 경우에만 이렇게 하세요.
 
 ### Python
 
@@ -169,7 +159,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -232,7 +222,7 @@ func main() {
 }
 ```
 
-### Java
+### 자바
 
 ```
 package com.example;
@@ -279,109 +269,97 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Segurança e gerenciamento de secrets
+## 보안 및 보안 비밀 관리
 
-Trate sua chave da API Gemini como uma senha. Se ela for comprometida, outras pessoas poderão consumir a cota do seu projeto, gerar cobranças inesperadas e acessar recursos particulares.
+Gemini API 키를 비밀번호처럼 취급하세요. 보안이 취약해지면 다른 사용자가 프로젝트의 할당량을 사용하고, 예기치 않은 청구 요금이 발생하며, 비공개 리소스에 액세스할 수 있습니다.
 
-### Regras de segurança críticas
+### 중요 보안 규칙
 
-- **Mantenha as chaves confidenciais**: nunca faça check-in de chaves de API em sistemas de controle de origem
-  como o Git.
-- **Nunca exponha chaves no lado do cliente em produção**: não codifique chaves de API
-  diretamente em apps da Web ou para dispositivos móveis. As chaves compiladas no código do lado do cliente podem ser extraídas pelos usuários. Para proteger apps do lado do cliente, execute um servidor proxy de back-end para fazer as chamadas de API reais.
+- **키를 기밀로 유지**: API 키를 Git과 같은 소스 제어 시스템에 체크인하지 마세요.
+- **프로덕션에서 클라이언트 측에 키를 노출하지 마세요**: 웹 또는 모바일 앱에 API 키를 직접 하드 코딩하지 마세요. 클라이언트 측 코드에서 컴파일된 키는 사용자가 추출할 수 있습니다. 클라이언트 측 앱을 보호하려면 백엔드 프록시 서버를 실행하여 실제 API 호출을 수행하세요.
 
-### Práticas recomendadas de gerenciamento de secrets
+### 보안 비밀 관리 권장사항
 
-- **Variáveis de ambiente**: leia as chaves de variáveis de ambiente em vez de
-  arquivos de configuração.
-- **Secret Manager**: para produção, armazene suas chaves em um armazenamento de secrets seguro
-  como o [Secret Manager do Google Cloud](https://cloud.google.com/secret-manager?hl=pt-br).
-- **Alertas de faturamento**: configure alertas de faturamento no console do Google Cloud para
-  receber notificações se o uso ou os custos aumentarem.
+- **환경 변수**: 구성 파일이 아닌 환경 변수에서 키를 읽습니다.
+- **Secret Manager**: 프로덕션의 경우 [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=ko)와 같은 보안 비밀 저장소에 키를 저장합니다.
+- **결제 알림**: Google Cloud 콘솔에서 결제 알림을 설정하여 사용량 또는 비용이 급증하는 경우 알림을 받습니다.
 
-### Lista de verificação de resposta a vazamentos
+### 유출 대응 체크리스트
 
-Se você suspeitar que sua chave de API foi vazada:
+API 키가 유출되었다고 의심되는 경우 다음 단계를 따르세요.
 
-1. **Gere uma nova chave**: crie uma chave de substituição no Google AI Studio ou no
-   console do Cloud.
-2. **Atualize seu aplicativo**: implante seu código usando a nova chave.
-3. **Desative ou exclua a chave comprometida**: desative a chave vazada no
-   console do Cloud depois que a nova chave for verificada. Não exclua a chave antiga até que a nova esteja totalmente ativa para evitar inatividade do aplicativo.
-4. **Auditoria de uso**: verifique os registros de faturamento e o uso da API no console do Google Cloud
-   para identificar atividades não autorizadas.
+1. **새 키 생성**: Google AI Studio 또는 Cloud 콘솔에서 대체 키를 만듭니다.
+2. **애플리케이션 업데이트**: 새 키를 사용하여 코드를 배포합니다.
+3. **도용된 키 사용 중지 또는 삭제**: 새 키가 확인되면 Cloud Console에서 유출된 키를 사용 중지합니다. 애플리케이션 다운타임을 방지하려면 새 키가 완전히 활성화될 때까지 이전 키를 삭제하지 마세요.
+4. **사용량 감사**: Google Cloud 콘솔에서 결제 로그와 API 사용량을 확인하여 승인되지 않은 활동을 식별합니다.
 
-## Como restringir e proteger suas chaves
+## 키 제한 및 보안
 
-Adicionar restrições às chaves de API minimiza os possíveis danos se uma chave for comprometida.
+API 키에 제한사항을 추가하면 키가 유출될 경우 발생할 수 있는 피해를 최소화할 수 있습니다.
 
-### Aplicar restrições de origem da solicitação
+### 요청 출처 제한 적용
 
-As restrições de origem limitam quais endereços IP, sites ou aplicativos podem usar sua chave.
+출처 제한사항은 키를 사용할 수 있는 IP 주소, 웹사이트 또는 애플리케이션을 제한합니다.
 
-1. Acesse a página ["Credenciais" do console do Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pt-br).
-2. Selecione seu projeto e clique no nome da chave de API que você quer restringir.
-3. Em **Restrições de aplicativo**, selecione **Endereços IP** (ou o
-   tipo de restrição apropriado para seu ambiente).
-4. Especifique os endereços ou intervalos de IP permitidos e clique em **Salvar**.
+1. [Google Cloud 콘솔 사용자 인증 정보 페이지](https://console.cloud.google.com/apis/credentials?hl=ko)로 이동합니다.
+2. 프로젝트를 선택하고 제한하려는 API 키의 이름을 클릭합니다.
+3. **애플리케이션 제한사항**에서 **IP 주소** (또는 환경에 적합한 제한 유형)를 선택합니다.
+4. 허용된 IP 주소 또는 범위를 지정한 다음 **저장**을 클릭합니다.
 
-### Como proteger chaves de API padrão irrestritas
+### 제한되지 않은 표준 API 키 보호
 
-Para continuar usando a API Gemini, você precisa proteger todas as chaves irrestritas.
+Gemini API를 계속 사용하려면 제한되지 않은 키를 보호해야 합니다.
 
-#### Método A: restringir a chave apenas à API Gemini (AI Studio)
+#### 방법 A: Gemini API로만 키 제한 (AI Studio)
 
-Se você usar a chave apenas para a API Gemini, proteja-a diretamente no AI Studio:
+Gemini API에만 키를 사용하는 경우 AI Studio에서 직접 보안을 설정하세요.
 
-1. Na página **Chaves de API** do [Google AI Studio](https://aistudio.google.com/api-keys?hl=pt-br), localize as chaves marcadas com o
-   **rótulo Irrestrita**.
-2. Passe o cursor sobre o rótulo e clique em **Adicionar restrições** na caixa de diálogo.
-3. Selecione **Restringir apenas à API Gemini**.
-4. Clique em **Restringir chave** para confirmar.
+1. [Google AI Studio](https://aistudio.google.com/api-keys?hl=ko)의 **API 키** 페이지에서 **제한 없음** 라벨이 표시된 키를 찾습니다.
+2. 라벨 위로 마우스를 가져가고 대화상자에서 **제한 추가**를 클릭합니다.
+3. **Gemini API로만 제한**을 선택합니다.
+4. **키 제한**을 클릭하여 확인합니다.
 
-#### Método B: restringir a chave para outros serviços (console do Google Cloud)
+#### 방법 B: 다른 서비스의 키 제한 (Google Cloud 콘솔)
 
-Se a chave for compartilhada com outras APIs do Google (não recomendado), restrinja-a no console do Cloud. **Observação: as solicitações da API Gemini que usam essa chave vão falhar depois que essas restrições forem aplicadas.**
+키가 다른 Google API와 공유되는 경우 (권장하지 않음) Cloud 콘솔에서 키를 제한합니다. **참고: 이 제한사항이 적용된 후에는 이 키를 사용하는 Gemini API 요청이 실패합니다.**
 
-1. Acesse a página "[Credenciais](https://console.cloud.google.com/apis/credentials?hl=pt-br)" do console do Google Cloud.
-2. Selecione o projeto e a chave de API.
-3. Em **Restrições da API**, use o menu suspenso **Selecionar restrições da API** para
-   selecionar as APIs que você quer que essa chave acesse. Não selecione a **API Generative Language**.
-4. Clique em **Salvar**. Crie uma chave restrita separada no AI Studio para continuar usando a API Gemini.
+1. [Google Cloud 콘솔 사용자 인증 정보 페이지](https://console.cloud.google.com/apis/credentials?hl=ko)로 이동합니다.
+2. 프로젝트와 API 키를 선택합니다.
+3. **API 제한사항**에서 **API 제한사항 선택** 드롭다운을 사용하여 이 키로 액세스할 API를 선택합니다. **Generative Language API**는 선택하지 마세요.
+4. **저장**을 클릭합니다. Gemini API를 계속 사용하려면 AI Studio에서 별도의 제한된 키를 만드세요.
 
-### Chaves inativas bloqueadas
+### 휴면 키 차단
 
-A partir de 7 de maio de 2026, a API Gemini vai bloquear chaves de API irrestritas que estiverem inativas por um período prolongado. Essas chaves mostram uma tag **Bloqueada** no AI Studio. Você precisa gerar uma nova chave ou usar uma chave restrita atual para continuar.
+2026년 5월 7일부터 Gemini API는 장기간 휴면 상태인 무제한 API 키를 차단합니다. 이러한 키는 AI Studio에 **차단됨** 태그로 표시됩니다. 계속하려면 새 키를 생성하거나 기존 제한된 키를 사용해야 합니다.
 
-## Migrar para uma chave de autorização
+## 인증 키로 이전
 
-Siga estas etapas para criar uma nova chave de API de autorização e atualizar seus aplicativos:
+다음 단계에 따라 새 인증 API 키를 만들고 애플리케이션을 업데이트하세요.
 
-1. Acesse a página "[Chaves de API](https://aistudio.google.com/api-keys?hl=pt-br)" do AI Studio.
-2. Verifique a coluna **Tipo de chave** para identificar as chaves listadas como **Padrão**.
-3. Clique em **Criar chave de API** para gerar uma nova chave. Todas as novas chaves criadas no AI Studio são criadas automaticamente como chaves de autorização.
-4. Copie a nova chave de API de autorização.
-5. Atualize o código do aplicativo, as variáveis de ambiente e todas as configurações de implantação para usar a nova chave de API de autorização.
-6. Teste o aplicativo para confirmar se ele funciona corretamente com a nova chave.
-7. Depois de verificada, exclua ou revogue a chave de tráfego antiga para evitar o uso indevido.
+1. [AI Studio API 키 페이지](https://aistudio.google.com/api-keys?hl=ko)로 이동합니다.
+2. **키 유형** 열을 확인하여 **스탠더드**로 표시된 키를 식별합니다.
+3. **API 키 만들기**를 클릭하여 새 키를 생성합니다. AI Studio에서 새로 생성된 모든 키는 인증 키로 자동 생성됩니다.
+4. 새 인증 API 키를 복사합니다.
+5. 새 인증 API 키를 사용하도록 애플리케이션 코드, 환경 변수, 배포 구성을 업데이트합니다.
+6. 애플리케이션을 테스트하여 새 키로 올바르게 작동하는지 확인합니다.
+7. 확인되면 오용을 방지하기 위해 이전 트래픽 키를 삭제하거나 취소합니다.
 
-## Limitações
+## 제한사항
 
-O Google AI Studio impõe as seguintes limitações de gerenciamento de projetos e chaves:
+Google AI Studio에는 다음과 같은 프로젝트 및 키 관리 제한사항이 적용됩니다.
 
-- É possível criar no máximo 10 projetos por vez na página **Projetos** do Google AI Studio.
-- As páginas **Chaves de API** e **Projetos** mostram no máximo 100 chaves e 50 projetos.
-- Somente as chaves de API irrestritas ou restritas especificamente à API Generative Language (API Gemini) são mostradas.
+- Google AI Studio **프로젝트** 페이지에서 한 번에 최대 10개의 프로젝트를 만들 수 있습니다.
+- **API 키** 및 **프로젝트** 페이지에는 최대 100개의 키와 50개의 프로젝트가 표시됩니다.
+- 제한되지 않거나 Generative Language API (Gemini API)로 특별히 제한된 API 키만 표시됩니다.
 
-Para gerenciamento avançado de projetos ou para modificar chaves com outras restrições, use
-a página de credenciais do [console do Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pt-br).
+고급 프로젝트 관리 또는 다른 제한사항이 있는 키를 수정하려면 [Google Cloud 콘솔 사용자 인증 정보 페이지](https://console.cloud.google.com/apis/credentials?hl=ko)를 사용하세요.
 
-Envie comentários
+의견 보내기
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última atualização 2026-07-30 UTC.
+최종 업데이트: 2026-09-12(UTC)
 
-Quer enviar seu feedback?
+의견을 전달하고 싶나요?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-30 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-12(UTC)"],[],[]]

@@ -1,38 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=he
-fetched_at: 2026-09-07T05:44:37.988028+00:00
-title: "\u05d4\u05d1\u05e0\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-BR
+fetched_at: 2026-09-14T05:42:48.648923+00:00
+title: "Compreens\u00e3o de imagens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-שליחת משוב
+Envie comentários
 
-# הבנת תמונות
+# Compreensão de imagens
 
-מודלים של Gemini מבוססים על מולטי-מודאליות מההתחלה, ולכן הם מאפשרים לבצע מגוון רחב של משימות עיבוד תמונות וראייה ממוחשבת, כולל תיוג תמונות, סיווג תמונות ומענה לשאלות על תמונות, בלי צורך לאמן מודלים מיוחדים של למידת מכונה.
+Os modelos do Gemini são multimodais desde o início, desbloqueando uma ampla variedade de tarefas de processamento de imagens e visão computacional, incluindo, entre outras, legendagem, classificação e resposta a perguntas visuais, sem precisar treinar modelos de machine learning especializados.
 
-בנוסף ליכולות הכלליות שלהם בתחום המולטימודאליות, מודלים של Gemini מציעים **דיוק משופר** בתרחישי שימוש ספציפיים כמו [זיהוי אובייקטים](#object-detection) ו[פילוח](#segmentation), באמצעות אימון נוסף.
+Além dos recursos multimodais gerais, os modelos do Gemini oferecem
+**maior precisão** para casos de uso específicos, como [detecção de objetos](#object-detection)
+e [segmentação](#segmentation), por meio de treinamento adicional.
 
-## העברת תמונות ל-Gemini
+## Como transmitir imagens para o Gemini
 
-יש כמה דרכים לספק תמונות כקלט ל-Gemini:
+Você pode fornecer imagens como entrada para o Gemini usando vários métodos:
 
-- [העברת תמונה באמצעות כתובת URL](#url-image): מתאים לתמונות שזמינות לציבור.
-- [העברת נתוני תמונה בתוך השורה](#inline-image): נתוני תמונה בקידוד base64.
-- [העלאת תמונות באמצעות File API](#upload-image): מומלץ לקבצים גדולים יותר או לשימוש חוזר בתמונות בכמה בקשות.
+- [Transmitir imagem usando o URL](#url-image): ideal para imagens de acesso público.
+- [Transmitir dados de imagem inline](#inline-image): para dados de imagem codificados em Base64.
+- [Fazer upload de imagens usando a API Files](#upload-image): recomendado para
+  arquivos maiores ou para reutilizar imagens em várias solicitações.
 
-### העברת תמונה באמצעות כתובת URL
+### Transmitir imagem usando o URL
 
-אפשר להעלות תמונה באמצעות [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he) ולהעביר אותה בבקשה:
+É possível fazer upload de uma imagem usando a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br) e transmiti-la
+na solicitação:
 
 ### Python
 
@@ -103,9 +107,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### העברת נתוני תמונות מוטבעות
+### Transmitir dados de imagem inline
 
-אפשר לספק נתוני תמונה כמחרוזות בקידוד Base64:
+Você pode fornecer dados de imagem como strings codificadas em Base64:
 
 ### Python
 
@@ -184,9 +188,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### העלאת תמונות באמצעות File API
+### Fazer upload de imagens usando a API Files
 
-כדי להעלות קבצים גדולים או כדי להשתמש באותו קובץ תמונה שוב ושוב, צריך להשתמש ב-Files API. מידע נוסף מופיע [במדריך לשימוש ב-Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
+Para arquivos grandes ou para usar o mesmo arquivo de imagem repetidamente, use a API Files. Consulte o guia da API [Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
 
 ### Python
 
@@ -259,9 +263,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## יצירת הנחיה עם כמה תמונות
+## Comandos com várias imagens
 
-אפשר לספק כמה תמונות בהנחיה אחת על ידי הכללת כמה אובייקטים של תמונות במערך `input`:
+É possível fornecer várias imagens em um único comando, incluindo vários objetos de imagem na matriz `input`:
 
 ### Python
 
@@ -339,9 +343,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## זיהוי אובייקטים
+## Detecção de objetos
 
-המודלים מאומנים לזהות אובייקטים בתמונה ולקבל את הקואורדינטות של התיבה התוחמת שלהם. הקואורדינטות, ביחס לממדי התמונה, מותאמות לטווח [0, 1000]. צריך לבטל את שינוי הגודל של הקואורדינטות האלה על סמך גודל התמונה המקורי.
+Os modelos são treinados para detectar objetos em uma imagem e receber as coordenadas da caixa delimitadora. As coordenadas, relativas às dimensões da imagem, são dimensionadas para [0, 1000]. É necessário reduzir essas coordenadas com base no tamanho original da imagem.
 
 ### Python
 
@@ -462,13 +466,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-דוגמאות נוספות זמינות ב[ספר המתכונים של Gemini](https://github.com/google-gemini/cookbook).
+ 
 
-## פילוח
+Para mais exemplos, acesse o [Gemini Cookbook](https://github.com/google-gemini/cookbook).
 
-מודלים של Gemini לא רק מזהים פריטים, אלא גם מבצעים פילוח שלהם ומספקים את מסכות המתאר שלהם.
+## Segmentação
 
-המודל חוזה רשימת JSON, שבה כל פריט מייצג מסכת פילוח. לכל פריט יש תיבת תוחמת (`box_2d`) בפורמט `[ymin, xmin, ymax, xmax]` עם קואורדינטות מנורמלות בין 0 ל-1,000, תווית (`label`) שמזהה את האובייקט, ולבסוף מסכת הפילוח בתוך התיבה התוחמת כפוליגון של `[x, y]` קואורדינטות מנורמלות ל-0 עד 1,000.
+Os modelos do Gemini não apenas detectam itens, mas também os segmentam e fornecem as máscaras de contorno.
+
+O modelo prevê uma lista JSON, em que cada item representa uma máscara de segmentação. Cada item tem uma caixa delimitadora ("`box_2d`") no formato `[ymin, xmin, ymax, xmax]` com coordenadas normalizadas entre 0 e 1000, um rótulo ("`label`") que identifica o objeto e, por fim, a máscara de segmentação dentro da caixa delimitadora como um polígono de coordenadas `[x, y]` normalizadas para 0 a 1000.
 
 ### Python
 
@@ -609,75 +615,81 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![שולחן עם קאפקייקים, כשהאובייקטים מעץ ומזכוכית מודגשים](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=he)
+![Uma mesa com cupcakes, com os objetos de madeira e vidro destacados](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=pt-br)
 
-פלט לדוגמה של פילוח עם אובייקטים ומסכות פילוח
+Um exemplo de saída de segmentação com objetos e máscaras de segmentação
 
-## אילו פורמטים של תמונות נתמכים?
+## Formatos de imagem compatíveis
 
-‫Gemini תומך בסוגי ה-MIME של פורמטים התמונות הבאים:
+O Gemini oferece suporte aos seguintes tipos MIME de formato de imagem:
 
-- ‫PNG – `image/png`
-- ‫JPEG – `image/jpeg`
-- WEBP – `image/webp`
+- PNG - `image/png`
+- JPEG - `image/jpeg`
+- WEBP - `image/webp`
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-מידע על שיטות אחרות להזנת קבצים זמין במדריך בנושא [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
+Para saber mais sobre outros métodos de entrada de arquivos, consulte o
+[guia Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
 
-## יכולות
+## Recursos
 
-כל הגרסאות של מודל Gemini הן מולטי-מודאליות, ואפשר להשתמש בהן במגוון רחב של משימות עיבוד תמונות וראייה ממוחשבת, כולל, בין היתר, כיתוב תמונות, מענה על שאלות שקשורות לאובייקטים חזותיים, סיווג תמונות, זיהוי ופילוח אובייקטים.
+Todas as versões do modelo do Gemini são multimodais e podem ser usadas em uma ampla variedade de tarefas de processamento de imagens e visão computacional, incluindo, entre outras, legendagem de imagens, perguntas e respostas visuais, classificação de imagens, detecção e segmentação de objetos.
 
-בהתאם לדרישות האיכות והביצועים שלכם, Gemini יכול לצמצם את הצורך בשימוש במודלים מיוחדים של ML.
+O Gemini pode reduzir a necessidade de usar modelos de machine learning especializados, dependendo dos requisitos de qualidade e desempenho.
 
-הגרסאות האחרונות של המודלים אומנו במיוחד כדי לשפר את הדיוק של משימות מיוחדות, בנוסף ליכולות כלליות, כמו [זיהוי אובייקטים](#object-detection) ו[פילוח](#segmentation) משופרים.
+As versões mais recentes do modelo são treinadas especificamente para melhorar a precisão de
+tarefas especializadas, além de recursos genéricos, como detecção de
+[objetos](#object-detection) e [segmentação](#segmentation) aprimoradas.
 
-## מגבלות ומידע טכני חשוב
+## Limitações e principais informações técnicas
 
-### מכסת קבצים
+### Limite de arquivo
 
-מודלים של Gemini תומכים בעד 3,600 קובצי תמונות לכל בקשה.
+Os modelos do Gemini oferecem suporte a um máximo de 3.600 arquivos de imagem por solicitação.
 
-### חישוב הטוקנים
+### Cálculo de tokens
 
-- ‫258 טוקנים אם שני המימדים הם ‎384 פיקסלים או פחות.
-  תמונות גדולות יותר מחולקות למשבצות של 768x768 פיקסלים, וכל משבצת עולה 258 טוקנים.
+- 258 tokens se as duas dimensões forem <= 384 pixels.
+  Imagens maiores são divididas em blocos de 768 x 768 pixels, cada um custando 258 tokens.
 
-נוסחה משוערת לחישוב מספר האריחים:
+Uma fórmula aproximada para calcular o número de blocos é a seguinte:
 
-- מחשבים את גודל יחידת החיתוך, שהוא בערך: `floor(min(width, height)` / 1.5).
-- מחלקים כל מאפיין בגודל יחידת החיתוך ומכפילים את התוצאה כדי לקבל את מספר האריחים.
+- Calcule o tamanho da unidade de corte, que é aproximadamente: `floor(min(width, height)` / 1.5).
+- Divida cada dimensão pelo tamanho da unidade de corte e multiplique para receber o número de blocos.
 
-לדוגמה, אם התמונה היא בגודל 960x540, גודל יחידת החיתוך יהיה 360. מחלקים כל מאפיין ב-360 ומקבלים את מספר המשבצות 3 \* 2 = 6.
+Por exemplo, uma imagem de dimensões 960 x 540 teria um tamanho de unidade de corte de 360. Divida cada dimensão por 360 e o número de blocos será 3 \* 2 = 6.
 
-### רזולוציית המדיה
+### Resolução de mídia
 
-‫Gemini 3 מציג שליטה מפורטת בעיבוד של ראייה מולטי-מודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונת קלט או פריים של סרטון.**
-רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
+O Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. O parâmetro `media_resolution` determina o **número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
+Resoluções mais altas melhoram a capacidade do modelo de ler textos finos ou identificar pequenos detalhes, mas aumentam o uso de tokens e a latência.
 
-## טיפים ושיטות מומלצות
+## Dicas e práticas recomendadas
 
-- מוודאים שהתמונות מסובבות בצורה נכונה.
-- השתמשו בתמונות ברורות ולא מטושטשות.
-- כשמשתמשים בתמונה אחת עם פרומפט טקסטואלי, צריך למקם את פרומפט הטקסטואלי *לפני* התמונה במערך `input`.
+- Verifique se as imagens estão giradas corretamente.
+- Use imagens nítidas e não borradas.
+- Ao usar uma única imagem com texto, coloque o comando de texto *antes* da imagem na matriz `input`.
 
-## המאמרים הבאים
+## A seguir
 
-במדריך הזה מוסבר איך להעלות קובצי תמונות וליצור פלט טקסט מקלט תמונה. מידע נוסף זמין במקורות המידע הבאים:
+Este guia mostra como fazer upload de arquivos de imagem e gerar saídas de texto a partir de entradas de imagem. Para saber mais, leia os seguintes artigos:
 
-- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): מידע נוסף על העלאה וניהול של קבצים לשימוש עם Gemini
-- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
-  הוראות מערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
-- [אסטרטגיות לפרומפטים עם קבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בפרומפטים עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראים גם פרומפטים מולטי-מודאליים.
-- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים תוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. עיבוד תמונה (Post Processing) והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
+- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br): saiba mais sobre como fazer upload e gerenciar arquivos para uso com o Gemini.
+- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
+  As instruções do sistema permitem orientar o comportamento do modelo com base nas
+  necessidades e casos de uso específicos.
+- [Estratégias de comandos de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): a
+  API Gemini oferece suporte a comandos com dados de texto, imagem, áudio e vídeo, também
+  conhecidos como comandos multimodais.
+- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pt-br): às vezes, os modelos de IA generativa produzem saídas inesperadas, como saídas imprecisas, tendenciosas ou ofensivas. O pós-processamento e a avaliação humana são essenciais para limitar o risco de danos causados por essas saídas.
 
-שליחת משוב
+Envie comentários
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-עדכון אחרון: 2026-07-30 (שעון UTC).
+Última atualização 2026-09-12 UTC.
 
-רוצה לתת לנו משוב?
+Quer enviar seu feedback?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-30 (שעון UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-12 UTC."],[],[]]

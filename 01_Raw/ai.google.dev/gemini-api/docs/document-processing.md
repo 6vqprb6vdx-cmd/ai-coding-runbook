@@ -1,40 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419
-fetched_at: 2026-09-07T05:35:14.243760+00:00
-title: "Comprensi\u00f3n de documentos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=hi
+fetched_at: 2026-09-14T05:47:06.141346+00:00
+title: "\u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Enviar comentarios
+सुझाव भेजें
 
-# Comprensión de documentos
+# दस्तावेज़ को समझना
 
-Los modelos de Gemini pueden procesar documentos en formato PDF con visión nativa para comprender contextos de documentos completos. Esto va más allá de la extracción de texto, lo que le permite a Gemini hacer lo siguiente:
+Gemini मॉडल, PDF फ़ॉर्मैट में मौजूद दस्तावेज़ों को प्रोसेस कर सकते हैं. इसके लिए, वे दस्तावेज़ के पूरे कॉन्टेक्स्ट को समझने के लिए, नेटिव विज़न का इस्तेमाल करते हैं. यह सिर्फ़ टेक्स्ट निकालने से कहीं ज़्यादा है. इससे Gemini ये काम कर सकता है:
 
-- Analizar e interpretar contenido, incluidos texto, imágenes, diagramas, gráficos y tablas, incluso en documentos largos de hasta 1, 000 páginas
-- Extraer información en formatos de salida [estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419).
-- Resumir y responder preguntas basadas en los elementos visuales y textuales de un documento
-- Transcribir contenido de documentos (p. ej., a HTML), preservar diseños y formatos para su uso en aplicaciones posteriores
+- कॉन्टेंट का विश्लेषण और उसकी व्याख्या करना. इसमें टेक्स्ट, इमेज, डायग्राम, चार्ट, और टेबल शामिल हैं. भले ही, दस्तावेज़ 1, 000 पेजों तक के हों.
+- जानकारी को [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) फ़ॉर्मैट में निकालना.
+- किसी दस्तावेज़ में मौजूद विज़ुअल और टेक्स्ट एलिमेंट, दोनों के आधार पर खास जानकारी देना और सवालों के जवाब देना.
+- दस्तावेज़ के कॉन्टेंट को ट्रांसक्रिप्ट करना.जैसे, एचटीएमएल में. साथ ही, लेआउट और फ़ॉर्मैटिंग को बनाए रखना, ताकि डाउनस्ट्रीम ऐप्लिकेशन में इसका इस्तेमाल किया जा सके.
 
-También puedes pasar documentos que no sean PDF de la misma manera, pero Gemini los verá como texto normal, lo que eliminará el contexto, como gráficos o formato.
+आपके पास, PDF के अलावा दूसरे फ़ॉर्मैट वाले दस्तावेज़ों को भी उसी तरीके से पास करने का विकल्प होता है. हालांकि, Gemini उन्हें सामान्य टेक्स्ट के तौर पर देखेगा. इससे चार्ट या फ़ॉर्मैटिंग जैसे कॉन्टेक्स्ट खत्म हो जाएंगे.
 
-## Cómo pasar datos PDF intercalados
+## PDF डेटा को इनलाइन पास करना
 
-Puedes pasar datos PDF intercalados en la solicitud. Esto es más adecuado para documentos más pequeños o procesamiento temporal en los que no necesitas hacer referencia al archivo en solicitudes posteriores. Recomendamos usar la
-[API de Files](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419#large-pdfs)
-para documentos más grandes a los que necesitas hacer referencia en interacciones de varios turnos para
-mejorar la latencia de la solicitud y reducir el uso de ancho de banda.
+आपके पास, अनुरोध में PDF डेटा को इनलाइन पास करने का विकल्प होता है. यह छोटे दस्तावेज़ों या अस्थायी प्रोसेसिंग के लिए सबसे सही है. इसमें आपको बाद के अनुरोधों में फ़ाइल का रेफ़रंस देने की ज़रूरत नहीं होती. हमारा सुझाव है कि बड़े दस्तावेज़ों के लिए,
+[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi#large-pdfs)
+का इस्तेमाल करें. इससे अनुरोध की लेटेन्सी कम होती है और बैंडविड्थ का इस्तेमाल कम होता है. साथ ही, आपको मल्टी-टर्न इंटरैक्शन में इन दस्तावेज़ों का रेफ़रंस देना होता है.
 
-En el siguiente ejemplo, se muestra cómo pasar datos PDF intercalados:
+यहां दिए गए उदाहरण में, PDF डेटा को इनलाइन पास करने का तरीका बताया गया है:
 
 ### Python
 
@@ -119,7 +118,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-También puedes subir un archivo PDF local para su procesamiento:
+प्रोसेसिंग के लिए, स्थानीय तौर पर सेव की गई PDF फ़ाइल को भी अपलोड किया जा सकता है:
 
 ### Python
 
@@ -221,13 +220,13 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-## Cómo subir archivos PDF con la API de Files
+## Files API का इस्तेमाल करके PDF अपलोड करना
 
-Te recomendamos que uses la API de Files para archivos más grandes o cuando quieras reutilizar un documento en varias solicitudes. Esto mejora la latencia de la solicitud y reduce el uso de ancho de banda mediante la separación de la carga de archivos de las solicitudes de modelos.
+हमारा सुझाव है कि बड़ी फ़ाइलों के लिए या एक ही दस्तावेज़ को कई अनुरोधों में फिर से इस्तेमाल करने के लिए, Files API का इस्तेमाल करें. इससे अनुरोध की लेटेन्सी कम होती है और बैंडविड्थ का इस्तेमाल कम होता है. ऐसा इसलिए, क्योंकि फ़ाइल अपलोड करने की प्रोसेस, मॉडल के अनुरोधों से अलग होती है.
 
-### Archivos PDF grandes de URLs
+### यूआरएल से बड़ी PDF फ़ाइलें
 
-Usa la API de Files para simplificar la carga y el procesamiento de archivos PDF grandes desde URLs:
+यूआरएल से बड़ी PDF फ़ाइलें अपलोड करने और उन्हें प्रोसेस करने के लिए, File API का इस्तेमाल करें:
 
 ### Python
 
@@ -380,7 +379,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### Archivos PDF grandes almacenados de forma local
+### स्थानीय तौर पर सेव की गई बड़ी PDF फ़ाइलें
 
 ### Python
 
@@ -500,8 +499,8 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-Para verificar que la API almacenó correctamente el archivo subido y obtener sus
-metadatos, llama a [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=es-419). Solo el `name` (y, por extensión, el `uri`) son únicos.
+`[`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=hi)` को कॉल करके, यह पुष्टि की जा सकती है कि एपीआई ने अपलोड की गई फ़ाइल को सेव कर लिया है. साथ ही, इसका
+मेटाडेटा भी पाया जा सकता है. सिर्फ़ `name` (और इसके साथ ही, `uri`) यूनीक होते हैं.
 
 ### Python
 
@@ -556,9 +555,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Cómo pasar varios archivos PDF
+## एक से ज़्यादा PDF पास करना
 
-La API de Gemini puede procesar varios documentos PDF (hasta 1,000 páginas) en una sola solicitud, siempre que el tamaño combinado de los documentos y el mensaje de texto permanezcan dentro de la ventana de contexto del modelo.
+Gemini API, एक ही अनुरोध में एक से ज़्यादा PDF दस्तावेज़ों (1,000 पेजों तक) को प्रोसेस कर सकता है. हालांकि, इसके लिए ज़रूरी है कि दस्तावेज़ों और टेक्स्ट प्रॉम्प्ट का कुल साइज़, मॉडल के कॉन्टेक्स्ट विंडो में मौजूद हो.
 
 ### Python
 
@@ -749,59 +748,52 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## Detalles técnicos
+## तकनीकी जानकारी
 
-Gemini admite archivos PDF de hasta 50 MB o 1,000 páginas. Este límite se aplica tanto a los datos intercalados como a las cargas de la API de Files. Cada página del documento equivale a 258 tokens.
+Gemini, 50 एमबी या 1,000 पेजों तक की PDF फ़ाइलों के साथ काम करता है. यह सीमा, इनलाइन डेटा और Files API से अपलोड किए गए डेटा, दोनों पर लागू होती है. दस्तावेज़ का हर पेज, 258 टोकन के बराबर होता है.
 
-Si bien no hay límites específicos para la cantidad de píxeles en un documento más allá de
-la [ventana de contexto](https://ai.google.dev/gemini-api/docs/long-context?hl=es-419) del modelo, las páginas más grandes se
-reducen a una resolución máxima de 3072 x 3072 y conservan su
-relación de aspecto original, mientras que las páginas más pequeñas se amplían a 768 x 768 píxeles. No hay reducción de costos para las páginas de tamaños más bajos, aparte del ancho de banda, ni mejora del rendimiento para las páginas de mayor resolución.
+मॉडल के [कॉन्टेक्स्ट विंडो](https://ai.google.dev/gemini-api/docs/long-context?hl=hi) के अलावा, किसी दस्तावेज़ में पिक्सल की संख्या की कोई खास सीमा नहीं होती. हालांकि, बड़े पेजों को 3072 x 3072 के ज़्यादा से ज़्यादा रिज़ॉल्यूशन पर स्केल डाउन किया जाता है. इस दौरान, उनके ओरिजनल आसपेक्ट रेशियो को बनाए रखा जाता है. वहीं, छोटे पेजों को 768 x 768 पिक्सल पर स्केल अप किया जाता है. कम साइज़ वाले पेजों के लिए, बैंडविड्थ के अलावा कोई शुल्क कम नहीं किया जाता. वहीं, ज़्यादा रिज़ॉल्यूशन वाले पेजों के लिए, परफ़ॉर्मेंस में कोई सुधार नहीं किया जाता.
 
-### Modelos de Gemini 3
+### Gemini 3 के मॉडल
 
-Gemini 3 presenta un control detallado sobre el procesamiento de visión multimodal con el parámetro `media_resolution`. Ahora puedes configurar la resolución en baja, media o alta por parte de contenido multimedia individual. Con esta adición, se actualizó el procesamiento de documentos PDF:
+Gemini 3 में, `media_resolution` पैरामीटर की मदद से, मल्टीमॉडल विज़न प्रोसेसिंग पर ज़्यादा कंट्रोल मिलता है. अब हर मीडिया पार्ट के लिए, रिज़ॉल्यूशन को कम, सामान्य या ज़्यादा पर सेट किया जा सकता है. इस सुविधा के जुड़ने के बाद, PDF दस्तावेज़ों की प्रोसेसिंग को अपडेट कर दिया गया है:
 
-1. **Inclusión de texto nativo:** El texto integrado de forma nativa en el PDF se extrae y se proporciona al modelo.
-2. **Facturación y generación de informes de tokens:**
-   - **No se te cobra** por los tokens que provienen del **texto nativo** extraído en archivos PDF.
-   - En la sección `usage_metadata` de la respuesta de la API, los tokens generados a partir del procesamiento de páginas PDF (como imágenes) ahora se cuentan en la modalidad `IMAGE`, no en una modalidad `DOCUMENT` separada como en algunas versiones anteriores.
+1. **नेटिव टेक्स्ट शामिल करना:** PDF में नेटिव तौर पर एम्बेड किए गए टेक्स्ट को निकालकर, मॉडल को उपलब्ध कराया जाता है.
+2. **बिलिंग और टोकन की रिपोर्टिंग:**
+   - PDF में निकाले गए **नेटिव टेक्स्ट** से जनरेट हुए टोकन के लिए, **कोई शुल्क नहीं लिया जाता**.
+   - एपीआई के जवाब के `usage_metadata` सेक्शन में, PDF पेजों को (इमेज के तौर पर) प्रोसेस करके जनरेट हुए टोकन को अब `IMAGE` मोडैलिटी में गिना जाता है. पहले के कुछ वर्शन में, इन्हें अलग `DOCUMENT` मोडैलिटी में गिना जाता था.
 
-Para obtener más detalles sobre el parámetro de resolución de contenido multimedia, consulta la
-[guía Resolución de contenido multimedia](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=es-419).
+मीडिया रिज़ॉल्यूशन पैरामीटर के बारे में ज़्यादा जानने के लिए, [मीडिया रिज़ॉल्यूशन](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=hi) से जुड़ा लेख देखें.
 
-### Tipos de documentos
+### दस्तावेज़ के टाइप
 
-Técnicamente, puedes pasar otros tipos MIME para la comprensión de documentos, como TXT, Markdown, HTML, XML, etcétera. Sin embargo, la visión de documentos ***solo comprende de manera significativa los archivos PDF***. Otros tipos se extraerán como texto sin formato, y el modelo no podrá interpretar lo que vemos en la renderización de esos archivos. Se perderán las especificaciones de tipo de archivo, como gráficos, diagramas, etiquetas HTML, formato Markdown, etcétera.
+तकनीकी तौर पर, दस्तावेज़ को समझने के लिए, TXT, Markdown, HTML, XML वगैरह जैसे अन्य MIME टाइप पास किए जा सकते हैं. हालांकि, दस्तावेज़ विज़न ***सिर्फ़ PDF को समझ सकता है***. अन्य टाइप को सिर्फ़ टेक्स्ट के तौर पर निकाला जाएगा. साथ ही, मॉडल उन फ़ाइलों की रेंडरिंग में दिखने वाले कॉन्टेंट की व्याख्या नहीं कर पाएगा. चार्ट, डायग्राम, एचटीएमएल टैग, Markdown फ़ॉर्मैटिंग वगैरह जैसे किसी भी फ़ाइल टाइप की खास जानकारी नहीं मिल पाएगी.
 
-Para obtener información sobre otros métodos de entrada de archivos, consulta la
-[guía Métodos de entrada de archivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=es-419).
+फ़ाइल इनपुट के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट के तरीके](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi) से जुड़ा लेख देखें.
 
-### Prácticas recomendadas
+### सबसे सही तरीके
 
-Para lograr resultados óptimos, haz lo siguiente:
+सर्वोत्तम परिणामों के लिएः
 
-- Rota las páginas a la orientación correcta antes de subirlas.
-- Evita las páginas borrosas.
-- Si usas una sola página, coloca la instrucción de texto después de la página.
+- अपलोड करने से पहले, पेजों को सही ओरिएंटेशन में घुमाएं.
+- धुंधले पेजों का इस्तेमाल न करें.
+- अगर किसी एक पेज का इस्तेमाल किया जा रहा है, तो पेज के बाद टेक्स्ट प्रॉम्प्ट डालें.
 
-## ¿Qué sigue?
+## आगे क्या करना है
 
-Para obtener más información, consulta los siguientes recursos:
+ज़्यादा जानने के लिए, ये लेख देखें:
 
-- [Estrategias de instrucciones de archivos](https://ai.google.dev/gemini-api/docs/files?hl=es-419#prompt-guide): La
-  API de Gemini admite instrucciones con datos de texto, imagen, audio y video, también
-  conocidos como instrucciones multimodales.
-- [Instrucciones del sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#system-instructions):
-  Las instrucciones del sistema te permiten dirigir el comportamiento del modelo según tus
-  necesidades y casos de uso específicos.
+- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide): Gemini API, टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा देता है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
+- [सिस्टम के निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
+  सिस्टम के निर्देशों की मदद से, अपनी
+  ज़रूरतों और इस्तेमाल के उदाहरणों के हिसाब से मॉडल के व्यवहार को कंट्रोल किया जा सकता है.
 
-Enviar comentarios
+सुझाव भेजें
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última actualización: 2026-07-30 (UTC)
+आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
 
-¿Quieres brindar más información?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=hi
-fetched_at: 2026-09-07T05:29:01.163989+00:00
-title: "\u0911\u0921\u093f\u092f\u094b \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=pl
+fetched_at: 2026-09-14T05:44:09.832324+00:00
+title: "Rozumienie mowy \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-सुझाव भेजें
+Prześlij opinię
 
-# ऑडियो को समझना
+# Rozumienie mowy
 
-Gemini, ऑडियो इनपुट का विश्लेषण करके टेक्स्ट वाले जवाब जनरेट कर सकता है.
+Gemini może analizować dane wejściowe audio i generować odpowiedzi tekstowe.
 
 ### Python
 
@@ -31,7 +31,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -57,7 +57,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -70,45 +70,6 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
 ### REST
 
 ```
@@ -117,7 +78,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -129,22 +90,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## खास जानकारी
+## Przegląd
 
-Gemini, ऑडियो इनपुट का विश्लेषण कर सकता है और उसे समझ सकता है. साथ ही, टेक्स्ट फ़ॉर्मैट में जवाब जनरेट कर सकता है. इससे इन कामों को पूरा किया जा सकता है:
+Gemini może analizować i rozumieć dane wejściowe audio oraz generować odpowiedzi tekstowe, co umożliwia takie zastosowania jak:
 
-- ऑडियो कॉन्टेंट के बारे में जानकारी देना, खास जानकारी देना या सवालों के जवाब देना
-- ट्रांसक्रिप्शन और अनुवाद (बोली को लिखाई में बदलने की सुविधा)
-- स्पीकर डायराइज़ेशन (अलग-अलग स्पीकर की पहचान करना)
-- भाषण और संगीत में भावनाओं का पता लगाना
-- टाइमस्टैंप की मदद से, किसी सेगमेंट का विश्लेषण करना
+- Opisywanie, podsumowywanie treści audio i odpowiadanie na pytania dotyczące tych treści
+- Transkrypcja i tłumaczenie (zamiana mowy na tekst)
+- Rozdzielanie rozmówców (identyfikowanie różnych mówiących osób)
+- Wykrywanie emocji w mowie i muzyce
+- Analizowanie konkretnych segmentów z sygnaturami czasowymi
 
-रीयल-टाइम में आवाज़ और वीडियो से इंटरैक्ट करने के लिए, [Live API](https://ai.google.dev/gemini-api/docs/live?hl=hi) देखें.
-रीयल-टाइम ट्रांसक्रिप्शन की सुविधा के साथ काम करने वाले, बोली को लिखाई में बदलने वाले मॉडल के लिए, [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=hi) का इस्तेमाल करें.
+Informacje o interakcjach głosowych i wideo w czasie rzeczywistym znajdziesz w [interfejsie Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl).
+Jeśli chcesz używać modeli mowy na tekst z obsługą transkrypcji w czasie rzeczywistym, skorzystaj z [interfejsu Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=pl).
 
-## बोले जा रहे शब्दों को टेक्स्ट में बदलना
+## Transkrypcja mowy na tekst
 
-इस उदाहरण में, [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) का इस्तेमाल करके, टाइमस्टैंप, स्पीकर डायराइज़ेशन, और भावनाओं का पता लगाने की सुविधा के साथ, स्पीच को ट्रांसक्राइब करने, उसका अनुवाद करने, और उसकी खास जानकारी पाने का तरीका दिखाया गया है.
+Ten przykład pokazuje, jak transkrybować, tłumaczyć i podsumowywać mowę z [danymi strukturalnymi](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl), znacznikami czasu, podziałem na mówców i wykrywaniem emocji.
 
 ### Python
 
@@ -193,7 +154,7 @@ response_schema = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "video", "uri": YOUTUBE_URL, "mime_type": "video/mp4"},
         {"type": "text", "text": prompt}
@@ -251,7 +212,7 @@ const responseSchema = {
 };
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: [
         { type: "video", uri: YOUTUBE_URL, mime_type: "video/mp4" },
         { type: "text", text: prompt }
@@ -262,45 +223,6 @@ const interaction = await client.interactions.create({
 console.log(JSON.parse(interaction.output_text));
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
 ### REST
 
 ```
@@ -308,7 +230,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {
         "type": "video",
@@ -341,18 +263,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Gemini ऐप्लिकेशन में, कई भाषाओं में ऑडियो ट्रांसक्रिप्शन की सुविधा](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=hi)
+![Wielojęzyczna aplikacja Gemini do transkrypcji audio](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=pl)
 
-## ऑडियो इनपुट
+## Dźwięk wejściowy
 
-ऑडियो डेटा इन तरीकों से दिया जा सकता है:
+Dane audio możesz podać w ten sposób:
 
-- अनुरोध करने से पहले, [ऑडियो फ़ाइल अपलोड करें](#upload-audio).
-- अनुरोध के साथ [इनलाइन ऑडियो डेटा पास करें](#inline-audio).
+- Przed wysłaniem prośby [prześlij plik audio](#upload-audio).
+- [Przekaż dane audio w formie wbudowanej](#inline-audio) w żądaniu.
 
-### ऑडियो फ़ाइल अपलोड करना
+### Przesyłanie pliku audio
 
-20 एमबी से बड़ी फ़ाइलों के लिए, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करें.
+W przypadku plików większych niż 20 MB użyj [interfejsu Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl).
 
 ### Python
 
@@ -364,7 +286,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -390,7 +312,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -403,45 +325,6 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
 ### REST
 
 ```
@@ -450,7 +333,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -462,9 +345,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### ऑडियो डेटा को इनलाइन पास करना
+### Przekazywanie danych audio w tekście
 
-अगर ऑडियो फ़ाइलें छोटी हैं और अनुरोध का कुल साइज़ 20 एमबी से कम है, तो:
+W przypadku małych plików audio o łącznym rozmiarze żądania poniżej 20 MB:
 
 ### Python
 
@@ -478,7 +361,7 @@ with open('path/to/small-sample.mp3', 'rb') as f:
     audio_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -504,7 +387,7 @@ const audioData = fs.readFileSync("path/to/small-sample.mp3", {
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -515,45 +398,6 @@ const interaction = await client.interactions.create({
     ]
 });
 console.log(interaction.output_text);
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -571,7 +415,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -583,19 +427,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-इनलाइन ऑडियो डेटा के बारे में जानकारी:
-\* अनुरोध का कुल साइज़ 20 एमबी से ज़्यादा नहीं होना चाहिए. इसमें प्रॉम्प्ट और सभी फ़ाइलें शामिल हैं
-\* दोबारा इस्तेमाल करने के लिए, [फ़ाइल अपलोड करें](#upload-audio)
+Uwagi dotyczące danych audio w tekście:
+\* Maksymalny rozmiar żądania to 20 MB (łącznie z promptami i wszystkimi plikami).
+\* Jeśli chcesz ponownie użyć pliku, [prześlij go](#upload-audio).
 
-## ट्रांसक्रिप्ट पाना
+## Pobieranie transkrypcji
 
-ट्रांसक्रिप्ट पाने के लिए, प्रॉम्प्ट में ट्रांसक्रिप्ट पाने का अनुरोध करें:
+Aby uzyskać transkrypcję, poproś o nią w prompcie:
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Generate a transcript of the speech."},
         {
@@ -612,7 +456,7 @@ print(interaction.output_text)
 
 ```
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: [
         { type: "text", text: "Generate a transcript of the speech." },
         {
@@ -625,54 +469,15 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+## Odwołuj się do sygnatur czasowych
 
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
-## टाइमस्टैंप देखें
-
-किसी खास सेक्शन का रेफ़रंस देने के लिए, `MM:SS` फ़ॉर्मैट का इस्तेमाल करें:
+Użyj formatu `MM:SS`, aby odwołać się do konkretnych sekcji:
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input=[
         {"type": "text", "text": "Provide a transcript from 02:30 to 03:29."},
         {
@@ -688,7 +493,7 @@ interaction = client.interactions.create(
 
 ```
 const interaction = await client.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: [
         { type: "text", text: "Provide a transcript from 02:30 to 03:29." },
         { type: "audio", uri: uploadedFile.uri, mime_type: "audio/mp3" }
@@ -696,54 +501,15 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### Java
+## Liczba tokenów
 
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
-## टोकन गिनें
-
-किसी ऑडियो फ़ाइल में टोकन की गिनती करना:
+Zliczanie tokenów w pliku audio:
 
 ### Python
 
 ```
 response = client.models.count_tokens(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     contents=[uploaded_file]
 )
 print(response)
@@ -753,7 +519,7 @@ print(response)
 
 ```
 const response = await client.models.countTokens({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     contents: [
         { fileData: { fileUri: uploadedFile.uri, mimeType: uploadedFile.mimeType } }
     ]
@@ -761,87 +527,37 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AudioContent;
-import com.google.genai.gaos.models.interactions.AudioContentMimeType;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Provide a transcript and summary of this audio.").build();
-Content audioContent =
-    AudioContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/audio/pixel.mp3")
-        .mimeType(AudioContentMimeType.AUDIO_MP3)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, audioContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.7-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
-## इस्तेमाल किए जा सकने वाले ऑडियो फ़ॉर्मैट
-
-Gemini में, इन ऑडियो फ़ॉर्मैट के MIME टाइप इस्तेमाल किए जा सकते हैं:
+## Obsługiwane formaty audio
 
 - WAV - `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
 - AAC - `audio/aac`
-- OGG - `audio/ogg`
-- FLAC - `audio/flac`
-- MPEG - `audio/mpeg`
-- M4A - `audio/m4a`
-- L16 - `audio/l16`
-- Opus - `audio/opus`
-- ALAW - `audio/alaw`
-- MULAW - `audio/mulaw`
-- WebM - `audio/webm`
+- OGG Vorbis – `audio/ogg`
+- FLAC – `audio/flac`
 
-इस्तेमाल किए जा सकने वाले MIME टाइप और पैरामीटर स्कीमा की पूरी सूची देखने के लिए, [Interactions API का रेफ़रंस](https://ai.google.dev/api/interactions-api?hl=hi#Resource:Content) देखें.
+## Szczegóły techniczne dotyczące dźwięku
 
-## ऑडियो के बारे में तकनीकी जानकारी
+- **Tokeny:** 32 tokeny na sekundę dźwięku (1 minuta = 1920 tokenów)
+- **Dźwięki inne niż mowa:** Gemini rozumie dźwięki inne niż mowa (śpiew ptaków, syreny itp.).
+- **Maksymalna długość:** 9,5 godziny dźwięku na prompt
+- **Rozdzielczość:** próbkowanie w dół do 16 kb/s
+- **Kanały:** wielokanałowy dźwięk połączony w jeden kanał
 
-- **टोकन**: ऑडियो के हर सेकंड के लिए 32 टोकन (1 मिनट = 1,920 टोकन)
-- **बोली न जाने वाली आवाज़ें**: Gemini, बोली न जाने वाली आवाज़ों (पक्षियों के चहचहाने, सायरन वगैरह) को समझता है
-- **ज़्यादा से ज़्यादा लंबाई**: हर प्रॉम्प्ट के लिए 9.5 घंटे का ऑडियो
-- **रिज़ॉल्यूशन**: 16 केबीपीएस पर डाउनसैंपल किया गया
-- **चैनल**: मल्टी-चैनल ऑडियो को एक चैनल में मिलाया गया है
+## Co dalej?
 
-## आगे क्या करना है
+- [Interfejs API plików:](https://ai.google.dev/gemini-api/docs/files?hl=pl) przesyłanie plików audio i zarządzanie nimi.
+- [Instrukcje systemowe:](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl#system-instructions)
+  dostosowywanie działania modelu
+- [Dane wyjściowe w formacie strukturalnym:](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl)
+  uzyskaj wyniki transkrypcji w formacie JSON.
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi): ऑडियो फ़ाइलें अपलोड और मैनेज करें
-- [सिस्टम के निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
-  मॉडल के व्यवहार को पसंद के मुताबिक बनाएं
-- [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi):
-  ट्रांसक्रिप्शन के नतीजे JSON फ़ॉर्मैट में पाएं
+Prześlij opinię
 
-सुझाव भेजें
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Ostatnia aktualizacja: 2026-09-12 UTC.
 
-आखिरी बार 2026-08-28 (UTC) को अपडेट किया गया.
+Chcesz przekazać coś jeszcze?
 
-क्या आपको हमें और कुछ बताना है?
-
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-08-28 (UTC) को अपडेट किया गया."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]

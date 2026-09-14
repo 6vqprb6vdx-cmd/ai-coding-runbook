@@ -1,35 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=zh-TW
-fetched_at: 2026-09-07T05:33:15.476325+00:00
-title: "\u4ee3\u7406\u8996\u89ba\u529f\u80fd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=ar
+fetched_at: 2026-09-14T05:36:55.126041+00:00
+title: "\u0625\u0645\u0643\u0627\u0646\u0627\u062a \u0627\u0644\u0631\u0624\u064a\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0627\u0644\u0648\u0643\u064a\u0644 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
 
-提供意見
+إرسال ملاحظات
 
-# 代理視覺功能
+# إمكانات الرؤية بالذكاء الاصطناعي الوكيل
 
-Gemini Robotics ER 模型可以撰寫及執行 Python 程式碼來處理圖片，並在回答問題前套用邏輯。本頁面涵蓋程式碼執行範例：使用縮放和裁剪功能進行物件偵測、儀表讀取、液體測量、電路板讀取，以及圖像註解。
+يمكن لنماذج Gemini Robotics ER كتابة رموز Python البرمجية وتنفيذها لمعالجة الصور وتطبيق المنطق قبل تقديم الإجابة. تتناول هذه الصفحة أمثلة على تطبيق الرموز البرمجية: رصد العناصر باستخدام التكبير والتصغير والقص، وقراءة الأجهزة، وقياس السوائل، وقراءة لوحات الدوائر، والتعليق التوضيحي على الصور.
 
-如要根據自己的用途調整這些範例，請將提示文字和上傳的圖片檔案換成自己的內容。您也可以在提示中調整要求的 JSON 結構定義，以符合應用程式所需的輸出結構，或新增 `system_instruction` 來強制執行輸出格式和精確度。
+لتكييف هذه الأمثلة مع حالة الاستخدام الخاصة بكم، استبدِلوا نص الطلب وملف الصورة الذي تم تحميله بنصكم وصورتكم. يمكنكم أيضًا تعديل مخطط JSON المطلوب في الطلب ليطابق بنية الإخراج التي يحتاجها تطبيقكم، أو إضافة `system_instruction` لفرض تنسيق الإخراج ودقته.
 
-如需完整的可執行程式碼，請參閱「[機器人食譜](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)」。
+للاطّلاع على الرمز البرمجي الكامل القابل للتنفيذ، يُرجى الرجوع إلى
+[دليل Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## 思考程度
+## مستوى التفكير
 
-您可以控制思考層級，以延遲換取準確度。物件偵測等空間工作在低思考層級下表現良好。對於計數或重量估算等複雜工作，較高的思考層次有助於提升準確度。
+يمكنكم التحكّم في مستوى التفكير للموازنة بين وقت الاستجابة والدقة. تحقّق المهام المكانية، مثل رصد العناصر، أداءً جيدًا عند استخدام مستوى تفكير منخفض. تستفيد المهام المعقّدة، مثل العدّ أو تقدير الوزن، من مستوى تفكير أعلى.
 
-以下範例會將複雜的計數工作思考層級設為 `high`：
+يضبط المثال التالي مستوى التفكير على `high` لمهمة عدّ معقّدة:
 
 ### Python
 
@@ -59,11 +60,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-詳情請參閱「[思考](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=zh-tw)」一節。
+لمزيد من التفاصيل، يُرجى الاطّلاع على [التفكير](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=ar).
 
-## 物件偵測 (縮放及裁剪)
+## رصد العناصر (التكبير والتصغير والاقتصاص)
 
-以下範例說明如何使用執行程式碼功能，在偵測物件及傳回定界框時，縮放及裁剪圖片，以便更清楚地查看。
+يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لتكبير صورة وقصّها للحصول على عرض أوضح عند رصد الأجسام وعرض مربّعات الإحاطة.
 
 ### Python
 
@@ -101,7 +102,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-模型輸出內容會類似下列 JSON 回應：
+سيكون إخراج النموذج مشابهًا لاستجابة JSON التالية:
 
 ```
 [
@@ -113,13 +114,13 @@ print(response.text)
 ]
 ```
 
-下圖顯示模型傳回的方塊。
+تعرض الصورة التالية المربّعات التي يعرضها النموذج.
 
-![範例：顯示找到的物件的定界框](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=zh-tw)
+![مثال يعرض مربّعات إحاطة للعناصر التي تم العثور عليها](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ar)
 
-## 讀取類比儀表並套用邏輯
+## قراءة مقياس تناظري وتطبيق المنطق
 
-以下範例說明如何使用模型讀取類比儀表，並執行時間計算。並使用系統指令強制輸出 JSON 格式。
+يوضّح المثال التالي كيفية استخدام النموذج لقراءة مقياس تناظري وإجراء عمليات حسابية للوقت. ويستخدم تعليمات النظام لفرض إخراج JSON.
 
 ### Python
 
@@ -155,9 +156,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## 測量容器中的液體
+## قياس السائل في حاوية
 
-以下範例說明如何使用執行程式碼功能，測量容器中的液體量。
+يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لقياس مستوى السائل في حاوية.
 
 ### Python
 
@@ -192,9 +193,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## 解讀電路板上的標記
+## قراءة العلامات على لوحة دوائر
 
-以下範例說明如何使用程式碼執行功能，讀取電路板上的標記。
+يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لقراءة العلامات على لوحة دوائر.
 
 ### Python
 
@@ -229,11 +230,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-![電路板上標記的範例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=zh-tw)
+![مثال يعرض علامات على لوحة دوائر كهربائية](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ar)
 
-## 圖片註解
+## التعليق التوضيحي على الصور
 
-以下範例說明如何使用執行程式碼功能為圖片加上註解 (例如繪製箭頭表示處理說明)，並傳回修改後的圖片。
+يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لإضافة تعليق توضيحي على صورة (مثل رسم أسهم لتعليمات التخلّص منها) وعرض الصورة المعدَّلة.
 
 ### Python
 
@@ -270,11 +271,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-以下是圖片輸入內容範例。
+في ما يلي مثال على صورة تم إدخالها:
 
-![顯示時鐘的範例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=zh-tw)
+![مثال يعرض ساعة للقراءة](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ar)
 
-模型輸出內容會與下列內容類似：
+سيكون إخراج النموذج مشابهًا لما يلي:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -283,18 +284,18 @@ print(response.text)
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## 後續步驟
+## الخطوات التالية
 
-- [工作流程協調](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=zh-tw)：使用自訂機器人 API 執行長期任務。
-- [串流機器人](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=zh-tw)：即時雙向串流 (僅限 Gemini Robotics ER 2)。
-- [影片理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=zh-tw)：尋找特定時刻和進度分類 (僅限 Gemini Robotics ER 2)。
+- [تنسيق المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأجل باستخدام واجهات برمجة تطبيقات مخصّصة للروبوتات
+- [الروبوتات مع البث](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): بث ثنائي الاتجاه في الوقت الفعلي (Gemini Robotics ER 2 فقط)
+- [فهم الفيديوهات](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): العثور على اللحظات وتصنيف مستوى التقدّم (Gemini Robotics ER 2 فقط)
 
-提供意見
+إرسال ملاحظات
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-上次更新時間：2026-09-04 (世界標準時間)。
+تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)
 
-想進一步說明嗎？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-04 (世界標準時間)。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,80 +1,94 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja
-fetched_at: 2026-09-07T05:46:30.517949+00:00
-title: "Google AI Studio \u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=th
+fetched_at: 2026-09-14T05:38:49.704120+00:00
+title: "\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Google AI Studio \u0e2d\u0e22\u0e48\u0e32\u0e07\u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-フィードバックを送信
+ส่งความคิดเห็น
 
-# Google AI Studio のクイックスタート
+# คู่มือเริ่มใช้งาน Google AI Studio อย่างรวดเร็ว
 
-[Google AI Studio](https://aistudio.google.com/?hl=ja) を使用すると、さまざまなプロンプトでモデルを簡単に試すことができます。構築の準備ができたら、[Get code] を選択し、好みのプログラミング言語で [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=ja) の使用を開始できます。
+[Google AI Studio](https://aistudio.google.com/?hl=th) ช่วยให้คุณลองใช้
+โมเดลและทดลองใช้พรอมต์ต่างๆ ได้อย่างรวดเร็ว เมื่อพร้อมสร้างแล้ว คุณ
+สามารถเลือก "รับโค้ด" และภาษาโปรแกรมที่ต้องการเพื่อ
+ใช้ [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=th) ได้
 
-## プロンプトと設定
+## พรอมต์และการตั้งค่า
 
-Google AI Studio には、さまざまなユースケース向けに設計されたプロンプト用のインターフェースが複数用意されています。このガイドでは、会話機能の構築に使用される**チャット プロンプト**について説明します。このプロンプト技法では、複数の入力とレスポンスのターンを使用して出力を生成できます。詳しくは、[以下のチャット プロンプトの例](#chat_example)をご覧ください。他にも、**リアルタイム ストリーミング**、**動画生成**などのオプションがあります。
+Google AI Studio มีอินเทอร์เฟซหลายแบบสำหรับพรอมต์ที่ออกแบบมาสำหรับกรณีการใช้งานต่างๆ คู่มือนี้ครอบคลุม**พรอมต์แชท** ซึ่งใช้เพื่อสร้าง
+ประสบการณ์การสนทนา เทคนิคการป้อนพรอมต์นี้ช่วยให้มีการป้อนข้อมูล
+และตอบกลับหลายรอบเพื่อสร้างเอาต์พุต ดูข้อมูลเพิ่มเติมได้จาก
+[ตัวอย่างพรอมต์แชทด้านล่าง](#chat_example)
+ตัวเลือกอื่นๆ ได้แก่ **การสตรีมแบบเรียลไทม์**, **การสร้างวิดีโอ** และ
+อื่นๆ
 
-AI Studio には、**実行設定**パネルもあります。このパネルでは、[モデル パラメータ](https://ai.google.dev/docs/prompting-strategies?hl=ja#model-parameters)、[安全設定](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ja)を調整したり、[構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)、[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)、[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)、[グラウンディング](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)などのツールを切り替えたりできます。
+นอกจากนี้ AI Studio ยังมีแผง**การตั้งค่าการทำงาน** ซึ่งคุณสามารถปรับ[พารามิเตอร์ของโมเดล](https://ai.google.dev/docs/prompting-strategies?hl=th#model-parameters), [การตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th) และเปิดใช้เครื่องมือต่างๆ เช่น [เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th), [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th), [การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th) และ [การเชื่อมต่อแหล่งข้อมูล](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
 
-## チャット プロンプトの例: カスタム チャット アプリケーションを作成する
+## ตัวอย่างพรอมต์แชท: สร้างแอปพลิเคชันแชทที่กำหนดเอง
 
-[Gemini](https://gemini.google.com/?hl=ja) などの汎用 chatbot を使用したことがある場合は、生成 AI モデルがオープンエンドのダイアログにどれほど強力であるかを直接体験したことがあるでしょう。汎用チャットボットは便利ですが、特定のユースケースに合わせて調整する必要があることがよくあります。
+หากคุณเคยใช้แชทบ็อตอเนกประสงค์อย่าง
+[Gemini](https://gemini.google.com/?hl=th) คุณจะได้รับประสบการณ์โดยตรงว่าโมเดล
+Generative AI มีประสิทธิภาพเพียงใดสำหรับการสนทนาแบบเปิด แม้ว่าแชทบ็อตอเนกประสงค์เหล่านี้จะมีประโยชน์ แต่บ่อยครั้งที่ต้องปรับแต่งให้เหมาะกับกรณีการใช้งานเฉพาะ
 
-たとえば、自社製品に関する会話のみをサポートするカスタマー サービス chatbot を構築するとします。特定のトーンやスタイルで話す chatbot を作成したい場合があります。たとえば、ジョークをたくさん言う bot、詩人のように韻を踏む bot、回答に絵文字をたくさん使う bot などです。
+ตัวอย่างเช่น คุณอาจต้องการสร้างแชทบ็อตฝ่ายบริการลูกค้าที่รองรับเฉพาะการสนทนาเกี่ยวกับผลิตภัณฑ์ของบริษัท หรืออาจต้องการสร้างแชทบ็อตที่พูดด้วยโทนเสียงหรือสไตล์เฉพาะ เช่น บ็อตที่ชอบเล่าเรื่องตลก บ็อตที่ชอบแต่งกลอน หรือบ็อตที่ใช้ Emoji จำนวนมากในคำตอบ
 
-この例では、Google AI Studio を使用して、木星の衛星の 1 つであるエウロパに住むエイリアンのように会話するフレンドリーなチャットボットを構築する方法を示します。
+ตัวอย่างนี้แสดงวิธีใช้ Google AI Studio เพื่อสร้างแชทบ็อตที่เป็นมิตรซึ่งสื่อสารราวกับเป็นมนุษย์ต่างดาวที่อาศัยอยู่บนยูโรปา ซึ่งเป็นดวงจันทร์ของดาวพฤหัสบดี
 
-### ステップ 1 - チャット プロンプトを作成する
+### ขั้นตอนที่ 1 - สร้างพรอมต์แชท
 
-chatbot を構築するには、ユーザーと chatbot の間のやり取りの例を提供して、モデルが求める回答を提供できるようにする必要があります。
+หากต้องการสร้างแชทบ็อต คุณต้องระบุตัวอย่างการโต้ตอบระหว่างผู้ใช้กับแชทบ็อตเพื่อแนะนำให้โมเดลแสดงคำตอบที่คุณต้องการ
 
-チャット プロンプトを作成するには:
+วิธีสร้างพรอมต์แชท
 
-1. [Google AI Studio](https://aistudio.google.com/?hl=ja) を開きます。**Playground** は、新しいチャット プロンプトとともにデフォルトで開きます。
-2. 右上にある [**実行設定**] tune をクリックしてパネルを開き、[[**システム指示**](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions)] 入力フィールドを見つけます。次の内容をテキスト入力フィールドに貼り付けます。
+1. เปิด [Google AI Studio](https://aistudio.google.com/?hl=th) ระบบจะเปิด**เพลย์กราวด์** โดยค่าเริ่มต้นพร้อมพรอมต์แชทใหม่
+2. คลิก**การตั้งค่าการทำงาน** tune ที่มุมขวาบน
+   เพื่อขยายแผง แล้วค้นหา
+   [**คำแนะนำระบบ**](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions)
+   ช่องป้อนข้อมูล วางข้อความต่อไปนี้ลงในช่องป้อนข้อความ
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-システム指示を追加したら、モデルとチャットしてアプリケーションのテストを開始します。
+หลังจากเพิ่มคำแนะนำระบบแล้ว ให้เริ่มทดสอบแอปพลิเคชันโดยแชทกับโมเดลด้วยวิธีต่อไปนี้
 
-1. [**Type something...**] とラベルの付いたテキスト入力ボックスに、ユーザーがする可能性のある質問や観察結果を入力します。次に例を示します。
+1. ในช่องป้อนข้อความที่มีป้ายกำกับว่า **พิมพ์ข้อความ...** ให้พิมพ์คำถามหรือ
+   ข้อสังเกตที่ผู้ใช้อาจถามหรือแสดงความคิดเห็น เช่น
 
-   **ユーザー:**
+   **ผู้ใช้:**
 
    ```
    What's the weather like?
    ```
-2. [**実行**] ボタンをクリックして、chatbot からレスポンスを取得します。レスポンスは次のようになります。
+2. คลิกปุ่ม**เรียกใช้** เพื่อรับคำตอบจากแชทบ็อต คำตอบนี้อาจมีลักษณะดังต่อไปนี้
 
-   **モデル:**
+   **โมเดล:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
    yes? A curious concept from worlds with thick gas veils...
    ```
 
-   （gemini-2.5-pro）
+   (gemini-2.5-pro)
 
-### ステップ 2 - ボットのチャット機能を強化する
+### ขั้นตอนที่ 2 - สอนให้บ็อตแชทได้ดีขึ้น
 
-1 つの指示で、基本的なエウロパのエイリアン チャットボットを作成できました。ただし、1 つの指示だけでは、モデルのレスポンスの一貫性と品質を確保するのに十分でない場合があります。具体的な指示がないと、天気に関する質問に対するモデルの回答は非常に長くなる傾向があり、独自の解釈が加わる可能性があります。
+การให้คำแนะนำเพียงข้อเดียวช่วยให้คุณสร้างแชทบ็อตมนุษย์ต่างดาวจากยูโรปาแบบพื้นฐานได้ อย่างไรก็ตาม คำแนะนำเพียงข้อเดียวอาจไม่เพียงพอที่จะรับประกันความสอดคล้องและคุณภาพของคำตอบจากโมเดล หากไม่มีคำแนะนำที่เฉพาะเจาะจงมากขึ้น คำตอบของโมเดลสำหรับคำถามเกี่ยวกับสภาพอากาศมักจะยาวมากและอาจไม่ตรงกับคำถาม
 
-システム指示に追加して、chatbot のトーンをカスタマイズします。
+ปรับแต่งโทนเสียงของแชทบ็อตโดยเพิ่มคำแนะนำระบบดังนี้
 
-1. 新しいチャット プロンプトを開始するか、同じプロンプトを使用します。システム指示は、チャット セッションの開始後に変更できます。
-2. [**システム指示**] セクションで、既存の指示を次のように変更します。
+1. เริ่มพรอมต์แชทใหม่หรือใช้พรอมต์เดิม คุณสามารถแก้ไขคำแนะนำระบบได้หลังจากเริ่มเซสชันแชทแล้ว
+2. ในส่วน**คำแนะนำระบบ** ให้เปลี่ยนคำแนะนำที่มีอยู่เป็นคำแนะนำต่อไปนี้
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -82,9 +96,10 @@ chatbot を構築するには、ユーザーと chatbot の間のやり取りの
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. 質問（`What's the weather like?`）を再入力し、[**実行**] ボタンをクリックします。新しいチャットを開始していない場合、回答は次のようになります。
+3. ป้อนคำถาม (`What's the weather like?`) อีกครั้ง แล้วคลิกปุ่ม**เรียกใช้**
+   หากไม่ได้เริ่มแชทใหม่ คำตอบอาจมีลักษณะดังนี้
 
-   **モデル:**
+   **โมเดล:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -93,25 +108,27 @@ chatbot を構築するには、ユーザーと chatbot の間のやり取りの
    (that's your Jupiter!)...
    ```
 
-   （gemini-2.5-pro）
+   (gemini-2.5-pro)
 
-このアプローチを使用すると、chatbot にさらに深みを追加できます。質問を追加したり、回答を編集したりして、チャットボットの品質を高めます。手順の追加や変更を続け、チャットボットの動作がどのように変化するかをテストします。
+คุณสามารถใช้วิธีนี้เพื่อเพิ่มรายละเอียดให้กับแชทบ็อต ถามคำถามเพิ่มเติม แก้ไขคำตอบ และปรับปรุงคุณภาพของแชทบ็อต เพิ่มหรือแก้ไขคำแนะนำต่อไป และทดสอบว่าคำแนะนำเหล่านั้นเปลี่ยนลักษณะการทำงานของแชทบ็อตอย่างไร
 
-### ステップ 3 - 次のステップ
+### ขั้นตอนที่ 3 - ขั้นตอนต่อไป
 
-他のプロンプト タイプと同様に、プロンプトのプロトタイプが完成したら、[**コードを取得**] ボタンを使用してコーディングを開始するか、プロンプトを保存して後で作業したり、他のユーザーと共有したりできます。
+เช่นเดียวกับพรอมต์ประเภทอื่นๆ เมื่อคุณสร้างต้นแบบพรอมต์จนพอใจแล้ว คุณสามารถใช้ปุ่ม**รับโค้ด** เพื่อเริ่มเขียนโค้ดหรือบันทึกพรอมต์ไว้เพื่อทำงานต่อในภายหลังและแชร์กับผู้อื่น
 
-## 関連情報
+## อ่านเพิ่มเติม
 
-- コードに進む準備ができたら、[API スタートガイド](https://ai.google.dev/gemini-api/docs/get-started?hl=ja)をご覧ください。
-- より良いプロンプトを作成する方法については、[プロンプト設計のガイドライン](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ja)をご覧ください。
+- หากพร้อมที่จะไปยังโค้ดแล้ว โปรดดู[คู่มือเริ่มต้นใช้งาน
+  API](https://ai.google.dev/gemini-api/docs/get-started?hl=th)
+- ดูวิธีสร้างพรอมต์ที่ดีขึ้นได้ที่[หลักเกณฑ์
+  การออกแบบพรอมต์](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)
 
-フィードバックを送信
+ส่งความคิดเห็น
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最終更新日 2026-07-30 UTC。
+อัปเดตล่าสุด 2026-07-30 UTC
 
-ご意見をお聞かせください
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]

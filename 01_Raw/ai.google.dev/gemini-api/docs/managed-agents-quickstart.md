@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=it
-fetched_at: 2026-09-07T05:35:23.678685+00:00
+fetched_at: 2026-09-14T05:51:04.361172+00:00
 title: "Guida rapida di Managed Agents \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
@@ -289,7 +289,7 @@ agent = client.agents.create(
     base_agent="antigravity-preview-05-2026",
     agent_config={
         "type": "antigravity",
-        "model": "gemini-3.7-flash",
+        "model": "gemini-3.6-flash",
     },
     system_instruction="You are a math analysis agent. Generate sequences, visualize them, and export results as PDF reports.",
     base_environment={
@@ -320,7 +320,7 @@ const agent = await client.agents.create({
     base_agent: "antigravity-preview-05-2026",
     agent_config: {
         type: "antigravity",
-        model: "gemini-3.7-flash",
+        model: "gemini-3.6-flash",
     },
     system_instruction: "You are a math analysis agent. Generate sequences, visualize them, and export results as PDF reports.",
     base_environment: {
@@ -354,7 +354,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
     "base_agent": "antigravity-preview-05-2026",
     "agent_config": {
         "type": "antigravity",
-        "model": "gemini-3.7-flash"
+        "model": "gemini-3.6-flash"
     },
     "system_instruction": "You are a math analysis agent. Generate sequences, visualize them, and export results as PDF reports.",
     "base_environment": {
@@ -429,8 +429,8 @@ Invia feedback
 
 Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Ultimo aggiornamento 2026-08-19 UTC.
+Ultimo aggiornamento 2026-09-12 UTC.
 
 Vuoi dirci altro?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-08-19 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]

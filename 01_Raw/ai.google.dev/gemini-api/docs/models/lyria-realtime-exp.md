@@ -1,47 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=vi
-fetched_at: 2026-09-07T05:40:00.933115+00:00
-title: "Lyria RealTime (th\u1eed nghi\u1ec7m) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=es-419
+fetched_at: 2026-09-14T05:34:59.860562+00:00
+title: "Lyria RealTime experimental \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Lyria RealTime (thử nghiệm)
+# Lyria RealTime experimental
 
-Một công cụ thử nghiệm để tổng hợp nhạc có độ trung thực cao, cung cấp các tính năng cải tiến để tạo và chuyển đổi nội dung âm thanh. Lyria RealTime phù hợp nhất với việc viết bài hát có sự hỗ trợ của AI, tạo nhạc cụ độc đáo và quy trình làm việc sáng tạo với âm thanh đòi hỏi khả năng kiểm soát sâu sắc giai điệu và nhịp điệu, không có giọng hát.
+Es un motor experimental para la síntesis musical de alta fidelidad que ofrece capacidades innovadoras para generar y transformar contenido de audio. Lyria RealTime es ideal para la composición de canciones asistida por IA, la generación de instrumentos únicos y los flujos de trabajo de audio creativos que requieren un control profundo sobre la melodía y el ritmo, sin voces.
 
-[Dùng thử Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=vi)
+[Probar Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=es-419)
 
-## Tài liệu
+## Documentación
 
-Hãy truy cập [trang Tạo nhạc theo thời gian thực](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi) để xem đầy đủ các tính năng và chức năng.
+Visita la [Generación de música en tiempo real](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419)
+página para obtener información completa sobre las funciones y capacidades.
 
 ## lyria-realtime-exp
 
-| Thuộc tính | Mô tả |
+| Propiedad | Descripción |
 | --- | --- |
-| id\_cardMã mô hình | **Gemini API**  `lyria-realtime-exp` |
-| saveCác loại dữ liệu được hỗ trợ | **Input**  Văn bản (Câu lệnh có trọng số)  **Đầu ra**  Âm thanh (PCM 16 bit thô) |
-| token\_autoGiới hạn xem trực tuyến | **Tần số lấy mẫu**  48kHz (Âm thanh nổi)  **Độ trễ của tính năng điều khiển**  Tối đa 2 giây |
-| 123Phiên bản | Hãy đọc các [mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm chi tiết.  - Thử nghiệm: `lyria-realtime-exp` |
-| calendar\_monthNội dung cập nhật mới nhất | Tháng 5 năm 2025 |
+| id\_card id\_cardModel | **API de Gemini**  `lyria-realtime-exp` |
+| saveTipos de datos admitidos | **Entrada**  Texto (instrucciones ponderadas)  **Resultado**  Audio (PCM sin procesar de 16 bits) |
+| token\_autoLímites de transmisión | **Tasa de muestreo**  48 kHz (estéreo)  **Control de latencia**  2 segundos como máximo |
+| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Experimental: `lyria-realtime-exp` |
+| calendar\_monthÚltima actualización | Mayo de 2025 |
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+Última actualización: 2026-04-29 (UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+¿Quieres brindar más información?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]

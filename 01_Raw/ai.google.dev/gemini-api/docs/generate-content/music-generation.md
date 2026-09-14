@@ -1,38 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=ja
-fetched_at: 2026-09-07T05:31:00.734481+00:00
-title: "Lyria 3.5 \u3067\u97f3\u697d\u3092\u751f\u6210\u3059\u308b \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=id
+fetched_at: 2026-09-14T05:39:27.508846+00:00
+title: "Membuat musik dengan Lyria 3.5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
 
-フィードバックを送信
+Kirim masukan
 
-# Lyria 3.5 で音楽を生成する
+# Membuat musik dengan Lyria 3.5
 
-Lyria 3.5 は、Gemini API を介して利用できる Google の音楽生成モデル ファミリーです。Lyria 3.5 を使用すると、テキスト プロンプトや画像から、高品質の 44.1 kHz ステレオ音声を生成できます。これらのモデルは、ボーカル、タイミング付きの歌詞、完全な楽器アレンジなど、構造的な一貫性を提供します。
+Lyria 3.5 adalah serangkaian model pembuatan musik Google, yang tersedia melalui Gemini API. Dengan Lyria 3.5, Anda dapat menghasilkan audio stereo berkualitas tinggi 44, 1 kHz dari perintah teks atau dari gambar. Model ini memberikan koherensi struktural, termasuk vokal, lirik yang disesuaikan waktunya, dan aransemen instrumental lengkap.
 
-Lyria ファミリーには次のモデルが含まれています。
+Keluarga Lyria mencakup model:
 
-| モデル | モデル ID | 最適な用途 | 所要時間 | 出力 |
+| Model | ID Model | Paling cocok untuk | Durasi | Output |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | ショート クリップ、ループ、プレビュー | 30 秒 | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | A メロ、サビ、ブリッジのあるフルレングスの曲 | 数分（プロンプトで制御可能） | MP3 |
+| **Klip Lyria 3** | `lyria-3-clip-preview` | Klip pendek, loop, pratinjau | 30 detik | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | Lagu lengkap dengan bait, refrein, dan jembatan | Beberapa menit (dapat dikontrol melalui perintah) | MP3 |
 
-どちらのモデルも、標準の `generateContent` メソッドと新しい [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) を使用して使用できます。マルチモーダル入力（テキストと画像）をサポートし、**44.1 kHz の高忠実度ステレオ**音声を生成します。
+Kedua model dapat digunakan menggunakan metode `generateContent` standar dan [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) baru, yang mendukung input multimodal (teks dan gambar), serta menghasilkan audio **stereo fidelitas tinggi 44,1 kHz**.
 
-## 音楽クリップを生成する
+## Membuat klip musik
 
-Lyria 3 Clip モデルは、常に **30 秒**のクリップを生成します。クリップを生成するには、テキスト プロンプトを使用して `generateContent` メソッドを呼び出します。レスポンスには、常に生成された歌詞と曲の構成が音声とともに含まれます。
+Model Klip Lyria 3 selalu menghasilkan klip **30 detik**. Untuk membuat klip, panggil metode `generateContent` dengan perintah teks. Respons selalu
+mencakup lirik dan struktur lagu yang dibuat bersama dengan audio.
 
 ### Python
 
@@ -213,9 +214,11 @@ public class GenerateMusicClip {
 }
 ```
 
-## フルレングスの曲を生成する
+## Membuat lagu berdurasi penuh
 
-`lyria-3.5` モデルを使用して、数分間のフルレングスの曲を生成します。Pro モデルは音楽の構成を理解し、明確な A メロ、サビ、ブリッジを含む楽曲を作成できます。プロンプトで指定する（「2 分間の曲を作成して」など）か、[タイムスタンプ](#timing)を使用して構造を定義することで、長さに影響を与えることができます。
+Gunakan model `lyria-3.5` untuk membuat lagu berdurasi penuh yang berdurasi beberapa menit. Model Pro memahami struktur musik dan dapat membuat komposisi dengan bait, refrain, dan jembatan yang berbeda. Anda dapat memengaruhi
+durasi dengan menentukannya dalam perintah (misalnya, "buat lagu berdurasi 2 menit") atau dengan
+menggunakan [stempel waktu](#timing) untuk menentukan struktur.
 
 ### Python
 
@@ -290,9 +293,11 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## 出力形式を選択する
+## Pilih format output
 
-デフォルトでは、Lyria 3.5 モデルは **MP3** 形式で音声を生成します。Lyria 3.5 では、`generationConfig` で `response_format` を設定して、**WAV** 形式で出力をリクエストすることもできます。
+Secara default, model Lyria 3.5 menghasilkan audio dalam format **MP3**. Untuk
+Lyria 3.5, Anda juga dapat meminta output dalam format **WAV** dengan menyetel
+`response_format` di `generationConfig`.
 
 ### Python
 
@@ -387,9 +392,10 @@ curl -s -X POST \
   }'
 ```
 
-## レスポンスをパースする
+## Mengurai respons
 
-Lyria 3.5 からのレスポンスには複数のパートが含まれています。テキスト部分には、生成された歌詞または曲の構成の JSON 記述が含まれます。`inline_data` を含むパーツには音声バイトが含まれます。
+Respons dari Lyria 3.5 berisi beberapa bagian. Bagian teks berisi lirik yang dibuat atau deskripsi JSON dari struktur lagu. Bagian dengan
+`inline_data` berisi byte audio.
 
 ### Python
 
@@ -515,9 +521,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## 画像から音楽を生成する
+## Membuat musik dari gambar
 
-Lyria 3.5 はマルチモーダル入力をサポートしています。テキスト プロンプトとともに最大 **10 枚の画像**を提供すると、モデルは視覚的なコンテンツにインスピレーションを得た音楽を作曲します。
+Lyria 3.5 mendukung input multimodal — Anda dapat memberikan hingga **10 gambar** bersama dengan perintah teks Anda dan model akan membuat musik yang terinspirasi oleh konten visual tersebut.
 
 ### Python
 
@@ -638,9 +644,11 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## カスタム歌詞を提供する
+## Menyediakan lirik kustom
 
-独自の歌詞を書いて、プロンプトに含めることができます。`[Verse]`、`[Chorus]`、`[Bridge]` などのセクション タグを使用して、モデルが曲の構成を理解できるようにします。
+Anda dapat menulis lirik Anda sendiri dan menyertakannya dalam perintah. Gunakan tag bagian
+seperti `[Verse]`, `[Chorus]`, dan `[Bridge]` untuk membantu model memahami
+struktur lagu:
 
 ### Python
 
@@ -819,9 +827,10 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## タイミングと構造を制御する
+## Mengontrol waktu dan struktur
 
-タイムスタンプを使用すると、曲の特定の瞬間に何が起こるかを正確に指定できます。これは、楽器の開始タイミング、歌詞の配信タイミング、曲の進行方法を制御するのに役立ちます。
+Anda dapat menentukan apa yang terjadi pada momen tertentu dalam lagu menggunakan stempel waktu. Hal ini berguna untuk mengontrol kapan instrumen masuk, kapan lirik
+disampaikan, dan bagaimana progres lagu:
 
 ### Python
 
@@ -936,9 +945,9 @@ curl -s -X POST \
   }'
 ```
 
-## インストゥルメンタル トラックを生成する
+## Membuat trek instrumental
 
-BGM、ゲームのサウンドトラック、ボーカルを必要としないユースケースでは、モデルにインストゥルメンタルのみのトラックを生成するように指示できます。
+Untuk musik latar, soundtrack game, atau kasus penggunaan apa pun yang tidak memerlukan vokal, Anda dapat meminta model untuk menghasilkan trek khusus instrumental:
 
 ### Python
 
@@ -1008,9 +1017,10 @@ curl -s -X POST \
   }'
 ```
 
-## さまざまな言語で音楽を生成する
+## Membuat musik dalam berbagai bahasa
 
-Lyria 3.5 は、プロンプトの言語で歌詞を生成します。フランス語の歌詞を含む曲を生成するには、プロンプトをフランス語で記述します。モデルは、言語に合わせて音声スタイルと発音を調整します。
+Lyria 3.5 membuat lirik dalam bahasa perintah Anda. Untuk membuat lagu dengan lirik dalam bahasa Prancis, tulis perintah Anda dalam bahasa Prancis. Model ini menyesuaikan gaya vokal
+dan pengucapannya agar sesuai dengan bahasa.
 
 ### Python
 
@@ -1085,13 +1095,15 @@ curl -s -X POST \
   }'
 ```
 
-## モデル インテリジェンス
+## Kecerdasan model
 
-Lyria 3.5 は、プロンプトに基づいてモデルが音楽構造（イントロ、ヴァース、コーラス、ブリッジなど）を推論するプロンプト プロセスを分析します。これはオーディオが生成される前に行われ、構造的な一貫性と音楽性が確保されます。
+Lyria 3.5 menganalisis proses perintah Anda di mana model melakukan penalaran melalui struktur musik (intro, bait, chorus, bridge, dll.) berdasarkan perintah Anda.
+Hal ini terjadi sebelum audio dibuat dan memastikan koherensi struktural dan musikalitas.
 
 ## Interactions API
 
-Lyria 3.5 モデルは、Gemini モデルとエージェントを操作するための統合インターフェースである [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) で使用できます。複雑なマルチモーダル ユースケースの状態管理と長時間実行タスクを簡素化します。
+Anda dapat menggunakan model Lyria 3.5 dengan [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id);
+antarmuka terpadu untuk berinteraksi dengan model dan agen Gemini. Alat ini menyederhanakan pengelolaan status dan tugas yang berjalan lama untuk kasus penggunaan multimodal yang kompleks.
 
 ### Python
 
@@ -1158,75 +1170,81 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## プロンプト ガイド
+## Panduan penulisan perintah
 
-プロンプトは、「かわいい猫が水たまりを避けるフォークソング、女性ボーカルと雨の音」のような簡単なものでも、次のような詳細で構造化されたものでもかまいません。
+Perintah Anda bisa sesederhana "lagu folk tentang kucing lucu yang menghindari genangan air, vokal wanita dan suara hujan", atau sesuatu yang mendetail dan terstruktur seperti:
 
-> ドライビング ビート、きらめくシンセサイザー、キャッチーでアンセムのようなコーラスが特徴の、1980 年代風のシンセポップ トラック。レトロフューチャリスティックな雰囲気で、80 年代のクラシックなポップ ヒットを彷彿とさせ、現代的なプロダクションの洗練さも感じられる曲にして。テンポはアップビートで踊りやすい、120 BPM 程度。明確なヴァースとコーラスの構成で、印象的なインストゥルメンタルのフックがある。歌詞はパーティーの準備をしているときの気持ちについてです。
+> Lagu synth-pop bergaya 1980-an dengan beat yang kuat, synthesizer yang berkilau, dan chorus yang menarik dan anthemic. Lagu ini harus memiliki nuansa retro-futuristik,
+> yang mengingatkan pada lagu pop klasik era 80-an, dengan sentuhan produksi modern. Tempo harus ceria dan cocok untuk menari, sekitar 120 BPM, dengan struktur bait-chorus yang jelas dan hook instrumental yang mudah diingat. Liriknya menceritakan perasaan saat bersiap-siap untuk pergi ke pesta.
 
-単純なプロンプトと複雑なプロンプトの両方で、適切な出力を得ることができます。これらのヒントを試して、自分に最適な方法を見つけることをおすすめします。
+Perintah sederhana dan kompleks dapat memberikan output yang baik. Bereksperimenlah dengan tips ini untuk menemukan strategi yang paling efektif untuk Anda.
 
-### ジャンル
+### Genre
 
-プロンプトの先頭に、ヒップホップ、ロック、ラップなど、希望する音楽のジャンルを指定します。ジャンルを組み合わせて指定できます。
+Awali perintah Anda dengan genre musik yang Anda inginkan, seperti hip hop, rock, dan rap. Anda dapat menentukan campuran genre:
 
-- メタルとラップの融合
-- デスメタルとオペラの組み合わせ
-- 電子ドローン要素を含むクラシック音楽
-- モダンなエレクトロニック ダンス ミュージック（EDM）とユーロポップをミックス
+- Perpaduan metal dan rap
+- Kombinasi death metal dan opera
+- Karya klasik dengan elemen drone elektronik
+- Musik dance elektronik (EDM) modern yang dipadukan dengan Europop
 
-時代を組み込むこともできます。
+Anda juga dapat menyertakan era:
 
-- 90 年代初頭のヒップホップ
-- 60 年代のフレンチ イエイエ ポップ
-- 80 年代のエレクトロニック実験
-- 2000 年代のメインストリーム ポップ
+- Hip-hop awal 90-an
+- Pop ye-ye Prancis 60-an
+- Eksperimen elektronik tahun 80-an
+- Pop mainstream 2000-an
 
-「ベルリン テクノ」や「ベイエリア ハイフィー」などの特定のジャンルや地域バリエーションをリクエストすると、モデルはその本質を捉えようとしますが、必ずしも正しく捉えられるとは限りません。
+Jika Anda meminta genre khusus atau varian regional, seperti "techno Berlin" atau "hyphy Bay Area", model akan mencoba menangkap esensinya, tetapi mungkin tidak selalu berhasil.
 
-### 楽器
+### Instrumen
 
-デフォルトでは、Lyria 3.5 はジャンルに合った楽器とツールを使用して曲を作成します。指示的である必要はありません。
+Secara default, Lyria 3.5 akan membuat lagu dengan instrumen dan alat yang Anda harapkan untuk genre tersebut. Anda tidak perlu bersikap preskriptif.
 
-ただし、ダンス トラックにサックスを含めるには、リクエストする必要があります。サックスのソロをリクエストする場合は、次のようにプロンプトを入力する必要があります。
+Namun, trek musik dance tidak akan menyertakan saksofon kecuali jika Anda memintanya. Jadi, jika Anda menginginkan solo saksofon, Anda perlu memberikan perintah:
 
-> ドライビング ビート、きらめくシンセサイザー、キャッチーでアンセムのようなコーラスが特徴のダンス トラック。ブリッジでサックスソロが入るようにしてください。
+> Lagu dance dengan beat yang mengentak, synthesizer yang berkilau, dan chorus yang catchy dan anthemik. Solo saksofon harus masuk selama bagian jembatan.
 
-プロンプトには、特定の楽器、その音、楽器同士の相互作用を含めることができます。この組み合わせを使用して、特定の雰囲気やテクスチャを作成できます。
+Perintah Anda dapat menyertakan instrumen tertentu, suaranya, dan cara instrumen tersebut berinteraksi satu sama lain. Anda dapat menggunakan kombinasi ini untuk menciptakan suasana atau tekstur tertentu:
 
-- 汚れた歪んだベースラインと、クリーンで歯切れの良いハイハットが対立している
-- 暖かくアナログなシンセサイザーのパッドが、ドライで親密なアコースティック ギターの下で膨らむ
-- ファジーなギターの音が何層にも重なり、埋もれたような遠いボーカルが聞こえるサウンドウォール
+- Garis bass yang kotor dan terdistorsi beradu dengan hi-hat yang bersih dan jernih
+- Pad synthesizer analog yang hangat mengembang di bawah gitar akustik yang jelas dan dekat
+- Dinding suara yang dibuat oleh beberapa lapisan gitar fuzzy, dengan vokal yang terpendam dan jauh
 
-### 曲の構成
+### Struktur lagu
 
-プロンプトで曲の進行を概説できます。矢印またはリストを使用してフローを定義します。
+Anda dapat menguraikan progres lagu dalam perintah Anda. Gunakan panah atau daftar
+untuk menentukan alur:
 
 - `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
   `[Bridge]` -> `[Outro]`
-- 静かなピアノのイントロから始まり、大きな音量のバースに移行し、静寂に落ち、コーラスで爆発します。
+- Mulai dengan intro piano yang tenang, bangun ke bait yang keras, turun ke
+  keheningan, lalu meledak ke bagian chorus.
 
-これらのセクション間のエネルギー レベルの変化を指定することもできます。
+Anda juga dapat menentukan bagaimana perubahan tingkat energi di antara bagian-bagian ini:
 
-- プリコーラスで緊張感を高め、コーラスの直前で静寂に落とし、爆発的なコーラスに突入する
-- 曲全体を通して徐々にクレッシェンドし、楽器を 1 つずつ追加して、混沌とした音の壁を築き上げる
-- ブリッジの後に突然停止し、アカペラのコーラスが続く
+- Bangun ketegangan di pra-chorus, lalu turunkan ke keheningan sebelum chorus yang besar dan eksplosif
+- Crescendo bertahap di sepanjang lagu, menambahkan satu instrumen pada satu waktu
+  hingga menghasilkan suara yang kacau
+- Berhenti mendadak setelah jembatan, diikuti dengan chorus acapella
 
-特定の時刻に何かを実行するよう指示することもできます。
+Anda juga dapat meminta waktu yang tepat untuk melakukan sesuatu:
 
-- 12 秒でドロップにビルド
-- 2 秒ごとに「何？」と言う
-- サビは 22 秒から始まります
+- Bangun hingga turun di 12 dtk
+- Seseorang mengucapkan "apa" setiap 2 detik
+- Bagian chorus dimulai pada detik ke-22
 
-### 歌詞
+### Lirik
 
-ボーカルと歌詞はデフォルトで生成されます。独自の歌詞を指定したり、歌詞なし（またはインストゥルメンタル）をリクエストしたり、歌詞の生成を希望する方向に誘導したりできます。
+Vokal dan lirik dibuat secara default. Anda dapat memberikan lirik Anda sendiri,
+meminta tidak ada lirik (atau instrumental), atau mengarahkan pembuatan lirik ke
+arah yang Anda inginkan.
 
-歌詞は、プロンプトを入力した言語で作成されます。「歌詞をフランス語で書いて」など、別の言語で歌詞をリクエストすることもできます。
+Lirik Anda akan menggunakan bahasa yang Anda gunakan untuk menulis perintah. Anda juga dapat meminta lirik dalam bahasa lain, seperti "Tulis lirik dalam bahasa Prancis".
 
-#### 独自の歌詞を使用する
+#### Menggunakan lirik Anda sendiri
 
-独自の歌詞をモデルに提供するには、プロンプトに「歌詞:」という接頭辞を付けて歌詞を含めます。
+Untuk memberikan lirik Anda sendiri kepada model, sertakan lirik tersebut dalam perintah dengan awalan "Lirik:":
 
 ```
 Lyrics:
@@ -1243,90 +1261,106 @@ Go with the flow
 ...
 ```
 
-曲の一部に、`[Intro]`、`[Verse 1]`、`[Pre-chorus]`、`[Chorus]`、`[Outro]` などのセクション タイトルをプレフィックスとして追加できます。
+Anda dapat menambahkan awalan pada bagian lagu dengan judul bagian seperti `[Intro]`,
+`[Verse 1]`, `[Pre-chorus]`, `[Chorus]`, dan `[Outro]`.
 
-エコーやバック シンガーのように、単語や行を繰り返したい場合は、「Let's go (go)」のように、かっこで囲みます。
+Jika Anda ingin kata atau baris diulang, seperti gema atau oleh penyanyi latar, Anda dapat menyertakannya dalam tanda kurung: "Ayo (ayo)".
 
-#### 歌詞の作成をモデルに指示する
+#### Mengarahkan model untuk menulis lirik
 
-Lyria 3.5 に歌詞を作成させる場合は、歌詞の内容に関する詳細をプロンプトに含めることをおすすめします。そうしないと、モデルが音楽プロンプトから主題を推測する必要があり、それがユーザーの意図と異なる可能性があります。
+Jika Anda ingin Lyria 3.5 membuat lirik untuk Anda, sebaiknya sertakan detail
+tentang isi lirik tersebut dalam perintah Anda. Jika tidak, model perlu menyimpulkan subjek dari perintah musik Anda, dan mungkin tidak sesuai dengan yang Anda inginkan.
 
-> 歌詞は、失恋と失恋の痛みを歌っています。歌手は過去の恋愛と、そのときに押し寄せてきた思い出を回想しています。
+> Liriknya bercerita tentang cinta yang hilang dan rasa sakit akibat patah hati. Penyanyi ini mengenang hubungan masa lalunya dan kenangan yang kembali muncul.
 
-コーラスを繰り返したい場合は、プロンプトでそのように指定するとよいでしょう。
+Jika Anda ingin chorus yang berulang, sebaiknya minta chorus tersebut dalam perintah Anda:
 
-> 歌詞は、失恋と失恋の痛みを歌っています。歌手は過去の恋愛と、そのときに押し寄せてきた思い出を回想しています。力強いコーラスは、痛みを乗り越えて前進することに焦点を当てています。
+> Liriknya bercerita tentang cinta yang hilang dan rasa sakit akibat patah hati. Penyanyi ini mengenang hubungan masa lalunya dan kenangan yang kembali muncul. Bagian chorus yang kuat berfokus pada mengatasi rasa sakit dan melanjutkan hidup.
 
-Lyria 3.5 は、リクエストした音楽のタイプに合わせて歌詞の構成を自動的に調整しますが、プロンプトでこの点を強調することもできます。次に例を示します。
+Lyria 3.5 akan otomatis mengarahkan struktur lirik ke jenis musik yang Anda minta, tetapi Anda juga dapat menekankan kembali hal ini dalam perintah Anda. Contoh:
 
-> 同じエネルギッシュなフレーズを何度も繰り返す EDM トラック。
+> Lagu EDM yang mengulang frasa energik yang sama berulang kali.
 
-厳密には歌詞ではないボーカル効果を求めることもできます。たとえば、次のようにします。
+Anda juga dapat meminta efek vokal yang tidak sepenuhnya lirik, misalnya:
 
-- 映画の「信じられない！」というセリフが曲全体にわたって繰り返されている
-- テクノのハイエナジー トラック。ドロップの直前に音がすべて止まり、「I don't know what I'm doing here」（ここで何をしているのかわからない）という小さな声が聞こえ、その後音楽がドロップする。
-- この曲は、90 年代の映画は今よりも優れていたという会話から始まります。その後、ポップソングに移行します。
+- Sampel berulang dari sebuah film mengatakan "Saya tidak percaya ini!" di sepanjang lagu
+- Lagu techno yang penuh energi, tepat sebelum drop, semua suara berhenti dan suara kecil berkata "Aku tidak tahu apa yang kulakukan di sini", lalu musiknya drop.
+- Lagu ini diawali dengan percakapan tentang film tahun 90-an yang lebih bagus daripada film saat ini. Kemudian, lagu tersebut beralih ke lagu pop.
 
-### ボーカル
+### Vokal
 
-歌詞の表示方法をプロンプトで指定できます。最適な結果を得るには、性別、音色、音域をカバーする詳細な歌手のプロフィールを指定します。
+Anda dapat memberikan perintah tentang cara lirik akan disampaikan. Untuk hasil terbaik, tentukan profil penyanyi yang mendetail yang mencakup gender, timbre, dan rentang vokal.
 
-- **女性ソプラノ**: 透明感のあるクリスタルのような音色で、軽快で伸びのある音質。エアリーでブレス感のあるテクスチャで、口笛のような高音を出すことができます。
-- **女性アルト**: 豊かで温かみのあるハスキーな低音域。スモーキーな音色で、ボーカル フライが少し入った、ソウルフルで共鳴するサウンド。
-- **男性テノール**: 明るく、鋭く、エネルギッシュ。若々しい音色で、鼻にかかったような声質。高音域のベルティングでミックスを突き抜ける。
-- **男性バリトン**: 深みがあり、チョコレートのような滑らかさ。心地よい歌声で、胸に響くような声。
-- **Weathered Rocker（男性）**: 90 年代のグランジを彷彿とさせる、ザラつきのある質感と砂利のような音色。感情の強さの上限を超えている。
+- **Sopran Wanita**: Timbre yang jernih dan seperti kristal dengan kualitas yang lincah dan tinggi. Mampu mencapai nada tinggi yang berdesir dengan tekstur
+  ringan dan berhembus.
+- **Alto Perempuan**: Rentang bawah yang kaya, hangat, dan serak. Timbre berasap dengan sentuhan vocal fry, penuh jiwa dan beresonansi.
+- **Tenor Pria**: Cerah, tajam, dan penuh semangat. Timbre muda dengan sedikit sentuhan sengau, menembus campuran dengan kekuatan belting yang tinggi.
+- **Bariton Pria**: Dalam, seperti cokelat, dan selembut beludru. Suara dada yang beresonansi dengan penyampaian yang menenangkan dan mendayu-dayu.
+- **Weathered Rocker (Pria)**: Serak dan bertekstur dengan timbre berpasir,
+  mengingatkan pada grunge era 90-an. Rentang atas yang tegang untuk intensitas emosional.
 
-### その他のプロンプト パラメータ
+### Parameter perintah lainnya
 
-これらのパラメータを含めて、プロンプトをさらに絞り込むこともできます。
+Anda juga dapat menyertakan parameter ini untuk lebih menyempurnakan perintah Anda:
 
-- **キー/スケール**: 音楽のキーを指定します（例: 「ト長調」、「ニ短調」）。
-- **ムードと雰囲気**: 説明的な形容詞（「ノスタルジック」、「アグレッシブ」、「幽玄」、「夢のような」など）を使用します。
-- **再生時間**: Clip モデルは常に 30 秒のクリップを生成します。Pro モデルの場合は、プロンプトで希望する長さを指定するか（例: 「2 分間の曲を作成して」）、タイムスタンプを使用して長さを制御します。
+- **BPM**: Setel tempo (misalnya, "120 BPM", "tempo lambat sekitar 70 BPM").
+- **Nada Dasar/Skala**: Tentukan nada dasar musik (misalnya, "dalam G mayor", "D minor").
+- **Suasana dan nuansa**: Gunakan kata sifat deskriptif (misalnya, "nostalgia", "agresif", "indah", "melamun").
+- **Durasi**: Model Klip selalu menghasilkan klip berdurasi 30 detik. Untuk model Pro, tentukan durasi yang diinginkan dalam perintah Anda (misalnya, "buat lagu berdurasi 2 menit") atau gunakan stempel waktu untuk mengontrol durasi.
 
-### プロンプトの例
+### Contoh perintah
 
-効果的なプロンプトの例を次に示します。
+Berikut beberapa contoh perintah yang efektif:
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
   bass line. Instrumental only."`
 - `"An upbeat, feel-good pop song in G major at 120 BPM with bright acoustic
-  guitar strumming, claps, and warm vocal harmonies about a summer road trip."`
+  guitar strumming, claps, and warm vocal harmonies about a summer road
+  trip."`
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## ベスト プラクティス
+## Praktik terbaik
 
-- **まず Clip でイテレーションを行います。**高速な `lyria-3-clip-preview` モデルを使用して、`lyria-3.5` でフルレングスの生成をコミットする前にプロンプトをテストします。
-- **具体的に記述しましょう。**曖昧なプロンプトでは、ありきたりな結果しか得られません。最適な出力を得るために、楽器、BPM、キー、ムード、構成を指定します。
-- **セクションタグを使用します。**`[Verse]`、`[Chorus]`、`[Bridge]` タグを使用すると、モデルが従うべき明確な構造が提供されます。
-- **歌詞と手順を分ける。**カスタム歌詞を指定する場合は、音楽の指示と明確に区別してください。
+- **Lakukan iterasi dengan Klip terlebih dahulu.** Gunakan model `lyria-3-clip-preview` yang lebih cepat untuk bereksperimen dengan perintah sebelum melakukan pembuatan panjang penuh dengan `lyria-3.5`.
+- **Jadilah spesifik.** Perintah yang tidak jelas akan menghasilkan hasil yang umum. Sebutkan instrumen,
+  BPM, nada dasar, mood, dan struktur untuk output terbaik.
+- **Cocokkan bahasa Anda.** Berikan perintah dalam bahasa yang Anda inginkan untuk liriknya.
+- **Gunakan tag bagian.** Tag `[Verse]`, `[Chorus]`, `[Bridge]` memberikan struktur yang jelas untuk diikuti model.
+- **Pisahkan lirik dari petunjuk.** Saat memberikan lirik kustom, pisahkan dengan jelas dari petunjuk arahan musik Anda.
 
-## 制限事項
+## Batasan
 
-- **安全性**: すべてのプロンプトは安全フィルタによってチェックされます。フィルタをトリガーするプロンプトはブロックされます。これには、特定のアーティストの音声や著作権で保護された歌詞の生成をリクエストするプロンプトが含まれます。
-- **透かし**: 生成されたすべての音声には、識別用の [SynthID オーディオ ウォーターマーク](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ja)が含まれています。この透かしは人間の耳には聞こえず、リスニング体験に影響しません。
-- **マルチターン編集**: 音楽生成はシングルターン プロセスです。現在のバージョンの Lyria 3.5 では、複数のプロンプトを使用して生成されたクリップを繰り返し編集または調整することはできません。
-- **長さ**: クリップモデルは常に 30 秒のクリップを生成します。Pro モデルでは、数分間の曲が生成されます。正確な長さはプロンプトで調整できます。
-- **決定論**: 同じプロンプトでも、呼び出しごとに結果が異なる場合があります。
+- **Keamanan (Safety)**: Semua perintah diperiksa oleh filter keamanan. Perintah yang memicu
+  filter akan diblokir. Hal ini mencakup perintah yang meminta suara artis tertentu atau pembuatan lirik yang dilindungi hak cipta.
+- **Pemberian watermark**: Semua audio yang dihasilkan menyertakan
+  [watermark audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id) untuk
+  identifikasi. Watermark ini tidak dapat didengar oleh telinga manusia dan tidak memengaruhi pengalaman mendengarkan.
+- **Pengeditan berkelanjutan**: Pembuatan musik adalah proses sekali putaran.
+  Pengeditan atau penyempurnaan klip yang dihasilkan secara berulang melalui beberapa perintah tidak didukung di Lyria 3.5 versi saat ini.
+- **Panjang**: Model Klip selalu menghasilkan klip berdurasi 30 detik. Model Pro
+  membuat lagu berdurasi beberapa menit; durasi yang tepat dapat
+  dipengaruhi melalui perintah Anda.
+- **Determinisme**: Hasil dapat bervariasi antar-panggilan, bahkan dengan perintah yang sama.
 
-## 次のステップ
+## Langkah berikutnya
 
-- Lyria 3.5 モデルの[料金](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=ja)を確認します。
-- Lyria RealTime を使用して、[リアルタイムのストリーミング音楽生成](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=ja)を試す。
-- [TTS モデル](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=ja)を使用して複数の話者による会話を生成する。
-- [画像](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=ja)や[動画](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=ja)を生成する方法について説明します。
-- Gemini が[音声ファイルを理解する](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=ja)仕組み、
-- [Live API](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=ja) を使用して、Gemini とリアルタイムで会話できます。
+- Periksa [harga](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=id) untuk model Lyria 3.5.
+- Coba [pembuatan musik streaming real-time](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=id) dengan Lyria RealTime.
+- Buat percakapan multi-pembicara dengan
+  [model TTS](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=id).
+- Temukan cara membuat [gambar](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=id) atau [video](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=id).
+- Cari tahu cara Gemini dapat [memahami file audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=id).
+- Lakukan percakapan real-time dengan Gemini menggunakan
+  [Live API](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=id).
 
-フィードバックを送信
+Kirim masukan
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最終更新日 2026-09-04 UTC。
+Terakhir diperbarui pada 2026-09-10 UTC.
 
-ご意見をお聞かせください
+Ada masukan untuk kami?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-04 UTC。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]

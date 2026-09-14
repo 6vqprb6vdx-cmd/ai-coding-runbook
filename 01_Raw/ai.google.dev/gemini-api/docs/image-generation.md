@@ -1,96 +1,100 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=vi
-fetched_at: 2026-09-07T05:28:40.929427+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-BR
+fetched_at: 2026-09-14T05:52:50.067605+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-# Tạo hình ảnh bằng Nano Banana
+# Geração de imagens com o Nano Banana
 
-Đưa ra câu lệnh để tạo nguyên mẫu cho các ứng dụng đầy đủ chức năng, hoàn chỉnh về giao diện người dùng và xem Nano Banana 2 được tích hợp với các công cụ, dữ liệu thực tế và hệ sinh thái Gemini. Tất cả những việc này đều diễn ra trước khi bạn viết một dòng mã.
+Use comandos para prototipar apps totalmente funcionais e com interface completa, além de conferir
+o Nano Banana 2 integrado a ferramentas, dados e ecossistema do Gemini
+do mundo real. Tudo isso antes de escrever uma única linha de código.
 
-- Hoặc tạo hình ảnh của riêng bạn từ câu lệnh:
+- Ou crie o seu com comandos:
 
-- ![tạp chí](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
-  ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![khôi phục](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![quả chuối](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![quán cà phê](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![bài viết](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![chó](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![đẳng cự](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![tạp chí](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![revista](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  ![restore](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+  ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![artigo](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![cachorro](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![isométrico](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![revista](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Do Nano Banana 2 tạo
+  Gerado pelo Nano Banana 2
 
-  **Câu lệnh:** "Ảnh chụp một trang bìa tạp chí bóng loáng, trang bìa màu xanh dương tối giản có dòng chữ Nano Banana lớn in đậm. Văn bản có phông chữ có chân và lấp đầy khung hiển thị. Không có văn bản nào khác. Phía trước văn bản là ảnh chân dung một người mặc chiếc váy thanh lịch và tối giản. Cô đang cầm số 2 một cách tinh nghịch, đây là tâm điểm của bức ảnh.
+  **Comando**: "Uma foto da capa brilhante de uma revista. A capa azul minimalista tem as palavras grandes e em negrito Nano Banana. O texto está em uma fonte serifada e preenche a visualização. Nenhum outro texto. Na frente do texto, há um retrato de uma pessoa com um vestido elegante e minimalista. Ela está segurando o número 2, que é o ponto focal.
     
-  Đặt số phát hành và ngày "tháng 2 năm 2026" ở góc cùng với mã vạch. Tạp chí này nằm trên một chiếc kệ dựa vào bức tường trát vữa màu cam, bên trong một cửa hàng thiết kế."
-- ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  Coloque o número da edição e a data "Fev 2026" no canto junto com um código de barras. A revista está em uma prateleira contra uma parede laranja rebocada, dentro de uma loja de design".
+- ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Do Nano Banana Pro tạo
+  Gerado pelo Nano Banana Pro
 
-  **Câu lệnh:** "Tạo một cảnh hoạt hình 3D thu nhỏ, rõ nét, đẳng cự, góc nhìn 45° từ trên xuống về London, có các địa danh và yếu tố kiến trúc tiêu biểu nhất. Sử dụng các hoạ tiết tinh tế, mềm mại với chất liệu PBR chân thực, ánh sáng và bóng đổ nhẹ nhàng, sống động. Tích hợp điều kiện thời tiết hiện tại trực tiếp vào môi trường thành phố để tạo ra một bầu không khí sống động. Sử dụng bố cục tối giản, gọn gàng với nền có màu đồng nhất và dịu nhẹ. Ở phía trên cùng ở giữa, hãy đặt tiêu đề "London" bằng văn bản in đậm cỡ lớn, một biểu tượng thời tiết nổi bật bên dưới, sau đó là ngày (chữ nhỏ) và nhiệt độ (chữ cỡ trung). Tất cả văn bản phải được căn giữa với khoảng cách nhất quán và có thể hơi chồng lên phần trên của các toà nhà."
+  **Comando**: "Apresente uma cena de desenho animado 3D em miniatura isométrica clara, com 45° de inclinação vista de cima para baixo de Londres, apresentando os marcos e elementos arquitetônicos mais icônicos. Use texturas suaves e refinadas com materiais PBR realistas e iluminação e sombras suaves e realistas. Integre as condições climáticas atuais diretamente ao ambiente da cidade para criar uma atmosfera imersiva. Use uma composição limpa e minimalista com um fundo macio e de cor sólida. Na parte de cima, no centro, coloque o título "Londres" em texto grande e em negrito, um ícone de clima em destaque abaixo dele e, em seguida, a data (texto pequeno) e a temperatura (texto médio). Todo o texto precisa estar centralizado com espaçamento consistente e pode se sobrepor sutilmente aos topos dos edifícios."
 - ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Do Nano Banana 2 tạo
+  Gerado pelo Nano Banana 2
 
-  **Câu lệnh:** "Sử dụng tính năng tìm kiếm hình ảnh để tìm hình ảnh chính xác về chim đuôi quạt rực rỡ. Tạo một hình nền đẹp mắt cho chú chim này theo tỷ lệ 3:2, có hiệu ứng chuyển màu tự nhiên từ trên xuống dưới và bố cục tối giản."
-- ![quả chuối](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  **Comando**: "Use a pesquisa por imagens para encontrar imagens precisas de um quetzal resplandecente. Crie um plano de fundo 3:2 lindo dessa ave, com um gradiente natural de cima para baixo e composição minimalista."
+- ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Do Nano Banana Pro tạo
+  Gerado pelo Nano Banana Pro
 
-  **Câu lệnh:** "Đặt biểu trưng này lên một quảng cáo cao cấp cho nước hoa có mùi chuối. Biểu trưng được tích hợp hoàn hảo vào chai."
-- ![quán cà phê](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  **Comando**: "Coloque este logotipo em um anúncio sofisticado de um perfume com aroma de banana. O logotipo está perfeitamente integrado à garrafa".
+- ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Do Nano Banana Pro tạo
+  Gerado pelo Nano Banana Pro
 
-  **Câu lệnh:** "Một bức ảnh chụp cảnh sinh hoạt thường ngày tại một quán cà phê đông đúc phục vụ bữa sáng. Ở tiền cảnh là một người đàn ông trong phim hoạt hình có mái tóc màu xanh dương, một trong số những người này là bản phác thảo bằng bút chì, người còn lại là nhân vật hoạt hình bằng đất sét"
-- ![bài viết](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  **Comando**: "Uma foto de uma cena cotidiana em um café movimentado que serve café da manhã. Em primeiro plano, um homem de anime com cabelo azul, uma das pessoas é um esboço a lápis, outra é uma pessoa de animação com massa de modelar"
+- ![artigo](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Do Nano Banana Pro tạo
+  Gerado pelo Nano Banana Pro
 
-  **Câu lệnh:** "Dùng tính năng tìm kiếm để tìm hiểu phản ứng của mọi người về việc ra mắt Gemini 3 Flash. Hãy dùng thông tin này để viết một bài viết ngắn về chủ đề đó (có tiêu đề). Trả về ảnh của bài viết như xuất hiện trong một tạp chí bóng bẩy tập trung vào thiết kế. Đây là ảnh chụp một trang giấy được gấp lại, cho thấy bài viết về Gemini 3 Flash. Một ảnh chính. Dòng tiêu đề có chân."
-- ![chó](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  **Comando**: "Use a pesquisa para saber como foi a recepção do lançamento do Gemini 3 Flash. Use essas informações para escrever um pequeno artigo sobre o assunto (com títulos). Retorne uma foto do artigo como ele apareceu em uma revista brilhante focada em design. É uma foto de uma única página dobrada, mostrando o artigo sobre o Gemini 3 Flash. Uma foto principal. Título em serifada."
+- ![cachorro](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Do Nano Banana Pro tạo
+  Gerado pelo Nano Banana Pro
 
-  **Câu lệnh:** "Một biểu tượng đại diện cho một chú chó dễ thương. Nền có màu trắng. Tạo các biểu tượng theo phong cách 3D nhiều màu sắc và có kết cấu. Không có văn bản."
-- ![đẳng cự](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  **Comando**: "Um ícone representando um cachorro fofo. O plano de fundo é branco. Faça os ícones em um estilo 3D colorido e tátil. Sem texto."
+- ![isométrico](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Do Nano Banana 2 tạo
+  Gerado pelo Nano Banana 2
 
-  **Câu lệnh:** "Tạo một bức ảnh có góc nhìn hoàn toàn đẳng cự. Đây không phải là một bức ảnh thu nhỏ, mà là một bức ảnh chụp tình cờ có góc nhìn hoàn toàn đẳng cự. Đây là ảnh chụp một khu vườn hiện đại tuyệt đẹp. Có một bể bơi lớn có hình số 2 và dòng chữ: Nano Banana 2.
+  **Comando**: "Crie uma foto perfeitamente isométrica. Não é uma miniatura, é uma foto que foi tirada e ficou perfeitamente isométrica. É uma foto de um lindo jardim moderno. Há uma grande piscina em forma de 2 e as palavras: Nano Banana 2."
 
-**Nano Banana** là tên gọi của các tính năng tạo hình ảnh gốc của Gemini.
-Gemini có thể tạo và xử lý hình ảnh theo cách đàm thoại bằng văn bản, hình ảnh hoặc kết hợp cả hai. Điều này giúp bạn tạo, chỉnh sửa và lặp lại các hình ảnh với khả năng kiểm soát chưa từng có.
+**Nano Banana** é o nome dos recursos nativos de geração de imagens do Gemini.
+O Gemini pode gerar e processar imagens de forma conversacional
+com texto, imagens ou uma combinação dos dois. Isso permite criar, editar e
+fazer iterações em recursos visuais com controle incomparável.
 
-Nano Banana là tên gọi của 4 mô hình riêng biệt có trong Gemini API:
+Nano Banana se refere a quatro modelos distintos disponíveis na API Gemini:
 
-- **Nano Banana 2 Lite ([Hình ảnh Gemini 3.1 Flash Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=vi))
-  (`gemini-3.1-flash-lite-image`):** Mô hình hình ảnh Gemini nhanh nhất và rẻ nhất của chúng tôi, được thiết kế để có tốc độ và quy mô lớn, trong đó tốc độ và chi phí là những hạn chế chính về hoạt động. Không được tối ưu hoá cho nhiều dữ liệu đầu vào tham chiếu hoặc chỉnh sửa tuần tự nhiều lượt.
-- **Nano Banana 2 ([Hình ảnh Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi))
-  (`gemini-3.1-flash-image`):** Đóng vai trò là mô hình linh hoạt nhất, mô hình đa năng cho mọi tác vụ. Mô hình này cân bằng giữa tốc độ với khả năng tạo hình ảnh 4K tiên tiến, kiến thức sâu rộng về thế giới và khả năng hiển thị văn bản đáng tin cậy. Xử lý nhiều hình ảnh tham khảo và tính nhất quán một cách xuất sắc.
-- **Nano Banana Pro ([Hình ảnh Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=vi))
-  (`gemini-3-pro-image`):** Lựa chọn cao cấp cho những tác vụ phức tạp nhất về hình ảnh, mang đến kiến thức toàn cầu ở cấp độ cao nhất, khả năng bản địa hoá nâng cao, tính nhất quán chính xác của thương hiệu và khả năng kiểm soát sáng tạo chính xác.
-- **Nano Banana ([Hình ảnh Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi))
-  (`gemini-2.5-flash-image`):** Phiên bản tiên phong cũ của dòng Nano Banana.
-  Mặc dù là một công cụ đáng tin cậy, nhưng chúng tôi đặc biệt khuyến khích khách hàng chuyển sang Nano Banana 2 Lite để trải nghiệm chất lượng cao hơn, tốc độ tạo nhanh hơn và giá API thấp hơn.
+- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=pt-br))
+  (`gemini-3.1-flash-lite-image`):** nosso modelo de imagem do Gemini mais rápido e barato, projetado para velocidade e escala em que velocidade e custo são as principais restrições operacionais. Não é otimizado para várias entradas de referência ou edição sequencial multiturno.
+- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=pt-br))
+  (`gemini-3.1-flash-image`):** é o modelo mais versátil e generalista para todas as tarefas. Ele equilibra a velocidade com a geração de 4K de última geração, o conhecimento do mundo e a renderização de texto confiável. Excelente no processamento e na consistência de várias imagens de referência.
+- **Nano Banana Pro ([Imagens no Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=pt-br))
+  (`gemini-3-pro-image`):** a opção premium para as tarefas visuais mais complexas, oferecendo o mais alto nível de conhecimento do mundo, localização avançada, consistência precisa da marca e controle criativo preciso.
+- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pt-br))
+  (`gemini-2.5-flash-image`):** o pioneiro legado da série Nano Banana.
+  Embora tenha sido um cavalo de batalha confiável, recomendamos que os clientes façam a transição para o Nano Banana 2 Lite para aproveitar uma qualidade aprimorada, velocidades de geração mais rápidas e preços de API mais baixos.
 
-Tất cả hình ảnh được tạo đều có [hình mờ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi).
+Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=pt-br).
 
-## Tạo hình ảnh (chuyển văn bản thành hình ảnh)
+## Geração de imagens (criação de imagens a partir de texto)
 
 ### Python
 
@@ -138,6 +142,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("base64"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -153,17 +174,20 @@ curl -s -X POST \
   }'
 ```
 
-Bạn có thể truy xuất dữ liệu hình ảnh được tạo bằng cách sử dụng thuộc tính `interaction.output_image`. Thuộc tính này trả về khối hình ảnh được tạo gần đây nhất. Để biết thông tin chi tiết về các thuộc tính tiện lợi, hãy xem phần [Tổng quan về các hoạt động tương tác](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi#convenience-properties).
+É possível recuperar os dados de imagem gerados usando a propriedade `interaction.output_image`, que retorna o último bloco de imagem gerado. Para mais detalhes sobre
+propriedades de conveniência, consulte a
+[Visão geral das interações](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br#convenience-properties).
 
-## Chỉnh sửa hình ảnh (chuyển văn bản và hình ảnh thành hình ảnh)
+## Edição de imagens (texto e imagem para imagem)
 
-**Lời nhắc**: Hãy đảm bảo rằng bạn có các quyền cần thiết đối với mọi hình ảnh mà bạn tải lên.
-Bạn không được tạo nội dung vi phạm quyền của người khác, kể cả video hoặc hình ảnh lừa gạt, quấy rối hoặc gây hại. Khi sử dụng dịch vụ AI tạo sinh này, bạn phải tuân theo [Chính sách về các hành vi bị cấm](https://policies.google.com/terms/generative-ai/use-policy?hl=vi) của chúng tôi.
+**Lembrete**: confira se você tem os direitos necessários sobre as imagens que enviar.
+Não gere conteúdo que viole os direitos de terceiros, incluindo vídeos ou imagens que enganem, assediem ou prejudiquem pessoas. O uso deste serviço de IA generativa está sujeito à nossa [Política de uso proibido](https://policies.google.com/terms/generative-ai/use-policy?hl=pt-br).
 
-Cung cấp hình ảnh và sử dụng câu lệnh dạng văn bản để thêm, xoá hoặc sửa đổi các phần tử, thay đổi kiểu hoặc điều chỉnh phân loại màu.
+Forneça uma imagem e use comandos de texto para adicionar, remover ou modificar elementos,
+mudar o estilo ou ajustar a gradação de cores.
 
-Ví dụ sau đây minh hoạ việc tải hình ảnh được mã hoá `base64` lên.
-Đối với nhiều hình ảnh, tải trọng lớn hơn và các loại MIME được hỗ trợ, hãy xem trang [Hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi).
+O exemplo a seguir demonstra o upload de imagens codificadas em `base64`.
+Para várias imagens, payloads maiores e tipos MIME compatíveis, consulte a página [Entendimento de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br).
 
 ### Python
 
@@ -235,6 +259,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Create a picture of my cat eating a nano-banana in a"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -255,9 +296,9 @@ curl -s -X POST \
     }"
 ```
 
-### Chỉnh sửa hình ảnh nhiều lượt
+### Edição de imagens multiturno
 
-Tiếp tục tạo và chỉnh sửa hình ảnh theo cách trò chuyện. Đàm thoại nhiều lượt là cách nên dùng để lặp lại hình ảnh. Ví dụ sau đây cho thấy một câu lệnh để tạo bản đồ hoạ thông tin về quá trình quang hợp.
+Continue gerando e editando imagens de forma conversacional. A conversa multiturno é a maneira recomendada de iterar imagens. O exemplo a seguir mostra um comando para gerar um infográfico sobre a fotossíntese.
 
 ### Python
 
@@ -303,6 +344,23 @@ async function main() {
 await main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Create a vibrant infographic that explains photosynthesis as if it were a recipe for a plant"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -319,11 +377,11 @@ curl -s -X POST \
   }'
 ```
 
-![Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=vi)
+![Infográfico gerado com IA sobre a fotossíntese](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=pt-br)
 
-Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp
+Infográfico gerado com IA sobre a fotossíntese
 
-Sau đó, bạn có thể dùng `previous_interaction_id` để thay đổi ngôn ngữ trên hình ảnh thành tiếng Tây Ban Nha.
+Em seguida, use `previous_interaction_id` para mudar o idioma do gráfico para espanhol.
 
 ### Python
 
@@ -368,6 +426,23 @@ if (generatedImage) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Update this infographic to be in Spanish. Do not change any other elements of the image."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -388,35 +463,35 @@ curl -s -X POST \
   }'
 ```
 
-![Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp bằng tiếng Tây Ban Nha](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=vi)
+![Infográfico gerado com IA sobre a fotossíntese em espanhol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=pt-br)
 
-Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp bằng tiếng Tây Ban Nha
+Infográfico gerado com IA sobre a fotossíntese em espanhol
 
-## Tính năng mới của các mô hình hình ảnh Gemini 3
+## Novidade com os modelos de imagem do Gemini 3
 
-Gemini 3 cung cấp các mô hình tạo và chỉnh sửa hình ảnh tiên tiến. Gemini 3.1 Flash Image được tối ưu hoá về tốc độ và các trường hợp sử dụng với khối lượng lớn, còn Gemini 3 Pro Image được tối ưu hoá cho việc sản xuất nội dung chuyên nghiệp.
-Được thiết kế để giải quyết những quy trình làm việc khó khăn nhất thông qua khả năng suy luận nâng cao, các mô hình này có thể thực hiện xuất sắc những nhiệm vụ tạo và sửa đổi phức tạp, nhiều lượt.
+O Gemini 3 oferece modelos de edição e geração de imagens de última geração. O Gemini 3.1 Flash Image é otimizado para velocidade e casos de uso de alto volume, e o Gemini 3 Pro Image é otimizado para produção de recursos profissionais.
+Projetados para lidar com os fluxos de trabalho mais desafiadores usando raciocínio avançado, eles são excelentes em tarefas complexas de criação e modificação multiturno.
 
-- **Đầu ra có độ phân giải cao**: Khả năng tạo hình ảnh 1K, 2K và 4K được tích hợp sẵn.
-  - **Hình ảnh Gemini 3.1 Flash** có thêm độ phân giải nhỏ hơn là 512 px (0,5K).
-  - **Hình ảnh Gemini 3.1 Flash Lite** chỉ hỗ trợ độ phân giải 1K.
-- **Kết xuất văn bản nâng cao**: Có khả năng tạo văn bản dễ đọc, cách điệu cho đồ hoạ thông tin, thực đơn, sơ đồ và thành phần tiếp thị.
-- **Neo bám vào Google Tìm kiếm**: Mô hình có thể sử dụng Google Tìm kiếm làm công cụ để xác minh thông tin và tạo hình ảnh tạo sinh dựa trên dữ liệu theo thời gian thực (ví dụ: bản đồ thời tiết hiện tại, biểu đồ cổ phiếu, sự kiện gần đây).
-  - **Không được mô hình Hình ảnh Gemini 3.1 Flash Lite hỗ trợ.**
-  - **Hình ảnh Gemini 3.1 Flash** bổ sung tính năng tích hợp Google Tìm kiếm hình ảnh cùng với Tìm kiếm trên web.
-- **Chế độ tư duy**: Mô hình sử dụng quy trình "tư duy" để suy luận thông qua các câu lệnh phức tạp. Công cụ này tạo ra "hình ảnh ý tưởng" tạm thời (có thể nhìn thấy ở phần phụ trợ nhưng không tính phí) để tinh chỉnh bố cục trước khi tạo ra thành phẩm chất lượng cao cuối cùng.
-- **Tối đa 14 hình ảnh tham khảo**: Giờ đây, bạn có thể kết hợp tối đa 14 hình ảnh tham khảo để tạo ra hình ảnh cuối cùng.
-- **Tỷ lệ khung hình mới**: Gemini 3.1 Flash Lite Image bổ sung `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` [tỷ lệ khung hình](#aspect_ratios_and_image_size).
+- **Saída de alta resolução**: recursos de geração integrados para visuais em 1K, 2K e 4K.
+  - O **Gemini 3.1 Flash Image** adiciona a resolução menor de 512 pixels (0,5K).
+  - O **Gemini 3.1 Flash Lite Image** só é compatível com resolução 1K.
+- **Renderização avançada de texto**: capaz de gerar texto legível e estilizado para infográficos, menus, diagramas e recursos de marketing.
+- **Embasamento com a Pesquisa Google**: o modelo pode usar a Pesquisa Google como uma ferramenta para verificar fatos e gerar imagens com base em dados em tempo real (por exemplo, mapas meteorológicos atuais, gráficos de ações, eventos recentes).
+  - **Indisponível para o modelo de imagem do Gemini 3.1 Flash Lite.**
+  - O **Gemini 3.1 Flash Image** adiciona a integração do embasamento da Pesquisa de Imagens do Google com a Pesquisa na Web.
+- **Modo de raciocínio**: o modelo usa um processo de "raciocínio" para analisar comandos complexos. Ele gera "imagens de pensamento" provisórias (visíveis no back-end, mas não cobradas) para refinar a composição antes de produzir a saída final de alta qualidade.
+- **Até 14 imagens de referência**: agora você pode combinar até 14 imagens de referência para gerar a imagem final.
+- **Novas proporções**: a criação de imagens do Gemini 3.1 Flash Lite adiciona `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9` e `21:9` [proporções](#aspect_ratios_and_image_size).
 
-### Sử dụng tối đa 14 hình ảnh tham khảo
+### Usar até 14 imagens de referência
 
-Các mô hình hình ảnh Gemini 3 cho phép bạn kết hợp tối đa 14 hình ảnh tham khảo. 14 hình ảnh này có thể bao gồm:
+Com os modelos de imagem do Gemini 3, você pode misturar até 14 imagens de referência. Essas 14 imagens podem incluir o seguinte:
 
-| Hình ảnh Gemini 3.1 Flash Lite | Hình ảnh Gemini 3.1 Flash | Hình ảnh Gemini 3 Pro |
+| Imagem do Gemini 3.1 Flash Lite | Imagem do Gemini 3.1 Flash | Gemini 3 Pro Image |
 | --- | --- | --- |
-| Tối đa 14 hình ảnh về các đối tượng có độ trung thực cao để đưa vào hình ảnh cuối cùng | Tối đa 10 hình ảnh về các đối tượng có độ trung thực cao để đưa vào hình ảnh cuối cùng | Tối đa 6 hình ảnh về các đối tượng có độ trung thực cao để đưa vào hình ảnh cuối cùng |
-| Không áp dụng | Tối đa 4 hình ảnh về nhân vật để đảm bảo tính nhất quán cho nhân vật | Tối đa 5 hình ảnh về nhân vật để đảm bảo tính nhất quán cho nhân vật |
-| Không áp dụng | Không áp dụng | Tối đa 3 hình ảnh được dùng làm hình ảnh tham khảo về kiểu |
+| Até 14 imagens de objetos de alta fidelidade para incluir na imagem final | Até 10 imagens de objetos com alta fidelidade para incluir na imagem final | Até seis imagens de objetos com alta fidelidade para incluir na imagem final |
+| N/A | Até quatro imagens de personagens para manter a consistência | Até cinco imagens de personagens para manter a consistência |
+| N/A | N/A | Até três imagens para usar como referências de estilo |
 
 ### Python
 
@@ -513,6 +588,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("An office group photo of these people, they are making funny faces."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -538,15 +630,15 @@ curl -s -X POST \
     }"
 ```
 
-![Ảnh chụp nhóm nhân viên văn phòng do AI tạo](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=vi)
+![Foto de grupo do escritório gerada com IA](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=pt-br)
 
-Ảnh chụp nhóm văn phòng do AI tạo
+Foto de grupo do escritório gerada com IA
 
-### Bám sát nguồn bằng Google Tìm kiếm
+### Embasamento com a Pesquisa Google
 
-Sử dụng [công cụ Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) để tạo hình ảnh dựa trên thông tin theo thời gian thực, chẳng hạn như dự báo thời tiết, biểu đồ cổ phiếu hoặc sự kiện gần đây.
+Use a [ferramenta da Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) para gerar imagens com base em informações em tempo real, como previsões do tempo, gráficos de ações ou eventos recentes.
 
-Xin lưu ý rằng khi sử dụng tính năng Nền tảng kiến thức với Google Tìm kiếm để tạo hình ảnh, kết quả tìm kiếm dựa trên hình ảnh sẽ không được chuyển đến mô hình tạo và sẽ bị loại trừ khỏi câu trả lời (xem phần [Nền tảng kiến thức với Google Tìm kiếm hình ảnh](#image-search))
+Ao usar o embasamento com a Pesquisa Google na geração de imagens, os resultados da pesquisa baseados em imagens não são transmitidos ao modelo de geração e são excluídos da resposta. Consulte [Embasamento com a Pesquisa de imagens do Google](#image-search).
 
 ### Python
 
@@ -602,6 +694,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Visualize the current weather forecast for the next 5 days in San Francisco as a clean, modern weather chart. Add a visual on what I should wear each day"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -623,20 +732,22 @@ curl -s -X POST \
   }'
 ```
 
-![Biểu đồ thời tiết 5 ngày do AI tạo cho San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=vi)
+![Gráfico de clima de cinco dias gerado com IA para São Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=pt-br)
 
-Biểu đồ thời tiết 5 ngày do AI tạo cho San Francisco
+Gráfico de previsão do tempo de cinco dias gerado por IA para São Francisco
 
-Phản hồi bao gồm các bước `google_search_call` và `google_search_result`, cùng với chú thích `url_citation` trong dòng trên bước văn bản:
+A resposta inclui as etapas `google_search_call` e `google_search_result`, além de anotações `url_citation` in-line na etapa de texto:
 
-- **`google_search_result`**: Chứa `search_suggestions`, một đoạn mã HTML để hiển thị các đề xuất tìm kiếm trong giao diện người dùng của bạn.
-- Chú thích **`url_citation`**: Trích dẫn nội dòng trên bước văn bản liên kết các phần của câu trả lời với nguồn trên web.
+- **`google_search_result`**: contém `search_suggestions`, um snippet HTML
+  para renderizar sugestões de pesquisa na sua interface.
+- **Anotações `url_citation`**: citações inline na etapa de texto que vinculam partes da resposta às fontes da Web.
 
-### Neo bám vào Google Tìm kiếm cho hình ảnh (3.1 Flash)
+### Embasamento com a Pesquisa Google para imagens (3.1 Flash)
 
-Tính năng tiếp đất bằng Google Tìm kiếm hình ảnh cho phép các mô hình sử dụng hình ảnh trên web được truy xuất thông qua Google Tìm kiếm hình ảnh làm bối cảnh trực quan để tạo hình ảnh. Tìm kiếm bằng hình ảnh là một loại tìm kiếm mới trong công cụ Neo bám vào Google Tìm kiếm hiện có, hoạt động cùng với tính năng [Tìm kiếm trên web](#use-with-grounding) tiêu chuẩn.
+Com o embasamento na Pesquisa de imagens do Google, os modelos podem usar imagens da Web recuperadas pela Pesquisa de imagens do Google como contexto visual para a geração de imagens. A Pesquisa de imagens é um novo tipo de pesquisa na ferramenta de embasamento com a Pesquisa Google, que funciona junto com a [Pesquisa na Web](#use-with-grounding) padrão.
 
-Để bật tính năng Tìm kiếm bằng hình ảnh, hãy định cấu hình công cụ `google_search` trong yêu cầu API của bạn và chỉ định `image_search` trong mảng `search_types`. Bạn có thể sử dụng tính năng Tìm kiếm hình ảnh độc lập hoặc cùng với tính năng Tìm kiếm trên web.
+Para ativar a Pesquisa de imagens, configure a ferramenta `google_search` na solicitação de API
+e especifique `image_search` na matriz `search_types`. A pesquisa por imagens pode ser usada de forma independente ou com a pesquisa na Web.
 
 ### Python
 
@@ -676,6 +787,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("A detailed painting of a Timareta butterfly resting on a flower"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -690,24 +818,26 @@ curl -s -X POST \
   }'
 ```
 
-**Yêu cầu về việc hiển thị**
+**Requisitos de exibição**
 
-Khi sử dụng tính năng Tìm kiếm bằng hình ảnh trong tính năng Neo bám vào Google Tìm kiếm, bạn phải hiển thị `search_suggestions` từ bước `google_search_result`. Các yêu cầu đầy đủ về việc sử dụng được nêu chi tiết trong [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi#grounding-with-google-search).
+Ao usar a Pesquisa de imagens no Embasamento com a Pesquisa Google, você precisa mostrar o `search_suggestions` da etapa `google_search_result`. Os requisitos completos de uso estão detalhados nos [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#grounding-with-google-search).
 
-**Đáp**
+**Resposta**
 
-Đối với các câu trả lời có căn cứ sử dụng tính năng tìm kiếm hình ảnh, API sẽ trả về trích dẫn nội dòng và siêu dữ liệu ghi nhận quyền tác giả trong các bước phản hồi:
+Para respostas embasadas que usam a pesquisa por imagens, a API retorna citações inline e metadados de atribuição como parte das etapas de resposta:
 
-- **Chú thích `url_citation`**: Trích dẫn nội dòng trên khối nội dung văn bản trong `model_output`, liên kết nội dung được tạo với nguồn của nội dung đó.
-- **`google_search_result`**: Chứa `search_suggestions`, một đoạn mã HTML để hiển thị các đề xuất tìm kiếm trong giao diện người dùng của bạn.
+- **Anotações `url_citation`**: citações inline no bloco de conteúdo de texto
+  em `model_output`, vinculando o conteúdo gerado à fonte.
+- **`google_search_result`**: contém `search_suggestions`, um snippet HTML
+  para renderizar sugestões de pesquisa na sua interface.
 
-### Tạo hình ảnh từ video (3.1 Flash)
+### Geração de imagens com base em vídeos (3.1 Flash)
 
-Tính năng tạo hình ảnh từ video cho phép bạn tạo hình ảnh mới bằng cách sử dụng bối cảnh của video làm thông tin tham khảo đa phương thức. Tính năng này hữu ích khi bạn muốn tạo hình thu nhỏ chất lượng cao cho video, áp phích điện ảnh, ảnh đồ hoạ tóm tắt hoặc tác phẩm nghệ thuật mới lấy cảm hứng từ một cảnh trong video.
+A geração de vídeo para imagem permite criar novas imagens usando o contexto de um vídeo como referência multimodal. Isso é útil para criar miniaturas de vídeo de alta qualidade, pôsteres de filmes, infográficos de resumo ou novas artes inspiradas em uma cena de vídeo.
 
-Trong quá trình tạo, mô hình sẽ phân tích các khung hình video trong bối cảnh để trích xuất các chủ đề trực quan và sự kiện chính, sau đó sử dụng các chủ đề và sự kiện này cùng với câu lệnh văn bản của bạn để tổng hợp hình ảnh đầu ra.
+Durante a geração, o modelo analisa os frames do vídeo no contexto para extrair temas visuais e eventos principais. Em seguida, ele usa essas informações com o comando de texto para sintetizar a imagem de saída.
 
-Bạn có thể truyền trực tiếp [URL công khai trên YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#youtube) trong yêu cầu API hoặc tải tệp video cục bộ lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
+Você pode transmitir [URLs públicos do YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br#youtube) diretamente na solicitação de API ou fazer upload de arquivos de vídeo locais usando a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
 
 ### Python
 
@@ -786,6 +916,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Generate a poster image that captures the key themes of this video."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -813,15 +960,15 @@ curl -s -X POST \
   }'
 ```
 
-![Bản đồ hoạ thông tin do AI tạo từ một video trên YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=vi)
+![Infográfico gerado com IA de um vídeo do YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=pt-br)
 
-Ảnh đồ hoạ do AI tạo từ một video trên YouTube
+Infográfico gerado com IA de um vídeo do YouTube
 
-### Tạo hình ảnh có độ phân giải lên đến 4K
+### Gerar imagens com resolução de até 4K
 
-Các mô hình hình ảnh Gemini 3 tạo ra 1.000 hình ảnh theo mặc định nhưng cũng có thể xuất ra hình ảnh 2K, 4K và 512px (05.K) (chỉ có Gemini 3.1 Flash Image). Để tạo thành phần có độ phân giải cao hơn, hãy chỉ định `image_size` trong `response_format`.
+Os modelos de imagem do Gemini 3 geram 1.000 imagens por padrão, mas também podem gerar imagens de 2K, 4K e 512 px (05.K) (somente o Gemini 3.1 Flash Image). Para gerar recursos de resolução mais alta, especifique o `image_size` no `response_format`.
 
-Bạn phải sử dụng chữ "K" viết hoa (ví dụ: 512px (05.K), 1K, 2K, 4K). Các thông số viết thường (ví dụ: 1k) sẽ bị từ chối.
+Use um "K" maiúsculo (por exemplo, 512px (05.K), 1K, 2K, 4K). Parâmetros em letras minúsculas (por exemplo, 1k) serão rejeitados.
 
 ### Python
 
@@ -881,6 +1028,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Da Vinci style anatomical sketch of a dissected Monarch butterfly. Detailed drawings of the head, wings, and legs on textured parchment with notes in English."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -900,19 +1064,20 @@ curl -s -X POST \
   }'
 ```
 
-Sau đây là một hình ảnh mẫu được tạo từ câu lệnh này:
+Confira um exemplo de imagem gerada com esse comando:
 
-![Bản phác thảo giải phẫu theo phong cách Da Vinci do AI tạo về một con bướm vua bị mổ xẻ.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=vi)
+![Esboço anatômico de uma borboleta monarca dissecada no estilo Da Vinci gerado por IA.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=pt-br)
 
-Bản phác thảo giải phẫu theo phong cách Da Vinci do AI tạo về một con bướm vua bị mổ xẻ.
+Esboço anatômico de uma borboleta monarca dissecada no estilo de Da Vinci, gerado por IA.
 
-### Quá trình tư duy
+### Processo de raciocínio
 
-Mô hình hình ảnh Gemini 3 là mô hình tư duy sử dụng quy trình suy luận ("Tư duy") cho các câu lệnh phức tạp. Tính năng này được bật theo mặc định và không thể tắt trong API. Để tìm hiểu thêm về quy trình suy nghĩ, hãy xem hướng dẫn [Quy trình suy nghĩ của Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=vi).
+Os modelos de imagem do Gemini 3 são modelos de raciocínio que usam um processo de raciocínio ("Pensamento") para comandos complexos. Esse recurso é ativado por padrão e
+não pode ser desativado na API. Para saber mais sobre o processo de pensamento, consulte o guia [Pensamento do Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br).
 
-Mô hình này tạo tối đa 2 hình ảnh tạm thời để kiểm thử bố cục và logic. Hình ảnh cuối cùng trong phần Suy nghĩ cũng là hình ảnh được kết xuất cuối cùng.
+O modelo gera até duas imagens provisórias para testar a composição e a lógica. A última imagem em "Pensando" também é a imagem renderizada final.
 
-Bạn có thể xem những suy nghĩ dẫn đến việc tạo ra hình ảnh cuối cùng.
+Você pode conferir as ideias que levaram à produção da imagem final.
 
 ### Python
 
@@ -944,11 +1109,28 @@ for (const step of interaction.steps) {
 }
 ```
 
-#### Văn bản và hình ảnh xen kẽ
+### Java
 
-Mặc dù các mô hình tạo hình ảnh tiêu chuẩn chỉ xuất hình ảnh, nhưng một số mô hình Gemini 3 tiên tiến (chẳng hạn như `gemini-3-pro-image`) có thể tạo nội dung xen kẽ, chẳng hạn như các câu chuyện hoặc hướng dẫn có cả khối văn bản và hình minh hoạ trong cùng một câu trả lời.
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
 
-Vì đầu ra phức tạp và xen kẽ, nên các thuộc tính tiện lợi như `.output_image` hoặc `.output_text` sẽ không ghi lại toàn bộ chuỗi. Để truy cập và lưu nội dung xen kẽ, bạn phải lặp lại `steps` theo cách thủ công:
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.8-flash"))
+    .input(InteractionsInput.of("Image operation"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
+#### Texto e imagens intercaladas
+
+Enquanto os modelos padrão de geração de imagens só produzem imagens, alguns modelos avançados do Gemini 3 (como o `gemini-3-pro-image`) podem gerar conteúdo intercalado, como histórias ou guias de instruções que contêm blocos de texto e ilustrações na mesma resposta.
+
+Como a saída é complexa e intercalada, propriedades de conveniência como `.output_image` ou `.output_text` não capturam a sequência completa. Para acessar e salvar conteúdo intercalado, é necessário iterar manualmente em `steps`:
 
 ### Python
 
@@ -998,9 +1180,26 @@ for (const step of interaction.steps) {
 }
 ```
 
-#### Kiểm soát các cấp độ tư duy
+### Java
 
-Với Gemini 3.1 Flash Image, bạn có thể kiểm soát mức độ suy nghĩ mà mô hình sử dụng để cân bằng chất lượng và độ trễ. `thinking_level` mặc định là `minimal` và các cấp độ được hỗ trợ là `minimal` và `high`.
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3-pro-image"))
+    .input(InteractionsInput.of("Write the story of the lifecycle of a monarch butterfly, interleave illustrations"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
+#### Controlar os níveis de raciocínio
+
+Com o Gemini 3.1 Flash Image, você controla a quantidade de raciocínio que o modelo usa para equilibrar qualidade e latência. O `thinking_level` padrão é `minimal`, e os níveis compatíveis são `minimal` e `high`.
 
 ### Python
 
@@ -1049,6 +1248,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("A futuristic city built inside a giant glass bottle floating in space"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1065,32 +1281,37 @@ curl -s -X POST \
   }'
 ```
 
-Xin lưu ý rằng theo mặc định, các mô hình tư duy sẽ tính phí mã thông báo tư duy, vì [quy trình tư duy](#thinking-process) luôn diễn ra theo mặc định cho dù bạn có xem quy trình đó hay không.
+Os tokens de pensamento são cobrados por padrão para modelos de pensamento, já que o [processo de pensamento](#thinking-process) sempre acontece por padrão, mesmo que você veja ou não o processo.
 
-## Các chế độ tạo hình ảnh khác
+## Outros modos de geração de imagens
 
-Mặc dù mô hình tạo hình ảnh Nano Banana được đề xuất cho hầu hết các trường hợp sử dụng, nhưng bạn cũng có thể khám phá các mô hình tạo hình ảnh chuyên dụng:
+Embora os modelos de geração de imagens do Nano Banana sejam recomendados para a maioria dos casos de uso, você também pode conhecer modelos dedicados:
 
-- **[Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=vi)**: Các mô hình chuyển văn bản thành hình ảnh của Google được tối ưu hoá để tạo ra hình ảnh chất lượng cao.
-- **[Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi)**: Mô hình tạo video của Google.
+- **[Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pt-br)**: modelos de criação de imagens a partir de texto do Google otimizados para gerar imagens de alta qualidade.
+- **[Veo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br)**: modelo de geração de vídeo do Google.
 
-## Tạo hàng loạt hình ảnh
+## Gerar imagens em lote
 
-Tất cả các chức năng tạo hình ảnh được mô tả trên trang này cũng có thể chạy dưới dạng các công việc hàng loạt bằng cách sử dụng [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi#image-generation). Đây là lựa chọn lý tưởng nếu bạn cần tạo nhiều hình ảnh. Bạn sẽ nhận được hạn mức cao hơn để đổi lấy thời gian xử lý tối đa là 24 giờ.
+Todos os recursos de geração de imagens descritos nesta página também podem ser
+executados como trabalhos em lote usando a
+[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br#image-generation), ideal se você
+precisar gerar muitas imagens.Você recebe limites de taxa mais altos em troca de um
+tempo de resposta de até 24 horas.
 
-## Hướng dẫn và chiến lược đặt câu lệnh
+## Guia e estratégias para a criação de comandos
 
-Phần này cung cấp các ví dụ và mẫu câu lệnh cho quy trình tạo và chỉnh sửa hình ảnh phổ biến. Mỗi ví dụ đều có một mẫu có thể dùng lại và một câu lệnh mẫu cho Interactions API.
+Nesta seção, você encontra exemplos de comandos e modelos para fluxos de trabalho comuns de geração e edição de imagens. Cada exemplo inclui um modelo reutilizável e um
+comando de amostra para a API Interactions.
 
-### Câu lệnh để tạo hình ảnh
+### Comandos para gerar imagens
 
-Các ví dụ sau đây cho thấy cách sử dụng câu lệnh dạng văn bản để tạo nhiều loại hình ảnh.
+Os exemplos a seguir mostram como usar comandos de texto para gerar vários tipos de imagens.
 
-#### 1. Cảnh trông như thật
+#### 1. Cenas fotorrealistas
 
-Mô tả chi tiết một cảnh. Bạn càng trình bày cụ thể, bạn càng có nhiều quyền kiểm soát kết quả.
+Descreva uma cena com muitos detalhes. Quanto mais específico for o comando, mais controle você terá sobre os resultados.
 
-### Mẫu
+### Modelo
 
 ```
 A photorealistic [type of shot] of a [subject description] in a [setting
@@ -1098,7 +1319,7 @@ description]. [Description of the light]. Shot from a [camera angle]
 with a [lens type].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 A photorealistic wide-angle shot of a vibrant coral reef teeming with tropical fish. Crystal-clear turquoise water with sunbeams filtering down from the surface, illuminating a sea turtle gliding gracefully over the coral. Shot from a low perspective with a wide-angle lens. Aspect ratio 16:9.
@@ -1162,6 +1383,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("A photorealistic wide-angle shot of a vibrant coral reef teeming with tropical fish. Crystal-clear turquoise water with sunbeams filtering down from the surface, illuminating a sea turtle gliding gracefully over the coral. Shot from a low perspective with a wide-angle lens. Aspect ratio 16:9."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1180,11 +1418,11 @@ curl -s -X POST \
   }'
 ```
 
-#### 2. Hình minh hoạ và hình dán cách điệu
+#### 2. Ilustrações e adesivos estilizados
 
-Mô tả phong cách nghệ thuật, chủ đề và phương tiện. Hãy mô tả cụ thể về chi tiết hình ảnh (đường kẻ đậm, màu sắc, v.v.) để có kết quả nhất quán.
+Descreva o estilo artístico, o assunto e o meio. Seja específico sobre o detalhe visual (linhas em negrito, cores etc.) para ter resultados consistentes.
 
-### Mẫu
+### Modelo
 
 ```
 A [style] of a [subject, with details about accessories or actions]
@@ -1192,7 +1430,7 @@ doing [activity]. The design features [visual qualities, e.g., bold outlines,
 cel-shading, etc.] and [color/background preference].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 A kawaii-style sticker of a happy red panda wearing a tiny bamboo hat. It's munching on a green bamboo leaf. The design features bold, clean outlines, simple cel-shading, and a vibrant color palette. The background must be white.
@@ -1251,6 +1489,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("A kawaii-style sticker of a happy red panda wearing a tiny bamboo hat. It"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1264,15 +1519,15 @@ curl -s -X POST \
   }'
 ```
 
-![Hình dán theo phong cách kawaii về một chú...](https://ai.google.dev/static/gemini-api/docs/images/red_panda_sticker.png?hl=vi)
+![Um adesivo no estilo kawaii de um...](https://ai.google.dev/static/gemini-api/docs/images/red_panda_sticker.png?hl=pt-br)
 
-Hình dán theo phong cách kawaii của một chú gấu trúc đỏ đang vui vẻ...
+Um adesivo de um panda-vermelho feliz no estilo kawaii...
 
-#### 3. Văn bản chính xác trong hình ảnh
+#### 3. Texto preciso em imagens
 
-Gemini có khả năng kết xuất văn bản xuất sắc. Nêu rõ văn bản, kiểu phông chữ (mô tả) và thiết kế tổng thể. Sử dụng Gemini 3 Pro Image để sản xuất tài sản chuyên nghiệp.
+O Gemini é excelente na renderização de texto. Seja claro sobre o texto, o estilo da fonte (de forma descritiva) e o design geral. Use o Gemini 3 Pro Image para produção de recursos profissionais.
 
-### Mẫu
+### Modelo
 
 ```
 Create a [image type] for [brand/concept] with the text "[text to render]"
@@ -1280,7 +1535,7 @@ in a [font style]. The design should be [style description], with a
 [color scheme].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 Create a modern, minimalist logo for a coffee shop called 'The Daily Grind'. The text should be in a clean, bold, sans-serif font. The color scheme is black and white. Put the logo in a circle. Use a coffee bean in a clever way.
@@ -1341,6 +1596,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Create a modern, minimalist logo for a coffee shop called "))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1358,15 +1630,15 @@ curl -s -X POST \
   }'
 ```
 
-![Tạo một logo hiện đại, tối giản cho quán cà phê có tên &quot;The Daily Grind&quot;...](https://ai.google.dev/static/gemini-api/docs/images/logo_example.jpg?hl=vi)
+![Crie um logotipo moderno e minimalista para uma cafeteria chamada &quot;The Daily Grind&quot;...](https://ai.google.dev/static/gemini-api/docs/images/logo_example.jpg?hl=pt-br)
 
-Tạo một biểu trưng tối giản, hiện đại cho một quán cà phê có tên là "The Daily Grind"...
+Crie um logotipo moderno e minimalista para uma cafeteria chamada "The Daily Grind"...
 
-#### 4. Bản mô phỏng sản phẩm và ảnh thương mại
+#### 4. Simulações de produtos e fotografia comercial
 
-Phù hợp để tạo ảnh chụp sản phẩm chuyên nghiệp, rõ ràng cho thương mại điện tử, quảng cáo hoặc hoạt động xây dựng thương hiệu.
+Perfeito para criar fotos de produtos limpas e profissionais para e-commerce, publicidade ou branding.
 
-### Mẫu
+### Modelo
 
 ```
 A high-resolution, studio-lit product photograph of a [product description]
@@ -1376,7 +1648,7 @@ a [angle type] to showcase [specific feature]. Ultra-realistic, with sharp
 focus on [key detail]. [Aspect ratio].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 A high-resolution, studio-lit product photograph of a minimalist ceramic
@@ -1440,6 +1712,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("A high-resolution, studio-lit product photograph of a minimalist ceramic coffee mug in matte black, presented on a polished concrete surface. The lighting is a three-point softbox setup designed to create soft, diffused highlights and eliminate harsh shadows. The camera angle is a slightly elevated 45-degree shot to showcase its clean lines. Ultra-realistic, with sharp focus on the steam rising from the coffee. Square image."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1453,15 +1742,15 @@ curl -s -X POST \
   }'
 ```
 
-![Ảnh chụp sản phẩm có độ phân giải cao, được chiếu sáng trong phòng chụp ảnh về một cốc cà phê gốm tối giản...](https://ai.google.dev/static/gemini-api/docs/images/product_mockup.png?hl=vi)
+![Uma fotografia de produto em alta resolução e iluminada em estúdio de uma xícara de café de cerâmica minimalista...](https://ai.google.dev/static/gemini-api/docs/images/product_mockup.png?hl=pt-br)
 
-Ảnh sản phẩm có độ phân giải cao, được chụp trong phòng chụp ảnh với ánh sáng chuyên nghiệp về một chiếc cốc cà phê bằng gốm tối giản...
+Uma fotografia de produto em alta resolução e iluminação de estúdio de uma xícara de café de cerâmica minimalista...
 
-#### 5. Thiết kế tối giản và không gian âm
+#### 5. Design minimalista e com espaço negativo
 
-Rất phù hợp để tạo nền cho trang web, bản trình bày hoặc tài liệu tiếp thị có văn bản được đặt lên trên.
+Excelente para criar planos de fundo para sites, apresentações ou materiais de marketing em que o texto será sobreposto.
 
-### Mẫu
+### Modelo
 
 ```
 A minimalist composition featuring a single [subject] positioned in the
@@ -1470,7 +1759,7 @@ A minimalist composition featuring a single [subject] positioned in the
 [Aspect ratio].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 A minimalist composition featuring a single, delicate red maple leaf
@@ -1532,6 +1821,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("A minimalist composition featuring a single, delicate red maple leaf positioned in the bottom-right of the frame. The background is a vast, empty off-white canvas, creating significant negative space for text. Soft, diffused lighting from the top left. Square image."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1545,21 +1851,21 @@ curl -s -X POST \
   }'
 ```
 
-![Một bố cục tối giản có một chiếc lá phong đỏ duy nhất, tinh tế...](https://ai.google.dev/static/gemini-api/docs/images/minimalist_design.png?hl=vi)
+![Uma composição minimalista com uma única folha de bordo vermelha delicada...](https://ai.google.dev/static/gemini-api/docs/images/minimalist_design.png?hl=pt-br)
 
-Một bố cục tối giản với một chiếc lá phong đỏ duy nhất, tinh tế...
+Uma composição minimalista com uma única folha delicada de bordo vermelho...
 
-#### 6. Nghệ thuật tuần tự (bảng phân cảnh / truyện tranh)
+#### 6. Arte sequencial (painel de quadrinhos / storyboard)
 
-Dựa trên tính nhất quán của nhân vật và nội dung mô tả cảnh để tạo các bảng cho việc kể chuyện bằng hình ảnh. Để đảm bảo độ chính xác về văn bản và khả năng kể chuyện, những câu lệnh này hoạt động hiệu quả nhất với Gemini 3 Pro và Gemini 3.1 Flash Image.
+Cria painéis para contar histórias visuais com base na consistência do personagem e na descrição da cena. Para ter mais precisão com texto e capacidade de contar histórias, esses comandos funcionam melhor com o Gemini 3 Pro e o Gemini 3.1 Flash Image.
 
-### Mẫu
+### Modelo
 
 ```
 Make a 3 panel comic in a [style]. Put the character in a [type of scene].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 Make a 3 panel comic in a gritty, noir art style with high-contrast black and white inks. Put the character in a humurous scene.
@@ -1643,6 +1949,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Make a 3 panel comic in a gritty, noir art style with high-contrast black and white inks. Put the character in a humurous scene."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1661,15 +1984,15 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Đầu vào | Đầu ra |
-| Người đàn ông đeo kính trắng   Hình ảnh đầu vào | Tạo một truyện tranh có 3 ô theo phong cách nghệ thuật noir gai góc...   Tạo một truyện tranh gồm 3 khung hình theo phong cách nghệ thuật noir thô ráp... |
+| Entrada | Saída |
+| Homem de óculos brancos   Imagem de entrada | Faça uma história em quadrinhos de três quadros em um estilo de arte noir e sombrio...   Faça uma história em quadrinhos de três painéis em um estilo de arte noir e sombrio... |
 
-#### 7. Bám sát nguồn bằng Google Tìm kiếm
+#### 7. Embasamento com a Pesquisa Google
 
-Sử dụng Google Tìm kiếm để tạo hình ảnh dựa trên thông tin gần đây hoặc thông tin theo thời gian thực.
-Điều này hữu ích cho tin tức, thông tin thời tiết và các chủ đề khác nhạy cảm về thời gian.
+Use a Pesquisa Google para gerar imagens com base em informações recentes ou em tempo real.
+Isso é útil para notícias, clima e outros assuntos urgentes.
 
-### Câu lệnh
+### Comando
 
 ```
 Make a simple but stylish graphic of last night's Arsenal game in the Champion's League
@@ -1734,6 +2057,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Make a simple but stylish graphic of last night"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1752,19 +2092,19 @@ curl -s -X POST \
   }'
 ```
 
-![Hình ảnh đồ hoạ do AI tạo về tỷ số bóng đá của Arsenal](https://ai.google.dev/static/gemini-api/docs/images/football-score.jpg?hl=vi)
+![Gráfico gerado por IA de um placar de futebol do Arsenal](https://ai.google.dev/static/gemini-api/docs/images/football-score.jpg?hl=pt-br)
 
-Hình ảnh do AI tạo về tỷ số bóng đá của Arsenal
+Gráfico gerado por IA de um placar de futebol do Arsenal
 
-### Câu lệnh chỉnh sửa hình ảnh
+### Comandos para editar imagens
 
-Những ví dụ này cho thấy cách cung cấp hình ảnh cùng với câu lệnh văn bản để chỉnh sửa, tạo thành phần và chuyển kiểu.
+Estes exemplos mostram como fornecer imagens junto com seus comandos de texto para edição, composição e transferência de estilo.
 
-#### 1. Thêm và xoá phần tử
+#### 1. Adicionar e remover elementos
 
-Cung cấp một hình ảnh và mô tả thay đổi bạn muốn. Mô hình sẽ khớp với phong cách, ánh sáng và góc nhìn của hình ảnh gốc.
+Forneça uma imagem e descreva a mudança. O modelo vai corresponder ao estilo, à iluminação e à perspectiva da imagem original.
 
-### Mẫu
+### Modelo
 
 ```
 Using the provided image of [subject], please [add/remove/modify] [element]
@@ -1772,7 +2112,7 @@ to/from the scene. Ensure the change is [description of how the change should
 integrate].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 "Using the provided image of my cat, please add a small, knitted wizard hat
@@ -1858,6 +2198,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Using the provided image of my cat, please add a small, knitted wizard hat on its head. Make it look like it"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1876,14 +2233,14 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Đầu vào | Đầu ra |
-| Hình ảnh chân thực về một chú mèo lông xù màu gừng.   Một bức ảnh chân thực về một chú mèo lông xù màu gừng... | Dựa vào hình ảnh được cung cấp về chú mèo của tôi, vui lòng thêm một chiếc mũ phù thuỷ nhỏ bằng len...   Dựa vào hình ảnh được cung cấp về chú mèo của tôi, vui lòng thêm một chiếc mũ phù thuỷ nhỏ bằng len... |
+| Entrada | Saída |
+| Uma imagem fotorrealista de um gato ruivo fofo.   Uma imagem fotorrealista de um gato ruivo fofo... | Usando a imagem fornecida do meu gato, adicione um pequeno chapéu de mago de tricô...   Usando a imagem fornecida do meu gato, adicione um chapéu de mago pequeno e de tricô... |
 
-#### 2. Chỉnh sửa cụ thể (tạo mặt nạ ngữ nghĩa)
+#### 2. Retoque (mascaramento semântico)
 
-Xác định "mặt nạ" bằng cách trò chuyện để chỉnh sửa một phần cụ thể của hình ảnh mà không ảnh hưởng đến phần còn lại.
+Defina uma "máscara" por conversa para editar uma parte específica de uma imagem sem alterar o restante.
 
-### Mẫu
+### Modelo
 
 ```
 Using the provided image, change only the [specific element] to [new
@@ -1891,7 +2248,7 @@ element/description]. Keep everything else in the image exactly the same,
 preserving the original style, lighting, and composition.
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 "Using the provided image of a living room, change only the blue sofa to be
@@ -1977,6 +2334,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Using the provided image of a living room, change only the blue sofa to be a vintage, brown leather chesterfield sofa. Keep the rest of the room, including the pillows on the sofa and the lighting, unchanged."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1995,20 +2369,20 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Đầu vào | Đầu ra |
-| Một cảnh quay rộng về một phòng khách hiện đại, đủ ánh sáng...   Cảnh quay rộng về một phòng khách hiện đại, đủ ánh sáng... | Dựa vào hình ảnh phòng khách được cung cấp, hãy chỉ thay đổi chiếc ghế sofa màu xanh dương thành chiếc ghế sofa bọc da màu nâu kiểu Chesterfield cổ điển...   Dựa vào hình ảnh phòng khách được cung cấp, hãy chỉ thay đổi chiếc ghế sofa màu xanh dương thành chiếc ghế sofa bọc da màu nâu kiểu Chesterfield cổ điển... |
+| Entrada | Saída |
+| Uma foto ampla de uma sala de estar moderna e bem iluminada...   Uma foto ampla de uma sala de estar moderna e bem iluminada… | Usando a imagem fornecida de uma sala de estar, mude apenas o sofá azul para um sofá vintage de couro marrom estilo Chesterfield...   Usando a imagem fornecida de uma sala de estar, mude apenas o sofá azul para um sofá chesterfield vintage de couro marrom... |
 
-#### 3. Chuyển đổi kiểu
+#### 3. Transferência de estilo
 
-Cung cấp một hình ảnh và yêu cầu mô hình tạo lại nội dung của hình ảnh đó theo một phong cách nghệ thuật khác.
+Forneça uma imagem e peça para o modelo recriar o conteúdo dela em um estilo artístico diferente.
 
-### Mẫu
+### Modelo
 
 ```
 Transform the provided photograph of [subject] into the artistic style of [artist/art style]. Preserve the original composition but render it with [description of stylistic elements].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 "Transform the provided photograph of a modern city street at night into the artistic style of Vincent van Gogh's 'Starry Night'. Preserve the original composition of buildings and cars, but render all elements with swirling, impasto brushstrokes and a dramatic palette of deep blues and bright yellows."
@@ -2088,6 +2462,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Transform the provided photograph of a modern city street at night into the artistic style of Vincent van Gogh"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -2106,14 +2497,14 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Đầu vào | Đầu ra |
-| Một bức ảnh chân thực, có độ phân giải cao về một con phố nhộn nhịp trong thành phố...   Một bức ảnh chân thực, có độ phân giải cao về một con phố nhộn nhịp trong thành phố... | Biến bức ảnh được cung cấp về một đường phố hiện đại vào ban đêm...   Biến đổi bức ảnh được cung cấp về một đường phố hiện đại trong thành phố vào ban đêm... |
+| Entrada | Saída |
+| Uma fotografia fotorrealista de alta resolução de uma rua movimentada...   Uma fotografia fotorrealista de alta resolução de uma rua movimentada da cidade... | Transforme a fotografia fornecida de uma rua moderna da cidade à noite...   Transforme a fotografia fornecida de uma rua moderna de uma cidade à noite... |
 
-#### 4. Bố cục nâng cao: kết hợp nhiều hình ảnh
+#### 4. Composição avançada: combinar várias imagens
 
-Cung cấp nhiều hình ảnh làm bối cảnh để tạo một cảnh ghép mới. Đây là lựa chọn hoàn hảo cho bản mô phỏng sản phẩm hoặc ảnh ghép sáng tạo.
+Forneça várias imagens como contexto para criar uma cena nova e composta. Isso é perfeito para simulações de produtos ou colagens criativas.
 
-### Mẫu
+### Modelo
 
 ```
 Create a new image by combining the elements from the provided images. Take
@@ -2121,7 +2512,7 @@ the [element from image 1] and place it with/on the [element from image 2].
 The final image should be a [description of the final scene].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 "Create a professional e-commerce fashion photo. Take the blue floral dress
@@ -2223,6 +2614,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Create a professional e-commerce fashion photo. Take the blue floral dress from the first image and let the woman from the second image wear it. Generate a realistic, full-body shot of the woman wearing the dress, with the lighting and shadows adjusted to match the outdoor environment."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -2242,14 +2650,14 @@ curl -s -X POST \
 
 |  |  |  |
 | --- | --- | --- |
-| Giá trị đầu vào 1 | Đầu vào 2 | Đầu ra |
-| Một chiếc váy hoa mùa hè màu xanh dương trên nền trung tính   Một chiếc váy hoa mùa hè màu xanh dương trên nền trung tính | Ảnh toàn thân của một người phụ nữ tóc búi...   Ảnh chụp toàn thân một người phụ nữ búi tóc... | Một người phụ nữ mặc váy hoa mùa hè màu xanh dương ở ngoài trời   Một người phụ nữ mặc váy hoa mùa hè màu xanh dương trong khung cảnh ngoài trời |
+| Entrada 1 | Entrada 2 | Saída |
+| Um vestido de verão floral azul em um fundo neutro   Um vestido de verão azul com estampa floral em um fundo neutro | Foto de corpo inteiro de uma mulher com o cabelo preso em um coque...   Foto de corpo inteiro de uma mulher com o cabelo preso em um coque… | Uma mulher usando um vestido de verão azul floral em um ambiente ao ar livre   Uma mulher usando um vestido de verão azul com estampa floral em um ambiente externo |
 
-#### 5. Giữ lại chi tiết có độ trung thực cao
+#### 5. Preservação de detalhes de alta fidelidade
 
-Để đảm bảo các chi tiết quan trọng (như khuôn mặt hoặc biểu trưng) được giữ nguyên trong quá trình chỉnh sửa, hãy mô tả các chi tiết đó một cách cụ thể cùng với yêu cầu chỉnh sửa của bạn.
+Para garantir que detalhes importantes (como um rosto ou um logotipo) sejam preservados durante uma edição, descreva-os com muitos detalhes junto com sua solicitação de edição.
 
-### Mẫu
+### Modelo
 
 ```
 Using the provided images, place [element from image 2] onto [element from
@@ -2258,7 +2666,7 @@ completely unchanged. The added element should [description of how the
 element should integrate].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 "Take the first image of the woman with brown hair, blue eyes, and a neutral
@@ -2345,6 +2753,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("model_output"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -2364,21 +2789,21 @@ curl -s -X POST \
 
 |  |  |  |
 | --- | --- | --- |
-| Giá trị đầu vào 1 | Đầu vào 2 | Đầu ra |
-| Ảnh chân dung chuyên nghiệp của một phụ nữ có mái tóc nâu và đôi mắt xanh dương...   Ảnh chân dung chuyên nghiệp của một phụ nữ có mái tóc nâu và đôi mắt xanh dương... | Dấu hiệu nhận dạng thương hiệu hiện đại có chữ G và A   Mã nhận dạng thương hiệu hiện đại có các chữ cái G và A | Chụp ảnh đầu tiên của người phụ nữ có mái tóc nâu, mắt xanh và vẻ mặt bình thường...   Tạo hình ảnh đầu tiên về người phụ nữ có mái tóc nâu, mắt xanh và biểu cảm trung tính... |
+| Entrada 1 | Entrada 2 | Saída |
+| Um retrato profissional de uma mulher com cabelo castanho e olhos azuis...   Um retrato profissional de uma mulher com cabelo castanho e olhos azuis... | Identificador de marca moderno com as letras G e A   Identificador de marca moderno com as letras G e A | Pegue a primeira imagem da mulher com cabelo castanho, olhos azuis e uma expressão neutra...   Pegue a primeira imagem da mulher com cabelo castanho, olhos azuis e uma expressão neutra... |
 
-#### 6. Tạo cảm giác sống động cho một đối tượng
+#### 6. Dar vida a algo
 
-Tải bản phác thảo hoặc bản vẽ thô lên và yêu cầu mô hình tinh chỉnh thành một hình ảnh hoàn chỉnh.
+Faça upload de um esboço ou desenho e peça ao modelo para refinar em uma imagem finalizada.
 
-### Mẫu
+### Modelo
 
 ```
 Turn this rough [medium] sketch of a [subject] into a [style description]
 photo. Keep the [specific features] from the sketch but add [new details/materials].
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 "Turn this rough pencil sketch of a futuristic car into a polished photo of the finished concept car in a showroom. Keep the sleek lines and low profile from the sketch but add metallic blue paint and neon rim lighting."
@@ -2454,6 +2879,23 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("model_output"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -2472,20 +2914,20 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Đầu vào | Đầu ra |
-| Bản phác thảo một chiếc ô tô   Bản phác thảo sơ bộ về một chiếc ô tô | Kết quả đầu ra cho thấy chiếc xe ý tưởng cuối cùng   Ảnh đã được chỉnh sửa của một chiếc ô tô |
+| Entrada | Saída |
+| Esboço de um carro   Esboço de um carro | Saída mostrando o carro conceito final   Foto refinada de um carro |
 
-#### 7. Đảm bảo tính nhất quán của nhân vật: Chế độ xem 360 độ
+#### 7. Consistência de personagens: visualização completa
 
-Bạn có thể tạo chế độ xem 360 độ của một nhân vật bằng cách liên tục đưa ra câu lệnh cho các góc khác nhau. Để có kết quả tốt nhất, hãy thêm những hình ảnh đã tạo trước đó vào các câu lệnh tiếp theo để duy trì tính nhất quán. Đối với các tư thế phức tạp, hãy thêm một hình ảnh tham khảo về tư thế đã chọn.
+É possível gerar visualizações de 360 graus de um personagem pedindo ângulos diferentes de forma iterativa. Para ter os melhores resultados, inclua imagens geradas anteriormente em comandos subsequentes para manter a consistência. Para poses complexas, inclua uma imagem de referência da pose selecionada.
 
-### Mẫu
+### Modelo
 
 ```
 A studio portrait of [person] against [background], [looking forward/in profile looking right/etc.]
 ```
 
-### Câu lệnh
+### Comando
 
 ```
 A studio portrait of this man against white, in profile looking right
@@ -2524,41 +2966,42 @@ for step in interaction.steps:
 
 |  |  |  |
 | --- | --- | --- |
-| Đầu vào | Đầu ra 1 | Đầu ra 2 |
-| Đầu vào ban đầu của một người đàn ông đeo kính trắng   Hình ảnh gốc | Kết quả là hình ảnh một người đàn ông đeo kính trắng đang nhìn sang phải   Người đàn ông đeo kính trắng nhìn sang phải | Ảnh một người đàn ông đeo kính trắng đang nhìn về phía trước   Người đàn ông đeo kính trắng nhìn về phía trước |
+| Entrada | Saída 1 | Resposta 2 |
+| Entrada original de um homem com óculos brancos   Imagem original | Saída de um homem de óculos brancos olhando para a direita   Homem de óculos brancos olhando para a direita | Saída de um homem de óculos brancos olhando para frente   Homem de óculos brancos olhando para frente |
 
-### Các phương pháp hay nhất
+### Práticas recomendadas
 
-Để nâng kết quả từ tốt lên xuất sắc, hãy kết hợp những chiến lược chuyên nghiệp này vào quy trình làm việc của bạn.
+Para melhorar ainda mais seus resultados, incorpore estas estratégias profissionais ao seu fluxo de trabalho.
 
-- **Nêu thông tin siêu cụ thể:** Bạn càng cung cấp nhiều thông tin chi tiết, bạn càng có nhiều quyền kiểm soát. Thay vì "áo giáp giả tưởng", hãy mô tả nó: "áo giáp dạng tấm của người lùn được chạm khắc hoa văn lá bạc, có cổ áo cao và cầu vai có hình đôi cánh chim ưng".
-- **Cung cấp bối cảnh và ý định:** Giải thích *mục đích* của hình ảnh. Mức độ hiểu biết của mô hình về ngữ cảnh sẽ ảnh hưởng đến kết quả đầu ra cuối cùng. Ví dụ: "Tạo một biểu trưng cho một thương hiệu chăm sóc da tối giản, cao cấp" sẽ mang lại kết quả tốt hơn so với chỉ "Tạo một biểu trưng".
-- **Lặp lại và tinh chỉnh:** Đừng mong đợi một hình ảnh hoàn hảo ngay từ lần thử đầu tiên. Sử dụng tính chất đàm thoại của mô hình để thực hiện các thay đổi nhỏ. Tiếp tục đưa ra các câu lệnh như "Tuyệt vời, nhưng bạn có thể điều chỉnh ánh sáng ấm hơn một chút không?" hoặc "Giữ nguyên mọi thứ, nhưng thay đổi biểu cảm của nhân vật sao cho nghiêm túc hơn."
-- **Sử dụng hướng dẫn từng bước:** Đối với những cảnh phức tạp có nhiều phần tử, hãy chia câu lệnh thành các bước. "Trước tiên, hãy tạo một hình nền là khu rừng yên bình, mờ sương vào lúc bình minh. Sau đó, ở tiền cảnh, hãy thêm một bàn thờ bằng đá cổ được phủ đầy rêu.
-  Cuối cùng, hãy đặt một thanh kiếm phát sáng duy nhất lên trên bàn thờ."
-- **Sử dụng "câu lệnh phủ định ngữ nghĩa":** Thay vì nói "không có ô tô", hãy mô tả cảnh dự định theo hướng tích cực: "một con đường vắng vẻ, không có dấu hiệu giao thông".
-- **Kiểm soát camera:** Sử dụng ngôn ngữ nhiếp ảnh và điện ảnh để kiểm soát bố cục. Các thuật ngữ như `wide-angle shot`, `macro shot`, `low-angle
+- **Seja muito específico**:quanto mais detalhes você fornecer, mais controle terá. Em vez de "armadura de fantasia", descreva: "armadura de placas élficas ornamentada, gravada com padrões de folhas de prata, com uma gola alta e ombreiras em forma de asas de falcão".
+- **Forneça contexto e intenção**:explique a *finalidade* da imagem. A compreensão do contexto pelo modelo influencia o resultado final. Por exemplo, "Crie um logotipo para uma marca de skincare minimalista e sofisticada" vai gerar resultados melhores do que apenas "Crie um logotipo".
+- **Itere e refine**:não espere uma imagem perfeita na primeira tentativa. Use a natureza conversacional do modelo para fazer pequenas mudanças. Faça perguntas complementares como: "Ótimo, mas você pode deixar a iluminação um pouco mais quente?" ou "Mantenha tudo igual, mas mude a expressão do personagem para algo mais sério".
+- **Use instruções passo a passo**:para cenas complexas com muitos elementos, divida o comando em etapas. "Primeiro, crie um plano de fundo de uma floresta serena e enevoada ao amanhecer. Em seguida, em primeiro plano, adicione um altar de pedra antigo coberto de musgo.
+  Por fim, coloque uma espada brilhante em cima do altar."
+- **Use comandos negativos semânticos**: em vez de dizer "sem carros", descreva a cena desejada de forma positiva: "uma rua vazia e deserta, sem sinais de trânsito".
+- **Controle a câmera**:use linguagem fotográfica e cinematográfica para controlar a composição. Termos como `wide-angle shot`, `macro shot` e `low-angle
   perspective`.
 
-## Các điểm hạn chế
+## Limitações
 
-- Để có hiệu suất tốt nhất, hãy sử dụng các ngôn ngữ sau: tiếng Anh, tiếng Ả Rập (Ai Cập), tiếng Đức (Đức), tiếng Tây Ban Nha (Mexico), tiếng Pháp (Pháp), tiếng Hindi (Ấn Độ), tiếng Indonesia (Indonesia), tiếng Ý (Ý), tiếng Nhật (Nhật Bản), tiếng Hàn (Hàn Quốc), tiếng Bồ Đào Nha (Brazil), tiếng Nga (Nga), tiếng Ukraina (Ukraina), tiếng Việt (Việt Nam), tiếng Trung (Trung Quốc).
-- Tính năng tạo hình ảnh không hỗ trợ dữ liệu đầu vào bằng âm thanh. Chỉ Gemini 3.1 Flash Image mới hỗ trợ đầu vào là video.
-- Mô hình này không phải lúc nào cũng tạo ra chính xác số lượng hình ảnh mà người dùng yêu cầu.
-- `gemini-2.5-flash-image` hoạt động hiệu quả nhất khi có tối đa 3 hình ảnh làm dữ liệu đầu vào, trong khi `gemini-3-pro-image` hỗ trợ 5 hình ảnh có độ trung thực cao và tổng cộng tối đa 14 hình ảnh. `gemini-3.1-flash-image` hỗ trợ độ tương đồng ký tự lên đến 4 ký tự và độ trung thực lên đến 10 đối tượng trong một quy trình duy nhất.
-- Khi tạo văn bản cho một hình ảnh, Gemini hoạt động hiệu quả nhất nếu bạn tạo văn bản trước rồi yêu cầu tạo hình ảnh có văn bản đó.
-- `gemini-3.1-flash-image` Neo bám vào Google Tìm kiếm hiện không hỗ trợ việc sử dụng hình ảnh thực tế về con người từ tìm kiếm trên web.
-- Tất cả hình ảnh được tạo đều có [hình mờ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi).
+- Para ter o melhor desempenho, use os seguintes idiomas: EN, ar-EG, de-DE, es-MX, fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
+- A geração de imagens não aceita entradas de áudio. As entradas de vídeo são compatíveis apenas com o Gemini 3.1 Flash Image.
+- O modelo nem sempre segue o número exato de imagens que o
+  usuário pede explicitamente.
+- O `gemini-2.5-flash-image` funciona melhor com até três imagens como entrada, enquanto o `gemini-3-pro-image` aceita cinco imagens com alta fidelidade e até 14 imagens no total. O `gemini-3.1-flash-image` oferece suporte à semelhança de até quatro caracteres e à fidelidade de até 10 objetos em um único fluxo de trabalho.
+- Ao gerar texto para uma imagem, o Gemini funciona melhor se você primeiro gerar o texto e depois pedir uma imagem com ele.
+- `gemini-3.1-flash-image` No momento, o embasamento com a Pesquisa Google não é compatível com o uso de imagens de pessoas do mundo real na pesquisa na Web.
+- Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=pt-br).
 
-## Cấu hình không bắt buộc
+## Configurações opcionais
 
-Bạn có thể tuỳ ý định cấu hình định dạng đầu ra, tỷ lệ khung hình và kích thước hình ảnh bằng cách sử dụng tham số `response_format`.
+Você pode configurar o formato de saída, a proporção e o tamanho da imagem usando o parâmetro `response_format`.
 
-### Định dạng đầu ra
+### Formato da saída
 
-Theo mặc định, mô hình sẽ trả về cả văn bản và hình ảnh. Bạn có thể thiết lập phản hồi để chỉ trả về hình ảnh được tạo (bỏ qua văn bản trò chuyện) bằng cách chỉ định một định dạng hình ảnh trong tham số `response_format`.
+Por padrão, o modelo retorna respostas de texto e imagem. É possível configurar a resposta para retornar apenas as imagens geradas (omitindo o texto da conversa) especificando um formato de imagem no parâmetro `response_format`.
 
-Để yêu cầu nhiều phương thức (ví dụ: cả văn bản và hình ảnh được tạo), hãy truyền một mảng các mục nhập định dạng đến `response_format`.
+Para solicitar várias modalidades (por exemplo, texto e imagem gerada), transmita uma matriz de entradas de formato para `response_format`.
 
 ### Python
 
@@ -2586,6 +3029,23 @@ const interaction = await ai.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("Write a short poem about a starry night and generate an image of it."))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -2603,9 +3063,9 @@ curl -s -X POST \
   }'
 ```
 
-### Tỷ lệ khung hình và kích thước hình ảnh
+### Proporções e tamanho da imagem
 
-Theo mặc định, mô hình sẽ điều chỉnh kích thước hình ảnh đầu ra cho phù hợp với kích thước hình ảnh đầu vào của bạn, hoặc tạo ra các hình vuông có tỷ lệ 1:1. Bạn có thể kiểm soát tỷ lệ khung hình và kích thước của hình ảnh đầu ra bằng cách sử dụng các trường `aspect_ratio` và `image_size` trong `response_format` khi `type` được đặt thành `"image"`.
+Por padrão, o modelo corresponde ao tamanho da imagem de saída com o da imagem de entrada ou gera quadrados de 1:1. É possível controlar a proporção e o tamanho da imagem de saída usando os campos `aspect_ratio` e `image_size` em `response_format` quando `type` está definido como `"image"`.
 
 ### Python
 
@@ -2635,6 +3095,23 @@ const interaction = await ai.interactions.create({
   });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.1-flash-image"))
+    .input(InteractionsInput.of("image"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -2653,45 +3130,45 @@ curl -s -X POST \
   }'
 ```
 
-Các tỷ lệ hiện có và kích thước của hình ảnh được tạo được liệt kê trong các bảng sau:
+As diferentes proporções disponíveis e o tamanho da imagem gerada estão listados nas tabelas a seguir:
 
 ### 3.1 Flash Image
 
-| Tỷ lệ khung hình | Độ phân giải 512 px | 500 token | Độ phân giải 1K | 1.000 token | Độ phân giải 2K | 2.000 token | Độ phân giải 4K | 4.000 mã thông báo |
+| Proporção | Resolução de 512 px | 500 tokens | Resolução 1K | 1.000 tokens | Resolução 2K | 2 mil tokens | Resolução 4K | 4K tokens |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
-| **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
+| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2.048 x 2.048 | 1680 | 4096x4096 | 2520 |
+| **1:4** | 256x1024 | 747 | 512 x 2.048 | 1120 | 1024x4096 | 1680 | 2.048 x 8.192 | 2520 |
 | **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
 | **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
-| **3:2** | 632x424 | 747 | 1264x848 | 1120 | 2528x1696 | 1680 | 5056x3392 | 2520 |
+| **3:2** | 632x424 | 747 | 1264x848 | 1120 | 2.528 x 1.696 | 1680 | 5056x3392 | 2520 |
 | **3:4** | 448x600 | 747 | 896x1200 | 1120 | 1792x2400 | 1680 | 3584x4800 | 2520 |
-| **4:1** | 1024x256 | 747 | 2048x512 | 1120 | 4096x1024 | 1680 | 8192x2048 | 2520 |
+| **4:1** | 1024x256 | 747 | 2048x512 | 1120 | 4096x1024 | 1680 | 8.192 x 2.048 | 2520 |
 | **4:3** | 600x448 | 747 | 1200x896 | 1120 | 2400x1792 | 1680 | 4800x3584 | 2520 |
 | **4:5** | 464x576 | 747 | 928x1152 | 1120 | 1856x2304 | 1680 | 3712x4608 | 2520 |
-| **5:4** | 576x464 | 747 | 1152x928 | 1120 | 2304x1856 | 1680 | 4608x3712 | 2520 |
+| **5:4** | 576x464 | 747 | 1152x928 | 1120 | 2304x1856 | 1680 | 4.608 x 3.712 | 2520 |
 | **8:1** | 1536x192 | 747 | 3072x384 | 1120 | 6144x768 | 1680 | 12288x1536 | 2520 |
-| **9:16** | 384x688 | 747 | 768x1376 | 1120 | 1536x2752 | 1680 | 3072x5504 | 2520 |
+| **9:16** | 384x688 | 747 | 768 x 1.376 | 1120 | 1536x2752 | 1680 | 3072x5504 | 2520 |
 | **16:9** | 688x384 | 747 | 1376x768 | 1120 | 2752x1536 | 1680 | 5504x3072 | 2520 |
 | **21:9** | 792x168 | 747 | 1584x672 | 1120 | 3168x1344 | 1680 | 6336x2688 | 2520 |
 
 ### 3.1 Pro Image
 
-| Tỷ lệ khung hình | Độ phân giải 1K | 1.000 token | Độ phân giải 2K | 2.000 token | Độ phân giải 4K | 4.000 mã thông báo |
+| Proporção | Resolução 1K | 1.000 tokens | Resolução 2K | 2 mil tokens | Resolução 4K | 4K tokens |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2.048 x 2.048 | 1120 | 4096x4096 | 2000 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
-| **3:2** | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
+| **3:2** | 1264x848 | 1120 | 2.528 x 1.696 | 1120 | 5056x3392 | 2000 |
 | **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
 | **4:3** | 1200x896 | 1120 | 2400x1792 | 1120 | 4800x3584 | 2000 |
 | **4:5** | 928x1152 | 1120 | 1856x2304 | 1120 | 3712x4608 | 2000 |
-| **5:4** | 1152x928 | 1120 | 2304x1856 | 1120 | 4608x3712 | 2000 |
-| **9:16** | 768x1376 | 1120 | 1536x2752 | 1120 | 3072x5504 | 2000 |
+| **5:4** | 1152x928 | 1120 | 2304x1856 | 1120 | 4.608 x 3.712 | 2000 |
+| **9:16** | 768 x 1.376 | 1120 | 1536x2752 | 1120 | 3072x5504 | 2000 |
 | **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
 | **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
 
-### Hình ảnh Gemini 2.5 Flash
+### Imagem do Gemini 2.5 Flash
 
-| Tỷ lệ khung hình | Độ phân giải | Mã thông báo |
+| Proporção | Resolução | Tokens |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
 | 2:3 | 832x1248 | 1290 |
@@ -2704,31 +3181,32 @@ Các tỷ lệ hiện có và kích thước của hình ảnh được tạo đ
 | 16:9 | 1344x768 | 1290 |
 | 21:9 | 1536x672 | 1290 |
 
-## Lựa chọn mô hình
+## Seleção de modelos
 
-Chọn mô hình phù hợp nhất với trường hợp sử dụng cụ thể của bạn.
+Escolha o modelo mais adequado ao seu caso de uso específico.
 
-- **Hình ảnh Gemini 3.1 Flash (Nano Banana 2)** nên là mô hình tạo hình ảnh mà bạn ưu tiên sử dụng, vì đây là mô hình có hiệu suất và trí thông minh toàn diện tốt nhất để cân bằng chi phí và độ trễ. Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.1-flash-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi) của mô hình để biết thêm thông tin chi tiết.
-- **Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite)** là mô hình hiệu quả nhất trong nhóm mô hình tạo hình ảnh, mang đến độ trễ cực thấp và khả năng tạo cũng như chỉnh sửa hình ảnh hiệu quả về chi phí.
-  Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.1-flash-lite-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=vi) của mô hình để biết thêm thông tin.
-- **Hình ảnh do Gemini 3 Pro (Nano Banana Pro) tạo** được thiết kế để tạo ra các thành phần chuyên nghiệp và thực hiện các chỉ dẫn phức tạp. Mô hình này có tính năng xác thực thông tin thực tế bằng Google Tìm kiếm, quy trình "Suy nghĩ" mặc định giúp tinh chỉnh thành phần trước khi tạo và có thể tạo hình ảnh có độ phân giải lên đến 4K. Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3-pro-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=vi) của mô hình để biết thêm thông tin chi tiết.
-- **Hình ảnh Gemini 2.5 Flash (Nano Banana)** được thiết kế để mang lại tốc độ và hiệu quả. Mô hình này được tối ưu hoá cho các tác vụ có khối lượng lớn và độ trễ thấp, đồng thời tạo ra hình ảnh ở độ phân giải 1024 px. Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-2.5-flash-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi) của mô hình để biết thêm thông tin chi tiết.
+- O **Gemini 3.1 Flash Image (Nano Banana 2)** é o modelo de geração de imagens ideal, já que oferece o melhor desempenho e inteligência em geral para equilibrar custo e latência. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-3.1-flash-image) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=pt-br) do modelo.
+- O **Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite)** é o modelo mais eficiente da família de geração de imagens, oferecendo latência ultrabaixa e geração e edição de imagens econômicas.
+  Confira a página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-3.1-flash-lite-image) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=pt-br) do modelo para mais detalhes.
+- O **Gemini 3 Pro Image (Nano Banana Pro)** foi desenvolvido para
+  produção de recursos profissionais e instruções complexas. Esse modelo tem embasamento no mundo real usando a Pesquisa Google, um processo padrão de "Pensamento" que refina a composição antes da geração e pode gerar imagens com resoluções de até 4K. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-3-pro-image) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=pt-br) do modelo.
+- O **Gemini 2.5 Flash Image (Nano Banana)** foi projetado para ser rápido e eficiente. Ele é otimizado para tarefas de alto volume e baixa latência e gera imagens com resolução de 1024 px. Confira a página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-2.5-flash-image) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pt-br) do modelo para mais detalhes.
 
-### Trường hợp nên sử dụng Imagen
+### Quando usar o Imagen
 
-Ngoài việc sử dụng các tính năng tạo hình ảnh tích hợp của Gemini, bạn cũng có thể truy cập vào [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=vi), mô hình tạo hình ảnh chuyên biệt của chúng tôi, thông qua Gemini API. Lên kế hoạch di chuyển trước ngày ngừng hoạt động.
+Além de usar os recursos integrados de geração de imagens do Gemini, você também pode acessar o [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pt-br), nosso modelo especializado de geração de imagens, pela API Gemini. Planeje a migração antes da data de desativação.
 
-## Bước tiếp theo
+## A seguir
 
-- Hãy xem [hướng dẫn về Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi) để tìm hiểu cách tạo video bằng Gemini API.
-- Để tìm hiểu thêm về các mô hình Gemini, hãy xem phần [Các mô hình Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi).
+- Confira o [guia do Veo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br) para saber como gerar vídeos com a API Gemini.
+- Para saber mais sobre os modelos do Gemini, consulte [Modelos do Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br).
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Cập nhật lần gần đây nhất: 2026-08-24 UTC.
+Última atualização 2026-09-08 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Quer enviar seu feedback?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-08-24 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-08 UTC."],[],[]]

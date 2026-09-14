@@ -1,61 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=tr
-fetched_at: 2026-09-07T05:44:46.239936+00:00
-title: "Gemini 3.1 Flash Lite g\u00f6r\u00fcnt\u00fcs\u00fc \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=zh-CN
+fetched_at: 2026-09-14T05:39:31.162486+00:00
+title: "Gemini 3.1 Flash Lite \u6620\u50cf \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Geri bildirim gönderin
+发送反馈
 
-# Gemini 3.1 Flash Lite görüntüsü
+# Gemini 3.1 Flash Lite 映像
 
-**Nano Banana 2 Lite**, görüntü üretme ailesinin verimlilik uzmanı olarak tasarlanmıştır. Ultra düşük gecikme süresi ve uygun maliyetli görüntü üretme ve düzenleme özellikleri sunar. Bu model, 2 saniyeden kısa bir gecikme süresini hedefleyerek ve TPU işlem maliyetlerini önemli ölçüde azaltarak yüksek hacimli etkileşimli geliştirici kullanım alanlarını ve gerçek zamanlı tüketici uygulamalarını mümkün kılar.
+**Nano Banana 2 Lite** 是图片生成系列中的效率专家，可提供超低延迟且经济实惠的图片生成和编辑服务。该模型以低于 2 秒的延迟时间和显著降低的 TPU 计算成本为目标，可实现大批量交互式开发者使用情形和实时消费者应用。
 
-சம்பா **Temel özellikler:**
+**主要功能**：
 
-- **2 saniyeden kısa uçtan uca gecikme**
-- Metin -> Metin + Resim ve Resim + Metin -> Metin + Resim için yerel destekle **araya eklenmiş oluşturma ve düzenleme**
-- 1K (1024x1024 piksel) gibi **daha düşük çözünürlükler için optimize edilmiştir**.
-- Standart biçimler de dahil olmak üzere **14 en boy oranını** destekler.
-- **Hızlı çok aşamalı etkileşimli yerel düzenlemeler** (renk değiştirme, çıkartma oluşturma, arka plan ayarlamaları).
-- Orijinal Nano Banana standartlarına uygun yüksek karakter hizalaması sağlar.
-- Yeni `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` en-boy oranları.
-- Desteklenen `image_size` değerleri: `1024px` (1.000). *(Not: 2K ve 4K çözünürlük desteklenmez).*
-- **SynthID filigranı (her zaman açık) + C2PA**.
+- **端到端延迟时间低于 2 秒**
+- **交织生成和编辑**，原生支持文本 -> 文本 + 图片和图片 + 文本 -> 文本 + 图片。
+- **针对 1K (1024x1024 像素) 的较低分辨率进行了优化**。
+- 支持一组离散的 **14 种宽高比**，包括标准格式。
+- **快速进行多轮本地编辑**（交换颜色、创建贴纸、调整背景）。
+- 保持高字符对齐度，符合 Nano Banana 的原始标准。
+- 新增了 `1:1`、`3:2`、`2:3`、`3:4`、`4:3`、`4:5`、`5:4`、`9:16`、`16:9`、`21:9` 宽高比。
+- 支持的 `image_size` 值：`1024px`（1K）。*（注意：不支持 2K 和 4K）。*
+- **SynthID 水印技术（始终开启）+ C2PA**。
 
-[Google AI Studio'da deneme](https://aistudio.google.com?model=gemini-3.1-flash-lite-image&hl=tr)
+[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-3.1-flash-lite-image&hl=zh-cn)
 
-## Belgeler
+## 文档
 
-Özellikler ve işlevler hakkında kapsamlı bilgi için [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) sayfasını ziyaret edin.
+如需全面了解功能和特性，请访问[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)页面。
 
 ## gemini-3.1-flash-lite-image
 
-| Mülk | Açıklama |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardModel kodu | `gemini-3.1-flash-lite-image` |
-| saveDesteklenen veri türleri | **Girişler**  Metin ve Resim  **Çıkış**  Resim ve Metin |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  65.536  **Çıkış jetonu sınırı**  4.096 |
-| handymanÖzellikler | **Ses üretme**  Desteklenmiyor  **Batch API**  Destekleniyor  **Önbelleğe alma**  Desteklenmiyor  **Kod yürütme**  Desteklenmiyor  **Dosya arama**  Desteklenmiyor  **İşlev çağırma**  Destekleniyor  **Google Haritalar ile Temellendirme**  Desteklenmiyor  **Google Arama ile temellendirme**  Desteklenmiyor  **Görüntü düzenleme**  Destekleniyor  **Görüntü üretme**  Destekleniyor  **Live API**  Desteklenmiyor  **Arama temellendirme**  Desteklenmiyor  **Yapılandırılmış çıkışlar**  Desteklenmiyor  **Düşünme** (Thinking)  Desteklenir (minimal ve yüksek)  **URL bağlamı**  Desteklenmiyor |
-| 123Sürümler | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Kararlı: `gemini-3.1-flash-lite-image` |
-| calendar\_monthSon güncelleme | Haziran 2026 |
-| id\_cardModel kartı | [Model kartı](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/?hl=tr) |
+| id\_card 模型代码 | `gemini-3.1-flash-lite-image` |
+| 保存支持的数据类型 | **输入源**  文字、图片、视频和 PDF  **输出**  图片和文字 |
+| token\_auto令牌限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入 token 限制**  65536  **输出 token 限制**  4096 |
+| handyman功能 | **[音频生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)**  不受支持  **[缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)**  不受支持  **[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)**  不受支持  **[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)**  不受支持  **[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)**  不受支持  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)**  不受支持  **[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)**  支持  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn)**  不受支持  **[搜索接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)**  不受支持  **[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)**  不受支持  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)**  支持（最低和最高）  **[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)**  不受支持 |
+| speed使用选项 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)**  支持  **[Flex 推理](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-cn)**  不受支持  **[优先推断](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)**  不受支持 |
+| 123 版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 稳定版：`gemini-3.1-flash-lite-image` |
+| calendar\_month最新更新 | 2026 年 6 月 |
+| id\_card模型卡片 | [模型卡片](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/?hl=zh-cn) |
 
-Geri bildirim gönderin
+发送反馈
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Son güncelleme tarihi: 2026-08-19 UTC.
+最后更新时间 (UTC)：2026-09-08。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+需要向我们提供更多信息？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-08。"],[],[]]

@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=id
-fetched_at: 2026-09-07T05:43:07.958222+00:00
-title: "Penggunaan komputer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=ja
+fetched_at: 2026-09-14T05:36:45.938762+00:00
+title: "\u30b3\u30f3\u30d4\u30e5\u30fc\u30bf\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Penggunaan komputer
+# コンピュータ使用
 
-Alat Penggunaan Komputer memungkinkan Anda membuat agen kontrol browser, seluler, dan desktop yang berinteraksi dengan dan mengotomatiskan tugas. Dengan menggunakan screenshot, model dapat "melihat" layar komputer, dan "bertindak" dengan membuat tindakan UI tertentu seperti klik mouse dan input keyboard. Mirip dengan panggilan fungsi, Anda harus menerapkan lingkungan eksekusi sisi klien untuk menerima dan mengeksekusi tindakan Penggunaan Komputer.
+コンピュータ使用ツールを使用すると、ブラウザ、モバイル、パソコンの制御エージェントを構築して、タスクを操作して自動化できます。モデルはスクリーンショットを使用して、コンピュータ画面を「見て」、マウスのクリックやキーボード入力などの特定の UI アクションを生成して「操作」できます。関数呼び出しと同様に、クライアントサイドの実行環境を実装して、コンピュータ使用アクションを受信して実行する必要があります。
 
-Untuk mengetahui daftar model yang didukung, lihat [Versi model](#model-versions). Model Gemini 3.x mendukung beberapa kemampuan lanjutan:
+Gemini 3.5 Flash は、パソコンでの使用におすすめのモデルです。次の新機能が導入されています。
 
-- **Dukungan multi-lingkungan:** agen build untuk lingkungan [browser, seluler, dan desktop](#supported-environments).
-- **Tindakan yang disederhanakan dengan maksud:** tindakan mencakup kolom `intent` yang menjelaskan alasan model di balik setiap langkah.
-- **Kebijakan keamanan yang dapat dikonfigurasi:** sesuaikan [perilaku keamanan](#safety-policies) dengan kategori dan penggantian kebijakan bawaan.
-- **Deteksi injeksi perintah:** aktifkan [pemindaian screenshot](#prompt-injection) untuk mendeteksi petunjuk berbahaya tersembunyi.
+- **マルチ環境のサポート:** [ブラウザ、モバイル、パソコン](#supported-environments)環境用のエージェントを構築します。
+- **インテントを使用した合理化されたアクション:** アクションには、各ステップの背後にあるモデルの推論を説明する `intent` フィールドが含まれています。
+- **構成可能な安全性ポリシー:** 組み込みのポリシー カテゴリとオーバーライドを使用して、[安全性動作](#safety-policies)を微調整します。
+- **プロンプト インジェクションの検出:** [スクリーンショット スキャン](#prompt-injection)を有効にして、隠れた敵対的指示を検出します。
 
-Dengan Penggunaan Komputer, Anda dapat membuat agen yang:
+コンピュータ使用モデルを使用すると、次のことができるエージェントを構築できます。
 
-- Mengotomatiskan entri data atau pengisian formulir yang berulang di situs.
-- Melakukan pengujian otomatis aplikasi web dan alur pengguna
-- Melakukan riset di berbagai situs (misalnya, mengumpulkan informasi produk, harga, dan ulasan dari situs e-commerce untuk membantu pembelian)
+- ウェブサイトでのデータ入力やフォームへの記入など、繰り返し発生する作業を自動化します。
+- ウェブ アプリケーションとユーザーフローの自動テストを実行する
+- さまざまなウェブサイトで調査を行う（e コマース サイトから商品の情報、価格、レビューを収集して購入の判断に役立てるなど）
 
-Berikut adalah contoh minimal untuk menginisialisasi klien dan mengirimkan perintah ke model dengan alat `computer_use` yang diaktifkan untuk lingkungan browser:
+ブラウザ環境で `computer_use` ツールを有効にして、クライアントを初期化し、モデルにプロンプトを送信する最小限の例を次に示します。
 
 ### Python
 
@@ -43,7 +43,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Search for 'Gemini API' on Google.",
     tools=[{"type": "computer_use", "environment": "browser"}]
 )
@@ -59,7 +59,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-  model: 'gemini-3.7-flash',
+  model: 'gemini-3.6-flash',
   input: "Search for 'Gemini API' on Google.",
   tools: [{ type: "computer_use", environment: "browser" }]
 });
@@ -67,54 +67,44 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## Cara kerja Penggunaan Komputer
+## コンピュータ使用の仕組み
 
-Untuk membuat agen dengan model Penggunaan Komputer, Anda perlu menyiapkan loop berkelanjutan antara aplikasi dan API. Berikut adalah fungsi kode Anda di setiap langkah:
+コンピュータ使用モデルを使用してエージェントを構築するには、アプリケーションと API の間に継続的なループを設定する必要があります。各ステップでコードが実行する処理は次のとおりです。
 
-1. [**Mengirim permintaan ke model**](#send-request)
-   - Aplikasi Anda mengirimkan permintaan API yang berisi alat Penggunaan Komputer, setelan konfigurasi Anda (seperti lingkungan target), perintah pengguna, dan screenshot layar saat ini.
-2. [**Menerima respons model**](#model-response)
-   - Model menganalisis layar dan perintah, lalu menampilkan respons
-     yang mencakup `function_call` yang disarankan yang merepresentasikan tindakan UI (seperti
-     klik, scroll, atau penekanan tombol).
-   - Untuk **model Gemini 3.x**, respons juga mencakup alasan `intent`
-     yang menjelaskan mengapa model memilih tindakan tersebut.
-   - Respons juga dapat mencakup `safety_decision` dari sistem keamanan internal yang mengklasifikasikan tindakan sebagai reguler/diizinkan, `require_confirmation` (memerlukan persetujuan pengguna), atau diblokir.
-3. [**Jalankan tindakan yang diterima**](#execute-actions)
-   - Jika tindakan diizinkan (atau pengguna mengonfirmasinya), kode
-     sisi klien Anda akan mengurai `function_call`, menskalakan koordinat yang dinormalisasi agar sesuai
-     dengan area tampilan, dan menjalankan tindakan di lingkungan target menggunakan
-     alat otomatisasi (seperti Playwright). Jika tindakan diblokir, klien Anda harus menghentikan eksekusi atau menangani gangguan.
-4. [**Merekam status lingkungan baru**](#capture-state)
-   - Setelah tindakan selesai dieksekusi, aplikasi Anda akan mengambil screenshot baru dan mengirimkannya kembali ke model dalam `function_result` untuk meminta langkah berikutnya.
+1. [**モデルにリクエストを送信する**](#send-request)
+   - アプリケーションは、コンピュータ使用ツール、構成設定（ターゲット環境など）、ユーザーのプロンプト、現在の画面のスクリーンショットを含む API リクエストを送信します。
+2. [**モデル レスポンスを受信する**](#model-response)
+   - モデルは画面とプロンプトを分析し、UI アクション（クリック、スクロール、キーストロークなど）を表す `function_call` を含むレスポンスを返します。
+   - **Gemini 3.5 Flash** の場合、レスポンスには、モデルがそのアクションを選択した理由を説明する推論 `intent` も含まれます。
+   - レスポンスには、アクションを通常/許可、`require_confirmation`（ユーザーの承認が必要）、ブロックに分類する内部安全システムからの `safety_decision` が含まれる場合もあります。
+3. [**受信したアクションを実行する**](#execute-actions)
+   - アクションが許可されている場合（またはユーザーが確認した場合）、クライアントサイドのコードは `function_call` を解析し、正規化された座標をビューポートに合わせてスケーリングし、自動化ツール（Playwright など）を使用してターゲット環境でアクションを実行します。アクションがブロックされた場合、クライアントは実行を停止するか、中断を処理する必要があります。
+4. [**新しい環境の状態をキャプチャする**](#capture-state)
+   - アクションの実行が完了すると、アプリケーションは新しいスクリーンショットをキャプチャし、`function_result` でモデルに送り返して次のステップをリクエストします。
 
-Kemudian, proses ini diulang dari langkah 2, terus-menerus meminta tindakan berikutnya
-dari model hingga tugas selesai atau dihentikan.
+このプロセスはステップ 2 から繰り返され、タスクが完了または終了するまで、モデルから次のアクションが継続的に求められます。
 
-![Ringkasan Penggunaan Komputer](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=id)
+![コンピュータ使用の概要](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=ja)
 
-## Cara menerapkan Penggunaan Komputer
+## コンピュータの使用を実装する方法
 
-Sebelum membangun dengan alat Penggunaan Komputer, Anda harus menyiapkan:
+コンピュータの使用ツールを使用して構築する前に、次の設定を行う必要があります。
 
-- **Lingkungan eksekusi yang aman:** Jalankan agen Anda di VM atau container sandbox untuk mengisolasinya dari sistem host Anda dan membatasi potensi dampaknya.
-  [Penerapan referensi](https://github.com/google/computer-use-preview/)
-  mencakup sandbox berbasis Docker yang siap digunakan dan dapat Anda gunakan sebagai titik awal.
-- **Handler tindakan sisi klien:** Terapkan logika sisi klien untuk menjalankan koordinat, mengetik teks, dan mengambil screenshot.
+- **安全な実行環境:** サンドボックス化された VM またはコンテナでエージェントを実行して、ホストシステムから隔離し、潜在的な影響を制限します。[リファレンス実装](https://github.com/google/computer-use-preview/)には、出発点として使用できる Docker ベースのサンドボックスが含まれています。
+- **クライアントサイドのアクション ハンドラ:** 座標の実行、テキストの入力、スクリーンショットの撮影を行うクライアントサイドのロジックを実装します。
 
-Contoh di bawah menggunakan browser web sebagai lingkungan eksekusi dan
-[Playwright](https://playwright.dev/) sebagai handler sisi klien.
+次の例では、実行環境としてウェブブラウザを使用し、クライアントサイド ハンドラとして [Playwright](https://playwright.dev/) を使用しています。
 
-### 0. Menyiapkan Playwright
+### 0: Playwright を設定する
 
-Pertama, instal paket yang diperlukan:
+まず、必要なパッケージをインストールします。
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-Kemudian, inisialisasi instance browser Playwright untuk digunakan dalam eksekusi:
+次に、実行に使用する Playwright ブラウザ インスタンスを初期化します。
 
 ```
 from playwright.sync_api import sync_playwright
@@ -142,15 +132,15 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. Mengirim permintaan ke model
+### 1. モデルにリクエストを送信する
 
-Lakukan inisialisasi library klien dan konfigurasi alat Penggunaan Komputer. Perhatikan bahwa tidak perlu menentukan ukuran tampilan saat mengeluarkan permintaan; model memprediksi koordinat piksel yang diskalakan ke tinggi dan lebar layar.
+クライアント ライブラリを初期化し、コンピュータ使用ツールを構成します。リクエストを発行する際に表示サイズを指定する必要はありません。モデルは、画面の高さと幅に合わせてスケーリングされたピクセル座標を予測します。
 
-### Gemini 3.x
+### Gemini 3.5 Flash（推奨）
 
 ### Python
 
-Gunakan `google-genai` Python SDK (versi `2.7.0` atau yang lebih tinggi) untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
+`google-genai` Python SDK（バージョン `2.7.0` 以降）を使用して、ブラウザ環境をターゲットとするリクエストを構成します。
 
 ```
 from google import genai
@@ -158,7 +148,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model='gemini-3.7-flash',
+    model='gemini-3.6-flash',
     input="Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th",
     tools=[
         {
@@ -174,7 +164,7 @@ print(interaction)
 
 ### JavaScript
 
-Gunakan `@google/genai` Node.js SDK untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
+`@google/genai` Node.js SDK を使用して、ブラウザ環境をターゲットとするリクエストを構成します。
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -182,7 +172,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-  model: 'gemini-3.7-flash',
+  model: 'gemini-3.6-flash',
   input: "Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th",
   tools: [
     {
@@ -198,7 +188,7 @@ console.log(interaction);
 
 ### REST
 
-Gunakan curl untuk mengirim permintaan:
+curl を使用してリクエストを送信します。
 
 ```
 curl -X POST \
@@ -206,7 +196,7 @@ curl -X POST \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.7-flash",
+    "model": "gemini-3.6-flash",
     "input": "Find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. Start by navigating directly to flights.google.com",
     "tools": [
       {
@@ -218,7 +208,7 @@ curl -X POST \
   }'
 ```
 
-### Gemini 2.5 (Versi Lama)
+### Gemini 2.5（以前のバージョン）
 
 ### Python
 
@@ -270,12 +260,11 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-### 2. Menerima respons model
+### 2. モデル レスポンスを受信する
 
-Model respons menyarankan panggilan fungsi. Untuk **model Gemini 3.x**, respons berisi maksud penalaran yang disesuaikan bersama dengan koordinat. Berikut
-contoh kedua respons:
+レスポンス モデルは関数呼び出しを提案します。**Gemini 3.5 Flash** の場合、レスポンスには座標とともにカスタマイズされた推論インテントが含まれます。次の例は、両方のレスポンスを示しています。
 
-### Gemini 3.x
+### Gemini 3.5 Flash
 
 ```
 {
@@ -293,7 +282,7 @@ contoh kedua respons:
 }
 ```
 
-### Gemini 2.5 (Versi Lama)
+### Gemini 2.5（以前のバージョン）
 
 ```
 {
@@ -321,11 +310,11 @@ contoh kedua respons:
 }
 ```
 
-### 3. Menjalankan tindakan yang diterima
+### 3. 受信したアクションを実行する
 
-Aplikasi Anda harus mengurai koordinat respons, menjalankan tindakan, dan menskalakannya dari koordinat 1000x1000 yang dinormalisasi.
+アプリは、レスポンスの座標を解析し、アクションを実行して、正規化された 1000x1000 の座標からスケーリングする必要があります。
 
-Kode di bawah menangani perintah alat lama (`click_at`, `type_text_at`) dan perintah yang disederhanakan modern (`click`, `type`).
+次のコードは、以前のツールコマンド（`click_at`、`type_text_at`）と Gemini 3.5 Flash の効率化されたコマンド（`click`、`type`）の両方を処理します。
 
 ### Python
 
@@ -490,11 +479,9 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
 }
 ```
 
-### 4. Merekam status lingkungan baru
+### 4. 新しい環境の状態をキャプチャする
 
-Setelah menjalankan tindakan, kirim hasil eksekusi fungsi kembali ke model agar model dapat menggunakan informasi ini untuk membuat tindakan berikutnya. Jika
-beberapa tindakan (panggilan paralel) dijalankan, Anda harus mengirimkan
-`function_result` untuk setiap tindakan pada giliran pengguna berikutnya.
+アクションを実行したら、関数実行の結果をモデルに送り返します。モデルはこの情報を使用して次のアクションを生成します。複数のアクション（並列呼び出し）が実行された場合は、後続のユーザーターンでそれぞれに対して `function_result` を送信する必要があります。
 
 ### Python
 
@@ -557,14 +544,13 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
-Setelah menentukan cara merekam dan memformat status lingkungan, Anda dapat menggabungkan semua langkah ini ke dalam loop eksekusi berkelanjutan.
+環境の状態をキャプチャしてフォーマットする方法を定義したら、これらのステップをすべて継続的な実行ループにまとめることができます。
 
-## Membangun loop agen
+## エージェント ループを作成する
 
-Untuk mengaktifkan interaksi multi-langkah, gabungkan empat langkah dari bagian [Cara menerapkan Penggunaan Komputer](#implement-computer-use) menjadi satu loop.
-Loop ini terus meminta tindakan dan mengirimkan kembali hasilnya ke model hingga tugas selesai.
+複数ステップのやり取りを可能にするには、[コンピュータの使用方法を実装する](#implement-computer-use)セクションの 4 つの手順を 1 つのループにまとめます。このループは、タスクが完了するまでアクションをリクエストし、結果をモデルにフィードバックし続けます。
 
-Ingatlah untuk mengelola histori percakapan dengan benar dengan menambahkan respons model dan respons fungsi Anda ke histori di setiap langkah.
+各ステップでモデルのレスポンスと関数のレスポンスの両方を履歴に追加して、会話履歴を正しく管理してください。
 
 ### Python
 
@@ -605,7 +591,7 @@ try:
 
     # First interaction
     interaction = client.interactions.create(
-        model='gemini-3.7-flash',
+        model='gemini-3.6-flash',
         input=[
             {"type": "text", "text": USER_PROMPT},
             {"type": "image", "data": base64.b64encode(initial_screenshot).decode("utf-8"), "mime_type": "image/png"}
@@ -642,7 +628,7 @@ try:
 
         # Continue conversation with function responses
         interaction = client.interactions.create(
-            model='gemini-3.7-flash',
+            model='gemini-3.6-flash',
             previous_interaction_id=interaction.id,
             input=function_responses,
             tools=[{
@@ -696,7 +682,7 @@ try {
 
     // First interaction
     let interaction = await ai.interactions.create({
-        model: 'gemini-3.7-flash',
+        model: 'gemini-3.6-flash',
         input: [
             { type: 'text', text: USER_PROMPT },
             { type: 'image', data: initialScreenshotBase64, mime_type: 'image/png' }
@@ -737,7 +723,7 @@ try {
 
         // Continue conversation with function responses
         interaction = await ai.interactions.create({
-            model: 'gemini-3.7-flash',
+            model: 'gemini-3.6-flash',
             previous_interaction_id: interaction.id,
             input: functionResponses,
             tools: [{
@@ -754,108 +740,107 @@ try {
 }
 ```
 
-## Lingkungan yang didukung (Gemini 3.x)
+## サポートされている環境（Gemini 3.5 Flash）
 
-Model Gemini 3.x mendukung tiga lingkungan yang ditentukan dalam `computer_use`
-konfigurasi:
+Gemini 3.5 Flash は、`computer_use` 構成で指定された次の 3 つの環境をサポートしています。
 
-### Lingkungan browser (`ENVIRONMENT_BROWSER`)
+### ブラウザ環境（`ENVIRONMENT_BROWSER`）
 
-Tindakan yang tersedia di alat browser:
+ブラウザツールで使用できるアクション:
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
+| コマンド名 | 説明 | 引数（関数呼び出し内） |
 | --- | --- | --- |
-| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
-| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
-| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
-| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
-| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
-| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
-| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
-| **go\_back** | Kembali ke halaman web sebelumnya dalam histori browser. | `intent`: str |
-| **navigate** | Membuka langsung URL tertentu. | `url`: str `intent`: str |
-| **go\_forward** | Membuka halaman web berikutnya dalam histori browser. | `intent`: str |
+| **click** | 座標で左クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **double\_click** | 座標をダブルクリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **triple\_click** | 座標を 3 回クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **middle\_click** | 座標で中クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **right\_click** | 座標での右クリック。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **mouse\_down** | 座標でマウスボタンを押して長押しします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **mouse\_up** | 座標でマウスボタンを離します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **move** | カーソルを指定した位置に移動します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **type** | テキストを入力します。 | `text`: str `press_enter`: bool（省略可、デフォルトは `false`） `intent`: str |
+| **drag\_and\_drop** | アイテムを開始座標から終了座標までドラッグします。 | `start_y`: int（0 ～ 999） `start_x`: int（0 ～ 999） `end_y`: int（0 ～ 999） `end_x`: int（0 ～ 999） `intent`: str |
+| **wait** | 指定された秒数だけ実行を一時停止します。 | `seconds`: int（省略可、デフォルトは `1`） `intent`: str |
+| **press\_key** | 指定されたキーを押して離します。 | `key`: str `intent`: str |
+| **key\_down** | 指定されたキーを押して保持します。 | `key`: str `intent`: str |
+| **key\_up** | 指定されたキーをリリースします。 | `key`: str `intent`: str |
+| **ホットキー** | 指定されたキーの組み合わせを押します。 | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | 現在の画面のスクリーンショットを返します。 | `intent`: str |
+| **scroll** | 座標で上下左右にピクセル距離だけスクロールします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `direction`: str（`"up"`、`"down"`、`"left"`、`"right"`） `magnitude_in_pixels`: int（0 ～ 999、省略可、デフォルトは `300`） `intent`: str |
+| **go\_back** | ブラウザの履歴の前のウェブページに戻ります。 | `intent`: str |
+| **navigate** | 指定された URL に直接移動します。 | `url`: str `intent`: str |
+| **go\_forward** | ブラウザの履歴の次のウェブページに移動します。 | `intent`: str |
 
-### Lingkungan seluler (`ENVIRONMENT_MOBILE`)
+### モバイル環境（`ENVIRONMENT_MOBILE`）
 
-Tindakan lingkungan yang dioptimalkan untuk Android:
+Android に最適化された環境アクション:
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
+| コマンド名 | 説明 | 引数（関数呼び出し内） |
 | --- | --- | --- |
-| **open\_app** | Membuka aplikasi berdasarkan namanya. | `app_name`: str `intent`: str |
-| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | Mencantumkan aplikasi yang tersedia di perangkat, menampilkan nama dan nama paketnya. | `intent`: str |
-| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
-| **go\_back** | Kembali ke layar atau halaman web sebelumnya. | `intent`: str |
-| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
-| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | Melakukan tekan lama pada koordinat di layar. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (Opsional, default `2`) `intent`: str |
-| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
-| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
+| **open\_app** | 名前でアプリケーションを開きます。 | `app_name`: str `intent`: str |
+| **click** | 座標で左クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **list\_apps** | デバイスで利用可能なアプリを一覧表示し、名前とパッケージ名を返します。 | `intent`: str |
+| **wait** | 指定された秒数だけ実行を一時停止します。 | `seconds`: int（省略可、デフォルトは `1`） `intent`: str |
+| **go\_back** | 前の画面またはウェブページに戻ります。 | `intent`: str |
+| **type** | テキストを入力します。 | `text`: str `press_enter`: bool（省略可、デフォルトは `false`） `intent`: str |
+| **drag\_and\_drop** | アイテムを開始座標から終了座標までドラッグします。 | `start_y`: int（0 ～ 999） `start_x`: int（0 ～ 999） `end_y`: int（0 ～ 999） `end_x`: int（0 ～ 999） `intent`: str |
+| **long\_press** | 画面上の座標で長押しを実行します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `seconds`: int（省略可、デフォルトは `2`） `intent`: str |
+| **press\_key** | 指定されたキーを押して離します。 | `key`: str `intent`: str |
+| **take\_screenshot** | 現在の画面のスクリーンショットを返します。 | `intent`: str |
 
-### Lingkungan desktop (`ENVIRONMENT_DESKTOP`)
+### デスクトップ環境（`ENVIRONMENT_DESKTOP`）
 
-Perintah kursor tingkat OS lingkungan desktop:
+デスクトップ環境の OS レベルのカーソル コマンド:
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
+| コマンド名 | 説明 | 引数（関数呼び出し内） |
 | --- | --- | --- |
-| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
-| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
-| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
-| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
-| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
-| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
-| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
+| **click** | 座標で左クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **double\_click** | 座標をダブルクリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **triple\_click** | 座標を 3 回クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **middle\_click** | 座標で中クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **right\_click** | 座標での右クリック。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **mouse\_down** | 座標でマウスボタンを押して長押しします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **mouse\_up** | 座標でマウスボタンを離します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **move** | カーソルを指定した位置に移動します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
+| **type** | テキストを入力します。 | `text`: str `press_enter`: bool（省略可、デフォルトは `false`） `intent`: str |
+| **drag\_and\_drop** | アイテムを開始座標から終了座標までドラッグします。 | `start_y`: int（0 ～ 999） `start_x`: int（0 ～ 999） `end_y`: int（0 ～ 999） `end_x`: int（0 ～ 999） `intent`: str |
+| **wait** | 指定された秒数だけ実行を一時停止します。 | `seconds`: int（省略可、デフォルトは `1`） `intent`: str |
+| **press\_key** | 指定されたキーを押して離します。 | `key`: str `intent`: str |
+| **key\_down** | 指定されたキーを押して保持します。 | `key`: str `intent`: str |
+| **key\_up** | 指定されたキーをリリースします。 | `key`: str `intent`: str |
+| **ホットキー** | 指定されたキーの組み合わせを押します。 | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | 現在の画面のスクリーンショットを返します。 | `intent`: str |
+| **scroll** | 座標で上下左右にピクセル距離だけスクロールします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `direction`: str（`"up"`、`"down"`、`"left"`、`"right"`） `magnitude_in_pixels`: int（0 ～ 999、省略可、デフォルトは `300`） `intent`: str |
 
-## Tindakan UI yang Didukung Lama (Gemini 2.5)
+## 以前のサポート対象の UI アクション（Gemini 2.5）
 
-Untuk model lama (`gemini-2.5-computer-use-preview-10-2025`), tindakan berikut didukung:
+以前のモデル（`gemini-2.5-computer-use-preview-10-2025`）では、次のアクションがサポートされています。
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) | Contoh panggilan fungsi |
+| コマンド名 | 説明 | 引数（関数呼び出し内） | 関数呼び出しの例 |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | Membuka browser web. | Tidak ada | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | Menjeda eksekusi selama 5 detik. | Tidak ada | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | Membuka halaman sebelumnya dalam histori. | Tidak ada | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | Membuka halaman berikutnya dalam histori. | Tidak ada | `{"name": "go_forward", "arguments": {}}` |
-| **search** | Membuka mesin telusur default. | Tidak ada | `{"name": "search", "arguments": {}}` |
-| **navigate** | Membuka URL yang ditentukan secara langsung di browser. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | Mengklik pada koordinat tertentu. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | Mengarahkan kursor mouse pada koordinat tertentu. | `y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | Mengetik teks pada koordinat. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (Opsional, default Benar), `clear_before_typing`: bool (Opsional, default Benar) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | Tekan tombol atau kombinasi tombol. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | Men-scroll seluruh halaman web. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | Men-scroll di koordinat (x,y). | `y`: int, `x`: int, `direction`: str, `magnitude`: int (Opsional, default 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | Menarik antara dua koordinat. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+| **open\_web\_browser** | ウェブブラウザを開きます。 | なし | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | 実行を 5 秒間一時停止します。 | なし | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | 履歴の前のページに移動します。 | なし | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | 履歴の次のページに移動します。 | なし | `{"name": "go_forward", "arguments": {}}` |
+| **search** | デフォルトの検索エンジンに移動します。 | なし | `{"name": "search", "arguments": {}}` |
+| **navigate** | ブラウザを指定された URL に直接移動します。 | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | 特定の座標をクリックします。 | `y`: int（0～999）、`x`: int（0～999） | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | 特定の座標にマウスを移動します。 | `y`: int（0～999）、`x`: int（0～999） | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | 座標にテキストを入力します。 | `y`: int（0 ～ 999）、`x`: int（0 ～ 999）、`text`: str、`press_enter`: bool（省略可、デフォルトは True）、`clear_before_typing`: bool（省略可、デフォルトは True） | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | キーまたはキーの組み合わせを押します。 | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | ウェブページ全体をスクロールします。 | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | 座標（x,y）でスクロールします。 | `y`: int、`x`: int、`direction`: str、`magnitude`: int（省略可、デフォルトは 800） | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | 2 つの座標間でドラッグします。 | `y`: int、`x`: int、`destination_y`: int、`destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
 
-## Fungsi kustom yang ditentukan pengguna
+## カスタムのユーザー定義関数
 
-Anda dapat memperluas fungsi model dengan menyertakan fungsi kustom yang ditentukan pengguna. Misalnya, dalam skenario human-in-the-loop (HITL), Anda dapat mengecualikan tindakan default yang telah ditentukan sebelumnya dan mendaftarkan tindakan kustom.
+カスタム ユーザー定義関数を含めて、モデルの機能を拡張できます。たとえば、人間参加型（HITL）シナリオでは、デフォルトの事前定義済みアクションを除外して、カスタム アクションを登録できます。
 
-#### Alat Kustom Gemini 3.x
+#### Gemini 3.5 Flash カスタム ツール
 
 ### Python
 
-Kecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan daftarkan alat `yield_to_user` kustom:
+標準の事前定義されたブラウザ アクション（`click` など）を除外し、カスタム `yield_to_user` ツールを登録します。
 
 ```
 from google import genai
@@ -879,7 +864,7 @@ yield_to_user_tool = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Click the submit button. If you need a second factor authentication code, ask me.",
     tools=[
         {
@@ -894,7 +879,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-Mengecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan mendaftarkan alat `yield_to_user` kustom:
+標準の事前定義されたブラウザ アクション（`click` など）を除外し、カスタム `yield_to_user` ツールを登録します。
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -918,7 +903,7 @@ const yieldToUserTool = {
 };
 
 const interaction = await ai.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: "Click the submit button. If you need a second factor authentication code, ask me.",
     tools: [
         {
@@ -931,7 +916,7 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-#### Alat Kustom Gemini 2.5 (Versi Lama)
+#### Gemini 2.5（以前のバージョン）のカスタム ツール
 
 ### Python
 
@@ -1011,29 +996,29 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## Mengelola tingkat penalaran (Gemini 3.x)
+## 思考レベルを管理する（Gemini 3.5 Flash）
 
-Untuk agen penggunaan komputer, Anda dapat mengonfigurasi tingkat pemikiran yang berbeda untuk menyeimbangkan kualitas tindakan dan kecepatan eksekusi. Tingkat pemikiran yang lebih rendah umumnya mencapai keseimbangan yang baik untuk tugas otomatisasi standar.
+コンピュータ使用エージェントでは、アクションの品質と実行速度のバランスを取るために、さまざまな思考レベルを構成できます。一般的に、標準的な自動化タスクでは、思考レベルを低くするとバランスが取れます。
 
-## Keselamatan dan keamanan
+## 安全性とセキュリティ
 
-### Mengonfigurasi kebijakan keamanan (Gemini 3.x)
+### 安全性ポリシーの構成（Gemini 3.5 Flash）
 
-Model Gemini 3.x mencakup kategori layanan keamanan bawaan yang secara otomatis menentukan apakah konfirmasi pengguna diperlukan.
+Gemini 3.5 Flash モデルには、ユーザーの確認が必要かどうかを自動的に判断する組み込みの安全サービス カテゴリが含まれています。
 
-| Kategori kebijakan keselamatan | Deskripsi |
+| 安全性に関するポリシーのカテゴリ | 説明 |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | Memblokir atau memicu konfirmasi untuk tindakan yang melibatkan pembayaran, checkout retail, atau barang yang diatur oleh hukum. |
-| `SENSITIVE_DATA_MODIFICATION` | Melindungi catatan kesehatan, keuangan, atau pemerintah dari modifikasi yang tidak sah. |
-| `COMMUNICATION_TOOL` | Membatasi agen agar tidak mengirim email, pesan chat, atau draf secara mandiri. |
-| `ACCOUNT_CREATION` | Membatasi agen agar tidak mendaftarkan akun baru secara mandiri di situs. |
-| `DATA_MODIFICATION` | Mengatur modifikasi sistem file secara keseluruhan, berbagi data, dan penghapusan penyimpanan. |
-| `USER_CONSENT_MANAGEMENT` | Memerlukan pengambilalihan pengguna untuk banner izin cookie dan dialog privasi. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | Mencegah model menerima Persyaratan Layanan atau kontrak yang mengikat secara hukum secara mandiri. |
+| `FINANCIAL_TRANSACTIONS` | 支払い、小売店のレジ、規制対象商品に関連するアクションをブロックするか、確認をトリガーします。 |
+| `SENSITIVE_DATA_MODIFICATION` | 医療、財務、政府の記録を不正な変更から保護します。 |
+| `COMMUNICATION_TOOL` | エージェントがメール、チャット メッセージ、下書きを自律的に送信することを制限します。 |
+| `ACCOUNT_CREATION` | エージェントがウェブサイトで新しいアカウントを自律的に登録することを制限します。 |
+| `DATA_MODIFICATION` | ファイル システムの変更、データ共有、ストレージの削除を全体的に規制します。 |
+| `USER_CONSENT_MANAGEMENT` | Cookie 使用の同意バナーとプライバシー プロンプトでユーザーの操作が必要になります。 |
+| `LEGAL_TERMS_AND_AGREEMENTS` | モデルが利用規約や法的拘束力のある契約に自律的に同意することを防ぎます。 |
 
-#### Penggantian keamanan
+#### 安全性のオーバーライド
 
-Anda dapat mengganti kebijakan tertentu dengan meneruskan penggantian:
+オーバーライドを渡すことで、一部のポリシーをオーバーライドできます。
 
 ### Python
 
@@ -1043,7 +1028,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.7-flash",
+    model="gemini-3.6-flash",
     input="Clean up the local folder by archiving old logs.",
     tools=[
         {
@@ -1065,7 +1050,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-    model: "gemini-3.7-flash",
+    model: "gemini-3.6-flash",
     input: "Clean up the local folder by archiving old logs.",
     tools: [
         {
@@ -1079,13 +1064,13 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-### Deteksi injeksi perintah (Gemini 3.x)
+### プロンプト インジェクションの検出（Gemini 3.5 Flash）
 
-Mekanisme keamanan keikutsertaan yang memindai piksel screenshot untuk menemukan petunjuk perintah berniat jahat tersembunyi (misalnya, "Abaikan perintah sebelumnya") dan memblokir eksekusi saat terdeteksi.
+スクリーンショットのピクセルをスキャンして、隠された敵対的なプロンプトの指示（「前のコマンドを無視する」など）を探し、検出された場合に実行をブロックするオプトインの安全メカニズム。
 
-### Mengonfirmasi keputusan keamanan
+### 安全性の判断を確認する
 
-Respons dapat menyertakan parameter `safety_decision` dalam argumen panggilan fungsi:
+レスポンスには、関数呼び出しの引数に `safety_decision` パラメータが含まれる場合があります。
 
 ```
 {
@@ -1106,7 +1091,7 @@ Respons dapat menyertakan parameter `safety_decision` dalam argumen panggilan fu
 }
 ```
 
-Jika `safety_decision` adalah `require_confirmation`, minta pengguna akhir. Jika pengguna mengonfirmasi, tetapkan `safety_acknowledgement` di `function_result`.
+`safety_decision` が `require_confirmation` の場合は、エンドユーザーにプロンプトを表示します。ユーザーが確認した場合は、`function_result` で `safety_acknowledgement` を設定します。
 
 ### Python
 
@@ -1125,15 +1110,14 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### Praktik terbaik keamanan
+### 安全に使用するためのベスト プラクティス
 
-Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karena model yang bertindak atas nama pengguna dapat menemukan konten yang tidak tepercaya di layar atau melakukan kesalahan dalam menjalankan tindakan. Terapkan praktik terbaik berikut untuk melindungi data dan sistem pengguna:
+コンピュータ使用は、ユーザーに代わってモデルが画面上の信頼できないコンテンツに遭遇したり、アクションの実行でエラーが発生したりする可能性があるため、独自のセキュリティ リスクと運用リスクが生じます。ユーザーデータとシステムを保護するには、次のベスト プラクティスを実装します。
 
-1. **Human-in-the-Loop (HITL):**
+1. **人間参加型（HITL）:**
 
-   - **Menerapkan konfirmasi pengguna:** Jika respons keamanan menunjukkan
-     `require_confirmation` (atau keputusan keamanan lama memerlukannya), minta persetujuan pengguna.
-   - **Memberikan petunjuk keamanan kustom:** Terapkan petunjuk sistem kustom untuk menentukan dan menerapkan batas keamanan Anda sendiri. Contoh:
+   - **ユーザー確認を強制する:** 安全レスポンスで `require_confirmation` が示されている場合（または以前の安全判定で必要とされている場合）、ユーザーに承認を求めます。
+   - **カスタムの安全に関する指示を提供する:** カスタム システム指示を実装して、独自の安全性の境界を定義し、適用します。次に例を示します。
 
      ### Python
 
@@ -1231,7 +1215,7 @@ Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karen
      """
 
      interaction = client.interactions.create(
-         model="gemini-3.7-flash",
+         model="gemini-3.6-flash",
          system_instruction=system_instruction,
          input="Prepare a draft but do not send.",
          tools=[{
@@ -1337,7 +1321,7 @@ Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karen
      `;
 
      const interaction = await ai.interactions.create({
-         model: "gemini-3.7-flash",
+         model: "gemini-3.6-flash",
          system_instruction: systemInstruction,
          input: "Prepare a draft but do not send.",
          tools: [{
@@ -1346,44 +1330,37 @@ Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karen
          }]
      });
      ```
-2. **Lingkungan eksekusi yang aman:** Jalankan agen Anda di lingkungan yang aman dan sandbox untuk membatasi potensi dampaknya. Hal ini dapat berupa mesin virtual (VM) sandbox, container (misalnya, Docker), atau profil browser khusus dengan izin terbatas. Lihat
-   [implementasi referensi GitHub](https://github.com/google/computer-use-preview/)
-   untuk panduan penyiapan sandbox menggunakan Docker.
-3. **Pembersihan input:** Bersihkan semua teks buatan pengguna dalam perintah untuk
-   memitigasi risiko perintah yang tidak diinginkan atau injeksi perintah. Ini adalah lapisan keamanan yang berguna, tetapi bukan pengganti lingkungan eksekusi yang aman.
-4. **Pembatasan konten:** Gunakan pembatasan dan API keamanan konten untuk mengevaluasi input pengguna, input dan output alat, serta respons agen untuk kesesuaian, deteksi injeksi perintah, dan jailbreak.
-5. **Daftar yang diizinkan dan daftar yang tidak diizinkan:** Terapkan mekanisme pemfilteran untuk mengontrol ke mana model dapat membuka dan apa yang dapat dilakukannya. Daftar situs yang dilarang yang tidak diizinkan adalah titik awal yang baik, sementara daftar yang diizinkan yang lebih ketat akan lebih aman.
-6. **Observabilitas dan logging:** Pertahankan log mendetail untuk proses debug, audit, dan respons insiden. Klien Anda harus mencatat perintah, screenshot, tindakan yang disarankan model (`function_call`), respons keamanan, dan semua tindakan yang akhirnya dilakukan oleh klien.
-7. **Pengelolaan lingkungan:** Pastikan lingkungan GUI konsisten.
-   Pop-up, notifikasi, atau perubahan tata letak yang tidak terduga dapat membingungkan model. Mulai dari status bersih yang diketahui untuk setiap tugas baru jika memungkinkan.
+2. **安全な実行環境:** 安全なサンドボックス環境でエージェントを実行して、潜在的な影響を制限します。これは、サンドボックス化された仮想マシン（VM）、コンテナ（Docker など）、権限が制限された専用のブラウザ プロファイルなどです。Docker を使用したサンドボックスのセットアップ ガイダンスについては、[GitHub リファレンス実装](https://github.com/google/computer-use-preview/)をご覧ください。
+3. **入力のサニタイズ:** プロンプト内のユーザーが生成したすべてのテキストをサニタイズして、意図しない指示やプロンプト インジェクションのリスクを軽減します。これはセキュリティの有用なレイヤですが、安全な実行環境の代わりにはなりません。
+4. **コンテンツ ガードレール:** ガードレールとコンテンツ安全 API を使用して、ユーザー入力、ツール入力と出力、エージェントのレスポンスの適切性、プロンプト インジェクション、ジェイルブレイクの検出を評価します。
+5. **許可リストとブロックリスト:** モデルが移動できる場所と実行できる操作を制御するフィルタリング メカニズムを実装します。禁止されているウェブサイトのブロックリストは適切な出発点ですが、より制限の厳しい許可リストを使用することで安全性を高めることができます。
+6. **オブザーバビリティとロギング:** デバッグ、監査、インシデント対応のために詳細なログを保持します。クライアントは、プロンプト、スクリーンショット、モデルが提案したアクション（`function_call`）、安全性に関するレスポンス、クライアントが最終的に実行したすべてのアクションをログに記録する必要があります。
+7. **環境管理:** GUI 環境の一貫性を確保します。予期しないポップアップ、通知、レイアウトの変更は、モデルを混乱させる可能性があります。可能であれば、新しいタスクごとに既知のクリーンな状態から開始します。
 
-## Versi model
+## モデル バージョン
 
-Anda dapat menggunakan Penggunaan Komputer dengan model berikut:
+コンピュータ使用は次のモデルで使用できます。
 
-- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=id) (`gemini-3.7-flash`): Model yang direkomendasikan untuk
-  penggunaan komputer, yang menampilkan tindakan yang disederhanakan dengan maksud, dukungan untuk
-  lingkungan browser, seluler, dan desktop, kebijakan keamanan yang dapat dikonfigurasi, dan
-  deteksi injeksi perintah.
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) (`gemini-3.5-flash-lite`): Model hemat biaya dengan latensi rendah yang mendukung penggunaan komputer.
-- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) (`gemini-3.5-flash`): Model stabil sebelumnya yang mendukung penggunaan komputer.
-- [**Pratinjau Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) (`gemini-3-flash-preview`): Model pratinjau yang mendukung penggunaan komputer.
-- [**Gemini 2.5 (Pratinjau Lama)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=id) (`gemini-2.5-computer-use-preview-10-2025`): Model pratinjau lama yang dioptimalkan untuk penggunaan komputer berbasis browser.
+- [**Gemini 3.6 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja)（`gemini-3.6-flash`）: コンピュータでの使用におすすめのモデル。インテントによるアクションの効率化、ブラウザ、モバイル、デスクトップ環境のサポート、構成可能な安全ポリシー、プロンプト インジェクションの検出などの機能を備えています。
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja): コンピュータの使用をサポートする、低レイテンシで費用対効果の高いモデル。
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja)（`gemini-3.5-flash`）: コンピュータでの使用をサポートする以前の安定版モデル。
+- [**Gemini 3 Flash プレビュー**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja)（`gemini-3-flash-preview`）: コンピュータでの使用をサポートするプレビュー モデル。
+- [**Gemini 2.5（以前のプレビュー）**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ja)（`gemini-2.5-computer-use-preview-10-2025`）: ブラウザベースのコンピュータでの使用に最適化された以前のプレビュー モデル。
 
-## Langkah berikutnya
+## 次のステップ
 
-- Bereksperimen dengan Penggunaan Komputer di [lingkungan demo Browserbase](http://gemini.browserbase.com).
-- Lihat [Implementasi referensi](https://github.com/google/computer-use-preview) untuk melihat contoh kode.
-- Pelajari alat Gemini API lainnya:
-  - [Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-  - [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+- [Browserbase デモ環境](http://gemini.browserbase.com)でコンピュータの使用を試す。
+- サンプルコードについては、[リファレンス実装](https://github.com/google/computer-use-preview)をご覧ください。
+- 他の Gemini API ツールについて学習します。
+  - [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)
+  - [Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-08-19 UTC.
+最終更新日 2026-09-12 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-08-19 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]

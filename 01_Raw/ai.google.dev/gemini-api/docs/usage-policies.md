@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=es-419
-fetched_at: 2026-09-07T05:35:26.663022+00:00
+fetched_at: 2026-09-14T05:38:06.522147+00:00
 title: "Supervisi\u00f3n de abusos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 

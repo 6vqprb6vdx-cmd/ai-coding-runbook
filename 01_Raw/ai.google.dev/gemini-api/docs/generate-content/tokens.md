@@ -1,75 +1,70 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=zh-CN
-fetched_at: 2026-09-07T05:44:27.934665+00:00
-title: "\u4e86\u89e3\u8bcd\u5143\u5e76\u8ba1\u7b97\u8bcd\u5143\u6570\u91cf \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=id
+fetched_at: 2026-09-14T05:48:49.928414+00:00
+title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
 
-发送反馈
+Kirim masukan
 
-# 了解词元并计算词元数量
+# Memahami dan menghitung token
 
-Gemini 和其他生成式 AI 模型以称为“token”的粒度处理输入和输出。
+Gemini dan model AI generatif lainnya memproses input dan output pada granularitas yang disebut *token*.
 
-**对于 Gemini 模型，一个 token 大致相当于 4 个字符。
-100 个 token 大致相当于 60-80 个英文单词。**
+**Untuk model Gemini, token setara dengan sekitar 4 karakter.
+100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
 
-## 关于 token
+## Tentang token
 
-token 可以是单个字符（例如 `z`），也可以是整个单词（例如 `cat`）。长单词会被拆分为多个 token。模型使用的所有
-token 的集合称为词汇，将文本拆分为 token 的过程称为“token 化” 。
+Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses pemisahan teks menjadi token disebut *tokenisasi*.
 
-启用结算功能后，调用 Gemini API 的[费用](https://ai.google.dev/pricing?hl=zh-cn)部分取决于输入和输出 token 的数量，因此了解如何
-统计 token 数量可能会很有帮助。
+Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id)
+ditentukan sebagian oleh jumlah token input dan output, sehingga mengetahui cara
+menghitung token dapat bermanfaat.
 
-您可以在我们的 Colab 中试用 token 统计功能。
+Anda dapat mencoba menghitung token di Colab kami.
 
 |  |  |  |
 | --- | --- | --- |
-| [在 ai.google.dev 上查看](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | [试用 Colab 笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=zh-cn) | [在 GitHub 上查看笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=zh-cn) |
+| [Lihat di ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | [Coba notebook Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) | [Lihat notebook di GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) |
 
-## 统计 token 数量
+## Menghitung token
 
-Gemini API 的所有输入和输出都会进行 token 化，包括文本、图片文件和其他非文本模态。
+Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
 
-您可以通过以下方式统计 token 数量：
+Anda dapat menghitung token dengan cara berikut:
 
-- **使用请求的输入调用[`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=zh-cn)**。  
-   此调用仅返回 *\*\*输入\*\*
-  中的 token 总数*。您可以在将输入发送给模型之前进行此调用，以检查请求的大小。
-- **在调用 `generate_content` 后，使用 `response` 对象上的 `usage_metadata` 属性。**  
-   此调用返回
-  token 总数，包括*输入和输出*：`total_token_count`。  
-   它还会分别返回输入和输出的 token 数量：`prompt_token_count`（输入 token）和 `candidates_token_count`（输出 token）。
+- **Panggil [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=id) dengan input
+  permintaan.**  
+   Tindakan ini akan menampilkan jumlah total token di *input saja*. Anda dapat melakukan panggilan ini sebelum mengirim input ke model untuk memeriksa ukuran permintaan.
+- **Gunakan atribut `usage_metadata` pada objek `response` setelah
+  memanggil `generate_content`.**  
+   Tindakan ini akan menampilkan jumlah total
+  token di *input dan output*: `total_token_count`.  
+   Tindakan ini juga menampilkan jumlah token input dan output secara terpisah: `prompt_token_count` (token input) dan `candidates_token_count` (token output).
 
-  如果您使用的是[思考
-  模型](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)，则思考
-  过程中使用的 token 会在 `thoughts_token_count` 中返回。如果您使用的是
-  [上下文缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)，则缓存的 token
-  数量将位于 `cached_content_token_count` 中。
+  Jika Anda menggunakan model [penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id), token yang digunakan selama proses penalaran akan ditampilkan di `thoughts_token_count`. Dan jika Anda menggunakan
+  [Context caching](https://ai.google.dev/gemini-api/docs/caching?hl=id), jumlah token yang di-cache akan berada di `cached_content_token_count`.
 
-### 统计文本 token
+### Menghitung token teks
 
-*如果您使用纯文本输入调用 `count_tokens`，则此调用仅返回
-\*\*输入\*\* 中文本的 token 数量 (`total_tokens`)。 您可以在调用
-`generate_content` 之前进行此调用，以检查请求的大小。*
+Jika Anda memanggil `count_tokens` dengan input khusus teks, tindakan ini akan menampilkan jumlah token teks di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan.
 
-另一种方法是调用 `generate_content`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
 
-- 输入 (`prompt_token_count`)、缓存的内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数量
-- 思考过程的 token 数量 (`thoughts_token_count`)
-- *\*\*输入和输出\*\* 中的 token 总数
-  (`total_token_count`)*
+- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
+- Jumlah token untuk proses penalaran (`thoughts_token_count`)
+- Jumlah total token di *input dan output* (`total_token_count`)
 
 ### Python
 
@@ -144,18 +139,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### 统计多轮（聊天）token
+### Menghitung token multi-turn (chat)
 
-如果您使用聊天记录调用 `count_tokens`，则此调用会返回聊天中每个角色的文本的 token 总数 (`total_tokens`)。
+Jika Anda memanggil `count_tokens` dengan histori chat, tindakan ini akan menampilkan jumlah total token teks dari setiap peran dalam chat (`total_tokens`).
 
-另一种方法是调用 `send_message`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Opsi lainnya adalah memanggil `send_message`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
 
-- 输入 (`prompt_token_count`)、缓存的内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数量
-- 思考过程的 token 数量 (`thoughts_token_count`)
-- *\*\*输入和输出\*\* 中的 token 总数
-  (`total_token_count`)*
+- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
+- Jumlah token untuk proses penalaran (`thoughts_token_count`)
+- Jumlah total token di *input dan output* (`total_token_count`)
 
-如需了解下一个对话轮次的大小，您需要在调用 `count_tokens` 时将其附加到历史记录中。
+Untuk memahami seberapa besar giliran percakapan berikutnya, Anda harus menambahkannya ke histori saat memanggil `count_tokens`.
 
 ### Python
 
@@ -281,39 +275,33 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### 统计多模态 token
+### Menghitung token multimodal
 
-Gemini API 的所有输入都会进行 token 化，包括文本、图片文件和其他非文本模态。请注意以下关于 Gemini API
-处理期间多模态输入 token 化的高级要点：
+Semua input ke Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya. Perhatikan poin-poin utama tingkat tinggi berikut tentang tokenisasi input multimodal selama pemrosesan oleh Gemini API:
 
-- 如果图片输入的两个尺寸均小于或等于 384 像素，则按 258 个 token 计算。如果图片在一个或两个尺寸上较大，则会根据需要将其剪裁并缩放为 768x768 像素的图块，每个图块按 258 个 token 计算。
-- 视频和音频文件会按以下固定费率转换为 token：视频每秒 263 个 token，音频每秒 32 个 token。
+- Input gambar dengan kedua dimensi <=384 piksel dihitung sebagai 258 token. Gambar yang lebih besar dalam satu atau kedua dimensi akan dipangkas dan diskalakan sesuai kebutuhan menjadi petak 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
+- File video dan audio dikonversi menjadi token dengan tarif tetap berikut: video dengan 263 token per detik dan audio dengan 32 token per detik.
 
-#### 媒体分辨率
+#### Resolusi media
 
-[Gemini 3 模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn#gemini-3)引入了使用 `media_resolution` 参数对
-多模态视觉处理进行精细控制的功能。`media_resolution`
-参数用于确定**为每个输入图片或视频帧分配的 token 数量上限** 。分辨率越高，模型读取精细文本或识别小细节的能力就越强，但 token
-用量和延迟也会增加。
+[Model Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=id#gemini-3) memperkenalkan kontrol terperinci atas
+pemrosesan visi multimodal dengan parameter `media_resolution`. Parameter `media_resolution` menentukan **jumlah maksimum token yang dialokasikan per gambar input atau frame video.**
+Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks halus atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
 
-如需详细了解该参数及其对 token 计算的影响，
-请参阅[媒体分辨率](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=zh-cn)指南。
+Untuk mengetahui detail selengkapnya tentang parameter dan pengaruhnya terhadap penghitungan token,
+lihat panduan [resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
 
-#### 图片文件
+#### File gambar
 
-*如果您使用文本和图片输入调用 `count_tokens`，则此调用仅返回
-\*\*输入\*\* 中文本和图片的 token 总数 (`total_tokens`)。您
-可以在调用 `generate_content` 之前进行此调用，以检查请求的大小。*您还可以选择分别对文本和文件调用
-`count_tokens`。
+Jika Anda memanggil `count_tokens` dengan input teks dan gambar, tindakan ini akan menampilkan jumlah token gabungan teks dan gambar di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan. Anda juga dapat secara opsional memanggil `count_tokens` pada teks dan file secara terpisah.
 
-另一种方法是调用 `generate_content`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
 
-- 输入 (`prompt_token_count`)、缓存的内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数量
-- 思考过程的 token 数量 (`thoughts_token_count`)
-- *\*\*输入和输出\*\* 中的 token 总数
-  (`total_token_count`)*
+- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
+- Jumlah token untuk proses penalaran (`thoughts_token_count`)
+- Jumlah total token di *input dan output* (`total_token_count`)
 
-以下示例使用了 File API 上传的图片：
+Contoh yang menggunakan gambar yang diupload dari File API:
 
 ### Python
 
@@ -380,8 +368,8 @@ client, err := genai.NewClient(ctx, nil)
 
 file, err := client.Files.UploadFromPath(
   ctx, 
-  filepath.Join(getMedia(), "organ.jpg&q&uot;), 
-  genai.UploadFileConfig{
+  filepath.Join(getMedia(), "organ.jpg"), 
+  &genai.UploadFileConfig{
     MIMEType : "image/jpeg",
   },
 )
@@ -413,7 +401,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-以下示例将图片作为内嵌数据提供：
+Contoh yang menyediakan gambar sebagai data inline:
 
 ### Python
 
@@ -481,9 +469,9 @@ if err != nil {
     log.Fatalf("Failed to read image file: %v", err)
 }
 parts := []*genai.Part{
-  genai.NewPartFromText("Tell me about this image&qu&ot;),
+  genai.NewPartFromText("Tell me about this image"),
   {
-        InlineData: genai.Blob{
+        InlineData: &genai.Blob{
               MIMEType: "image/jpeg",
               Data:     imageBytes,
         },
@@ -503,31 +491,27 @@ response, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", contents
 if err != nil {
   log.Fatal(err)
 }
-usageMetadata, err := json.MarshalIndent(response.UsageMetadata, "&quot;, "  ")
+usageMetadata, err := json.MarshalIndent(response.UsageMetadata, "", "  ")
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println(string(usageMetadata))
 ```
 
-#### 视频或音频文件
+#### File video atau audio
 
-音频和视频会按以下固定费率转换为 token：
+Audio dan video masing-masing dikonversi menjadi token dengan tarif tetap berikut:
 
-- 视频：每秒 263 个 token
-- 音频：每秒 32 个 token
+- Video: 263 token per detik
+- Audio: 32 token per detik
 
-*如果您使用文本和视频/音频输入调用 `count_tokens`，则此调用仅返回
-\*\*输入\*\* 中文本和视频/音频文件的 token 数量 (`total_tokens`)。 您可以在调用 `generate_content` 之前进行此调用，以
-检查请求的大小。*您还可以选择分别对文本和文件调用
-`count_tokens`。
+Jika Anda memanggil `count_tokens` dengan input teks dan video/audio, tindakan ini akan menampilkan jumlah token gabungan teks dan file video/audio di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan. Anda juga dapat secara opsional memanggil `count_tokens` pada teks dan file secara terpisah.
 
-另一种方法是调用 `generate_content`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
 
-- 输入 (`prompt_token_count`)、缓存的内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数量
-- 思考过程的 token 数量 (`thoughts_token_count`)
-- *\*\*输入和输出\*\* 中的 token 总数
-  (`total_token_count`)。*
+- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
+- Jumlah token untuk proses penalaran (`thoughts_token_count`)
+- Jumlah total token di *input dan output* (`total_token_count`).
 
 ### Python
 
@@ -608,8 +592,8 @@ client, err := genai.NewClient(ctx, nil)
 
 file, err := client.Files.UploadFromPath(
   ctx,
-  filepath.Join(getMedia(), "Big_Buck_Bunny.mp4&&quot;),
-  genai.UploadFileConfig{
+  filepath.Join(getMedia(), "Big_Buck_Bunny.mp4"),
+  &genai.UploadFileConfig{
     MIMEType : "video/mp4",
   },
 )
@@ -652,10 +636,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### 统计思考 token
+### Menghitung token penalaran
 
-开启思考功能后，回答价格是输出 token 和思考 token 的总和。您可以从 `thoughtsTokenCount` 字段（或 SDK
-等效字段）检索生成的思考 token 总数。
+Saat Anda mengaktifkan penalaran, harga respons adalah jumlah token output dan token penalaran. Anda dapat mengambil jumlah total token penalaran yang dihasilkan dari kolom `thoughtsTokenCount` (atau SDK yang setara).
 
 ### Python
 
@@ -681,16 +664,13 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-思考模型会生成完整的思考内容，以提高最终回答的质量，然后输出[摘要](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn#summaries)，以便您了解思考过程。因此，即使 API 仅输出摘要，API
-也会根据模型生成摘要时生成的完整思考 token 来确定价格。
+Model penalaran menghasilkan penalaran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](https://ai.google.dev/gemini-api/docs/thinking?hl=id#summaries) output untuk memberikan insight tentang proses penalaran. Jadi, API mendasarkan harga pada token penalaran lengkap yang dihasilkan model untuk membuat ringkasan, meskipun API hanya menampilkan ringkasan.
 
-如需详细了解如何在 [Gemini 中配置思考功能](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)，请参阅 Gemini 思考指南。
+Anda dapat mempelajari lebih lanjut cara mengonfigurasi penalaran di panduan [penalaran Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
 
-## 上下文窗口
+## Jendela konteks
 
-通过 Gemini API 提供的模型具有以 token 为单位衡量的上下文窗口。上下文窗口定义了您可以提供的输入量以及模型可以生成的输出量。您可以通过调用[`models.get` 端点](https://ai.google.dev/api/rest/v1/models/get?hl=zh-cn)
-或查看[模型文档](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)来确定
-上下文窗口的大小。
+Model yang tersedia melalui Gemini API memiliki jendela konteks yang diukur dalam token. Jendela konteks menentukan jumlah input yang dapat Anda berikan dan jumlah output yang dapat dihasilkan model. Anda dapat menentukan ukuran jendela konteks dengan memanggil endpoint [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=id)atau dengan melihat [dokumentasi model](https://ai.google.dev/gemini-api/docs/models?hl=id).
 
 ### Python
 
@@ -735,12 +715,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-发送反馈
+Kirim masukan
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最后更新时间 (UTC)：2026-07-30。
+Terakhir diperbarui pada 2026-09-12 UTC.
 
-需要向我们提供更多信息？
+Ada masukan untuk kami?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-07-30。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]

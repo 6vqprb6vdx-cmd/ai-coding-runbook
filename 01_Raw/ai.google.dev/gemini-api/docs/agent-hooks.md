@@ -1,28 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419
-fetched_at: 2026-09-07T05:29:22.991657+00:00
-title: "Ganchos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=fr
+fetched_at: 2026-09-14T05:37:08.424760+00:00
+title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
 
-Enviar comentarios
+Envoyer des commentaires
 
-# Ganchos
+# Hooks
 
-Los hooks te permiten ejecutar secuencias de comandos personalizadas o solicitudes HTTP externas justo antes o después de que el agente ejecute código o modifique archivos dentro de su zona de pruebas remota. Usa hooks para extender el bucle del agente con protecciones automatizadas y flujos de trabajo en segundo plano, como los siguientes:
+Les hooks vous permettent d'exécuter des scripts personnalisés ou des requêtes HTTP externes juste avant ou après que l'agent exécute du code ou modifie des fichiers dans son bac à sable distant. Utilisez des hooks pour étendre la boucle de l'agent avec des garde-fous automatisés et des workflows en arrière-plan, par exemple :
 
-- **Aplicar protecciones de seguridad y acceso** antes de que se ejecuten comandos de shell de alto riesgo o lecturas de archivos restringidas
-- **Automatizar las transformaciones de canalizaciones de datos** justo después de que un agente cree o modifique archivos
-- **Transmitir telemetría de auditoría empresarial** a sistemas de supervisión externos después de la ejecución de la herramienta
+- **Appliquer des garde-fous de sécurité et d'accès** avant l'exécution de commandes shell à haut risque ou de lectures de fichiers restreintes.
+- **Automatiser les transformations de pipeline de données** juste après qu'un agent crée ou modifie des fichiers.
+- **Diffuser la télémétrie d'audit d'entreprise** vers des systèmes de surveillance externes après l'exécution de l'outil.
 
 ### Python
 
@@ -167,20 +166,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Eventos del ciclo de vida compatibles
+## Événements de cycle de vie compatibles
 
-Los hooks admiten 2 eventos dentro de la zona de pruebas:
+Les hooks sont compatibles avec deux événements dans le bac à sable :
 
-| Evento | Cuándo se activa | Qué hace |
+| Événement | Quand il se déclenche | Description |
 | --- | --- | --- |
-| `pre_tool_execution` | Justo antes de que se ejecute una herramienta | Puede aprobar (`allow`) o bloquear (`deny`) la herramienta antes de que se ejecute. Cuando se bloquea, el modelo ve el motivo del rechazo y se adapta. |
-| `post_tool_execution` | Justo después de que finaliza una herramienta | Ejecuta tareas de seguimiento, como dar formato al código, ejecutar pruebas de unidades o registrar telemetría. No puede bloquear ni deshacer acciones completadas. |
+| `pre_tool_execution` | Juste avant l'exécution d'un outil | Peut approuver (`allow`) ou bloquer (`deny`) l'outil avant son exécution. En cas de blocage, le modèle voit le motif de votre refus et s'adapte. |
+| `post_tool_execution` | Juste après la fin d'un outil | Exécute des tâches de suivi telles que le formatage du code, l'exécution de tests unitaires ou la journalisation de la télémétrie. Impossible de bloquer ou d'annuler les actions terminées. |
 
 ### `pre_tool_execution`
 
-Se activa justo antes de que se ejecute una herramienta. Tu secuencia de comandos lee los detalles de la llamada a la herramienta desde `stdin` y muestra su decisión JSON (`allow` o `deny`) en `stdout`.
+Se déclenche juste avant l'exécution d'un outil. Votre script lit les détails de l'appel de l'outil à partir de `stdin` et génère sa décision JSON (`allow` ou `deny`) dans `stdout`.
 
-**Carga útil de entrada (`stdin`):**
+**Charge utile d'entrée (`stdin`) :**
 
 ```
 {
@@ -195,9 +194,9 @@ Se activa justo antes de que se ejecute una herramienta. Tu secuencia de comando
 }
 ```
 
-**Respuesta de salida (`stdout`):**
+**Réponse de sortie (`stdout`) :**
 
-Para aprobar la llamada a la herramienta, haz lo siguiente:
+Pour approuver l'appel de l'outil :
 
 ```
 {
@@ -205,7 +204,7 @@ Para aprobar la llamada a la herramienta, haz lo siguiente:
 }
 ```
 
-Para bloquear la llamada a la herramienta y mostrar comentarios al modelo, haz lo siguiente:
+Pour bloquer l'appel de l'outil et renvoyer des commentaires au modèle :
 
 ```
 {
@@ -214,15 +213,15 @@ Para bloquear la llamada a la herramienta y mostrar comentarios al modelo, haz l
 }
 ```
 
-Cuando un hook rechaza un comando, se omite la llamada a la herramienta de inmediato. El agente ve un resultado de error que contiene el motivo del rechazo directamente en su turno actual. Luego, el modelo puede corregirse por sí mismo eligiendo un comando alternativo o explicando el bloqueo al usuario.
+Lorsqu'un hook refuse une commande, l'appel de l'outil est immédiatement ignoré. L'agent voit un résultat d'erreur contenant le motif de votre refus directement dans son tour actuel. Le modèle peut ensuite s'auto-corriger en choisissant une autre commande ou en expliquant le blocage à l'utilisateur.
 
-Si tu secuencia de comandos muestra JSON no reconocido, texto sin formato o cualquier otro elemento que no sea `{"decision": "deny"}`, el entorno de ejecución trata la respuesta como una aprobación (`allow`).
+Si votre script génère un JSON non reconnu, du texte brut ou tout autre élément que `{"decision": "deny"}`, l'environnement d'exécution traite la réponse comme une approbation (`allow`).
 
 ### `post_tool_execution`
 
-Se activa justo después de que se completa una herramienta. Tu secuencia de comandos lee los detalles de la ejecución y cualquier estado de error de `stdin`.
+Se déclenche juste après la fin d'un outil. Votre script lit les détails de l'exécution et tout état d'erreur à partir de `stdin`.
 
-**Carga útil de entrada (`stdin`):**
+**Charge utile d'entrée (`stdin`) :**
 
 ```
 {
@@ -237,27 +236,27 @@ Se activa justo después de que se completa una herramienta. Tu secuencia de com
 }
 ```
 
-Si un comando de shell imprime errores en el error estándar (`stderr`) o falla una operación del sistema de archivos, se incluye un campo `"error"` que contiene el texto del error en la carga útil. Cuando el comando se ejecuta correctamente sin errores, se omite por completo el campo `"error"`.
+Si une commande shell affiche des erreurs dans l'erreur standard (`stderr`) ou si une opération de système de fichiers échoue, un `"error"` champ contenant le texte de l'erreur est inclus dans la charge utile. Lorsque la commande réussit sans erreur, le `"error"` champ est entièrement omis.
 
-**Respuesta de salida (`stdout`):**
+**Réponse de sortie (`stdout`) :**
 
 ```
 {}
 ```
 
-Debido a que los hooks posteriores a la herramienta se ejecutan estrictamente para tareas en segundo plano, como el formato de código o el registro, el entorno de ejecución ignora cualquier valor de decisión que se muestre en `stdout`.
+Étant donné que les hooks post-outil s'exécutent strictement pour les tâches en arrière-plan telles que le formatage ou la journalisation du code, l'environnement d'exécution ignore toutes les valeurs de décision renvoyées sur `stdout`.
 
-## Detección de configuración
+## Découverte de la configuration
 
-El entorno de ejecución descubre automáticamente las definiciones de hook de `.agents/hooks.json` o `/.agents/hooks.json` dentro del entorno de zona de pruebas. Puedes proporcionar `hooks.json` junto con tus secuencias de comandos personalizadas usando cualquier [fuente de entorno](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#mount_from_a_source):
+L'environnement d'exécution détecte automatiquement les définitions de hook à partir de `.agents/hooks.json` ou `/.agents/hooks.json` dans l'environnement bac à sable. Vous pouvez fournir `hooks.json` avec vos scripts personnalisés à l'aide de n'importe quelle [source d'environnement](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr#mount_from_a_source) compatible :
 
-- **Montaje de repositorio**: Un repositorio de Git que contiene `.agents/hooks.json` junto con `AGENTS.md`.
-- **Cloud Storage (`gcs`)**: Un bucket de GCS que contiene `hooks.json` copiado en el entorno.
-- **Fuentes intercaladas**: Cadena JSON sin procesar y contenido de la secuencia de comandos que se pasan en `environment.sources` cuando se llama a `client.interactions.create`.
+- **Montage de dépôt** : dépôt Git contenant `.agents/hooks.json` avec `AGENTS.md`.
+- **Cloud Storage (`gcs`)** : bucket GCS contenant `hooks.json` copié dans l'environnement.
+- **Sources intégrées** : chaîne JSON brute et contenu du script transmis dans `environment.sources` lors de l'appel de `client.interactions.create`.
 
-### Esquema de `hooks.json`
+### Schéma `hooks.json`
 
-Un archivo `hooks.json` agrupa las definiciones de eventos (`pre_tool_execution` o `post_tool_execution`) con nombres personalizados. Puedes habilitar o inhabilitar cada grupo de forma independiente:
+Un fichier `hooks.json` regroupe les définitions d'événements (`pre_tool_execution` ou `post_tool_execution`) sous des noms personnalisés. Vous pouvez activer ou désactiver chaque groupe indépendamment :
 
 ```
 {
@@ -293,71 +292,71 @@ Un archivo `hooks.json` agrupa las definiciones de eventos (`pre_tool_execution`
 }
 ```
 
-### Sintaxis y reglas del comparador
+### Syntaxe et règles du matcher
 
-Cada grupo de reglas en `hooks.json` define cuándo y cómo se activan los controladores con las propiedades `matcher` y `hooks`:
+Chaque groupe de règles dans `hooks.json` définit quand et comment les gestionnaires se déclenchent à l'aide des propriétés `matcher` et `hooks` :
 
-| Campo | Tipo | Descripción |
+| Champ | Type | Description |
 | --- | --- | --- |
-| `enabled` | `boolean` | Es opcional. Configúralo en `false` para inhabilitar el grupo (`true` de forma predeterminada). |
-| `matcher` | `string` | Patrón de expresión regular que coincide con los nombres de las herramientas de destino dentro del contenedor. |
-| `hooks` | `array` | Lista ordenada de definiciones de controladores (`command` o `http`). Los controladores se ejecutan de forma secuencial en orden de declaración. |
+| `enabled` | `boolean` | Facultatif. Définissez la valeur sur `false` pour désactiver le groupe (`true` par défaut). |
+| `matcher` | `string` | Modèle d'expression régulière correspondant aux noms d'outils cibles dans le conteneur. |
+| `hooks` | `array` | Liste ordonnée des définitions de gestionnaires (`command` ou `http`). Les gestionnaires s'exécutent de manière séquentielle dans l'ordre de déclaration. |
 
-#### Cómo funciona la evaluación de regex
+#### Fonctionnement de l'évaluation des expressions régulières
 
-Cuando el agente invoca una herramienta dentro de la zona de pruebas, el entorno de ejecución evalúa el nombre del contenedor de la herramienta con tu patrón `matcher` usando expresiones regulares RE2 estándar. Si la regex coincide con el nombre de la herramienta, todos los controladores del array `hooks` se ejecutan en orden. Si varios grupos de reglas coinciden con la misma herramienta, se ejecutan todos los arrays de controladores correspondientes.
+Lorsque l'agent appelle un outil dans le bac à sable, l'environnement d'exécution évalue le nom du conteneur de l'outil par rapport à votre modèle `matcher` à l'aide d'expressions régulières RE2 standards. Si l'expression régulière correspond au nom de l'outil, tous les gestionnaires du tableau `hooks` s'exécutent dans l'ordre. Si plusieurs groupes de règles correspondent au même outil, tous les tableaux de gestionnaires correspondants s'exécutent.
 
-Puedes segmentar cualquier nombre de herramienta de contenedor integrada: ejecución de código (`code_execution`) o operaciones del sistema de archivos (`read_file`, `write_file`, `list_files` y `delete_file`).
+Vous pouvez cibler n'importe quel nom d'outil de conteneur intégré : exécution de code (`code_execution`) ou opérations de système de fichiers (`read_file`, `write_file`, `list_files` et `delete_file`).
 
-#### Expresiones de comparador comunes
+#### Expressions de matcher courantes
 
-- `"code_execution"`: Coincidencia exacta de cadenas para comandos de shell y ejecuciones de secuencias de comandos
-- `"write_file"`: Coincidencia exacta para la creación de archivos del sistema de archivos y las escrituras de disco
-- `"read_file|write_file"`: La separación de canalizaciones coincide con varios nombres de herramientas específicos en una sola regla.
-- `".*_file"`: Comodín de regex que coincide con cualquier herramienta que termine en `_file` (como `read_file`, `write_file` o `delete_file`). Las expresiones regulares RE2 estándar requieren `.*`; los globs de shell simples como `*_file` no son una sintaxis de regex válida y no coincidirán.
-- `".*"` o `"*"` o `""`: Patrón de captura que intercepta cada llamada a la herramienta dentro del contenedor
+- `"code_execution"`: correspondance exacte de chaîne pour les commandes shell et les exécutions de scripts.
+- `"write_file"`: correspondance exacte pour la création de fichiers de système de fichiers et les écritures sur disque.
+- `"read_file|write_file"`: la séparation par un canal correspond à plusieurs noms d'outils spécifiques dans une seule règle.
+- `".*_file"` : caractère générique d'expression régulière correspondant à n'importe quel outil se terminant par `_file` (tel que `read_file`, `write_file` ou `delete_file`). Les expressions régulières RE2 standards nécessitent `.*` ; les globs shell simples tels que `*_file` ne sont pas une syntaxe d'expression régulière valide et ne correspondront pas.
+- `".*"` ou `"*"` ou `""` : modèle générique qui intercepte chaque appel d'outil dans le conteneur.
 
-## Tipos de controladores
+## Types de gestionnaires
 
-### Hooks de comandos
+### Hooks de commande
 
-Los hooks de comandos ejecutan un comando o una secuencia de comandos de shell dentro de la zona de pruebas. La secuencia de comandos recibe el JSON del evento en `stdin` y muestra su decisión JSON en `stdout`.
+Les hooks de commande exécutent une commande ou un script shell dans le bac à sable. Le script reçoit le JSON de l'événement sur `stdin` et génère son JSON de décision sur `stdout`.
 
-| Campo | Tipo | Descripción |
+| Champ | Type | Description |
 | --- | --- | --- |
-| `type` | `string` | Debe ser `"command"`. |
-| `command` | `string` | Línea de comandos para ejecutar dentro de la zona de pruebas (por ejemplo, `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | Tiempo de espera en segundos. Valor predeterminado: `30`. |
+| `type` | `string` | Doit être `"command"`. |
+| `command` | `string` | Ligne de commande à exécuter dans le bac à sable (par exemple, `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | Délai avant expiration exprimé en secondes. Valeur par défaut : `30`. |
 
 ### Hooks HTTP
 
-Los hooks HTTP envían el JSON del evento como una solicitud POST a una URL HTTPS externa directamente desde la red de la zona de pruebas. El servidor de destino muestra su decisión en el cuerpo de la respuesta HTTP con el mismo formato JSON (`{"decision": "allow"}` o `{"decision": "deny", "reason": "..."}`).
+Les hooks HTTP envoient le JSON de l'événement en tant que requête POST à une URL HTTPS externe directement depuis le réseau bac à sable. Le serveur cible renvoie sa décision dans le corps de la réponse HTTP au format JSON exact (`{"decision": "allow"}` ou `{"decision": "deny", "reason": "..."}`).
 
-| Campo | Tipo | Descripción |
+| Champ | Type | Description |
 | --- | --- | --- |
-| `type` | `string` | Debe ser `"http"`. |
-| `url` | `string` | Es el extremo HTTPS externo al que se enviará la carga útil del evento. |
-| `headers` | `object` | Son pares clave-valor opcionales para encabezados personalizados no sensibles (como `{"X-Event-Source": "agent-sandbox"}`). Para las credenciales de autenticación, usa el proxy de red. |
-| `timeout` | `integer` | Tiempo de espera en segundos. Valor predeterminado: `30`. |
+| `type` | `string` | Doit être `"http"`. |
+| `url` | `string` | Point de terminaison HTTPS externe vers lequel envoyer la charge utile de l'événement. |
+| `headers` | `object` | Paires clé-valeur facultatives pour les en-têtes personnalisés non sensibles (tels que `{"X-Event-Source": "agent-sandbox"}`). Pour les identifiants d'authentification, utilisez plutôt le proxy réseau. |
+| `timeout` | `integer` | Délai avant expiration exprimé en secondes. Valeur par défaut : `30`. |
 
-#### Proxy de salida y transformación de tokens
+#### Proxy de sortie et transformation de jetons
 
-Debido a que los hooks HTTP se ejecutan directamente desde el espacio de nombres de la red de la zona de pruebas, las solicitudes salientes pasan por el proxy de salida transparente. Esta arquitectura te brinda 2 ventajas de seguridad fundamentales:
+Étant donné que les hooks HTTP s'exécutent directement à partir de l'espace de noms du réseau bac à sable, les requêtes sortantes passent par le proxy de sortie transparent. Cette architecture vous offre deux avantages essentiels en termes de sécurité :
 
-- **Lista de entidades permitidas de la red:** Los extremos de destino deben permitirse de forma explícita en `network.allowlist` de tu entorno. El proxy bloquea el tráfico de bucle invertido (`127.0.0.1` o `localhost`); siempre segmenta los extremos externos permitidos.
-- **Transformación de tokens:** No es necesario almacenar claves de API ni tokens de portador secretos dentro de `.agents/hooks.json` ni montarlos en el contenedor. En cambio, configura reglas de transformación de tokens en la [configuración de red](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#network-configuration) (`network.allowlist.transform`). El proxy de salida intercepta automáticamente el tráfico de hook HTTP saliente y, luego, inserta tus encabezados de autenticación reales en la conexión antes de salir de la zona de pruebas.
+- **Liste d'autorisation réseau** : les points de terminaison cibles doivent être explicitement autorisés dans le `network.allowlist` de votre environnement. Le trafic de rebouclage (`127.0.0.1` ou `localhost`) est bloqué par le proxy. Ciblez toujours les points de terminaison externes autorisés.
+- **Transformation de jetons** : vous n'avez pas besoin de stocker les clés API ni les jetons porteurs secrets dans `.agents/hooks.json` ni de les monter dans le conteneur. Configurez plutôt des règles de transformation de jetons dans votre [configuration réseau](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr#network-configuration) (`network.allowlist.transform`). Le proxy de sortie intercepte automatiquement le trafic de hook HTTP sortant et injecte vos en-têtes d'authentification réels sur le réseau avant de quitter le bac à sable.
 
-## Cómo el entorno de ejecución controla las decisiones y las fallas
+## Gestion des décisions et des échecs par l'environnement d'exécution
 
-- **Espera síncrona:** El agente se detiene y espera a que terminen tus hooks antes de continuar.
-- **Bloqueo de la ejecución de la herramienta:** Si tu hook anterior a la herramienta muestra `{"decision": "deny", "reason": "<your reason>"}`, el entorno de ejecución cancela de inmediato la llamada a la herramienta. El modelo ve el motivo del rechazo en su historial de conversaciones y se adapta eligiendo una alternativa segura o explicando el bloqueo al usuario.
-- **Control de fallas de secuencias de comandos, errores HTTP y tiempos de espera:** Si falla una secuencia de comandos (estado de salida distinto de cero), un hook HTTP muestra un código de estado que no es 2xx (como un error del servidor 4xx o 5xx), o bien se agota el tiempo de espera de una operación o muestra JSON no reconocido, el entorno de ejecución lo trata como una aprobación (`allow`). La ejecución de la herramienta continúa con normalidad, por lo que una secuencia de comandos dañada o un servidor de telemetría inalcanzable nunca bloquean tu aplicación.
+- **Attente synchrone** : l'agent s'interrompt et attend la fin de vos hooks avant de continuer.
+- **Blocage de l'exécution de l'outil** : si votre hook pré-outil renvoie `{"decision": "deny", "reason": "<your reason>"}`, l'environnement d'exécution annule immédiatement l'appel de l'outil. Le modèle voit le motif de votre refus dans son historique de conversation et s'adapte en choisissant une alternative sûre ou en expliquant le blocage à l'utilisateur.
+- **Gestion des plantages de scripts, des erreurs HTTP et des délais avant expiration** : si un script de commande plante (état de sortie non nul), qu'un hook HTTP renvoie un code d'état non 2xx (tel qu'une erreur de serveur 4xx ou 5xx), qu'une opération expire ou qu'elle renvoie un JSON non reconnu, l'environnement d'exécution le traite comme une approbation (`allow`). L'exécution de l'outil se poursuit normalement, de sorte qu'un script défectueux ou un serveur de télémétrie inaccessible ne bloque jamais votre application.
 
-## Casos de uso habituales
+## Cas d'utilisation courants
 
-### Recuperación de varios turnos para la privacidad y el cumplimiento de datos
+### Récupération multi-tour pour la confidentialité et la conformité des données
 
-Cuando un hook bloquea el acceso a recursos restringidos, como directorios que contienen información de identificación personal (PII) o registros financieros confidenciales, puedes pasar `previous_interaction_id` en la siguiente llamada para continuar el turno en el mismo entorno. El agente lee la explicación del rechazo y se recupera automáticamente consultando tablas públicas aprobadas.
+Lorsqu'un hook bloque l'accès à des ressources restreintes, telles que des répertoires contenant des informations permettant d'identifier personnellement l'utilisateur (PII) ou des enregistrements financiers confidentiels, vous pouvez transmettre `previous_interaction_id` lors de l'appel suivant pour continuer le tour dans le même environnement. L'agent lit l'explication du refus et récupère automatiquement les données en interrogeant des tables publiques approuvées.
 
 ### Python
 
@@ -571,12 +570,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### Telemetría y registro de auditoría externos
+### Journalisation et télémétrie d'audit externes
 
-Envía eventos de auditoría en tiempo real desde la zona de pruebas a un servidor de supervisión externo cada vez que se leen o modifican archivos.
+Envoyez des événements d'audit en temps réel depuis le bac à sable vers un serveur de surveillance externe chaque fois que des fichiers sont lus ou modifiés.
 
-- **Haz coincidir varias herramientas:** Debido a que los comparadores usan regex estándar, puedes combinar varias herramientas en una sola regla con canalizaciones (`read_file|write_file`) o comodines (`.*_file`).
-- **Mantén los secretos fuera de tu configuración:** Define tokens de autenticación en la [configuración de red](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419#network-configuration) de tu entorno (`network.allowlist.transform`). El proxy de salida inserta automáticamente tus tokens de portador reales en las solicitudes salientes.
+- **Faire correspondre plusieurs outils** : étant donné que les matchers utilisent des expressions régulières standards, vous pouvez combiner plusieurs outils dans une seule règle à l'aide de canaux (`read_file|write_file`) ou de caractères génériques (`.*_file`).
+- **Ne pas inclure de secrets dans votre configuration** : définissez des jetons d’authentification dans la [configuration réseau](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr#network-configuration) de votre environnement (`network.allowlist.transform`). Le proxy de sortie injecte automatiquement vos jetons porteurs réels dans les requêtes sortantes.
 
 ### Python
 
@@ -718,25 +717,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Limitaciones
+## Limites
 
-- **Alcance de la herramienta de zona de pruebas:** Los hooks interceptan herramientas integradas dentro de la zona de pruebas: ejecución de código (`code_execution`) y operaciones del sistema de archivos (`read_file`, `write_file`, `list_files` y `delete_file`). No se activan para la llamada a funciones personalizadas (`function`) ni para las herramientas externas del Protocolo de contexto del modelo (`mcp_server`) que se controlan fuera del contenedor.
-- **Listas de entidades permitidas de la red:** Los hooks HTTP se ejecutan dentro de la red del contenedor. Debes permitir de forma explícita las URLs de destino en `network.allowlist` de tu entorno. El proxy bloquea las direcciones de bucle invertido (`localhost`, `127.0.0.1`).
-- **Aprobación automática en caso de errores:** Si falla una secuencia de comandos de hook (estado de salida distinto de cero), se agota el tiempo de espera o falla, el entorno de ejecución registra la falla y permite que continúe la llamada a la herramienta. Esto garantiza que las secuencias de comandos de linter dañadas o los procesos colgantes nunca provoquen interbloqueos en tus aplicaciones.
-- **Protección de la configuración de la zona de pruebas:** Debido a que los hooks se ejecutan dentro de la zona de pruebas del contenedor, los agentes con herramientas de escritura del sistema de archivos o permisos de ejecución de código de shell pueden modificar `.agents/hooks.json` o secuencias de comandos locales dentro de espacios de trabajo grabables. Usa hooks de contenedor como guía de políticas automatizada y protecciones operativas. Si se requiere una resistencia estricta a la manipulación contra ejecuciones de modelos no confiables, monta fuentes de configuración desde repositorios de solo lectura.
+- **Champ d'application de l'outil bac à sable** : les hooks interceptent les outils intégrés dans le bac à sable : exécution de code (`code_execution`) et opérations de système de fichiers (`read_file`, `write_file`, `list_files` et `delete_file`). Ils ne se déclenchent pas pour les appels de fonction personnalisés (`function`) ni pour les outils externes Model Context Protocol (`mcp_server`) gérés en dehors du conteneur.
+- **Listes d'autorisation réseau** : les hooks HTTP s'exécutent dans le réseau de conteneurs. Vous devez autoriser explicitement les URL cibles dans le `network.allowlist` de votre environnement. Les adresses de rebouclage (`localhost`, `127.0.0.1`) sont bloquées par le proxy.
+- **Approbation automatique en cas d'erreur** : si un script de hook plante (état de sortie non nul), expire ou échoue, l'environnement d'exécution enregistre l'échec et autorise la poursuite de l'appel de l'outil. Cela garantit que les scripts de lint défectueux ou les processus bloqués ne provoquent jamais d'interblocage dans vos applications.
+- **Protection de la configuration du bac à sable** : étant donné que les hooks s'exécutent dans le bac à sable du conteneur, les agents disposant d'outils d'écriture de système de fichiers ou d'autorisations d'exécution de code shell peuvent modifier les fichiers `.agents/hooks.json` ou les scripts locaux dans des espaces de travail accessibles en écriture. Utilisez les hooks de conteneur comme conseils de règles automatisés et garde-fous opérationnels. Si une résistance stricte à la falsification est requise contre les exécutions de modèles non fiables, montez les sources de configuration à partir de dépôts en lecture seule.
 
-## ¿Qué sigue?
+## Étape suivante
 
-- [Obtén información para configurar zonas de pruebas y entornos remotos persistentes.](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419)
-- Explora las capacidades y las herramientas integradas del [agente de Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419).
-- Revisa la [descripción general de la API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) para sesiones de varios turnos y transmisión.
+- [Découvrez comment configurer des bacs à sable et des environnements distants persistants.](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr)
+- Découvrez les fonctionnalités et les outils intégrés de l'[agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr).
+- Consultez la [présentation de l'API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) pour les sessions multi-tours et la diffusion en streaming.
 
-Enviar comentarios
+Envoyer des commentaires
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Última actualización: 2026-07-30 (UTC)
+Dernière mise à jour le 2026/09/11 (UTC).
 
-¿Quieres brindar más información?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/11 (UTC)."],[],[]]

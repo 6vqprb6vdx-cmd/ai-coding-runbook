@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419
-fetched_at: 2026-09-07T05:44:31.788389+00:00
+fetched_at: 2026-09-14T05:49:29.132370+00:00
 title: "Versi\u00f3n preliminar de Gemini 3.1 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 

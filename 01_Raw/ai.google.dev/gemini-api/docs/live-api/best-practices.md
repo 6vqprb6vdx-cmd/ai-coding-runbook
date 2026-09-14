@@ -1,93 +1,108 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=de
-fetched_at: 2026-09-07T05:46:27.390849+00:00
-title: "Best Practices f\u00fcr die Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=th
+fetched_at: 2026-09-14T05:51:19.945283+00:00
+title: "\u0e41\u0e19\u0e27\u0e17\u0e32\u0e07\u0e1b\u0e0f\u0e34\u0e1a\u0e31\u0e15\u0e34\u0e41\u0e19\u0e30\u0e19\u0e33\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-# Best Practices für die Live API
+# แนวทางปฏิบัติแนะนำสำหรับ Live API
 
-In diesem Leitfaden werden Best Practices beschrieben, mit denen Sie die Verwendung der Live API optimieren können.
-Auf der Seite [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) finden Sie eine Übersicht und Beispielcode für gängige Anwendungsfälle.
+คู่มือนี้จะอธิบายแนวทางปฏิบัติแนะนำที่คุณทำตามได้เพื่อเพิ่มประสิทธิภาพการใช้ Live API
+ดูภาพรวมและโค้ดตัวอย่างสำหรับ Use Case ทั่วไปได้ที่หน้า[เริ่มต้นใช้งาน Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
 
-## Klare Systemanweisungen erstellen
+## ออกแบบวิธีการของระบบให้ชัดเจน
 
-Damit die Live API optimal funktioniert, empfehlen wir, einen klar definierten Satz von Systemanweisungen zu verwenden, der die Persona des Agents, die Konversationsregeln und die Schutzmaßnahmen in dieser Reihenfolge definiert.
+เราขอแนะนำให้กำหนดชุดวิธีการของระบบ (SI) ที่ชัดเจน ซึ่งกำหนดบุคลิกของเอเจนต์ กฎการสนทนา และขอบเขตการทำงานตามลำดับนี้ เพื่อให้ Live API ทำงานได้ดีที่สุด
 
-Um optimale Ergebnisse zu erzielen, sollten Sie für jeden Kundenservicemitarbeiter einen separaten SI erstellen.
+แยกเอเจนต์แต่ละรายออกเป็น SI ที่แตกต่างกันเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
 
-1. **Agent-Persona angeben**:Geben Sie den Namen, die Rolle und alle bevorzugten Eigenschaften des Agenten an. Wenn Sie den Akzent angeben möchten, müssen Sie auch die bevorzugte Ausgabesprache angeben (z. B. einen britischen Akzent für einen englischen Sprecher).
-2. **Regeln für die Konversation festlegen**:Geben Sie die Regeln in der Reihenfolge an, in der das Modell sie befolgen soll. Unterscheiden Sie zwischen einmaligen Elementen der Unterhaltung und Gesprächsschleifen. Beispiel:
+1. **ระบุบุคลิกของเอเจนต์:** ระบุรายละเอียดเกี่ยวกับชื่อ บทบาท และลักษณะที่ต้องการของเอเจนต์ หากต้องการระบุสำเนียง ให้ระบุภาษาเอาต์พุตที่ต้องการด้วย (เช่น สำเนียงอังกฤษสำหรับผู้พูดภาษาอังกฤษ)
+2. **ระบุกฎการสนทนา:** ใส่กฎเหล่านี้ตามลำดับที่คุณต้องการให้โมเดลทำตาม แยกความแตกต่างระหว่างองค์ประกอบการสนทนาแบบครั้งเดียวกับวงจรการสนทนา เช่น
 
-   - **Einmaliges Element**:Erfassen Sie die Daten eines Kunden einmalig, z. B. Name, Standort, Kundenkartennummer.
-   - **Konversationsschleife**:Der Nutzer kann Empfehlungen, Preise, Rückgaben und die Lieferung besprechen und möglicherweise von Thema zu Thema wechseln. Teilen Sie dem Modell mit, dass es diesen Konversationszyklus so lange fortsetzen kann, wie der Nutzer möchte.
-3. **Tool-Aufrufe in einem Ablauf in separaten Sätzen angeben**:Wenn beispielsweise ein einmaliger Schritt zum Erfassen der Kundendetails den Aufruf einer `get_user_info`-Funktion erfordert, könnten Sie Folgendes sagen: *Der erste Schritt besteht darin, Nutzerinformationen zu erfassen. Bitte den Nutzer zuerst, seinen Namen, seinen Standort und seine Kundenkartennummer anzugeben. Rufen Sie dann `get_user_info` mit diesen Details auf.*
-4. **Erforderliche Schutzmaßnahmen hinzufügen**:Geben Sie alle allgemeinen Konversationsschutzmaßnahmen an, die das Modell nicht ausführen soll. Sie können auch spezifische Beispiele angeben, z. B. wenn *x* passiert, soll das Modell *y* ausführen. Wenn Sie immer noch nicht die gewünschte Genauigkeit erhalten, verwenden Sie das Wort *unmissverständlich*, um das Modell zu einer präzisen Antwort zu bewegen.
+   - **องค์ประกอบแบบครั้งเดียว:** รวบรวมรายละเอียดของลูกค้าเพียงครั้งเดียว (เช่น ชื่อ สถานที่ หมายเลขบัตรสะสมแต้ม)
+   - **วงจรการสนทนา:** ผู้ใช้สามารถพูดคุยเกี่ยวกับคำแนะนำ ราคา การคืนสินค้า และการจัดส่ง และอาจต้องการเปลี่ยนจากหัวข้อหนึ่งไปอีกหัวข้อหนึ่ง แจ้งให้โมเดลทราบว่าสามารถมีส่วนร่วมในวงจรการสนทนานี้ได้ตราบเท่าที่ผู้ใช้ต้องการ
+3. **ระบุการเรียกใช้เครื่องมือภายในโฟลว์ในประโยคที่แตกต่างกัน:** เช่น หากขั้นตอนแบบครั้งเดียวในการรวบรวมรายละเอียดของลูกค้าต้องใช้ฟังก์ชัน `get_user_info` คุณอาจพูดว่า *ขั้นตอนแรกคือการรวบรวมข้อมูลผู้ใช้ ก่อนอื่นให้ขอให้ผู้ใช้ระบุชื่อ สถานที่ และหมายเลขบัตรสะสมแต้ม จากนั้น
+   เรียกใช้ `get_user_info` พร้อมรายละเอียดเหล่านี้*
+4. **เพิ่มขอบเขตการทำงานที่จำเป็น:** ระบุขอบเขตการทำงานการสนทนาทั่วไปที่คุณไม่ต้องการให้โมเดลทำ และระบุตัวอย่างเฉพาะได้หาก *x* เกิดขึ้น คุณต้องการให้โมเดลทำ *y* หากยังไม่ได้ความแม่นยำในระดับที่ต้องการ ให้ใช้คำว่า *อย่างชัดเจน* เพื่อแนะนำให้โมเดลมีความแม่นยำ
 
-## Tools präzise definieren
+## กำหนดเครื่องมืออย่างแม่นยำ
 
-Wenn Sie Tools mit der Live API verwenden, müssen Sie die Tool-Definitionen genau angeben.
-Geben Sie unbedingt an, unter welchen Bedingungen ein Toolaufruf erfolgen soll. Weitere Informationen finden Sie im Abschnitt mit Beispielen unter [Tool-Definitionen](#tool-definitions-example).
+เมื่อใช้เครื่องมือกับ Live API ให้ระบุรายละเอียดในการกำหนดเครื่องมือ
+อย่าลืมบอก Gemini ว่าควรเรียกใช้การเรียกใช้เครื่องมือภายใต้เงื่อนไขใด ดูรายละเอียดเพิ่มเติมได้ที่[การกำหนดเครื่องมือ](#tool-definitions-example)ใน
+ส่วนตัวอย่าง
 
-## Effektive Prompts erstellen
+## สร้างพรอมต์ที่มีประสิทธิภาพ
 
-- **Klare Prompts verwenden**:Geben Sie in den Prompts Beispiele dafür an, was die Modelle tun sollen und was nicht. Beschränken Sie die Prompts auf jeweils einen Prompt pro Persona oder Rolle. Anstelle von langen, mehrseitigen Prompts sollten Sie Prompt-Chaining verwenden. Das Modell eignet sich am besten für Aufgaben mit einzelnen Funktionsaufrufen.
-- **Startbefehle und Informationen angeben**:Die Live API erwartet Nutzereingaben, bevor sie antwortet. Damit die Live API die Unterhaltung beginnt, müssen Sie einen Prompt einfügen, in dem sie aufgefordert wird, den Nutzer zu begrüßen oder die Unterhaltung zu beginnen. Fügen Sie Informationen zum Nutzer hinzu, damit die Live API die Begrüßung personalisieren kann.
+- **ใช้พรอมต์ที่ชัดเจน:** ระบุตัวอย่างสิ่งที่โมเดลควรและไม่ควรทำในพรอมต์ และพยายามจำกัดพรอมต์ให้เป็นพรอมต์เดียวต่อบุคลิกหรือบทบาทในแต่ละครั้ง ลองใช้การเชื่อมพรอมต์แทนพรอมต์ที่ยาวหลายหน้า โมเดลจะทำงานได้ดีที่สุดในงานที่มีการเรียกใช้ฟังก์ชันเดียว
+- **ระบุคำสั่งและข้อมูลเริ่มต้น:** Live API คาดหวังให้ผู้ใช้ป้อนข้อมูลจากผู้ใช้ก่อนที่จะตอบกลับ หากต้องการให้ Live API เริ่มการสนทนา ให้ใส่พรอมต์ที่ขอให้ทักทายผู้ใช้หรือเริ่มการสนทนา ใส่ข้อมูลเกี่ยวกับผู้ใช้เพื่อให้ Live API ปรับการทักทายให้เป็นแบบเฉพาะบุคคล
 
-## Sprache angeben
+## ระบุภาษา
 
-Für eine optimale Leistung bei der kaskadierten `gemini-live-2.5-flash` der Live API muss die `language_code` der API mit der Sprache übereinstimmen, die vom Nutzer gesprochen wird.
+เพื่อให้ได้ประสิทธิภาพสูงสุดใน `gemini-live-2.5-flash` แบบเรียงซ้อนของ Live API ให้ตรวจสอบว่า `language_code` ของ API ตรงกับภาษาที่ผู้ใช้พูด
 
-Wenn das Modell in einer anderen Sprache als Englisch antworten soll, fügen Sie Folgendes in die Systemanweisungen ein:
+หากต้องการให้โมเดลตอบกลับเป็นภาษาอื่นที่ไม่ใช่ภาษาอังกฤษ ให้ใส่ข้อมูลต่อไปนี้เป็นส่วนหนึ่งของวิธีการของระบบ
 
 ```
 RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 ```
 
-## Streaming
+## การสตรีม
 
-Beachten Sie beim Implementieren von Echtzeit-Audio die folgenden Best Practices:
+เมื่อใช้เสียงแบบเรียลไทม์ ให้ทำตามแนวทางปฏิบัติแนะนำต่อไปนี้
 
-- **Blockgröße und Latenz**: Senden Sie Audio in Blöcken von 20 bis 40 ms.
-- **Unterbrechungen verarbeiten**: Wenn der Nutzer spricht, während das Modell antwortet, sendet der Server eine `server_content`-Nachricht mit `"interrupted": true`. Sie müssen den clientseitigen Audio-Puffer sofort verwerfen, damit der Kundenservicemitarbeiter nicht weiter über den Nutzer spricht.
+- **ขนาด Chunk และเวลาในการตอบสนอง**: ส่งเสียงเป็น Chunk ขนาด 20 มิลลิวินาทีถึง 40 มิลลิวินาที
+- **การจัดการการขัดจังหวะ**: เมื่อผู้ใช้พูดขณะที่โมเดลกำลังตอบกลับ
+  เซิร์ฟเวอร์จะส่งข้อความ `server_content` พร้อม `"interrupted": true` คุณต้องทิ้งบัฟเฟอร์เสียงฝั่งไคลเอ็นต์ทันทีเพื่อป้องกันไม่ให้เอเจนต์พูดทับผู้ใช้
 
-## Kontextverwaltung
+## การจัดการบริบท
 
-Verwenden Sie `ContextWindowCompressionConfig` für lange Sitzungen, da sich native Audio-Tokens schnell ansammeln (ca. 25 Tokens pro Sekunde Audio).
+ใช้ `ContextWindowCompressionConfig` สำหรับเซสชันที่ยาว เนื่องจากโทเค็นเสียงดั้งเดิมจะสะสมอย่างรวดเร็ว (ประมาณ 25 โทเค็นต่อวินาทีของเสียง)
 
-## Clientseitiges Puffern
+## การบัฟเฟอร์ของไคลเอ็นต์
 
-Puffern Sie das eingegebene Audio nicht wesentlich (z. B. 1 Sekunde) vor dem Senden. Senden Sie kleine Chunks (20–100 ms), um die Latenz zu minimieren.
+อย่าบัฟเฟอร์เสียงอินพุตมากเกินไป (เช่น 1 วินาที) ก่อนส่ง ส่ง Chunk ขนาดเล็ก (20 มิลลิวินาที - 100 มิลลิวินาที) เพื่อลดเวลาในการตอบสนอง
 
-## Resampling
+## การสุ่มตัวอย่างใหม่
 
-Ihre Clientanwendung muss Mikrofoneingaben (häufig 44,1 kHz oder 48 kHz) vor der Übertragung auf 16 kHz resamplen.
+ตรวจสอบว่าแอปพลิเคชันไคลเอ็นต์สุ่มตัวอย่างอินพุตจากไมโครโฟนใหม่ (มักจะเป็น 44.1kHz หรือ 48kHz) เป็น 16kHz ก่อนส่ง
 
-## Sitzungsverwaltung
+## การจัดการเซสชัน
 
-Beachten Sie die folgenden Richtlinien, um den Sitzungslebenszyklus zu verwalten und eine zuverlässige Nutzererfahrung zu gewährleisten:
+ทำตามหลักเกณฑ์ต่อไปนี้เพื่อจัดการวงจรชีวิตของเซสชันและรับประกันประสบการณ์ของผู้ใช้ที่เชื่อถือได้
 
-- **Kontextfenster-Komprimierung aktivieren**:Audiotokens werden mit etwa 25 Tokens pro Sekunde angesammelt. Ohne Komprimierung sind reine Audio-Sitzungen auf 15 Minuten und Audio-Video-Sitzungen auf 2 Minuten begrenzt. Aktivieren Sie die [Kontextfensterkomprimierung](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=de#context-window-compression), um Sitzungen auf unbegrenzte Dauer zu verlängern.
-- **Sitzungswiederaufnahme implementieren**:Der Server kann die WebSocket-Verbindung regelmäßig zurücksetzen. Mit der [Wiederaufnahme von Sitzungen](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=de#session-resumption) können Sie nahtlos wieder eine Verbindung herstellen, ohne den Kontext zu verlieren. Das letzte Fortsetzungs-Token aus `SessionResumptionUpdate` Nachrichten beibehalten und beim erneuten Verbinden als Handle übergeben. Fortsetzungstokens sind 2 Stunden nach dem Beenden der letzten Sitzung gültig.
-- **GoAway-Nachrichten verarbeiten**:Der Server sendet eine [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=de#goaway-message)-Nachricht, bevor eine Verbindung beendet wird. Achten Sie auf diese Nachricht und verwenden Sie das Feld `timeLeft`, um die Verbindung ordnungsgemäß zu beenden oder wiederherzustellen, bevor sie geschlossen wird.
-- **„generationComplete“-Signale verarbeiten**:Verwenden Sie die [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=de#generation-complete-message)-Nachricht, um zu erfahren, wann das Modell die Generierung einer Antwort abgeschlossen hat. So kann Ihre Anwendung die Benutzeroberfläche aktualisieren oder mit der nächsten Aktion fortfahren.
+- **เปิดใช้การบีบอัดหน้าต่างบริบท:** โทเค็นเสียงจะสะสมประมาณ 25 โทเค็นต่อวินาที หากไม่มีการบีบอัด เซสชันเสียงอย่างเดียวจะจำกัดไว้ที่ 15 นาที และเซสชันเสียงและวิดีโอจะจำกัดไว้ที่ 2 นาที เปิดใช้
+  [การบีบอัดหน้าต่างบริบท](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=th#context-window-compression)
+  เพื่อขยายเซสชันให้มีระยะเวลาไม่จำกัด
+- **ใช้การกลับมาทำงานต่อของเซสชัน:** เซิร์ฟเวอร์อาจรีเซ็ตการเชื่อมต่อ WebSocket เป็นระยะ ใช้
+  [การกลับมาทำงานต่อของเซสชัน](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=th#session-resumption)
+  เพื่อเชื่อมต่ออีกครั้งได้อย่างราบรื่นโดยไม่สูญเสียบริบท เก็บโทเค็นการกลับมาทำงานต่อล่าสุดจากข้อความ `SessionResumptionUpdate` และส่งโทเค็นดังกล่าวเป็นแฮนเดิลเมื่อเชื่อมต่ออีกครั้ง โทเค็นการกลับมาทำงานต่อมีอายุ 2 ชั่วโมงหลังจากเซสชันล่าสุดสิ้นสุดลง
+- **จัดการข้อความ GoAway:** เซิร์ฟเวอร์จะส่ง
+  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=th#goaway-message)
+  ก่อนที่จะสิ้นสุดการเชื่อมต่อ ฟังข้อความนี้และใช้ช่อง `timeLeft` เพื่อสรุปหรือเชื่อมต่ออีกครั้งอย่างราบรื่นก่อนที่การเชื่อมต่อจะปิด
+- **จัดการสัญญาณ generationComplete:** ใช้ข้อความ
+  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=th#generation-complete-message)
+  เพื่อดูว่าโมเดลสร้างการตอบกลับเสร็จแล้วเมื่อใด เพื่อให้แอปพลิเคชัน
+  อัปเดต UI หรือดำเนินการตามการดำเนินการถัดไปได้
 
-Einzelheiten zur Implementierung finden Sie unter [Sitzungsverwaltung](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=de).
+ดูรายละเอียดการนำไปใช้งานได้ที่
+[การจัดการเซสชัน](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=th)
 
-## Beispiele
+## ตัวอย่าง
 
-In diesem Beispiel werden sowohl die Best Practices als auch die [Richtlinien für das Erstellen von Systemanweisungen](#system-instruction-guidelines) kombiniert, um die Leistung des Modells als Karrierecoach zu optimieren.
+ตัวอย่างนี้รวมทั้งแนวทางปฏิบัติแนะนำและ
+[หลักเกณฑ์สำหรับการออกแบบวิธีการของระบบ](#system-instruction-guidelines)เพื่อ
+แนะนำประสิทธิภาพของโมเดลในฐานะโค้ชด้านอาชีพ
 
 ```
 **Persona:**
@@ -139,10 +154,10 @@ Remember that your ultimate goal is to create a supportive environment for your
 clients to thrive.
 ```
 
-### Tooldefinitionen
+### การกำหนดเครื่องมือ
 
-In diesem JSON-Code werden die relevanten Funktionen definiert, die im Beispiel für den Karriere-Coach aufgerufen werden.
-Für optimale Ergebnisse sollten Sie beim Definieren von Funktionen deren Namen, Beschreibungen, Parameter und Aufrufbedingungen angeben.
+JSON นี้กำหนดฟังก์ชันที่เกี่ยวข้องซึ่งเรียกใช้ในตัวอย่างโค้ชด้านอาชีพ
+เมื่อกำหนดฟังก์ชัน ให้ใส่ชื่อ คำอธิบาย พารามิเตอร์ และเงื่อนไขการเรียกใช้เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
 
 ```
 [
@@ -232,44 +247,44 @@ Für optimale Ergebnisse sollten Sie beim Definieren von Funktionen deren Namen,
 ]
 ```
 
-## Preise und Abrechnung
+## การกำหนดราคาและการเรียกเก็บเงิน
 
-Die Gemini Live API wird ausschließlich nach Tokennutzung abgerechnet. Da bei der Live API eine dauerhafte WebSocket-Sitzung aufrechterhalten wird, erfolgt die Abrechnung nach einem zusammengesetzten Modell basierend auf dem aktiven Kontextfenster.
+Gemini Live API จะเรียกเก็บเงินตามการใช้โทเค็นเท่านั้น เนื่องจาก Live API จะรักษาเซสชัน WebSocket แบบถาวรไว้ การเรียกเก็บเงินจึงเป็นไปตามโมเดลแบบทบต้นตามหน้าต่างบริบทที่ใช้งานอยู่
 
-### Das Sitzungskontextfenster (kumulative Kosten)
+### หน้าต่างบริบทของเซสชัน (ค่าใช้จ่ายแบบทบต้น)
 
-Die API berechnet Ihnen pro Runde alle Tokens, die im Sitzungskontextfenster vorhanden sind. Ein „Turn“ ist eine Nutzereingabe und die entsprechende Antwort des Modells.
+API จะเรียกเก็บเงินต่อรอบสำหรับโทเค็นทั้งหมดที่อยู่ในหน้าต่างบริบทของเซสชัน "รอบ" หมายถึงข้อมูลจากผู้ใช้ 1 รายการและการตอบกลับที่เกี่ยวข้องของโมเดล
 
-- **Akkumulierung**:Das Kontextfenster enthält neue Tokens aus dem aktuellen Zug sowie alle akkumulierten Tokens aus vorherigen Zügen.
-- **Erneute Abrechnung**:Frühere Tokens werden in jeder neuen Runde noch einmal verarbeitet und berücksichtigt, bis die von Ihnen konfigurierte Kontextfenstergröße erreicht ist. Mit zunehmender Sitzungsdauer steigen die Kosten pro Runde, da der Unterhaltungsverlauf neu verarbeitet wird.
+- **การสะสม:** หน้าต่างบริบทจะมีโทเค็นใหม่จากรอบปัจจุบัน รวมถึงโทเค็นทั้งหมดที่สะสมจากรอบก่อนหน้า
+- **การเรียกเก็บเงินซ้ำ:** ระบบจะประมวลผลโทเค็นที่ผ่านมาอีกครั้งและนำมาพิจารณาในแต่ละรอบใหม่ โดยจะพิจารณาตามขนาดหน้าต่างบริบทที่คุณกำหนดค่าไว้ เมื่อเซสชันยาวขึ้น ค่าใช้จ่ายต่อรอบจะเพิ่มขึ้นเนื่องจากระบบจะประมวลผลประวัติการสนทนาอีกครั้ง
 
-### Audio-Tokens und ‑Transkripte
+### โทเค็นเสียงและการถอดเสียงเป็นคำ
 
-Die Live API ist nativ multimodal. Der Unterhaltungsverlauf wird als rohe Audio-Tokens beibehalten, um akustische Nuancen und den Tonfall zu bewahren.
+Live API เป็นแบบหลายรูปแบบโดยกำเนิด โดยจะเก็บประวัติการสนทนาเป็นโทเค็นเสียงดิบเพื่อรักษาความแตกต่างและโทนเสียง
 
-- **Abrechnung von Audio:** Die API berechnet Ihnen die angesammelten nativen Audio-Tokens in jeder Runde zum Standardtarif für Audioeingabe.
-- **Transkriptionszuschlag**:Wenn die Audio-zu-Text-Transkription aktiviert ist (`inputAudioTranscription` oder `outputAudioTranscription`), werden für alle Text-Tokens, die für die Transkription generiert werden, zusätzlich zu den Standardkosten für Audio-Tokens die Kosten für die Ausgabe von Text-Tokens berechnet.
+- **การเรียกเก็บเงินสำหรับเสียง:** API จะเรียกเก็บเงินสำหรับโทเค็นเสียงดั้งเดิมที่สะสมในอัตราอินพุตเสียงมาตรฐานในทุกรอบ
+- **ค่าบริการเพิ่มเติมสำหรับการถอดเสียงเป็นคำ:** เมื่อเปิดใช้การถอดเสียงเป็นคำจากเสียงเป็นข้อความ (`inputAudioTranscription` หรือ `outputAudioTranscription`) API จะเรียกเก็บเงินสำหรับโทเค็นข้อความทั้งหมดที่สร้างขึ้นสำหรับการถอดเสียงเป็นคำในอัตราเอาต์พุตโทเค็นข้อความ นอกเหนือจากค่าใช้จ่ายโทเค็นเสียงมาตรฐาน
 
-### Kosten mit Kontextlimits verwalten
+### การจัดการค่าใช้จ่ายด้วยขีดจำกัดบริบท
 
-Um unbegrenztes Kostenwachstum bei langen Sitzungen zu verhindern, konfigurieren Sie die Größe des Kontextfensters mit `contextWindowCompression`.
+กำหนดค่าขนาดหน้าต่างบริบทโดยใช้ `contextWindowCompression` เพื่อป้องกันไม่ให้ค่าใช้จ่ายเพิ่มขึ้นอย่างไม่จำกัดในเซสชันที่ยาว
 
-Wenn Sie einen Komprimierungsauslöser (z. B. 25.000 Tokens) und ein gleitendes Fenster (z. B. 8.000 Tokens) festlegen, werden ältere Tokens automatisch entfernt, sobald der Schwellenwert erreicht ist. Bei nachfolgenden Anfragen werden dann nur das beibehaltene Protokoll und alle neuen Tokens in Rechnung gestellt.
+เมื่อตั้งค่าทริกเกอร์การบีบอัด (เช่น 25,000 โทเค็น) และหน้าต่างแบบเลื่อน (เช่น 8,000 โทเค็น) API จะนำโทเค็นเก่าออกโดยอัตโนมัติเมื่อถึงเกณฑ์ จากนั้น API จะเรียกเก็บเงินในรอบถัดไปสำหรับประวัติที่เก็บไว้และโทเค็นใหม่เท่านั้น
 
-### Proaktiver Audiomodus
+### โหมดเสียงเชิงรุก
 
-Wenn der proaktive Audiomodus aktiviert ist, werden Eingabetokens für die gesamte Zeit berechnet, in der die Live API zuhört. Ausgabetokens werden nur berechnet, wenn die API antwortet.
+เมื่อเปิดใช้โหมดเสียงเชิงรุก ระบบจะเรียกเก็บเงินสำหรับโทเค็นอินพุตตลอดเวลาที่ Live API กำลังฟังอยู่ ขณะที่จะเรียกเก็บเงินสำหรับโทเค็นเอาต์พุตเมื่อ API ตอบกลับเท่านั้น
 
-- **Hinweis zu Gemini 3.1**:Der proaktive Audiomodus wird in `gemini-3.1-flash-live-preview` nicht unterstützt. Bei diesem Modell wird Ihnen Audio nur in Rechnung gestellt, wenn Sie aktiv Eingaben streamen.
+- **หมายเหตุสำหรับ Gemini 3.1:** `gemini-3.1-flash-live-preview` ไม่รองรับโหมดเสียงเชิงรุก สำหรับโมเดลนี้ ระบบจะเรียกเก็บเงินสำหรับเสียงเมื่อมีการสตรีมอินพุตอย่างจริงจังเท่านั้น
 
-Detaillierte Preisinformationen finden Sie auf der [Seite „Gemini API-Preise“](https://ai.google.dev/gemini-api/docs/pricing?hl=de).
+ดูข้อมูลการกำหนดราคารายละเอียดได้ที่หน้าการกำหนดราคา [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Zuletzt aktualisiert: 2026-06-01 (UTC).
+อัปเดตล่าสุด 2026-09-08 UTC
 
-Haben Sie Feedback für uns?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-01 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-08 UTC"],[],[]]

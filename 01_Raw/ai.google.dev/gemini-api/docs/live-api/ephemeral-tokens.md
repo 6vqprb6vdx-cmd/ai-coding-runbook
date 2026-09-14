@@ -1,43 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=fr
-fetched_at: 2026-09-07T05:45:49.303890+00:00
-title: "Jetons \u00e9ph\u00e9m\u00e8res \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ja
+fetched_at: 2026-09-14T05:52:14.978696+00:00
+title: "\u30a8\u30d5\u30a7\u30e1\u30e9\u30eb \u30c8\u30fc\u30af\u30f3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envoyer des commentaires
+フィードバックを送信
 
-# Jetons éphémères
+# エフェメラル トークン
 
-Les jetons éphémères sont des jetons d'authentification de courte durée permettant d'accéder à l'API Gemini via [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Elles sont conçues pour renforcer la sécurité lorsque vous vous connectez directement à l'API depuis l'appareil d'un utilisateur (une implémentation [client-serveur](https://ai.google.dev/gemini-api/docs/live?hl=fr#implementation-approach)). Comme les clés API standards, les jetons éphémères peuvent être extraits des applications côté client, telles que les navigateurs Web ou les applications mobiles. Toutefois, comme les jetons éphémères expirent rapidement et peuvent être limités, ils réduisent considérablement les risques de sécurité dans un environnement de production. Vous devez les utiliser lorsque vous accédez à l'API Live directement depuis des applications côté client pour renforcer la sécurité des clés API.
+エフェメラル トークンは、[WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) を介して Gemini API にアクセスするための有効期間の短い認証トークンです。これらは、ユーザーのデバイスから API に直接接続する場合（[クライアントからサーバーへの](https://ai.google.dev/gemini-api/docs/live?hl=ja#implementation-approach)実装）のセキュリティを強化するように設計されています。標準の API キーと同様に、エフェメラル トークンはウェブブラウザやモバイルアプリなどのクライアントサイド アプリケーションから抽出できます。ただし、一時トークンはすぐに期限切れになり、制限される可能性があるため、本番環境のセキュリティ リスクを大幅に軽減できます。クライアントサイド アプリケーションから Live API に直接アクセスして API キーのセキュリティを強化する場合は、これらを使用する必要があります。
 
-## Fonctionnement des jetons éphémères
+## 一時トークンの仕組み
 
-Voici comment fonctionnent les jetons éphémères de manière générale :
+エフェメラル トークンの仕組みの概要は次のとおりです。
 
-1. Votre client (par exemple, une application Web) s'authentifie auprès de votre backend.
-2. Votre backend demande un jeton éphémère au service de provisionnement de l'API Gemini.
-3. L'API Gemini émet un jeton de courte durée.
-4. Votre backend envoie le jeton au client pour les connexions WebSocket à l'API Live. Pour ce faire, remplacez votre clé API par un jeton éphémère.
-5. Le client utilise ensuite le jeton comme s'il s'agissait d'une clé API.
+1. クライアント（ウェブアプリなど）がバックエンドで認証されます。
+2. バックエンドが Gemini API のプロビジョニング サービスにエフェメラル トークンをリクエストします。
+3. Gemini API が有効期間の短いトークンを発行します。
+4. バックエンドは、Live API への WebSocket 接続用にトークンをクライアントに送信します。これを行うには、API キーをエフェメラル トークンに置き換えます。
+5. クライアントは、トークンを API キーとして使用します。
 
-![Présentation des jetons éphémères](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=fr)
+![一時トークンの概要](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=ja)
 
-Cela renforce la sécurité, car même s'il est extrait, le jeton est éphémère, contrairement à une clé API à longue durée de vie déployée côté client. Comme le client envoie les données directement à Gemini, cela améliore également la latence et évite à vos backends d'avoir à relayer les données en temps réel.
+この方法では、クライアントサイドにデプロイされた有効期間の長い API キーとは異なり、トークンが抽出されても有効期間が短いため、セキュリティが強化されます。クライアントがデータを Gemini に直接送信するため、レイテンシが改善され、バックエンドがリアルタイム データをプロキシする必要もなくなります。
 
-## Créer un jeton éphémère
+## エフェメラル トークンを作成する
 
-Voici un exemple simplifié de la façon d'obtenir un jeton éphémère de Gemini.
-Par défaut, vous disposez d'une minute pour démarrer de nouvelles sessions de l'API Live à l'aide du jeton de cette requête (`newSessionExpireTime`) et de 30 minutes pour envoyer des messages via cette connexion (`expireTime`).
+Gemini からエフェメラル トークンを取得する簡単な例を次に示します。デフォルトでは、このリクエスト（`newSessionExpireTime`）のトークンを使用して新しい Live API セッションを開始するのに 1 分、その接続（`expireTime`）を介してメッセージを送信するのに 30 分が与えられます。
 
 ### Python
 
@@ -91,10 +90,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-Pour connaître les contraintes de valeur, les valeurs par défaut et les autres spécifications des champs `expireTime`, consultez la [documentation de référence de l'API](https://ai.google.dev/api/live?hl=fr#ephemeral-auth-tokens).
-Dans le délai de `expireTime`, vous devrez [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=fr#session-resumption) reconnecter l'appel toutes les 10 minutes (cela peut être fait avec le même jeton, même si `uses: 1`).
+`expireTime` 値の制約、デフォルト、その他のフィールド仕様については、[API リファレンス](https://ai.google.dev/api/live?hl=ja#ephemeral-auth-tokens)をご覧ください。`expireTime` の期間内では、10 分ごとに呼び出しを再接続する必要があります（`uses: 1` の場合でも、同じトークンで実行できます）。[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=ja#session-resumption)
 
-Il est également possible de verrouiller un jeton éphémère sur un ensemble de configurations. Cela peut être utile pour améliorer davantage la sécurité de votre application et conserver vos instructions système côté serveur.
+エフェメラル トークンを一連の構成にロックすることもできます。これは、アプリケーションのセキュリティをさらに強化し、システム指示をサーバー側に保持するのに役立ちます。
 
 ### Python
 
@@ -163,13 +161,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-Vous pouvez également verrouiller un sous-ensemble de champs. Pour en savoir plus, consultez la [documentation du SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
+フィールドのサブセットをロックすることもできます。詳しくは、[SDK のドキュメント](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)をご覧ください。
 
-## Se connecter à l'API Live avec un jeton éphémère
+## エフェメラル トークンを使用して Live API に接続する
 
-Une fois que vous disposez d'un jeton éphémère, vous l'utilisez comme s'il s'agissait d'une clé API (mais n'oubliez pas qu'il ne fonctionne que pour l'API en direct et uniquement avec la version `v1beta` de l'API).
+一時トークンを取得したら、API キーと同じように使用します（ただし、ライブ API でのみ機能し、API の `v1beta` バージョンでのみ機能します）。
 
-L'utilisation de jetons éphémères n'est utile que lors du déploiement d'applications qui suivent l'approche d'[implémentation client-serveur](https://ai.google.dev/gemini-api/docs/live?hl=fr#implementation-approach).
+エフェメラル トークンの使用は、[クライアントからサーバーへの実装](https://ai.google.dev/gemini-api/docs/live?hl=ja#implementation-approach)アプローチに従うアプリケーションをデプロイする場合にのみ価値があります。
 
 ### JavaScript
 
@@ -199,29 +197,29 @@ async function main() {
 main();
 ```
 
-Pour obtenir d'autres exemples, consultez [Premiers pas avec l'API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr).
+その他の例については、[Live API を使ってみる](https://ai.google.dev/gemini-api/docs/live?hl=ja)をご覧ください。
 
-## Bonnes pratiques
+## ベスト プラクティス
 
-- Définissez une courte durée d'expiration à l'aide du paramètre `expire_time`.
-- Les jetons expirent, ce qui nécessite de relancer le processus de provisionnement.
-- Validez l'authentification sécurisée pour votre propre backend. La sécurité des jetons éphémères dépendra uniquement de la sécurité de votre méthode d'authentification backend.
-- En règle générale, évitez d'utiliser des jetons éphémères pour les connexions entre le backend et Gemini, car ce chemin est généralement considéré comme sécurisé.
+- `expire_time` パラメータを使用して、有効期限の短い期間を設定します。
+- トークンの有効期限が切れるため、プロビジョニング プロセスを再開する必要があります。
+- 独自のバックエンドの安全な認証を検証します。エフェメラル トークンのセキュリティは、バックエンドの認証方法のセキュリティに依存します。
+- 通常、このパスは安全と見なされるため、バックエンドから Gemini への接続にエフェメラル トークンを使用することは避けてください。
 
-## Limites
+## 制限事項
 
-Les jetons éphémères ne sont compatibles qu'avec l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr) pour le moment.
+現時点では、エフェメラル トークンは [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) とのみ互換性があります。
 
-## Étape suivante
+## 次のステップ
 
-- Pour en savoir plus, consultez la [documentation de référence](https://ai.google.dev/api/live?hl=fr#ephemeral-auth-tokens) de l'API Live sur les jetons éphémères.
+- 詳しくは、Live API のエフェメラル トークンに関する[リファレンス](https://ai.google.dev/api/live?hl=ja#ephemeral-auth-tokens)をご覧ください。
 
-Envoyer des commentaires
+フィードバックを送信
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Dernière mise à jour le 2026/07/30 (UTC).
+最終更新日 2026-07-30 UTC。
 
-Voulez-vous nous donner plus d'informations ?
+ご意見をお聞かせください
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/30 (UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]

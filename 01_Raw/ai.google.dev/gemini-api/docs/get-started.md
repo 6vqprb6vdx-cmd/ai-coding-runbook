@@ -1,65 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=ja
-fetched_at: 2026-09-07T05:35:06.198042+00:00
-title: "\u30b9\u30bf\u30fc\u30c8 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=de
+fetched_at: 2026-09-14T05:36:10.177246+00:00
+title: "Erste Schritte \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-フィードバックを送信
+Feedback geben
 
-# スタート ガイド
+# Erste Schritte
 
-このガイドでは、[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) を使用して Gemini API を使い始める方法について説明します。1 分以内に最初の API 呼び出しを行い、テキスト生成、マルチモーダル理解、画像生成、構造化出力、ツール、関数呼び出し、エージェント、バックグラウンド実行について学習します。
+In diesem Leitfaden erfahren Sie, wie Sie mit der Gemini API und der [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) beginnen. Sie führen Ihren ersten API-Aufruf in weniger als einer Minute aus und lernen die Textgenerierung, das multimodale Verständnis, die Bildgenerierung, die strukturierte Ausgabe, Tools, Funktionsaufrufe, Agents und die Hintergrundausführung kennen.
 
-Interactions API は、[Python](https://github.com/googleapis/python-genai) と [JavaScript](https://github.com/googleapis/js-genai) の SDK と REST を通じて利用できます。
+Die Interactions API ist über die [Python](https://github.com/googleapis/python-genai)- und [JavaScript](https://github.com/googleapis/js-genai)-SDKs sowie über REST verfügbar.
 
-## 1. API キーを取得する
+## 1. API-Schlüssel anfordern
 
-Gemini API を使用するには、リクエストの認証、セキュリティ上限の適用、アカウントの使用状況の追跡を行うための API キーが必要です。
+Wenn Sie die Gemini API verwenden möchten, benötigen Sie einen API-Schlüssel, um Ihre Anfragen zu authentifizieren, Sicherheitslimits durchzusetzen und die Nutzung Ihres Kontos zu verfolgen.
 
-- Google AI Studio では、新規ユーザー向けにプロジェクトと API キーが自動的に作成されます。[API キーのページ](https://aistudio.google.com/api-keys?hl=ja)からコピーできます。
-- 新しいキーが必要な場合は、AI Studio で [**API キーを作成**] をクリックし、ダイアログに沿って新しいキーとプロジェクトのペアを追加します。
+- In Google AI Studio werden für neue Nutzer automatisch ein Projekt und ein API-Schlüssel erstellt.
+  Sie können ihn auf der Seite [API-Schlüssel](https://aistudio.google.com/api-keys?hl=de) kopieren.
+- Wenn Sie einen neuen Schlüssel benötigen, klicken Sie in AI Studio auf **API-Schlüssel erstellen** und folgen Sie dem Dialogfeld, um ein neues Schlüssel-Projekt-Paar hinzuzufügen.
 
-[Gemini API キーを作成する](https://aistudio.google.com/apikey?hl=ja)
+[Gemini API-Schlüssel erstellen](https://aistudio.google.com/apikey?hl=de)
 
-鍵を環境変数として設定します。
+Legen Sie Ihren Schlüssel als Umgebungsvariable fest:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### 有料ティアにアップグレードする
+### Upgrade auf die kostenpflichtige Stufe durchführen
 
-有料階層にアップグレードすると、レートの上限が引き上げられます。また、Cloud Billing の設定が必要になります。
+Wenn Sie auf die kostenpflichtige Stufe upgraden, erhöhen sich Ihre Ratenbegrenzungen. Außerdem müssen Sie Cloud Billing einrichten.
 
-- AI Studio の [API キー](https://aistudio.google.com/api-keys?hl=ja)ページまたは[プロジェクト](https://aistudio.google.com/projects?hl=ja)ページで、[**お支払い情報を設定**] をクリックします。
-- Cloud Billing ダイアログに沿って、請求先アカウントを作成またはリンクし、お支払い方法を追加して、有料クレジットで最低 10 ドル（または同等の通貨）を前払いします。
-- API の使用状況は、[Google AI Studio](https://aistudio.google.com/usage?hl=ja) の [**ダッシュボード**] > [**使用状況**] で確認できます。
+- Klicken Sie auf den Seiten [API-Schlüssel](https://aistudio.google.com/api-keys?hl=de) oder [Projekte](https://aistudio.google.com/projects?hl=de) von AI Studio auf **Abrechnung einrichten**.
+- Folgen Sie dem Cloud-Abrechnungsdialogfeld, um ein Rechnungskonto zu erstellen oder zu verknüpfen, eine Zahlungsmethode hinzuzufügen und mindestens 10 $ (oder den entsprechenden Betrag in Ihrer Landeswährung) in Form von kostenpflichtigen Guthabenpunkten im Voraus zu bezahlen.
+- Ihre API-Nutzung können Sie in [Google AI Studio](https://aistudio.google.com/usage?hl=de) unter **Dashboard** > **Nutzung** einsehen.
 
-詳細については、[お支払いページ](https://ai.google.dev/gemini-api/docs/billing?hl=ja)をご覧ください。
+Weitere Informationen finden Sie auf der [Abrechnungsseite](https://ai.google.dev/gemini-api/docs/billing?hl=de).
 
-## 2. SDK をインストールして最初の呼び出しを行う
+## 2. SDK installieren und ersten Aufruf ausführen
 
-SDK をインストールし、1 回の API 呼び出しでテキストを生成します。
+Installieren Sie das SDK und generieren Sie Text mit einem einzigen API-Aufruf.
 
 ### Python
 
-SDK をインストールします。
+Installieren Sie das SDK:
 
 ```
 pip install -U google-genai
 ```
 
-クライアントを初期化してリクエストを行います。
+Client initialisieren und Anfrage stellen:
 
 ```
 from google import genai
@@ -75,13 +76,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-SDK をインストールします。
+Installieren Sie das SDK:
 
 ```
 npm install @google/genai
 ```
 
-クライアントを初期化してリクエストを行います。
+Client initialisieren und Anfrage stellen:
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -107,7 +108,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回答:**
+**Antwort**
 
 ```
 {
@@ -139,13 +140,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-REST を使用すると、API はメタデータ、使用状況の統計情報、ターンのステップバイステップの履歴を含む完全な `Interaction` リソースを返します。
+Bei Verwendung von REST gibt die API die vollständige `Interaction`-Ressource mit Metadaten, Nutzungsstatistiken und dem detaillierten Verlauf des Zuges zurück.
 
-SDK は完全なレスポンスを公開しますが、最終的な出力に直接アクセスするための `interaction.output_text` や `interaction.output_image` などの便利なプロパティも提供します。レスポンス構造について詳しくは、[インタラクションの概要](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)をご覧ください。システム メッセージと生成構成の詳細については、[テキスト生成ガイド](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja)をご覧ください。
+Die SDKs machen zwar die vollständige Antwort verfügbar, bieten aber auch praktische Eigenschaften wie `interaction.output_text` und `interaction.output_image`, um direkt auf die endgültigen Ausgaben zuzugreifen. Weitere Informationen zur Antwortstruktur finden Sie in der [Übersicht über Interaktionen](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de). Details zu Systemanweisungen und der Generierungskonfiguration finden Sie im [Leitfaden zur Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de).
 
-## 3. レスポンスをストリーミングする
+## 3. Antwort streamen
 
-よりスムーズなやり取りを実現するには、レスポンスを生成しながらストリーミングします。各 `step.delta` イベントは、すぐに表示できるテキストのチャンクを配信します。
+Um die Interaktion flüssiger zu gestalten, können Sie die Antwort streamen, während sie generiert wird. Bei jedem `step.delta`-Ereignis wird ein Textblock bereitgestellt, den Sie sofort anzeigen können.
 
 ### Python
 
@@ -195,9 +196,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-ストリーミングの場合、サーバーはサーバー送信イベント（SSE）のストリームで応答します。各イベントには、タイプと JSON データが含まれます。
+Beim Streaming antwortet der Server mit einem Stream von Server-Sent Events (SSE). Jedes Ereignis enthält einen Typ und JSON-Daten.
 
-**回答:**
+**Antwort**
 
 ```
 event: interaction.created
@@ -228,18 +229,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-ストリーミング イベントとデルタタイプの処理の詳細については、[ストリーミング操作ガイド](https://ai.google.dev/gemini-api/docs/streaming?hl=ja)をご覧ください。
+Eine detaillierte Beschreibung der Verarbeitung von Streaming-Ereignissen und ‑Deltatypen finden Sie in der [Anleitung zu Streaming-Interaktionen](https://ai.google.dev/gemini-api/docs/streaming?hl=de).
 
-## 4. マルチターンの会話
+## 4. Unterhaltungen über mehrere Themen
 
-Interactions API は、次の 2 つのアプローチでマルチターンの会話をサポートしています。
+Die Interactions API unterstützt Multi-Turn-Unterhaltungen mit zwei Ansätzen:
 
-- **ステートフル（推奨）**: `previous_interaction_id` を使用してサーバーで会話を続けます。サーバーで履歴を管理し、キャッシュ保存を最適化するほとんどのチャット ワークフローとエージェント ワークフローに最適です。
-- **ステートレス**: 各リクエストで以前のすべてのターン（モデルの中間思考とツールステップを含む）を渡すことで、クライアントで会話履歴を管理します。
+- **Zustandsbehaftet (empfohlen)**: Setzen Sie eine Unterhaltung auf dem Server mit `previous_interaction_id` fort. Ideal für die meisten Chat- und Agentic-Workflows, bei denen der Server den Verlauf verwalten und das Caching optimieren soll.
+- **Zustandslos**: Verwalten Sie den Unterhaltungsverlauf auf dem Client, indem Sie alle vorherigen Turns (einschließlich der Zwischenschritte für das Modell und das Tool) in jeder Anfrage übergeben.
 
-### ステートフル（推奨）
+### Zustandsbehaftet (empfohlen)
 
-`previous_interaction_id` を渡してインタラクションをチェーンします。サーバーが会話履歴全体を管理します。
+Interaktionen verketten, indem Sie `previous_interaction_id` übergeben. Der Server verwaltet den gesamten Unterhaltungsverlauf für Sie.
 
 ### Python
 
@@ -309,9 +310,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### ステートレス
+### Zustandslos
 
-`store=false` を設定し、クライアントサイドで会話履歴を管理します。モデルで生成されたすべてのステップ（`thought` ステップと `function_call` ステップを含む）は、受け取ったとおりに保持して再送信する必要があります。
+`store=false` festlegen und den Unterhaltungsverlauf clientseitig verwalten. Sie müssen alle vom Modell generierten Schritte (einschließlich `thought`- und `function_call`-Schritte) genau so beibehalten und noch einmal senden, wie Sie sie erhalten haben.
 
 ### Python
 
@@ -423,7 +424,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**回答:**
+**Antwort**
 
 ```
 {
@@ -450,11 +451,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-2 回目のインタラクションでは、新しいステップのみを含む完全なレスポンス オブジェクトが返されますが、これは前のターンのコンテキストに基づいています。状態の維持については、[マルチターン会話ガイド](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#multi-turn-conversations)をご覧ください。クライアントサイドの履歴管理については、[ステートレス モード](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#stateless-conversations)をご覧ください。
+Bei der zweiten Interaktion wird ein vollständiges Antwortobjekt zurückgegeben, das nur die neuen Schritte enthält, aber auf dem Kontext des vorherigen Turns basiert. Weitere Informationen zum Beibehalten des Status finden Sie im [Leitfaden für Multi-Turn-Unterhaltungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#multi-turn-conversations). Informationen zur clientseitigen Verlaufsverwaltung finden Sie unter [Zustandsloser Modus](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#stateless-conversations).
 
-## 5. マルチモーダルな理解
+## 5. Multimodales Verstehen
 
-Gemini モデルは、画像、音声、動画、ドキュメントをネイティブに理解します。1 つのリクエストでテキストとともにメディアを渡します。
+Gemini-Modelle können Bilder, Audio, Video und Dokumente nativ verstehen. Media zusammen mit Text in einer einzigen Anfrage übergeben.
 
 ### Python
 
@@ -546,7 +547,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**回答:**
+**Antwort**
 
 ```
 {
@@ -571,27 +572,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-画像、動画、音声ファイルを渡す方法については、[画像理解ガイド](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja)をご覧ください。
+Informationen zum Übergeben von Bildern, Videos und Audiodateien finden Sie im [Leitfaden zum Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de).
 
 [hearing
 
-音声の理解
+Verständnis von Audioinhalten
 
-音声ファイルの文字起こし、要約、質問への回答を行います。](https://ai.google.dev/gemini-api/docs/audio?hl=ja)
+Audioinhalte transkribieren, zusammenfassen oder Fragen dazu beantworten lassen](https://ai.google.dev/gemini-api/docs/audio?hl=de)
 [videocam
 
-動画理解
+Videos verstehen
 
-動画コンテンツを分析し、イベントを特定して、アクションを説明します。](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja)
+Videoinhalte analysieren, Ereignisse lokalisieren und Aktionen beschreiben](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de)
 [description
 
-ドキュメント処理
+Dokumentverarbeitung
 
-PDF などのドキュメント形式から情報を抽出します。](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)
+Informationen aus PDFs und anderen Dokumentformaten extrahieren](https://ai.google.dev/gemini-api/docs/document-processing?hl=de)
 
-## 6. マルチモーダル生成
+## 6. Multimodale Generierung
 
-Gemini は、[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) 画像モデルを使用して画像をネイティブに生成できます。
+Gemini kann Bilder nativ mit den Bildmodellen [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) generieren.
 
 ### Python
 
@@ -644,7 +645,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**回答:**
+**Antwort**
 
 ```
 {
@@ -667,22 +668,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-モデルが画像を生成すると、`steps` 配列内のステップと `output_image` 便宜的プロパティを介して、base64 エンコードされた画像データが返されます。アスペクト比、画像編集、参照については、[画像生成ガイド](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)をご覧ください。
+Wenn das Modell ein Bild generiert, gibt es die base64-codierten Bilddaten in einem Schritt im `steps`-Array sowie über die Convenience-Property `output_image` zurück. Im [Leitfaden zur Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) finden Sie Informationen zu Seitenverhältnissen, Bildbearbeitung und Referenzen.
 
 [record\_voice\_over
 
-音声生成
+Sprachgenerierung
 
-Gemini 3.1 Flash TTS を使用して、表現力豊かな複数話者の音声を生成します。](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)
+Mit Gemini 3.1 Flash TTS ausdrucksstarke Sprache mit mehreren Sprechern generieren](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)
 [music\_note
 
-音楽生成
+Musikgenerierung
 
-Lyria 3 でクリップやフルレングスの楽曲を作成します。](https://ai.google.dev/gemini-api/docs/music-generation?hl=ja)
+Mit Lyria 3 lassen sich Clips und vollständige Songs erstellen.](https://ai.google.dev/gemini-api/docs/music-generation?hl=de)
 
-## 7. 構造化出力を使用する
+## 7. Strukturierte Ausgabe verwenden
 
-定義したスキーマに一致する JSON を返すようにモデルを構成します。構造化出力は、[Pydantic](https://docs.pydantic.dev/latest/)（Python）と [Zod](https://zod.dev/)（JavaScript）で動作します。
+Konfigurieren Sie das Modell so, dass es JSON zurückgibt, das einem von Ihnen definierten Schema entspricht. Die strukturierte Ausgabe funktioniert mit [Pydantic](https://docs.pydantic.dev/latest/) (Python) und [Zod](https://zod.dev/) (JavaScript).
 
 ### Python
 
@@ -785,7 +786,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回答:**
+**Antwort**
 
 ```
 {
@@ -807,11 +808,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-出力テキスト ブロックには、リクエストされたスキーマに正確に準拠した有効な JSON 文字列が含まれます。より複雑な構造と再帰的スキーマを定義する方法については、[構造化出力ガイド](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)をご覧ください。
+Der Ausgabetextblock enthält einen gültigen JSON-String, der genau dem angeforderten Schema entspricht. Informationen zum Definieren komplexerer Strukturen und rekursiver Schemas finden Sie im [Leitfaden zur strukturierten Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de).
 
-## 8. ツールを使用する
+## 8. Tools verwenden
 
-Google 検索を使用して、モデルのレスポンスをリアルタイムの情報でグラウンディングします。API は自動的に検索し、結果を処理して引用を返します。
+Die Antwort des Modells mit Echtzeitinformationen aus der Google Suche fundieren. Die API sucht automatisch, verarbeitet Ergebnisse und gibt Zitationen zurück.
 
 ### Python
 
@@ -884,7 +885,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回答:**
+**Antwort**
 
 ```
 {
@@ -934,41 +935,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-検索手順はサポート履歴に詳しく記載されており、最終的な出力にはウェブソースを指すインライン引用が含まれています。
+Die Suchschritte werden im Interaktionsverlauf detailliert beschrieben und die endgültige Ausgabe enthält Inline-Zitationen, die auf Webquellen verweisen.
 
-検索引用を抽出する方法については、[Google 検索のグラウンディング ガイド](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)をご覧ください。複数のツールを組み合わせる方法については、[ツール組み合わせガイド](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)をご覧ください。
+Informationen zum Extrahieren von Suchzitaten finden Sie im [Leitfaden zur Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de). Informationen zum Kombinieren mehrerer Tools finden Sie im [Leitfaden zur Kombination von Tools](https://ai.google.dev/gemini-api/docs/tool-combination?hl=de).
 
 [code
 
-コード実行
+Codeausführung
 
-安全なサンドボックス化された Borg 環境で Python コードを実行します。](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)
+Python-Code in einer sicheren Sandbox-Borg-Umgebung ausführen](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)
 [link
 
-URL コンテキスト
+URL-Kontext
 
-公開ウェブ URL を直接渡して、ウェブページ コンテンツのレスポンスをグラウンディングします。](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)
+Übergeben Sie öffentliche Web-URLs direkt, um Antworten in Webseiteninhalten zu fundieren.](https://ai.google.dev/gemini-api/docs/url-context?hl=de)
 [search
 
-ファイル検索
+Dateisuche
 
-アップロードされたドキュメントとメディア ファイル全体にわたってインデックスを作成し、検索します。](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)
+Hochgeladene Dokumente und Mediendateien indexieren und durchsuchen](https://ai.google.dev/gemini-api/docs/file-search?hl=de)
 [map
 
-Google マップ
+Google Maps
 
-現実世界の地理空間データと位置情報データに基づいて回答します。](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)
+Antworten mit realen raumbezogenen Daten und Standortdaten fundieren.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)
 [computer
 
-パソコンの使用
+Computernutzung
 
-ブラウザの自動化と画面操作。](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)
+Browserautomatisierung und Bildschirminteraktion.](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)
 
-## 9. 独自の関数を呼び出す
+## 9. Eigene Funktionen aufrufen
 
-関数呼び出しを使用すると、モデルをコードに接続できます。関数の名前とパラメータを宣言すると、モデルが呼び出すタイミングを決定して構造化された引数を返し、ローカルで実行して結果を返送します。
+Mit Funktionsaufrufen können Sie das Modell mit Ihrem Code verbinden. Sie deklarieren den Namen und die Parameter einer Funktion, das Modell entscheidet, wann sie aufgerufen wird, und gibt strukturierte Argumente zurück. Sie führen sie lokal aus und senden das Ergebnis zurück.
 
-### ステートフル（推奨）
+### Zustandsbehaftet (empfohlen)
 
 ### Python
 
@@ -1153,13 +1154,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### ステートレス
+### Zustandslos
 
-クライアント側で会話履歴を管理し、`store=false` を設定することで、ステートレス モードで関数呼び出しを使用することもできます。ステートレス モードでは、後続の各リクエストの `input` フィールドで会話の履歴全体を渡す必要があります。この履歴には、以下を含める必要があります。
+Sie können Funktionsaufrufe auch im statuslosen Modus verwenden, indem Sie den Unterhaltungsverlauf clientseitig verwalten und `store=false` festlegen. Im zustandslosen Modus müssen Sie den vollständigen Verlauf der Unterhaltung im Feld `input` jeder nachfolgenden Anfrage übergeben. Dieser Verlauf muss Folgendes enthalten:
 
-1. 最初の `user_input` ステップ。
-2. ターン 1 で返されたモデル生成のすべてのステップ（`thought` ステップと `function_call` ステップを含む）を、受け取ったとおりに返します。
-3. 実行された関数の出力を含む `function_result` ステップ。
+1. Der erste Schritt `user_input`.
+2. Alle vom Modell generierten Schritte, die in Turn 1 zurückgegeben werden (einschließlich der Schritte `thought` und `function_call`), werden genau so zurückgegeben, wie sie empfangen wurden.
+3. Der `function_result`-Schritt, der die Ausgabe Ihrer ausgeführten Funktion enthält.
 
 ### Python
 
@@ -1367,9 +1368,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**回答:**
+**Antwort**
 
-ターン 1 で、モデルはステータス `requires_action` と `function_call` ステップを含むレスポンスを返します。
+In Runde 1 gibt das Modell eine Antwort mit dem Status `requires_action` und dem Schritt `function_call` zurück:
 
 ```
 {
@@ -1390,7 +1391,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-関数をローカルで実行して結果を送信すると（ターン 2）、最終的な完了したインタラクションが返されます。
+Nachdem Sie die Funktion lokal ausgeführt und das Ergebnis eingereicht haben (Turn 2), wird die endgültige abgeschlossene Interaktion zurückgegeben:
 
 ```
 {
@@ -1420,11 +1421,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-並列関数呼び出しや関数選択モードなどの上級者向け機能については、[関数呼び出しガイド](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)をご覧ください。
+Informationen zu erweiterten Funktionen wie parallele Funktionsaufrufe oder Modi für die Funktionsauswahl finden Sie im [Leitfaden für Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de).
 
-## 10. マネージド エージェントを実行する
+## 10. Verwalteten Agent ausführen
 
-マネージド エージェントは、コード実行やファイル管理などのツールにアクセスできるリモート サンドボックスで実行されます。`model` の代わりに `agent` を渡し、`environment="remote"` を設定します。
+Verwaltete Agents werden in einer Remote-Sandbox mit Zugriff auf Tools wie Codeausführung und Dateiverwaltung ausgeführt. Übergeben Sie ein `agent` anstelle eines `model` und legen Sie `environment="remote"` fest.
 
 ### Python
 
@@ -1471,27 +1472,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-独自の指示、スキル、データソースを使用して[カスタム エージェント](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ja)を定義して保存することもできます。
+Sie können auch [benutzerdefinierte Agents](https://ai.google.dev/gemini-api/docs/custom-agents?hl=de) mit eigenen Anweisungen, Skills und Datenquellen definieren und speichern.
 
 [rocket\_launch
 
-クイックスタート
+Kurzanleitung
 
-最初のエージェント呼び出しを行い、レスポンスをストリーミングして、カスタム エージェントを構築します。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja)
+Ersten Agent-Aufruf starten, Antworten streamen und benutzerdefinierten Agenten erstellen](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de)
 [smart\_toy
 
-Antigravity エージェント
+Antigravity-Agent
 
-デフォルト エージェントの機能、ツール、マルチモーダル入力、料金。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja)
+Funktionen, Tools, multimodale Eingabe und Preise für den Standard-Agenten.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=de)
 [experiment
 
-AI Studio のエージェント
+KI-Agenten in AI Studio
 
-コードを記述せずにエージェントのプロトタイピングを行うためのビジュアル プレイグラウンド。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=ja)
+Visuelle Umgebung zum Erstellen von Agentenprototypen ohne Code.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=de)
 
-## 11. バックグラウンドでタスクを実行する
+## 11. Aufgaben im Hintergrund ausführen
 
-`background=True` を設定して、長時間実行タスクを非同期で実行します。`interactions.get()` を使用して結果をポーリングします。詳細については、[バックグラウンド実行ガイド](https://ai.google.dev/gemini-api/docs/background-execution?hl=ja)をご覧ください。
+Legen Sie `background=True` fest, um lange Aufgaben asynchron auszuführen. Rufen Sie `interactions.get()` auf, um die Ergebnisse abzufragen. Weitere Informationen finden Sie im [Leitfaden zur Ausführung im Hintergrund](https://ai.google.dev/gemini-api/docs/background-execution?hl=de).
 
 ### Python
 
@@ -1586,9 +1587,9 @@ while true; do
 done
 ```
 
-**回答:**
+**Antwort**
 
-最初のレスポンスは、ステータス `in_progress` で直ちに返されます。
+Die erste Antwort wird sofort mit dem Status `in_progress` zurückgegeben:
 
 ```
 {
@@ -1599,7 +1600,7 @@ done
 }
 ```
 
-バックグラウンド タスクが完全に実行されると、インタラクションの状態を確認すると次の値が返されます。
+Nachdem die Hintergrundaufgabe vollständig ausgeführt wurde, wird beim Prüfen des Interaktionsstatus Folgendes zurückgegeben:
 
 ```
 {
@@ -1621,27 +1622,27 @@ done
 }
 ```
 
-モデルとエージェントを非同期で実行する方法については、[バックグラウンド実行ガイド](https://ai.google.dev/gemini-api/docs/background-execution?hl=ja)をご覧ください。
+Informationen zum asynchronen Ausführen von Modellen und Agents finden Sie im [Leitfaden zur Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de).
 
-## 次のステップ
+## Nächste Schritte
 
-- [バックグラウンド実行](https://ai.google.dev/gemini-api/docs/background-execution?hl=ja): 長時間実行タスクを非同期で実行し、状態を管理します。
-- [テキスト生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja): システム指示、生成構成、高度なテキスト パターン。
-- [画像の生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja): アスペクト比、画像編集、スタイル参照。
-- [画像理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja): 分類、オブジェクト検出、ビジュアル Q&A。
-- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja): 複雑なタスクに Chain-of-Thought 推論を使用します。
-- [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja): 並列、コンポジション、制約付きの関数モード。
-- [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja): グラウンディング、引用、検索候補。
-- [マネージド エージェント](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja): コード実行とファイル管理を備えた事前構築済みのエージェント。
-- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja): 計画と統合を伴う自律的な複数ステップの調査。
-- [構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja): JSON スキーマ、列挙型、再帰型定義。
+- [Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de): Führen Sie lang andauernde Aufgaben asynchron aus und verwalten Sie den Status.
+- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de): Systemanweisungen, Generierungskonfiguration und erweiterte Textmuster.
+- [Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de): Seitenverhältnisse, Bildbearbeitung und Stilreferenzen.
+- [Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de): Klassifizierung, Objekterkennung und visuelle Fragen und Antworten.
+- [Denken](https://ai.google.dev/gemini-api/docs/thinking?hl=de): Verwenden Sie die Chain-of-Thought-Methode für komplexe Aufgaben.
+- [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de): Parallele, zusammengesetzte und eingeschränkte Funktionsmodi.
+- [Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de): Fundierung, Zitationen und Suchvorschläge.
+- [Verwaltete Agents](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de): Vordefinierte Agents mit Code-Ausführung und Dateiverwaltung.
+- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de): Autonome mehrstufige Recherche mit Planung und Synthese.
+- [Strukturierte Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de): JSON-Schemas, Enums und rekursive Typdefinitionen.
 
-フィードバックを送信
+Feedback geben
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-最終更新日 2026-07-30 UTC。
+Zuletzt aktualisiert: 2026-09-12 (UTC).
 
-ご意見をお聞かせください
+Haben Sie Feedback für uns?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]

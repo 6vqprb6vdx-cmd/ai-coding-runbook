@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=he
-fetched_at: 2026-09-07T05:35:18.661875+00:00
-title: "\u05ea\u05d7\u05d9\u05dc\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u05e2\u05dd Gemini Live API \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=tr
+fetched_at: 2026-09-14T05:49:51.563987+00:00
+title: "Google GenAI SDK'y\u0131 kullanarak Gemini Live API'yi kullanmaya ba\u015flama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-שליחת משוב
+Geri bildirim gönderin
 
-# תחילת העבודה עם Gemini Live API באמצעות Google GenAI SDK
+# Google GenAI SDK'yı kullanarak Gemini Live API'yi kullanmaya başlama
 
-‫Gemini Live API מאפשר אינטראקציה דו-כיוונית עם מודלים של Gemini בזמן אמת, ותומך בקלט של אודיו, וידאו וטקסט, וגם בפלט אודיו מקורי. במדריך הזה מוסבר איך לבצע שילוב עם ה-API באמצעות Google GenAI SDK בשרת.
+Gemini Live API, Gemini modelleriyle anlık ve çift yönlü etkileşime olanak tanır. Ses, video ve metin girişlerinin yanı sıra doğal ses çıkışlarını destekler. Bu kılavuzda, sunucunuzda Google GenAI SDK'yı kullanarak API ile nasıl entegrasyon yapacağınız açıklanmaktadır.
 
-[אפשר לנסות את Live API ב-Google AI Studiomic](https://aistudio.google.com/live?hl=he)
-[שיבוט של אפליקציית הדוגמה מ-GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[שימוש במיומנויות של סוכן תכנותterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=he)
+[Google AI Studio'da Live API'yi deneyinmic](https://aistudio.google.com/live?hl=tr)
+[Örnek uygulamayı GitHub'dan klonlayıncode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Kodlama aracısı becerilerini kullanınterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
 
-## סקירה כללית
+## Genel Bakış
 
-‫Gemini Live API משתמש ב-WebSockets לתקשורת בזמן אמת. ערכת ה-SDK של `google-genai` מספקת ממשק אסינכרוני ברמה גבוהה לניהול החיבורים האלה.
+Gemini Live API, anlık iletişim için WebSocket'leri kullanır. `google-genai` SDK, bu bağlantıları yönetmek için üst düzey bir eşzamansız arayüz sağlar.
 
-מושגים מרכזיים:
+Temel kavramlar:
 
-- **סשן**: חיבור קבוע למודל.
-- **הגדרה**: הגדרת אופנים (אודיו/טקסט), קול והוראות מערכת.
-- **קלט בזמן אמת**: שליחת פריימים של אודיו ווידאו כ-blobs.
+- **Oturum**: Modele kalıcı bağlantı.
+- **Yapılandırma**: Modları (ses/metin), sesi ve sistem talimatlarını ayarlama.
+- **Anlık Giriş**: Ses ve video karelerini blob olarak gönderme.
 
-## התחברות ל-Live API
+## Live API'ye bağlanma
 
-כדי להתחיל סשן API בזמן אמת באמצעות מפתח API:
+API anahtarıyla Live API oturumu başlatma:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## נשלחת הודעת טקסט
+## Kısa mesaj gönderiliyor
 
-אפשר לשלוח טקסט באמצעות `send_realtime_input` (Python) או `sendRealtimeInput` (JavaScript).
+Metin, `send_realtime_input` (Python) veya `sendRealtimeInput` (JavaScript) kullanılarak gönderilebilir.
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## שליחת אודיו
+## Ses gönderme
 
-צריך לשלוח את האודיו כנתוני PCM גולמיים (אודיו PCM גולמי של 16 ביט, 16kHz, little-endian).
+Ses, ham PCM verileri (ham 16 bit PCM ses, 16 kHz, little-endian) olarak gönderilmelidir.
 
 ### Python
 
@@ -143,11 +143,11 @@ session.sendRealtimeInput({
 });
 ```
 
-דוגמה לאופן שבו מקבלים את האודיו ממכשיר הלקוח (למשל, הדפדפן) מופיעה בדוגמה המפורטת ב-[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
+İstemci cihazdan (ör. tarayıcı) sesi alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70)'daki uçtan uca örneğe bakın.
 
-## שליחת הסרטון מתבצעת
+## Video gönderiliyor
 
-פריימים של סרטונים נשלחים כתמונות נפרדות (למשל, JPEG או PNG) בקצב פריימים ספציפי (עד פריים אחד לשנייה).
+Video kareleri, belirli bir kare hızında (saniyede en fazla 1 kare) ayrı resimler (ör. JPEG veya PNG) olarak gönderilir.
 
 ### Python
 
@@ -173,11 +173,11 @@ session.sendRealtimeInput({
 });
 ```
 
-דוגמה לאופן קבלת הסרטון ממכשיר הלקוח (למשל, הדפדפן) מופיעה בדוגמה המפורטת ב-[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
+Videoyu istemci cihazdan (ör. tarayıcı) alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120)'daki uçtan uca örneğe bakın.
 
-## קבלת אודיו
+## Ses alma
 
-התשובות הקוליות של המודל מתקבלות כנתונים בחלקים.
+Modelin sesli yanıtları veri parçaları olarak alınır.
 
 ### Python
 
@@ -205,11 +205,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-אפשר לראות את האפליקציה לדוגמה ב-GitHub כדי ללמוד איך [לקבל את האודיו בשרת](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) ו[להפעיל אותו בדפדפן](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
+[Sunucunuzda sesi nasıl alacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) ve [tarayıcıda nasıl çalacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174) öğrenmek için GitHub'daki örnek uygulamaya bakın.
 
-## מתקבל טקסט
+## Kısa mesaj alınıyor
 
-תמלילים של קלט של משתמשים ושל פלט המודל זמינים בתוכן השרת.
+Hem kullanıcı girişi hem de model çıkışı için transkriptler sunucu içeriğinde mevcuttur.
 
 ### Python
 
@@ -236,9 +236,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## טיפול בקריאות לכלי
+## Araç çağrılarını işleme
 
-ה-API תומך בהפעלת כלים (קריאה לפונקציות). כשהמודל מבקש הפעלת כלי, אתם צריכים להפעיל את הפונקציה ולשלוח את התשובה בחזרה.
+API, araç çağrısını (işlev çağrısı) destekler. Model bir araç çağrısı istediğinde işlevi yürütmeniz ve yanıtı geri göndermeniz gerekir.
 
 ### Python
 
@@ -279,20 +279,20 @@ if (response.toolCall) {
 }
 ```
 
-## המאמרים הבאים
+## Sırada ne var?
 
-- במדריך המלא בנושא [יכולות](https://ai.google.dev/gemini-api/docs/live-guide?hl=he) של Live API מוסבר על היכולות וההגדרות העיקריות, כולל זיהוי פעילות קולית ותכונות אודיו מקוריות.
-- במדריך [שימוש בכלי](https://ai.google.dev/gemini-api/docs/live-tools?hl=he) מוסבר איך לשלב את Live API עם כלים ובקשות להפעלת פונקציות.
-- כדי לנהל שיחות ארוכות, כדאי לקרוא את המדריך בנושא [ניהול סשנים](https://ai.google.dev/gemini-api/docs/live-session?hl=he).
-- קוראים את המדריך בנושא [טוקנים זמניים](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=he) לאימות מאובטח באפליקציות [client-to-server](https://ai.google.dev/gemini-api/docs/live-api?hl=he#implementation-approach).
-- מידע נוסף על WebSockets API מופיע ב[מאמרי העזרה של ה-API של WebSockets](https://ai.google.dev/api/live?hl=he).
+- Konuşma Etkinliği Algılama ve yerel ses özellikleri de dahil olmak üzere temel özellikler ve yapılandırmalar için Live API [Özellikleri](https://ai.google.dev/gemini-api/docs/live-guide?hl=tr) kılavuzunun tamamını okuyun.
+- Live API'yi araçlarla ve işlev çağrısıyla nasıl entegre edeceğinizi öğrenmek için [Araç kullanımı](https://ai.google.dev/gemini-api/docs/live-tools?hl=tr) kılavuzunu okuyun.
+- Uzun süren görüşmeleri yönetmek için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-session?hl=tr) kılavuzunu okuyun.
+- [İstemciden sunucuya](https://ai.google.dev/gemini-api/docs/live-api?hl=tr#implementation-approach) uygulamalarda güvenli kimlik doğrulama için [Geçici jetonlar](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=tr) kılavuzunu okuyun.
+- Temel alınan WebSockets API hakkında daha fazla bilgi için [WebSockets API referansı](https://ai.google.dev/api/live?hl=tr) başlıklı makaleyi inceleyin.
 
-שליחת משוב
+Geri bildirim gönderin
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-עדכון אחרון: 2026-09-04 (שעון UTC).
+Son güncelleme tarihi: 2026-09-08 UTC.
 
-רוצה לתת לנו משוב?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-04 (שעון UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]

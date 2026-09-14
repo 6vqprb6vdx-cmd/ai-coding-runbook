@@ -1,64 +1,67 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=vi
-fetched_at: 2026-09-07T05:36:44.125323+00:00
-title: "Ng\u01b0\u1eddi m\u00e1y c\u00f3 t\u00ednh n\u0103ng truy\u1ec1n ph\u00e1t tr\u1ef1c tuy\u1ebfn \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=he
+fetched_at: 2026-09-14T05:41:50.596632+00:00
+title: "\u05e8\u05d5\u05d1\u05d5\u05d8\u05d9\u05e7\u05d4 \u05e2\u05dd \u05e1\u05d8\u05e8\u05d9\u05de\u05d9\u05e0\u05d2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Người máy có tính năng truyền phát trực tuyến
+# רובוטיקה עם סטרימינג
 
-Điểm cuối mô hình `gemini-robotics-er-2-streaming-preview` cung cấp một điểm cuối truyền trực tuyến chuyên dụng, tích hợp với [Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=vi), cho phép tương tác hai chiều theo thời gian thực giữa ứng dụng của bạn và robot. Điều này khiến nó phù hợp với những tác nhân cần vòng phản hồi nhanh và phản ứng nhanh với môi trường.
+נקודת הקצה של מודל `gemini-robotics-er-2-streaming-preview` חושפת נקודת קצה ייעודית לסטרימינג שמשולבת עם [Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=he), ומאפשרת אינטראקציה דו-כיוונית בזמן אמת בין האפליקציה לבין הרובוט. התכונה הזו מתאימה לסוכנים שצריכים לולאות משוב מהירות ותגובות מהירות לסביבה.
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=vi)
-[Sao chép các ứng dụng mẫu từ GitHub](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
+[אפשר לנסות ב-Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=he)
+[שיבוט של אפליקציות לדוגמה מ-GitHub](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
 
-## Trường hợp sử dụng
+## תרחישים לדוגמה
 
-- **Điều phối nhiều robot**: Nhiều robot giao tiếp trạng thái tác vụ và uỷ quyền các tác vụ phụ thông qua một phiên dùng chung.
-- **Giám sát liên tục**: Các robot quan sát một cảnh và kích hoạt hành động khi các sự kiện cụ thể xảy ra, chẳng hạn như khi một thùng chứa đạt đến mức đổ đầy.
-- **Kho hàng và hoạt động kho vận**: Nhân viên chọn và đóng gói xác minh các mặt hàng bằng mắt, theo dõi tiến trình đóng gói và khắc phục lỗi.
+- **תיאום בין כמה רובוטים**: כמה רובוטים שמתקשרים ביניהם לגבי סטטוס המשימה ומעבירים משימות משנה באמצעות סשן משותף.
+- **מעקב רציף**: רובוטים שצופים בסצנה ומפעילים פעולות כשמתרחשים אירועים ספציפיים, כמו מיכל שמגיע לרמת מילוי מסוימת.
+- **מחסן ולוגיסטיקה**: סוכני ליקוט ואריזה שמאמתים פריטים באופן ויזואלי, עוקבים אחרי התקדמות האריזה ומתקנים שגיאות.
 
-## Quy cách kỹ thuật
+## מפרטים טכניים
 
-Bảng sau đây trình bày các quy cách kỹ thuật của Live API:
+בטבלה הבאה מפורטות המפרטים הטכניים של Live API:
 
-| Danh mục | Thông tin chi tiết |
+| קטגוריה | פרטים |
 | --- | --- |
-| Phương thức nhập | Âm thanh (âm thanh PCM 16 bit thô, 16 kHz, little-endian), hình ảnh (JPEG <= 1 khung hình/giây), văn bản |
-| Phương thức đầu ra | Văn bản |
-| Giao thức | Kết nối WebSocket có trạng thái (WSS) |
+| אופני קלט | אודיו (אודיו PCM גולמי של 16 ביט, 16kHz, little-endian), תמונות (JPEG <= 1FPS), טקסט |
+| אופנויות פלט | טקסט |
+| פרוטוקול | חיבור WebSocket עם שמירת מצב (WSS) |
 
-## Xây dựng một chế độ thiết lập dựa trên tác nhân
+## איך יוצרים הגדרה סוכנית
 
-Mọi tác nhân robot được xây dựng trên Live API đều tuân theo 3 bước:
+כל סוכן רובוטיקה שמבוסס על Live API פועל לפי שלושה שלבים:
 
-1. **Khai báo các chức năng của robot dưới dạng công cụ.** Mỗi hành động mà robot có thể thực hiện (điều hướng, nắm bắt, nói) sẽ trở thành một khai báo hàm có tên, nội dung mô tả và giản đồ tham số. Các hành động thực tế phải sử dụng `"behavior": "BLOCKING"` để mô hình đợi robot hoàn thành trước khi chọn bước tiếp theo.
-2. **Truyền thông tin đầu vào đa phương thức vào một phiên liên tục.** Mở một phiên `live.connect` và giữ phiên đó mở trong suốt thời gian thực hiện nhiệm vụ. Gửi khung hình video, âm thanh hoặc văn bản khi chúng đến từ các cảm biến của robot.
-3. **Xử lý lệnh gọi công cụ trong một vòng lặp nhận.** Mỗi khi chọn một hành động, mô hình sẽ gửi thông báo `tool_call`. Vòng lặp nhận của bạn thực thi hàm đối với SDK robot và gửi lại một `tool_response`. Phiên vẫn mở và mô hình sẽ chọn hành động tiếp theo dựa trên kết quả.
+1. **הצהרה על יכולות הרובוט ככלים.** כל פעולה שהרובוט יכול לבצע – ניווט, אחיזה, דיבור – הופכת להצהרת פונקציה עם שם, תיאור וסכימת פרמטרים. בפעולות פיזיות צריך להשתמש ב-`"behavior": "BLOCKING"` כדי שהמודל ימתין לסיום הפעולה של הרובוט לפני שיבחר את השלב הבא.
+2. **הזרמת קלט מרובה מצבים לסשן מתמשך.** פותחים סשן `live.connect`
+   ומשאירים אותו פתוח למשך כל זמן ביצוע המשימה. לשלוח פריים של סרטון, אודיו או טקסט כשהם מגיעים מהחיישנים של הרובוט.
+3. **טיפול בקריאות לכלים בלולאת קבלה.** בכל פעם שהמודל בוחר פעולה, הוא שולח הודעה מסוג `tool_call`. לולאת הקבלה מפעילה את הפונקציה מול ה-SDK של הרובוט ושולחת בחזרה את הערך `tool_response`. הסשן נשאר פתוח, והמודל בוחר את הפעולה הבאה על סמך התוצאה.
 
-Các phần sau đây cho biết cách áp dụng các bước này cho 3 mẫu phổ biến: vòng lặp tác nhân cơ sở, tính năng giám sát cảnh chủ động bằng tín hiệu nhịp tim và định tuyến lời nói thông qua TTS như một công cụ.
+בקטעים הבאים מוסבר איך להשתמש בשלבים האלה בשלושה תרחישים נפוצים:
+לולאת סוכן בסיסית, מעקב פרואקטיבי אחרי סצנות באמצעות אות פעימה וניתוב
+של דיבור דרך TTS ככלי.
 
-## Điều phối một robot thông qua tính năng gọi hàm
+## תיאום פעולות של רובוט באמצעות הפעלת פונקציות
 
-Ví dụ sau đây cho thấy cả 3 bước được kết nối với nhau trong một tập lệnh Python duy nhất.
+בדוגמה הבאה מוצגים שלושת השלבים שמחוברים יחד בסקריפט Python יחיד.
 
-Bước 1 – định nghĩa công cụ – khai báo các chức năng của robot dưới dạng khai báo hàm. Hàm `navigate` sử dụng `"behavior": "BLOCKING"` nên mô hình sẽ đợi robot đến điểm tham chiếu trước khi gọi một công cụ khác.
-Thêm nhiều khai báo hàm hơn vào cùng một danh sách để cho thấy các chức năng bổ sung của robot.
+שלב 1 – הגדרות כלי – מגדיר את היכולות של הרובוט כהצהרות פונקציה. הפונקציה `navigate` משתמשת ב-`"behavior": "BLOCKING"`, ולכן המודל מחכה שהרובוט יגיע לנקודת הציון לפני שהוא קורא לכלי אחר.
+כדי לחשוף יכולות נוספות של הרובוט, אפשר להוסיף עוד הצהרות על פונקציות באותה רשימה.
 
-Bước 2 – trình trợ giúp đầu vào – cho thấy 3 hàm truyền trực tuyến các đầu vào có phương thức khác nhau vào phiên: `send_text` cho các lệnh, `send_image` cho khung hình camera có câu lệnh văn bản không bắt buộc và `send_audio` cho âm thanh PCM thô từ micrô.
+שלב 2 – עזרה בהזנת קלט – מוצגות שלוש פונקציות שמעבירות קלט של אופנויות שונות לשיחה: `send_text` לפקודות, `send_image` לפריימים של המצלמה עם פרומפט טקסטואלי אופציונלי, ו-`send_audio` לאודיו גולמי בפורמט PCM ממיקרופון.
 
-Bước 3 – vòng lặp nhận – chạy đồng thời và xử lý hai loại thông báo: thông báo `server_content` (đầu ra văn bản của mô hình) và thông báo `tool_call` (mô hình yêu cầu một hành động của robot). Khi một lệnh gọi công cụ đến, vòng lặp sẽ gọi `execute_tool` – một mã giả lập mà bạn thay thế bằng SDK robot thực của mình – sau đó gửi lại `tool_response` để mô hình có thể chọn hành động tiếp theo.
+שלב 3 – לולאת הקבלה – פועל במקביל ומטפל בשני סוגים של הודעות:
+הודעות `server_content` (פלט הטקסט של המודל) והודעות `tool_call` (המודל מבקש פעולה של רובוט). כשמתקבלת קריאה לכלי, הלולאה קוראת ל-`execute_tool` – קובץ stub שצריך להחליף ב-SDK הרובוט האמיתי – ואז שולחת בחזרה `tool_response` כדי שהמודל יוכל לבחור את הפעולה הבאה.
 
 ```
 import asyncio
@@ -163,15 +166,15 @@ async def main():
 asyncio.run(main())
 ```
 
-Vòng lặp nhận vẫn hoạt động sau mỗi phản hồi của công cụ. Mô hình này xây dựng và sửa đổi kế hoạch dài hạn mà không cần bạn mã hoá trước toàn bộ chuỗi hành động.
+לולאת הקבלה נשארת פעילה אחרי כל תשובה של הכלי. המודל בונה ומשנה תוכנית לטווח ארוך בלי שתצטרכו לקודד מראש את כל רצף הפעולות.
 
-## Suy luận chủ động về không gian và thời gian
+## חשיבה מרחבית-זמנית פרואקטיבית
 
-Live API truyền trực tiếp video, nhưng chỉ khung hình video không kích hoạt lượt suy luận mới. Khung hình video phải đi kèm với một câu lệnh bằng văn bản hoặc âm thanh để kích hoạt phản hồi của mô hình. Hãy xem [Các chức năng của Live API](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi) để biết thêm thông tin chi tiết.
+ה-Live API מעביר את הווידאו בסטרימינג, אבל פריימים של וידאו לבד לא מפעילים תור חדש של ניתוח. כדי להפעיל את התגובה של המודל, צריך לצרף למסגרות של הסרטון הנחיה בטקסט או באודיו. פרטים נוספים זמינים במאמר בנושא [יכולות של API פעיל](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=he).
 
-Để bật tính năng suy luận chủ động, hãy triển khai một **xung nhịp**: định kỳ gửi khung hình camera mới nhất, sau đó là một câu lệnh văn bản ngắn buộc mô hình kiểm tra cảnh và đưa ra quyết định rõ ràng. Tốc độ đầu vào của video bị giới hạn ở một khung hình mỗi giây.
+כדי להפעיל חשיבה רציונלית, צריך להטמיע **פעימת לב**: לשלוח מעת לעת את הפריים האחרון מהמצלמה, ואחריו פרומפט טקסטואלי קצר שמאלץ את המודל לבדוק את הסצנה ולקבל החלטה מפורשת. קצב הפריימים של קלט הווידאו מוגבל לפרים אחד לשנייה.
 
-Thêm coroutine này cùng với vòng lặp nhận từ phần trước. Thao tác này chạy dưới dạng một tác vụ `asyncio` riêng biệt trong cùng một phiên:
+מוסיפים את הקורוטינה הזו לצד לולאת הקבלה מהקטע הקודם. היא פועלת כמשימה נפרדת של `asyncio` באותו סשן:
 
 ```
 async def heartbeat(session, camera):  # camera is your robot camera API
@@ -192,17 +195,17 @@ async def heartbeat(session, camera):  # camera is your robot camera API
         await asyncio.sleep(1)
 ```
 
-Bạn không cần tạm dừng tín hiệu nhịp tim trong các thao tác của robot. Khi được dùng làm **trình phát hiện thành công ngầm**, việc duy trì hoạt động của nó cho phép mô hình liên tục quan sát hành động đang diễn ra (theo dõi xem thao tác nắm có chắc chắn hay không, thao tác đổ có đúng mục tiêu hay không hoặc một đối tượng có đang ổn định đúng cách hay không) và phản ứng ngay khi kết quả trở nên rõ ràng.
+אין צורך להשהות את אות החיים במהלך פעולות של רובוט. כשמשתמשים בו כ**גלאי הצלחה מרומזת**, הפעלתו מאפשרת למודל לצפות באופן רציף בפעולה בזמן שהיא מתבצעת (למשל, מעקב אחרי אחיזה כדי לוודא שהיא יציבה, אחרי מזיגה כדי לוודא שהיא מדויקת או אחרי הנחת אובייקט כדי לוודא שהוא מונח בצורה נכונה) ולהגיב ברגע שהתוצאה ברורה.
 
-Thông báo nhịp tim đóng vai trò là lượt của người dùng và làm gián đoạn quá trình tạo mô hình đang diễn ra.
-Hãy xem [hướng dẫn về API Phát trực tiếp đối với các trường hợp gián đoạn](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi#interruptions) để tìm hiểu cách API Phát trực tiếp xử lý hành vi này.
+הודעות פעימת לב פועלות כפניות של משתמשים ומפריעות ליצירת מודל שנמצאת בתהליך.
+ב[מדריך לשימוש ב-Live API בנושא הפרעות](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=he#interruptions) מוסבר איך ה-Live API מטפל בהתנהגות הזו.
 
-## Đầu ra âm thanh thông qua TTS bên ngoài
+## פלט אודיו דרך TTS חיצוני
 
-Gemini Robotics ER 2 trả về văn bản. Ứng dụng của bạn sẽ định tuyến các phản hồi đã hoàn tất đến một nhà cung cấp TTS riêng biệt (chẳng hạn như [Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)) thông qua một lệnh gọi lại được chèn.
-Điều này giúp bạn kiểm soát độ trễ của lời nói, lựa chọn giọng nói và hành vi gián đoạn, đồng thời cho phép bạn hoán đổi các phần phụ trợ TTS mà không cần thay đổi logic của tác nhân.
+‫Gemini Robotics ER 2 מחזיר טקסט. האפליקציה שלכם מעבירה תשובות מלאות לספק TTS נפרד (כמו [Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)) באמצעות קריאה חוזרת (callback) שמוזרקת.
+כך תוכלו לשלוט בהשהיה של הדיבור, בבחירת הקול ובהתנהגות של ההפרעה, ולהחליף את מערכות ה-TTS בלי לשנות את הלוגיקה של הסוכן.
 
-Bạn cũng có thể khai báo TTS là một công cụ để mô hình coi "nói điều gì đó" giống như "di chuyển cánh tay". Thêm khai báo hàm sau vào danh sách `tools` của bạn từ phần đầu tiên:
+אפשר גם להגדיר את ה-TTS ככלי, כדי שהמודל יתייחס ל "say something" באותו אופן כמו "move the arm". מוסיפים את הצהרת הפונקציה הבאה לרשימת `tools` מהקטע הראשון:
 
 ```
 TOOLS = [
@@ -232,24 +235,24 @@ TOOLS = [
 ]
 ```
 
-Bằng cách bao bọc TTS trong một khai báo hàm, mô hình sẽ xử lý lời nói thông qua cùng một đường dẫn gọi công cụ như mọi hành động khác của robot. Ứng dụng của bạn thực hiện lệnh gọi bằng một lệnh gọi lại được chèn.
+כשעוטפים את ה-TTS בהצהרת פונקציה, המודל מטפל בדיבור דרך אותו נתיב של קריאה לכלי כמו כל פעולה אחרת של הרובוט. האפליקציה ממלאת את הקריאה באמצעות קריאה חוזרת (callback) מוזרקת.
 
-## Ví dụ trên GitHub
+## דוגמאות ב-GitHub
 
-Để xem các ví dụ đầy đủ về cách thức hoạt động, bao gồm cả bản minh hoạ về việc lấy đồ ăn nhẹ của robot Spot và bản minh hoạ về việc xoay và nghiêng Tinybot, hãy xem [Các ví dụ về Robotics Live API](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
+דוגמאות מלאות שעובדות, כולל הדגמה של רובוט Spot שמביא חטיפים ו-Tinybot pan-tilt hello world, זמינות במאמר [דוגמאות ל-API של Robotics Live](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
 
-## Bước tiếp theo
+## המאמרים הבאים
 
-- [Hiểu video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=vi) – tìm khoảnh khắc và phân loại tiến trình.
-- [Điều phối tác vụ](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=vi) – các tác vụ dài hạn không có tính năng truyền trực tuyến.
-- [Tổng quan về Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=vi) – tài liệu đầy đủ về Live API.
+- [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=he) – איתור רגעים וסיווג התקדמות.
+- [תזמור משימות](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=he) – משימות ארוכות טווח ללא סטרימינג.
+- [סקירה כללית של Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=he) – תיעוד מלא של Live API.
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-07-31 UTC.
+עדכון אחרון: 2026-09-08 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-31 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-08 (שעון UTC)."],[],[]]

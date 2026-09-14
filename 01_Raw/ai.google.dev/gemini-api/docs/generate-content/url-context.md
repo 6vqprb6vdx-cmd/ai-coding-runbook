@@ -1,36 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=it
-fetched_at: 2026-09-07T05:45:09.711164+00:00
-title: "Contesto URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=he
+fetched_at: 2026-09-14T05:43:53.772440+00:00
+title: "\u05d4\u05d4\u05e7\u05e9\u05e8 \u05e9\u05dc \u05db\u05ea\u05d5\u05d1\u05ea \u05d4-URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
-Invia feedback
+שליחת משוב
 
-# Contesto URL
+# ההקשר של כתובת ה-URL
 
-Lo strumento Contesto URL ti consente di fornire un contesto aggiuntivo ai modelli sotto forma di URL. Se includi gli URL nella richiesta, il modello accederà ai contenuti di queste pagine (purché non si tratti di un tipo di URL elencato nella sezione delle [limitazioni](#limitations)) per informare e migliorare la sua risposta.
+הכלי 'הוספת הקשר באמצעות כתובות URL' מאפשר לכם לספק למודלים הקשר נוסף באמצעות כתובות URL. אם תכללו כתובות URL בבקשה, המודל יוכל לגשת לתוכן מהדפים האלה (כל עוד כתובת ה-URL לא מופיעה ברשימת הסוגים ב[קטע המגבלות](#limitations)) כדי לשפר את התשובה שלו.
 
-Lo strumento Contesto URL è utile per attività come le seguenti:
+הכלי 'הקשר של כתובת URL' שימושי למשימות כמו:
 
-- **Estrarre dati**: estrai informazioni specifiche come prezzi, nomi o risultati
-  chiave da più URL.
-- **Confrontare documenti**: analizza più report, articoli o PDF per
-  identificare le differenze e monitorare le tendenze.
-- **Sintetizzare e creare contenuti**: combina le informazioni di più URL di origine per generare riepiloghi, post di blog o report accurati.
-- **Analizzare codice e documenti**: indica un repository GitHub o una documentazione tecnica per spiegare il codice, generare istruzioni di configurazione o rispondere a domande.
+- **חילוץ נתונים**: שליפת מידע ספציפי כמו מחירים, שמות או ממצאים מרכזיים מכמה כתובות URL.
+- **השוואת מסמכים**: ניתוח של כמה דוחות, מאמרים או קובצי PDF כדי לזהות הבדלים ולעקוב אחרי מגמות.
+- **סיכום ויצירת תוכן**: שילוב מידע מכמה כתובות URL של מקורות כדי ליצור סיכומים מדויקים, פוסטים בבלוג או דוחות.
+- **ניתוח קוד ומסמכים**: אפשר להפנות למאגר GitHub או למסמכים טכניים כדי לקבל הסבר על קוד, ליצור הוראות הגדרה או לקבל תשובות לשאלות.
 
-L'esempio seguente mostra come confrontare due ricette di siti web diversi.
+בדוגמה הבאה אפשר לראות איך משווים בין שני מתכונים מאתרים שונים.
 
 ### Python
 
@@ -113,25 +111,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 cat result.json
 ```
 
-## Come funziona
+## איך זה עובד
 
-Lo strumento Contesto URL utilizza una procedura di recupero in due passaggi per bilanciare velocità, costi e accesso ai dati aggiornati. Quando fornisci un URL, lo strumento tenta innanzitutto di recuperare i contenuti da una cache di indici interni. Questa funge da cache altamente ottimizzata. Se un URL non è disponibile nell'indice (ad esempio, se si tratta di una pagina molto recente), lo strumento esegue automaticamente il fallback per eseguire un recupero in tempo reale.
-In questo modo, l'URL viene acceduto direttamente per recuperare i relativi contenuti in tempo reale.
+הכלי 'URL Context' משתמש בתהליך אחזור דו-שלבי כדי לאזן בין מהירות, עלות וגישה לנתונים עדכניים. כשמספקים כתובת URL, הכלי מנסה קודם לשלוף את התוכן ממטמון אינדקס פנימי. הוא פועל כמטמון שעבר אופטימיזציה גבוהה. אם כתובת URL לא זמינה באינדקס (למשל, אם מדובר בדף חדש מאוד), הכלי יבצע אוטומטית אחזור של הגרסה הפעילה.
+הכלי ניגש ישירות לכתובת ה-URL כדי לאחזר את התוכן שלה בזמן אמת.
 
-## Combinazione con altri strumenti
+## שילוב עם כלים אחרים
 
-Puoi combinare lo strumento Contesto URL con altri strumenti per creare workflow più efficaci.
+אפשר לשלב את הכלי להקשר של כתובת URL עם כלים אחרים כדי ליצור תהליכי עבודה יעילים יותר.
 
-[I modelli Gemini 3](#supported-models) supportano la combinazione di strumenti integrati
-(come Contesto URL) con strumenti personalizzati (chiamata di funzione). Scopri di più nella pagina delle
-[combinazioni di strumenti](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it).
+[מודלים של Gemini 3](#supported-models) תומכים בשילוב של כלים מובנים (כמו URL Context) עם כלים בהתאמה אישית (הפעלת פונקציות). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
 
-### Grounding con la Ricerca
+### עיגון בנתונים באמצעות חיפוש
 
-Se sono attivi sia Contesto URL sia
-[Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it),
-il modello può utilizzare le sue funzionalità di ricerca per trovare
-informazioni pertinenti online e poi utilizzare lo strumento Contesto URL per comprendere meglio le pagine che trova. Questo approccio è efficace per i prompt che richiedono sia una ricerca ampia sia un'analisi approfondita di pagine specifiche.
+אם מפעילים גם את ההגדרה 'הקשר של כתובת URL' וגם את ההגדרה [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/grounding?hl=he), המודל יכול להשתמש ביכולות החיפוש שלו כדי למצוא מידע רלוונטי באינטרנט, ואז להשתמש בכלי 'הקשר של כתובת URL' כדי לקבל הבנה מעמיקה יותר של הדפים שהוא מוצא. הגישה הזו יעילה במיוחד להנחיות שדורשות חיפוש רחב וניתוח מעמיק של דפים ספציפיים.
 
 ### Python
 
@@ -216,11 +209,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 cat result.json
 ```
 
-## Comprendere la risposta
+## הסבר על התשובה
 
-Quando il modello utilizza lo strumento Contesto URL, la risposta include un oggetto `url_context_metadata`. Questo oggetto elenca gli URL da cui il modello ha recuperato i contenuti e lo stato di ogni tentativo di recupero, il che è utile per la verifica e il debug.
+כשהמודל משתמש בכלי להוספת הקשר מכתובת URL, התשובה כוללת אובייקט `url_context_metadata`. באובייקט הזה מפורטות כתובות ה-URL שהמודל אחזר מהן תוכן, והסטטוס של כל ניסיון אחזור. המידע הזה שימושי לאימות ולניפוי באגים.
 
-Di seguito è riportato un esempio di questa parte della risposta (alcune parti della risposta sono state omesse per brevità):
+זוהי דוגמה לחלק הזה של התגובה (השמטנו חלקים מהתגובה כדי שהיא תהיה קצרה יותר):
 
 ```
 {
@@ -252,18 +245,15 @@ Di seguito è riportato un esempio di questa parte della risposta (alcune parti 
 }
 ```
 
-Per informazioni dettagliate su questo oggetto , consulta il
-[`UrlContextMetadata` riferimento API](https://ai.google.dev/api/generate-content?hl=it#UrlContextMetadata).
+לפרטים מלאים על האובייקט הזה , אפשר לעיין ב[מאמרי העזרה של ה-API של `UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=he#UrlContextMetadata).
 
-### Assegni assicurati
+### בדיקות אבטחה
 
-Il sistema esegue un controllo di moderazione dei contenuti sull'URL per verificare che soddisfi gli standard di sicurezza. Se l'URL che hai fornito non supera questo controllo, riceverai un `url_retrieval_status` di `URL_RETRIEVAL_STATUS_UNSAFE`.
+המערכת מבצעת בדיקה של ניהול התוכן בכתובת ה-URL כדי לוודא שהיא עומדת בתקני הבטיחות. אם כתובת ה-URL שסיפקתם תיכשל בבדיקה הזו, תקבלו הודעת שגיאה `url_retrieval_status` עם קוד `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### Conteggio dei token
+### כמות טוקנים
 
-I contenuti recuperati dagli URL specificati nel prompt vengono conteggiati come parte dei token di input. Puoi visualizzare il conteggio dei token per l'utilizzo di prompt e
-strumenti nell'oggetto [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=it#UsageMetadata)
-dell'output del modello. Di seguito è riportato un esempio di output:
+התוכן שאוחזר מכתובות ה-URL שציינתם בהנחיה נספר כחלק מאסימוני הקלט. אפשר לראות את כמות הטוקנים של הפרומפט והשימוש בכלים באובייקט [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=he#UsageMetadata) של פלט המודל. דוגמה לפלט:
 
 ```
 'usage_metadata': {
@@ -279,67 +269,63 @@ dell'output del modello. Di seguito è riportato un esempio di output:
   }
 ```
 
-Il prezzo per token dipende dal modello utilizzato. Per maggiori dettagli, consulta la pagina dei
-[prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it).
+המחיר לכל טוקן תלוי במודל שבו משתמשים. פרטים נוספים זמינים בדף [התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## Modelli supportati
+## מודלים נתמכים
 
-| Modello | Contesto URL |
+| מודל | URL Context |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=it) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=it) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it) | ✔️ |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=it) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it) | ✔️ |
-| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=it) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=it) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=it) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=it) | ✔️ |
+| ‫[Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=he) | ✔️ |
+| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
+| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
 
-## Best practice
+## שיטות מומלצות
 
-- **Fornisci URL specifici**: per ottenere risultati ottimali, fornisci URL diretti ai
-  contenuti che vuoi che il modello analizzi. Il modello recupererà solo i contenuti degli URL che fornisci, non i contenuti dei link nidificati.
-- **Verifica l'accessibilità**: verifica che gli URL che fornisci non rimandino a
-  pagine che richiedono l'accesso o che siano protette da paywall.
-- **Utilizza l'URL completo**: fornisci l'URL completo, incluso il protocollo
-  (ad es. https://www.google.com anziché solo google.com).
+- **צריך לספק כתובות URL ספציפיות**: כדי לקבל את התוצאות הטובות ביותר, צריך לספק כתובות URL ישירות לתוכן שרוצים שהמודל ינתח. המודל יאחזר תוכן רק מכתובות ה-URL שתספקו, ולא מקישורים מוטמעים.
+- **בודקים את הנגישות**: מוודאים שכתובות ה-URL שציינתם לא מובילות לדפים שנדרשת בהם כניסה או שמוגנים על ידי חומת תשלום.
+- **שימוש בכתובת ה-URL המלאה**: צריך לציין את כתובת ה-URL המלאה, כולל הפרוטוקול (למשל, https://www.google.com ולא רק google.com).
 
-## Limitazioni
+## מגבלות
 
-- Chiamata di funzione: l'utilizzo di strumenti (Contesto URL, Grounding con la Ricerca Google e così via) con la chiamata di funzione non è attualmente supportato.
-- Limite delle richieste: lo strumento può elaborare fino a 20 URL per richiesta.
-- Dimensioni dei contenuti dell'URL: la dimensione massima dei contenuti recuperati da un singolo URL è di 34 MB.
-- Accessibilità pubblica: gli URL devono essere accessibili pubblicamente sul web.
-  Gli indirizzi localhost (ad es. localhost, 127.0.0.1), le reti private e i servizi di tunneling (ad es. ngrok, pinggy) non sono supportati.
+- קריאה לפונקציה: השימוש בכלי (URL Context, עיגון באמצעות חיפוש Google וכו') באמצעות קריאה לפונקציה לא נתמך כרגע.
+- מגבלת בקשות: הכלי יכול לעבד עד 20 כתובות URL לכל בקשה.
+- גודל התוכן של כתובת URL: הגודל המקסימלי של תוכן שאוחזר מכתובת URL יחידה הוא 34MB.
+- נגישות לכולם: כתובות ה-URL צריכות להיות נגישות לכולם באינטרנט.
+  אין תמיכה בכתובות localhost (לדוגמה, localhost,‏ 127.0.0.1), ברשתות פרטיות ובשירותי מנהור (לדוגמה, ngrok,‏ pinggy).
+- ‫Gemini API בלבד: URL Context זמין רק ב-Gemini API, ולא דרך Gemini Enterprise Agent Platform.
 
-### Tipi di contenuti supportati e non supportati
+### סוגי תוכן נתמכים ולא נתמכים
 
-Lo strumento può estrarre contenuti da URL con i seguenti tipi di contenuti:
+הכלי יכול לחלץ תוכן מכתובות URL עם סוגי התוכן הבאים:
 
-- Testo (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- Immagine (image/png, image/jpeg, image/bmp, image/webp)
-- PDF (application/pdf)
+- טקסט (text/html, application/json, text/plain, text/xml, text/css,
+  text/javascript , text/csv, text/rtf)
+- תמונה (image/png, ‏ image/jpeg, ‏ image/bmp, ‏ image/webp)
+- ‫PDF (application/pdf)
 
-I seguenti tipi di contenuti **non** sono supportati:
+סוגי התוכן הבאים **לא** נתמכים:
 
-- Contenuti protetti da paywall
-- Video di YouTube (per scoprire
-  [come elaborare gli URL di YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#youtube), consulta la sezione
-  Comprensione dei video)
-- File di Google Workspace come Documenti o Fogli Google
-- File audio e video
+- תוכן שזמין רק לאחר תשלום
+- סרטונים ב-YouTube (במאמר בנושא [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he#youtube) מוסבר איך לעבד כתובות URL של סרטונים ב-YouTube)
+- קבצים ב-Google Workspace, כמו מסמכים או גיליונות אלקטרוניים של Google
+- קובצי וידאו ואודיו
 
-## Passaggi successivi
+## המאמרים הבאים
 
-- Per altri esempi, consulta il ricettario [Contesto URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=it#url-context).
+- אפשר לעיין ב[ספר המתכונים של הקשר כתובת ה-URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=he#url-context) כדי לראות דוגמאות נוספות.
 
-Invia feedback
+שליחת משוב
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Ultimo aggiornamento 2026-07-31 UTC.
+עדכון אחרון: 2026-09-12 (שעון UTC).
 
-Vuoi dirci altro?
+רוצה לתת לנו משוב?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-31 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]

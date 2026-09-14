@@ -1,49 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-TW
-fetched_at: 2026-09-07T05:39:00.339495+00:00
-title: "Interactions API\uff1a\u91cd\u5927\u8b8a\u66f4\u9077\u79fb\u6307\u5357 (2026 \u5e74 5 \u6708) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=de
+fetched_at: 2026-09-14T05:48:28.294331+00:00
+title: "Interactions API: Migrationsanleitung f\u00fcr Breaking Changes (Mai 2026) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-提供意見
+Feedback geben
 
-# Interactions API：重大變更遷移指南 (2026 年 5 月)
+# Interactions API: Migrationsanleitung für Breaking Changes (Mai 2026)
 
-`v1beta` Interactions API 推出破壞性變更，重新架構 API 形狀，以支援飛行中導引和非同步工具呼叫等未來能力。本頁說明異動內容，並提供異動前後的程式碼範例，協助您完成遷移。變更分為兩類：
+Mit der `v1beta` Interactions API werden wichtige Änderungen eingeführt, die die API-Struktur neu organisieren, um zukünftige Funktionen wie die Steuerung während der Ausführung und asynchrone Toolaufrufe zu unterstützen. Auf dieser Seite wird erläutert, was sich ändert, und es werden Codebeispiele vor und nach der Änderung bereitgestellt, um Ihnen bei der Migration zu helfen. Es gibt zwei Kategorien von Änderungen:
 
-1. [**步驟結構定義**](#steps-schema)：新的 `steps` 陣列會取代 `outputs` 陣列，提供每個互動回合的結構化時間軸。
-2. [**輸出格式設定**](#output-format-config)：新的多型 `response_format` 會整合所有輸出格式控制項，並移除 `response_mime_type`。
+1. [**Schritte-Schema**](#steps-schema): Ein neues `steps` Array ersetzt das
+   `outputs` Array und bietet eine strukturierte Zeitachse für jede Interaktionsrunde.
+2. [**Konfiguration des Ausgabeformats**](#output-format-config): Ein neues polymorphes
+   `response_format` fasst alle Steuerelemente für das Ausgabeformat zusammen und entfernt
+   `response_mime_type`.
 
-請按照「[如何遷移至新結構定義](#how-to-migrate)」一文中的步驟更新整合。
+Folgen Sie der Anleitung unter [Zu neuem Schema migrieren](#how-to-migrate), um Ihre Integration zu
+aktualisieren.
 
-## 核心異動：`outputs` 改為 `steps`
+## Wichtige Änderung: `outputs` zu `steps`
 
-新結構定義會將 `outputs` 陣列替換為 `steps` 陣列。
+Das neue Schema ersetzt das `outputs`-Array durch ein `steps`-Array.
 
-- **舊版**：回覆會傳回平面 `outputs` 陣列，只包含模型生成的內容。
-- **新結構定義**：回覆會傳回 `steps` 陣列，其中包含具有類型鑑別器的結構化步驟。
+- **Alt**: Antworten gaben ein flaches `outputs` Array zurück, das nur den vom Modell generierten Inhalt enthielt.
+- **Neues Schema**: Antworten geben ein `steps` Array zurück, das strukturierte Schritte mit Typdiskriminatoren enthält.
 
-`POST /interactions` 只會傳回輸出步驟。`GET /interactions/{id}` 會傳回完整步驟時間軸，包括初始 `user_input` 步驟。
+`POST /interactions` gibt nur Ausgabeschritte zurück. `GET /interactions/{id}`
+gibt die vollständige Zeitachse der Schritte zurück, einschließlich des ersten `user_input`-Schritts.
 
-### 基本輸入/輸出 (一元)
+### Einfache Eingabe/Ausgabe (unär)
 
-#### 之前 (舊版)
+#### Vorher (alt)
 
 ### Python
 
 ```
 # Request
 interaction = client.interactions.create(
-    model="gemini-3.5-flash", input="Tell me a joke."
+    model="gemini-3.6-flash", input="Tell me a joke."
 )
 
 # Response access
@@ -55,7 +60,7 @@ print(interaction.outputs[-1].text)
 ```
 // Request
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Tell me a joke.'
 });
 
@@ -69,7 +74,7 @@ console.log(interaction.outputs[-1].text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Tell me a joke."
   }'
 ```
@@ -88,14 +93,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 之後 (新結構定義)
+#### Nachher (neues Schema)
 
 ### Python
 
 ```
 # Request
 interaction = client.interactions.create(
-    model="gemini-3.5-flash", input="Tell me a joke."
+    model="gemini-3.6-flash", input="Tell me a joke."
 )
 
 # Response access (Recommended sugar)
@@ -107,7 +112,7 @@ print(interaction.output_text)
 ```
 // Request
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Tell me a joke.'
 });
 
@@ -115,7 +120,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-[sdk-convenience]：/gemini-api/docs/interactions-overview#sdk-sugar
+[sdk-convenience]: /gemini-api/docs/interactions-overview#sdk-sugar
 
 ### REST
 
@@ -125,7 +130,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Tell me a joke."
   }'
 ```
@@ -170,11 +175,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 函式呼叫
+### Funktionsaufrufe
 
-要求結構維持不變，但回應會以結構化步驟取代平面 `outputs` 內容。
+Die Anfragestruktur bleibt unverändert, aber die Antwort ersetzt den flachen `outputs`-Inhalt durch strukturierte Schritte.
 
-#### 之前 (舊版)
+#### Vorher (alt)
 
 ### Python
 
@@ -219,7 +224,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### 之後 (新結構定義)
+#### Nachher (neues Schema)
 
 ### Python
 
@@ -267,11 +272,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### 伺服器端工具
+### Serverseitige Tools
 
-伺服器端工具 (例如 Google 搜尋或程式碼執行) 現在會在 `steps` 陣列中產生特定步驟類型。舊版架構會在 `outputs` 陣列中，將這些作業傳回為特定內容類型，但新版架構會將這些作業移至 `steps` 陣列。下列範例使用 Google 搜尋。
+Serverseitige Tools wie die Google Suche oder die Codeausführung liefern jetzt bestimmte Schritttypen im `steps`-Array. Während das alte Schema diese Vorgänge als bestimmte Inhaltstypen im `outputs`-Array zurückgab, verschiebt das neue Schema sie in das `steps`-Array. In den folgenden Beispielen wird die Google Suche verwendet.
 
-#### 之前 (舊版)
+#### Vorher (alt)
 
 ### Python
 
@@ -303,7 +308,7 @@ for (const output of interaction.outputs) {
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Who won the last Super Bowl?",
     "tools": [
       { "type": "google_search" }
@@ -345,7 +350,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 之後 (新結構定義)
+#### Nachher (neues Schema)
 
 ### Python
 
@@ -379,7 +384,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Who won the last Super Bowl?",
     "tools": [
       { "type": "google_search" }
@@ -429,11 +434,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 串流
+### Streaming
 
-串流會公開新的事件類型：
+Streaming bietet neue Ereignistypen:
 
-#### 新事件類型
+#### Neue Ereignistypen
 
 - `interaction.created`
 - `interaction.completed`
@@ -443,29 +448,32 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 - `step.delta`
 - `step.stop`
 
-#### 已淘汰的事件類型
+#### Verworfene Ereignistypen
 
-上述新事件會取代下列舊版事件類型：
+Die folgenden alten Ereignistypen werden durch die oben aufgeführten neuen Ereignisse ersetzt:
 
 - `interaction.start` → `interaction.created`
 - `content.start` → `step.start`
 - `content.delta` → `step.delta`
 - `content.stop` → `step.stop`
 - `interaction.complete` → `interaction.completed`
-- `interaction.status_update` → 由 `interaction.in_progress`、`interaction.requires_action` 等取代。
+- `interaction.status_update` → ersetzt durch `interaction.in_progress`, `interaction.requires_action` usw.
 
-**串流函式呼叫**：使用串流和函式呼叫時，`step.start` 事件會傳送函式名稱，而 `step.delta` 事件會將引數串流為部分 JSON 字串 (使用 `arguments_delta`)。您必須累積這些 delta，才能取得完整引數。這與一元呼叫不同，因為您會一次收到完整的函式呼叫物件。
+**Streaming-Funktionsaufrufe**: Wenn Sie Streaming mit Funktionsaufrufen verwenden,
+liefert das `step.start`-Ereignis den Funktionsnamen und `step.delta`-Ereignisse
+streamen die Argumente als teilweise JSON-Strings (mit `arguments_delta`). Sie
+müssen diese Deltas zusammenführen, um die vollständigen Argumente zu erhalten. Dies unterscheidet sich von unären Aufrufen, bei denen Sie das vollständige Funktionsaufrufobjekt auf einmal erhalten.
 
-#### 範例
+#### Beispiele
 
-##### 之前 (舊版)
+##### Vorher (alt)
 
 ### Python
 
 ```
 # Legacy streaming used content.delta
 stream = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Explain quantum entanglement in simple terms.",
     stream=True,
 )
@@ -481,7 +489,7 @@ for chunk in stream:
 ```
 // Legacy streaming used content.delta
 const stream = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Explain quantum entanglement in simple terms.',
     stream: true,
 });
@@ -501,7 +509,7 @@ for await (const chunk of stream) {
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Explain quantum entanglement in simple terms.",
     "stream": true
   }'
@@ -525,14 +533,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### 之後 (新結構定義)
+##### Nachher (neues Schema)
 
 ### Python
 
 ```
 # Consuming stream and handling new event types
 for event in client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Tell me a story.",
     stream=True,
 ):
@@ -546,7 +554,7 @@ for event in client.interactions.create(
 ```
 // Consuming stream and handling new event types
 const stream = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Tell me a story.',
     stream: true,
 });
@@ -569,7 +577,7 @@ for await (const event of stream) {
    -H "Accept: text/event-stream" \
    -H "Api-Revision: 2026-05-20" \
    -d '{
-     "model": "gemini-3.5-flash",
+     "model": "gemini-3.6-flash",
      "input": "Tell me a story.",
      "stream": true
    }'
@@ -578,7 +586,7 @@ for await (const event of stream) {
 ```
  // Response (SSE Lines)
  // event: interaction.created
- // data: {"interaction": {"id": "int_xyz", "status": "in_progress", "object": "interaction", "model": "gemini-3.5-flash"}, "event_type": "interaction.created"}
+ // data: {"interaction": {"id": "int_xyz", "status": "in_progress", "object": "interaction", "model": "gemini-3.6-flash"}, "event_type": "interaction.created"}
  //
  // event: interaction.in_progress
  // data: {"interaction_id": "int_xyz", "event_type": "interaction.in_progress"}
@@ -602,35 +610,38 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### 無狀態對話記錄
+### Zustandsloser Unterhaltungsverlauf
 
-如果您在用戶端手動管理對話記錄 (無狀態用途)，就必須更新先前回合的串連方式。
+Wenn Sie den Unterhaltungsverlauf manuell auf der Clientseite verwalten (zustandsloser Anwendungsfall), müssen Sie die Art und Weise aktualisieren, wie Sie vorherige Runden verknüpfen.
 
-- **舊版**：開發人員通常會從回應中收集 `outputs` 陣列，並在下一個回合中將其傳回 `input` 欄位。
-- **新結構定義**：您現在應從回應中收集 `steps` 陣列，並將其傳遞至下一個要求的 `input` 欄位，將新的使用者輪流轉移附加為 `user_input` 步驟。
+- **Alt**: Entwickler haben oft das `outputs` Array aus Antworten erfasst und in der nächsten Runde im Feld `input` zurückgesendet.
+- **Neues Schema**: Sie sollten jetzt das `steps`-Array aus der Antwort erfassen und im Feld `input` der nächsten Anfrage übergeben. Hängen Sie Ihre neue Nutzerrunde als `user_input`-Schritt an.
 
-## 輸出格式設定：`response_format` 變更
+## Konfiguration des Ausgabeformats: Änderungen an `response_format`
 
-更新後的 API 會將所有輸出格式控制項整合為統一的多型 `response_format` 欄位。這項功能可集中管理頂層的輸出設定，並讓 `generation_config` 專注於模型行為 (例如溫度參數、Top-P 和思考)。
+Die aktualisierte API fasst alle Steuerelemente für das Ausgabeformat in einem einheitlichen, polymorphen `response_format`-Feld zusammen. Dadurch wird die Ausgabekonfiguration auf oberster Ebene zentralisiert und `generation_config` konzentriert sich auf das Modellverhalten (z. B. Temperatur, top\_p und Denken).
 
-### 主要異動
+### Wichtigste Änderungen
 
-- **API 會移除 `response_mime_type`。**現在，您可以在 `response_format` 內為每個格式項目指定 MIME 類型。
-- **`response_format` 現在是多型物件 (或陣列)。**每個項目都有 `type` 鑑別器 (`text`、`audio`、`image`) 和類型專屬欄位。如要要求多種輸出模態，請傳遞格式項目的陣列。
-- **「`image_config`」已從「`generation_config`」移至「`response_format`」。**
-  現在，您可以在 `response_format` 項目中指定 `aspect_ratio` 和 `image_size` 等圖片輸出設定。`"type": "image"`
+- **Die API entfernt `response_mime_type`.** Sie geben den MIME-Typ jetzt pro Formateintrag in `response_format` an.
+- **`response_format` ist jetzt ein polymorphes Objekt (oder Array).** Jeder Eintrag hat einen `type`-Diskriminator (`text`, `audio`, `image`) und typspezifische Felder. Wenn Sie mehrere Ausgabemodalitäten anfordern möchten, übergeben Sie ein Array von Formateinträgen.
+- **`image_config` wird von `generation_config` nach `response_format` verschoben.**
+  Sie geben jetzt Einstellungen für die Bildausgabe wie `aspect_ratio` und `image_size`
+  in einem `response_format` Eintrag mit `"type": "image"` an.
 
-### 結構化輸出內容 (JSON)
+### Strukturierte Ausgabe (JSON)
 
-新結構定義會移除 `response_mime_type` 欄位。請改為在 `response_format` 物件中指定 MIME 類型和 JSON 結構定義，並使用 `"type": "text"`。
+Das neue Schema entfernt das Feld `response_mime_type`. Geben Sie stattdessen den
+MIME-Typ und das JSON-Schema in einem `response_format` Objekt mit
+`"type": "text"` an.
 
-#### 之前 (舊版)
+#### Vorher (alt)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Summarize this article.",
     response_mime_type="application/json",
     response_format={
@@ -648,7 +659,7 @@ print(interaction.outputs[-1].text)
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Summarize this article.',
     response_mime_type: 'application/json',
     response_format: {
@@ -668,7 +679,7 @@ console.log(interaction.outputs[-1].text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Summarize this article.",
     "response_mime_type": "application/json",
     "response_format": {
@@ -680,13 +691,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之後 (新結構定義)
+#### Nachher (neues Schema)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Summarize this article.",
     # response_mime_type is removed — specify mime_type inside response_format
     response_format={
@@ -709,7 +720,7 @@ print(interaction.output_text)
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Summarize this article.',
     // response_mime_type is removed — specify mime_type inside response_format
     response_format: {
@@ -736,7 +747,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Summarize this article.",
     "response_format": {
       "type": "text",
@@ -751,17 +762,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### 圖片設定
+### Image-Konfiguration
 
-新版結構定義會從 `generation_config` 中移除 `image_config`。您現在可以在 `"type": "image"` 中，透過 `response_format` 項目指定圖片輸出設定。
+Das neue Schema entfernt `image_config` aus `generation_config`. Sie geben jetzt Einstellungen für die Bildausgabe in einem `response_format` Eintrag mit `"type": "image"` an.
 
-#### 之前 (舊版)
+#### Vorher (alt)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Generate an image of a sunset over the ocean.",
     generation_config={
         "image_config": {
@@ -776,7 +787,7 @@ interaction = client.interactions.create(
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Generate an image of a sunset over the ocean.',
     generation_config: {
         image_config: {
@@ -793,7 +804,7 @@ const interaction = await client.interactions.create({
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Generate an image of a sunset over the ocean.",
     "generation_config": {
       "image_config": {
@@ -804,13 +815,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之後 (新結構定義)
+#### Nachher (neues Schema)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.6-flash",
     input="Generate an image of a sunset over the ocean.",
     # image_config is removed from generation_config — use response_format
     response_format={
@@ -826,7 +837,7 @@ interaction = client.interactions.create(
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3.5-flash',
+    model: 'gemini-3.6-flash',
     input: 'Generate an image of a sunset over the ocean.',
     // image_config is removed from generation_config — use response_format
     response_format: {
@@ -846,7 +857,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3.5-flash",
+    "model": "gemini-3.6-flash",
     "input": "Generate an image of a sunset over the ocean.",
     "response_format": {
       "type": "image",
@@ -857,11 +868,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### 音訊設定
+### Audiokonfiguration
 
-新結構定義會將 `response_modalities: ["audio"]` 取代為 `"type": "audio"` 的 `response_format` 項目。
+Das neue Schema ersetzt `response_modalities: ["audio"]` durch einen `response_format`-Eintrag mit `"type": "audio"`.
 
-#### 之前 (舊版)
+#### Vorher (alt)
 
 ### Python
 
@@ -910,7 +921,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之後 (新結構定義)
+#### Nachher (neues Schema)
 
 ### Python
 
@@ -969,51 +980,53 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-如要要求多種輸出模態 (例如同時輸出文字和音訊)，請將格式項目陣列傳遞至 `response_format`，而非單一物件。
+Wenn Sie mehrere Ausgabemodalitäten anfordern möchten (z. B. Text und Audio zusammen), übergeben Sie ein Array von Formateinträgen an `response_format` anstelle eines einzelnen Objekts.
 
-## 如何遷移至新結構定義
+## Zu neuem Schema migrieren
 
-### SDK 使用者
+### SDK-Nutzer
 
-升級至最新版 SDK (Python ≥2.0.0、JavaScript ≥2.0.0)。SDK 會自動選擇採用新架構，您只需要更新讀取回應的方式 (請參閱上方的範例)，不必變更任何程式碼。請注意，這些 SDK 版本僅支援新結構定義。在 2026 年 6 月 8 日移除舊版結構定義前，舊版 SDK (Python 1.x.x、JavaScript 1.x.x) 仍可正常運作。
+Führen Sie ein Upgrade auf die neueste SDK-Version durch (Python ≥ 2.0.0, JavaScript ≥ 2.0.0). Das SDK aktiviert automatisch das neue Schema. Es sind keine Codeänderungen erforderlich, außer wie Sie Antworten lesen (siehe Beispiele oben). Beachten Sie, dass in diesen SDK-Versionen nur das neue Schema unterstützt wird. Ältere SDK-Versionen (Python 1.x.x, JavaScript 1.x.x) funktionieren weiterhin, bis das alte Schema am **8. Juni 2026** entfernt wird.
 
-### REST API 使用者
+### REST API-Nutzer
 
-在要求中加入 `Api-Revision: 2026-05-20` 標頭，即可立即選擇使用新結構定義。**5 月 26 日**後，所有要求都會預設使用新結構定義。您可以使用 `Api-Revision: 2026-05-07` 暫時停用，但 **6 月 8 日**後，API 就會永久移除舊版結構定義。
+Fügen Sie Ihren Anfragen den Header `Api-Revision: 2026-05-20` hinzu, um jetzt das neue Schema zu aktivieren. Nach dem **26. Mai** wird das neue Schema für alle
+Anfragen zur Standardeinstellung. Sie können sich mit `Api-Revision: 2026-05-07`
+vorübergehend abmelden, bis das alte Schema am **8. Juni** dauerhaft aus der API entfernt wird.
 
-### 時間軸
+### Zeitachse
 
-| 日期 | 階段 | SDK 使用者 | REST API 使用者 |
+| Datum | Phase | SDK-Nutzer | REST API-Nutzer |
 | --- | --- | --- | --- |
-| **5 月 7 日** | 啟用 | 新版 SDK 現已推出 (Python ≥2.0.0、JS ≥2.0.0)。升級即可自動取得新結構定義。 | 新增 `Api-Revision: 2026-05-20` 標頭即可選擇加入。預設值仍為舊版。 |
-| **5 月 26 日** | 預設翻轉 | 如果已升級，則無須採取任何行動。舊版 SDK (Python 1.x.x、JS 1.x.x) 仍可運作，但會傳回舊版的回覆。 | 新結構定義現在為預設結構定義。如要中止，請傳送「`Api-Revision: 2026-05-07`」標頭。 |
-| **6 月 8 日** | 日落 | Python 1.x.x 和 JS 1.x.x SDK 版本會中斷 Interactions API 呼叫。 | 已移除 Interactions API 的舊版結構定義。系統會忽略 `Api-Revision` 標頭。 |
+| **7. Mai** | Opt-in | Neue SDK-Version verfügbar (Python ≥ 2.0.0, JS ≥ 2.0.0). Führen Sie ein Upgrade durch, um das neue Schema automatisch zu erhalten. | Fügen Sie den Header `Api-Revision: 2026-05-20` hinzu, um sich anzumelden. Standardmäßig bleibt das alte Schema. |
+| **26. Mai** | Standardeinstellung wechseln | Wenn Sie bereits ein Upgrade durchgeführt haben, sind keine Maßnahmen erforderlich. Ältere SDKs (Python 1.x.x, JS 1.x.x) funktionieren weiterhin, geben aber alte Antworten zurück. | Das neue Schema ist jetzt die Standardeinstellung. Senden Sie den Header `Api-Revision: 2026-05-07`, um sich abzumelden. |
+| **8. Juni** | Sonnenuntergang | Die SDK-Versionen Python 1.x.x und JS 1.x.x funktionieren nicht mehr für Interactions API-Aufrufe. | Altes Schema für Interactions API entfernt. `Api-Revision`-Header wird ignoriert. |
 
-## 遷移檢查清單
+## Checkliste für die Migration
 
-### 步驟結構定義 (`steps`)
+### Schritte-Schema (`steps`)
 
-- 更新程式碼，從 `steps` 陣列而非 `outputs` 讀取回應內容。[查看範例](#basic-unary)。
-- 確認程式碼可處理 `user_input` 和 `model_output` 步驟類型。[查看範例](#basic-unary)。
-- (函式呼叫) 更新程式碼，在 `steps` 陣列中找出 `function_call` 步驟。[查看範例](#function-calling)。
-- (伺服器端工具) 更新程式碼，處理工具專屬步驟 (例如 `google_search_call`、`google_search_result`)。[查看範例](#server-side-tools)。
-- (無狀態記錄) 更新記錄管理，在下一個要求的 `input` 欄位中傳遞 `steps` 陣列。[查看詳細資料](#stateless-history)。
-- (僅限串流) 更新用戶端，監聽新的 SSE 事件類型 (`interaction.created`、`step.delta` 等)。[查看範例](#streaming)。
+- Aktualisieren Sie den Code, um Antwortinhalte aus dem `steps`-Array anstelle von `outputs` zu lesen. [Beispiele ansehen](#basic-unary).
+- Prüfen Sie, ob Ihr Code sowohl `user_input`- als auch `model_output`-Schritttypen verarbeitet. [Beispiele ansehen](#basic-unary).
+- (Funktionsaufrufe) Aktualisieren Sie den Code, um `function_call`-Schritte im `steps`-Array zu finden. [Beispiele ansehen](#function-calling).
+- (Serverseitige Tools) Aktualisieren Sie den Code, um toolspezifische Schritte zu verarbeiten (z.B. `google_search_call`, `google_search_result`). [Beispiele ansehen](#server-side-tools).
+- (Zustandsloser Verlauf) Aktualisieren Sie die Verlaufsverwaltung, um das `steps`-Array im Feld `input` der nächsten Anfrage zu übergeben. [Details ansehen](#stateless-history).
+- (Nur Streaming) Aktualisieren Sie den Client, um auf neue SSE-Ereignistypen zu warten (`interaction.created`, `step.delta` usw.). [Beispiele ansehen](#streaming).
 
-### 輸出格式設定 (`response_format`)
+### Konfiguration des Ausgabeformats (`response_format`)
 
-- 將 `response_format` 內的 `mime_type` 欄位替換為 `response_mime_type`。[查看範例](#structured-output)。
-- 將現有的 `response_format` JSON 結構定義包裝在 `{"type": "text", "schema": ...}` 物件中。[查看範例](#structured-output)。
-- (圖像生成) 將 `image_config` 從 `generation_config` 移至 `response_format` 中的 `{"type": "image", ...}` 項目。[查看範例](#image-config)。
-- (語音生成) 將 `response_modalities=["audio"]` 替換為 `response_format` 中的 `{"type": "audio"}` 項目。[查看範例](#audio-config)。
-- (多模態) 要求多個輸出模態時，請將 `response_format` 從單一物件轉換為陣列。
+- Ersetzen Sie `response_mime_type` durch ein `mime_type`-Feld in `response_format`. [Beispiele ansehen](#structured-output).
+- Umschließen Sie Ihr vorhandenes `response_format` JSON-Schema mit einem `{"type": "text", "schema": ...}` Objekt. [Beispiele ansehen](#structured-output).
+- (Bildgenerierung) Verschieben Sie `image_config` von `generation_config` zu einem `{"type": "image", ...}`-Eintrag in `response_format`. [Beispiele ansehen](#image-config).
+- (Sprachgenerierung) Ersetzen Sie `response_modalities=["audio"]` durch einen `{"type": "audio"}`-Eintrag in `response_format`. [Beispiele ansehen](#audio-config).
+- (Multimodal) Konvertieren Sie `response_format` von einem einzelnen Objekt in ein Array, wenn Sie mehrere Ausgabemodalitäten anfordern.
 
-提供意見
+Feedback geben
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-上次更新時間：2026-07-07 (世界標準時間)。
+Zuletzt aktualisiert: 2026-09-12 (UTC).
 
-想進一步說明嗎？
+Haben Sie Feedback für uns?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-07 (世界標準時間)。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]

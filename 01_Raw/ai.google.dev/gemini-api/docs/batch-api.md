@@ -1,46 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-CN
-fetched_at: 2026-09-07T05:31:34.037937+00:00
-title: "Batch API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=tr
+fetched_at: 2026-09-14T05:47:56.048068+00:00
+title: "Toplu API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-发送反馈
+Geri bildirim gönderin
 
-# Batch API
+# Toplu API
 
-Gemini Batch API 旨在以标准费用的 [50%](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn) 异步处理大量请求。
-目标周转时间为 24 小时，但在大多数情况下，周转时间要短得多。
+Gemini Batch API, büyük hacimli istekleri [standart maliyetin% 50'si](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) karşılığında eşzamansız olarak işlemek üzere tasarlanmıştır.
+Hedeflenen yanıt süresi 24 saattir ancak çoğu durumda bu süre çok daha kısadır.
 
-对于大规模、非紧急任务（例如数据预处理或运行评估，不需要立即响应），请使用 Batch API。
+Veri ön işleme veya acil yanıt gerektirmeyen değerlendirmeleri çalıştırma gibi büyük ölçekli ve acil olmayan görevler için Batch API'yi kullanın.
 
-## 创建批量作业
+## Toplu iş oluşturma
 
-您可以通过以下两种方式在 Batch API 中提交请求：
+Toplu API'de isteklerinizi göndermenin iki yolu vardır:
 
-- **[内嵌请求](#inline-requests)**：直接包含在批量创建请求中的
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest)对象列表。此方法适用于总请求大小不超过 20MB 的较小批量。模型返回的**输出** 是 `inlineResponse` 对象列表。
-- **[输入文件](#input-file)**： [JSON Lines (JSONL)](https://jsonlines.org/)
-  文件，其中每一行都包含一个完整的
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest) 对象。
-  建议对较大请求使用此方法。模型返回的**输出** 是 JSONL 文件，其中每一行都是 `GenerateContentResponse` 或状态对象。
+- **[Satır içi istekler](#inline-requests):** Toplu oluşturma isteğinize doğrudan dahil edilen [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=tr#GenerateContentRequest) nesnelerinin listesi. Bu yöntem, toplam istek boyutunu 20 MB'ın altında tutan daha küçük toplu işlemler için uygundur. Modelden döndürülen **çıktı**, `inlineResponse` nesnelerinin listesidir.
+- **[Giriş dosyası](#input-file):** Her satırın eksiksiz bir [JSON Lines (JSONL)](https://jsonlines.org/)
+  dosyası içerdiği [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=tr#GenerateContentRequest) nesnesi.
+  Bu yöntem, daha büyük istekler için önerilir. Modelden döndürülen **çıkış**, her satırın `GenerateContentResponse` veya durum nesnesi olduğu bir JSONL dosyasıdır.
 
-### 内嵌请求
+### Satır içi istekler
 
-对于少量请求，您可以将
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest)对象
-直接嵌入到[`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#request-body)中。以下示例使用内嵌请求调用
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=zh-cn#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-方法：
+Küçük bir istek grubu için [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=tr#GenerateContentRequest) nesnelerini doğrudan [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=tr#request-body) içine yerleştirebilirsiniz. Aşağıdaki örnekte, satır içi isteklerle [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=tr#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) yöntemi çağrılıyor:
 
 ### Python
 
@@ -67,7 +61,7 @@ inline_requests = [
 ]
 
 inline_batch_job = client.batches.create(
-    model="gemini-3.8-flash",
+    model="gemini-3.6-flash",
     src=inline_requests,
     config={
         'display_name': "inlined-requests-job-1",
@@ -100,7 +94,7 @@ const inlinedRequests = [
 ]
 
 const response = await ai.batches.create({
-    model: 'gemini-3.8-flash',
+    model: 'gemini-3.6-flash',
     src: inlinedRequests,
     config: {
         displayName: 'inlined-requests-job-1',
@@ -110,29 +104,10 @@ const response = await ai.batches.create({
 console.log(response);
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
-curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:batchGenerateContent \
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:batchGenerateContent \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -X POST \
 -H "Content-Type:application/json" \
@@ -161,26 +136,22 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ba
 }'
 ```
 
-### 输入文件
+### Giriş dosyası
 
-对于较大的请求集，请准备一个 JSON Lines (JSONL) 文件。此文件中的每一行都必须是一个 JSON 对象，其中包含用户定义的键和请求
-对象，并且请求是有效的
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest) 对象。用户定义的键用于在响应中指明哪个输出是哪个请求的结果。例如，键定义为
-`request-1` 的请求的响应将使用相同的键名称进行注释。
+Daha büyük istek grupları için JSON Lines (JSONL) dosyası hazırlayın. Bu dosyadaki her satır, kullanıcı tanımlı bir anahtar ve bir istek nesnesi içeren bir JSON nesnesi olmalıdır. İstek, geçerli bir [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=tr#GenerateContentRequest) nesnesi olmalıdır. Kullanıcı tanımlı anahtar, hangi çıktının hangi isteğin sonucu olduğunu belirtmek için yanıtta kullanılır. Örneğin, anahtarı `request-1` olarak tanımlanan isteğin yanıtı aynı anahtar adıyla açıklama eklenmiş olarak döndürülür.
 
-此文件使用 [File API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传。输入文件允许的最大文件大小为 2GB。
+Bu dosya, [File API](https://ai.google.dev/gemini-api/docs/files?hl=tr) kullanılarak yüklenir. Giriş dosyası için izin verilen maksimum dosya boyutu 2 GB'tır.
 
-以下是 JSONL 文件示例。您可以将其保存在名为 `my-batch-requests.json` 的文件中：
+Aşağıda bir JSONL dosyası örneği verilmiştir. Dosyayı `my-batch-requests.json` adlı bir dosyaya kaydedebilirsiniz:
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-与内嵌请求类似，您可以在每个请求 JSON 中指定其他参数，例如系统说明、工具或其他配置。
+Satır içi isteklerde olduğu gibi, her istek JSON'ında sistem talimatları, araçlar veya diğer yapılandırmalar gibi başka parametreler de belirtebilirsiniz.
 
-您可以使用 [File API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传此文件，如
-以下示例所示。如果您使用的是多模态输入，则可以在 JSONL 文件中引用其他已上传的文件。
+Bu dosyayı, aşağıdaki örnekte gösterildiği gibi [File API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanarak yükleyebilirsiniz. Çok formatlı girişle çalışıyorsanız JSONL dosyanızda yüklenen diğer dosyalara referans verebilirsiniz.
 
 ### Python
 
@@ -265,25 +236,6 @@ const uploadedFile = await ai.files.upload({file: 'my-batch-requests.jsonl', con
 console.log(uploadedFile.name);
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -320,9 +272,7 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-以下示例使用通过 File API 上传的输入文件调用
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=zh-cn#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-方法：
+Aşağıdaki örnekte, File API kullanılarak yüklenen giriş dosyasıyla [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=tr#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) yöntemi çağrılıyor:
 
 ### Python
 
@@ -332,7 +282,7 @@ from google import genai
 # Assumes `uploaded_file` is the file object from the previous step
 client = genai.Client()
 file_batch_job = client.batches.create(
-    model="gemini-3.8-flash",
+    model="gemini-3.6-flash",
     src=uploaded_file.name,
     config={
         'display_name': "file-upload-job-1",
@@ -347,7 +297,7 @@ print(f"Created batch job: {file_batch_job.name}")
 ```
 // Assumes `uploadedFile` is the file object from the previous step
 const fileBatchJob = await ai.batches.create({
-    model: 'gemini-3.8-flash',
+    model: 'gemini-3.6-flash',
     src: uploadedFile.name,
     config: {
         displayName: 'file-upload-job-1',
@@ -357,31 +307,12 @@ const fileBatchJob = await ai.batches.create({
 console.log(fileBatchJob);
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
 # Set the File ID taken from the upload response.
 BATCH_INPUT_FILE='files/123456'
-curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:batchGenerateContent \
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:batchGenerateContent \
 -X POST \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H "Content-Type:application/json" \
@@ -395,23 +326,18 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ba
 }"
 ```
 
-创建批量作业时，系统会返回作业名称。[[您可以使用此名称
-监控作业状态，并在作业完成后
-检索结果。](#batch-job-status)](#retrieve-batch-results)
+Bir toplu iş oluşturduğunuzda iş adı döndürülür. Bu adı, iş durumunu [izlemenin](#batch-job-status) yanı sıra iş tamamlandıktan sonra [sonuçları almak](#retrieve-batch-results) için kullanın.
 
-以下是包含作业名称的输出示例：
+Aşağıda, iş adı içeren bir örnek çıkış verilmiştir:
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### 批量嵌入支持
+### Toplu yerleştirme desteği
 
-您可以使用 Batch API 与
-[Embeddings 模型](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)交互，以获得更高的吞吐量。
-如需使用[内嵌请求](#inline-requests)
-或[输入文件](#input-file)创建嵌入批量作业，请使用`batches.create_embeddings` API 并
-指定嵌入模型。
+Daha yüksek işleme hızı için Batch API'yi kullanarak [Embeddings modeli](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr) ile etkileşim kurabilirsiniz.
+[Satır içi istekler](#inline-requests) veya [giriş dosyaları](#input-file) ile yerleştirme toplu işi oluşturmak için `batches.create_embeddings` API'yi kullanın ve yerleştirme modelini belirtin.
 
 ### Python
 
@@ -459,31 +385,11 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-### Java
+Daha fazla örnek için [Toplu API yemek kitabındaki](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb) Yerleştirme bölümünü inceleyin.
 
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
+### Yapılandırma isteği
 
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
-如需查看更多示例，请参阅 [Batch API 食谱](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
-中的 Embeddings 部分。
-
-### 请求配置
-
-您可以添加在标准非批量请求中使用的任何请求配置。例如，您可以指定温度、系统说明，甚至传入其他模态。以下示例展示了一个内嵌请求示例，其中包含一个请求的系统说明：
+Standart toplu olmayan bir istekte kullanacağınız tüm istek yapılandırmalarını ekleyebilirsiniz. Örneğin, sıcaklığı, sistem talimatlarını belirtebilir veya başka yöntemler de kullanabilirsiniz. Aşağıdaki örnekte, isteklerden biri için sistem talimatı içeren bir satır içi istek örneği gösterilmektedir:
 
 ### Python
 
@@ -511,27 +417,7 @@ inlineRequestsList = [
 ]
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
-同样，您可以指定要用于请求的工具。以下示例
-展示了一个启用 [Google 搜索工具](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)的请求：
+Benzer şekilde, bir istek için kullanılacak araçları da belirtebilirsiniz. Aşağıdaki örnekte, [Google Arama Aracı](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)'nı etkinleştiren bir istek gösterilmektedir:
 
 ### Python
 
@@ -552,27 +438,8 @@ inlineRequestsList = [
 ]
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
-您还可以指定[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
-以下示例展示了如何为批量请求指定结构化输出。
+[Yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) da belirtebilirsiniz.
+Aşağıdaki örnekte, toplu istekleriniz için nasıl belirteceğiniz gösterilmektedir.
 
 ### Python
 
@@ -612,7 +479,7 @@ inline_requests = [
 ]
 
 inline_batch_job = client.batches.create(
-    model="gemini-3.8-flash",
+    model="gemini-3.6-flash",
     src=inline_requests,
     config={
         'display_name': "structured-output-job-1"
@@ -715,7 +582,7 @@ const inlinedRequests = [
 ]
 
 const inlinedBatchJob = await ai.batches.create({
-    model: 'gemini-3.8-flash',
+    model: 'gemini-3.6-flash',
     src: inlinedRequests,
     config: {
         displayName: 'inlined-requests-job-1',
@@ -723,26 +590,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
-以下展示了此作业的输出示例：
+Aşağıda bu işin örnek çıktısı gösterilmektedir:
 
 ```
 --- Response 1 ---
@@ -838,20 +686,20 @@ System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
 ]
 ```
 
-## 监控作业状态
+## İş durumunu izleme
 
-使用创建批量作业时获得的操作名称轮询其状态。
-批量作业的状态字段将指明其当前状态。批量作业可以处于以下状态之一：
+Durumunu yoklamak için toplu iş oluşturulurken elde edilen işlem adını kullanın.
+Toplu işin durum alanı, mevcut durumunu gösterir. Bir toplu iş aşağıdaki durumlardan birinde olabilir:
 
-- `JOB_STATE_PENDING`：作业已创建，正在等待服务处理。
-- `JOB_STATE_RUNNING`：作业正在处理中。
-- `JOB_STATE_SUCCEEDED`：作业已成功完成。您现在可以检索结果。
-- `JOB_STATE_FAILED`：作业失败。如需了解详情，请查看错误详情。
-- `JOB_STATE_CANCELLED`：作业已被用户取消。
-- `JOB_STATE_EXPIRED`：作业已过期，因为其运行或待处理时间超过 48 小时。作业将没有任何结果可供检索。
-  您可以尝试重新提交作业，或将请求拆分为较小的批量。
+- `JOB_STATE_PENDING`: İş oluşturuldu ve hizmet tarafından işlenmeyi bekliyor.
+- `JOB_STATE_RUNNING`: İş devam ediyor.
+- `JOB_STATE_SUCCEEDED`: İş başarıyla tamamlandı. Artık sonuçları alabilirsiniz.
+- `JOB_STATE_FAILED`: İş başarısız oldu. Daha fazla bilgi için hata ayrıntılarını kontrol edin.
+- `JOB_STATE_CANCELLED`: İş, kullanıcı tarafından iptal edildi.
+- `JOB_STATE_EXPIRED`: İş, 48 saatten uzun süredir çalıştığı veya beklemede olduğu için süresi doldu. İşin alınacak sonucu olmayacak.
+  İşi tekrar göndermeyi veya istekleri daha küçük gruplara ayırmayı deneyebilirsiniz.
 
-您可以定期轮询作业状态，以检查作业是否已完成。
+Tamamlanıp tamamlanmadığını kontrol etmek için iş durumunu düzenli olarak yoklayabilirsiniz.
 
 ### Python
 
@@ -917,31 +765,10 @@ try {
 }
 ```
 
-### Java
+### Anket ve webhook'lar
 
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
-### 轮询和网络钩子
-
-**厌倦了轮询？**Gemini 现在支持
-[网络钩子](https://ai.google.dev/gemini-api/docs/webhooks?hl=zh-cn)异步处理补全。
-您可以直接订阅 `batch.succeeded`，而不是持续调用
-`GET / operations`，以便在异步或长时间运行的操作完成时，Gemini API 可以向您的服务器推送实时通知。
+**Anketlerden sıkıldınız mı?** Gemini artık tamamlamaları eşzamansız olarak işlemek için [Web kancalarını](https://ai.google.dev/gemini-api/docs/webhooks?hl=tr) destekliyor.
+`GET / operations` işlevini sürekli çağırmak yerine, eşzamansız veya uzun süren işlemler tamamlandığında Gemini API'nin sunucunuza anlık bildirim göndermesine izin vermek için doğrudan `batch.succeeded` işlevine abone olun.
 
 ### Python
 
@@ -979,25 +806,6 @@ async function createWebhook() {
 createWebhook();
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -1012,10 +820,10 @@ curl -X POST \
   }'
 ```
 
-## 检索结果
+## Sonuçlar alınıyor
 
-作业状态指明批量作业已成功后，结果将显示在 `response` 字段中。
-默认情况下，批量作业结果会存储 6 周，然后永久删除，在此期间可供下载。
+İş durumu, toplu işinizin başarılı olduğunu gösterdiğinde sonuçlar `response` alanında kullanılabilir.
+Varsayılan olarak, toplu iş sonuçları kalıcı olarak silinmeden önce 6 hafta boyunca depolanır ve indirilebilir.
 
 ### Python
 
@@ -1137,25 +945,6 @@ try {
 }
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -1187,9 +976,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## 列出批量作业
+## Toplu işleri listeleme
 
-您可以列出最近的批量作业。
+Son toplu işlerinizi listeleyebilirsiniz.
 
 ### Python
 
@@ -1216,25 +1005,6 @@ for await (const batchJob of batchJobs) {
 }
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -1242,9 +1012,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 取消批量作业
+## Toplu işi iptal etme
 
-您可以使用批量作业的名称取消正在进行的批量作业。取消作业后，系统会停止处理新请求。
+Devam eden bir toplu işi adını kullanarak iptal edebilirsiniz. Bir iş iptal edildiğinde yeni istekleri işlemeyi durdurur.
 
 ### Python
 
@@ -1256,25 +1026,6 @@ client.batches.cancel(name=batch_job_to_cancel.name)
 
 ```
 await ai.batches.cancel({name: batchJobToCancel.name});
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
 ```
 
 ### REST
@@ -1292,9 +1043,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## 删除批量作业
+## Toplu işi silme
 
-您可以使用批量作业的名称删除现有批量作业。删除作业后，系统会停止处理新请求，并将其从批量作业列表中移除。
+Mevcut bir toplu işi adını kullanarak silebilirsiniz. Bir iş silindiğinde yeni isteklerin işlenmesi durdurulur ve iş, toplu işler listesinden kaldırılır.
 
 ### Python
 
@@ -1308,25 +1059,6 @@ client.batches.delete(name=batch_job_to_delete.name)
 await ai.batches.delete({name: batchJobToDelete.name});
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -1337,17 +1069,13 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 批量生成图片
+## Toplu olarak resim oluşturma
 
-如果您使用的是 [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)，并且需要生成大量
-图片，则可以使用 Batch API 来获得更高
-[的速率限制](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn)，但周转时间最长为
-24 小时。
+[Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)'yı kullanıyorsanız ve çok sayıda görüntü oluşturmanız gerekiyorsa 24 saate kadar bekleme süresi karşılığında daha yüksek [hız sınırları](https://ai.google.dev/gemini-api/docs/rate-limits?hl=tr) elde etmek için Batch API'yi kullanabilirsiniz.
 
-您可以对小批量请求（不超过 20MB）使用[内嵌请求](#inline-requests-images)，也可以对大批量请求使用
-[JSONL 输入文件](#input-file-images)（建议用于图片生成）：
+Küçük istek grupları (20 MB'tan küçük) için [satır içi istekler](#inline-requests-images), büyük gruplar için ise [JSONL giriş dosyası](#input-file-images) (resim oluşturma için önerilir) kullanabilirsiniz:
 
-### 图片的内嵌请求
+### Resimler için satır içi istekler
 
 ### Python
 
@@ -1503,25 +1231,6 @@ async function run() {
 run();
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -1577,7 +1286,7 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-### 图片的输入文件
+### Resimler için giriş dosyası
 
 ### Python
 
@@ -1763,25 +1472,6 @@ async function run() {
 run();
 ```
 
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.BatchJob;
-import com.google.genai.types.BatchJobSource;
-
-Client client = new Client();
-
-BatchJobSource batchJobSource =
-    BatchJobSource.builder()
-        .gcsUri("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl")
-        .format("jsonl")
-        .build();
-
-BatchJob batchJob = client.batches.create("gemini-3.8-flash", batchJobSource, null);
-System.out.println("Batch Job Name: " + batchJob.name().orElse(""));
-```
-
 ### REST
 
 ```
@@ -1828,47 +1518,35 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## 技术详情
+## Teknik ayrıntılar
 
-- **支持的模型** ：Batch API 支持一系列 Gemini 模型。
-  如需了解每个模型对 Batch API 的支持情况，请参阅[模型页面](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)
-  。Batch API 支持的模态与交互式（或非批量）API 支持的模态相同。
-- **价格** ：Batch API 的使用费用为同等模型的标准交互式 API 费用的 50%。如需了解详情，请参阅[价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)
-  。如需详细了解此功能的速率限制，请参阅[速率限制页面](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn#batch-mode)
-  。
-- **服务等级目标 (SLO)** ：批量作业旨在在 24 小时内完成。许多作业可能会根据其大小和当前系统负载更快完成。
-- **缓存**：[上下文缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)支持批量请求
-  。如需重复使用缓存的内容，请在批量中各个请求的配置中指定 `cached_content` 资源名称。
-  如果批量中的请求导致缓存命中，您需要支付
-  [标准上下文缓存费率](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
+- **Desteklenen modeller:** Batch API, çeşitli Gemini modellerini destekler.
+  Her modelin Toplu API desteği için [Modeller sayfası](https://ai.google.dev/gemini-api/docs/models?hl=tr)'na bakın. Toplu API için desteklenen yöntemler, etkileşimli (veya toplu olmayan) API'de desteklenenlerle aynıdır.
+- **Fiyatlandırma:** Batch API kullanımı, eşdeğer model için standart etkileşimli API maliyetinin% 50'si olarak fiyatlandırılır. Ayrıntılar için [fiyatlandırma sayfasına](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) göz atın. Bu özelliğin sıklık sınırlarıyla ilgili ayrıntılar için [sıklık sınırları sayfasına](https://ai.google.dev/gemini-api/docs/rate-limits?hl=tr#batch-mode) bakın.
+- **Hizmet düzeyi hedefi (SLO):** Toplu işler, 24 saatlik bir işlem süresi içinde tamamlanacak şekilde tasarlanmıştır. Birçok iş, boyutuna ve mevcut sistem yüküne bağlı olarak çok daha hızlı tamamlanabilir.
+- **Önbelleğe alma:** Toplu istekler için [bağlam önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr) desteklenir. Toplu işinizdeki tek tek isteklerin yapılandırmasında `cached_content` kaynak adını belirterek önbelleğe alınmış içeriği yeniden kullanın.
+  Toplu isteğinizdeki bir istek önbellek isabetiyle sonuçlanırsa [standart bağlam önbelleğe alma ücretlerini](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) ödersiniz.
 
-## 最佳做法
+## En iyi uygulamalar
 
-- **对大型请求使用输入文件**：对于大量请求，
-  请始终使用文件输入
-  方法，以便更好地进行管理，并避免达到
-  [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=zh-cn#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-  调用本身的请求大小限制。请注意，每个输入文件的文件大小限制为 2GB。
-- **错误处理** ：作业完成后，检查 `batchStats` 中的 `failedRequestCount`。如果使用文件输出，请解析每一行，以检查其是否为 `GenerateContentResponse` 或指明特定请求错误的 status 对象。如需查看完整的错误代码集，请参阅[问题排查
-  指南](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=zh-cn#error-codes)。
-- **一次性提交作业** ：批量作业的创建不是幂等的。
-  如果您两次发送相同的创建请求，系统将创建两个单独的批量作业。
-- **拆分非常大的批量** ：虽然目标周转时间为 24 小时，但实际处理时间可能会因系统负载和作业大小而异。
-  对于大型作业，如果需要更快获得中间结果，请考虑将其拆分为较小的批量。
+- **Büyük istekler için giriş dosyalarını kullanın:** Çok sayıda istek için, daha iyi yönetilebilirlik sağlamak ve [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=tr#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) çağrısının kendisiyle ilgili istek boyutu sınırlarına ulaşmamak için her zaman dosya girişi yöntemini kullanın. Giriş dosyası başına 2 GB dosya boyutu sınırı olduğunu unutmayın.
+- **Hata işleme:** Bir iş tamamlandıktan sonra `batchStats` için `failedRequestCount` öğesini kontrol edin. Dosya çıkışı kullanıyorsanız her satırı ayrıştırarak `GenerateContentResponse` olup olmadığını veya söz konusu istekte hata olduğunu belirten bir durum nesnesi olup olmadığını kontrol edin. Hata kodlarının tam listesi için [sorun giderme kılavuzuna](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=tr#error-codes) bakın.
+- **İşleri bir kez gönderme:** Toplu iş oluşturma işlemi, idempotent değildir.
+  Aynı oluşturma isteğini iki kez gönderirseniz iki ayrı toplu iş oluşturulur.
+- **Çok büyük toplu işlemleri bölme:** Hedef işlem süresi 24 saat olsa da gerçek işlem süresi sistem yüküne ve iş boyutuna bağlı olarak değişebilir.
+  Büyük işlerde, ara sonuçlara daha erken ihtiyaç duyuluyorsa işleri daha küçük gruplara ayırmayı düşünebilirsiniz.
 
-## 后续步骤
+## Sırada ne var?
 
-- 如需查看更多示例，请参阅[Batch API 笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=zh-cn)
-  。
-- OpenAI 兼容性层支持 Batch API。请参阅
-  [OpenAI 兼容性](https://ai.google.dev/gemini-api/docs/openai?hl=zh-cn#batch)页面上的示例。
+- Daha fazla örnek için [Toplu API not defterine](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=tr) göz atın.
+- OpenAI uyumluluk katmanı, Batch API'yi destekler. [OpenAI Uyumluluğu](https://ai.google.dev/gemini-api/docs/openai?hl=tr#batch) sayfasındaki örnekleri inceleyin.
 
-发送反馈
+Geri bildirim gönderin
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最后更新时间 (UTC)：2026-09-04。
+Son güncelleme tarihi: 2026-09-12 UTC.
 
-需要向我们提供更多信息？
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-04。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]

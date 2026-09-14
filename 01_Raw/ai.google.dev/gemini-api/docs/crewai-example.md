@@ -1,45 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=zh-CN
-fetched_at: 2026-09-07T05:29:33.521873+00:00
-title: "\u4f7f\u7528 Gemini \u548c CrewAI \u8fdb\u884c\u5ba2\u6237\u652f\u6301\u5206\u6790 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=hi
+fetched_at: 2026-09-14T05:37:12.444295+00:00
+title: "Gemini \u0914\u0930 CrewAI \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, \u0917\u094d\u0930\u093e\u0939\u0915 \u0938\u0939\u093e\u092f\u0924\u093e \u0938\u0947 \u091c\u0941\u0921\u093c\u0947 \u0921\u0947\u091f\u093e \u0915\u093e \u0935\u093f\u0936\u094d\u0932\u0947\u0937\u0923 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-发送反馈
+सुझाव भेजें
 
-# 使用 Gemini 和 CrewAI 进行客户支持分析
+# Gemini और CrewAI की मदद से, ग्राहक सहायता से जुड़े डेटा का विश्लेषण करना
 
-[CrewAI](https://docs.crewai.com/introduction) 是一个用于编排
-自主 AI 智能体的框架，这些智能体通过协作来实现复杂的目标。借助该框架，您可以
-指定角色、目标和背景故事来定义智能体，然后为智能体定义任务
-。
+[CrewAI](https://docs.crewai.com/introduction), अपने-आप काम करने वाले एआई एजेंट को व्यवस्थित करने के लिए एक फ़्रेमवर्क है. ये एजेंट, मुश्किल लक्ष्यों को हासिल करने के लिए साथ मिलकर काम करते हैं. इसकी मदद से, एजेंट को उनकी भूमिकाएं, लक्ष्य, और बैकस्टोरी के हिसाब से तय किया जा सकता है. इसके बाद, उनके लिए टास्क तय किए जा सकते हैं.
 
-此示例演示了如何构建一个多智能体系统，用于分析客户支持数据以发现问题并提出流程改进建议，该系统使用 Gemini 3 Flash 生成一份报告，供首席运营官 (COO) 阅读。
+इस उदाहरण में, ग्राहक सहायता से जुड़े डेटा का विश्लेषण करने के लिए, कई एजेंट वाला सिस्टम बनाने का तरीका बताया गया है. इससे समस्याओं का पता लगाया जा सकता है और Gemini 3 Flash का इस्तेमाल करके, प्रोसेस को बेहतर बनाने के सुझाव दिए जा सकते हैं. साथ ही, इसमें एक ऐसी रिपोर्ट जनरेट करने का तरीका भी बताया गया है जिसे मुख्य परिचालन अधिकारी (सीओओ) पढ़ सके.
 
-本指南将向您展示如何创建 AI 智能体“团队”，这些智能体可以执行以下任务：
+इस गाइड में, आपको एआई एजेंट की एक "क्रू" बनाने का तरीका बताया जाएगा. यह क्रू, ये काम कर सकता है:
 
-1. 提取和分析客户支持数据（在本示例中为模拟数据）。
-2. 发现重复出现的问题和流程瓶颈。
-3. 提出可行的改进建议。
-4. 将发现结果汇总成一份简洁的报告，供 COO 阅读。
+1. ग्राहक सहायता से जुड़ा डेटा फ़ेच करना और उसका विश्लेषण करना. इस उदाहरण में, डेटा को सिम्युलेट किया गया है.
+2. बार-बार होने वाली समस्याओं और प्रोसेस में आने वाली रुकावटों की पहचान करना.
+3. कार्रवाई करने लायक सुझाव दो.
+4. इन नतीजों को एक छोटी रिपोर्ट में शामिल करो, ताकि सीओओ को आसानी से समझ आ सके.
 
-您需要 Gemini API 密钥。如果您还没有密钥，可以在 [Google AI Studio
-中获取一个](https://aistudio.google.com/apikey?hl=zh-cn)。
+आपके पास Gemini API पासकोड होना चाहिए. अगर आपके पास पहले से कोई Gemini Pro 1.0 API कुंजी नहीं है, तो [Google AI Studio में जाकर इसे पाएं](https://aistudio.google.com/apikey?hl=hi).
 
 ```
 pip install "crewai[tools]"
 ```
 
-将 Gemini API 密钥设置为名为 `GEMINI_API_KEY` 的环境变量，然后将 CrewAI 配置为使用 Gemini 模型。
+अपने Gemini API पासकोड को `GEMINI_API_KEY` नाम के एनवायरमेंट वैरिएबल के तौर पर सेट करें. इसके बाद, CrewAI को Gemini मॉडल का इस्तेमाल करने के लिए कॉन्फ़िगर करें.
 
 ```
 import os
@@ -48,21 +44,19 @@ from crewai import LLM
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
 gemini_llm = LLM(
-    model='gemini/gemini-3.5-flash',
+    model='gemini/gemini-3.6-flash',
     api_key=gemini_api_key,
     temperature=1.0  # Use the Gemini 3 recommended temperature
 )
 ```
 
-## 定义组件
+## कॉम्पोनेंट तय करना
 
-使用**工具**、**智能体**、**任务**和
-**Crew**本身构建 CrewAI 应用。以下部分将介绍每个组件。
+**टूल**, **एजेंट**, **टास्क**, और **क्रू** का इस्तेमाल करके, CrewAI ऐप्लिकेशन बनाएं. यहां दिए गए सेक्शन में, इन सभी कॉम्पोनेंट के बारे में बताया गया है.
 
-### 工具
+### टूल
 
-工具是智能体可用于与外部世界互动或执行特定操作的功能。在这里，您将定义一个占位符工具来模拟提取客户支持数据。在实际应用中，您将连接到数据库、API 或文件系统。如需详细了解工具，请参阅 [CrewAI
-工具指南](https://docs.crewai.com/concepts/tools)。
+टूल, ऐसी सुविधाएं होती हैं जिनका इस्तेमाल एजेंट, बाहरी दुनिया से इंटरैक्ट करने या खास कार्रवाइयां करने के लिए कर सकते हैं. यहां, ग्राहक सहायता से जुड़ा डेटा फ़ेच करने का सिम्युलेट करने के लिए, प्लेसहोल्डर टूल तय किया जाता है. किसी असली ऐप्लिकेशन में, आपको डेटाबेस, एपीआई या फ़ाइल सिस्टम से कनेक्ट करना होगा. टूल के बारे में ज़्यादा जानकारी के लिए, [CrewAI टूल गाइड](https://docs.crewai.com/concepts/tools) देखें.
 
 ```
 from crewai.tools import BaseTool
@@ -92,10 +86,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### 智能体
+### एजेंट
 
-智能体是团队中的各个 AI 工作人员。每个智能体都有特定的 `role`、`goal`、`backstory`、分配的 `llm` 和可选的 `tools`。如需详细了解智能体，请参阅 [CrewAI 智能体
-指南](https://docs.crewai.com/concepts/agents)。
+एजेंट, आपकी क्रू में शामिल एआई वर्कर होते हैं. हर एजेंट के पास एक खास `role`, `goal`, `backstory`, असाइन किया गया `llm`, और वैकल्पिक `tools` होता है. एजेंट के बारे में ज़्यादा जानकारी के लिए, [CrewAI एजेंट गाइड](https://docs.crewai.com/concepts/agents) देखें.
 
 ```
 from crewai import Agent
@@ -142,10 +135,9 @@ report_writer = Agent(
 )
 ```
 
-### 任务
+### Tasks
 
-任务定义了智能体的具体分配。每个任务都有 `description`、`expected_output`，并且分配给一个 `agent`。默认情况下，任务按顺序运行，并且包含上一个任务的上下文。如需详细了解任务，请参阅 [CrewAI 任务
-指南](https://docs.crewai.com/concepts/tasks)。
+टास्क से, एजेंट के लिए खास असाइनमेंट तय किए जाते हैं. हर टास्क में `description` और `expected_output` होता है. साथ ही, इसे `agent` को असाइन किया जाता है. टास्क डिफ़ॉल्ट रूप से क्रम से पूरे किए जाते हैं. इनमें पिछले टास्क का कॉन्टेक्स्ट शामिल होता है. टास्क के बारे में ज़्यादा जानकारी के लिए, [CrewAI टास्क गाइड](https://docs.crewai.com/concepts/tasks) देखें.
 
 ```
 from crewai import Task
@@ -204,9 +196,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Crew
+### क्रू
 
-`Crew` 将智能体和任务结合在一起，定义工作流过程（例如“sequential”）。
+`Crew`, एजेंट और टास्क को एक साथ लाता है. साथ ही, वर्कफ़्लो प्रोसेस (जैसे कि "क्रमिक") तय करता है.
 
 ```
 from crewai import Crew, Process
@@ -219,9 +211,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## 运行 Crew
+## क्रू को मैनेज करना
 
-最后，使用任何必要的输入启动 Crew 执行。
+आखिर में, ज़रूरी इनपुट के साथ क्रू के काम को शुरू करें.
 
 ```
 # Start the crew's work
@@ -235,19 +227,17 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-脚本现在将执行。`Data Analyst` 将使用该工具，`Process
-Optimizer` 将分析发现结果，`Report Writer` 将汇总
-最终报告，然后将该报告输出到控制台。`verbose=True` 设置将显示每个智能体的详细思考过程和操作。
+अब स्क्रिप्ट चलेगी. `Data Analyst` टूल का इस्तेमाल करेगा, `Process
+Optimizer` नतीजों का विश्लेषण करेगा, और `Report Writer` फ़ाइनल रिपोर्ट तैयार करेगा. इसके बाद, इसे कंसोल पर प्रिंट किया जाएगा. `verbose=True` सेटिंग से, हर एजेंट की सोच और कार्रवाइयों के बारे में पूरी जानकारी मिलेगी.
 
-如需详细了解 CrewAI，请参阅 [CrewAI
-简介](https://docs.crewai.com/introduction)。
+CrewAI के बारे में ज़्यादा जानने के लिए, [CrewAI का परिचय](https://docs.crewai.com/introduction) पढ़ें.
 
-发送反馈
+सुझाव भेजें
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最后更新时间 (UTC)：2026-06-10。
+आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
 
-需要向我们提供更多信息？
+क्या आपको हमें और कुछ बताना है?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-10。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]
