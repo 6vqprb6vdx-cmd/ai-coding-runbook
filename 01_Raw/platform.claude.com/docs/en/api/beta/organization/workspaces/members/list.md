@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/list
-fetched_at: 2026-08-31T06:25:43.416339+00:00
+fetched_at: 2026-09-14T05:35:01.965363+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: List Workspace Members
+url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/list
 ---
 
 # List Workspace Members

@@ -1,7 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/sessions/remote/list
-fetched_at: 2026-08-31T06:25:48.889935+00:00
+fetched_at: 2026-09-14T05:35:05.718698+00:00
 fetch_method: mintlify_md
+---
+
+---
+title: List remote sessions
+url: https://platform.claude.com/docs/en/api/compliance/apps/sessions/remote/list
 ---
 
 # List remote sessions
@@ -77,6 +82,12 @@ retrieve the next page, and stop when `next_page` is null.
   maxItems: 10
 
 ## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
