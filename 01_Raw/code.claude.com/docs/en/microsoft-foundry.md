@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/microsoft-foundry
-fetched_at: 2026-08-31T06:25:34.310372+00:00
+fetched_at: 2026-09-21T05:40:38.436730+00:00
 fetch_method: mintlify_md
 ---
 
@@ -102,7 +102,7 @@ Before configuring Claude Code with Microsoft Foundry, ensure you have:
 
 First, create a Claude resource in Azure:
 
-1. Navigate to the [Microsoft Foundry portal](https://ai.azure.com/)
+1. Go to the [Microsoft Foundry portal](https://ai.azure.com/)
 2. Create a new resource, noting your resource name
 3. Create deployments for the Claude models, noting the deployment name you give each; you'll set these names as the model variables in step 4:
 

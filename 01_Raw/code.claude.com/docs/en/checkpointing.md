@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/checkpointing
-fetched_at: 2026-09-14T05:34:31.041297+00:00
+fetched_at: 2026-09-21T05:40:35.782739+00:00
 fetch_method: mintlify_md
 ---
 
@@ -75,7 +75,7 @@ Checkpoints are particularly useful when:
 
 ### Bash command changes not tracked
 
-Checkpointing does not track files modified by bash commands. For example, if Claude Code runs:
+Checkpointing does not track files modified by Bash commands. For example, if Claude Code runs:
 
 ```bash theme={null}
 rm file.txt
