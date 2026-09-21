@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/skills/versions
-fetched_at: 2026-09-14T05:34:55.814590+00:00
+fetched_at: 2026-09-21T05:40:38.090509+00:00
 fetch_method: mintlify_md
 ---
 
@@ -86,7 +86,7 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
     -H 'Content-Type: multipart/form-data' \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -F files='["Example data"]'
+    -F 'files[]=@/path/to/file'
 ```
 
 #### Response (200)
