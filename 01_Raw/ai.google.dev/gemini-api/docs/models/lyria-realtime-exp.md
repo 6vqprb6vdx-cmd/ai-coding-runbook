@@ -1,48 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=es-419
-fetched_at: 2026-09-14T05:34:59.860562+00:00
-title: "Lyria RealTime experimental \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=ko
+fetched_at: 2026-09-21T05:53:40.930378+00:00
+title: "Lyria RealTime \uc2e4\ud5d8 \ubc84\uc804 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Enviar comentarios
+의견 보내기
 
-# Lyria RealTime experimental
+# Lyria RealTime 실험 버전
 
-Es un motor experimental para la síntesis musical de alta fidelidad que ofrece capacidades innovadoras para generar y transformar contenido de audio. Lyria RealTime es ideal para la composición de canciones asistida por IA, la generación de instrumentos únicos y los flujos de trabajo de audio creativos que requieren un control profundo sobre la melodía y el ritmo, sin voces.
+고품질 음악 합성 실험 엔진으로, 오디오 콘텐츠를 생성하고 변환하는 혁신적인 기능을 제공합니다. Lyria RealTime은 AI 지원 작곡, 고유한 악기 생성, 보컬 없이 멜로디와 리듬을 세밀하게 제어해야 하는 창의적인 오디오 워크플로에 가장 적합합니다.
 
-[Probar Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=es-419)
+[Lyria RealTime 사용해 보기](https://deepmind.google/models/lyria/lyria-realtime/?hl=ko)
 
-## Documentación
+## 문서
 
-Visita la [Generación de música en tiempo real](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419)
-página para obtener información completa sobre las funciones y capacidades.
+[실시간 음악 생성](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ko) 페이지에서 기능 및 기능의 전체 내용을 확인하세요.
 
 ## lyria-realtime-exp
 
-| Propiedad | Descripción |
+| 속성 | 설명 |
 | --- | --- |
-| id\_card id\_cardModel | **API de Gemini**  `lyria-realtime-exp` |
-| saveTipos de datos admitidos | **Entrada**  Texto (instrucciones ponderadas)  **Resultado**  Audio (PCM sin procesar de 16 bits) |
-| token\_autoLímites de transmisión | **Tasa de muestreo**  48 kHz (estéreo)  **Control de latencia**  2 segundos como máximo |
-| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Experimental: `lyria-realtime-exp` |
-| calendar\_monthÚltima actualización | Mayo de 2025 |
+| id\_card모델 코드 | **Gemini API**  `lyria-realtime-exp` |
+| save 지원 데이터 유형 | **입력**  텍스트 (가중치가 적용된 프롬프트)  **출력**  오디오 (원시 16비트 PCM) |
+| token\_auto스트리밍 한도 | **샘플링 레이트**  48kHz (스테레오)  **지연 시간 제어**  최대 2초 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 실험적: `lyria-realtime-exp` |
+| calendar\_month최신 업데이트 | 2025년 5월 |
 
-Enviar comentarios
+의견 보내기
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última actualización: 2026-04-29 (UTC)
+최종 업데이트: 2026-04-29(UTC)
 
-¿Quieres brindar más información?
+의견을 전달하고 싶나요?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

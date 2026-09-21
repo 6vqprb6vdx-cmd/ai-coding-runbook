@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=fr
-fetched_at: 2026-09-14T05:43:32.537639+00:00
+fetched_at: 2026-09-21T05:47:18.806342+00:00
 title: "Vision agentique \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -12,6 +12,7 @@ Google utilise la technologie IA pour traduire le contenu dans votre langue pré
 
 - [Accueil](https://ai.google.dev/?hl=fr)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
 Envoyer des commentaires
 

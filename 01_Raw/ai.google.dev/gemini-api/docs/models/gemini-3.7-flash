@@ -1,51 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=hi
-fetched_at: 2026-09-14T05:50:54.527627+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=zh-TW
+fetched_at: 2026-09-21T05:55:38.055923+00:00
 title: "Gemini 3.7 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-सुझाव भेजें
+提供意見
 
 # Gemini 3.7 Flash
 
-Gemini 3.7 Flash, Gemini 3 सीरीज़ का अगला मॉडल है. यह मॉडल, कई तरह के काम करने में सक्षम है. साथ ही, यह कई तरह के इनपुट को प्रोसेस कर सकता है और तर्क के आधार पर जवाब दे सकता है.
+Gemini 3.7 Flash 是 Gemini 3 系列的下一個迭代版本，具備強大功能，且原生支援多模態推理模型。
 
-[Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.7-flash&hl=hi)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.7-flash&hl=zh-tw)
 
-## दस्तावेज़
+## 說明文件
 
-सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए,
-[नया मॉडल](https://ai.google.dev/gemini-api/docs/latest-model?hl=hi)
-पेज पर जाएं.
+如要全面瞭解功能和用途，請前往「[最新機型](https://ai.google.dev/gemini-api/docs/latest-model?hl=zh-tw)」頁面。
 
 ## gemini-3.7-flash
 
-| प्रॉपर्टी | ब्यौरा |
+| 屬性 | 說明 |
 | --- | --- |
-| id\_cardमॉडल का कोड | `gemini-3.7-flash` |
-| saveकौन-कौनसे डेटा टाइप इसके साथ काम करते हैं | **इनपुट**  टेक्स्ट, इमेज, वीडियो, ऑडियो, और PDF  **आउटपुट**  टेक्स्ट |
-| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  1,048,576  **आउटपुट टोकन की सीमा**  65,536 |
-| handymanसुविधाएं | **[ऑडियो जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/speech-generation?hl=hi)**  काम नहीं करता है  **[कैश मेमोरी में सेव होना](https://ai.google.dev/gemini-api/docs/caching?hl=hi)**  काम करता है  **[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi)**  काम करता है  **[कंप्यूटर पर इस्तेमाल](https://ai.google.dev/gemini-api/docs/computer-use?hl=hi)**  काम करता है (झलक)  **[फ़ाइल सर्च](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)**  काम करता है  **[फ़ंक्शन कॉल](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)**  काम करता है  **[Google Maps के साथ मिलकर काम करना](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)**  काम करता है  **[इमेज जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)**  काम नहीं करता है  **[लाइव एपीआई](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)**  काम नहीं करता है  **[भरोसेमंद स्रोतों से जानकारी लें](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)**  काम करता है  **[स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi)**  काम करता है  **[प्रोसेस](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)**  काम करता है (कम, सामान्य, ज़्यादा)  ध्यान दें: `minimal` काम नहीं करता है और इससे गड़बड़ी होती है.  **[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)**  काम करता है |
-| speedConsumption विकल्प | **[बैच एपीआई](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi)**  काम करता है  **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi)**  काम करता है  **[Priority inference](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi)**  काम करता है |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल के वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) के बारे में पढ़ें.  - स्टेबल: `gemini-3.7-flash` |
-| calendar\_monthअपडेट की तारीख | अगस्त 2026 |
-| id\_cardमॉडल कार्ड | [मॉडल कार्ड](https://deepmind.google/models/model-cards/gemini-3-7-flash/?hl=hi) |
+| id\_card 模型代碼 | `gemini-3.7-flash` |
+| save支援的資料類型 | **輸入裝置**  文字、圖片、影片、音訊和 PDF  **輸出內容**  文字 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  1,048,576  **輸出詞元限制**  65,536 |
+| handyman功能 | **[生成音訊](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)**  不支援  **[快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)**  支援  **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**  支援  **[電腦使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)**  支援 (預覽版)  **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**  支援  **[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**  支援  **[利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**  支援  **[圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)**  不支援  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw)**  不支援  **[以搜尋為基準](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)**  支援  **[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)**  支援  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)**  支援 (低、中、高)  注意：系統不支援 `minimal`，且會傳回錯誤。  **[網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**  支援 |
+| speed計費方案 | **[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)**  支援  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-tw)**  支援  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-tw)**  支援 |
+| 123 個版本 | 詳閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 穩定：`gemini-3.7-flash` |
+| calendar\_month最新更新 | 2026 年 8 月 |
+| id\_card模型資訊卡 | [模型資訊卡](https://deepmind.google/models/model-cards/gemini-3-7-flash/?hl=zh-tw) |
 
-सुझाव भेजें
+提供意見
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-आखिरी बार 2026-09-11 (UTC) को अपडेट किया गया.
+上次更新時間：2026-09-11 (世界標準時間)。
 
-क्या आपको हमें और कुछ बताना है?
+想進一步說明嗎？
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-11 (UTC) को अपडेट किया गया."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-11 (世界標準時間)。"],[],[]]

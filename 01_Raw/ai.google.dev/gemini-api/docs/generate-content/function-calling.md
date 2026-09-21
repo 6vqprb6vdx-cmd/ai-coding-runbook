@@ -1,39 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=pt-BR
-fetched_at: 2026-09-14T05:43:29.496169+00:00
-title: "Chamada de fun\u00e7\u00e3o com a API Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=fr
+fetched_at: 2026-09-21T05:41:44.187092+00:00
+title: "Appel de fonction avec l'API Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
 
-Envie comentários
+Envoyer des commentaires
 
-# Chamada de função com a API Gemini
+# Appel de fonction avec l'API Gemini
 
-Com a chamada de função, é possível conectar modelos a APIs e ferramentas externas.
-Em vez de gerar respostas de texto, o modelo determina quando chamar funções específicas e fornece os parâmetros necessários para executar ações no mundo real.
-Isso permite que o modelo atue como uma ponte entre a linguagem natural e as ações e dados do mundo real. A chamada de função tem três casos de uso principais:
+L'appel de fonction vous permet de connecter des modèles à des outils et API externes.
+Au lieu de générer des réponses textuelles, le modèle détermine quand appeler des fonctions spécifiques et fournit les paramètres nécessaires pour exécuter des actions concrètes.
+Cela permet au modèle de servir de passerelle entre le langage naturel et les actions et données réelles. L'appel de fonctions présente trois principaux cas d'utilisation :
 
-- [**Realizar ações**](#meeting):interaja com sistemas externos usando APIs, como
-  agendar compromissos, criar faturas, enviar e-mails ou controlar
-  dispositivos domésticos inteligentes.
-- [**Aumentar o conhecimento**](#weather):acesse informações de fontes externas, como bancos de dados, APIs e bases de conhecimento.
-- [**Ampliar recursos**](#chart):use ferramentas externas para realizar cálculos e ampliar as limitações do modelo, como usar uma calculadora ou criar gráficos.
+- [**Effectuer des actions**](#meeting) : interagir avec des systèmes externes à l'aide d'API, par exemple pour planifier des rendez-vous, créer des factures, envoyer des e-mails ou contrôler des appareils domotiques.
+- [**Augmenter les connaissances**](#weather) : accéder à des informations provenant de sources externes telles que des bases de données, des API et des bases de connaissances.
+- [**Étendre les capacités**](#chart) : utilisez des outils externes pour effectuer des calculs et étendre les limites du modèle, par exemple en utilisant une calculatrice ou en créant des graphiques.
 
-Confira exemplos desses casos de uso abaixo:
+Vous trouverez ci-dessous des exemples de ces cas d'utilisation :
 
-### Agendar reunião
+### Planifier une réunion
 
-Este exemplo mostra como definir uma função que agenda uma reunião com participantes em um horário específico, permitindo que o modelo analise solicitações do usuário e retorne argumentos estruturados para acionar ações em sistemas externos.
+Cet exemple montre comment définir une fonction qui planifie une réunion avec des participants à une heure spécifique, ce qui permet au modèle d'analyser les demandes des utilisateurs et de renvoyer des arguments structurés pour déclencher des actions dans des systèmes externes.
 
 ### Python
 
@@ -77,7 +75,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about the Q3 planning.",
     config=config,
 )
@@ -134,7 +132,7 @@ const scheduleMeetingFunctionDeclaration = {
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about the Q3 planning.',
   config: {
     tools: [{
@@ -157,10 +155,91 @@ if (response.functionCalls && response.functionCalls.length > 0) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Define the function declaration for the model
+    scheduleMeetingFunc := &genai.FunctionDeclaration{
+        Name:        "schedule_meeting",
+        Description: "Schedules a meeting with specified attendees at a given time and date.",
+        Parameters: &genai.Schema{
+            Type: genai.TypeObject,
+            Properties: map[string]*genai.Schema{
+                "attendees": {
+                    Type:        genai.TypeArray,
+                    Items:       &genai.Schema{Type: genai.TypeString},
+                    Description: "List of people attending the meeting.",
+                },
+                "date": {
+                    Type:        genai.TypeString,
+                    Description: "Date of the meeting (e.g., '2024-07-29')",
+                },
+                "time": {
+                    Type:        genai.TypeString,
+                    Description: "Time of the meeting (e.g., '15:00')",
+                },
+                "topic": {
+                    Type:        genai.TypeString,
+                    Description: "The subject or topic of the meeting.",
+                },
+            },
+            Required: []string{"attendees", "date", "time", "topic"},
+        },
+    }
+
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{
+            {FunctionDeclarations: []*genai.FunctionDeclaration{scheduleMeetingFunc}},
+        },
+    }
+
+    // Send request with function declarations
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-3.8-flash",
+        genai.Text("Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about the Q3 planning."),
+        config,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Check for a function call
+    if len(response.FunctionCalls()) > 0 {
+        functionCall := response.FunctionCalls()[0]
+        fmt.Printf("Function to call: %s\n", functionCall.Name)
+        fmt.Printf("ID: %s\n", functionCall.ID)
+        fmt.Printf("Arguments: %v\n", functionCall.Args)
+        // In a real app, you would call your function here:
+        // result := scheduleMeeting(functionCall.Args)
+    } else {
+        fmt.Println("No function call found in the response.")
+        fmt.Println(response.Text())
+    }
+}
+```
+
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -211,9 +290,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### Receber informações sobre o clima
+### Obtenir la météo
 
-Este exemplo mostra como definir uma função que recupera dados de temperatura de um local, permitindo que o modelo chame APIs externas para responder a consultas que exigem informações externas ou em tempo real.
+Cet exemple montre comment définir une fonction qui récupère les données de température pour un lieu, ce qui permet au modèle d'appeler des API externes pour répondre aux requêtes nécessitant des informations externes ou en temps réel.
 
 ### Python
 
@@ -244,7 +323,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="What's the temperature in London?",
     config=config,
 )
@@ -288,7 +367,7 @@ const weatherFunctionDeclaration = {
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: "What's the temperature in London?",
   config: {
     tools: [{
@@ -311,10 +390,78 @@ if (response.functionCalls && response.functionCalls.length > 0) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Define the function declaration for the model
+    weatherFunc := &genai.FunctionDeclaration{
+        Name:        "get_current_temperature",
+        Description: "Gets the current temperature for a given location.",
+        Parameters: &genai.Schema{
+            Type: genai.TypeObject,
+            Properties: map[string]*genai.Schema{
+                "location": {
+                    Type:        genai.TypeString,
+                    Description: "The city name, e.g. San Francisco",
+                },
+            },
+            Required: []string{"location"},
+        },
+    }
+
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{
+            {FunctionDeclarations: []*genai.FunctionDeclaration{weatherFunc}},
+        },
+    }
+
+    // Send request with function declarations
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-3.8-flash",
+        genai.Text("What's the temperature in London?"),
+        config,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Check for a function call
+    if len(response.FunctionCalls()) > 0 {
+        functionCall := response.FunctionCalls()[0]
+        fmt.Printf("Function to call: %s\n", functionCall.Name)
+        fmt.Printf("ID: %s\n", functionCall.ID)
+        fmt.Printf("Arguments: %v\n", functionCall.Args)
+        // In a real app, you would call your function here:
+        // result := getCurrentTemperature(functionCall.Args)
+    } else {
+        fmt.Println("No function call found in the response.")
+        fmt.Println(response.Text())
+    }
+}
+```
+
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -352,9 +499,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-### Criar gráfico
+### Créer un graphique
 
-Este exemplo mostra como definir uma função que gera um gráfico de barras com base em dados estruturados, demonstrando como o modelo pode usar ferramentas externas para realizar cálculos ou criar recursos visuais:
+Cet exemple montre comment définir une fonction qui génère un graphique à barres à partir de données structurées. Il illustre la façon dont le modèle peut utiliser des outils externes pour effectuer des calculs ou créer des éléments visuels :
 
 ### Python
 
@@ -396,7 +543,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000.",
     config=config,
 )
@@ -450,7 +597,7 @@ const createChartFunctionDeclaration = {
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: "Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000.",
   config: {
     tools: [{
@@ -473,10 +620,88 @@ if (response.functionCalls && response.functionCalls.length > 0) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Define the function declaration for the model
+    createChartFunc := &genai.FunctionDeclaration{
+        Name:        "create_bar_chart",
+        Description: "Creates a bar chart given a title, labels, and corresponding values.",
+        Parameters: &genai.Schema{
+            Type: genai.TypeObject,
+            Properties: map[string]*genai.Schema{
+                "title": {
+                    Type:        genai.TypeString,
+                    Description: "The title for the chart.",
+                },
+                "labels": {
+                    Type:        genai.TypeArray,
+                    Items:       &genai.Schema{Type: genai.TypeString},
+                    Description: "List of labels for the data points (e.g., ['Q1', 'Q2', 'Q3']).",
+                },
+                "values": {
+                    Type:        genai.TypeArray,
+                    Items:       &genai.Schema{Type: genai.TypeNumber},
+                    Description: "List of numerical values corresponding to the labels (e.g., [50000, 75000, 60000]).",
+                },
+            },
+            Required: []string{"title", "labels", "values"},
+        },
+    }
+
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{
+            {FunctionDeclarations: []*genai.FunctionDeclaration{createChartFunc}},
+        },
+    }
+
+    // Send request with function declarations
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-3.8-flash",
+        genai.Text("Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000."),
+        config,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Check for a function call
+    if len(response.FunctionCalls()) > 0 {
+        functionCall := response.FunctionCalls()[0]
+        fmt.Printf("Function to call: %s\n", functionCall.Name)
+        fmt.Printf("ID: %s\n", functionCall.ID)
+        fmt.Printf("Arguments: %v\n", functionCall.Args)
+        // In a real app, you would call your function here using a charting library:
+        // result := createBarChart(functionCall.Args)
+    } else {
+        fmt.Println("No function call found in the response.")
+        fmt.Println(response.Text())
+    }
+}
+```
+
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -524,35 +749,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Como a chamada de funções funciona
+## Fonctionnement des appels de fonction
 
-![visão geral da chamada de função](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=pt-br)
+![Présentation de l'appel de fonction](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=fr)
 
-A chamada de função envolve uma interação estruturada entre seu aplicativo, o modelo e funções externas. Confira os detalhes do processo:
+L'appel de fonction implique une interaction structurée entre votre application, le modèle et les fonctions externes. Voici le détail :
 
-1. **Definir declaração de função**:defina a declaração de função no código do aplicativo. As declarações de função descrevem o nome, os parâmetros e a finalidade da função para o modelo.
-2. **Chamar a API com declarações de função**:envie o comando do usuário com as declarações de função para o modelo. Ele analisa a solicitação e determina se uma chamada de função seria útil. Se for o caso, ele responde com um objeto JSON estruturado que contém o nome da função, os argumentos e um `id` exclusivo. Esse `id` agora é sempre retornado pela API para modelos do Gemini 3\*.
-3. **Executar o código da função (sua responsabilidade)**: o modelo *não* executa a função em si. É responsabilidade do aplicativo
-   processar a resposta e verificar uma chamada de função. Se
-   - **Sim**: extraia o nome, os argumentos e `id` da função e execute
-     a função correspondente no seu aplicativo.
-   - **Não**:o modelo forneceu uma resposta de texto direta ao comando
-     (esse fluxo é menos enfatizado no exemplo, mas é um resultado possível).
-4. **Crie uma resposta fácil de usar**:se uma função foi executada, capture o
-   resultado e envie-o de volta ao modelo, incluindo o `id`
-   correspondente em uma rodada subsequente da conversa. Ele vai usar o resultado para gerar uma resposta final e fácil de usar que incorpora as informações da chamada de função.
+1. **Définissez la déclaration de fonction** : définissez la déclaration de fonction dans le code de votre application. Les déclarations de fonction décrivent au modèle le nom, les paramètres et l'objectif de la fonction.
+2. **Appeler l'API avec des déclarations de fonctions** : envoyez la requête de l'utilisateur ainsi que la ou les déclarations de fonctions au modèle. Il analyse la requête et détermine si un appel de fonction serait utile. Si c'est le cas, il répond avec un objet JSON structuré contenant le nom de la fonction, les arguments et un `id` unique (ce `id` est désormais toujours renvoyé par l'API pour les modèles Gemini 3\*).
+3. **Exécuter le code de la fonction (votre responsabilité)** : le modèle *n'exécute pas* la fonction lui-même. Il incombe à votre application de traiter la réponse et de vérifier s'il y a un appel de fonction. Si
+   - **Oui** : extraire le nom, les arguments et `id` de la fonction, puis exécuter la fonction correspondante dans votre application.
+   - **Non** : le modèle a fourni une réponse textuelle directe à la requête (ce flux est moins mis en avant dans l'exemple, mais il s'agit d'un résultat possible).
+4. **Crée une réponse conviviale** : si une fonction a été exécutée, capture le résultat et renvoie-le au modèle en veillant à inclure le `id` correspondant, lors d'un tour de conversation ultérieur. Il utilisera le résultat pour générer une réponse finale et conviviale qui intègre les informations de l'appel de fonction.
 
-Esse processo pode ser repetido várias vezes, permitindo interações e fluxos de trabalho complexos. O modelo também permite chamar várias funções
-em um único turno ([chamada de função paralela](#parallel_function_calling)), em
-sequência ([chamada de função composicional](#compositional_function_calling))
-e com ferramentas integradas do Gemini ([uso de várias ferramentas](#native-tools)).
+Ce processus peut être répété sur plusieurs tours, ce qui permet des interactions et des workflows complexes. Le modèle permet également d'appeler plusieurs fonctions en un seul tour ([appel de fonction parallèle](#parallel_function_calling)), de manière séquentielle ([appel de fonction compositionnel](#compositional_function_calling)) et avec les outils Gemini intégrés ([utilisation de plusieurs outils](#native-tools)).
 
-\* **Sempre mapear IDs de função**:agora o Gemini 3 sempre retorna um `id` exclusivo com cada `functionCall`. Inclua exatamente este `id` no seu `functionResponse` para que o modelo possa mapear com precisão o resultado de volta à solicitação original.
+\* **Toujours mapper les ID de fonction** : Gemini 3 renvoie désormais toujours un `id` unique avec chaque `functionCall`. Incluez exactement `id` dans votre `functionResponse` afin que le modèle puisse mapper précisément votre résultat à la requête d'origine.
 
-### Etapa 1: definir uma declaração de função
+### Étape 1 : Définir une déclaration de fonction
 
-Defina uma função e a declaração dela no código do aplicativo para que
-os usuários possam definir valores de luz e fazer uma solicitação de API. Essa função pode chamar serviços ou APIs externos.
+Définissez une fonction et sa déclaration dans le code de votre application pour permettre aux utilisateurs de définir des valeurs de luminosité et d'effectuer une requête d'API. Cette fonction peut appeler des services ou des API externes.
 
 ### Python
 
@@ -633,11 +849,46 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Etapa 2: chamar o modelo com declarações de função
+### Go
 
-Depois de definir as declarações de função, peça ao modelo para usá-las. Ele analisa o comando e as declarações de função e decide se
-vai responder diretamente ou chamar uma função. Se uma função for chamada, o objeto de resposta
-vai conter uma sugestão de chamada de função.
+```
+package main
+
+import "google.golang.org/genai"
+
+// Define a function declaration that the model can call to control smart lights
+var setLightValuesDeclaration = &genai.FunctionDeclaration{
+    Name:        "set_light_values",
+    Description: "Sets the brightness and color temperature of a light.",
+    Parameters: &genai.Schema{
+        Type: genai.TypeObject,
+        Properties: map[string]*genai.Schema{
+            "brightness": {
+                Type:        genai.TypeInteger,
+                Description: "Light level from 0 to 100. Zero is off and 100 is full brightness",
+            },
+            "color_temp": {
+                Type:        genai.TypeString,
+                Enum:        []string{"daylight", "cool", "warm"},
+                Description: "Color temperature of the light fixture, which can be `daylight`, `cool` or `warm`.",
+            },
+        },
+        Required: []string{"brightness", "color_temp"},
+    },
+}
+
+// This is the actual function that would be called based on the model's suggestion
+func setLightValues(brightness int, colorTemp string) map[string]any {
+    return map[string]any{
+        "brightness":       brightness,
+        "colorTemperature": colorTemp,
+    }
+}
+```
+
+### Étape 2 : Appeler le modèle avec les déclarations de fonction
+
+Une fois que vous avez défini vos déclarations de fonctions, vous pouvez demander au modèle de les utiliser. Il analyse le prompt et les déclarations de fonction, et décide s'il doit répondre directement ou appeler une fonction. Si une fonction est appelée, l'objet de réponse contient une suggestion d'appel de fonction.
 
 ### Python
 
@@ -658,7 +909,7 @@ contents = [
 
 # Send request with function declarations
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=contents,
     config=config,
 )
@@ -691,7 +942,7 @@ const contents = [
 
 // Send request with function declarations
 const response = await ai.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: contents,
   config: config
 });
@@ -699,9 +950,37 @@ const response = await ai.models.generateContent({
 console.log(response.functionCalls[0]);
 ```
 
-Em seguida, o modelo retorna um objeto `functionCall` em um esquema compatível com OpenAPI
-especificando como chamar uma ou mais das funções declaradas para
-responder à pergunta do usuário.
+### Go
+
+```
+ctx := context.Background()
+client, err := genai.NewClient(ctx, nil)
+if err != nil {
+    log.Fatal(err)
+}
+
+// Generation config with function declaration
+config := &genai.GenerateContentConfig{
+    Tools: []*genai.Tool{
+        {FunctionDeclarations: []*genai.FunctionDeclaration{setLightValuesDeclaration}},
+    },
+}
+
+// Define user prompt
+contents := []*genai.Content{
+    genai.NewContentFromText("Turn the lights down to a romantic level", genai.RoleUser),
+}
+
+// Send request with function declarations
+response, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, config)
+if err != nil {
+    log.Fatal(err)
+}
+
+fmt.Println(response.FunctionCalls()[0])
+```
+
+Le modèle renvoie ensuite un objet `functionCall` dans un schéma compatible avec OpenAPI, qui indique comment appeler une ou plusieurs des fonctions déclarées pour répondre à la question de l'utilisateur.
 
 ### Python
 
@@ -719,10 +998,15 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 }
 ```
 
-### Etapa 3: executar o código da função set\_light\_values
+### Go
 
-Extraia os detalhes da chamada de função da resposta do modelo, analise os argumentos
-e execute a função `set_light_values`.
+```
+&{ID:8f2b1a3c Args:map[brightness:25 color_temp:warm] Name:set_light_values}
+```
+
+### Étape 3 : Exécutez le code de la fonction set\_light\_values
+
+Extrayez les détails de l'appel de fonction de la réponse du modèle, analysez les arguments et exécutez la fonction `set_light_values`.
 
 ### Python
 
@@ -748,9 +1032,24 @@ if (tool_call.name === 'set_light_values') {
 }
 ```
 
-### Etapa 4: criar uma resposta fácil de usar com o resultado da função e chamar o modelo novamente
+### Go
 
-Por fim, envie o resultado da execução da função de volta ao modelo para que ele possa incorporar essas informações à resposta final ao usuário.
+```
+// Extract tool call details
+toolCall := response.FunctionCalls()[0]
+
+var result map[string]any
+if toolCall.Name == "set_light_values" {
+    brightness := int(toolCall.Args["brightness"].(float64))
+    colorTemp := toolCall.Args["color_temp"].(string)
+    result = setLightValues(brightness, colorTemp)
+    fmt.Printf("Function execution result: %v\n", result)
+}
+```
+
+### Étape 4 : Créez une réponse conviviale avec le résultat de la fonction et appelez à nouveau le modèle
+
+Enfin, renvoyez le résultat de l'exécution de la fonction au modèle afin qu'il puisse intégrer ces informations dans sa réponse finale à l'utilisateur.
 
 ### Python
 
@@ -771,7 +1070,7 @@ contents.append(types.Content(role="user", parts=[function_response_part])) # Ap
 
 client = genai.Client()
 final_response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     config=config,
     contents=contents,
 )
@@ -795,7 +1094,7 @@ contents.push({ role: 'user', parts: [{ functionResponse: function_response_part
 
 // Get the final response from the model
 const final_response = await ai.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: contents,
   config: config
 });
@@ -803,63 +1102,82 @@ const final_response = await ai.models.generateContent({
 console.log(final_response.text);
 ```
 
-Isso conclui o fluxo de chamadas de função. O modelo usou a função `set_light_values` para realizar a ação solicitada pelo usuário.
+### Go
 
-## Declarações de função
+```
+// Create a function response part
+functionResponsePart := &genai.Part{
+    FunctionResponse: &genai.FunctionResponse{
+        ID:       toolCall.ID,
+        Name:     toolCall.Name,
+        Response: result,
+    },
+}
 
-Ao implementar a chamada de função em um comando, você cria um objeto `tools`,
-que contém um ou mais `function declarations`. Você define funções usando
-JSON, especificamente com um [subconjunto selecionado](https://ai.google.dev/api/caching?hl=pt-br#Schema)
-do formato [esquema OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). Uma única declaração de função pode incluir os seguintes parâmetros:
+// Append function call and result of the function execution to contents
+contents = append(contents, response.Candidates[0].Content)
+contents = append(contents, &genai.Content{
+    Role:  genai.RoleUser,
+    Parts: []*genai.Part{functionResponsePart},
+})
 
-- `name` (string): um nome exclusivo para a função (`get_weather_forecast`, `send_email`). Use nomes descritivos sem espaços ou caracteres especiais (use sublinhados ou camelCase).
-- `description` (string): uma explicação clara e detalhada da finalidade e das capacidades da função. Isso é crucial para que o modelo entenda quando usar a função. Seja específico e dê exemplos, se necessário ("Encontra cinemas com base na localização e, opcionalmente, no título do filme que está sendo exibido no momento").
-- `parameters` (objeto): define os parâmetros de entrada que a função espera.
-  - `type` (string): especifica o tipo de dados geral, como `object`.
-  - `properties` (objeto): lista parâmetros individuais, cada um com:
-    - `type` (string): o tipo de dados do parâmetro, como `string`,
-      `integer` e `boolean, array`.
-    - `description` (string): uma descrição da finalidade e do formato do parâmetro. Forneça exemplos e restrições ("A cidade e o estado, por exemplo, 'São Francisco, CA' ou um CEP, por exemplo, '95616'").
-    - `enum` (matriz, opcional): se os valores de parâmetro forem de um conjunto fixo, use "enum" para listar os valores permitidos em vez de apenas descrevê-los na descrição. Isso melhora a precisão ("enum":
+// Get the final response from the model
+finalResponse, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, config)
+if err != nil {
+    log.Fatal(err)
+}
+
+fmt.Println(finalResponse.Text())
+```
+
+Le flux d'appel de fonction est terminé. Le modèle a utilisé la fonction `set_light_values` pour effectuer l'action demandée par l'utilisateur.
+
+## Déclarations de fonctions
+
+Lorsque vous implémentez l'appel de fonction dans une requête, vous créez un objet `tools`, qui contient un ou plusieurs `function declarations`. Vous définissez des fonctions à l'aide de JSON, en particulier avec un [sous-ensemble sélectionné](https://ai.google.dev/api/caching?hl=fr#Schema) du format de [schéma OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). Une déclaration de fonction peut inclure les paramètres suivants :
+
+- `name` (chaîne) : nom unique de la fonction (`get_weather_forecast`, `send_email`). Utilisez des noms descriptifs sans espaces ni caractères spéciaux (utilisez des traits de soulignement ou la casse mixte).
+- `description` (chaîne) : explication claire et détaillée de l'objectif et des fonctionnalités de la fonction. C'est essentiel pour que le modèle comprenne quand utiliser la fonction. Soyez précis et fournissez des exemples si nécessaire ("Trouve les cinémas en fonction de la localisation et, éventuellement, du titre du film actuellement à l'affiche.").
+- `parameters` (objet) : définit les paramètres d'entrée attendus par la fonction.
+  - `type` (chaîne) : spécifie le type de données global, tel que `object`.
+  - `properties` (objet) : liste les paramètres individuels, chacun avec les éléments suivants :
+    - `type` (chaîne) : type de données du paramètre, tel que `string`, `integer` ou `boolean, array`.
+    - `description` (chaîne) : description de l'objectif et du format du paramètre. Fournis des exemples et des contraintes ("La ville et l'État, par exemple "San Francisco, CA", ou un code postal, par exemple "95616"").
+    - `enum` (tableau, facultatif) : si les valeurs des paramètres proviennent d'un ensemble fixe, utilisez "enum" pour lister les valeurs autorisées au lieu de simplement les décrire dans la description. Cela améliore la précision ("enum":
       ["daylight", "cool", "warm"]).
-  - `required` (matriz): uma matriz de strings que lista os nomes dos parâmetros obrigatórios para o funcionamento da função.
+  - `required` (tableau) : tableau de chaînes listant les noms des paramètres obligatoires pour le bon fonctionnement de la fonction.
 
-Também é possível criar `FunctionDeclarations` diretamente de funções Python usando
-`types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
+Vous pouvez également construire des `FunctionDeclarations` à partir de fonctions Python directement à l'aide de `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
 
-## Chamada de função com modelos de pensamento
+## Appel de fonction avec des modèles à raisonnement
 
-Os modelos das séries Gemini 3 e 2.5 usam um processo interno de ["raciocínio"](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para analisar as solicitações. Isso melhora significativamente o desempenho da chamada de função, permitindo que o modelo determine melhor quando chamar uma função e quais parâmetros usar. Como a API Gemini não tem estado, os modelos usam [assinaturas de pensamento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pt-br) para manter o contexto em conversas multiturno.
+Les modèles des séries Gemini 3 et 2.5 utilisent un processus de [raisonnement](https://ai.google.dev/gemini-api/docs/thinking?hl=fr) interne pour traiter les requêtes. Cela améliore considérablement les performances des appels de fonction, ce qui permet au modèle de mieux déterminer quand appeler une fonction et quels paramètres utiliser. Étant donné que l'API Gemini est sans état, les modèles utilisent des [signatures de pensée](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=fr) pour conserver le contexte dans les conversations multitours.
 
-Esta seção aborda o gerenciamento avançado de assinaturas de pensamento e só é necessária se você estiver criando solicitações de API manualmente (por exemplo, via REST) ou manipulando o histórico de conversas.
+Cette section traite de la gestion avancée des signatures de pensée. Elle n'est nécessaire que si vous créez manuellement des requêtes API (par exemple, via REST) ou si vous manipulez l'historique des conversations.
 
-**Se você estiver usando os [SDKs da GenAI do Google](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br) (nossas bibliotecas oficiais), não será necessário gerenciar esse processo**. Os SDKs
-processam automaticamente as etapas necessárias, conforme mostrado no [exemplo](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#step-4) anterior.
+**Si vous utilisez les [SDK Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) (nos bibliothèques officielles), vous n'avez pas besoin de gérer ce processus.** Les SDK gèrent automatiquement les étapes nécessaires, comme indiqué dans l'[exemple](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#step-4) précédent.
 
-### Gerenciar o histórico de conversas manualmente
+### Gérer manuellement l'historique des conversations
 
-Se você modificar o histórico de conversas manualmente, em vez de enviar a [resposta anterior completa](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#step-4), processe corretamente o `thought_signature` incluído na vez do modelo.
+Si vous modifiez manuellement l'historique des conversations au lieu d'envoyer la [réponse précédente complète](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#step-4), vous devez gérer correctement le `thought_signature` inclus dans le tour du modèle.
 
-Siga estas regras para garantir que o contexto do modelo seja preservado:
+Suivez ces règles pour vous assurer que le contexte du modèle est préservé :
 
-- Sempre envie o `thought_signature` de volta ao modelo dentro do [`Part`](https://ai.google.dev/api?hl=pt-br#request-body-structure) original.
-- **Sempre inclua o `id` exato do `function_call` no seu
-  `function_response` para que a API possa mapear o resultado para a solicitação correta.**
-- Não mescle um `Part` com uma assinatura e outro sem. Isso quebra o contexto posicional do pensamento.
-- Não combine dois `Parts` que contenham assinaturas, porque as strings de assinatura não podem ser mescladas.
+- Renvoie toujours le `thought_signature` au modèle dans son [`Part`](https://ai.google.dev/api?hl=fr#request-body-structure) d'origine.
+- **Incluez toujours le `id` exact du `function_call` dans votre `function_response` afin que l'API puisse mapper le résultat à la requête appropriée.**
+- Ne fusionnez pas un `Part` contenant une signature avec un autre qui n'en contient pas. Cela rompt le contexte positionnel de la pensée.
+- Ne combinez pas deux `Parts` contenant des signatures, car les chaînes de signature ne peuvent pas être fusionnées.
 
-#### Assinaturas de raciocínio do Gemini 3
+#### Signatures de réflexion Gemini 3
 
-No Gemini 3, qualquer [`Part`](https://ai.google.dev/api?hl=pt-br#request-body-structure) de uma resposta do modelo
-pode conter uma assinatura de pensamento.
-Embora geralmente recomendemos retornar assinaturas de todos os tipos `Part`, transmitir assinaturas de pensamento é obrigatório para chamadas de função. A menos que você manipule o histórico de conversas manualmente, o SDK do Google GenAI vai processar as assinaturas de pensamento automaticamente.
+Dans Gemini 3, tout [`Part`](https://ai.google.dev/api?hl=fr#request-body-structure) d'une réponse de modèle peut contenir une signature de pensée.
+Bien que nous recommandions généralement de renvoyer des signatures de tous les types `Part`, le renvoi de signatures de réflexion est obligatoire pour l'appel de fonction. Sauf si vous manipulez manuellement l'historique des conversations, le SDK Google GenAI gérera automatiquement les signatures de pensée.
 
-Se você estiver manipulando o histórico de conversas manualmente, consulte a página [Assinaturas de pensamento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pt-br) para orientações completas e detalhes sobre como lidar com assinaturas de pensamento no Gemini 3.
+Si vous manipulez l'historique des conversations manuellement, consultez la page [Signatures de pensée](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=fr) pour obtenir des conseils complets et des informations sur la gestion des signatures de pensée pour Gemini 3.
 
-##### Como inspecionar assinaturas de raciocínio
+##### Inspecter les signatures de réflexion
 
-Embora não seja necessário para a implementação, você pode inspecionar a resposta para ver o
-`thought_signature` para fins de depuração ou educacionais.
+Bien que cela ne soit pas nécessaire pour l'implémentation, vous pouvez inspecter la réponse pour voir le `thought_signature` à des fins de débogage ou pédagogiques.
 
 ### Python
 
@@ -887,17 +1205,26 @@ if (part.thoughtSignature) {
 }
 ```
 
-Saiba mais sobre as limitações e o uso de assinaturas de pensamento e sobre modelos de pensamento em geral na página [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#signatures).
+### Go
 
-## Chamada de função paralela
+```
+// After receiving a response from a model with thinking enabled
+// response, err := client.Models.GenerateContent(...)
 
-Além da chamada de função única, você também pode chamar várias funções de uma vez. Com a chamada de função paralela, é possível executar várias funções
-ao mesmo tempo, e ela é usada quando as funções não dependem umas das outras. Isso é útil em cenários como coleta de dados de várias fontes independentes, como recuperação de detalhes de clientes de diferentes bancos de dados ou verificação de níveis de inventário em vários armazéns ou execução de várias ações, como transformar seu apartamento em uma discoteca.
+// The signature is attached to the response part containing the function call
+part := response.Candidates[0].Content.Parts[0]
+if len(part.ThoughtSignature) > 0 {
+    fmt.Println(string(part.ThoughtSignature))
+}
+```
 
-Quando o modelo inicia várias chamadas de função em um único turno, não é necessário retornar os objetos `function_result` na mesma ordem em que os objetos `function_call` foram recebidos. A API Gemini mapeia cada resultado de volta para
-a chamada correspondente usando o `id` da saída do modelo. Isso permite
-executar as funções de forma assíncrona e anexar os resultados à lista à medida que
-são concluídos.
+Pour en savoir plus sur les limites et l'utilisation des signatures de pensée, ainsi que sur les modèles de pensée en général, consultez la page [Pensée](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#signatures).
+
+## Appel de fonction en parallèle
+
+En plus de l'appel de fonction unique, vous pouvez également appeler plusieurs fonctions à la fois. L'appel de fonction parallèle vous permet d'exécuter plusieurs fonctions à la fois. Il est utilisé lorsque les fonctions ne sont pas dépendantes les unes des autres. Cela peut être utile dans des scénarios tels que la collecte de données provenant de plusieurs sources indépendantes (par exemple, la récupération des informations client à partir de différentes bases de données ou la vérification des niveaux d'inventaire dans différents entrepôts) ou l'exécution de plusieurs actions (par exemple, transformer votre appartement en discothèque).
+
+Lorsque le modèle lance plusieurs appels de fonction en un seul tour, vous n'avez pas besoin de renvoyer les objets `function_result` dans le même ordre que celui dans lequel les objets `function_call` ont été reçus. L'API Gemini associe chaque résultat à l'appel correspondant à l'aide de `id` à partir de la sortie du modèle. Cela vous permet d'exécuter vos fonctions de manière asynchrone et d'ajouter les résultats à votre liste à mesure qu'ils sont terminés.
 
 ### Python
 
@@ -1007,9 +1334,65 @@ const dimLights = {
 };
 ```
 
-Configure o modo de chamada de função para permitir o uso de todas as ferramentas especificadas.
-Para saber mais, leia sobre
-[como configurar a chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#function_calling_modes).
+### Go
+
+```
+package main
+
+import "google.golang.org/genai"
+
+var powerDiscoBall = &genai.FunctionDeclaration{
+    Name:        "power_disco_ball",
+    Description: "Powers the spinning disco ball.",
+    Parameters: &genai.Schema{
+        Type: genai.TypeObject,
+        Properties: map[string]*genai.Schema{
+            "power": {
+                Type:        genai.TypeBoolean,
+                Description: "Whether to turn the disco ball on or off.",
+            },
+        },
+        Required: []string{"power"},
+    },
+}
+
+var startMusic = &genai.FunctionDeclaration{
+    Name:        "start_music",
+    Description: "Play some music matching the specified parameters.",
+    Parameters: &genai.Schema{
+        Type: genai.TypeObject,
+        Properties: map[string]*genai.Schema{
+            "energetic": {
+                Type:        genai.TypeBoolean,
+                Description: "Whether the music is energetic or not.",
+            },
+            "loud": {
+                Type:        genai.TypeBoolean,
+                Description: "Whether the music is loud or not.",
+            },
+        },
+        Required: []string{"energetic", "loud"},
+    },
+}
+
+var dimLights = &genai.FunctionDeclaration{
+    Name:        "dim_lights",
+    Description: "Dim the lights.",
+    Parameters: &genai.Schema{
+        Type: genai.TypeObject,
+        Properties: map[string]*genai.Schema{
+            "brightness": {
+                Type:        genai.TypeNumber,
+                Description: "The brightness of the lights, 0.0 is off, 1.0 is full.",
+            },
+        },
+        Required: []string{"brightness"},
+    },
+}
+```
+
+Configurez le mode d'appel de fonction pour autoriser l'utilisation de tous les outils spécifiés.
+Pour en savoir plus, consultez [Configurer l'appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#function_calling_modes).
 
 ### Python
 
@@ -1033,7 +1416,7 @@ config = types.GenerateContentConfig(
     ),
 )
 
-chat = client.chats.create(model="gemini-3.6-flash", config=config)
+chat = client.chats.create(model="gemini-3.8-flash", config=config)
 response = chat.send_message("Turn this place into a party!")
 
 # Print out each of the function calls requested from this single call
@@ -1068,7 +1451,7 @@ const ai = new GoogleGenAI({});
 
 // Create a chat session
 const chat = ai.chats.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     config: config
 });
 const response = await chat.sendMessage({message: 'Turn this place into a party!'});
@@ -1083,10 +1466,49 @@ for (const fn of response.functionCalls) {
 }
 ```
 
-Cada um dos resultados impressos reflete uma única chamada de função que o modelo solicitou. Para enviar os resultados, inclua as respostas na mesma ordem em que foram solicitadas.
+### Go
 
-O SDK do Python oferece suporte à [chamada automática de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#automatic_function_calling_python_only), que converte automaticamente funções Python em declarações e processa o ciclo de execução e resposta da chamada de função para você. Confira um exemplo para o caso de uso de
-disco.
+```
+ctx := context.Background()
+client, err := genai.NewClient(ctx, nil)
+if err != nil {
+    log.Fatal(err)
+}
+
+houseTools := []*genai.Tool{
+    {FunctionDeclarations: []*genai.FunctionDeclaration{powerDiscoBall, startMusic, dimLights}},
+}
+
+config := &genai.GenerateContentConfig{
+    Tools: houseTools,
+    // Force the model to call 'any' function, instead of chatting.
+    ToolConfig: &genai.ToolConfig{
+        FunctionCallingConfig: &genai.FunctionCallingConfig{
+            Mode: genai.FunctionCallingConfigModeAny,
+        },
+    },
+}
+
+response, err := client.Models.GenerateContent(
+    ctx,
+    "gemini-3.8-flash",
+    genai.Text("Turn this place into a party!"),
+    config,
+)
+if err != nil {
+    log.Fatal(err)
+}
+
+// Print out each of the function calls requested from this single call
+fmt.Println("Example 1: Forced function calling")
+for _, fn := range response.FunctionCalls() {
+    fmt.Printf("%s(%v) - ID: %s\n", fn.Name, fn.Args, fn.ID)
+}
+```
+
+Chacun des résultats imprimés reflète un seul appel de fonction demandé par le modèle. Pour renvoyer les résultats, incluez les réponses dans le même ordre que celui dans lequel elles ont été demandées.
+
+Le SDK Python est compatible avec l'[appel de fonction automatique](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#automatic_function_calling_python_only), qui convertit automatiquement les fonctions Python en déclarations et gère le cycle d'exécution et de réponse des appels de fonction pour vous. Voici un exemple pour le cas d'utilisation de la découverte.
 
 ### Python
 
@@ -1139,7 +1561,7 @@ config = types.GenerateContentConfig(
 
 # Make the request
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="Do everything you need to this place into party!",
     config=config,
 )
@@ -1149,17 +1571,15 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## Chamada de função composicional
+## Appel de fonction compositionnel
 
-Com a chamada de função composicional ou sequencial, o Gemini pode encadear várias
-chamadas de função para atender a uma solicitação complexa. Por exemplo, para responder a "Qual é a temperatura no meu local atual?", a API Gemini pode primeiro invocar uma função `get_current_location()` seguida por uma função `get_weather()` que usa o local como parâmetro.
+L'appel de fonction compositionnel ou séquentiel permet à Gemini d'associer plusieurs appels de fonction pour répondre à une requête complexe. Par exemple, pour répondre à la requête "Obtiens la température à mon emplacement actuel", l'API Gemini peut d'abord appeler une fonction `get_current_location()`, puis une fonction `get_weather()` qui prend l'emplacement comme paramètre.
 
-O exemplo a seguir demonstra como implementar a chamada de função
-composicional usando o SDK do Python e a chamada de função automática.
+L'exemple suivant montre comment implémenter l'appel de fonction compositionnel à l'aide du SDK Python et de l'appel de fonction automatique.
 
 ### Python
 
-Este exemplo usa o recurso de chamada de função automática do SDK do Python `google-genai`. O SDK converte automaticamente as funções do Python no esquema necessário, executa as chamadas de função quando solicitado pelo modelo e envia os resultados de volta para o modelo para concluir a tarefa.
+Cet exemple utilise la fonctionnalité d'appel de fonction automatique du SDK Python `google-genai`. Le SDK convertit automatiquement les fonctions Python au schéma requis, exécute les appels de fonction lorsque le modèle le demande et renvoie les résultats au modèle pour terminer la tâche.
 
 ```
 import os
@@ -1189,7 +1609,7 @@ config = types.GenerateContentConfig(
 
 # Make the request
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise set it to 18°C.",
     config=config,
 )
@@ -1198,9 +1618,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**Resposta esperada**
+**Résultat attendu**
 
-Ao executar o código, você vai ver o SDK orquestrando as chamadas de função. Primeiro, o modelo chama `get_weather_forecast`, recebe a temperatura e chama `set_thermostat_temperature` com o valor correto com base na lógica do comando.
+Lorsque vous exécutez le code, vous voyez le SDK orchestrer les appels de fonction. Le modèle appelle d'abord `get_weather_forecast`, reçoit la température, puis appelle `set_thermostat_temperature` avec la valeur correcte en fonction de la logique de la requête.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1212,8 +1632,7 @@ OK. I've set the thermostat to 20°C.
 
 ### JavaScript
 
-Este exemplo mostra como usar o SDK JavaScript/TypeScript para fazer chamadas de função
-composicionais usando um loop de execução manual.
+Cet exemple montre comment utiliser le SDK JavaScript/TypeScript pour effectuer un appel de fonction de composition à l'aide d'une boucle d'exécution manuelle.
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1292,7 +1711,7 @@ let contents = [
 // Loop until the model has no more function calls to make
 while (true) {
   const result = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents,
     config: { tools },
   });
@@ -1342,9 +1761,9 @@ while (true) {
 }
 ```
 
-**Resposta esperada**
+**Résultat attendu**
 
-Ao executar o código, você vai ver o SDK orquestrando as chamadas de função. Primeiro, o modelo chama `get_weather_forecast`, recebe a temperatura e chama `set_thermostat_temperature` com o valor correto com base na lógica do comando.
+Lorsque vous exécutez le code, vous voyez le SDK orchestrer les appels de fonction. Le modèle appelle d'abord `get_weather_forecast`, reçoit la température, puis appelle `set_thermostat_temperature` avec la valeur correcte en fonction de la logique de la requête.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1354,9 +1773,128 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-A chamada de função composicional é um recurso nativo da [API
-Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br). Isso significa que a API Live
-pode processar a chamada de função de maneira semelhante ao SDK do Python.
+### Go
+
+Cet exemple montre comment utiliser le SDK Go pour effectuer des appels de fonctions de composition à l'aide d'une boucle d'exécution manuelle.
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func getWeatherForecast(location string) map[string]any {
+    fmt.Printf("Tool Call: get_weather_forecast(location=%s)\n", location)
+    fmt.Println("Tool Response: map[temperature:25 unit:celsius]")
+    return map[string]any{"temperature": 25, "unit": "celsius"}
+}
+
+func setThermostatTemperature(temperature float64) map[string]any {
+    fmt.Printf("Tool Call: set_thermostat_temperature(temperature=%v)\n", temperature)
+    fmt.Println("Tool Response: map[status:success]")
+    return map[string]any{"status": "success"}
+}
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    tools := []*genai.Tool{
+        {
+            FunctionDeclarations: []*genai.FunctionDeclaration{
+                {
+                    Name:        "get_weather_forecast",
+                    Description: "Gets the current weather temperature for a given location.",
+                    Parameters: &genai.Schema{
+                        Type: genai.TypeObject,
+                        Properties: map[string]*genai.Schema{
+                            "location": {Type: genai.TypeString},
+                        },
+                        Required: []string{"location"},
+                    },
+                },
+                {
+                    Name:        "set_thermostat_temperature",
+                    Description: "Sets the thermostat to a desired temperature.",
+                    Parameters: &genai.Schema{
+                        Type: genai.TypeObject,
+                        Properties: map[string]*genai.Schema{
+                            "temperature": {Type: genai.TypeNumber},
+                        },
+                        Required: []string{"temperature"},
+                    },
+                },
+            },
+        },
+    }
+
+    config := &genai.GenerateContentConfig{Tools: tools}
+
+    contents := []*genai.Content{
+        genai.NewContentFromText("If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise set it to 18°C.", genai.RoleUser),
+    }
+
+    for {
+        result, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, config)
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        if len(result.FunctionCalls()) > 0 {
+            functionCall := result.FunctionCalls()[0]
+            var toolResponse map[string]any
+
+            switch functionCall.Name {
+            case "get_weather_forecast":
+                location := functionCall.Args["location"].(string)
+                toolResponse = getWeatherForecast(location)
+            case "set_thermostat_temperature":
+                temperature := functionCall.Args["temperature"].(float64)
+                toolResponse = setThermostatTemperature(temperature)
+            default:
+                log.Fatalf("Unknown function call: %s", functionCall.Name)
+            }
+
+            contents = append(contents, result.Candidates[0].Content)
+            contents = append(contents, &genai.Content{
+                Role: genai.RoleUser,
+                Parts: []*genai.Part{
+                    {
+                        FunctionResponse: &genai.FunctionResponse{
+                            ID:       functionCall.ID,
+                            Name:     functionCall.Name,
+                            Response: toolResponse,
+                        },
+                    },
+                },
+            })
+        } else {
+            fmt.Println(result.Text())
+            break
+        }
+    }
+}
+```
+
+**Résultat attendu**
+
+```
+Tool Call: get_weather_forecast(location=London)
+Tool Response: map[temperature:25 unit:celsius]
+Tool Call: set_thermostat_temperature(temperature=20)
+Tool Response: map[status:success]
+OK. It's 25°C in London, so I've set the thermostat to 20°C.
+```
+
+L'appel de fonction compositionnel est une fonctionnalité native de l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr). Cela signifie que l'API Live peut gérer les appels de fonction de la même manière que le SDK Python.
 
 ### Python
 
@@ -1396,21 +1934,16 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## Modos de chamada de função
+## Modes d'appel de fonction
 
-Com a API Gemini, você controla como o modelo usa as ferramentas fornecidas (declarações de função). Especificamente, é possível definir o modo em
-`function_calling_config`.
+L'API Gemini vous permet de contrôler la façon dont le modèle utilise les outils fournis (déclarations de fonction). Plus précisément, vous pouvez définir le mode dans le fichier.`function_calling_config`.
 
-- `VALIDATED`: modo padrão para combinação de ferramentas (quando as ferramentas integradas ou
-  saídas estruturadas também estão ativadas). O modelo é restrito a prever chamadas de função ou linguagem natural e garante a adesão ao esquema de função. Se `allowed_function_names` não for fornecido, o modelo vai escolher entre todas as declarações de função disponíveis. Se `allowed_function_names` for fornecida, o modelo escolherá entre o conjunto de funções permitidas. Esse modo reduz as chamadas de função malformadas (em comparação com o modo `AUTO`).
-- `AUTO`: modo padrão quando apenas a ferramenta "function\_declarations" está ativada.
-  O modelo decide se quer gerar uma resposta de linguagem natural ou sugerir
-  uma chamada de função com base no comando e no contexto.
-- `ANY`: o modelo é restrito a sempre prever uma chamada de função e garante a adesão ao esquema de função. Se `allowed_function_names` não for especificado, o modelo poderá escolher qualquer uma das declarações de função fornecidas.
-  Se `allowed_function_names` for fornecido como uma lista, o modelo só poderá escolher entre as funções dessa lista. Use esse modo quando precisar de uma resposta de chamada de função para cada comando (se aplicável).
-- `NONE`: o modelo é *proibido* de fazer chamadas de função. Isso é
-  equivalente a enviar uma solicitação sem declarações de função. Use isso para
-  desativar temporariamente a chamada de função sem remover as definições de ferramentas.
+- `VALIDATED` : mode par défaut pour la combinaison d'outils (lorsque les outils intégrés ou les sorties structurées sont également activés). Le modèle est contraint de prédire des appels de fonction ou du langage naturel, et garantit le respect du schéma de fonction. Si `allowed_function_names` n'est pas fourni, le modèle sélectionne toutes les déclarations de fonction disponibles. Si `allowed_function_names` est fourni, le modèle choisit parmi l'ensemble de fonctions autorisées. Ce mode réduit les appels de fonction mal formés (par rapport au mode `AUTO`).
+- `AUTO` : mode par défaut lorsque seul l'outil function\_declarations est activé.
+  Le modèle décide s'il faut générer une réponse en langage naturel ou suggérer un appel de fonction en fonction de la requête et du contexte.
+- `ANY` : le modèle est contraint de toujours prédire un appel de fonction et garantit le respect du schéma de la fonction. Si `allowed_function_names` n'est pas spécifié, le modèle peut choisir parmi l'une des déclarations de fonction fournies.
+  Si `allowed_function_names` est fourni sous forme de liste, le modèle ne peut choisir que parmi les fonctions de cette liste. Utilisez ce mode lorsque vous avez besoin d'une réponse d'appel de fonction pour chaque requête (le cas échéant).
+- `NONE` : le modèle est *interdit* d'effectuer des appels de fonction. Cela équivaut à envoyer une requête sans aucune déclaration de fonction. Utilisez cette option pour désactiver temporairement l'appel de fonction sans supprimer vos définitions d'outils.
 
 ### Python
 
@@ -1451,20 +1984,36 @@ const config = {
 };
 ```
 
-## Chamada automática de função (somente em Python)
+### Go
 
-Ao usar o SDK para Python, é possível fornecer funções do Python diretamente como ferramentas.
-O SDK converte essas funções em declarações, gerencia a execução da chamada de função
-e processa o ciclo de resposta para você. Defina a função com
-dicas de tipo e uma docstring. Para ter os melhores resultados, recomendamos usar [docstrings no estilo do Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
-Em seguida, o SDK vai fazer o seguinte automaticamente:
+```
+// Configure function calling mode
+toolConfig := &genai.ToolConfig{
+    FunctionCallingConfig: &genai.FunctionCallingConfig{
+        Mode:                 genai.FunctionCallingConfigModeAny,
+        AllowedFunctionNames: []string{"get_current_temperature"},
+    },
+}
 
-1. Detectar respostas de chamada de função do modelo.
-2. Chame a função Python correspondente no seu código.
-3. Envie a resposta da função de volta ao modelo.
-4. Retorne a resposta de texto final do modelo.
+// Create the generation config
+config := &genai.GenerateContentConfig{
+    Tools:      tools, // not defined here.
+    ToolConfig: toolConfig,
+}
+```
 
-No momento, o SDK não analisa as descrições de argumentos nos slots de descrição da propriedade da declaração de função gerada. Em vez disso, ele envia a docstring inteira como a descrição da função de nível superior.
+## Appel de fonction automatique (Python uniquement)
+
+Lorsque vous utilisez le SDK Python, vous pouvez fournir des fonctions Python directement en tant qu'outils.
+Le SDK convertit ces fonctions en déclarations, gère l'exécution des appels de fonction et gère le cycle de réponse pour vous. Définissez votre fonction avec des indications de type et une docstring. Pour des résultats optimaux, nous vous recommandons d'utiliser des [docstrings de style Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
+Le SDK effectue ensuite automatiquement les opérations suivantes :
+
+1. Détectez les réponses d'appel de fonction du modèle.
+2. Appelez la fonction Python correspondante dans votre code.
+3. Renvoyez la réponse de la fonction au modèle.
+4. Renvoie la réponse textuelle finale du modèle.
+
+Actuellement, le SDK n'analyse pas les descriptions des arguments dans les emplacements de description des propriétés de la déclaration de fonction générée. Au lieu de cela, il envoie l'intégralité de la docstring comme description de la fonction de premier niveau.
 
 ### Python
 
@@ -1493,7 +2042,7 @@ config = types.GenerateContentConfig(
 
 # Make the request
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="What's the temperature in Boston?",
     config=config,
 )
@@ -1501,7 +2050,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-Para desativar a chamada automática de função, use:
+Vous pouvez désactiver l'appel de fonction automatique avec :
 
 ### Python
 
@@ -1512,9 +2061,9 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### Declaração automática de esquema de função
+### Déclaration automatique du schéma de fonction
 
-A API pode descrever qualquer um dos seguintes tipos. Os tipos `Pydantic` são permitidos, desde que os campos definidos neles também sejam compostos de tipos permitidos. Os tipos de dicionário (como `dict[str: int]`) não são bem aceitos aqui. Não os use.
+L'API est capable de décrire les types suivants. Les types `Pydantic` sont autorisés, à condition que les champs définis sur eux soient également composés de types autorisés. Les types Dict (comme `dict[str: int]`) ne sont pas bien pris en charge ici. Ne les utilisez pas.
 
 ### Python
 
@@ -1523,8 +2072,7 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-Para ver como é o esquema inferido, converta-o usando
-[`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
+Pour voir à quoi ressemble le schéma inféré, vous pouvez le convertir à l'aide de [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable) :
 
 ### Python
 
@@ -1543,14 +2091,11 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## Uso de várias ferramentas: combine ferramentas integradas com chamadas de função
+## Utilisation de plusieurs outils : combiner les outils intégrés avec l'appel de fonction
 
-É possível ativar várias ferramentas, combinando as integradas com a chamada de função na
-mesma solicitação.
+Vous pouvez activer plusieurs outils, en combinant des outils intégrés avec l'appel de fonction dans la même requête.
 
-Os modelos do Gemini 3 podem combinar ferramentas integradas com a chamada de função pronta para uso,
-graças ao recurso de circulação de contexto da ferramenta. Leia a página sobre
-[Como combinar ferramentas integradas e chamadas de função](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br) para saber mais.
+Les modèles Gemini 3 peuvent combiner des outils intégrés avec l'appel de fonction prêt à l'emploi, grâce à la fonctionnalité de circulation du contexte d'outil. Pour en savoir plus, consultez la page [Combiner les outils intégrés et l'appel de fonction](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
 
 ### Python
 
@@ -1576,7 +2121,7 @@ getWeather = {
 }
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="What is the northernmost city in the United States? What's the weather like there today?",
     config=types.GenerateContentConfig(
       tools=[
@@ -1608,7 +2153,7 @@ history = [
 ]
 
 response_2 = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=history,
     config=types.GenerateContentConfig(
       tools=[
@@ -1625,7 +2170,7 @@ response_2 = client.models.generate_content(
 ### JavaScript
 
 ```
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI} from '@google/genai';
 
 const client = new GoogleGenAI({});
 
@@ -1645,23 +2190,21 @@ const getWeather = {
 };
 
 async function run() {
-    const model = client.models.generateContent({
-        model: "gemini-3.6-flash",
-    });
-
     const tools = [
       { googleSearch: {} },
       { functionDeclarations: [getWeather] }
     ];
     const toolConfig = { includeServerSideToolInvocations: true };
 
-    const result1 = await model.generateContent({
+    const response1 = await client.models.generateContent({
+        model: "gemini-3.8-flash",
         contents: [{role: "user", parts: [{text: "What is the northernmost city in the United States? What's the weather like there today?"}]}],
-        tools: tools,
-        toolConfig: toolConfig,
+        config: {
+            tools: tools,
+            toolConfig: toolConfig,
+        },
     });
 
-    const response1 = result1.response;
     const functionCallId = response1.candidates[0].content.parts.find(p => p.functionCall)?.functionCall?.id;
 
     const history = [
@@ -1682,39 +2225,112 @@ async function run() {
         }
     ];
 
-    const result2 = await model.generateContent({
+    const response2 = await client.models.generateContent({
+        model: "gemini-3.8-flash",
         contents: history,
-        tools: tools,
-        toolConfig: toolConfig,
+        config: {
+            tools: tools,
+            toolConfig: toolConfig,
+        },
     });
 }
 
 run();
 ```
 
-Para modelos anteriores à série Gemini 3, use a
-[API Live](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=pt-br).
+### Go
 
-## Respostas de funções multimodais
+```
+package main
 
-Para modelos da série Gemini 3, é possível incluir conteúdo multimodal nas partes de resposta da função que você envia ao modelo. O modelo pode processar esse conteúdo multimodal na próxima vez para produzir uma resposta mais completa.
-Os seguintes tipos MIME são compatíveis com conteúdo multimodal em respostas de função:
+import (
+    "context"
+    "fmt"
+    "log"
 
-- **Imagens**: `image/png`, `image/jpeg`, `image/webp`
-- **Documentos**: `application/pdf`, `text/plain`
+    "google.golang.org/genai"
+)
 
-Para incluir dados multimodais em uma resposta de função, adicione-os como uma ou mais
-partes aninhadas na parte `functionResponse`. Cada parte multimodal precisa
-conter `inlineData`. Se você fizer referência a uma parte multimodal no campo estruturado `response`, ela precisará conter um `displayName` exclusivo.
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-Também é possível referenciar uma parte multimodal do campo `response`
-estruturado da parte `functionResponse` usando o formato de referência JSON
-`{"$ref": "<displayName>"}`. O modelo substitui a referência pelo conteúdo multimodal ao processar a resposta. Cada `displayName` só pode ser referenciado uma vez no campo estruturado `response`.
+    getWeather := &genai.FunctionDeclaration{
+        Name:        "getWeather",
+        Description: "Get the weather in a given location",
+        Parameters: &genai.Schema{
+            Type: genai.TypeObject,
+            Properties: map[string]*genai.Schema{
+                "location": {
+                    Type:        genai.TypeString,
+                    Description: "The city and state, e.g. San Francisco, CA",
+                },
+            },
+            Required: []string{"location"},
+        },
+    }
 
-O exemplo a seguir mostra uma mensagem que contém um `functionResponse` para uma
-função chamada `get_image` e uma parte aninhada com dados de imagem com
-`displayName: "instrument.jpg"`. O campo `response` do `functionResponse`
-faz referência a esta parte da imagem:
+    tools := []*genai.Tool{
+        {GoogleSearch: &genai.GoogleSearch{}},
+        {FunctionDeclarations: []*genai.FunctionDeclaration{getWeather}},
+    }
+
+    config := &genai.GenerateContentConfig{
+        Tools: tools,
+    }
+
+    prompt := "What is the northernmost city in the United States? What's the weather like there today?"
+    response1, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", genai.Text(prompt), config)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    toolCall := response1.FunctionCalls()[0]
+
+    history := []*genai.Content{
+        genai.NewContentFromText(prompt, genai.RoleUser),
+        response1.Candidates[0].Content,
+        {
+            Role: genai.RoleUser,
+            Parts: []*genai.Part{
+                {
+                    FunctionResponse: &genai.FunctionResponse{
+                        ID:       toolCall.ID,
+                        Name:     toolCall.Name,
+                        Response: map[string]any{"response": "Very cold. 22 degrees Fahrenheit."},
+                    },
+                },
+            },
+        },
+    }
+
+    response2, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", history, config)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(response2.Text())
+}
+```
+
+Pour les modèles antérieurs à la gamme Gemini 3, utilisez l'[API Live](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=fr).
+
+## Réponses de fonction multimodales
+
+Pour les modèles de la série Gemini 3, vous pouvez inclure du contenu multimodal dans les parties de réponse de fonction que vous envoyez au modèle. Le modèle peut traiter ce contenu multimodal lors de son prochain tour pour produire une réponse plus pertinente.
+Les types MIME suivants sont acceptés pour le contenu multimodal dans les réponses de fonction :
+
+- **Images** : `image/png`, `image/jpeg`, `image/webp`
+- **Documents** : `application/pdf`, `text/plain`
+
+Pour inclure des données multimodales dans une réponse de fonction, ajoutez-les sous forme d'une ou plusieurs parties imbriquées dans la partie `functionResponse`. Chaque partie multimodale doit contenir `inlineData`. Si vous référencez une partie multimodale à partir du champ `response` structuré, elle doit contenir un `displayName` unique.
+
+Vous pouvez également référencer une partie multimodale à partir du champ `response` structuré de la partie `functionResponse` en utilisant le format de référence JSON `{"$ref": "<displayName>"}`. Le modèle remplace la référence par le contenu multimodal lors du traitement de la réponse. Chaque `displayName` ne peut être référencé qu'une seule fois dans le champ `response` structuré.
+
+L'exemple suivant montre un message contenant un `functionResponse` pour une fonction nommée `get_image` et une partie imbriquée contenant des données d'image avec `displayName: "instrument.jpg"`. Le champ `response` de `functionResponse` fait référence à cette partie de l'image :
 
 ### Python
 
@@ -1748,7 +2364,7 @@ tool_config = types.Tool(function_declarations=[get_image_declaration])
 # 2. Send a message that triggers the tool
 prompt = "Show me the instrument I ordered last month."
 response_1 = client.models.generate_content(
-  model="gemini-3.6-flash",
+  model="gemini-3.8-flash",
   contents=[prompt],
   config=types.GenerateContentConfig(
       tools=[tool_config],
@@ -1796,7 +2412,7 @@ history = [
 ]
 
 response_2 = client.models.generate_content(
-  model="gemini-3.6-flash",
+  model="gemini-3.8-flash",
   contents=history,
   config=types.GenerateContentConfig(
       tools=[tool_config],
@@ -1838,7 +2454,7 @@ const toolConfig = {
 // 2. Send a message that triggers the tool
 const prompt = 'Show me the instrument I ordered last month.';
 const response1 = await client.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: prompt,
   config: {
     tools: [toolConfig],
@@ -1892,7 +2508,7 @@ const history = [
 ];
 
 const response2 = await client.models.generateContent({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   contents: history,
   config: {
     tools: [toolConfig],
@@ -1901,6 +2517,118 @@ const response2 = await client.models.generateContent({
 });
 
 console.log(`\nFinal model response: ${response2.text}`);
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "io"
+    "log"
+    "net/http"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // 1. Define the function tool
+    getImageDeclaration := &genai.FunctionDeclaration{
+        Name:        "get_image",
+        Description: "Retrieves the image file reference for a specific order item.",
+        Parameters: &genai.Schema{
+            Type: genai.TypeObject,
+            Properties: map[string]*genai.Schema{
+                "item_name": {
+                    Type:        genai.TypeString,
+                    Description: "The name or description of the item ordered (e.g., 'instrument').",
+                },
+            },
+            Required: []string{"item_name"},
+        },
+    }
+
+    tools := []*genai.Tool{
+        {FunctionDeclarations: []*genai.FunctionDeclaration{getImageDeclaration}},
+    }
+
+    // 2. Send a message that triggers the tool
+    prompt := "Show me the instrument I ordered last month."
+    response1, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", genai.Text(prompt), &genai.GenerateContentConfig{
+        Tools: tools,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // 3. Handle the function call
+    functionCall := response1.FunctionCalls()[0]
+    requestedItem := functionCall.Args["item_name"]
+    fmt.Printf("Model wants to call: %s\n", functionCall.Name)
+    fmt.Printf("Calling external tool for: %v\n", requestedItem)
+
+    resp, err := http.Get("https://goo.gle/instrument-img")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.Body.Close()
+    imageBytes, err := io.ReadAll(resp.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    functionResponseData := map[string]any{
+        "image_ref": map[string]any{"$ref": "instrument.jpg"},
+    }
+
+    functionResponseMultimodalData := &genai.FunctionResponsePart{
+        InlineData: &genai.FunctionResponseBlob{
+            MIMEType:    "image/jpeg",
+            DisplayName: "instrument.jpg",
+            Data:        imageBytes,
+        },
+    }
+
+    // 4. Send the tool's result back
+    history := []*genai.Content{
+        genai.NewContentFromText(prompt, genai.RoleUser),
+        response1.Candidates[0].Content,
+        {
+            Role: genai.RoleUser,
+            Parts: []*genai.Part{
+                {
+                    FunctionResponse: &genai.FunctionResponse{
+                        ID:       functionCall.ID,
+                        Name:     functionCall.Name,
+                        Response: functionResponseData,
+                        Parts:    []*genai.FunctionResponsePart{functionResponseMultimodalData},
+                    },
+                },
+            },
+        },
+    }
+
+    response2, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", history, &genai.GenerateContentConfig{
+        Tools: tools,
+        ThinkingConfig: &genai.ThinkingConfig{
+            IncludeThoughts: true,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("\nFinal model response: %s\n", response2.Text())
+}
 ```
 
 ### REST
@@ -1922,7 +2650,7 @@ else
   IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -w0)
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -1958,26 +2686,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Chamada de função com saída estruturada
+## Appel de fonction avec sortie structurée
 
-Para modelos da série Gemini 3, é possível usar a chamada de função com
-[saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br). Isso permite que o modelo preveja chamadas de função ou saídas que aderem a um esquema específico. Como resultado, você recebe respostas com formatação consistente quando o modelo não gera chamadas de função.
+Pour les modèles de la famille Gemini 3, vous pouvez utiliser l'appel de fonction avec une [sortie structurée](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr). Cela permet au modèle de prédire des appels de fonction ou des sorties qui respectent un schéma spécifique. Par conséquent, vous recevez des réponses mises en forme de manière cohérente lorsque le modèle ne génère pas d'appels de fonction.
 
-## Protocolo de contexto de modelo (MCP)
+## Protocole MCP (Model Context Protocol)
 
-O [Protocolo de Contexto de Modelo (MCP)](https://modelcontextprotocol.io/introduction) é
-um padrão aberto para conectar aplicativos de IA a ferramentas e dados externos.
-O MCP oferece um protocolo comum para os modelos acessarem contexto, como funções (ferramentas), fontes de dados (recursos) ou comandos predefinidos.
+Le [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) est une norme ouverte permettant de connecter des applications d'IA à des outils et des données externes.
+Le protocole MCP fournit un protocole commun permettant aux modèles d'accéder au contexte, comme les fonctions (outils), les sources de données (ressources) ou les requêtes prédéfinies.
 
-Os SDKs do Gemini têm suporte integrado para o MCP, reduzindo o código boilerplate e oferecendo [chamada automática de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#automatic_function_calling_python_only) para ferramentas do MCP. Quando o modelo gera uma chamada de ferramenta do MCP, o SDK do cliente em Python e JavaScript pode executar automaticamente a ferramenta do MCP e enviar a resposta de volta ao modelo em uma solicitação subsequente, continuando esse loop até que o modelo não faça mais chamadas de ferramenta.
+Les SDK Gemini sont compatibles avec le MCP, ce qui réduit le code récurrent et offre l'[appel d'outils automatique](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#automatic_function_calling_python_only) pour les outils MCP. Lorsque le modèle génère un appel d'outil MCP, les SDK clients Python et JavaScript peuvent exécuter automatiquement l'outil MCP et renvoyer la réponse au modèle dans une requête ultérieure, en poursuivant cette boucle jusqu'à ce qu'aucun autre appel d'outil ne soit effectué par le modèle.
 
-Confira um exemplo de como usar um servidor MCP local com o Gemini e o SDK `mcp`.
+Vous trouverez ici un exemple d'utilisation d'un serveur MCP local avec Gemini et le SDK `mcp`.
 
 ### Python
 
-Verifique se a versão mais recente do
-SDK do [`mcp`](https://modelcontextprotocol.io/introduction) está instalada na
-plataforma escolhida.
+Assurez-vous que la dernière version du [SDK `mcp`](https://modelcontextprotocol.io/introduction) est installée sur la plate-forme de votre choix.
 
 ```
 pip install mcp
@@ -2011,7 +2735,7 @@ async def run():
 
             # Send request to the model with MCP function declarations
             response = await client.aio.models.generate_content(
-                model="gemini-3.6-flash",
+                model="gemini-3.8-flash",
                 contents=prompt,
                 config=genai.types.GenerateContentConfig(
                     temperature=0,
@@ -2030,8 +2754,7 @@ asyncio.run(run())
 
 ### JavaScript
 
-Verifique se a versão mais recente do SDK `mcp` está instalada na plataforma
-de sua escolha.
+Assurez-vous que la dernière version du SDK `mcp` est installée sur la plate-forme de votre choix.
 
 ```
 npm install @modelcontextprotocol/sdk
@@ -2063,7 +2786,7 @@ await client.connect(serverParams);
 
 // Send request to the model with MCP tools
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: `What is the weather in London in ${new Date().toLocaleDateString()}?`,
   config: {
     tools: [mcpToTool(client)],  // uses the session, will automatically call the tool
@@ -2079,74 +2802,128 @@ console.log(response.text)
 await client.close();
 ```
 
-### Limitações com suporte integrado ao MCP
+### Limites de la compatibilité MCP intégrée
 
-O suporte integrado ao MCP é um recurso [experimental](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#preview) nos nossos SDKs e tem as seguintes limitações:
+La prise en charge MCP intégrée est une fonctionnalité [expérimentale](https://ai.google.dev/gemini-api/docs/models?hl=fr#preview) dans nos SDK et présente les limites suivantes :
 
-- Somente ferramentas são aceitas, não recursos nem comandos
-- Ele está disponível para os SDKs Python e JavaScript/TypeScript.
-- Mudanças interruptivas podem ocorrer em versões futuras.
+- Seuls les outils sont acceptés, pas les ressources ni les requêtes
+- Il est disponible pour les SDK Python et JavaScript/TypeScript.
+- Des modifications destructives peuvent se produire dans les prochaines versions.
 
-A integração manual de servidores MCP é sempre uma opção se esses limites afetarem o que você está
-criando.
+L'intégration manuelle des serveurs MCP est toujours possible si ces limites vous empêchent de créer ce que vous souhaitez.
 
-## Modelos compatíveis
+## Modèles compatibles
 
-Esta seção lista os modelos e os recursos de chamada de função deles. Modelos experimentais não estão incluídos. Confira uma visão geral completa dos recursos na página [Visão geral do modelo](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
+Cette section liste les modèles et leurs capacités d'appel de fonction. Les modèles expérimentaux ne sont pas inclus. Vous trouverez une présentation complète des fonctionnalités sur la page [Présentation du modèle](https://ai.google.dev/gemini-api/docs/models?hl=fr).
 
-| Modelo | Chamadas de função | Chamada de função paralela | Chamada de função composicional |
+| Modèle | Appel de fonction | Appel de fonction en parallèle | Appel de fonction compositionnel |
 | --- | --- | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Preview Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fr) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fr) | ✔️ | ✔️ | ✔️ |
 
-## Práticas recomendadas
+## Bonnes pratiques
 
-- **Descrições de funções e parâmetros**:seja extremamente claro e específico nas suas descrições. O modelo depende deles para escolher a função correta
-  e fornecer argumentos adequados.
-- **Nomenclatura**:use nomes de função descritivos (sem espaços, pontos ou traços).
-- **Tipagem forte**:use tipos específicos (inteiro, string, enum) para parâmetros
-  e reduza erros. Se um parâmetro tiver um conjunto limitado de valores válidos, use uma enumeração.
-- **Seleção de ferramentas**:embora o modelo possa usar um número arbitrário de ferramentas, fornecer muitas pode aumentar o risco de selecionar uma ferramenta incorreta ou inadequada. Para melhores resultados, forneça apenas as ferramentas relevantes para o contexto ou a tarefa, mantendo o conjunto ativo em um máximo de 10 a 20. Considere a seleção dinâmica de ferramentas com base no contexto da conversa se você tiver um grande número total de ferramentas.
-- **Engenharia de comando**:
-  - Forneça contexto: diga ao modelo qual é a função dele (por exemplo, "Você é um assistente de clima útil").
-  - Dê instruções: especifique como e quando usar funções (por exemplo, "Não
-    adivinhe datas. Sempre use uma data futura para previsões").
-  - Incentive o esclarecimento: instrua o modelo a fazer perguntas de esclarecimento, se necessário.
-  - Consulte [Fluxos de trabalho com agentes](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br#agentic-workflows) para mais estratégias sobre como criar esses comandos. Confira um exemplo de uma [instrução do sistema](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br#agentic-si-template) testada.
-- **Temperatura**:use uma temperatura baixa (por exemplo, 0) para chamadas de função mais deterministas e confiáveis.
-- **Validação**:se uma chamada de função tiver consequências significativas (por exemplo,
-  fazer um pedido), valide a chamada com o usuário antes de executá-la.
-- **Verifique o motivo da conclusão**:sempre verifique o [`finishReason`](https://ai.google.dev/api/generate-content?hl=pt-br#FinishReason)
-  na resposta do modelo para lidar com casos em que ele não gerou uma
-  chamada de função válida.
-- **Tratamento de erros**: implemente um tratamento de erros robusto nas suas funções para
-  processar entradas inesperadas ou falhas de API de maneira adequada. Retorne mensagens de erro informativas que o modelo possa usar para gerar respostas úteis ao usuário.
-- **Segurança**:tenha cuidado com a segurança ao chamar APIs externas. Use mecanismos de autenticação e autorização adequados. Evite expor dados sensíveis em chamadas de função.
-- **Limites de tokens**:as descrições e os parâmetros de função são contabilizados no limite de tokens de entrada. Se você estiver atingindo os limites de token, limite o número de funções ou o tamanho das descrições e divida tarefas complexas em conjuntos de funções menores e mais focados.
-- **Combinação de bash e ferramentas personalizadas**: para quem cria com uma combinação de bash e ferramentas personalizadas, o Gemini 3.1 Pro Preview vem com um endpoint separado disponível pela API chamado [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br#gemini-31-pro-preview-customtools).
+- **Descriptions des fonctions et des paramètres** : soyez extrêmement clair et précis dans vos descriptions. Le modèle s'appuie sur ces informations pour choisir la bonne fonction et fournir les arguments appropriés.
+- **Nommage** : utilisez des noms de fonctions descriptifs (sans espaces, points ni tirets).
+- **Typage fort** : utilisez des types spécifiques (entier, chaîne, enum) pour les paramètres afin de réduire les erreurs. Si un paramètre dispose d'un ensemble limité de valeurs valides, utilisez un enum.
+- **Sélection d'outils** : bien que le modèle puisse utiliser un nombre arbitraire d'outils, en fournir trop peut augmenter le risque de sélectionner un outil incorrect ou non optimal. Pour obtenir les meilleurs résultats, essayez de ne fournir que les outils pertinents pour le contexte ou la tâche, en gardant idéalement l'ensemble actif à un maximum de 10 à 20. Envisagez de sélectionner des outils de manière dynamique en fonction du contexte de la conversation si vous disposez d'un grand nombre d'outils.
+- **Ingénierie des prompts** :
+  - Fournissez du contexte : indiquez au modèle son rôle (par exemple, "Vous êtes un assistant météo serviable.").
+  - Donnez des instructions : précisez comment et quand utiliser les fonctions (par exemple, "Ne devinez pas les dates. Utilisez toujours une date future pour les prévisions.").
+  - Encouragez la clarification : demandez au modèle de poser des questions de clarification si nécessaire.
+  - Pour découvrir d'autres stratégies de conception de ces requêtes, consultez [Workflows agentiques](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr#agentic-workflows). Voici un exemple d'[instruction système](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr#agentic-si-template) testée.
+- **Température** : utilisez une température basse (par exemple, 0) pour des appels de fonction plus déterministes et fiables.
+- **Validation** : si un appel de fonction a des conséquences importantes (par exemple, passer une commande), validez l'appel auprès de l'utilisateur avant de l'exécuter.
+- **Vérifier la raison de la fin** : vérifiez toujours [`finishReason`](https://ai.google.dev/api/generate-content?hl=fr#FinishReason) dans la réponse du modèle pour gérer les cas où le modèle n'a pas réussi à générer un appel de fonction valide.
+- **Gestion des erreurs** : implémentez une gestion des erreurs robuste dans vos fonctions pour gérer correctement les entrées inattendues ou les échecs d'API. Renvoyez des messages d'erreur informatifs que le modèle peut utiliser pour générer des réponses utiles à l'utilisateur.
+- **Sécurité** : faites attention à la sécurité lorsque vous appelez des API externes. Utilisez des mécanismes d'authentification et d'autorisation appropriés. Évitez d'exposer des données sensibles dans les appels de fonction.
+- **Limites de jetons** : les descriptions et les paramètres des fonctions sont comptabilisés dans la limite de jetons d'entrée. Si vous atteignez les limites de jetons, envisagez de limiter le nombre de fonctions ou la longueur des descriptions, et de décomposer les tâches complexes en ensembles de fonctions plus petits et plus ciblés.
+- **Combinaison de bash et d'outils personnalisés** : pour ceux qui créent des applications avec une combinaison de bash et d'outils personnalisés, la version Preview de Gemini 3.1 Pro est fournie avec un point de terminaison distinct disponible via l'API, appelé [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr#gemini-31-pro-preview-customtools).
 
-## Observações e limitações:
+## Solutions de contournement pour les exigences relatives au texte avant l'outil
 
-- Posicionamento das partes de uma chamada de função: ao usar declarações de função personalizadas [com ferramentas integradas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br) (como a Pesquisa Google), o modelo pode retornar uma combinação de partes `functionCall`, `toolCall` e `toolResponse` em uma única interação. Por isso, não suponha que o
-  `functionCall` sempre será o último item na matriz de partes. Se você estiver analisando manualmente a resposta JSON, sempre itere pela matriz de partes em vez de confiar na posição.
-- Apenas um [subconjunto do esquema
-  OpenAPI](https://ai.google.dev/api/caching?hl=pt-br#FunctionDeclaration) é compatível.
-- No modo `ANY`, a API pode rejeitar esquemas muito grandes ou profundamente aninhados. Se você encontrar erros, tente simplificar os parâmetros da função e os esquemas de resposta encurtando os nomes das propriedades, reduzindo o aninhamento ou limitando o número de declarações de função.
-- Os tipos de parâmetros compatíveis em Python são limitados.
-- A chamada automática de função é um recurso exclusivo do SDK Python.
+**Problème** : votre requête exige que le modèle génère du texte structuré (XML, YAML, JSON, etc.). (par exemple, `<UPDATE>...</UPDATE>`) immédiatement avant d'effectuer un appel d'outil, l'appel d'outil peut parfois échouer et générer une erreur `Malformed_Function_Call`.
 
-Envie comentários
+**Solutions** : les solutions de contournement suivantes permettent de résoudre ce problème :
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+- **RECOMMANDÉ** : Demandez au modèle de placer ses notes avant l'outil dans un appel de fonction `update()` dédié au lieu d'un texte brut (voir ci-dessous).
+- Demandez au modèle d'écrire des notes sous forme d'en-têtes Markdown (`# UPDATE`, `## PLAN`) au lieu de texte structuré.
+- Ne demandez pas au modèle de générer du texte avant les appels d'outils.
 
-Última atualização 2026-09-12 UTC.
+### Solution de contournement recommandée : encapsuler les notes de travail dans un appel de fonction dédié
 
-Quer enviar seu feedback?
+Au lieu de l'instruction d'origine :
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-12 UTC."],[],[]]
+```
+Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags within `<UPDATE>`.
+```
+
+Utilisez cette nouvelle instruction :
+
+```
+Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
+```
+
+Mettez également à jour toutes les références à l'ancien format XML `<UPDATE>` dans la demande du client. Ajoutez ensuite la déclaration de fonction correspondante pour la fonction de mise à jour :
+
+```
+{
+  "name": "update",
+  "description": "Update working notes (previous step analysis, plan, next step, external note).",
+  "parameters": {
+    "type": "OBJECT",
+    "properties": {
+      "previous_step": {
+        "type": "STRING",
+        "description": "Key findings and outcomes since the previous step."
+      },
+      "plan": {
+        "type": "STRING",
+        "description": "The current status of the plan."
+      },
+      "next_step": {
+        "type": "STRING",
+        "description": "Brief explanation of the immediate next action according to the plan."
+      },
+      "external": {
+        "type": "STRING",
+        "description": "A short, plain-language note shown to the User about what you are ABOUT TO DO next."
+      }
+    },
+    "required": [
+      "previous_step",
+      "plan",
+      "next_step",
+      "external"
+    ]
+  }
+}
+```
+
+Le modèle effectue ensuite deux appels au cours de la même étape : l'appel `update()` qui remplace le code XML structuré et l'appel de fonction qu'il souhaite effectuer.
+
+## Remarques et limites
+
+- Positionnement des parties d'un appel de fonction : lorsque vous utilisez des déclarations de fonction personnalisées [avec des outils intégrés](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr) (comme la recherche Google), le modèle peut renvoyer un mélange de parties `functionCall`, `toolCall` et `toolResponse` en un seul tour. Par conséquent, ne partez pas du principe que `functionCall` sera toujours le dernier élément du tableau "parts". Si vous analysez manuellement la réponse JSON, parcourez toujours le tableau des pièces au lieu de vous fier à la position.
+- Seul un [sous-ensemble du schéma OpenAPI](https://ai.google.dev/api/caching?hl=fr#FunctionDeclaration) est accepté.
+- En mode `ANY`, l'API peut refuser les schémas très volumineux ou profondément imbriqués. Si vous rencontrez des erreurs, essayez de simplifier les schémas des paramètres et des réponses de votre fonction en raccourcissant les noms des propriétés, en réduisant l'imbrication ou en limitant le nombre de déclarations de fonctions.
+- Les types de paramètres acceptés dans Python sont limités.
+- L'appel de fonction automatique est une fonctionnalité du SDK Python uniquement.
+
+Envoyer des commentaires
+
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+
+Dernière mise à jour le 2026/09/18 (UTC).
+
+Voulez-vous nous donner plus d'informations ?
+
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/18 (UTC)."],[],[]]

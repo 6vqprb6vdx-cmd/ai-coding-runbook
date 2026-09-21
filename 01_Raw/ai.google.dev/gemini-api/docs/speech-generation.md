@@ -1,42 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=he
-fetched_at: 2026-09-14T05:39:46.177023+00:00
-title: "\u05d9\u05e6\u05d9\u05e8\u05ea \u05d4\u05de\u05e8\u05ea \u05d8\u05e7\u05e1\u05d8 \u05dc\u05d3\u05d9\u05d1\u05d5\u05e8 (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=it
+fetched_at: 2026-09-21T05:47:27.211526+00:00
+title: "Generazione di sintesi vocale (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-שליחת משוב
+Invia feedback
 
-# יצירת המרת טקסט לדיבור (TTS)
+# Generazione di sintesi vocale (TTS)
 
-‫Gemini API יכול להפוך קלט טקסט לאודיו עם דובר אחד או כמה דוברים באמצעות יכולות ההמרה של Gemini מטקסט לדיבור (TTS).
-הפקת המרת טקסט לדיבור (TTS) היא *[ניתנת לשליטה](#controllable)*, כלומר אפשר להשתמש בשפה טבעית כדי לבנות אינטראקציות ולהנחות את *הסגנון*, *המבטא*, *הקצב* ו*הטון* של האודיו.
+L'API Gemini può trasformare l'input di testo in audio con uno o più parlanti utilizzando le funzionalità di sintesi vocale (TTS) di Gemini.
+La generazione di sintesi vocale (TTS) è *[controllabile](#controllable)*,
+il che significa che puoi utilizzare il linguaggio naturale per strutturare le interazioni e guidare lo
+*stile*, l'*accento*, il *ritmo* e il *tono* dell'audio.
 
-יכולת ה-TTS שונה מיכולת יצירת הדיבור שמוצעת דרך [Live API](https://ai.google.dev/gemini-api/docs/live?hl=he), שנועד לאודיו אינטראקטיבי ולא מובנה, ולתשומות ולתפוקות מולטימודאליות. ‫Live API מצטיין בהקשרים דינמיים של שיחות, אבל TTS דרך Gemini API מותאם לתרחישים שבהם נדרשת הקראה מדויקת של טקסט עם שליטה מדויקת בסגנון ובצליל, כמו יצירת פודקאסטים או ספרי אודיו.
+La funzionalità TTS è diversa dalla generazione vocale fornita tramite l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it), progettata per input e output multimodali e audio interattivi e non strutturati. Mentre l'API Live eccelle
+in contesti conversazionali dinamici, la sintesi vocale tramite l'API Gemini
+è pensata per scenari che richiedono una recitazione esatta del testo con un controllo
+preciso su stile e suono, come la generazione di podcast o audiolibri.
 
-במדריך הזה מוסבר איך ליצור אודיו עם דובר אחד או עם כמה דוברים מטקסט.
+Questa guida mostra come generare audio con uno o più relatori dal testo.
 
-## לפני שמתחילים
+## Prima di iniziare
 
-חשוב לוודא שמשתמשים בגרסה של מודל Gemini 2.5 עם יכולות של Gemini text-to-speech (TTS), כמו שמופיע ברשימה בקטע [מודלים נתמכים](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he#supported-models). כדי לקבל תוצאות אופטימליות, כדאי לבחור את המודל שהכי מתאים לתרחיש השימוש הספציפי שלכם.
+Assicurati di utilizzare una variante del modello Gemini 2.5 con funzionalità di sintesi vocale (TTS) di Gemini, come indicato nella sezione [Modelli supportati](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it#supported-models). Per ottenere risultati ottimali, valuta quale modello si adatta meglio al tuo caso d'uso specifico.
 
-מומלץ [לבצע בדיקה של מודלים של Gemini TTS ב-AI Studio](https://aistudio.google.com/generate-speech?hl=he) לפני שמתחילים לפתח.
+Prima di iniziare a creare, ti consigliamo di [testare i modelli Gemini TTS in AI Studio](https://aistudio.google.com/generate-speech?hl=it).
 
-## המרת טקסט לדיבור (TTS) עם דובר יחיד
+## TTS con un solo speaker
 
-כדי להמיר טקסט לאודיו עם קריין יחיד, צריך להגדיר את אופן התגובה כ'אודיו' ולהעביר אובייקט `speech_config` עם שם של קול.
-צריך לבחור שם קול מתוך [הקולות המוכנים מראש](#voices).
+Per convertire il testo in audio con un solo oratore, imposta la modalità di risposta su "audio" e passa un oggetto `speech_config` con il nome di una voce.
+Dovrai scegliere un nome per la voce tra le [voci di output](#voices) predefinite.
 
-בדוגמה הזו, האודיו שנוצר על ידי המודל נשמר בקובץ wave:
+Questo esempio salva l'audio di output del modello in un file wave:
 
 ### Python
 
@@ -117,6 +122,61 @@ async function main() {
 await main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AudioResponseFormat;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.SpeechConfig;
+import com.google.genai.gaos.models.interactions.SpeechConfigUnion;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Base64;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
+Client client = new Client();
+
+SpeechConfig speechConfig = SpeechConfig.builder().voice("Kore").build();
+GenerationConfig generationConfig =
+    GenerationConfig.builder()
+        .speechConfig(SpeechConfigUnion.of(Arrays.asList(speechConfig)))
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.1-flash-tts-preview"))
+        .input(InteractionsInput.of("Say cheerfully: Have a wonderful day!"))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                ResponseFormat.of(AudioResponseFormat.builder().build())))
+        .generationConfig(generationConfig)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputAudio().isPresent() && interaction.outputAudio().get().data().isPresent()) {
+  byte[] pcmBytes = Base64.getDecoder().decode(interaction.outputAudio().get().data().get());
+  AudioFormat format = new AudioFormat(24000, 16, 1, true, false);
+  AudioInputStream audioInputStream =
+      new AudioInputStream(
+          new ByteArrayInputStream(pcmBytes), format, pcmBytes.length / format.getFrameSize());
+  AudioSystem.write(audioInputStream, AudioFileFormat.Type.WAVE, new File("out.wav"));
+}
+```
+
 ### REST
 
 ```
@@ -137,12 +197,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-אפשר לאחזר נתוני אודיו שנוצרו באמצעות המאפיין `interaction.output_audio`, שמחזיר את בלוק האודיו האחרון שנוצר. פרטים על מאפייני נוחות מופיעים במאמר [סקירה כללית על אינטראקציות](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he#convenience-properties).
+Puoi recuperare i dati audio generati utilizzando la proprietà `interaction.output_audio`, che restituisce l'ultimo blocco audio generato. Per informazioni dettagliate
+sulle proprietà di convenienza, consulta la
+[panoramica delle interazioni](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it#convenience-properties).
 
-## המרת טקסט לדיבור עם כמה דוברים
+## TTS multilingue
 
-כדי להשתמש באודיו עם כמה רמקולים, צריך אובייקט `multi_speaker_voice_config` עם כל רמקול (עד 2) שמוגדר כ-`speaker_voice_config`.
-צריך להגדיר כל `speaker` עם אותם שמות שמשמשים ב[הנחיה](#controllable):
+Per l'audio multi-speaker, è necessario un oggetto `multi_speaker_voice_config` con
+ogni speaker (fino a 2) configurato come `speaker_voice_config`.
+Devi definire ogni `speaker` con gli stessi nomi utilizzati nel
+[prompt](#controllable):
 
 ### Python
 
@@ -234,6 +298,68 @@ async function main() {
 await main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AudioResponseFormat;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.SpeechConfig;
+import com.google.genai.gaos.models.interactions.SpeechConfigUnion;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Base64;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
+Client client = new Client();
+
+String prompt =
+    "TTS the following conversation between Joe and Jane:\n"
+        + "Joe: How's it going today Jane?\n"
+        + "Jane: Not too bad, how about you?";
+
+SpeechConfig joeConfig = SpeechConfig.builder().speaker("Joe").voice("Kore").build();
+SpeechConfig janeConfig = SpeechConfig.builder().speaker("Jane").voice("Puck").build();
+
+GenerationConfig generationConfig =
+    GenerationConfig.builder()
+        .speechConfig(SpeechConfigUnion.of(Arrays.asList(joeConfig, janeConfig)))
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.1-flash-tts-preview"))
+        .input(InteractionsInput.of(prompt))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                ResponseFormat.of(AudioResponseFormat.builder().build())))
+        .generationConfig(generationConfig)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputAudio().isPresent() && interaction.outputAudio().get().data().isPresent()) {
+  byte[] pcmBytes = Base64.getDecoder().decode(interaction.outputAudio().get().data().get());
+  AudioFormat format = new AudioFormat(24000, 16, 1, true, false);
+  AudioInputStream audioInputStream =
+      new AudioInputStream(
+          new ByteArrayInputStream(pcmBytes), format, pcmBytes.length / format.getFrameSize());
+  AudioSystem.write(audioInputStream, AudioFileFormat.Type.WAVE, new File("out.wav"));
+}
+```
+
 ### REST
 
 ```
@@ -255,10 +381,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## שליטה בסגנון הדיבור באמצעות הנחיות
+## Controllare lo stile del discorso con i prompt
 
-אתם יכולים לשלוט בסגנון, בטון, במבטא ובקצב באמצעות הנחיות בשפה טבעית, גם בהמרת טקסט לדיבור עם דובר אחד וגם עם כמה דוברים.
-לדוגמה, בהנחיה עם דובר אחד, אפשר לומר:
+Puoi controllare stile, tono, accento e ritmo utilizzando prompt in linguaggio naturale
+sia per la sintesi vocale con una sola persona che con più persone.
+Ad esempio, in un prompt con un solo oratore, puoi dire:
 
 ```
 Say in an spooky whisper:
@@ -266,7 +393,9 @@ Say in an spooky whisper:
 Something wicked this way comes"
 ```
 
-בהנחיה עם כמה דוברים, צריך לספק למודל את השם של כל דובר ואת התמליל המתאים. אפשר גם לספק הנחיות לכל דובר בנפרד:
+In un prompt con più oratori, fornisci al modello il nome di ciascun oratore e
+la trascrizione corrispondente. Puoi anche fornire indicazioni per ogni oratore
+singolarmente:
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -275,11 +404,13 @@ Speaker1: So... what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-כדי להדגיש את הסגנון או הרגש שרוצים להעביר, אפשר להשתמש ב[אפשרות קולית](#voices) שמתאימה להם. לדוגמה, בהנחיה הקודמת, יכול להיות שההגייה של *אנסלדוס* תדגיש את המילים 'עייף' ו'משועמם', בעוד שהטון העליז של  יכול להשלים את המילים 'נרגש' ו'שמח'.
+Prova a utilizzare un'[opzione vocale](#voices) che corrisponda allo stile o all'emozione che vuoi trasmettere, per enfatizzarla ancora di più. Nel prompt precedente, ad esempio,
+il tono affannoso di *Encelado* potrebbe enfatizzare "stanco" e "annoiato", mentre
+il tono allegro di *Puck* potrebbe completare "entusiasta" e "felice".
 
-## יצירת הנחיה להמרה לאודיו
+## Generare un prompt per la conversione in audio
 
-מודלים של TTS מוציאים רק אודיו, אבל אפשר להשתמש ב[מודלים אחרים](https://ai.google.dev/gemini-api/docs/models?hl=he) כדי ליצור תמליל קודם, ואז להעביר את התמליל הזה למודל ה-TTS כדי שיקרא אותו בקול.
+I modelli TTS generano solo audio, ma puoi utilizzare [altri modelli](https://ai.google.dev/gemini-api/docs/models?hl=it) per generare prima una trascrizione, quindi passare la trascrizione al modello TTS per la lettura ad alta voce.
 
 ### Python
 
@@ -289,7 +420,7 @@ from google import genai
 client = genai.Client()
 
 transcript_interaction = client.interactions.create(
-   model="gemini-3.6-flash",
+   model="gemini-3.8-flash",
    input="""Generate a short transcript around 100 words that reads
             like it was clipped from a podcast by excited herpetologists.
             The hosts names are Dr. Anya and Liam."""
@@ -319,7 +450,7 @@ const client = new GoogleGenAI({});
 async function main() {
 
 const transcriptInteraction = await client.interactions.create({
-   model: "gemini-3.6-flash",
+   model: "gemini-3.8-flash",
    input: "Generate a short transcript around 100 words that reads like it was clipped from a podcast by excited herpetologists. The hosts names are Dr. Anya and Liam.",
    })
 
@@ -339,9 +470,69 @@ const ttsInteraction = await client.interactions.create({
 await main();
 ```
 
-## יצירת דיבור בסטרימינג
+### Java
 
-אתם יכולים להזרים את האודיו שנוצר בזמן שהוא נוצר על ידי המודל על ידי הגדרת `stream: true`.
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AudioResponseFormat;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.SpeechConfig;
+import com.google.genai.gaos.models.interactions.SpeechConfigUnion;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction transcriptParams =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "Generate a short transcript around 100 words that reads "
+                    + "like it was clipped from a podcast by excited herpetologists. "
+                    + "The hosts names are Dr. Anya and Liam."))
+        .build();
+
+Interaction transcriptInteraction =
+    client
+        .interactions
+        .create(CreateInteractionRequestBody.of(transcriptParams))
+        .interaction()
+        .get();
+
+String transcript = transcriptInteraction.outputText().orElse("");
+
+SpeechConfig anyaConfig = SpeechConfig.builder().speaker("Dr. Anya").voice("Kore").build();
+SpeechConfig liamConfig = SpeechConfig.builder().speaker("Liam").voice("Puck").build();
+
+GenerationConfig generationConfig =
+    GenerationConfig.builder()
+        .speechConfig(SpeechConfigUnion.of(Arrays.asList(anyaConfig, liamConfig)))
+        .build();
+
+CreateModelInteraction ttsParams =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.1-flash-tts-preview"))
+        .input(InteractionsInput.of(transcript))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                ResponseFormat.of(AudioResponseFormat.builder().build())))
+        .generationConfig(generationConfig)
+        .build();
+
+Interaction ttsInteraction =
+    client.interactions.create(CreateInteractionRequestBody.of(ttsParams)).interaction().get();
+```
+
+## Generazione di sintesi vocale in streaming
+
+Puoi riprodurre in streaming l'audio generato durante la generazione del modello impostando `stream: true`.
 
 ### Python
 
@@ -402,6 +593,69 @@ async function main() {
 await main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AudioDelta;
+import com.google.genai.gaos.models.interactions.AudioResponseFormat;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.InteractionSSEEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.SpeechConfig;
+import com.google.genai.gaos.models.interactions.SpeechConfigUnion;
+import com.google.genai.gaos.models.interactions.StepDelta;
+import com.google.genai.gaos.models.interactions.StepDeltaData;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.CreateInteractionResponse;
+import com.google.genai.gaos.utils.EventStream;
+import java.util.Arrays;
+import java.util.Base64;
+
+Client client = new Client();
+
+SpeechConfig speechConfig = SpeechConfig.builder().voice("Kore").build();
+GenerationConfig generationConfig =
+    GenerationConfig.builder()
+        .speechConfig(SpeechConfigUnion.of(Arrays.asList(speechConfig)))
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.1-flash-tts-preview"))
+        .input(InteractionsInput.of("Say cheerfully: Have a wonderful day!"))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                ResponseFormat.of(AudioResponseFormat.builder().build())))
+        .generationConfig(generationConfig)
+        .stream(true)
+        .build();
+
+CreateInteractionResponse response =
+    client.interactions.create(CreateInteractionRequestBody.of(params));
+
+try (EventStream<InteractionSSEStreamEvent> events = response.events()) {
+  for (InteractionSSEStreamEvent streamEvent : events) {
+    InteractionSSEEvent event = streamEvent.data().orElse(null);
+    if (event instanceof StepDelta) {
+      StepDeltaData deltaData = ((StepDelta) event).delta().orElse(null);
+      if (deltaData instanceof AudioDelta) {
+        AudioDelta audioDelta = (AudioDelta) deltaData;
+        if (audioDelta.data().isPresent()) {
+          byte[] audioData = Base64.getDecoder().decode(audioDelta.data().get());
+          // Process the audio chunk (e.g. play it or write to a file)
+        }
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -420,125 +674,152 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"    
   }'
 ```
 
-## אפשרויות קול
+## Opzioni vocali
 
-מודלים של TTS תומכים ב-30 אפשרויות הקול הבאות בשדה `voice_name`:
+I modelli TTS supportano le seguenti 30 opzioni vocali nel campo `voice_name`:
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** -- *Bright* | **Puck** -- *Upbeat* | ‫**Charon** – *Informative* |
-| **Kore** -- *Firm* | ‫**Fenrir** – *מתלהב* | ‫**Leda** -- *Youthful* |
-| ‫**Orus** -- *Firm* | ‫**Aoede** – *Breezy* | ‫**Callirrhoe** – *נינוח* |
-| **Autonoe** -- *Bright* | ‫**Enceladus** -- *Breathy* | ‫**Iapetus** -- *Clear* |
-| **Umbriel** -- *Easy-going* | **Algieba** -- *Smooth* | **Despina** -- *Smooth* |
-| ‫**Erinome** -- *Clear* | ‫**Algenib** -- *מחוספס* | ‫**Rasalgethi** -- *Informative* |
-| ‫**Laomedeia** -- *שמח* | ‫**Achernar** -- *Soft* | ‫**Alnilam** – *Firm* |
-| ‫**Schedar** – *Even* | ‫**Gacrux** -- *Mature* | ‫**Pulcherrima** -- *Forward* |
-| **Achird** -- *Friendly* | ‫**Zubenelgenubi** – *שגרתי* | ‫**Vindemiatrix** – *עדין* |
-| **Sadachbia** -- *Lively* | **Sadaltager** -- *Knowledgeable* | ‫**Sulafat** -- *Warm* |
+| **Zephyr** - *Luminoso* | **Puck** - *Upbeat* | **Caronte**: *informativa* |
+| **Kore** -- *Azienda* | **Fenrir**: *eccitabile* | **Leda** - *Giovane* |
+| **Orus** -- *Azienda* | **Aoede** - *Breezy* | **Callirrhoe**: *informale* |
+| **Autonoe** -- *Luminoso* | **Enceladus** - *Soffio* | **Iapetus** -- *Cancella* |
+| **Umbriel**: *tranquillo* | **Algieba** -- *Smooth* | **Despina** -- *Smooth* |
+| **Erinome** -- *Sereno* | **Algenib** - *Gravelly* | **Rasalgethi** -- *Priorità informativa* |
+| **Laomedeia** - *Upbeat* | **Achernar** - *Soft* | **Alnilam** -- *Firm* |
+| **Schedar** -- *Even* | **Gacrux** -- *Per adulti* | **Pulcherrima** -- *Forward* |
+| **Achird**: *amichevole* | **Zubenelgenubi** - *Casual* | **Vindemiatrix** - *Gentle* |
+| **Sadachbia**: *Vivace* | **Sadaltager** - *Competente* | **Sulafat**: *calda* |
 
-אפשר לשמוע את כל אפשרויות הקול ב-[AI Studio](https://aistudio.google.com/generate-speech?hl=he).
+Puoi ascoltare tutte le opzioni vocali in [AI Studio](https://aistudio.google.com/generate-speech?hl=it).
 
-## שפות נתמכות
+## Lingue supportate
 
-מודלים של TTS מזהים את שפת הקלט באופן אוטומטי. השפות הנתמכות הן:
+I modelli di sintesi vocale rilevano automaticamente la lingua di input. Sono supportate le seguenti lingue:
 
-| שפה | קוד BCP-47 | שפה | קוד BCP-47 |
+| Lingua | Codice BCP-47 | Lingua | Codice BCP-47 |
 | --- | --- | --- | --- |
-| ערבית | ar | פיליפינית | fil |
-| בנגלית | bn | פינית | fi |
-| הולנדית | nl | גליציאנית | gl |
-| אנגלית | en | גאורגית | ka |
-| צרפתית | fr | יוונית | el |
-| גרמנית | de | גוג'ראטי | gu |
-| הינדי | hi | קריאולית האיטית | ht |
-| אינדונזית | id [מזהה] | עברית | הוא |
-| איטלקית | it | הונגרית | hu |
-| יפנית | ja | איסלנדית | is |
-| קוריאנית | ko | ג'אווה | jv |
-| מראטהית | mr | קנאדה | kn |
-| פולנית | pl | קונקאני | kok |
-| פורטוגזית | pt | לאו | lo |
-| רומנית | ro | מוזיקה לטינית | לה |
-| רוסית | ru | לטבית | lv |
-| ספרדית | es | ליטאית | lt |
-| טמילית | ta | לוקסמבורגית | lb |
-| טלוגו | te | מקדונית | mk |
-| תאית | th | מאיטילית | mai |
-| טורקית | tr | מלגשית | מ"ג |
-| אוקראינית | uk | מלאית | ms |
-| וייטנאמית | vi | מליאלאם | ml |
-| אפריקאנס | af | מונגולית | mn |
-| אלבנית | sq | נפאלית | ne |
-| אמהרית | am | נורווגית, ספרותית | nb |
-| ארמנית | hy | נורווגית, נינורסק | nn |
-| אזרית | az | אודיה | או |
-| בסקית | eu | פשטו | ps |
-| בלארוסית | be | פרסית | fa |
-| בולגרית | bg | פנג'אבי | pa |
-| בורמזית | my | סרבית | sr |
-| קטלאנית | ca | סינדהית | SD |
-| סבואנו | ceb | סינהאלה | si |
-| סינית, מנדרינית | cmn | סלובקית | sk |
-| קרואטית | שעה | סלובנית | sl |
-| צ'כית | cs | סווהילי | sw |
-| דנית | da | שוודית | sv |
-| אסטונית | et | אורדו | ur |
+| Arabo | ar | Filippino | fil |
+| Bengalese | bn | Finlandese | fi |
+| Olandese | nl | Galiziano | gl |
+| Inglese | it | Georgiano | ka |
+| Francese | fr | Greek | el |
+| Tedesco | de | Gujarati | gu |
+| Hindi | hi | Creolo haitiano | ht |
+| Indonesiano | id | Ebraico | lui |
+| Italiano | it | Ungherese | hu |
+| Giapponese | ja | Islandese | è |
+| Coreano | ko | Giavanese | jv |
+| Marathi | mr | Kannada | kn |
+| Polacco | pl | Konkani | kok |
+| Portoghese | pt | Lao | lo |
+| Rumeno | ro | Latino | la |
+| Russo | ru | Lettone | lv |
+| Spagnolo | es | Lituano | lt |
+| Tamil | ta | Lussemburghese | lb |
+| Telugu | te | Macedone | mk |
+| Thailandese | th | Maithili | mai |
+| Turco | tr | Malgascio | mg |
+| Ucraino | uk | Malese | ms |
+| Vietnamita | vi | Malayalam | ml |
+| Afrikaans | af | Mongolo | mn |
+| Albanese | sq | Nepalese | ne |
+| Amarico | am | Norvegese, bokmål | nb |
+| Armeno | hy | Norvegese, nynorsk | nn |
+| Azero | az | Odia | o |
+| Basco | eu | Pashto | ps |
+| Bielorusso | be | Persiano | fa |
+| Bulgaro | bg | Punjabi | pa |
+| Birmano | my | Serbo | sr |
+| Catalano | ca | Sindhi | sd |
+| Cebuano | ceb | Singalese | si |
+| Cinese, mandarino | cmn | Slovacco | sk |
+| Croato | h | Sloveno | sl |
+| Ceco | cs | Swahili | sw |
+| Danese | da | Svedese | sv |
+| Estone | et | Urdu | UK |
 
-## מודלים נתמכים
+## Modelli supportati
 
-| מודל | דובר יחיד | כמה רמקולים |
+| Modello | Unico relatore | Multispeaker |
 | --- | --- | --- |
-| [תצוגה מקדימה של Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=he) | ✔️ | ✔️ |
-| [גרסת טרום-השקה (Preview) של Gemini 2.5 Flash ל-TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=he) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=he) | ✔️ | ✔️ |
+| [Anteprima di Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=it) | ✔️ | ✔️ |
+| [Gemini 2.5 Flash Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=it) | ✔️ | ✔️ |
+| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=it) | ✔️ | ✔️ |
 
-## מדריך לכתיבת הנחיות
+## Guida ai prompt
 
-מודל **Gemini Native Audio Generation Text-to-Speech (TTS)** שונה ממודלים רגילים של TTS בכך שהוא מבוסס על מודל שפה גדול שיודע ***לא רק מה לומר, אלא גם איך לומר את זה***.
+Il modello **Gemini Native Audio Generation Text-to-Speech (TTS)** si differenzia
+dai modelli TTS convenzionali perché utilizza un modello linguistico di grandi dimensioni che
+sa ***non solo cosa dire, ma anche come dirlo***.
 
-אפשר לחשוב על הנחיה מתקדמת כהוראת מערכת שהמודל צריך לפעול לפיה. זו דרך לספק למודל יותר הקשר ולשלוט בביצועים שלו.
+Puoi considerare un prompt avanzato come un'istruzione di sistema che il modello deve
+seguire. È un modo per fornire al modello più contesto e controllo sulle
+prestazioni.
 
-כדי להשתמש ביכולת הזו, המשתמשים יכולים לדמיין שהם במאים שמגדירים סצנה לקריין וירטואלי. כדי ליצור הנחיה, מומלץ להשתמש ברכיבים הבאים: **פרופיל אודיו** שמגדיר את הזהות והארכיטיפ העיקריים של הדמות, **תיאור סצנה** שמגדיר את הסביבה הפיזית ואת האווירה הרגשית, ו**הערות הבמאי** שמציעות הנחיות מדויקות יותר לגבי סגנון, מבטא ושליטה בקצב.
+Per sbloccare questa funzionalità, gli utenti possono immaginarsi di essere registi che impostano una
+scena per un doppiatore virtuale. Per creare un prompt, ti consigliamo di
+considerare i seguenti componenti: un **profilo audio** che definisce
+l'identità e l'archetipo principali del personaggio, una **descrizione della scena** che
+definisce l'ambiente fisico e l'atmosfera emotiva e le **note del
+regista** che offrono indicazioni più precise sullo stile, sull'accento e sul
+controllo del ritmo.
 
-הוראות מפורטות כמו מבטא אזורי מדויק, מאפיינים פרא-לשוניים ספציפיים (למשל, נשימה) או קצב דיבור, מאפשרות למשתמשים לנצל את היכולת של המודל להבין את ההקשר כדי ליצור ביצועים דינמיים, טבעיים ומלאי הבעה של אודיו. כדי להשיג ביצועים אופטימליים, מומלץ שההנחיות ל**תסריט** ולהנחיות הבימוי יהיו תואמות, *כך שההנחיה 'מי אומר את זה'* תתאים להנחיות *'מה נאמר'* ו*'איך זה נאמר'*.
+Fornendo istruzioni dettagliate, come un accento regionale preciso, caratteristiche
+paralinguistiche specifiche (ad es. respiro) o il ritmo, gli utenti possono sfruttare la
+consapevolezza del contesto del modello per generare prestazioni audio altamente dinamiche, naturali ed espressive. Per un rendimento ottimale, consigliamo che il **copione** e
+le indicazioni di regia siano allineati, *in modo che "chi lo dice"* corrisponda a *"cosa viene
+detto"* e *"come viene detto"*.
 
-מטרת המדריך הזה היא לספק הנחיות בסיסיות ולעורר רעיונות לפיתוח חוויות אודיו באמצעות יצירת אודיו ב-Gemini TTS. אנחנו סקרנים לראות מה תיצרו!
+Lo scopo di questa guida è fornire indicazioni fondamentali e stimolare idee per lo sviluppo di esperienze audio utilizzando la generazione audio Gemini TTS. Non vediamo l'ora
+di vedere le tue creazioni.
 
-### תגי אודיו
+### Etichette per l'audio
 
-תגים הם משנים מוטבעים כמו `[whispers]` או `[laughs]` שמאפשרים לכם שליטה פרטנית בהצגת המודעות. אתם יכולים להשתמש בהם כדי לשנות את הטון, הקצב והאווירה הרגשית של שורה או קטע בתמליל. אפשר גם להשתמש בהם כדי להוסיף קריאות ביניים וכמה צלילים לא מילוליים אחרים להופעה, כמו `[cough]`, `[sighs]` או `[gasp]`.
+I tag sono modificatori incorporati come `[whispers]` o `[laughs]` che ti offrono un controllo granulare sulla pubblicazione. Puoi utilizzarli per modificare il tono, il ritmo e
+l'atmosfera emotiva di una riga o di una sezione della trascrizione. Puoi anche usarli per
+aggiungere interiezioni e altri suoni non verbali alla performance, come
+`[cough]`, `[sighs]` o `[gasp]`.
 
-אין רשימה מלאה של תגים שעובדים ושלא עובדים, ולכן מומלץ להתנסות עם רגשות והבעות שונים כדי לראות איך הפלט משתנה.
+Non esiste un elenco esaustivo dei tag che funzionano e di quelli che non funzionano. Ti consigliamo di
+sperimentare con diverse emozioni ed espressioni per vedere come cambia l'output.
 
-אם התמליל לא באנגלית, כדי לקבל את התוצאות הכי טובות מומלץ להשתמש בתגי אודיו באנגלית.
+Se la trascrizione non è in inglese, per ottenere risultati ottimali ti consigliamo di
+utilizzare comunque i tag audio in inglese.
 
-**יצירתיות עם תגי אודיו**
+**Utilizzare i tag audio in modo creativo**
 
-כדי להראות את סוגי הווריאציות שאפשר לקבל באמצעות תגי אודיו, הנה כמה דוגמאות שבהן נאמר אותו הדבר, אבל אופן ההצגה משתנה בהתאם לתגים שבהם נעשה שימוש.
+Per mostrare il tipo di variabilità che puoi ottenere con i tag audio, ecco una serie di
+esempi che dicono la stessa cosa, ma la modalità di pronuncia cambia in base ai
+tag utilizzati.
 
-כדי לשנות את הדגש של הדיבור, אפשר להוסיף תגים בתחילת השורה כדי שהדובר יביע התרגשות, שעמום או היסוס:
+Puoi modificare l'enfasi della recitazione aggiungendo tag all'inizio di una
+riga per rendere l'oratore entusiasta, annoiato o riluttante:
 
-- `[excitedly]` שלום, אני מודל חדש של המרת טקסט לדיבור, ואני יכול להגיד דברים בהרבה דרכים שונות. איך אוכל לעזור לך?
-- `[bored]` היי, אני מודל חדש של המרת טקסט לדיבור…
-- `[reluctantly]` היי, אני מודל חדש של המרת טקסט לדיבור…
+- `[excitedly]` Ciao, sono un nuovo modello di sintesi vocale e posso dire le cose
+  in molti modi diversi. Come posso aiutarti?
+- `[bored]` Ciao, sono un nuovo modello di sintesi vocale…
+- `[reluctantly]` Ciao, sono un nuovo modello di sintesi vocale…
 
-אפשר גם להשתמש בתגים כדי לשנות את קצב ההקראה, או כדי לשלב בין pace לבין emphasis:
+I tag possono essere utilizzati anche per modificare il ritmo della pronuncia o per combinare il ritmo
+con l'enfasi:
 
-- `[very fast]` היי, אני מודל חדש של המרת טקסט לדיבור…
-- `[very slow]` היי, אני מודל חדש של המרת טקסט לדיבור…
-- `[sarcastically, one painfully slow word at a time]` היי, אני מודל חדש של המרת טקסט לדיבור…
+- `[very fast]` Ciao, sono un nuovo modello di sintesi vocale…
+- `[very slow]` Ciao, sono un nuovo modello di sintesi vocale…
+- `[sarcastically, one painfully slow word at a time]` Ciao, sono un nuovo modello di sintesi vocale…
 
-יש לכם גם שליטה מדויקת בקטעים ספציפיים, כלומר אתם יכולים ללחוש חלק אחד ולצעוק חלק אחר.
+Hai anche un controllo preciso su sezioni specifiche, il che significa che puoi sussurrare
+una parte e urlarne un'altra.
 
-- `[whispers]` שלום, אני מודל חדש של המרת טקסט לדיבור, `[shouting]` ואני יכול להגיד דברים בדרכים שונות. `[whispers]` איך אוכל לעזור לך היום?
+- `[whispers]` Ciao, sono un nuovo modello di sintesi vocale, `[shouting]` e posso
+  dire le cose in molti modi diversi. `[whispers]` Come posso aiutarti oggi
 
-אתם יכולים גם להתנסות בכל רעיון יצירתי שתרצו:
+Puoi anche sperimentare qualsiasi idea creativa tu voglia:
 
-- `[like a cartoon dog]` היי, אני מודל חדש של המרת טקסט לדיבור…
-- `[like dracula]` היי, אני מודל חדש של המרת טקסט לדיבור…
+- `[like a cartoon dog]` Ciao, sono un nuovo modello di sintesi vocale…
+- `[like dracula]` Ciao, sono un nuovo modello di sintesi vocale…
 
-תגים נפוצים:
+I tag di uso comune includono:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -547,20 +828,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"    
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-תגים מאפשרים שליטה מהירה בהעברה של התמליל. כדי לקבל שליטה רבה יותר, אפשר לשלב אותם עם הנחיה להגדרת הקשר כדי להגדיר את הטון והאווירה הכלליים של הביצועים.
+I tag consentono di controllare rapidamente la pubblicazione della trascrizione. Per un controllo
+ancora maggiore, puoi combinarli con un prompt di contesto per impostare il tono
+e l'atmosfera generale della performance.
 
-### מבנה ההנחיות
+### Struttura del prompt
 
-הנחיה טובה כוללת את הרכיבים הבאים, שמשולבים יחד כדי ליצור ביצועים מצוינים:
+Un prompt efficace include idealmente i seguenti elementi che insieme
+contribuiscono a creare una performance eccezionale:
 
-- **פרופיל אודיו** – הגדרה של פרסונה לקול, הגדרה של זהות הדמות, ארכיטיפ ומאפיינים אחרים כמו גיל, רקע וכו'.
-- **סצנה** – מגדירה את הרקע. מתאר את הסביבה הפיזית ואת האווירה.
-- **הערות הבמאי** – הנחיות לשיפור הביצועים שבהן אפשר לפרט אילו הוראות חשובות לכישרון הווירטואלי שלכם. דוגמאות: סגנון, נשימה, קצב, הבעה ומבטא.
-- **הקשר לדוגמה** – מספק למודל נקודת התחלה הקשרית, כך שהשחקן הווירטואלי ייכנס לסצנה שהגדרתם באופן טבעי.
-- **תמליל** – הטקסט שהמודל יקריא. כדי לקבל את הביצועים הטובים ביותר, חשוב לזכור שהנושא של התמליל וסגנון הכתיבה צריכים להיות תואמים להוראות שאתם נותנים.
-- **תגי אודיו** – משנים שאפשר להוסיף לתמליל כדי לשנות את אופן ההקראה של חלק מסוים בטקסט, כמו `[whispers]` או `[shouting]`.
+- **Profilo audio**: stabilisce una persona per la voce, definendo un'identità, un archetipo e qualsiasi altra caratteristica come età, background e così via.
+- **Scena**: imposta lo stage. Descrive sia l'ambiente fisico sia l'"atmosfera".
+- **Note del regista**: indicazioni sul rendimento in cui puoi specificare quali istruzioni sono importanti per il tuo talento virtuale. Alcuni esempi sono
+  lo stile, la respirazione, il ritmo, l'articolazione e l'accento.
+- **Contesto di esempio**: fornisce al modello un punto di partenza contestuale, in modo che l'attore virtuale entri in scena in modo naturale.
+- **Trascrizione**: il testo che il modello pronuncerà. Per ottenere il massimo rendimento,
+  ricorda che l'argomento della trascrizione e lo stile di scrittura devono essere correlati alle
+  indicazioni che stai dando.
+- **Tag audio**: modificatori che puoi inserire in una trascrizione per cambiare il modo in cui viene riprodotta una parte del testo, ad esempio `[whispers]` o `[shouting]`.
 
-דוגמה להנחיה מלאה:
+Prompt completo di esempio:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -598,18 +885,19 @@ there pretending to work... stop it. Seriously, I see you. Turn this up!
 We've got the project roadmap landing in three, two... let's go!
 ```
 
-### שיטות מפורטות ליצירת הנחיות
+### Strategie di prompting dettagliate
 
-כדאי לפרק כל אלמנט בהנחיה באופן הבא:
+Analizza ogni elemento del prompt come segue:
 
-#### פרופיל אודיו
+#### Profilo audio
 
-תאר בקצרה את הפרסונה של הדמות.
+Descrivi brevemente la personalità del personaggio.
 
-- **שם**. כשנותנים לדמות שם, המודל מקבל יותר פרטים על הדמות ומשפר את הביצועים. כדאי להתייחס לדמות בשם כשמגדירים את הסצנה ואת ההקשר.
-- **תפקיד.** הזהות והארכיטיפ העיקריים של הדמות שמופיעה בסצנה. לדוגמה, דיג'יי ברדיו, מגיש פודקאסט, כתב חדשות וכו'.
+- **Nome.** Assegnare un nome al personaggio aiuta a dare un contesto al modello e a migliorare le prestazioni. Fai riferimento al personaggio per nome quando imposti la scena e il contesto.
+- **Ruolo.** Identità e archetipo principali del personaggio che si sta esibendo
+  nella scena. Ad es. DJ radiofonico, podcaster, giornalista, ecc.
 
-דוגמאות:
+Esempi:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -621,11 +909,15 @@ We've got the project roadmap landing in three, two... let's go!
 ## "The Beauty Influencer"
 ```
 
-#### סצינה
+#### Scena
 
-מגדירים את ההקשר של הסצנה, כולל המיקום, האווירה ופרטים סביבתיים שיוצרים את הטון והאווירה. תאר מה קורה מסביב לדמות ואיך זה משפיע עליה. הסצנה מספקת את ההקשר הסביבתי לכל האינטראקציה ומנחה את ביצועי המשחק בצורה עדינה ואורגנית.
+Imposta il contesto della scena, inclusi posizione, stato d'animo e dettagli ambientali
+che stabiliscono il tono e l'atmosfera. Descrivi cosa sta succedendo intorno al
+personaggio e come lo influenza. La scena fornisce il contesto ambientale
+per l'intera interazione e guida la recitazione in modo sottile
+e organico.
 
-דוגמאות:
+Esempi:
 
 ```
 ## THE SCENE: The London Studio
@@ -644,15 +936,19 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### הערות הבמאי
+#### Note del regista
 
-הקטע החשוב הזה כולל הנחיות ספציפיות לשיפור הביצועים. אפשר לדלג על כל הרכיבים האחרים, אבל מומלץ לכלול את הרכיב הזה.
+Questa sezione fondamentale include indicazioni specifiche sul rendimento. Puoi saltare tutti
+gli altri elementi, ma ti consigliamo di includere questo elemento.
 
-חשוב להגדיר רק את מה שחשוב לביצועים, ולהיזהר שלא להגדיר יותר מדי. יותר מדי כללים מחמירים יגבילו את היצירתיות של המודלים, ועשויים להוביל לביצועים גרועים יותר. האיזון בין תיאור התפקיד והסצנה לבין כללי הביצוע הספציפיים.
+Definisci solo ciò che è importante per il rendimento, facendo attenzione a non
+specificare eccessivamente. Troppe regole rigide limiteranno la creatività dei modelli e potrebbero
+comportare un rendimento peggiore. Bilancia la descrizione del ruolo e della scena con le
+regole specifiche per le prestazioni.
 
-ההנחיות הנפוצות ביותר הן **סגנון, קצב ומבטא**, אבל המודל לא מוגבל להנחיות האלה ולא נדרש להשתמש בהן. אתם יכולים לכלול הוראות בהתאמה אישית כדי לציין פרטים נוספים שחשובים לביצועים, ולפרט כמה שצריך.
+Le indicazioni più comuni sono **Stile, Ritmo e Accento**, ma il modello non è limitato a queste e non le richiede. Puoi includere istruzioni personalizzate per coprire eventuali dettagli aggiuntivi importanti per le tue prestazioni e fornire il livello di dettaglio necessario.
 
-לדוגמה:
+Ad esempio:
 
 ```
 ### DIRECTOR'S NOTES
@@ -665,13 +961,18 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**סגנון:**
+**Stile:**
 
-הגדרת הטון והסגנון של הדיבור שנוצר. כדאי לכלול דברים כמו קצבי, אנרגטי, רגוע, משועמם וכו' כדי להנחות את הביצוע. חשוב לכלול כמה שיותר פרטים ולשמור על רמת דיוק גבוהה: *"התלהבות מדבקת. התיאור "המאזין צריך להרגיש שהוא חלק מאירוע קהילתי עצום ומרגש"* עדיף על *"אנרגטי ונלהב".*
+Imposta il tono e lo stile del discorso generato. Includi elementi come allegro,
+energetico, rilassato, annoiato e così via per guidare la performance. Fornisci una descrizione e
+tutti i dettagli necessari: *"Entusiasmo contagioso. L'ascoltatore
+deve sentirsi parte di un evento comunitario enorme ed entusiasmante"* funziona
+meglio di *"energetico ed entusiasta".*
 
-אפשר גם לנסות מונחים פופולריים בתעשיית הקריינות, כמו "חיוך קולי". אפשר להוסיף כמה מאפייני סגנון שרוצים.
+Puoi anche provare termini popolari nel settore del voiceover, come "sorriso
+vocale". Puoi sovrapporre tutte le caratteristiche di stile che vuoi.
 
-דוגמאות:
+Esempi:
 
 Simple Emotion
 
@@ -682,7 +983,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-עומק רב יותר
+Maggiore profondità
 
 ```
 DIRECTORS NOTES
@@ -691,7 +992,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-רמה למתקדמים מאוד
+Complesso
 
 ```
 DIRECTORS NOTES
@@ -702,11 +1003,11 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**מבטא:**
+**Accento:**
 
-תאר את המבטא שנבחר. ככל שהתיאור יהיה מפורט יותר, התוצאות יהיו טובות יותר. לדוגמה, אפשר להשתמש בביטוי *מבטא בריטי כמו שמדברים בקרוידון, אנגליה* במקום *מבטא בריטי*.
+Descrivi l'accento selezionato. Più specifico è il prompt, migliori saranno i risultati. Ad esempio, utilizza "*Accento inglese britannico come si sente a Croydon, Inghilterra*" anziché "*Accento britannico*".
 
-דוגמאות:
+Esempi:
 
 ```
 ### DIRECTORS NOTES
@@ -722,13 +1023,13 @@ Accent: Jaz is a from Brixton, London
 ...
 ```
 
-**קצב:**
+**Pacing:**
 
-הקצב הכללי והשינויים בקצב לאורך היצירה.
+Ritmo generale e variazione del ritmo durante il brano.
 
-דוגמאות:
+Esempi:
 
-פשוט
+Semplice
 
 ```
 ### DIRECTORS NOTES
@@ -737,7 +1038,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-עומק רב יותר
+Più profondità
 
 ```
 ### DIRECTORS NOTES
@@ -746,7 +1047,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-רמה למתקדמים מאוד
+Complesso
 
 ```
 ### DIRECTORS NOTES
@@ -755,40 +1056,50 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-**רוצים לנסות?**
+### Facciamo una prova
 
-אתם יכולים לנסות בעצמכם כמה מהדוגמאות האלה ב[אפליקציית TTS](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=he) ולתת ל-Gemini להושיב אתכם על כיסא הבמאי. כדי ליצור ביצועים קוליים מעולים, כדאי לזכור את הטיפים הבאים:
+Puoi provare questi esempi utilizzando la [Libreria di voci](https://aistudio.google.com/apps/bundled/voice-library?showPreview=true&hl=it). Segui le
+seguenti linee guida per ottenere ottime performance vocali:
 
-- חשוב לזכור שההנחיה כולה צריכה להיות עקבית – התסריט והבימוי משלימים זה את זה כדי ליצור ביצוע מעולה.
-- לא צריך לתאר כל דבר, לפעמים כדאי לתת למודל מקום למלא את הפערים כדי שהתוצאה תהיה טבעית. (Just like a talented actor)
-- אם אתם מרגישים תקועים, אתם יכולים לבקש מ-Gemini עזרה בכתיבת התסריט או בביצוע.
+- Ricorda di mantenere la coerenza dell'intero prompt: il copione e la regia vanno
+  di pari passo per creare una performance eccezionale.
+- Non devi descrivere tutto, a volte lasciare spazio al modello
+  per colmare le lacune aiuta a rendere il testo più naturale. (proprio come un attore di talento)
+- Se ti senti in un vicolo cieco, chiedi a Gemini di aiutarti a creare
+  il tuo copione o la tua performance.
 
-## מגבלות
+## Limitazioni
 
-- מודלים של TTS יכולים לקבל רק קלט טקסט ולהפיק פלט אודיו.
-- לסשן TTS יש מגבלת [חלון הקשר](https://ai.google.dev/gemini-api/docs/long-context?hl=he) של 32,000 טוקנים.
-- בקטע [שפות](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he#languages) מפורטות השפות הנתמכות.
-- ‫TTS לא תומך בסטרימינג, אלא אם משתמשים ב-`gemini-3.1-flash-tts-preview`.
+- I modelli TTS possono ricevere solo input di testo e generare output audio.
+- Una sessione TTS ha un limite di [finestra contestuale](https://ai.google.dev/gemini-api/docs/long-context?hl=it) di 32.000 token.
+- Consulta la sezione [Lingue](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it#languages) per informazioni sulle lingue supportate.
+- La sintesi vocale non supporta lo streaming, tranne quando si utilizza `gemini-3.1-flash-tts-preview`.
 
-ההגבלות הבאות חלות באופן ספציפי כשמשתמשים במודל Gemini 3.1 Flash
-TTS Preview ליצירת דיבור:
+I seguenti vincoli si applicano in modo specifico quando si utilizza il modello di anteprima
+TTS Gemini 3.1 Flash per la generazione di voce:
 
-- **חוסר עקביות בקול בהשוואה להוראות בהנחיה:** יכול להיות שהפלט של המודל לא תמיד יתאים בדיוק לקול שנבחר, ולכן האודיו יישמע שונה מהצפוי. כדי למנוע חוסר התאמה בטונים (למשל, קול גברי עמוק שמנסה לדבר כמו ילדה צעירה), חשוב לוודא שהטון וההקשר של ההנחיה תואמים באופן טבעי לפרופיל של הדובר שנבחר.
-- **איכות של פלטים ארוכים יותר:** יכול להיות שאיכות הדיבור והעקביות יתחילו לרדת בפלטים שנוצרו ואורכם יותר מכמה דקות. מומלץ לפצל את התמלילים לחלקים קטנים יותר.
-- **החזרות מדי פעם של טוקנים של טקסט:** המודל מחזיר מדי פעם טוקנים של טקסט במקום טוקנים של אודיו, ולכן השרת לא מצליח לבצע את הבקשה ומחזיר שגיאת `500`. השגיאה הזו מתרחשת באופן אקראי באחוז קטן מאוד של הבקשות, ולכן כדאי להטמיע באפליקציה לוגיקה אוטומטית לניסיון חוזר כדי לטפל בה.
-- **דחיות שגויות של מסווג ההנחיות:** הנחיות לא ברורות עלולות לגרום לכך שמסווג סינתזת הדיבור לא יופעל, וכתוצאה מכך הבקשה תידחה (`PROHIBITED_CONTENT`) או שהמודל יקרא בקול רם את הוראות הסגנון ואת הערות הבמאי. כדי לוודא שההנחיות תקינות, מוסיפים פתיח ברור שמנחה את המודל לסנתז דיבור, ומציינים במפורש איפה מתחיל התמליל הממשי של הדיבור.
+- **Incoerenza della voce con le istruzioni del prompt:** l'output del modello potrebbe non
+  corrispondere sempre rigorosamente al relatore selezionato, facendo sì che l'audio suoni
+  in modo diverso dal previsto. Per evitare toni non corrispondenti (ad esempio una voce maschile profonda che tenta di parlare come una bambina), assicurati che il tono e il contesto del prompt siano in linea con il profilo del relatore selezionato.
+- **Qualità degli output più lunghi:** la qualità e la coerenza della voce potrebbero iniziare a
+  diminuire con gli output generati più lunghi di qualche minuto. Ti
+  consigliamo di dividere le trascrizioni in parti più piccole.
+- **Restituzione occasionale di token di testo:** il modello a volte restituisce token di testo anziché token audio, causando l'esito negativo della richiesta da parte del server con un errore `500`. Poiché questo si verifica in modo casuale in una percentuale molto ridotta di richieste, devi implementare una logica di ripetizione automatica nella tua applicazione per gestirle.
+- **Rifiuti errati del classificatore di prompt**:i prompt vaghi potrebbero non attivare il classificatore di sintesi vocale, con conseguente rifiuto della richiesta (`PROHIBITED_CONTENT`) o indurre il modello a leggere ad alta voce le istruzioni di stile e le note del regista. Convalida i prompt aggiungendo un preambolo chiaro che
+  indica al modello di sintetizzare la voce ed etichetta esplicitamente il punto in cui
+  inizia la trascrizione effettiva.
 
-## המאמרים הבאים
+## Passaggi successivi
 
-- [ממשק ה-API של Gemini Live](https://ai.google.dev/gemini-api/docs/live?hl=he) מציע אפשרויות אינטראקטיביות ליצירת אודיו שאפשר לשלב עם אמצעי תקשורת אחרים.
-- כדי לקבל מידע על עבודה עם *קלט* אודיו, אפשר לעיין במדריך [הבנת אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he).
+- L'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it) di Gemini offre opzioni di generazione audio interattive che puoi alternare ad altre modalità.
+- Per lavorare con gli *input* audio, consulta la guida [Comprensione dell'audio](https://ai.google.dev/gemini-api/docs/audio?hl=it).
 
-שליחת משוב
+Invia feedback
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-עדכון אחרון: 2026-09-12 (שעון UTC).
+Ultimo aggiornamento 2026-09-18 UTC.
 
-רוצה לתת לנו משוב?
+Vuoi dirci altro?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-18 UTC."],[],[]]

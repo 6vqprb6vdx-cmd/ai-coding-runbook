@@ -1,42 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ja
-fetched_at: 2026-09-14T05:52:14.978696+00:00
-title: "\u30a8\u30d5\u30a7\u30e1\u30e9\u30eb \u30c8\u30fc\u30af\u30f3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=vi
+fetched_at: 2026-09-21T05:59:40.281924+00:00
+title: "M\u00e3 th\u00f4ng b\u00e1o t\u1ea1m th\u1eddi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# エフェメラル トークン
+# Mã thông báo tạm thời
 
-エフェメラル トークンは、[WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) を介して Gemini API にアクセスするための有効期間の短い認証トークンです。これらは、ユーザーのデバイスから API に直接接続する場合（[クライアントからサーバーへの](https://ai.google.dev/gemini-api/docs/live?hl=ja#implementation-approach)実装）のセキュリティを強化するように設計されています。標準の API キーと同様に、エフェメラル トークンはウェブブラウザやモバイルアプリなどのクライアントサイド アプリケーションから抽出できます。ただし、一時トークンはすぐに期限切れになり、制限される可能性があるため、本番環境のセキュリティ リスクを大幅に軽減できます。クライアントサイド アプリケーションから Live API に直接アクセスして API キーのセキュリティを強化する場合は、これらを使用する必要があります。
+Mã thông báo tạm thời là mã thông báo xác thực có thời hạn ngắn để truy cập vào Gemini API thông qua [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Chúng được thiết kế để tăng cường bảo mật khi bạn kết nối trực tiếp từ thiết bị của người dùng với API (một cách triển khai [từ ứng dụng đến máy chủ](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach)). Giống như khoá API tiêu chuẩn, bạn có thể trích xuất mã thông báo tạm thời từ các ứng dụng phía máy khách, chẳng hạn như trình duyệt web hoặc ứng dụng di động. Tuy nhiên, vì mã thông báo tạm thời hết hạn nhanh chóng và có thể bị hạn chế, nên chúng giúp giảm đáng kể các rủi ro bảo mật trong môi trường thực tế. Bạn nên sử dụng các khoá này khi truy cập trực tiếp Live API từ các ứng dụng phía máy khách để tăng cường tính bảo mật của khoá API.
 
-## 一時トークンの仕組み
+## Cách hoạt động của mã thông báo tạm thời
 
-エフェメラル トークンの仕組みの概要は次のとおりです。
+Sau đây là cách hoạt động của mã thông báo tạm thời ở cấp độ tổng quát:
 
-1. クライアント（ウェブアプリなど）がバックエンドで認証されます。
-2. バックエンドが Gemini API のプロビジョニング サービスにエフェメラル トークンをリクエストします。
-3. Gemini API が有効期間の短いトークンを発行します。
-4. バックエンドは、Live API への WebSocket 接続用にトークンをクライアントに送信します。これを行うには、API キーをエフェメラル トークンに置き換えます。
-5. クライアントは、トークンを API キーとして使用します。
+1. Ứng dụng khách của bạn (ví dụ: ứng dụng web) xác thực bằng phụ trợ.
+2. Phần phụ trợ của bạn yêu cầu một mã thông báo tạm thời từ dịch vụ cung cấp của Gemini API.
+3. Gemini API phát hành một mã thông báo ngắn hạn.
+4. Phụ trợ của bạn sẽ gửi mã thông báo này đến máy khách để kết nối WebSocket với Live API. Bạn có thể thực hiện việc này bằng cách thay thế khoá API bằng một mã thông báo tạm thời.
+5. Sau đó, ứng dụng sẽ sử dụng mã thông báo này như thể đó là một khoá API.
 
-![一時トークンの概要](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=ja)
+![Tổng quan về mã thông báo tạm thời](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=vi)
 
-この方法では、クライアントサイドにデプロイされた有効期間の長い API キーとは異なり、トークンが抽出されても有効期間が短いため、セキュリティが強化されます。クライアントがデータを Gemini に直接送信するため、レイテンシが改善され、バックエンドがリアルタイム データをプロキシする必要もなくなります。
+Điều này giúp tăng cường tính bảo mật vì ngay cả khi được trích xuất, mã thông báo cũng chỉ tồn tại trong thời gian ngắn, không giống như khoá API tồn tại trong thời gian dài được triển khai phía máy khách. Vì ứng dụng gửi dữ liệu trực tiếp đến Gemini, nên điều này cũng giúp cải thiện độ trễ và tránh việc các máy chủ phụ trợ của bạn cần phải làm trung gian cho dữ liệu theo thời gian thực.
 
-## エフェメラル トークンを作成する
+## Tạo mã thông báo tạm thời
 
-Gemini からエフェメラル トークンを取得する簡単な例を次に示します。デフォルトでは、このリクエスト（`newSessionExpireTime`）のトークンを使用して新しい Live API セッションを開始するのに 1 分、その接続（`expireTime`）を介してメッセージを送信するのに 30 分が与えられます。
+Sau đây là một ví dụ đơn giản về cách lấy mã thông báo tạm thời từ Gemini.
+Theo mặc định, bạn sẽ có 1 phút để bắt đầu các phiên Live API mới bằng mã thông báo từ yêu cầu này (`newSessionExpireTime`) và 30 phút để gửi thông báo qua kết nối đó (`expireTime`).
 
 ### Python
 
@@ -90,9 +91,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-`expireTime` 値の制約、デフォルト、その他のフィールド仕様については、[API リファレンス](https://ai.google.dev/api/live?hl=ja#ephemeral-auth-tokens)をご覧ください。`expireTime` の期間内では、10 分ごとに呼び出しを再接続する必要があります（`uses: 1` の場合でも、同じトークンで実行できます）。[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=ja#session-resumption)
+Để biết các quy tắc ràng buộc, giá trị mặc định và thông số kỹ thuật khác của trường `expireTime`, hãy xem [Tài liệu tham khảo API](https://ai.google.dev/api/live?hl=vi#ephemeral-auth-tokens).
+Trong khung thời gian `expireTime`, bạn sẽ cần [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=vi#session-resumption) để kết nối lại cuộc gọi sau mỗi 10 phút (bạn có thể thực hiện việc này bằng cùng một mã thông báo ngay cả khi `uses: 1`).
 
-エフェメラル トークンを一連の構成にロックすることもできます。これは、アプリケーションのセキュリティをさらに強化し、システム指示をサーバー側に保持するのに役立ちます。
+Bạn cũng có thể khoá mã thông báo tạm thời đối với một nhóm cấu hình. Điều này có thể hữu ích để cải thiện hơn nữa tính bảo mật của ứng dụng và giữ các chỉ dẫn hệ thống ở phía máy chủ.
 
 ### Python
 
@@ -105,7 +107,7 @@ token = client.auth_tokens.create(
     config = {
     'uses': 1,
     'live_connect_constraints': {
-        'model': 'gemini-3.1-flash-live-preview',
+        'model': 'gemini-3.8-live',
         'config': {
             'session_resumption':{},
             'response_modalities':['AUDIO']
@@ -130,7 +132,7 @@ const token = await client.authTokens.create({
         uses: 1, // The default
         expireTime: expireTime,
         liveConnectConstraints: {
-            model: 'gemini-3.1-flash-live-preview',
+            model: 'gemini-3.8-live',
             config: {
                 sessionResumption: {},
                 responseModalities: ['AUDIO']
@@ -152,7 +154,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
     "uses": 1,
     "expireTime": "YYYY-MM-DDTHH:MM:SSZ",
     "liveConnectConstraints": {
-      "model": "models/gemini-3.1-flash-live-preview",
+      "model": "models/gemini-3.8-live",
       "config": {
         "sessionResumption": {},
         "responseModalities": ["AUDIO"]
@@ -161,13 +163,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-フィールドのサブセットをロックすることもできます。詳しくは、[SDK のドキュメント](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)をご覧ください。
+Bạn cũng có thể khoá một số trường. Hãy xem [tài liệu về SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields) để biết thêm thông tin.
 
-## エフェメラル トークンを使用して Live API に接続する
+## Kết nối với Live API bằng mã thông báo tạm thời
 
-一時トークンを取得したら、API キーと同じように使用します（ただし、ライブ API でのみ機能し、API の `v1beta` バージョンでのみ機能します）。
+Sau khi có mã thông báo tạm thời, bạn có thể sử dụng mã thông báo này như thể đó là một khoá API (nhưng hãy nhớ rằng mã thông báo này chỉ hoạt động với API trực tiếp và chỉ với phiên bản `v1beta` của API).
 
-エフェメラル トークンの使用は、[クライアントからサーバーへの実装](https://ai.google.dev/gemini-api/docs/live?hl=ja#implementation-approach)アプローチに従うアプリケーションをデプロイする場合にのみ価値があります。
+Việc sử dụng mã thông báo tạm thời chỉ có giá trị khi triển khai các ứng dụng tuân theo phương pháp [triển khai từ máy khách đến máy chủ](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach).
 
 ### JavaScript
 
@@ -178,7 +180,7 @@ import { GoogleGenAI, Modality } from '@google/genai';
 const ai = new GoogleGenAI({
   apiKey: token.name
 });
-const model = 'gemini-3.1-flash-live-preview';
+const model = 'gemini-3.8-live';
 const config = { responseModalities: [Modality.AUDIO] };
 
 async function main() {
@@ -197,29 +199,29 @@ async function main() {
 main();
 ```
 
-その他の例については、[Live API を使ってみる](https://ai.google.dev/gemini-api/docs/live?hl=ja)をご覧ください。
+Hãy xem bài viết [Làm quen với Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) để biết thêm ví dụ.
 
-## ベスト プラクティス
+## Các phương pháp hay nhất
 
-- `expire_time` パラメータを使用して、有効期限の短い期間を設定します。
-- トークンの有効期限が切れるため、プロビジョニング プロセスを再開する必要があります。
-- 独自のバックエンドの安全な認証を検証します。エフェメラル トークンのセキュリティは、バックエンドの認証方法のセキュリティに依存します。
-- 通常、このパスは安全と見なされるため、バックエンドから Gemini への接続にエフェメラル トークンを使用することは避けてください。
+- Đặt thời hạn ngắn bằng cách sử dụng tham số `expire_time`.
+- Mã thông báo hết hạn, yêu cầu khởi động lại quy trình cấp phép.
+- Xác minh quy trình xác thực an toàn cho phụ trợ của riêng bạn. Mã thông báo tạm thời sẽ chỉ an toàn như phương thức xác thực phụ trợ của bạn.
+- Nhìn chung, hãy tránh sử dụng mã thông báo tạm thời cho các kết nối từ phụ trợ đến Gemini, vì đường dẫn này thường được coi là an toàn.
 
-## 制限事項
+## Các điểm hạn chế
 
-現時点では、エフェメラル トークンは [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) とのみ互換性があります。
+Hiện tại, mã thông báo tạm thời chỉ tương thích với [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
 
-## 次のステップ
+## Bước tiếp theo
 
-- 詳しくは、Live API のエフェメラル トークンに関する[リファレンス](https://ai.google.dev/api/live?hl=ja#ephemeral-auth-tokens)をご覧ください。
+- Hãy đọc phần [tài liệu tham khảo](https://ai.google.dev/api/live?hl=vi#ephemeral-auth-tokens) về Live API đối với mã thông báo tạm thời để biết thêm thông tin.
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-07-30 UTC。
+Cập nhật lần gần đây nhất: 2026-09-17 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-30 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-17 UTC."],[],[]]

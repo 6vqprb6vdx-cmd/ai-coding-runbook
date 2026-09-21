@@ -1,34 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id
-fetched_at: 2026-09-14T05:51:27.259119+00:00
-title: "Grounding dengan Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he
+fetched_at: 2026-09-21T05:47:59.807749+00:00
+title: "\u05e2\u05d9\u05d2\u05d5\u05df \u05d1\u05e2\u05d6\u05e8\u05ea \u05de\u05e4\u05d5\u05ea Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Grounding dengan Google Maps
+# עיגון בעזרת מפות Google
 
-Grounding with Google Maps menghubungkan kemampuan generatif Gemini dengan data Google Maps yang kaya, faktual, dan terbaru. Fitur ini memungkinkan
-developer dengan mudah menyertakan fungsi yang mendukung lokasi ke dalam
-aplikasi mereka. Saat kueri pengguna memiliki konteks yang terkait dengan data Maps, model Gemini akan memanfaatkan Google Maps untuk memberikan jawaban yang akurat secara faktual dan terbaru yang relevan dengan lokasi atau area umum yang ditentukan pengguna.
+העיגון באמצעות מפות Google מחבר את היכולות הגנרטיביות של Gemini לנתונים העשירים, העובדתיים והעדכניים של מפות Google. התכונה הזו מאפשרת למפתחים לשלב בקלות באפליקציות שלהם פונקציונליות שמבוססת על מיקום. כששאילתת משתמש מכילה הקשר שקשור לנתוני מפות, מודל Gemini משתמש במפות Google כדי לספק תשובות מדויקות מבחינה עובדתית ועדכניות שרלוונטיות למיקום הספציפי או לאזור הכללי שהמשתמש ציין.
 
-- **Respons yang akurat dan mengetahui lokasi:** Manfaatkan data Google Maps yang ekstensif dan terbaru untuk kueri yang spesifik secara geografis.
-- **Personalisasi yang ditingkatkan:** Menyesuaikan rekomendasi dan informasi berdasarkan lokasi yang disediakan pengguna.
+- **תשובות מדויקות שמודעות למיקום:** שימוש בנתונים המקיפים והעדכניים של מפות Google לשאילתות ספציפיות מבחינה גיאוגרפית.
+- **התאמה אישית משופרת:** התאמת ההמלצות והמידע על סמך המיקומים שהמשתמשים סיפקו.
 
-## Mulai
+## שנתחיל?
 
-Contoh ini menunjukkan cara mengintegrasikan Perujukan dengan Google Maps ke dalam aplikasi Anda untuk memberikan respons yang akurat dan sesuai lokasi terhadap kueri pengguna. Perintah
-meminta rekomendasi lokal dengan lokasi pengguna opsional, sehingga model Gemini dapat menggunakan data Google Maps.
+בדוגמה הזו אפשר לראות איך לשלב את התכונה עיגון בעזרת מפות Google באפליקציה כדי לספק תשובות מדויקות לשאילתות של משתמשים, בהתאם למיקום שלהם. ההנחיה מבקשת המלצות מקומיות עם מיקום משתמש אופציונלי, ומאפשרת למודל Gemini להשתמש בנתונים של מפות Google.
 
 ### Python
 
@@ -39,7 +36,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="What are the best Italian restaurants within a 15-minute walk from here?",
     tools=[{
         "type": "google_maps",
@@ -71,7 +68,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "What are the best Italian restaurants within a 15-minute walk from here?",
     tools: [{
       type: "google_maps",
@@ -103,6 +100,69 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Annotation;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GoogleMaps;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.PlaceCitation;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "What are the best Italian restaurants within a 15-minute walk from here?"))
+        .tools(
+            Arrays.asList(
+                GoogleMaps.builder().latitude(34.050481).longitude(-118.248526).build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+// Print the model's text response and annotations
+if (interaction.steps().isPresent()) {
+  for (Step step : interaction.steps().get()) {
+    if (step instanceof ModelOutputStep) {
+      ModelOutputStep outputStep = (ModelOutputStep) step;
+      if (outputStep.content().isPresent()) {
+        for (Content contentBlock : outputStep.content().get()) {
+          if (contentBlock instanceof TextContent) {
+            TextContent textContent = (TextContent) contentBlock;
+            System.out.println(textContent.text().orElse(""));
+            if (textContent.annotations().isPresent()
+                && !textContent.annotations().get().isEmpty()) {
+              System.out.println("\nSources:");
+              for (Annotation annotation : textContent.annotations().get()) {
+                if (annotation instanceof PlaceCitation) {
+                  PlaceCitation citation = (PlaceCitation) annotation;
+                  System.out.printf(
+                      "  - %s: %s%n", citation.name().orElse(""), citation.url().orElse(""));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -111,7 +171,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "What are the best Italian restaurants within a 15-minute walk from here?",
     "tools": [{
       "type": "google_maps",
@@ -121,40 +181,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cara kerja fitur Grounding dengan Google Maps
+## איך עיגון בעזרת מפות Google פועל
 
-Grounding with Google Maps mengintegrasikan Gemini API dengan ekosistem Geo Google menggunakan Maps API sebagai sumber perujukan. Jika kueri pengguna berisi konteks geografis, model Gemini dapat memanggil alat Perujukan dengan Google Maps. Kemudian, model dapat menghasilkan respons yang didasarkan pada data Google Maps yang relevan dengan lokasi yang diberikan.
+עיגון בעזרת מפות Google משלב את Gemini API עם המערכת האקולוגית של Google Geo באמצעות Maps API כמקור לעיגון. כששאילתה של משתמש מכילה הקשר גיאוגרפי, מודל Gemini יכול להפעיל את הכלי Grounding עם מפות Google. לאחר מכן המודל יכול ליצור תשובות שמבוססות על נתונים ממפות Google שרלוונטיים למיקום שצוין.
 
-Proses ini biasanya melibatkan:
+בדרך כלל התהליך כולל:
 
-1. **Kueri pengguna:** Pengguna mengirimkan kueri ke aplikasi Anda, yang berpotensi
-   mencakup konteks geografis (misalnya, "kafe di dekat saya", "museum di
-   San Francisco").
-2. **Pemanggilan alat:** Model Gemini, yang mengenali maksud geografis, memanggil alat Grounding with Google Maps. Alat ini dapat secara opsional diberikan bersama dengan `latitude` dan `longitude` pengguna. Alat ini adalah alat penelusuran berbasis teks dan berperilaku serupa dengan penelusuran di Maps, yaitu kueri lokal ("di sekitar sini") akan menggunakan koordinat, sedangkan kueri spesifik atau non-lokal cenderung tidak dipengaruhi oleh lokasi eksplisit.
-3. **Pengambilan data:** Layanan Perujukan dengan Google Maps mengkueri Google Maps untuk mendapatkan informasi yang relevan (misalnya, tempat, ulasan, foto, alamat, jam buka).
-4. **Generasi dengan rujukan:** Data Maps yang diambil digunakan untuk menginformasikan respons model Gemini, sehingga memastikan akurasi dan relevansi faktual.
-5. **Respons & anotasi:** Model menampilkan respons teks dengan anotasi inline yang ditautkan ke sumber Google Maps, sehingga developer dapat menampilkan kutipan.
+1. **שאילתת משתמש:** משתמש שולח שאילתה לאפליקציה שלכם, שיכולה לכלול הקשר גיאוגרפי (לדוגמה, "בתי קפה בקרבתי", "מוזיאונים בסן פרנסיסקו").
+2. **הפעלת כלי:** מודל Gemini, שמזהה את הכוונה הגיאוגרפית, מפעיל את כלי ה-עיגון בעזרת מפות Google. אפשר לספק לכלי הזה את `latitude` ו`longitude` של המשתמש. הכלי הוא כלי לחיפוש טקסטואלי, והוא פועל באופן דומה לחיפוש במפות Google. כלומר, בשאילתות מקומיות (למשל, 'בסביבה שלי') נעשה שימוש בקואורדינטות, בעוד שבשאילתות ספציפיות או לא מקומיות, לא סביר שהמיקום המפורש ישפיע על התוצאות.
+3. **אחזור נתונים:** שירות ה-עיגון בעזרת מפות Google שולח שאילתות למפות Google כדי לקבל מידע רלוונטי (לדוגמה, מקומות, ביקורות, תמונות, כתובות, שעות פתיחה).
+4. **יצירה מבוססת-קרקע:** נתוני המפות שאוחזרו משמשים כדי לספק מידע לתשובה של מודל Gemini, וכך לוודא שהיא מדויקת ועניינית.
+5. **תשובה והערות:** המודל מחזיר תשובה טקסטואלית עם הערות מוטבעות שמקשרות למקורות במפות Google, כדי לאפשר למפתחים להציג ציטוטים.
 
-## Alasan dan waktu penggunaan Grounding dengan Google Maps
+## למה ומתי כדאי להשתמש בעיגון בעזרת מפות Google
 
-Penyesuaian dengan Google Maps sangat ideal untuk aplikasi yang memerlukan informasi yang akurat, terbaru, dan spesifik per lokasi. Aplikasi ini meningkatkan pengalaman pengguna dengan menyediakan konten yang relevan dan dipersonalisasi yang didukung oleh database ekstensif Google Maps yang berisi lebih dari 250 juta tempat di seluruh dunia.
+עיגון בעזרת מפות Google מתאים במיוחד לאפליקציות שנדרש בהן מידע מדויק, עדכני וספציפי למיקום. הוא משפר את חוויית המשתמש באמצעות תוכן רלוונטי ומותאם אישית שמבוסס על מסד הנתונים הנרחב של מפות Google, שכולל יותר מ-250 מיליון מקומות ברחבי העולם.
 
-Anda harus menggunakan Grounding dengan Google Maps saat aplikasi Anda perlu:
+כדאי להשתמש בעיגון בעזרת מפות Google כשהאפליקציה צריכה:
 
-- Memberikan respons yang lengkap dan akurat terhadap pertanyaan khusus geografis.
-- Buat perencana perjalanan percakapan dan panduan lokal.
-- Merekomendasikan lokasi menarik berdasarkan lokasi dan preferensi pengguna seperti restoran atau toko.
-- Buat pengalaman yang mengetahui lokasi untuk layanan pengiriman makanan, retail, atau media sosial.
+- חשוב לענות על השאלות בצורה מקיפה ומדויקת.
+- פיתוח כלים לשיחות עם תיירים ולמתן מידע מקומי.
+- המלצה על נקודות עניין על סמך מיקום והעדפות משתמש, כמו מסעדות או חנויות.
+- ליצור חוויות מבוססות-מיקום לשירותים חברתיים, קמעונאיים או למשלוחי אוכל.
 
-Perujukan dengan Google Maps unggul dalam kasus penggunaan yang memerlukan data faktual saat ini dan kedekatan, seperti menemukan "kedai kopi terbaik di dekat saya" atau mendapatkan rute.
+עיגון בעזרת מפות Google מצטיין בתרחישי שימוש שבהם נתונים עובדתיים עדכניים וקירבה הם קריטיים, כמו חיפוש של "בית הקפה הכי טוב בסביבה שלי" או קבלת הוראות הגעה.
 
-## Kasus penggunaan
+## תרחישים לדוגמה
 
-Perujukan dengan Google Maps mendukung berbagai kasus penggunaan yang sadar lokasi.
+עיגון בעזרת מפות Google תומך במגוון תרחישי שימוש שמתבססים על מיקום.
 
-### Menangani pertanyaan khusus tempat
+### איך עונים על שאלות ספציפיות לגבי מקומות
 
-Ajukan pertanyaan mendetail tentang tempat tertentu untuk mendapatkan jawaban berdasarkan ulasan pengguna Google dan data Maps lainnya.
+אתם יכולים לשאול שאלות מפורטות על מקום ספציפי ולקבל תשובות שמבוססות על ביקורות של משתמשים ב-Google ועל נתונים אחרים במפות Google.
 
 ### Python
 
@@ -165,7 +223,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Is there a cafe near the corner of 1st and Main that has outdoor seating?",
     tools=[{
         "type": "google_maps",
@@ -196,7 +254,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Is there a cafe near the corner of 1st and Main that has outdoor seating?",
     tools: [{
       type: "google_maps",
@@ -227,9 +285,71 @@ async function main() {
 main();
 ```
 
-### Menyediakan personalisasi berbasis lokasi
+### Java
 
-Mendapatkan rekomendasi yang disesuaikan dengan preferensi pengguna dan area geografis tertentu.
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Annotation;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GoogleMaps;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.PlaceCitation;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "Is there a cafe near the corner of 1st and Main that has outdoor seating?"))
+        .tools(
+            Arrays.asList(
+                GoogleMaps.builder().latitude(34.050481).longitude(-118.248526).build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.steps().isPresent()) {
+  for (Step step : interaction.steps().get()) {
+    if (step instanceof ModelOutputStep) {
+      ModelOutputStep outputStep = (ModelOutputStep) step;
+      if (outputStep.content().isPresent()) {
+        for (Content contentBlock : outputStep.content().get()) {
+          if (contentBlock instanceof TextContent) {
+            TextContent textContent = (TextContent) contentBlock;
+            System.out.println(textContent.text().orElse(""));
+            if (textContent.annotations().isPresent()
+                && !textContent.annotations().get().isEmpty()) {
+              System.out.println("\nSources:");
+              for (Annotation annotation : textContent.annotations().get()) {
+                if (annotation instanceof PlaceCitation) {
+                  PlaceCitation citation = (PlaceCitation) annotation;
+                  System.out.printf(
+                      "  - %s: %s%n", citation.name().orElse(""), citation.url().orElse(""));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### התאמה אישית לפי מיקום
+
+לקבל המלצות שמותאמות להעדפות של משתמש ולאזור גיאוגרפי ספציפי.
 
 ### Python
 
@@ -240,7 +360,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Which family-friendly restaurants near here have the best playground reviews?",
     tools=[{
         "type": "google_maps",
@@ -271,7 +391,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Which family-friendly restaurants near here have the best playground reviews?",
     tools: [{
       type: "google_maps",
@@ -302,9 +422,70 @@ async function main() {
 main();
 ```
 
-### Membantu perencanaan itinerari
+### Java
 
-Buat rencana perjalanan multi-hari dengan petunjuk arah dan informasi tentang berbagai lokasi, cocok untuk aplikasi perjalanan.
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Annotation;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GoogleMaps;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.PlaceCitation;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "Which family-friendly restaurants near here have the best playground reviews?"))
+        .tools(
+            Arrays.asList(GoogleMaps.builder().latitude(30.2672).longitude(-97.7431).build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.steps().isPresent()) {
+  for (Step step : interaction.steps().get()) {
+    if (step instanceof ModelOutputStep) {
+      ModelOutputStep outputStep = (ModelOutputStep) step;
+      if (outputStep.content().isPresent()) {
+        for (Content contentBlock : outputStep.content().get()) {
+          if (contentBlock instanceof TextContent) {
+            TextContent textContent = (TextContent) contentBlock;
+            System.out.println(textContent.text().orElse(""));
+            if (textContent.annotations().isPresent()
+                && !textContent.annotations().get().isEmpty()) {
+              System.out.println("\nSources:");
+              for (Annotation annotation : textContent.annotations().get()) {
+                if (annotation instanceof PlaceCitation) {
+                  PlaceCitation citation = (PlaceCitation) annotation;
+                  System.out.printf(
+                      "  - %s: %s%n", citation.name().orElse(""), citation.url().orElse(""));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### עזרה בתכנון מסלול
+
+יצירת תוכניות לכמה ימים עם הוראות הגעה ומידע על מיקומים שונים, מושלם לאפליקציות נסיעות.
 
 ### Python
 
@@ -317,7 +498,7 @@ client = genai.Client()
 prompt = "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner."
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     tools=[{
         "type": "google_maps",
@@ -338,7 +519,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner.",
     tools: [{
       type: "google_maps",
@@ -351,6 +532,38 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GoogleMaps;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+String prompt =
+    "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner.";
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of(prompt))
+        .tools(
+            Arrays.asList(GoogleMaps.builder().latitude(37.78193).longitude(-122.40476).build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+// ... code to process response
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -359,7 +572,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Plan a day in San Francisco for me. I want to see the Golden Gate Bridge, visit a museum, and have a nice dinner.",
     "tools": [{
       "type": "google_maps",
@@ -369,102 +582,101 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Persyaratan penggunaan layanan
+## דרישות לשימוש בשירות
 
-Bagian ini menjelaskan persyaratan penggunaan layanan untuk Perujukan dengan Google Maps.
+בקטע הזה מתוארות דרישות השימוש בשירות Grounding with Google Maps.
 
-### Memberi tahu pengguna tentang penggunaan sumber Google Maps
+### לעדכן את המשתמש לגבי השימוש במקורות של מפות Google
 
-Dengan setiap hasil yang Sesuai dengan Kondisi di Google Maps, Anda akan menerima anotasi sumber pada blok konten langkah `model_output` yang mendukung setiap respons. Metadata berikut akan ditampilkan:
+לכל תוצאה של מפות Google שמוצגת לכם, תקבלו הערות לגבי המקורות של בלוקי התוכן של שלב `model_output` שתומכים בכל תשובה. המטא-נתונים הבאים מוחזרים:
 
-- URL sumber
-- nama
+- כתובת URL של המקור
+- שם
 
-Saat menyajikan hasil dari Grounding with Google Maps, Anda harus menentukan sumber Google Maps terkait, dan memberi tahu pengguna Anda tentang hal berikut:
+כשמציגים תוצאות של עיגון בעזרת מפות Google, צריך לציין את המקורות המשויכים במפות Google ולעדכן את המשתמשים לגבי הדברים הבאים:
 
-- Sumber Google Maps harus segera mengikuti konten yang dihasilkan yang didukung oleh sumber tersebut. Konten yang dihasilkan ini juga disebut sebagai Hasil yang Di-grounding Google Maps.
-- Sumber Google Maps harus dapat dilihat dalam satu interaksi pengguna.
+- המקורות של מפות Google צריכים להופיע מיד אחרי התוכן שנוצר ושנתמך על ידי המקורות. התוכן שנוצר נקרא גם תוצאה מבוססת-קרקע ב-Google Maps.
+- מקורות המידע במפות Google צריכים להיות גלויים באינטראקציה אחת של המשתמש.
 
-### Menampilkan sumber Google Maps dengan link Google Maps
+### הצגת מקורות של מפות Google עם קישורים למפות Google
 
-Untuk setiap anotasi sumber, pratinjau link harus dibuat dengan mengikuti persyaratan berikut:
+לכל הערה על מקור, צריך ליצור תצוגה מקדימה של קישור בהתאם לדרישות הבאות:
 
-- Berikan atribusi setiap sumber ke Google Maps dengan mengikuti [pedoman atribusi](#maps-attribution-guidelines) teks Google Maps.
-- Menampilkan nama sumber yang diberikan dalam respons.
-- Tautkan ke sumber menggunakan `url` dari anotasi.
+- צריך לשייך כל מקור למפות Google בהתאם [להנחיות לשיוך](#maps-attribution-guidelines) של מפות Google.
+- הצגת שם המקור שמופיע בתשובה.
+- מקשרים למקור באמצעות `url` מההערה.
 
-### Panduan atribusi teks Google Maps
+### הנחיות לציון מקורות במפות Google
 
-Saat Anda mengatribusikan sumber ke Google Maps dalam teks, ikuti panduan berikut:
+כשמציינים במקורות טקסט שמשויכים למפות Google, צריך לפעול לפי ההנחיות הבאות:
 
-- Jangan mengubah teks Google Maps dengan cara apa pun:
-  - Jangan mengubah kapitalisasi Google Maps.
-  - Jangan pindahkan Google Maps ke beberapa baris.
-  - Jangan melokalkan Google Maps ke bahasa lain.
-  - Mencegah browser menerjemahkan Google Maps dengan menggunakan atribut HTML
-    translate="no".
+- אל תשנו את הטקסט 'מפות Google' בשום צורה:
+  - אל תשנו את האותיות הרישיות של מפות Google.
+  - אל תפצלו את כתובת מפות Google לכמה שורות.
+  - אל תתאימו את מפות Google לשפה אחרת.
+  - כדי למנוע מדפדפנים לתרגם את מפות Google, משתמשים בתכונת ה-HTML‏ translate="no".
 
-Untuk mengetahui informasi selengkapnya tentang beberapa penyedia data Google Maps kami dan persyaratan lisensi mereka, lihat [pemberitahuan hukum Google Maps dan Google Earth](https://www.google.com/help/legalnotices_maps/?hl=id).
+מידע נוסף על חלק מספקי הנתונים של מפות Google ועל תנאי הרישיון שלהם מופיע [בהודעות המשפטיות של מפות Google ו-Google Earth](https://www.google.com/help/legalnotices_maps/?hl=he).
 
-## Praktik terbaik
+## שיטות מומלצות
 
-- **Berikan lokasi pengguna:** Untuk respons yang paling relevan dan dipersonalisasi, selalu sertakan `latitude` dan `longitude` dalam konfigurasi alat `google_maps` Anda saat lokasi pengguna diketahui.
-- **Memberi Tahu Pengguna Akhir:** Beri tahu pengguna akhir Anda dengan jelas bahwa data Google Maps digunakan untuk menjawab kueri mereka, terutama saat alat ini diaktifkan.
-- **Nonaktifkan Jika Tidak Diperlukan:** Penentuan lokasi dengan Google Maps dinonaktifkan secara default. Aktifkan hanya (`"tools": [{"type": "google_maps"}]`) saat kueri memiliki
-  konteks geografis yang jelas, untuk mengoptimalkan performa dan biaya.
+- **ציון מיקום המשתמש:** כדי לקבל תשובות רלוונטיות ומותאמות אישית,
+  תמיד צריך לכלול את `latitude` ו`longitude` בהגדרת הכלי `google_maps` כשמיקום המשתמש ידוע.
+- **ליידע את משתמשי הקצה:** חשוב ליידע את משתמשי הקצה בצורה ברורה שהנתונים של מפות Google משמשים למענה על השאילתות שלהם, במיוחד כשהכלי מופעל.
+- **השבתה כשלא צריך:** עיגון בעזרת מפות Google מושבת כברירת מחדל. כדי לשפר את הביצועים ולצמצם את העלויות, מפעילים את האפשרות הזו (`"tools": [{"type": "google_maps"}]`) רק כששאילתה כוללת הקשר גיאוגרפי ברור.
 
-## Batasan
+## מגבלות
 
-- Perujukan dengan Google Maps saat ini hanya mendukung perintah dan respons dalam bahasa Inggris.
-- Alat ini mungkin hanya tersedia di wilayah tertentu.
-- Hasil dapat bervariasi berdasarkan akurasi lokasi dan data Maps yang tersedia.
-- **Cakupan Geografis:** Fitur Grounding dengan Google Maps tersedia secara global.
-- **Status Default:** Alat Perujukan dengan Google Maps dinonaktifkan secara default.
-  Anda harus mengaktifkannya secara eksplisit dalam permintaan API.
+- בשלב הזה, עיגון בעזרת מפות Google תומך רק בהנחיות ובתשובות באנגלית.
+- יכול להיות שהכלי לא יהיה זמין בכל האזורים.
+- התוצאות עשויות להשתנות בהתאם לדיוק המיקום ולנתונים הזמינים במפות Google.
+- **היקף גיאוגרפי:** עיגון בעזרת מפות Google זמין בכל העולם.
+- **מצב ברירת מחדל:** הכלי 'עיגון בעזרת מפות Google' מושבת כברירת מחדל.
+  צריך להפעיל אותו באופן מפורש בבקשות ל-API.
 
-## Harga dan batas kapasitas
+## תמחור והגבלות על קצב יצירת הבקשות
 
-Harga Grounding with Google Maps berbeda-beda bergantung pada generasi model:
+התמחור של עיגון בעזרת מפות Google משתנה בהתאם לדור המודל:
 
-- **Model Gemini 3:** Project Anda ditagih untuk setiap **kueri penelusuran** yang
-  diputuskan untuk dieksekusi oleh model. Satu **perintah penelusuran** (permintaan API Anda ke model) dapat menyebabkan model menjalankan beberapa kueri penelusuran untuk menemukan informasi yang diperlukan. Setiap kueri ini dihitung sebagai penggunaan alat yang dapat ditagih.
-- **Gemini 2.5 dan model yang lebih lama:** Project Anda ditagih per **perintah penelusuran**.
-  Permintaan hanya ditagih jika perintah berhasil menampilkan setidaknya satu hasil berbasis Google Maps, terlepas dari jumlah kueri penelusuran individual yang dilakukan model secara internal untuk mendapatkan hasil tersebut.
+- **מודלים של Gemini 3:** הפרויקט שלכם יחויב על כל **שאילתת חיפוש** שהמודל יחליט לבצע. **הנחיית חיפוש** אחת (בקשת ה-API שלכם למודל) עשויה לגרום למודל להריץ כמה שאילתות חיפוש כדי למצוא את המידע הדרוש. כל אחת מהשאילתות האלה נחשבת לשימוש מחויב בכלי.
+- ‫**Gemini 2.5 ומודלים ישנים יותר:** החיוב על הפרויקט מתבצע לפי **הנחיה לחיפוש**.
+  חיוב על בקשה מתבצע רק אם ההנחיה מחזירה לפחות תוצאה אחת מבוססת-מיקום במפות Google, ללא קשר למספר שאילתות החיפוש שהמודל ביצע באופן פנימי כדי לקבל את התוצאה הזו.
 
-Untuk mengetahui informasi harga mendetail, lihat [halaman harga Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+מידע מפורט על התמחור זמין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## Model yang didukung
+## מודלים נתמכים
 
-Model berikut mendukung Perujukan dengan Google Maps:
+המודלים הבאים תומכים בעיגון בעזרת מפות Google:
 
-| Model | Grounding with Google Maps |
+| מודל | עיגון בעזרת מפות Google |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=id) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) | ✔️ |
-| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=id) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=id) | ✔️ |
-| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=id) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=id) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=id) | ✔️ |
+| ‫[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=he) | ✔️ |
+| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
+| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
 
-## Kombinasi alat yang didukung
+## שילובים נתמכים של כלים
 
-Model Gemini 3 mendukung penggabungan alat bawaan (seperti Grounding dengan Google Maps) dengan alat kustom (panggilan fungsi). Pelajari lebih lanjut di halaman
-[kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
+אתם יכולים להשתמש ב-עיגון בעזרת מפות Google עם כלים מובנים אחרים כמו [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) (נתמך ב-Gemini 3.5 Flash ובמודלים מתקדמים יותר) כדי להפעיל תרחישי שימוש מורכבים יותר. מודלים של Gemini 3 תומכים גם בשילוב של הכלים המובנים האלה עם כלים מותאמים אישית (קריאה לפונקציות). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
 
-## Langkah berikutnya
+## המאמרים הבאים
 
-- Pelajari [alat lain yang tersedia](https://ai.google.dev/gemini-api/docs/tools?hl=id).
-- Untuk mempelajari lebih lanjut praktik terbaik AI yang bertanggung jawab dan filter keamanan Gemini API, lihat [panduan Setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id).
+- [מידע על כלים נוספים](https://ai.google.dev/gemini-api/docs/tools?hl=he)
+- כדי לקבל מידע נוסף על שיטות מומלצות לאתיקה של בינה מלאכותית ועל מסנני הבטיחות של Gemini API, אפשר לעיין [במדריך להגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he).
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-09-12 UTC.
+עדכון אחרון: 2026-09-18 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-18 (שעון UTC)."],[],[]]

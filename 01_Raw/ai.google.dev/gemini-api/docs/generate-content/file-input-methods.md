@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-input-methods?hl=de
-fetched_at: 2026-09-14T05:36:50.734089+00:00
+fetched_at: 2026-09-21T05:49:25.722731+00:00
 title: "Methoden zur Dateieingabe \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

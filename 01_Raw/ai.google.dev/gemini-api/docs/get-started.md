@@ -1,66 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=de
-fetched_at: 2026-09-14T05:36:10.177246+00:00
-title: "Erste Schritte \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=es-419
+fetched_at: 2026-09-21T05:43:23.135698+00:00
+title: "C\u00f3mo empezar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Feedback geben
+Enviar comentarios
 
-# Erste Schritte
+# Cómo empezar
 
-In diesem Leitfaden erfahren Sie, wie Sie mit der Gemini API und der [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) beginnen. Sie führen Ihren ersten API-Aufruf in weniger als einer Minute aus und lernen die Textgenerierung, das multimodale Verständnis, die Bildgenerierung, die strukturierte Ausgabe, Tools, Funktionsaufrufe, Agents und die Hintergrundausführung kennen.
+En esta guía, se explica cómo comenzar a usar la API de Gemini con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419). Realizarás tu primera llamada a la API en menos de un minuto y explorarás la generación de texto, la comprensión multimodal, la generación de imágenes, el resultado estructurado, las herramientas, las llamadas a funciones, los agentes y la ejecución en segundo plano.
 
-Die Interactions API ist über die [Python](https://github.com/googleapis/python-genai)- und [JavaScript](https://github.com/googleapis/js-genai)-SDKs sowie über REST verfügbar.
+La API de Interactions está disponible a través de los SDKs de [Python](https://github.com/googleapis/python-genai) y [JavaScript](https://github.com/googleapis/js-genai), así como a través de REST.
 
-## 1. API-Schlüssel anfordern
+## 1. Obtén una clave de API
 
-Wenn Sie die Gemini API verwenden möchten, benötigen Sie einen API-Schlüssel, um Ihre Anfragen zu authentifizieren, Sicherheitslimits durchzusetzen und die Nutzung Ihres Kontos zu verfolgen.
+Para usar la API de Gemini, debes tener una clave de API para autenticar tus solicitudes, aplicar límites de seguridad y hacer un seguimiento del uso de tu cuenta.
 
-- In Google AI Studio werden für neue Nutzer automatisch ein Projekt und ein API-Schlüssel erstellt.
-  Sie können ihn auf der Seite [API-Schlüssel](https://aistudio.google.com/api-keys?hl=de) kopieren.
-- Wenn Sie einen neuen Schlüssel benötigen, klicken Sie in AI Studio auf **API-Schlüssel erstellen** und folgen Sie dem Dialogfeld, um ein neues Schlüssel-Projekt-Paar hinzuzufügen.
+- Google AI Studio crea automáticamente un proyecto y una clave de API para los usuarios nuevos.
+  Puedes copiarla desde la [página Claves de API](https://aistudio.google.com/api-keys?hl=es-419).
+- Si necesitas una clave nueva, haz clic en **Create API key** en AI Studio y sigue el diálogo para agregar un nuevo par proyecto-clave.
 
-[Gemini API-Schlüssel erstellen](https://aistudio.google.com/apikey?hl=de)
+[Crea una clave de la API de Gemini](https://aistudio.google.com/apikey?hl=es-419)
 
-Legen Sie Ihren Schlüssel als Umgebungsvariable fest:
+Configura tu clave como una variable de entorno:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### Upgrade auf die kostenpflichtige Stufe durchführen
+### Actualiza al nivel pagado
 
-Wenn Sie auf die kostenpflichtige Stufe upgraden, erhöhen sich Ihre Ratenbegrenzungen. Außerdem müssen Sie Cloud Billing einrichten.
+Si actualizas a la versión pagada, aumentarán tus límites de frecuencia y deberás configurar la Facturación de Cloud.
 
-- Klicken Sie auf den Seiten [API-Schlüssel](https://aistudio.google.com/api-keys?hl=de) oder [Projekte](https://aistudio.google.com/projects?hl=de) von AI Studio auf **Abrechnung einrichten**.
-- Folgen Sie dem Cloud-Abrechnungsdialogfeld, um ein Rechnungskonto zu erstellen oder zu verknüpfen, eine Zahlungsmethode hinzuzufügen und mindestens 10 $ (oder den entsprechenden Betrag in Ihrer Landeswährung) in Form von kostenpflichtigen Guthabenpunkten im Voraus zu bezahlen.
-- Ihre API-Nutzung können Sie in [Google AI Studio](https://aistudio.google.com/usage?hl=de) unter **Dashboard** > **Nutzung** einsehen.
+- Haz clic en **Configurar facturación** en las páginas [Claves de API](https://aistudio.google.com/api-keys?hl=es-419) o [Proyectos](https://aistudio.google.com/projects?hl=es-419) de AI Studio.
+- Sigue el diálogo de Facturación de Cloud para crear o vincular una cuenta de facturación, agregar una forma de pago y pagar por adelantado un mínimo de USD 5 (o el equivalente en la moneda local) en créditos pagados.
+- Consulta el uso de la API en [Google AI Studio](https://aistudio.google.com/usage?hl=es-419) en **Panel** > **Uso**.
 
-Weitere Informationen finden Sie auf der [Abrechnungsseite](https://ai.google.dev/gemini-api/docs/billing?hl=de).
+Consulta la [página Facturación](https://ai.google.dev/gemini-api/docs/billing?hl=es-419) para obtener más información.
 
-## 2. SDK installieren und ersten Aufruf ausführen
+## 2. Instala el SDK y haz tu primera llamada
 
-Installieren Sie das SDK und generieren Sie Text mit einem einzigen API-Aufruf.
+Instala el SDK y genera texto con una sola llamada a la API.
 
 ### Python
 
-Installieren Sie das SDK:
+Instala el SDK:
 
 ```
 pip install -U google-genai
 ```
 
-Client initialisieren und Anfrage stellen:
+Inicializa el cliente y realiza una solicitud:
 
 ```
 from google import genai
@@ -68,7 +68,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Explain how AI works in a few words"
 )
 print(interaction.output_text)
@@ -76,13 +76,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-Installieren Sie das SDK:
+Instala el SDK:
 
 ```
 npm install @google/genai
 ```
 
-Client initialisieren und Anfrage stellen:
+Inicializa el cliente y realiza una solicitud:
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -90,10 +90,34 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "Explain how AI works in a few words",
 });
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain how AI works in a few words"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -103,12 +127,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Explain how AI works in a few words"
   }'
 ```
 
-**Antwort**
+**Respuesta:**
 
 ```
 {
@@ -136,17 +160,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
 }
 ```
 
-Bei Verwendung von REST gibt die API die vollständige `Interaction`-Ressource mit Metadaten, Nutzungsstatistiken und dem detaillierten Verlauf des Zuges zurück.
+Cuando se usa REST, la API devuelve el recurso `Interaction` completo que contiene metadatos, estadísticas de uso y el historial paso a paso del turno.
 
-Die SDKs machen zwar die vollständige Antwort verfügbar, bieten aber auch praktische Eigenschaften wie `interaction.output_text` und `interaction.output_image`, um direkt auf die endgültigen Ausgaben zuzugreifen. Weitere Informationen zur Antwortstruktur finden Sie in der [Übersicht über Interaktionen](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de). Details zu Systemanweisungen und der Generierungskonfiguration finden Sie im [Leitfaden zur Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de).
+Si bien los SDKs exponen la respuesta completa, también proporcionan propiedades convenientes, como `interaction.output_text` y `interaction.output_image`, para acceder directamente a los resultados finales. Obtén más información sobre la estructura de la respuesta en la [visión general de las interacciones](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) o lee la [guía de generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419) para obtener detalles sobre las instrucciones del sistema y la configuración de generación.
 
-## 3. Antwort streamen
+## 3. Transmite la respuesta
 
-Um die Interaktion flüssiger zu gestalten, können Sie die Antwort streamen, während sie generiert wird. Bei jedem `step.delta`-Ereignis wird ein Textblock bereitgestellt, den Sie sofort anzeigen können.
+Para lograr interacciones más fluidas, transmite la respuesta a medida que se genera. Cada evento `step.delta` entrega un fragmento de texto que puedes mostrar de inmediato.
 
 ### Python
 
@@ -156,7 +180,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Explain how AI works",
     stream=True
 )
@@ -172,13 +196,44 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const stream = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "Explain how AI works",
   stream: true,
 });
 
 for await (const event of stream) {
   console.log(event);
+}
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.CreateInteractionResponse;
+import com.google.genai.gaos.utils.EventStream;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain how AI works"))
+        .stream(true)
+        .build();
+
+CreateInteractionResponse response =
+    client.interactions.create(CreateInteractionRequestBody.of(params));
+
+try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
+  for (InteractionSSEStreamEvent event : stream) {
+    System.out.println(event);
+  }
 }
 ```
 
@@ -190,19 +245,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Explain how AI works",
     "stream": true
   }'
 ```
 
-Beim Streaming antwortet der Server mit einem Stream von Server-Sent Events (SSE). Jedes Ereignis enthält einen Typ und JSON-Daten.
+Cuando se transmite, el servidor responde con una transmisión de eventos enviados por el servidor (SSE). Cada evento incluye un tipo y datos JSON.
 
-**Antwort**
+**Respuesta:**
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_Chd...","status":"in_progress","model":"gemini-3.6-flash"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_Chd...","status":"in_progress","model":"gemini-3.8-flash"},"event_type":"interaction.created"}
 
 event: step.start
 data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
@@ -229,18 +284,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-Eine detaillierte Beschreibung der Verarbeitung von Streaming-Ereignissen und ‑Deltatypen finden Sie in der [Anleitung zu Streaming-Interaktionen](https://ai.google.dev/gemini-api/docs/streaming?hl=de).
+Para obtener una descripción detallada del manejo de eventos de transmisión y tipos de delta, consulta la [guía de interacciones de transmisión](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419).
 
-## 4. Unterhaltungen über mehrere Themen
+## 4. Conversaciones de varios turnos
 
-Die Interactions API unterstützt Multi-Turn-Unterhaltungen mit zwei Ansätzen:
+La API de Interactions admite conversaciones de varios turnos con dos enfoques:
 
-- **Zustandsbehaftet (empfohlen)**: Setzen Sie eine Unterhaltung auf dem Server mit `previous_interaction_id` fort. Ideal für die meisten Chat- und Agentic-Workflows, bei denen der Server den Verlauf verwalten und das Caching optimieren soll.
-- **Zustandslos**: Verwalten Sie den Unterhaltungsverlauf auf dem Client, indem Sie alle vorherigen Turns (einschließlich der Zwischenschritte für das Modell und das Tool) in jeder Anfrage übergeben.
+- **Con estado (recomendado)**: Continúa una conversación en el servidor con `previous_interaction_id`. Ideal para la mayoría de los flujos de trabajo de chat y con agentes en los que deseas que el servidor administre el historial y optimice el almacenamiento en caché.
+- **Sin estado**: Administra el historial de conversaciones en el cliente pasando todos los turnos anteriores (incluidos los pasos intermedios de pensamiento del modelo y de herramientas) en cada solicitud.
 
-### Zustandsbehaftet (empfohlen)
+### Con estado (recomendado)
 
-Interaktionen verketten, indem Sie `previous_interaction_id` übergeben. Der Server verwaltet den gesamten Unterhaltungsverlauf für Sie.
+Encadena interacciones pasando `previous_interaction_id`. El servidor administra el historial de conversaciones completo por ti.
 
 ### Python
 
@@ -251,13 +306,13 @@ client = genai.Client()
 
 # Server-side state (recommended)
 interaction1 = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="I have 2 dogs in my house.",
 )
 print("Response 1:", interaction1.output_text)
 
 interaction2 = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="How many paws are in my house?",
     previous_interaction_id=interaction1.id,
 )
@@ -273,17 +328,52 @@ const ai = new GoogleGenAI({});
 
 // Server-side state (recommended)
 const interaction1 = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "I have 2 dogs in my house.",
 });
 console.log("Response 1:", interaction1.output_text);
 
 const interaction2 = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "How many paws are in my house?",
   previous_interaction_id: interaction1.id,
 });
 console.log("Response 2:", interaction2.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+// Server-side state (recommended)
+CreateModelInteraction params1 =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("I have 2 dogs in my house."))
+        .build();
+
+Interaction interaction1 =
+    client.interactions.create(CreateInteractionRequestBody.of(params1)).interaction().get();
+System.out.println("Response 1: " + interaction1.outputText().orElse(""));
+
+CreateModelInteraction params2 =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("How many paws are in my house?"))
+        .previousInteractionId(interaction1.id().orElse(""))
+        .build();
+
+Interaction interaction2 =
+    client.interactions.create(CreateInteractionRequestBody.of(params2)).interaction().get();
+System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
 ### REST
@@ -293,7 +383,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "I have 2 dogs in my house."
   }')
 
@@ -304,15 +394,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "How many paws are in my house?",
     "previous_interaction_id": "'$INTERACTION_ID'"
   }'
 ```
 
-### Zustandslos
+### Sin estado
 
-`store=false` festlegen und den Unterhaltungsverlauf clientseitig verwalten. Sie müssen alle vom Modell generierten Schritte (einschließlich `thought`- und `function_call`-Schritte) genau so beibehalten und noch einmal senden, wie Sie sie erhalten haben.
+Establece `store=false` y administra el historial de conversaciones en el cliente. Debes conservar y volver a enviar todos los pasos generados por el modelo (incluidos los pasos `thought` y `function_call`) exactamente como los recibiste.
 
 ### Python
 
@@ -329,7 +419,7 @@ history = [
 ]
 
 interaction1 = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     store=False,
     input=history
 )
@@ -344,7 +434,7 @@ history.append({
 })
 
 interaction2 = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     store=False,
     input=history
 )
@@ -366,7 +456,7 @@ const history = [
 ];
 
 const interaction1 = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   store: false,
   input: history
 });
@@ -380,11 +470,65 @@ history.push({
 });
 
 const interaction2 = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   store: false,
   input: history
 });
 console.log("Response 2:", interaction2.steps.at(-1).content[0].text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.UserInputStep;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+List<Step> history = new ArrayList<>();
+history.add(
+    UserInputStep.builder()
+        .content(Arrays.asList(TextContent.builder().text("I have 2 dogs in my house.").build()))
+        .build());
+
+CreateModelInteraction params1 =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .store(false)
+        .input(InteractionsInput.ofStep(history))
+        .build();
+
+Interaction interaction1 =
+    client.interactions.create(CreateInteractionRequestBody.of(params1)).interaction().get();
+System.out.println("Response 1: " + interaction1.outputText().orElse(""));
+
+interaction1.steps().ifPresent(history::addAll);
+
+history.add(
+    UserInputStep.builder()
+        .content(Arrays.asList(TextContent.builder().text("How many paws are in my house?").build()))
+        .build());
+
+CreateModelInteraction params2 =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .store(false)
+        .input(InteractionsInput.ofStep(history))
+        .build();
+
+Interaction interaction2 =
+    client.interactions.create(CreateInteractionRequestBody.of(params2)).interaction().get();
+System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
 ### REST
@@ -395,7 +539,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "store": false,
     "input": [
       {
@@ -418,13 +562,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d "{
-    \"model\": \"gemini-3.6-flash\",
+    \"model\": \"gemini-3.8-flash\",
     \"store\": false,
     \"input\": $HISTORY
   }"
 ```
 
-**Antwort**
+**Respuesta:**
 
 ```
 {
@@ -447,15 +591,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash"
+  "model": "gemini-3.8-flash"
 }
 ```
 
-Bei der zweiten Interaktion wird ein vollständiges Antwortobjekt zurückgegeben, das nur die neuen Schritte enthält, aber auf dem Kontext des vorherigen Turns basiert. Weitere Informationen zum Beibehalten des Status finden Sie im [Leitfaden für Multi-Turn-Unterhaltungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#multi-turn-conversations). Informationen zur clientseitigen Verlaufsverwaltung finden Sie unter [Zustandsloser Modus](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#stateless-conversations).
+La segunda interacción devuelve un objeto de respuesta completo que incluye solo los pasos nuevos, pero se basa en el contexto del turno anterior. Obtén más información para mantener el estado en la [guía de conversaciones de varios turnos](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#multi-turn-conversations) o explora el [modo sin estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#stateless-conversations) para la administración del historial del cliente.
 
-## 5. Multimodales Verstehen
+## 5. Comprensión multimodal
 
-Gemini-Modelle können Bilder, Audio, Video und Dokumente nativ verstehen. Media zusammen mit Text in einer einzigen Anfrage übergeben.
+Los modelos de Gemini comprenden imágenes, audio, video y documentos de forma nativa. Pasa contenido multimedia junto con texto en una sola solicitud.
 
 ### Python
 
@@ -471,7 +615,7 @@ with open("sample.jpg", "rb") as f:
 image_b64 = base64.b64encode(image_bytes).decode("utf-8")
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": "Compare this local image and this remote audio file."},
         {
@@ -502,7 +646,7 @@ const imageBytes = fs.readFileSync("sample.jpg");
 const imageB64 = imageBytes.toString("base64");
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: [
     { type: "text", text: "Compare this local image and this remote audio file." },
     {
@@ -520,6 +664,55 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AudioContent;
+import com.google.genai.gaos.models.interactions.AudioContentMimeType;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Base64;
+
+Client client = new Client();
+
+// Load a local image
+byte[] imageBytes = Files.readAllBytes(Path.of("sample.jpg"));
+String imageB64 = Base64.getEncoder().encodeToString(imageBytes);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.ofContent(
+                Arrays.asList(
+                    TextContent.builder()
+                        .text("Compare this local image and this remote audio file.")
+                        .build(),
+                    ImageContent.builder()
+                        .data(imageB64)
+                        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+                        .build(),
+                    AudioContent.builder()
+                        .uri("https://storage.googleapis.com/generativeai-downloads/data/sample.mp3")
+                        .mimeType(AudioContentMimeType.AUDIO_MP3)
+                        .build())))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -527,7 +720,7 @@ console.log(interaction.output_text);
 BASE64_IMAGE=$(base64 -w 0 sample.jpg)
 
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -H "x-goog-api-key: $GEMINI_API_KEY"   -H 'Content-Type: application/json'   -H "Api-Revision: 2026-05-20"   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {
         "type": "text",
@@ -547,7 +740,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**Antwort**
+**Respuesta:**
 
 ```
 {
@@ -568,31 +761,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
 }
 ```
 
-Informationen zum Übergeben von Bildern, Videos und Audiodateien finden Sie im [Leitfaden zum Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de).
+Explora cómo pasar imágenes, videos y archivos de audio en la [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
 
 [hearing
 
-Verständnis von Audioinhalten
+Comprensión de audio
 
-Audioinhalte transkribieren, zusammenfassen oder Fragen dazu beantworten lassen](https://ai.google.dev/gemini-api/docs/audio?hl=de)
+Transcribir, resumir o responder preguntas sobre archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
 [videocam
 
-Videos verstehen
+Comprensión de videos
 
-Videoinhalte analysieren, Ereignisse lokalisieren und Aktionen beschreiben](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de)
+Analiza el contenido de video, ubica eventos y describe acciones.](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419)
 [description
 
-Dokumentverarbeitung
+Procesamiento de documentos
 
-Informationen aus PDFs und anderen Dokumentformaten extrahieren](https://ai.google.dev/gemini-api/docs/document-processing?hl=de)
+Extrae información de archivos PDF y otros formatos de documentos.](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419)
 
-## 6. Multimodale Generierung
+## 6. Generación multimodal
 
-Gemini kann Bilder nativ mit den Bildmodellen [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) generieren.
+Gemini puede generar imágenes de forma nativa con los modelos de imágenes de [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419).
 
 ### Python
 
@@ -631,6 +824,40 @@ if (generatedImage) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Base64;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.1-flash-image"))
+        .input(InteractionsInput.of("Generate an image of a futuristic city skyline at sunset"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+if (interaction.outputImage().isPresent()) {
+  ImageContent generatedImage = interaction.outputImage().get();
+  if (generatedImage.data().isPresent()) {
+    byte[] imageBytes = Base64.getDecoder().decode(generatedImage.data().get());
+    Files.write(Path.of("generated_image.png"), imageBytes);
+  }
+}
+```
+
 ### REST
 
 ```
@@ -645,7 +872,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**Antwort**
+**Respuesta:**
 
 ```
 {
@@ -668,22 +895,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-Wenn das Modell ein Bild generiert, gibt es die base64-codierten Bilddaten in einem Schritt im `steps`-Array sowie über die Convenience-Property `output_image` zurück. Im [Leitfaden zur Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) finden Sie Informationen zu Seitenverhältnissen, Bildbearbeitung und Referenzen.
+Cuando el modelo genera una imagen, devuelve los datos de la imagen codificados en base64 en un paso dentro del array `steps`, así como a través de la propiedad de conveniencia `output_image`. Consulta la [guía de generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) para obtener información sobre las relaciones de aspecto, la edición de imágenes y las referencias.
 
 [record\_voice\_over
 
-Sprachgenerierung
+Generación de voz
 
-Mit Gemini 3.1 Flash TTS ausdrucksstarke Sprache mit mehreren Sprechern generieren](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)
+Genera una voz expresiva con varios oradores con Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)
 [music\_note
 
-Musikgenerierung
+Generación de música
 
-Mit Lyria 3 lassen sich Clips und vollständige Songs erstellen.](https://ai.google.dev/gemini-api/docs/music-generation?hl=de)
+Crea clips y canciones completas con Lyria 3.5.](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419)
 
-## 7. Strukturierte Ausgabe verwenden
+## 7. Usa resultados estructurados
 
-Konfigurieren Sie das Modell so, dass es JSON zurückgibt, das einem von Ihnen definierten Schema entspricht. Die strukturierte Ausgabe funktioniert mit [Pydantic](https://docs.pydantic.dev/latest/) (Python) und [Zod](https://zod.dev/) (JavaScript).
+Configura el modelo para que devuelva un objeto JSON que coincida con un esquema que definas. Los resultados estructurados funcionan con [Pydantic](https://docs.pydantic.dev/latest/) (Python) y [Zod](https://zod.dev/) (JavaScript).
 
 ### Python
 
@@ -700,7 +927,7 @@ class Recipe(BaseModel):
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Give me a recipe for banana bread",
     response_format={
         "type": "text",
@@ -741,7 +968,7 @@ const recipeJsonSchema = {
 const recipeSchema = z.fromJSONSchema(recipeJsonSchema);
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "Give me a recipe for banana bread",
   response_format: {
     type: "text",
@@ -754,6 +981,71 @@ const recipe = recipeSchema.parse(JSON.parse(interaction.output_text));
 console.log(recipe);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> recipeNameProp = new HashMap<>();
+recipeNameProp.put("type", "string");
+recipeNameProp.put("description", "Name of the recipe.");
+
+Map<String, Object> itemsProp = new HashMap<>();
+itemsProp.put("type", "string");
+
+Map<String, Object> ingredientsProp = new HashMap<>();
+ingredientsProp.put("type", "array");
+ingredientsProp.put("items", itemsProp);
+ingredientsProp.put("description", "List of ingredients.");
+
+Map<String, Object> prepTimeProp = new HashMap<>();
+prepTimeProp.put("type", "integer");
+prepTimeProp.put("description", "Prep time in minutes.");
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("recipe_name", recipeNameProp);
+properties.put("ingredients", ingredientsProp);
+properties.put("prep_time_minutes", prepTimeProp);
+
+Map<String, Object> recipeJsonSchema = new HashMap<>();
+recipeJsonSchema.put("type", "object");
+recipeJsonSchema.put("properties", properties);
+recipeJsonSchema.put("required", Arrays.asList("recipe_name", "ingredients"));
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(recipeJsonSchema)
+                .build()));
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Give me a recipe for banana bread"))
+        .responseFormat(format)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -761,7 +1053,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Give me a recipe for banana bread",
     "response_format": {
       "type": "text",
@@ -786,7 +1078,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Antwort**
+**Respuesta:**
 
 ```
 {
@@ -804,15 +1096,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
 }
 ```
 
-Der Ausgabetextblock enthält einen gültigen JSON-String, der genau dem angeforderten Schema entspricht. Informationen zum Definieren komplexerer Strukturen und rekursiver Schemas finden Sie im [Leitfaden zur strukturierten Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de).
+El bloque de texto de salida contiene una cadena JSON válida que se ajusta exactamente al esquema solicitado. Para obtener información sobre cómo definir estructuras más complejas y esquemas recursivos, consulta la [guía de resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419).
 
-## 8. Tools verwenden
+## 8. Usar herramientas
 
-Die Antwort des Modells mit Echtzeitinformationen aus der Google Suche fundieren. Die API sucht automatisch, verarbeitet Ergebnisse und gibt Zitationen zurück.
+Fundamentar la respuesta del modelo en información en tiempo real con la Búsqueda de Google La API busca, procesa los resultados y devuelve las citas automáticamente.
 
 ### Python
 
@@ -822,7 +1114,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Who won the euro 2024?",
     tools=[{"type": "google_search"}]
 )
@@ -848,7 +1140,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "Who won the euro 2024?",
   tools: [{ type: "google_search" }]
 });
@@ -872,6 +1164,56 @@ for (const step of interaction.steps) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Annotation;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.URLCitation;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Who won the euro 2024?"))
+        .tools(Arrays.asList(new GoogleSearch()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+
+// Print citations
+for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+  if (step instanceof ModelOutputStep outputStep) {
+    for (Content contentBlock : outputStep.content().orElse(Collections.emptyList())) {
+      if (contentBlock instanceof TextContent textContent && textContent.annotations().isPresent()) {
+        System.out.println("\nCitations:");
+        for (Annotation annotation : textContent.annotations().get()) {
+          if (annotation instanceof URLCitation citation) {
+            System.out.printf("  [%s](%s)%n", citation.title().orElse(""), citation.url().orElse(""));
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -879,13 +1221,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Who won the euro 2024?",
     "tools": [{"type": "google_search"}]
   }'
 ```
 
-**Antwort**
+**Respuesta:**
 
 ```
 {
@@ -931,45 +1273,45 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
 }
 ```
 
-Die Suchschritte werden im Interaktionsverlauf detailliert beschrieben und die endgültige Ausgabe enthält Inline-Zitationen, die auf Webquellen verweisen.
+Los pasos de la búsqueda se detallan en el historial de interacciones, y el resultado final incluye citas intercaladas que apuntan a fuentes web.
 
-Informationen zum Extrahieren von Suchzitaten finden Sie im [Leitfaden zur Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de). Informationen zum Kombinieren mehrerer Tools finden Sie im [Leitfaden zur Kombination von Tools](https://ai.google.dev/gemini-api/docs/tool-combination?hl=de).
+Puedes aprender a extraer citas de la búsqueda en la [guía de fundamentación de la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) o ver cómo combinar varias herramientas en la [guía de combinación de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
 
 [code
 
-Codeausführung
+Ejecución de código
 
-Python-Code in einer sicheren Sandbox-Borg-Umgebung ausführen](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)
+Ejecuta código de Python en un entorno de zona de pruebas seguro de Borg.](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)
 [link
 
-URL-Kontext
+Contexto de URL
 
-Übergeben Sie öffentliche Web-URLs direkt, um Antworten in Webseiteninhalten zu fundieren.](https://ai.google.dev/gemini-api/docs/url-context?hl=de)
+Pasa URLs web públicas directamente para fundamentar las respuestas en el contenido de las páginas web.](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)
 [search
 
-Dateisuche
+Búsqueda de archivos
 
-Hochgeladene Dokumente und Mediendateien indexieren und durchsuchen](https://ai.google.dev/gemini-api/docs/file-search?hl=de)
+Indexa y busca en los documentos y archivos multimedia subidos.](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)
 [map
 
 Google Maps
 
-Antworten mit realen raumbezogenen Daten und Standortdaten fundieren.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)
+Fundamentar las respuestas en datos geoespaciales y de ubicación del mundo real](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)
 [computer
 
-Computernutzung
+Uso de la computadora
 
-Browserautomatisierung und Bildschirminteraktion.](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)
+Automatización del navegador e interacción con la pantalla](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419)
 
-## 9. Eigene Funktionen aufrufen
+## 9. Llama a tus propias funciones
 
-Mit Funktionsaufrufen können Sie das Modell mit Ihrem Code verbinden. Sie deklarieren den Namen und die Parameter einer Funktion, das Modell entscheidet, wann sie aufgerufen wird, und gibt strukturierte Argumente zurück. Sie führen sie lokal aus und senden das Ergebnis zurück.
+La llamada a funciones te permite conectar el modelo a tu código. Declaras el nombre y los parámetros de una función, el modelo decide cuándo llamarla y devuelve argumentos estructurados, y tú la ejecutas de forma local y envías el resultado.
 
-### Zustandsbehaftet (empfohlen)
+### Con estado (recomendado)
 
 ### Python
 
@@ -1006,7 +1348,7 @@ previous_id = None
 
 while True:
     interaction = client.interactions.create(
-        model="gemini-3.6-flash",
+        model="gemini-3.8-flash",
         input=user_input,
         tools=[weather_tool],
         previous_interaction_id=previous_id,
@@ -1068,7 +1410,7 @@ let interaction;
 
 while (true) {
   interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input,
     tools: [weatherTool],
     previous_interaction_id: previousId,
@@ -1097,6 +1439,95 @@ while (true) {
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> locationProp = new HashMap<>();
+locationProp.put("type", "string");
+locationProp.put("description", "The city name, e.g. San Francisco");
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("location", locationProp);
+
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("type", "object");
+parameters.put("properties", properties);
+parameters.put("required", Arrays.asList("location"));
+
+Function weatherTool =
+    Function.builder()
+        .name("get_current_temperature")
+        .description("Gets the current temperature for a given location.")
+        .parameters(parameters)
+        .build();
+
+InteractionsInput userInput = InteractionsInput.of("What is the temperature in London?");
+String previousId = null;
+Interaction interaction = null;
+
+while (true) {
+  CreateModelInteraction.Builder paramsBuilder =
+      CreateModelInteraction.builder()
+          .model(Model.of("gemini-3.8-flash"))
+          .input(userInput)
+          .tools(Arrays.asList(weatherTool));
+  if (previousId != null) {
+    paramsBuilder.previousInteractionId(previousId);
+  }
+
+  interaction =
+      client.interactions.create(CreateInteractionRequestBody.of(paramsBuilder.build())).interaction().get();
+
+  List<Step> functionResults = new ArrayList<>();
+  for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+    if (step instanceof FunctionCallStep fcStep) {
+      String resultJson = "{\"location\": \"London\", \"temperature\": \"22\", \"unit\": \"celsius\"}";
+      System.out.printf(
+          "Called %s(%s) -> %s%n",
+          fcStep.name().orElse(""), fcStep.arguments().orElse(Collections.emptyMap()), resultJson);
+      functionResults.add(
+          FunctionResultStep.builder()
+              .name(fcStep.name().orElse(""))
+              .callId(fcStep.id().orElse(""))
+              .result(
+                  FunctionResultStepResultUnion.of(
+                      Arrays.asList(TextContent.builder().text(resultJson).build())))
+              .build());
+    }
+  }
+
+  if (functionResults.isEmpty()) {
+    break;
+  }
+
+  userInput = InteractionsInput.ofStep(functionResults);
+  previousId = interaction.id().orElse(null);
+}
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -1105,7 +1536,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "What is the temperature in London?",
     "tools": [{
       "type": "function",
@@ -1131,7 +1562,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "previous_interaction_id": "'$INTERACTION_ID'",
     "input": [{
       "type": "function_result",
@@ -1154,13 +1585,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Zustandslos
+### Sin estado
 
-Sie können Funktionsaufrufe auch im statuslosen Modus verwenden, indem Sie den Unterhaltungsverlauf clientseitig verwalten und `store=false` festlegen. Im zustandslosen Modus müssen Sie den vollständigen Verlauf der Unterhaltung im Feld `input` jeder nachfolgenden Anfrage übergeben. Dieser Verlauf muss Folgendes enthalten:
+También puedes usar la llamada a funciones en modo sin estado administrando el historial de conversaciones del cliente y configurando `store=false`. En el modo sin estado, debes pasar el historial completo de la conversación en el campo `input` de cada solicitud posterior. Este historial debe incluir lo siguiente:
 
-1. Der erste Schritt `user_input`.
-2. Alle vom Modell generierten Schritte, die in Turn 1 zurückgegeben werden (einschließlich der Schritte `thought` und `function_call`), werden genau so zurückgegeben, wie sie empfangen wurden.
-3. Der `function_result`-Schritt, der die Ausgabe Ihrer ausgeführten Funktion enthält.
+1. Es el paso `user_input` inicial.
+2. Todos los pasos generados por el modelo que se devolvieron en el turno 1 (incluidos los pasos `thought` y `function_call`) exactamente como se recibieron.
+3. El paso `function_result` que contiene el resultado de la función ejecutada.
 
 ### Python
 
@@ -1201,7 +1632,7 @@ history = [
 
 while True:
     interaction = client.interactions.create(
-        model="gemini-3.6-flash",
+        model="gemini-3.8-flash",
         store=False,
         input=history,
         tools=[weather_tool],
@@ -1268,7 +1699,7 @@ let interaction;
 
 while (true) {
   interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     store: false,
     input: history,
     tools: [weatherTool],
@@ -1297,6 +1728,99 @@ while (true) {
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.UserInputStep;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> locationProp = new HashMap<>();
+locationProp.put("type", "string");
+locationProp.put("description", "The city name, e.g. San Francisco");
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("location", locationProp);
+
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("type", "object");
+parameters.put("properties", properties);
+parameters.put("required", Arrays.asList("location"));
+
+Function weatherTool =
+    Function.builder()
+        .name("get_current_temperature")
+        .description("Gets the current temperature for a given location.")
+        .parameters(parameters)
+        .build();
+
+List<Step> history = new ArrayList<>();
+history.add(
+    UserInputStep.builder()
+        .content(Arrays.asList(TextContent.builder().text("What is the temperature in London?").build()))
+        .build());
+
+Interaction interaction = null;
+
+while (true) {
+  CreateModelInteraction params =
+      CreateModelInteraction.builder()
+          .model(Model.of("gemini-3.8-flash"))
+          .store(false)
+          .input(InteractionsInput.ofStep(history))
+          .tools(Arrays.asList(weatherTool))
+          .build();
+
+  interaction =
+      client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+  List<Step> functionResults = new ArrayList<>();
+  for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+    history.add(step);
+    if (step instanceof FunctionCallStep fcStep) {
+      String resultJson = "{\"location\": \"London\", \"temperature\": \"22\", \"unit\": \"celsius\"}";
+      System.out.printf(
+          "Called %s(%s) -> %s%n",
+          fcStep.name().orElse(""), fcStep.arguments().orElse(Collections.emptyMap()), resultJson);
+      FunctionResultStep fnResult =
+          FunctionResultStep.builder()
+              .name(fcStep.name().orElse(""))
+              .callId(fcStep.id().orElse(""))
+              .result(
+                  FunctionResultStepResultUnion.of(
+                      Arrays.asList(TextContent.builder().text(resultJson).build())))
+              .build();
+      functionResults.add(fnResult);
+      history.add(fnResult);
+    }
+  }
+
+  if (functionResults.isEmpty()) {
+    break;
+  }
+}
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -1305,7 +1829,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "store": false,
     "input": [
       {
@@ -1350,7 +1874,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d "{
-    \"model\": \"gemini-3.6-flash\",
+    \"model\": \"gemini-3.8-flash\",
     \"store\": false,
     \"input\": $HISTORY,
     \"tools\": [{
@@ -1368,9 +1892,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**Antwort**
+**Respuesta:**
 
-In Runde 1 gibt das Modell eine Antwort mit dem Status `requires_action` und dem Schritt `function_call` zurück:
+Durante el turno 1, el modelo devuelve una respuesta con el estado `requires_action` y el paso `function_call`:
 
 ```
 {
@@ -1387,11 +1911,11 @@ In Runde 1 gibt das Modell eine Antwort mit dem Status `requires_action` und de
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash"
+  "model": "gemini-3.8-flash"
 }
 ```
 
-Nachdem Sie die Funktion lokal ausgeführt und das Ergebnis eingereicht haben (Turn 2), wird die endgültige abgeschlossene Interaktion zurückgegeben:
+Después de ejecutar la función de forma local y enviar el resultado (turno 2), se muestra la interacción final completada:
 
 ```
 {
@@ -1417,15 +1941,15 @@ Nachdem Sie die Funktion lokal ausgeführt und das Ergebnis eingereicht haben (T
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
 }
 ```
 
-Informationen zu erweiterten Funktionen wie parallele Funktionsaufrufe oder Modi für die Funktionsauswahl finden Sie im [Leitfaden für Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de).
+Para obtener información sobre las funciones avanzadas, como la llamada a función paralela o los modos de elección de funciones, consulta la [guía de llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
 
-## 10. Verwalteten Agent ausführen
+## 10. Ejecuta un agente administrado
 
-Verwaltete Agents werden in einer Remote-Sandbox mit Zugriff auf Tools wie Codeausführung und Dateiverwaltung ausgeführt. Übergeben Sie ein `agent` anstelle eines `model` und legen Sie `environment="remote"` fest.
+Los agentes administrados se ejecutan en una zona de pruebas remota con acceso a herramientas como la ejecución de código y la administración de archivos. Pasa un `agent` en lugar de un `model` y establece `environment="remote"`.
 
 ### Python
 
@@ -1435,7 +1959,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents.",
     environment="remote",
 )
@@ -1451,12 +1975,39 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const interaction = await ai.interactions.create({
-  agent: "antigravity-preview-05-2026",
+  agent: "antigravity-preview-09-2026",
   input: "Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents.",
   environment: "remote",
 });
 console.log(`Environment: ${interaction.environment_id}`);
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("antigravity-preview-09-2026")
+        .input(
+            InteractionsInput.of(
+                "Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents."))
+        .environment(CreateAgentInteractionEnvironment.of("remote"))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println("Environment: " + interaction.environmentId().orElse(""));
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -1466,33 +2017,33 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "agent": "antigravity-preview-05-2026",
+    "agent": "antigravity-preview-09-2026",
     "input": "Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents.",
     "environment": "remote"
   }'
 ```
 
-Sie können auch [benutzerdefinierte Agents](https://ai.google.dev/gemini-api/docs/custom-agents?hl=de) mit eigenen Anweisungen, Skills und Datenquellen definieren und speichern.
+También puedes definir y guardar [agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419) con tus propias instrucciones, habilidades y fuentes de datos.
 
 [rocket\_launch
 
-Kurzanleitung
+Guía de inicio rápido
 
-Ersten Agent-Aufruf starten, Antworten streamen und benutzerdefinierten Agenten erstellen](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de)
+Haz tu primera llamada al agente, transmite respuestas y crea un agente personalizado.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419)
 [smart\_toy
 
-Antigravity-Agent
+Agente de Antigravity
 
-Funktionen, Tools, multimodale Eingabe und Preise für den Standard-Agenten.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=de)
+Funciones, herramientas, entrada multimodal y precios del agente predeterminado.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419)
 [experiment
 
-KI-Agenten in AI Studio
+Agentes en AI Studio
 
-Visuelle Umgebung zum Erstellen von Agentenprototypen ohne Code.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=de)
+Espacio de pruebas visual para crear prototipos de agentes sin escribir código.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=es-419)
 
-## 11. Aufgaben im Hintergrund ausführen
+## 11. Ejecutar tareas en segundo plano
 
-Legen Sie `background=True` fest, um lange Aufgaben asynchron auszuführen. Rufen Sie `interactions.get()` auf, um die Ergebnisse abzufragen. Weitere Informationen finden Sie im [Leitfaden zur Ausführung im Hintergrund](https://ai.google.dev/gemini-api/docs/background-execution?hl=de).
+Establece `background=True` para ejecutar tareas largas de forma asíncrona. Busca resultados con `interactions.get()`. Para obtener más detalles, consulta la [guía de ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
 ### Python
 
@@ -1503,7 +2054,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Write a detailed analysis of the impact of artificial intelligence on modern healthcare.",
     background=True,
 )
@@ -1531,7 +2082,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const interaction = await ai.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "Write a detailed analysis of the impact of artificial intelligence on modern healthcare.",
   background: true,
 });
@@ -1553,6 +2104,52 @@ while (true) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "Write a detailed analysis of the impact of artificial intelligence on modern healthcare."))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+String interactionId = interaction.id().orElse("");
+System.out.println("Started background task: " + interactionId);
+System.out.println("Status: " + interaction.status().map(InteractionStatus::value).orElse(""));
+
+// Poll for completion
+while (true) {
+  Interaction result =
+      client.interactions.get(new GetInteractionByIdRequest(interactionId)).interaction().get();
+  String status = result.status().map(InteractionStatus::value).orElse("");
+  System.out.println("Status: " + status);
+  if ("completed".equals(status)) {
+    System.out.println("\nResult:\n" + result.outputText().orElse(""));
+    break;
+  } else if ("failed".equals(status)) {
+    System.out.println("Failed: " + result.errors().orElse(null));
+    break;
+  }
+  Thread.sleep(5000);
+}
+```
+
 ### REST
 
 ```
@@ -1561,7 +2158,7 @@ RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/int
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Write a detailed analysis of the impact of artificial intelligence on modern healthcare.",
     "background": true
   }')
@@ -1587,20 +2184,20 @@ while true; do
 done
 ```
 
-**Antwort**
+**Respuesta:**
 
-Die erste Antwort wird sofort mit dem Status `in_progress` zurückgegeben:
+La respuesta inicial se muestra de inmediato con el estado `in_progress`:
 
 ```
 {
   "id": "v1_abc123",
   "status": "in_progress",
   "object": "interaction",
-  "model": "gemini-3.6-flash"
+  "model": "gemini-3.8-flash"
 }
 ```
 
-Nachdem die Hintergrundaufgabe vollständig ausgeführt wurde, wird beim Prüfen des Interaktionsstatus Folgendes zurückgegeben:
+Una vez que la tarea en segundo plano se ejecute por completo, la verificación del estado de interacción devolverá lo siguiente:
 
 ```
 {
@@ -1618,31 +2215,31 @@ Nachdem die Hintergrundaufgabe vollständig ausgeführt wurde, wird beim Prüfen
     }
   ],
   "object": "interaction",
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
 }
 ```
 
-Informationen zum asynchronen Ausführen von Modellen und Agents finden Sie im [Leitfaden zur Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de).
+Lee sobre la ejecución asíncrona de modelos y agentes en la [guía de ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
-## Nächste Schritte
+## ¿Qué sigue?
 
-- [Hintergrundausführung](https://ai.google.dev/gemini-api/docs/background-execution?hl=de): Führen Sie lang andauernde Aufgaben asynchron aus und verwalten Sie den Status.
-- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de): Systemanweisungen, Generierungskonfiguration und erweiterte Textmuster.
-- [Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de): Seitenverhältnisse, Bildbearbeitung und Stilreferenzen.
-- [Bildverständnis](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de): Klassifizierung, Objekterkennung und visuelle Fragen und Antworten.
-- [Denken](https://ai.google.dev/gemini-api/docs/thinking?hl=de): Verwenden Sie die Chain-of-Thought-Methode für komplexe Aufgaben.
-- [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de): Parallele, zusammengesetzte und eingeschränkte Funktionsmodi.
-- [Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de): Fundierung, Zitationen und Suchvorschläge.
-- [Verwaltete Agents](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de): Vordefinierte Agents mit Code-Ausführung und Dateiverwaltung.
-- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de): Autonome mehrstufige Recherche mit Planung und Synthese.
-- [Strukturierte Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de): JSON-Schemas, Enums und rekursive Typdefinitionen.
+- [Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419): Ejecuta tareas de larga duración de forma asíncrona y administra el estado.
+- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419): Instrucciones del sistema, configuración de generación y patrones de texto avanzados.
+- [Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419): Relaciones de aspecto, edición de imágenes y referencias de estilo
+- [Comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419): Clasificación, detección de objetos y preguntas y respuestas visuales.
+- [Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419): Usa el razonamiento de cadena de pensamiento para tareas complejas.
+- [Llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419): Modos de funciones paralelos, compositivos y restringidos
+- [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419): Fundamentación, citas y sugerencias de búsqueda
+- [Agentes administrados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Agentes prediseñados con ejecución de código y administración de archivos.
+- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419): Investigación autónoma de varios pasos con planificación y síntesis.
+- [Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419): Esquemas JSON, enumeraciones y definiciones de tipos recursivos.
 
-Feedback geben
+Enviar comentarios
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Zuletzt aktualisiert: 2026-09-12 (UTC).
+Última actualización: 2026-09-18 (UTC)
 
-Haben Sie Feedback für uns?
+¿Quieres brindar más información?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-18 (UTC)"],[],[]]

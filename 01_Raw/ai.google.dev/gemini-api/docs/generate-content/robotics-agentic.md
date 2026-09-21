@@ -1,36 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=ar
-fetched_at: 2026-09-14T05:36:55.126041+00:00
-title: "\u0625\u0645\u0643\u0627\u0646\u0627\u062a \u0627\u0644\u0631\u0624\u064a\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0627\u0644\u0648\u0643\u064a\u0644 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=id
+fetched_at: 2026-09-21T05:40:57.184193+00:00
+title: "Kemampuan visi agentik \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
+Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-# إمكانات الرؤية بالذكاء الاصطناعي الوكيل
+# Kemampuan visi agentik
 
-يمكن لنماذج Gemini Robotics ER كتابة رموز Python البرمجية وتنفيذها لمعالجة الصور وتطبيق المنطق قبل تقديم الإجابة. تتناول هذه الصفحة أمثلة على تطبيق الرموز البرمجية: رصد العناصر باستخدام التكبير والتصغير والقص، وقراءة الأجهزة، وقياس السوائل، وقراءة لوحات الدوائر، والتعليق التوضيحي على الصور.
+Model Gemini Robotics ER dapat menulis dan mengeksekusi kode Python untuk memanipulasi gambar dan menerapkan logika sebelum memberikan jawaban. Halaman ini mencakup contoh eksekusi kode: deteksi objek dengan zoom dan pangkas, pembacaan instrumen, pengukuran cairan, pembacaan papan sirkuit, dan anotasi gambar.
 
-لتكييف هذه الأمثلة مع حالة الاستخدام الخاصة بكم، استبدِلوا نص الطلب وملف الصورة الذي تم تحميله بنصكم وصورتكم. يمكنكم أيضًا تعديل مخطط JSON المطلوب في الطلب ليطابق بنية الإخراج التي يحتاجها تطبيقكم، أو إضافة `system_instruction` لفرض تنسيق الإخراج ودقته.
+Untuk menyesuaikan contoh ini dengan kasus penggunaan Anda sendiri, ganti teks perintah dan file gambar yang diupload dengan milik Anda sendiri. Anda juga dapat menyesuaikan skema JSON yang diminta dalam perintah agar sesuai dengan struktur output yang dibutuhkan aplikasi Anda, atau menambahkan `system_instruction` untuk menerapkan format dan presisi output.
 
-للاطّلاع على الرمز البرمجي الكامل القابل للتنفيذ، يُرجى الرجوع إلى
-[دليل Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Untuk kode yang dapat dijalankan sepenuhnya, lihat
+[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## مستوى التفكير
+## Tingkat penalaran
 
-يمكنكم التحكّم في مستوى التفكير للموازنة بين وقت الاستجابة والدقة. تحقّق المهام المكانية، مثل رصد العناصر، أداءً جيدًا عند استخدام مستوى تفكير منخفض. تستفيد المهام المعقّدة، مثل العدّ أو تقدير الوزن، من مستوى تفكير أعلى.
+Anda dapat mengontrol tingkat pemikiran untuk menukar latensi dengan akurasi. Tugas spasial seperti deteksi objek berperforma baik dengan tingkat pemikiran yang rendah. Tugas yang kompleks seperti
+menghitung atau memperkirakan berat akan lebih baik jika dilakukan dengan tingkat pemikiran yang lebih tinggi.
 
-يضبط المثال التالي مستوى التفكير على `high` لمهمة عدّ معقّدة:
+Contoh berikut menetapkan tingkat pemikiran ke `high` untuk tugas penghitungan yang kompleks:
 
 ### Python
 
@@ -60,11 +61,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-لمزيد من التفاصيل، يُرجى الاطّلاع على [التفكير](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=ar).
+Lihat [Berpikir](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=id) untuk mengetahui detailnya.
 
-## رصد العناصر (التكبير والتصغير والاقتصاص)
+## Deteksi objek (Zoom dan pangkas)
 
-يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لتكبير صورة وقصّها للحصول على عرض أوضح عند رصد الأجسام وعرض مربّعات الإحاطة.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk melakukan zoom dan memangkas gambar agar tampilan lebih jelas saat mendeteksi objek dan menampilkan kotak pembatas.
 
 ### Python
 
@@ -102,7 +103,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-سيكون إخراج النموذج مشابهًا لاستجابة JSON التالية:
+Output model akan mirip dengan respons JSON berikut:
 
 ```
 [
@@ -114,13 +115,13 @@ print(response.text)
 ]
 ```
 
-تعرض الصورة التالية المربّعات التي يعرضها النموذج.
+Gambar berikut menampilkan kotak yang ditampilkan dari model.
 
-![مثال يعرض مربّعات إحاطة للعناصر التي تم العثور عليها](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ar)
+![Contoh yang menampilkan kotak pembatas untuk objek yang ditemukan](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=id)
 
-## قراءة مقياس تناظري وتطبيق المنطق
+## Membaca pengukur analog dan menerapkan logika
 
-يوضّح المثال التالي كيفية استخدام النموذج لقراءة مقياس تناظري وإجراء عمليات حسابية للوقت. ويستخدم تعليمات النظام لفرض إخراج JSON.
+Contoh berikut menunjukkan cara menggunakan model untuk membaca pengukur analog dan melakukan penghitungan waktu. Tindakan ini menggunakan petunjuk sistem untuk menerapkan output JSON.
 
 ### Python
 
@@ -156,9 +157,10 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## قياس السائل في حاوية
+## Mengukur cairan dalam wadah
 
-يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لقياس مستوى السائل في حاوية.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk mengukur
+tingkat cairan dalam wadah.
 
 ### Python
 
@@ -193,9 +195,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## قراءة العلامات على لوحة دوائر
+## Membaca tanda pada papan sirkuit
 
-يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لقراءة العلامات على لوحة دوائر.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk membaca tanda pada papan sirkuit.
 
 ### Python
 
@@ -230,11 +232,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-![مثال يعرض علامات على لوحة دوائر كهربائية](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ar)
+![Contoh yang menampilkan tanda pada papan sirkuit](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=id)
 
-## التعليق التوضيحي على الصور
+## Anotasi gambar
 
-يوضّح المثال التالي كيفية استخدام تنفيذ الرموز البرمجية لإضافة تعليق توضيحي على صورة (مثل رسم أسهم لتعليمات التخلّص منها) وعرض الصورة المعدَّلة.
+Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk memberi anotasi pada gambar (misalnya, menggambar panah untuk petunjuk pembuangan) dan menampilkan gambar yang telah dimodifikasi.
 
 ### Python
 
@@ -271,11 +273,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-في ما يلي مثال على صورة تم إدخالها:
+Berikut adalah contoh input gambar.
 
-![مثال يعرض ساعة للقراءة](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ar)
+![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=id)
 
-سيكون إخراج النموذج مشابهًا لما يلي:
+Output model akan mirip dengan berikut ini:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -284,18 +286,18 @@ print(response.text)
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## الخطوات التالية
+## Langkah berikutnya
 
-- [تنسيق المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأجل باستخدام واجهات برمجة تطبيقات مخصّصة للروبوتات
-- [الروبوتات مع البث](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): بث ثنائي الاتجاه في الوقت الفعلي (Gemini Robotics ER 2 فقط)
-- [فهم الفيديوهات](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): العثور على اللحظات وتصنيف مستوى التقدّم (Gemini Robotics ER 2 فقط)
+- [Orkestrasi tugas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=id) — tugas jangka panjang dengan API robot kustom.
+- [Robotika dengan streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id) — streaming dua arah real-time (khusus Gemini Robotics ER 2).
+- [Pemahaman video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=id) — penemuan momen dan klasifikasi progres (khusus Gemini Robotics ER 2).
 
-إرسال ملاحظات
+Kirim masukan
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)
+Terakhir diperbarui pada 2026-09-08 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Ada masukan untuk kami?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-08 UTC."],[],[]]

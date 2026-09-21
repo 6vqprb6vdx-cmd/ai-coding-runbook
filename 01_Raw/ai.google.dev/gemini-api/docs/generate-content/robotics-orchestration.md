@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=th
-fetched_at: 2026-09-14T05:50:46.029098+00:00
-title: "\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e2a\u0e32\u0e19\u0e07\u0e32\u0e19\u0e07\u0e32\u0e19 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=de
+fetched_at: 2026-09-21T05:51:39.912736+00:00
+title: "Aufgabenorchestrierung \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
 
-ส่งความคิดเห็น
+Feedback geben
 
-# การประสานงานงาน
+# Aufgabenorchestrierung
 
-โมเดล Gemini Robotics ER สามารถวางแผนงานและให้เหตุผลเกี่ยวกับพื้นที่ โดยอนุมานการดำเนินการที่จะทำและวัตถุที่จะย้ายเพื่อให้บรรลุเป้าหมาย หน้านี้
-แสดงตัวอย่างสำหรับ [การขับเคลื่อนการดำเนินการหยิบและวาง](#calling-custom-robot-api)
-ผ่าน API ของหุ่นยนต์ที่กำหนดเองเพื่อจัดระเบียบงานในการวางสิ่งของ
-ลงในชาม
+Gemini Robotics ER-Modelle können Aufgaben planen und räumliche Zusammenhänge berücksichtigen. Sie leiten ab, welche Aktionen ausgeführt und welche Objekte bewegt werden müssen, um ein Ziel zu erreichen. Auf dieser Seite
+wird ein Beispiel für die Ausführung eines [Pick-and-Place](#calling-custom-robot-api)
+Vorgangs über eine benutzerdefinierte Roboter-API gezeigt, um die Aufgabe zu orchestrieren, einen Gegenstand
+in eine Schüssel zu legen.
 
-ดูโค้ดที่เรียกใช้ได้ทั้งหมดที่
-[คู่มือการใช้งาน Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)
+Vollständiger ausführbarer Code ist im
+[Robotics-Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) verfügbar.
 
-## การใช้ API ของหุ่นยนต์ที่กำหนดเอง
+## Benutzerdefinierte Roboter-API verwenden
 
-ตัวอย่างนี้แสดงการจัดระเบียบงานด้วย API ของหุ่นยนต์ที่กำหนดเอง โดยจะแนะนำ API จำลองที่ออกแบบมาสำหรับการดำเนินการหยิบและวาง งานคือการหยิบบล็อกสีน้ำเงินและวางลงในชามสีส้ม
+In diesem Beispiel wird die Aufgabenorchestrierung mit einer benutzerdefinierten Roboter-API veranschaulicht. Es wird eine Mock-API für einen Pick-and-Place-Vorgang eingeführt. Die Aufgabe besteht darin, einen blauen Block aufzunehmen und in eine orangefarbene Schüssel zu legen:
 
-![รูปภาพบล็อกและชาม](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=th)
+![Bild des Blocks und der Schale](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=de)
 
-ตัวอย่างนี้ใช้ API ของหุ่นยนต์จำลองและคำจำกัดความของเครื่องมือต่อไปนี้
+In diesem Beispiel werden die folgenden Mock-Roboter-API- und Tool-Definitionen verwendet:
 
 ### Python
 
@@ -81,7 +81,7 @@ set_gripper_state_declaration = types.FunctionDeclaration(
 robot_tools = types.Tool(function_declarations=[move_declaration, set_gripper_state_declaration])
 ```
 
-ตัวอย่างต่อไปนี้จะส่งพรอมต์และรูปภาพไปยังโมเดลพร้อมคำจำกัดความของเครื่องมือ จากนั้นจะเรียกใช้ลูปของเอเจนต์ โดยหลังจากที่โมเดลตอบกลับแต่ละครั้ง ระบบจะเรียกใช้ฟังก์ชันที่ขอ (`move`, `setGripperState`), ส่งผลลัพธ์กลับไปยังโมเดล และทำซ้ำจนกว่าโมเดลจะหยุดเรียกใช้ฟังก์ชันหรือถึงขีดจำกัดของขั้นตอน
+Im folgenden Beispiel werden der Prompt und das Bild mit den Tool-Definitionen an das Modell gesendet. Anschließend wird eine Agenten-Schleife ausgeführt: Nach jeder Modellantwort werden alle angeforderten Funktionsaufrufe (`move`, `setGripperState`) ausgeführt, die Ergebnisse an das Modell zurückgegeben und der Vorgang wiederholt, bis das Modell keine Funktionen mehr aufruft oder das Schrittlimit erreicht ist.
 
 ### Python
 
@@ -155,7 +155,7 @@ while step_count < max_steps:
     contents.append(types.Content(role="user", parts=function_response_parts))
 ```
 
-ตัวอย่างต่อไปนี้แสดงเอาต์พุตที่เป็นไปได้ของโมเดลตามพรอมต์และ API ของหุ่นยนต์จำลอง เอาต์พุตประกอบด้วยเอาต์พุตของการเรียกใช้ฟังก์ชันของหุ่นยนต์ที่โมเดลจัดลำดับไว้ด้วยกัน
+Im Folgenden sehen Sie eine mögliche Ausgabe des Modells basierend auf dem Prompt und der Mock-Roboter-API. Die Ausgabe enthält die Ausgabe der Roboter-Funktionsaufrufe, die das Modell sequenziell ausgeführt hat.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -172,18 +172,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## ขั้นตอนถัดไป
+## Nächste Schritte
 
-- [Robotics พร้อมการสตรีมมิง](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th) - การสตรีมมิงแบบเรียลไทม์พร้อมการเรียกใช้ฟังก์ชัน (Gemini Robotics ER 2 เท่านั้น)
-- [ความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=th) - ติดตามความคืบหน้าของงานจากวิดีโอ (ER 2 เท่านั้น)
-- [การให้เหตุผลเชิงพื้นที่](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=th) - ตัวอย่างการชี้ การติดตาม และกรอบล้อมรอบ
+- [Robotik mit Streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de): Echtzeit-Streaming mit Funktionsaufrufen (nur Gemini Robotics ER 2)
+- [Videoanalyse](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=de): Aufgabenfortschritt anhand von Videos verfolgen (nur ER 2)
+- [Räumliches Denken](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=de): Beispiele für Zeigen, Tracking und Begrenzungsrahmen
 
-ส่งความคิดเห็น
+Feedback geben
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-อัปเดตล่าสุด 2026-09-08 UTC
+Zuletzt aktualisiert: 2026-09-08 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Haben Sie Feedback für uns?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-08 UTC"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-08 (UTC)."],[],[]]

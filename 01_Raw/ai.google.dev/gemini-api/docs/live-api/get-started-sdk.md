@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=tr
-fetched_at: 2026-09-14T05:49:51.563987+00:00
-title: "Google GenAI SDK'y\u0131 kullanarak Gemini Live API'yi kullanmaya ba\u015flama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=fr
+fetched_at: 2026-09-21T05:59:16.337469+00:00
+title: "Premiers pas avec l'API Gemini\u00a0Live \u00e0 l'aide du SDK Google GenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Geri bildirim gönderin
+Envoyer des commentaires
 
-# Google GenAI SDK'yı kullanarak Gemini Live API'yi kullanmaya başlama
+# Premiers pas avec l'API Gemini Live à l'aide du SDK Google GenAI
 
-Gemini Live API, Gemini modelleriyle anlık ve çift yönlü etkileşime olanak tanır. Ses, video ve metin girişlerinin yanı sıra doğal ses çıkışlarını destekler. Bu kılavuzda, sunucunuzda Google GenAI SDK'yı kullanarak API ile nasıl entegrasyon yapacağınız açıklanmaktadır.
+L'API Gemini Live permet une interaction bidirectionnelle en temps réel avec les modèles Gemini, et accepte les entrées audio, vidéo et texte, ainsi que les sorties audio natives. Ce guide explique comment intégrer l'API à l'aide du SDK Google GenAI sur votre serveur.
 
-[Google AI Studio'da Live API'yi deneyinmic](https://aistudio.google.com/live?hl=tr)
-[Örnek uygulamayı GitHub'dan klonlayıncode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[Kodlama aracısı becerilerini kullanınterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
+[Essayer l'API Live dans Google AI Studiomic](https://aistudio.google.com/live?hl=fr)
+[Cloner l'exemple d'application depuis GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Utiliser les compétences de l'agent de codageterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=fr)
 
-## Genel Bakış
+## Présentation
 
-Gemini Live API, anlık iletişim için WebSocket'leri kullanır. `google-genai` SDK, bu bağlantıları yönetmek için üst düzey bir eşzamansız arayüz sağlar.
+L'API Gemini Live utilise WebSockets pour la communication en temps réel. Le SDK `google-genai` fournit une interface asynchrone de haut niveau pour gérer ces connexions.
 
-Temel kavramlar:
+Concepts clés :
 
-- **Oturum**: Modele kalıcı bağlantı.
-- **Yapılandırma**: Modları (ses/metin), sesi ve sistem talimatlarını ayarlama.
-- **Anlık Giriş**: Ses ve video karelerini blob olarak gönderme.
+- **Session** : connexion persistante au modèle.
+- **Configuration** : configuration des modalités (audio/texte), de la voix et des instructions système.
+- **Entrée en temps réel** : envoi de frames audio et vidéo sous forme de blobs.
 
-## Live API'ye bağlanma
+## Se connecter à l'API Live
 
-API anahtarıyla Live API oturumu başlatma:
+Démarrez une session de l'API Live avec une clé API :
 
 ### Python
 
@@ -46,7 +46,7 @@ from google import genai
 
 client = genai.Client(api_key="YOUR_API_KEY")
 
-model = "gemini-3.1-flash-live-preview"
+model = "gemini-3.8-live"
 config = {"response_modalities": ["AUDIO"]}
 
 async def main():
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 import { GoogleGenAI, Modality } from '@google/genai';
 
 const ai = new GoogleGenAI({ apiKey: "YOUR_API_KEY"});
-const model = 'gemini-3.1-flash-live-preview';
+const model = 'gemini-3.8-live';
 const config = { responseModalities: [Modality.AUDIO] };
 
 async function main() {
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## Kısa mesaj gönderiliyor
+## Envoi de texte
 
-Metin, `send_realtime_input` (Python) veya `sendRealtimeInput` (JavaScript) kullanılarak gönderilebilir.
+Le texte peut être envoyé à l'aide de `send_realtime_input` (Python) ou `sendRealtimeInput` (JavaScript).
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## Ses gönderme
+## Envoi d'audio
 
-Ses, ham PCM verileri (ham 16 bit PCM ses, 16 kHz, little-endian) olarak gönderilmelidir.
+L'audio doit être envoyé sous forme de données PCM brutes (audio PCM 16 bits brut, 16 kHz, little-endian).
 
 ### Python
 
@@ -143,11 +143,12 @@ session.sendRealtimeInput({
 });
 ```
 
-İstemci cihazdan (ör. tarayıcı) sesi alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70)'daki uçtan uca örneğe bakın.
+Pour obtenir un exemple de récupération de l'audio à partir de l'appareil client (par exemple, le navigateur)
+consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
 
-## Video gönderiliyor
+## Envoi de vidéo
 
-Video kareleri, belirli bir kare hızında (saniyede en fazla 1 kare) ayrı resimler (ör. JPEG veya PNG) olarak gönderilir.
+Les frames vidéo sont envoyées sous forme d'images individuelles (par exemple, JPEG ou PNG) à une fréquence d'images spécifique (1 frame par seconde maximum).
 
 ### Python
 
@@ -173,11 +174,12 @@ session.sendRealtimeInput({
 });
 ```
 
-Videoyu istemci cihazdan (ör. tarayıcı) alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120)'daki uçtan uca örneğe bakın.
+Pour obtenir un exemple de récupération de la vidéo à partir de l'appareil client (par exemple, le navigateur)
+consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
 
-## Ses alma
+## Réception d'audio
 
-Modelin sesli yanıtları veri parçaları olarak alınır.
+Les réponses audio du modèle sont reçues sous forme de blocs de données.
 
 ### Python
 
@@ -205,11 +207,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-[Sunucunuzda sesi nasıl alacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) ve [tarayıcıda nasıl çalacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174) öğrenmek için GitHub'daki örnek uygulamaya bakın.
+Consultez l'exemple d'application sur GitHub pour découvrir comment [recevoir l'audio sur votre serveur](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) et [le lire dans le navigateur](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
 
-## Kısa mesaj alınıyor
+## Réception de texte
 
-Hem kullanıcı girişi hem de model çıkışı için transkriptler sunucu içeriğinde mevcuttur.
+Les transcriptions des entrées utilisateur et des sorties du modèle sont disponibles dans le contenu du serveur.
 
 ### Python
 
@@ -236,9 +238,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## Araç çağrılarını işleme
+## Gérer les appels d'outils
 
-API, araç çağrısını (işlev çağrısı) destekler. Model bir araç çağrısı istediğinde işlevi yürütmeniz ve yanıtı geri göndermeniz gerekir.
+L'API est compatible avec les appels d'outils (appels de fonction). Lorsque le modèle demande un appel d'outil, vous devez exécuter la fonction et renvoyer la réponse.
 
 ### Python
 
@@ -279,20 +281,20 @@ if (response.toolCall) {
 }
 ```
 
-## Sırada ne var?
+## Étape suivante
 
-- Konuşma Etkinliği Algılama ve yerel ses özellikleri de dahil olmak üzere temel özellikler ve yapılandırmalar için Live API [Özellikleri](https://ai.google.dev/gemini-api/docs/live-guide?hl=tr) kılavuzunun tamamını okuyun.
-- Live API'yi araçlarla ve işlev çağrısıyla nasıl entegre edeceğinizi öğrenmek için [Araç kullanımı](https://ai.google.dev/gemini-api/docs/live-tools?hl=tr) kılavuzunu okuyun.
-- Uzun süren görüşmeleri yönetmek için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-session?hl=tr) kılavuzunu okuyun.
-- [İstemciden sunucuya](https://ai.google.dev/gemini-api/docs/live-api?hl=tr#implementation-approach) uygulamalarda güvenli kimlik doğrulama için [Geçici jetonlar](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=tr) kılavuzunu okuyun.
-- Temel alınan WebSockets API hakkında daha fazla bilgi için [WebSockets API referansı](https://ai.google.dev/api/live?hl=tr) başlıklı makaleyi inceleyin.
+- Consultez le guide complet sur les fonctionnalités de l'API Live [Fonctionnalités](https://ai.google.dev/gemini-api/docs/live-guide?hl=fr) pour découvrir les principales fonctionnalités et configurations, y compris la détection d'activité vocale et les fonctionnalités audio natives.
+- Consultez le [guide sur l'utilisation des outils](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr) pour découvrir comment intégrer l'API Live aux outils et aux appels de fonction.
+- Consultez le [guide sur la gestion des sessions](https://ai.google.dev/gemini-api/docs/live-session?hl=fr) pour gérer les conversations de longue durée.
+- Consultez le guide sur les [jetons éphémères](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=fr) pour l'authentification sécurisée dans les applications [client-serveur](https://ai.google.dev/gemini-api/docs/live-api?hl=fr#implementation-approach).
+- Pour en savoir plus sur l'API WebSockets sous-jacente, consultez la [documentation de référence de l'API WebSockets](https://ai.google.dev/api/live?hl=fr).
 
-Geri bildirim gönderin
+Envoyer des commentaires
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Son güncelleme tarihi: 2026-09-08 UTC.
+Dernière mise à jour le 2026/09/17 (UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/17 (UTC)."],[],[]]

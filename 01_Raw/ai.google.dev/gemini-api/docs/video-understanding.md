@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi
-fetched_at: 2026-09-14T05:50:21.171256+00:00
-title: "\u0935\u0940\u0921\u093f\u092f\u094b \u0915\u0940 \u092c\u093e\u0930\u0940\u0915\u093c\u0940 \u0938\u0947 \u092a\u0939\u091a\u093e\u0928 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=he
+fetched_at: 2026-09-21T05:50:16.789815+00:00
+title: "\u05d4\u05d1\u05e0\u05ea \u05e1\u05e8\u05d8\u05d5\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-सुझाव भेजें
+שליחת משוב
 
-# वीडियो की बारीक़ी से पहचान करना
+# הבנת סרטונים
 
-> वीडियो जनरेट करने के बारे में जानने के लिए, [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=hi) गाइड देखें.
+> מידע נוסף על יצירת סרטונים זמין במדריך [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=he).
 
-Gemini मॉडल, वीडियो प्रोसेस कर सकते हैं. इससे डेवलपर को कई ऐसे मामलों में मदद मिलती है जिनमें पहले, डोमेन के हिसाब से मॉडल की ज़रूरत होती थी.
-Gemini की विज़न क्षमताओं में ये शामिल हैं: वीडियो के बारे में जानकारी देना, वीडियो को सेगमेंट में बांटना, वीडियो से जानकारी निकालना, वीडियो के कॉन्टेंट के बारे में सवालों के जवाब देना, और वीडियो में किसी खास टाइमस्टैंप का रेफ़रंस देना.
+מודלים של Gemini יכולים לעבד סרטונים, וכך לאפשר למפתחים להשתמש בהם בתרחישי שימוש רבים ומתקדמים, שבדרך כלל נדרשים להם מודלים ספציפיים לתחום.
+חלק מהיכולות של Gemini בתחום הראייה כוללות את האפשרות: לתאר, לפלח ולחלץ מידע מסרטונים, לענות על שאלות לגבי תוכן של סרטונים ולהתייחס לחותמות זמן ספציפיות בסרטון.
 
-Gemini को वीडियो इनपुट के तौर पर देने के लिए, इन तरीकों का इस्तेमाल किया जा सकता है:
+יש כמה דרכים לספק סרטונים כקלט ל-Gemini:
 
-| इनपुट विधि | ज़्यादा से ज़्यादा साइज़ | इस्तेमाल का सुझाया गया उदाहरण |
+| שיטת קלט | גודל מקסימלי | תרחיש שימוש מומלץ |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 जीबी (पैसे चुकाकर लिया गया) / 2 जीबी (बिना शुल्क वाला) | बड़ी फ़ाइलें (100 एमबी से ज़्यादा), लंबी अवधि के वीडियो (10 मिनट से ज़्यादा), और फिर से इस्तेमाल की जा सकने वाली फ़ाइलें. |
-| [Cloud Storage रजिस्ट्रेशन](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi#registration) | 2 जीबी (हर फ़ाइल के लिए, स्टोरेज की कोई सीमा नहीं) | बड़ी फ़ाइलें (100 एमबी से ज़्यादा), लंबी अवधि के वीडियो (10 मिनट से ज़्यादा), लगातार इस्तेमाल की जा सकने वाली फ़ाइलें. |
-| [इनलाइन डेटा](#inline-video) | < 100 एमबी | छोटी फ़ाइलें (<100 एमबी), कम अवधि (<1 मिनट), एक बार में इनपुट. |
-| [YouTube के यूआरएल](#youtube) | लागू नहीं | सार्वजनिक YouTube वीडियो. |
+| [File API](#upload-video) | ‫20GB (בתשלום) / 2GB (בחינם) | קבצים גדולים (100MB ומעלה), סרטונים ארוכים (10 דקות ומעלה), קבצים שאפשר לעשות בהם שימוש חוזר. |
+| [הרשמה ל-Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he#registration) | ‫2GB (לכל קובץ, ללא מגבלות אחסון) | קבצים גדולים (100MB ומעלה), סרטונים ארוכים (10 דקות ומעלה), קבצים קבועים שאפשר לעשות בהם שימוש חוזר. |
+| [נתונים מוטבעים](#inline-video) | < 100MB | קבצים קטנים (פחות מ-100MB), משך קצר (פחות מדקה), קלט חד-פעמי. |
+| [כתובות URL ב-YouTube](#youtube) | לא רלוונטי | סרטונים ציבוריים ב-YouTube. |
 
-> **ध्यान दें:** ज़्यादातर मामलों में, [File API](#upload-video) का इस्तेमाल करने का सुझाव दिया जाता है. खास तौर पर, 100 एमबी से ज़्यादा साइज़ वाली फ़ाइलों के लिए या जब आपको एक ही फ़ाइल का इस्तेमाल कई अनुरोधों में करना हो.
+> **הערה:** מומלץ להשתמש ב-[File API](#upload-video) ברוב תרחישי השימוש, במיוחד בקבצים שגודלם גדול מ-100MB או כשרוצים לעשות שימוש חוזר בקובץ בכמה בקשות.
 
-फ़ाइल इनपुट करने के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट करने के तरीके](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi) गाइड देखें. जैसे, बाहरी यूआरएल या Google Cloud में सेव की गई फ़ाइलों का इस्तेमाल करना.
+מידע על שיטות אחרות להזנת קבצים, כמו שימוש בכתובות URL חיצוניות או בקבצים שמאוחסנים ב-Google Cloud, מופיע במדריך [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
 
-### वीडियो फ़ाइल अपलोड करना
+### העלאת קובץ של סרטון
 
-नीचे दिए गए कोड में, एक सैंपल वीडियो डाउनलोड किया जाता है. इसके बाद, उसे [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करके अपलोड किया जाता है. इसके बाद, वीडियो के प्रोसेस होने का इंतज़ार किया जाता है. इसके बाद, अपलोड की गई फ़ाइल के रेफ़रंस का इस्तेमाल करके वीडियो की खास जानकारी तैयार की जाती है.
+הקוד הבא מוריד סרטון לאימון המודל, מעלה אותו באמצעות [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he), מחכה לסיום העיבוד שלו ואז משתמש בהפניה לקובץ שהועלה כדי לסכם את הסרטון.
 
 ### Python
 
@@ -119,19 +119,37 @@ import com.google.genai.gaos.models.interactions.TextContent;
 import com.google.genai.gaos.models.interactions.VideoContent;
 import com.google.genai.gaos.models.interactions.VideoContentMimeType;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.FileState;
+import com.google.genai.types.UploadFileConfig;
 import java.util.Arrays;
 import java.util.List;
 
 Client client = new Client();
 
-Content textContent = TextContent.builder().text("Summarize the key events in this video.").build();
+File myfile =
+    client.files.upload(
+        "path/to/sample.mp4", UploadFileConfig.builder().mimeType("video/mp4").build());
+
+while (!myfile.state().isPresent()
+    || myfile.state().get().knownEnum() != FileState.Known.ACTIVE) {
+  System.out.println("Processing video...");
+  Thread.sleep(5000);
+  myfile = client.files.get(myfile.name().get(), null);
+}
+
 Content videoContent =
     VideoContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/video/pixel8.mp4")
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
+        .uri(myfile.uri().get())
+        .mimeType(VideoContentMimeType.of(myfile.mimeType().get()))
+        .build();
+Content textContent =
+    TextContent.builder()
+        .text(
+            "Summarize this video. Then create a quiz with an answer key based on the information in this video.")
         .build();
 
-List<Content> contents = Arrays.asList(textContent, videoContent);
+List<Content> contents = Arrays.asList(videoContent, textContent);
 
 CreateModelInteraction params =
     CreateModelInteraction.builder()
@@ -213,18 +231,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-टोकन की परफ़ॉर्मेंस और इस्तेमाल को ऑप्टिमाइज़ करने के लिए, [एजेंटिक वीडियो प्रोसेसिंग](#agentic-video-understanding) का इस्तेमाल करें.
+כדי לייעל את היעילות והביצועים של הטוקנים, מומלץ להשתמש ב[עיבוד סרטונים באמצעות סוכנים](#agentic-video-understanding).
 
-जब अनुरोध का कुल साइज़ (इसमें फ़ाइल, टेक्स्ट प्रॉम्प्ट, सिस्टम के निर्देश वगैरह शामिल हैं) 20 एमबी से ज़्यादा हो, वीडियो की अवधि ज़्यादा हो या आपको एक ही वीडियो का इस्तेमाल कई प्रॉम्प्ट में करना हो, तो हमेशा Files API का इस्तेमाल करें.
-File API, वीडियो फ़ाइल फ़ॉर्मैट को सीधे तौर पर स्वीकार करता है.
+תמיד צריך להשתמש ב-Files API אם הגודל הכולל של הבקשה (כולל הקובץ, הנחיית הטקסט, הוראות המערכת וכו') גדול מ-20MB, אם משך הסרטון משמעותי או אם מתכוונים להשתמש באותו סרטון בכמה הנחיות.
+‫File API מקבל ישירות פורמטים של קובצי וידאו.
 
-मीडिया फ़ाइलों के साथ काम करने के बारे में ज़्यादा जानने के लिए, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) देखें.
+מידע נוסף על עבודה עם קובצי מדיה זמין במאמר בנושא [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
-### वीडियो डेटा को इनलाइन पास करना
+### העברת נתוני סרטונים בתוך התג
 
-File API का इस्तेमाल करके वीडियो फ़ाइल अपलोड करने के बजाय, अनुरोध में सीधे तौर पर छोटे वीडियो पास किए जा सकते हैं. यह 20 एमबी से कम साइज़ वाले छोटे वीडियो के लिए सही है.
+במקום להעלות קובץ וידאו באמצעות File API, אפשר להעביר סרטונים קצרים יותר ישירות בבקשה. האפשרות הזו מתאימה לסרטונים קצרים יותר, שגודל הבקשה הכולל שלהם הוא פחות מ-20MB.
 
-यहां इनलाइन वीडियो का डेटा देने का उदाहरण दिया गया है:
+דוגמה לאספקת נתוני וידאו מוטמעים:
 
 ### Python
 
@@ -288,15 +306,23 @@ import com.google.genai.gaos.models.interactions.TextContent;
 import com.google.genai.gaos.models.interactions.VideoContent;
 import com.google.genai.gaos.models.interactions.VideoContentMimeType;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
+
+String videoFileName = "/path/to/your/video.mp4";
+byte[] videoBytes = Files.readAllBytes(Paths.get(videoFileName));
+String base64Video = Base64.getEncoder().encodeToString(videoBytes);
 
 Client client = new Client();
 
-Content textContent = TextContent.builder().text("Summarize the key events in this video.").build();
+Content textContent =
+    TextContent.builder().text("Please summarize the video in 3 sentences.").build();
 Content videoContent =
     VideoContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/video/pixel8.mp4")
+        .data(base64Video)
         .mimeType(VideoContentMimeType.VIDEO_MP4)
         .build();
 
@@ -341,9 +367,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### YouTube वीडियो के यूआरएल पास करना
+### העברת כתובות URL ב-YouTube
 
-YouTube के यूआरएल को सीधे Gemini API पर पास किया जा सकता है. इसके लिए, आपको अपने अनुरोध में इन यूआरएल को इस तरह शामिल करना होगा:
+אתם יכולים להעביר כתובות URL של YouTube ישירות אל Gemini API כחלק מהבקשה שלכם, באופן הבא:
 
 ### Python
 
@@ -395,18 +421,17 @@ import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.TextContent;
 import com.google.genai.gaos.models.interactions.VideoContent;
-import com.google.genai.gaos.models.interactions.VideoContentMimeType;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
 import java.util.Arrays;
 import java.util.List;
 
 Client client = new Client();
 
-Content textContent = TextContent.builder().text("Summarize the key events in this video.").build();
+Content textContent =
+    TextContent.builder().text("Please summarize the video in 3 sentences.").build();
 Content videoContent =
     VideoContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/video/pixel8.mp4")
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
+        .uri("https://www.youtube.com/watch?v=9hE5-98ZeCg")
         .build();
 
 List<Content> contents = Arrays.asList(textContent, videoContent);
@@ -441,33 +466,33 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**सीमाएं:**
+**מגבלות:**
 
-- मुफ़्त टियर के लिए, हर दिन आठ घंटे से ज़्यादा का YouTube वीडियो अपलोड नहीं किया जा सकता.
-- पैसे चुकाकर ली जाने वाली सदस्यता के लिए, वीडियो की अवधि के हिसाब से कोई सीमा तय नहीं की गई है.
-- Gemini 2.5 से पहले के मॉडल के लिए, हर अनुरोध में सिर्फ़ एक वीडियो अपलोड किया जा सकता है. Gemini 2.5 और इसके बाद के मॉडल के लिए, हर अनुरोध में ज़्यादा से ज़्यादा 10 वीडियो अपलोड किए जा सकते हैं.
-- सिर्फ़ सार्वजनिक वीडियो अपलोड किए जा सकते हैं. निजी या 'सबके लिए मौजूद नहीं' के तौर पर उपलब्ध वीडियो अपलोड नहीं किए जा सकते.
+- בתוכנית החינמית, אי אפשר להעלות יותר מ-8 שעות של סרטוני YouTube ביום.
+- במינוי בתשלום, אין מכסה על אורך הסרטון.
+- במודלים שקודמים ל-Gemini 2.5, אפשר להעלות רק סרטון אחד לכל בקשה. במודלים Gemini 2.5 ואילך, אפשר להעלות עד 10 סרטונים לכל בקשה.
+- אפשר להעלות רק סרטונים שגלויים לכולם (ולא סרטונים פרטיים או לא רשומים).
 
-## एजेंट की मदद से वीडियो को समझना
+## הבנת סרטונים על ידי סוכן
 
-डिफ़ॉल्ट रूप से, वीडियो इनपुट के लिए स्टैटिक प्रोसेसिंग का इस्तेमाल किया जाता है. इसमें 1 एफ़पीएस पर फ़्रेम निकाले जाते हैं.
-Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, और 3.5 Flash Lite मॉडल भी **एजेंटिक वीडियो अंडरस्टैंडिंग** की सुविधा के साथ काम करते हैं. इसमें मॉडल, वीडियो की टाइमलाइन को डाइनैमिक तरीके से एक्सप्लोर करता है. साथ ही, ट्रांसक्रिप्ट की चुनिंदा तौर पर जांच करता है. इसके अलावा, प्रॉम्प्ट के आधार पर फ़्रेम रेट और रिज़ॉल्यूशन को तुरंत अडजस्ट करता है.
+כברירת מחדל, קבצים של קלט וידאו עוברים עיבוד סטטי (חילוץ פריימים בקצב של 1 FPS).
+מודלים של Gemini 3.8 Flash,‏ 3.7 Flash,‏ 3.6 Flash ו-3.5 Flash Lite תומכים גם ב**הבנת סרטונים באמצעות סוכנים**. במודל הזה, המודל בוחן באופן דינמי את ציר הזמן של הסרטון, בודק באופן סלקטיבי תמלילים ומתאים באופן אדפטיבי את קצב הפריימים והרזולוציה תוך כדי תנועה על סמך ההנחיה.
 
-| **मोड** | **ब्यौरा** | **इन मॉडल के साथ काम करता है** |
+| **המצב** | **תיאור** | **דגמים נתמכים** |
 | --- | --- | --- |
-| **स्टैटिक** (डिफ़ॉल्ट) | यह फ़्रेम को एक तय दर (1 FPS) पर निकालता है और उन्हें एक ही पास में कॉन्टेक्स्ट में रखता है. यह छोटी क्लिप के लिए बेहतर तरीके से काम करता है. | Gemini के सभी मॉडल |
-| **एजेंटिक** | यह मॉडल, वीडियो की टाइमलाइन पर डाइनैमिक तरीके से नेविगेट करता है. साथ ही, सिर्फ़ उस कॉन्टेंट को लोड करता है जिसकी उसे प्रॉम्प्ट के आधार पर ज़रूरत होती है. यह लंबी अवधि वाले वीडियो के लिए, 88% तक ज़्यादा टोकन-इफ़िशिएंट है और इसकी क्वालिटी ~7% बेहतर है. | Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite |
+| **סטטי** (ברירת מחדל) | הכלי מחלץ פריימים בקצב קבוע (1 FPS) ומציב אותם בהקשר במעבר יחיד. מתאים לקטעי וידאו קצרים. | כל המודלים של Gemini |
+| **Agentic** | המודל מנווט באופן דינמי בציר הזמן של הסרטון, וטוען רק את התוכן שהוא צריך על סמך ההנחיה. עד 88% יותר יעילות בשימוש בטוקנים ואיכות גבוהה יותר בכ-7% בתכנים ארוכים. | ‫Gemini 3.8 Flash, ‏ Gemini 3.7 Flash, ‏ Gemini 3.6 Flash, ‏ Gemini 3.5 Flash Lite |
 
-### प्रोसेसिंग का कोई मोड चुनना
+### בחירת מצב עיבוד
 
-सामान्य दिशा-निर्देश के तौर पर, **एजेंटिक** मोड से शुरुआत करें. खास तौर पर, जवाब की क्वालिटी या टोकन की क्षमता को ऑप्टिमाइज़ करते समय ऐसा करें.
+ככלל, מומלץ להתחיל במצב **agentic**, במיוחד כשמבצעים אופטימיזציה לאיכות התשובה או ליעילות השימוש באסימונים.
 
-- **एजेंटिक:** लंबी अवधि के वीडियो या किसी खास पल को टारगेट करने वाली क्वेरी. यह मॉडल, टाइमलाइन में डाइनैमिक तरीके से नेविगेट करता है, ताकि कॉन्टेक्स्ट के हिसाब से काम की जानकारी को टारगेट किया जा सके. इसके लिए, कॉन्टेक्स्ट विंडो को भरने की ज़रूरत नहीं होती.
-- **स्टैटिक:** कम समय की क्लिप (पांच मिनट से कम) पर इंतज़ार के समय के हिसाब से संवेदनशील क्वेरी या ऐसे मामले जहां पूरी क्लिप में फ़्रेम-लेवल की सटीक जानकारी की ज़रूरत होती है.
+- **סוכן:** סרטונים ארוכים או שאילתות שמטרגטות רגעים ספציפיים. המודל עובר באופן דינמי בציר הזמן כדי למקד מידע רלוונטי להקשר בלי למלא את חלון ההקשר.
+- **סטטי:** שאילתות שרגישות לזמן האחזור בקליפים קצרים (עד 5 דקות), או במקרים שבהם נדרשת רמת דיוק של פריים בכל הקליפ.
 
-> **ध्यान दें:** लंबी अवधि के वीडियो या मुश्किल प्रॉम्प्ट के लिए, स्ट्रीमिंग (`stream=True`) या बैकग्राउंड में प्रोसेस करने (`background=True`) की सुविधा का इस्तेमाल करें. इससे कनेक्शन ऐक्टिव रहता है, बीच-बीच में तर्क देने के चरण दिखते हैं, और कनेक्शन या पुष्टि करने के लिए तय समय खत्म नहीं होता.
+> **הערה:** בסרטונים ארוכים או בהנחיות מורכבות שבהן העיבוד על ידי הסוכן לוקח יותר זמן, כדאי להשתמש בסטרימינג (`stream=True`) או בהרצת הרקע (`background=True`). כך החיבור יישאר פעיל, שלבי הנימוק הביניים יוצגו ולא יתרחשו פסק זמן בחיבור או באימות.
 
-### प्रोसेसिंग मोड सेट करना
+### הגדרת מצב העיבוד
 
 ### Python
 
@@ -554,18 +579,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-> **ध्यान दें:** यह पुष्टि करने के लिए कि एजेंट की मदद से प्रोसेसिंग की गई है, `interaction.steps` की जांच करें. `processing_call` और `processing_result` की मौजूदगी से पता चलता है कि मॉडल ने वीडियो को डाइनैमिक तरीके से नेविगेट किया है.
+> **הערה:** כדי לוודא שהיה שימוש בעיבוד מבוסס-סוכן, בודקים את `interaction.steps`. הנוכחות של התגים `processing_call` ו-`processing_result` מציינת שהמודל ניווט בסרטון באופן דינמי.
 
-### जवाब देने के चरण
+### שלבי התגובה
 
-एजेंटिक प्रोसेसिंग, `steps` ऐरे में दो नए तरह के चरण जोड़ती है:
+עיבוד אקטיבי מוסיף שני סוגים חדשים של שלבים למערך `steps`:
 
-- `processing_call`: मॉडल ने वीडियो सेगमेंट या ऑडियो ट्रांसक्रिप्ट का अनुरोध किया है. इसकी पहचान `id` से होती है.
-- `processing_result`: लोड करने का नतीजा, जिसे `call_id` ने लिंक किया है.
+- ‫`processing_call`: המודל ביקש קטע וידאו או תמליל אודיו, שמזוהים על ידי `id`.
+- ‫`processing_result`: התוצאה של הטעינה הזו, שמקושרת באמצעות `call_id`.
 
-ये `thought` चरणों के बीच में दिखते हैं. ऐसा तब होता है, जब खास जानकारी देने की सुविधा चालू होती है. साथ ही, ये आखिरी `model_output` चरण से पहले दिखते हैं. इनका इस्तेमाल, आपके यूज़र इंटरफ़ेस (यूआई) में प्रोग्रेस ट्रेस दिखाने के लिए किया जा सकता है. हालांकि, इनके लिए जवाब की ज़रूरत नहीं होती.
+הן מופיעות לסירוגין עם `thought` שלבים (כשהסיכומים מופעלים) ולפני השלב הסופי `model_output`. אפשר להשתמש בהם כדי להציג את התקדמות התהליך בממשק המשתמש, אבל לא צריך להגיב עליהם.
 
-यहां दिए गए उदाहरण में, इंटरलीव किए गए प्रोसेसिंग चरणों के साथ जवाब का पेलोड दिखाया गया है:
+בדוגמה הבאה מוצג מטען הייעודי (payload) של התגובה עם שלבי עיבוד משולבים:
 
 ```
 {
@@ -633,9 +658,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### अलग-अलग वीडियो के लिए, प्रोसेसिंग के अलग-अलग मोड का इस्तेमाल करना
+### שימוש במצבי עיבוד שונים בסרטונים שונים
 
-एक ही अनुरोध में, हर वीडियो के लिए अलग-अलग प्रोसेसिंग मोड सेट किए जा सकते हैं:
+אפשר להגדיר מצבי עיבוד שונים לכל סרטון באותה בקשה:
 
 ### Python
 
@@ -731,16 +756,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-### वीडियो के बारे में सिलसिलेवार बातचीत
+### שיחות וידאו רב-שלביות
 
-बातचीत के दौरान, वीडियो का कॉन्टेक्स्ट बनाए रखा जाता है. एजेंटिक प्रोसेसिंग का इस्तेमाल करते समय:
+ההקשר של הסרטון נשמר לאורך כל התורות בשיחה. כשמשתמשים בעיבוד מבוסס-סוכן:
 
-- **स्टेटफ़ुल मोड** (`previous_interaction_id` का इस्तेमाल करके): सर्वर, वीडियो के कॉन्टेक्स्ट को बनाए रखता है. इसके लिए, किसी अन्य कार्रवाई की ज़रूरत नहीं है.
-- **स्टेटलेस मोड** (`step_list` का इस्तेमाल करके): स्टेटलेस मोड में, जवाब में `processing_call` और `processing_result` चरण शामिल होते हैं. ये चरण, वीडियो के कॉन्टेक्स्ट को एन्कोड करते हैं. वीडियो के कॉन्टेक्स्ट को बनाए रखने के लिए, आपको जवाब में बताए गए सभी चरणों को अपनी अगली `step_list` में शामिल करना होगा. फ़िलहाल, इन्हें शामिल न करने पर एपीआई से जुड़ी कोई गड़बड़ी नहीं होती. हालांकि, वीडियो का कॉन्टेक्स्ट खो जाता है. इससे, फ़ॉलो-अप सवालों के जवाब की क्वालिटी काफ़ी कम हो जाती है. ध्यान दें कि बाद के अनुरोधों में भेजे गए जवाबों में मौजूद चरणों की वजह से, इनपुट टोकन की संख्या बढ़ जाती है.
+- **מצב Stateful** (שימוש ב-`previous_interaction_id`): השרת שומר את ההקשר של הסרטון. אין צורך בטיפול נוסף.
+- **מצב בלי שמירת מצב** (באמצעות `step_list`): במצב בלי שמירת מצב, התגובה כוללת את השלבים `processing_call` ו-`processing_result` שמקודדים את ההקשר של הסרטון. כדי לשמור על ההקשר של הסרטון, צריך לכלול את כל השלבים מהתשובה בבקשה הבאה שלך `step_list`. למרות שכרגע השמטה שלהם לא מחזירה שגיאת API, ההקשר של הסרטון אובד, ואיכות התשובות לשאלות המשך יורדת באופן משמעותי. שימו לב שהשלבים שמוחזרים ונשלחים בבקשות הבאות נכללים בספירת האסימונים של הקלט.
 
-## कॉन्टेंट में मौजूद टाइमस्टैंप देखें
+## הפניה לחותמות זמן בתוכן
 
-वीडियो में किसी खास समय के बारे में सवाल पूछने के लिए, `MM:SS` फ़ॉर्मैट वाले टाइमस्टैंप का इस्तेमाल किया जा सकता है.
+אתם יכולים לשאול שאלות על נקודות זמן ספציפיות בסרטון באמצעות חותמות זמן בתבנית `MM:SS`.
 
 ### Python
 
@@ -757,40 +782,7 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 ### Java
 
 ```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.VideoContent;
-import com.google.genai.gaos.models.interactions.VideoContentMimeType;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Summarize the key events in this video.").build();
-Content videoContent =
-    VideoContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/video/pixel8.mp4")
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, videoContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.8-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
+String prompt = "What are the examples given at 00:05 and 00:10 supposed to show us?";
 ```
 
 ### REST
@@ -799,11 +791,11 @@ System.out.println(interaction.outputText().orElse(""));
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## वीडियो से ज़्यादा जानकारी पाना
+## חילוץ תובנות מפורטות מסרטון
 
-Gemini मॉडल, वीडियो कॉन्टेंट को समझने के लिए बेहतरीन सुविधाएँ देते हैं. इसके लिए, वे **ऑडियो और विज़ुअल**, दोनों स्ट्रीम से जानकारी प्रोसेस करते हैं. इसकी मदद से, वीडियो के बारे में ज़्यादा जानकारी निकाली जा सकती है. जैसे, वीडियो में क्या हो रहा है, इसका ब्यौरा जनरेट करना और वीडियो के कॉन्टेंट के बारे में सवालों के जवाब देना.
+מודלים של Gemini מציעים יכולות מתקדמות להבנת תוכן וידאו על ידי עיבוד מידע מזרמי **האודיו והווידאו**. התכונה הזו מאפשרת לחלץ מגוון רחב של פרטים, כולל יצירת תיאורים של מה שקורה בסרטון ומענה לשאלות לגבי התוכן שלו.
 
-विज़ुअल के बारे में जानकारी देने के लिए, मॉडल वीडियो को **हर सेकंड में एक फ़्रेम** (एफ़पीएस) की दर से सैंपल करता है. डिफ़ॉल्ट सैंपलिंग रेट, ज़्यादातर कॉन्टेंट के लिए सही होता है. हालांकि, ध्यान दें कि तेज़ गति वाले वीडियो या सीन में तेज़ी से बदलाव होने वाले वीडियो में, यह कुछ जानकारी को छोड़ सकता है.
+בתיאורים חזותיים, המודל דוגם את הסרטון בקצב של **פרים אחד לשנייה** (FPS). קצב הדגימה הזה מתאים לרוב התוכן, אבל חשוב לזכור שהוא עלול לפספס פרטים בסרטונים עם תנועה מהירה או שינויי סצנה מהירים.
 
 ### Python
 
@@ -820,40 +812,8 @@ const prompt = "Describe the key events in this video, providing both audio and 
 ### Java
 
 ```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.Content;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.VideoContent;
-import com.google.genai.gaos.models.interactions.VideoContentMimeType;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-Content textContent = TextContent.builder().text("Summarize the key events in this video.").build();
-Content videoContent =
-    VideoContent.builder()
-        .uri("gs://cloud-samples-data/generative-ai/video/pixel8.mp4")
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
-        .build();
-
-List<Content> contents = Arrays.asList(textContent, videoContent);
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.8-flash"))
-        .input(InteractionsInput.ofContent(contents))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
+String prompt =
+    "Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments.";
 ```
 
 ### REST
@@ -862,13 +822,13 @@ System.out.println(interaction.outputText().orElse(""));
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## वीडियो प्रोसेसिंग को पसंद के मुताबिक बनाना
+## התאמה אישית של עיבוד הסרטון
 
-Gemini API में वीडियो प्रोसेसिंग को अपनी पसंद के मुताबिक बनाया जा सकता है. इसके लिए, क्लिप करने के इंटरवल सेट करें या फ़्रेम रेट की सैंपलिंग को अपनी पसंद के मुताबिक बनाएं. कस्टमाइज़ेशन के ये विकल्प, सिर्फ़ `"static"` मोड में वीडियो प्रोसेस करते समय काम करते हैं.
+אתם יכולים להתאים אישית את עיבוד הסרטון ב-Gemini API על ידי הגדרת מרווחי חיתוך או על ידי מתן דגימה מותאמת אישית של קצב הפריימים. אפשרויות ההתאמה האישית האלה נתמכות רק כשמעבדים את הסרטון במצב `"static"`.
 
-### क्लिपिंग इंटरवल सेट करना
+### הגדרת מרווחי זמן לחיתוך
 
-`processing` कॉन्फ़िगरेशन ऑब्जेक्ट में `start_offset` और `end_offset` तय करके, वीडियो को क्लिप किया जा सकता है.
+כדי לחתוך סרטון, מציינים את `start_offset` ואת `end_offset` באובייקט ההגדרה `processing`.
 
 ### Python
 
@@ -938,9 +898,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-### कस्टम फ़्रेम रेट सेट करना
+### הגדרת קצב פריימים בהתאמה אישית
 
-`processing` कॉन्फ़िगरेशन ऑब्जेक्ट में `fps` आर्ग्युमेंट पास करके, फ़्रेम रेट की कस्टम सैंपलिंग सेट की जा सकती है.
+כדי להגדיר דגימה של קצב פריימים בהתאמה אישית, מעבירים ארגומנט `fps` באובייקט ההגדרות `processing`.
 
 ### Python
 
@@ -1007,9 +967,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-## काम करने वाले वीडियो फ़ॉर्मैट
+## פורמטים נתמכים של וידאו
 
-Gemini, वीडियो फ़ॉर्मैट के इन MIME टाइप के साथ काम करता है:
+‫Gemini תומך בסוגי ה-MIME הבאים של פורמטים של סרטונים:
 
 - `video/mp4`
 - `video/mpeg`
@@ -1021,51 +981,51 @@ Gemini, वीडियो फ़ॉर्मैट के इन MIME टाइ
 - `video/wmv`
 - `video/3gpp`
 
-## वीडियो के बारे में तकनीकी जानकारी
+## פרטים טכניים על סרטונים
 
-- **इस्तेमाल किए जा सकने वाले मॉडल और कॉन्टेक्स्ट**: सभी Gemini मॉडल, वीडियो डेटा को प्रोसेस कर सकते हैं.
-  - 10 लाख टोकन वाली कॉन्टेक्स्ट विंडो वाले मॉडल, डिफ़ॉल्ट रूप से तीन घंटे तक के वीडियो प्रोसेस कर सकते हैं. हालांकि, ऐसा कम मीडिया रिज़ॉल्यूशन पर होता है. वहीं, ज़्यादा मीडिया रिज़ॉल्यूशन पर, ये मॉडल एक घंटे तक के वीडियो प्रोसेस कर सकते हैं.
-- **प्रोसेसिंग मोड**: Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite, और इसके बाद के मॉडल में, वीडियो प्रोसेसिंग के दो मोड काम करते हैं:
-  - **स्टैटिक**: फ़्रेम, 1 एफ़पीएस पर निकाले जाते हैं और उन्हें कॉन्टेक्स्ट में रखा जाता है. यह सभी मॉडल के लिए डिफ़ॉल्ट रूप से उपलब्ध होता है. ऑडियो को 1 केबीपीएस (सिंगल चैनल) पर प्रोसेस किया जाता है.
-    टाइमस्टैंप हर सेकंड जोड़े जाते हैं. यह छोटी क्लिप के लिए सबसे अच्छा है. इसके अलावा, यह तब भी सबसे अच्छा है, जब हर फ़्रेम मायने रखता हो. जैसे, फ़्रेम-बाय-फ़्रेम जांच करना. ध्यान दें कि 1 एफ़पीएस की सैंपलिंग दर की वजह से, फ़ास्ट ऐक्शन सीक्वेंस में जानकारी कम हो सकती है.
-  - **एजेंटिक**: यह मॉडल, वीडियो में डाइनैमिक तरीके से नेविगेट करता है. साथ ही, मांग पर ट्रांसक्रिप्ट और/या फ़्रेम और/या ऑडियो लोड करता है. यह लंबी अवधि के कॉन्टेंट के लिए, 88% तक कम टोकन का इस्तेमाल करता है. हालांकि, जनरेटिव एआई के काम करने के तरीके और जनरेट होने से पहले टूल के राउंड-ट्रिप की वजह से, छोटी क्लिप (<5 मिनट) पर नेविगेशन के लिए, पहले टोकन के लिए समय (टीटीएफटी) थोड़ा बढ़ सकता है. यह लंबी अवधि के वीडियो के लिए सबसे अच्छा है. इससे टोकन की लागत और जवाब की क्वालिटी को ऑप्टिमाइज़ किया जा सकता है.
-    यह सुविधा, Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, और 3.5 Flash Lite पर काम करती है.
-    ज़्यादा जानकारी के लिए, [एजेंटिक वीडियो अंडरस्टैंडिंग](#agentic-video-understanding) देखें.
-- **टोकन कैलकुलेशन (स्टैटिक मोड)**: वीडियो के हर सेकंड को इस तरह टोकन में बदला जाता है:
-  - अलग-अलग फ़्रेम (1 एफ़पीएस पर सैंपल किए गए):
-    - अगर `media_resolution` को कम पर सेट किया जाता है, तो फ़्रेम को 66 टोकन प्रति फ़्रेम पर टोकन में बदला जाता है.
-    - अगर ऐसा नहीं है, तो हर फ़्रेम के लिए 258 टोकन इस्तेमाल किए जाते हैं.
-  - ऑडियो: हर सेकंड 32 टोकन.
-  - इसमें मेटाडेटा भी शामिल होता है.
-  - कुल: डिफ़ॉल्ट (कम) मीडिया रिज़ॉल्यूशन पर, वीडियो के हर सेकंड के लिए करीब 100 टोकन या हाई मीडिया रिज़ॉल्यूशन पर, वीडियो के हर सेकंड के लिए करीब 300 टोकन.
-- **टोकन की गिनती (एजेंटिक मोड)**: टोकन का इस्तेमाल, कॉन्टेंट की जटिलता और मॉडल की नेविगेशन रणनीति के आधार पर अलग-अलग होता है. वीडियो एक्सप्लोर करने के दौरान जनरेट किए गए नेविगेशन रीज़निंग टोकन को **थॉट टोकन** (`total_thought_tokens`) के तौर पर गिना जाता है. वहीं, मांग पर लोड किए गए फ़्रेम, ऑडियो, और ट्रांसक्रिप्ट को टूल इस्तेमाल करने वाले टोकन (`total_tool_use_tokens`) के तौर पर गिना जाता है. आम तौर पर, एजेंटिक प्रोसेसिंग में स्टैटिक प्रोसेसिंग की तुलना में, लंबी अवधि के कॉन्टेंट के लिए कुल 88% कम टोकन इस्तेमाल होते हैं. ऐसा इसलिए होता है, क्योंकि मॉडल सिर्फ़ उस ट्रांसक्रिप्ट और/या फ़्रेम और/या ऑडियो को लोड करता है जिसकी उसे प्रॉम्प्ट का जवाब देने के लिए ज़रूरत होती है. ज़्यादा जानकारी के लिए, [टोकन गाइड](https://ai.google.dev/gemini-api/docs/tokens?hl=hi#video-token-usage) देखें.
-- **मीडिया रिज़ॉल्यूशन**: Gemini 3 में, `media_resolution` पैरामीटर की मदद से मल्टीमॉडल विज़न प्रोसेसिंग को ज़्यादा बारीकी से कंट्रोल करने की सुविधा मिलती है. `media_resolution` पैरामीटर से यह तय होता है कि **हर इनपुट इमेज या वीडियो फ़्रेम के लिए, ज़्यादा से ज़्यादा कितने टोकन
-  मिलेंगे.** ज़्यादा रिज़ॉल्यूशन से, मॉडल को छोटे टेक्स्ट को पढ़ने या छोटी-छोटी बारीकियों को पहचानने में मदद मिलती है. हालांकि, इससे टोकन का इस्तेमाल और लेटेन्सी बढ़ जाती है. `media_resolution` और `processing` पैरामीटर एक-दूसरे से अलग हैं: दोनों को एक ही वीडियो इनपुट पर सेट किया जा सकता है.
+- **מודלים והקשר נתמכים**: כל המודלים של Gemini יכולים לעבד נתוני וידאו.
+  - מודלים עם חלון הקשר של מיליון טוקנים יכולים לעבד סרטונים באורך של עד 3 שעות כברירת מחדל (ברזולוציית מדיה נמוכה), או באורך של עד שעה ברזולוציית מדיה גבוהה.
+- **מצבי עיבוד**: מודלים של Gemini 3.8 Flash,‏ 3.7 Flash,‏ 3.6 Flash,‏ 3.5 Flash Lite ומודלים מתקדמים יותר תומכים בשני מצבי עיבוד וידאו:
+  - **סטטי**: הפריימים מחולצים בקצב של 1 FPS ומוצבים בהקשר (ברירת המחדל לכל המודלים). האודיו מעובד בקצב של 1Kbps (ערוץ יחיד).
+    חותמות הזמן מתווספות כל שנייה. הכי מתאים לקליפים קצרים או כשכל פריים חשוב (למשל, בדיקה של פריים אחרי פריים). שימו לב שרצפים של פעולות מהירות עלולים לאבד פרטים בגלל קצב הדגימה של 1 FPS.
+  - **מבוסס-סוכן**: המודל מנווט בסרטון באופן דינמי, וטוען תמליל, פריימים או אודיו על פי דרישה. השימוש בשיטה הזו מאפשר לצמצם את מספר הטוקנים בתוכן ארוך ב-88% לפחות, אבל יכול להיות שהניווט יגרום לעלייה קלה בזמן עד לטוקן הראשון (TTFT) בקליפים קצרים (עד 5 דקות) בגלל תהליכי חשיבה פנימיים ושימוש בכלי הלוך ושוב לפני תחילת היצירה. הכי מתאים לסרטונים ארוכים (LFV) כדי לבצע אופטימיזציה של עלויות הטוקנים ואיכות התשובות.
+    התכונה נתמכת ב-Gemini 3.8 Flash,‏ 3.7 Flash,‏ 3.6 Flash ו-3.5 Flash Lite.
+    פרטים נוספים זמינים במאמר בנושא [הבנת סרטונים באמצעות סוכנים](#agentic-video-understanding).
+- **חישוב טוקנים (מצב סטטי)**: כל שנייה של סרטון עוברת טוקניזציה באופן הבא:
+  - פריימים בודדים (נדגמים ב-1 FPS):
+    - אם הערך של `media_resolution` מוגדר כנמוך, הפריימים עוברים טוקניזציה בשיעור של 66 טוקנים לכל פריים.
+    - אחרת, הפריימים עוברים טוקניזציה בקצב של 258 טוקנים לכל פריים.
+  - אודיו: 32 טוקנים לשנייה.
+  - המטא-נתונים כלולים גם הם.
+  - סה"כ: כ-100 טוקנים לשנייה של וידאו ברזולוציית מדיה (נמוכה) שמוגדרת כברירת מחדל, או כ-300 טוקנים לשנייה של וידאו ברזולוציית מדיה גבוהה.
+- **חישוב אסימונים (מצב סוכן):** השימוש באסימונים משתנה בהתאם למורכבות התוכן ולאסטרטגיית הניווט של המודל. טוקנים של נימוקי ניווט שנוצרים במהלך חיפוש בסרטון נספרים כ**טוקנים של מחשבה** (`total_thought_tokens`), ואילו פריימים, אודיו ותמליל שנטענים לפי דרישה נספרים כטוקנים של שימוש בכלי (`total_tool_use_tokens`). בדרך כלל, עיבוד באמצעות סוכן משתמש בעד 88% פחות טוקנים כוללים מאשר עיבוד סטטי של תוכן ארוך, כי המודל טוען רק את התמליל או הפריימים או האודיו שהוא צריך כדי לענות על ההנחיה (ראו את [המדריך לטוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he#video-token-usage)).
+- **רזולוציית מדיה**: ב-Gemini 3 יש שליטה מדויקת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר
+  `media_resolution` קובע את **המספר המקסימלי של טוקנים
+  שהוקצו לכל תמונה או פריים של סרטון קלט.** רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל מגדילות את השימוש בטוקנים ואת זמן האחזור. הפרמטרים `media_resolution` ו-`processing` הם בלתי תלויים: אפשר להגדיר את שניהם באותו קלט וידאו.
 
-टोकन की गिनती के बारे में ज़्यादा जानने के लिए, [टोकन](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) गाइड देखें.
+פרטים נוספים על חישוב אסימונים זמינים במדריך בנושא [אסימונים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
 
-- **टाइमस्टैंप का फ़ॉर्मैट**: अपने प्रॉम्प्ट में किसी वीडियो के खास पलों के बारे में बताते समय, `MM:SS` फ़ॉर्मैट का इस्तेमाल करें. उदाहरण के लिए, 1 मिनट और 15 सेकंड के लिए `01:15`.
-- **प्रॉम्प्ट का प्लेसमेंट**: अगर टेक्स्ट और एक वीडियो को साथ में इस्तेमाल किया जा रहा है, तो `input` ऐरे में वीडियो के बाद टेक्स्ट प्रॉम्प्ट को *रखें*.
-- **लंबे अनुरोधों के लिए टाइमआउट**: ऐसे वीडियो के लिए स्ट्रीमिंग (`stream=True`) या बैकग्राउंड में प्रोसेस करने (`background=True`) की सुविधा का इस्तेमाल करें जिन्हें प्रोसेस करने में ज़्यादा समय लगता है या जिनमें कई चरणों में जटिल तर्क शामिल होते हैं.
-  सिंक्रोनस, नॉन-स्ट्रीमिंग अनुरोधों के लिए, ज़्यादा मांग होने पर बैकएंड से फिर से कोशिश की जाती है. इससे कनेक्शन या पुष्टि करने वाले टोकन की वैधता की अवधि खत्म हो सकती है. ऐसा होने पर, `401 Unauthorized` या टाइमआउट से जुड़ी गड़बड़ियां दिख सकती हैं.
-  स्ट्रीमिंग से, कनेक्शन चालू रहता है. साथ ही, इससे बीच-बीच में तर्क और टूल कॉल की प्रोग्रेस दिखती है.
+- **פורמט חותמת הזמן**: כשמפנים לרגעים ספציפיים בסרטון בהנחיה, צריך להשתמש בפורמט `MM:SS` (למשל, `01:15` לציון דקה ו-15 שניות).
+- **מיקום ההנחיה**: אם משלבים טקסט וסרטון אחד, צריך למקם את הנחיית הטקסט *אחרי* חלק הסרטון במערך `input`.
+- **פסק זמן לבקשות ארוכות**: בסרטונים שנדרש להם זמן עיבוד ממושך או ניתוח מורכב בכמה שלבים, כדאי להשתמש בסטרימינג (`stream=True`) או בהרצה ברקע (`background=True`). בקשות סינכרוניות שאינן סטרימינג, שמתבצעים בהן ניסיונות חוזרים בעורף המערכת בביקוש גבוה, עשויות לחרוג מחלונות התוקף של החיבור או של אסימון האימות, מה שעלול להוביל לשגיאות לא צפויות מסוג `401 Unauthorized` או לשגיאות של פסק זמן.
+  הסטרימינג שומר על החיבור פעיל ומציג את שלבי הביניים של החשיבה הרציונלית ואת ההתקדמות של קריאות הכלים.
 
-## आगे क्या करना है
+## המאמרים הבאים
 
-- [मीडिया रिज़ॉल्यूशन](https://ai.google.dev/gemini-api/docs/media-resolution?hl=hi): क्वालिटी और टोकन के इस्तेमाल को बैलेंस करने के लिए, वीडियो फ़्रेम के रिज़ॉल्यूशन को कंट्रोल करें.
-- [टोकन](https://ai.google.dev/gemini-api/docs/tokens?hl=hi): जानें कि स्टैटिक और एजेंटिक, दोनों प्रोसेसिंग मोड में वीडियो कॉन्टेंट को कैसे टोकनाइज़ किया जाता है.
-- [सिस्टम के लिए निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
-  सिस्टम के लिए निर्देश देने की सुविधा की मदद से, अपनी खास ज़रूरतों और इस्तेमाल के उदाहरणों के आधार पर, मॉडल के व्यवहार को कंट्रोल किया जा सकता है.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi): Gemini के साथ इस्तेमाल करने के लिए, फ़ाइलें अपलोड करने और उन्हें मैनेज करने के बारे में ज़्यादा जानें.
-- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide): Gemini API, टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा देता है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
-- [सुरक्षा से जुड़ी गाइडलाइन](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=hi): कभी-कभी जनरेटिव एआई मॉडल ऐसे आउटपुट जनरेट करते हैं जिनकी उम्मीद नहीं होती. जैसे, गलत, पक्षपात वाले या आपत्तिजनक आउटपुट. इस तरह के आउटपुट से होने वाले नुकसान के जोखिम को कम करने के लिए, पोस्ट-प्रोसेसिंग और मैन्युअल तरीके से आकलन करना ज़रूरी है.
+- [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he): שליטה ברזולוציה של פריימים של סרטונים כדי לאזן בין איכות לבין שימוש באסימונים.
+- [טוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he): הסבר על האופן שבו תוכן וידאו עובר טוקניזציה במצבי עיבוד סטטיים ודינמיים.
+- [הוראות למערכת](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
+  ההוראות למערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
+- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): מידע נוסף על העלאה וניהול של קבצים לשימוש עם Gemini.
+- [אסטרטגיות להנפקת הנחיות לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בהנפקת הנחיות עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראות גם הנחיות מולטימודאליות.
+- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים פלטים לא צפויים, כמו פלטים לא מדויקים, מוטים או פוגעניים. עיבוד תמונה (Post Processing) והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
 
-सुझाव भेजें
+שליחת משוב
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
+עדכון אחרון: 2026-09-18 (שעון UTC).
 
-क्या आपको हमें और कुछ बताना है?
+רוצה לתת לנו משוב?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-18 (שעון UTC)."],[],[]]

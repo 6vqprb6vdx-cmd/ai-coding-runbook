@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar
-fetched_at: 2026-09-14T05:46:58.705876+00:00
-title: "Antigravity Agent \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419
+fetched_at: 2026-09-21T05:57:56.648842+00:00
+title: "Agente de Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-# Antigravity Agent
+# Agente de Antigravity
 
-‫Antigravity Agent هو وكيل مُدار للأغراض العامة على Gemini API. يمنحك طلب واحد من واجهة برمجة التطبيقات وكيلاً يمكنه التفكير وتنفيذ الرموز البرمجية وإدارة الملفات وتصفّح الويب داخل بيئة الاختبار المعزولة الآمنة المستندة إلى Linux والتي تستضيفها Google.
+El agente de Antigravity es un agente administrado de uso general en la API de Gemini. Una sola llamada a la API te proporciona un agente que razona, ejecuta código, administra archivos y navega por la Web dentro de tu propia zona de pruebas segura de Linux, alojada por Google.
 
-يعمل هذا النموذج باستخدام Gemini 3.6 Flash ويستخدم الإطار نفسه الذي تستخدمه بيئة تطوير Antigravity المتكاملة. يمكنك ضبط نموذج Gemini الأساسي باستخدام `agent_config`. يمكنك الاستفادة من هذه الميزة من خلال [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) و[Google AI Studio](https://aistudio.google.com?hl=ar).
+Se creó con la tecnología de Gemini 3.8 Flash y usa el mismo arnés que el IDE de Antigravity. Puedes configurar el modelo de Gemini subyacente con `agent_config`. Disponible a través de la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) y [Google AI Studio](https://aistudio.google.com?hl=es-419).
 
 ### Python
 
@@ -30,7 +30,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Read Hacker News, summarize the top 10 stories, and save the results as a PDF.",
     environment="remote",
 )
@@ -46,12 +46,35 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Read Hacker News, summarize the top 10 stories, and save the results as a PDF.",
     environment: "remote",
 }, { timeout: 300000 });
 
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Read Hacker News, summarize the top 10 stories, and save the results as a PDF."))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -61,39 +84,39 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "agent": "antigravity-preview-05-2026",
+    "agent": "antigravity-preview-09-2026",
     "input": "Read Hacker News, summarize the top 10 stories, and save the results as a PDF.",
     "environment": "remote"
 }'
 ```
 
-## الإمكانات
+## Funciones
 
-يمكن لكل مكالمة توفير بيئة اختبارية لنظام التشغيل Linux وبدء حلقة استخدام الأدوات. يخطّط الوكيل وينفّذ ويراقب النتائج ويكرّر العملية إلى أن يتم إنجاز المهمة.
+Cada llamada puede aprovisionar una zona de pruebas de Linux y comenzar un bucle de uso de herramientas. El agente planifica, actúa, observa los resultados y repite el proceso hasta que se completa la tarea.
 
-- **تنفيذ الرموز البرمجية:** يمكنك تنفيذ أوامر Bash وPython وNode.js. تثبيت الحِزم وتشغيل الاختبارات وإنشاء التطبيقات
-- **إدارة الملفات:** قراءة الملفات وكتابتها وتعديلها والبحث فيها وإدراجها في وضع الحماية تظل الملفات متوفّرة خلال التفاعلات.
-- **الوصول إلى الويب:** تستخدم "بحث Google" وعملية جلب عناوين URL للحصول على البيانات.
-- **ضغط السياق:** يتم ضغط السياق تلقائيًا (عند حوالي 135 ألف رمز مميز) لدعم الجلسات الطويلة والمحادثة المترابطة بدون فقدان السياق أو تجاوز حدود الرموز المميزة.
+- **Ejecución de código:** Ejecuta comandos de Bash, Python y Node.js. Instalar paquetes, ejecutar pruebas y compilar apps
+- **Administración de archivos:** Lee, escribe, edita, busca y enumera archivos en el sandbox. Los archivos persisten en todas las interacciones.
+- **Acceso a la Web:** Búsqueda de Google y recuperación de URLs para obtener datos
+- **Compresión del contexto:** Compresión automática del contexto (se activa con alrededor de 135, 000 tokens) para admitir sesiones de varios turnos y de larga duración sin perder el contexto ni alcanzar los límites de tokens.
 
-يمكنك الاطّلاع على [دليل البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar) لمعرفة كيفية استخدام المحادثات المترابطة والبث.
+Consulta la [Guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419) para obtener información sobre el uso en varios turnos y la transmisión.
 
-## الأدوات المتوافقة
+## Herramientas compatibles
 
-بشكلٍ تلقائي، يمكن للوكيل الوصول إلى `code_execution` و`google_search` و`url_context`. يتم تفعيل أدوات نظام الملفات تلقائيًا عند تحديد المَعلمة `environment`. يمكنك أيضًا تحديد **وظائف مخصّصة** لربط الوكيل بواجهات برمجة التطبيقات والأدوات الخاصة بك. ما عليك سوى تحديد المَعلمة `tools` عند تخصيص المجموعة التلقائية أو حصرها، أو عند إضافة وظائف مخصّصة.
+De forma predeterminada, el agente tiene acceso a `code_execution`, `google_search` y `url_context`. Las herramientas del sistema de archivos se habilitan automáticamente cuando especificas el parámetro `environment`. También puedes definir **funciones personalizadas** para conectar el agente a tus propias APIs y herramientas. Solo necesitas especificar el parámetro `tools` cuando personalizas o restringes el conjunto predeterminado, o cuando agregas funciones personalizadas.
 
-| الأداة | كتابة قيمة | الوصف |
+| Herramienta | Valor del tipo | Descripción |
 | --- | --- | --- |
-| تنفيذ الرموز البرمجية | `code_execution` | تنفيذ أوامر shell (مثل bash وPython وNode) مع إمكانية تسجيل stdout/stderr |
-| بحث Google | `google_search` | البحث في شبكة الويب المتاحة للجميع |
-| سياق عناوين URL | `url_context` | جلب صفحات الويب وقراءتها |
-| نظام الملفات | *(يتم تفعيلها من خلال `environment`)* | قراءة الملفات وكتابتها وتعديلها والبحث فيها وإدراجها في وضع الحماية يفعّل النظام هذه الأدوات تلقائيًا عند ضبط `environment`. |
-| الوظائف المخصّصة | `function` | حدِّد الدوال المخصّصة التي يمكن للوكيل طلب تنفيذها. يُرجى الاطّلاع على [استدعاء الدالة](#function-calling). |
-| خادم MCP البعيد | `mcp_server` | تسجيل خوادم بروتوكول سياق النموذج (MCP) الخارجية كأدوات اطّلِع على [خوادم MCP](#mcp-servers). |
+| Ejecución de código | `code_execution` | Ejecuta comandos de shell (bash, Python, Node) con captura de stdout/stderr. |
+| Búsqueda de Google | `google_search` | Buscar en la Web pública |
+| Contexto de URL | `url_context` | Recuperar y leer páginas web |
+| Sistema de archivos | *(se habilita a través de `environment`)* | Leer, escribir, editar, buscar y enumerar archivos en el entorno de pruebas El sistema habilita estas herramientas automáticamente cuando configuras `environment`. |
+| Funciones personalizadas | `function` | Define funciones personalizadas que el agente puede solicitar ejecutar. Consulta [Llamadas a funciones](#function-calling). |
+| Servidor de MCP remoto | `mcp_server` | Registrar servidores externos del Protocolo de contexto del modelo (MCP) como herramientas Consulta [Servidores de MCP](#mcp-servers). |
 
-يمكنك اعتراض تنفيذ أداتَي `code_execution` و`filesystem` والتحقّق من صحتهما مباشرةً داخل بيئة وضع الحماية البعيدة باستخدام [خطافات](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=ar) متزامنة.
+Puedes interceptar y validar la ejecución de las herramientas `code_execution` y `filesystem` directamente en la zona de pruebas remota con [enlaces](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419) síncronos.
 
-لحصر وصول الوكيل إلى أدوات معيّنة، مرِّر الأدوات التي تحتاج إليها فقط:
+Para limitar el agente a herramientas específicas, pasa solo las que necesites:
 
 ### Python
 
@@ -103,7 +126,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Search for the latest AI research papers on reasoning and summarize them.",
     environment="remote",
     tools=[
@@ -123,7 +146,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Search for the latest AI research papers on reasoning and summarize them.",
     environment: "remote",
     tools: [
@@ -135,6 +158,36 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.URLContext;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.List;
+
+Client client = new Client();
+
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Search for the latest AI research papers on reasoning and summarize them."))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .tools(List.of(
+        GoogleSearch.builder().build(),
+        URLContext.builder().build()
+    ))
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -142,7 +195,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "agent": "antigravity-preview-05-2026",
+    "agent": "antigravity-preview-09-2026",
     "input": "Search for the latest AI research papers on reasoning and summarize them.",
     "environment": "remote",
     "tools": [
@@ -152,9 +205,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## الإدخال المتعدد الوسائط
+## Entrada multimodal
 
-يتوافق وكيل Antigravity مع الإدخالات المتعدّدة الوسائط. في الوقت الحالي، لا تتوفّر سوى المدخلات `text` و`image`. يجب تقديم الصور كسلاسل مضمّنة بترميز base64 (`data`).
+El agente de Antigravity admite entradas multimodales. Actualmente, solo se admiten las entradas `text` y `image`. Las imágenes se deben proporcionar como cadenas intercaladas codificadas en base64 (`data`).
 
 ### Python
 
@@ -168,7 +221,7 @@ with open("path/to/chart.png", "rb") as f:
     image_bytes = f.read()
 
 interaction_inline = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input=[
         {"type": "text", "text": "Analyze this chart and summarize the trends."},
         {
@@ -192,7 +245,7 @@ const client = new GoogleGenAI({});
 const base64Image = fs.readFileSync("path/to/chart.png", { encoding: "base64" });
 
 const interactionInline = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: [
         { type: "text", text: "Analyze this chart and summarize the trends." },
         {
@@ -205,6 +258,45 @@ const interactionInline = await client.interactions.create({
 }, { timeout: 300000 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("path/to/chart.png"));
+String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.ofContent(List.of(
+        TextContent.builder().text("Analyze this chart and summarize the trends.").build(),
+        ImageContent.builder()
+            .data(base64Image)
+            .mimeType(ImageContentMimeType.IMAGE_PNG)
+            .build()
+    )))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .build();
+
+Interaction interactionInline = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interactionInline.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -214,7 +306,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d "{
-    \"agent\": \"antigravity-preview-05-2026\",
+    \"agent\": \"antigravity-preview-09-2026\",
     \"input\": [
         {\"type\": \"text\", \"text\": \"Analyze this chart and summarize the trends.\"},
         {
@@ -227,11 +319,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## استدعاء الدالة
+## Llamada a función
 
-تتيح لك ميزة "استدعاء الدوال" ربط وكيل Antigravity بواجهات برمجة التطبيقات وقواعد البيانات الخارجية من خلال تحديد أدوات مخصّصة يمكن للوكيل استدعاؤها. للاطّلاع على المفاهيم العامة، يُرجى الانتقال إلى [استدعاء الدوال باستخدام Gemini API](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar).
+La llamada a funciones te permite conectar el agente de Antigravity a APIs y bases de datos externas definiendo herramientas personalizadas que el agente puede invocar. Para conocer los conceptos generales, consulta [Llamada a funciones con la API de Gemini](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
 
-يوضّح المثال التالي تفاعلاً من خطوتين. يطلب الوكيل أولاً إجراء استدعاء دالة مخصّصة `get_weather`، وينفّذه العميل ويعرض النتيجة في الجولة الثانية.
+En el siguiente ejemplo, se muestra una interacción de 2 turnos. Primero, el agente solicita una llamada a la función `get_weather` personalizada, y el cliente la ejecuta y devuelve el resultado en el segundo turno.
 
 ### Python
 
@@ -259,7 +351,7 @@ get_weather_tool = {
 
 # 2. Call the agent with the custom tool (Turn 1)
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="What is the weather in Tokyo?",
     environment="remote",
     tools=[
@@ -271,7 +363,7 @@ interaction = client.interactions.create(
 # Check if the agent requested a function call
 if interaction.status == "requires_action":
     # Find function calls that do not have a matching function result.
-    # Filesystem tools (like write_file) are also represented as function calls
+    # Filesystem tools (like write_to_file) are also represented as function calls
     # but are executed automatically by the environment.
     executed_calls = {step.call_id for step in interaction.steps if step.type == "function_result"}
     pending_calls = [step for step in interaction.steps if step.type == "function_call" and step.id not in executed_calls]
@@ -288,7 +380,7 @@ if interaction.status == "requires_action":
         }
 
         final_interaction = client.interactions.create(
-            agent="antigravity-preview-05-2026",
+            agent="antigravity-preview-09-2026",
             previous_interaction_id=interaction.id,  # Reference the interaction ID
             environment=interaction.environment_id,
             input=[
@@ -335,7 +427,7 @@ const get_weather_tool = {
 
 // 2. Call the agent with the custom tool (Turn 1)
 const interaction = await client.interactions.create({
-  agent: "antigravity-preview-05-2026",
+  agent: "antigravity-preview-09-2026",
   input: "What is the weather in Tokyo?",
   environment: "remote",
   tools: [
@@ -346,7 +438,7 @@ const interaction = await client.interactions.create({
 
 if (interaction.status === "requires_action") {
   // Find function calls that do not have a matching function result.
-  // Filesystem tools (like write_file) are also represented as function calls
+  // Filesystem tools (like write_to_file) are also represented as function calls
   // but are executed automatically by the environment.
   const executedCalls = new Set(
     interaction.steps
@@ -368,7 +460,7 @@ if (interaction.status === "requires_action") {
     };
 
     const finalInteraction = await client.interactions.create({
-      agent: "antigravity-preview-05-2026",
+      agent: "antigravity-preview-09-2026",
       previous_interaction_id: interaction.id, // Reference the interaction ID
       environment: interaction.environment_id,
       input: [
@@ -390,6 +482,104 @@ if (interaction.status === "requires_action") {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CodeExecution;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+Client client = new Client();
+
+// 1. Define the custom function
+Function getWeatherTool = Function.builder()
+    .name("get_weather")
+    .description("Gets the current weather for a given location.")
+    .parameters(Map.of(
+        "type", "object",
+        "properties", Map.of(
+            "location", Map.of(
+                "type", "string",
+                "description", "The city and country, e.g. San Francisco, USA"
+            )
+        ),
+        "required", List.of("location")
+    ))
+    .build();
+
+// 2. Call the agent with the custom tool (Turn 1)
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("What is the weather in Tokyo?"))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .tools(List.of(
+        CodeExecution.builder().build(), // Enable default code execution
+        getWeatherTool                   // Add custom function
+    ))
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+// Check if the agent requested a function call
+if (interaction.status().orElse(null) == InteractionStatus.REQUIRES_ACTION) {
+    // Find function calls that do not have a matching function result.
+    List<Step> steps = interaction.steps().orElse(List.of());
+    Set<String> executedCalls = steps.stream()
+        .filter(step -> step instanceof FunctionResultStep)
+        .map(step -> ((FunctionResultStep) step).callId().orElse(""))
+        .collect(Collectors.toSet());
+
+    List<FunctionCallStep> pendingCalls = steps.stream()
+        .filter(step -> step instanceof FunctionCallStep)
+        .map(step -> (FunctionCallStep) step)
+        .filter(fc -> !executedCalls.contains(fc.id().orElse("")))
+        .collect(Collectors.toList());
+
+    if (!pendingCalls.isEmpty()) {
+        FunctionCallStep fcStep = pendingCalls.get(0);
+        System.out.println("Function to call: " + fcStep.name().orElse("") + " (ID: " + fcStep.id().orElse("") + ")");
+        System.out.println("Arguments: " + fcStep.arguments().orElse(Map.of()));
+
+        // 3. Execute the function locally (simulated get_weather()) and send the result back (Turn 2)
+        FunctionResultStep resultStep = FunctionResultStep.builder()
+            .name(fcStep.name().orElse(""))
+            .callId(fcStep.id().orElse(""))
+            .result(FunctionResultStepResultUnion.of("{\"temperature\": 23, \"unit\": \"celsius\"}"))
+            .build();
+
+        CreateAgentInteraction followupParams = CreateAgentInteraction.builder()
+            .agent(AgentOption.of("antigravity-preview-09-2026"))
+            .previousInteractionId(interaction.id().orElse(""))
+            .environment(CreateAgentInteractionEnvironment.of(interaction.environmentId().orElse("")))
+            .input(InteractionsInput.ofStep(List.of(resultStep)))
+            .build();
+
+        Interaction finalInteraction = client.interactions.create(CreateInteractionRequestBody.of(followupParams)).interaction().get();
+        System.out.println(finalInteraction.outputText().orElse(""));
+        // Output: The current weather in Tokyo, Japan is 23°C (Celsius).
+    } else {
+        System.out.println("No pending function calls.");
+    }
+} else {
+    System.out.println("Interaction completed with status: " + interaction.status().orElse(null));
+}
+```
+
 ### REST
 
 ```
@@ -398,7 +588,7 @@ RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/int
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d '{
-      "agent": "antigravity-preview-05-2026",
+      "agent": "antigravity-preview-09-2026",
       "input": "What is the weather in Tokyo?",
       "environment": "remote",
       "tools": [
@@ -428,7 +618,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d "{
-      \"agent\": \"antigravity-preview-05-2026\",
+      \"agent\": \"antigravity-preview-09-2026\",
       \"previous_interaction_id\": \"$INTERACTION_ID\",
       \"environment\": \"$ENVIRONMENT_ID\",
       \"input\": [
@@ -445,19 +635,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## خوادم MCP
+## Servidores de MCP
 
-يمكنك ربط وكيل Antigravity بأدوات خارجية من خلال تسجيل خوادم Model Context Protocol (MCP) البعيدة. يتيح البرنامج الوصول إلى خوادم MCP عن بُعد عبر بروتوكول HTTP قابل للبث.
+Puedes conectar el agente de Antigravity a herramientas externas registrando servidores remotos del Protocolo de contexto del modelo (MCP). El agente admite servidores MCP remotos a través de HTTP con capacidad de transmisión.
 
-عند تسجيل خادم MCP، يجب تحديد الحقول التالية في مصفوفة `tools`:
+Cuando registres un servidor de MCP, debes especificar los siguientes campos en el array `tools`:
 
-| الحقل | النوع | مطلوب | الوصف |
+| Campo | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `type` | سلسلة | نعم | يجب أن تكون `"mcp_server"`. |
-| `name` | سلسلة | نعم | هي معرّف فريد للخادم. يجب أن تكون الأحرف صغيرة وأبجدية رقمية (مطابقة للنمط `^[a-z0-9_-]+$`). |
-| `url` | سلسلة | نعم | عنوان URL لنقطة نهاية خادم MCP البعيد |
-| `headers` | عنصر | لا | العناوين المخصّصة (مثل المصادقة) التي يتم إرسالها مع الطلبات |
-| `allowed_tools` | صفيف | لا | قائمة بأسماء الأدوات المسموح بتنفيذها. في حال عدم تحديد أي أداة، سيتم السماح بجميع الأدوات. |
+| `type` | string | Sí | Debe ser `"mcp_server"`. |
+| `name` | string | Sí | Es un identificador único del servidor. Debe ser estrictamente alfanumérico y en minúsculas (coincidir con `^[a-z0-9_-]+$`). |
+| `url` | string | Sí | Es la URL del extremo del servidor de MCP remoto. |
+| `headers` | objeto | No | Encabezados personalizados (p.ej., de autenticación) que se envían con las solicitudes. |
+| `allowed_tools` | array | No | Es la lista de nombres de herramientas que se pueden ejecutar. Si se omite, se permiten todas las herramientas. |
 
 ### Python
 
@@ -468,7 +658,7 @@ client = genai.Client()
 
 # Register a remote HTTP MCP server
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="What is the weather in Tokyo?",
     environment="remote",
     tools=[{
@@ -489,7 +679,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "What is the weather in Tokyo?",
     environment: "remote",
     tools: [{
@@ -502,6 +692,38 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.MCPServer;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.List;
+
+Client client = new Client();
+
+// Register a remote HTTP MCP server
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("What is the weather in Tokyo?"))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .tools(List.of(
+        MCPServer.builder()
+            .name("weather") // Must be lowercase
+            .url("https://gemini-api-demos.uc.r.appspot.com/mcp")
+            .build()
+    ))
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -509,7 +731,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d '{
-      "agent": "antigravity-preview-05-2026",
+      "agent": "antigravity-preview-09-2026",
       "input": "What is the weather in Tokyo?",
       "environment": "remote",
       "tools": [{
@@ -520,11 +742,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## اختيار النموذج
+## Selección del modelo
 
-بالنسبة إلى `antigravity-preview-05-2026`، النموذج التلقائي هو **Gemini 3.6 Flash** (`gemini-3.6-flash`). وإذا لم يتم تضمين `agent_config`، سيستخدم الوكيل `gemini-3.6-flash` تلقائيًا.
+En el caso de `antigravity-preview-09-2026`, el modelo predeterminado es **Gemini 3.8 Flash** (`gemini-3.8-flash`). Si omites `agent_config`, el agente usará `gemini-3.8-flash` de forma predeterminada.
 
-يمكنك ضبط نموذج Gemini الأساسي باستخدام `agent_config` لتحسين السرعة أو التكلفة أو قدرة الاستدلال.
+Puedes configurar el modelo subyacente de Gemini con `agent_config` para optimizar la velocidad, el costo o la capacidad de razonamiento.
 
 ### Python
 
@@ -534,7 +756,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Summarize the key differences between functional and object-oriented programming.",
     environment="remote",
     agent_config={
@@ -554,7 +776,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Summarize the key differences between functional and object-oriented programming.",
     environment: "remote",
     agent_config: {
@@ -566,6 +788,35 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.AntigravityAgentConfig;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Summarize the key differences between functional and object-oriented programming."))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .agentConfig(
+        AntigravityAgentConfig.builder()
+            .model("gemini-3.5-flash-lite")
+            .build()
+    )
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -573,7 +824,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d '{
-      "agent": "antigravity-preview-05-2026",
+      "agent": "antigravity-preview-09-2026",
       "input": "Summarize the key differences between functional and object-oriented programming.",
       "environment": "remote",
       "agent_config": {
@@ -583,25 +834,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-القيم المسموح بها لـ `agent_config.model` هي:
+Estos son los valores admitidos para `agent_config.model`:
 
-| الطراز | القيمة في `agent_config.model` | الوصف |
+| Modelo | Valor en `agent_config.model` | Descripción |
 | --- | --- | --- |
-| **Gemini 3.6 Flash** (الإعداد التلقائي) | `gemini-3.6-flash` | النموذج المتوازن التلقائي للاستدلال والترميز واستخدام الأدوات |
-| **Gemini 3.5 Flash** | `gemini-3.5-flash` | الجيل السابق من نموذج Flash لسير العمل العام المستند إلى الذكاء الاصطناعي المستقلّ |
-| **‫Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | نموذج خفيف الوزن محسَّن للمهام التي تتطلّب سرعة استجابة عالية وتكلفة منخفضة |
+| **Gemini 3.8 Flash** (predeterminado) | `gemini-3.8-flash` | Modelo equilibrado predeterminado para el razonamiento, la programación y el uso de herramientas. |
+| **Gemini 3.7 Flash** | `gemini-3.7-flash` | Es el modelo Flash de generación anterior para el razonamiento, la programación y los flujos de trabajo de agentes. |
+| **Gemini 3.6 Flash** | `gemini-3.6-flash` | Modelo Flash equilibrado para flujos de trabajo de agentes generales. |
+| **Gemini 3.5 Flash** | `gemini-3.5-flash` | Modelo ligero para flujos de trabajo generales. |
+| **Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | Modelo ligero optimizado para tareas de baja latencia y sensibles a los costos. |
 
-عند إنشاء وكيل مُدار باستخدام `agents.create`، يمكنك ضبط النموذج بالطريقة نفسها تمامًا من خلال تمرير `base_agent` و`agent_config`. يُرجى العِلم أنّه لا يمكنك تجاهل النموذج في وقت التفاعل مع وكيل مُدار تم إنشاؤه باستخدام `agents.create`. ويكون النموذج محصورًا بما تم ضبطه عند إنشاء الوكيل. يضمن ذلك سلوكًا متوقعًا عند استدعاء الأدوات، وتصحيح الأخطاء بشكل متّسق، والالتزام بحدود الأمان.
+Cuando creas un agente administrado con `agents.create`, configuras el modelo de la misma manera pasando `base_agent` y `agent_config`. Ten en cuenta que no puedes anular el modelo en el momento de la interacción para un agente administrado creado con `agents.create`. El modelo está bloqueado según lo que se configuró cuando se creó el agente. Esto garantiza un comportamiento predecible de las llamadas a herramientas, una depuración coherente y el cumplimiento de los límites de seguridad.
 
-## تخصيص الوكيل
+## Personaliza el agente
 
-يمكنك توسيع نطاق عمل وكيل Antigravity من خلال تخصيص تعليماته وأدواته وبيئته. يتيح لك البرنامج المساعد استخدام طريقة مخصّصة لنظام الملفات: يمكنك تحميل ملفات مثل `AGENTS.md` للحصول على التعليمات والمهارات ضمن `.agents/skills/` مباشرةً إلى وضع الحماية، أو تمرير الإعدادات المضمّنة في وقت التفاعل. يمكنك تكرار عملية الإعداد بشكل مضمّن ثم حفظها كوكيل مُدار عندما تكون مستعدًا.
+Puedes extender el agente de Antigravity personalizando sus instrucciones, herramientas y entorno. El agente admite un enfoque de personalización nativo del sistema de archivos: puedes montar archivos como `AGENTS.md` para obtener instrucciones y habilidades en `.agents/skills/` directamente en el sandbox, o bien pasar la configuración intercalada en el momento de la interacción. Puedes iterar tu configuración intercalada y, luego, guardarla como un agente administrado cuando esté todo listo.
 
-للحصول على التفاصيل الكاملة حول كيفية إنشاء وكلاء مخصّصين، يُرجى الاطّلاع على [إنشاء وكلاء مُدارين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar).
+Para obtener todos los detalles sobre cómo compilar agentes personalizados, consulta [Compila agentes administrados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419).
 
-## التنفيذ في الخلفية
+## Ejecución en segundo plano
 
-قد تستغرق مهام الوكيل التي تتضمّن الاستدلال المتعدّد الخطوات أو تطبيق الرموز البرمجية أو عمليات الملفات عدة دقائق لإكمالها. استخدِم `background=True` لتنفيذ التفاعل بشكل غير متزامن. تعرض واجهة برمجة التطبيقات على الفور معرّف تفاعل يمكنك استخدامه في طلبات البحث إلى أن تصبح الحالة `completed` أو `failed`.
+Las tareas del agente que implican razonamiento de varios pasos, ejecución de código o operaciones de archivos pueden tardar minutos en completarse. Usa `background=True` para ejecutar la interacción de forma asíncrona. La API devuelve de inmediato un ID de interacción que sondea hasta que el estado sea `completed` o `failed`.
 
 ### Python
 
@@ -613,7 +866,7 @@ client = genai.Client()
 
 # 1. Start the interaction in the background
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Run a complex analysis on the repository.",
     environment="remote",
     background=True,
@@ -640,7 +893,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Run a complex analysis on the repository.",
     environment: "remote",
     background: true,
@@ -661,6 +914,45 @@ if (result.status === "completed") {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+
+Client client = new Client();
+
+// 1. Start the interaction in the background
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Run a complex analysis on the repository."))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .background(true)
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println("Interaction started in background: " + interaction.id().orElse(""));
+
+// 2. Poll for completion
+while (interaction.status().orElse(null) == InteractionStatus.IN_PROGRESS) {
+    Thread.sleep(5000);
+    interaction = client.interactions.get(new GetInteractionByIdRequest(interaction.id().orElse(""))).interaction().get();
+}
+
+if (interaction.status().orElse(null) == InteractionStatus.COMPLETED) {
+    System.out.println(interaction.outputText().orElse(""));
+} else {
+    System.out.println("Finished with status: " + interaction.status().orElse(null));
+}
+```
+
 ### REST
 
 ```
@@ -670,7 +962,7 @@ RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/int
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-      "agent": "antigravity-preview-05-2026",
+      "agent": "antigravity-preview-09-2026",
       "input": "Run a complex analysis on the repository.",
       "environment": "remote",
       "background": true
@@ -683,9 +975,9 @@ curl -s -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/$I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-يتطلّب التنفيذ في الخلفية `store=True`، وهو الإعداد التلقائي. للاطّلاع على آخر المعلومات عن مستوى التقدّم في الوقت الفعلي أثناء التنفيذ في الخلفية، راجِع [تفاعلات البث في الخلفية](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=ar#streaming-background).
+La ejecución en segundo plano requiere `store=True`, que es el valor predeterminado. Para obtener actualizaciones de progreso en tiempo real durante la ejecución en segundo plano, consulta [Interacciones en segundo plano de transmisión](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419#streaming-pattern).
 
-يمكنك إلغاء تفاعل قيد التشغيل في الخلفية باستخدام الطريقة `cancel`.
+Puedes cancelar una interacción en segundo plano en ejecución con el método `cancel`.
 
 ### Python
 
@@ -699,6 +991,15 @@ client.interactions.cancel(id="INTERACTION_ID")
 await client.interactions.cancel("INTERACTION_ID");
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+
+Client client = new Client();
+client.interactions.cancel("INTERACTION_ID");
+```
+
 ### REST
 
 ```
@@ -706,9 +1007,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions/INTE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-**محادثة مترابطة مع التنفيذ في الخلفية**
+**Interacción de varios turnos con ejecución en segundo plano**
 
-عندما يتضمّن تفاعل في الخلفية أدوات تحتفظ بحالتها (مثل تنفيذ الرمز البرمجي في بيئة الاختبار)، استخدِم `environment_id` من التفاعل المكتمل للمتابعة في البيئة نفسها. يضمن ذلك أن يتابع الوكيل من حيث توقّف مع الحفاظ على جميع الملفات والحالة.
+Cuando una interacción en segundo plano involucre herramientas con estado (como la ejecución de código en un sandbox), usa el `environment_id` de la interacción completada para continuar en el mismo entorno. Esto garantiza que el agente continúe donde lo dejó con todos los archivos y el estado intactos.
 
 ### Python
 
@@ -720,7 +1021,7 @@ client = genai.Client()
 
 # First turn: run a task in the background
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Clone https://github.com/google/generative-ai-python and run its tests.",
     environment="remote",
     background=True,
@@ -732,7 +1033,7 @@ while interaction.status == "in_progress":
 
 # Second turn: continue in the same environment
 followup = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Fix any failing tests and re-run them.",
     previous_interaction_id=interaction.id,
     environment=interaction.environment_id,
@@ -755,7 +1056,7 @@ const client = new GoogleGenAI({});
 
 // First turn: run a task in the background
 let interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Clone https://github.com/google/generative-ai-python and run its tests.",
     environment: "remote",
     background: true,
@@ -768,7 +1069,7 @@ while (interaction.status === "in_progress") {
 
 // Second turn: continue in the same environment
 let followup = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Fix any failing tests and re-run them.",
     previous_interaction_id: interaction.id,
     environment: interaction.environment_id,
@@ -783,6 +1084,55 @@ while (followup.status === "in_progress") {
 console.log(followup.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+
+Client client = new Client();
+
+// First turn: run a task in the background
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Clone https://github.com/google/generative-ai-python and run its tests."))
+    .environment(CreateAgentInteractionEnvironment.of("remote"))
+    .background(true)
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+while (interaction.status().orElse(null) == InteractionStatus.IN_PROGRESS) {
+    Thread.sleep(5000);
+    interaction = client.interactions.get(new GetInteractionByIdRequest(interaction.id().orElse(""))).interaction().get();
+}
+
+// Second turn: continue in the same environment
+CreateAgentInteraction followupParams = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Fix any failing tests and re-run them."))
+    .previousInteractionId(interaction.id().orElse(""))
+    .environment(CreateAgentInteractionEnvironment.of(interaction.environmentId().orElse("")))
+    .background(true)
+    .build();
+
+Interaction followup = client.interactions.create(CreateInteractionRequestBody.of(followupParams)).interaction().get();
+
+while (followup.status().orElse(null) == InteractionStatus.IN_PROGRESS) {
+    Thread.sleep(5000);
+    followup = client.interactions.get(new GetInteractionByIdRequest(followup.id().orElse(""))).interaction().get();
+}
+
+System.out.println(followup.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -792,7 +1142,7 @@ RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/int
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-      "agent": "antigravity-preview-05-2026",
+      "agent": "antigravity-preview-09-2026",
       "input": "Clone https://github.com/google/generative-ai-python and run its tests.",
       "environment": "remote",
       "background": true
@@ -812,7 +1162,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
   -d "{
-      \"agent\": \"antigravity-preview-05-2026\",
+      \"agent\": \"antigravity-preview-09-2026\",
       \"input\": \"Fix any failing tests and re-run them.\",
       \"previous_interaction_id\": \"$INTERACTION_ID\",
       \"environment\": \"$ENVIRONMENT_ID\",
@@ -820,25 +1170,27 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }"
 ```
 
-## البيئات
+## Entornos
 
-ينشئ كل طلب أو يعيد استخدام بيئة اختبار Linux. تتخذ المَعلمة `environment` ثلاثة أشكال:
+Cada llamada crea o reutiliza una zona de pruebas de Linux. El parámetro `environment` toma tres formas:
 
-| النموذج | الوصف |
+| Formulario | Descripción |
 | --- | --- |
-| `"remote"` | توفير وضع حماية جديد مع الإعدادات التلقائية |
-| `"env_abc123"` | إعادة استخدام بيئة حالية من خلال رقم التعريف، مع الاحتفاظ بجميع الملفات والحالة |
-| `{...}` | `EnvironmentConfig` كاملة مع مصادر وقواعد شبكة مخصّصة |
+| `"remote"` | Aprovisiona un entorno de pruebas nuevo con la configuración predeterminada. |
+| `"env_abc123"` | Reutiliza un entorno existente por ID y conserva todos los archivos y el estado. |
+| `{...}` | `EnvironmentConfig` completo con fuentes personalizadas y reglas de red |
 
-اطّلِع على [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar) للحصول على تفاصيل حول المصادر (Git وGCS والمضمّنة) والشبكات ودورة الحياة وحدود الموارد.
+Consulta [Entornos](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419) para obtener detalles sobre las fuentes (Git, GCS, intercaladas), las redes, el ciclo de vida y los límites de recursos.
 
-## العوامل التي تؤدي إلى الظهور
+## Activadores
 
-تتيح لك المشغّلات جدولة وكيل ليتم تشغيله تلقائيًا وفقًا لجدول زمني. يربط المشغّل بين وكيل وبيئة ومطالبة وجدول زمني في مورد ثابت يتم تشغيله بدون تدخّل يدوي. تعيد كل عملية تنفيذ استخدام البيئة نفسها، لذا تظل الملفات التي تم إنشاؤها في عملية تنفيذ واحدة محفوظة ويمكن رؤيتها في عملية التنفيذ التالية.
+Los activadores te permiten programar un agente para que se ejecute automáticamente según una programación cron. Un activador vincula un agente, un entorno, una instrucción y una programación en un recurso persistente que se activa sin intervención manual. Cada ejecución reutiliza el mismo entorno, por lo que los archivos creados en una ejecución persisten y son visibles para la siguiente.
 
-### إنشاء مشغِّل
+### Crear un activador
 
-أنشئ مشغّلاً من خلال تحديد جدول زمني بتنسيق cron والمنطقة الزمنية وإعدادات التفاعل. يبدأ المشغّل بالحالة `active` وسيتم تنشيطه في وقت cron التالي المطابق. احفظ `id` الذي تم عرضه لإدارة عامل التشغيل في المكالمات اللاحقة.
+Crea un activador especificando un programa de cron, una zona horaria y la configuración de interacción. El activador comienza en estado `active` y se activará en la próxima hora de cron que coincida. Guarda el `id` que se devolvió para administrar el activador en llamadas posteriores.
+
+Como un activador se ejecuta de forma desatendida según un programa, haz referencia a una [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) almacenada en lugar de un token intercalado. El proxy de salida lo resuelve en cada ejecución y tú rotas el secreto sin tocar el activador. Las reglas `transform` intercaladas también funcionan aquí, solo debes actualizar el activador cada vez que cambie el valor.
 
 ### Python
 
@@ -852,7 +1204,7 @@ trigger = client.triggers.create(
     time_zone="America/Argentina/Buenos_Aires",
     display_name="issue-solver",
     interaction={
-        "agent": "antigravity-preview-05-2026",
+        "agent": "antigravity-preview-09-2026",
         "input": "Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled 'accepted', skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/.",
         "environment": {
             "type": "remote",
@@ -860,9 +1212,7 @@ trigger = client.triggers.create(
                 "allowlist": [
                     {
                         "domain": "api.github.com",
-                        "transform": {
-                            "Authorization": "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-                        },
+                        "credential": "github-production",
                     },
                     {"domain": "github.com"},
                 ]
@@ -887,7 +1237,7 @@ const trigger = await client.triggers.create({
     time_zone: "America/Argentina/Buenos_Aires",
     display_name: "issue-solver",
     interaction: {
-        agent: "antigravity-preview-05-2026",
+        agent: "antigravity-preview-09-2026",
         input: [{
             type: "text",
             text: "Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled 'accepted', skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/.",
@@ -898,9 +1248,7 @@ const trigger = await client.triggers.create({
                 allowlist: [
                     {
                         domain: "api.github.com",
-                        transform: {
-                            "Authorization": "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                        },
+                        credential: "github-production",
                     },
                     { domain: "github.com" },
                 ],
@@ -911,6 +1259,67 @@ const trigger = await client.triggers.create({
 
 console.log(`Trigger created: ${trigger.id}`);
 console.log(`Next run: ${trigger.next_run_time}`);
+```
+
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.Allowlist;
+import com.google.genai.gaos.models.interactions.AllowlistEntry;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Environment;
+import com.google.genai.gaos.models.interactions.EnvironmentNetworkEgressAllowlist;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Network;
+import com.google.genai.gaos.models.interactions.Transform;
+import com.google.genai.gaos.models.shared.Security;
+import com.google.genai.gaos.models.triggers.Interaction;
+import com.google.genai.gaos.models.triggers.Trigger;
+import com.google.genai.gaos.models.triggers.TriggerCreateParams;
+import java.util.List;
+import java.util.Map;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+Environment env = Environment.builder()
+    .network(Network.of(EnvironmentNetworkEgressAllowlist.of(
+        Allowlist.builder()
+            .allowlist(List.of(
+                AllowlistEntry.builder()
+                    .domain("api.github.com")
+                    .transform(Transform.of(Map.of(
+                        "Authorization", "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                    )))
+                    .build(),
+                AllowlistEntry.builder()
+                    .domain("github.com")
+                    .build()
+            ))
+            .build()
+    )))
+    .build();
+
+CreateAgentInteraction interactionTemplate = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled 'accepted', skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/."))
+    .environment(CreateAgentInteractionEnvironment.of(env))
+    .build();
+
+TriggerCreateParams params = TriggerCreateParams.builder()
+    .schedule("0 9 * * *")
+    .timeZone("America/Argentina/Buenos_Aires")
+    .displayName("issue-solver")
+    .interaction(Interaction.of(interactionTemplate))
+    .build();
+
+Trigger trigger = client.triggers().create(params).trigger().get();
+System.out.println("Trigger created: " + trigger.id().orElse(""));
+System.out.println("Next run: " + trigger.nextRunTime().orElse(null));
 ```
 
 ### REST
@@ -924,7 +1333,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
       "time_zone": "America/Argentina/Buenos_Aires",
       "display_name": "issue-solver",
       "interaction": {
-          "agent": "antigravity-preview-05-2026",
+          "agent": "antigravity-preview-09-2026",
           "input": [{"type": "text", "text": "Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled accepted, skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/."}],
           "environment": {
               "type": "remote",
@@ -932,9 +1341,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
                   "allowlist": [
                       {
                           "domain": "api.github.com",
-                          "transform": {
-                              "Authorization": "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-                          }
+                          "credential": "github-production"
                       },
                       {"domain": "github.com"}
                   ]
@@ -944,29 +1351,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
   }'
 ```
 
-يقبل طلب `CreateTrigger` الحقول التالية:
+La solicitud `CreateTrigger` acepta los siguientes campos:
 
-| الحقل | النوع | مطلوب | الوصف |
+| Campo | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `schedule` | سلسلة | نعم | تعبير Cron (مثلاً، `0 * * * *` كل ساعة، `0 9 * * 1-5` صباح أيام الأسبوع) |
-| `time_zone` | سلسلة | نعم | المنطقة الزمنية التابعة لهيئة IANA (مثل `UTC` أو `America/Argentina/Buenos_Aires`) |
-| `display_name` | سلسلة | لا | اسم عامل التشغيل الذي يمكن للمستخدم قراءته. |
-| `max_consecutive_failures` | عدد صحيح | لا | الحد الأقصى لعدد حالات الفشل قبل إيقاف المشغّل مؤقتًا تلقائيًا القيمة التلقائية: 5 |
-| `execution_timeout_seconds` | عدد صحيح | لا | مهلة لكل عملية تنفيذ بالثواني. القيمة التلقائية: 600 |
-| `interaction` | عنصر | نعم | `CreateInteractionRequest` يحدّد الوكيل والمدخلات والأدوات والبيئة. |
+| `schedule` | string | Sí | Expresión cron (p.ej., `0 * * * *` para cada hora, `0 9 * * 1-5` para las mañanas de los días laborables). |
+| `time_zone` | string | Sí | Zona horaria de IANA (p.ej., `UTC`, `America/Argentina/Buenos_Aires`). |
+| `display_name` | string | No | Es el nombre legible del activador. |
+| `max_consecutive_failures` | integer | No | Cantidad máxima de fallas antes de que se pause automáticamente el activador. Valor predeterminado: 5. |
+| `execution_timeout_seconds` | integer | No | Tiempo de espera por ejecución en segundos. El valor predeterminado es 600. |
+| `interaction` | objeto | Sí | Un `CreateInteractionRequest` que define el agente, la entrada, las herramientas y el entorno. |
 
-تتضمّن الاستجابة حقول المفاتيح التالية:
+La respuesta incluye los siguientes campos clave:
 
-| الحقل | النوع | الوصف |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `id` | سلسلة | المعرّف الفريد للمشغّل. استخدِم هذا المعرّف في جميع العمليات اللاحقة. |
-| `status` | سلسلة | الحالة الحالية: `active` أو `paused` أو `disabled` |
-| `next_run_time` | سلسلة | الطابع الزمني بتنسيق ISO 8601 لعملية التنفيذ المُجدوَلة التالية |
-| `consecutive_failure_count` | عدد صحيح | عدد عمليات التنفيذ المتتالية التي تعذّر إجراؤها منذ آخر عملية ناجحة |
+| `id` | string | Es el identificador único del activador. Úsala en todas las operaciones posteriores. |
+| `status` | string | Estado actual: `active`, `paused` o `disabled`. |
+| `next_run_time` | string | Es la marca de tiempo ISO 8601 de la próxima ejecución programada. |
+| `consecutive_failure_count` | integer | Cantidad de ejecuciones fallidas consecutivas desde la última ejecución exitosa. |
 
-### أحداث تشغيل القائمة
+### Enumera activadores
 
-استرداد جميع المشغّلات المرتبطة بمشروعك
+Recupera todos los activadores asociados con tu proyecto.
 
 ### Python
 
@@ -985,6 +1392,24 @@ for (const trigger of triggers.triggers) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.shared.Security;
+import com.google.genai.gaos.models.triggers.Trigger;
+import java.util.List;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+List<Trigger> triggers = client.triggers().listDirect().listTriggersResponse().get().triggers().orElse(List.of());
+for (Trigger trigger : triggers) {
+    System.out.println(trigger.id().orElse("") + ": " + trigger.displayName().orElse("") + " (" + trigger.status().orElse(null) + ")");
+}
+```
+
 ### REST
 
 ```
@@ -992,9 +1417,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### الحصول على مشغّل
+### Obtén un activador
 
-استرجاع الإعداد الكامل والحالة الحالية لمشغّل واحد
+Recupera la configuración completa y el estado actual de un solo activador.
 
 ### Python
 
@@ -1012,6 +1437,22 @@ console.log(`Schedule: ${trigger.schedule}`);
 console.log(`Next run: ${trigger.next_run_time}`);
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.shared.Security;
+import com.google.genai.gaos.models.triggers.Trigger;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+Trigger trigger = client.triggers().get("TRIGGER_ID").trigger().get();
+System.out.println("Schedule: " + trigger.schedule().orElse(""));
+System.out.println("Next run: " + trigger.nextRunTime().orElse(null));
+```
+
 ### REST
 
 ```
@@ -1019,9 +1460,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### الإيقاف المؤقت والاستئناف
+### Cómo detener y reanudar propuestas y líneas de pedido propuestas
 
-يمكنك إيقاف مشغّل مؤقتًا لإيقاف عمليات التنفيذ المجدوَلة، واستئنافه لإعادة تفعيل الجدول الزمني. لا يؤثّر الإيقاف المؤقت في عمليات التنفيذ اليدوية.
+Puedes pausar un activador para detener las ejecuciones programadas y reanudarlo para reactivar el programa. La detención no afecta las ejecuciones manuales.
 
 ### Python
 
@@ -1043,6 +1484,25 @@ await client.triggers.update("TRIGGER_ID", { status: "paused" });
 await client.triggers.update("TRIGGER_ID", { status: "active" });
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.shared.Security;
+import com.google.genai.gaos.models.triggers.TriggerUpdate;
+import com.google.genai.gaos.models.triggers.TriggerUpdateStatus;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+// Pause
+client.triggers().update("TRIGGER_ID", TriggerUpdate.builder().status(TriggerUpdateStatus.PAUSED).build());
+
+// Resume
+client.triggers().update("TRIGGER_ID", TriggerUpdate.builder().status(TriggerUpdateStatus.ACTIVE).build());
+```
+
 ### REST
 
 ```
@@ -1059,9 +1519,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER
   -d '{"status": "active"}'
 ```
 
-### حذف مشغّل
+### Borra un activador
 
-إزالة مشغّل نهائيًا لا يتم حذف سجلّ عمليات التنفيذ السابقة.
+Quita un activador de forma permanente. No se borra el historial de ejecuciones anteriores.
 
 ### Python
 
@@ -1075,6 +1535,19 @@ client.triggers.delete(id="TRIGGER_ID")
 await client.triggers.delete("TRIGGER_ID");
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.shared.Security;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+client.triggers().delete("TRIGGER_ID");
+```
+
 ### REST
 
 ```
@@ -1082,9 +1555,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### تشغيل مشغّل على الفور
+### Cómo ejecutar un activador de inmediato
 
-يمكنك تشغيل مشغّل عند الطلب بدون انتظار الوقت المُجدوَل التالي. يعمل هذا الإجراء حتى إذا تم إيقاف المشغّل مؤقتًا.
+Activa un disparador a pedido sin esperar la próxima hora programada. Esto funciona incluso si el activador está en pausa.
 
 ### Python
 
@@ -1098,6 +1571,19 @@ client.triggers.run(trigger_id="TRIGGER_ID")
 await client.triggers.run("TRIGGER_ID");
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.shared.Security;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+client.triggers().run("TRIGGER_ID");
+```
+
 ### REST
 
 ```
@@ -1105,9 +1591,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### عمليات التنفيذ المدرَجة
+### Enumerar ejecuciones
 
-عرض سجلّ التنفيذ لمشغّل يتضمّن كل تنفيذ `status` وطوابع زمنية و`interaction_id` يمكنك استخدامه لجلب ناتج التفاعل الكامل و`environment_id` يؤكّد أنّ جميع عمليات التشغيل تستخدم بيئة وضع الحماية نفسها.
+Consulta el historial de ejecución de un activador. Cada ejecución incluye un `status`, marcas de tiempo, un `interaction_id` que puedes usar para recuperar el resultado completo de la interacción y un `environment_id` que confirma que todas las ejecuciones comparten el mismo sandbox.
 
 ### Python
 
@@ -1134,6 +1620,36 @@ const interaction = await client.interactions.get(ex.interaction_id);
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.GenAI;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.models.shared.Security;
+import com.google.genai.gaos.models.triggers.TriggerExecution;
+import java.util.List;
+
+GenAI client = GenAI.builder()
+    .security(Security.builder().apiKey(System.getenv("GEMINI_API_KEY")).build())
+    .build();
+
+List<TriggerExecution> executions = client.triggers().listExecutions("TRIGGER_ID")
+    .listTriggerExecutionsResponse().get()
+    .triggerExecutions().orElse(List.of());
+
+for (TriggerExecution ex : executions) {
+    System.out.println(ex.id().orElse("") + ": " + ex.status().orElse(null)
+        + " (" + ex.startTime().orElse(null) + " - " + ex.endTime().orElse(null) + ")");
+
+    // Fetch the full interaction for an execution
+    if (ex.interactionId().isPresent()) {
+        Interaction interaction = client.interactions().get(new GetInteractionByIdRequest(ex.interactionId().get())).interaction().get();
+        System.out.println(interaction.outputText().orElse(""));
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1141,24 +1657,20 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## التوفّر والأسعار
+## Disponibilidad y precios
 
-يتوفّر وكيل Antigravity في إصدار تجريبي من خلال
-[واجهة Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) في Google AI Studio
-وGemini API لكل من المشاريع ضمن المستوى المجاني والمستوى المدفوع.
+El agente de Antigravity está disponible en versión preliminar a través de la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) en Google AI Studio y la API de Gemini para proyectos de nivel gratuito y de nivel pagado.
 
-تستند الأسعار إلى [نموذج الدفع حسب الاستخدام](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#pricing-for-agents)
-استنادًا إلى الرموز المميزة لنموذج Gemini الأساسي والأدوات التي يستخدمها الوكيل. على عكس طلبات الدردشة العادية التي تنتج مخرجات فردية، فإنّ التفاعل مع Antigravity هو سير عمل قائم على الوكلاء. يؤدي طلب واحد إلى تشغيل حلقة مستقلة من الاستدلال وتنفيذ الأدوات وتشغيل الرموز البرمجية وإدارة الملفات. تتضمّن مشاريع المستوى المجاني حدًا مجانيًا لعدد الطلبات في الدقيقة وحصة استخدام.
+Los precios siguen un [modelo de pago por uso](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#pricing-for-agents) basado en los tokens del modelo de Gemini subyacente y las herramientas que usa el agente. A diferencia de una solicitud de chat estándar que produce un solo resultado, una interacción de Antigravity es un flujo de trabajo de agente. Una sola solicitud activa un bucle autónomo de razonamiento, ejecución de herramientas, ejecución de código y administración de archivos. Los proyectos del nivel gratuito incluyen un límite de frecuencia y una cuota de uso gratuitos.
 
-تُشغّل تفاعلات Antigravity حلقات مستقلة للمحادثات المترابطة ويمكنها استهلاك عدد كبير من الرموز المميزة. اضبط [عناصر التحكّم في الميزانية](#budget-controls) على طلبك للحدّ من استخدام الرموز المميزة. يمكنك أيضًا تتبُّع مستوى التقدّم في الوقت الفعلي باستخدام
-[البث المباشر من خلال أحداث يتم إرسالها من الخادم](https://ai.google.dev/gemini-api/docs/streaming?hl=ar)، أو إلغاء الطلبات الجارية.
+Las interacciones de Antigravity ejecutan bucles autónomos de varios turnos y pueden consumir una cantidad significativa de tokens. Establece [controles de presupuesto](#budget-controls) en tu solicitud para limitar el uso de tokens. También puedes supervisar el progreso en tiempo real con la [transmisión de SSE](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419) o cancelar las solicitudes en ejecución.
 
-### عناصر التحكّم في الميزانية
+### Controles de presupuesto
 
-بالإضافة إلى [اختيار النموذج](#model-selection)، اضبط `max_total_tokens` داخل `agent_config` (مع `"type": "antigravity"`) للحدّ من إجمالي عدد الرموز المميزة (الإدخال والإخراج والتفكير) التي يمكن أن تستهلكها عملية التفاعل.
-لا يتم احتساب الرموز المميزة المخزّنة مؤقتًا ضمن هذا الحدّ. عندما يبلغ الوكيل الحدّ الأقصى، تتوقف المحادثة ويعود الرمز `status: "incomplete"`. الحدّ الأقصى هو أفضل ما يمكن تقديمه، وقد يتجاوزه الاستخدام الفعلي بشكل طفيف حسب الوقت الذي يتحقّق فيه الوكيل من الميزانية بين الخطوات.
+Además de la [selección del modelo](#model-selection), establece `max_total_tokens` dentro de `agent_config` (con `"type": "antigravity"`) para limitar la cantidad total de tokens (entrada + salida + pensamiento) que puede consumir una interacción.
+Los tokens almacenados en caché no se consideran en este límite. Cuando el agente alcanza el límite, la interacción se detiene y se devuelve con `status: "incomplete"`. El límite es un esfuerzo máximo: el uso real puede superarlo ligeramente según cuándo el agente verifique el presupuesto entre los pasos.
 
-اضبط الميزانية على طلب التفاعل في `agent_config` بجانب `agent` و`input`.
+Establece el presupuesto en la solicitud de interacción en `agent_config` junto con `agent` y `input`.
 
 ### Python
 
@@ -1168,7 +1680,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="Analyze the dataset in /workspace/data.csv and generate a summary report.",
     agent_config={
         "type": "antigravity",
@@ -1197,7 +1709,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "Analyze the dataset in /workspace/data.csv and generate a summary report.",
     agent_config: {
         type: "antigravity",
@@ -1218,6 +1730,50 @@ console.log(`Status: ${interaction.status}`);
 console.log(`Tokens used: ${interaction.usage.total_tokens}`);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.AntigravityAgentConfig;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Environment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Source;
+import com.google.genai.gaos.models.interactions.SourceType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.List;
+
+Client client = new Client();
+
+Environment env = Environment.builder()
+    .sources(List.of(
+        Source.builder()
+            .type(SourceType.INLINE)
+            .target("/workspace/data.csv")
+            .content("id,name,value\n1,alpha,100\n2,beta,200\n")
+            .build()
+    ))
+    .build();
+
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("Analyze the dataset in /workspace/data.csv and generate a summary report."))
+    .agentConfig(
+        AntigravityAgentConfig.builder()
+            .maxTotalTokens("50000")
+            .build()
+    )
+    .environment(CreateAgentInteractionEnvironment.of(env))
+    .build();
+
+Interaction interaction = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println("Status: " + interaction.status().orElse(null)); // "incomplete" if budget was hit
+interaction.usage().ifPresent(usage -> System.out.println("Tokens used: " + usage.totalTokens().orElse(0)));
+```
+
 ### REST
 
 ```
@@ -1225,7 +1781,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d '{
-    "agent": "antigravity-preview-05-2026",
+    "agent": "antigravity-preview-09-2026",
     "input": "Analyze the dataset in /workspace/data.csv and generate a summary report.",
     "agent_config": {
       "type": "antigravity",
@@ -1244,16 +1800,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### مواصلة تفاعل غير مكتمل
+#### Cómo continuar una interacción incompleta
 
-عندما تعرض تفاعلاً `status: "incomplete"`، يتم الاحتفاظ بعمل الموظف وسياقه. أرسِل تفاعلاً جديدًا يشير إلى التفاعل الأصلي `id` و`environment_id` لمتابعة المحادثة من حيث توقّفت، وسيتم تخصيص ميزانية `max_total_tokens` للتفاعل الجديد.
+Cuando una interacción devuelve `status: "incomplete"`, se conservan el trabajo y el contexto del agente. Envía una nueva interacción que haga referencia a la interacción original `id` y `environment_id` para continuar donde se había detenido. La nueva interacción obtiene su propio presupuesto de `max_total_tokens`.
 
 ### Python
 
 ```
 # Continue from where the agent stopped
 continuation = client.interactions.create(
-    agent="antigravity-preview-05-2026",
+    agent="antigravity-preview-09-2026",
     input="continue",
     previous_interaction_id=interaction.id,
     environment=interaction.environment_id,
@@ -1269,7 +1825,7 @@ print(f"Status: {continuation.status}")
 
 ```
 const continuation = await client.interactions.create({
-    agent: "antigravity-preview-05-2026",
+    agent: "antigravity-preview-09-2026",
     input: "continue",
     previous_interaction_id: interaction.id,
     environment: interaction.environment_id,
@@ -1281,6 +1837,39 @@ const continuation = await client.interactions.create({
 console.log(`Status: ${continuation.status}`);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.AgentOption;
+import com.google.genai.gaos.models.interactions.AntigravityAgentConfig;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+String interactionId = "INTERACTION_ID";
+String environmentId = "ENVIRONMENT_ID";
+
+// Continue from where the agent stopped
+CreateAgentInteraction params = CreateAgentInteraction.builder()
+    .agent(AgentOption.of("antigravity-preview-09-2026"))
+    .input(InteractionsInput.of("continue"))
+    .previousInteractionId(interactionId)
+    .environment(CreateAgentInteractionEnvironment.of(environmentId))
+    .agentConfig(
+        AntigravityAgentConfig.builder()
+            .maxTotalTokens("50000")
+            .build()
+    )
+    .build();
+
+Interaction continuation = client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println("Status: " + continuation.status().orElse(null));
+```
+
 ### REST
 
 ```
@@ -1288,7 +1877,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d '{
-    "agent": "antigravity-preview-05-2026",
+    "agent": "antigravity-preview-09-2026",
     "input": "continue",
     "previous_interaction_id": "INTERACTION_ID",
     "environment": "ENVIRONMENT_ID",
@@ -1299,48 +1888,48 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### التكاليف المقدَّرة
+### Costos estimados
 
-تختلف التكاليف حسب مدى تعقيد المهمة. يحدّد الوكيل بشكل مستقل عدد استدعاءات الأدوات وعمليات تنفيذ الرموز البرمجية وعمليات الملفات المطلوبة. تستند التقديرات التالية إلى عمليات التشغيل.
+Los costos varían según la complejidad de la tarea. El agente determina de forma autónoma cuántas llamadas a herramientas, ejecuciones de código y operaciones de archivos se necesitan. Las siguientes estimaciones se basan en las ejecuciones.
 
-| فئة المهمة | الرموز المميّزة المدخَلة | الرموز المميّزة الناتجة | التكلفة العادية |
+| Categoría de la tarea | Tokens de entrada | Tokens de salida | Costo habitual |
 | --- | --- | --- | --- |
-| **البحث وتجميع المعلومات** | ‫100 ألف إلى 500 ألف | ‫10 آلاف إلى 40 ألف | ‫$0.30–$1.00 |
-| **إنشاء المستندات والمحتوى** | ‫100 ألف إلى 500 ألف | ‫15,000 إلى 50,000 | ‫0.30–1.30 دولار أمريكي |
-| **تصميم العمليات والأنظمة** | ‫100 ألف إلى 400 ألف | ‫10 آلاف إلى 30 ألف | ‫0.25–0.80 دولار أمريكي |
-| **معالجة البيانات وتحليلها** | ‫300 ألف - 3 ملايين | ‫30 ألفًا إلى 150 ألفًا | ‫$0.70–$3.25 |
+| **Investigación y síntesis de información** | Entre 100,000 y 500,000 | De 10,000 a 40,000 | USD 0.30 a USD 1.00 |
+| **Generación de documentos y contenido** | Entre 100,000 y 500,000 | Entre 15,000 y 50,000 | USD 0.30 a USD 1.30 |
+| **Diseño de procesos y sistemas** | Entre 100,000 y 400,000 | De 10,000 a 30,000 | USD 0.25 a USD 0.80 |
+| **Procesamiento y análisis de datos** | 300,000 a 3 millones | 30,000 a 150,000 | USD 0.70 a USD 3.25 |
 
-يتم عادةً تخزين %50 إلى %70 من الرموز المميزة للإدخال مؤقتًا. يمكن أن تتراكم في عمليات سير العمل المعقّدة التي تتضمّن العديد من استدعاءات الأدوات ما بين 3 و5 ملايين رمز مميز في تفاعل واحد، بتكاليف تصل إلى 5 دولارات أمريكية تقريبًا.
+Por lo general, entre el 50% y el 70% de los tokens de entrada se almacenan en caché. Los flujos de trabajo complejos de agentes con muchas llamadas a herramientas pueden acumular entre 3 y 5 millones de tokens en una sola interacción, con costos de hasta USD 5.
 
-**لا يتم تحصيل رسوم** مقابل **حساب بيئة** (وحدة المعالجة المركزية والذاكرة والتنفيذ في وضع الحماية) خلال فترة المعاينة.
+La **computación del entorno** (CPU, memoria, ejecución en zona de pruebas) **no se factura** durante el período de vista previa.
 
-## القيود
+## Limitaciones
 
-- **حالة المعاينة:** وكيل Antigravity وواجهة Interactions API قد تتغيّر الميزات والمخططات.
-- **إعدادات إنشاء غير صالحة:** المعلمات التالية غير صالحة وتعرض الخطأ 400: `temperature` و`top_p` و`top_k` و`stop_sequences` و`max_output_tokens`.
-- **الناتج المنظَّم:** لا يتيح وكيل Antigravity النواتج المنظَّمة.
-- **الأدوات غير المتاحة:** لا تتوفّر الأدوات `file_search` و`computer_use` و`google_maps` بعد.
-- **قيود MCP عن بُعد:** لا تتوفّر إمكانية نقل البيانات باستخدام أحداث Server-Sent Events (SSE) (استخدِم Streamable HTTP). بالإضافة إلى ذلك، يجب أن يكون الخادم `name` بأحرف صغيرة وأبجدية رقمية فقط (يؤدي استخدام الأحرف الكبيرة إلى ظهور الخطأ العام `400 Bad Request`).
-- **أداة نظام الملفات:** لا تتوفّر أداة نظام الملفات في الوقت الحالي. وهي جزء من `environment`.
-- **متطلبات المتجر:** يتطلّب تنفيذ الوكيل باستخدام `background=True` توفّر `store=True`.
-- **استدعاء الدوال في الوضع الثابت فقط:** لا يمكن استدعاء الدوال إلا في الوضع الثابت. يجب استخدام `previous_interaction_id` لمواصلة المحادثة، إذ لا يمكن إعادة إنشاء السجلّ يدويًا (وضع بلا حالة).
-- **أنواع الوسائط المتعددة غير المتوافقة** لا تتوافق هذه الميزة مع ملفات الصوت والفيديو والمستندات في الوقت الحالي. يُسمح فقط بالنصوص والصور.
+- **Estado de la versión preliminar:** El agente de Antigravity y la API de Interactions. Las funciones y los esquemas pueden cambiar.
+- **Configuración de generación no admitida:** Los siguientes parámetros no se admiten y devuelven un error 400: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
+- **Salida estructurada:** El agente de Antigravity no admite salidas estructuradas.
+- **Herramientas no disponibles:** `file_search`, `computer_use` y `google_maps` aún no son compatibles.
+- **Limitaciones de MCP remoto:** No se admite el transporte de eventos enviados por el servidor (SSE) (usa HTTP transmitible). Además, el servidor `name` debe ser estrictamente alfanumérico y en minúsculas (el uso de letras mayúsculas activa un error genérico `400 Bad Request`).
+- **Herramienta del sistema de archivos:** No hay una herramienta del sistema de archivos en este momento. Es parte de `environment`.
+- **Requisito de la tienda:** La ejecución del agente con `background=True` requiere `store=True`.
+- **Llamada a función solo con estado:** La llamada a función solo se admite en el modo con estado. Debes usar `previous_interaction_id` para continuar el turno. No se admite la reconstrucción manual del historial (modo sin estado).
+- **Tipos multimodales no admitidos.** Por el momento, no se admiten entradas de audio, video ni documentos. Solo se permiten texto e imágenes.
 
-## الخطوات التالية
+## ¿Qué sigue?
 
-- [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): المحادثات المترابطة والبث
-- [إنشاء وكلاء مخصّصين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar): تعليمات ومهارات مخصّصة وحفظ الوكلاء
-- [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar): إعدادات وضع الحماية والمصادر والشبكات
-- [خطافات](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=ar): فرض بوابات الأمان والتحقّق من الآثار الجانبية داخل وضع الحماية
-- [‫Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar): مهام البحث الطويلة
-- [واجهة برمجة التطبيقات Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar): هي واجهة برمجة التطبيقات الأساسية.
+- [Guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Conversaciones de varios turnos y transmisión.
+- [Crea agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419): instrucciones personalizadas, habilidades y cómo guardar agentes.
+- [Entornos](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419): Configuración de zona de pruebas, fuentes y redes.
+- [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419): Aplican barreras de seguridad y validación de efectos secundarios dentro de la zona de pruebas.
+- [Agente de Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419): Tareas de investigación de formato extendido
+- [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419): Es la API subyacente.
 
-إرسال ملاحظات
+Enviar comentarios
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-تاريخ التعديل الأخير: 2026-09-11 (حسب التوقيت العالمي المتفَّق عليه)
+Última actualización: 2026-09-18 (UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+¿Quieres brindar más información?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-11 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-18 (UTC)"],[],[]]

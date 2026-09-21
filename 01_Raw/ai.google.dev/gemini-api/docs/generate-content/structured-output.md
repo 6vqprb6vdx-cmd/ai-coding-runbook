@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=fr
-fetched_at: 2026-09-14T05:38:39.250060+00:00
-title: "Sorties structur\u00e9es \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=zh-CN
+fetched_at: 2026-09-21T05:51:27.302972+00:00
+title: "\u7ed3\u6784\u5316\u8f93\u51fa \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
 
-Envoyer des commentaires
+发送反馈
 
-# Sorties structurées
+# 结构化输出
 
-Vous pouvez configurer les modèles Gemini pour générer des réponses conformes à un schéma JSON fourni. Cela garantit des résultats prévisibles et sécurisés, et simplifie l'extraction de données structurées à partir de texte non structuré.
+您可以配置 Gemini 模型，以生成符合所提供 JSON 架构的响应。这可确保结果可预测且类型安全，并简化了从非结构化文本中提取结构化数据的过程。
 
-L'utilisation de sorties structurées est idéale pour les cas suivants :
+使用结构化输出非常适合以下情况：
 
-- **Extraction de données** : extraire des informations spécifiques telles que des noms et des dates à partir d'un texte.
-- **Classification structurée** : classer le texte dans des catégories prédéfinies.
-- **Workflows agentiques** : générer des entrées structurées pour des outils ou des API.
+- **数据提取** ：从文本中提取特定信息，例如姓名和日期。
+- **结构化分类** ：将文本归入预定义的类别。
+- **智能体工作流** ：为工具或 API 生成结构化输入。
 
-En plus de la prise en charge du schéma JSON dans l'API REST, les SDK GenAI de Google
-facilitent la définition de schémas à l'aide de
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) et
-[Zod](https://zod.dev/) (JavaScript).
+除了在 REST API 中支持 JSON 架构之外，Google GenAI SDKs
+还可让您轻松使用
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) 和
+[Zod](https://zod.dev/) (JavaScript) 定义架构。
 
-## Exemples de sorties structurées
+## 结构化输出示例
 
-### Extracteur de recettes
+### 食谱提取器
 
-Cet exemple montre comment extraire des données structurées à partir de texte à l'aide de types de schéma JSON de base tels que `object`, `array`, `string` et `integer`.
+此示例演示了如何使用基本 JSON 架构类型（例如 `object`、`array`、`string` 和 `integer`）从文本中提取结构化数据。
 
 ### Python
 
@@ -267,7 +267,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**Exemple de réponse :**
+**示例响应**：
 
 ```
 {
@@ -322,9 +322,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### Modération de contenus
+### 内容审核
 
-Cet exemple présente `anyOf` pour les schémas conditionnels et `enum` pour la classification, ce qui permet à la structure de sortie de varier en fonction du contenu.
+此示例展示了如何使用 `anyOf` 实现条件架构，以及如何使用 `enum` 实现分类，从而使输出结构能够根据内容而变化。
 
 ### Python
 
@@ -551,9 +551,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### Structures récursives
+### 递归结构
 
-Cet exemple montre comment définir un schéma récursif tel qu'un organigramme.
+此示例说明了如何定义递归架构，例如组织结构图。
 
 ### Python
 
@@ -716,7 +716,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**Exemple de réponse :**
+**示例响应**：
 
 ```
 {
@@ -743,11 +743,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-## Streaming
+## 流式
 
-Vous pouvez diffuser des sorties structurées, ce qui vous permet de commencer à traiter la réponse pendant sa génération, sans avoir à attendre la fin de la sortie complète. Cela peut améliorer les performances perçues de votre application.
+您可以流式传输结构化输出，这样您就可以在生成响应时开始处理响应，而无需等待整个输出完成。这可以提升应用的感知性能。
 
-Les blocs diffusés seront des chaînes JSON partielles valides, qui pourront être concaténées pour former l'objet JSON final et complet.
+流式传输的块将是有效的 JSON 部分字符串，可以将其串联起来以形成最终的完整 JSON 对象。
 
 ### Python
 
@@ -803,14 +803,14 @@ for await (const chunk of stream) {
 }
 ```
 
-## Sorties structurées avec des outils
+## 使用工具的结构化输出
 
-Gemini 3 vous permet de combiner des sorties structurées avec des outils intégrés, y compris
-[l'ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr),
-[le Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr),
-[l'exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr),
-[la recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr#structured-output), et
-[l'appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
+借助 Gemini 3，您可以将结构化输出与内置工具相结合，包括
+[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)、
+[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)、
+[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)、
+[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn#structured-output)和
+[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
 
 ### Python
 
@@ -915,101 +915,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## Prise en charge du schéma JSON
+## JSON 架构支持
 
-Pour générer un objet JSON, définissez `response_format` dans la configuration de génération. Le schéma doit être un [schéma JSON](https://json-schema.org/) valide qui décrit le format de sortie souhaité.
+如需生成 JSON 对象，请在生成配置中设置 `response_format`。该架构必须是描述所需输出格式的有效 [JSON 架构](https://json-schema.org/)。
 
-Le modèle génère ensuite une réponse qui est une chaîne JSON syntaxiquement valide correspondant au schéma fourni. Lorsque vous utilisez des sorties structurées, le modèle génère des sorties dans le même ordre que les clés du schéma.
+然后，模型会生成一个响应，该响应是与所提供的架构匹配的语法有效的 JSON 字符串。使用结构化输出时，模型将按架构中键的顺序生成输出。
 
-Le mode de sortie structurée de Gemini est compatible avec un sous-ensemble de la spécification du schéma [JSON](https://json-schema.org).
+Gemini 的结构化输出模式支持 [JSON 架构](https://json-schema.org)规范的子集。
 
-Les valeurs suivantes de `type` sont acceptées :
+支持以下 `type` 值：
 
-- **`string`**: pour le texte.
-- **`number`**: pour les nombres à virgule flottante.
-- **`integer`**: pour les nombres entiers.
-- **`boolean`**: pour les valeurs vrai/faux.
-- **`object`**: pour les données structurées avec des paires clé/valeur.
-- **`array`**: pour les listes d'éléments.
-- **`null`** : pour autoriser une propriété à être nulle, incluez `"null"` dans le tableau de types (par exemple, `{"type": ["string", "null"]}`).
+- **`string`**：适用于文本。
+- **`number`**：适用于浮点数。
+- **`integer`**：适用于整数。
+- **`boolean`**：适用于 true/false 值。
+- **`object`**：适用于具有键值对的结构化数据。
+- **`array`**：适用于项列表。
+- **`null`**：如需允许属性为 null，请在类型数组中添加 `"null"`（例如 `{"type": ["string", "null"]}`）。
 
-Ces propriétés descriptives aident à guider le modèle :
+这些描述性属性有助于指导模型：
 
-- **`title`**: brève description d'une propriété.
-- **`description`**: description plus longue et plus détaillée d'une propriété.
+- **`title`**：属性的简短说明。
+- **`description`**：属性的较长且更详细的说明。
 
-### Propriétés spécifiques au type
+### 特定于类型的属性
 
-**Pour les valeurs `object` :**
+**对于 `object` 值**：
 
-- **`properties`**: objet dans lequel chaque clé est un nom de propriété et chaque valeur est un schéma pour cette propriété.
-- **`required`**: tableau de chaînes indiquant les propriétés obligatoires.
-- **`additionalProperties`**: contrôle si les propriétés non listées dans `properties` sont autorisées. Peut être un booléen ou un schéma.
+- **`properties`**：一个对象，其中每个键都是属性名称，每个值都是该属性的架构。
+- **`required`**：一个字符串数组，列出了哪些属性是必需的。
+- **`additionalProperties`**：控制是否允许使用未在 `properties` 中列出的属性。可以是布尔值或架构。
 
-**Pour les valeurs `string` :**
+**对于 `string` 值**：
 
-- **`enum`**: liste un ensemble spécifique de chaînes possibles pour les tâches de classification.
-- **`format`** : spécifie une syntaxe pour la chaîne, telle que `date-time`, `date` ou `time`.
+- **`enum`**：列出了一组特定的可能字符串，用于分类任务。
+- **`format`**：指定字符串的语法，例如 `date-time`、`date`、`time`。
 
-**Pour les valeurs `number` et `integer` :**
+**对于 `number` 和 `integer` 值**：
 
-- **`enum`**: liste un ensemble spécifique de valeurs numériques possibles.
-- **`minimum`**: valeur inclusive minimale.
-- **`maximum`**: valeur inclusive maximale.
+- **`enum`**：列出了一组特定的可能数值。
+- **`minimum`**：包含的最小值。
+- **`maximum`**：包含的最大值。
 
-**Pour les valeurs `array` :**
+**对于 `array` 值**：
 
-- **`items`**: définit le schéma de tous les éléments du tableau.
-- **`prefixItems`**: définit une liste de schémas pour les N premiers éléments, ce qui permet des structures de type tuple.
-- **`minItems`**: nombre minimal d'éléments dans le tableau.
-- **`maxItems`**: nombre maximal d'éléments dans le tableau.
+- **`items`**：定义数组中所有项的架构。
+- **`prefixItems`**：为前 N 个项定义架构列表，允许使用类似元组的结构。
+- **`minItems`**：数组中的最小项数。
+- **`maxItems`**：数组中的最大项数。
 
-## Modèles compatibles
+## 模型支持
 
-Les modèles suivants sont compatibles avec les sorties structurées :
+以下模型支持结构化输出：
 
-| Modèle | Sorties structurées |
+| 模型 | 结构化输出 |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Preview Gemini 3.1 Pro | ✔️ |
+| Gemini 3.1 Pro 预览版 | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Preview Gemini 3.1 Flash-Lite | ✔️ |
+| Gemini 3.1 Flash-Lite 预览版 | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* Notez que Gemini 2.0 nécessite une liste `propertyOrdering` explicite dans l'entrée JSON pour définir la structure préférée. Vous trouverez un exemple dans ce [guide](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
+*\* 请注意，Gemini 2.0 需要在 JSON 输入中包含显式 `propertyOrdering` 列表，以定义首选结构。您可以在此[实用手册](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)中找到示例。*
 
-## Sorties structurées ou appel de fonction
+## 结构化输出与函数调用
 
-Les sorties structurées et l'appel de fonction utilisent des schémas JSON, mais ils ont des objectifs différents :
+结构化输出和函数调用都使用 JSON 架构，但用途不同：
 
-| Fonctionnalité | Cas d'utilisation principal |
+| 功能 | 主要用途 |
 | --- | --- |
-| **Sorties structurées** | **Mettre en forme la réponse finale à l'utilisateur.** Utilisez cette option lorsque vous souhaitez que la *réponse* du modèle soit dans un format spécifique (par exemple, extraire des données d'un document pour les enregistrer dans une base de données). |
-| **Appel de fonction** | **Effectuer une action pendant la conversation.** Utilisez cette option lorsque le modèle doit *vous demander* d'effectuer une tâche (par exemple, "obtenir la météo actuelle") avant de pouvoir fournir une réponse finale. |
+| **结构化输出** | **设置最终用户响应的格式。**当您希望模型的 *回答* 采用特定格式时（例如，从文档中提取数据以保存到数据库），请使用此功能。 |
+| **函数调用** | **在对话期间执行操作。**当模型需要 *要求您* 执行任务（例如“获取当前天气”）才能提供最终答案时，请使用此功能。 |
 
-## Bonnes pratiques
+## 最佳实践
 
-- **Descriptions claires** : utilisez le champ `description` de votre schéma pour fournir des instructions claires au modèle sur ce que représente chaque propriété. Ceci est essentiel pour guider la sortie du modèle.
-- **Typage fort** : utilisez des types spécifiques (`integer`, `string`, `enum`) chaque fois que cela est possible. Si un paramètre comporte un ensemble limité de valeurs valides, utilisez un `enum`.
-- **Ingénierie des invites** : indiquez clairement dans votre invite ce que vous souhaitez que le modèle fasse. Par exemple, "Extrayez les informations suivantes du texte..." ou "Classez ces commentaires en fonction du schéma fourni...".
-- **Validation** : bien que la sortie structurée garantisse un JSON syntaxiquement correct, elle ne garantit pas que les valeurs sont sémantiquement correctes. Validez toujours la sortie finale dans le code de votre application avant de l'utiliser.
-- **Gestion des erreurs** : implémentez une gestion des erreurs robuste dans votre application pour gérer de manière optimale les cas où la sortie du modèle, bien que conforme au schéma, ne répond pas aux exigences de votre logique métier.
+- **清晰的说明** ：在架构中使用 `description` 字段，向模型提供有关每个属性代表什么内容的清晰说明。这对于指导模型的输出至关重要。
+- **强类型** ：尽可能使用特定类型（`integer`、`string`、`enum`）。如果参数具有一组有限的有效值，请使用 `enum`。
+- **提示工程** ：在提示中明确说明您希望模型执行的操作。例如，“从文本中提取以下信息…”或“根据提供的架构对这条反馈进行分类…”。
+- **验证** ：虽然结构化输出可保证 JSON 在语法上正确，但不能保证值在语义上正确。请务必先在应用代码中验证最终输出，然后再使用。
+- **错误处理** ：在应用中实现强大的错误处理功能，以便妥善处理模型输出虽然符合架构，但可能不符合您的业务逻辑要求的情况。
 
-## Limites
+## 限制
 
-- **Sous-ensemble de schémas** : toutes les fonctionnalités de la spécification du schéma JSON ne sont pas prises en charge. Le modèle ignore les propriétés non compatibles.
-- **Complexité du schéma** : l'API peut rejeter les schémas très volumineux ou profondément imbriqués. Si vous rencontrez des erreurs, essayez de simplifier votre schéma en raccourcissant les noms de propriétés, en réduisant l'imbrication ou en limitant le nombre de contraintes.
+- **架构子集** ：并非所有 JSON 架构规范功能都受支持。模型会忽略不受支持的属性。
+- **架构复杂性** ：API 可能会拒绝非常大或嵌套很深的架构。如果您遇到错误，请尝试通过缩短属性名称、减少嵌套或限制约束数量来简化架构。
 
-Envoyer des commentaires
+发送反馈
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Dernière mise à jour le 2026/09/12 (UTC).
+最后更新时间 (UTC)：2026-09-12。
 
-Voulez-vous nous donner plus d'informations ?
+需要向我们提供更多信息？
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/12 (UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]

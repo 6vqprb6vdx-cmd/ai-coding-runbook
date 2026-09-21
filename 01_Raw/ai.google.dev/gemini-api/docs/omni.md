@@ -1,43 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=th
-fetched_at: 2026-09-14T05:47:40.808195+00:00
-title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e25\u0e30\u0e41\u0e01\u0e49\u0e44\u0e02\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d\u0e14\u0e49\u0e27\u0e22 Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=id
+fetched_at: 2026-09-21T05:54:20.641845+00:00
+title: "Membuat dan mengedit video dengan Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-ส่งความคิดเห็น
+Kirim masukan
 
-# สร้างและแก้ไขวิดีโอด้วย Gemini Omni Flash
+# Membuat dan mengedit video dengan Gemini Omni Flash
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`) เป็นโมเดลแบบหลายรูปแบบที่มีประสิทธิภาพสูง
-ซึ่งออกแบบมาเพื่อการสร้าง การตัดต่อ และการควบคุมวิดีโอระดับภาพยนตร์ด้วยความเร็วสูง
-Gemini Omni สร้างขึ้นจากความสามารถหลักต่อไปนี้ที่ทำให้แตกต่างจาก
-โมเดลวิดีโอก่อนหน้า
+Gemini Omni Flash (`gemini-omni-1.1-flash`) adalah model multimodal berperforma tinggi yang dirancang untuk pembuatan, pengeditan, dan kontrol sinematik video berkecepatan tinggi.
+Gemini Omni dibangun berdasarkan kemampuan inti berikut yang membedakannya dari model video sebelumnya:
 
-- **ความสามารถในการประมวลผลข้อมูลหลายรูปแบบโดยกำเนิด:** ประมวลผลข้อความ รูปภาพ เสียง และวิดีโอ
-  พร้อมกัน ทำให้คุณได้เอาต์พุตที่สอดคล้องกันมากขึ้น ควบคุมได้มากขึ้น และมีความสอดคล้องกัน
-- **การแก้ไขโดยใช้การสนทนา:** [Interactions
-  API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) ช่วยให้คุณปรับแต่ง
-  และแก้ไขวิดีโอซ้ำๆ ได้ผ่านการสนทนาด้วยภาษาธรรมชาติ อธิบายสิ่งที่คุณต้องการเปลี่ยนแปลง แล้วโมเดลจะใช้การแก้ไขพร้อมทั้งรักษา
-  ส่วนของวิดีโอที่คุณต้องการเก็บไว้
-- **ความรู้เกี่ยวกับโลก:** Gemini Omni ผสานความเข้าใจด้าน
-  ฟิสิกส์เข้ากับความรู้ด้านประวัติศาสตร์ วิทยาศาสตร์ และบริบททางวัฒนธรรมของ Gemini
-  เพื่อเชื่อมช่องว่างจากภาพถ่ายสมจริงไปสู่การเล่าเรื่องที่มีความหมาย
+- **Multimodalitas native:** model ini memproses teks, gambar, audio, dan video secara bersamaan, sehingga memberikan output yang lebih kohesif, konsisten, dan dapat dikontrol.
+- **Pengeditan via percakapan:** didukung oleh [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id), fitur ini memungkinkan Anda menyempurnakan dan mengedit video secara berulang melalui percakapan bahasa alami. Jelaskan perubahan yang ingin Anda lakukan, dan model akan menerapkan hasil edit sambil mempertahankan bagian video yang ingin Anda pertahankan.
+- **Pengetahuan tentang dunia:** Gemini Omni menggabungkan pemahaman tentang fisika dengan pengetahuan Gemini tentang sejarah, sains, dan konteks budaya, sehingga menjembatani kesenjangan dari fotorealisme hingga penceritaan yang bermakna.
 
-## การสร้างวิดีโอจากข้อความ
+## Pembuatan video dari teks
 
-สร้างวิดีโอจากพรอมต์ข้อความ โมเดลจะสร้างวิดีโอพร้อมเสียง
-โดยอิงตามคำอธิบายข้อความของคุณ เขียนพรอมต์โดยระบุรายละเอียด เช่น คำอธิบายฉาก
-การเคลื่อนไหวของกล้อง แสง และอารมณ์ เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
+Buat video dari perintah teks. Model ini menghasilkan video dengan audio
+berdasarkan deskripsi teks Anda. Tulis perintah dengan detail seperti deskripsi adegan,
+gerakan kamera, pencahayaan, dan suasana hati untuk mendapatkan hasil terbaik.
 
 ### Python
 
@@ -90,15 +82,17 @@ Client client = new Client();
 CreateModelInteraction params =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-omni-1.1-flash"))
-        .input(InteractionsInput.of("A marble rolling fast on a chain reaction style track, continuous smooth shot."))
+        .input(
+            InteractionsInput.of(
+                "A marble rolling fast on a chain reaction style track, continuous smooth shot."))
         .build();
 
 Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("marble.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("marble.mp4"), videoBytes);
 }
 ```
 
@@ -113,12 +107,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### สคีมาการตอบกลับ REST
+### Skema respons REST
 
-ฟิลด์ความสะดวก `interaction.output_video` เป็น**SDK เท่านั้น**
-รับเอาต์พุตวิดีโอจากอาร์เรย์ `steps` เมื่อใช้ REST API โดยตรง
+Kolom kemudahan `interaction.output_video` hanya **SDK**.
+Dapatkan output video dari array `steps` saat menggunakan REST API secara langsung.
 
-**โครงสร้าง JSON ของ REST แบบดิบ:**
+**Struktur JSON REST mentah:**
 
 ```
 {
@@ -143,9 +137,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### ควบคุมสัดส่วนภาพ
+### Mengontrol rasio aspek
 
-ตั้งค่า `aspect_ratio` เป็น `"9:16"` เพื่อสร้างวิดีโอแนวตั้ง โดยมีค่าเริ่มต้นเป็นแนวนอน (16:9)
+Setel `aspect_ratio` ke `"9:16"` untuk membuat video potret. Lanskap (16:9)
+adalah defaultnya.
 
 ### Python
 
@@ -215,7 +210,9 @@ VideoResponseFormat videoFormat =
 CreateModelInteraction params =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-omni-1.1-flash"))
-        .input(InteractionsInput.of("A futuristic city with neon lights and flying cars, cyberpunk style"))
+        .input(
+            InteractionsInput.of(
+                "A futuristic city with neon lights and flying cars, cyberpunk style"))
         .responseFormat(CreateModelInteractionResponseFormat.of(ResponseFormat.of(videoFormat)))
         .build();
 
@@ -223,8 +220,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("example.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("example.mp4"), videoBytes);
 }
 ```
 
@@ -243,17 +240,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### ความละเอียดเอาต์พุต
+### Resolusi output
 
-ควบคุมความละเอียดเอาต์พุตของวิดีโอที่สร้างขึ้นโดยใช้พารามิเตอร์ `resolution`
-ใน `response_format` ความละเอียดเริ่มต้นคือ 720p
+Kontrol resolusi output video yang dihasilkan menggunakan parameter `resolution`
+di `response_format`. Resolusi default adalah 720p.
 
-| ค่า | คำอธิบาย |
+| Nilai | Deskripsi |
 | --- | --- |
-| `360p` | ความละเอียดเอาต์พุต 360p |
-| `720p` | ความละเอียดเอาต์พุต 720p (ค่าเริ่มต้น) |
-| `1080p` | เอาต์พุต 1080p (เพิ่มความละเอียด) |
-| `4k` | เอาต์พุต 4K (เพิ่มความละเอียด) |
+| `360p` | Resolusi output 360p |
+| `720p` | Resolusi output 720p (default) |
+| `1080p` | Output 1080p (ditingkatkan) |
+| `4k` | Output 4K (ditingkatkan) |
 
 ### Python
 
@@ -331,8 +328,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("hires.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("hires.mp4"), videoBytes);
 }
 ```
 
@@ -353,26 +350,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_misty_mountains_1080p.mp4)
 
-## การสร้างวิดีโอจากรูปภาพ
+## Pembuatan video dari gambar
 
-คุณระบุรูปภาพอ้างอิงพร้อมกับพรอมต์ข้อความได้ โมเดลจะตัดสินใจวิธีใช้รูปภาพตามพรอมต์ของคุณ ซึ่งมีประโยชน์ในการทำให้ภาพผลิตภัณฑ์ ภาพวาด
-หรือภาพถ่ายดูมีชีวิตชีวา
+Anda dapat memberikan gambar referensi dengan perintah teks Anda. Bergantung pada perintah Anda, model akan memutuskan cara menggunakan gambar. Fitur ini berguna untuk menghidupkan foto produk, ilustrasi, atau foto.
 
-ตัวอย่างต่อไปนี้แสดงวิธีใช้รูปภาพอ้างอิงของภาพวาด
-ปลาที่กระโดดขึ้นจากน้ำ
+Contoh berikut menunjukkan cara menggunakan gambar referensi sketsa
+ikan yang melompat keluar dari air:
 
-![ภาพวาดปลากระโดดขึ้นจากน้ำ](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=th)
+![Gambar ikan melompat dari air](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=id)
 
-ด้วยพรอมต์ต่อไปนี้
+Dengan perintah berikut:
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-เพื่อสร้างวิดีโอภาพวาดที่สมจริง
+Untuk membuat video gambar yang realistis.
 
 ### Python
 
@@ -434,18 +430,19 @@ import java.util.List;
 
 Client client = new Client();
 
-byte[] imageBytes = Files.readAllBytes(Paths.get("first_frame.png"));
+byte[] imageBytes = Files.readAllBytes(Paths.get("drawing.jpg"));
 String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 
 Content imageContent =
     ImageContent.builder()
         .data(base64Image)
-        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
         .build();
 
 Content textContent =
     TextContent.builder()
-        .text("A mythical dragon perched on a craggy peak slowly unfolds its wings and lets out a roar.")
+        .text(
+            "turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video")
         .build();
 
 List<Content> contents = Arrays.asList(imageContent, textContent);
@@ -460,8 +457,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("dragon.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("clownfish.mp4"), videoBytes);
 }
 ```
 
@@ -479,14 +476,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### การแทรกเฟรมแรกและเฟรมสุดท้าย
+### Interpolasi frame pertama dan terakhir
 
-Gemini Omni Flash รองรับการประมาณค่าระหว่างเฟรมของวิดีโอ ซึ่งช่วยให้คุณสร้าง
-วิดีโอที่เปลี่ยนผ่านได้อย่างราบรื่นระหว่างรูปภาพเริ่มต้น (เฟรมแรก) กับ
-รูปภาพสิ้นสุด (เฟรมสุดท้าย)
+Gemini Omni Flash mendukung interpolasi video, sehingga Anda dapat membuat video yang bertransisi dengan lancar antara gambar awal (frame pertama) dan gambar akhir (frame terakhir).
 
-ระบุรูปภาพ 2 รูปในรายการ `input` และอธิบายการเปลี่ยนฉากที่ต้องการในพรอมต์ โมเดลจะสร้างภาพเคลื่อนไหวของฉากตั้งแต่เฟรมแรกไปจนถึง
-เฟรมสุดท้าย
+Berikan dua gambar dalam daftar `input` dan deskripsikan transisi yang diinginkan dalam perintah Anda. Model akan menganimasikan adegan dari frame pertama hingga
+frame akhir.
 
 ### Python
 
@@ -550,8 +545,10 @@ import java.util.List;
 
 Client client = new Client();
 
-String firstFrameB64 = Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("first_frame.jpg")));
-String lastFrameB64 = Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("last_frame.jpg")));
+String firstFrameB64 =
+    Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("first_frame.jpg")));
+String lastFrameB64 =
+    Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("last_frame.jpg")));
 
 Content firstFrame =
     ImageContent.builder()
@@ -567,7 +564,8 @@ Content lastFrame =
 
 Content prompt =
     TextContent.builder()
-        .text("A smooth cinematic transition from a lush green forest at sunrise to a snowy forest under a starry night sky.")
+        .text(
+            "A smooth cinematic transition from a lush green forest at sunrise to a snowy forest under a starry night sky.")
         .build();
 
 List<Content> contents = Arrays.asList(firstFrame, lastFrame, prompt);
@@ -582,8 +580,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("interpolation.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("interpolation.mp4"), videoBytes);
 }
 ```
 
@@ -604,14 +602,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_keyframe_interpolation.mp4)
 
-### การอ้างอิงหัวเรื่อง
+### Referensi subjek
 
-คุณสร้างวิดีโอโดยใช้ตัวละคร/ตัวแบบที่เฉพาะเจาะจงซึ่งระบุเป็นรูปภาพอ้างอิงได้
-ตัวอย่างเช่น โค้ดต่อไปนี้แสดงวิธีระบุรูปภาพแมวและเส้นด้าย 2 รูป
-เพื่อสร้างวิดีโอแมวเล่นกับเส้นด้าย
+Anda dapat membuat video yang menyertakan subjek tertentu yang diberikan sebagai gambar referensi.
+Misalnya, kode berikut menunjukkan cara menyediakan 2 gambar kucing dan benang untuk membuat video kucing yang sedang bermain dengan benang.
 
 ### Python
 
@@ -675,21 +672,27 @@ import java.util.List;
 
 Client client = new Client();
 
-byte[] imageBytes = Files.readAllBytes(Paths.get("reference.png"));
-String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+String catB64 = Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("cat.png")));
+String yarnB64 = Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("yarn.png")));
 
-Content imageContent =
+Content catImage =
     ImageContent.builder()
-        .data(base64Image)
+        .data(catB64)
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+Content yarnImage =
+    ImageContent.builder()
+        .data(yarnB64)
         .mimeType(ImageContentMimeType.IMAGE_PNG)
         .build();
 
 Content textContent =
     TextContent.builder()
-        .text("A cute small creature like the one in <image_1> is running in a sunny park chasing a butterfly.")
+        .text("A cat playfully batting at a ball of yarn.")
         .build();
 
-List<Content> contents = Arrays.asList(imageContent, textContent);
+List<Content> contents = Arrays.asList(catImage, yarnImage, textContent);
 
 CreateModelInteraction params =
     CreateModelInteraction.builder()
@@ -701,8 +704,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("creature.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("cat.mp4"), videoBytes);
 }
 ```
 
@@ -721,12 +724,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### พารามิเตอร์งาน
+### Parameter tugas
 
-ใช้พารามิเตอร์ `task` ใน `video_config` เพื่อระบุลักษณะการทำงานที่ต้องการอย่างชัดเจน เช่น หากต้องการให้โมเดลสร้างวิดีโอจากรูปภาพ คุณสามารถตั้งค่าพารามิเตอร์เป็น `image_to_video` หากไม่ได้ตั้งค่านี้ไว้
-โมเดลจะอนุมานสิ่งที่คุณต้องการจากพรอมต์
+Gunakan parameter `task` di `video_config` untuk menentukan perilaku yang diinginkan secara eksplisit, misalnya, jika Anda ingin model membuat video dari gambar, Anda dapat menyetel parameter ke `image_to_video`. Jika tidak ditetapkan, model akan menyimpulkan apa yang Anda inginkan dari perintah.
 
-ค่าที่ใช้ได้มีดังนี้
+Nilai yang diizinkan adalah:
 
 - `text_to_video`
 - `image_to_video`
@@ -734,8 +736,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 - `edit`
 - `extend`
 
-ตัวอย่างต่อไปนี้แสดงวิธีตั้งค่านี้สำหรับรูปภาพที่แสดงก่อนหน้านี้
-เป็นตัวอย่างวิดีโอ
+Contoh berikut menunjukkan cara menyetelnya untuk contoh gambar ke video yang ditampilkan sebelumnya.
 
 ### Python
 
@@ -810,18 +811,19 @@ import java.util.List;
 
 Client client = new Client();
 
-byte[] imageBytes = Files.readAllBytes(Paths.get("reference.png"));
+byte[] imageBytes = Files.readAllBytes(Paths.get("drawing.jpg"));
 String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 
 Content imageContent =
     ImageContent.builder()
         .data(base64Image)
-        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
         .build();
 
 Content textContent =
     TextContent.builder()
-        .text("A fast red sports car drives down an empty desert highway at dusk.")
+        .text(
+            "turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video")
         .build();
 
 List<Content> contents = Arrays.asList(imageContent, textContent);
@@ -842,8 +844,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("task_output.mp4"), videoBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("example.mp4"), videoBytes);
 }
 ```
 
@@ -874,14 +876,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การตัดต่อวิดีโอแบบมีสถานะ
+## Pengeditan video dengan status
 
-สร้างวิดีโอและแก้ไขซ้ำๆ โดยใช้พรอมต์ต่อเนื่อง แต่ละเทิร์น
-จะอิงตามผลลัพธ์ก่อนหน้า โมเดลจะจดจำบริบทของวิดีโอและใช้การเปลี่ยนแปลงของคุณพร้อมทั้งรักษาองค์ประกอบที่คุณไม่ได้กล่าวถึง ใช้
-`previous_interaction_id` เพื่อติดตามประวัติการสนทนาและสถานะวิดีโอที่สร้างขึ้น
-โดยไม่ต้องอัปโหลดวิดีโอก่อนหน้าซ้ำ
+Buat video dan edit secara berulang menggunakan perintah lanjutan. Setiap giliran
+dibuat berdasarkan hasil sebelumnya. Model ini mengingat konteks video, menerapkan perubahan Anda sambil mempertahankan elemen yang tidak Anda sebutkan. Gunakan
+`previous_interaction_id` untuk melacak histori percakapan dan status video yang dibuat
+tanpa mengupload ulang video sebelumnya.
 
-ตัวอย่างต่อไปนี้แสดงวิธีสร้างวิดีโอแรกแล้วแก้ไข
+Contoh berikut menunjukkan cara membuat video pertama, lalu mengeditnya:
 
 ### Python
 
@@ -948,26 +950,26 @@ Client client = new Client();
 CreateModelInteraction turn1Params =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-omni-1.1-flash"))
-        .input(InteractionsInput.of("A person in a red jacket standing in a snowy landscape."))
+        .input(InteractionsInput.of("A woman playing violin outdoors."))
         .build();
 
-Interaction turn1 =
+Interaction res1 =
     client.interactions.create(CreateInteractionRequestBody.of(turn1Params)).interaction().get();
 
-// Turn 2: Edit the previous video using previousInteractionId
+// Turn 2: Edit the previous video
 CreateModelInteraction turn2Params =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-omni-1.1-flash"))
-        .input(InteractionsInput.of("Change the jacket to bright yellow."))
-        .previousInteractionId(turn1.id().get())
+        .previousInteractionId(res1.id().get())
+        .input(InteractionsInput.of("Make the violin invisible."))
         .build();
 
-Interaction turn2 =
+Interaction res2 =
     client.interactions.create(CreateInteractionRequestBody.of(turn2Params)).interaction().get();
 
-if (turn2.outputVideo().isPresent() && turn2.outputVideo().get().data().isPresent()) {
-    byte[] videoBytes = Base64.getDecoder().decode(turn2.outputVideo().get().data().get());
-    Files.write(Paths.get("edited.mp4"), videoBytes);
+if (res2.outputVideo().isPresent() && res2.outputVideo().get().data().isPresent()) {
+  byte[] videoBytes = Base64.getDecoder().decode(res2.outputVideo().get().data().get());
+  Files.write(Paths.get("example.mp4"), videoBytes);
 }
 ```
 
@@ -983,17 +985,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-ตัวอย่างวิดีโอเริ่มต้น
+Contoh video awal:
 
-ตัวอย่างวิดีโอที่แก้ไขแล้ว
+Contoh video yang diedit:
 
-การสนทนาแต่ละรอบจะสร้างวิดีโอใหม่ โมเดลจะเข้าใจบริบทจากรอบก่อนๆ ซึ่งช่วยให้คุณทำการเปลี่ยนแปลงทีละน้อยได้ เช่น การปรับแสงและการสลับพื้นหลัง โดยไม่ต้องอธิบายฉากทั้งหมดอีกครั้ง
+Setiap giliran dalam percakapan menghasilkan video baru. Model ini memahami konteks dari giliran sebelumnya, sehingga Anda dapat melakukan perubahan inkremental seperti menyesuaikan pencahayaan, dan mengganti latar belakang, tanpa mendeskripsikan ulang seluruh adegan.
 
-### แก้ไขวิดีโอของคุณเอง
+### Mengedit video Anda sendiri
 
-อัปโหลดวิดีโอโดยใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th) เพื่อแก้ไขด้วย Gemini Omni Flash
+Upload video Anda menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) untuk mengeditnya dengan Gemini Omni Flash.
 
-ตัวอย่างต่อไปนี้แสดงวิธีแก้ไขวิดีโอต้นฉบับต่อไปนี้
+Contoh berikut menunjukkan cara mengedit video asli berikut:
 
 ### Python
 
@@ -1076,8 +1078,10 @@ import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.TextContent;
 import com.google.genai.gaos.models.interactions.VideoContent;
-import com.google.genai.gaos.models.interactions.VideoContentMimeType;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.FileState;
+import com.google.genai.types.UploadFileConfig;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -1086,18 +1090,29 @@ import java.util.List;
 
 Client client = new Client();
 
-byte[] videoBytes = Files.readAllBytes(Paths.get("my_video.mp4"));
-String base64Video = Base64.getEncoder().encodeToString(videoBytes);
+// Upload video using the file API
+File videoFile =
+    client.files.upload("Video.mp4", UploadFileConfig.builder().mimeType("video/mp4").build());
 
-Content videoContent =
-    VideoContent.builder()
-        .data(base64Video)
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
-        .build();
+while (videoFile.state().isPresent()
+    && videoFile.state().get().knownEnum() == FileState.Known.PROCESSING) {
+  System.out.println("Waiting for video to be processed.");
+  Thread.sleep(10000);
+  videoFile = client.files.get(videoFile.name().get(), null);
+}
 
+if (videoFile.state().isPresent()
+    && videoFile.state().get().knownEnum() == FileState.Known.FAILED) {
+  throw new IllegalStateException("Video processing failed: " + videoFile.state().get());
+}
+System.out.println("Video processing complete: " + videoFile.uri().orElse(""));
+
+// Edit your video
+Content videoContent = VideoContent.builder().uri(videoFile.uri().get()).build();
 Content textContent =
     TextContent.builder()
-        .text("Make the violin completely invisible while keeping the musician playing normally in the air.")
+        .text(
+            "When the person touches the mirror, make the mirror ripple beautifully like liquid, and the person's arm turns into reflective mirror material")
         .build();
 
 List<Content> contents = Arrays.asList(videoContent, textContent);
@@ -1112,8 +1127,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] editedBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("edited_invisible_violin.mp4"), editedBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("example.mp4"), videoBytes);
 }
 ```
 
@@ -1150,13 +1165,13 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-ตัวอย่างวิดีโอที่แก้ไขแล้ว
+Contoh video yang diedit:
 
-## การดึงข้อมูลวิดีโอด้วย URI
+## Mengambil video dengan URI
 
-ใช้พารามิเตอร์ `delivery="uri"` ใน
-`response_format` เพื่อเรียกข้อมูลวิดีโอที่สร้างขึ้นซึ่งมีขนาดใหญ่กว่า 4 MB
-ซึ่งจะแสดง URI ที่โฮสต์โดย Google ซึ่งคุณสามารถสำรวจได้จนกว่าวิดีโอจะ`ACTIVE`ก่อนดาวน์โหลด
+Gunakan parameter `delivery="uri"` di
+`response_format` untuk mengambil video yang dibuat dan berukuran lebih dari 4 MB.
+Tindakan ini akan menampilkan URI yang dihosting oleh Google yang dapat Anda polling hingga video `ACTIVE` sebelum didownload.
 
 ### Python
 
@@ -1234,9 +1249,12 @@ import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.VideoContent;
 import com.google.genai.gaos.models.interactions.VideoResponseFormat;
 import com.google.genai.gaos.models.interactions.VideoResponseFormatDelivery;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.FileState;
 
 Client client = new Client();
 
@@ -1249,17 +1267,34 @@ VideoResponseFormat videoFormat =
 CreateModelInteraction params =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-omni-1.1-flash"))
-        .input(InteractionsInput.of("A camera flies over a misty redwood forest at sunrise."))
+        .input(InteractionsInput.of("A beautiful sunset."))
         .responseFormat(CreateModelInteractionResponseFormat.of(ResponseFormat.of(videoFormat)))
         .build();
 
 Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
-// 2. Extract file URI
-interaction.outputVideo().flatMap(v -> v.uri()).ifPresent(uri -> {
-    System.out.println("Video URI: " + uri);
-});
+// 2. Extract file name and poll for ACTIVE state
+VideoContent videoOutput = interaction.outputVideo().get();
+String uri = videoOutput.uri().get();
+String[] parts = uri.split("/");
+String fileName = parts[parts.length - 1];
+
+System.out.println("Waiting for video processing...");
+while (true) {
+  File fileInfo = client.files.get("files/" + fileName, null);
+  if (fileInfo.state().isPresent()
+      && fileInfo.state().get().knownEnum() == FileState.Known.ACTIVE) {
+    break;
+  } else if (fileInfo.state().isPresent()
+      && fileInfo.state().get().knownEnum() == FileState.Known.FAILED) {
+    throw new RuntimeException("Generation failed.");
+  }
+  Thread.sleep(5000);
+}
+
+// 3. Download the final video
+client.files.download(uri, "output.mp4", null);
 ```
 
 ### REST
@@ -1307,7 +1342,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**โครงสร้าง JSON ของ REST แบบดิบ (URI):**
+**Struktur JSON REST mentah (URI):**
 
 ```
 {
@@ -1332,18 +1367,16 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## ส่วนขยายวิดีโอ
+## Ekstensi video
 
-ขยายวิดีโอที่มีอยู่ด้วยการสร้างส่วนต่อขยายที่ราบรื่นที่ส่วนท้าย
-ของคลิป อธิบายว่าคุณต้องการให้วิดีโอดำเนินต่อไปอย่างไรในพรอมต์ เช่น
-`"Extend this video"` หรือ `"Continue the scene: the camera pans across the mountains"`
-โมเดลจะวิเคราะห์วิดีโออินพุตเพื่อสร้างวิดีโอต่อเนื่องความยาว 3-10 วินาที
+Perpanjang durasi video yang ada dengan membuat kelanjutan yang lancar di bagian akhir klip. Jelaskan bagaimana Anda ingin video berlanjut dalam perintah Anda, misalnya
+`"Extend this video"` atau `"Continue the scene: the camera pans across the mountains"`.
+Model menganalisis video input untuk membuat kelanjutan berdurasi 3–10 detik.
 
-คุณขยายเวลาได้ดังนี้
+Anda dapat memperpanjang:
 
-- **วิดีโอที่โมเดลสร้างขึ้น (การสนทนาไปมา)**: ขยายวิดีโอที่สร้างขึ้นก่อนหน้านี้
-  โดยอ้างอิง`previous_interaction_id`
-- **วิดีโอที่อัปโหลด**: ระบุไฟล์วิดีโอที่อัปโหลด (ผ่าน Files API) พร้อมกับพรอมต์ของส่วนขยาย
+- **Video yang dihasilkan oleh model (multi-turn)**: Memperpanjang video yang dihasilkan sebelumnya dengan mereferensikan `previous_interaction_id`-nya.
+- **Video yang diupload**: Menyediakan file video yang diupload (melalui Files API) bersama dengan perintah ekstensi Anda.
 
 ### Python
 
@@ -1410,8 +1443,9 @@ import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.TextContent;
 import com.google.genai.gaos.models.interactions.VideoContent;
-import com.google.genai.gaos.models.interactions.VideoContentMimeType;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -1420,23 +1454,16 @@ import java.util.List;
 
 Client client = new Client();
 
-// Load base video
-byte[] videoBytes = Files.readAllBytes(Paths.get("my_video.mp4"));
-String base64Video = Base64.getEncoder().encodeToString(videoBytes);
+// Upload your video using the Files API
+File videoFile =
+    client.files.upload(
+        "my_video.mp4", UploadFileConfig.builder().mimeType("video/mp4").build());
 
-Content videoContent =
-    VideoContent.builder()
-        .data(base64Video)
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
-        .build();
+// Extend the video using prompt-based extension
+Content videoContent = VideoContent.builder().uri(videoFile.uri().get()).build();
+Content textContent = TextContent.builder().text("Continue the scene.").build();
 
-// Prompt describing seamless continuation
-Content promptContent =
-    TextContent.builder()
-        .text("Continue the scene.")
-        .build();
-
-List<Content> contents = Arrays.asList(videoContent, promptContent);
+List<Content> contents = Arrays.asList(videoContent, textContent);
 
 CreateModelInteraction params =
     CreateModelInteraction.builder()
@@ -1448,8 +1475,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] extendedBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("extended.mp4"), extendedBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("extended.mp4"), videoBytes);
 }
 ```
 
@@ -1467,18 +1494,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_base.mp4)
 
 [
 
-เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_extended.mp4)
 
-### การขยายด้วยสื่ออ้างอิง
+### Memperluas dengan media referensi
 
-คุณระบุรูปภาพอ้างอิงใน`input`อาร์เรย์พร้อมกับพรอมต์เพื่อ
-แนะนำตัวละครหรือองค์ประกอบใหม่ๆ ลงในวิดีโอแบบขยายได้โดยทำดังนี้
+Anda dapat memberikan gambar referensi dalam array `input` bersama dengan perintah untuk
+memperkenalkan karakter atau elemen baru ke dalam video yang diperpanjang:
 
 ### Python
 
@@ -1544,14 +1571,14 @@ import com.google.genai.Client;
 import com.google.genai.gaos.models.interactions.Content;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
 import com.google.genai.gaos.models.interactions.ImageContent;
-import com.google.genai.gaos.models.interactions.ImageContentMimeType;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.TextContent;
 import com.google.genai.gaos.models.interactions.VideoContent;
-import com.google.genai.gaos.models.interactions.VideoContentMimeType;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -1560,28 +1587,24 @@ import java.util.List;
 
 Client client = new Client();
 
-// Load base video and reference character image
-byte[] videoBytes = Files.readAllBytes(Paths.get("my_video.mp4"));
-byte[] charBytes = Files.readAllBytes(Paths.get("character.png"));
+// Upload base video and reference image using the Files API
+File videoFile =
+    client.files.upload(
+        "my_video.mp4", UploadFileConfig.builder().mimeType("video/mp4").build());
+File characterImg =
+    client.files.upload(
+        "character.png", UploadFileConfig.builder().mimeType("image/png").build());
 
-Content baseVideo =
-    VideoContent.builder()
-        .data(Base64.getEncoder().encodeToString(videoBytes))
-        .mimeType(VideoContentMimeType.VIDEO_MP4)
-        .build();
-
-Content characterImg =
-    ImageContent.builder()
-        .data(Base64.getEncoder().encodeToString(charBytes))
-        .mimeType(ImageContentMimeType.IMAGE_PNG)
-        .build();
-
-Content prompt =
+// Extend the video while introducing the reference character
+Content videoContent = VideoContent.builder().uri(videoFile.uri().get()).build();
+Content imageContent = ImageContent.builder().uri(characterImg.uri().get()).build();
+Content textContent =
     TextContent.builder()
-        .text("Extend the video: the car stops, and the traveler from <image_1> steps out and waves at the sunset.")
+        .text(
+            "Extend this video: have the character shown in <IMAGE_REF_0> enter the scene and wave.")
         .build();
 
-List<Content> contents = Arrays.asList(baseVideo, characterImg, prompt);
+List<Content> contents = Arrays.asList(videoContent, imageContent, textContent);
 
 CreateModelInteraction params =
     CreateModelInteraction.builder()
@@ -1593,8 +1616,8 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
 if (interaction.outputVideo().isPresent() && interaction.outputVideo().get().data().isPresent()) {
-    byte[] extendedBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
-    Files.write(Paths.get("extended_with_character.mp4"), extendedBytes);
+  byte[] videoBytes = Base64.getDecoder().decode(interaction.outputVideo().get().data().get());
+  Files.write(Paths.get("extended_with_character.mp4"), videoBytes);
 }
 ```
 
@@ -1613,132 +1636,131 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_traveler_extension.mp4)
 
-### ข้อจำกัดและหลักเกณฑ์ของส่วนขยาย
+### Batasan dan panduan ekstensi
 
-โปรดคำนึงถึงกฎและข้อจำกัดต่อไปนี้เมื่อขยายวิดีโอ
+Perhatikan aturan dan batasan berikut saat memperpanjang video:
 
-- **บทพูดในวิดีโอที่อัปโหลด**: ปัจจุบันคุณไม่สามารถขยายวิดีโอที่อัปโหลดซึ่งมีคนพูดเพื่อเพิ่มบทพูดได้ (ระบบรองรับในกรณีที่ตัวละครไม่พูดหรือหากพรอมต์ไม่ได้เพิ่มบทพูด)
-- **การขยายเสียงแบบหลายรอบ**: ระบบรองรับการสร้างบทสนทนาหรือคำพูดที่พูด
-  เมื่อขยายวิดีโอที่สร้างไว้ก่อนหน้าผ่านการสนทนาไปมา (`previous_interaction_id`)
-- **ท้ายคลิปเท่านั้น**: ส่วนขยายจะจำกัดไว้ที่การต่อท้ายวิดีโอ
-  คุณไม่สามารถเพิ่มเนื้อหาที่ด้านหน้าหรือขยายช่วงกลางของคลิปได้
-- **ขีดจำกัดระยะเวลา**: วิดีโออินพุตสำหรับการขยายต้องมีความยาวไม่เกิน 10 วินาที เมื่ออัปโหลด (เว้นแต่จะใช้การสนทนาไปมา)
-- **ความพร้อมให้บริการในภูมิภาค**: ขณะนี้การขยายวิดีโอที่อัปโหลดไม่พร้อมให้บริการ
-  สำหรับผู้ใช้ในเขตเศรษฐกิจยุโรป (EEA), สวิตเซอร์แลนด์ และสหราชอาณาจักร (ระบบรองรับการขยายวิดีโอที่โมเดลสร้างขึ้นในทุกภูมิภาคที่พร้อมให้บริการ)
+- **Dialog lisan pada video yang diupload**: Saat ini, Anda tidak dapat memperpanjang video yang diupload yang berisi seseorang sedang berbicara untuk menambahkan dialog lain (hal ini didukung jika karakter tetap diam atau jika perintah tidak menambahkan dialog).
+- **Ekstensi suara multi-giliran**: Pembuatan dialog atau ucapan yang diucapkan didukung
+  saat memperluas video yang dibuat sebelumnya melalui multi-giliran (`previous_interaction_id`).
+- **Hanya di akhir klip**: Ekstensi terbatas untuk ditambahkan di akhir video.
+  Anda tidak dapat menambahkan konten di awal atau memperpanjang bagian tengah klip.
+- **Batas durasi**: Video yang dimasukkan untuk ekstensi harus berdurasi 10 detik atau kurang
+  saat diupload (kecuali jika menggunakan multi-turn).
+- **Ketersediaan regional**: Saat ini, perpanjangan video yang diupload tidak tersedia untuk pengguna di Wilayah Ekonomi Eropa (EEA), Swiss, dan Inggris Raya (perpanjangan video yang dibuat oleh model didukung di semua wilayah yang tersedia).
 
-## แนวทางปฏิบัติแนะนำ
+## Praktik terbaik
 
-- **ใช้การนำส่ง URI สำหรับวิดีโอขนาดใหญ่:** สำหรับวิดีโอที่มีขนาดใหญ่กว่า 4 MB (>720p
-  เมื่อพร้อมใช้งาน) ให้ใช้ `delivery="uri"` ใน `response_format` เพื่อหลีกเลี่ยงข้อจำกัดด้านขนาดของเพย์โหลด
-- **ประสิทธิภาพที่เพิ่มขึ้น:** ตั้งค่า `background=false`, `store=false` และ
-  `stream=false` เพื่อสร้างคำตอบแบบเอกพจน์พร้อมกันได้เร็วขึ้น โปรดทราบว่าการตั้งค่า
-  `store=false` หมายความว่าคุณจะแก้ไขวิดีโอที่สร้างขึ้นไม่ได้ใน
-  เทิร์นถัดๆ ไปโดยใช้ `previous_interaction_id`
-- **ความแม่นยำของพรอมต์:** ดูรายละเอียดในส่วน[คำแนะนำในการใช้พรอมต์](#prompt-guide)
+- **Gunakan pengiriman URI untuk video berukuran besar:** Untuk video yang berukuran lebih besar dari 4 MB (>720p jika tersedia), gunakan `delivery="uri"` di `response_format` untuk menghindari batas ukuran payload.
+- **Performa yang dioptimalkan:** Tetapkan `background=false`, `store=false`, dan
+  `stream=false` untuk pembuatan unary sinkron yang lebih cepat. Perhatikan bahwa setelan
+  `store=false` berarti video yang dibuat tidak dapat diedit pada
+  gilirannya menggunakan `previous_interaction_id`.
+- **Presisi perintah:** Lihat bagian [panduan perintah](#prompt-guide) untuk
+  mengetahui detailnya.
 
-## ข้อจำกัด
+## Batasan
 
-- การอัปโหลดและแก้ไขรูปภาพที่มีผู้เยาว์ไม่รองรับในเขตเศรษฐกิจยุโรป สวิตเซอร์แลนด์ และสหราชอาณาจักร
-- ระบบไม่รองรับการอัปโหลดและแก้ไขรูปภาพที่มีบุคคลที่ระบุตัวตนได้บางคน
-- ขณะนี้การแก้ไขหรือขยายวิดีโอที่อัปโหลดไม่พร้อมให้บริการสำหรับผู้ใช้ในเขตเศรษฐกิจยุโรป (EEA), สวิตเซอร์แลนด์ และสหราชอาณาจักร (ระบบรองรับการแก้ไขหรือขยายวิดีโอที่โมเดลสร้างขึ้น)
-- วิดีโออินพุตสำหรับการตัดต่อและการขยายต้องมีความยาวไม่เกิน 10 วินาทีเมื่ออัปโหลด (ยกเว้นการขยายวิดีโอที่โมเดลสร้างขึ้นในการสนทนาไปมา)
-- การขยายวิดีโอจะจำกัดไว้ที่การต่อท้ายวิดีโอเท่านั้น ระบบไม่รองรับการต่อต้นหรือการขยายช่วงกลางของคลิป
-- คุณไม่สามารถขยายวิดีโอที่อัปโหลดซึ่งมีคนพูดเพื่อเพิ่มบทสนทนา (ตัวละครอาจเงียบหรือใช้การสนทนาไปมาด้วย `previous_interaction_id` ได้)
-- ไม่รองรับการแก้ไขด้วยเสียง
-- API เวอร์ชันปัจจุบันไม่รองรับการอัปโหลดข้อมูลอ้างอิงเสียง
-- การอ้างอิงวิดีโอจะทำงานได้ดีที่สุดเมื่อใช้กับภาพเหมือน ระบบจะไม่สนใจเสียงใดๆ ในการอ้างอิงวิดีโอ การอ้างอิงวิดีโอรองรับคลิปได้สูงสุด 3 คลิป โดยแต่ละคลิปมีความยาวได้สูงสุด 3 วินาที
-- ระบบไม่รองรับการอ้างอิงหรือการให้เหตุผลในวิดีโอหลายรายการ การพยายามใช้พรอมต์แบบหลายวิดีโออาจส่งผลให้ประสิทธิภาพของโมเดลลดลงหรือได้เอาต์พุตที่ไม่คาดคิด
-- ไม่รองรับปริมาณงานที่จัดสรร
-- ไม่รองรับคำสั่งของระบบ อุณหภูมิ `top_p` ลำดับการหยุด และพรอมต์เชิงลบ (คุณใส่พรอมต์เชิงลบในพรอมต์ปกติได้ เช่น "อย่าทำ X")
-- ไม่รองรับการใช้วิดีโอ YouTube เป็นแหล่งที่มาของสื่อ
+- Mengupload dan mengedit gambar yang berisi anak di bawah umur tidak didukung di Wilayah Ekonomi Eropa, Swiss, dan Inggris Raya.
+- Mengupload dan mengedit gambar yang berisi orang tertentu yang dapat dikenali tidak didukung.
+- Pengeditan atau perpanjangan video yang diupload saat ini tidak tersedia untuk pengguna di Wilayah Ekonomi Eropa (EEA), Swiss, dan Inggris Raya (pengeditan atau perpanjangan video yang dibuat oleh model didukung).
+- Video input untuk pengeditan dan perluasan harus berdurasi 10 detik atau kurang saat diupload (kecuali jika memperpanjang video yang dibuat oleh model dalam multi-turn).
+- Ekstensi video hanya dapat ditambahkan di akhir video; penambahan di awal atau perpanjangan di tengah klip tidak didukung.
+- Anda tidak dapat memperpanjang video yang diupload saat seseorang sedang berbicara untuk menambahkan dialog lain (karakter dapat tetap diam, atau perpanjangan multi-turn dengan `previous_interaction_id` dapat digunakan).
+- Pengeditan suara tidak didukung.
+- Mengupload referensi audio tidak didukung di versi API saat ini.
+- Referensi video berfungsi paling baik dengan kemiripan; audio apa pun dalam referensi video diabaikan. Referensi video mendukung maksimal 3 klip, dengan durasi masing-masing hingga 3 detik.
+- Mereferensikan atau menyimpulkan beberapa video tidak didukung. Mencoba perintah multi-video dapat menyebabkan penurunan performa model atau output yang tidak terduga.
+- Throughput yang disediakan tidak didukung.
+- Petunjuk sistem, temperatur, `top_p`, urutan penghentian, dan perintah negatif tidak didukung (Anda dapat memasukkan perintah negatif dalam perintah biasa: misalnya, "Jangan lakukan X").
+- Penggunaan video YouTube sebagai sumber media tidak didukung.
 
-## รายละเอียดทางเทคนิค
+## Detail teknis
 
-- วิดีโอที่สร้างขึ้นทั้งหมดจะมีลายน้ำ SynthID ซึ่งผู้ชมมองไม่เห็น แต่สามารถตรวจจับได้โดยอัตโนมัติเพื่อการยืนยันแหล่งที่มา
-- เวลาในการสร้างวิดีโอจะแตกต่างกันไปตามระยะเวลา ความละเอียด และการโหลด API ปัจจุบัน วิดีโอที่ยาวขึ้นและมีความละเอียดสูงขึ้นจะใช้เวลาในการสร้างนานขึ้น
-- Omni ใช้ตัวกรองความปลอดภัยของเนื้อหากับทั้งพรอมต์อินพุตและวิดีโอที่สร้างขึ้น (ซึ่งจะแตกต่างกันไปตามภูมิภาค) ระบบจะบล็อกพรอมต์ที่ละเมิดนโยบายการใช้งาน
-- ระบบรองรับภาษาอังกฤษ (EN) อย่างเต็มรูปแบบ แต่ยังไม่ได้ประเมินภาษาอื่นๆ ดังนั้นภาษาอื่นๆ อาจใช้งานได้ แต่ผลลัพธ์อาจแตกต่างกันไป
+- Semua video yang dihasilkan menyertakan watermark SynthID, yang tidak terlihat oleh penonton, tetapi dapat dideteksi secara terprogram untuk verifikasi asal.
+- Waktu pembuatan video bervariasi berdasarkan durasi, resolusi, dan beban API saat ini. Video yang lebih panjang dan beresolusi lebih tinggi membutuhkan waktu lebih lama untuk dibuat.
+- Omni menerapkan filter keamanan konten pada perintah input dan video yang dihasilkan (yang bervariasi menurut wilayah). Perintah yang melanggar kebijakan penggunaan akan diblokir.
+- Bahasa Inggris (EN) didukung sepenuhnya, tetapi bahasa lain belum dievaluasi, sehingga mungkin berfungsi, tetapi hasilnya dapat bervariasi.
 
-## คู่มือการใช้พรอมต์สำหรับ Gemini Omni Flash
+## Panduan perintah Gemini Omni Flash
 
-ส่วนนี้มีเคล็ดลับและตัวอย่างเกี่ยวกับวิธีพรอมต์ Gemini Omni Flash อย่างมีประสิทธิภาพ
+Bagian ini berisi tips dan contoh cara memberikan perintah yang efektif untuk Gemini Omni Flash.
 
-### ฉากเดียว
+### Satu adegan
 
-โดยค่าเริ่มต้น Omni Flash จะพยายามสร้างวิดีโอที่มีช็อตต่างๆ
-โดยจะพยายามสร้างเรื่องราวที่น่าสนใจตามพรอมต์
+Secara default, Omni Flash akan mencoba membuat video dengan beberapa pengambilan gambar yang berbeda.
+Gemini akan mencoba membuat narasi yang menarik berdasarkan perintah.
 
-หากต้องการให้วิดีโอเอาต์พุตมีฉากเดียว คุณต้องป้อนพรอมต์ดังนี้
+Jika Anda ingin video output hanya berisi satu adegan, Anda harus memberikan perintah untuk itu:
 
-- ในฉากเดียวที่ไม่มีการตัดต่อ
-- เป็นช็อตเดียวต่อเนื่อง
-- ไม่มีการตัดฉาก
+- Dalam satu adegan tanpa jeda
+- Dalam satu pengambilan gambar berkelanjutan
+- Tidak ada potongan adegan
 
-เช่น
+Contoh:
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### การนำองค์ประกอบที่ไม่ต้องการออก
+### Menghapus elemen yang tidak diinginkan
 
-หากวิดีโอที่สร้างขึ้นมีสิ่งที่คุณไม่ต้องการ ให้ใส่พรอมต์เชิงลบแบบง่ายๆ เพื่อหลีกเลี่ยงสิ่งเหล่านั้น
+Jika video yang dihasilkan berisi hal-hal yang tidak Anda inginkan, sertakan perintah negatif sederhana untuk menghindarinya:
 
-- ไม่มีบทพูด
-- ไม่มีการตกแต่ง
-- ไม่มีซาวด์เอฟเฟ็กต์เพิ่มเติม
+- Tidak ada dialog
+- Tidak ada hiasan
+- Tidak ada efek suara tambahan
 
-### พรอมต์สำหรับการแก้ไข
+### Perintah untuk pengeditan
 
-พรอมต์ที่เรียบง่ายจะทำงานได้ดีที่สุดสำหรับการตัดต่อวิดีโอ พรอมต์ที่มีคำอธิบายมากเกินไปอาจทำให้เกิดการเปลี่ยนแปลงที่ไม่ต้องการ
+Perintah sederhana berfungsi paling baik untuk pengeditan video. Perintah yang terlalu deskriptif dapat menyebabkan perubahan yang tidak diinginkan.
 
-ตัวอย่างเพิ่มเติมของพรอมต์การแก้ไขแบบง่ายมีดังนี้
+Berikut adalah contoh perintah pengeditan sederhana lainnya:
 
-- เปลี่ยนวิดีโอนี้ให้เป็นสไตล์อนิเมะ
-- ใส่หมวกที่ดูดีให้บุคคลนี้
-- เปลี่ยนแสงให้ดูน่าทึ่งมากขึ้น
-- เปลี่ยนข้อความบนป้ายเป็น "Omni Flash"
+- Ubah video ini menjadi anime
+- Pakaikan topi modis pada orang ini
+- Ubah pencahayaan agar lebih dramatis
+- Ubah teks pada papan menjadi "Omni Flash"
 
-เมื่อแก้ไขลักษณะเฉพาะของวิดีโอ ให้ใส่ `"Keep everything else the same"` เพื่อรักษาความสอดคล้องของภาพ
+Saat mengedit aspek tertentu dari video, sertakan `"Keep everything else the same"` untuk mempertahankan konsistensi visual.
 
-ตัวอย่างต่อไปนี้แสดงวิธีใช้เทคนิคนี้
+Berikut adalah beberapa contoh untuk menunjukkan cara menerapkan teknik ini:
 
-- **สิ่งที่ควรหลีกเลี่ยง** `In the video of the man sitting on the sofa, please add a small
+- **Hindari:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **ปรับให้อ่านง่าย:** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **Sederhanakan:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **สิ่งที่ควรหลีกเลี่ยง** `Please remove the cell phone that the person is holding in
+- **Hindari:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **ปรับให้อ่านง่าย:** `Make the phone invisible. Keep everything else the
+  - **Sederhanakan:** `Make the phone invisible. Keep everything else the
     same.`
 
-### การแจ้งเสียง
+### Membuat perintah audio
 
-โดยค่าเริ่มต้น โมเดลจะพยายามสร้างแทร็กเสียงที่เหมาะสมสำหรับวิดีโอ ซึ่งอาจไม่ใช่สิ่งที่คุณต้องการเสมอไป คุณใช้พรอมต์เพื่อ
-อธิบายประเภทเสียงที่ต้องการได้ ซึ่งเป็นเรื่องที่สำคัญอย่างยิ่งหากคุณต้องการ
-ใช้เพลงในวิดีโอ
+Secara default, model akan mencoba membuat trek audio yang sesuai untuk video. Hal ini mungkin tidak selalu sesuai dengan yang Anda inginkan. Anda dapat menggunakan perintah untuk mendeskripsikan jenis audio yang Anda inginkan. Hal ini sangat penting terutama jika Anda ingin
+musik dalam video Anda:
 
-- ใส่เพลงบรรเลงเบาๆ
-- วิดีโอมีบีทเทคโนสุดเร้าใจ
-- เสียงเป็นเสียงวิทยุที่เบาและแหลมซึ่งเปิดอยู่เบื้องหลังและกำลังเล่นเพลง
+- Sertakan musik latar belakang yang menenangkan
+- Video memiliki irama techno yang bersemangat
+- Audio adalah siaran radio yang berbunyi sengau di latar belakang, memutar lagu
 
-### ช่วงเวลาของเหตุการณ์
+### Acara pengaturan waktu
 
-คุณสามารถแจ้งให้ระบบดำเนินการบางอย่างในวิดีโอในช่วงเวลาที่เฉพาะเจาะจงได้โดยไม่ต้องใช้ไวยากรณ์ที่
-แน่นอนและใช้ภาษาธรรมชาติได้ ซึ่งมีประโยชน์อย่างยิ่งในการสร้างฉากตัด จังหวะ หรือลำดับภาพแบบรวดเร็วของคุณเอง
-โปรดดูตัวอย่างต่อไปนี้
+Anda dapat meminta agar sesuatu terjadi pada waktu tertentu dalam video, tidak ada sintaksis yang tepat yang diperlukan dan Anda dapat menggunakan bahasa alami. Hal ini sangat
+berguna dalam membuat potongan adegan, ritme, atau urutan tembakan cepat Anda sendiri.
+Lihat contoh berikut:
 
-- หลังจากผ่านไป 3 วินาที ผู้หญิงคนหนึ่งก็ปรากฏตัวขึ้น
-- ที่ 5 วินาที ท่อนคอรัสจะเริ่มในเสียงเบื้องหลัง
-- ตัดไปที่เฟรมใหม่ทุกๆ 2 วินาที
-- ในฉากที่ยิงอย่างรวดเร็ว ให้เปลี่ยนฉากเป็นสถานที่ใหม่ทุกๆ ครึ่งวินาที (12 เฟรมที่ 24fps)
+- Setelah 3 detik, seorang wanita memasuki adegan.
+- Pada detik ke-5, chorus dimulai di audio latar belakang.
+- Setiap 2 detik beralih ke frame baru.
+- Dalam urutan cepat, setiap setengah detik (12 frame pada 24 fps), ubah adegan ke lokasi baru.
 
-คุณยังใช้ไวยากรณ์รหัสเวลาได้ด้วย
+Anda juga dapat menggunakan sintaks kode waktu:
 
 ```
 [0-3s] A person is walking
@@ -1746,60 +1768,56 @@ Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny wind
 [6-10s] They start running
 ```
 
-### การเขียนพรอมต์แบบเมตา
+### Meta prompting
 
-คุณขอให้ Gemini Omni Flash ให้ความสำคัญกับคุณภาพทั่วไปหรือ
-หลักการสร้างวิดีโอได้โดยทำดังนี้
+Anda dapat meminta Gemini Omni Flash untuk memperhatikan kualitas atau prinsip umum pembuatan video:
 
-- พิจารณารายละเอียดเล็กๆ น้อยๆ การแสดงออก และจังหวะเวลาเพื่อสร้างฉากที่สมบูรณ์และมีรายละเอียด
-  แต่ดูเป็นธรรมชาติอย่างยิ่ง
-- อธิบายตัวละครและสภาพแวดล้อมอย่างละเอียด
-  ใช้หลักการออกแบบเครื่องแต่งกายกับตัวละคร ระบุรายละเอียดเกี่ยวกับ
-  ผู้คน สิ่งของ และวัตถุในฉากให้ชัดเจน
-- ใส่รายละเอียดที่เหมาะสมในองค์ประกอบฉากหลังให้เพียงพอเพื่อทำให้
-  ฉากดูสมจริงและเป็นธรรมชาติ
-- สร้างวิดีโอแบบรัวๆ ที่แสดง`[thing]`หายากที่แตกต่างกันทุกๆ 1 วินาที พร้อมเพลงสนุกๆ
-  และใส่ข้อความเพื่อติดป้ายกำกับสิ่งนั้น
+- Pertimbangkan detail mikro, ekspresi, dan pengaturan waktu untuk menciptakan adegan yang sangat kaya dan mendetail, tetapi sepenuhnya alami.
+- Berikan deskripsi yang sangat mendetail tentang karakter dan lingkungan.
+  Menerapkan prinsip desain kostum pada karakter. Tentukan orang, item, dan objek dalam adegan secara spesifik.
+- Sertakan banyak detail yang sesuai dalam elemen latar belakang untuk membuat adegan terasa realistis dan alami.
+- Buat video cepat yang menampilkan `[thing]` langka yang berbeda setiap 1 detik, musik yang ceria, dan sertakan teks untuk memberi label pada objek.
 
-### ข้อความในวิดีโอ
+### Teks dalam video
 
-คุณสามารถป้อนพรอมต์ให้ใส่ข้อความในวิดีโอ แล้ว Gemini Omni จะแสดงข้อความในลักษณะที่ถูกต้องและอ่านได้ หากมีข้อความที่เกิดขึ้นตามธรรมชาติในวิดีโอ แม้จะเป็นองค์ประกอบพื้นหลัง ก็จะช่วยกำหนดสิ่งที่ควรพูดได้
+Anda dapat memberikan perintah untuk menyertakan teks dalam video dan Gemini Omni akan merendernya dengan cara yang benar dan mudah dibaca. Jika akan ada teks yang muncul secara alami dalam video Anda, bahkan dalam elemen latar belakang, hal ini dapat membantu menentukan apa yang harus dikatakan.
 
-- คำทีละคำบนหน้าจอ: "คุณ, รู้, ไหม, ว่า, Omni, ทำ, ข้อความ, สุด, เจ๋ง, ได้" คำแต่ละคำจะปรากฏเป็นเวลา 1 วินาทีพร้อมสไตล์ภาพเคลื่อนไหวที่แตกต่างกัน ไม่มี
-  คำพูด
-- มีป้ายถนนที่เขียนว่า "นี่คือภาพที่ AI สร้างขึ้นโดย Omni" มีหน้าร้านที่เขียนว่า "All you need AI" มีรถยนต์ที่มีป้ายทะเบียน "OMNI1.1"
+- Satu kata di layar dalam satu waktu: "tahu, kah, kamu, bahwa, Omni, bisa, membuat, teks, yang, keren?" Setiap kata muncul selama 1 detik dengan gaya animasi yang berbeda. Tidak ada
+  dialog.
+- Ada rambu jalan yang bertuliskan: "Ini adalah generasi AI oleh Omni", ada etalase toko yang bertuliskan: "Semua yang Anda butuhkan AI", ada mobil dengan pelat nomor: "OMNI1.1"
 
-### พรอมต์สำหรับการขยายวิดีโอ
+### Perintah untuk memperpanjang video
 
-Gemini Omni 1.1 Flash ช่วยให้คุณขยายวิดีโอได้ด้วยพรอมต์ เช่น `"Extend this video"` หรือ `"The scene continues"` คุณขยายวิดีโอได้ครั้งละ 10 วินาที โดยมีความยาวรวมสูงสุด 40 วินาที
+Dengan Gemini Omni 1.1 Flash, Anda dapat memperpanjang durasi video dengan perintah seperti, `"Extend this video"` atau `"The scene continues"`. Anda dapat memperpanjang video selama 10 detik, hingga total durasi 40 detik.
 
-Omni จะสร้างส่วนขยายที่ทำให้วิดีโอ การเคลื่อนไหว ตัวละคร และเสียงสอดคล้องกันโดยใช้ 10 วินาทีสุดท้ายของวิดีโอต้นฉบับเป็นบริบท ระบบจะแก้ไขเฟรมสุดท้ายบางเฟรมในวิดีโออินพุตเพื่อให้การเปลี่ยนฉากเป็นไปอย่างราบรื่น
+Omni membuat ekstensi yang menjaga koherensi video, gerakan, karakter, dan audio dengan menggunakan 10 detik terakhir video asli Anda sebagai konteks. Beberapa frame terakhir dalam video input Anda akan diedit agar transisinya lancar.
 
-เมื่อขยายการทำงาน เคล็ดลับการแจ้ง Omni ทั้งหมดในคู่มือนี้จะยังคงใช้ได้
+Saat memperluas, semua tips perintah Omni dalam panduan ini tetap berlaku:
 
-- อธิบายเสียงในฉากที่ขยาย โดยเฉพาะอย่างยิ่งหากคุณต้องการให้มีการเปลี่ยนแปลง `"The music continues into the chorus"`
-- อธิบายว่าฉากดำเนินต่อไปหรือมีการตัดภาพไปยังฉากใหม่ (อาจมีตัวละครเดียวกัน): `"Show the same characters in the next scene"`
-- ใส่รูปภาพและวิดีโอเป็นข้อมูลอ้างอิงเมื่อขยายความเพื่อช่วยให้เอาต์พุตมีความแม่นยำ หรือเพื่อแนะนำตัวละครใหม่: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- หากใช้ไทม์สแตมป์หรือไวยากรณ์รหัสเวลา 0s จะหมายถึงจุดเริ่มต้นของส่วนที่ขยายของวิดีโอ หากขยายวิดีโอ 10 วินาที การตัดฉากในพรอมต์นี้จะเกิดขึ้นหลังจากผ่านไป 12 วินาที: `"After 2s cut to a new scene with the same characters"`
+- Deskripsikan audio dalam adegan yang diperpanjang, terutama jika Anda ingin mengubahnya: `"The music continues into the chorus"`
+- Jelaskan apakah adegan berlanjut, atau apakah ada potongan adegan ke adegan baru (mungkin dengan karakter yang sama): `"Show the same characters in the next scene"`
+- Sertakan gambar dan video sebagai referensi saat memperluas untuk membantu menjaga akurasi output Anda, atau untuk memperkenalkan karakter baru: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- Jika menggunakan stempel waktu atau sintaksis kode waktu, 0s merujuk pada awal bagian video yang diperpanjang. Jika memperpanjang video 10 detik, potongan adegan dalam perintah ini akan terjadi setelah 12 detik: `"After 2s cut to a new scene with the same characters"`
 
-### การใช้แท็กในพรอมต์เพื่อกำหนดบทบาทของรูปภาพและวิดีโอ
+### Menggunakan tag dalam perintah untuk menetapkan peran gambar dan video
 
-คุณใช้แท็กเพื่อเชื่อมโยงสื่อที่อัปโหลดกับบทบาทการสร้างที่เฉพาะเจาะจงได้ ซึ่งจะช่วยให้คุณระบุได้ว่ารูปภาพหรือวิดีโอแต่ละรายการเป็นเฟรมเริ่มต้น เฟรมสุดท้าย หรือเฟรมอ้างอิง
+Anda dapat menggunakan tag untuk mengikat media yang diupload ke peran pembuatan tertentu. Dengan begitu, Anda dapat menentukan apakah setiap gambar atau video adalah frame awal, frame akhir, atau
+referensi.
 
-#### 1. แท็กอย่างง่าย (แนะนำ)
+#### 1. Tag sederhana (direkomendasikan)
 
-ในกรณีที่ง่ายๆ ซึ่งบทบาทของสื่อชัดเจนจากพรอมต์ คุณสามารถเชื่อมโยง
-รูปภาพและวิดีโอกับบทบาทได้โดยตรง ดังนี้
+Untuk kasus sederhana di mana peran media jelas dari perintah, Anda dapat mengikat
+gambar dan video ke peran secara langsung:
 
-- **`<FIRST_FRAME>`**: ใช้รูปภาพเป็นเฟรมเริ่มต้นของวิดีโอ เช่น `<FIRST_FRAME> a woman is walking`
-- **`<LAST_FRAME>`**: ใช้รูปภาพเป็นเฟรมสุดท้ายของวิดีโอเพื่อเปลี่ยนฉาก ต้องใช้กับ `<FIRST_FRAME>` เช่น `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**: ใช้รูปภาพเป็นข้อมูลอ้างอิง เช่น `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (รวมข้อมูลอ้างอิงสไตล์จากรูปภาพแรกและข้อมูลอ้างอิงเรื่องจากรูปภาพที่สอง)
-  การอ้างอิงรูปภาพจะเริ่มจาก 0
-- **`<VIDEO_REF_N>`**: ใช้เป็นข้อมูลอ้างอิงตัวละครหรือวัตถุ เช่น
-  `the person in <VIDEO_REF_0> is playing the violin` ข้อมูลอ้างอิงวิดีโอจะเริ่มต้นจาก 0 ด้วย
+- **`<FIRST_FRAME>`**: gunakan gambar sebagai frame awal video, misalnya: `<FIRST_FRAME> a woman is walking`
+- **`<LAST_FRAME>`**: menggunakan gambar sebagai frame terakhir video yang akan ditransisikan. Harus digunakan dengan `<FIRST_FRAME>`, misalnya: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: menggunakan gambar sebagai referensi, misalnya: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (menggabungkan referensi gaya dari gambar pertama dan referensi subjek dari gambar kedua).
+  Referensi gambar dimulai dari 0.
+- **`<VIDEO_REF_N>`**: menggunakan video sebagai referensi karakter atau objek, misalnya:
+  `the person in <VIDEO_REF_0> is playing the violin`. Referensi video juga dimulai dari 0.
 
-ตัวอย่างต่อไปนี้มีรูปภาพอ้างอิง 6 ภาพ
+Berikut adalah contoh dengan 6 gambar referensi:
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -1807,56 +1825,55 @@ Omni จะสร้างส่วนขยายที่ทำให้วิ
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. การประกาศแหล่งที่มาและการอ้างอิง
+#### 2. Mendeklarasikan sumber dan referensi
 
-สำหรับกรณีที่ซับซ้อนมากขึ้นซึ่งมีอินพุตสื่อและบทบาทหลายรายการ คุณสามารถใช้
-แท็กคำนำหน้าที่ชัดเจนซึ่งจับคู่กับคำสั่งที่เป็นภาษาธรรมชาติได้ คุณควร
-ประกาศแหล่งที่มาและการอ้างอิงเหล่านี้ที่จุดเริ่มต้นของพรอมต์
+Untuk kasus yang lebih kompleks dengan beberapa input media dan beberapa peran, Anda dapat menggunakan tag awalan eksplisit yang dipasangkan dengan petunjuk bahasa alami. Anda harus
+menyatakan sumber dan referensi ini di awal perintah Anda.
 
-- `[# Sources <FIRST_FRAME>@Image1]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้น
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้นและรูปภาพที่ 2 เป็นเฟรมสุดท้าย
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` จะใช้รูปภาพแรกเป็นทั้งเฟรมแรกและเฟรมสุดท้ายเพื่อสร้างวิดีโอที่เล่นซ้ำ
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้นและรูปภาพที่ 2 เป็นข้อมูลอ้างอิง
-- `[# Sources <VIDEO_0>@Video1]` จะใช้วิดีโอเป็นวิดีโอต้นฉบับหลักในการแก้ไขหรือดัดแปลง
-- `[# Sources <PREVIOUS_VIDEO>@Video1]` จะใช้วิดีโอจากเทิร์นก่อนหน้าเพื่อขยาย
-- `[# References <IMAGE_REF_0>@Image1]` จะใช้รูปภาพแรกเป็นข้อมูลอ้างอิง
-- `[# References <IMAGE_REF_1>@Image2]` จะใช้รูปภาพที่ 2 เป็นข้อมูลอ้างอิง
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` จะใช้รูปภาพทั้ง 2 รูปเป็นข้อมูลอ้างอิง
-- `[# References <VIDEO_REF_0>@Video1]` จะใช้วิดีโอแรกเป็นข้อมูลอ้างอิง
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` จะใช้ทั้งรูปภาพและวิดีโอเป็นข้อมูลอ้างอิง
+- `[# Sources <FIRST_FRAME>@Image1]` akan menggunakan gambar pertama sebagai frame awal.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` akan menggunakan gambar pertama sebagai frame awal dan gambar kedua sebagai frame akhir.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` akan menggunakan gambar pertama sebagai frame pertama dan frame terakhir, sehingga membuat video yang berputar.
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` akan menggunakan gambar pertama sebagai frame awal dan gambar kedua sebagai referensi.
+- `[# Sources <VIDEO_0>@Video1]` akan menggunakan video sebagai video sumber utama untuk diedit atau diubah.
+- `[# Sources <PREVIOUS_VIDEO>@Video1]` akan menggunakan video dari giliran sebelumnya untuk memperpanjang.
+- `[# References <IMAGE_REF_0>@Image1]` akan menggunakan gambar pertama sebagai referensi.
+- `[# References <IMAGE_REF_1>@Image2]` akan menggunakan gambar kedua sebagai referensi.
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` akan menggunakan kedua gambar sebagai referensi.
+- `[# References <VIDEO_REF_0>@Video1]` akan menggunakan video pertama sebagai referensi.
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` akan menggunakan gambar dan video sebagai referensi.
 
-เพิ่มคำแนะนำที่ท้ายพรอมต์
+Tambahkan petunjuk panduan di akhir perintah Anda:
 
-- สำหรับเฟรมเริ่มต้น ให้ทำดังนี้ `"Use this image as the starting frame."`
-- สำหรับวิดีโอที่เล่นวนผ่านเฟรมเริ่มต้นและเฟรมสิ้นสุด ให้ทำดังนี้ `"Use this image as the first frame and the last frame."`
-- สำหรับรูปภาพอ้างอิง `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- สำหรับวิดีโออ้างอิง: `"Use the given video(s) as references. Do not use them as a source for video editing."`
+- Untuk frame awal: `"Use this image as the starting frame."`
+- Untuk video berulang melalui frame awal dan akhir: `"Use this image as the first frame and the last frame."`
+- Untuk gambar referensi: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- Untuk video referensi: `"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-ตัวอย่างพรอมต์ที่มีการประกาศแหล่งที่มาและการอ้างอิง
+Beberapa contoh perintah dengan pernyataan sumber dan referensi:
 
-**เฟรมเริ่มต้นที่รวมกับรูปภาพอ้างอิง:**
+**Frame awal dikombinasikan dengan gambar referensi:**
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**วิดีโออ้างอิงตัวละครที่รวมกับรูปภาพอ้างอิงวัตถุ:**
+**Video referensi karakter yang dipadukan dengan gambar referensi objek:**
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## ขั้นตอนถัดไป
+## Langkah berikutnya
 
-- เริ่มต้นใช้งาน Gemini Omni Flash โดยทดลองใช้ใน [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=th)
-- ดูวิธีเขียนพรอมต์ให้ดียิ่งขึ้นด้วย[ข้อมูลเบื้องต้นเกี่ยวกับการออกแบบพรอมต์](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)
+- Mulai menggunakan Gemini Omni Flash dengan bereksperimen di [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=id).
+- Pelajari cara menulis perintah yang lebih baik lagi dengan [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=id) kami.
 
-ส่งความคิดเห็น
+Kirim masukan
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-อัปเดตล่าสุด 2026-09-10 UTC
+Terakhir diperbarui pada 2026-09-18 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Ada masukan untuk kami?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-10 UTC"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]

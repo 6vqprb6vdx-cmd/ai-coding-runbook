@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=zh-TW
-fetched_at: 2026-09-14T05:50:43.534101+00:00
+fetched_at: 2026-09-21T05:53:50.183731+00:00
 title: "Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

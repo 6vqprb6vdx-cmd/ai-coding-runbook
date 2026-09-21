@@ -1,55 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=fr
-fetched_at: 2026-09-14T05:50:34.330654+00:00
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ko
+fetched_at: 2026-09-21T05:45:28.624455+00:00
 title: "Gemini Robotics ER \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Envoyer des commentaires
+의견 보내기
 
 # Gemini Robotics ER
 
-Les modèles Gemini Robotics ER (raisonnement incarné) sont des modèles de vision-langage (VLM) qui permettent aux robots de percevoir le monde physique et d'interagir avec lui. Ils interprètent les données visuelles, effectuent un raisonnement spatial et temporel, planifient des tâches en plusieurs étapes et orchestrent des robots et des outils.
+Gemini Robotics ER (embodied reasoning) 모델은 로봇이 실제 세계를 인식하고 상호작용할 수 있도록 지원하는 비전 언어 모델(VLM)입니다. 시각적 데이터를 해석하고, 공간 및 시간 추론을 수행하고, 다단계 작업을 계획하고, 로봇과 도구를 조정합니다.
 
-## Modèles
+## 모델
 
-Le modèle Gemini Robotics ER 2 est le dernier modèle de Gemini Robotics.
-Il s'agit de notre modèle de raisonnement mis à jour qui permet aux robots de comprendre précisément leur environnement. Il est spécialisé dans les capacités de raisonnement incarné, telles que l'orchestration agentique des robots (par exemple, à l'aide de VLA), la compréhension des vidéos de robots, y compris la compréhension de la progression et la détection des réussites, la lecture d'instruments, le pointage et le raisonnement spatial.
+Gemini Robotics ER 2 모델은 Gemini Robotics의 최신 모델입니다.
+로봇이 환경을 정확하게 이해할 수 있도록 지원하는 업데이트된 추론 모델입니다. 이 모델은 로봇의 에이전트형 오케스트레이션 (예: VLA 사용), 진행 상황 이해 및 성공 감지를 비롯한 로봇 동영상 이해, 계기판 읽기, 가리키기, 공간 추론과 같은 체화된 추론 기능에 특화되어 있습니다.
 
-Le modèle Gemini Robotics ER2 introduit deux points de terminaison de modèle :
+Gemini Robotics ER 2 모델에는 다음과 같은 두 가지 모델 엔드포인트가 도입되었습니다.
 
-- **`gemini-robotics-er-2-preview`** : modèle ER 2 standard. S'appuie sur Gemini 3.5 Flash avec un raisonnement spatial amélioré, la recherche de moments vidéo, la classification de la progression vidéo, l'orchestration multi-robots et l'utilisation d'outils en plusieurs étapes.
-- **`gemini-robotics-er-2-streaming-preview`** : optimisé pour le streaming en temps réel via l'[API Live](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr). Utilisez ce modèle pour les agents robotiques à faible latence qui traitent les entrées audio et vidéo continues.
+- **`gemini-robotics-er-2-preview`**: 표준 ER 2 모델입니다. 향상된 공간 추론, 동영상 순간 찾기, 동영상 진행 상황 분류, 다중 로봇 오케스트레이션, 다단계 도구 사용을 통해 Gemini 3.5 Flash를 기반으로 합니다.
+- **`gemini-robotics-er-2-streaming-preview`**: [Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko)를 통한 실시간 스트리밍에 최적화되어 있습니다. 연속 오디오 및 동영상 입력을 처리하는 짧은 지연 시간 로봇 에이전트에 이 모델을 사용합니다.
 
-Si vous utilisez Gemini Robotics ER 1.6, passez à Gemini Robotics ER 2 en remplaçant `model="gemini-robotics-er-1.6-preview"` par `model="gemini-robotics-er-2-preview"` ou `model="gemini-robotics-er-2-streaming-preview"` dans vos appels d'API. Notez que le modèle Gemini Robotics ER 1.6 sera arrêté à la [fin du mois d'août](https://ai.google.dev/gemini-api/docs/deprecations?hl=fr#robotics-models).
+Gemini Robotics ER 1.6을 사용하는 경우 API 호출에서 `model="gemini-robotics-er-1.6-preview"`을 `model="gemini-robotics-er-2-preview"` 또는 `model="gemini-robotics-er-2-streaming-preview"`로 대체하여 Gemini Robotics ER 2로 업그레이드하세요. Gemini Robotics ER 1.6 모델은 [8월 말](https://ai.google.dev/gemini-api/docs/deprecations?hl=ko#robotics-models)에 종료됩니다.
 
-[Essayer Gemini Robotics ER2 dans Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=fr)
+[Google AI Studio에서 Gemini Robotics ER 2 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=ko)
 
-## Fonctionnalités de robotique
+## 로봇 기능
 
-Gemini Robotics ER est compatible avec un large éventail de capacités de raisonnement incarné.
-Sélectionnez une fonctionnalité pour en savoir plus :
+Gemini Robotics ER은 다양한 체화된 추론 기능을 지원합니다.
+기능을 선택하여 자세히 알아보세요.
 
-| Capacité | Description | Guide |
+| 기능 | 설명 | 가이드 |
 | --- | --- | --- |
-| Raisonnement spatial | Pointer des objets, les suivre dans une vidéo, les détecter avec des cadres de délimitation, planifier des trajectoires. | [Raisonnement spatial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=fr) |
-| Vision agentique | Utilisez l'exécution de code pour améliorer d'autres fonctionnalités en exploitant des outils de manipulation d'images. | [Vision agentique](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=fr) |
-| Orchestration des tâches | Combinez le raisonnement spatial avec des API de robot personnalisées pour effectuer des tâches à long terme. | [Orchestration des tâches](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=fr) |
-| Streaming (point de terminaison de streaming Gemini Robotics ER2 uniquement) | Streaming bidirectionnel pour les agents robotiques en temps réel avec appel de fonction à faible latence. | [Streaming pour la robotique](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr) |
-| Progression de la vidéo (Gemini Robotics ER 2 uniquement) | Recherche de moments et classification de la progression à partir de flux vidéo continus. | [Compréhension des vidéos](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr) |
+| 공간 추론 | 객체를 가리키고, 동영상에서 추적하고, 경계 상자로 감지하고, 궤적을 계획합니다. | [공간 추론](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ko) |
+| 에이전트형 비전 | 코드 실행을 사용하여 이미지 조작 도구를 활용하여 다른 기능을 개선합니다. | [에이전트형 비전](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ko) |
+| 태스크 조정 | 공간 추론을 맞춤 로봇 API와 결합하여 장기적 작업을 완료합니다. | [작업 조정](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ko) |
+| 스트리밍 (Gemini Robotics ER 2 스트리밍 엔드포인트만 해당) | 지연 시간이 짧은 함수 호출을 사용하는 실시간 로봇 에이전트를 위한 양방향 스트리밍 | [로봇 공학 스트리밍](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko) |
+| 동영상 진행률 (Gemini Robotics ER 2만 해당) | 연속 동영상 피드에서 순간 찾기 및 진행 상황 분류 | [동영상 이해](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ko) |
 
-## Premiers pas
+## 시작하기
 
-L'exemple suivant recherche des objets dans une image et renvoie leurs coordonnées 2D et leurs libellés normalisés. Vous pouvez transmettre cette sortie directement à une API de robotique ou à un modèle VLA pour générer des actions de robot.
+다음 예에서는 이미지에서 객체를 찾아 정규화된 2D 좌표와 라벨을 반환합니다. 이 출력을 로봇 공학 API 또는 VLA 모델에 직접 전달하여 로봇 작업을 생성할 수 있습니다.
 
 ### Python
 
@@ -117,7 +117,7 @@ curl -X POST \
   }'
 ```
 
-Le résultat sera un tableau JSON contenant des objets, chacun avec un `point` (coordonnées `[y, x]` normalisées) et un `label` identifiant l'objet.
+출력은 객체를 포함하는 JSON 배열이며, 각 객체에는 `point`(정규화된 `[y, x]` 좌표)와 객체를 식별하는 `label`가 있습니다.
 
 ### JSON
 
@@ -136,109 +136,109 @@ Le résultat sera un tableau JSON contenant des objets, chacun avec un `point` (
 ]
 ```
 
-L'image suivante montre comment ces points peuvent être affichés :
+다음 이미지는 이러한 포인트를 표시하는 방법을 보여주는 예입니다.
 
-![Exemple affichant les points des objets dans une image](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=fr)
+![이미지에서 객체의 점을 표시하는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ko)
 
-## Fonctionnement
+## 작동 방식
 
-Gemini Robotics ER accepte les entrées d'image, de vidéo ou audio avec des requêtes en langage naturel. Il identifie les objets, raisonne sur le contexte de la scène et les relations spatiales, et renvoie des résultats structurés tels que des coordonnées ou des cadres de délimitation.
+Gemini Robotics ER은 자연어 프롬프트로 이미지, 동영상 또는 오디오 입력을 받습니다. 객체를 식별하고, 장면 컨텍스트와 공간 관계를 추론하며, 좌표나 경계 상자와 같은 구조화된 출력을 반환합니다.
 
-Gemini Robotics ER est également agentique : il décompose les tâches complexes en sous-tâches et les exécute en appelant vos fonctions de robot ou en exécutant le code généré. Par exemple, "mets la pomme dans le bol" devient une séquence d'étapes de localisation, de préhension et de placement.
+Gemini Robotics ER은 에이전트 기능도 제공합니다. 복잡한 작업을 하위 작업으로 나누고 로봇 함수를 호출하거나 생성된 코드를 실행하여 작업을 실행합니다. 예를 들어 '사과를 그릇에 넣어'는 찾기, 잡기, 놓기 단계의 시퀀스가 됩니다.
 
-Pour savoir comment Gemini exécute les appels d'outils, consultez [Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=fr#how-it-works).
+Gemini가 도구 호출을 실행하는 방법에 관한 자세한 내용은 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ko#how-it-works)을 참고하세요.
 
-## Sécurité
+## 안전
 
-Bien que Gemini Robotics ER ait été conçu dans un souci de sécurité, il vous incombe de maintenir un environnement sûr autour du robot. Les modèles d'IA générative peuvent faire des erreurs et les robots physiques peuvent causer des dommages. Pour en savoir plus, consultez la [page Google DeepMind sur la sécurité de la robotique](https://deepmind.google/models/gemini-robotics/safety?hl=fr).
+Gemini Robotics ER은 안전을 고려하여 제작되었지만 로봇 주변의 안전한 환경을 유지하는 것은 사용자의 책임입니다. 생성형 AI 모델은 실수를 할 수 있으며, 물리적 로봇은 손상을 일으킬 수 있습니다. 자세한 내용은 [Google DeepMind 로봇 공학 안전 페이지](https://deepmind.google/models/gemini-robotics/safety?hl=ko)를 참고하세요.
 
-## Bonnes pratiques
+## 권장사항
 
-1. Utilisez un langage simple et naturel. Décrivez ce que vous voulez que le robot fasse comme vous le feriez avec une personne. Si un terme ne fonctionne pas, essayez un synonyme courant.
-2. Optimisez les entrées visuelles. Recadrez ou zoomez sur les objets petits ou peu clairs avant d'envoyer l'image. L'éclairage et le faible contraste des couleurs peuvent affecter la détection.
-3. Décomposez les tâches complexes en étapes. Envoyez chaque étape sous forme de requête distincte pour que le modèle reste concentré et que la précision s'améliore.
-4. Exécutez la requête plusieurs fois et faites la moyenne des résultats pour les tâches de haute précision. Cette approche par consensus réduit la variance des sorties spatiales.
+1. 간단하고 자연스러운 언어를 사용하세요. 사람에게 말하듯이 로봇이 수행할 작업을 설명하세요. 용어가 작동하지 않으면 일반적인 동의어를 사용해 보세요.
+2. 시각적 입력 최적화 이미지를 보내기 전에 작거나 불분명한 객체를 자르거나 확대합니다. 조명과 낮은 색상 대비는 감지에 영향을 미칠 수 있습니다.
+3. 복잡한 작업을 단계별로 나눕니다. 모델이 집중하고 정확도를 높일 수 있도록 각 단계를 별도의 프롬프트로 전송하세요.
+4. 고정밀 작업의 경우 여러 번 쿼리하고 결과를 평균화합니다. 이 컨센서스 접근 방식은 공간 출력의 분산을 줄입니다.
 
-## Limites
+## 제한사항
 
-Tenez compte des limites suivantes lorsque vous développez avec Gemini Robotics ER :
+Gemini Robotics ER로 개발할 때는 다음 제한사항을 고려하세요.
 
-- **Restrictions concernant les clés API** : l'API Gemini n'accepte pas les requêtes provenant de clés API non restreintes et renvoie une erreur `403 Forbidden`. Sécurisez votre clé API en ajoutant des restrictions dans [AI Studio](https://aistudio.google.com/api-keys?hl=fr).
-  Pour en savoir plus, consultez [Sécuriser les clés API sans restriction](https://ai.google.dev/gemini-api/docs/api-key?hl=fr#secure-unrestricted-keys).
-- **Latence vs performances** : les requêtes complexes, les entrées haute résolution ou les niveaux de réflexion élevés peuvent entraîner une augmentation des temps de traitement. Pour le niveau de réflexion, utilisez "medium" pour un bon équilibre entre latence et performances.
-- **Hallucinations** : comme tous les grands modèles de langage, les modèles Gemini Robotics ER peuvent parfois "halluciner" ou fournir des informations incorrectes, en particulier pour les requêtes ambiguës ou les entrées hors distribution.
-- **Dépendance à la qualité du prompt** : la qualité du résultat dépend de la clarté du prompt d'entrée. Utilisez des requêtes spécifiques et bien structurées.
-- **Coût de calcul** : l'exécution du modèle, en particulier avec des entrées vidéo ou un `thinking_budget` élevé, consomme des ressources de calcul et engendre des coûts.
-  Pour en savoir plus, consultez la page [Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
-- **Types d'entrées** : consultez les rubriques suivantes pour en savoir plus sur les limites de chaque mode.
-  - [Entrées d'image](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr#technical-details-image)
-  - [Entrées vidéo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr#supported-formats)
-  - [Entrées audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr#supported-formats)
+- **API 키 제한:** Gemini API는 제한되지 않은 API 키의 요청을 허용하지 않으며 `403 Forbidden` 오류를 반환합니다. [AI Studio](https://aistudio.google.com/api-keys?hl=ko)에서 제한사항을 추가하여 API 키를 보호하세요.
+  자세한 내용은 [제한되지 않은 API 키 보안](https://ai.google.dev/gemini-api/docs/api-key?hl=ko#secure-unrestricted-keys)을 참고하세요.
+- **지연 시간과 성능:** 복잡한 질문, 고해상도 입력 또는 높은 사고 수준은 처리 시간을 늘릴 수 있습니다. 사고 수준의 경우 지연 시간과 성능 간의 균형을 맞추려면 중간을 사용하세요.
+- **할루시네이션:** 모든 대규모 언어 모델과 마찬가지로 Gemini Robotics ER 모델도 때때로 '할루시네이션'을 일으키거나 잘못된 정보를 제공할 수 있습니다. 특히 모호한 프롬프트나 분포 외 입력의 경우에 그렇습니다.
+- **프롬프트 품질에 대한 의존성:** 출력 품질은 입력 프롬프트의 명확성에 따라 달라집니다. 구체적이고 잘 구성된 프롬프트를 사용하세요.
+- **계산 비용:** 특히 동영상 입력 또는 높은 `thinking_budget`로 모델을 실행하면 컴퓨팅 리소스가 소비되고 비용이 발생합니다.
+  자세한 내용은 [생각하기](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) 페이지를 참고하세요.
+- **입력 유형:** 각 모드의 제한사항에 관한 자세한 내용은 다음 주제를 참고하세요.
+  - [이미지 입력](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko#technical-details-image)
+  - [동영상 입력](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko#supported-formats)
+  - [오디오 입력](https://ai.google.dev/gemini-api/docs/audio?hl=ko#supported-formats)
 
-## Avis de confidentialité
+## 개인정보처리방침
 
-Vous reconnaissez que les modèles référencés dans ce document (les "Modèles de robotique") utilisent des données vidéo et audio pour faire fonctionner et déplacer votre matériel conformément à vos instructions. Vous pouvez donc utiliser les modèles de robotique de sorte que les données de personnes identifiables, telles que les données vocales, d'images et de ressemblance ("Données à caractère personnel"), soient collectées par les modèles de robotique. Si vous choisissez d'utiliser les modèles de robotique de manière à collecter des données à caractère personnel, vous acceptez de ne pas autoriser de personnes identifiables à interagir avec les modèles de robotique ou à se trouver dans la zone environnante, sauf si ces personnes ont été suffisamment informées et ont consenti au fait que leurs données à caractère personnel peuvent être fournies à Google et utilisées par celui-ci, comme indiqué dans les Conditions d'utilisation supplémentaires de l'API Gemini disponibles à l'adresse [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=fr) (les "Conditions d'utilisation"), y compris conformément à la section intitulée "Comment Google utilise vos données". Vous devez vous assurer que cet avis autorise la collecte et l'utilisation des données à caractère personnel telles que décrites dans les Conditions d'utilisation. Vous devez également déployer des efforts commercialement raisonnables pour minimiser la collecte et la distribution de données à caractère personnel en utilisant des techniques telles que le floutage des visages et en faisant fonctionner les modèles robotiques dans des zones ne contenant pas de personnes identifiables, dans la mesure du possible.
+귀하는 이 문서에 언급된 모델('로봇 공학 모델')이 귀하의 하드웨어를 귀하의 지시에 따라 작동하고 이동하기 위해 동영상 및 오디오 데이터를 활용한다는 점을 인정합니다. 따라서 음성, 이미지, 유사성 데이터 ('개인 정보')와 같은 식별 가능한 개인의 데이터가 로봇 모델에 의해 수집되도록 로봇 모델을 작동할 수 있습니다. 귀하가 개인 정보를 수집하는 방식으로 로봇 모델을 운영하기로 선택한 경우, 식별 가능한 개인이 [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=ko)에 있는 Gemini API 추가 서비스 약관('약관')에 설명된 대로, 'Google에서 데이터를 사용하는 방식' 섹션에 따라 Google에 개인 정보가 제공되고 사용될 수 있다는 사실을 충분히 통지받고 이에 동의하지 않는 한, 식별 가능한 개인이 로봇 모델과 상호작용하거나 로봇 모델 주변에 있는 것을 허용하지 않는 데 동의합니다. 귀하는 이러한 알림이 '약관'에 명시된 대로 '개인 정보'의 수집 및 사용을 허용하도록 보장하며, 얼굴 흐리게 처리와 같이 식별 가능한 사람이 포함되지 않은 영역에서 '로봇 모델'을 운영하는 등의 기법을 사용하여 '개인 정보'의 수집 및 배포를 최소화하기 위해 상업적으로 합당한 노력을 기울입니다.
 
-## Tarifs
+## 가격 책정
 
-Pour en savoir plus sur les tarifs et les régions disponibles, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
+가격 및 사용 가능한 지역에 관한 자세한 내용은 [가격](https://ai.google.dev/gemini-api/docs/pricing?hl=ko) 페이지를 참고하세요.
 
-## Points de terminaison de modèles
+## 모델 엔드포인트
 
-### Gemini Robotics ER 2 Preview
+### Gemini Robotics ER 2 프리뷰
 
-| Propriété | Description |
+| 속성 | 설명 |
 | --- | --- |
-| Code du modèle id\_card | `gemini-robotics-er-2-preview` |
-| Types de données acceptés pour save | **Entrées**  Texte, images, vidéo, audio  **Résultat**  Texte |
-| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  131 072  **Limite de jetons de sortie**  65 536 |
-| handyman Fonctionnalités | **[Génération d'audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr)**  Not supported  **[Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr)**  Compatible  **[Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr)**  Compatible  **[Utilisation de l'ordinateur](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr)**  Compatible  **[Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr)**  Compatible  **[Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)**  Compatible  **[Ancrage avec Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr)**  Compatible  **[Génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr)**  Not supported  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr)**  Not supported  **[Ancrage de recherche](https://ai.google.dev/gemini-api/docs/google-search?hl=fr)**  Compatible  **[Sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr)**  Compatible  **[Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)**  Compatible  **[Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr)**  Compatible |
-| speed Options de consommation | **[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr)**  Compatible  **[Inférence Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr)**  Not supported  **[Inférence prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr)**  Not supported |
-| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Aperçu : `gemini-robotics-er-2-preview` |
-| calendar\_monthDernière mise à jour | Juillet 2026 |
-| Fiche de modèle id\_card | [fiche de modèle](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=fr) |
+| id\_card모델 코드 | `gemini-robotics-er-2-preview` |
+| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오  **출력**  텍스트 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  131,072  **출력 토큰 한도**  65,536 |
+| handyman기능 | **[오디오 생성](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)**  지원되지 않음  **[캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**  지원됨  **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**  지원됨  **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**  지원됨  **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**  지원됨  **[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**  지원됨  **[Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**  지원됨  **[이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)**  지원되지 않음  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)**  지원되지 않음  **[검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)**  지원됨  **[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)**  지원됨  **[사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)**  지원됨  **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**  지원됨 |
+| speed소비 옵션 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**  지원됨  **[Flex 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)**  지원되지 않음  **[우선순위 추론](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko)**  지원되지 않음 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `gemini-robotics-er-2-preview` |
+| calendar\_month최신 업데이트 | 2026년 7월 |
+| id\_card모델 카드 | [모델 카드](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=ko) |
 
-### Preview du streaming Gemini Robotics ER 2
+### Gemini Robotics ER 2 스트리밍 프리뷰
 
-| Propriété | Description |
+| 속성 | 설명 |
 | --- | --- |
-| Code du modèle id\_card | `gemini-robotics-er-2-streaming-preview` |
-| Types de données acceptés pour save | **Entrées**  Texte, images, vidéo, audio  **Résultat**  Texte |
-| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  131 072  **Limite de jetons de sortie**  65 536 |
-| handyman Fonctionnalités | **[Génération d'audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr)**  Not supported  **[Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr)**  Not supported  **[Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr)**  Not supported  **[Utilisation de l'ordinateur](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr)**  Not supported  **[Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr)**  Not supported  **[Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)**  Compatible  **[Ancrage avec Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr)**  Not supported  **[Génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr)**  Not supported  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr)**  Compatible  **[Ancrage de recherche](https://ai.google.dev/gemini-api/docs/google-search?hl=fr)**  Compatible  **[Sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr)**  Not supported  **[Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)**  Compatible  **[Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr)**  Not supported |
-| speed Options de consommation | **[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr)**  Not supported  **[Inférence Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr)**  Not supported  **[Inférence prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr)**  Not supported |
-| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Aperçu : `gemini-robotics-er-2-streaming-preview` |
-| calendar\_monthDernière mise à jour | Juillet 2026 |
-| Fiche de modèle id\_card | [fiche de modèle](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=fr) |
+| id\_card모델 코드 | `gemini-robotics-er-2-streaming-preview` |
+| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오  **출력**  텍스트 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  131,072  **출력 토큰 한도**  65,536 |
+| handyman기능 | **[오디오 생성](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)**  지원되지 않음  **[캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**  지원되지 않음  **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**  지원되지 않음  **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**  지원되지 않음  **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**  지원되지 않음  **[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**  지원됨  **[Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**  지원되지 않음  **[이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)**  지원되지 않음  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)**  지원됨  **[검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)**  지원됨  **[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)**  지원되지 않음  **[사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)**  지원됨  **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**  지원되지 않음 |
+| speed소비 옵션 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**  지원되지 않음  **[Flex 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)**  지원되지 않음  **[우선순위 추론](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko)**  지원되지 않음 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `gemini-robotics-er-2-streaming-preview` |
+| calendar\_month최신 업데이트 | 2026년 7월 |
+| id\_card모델 카드 | [모델 카드](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=ko) |
 
-### Gemini Robotics ER 1.6 (preview)
+### Gemini Robotics ER 1.6 프리뷰
 
-| Propriété | Description |
+| 속성 | 설명 |
 | --- | --- |
-| Code du modèle id\_card | `gemini-robotics-er-1.6-preview` |
-| Types de données acceptés pour save | **Entrées**  Texte, images, vidéo, audio  **Résultat**  Texte |
-| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  131 072  **Limite de jetons de sortie**  65 536 |
-| handyman Fonctionnalités | **[Génération d'audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr)**  Not supported  **[Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr)**  Compatible  **[Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr)**  Compatible  **[Utilisation de l'ordinateur](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr)**  Compatible  **[Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr)**  Compatible  **[Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)**  Compatible  **[Ancrage avec Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr)**  Compatible  **[Génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr)**  Not supported  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr)**  Not supported  **[Ancrage de recherche](https://ai.google.dev/gemini-api/docs/google-search?hl=fr)**  Compatible  **[Sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr)**  Compatible  **[Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)**  Compatible  **[Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr)**  Compatible |
-| speed Options de consommation | **[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr)**  Compatible  **[Inférence Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr)**  Not supported  **[Inférence prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr)**  Not supported |
-| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Aperçu : `gemini-robotics-er-1.6-preview` |
-| calendar\_monthDernière mise à jour | Décembre 2025 |
-| cognition\_2Date limite des connaissances | Janvier 2025 |
+| id\_card모델 코드 | `gemini-robotics-er-1.6-preview` |
+| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오  **출력**  텍스트 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  131,072  **출력 토큰 한도**  65,536 |
+| handyman기능 | **[오디오 생성](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)**  지원되지 않음  **[캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**  지원됨  **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**  지원됨  **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**  지원됨  **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**  지원됨  **[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**  지원됨  **[Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**  지원됨  **[이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)**  지원되지 않음  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)**  지원되지 않음  **[검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)**  지원됨  **[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)**  지원됨  **[사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)**  지원됨  **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**  지원됨 |
+| speed소비 옵션 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**  지원됨  **[Flex 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)**  지원되지 않음  **[우선순위 추론](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko)**  지원되지 않음 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `gemini-robotics-er-1.6-preview` |
+| calendar\_month최신 업데이트 | 2025년 12월 |
+| cognition\_2지식 단절 | 2025년 1월 |
 
-## Étape suivante
+## 다음 단계
 
-- [Raisonnement spatial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=fr) : pointage, suivi, cadres de délimitation, trajectoires.
-- [Capacités agentiques](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=fr) : exécution de code, lecture d'instruments, annotation d'images.
-- [Orchestration des tâches](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=fr) : tâches à long terme avec des API de robot personnalisées.
-- [Robotique avec streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr) : streaming bidirectionnel en temps réel (Gemini Robotics ER 2 uniquement).
-- [Compréhension vidéo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr) : recherche de moments et classification de la progression (Gemini Robotics ER 2 uniquement).
-- [Sécurité de la robotique Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=fr) : recherche sur la sécurité derrière la famille de modèles.
+- [공간 추론](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ko): 가리키기, 추적, 경계 상자, 궤적
+- [에이전트 기능](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ko): 코드 실행, 계측기 읽기, 이미지 주석
+- [작업 오케스트레이션](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ko): 맞춤 로봇 API를 사용하는 장기적 작업
+- [스트리밍을 사용하는 로봇 공학](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko): 실시간 양방향 스트리밍 (Gemini Robotics ER 2만 해당)
+- [동영상 이해](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ko): 순간 찾기 및 진행 상황 분류 (Gemini Robotics ER 2만 해당)
+- [Google DeepMind 로봇 공학 안전](https://deepmind.google/models/gemini-robotics/safety?hl=ko): 모델 제품군의 안전 연구
 
-Envoyer des commentaires
+의견 보내기
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Dernière mise à jour le 2026/09/10 (UTC).
+최종 업데이트: 2026-09-08(UTC)
 
-Voulez-vous nous donner plus d'informations ?
+의견을 전달하고 싶나요?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/10 (UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-08(UTC)"],[],[]]

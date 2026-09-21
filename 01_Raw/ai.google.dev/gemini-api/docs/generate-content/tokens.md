@@ -1,70 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=id
-fetched_at: 2026-09-14T05:48:49.928414+00:00
-title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=fr
+fetched_at: 2026-09-21T05:46:30.569989+00:00
+title: "Comprendre et compter les jetons \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
 
-Kirim masukan
+Envoyer des commentaires
 
-# Memahami dan menghitung token
+# Comprendre et compter les jetons
 
-Gemini dan model AI generatif lainnya memproses input dan output pada granularitas yang disebut *token*.
+Gemini et d'autres modèles d'IA générative traitent les entrées et les sorties avec une granularité appelée *jeton*.
 
-**Untuk model Gemini, token setara dengan sekitar 4 karakter.
-100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
+**Pour les modèles Gemini, un jeton équivaut à environ quatre caractères.
+100 jetons correspondent à environ 60 à 80 mots en anglais.**
 
-## Tentang token
+## À propos des jetons
 
-Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses pemisahan teks menjadi token disebut *tokenisasi*.
+Les jetons peuvent être des caractères uniques comme `z` ou des mots entiers comme `cat`. Les mots longs sont divisés en plusieurs jetons. L'ensemble de tous les jetons utilisés par le modèle est appelé vocabulaire, et le processus de fractionnement du texte en jetons est appelé *tokenisation*.
 
-Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id)
-ditentukan sebagian oleh jumlah token input dan output, sehingga mengetahui cara
-menghitung token dapat bermanfaat.
+Lorsque la facturation est activée, le [coût d'un appel à l'API Gemini](https://ai.google.dev/pricing?hl=fr) est déterminé en partie par le nombre de jetons d'entrée et de sortie. Il peut donc être utile de savoir comment compter les jetons.
 
-Anda dapat mencoba menghitung token di Colab kami.
+Vous pouvez essayer de compter les jetons dans notre Colab.
 
 |  |  |  |
 | --- | --- | --- |
-| [Lihat di ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | [Coba notebook Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) | [Lihat notebook di GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) |
+| [Afficher sur ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | [Essayer un notebook Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=fr) | [Afficher le notebook sur GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=fr) |
 
-## Menghitung token
+## Compter les jetons
 
-Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
+Toutes les entrées et sorties de l'API Gemini sont tokenisées, y compris le texte, les fichiers image et les autres modalités non textuelles.
 
-Anda dapat menghitung token dengan cara berikut:
+Vous pouvez compter les jetons de différentes manières :
 
-- **Panggil [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=id) dengan input
-  permintaan.**  
-   Tindakan ini akan menampilkan jumlah total token di *input saja*. Anda dapat melakukan panggilan ini sebelum mengirim input ke model untuk memeriksa ukuran permintaan.
-- **Gunakan atribut `usage_metadata` pada objek `response` setelah
-  memanggil `generate_content`.**  
-   Tindakan ini akan menampilkan jumlah total
-  token di *input dan output*: `total_token_count`.  
-   Tindakan ini juga menampilkan jumlah token input dan output secara terpisah: `prompt_token_count` (token input) dan `candidates_token_count` (token output).
+- **Appelez [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=fr) avec l'entrée de la requête.**  
+   : renvoie le nombre total de jetons dans *l'entrée uniquement*. Vous pouvez effectuer cet appel avant d'envoyer l'entrée au modèle pour vérifier la taille de vos requêtes.
+- **Utilisez l'attribut `usage_metadata` sur l'objet `response` après avoir appelé `generate_content`.**  
+   renvoie le nombre total de jetons dans *l'entrée et la sortie* : `total_token_count`.  
+   Il renvoie également le nombre de jetons d'entrée et de sortie séparément : `prompt_token_count` (jetons d'entrée) et `candidates_token_count` (jetons de sortie).
 
-  Jika Anda menggunakan model [penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id), token yang digunakan selama proses penalaran akan ditampilkan di `thoughts_token_count`. Dan jika Anda menggunakan
-  [Context caching](https://ai.google.dev/gemini-api/docs/caching?hl=id), jumlah token yang di-cache akan berada di `cached_content_token_count`.
+  Si vous utilisez un [modèle de réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr), les jetons utilisés lors du processus de réflexion sont renvoyés dans `thoughts_token_count`. Si vous utilisez la [mise en cache du contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr), le nombre de jetons mis en cache se trouve dans `cached_content_token_count`.
 
-### Menghitung token teks
+### Compter les jetons de texte
 
-Jika Anda memanggil `count_tokens` dengan input khusus teks, tindakan ini akan menampilkan jumlah token teks di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan.
+Si vous appelez `count_tokens` avec une entrée en texte brut, il renvoie le nombre de jetons du texte *dans l'entrée uniquement* (`total_tokens`). Vous pouvez effectuer cet appel avant d'appeler `generate_content` pour vérifier la taille de vos requêtes.
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+Une autre option consiste à appeler `generate_content`, puis à utiliser l'attribut `usage_metadata` sur l'objet `response` pour obtenir les éléments suivants :
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`)
+- Nombre de jetons distincts pour l'entrée (`prompt_token_count`), le contenu mis en cache (`cached_content_token_count`) et la sortie (`candidates_token_count`)
+- Nombre de jetons pour le processus de réflexion (`thoughts_token_count`)
+- Nombre total de jetons *dans l'entrée et la sortie* (`total_token_count`)
 
 ### Python
 
@@ -139,17 +133,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Menghitung token multi-turn (chat)
+### Compter les jetons multitours (chat)
 
-Jika Anda memanggil `count_tokens` dengan histori chat, tindakan ini akan menampilkan jumlah total token teks dari setiap peran dalam chat (`total_tokens`).
+Si vous appelez `count_tokens` avec l'historique des discussions, il renvoie le nombre total de jetons du texte de chaque rôle dans la discussion (`total_tokens`).
 
-Opsi lainnya adalah memanggil `send_message`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+Une autre option consiste à appeler `send_message`, puis à utiliser l'attribut `usage_metadata` sur l'objet `response` pour obtenir les éléments suivants :
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`)
+- Nombre de jetons distincts pour l'entrée (`prompt_token_count`), le contenu mis en cache (`cached_content_token_count`) et la sortie (`candidates_token_count`)
+- Nombre de jetons pour le processus de réflexion (`thoughts_token_count`)
+- Nombre total de jetons *dans l'entrée et la sortie* (`total_token_count`)
 
-Untuk memahami seberapa besar giliran percakapan berikutnya, Anda harus menambahkannya ke histori saat memanggil `count_tokens`.
+Pour comprendre l'ampleur de votre prochaine réponse conversationnelle, vous devez l'ajouter à l'historique lorsque vous appelez `count_tokens`.
 
 ### Python
 
@@ -275,33 +269,31 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Menghitung token multimodal
+### Compter les jetons multimodaux
 
-Semua input ke Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya. Perhatikan poin-poin utama tingkat tinggi berikut tentang tokenisasi input multimodal selama pemrosesan oleh Gemini API:
+Toutes les entrées de l'API Gemini sont tokenisées, y compris le texte, les fichiers image et les autres modalités non textuelles. Voici les principaux points à retenir concernant la tokenisation des entrées multimodales lors du traitement par l'API Gemini :
 
-- Input gambar dengan kedua dimensi <=384 piksel dihitung sebagai 258 token. Gambar yang lebih besar dalam satu atau kedua dimensi akan dipangkas dan diskalakan sesuai kebutuhan menjadi petak 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
-- File video dan audio dikonversi menjadi token dengan tarif tetap berikut: video dengan 263 token per detik dan audio dengan 32 token per detik.
+- Les entrées d'image dont les deux dimensions sont inférieures ou égales à 384 pixels sont comptabilisées comme 258 jetons. Les images dont l'une ou les deux dimensions sont supérieures sont recadrées et mises à l'échelle si nécessaire en vignettes de 768 x 768 pixels, chacune comptant pour 258 jetons.
+- Les fichiers vidéo et audio sont convertis en jetons aux taux fixes suivants : 263 jetons par seconde pour les vidéos et 32 jetons par seconde pour les fichiers audio.
 
-#### Resolusi media
+#### Résolutions des contenus multimédias
 
-[Model Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=id#gemini-3) memperkenalkan kontrol terperinci atas
-pemrosesan visi multimodal dengan parameter `media_resolution`. Parameter `media_resolution` menentukan **jumlah maksimum token yang dialokasikan per gambar input atau frame video.**
-Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks halus atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
+Les [modèles Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=fr#gemini-3) offrent un contrôle précis sur le traitement de la vision multimodale grâce au paramètre `media_resolution`. Le paramètre `media_resolution` détermine le **nombre maximal de jetons alloués par image ou frame vidéo en entrée**.
+Les résolutions plus élevées améliorent la capacité du modèle à lire du texte fin ou à identifier de petits détails, mais augmentent l'utilisation de jetons et la latence.
 
-Untuk mengetahui detail selengkapnya tentang parameter dan pengaruhnya terhadap penghitungan token,
-lihat panduan [resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
+Pour en savoir plus sur le paramètre et son impact sur le calcul des jetons, consultez le guide sur la [résolution du contenu multimédia](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=fr).
 
-#### File gambar
+#### Fichiers image
 
-Jika Anda memanggil `count_tokens` dengan input teks dan gambar, tindakan ini akan menampilkan jumlah token gabungan teks dan gambar di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan. Anda juga dapat secara opsional memanggil `count_tokens` pada teks dan file secara terpisah.
+Si vous appelez `count_tokens` avec une entrée de texte et d'image, il renvoie le nombre total de jetons du texte et de l'image *dans l'entrée uniquement* (`total_tokens`). Vous pouvez effectuer cet appel avant d'appeler `generate_content` pour vérifier la taille de vos requêtes. Vous pouvez également appeler `count_tokens` sur le texte et le fichier séparément.
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+Une autre option consiste à appeler `generate_content`, puis à utiliser l'attribut `usage_metadata` sur l'objet `response` pour obtenir les éléments suivants :
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`)
+- Nombre de jetons distincts pour l'entrée (`prompt_token_count`), le contenu mis en cache (`cached_content_token_count`) et la sortie (`candidates_token_count`)
+- Nombre de jetons pour le processus de réflexion (`thoughts_token_count`)
+- Nombre total de jetons *dans l'entrée et la sortie* (`total_token_count`)
 
-Contoh yang menggunakan gambar yang diupload dari File API:
+Exemple utilisant une image importée à partir de l'API File :
 
 ### Python
 
@@ -401,7 +393,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Contoh yang menyediakan gambar sebagai data inline:
+Exemple qui fournit l'image en tant que données intégrées :
 
 ### Python
 
@@ -498,20 +490,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### File video atau audio
+#### Fichiers audio ou vidéo
 
-Audio dan video masing-masing dikonversi menjadi token dengan tarif tetap berikut:
+L'audio et la vidéo sont convertis en jetons aux taux fixes suivants :
 
-- Video: 263 token per detik
-- Audio: 32 token per detik
+- Vidéo : 263 jetons par seconde
+- Audio : 32 jetons par seconde
 
-Jika Anda memanggil `count_tokens` dengan input teks dan video/audio, tindakan ini akan menampilkan jumlah token gabungan teks dan file video/audio di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan. Anda juga dapat secara opsional memanggil `count_tokens` pada teks dan file secara terpisah.
+Si vous appelez `count_tokens` avec une entrée texte et vidéo/audio, il renvoie le nombre combiné de jetons du texte et du fichier vidéo/audio *dans l'entrée uniquement* (`total_tokens`). Vous pouvez effectuer cet appel avant d'appeler `generate_content` pour vérifier la taille de vos requêtes. Vous pouvez également appeler `count_tokens` sur le texte et le fichier séparément.
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+Une autre option consiste à appeler `generate_content`, puis à utiliser l'attribut `usage_metadata` sur l'objet `response` pour obtenir les éléments suivants :
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`).
+- Nombre de jetons distincts pour l'entrée (`prompt_token_count`), le contenu mis en cache (`cached_content_token_count`) et la sortie (`candidates_token_count`)
+- Nombre de jetons pour le processus de réflexion (`thoughts_token_count`)
+- Nombre total de jetons *d'entrée et de sortie* (`total_token_count`).
 
 ### Python
 
@@ -636,9 +628,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### Menghitung token penalaran
+### Compter les jetons de réflexion
 
-Saat Anda mengaktifkan penalaran, harga respons adalah jumlah token output dan token penalaran. Anda dapat mengambil jumlah total token penalaran yang dihasilkan dari kolom `thoughtsTokenCount` (atau SDK yang setara).
+Lorsque vous activez la réflexion, le prix de la réponse correspond à la somme des jetons de sortie et des jetons de réflexion. Vous pouvez récupérer le nombre total de jetons de réflexion générés à partir du champ `thoughtsTokenCount` (ou de l'équivalent SDK).
 
 ### Python
 
@@ -664,13 +656,13 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Model penalaran menghasilkan penalaran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](https://ai.google.dev/gemini-api/docs/thinking?hl=id#summaries) output untuk memberikan insight tentang proses penalaran. Jadi, API mendasarkan harga pada token penalaran lengkap yang dihasilkan model untuk membuat ringkasan, meskipun API hanya menampilkan ringkasan.
+Les modèles à raisonnement génèrent des pensées complètes pour améliorer la qualité de la réponse finale, puis produisent des [résumés](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#summaries) pour donner un aperçu du processus de réflexion. Par conséquent, l'API base la tarification sur les jetons de pensée complets que le modèle génère pour créer un résumé, même si l'API ne génère que le résumé.
 
-Anda dapat mempelajari lebih lanjut cara mengonfigurasi penalaran di panduan [penalaran Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
+Pour savoir comment configurer la réflexion, consultez le guide [Réflexion de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
 
-## Jendela konteks
+## Fenêtres de contexte
 
-Model yang tersedia melalui Gemini API memiliki jendela konteks yang diukur dalam token. Jendela konteks menentukan jumlah input yang dapat Anda berikan dan jumlah output yang dapat dihasilkan model. Anda dapat menentukan ukuran jendela konteks dengan memanggil endpoint [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=id)atau dengan melihat [dokumentasi model](https://ai.google.dev/gemini-api/docs/models?hl=id).
+Les modèles disponibles via l'API Gemini disposent de fenêtres de contexte mesurées en jetons. La fenêtre de contexte définit la quantité d'entrée que vous pouvez fournir et la quantité de sortie que le modèle peut générer. Vous pouvez déterminer la taille de la fenêtre de contexte en appelant le [point de terminaison `models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=fr) ou en consultant la [documentation sur les modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr).
 
 ### Python
 
@@ -715,12 +707,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Kirim masukan
+Envoyer des commentaires
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Terakhir diperbarui pada 2026-09-12 UTC.
+Dernière mise à jour le 2026/09/12 (UTC).
 
-Ada masukan untuk kami?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/12 (UTC)."],[],[]]

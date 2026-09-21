@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=id
-fetched_at: 2026-09-14T05:39:27.508846+00:00
+fetched_at: 2026-09-21T05:51:55.432929+00:00
 title: "Membuat musik dengan Lyria 3.5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -26,7 +26,7 @@ Keluarga Lyria mencakup model:
 | Model | ID Model | Paling cocok untuk | Durasi | Output |
 | --- | --- | --- | --- | --- |
 | **Klip Lyria 3** | `lyria-3-clip-preview` | Klip pendek, loop, pratinjau | 30 detik | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | Lagu lengkap dengan bait, refrein, dan jembatan | Beberapa menit (dapat dikontrol melalui perintah) | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | Lagu berdurasi penuh dengan bait, refrein, dan jembatan | Beberapa menit (dapat dikontrol melalui perintah) | MP3 |
 
 Kedua model dapat digunakan menggunakan metode `generateContent` standar dan [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) baru, yang mendukung input multimodal (teks dan gambar), serta menghasilkan audio **stereo fidelitas tinggi 44,1 kHz**.
 
@@ -1097,7 +1097,7 @@ curl -s -X POST \
 
 ## Kecerdasan model
 
-Lyria 3.5 menganalisis proses perintah Anda di mana model melakukan penalaran melalui struktur musik (intro, bait, chorus, bridge, dll.) berdasarkan perintah Anda.
+Lyria 3.5 menganalisis proses perintah Anda saat model melakukan penalaran melalui struktur musik (intro, bait, chorus, jembatan, dll.) berdasarkan perintah Anda.
 Hal ini terjadi sebelum audio dibuat dan memastikan koherensi struktural dan musikalitas.
 
 ## Interactions API
@@ -1172,154 +1172,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ## Panduan penulisan perintah
 
-Perintah Anda bisa sesederhana "lagu folk tentang kucing lucu yang menghindari genangan air, vokal wanita dan suara hujan", atau sesuatu yang mendetail dan terstruktur seperti:
-
-> Lagu synth-pop bergaya 1980-an dengan beat yang kuat, synthesizer yang berkilau, dan chorus yang menarik dan anthemic. Lagu ini harus memiliki nuansa retro-futuristik,
-> yang mengingatkan pada lagu pop klasik era 80-an, dengan sentuhan produksi modern. Tempo harus ceria dan cocok untuk menari, sekitar 120 BPM, dengan struktur bait-chorus yang jelas dan hook instrumental yang mudah diingat. Liriknya menceritakan perasaan saat bersiap-siap untuk pergi ke pesta.
-
-Perintah sederhana dan kompleks dapat memberikan output yang baik. Bereksperimenlah dengan tips ini untuk menemukan strategi yang paling efektif untuk Anda.
-
-### Genre
-
-Awali perintah Anda dengan genre musik yang Anda inginkan, seperti hip hop, rock, dan rap. Anda dapat menentukan campuran genre:
-
-- Perpaduan metal dan rap
-- Kombinasi death metal dan opera
-- Karya klasik dengan elemen drone elektronik
-- Musik dance elektronik (EDM) modern yang dipadukan dengan Europop
-
-Anda juga dapat menyertakan era:
-
-- Hip-hop awal 90-an
-- Pop ye-ye Prancis 60-an
-- Eksperimen elektronik tahun 80-an
-- Pop mainstream 2000-an
-
-Jika Anda meminta genre khusus atau varian regional, seperti "techno Berlin" atau "hyphy Bay Area", model akan mencoba menangkap esensinya, tetapi mungkin tidak selalu berhasil.
-
-### Instrumen
-
-Secara default, Lyria 3.5 akan membuat lagu dengan instrumen dan alat yang Anda harapkan untuk genre tersebut. Anda tidak perlu bersikap preskriptif.
-
-Namun, trek musik dance tidak akan menyertakan saksofon kecuali jika Anda memintanya. Jadi, jika Anda menginginkan solo saksofon, Anda perlu memberikan perintah:
-
-> Lagu dance dengan beat yang mengentak, synthesizer yang berkilau, dan chorus yang catchy dan anthemik. Solo saksofon harus masuk selama bagian jembatan.
-
-Perintah Anda dapat menyertakan instrumen tertentu, suaranya, dan cara instrumen tersebut berinteraksi satu sama lain. Anda dapat menggunakan kombinasi ini untuk menciptakan suasana atau tekstur tertentu:
-
-- Garis bass yang kotor dan terdistorsi beradu dengan hi-hat yang bersih dan jernih
-- Pad synthesizer analog yang hangat mengembang di bawah gitar akustik yang jelas dan dekat
-- Dinding suara yang dibuat oleh beberapa lapisan gitar fuzzy, dengan vokal yang terpendam dan jauh
-
-### Struktur lagu
-
-Anda dapat menguraikan progres lagu dalam perintah Anda. Gunakan panah atau daftar
-untuk menentukan alur:
-
-- `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
-  `[Bridge]` -> `[Outro]`
-- Mulai dengan intro piano yang tenang, bangun ke bait yang keras, turun ke
-  keheningan, lalu meledak ke bagian chorus.
-
-Anda juga dapat menentukan bagaimana perubahan tingkat energi di antara bagian-bagian ini:
-
-- Bangun ketegangan di pra-chorus, lalu turunkan ke keheningan sebelum chorus yang besar dan eksplosif
-- Crescendo bertahap di sepanjang lagu, menambahkan satu instrumen pada satu waktu
-  hingga menghasilkan suara yang kacau
-- Berhenti mendadak setelah jembatan, diikuti dengan chorus acapella
-
-Anda juga dapat meminta waktu yang tepat untuk melakukan sesuatu:
-
-- Bangun hingga turun di 12 dtk
-- Seseorang mengucapkan "apa" setiap 2 detik
-- Bagian chorus dimulai pada detik ke-22
-
-### Lirik
-
-Vokal dan lirik dibuat secara default. Anda dapat memberikan lirik Anda sendiri,
-meminta tidak ada lirik (atau instrumental), atau mengarahkan pembuatan lirik ke
-arah yang Anda inginkan.
-
-Lirik Anda akan menggunakan bahasa yang Anda gunakan untuk menulis perintah. Anda juga dapat meminta lirik dalam bahasa lain, seperti "Tulis lirik dalam bahasa Prancis".
-
-#### Menggunakan lirik Anda sendiri
-
-Untuk memberikan lirik Anda sendiri kepada model, sertakan lirik tersebut dalam perintah dengan awalan "Lirik:":
-
-```
-Lyrics:
-
-[Intro]
-Oooh, oooh
-
-[Verse 1]
-Let's go
-Let's go
-Go with the flow
-
-[Chorus]
-...
-```
-
-Anda dapat menambahkan awalan pada bagian lagu dengan judul bagian seperti `[Intro]`,
-`[Verse 1]`, `[Pre-chorus]`, `[Chorus]`, dan `[Outro]`.
-
-Jika Anda ingin kata atau baris diulang, seperti gema atau oleh penyanyi latar, Anda dapat menyertakannya dalam tanda kurung: "Ayo (ayo)".
-
-#### Mengarahkan model untuk menulis lirik
-
-Jika Anda ingin Lyria 3.5 membuat lirik untuk Anda, sebaiknya sertakan detail
-tentang isi lirik tersebut dalam perintah Anda. Jika tidak, model perlu menyimpulkan subjek dari perintah musik Anda, dan mungkin tidak sesuai dengan yang Anda inginkan.
-
-> Liriknya bercerita tentang cinta yang hilang dan rasa sakit akibat patah hati. Penyanyi ini mengenang hubungan masa lalunya dan kenangan yang kembali muncul.
-
-Jika Anda ingin chorus yang berulang, sebaiknya minta chorus tersebut dalam perintah Anda:
-
-> Liriknya bercerita tentang cinta yang hilang dan rasa sakit akibat patah hati. Penyanyi ini mengenang hubungan masa lalunya dan kenangan yang kembali muncul. Bagian chorus yang kuat berfokus pada mengatasi rasa sakit dan melanjutkan hidup.
-
-Lyria 3.5 akan otomatis mengarahkan struktur lirik ke jenis musik yang Anda minta, tetapi Anda juga dapat menekankan kembali hal ini dalam perintah Anda. Contoh:
-
-> Lagu EDM yang mengulang frasa energik yang sama berulang kali.
-
-Anda juga dapat meminta efek vokal yang tidak sepenuhnya lirik, misalnya:
-
-- Sampel berulang dari sebuah film mengatakan "Saya tidak percaya ini!" di sepanjang lagu
-- Lagu techno yang penuh energi, tepat sebelum drop, semua suara berhenti dan suara kecil berkata "Aku tidak tahu apa yang kulakukan di sini", lalu musiknya drop.
-- Lagu ini diawali dengan percakapan tentang film tahun 90-an yang lebih bagus daripada film saat ini. Kemudian, lagu tersebut beralih ke lagu pop.
-
-### Vokal
-
-Anda dapat memberikan perintah tentang cara lirik akan disampaikan. Untuk hasil terbaik, tentukan profil penyanyi yang mendetail yang mencakup gender, timbre, dan rentang vokal.
-
-- **Sopran Wanita**: Timbre yang jernih dan seperti kristal dengan kualitas yang lincah dan tinggi. Mampu mencapai nada tinggi yang berdesir dengan tekstur
-  ringan dan berhembus.
-- **Alto Perempuan**: Rentang bawah yang kaya, hangat, dan serak. Timbre berasap dengan sentuhan vocal fry, penuh jiwa dan beresonansi.
-- **Tenor Pria**: Cerah, tajam, dan penuh semangat. Timbre muda dengan sedikit sentuhan sengau, menembus campuran dengan kekuatan belting yang tinggi.
-- **Bariton Pria**: Dalam, seperti cokelat, dan selembut beludru. Suara dada yang beresonansi dengan penyampaian yang menenangkan dan mendayu-dayu.
-- **Weathered Rocker (Pria)**: Serak dan bertekstur dengan timbre berpasir,
-  mengingatkan pada grunge era 90-an. Rentang atas yang tegang untuk intensitas emosional.
-
-### Parameter perintah lainnya
-
-Anda juga dapat menyertakan parameter ini untuk lebih menyempurnakan perintah Anda:
-
-- **BPM**: Setel tempo (misalnya, "120 BPM", "tempo lambat sekitar 70 BPM").
-- **Nada Dasar/Skala**: Tentukan nada dasar musik (misalnya, "dalam G mayor", "D minor").
-- **Suasana dan nuansa**: Gunakan kata sifat deskriptif (misalnya, "nostalgia", "agresif", "indah", "melamun").
-- **Durasi**: Model Klip selalu menghasilkan klip berdurasi 30 detik. Untuk model Pro, tentukan durasi yang diinginkan dalam perintah Anda (misalnya, "buat lagu berdurasi 2 menit") atau gunakan stempel waktu untuk mengontrol durasi.
-
-### Contoh perintah
-
-Berikut beberapa contoh perintah yang efektif:
-
-- `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
-  piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
-  bass line. Instrumental only."`
-- `"An upbeat, feel-good pop song in G major at 120 BPM with bright acoustic
-  guitar strumming, claps, and warm vocal harmonies about a summer road
-  trip."`
-- `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
-  pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
+Untuk mempelajari cara membuat perintah yang efektif untuk genre musik, instrumen, struktur lagu, lirik kustom, dan gaya penyampaian vokal, lihat [panduan perintah Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=id).
 
 ## Praktik terbaik
 
@@ -1340,7 +1193,7 @@ Berikut beberapa contoh perintah yang efektif:
 - **Pengeditan berkelanjutan**: Pembuatan musik adalah proses sekali putaran.
   Pengeditan atau penyempurnaan klip yang dihasilkan secara berulang melalui beberapa perintah tidak didukung di Lyria 3.5 versi saat ini.
 - **Panjang**: Model Klip selalu menghasilkan klip berdurasi 30 detik. Model Pro
-  membuat lagu berdurasi beberapa menit; durasi yang tepat dapat
+  menghasilkan lagu berdurasi beberapa menit; durasi yang tepat dapat
   dipengaruhi melalui perintah Anda.
 - **Determinisme**: Hasil dapat bervariasi antar-panggilan, bahkan dengan perintah yang sama.
 
@@ -1359,8 +1212,8 @@ Kirim masukan
 
 Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Terakhir diperbarui pada 2026-09-10 UTC.
+Terakhir diperbarui pada 2026-09-18 UTC.
 
 Ada masukan untuk kami?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]

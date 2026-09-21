@@ -1,54 +1,53 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=hi
-fetched_at: 2026-09-14T05:49:16.370778+00:00
-title: "\u0915\u0949\u0928\u094d\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u0915\u0948\u0936 \u092e\u0947\u092e\u094b\u0930\u0940 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=es-419
+fetched_at: 2026-09-21T06:00:32.458906+00:00
+title: "El almacenamiento de contexto en cach\u00e9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-सुझाव भेजें
+Enviar comentarios
 
-# कॉन्टेक्स्ट कैश मेमोरी
+# El almacenamiento de contexto en caché
 
-एआई के सामान्य वर्कफ़्लो में, किसी मॉडल को एक ही इनपुट टोकन बार-बार पास किया जा सकता है. Gemini API, परफ़ॉर्मेंस और लागत को ऑप्टिमाइज़ करने के लिए, इंप्लिसिट कैशिंग की सुविधा देता है.
+En un flujo de trabajo de IA típico, es posible que pases los mismos tokens de entrada una y otra vez a un modelo. La API de Gemini ofrece almacenamiento en caché implícito para optimizar el rendimiento y los costos.
 
-## इंप्लिसिट कैशिंग
+## Almacenamiento en caché implícito
 
-Gemini 2.5 और इसके बाद के सभी मॉडल के लिए, इंप्लिसिट कैशिंग की सुविधा डिफ़ॉल्ट रूप से चालू होती है. यह सुविधा, [स्टेटफ़ुल](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#multi-turn-conversations) (जिसमें `previous_interaction_id` का इस्तेमाल किया जाता है)
-और [स्टेटलेस](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#stateless-conversations), दोनों तरह के बातचीत के मोड के लिए उपलब्ध है.
-अगर आपका अनुरोध कैश हिट करता है, तो हम लागत में होने वाली बचत को अपने-आप पास कर देते हैं. इसे चालू करने के लिए, आपको कुछ भी करने की ज़रूरत नहीं है. कॉन्टेक्स्ट कैशिंग के लिए, हर मॉडल के लिए इनपुट टोकन की गिनती की कम से कम संख्या यहां दी गई है:
+El almacenamiento en caché implícito está habilitado de forma predeterminada para todos los modelos de Gemini 2.5 y versiones posteriores. Se admite para los modos de conversación [con estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#multi-turn-conversations) (con `previous_interaction_id`) y [sin estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#stateless-conversations).
+Pasamos automáticamente los ahorros de costos si tu solicitud alcanza las cachés. No es necesario que hagas nada para habilitar esta función. El recuento mínimo de tokens de entrada para el almacenamiento en caché de contexto se indica en la siguiente tabla para cada modelo:
 
-| मॉडल | टोकन की कम से कम सीमा |
+| Modelo | Límite mínimo de tokens |
 | --- | --- |
 | Gemini 3.8 Flash | 4,096 |
 | Gemini 3.7 Flash | 4,096 |
 | Gemini 3.6 Flash | 4,096 |
 | Gemini 3.5 Flash | 4,096 |
-| Gemini 3.1 Pro का प्रीव्यू | 4,096 |
+| Versión preliminar de Gemini 3.1 Pro | 4,096 |
 | Gemini 2.5 Flash | 2,048 |
 | Gemini 2.5 Pro | 2,048 |
 
-इंप्लिसिट कैश हिट होने की संभावना बढ़ाने के लिए:
+Para aumentar las posibilidades de un acierto de caché implícito, haz lo siguiente:
 
-- अपने प्रॉम्प्ट की शुरुआत में, बड़ा और सामान्य कॉन्टेंट शामिल करें
-- कम समय में, एक जैसे प्रीफ़िक्स वाले अनुरोध भेजने की कोशिश करें
+- Intenta colocar contenido grande y común al comienzo de tu instrucción.
+- Intenta enviar solicitudes con un prefijo similar en un período breve.
 
-रिस्पॉन्स ऑब्जेक्ट के `usage.total_cached_tokens` (Python और JavaScript) फ़ील्ड में, कैश हिट करने वाले टोकन की संख्या देखी जा सकती है.
+Puedes ver la cantidad de tokens que fueron aciertos de caché en el campo `usage.total_cached_tokens` (Python y JavaScript) del objeto de respuesta.
 
-सुझाव भेजें
+Enviar comentarios
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया.
+Última actualización: 2026-09-10 (UTC)
 
-क्या आपको हमें और कुछ बताना है?
+¿Quieres brindar más información?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-10 (UTC)"],[],[]]

@@ -1,102 +1,124 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=tr
-fetched_at: 2026-09-14T05:50:56.858499+00:00
-title: "Google AI Studio'dan da\u011f\u0131tma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=th
+fetched_at: 2026-09-21T05:42:59.626792+00:00
+title: "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e43\u0e2b\u0e49\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e44\u0e14\u0e49\u0e08\u0e32\u0e01 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Google AI Studio'dan dağıtma
+# การทำให้ใช้งานได้จาก Google AI Studio
 
-Google AI Studio, full-stack uygulamalarınızı doğrudan Oluşturma Modu'ndan dağıtmanıza olanak tanır. Bu sayede prototipten yönetilen ve ölçeklenebilir bir üretim ortamına hızlı bir şekilde geçebilirsiniz.
+Google AI Studio ช่วยให้คุณสามารถทําให้แอปพลิเคชัน Full Stack ใช้งานได้โดยตรง
+จากโหมดสร้าง ซึ่งช่วยให้เปลี่ยนจากต้นแบบไปสู่
+สภาพแวดล้อมการผลิตที่มีการจัดการและปรับขนาดได้ได้อย่างรวดเร็ว
 
-## Dağıtım seçenekleri
+## ตัวเลือกการติดตั้งใช้งาน
 
-Uygulamanızı AI Studio'nun Oluşturma Modu'ndan dağıtmak için kullandığınız katmana bağlı olarak aşağıdaki şartları karşılamanız gerekir:
+หากต้องการติดตั้งใช้งานแอปพลิเคชันจากโหมด AI Studio Build ข้อกำหนดจะขึ้นอยู่กับระดับที่คุณใช้ ดังนี้
 
-- [**Google Cloud Başlangıç Katmanı**](https://docs.cloud.google.com/docs/starter-tier?hl=tr):
-  Google Cloud projesi veya faturalandırma hesabı oluşturmadan 2 tam yığın uygulaması yayınlamanıza olanak tanır.
-- **Standart dağıtım**: AI Studio hesabınıza bağlı bir Google Cloud projesi ve bu projede faturalandırmanın etkinleştirilmesi gerekir.
+- [**ระดับเริ่มต้นของ Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=th):
+  ช่วยให้คุณเผยแพร่แอปพลิเคชันแบบฟูลสแต็กได้สูงสุด 2 รายการโดยไม่ต้องตั้งค่า
+  โปรเจ็กต์ Google Cloud หรือบัญชีสำหรับการเรียกเก็บเงิน
+- **การติดตั้งใช้งานมาตรฐาน**: ต้องมีโปรเจ็กต์ Google Cloud ที่ลิงก์กับบัญชี AI Studio และเปิดใช้การเรียกเก็บเงินในโปรเจ็กต์นั้น
 
-## Başlangıç Seviyesi hakkında
+## เกี่ยวกับ Starter Tier
 
-Google Cloud Başlangıç Katmanı, tam bir Google Cloud ortamı veya faturalandırma hesabı oluşturmadan uygulamaları doğrudan Google AI Studio'dan Google Cloud'a dağıtmak için kolay bir yol sunar.
+Google Cloud Starter Tier มีเส้นทางที่คล่องตัวในการทำให้แอปพลิเคชันใช้งานได้ใน Google Cloud โดยตรงจาก Google AI Studio โดยไม่ต้องตั้งค่าสภาพแวดล้อม Google Cloud แบบเต็มหรือบัญชีสำหรับการเรียกเก็บเงิน
 
-Her Google AI Studio dağıtımı, Cloud Run'da karşılık gelen bir hizmet oluşturur. Başlangıç Katmanı ile Google AI Studio'da dağıtılan hizmetler için aşağıdaki sınırlamalar geçerlidir:
+การทำให้ใช้งานได้แต่ละครั้งใน Google AI Studio จะสร้างบริการที่เกี่ยวข้องใน
+Cloud Run สำหรับบริการที่ใช้งานใน Google AI Studio ด้วย Starter
+Tier จะมีข้อจำกัดต่อไปนี้
 
-- En fazla iki hizmet dağıtabilirsiniz.
-- Hizmetleriniz [tek bir Cloud Run bölgesinde](https://docs.cloud.google.com/run/docs/locations?hl=tr) dağıtılmış olmalıdır.
+- คุณสามารถติดตั้งใช้งานบริการได้สูงสุด 2 รายการ
+- ระบบจะทําให้บริการของคุณใช้งานได้ใน[ภูมิภาค Cloud Run เดียว](https://docs.cloud.google.com/run/docs/locations?hl=th)
 
-## Başlangıç Seviyesi dağıtım adımları
+## ขั้นตอนการติดตั้งใช้งาน Starter Tier
 
-Uygulamanızı Oluşturma modunda tasarladıktan sonra Başlangıç Katmanı ile dağıtın:
+หลังจากออกแบบแอปในโหมดสร้างแล้ว ให้ทำให้แอปใช้งานได้ด้วย Starter Tier โดยทำดังนี้
 
-1. Sağ üst köşedeki **Yayınla** düğmesini tıklayın.
-2. **Get Started**'ı (Başlayın) tıklayın.
-3. **Uygulamayı Yayınla**'yı tıklayın.
+1. คลิกปุ่ม**เผยแพร่**ที่มุมขวาบน
+2. คลิก**เริ่มต้น**
+3. คลิก**เผยแพร่แอป**
 
-Dağıtım tamamlandıktan sonra AI Studio, canlı uygulamanıza erişebileceğiniz bir Cloud Run URL'si sağlar.
+เมื่อการติดตั้งใช้งานเสร็จสมบูรณ์แล้ว AI Studio จะให้ URL ของ Cloud Run ซึ่งคุณสามารถใช้เพื่อเข้าถึงแอปพลิเคชันที่ใช้งานจริงได้
 
-## AI Studio için özel URL'ler
+## URL ที่กำหนดเองสำหรับ AI Studio
 
-Google AI Studio'dan bir uygulama yayınlarken `ai.studio` altında özel ve akılda kalıcı bir alt alan adı ayarlayabilirsiniz (örneğin, `https://your-app-name.ai.studio`).
+เมื่อเผยแพร่แอปพลิเคชันจาก Google AI Studio คุณจะตั้งค่าโดเมนย่อยที่กำหนดเองและจดจำง่ายได้ในส่วน `ai.studio` (เช่น `https://your-app-name.ai.studio`)
 
-Google AI Studio, alt alan adlarının tüm projelerde genel olarak benzersiz olmasını gerektirir ve bunları ilk gelene ilk hizmet esasına göre atar. Başka bir proje zaten bir ad kullanıyorsa AI Studio, farklı bir ad seçmenizi ister. Bir uygulamayı yayından kaldırırsanız veya silerseniz özel URL'si serbest bırakılır ve diğer kullanıcılar tarafından talep edilebilir.
+Google AI Studio กำหนดให้โดเมนย่อยต้องไม่ซ้ำกันทั่วโลกในทุกโปรเจ็กต์
+และจะกำหนดโดเมนย่อยตามลำดับการลงทะเบียน หากโปรเจ็กต์อื่น
+ใช้ชื่ออยู่แล้ว AI Studio จะแจ้งให้คุณเลือกชื่ออื่น หากคุณ
+เลิกเผยแพร่หรือลบแอปพลิเคชัน ระบบจะปล่อย URL แบบกำหนดเองของแอปพลิเคชันนั้นและ
+เปิดให้ผู้ใช้รายอื่นอ้างสิทธิ์ได้
 
-### Özel URL ayarlama
+### ตั้ง URL ที่กำหนดเอง
 
-Uygulamanız için özel URL ayarlamak veya güncellemek üzere:
+วิธีตั้งค่าหรืออัปเดต URL ที่กำหนดเองสำหรับแอปพลิเคชัน
 
-1. Google AI Studio'da uygulamanızı **Build** (Oluştur) modunda açın.
-2. Sağ üst köşedeki **Yayınla**'yı tıklayın.
-3. Dağıtım yapılandırmasında, tercih ettiğiniz alt alan adını **Özel URL** alanına girin veya önerilen URL'yi kabul edin.
-4. **Uygulamayı Yayınla**'yı tıklayın.
+1. เปิดแอปพลิเคชันใน Google AI Studio ในโหมด**สร้าง**
+2. คลิก**เผยแพร่**ที่มุมขวาบน
+3. ในการกำหนดค่าการติดตั้งใช้งาน ให้ป้อนโดเมนย่อยที่ต้องการในช่อง **URL ที่กำหนดเอง** หรือยอมรับ URL ที่แนะนำ
+4. คลิก**เผยแพร่แอป**
 
-Mevcut bir özel URL'yi farklı bir uygulamaya aktarmak için önce bu özel URL'nin atandığı uygulamayı yayından kaldırmanız veya silmeniz, ardından seçilen alt alan adını kullanarak yeni uygulamanızı yayınlamanız gerekir.
+หากต้องการโอน URL ที่กำหนดเองที่มีอยู่ไปยังแอปพลิเคชันอื่น คุณต้องเลิกเผยแพร่หรือลบแอปพลิเคชันที่กำหนด URL ที่กำหนดเองนั้นก่อน แล้วจึงเผยแพร่แอปพลิเคชันใหม่โดยใช้โดเมนย่อยที่เลือก
 
-### Ticari marka veya telif hakkı sorunlarını bildirme
+### รายงานปัญหาเกี่ยวกับเครื่องหมายการค้าหรือลิขสิทธิ์
 
-Özel alt alan adları, [Google Hizmet Şartları](https://policies.google.com/terms?hl=tr)'na uygun olmalıdır. Ticari markayı ihlal eden veya telif hakkıyla korunan bir adı izinsiz kullanan özel URL'leri [Google Yasal Sorun Giderici](https://support.google.com/legal/troubleshooter/1114905?hl=tr)'yi kullanarak bildirebilirsiniz.
+โดเมนย่อยที่กำหนดเองต้องเป็นไปตาม[ข้อกำหนดในการให้บริการของ Google](https://policies.google.com/terms?hl=th) หากพบ
+URL ที่กำหนดเองซึ่งละเมิดเครื่องหมายการค้าหรือใช้ชื่อที่มีลิขสิทธิ์โดยไม่ได้รับ
+อนุญาต คุณสามารถรายงานได้โดยใช้[เครื่องมือแก้ปัญหาทางกฎหมายของ Google](https://support.google.com/legal/troubleshooter/1114905?hl=th)
 
-## Standart dağıtım
+## การติดตั้งใช้งานมาตรฐาน
 
-Uygulamalarınız geliştikçe Başlangıç Katmanı'nın ötesinde özelliklere (ör. daha yüksek kotalar, daha fazla işlem kaynağı veya Başlangıç Katmanı'nda bulunmayan diğer Google Cloud ürünleri) ihtiyacınız olabilir. Bu özelliklerden yararlanmak için tamamen yönetilen Başlangıç Katmanı projenizi standart bir Google Cloud projesine dönüştürebilirsiniz.
+เมื่อแอปพลิเคชันของคุณพัฒนาขึ้น คุณอาจต้องใช้ความสามารถที่นอกเหนือจากระดับ Starter
+Tier เช่น โควต้าที่สูงขึ้น ทรัพยากรการประมวลผลที่เพิ่มขึ้น หรือผลิตภัณฑ์อื่นๆ ของ
+Google Cloud ที่ไม่มีให้บริการในระดับ Starter Tier หากต้องการปลดล็อก
+ความสามารถเหล่านี้ คุณสามารถแปลงโปรเจ็กต์ระดับเริ่มต้นที่มีการจัดการเต็มรูปแบบเป็น
+โปรเจ็กต์ Google Cloud มาตรฐานได้
 
-Bu sayede, ilerlemenizi kaybetmeden sorunsuz bir şekilde ölçeklendirme yapabilirsiniz. [Cloud Billing hesabı oluşturma](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=tr#create-new-billing-account), standart Google Cloud Hizmet Şartları'nı resmen kabul etme ve [standart Google Cloud projesine yükseltme](https://docs.cloud.google.com/docs/starter-tier?hl=tr#upgradee) adımlarını uygulayın.
-Daha fazla bilgi için [Ücretli hesaplar için kurulum](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=tr#paid-setup) başlıklı makaleyi inceleyin.
+ซึ่งจะช่วยให้คุณปรับขนาดได้อย่างราบรื่นโดยไม่สูญเสีย
+ความคืบหน้า ทำตามขั้นตอนเพื่อ
+[สร้างบัญชีสำหรับการเรียกเก็บเงินใน Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=th#create-new-billing-account)
+ยอมรับข้อกำหนดในการให้บริการมาตรฐานของ Google Cloud อย่างเป็นทางการ และ
+[อัปเกรดเป็นโปรเจ็กต์ Google Cloud มาตรฐาน](https://docs.cloud.google.com/docs/starter-tier?hl=th#upgradee)
+ดูข้อมูลเพิ่มเติมได้ที่
+[การตั้งค่าสำหรับบัญชีแบบชำระเงิน](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=th#paid-setup)
 
-Faturalandırma katmanları hakkında daha fazla bilgi edinmek için [Faturalandırma](https://ai.google.dev/gemini-api/docs/billing?hl=tr) başlıklı makaleyi inceleyin.
+ดูข้อมูลเพิ่มเติมเกี่ยวกับระดับการเรียกเก็บเงินได้ที่[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)
 
-## Başvurunuzu silme
+## ลบแอปพลิเคชัน
 
-Uygulamanıza artık ihtiyacınız yoksa aşağıdaki talimatları uygulayarak Google AI Studio'da silebilirsiniz:
+หากไม่ต้องการใช้แอปแล้ว คุณสามารถลบแอปใน Google AI Studio ได้
+โดยทำตามวิธีการต่อไปนี้
 
-1. Google AI Studio'da [Uygulamalar sayfanıza](https://aistudio.google.com/app/apps?hl=tr) gidin.
-2. Sol menüden **Uygulamalar**'ı seçin.
-3. İşaretçiyi silmek istediğiniz uygulamanın üzerine getirin.
-4. Uygulamayı silmek için satırın sağ tarafındaki çöp kutusu simgesini tıklayın.
+1. ไปที่[หน้าแอป](https://aistudio.google.com/app/apps?hl=th)ใน Google AI Studio
+2. เลือก**แอป**ในเมนูด้านซ้าย
+3. วางเคอร์เซอร์เหนือแอปที่ต้องการลบ
+4. คลิกไอคอนถังขยะทางด้านขวาของแถวเพื่อลบแอป
 
-## Sırada ne var?
+## ขั้นตอนถัดไป
 
-- [Google Cloud Başlangıç Katmanı](https://docs.cloud.google.com/docs/starter-tier?hl=tr) hakkında daha fazla bilgi edinin.
-- Gemini API'de [Faturalandırma](https://ai.google.dev/gemini-api/docs/billing?hl=tr) hakkında bilgi edinin.
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับ
+  [รุ่นเริ่มต้นของ Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=th)
+- อ่านเกี่ยวกับ[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)ใน Gemini API
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-07-10 UTC.
+อัปเดตล่าสุด 2026-07-10 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-10 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-10 UTC"],[],[]]

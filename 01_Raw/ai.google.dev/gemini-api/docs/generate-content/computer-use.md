@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/computer-use?hl=ar
-fetched_at: 2026-09-14T05:51:59.051344+00:00
-title: "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0643\u0645\u0628\u064a\u0648\u062a\u0631 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/computer-use?hl=pl
+fetched_at: 2026-09-21T05:42:16.897786+00:00
+title: "Korzystanie z\u00a0komputera \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-# استخدام الكمبيوتر
+# Korzystanie z komputera
 
-تتيح لك أداة &quot;استخدام الكمبيوتر&quot; إنشاء وكلاء تحكّم في المتصفّح والأجهزة الجوّالة وأجهزة الكمبيوتر المكتبي تتفاعل مع المهام وتنفّذها تلقائيًا. باستخدام لقطات الشاشة، يمكن للنموذج "رؤية" شاشة الكمبيوتر و "التصرف" من خلال إنشاء إجراءات معيّنة في واجهة المستخدِم، مثل نقرات الماوس وإدخالات لوحة المفاتيح. على غرار ميزة &quot;استدعاء الدوال&quot;، عليك تنفيذ بيئة التنفيذ من جهة العميل لتلقّي إجراءات &quot;استخدام الكمبيوتر&quot; وتنفيذها.
+Narzędzie Computer Use umożliwia tworzenie agentów sterujących przeglądarką, komórką i komputerem, którzy wchodzą w interakcje z użytkownikiem i automatyzują zadania. Na podstawie zrzutów ekranu model może „widzieć” ekran komputera i „działać”, generując określone działania interfejsu, takie jak kliknięcia myszą i wpisywanie z klawiatury. Podobnie jak w przypadku wywoływania funkcji musisz wdrożyć środowisko wykonawcze po stronie klienta, aby otrzymywać i wykonywać działania związane z korzystaniem z komputera.
 
-‫Gemini 3.5 Flash هو النموذج المقترَح للاستخدام على الكمبيوتر، ويتضمّن عدة إمكانات جديدة:
+Gemini 3.5 Flash to zalecany model do użytku na komputerze. Wprowadzamy w nim kilka nowych funkcji:
 
-- **التوافق مع بيئات متعددة:** يمكنك إنشاء وكلاء لبيئات [المتصفّح والأجهزة الجوّالة وأجهزة الكمبيوتر](#supported-environments).
-- **إجراءات مبسطة مع نوايا:** تتضمّن الإجراءات الحقل `intent` الذي يوضّح الأساس المنطقي للنموذج وراء كل خطوة.
-- **سياسات الأمان القابلة للإعداد:** يمكنك تحسين [سلوك الأمان](#safety-policies) باستخدام فئات السياسات وعناصر التجاوز المضمّنة.
-- **رصد عمليات حقن الطلبات:** فعِّل ميزة [فحص لقطات الشاشة](#prompt-injection) لرصد التعليمات الخفية التي تهدف إلى خداع الذكاء الاصطناعي.
+- **Obsługa wielu środowisk:** twórz agentów dla środowisk [przeglądarki, urządzeń mobilnych i komputerów](#supported-environments).
+- **Uproszczone działania z intencjami:** działania zawierają pole `intent`, które wyjaśnia uzasadnienie modelu dla każdego kroku.
+- **Konfigurowalne zasady bezpieczeństwa:** dostosuj [zachowanie związane z bezpieczeństwem](#safety-policies) za pomocą wbudowanych kategorii zasad i zastąpień.
+- **Wykrywanie wstrzykiwania promptów:** włącz [skanowanie zrzutów ekranu](#prompt-injection), aby wykrywać ukryte instrukcje.
 
-باستخدام "استخدام الكمبيوتر"، يمكنك إنشاء وكلاء تنفيذ المهام الذين:
+Za pomocą funkcji Korzystanie z komputera możesz tworzyć agentów, którzy:
 
-- أتمتة إدخال البيانات المتكرّر أو ملء النماذج على المواقع الإلكترونية
-- إجراء اختبار آلي لتطبيقات الويب وتفاعلات المستخدمين
-- إجراء بحث على مواقع إلكترونية مختلفة (مثل جمع معلومات المنتجات والأسعار والمراجعات من مواقع التجارة الإلكترونية للمساعدة في اتخاذ قرار الشراء)
+- automatyzować powtarzające się wprowadzanie danych lub wypełnianie formularzy w witrynach;
+- Przeprowadzanie automatycznych testów aplikacji internetowych i ścieżek użytkownika
+- prowadzić wyszukiwanie w różnych witrynach (np. zbierać informacje o produktach, cenach i opiniach w witrynach e-commerce, aby podjąć decyzję o zakupie);
 
-في ما يلي مثال بسيط على تفعيل أداة "استخدام الكمبيوتر":
+Oto krótki przykład włączania narzędzia do korzystania z komputera:
 
 ### Python
 
@@ -81,46 +81,46 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-## طريقة عمل ميزة "استخدام الكمبيوتر"
+## Jak działa korzystanie z komputera
 
-لإنشاء وكيل باستخدام نموذج "استخدام الكمبيوتر"، عليك إعداد حلقة متواصلة بين تطبيقك وواجهة برمجة التطبيقات. في ما يلي ما سيفعله الرمز في كل خطوة:
+Aby utworzyć agenta z modelem Computer Use, musisz skonfigurować ciągłą pętlę między aplikacją a interfejsem API. Oto, co Twój kod
+będzie robić na każdym etapie:
 
-1. [**إرسال طلب إلى النموذج**](#send-request)
-   - يرسل تطبيقك طلبًا إلى واجهة برمجة التطبيقات يحتوي على أداة "استخدام الكمبيوتر"، وإعدادات التهيئة (مثل البيئة المستهدَفة)، وطلب المستخدم، ولقطة شاشة للشاشة الحالية.
-2. [**تلقّي ردّ النموذج**](#model-response)
-   - يحلّل النموذج الشاشة والطلب، ويعرض ردًا يتضمّن `function_call` مقترَحًا يمثّل إجراءً في واجهة المستخدم (مثل النقر أو التمرير أو ضغط المفاتيح).
-   - بالنسبة إلى **Gemini 3.5 Flash**، يتضمّن الرد أيضًا استدلالًا `intent` يوضّح سبب اختيار النموذج لهذا الإجراء.
-   - قد يتضمّن الرد أيضًا `safety_decision` من نظام أمان داخلي يصنّف الإجراء على أنّه عادي/مسموح به، أو `require_confirmation` (يتطلّب موافقة المستخدم)، أو محظور.
-3. [**تنفيذ الإجراء الذي تم استلامه**](#execute-actions)
-   - إذا كان الإجراء مسموحًا به (أو إذا أكّده المستخدم)، سيحلّل الرمز البرمجي من جهة العميل `function_call`، ويغيّر حجم الإحداثيات العادية لتتطابق مع إطار العرض، وينفّذ الإجراء في بيئة الاستهداف باستخدام أدوات التشغيل الآلي (مثل Playwright). إذا تم حظر الإجراء، على العميل إيقاف التنفيذ أو التعامل مع الانقطاع.
-4. [**تسجيل حالة البيئة الجديدة**](#capture-state)
-   - بعد انتهاء تنفيذ الإجراء، يلتقط تطبيقك لقطة شاشة جديدة ويرسلها إلى النموذج في `function_result` لطلب الخطوة التالية.
+1. [**Wysyłanie żądania do modelu**](#send-request)
+   - Aplikacja wysyła żądanie do interfejsu API zawierające narzędzie Computer Use, ustawienia konfiguracji (np. środowisko docelowe), prompt użytkownika i zrzut ekranu.
+2. [**Otrzymywanie odpowiedzi od modelu**](#model-response)
+   - Model analizuje ekran i prompt, a następnie zwraca odpowiedź, która zawiera sugerowany `function_call` reprezentujący działanie w interfejsie (np. kliknięcie, przewinięcie lub naciśnięcie klawisza).
+   - W przypadku **Gemini 3.5 Flash** odpowiedź zawiera też uzasadnienie`intent` wyjaśniające, dlaczego model wybrał to działanie.
+   - Odpowiedź może też zawierać `safety_decision` z wewnętrznego systemu bezpieczeństwa, który klasyfikuje działanie jako zwykłe/dozwolone, `require_confirmation` (wymagające zatwierdzenia przez użytkownika) lub zablokowane.
+3. [**Wykonaj otrzymane działanie**](#execute-actions)
+   - Jeśli działanie jest dozwolone (lub użytkownik je potwierdzi), kod po stronie klienta analizuje `function_call`, skaluje znormalizowane współrzędne, aby dopasować je do widocznego obszaru, i wykonuje działanie w środowisku docelowym za pomocą narzędzi do automatyzacji (takich jak Playwright). Jeśli działanie jest zablokowane, klient powinien wstrzymać wykonanie lub obsłużyć przerwanie.
+4. [**Zapisz stan nowego środowiska**](#capture-state)
+   - Po wykonaniu działania aplikacja robi nowy zrzut ekranu i wysyła go z powrotem do modelu w `function_result`, aby poprosić o kolejny krok.
 
-بعد ذلك، تتكرر هذه العملية بدءًا من الخطوة 2، ويتم باستمرار طلب الإجراء التالي من النموذج إلى أن تكتمل المهمة أو يتم إنهاؤها.
+Proces ten powtarza się od kroku 2, stale prosząc model o wykonanie kolejnej czynności, dopóki zadanie nie zostanie ukończone lub przerwane.
 
-![نظرة عامة حول استخدام الكمبيوتر](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=ar)
+![Omówienie korzystania z komputera](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=pl)
 
-## كيفية تنفيذ ميزة "استخدام الكمبيوتر"
+## Jak wdrożyć korzystanie z komputera
 
-قبل استخدام أداة "استخدام الكمبيوتر"، عليك إعداد ما يلي:
+Zanim zaczniesz korzystać z narzędzia do używania komputera, musisz skonfigurować:
 
-- **بيئة التنفيذ الآمنة:** شغِّل وكيلك في جهاز افتراضي أو حاوية في وضع الحماية لعزله عن نظامك المضيف والحدّ من تأثيره المحتمل.
-  يتضمّن [التنفيذ المرجعي](https://github.com/google/computer-use-preview/)
-  بيئة اختبارية جاهزة للاستخدام تستند إلى Docker ويمكنك استخدامها كنقطة بداية.
-- **معالج الإجراءات من جهة العميل:** نفِّذ منطقًا من جهة العميل لتنفيذ الإحداثيات وكتابة النص وأخذ لقطات شاشة.
+- **Bezpieczne środowisko wykonawcze:** uruchamiaj agenta w piaskownicy w maszynie wirtualnej lub kontenerze, aby odizolować go od systemu hosta i ograniczyć jego potencjalny wpływ.
+  [Implementacja referencyjna](https://github.com/google/computer-use-preview/) zawiera gotową do użycia piaskownicę opartą na Dockerze, której możesz użyć jako punktu początkowego.
+- **Obsługa działań po stronie klienta:** wdróż logikę po stronie klienta, aby wykonywać działania związane z współrzędnymi, wpisywać tekst i robić zrzuty ekranu.
 
-تستخدِم الأمثلة أدناه متصفّح ويب كبيئة تنفيذ و[Playwright](https://playwright.dev/) كأداة معالجة من جهة العميل.
+W przykładach poniżej jako środowiska wykonawczego używamy przeglądarki, a jako modułu obsługi po stronie klienta – [Playwright](https://playwright.dev/).
 
-### ‫0. إعداد Playwright
+### 0. Konfigurowanie Playwright
 
-أولاً، ثبِّت الحِزم المطلوبة:
+Najpierw zainstaluj wymagane pakiety:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-بعد ذلك، ابدأ مثيلاً لمتصفّح Playwright لاستخدامه في التنفيذ:
+Następnie zainicjuj instancję przeglądarki Playwright, która będzie używana do wykonywania:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -148,15 +148,15 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. إرسال طلب إلى النموذج
+### 1. Wysyłanie żądania do modelu
 
-ابدأ مكتبة البرامج واضبط أداة "استخدام الكمبيوتر". يُرجى العِلم أنّه ليس من الضروري تحديد حجم العرض عند إرسال طلب، فالنموذج يتوقّع إحداثيات البكسل التي تم تغيير حجمها لتناسب ارتفاع الشاشة وعرضها.
+Zainicjuj bibliotekę klienta i skonfiguruj narzędzie Computer Use. Pamiętaj, że podczas wysyłania żądania nie musisz określać rozmiaru wyświetlacza. Model przewiduje współrzędne pikseli przeskalowane do wysokości i szerokości ekranu.
 
-### ‫Gemini 3.5 Flash (يُنصح به)
+### Gemini 3.5 Flash (zalecany)
 
 ### Python
 
-استخدِم حزمة تطوير البرامج (SDK) `google-genai` Python (الإصدار `2.7.0` أو إصدار أحدث) لإعداد طلب يستهدف بيئة المتصفّح:
+Użyj `google-genai`pakietu Python SDK (w wersji `2.7.0` lub nowszej), aby skonfigurować żądanie kierowane na środowisko przeglądarki:
 
 ```
 from google import genai
@@ -202,7 +202,7 @@ print(response.text)
 
 ### JavaScript
 
-استخدِم حزمة تطوير البرامج (SDK) الخاصة بـ Node.js في `@google/genai` لإعداد طلب يستهدف بيئة المتصفّح:
+Użyj pakietu `@google/genai` Node.js SDK, aby skonfigurować żądanie kierowane na środowisko przeglądarki:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -235,7 +235,7 @@ console.log(response.text);
 
 ### REST
 
-استخدِم curl لإرسال طلب:
+Użyj polecenia curl, aby wysłać żądanie:
 
 ```
 curl -X POST \
@@ -261,7 +261,7 @@ curl -X POST \
   }'
 ```
 
-### ‫Gemini 2.5 (الإصدار القديم)
+### Gemini 2.5 (starsza wersja)
 
 ### Python
 
@@ -335,12 +335,11 @@ const response = await ai.models.generateContent({
 console.log(response);
 ```
 
-### 2. تلقّي ردّ النموذج
+### 2. Otrzymywanie odpowiedzi modelu
 
-يقترح نموذج الردّ استدعاء دالة. بالنسبة إلى **Gemini 3.5 Flash**،
-يتضمّن الرد نية استدلال مخصّصة بالإضافة إلى الإحداثيات. يوضّح ما يلي أمثلة على كلا الردّين:
+Model odpowiedzi sugeruje wywołanie funkcji. W przypadku **Gemini 3.5 Flash** odpowiedź zawiera dostosowany zamiar rozumowania wraz z współrzędnymi. Poniżej znajdziesz przykłady obu odpowiedzi:
 
-### Gemini 3.5 Flash
+### Gemini 3.5 Flash
 
 ```
 {
@@ -355,7 +354,7 @@ console.log(response);
 }
 ```
 
-### ‫Gemini 2.5 (الإصدار القديم)
+### Gemini 2.5 (starsza wersja)
 
 ```
 {
@@ -380,11 +379,11 @@ console.log(response);
 }
 ```
 
-### 3- تنفيذ الإجراءات التي تم تلقّيها
+### 3. wykonywać otrzymane działania,
 
-يجب أن يحلّل الرمز البرمجي لتطبيقك استجابة النموذج، وينفّذ الإجراءات، ويجمع النتائج.
+Kod aplikacji musi przeanalizować odpowiedź modelu, wykonać działania i zebrać wyniki.
 
-يتعامل الرمز أدناه مع أوامر الأدوات القديمة (`click_at` و`type_text_at`) وأوامر Gemini 3.5 Flash المبسّطة (`click` و`type`).
+Poniższy kod obsługuje zarówno starsze polecenia narzędzi (`click_at`, `type_text_at`), jak i uproszczone polecenia Gemini 3.5 Flash (`click`, `type`).
 
 ### Python
 
@@ -568,9 +567,9 @@ async function executeFunctionCalls(candidate, page, screenWidth, screenHeight) 
 }
 ```
 
-### 4. تسجيل حالة البيئة الجديدة
+### 4. Przechwyć nowy stan środowiska
 
-التقط تمثيلاً للشاشة وأرسِله إلى النموذج.
+Przechwytywanie reprezentacji ekranu i przekazywanie jej do modelu.
 
 ### Python
 
@@ -630,13 +629,13 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
-بعد تحديد كيفية تسجيل حالة البيئة وتنسيقها، يمكنك دمج كل هذه الخطوات في حلقة تنفيذ مستمرة.
+Po określeniu sposobu rejestrowania i formatowania stanu środowiska możesz połączyć wszystkie te kroki w ciągłą pętlę wykonywania.
 
-## إنشاء حلقة وكيل
+## Tworzenie pętli agenta
 
-لتفعيل التفاعلات المتعدّدة الخطوات، ادمِج الخطوات الأربع من قسم [كيفية تنفيذ ميزة "استخدام الكمبيوتر"](#implement-computer-use) في حلقة واحدة. تستمر هذه الحلقة في طلب تنفيذ إجراءات وإعادة النتائج إلى النموذج إلى أن تكتمل المهمة.
+Aby włączyć interakcje wieloetapowe, połącz w jedną pętlę 4 kroki z sekcji [Jak wdrożyć korzystanie z komputera](#implement-computer-use). Pętla ta będzie kontynuować wysyłanie próśb o działania i przekazywanie wyników z powrotem do modelu, dopóki zadanie nie zostanie wykonane.
 
-تذكَّر إدارة سجلّ المحادثات بشكل صحيح من خلال إضافة ردود النموذج وردود الوظائف إلى السجلّ في كل خطوة.
+Pamiętaj, aby prawidłowo zarządzać historią rozmowy, dodając do niej na każdym etapie odpowiedzi modelu i odpowiedzi funkcji.
 
 ### Python
 
@@ -821,107 +820,107 @@ try {
 }
 ```
 
-## البيئات المتوافقة (Gemini 3.5 Flash)
+## Obsługiwane środowiska (Gemini 3.5 Flash)
 
-يتوافق Gemini 3.5 Flash مع ثلاث بيئات محدّدة في إعدادات `computer_use`:
+Model Gemini 3.5 Flash obsługuje 3 środowiska określone w `computer_use` konfiguracjach:
 
-### بيئة المتصفّح (`ENVIRONMENT_BROWSER`)
+### Środowisko przeglądarki (`ENVIRONMENT_BROWSER`)
 
-إجراءات الأزرار ضمن أداة المتصفّح:
+Działania dotyczące czynności w narzędziu przeglądarki:
 
-| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) |
 | --- | --- | --- |
-| **click** | انقر بالزر الأيسر للفأرة على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **double\_click** | انقر مرّتين على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **triple\_click** | انقر ثلاث مرات على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **middle\_click** | انقر بزر الماوس الأوسط على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **right\_click** | انقر بزر الماوس الأيمن على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **mouse\_down** | يضغط مع الاستمرار على زر الماوس عند الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **mouse\_up** | يرفع إصبعك عن زر الماوس عند الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **نقل** | تنقل هذه السمة المؤشر إلى الموضع المحدّد. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **type** | كتابة نص | ‫`text`: str `press_enter`: bool (اختياري، القيمة التلقائية `false`) `intent`: str |
-| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية إلى إحداثيات النهاية. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | يوقف التنفيذ مؤقتًا لعدد محدّد من الثواني. | ‫`seconds`: int (اختياري، القيمة التلقائية `1`) `intent`: str |
-| **press\_key** | يضغط على المفتاح المحدّد ثم يحرّره. | `key`: str `intent`: str |
-| **key\_down** | يضغط مع الاستمرار على المفتاح المحدّد. | `key`: str `intent`: str |
-| **key\_up** | تُستخدَم هذه الطريقة لتحرير المفتاح المحدّد. | `key`: str `intent`: str |
-| **مفتاح الاختصار** | يضغط على مجموعة المفاتيح المحدّدة. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | تعرض هذه الدالة لقطة شاشة للشاشة الحالية. | ‫`intent`: str |
-| **scroll** | التمرير للأعلى أو للأسفل أو لليسار أو لليمين عند إحداثية معيّنة بمسافة بكسل | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `direction`: سلسلة (`"up"`، `"down"`، `"left"`، `"right"`) `magnitude_in_pixels`: عدد صحيح (0-999، اختياري، القيمة التلقائية `300`) `intent`: سلسلة |
-| **go\_back** | للرجوع إلى صفحة الويب السابقة في سجلّ المتصفّح | ‫`intent`: str |
-| **navigate** | ينتقِل مباشرةً إلى عنوان URL محدّد. | `url`: str `intent`: str |
-| **go\_forward** | ينتقِل إلى صفحة الويب التالية في سجلّ التصفّح. | ‫`intent`: str |
+| **kliknąć** | Lewy przycisk myszy kliknie w danym punkcie. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **double\_click** | Dwukrotne kliknięcie współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **triple\_click** | Trzykrotne kliknięcie we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **middle\_click** | Kliknięcie środkowym przyciskiem w danym miejscu. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **right\_click** | Kliknięcia prawym przyciskiem myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_down** | Naciska i przytrzymuje przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_up** | Zwalnia przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **przenieść** | Przenosi kursor w określone miejsce. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **type** | Wpisuje tekst. | `text`: str `press_enter`: bool (opcjonalny, domyślnie `false`) `intent`: str |
+| **drag\_and\_drop** | Przeciąga element od współrzędnych początkowych do końcowych. | `start_y`: int (0–999) `start_x`: int (0–999) `end_y`: int (0–999) `end_x`: int (0–999) `intent`: str |
+| **wait** | Wstrzymuje wykonywanie na określony czas (w sekundach). | `seconds`: int (opcjonalny, domyślnie `1`) `intent`: str |
+| **press\_key** | Naciśnięcie i zwolnienie określonego klawisza. | `key`: str `intent`: str |
+| **key\_down** | Naciśnięcie i przytrzymanie określonego klawisza. | `key`: str `intent`: str |
+| **key\_up** | Zwalnia określony klawisz. | `key`: str `intent`: str |
+| **klawisz skrótu** | Naciśnięcie określonej kombinacji klawiszy. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Zwraca zrzut bieżącego ekranu. | `intent`: str |
+| **scroll** | Przewija w górę, w dół, w lewo lub w prawo o określoną liczbę pikseli. | `y`: int (0–999) `x`: int (0–999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0–999, opcjonalnie, domyślnie `300`) `intent`: str |
+| **go\_back** | Wracasz do poprzedniej strony w historii przeglądarki. | `intent`: str |
+| **navigate** | Przechodzi bezpośrednio do określonego adresu URL. | `url`: str `intent`: str |
+| **go\_forward** | Przechodzi do następnej strony internetowej w historii przeglądarki. | `intent`: str |
 
-### بيئة الأجهزة الجوّالة (`ENVIRONMENT_MOBILE`)
+### Środowisko mobilne (`ENVIRONMENT_MOBILE`)
 
-إجراءات البيئة المحسّنة على Android:
+Działania w środowisku zoptymalizowanym pod kątem Androida:
 
-| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) |
 | --- | --- | --- |
-| **open\_app** | يفتح تطبيقًا باسمه. | `app_name`: str `intent`: str |
-| **click** | انقر بالزر الأيسر للفأرة على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **list\_apps** | تعرض هذه الطريقة التطبيقات المتاحة على الجهاز، وتعرض أسماءها وأسماء حِزمها. | ‫`intent`: str |
-| **wait** | يوقف التنفيذ مؤقتًا لعدد محدّد من الثواني. | ‫`seconds`: int (اختياري، القيمة التلقائية `1`) `intent`: str |
-| **go\_back** | للرجوع إلى الشاشة أو صفحة الويب السابقة | ‫`intent`: str |
-| **type** | كتابة نص | ‫`text`: str `press_enter`: bool (اختياري، القيمة التلقائية `false`) `intent`: str |
-| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية إلى إحداثيات النهاية. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | تنفيذ ضغطة مع الاستمرار على إحداثيات معيّنة على الشاشة | ‫`y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `seconds`: عدد صحيح (اختياري، القيمة التلقائية `2`) `intent`: سلسلة |
-| **press\_key** | يضغط على المفتاح المحدّد ثم يحرّره. | `key`: str `intent`: str |
-| **take\_screenshot** | تعرض هذه الدالة لقطة شاشة للشاشة الحالية. | ‫`intent`: str |
+| **open\_app** | Otwiera aplikację według nazwy. | `app_name`: str `intent`: str |
+| **kliknąć** | Lewy przycisk myszy kliknie w danym punkcie. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **list\_apps** | Wyświetla listę aplikacji dostępnych na urządzeniu, zwracając ich nazwy i nazwy pakietów. | `intent`: str |
+| **wait** | Wstrzymuje wykonywanie na określony czas (w sekundach). | `seconds`: int (opcjonalny, domyślnie `1`) `intent`: str |
+| **go\_back** | Cofasz się do poprzedniego ekranu lub strony internetowej. | `intent`: str |
+| **type** | Wpisuje tekst. | `text`: str `press_enter`: bool (opcjonalny, domyślnie `false`) `intent`: str |
+| **drag\_and\_drop** | Przeciąga element od współrzędnych początkowych do końcowych. | `start_y`: int (0–999) `start_x`: int (0–999) `end_y`: int (0–999) `end_x`: int (0–999) `intent`: str |
+| **long\_press** | Wykonuje długie naciśnięcie w określonym miejscu na ekranie. | `y`: int (0–999) `x`: int (0–999) `seconds`: int (opcjonalnie, domyślnie `2`) `intent`: str |
+| **press\_key** | Naciśnięcie i zwolnienie określonego klawisza. | `key`: str `intent`: str |
+| **take\_screenshot** | Zwraca zrzut bieżącego ekranu. | `intent`: str |
 
-### بيئة الكمبيوتر المكتبي (`ENVIRONMENT_DESKTOP`)
+### Środowisko graficzne (`ENVIRONMENT_DESKTOP`)
 
-أوامر المؤشر على مستوى نظام التشغيل في بيئات سطح المكتب:
+Polecenia kursora na poziomie systemu operacyjnego w środowiskach desktopowych:
 
-| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) |
 | --- | --- | --- |
-| **click** | انقر بالزر الأيسر للفأرة على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **double\_click** | انقر مرّتين على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **triple\_click** | انقر ثلاث مرات على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **middle\_click** | انقر بزر الماوس الأوسط على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **right\_click** | انقر بزر الماوس الأيمن على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **mouse\_down** | يضغط مع الاستمرار على زر الماوس عند الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **mouse\_up** | يرفع إصبعك عن زر الماوس عند الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **نقل** | تنقل هذه السمة المؤشر إلى الموضع المحدّد. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
-| **type** | كتابة نص | ‫`text`: str `press_enter`: bool (اختياري، القيمة التلقائية `false`) `intent`: str |
-| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية إلى إحداثيات النهاية. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | يوقف التنفيذ مؤقتًا لعدد محدّد من الثواني. | ‫`seconds`: int (اختياري، القيمة التلقائية `1`) `intent`: str |
-| **press\_key** | يضغط على المفتاح المحدّد ثم يحرّره. | `key`: str `intent`: str |
-| **key\_down** | يضغط مع الاستمرار على المفتاح المحدّد. | `key`: str `intent`: str |
-| **key\_up** | تُستخدَم هذه الطريقة لتحرير المفتاح المحدّد. | `key`: str `intent`: str |
-| **مفتاح الاختصار** | يضغط على مجموعة المفاتيح المحدّدة. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | تعرض هذه الدالة لقطة شاشة للشاشة الحالية. | ‫`intent`: str |
-| **scroll** | التمرير للأعلى أو للأسفل أو لليسار أو لليمين عند إحداثية معيّنة بمسافة بكسل | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `direction`: سلسلة (`"up"`، `"down"`، `"left"`، `"right"`) `magnitude_in_pixels`: عدد صحيح (0-999، اختياري، القيمة التلقائية `300`) `intent`: سلسلة |
+| **kliknąć** | Lewy przycisk myszy kliknie w danym punkcie. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **double\_click** | Dwukrotne kliknięcie współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **triple\_click** | Trzykrotne kliknięcie we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **middle\_click** | Kliknięcie środkowym przyciskiem w danym miejscu. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **right\_click** | Kliknięcia prawym przyciskiem myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_down** | Naciska i przytrzymuje przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_up** | Zwalnia przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **przenieść** | Przenosi kursor w określone miejsce. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **type** | Wpisuje tekst. | `text`: str `press_enter`: bool (opcjonalny, domyślnie `false`) `intent`: str |
+| **drag\_and\_drop** | Przeciąga element od współrzędnych początkowych do końcowych. | `start_y`: int (0–999) `start_x`: int (0–999) `end_y`: int (0–999) `end_x`: int (0–999) `intent`: str |
+| **wait** | Wstrzymuje wykonywanie na określony czas (w sekundach). | `seconds`: int (opcjonalny, domyślnie `1`) `intent`: str |
+| **press\_key** | Naciśnięcie i zwolnienie określonego klawisza. | `key`: str `intent`: str |
+| **key\_down** | Naciśnięcie i przytrzymanie określonego klawisza. | `key`: str `intent`: str |
+| **key\_up** | Zwalnia określony klawisz. | `key`: str `intent`: str |
+| **klawisz skrótu** | Naciśnięcie określonej kombinacji klawiszy. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Zwraca zrzut bieżącego ekranu. | `intent`: str |
+| **scroll** | Przewija w górę, w dół, w lewo lub w prawo o określoną liczbę pikseli. | `y`: int (0–999) `x`: int (0–999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0–999, opcjonalnie, domyślnie `300`) `intent`: str |
 
-## إجراءات واجهة المستخدم المتوافقة مع الإصدارات القديمة (Gemini 2.5)
+## Starsze obsługiwane działania w interfejsie (Gemini 2.5)
 
-بالنسبة إلى النماذج القديمة (`gemini-2.5-computer-use-preview-10-2025`)، تتوفّر الإجراءات التالية:
+W przypadku starszych modeli (`gemini-2.5-computer-use-preview-10-2025`) obsługiwane są te działania:
 
-| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) | مثال على استدعاء الدالة |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) | Przykładowe wywołanie funkcji |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | يفتح متصفّح الويب. | بلا | `{"name": "open_web_browser", "args": {}}` |
-| **wait\_5\_seconds** | يوقف التنفيذ مؤقتًا لمدة 5 ثوانٍ. | بلا | `{"name": "wait_5_seconds", "args": {}}` |
-| **go\_back** | ينقلك هذا الزر إلى الصفحة السابقة في السجلّ. | بلا | `{"name": "go_back", "args": {}}` |
-| **go\_forward** | للانتقال إلى الصفحة التالية في السجلّ | بلا | `{"name": "go_forward", "args": {}}` |
-| **search** | ينتقِل إلى محرك البحث التلقائي. | بلا | `{"name": "search", "args": {}}` |
-| **navigate** | ينقل المتصفّح مباشرةً إلى عنوان URL المحدّد. | ‫`url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | النقرات في إحداثيات معيّنة | ‫`y`: عدد صحيح (من 0 إلى 999)، `x`: عدد صحيح (من 0 إلى 999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
-| **hover\_at** | يحوم الماوس عند إحداثيات معيّنة. | ‫`y`: عدد صحيح (من 0 إلى 999)، `x`: عدد صحيح (من 0 إلى 999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | كتابة نص في إحداثية | ‫`y`: عدد صحيح (0-999)، `x`: عدد صحيح (0-999)، `text`: سلسلة، `press_enter`: قيمة منطقية (اختيارية، القيمة التلقائية هي True)، `clear_before_typing`: قيمة منطقية (اختيارية، القيمة التلقائية هي True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | اضغط على المفاتيح أو المجموعات. | ‫`keys`: str | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
-| **scroll\_document** | تؤدي إلى تمرير صفحة الويب بأكملها. | ‫`direction`: str | `{"name": "scroll_document", "args": {"direction": "down"}}` |
-| **scroll\_at** | يتم التمرير عند الإحداثي (x,y). | ‫`y`: int، ‏`x`: int، ‏`direction`: str، ‏`magnitude`: int (اختياري، القيمة التلقائية 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | عمليات السحب بين إحداثيتَين | ‫`y`: int، ‏`x`: int، ‏`destination_y`: int، ‏`destination_x`: int | `{"name": "drag_and_drop", "args": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+| **open\_web\_browser** | Otwiera przeglądarkę. | Brak | `{"name": "open_web_browser", "args": {}}` |
+| **wait\_5\_seconds** | Wstrzymuje wykonywanie na 5 sekund. | Brak | `{"name": "wait_5_seconds", "args": {}}` |
+| **go\_back** | Przechodzi do poprzedniej strony w historii. | Brak | `{"name": "go_back", "args": {}}` |
+| **go\_forward** | Przechodzi do następnej strony w historii. | Brak | `{"name": "go_forward", "args": {}}` |
+| **search** | Przechodzi do domyślnej wyszukiwarki. | Brak | `{"name": "search", "args": {}}` |
+| **navigate** | Przekierowuje przeglądarkę bezpośrednio na podany adres URL. | `url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Kliknięcia w określonych współrzędnych. | `y`: int (0–999), `x`: int (0–999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
+| **hover\_at** | Umieszcza wskaźnik myszy w określonym miejscu. | `y`: int (0–999), `x`: int (0–999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Wpisuje tekst we współrzędnych. | `y`: int (0–999), `x`: int (0–999), `text`: str, `press_enter`: bool (opcjonalny, domyślnie True), `clear_before_typing`: bool (opcjonalny, domyślnie True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | Naciśnij klawisze lub kombinacje klawiszy. | `keys`: str | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
+| **scroll\_document** | Przewija całą stronę internetową. | `direction`: str | `{"name": "scroll_document", "args": {"direction": "down"}}` |
+| **scroll\_at** | Przewija do współrzędnych (x,y). | `y`: int, `x`: int, `direction`: str, `magnitude`: int (opcjonalnie, domyślnie 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | Przeciąganie między dwoma współrzędnymi. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "args": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
 
-## الدوال المخصّصة من تحديد المستخدم
+## Funkcje niestandardowe zdefiniowane przez użytkownika
 
-يمكنك توسيع وظائف النموذج من خلال تضمين دوال مخصّصة يحدّدها المستخدم. على سبيل المثال، في سيناريوهات المشاركة البشرية (HITL)، يمكنك استبعاد الإجراءات التلقائية المحدّدة مسبقًا وتسجيل إجراءات مخصّصة.
+Możesz rozszerzyć funkcjonalność modelu, dodając niestandardowe funkcje zdefiniowane przez użytkownika. Na przykład w scenariuszach z udziałem człowieka (HITL) możesz wykluczyć domyślne, wstępnie zdefiniowane działania i zarejestrować działania niestandardowe.
 
 #### Gemini 3.5 Flash Custom Tooling
 
 ### Python
 
-استبعِد إجراءات المتصفّح العادية المحدّدة مسبقًا (مثل `click`) وسجِّل أداة `yield_to_user` مخصّصة:
+Wyklucz standardowe, zdefiniowane wstępnie działania przeglądarki (np. `click`) i zarejestruj niestandardowe narzędzie `yield_to_user`:
 
 ```
 from google import genai
@@ -961,7 +960,7 @@ response = client.models.generate_content(
 )
 ```
 
-#### أدوات مخصّصة (قديمة) في Gemini 2.5
+#### Niestandardowe narzędzia Gemini 2.5 (starsza wersja)
 
 ### Python
 
@@ -991,29 +990,29 @@ def make_generate_content_config():
     return generate_content_config
 ```
 
-## إدارة مستويات التفكير (Gemini 3.5 Flash)
+## Zarządzanie poziomami myślenia (Gemini 3.5 Flash)
 
-بالنسبة إلى وكلاء استخدام الكمبيوتر، يمكنك ضبط مستويات تفكير مختلفة لتحقيق التوازن بين جودة الإجراء وسرعة التنفيذ. بشكل عام، تحقق مستويات التفكير المنخفضة توازنًا جيدًا لمهام التشغيل الآلي العادية.
+W przypadku agentów korzystających z komputera możesz skonfigurować różne poziomy myślenia, aby zrównoważyć jakość działania i szybkość wykonywania. Niższe poziomy myślenia zwykle zapewniają dobrą równowagę w przypadku standardowych zadań automatyzacji.
 
-## السلامة والأمان
+## Bezpieczeństwo
 
-### ضبط سياسات الأمان (Gemini 3.5 Flash)
+### Konfigurowanie zasad bezpieczeństwa (Gemini 3.5 Flash)
 
-يتضمّن نموذج Gemini 3.5 Flash فئات خدمات أمان مُدمَجة تحدّد تلقائيًا ما إذا كان تأكيد المستخدم مطلوبًا.
+Model Gemini 3.5 Flash zawiera wbudowane kategorie usług związane z bezpieczeństwem, które automatycznie określają, czy wymagane jest potwierdzenie użytkownika.
 
-| فئة سياسة السلامة | الوصف |
+| Kategoria zasad bezpieczeństwa | Opis |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | يحظر أو يشغّل تأكيدًا للإجراءات التي تتضمّن دفعات أو إتمام عملية شراء بالتجزئة أو سلعًا خاضعة للرقابة. |
-| `SENSITIVE_DATA_MODIFICATION` | يحمي السجلات الصحية أو المالية أو الحكومية من التعديل غير المصرّح به. |
-| `COMMUNICATION_TOOL` | يمنع الوكيل من إرسال رسائل إلكترونية أو رسائل محادثة أو مسودات بشكل مستقل. |
-| `ACCOUNT_CREATION` | يمنع هذا الخيار الوكيل من تسجيل حسابات جديدة بشكل مستقل على المواقع الإلكترونية. |
-| `DATA_MODIFICATION` | تنظّم هذه السياسة التعديلات العامة على نظام الملفات ومشاركة البيانات وحذف مساحة التخزين. |
-| `USER_CONSENT_MANAGEMENT` | يتطلّب ذلك أن يتولّى المستخدم إدارة بانرات الموافقة على ملفات تعريف الارتباط وطلبات الموافقة على الخصوصية. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | يمنع النموذج من قبول بنود الخدمة أو العقود الملزمة قانونًا بشكل مستقل. |
+| `FINANCIAL_TRANSACTIONS` | blokuje lub wywołuje potwierdzenie działań związanych z płatnościami, płatnościami w sklepie lub towarami podlegającymi regulacjom; |
+| `SENSITIVE_DATA_MODIFICATION` | chroni dokumentację medyczną, finansową i państwową przed nieuprawnionymi modyfikacjami; |
+| `COMMUNICATION_TOOL` | Ogranicza możliwość samodzielnego wysyłania e-maili, wiadomości na czacie lub wersji roboczych przez agenta. |
+| `ACCOUNT_CREATION` | Ogranicza możliwość autonomicznego rejestrowania nowych kont w witrynach przez agenta. |
+| `DATA_MODIFICATION` | Reguluje ogólne modyfikacje systemu plików, udostępnianie danych i usuwanie pamięci. |
+| `USER_CONSENT_MANAGEMENT` | Wymaga przejęcia kontroli nad stroną przez banery z prośbą o zgodę na stosowanie plików cookie i komunikaty dotyczące prywatności. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | Zapobiega samodzielnemu akceptowaniu przez model Warunków korzystania z usługi lub prawnie wiążących umów. |
 
-#### تجاهل إعدادات الأمان
+#### Zastąpienia bezpieczeństwa
 
-يمكنك إلغاء سياسات محدّدة من خلال تمرير عمليات الإلغاء:
+Możesz zastąpić wybrane zasady, przekazując zastąpienia:
 
 ### Python
 
@@ -1064,13 +1063,13 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### رصد هجمات حقن الطلبات (Gemini 3.5 Flash)
+### Wykrywanie wstrzykiwania promptów (Gemini 3.5 Flash)
 
-آلية أمان تتطلّب موافقة المستخدم، وتفحص وحدات البكسل في لقطة الشاشة بحثًا عن تعليمات خفية معادية (مثل "تجاهل الأوامر السابقة") وتحظر تنفيذها عند رصدها.
+Opcjonalny mechanizm bezpieczeństwa, który skanuje piksele zrzutu ekranu pod kątem ukrytych instrukcji dotyczących promptów (np. „Zignoruj poprzednie polecenia”) i blokuje wykonanie, gdy zostaną wykryte.
 
-### تأكيد قرار الأمان
+### Potwierdzenie decyzji dotyczącej bezpieczeństwa
 
-قد يتضمّن الردّ المَعلمة `safety_decision` في وسيطات استدعاء الدالة:
+Odpowiedź może zawierać parametr `safety_decision` w argumentach wywołania funkcji:
 
 ```
 {
@@ -1088,7 +1087,7 @@ const response = await ai.models.generateContent({
 }
 ```
 
-إذا كانت قيمة `safety_decision` هي `require_confirmation`، اطلب من المستخدم النهائي اتّخاذ إجراء. إذا أكّد المستخدم ذلك، اضبط `safety_acknowledgement` في `FunctionResponse`.
+Jeśli wartość `safety_decision` to `require_confirmation`, wyświetl użytkownikowi odpowiedni komunikat. Jeśli użytkownik potwierdzi, ustaw wartość `safety_acknowledgement` w `FunctionResponse`.
 
 ### Python
 
@@ -1107,15 +1106,14 @@ if 'safety_decision' in function_call.args:
     action_result["safety_acknowledgement"] = True
 ```
 
-### أفضل الممارسات المتعلّقة بالأمان
+### Sprawdzone metody ochrony bezpieczeństwa
 
-تتضمّن ميزة &quot;استخدام الكمبيوتر&quot; مخاطر فريدة تتعلّق بالأمان والتشغيل، إذ قد يواجه النموذج محتوًى غير موثوق به على الشاشات أو يرتكب أخطاءً في تنفيذ الإجراءات نيابةً عن المستخدم. اتّبِع أفضل الممارسات التالية لحماية بيانات المستخدمين وأنظمتهم:
+Korzystanie z komputera wiąże się z wyjątkowymi zagrożeniami dla bezpieczeństwa i działania, ponieważ model działający w imieniu użytkownika może napotkać na ekranach niezaufane treści lub popełniać błędy podczas wykonywania działań. Aby chronić dane i systemy użytkowników, stosuj te sprawdzone metody:
 
-1. **المشاركة البشرية (HITL):**
+1. **Oceny z udziałem człowieka (HITL):**
 
-   - **فرض تأكيد المستخدم:** عندما يشير الرد المتعلّق بالسلامة إلى
-     `require_confirmation` (أو عندما يتطلّب قرار السلامة القديم ذلك)، اطلب من المستخدم الموافقة.
-   - **تقديم تعليمات أمان مخصّصة:** يمكنك تنفيذ تعليمات نظام مخصّصة لتحديد حدود الأمان الخاصة بك وفرضها. على سبيل المثال:
+   - **Wymuszaj potwierdzenie przez użytkownika:** gdy odpowiedź dotycząca bezpieczeństwa wskazuje na `require_confirmation` (lub gdy wymaga tego starsza decyzja dotycząca bezpieczeństwa), wyświetl prośbę o zatwierdzenie przez użytkownika.
+   - **Podaj niestandardowe instrukcje dotyczące bezpieczeństwa:** wdróż niestandardową instrukcję systemową, aby zdefiniować i egzekwować własne granice bezpieczeństwa. Na przykład:
 
      ### Python
 
@@ -1330,41 +1328,39 @@ if 'safety_decision' in function_call.args:
        }
      });
      ```
-2. **بيئة التنفيذ الآمنة:** شغِّل الوكيل في بيئة آمنة ضمن وضع الحماية للحدّ من تأثيره المحتمَل. يمكن أن يكون ذلك عبارة عن آلة افتراضية (VM) معزولة، أو حاوية (مثل Docker)، أو ملف شخصي مخصّص للمتصفّح مع أذونات محدودة. يمكنك الاطّلاع على [التنفيذ المرجعي على GitHub](https://github.com/google/computer-use-preview/) للحصول على إرشادات حول إعداد وضع الحماية باستخدام Docker.
-3. **تنقية البيانات المدخلة:** يجب تنقية جميع النصوص التي ينشئها المستخدمون في الطلبات للحد من خطر التعليمات غير المقصودة أو هجمات حقن الطلبات. هذه الطبقة مفيدة للأمان، ولكنّها ليست بديلاً عن بيئة تنفيذ آمنة.
-4. **ضوابط المحتوى:** استخدِم ضوابط المحتوى وواجهات برمجة التطبيقات الخاصة بسلامة المحتوى لتقييم
-   مدخلات المستخدمين ومدخلات الأدوات ومخرجاتها وردود الوكيل من حيث الملاءمة
-   والحقن السريع واكتشاف الاختراق.
-5. **القوائم المسموح بها والقوائم المحظورة:** استخدِم آليات فلترة للتحكّم في الأماكن التي يمكن للنموذج الانتقال إليها والإجراءات التي يمكنه اتّخاذها. تُعدّ القائمة المحظورة التي تتضمّن المواقع الإلكترونية المحظورة نقطة بداية جيدة، بينما تكون القائمة المسموح بها الأكثر تقييدًا أكثر أمانًا.
-6. **المراقبة وتسجيل البيانات:** احتفِظ بسجلات مفصّلة لتصحيح الأخطاء والتدقيق والاستجابة للحوادث. على البرنامج تسجيل الطلبات، ولقطات الشاشة، والإجراءات التي تقترحها النماذج (`function_call`)، والردود الآمنة، وجميع الإجراءات التي ينفّذها البرنامج في النهاية.
-7. **إدارة البيئة:** تأكَّد من اتساق بيئة واجهة المستخدم الرسومية.
-   قد تؤدي النوافذ المنبثقة أو الإشعارات أو التغييرات غير المتوقّعة في التنسيق إلى إرباك النموذج. ابدأ من حالة معروفة ونظيفة لكل مهمة جديدة إذا أمكن ذلك.
+2. **Bezpieczne środowisko wykonawcze:** uruchamiaj agenta w bezpiecznym środowisku piaskownicy, aby ograniczyć jego potencjalny wpływ. Może to być maszyna wirtualna w piaskownicy, kontener (np. Docker) lub dedykowany profil przeglądarki z ograniczonymi uprawnieniami. Wskazówki dotyczące konfigurowania piaskownicy za pomocą Dockera znajdziesz w [implementacji referencyjnej na GitHubie](https://github.com/google/computer-use-preview/).
+3. **Oczyszczanie danych wejściowych:** oczyszczaj cały tekst wygenerowany przez użytkownika w promptach, aby zmniejszyć ryzyko niezamierzonych instrukcji lub wstrzykiwania promptów. Jest to przydatna warstwa zabezpieczeń, ale nie zastępuje bezpiecznego środowiska wykonawczego.
+4. **Zabezpieczenia treści:** używaj zabezpieczeń i interfejsów Content Safety API, aby oceniać dane wejściowe użytkownika, dane wejściowe i wyjściowe narzędzia oraz odpowiedzi agenta pod kątem odpowiedniości, wstrzykiwania promptów i wykrywania jailbreaku.
+5. **Listy dozwolonych i zablokowanych:** wdróż mechanizmy filtrowania, aby kontrolować, gdzie model może się poruszać i co może robić. Dobrym punktem wyjścia jest lista zablokowanych zakazanych witryn, a jeszcze bezpieczniejsza jest bardziej restrykcyjna lista dozwolonych.
+6. **Dostrzegalność i rejestrowanie:** prowadź szczegółowe dzienniki na potrzeby debugowania, kontroli i reagowania na incydenty. Klient powinien rejestrować prompty, zrzuty ekranu, sugerowane przez model działania (`function_call`), odpowiedzi związane z bezpieczeństwem i wszystkie działania ostatecznie wykonywane przez klienta.
+7. **Zarządzanie środowiskiem:** zadbaj o spójność środowiska GUI.
+   Nieoczekiwane wyskakujące okienka, powiadomienia lub zmiany układu mogą wprowadzić model w błąd. W miarę możliwości rozpoczynaj każde nowe zadanie od znanego, czystego stanu.
 
-## إصدارات النموذج
+## Wersje modelu
 
-يمكنك استخدام ميزة "استخدام الكمبيوتر" مع الطُرز التالية:
+Z funkcji korzystania z komputera możesz korzystać w przypadku tych modeli:
 
-- [**‫Gemini 3.6 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ar) (`gemini-3.6-flash`): النموذج المقترَح للاستخدام على الكمبيوتر، ويتميّز بإجراءات مبسطة مع النوايا، ويتوافق مع بيئات المتصفح والأجهزة الجوّالة وأجهزة الكمبيوتر، ويتضمّن سياسات أمان قابلة للضبط، ويتيح رصد هجمات حقن الطلبات.
-- [**‫Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ar): نموذج منخفض الاستجابة وفعّال من حيث التكلفة، ويتوافق مع استخدام الكمبيوتر.
-- [**‫Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) (`gemini-3.5-flash`): هو النموذج الثابت السابق الذي يتيح استخدام الكمبيوتر.
-- [**معاينة Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) (`gemini-3-flash-preview`): نموذج معاينة
-  متوافق مع أجهزة الكمبيوتر
-- [**‫Gemini 2.5 (إصدار تجريبي قديم)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ar) (`gemini-2.5-computer-use-preview-10-2025`): نموذج إصدار تجريبي قديم محسّن للاستخدام على أجهزة الكمبيوتر المستندة إلى المتصفّح
+- [**Gemini 3.6 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pl) (`gemini-3.6-flash`): zalecany model do użytku na komputerze, który oferuje uproszczone działania z intencjami, obsługę środowisk przeglądarki, urządzeń mobilnych i komputerów, konfigurowalne zasady bezpieczeństwa oraz wykrywanie wstrzykiwania promptów.
+- [**Gemini 3.5 Flash-Lite:**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pl) model z krótkim czasem oczekiwania i niskimi kosztami, który obsługuje korzystanie z komputera.
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) (`gemini-3.5-flash`): poprzedni stabilny model obsługujący korzystanie z komputera.
+- [**Gemini 3 Flash (wersja testowa)**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) (`gemini-3-flash-preview`): model w wersji testowej
+  obsługujący korzystanie z komputera.
+- [**Gemini 2.5 (starsza wersja testowa)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=pl) (`gemini-2.5-computer-use-preview-10-2025`): starsza wersja testowa modelu zoptymalizowana pod kątem korzystania z komputera w przeglądarce.
 
-## الخطوات التالية
+## Co dalej?
 
-- جرِّب استخدام الكمبيوتر في [بيئة العرض التوضيحي Browserbase](http://gemini.browserbase.com).
-- اطّلِع على [التنفيذ المرجعي](https://github.com/google/computer-use-preview) للحصول على مثال على الرمز البرمجي.
-- مزيد من المعلومات حول أدوات Gemini API الأخرى:
-  - [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
-  - [تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)
+- Wypróbuj korzystanie z komputera w [środowisku demonstracyjnym Browserbase](http://gemini.browserbase.com).
+- Przykładowy kod znajdziesz w [implementacji referencyjnej](https://github.com/google/computer-use-preview).
+- Dowiedz się więcej o innych narzędziach Gemini API:
+  - [Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
+  - [Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
+Ostatnia aktualizacja: 2026-09-12 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Chcesz przekazać coś jeszcze?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]

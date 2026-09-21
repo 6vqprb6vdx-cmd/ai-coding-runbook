@@ -1,50 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=de
-fetched_at: 2026-09-14T05:37:29.463590+00:00
-title: "Erl\u00e4uterung der API-Versionen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=ar
+fetched_at: 2026-09-21T05:44:19.101594+00:00
+title: "\u0634\u0631\u062d \u0625\u0635\u062f\u0627\u0631\u0627\u062a \u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [API-Referenz](https://ai.google.dev/api?hl=de)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api?hl=ar)
 
-Feedback geben
+إرسال ملاحظات
 
-# Erläuterung der API-Versionen
+# شرح إصدارات واجهة برمجة التطبيقات
 
-In diesem Dokument finden Sie einen allgemeinen Überblick über die Unterschiede zwischen den `v1`
-und `v1beta` Versionen der Gemini API.
+تقدّم هذه المستندات نظرة عامة عالية المستوى على الاختلافات بين الإصدارَين `v1`
+و `v1beta` من Gemini API.
 
-- **v1**: Stabile Version der API. Funktionen in der stabilen Version werden über die gesamte Lebensdauer der Hauptversion vollständig unterstützt. Bei nicht abwärtskompatiblen Änderungen wird die nächste Hauptversion der API erstellt und die vorhandene Version nach einem angemessenen Zeitraum eingestellt.
-  Nicht abwärtskompatible Änderungen können an der API vorgenommen werden, ohne die Hauptversion zu ändern. Seit Juni 2026 ist die **Interactions API** allgemein verfügbar und wird in `v1` unterstützt.
-- **v1beta**: Diese Version enthält frühe Funktionen und Möglichkeiten, die
-  aktiv entwickelt werden. Funktionen in `v1beta` können sich ändern, da wir sie basierend auf Feedback weiterentwickeln. Sie können jedoch neue Funktionen ausprobieren, bevor sie in die stabile Version übernommen werden.
+- **v1**: هو الإصدار الثابت من واجهة برمجة التطبيقات. تتوفّر الميزات في الإصدار الثابت بشكل كامل طوال فترة رقم الإصدار الرئيسي. في حال إجراء أي تغييرات قد تؤدي إلى عطل، سيتم إنشاء رقم الإصدار الرئيسي التالي من واجهة برمجة التطبيقات وسيتم إيقاف الإصدار الحالي نهائيًا بعد فترة زمنية معقولة.
+  يمكن إضافة تغييرات متوافقة إلى واجهة برمجة التطبيقات بدون تغيير رقم الإصدار الرئيسي. اعتبارًا من يونيو 2026، ستتوفّر **واجهة برمجة التطبيقات Interactions API** بشكل عام في الإصدار `v1`.
+- **v1beta**: يتضمّن هذا الإصدار ميزات وإمكانات مبكرة قيد التطوير حاليًا. على الرغم من أنّ الميزات في الإصدار `v1beta` قد تخضع للتغييرات أثناء تحسينها استنادًا إلى الملاحظات، فإنّه يتيح لك تجربة إمكانات جديدة قبل ترقيتها إلى الإصدار الثابت.
 
-| Funktion | v1 | v1beta |
+| الميزة | v1 | v1beta |
 | --- | --- | --- |
 | Interactions API |  |  |
-| Inhalte generieren – Nur Texteingabe |  |  |
-| Inhalte generieren – Text- und Bildeingabe |  |  |
-| Inhalte generieren – Textausgabe |  |  |
-| Inhalte generieren – Multi-Turn-Unterhaltungen (Chat) |  |  |
-| Inhalte generieren – Funktionsaufrufe |  |  |
-| Inhalte generieren – Streaming |  |  |
-| Inhalte einbetten – Nur Texteingabe |  |  |
-| Antwort generieren |  |  |
-| Semantischer Retriever |  |  |
+| إنشاء محتوى - إدخال نص فقط |  |  |
+| إنشاء محتوى - إدخال نص وصورة |  |  |
+| إنشاء محتوى - إخراج نص |  |  |
+| إنشاء محتوى - محادثات مترابطة (محادثة) |  |  |
+| إنشاء محتوى - طلبات الدوال |  |  |
+| إنشاء محتوى - البث |  |  |
+| تضمين محتوى - إدخال نص فقط |  |  |
+| إنشاء إجابة |  |  |
+| أداة استرجاع دلالية |  |  |
 
-- - Unterstützt
-- - Wird nie unterstützt
+- - متاح
+- - لن يكون متاحًا أبدًا
 
-## API-Version in einem SDK konfigurieren
+## ضبط إصدار واجهة برمجة التطبيقات في حزمة تطوير برامج (SDK)
 
-In den Gemini API SDKs ist standardmäßig `v1beta` festgelegt. Sie können jedoch Versionen explizit angeben, indem Sie die API-Version festlegen, wie im folgenden Codebeispiel gezeigt:
+تستخدم حزم تطوير البرامج (SDK) الخاصة بـ Gemini API الإصدار `v1beta` تلقائيًا، ولكن يمكنك تحديد الإصدارات بشكل صريح من خلال ضبط إصدار واجهة برمجة التطبيقات كما هو موضّح في عينة التعليمات البرمجية التالية:
 
 ### Python
 
@@ -81,7 +80,7 @@ async function main() {
 await main();
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
@@ -93,12 +92,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
   }'
 ```
 
-Feedback geben
+إرسال ملاحظات
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Zuletzt aktualisiert: 2026-09-12 (UTC).
+تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
 
-Haben Sie Feedback für uns?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

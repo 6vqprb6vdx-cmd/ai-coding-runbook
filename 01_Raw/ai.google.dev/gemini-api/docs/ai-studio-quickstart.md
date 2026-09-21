@@ -1,78 +1,77 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=th
-fetched_at: 2026-09-14T05:38:49.704120+00:00
-title: "\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Google AI Studio \u0e2d\u0e22\u0e48\u0e32\u0e07\u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=it
+fetched_at: 2026-09-21T05:48:56.938158+00:00
+title: "Guida rapida di Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-ส่งความคิดเห็น
+Invia feedback
 
-# คู่มือเริ่มใช้งาน Google AI Studio อย่างรวดเร็ว
+# Guida rapida di Google AI Studio
 
-[Google AI Studio](https://aistudio.google.com/?hl=th) ช่วยให้คุณลองใช้
-โมเดลและทดลองใช้พรอมต์ต่างๆ ได้อย่างรวดเร็ว เมื่อพร้อมสร้างแล้ว คุณ
-สามารถเลือก "รับโค้ด" และภาษาโปรแกรมที่ต้องการเพื่อ
-ใช้ [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=th) ได้
+[Google AI Studio](https://aistudio.google.com/?hl=it) ti consente di provare rapidamente modelli e sperimentare diversi prompt. Quando è tutto pronto, puoi selezionare "Ottieni codice " e il tuo linguaggio di programmazione preferito per utilizzare l'[API Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=it).
 
-## พรอมต์และการตั้งค่า
+## Prompt e impostazioni
 
-Google AI Studio มีอินเทอร์เฟซหลายแบบสำหรับพรอมต์ที่ออกแบบมาสำหรับกรณีการใช้งานต่างๆ คู่มือนี้ครอบคลุม**พรอมต์แชท** ซึ่งใช้เพื่อสร้าง
-ประสบการณ์การสนทนา เทคนิคการป้อนพรอมต์นี้ช่วยให้มีการป้อนข้อมูล
-และตอบกลับหลายรอบเพื่อสร้างเอาต์พุต ดูข้อมูลเพิ่มเติมได้จาก
-[ตัวอย่างพรอมต์แชทด้านล่าง](#chat_example)
-ตัวเลือกอื่นๆ ได้แก่ **การสตรีมแบบเรียลไทม์**, **การสร้างวิดีโอ** และ
-อื่นๆ
+Google AI Studio fornisce diverse interfacce per i prompt progettate per
+diversi casi d'uso. Questa guida tratta i **prompt di chat**, utilizzati per creare
+esperienze conversazionali. Questa tecnica di prompt consente più turni di input
+e risposta per generare l'output. Puoi scoprire di più con il nostro
+[esempio di prompt di chat riportato di seguito](#chat_example).
+Altre opzioni includono **Streaming in tempo reale**, **Generazione video** e
+altro ancora.
 
-นอกจากนี้ AI Studio ยังมีแผง**การตั้งค่าการทำงาน** ซึ่งคุณสามารถปรับ[พารามิเตอร์ของโมเดล](https://ai.google.dev/docs/prompting-strategies?hl=th#model-parameters), [การตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th) และเปิดใช้เครื่องมือต่างๆ เช่น [เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th), [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th), [การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th) และ [การเชื่อมต่อแหล่งข้อมูล](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
+AI Studio fornisce anche il riquadro **Impostazioni di esecuzione**, in cui puoi apportare modifiche ai [parametri del modello](https://ai.google.dev/docs/prompting-strategies?hl=it#model-parameters), alle [impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it) e attivare/disattivare strumenti come [output strutturato](https://ai.google.dev/gemini-api/docs/structured-output?hl=it), [chiamata di funzioni](https://ai.google.dev/gemini-api/docs/function-calling?hl=it), [esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) e [grounding](https://ai.google.dev/gemini-api/docs/grounding?hl=it).
 
-## ตัวอย่างพรอมต์แชท: สร้างแอปพลิเคชันแชทที่กำหนดเอง
+## Esempio di prompt di chat: crea un'applicazione di chat personalizzata
 
-หากคุณเคยใช้แชทบ็อตอเนกประสงค์อย่าง
-[Gemini](https://gemini.google.com/?hl=th) คุณจะได้รับประสบการณ์โดยตรงว่าโมเดล
-Generative AI มีประสิทธิภาพเพียงใดสำหรับการสนทนาแบบเปิด แม้ว่าแชทบ็อตอเนกประสงค์เหล่านี้จะมีประโยชน์ แต่บ่อยครั้งที่ต้องปรับแต่งให้เหมาะกับกรณีการใช้งานเฉพาะ
+Se hai utilizzato un chatbot per uso generico come
+[Gemini](https://gemini.google.com/?hl=it), hai sperimentato in prima persona la potenza
+dei modelli di AI generativa per i dialoghi aperti. Sebbene questi chatbot per uso generico siano utili, spesso devono essere adattati a casi d'uso particolari.
 
-ตัวอย่างเช่น คุณอาจต้องการสร้างแชทบ็อตฝ่ายบริการลูกค้าที่รองรับเฉพาะการสนทนาเกี่ยวกับผลิตภัณฑ์ของบริษัท หรืออาจต้องการสร้างแชทบ็อตที่พูดด้วยโทนเสียงหรือสไตล์เฉพาะ เช่น บ็อตที่ชอบเล่าเรื่องตลก บ็อตที่ชอบแต่งกลอน หรือบ็อตที่ใช้ Emoji จำนวนมากในคำตอบ
+Ad esempio, potresti voler creare un chatbot di assistenza clienti che supporti solo le conversazioni che riguardano il prodotto di un'azienda. Potresti voler
+creare un chatbot che parli con un tono o uno stile particolare: un bot che faccia
+molte battute, rimi come un poeta o usi molte emoji nelle sue risposte.
 
-ตัวอย่างนี้แสดงวิธีใช้ Google AI Studio เพื่อสร้างแชทบ็อตที่เป็นมิตรซึ่งสื่อสารราวกับเป็นมนุษย์ต่างดาวที่อาศัยอยู่บนยูโรปา ซึ่งเป็นดวงจันทร์ของดาวพฤหัสบดี
+Questo esempio mostra come utilizzare Google AI Studio per creare un chatbot amichevole
+che comunica come se fosse un alieno che vive su una delle lune di Giove, Europa.
 
-### ขั้นตอนที่ 1 - สร้างพรอมต์แชท
+### Passaggio 1: crea un prompt di chat
 
-หากต้องการสร้างแชทบ็อต คุณต้องระบุตัวอย่างการโต้ตอบระหว่างผู้ใช้กับแชทบ็อตเพื่อแนะนำให้โมเดลแสดงคำตอบที่คุณต้องการ
+Per creare un chatbot, devi fornire esempi di interazioni tra un utente e il chatbot per guidare il modello a fornire le risposte che stai cercando.
 
-วิธีสร้างพรอมต์แชท
+Per creare un prompt di chat:
 
-1. เปิด [Google AI Studio](https://aistudio.google.com/?hl=th) ระบบจะเปิด**เพลย์กราวด์** โดยค่าเริ่มต้นพร้อมพรอมต์แชทใหม่
-2. คลิก**การตั้งค่าการทำงาน** tune ที่มุมขวาบน
-   เพื่อขยายแผง แล้วค้นหา
-   [**คำแนะนำระบบ**](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions)
-   ช่องป้อนข้อมูล วางข้อความต่อไปนี้ลงในช่องป้อนข้อความ
+1. Apri [Google AI Studio](https://aistudio.google.com/?hl=it). Il **Playground** si aprirà
+   per impostazione predefinita con un nuovo prompt di chat.
+2. Fai clic su **Impostazioni esecuzione** tune nell'angolo in alto a destra per espandere il riquadro e individua il campo di immissione [**Istruzioni di sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions). Incolla quanto segue nel campo di immissione del testo:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-หลังจากเพิ่มคำแนะนำระบบแล้ว ให้เริ่มทดสอบแอปพลิเคชันโดยแชทกับโมเดลด้วยวิธีต่อไปนี้
+Dopo aver aggiunto le istruzioni di sistema, inizia a testare l'applicazione chattando con il modello:
 
-1. ในช่องป้อนข้อความที่มีป้ายกำกับว่า **พิมพ์ข้อความ...** ให้พิมพ์คำถามหรือ
-   ข้อสังเกตที่ผู้ใช้อาจถามหรือแสดงความคิดเห็น เช่น
+1. Nella casella di immissione di testo **Digita qualcosa…**, digita una domanda o un'osservazione che un utente potrebbe fare. Ad esempio:
 
-   **ผู้ใช้:**
+   **Utente:**
 
    ```
    What's the weather like?
    ```
-2. คลิกปุ่ม**เรียกใช้** เพื่อรับคำตอบจากแชทบ็อต คำตอบนี้อาจมีลักษณะดังต่อไปนี้
+2. Fai clic sul pulsante **Esegui** per ricevere una risposta dal chatbot. Questa risposta
+   potrebbe essere simile alla seguente:
 
-   **โมเดล:**
+   **Modello:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -81,14 +80,17 @@ Generative AI มีประสิทธิภาพเพียงใดสำ
 
    (gemini-2.5-pro)
 
-### ขั้นตอนที่ 2 - สอนให้บ็อตแชทได้ดีขึ้น
+### Passaggio 2: insegna al bot a chattare meglio
 
-การให้คำแนะนำเพียงข้อเดียวช่วยให้คุณสร้างแชทบ็อตมนุษย์ต่างดาวจากยูโรปาแบบพื้นฐานได้ อย่างไรก็ตาม คำแนะนำเพียงข้อเดียวอาจไม่เพียงพอที่จะรับประกันความสอดคล้องและคุณภาพของคำตอบจากโมเดล หากไม่มีคำแนะนำที่เฉพาะเจาะจงมากขึ้น คำตอบของโมเดลสำหรับคำถามเกี่ยวกับสภาพอากาศมักจะยาวมากและอาจไม่ตรงกับคำถาม
+Fornendo una singola istruzione, sei riuscito a creare un chatbot di base per gli alieni di Europa. Tuttavia, una singola istruzione potrebbe non essere sufficiente a garantire
+coerenza e qualità nelle risposte del modello. Senza istruzioni più specifiche, la risposta del modello a una domanda sul meteo tende a essere molto lunga e può assumere un tono personale.
 
-ปรับแต่งโทนเสียงของแชทบ็อตโดยเพิ่มคำแนะนำระบบดังนี้
+Personalizza il tono del chatbot aggiungendo alle istruzioni di sistema:
 
-1. เริ่มพรอมต์แชทใหม่หรือใช้พรอมต์เดิม คุณสามารถแก้ไขคำแนะนำระบบได้หลังจากเริ่มเซสชันแชทแล้ว
-2. ในส่วน**คำแนะนำระบบ** ให้เปลี่ยนคำแนะนำที่มีอยู่เป็นคำแนะนำต่อไปนี้
+1. Avvia un nuovo prompt di chat o utilizza lo stesso. Le istruzioni di sistema sono
+   modificabili dopo l'inizio della sessione di chat.
+2. Nella sezione **Istruzioni di sistema**, modifica le istruzioni esistenti
+   con le seguenti:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -96,10 +98,9 @@ Generative AI มีประสิทธิภาพเพียงใดสำ
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. ป้อนคำถาม (`What's the weather like?`) อีกครั้ง แล้วคลิกปุ่ม**เรียกใช้**
-   หากไม่ได้เริ่มแชทใหม่ คำตอบอาจมีลักษณะดังนี้
+3. Inserisci di nuovo la domanda (`What's the weather like?`) e fai clic sul pulsante **Esegui**. Se non hai avviato una nuova chat, la risposta potrebbe essere simile a questa:
 
-   **โมเดล:**
+   **Modello:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -110,25 +111,27 @@ Generative AI มีประสิทธิภาพเพียงใดสำ
 
    (gemini-2.5-pro)
 
-คุณสามารถใช้วิธีนี้เพื่อเพิ่มรายละเอียดให้กับแชทบ็อต ถามคำถามเพิ่มเติม แก้ไขคำตอบ และปรับปรุงคุณภาพของแชทบ็อต เพิ่มหรือแก้ไขคำแนะนำต่อไป และทดสอบว่าคำแนะนำเหล่านั้นเปลี่ยนลักษณะการทำงานของแชทบ็อตอย่างไร
+Puoi utilizzare questo approccio per aggiungere ulteriore profondità al chatbot. Poni altre
+domande, modifica le risposte e migliora la qualità del tuo chatbot. Continua
+ad aggiungere o modificare le istruzioni e verifica in che modo cambiano il comportamento
+del chatbot.
 
-### ขั้นตอนที่ 3 - ขั้นตอนต่อไป
+### Passaggio 3: azioni successive
 
-เช่นเดียวกับพรอมต์ประเภทอื่นๆ เมื่อคุณสร้างต้นแบบพรอมต์จนพอใจแล้ว คุณสามารถใช้ปุ่ม**รับโค้ด** เพื่อเริ่มเขียนโค้ดหรือบันทึกพรอมต์ไว้เพื่อทำงานต่อในภายหลังและแชร์กับผู้อื่น
+Come per gli altri tipi di prompt, una volta creato il prototipo del prompt in modo soddisfacente, puoi utilizzare il pulsante **Ottieni codice** per iniziare a programmare o salvare il prompt per lavorarci in un secondo momento e condividerlo con altri.
 
-## อ่านเพิ่มเติม
+## Per approfondire
 
-- หากพร้อมที่จะไปยังโค้ดแล้ว โปรดดู[คู่มือเริ่มต้นใช้งาน
-  API](https://ai.google.dev/gemini-api/docs/get-started?hl=th)
-- ดูวิธีสร้างพรอมต์ที่ดีขึ้นได้ที่[หลักเกณฑ์
-  การออกแบบพรอมต์](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)
+- Se vuoi passare al codice, consulta le [guide introduttive
+  alle API](https://ai.google.dev/gemini-api/docs/get-started?hl=it).
+- Per scoprire come creare prompt migliori, consulta le [linee guida per la progettazione dei prompt](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=it).
 
-ส่งความคิดเห็น
+Invia feedback
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-อัปเดตล่าสุด 2026-07-30 UTC
+Ultimo aggiornamento 2026-07-30 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Vuoi dirci altro?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-30 UTC"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-07-30 UTC."],[],[]]

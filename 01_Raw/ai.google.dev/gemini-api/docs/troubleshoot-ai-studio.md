@@ -1,84 +1,78 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=ja
-fetched_at: 2026-09-14T05:42:03.569519+00:00
-title: "Google AI Studio \u306e\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pl
+fetched_at: 2026-09-21T05:46:33.392198+00:00
+title: "Rozwi\u0105zywanie problem\u00f3w z Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-フィードバックを送信
+Prześlij opinię
 
-# Google AI Studio のトラブルシューティング
+# Rozwiązywanie problemów z Google AI Studio
 
-このページでは、Google AI Studio で問題が発生した場合のトラブルシューティング方法について説明します。
+Na tej stronie znajdziesz sugestie dotyczące rozwiązywania problemów z Google AI Studio.
 
-## 403 アクセス制限エラーについて
+## Informacje o błędach 403 Access Restricted
 
-[403 アクセス制限エラーが表示される場合は、
-利用規約](https://ai.google.dev/terms?hl=ja)に準拠しない方法で Google AI Studio を使用しています。一般的な理由の 1 つは、
-[サポートされているリージョン](https://ai.google.dev/available_regions?hl=ja)に居住していないことです。
+Jeśli zobaczysz błąd 403 – Access Restricted (Ograniczony dostęp), oznacza to, że korzystasz z Google AI Studio w sposób niezgodny z [Warunkami korzystania z usługi](https://ai.google.dev/terms?hl=pl). Jednym z częstych powodów jest to, że nie mieszkasz w [obsługiwanym regionie](https://ai.google.dev/available_regions?hl=pl).
 
-## Google AI Studio でコンテンツなしのレスポンスを解決する
+## Rozwiązywanie problemu z odpowiedziami „Brak treści” w Google AI Studio
 
-コンテンツが何らかの理由でブロックされると、warning **コンテンツなし** メッセージが
-Google AI Studio に表示されます。詳細を確認するには、
-[**コンテンツなし**] にポインタを合わせて、
-warning [**安全性**] をクリックします。
+Jeśli treść zostanie zablokowana z jakiegokolwiek powodu, w Google AI Studio pojawi się komunikat warning **Brak treści**. Aby wyświetlić więcej szczegółów, najedź wskaźnikiem na **Brak treści** i kliknij warning **Bezpieczeństwo**.
 
-[[[安全設定によりレスポンスがブロックされ、ユースケースの安全上のリスクを考慮した場合は、安全設定を変更して返されるレスポンスに影響を与えることができます。](https://ai.google.dev/docs/safety_setting?hl=ja)](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja)](https://ai.google.dev/docs/safety_setting?hl=ja#safety_settings_in_makersuite)
+Jeśli odpowiedź została zablokowana z powodu [ustawień bezpieczeństwa](https://ai.google.dev/docs/safety_setting?hl=pl), a Ty wziąłeś(-aś) pod uwagę [ryzyko związane z bezpieczeństwem](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pl) w swoim przypadku użycia, możesz zmodyfikować [ustawienia bezpieczeństwa](https://ai.google.dev/docs/safety_setting?hl=pl#safety_settings_in_makersuite), aby wpłynąć na zwróconą odpowiedź.
 
-レスポンスがブロックされたが、安全設定が原因ではない場合、クエリまたは
-レスポンスが[利用規約](https://ai.google.dev/terms?hl=ja)に違反しているか、サポートされていない可能性があります。
+Jeśli odpowiedź została zablokowana, ale nie z powodu ustawień bezpieczeństwa, zapytanie lub odpowiedź mogą naruszać [Warunki korzystania z usługi](https://ai.google.dev/terms?hl=pl) lub być w inny sposób nieobsługiwane.
 
-## トークンの使用量と上限を確認する
+## Sprawdzanie wykorzystania tokenów i limitów
 
-プロンプトを開くと、画面下部の [**テキスト プレビュー**] ボタンに、プロンプトのコンテンツに使用されている現在のトークン数と、使用されているモデルの最大トークン数が表示されます。
+Gdy otworzysz prompt, przycisk **Podgląd tekstu** u dołu ekranu pokazuje aktualną liczbę tokenów użytych w treści promptu oraz maksymalną liczbę tokenów dla używanego modelu.
 
-## AI Studio の Google Cloud IAM 権限
+## Uprawnienia Google Cloud IAM w AI Studio
 
-Google Cloud プロジェクトのメンバーが Google AI Studio で操作を行うには、特定の Identity and Access Management（IAM）権限が必要です。これらの ID の詳細については、[IAM プリンシパルの概要](https://docs.cloud.google.com/iam/docs/principals-overview?hl=ja)をご覧ください。
+Członkowie projektu w chmurze Google Cloud potrzebują określonych uprawnień Identity and Access Management (IAM), aby wykonywać działania w Google AI Studio. Więcej informacji o tych tożsamościach znajdziesz w [omówieniu podmiotów zabezpieczeń IAM](https://docs.cloud.google.com/iam/docs/principals-overview?hl=pl).
 
-関連付けられた Google Cloud プロジェクトで**編集者** または**オーナー** のロールを持つユーザーは、ダッシュボードを表示して Gemini API キーを管理するための完全な権限を持ちます。**閲覧者** のロールを持つユーザーは、ダッシュボードと API キーを表示できますが、作成、更新、削除はできません。
+Użytkownicy z rolami **Edytujący** lub **Właściciel** w powiązanym projekcie Google Cloud mają pełne uprawnienia do wyświetlania paneli i zarządzania kluczami interfejsu Gemini API. Użytkownicy z rolą **Przeglądający** mogą wyświetlać panele i klucze interfejsu API, ale nie mogą ich tworzyć, aktualizować ani usuwać.
 
-より詳細な制御を行うには、次の表で、AI Studio の各機能に必要な特定の権限を確認してください。これらの権限を付与する方法については、Google Cloud ドキュメントの[リソースへのアクセス権の付与、変更、取り消し](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ja)をご覧ください。
+Aby uzyskać większą kontrolę, zapoznaj się z tabelą poniżej, w której znajdziesz konkretne uprawnienia wymagane w przypadku poszczególnych funkcji AI Studio. Instrukcje dotyczące przyznawania tych uprawnień znajdziesz w sekcji [Przyznawanie, zmienianie i odbieranie uprawnień do zasobów](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=pl) w dokumentacji Google Cloud.
 
-| AI Studio の機能 | 必要な IAM 権限 | その他の要件 |
+| Funkcja AI Studio | Wymagane uprawnienia | Dodatkowe wymagania |
 | --- | --- | --- |
-| **プロジェクトを検索** （プロジェクトをインポート） | `resourcemanager.projects.get` |  |
-| **プロジェクトの名前を変更** | `resourcemanager.projects.update` |  |
-| **割り当て階層を表示** | なし |  |
-| **API キーを作成** | **プロジェクトを検索** 権限があること、および  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **API キーを一覧表示** | **プロジェクトを検索** 権限があること、および  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud プロジェクトで [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=ja) が有効になっている必要があります。 |
-| **API キーの名前を変更** | `apikeys.keys.update` |  |
-| **API キーを削除** | `apikeys.keys.delete` |  |
-| **使用状況ダッシュボード** | **プロジェクトを検索** 権限があること、および  `monitoring.timeSeries.list` |  |
-| **レート制限ダッシュボード** | **使用状況ダッシュボード** 権限があること、および  `cloudquotas.quotas.get` |  |
-| **費用（請求上限）** | `billing.resourceCosts.get`（費用を表示） `billing.resourcebudgets.read`（上限を表示） `billing.resourcebudgets.write`（上限を設定） |  |
-| **請求ダッシュボード** | `billing.accounts.get` |  |
+| **Wyszukaj projekt** (importowanie projektów) | `resourcemanager.projects.get` |  |
+| **Zmień nazwę projektu** | `resourcemanager.projects.update` |  |
+| **Wyświetlanie poziomu limitu** | Nie dotyczy |  |
+| **Utwórz klucz interfejsu API** | Musisz mieć uprawnienia **Wyszukiwanie projektu** i:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **Wyświetlanie listy kluczy interfejsu API** | Musisz mieć uprawnienia **Wyszukiwanie projektu** i:  `apikeys.keys.list` `serviceusage.services.get` | W projekcie Google Cloud musi być włączony [interfejs Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=pl). |
+| **Zmiana nazwy kluczy interfejsu API** | `apikeys.keys.update` |  |
+| **Usuwanie kluczy interfejsu API** | `apikeys.keys.delete` |  |
+| **Panel wykorzystania** | mieć uprawnienia **Wyszukiwanie projektu** i:  `monitoring.timeSeries.list` |  |
+| **Panel limitu żądań** | mieć uprawnienia do **panelu użycia** i:  `cloudquotas.quotas.get` |  |
+| **Wydatki (limit płatności)** | `billing.resourceCosts.get` (aby wyświetlić wydatki) `billing.resourcebudgets.read` (aby wyświetlić limit) `billing.resourcebudgets.write` (aby ustawić limit) |  |
+| **Panel płatności** | `billing.accounts.get` |  |
 
-### その他のアクセス チェック
+### Inne kontrole dostępu
 
-Google Cloud IAM 権限に加えて、AI Studio ではセキュリティとコンプライアンスのチェックも行われます。次の要件を満たしていない場合、AI Studio インターフェースまたは API レスポンスで `PERMISSION_DENIED` エラーまたはアクセス制限エラーが発生することがあります。
+Oprócz uprawnień Google Cloud IAM AI Studio przeprowadza też kontrole zabezpieczeń i zgodności. Jeśli nie spełniasz tych wymagań, w interfejsie AI Studio lub w odpowiedziach interfejsu API może pojawić się błąd `PERMISSION_DENIED` lub błąd ograniczenia dostępu:
 
-- **セキュリティ チェック:** リクエストは自動セキュリティ チェックに合格する必要があります。
-- **利用規約:** Google 利用規約と生成 AI の追加利用規約に同意する必要があります。
-- **サポートされているリージョン:** サポートされている[リージョン](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)に居住している必要があります。
-- **信頼と安全性:** Google Cloud プロジェクトに不正使用のフラグが設定されていない必要があります。
+- **Kontrole zabezpieczeń:** Twoja prośba musi przejść automatyczne kontrole zabezpieczeń.
+- **Warunki korzystania z usługi:** musisz zaakceptować Warunki korzystania z usług Google oraz Dodatkowe warunki korzystania z generatywnej AI.
+- **Obsługiwany region:** musisz znajdować się w [obsługiwanym regionie](https://ai.google.dev/gemini-api/docs/available-regions?hl=pl).
+- **Zaufanie i bezpieczeństwo:** projekt Google Cloud nie może być oznaczony jako nadużycie.
 
-フィードバックを送信
+Prześlij opinię
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-最終更新日 2026-09-12 UTC。
+Ostatnia aktualizacja: 2026-09-12 UTC.
 
-ご意見をお聞かせください
+Chcesz przekazać coś jeszcze?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]

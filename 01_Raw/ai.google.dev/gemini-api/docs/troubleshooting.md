@@ -1,167 +1,154 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja
-fetched_at: 2026-09-14T05:52:08.835588+00:00
-title: "\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=zh-TW
+fetched_at: 2026-09-21T05:45:44.717886+00:00
+title: "\u7591\u96e3\u6392\u89e3\u6307\u5357 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# トラブルシューティング ガイド
+# 疑難排解指南
 
-このガイドでは、Gemini API の呼び出し時に発生する一般的な問題の診断と解決に役立つ情報を説明します。Gemini API バックエンド サービスまたはクライアント SDK のいずれかで問題が発生する可能性があります。Google のクライアント SDK は、次のリポジトリでオープンソース化されています。
+本指南可協助您診斷及解決呼叫 Gemini API 時發生的常見問題。您可能會遇到 Gemini API 後端服務或用戶端 SDK 的問題。我們的用戶端 SDK 採用開放原始碼，位於下列存放區：
 
 - [python-genai](https://github.com/googleapis/python-genai)
 - [js-genai](https://github.com/googleapis/js-genai)
 - [go-genai](https://github.com/googleapis/go-genai)
 
-API キーに関する問題が発生した場合は、[API キーの設定ガイド](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)に沿って
-API キーが正しく設定されていることを確認してください。
+如果遇到 API 金鑰問題，請確認您已按照 [API 金鑰設定指南](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw)正確設定 API 金鑰。
 
-## エラーコード
+## 錯誤代碼
 
-HTTP ステータス コード、
-生成ブロック コード、コンテンツ エラーコードなど、すべてのエラーコードのリファレンスについては、
-[API エラー](https://ai.google.dev/gemini-api/docs/api-errors?hl=ja)のページをご覧ください。
+如需所有錯誤代碼的完整參考資料，包括 HTTP 狀態碼、生成遭封鎖代碼和內容錯誤代碼，請參閱「[API 錯誤](https://ai.google.dev/gemini-api/docs/api-errors?hl=zh-tw)」頁面。
 
-## 再試行方法
+## 重試策略
 
-リクエストを再試行する必要があることを示すエラー（`429 RESOURCE_EXHAUSTED` や `503 UNAVAILABLE` など）を受け取った場合は、指数バックオフ戦略を実装することをおすすめします。つまり、最初の再試行の前に短い時間待機し、以降の再試行の間隔を徐々に長くします。
+如果收到錯誤訊息，指出您應重試要求 (例如 `429 RESOURCE_EXHAUSTED` 或 `503 UNAVAILABLE`)，建議您採用指數輪詢策略。也就是說，第一次重試前會等待一小段時間，然後逐漸增加後續重試之間的等待時間。
 
-[Python SDK](https://github.com/googleapis/python-genai) などの Gemini API の公式クライアント SDK には、タイムアウト、ネットワークの問題、レート制限（`429` と `5xx` のステータス コード）など、一時的なエラーを処理するための指数バックオフによる自動再試行ロジックがデフォルトで含まれています。たとえば、Python SDK は、一時的なエラーを最大 4 回再試行します。最初の遅延は約 1 秒、最大遅延は 60 秒です。
+Gemini API 的官方用戶端 SDK (例如 [Python SDK](https://github.com/googleapis/python-genai)) 預設會包含自動重試邏輯，並採用指數輪詢間隔，處理逾時、網路問題和速率限制等暫時性錯誤 (`429` 和 `5xx` 狀態碼)。舉例來說，Python SDK 會自動重試暫時性錯誤，最多重試四次，初始延遲時間約為 1 秒，最長延遲時間為 60 秒。
 
-REST API リクエストを直接行う場合や、再試行ロジックをカスタマイズする場合は、次のベスト プラクティスに沿って、リクエストが成功する可能性を高め、サービスに過負荷がかからないようにしてください。
+如果您直接發出 REST API 要求或自訂重試邏輯，請遵循下列最佳做法，提高要求成功的可能性，並避免服務負載過重：
 
-- **指数バックオフを使用する:** 最初の再試行の前に短い時間（1 秒など）待機し、遅延を指数関数的に増やします（2 秒、4 秒、8 秒など）。
-- **ジッターを追加する:** 遅延にランダムな「ジッター」を追加して、すべてのクライアントが同時に再試行しないようにします。
-- **特定のエラーで再試行する:** 一時的なエラー（`429`、`408`、`5xx` など）でのみ再試行します。クライアント エラー（`400`、`403` など）は、無効な API キーや不正な構文などの問題を示しているため、再試行しないでください。
-- **最大再試行回数を設定する:** 無限ループを防ぐため、再試行回数の上限を定義します。
+- **使用指數輪詢：**第一次重試前先等待一小段時間 (例如 1 秒)，然後以指數方式增加延遲時間 (例如 2 秒、4 秒、8 秒)。
+- **加入時基誤差：**在延遲時間中加入隨機「時基誤差」，避免所有用戶端在完全相同的時間重試。
+- **針對特定錯誤重試：**只針對暫時性錯誤 (例如 `429`、`408` 或 `5xx`) 重試。請勿針對用戶端錯誤 (例如 `400`、`402` 或 `403`) 重試，因為這類錯誤表示有問題，例如 API 金鑰無效、預付額度用盡或語法錯誤。
+- **設定重試次數上限：**定義重試次數上限，避免無限迴圈。
 
-## API 呼び出しでモデル パラメータのエラーを確認する
+## 檢查 API 呼叫是否有模型參數錯誤
 
-モデル パラメータが次の値の範囲内にあることを確認します。
+確認模型參數符合下列值：
 
 |  |  |
 | --- | --- |
-| **モデル パラメータ** | **値（範囲）** |
-| 候補数 | 1 ～ 8（整数） |
-| 温度 | 0.0 ～ 1.0 |
-| 最大出力トークン | 使用しているモデルの最大トークン数を[モデルページ](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja) で確認します。 |
-| TopP | 0.0 ～ 1.0 |
+| **模型參數** | **值 (範圍)** |
+| 候選人數 | 1 到 8 (整數) |
+| 溫度 | 0.0 到 1.0 |
+| 輸出詞元數量上限 | 請前往[模型頁面](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw)，查看所用模型的權杖數量上限。 |
+| TopP | 0.0 到 1.0 |
 
-パラメータ値を確認するだけでなく、必要な機能をサポートする正しい
-[API バージョン](https://ai.google.dev/gemini-api/docs/api-versions?hl=ja)（`/v1`、`/v1beta` など）と
-モデルを使用していることを確認してください。たとえば、機能がベータ版の場合、`/v1beta` API バージョンでのみ使用できます。
+除了檢查參數值，請務必使用正確的 [API 版本](https://ai.google.dev/gemini-api/docs/api-versions?hl=zh-tw) (例如 `/v1` 或 `/v1beta`)，以及支援所需功能的模型。舉例來說，如果某項功能為 Beta 版，則僅適用於 `/v1beta` API 版本。
 
-## 適切なモデルを使用していることを確認する
+## 確認你是否使用正確的機型
 
-モデル[ページ
-に記載されているサポート対象モデルを使用していることを確認します](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja)。
+確認您使用的是[模型頁面](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw)上列出的支援模型。
 
-## 2.5 モデルでのレイテンシの増加またはトークン使用量の増加
+## 使用思考模型時延遲時間較長或詞元用量較高
 
-2.5 Flash モデルと Pro モデルでレイテンシやトークン使用量が増加している場合は、品質向上のために**思考がデフォルトで有効になっている** ことが原因である可能性があります。速度を優先する場合や、費用を最小限に抑える必要がある場合は、思考を調整または無効にできます。
+Gemini 3.x 模型預設會啟用思考功能，因此延遲時間較長或權杖用量較高。已淘汰的 Gemini 2.5 模型也會使用預設的思考方式。
 
-ガイダンスとサンプルコードについては、[思考のページ](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#set-budget)を
-ご覧ください。
+思考型模型會生成內部推論詞元，以提升品質。這個推論過程會增加回應延遲時間和詞元總用量。
 
-## 安全性に関する問題
+如果想縮短延遲時間或降低成本，可以降低思考層級或關閉思考功能。
 
-API 呼び出しの安全設定によりプロンプトがブロックされた場合は、API 呼び出しで設定したフィルタに関してプロンプトを確認してください。
+如需設定詳細資料和程式碼範例，請參閱[思考指南](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#thinking-levels)。
 
-`BlockedReason.OTHER` が表示された場合、クエリまたはレスポンスが [利用規約](https://ai.google.dev/terms?hl=ja) に違反しているか、サポートされていない可能性があります。
+## 安全問題
 
-## 暗唱の問題
+如果系統顯示提示遭到封鎖，是因為 API 呼叫中的安全設定，請根據您在 API 呼叫中設定的篩選器檢查提示。
 
-RECITATION という理由でモデルの出力生成が停止した場合は、モデル出力が特定のデータに似ている可能性があります。この問題を解決するには、プロンプト / コンテキストをできるだけ一意にし、Temperature を高くしてみてください。
+如果看到 `BlockedReason.OTHER`，表示查詢或回應可能違反[服務條款](https://ai.google.dev/terms?hl=zh-tw)，或是不受支援。
 
-## トークンの繰り返しに関する問題
+## 背誦問題
 
-出力トークンが繰り返される場合は、次の方法を試して、トークンを減らすか削除してください。
+如果模型因「RECITATION」原因停止生成輸出內容，表示模型輸出內容可能與特定資料相似。如要修正這個問題，請盡量讓提示詞 / 背景資訊獨一無二，並使用較高的溫度參數。
 
-| 説明 | 原因 | 推奨される回避策 |
+## 重複權杖問題
+
+如果看到重複的輸出權杖，請嘗試下列建議，減少或消除這些權杖。
+
+| 說明 | 原因 | 建議的解決方法 |
 | --- | --- | --- |
-| Markdown テーブルでハイフンが繰り返される | モデルが視覚的に整列された Markdown テーブルを作成しようとすると、テーブルの内容が長くなる場合に発生することがあります。ただし、正しいレンダリングには Markdown の配置は必要ありません。 | プロンプトに指示を追加して、Markdown テーブルを生成するための具体的なガイドライン をモデルに提供します。これらのガイドラインに沿った例を示します。 温度を調整することもできます。コードや Markdown テーブルなどの構造化された出力を生成する場合、Temperature（>= 0.8）の方が効果的であることがわかっています。  この問題を回避するためにプロンプトに追加できるガイドラインの例を次に示します。     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
-| Markdown テーブルでトークンが繰り返される | ハイフンの繰り返しと同様に、モデルがテーブルの内容を 視覚的に整列しようとすると発生します。正しいレンダリングには Markdown の配置は 必要ありません。 | - 次のような指示をシステム プロンプトに追加してみてください。      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - 温度を調整してみてください。一般に、温度が高いほど（>= 0.8）   出力の繰り返しや重複を解消できます。 |
-| 構造化出力で改行（`\n`）が繰り返される | モデルの入力に Unicode やエスケープ シーケンス（ `\u`、`\t` など）が含まれていると、改行が繰り返されることがあります。 | - プロンプトで禁止されているエスケープ シーケンスを確認し、UTF-8 文字に置き換えます。   たとえば、JSON の例で `\u`   エスケープ シーケンスを使用すると、モデルがそのエスケープ シーケンスを出力で使用する可能性があります。 - 許可されているエスケープについてモデルに指示します。次のようなシステム指示を追加します。   これ:      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
-| 構造化出力を使用してテキストが繰り返される | モデル出力でフィールドの順序が定義された構造化スキーマと異なる場合、テキストが繰り返されることがあります。 | - プロンプトでフィールドの順序を指定しないでください。 - すべての出力フィールドを必須にします。 |
-| ツール呼び出しの繰り返し | モデルが以前の思考のコンテキストを失った場合や、強制的に使用できないエンドポイントを呼び出した場合に発生することがあります。 | 思考プロセス内で状態を維持するようにモデルに指示します。 システム指示の末尾に以下を追加します。    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
-| 構造化出力の一部ではないテキストの繰り返し | モデルが解決できないリクエストでスタックした場合に発生することがあります。 | - 思考がオンになっている場合は、手順で問題の解決方法を   明示的に指示しないでください。最終的な   出力のみをリクエストします。 - 温度を 0.8 以上にしてみてください。 - 「簡潔にしてください」、「繰り返さないでください」、「回答は 1 回のみ提供してください」などの指示を追加します。 |
+| Markdown 表格中的連字號重複 | 如果表格內容很長，模型會嘗試建立視覺上對齊的 Markdown 表格，不過，Markdown 中的對齊方式不一定正確。 | 在提示中加入指令，為模型提供生成 Markdown 表格的具體規範。請提供符合這些規範的範例。你也可以嘗試調整溫度。如要生成程式碼或 Markdown 表格等結構化輸出內容，高溫 (>= 0.8) 的效果較佳。  以下是您可以新增至提示的範例規範，避免發生這種情況：     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
+| Markdown 表格中的重複權杖 | 與重複的連字號類似，這是因為模型嘗試在視覺上對齊表格內容。Markdown 中的對齊方式不影響正確的算繪結果。 | - 請嘗試在系統提示中加入下列指令：      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - 請嘗試調整溫度。調高溫度 (>= 0.8) 通常有助於消除輸出內容中的重複或複製部分。 |
+| 結構化輸出內容中重複出現換行符 (`\n`) | 如果模型輸入內容包含 Unicode 或逸出序列 (例如 `\u` 或 `\t`)，可能會導致重複換行。 | - 檢查提示中是否有禁止使用的逸出序列，並以 UTF-8 字元取代。舉例來說，JSON 範例中的 `\u`   逸出序列可能會導致模型在輸出內容中也使用這些序列。 - 指示模型可接受的逸出字元。新增類似這樣的系統指令：      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
+| 使用結構化輸出內容時重複的文字 | 如果模型輸出內容的欄位順序與定義的結構化結構定義不同，可能會導致文字重複。 | - 請勿在提示中指定欄位順序。 - 將所有輸出欄位設為必填。 |
+| 重複呼叫工具 | 如果模型失去先前想法的脈絡，且/或呼叫無法使用的端點，就可能發生這種情況。 | 引導模型在思考過程中維持狀態。 在系統指令的結尾新增下列內容：    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
+| 重複的文字，不屬於結構化輸出內容 | 如果模型無法解決要求，就可能會發生這種情況。 | - 如果開啟「思考」功能，請避免在指令中明確指示如何思考問題。只要要求最終輸出內容即可。 - 請嘗試將溫度調高至 0.8 以上。 - 新增「簡潔扼要」、「不要重複」或「只提供一次答案」等指令。 |
 
-## ブロックされた API キーまたは機能しない API キー
+## 遭封鎖或無法使用的 API 金鑰
 
-このセクションでは、Gemini API キーがブロックされているかどうかを確認する方法と、その対処方法について説明します。
+本節說明如何檢查 Gemini API 金鑰是否遭到封鎖，以及如何解決這個問題。
 
-### キーがブロックされる理由を理解する
+### 瞭解金鑰遭封鎖的原因
 
-一部の API キーが一般公開されている可能性がある脆弱性が特定されました。データを保護し、不正アクセスを防ぐため、既知の漏洩したキーが Gemini API にアクセスできないように事前にブロックしました。
+我們發現部分 API 金鑰可能遭到公開，為保護您的資料並防止未授權存取，我們已主動封鎖這些已知的洩漏金鑰，避免存取 Gemini API。
 
-### キーが影響を受けているかどうかを確認する
+### 確認金鑰是否受影響
 
-キーが漏洩していることが判明した場合、Gemini API でそのキーを使用することはできません。[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=ja) を使用すると、Gemini API の呼び出しがブロックされている API キーがあるかどうかを確認し、新しい
-キーを生成できます。これらのキーを使用しようとすると、次のエラーが返されることもあります。
+如果金鑰外洩，您就無法再透過 Gemini API 使用該金鑰。您可以透過 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-tw) 查看是否有任何 API 金鑰遭到封鎖，無法呼叫 Gemini API，並產生新的金鑰。嘗試使用這些金鑰時，您也可能會看到下列錯誤訊息：
 
 ```
 Your API key was reported as leaked. Please use another API key.
 ```
 
-### ブロックされた API キーに対するアクション
+### 遭封鎖 API 金鑰的動作
 
-[Google
-AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=ja) を使用して、Gemini API 統合用の新しい API キーを生成する必要があります。新しいキーが安全に保管され、一般公開されないように、API キーの管理方法を見直すことを強くおすすめします。
+請使用 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-tw)，為 Gemini API 整合項目產生新的 API 金鑰。我們強烈建議您檢查 API 金鑰管理做法，確保新金鑰安全無虞，且不會公開。
 
-### 脆弱性による予期しない請求
+### 因安全漏洞而產生意外費用
 
-[課金サポートケースを送信してください](https://console.cloud.google.com/support/chat?hl=ja)。
-課金チームが対応を進めており、最新情報をできるだけ早くお知らせいたします。
+[提交帳單客服案件](https://console.cloud.google.com/support/chat?hl=zh-tw)。
+我們的帳單團隊正在處理這項問題，一有最新消息就會盡快通知您。
 
-### 漏洩したキーに対する Google のセキュリティ対策
+### Google 針對外洩金鑰採取的安全措施
 
-**API キーが漏洩した場合、Google は費用超過や不正使用からアカウントを保護するためにどのような対策を講じますか？**
+**如果我的 API 金鑰外洩，Google 會如何協助保護帳戶，避免費用超出預算和遭到濫用？**
 
-- Google AI Studio を使用して新しいキーをリクエストすると、API キーが発行されるようになります。デフォルトでは、
-  [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=ja) のみに制限され、他のサービスからのキーは受け付けられません。
-  これにより、意図しないキーのクロス使用を防ぐことができます。
-- Gemini API で漏洩して使用されている API キーはデフォルトでブロックされ、費用やアプリケーション データの不正使用を防ぐことができます。
-- [Google AI
-  Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=ja) で API キーのステータスを確認できます。API キーが漏洩していることが判明した場合は、迅速な対応を促すため、積極的に通知いたします。
+- 我們將逐步調整，日後透過 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-tw) 申請新金鑰時，系統預設只會發放 Google AI Studio 專用的 API 金鑰，不會接受其他服務的金鑰。這麼做有助於防範非預期的跨金鑰使用情況。
+- 我們預設會封鎖遭洩漏並搭配 Gemini API 使用的 API 金鑰，協助您避免費用遭到濫用，以及保護應用程式資料。
+- 您可以在 [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=zh-tw) 中查看 API 金鑰的狀態。如果我們發現您的 API 金鑰外洩，會主動通知您立即採取行動。
 
-## モデル出力を改善する
+## 提升模型輸出內容品質
 
-モデルの出力を高品質にするには、構造化されたプロンプトの作成を検討してください。
-[プロンプト エンジニアリング ガイド](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)のページ
-では、基本的なコンセプト、戦略、ベスト プラクティスについて説明しています。
+如要取得更高品質的模型輸出內容，請嘗試撰寫結構更完整的提示。「[提示工程指南](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw)」頁面介紹了一些基本概念、策略和最佳做法，協助您入門。
 
-## トークンの上限について
+## 瞭解權杖限制
 
-[トークン ガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)を読んで、トークンのカウント方法と上限について理解を深めてください。
+詳閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)，進一步瞭解如何計算權杖和權杖限制。
 
-## 既知の問題
+## 已知問題
 
-- この API は、一部の言語のみをサポートしています。サポートされていない言語でプロンプトを送信すると、予期しないレスポンスやブロックされたレスポンスが生成される可能性があります。最新情報については、
-  [対応言語](https://ai.google.dev/gemini-api/docs/models?hl=ja#supported-languages)をご覧ください。
+- 這項 API 僅支援部分語言。如果以不支援的語言提交提示，可能會生成非預期的回覆，甚至遭到封鎖。如要瞭解最新支援的語言，請參閱[這篇文章](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#supported-languages)。
 
-## バグを報告する
+## 回報錯誤
 
-ご不明な点がございましたら、
-[Google AI デベロッパー フォーラム](https://discuss.ai.google.dev?hl=ja)
-のディスカッションにご参加ください。
+如有任何問題，歡迎前往 [Google AI 開發人員論壇](https://discuss.ai.google.dev?hl=zh-tw)參與討論。
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-09-11 UTC。
+上次更新時間：2026-09-20 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-11 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-20 (世界標準時間)。"],[],[]]

@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=zh-TW
-fetched_at: 2026-09-14T05:49:48.341817+00:00
-title: "\u9077\u79fb\u81f3 Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ko
+fetched_at: 2026-09-21T05:45:14.356913+00:00
+title: "Interactions API\ub85c \ub9c8\uc774\uadf8\ub808\uc774\uc158 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-提供意見
+의견 보내기
 
-# 遷移至 Interactions API
+# Interactions API로 마이그레이션
 
-本指南將協助您從 `generateContent` API 遷移至 Interactions API。
+이 가이드에서는 `generateContent` API에서 Interactions API로 이전하는 방법을 설명합니다.
 
-Interactions API 是使用 Gemini 模型和代理程式建構應用程式最簡單且最佳的方式。雖然我們仍會提供 `generateContent` 的完整支援，但建議所有新開發項目都使用 Interactions API。
+Interactions API는 Gemini 모델 및 에이전트로 빌드하는 가장 간단하고 효과적인 방법입니다. `generateContent`는 계속 완전히 지원되지만 모든 신규 개발에는 Interactions API를 사용하는 것이 좋습니다.
 
-### 為何要遷移？
+### 마이그레이션이 필요한 이유
 
-Interactions API 是使用 Gemini 模型和代理程式建構應用程式最簡單且最有效的方法：
+Interactions API는 Gemini 모델 및 에이전트를 사용하여 빌드하는 가장 간단하고 효과적인 방법입니다.
 
-- **伺服器端記錄管理**：透過 `previous_interaction_id` 簡化多輪對話流程。伺服器預設會啟用狀態 (`store=true`)，但您可以設定 `store=false`，選擇無狀態行為。
-- **可觀察的執行步驟**：輸入步驟可輕鬆偵錯複雜流程，並為中繼事件 (例如想法或搜尋小工具) 算繪 UI。
-- **工具使用和代理工作流程**：透過型別執行步驟，原生支援多步驟工具使用、自動調度管理和複雜的推論流程。
-- **長期執行的工作和背景工作**：支援使用 `background=true` 將耗時的作業 (例如 Deep Think 和 Deep Research) 卸載至背景程序。
+- **서버 측 기록 관리**: `previous_interaction_id`를 통해 멀티턴 흐름이 간소화되었습니다. 서버는 기본적으로 상태를 사용 설정하지만 (`store=true`) `store=false`를 설정하여 상태 비저장 동작을 선택할 수 있습니다.
+- **관찰 가능한 실행 단계**: 입력된 단계를 사용하면 복잡한 흐름을 쉽게 디버그하고 중간 이벤트 (예: 생각 또는 검색 위젯)의 UI를 렌더링할 수 있습니다.
+- **도구 사용 및 에이전트형 워크플로**: 유형이 지정된 실행 단계를 통해 다단계 도구 사용, 조정, 복잡한 추론 흐름을 기본적으로 지원합니다.
+- **장기 실행 및 백그라운드 작업**: `background=true`를 사용하여 Deep Think 및 Deep Research와 같은 시간 집약적인 작업을 백그라운드 프로세스로 오프로드하는 것을 지원합니다.
 
-## 基本輸入/輸出
+## 기본 입력/출력
 
-本節說明如何遷移簡單的文字生成要求。
+이 섹션에서는 간단한 텍스트 생성 요청을 이전하는 방법을 보여줍니다.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-`generateContent` API 為無狀態，會直接傳回回應。回應結構會將輸出內容包裝在 `candidates` 清單中，每個 `candidates` 都包含 `content`，其中含有要剖析的 `parts` 清單。
+`generateContent` API는 상태가 없으며 응답을 직접 반환합니다. 응답 구조는 파싱할 `parts` 목록이 있는 `content`이 각각 포함된 `candidates` 목록으로 출력을 래핑합니다.
 
 ### Python
 
@@ -52,7 +52,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -64,6 +64,19 @@ const response = await ai.models.generateContent({
   contents: "Tell me a joke.",
 });
 console.log(response.text);
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentResponse;
+
+Client client = new Client();
+
+GenerateContentResponse response =
+    client.models.generateContent("gemini-2.5-flash-lite", "Tell me a joke.", null);
+System.out.println(response.text());
 ```
 
 ### REST
@@ -105,9 +118,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-Interactions API 會傳回儲存的互動資源，並附上 `steps` 時間軸。雖然您可以手動檢查 `steps` 陣列來尋找中繼事件，但 Google GenAI SDK 會在傳回的 `Interaction` 物件上直接提供便利屬性，方便您存取最終輸出內容。
+Interactions API는 `steps` 타임라인과 함께 저장된 상호작용 리소스를 반환합니다. `steps` 배열을 수동으로 검사하여 중간 이벤트를 찾을 수 있지만 Google 생성형 AI SDK는 최종 출력에 액세스할 수 있도록 반환된 `Interaction` 객체에 편리한 속성을 직접 제공합니다.
 
-最常見的便利性屬性是 **`.output_text`** (字串)，可自動擷取並合併模型回覆結尾的連續 `TextContent` 區塊。雖然這項功能非常適合簡單的回覆，但不會納入以非文字內容 (例如想法、圖片、音訊或工具呼叫) 分隔的先前文字區塊。如要處理複雜或交錯的多模態回應，請改為手動疊代 `steps`。
+가장 일반적인 편의 속성은 **`.output_text`** (문자열)로, 모델의 대답 끝에 있는 연속된 `TextContent` 블록을 자동으로 추출하여 결합합니다. 이 방법은 간단한 대답에는 완벽하게 작동하지만 텍스트가 아닌 콘텐츠 (예: 생각, 이미지, 오디오, 도구 호출)로 구분된 이전 텍스트 블록은 포함하지 않습니다. 복잡하거나 인터리브된 멀티모달 응답의 경우 대신 `steps`를 수동으로 반복해야 합니다.
 
 ### Python
 
@@ -117,13 +130,13 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash", input="Tell me a joke."
+    model="gemini-3.8-flash", input="Tell me a joke."
 )
 
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -131,11 +144,35 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: 'Tell me a joke.'
 });
 
 console.log(interaction.output_text);
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Tell me a joke."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -146,7 +183,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Tell me a joke."
 }'
 
@@ -179,17 +216,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 多轉折對話
+## 멀티턴 대화
 
-Interactions API 預設會儲存互動內容，方便您管理多輪對話的伺服器端狀態。
+Interactions API는 기본적으로 상호작용을 저장하여 멀티턴 대화의 서버 측 상태 관리를 지원합니다.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-在 `generateContent` 中，您必須使用 `contents` 陣列或用戶端即時通訊輔助程式，手動管理對話記錄。
+`generateContent`에서는 `contents` 배열 또는 클라이언트 측 채팅 도우미를 사용하여 대화 기록을 수동으로 관리해야 합니다.
 
 ### Python
 
-**使用即時通訊小幫手 (建議做法)**
+**채팅 도우미 사용 (권장)**
 
 ```
 from google import genai
@@ -204,7 +241,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**手動管理記錄**
+**기록 수동 관리**
 
 ```
 from google import genai
@@ -230,9 +267,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
-**使用即時通訊小幫手 (建議做法)**
+**채팅 도우미 사용 (권장)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -247,7 +284,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**手動管理記錄**
+**기록 수동 관리**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -263,6 +300,47 @@ const response = await client.models.generateContent({
     ]
 });
 console.log(response.text);
+```
+
+### 자바
+
+```
+import com.google.genai.Chat;
+import com.google.genai.Client;
+import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Part;
+import java.util.Arrays;
+
+Client client = new Client();
+
+// Using the chat helper (recommended)
+Chat chat = client.chats.create("gemini-2.5-flash-lite");
+GenerateContentResponse response1 = chat.sendMessage("Hi, my name is Phil.");
+System.out.println(response1.text());
+
+GenerateContentResponse response2 = chat.sendMessage("What is my name?");
+System.out.println(response2.text());
+
+// Manually managing history
+GenerateContentResponse manualResponse =
+    client.models.generateContent(
+        "gemini-2.5-flash-lite",
+        Arrays.asList(
+            Content.builder()
+                .role("user")
+                .parts(Arrays.asList(Part.fromText("Hi, my name is Phil.")))
+                .build(),
+            Content.builder()
+                .role("model")
+                .parts(Arrays.asList(Part.fromText("Hi Phil, how can I help you?")))
+                .build(),
+            Content.builder()
+                .role("user")
+                .parts(Arrays.asList(Part.fromText("What is my name?")))
+                .build()),
+        null);
+System.out.println(manualResponse.text());
 ```
 
 ### REST
@@ -299,9 +377,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-Interactions API 會管理伺服器上的狀態。如要繼續對話，請參照 `previous_interaction_id`。
+Interactions API는 서버의 상태를 관리합니다. `previous_interaction_id`을 참조하여 대화를 이어갑니다.
 
 ### Python
 
@@ -311,19 +389,19 @@ from google import genai
 client = genai.Client()
 
 interaction1 = client.interactions.create(
-    model="gemini-3.6-flash", input="Hi, my name is Phil."
+    model="gemini-3.8-flash", input="Hi, my name is Phil."
 )
 print("Response 1:", interaction1.output_text)
 
 interaction2 = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     previous_interaction_id=interaction1.id,
     input="What is my name?",
 )
 print("Response 2:", interaction2.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -331,17 +409,51 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: 'Hi, my name is Phil.'
 });
 console.log("Response 1:", interaction.output_text);
 
 interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     previous_interaction_id: interaction.id,
     input: 'What is my name?'
 });
 console.log("Response 2:", interaction.output_text);
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction req1 =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Hi, my name is Phil."))
+        .build();
+
+Interaction interaction1 =
+    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+System.out.println("Response 1: " + interaction1.outputText().orElse(""));
+
+CreateModelInteraction req2 =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .previousInteractionId(interaction1.id().orElse(""))
+        .input(InteractionsInput.of("What is my name?"))
+        .build();
+
+Interaction interaction2 =
+    client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
+System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
 ### REST
@@ -352,7 +464,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Hi, my name is Phil."
 }'
 
@@ -361,7 +473,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "previous_interaction_id": "int_123",
     "input": "What is my name?"
 }'
@@ -394,13 +506,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 多模態輸入內容
+## 멀티모달 입력
 
-這兩個 API 都支援多模態輸入內容 (文字、圖片、影片等)。
+두 API 모두 멀티모달 입력 (텍스트, 이미지, 동영상 등)을 지원합니다.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-在 `generateContent` 中，您會在 `contents` 陣列中傳遞 `parts` 清單。回應會傳回第一個候選人的 `parts` 輸出內容。
+`generateContent`에서는 `contents` 배열 내에 `parts` 목록을 전달합니다. 응답은 첫 번째 후보의 `parts`에 출력을 반환합니다.
 
 ### Python
 
@@ -423,7 +535,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -446,6 +558,29 @@ const response = await client.models.generateContent({
     ],
 });
 console.log(response.text);
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Part;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Client client = new Client();
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("sample.jpg"));
+
+GenerateContentResponse response =
+    client.models.generateContent(
+        "gemini-2.5-flash-lite",
+        Content.fromParts(
+            Part.fromBytes(imageBytes, "image/jpeg"), Part.fromText("Describe this image.")),
+        null);
+System.out.println(response.text());
 ```
 
 ### REST
@@ -488,9 +623,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-在 Interactions API 中，您會將陣列傳遞至 `input` 欄位。在時間軸中找到 `model_output` 步驟，即可擷取輸出內容。
+Interactions API에서는 `input` 필드에 배열을 전달합니다. 타임라인에서 `model_output` 단계를 찾아 출력 콘텐츠를 가져옵니다.
 
 ### Python
 
@@ -505,7 +640,7 @@ with open("sample.jpg", "rb") as f:
 image_b64 = base64.b64encode(image_bytes).decode("utf-8")
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {
             "type": "image",
@@ -518,7 +653,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -529,7 +664,7 @@ const client = new GoogleGenAI({});
 const imageBytes = fs.readFileSync('sample.jpg').toString('base64');
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: [
         {
             type: 'image',
@@ -545,6 +680,46 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+
+Client client = new Client();
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("sample.jpg"));
+String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.ofContent(
+                Arrays.asList(
+                    ImageContent.builder()
+                        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+                        .data(base64ImageData)
+                        .build(),
+                    TextContent.builder().text("Describe this image.").build())))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -553,7 +728,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
         {
             "type": "image",
@@ -600,13 +775,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 結構化輸出內容
+## 구조화된 출력
 
-如要讓模型傳回符合特定結構定義的 JSON，請設定回覆格式。
+모델이 특정 스키마와 일치하는 JSON을 반환하도록 하려면 응답 형식을 구성하세요.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-在 `generateContent` 中，您可以使用 `config` (或 `generationConfig`) 物件內嵌的 `response_mime_type` 和 `response_schema` 欄位設定輸出格式。
+`generateContent`에서는 `config` (또는 `generationConfig`) 객체 내에 중첩된 `response_mime_type` 및 `response_schema` 필드를 사용하여 출력 형식을 구성합니다.
 
 ### Python
 
@@ -632,7 +807,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -658,6 +833,44 @@ const response = await ai.models.generateContent({
     },
 });
 console.log(response.text);
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Schema;
+import com.google.genai.types.Type;
+import java.util.Arrays;
+import java.util.Map;
+
+Client client = new Client();
+
+Schema recipeSchema =
+    Schema.builder()
+        .type(Type.Known.OBJECT)
+        .properties(
+            Map.of(
+                "recipe_name", Schema.builder().type(Type.Known.STRING).build(),
+                "ingredients",
+                    Schema.builder()
+                        .type(Type.Known.ARRAY)
+                        .items(Schema.builder().type(Type.Known.STRING).build())
+                        .build()))
+        .required(Arrays.asList("recipe_name", "ingredients"))
+        .build();
+
+GenerateContentResponse response =
+    client.models.generateContent(
+        "gemini-2.5-flash-lite",
+        "Give me a recipe for chocolate chip cookies.",
+        GenerateContentConfig.builder()
+            .responseMimeType("application/json")
+            .responseSchema(recipeSchema)
+            .build());
+System.out.println(response.text());
 ```
 
 ### REST
@@ -706,9 +919,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-在 Interactions API 中，輸出格式控制項會移至頂層 `response_format` 陣列。
+Interactions API에서 출력 형식 컨트롤이 최상위 `response_format` 배열로 이동합니다.
 
 ### Python
 
@@ -723,7 +936,7 @@ class Recipe(BaseModel):
     ingredients: list[str]
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Give me a recipe for chocolate chip cookies.",
     response_format=[
         {
@@ -737,7 +950,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -745,7 +958,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: 'Give me a recipe for chocolate chip cookies.',
     response_format: [
         {
@@ -768,6 +981,53 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("recipe_name", Map.of("type", "string"));
+properties.put("ingredients", Map.of("type", "array", "items", Map.of("type", "string")));
+
+Map<String, Object> schema = new HashMap<>();
+schema.put("type", "object");
+schema.put("properties", properties);
+schema.put("required", Arrays.asList("recipe_name", "ingredients"));
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Give me a recipe for chocolate chip cookies."))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                Arrays.asList(
+                    ResponseFormat.of(
+                        TextResponseFormat.builder()
+                            .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                            .schema(schema)
+                            .build()))))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -776,7 +1036,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Give me a recipe for chocolate chip cookies.",
     "response_format": [
         {
@@ -820,13 +1080,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 多模態生成
+## 멀티모달 생성
 
-生成文字以外的內容 (例如圖片或音訊) 時，主要差異在於回覆如何建構生成的媒體。
+텍스트를 넘어 이미지나 오디오와 같은 모달리티로 콘텐츠를 생성할 때의 주요 차이점은 생성된 미디어의 응답 구조입니다.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-在 `generateContent` 中，回應會直接在候選人的 `parts` 中傳回生成的媒體，通常是 `inlineData` 中的 base64 資料。
+`generateContent`에서 응답은 생성된 미디어를 후보의 `parts`에 직접 반환합니다. 일반적으로 `inlineData`의 base64 데이터로 반환됩니다.
 
 ```
 # Response structure concept
@@ -851,9 +1111,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-在 Interactions API 中，產生的媒體會顯示為時間軸中 `model_output` 步驟的 `content` 陣列內的不同項目，維持互動的時間順序。
+Interactions API에서 생성된 미디어는 타임라인의 `model_output` 단계의 `content` 배열 내에 별도의 항목으로 표시되어 상호작용의 시간순 흐름을 유지합니다.
 
 ```
 # Response structure concept
@@ -879,15 +1139,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-這樣一來，回應剖析作業就會與輸入內容和文字輸出內容的處理方式保持一致，因為所有內容都是時間軸中的步驟。
+이렇게 하면 입력과 텍스트 출력이 처리되는 방식과 일관되게 대답을 파싱할 수 있습니다. 타임라인의 모든 항목이 단계입니다.
 
-## 伺服器端工具
+## 서버 측 도구
 
-Gemini 支援內建的伺服器端工具，例如 Google 搜尋基礎。主要差異在於回應如何呈現工具執行作業。
+Gemini는 Google 검색 그라운딩과 같은 기본 제공 서버 측 도구를 지원합니다. 주요 차이점은 대답에서 도구 실행을 나타내는 방식입니다.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-在 `generateContent` 中，伺服器端工具大多是不透明的。啟用工具並透過另一個 `groundingMetadata` 物件取得最終答案。重要事項：引文並非內嵌，請使用字元索引將文字片段對應回 `groundingChunks` 中的網路來源。`groundingSupports`
+`generateContent`에서 서버 측 도구는 대부분 불투명합니다. 도구를 사용 설정하고 별도의 `groundingMetadata` 객체로 최종 답변을 받습니다. 중요한 점은 인용이 인라인이 아니라는 것입니다. `groundingSupports`는 문자 색인을 사용하여 텍스트 세그먼트를 `groundingChunks`의 웹 소스에 다시 매핑합니다.
 
 ### Python
 
@@ -913,7 +1173,7 @@ for support in metadata.grounding_supports:
     print(f"Citation: {support.segment.text}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -934,6 +1194,48 @@ if (metadata.searchEntryPoint) {
 }
 for (const support of metadata.groundingSupports) {
     console.log(`Citation: ${support.segment.text}`);
+}
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.Candidate;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.GoogleSearch;
+import com.google.genai.types.GroundingMetadata;
+import com.google.genai.types.GroundingSupport;
+import com.google.genai.types.Tool;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+Client client = new Client();
+
+GenerateContentResponse response =
+    client.models.generateContent(
+        "gemini-2.5-flash-lite",
+        "Who won Euro 2024?",
+        GenerateContentConfig.builder()
+            .tools(
+                Arrays.asList(
+                    Tool.builder().googleSearch(GoogleSearch.builder().build()).build()))
+            .build());
+
+List<Candidate> candidates = response.candidates().orElse(Collections.emptyList());
+if (!candidates.isEmpty() && candidates.get(0).groundingMetadata().isPresent()) {
+  GroundingMetadata metadata = candidates.get(0).groundingMetadata().get();
+  if (metadata.searchEntryPoint().isPresent()) {
+    System.out.println(
+        "Search Entry Point: " + metadata.searchEntryPoint().get().renderedContent().orElse(""));
+  }
+  for (GroundingSupport support : metadata.groundingSupports().orElse(Collections.emptyList())) {
+    Optional<String> segmentText = support.segment().flatMap(s -> s.text());
+    segmentText.ifPresent(text -> System.out.println("Citation: " + text));
+  }
 }
 ```
 
@@ -995,11 +1297,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-在 Interactions API 中，伺服器端工具可提供完整的時間軸透明度。API 會將呼叫和結果記錄為不同的執行項目 `steps` (`google_search_call` 和 `google_search_result`)，準確顯示模型擷取的資料。
+Interactions API에서 서버 측 도구는 전체 타임라인 투명성을 제공합니다. API는 호출과 결과를 별도의 실행 `steps` (`google_search_call` 및 `google_search_result`)으로 기록하여 모델이 검색한 데이터를 정확하게 노출합니다.
 
-此外，API 會**內嵌**傳回引文。`model_output` 步驟中的文字項目會包含自己的 `annotations` 陣列，直接連結至來源，不必從獨立的中繼資料物件對應索引。
+또한 API는 인용을 **인라인**으로 반환합니다. 별도의 메타데이터 객체에서 색인을 매핑하는 대신 `model_output` 단계 내의 텍스트 항목에는 소스에 직접 연결되는 자체 `annotations` 배열이 포함됩니다.
 
 ### Python
 
@@ -1009,7 +1311,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Who won Euro 2024?",
     tools=[{"type": "google_search"}],
 )
@@ -1024,7 +1326,7 @@ for step in interaction.steps:
                 print(f"Citation: {anno.title} ({anno.uri})")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1032,7 +1334,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: 'Who won Euro 2024?',
     tools: [{ type: 'google_search' }]
 });
@@ -1051,6 +1353,64 @@ for (const step of interaction.steps) {
 }
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Annotation;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
+import com.google.genai.gaos.models.interactions.GoogleSearchResult;
+import com.google.genai.gaos.models.interactions.GoogleSearchResultStep;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.URLCitation;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+
+Client client = new Client();
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Who won Euro 2024?"))
+        .tools(Arrays.asList(GoogleSearch.builder().build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
+
+for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+  if (step instanceof GoogleSearchResultStep) {
+    GoogleSearchResultStep searchStep = (GoogleSearchResultStep) step;
+    for (GoogleSearchResult res : searchStep.result().orElse(Collections.emptyList())) {
+      System.out.println("Search Suggestions: " + res.searchSuggestions().orElse(""));
+    }
+  } else if (step instanceof ModelOutputStep) {
+    ModelOutputStep modelOutput = (ModelOutputStep) step;
+    for (Content contentBlock : modelOutput.content().orElse(Collections.emptyList())) {
+      if (contentBlock instanceof TextContent) {
+        TextContent textContent = (TextContent) contentBlock;
+        System.out.println("Answer: " + textContent.text().orElse(""));
+        for (Annotation anno : textContent.annotations().orElse(Collections.emptyList())) {
+          if (anno instanceof URLCitation) {
+            URLCitation cit = (URLCitation) anno;
+            System.out.println(
+                "Citation: " + cit.title().orElse("") + " (" + cit.url().orElse("") + ")");
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -1059,7 +1419,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Who won Euro 2024?",
     "tools": [{"type": "google_search"}]
 }'
@@ -1084,7 +1444,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
       "content": [
         {
           "type": "text",
-          "text": "Spain won Euro 2024..." 
+          "text": "Spain won Euro 2024..."
         }
       ]
     },
@@ -1110,13 +1470,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 函式呼叫
+## 함수 호출
 
-函式呼叫和結果的結構也已變更，以符合步驟結構定義。
+함수 호출 및 결과의 구조도 단계 스키마에 맞게 변경되었습니다.
 
-### 之前 (`generateContent`)
+### 이전 (`generateContent`)
 
-在 `generateContent` 中，回應會傳回候選人中的函式呼叫。\* {Python}
+`generateContent`에서 대답은 후보 내의 함수 호출을 반환합니다.\* {Python}
 
 ```
 ```python
@@ -1162,7 +1522,7 @@ print(response.text)
 ```
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1198,6 +1558,68 @@ response = await client.models.generateContent({
     config: { tools: [weatherTool] }
 });
 console.log(response.text);
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.Content;
+import com.google.genai.types.FunctionCall;
+import com.google.genai.types.FunctionDeclaration;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Part;
+import com.google.genai.types.Schema;
+import com.google.genai.types.Tool;
+import com.google.genai.types.Type;
+import java.util.Arrays;
+import java.util.Map;
+
+Client client = new Client();
+
+FunctionDeclaration weatherFunc =
+    FunctionDeclaration.builder()
+        .name("get_weather")
+        .description("Gets weather")
+        .parameters(
+            Schema.builder()
+                .type(Type.Known.OBJECT)
+                .properties(Map.of("location", Schema.builder().type(Type.Known.STRING).build()))
+                .build())
+        .build();
+
+Tool weatherTool = Tool.builder().functionDeclarations(Arrays.asList(weatherFunc)).build();
+
+GenerateContentResponse response =
+    client.models.generateContent(
+        "gemini-2.5-flash-lite",
+        "What's the weather in Boston?",
+        GenerateContentConfig.builder().tools(Arrays.asList(weatherTool)).build());
+
+FunctionCall functionCall = response.functionCalls().get(0);
+System.out.println("Requested tool: " + functionCall.name().orElse(""));
+
+String result = "52°F and rain";
+
+GenerateContentResponse finalResponse =
+    client.models.generateContent(
+        "gemini-2.5-flash-lite",
+        Arrays.asList(
+            Content.builder()
+                .role("user")
+                .parts(Arrays.asList(Part.fromText("What's the weather in Boston?")))
+                .build(),
+            response.candidates().get().get(0).content().get(),
+            Content.builder()
+                .role("user")
+                .parts(
+                    Arrays.asList(
+                        Part.fromFunctionResponse(
+                            functionCall.name().orElse(""), Map.of("result", result))))
+                .build()),
+        GenerateContentConfig.builder().tools(Arrays.asList(weatherTool)).build());
+System.out.println(finalResponse.text());
 ```
 
 ### REST
@@ -1250,9 +1672,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-時間軸現在會分別顯示工具呼叫和結果。
+이제 도구 호출과 결과가 타임라인에서 별도의 단계로 표시됩니다.
 
 ### Python
 
@@ -1274,7 +1696,7 @@ weather_tool = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="What's the weather in Boston?",
     tools=[weather_tool],
 )
@@ -1286,7 +1708,7 @@ for step in interaction.steps:
         result = "52°F and rain"
 
         interaction = client.interactions.create(
-            model="gemini-3.6-flash",
+            model="gemini-3.8-flash",
             previous_interaction_id=interaction.id,
             input=[
                 {
@@ -1300,7 +1722,7 @@ for step in interaction.steps:
         print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1321,7 +1743,7 @@ const weatherTool = {
 };
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: "What's the weather in Boston?",
     tools: [weatherTool]
 });
@@ -1333,7 +1755,7 @@ for (const step of interaction.steps) {
         const result = "52°F and rain";
 
         const nextInteraction = await client.interactions.create({
-            model: 'gemini-3.6-flash',
+            model: 'gemini-3.8-flash',
             previous_interaction_id: interaction.id,
             input: [
                 {
@@ -1350,6 +1772,87 @@ for (const step of interaction.steps) {
 }
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("location", Map.of("type", "string"));
+
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("type", "object");
+parameters.put("properties", properties);
+parameters.put("required", Arrays.asList("location"));
+
+Function weatherTool =
+    Function.builder()
+        .name("get_weather")
+        .description("Gets weather")
+        .parameters(parameters)
+        .build();
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("What's the weather in Boston?"))
+        .tools(Arrays.asList(weatherTool))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
+
+for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+  if (step instanceof FunctionCallStep) {
+    FunctionCallStep fcStep = (FunctionCallStep) step;
+    System.out.println(
+        "Executing "
+            + fcStep.name().orElse("")
+            + " for "
+            + fcStep.arguments().orElse(Collections.emptyMap()));
+
+    String result = "52°F and rain";
+
+    FunctionResultStep funcResult =
+        FunctionResultStep.builder()
+            .callId(fcStep.id().orElse(""))
+            .name(fcStep.name().orElse(""))
+            .result(
+                FunctionResultStepResultUnion.of(
+                    Arrays.asList(TextContent.builder().text(result).build())))
+            .build();
+
+    CreateModelInteraction nextRequest =
+        CreateModelInteraction.builder()
+            .model(Model.of("gemini-3.8-flash"))
+            .previousInteractionId(interaction.id().orElse(""))
+            .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
+            .build();
+
+    Interaction nextInteraction =
+        client.interactions.create(CreateInteractionRequestBody.of(nextRequest)).interaction().get();
+    System.out.println(nextInteraction.outputText().orElse(""));
+  }
+}
+```
+
 ### REST
 
 ```
@@ -1358,7 +1861,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "What's the weather in Boston?",
     "tools": [{
         "type": "function",
@@ -1401,7 +1904,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "previous_interaction_id": "int_001",
     "input": {
         "type": "function_result",
@@ -1437,15 +1940,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 串流
+## 스트리밍
 
-串流的重大差異在於，Interactions API 使用相同的端點，且要求主體中含有 `"stream": true`，而 `generateContent` API 則需要呼叫專屬端點 (`:streamGenerateContent`)。
+스트리밍의 주요 차이점은 Interactions API는 요청 본문에 `"stream": true`가 있는 동일한 엔드포인트를 사용하는 반면 `generateContent` API는 전용 엔드포인트 (`:streamGenerateContent`)를 호출해야 한다는 것입니다.
 
-此外，串流事件現在會使用專門類型，監控互動生命週期，並追蹤時間軸上的執行步驟。
+또한 스트리밍 이벤트는 이제 전문화된 유형을 사용하여 상호작용 수명 주기를 모니터링하고 타임라인을 따라 실행 단계를 추적합니다.
 
-### 之前 (`generateContentStream`)
+### 이전 (`generateContentStream`)
 
-使用 `generateContent` 時，您會接收一連串的回覆區塊。
+`generateContent`를 사용하면 응답 청크 스트림을 소비합니다.
 
 ### Python
 
@@ -1461,7 +1964,7 @@ for chunk in response:
     print(chunk.text, end="")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const responseStream = await client.models.generateContentStream({
@@ -1470,6 +1973,23 @@ const responseStream = await client.models.generateContentStream({
 });
 for await (const chunk of responseStream) {
     process.stdout.write(chunk.text);
+}
+```
+
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.ResponseStream;
+import com.google.genai.types.GenerateContentResponse;
+
+Client client = new Client();
+
+try (ResponseStream<GenerateContentResponse> responseStream =
+    client.models.generateContentStream("gemini-2.5-flash-lite", "Tell me a story", null)) {
+  for (GenerateContentResponse chunk : responseStream) {
+    System.out.print(chunk.text());
+  }
 }
 ```
 
@@ -1503,9 +2023,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### 之後 (Interactions API)
+### After (Interactions API)
 
-在 Interactions API 中，串流會使用伺服器傳送事件 (SSE) 和特殊差異類型，代表執行步驟的發生時間。
+Interactions API에서 스트리밍은 서버 전송 이벤트 (SSE)와 특수 델타 유형을 사용하여 실행 단계를 발생하는 대로 나타냅니다.
 
 ### Python
 
@@ -1515,7 +2035,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Tell me a story",
     stream=True,
 )
@@ -1528,7 +2048,7 @@ for event in stream:
         print(f"\n\n--- Stream Finished ---")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1536,7 +2056,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: 'Tell me a story',
     stream: true,
 });
@@ -1552,9 +2072,52 @@ for await (const event of stream) {
 }
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionCompletedEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.StepDelta;
+import com.google.genai.gaos.models.interactions.TextDelta;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.utils.EventStream;
+
+Client client = new Client();
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Tell me a story"))
+        .stream(true)
+        .build();
+
+try (EventStream<InteractionSSEStreamEvent> stream =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).events()) {
+  for (InteractionSSEStreamEvent streamEvent : stream) {
+    if (streamEvent.data().isPresent()) {
+      InteractionSSEEvent event = streamEvent.data().get();
+      if (event instanceof StepDelta) {
+        StepDelta stepDelta = (StepDelta) event;
+        if (stepDelta.delta().isPresent() && stepDelta.delta().get() instanceof TextDelta) {
+          TextDelta textDelta = (TextDelta) stepDelta.delta().get();
+          System.out.print(textDelta.text().orElse(""));
+        }
+      } else if (event instanceof InteractionCompletedEvent) {
+        System.out.println("\n\n--- Stream Finished ---");
+      }
+    }
+  }
+}
+```
+
 ### REST
 
-# Example SSE stream output
+# SSE 스트림 출력 예
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1575,13 +2138,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### 串流工具和函式呼叫
+### 스트리밍 도구 및 함수 호출
 
-工具在串流中的運作方式已大幅改變，從 `generateContent` 轉移至提供更精細的控制和瀏覽權限。
+스트림에서 도구가 작동하는 방식이 `generateContent`에서 세부적인 제어 및 가시성을 제공하는 방식으로 크게 바뀌었습니다.
 
-#### 之前 (`generateContent`)
+#### 이전 (`generateContent`)
 
-使用 `generateContent` 時，串流函式呼叫會以單一區塊的形式完整傳送。您無法即時查看產生的引數，因此處理常式只會檢查完整的 `functionCall` 物件。
+`generateContent`를 사용하면 스트리밍 함수 호출이 단일 청크로 완전히 도착했습니다. 실시간으로 생성되는 인수를 확인할 수 없었으므로 핸들러는 완전한 `functionCall` 객체만 확인했습니다.
 
 ### Python
 
@@ -1606,7 +2169,7 @@ for chunk in stream:
         print(chunk.text, end="")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1629,6 +2192,52 @@ for await (const chunk of stream) {
 }
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.ResponseStream;
+import com.google.genai.types.FunctionCall;
+import com.google.genai.types.FunctionDeclaration;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Schema;
+import com.google.genai.types.Tool;
+import com.google.genai.types.Type;
+import java.util.Arrays;
+import java.util.Map;
+
+Client client = new Client();
+
+FunctionDeclaration weatherFunc =
+    FunctionDeclaration.builder()
+        .name("get_weather")
+        .description("Gets weather")
+        .parameters(
+            Schema.builder()
+                .type(Type.Known.OBJECT)
+                .properties(Map.of("location", Schema.builder().type(Type.Known.STRING).build()))
+                .build())
+        .build();
+
+Tool weatherTool = Tool.builder().functionDeclarations(Arrays.asList(weatherFunc)).build();
+
+try (ResponseStream<GenerateContentResponse> stream =
+    client.models.generateContentStream(
+        "gemini-2.5-flash-lite",
+        "What's the weather in Boston?",
+        GenerateContentConfig.builder().tools(Arrays.asList(weatherTool)).build())) {
+  for (GenerateContentResponse chunk : stream) {
+    if (chunk.functionCalls() != null && !chunk.functionCalls().isEmpty()) {
+      FunctionCall fc = chunk.functionCalls().get(0);
+      System.out.println("Call: " + fc.name().orElse("") + "(" + fc.args().orElse(Map.of()) + ")");
+    } else if (chunk.text() != null) {
+      System.out.print(chunk.text());
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -1645,9 +2254,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### 之後 (Interactions API)
+#### After (Interactions API)
 
-Interactions API 會以 `arguments` 事件的形式，逐一串流傳輸函式呼叫引數的字元。工具的整個生命週期 (想法、呼叫、結果和輸出) 會以一系列不同的步驟呈現。
+Interactions API는 함수 호출 인수를 `arguments` 이벤트로 문자별로 스트리밍합니다. 전체 도구 수명 주기(생각, 호출, 결과, 출력)는 일련의 개별 단계로 진행됩니다.
 
 ### Python
 
@@ -1657,7 +2266,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="What's the weather in Boston?",
     tools=[get_weather_tool],
     stream=True,
@@ -1676,7 +2285,7 @@ for event in stream:
         print("\n--- Done ---")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1684,7 +2293,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3.8-flash',
     input: "What's the weather in Boston?",
     tools: [getWeatherTool],
     stream: true,
@@ -1707,6 +2316,83 @@ for await (const event of stream) {
 }
 ```
 
+### 자바
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ArgumentsDelta;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.InteractionCompletedEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.StepDelta;
+import com.google.genai.gaos.models.interactions.StepDeltaData;
+import com.google.genai.gaos.models.interactions.StepStart;
+import com.google.genai.gaos.models.interactions.TextDelta;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.utils.EventStream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("location", Map.of("type", "string"));
+
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("type", "object");
+parameters.put("properties", properties);
+parameters.put("required", Arrays.asList("location"));
+
+Function getWeatherTool =
+    Function.builder()
+        .name("get_weather")
+        .description("Gets weather")
+        .parameters(parameters)
+        .build();
+
+CreateModelInteraction request =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("What's the weather in Boston?"))
+        .tools(Arrays.asList(getWeatherTool))
+        .stream(true)
+        .build();
+
+try (EventStream<InteractionSSEStreamEvent> stream =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).events()) {
+  for (InteractionSSEStreamEvent streamEvent : stream) {
+    if (streamEvent.data().isPresent()) {
+      InteractionSSEEvent event = streamEvent.data().get();
+      if (event instanceof StepStart) {
+        StepStart stepStart = (StepStart) event;
+        if (stepStart.step().isPresent() && stepStart.step().get() instanceof FunctionCallStep) {
+          FunctionCallStep fcStep = (FunctionCallStep) stepStart.step().get();
+          System.out.println("Calling: " + fcStep.name().orElse(""));
+        }
+      } else if (event instanceof StepDelta) {
+        StepDelta stepDelta = (StepDelta) event;
+        if (stepDelta.delta().isPresent()) {
+          StepDeltaData delta = stepDelta.delta().get();
+          if (delta instanceof ArgumentsDelta) {
+            System.out.println("  args: " + ((ArgumentsDelta) delta).arguments().orElse(""));
+          } else if (delta instanceof TextDelta) {
+            System.out.print(((TextDelta) delta).text().orElse(""));
+          }
+        }
+      } else if (event instanceof InteractionCompletedEvent) {
+        System.out.println("\n--- Done ---");
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -1715,7 +2401,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "What is the weather in Boston?",
     "tools": [{"type": "function", "name": "get_weather", "parameters": {"type": "object", "properties": {"location": {"type": "string"}}}}],
     "stream": true
@@ -1792,12 +2478,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-提供意見
+의견 보내기
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-上次更新時間：2026-09-12 (世界標準時間)。
+최종 업데이트: 2026-09-18(UTC)
 
-想進一步說明嗎？
+의견을 전달하고 싶나요?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-12 (世界標準時間)。"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-18(UTC)"],[],[]]

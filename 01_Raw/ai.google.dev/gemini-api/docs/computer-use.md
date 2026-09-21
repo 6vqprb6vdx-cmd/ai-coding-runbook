@@ -1,7 +1,7 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=ja
-fetched_at: 2026-09-14T05:36:45.938762+00:00
-title: "\u30b3\u30f3\u30d4\u30e5\u30fc\u30bf\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+fetched_at: 2026-09-21T05:59:37.205419+00:00
+title: "\u30d1\u30bd\u30b3\u30f3\u306e\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
@@ -16,11 +16,11 @@ Google は AI 技術を使用して、コンテンツをご希望の言語に翻
 
 フィードバックを送信
 
-# コンピュータ使用
+# パソコンの使用
 
 コンピュータ使用ツールを使用すると、ブラウザ、モバイル、パソコンの制御エージェントを構築して、タスクを操作して自動化できます。モデルはスクリーンショットを使用して、コンピュータ画面を「見て」、マウスのクリックやキーボード入力などの特定の UI アクションを生成して「操作」できます。関数呼び出しと同様に、クライアントサイドの実行環境を実装して、コンピュータ使用アクションを受信して実行する必要があります。
 
-Gemini 3.5 Flash は、パソコンでの使用におすすめのモデルです。次の新機能が導入されています。
+サポートされているモデルの一覧については、[モデルのバージョン](#model-versions)をご覧ください。Gemini 3.x モデルは、次の高度な機能をサポートしています。
 
 - **マルチ環境のサポート:** [ブラウザ、モバイル、パソコン](#supported-environments)環境用のエージェントを構築します。
 - **インテントを使用した合理化されたアクション:** アクションには、各ステップの背後にあるモデルの推論を説明する `intent` フィールドが含まれています。
@@ -43,7 +43,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Search for 'Gemini API' on Google.",
     tools=[{"type": "computer_use", "environment": "browser"}]
 )
@@ -59,12 +59,41 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   input: "Search for 'Gemini API' on Google.",
   tools: [{ type: "computer_use", environment: "browser" }]
 });
 
 console.log(interaction);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .input(InteractionsInput.of("Search for 'Gemini API' on Google."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder().environment(EnvironmentEnum.BROWSER).build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction);
 ```
 
 ## コンピュータ使用の仕組み
@@ -75,7 +104,7 @@ console.log(interaction);
    - アプリケーションは、コンピュータ使用ツール、構成設定（ターゲット環境など）、ユーザーのプロンプト、現在の画面のスクリーンショットを含む API リクエストを送信します。
 2. [**モデル レスポンスを受信する**](#model-response)
    - モデルは画面とプロンプトを分析し、UI アクション（クリック、スクロール、キーストロークなど）を表す `function_call` を含むレスポンスを返します。
-   - **Gemini 3.5 Flash** の場合、レスポンスには、モデルがそのアクションを選択した理由を説明する推論 `intent` も含まれます。
+   - **Gemini 3.x モデル**の場合、レスポンスには、モデルがそのアクションを選択した理由を説明する推論 `intent` も含まれます。
    - レスポンスには、アクションを通常/許可、`require_confirmation`（ユーザーの承認が必要）、ブロックに分類する内部安全システムからの `safety_decision` が含まれる場合もあります。
 3. [**受信したアクションを実行する**](#execute-actions)
    - アクションが許可されている場合（またはユーザーが確認した場合）、クライアントサイドのコードは `function_call` を解析し、正規化された座標をビューポートに合わせてスケーリングし、自動化ツール（Playwright など）を使用してターゲット環境でアクションを実行します。アクションがブロックされた場合、クライアントは実行を停止するか、中断を処理する必要があります。
@@ -136,7 +165,7 @@ page.goto("https://www.google.com")
 
 クライアント ライブラリを初期化し、コンピュータ使用ツールを構成します。リクエストを発行する際に表示サイズを指定する必要はありません。モデルは、画面の高さと幅に合わせてスケーリングされたピクセル座標を予測します。
 
-### Gemini 3.5 Flash（推奨）
+### Gemini 3.x
 
 ### Python
 
@@ -148,7 +177,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model='gemini-3.6-flash',
+    model='gemini-3.8-flash',
     input="Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th",
     tools=[
         {
@@ -172,7 +201,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-  model: 'gemini-3.6-flash',
+  model: 'gemini-3.8-flash',
   input: "Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th",
   tools: [
     {
@@ -186,6 +215,40 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .input(
+            InteractionsInput.of(
+                "Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder()
+                    .environment(EnvironmentEnum.BROWSER)
+                    .enablePromptInjectionDetection(true)
+                    .build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction);
+```
+
 ### REST
 
 curl を使用してリクエストを送信します。
@@ -196,7 +259,7 @@ curl -X POST \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. Start by navigating directly to flights.google.com",
     "tools": [
       {
@@ -260,11 +323,47 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+// Specify predefined functions to exclude (optional)
+List<String> excludedFunctions = Arrays.asList("drag_and_drop");
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-2.5-computer-use-preview-10-2025")
+        .input(InteractionsInput.of("Search for highly rated smart fridges on Google Shopping."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder()
+                    .environment(EnvironmentEnum.BROWSER)
+                    .excludedPredefinedFunctions(excludedFunctions)
+                    .build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction);
+```
+
 ### 2. モデル レスポンスを受信する
 
-レスポンス モデルは関数呼び出しを提案します。**Gemini 3.5 Flash** の場合、レスポンスには座標とともにカスタマイズされた推論インテントが含まれます。次の例は、両方のレスポンスを示しています。
+レスポンス モデルは関数呼び出しを提案します。**Gemini 3.x モデル**の場合、レスポンスには座標とともにカスタマイズされた推論インテントが含まれます。次の例は、両方のレスポンスを示しています。
 
-### Gemini 3.5 Flash
+### Gemini 3.x
 
 ```
 {
@@ -314,7 +413,7 @@ console.log(interaction);
 
 アプリは、レスポンスの座標を解析し、アクションを実行して、正規化された 1000x1000 の座標からスケーリングする必要があります。
 
-次のコードは、以前のツールコマンド（`click_at`、`type_text_at`）と Gemini 3.5 Flash の効率化されたコマンド（`click`、`type`）の両方を処理します。
+次のコードは、以前のツールのコマンド（`click_at`、`type_text_at`）と最新の効率化されたコマンド（`click`、`type`）の両方を処理します。
 
 ### Python
 
@@ -479,6 +578,69 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
 }
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.Step;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+class ActionExecutor {
+  int denormalizeX(int x, int screenWidth) {
+    return (int) (x / 1000.0 * screenWidth);
+  }
+
+  int denormalizeY(int y, int screenHeight) {
+    return (int) (y / 1000.0 * screenHeight);
+  }
+
+  List<Map<String, Object>> executeFunctionCalls(
+      Interaction interaction, int screenWidth, int screenHeight) {
+    List<Map<String, Object>> results = new ArrayList<>();
+
+    for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+      if (step instanceof FunctionCallStep) {
+        FunctionCallStep functionCall = (FunctionCallStep) step;
+        String fname = functionCall.name().orElse("");
+        Map<String, Object> args = functionCall.arguments().orElse(Collections.emptyMap());
+        Map<String, Object> actionResult = new HashMap<>();
+
+        System.out.println(
+            "  -> Executing: " + fname + " (Intent: " + args.getOrDefault("intent", "N/A") + ")");
+
+        try {
+          if (fname.equals("click") || fname.equals("click_at")) {
+            int actualX = denormalizeX(((Number) args.get("x")).intValue(), screenWidth);
+            int actualY = denormalizeY(((Number) args.get("y")).intValue(), screenHeight);
+            // Perform mouse click at (actualX, actualY) using your browser automation library
+          } else if (fname.equals("type") || fname.equals("type_text_at")) {
+            String text = (String) args.get("text");
+            // Type text into active element using your browser automation library
+          } else if (fname.equals("navigate")) {
+            String url = (String) args.get("url");
+            // Navigate browser to url
+          }
+        } catch (Exception e) {
+          actionResult.put("error", e.getMessage());
+        }
+
+        Map<String, Object> entry = new HashMap<>();
+        entry.put("name", fname);
+        entry.put("callId", functionCall.id().orElse(""));
+        entry.put("result", actionResult);
+        results.add(entry);
+      }
+    }
+    return results;
+  }
+}
+```
+
 ### 4. 新しい環境の状態をキャプチャする
 
 アクションを実行したら、関数実行の結果をモデルに送り返します。モデルはこの情報を使用して次のアクションを生成します。複数のアクション（並列呼び出し）が実行された場合は、後続のユーザーターンでそれぞれに対して `function_result` を送信する必要があります。
@@ -544,6 +706,52 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.gaos.models.interactions.FunctionResultStep;
+import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
+
+class StateCapturer {
+  List<Step> getFunctionResponses(
+      byte[] screenshotBytes, String currentUrl, List<Map<String, Object>> results) {
+    List<Step> functionResponses = new ArrayList<>();
+    String base64Screenshot = Base64.getEncoder().encodeToString(screenshotBytes);
+
+    for (Map<String, Object> entry : results) {
+      String name = (String) entry.get("name");
+      String callId = (String) entry.get("callId");
+      String jsonResult = String.format("{\"url\": \"%s\"}", currentUrl);
+
+      FunctionResultStep responseStep =
+          FunctionResultStep.builder()
+              .name(name)
+              .callId(callId)
+              .result(
+                  FunctionResultStepResultUnion.of(
+                      Arrays.asList(
+                          TextContent.builder().text(jsonResult).build(),
+                          ImageContent.builder()
+                              .data(base64Screenshot)
+                              .mimeType(ImageContentMimeType.IMAGE_PNG)
+                              .build())))
+              .build();
+      functionResponses.add(responseStep);
+    }
+    return functionResponses;
+  }
+}
+```
+
 環境の状態をキャプチャしてフォーマットする方法を定義したら、これらのステップをすべて継続的な実行ループにまとめることができます。
 
 ## エージェント ループを作成する
@@ -591,7 +799,7 @@ try:
 
     # First interaction
     interaction = client.interactions.create(
-        model='gemini-3.6-flash',
+        model='gemini-3.8-flash',
         input=[
             {"type": "text", "text": USER_PROMPT},
             {"type": "image", "data": base64.b64encode(initial_screenshot).decode("utf-8"), "mime_type": "image/png"}
@@ -628,7 +836,7 @@ try:
 
         # Continue conversation with function responses
         interaction = client.interactions.create(
-            model='gemini-3.6-flash',
+            model='gemini-3.8-flash',
             previous_interaction_id=interaction.id,
             input=function_responses,
             tools=[{
@@ -682,7 +890,7 @@ try {
 
     // First interaction
     let interaction = await ai.interactions.create({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         input: [
             { type: 'text', text: USER_PROMPT },
             { type: 'image', data: initialScreenshotBase64, mime_type: 'image/png' }
@@ -723,7 +931,7 @@ try {
 
         // Continue conversation with function responses
         interaction = await ai.interactions.create({
-            model: 'gemini-3.6-flash',
+            model: 'gemini-3.8-flash',
             previous_interaction_id: interaction.id,
             input: functionResponses,
             tools: [{
@@ -740,9 +948,108 @@ try {
 }
 ```
 
-## サポートされている環境（Gemini 3.5 Flash）
+### Java
 
-Gemini 3.5 Flash は、`computer_use` 構成で指定された次の 3 つの環境をサポートしています。
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.FunctionCallStep;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.Collections;
+import java.util.List;
+
+Client client = new Client();
+
+// Constants for screen dimensions
+int screenWidth = 1440;
+int screenHeight = 900;
+
+// Capture initial screenshot from browser driver (e.g. Playwright)
+byte[] initialScreenshot = new byte[0];
+String base64Screenshot = Base64.getEncoder().encodeToString(initialScreenshot);
+String userPrompt = "Go to ai.google.dev/gemini-api/docs and search for pricing.";
+System.out.println("Goal: " + userPrompt);
+
+ComputerUse computerUseTool =
+    ComputerUse.builder()
+        .environment(EnvironmentEnum.BROWSER)
+        .enablePromptInjectionDetection(true)
+        .build();
+
+CreateModelInteraction initialParams =
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .input(
+            InteractionsInput.ofContent(
+                Arrays.asList(
+                    TextContent.builder().text(userPrompt).build(),
+                    ImageContent.builder()
+                        .data(base64Screenshot)
+                        .mimeType(ImageContentMimeType.IMAGE_PNG)
+                        .build())))
+        .tools(Arrays.asList(computerUseTool))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(initialParams)).interaction().get();
+
+int turnLimit = 5;
+for (int i = 0; i < turnLimit; i++) {
+  System.out.println("\n--- Turn " + (i + 1) + " ---");
+
+  boolean hasFunctionCalls =
+      interaction.steps().orElse(Collections.emptyList()).stream()
+          .anyMatch(step -> step instanceof FunctionCallStep);
+
+  if (!hasFunctionCalls) {
+    StringBuilder textResponse = new StringBuilder();
+    for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+      if (step instanceof ModelOutputStep) {
+        for (Content contentBlock :
+            ((ModelOutputStep) step).content().orElse(Collections.emptyList())) {
+          if (contentBlock instanceof TextContent) {
+            textResponse.append(((TextContent) contentBlock).text().orElse("")).append(" ");
+          }
+        }
+      }
+    }
+    System.out.println("Agent finished: " + textResponse.toString().trim());
+    break;
+  }
+
+  System.out.println("Executing actions and capturing state...");
+  // Execute function calls against browser driver and capture List<Step> functionResponses
+  List<Step> functionResponses = new ArrayList<>();
+
+  CreateModelInteraction nextParams =
+      CreateModelInteraction.builder()
+          .model("gemini-3.8-flash")
+          .previousInteractionId(interaction.id().get())
+          .input(InteractionsInput.ofStep(functionResponses))
+          .tools(Arrays.asList(computerUseTool))
+          .build();
+
+  interaction =
+      client.interactions.create(CreateInteractionRequestBody.of(nextParams)).interaction().get();
+}
+```
+
+## サポートされる環境（Gemini 3.x）
+
+Gemini 3.x モデルは、`computer_use` 構成で指定された次の 3 つの環境をサポートしています。
 
 ### ブラウザ環境（`ENVIRONMENT_BROWSER`）
 
@@ -836,7 +1143,7 @@ Android に最適化された環境アクション:
 
 カスタム ユーザー定義関数を含めて、モデルの機能を拡張できます。たとえば、人間参加型（HITL）シナリオでは、デフォルトの事前定義済みアクションを除外して、カスタム アクションを登録できます。
 
-#### Gemini 3.5 Flash カスタム ツール
+#### Gemini 3.x カスタム ツール
 
 ### Python
 
@@ -864,7 +1171,7 @@ yield_to_user_tool = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Click the submit button. If you need a second factor authentication code, ask me.",
     tools=[
         {
@@ -903,7 +1210,7 @@ const yieldToUserTool = {
 };
 
 const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Click the submit button. If you need a second factor authentication code, ask me.",
     tools: [
         {
@@ -914,6 +1221,63 @@ const interaction = await ai.interactions.create({
         yieldToUserTool
     ]
 });
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> reasonProp = new HashMap<>();
+reasonProp.put("type", "string");
+reasonProp.put("description", "The reason why the agent is yielding control to the human.");
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("reason", reasonProp);
+
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("type", "object");
+parameters.put("properties", properties);
+parameters.put("required", Collections.singletonList("reason"));
+
+Function yieldToUserTool =
+    Function.builder()
+        .name("yield_to_user")
+        .description(
+            "Yields control back to the user for assistance or verification when an automated action is unsafe or ambiguous.")
+        .parameters(parameters)
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .input(
+            InteractionsInput.of(
+                "Click the submit button. If you need a second factor authentication code, ask me."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder()
+                    .environment(EnvironmentEnum.MOBILE)
+                    .excludedPredefinedFunctions(Arrays.asList("click"))
+                    .build(),
+                yieldToUserTool))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
 #### Gemini 2.5（以前のバージョン）のカスタム ツール
@@ -996,15 +1360,70 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## 思考レベルを管理する（Gemini 3.5 Flash）
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+// Define custom tools here
+Function customFunction =
+    Function.builder()
+        .name("long_press_at")
+        .description("Long-press at specified coordinates.")
+        .build();
+
+List<String> excludedFunctions =
+    Arrays.asList(
+        "open_web_browser",
+        "wait_5_seconds",
+        "go_back",
+        "go_forward",
+        "search",
+        "navigate",
+        "hover_at",
+        "scroll_document",
+        "key_combination",
+        "drag_and_drop");
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-2.5-computer-use-preview-10-2025")
+        .input(InteractionsInput.of("Open Chrome, then long-press at 200,400."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder()
+                    .environment(EnvironmentEnum.BROWSER)
+                    .excludedPredefinedFunctions(excludedFunctions)
+                    .build(),
+                customFunction))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction);
+```
+
+## 思考レベルの管理（Gemini 3.x）
 
 コンピュータ使用エージェントでは、アクションの品質と実行速度のバランスを取るために、さまざまな思考レベルを構成できます。一般的に、標準的な自動化タスクでは、思考レベルを低くするとバランスが取れます。
 
 ## 安全性とセキュリティ
 
-### 安全性ポリシーの構成（Gemini 3.5 Flash）
+### 安全に関するポリシーを構成する（Gemini 3.x）
 
-Gemini 3.5 Flash モデルには、ユーザーの確認が必要かどうかを自動的に判断する組み込みの安全サービス カテゴリが含まれています。
+Gemini 3.x モデルには、ユーザーの確認が必要かどうかを自動的に判断する組み込みの安全性サービス カテゴリが含まれています。
 
 | 安全性に関するポリシーのカテゴリ | 説明 |
 | --- | --- |
@@ -1028,7 +1447,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Clean up the local folder by archiving old logs.",
     tools=[
         {
@@ -1050,7 +1469,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Clean up the local folder by archiving old logs.",
     tools: [
         {
@@ -1064,9 +1483,133 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-### プロンプト インジェクションの検出（Gemini 3.5 Flash）
+### Java
 
-スクリーンショットのピクセルをスキャンして、隠された敵対的なプロンプトの指示（「前のコマンドを無視する」など）を探し、検出された場合に実行をブロックするオプトインの安全メカニズム。
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.DisabledSafetyPolicy;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .input(InteractionsInput.of("Clean up the local folder by archiving old logs."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder()
+                    .environment(EnvironmentEnum.DESKTOP)
+                    .disabledSafetyPolicies(
+                        Arrays.asList(DisabledSafetyPolicy.DATA_MODIFICATION))
+                    .build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
+### プロンプト インジェクションの検出（Gemini 3.x）
+
+Gemini 3.5 Flash 以降のコンピュータ使用では、プロンプト インジェクション攻撃を検出する高度な安全メカニズムがサポートされています。この機能を有効にすると、含まれているスクリーンショットに隠された敵対的な指示（「前のコマンドを無視する」など）が含まれているかどうかがチェックされ、検出された場合は実行がブロックされます。
+
+プロンプト インジェクションの検出は、オプトイン機能です。デフォルト値は `false` です。
+
+次の例は、コンピュータ使用ツールの構成でプロンプト インジェクション検出を有効にする方法を示しています。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Search for flight deals and summarize top results.",
+    tools=[
+        {
+            "type": "computer_use",
+            "environment": "desktop",
+            "enable_prompt_injection_detection": True,
+        }
+    ],
+)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI();
+
+const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Search for flight deals and summarize top results.",
+    tools: [
+        {
+            type: "computer_use",
+            environment: "desktop",
+            enablePromptInjectionDetection: true,
+        }
+    ]
+});
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.5-flash")
+        .input(InteractionsInput.of("Search for flight deals and summarize top results."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder()
+                    .environment(EnvironmentEnum.DESKTOP)
+                    .enablePromptInjectionDetection(true)
+                    .build()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
+### cURL
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI_API_KEY}" \
+-H 'Content-Type: application/json' \
+-d '{
+  "model": "gemini-3.5-flash",
+  "input": "Search for flight deals and summarize top results.",
+  "tools": [
+    {
+      "type": "computer_use",
+      "environment": "desktop",
+      "enable_prompt_injection_detection": true
+    }
+  ]
+}'
+```
 
 ### 安全性の判断を確認する
 
@@ -1115,7 +1658,6 @@ if 'safety_decision' in function_call.arguments:
 コンピュータ使用は、ユーザーに代わってモデルが画面上の信頼できないコンテンツに遭遇したり、アクションの実行でエラーが発生したりする可能性があるため、独自のセキュリティ リスクと運用リスクが生じます。ユーザーデータとシステムを保護するには、次のベスト プラクティスを実装します。
 
 1. **人間参加型（HITL）:**
-
    - **ユーザー確認を強制する:** 安全レスポンスで `require_confirmation` が示されている場合（または以前の安全判定で必要とされている場合）、ユーザーに承認を求めます。
    - **カスタムの安全に関する指示を提供する:** カスタム システム指示を実装して、独自の安全性の境界を定義し、適用します。次に例を示します。
 
@@ -1215,7 +1757,7 @@ if 'safety_decision' in function_call.arguments:
      """
 
      interaction = client.interactions.create(
-         model="gemini-3.6-flash",
+         model="gemini-3.8-flash",
          system_instruction=system_instruction,
          input="Prepare a draft but do not send.",
          tools=[{
@@ -1295,7 +1837,7 @@ if 'safety_decision' in function_call.arguments:
 
      ## **RULE 2: Default Behavior (ACTUATE)**
 
-     If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`,
+     If an action does **NOT** fall under the conditions for \`USER_CONFIRMATION\`,
      your default behavior is to **Actuate**.
 
      **Actuation Means:**  You MUST proactively perform all necessary steps to move
@@ -1321,7 +1863,7 @@ if 'safety_decision' in function_call.arguments:
      `;
 
      const interaction = await ai.interactions.create({
-         model: "gemini-3.6-flash",
+         model: "gemini-3.8-flash",
          system_instruction: systemInstruction,
          input: "Prepare a draft but do not send.",
          tools: [{
@@ -1330,19 +1872,53 @@ if 'safety_decision' in function_call.arguments:
          }]
      });
      ```
-2. **安全な実行環境:** 安全なサンドボックス環境でエージェントを実行して、潜在的な影響を制限します。これは、サンドボックス化された仮想マシン（VM）、コンテナ（Docker など）、権限が制限された専用のブラウザ プロファイルなどです。Docker を使用したサンドボックスのセットアップ ガイダンスについては、[GitHub リファレンス実装](https://github.com/google/computer-use-preview/)をご覧ください。
-3. **入力のサニタイズ:** プロンプト内のユーザーが生成したすべてのテキストをサニタイズして、意図しない指示やプロンプト インジェクションのリスクを軽減します。これはセキュリティの有用なレイヤですが、安全な実行環境の代わりにはなりません。
-4. **コンテンツ ガードレール:** ガードレールとコンテンツ安全 API を使用して、ユーザー入力、ツール入力と出力、エージェントのレスポンスの適切性、プロンプト インジェクション、ジェイルブレイクの検出を評価します。
-5. **許可リストとブロックリスト:** モデルが移動できる場所と実行できる操作を制御するフィルタリング メカニズムを実装します。禁止されているウェブサイトのブロックリストは適切な出発点ですが、より制限の厳しい許可リストを使用することで安全性を高めることができます。
-6. **オブザーバビリティとロギング:** デバッグ、監査、インシデント対応のために詳細なログを保持します。クライアントは、プロンプト、スクリーンショット、モデルが提案したアクション（`function_call`）、安全性に関するレスポンス、クライアントが最終的に実行したすべてのアクションをログに記録する必要があります。
-7. **環境管理:** GUI 環境の一貫性を確保します。予期しないポップアップ、通知、レイアウトの変更は、モデルを混乱させる可能性があります。可能であれば、新しいタスクごとに既知のクリーンな状態から開始します。
+
+### Java
+
+`` java
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.ComputerUse;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.EnvironmentEnum;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+Client client = new Client();
+String systemInstruction =
+"## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**\n\n"
++ "This is your first and most important check. If the next required action falls "
++ "into any of the following categories, you MUST stop immediately, and seek the "
++ "user's explicit permission.\n\n"
++ "## **RULE 2: Default Behavior (ACTUATE)**\n\n"
++ "If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`, "
++ "your default behavior is to **Actuate**.";
+CreateModelInteraction params =
+CreateModelInteraction.builder()
+.model("gemini-3.8-flash")
+.systemInstruction(systemInstruction)
+.input(InteractionsInput.of("Prepare a draft but do not send."))
+.tools(
+Arrays.asList(
+ComputerUse.builder().environment(EnvironmentEnum.BROWSER).build()))
+.build();
+Interaction interaction =
+client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get(); ``
+
+1. **安全な実行環境:** 安全なサンドボックス環境でエージェントを実行して、潜在的な影響を制限します。これは、サンドボックス化された仮想マシン（VM）、コンテナ（Docker など）、権限が制限された専用のブラウザ プロファイルなどです。Docker を使用したサンドボックスのセットアップ ガイダンスについては、[GitHub リファレンス実装](https://github.com/google/computer-use-preview/)をご覧ください。
+2. **入力のサニタイズ:** プロンプト内のユーザーが生成したすべてのテキストをサニタイズして、意図しない指示やプロンプト インジェクションのリスクを軽減します。これはセキュリティの有用なレイヤですが、安全な実行環境の代わりにはなりません。
+3. **コンテンツ ガードレール:** ガードレールとコンテンツ安全 API を使用して、ユーザー入力、ツール入力と出力、エージェントのレスポンスの適切性、プロンプト インジェクション、ジェイルブレイクの検出を評価します。
+4. **許可リストとブロックリスト:** モデルが移動できる場所と実行できる操作を制御するフィルタリング メカニズムを実装します。禁止されているウェブサイトのブロックリストは適切な出発点ですが、より制限の厳しい許可リストを使用することで安全性を高めることができます。
+5. **オブザーバビリティとロギング:** デバッグ、監査、インシデント対応のために詳細なログを保持します。クライアントは、プロンプト、スクリーンショット、モデルが提案したアクション（`function_call`）、安全性に関するレスポンス、クライアントが最終的に実行したすべてのアクションをログに記録する必要があります。
+6. **環境管理:** GUI 環境の一貫性を確保します。予期しないポップアップ、通知、レイアウトの変更は、モデルを混乱させる可能性があります。可能であれば、新しいタスクごとに既知のクリーンな状態から開始します。
 
 ## モデル バージョン
 
 コンピュータ使用は次のモデルで使用できます。
 
-- [**Gemini 3.6 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja)（`gemini-3.6-flash`）: コンピュータでの使用におすすめのモデル。インテントによるアクションの効率化、ブラウザ、モバイル、デスクトップ環境のサポート、構成可能な安全ポリシー、プロンプト インジェクションの検出などの機能を備えています。
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja): コンピュータの使用をサポートする、低レイテンシで費用対効果の高いモデル。
+- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ja)（`gemini-3.8-flash`）: 高精度の UI 操作と信頼性の高いツール呼び出しを備えた、パソコンでの使用におすすめのモデル。
+- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=ja)（`gemini-3.7-flash`）: コンピュータ使用の以前の安定版モデル。インテントによるアクションの合理化、ブラウザ、モバイル、デスクトップ環境のサポート、構成可能な安全ポリシー、プロンプト インジェクションの検出が特徴です。
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja)（`gemini-3.5-flash-lite`）: コンピュータの使用をサポートする、低レイテンシで費用対効果の高いモデル。
 - [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja)（`gemini-3.5-flash`）: コンピュータでの使用をサポートする以前の安定版モデル。
 - [**Gemini 3 Flash プレビュー**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja)（`gemini-3-flash-preview`）: コンピュータでの使用をサポートするプレビュー モデル。
 - [**Gemini 2.5（以前のプレビュー）**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ja)（`gemini-2.5-computer-use-preview-10-2025`）: ブラウザベースのコンピュータでの使用に最適化された以前のプレビュー モデル。
@@ -1359,8 +1935,8 @@ if 'safety_decision' in function_call.arguments:
 
 特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最終更新日 2026-09-12 UTC。
+最終更新日 2026-09-18 UTC。
 
 ご意見をお聞かせください
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-18 UTC。"],[],[]]

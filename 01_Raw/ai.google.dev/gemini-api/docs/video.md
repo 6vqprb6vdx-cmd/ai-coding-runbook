@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/video?hl=zh-CN
-fetched_at: 2026-09-14T05:48:10.124628+00:00
+fetched_at: 2026-09-21T06:00:18.911949+00:00
 title: "Gemini API \u4e2d\u7684\u89c6\u9891\u751f\u6210 \u00a0|\u00a0 Google AI for Developers"
 ---
 

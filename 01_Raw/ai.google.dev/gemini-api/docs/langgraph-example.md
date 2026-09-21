@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=pl
-fetched_at: 2026-09-14T05:51:00.312205+00:00
+fetched_at: 2026-09-21T05:48:32.881071+00:00
 title: "Tworzenie agenta ReAct od podstaw za pomoc\u0105 Gemini i\u00a0LangGraph \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

@@ -1,77 +1,86 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-errors?hl=he
-fetched_at: 2026-09-14T05:52:12.319791+00:00
-title: "\u05e9\u05d2\u05d9\u05d0\u05d5\u05ea API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-errors?hl=de
+fetched_at: 2026-09-21T05:55:54.271701+00:00
+title: "API-Fehler \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-שליחת משוב
+Feedback geben
 
-# שגיאות API
+# API-Fehler
 
-בדף הזה מפורטים כל קודי השגיאה של Interactions API, מתואר הפורמט של תגובת השגיאה ומוסבר איך ה-API מספק שגיאות לסוגים שונים של בקשות.
+Auf dieser Seite finden Sie eine Referenz für alle Fehlercodes der Interactions API. Außerdem wird das Format der Fehlerantwort beschrieben und es wird erläutert, wie die API Fehler für verschiedene Anfragetypen zurückgibt.
 
-## קודי שגיאה של Standard API
+## Standard-API-Fehlercodes
 
-קודי השגיאה הכלליים האלה ברמת הבקשה תואמים לקודי סטטוס רגילים של HTTP.
-משתמשים בשדה `code` בלוגיקה של האפליקציה כדי לטפל בשגיאות באופן פרוגרמטי.
+Diese allgemeinen Fehlercodes auf Anfrageebene entsprechen Standard-HTTP-Statuscodes.
+Verwenden Sie das Feld `code` in Ihrer Anwendungslogik, um Fehler programmatisch zu beheben.
 
-| קוד | סטטוס HTTP | תיאור | הפעולה המומלצת |
+| Code | HTTP-Status | Beschreibung | Empfohlene Maßnahmen |
 | --- | --- | --- | --- |
-| `invalid_request` | ‫400 בקשה שגויה | הפורמט של הבקשה שגוי או שהיא מכילה פרמטרים לא תקינים. | בודקים את הקלטים בהשוואה ל[מאמרי העזרה של ה-API](https://ai.google.dev/api/interactions-api?hl=he). |
-| `parameter_unknown` | ‫400 בקשה שגויה | הבקשה מכילה פרמטר לא מוכר. | צריך להסיר את הפרמטר הלא מזוהה ולנסות שוב. |
-| `authentication` | ‫401 אין הרשאה | מפתח ה-API חסר או לא תקין. | מאמתים את [מפתח ה-API](https://ai.google.dev/gemini-api/docs/api-key?hl=he). |
-| `permission_denied` | ‫403 Forbidden | למפתח ה-API שלך אין הרשאה למשאב הזה. | בודקים את ההרשאות של מפתח ה-API ואת הגישה לפרויקט. |
-| `not_found` | שגיאת 404 | המשאב המבוקש לא נמצא. | בודקים את נתיב המשאב והפרמטרים. |
-| `model_not_found` | שגיאת 404 | המודל שצוין לא נמצא. | צריך לאמת את שם המודל או להשתמש במודל אחר. |
-| `rate_limit_exceeded` | ‫429 Too Many Requests | חרגתם מהמגבלה של בקשות או טוקנים לדקה או לשנייה. | צריך להמתין ולנסות שוב עם השהיה מעריכית לפני ניסיון חוזר (exponential backoff). |
-| `quota_exceeded` | ‫429 Too Many Requests | חרגתם מהמכסה היומית. | צריך לחכות עד שהמכסה תתאפס או לבקש להגדיל את המכסה. |
-| `cancelled` | ‫499 Client Closed Request | הלקוח ביטל את הבקשה לפני שהיא הושלמה. | אין צורך בפעולה נוספת. בדרך כלל זה אומר שהלקוח התנתק. |
-| `api_error` | ‫‎500 Internal Server Error | קרתה שגיאה לא צפויה בשרת. | מנסים לשלוח את הבקשה שוב. אם הבעיה נמשכת, אפשר לפנות לתמיכה. |
-| `service_unavailable` | ‫‎503 Service Unavailable | יש כרגע עומס על השרות או שהוא מושבת. | צריך להמתין ולנסות שוב עם השהיה מעריכית לפני ניסיון חוזר (exponential backoff). |
+| `invalid_request` | 400 Fehlerhafte Anfrage | Die Anfrage-Nutzlast ist fehlerhaft oder enthält ungültige Parameter. | Vergleichen Sie die Syntax und die Parameter Ihrer Anfrage mit der [API-Referenz](https://ai.google.dev/api/interactions-api?hl=de). |
+| `failed_precondition` | 400 Fehlerhafte Anfrage | Die Anfrage kann nicht verarbeitet werden, da eine Voraussetzung nicht erfüllt ist (z. B. deaktivierte Abrechnung). | Prüfen Sie den Abrechnungsstatus des Projekts oder die Kontovoraussetzungen. |
+| `out_of_range` | 416 Requested Range Not Satisfiable (Angefragter Bereich ungültig oder nicht verfügbar) | Der Anfrageparameter liegt außerhalb des gültigen Bereichs. | Prüfen Sie die Parameterwerte und ‑limits. |
+| `parameter_unknown` | 400 Fehlerhafte Anfrage | Die Anfrage enthält einen unbekannten Parameter. | Entfernen Sie den nicht erkannten Parameter und versuchen Sie es noch einmal. |
+| `authentication` | 401 Nicht autorisiert | Der API-Schlüssel fehlt, ist ungültig oder abgelaufen. | [API-Schlüssel](https://ai.google.dev/gemini-api/docs/api-key?hl=de) prüfen |
+| `payment_required` | 402 Payment Required (Zahlung erforderlich) | Ihr Vorauszahlungsguthaben ist aufgebraucht. | [Fügen Sie Ihrem Rechnungskonto Guthaben hinzu](https://ai.google.dev/gemini-api/docs/billing?hl=de#buy-credits) oder aktivieren Sie das [automatische Aufladen](https://ai.google.dev/gemini-api/docs/billing?hl=de#auto-reload). Nicht wiederholen: Die Anfrage kann erst bearbeitet werden, wenn Guthaben hinzugefügt wurde. |
+| `permission_denied` | 403 Verboten | Ihr API-Schlüssel ist für diese Ressource nicht autorisiert. | Prüfen Sie die Berechtigungen für Ihren API-Schlüssel und den Projektzugriff. |
+| `not_found` | 404 Nicht gefunden | Die angeforderte Ressource wurde nicht gefunden. | Prüfen Sie den Ressourcenpfad und die Parameter. |
+| `model_not_found` | 404 Nicht gefunden | Das angegebene Modell wurde nicht gefunden. | Prüfen Sie den Modellnamen oder weichen Sie auf ein anderes Modell aus. |
+| `already_exists` | 409-Fehler – Konflikt | Das Entität, die Sie erstellen möchten, existiert bereits. | Prüfen Sie, ob die Ressource bereits vorhanden ist, bevor Sie sie neu erstellen. |
+| `aborted` | 409-Fehler – Konflikt | Der Vorgang wurde aufgrund eines Konflikts oder eines Fehlers bei der Parallelitätsprüfung abgebrochen. | Wiederholen Sie die Anfrage auf einer höheren Anwendungsebene. |
+| `rate_limit_exceeded` | 429 Zu viele Anfragen | Sie haben das Limit für Anfragen oder Tokens pro Minute oder Sekunde überschritten. | Warten Sie und wiederholen Sie den Vorgang mit exponentiellem Backoff. |
+| `quota_exceeded` | 429 Zu viele Anfragen | Sie haben Ihr Tageskontingent überschritten. | Warten Sie, bis das Kontingent zurückgesetzt wird, oder fordern Sie eine Kontingenterhöhung an. |
+| `too_many_requests` | 429 Zu viele Anfragen | Sie haben innerhalb kurzer Zeit zu viele Anfragen gestellt. | Warten Sie und wiederholen Sie den Vorgang mit exponentiellem Backoff. |
+| `cancelled` | 499 Client Closed Request | Der Client hat die Anfrage abgebrochen, bevor sie abgeschlossen wurde. | Es sind keine Maßnahmen erforderlich. Das bedeutet in der Regel, dass die Verbindung zum Client getrennt wurde. |
+| `api_error` | 500 Interner Serverfehler | Auf dem Server ist ein unerwarteter Fehler aufgetreten. | Wiederholen Sie die Anfrage. Sollte das Problem weiterhin auftreten, wenden Sie sich bitte an den Support. |
+| `unimplemented` | 501 Not Implemented (Nicht implementiert) | Der Vorgang oder die Funktion ist nicht implementiert oder wird nicht unterstützt. | Prüfen Sie die API-Funktionen oder wechseln Sie zu einem unterstützten Feature. |
+| `service_unavailable` | 503 Dienst nicht verfügbar | Der Dienst ist vorübergehend überlastet oder nicht erreichbar. | Warten Sie und wiederholen Sie den Vorgang mit exponentiellem Backoff. |
+| `deadline_exceeded` | 504 Gateway-Zeitüberschreitung | Die Anfrage wurde nicht innerhalb der Frist bearbeitet. | Entfernen oder erhöhen Sie die Client-Fristeinstellung, um die Serverstandardeinstellung zu verwenden. |
 
-## קודים שחסימת היצירה שלהם
+## Codes für die Generierung blockiert
 
-קודי השגיאה האלה מציינים שהגבלות מדיניות, בטיחות או הגבלות תוכן חסמו את הפלט של המודל. אם מקבלים אחד מהקודים האלה, צריך לשנות את הקלט ולנסות שוב.
+Diese Fehlercodes weisen darauf hin, dass die Ausgabe des Modells aufgrund von Richtlinien-, Sicherheits- oder Inhaltsbeschränkungen blockiert wurde. Wenn Sie einen dieser Codes erhalten, ändern Sie Ihre Eingabe und versuchen Sie es noch einmal.
 
-| קוד | תיאור |
+| Code | Beschreibung |
 | --- | --- |
-| `safety` | הבקשה נחסמה בגלל הפרות של כללי הבטיחות (תוכן פוגעני). |
-| `recitation` | הבקשה נחסמה בגלל הגבלות שקשורות לזכויות יוצרים או להקראה. |
-| `language` | הבקשה נחסמה בגלל שפה שלא נתמכת. |
-| `prohibited_content` | הבקשה נחסמה בגלל הנחיות לתוכן אסור. |
-| `spii` | הבקשה נחסמה בגלל הגבלות על פרטים אישיים מזהים בעלי רגישות גבוהה. |
-| `blocklist` | הבקשה נחסמה כי מונחים אסורים ברשימת החסימה חסמו אותה. |
-| `image_safety` | הפרות של כללי הבטיחות חסמו את יצירת התמונה. |
-| `image_prohibited_content` | ההנחיות בנושא תוכן אסור חסמו את יצירת התמונה. |
-| `image_recitation` | הגבלות על זכויות יוצרים או על הקראה חסמו את יצירת התמונה. |
-| `image_other` | יצירת התמונות נחסמה מסיבות לא מוגדרות. |
-| `content_blocked` | הבקשה נחסמה בגלל סיבה שקשורה למדיניות, שלא צוינה. |
+| `safety` | Die Anfrage wurde aufgrund von Sicherheitsverstößen (schädliche Inhalte) blockiert. |
+| `recitation` | Der Antrag wurde aufgrund von Urheberrechts- oder Vortragseinschränkungen blockiert. |
+| `language` | Die Anfrage wurde aufgrund einer nicht unterstützten Sprache blockiert. |
+| `prohibited_content` | Die Anfrage wurde aufgrund der Richtlinien für unzulässige Inhalte blockiert. |
+| `spii` | Die Anfrage wurde aufgrund von Einschränkungen für vertrauliche personenidentifizierbare Informationen blockiert. |
+| `blocklist` | Die Anfrage wurde blockiert, weil sie Begriffe enthielt, die auf einer Sperrliste stehen. |
+| `image_safety` | Die Bildgenerierung wurde aufgrund von Sicherheitsverstößen blockiert. |
+| `image_prohibited_content` | Die Bildgenerierung wurde aufgrund der Richtlinien für unzulässige Inhalte blockiert. |
+| `image_recitation` | Die Bildgenerierung wurde aufgrund von Urheberrechts- oder Rezitationsbeschränkungen blockiert. |
+| `image_other` | Die Bildgenerierung wurde aus nicht näher genannten Gründen blockiert. |
+| `content_blocked` | Die Anfrage wurde aus einem nicht näher angegebenen Richtliniengrund blockiert. |
 
-## קודי שגיאה ביצירה
+## Fehlercodes für die Generierung
 
-קודי השגיאה האלה מציינים בעיה מבנית בפלט שנוצר על ידי המודל (למשל בקשה להפעלת פונקציה שגויה או בקשה להפעלת כלי שלא הוגדרה).
+Diese Fehlercodes weisen auf ein strukturelles Problem mit der generierten Ausgabe des Modells hin, z. B. ein fehlerhafter Funktionsaufruf oder ein nicht deklarierter Tool-Aufruf.
 
-| קוד | תיאור |
+| Code | Beschreibung |
 | --- | --- |
-| `malformed_function_call` | המודל יצר בקשה להפעלת פונקציה שלא ניתן לנתח. |
-| `malformed_tool_call` | המודל יצר קריאה לכלי שלא ניתן לנתח. |
-| `unexpected_tool_call` | המודל הפעיל כלי שלא הוגדר בבקשה. |
-| `no_image` | המודל לא הצליח ליצור תמונה. |
-| `too_many_tool_calls` | המודל יצר יותר קריאות לכלים מהמותר. |
-| `missing_thought_signature` | בתגובה חסרה חתימת מחשבה נדרשת. |
+| `malformed_function_call` | Das Modell hat einen Funktionsaufruf generiert, der nicht geparst werden konnte. |
+| `malformed_tool_call` | Das Modell hat einen Tool-Aufruf generiert, der nicht geparst werden konnte. |
+| `unexpected_tool_call` | Das Modell hat ein Tool aufgerufen, das in der Anfrage nicht deklariert wurde. |
+| `no_image` | Das Modell konnte kein Bild generieren. |
+| `too_many_tool_calls` | Das Modell hat mehr Tool-Aufrufe generiert als zulässig. |
+| `missing_thought_signature` | In der Antwort fehlt eine erforderliche Gedanken-Signatur. |
 
-## פורמט של תגובת שגיאה
+## Format der Fehlerantwort
 
-כל השגיאות מ-Interactions API מחזירות אובייקט `error` שמכיל `code` ו-`message`. לדוגמה, העברת סוג כלי שלא נתמך מחזירה:
+Alle Fehler der Interactions API geben ein `error`-Objekt mit einem `code` und einem `message` zurück. Wenn Sie beispielsweise einen nicht unterstützten Tooltyp übergeben, wird Folgendes zurückgegeben:
 
 ```
 {
@@ -82,18 +91,18 @@ title: "\u05e9\u05d2\u05d9\u05d0\u05d5\u05ea API \u00a0|\u00a0 Gemini API \u00a0
 }
 ```
 
-| שדה | סוג | תיאור |
+| Feld | Typ | Beschreibung |
 | --- | --- | --- |
-| `code` | מחרוזת | קוד שגיאה שקריא למחשב ב`snake_case`. |
-| `message` | מחרוזת | תיאור קריא לאנשים של מה שהשתבש. |
+| `code` | String | Ein maschinenlesbarer Fehlercode in `snake_case`. |
+| `message` | String | Eine für Menschen lesbare Beschreibung des Problems. |
 
-## איך השגיאות מועברות
+## So werden Fehler übermittelt
 
-ה-API מחזיר שגיאות בצורה שונה, בהתאם לסוג הבקשה ששולחים: בקשת HTTP רגילה או בקשת סטרימינג (SSE).
+Die API gibt Fehler unterschiedlich zurück, je nachdem, ob Sie eine Standard-HTTP-Anfrage oder eine Streaming-Anfrage (SSE) stellen.
 
-### בקשות HTTP רגילות
+### Standard-HTTP-Anfragen
 
-בבקשות רגילות (לא סטרימינג), ה-API מגדיר את קוד הסטטוס של תגובת ה-HTTP (למשל `400 Bad Request`, `401 Unauthorized` או `429 Too Many Requests`) ומחזיר אובייקט `error` בגוף תגובת ה-JSON:
+Bei Standardanfragen (nicht Streaming) legt die API den HTTP-Antwortstatuscode fest (z. B. `400 Bad Request`, `401 Unauthorized` oder `429 Too Many Requests`) und gibt ein `error`-Objekt im JSON-Antworttext zurück:
 
 ```
 {
@@ -104,9 +113,9 @@ title: "\u05e9\u05d2\u05d9\u05d0\u05d5\u05ea API \u00a0|\u00a0 Gemini API \u00a0
 }
 ```
 
-### בקשות סטרימינג (SSE)
+### Streaming-Anfragen (SSE)
 
-בבקשות סטרימינג (`stream: true`), ה-API שולח אירועי שגיאה דרך הסטרימינג של Server-Sent Events‏ (SSE) עם הערך `"error"` של `event_type`. השדה `error` מכיל את אותו מבנה של `code` ו-`message`:
+Bei Streaminganfragen (`stream: true`) sendet die API Fehlerereignisse über den SSE-Stream (Server-Sent Events), wobei `event_type` auf `"error"` gesetzt ist. Das Feld `error` enthält dieselbe `code`- und `message`-Struktur:
 
 ```
 {
@@ -118,19 +127,19 @@ title: "\u05e9\u05d2\u05d9\u05d0\u05d5\u05ea API \u00a0|\u00a0 Gemini API \u00a0
 }
 ```
 
-סכימת האירועים המלאה של SSE זמינה במאמר [Interactions API Reference](https://ai.google.dev/api/interactions-api?hl=he).
+Das vollständige SSE-Ereignisschema finden Sie in der [Interactions API-Referenz](https://ai.google.dev/api/interactions-api?hl=de).
 
-## המאמרים הבאים
+## Nächste Schritte
 
-- [פתרון בעיות ב-API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=he): פתרון בעיות נפוצות ותרחישי שגיאה.
-- [מגבלות קצב](https://ai.google.dev/gemini-api/docs/rate-limits?hl=he): מידע על מגבלות בקשות וטיפול במכסות.
+- [API-Fehlerbehebung](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=de): Häufige Probleme und Fehlerszenarien beheben.
+- [Ratenlimits](https://ai.google.dev/gemini-api/docs/rate-limits?hl=de): Informationen zu Anfragelimits und zur Kontingentverwaltung.
 
-שליחת משוב
+Feedback geben
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-עדכון אחרון: 2026-09-11 (שעון UTC).
+Zuletzt aktualisiert: 2026-09-20 (UTC).
 
-רוצה לתת לנו משוב?
+Haben Sie Feedback für uns?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-11 (שעון UTC)."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-20 (UTC)."],[],[]]

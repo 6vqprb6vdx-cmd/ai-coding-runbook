@@ -1,41 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=hi
-fetched_at: 2026-09-14T05:37:12.444295+00:00
-title: "Gemini \u0914\u0930 CrewAI \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, \u0917\u094d\u0930\u093e\u0939\u0915 \u0938\u0939\u093e\u092f\u0924\u093e \u0938\u0947 \u091c\u0941\u0921\u093c\u0947 \u0921\u0947\u091f\u093e \u0915\u093e \u0935\u093f\u0936\u094d\u0932\u0947\u0937\u0923 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=de
+fetched_at: 2026-09-21T05:52:42.713643+00:00
+title: "Kundensupportanalyse mit Gemini und CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-सुझाव भेजें
+Feedback geben
 
-# Gemini और CrewAI की मदद से, ग्राहक सहायता से जुड़े डेटा का विश्लेषण करना
+# Kundensupportanalyse mit Gemini und CrewAI
 
-[CrewAI](https://docs.crewai.com/introduction), अपने-आप काम करने वाले एआई एजेंट को व्यवस्थित करने के लिए एक फ़्रेमवर्क है. ये एजेंट, मुश्किल लक्ष्यों को हासिल करने के लिए साथ मिलकर काम करते हैं. इसकी मदद से, एजेंट को उनकी भूमिकाएं, लक्ष्य, और बैकस्टोरी के हिसाब से तय किया जा सकता है. इसके बाद, उनके लिए टास्क तय किए जा सकते हैं.
+[CrewAI](https://docs.crewai.com/introduction) ist ein Framework zur Orchestrierung
+autonomer KI-Agenten, die zusammenarbeiten, um komplexe Ziele zu erreichen. Sie können Agenten definieren, indem Sie Rollen, Ziele und Hintergrundinformationen angeben und dann Aufgaben
+für sie definieren.
 
-इस उदाहरण में, ग्राहक सहायता से जुड़े डेटा का विश्लेषण करने के लिए, कई एजेंट वाला सिस्टम बनाने का तरीका बताया गया है. इससे समस्याओं का पता लगाया जा सकता है और Gemini 3 Flash का इस्तेमाल करके, प्रोसेस को बेहतर बनाने के सुझाव दिए जा सकते हैं. साथ ही, इसमें एक ऐसी रिपोर्ट जनरेट करने का तरीका भी बताया गया है जिसे मुख्य परिचालन अधिकारी (सीओओ) पढ़ सके.
+In diesem Beispiel wird gezeigt, wie Sie ein System mit mehreren Agenten erstellen, um Kundensupportdaten zu analysieren, Probleme zu identifizieren und Prozessverbesserungen mit Gemini 3 Flash vorzuschlagen. Dabei wird ein Bericht erstellt, der für einen Chief Operating Officer (COO) bestimmt ist.
 
-इस गाइड में, आपको एआई एजेंट की एक "क्रू" बनाने का तरीका बताया जाएगा. यह क्रू, ये काम कर सकता है:
+In dieser Anleitung erfahren Sie, wie Sie eine „Crew“ von KI-Agenten erstellen, die folgende Aufgaben ausführen können:
 
-1. ग्राहक सहायता से जुड़ा डेटा फ़ेच करना और उसका विश्लेषण करना. इस उदाहरण में, डेटा को सिम्युलेट किया गया है.
-2. बार-बार होने वाली समस्याओं और प्रोसेस में आने वाली रुकावटों की पहचान करना.
-3. कार्रवाई करने लायक सुझाव दो.
-4. इन नतीजों को एक छोटी रिपोर्ट में शामिल करो, ताकि सीओओ को आसानी से समझ आ सके.
+1. Kundensupportdaten abrufen und analysieren (in diesem Beispiel simuliert).
+2. Wiederkehrende Probleme und Engpässe im Prozess identifizieren.
+3. Umsetzbare Verbesserungen vorschlagen.
+4. Die Ergebnisse in einem prägnanten Bericht zusammenfassen, der für einen COO geeignet ist.
 
-आपके पास Gemini API पासकोड होना चाहिए. अगर आपके पास पहले से कोई Gemini Pro 1.0 API कुंजी नहीं है, तो [Google AI Studio में जाकर इसे पाएं](https://aistudio.google.com/apikey?hl=hi).
+Sie benötigen einen Gemini API-Schlüssel. Wenn Sie noch keinen haben, können Sie [einen in
+Google AI Studio](https://aistudio.google.com/apikey?hl=de) erstellen.
 
 ```
 pip install "crewai[tools]"
 ```
 
-अपने Gemini API पासकोड को `GEMINI_API_KEY` नाम के एनवायरमेंट वैरिएबल के तौर पर सेट करें. इसके बाद, CrewAI को Gemini मॉडल का इस्तेमाल करने के लिए कॉन्फ़िगर करें.
+Legen Sie Ihren Gemini API-Schlüssel als Umgebungsvariable mit dem Namen `GEMINI_API_KEY` fest und konfigurieren Sie CrewAI so, dass das Gemini-Modell verwendet wird.
 
 ```
 import os
@@ -50,13 +53,15 @@ gemini_llm = LLM(
 )
 ```
 
-## कॉम्पोनेंट तय करना
+## Komponenten definieren
 
-**टूल**, **एजेंट**, **टास्क**, और **क्रू** का इस्तेमाल करके, CrewAI ऐप्लिकेशन बनाएं. यहां दिए गए सेक्शन में, इन सभी कॉम्पोनेंट के बारे में बताया गया है.
+Erstellen Sie CrewAI-Anwendungen mit **Tools**, **Agents**, **Tasks** und der
+**Crew** selbst. In den folgenden Abschnitten werden die einzelnen Komponenten erläutert.
 
-### टूल
+### Tools
 
-टूल, ऐसी सुविधाएं होती हैं जिनका इस्तेमाल एजेंट, बाहरी दुनिया से इंटरैक्ट करने या खास कार्रवाइयां करने के लिए कर सकते हैं. यहां, ग्राहक सहायता से जुड़ा डेटा फ़ेच करने का सिम्युलेट करने के लिए, प्लेसहोल्डर टूल तय किया जाता है. किसी असली ऐप्लिकेशन में, आपको डेटाबेस, एपीआई या फ़ाइल सिस्टम से कनेक्ट करना होगा. टूल के बारे में ज़्यादा जानकारी के लिए, [CrewAI टूल गाइड](https://docs.crewai.com/concepts/tools) देखें.
+Tools sind Funktionen, mit denen Agenten mit der Außenwelt interagieren oder bestimmte Aktionen ausführen können. Hier definieren Sie ein Platzhalter-Tool, um das Abrufen von Kundensupportdaten zu simulieren. In einer echten Anwendung würden Sie eine Verbindung zu einer Datenbank, API oder einem Dateisystem herstellen. Weitere Informationen zu Tools finden Sie in der Anleitung zu [CrewAI
+Tools](https://docs.crewai.com/concepts/tools).
 
 ```
 from crewai.tools import BaseTool
@@ -86,9 +91,10 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### एजेंट
+### Agents
 
-एजेंट, आपकी क्रू में शामिल एआई वर्कर होते हैं. हर एजेंट के पास एक खास `role`, `goal`, `backstory`, असाइन किया गया `llm`, और वैकल्पिक `tools` होता है. एजेंट के बारे में ज़्यादा जानकारी के लिए, [CrewAI एजेंट गाइड](https://docs.crewai.com/concepts/agents) देखें.
+Agents sind die einzelnen KI-Mitarbeiter in Ihrer Crew. Jeder Agent hat eine bestimmte `role`, ein `goal`, eine `backstory`, ein zugewiesenes `llm` und optionale `tools`. Weitere Informationen zu Agents finden Sie in der Anleitung zu [CrewAI-Agents
+guide](https://docs.crewai.com/concepts/agents).
 
 ```
 from crewai import Agent
@@ -137,7 +143,8 @@ report_writer = Agent(
 
 ### Tasks
 
-टास्क से, एजेंट के लिए खास असाइनमेंट तय किए जाते हैं. हर टास्क में `description` और `expected_output` होता है. साथ ही, इसे `agent` को असाइन किया जाता है. टास्क डिफ़ॉल्ट रूप से क्रम से पूरे किए जाते हैं. इनमें पिछले टास्क का कॉन्टेक्स्ट शामिल होता है. टास्क के बारे में ज़्यादा जानकारी के लिए, [CrewAI टास्क गाइड](https://docs.crewai.com/concepts/tasks) देखें.
+Tasks definieren die spezifischen Aufgaben für die Agenten. Jede Aufgabe hat eine `description` und eine `expected_output` und ist einem `agent` zugewiesen. Aufgaben werden standardmäßig sequenziell ausgeführt und enthalten den Kontext der vorherigen Aufgabe. Weitere Informationen zu Aufgaben finden Sie in der Anleitung zu [CrewAI-Aufgaben
+guide](https://docs.crewai.com/concepts/tasks).
 
 ```
 from crewai import Task
@@ -196,9 +203,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### क्रू
+### Crew
 
-`Crew`, एजेंट और टास्क को एक साथ लाता है. साथ ही, वर्कफ़्लो प्रोसेस (जैसे कि "क्रमिक") तय करता है.
+Die `Crew` führt die Agenten und Aufgaben zusammen und definiert den Workflowprozess (z. B. „sequenziell“).
 
 ```
 from crewai import Crew, Process
@@ -211,9 +218,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## क्रू को मैनेज करना
+## Crew ausführen
 
-आखिर में, ज़रूरी इनपुट के साथ क्रू के काम को शुरू करें.
+Starten Sie schließlich die Ausführung der Crew mit allen erforderlichen Eingaben.
 
 ```
 # Start the crew's work
@@ -227,17 +234,19 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-अब स्क्रिप्ट चलेगी. `Data Analyst` टूल का इस्तेमाल करेगा, `Process
-Optimizer` नतीजों का विश्लेषण करेगा, और `Report Writer` फ़ाइनल रिपोर्ट तैयार करेगा. इसके बाद, इसे कंसोल पर प्रिंट किया जाएगा. `verbose=True` सेटिंग से, हर एजेंट की सोच और कार्रवाइयों के बारे में पूरी जानकारी मिलेगी.
+Das Skript wird jetzt ausgeführt. Der `Data Analyst` verwendet das Tool, der `Process
+Optimizer` analysiert die Ergebnisse und der `Report Writer` erstellt den
+Abschlussbericht, der dann in der Console ausgegeben wird. Mit der Einstellung `verbose=True` werden der detaillierte Denkprozess und die Aktionen jedes Agenten angezeigt.
 
-CrewAI के बारे में ज़्यादा जानने के लिए, [CrewAI का परिचय](https://docs.crewai.com/introduction) पढ़ें.
+Weitere Informationen zu CrewAI finden Sie in der [CrewAI
+Einführung](https://docs.crewai.com/introduction).
 
-सुझाव भेजें
+Feedback geben
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
+Zuletzt aktualisiert: 2026-09-12 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Haben Sie Feedback für uns?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]

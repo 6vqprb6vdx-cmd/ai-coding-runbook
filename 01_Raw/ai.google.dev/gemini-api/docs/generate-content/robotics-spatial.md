@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=tr
-fetched_at: 2026-09-14T05:36:17.923354+00:00
+fetched_at: 2026-09-21T05:46:52.555069+00:00
 title: "Mekansal ak\u0131l y\u00fcr\u00fctme \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

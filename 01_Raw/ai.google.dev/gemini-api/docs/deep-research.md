@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=tr
-fetched_at: 2026-09-14T05:38:59.580499+00:00
-title: "Gemini Deep Research Temsilcisi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=vi
+fetched_at: 2026-09-21T05:58:13.226314+00:00
+title: "T\u00e1c nh\u00e2n Deep Research c\u1ee7a Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# Gemini Deep Research Temsilcisi
+# Tác nhân Deep Research của Gemini
 
-Gemini Deep Research Temsilcisi, çok adımlı araştırma görevlerini bağımsız olarak planlar, yürütür ve sentezler. Gemini destekli bu araç, karmaşık bilgi ortamlarında gezinerek ayrıntılı ve alıntılı raporlar oluşturur. Yeni özellikler sayesinde, yapay zeka ajanıyla birlikte plan yapabilir, MCP sunucularını kullanarak harici araçlara bağlanabilir, görselleştirmeler (ör. grafikler) ekleyebilir ve belgeleri doğrudan giriş olarak sağlayabilirsiniz.
+Tác nhân Gemini Deep Research tự động lập kế hoạch, thực hiện và tổng hợp các nhiệm vụ nghiên cứu nhiều bước. Nhờ Gemini, công cụ này có thể tìm hiểu thông tin phức tạp để tạo ra các báo cáo chi tiết có trích dẫn. Các chức năng mới cho phép bạn lập kế hoạch cộng tác với tác nhân, kết nối với các công cụ bên ngoài bằng máy chủ MCP, bao gồm cả hình ảnh trực quan (chẳng hạn như biểu đồ và đồ thị) và cung cấp trực tiếp tài liệu làm dữ liệu đầu vào.
 
-Araştırma görevleri, tekrara dayalı arama ve okuma işlemlerini içerir ve tamamlanması birkaç dakika sürebilir. Aracıyı eşzamansız olarak çalıştırmak ve sonuçları yoklamak ya da güncellemeleri yayınlamak için [arka planda yürütmeyi](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) (`background=true` olarak ayarlayın) kullanmanız gerekir. Daha fazla bilgi için [Uzun süren görevleri işleme](#long-running-tasks) başlıklı makaleyi inceleyin.
+Các tác vụ nghiên cứu bao gồm việc tìm kiếm và đọc lặp đi lặp lại, đồng thời có thể mất vài phút để hoàn thành. Bạn phải sử dụng [thực thi trong nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi) (đặt `background=true`) để chạy tác nhân một cách không đồng bộ và thăm dò kết quả hoặc cập nhật luồng. Hãy xem phần [Xử lý các tác vụ chạy trong thời gian dài](#long-running-tasks) để biết thêm thông tin chi tiết.
 
-Aşağıdaki örnekte, arka planda araştırma görevi başlatma ve sonuçları yoklama işlemi gösterilmektedir.
+Ví dụ sau đây minh hoạ cách bắt đầu một tác vụ nghiên cứu ở chế độ nền và thăm dò kết quả.
 
 ### Python
 
@@ -79,6 +79,49 @@ while (true) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import java.util.Collections;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Research the history of Google TPUs."))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println("Research started: " + interaction.id().orElse(""));
+
+while (true) {
+  interaction =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(interaction.id().get()).build())
+          .interaction()
+          .get();
+  if (InteractionStatus.COMPLETED.equals(interaction.status().orElse(null))) {
+    System.out.println(interaction.outputText().orElse(""));
+    break;
+  } else if (InteractionStatus.FAILED.equals(interaction.status().orElse(null))) {
+    System.out.println("Research failed: " + interaction.errors().orElse(Collections.emptyList()));
+    break;
+  }
+  Thread.sleep(10000);
+}
+```
+
 ### REST
 
 ```
@@ -97,20 +140,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Desteklenen sürümler
+## Phiên bản được hỗ trợ
 
-Deep Research aracısı iki sürümde sunulur:
+Trợ lý Deep Research có 2 phiên bản:
 
-- **Deep Research** (`deep-research-preview-04-2026`): Hız ve verimlilik için tasarlanmıştır. İstemci kullanıcı arayüzüne geri aktarılmak için idealdir.
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): Otomatik bağlam toplama ve sentezleme için maksimum kapsamlılık.
+- **Deep Research** (`deep-research-preview-04-2026`): Được thiết kế để đạt tốc độ và hiệu quả cao, lý tưởng để truyền trực tuyến trở lại giao diện người dùng của ứng dụng.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Mức độ toàn diện tối đa để tự động thu thập và tổng hợp bối cảnh.
 
-## Ortak planlama
+## Lập kế hoạch cộng tác
 
-Ortak planlama, araştırmayı yürütmeden önce araştırma planını inceleyip iyileştirmenize olanak tanıyarak temsilci çalışmaya başlamadan önce araştırma yönünü kontrol etmenizi sağlar. Etkinleştirildiğinde, ajan hemen yürütmek yerine önerilen bir araştırma planı döndürür. Ardından, çok turlu etkileşimler aracılığıyla planı inceleyebilir, değiştirebilir veya onaylayabilirsiniz.
+Lập kế hoạch cộng tác giúp bạn kiểm soát hướng nghiên cứu trước khi tác nhân bắt đầu công việc bằng cách cho phép bạn xem xét và tinh chỉnh kế hoạch nghiên cứu trước khi thực hiện. Khi được bật, tác nhân sẽ trả về một kế hoạch nghiên cứu đề xuất thay vì thực thi ngay lập tức. Sau đó, bạn có thể xem xét, sửa đổi hoặc phê duyệt kế hoạch thông qua các lượt tương tác nhiều lượt.
 
-### 1. adım: Plan isteğinde bulunun
+### Bước 1: Yêu cầu tạo kế hoạch
 
-İlk etkileşimde `collaborative_planning=True` değerini ayarlayın. Ajan, tam rapor yerine araştırma planı döndürüyor.
+Đặt `collaborative_planning=True` trong lượt tương tác đầu tiên. Thay vì trả về một báo cáo đầy đủ, tác nhân sẽ trả về một kế hoạch nghiên cứu.
 
 ### Python
 
@@ -158,6 +201,53 @@ while ((result = await client.interactions.get(planInteraction.id)).status !== '
 console.log(result.steps.at(-1).content[0].text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DeepResearchAgentConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+
+Client client = new Client();
+
+// First interaction: request a research plan
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Do some research on Google TPUs."))
+        .agentConfig(
+            DeepResearchAgentConfig.builder()
+                .thinkingSummaries(ThinkingSummaries.AUTO)
+                .collaborativePlanning(true)
+                .build())
+        .background(true)
+        .build();
+
+Interaction planInteraction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+// Wait for and retrieve the plan
+Interaction result;
+while (true) {
+  result =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(planInteraction.id().get()).build())
+          .interaction()
+          .get();
+  if (InteractionStatus.COMPLETED.equals(result.status().orElse(null))) {
+    break;
+  }
+  Thread.sleep(5000);
+}
+System.out.println(result.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -176,9 +266,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 2. adım: Planı iyileştirin (isteğe bağlı)
+### Bước 2: Tinh chỉnh kế hoạch (không bắt buộc)
 
-Sohbete devam etmek ve planı yinelemek için `previous_interaction_id` aboneliğini kullanın. Planlama modunda kalmak için `collaborative_planning=True` tuşunu basılı tutun.
+Sử dụng `previous_interaction_id` để tiếp tục cuộc trò chuyện và lặp lại kế hoạch. Giữ `collaborative_planning=True` để tiếp tục ở chế độ lập kế hoạch.
 
 ### Python
 
@@ -223,6 +313,56 @@ while ((result = await client.interactions.get(refinedPlan.id)).status !== 'comp
 console.log(result.steps.at(-1).content[0].text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DeepResearchAgentConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+
+Client client = new Client();
+String planInteractionId = "PLAN_INTERACTION_ID";
+
+// Second interaction: refine the plan
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(
+            InteractionsInput.of(
+                "Focus more on the differences between Google TPUs and competitor hardware, and less on the history."))
+        .agentConfig(
+            DeepResearchAgentConfig.builder()
+                .thinkingSummaries(ThinkingSummaries.AUTO)
+                .collaborativePlanning(true)
+                .build())
+        .previousInteractionId(planInteractionId)
+        .background(true)
+        .build();
+
+Interaction refinedPlan =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+Interaction result;
+while (true) {
+  result =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(refinedPlan.id().get()).build())
+          .interaction()
+          .get();
+  if (InteractionStatus.COMPLETED.equals(result.status().orElse(null))) {
+    break;
+  }
+  Thread.sleep(5000);
+}
+System.out.println(result.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -242,9 +382,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 3. adım: Onaylayın ve yürütün
+### Bước 3: Phê duyệt và thực hiện
 
-Planı onaylamak ve araştırmayı başlatmak için `collaborative_planning=False` değerini ayarlayın (veya bu değeri atlayın).
+Đặt `collaborative_planning=False` (hoặc bỏ qua) để phê duyệt kế hoạch và bắt đầu nghiên cứu.
 
 ### Python
 
@@ -289,6 +429,54 @@ while ((result = await client.interactions.get(finalReport.id)).status !== 'comp
 console.log(result.steps.at(-1).content[0].text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DeepResearchAgentConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+
+Client client = new Client();
+String refinedPlanId = "REFINED_PLAN_ID";
+
+// Third interaction: approve the plan and kick off research
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Plan looks good!"))
+        .agentConfig(
+            DeepResearchAgentConfig.builder()
+                .thinkingSummaries(ThinkingSummaries.AUTO)
+                .collaborativePlanning(false)
+                .build())
+        .previousInteractionId(refinedPlanId)
+        .background(true)
+        .build();
+
+Interaction finalReport =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+Interaction result;
+while (true) {
+  result =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(finalReport.id().get()).build())
+          .interaction()
+          .get();
+  if (InteractionStatus.COMPLETED.equals(result.status().orElse(null))) {
+    break;
+  }
+  Thread.sleep(5000);
+}
+System.out.println(result.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -308,10 +496,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Görselleştirme
+## Hình ảnh trực quan
 
-`visualization`, `"auto"` olarak ayarlandığında ajan, araştırma bulgularını desteklemek için grafikler ve diğer görsel öğeler oluşturabilir.
-Oluşturulan resimler, yanıt adımlarına dahil edilir ve `image` deltalara dönüştürülerek yayınlanır. En iyi sonuçları elde etmek için sorgunuzda görselleri açıkça isteyin. Örneğin, "Zaman içindeki trendleri gösteren grafikler ekle" veya "Pazar payını karşılaştıran grafikler oluştur" gibi ifadeler kullanın. `visualization` değerini `"auto"` olarak ayarlamak özelliği etkinleştirir ancak ajan, yalnızca istemde istenirse görsel oluşturur.
+Khi `visualization` được đặt thành `"auto"`, tác nhân có thể tạo biểu đồ, đồ thị và các phần tử trực quan khác để hỗ trợ các kết quả nghiên cứu của mình.
+Hình ảnh được tạo sẽ có trong các bước phản hồi và được truyền dưới dạng các delta `image`. Để có kết quả tốt nhất, hãy yêu cầu rõ ràng về hình ảnh trong câu hỏi của bạn, ví dụ: "Đưa biểu đồ cho thấy xu hướng theo thời gian" hoặc "Tạo hình ảnh so sánh thị phần". Việc đặt `visualization` thành `"auto"` sẽ bật khả năng này, nhưng tác nhân chỉ tạo hình ảnh khi câu lệnh yêu cầu.
 
 ### Python
 
@@ -385,6 +573,73 @@ for (const step of result.steps) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DeepResearchAgentConfig;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.Visualization;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import java.util.Base64;
+import java.util.Collections;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(
+            InteractionsInput.of(
+                "Analyze global semiconductor market trends. Include graphics showing market share changes."))
+        .agentConfig(DeepResearchAgentConfig.builder().visualization(Visualization.AUTO).build())
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println("Research started: " + interaction.id().orElse(""));
+
+Interaction result;
+while (true) {
+  result =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(interaction.id().get()).build())
+          .interaction()
+          .get();
+  if (InteractionStatus.COMPLETED.equals(result.status().orElse(null))) {
+    break;
+  }
+  Thread.sleep(5000);
+}
+
+for (Step step : result.steps().orElse(Collections.emptyList())) {
+  if (step instanceof ModelOutputStep) {
+    for (Content contentItem : ((ModelOutputStep) step).content().orElse(Collections.emptyList())) {
+      if (contentItem instanceof TextContent) {
+        System.out.println(((TextContent) contentItem).text().orElse(""));
+      } else if (contentItem instanceof ImageContent) {
+        ImageContent img = (ImageContent) contentItem;
+        if (img.data().isPresent()) {
+          byte[] imageBytes = Base64.getDecoder().decode(img.data().get());
+          System.out.println("Received image: " + imageBytes.length + " bytes");
+        }
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -402,21 +657,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Desteklenen araçlar
+## Các công cụ được hỗ trợ
 
-Deep Research, birden fazla yerleşik ve harici aracı destekler. Varsayılan olarak (`tools` parametresi sağlanmadığında) aracı, Google Arama, URL Bağlamı ve Kod Yürütme'ye erişebilir. Ajanın yeteneklerini kısıtlamak veya genişletmek için araçları açıkça belirtebilirsiniz.
+Tính năng Deep Research hỗ trợ nhiều công cụ tích hợp và công cụ bên ngoài. Theo mặc định (khi không có tham số `tools` nào được cung cấp), tác nhân có quyền truy cập vào Google Tìm kiếm, Bối cảnh từ URL và Thực thi mã. Bạn có thể chỉ định rõ ràng các công cụ để hạn chế hoặc mở rộng khả năng của tác nhân.
 
-| Araç | Tür değeri | Açıklama |
+| Công cụ | Giá trị loại | Mô tả |
 | --- | --- | --- |
-| Google Arama | `google_search` | Herkese açık web'de arama yapın. Varsayılan olarak etkindir. |
-| URL Bağlamı | `url_context` | Web sayfası içeriğini okuma ve özetleme Varsayılan olarak etkindir. |
-| Kod Yürütme | `code_execution` | Hesaplamalar ve veri analizi yapmak için kodu yürütün. Varsayılan olarak etkindir. |
-| MCP Sunucusu | `mcp_server` | Harici araç erişimi için uzaktaki MCP sunucularına bağlanın. |
-| Dosya Arama | `file_search` | Yüklediğiniz doküman derlemlerinde arama yapın. |
+| Google Tìm kiếm | `google_search` | Tìm kiếm trên web công khai. Bật theo mặc định. |
+| Bối cảnh từ URL | `url_context` | Đọc và tóm tắt nội dung trang web. Bật theo mặc định. |
+| Thực thi mã | `code_execution` | Thực thi mã để thực hiện các phép tính và phân tích dữ liệu. Bật theo mặc định. |
+| Máy chủ MCP | `mcp_server` | Kết nối với các máy chủ MCP từ xa để truy cập vào công cụ bên ngoài. |
+| Tìm kiếm tệp | `file_search` | Tìm kiếm tập hợp tài liệu đã tải lên. |
 
-### Google Arama
+### Google Tìm kiếm
 
-Google Arama'yı tek araç olarak açıkça etkinleştirin:
+Bật Google Tìm kiếm một cách rõ ràng làm công cụ duy nhất:
 
 ### Python
 
@@ -440,6 +695,31 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("What are the latest developments in quantum computing?"))
+        .tools(Arrays.asList(GoogleSearch.builder().build()))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -454,9 +734,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### URL Bağlamı
+### Bối cảnh từ URL
 
-Ajana belirli web sayfalarını okuma ve özetleme yetkisi verin:
+Cho phép tác nhân đọc và tóm tắt các trang web cụ thể:
 
 ### Python
 
@@ -480,6 +760,31 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.URLContext;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Summarize the content of https://www.wikipedia.org/."))
+        .tools(Arrays.asList(URLContext.builder().build()))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -494,9 +799,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Kod Yürütme
+### Thực thi mã
 
-Ajanın hesaplamalar ve veri analizi için kod yürütmesine izin verin:
+Cho phép tác nhân thực thi mã để tính toán và phân tích dữ liệu:
 
 ### Python
 
@@ -520,6 +825,31 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CodeExecution;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Calculate the 50th Fibonacci number."))
+        .tools(Arrays.asList(CodeExecution.builder().build()))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -534,21 +864,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### MCP sunucuları
+### Máy chủ MCP
 
-Ajanın harici araçlara ve hizmetlere erişmesini sağlamak için uzak MCP sunucularına bağlanın.
+Kết nối với các máy chủ MCP từ xa để cấp cho tác nhân quyền truy cập vào các công cụ và dịch vụ bên ngoài.
 
-Araç yapılandırmasında sunucuyu `name` ve `url` olarak belirtin. Ayrıca, kimlik doğrulama kimlik bilgilerini iletebilir ve aracının hangi araçları çağırabileceğini kısıtlayabilirsiniz.
+Cung cấp `name` và `url` của máy chủ trong cấu hình công cụ. Bạn cũng có thể truyền thông tin xác thực và hạn chế những công cụ mà trợ lý ảo có thể gọi.
 
-| Alan | Tür | Zorunlu | Açıklama |
+| Trường | Loại | Bắt buộc | Mô tả |
 | --- | --- | --- | --- |
-| `type` | `string` | Evet | `"mcp_server"` olmalıdır. |
-| `name` | `string` | Hayır | MCP sunucusunun görünen adı. |
-| `url` | `string` | Hayır | MCP sunucusu uç noktasının tam URL'si. |
-| `headers` | `object` | Hayır | Sunucuya yapılan her istekle birlikte HTTP başlıkları olarak gönderilen anahtar/değer çiftleri (örneğin, kimlik doğrulama jetonları). |
-| `allowed_tools` | `array` | Hayır | Ajanın sunucudan hangi araçları çağırabileceğini kısıtlayın. |
+| `type` | `string` | Có | Phải là `"mcp_server"`. |
+| `name` | `string` | Không | Tên hiển thị của máy chủ MCP. |
+| `url` | `string` | Không | URL đầy đủ cho điểm cuối của máy chủ MCP. |
+| `headers` | `object` | Không | Các cặp khoá-giá trị được gửi dưới dạng tiêu đề HTTP trong mỗi yêu cầu đến máy chủ (ví dụ: mã thông báo xác thực). |
+| `allowed_tools` | `array` | Không | Hạn chế những công cụ mà tác nhân có thể gọi từ máy chủ. |
 
-#### Temel kullanım
+#### Cách sử dụng cơ bản
 
 ### Python
 
@@ -586,6 +916,38 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.MCPServer;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Check the status of my last server deployment."))
+        .tools(
+            Arrays.asList(
+                MCPServer.builder()
+                    .name("Deployment Tracker")
+                    .url("https://mcp.example.com/mcp")
+                    .headers(Collections.singletonMap("Authorization", "Bearer my-token"))
+                    .build()))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -607,9 +969,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Dosya Arama
+### Tìm kiếm tệp
 
-[Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr) aracını kullanarak aracıya kendi verilerinize erişim izni verin.
+Cấp cho tác nhân quyền truy cập vào dữ liệu của riêng bạn bằng cách sử dụng công cụ [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi).
 
 ### Python
 
@@ -645,6 +1007,37 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.FileSearch;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(
+            InteractionsInput.of(
+                "Compare our 2025 fiscal year report against current public web news."))
+        .tools(
+            Arrays.asList(
+                FileSearch.builder()
+                    .fileSearchStoreNames(Arrays.asList("fileSearchStores/my-store-name"))
+                    .build()))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -661,11 +1054,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Yönlendirilebilirlik ve biçimlendirme
+## Khả năng điều hướng và định dạng
 
-İsteminizde belirli biçimlendirme talimatları vererek aracının çıktısını yönlendirebilirsiniz. Bu sayede raporları belirli bölümler ve alt bölümler halinde yapılandırabilir, veri tabloları ekleyebilir veya farklı kitlelere yönelik üslubu ayarlayabilirsiniz (ör. "teknik", "yönetici", "gündelik").
+Bạn có thể điều hướng đầu ra của tác nhân bằng cách cung cấp hướng dẫn định dạng cụ thể trong câu lệnh. Nhờ đó, bạn có thể sắp xếp báo cáo thành các phần và tiểu mục cụ thể, thêm bảng dữ liệu hoặc điều chỉnh giọng điệu cho các đối tượng khác nhau (ví dụ: "kỹ thuật", "điều hành", "thông thường").
 
-İstenen çıkış biçimini giriş metninizde açıkça tanımlayın.
+Xác định rõ định dạng đầu ra mong muốn trong văn bản đầu vào.
 
 ### Python
 
@@ -705,6 +1098,35 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+String prompt =
+    "Research the competitive landscape of EV batteries.\n\n"
+        + "Format the output as a technical report with the following structure:\n"
+        + "1. Executive Summary\n"
+        + "2. Key Players (Must include a data table comparing capacity and chemistry)\n"
+        + "3. Supply Chain Risks";
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of(prompt))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -718,9 +1140,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Çok formatlı girişler
+## Thông tin đầu vào đa phương thức
 
-Derin Araştırma, resimler ve dokümanlar (PDF'ler) dahil olmak üzere çok formatlı girişleri destekler. Böylece, aracının görsel içerikleri analiz etmesine ve sağlanan girişlerle bağlamsallaştırılmış web tabanlı araştırmalar yapmasına olanak tanır.
+Tính năng Deep Research hỗ trợ nhiều phương thức nhập, bao gồm cả hình ảnh và tài liệu (tệp PDF), cho phép tác nhân phân tích nội dung trực quan và tiến hành nghiên cứu dựa trên web theo bối cảnh của thông tin đầu vào được cung cấp.
 
 ### Python
 
@@ -805,6 +1227,69 @@ while (true) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import java.util.Arrays;
+import java.util.Collections;
+
+Client client = new Client();
+
+String prompt =
+    "Analyze the interspecies dynamics and behavioral risks present "
+        + "in the provided image of the African watering hole. Specifically, investigate "
+        + "the symbiotic relationship between the avian species and the pachyderms "
+        + "shown, and conduct a risk assessment for the reticulated giraffes based on "
+        + "their drinking posture relative to the specific predator visible in the "
+        + "foreground.";
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(
+            InteractionsInput.ofContent(
+                Arrays.asList(
+                    TextContent.builder().text(prompt).build(),
+                    ImageContent.builder()
+                        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+                        .uri(
+                            "https://storage.googleapis.com/generativeai-downloads/images/generated_elephants_giraffes_zebras_sunset.jpg")
+                        .build())))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println("Research started: " + interaction.id().orElse(""));
+
+while (true) {
+  interaction =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(interaction.id().get()).build())
+          .interaction()
+          .get();
+  if (InteractionStatus.COMPLETED.equals(interaction.status().orElse(null))) {
+    System.out.println(interaction.outputText().orElse(""));
+    break;
+  } else if (InteractionStatus.FAILED.equals(interaction.status().orElse(null))) {
+    System.out.println("Research failed: " + interaction.errors().orElse(Collections.emptyList()));
+    break;
+  }
+  Thread.sleep(10000);
+}
+```
+
 ### REST
 
 ```
@@ -826,10 +1311,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Belge anlama
+### Hiểu tài liệu
 
-Doküman yorumlama, dokümanların doğrudan çok formatlı giriş olarak iletilmesine olanak tanır.
-Aracı, sağlanan belgeleri analiz eder ve içeriklerine dayalı araştırma yapar.
+Tính năng hiểu tài liệu cho phép truyền trực tiếp tài liệu dưới dạng dữ liệu đầu vào đa phương thức.
+Trợ lý sẽ phân tích các tài liệu được cung cấp và tiến hành nghiên cứu dựa trên nội dung của các tài liệu đó.
 
 ### Python
 
@@ -873,6 +1358,39 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DocumentContent;
+import com.google.genai.gaos.models.interactions.DocumentContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+
+Client client = new Client();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(
+            InteractionsInput.ofContent(
+                Arrays.asList(
+                    TextContent.builder().text("What is this document about?").build(),
+                    DocumentContent.builder()
+                        .uri("https://arxiv.org/pdf/1706.03762")
+                        .mimeType(DocumentContentMimeType.APPLICATION_PDF)
+                        .build())))
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -890,28 +1408,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Uzun süreli görevleri işleme
+## Xử lý các tác vụ chạy trong thời gian dài
 
-Deep Research; planlama, arama, okuma ve yazma gibi çok adımlı bir süreçtir. Bu döngü genellikle senkron API çağrılarının standart zaman aşımı sınırlarını aşar.
+Deep Research là một quy trình gồm nhiều bước, bao gồm lập kế hoạch, tìm kiếm, đọc và viết. Chu kỳ này thường vượt quá giới hạn thời gian chờ tiêu chuẩn của các lệnh gọi API đồng bộ.
 
-Temsilcilerin `background=True` kullanması gerekir. API, hemen kısmi bir `Interaction` nesnesi döndürür. Anket için etkileşim almak üzere `id` özelliğini kullanabilirsiniz. Etkileşim durumu `in_progress`'dan `completed` veya `failed`'ye geçiş yapar. Arka plan görevlerini yönetmeyle ilgili kapsamlı bir kılavuz için [Arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) başlıklı makaleyi inceleyin.
+Nhân viên hỗ trợ bắt buộc phải sử dụng `background=True`. API này sẽ trả về ngay một đối tượng `Interaction` một phần. Bạn có thể dùng thuộc tính `id` để truy xuất một lượt tương tác cho hoạt động thăm dò ý kiến. Trạng thái tương tác sẽ chuyển từ `in_progress` sang `completed` hoặc `failed`. Để biết hướng dẫn đầy đủ về cách quản lý các tác vụ ở chế độ nền, hãy xem phần [Thực thi ở chế độ nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi).
 
-### Canlı Yayın
+### Phát trực tiếp
 
-Deep Research, düşünce özetleri, metin çıktısı ve oluşturulan resimler dahil olmak üzere araştırma ilerlemesiyle ilgili anlık güncellemeler almak için akışı destekler.
-`stream=True` ve `background=True` öğelerini ayarlamanız gerekir.
+Tính năng Deep Research hỗ trợ truyền trực tuyến để nhận thông tin cập nhật theo thời gian thực về tiến trình nghiên cứu, bao gồm cả bản tóm tắt ý tưởng, đầu ra văn bản và hình ảnh được tạo.
+Bạn phải đặt `stream=True` và `background=True`.
 
-Ara muhakeme adımlarını (düşünceler) ve ilerleme durumu güncellemelerini almak için `agent_config` bölümünde `thinking_summaries` ayarını `"auto"` olarak belirleyerek **düşünce özetlerini** etkinleştirmeniz gerekir. Bu olmadan yayın yalnızca nihai sonuçları sağlayabilir.
+Để nhận các bước suy luận trung gian (tư duy) và thông tin cập nhật về tiến trình, bạn phải bật **bản tóm tắt tư duy** bằng cách đặt `thinking_summaries` thành `"auto"` trong `agent_config`. Nếu không có thông tin này, luồng dữ liệu có thể chỉ cung cấp kết quả cuối cùng.
 
-#### Akış etkinliği türleri
+#### Loại sự kiện luồng phát
 
-| Etkinlik türü | Delta türü | Açıklama |
+| Loại sự kiện | Loại Delta | Mô tả |
 | --- | --- | --- |
-| `step.delta` | `thought` | Aracının akıl yürütme sürecindeki ara adım. |
-| `step.delta` | `text` | Nihai metin çıktısının bir parçası. |
-| `step.delta` | `image` | Üretilmiş bir resim (base64 kodlu). |
+| `step.delta` | `thought` | Bước suy luận trung gian của tác nhân. |
+| `step.delta` | `text` | Một phần của văn bản đầu ra cuối cùng. |
+| `step.delta` | `image` | Một hình ảnh được tạo (được mã hoá bằng base64). |
 
-Aşağıdaki örnekte bir araştırma görevi başlatılıyor ve otomatik yeniden bağlantı ile yayın işleniyor. Bağlantı kesilirse (örneğin, 600 saniyelik zaman aşımından sonra) kaldığı yerden devam edebilmesi için `interaction_id` ve `last_event_id` değerlerini izler.
+Ví dụ sau đây bắt đầu một tác vụ nghiên cứu và xử lý luồng bằng tính năng tự động kết nối lại. Thao tác này theo dõi `interaction_id` và `last_event_id` để nếu kết nối bị gián đoạn (ví dụ: sau khi hết thời gian chờ 600 giây), thao tác này có thể tiếp tục từ nơi bị gián đoạn.
 
 ### Python
 
@@ -1008,6 +1526,110 @@ while (!isComplete && interactionId) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DeepResearchAgentConfig;
+import com.google.genai.gaos.models.interactions.ErrorEvent;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionCompletedEvent;
+import com.google.genai.gaos.models.interactions.InteractionCreatedEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.StepDelta;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.TextDelta;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.interactions.ThoughtSummaryDelta;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.GetInteractionByIdRequest;
+import com.google.genai.gaos.utils.EventStream;
+
+class StreamProcessor {
+  String interactionId = null;
+  String lastEventId = null;
+  boolean isComplete = false;
+
+  void processStream(EventStream<InteractionSSEStreamEvent> stream) {
+    for (InteractionSSEStreamEvent streamEvent : stream) {
+      InteractionSSEEvent event = streamEvent.data().orElse(null);
+      if (event instanceof InteractionCreatedEvent) {
+        InteractionCreatedEvent created = (InteractionCreatedEvent) event;
+        interactionId = created.interaction().flatMap(i -> i.id()).orElse(null);
+        if (created.eventId().isPresent()) {
+          lastEventId = created.eventId().get();
+        }
+      } else if (event instanceof StepDelta) {
+        StepDelta stepDelta = (StepDelta) event;
+        if (stepDelta.eventId().isPresent()) {
+          lastEventId = stepDelta.eventId().get();
+        }
+        if (stepDelta.delta().isPresent()) {
+          if (stepDelta.delta().get() instanceof TextDelta) {
+            System.out.print(((TextDelta) stepDelta.delta().get()).text().orElse(""));
+            System.out.flush();
+          } else if (stepDelta.delta().get() instanceof ThoughtSummaryDelta) {
+            ThoughtSummaryDelta thought = (ThoughtSummaryDelta) stepDelta.delta().get();
+            Content content = thought.content().orElse(null);
+            if (content instanceof TextContent) {
+              System.out.println("Thought: " + ((TextContent) content).text().orElse(""));
+            }
+          }
+        }
+      } else if (event instanceof InteractionCompletedEvent || event instanceof ErrorEvent) {
+        isComplete = true;
+      }
+    }
+  }
+}
+
+Client client = new Client();
+StreamProcessor processor = new StreamProcessor();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Research the history of Google TPUs."))
+        .background(true)
+        .stream(true)
+        .agentConfig(
+            DeepResearchAgentConfig.builder().thinkingSummaries(ThinkingSummaries.AUTO).build())
+        .build();
+
+try (EventStream<InteractionSSEStreamEvent> stream =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).events()) {
+  processor.processStream(stream);
+}
+
+// Reconnect if the connection drops
+while (!processor.isComplete && processor.interactionId != null) {
+  Interaction status =
+      client.interactions
+          .get(GetInteractionByIdRequest.builder().id(processor.interactionId).build())
+          .interaction()
+          .get();
+  if (!InteractionStatus.IN_PROGRESS.equals(status.status().orElse(null))) {
+    break;
+  }
+  try (EventStream<InteractionSSEStreamEvent> stream =
+      client.interactions
+          .get(
+              GetInteractionByIdRequest.builder()
+                  .id(processor.interactionId)
+                  .stream(true)
+                  .lastEventId(processor.lastEventId)
+                  .build())
+          .events()) {
+    processor.processStream(stream);
+  }
+}
+```
+
 ### REST
 
 ```
@@ -1032,9 +1654,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Ek sorular ve etkileşimler
+## Câu hỏi nối tiếp và lượt tương tác
 
-Temsilci nihai raporu döndürdükten sonra `previous_interaction_id` kullanarak görüşmeye devam edebilirsiniz. Bu sayede, görevin tamamını yeniden başlatmadan araştırmanın belirli bölümleriyle ilgili açıklama, özet veya ayrıntı isteyebilirsiniz.
+Bạn có thể tiếp tục cuộc trò chuyện sau khi nhân viên hỗ trợ gửi báo cáo cuối cùng bằng cách sử dụng `previous_interaction_id`. Nhờ đó, bạn có thể yêu cầu làm rõ, tóm tắt hoặc giải thích chi tiết về các phần cụ thể của nghiên cứu mà không cần bắt đầu lại toàn bộ nhiệm vụ.
 
 ### Python
 
@@ -1064,6 +1686,30 @@ const interaction = await client.interactions.create({
 console.log(interaction.steps.at(-1).content[0].text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.1-pro-preview")
+        .input(InteractionsInput.of("Can you elaborate on the second point in the report?"))
+        .previousInteractionId("COMPLETED_INTERACTION_ID")
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -1077,28 +1723,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Gemini Deep Research Ajanı'nı ne zaman kullanmalısınız?
+## Trường hợp sử dụng tác nhân Deep Research của Gemini
 
-Deep Research yalnızca bir model değil, **ajandır**. Düşük gecikmeli sohbet yerine "analist-in-a-box" yaklaşımı gerektiren iş yükleri için en uygun seçenektir.
+Deep Research là một **tác nhân**, chứ không chỉ là một mô hình. Công cụ này phù hợp nhất với những khối lượng công việc yêu cầu phương pháp "nhà phân tích trong hộp" thay vì trò chuyện có độ trễ thấp.
 
-| Özellik | Standart Gemini Modelleri | Gemini Deep Research Ajanı |
+| Tính năng | Các mô hình Gemini tiêu chuẩn | Tác nhân Deep Research của Gemini |
 | --- | --- | --- |
-| **Gecikme** | Saniye | Dakika (Eşzamansız/Arka Plan) |
-| **İşlem** | Oluştur -> Çıkış | Plan -> Search -> Read -> Iterate -> Output |
-| **Çıkış** | Etkileşimli metin, kod, kısa özetler | Ayrıntılı raporlar, uzun analizler, karşılaştırmalı tablolar |
-| **İdeal kullanım alanları** | Chatbot'lar, ayıklama, yaratıcı yazarlık | Pazar analizi, durum tespiti, literatür taramaları, rekabet ortamı |
+| **Độ trễ** | Giây | Phút (Không đồng bộ/Nền) |
+| **Quy trình** | Tạo -> Đầu ra | Lập kế hoạch -> Tìm kiếm -> Đọc -> Lặp lại -> Đầu ra |
+| **Đầu ra** | Văn bản trò chuyện, mã, bản tóm tắt ngắn | Báo cáo chi tiết, phân tích dạng dài, bảng so sánh |
+| **Phù hợp nhất với** | Chatbot, trích xuất, viết sáng tạo | Phân tích thị trường, thẩm định, tổng quan tài liệu, bối cảnh cạnh tranh |
 
-## Aracı yapılandırması
+## Cấu hình tác nhân
 
-Deep Research, davranışı kontrol etmek için `agent_config` parametresini kullanır.
-Aşağıdaki alanları içeren bir sözlük olarak iletin:
+Deep Research sử dụng tham số `agent_config` để kiểm soát hành vi.
+Truyền nó dưới dạng một từ điển có các trường sau:
 
-| Alan | Tür | Varsayılan | Açıklama |
+| Trường | Loại | Mặc định | Mô tả |
 | --- | --- | --- | --- |
-| `type` | `string` | Zorunlu | `"deep-research"` olmalıdır. |
-| `thinking_summaries` | `string` | `"none"` | Yayın sırasında ara muhakeme adımlarını almak için `"auto"` olarak ayarlayın. Devre dışı bırakmak için `"none"` olarak ayarlayın. |
-| `visualization` | `string` | `"auto"` | Ajan tarafından oluşturulan grafik ve resimleri etkinleştirmek için `"auto"` olarak ayarlayın. Devre dışı bırakmak için `"off"` olarak ayarlayın. |
-| `collaborative_planning` | `boolean` | `false` | Araştırma başlamadan önce çok turlu plan incelemesini etkinleştirmek için `true` olarak ayarlayın. |
+| `type` | `string` | Bắt buộc | Phải là `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Đặt thành `"auto"` để nhận các bước suy luận trung gian trong quá trình truyền phát trực tiếp. Đặt thành `"none"` để tắt. |
+| `visualization` | `string` | `"auto"` | Đặt thành `"auto"` để cho phép tạo biểu đồ và hình ảnh do tác nhân tạo. Đặt thành `"off"` để tắt. |
+| `collaborative_planning` | `boolean` | `false` | Đặt thành `true` để cho phép xem xét kế hoạch nhiều lượt trước khi bắt đầu nghiên cứu. |
 
 ### Python
 
@@ -1134,6 +1780,39 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
+import com.google.genai.gaos.models.interactions.DeepResearchAgentConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.interactions.Visualization;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+DeepResearchAgentConfig agentConfig =
+    DeepResearchAgentConfig.builder()
+        .thinkingSummaries(ThinkingSummaries.AUTO)
+        .visualization(Visualization.AUTO)
+        .collaborativePlanning(false)
+        .build();
+
+CreateAgentInteraction params =
+    CreateAgentInteraction.builder()
+        .agent("deep-research-preview-04-2026")
+        .input(InteractionsInput.of("Research the competitive landscape of cloud GPUs."))
+        .agentConfig(agentConfig)
+        .background(true)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
+
 ### REST
 
 ```
@@ -1153,57 +1832,57 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Kullanılabilirlik ve fiyatlandırma
+## Tình trạng còn hàng và giá
 
-Google AI Studio'daki Interactions API ve Gemini API'yi kullanarak Gemini Deep Research Agent'a erişebilirsiniz.
+Bạn có thể truy cập vào tác nhân Deep Research của Gemini bằng Interactions API trong Google AI Studio và Gemini API.
 
-Fiyatlandırma, temel Gemini modellerine ve aracının kullandığı belirli araçlara dayalı [kullandıkça öde modeline](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#pricing-for-agents) göre belirlenir. Bir isteğin tek bir çıkışa yol açtığı standart sohbet isteklerinin aksine, Deep Research görevi, bir aracı iş akışıdır. Tek bir istek, planlama, arama, okuma ve akıl yürütme işlemlerinden oluşan bağımsız bir döngüyü tetikler.
+Giá được tính theo [mô hình trả tiền theo mức dùng](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) dựa trên các mô hình Gemini cơ bản và những công cụ cụ thể mà tác nhân sử dụng. Không giống như các yêu cầu trò chuyện thông thường (một yêu cầu dẫn đến một kết quả), nhiệm vụ Deep Research là một quy trình làm việc dựa trên tác nhân. Một yêu cầu duy nhất sẽ kích hoạt một vòng lặp tự động gồm lập kế hoạch, tìm kiếm, đọc và suy luận.
 
-### Tahmini maliyetler
+### Chi phí ước tính
 
-Maliyetler, gereken araştırma derinliğine göre değişir. Ajan, isteminize yanıt vermek için ne kadar okuma ve arama yapılması gerektiğini bağımsız olarak belirler.
+Chi phí sẽ khác nhau tuỳ thuộc vào mức độ nghiên cứu cần thiết. Trợ lý tự động xác định mức độ đọc và tìm kiếm cần thiết để trả lời câu lệnh của bạn.
 
-- **Deep Research** (`deep-research-preview-04-2026`): Orta düzeyde analiz gerektiren tipik bir sorgu için ajan yaklaşık 80 arama sorgusu, yaklaşık 250 bin giriş jetonu (yaklaşık% 50-70 önbelleğe alınmış) ve yaklaşık 60 bin çıkış jetonu kullanabilir.
-  - **Tahmini toplam:** Görev başına ~1,00 TL - 3,00 TL
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): Derinlemesine rekabet ortamı analizi veya kapsamlı durum tespiti için ajan, ~160 arama sorgusu, ~900 bin giriş jetonu (~% 50-70 önbelleğe alınmış) ve ~80 bin çıkış jetonu kullanabilir.
-  - **Tahmini toplam:** Görev başına ~3,00 TL - 7,00 TL
+- **Deep Research** (`deep-research-preview-04-2026`): Đối với một cụm từ tìm kiếm thông thường đòi hỏi mức độ phân tích vừa phải, tác nhân có thể sử dụng khoảng 80 cụm từ tìm kiếm, khoảng 250.000 mã thông báo đầu vào (khoảng 50-70% được lưu vào bộ nhớ đệm) và khoảng 60.000 mã thông báo đầu ra.
+  - **Tổng số tiền ước tính:** Khoảng 10.000 VND – 30.000 VND cho mỗi nhiệm vụ
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Để phân tích sâu về môi trường cạnh tranh hoặc thẩm định kỹ lưỡng, tác nhân có thể sử dụng tối đa khoảng 160 cụm từ tìm kiếm, khoảng 900.000 mã thông báo đầu vào (khoảng 50-70% được lưu vào bộ nhớ đệm) và khoảng 80.000 mã thông báo đầu ra.
+  - **Tổng số tiền ước tính:** Khoảng 30.000 VND – 70.000 VND cho mỗi nhiệm vụ
 
-## Güvenlikle ilgili olarak göz önünde bulundurulması gerekenler
+## Lưu ý về sự an toàn
 
-Bir aracıya web'e ve özel dosyalarınıza erişim izni vermek için güvenlik risklerini dikkatlice değerlendirmeniz gerekir.
+Việc cấp cho một đặc vụ quyền truy cập vào web và các tệp riêng tư của bạn đòi hỏi bạn phải cân nhắc kỹ lưỡng các rủi ro về an toàn.
 
-- **Dosyaları kullanarak istem ekleme:** Aracı, sağladığınız dosyaların içeriğini okur. Yüklenen dokümanların (PDF'ler, metin dosyaları) güvenilir kaynaklardan geldiğinden emin olun. Kötü amaçlı bir dosya, aracının çıkışını manipüle etmek için tasarlanmış gizli metinler içerebilir.
-- **Web içeriği riskleri:** Aracı, herkese açık web'de arama yapar. Güçlü güvenlik filtreleri uyguladığımız halde, aracının kötü amaçlı web sayfalarıyla karşılaşma ve bunları işleme riski vardır. Kaynakları doğrulamak için yanıtta `citations` bilgilerini incelemenizi öneririz.
-- **Veri sızdırma:** Agent'ın web'e göz atmasına da izin veriyorsanız hassas dahili verileri özetlemesini isterken dikkatli olun.
+- **Tiêm câu lệnh (prompt injection) bằng cách sử dụng tệp:** Tác nhân sẽ đọc nội dung của các tệp mà bạn cung cấp. Đảm bảo rằng các tài liệu được tải lên (tệp PDF, tệp văn bản) đến từ các nguồn đáng tin cậy. Một tệp độc hại có thể chứa văn bản ẩn được thiết kế để thao túng đầu ra của tác nhân.
+- **Rủi ro về nội dung trên web:** Trợ lý tìm kiếm trên web công khai. Mặc dù chúng tôi triển khai các bộ lọc an toàn mạnh mẽ, nhưng vẫn có nguy cơ là tác nhân có thể gặp phải và xử lý các trang web độc hại. Bạn nên xem xét `citations` được cung cấp trong câu trả lời để xác minh các nguồn.
+- **Trích xuất:** Hãy thận trọng khi yêu cầu tác nhân tóm tắt dữ liệu nội bộ nhạy cảm nếu bạn cũng cho phép tác nhân duyệt web.
 
-## En iyi uygulamalar
+## Các phương pháp hay nhất
 
-- **Bilinmeyenler için istem:** Eksik verilerin nasıl işleneceği konusunda temsilciye talimat verin.
-  Örneğin, isteminize *"2025'e ait belirli rakamlar mevcut değilse tahmin etmek yerine bunların tahmin olduğunu veya kullanılamadığını açıkça belirt"* ifadesini ekleyin.
-- **Bağlam sağlama:** Giriş isteminde doğrudan arka plan bilgileri veya kısıtlamalar sağlayarak aracının araştırmasına temel oluşturun.
-- **Ortak planlamayı kullanın:** Karmaşık sorgular için, yürütmeden önce araştırma planını incelemek ve iyileştirmek üzere ortak planlamayı etkinleştirin.
-- **Çok formatlı girişler:** Deep Research Agent, çok formatlı girişleri destekler.
-  Maliyetleri artırdığı ve bağlam penceresinin taşmasına neden olabileceği için dikkatli kullanın.
+- **Câu lệnh cho thông tin không xác định:** Hướng dẫn cho trợ lý ảo về cách xử lý dữ liệu bị thiếu.
+  Ví dụ: hãy thêm *"Nếu không có số liệu cụ thể cho năm 2025, hãy nêu rõ rằng đó là số liệu dự đoán hoặc không có sẵn thay vì ước tính"* vào câu lệnh của bạn.
+- **Cung cấp bối cảnh:** Đưa ra thông tin cơ bản hoặc các ràng buộc trực tiếp trong câu lệnh đầu vào để hỗ trợ hoạt động nghiên cứu của tác nhân.
+- **Sử dụng tính năng lập kế hoạch cộng tác:** Đối với các câu hỏi phức tạp, hãy bật tính năng lập kế hoạch cộng tác để xem xét và tinh chỉnh kế hoạch nghiên cứu trước khi thực hiện.
+- **Thông tin đầu vào đa phương thức:** Tác nhân Deep Research hỗ trợ thông tin đầu vào đa phương thức.
+  Hãy sử dụng một cách thận trọng vì điều này làm tăng chi phí và nguy cơ tràn cửa sổ ngữ cảnh.
 
-## Sınırlamalar
+## Các điểm hạn chế
 
-- **Özel araçlar:** Şu anda özel işlev çağrısı araçları sağlayamıyorsunuz ancak Derin Araştırma aracısıyla uzak MCP (Model Context Protocol) sunucularını kullanabilirsiniz.
-- **Yapılandırılmış çıkış:** Derin Araştırma Aracısı şu anda yapılandırılmış çıkışları desteklememektedir.
-- **Maksimum araştırma süresi:** Deep Research aracısının maksimum araştırma süresi 60 dakikadır. Çoğu görev 20 dakika içinde tamamlanır.
-- **Mağaza koşulu:** `background=True` kullanılarak yapılan aracı yürütme işlemi için `store=True` gerekir.
-- **Google Arama:** [Google Arama](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) varsayılan olarak etkindir ve temellendirilmiş sonuçlar için [belirli kısıtlamalar](https://ai.google.dev/gemini-api/terms?hl=tr#use-restrictions2) geçerlidir.
+- **Công cụ tuỳ chỉnh:** Hiện tại, bạn không thể cung cấp công cụ Gọi hàm tuỳ chỉnh nhưng có thể sử dụng các máy chủ MCP (Giao thức ngữ cảnh mô hình) từ xa với tác nhân Nghiên cứu chuyên sâu.
+- **Đầu ra có cấu trúc:** Hiện tại, tác nhân Deep Research không hỗ trợ đầu ra có cấu trúc.
+- **Thời gian nghiên cứu tối đa:** Deep Research có thời gian nghiên cứu tối đa là 60 phút. Hầu hết các nhiệm vụ sẽ hoàn tất trong vòng 20 phút.
+- **Yêu cầu của cửa hàng:** Việc thực thi tác nhân bằng `background=True` yêu cầu `store=True`.
+- **Google Tìm kiếm:** [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) được bật theo mặc định và [các hạn chế cụ thể](https://ai.google.dev/gemini-api/terms?hl=vi#use-restrictions2) áp dụng cho kết quả có căn cứ.
 
-## Sırada ne var?
+## Bước tiếp theo
 
-- [Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) hakkında daha fazla bilgi edinin.
-- [Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr) aracını kullanarak kendi verilerinizi nasıl kullanacağınızı öğrenin.
+- Tìm hiểu thêm về [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi).
+- Tìm hiểu cách sử dụng dữ liệu của riêng bạn bằng công cụ [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi).
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Son güncelleme tarihi: 2026-07-14 UTC.
+Cập nhật lần gần đây nhất: 2026-09-18 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-14 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-18 UTC."],[],[]]

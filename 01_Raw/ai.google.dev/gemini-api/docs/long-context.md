@@ -1,144 +1,151 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=vi
-fetched_at: 2026-09-14T05:51:40.573899+00:00
-title: "Ng\u1eef c\u1ea3nh d\u00e0i \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=es-419
+fetched_at: 2026-09-21T05:52:36.533940+00:00
+title: "Contexto largo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Ngữ cảnh dài
+# Contexto largo
 
-Nhiều mô hình Gemini có cửa sổ ngữ cảnh lớn gồm 1 triệu token trở lên.
-Trước đây, các mô hình ngôn ngữ lớn (LLM) bị hạn chế đáng kể về lượng văn bản (hoặc token) có thể được truyền đến mô hình cùng một lúc.
-Cửa sổ ngữ cảnh dài của Gemini mở ra nhiều trường hợp sử dụng và mô hình nhà phát triển mới.
+Muchos modelos de Gemini incluyen ventanas de contexto grandes de 1 millón o más tokens.
+Históricamente, los modelos de lenguaje grandes (LLMs) estaban limitados de manera significativa por la cantidad de texto (o tokens) que se podían pasar al modelo a la vez.
+La ventana de contexto largo de Gemini desbloquea muchos casos de uso y paradigmas de desarrolladores nuevos.
 
-Mã mà bạn đã sử dụng cho các trường hợp như [văn bản
-tạo](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi) hoặc [đa phương thức
-đầu vào](https://ai.google.dev/gemini-api/docs/vision?hl=vi) sẽ hoạt động mà không cần thay đổi gì với ngữ cảnh dài.
+El código que ya usas para casos como la [generación de
+texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419) o las [entradas
+multimodales](https://ai.google.dev/gemini-api/docs/vision?hl=es-419) funcionará sin cambios con un contexto largo.
 
-Tài liệu này cung cấp cho bạn thông tin tổng quan về những gì bạn có thể đạt được khi sử dụng các mô hình có cửa sổ ngữ cảnh gồm 1 triệu token trở lên. Trang này cung cấp thông tin tổng quan ngắn gọn về cửa sổ ngữ cảnh, đồng thời khám phá cách nhà phát triển nên suy nghĩ về ngữ cảnh dài, các trường hợp sử dụng ngữ cảnh dài trong thế giới thực và cách tối ưu hoá việc sử dụng ngữ cảnh dài.
+En este documento, se ofrece una descripción general de lo que puedes lograr con modelos con ventanas de contexto de 1 millón o más tokens. En la página, se ofrece una breve descripción general de una ventana de contexto y se explora cómo los desarrolladores deben pensar en el contexto largo, varios casos de uso reales para un contexto largo y formas de optimizar el uso del contexto largo.
 
-Để biết kích thước cửa sổ ngữ cảnh của các mô hình cụ thể, hãy xem trang
-[Mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+Para conocer los tamaños de las ventanas de contexto de modelos específicos, consulta la
+[página Modelos](https://ai.google.dev/gemini-api/docs/models?hl=es-419).
 
-## Cửa sổ ngữ cảnh là gì?
+## ¿Qué es una ventana de contexto?
 
-Cách cơ bản để bạn sử dụng các mô hình Gemini là truyền thông tin (ngữ cảnh) đến mô hình. Sau đó, mô hình sẽ tạo ra phản hồi. Bạn có thể hình dung cửa sổ ngữ cảnh giống như trí nhớ ngắn hạn. Bộ nhớ ngắn hạn của một người chỉ có thể lưu trữ một lượng thông tin có hạn và điều này cũng đúng với các mô hình tạo sinh.
+La forma básica de usar los modelos de Gemini es pasar información (contexto) al modelo, que luego generará una respuesta. Una analogía para la ventana de contexto es la memoria a corto plazo. Hay una cantidad limitada de información que se puede almacenar en la memoria a corto plazo de una persona, y lo mismo sucede con los modelos generativos.
 
-Bạn có thể đọc thêm về cách các mô hình hoạt động ở bên trong trong hướng dẫn về [mô hình tạo sinh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi#under-the-hood).
+Puedes obtener más información sobre cómo funcionan los modelos en nuestra [guía
+de modelos generativos](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=es-419#under-the-hood).
 
-## Bắt đầu sử dụng ngữ cảnh dài
+## Comienza a usar el contexto largo
 
-Các phiên bản trước của mô hình tạo sinh chỉ có thể xử lý 8.000 token cùng một lúc. Các mô hình mới hơn đã đẩy con số này lên cao hơn bằng cách chấp nhận 32.000 hoặc thậm chí 128.000 token. Gemini là mô hình đầu tiên có khả năng chấp nhận 1 triệu token.
+Las versiones anteriores de los modelos generativos solo podían procesar 8,000 tokens a la vez. Los modelos más nuevos ampliaron esta capacidad al aceptar 32,000 o incluso 128,000 tokens. Gemini es el primer modelo capaz de aceptar 1 millón de tokens.
 
-Trong thực tế, 1 triệu token sẽ có dạng như sau:
+En la práctica, 1 millón de tokens se vería de la siguiente manera:
 
-- 50.000 dòng mã (với 80 ký tự tiêu chuẩn mỗi dòng)
-- Tất cả tin nhắn văn bản bạn đã gửi trong 5 năm qua
-- 8 tiểu thuyết tiếng Anh có độ dài trung bình
-- Bản chép lời của hơn 200 tập podcast có độ dài trung bình
+- 50,000 líneas de código (con los 80 caracteres estándar por línea)
+- Todos los mensajes de texto que enviaste en los últimos 5 años
+- 8 novelas en inglés de longitud promedio
+- Transcripciones de más de 200 episodios de podcasts de longitud promedio
 
-Các cửa sổ ngữ cảnh hạn chế hơn thường thấy trong nhiều mô hình khác thường yêu cầu các chiến lược như tự ý loại bỏ tin nhắn cũ, tóm tắt nội dung, sử dụng RAG với cơ sở dữ liệu vectơ hoặc lọc câu lệnh để lưu token.
+Las ventanas de contexto más limitadas que son comunes en muchos otros modelos suelen requerir estrategias como descartar arbitrariamente mensajes antiguos, resumir contenido, usar RAG con bases de datos vectoriales o filtrar instrucciones para guardar tokens.
 
-Mặc dù các kỹ thuật này vẫn có giá trị trong các trường hợp cụ thể, nhưng cửa sổ ngữ cảnh mở rộng của Gemini mời bạn áp dụng một phương pháp trực tiếp hơn: cung cấp trước tất cả thông tin có liên quan. Vì các mô hình Gemini được xây dựng có mục đích với khả năng ngữ cảnh lớn, nên chúng thể hiện khả năng học tập mạnh mẽ trong ngữ cảnh. [Ví dụ: chỉ sử dụng tài liệu hướng dẫn trong ngữ cảnh (một ngữ pháp tham khảo gồm 500 trang, một từ điển và ≈400 câu song song), Gemini đã học cách dịch từ tiếng Anh sang tiếng Kalamang – một ngôn ngữ Papua có ít hơn 200 người nói – với chất lượng tương tự như một người học là con người sử dụng cùng tài liệu.](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf) Điều này minh hoạ sự thay đổi mô hình do ngữ cảnh dài của Gemini mang lại, mở ra những khả năng mới thông qua việc học tập mạnh mẽ trong ngữ cảnh.
+Si bien estas técnicas siguen siendo valiosas en situaciones específicas, la extensa ventana de contexto de Gemini invita a un enfoque más directo: proporcionar toda la información pertinente por adelantado. Debido a que los modelos de Gemini se crearon con capacidades de contexto masivas, demuestran un aprendizaje en contexto potente. Por
+ejemplo, con solo materiales instructivos en contexto (una gramática de referencia de 500
+páginas, un diccionario y ≈400 oraciones paralelas), Gemini
+[aprendió a traducir](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf)
+del inglés al kalamang (un idioma papúa con
+menos de 200 hablantes) con una calidad similar a la de un estudiante humano que usa los mismos
+materiales. Esto ilustra el cambio de paradigma que permite el contexto largo de Gemini, lo que potencia nuevas posibilidades a través de un aprendizaje en contexto sólido.
 
-## Các trường hợp sử dụng ngữ cảnh dài
+## Casos de uso de contexto largo
 
-Mặc dù trường hợp sử dụng tiêu chuẩn cho hầu hết các mô hình tạo sinh vẫn là dữ liệu đầu vào văn bản, nhưng họ mô hình Gemini cho phép một mô hình mới về các trường hợp sử dụng đa phương thức. Các mô hình này có thể hiểu được văn bản, video, âm thanh và hình ảnh một cách tự nhiên. Chúng đi kèm với [Gemini API, API này nhận các loại tệp đa phương thức để thuận tiện.](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=vi)
+Si bien el caso de uso estándar para la mayoría de los modelos generativos sigue siendo la entrada de texto, la familia de modelos de Gemini permite un nuevo paradigma de casos de uso multimodales. Estos modelos pueden comprender de forma nativa texto, video, audio e imágenes. Se acompañan de la [API de Gemini que acepta tipos de archivos multimodales para mayor comodidad.](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=es-419)
 
-### Văn bản dài
+### Texto de formato largo
 
-Văn bản đã chứng tỏ là lớp trí tuệ làm nền tảng cho phần lớn động lực xung quanh LLM. Như đã đề cập trước đó, phần lớn hạn chế thực tế của LLM là do không có cửa sổ ngữ cảnh đủ lớn để thực hiện một số tác vụ. Điều này dẫn đến việc nhanh chóng áp dụng thế hệ tăng cường khả năng truy xuất (RAG) và các kỹ thuật khác giúp cung cấp cho mô hình thông tin theo ngữ cảnh có liên quan một cách linh hoạt. Giờ đây, với các cửa sổ ngữ cảnh ngày càng lớn hơn, các kỹ thuật mới đang trở nên khả dụng, mở ra các trường hợp sử dụng mới.
+El texto demostró ser la capa de inteligencia que sustenta gran parte del impulso en torno a los LLMs. Como se mencionó anteriormente, gran parte de la limitación práctica de los LLMs se debía a que no tenían una ventana de contexto lo suficientemente grande como para realizar ciertas tareas. Esto llevó a la adopción rápida de la generación mejorada de recuperación (RAG) y otras técnicas que proporcionan de forma dinámica al modelo información contextual relevante. Ahora, con ventanas de contexto más y más grandes, hay nuevas técnicas disponibles que permiten casos de uso nuevos.
 
-Sau đây là một số trường hợp sử dụng mới nổi và tiêu chuẩn cho ngữ cảnh dài dựa trên văn bản:
+Estos son algunos casos de uso emergentes y estándar para el contexto largo basado en texto:
 
-- Tóm tắt các tập hợp văn bản lớn
-  - Các lựa chọn tóm tắt trước đây với các mô hình ngữ cảnh nhỏ hơn sẽ yêu cầu một cửa sổ trượt hoặc một kỹ thuật khác để duy trì trạng thái của các phần trước đó khi các token mới được truyền đến mô hình
-- Hỏi và trả lời
-  - Trước đây, điều này chỉ có thể thực hiện được với RAG do lượng ngữ cảnh hạn chế và khả năng nhớ lại thông tin thực tế của mô hình thấp
-- Quy trình công việc của trợ lý AI
-  - Văn bản là nền tảng của cách các trợ lý AI duy trì trạng thái về những gì họ đã làm và những gì họ cần làm; việc không có đủ thông tin về thế giới và mục tiêu của trợ lý AI là một hạn chế đối với độ tin cậy của trợ lý AI
+- Resumir grandes corpus de texto
+  - Las opciones de resumen anteriores con modelos de contexto más pequeños requerirían una ventana deslizante o alguna otra técnica para mantener el estado de las secciones anteriores a medida que se pasan tokens nuevos al modelo.
+- Preguntas y respuestas
+  - Históricamente, esto solo era posible con RAG, dada la cantidad limitada de contexto y el bajo recuerdo fáctico de los modelos.
+- Flujos de trabajo con agentes
+  - El texto es la base de cómo los agentes mantienen el estado de lo que hicieron y lo que necesitan hacer; no tener suficiente información sobre el mundo y el objetivo del agente es una limitación en la confiabilidad de los agentes
 
-[Học tập trong ngữ cảnh nhiều ví dụ](https://arxiv.org/pdf/2404.11018) là một trong những
-khả năng độc đáo nhất do các mô hình ngữ cảnh dài mở ra. Nghiên cứu đã chỉ ra rằng việc áp dụng mô hình ví dụ "một lần" hoặc "nhiều lần" phổ biến, trong đó mô hình được trình bày một hoặc một vài ví dụ về một tác vụ và mở rộng quy mô đó lên hàng trăm, hàng nghìn hoặc thậm chí hàng trăm nghìn ví dụ, có thể dẫn đến các khả năng mới của mô hình. Phương pháp nhiều ví dụ này cũng cho thấy hiệu quả tương tự như các mô hình được tinh chỉnh cho một tác vụ cụ thể. Đối với các trường hợp sử dụng mà hiệu suất của mô hình Gemini chưa đủ để phát hành công khai, bạn có thể thử phương pháp nhiều ví dụ. Như bạn có thể khám phá sau này trong phần tối ưu hoá ngữ cảnh dài, việc lưu vào bộ nhớ đệm ngữ cảnh giúp loại khối lượng công việc token đầu vào cao này trở nên khả thi hơn về mặt kinh tế và thậm chí giảm độ trễ trong một số trường hợp.
+El [aprendizaje en contexto con muchas tomas](https://arxiv.org/pdf/2404.11018) es una de las capacidades más únicas que permiten los modelos de contexto largos. La investigación demostró que tomar el paradigma de ejemplo común de “una sola toma” o “varias tomas”, en el que se le presenta al modelo uno o algunos ejemplos de una tarea, y aumentarlo a cientos, miles o incluso cientos de miles de ejemplos, puede generar capacidades de modelo nuevas. También se demostró que este enfoque de varias tomas funciona de manera similar a los modelos que se ajustaron para una tarea específica. Para los casos de uso en los que el rendimiento de un modelo de Gemini aún no es suficiente para una implementación de producción, puedes probar el enfoque de varias tomas. Como verás más adelante en la sección de optimización de contexto largo, la caché de contexto hace que este tipo de carga de trabajo de token de entrada alta sea mucho más factible económicamente y, en algunos casos, incluso tenga una latencia más baja.
 
-### Video dài
+### Video de formato largo
 
-Tiện ích của nội dung video từ lâu đã bị hạn chế do thiếu khả năng tiếp cận của chính phương tiện này. Rất khó để đọc lướt nội dung, bản chép lời thường không nắm bắt được sắc thái của video và hầu hết các công cụ không xử lý hình ảnh, văn bản và âm thanh cùng nhau. Với Gemini, các khả năng văn bản trong ngữ cảnh dài chuyển thành khả năng suy luận và trả lời các câu hỏi về dữ liệu đầu vào đa phương thức với hiệu suất bền vững.
+La utilidad del contenido de video se vio limitada durante mucho tiempo por la falta de accesibilidad del medio en sí. Era difícil hojear el contenido, las transcripciones a menudo no capturaban los matices de un video y la mayoría de las herramientas no procesan imágenes, texto y audio juntos. Con Gemini, las capacidades de texto de contexto largo se traducen en la capacidad de razonar y responder preguntas sobre entradas multimodales con un rendimiento sostenido.
 
-Sau đây là một số trường hợp sử dụng mới nổi và tiêu chuẩn cho ngữ cảnh dài của video:
+Estos son algunos casos de uso emergentes y estándar para contextos de video largos:
 
-- Hỏi và trả lời video
-- Bộ nhớ video, như minh hoạ với [Project Astra của Google](https://deepmind.google/technologies/gemini/project-astra/?hl=vi)
-- Phụ đề video
-- Hệ thống đề xuất video, bằng cách làm phong phú siêu dữ liệu hiện có bằng khả năng hiểu đa phương thức mới
-- Tuỳ chỉnh video, bằng cách xem một tập hợp dữ liệu và siêu dữ liệu video liên quan, sau đó xoá các phần video không liên quan đến người xem
-- Kiểm duyệt nội dung video
-- Xử lý video theo thời gian thực
+- Preguntas y respuestas sobre videos
+- Memoria de video, como se muestra con [el Project Astra de Google](https://deepmind.google/technologies/gemini/project-astra/?hl=es-419)
+- Subtitulado de videos
+- Sistemas de recomendación de videos, mediante el enriquecimiento de los metadatos existentes con una nueva comprensión multimodal
+- Personalización de videos, mediante la observación de un corpus de datos y los metadatos de video asociados, y luego la eliminación de partes de los videos que no son pertinentes para el usuario
+- Moderación de contenido de video
+- Procesamiento de video en tiempo real
 
-Khi làm việc với video, bạn cần cân nhắc cách [video được
-xử lý thành token](https://ai.google.dev/gemini-api/docs/tokens?hl=vi#media-token), điều này ảnh hưởng đến
-giới hạn thanh toán và mức sử dụng. [Bạn có thể tìm hiểu thêm về cách đưa ra câu lệnh bằng tệp video trong
-hướng dẫn về cách đưa ra câu lệnh](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=vi#prompting-with-videos).
+Cuando trabajes con videos, es importante tener en cuenta cómo los [videos se
+procesan en tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419#media-token), lo que afecta la
+facturación y los límites de uso. Puedes obtener más información sobre las instrucciones con archivos de video en
+la [guía de instrucciones](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=es-419#prompting-with-videos).
 
-### Âm thanh dài
+### Audio de formato largo
 
-Các mô hình Gemini là những mô hình ngôn ngữ lớn đa phương thức đầu tiên có thể hiểu được âm thanh. Trước đây, quy trình làm việc điển hình của nhà phát triển sẽ liên quan đến việc kết hợp nhiều mô hình cụ thể theo miền, chẳng hạn như mô hình chuyển lời nói thành văn bản và mô hình chuyển văn bản thành văn bản, để xử lý âm thanh. Điều này dẫn đến độ trễ bổ sung cần thiết do thực hiện nhiều yêu cầu khứ hồi và giảm hiệu suất thường là do kiến trúc không kết nối của thiết lập nhiều mô hình.
+Los modelos de Gemini fueron los primeros modelos de lenguaje grandes multimodales de forma nativa que podían comprender audio. Históricamente, el flujo de trabajo típico de los desarrolladores implicaba unir varios modelos específicos del dominio, como un modelo de voz a texto y un modelo de texto a texto, para procesar audio. Esto generó una latencia adicional requerida para realizar varias solicitudes de ida y vuelta y un rendimiento reducido que suele atribuirse a arquitecturas desconectadas de la configuración de varios modelos.
 
-Sau đây là một số trường hợp sử dụng mới nổi và tiêu chuẩn cho ngữ cảnh âm thanh:
+Estos son algunos casos de uso emergentes y estándar para el contexto de audio:
 
-- Chép lời và dịch theo thời gian thực
-- Hỏi và trả lời podcast / video
-- Chép lời và tóm tắt cuộc họp
-- Trợ lý giọng nói
+- Transcripciones y traducciones en tiempo real
+- Preguntas y respuestas sobre podcasts o videos
+- Transcripción y resumen de reuniones
+- Asistentes de voz
 
-Bạn có thể tìm hiểu thêm về cách đưa ra câu lệnh bằng tệp âm thanh trong hướng dẫn về cách đưa ra câu lệnh [Prompting](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=vi#prompting-with-videos).
+Puedes obtener más información sobre las instrucciones con archivos de audio en la [guía
+de instrucciones](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=es-419#prompting-with-videos).
 
-## Tối ưu hoá ngữ cảnh dài
+## Optimizaciones de contexto largo
 
-Phương pháp tối ưu hoá chính khi làm việc với ngữ cảnh dài và các mô hình Gemini
-là sử dụng [tính năng lưu vào bộ nhớ đệm ngữ cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi). Ngoài việc không thể xử lý nhiều token trong một yêu cầu, hạn chế chính khác là chi phí. Nếu bạn có một ứng dụng "trò chuyện với dữ liệu của bạn" trong đó người dùng tải lên 10 tệp PDF, một video và một số tài liệu công việc, thì trước đây bạn sẽ phải làm việc với một công cụ/khung thế hệ tăng cường khả năng truy xuất (RAG) phức tạp hơn để xử lý các yêu cầu này và trả một khoản tiền đáng kể cho các token được chuyển vào cửa sổ ngữ cảnh. Giờ đây, bạn có thể lưu vào bộ nhớ đệm các tệp mà người dùng tải lên và trả tiền để lưu trữ các tệp đó theo giờ. Ví dụ: chi phí đầu vào / đầu ra cho mỗi yêu cầu với Gemini Flash thấp hơn khoảng 4 lần so với chi phí đầu vào / đầu ra tiêu chuẩn. Vì vậy, nếu người dùng trò chuyện đủ với dữ liệu của họ, thì bạn sẽ tiết kiệm được một khoản chi phí lớn với tư cách là nhà phát triển.
+La optimización principal cuando se trabaja con contexto largo y los modelos de Gemini
+es usar [el almacenamiento en caché de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=es-419). Además de la imposibilidad anterior de procesar muchos tokens en una sola solicitud, la otra restricción principal era el costo. Si tienes una app de "chat con tus datos" en la que un usuario carga 10 archivos PDF, un video y algunos documentos de trabajo, históricamente, tendrías que trabajar con una herramienta o un framework de generación mejorada de recuperación (RAG) más complejos para procesar estas solicitudes y pagar una cantidad significativa por los tokens que se mueven a la ventana de contexto. Ahora, puedes almacenar en caché los archivos que sube el usuario y pagar para almacenarlos por hora. El costo de entrada / salida por solicitud con Gemini Flash, por ejemplo, es aproximadamente 4 veces menor que el costo estándar de entrada / salida, por lo que si el usuario chatea con sus datos lo suficiente, se generará un gran ahorro de costos para ti como desarrollador.
 
-## Các hạn chế của ngữ cảnh dài
+## Limitaciones de contexto largo
 
-Trong nhiều phần của hướng dẫn này, chúng tôi đã nói về cách các mô hình Gemini đạt được hiệu suất cao trong nhiều bài kiểm tra đánh giá khả năng truy xuất kim trong đống cỏ khô. Các bài kiểm tra này xem xét thiết lập cơ bản nhất, trong đó bạn có một kim duy nhất mà bạn đang tìm kiếm. Trong trường hợp bạn có thể có nhiều "kim" hoặc thông tin cụ thể mà bạn đang tìm kiếm, mô hình sẽ không hoạt động với độ chính xác tương tự. Hiệu suất có thể thay đổi ở mức độ lớn tuỳ thuộc vào ngữ cảnh. Bạn cần cân nhắc điều này vì có sự đánh đổi vốn có giữa việc truy xuất thông tin chính xác và chi phí. Bạn có thể đạt được khoảng 99% cho một truy vấn duy nhất, nhưng bạn phải trả chi phí token đầu vào mỗi khi gửi truy vấn đó. Vì vậy, để truy xuất 100 thông tin, nếu bạn cần hiệu suất 99%, thì có thể bạn sẽ cần gửi 100 yêu cầu. Đây là một ví dụ điển hình về trường hợp lưu vào bộ nhớ đệm ngữ cảnh có thể giảm đáng kể chi phí liên quan đến việc sử dụng các mô hình Gemini trong khi vẫn duy trì hiệu suất cao.
+En varias secciones de esta guía, hablamos sobre cómo los modelos de Gemini logran un alto rendimiento en varias evaluaciones de recuperación de aguja en un pajar. Estas pruebas consideran la configuración más básica, en la que tienes una sola aguja que buscas. En los casos en los que puedas tener varias “agujas” o información específica que buscas, el modelo no funciona con la misma exactitid. El rendimiento puede variar en gran medida según el contexto. Es importante tener en cuenta que existe una compensación inherente entre obtener la información correcta y el costo. Puedes obtener aproximadamente un 99% en una sola consulta, pero debes pagar el costo del token de entrada cada vez que envías esa consulta. Por lo tanto, para recuperar 100 datos, si necesitas un rendimiento del 99%, es probable que debas enviar 100 solicitudes. Este es un buen ejemplo de dónde el almacenamiento en caché de contexto puede reducir significativamente el costo asociado con el uso de modelos de Gemini y, al mismo tiempo, mantener un rendimiento alto.
 
-## Câu hỏi thường gặp
+## Preguntas frecuentes
 
-### Đâu là nơi tốt nhất để đặt truy vấn của tôi trong cửa sổ ngữ cảnh?
+### ¿Cuál es el mejor lugar para colocar mi consulta en la ventana de contexto?
 
-Trong hầu hết các trường hợp, đặc biệt là nếu tổng ngữ cảnh dài, hiệu suất của mô hình sẽ tốt hơn nếu bạn đặt truy vấn / câu hỏi ở cuối câu lệnh (sau tất cả ngữ cảnh khác).
+En la mayoría de los casos, en especial si el contexto total es largo, el rendimiento del modelo será mejor si colocas tu consulta o pregunta al final de la instrucción (después de todo el contexto).
 
-### Tôi có bị mất hiệu suất mô hình khi thêm nhiều token vào một truy vấn không?
+### ¿Pierdo rendimiento del modelo cuando agrego más tokens a una consulta?
 
-Nói chung, nếu bạn không cần truyền token đến mô hình, thì tốt nhất là bạn nên tránh truyền token. Tuy nhiên, nếu bạn có một khối lượng lớn token chứa một số thông tin và muốn hỏi về thông tin đó, thì mô hình có khả năng cao trong việc trích xuất thông tin đó (độ chính xác lên đến 99% trong nhiều trường hợp).
+En general, si no necesitas que se pasen tokens al modelo, es mejor evitar pasarlos. Sin embargo, si tienes una gran cantidad de tokens con información y quieres hacer preguntas sobre esa información, el modelo es muy capaz de extraer esa información (hasta un 99% de exactitud en muchos casos).
 
-### Làm cách nào để giảm chi phí cho các truy vấn ngữ cảnh dài?
+### ¿Cómo puedo reducir mi costo con consultas de contexto largo?
 
-Nếu bạn có một tập hợp token / ngữ cảnh tương tự mà bạn muốn sử dụng lại nhiều
-lần, thì [tính năng lưu vào bộ nhớ đệm ngữ cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) có thể giúp giảm chi phí
-liên quan đến việc hỏi về thông tin đó.
+Si tienes un conjunto similar de tokens o contexto que deseas volver a usar muchas
+veces, [el almacenamiento en caché de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=es-419) puede ayudar a reducir los costos
+asociados con hacer preguntas sobre esa información.
 
-### Độ dài ngữ cảnh có ảnh hưởng đến độ trễ của mô hình không?
+### ¿La longitud del contexto afecta la latencia del modelo?
 
-Có một lượng độ trễ cố định trong mọi yêu cầu, bất kể kích thước, nhưng nói chung, các truy vấn dài hơn sẽ có độ trễ cao hơn (thời gian đến token đầu tiên).
+Hay una cantidad fija de latencia en cualquier solicitud determinada, independientemente del tamaño, pero, en general, las consultas más largas tendrán una latencia más alta (tiempo hasta el primer token).
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Cập nhật lần gần đây nhất: 2026-06-22 UTC.
+Última actualización: 2026-06-22 (UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+¿Quieres brindar más información?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-22 (UTC)"],[],[]]

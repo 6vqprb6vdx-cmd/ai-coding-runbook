@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/gemini-3?hl=id
-fetched_at: 2026-09-14T05:46:47.970024+00:00
+fetched_at: 2026-09-21T05:54:44.431021+00:00
 title: "Panduan developer Gemini 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -17,12 +17,10 @@ Kirim masukan
 
 # Panduan developer Gemini 3
 
-Gemini 3 adalah rangkaian model kami yang paling cerdas hingga saat ini, yang dibangun berdasarkan fondasi penalaran canggih. Model ini dirancang untuk mewujudkan ide apa pun dengan menguasai alur kerja agentic, coding otonom, dan tugas multimodal yang kompleks.
-Panduan ini mencakup fitur utama rangkaian model Gemini 3 dan cara memaksimalkan penggunaannya.
+Gemini 3 adalah rangkaian model tercerdas kami hingga saat ini, yang dibangun berdasarkan penalaran canggih. Model ini dirancang untuk mewujudkan ide apa pun dengan menguasai alur kerja agentic, coding otonom, dan tugas multimodal yang kompleks.
+Panduan ini membahas fitur utama rangkaian model Gemini 3 dan cara mengoptimalkan penggunaannya.
 
-Jelajahi [koleksi aplikasi Gemini 3](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=id) kami untuk
-melihat cara model menangani penalaran lanjutan, coding otonom, dan tugas multimodal
-yang kompleks.
+Jelajahi [koleksi aplikasi Gemini 3](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=id) kami untuk melihat cara model menangani penalaran tingkat lanjut, coding otonom, dan tugas multimodal yang kompleks.
 
 Mulai dengan beberapa baris kode:
 
@@ -65,107 +63,30 @@ run();
 ```
 import com.google.genai.Client;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Function;
-import com.google.genai.gaos.models.interactions.FunctionCallStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
-import com.google.genai.gaos.models.interactions.FunctionResultSubcontent;
-import com.google.genai.gaos.models.interactions.ImageContent;
-import com.google.genai.gaos.models.interactions.ImageContentMimeType;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.Step;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 Client client = new Client();
 
-Map<String, Object> itemProp = new HashMap<>();
-itemProp.put("type", "string");
-itemProp.put("description", "The name or description of the item ordered (e.g., 'instrument').");
-
-Map<String, Object> properties = new HashMap<>();
-properties.put("item_name", itemProp);
-
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("type", "object");
-parameters.put("properties", properties);
-parameters.put("required", Arrays.asList("item_name"));
-
-Function getImageTool =
-    Function.builder()
-        .name("get_image")
-        .description("Retrieves the image file reference for a specific order item.")
-        .parameters(parameters)
-        .build();
-
-CreateModelInteraction req1 =
+CreateModelInteraction request =
     CreateModelInteraction.builder()
-        .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
-        .tools(Arrays.asList(getImageTool))
+        .model(Model.of("gemini-3.1-pro-preview"))
+        .input(
+            InteractionsInput.of(
+                "Find the race condition in this multi-threaded C++ snippet: [code here]"))
         .build();
 
-Interaction interaction1 =
-    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
-FunctionCallStep fcStep = null;
-for (Step step : interaction1.steps().orElse(Collections.emptyList())) {
-  if (step instanceof FunctionCallStep) {
-    fcStep = (FunctionCallStep) step;
-    break;
-  }
-}
+System.out.println(interaction.outputText().orElse(""));
+```
 
-if (fcStep != null) {
-  System.out.println("Tool Call: " + fcStep.name().orElse(""));
+### REST
 
-  URL url = new URL("https://goo.gle/instrument-img");
-  byte[] imageBytes;
-  try (InputStream is = url.openStream()) {
-    imageBytes = is.readAllBytes();
-  }
-  String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
-
-  List<FunctionResultSubcontent> subcontents = new ArrayList<>();
-  subcontents.add(TextContent.builder().text("instrument.jpg").build());
-  subcontents.add(
-      ImageContent.builder()
-          .mimeType(ImageContentMimeType.IMAGE_JPEG)
-          .data(base64ImageData)
-          .build());
-
-  FunctionResultStep funcResult =
-      FunctionResultStep.builder()
-          .name(fcStep.name().orElse(""))
-          .callId(fcStep.id().orElse(""))
-          .result(FunctionResultStepResultUnion.of(subcontents))
-          .build();
-
-  CreateModelInteraction req2 =
-      CreateModelInteraction.builder()
-          .model(Model.of("gemini-3-flash-preview"))
-          .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
-          .tools(Arrays.asList(getImageTool))
-          .previousInteractionId(interaction1.id().orElse(""))
-          .build();
-
-  Interaction interaction2 =
-      client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
-  System.out.println("Final model response: " + interaction2.outputText().orElse(""));
-}
-```bash
+```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -175,48 +96,49 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Mengenal seri Gemini 3
+## Memperkenalkan seri Gemini 3
 
-Gemini 3.1 Pro adalah model terbaik untuk tugas kompleks yang memerlukan pengetahuan dunia yang luas dan penalaran lanjutan di berbagai modalitas.
+Gemini 3.1 Pro paling cocok untuk tugas kompleks yang memerlukan pengetahuan umum yang luas dan penalaran canggih di berbagai modalitas.
 
 Gemini 3 Flash adalah model seri 3 terbaru kami, dengan kecerdasan tingkat Pro pada kecepatan dan harga Flash.
 
-Nano Banana Pro (juga dikenal sebagai Gemini 3 Pro Image) adalah model pembuatan gambar berkualitas tertinggi kami, dan Nano Banana 2 (juga dikenal sebagai Gemini 3.1 Flash Image) adalah model yang setara dengan volume tinggi, efisiensi tinggi, dan titik harga yang lebih rendah.
+Nano Banana Pro (juga dikenal sebagai Gemini 3 Pro Image) adalah model pembuatan gambar berkualitas tertinggi kami, dan Nano Banana 2 (juga dikenal sebagai Gemini 3.1 Flash Image) adalah model yang setara dengan volume tinggi, efisiensi tinggi, dan titik harga lebih rendah.
 
 Gemini 3.1 Flash-Lite adalah model andalan kami yang dibuat untuk model hemat biaya dan tugas bervolume tinggi.
 
 Semua model Gemini 3 saat ini dalam versi pratinjau.
 
-| ID Model | Jendela Konteks (Masuk / Keluar) | Batas Informasi | Harga (Input / Output)\* |
+| ID Model | Jendela Konteks (Dalam / Luar) | Batas Informasi | Harga (Input / Output)\* |
 | --- | --- | --- | --- |
-| **gemini-3.1-flash-lite** | 1 Juta / 64 Ribu | Januari 2025 | $0,25 (teks, gambar, video), $0,50 (audio) / $1,50 |
-| **gemini-3.1-flash-image-preview** | 128 Ribu / 32 Ribu | Januari 2025 | $0,25 (Input Teks) / $0,067 (Output Gambar)\*\* |
-| **gemini-3.1-pro-preview** | 1 Juta / 64 Ribu | Januari 2025 | $2 / $12 (<200 ribu token)   $4 / $18 (>200 ribu token) |
-| **gemini-3-flash-preview** | 1 Juta / 64 Ribu | Januari 2025 | $0,50 / $3 |
-| **gemini-3-pro-image-preview** | 65 Ribu / 32 Ribu | Januari 2025 | $2 (Input Teks) / $0,134 (Output Gambar)\*\* |
+| **gemini-3.1-flash-lite** | 1M / 64k | Jan 2025 | $0,25 (teks, gambar, video), $0,50 (audio) / $1,50 |
+| **gemini-3.1-flash-image-preview** | 128 ribu / 32 ribu | Jan 2025 | $0,25 (Input Teks) / $0,067 (Output Gambar)\*\* |
+| **gemini-3.1-pro-preview** | 1M / 64k | Jan 2025 | $2 / $12 (<200 ribu token)   $4 / $18 (>200 ribu token) |
+| **gemini-3-flash-preview** | 1M / 64k | Jan 2025 | $0,50 / $3 |
+| **gemini-3-pro-image-preview** | 65 ribu / 32 ribu | Jan 2025 | $2 (Input Teks) / $0,134 (Output Gambar)\*\* |
 
-*\* Harga per 1 juta token, kecuali jika dinyatakan lain.*
-*\*\* Harga gambar bervariasi menurut resolusi. Lihat [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id) untuk mengetahui detail selengkapnya.*
+*\* Harga adalah per 1 juta token, kecuali dinyatakan lain.*
+*\*\* Harga gambar bervariasi menurut resolusi. Lihat [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id) untuk mengetahui detailnya.*
 
-Untuk mengetahui batas, harga, dan informasi tambahan yang mendetail, lihat halaman
-[model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id).
+Untuk mengetahui batas, harga, dan informasi tambahan yang mendetail, lihat [halaman model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id).
 
 ## Fitur API baru di Gemini 3
 
-Gemini 3 memperkenalkan parameter baru yang dirancang untuk memberi developer lebih banyak kontrol atas latensi, biaya, dan fidelitas multimodal.
+Gemini 3 memperkenalkan parameter baru yang dirancang untuk memberi developer kontrol lebih besar atas latensi, biaya, dan kualitas multimodal.
 
-### Tingkat penalaran
+### Tingkat pemikiran
 
-Model seri Gemini 3 menggunakan penalaran dinamis secara default untuk menalar perintah. Anda dapat menggunakan parameter `thinking_level`, yang mengontrol kedalaman **maksimum** proses penalaran internal model sebelum menghasilkan respons. Gemini 3 memperlakukan tingkat ini sebagai alokasi relatif untuk penalaran, bukan jaminan token yang ketat.
+Model seri Gemini 3 menggunakan penalaran dinamis secara default untuk memproses perintah. Anda dapat menggunakan parameter `thinking_level`, yang mengontrol kedalaman
+**maksimum** proses penalaran internal model sebelum menghasilkan
+respons. Gemini 3 memperlakukan level ini sebagai alokasi relatif untuk berpikir, bukan jaminan token yang ketat.
 
-Jika `thinking_level` tidak ditentukan, Gemini 3 akan menggunakan `high` sebagai default. Untuk respons yang lebih cepat dan latensi yang lebih rendah saat penalaran kompleks tidak diperlukan, Anda dapat membatasi tingkat penalaran model ke `low`.
+Jika `thinking_level` tidak ditentukan, Gemini 3 akan ditetapkan secara default ke `high`. Untuk respons yang lebih cepat dan latensi yang lebih rendah saat penalaran yang kompleks tidak diperlukan, Anda dapat membatasi tingkat pemikiran model ke `low`.
 
-| Tingkat Penalaran | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Deskripsi |
+| Tingkat Berpikir | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Deskripsi |
 | --- | --- | --- | --- | --- |
-| **`minimal`** | Tidak didukung | Didukung (Default) | Didukung | Cocok dengan setelan "no thinking" untuk sebagian besar kueri. Model mungkin berpikir sangat minimal untuk tugas coding yang kompleks. Meminimalkan latensi untuk aplikasi chat atau throughput tinggi. Perhatikan, `minimal` tidak menjamin bahwa penalaran dinonaktifkan. |
-| **`low`** | Didukung | Didukung | Didukung | Meminimalkan latensi dan biaya. Terbaik untuk mengikuti instruksi sederhana, chat, atau aplikasi throughput tinggi. |
-| **`medium`** | Didukung | Didukung | Didukung | Penalaran yang seimbang untuk sebagian besar tugas. |
-| **`high`** | Didukung (Default, Dinamis) | Didukung (Dinamis) | Didukung (Default, Dinamis) | Memaksimalkan kedalaman penalaran. Model mungkin memerlukan waktu yang jauh lebih lama untuk mencapai token output pertama (non-penalaran), tetapi output akan lebih hati-hati. |
+| **`minimal`** | Tidak didukung | Didukung (Default) | Didukung | Cocok dengan setelan "tanpa penalaran" untuk sebagian besar kueri. Model mungkin berpikir sangat minimal untuk tugas coding yang kompleks. Meminimalkan latensi untuk aplikasi chat atau throughput tinggi. Perhatikan, `minimal` tidak menjamin bahwa pemikiran tidak tepat. |
+| **`low`** | Didukung | Didukung | Didukung | Meminimalkan latensi dan biaya. Paling cocok untuk mengikuti petunjuk sederhana, chat, atau aplikasi dengan throughput tinggi. |
+| **`medium`** | Didukung | Didukung | Didukung | Pemikiran yang seimbang untuk sebagian besar tugas. |
+| **`high`** | Didukung (Default, Dinamis) | Didukung (Dinamis) | Didukung (Default, Dinamis) | Memaksimalkan kedalaman penalaran. Model mungkin memerlukan waktu yang jauh lebih lama untuk mencapai token output pertama (non-pemikiran), tetapi outputnya akan lebih beralasan. |
 
 ### Python
 
@@ -257,107 +179,34 @@ console.log(interaction.output_text);
 ```
 import com.google.genai.Client;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Function;
-import com.google.genai.gaos.models.interactions.FunctionCallStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
-import com.google.genai.gaos.models.interactions.FunctionResultSubcontent;
-import com.google.genai.gaos.models.interactions.ImageContent;
-import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.Step;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 Client client = new Client();
 
-Map<String, Object> itemProp = new HashMap<>();
-itemProp.put("type", "string");
-itemProp.put("description", "The name or description of the item ordered (e.g., 'instrument').");
-
-Map<String, Object> properties = new HashMap<>();
-properties.put("item_name", itemProp);
-
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("type", "object");
-parameters.put("properties", properties);
-parameters.put("required", Arrays.asList("item_name"));
-
-Function getImageTool =
-    Function.builder()
-        .name("get_image")
-        .description("Retrieves the image file reference for a specific order item.")
-        .parameters(parameters)
-        .build();
-
-CreateModelInteraction req1 =
+CreateModelInteraction request =
     CreateModelInteraction.builder()
-        .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
-        .tools(Arrays.asList(getImageTool))
+        .model(Model.of("gemini-3.1-pro-preview"))
+        .input(InteractionsInput.of("How does AI work?"))
+        .generationConfig(
+            GenerationConfig.builder()
+                .thinkingLevel(ThinkingLevel.LOW)
+                .build())
         .build();
 
-Interaction interaction1 =
-    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
-FunctionCallStep fcStep = null;
-for (Step step : interaction1.steps().orElse(Collections.emptyList())) {
-  if (step instanceof FunctionCallStep) {
-    fcStep = (FunctionCallStep) step;
-    break;
-  }
-}
+System.out.println(interaction.outputText().orElse(""));
+```
 
-if (fcStep != null) {
-  System.out.println("Tool Call: " + fcStep.name().orElse(""));
+### REST
 
-  URL url = new URL("https://goo.gle/instrument-img");
-  byte[] imageBytes;
-  try (InputStream is = url.openStream()) {
-    imageBytes = is.readAllBytes();
-  }
-  String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
-
-  List<FunctionResultSubcontent> subcontents = new ArrayList<>();
-  subcontents.add(TextContent.builder().text("instrument.jpg").build());
-  subcontents.add(
-      ImageContent.builder()
-          .mimeType(ImageContentMimeType.IMAGE_JPEG)
-          .data(base64ImageData)
-          .build());
-
-  FunctionResultStep funcResult =
-      FunctionResultStep.builder()
-          .name(fcStep.name().orElse(""))
-          .callId(fcStep.id().orElse(""))
-          .result(FunctionResultStepResultUnion.of(subcontents))
-          .build();
-
-  CreateModelInteraction req2 =
-      CreateModelInteraction.builder()
-          .model(Model.of("gemini-3-flash-preview"))
-          .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
-          .tools(Arrays.asList(getImageTool))
-          .previousInteractionId(interaction1.id().orElse(""))
-          .build();
-
-  Interaction interaction2 =
-      client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
-  System.out.println("Final model response: " + interaction2.outputText().orElse(""));
-}
-```bash
+```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -372,23 +221,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ### Suhu
 
-Untuk semua model Gemini 3, sebaiknya pertahankan parameter suhu pada nilai default `1.0`.
+Untuk semua model Gemini 3, sebaiknya pertahankan parameter temperatur pada nilai defaultnya, yaitu `1.0`.
 
-Meskipun model sebelumnya sering kali diuntungkan dengan menyesuaikan temperatur untuk mengontrol kreativitas versus determinisme, kemampuan penalaran Gemini 3 dioptimalkan untuk setelan default. Mengubah temperatur (menetapkannya di bawah 1.0) dapat menyebabkan perilaku yang tidak terduga, seperti loop atau penurunan performa, terutama dalam tugas matematika atau penalaran yang kompleks.
+Meskipun model sebelumnya sering kali diuntungkan dengan menyesuaikan temperatur untuk mengontrol kreativitas versus determinisme, kemampuan penalaran Gemini 3 dioptimalkan untuk setelan default. Mengubah suhu (menyetelnya di bawah 1.0) dapat menyebabkan perilaku yang tidak terduga, seperti perulangan atau penurunan performa, terutama dalam tugas matematika atau penalaran yang kompleks.
 
 ### Tanda tangan penalaran
 
-Model Gemini 3 menggunakan tanda tangan penalaran untuk mempertahankan konteks penalaran di seluruh panggilan API. Tanda tangan ini adalah representasi terenkripsi dari proses penalaran internal model.
+Model Gemini 3 menggunakan tanda tangan pemikiran untuk mempertahankan konteks penalaran di seluruh panggilan API. Tanda tangan ini adalah representasi terenkripsi dari proses pemikiran internal model.
 
-- **Mode Stateful (Direkomendasikan)**: Saat menggunakan Interactions API dalam mode stateful (memberikan `previous_interaction_id`), server akan otomatis mengelola histori percakapan dan tanda tangan penalaran.
-- **Mode Stateless**: Jika Anda mengelola histori percakapan secara manual, Anda harus menyertakan blok penalaran dengan tanda tangannya dalam permintaan berikutnya untuk memvalidasi keaslian.
+- **Mode Stateful (Direkomendasikan)**: Saat menggunakan Interactions API dalam mode stateful (menyediakan `previous_interaction_id`), server akan otomatis mengelola histori percakapan dan tanda tangan pemikiran.
+- **Mode Tanpa Status**: Jika Anda mengelola histori percakapan secara manual, Anda harus menyertakan blok pemikiran dengan tanda tangannya dalam permintaan berikutnya untuk memvalidasi keaslian.
 
-Untuk mengetahui informasi mendetail, lihat halaman [Tanda Tangan Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
+Untuk mengetahui informasi mendetail, lihat halaman [Tanda Tangan Pikiran](https://ai.google.dev/gemini-api/docs/thinking?hl=id).`
 
 ### Output Terstruktur dengan alat
 
 Model Gemini 3 memungkinkan Anda menggabungkan [Output Terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id) dengan alat bawaan, termasuk
-[Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id), [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id), [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id), dan [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
+[Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id), [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id), [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id), dan [Pemanggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
 
 ### Python
 
@@ -473,107 +322,61 @@ run();
 ```
 import com.google.genai.Client;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Function;
-import com.google.genai.gaos.models.interactions.FunctionCallStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
-import com.google.genai.gaos.models.interactions.FunctionResultSubcontent;
-import com.google.genai.gaos.models.interactions.ImageContent;
-import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.Step;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.interactions.URLContext;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Base64;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 Client client = new Client();
 
-Map<String, Object> itemProp = new HashMap<>();
-itemProp.put("type", "string");
-itemProp.put("description", "The name or description of the item ordered (e.g., 'instrument').");
-
 Map<String, Object> properties = new HashMap<>();
-properties.put("item_name", itemProp);
+properties.put("winner", Map.of("type", "string", "description", "The name of the winner."));
+properties.put(
+    "final_match_score", Map.of("type", "string", "description", "The final match score."));
+properties.put(
+    "scorers",
+    Map.of(
+        "type", "array",
+        "items", Map.of("type", "string"),
+        "description", "The name of the scorer."));
 
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("type", "object");
-parameters.put("properties", properties);
-parameters.put("required", Arrays.asList("item_name"));
+Map<String, Object> schema = new HashMap<>();
+schema.put("type", "object");
+schema.put("properties", properties);
+schema.put("required", Arrays.asList("winner", "final_match_score", "scorers"));
 
-Function getImageTool =
-    Function.builder()
-        .name("get_image")
-        .description("Retrieves the image file reference for a specific order item.")
-        .parameters(parameters)
-        .build();
-
-CreateModelInteraction req1 =
+CreateModelInteraction request =
     CreateModelInteraction.builder()
-        .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
-        .tools(Arrays.asList(getImageTool))
+        .model(Model.of("gemini-3.1-pro-preview"))
+        .input(InteractionsInput.of("Search for all details for the latest Euro."))
+        .tools(Arrays.asList(GoogleSearch.builder().build(), URLContext.builder().build()))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                ResponseFormat.of(
+                    TextResponseFormat.builder()
+                        .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                        .schema(schema)
+                        .build())))
         .build();
 
-Interaction interaction1 =
-    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
-FunctionCallStep fcStep = null;
-for (Step step : interaction1.steps().orElse(Collections.emptyList())) {
-  if (step instanceof FunctionCallStep) {
-    fcStep = (FunctionCallStep) step;
-    break;
-  }
-}
+System.out.println(interaction.outputText().orElse(""));
+```
 
-if (fcStep != null) {
-  System.out.println("Tool Call: " + fcStep.name().orElse(""));
+### REST
 
-  URL url = new URL("https://goo.gle/instrument-img");
-  byte[] imageBytes;
-  try (InputStream is = url.openStream()) {
-    imageBytes = is.readAllBytes();
-  }
-  String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
-
-  List<FunctionResultSubcontent> subcontents = new ArrayList<>();
-  subcontents.add(TextContent.builder().text("instrument.jpg").build());
-  subcontents.add(
-      ImageContent.builder()
-          .mimeType(ImageContentMimeType.IMAGE_JPEG)
-          .data(base64ImageData)
-          .build());
-
-  FunctionResultStep funcResult =
-      FunctionResultStep.builder()
-          .name(fcStep.name().orElse(""))
-          .callId(fcStep.id().orElse(""))
-          .result(FunctionResultStepResultUnion.of(subcontents))
-          .build();
-
-  CreateModelInteraction req2 =
-      CreateModelInteraction.builder()
-          .model(Model.of("gemini-3-flash-preview"))
-          .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
-          .tools(Arrays.asList(getImageTool))
-          .previousInteractionId(interaction1.id().orElse(""))
-          .build();
-
-  Interaction interaction2 =
-      client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
-  System.out.println("Final model response: " + interaction2.outputText().orElse(""));
-}
-```bash
+```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -606,15 +409,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ### Pembuatan gambar
 
-Gemini 3.1 Flash Image dan Gemini 3 Pro Image memungkinkan Anda membuat dan mengedit gambar dari perintah teks. Model ini menggunakan
-penalaran untuk "memikirkan" perintah dan dapat mengambil data real-time—seperti
-prakiraan cuaca atau diagram saham—sebelum menggunakan [grounding Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) sebelum membuat gambar dengan fidelitas tinggi.
+Gemini 3.1 Flash Image dan Gemini 3 Pro Image memungkinkan Anda membuat dan mengedit gambar dari perintah teks. Model ini menggunakan penalaran untuk "memikirkan" perintah dan dapat mengambil data real-time—seperti prakiraan cuaca atau grafik saham—sebelum menggunakan perujukan [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) sebelum membuat gambar dengan fidelitas tinggi.
 
-**Kemampuan baru &yang ditingkatkan:**
+**Kemampuan baru & yang ditingkatkan:**
 
-- **Rendering teks &4K:** Buat teks dan diagram yang tajam dan mudah dibaca dengan resolusi hingga 2K dan 4K.
-- **Pembuatan yang di-grounding:** Gunakan alat `google_search` untuk memverifikasi fakta dan membuat gambar berdasarkan informasi dunia nyata. Grounding dengan Google *Penelusuran* Gambar tersedia untuk Gemini 3.1 Flash Image.
-- **Pengeditan via percakapan:** Pengeditan gambar multi-turn dengan hanya meminta perubahan (misalnya, "Jadikan latar belakangnya matahari terbenam"). Alur kerja ini mengandalkan **Tanda Tangan Penalaran** untuk mempertahankan konteks visual antar-turn.
+- **Rendering teks & 4K:** Buat teks dan diagram yang jelas dan mudah dibaca dengan resolusi hingga 2K dan 4K.
+- **Pembuatan dengan perujukan:** Gunakan alat `google_search` untuk memverifikasi fakta dan membuat gambar berdasarkan informasi dunia nyata. Grounding dengan Google *Penelusuran Gambar*
+  tersedia untuk Gemini 3.1 Flash Image.
+- **Pengeditan via percakapan:** Pengeditan gambar multi-turn hanya dengan meminta perubahan (misalnya, "Buat latar belakangnya menjadi matahari terbenam"). Alur kerja ini mengandalkan
+  **Tanda Pikiran** untuk mempertahankan konteks visual di antara giliran.
 
 Untuk mengetahui detail lengkap tentang rasio aspek, alur kerja pengeditan, dan opsi konfigurasi, lihat [panduan Pembuatan Gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id).
 
@@ -681,107 +484,52 @@ run();
 ```
 import com.google.genai.Client;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Function;
-import com.google.genai.gaos.models.interactions.FunctionCallStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
-import com.google.genai.gaos.models.interactions.FunctionResultSubcontent;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
 import com.google.genai.gaos.models.interactions.ImageContent;
-import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.ImageResponseFormat;
+import com.google.genai.gaos.models.interactions.ImageResponseFormatAspectRatio;
+import com.google.genai.gaos.models.interactions.ImageResponseFormatImageSize;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.Step;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 Client client = new Client();
 
-Map<String, Object> itemProp = new HashMap<>();
-itemProp.put("type", "string");
-itemProp.put("description", "The name or description of the item ordered (e.g., 'instrument').");
-
-Map<String, Object> properties = new HashMap<>();
-properties.put("item_name", itemProp);
-
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("type", "object");
-parameters.put("properties", properties);
-parameters.put("required", Arrays.asList("item_name"));
-
-Function getImageTool =
-    Function.builder()
-        .name("get_image")
-        .description("Retrieves the image file reference for a specific order item.")
-        .parameters(parameters)
-        .build();
-
-CreateModelInteraction req1 =
+CreateModelInteraction request =
     CreateModelInteraction.builder()
-        .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
-        .tools(Arrays.asList(getImageTool))
+        .model(Model.of("gemini-3-pro-image-preview"))
+        .input(InteractionsInput.of("Generate an infographic of the current weather in Tokyo."))
+        .tools(Arrays.asList(GoogleSearch.builder().build()))
+        .responseFormat(
+            CreateModelInteractionResponseFormat.of(
+                ResponseFormat.of(
+                    ImageResponseFormat.builder()
+                        .aspectRatio(ImageResponseFormatAspectRatio.ONE_HUNDRED_AND_SIXTY_NINE)
+                        .imageSize(ImageResponseFormatImageSize.FOUR_K)
+                        .build())))
         .build();
 
-Interaction interaction1 =
-    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
-FunctionCallStep fcStep = null;
-for (Step step : interaction1.steps().orElse(Collections.emptyList())) {
-  if (step instanceof FunctionCallStep) {
-    fcStep = (FunctionCallStep) step;
-    break;
-  }
+Optional<ImageContent> generatedImage = interaction.outputImage();
+if (generatedImage.isPresent() && generatedImage.get().data().isPresent()) {
+  byte[] imageBytes = Base64.getDecoder().decode(generatedImage.get().data().get());
+  Files.write(Paths.get("weather_tokyo.png"), imageBytes);
 }
+```
 
-if (fcStep != null) {
-  System.out.println("Tool Call: " + fcStep.name().orElse(""));
+### REST
 
-  URL url = new URL("https://goo.gle/instrument-img");
-  byte[] imageBytes;
-  try (InputStream is = url.openStream()) {
-    imageBytes = is.readAllBytes();
-  }
-  String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
-
-  List<FunctionResultSubcontent> subcontents = new ArrayList<>();
-  subcontents.add(TextContent.builder().text("instrument.jpg").build());
-  subcontents.add(
-      ImageContent.builder()
-          .mimeType(ImageContentMimeType.IMAGE_JPEG)
-          .data(base64ImageData)
-          .build());
-
-  FunctionResultStep funcResult =
-      FunctionResultStep.builder()
-          .name(fcStep.name().orElse(""))
-          .callId(fcStep.id().orElse(""))
-          .result(FunctionResultStepResultUnion.of(subcontents))
-          .build();
-
-  CreateModelInteraction req2 =
-      CreateModelInteraction.builder()
-          .model(Model.of("gemini-3-flash-preview"))
-          .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
-          .tools(Arrays.asList(getImageTool))
-          .previousInteractionId(interaction1.id().orElse(""))
-          .build();
-
-  Interaction interaction2 =
-      client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
-  System.out.println("Final model response: " + interaction2.outputText().orElse(""));
-}
-```bash
+```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -803,17 +551,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ### Eksekusi Kode dengan gambar
 
-Gemini 3 Flash dapat memperlakukan visi sebagai investigasi aktif, bukan hanya sekadar melihat statis. Dengan menggabungkan penalaran dengan [eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id), model akan merumuskan rencana, lalu menulis dan
-menjalankan kode Python untuk memperbesar, memangkas, memberi anotasi, atau memanipulasi gambar
-langkah demi langkah untuk membumikan jawabannya secara visual.
+Gemini 3 Flash dapat memperlakukan penglihatan sebagai investigasi aktif, bukan hanya sekilas
+statis. Dengan menggabungkan penalaran dengan [eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id), model merumuskan rencana, lalu menulis dan
+mengeksekusi kode Python untuk memperbesar, memangkas, memberi anotasi, atau memanipulasi gambar
+langkah demi langkah untuk mendasarkan jawabannya secara visual.
 
 **Kasus penggunaan:**
 
-- **Memperbesar dan memeriksa:** Model secara implisit mendeteksi saat detail terlalu kecil (misalnya, membaca pengukur atau nomor seri yang jauh) dan menulis kode untuk memangkas dan memeriksa kembali area tersebut pada resolusi yang lebih tinggi.
-- **Matematika dan plotting visual:** Model dapat menjalankan perhitungan multi-langkah menggunakan kode (misalnya, menjumlahkan item baris pada tanda terima, atau membuat diagram Matplotlib dari data yang diekstrak).
-- **Anotasi gambar:** Model dapat menggambar panah, kotak pembatas, atau anotasi lainnya langsung ke gambar untuk menjawab pertanyaan spasial seperti "Ke mana item ini harus ditempatkan?".
+- **Zoom dan periksa:** Model secara implisit mendeteksi saat detail terlalu kecil (misalnya, membaca pengukur atau nomor seri dari jarak jauh) dan menulis kode untuk memangkas dan memeriksa ulang area tersebut pada resolusi yang lebih tinggi.
+- **Matematika dan pemetaan visual:** Model dapat menjalankan perhitungan multi-langkah menggunakan
+  kode (misalnya, menjumlahkan item baris pada tanda terima, atau membuat diagram Matplotlib
+  dari data yang diekstrak).
+- **Anotasi gambar:** Model dapat menggambar panah, kotak pembatas, atau anotasi lain langsung pada gambar untuk menjawab pertanyaan spasial seperti "Ke mana item ini harus diletakkan?".
 
-Untuk mengaktifkan penalaran visual, konfigurasi [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) sebagai alat. Model akan otomatis menggunakan kode untuk memanipulasi gambar jika diperlukan.
+Untuk mengaktifkan pemikiran visual, konfigurasi [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) sebagai alat. Model akan otomatis menggunakan
+kode untuk memanipulasi gambar jika diperlukan.
 
 ### Python
 
@@ -908,108 +660,75 @@ main();
 
 ```
 import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CodeExecution;
+import com.google.genai.gaos.models.interactions.CodeExecutionCallStep;
+import com.google.genai.gaos.models.interactions.CodeExecutionResultStep;
+import com.google.genai.gaos.models.interactions.Content;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Function;
-import com.google.genai.gaos.models.interactions.FunctionCallStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStep;
-import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
-import com.google.genai.gaos.models.interactions.FunctionResultSubcontent;
 import com.google.genai.gaos.models.interactions.ImageContent;
 import com.google.genai.gaos.models.interactions.ImageContentMimeType;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
 import com.google.genai.gaos.models.interactions.Step;
 import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 Client client = new Client();
 
-Map<String, Object> itemProp = new HashMap<>();
-itemProp.put("type", "string");
-itemProp.put("description", "The name or description of the item ordered (e.g., 'instrument').");
+URL url = new URL("https://goo.gle/instrument-img");
+byte[] imageBytes;
+try (InputStream is = url.openStream()) {
+  imageBytes = is.readAllBytes();
+}
+String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
 
-Map<String, Object> properties = new HashMap<>();
-properties.put("item_name", itemProp);
-
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("type", "object");
-parameters.put("properties", properties);
-parameters.put("required", Arrays.asList("item_name"));
-
-Function getImageTool =
-    Function.builder()
-        .name("get_image")
-        .description("Retrieves the image file reference for a specific order item.")
-        .parameters(parameters)
-        .build();
-
-CreateModelInteraction req1 =
+CreateModelInteraction request =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
-        .tools(Arrays.asList(getImageTool))
+        .input(
+            InteractionsInput.ofContent(
+                Arrays.asList(
+                    ImageContent.builder()
+                        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+                        .data(base64ImageData)
+                        .build(),
+                    TextContent.builder()
+                        .text("Zoom into the expression pedals and tell me how many pedals are there?")
+                        .build())))
+        .tools(Arrays.asList(CodeExecution.builder().build()))
         .build();
 
-Interaction interaction1 =
-    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
-FunctionCallStep fcStep = null;
-for (Step step : interaction1.steps().orElse(Collections.emptyList())) {
-  if (step instanceof FunctionCallStep) {
-    fcStep = (FunctionCallStep) step;
-    break;
+for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+  if (step instanceof ModelOutputStep) {
+    ModelOutputStep modelOutput = (ModelOutputStep) step;
+    for (Content contentBlock : modelOutput.content().orElse(Collections.emptyList())) {
+      if (contentBlock instanceof TextContent) {
+        System.out.println("Text: " + ((TextContent) contentBlock).text().orElse(""));
+      }
+    }
+  } else if (step instanceof CodeExecutionCallStep) {
+    CodeExecutionCallStep callStep = (CodeExecutionCallStep) step;
+    callStep.arguments().flatMap(args -> args.code()).ifPresent(code -> System.out.println("Code: " + code));
+  } else if (step instanceof CodeExecutionResultStep) {
+    CodeExecutionResultStep resultStep = (CodeExecutionResultStep) step;
+    System.out.println("Output: " + resultStep.result().orElse(""));
   }
 }
+```
 
-if (fcStep != null) {
-  System.out.println("Tool Call: " + fcStep.name().orElse(""));
+### REST
 
-  URL url = new URL("https://goo.gle/instrument-img");
-  byte[] imageBytes;
-  try (InputStream is = url.openStream()) {
-    imageBytes = is.readAllBytes();
-  }
-  String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
-
-  List<FunctionResultSubcontent> subcontents = new ArrayList<>();
-  subcontents.add(TextContent.builder().text("instrument.jpg").build());
-  subcontents.add(
-      ImageContent.builder()
-          .mimeType(ImageContentMimeType.IMAGE_JPEG)
-          .data(base64ImageData)
-          .build());
-
-  FunctionResultStep funcResult =
-      FunctionResultStep.builder()
-          .name(fcStep.name().orElse(""))
-          .callId(fcStep.id().orElse(""))
-          .result(FunctionResultStepResultUnion.of(subcontents))
-          .build();
-
-  CreateModelInteraction req2 =
-      CreateModelInteraction.builder()
-          .model(Model.of("gemini-3-flash-preview"))
-          .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
-          .tools(Arrays.asList(getImageTool))
-          .previousInteractionId(interaction1.id().orElse(""))
-          .build();
-
-  Interaction interaction2 =
-      client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
-  System.out.println("Final model response: " + interaction2.outputText().orElse(""));
-}
-```bash
+```
 IMG_URL="https://goo.gle/instrument-img"
 MODEL="gemini-3-flash-preview"
 
@@ -1048,9 +767,8 @@ Untuk mengetahui detail selengkapnya tentang eksekusi kode dengan gambar, lihat 
 ### Respons fungsi multimodal
 
 [Panggilan fungsi multimodal](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#multimodal)
-memungkinkan pengguna memiliki respons fungsi yang berisi
-objek multimodal sehingga memungkinkan penggunaan kemampuan panggilan fungsi
-model yang lebih baik. Panggilan fungsi standar hanya mendukung respons fungsi berbasis teks:
+memungkinkan pengguna mendapatkan respons fungsi yang berisi
+objek multimodal sehingga meningkatkan pemanfaatan kemampuan panggilan fungsi model. Panggilan fungsi standar hanya mendukung respons fungsi berbasis teks:
 
 ### Python
 
@@ -1194,7 +912,6 @@ import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.Step;
 import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
 import java.io.InputStream;
 import java.net.URL;
@@ -1230,7 +947,9 @@ Function getImageTool =
 CreateModelInteraction req1 =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
+        .input(
+            InteractionsInput.of(
+                "Use the get_image tool to show me the instrument I ordered last month."))
         .tools(Arrays.asList(getImageTool))
         .build();
 
@@ -1282,7 +1001,11 @@ if (fcStep != null) {
       client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
   System.out.println("Final model response: " + interaction2.outputText().orElse(""));
 }
-```shell
+```
+
+### REST
+
+```
 IMG_URL="https://goo.gle/instrument-img"
 
 MIME_TYPE=$(curl -sIL "$IMG_URL" | grep -i '^content-type:' | awk -F ': ' '{print $2}' | sed 's/\r$//' | head -n 1)
@@ -1330,7 +1053,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ### Menggabungkan alat bawaan dan panggilan fungsi
 
-Gemini 3 memungkinkan penggunaan alat bawaan (seperti Google Penelusuran, konteks URL, dan [lainnya](https://ai.google.dev/gemini-api/docs/tools?hl=id)) serta alat panggilan [fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) dalam panggilan API yang sama, sehingga memungkinkan alur kerja yang lebih kompleks.
+Gemini 3 memungkinkan penggunaan alat bawaan (seperti Google Penelusuran, konteks URL, dan [lainnya](https://ai.google.dev/gemini-api/docs/tools?hl=id)) serta alat [pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) kustom dalam panggilan API yang sama, sehingga memungkinkan alur kerja yang lebih kompleks.
 
 ### Python
 
@@ -1447,162 +1170,151 @@ import com.google.genai.gaos.models.interactions.Function;
 import com.google.genai.gaos.models.interactions.FunctionCallStep;
 import com.google.genai.gaos.models.interactions.FunctionResultStep;
 import com.google.genai.gaos.models.interactions.FunctionResultStepResultUnion;
-import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
 import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Model;
 import com.google.genai.gaos.models.interactions.Step;
-import com.google.genai.gaos.models.interactions.TextContent;
-import com.google.genai.gaos.models.interactions.Tool;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 Client client = new Client();
 
-Map<String, Object> itemProp = new HashMap<>();
-itemProp.put("type", "string");
-itemProp.put("description", "The name or description of the item ordered (e.g., 'instrument').");
+Map<String, Object> cityProp = new HashMap<>();
+cityProp.put("type", "string");
+cityProp.put("description", "The city and state, e.g. Utqiaġvik, Alaska");
 
 Map<String, Object> properties = new HashMap<>();
-properties.put("item_name", itemProp);
+properties.put("city", cityProp);
 
 Map<String, Object> parameters = new HashMap<>();
 parameters.put("type", "object");
 parameters.put("properties", properties);
-parameters.put("required", Arrays.asList("item_name"));
+parameters.put("required", Arrays.asList("city"));
 
-Function getImageTool =
+Function getWeather =
     Function.builder()
-        .name("get_image")
-        .description("Retrieves the image file reference for a specific order item.")
+        .name("getWeather")
+        .description("Gets the weather for a requested city.")
         .parameters(parameters)
         .build();
 
-CreateModelInteraction req1 =
+CreateModelInteraction request =
     CreateModelInteraction.builder()
         .model(Model.of("gemini-3-flash-preview"))
-        .input(InteractionsInput.of("Use the get_image tool to show me the instrument I ordered last month."))
-        .tools(Arrays.asList(Tool.of(getImageTool)))
+        .input(
+            InteractionsInput.of(
+                "What is the northernmost city in the United States? What's the weather like there today?"))
+        .tools(Arrays.asList(GoogleSearch.builder().build(), getWeather))
         .build();
 
-Interaction interaction1 =
-    client.interactions.create(CreateInteractionRequestBody.of(req1)).interaction().get();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
-Optional<FunctionCallStep> fcStepOpt =
-    interaction1.steps().orElse(Collections.emptyList()).stream()
-        .filter(Step::isFunctionCall)
-        .map(Step::asFunctionCall)
-        .findFirst();
-
-if (fcStepOpt.isPresent()) {
-  FunctionCallStep fcStep = fcStepOpt.get();
-  System.out.println("Tool Call: " + fcStep.name().orElse(""));
-
-  URL url = new URL("https://goo.gle/instrument-img");
-  byte[] imageBytes;
-  try (InputStream is = url.openStream()) {
-    imageBytes = is.readAllBytes();
+FunctionCallStep fcStep = null;
+for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+  if (step instanceof FunctionCallStep) {
+    fcStep = (FunctionCallStep) step;
+    break;
   }
-  String base64ImageData = Base64.getEncoder().encodeToString(imageBytes);
+}
 
+if (fcStep != null) {
   FunctionResultStep funcResult =
       FunctionResultStep.builder()
           .name(fcStep.name().orElse(""))
           .callId(fcStep.id().orElse(""))
           .result(
               FunctionResultStepResultUnion.of(
-                  Arrays.asList(
-                      TextContent.builder().text("instrument.jpg").build(),
-                      ImageContent.builder()
-                          .mimeType("image/jpeg")
-                          .data(base64ImageData)
-                          .build())))
+                  "{\"response\": \"Very cold. 22 degrees Fahrenheit.\"}"))
           .build();
 
-  CreateModelInteraction req2 =
+  CreateModelInteraction finalRequest =
       CreateModelInteraction.builder()
           .model(Model.of("gemini-3-flash-preview"))
           .input(InteractionsInput.ofStep(Arrays.asList(funcResult)))
-          .tools(Arrays.asList(Tool.of(getImageTool)))
-          .previousInteractionId(interaction1.id().orElse(""))
+          .tools(Arrays.asList(GoogleSearch.builder().build(), getWeather))
+          .previousInteractionId(interaction.id().orElse(""))
           .build();
 
-  Interaction interaction2 =
-      client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
-  System.out.println("
-Final model response: " + interaction2.outputText().orElse(""));
+  Interaction finalInteraction =
+      client.interactions.create(CreateInteractionRequestBody.of(finalRequest)).interaction().get();
+  System.out.println(finalInteraction.outputText().orElse(""));
 }
 ```
 
 ## Migrasi dari Gemini 2.5
 
-Gemini 3 adalah rangkaian model kami yang paling canggih hingga saat ini dan menawarkan peningkatan bertahap dibandingkan Gemini 2.5. Saat bermigrasi, pertimbangkan hal berikut:
+Gemini 3 adalah rangkaian model tercanggih kami hingga saat ini dan menawarkan peningkatan bertahap dibandingkan Gemini 2.5. Saat melakukan migrasi, pertimbangkan hal berikut:
 
-- **Penalaran:** Jika sebelumnya Anda menggunakan teknik rekayasa perintah yang kompleks (seperti
-  chain of thought) untuk memaksa Gemini 2.5 melakukan penalaran, coba Gemini 3 dengan
+- **Penalaran:** Jika sebelumnya Anda menggunakan rekayasa perintah yang rumit (seperti
+  rantai pemikiran) untuk memaksa Gemini 2.5 melakukan penalaran, coba Gemini 3 dengan
   `thinking_level: "high"` dan perintah yang disederhanakan.
-- **Setelan temperatur:** Jika kode yang ada menetapkan temperatur secara eksplisit (terutama ke nilai rendah untuk output determenistik), sebaiknya hapus parameter ini dan gunakan default Gemini 3 sebesar 1.0 untuk menghindari potensi masalah loop atau penurunan performa pada tugas yang kompleks.
-- **Pemahaman PDF &dokumen:** Jika Anda mengandalkan perilaku tertentu untuk penguraian dokumen padat, uji setelan `media_resolution_high` baru untuk memastikan akurasi berkelanjutan.
-- **Konsumsi token:** Bermigrasi ke default Gemini 3 dapat **meningkatkan** penggunaan token untuk PDF, tetapi **menurunkan** penggunaan token untuk video. Jika permintaan kini melebihi jendela konteks karena resolusi default yang lebih tinggi, sebaiknya kurangi resolusi media secara eksplisit.
-- **Segmentasi gambar:** Kemampuan segmentasi gambar (menampilkan mask tingkat piksel untuk objek) tidak didukung di Gemini 3 Pro atau Gemini 3 Flash. Untuk workload yang memerlukan segmentasi gambar bawaan, sebaiknya terus gunakan Gemini 2.5 Flash dengan penalaran dinonaktifkan.
-- **Penggunaan Komputer:** Gemini 3 Pro dan Gemini 3 Flash mendukung [Penggunaan
-  Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id). Tidak seperti seri 2.5, Anda tidak perlu menggunakan model terpisah untuk mengakses alat Penggunaan Komputer.
-- **Dukungan alat**: [Menggabungkan alat bawaan dengan panggilan fungsi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id) kini didukung untuk model Gemini 3. [Grounding
-  peta](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) juga kini didukung untuk model Gemini 3.
+- **Setelan temperatur:** Jika kode yang ada secara eksplisit menetapkan temperatur (terutama ke nilai rendah untuk output determenistik), sebaiknya hapus parameter ini dan gunakan nilai default Gemini 3 sebesar 1.0 untuk menghindari potensi masalah loop atau penurunan performa pada tugas yang kompleks.
+- **Pemahaman PDF & dokumen:**
+  Jika Anda mengandalkan perilaku tertentu untuk parsing dokumen padat, uji setelan
+  `media_resolution_high` baru untuk memastikan akurasi yang berkelanjutan.
+- **Pemakaian token:** Bermigrasi ke setelan default Gemini 3 dapat **meningkatkan** penggunaan token untuk PDF, tetapi **menurunkan** penggunaan token untuk video. Jika permintaan kini melebihi
+  jendela konteks karena resolusi default yang lebih tinggi, sebaiknya kurangi resolusi media secara eksplisit.
+- **Segmentasi gambar:** Kemampuan segmentasi gambar (menampilkan mask tingkat piksel untuk objek) tidak didukung di Gemini 3 Pro atau Gemini 3 Flash. Untuk
+  beban kerja yang memerlukan segmentasi gambar bawaan, sebaiknya terus
+  menggunakan Gemini 2.5 Flash dengan fitur berpikir dinonaktifkan.
+- **Penggunaan Komputer:** Gemini 3 Pro dan Gemini 3 Flash mendukung [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id). Tidak seperti seri 2.5, Anda tidak perlu menggunakan model terpisah untuk mengakses alat Penggunaan Komputer.
+- **Dukungan alat**: [Menggabungkan alat bawaan dengan pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id) kini didukung untuk model Gemini 3. [Perujukan Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) kini juga didukung untuk model Gemini 3.
 
 ## Kompatibilitas OpenAI
 
-Untuk pengguna yang menggunakan [lapisan kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id),
-parameter standar (OpenAI's `reasoning_effort`) akan otomatis dipetakan ke
-Gemini (`thinking_level`) yang setara.
+Untuk pengguna yang memanfaatkan [lapisan kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id),
+parameter standar (`reasoning_effort` OpenAI) secara otomatis dipetakan ke
+padanan Gemini (`thinking_level`).
 
-## Praktik terbaik perintah
+## Praktik terbaik pembuatan perintah
 
-Gemini 3 adalah model penalaran, yang mengubah cara Anda harus memberikan perintah.
+Gemini 3 adalah model penalaran, yang mengubah cara Anda memberikan perintah.
 
-- **Instruksi yang tepat:** Buat perintah input Anda secara ringkas. Gemini 3 merespons dengan baik instruksi yang langsung dan jelas. Model ini mungkin menganalisis secara berlebihan teknik rekayasa perintah yang panjang atau terlalu kompleks yang digunakan untuk model lama.
-- **Panjang output:** Secara default, Gemini 3 kurang panjang dan lebih suka memberikan jawaban yang langsung dan efisien. Jika kasus penggunaan Anda memerlukan persona yang lebih percakapan atau "ramah", Anda harus secara eksplisit mengarahkan model dalam perintah (misalnya, "Jelaskan ini sebagai asisten yang ramah dan banyak bicara").
-- **Pengelolaan konteks:** Saat menggunakan set data besar (misalnya, seluruh buku, codebase, atau video panjang), tempatkan instruksi atau pertanyaan spesifik Anda di akhir perintah, setelah konteks data. Anchor penalaran model ke data yang diberikan dengan memulai pertanyaan Anda dengan frasa seperti, "Berdasarkan informasi sebelumnya...".
+- **Petunjuk yang presisi:** Berikan perintah input yang ringkas. Gemini 3 merespons
+  paling baik terhadap petunjuk yang langsung dan jelas. Model ini mungkin menganalisis secara berlebihan teknik rekayasa perintah yang panjang atau terlalu kompleks yang digunakan untuk model lama.
+- **Panjang output:** Secara default, Gemini 3 tidak terlalu bertele-tele dan lebih suka memberikan jawaban yang langsung dan efisien. Jika kasus penggunaan Anda memerlukan persona yang lebih
+  percakapan atau "ramah", Anda harus secara eksplisit mengarahkan model dalam
+  perintah (misalnya, "Jelaskan ini sebagai asisten yang ramah dan suka berbicara").
+- **Pengelolaan konteks:** Saat bekerja dengan set data besar (misalnya, seluruh buku, codebase, atau video panjang), tempatkan petunjuk atau pertanyaan spesifik Anda di akhir perintah, setelah konteks data. Berikan dasar penalaran model pada data yang diberikan dengan memulai pertanyaan Anda dengan frasa seperti, "Berdasarkan informasi sebelumnya...".
 
 Pelajari lebih lanjut strategi desain perintah dalam [panduan rekayasa perintah](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id).
 
 ## FAQ
 
-1. **Berapa batas informasi untuk Gemini 3?** Model Gemini 3 memiliki batas informasi Januari 2025. Untuk informasi terbaru, gunakan alat
-   [Grounding Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id).
-2. **Berapa batas jendela konteks?** Model Gemini 3 mendukung jendela konteks input 1 juta token dan output hingga 64 ribu token.
-3. **Apakah ada paket gratis untuk Gemini 3?** Gemini 3 Flash `gemini-3-flash-preview` memiliki paket gratis di Gemini API. Anda dapat mencoba Gemini 3.1 Pro dan 3 Flash tanpa biaya di Google AI Studio, tetapi tidak ada paket gratis yang tersedia untuk `gemini-3.1-pro-preview` di Gemini API.
-4. **Apakah kode `thinking_budget` lama saya masih berfungsi?** Ya, `thinking_budget` masih didukung untuk kompatibilitas mundur, tetapi sebaiknya migrasikan ke `thinking_level` untuk performa yang lebih dapat diprediksi. Jangan gunakan keduanya dalam permintaan yang sama.
+1. **Apa batas waktu pengetahuan untuk Gemini 3?** Model Gemini 3 memiliki batas pengetahuan hingga Januari 2025. Untuk informasi terbaru, gunakan alat
+   [Perujukan Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id).
+2. **What are the context window limits?** Model Gemini 3 mendukung jendela konteks input 1 juta token dan output hingga 64 ribu token.
+3. **Apakah ada paket gratis untuk Gemini 3?** Gemini 3 Flash
+   `gemini-3-flash-preview` memiliki paket gratis di Gemini API. Anda dapat mencoba Gemini 3.1 Pro dan 3 Flash tanpa biaya di Google AI Studio, tetapi tidak ada paket gratis yang tersedia untuk `gemini-3.1-pro-preview` di Gemini API.
+4. **Apakah kode `thinking_budget` lama saya masih berfungsi?** Ya, `thinking_budget` masih didukung untuk kompatibilitas mundur, tetapi sebaiknya lakukan migrasi ke `thinking_level` untuk performa yang lebih dapat diprediksi. Jangan gunakan keduanya dalam permintaan yang sama.
 5. **Apakah Gemini 3 mendukung Batch API?** Ya, Gemini 3 mendukung
    [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id).
-6. **Apakah Context Caching didukung?** Ya, [Context Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id) didukung untuk Gemini 3.
+6. **Apakah Context Caching didukung?** Ya, [Penyimpanan Cache Konteks](https://ai.google.dev/gemini-api/docs/caching?hl=id) didukung untuk Gemini 3.
 7. **Alat mana yang didukung di Gemini 3?** Gemini 3 mendukung
    [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id),
-   [Grounding dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id),
+   [Perujukan dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id),
    [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id),
    [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id), dan
-   [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id). Model ini juga mendukung
-   standar [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) untuk
-   alat kustom Anda sendiri, dan dalam
-   [kombinasi dengan alat bawaan](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
-8. **Apa yang dimaksud dengan `gemini-3.1-pro-preview-customtools`?** Jika Anda menggunakan
+   [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id). Hal ini juga mendukung
+   [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) standar untuk
+   alat kustom Anda sendiri, dan
+   [dikombinasikan dengan alat bawaan](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
+8. **Apa itu `gemini-3.1-pro-preview-customtools`?** Jika Anda menggunakan
    `gemini-3.1-pro-preview` dan model mengabaikan alat kustom Anda dan lebih memilih
-   perintah bash, coba model `gemini-3.1-pro-preview-customtools` sebagai gantinya.
+   perintah bash, coba gunakan model `gemini-3.1-pro-preview-customtools`.
    Info selengkapnya [di sini][customtools-model].
 
 Kirim masukan
 
 Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Terakhir diperbarui pada 2026-09-10 UTC.
+Terakhir diperbarui pada 2026-09-18 UTC.
 
 Ada masukan untuk kami?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]

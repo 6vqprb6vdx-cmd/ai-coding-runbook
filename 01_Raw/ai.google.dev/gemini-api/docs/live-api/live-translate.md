@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=vi
-fetched_at: 2026-09-14T05:40:05.925609+00:00
-title: "D\u1ecbch tr\u1ef1c ti\u1ebfp b\u1eb1ng Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=hi
+fetched_at: 2026-09-21T06:00:44.411740+00:00
+title: "Gemini Live API \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0932\u093e\u0907\u0935 \u0905\u0928\u0941\u0935\u093e\u0926 \u0915\u0930\u0928\u0947 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-# Dịch trực tiếp bằng Gemini Live API
+# Gemini Live API की मदद से लाइव अनुवाद करने की सुविधा
 
-Gemini Live API hỗ trợ tính năng dịch lời nói sang lời nói theo thời gian thực với độ trễ thấp giữa hơn 70 ngôn ngữ bằng mô hình [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=vi). Bằng cách định cấu hình Live API với chế độ cài đặt dịch, bạn có thể phát trực tiếp âm thanh bằng một ngôn ngữ và nhận đầu ra âm thanh đã dịch bằng một ngôn ngữ khác, nhờ đó có thể dịch liền mạch từ giọng nói sang giọng nói theo thời gian thực.
+Gemini Live API, [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=hi) मॉडल का इस्तेमाल करके, 70 से ज़्यादा भाषाओं के बीच कम इंतज़ार के समय में रीयल-टाइम में बोली का अनुवाद करने की सुविधा देता है. लाइव एपीआई को अनुवाद की सेटिंग के साथ कॉन्फ़िगर करके, किसी एक भाषा में ऑडियो स्ट्रीम किया जा सकता है. साथ ही, अनुवाद किया गया ऑडियो आउटपुट दूसरी भाषा में पाया जा सकता है. इससे, रीयल-टाइम में एक भाषा से दूसरी भाषा में वॉइस-टू-वॉइस अनुवाद की सुविधा मिलती है.
 
-[Dùng tính năng Dịch trực tiếp trong Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=vi)
-[Sao chép ứng dụng mẫu từ GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[Sử dụng các kỹ năng của trợ lý lập trìnhterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=vi#gemini-live-api-dev)
+[Google AI Studio में लाइव ट्रांसलेट की सुविधा आज़माएंmic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=hi)
+[उदाहरण के तौर पर दिए गए ऐप्लिकेशन का क्लोन GitHub से बनाएंcode](https://github.com/google-gemini/gemini-live-api-examples)
+[कोडिंग एजेंट की स्किल का इस्तेमाल करेंterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi#gemini-live-api-dev)
 
-## Nhân viên hỗ trợ trực tiếp so với tính năng Dịch trực tiếp
+## लाइव एजेंट बनाम लाइव ट्रांसलेट
 
-Mặc dù cả hai đều sử dụng Live API, nhưng mô hình tư duy cho tính năng Dịch trực tiếp khác với các lượt tương tác theo thời gian thực của tác nhân đàm thoại.
+लाइव एपीआई का इस्तेमाल, लाइव एजेंट और लाइव ट्रांसलेट, दोनों के लिए किया जा सकता है. हालांकि, लाइव ट्रांसलेट का मेंटल मॉडल, रीयल-टाइम में एजेंट के साथ बातचीत करने के मॉडल से अलग होता है.
 
-| Nhân viên hỗ trợ trực tiếp | Dịch trực tiếp |
+| लाइव एजेंट | लाइव ट्रांसलेट |
 | --- | --- |
-| **Mô hình này đóng vai trò là một trợ lý.** Gemini có thể lắng nghe, suy luận và hành động thay cho bạn. | **Mô hình đóng vai trò là một trình thông dịch.** Nó hoạt động như một quy trình dịch theo thời gian thực. |
-| **Sử dụng các lượt tương tác theo lượt.** Dựa vào các khoảng tạm dừng, tính năng phát hiện ý định và xử lý các trường hợp gián đoạn. | **Sử dụng xử lý theo luồng liên tục.** Dịch ngay khi người nói trò chuyện mà không cần chờ đến lượt. |
-| **Hỗ trợ các công cụ và tác nhân.** Hỗ trợ gốc cho tính năng gọi hàm, Google Tìm kiếm và hướng dẫn. | **Chỉ hỗ trợ tính năng dịch.** Bản dịch thuần tuý có độ trễ thấp; không hỗ trợ các công cụ hoặc hướng dẫn. |
-| **Hoàn toàn đa phương thức.** Hỗ trợ thông tin đầu vào ở dạng văn bản, âm thanh, video và hình ảnh. | **Âm thanh bị hạn chế.** Dữ liệu đầu vào chỉ giới hạn ở âm thanh để đảm bảo ngưỡng độ trễ theo thời gian thực nghiêm ngặt. |
-| **Cấu hình chi tiết.** Sử dụng các hướng dẫn về việc tạo, lời nói, công cụ và hệ thống. | **Đơn giản hoá cấu hình.** Đặt `target_language_code` và các nút bật/tắt như `echo_target_language`. |
+| **यह मॉडल, असिस्टेंट के तौर पर काम करता है.** यह आपकी बात सुनता है, समझता है, और आपकी ओर से कार्रवाइयां करता है. | **यह मॉडल, इंटरप्रेटर के तौर पर काम करता है.** यह रीयल-टाइम में अनुवाद करने वाले पाइपलाइन की तरह काम करता है. |
+| **यह बारी-बारी से होने वाले इंटरैक्शन का इस्तेमाल करता है.** यह रुकने, इरादे का पता लगाने, और बीच में होने वाली रुकावटों को मैनेज करने पर काम करता है. | **यह लगातार स्ट्रीम प्रोसेसिंग का इस्तेमाल करता है.** यह बारी का इंतज़ार किए बिना, स्पीकर के बोलते ही अनुवाद करता है. |
+| **यह टूल और एजेंट के साथ काम करता है.** यह फ़ंक्शन कॉल करने, Google Search, और निर्देशों के साथ काम करता है. | **यह सिर्फ़ अनुवाद की सुविधा देता है.** यह कम इंतज़ार के समय में अनुवाद करता है. साथ ही, यह टूल या निर्देशों के साथ काम नहीं करता. |
+| **यह पूरी तरह से मल्टीमोडल है.** यह टेक्स्ट, ऑडियो, वीडियो, और इमेज इनपुट के साथ काम करता है. | **यह सिर्फ़ ऑडियो के साथ काम करता है.** इसमें सिर्फ़ ऑडियो इनपुट इस्तेमाल किया जा सकता है, ताकि रीयल-टाइम में इंतज़ार के समय की सीमा को बनाए रखा जा सके. |
+| **विस्तृत कॉन्फ़िगरेशन.** यह जनरेशन, स्पीच, टूल, और सिस्टम के निर्देशों का इस्तेमाल करता है. | **यह आसानी से कॉन्फ़िगर किया जा सकता है.** `target_language_code` और `echo_target_language` जैसे टॉगल सेट करें. |
 
-## Bắt đầu
+## शुरू करें
 
-Các ví dụ sau đây minh hoạ cách khởi tạo một ứng dụng và kết nối với Live API bằng cấu hình dịch.
+यहां दिए गए उदाहरणों में, क्लाइंट को शुरू करने और अनुवाद के कॉन्फ़िगरेशन के साथ लाइव एपीआई से कनेक्ट करने का तरीका बताया गया है.
 
 ### Python
 
@@ -185,15 +185,15 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Đang gửi âm thanh
+## ऑडियो भेजना
 
-Để truyền trực tuyến dữ liệu đầu vào bằng giọng nói để dịch, bạn sẽ gửi âm thanh PCM 16 bit, little-endian thô.
+अनुवाद के लिए वॉइस इनपुट स्ट्रीम करने के लिए, आपको रॉ, लिटिल-एंडियन, 16-बिट पीसीएम ऑडियो भेजना होगा.
 
-- **Định dạng âm thanh đầu vào**: PCM 16 bit thô ở tốc độ 16 kHz (đơn âm, little-endian).
-- **Định dạng âm thanh đầu ra**: PCM 16 bit thô ở 24 kHz (đơn âm, little-endian).
-- **Kích thước và độ trễ của phân đoạn**: Gửi âm thanh theo phân đoạn 100 mili giây.
+- **इनपुट ऑडियो का फ़ॉर्मैट**: रॉ 16-बिट पीसीएम, 16 किलोहर्ट्ज़ (मोनो, लिटिल-एंडियन).
+- **आउटपुट ऑडियो का फ़ॉर्मैट**: रॉ 16-बिट पीसीएम, 24 किलोहर्ट्ज़ (मोनो, लिटिल-एंडियन).
+- **चंक का साइज़ और इंतज़ार का समय**: 100 मि॰से॰ के चंक में ऑडियो भेजें.
 
-Các ví dụ sau đây cho biết cách gửi các đoạn âm thanh đến phiên.
+यहां दिए गए उदाहरणों में, सेशन में ऑडियो चंक भेजने का तरीका बताया गया है.
 
 ### Python
 
@@ -238,23 +238,23 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## Cấu hình
+## कॉन्फ़िगरेशन
 
-Để bật tính năng dịch, bạn phải chỉ định `translationConfig` trong `generationConfig` trong quá trình thiết lập phiên.
+अनुवाद की सुविधा चालू करने के लिए, आपको सेशन सेटअप के दौरान `generationConfig` में `translationConfig` की जानकारी देनी होगी.
 
-### Thiết lập cấu hình thông báo
+### सेटअप मैसेज का कॉन्फ़िगरेशन
 
-`generationConfig` hỗ trợ các trường sau để bật bản chép lời:
+ट्रांसक्रिप्ट की सुविधा चालू करने के लिए, `generationConfig` में ये फ़ील्ड इस्तेमाल किए जा सकते हैं:
 
-- **`inputAudioTranscription`**: Một đối tượng (nếu có) cho phép mô hình gửi bản chép lời bằng văn bản của âm thanh đầu vào.
-- **`outputAudioTranscription`**: Một đối tượng (nếu có) cho phép mô hình gửi bản chép lời bằng văn bản của âm thanh đầu ra (đã dịch).
+- **`inputAudioTranscription`**: यह एक ऐसा ऑब्जेक्ट है जो मौजूद होने पर, मॉडल को इनपुट ऑडियो के टेक्स्ट ट्रांसक्रिप्ट भेजने की अनुमति देता है.
+- **`outputAudioTranscription`**: यह एक ऐसा ऑब्जेक्ट है जो मौजूद होने पर, मॉडल को आउटपुट (अनुवाद किए गए) ऑडियो के टेक्स्ट ट्रांसक्रिप्ट भेजने की अनुमति देता है.
 
-`translationConfig` hỗ trợ các trường sau:
+`translationConfig` में ये फ़ील्ड इस्तेमाल किए जा सकते हैं:
 
-- **`targetLanguageCode`**: [Mã ngôn ngữ BCP-47](#supported-languages) của ngôn ngữ mà bạn muốn mô hình dịch sang (ví dụ: `"pl"` cho tiếng Ba Lan, `"es"` cho tiếng Tây Ban Nha). Giá trị mặc định là `"en"`.
-- **`echoTargetLanguage`**: Một giá trị boolean cho biết cách xử lý âm thanh đầu vào đã có bằng ngôn ngữ đích. Nếu được đặt thành `true`, mô hình sẽ lặp lại (nhại) âm thanh đầu vào đã có sẵn bằng ngôn ngữ đích. Nếu bạn đặt thành `false`, mô hình sẽ giữ im lặng khi lời nói đầu vào đã ở ngôn ngữ đích. Giá trị mặc định là `false`.
+- **`targetLanguageCode`**: यह उस भाषा का [BCP-47 भाषा कोड](#supported-languages) है जिसमें आपको मॉडल से अनुवाद कराना है. उदाहरण के लिए, पोलिश के लिए `"pl"` और स्पैनिश के लिए `"es"`. डिफ़ॉल्ट रूप से, यह `"en"` पर सेट होता है.
+- **`echoTargetLanguage`**: यह एक बूलियन है, जो यह दिखाता है कि टारगेट भाषा में मौजूद इनपुट ऑडियो को कैसे हैंडल किया जाना चाहिए. अगर इसे `true` पर सेट किया जाता है, तो मॉडल, टारगेट भाषा में मौजूद इनपुट ऑडियो को दोहराएगा. अगर इसे `false` पर सेट किया जाता है, तो मॉडल, टारगेट भाषा में मौजूद इनपुट स्पीच के दौरान चुप रहेगा. डिफ़ॉल्ट रूप से, यह `false` पर सेट होता है.
 
-Dưới đây là ví dụ về cấu trúc thông báo thiết lập:
+यहां सेटअप मैसेज के स्ट्रक्चर का उदाहरण दिया गया है:
 
 ```
 "setup": {
@@ -273,19 +273,19 @@ Dưới đây là ví dụ về cấu trúc thông báo thiết lập:
 }
 ```
 
-## Sử dụng mã thông báo tạm thời trong các ứng dụng phía máy khách
+## क्लाइंट-साइड ऐप्लिकेशन में, कुछ समय के लिए मान्य टोकन का इस्तेमाल करना
 
-Đối với các ứng dụng từ ứng dụng đến máy chủ, bạn có thể sử dụng [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=vi) (hiện ở trạng thái `v1beta`) để tránh lộ khoá API.
+क्लाइंट-टू-सर्वर ऐप्लिकेशन के लिए, आप अपनी एपीआई कुंजी को सार्वजनिक होने से बचाने के लिए [कुछ समय के लिए मान्य टोकन](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=hi) (फ़िलहाल `v1beta` में उपलब्ध) का इस्तेमाल कर सकते हैं.
 
-Khi sử dụng mã thông báo tạm thời với tính năng Dịch trực tiếp:
+लाइव ट्रांसलेट के साथ, कुछ समय के लिए मान्य टोकन का इस्तेमाल करते समय:
 
-1. Bạn phải sử dụng điểm cuối `v1beta`.
-2. **Khoá cấu hình:** Theo mặc định, bạn nên chỉ định `translationConfig` trong các ràng buộc tạo mã thông báo trên máy chủ. Điều này đảm bảo cấu hình dịch được khoá và ứng dụng không thể giả mạo.
-3. **Cấu hình mở khoá:** Nếu muốn có thể đặt `translationConfig` ở phía máy khách (ví dụ: để cho phép người dùng chọn ngôn ngữ đích của riêng họ), bạn phải bỏ qua tham số này trong yêu cầu tạo mã thông báo và đặt `"lock_additional_fields": []` thay thế. Thao tác này sẽ mở khoá `translationConfig` để được đặt ở phía máy khách.
+1. आपको `v1beta` एंडपॉइंट का इस्तेमाल करना होगा.
+2. **कॉन्फ़िगरेशन लॉक करना:** डिफ़ॉल्ट रूप से, आपको अपने सर्वर पर टोकन बनाने की पाबंदियों में `translationConfig` की जानकारी देनी चाहिए. इससे यह पक्का होता है कि अनुवाद का कॉन्फ़िगरेशन लॉक है और क्लाइंट इसमें कोई बदलाव नहीं कर सकता.
+3. **कॉन्फ़िगरेशन अनलॉक करना:** अगर आपको क्लाइंट-साइड पर `translationConfig` सेट करने की अनुमति देनी है (उदाहरण के लिए, किसी उपयोगकर्ता को अपनी टारगेट भाषा चुनने की अनुमति देने के लिए), तो आपको टोकन बनाने के अनुरोध से इसे हटाना होगा. इसके बजाय, `"lock_additional_fields": []` सेट करना होगा. इससे क्लाइंट-साइड पर `translationConfig` सेट करने की अनुमति मिल जाएगी.
 
-### Tạo mã thông báo tạm thời bị hạn chế
+### पाबंदियों के साथ, कुछ समय के लिए मान्य टोकन बनाना
 
-Các ví dụ sau đây minh hoạ cách tạo mã thông báo tạm thời có các quy tắc ràng buộc về bản dịch.
+यहां दिए गए उदाहरणों में, अनुवाद की पाबंदियों के साथ, कुछ समय के लिए मान्य टोकन बनाने का तरीका बताया गया है.
 
 ### Python
 
@@ -366,74 +366,74 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-## Các điểm hạn chế
+## सीमाएं
 
-- **Phương thức nhập**: Chỉ hỗ trợ phương thức nhập bằng âm thanh để dịch. Không hỗ trợ nhập văn bản.
-- **Nhân bản giọng nói**: Tính năng nhân bản giọng nói có thể không nhất quán. Giọng nói có thể thay đổi sau khi tạm dừng lâu, gán sai giới tính dựa trên cách bắt đầu lời nói hoặc bị kẹt ở một giọng nói trong các cuộc trò chuyện nhanh có nhiều người nói.
-- **Phát hiện ngôn ngữ**: Tính năng phát hiện ngôn ngữ gặp khó khăn khi giọng nói có nhiều âm sắc, ngôn ngữ tương tự (ví dụ: tiếng Tây Ban Nha so với tiếng Bồ Đào Nha) hoặc khi ngôn ngữ chuyển đổi nhanh chóng. **Lưu ý:** Điều này chỉ ảnh hưởng đến bản chép lời đầu vào. Mã ngôn ngữ và bản dịch cuối cùng vẫn phải chính xác.
-- **Âm thanh nền**: Mô hình này được thiết kế để lọc bỏ tiếng ồn và nhạc nhằm tạo ra lời nói rõ ràng, nhưng có thể không bỏ qua được tất cả âm thanh nền.
-- **Echo Target Language** (Lặp lại ngôn ngữ đích): Khi `echoTargetLanguage: true`, tạp âm hoặc nhạc nền có thể tạo ra các hiện tượng lạ trong bản âm thanh được dịch khi âm thanh đầu vào đã ở ngôn ngữ đích.
+- **इनपुट के तरीके**: अनुवाद के लिए, सिर्फ़ ऑडियो इनपुट इस्तेमाल किया जा सकता है. टेक्स्ट इनपुट इस्तेमाल नहीं किया जा सकता.
+- **आवाज़ की कॉपी बनाना**: आवाज़ की कॉपी बनाने में गड़बड़ी हो सकती है. ज़्यादा समय तक रुकने के बाद, आवाज़ें बदल सकती हैं. साथ ही, स्पीच की शुरुआत के आधार पर, गलत जेंडर असाइन हो सकता है. इसके अलावा, एक से ज़्यादा स्पीकर के साथ तेज़ी से बातचीत करने के दौरान, आवाज़ें एक ही आवाज़ पर अटक सकती हैं.
+- **भाषा का पता लगाना**: भाषा का पता लगाने में, तेज़ लहजे, मिलती-जुलती भाषाओं (जैसे, स्पैनिश बनाम पॉर्चुगीज़) या तेज़ी से भाषा बदलने में दिक्कत आ सकती है. **ध्यान दें:** इसका असर सिर्फ़ इनपुट ट्रांसक्रिप्ट पर पड़ना चाहिए. भाषा कोड और फ़ाइनल अनुवाद अब भी सटीक होने चाहिए.
+- **बैकग्राउंड ऑडियो**: मॉडल को शोर और संगीत को फ़िल्टर करके, साफ़ स्पीच बनाने के लिए डिज़ाइन किया गया है. हालांकि, हो सकता है कि सभी बैकग्राउंड ऑडियो को अनदेखा न किया जाए.
+- **टारगेट भाषा को दोहराना**: जब `echoTargetLanguage: true` होता है, तब अगर इनपुट ऑडियो पहले से ही टारगेट भाषा में है, तो बैकग्राउंड में मौजूद शोर या संगीत की वजह से, अनुवाद किए गए ऑडियो में गड़बड़ियां आ सकती हैं.
 
-## Ngôn ngữ được hỗ trợ
+## इस्तेमाल की जा सकने वाली भाषाएं
 
-Tính năng Dịch trực tiếp hỗ trợ những ngôn ngữ sau.
+लाइव ट्रांसलेट की सुविधा इन भाषाओं में उपलब्ध है.
 
-| Ngôn ngữ | Mã BCP-47 | Ngôn ngữ | Mã BCP-47 |
+| भाषा | BCP-47 कोड | भाषा | BCP-47 कोड |
 | --- | --- | --- | --- |
-| Tiếng Hà Lan ở Nam Phi | af | Tiếng Kazakh | kk |
-| Tiếng Akan | ak | Tiếng Khmer | km |
-| Tiếng Albania | sq | Tiếng Kinyarwanda | rw |
-| Tiếng Amhara | am | Tiếng Hàn | ko |
-| Tiếng Ả Rập | ar | Tiếng Lào | lo |
-| Tiếng Armenia | hy | Tiếng Latvia | lv |
-| Tiếng Azerbaijan | az | Tiếng Lithuania | lt |
-| Tiếng Basque | eu | Tiếng Macedonia | mk |
-| Tiếng Belarus | be | Tiếng Malay | ms |
-| Tiếng Bengal | bn | Tiếng Malayalam | ml |
-| Tiếng Bungary | bg | Tiếng Marathi | mr |
-| Tiếng Miến Điện (Myanmar) | my | Tiếng Mông Cổ | mn |
-| Tiếng Catalan | ca | Tiếng Nepal | ne |
-| Tiếng Trung (Giản thể) | zh-Hans | Tiếng Na Uy | không, nb |
-| Tiếng Trung (Phồn thể) | zh-Hant | Persian | fa |
-| Croatian | giờ | Tiếng Ba Lan | pl |
-| Tiếng Séc | cs | Tiếng Bồ Đào Nha (Brazil) | pt-BR |
-| Tiếng Đan Mạch | da | Tiếng Bồ Đào Nha (Bồ Đào Nha) | pt-PT |
-| Tiếng Hà Lan | nl | Tiếng Punjab | pa |
-| Tiếng Anh | vi | Tiếng Rumani | ro |
-| Tiếng Estonia | et | Tiếng Nga | ru |
-| Tiếng Philippines | fil | Tiếng Serbia | sr |
-| Tiếng Phần Lan | fi | Tiếng Sindh | sd |
-| Tiếng Pháp | fr | Tiếng Sinhala | si |
-| Tiếng Galicia | gl | Tiếng Slovak | sk |
-| Tiếng Gruzia | ka | Tiếng Slovenia | sl |
-| Tiếng Đức | de | Tiếng Tây Ban Nha | es |
-| Tiếng Hy Lạp | el | Tiếng Sunda | su |
-| Tiếng Gujarat | gu | Tiếng Swahili | sw |
-| Tiếng Hausa | ha | Tiếng Thuỵ Điển | sv |
-| Tiếng Do Thái | hi hi | Tiếng Tamil | ta |
-| Tiếng Hindi | hi | Tiếng Telugu | te |
-| Tiếng Hungary | hu | Tiếng Thái | th |
-| Tiếng Iceland | is | Tiếng Thổ Nhĩ Kỳ | tr |
-| Tiếng Indonesia | id | Tiếng Ukraina | uk |
-| Tiếng Ý | it | Tiếng Urdu | ur |
-| Tiếng Nhật | ja | Tiếng Uzbek | uz |
-| Tiếng Java | jv | Tiếng Việt | vi |
-| Tiếng Kannada | kn | Tiếng Zulu | zu |
+| अफ़्रीकान्स | af | कज़ाक़ | kk |
+| Akan | ak | ख्मेर | km |
+| अल्बेनियन | sq | किनयारवांडा | rw |
+| अमहैरिक | am | कोरियन | ko |
+| अरबी | ar | लाओ | lo |
+| आर्मीनियन | hy | लातवियन | lv |
+| अज़रबैजानी | az | लिथुएनियन | lt |
+| बॉस्क | eu | मैसेडोनियन | mk |
+| बेलारूसी | be | मलय | ms |
+| बांग्ला | bn | मलयालम | ml |
+| बल्गैरियन | bg | मराठी | mr |
+| बर्मी (म्यांमार) | my | मंगोलियन | mn |
+| कैटलैन | ca | नेपाली | ne |
+| चाइनीज़ (सिंप्लिफ़ाइड) | zh-Hans | नॉर्वीजन | no, nb |
+| चाइनीज़ (ट्रेडिशनल) | zh-Hant | फ़ारसी | fa |
+| क्रोएशियन | hr | पोलिश | pl |
+| चेक | cs | पॉर्चुगीज़ (ब्राज़ील) | pt-BR |
+| डैनिश | da | पॉर्चगीज़ (पुर्तगाल) | pt-PT |
+| डच | nl | पंजाबी | pa |
+| अंग्रेज़ी | en | रोमानियन | ro |
+| एस्टोनियन | et | रूसी | ru |
+| फ़िलिपीनी | fil | सर्बियन | sr |
+| फ़िनिश | fi | सिंधी | sd |
+| फ़्रांसीसी | fr | सिंहला | si |
+| गैलिशियन | gl | स्लोवाक | sk |
+| जॉर्जियन | ka | स्लोवेनियन | sl |
+| जर्मन | de | स्पैनिश | es |
+| ग्रीक | el | सूडानीज़ | su |
+| गुजराती | gu | स्वाहिली | sw |
+| हौसा | ha | स्वीडिश | sv |
+| हिब्रू | he | तमिल | ta |
+| हिन्दी | hi | तेलुगु | te |
+| हंगेरियन | hu | थाई | th |
+| आइसलैंडिक | is | टर्किश | tr |
+| इंडोनेशियन | id | यूक्रेनियन | uk |
+| इटैलियन | it | उर्दू | ur |
+| जापानी | ja | उज़्बेक | uz |
+| जावानीज़ | jv | वियतनामीज़ | vi |
+| कन्नड़ | kn | ज़ुलू | zu |
 
-## Bước tiếp theo
+## आगे क्या करना है
 
-- Đọc hướng dẫn đầy đủ về [Các chức năng](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi) của Live API.
-- Đọc hướng dẫn [Bắt đầu sử dụng SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=vi).
-- Đọc hướng dẫn [Bắt đầu sử dụng WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=vi).
-- Đọc hướng dẫn về [Mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=vi) để xác thực an toàn trong các ứng dụng từ ứng dụng đến máy chủ.
-- Sao chép [các ví dụ về Live API](https://github.com/google-gemini/gemini-live-api-examples) trên GitHub.
+- लाइव एपीआई की [क्षमताओं](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=hi) के बारे में पूरी गाइड पढ़ें.
+- [एसडीके इस्तेमाल करने की गाइड](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=hi) पढ़ें.
+- [WebSockets इस्तेमाल करने की गाइड](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=hi) पढ़ें.
+- क्लाइंट-टू-सर्वर ऐप्लिकेशन में सुरक्षित तरीके से पुष्टि करने के लिए, [कुछ समय के लिए मान्य टोकन](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=hi) की गाइड पढ़ें.
+- GitHub से, [लाइव एपीआई के उदाहरणों](https://github.com/google-gemini/gemini-live-api-examples) का क्लोन बनाएं.
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-07-23 UTC.
+आखिरी बार 2026-07-23 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-23 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-07-23 (UTC) को अपडेट किया गया."],[],[]]

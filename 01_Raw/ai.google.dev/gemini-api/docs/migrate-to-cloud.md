@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=pl
-fetched_at: 2026-09-14T05:36:29.929656+00:00
-title: "Interfejs Gemini Developer API a\u00a0platforma agent\u00f3w Gemini Enterprise \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=it
+fetched_at: 2026-09-21T05:50:19.681745+00:00
+title: "API Gemini Developer e piattaforma agentica Gemini Enterprise \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Prześlij opinię
+Invia feedback
 
-# Interfejs Gemini Developer API a platforma agentów Gemini Enterprise
+# API Gemini Developer e piattaforma agentica Gemini Enterprise
 
-Podczas tworzenia rozwiązań generatywnej AI za pomocą Gemini Google oferuje 2 interfejsy API:
-[Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=pl) i [Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=pl).
+Quando sviluppi soluzioni di AI generativa con Gemini, Google offre due prodotti API:
+l'[API Gemini Developer](https://ai.google.dev/gemini-api/docs?hl=it) e l'[API Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=it).
 
-Gemini Developer API to najszybsza droga do tworzenia, wdrażania i skalowania aplikacji opartych na Gemini. Większość programistów powinna korzystać z Gemini Developer API, chyba że potrzebuje określonych kontroli dla przedsiębiorstw.
+L'API Gemini Developer offre il percorso più rapido per creare, mettere in produzione e scalare le applicazioni basate su Gemini. La maggior parte degli sviluppatori dovrebbe utilizzare l'API Gemini Developer, a meno che non sia necessario utilizzare controlli aziendali specifici.
 
-Gemini Enterprise Agent Platform oferuje kompleksowy ekosystem funkcji i usług gotowych do użycia w przedsiębiorstwie, które umożliwiają tworzenie i wdrażanie aplikacji generatywnej AI opartych na Google Cloud Platform.
+Gemini Enterprise Agent Platform offre un ecosistema completo di funzionalità e servizi pronti per l'uso aziendale per la creazione e il deployment di applicazioni di AI generativa basate su Google Cloud.
 
-Niedawno uprościliśmy migrację między tymi usługami. Zarówno Gemini
-Developer API, jak i Gemini Enterprise Agent Platform API są teraz dostępne za pomocą ujednoliconego
-[pakietu Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=pl).
+Di recente abbiamo semplificato la migrazione tra questi servizi. Sia l'API Gemini
+Developer sia l'API Gemini Enterprise Agent Platform sono ora accessibili tramite l'SDK Google Gen AI unificato
+.
 
-## Porównanie kodu
+## Confronto del codice
 
-Na tej stronie znajdziesz porównanie kodu w przewodnikach Szybki start dotyczących Gemini Developer API i Gemini Enterprise Agent Platform w przypadku generowania tekstu.
+Questa pagina contiene confronti di codice affiancati tra le guide rapide dell'API Gemini Developer e di Gemini Enterprise Agent Platform per la generazione di testo.
 
 ### Python
 
-Dostęp do usług Gemini Developer API i Gemini Enterprise Agent Platform możesz uzyskać za pomocą biblioteki `google-genai`. Instrukcje instalacji `google-genai` znajdziesz na stronie [bibliotek](https://ai.google.dev/gemini-api/docs/libraries?hl=pl).
+Puoi accedere sia all'API Gemini Developer sia ai servizi di Gemini Enterprise Agent Platform tramite la libreria `google-genai`. Per istruzioni su come installare `google-genai`, consulta la pagina delle [librerie](https://ai.google.dev/gemini-api/docs/libraries?hl=it).
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 from google import genai
@@ -50,7 +50,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Gemini Enterprise Agent Platform API
+### API Gemini Enterprise Agent Platform
 
 ```
 from google import genai
@@ -65,11 +65,12 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript i TypeScript
+### JavaScript e TypeScript
 
-Dostęp do usług Gemini Developer API i Gemini Enterprise Agent Platform możesz uzyskać za pomocą biblioteki `@google/genai`. Instrukcje instalacji `@google/genai` znajdziesz na stronie [bibliotek](https://ai.google.dev/gemini-api/docs/libraries?hl=pl).
+Puoi accedere sia all'API Gemini Developer sia ai servizi di Gemini Enterprise Agent Platform tramite la libreria `@google/genai`. Per istruzioni su come
+installare `@google/genai`, consulta la pagina delle [librerie](https://ai.google.dev/gemini-api/docs/libraries?hl=it).
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -87,7 +88,7 @@ async function main() {
 main();
 ```
 
-### Gemini Enterprise Agent Platform API
+### API Gemini Enterprise Agent Platform
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -108,11 +109,12 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
-Dostęp do usług Gemini Developer API i Gemini Enterprise Agent Platform możesz uzyskać za pomocą biblioteki `google.golang.org/genai`. Instrukcje instalacji `google.golang.org/genai` znajdziesz na stronie [bibliotek](https://ai.google.dev/gemini-api/docs/libraries?hl=pl).
+Puoi accedere sia all'API Gemini Developer sia ai servizi di Gemini Enterprise Agent Platform tramite la libreria `google.golang.org/genai`. Per istruzioni su come
+installare `google.golang.org/genai`, consulta la pagina delle [librerie](https://ai.google.dev/gemini-api/docs/libraries?hl=it).
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 import (
@@ -139,7 +141,7 @@ func main() {
 }
 ```
 
-### Gemini Enterprise Agent Platform API
+### API Gemini Enterprise Agent Platform
 
 ```
 import (
@@ -171,46 +173,46 @@ func main() {
 }
 ```
 
-### Inne przypadki użycia i platformy
+### Altri casi d'uso e piattaforme
 
-Więcej informacji o innych platformach i przypadkach użycia znajdziesz w przewodnikach dotyczących konkretnych przypadków użycia w dokumentacji [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=pl)
-i dokumentacji [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=pl).
+Per altre piattaforme e altri casi d'uso, consulta le guide specifiche per i casi d'uso nella documentazione dell'API [Gemini Developer](https://ai.google.dev/gemini-api/docs?hl=it)
+e nella documentazione di [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=it).
 
-## Wskazówki dotyczące migracji
+## Considerazioni sulla migrazione
 
-Podczas migracji:
+Durante la migrazione:
 
-- Do uwierzytelniania musisz używać kont usługi Google Cloud. Więcej informacji znajdziesz w [dokumentacji Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=pl).
-- Możesz użyć dotychczasowego projektu Google Cloud
-  (tego samego, którego używasz do generowania klucza interfejsu API) lub możesz
-  [utworzyć nowy projekt Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=pl).
-- Obsługiwane regiony mogą się różnić w zależności od tego, czy używasz Gemini Developer API czy Gemini Enterprise Agent Platform API. Zapoznaj się z listą
-  [obsługiwanych regionów w przypadku generatywnej AI w Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=pl).
-- Wszystkie modele utworzone w Google AI Studio trzeba ponownie wytrenować w Gemini Enterprise Agent Platform.
+- Dovrai utilizzare gli account di servizio Google Cloud per l'autenticazione. Per ulteriori informazioni, consulta la documentazione di [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=it).
+- Puoi utilizzare il progetto Google Cloud esistente
+  (lo stesso che hai utilizzato per generare la chiave API) o puoi
+  [creare un nuovo progetto Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=it).
+- Le regioni supportate potrebbero variare tra l'API Gemini Developer e l'API Gemini Enterprise Agent Platform. Consulta l'elenco delle
+  [regioni supportate per l'AI generativa su Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=it).
+- Tutti i modelli creati in Google AI Studio devono essere sottoposti a un nuovo addestramento in Gemini Enterprise Agent Platform.
 
-Jeśli nie musisz już używać klucza Gemini API w Gemini Developer API, postępuj zgodnie ze sprawdzonymi metodami zapewniania bezpieczeństwa i usuń go.
+Se non hai più bisogno di utilizzare la chiave API Gemini per l'API Gemini Developer, segui le best practice di sicurezza ed eliminala.
 
-Aby usunąć klucz interfejsu API:
+Per eliminare una chiave API:
 
-1. Otwórz stronę
-   [danych logowania do interfejsu Google Cloud API](https://console.cloud.google.com/apis/credentials?hl=pl).
-2. Znajdź klucz interfejsu API, który chcesz usunąć, i kliknij ikonę **Działania**.
-3. Kliknij **Usuń klucz interfejsu API**.
-4. W oknie **Usuń dane logowania** kliknij **Usuń**.
+1. Apri la
+   [pagina Credenziali API di Google Cloud](https://console.cloud.google.com/apis/credentials?hl=it).
+2. Trova la chiave API che vuoi eliminare e fai clic sull'icona **Azioni**.
+3. Seleziona **Elimina chiave API**.
+4. Nella finestra modale **Elimina credenziale**, seleziona **Elimina**.
 
-   Rozpowszechnienie usunięcia klucza interfejsu API zajmuje kilka minut. Po zakończeniu rozpowszechniania cały ruch korzystający z usuniętego klucza interfejsu API jest odrzucany.
+   La propagazione dell'eliminazione di una chiave API richiede alcuni minuti. Al termine della propagazione, tutto il traffico che utilizza la chiave API eliminata viene rifiutato.
 
-## Dalsze kroki
+## Passaggi successivi
 
-- Więcej informacji o rozwiązaniach generatywnej AI w Gemini Enterprise Agent Platform znajdziesz w artykule
-  [Generatywna AI w Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=pl).
+- Per saperne di più sulle soluzioni di AI generativa su Gemini Enterprise Agent Platform, consulta la
+  [panoramica sull'AI generativa su Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=it).
 
-Prześlij opinię
+Invia feedback
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Ostatnia aktualizacja: 2026-09-12 UTC.
+Ultimo aggiornamento 2026-09-12 UTC.
 
-Chcesz przekazać coś jeszcze?
+Vuoi dirci altro?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]

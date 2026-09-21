@@ -1,1180 +1,1171 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=it
-fetched_at: 2026-09-14T05:39:39.729639+00:00
-title: "Prezzi dell'API Gemini Developer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=pl
+fetched_at: 2026-09-21T05:52:59.221797+00:00
+title: "Ceny interfejsu Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-# Prezzi dell'API Gemini Developer
+# Ceny interfejsu Gemini Developer API
 
-Inizia a creare senza costi con limiti generosi, poi fai lo scale up con
-prepagato e poi con prezzi basati sul pagamento a consumo per le tue applicazioni pronte per la produzione.
+Zacznij tworzyć bezpłatnie dzięki dużym limitom, a potem skaluj w górę dzięki płatnościom z góry i płatnościom według wykorzystania w przypadku aplikacji gotowych do wdrożenia.
 
-### Nessun costo
+### Bezpłatnie
 
-Per sviluppatori e piccoli progetti che iniziano a utilizzare l'API Gemini.
+Dla deweloperów i małych projektów, które dopiero zaczynają korzystać z interfejsu Gemini API.
 
-- check\_circleAccesso limitato a determinati modelli
-- check\_circleToken di input e output senza costi
-- check\_circleAccesso a Google AI Studio
-- check\_circleContenuti utilizzati per migliorare i nostri prodotti[\*](https://ai.google.dev/gemini-api/terms?hl=it)
+- check\_circleOgraniczony dostęp do niektórych modeli
+- check\_circleBezpłatne tokeny wejściowe i wyjściowe
+- check\_circleDostęp do Google AI Studio
+- check\_circleTreści wykorzystywane do ulepszania naszych usług[\*](https://ai.google.dev/gemini-api/terms?hl=pl)
 
-[Inizia senza costi](https://aistudio.google.com?hl=it)
+[Zacznij bez opłat](https://aistudio.google.com?hl=pl)
 
-### A pagamento
+### Płacący
 
-Per applicazioni di produzione che richiedono volumi più elevati e funzionalità avanzate.
+Dla aplikacji produkcyjnych, które wymagają większych wolumenów i zaawansowanych funkcji.
 
-- check\_circleLimiti di frequenza più elevati per i deployment di produzione
-- check\_circleAccesso alla memorizzazione nella cache del contesto
-- check\_circleAPI Batch (riduzione dei costi del 50%)
-- check\_circleAccesso ai modelli più avanzati di Google
-- check\_circleContenuti **non** utilizzati per migliorare i nostri prodotti[\*](https://ai.google.dev/gemini-api/terms?hl=it)
+- check\_circleWyższe limity ograniczania liczby żądań w środowisku produkcyjnym
+- check\_circleDostęp do pamięci podręcznej kontekstu
+- check\_circleBatch API (50% taniej)
+- check\_circle Dostęp do najbardziej zaawansowanych modeli Google
+- check\_circleTreści **nie są** wykorzystywane do ulepszania naszych usług[\*](https://ai.google.dev/gemini-api/terms?hl=pl)
 
-[Esegui l'upgrade all'account a pagamento](https://aistudio.google.com/api-keys?hl=it)
+[Przejdź na wersję płatną](https://aistudio.google.com/api-keys?hl=pl)
 
 ### Enterprise
 
-Per implementazioni su larga scala con esigenze personalizzate di sicurezza, assistenza e conformità, basate su [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=it).
+W przypadku wdrożeń w firmach, opartych na [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=pl).
 
-- check\_circleTutte le funzionalità di Paid, più l'accesso facoltativo a:
-- check\_circleCanali di assistenza dedicati
-- check\_circleSicurezza avanzata e conformità
-- check\_circleThroughput di cui è stato eseguito il provisioning
-- check\_circleSconti basati sul volume (in base all'utilizzo)
-- check\_circleML Ops, Model Garden e altro ancora
+- check\_circleWszystkie funkcje wersji płatnej oraz opcjonalny dostęp do:
+- check\_circleDedykowane kanały pomocy
+- check\_circleZaawansowane zabezpieczenia i zgodność
+- check\_circle Udostępniona przepustowość
+- check\_circleRabaty ilościowe (na podstawie wykorzystania)
+- check\_circleML Ops, baza modeli i inne
 
-[Contatta il team di vendita](https://cloud.google.com/contact?hl=it)
+[Skontaktuj się z zespołem sprzedaży](https://cloud.google.com/contact?hl=pl)
 
-## Gemini 3.6 Flash
+## Gemini 3.8 Flash
 
-*`gemini-3.6-flash`*
+*[`gemini-3.8-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pl)*
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-3.6-flash&hl=it)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl)
 
-Il nostro modello più intelligente, creato per la velocità, che combina intelligenza all'avanguardia con
-ricerca e grounding superiori.
+Nasz najbardziej inteligentny model Flash, zaprojektowany z myślą o długofalowej inżynierii oprogramowania, autonomicznych agentach i złożonych firmowych przepływach pracy.
 
-### Standard
+### Standardowy
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 1,50 $ |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 7,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | $0,15 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0, 75 USD do 31 grudnia 2026 r. 1, 50 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 3, 75 USD do 31 grudnia 2026 r. 7, 50 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,075 USD do 31 grudnia 2026 r. 0,15 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $ 0,75 |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 3,75 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,075 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 375 USD do 31 grudnia 2026 r. 0, 75 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 1, 875 USD do 31 grudnia 2026 r. 3, 75 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0375 USD do 31 grudnia 2026 r. 0,075 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $ 0,75 |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 3,75 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,075 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 375 USD do 31 grudnia 2026 r. 0, 75 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 1, 875 USD do 31 grudnia 2026 r. 3, 75 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0375 USD do 31 grudnia 2026 r. 0,075 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | $ 2,70 |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 13,50 |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | $0,27 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 1, 35 USD do 31 grudnia 2026 r. 2, 70 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 6, 75 USD do 31 grudnia 2026 r. 13, 50 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,135 USD do 31 grudnia 2026 r. 0,27 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
+## Gemini 3.7 Flash
 
-## Gemini 3.5 Flash
+*[`gemini-3.7-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=pl)*
 
-*`gemini-3.5-flash`*
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.7-flash&hl=pl)
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-3.5-flash&hl=it)
+Nasz szybki i wydajny model Flash stworzony z myślą o codziennym kodowaniu, korzystaniu z narzędzi agentowych i niezawodnym wykonywaniu wieloetapowych zadań.
 
-Il nostro modello più intelligente, creato per la velocità, che combina intelligenza all'avanguardia con
-ricerca e grounding superiori.
+### Standardowy
 
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 1,50 $ |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 9,00 |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | $0,15 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0, 75 USD do 31 grudnia 2026 r. 1, 50 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 3, 75 USD do 31 grudnia 2026 r. 7, 50 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,075 USD do 31 grudnia 2026 r. 0,15 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $ 0,75 |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 4,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,075 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 375 USD do 31 grudnia 2026 r. 0, 75 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 1, 875 USD do 31 grudnia 2026 r. 3, 75 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0375 USD do 31 grudnia 2026 r. 0,075 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $ 0,75 |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 4,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,08 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 375 USD do 31 grudnia 2026 r. 0, 75 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 1, 875 USD do 31 grudnia 2026 r. 3, 75 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0375 USD do 31 grudnia 2026 r. 0,075 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | $ 2,70 |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 16,20 $ |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | $0,27 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 1, 35 USD do 31 grudnia 2026 r. 2, 70 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 6, 75 USD do 31 grudnia 2026 r. 13, 50 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,135 USD do 31 grudnia 2026 r. 0,27 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
+## Gemini 3.6 Flash
 
-## Gemini 3.5 Live Translate
+*[`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pl)*
 
-*`gemini-3.5-live-translate-preview`*
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=pl)
 
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=it)
+Nasz model Flash poprzedniej generacji, który zapewnia równowagę między szybkością a funkcjami multimodalnymi w ogólnych zadaniach agentowych i zadaniach wykonywanych na co dzień.
 
-Il nostro modello di traduzione vocale in tempo reale a bassa latenza che supporta oltre 70 lingue.
+### Standardowy
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 3,50 $ o 0,0053 $/minuto\* (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 21 $ o 0,0315 $/minuto\* (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0, 75 USD do 31 grudnia 2026 r. 1, 50 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 3, 75 USD do 31 grudnia 2026 r. 7, 50 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,075 USD do 31 grudnia 2026 r. 0,15 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* La fatturazione si basa sul consumo totale di token audio di input e output, calcolato a una velocità di 25 token al secondo di audio, il che equivale a un prezzo effettivo di circa 0,0368 $al minuto.
+### Wsad
 
-## Gemini 3.5 Flash-Lite
-
-*`gemini-3.5-flash-lite`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=it)
-
-Il nostro modello GA più conveniente, ottimizzato per attività agentiche ad alto volume,
-traduzione ed elaborazione di dati semplici.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,30 $ (testo / immagine / video / audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 2,50 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,03 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Batch
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Senza costi | 0,15 $ (testo / immagine / video / audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | € 1,25 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,02 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 375 USD do 31 grudnia 2026 r. 0, 75 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 1, 875 USD do 31 grudnia 2026 r. 3, 75 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0375 USD do 31 grudnia 2026 r. 0,075 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,15 $ (testo / immagine / video / audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | € 1,25 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,02 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 375 USD do 31 grudnia 2026 r. 0, 75 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 1, 875 USD do 31 grudnia 2026 r. 3, 75 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0375 USD do 31 grudnia 2026 r. 0,075 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,54 $ (testo / immagine / video / audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 4,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,05 $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 1, 35 USD do 31 grudnia 2026 r. 2, 70 USD od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 6, 75 USD do 31 grudnia 2026 r. 13, 50 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,135 USD do 31 grudnia 2026 r. 0,27 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemini 3.1 Flash-Lite
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-*`gemini-3.1-flash-lite`*
+\*\* Można przetestować w Google AI Studio.
 
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=it)
+## Gemini 3.5 Flash
 
-Il nostro modello più conveniente, ottimizzato per attività agentiche ad alto volume,
-traduzione ed elaborazione semplice dei dati.
+*[`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl)*
 
-### Standard
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash&hl=pl)
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+Nasz wcześniejszy model Flash, stworzony z myślą o szybkości i podstawowej wydajności w przypadku rutynowych zadań o wysokiej przepustowości.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,25 $ (testo / immagine / video) 0,50 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 1,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,025 (testo / immagine / video) $0,05 (audio) $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 4,50 PLN |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 36 zł |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,15–1,00 USD za 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,125 $ (testo / immagine / video) 0,25 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 0,75 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,0125 (testo/immagine/video) $0,025 (audio) $0,50 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Flex
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Senza costi | 0,125 $ (testo / immagine / video) 0,25 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 0,75 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,0125 (testo/immagine/video) $0,025 (audio) $0,50 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Priorità
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Senza costi | 0,45 $ (testo / immagine / video) 0,90 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 2,70 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,045 (testo/immagine/video) $0,09 (audio) $1,80 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
-
-## Gemini Omni Flash (anteprima)
-
-*`gemini-omni-flash-preview`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=it)
-
-Il nostro modello di nuova generazione per la generazione e la modifica dei video, disponibile per gli sviluppatori nel livello a pagamento dell'API Gemini.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | 1,50 $ (testo / immagine / video / audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 9 $ (testo) 17,50 $ (video)\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-\* La fatturazione si basa sul consumo totale di token di output, calcolato a una velocità di 5792 token al secondo di video a 720p. In base ai prezzi standard, ciò equivale a un prezzo effettivo di circa 0,10 $al secondo.
-
-## Gemini 3.1 Pro (anteprima)
-
-*`gemini-3.1-pro-preview` e `gemini-3.1-pro-preview-customtools`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=it)
-
-Gli ultimi miglioramenti in termini di prestazioni, intelligenza e usabilità della migliore famiglia di modelli al mondo per la comprensione multimodale, le capacità agentiche e il vibe coding.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | 2 $, prompt <= 200.000 token 4 $, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 12 $, prompt <= 200.000 token 18 $, prompt > 200.000 token |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,20, prompt <= 200.000 token $0,40, prompt > 200.000 token $4,50 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Batch
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | 1 $, prompt <= 200.000 token 2 $, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 6 $, prompt <= 200.000 token 9 $, prompt > 200.000 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | *Come Standard*  0,20 $, prompt <= 200.000 token 0,40 $, prompt > 200.000 4,50 $ / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,75 zł |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 4,50 USD |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,075 –1,00 USD / 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 1 $, prompt <= 200.000 token 2 $, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 6 $, prompt <= 200.000 token 9 $, prompt > 200.000 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | *Come Standard*  0,20 $, prompt <= 200.000 token 0,40 $, prompt > 200.000 4,50 $ / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,75 zł |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 4,50 USD |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,08 USD 1,00 USD za 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 3,60 $, prompt <= 200.000 token 7,20 $, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 21,60 $, prompt <= 200.000 token 32,40 $, prompt > 200.000 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,36, prompt <= 200.000 token $0,72, prompt > 200.000 token $8,10 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 2,70 USD |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 16,20 USD |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,27 USD 1,00 USD / 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-## Gemini 3.1 Flash Live (anteprima)
+\*\* Można przetestować w Google AI Studio.
 
-*`gemini-3.1-flash-live-preview`*
+## Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking i Gemini 3.1 Flash Live (wersja testowa)
 
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=it)
+*[`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=pl), [`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=pl) i [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=pl)*
 
-Il nostro modello audio-audio a bassa latenza ottimizzato per il dialogo in tempo reale con
-rilevamento delle sfumature acustiche, precisione numerica e consapevolezza multimodale.
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live&hl=pl)
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+Nasze modele audio-to-audio o krótkim czasie oczekiwania, zoptymalizowane pod kątem agentów głosowych działających w czasie rzeczywistym i dialogów na żywo, w tym obsługi rozumowania w tle z rozszerzonym myśleniem.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | $0,75 (testo) $3 o $0,005/minuto (audio) $1 o $0,002/minuto (immagine/video) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $4,50 (testo) $12,00 o $0,018/min (audio) |
-| Grounding con la Ricerca Google\* | Supportato | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,75 USD (tekst) 3,00 USD lub 0,005 USD/min (audio) 1,00 USD lub 0,002 USD/min (obraz/wideo) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 4,50 PLN (tekst) 12,00 PLN lub 0,018 PLN/min (audio) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Obsługiwane | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
+## Gemini 3.5 Live Translate
 
-*`gemini-3.1-flash-image`*
+*[`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=pl)*
 
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=it)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=pl)
 
-Progettato per velocità ed efficienza, il modello di generazione di immagini Gemini 3.1 Flash è
-efficace per risposte rapide e interattive e per un throughput elevato.
+Nasz model tłumaczenia mowy na mowę w czasie rzeczywistym z krótkim czasem oczekiwania, który obsługuje ponad 70 języków.
 
-### Standard
+### Standardowy
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,50 $ (testo/immagine) |
-| Prezzo di output | Non disponibile | 3 $ (testo e pensiero)  60 $ (immagini)  Equivalente a 0,045 $per immagine da 0,5 K\*  0,067 $ per immagine da 1 K\*, 0,101 $ per immagine da 2 K\*, e 0,151 $per immagine da 4 K\*. |
-| Grounding con la Ricerca Google e la Ricerca immagini Google\*\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca per la grounding basata su testo e immagini. |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 3,50 USD lub 0,0053 USD/min\* (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 21,00 USD lub 0,0315 USD/min\* (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+\* Rozliczenia są oparte na łącznym zużyciu tokenów audio wejściowych i wyjściowych, obliczanym według stawki 25 tokenów na sekundę dźwięku, co daje efektywną cenę około 0,0368 USD za minutę.
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+## Gemini 3.5 Transcribe Live
+
+*[`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-3.5-transcribe-live&hl=pl)
+
+Nasz model zamiany mowy na tekst w czasie rzeczywistym o krótkim czasie oczekiwania do dwukierunkowej transkrypcji strumieniowego dźwięku przez WebSockets.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $0.25 (testo, immagine) |
-| Prezzo di output | Non disponibile | 1,50 $ (testo e pensiero)  30 $ (immagini)  Equivalente a 0,022 $per immagine da 0,5 K\*  0,034 $ per immagine da 1 K\*,  0,050 $ per immagine da 2 K\*,  e 0,076 $per immagine da 4 K\*. |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 3,50 USD lub 0,005 USD/min\* (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 21,00 PLN lub 0,004 PLN/min\* (tekst) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Nieobsługiwane |  |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* L'output di immagini ha un prezzo di 60 $per 1.000.000 di token.
-Le immagini di output a 0,5 K (512 px) consumano 747 token e corrispondono a 0,045 $per
-immagine. Le immagini di output a 1000 pixel (1024 x 1024 px) consumano 1120 token e sono equivalenti
-a 0,067 $per immagine. Le immagini di output a 2K (2048 x 2048 px) consumano 1680 token e
-equivalgono a 0,101 $per immagine. Le immagini di output a 4K (4096 x 4096 px) consumano
-2520 token e corrispondono a $0,151 per immagine.
+\* Szacunkowe ceny są oparte na 25 tokenach audio na sekundę w przypadku danych wejściowych i 175 tokenach tekstowych na minutę w przypadku danych wyjściowych, co daje efektywną stawkę mieszaną w wysokości około 0,009 USD za minutę w przypadku funkcji Transkrypcja na żywo.
 
-\*\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita. Il contesto recuperato (testo o immagini) fornito da Grounding con la ricerca Google
-non viene addebitato come token di input.
+## Gemini 3.5 Transcribe
 
-## Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
+*[`gemini-3.5-transcribe`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=pl)*
 
-*`gemini-3.1-flash-lite-image`*
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-3.5-transcribe&hl=pl)
 
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=it)
+Nasz model zamiany mowy na tekst z automatycznym wykrywaniem języka, rozdzielaniem rozmówców, sygnaturami czasowymi na poziomie słów i rozpoznawaniem słów z uwzględnieniem kontekstu.
 
-Progettato come specialista dell'efficienza della famiglia di modelli di generazione di immagini, il modello Gemini 3.1
-Flash Lite Image è progettato per una latenza molto bassa e una generazione e modifica di immagini
-convenienti.
+### Standardowy
 
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,25 $ (testo/immagine/video) |
-| Prezzo di output | Non disponibile | 1,50 $ (testo e pensiero)  30 $ (immagini)  Equivalente a 0,0336 $per immagine con risoluzione 1K\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 2,00 USD lub 0,003 USD/min\* (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 12,00 PLN lub 0,002 PLN/min\* (tekst) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Nieobsługiwane |  |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+\* Szacunkowe ceny są oparte na 25 tokenach audio na sekundę w przypadku danych wejściowych i 175 tokenach tekstowych na minutę w przypadku danych wyjściowych, co daje efektywną stawkę mieszaną w wysokości około 0,005 USD za minutę w przypadku transkrypcji.
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+## Gemini 3.5 Flash-Lite
+
+*[`gemini-3.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=pl)
+
+Ekonomiczny model zoptymalizowany pod kątem zadań agentowych o dużej skali, tłumaczenia i prostego przetwarzania danych.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $0,125 (testo/immagine/video) |
-| Prezzo di output | Non disponibile | 0,75 $ (testo e pensiero)  15 $ (immagini)  Equivalente a 0,0168 $per immagine con risoluzione 1K\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,30 USD (tekst / obraz / film / dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 7,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,03 –1,00 USD / 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* L'output di immagini ha un prezzo di 30 $per 1.000.000 di token. Le immagini di output a 1K (1024 x 1024 px) consumano 1120 token e corrispondono a 0,0336 $per immagine.
+### Wsad
 
-## Gemini 3.1 Flash TTS (anteprima)
-
-*`gemini-3.1-flash-tts-preview`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=it)
-
-Il nostro modello audio Text-to-Speech 3.1 Flash ottimizzato per la generazione di voce controllabile,
-a bassa latenza e con un buon rapporto qualità-prezzo.
-
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 1,00 $ (messaggio) |
-| Prezzo di output | Senza costi | 20,00 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Batch
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,50 $ (testo) |
-| Prezzo di output | Non disponibile | 10,00 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-\* I token audio corrispondono a 25 token al secondo di audio.
-
-## Gemini 3 Flash (anteprima)
-
-*`gemini-3-flash-preview`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-3-flash-preview&hl=it)
-
-Il nostro modello più intelligente, creato per la velocità, che combina intelligenza all'avanguardia con
-ricerca e grounding superiori.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Senza costi | 0,50 $ (testo / immagine / video) 1 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 3,00 |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | 0,05 $ (testo/immagine/video) 0,10 $ (audio) 1$per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Batch
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,25 $ (testo / immagine / video) 0,50 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 1,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | *Come Standard*  0,05 $ (testo / immagine / video)  0,10 $ (audio)  1 $ / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,15 USD (tekst / obraz / film / dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 3,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,02 –1,00 USD za 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,25 $ (testo / immagine / video) 0,50 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 1,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | *Come Standard*  0,05 $ (testo / immagine / video)  0,10 $ (audio)  1 $ / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 richieste al mese (senza costi, condivise su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,15 USD (tekst / obraz / film / dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 3,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,02 –1,00 USD za 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,90 $ (testo / immagine / video) 1,80 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 5,40 |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | $0,09 (testo / immagine / video) $0,18 (audio) $1,80 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Grounding con Google Maps | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,54 USD (tekst / obraz / wideo / dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 4,50 USD |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,05 –1,00 USD za 1 000 000 tokenów na godzinę (cena za miejsce na dane) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-## Immagine di Gemini 3 Pro (Nano Banana Pro) 🍌
+\*\* Można przetestować w Google AI Studio.
 
-*`gemini-3-pro-image`*
+\*\* Można przetestować w Google AI Studio.
 
-[Provalo in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=it)
+## Gemini 3.1 Flash-Lite
 
-Il nostro modello nativo di generazione di immagini, ottimizzato per velocità, flessibilità e comprensione contestuale. **Input e output di testo** hanno lo stesso prezzo di [Gemini 3.1 Pro](#gemini-3.1-pro-preview).
+*[`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl)*
 
-### Standard
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=pl)
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+Ekonomiczny model zoptymalizowany pod kątem zadań agentowych o dużej skali, tłumaczenia i prostego przetwarzania danych.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 2 $ (testo/immagine),  equivalente a 0,0011 $per immagine\* |
-| Prezzo di output | Non disponibile | 12 $ (testo e pensiero)  120 $ (immagini)  Equivalente a 0,134 $per immagine 1K/2K\*\*  e 0,24 $per immagine 4K\*\* |
-| Grounding con la Ricerca Google\*\*\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,25 USD (tekst / obraz / film) 0,50 USD (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 4,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,025 USD (tekst / obraz / film) 0,05 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 1 $ (testo), 0,0006 $ (immagine)\* |
-| Prezzo di output | Non disponibile | 6 $ (testo e pensiero)  0,067 $ per immagine da 1000/2000 pixel\*\*  0,12 $ per immagine 4K\*\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,125 USD (tekst / obraz / film) 0,25 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 0,75 zł |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0125 USD (tekst / obraz / film) 0,025 USD (audio) 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 1 $ (testo), 0,0006 $ (immagine)\* |
-| Prezzo di output | Non disponibile | 6 $ (testo e pensiero)  0,067 $ per immagine da 1000/2000 pixel\*\*  0,12 $ per immagine 4K\*\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,125 USD (tekst / obraz / film) 0,25 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 0,75 zł |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,0125 USD (tekst / obraz / film) 0,025 USD (audio) 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 3,60 $ (testo/immagine) |
-| Prezzo di output | Non disponibile | 21,60 $ (testo e pensiero)  216 $ (immagini) |
-| Grounding con la Ricerca Google\*\*\* | Non disponibile | 5000 prompt al mese (senza costi, condivisi su Gemini 3), poi 14 $per 1000 query di ricerca |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,45 USD (tekst / obraz / film) 0,90 USD (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 2,70 USD |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,045 USD (tekst / obraz / film) 0,09 USD (audio) 1,80 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-\* L'input immagine è impostato su 560 token o 0,0011 $per immagine.
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-\*\* L'output di immagini ha un prezzo di 120 $per 1.000.000 di token. Le immagini di output da 1024 x 1024 px (1K) fino a 2048 x 2048 px (2K) consumano 1120 token e
-sono equivalenti a 0,134 $per immagine. Le immagini di output fino a 4096 x 4096 px (4K) consumano
-2000 token e corrispondono a 0,24 $per immagine.
+\*\* Można przetestować w Google AI Studio.
 
-\*\*\* Una richiesta inviata a Gemini da un cliente potrebbe generare una o più
-query nella Ricerca Google. Ti verrà addebitato il costo di ogni singola query di ricerca
-eseguita.
+## Gemini Omni Flash
 
-## Gemini 2.5 Pro
+*[`gemini-omni-1.1-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=pl)*
 
-*`gemini-2.5-pro`*
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-1.1-flash&hl=pl)
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=it)
+Nasz model nowej generacji do generowania i edytowania filmów, który jest teraz ogólnie dostępny dla deweloperów w ramach płatnej wersji Gemini API.
 
-Il nostro modello allo stato dell'arte multiuso, che eccelle nella programmazione e in attività di ragionamento complesse.
+### Standardowy
 
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 1,25 $, prompt <= 200.000 token 2,50 $, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 10 $, prompt <= 200.000 token 15 $, prompt > 200.000 token |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,125, prompt <= 200.000 token $0,25, prompt > 200.000 token $4,50 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi), poi 35 $ / 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | 10.000 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 1,50 USD (tekst / obraz / film / dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 9,00 USD (tekst) 17,50 USD (film)\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+\* Rozliczenia są oparte na łącznym zużyciu tokenów wyjściowych, obliczanym według stawki 5792 tokenów na sekundę filmu w rozdzielczości 720p. W przypadku standardowych cen odpowiada to efektywnej cenie około 0, 10 USD za sekundę.
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+## Gemini Omni Flash (wersja testowa)
+
+*[`gemini-omni-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=pl)
+
+Nasz model nowej generacji do generowania i edytowania filmów.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $0,625, prompt <= 200.000 token $1,25, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 5 $, prompt <= 200.000 token 7,50 $, prompt > 200.000 token |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,125, prompt <= 200.000 token $0,25, prompt > 200.000 token $4,50 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi), poi 35 $ / 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 1,50 USD (tekst / obraz / film / dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 9,00 USD (tekst) 17,50 USD (film)\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+\* Płatności są naliczane na podstawie łącznego zużycia tokenów wyjściowych, obliczanego w tempie 5792 tokenów na sekundę filmu w rozdzielczości 720p. W przypadku cen standardowych odpowiada to efektywnej cenie około 0, 10 USD za sekundę.
+
+## Gemini 3.1 Pro (wersja testowa)
+
+*[`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) i [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl#gemini-31-pro-preview-customtools)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=pl)
+
+Model Pro 3 generacji, stworzony do rozpoznawania multimodalnego, funkcji agentowych i vibe-codingu.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 2,00 USD, prompty <= 200 tys.tokenów 4,00 USD, prompty > 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 12,00 USD, prompty <= 200 tys.tokenów 18,00 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,20 USD za prompty <= 200 tys. tokenów 0,40 USD za prompty > 200 tys. tokenów 4,50 USD za 1 mln tokenów na godzinę (cena pamięci masowej) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+### Wsad
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 1,00 USD, prompty <= 200 tys.tokenów 2,00 USD, prompty > 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 6,00 USD, prompty <= 200 tys.tokenów 9,00 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | *Tak samo jak w przypadku wersji Standard* 0,20 USD za prompty zawierające maksymalnie 200 tys. tokenów 0,40 USD za prompty zawierające ponad 200 tys. tokenów 4,50 USD za 1 mln tokenów na godzinę (cena pamięci masowej) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $0,625, prompt <= 200.000 token $1,25, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | 5 $, prompt <= 200.000 token 7,50 $, prompt > 200.000 token |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,125, prompt <= 200.000 token $0,25, prompt > 200.000 token $4,50 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi), poi 35 $ / 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 1,00 USD, prompty <= 200 tys.tokenów 2,00 USD, prompty > 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 6,00 USD, prompty <= 200 tys.tokenów 9,00 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | *Tak samo jak w przypadku wersji Standard* 0,20 USD za prompty zawierające maksymalnie 200 tys. tokenów 0,40 USD za prompty zawierające ponad 200 tys. tokenów 4,50 USD za 1 mln tokenów na godzinę (cena pamięci masowej) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 2,25 $, prompt <= 200.000 token 4,50 $, prompt > 200.000 token |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 18 $, prompt <= 200.000 token 27 $, prompt > 200.000 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,225, prompt <= 200.000 token $0,45, prompt > 200.000 $8,10 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi), poi 35 $ / 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | 10.000 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 3,60 USD, prompty <= 200 tys.tokenów 7,20 USD, prompty > 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 21,60 USD, prompty <= 200 tys.tokenów 32,40 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,36 USD za prompty o długości do 200 tys. tokenów 0,72 USD za prompty o długości powyżej 200 tys. tokenów 8,10 USD za 1 mln tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemini 2.5 Flash
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-*`gemini-2.5-flash`*
+\*\* Można przetestować w Google AI Studio.
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=it)
+## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
 
-Il nostro primo modello di ragionamento ibrido che supporta una finestra contestuale da 1 milione di token e
-dispone di budget di pensiero.
+*[`gemini-3.1-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=pl)*
 
-### Standard
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=pl)
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+Model generowania obrazów Gemini 3.1 Flash został zaprojektowany z myślą o szybkości i wydajności. Jest skuteczny w przypadku szybkich, interaktywnych odpowiedzi i wysokiej przepustowości.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,30 $ (testo / immagine / video) 1 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 2,50 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,03 (testo / immagine / video) $0,1 (audio) $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Senza costi, fino a 500 RPD (limite condiviso con RPD Flash-Lite) | 1500 RPD (senza costi, limite condiviso con le RPD Flash-Lite), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | 500 RPD | 1500 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,50 USD (tekst/obraz) |
+| Cena wyjściowa | Niedostępne | 3 USD (tekst i myślenie)  60,00 USD (obrazy)  Odpowiednik 0,045 USD za 0,5 tys. obrazów\*  0,067 USD za 1 tys. obrazów\*, 0,101 USD za 2 tys. obrazów\*, i 0,151 USD za 4 tys. obrazów\*. |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google i wyszukiwarki grafiki\*\* | Niedostępne\*\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań dotyczących tekstu i obrazów. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,15 $ (testo / immagine / video) 0,50 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | € 1,25 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,03 (testo / immagine / video) $0,1 (audio) $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi, limite condiviso con le RPD Flash-Lite), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,25 USD (tekst, obraz) |
+| Cena wyjściowa | Niedostępne | 1,50 USD (tekst i myślenie)  30,00 USD (obrazy)  Odpowiednik 0,022 USD za 0,5 tys. obrazów\*  0,034 USD za 1 tys. obrazów\*,  0,050 USD za 2 tys. obrazów\*,  0,076 USD za 4 tys. obrazów\*. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+\* Wygenerowanie obrazu kosztuje 60 USD za 1 000 000 tokenów.
+Obrazy wyjściowe o rozdzielczości 0,5K (512 pikseli) zużywają 747 tokenów i kosztują 0,045 USD za obraz. Obrazy wyjściowe w rozdzielczości 1K (1024 x 1024 pikseli) zużywają 1120 tokenów i kosztują 0,067 USD za obraz. Obrazy wyjściowe w rozdzielczości 2K (2048 x 2048 pikseli) zużywają 1680 tokenów i kosztują 0,101 USD za obraz. Obrazy wyjściowe w rozdzielczości 4K (4096 x 4096 pikseli) zużywają 2520 tokenów i kosztują 0,151 USD za obraz.
+
+\*\* Wysłana przez klienta prośba do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie. Pobrany kontekst (tekst lub obrazy) dostarczony przez Grounding with Google Search nie jest rozliczany jako tokeny wejściowe.
+
+\*\*\* Można przetestować w Google AI Studio.
+
+## Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
+
+*[`gemini-3.1-flash-lite-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=pl)
+
+Model Gemini 3.1 Flash Lite Image został zaprojektowany jako specjalista od wydajności w rodzinie modeli do generowania obrazów. Zapewnia bardzo małe opóźnienie oraz ekonomiczne generowanie i edytowanie obrazów.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 0,25 PLN (tekst/obraz/wideo) |
+| Cena wyjściowa | Niedostępne | 1,50 USD (tekst i myślenie)  30,00 USD (obrazy)  Odpowiednik 0,0336 USD za obraz o rozdzielczości 1K\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+### Wsad
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 0,125 USD (tekst/obraz/film) |
+| Cena wyjściowa | Niedostępne | 0,75 USD (tekst i myślenie)  15,00 USD (obrazy)  Odpowiednik 0,0168 USD za obraz o rozdzielczości 1K\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+\* Wygenerowanie obrazu kosztuje 30 USD za 1 000 000 tokenów. Obrazy wyjściowe w rozdzielczości 1K (1024 x 1024 pikseli) zużywają 1120 tokenów i kosztują 0,0336 USD za obraz.
+
+## Gemini 3.1 Flash TTS (wersja testowa)
+
+*[`gemini-3.1-flash-tts-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=pl)
+
+Nasz model audio 3.1 Flash Text-to-Speech zoptymalizowany pod kątem generowania mowy o niskim czasie oczekiwania i możliwości sterowania, który zapewnia dobrą wydajność w stosunku do ceny.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Bezpłatnie | 1,00 PLN (tekst) |
+| Cena wyjściowa | Bezpłatnie | 20,00 PLN (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+### Wsad
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 0,50 USD (tekst) |
+| Cena wyjściowa | Niedostępne | 10 PLN (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+\* Tokeny audio odpowiadają 25 tokenom na sekundę dźwięku.
+
+## Gemini 3 Flash (wersja testowa)
+
+*[`gemini-3-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-3-flash-preview&hl=pl)
+
+Nasz starszy model Flash, który zapewnia podstawową szybkość i inteligencję.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Bezpłatnie | 0,50 USD (tekst / obraz / film) 1,00 USD (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 3 USD |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,05 USD (tekst / obraz / wideo) 0,10 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+### Wsad
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 0,25 USD (tekst / obraz / film) 0,50 USD (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 4,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | *Tak samo jak w przypadku wersji Standard*  0,05 USD (tekst / obraz / film)  0,10 USD (audio)  1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,15 $ (testo / immagine / video) 0,50 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | € 1,25 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,03 (testo / immagine / video) $0,1 (audio) $1,00 / 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi, limite condiviso con le RPD Flash-Lite), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,25 USD (tekst / obraz / film) 0,50 USD (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 4,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | *Tak samo jak w przypadku wersji Standard*  0,05 USD (tekst / obraz / film)  0,10 USD (audio)  1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 zapytań miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,54 $ (testo / immagine / video) 1,80 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 4,50 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,054 (testo/immagine/video) $0,18 (audio) $1,80 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Senza costi, fino a 500 RPD (limite condiviso con RPD Flash-Lite) | 1500 RPD (senza costi, limite condiviso con le RPD Flash-Lite), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | 500 RPD | 1500 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,90 PLN (tekst / obraz / film) 1,80 PLN (audio) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 5,40 USD |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | 0,09 USD (tekst / obraz / wideo) 0,18 USD (audio) 1,80 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\* | Niedostępne\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Grounding z użyciem Map Google | Niedostępne\*\* | 5000 promptów miesięcznie (bezpłatnie, współdzielone w Gemini 3), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemini 2.5 Flash-Lite
+\* Żądanie przesłane przez klienta do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-*`gemini-2.5-flash-lite`*
+\*\* Można przetestować w Google AI Studio.
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=it)
+## Gemini 3 Pro Image (Nano Banana Pro) 🍌
 
-Il nostro modello più piccolo ed economico, creato per l'utilizzo su larga scala.
+*[`gemini-3-pro-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=pl)*
 
-### Standard
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=pl)
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+Nasz natywny model generowania obrazów zoptymalizowany pod kątem szybkości, elastyczności i rozumienia kontekstu. **Dane wejściowe i wyjściowe w postaci tekstu** są wyceniane tak samo jak [Gemini 3.1 Pro](#gemini-3.1-pro-preview).
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input (testo, immagine, video) | Senza costi | 0,10 $ (testo / immagine / video) 0,30 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 0,40 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,01 (testo/immagine/video) $0,03 (audio) $1,00 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Senza costi, fino a 500 RPD (limite condiviso con RPD Flash) | 1500 RPD (senza costi, limite condiviso con le RPD di Flash), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | 500 RPD | 1500 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 2,00 USD (tekst/obraz),  co odpowiada 0,0011 USD za obraz\* |
+| Cena wyjściowa | Niedostępne | 12,00 PLN (tekst i myślenie)  120,00 PLN (obrazy)  Odpowiednik 0,134 PLN za 1000/2000 obrazów\*\*  i 0,24 PLN za obraz w rozdzielczości 4K\*\* |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\*\*\* | Niedostępne\*\*\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input (testo, immagine, video) | Non disponibile | 0,05 $ (testo / immagine / video) 0,15 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | $ 0,20 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,01 (testo/immagine/video) $0,03 (audio) $1,00 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi, limite condiviso con le RPD di Flash), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 1,00 USD (tekst), 0,0006 USD (obraz)\* |
+| Cena wyjściowa | Niedostępne | 6,00 USD (tekst i myślenie)  0,067 USD za 1000/2000 obrazów\*\*  0,12 USD za 4000 obrazów\*\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input (testo, immagine, video) | Non disponibile | 0,05 $ (testo / immagine / video) 0,15 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | $ 0,20 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,01 (testo/immagine/video) $0,03 (audio) $1,00 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi, limite condiviso con le RPD di Flash), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 1,00 USD (tekst), 0,0006 USD (obraz)\* |
+| Cena wyjściowa | Niedostępne | 6,00 USD (tekst i myślenie)  0,067 USD za 1000/2000 obrazów\*\*  0,12 USD za 4000 obrazów\*\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input (testo, immagine, video) | Senza costi | 0,18 $ (testo / immagine / video) 0,54 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 0,72 $ |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,018 (testo/immagine/video) $0,054 (audio) $1,80 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Senza costi, fino a 500 RPD (limite condiviso con RPD Flash) | 1500 RPD (senza costi, limite condiviso con le RPD di Flash), poi 35 $per 1000 prompt basati su dati reali |
-| Grounding con Google Maps | 500 RPD | 1500 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 3,60 zł (tekst/obraz) |
+| Cena wyjściowa | Niedostępne | 21,60 USD (tekst i myślenie)  216,00 USD (obrazy) |
+| Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google\*\*\* | Niedostępne\*\*\*\* | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemini 2.5 Flash-Lite (anteprima)
+\* Dane wejściowe obrazu są ustawione na 560 tokenów lub 0,0011 USD za obraz.
 
-*`gemini-2.5-flash-lite-preview-09-2025`*
+\*\* Cena za wygenerowanie obrazu wynosi 120 USD za 1 000 000 tokenów. Wyjściowe obrazy o rozmiarach od 1024 x 1024 pikseli (1K) do 2048 x 2048 pikseli (2K) zużywają 1120 tokenów i kosztują 0,134 USD za obraz. Obrazy wyjściowe o rozdzielczości do 4096 × 4096 pikseli (4K) zużywają 2000 tokenów i kosztują 0,24 USD za obraz.
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=it)
+\*\*\* Wysłana przez klienta prośba do Gemini może spowodować wysłanie do wyszukiwarki Google co najmniej 1 zapytania. Opłata będzie naliczana za każde wykonane zapytanie.
 
-L'ultimo modello basato su Gemini 2.5 Flash Lite ottimizzato per l'efficienza dei costi, il throughput elevato e l'alta qualità.
+\*\*\*\* Można przetestować w Google AI Studio.
 
-### Standard
+## Gemini 2.5 Pro
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+*[`gemini-2.5-pro`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl)*
+
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=pl)
+
+Model Pro, który doskonale radzi sobie z kodowaniem i złożonymi zadaniami wymagającymi wnioskowania.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input (testo, immagine, video) | Senza costi | 0,10 $ (testo / immagine / video) 0,30 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 0,40 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,01 (testo/immagine/video) $0,03 (audio) $1,00 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Senza costi, fino a 500 RPD (limite condiviso con RPD Flash) | 1500 RPD (senza costi, limite condiviso con le RPD di Flash), poi 35 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 1, 25 USD za prompty o długości do 200 tys.tokenów 2, 50 USD za prompty o długości powyżej 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 10,00 USD, prompty <= 200 tys.tokenów 15,00 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,125 USD za prompty <= 200 tys. tokenów 0,25 USD za prompty > 200 tys. tokenów 4,50 USD za 1 mln tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | 10 000 RPD (bezpłatnie), a potem 25 USD za 1000 uzasadnionych promptów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input (testo, immagine, video) | Non disponibile | 0,05 $ (testo / immagine / video) 0,15 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | $ 0,20 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,01 (testo/immagine/video) $0,03 (audio) $1,00 per 1.000.000 di token all'ora (prezzo di archiviazione) |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi, limite condiviso con le RPD di Flash), poi 35 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-## Audio nativo Gemini 2.5 Flash (API Live)
-
-*`gemini-2.5-flash-native-audio-preview-12-2025`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com/app/live?hl=it#gemini-2.5-flash-native-audio-preview-12-2025)
-
-I nostri modelli audio nativi dell'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it) ottimizzati per output audio di qualità superiore con un ritmo, una naturalezza della voce, un livello di dettaglio e un tono migliori.
-
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Senza costi | 0,50 $ (testo) 3 $ (audio / video) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | 2 $ (testo) 12 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-## Gemini 2.5 Flash Image (Nano Banana) 🍌
-
-*`gemini-2.5-flash-image`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=it)
-
-Il nostro modello nativo di generazione di immagini, ottimizzato per velocità, flessibilità e comprensione contestuale. L'input e l'output di testo hanno lo stesso prezzo di [2,5 Flash](#gemini-2.5-flash).
-
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | $0,30 (testo / immagine) |
-| Prezzo di output | Non disponibile | $0.039 per immagine\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
-
-### Batch
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
-| --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,15 $ (testo / immagine) |
-| Prezzo di output | Non disponibile | $0.0195 per immagine\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 625 USD za prompty o długości do 200 tys.tokenów 1, 25 USD za prompty o długości powyżej 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 5,00 USD, prompty <= 200 tys.tokenów 7,50 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,125 USD za prompty <= 200 tys. tokenów 0,25 USD za prompty > 200 tys. tokenów 4,50 USD za 1 mln tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
 ### Flex
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,15 $ (testo / immagine) |
-| Prezzo di output | Non disponibile | $0.0195 per immagine\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0, 625 USD za prompty o długości do 200 tys.tokenów 1, 25 USD za prompty o długości powyżej 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 5,00 USD, prompty <= 200 tys.tokenów 7,50 USD, prompty > 200 tys.tokenów |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,125 USD za prompty <= 200 tys. tokenów 0,25 USD za prompty > 200 tys. tokenów 4,50 USD za 1 mln tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Priorità
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,54 $ (testo / immagine) |
-| Prezzo di output | Non disponibile | $0.0702 per immagine\* |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 2,25 USD, prompty <= 200 tys.tokenów 4,50 USD, prompty > 200 tys.tokenów |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 18 USD, prompty <= 200 tys.tokenów 27 USD, prompty > 200 tys. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,225 USD za prompty <= 200 tys. tokenów 0,45 USD za prompty > 200 tys. tokenów 8,10 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | 10 000 RPD (bezpłatnie), a potem 25 USD za 1000 uzasadnionych promptów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-[\*] L'output delle immagini ha un prezzo di 30 $per 1.000.000 di token. Le immagini di output fino a
-1024 x 1024 px consumano 1290 token e corrispondono a 0,039 $per immagine.
+## Gemini 2.5 Flash
 
-## Gemini 2.5 Flash Preview TTS
+*[`gemini-2.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl)*
 
-*`gemini-2.5-flash-preview-tts`*
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=pl)
 
-[Provalo in Google AI Studio](https://aistudio.google.com/generate-speech?hl=it)
+Nasz pierwszy model rozumowania hybrydowego, który obsługuje okno kontekstu o wielkości 1 mln tokenów i ma budżety myślenia.
 
-Il nostro modello audio Text-to-Speech 2.5 Flash ottimizzato per la generazione di voce controllabile, a bassa latenza e con un buon rapporto qualità-prezzo.
+### Standardowy
 
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,50 $ (testo) |
-| Prezzo di output | Senza costi | 10,00 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,30 USD (tekst / obraz / wideo) 1,00 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 7,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,03 USD (tekst / obraz / wideo) 0,1 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Bez opłat, do 500 RPD (limit wspólny z RPD Flash-Lite) | 1500 RPD (bezpłatnie, limit wspólny z Flash-Lite RPD), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | 500 RPD | 1500 RPD (bezpłatnie), a potem 25 USD za 1000 uzasadnionych promptów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,25 $ (testo) |
-| Prezzo di output | Non disponibile | 5,00 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,15 USD (tekst / obraz / film) 0,50 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 3,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,03 USD (tekst / obraz / wideo) 0,1 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie, limit wspólny z Flash-Lite RPD), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemini 2.5 Pro (anteprima) TTS
+### Flex
 
-*`gemini-2.5-pro-preview-tts`*
-
-[Provalo in Google AI Studio](https://aistudio.google.com/generate-speech?hl=it)
-
-Il nostro modello audio Text-to-Speech 2.5 Pro è ottimizzato per la generazione di parlato potente e a bassa latenza, per output più naturali e prompt più facili da gestire.
-
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 1,00 $ (messaggio) |
-| Prezzo di output | Non disponibile | 20,00 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,15 USD (tekst / obraz / film) 0,50 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 3,50 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,03 USD (tekst / obraz / wideo) 0,1 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie, limit wspólny z Flash-Lite RPD), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,50 $ (testo) |
-| Prezzo di output | Non disponibile | 10,00 $ (audio) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,54 PLN (tekst / obraz / film) 1,80 PLN (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 4,50 USD |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,054 USD (tekst / obraz / film) 0,18 USD (audio) 1,80 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Bez opłat, do 500 RPD (limit wspólny z RPD Flash-Lite) | 1500 RPD (bezpłatnie, limit wspólny z Flash-Lite RPD), a potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | 500 RPD | 1500 RPD (bezpłatnie), a potem 25 USD za 1000 uzasadnionych promptów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemini 2.0 Flash
+## Gemini 2.5 Flash-Lite
 
-*`gemini-2.0-flash`*
+*[`gemini-2.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl)*
 
-### Standard
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=pl)
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+Mały i ekonomiczny model stworzony z myślą o użytkowaniu na dużą skalę.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,10 $ (testo / immagine / video) 0,70 $ (audio) |
-| Prezzo di output | Senza costi | $ 0,40 |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | $0,025 per 1.000.000 di token (testo/immagine/video) $0,175 per 1.000.000 di token (audio) |
-| Memorizzazione nella cache del contesto (spazio di archiviazione) | Non disponibile | $1,00 / 1.000.000 di token all'ora |
-| Prezzi della generazione di immagini | Non disponibile ([arresto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#gemini-2.0-models)) | Non disponibile ([arresto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#gemini-2.0-models)) |
-| Prezzo di ottimizzazione | Non disponibile | Non disponibile |
-| Grounding con la Ricerca Google | Senza costi, fino a 500 RPD | 1500 RPD (senza costi), poi 35 $ / 1000 prompt basati su dati reali |
-| Grounding con Google Maps | 500 RPD | 1500 RPD (senza costi), poi 25 $per 1000 prompt basati su dati reali |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena danych wejściowych (tekst, obraz, film) | Bezpłatnie | 0,10 USD (tekst / obraz / film) 0,30 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 0,40 zł |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,01 USD (tekst / obraz / film) 0,03 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Bezpłatnie, do 500 RPD (limit wspólny z RPD Flash) | 1500 RPD (bezpłatnie, limit współdzielony z Flash RPD), potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | 500 RPD | 1500 RPD (bezpłatnie), a potem 25 USD za 1000 uzasadnionych promptów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,05 $ (testo / immagine / video) 0,35 $ (audio) |
-| Prezzo di output | Non disponibile | $ 0,20 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | $0,025 per 1.000.000 di token (testo/immagine/video) $0,175 per 1.000.000 di token (audio) |
-| Memorizzazione nella cache del contesto (spazio di archiviazione) | Non disponibile | $1,00 / 1.000.000 di token all'ora |
-| Prezzi della generazione di immagini | Non disponibile ([arresto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#gemini-2.0-models)) | Non disponibile ([arresto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#gemini-2.0-models)) |
-| Prezzo di ottimizzazione | Non disponibile | Non disponibile |
-| Grounding con la Ricerca Google | Non disponibile | 1500 RPD (senza costi), poi 35 $ / 1000 prompt basati su dati reali |
-| Grounding con Google Maps | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena danych wejściowych (tekst, obraz, film) | Niedostępne | 0,05 USD (tekst / obraz / film) 0,15 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 0,60 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,01 USD (tekst / obraz / film) 0,03 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie, limit współdzielony z Flash RPD), potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-[\*] L'output delle immagini ha un prezzo di 30 $per 1.000.000 di token. Le immagini di output fino a
-1024 x 1024 px consumano 1290 token e corrispondono a 0,039 $per immagine.
+### Flex
 
-## Gemini 2.0 Flash-Lite
-
-*`gemini-2.0-flash-lite`*
-
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 0,075 $ |
-| Prezzo di output | Senza costi | $ 0,30 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | Non disponibile |
-| Memorizzazione nella cache del contesto (spazio di archiviazione) | Non disponibile | Non disponibile |
-| Prezzo di ottimizzazione | Non disponibile | Non disponibile |
-| Grounding con la Ricerca Google | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena danych wejściowych (tekst, obraz, film) | Niedostępne | 0,05 USD (tekst / obraz / film) 0,15 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 0,60 PLN |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,01 USD (tekst / obraz / film) 0,03 USD (audio) 1,00 USD / 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 1500 RPD (bezpłatnie, limit współdzielony z Flash RPD), potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Priorytet
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | $ 0,0375 |
-| Prezzo di output | Non disponibile | $ 0,15 |
-| Prezzo della memorizzazione nella cache del contesto | Non disponibile | Non disponibile |
-| Memorizzazione nella cache del contesto (spazio di archiviazione) | Non disponibile | Non disponibile |
-| Prezzo di ottimizzazione | Non disponibile | Non disponibile |
-| Grounding con la Ricerca Google | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena danych wejściowych (tekst, obraz, film) | Bezpłatnie | 0,18 USD (tekst / obraz / film) 0,54 USD (dźwięk) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 0,72 zł |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,018 USD (tekst / obraz / film) 0,054 USD (dźwięk) 1,80 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Bezpłatnie, do 500 RPD (limit wspólny z RPD Flash) | 1500 RPD (bezpłatnie, limit współdzielony z Flash RPD), potem 35 USD za 1000 uzasadnionych promptów |
+| Grounding z użyciem Map Google | 500 RPD | 1500 RPD (bezpłatnie), a potem 25 USD za 1000 uzasadnionych promptów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Imagen 4
+## Gemini 2.5 Flash Native Audio (Live API)
 
-*`imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001`*
+*[`gemini-2.5-flash-native-audio-preview-12-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=pl)*
 
-[Provalo in Google AI Studio](https://aistudio.google.com/generate-image?hl=it)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/app/live?hl=pl#gemini-2.5-flash-native-audio-preview-12-2025)
 
-Il nostro modello di generazione di immagini più recente, con una resa del testo notevolmente migliore e
-una qualità complessiva dell'immagine superiore.
+Nasze natywne modele audio [interfejsu Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl) zoptymalizowane pod kątem wyższej jakości wyjść audio z lepszym tempem i nastrojem oraz większą szczegółowością i bardziej naturalnym głosami.
 
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-|  | Livello senza costi | Livello a pagamento, per immagine in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo delle immagini Imagen 4 Fast | Non disponibile | 0,02 $ |
-| Prezzo dell'immagine standard di Imagen 4 | Non disponibile | 0,04 $ |
-| Prezzo delle immagini di Imagen 4 Ultra | Non disponibile | $ 0,06 |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,50 USD (tekst) 3,00 USD (audio / wideo) |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 2,00 PLN (tekst) 12,00 PLN (dźwięk) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Veo 3.1
+## Gemini 2.5 Flash Image (Nano Banana) 🍌
 
-*`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview`*
+*[`gemini-2.5-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pl)*
 
-[Prova Veo 3.1](https://deepmind.google/models/veo/?hl=it)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=pl)
 
-Il nostro ultimo modello di generazione video, disponibile per gli sviluppatori nel
-livello a pagamento dell'API Gemini.
+Natywny model generowania obrazów zoptymalizowany pod kątem szybkości, elastyczności i rozumienia kontekstu. Tekstowe dane wejściowe i wyjściowe są wyceniane tak samo jak w przypadku modelu [2.5 Flash](#gemini-2.5-flash).
 
-I modelli di anteprima potrebbero cambiare prima di diventare stabili e avere limiti di frequenza più restrittivi.
+### Standardowy
 
-|  | Livello senza costi | Livello a pagamento, al secondo in dollari statunitensi |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo del video standard con audio di Veo 3.1 (predefinito) | Non disponibile | 0,40 $ (720p e 1080p) 0,60 $ (4k) |
-| Prezzo del video Veo 3.1 Fast con audio (predefinito) | Non disponibile | 0,10 $ (720p) 0,12 $ (1080p) 0,30 $ (4K) |
-| Prezzo del video Veo 3.1 Lite con audio (predefinito) | Non disponibile | 0,05 $ (720p) 0,08 $ (1080p) (output 4K non supportato) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,30 USD (tekst / obraz) |
+| Cena wyjściowa | Niedostępne | 0,039 USD za obraz\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Veo 3
+### Wsad
 
-*`veo-3.0-generate-001`, `veo-3.0-fast-generate-001`*
-
-[Prova Veo 3](https://deepmind.google/models/veo/?hl=it)
-
-Il nostro modello di generazione video stabile, disponibile per gli sviluppatori nel
-livello a pagamento dell'API Gemini.
-
-|  | Livello senza costi | Livello a pagamento, al secondo in dollari statunitensi |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo del video standard con audio di Veo 3 (predefinito) | Non disponibile | $ 0,40 |
-| Prezzo del video con audio di Veo 3 Fast (predefinito) | Non disponibile | 0,10 $ (720p) 0,12 $ (1080p) 0,30 $ (4K) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,15 USD (tekst / obraz) |
+| Cena wyjściowa | Niedostępne | 0,0195 USD za obraz\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Veo 2
+### Flex
 
-*`veo-2.0-generate-001`*
-
-[Prova l'API](https://ai.google.dev/gemini-api/docs/video?hl=it)
-
-Il nostro modello di generazione video allo stato dell'arte, disponibile per gli sviluppatori nel livello a pagamento dell'API Gemini.
-
-|  | Livello senza costi | Livello a pagamento, al secondo in dollari statunitensi |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo del video | Non disponibile | $ 0,35 |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,15 USD (tekst / obraz) |
+| Cena wyjściowa | Niedostępne | 0,0195 USD za obraz\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Lyria 3
+### Priorytet
 
-*`lyria-3-clip-preview` e `lyria-3-pro-preview`*
-
-La famiglia di modelli di generazione di musica di Google. I modelli di anteprima potrebbero cambiare
-prima di diventare stabili e avere limiti di frequenza più restrittivi.
-
-|  | Livello senza costi | Livello a pagamento, per richiesta in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Anteprima clip di Lyria 3 (30 secondi) | Non disponibile | 0,04 $ per brano |
-| Lyria 3 Pro (anteprima) | Non disponibile | 0,08 $ per brano |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,54 USD (tekst / obraz) |
+| Cena wyjściowa | Niedostępne | 0,0702 USD za obraz\* |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Embedding Gemini 2
+[\*] Wygenerowanie obrazu kosztuje 30 USD za 1 000 000 tokenów. Obrazy wyjściowe o rozdzielczości do 1024 x 1024 pikseli zużywają 1290 tokenów i kosztują 0,039 USD za obraz.
 
-*`gemini-embedding-2`*
+## Gemini 2.5 Flash (wersja testowa) – TTS
 
-[Prova l'API](https://ai.google.dev/gemini-api/docs/embeddings?hl=it)
+*[`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=pl)*
 
-Il nostro primo modello di embedding multimodale, che mappa testo, immagini, video, audio e
-PDF in uno spazio di embedding unificato.
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/generate-speech?hl=pl)
 
-### Standard
+Nasz model audio 2.5 Flash do zamiany tekstu na mowę zoptymalizowany pod kątem wydajności w stosunku do ceny, krótkiego czasu oczekiwania i kontrolowanego generowania mowy.
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo dell'input di testo | Senza costi | $ 0,20 |
-| Prezzo dell'input immagine | Senza costi | $0,45 ($0,00012 per immagine) |
-| Prezzo dell'input audio | Senza costi | 6,50 $ (0,00016 $ al secondo) |
-| Prezzo dell'input video | Senza costi | 12 $ (0,00079 $ per fotogramma) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Bezpłatnie | 0,50 USD (tekst) |
+| Cena wyjściowa | Bezpłatnie | 10 PLN (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo dell'input di testo | Non disponibile | 0,10 $ |
-| Prezzo dell'input immagine | Non disponibile | $0,225 ($0,00006 per immagine) |
-| Prezzo dell'input audio | Non disponibile | 3,25 $ (0,00008 $ al secondo) |
-| Prezzo dell'input video | Non disponibile | 6 $ (0,000395 $ per fotogramma) |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,25 USD (tekst) |
+| Cena wyjściowa | Niedostępne | 5,00 PLN (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Incorporamento di Gemini
+## Gemini 2.5 Pro (wersja testowa) TTS
 
-*`gemini-embedding-001`*
+*[`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=pl)*
 
-[Prova l'API](https://ai.google.dev/gemini-api/docs/embeddings?hl=it)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/generate-speech?hl=pl)
 
-Il nostro modello Gemini Embeddings per casi d'uso solo di testo, disponibile per gli sviluppatori nei livelli senza costi e a pagamento dell'API Gemini.
+Nasz model audio zamiany tekstu na mowę 2.5 Pro zoptymalizowany pod kątem wydajnego generowania mowy o niskiej latencji, co zapewnia bardziej naturalne wyniki i łatwiejsze sterowanie promptami.
 
-### Standard
+### Standardowy
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | $ 0,15 |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 1,00 PLN (tekst) |
+| Cena wyjściowa | Niedostępne | 20,00 PLN (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+### Wsad
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,075 $ |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wejściowa | Niedostępne | 0,50 USD (tekst) |
+| Cena wyjściowa | Niedostępne | 10 PLN (audio) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Anteprima di Gemini Robotics-ER 1.6
+## Veo 3.1
 
-*`gemini-robotics-er-1.6-preview`*
+*[`veo-3.1-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=pl), [`veo-3.1-fast-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=pl), [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=pl)*
 
-[Provalo in Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=it)
+[Wypróbuj Veo 3.1](https://deepmind.google/models/veo/?hl=pl)
 
-Gemini Robotics-ER, abbreviazione di Gemini Robotics-Embodied Reasoning, è un modello di pensiero
-che migliora la capacità dei robot di comprendere e interagire con il
-mondo fisico.
+Model do szybkiego generowania filmów.
 
-### Standard
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za sekundę w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | 1 $ (testo / immagine / video) 2 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Senza costi | $ 5,00 |
-| Grounding con la Ricerca Google | Non disponibile | 5000 prompt al mese (senza costi, limite condiviso con Flash), poi 14 $per 1000 query di ricerca per il grounding basato su testo e immagini. |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena standardowego filmu z audio wygenerowanego w Veo 3.1 (domyślna) | Niedostępne | 0,40 USD (720p i 1080p) 0,60 USD (4K) |
+| Cena filmu Veo 3.1 Fast z dźwiękiem (domyślna) | Niedostępne | 0,10 USD (720p) 0,12 USD (1080p) 0,30 USD (4K) |
+| Cena filmu Veo 3.1 Lite z dźwiękiem (domyślna) | Niedostępne | 0,05 USD (720p) 0,08 USD (1080p) (wyjście 4K nie jest obsługiwane) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-### Batch
+## Lyria 3.5
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+*[`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=pl)*
+
+Model Google do generowania muzyki.
+
+|  | poziom bezpłatny | Poziom płatny, za żądanie w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 0,50 $ (testo / immagine / video) 1 $ (audio) |
-| Prezzo di output (inclusi i token di pensiero) | Non disponibile | $ 2,50 |
-| Grounding con la Ricerca Google | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Lyria 3.5 (pełny utwór) | Niedostępne | 0,08 USD za utwór |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Anteprima dell'utilizzo di Gemini 2.5 su computer
+## Lyria 3
 
-*`gemini-2.5-computer-use-preview-10-2025`*
+*[`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=pl) i [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=pl)*
 
-Il nostro modello di utilizzo del computer è ottimizzato per la creazione di agenti di controllo del browser che automatizzano le attività.
+Rodzina starszych modeli Google do generowania muzyki.
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za żądanie w USD |
 | --- | --- | --- |
-| Prezzo di input | Non disponibile | 1,25 $, prompt <= 200.000 token 2,50 $, prompt > 200.000 token |
-| Prezzo di output | Non disponibile | 10 $, prompt <= 200.000 token 15 $, prompt > 200.000 token |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Podgląd klipu Lyria 3 (30 s) | Niedostępne | 0,04 USD za utwór |
+| Lyria 3 Pro (wersja testowa) – pełna wersja utworu | Niedostępne | 0,08 USD za utwór |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Gemma 4
+## Gemini Embedding 2
 
-Il nostro modello aperto leggero e all'avanguardia creato sulla base della stessa tecnologia
-che alimenta i nostri modelli Gemini.
+*[`gemini-embedding-2`](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=pl)*
 
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+[Wypróbuj interfejs API](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl)
+
+Nasz pierwszy multimodalny model osadzania, który mapuje tekst, obrazy, filmy, dźwięk i pliki PDF w ujednoliconej przestrzeni osadzania.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| Prezzo di input | Senza costi | Non disponibile |
-| Prezzo di output | Senza costi | Non disponibile |
-| Prezzo della memorizzazione nella cache del contesto | Senza costi | Non disponibile |
-| Memorizzazione nella cache del contesto (spazio di archiviazione) | Senza costi | Non disponibile |
-| Prezzo di ottimizzazione | Non disponibile | Non disponibile |
-| Grounding con la Ricerca Google | Non disponibile | Non disponibile |
-| Utilizzati per migliorare i nostri prodotti | [Sì](https://ai.google.dev/gemini-api/terms?hl=it) | [No](https://ai.google.dev/gemini-api/terms?hl=it) |
+| Cena wprowadzania tekstu | Bezpłatnie | 0,60 PLN |
+| Cena danych wejściowych obrazu | Bezpłatnie | 0,45 USD (0,00012 USD za obraz) |
+| Cena wejścia audio | Bezpłatnie | 6,50 USD (0,00016 USD za sekundę) |
+| Cena wejścia wideo | Bezpłatnie | 12,00 USD (0,00079 USD za klatkę) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Prezzi degli strumenti
+### Wsad
 
-Gli strumenti hanno prezzi propri, applicati al modello che li utilizza.
-Consulta la pagina [Modelli](https://ai.google.dev/gemini-api/docs/models?hl=it) per scoprire quali strumenti sono disponibili
-per ogni modello.
-
-|  | Livello senza costi | Livello a pagamento, per 1 milione di token in USD |
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| [la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it#pricing) | 500 RPD senza costi (limite condiviso per Flash e Flash-Lite). Non disponibile per Pro. | Modelli Gemini 2.5:  1500 RPD senza costi (limite condiviso per Flash e Flash-Lite). Poi 35 $per 1000 prompt con grounding   Modelli Gemini 3:  5000 prompt al mese (senza costi), poi 14 $per 1000 query di ricerca |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it#pricing_and_rate_limits) | 500 RPD Non disponibile per Pro. | 1500 RPD senza costi (limite condiviso per Flash e Flash-Lite) 10.000 RPD senza costi per Pro. Poi 25 $per 1000 prompt basati su dati reali |
-| [Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it#billing) | Senza costi | L'esecuzione del codice viene fatturata alle tariffe standard per i token per il modello selezionato. I costi sono determinati esclusivamente dall'utilizzo dello strumento, non vengono accumulati addebiti per la durata della sessione. Il codice generato e i risultati dell'esecuzione vengono fatturati come **token di output** al momento della creazione e come **token di input** quando il modello li utilizza nell'ambito del suo processo di ragionamento iterativo. |
-| [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it#limitations) | Senza costi | Addebitati come token di input in base ai prezzi del modello. |
-| [Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) | Non disponibile | Addebitati come token normali in base ai prezzi del modello (ad es. prezzi standard di [Gemini 3.5 Flash](#gemini-3.6-flash)). Consulta la tabella dei prezzi dell'[anteprima di Gemini 2.5 Computer Use](#gemini-2.5-computer-use-preview-10-2025) per le tariffe dei modelli legacy. |
-| [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it#pricing) | Senza costi | Addebito per [incorporamenti](#gemini-embedding) a 0,15 $per 1 milione di token. I token dei documenti recuperati vengono addebitati come token regolari in base ai prezzi del modello. |
-| [Endpoint Custom Tools (anteprima di Gemini 3.1 Pro)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it) | Non disponibile | Uguale ai prezzi di [Gemini 3.1 Pro (anteprima)](#gemini-3.1-pro-preview) |
+| Cena wprowadzania tekstu | Niedostępne | 0,10 USD |
+| Cena danych wejściowych obrazu | Niedostępne | 0,225 USD (0,00006 USD za obraz) |
+| Cena wejścia audio | Niedostępne | 3,25 USD (0,00008 USD za sekundę) |
+| Cena wejścia wideo | Niedostępne | 6,00 USD (0,000395 USD za klatkę) |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Prezzi per gli agenti
+## Gemini Robotics ER 2 (wersja testowa)
 
-I costi di utilizzo dell'agente vengono calcolati in base al consumo e all'utilizzo dei token sottostanti degli strumenti.
+*[`gemini-robotics-er-2-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview?hl=pl)*
 
-|  | Modello | Strumenti |
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=pl)
+
+Gemini Robotics ER 2, czyli Gemini Robotics Embodied Reasoning 2, to punkt końcowy modelu wizualno-językowego, który umożliwia robotom dokładne rozumienie otoczenia. Obsługuje on koordynację robotów przez agenta, rozumienie postępów w filmie, współpracę wielu robotów i zaawansowane rozumowanie przestrzenne.
+
+### Standardowy
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
 | --- | --- | --- |
-| [Agente Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) | Tutta l'inferenza del modello viene addebitata alle tariffe di listino standard di Gemini, inclusi i token di input, output e input / ragionamento intermedi generati durante i loop agentici. | Le tariffe per l'utilizzo dello strumento vengono applicate in base alla struttura dei prezzi esistente, mantenendo le distinzioni standard per Search Grounding (token recuperati esclusi) rispetto a Url\_context / File Search (token recuperati inclusi in tutti gli altri strumenti). |
-| [Managed Agents nell'API Gemini](https://ai.google.dev/gemini-api/docs/agents?hl=it) | Tutta l'inferenza del modello viene addebitata alle tariffe di listino standard di Gemini, inclusi i token di input, output e input / ragionamento intermedi generati durante i loop agentici. (vedi i [dettagli dei prezzi](https://ai.google.dev/gemini-api/docs/agents?hl=it#pricing)). | Il calcolo dell'ambiente (CPU, memoria, esecuzione sandbox) non viene fatturato durante il periodo di anteprima. |
-| [Agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) | Tutta l'inferenza del modello viene addebitata alle tariffe di listino standard di Gemini, inclusi i token di input, output e input / ragionamento intermedi generati durante i loop agentici. (vedi i [dettagli dei prezzi](https://ai.google.dev/gemini-api/docs/agents?hl=it#pricing)). | Il calcolo dell'ambiente (CPU, memoria, esecuzione sandbox) non viene fatturato durante il periodo di anteprima. |
+| Cena wejściowa | Bezpłatnie | 1, 00 USD (tekst / obraz / film / dźwięk) do 31 grudnia 2026 r. 2, 00 USD (tekst / obraz / film / dźwięk) od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Bezpłatnie | 5, 00 USD do 31 grudnia 2026 r. 10, 00 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,10 USD do 31 grudnia 2026 r. 0,20 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-## Note
+### Wsad
 
-- **Fatturazione dei token dei documenti**:i token per la modalità `DOCUMENT` (ad esempio, i PDF) vengono fatturati alla tariffa dei token delle immagini. Nelle risposte dell'API, questi token vengono visualizzati nella modalità `DOCUMENT` all'interno di `promptTokensDetails`.
-- L'utilizzo di Google AI Studio è senza costi in tutte le [regioni disponibili](https://ai.google.dev/gemini-api/docs/available-regions?hl=it). Per maggiori dettagli, consulta le [Domande frequenti sulla fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it).
-- I prezzi potrebbero differire da quelli elencati qui e da quelli offerti su
-  Gemini Enterprise Agent Platform. Per i prezzi di Gemini Enterprise Agent Platform, consulta la [pagina dei prezzi di Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=it).
-- Se utilizzi il [recupero dinamico](https://ai.google.dev/gemini-api/docs/grounding?hl=it) per
-  ottimizzare i costi, solo le richieste che contengono almeno un URL di supporto per il grounding
-  dal web nella risposta vengono addebitate per il grounding con la Ricerca Google.
-  I costi per Gemini vengono sempre applicati. I limiti di frequenza sono soggetti a modifiche.
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 0, 50 USD (tekst / obraz / film / dźwięk) do 31 grudnia 2026 r. 1, 00 USD (tekst / obraz / film / dźwięk) od 1 stycznia 2027 r. |
+| Cena wyjściowa (w tym tokeny myślowe) | Niedostępne | 2, 50 USD do 31 grudnia 2026 r. 5, 00 USD od 1 stycznia 2027 r. |
+| Cena pamięci podręcznej kontekstu | Niedostępne | 0,05 USD do 31 grudnia 2026 r. 0,10 USD od 1 stycznia 2027 r. 0,50 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) do 31 grudnia 2026 r. 1,00 USD za 1 000 000 tokenów na godzinę (cena za przechowywanie) od 1 stycznia 2027 r. |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+## Gemini Robotics ER 2 Streaming Preview
 
-Ultimo aggiornamento 2026-09-12 UTC.
+*[`gemini-robotics-er-2-streaming-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-streaming-preview?hl=pl)*
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=pl)
+
+Gemini Robotics ER 2 Streaming to punkt końcowy modelu wizualno-językowego dla robotyki zoptymalizowany pod kątem strumieniowania tekstu w czasie rzeczywistym za pomocą interfejsu Live API. Przyjmuje dane wejściowe w formie tekstu, obrazu, filmu i dźwięku oraz obsługuje dwukierunkowe przesyłanie strumieniowe z wywoływaniem funkcji.
+
+### Standardowy
+
+## Gemini 2.5 do użytku na komputerze (wersja testowa)
+
+*[`gemini-2.5-computer-use-preview-10-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=pl)*
+
+Nasz model Computer Use zoptymalizowany pod kątem tworzenia agentów sterujących przeglądarką, którzy automatyzują zadania.
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Bezpłatnie | 1, 00 USD (tekst / obraz / film / dźwięk) do 31 grudnia 2026 r. 2, 00 USD (tekst / obraz / film / dźwięk) od 1 stycznia 2027 r. |
+| Cena wyjściowa | Bezpłatnie | 5, 00 USD do 31 grudnia 2026 r. 10, 00 USD od 1 stycznia 2027 r. |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | 5000 bezpłatnych zapytań miesięcznie (wspólnych dla wszystkich modeli Gemini 3.x), a potem 14 USD za 1000 zapytań. |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Niedostępne | 1,25 USD, prompty <= 200 tys.tokenów 2,50 USD, prompty > 200 tys.tokenów |
+| Cena wyjściowa | Niedostępne | 10,00 USD, prompty <= 200 tys.tokenów 15,00 USD, prompty > 200 tys.tokenów |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+## [Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4?hl=pl)
+
+Nasz lekki, najnowocześniejszy model otwarty, który został stworzony na podstawie tej samej technologii, która posłużyła do stworzenia modeli Gemini.
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| Cena wejściowa | Bezpłatnie | Niedostępne |
+| Cena wyjściowa | Bezpłatnie | Niedostępne |
+| Cena pamięci podręcznej kontekstu | Bezpłatnie | Niedostępne |
+| Pamięć podręczna kontekstu (miejsce na dane) | Bezpłatnie | Niedostępne |
+| Cena dostrajania | Niedostępne | Niedostępne |
+| Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google | Niedostępne | Niedostępne |
+| Wykorzystywane do ulepszania naszych usług | [Tak](https://ai.google.dev/gemini-api/terms?hl=pl) | [Nie](https://ai.google.dev/gemini-api/terms?hl=pl) |
+
+## Ceny narzędzi
+
+Narzędzia są wyceniane według własnych stawek, które są stosowane do modelu, który ich używa.
+Na stronie [Modele](https://ai.google.dev/gemini-api/docs/models?hl=pl) sprawdź, które narzędzia są dostępne w przypadku poszczególnych modeli.
+
+|  | poziom bezpłatny | Poziom płatny, za 1 mln tokenów w USD |
+| --- | --- | --- |
+| [Wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl#pricing) | 500 bezpłatnych żądań dziennie (limit wspólny dla modeli Flash i Flash-Lite). Niedostępne w przypadku modelu Pro. | Modele Gemini 2.5:  1500 RPD bezpłatnie (limit wspólny dla modeli Flash i Flash-Lite). Potem 35 USD za 1000 promptów z kontekstem.   Modele Gemini 3:  5000 bezpłatnych żądań wyszukiwania miesięcznie (wspólny limit dla wszystkich modeli Gemini), a potem 14 USD za 1000 żądań. |
+| [Mapy Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl#pricing_and_rate_limits) | 500 RPD Niedostępne w wersji Pro. | 1500 bezpłatnych odpowiedzi na dzień (limit wspólny dla Flash i Flash-Lite) 10 000 bezpłatnych odpowiedzi na dzień w przypadku Pro. Potem 25 USD za 1000 odpowiedzi na podstawie promptów |
+| [Wykonanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl#billing) | Bezpłatnie | Wykonywanie kodu jest rozliczane według standardowych stawek za tokeny dla wybranego modelu. Koszty są określane wyłącznie na podstawie wykorzystania narzędzia. Nie są naliczane żadne opłaty za czas trwania sesji. Wygenerowany kod i wyniki wykonania są rozliczane jako **tokeny wyjściowe** w momencie utworzenia oraz jako **tokeny wejściowe**, gdy model używa ich w ramach iteracyjnego procesu rozumowania. |
+| [Kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl#limitations) | Bezpłatnie | Opłaty są naliczane jako tokeny wejściowe zgodnie z cennikiem modelu. |
+| [Korzystanie z komputera](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl) | Niedostępne | Opłaty są naliczane jak za zwykłe tokeny zgodnie z cennikiem modelu (np. standardowy cennik [Gemini 3.5 Flash](#gemini-3.6-flash)). Cennik starszych modeli znajdziesz w tabeli cen [Gemini 2.5 Computer Use Preview](#gemini-2.5-computer-use-preview-10-2025). |
+| [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl#pricing) | Bezpłatnie | Opłata za [osadzanie](#gemini-embedding-2) wynosi 0,15 USD za 1 mln tokenów. Tokeny pobranych dokumentów są rozliczane jako zwykłe tokeny zgodnie z cennikiem modelu. |
+| [Punkt końcowy Custom Tools (Gemini 3.1 Pro w wersji testowej)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | Niedostępne | Tak samo jak w przypadku [Gemini 3.1 Pro (wersja testowa)](#gemini-3.1-pro-preview) |
+
+## Ceny dla agentów
+
+Koszty korzystania z agenta są obliczane na podstawie zużycia tokenów i użycia narzędzi.
+
+|  | Model | Narzędzia |
+| --- | --- | --- |
+| [Agent Deep Research w Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) | Wszystkie wnioskowania modelu są rozliczane według standardowych cen katalogowych Gemini, w tym tokeny wejściowe, wyjściowe i pośrednie tokeny wejściowe / rozumowania generowane podczas pętli agenta. | Opłaty za korzystanie z narzędzia są naliczane zgodnie z dotychczasową strukturą cenową, z zachowaniem standardowych rozróżnień między wyszukiwaniem podstawowym (pobrane tokeny są wykluczone) a kontekstem adresu URL lub wyszukiwaniem plików (pobrane tokeny są uwzględniane we wszystkich innych narzędziach). |
+| [Zarządzane agenty w Gemini API](https://ai.google.dev/gemini-api/docs/agents?hl=pl) | Wszystkie wnioskowania modelu są rozliczane według standardowych cen katalogowych Gemini, w tym tokeny wejściowe, wyjściowe i pośrednie tokeny wejściowe / rozumowania generowane podczas pętli agenta. (Zobacz [szczegółowy cennik](https://ai.google.dev/gemini-api/docs/agents?hl=pl#pricing)). | W okresie korzystania z wersji testowej nie naliczamy opłat za obliczenia środowiskowe (procesor, pamięć, wykonanie w piaskownicy). |
+| [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl) | Wszystkie wnioskowania modelu są rozliczane według standardowych cen katalogowych Gemini, w tym tokeny wejściowe, wyjściowe i pośrednie tokeny wejściowe / rozumowania generowane podczas pętli agenta. (Zobacz [szczegółowy cennik](https://ai.google.dev/gemini-api/docs/agents?hl=pl#pricing)). | W okresie korzystania z wersji testowej nie naliczamy opłat za obliczenia środowiskowe (procesor, pamięć, wykonanie w piaskownicy). |
+
+## Uwagi
+
+- **Agentowe rozumienie wideo:** W przypadku agentowego rozumienia wideo wykorzystanie tokenów jest zmienne i zależy od treści załadowanych przez model, a nie od pełnej długości wideo. Zwykle powoduje to zmniejszenie liczby tokenów wejściowych w przypadku długich filmów nawet o 88%, chociaż liczba tokenów zależy od złożoności zapytania i dynamicznej głębokości próbkowania (która w przypadku szczegółowych segmentów wizualnych może przekraczać 1 klatkę na sekundę). Zobacz [Analizowanie filmów przez agenta](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl#agentic-video-understanding).
+- **Płatności za tokeny dokumentów:** tokeny dla trybu `DOCUMENT` (np. PDF-y) są rozliczane według stawki za tokeny obrazów. W odpowiedziach interfejsu API te tokeny pojawiają się w sekcji `DOCUMENT` modality w ramach `promptTokensDetails`.
+- Korzystanie z Google AI Studio jest bezpłatne we wszystkich [dostępnych regionach](https://ai.google.dev/gemini-api/docs/available-regions?hl=pl). Szczegółowe informacje znajdziesz w [najczęstszych pytaniach dotyczących rozliczeń](https://ai.google.dev/gemini-api/docs/billing?hl=pl).
+- Ceny mogą się różnić od cen podanych tutaj i cen oferowanych na platformie Gemini Enterprise Agent Platform. Ceny Gemini Enterprise Agent Platform znajdziesz na [stronie z cennikiem Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=pl).
+- Jeśli do optymalizacji kosztów używasz [dynamicznego pobierania](https://ai.google.dev/gemini-api/docs/grounding?hl=pl), opłaty za powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google są naliczane tylko w przypadku odpowiedzi zawierających co najmniej 1 adres URL z sieci, który obsługuje ugruntowanie.
+  Opłaty za Gemini zawsze obowiązują. Limity szybkości mogą ulec zmianie.
+
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+
+Ostatnia aktualizacja: 2026-09-18 UTC.
+
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]

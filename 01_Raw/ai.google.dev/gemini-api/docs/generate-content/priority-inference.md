@@ -1,33 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=vi
-fetched_at: 2026-09-14T05:44:46.506024+00:00
-title: "Suy lu\u1eadn m\u1ee9c \u0111\u1ed9 \u01b0u ti\u00ean \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=ko
+fetched_at: 2026-09-21T05:51:36.786920+00:00
+title: "\uc6b0\uc120\uc21c\uc704 \ucd94\ub860 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-# Suy luận mức độ ưu tiên
+# 우선순위 추론
 
-Nội dung mô tả: Tìm hiểu cách tối ưu hoá độ trễ bằng cấp suy luận Ưu tiên
+설명: 우선순위 추론 등급으로 지연 시간을 최적화하는 방법을 알아봅니다.
 
-Gemini Priority API là một cấp suy luận cao cấp được thiết kế cho các khối lượng công việc quan trọng đối với doanh nghiệp, yêu cầu độ trễ thấp và độ tin cậy cao nhất với mức giá cao. Lưu lượng truy cập ở cấp ưu tiên được ưu tiên hơn lưu lượng truy cập ở cấp API tiêu chuẩn và cấp linh hoạt.
+Gemini Priority API는 지연 시간이 짧고 최고 수준의 안정성이 필요한 비즈니스에 중요한 워크로드를 위해 설계된 프리미엄 추론 등급입니다. 우선순위 등급 트래픽은 표준 API 및 Flex 등급 트래픽보다 우선순위가 높습니다.
 
-Tính năng suy luận mức độ ưu tiên được cung cấp cho người dùng [Cấp 2 và Cấp 3](https://ai.google.dev/gemini-api/docs/billing?hl=vi#about-billing) trên các điểm cuối GenerateContent API và Interactions API.
+우선순위 추론은 [Tier 2 & Tier 3](https://ai.google.dev/gemini-api/docs/billing?hl=ko#about-billing) 사용자가 GenerateContent API
+및 Interactions API 엔드포인트에서 사용할 수 있습니다.
 
-## Cách sử dụng Mức độ ưu tiên
+## 우선순위 사용 방법
 
-Để sử dụng Cấp ưu tiên, hãy đặt trường `service_tier` trong nội dung yêu cầu thành `priority`. Cấp mặc định là cấp tiêu chuẩn nếu bạn bỏ qua trường này.
+우선순위 등급을 사용하려면 요청 본문의 `service_tier` 필드를 `priority`로 설정합니다. 필드가 생략되면 기본 등급은 표준입니다.
 
 ### Python
 
@@ -138,81 +139,91 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## Cách hoạt động của tính năng Suy luận ưu tiên
+## 우선순위 추론 작동 방식
 
-Các yêu cầu về tuyến suy luận ưu tiên đến các hàng đợi điện toán có mức độ quan trọng cao, mang lại hiệu suất nhanh chóng và có thể dự đoán cho các ứng dụng hướng đến người dùng. Cơ chế chính của tính năng này là giảm cấp phía máy chủ một cách hợp lý xuống quy trình xử lý tiêu chuẩn cho lưu lượng truy cập vượt quá giới hạn động, đảm bảo tính ổn định của ứng dụng thay vì làm cho yêu cầu không thành công.
+우선순위 추론은 요청을 중요도가 높은 컴퓨팅 대기열로 라우팅하여 사용자 대상 애플리케이션에 예측 가능하고 빠른 성능을 제공합니다. 기본 메커니즘은 동적 한도를 초과하는 트래픽에 대한 표준 처리로의 점진적인 서버 측 다운그레이드입니다. 이렇게 하면 요청이 실패하는 대신 애플리케이션 안정성이 보장됩니다.
 
-| Tính năng | Mức độ ưu tiên | Chuẩn | Gập | Theo nhóm |
+| 기능 | 우선순위 | 표준 | Flex | 일괄 |
 | --- | --- | --- | --- | --- |
-| **Định giá** | Cao hơn 75 – 100% so với gói Standard | Giá đầy đủ | Giảm giá 50% | Giảm giá 50% |
-| **Độ trễ** | Giây | Giây sang phút | Phút (mục tiêu 1 – 15 phút) | Tối đa 24 giờ |
-| **Độ tin cậy** | Cao (Không rụng lông) | Cao / Trung bình cao | Nỗ lực tối đa (Có thể giảm tải) | Cao (đối với thông lượng) |
-| **Giao diện** | Đồng bộ | Đồng bộ | Đồng bộ | Không đồng bộ |
+| **가격 책정** | 표준보다 75~100% 더 높음 | 정상가 | 50% 할인 | 50% 할인 |
+| **지연 시간** | 초 | 수 초에서 수 분 | 분 (1~15분 목표) | 최대 24시간 |
+| **안정성** | 높음 (삭제 불가) | 높음 / 중간-높음 | 최대한 노력 (삭제 가능) | 높음 (처리량) |
+| **인터페이스** | 동기식 | 동기식 | 동기식 | 비동기식 |
 
-### Lợi ích chính
+### 주요 이점
 
-- **Độ trễ thấp**: Được thiết kế để có thời gian phản hồi dưới một giây cho các công cụ AI tương tác, hướng đến người dùng.
-- **Độ tin cậy cao**: Lưu lượng truy cập được xử lý với mức độ quan trọng cao nhất và hoàn toàn không thể loại bỏ.
-- **Giảm hiệu suất một cách êm ái**: Các đợt tăng đột biến lưu lượng truy cập vượt quá hạn mức linh hoạt sẽ tự động được hạ cấp xuống cấp độ Tiêu chuẩn để xử lý thay vì thất bại, ngăn chặn tình trạng ngừng dịch vụ.
-- **Ít rắc rối**: Sử dụng cùng phương thức `generateContent` đồng bộ như các cấp tiêu chuẩn và linh hoạt.
+- **지연 시간 단축**: 대화형
+  사용자 대상 AI 도구의 초 단위 응답 시간을 위해 설계되었습니다.
+- **높은 안정성**: 트래픽은 중요도가 가장 높은 것으로 처리되며
+  엄격하게 삭제할 수 없습니다.
+- **점진적 대처**: 동적 한도를 초과하는 트래픽 급증은 실패하는 대신 처리를 위해
+  자동으로 표준 등급으로 다운그레이드되어
+  서비스 중단을 방지합니다.
+- **낮은 마찰**: 표준 및 Flex 등급과 동일한 동기식 `generateContent` 메서드를 사용합니다.
 
-### Trường hợp sử dụng
+### 사용 사례
 
-Xử lý ưu tiên là lựa chọn lý tưởng cho những quy trình quan trọng đối với doanh nghiệp, trong đó hiệu suất và độ tin cậy là yếu tố tối quan trọng.
+우선순위 처리는 성능과 안정성이 가장 중요한 비즈니스에 중요한 워크플로에 적합합니다.
 
-- **Các ứng dụng AI tương tác**: Chatbot và trợ lý dịch vụ khách hàng mà người dùng trả phí và mong đợi câu trả lời nhanh chóng, nhất quán.
-- **Công cụ đưa ra quyết định theo thời gian thực**: Các hệ thống yêu cầu kết quả có độ tin cậy cao và độ trễ thấp, chẳng hạn như phân loại vé trực tiếp hoặc phát hiện hành vi gian lận.
-- **Các tính năng dành cho khách hàng cao cấp**: Nhà phát triển cần đảm bảo mục tiêu mức độ dịch vụ (SLO) cao hơn cho khách hàng trả phí.
+- **대화형 AI 애플리케이션**: 사용자가 프리미엄을 지불하고 빠르고 일관된 응답을 기대하는 고객 서비스 챗봇 및 코파일럿입니다.
+- **실시간 의사결정 엔진**: 실시간 티켓 분류 또는 사기 감지와 같이 안정성이 높고 지연 시간이 짧은
+  결과가 필요한 시스템입니다.
+- **프리미엄 고객 기능**: 유료 고객에게 더 높은 서비스
+  수준 목표 (SLO)를 보장해야 하는 개발자입니다.
 
-### Giới hạn số lượng yêu cầu
+### 비율 제한
 
-Mức sử dụng ưu tiên có giới hạn tốc độ riêng, mặc dù mức sử dụng này được tính vào [giới hạn tốc độ lưu lượng truy cập tương tác tổng thể](https://aistudio.google.com/rate-limit?hl=vi). Giới hạn tốc độ mặc định cho suy luận Ưu tiên là **giới hạn tốc độ tiêu chuẩn gấp 0,3 lần cho Mô hình / Cấp**
+우선순위 소비는 소비가 [전체 대화형 트래픽 비율 제한](https://aistudio.google.com/rate-limit?hl=ko)에
+포함되더라도 자체 비율 제한을 유지합니다. 우선순위 추론의 기본 비율 제한은 **모델 / 등급의 표준 비율 제한의 0.3배** 입니다.
 
-### Logic hạ cấp từng bước
+### 점진적 다운그레이드 로직
 
-Nếu bạn vượt quá giới hạn Ưu tiên do tình trạng tắc nghẽn, thì các yêu cầu vượt quá sẽ được **tự động và giảm cấp một cách suôn sẻ** xuống mức xử lý Chuẩn thay vì gặp lỗi 503 hoặc 429. Các yêu cầu bị hạ cấp sẽ được tính phí theo mức giá tiêu chuẩn, chứ không phải mức giá ưu tiên.
+정체로 인해 우선순위 한도를 초과하는 경우 오버플로 요청은 503 또는 429 오류로 실패하는 대신 표준 처리로 **자동으로 점진적으로** 다운그레이드됩니다. 다운그레이드된 요청은 우선순위 프리미엄 요금이 아닌 표준 요금으로 청구됩니다.
 
-### Trách nhiệm của khách hàng
+### 클라이언트 책임
 
-- **Giám sát phản hồi**: Nhà phát triển nên giám sát tiêu đề `x-gemini-service-tier` trong phản hồi API để phát hiện xem các yêu cầu có thường xuyên bị hạ cấp xuống `standard` hay không.
-- **Thử lại**: Ứng dụng phải triển khai logic thử lại/thuật toán đợi luỹ tiến cho các lỗi tiêu chuẩn, chẳng hạn như `DEADLINE_EXCEEDED`.
+- **응답 모니터링**: 개발자는 요청이 `x-gemini-service-tier`
+  로 자주 다운그레이드되는지 감지하기 위해 API 응답의
+  헤더를 모니터링해야 합니다.`standard`
+- **재시도**: 클라이언트는
+  표준 오류(예: `DEADLINE_EXCEEDED`)에 대해 재시도 로직/지수 백오프를 구현해야 합니다.
 
-## Giá
+## 가격 책정
 
-Suy luận ưu tiên có giá cao hơn từ 75% đến 100% so với [API tiêu chuẩn](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) và được tính phí theo mã thông báo.
+우선순위 추론은 [표준 API](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)보다 75~100% 더 비싸며 토큰당 청구됩니다.
 
-## Mô hình được hỗ trợ
+## 지원되는 모델
 
-Các mô hình sau đây hỗ trợ suy luận Ưu tiên:
+다음 모델은 우선순위 추론을 지원합니다.
 
-| Mô hình | Suy luận mức độ ưu tiên |
+| 모델 | 우선순위 추론 |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
-| [Bản xem trước hình ảnh của Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=vi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
-| [Hình ảnh Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ko) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ko) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ |
+| [Gemini 3.1 Pro 미리보기](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ |
+| [Gemini 3 Flash 미리보기](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) | ✔️ |
+| [Gemini 3 Pro 이미지 미리보기](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ko) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash 이미지](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ |
 
-## Bước tiếp theo
+## 다음 단계
 
-Đọc về các lựa chọn [suy luận và tối ưu hoá](https://ai.google.dev/gemini-api/docs/optimization?hl=vi) khác của Gemini:
+Gemini의 다른 [추론 및 최적화](https://ai.google.dev/gemini-api/docs/optimization?hl=ko) 옵션에 대해 알아봅니다.
 
-- [Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi) để giảm 50% chi phí.
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) để xử lý không đồng bộ trong vòng 24 giờ.
-- [Lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) để giảm chi phí mã thông báo đầu vào.
+- [비용을 50% 절감하는](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko) Flex 추론
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko) 24시간 이내에 비동기 처리를 위한
+- [입력 토큰 비용 절감을 위한 컨텍스트 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Cập nhật lần gần đây nhất: 2026-09-12 UTC.
+최종 업데이트: 2026-09-12(UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+의견을 전달하고 싶나요?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-12 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-12(UTC)"],[],[]]

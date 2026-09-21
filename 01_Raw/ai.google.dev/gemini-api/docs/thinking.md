@@ -1,40 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=de
-fetched_at: 2026-09-14T05:35:17.139679+00:00
-title: "Gemini-Denken \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=id
+fetched_at: 2026-09-21T05:42:31.199029+00:00
+title: "Pemikiran Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Gemini-Denken
+# Pemikiran Gemini
 
-Die Modelle der [Gemini 3- und 2.5-Serie](https://ai.google.dev/gemini-api/docs/models?hl=de) verwenden einen
-„Denkprozess“, der ihre Fähigkeiten zum logischen Schlussfolgern und zur mehrstufigen
-Planung erheblich verbessert. Dadurch sind sie sehr effektiv für komplexe Aufgaben wie
-Programmieren, fortgeschrittene Mathematik und Datenanalyse.
+Model seri [Gemini 3 dan 2.5](https://ai.google.dev/gemini-api/docs/models?hl=id) menggunakan"proses penalaran" yang secara signifikan meningkatkan kemampuan penalaran dan perencanaan multi-langkahnya, sehingga sangat efektif untuk tugas kompleks seperti coding, matematika tingkat lanjut, dan analisis data.
 
-Wenn Sie ein Thinking Model verwenden, führt Gemini intern einen Denkprozess durch, bevor es antwortet. Die Interactions API stellt diesen Denkprozess über `thought`-Schritte dar. Das sind spezielle Schritte, die chronologisch neben Funktionsaufrufen, Nutzereingaben oder Modellausgaben im `steps`-Array angezeigt werden.
+Saat Anda menggunakan model yang berbasis penalaran, Gemini akan melakukan penalaran secara internal sebelum merespons. Interactions API menampilkan penalaran ini melalui langkah `thought`, langkah khusus yang muncul secara kronologis bersama dengan panggilan fungsi, input pengguna, atau output model dalam array `steps`.
 
-Jeder Denkprozessschritt enthält zwei Felder:
+Setiap langkah penalaran berisi dua kolom:
 
-| Feld | Erforderlich? | Beschreibung |
+| Kolom | Wajib | Deskripsi |
 | --- | --- | --- |
-| `signature` | ✅ Ja | Eine verschlüsselte Darstellung des internen Denkzustands des Modells. Immer vorhanden, auch wenn das Modell nur minimal logisch schlussfolgert. |
-| `summary` | ❌ Nein | Ein Array mit Inhalten (Text und/oder Bilder), in dem der Denkprozess zusammengefasst wird. Je nach [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=de)-Konfiguration, ob das Modell ausreichend logisch schlussgefolgert hat oder nicht, oder je nach Inhaltstyp kann es leer sein. Bei latenten Bildern gibt es beispielsweise möglicherweise keine Textzusammenfassungen. |
+| `signature` | ✅ Ya | Representasi terenkripsi dari status penalaran internal model. Selalu ada, bahkan saat model melakukan penalaran minimal. |
+| `summary` | ❌ Tidak | Array konten (teks dan/atau gambar) yang meringkas penalaran. Mungkin kosong, bergantung pada konfigurasi [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=id), apakah model melakukan penalaran yang cukup, atau jenis konten (misalnya, latensi gambar mungkin tidak memiliki ringkasan teks). |
 
-## Interaktionen mit Thinking
+## Interaksi dengan penalaran
 
-Das Initiieren einer Interaktion mit einem Thinking Model ähnelt jeder anderen Interaktionsanfrage. Geben Sie im `model` Feld eines der [Modelle mit Thinking-Unterstützung](#thinking-levels) an:
+Memulai interaksi dengan model yang berbasis penalaran mirip dengan permintaan interaksi lainnya. Tentukan salah satu [model dengan dukungan penalaran](#thinking-levels) di kolom `model` field:
 
 ### Python
 
@@ -44,7 +41,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Explain the concept of Occam's Razor and provide a simple, everyday example."
 )
 print(interaction.output_text)
@@ -58,10 +55,36 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Explain the concept of Occam's Razor and provide a simple, everyday example."
 });
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "Explain the concept of Occam's Razor and provide a simple, everyday example."))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -71,15 +94,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Explain the concept of Occam'\''s Razor and provide a simple example."
   }'
 ```
 
-## Zusammenfassungen der Gedanken
+## Ringkasan penalaran
 
-Zusammenfassungen der Gedanken geben Einblicke in den internen Denkprozess des Modells.
-Standardmäßig wird nur die endgültige Ausgabe zurückgegeben. Sie können Zusammenfassungen der Gedanken mit `thinking_summaries` aktivieren:
+Ringkasan penalaran memberikan insight tentang proses penalaran internal model.
+Secara default, hanya output akhir yang ditampilkan. Anda dapat mengaktifkan ringkasan penalaran dengan `thinking_summaries`:
 
 ### Python
 
@@ -89,7 +112,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="What is the sum of the first 50 prime numbers?",
     generation_config={
         "thinking_summaries": "auto"
@@ -120,7 +143,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "What is the sum of the first 50 prime numbers?",
     generation_config: {
         thinking_summaries: "auto"
@@ -146,6 +169,59 @@ for (const step of interaction.steps) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ModelOutputStep;
+import com.google.genai.gaos.models.interactions.Step;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.interactions.ThoughtStep;
+import com.google.genai.gaos.models.interactions.ThoughtSummaryContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Collections;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("What is the sum of the first 50 prime numbers?"))
+        .generationConfig(
+            GenerationConfig.builder().thinkingSummaries(ThinkingSummaries.AUTO).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+for (Step step : interaction.steps().orElse(Collections.emptyList())) {
+  if (step instanceof ThoughtStep thoughtStep) {
+    System.out.println("Thought summary:");
+    for (ThoughtSummaryContent contentBlock : thoughtStep.summary().orElse(Collections.emptyList())) {
+      if (contentBlock instanceof TextContent textContent) {
+        System.out.println(textContent.text().orElse(""));
+      }
+    }
+    System.out.println();
+  } else if (step instanceof ModelOutputStep outputStep) {
+    for (Content contentBlock : outputStep.content().orElse(Collections.emptyList())) {
+      if (contentBlock instanceof TextContent textContent) {
+        System.out.println("Answer:");
+        System.out.println(textContent.text().orElse(""));
+        System.out.println();
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -153,7 +229,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "What is the sum of the first 50 prime numbers?",
     "generation_config": {
       "thinking_summaries": "auto"
@@ -161,23 +237,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Ein Denkprozessblock kann in den folgenden Fällen **nur eine Signatur ohne Zusammenfassung** enthalten:
+Blok penalaran hanya dapat berisi **tanda tangan tanpa ringkasan** dalam kasus berikut:
 
-- Einfache Anfragen, bei denen das Modell nicht ausreichend logisch schlussgefolgert hat, um eine Zusammenfassung zu erstellen
-- `thinking_summaries: "none"`, wobei Zusammenfassungen explizit deaktiviert sind
-- Bestimmte Arten von Denkprozessinhalten, z. B. Bilder, haben möglicherweise keine Textzusammenfassungen
+- Permintaan sederhana, saat model tidak melakukan penalaran yang cukup untuk membuat ringkasan
+- `thinking_summaries: "none"`, saat ringkasan dinonaktifkan secara eksplisit
+- Jenis konten penalaran tertentu, seperti gambar, mungkin tidak memiliki ringkasan teks
 
-Ihr Code sollte immer Denkprozessblöcke verarbeiten, bei denen `summary` leer oder nicht vorhanden ist.
+Kode Anda harus selalu menangani blok penalaran saat `summary` kosong atau tidak ada.
 
-## Streaming mit Thinking
+## Streaming dengan penalaran
 
-Verwenden Sie Streaming, um während der Generierung schrittweise Zusammenfassungen der Gedanken zu erhalten.
-Denkprozessblöcke werden mit Server-Sent Events (SSE) mit zwei verschiedenen Delta-Typen bereitgestellt:
+Gunakan streaming untuk menerima ringkasan penalaran inkremental selama pembuatan.
+Blok penalaran dikirim menggunakan Peristiwa yang Dikirim Server (SSE) dengan dua jenis delta yang berbeda:
 
-| Delta-Typ | Enthält | Wann gesendet |
+| Jenis delta | Berisi | Waktu pengiriman |
 | --- | --- | --- |
-| `thought_summary` | Text- oder Bildzusammenfassung | Ein oder mehrere Deltas mit schrittweiser Zusammenfassung |
-| `thought_signature` | Die kryptografische Signatur | Das letzte Delta vor `step.stop` |
+| `thought_summary` | Konten ringkasan teks atau gambar | Satu atau beberapa delta dengan ringkasan inkremental |
+| `thought_signature` | Tanda tangan kriptografi | delta terakhir sebelum `step.stop` |
 
 ### Python
 
@@ -198,7 +274,7 @@ thoughts = ""
 answer = ""
 
 stream = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     generation_config={
         "thinking_summaries": "auto"
@@ -238,7 +314,7 @@ let thoughts = "";
 let answer = "";
 
 const stream = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: prompt,
     generation_config: {
         thinking_summaries: "auto"
@@ -262,6 +338,81 @@ for await (const event of stream) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.InteractionSSEEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.StepDelta;
+import com.google.genai.gaos.models.interactions.StepDeltaData;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.TextDelta;
+import com.google.genai.gaos.models.interactions.ThinkingSummaries;
+import com.google.genai.gaos.models.interactions.ThoughtSummaryDelta;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.CreateInteractionResponse;
+import com.google.genai.gaos.utils.EventStream;
+
+Client client = new Client();
+
+String prompt =
+    "Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue.\n"
+        + "Alice does not live in the red house.\n"
+        + "Bob does not live in the green house.\n"
+        + "Carol does not live in the red or green house.\n"
+        + "Which house does each person live in?";
+
+StringBuilder thoughts = new StringBuilder();
+StringBuilder answer = new StringBuilder();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of(prompt))
+        .generationConfig(
+            GenerationConfig.builder().thinkingSummaries(ThinkingSummaries.AUTO).build())
+        .stream(true)
+        .build();
+
+CreateInteractionResponse response =
+    client.interactions.create(CreateInteractionRequestBody.of(params));
+
+try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
+  for (InteractionSSEStreamEvent streamEvent : stream) {
+    InteractionSSEEvent event = streamEvent.data().orElse(null);
+    if (event instanceof StepDelta stepDelta) {
+      StepDeltaData delta = stepDelta.delta().orElse(null);
+      if (delta instanceof ThoughtSummaryDelta thoughtDelta) {
+        Content content = thoughtDelta.content().orElse(null);
+        if (content instanceof TextContent textContent) {
+          if (thoughts.length() == 0) {
+            System.out.println("Thinking...");
+          }
+          String summaryText = textContent.text().orElse("");
+          System.out.print("[Thought] " + summaryText);
+          thoughts.append(summaryText);
+        }
+      } else if (delta instanceof TextDelta textDelta) {
+        String text = textDelta.text().orElse("");
+        if (!text.isEmpty()) {
+          if (answer.length() == 0) {
+            System.out.println("\nAnswer:");
+          }
+          System.out.print(text);
+          answer.append(text);
+        }
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -270,7 +421,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue. Alice does not live in the red house. Bob does not live in the green house. Carol does not live in the red or green house. Which house does each person live in?",
     "generation_config": {
       "thinking_summaries": "auto"
@@ -279,11 +430,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Die Streaming-Antwort verwendet Server-Sent Events (SSE) und besteht aus Schritten und Ereignissen, z. B.:
+Respons streaming menggunakan Peristiwa yang Dikirim Server (SSE) dan terdiri dari langkah dan peristiwa, misalnya:
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.6-flash"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.8-flash"},"event_type":"interaction.created"}
 
 event: step.start
 data: {"index":0,"step":{"signature":"","summary":[{"text":"**Evaluating the clues**\n\nI'm considering...","type":"text"}],"type":"thought"},"event_type":"step.start"}
@@ -310,22 +461,24 @@ event: done
 data: [DONE]
 ```
 
-## Thinking steuern
+## Mengontrol penalaran
 
-Gemini-Modelle führen standardmäßig dynamische Denkprozesse durch und passen den Aufwand für das logische Schlussfolgern automatisch an die Komplexität der Anfrage an. Sie können dieses Verhalten mit dem Parameter `thinking_level` steuern.
+Model Gemini melakukan penalaran dinamis secara default, dan otomatis menyesuaikan jumlah upaya penalaran berdasarkan kompleksitas permintaan. Anda dapat mengontrol perilaku ini menggunakan parameter `thinking_level`.
 
-| Modell | Standard-Thinking | Unterstützte Stufen |
+| Model | Penalaran Default | Level yang Didukung |
 | --- | --- | --- |
-| gemini-3.6-flash | An (Medium) | minimal, niedrig, mittel, hoch |
-| gemini-3.5-flash-lite | An (minimal) | minimal, niedrig, mittel, hoch |
-| gemini-3.1-pro-preview | An (hoch) | niedrig, mittel, hoch |
-| gemini-3.1-flash-lite-image | An (minimal) | minimal, hoch |
-| gemini-3-flash-preview | An (hoch) | minimal, niedrig, mittel, hoch |
-| gemini-3-pro-preview | An (hoch) | niedrig, hoch |
-| gemini-3.5-flash | An (Medium) | minimal, niedrig, mittel, hoch |
-| gemini-2.5-pro | An | niedrig, mittel, hoch |
-| gemini-2.5-flash | An | niedrig, mittel, hoch |
-| gemini-2.5-flash-lite | Aus | niedrig, mittel, hoch |
+| gemini-3.8-flash | Aktif (sedang) | rendah, sedang, tinggi |
+| gemini-3.7-flash | Aktif (sedang) | rendah, sedang, tinggi |
+| gemini-3.6-flash | Aktif (sedang) | minimal, rendah, sedang, tinggi |
+| gemini-3.5-flash-lite | Aktif (minimal) | minimal, rendah, sedang, tinggi |
+| gemini-3.1-pro-preview | Aktif (tinggi) | rendah, sedang, tinggi |
+| gemini-3.1-flash-lite-image | Aktif (minimal) | minimal, tinggi |
+| gemini-3-flash-preview | Aktif (tinggi) | minimal, rendah, sedang, tinggi |
+| gemini-3-pro-preview | Aktif (tinggi) | rendah, tinggi |
+| gemini-3.5-flash | Aktif (sedang) | minimal, rendah, sedang, tinggi |
+| gemini-2.5-pro | Aktif | rendah, sedang, tinggi |
+| gemini-2.5-flash | Aktif | rendah, sedang, tinggi |
+| gemini-2.5-flash-lite | Nonaktif | rendah, sedang, tinggi |
 
 ### Python
 
@@ -335,7 +488,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Provide a list of 3 famous physicists and their key contributions",
     generation_config={
         "thinking_level": "low"
@@ -352,13 +505,42 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Provide a list of 3 famous physicists and their key contributions",
     generation_config: {
         thinking_level: "low"
     }
 });
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(
+            InteractionsInput.of(
+                "Provide a list of 3 famous physicists and their key contributions"))
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.LOW).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -368,7 +550,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Provide a list of 3 famous physicists and their key contributions",
     "generation_config": {
       "thinking_level": "low"
@@ -376,27 +558,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gedankensignaturen
+### Batas token dan `max_output_tokens`
 
-Gedankensignaturen sind verschlüsselte Darstellungen des internen Denkprozesses des Modells. Sie sind erforderlich, um die Kontinuität des Denkprozesses bei Mehrfachdialogen aufrechtzuerhalten.
+Parameter pembuatan [`max_output_tokens`](https://ai.google.dev/api/interactions-api?hl=id#request-body) menetapkan jumlah maksimum token yang dapat dibuat respons, termasuk
+token penalaran.
 
-Mit der Interactions API ist die Verarbeitung von Gedankensignaturen viel einfacher als mit der `generateContent` API.
+Jika ditetapkan, parameter ini akan bertindak sebagai batas maksimum yang diterapkan oleh infrastruktur tanpa mengubah cara model mengalokasikan anggaran penalarannya (`thinking_level`).
 
-### Zustandsorientierter Modus (empfohlen)
+Jika model mencapai batas ini saat melakukan penalaran, model akan berhenti membuat dengan status
+`"incomplete"` dan menampilkan output yang dipotong atau kosong (tetapi tetap menagih
+token penalaran yang dibuat). Untuk mengurangi biaya atau latensi tanpa memotong respons, turunkan `thinking_level` (`low` atau `medium`) dan jangan menetapkan `max_output_tokens` yang kecil.
 
-Wenn Sie die Interactions API standardmäßig im zustandsorientierten Modus verwenden (indem Sie `store: true` festlegen und die `previous_interaction_id` in nachfolgenden Schritten übergeben), verwaltet der Server automatisch den Unterhaltungsstatus, einschließlich aller Denkprozessblöcke und Signaturen. In diesem Modus müssen Sie nichts in Bezug auf Signaturen tun. Sie werden vollständig serverseitig verarbeitet.
+## Tanda tangan penalaran
 
-### Zustandsloser Modus
+Tanda tangan penalaran adalah representasi terenkripsi dari penalaran internal model. Tanda tangan ini diperlukan untuk mempertahankan kontinuitas penalaran di seluruh interaksi multi-giliran.
 
-Wenn Sie den Unterhaltungsstatus selbst verwalten (zustandsloser Modus) und die vollständige Historie der Eingaben und Ausgaben in jeder Anfrage übergeben:
+Interactions API membuat penanganan tanda tangan penalaran jauh lebih sederhana daripada `generateContent` API.
 
-- Sie **MÜSSEN** immer alle `thought`-Blöcke genau so noch einmal senden, wie sie vom Modell empfangen wurden.
-- Sie sollten **Denkprozessblöcke nicht aus dem Verlauf entfernen oder ändern, da sie die Signaturen enthalten, die das Modell benötigt, um den Denkprozess fortzusetzen.**
-- Wenn Sie innerhalb einer Sitzung das Modell wechseln, sollten Sie trotzdem die Denkprozessblöcke des vorherigen Modells noch einmal senden. Das Back-End verwaltet die Kompatibilität.
+### Mode stateful (Direkomendasikan)
 
-## Preise
+Secara default, saat Anda menggunakan Interactions API dalam mode stateful (dengan menetapkan `store: true` dan meneruskan `previous_interaction_id` pada giliran berikutnya), server akan otomatis mengelola status percakapan, termasuk semua blok dan tanda tangan penalaran. Dalam mode ini, Anda tidak perlu melakukan apa pun terkait tanda tangan. Tanda tangan ditangani sepenuhnya di sisi server.
 
-Wenn Thinking aktiviert ist, setzt sich der Preis für die Antwort aus den Ausgabe-Tokens und den Thinking-Tokens zusammen. Die Gesamtzahl der generierten Thinking-Tokens finden Sie im Feld `total_thought_tokens`.
+### Mode stateless
+
+Jika Anda mengelola status percakapan sendiri (mode stateless) dan meneruskan histori lengkap input dan output di setiap permintaan:
+
+- Anda **HARUS** selalu mengirim ulang semua blok `thought` persis seperti yang diterima dari model.
+- Anda **TIDAK BOLEH** menghapus atau mengubah blok penalaran dari histori, karena blok tersebut berisi tanda tangan yang diperlukan agar model dapat melanjutkan penalarannya.
+- Saat beralih model dalam sesi, Anda tetap harus mengirim ulang blok penalaran model sebelumnya. Backend mengelola kompatibilitas.
+
+## Harga
+
+Jika penalaran diaktifkan, harga respons adalah jumlah token output dan token penalaran. Anda bisa mendapatkan jumlah total token penalaran yang dibuat dari kolom `total_thought_tokens`.
 
 ### Python
 
@@ -412,34 +605,61 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-Thinking Models generieren vollständige Denkprozesse, um die Qualität der endgültigen
-Antwort zu verbessern, und geben dann [Zusammenfassungen](#summaries) aus, um Einblicke in den
-Denkprozess zu geben. Die Preise basieren auf den vollständigen Denkprozess-Tokens, die das Modell generieren muss, obwohl nur die Zusammenfassung von der API ausgegeben wird.
+### Java
 
-Weitere Informationen zu Tokens finden Sie im [Leitfaden zum Zählen von Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=de).
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.Usage;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
 
-## Best Practices
+Client client = new Client();
 
-Beachten Sie diese Richtlinien, um Thinking Models effizient zu verwenden.
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("Explain the concept of Occam's Razor."))
+        .build();
 
-- **Denkprozess überprüfen**: Analysieren Sie Zusammenfassungen der Gedanken, um Fehler zu verstehen und Prompts zu verbessern.
-- **Thinking-Budget steuern**: Fordern Sie das Modell auf, bei längeren Ausgaben weniger zu denken, um Tokens zu sparen.
-- **Einfache Aufgaben**: Verwenden Sie minimales oder niedriges Thinking für die Faktenabfrage oder Klassifizierung (z.B. „Wo wurde DeepMind gegründet?“).
-- **Mittelkomplexe Aufgaben**: Verwenden Sie das Standard-Thinking, um Konzepte zu vergleichen oder kreativ zu denken (z.B. „Vergleichen Sie Elektro- und Hybridautos“).
-- **Komplexe Aufgaben**: Verwenden Sie das maximale Thinking für fortgeschrittenes Programmieren, Mathematik oder mehrstufige Planung (z.B. „Lösen Sie AIME-Mathematikaufgaben“).
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 
-## Nächste Schritte
+if (interaction.usage().isPresent()) {
+  Usage usage = interaction.usage().get();
+  System.out.println("Thoughts tokens: " + usage.totalThoughtTokens().orElse(0));
+  System.out.println("Output tokens: " + usage.totalOutputTokens().orElse(0));
+}
+```
 
-- [Textgenerierung](https://ai.google.dev/gemini-api/docs/text-generation?hl=de): Einfache Textantworten
-- [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de): Verbindung zu Tools herstellen
-- [Gemini 3-Leitfaden](https://ai.google.dev/gemini-api/docs/gemini-3?hl=de): Modellspezifische Funktionen
+Model penalaran membuat penalaran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](#summaries) untuk memberikan insight tentang proses penalaran. Harga didasarkan pada token penalaran lengkap yang perlu dibuat model, meskipun hanya ringkasan yang dihasilkan dari API.
 
-Feedback geben
+Anda dapat mempelajari token lebih lanjut di panduan [Penghitungan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id).
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+## Praktik terbaik
 
-Zuletzt aktualisiert: 2026-09-12 (UTC).
+Gunakan model penalaran secara efisien dengan mengikuti panduan ini.
 
-Haben Sie Feedback für uns?
+- **Tinjau penalaran**: Analisis ringkasan penalaran untuk memahami kegagalan dan meningkatkan perintah.
+- **Kontrol anggaran penalaran**: Perintahkan model untuk melakukan penalaran yang lebih sedikit untuk output yang panjang guna menghemat token.
+- **Tugas sederhana**: Gunakan penalaran minimal atau rendah untuk pengambilan atau klasifikasi fakta (misalnya, "Di mana DeepMind didirikan?").
+- **Tugas sedang**: Gunakan penalaran default untuk membandingkan konsep atau penalaran kreatif (misalnya, Bandingkan mobil listrik dan mobil hybrid).
+- **Tugas kompleks**: Gunakan penalaran maksimum untuk coding, matematika, atau perencanaan multi-langkah tingkat lanjut (misalnya, Selesaikan soal matematika AIME).
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]
+## Langkah berikutnya
+
+- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id): Respons teks dasar
+- [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id): Menghubungkan ke alat
+- [Panduan Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=id): Fitur khusus model
+
+Kirim masukan
+
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+
+Terakhir diperbarui pada 2026-09-18 UTC.
+
+Ada masukan untuk kami?
+
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]

@@ -1,40 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=hi
-fetched_at: 2026-09-14T05:40:24.167034+00:00
-title: "\u0938\u094d\u091f\u094d\u0930\u0915\u094d\u091a\u0930\u094d\u0921 \u0906\u0909\u091f\u092a\u0941\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=pl
+fetched_at: 2026-09-21T05:50:41.214404+00:00
+title: "Dane wyj\u015bciowe uporz\u0105dkowane \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-सुझाव भेजें
+Prześlij opinię
 
-# स्ट्रक्चर्ड आउटपुट
+# Dane wyjściowe uporządkowane
 
-Gemini मॉडल को कॉन्फ़िगर करके, दिए गए JSON स्कीमा के मुताबिक जवाब जनरेट किए जा सकते हैं. इससे, टाइप-सेफ़ और अनुमान के मुताबिक नतीजे मिलते हैं. साथ ही, बिना स्ट्रक्चर वाले टेक्स्ट से स्ट्रक्चर्ड डेटा निकालना आसान हो जाता है.
+Modele Gemini możesz skonfigurować tak, aby generowały odpowiedzi zgodne z podanym schematem JSON. Dzięki temu uzyskasz przewidywalne i bezpieczne typowo wyniki oraz uprościsz wyodrębnianie uporządkowanych danych z nieuporządkowanego tekstu.
 
-स्ट्रक्चर्ड आउटपुट का इस्तेमाल इन कामों के लिए किया जा सकता है:
+Używanie uporządkowanych danych wyjściowych jest idealne w przypadku:
 
-- **डेटा निकालना:** टेक्स्ट से नाम और तारीख जैसी खास जानकारी निकालना.
-- **स्ट्रक्चर्ड क्लासिफ़िकेशन:** टेक्स्ट को पहले से तय की गई कैटगरी में बांटना.
-- **एजेंटिक वर्कफ़्लो:** टूल या एपीआई के लिए स्ट्रक्चर्ड इनपुट जनरेट करना.
+- **Wyodrębnianie danych:** wyodrębnianie z tekstu konkretnych informacji, takich jak imiona i nazwiska oraz daty.
+- **Uporządkowanej klasyfikacji:** klasyfikowania tekstu według wstępnie zdefiniowanych kategorii.
+- **Przepływów pracy agenta:** generowania uporządkowanych danych wejściowych dla narzędzi lub interfejsów API.
 
-REST API में JSON स्कीमा के साथ-साथ, Google GenAI SDK की मदद से
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) और
-[Zod](https://zod.dev/) (JavaScript) का इस्तेमाल करके स्कीमा तय किए जा सकते हैं.
+Oprócz obsługi schematu JSON w interfejsie REST API, pakiety SDK Google GenAI
+umożliwiają definiowanie schematów za pomocą
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) i
+[Zod](https://zod.dev/) (JavaScript).
 
-## स्ट्रक्चर्ड आउटपुट के उदाहरण
+## Przykłady uporządkowanych danych wyjściowych
 
-### रेसिपी निकालने वाला टूल
+### Ekstraktor przepisów
 
-इस उदाहरण में, JSON स्कीमा के बुनियादी टाइप, जैसे कि `object`, `array`, `string`, और `integer` का इस्तेमाल करके, टेक्स्ट से स्ट्रक्चर्ड डेटा निकालने का तरीका बताया गया है.
+Ten przykład pokazuje, jak wyodrębniać uporządkowane dane z tekstu za pomocą podstawowych typów schematu JSON, takich jak `object`, `array`, `string` i `integer`.
 
 ### Python
 
@@ -70,7 +71,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 """
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -139,7 +140,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -152,6 +153,104 @@ const recipe = recipeSchema.parse(JSON.parse(interaction.output_text));
 console.log(recipe);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> ingredientProps = new HashMap<>();
+Map<String, Object> nameProp = new HashMap<>();
+nameProp.put("type", "string");
+nameProp.put("description", "Name of the ingredient.");
+ingredientProps.put("name", nameProp);
+
+Map<String, Object> quantityProp = new HashMap<>();
+quantityProp.put("type", "string");
+quantityProp.put("description", "Quantity of the ingredient, including units.");
+ingredientProps.put("quantity", quantityProp);
+
+Map<String, Object> ingredientItemSchema = new HashMap<>();
+ingredientItemSchema.put("type", "object");
+ingredientItemSchema.put("properties", ingredientProps);
+ingredientItemSchema.put("required", Arrays.asList("name", "quantity"));
+
+Map<String, Object> properties = new HashMap<>();
+
+Map<String, Object> recipeNameProp = new HashMap<>();
+recipeNameProp.put("type", "string");
+recipeNameProp.put("description", "The name of the recipe.");
+properties.put("recipe_name", recipeNameProp);
+
+Map<String, Object> prepTimeProp = new HashMap<>();
+prepTimeProp.put("type", "integer");
+prepTimeProp.put("description", "Optional time in minutes to prepare the recipe.");
+properties.put("prep_time_minutes", prepTimeProp);
+
+Map<String, Object> ingredientsProp = new HashMap<>();
+ingredientsProp.put("type", "array");
+ingredientsProp.put("items", ingredientItemSchema);
+properties.put("ingredients", ingredientsProp);
+
+Map<String, Object> instructionsProp = new HashMap<>();
+instructionsProp.put("type", "array");
+Map<String, Object> stringItem = new HashMap<>();
+stringItem.put("type", "string");
+instructionsProp.put("items", stringItem);
+properties.put("instructions", instructionsProp);
+
+Map<String, Object> recipeJsonSchema = new HashMap<>();
+recipeJsonSchema.put("type", "object");
+recipeJsonSchema.put("properties", properties);
+recipeJsonSchema.put("required", Arrays.asList("recipe_name", "ingredients", "instructions"));
+
+String prompt =
+    "Please extract the recipe from the following text.\n"
+        + "The user wants to make delicious chocolate chip cookies.\n"
+        + "They need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,\n"
+        + "1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,\n"
+        + "3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.\n"
+        + "For the best part, they'll need 2 cups of semisweet chocolate chips.\n"
+        + "First, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,\n"
+        + "baking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar\n"
+        + "until light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry\n"
+        + "ingredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons\n"
+        + "onto ungreased baking sheets and bake for 9 to 11 minutes.";
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(recipeJsonSchema)
+                .build()));
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of(prompt))
+        .responseFormat(format)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -159,7 +258,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": "Please extract the recipe from the following text.\nThe user wants to make delicious chocolate chip cookies.\nThey need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,\n1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,\n3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.\nFor the best part, they will need 2 cups of semisweet chocolate chips.\nFirst, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,\nbaking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar\nuntil light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry\ningredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons\nonto ungreased baking sheets and bake for 9 to 11 minutes.",
       "response_format": {
         "type": "text",
@@ -198,7 +297,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**जवाब का उदाहरण:**
+**Przykładowa odpowiedź:**
 
 ```
 {
@@ -226,9 +325,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### कॉन्टेंट को मॉडरेट करना
+### Moderacja treści
 
-इस उदाहरण में, शर्तों के हिसाब से स्कीमा के लिए `anyOf` और क्लासिफ़िकेशन के लिए `enum` का इस्तेमाल दिखाया गया है. इससे, कॉन्टेंट के आधार पर आउटपुट स्ट्रक्चर में बदलाव किया जा सकता है.
+Ten przykład pokazuje, jak używać `anyOf` w przypadku schematów warunkowych i `enum` w przypadku klasyfikacji, co pozwala na zmianę struktury danych wyjściowych w zależności od treści.
 
 ### Python
 
@@ -256,7 +355,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 """
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -317,7 +416,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -330,6 +429,96 @@ const result = moderationResultSchema.parse(JSON.parse(interaction.output_text))
 console.log(result);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> spamProps = new HashMap<>();
+Map<String, Object> reasonProp = new HashMap<>();
+reasonProp.put("type", "string");
+reasonProp.put("description", "The reason why the content is considered spam.");
+spamProps.put("reason", reasonProp);
+
+Map<String, Object> spamTypeProp = new HashMap<>();
+spamTypeProp.put("type", "string");
+spamTypeProp.put("enum", Arrays.asList("phishing", "scam", "unsolicited promotion", "other"));
+spamTypeProp.put("description", "The type of spam.");
+spamProps.put("spam_type", spamTypeProp);
+
+Map<String, Object> spamDetailsSchema = new HashMap<>();
+spamDetailsSchema.put("type", "object");
+spamDetailsSchema.put("title", "SpamDetails");
+spamDetailsSchema.put("properties", spamProps);
+spamDetailsSchema.put("required", Arrays.asList("reason", "spam_type"));
+
+Map<String, Object> notSpamProps = new HashMap<>();
+Map<String, Object> summaryProp = new HashMap<>();
+summaryProp.put("type", "string");
+summaryProp.put("description", "A brief summary of the content.");
+notSpamProps.put("summary", summaryProp);
+
+Map<String, Object> isSafeProp = new HashMap<>();
+isSafeProp.put("type", "boolean");
+isSafeProp.put("description", "Whether the content is safe for all audiences.");
+notSpamProps.put("is_safe", isSafeProp);
+
+Map<String, Object> notSpamDetailsSchema = new HashMap<>();
+notSpamDetailsSchema.put("type", "object");
+notSpamDetailsSchema.put("title", "NotSpamDetails");
+notSpamDetailsSchema.put("properties", notSpamProps);
+notSpamDetailsSchema.put("required", Arrays.asList("summary", "is_safe"));
+
+Map<String, Object> decisionProp = new HashMap<>();
+decisionProp.put("anyOf", Arrays.asList(spamDetailsSchema, notSpamDetailsSchema));
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("decision", decisionProp);
+
+Map<String, Object> moderationResultJsonSchema = new HashMap<>();
+moderationResultJsonSchema.put("type", "object");
+moderationResultJsonSchema.put("properties", properties);
+moderationResultJsonSchema.put("required", Arrays.asList("decision"));
+
+String prompt =
+    "Please moderate the following content and provide a decision.\n"
+        + "Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'";
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(moderationResultJsonSchema)
+                .build()));
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of(prompt))
+        .responseFormat(format)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -337,7 +526,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": "Please moderate the following content and provide a decision.\nContent: '\''Congratulations! You have won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'\''",
       "response_format": {
         "type": "text",
@@ -377,7 +566,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**जवाब का उदाहरण:**
+**Przykładowa odpowiedź:**
 
 ```
 {
@@ -388,9 +577,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### रिकर्सिव स्ट्रक्चर
+### Struktury rekurencyjne
 
-इस उदाहरण में, संगठन चार्ट जैसे रिकर्सिव स्कीमा को तय करने का तरीका बताया गया है.
+Ten przykład pokazuje, jak zdefiniować schemat rekurencyjny, np. schemat organizacyjny.
 
 ### Python
 
@@ -416,7 +605,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 """
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -462,7 +651,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -475,6 +664,72 @@ const employee = employeeSchema.parse(JSON.parse(interaction.output_text));
 console.log(employee);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> properties = new HashMap<>();
+
+Map<String, Object> nameProp = new HashMap<>();
+nameProp.put("type", "string");
+properties.put("name", nameProp);
+
+Map<String, Object> idProp = new HashMap<>();
+idProp.put("type", "integer");
+properties.put("employee_id", idProp);
+
+Map<String, Object> reportsProp = new HashMap<>();
+reportsProp.put("type", "array");
+reportsProp.put("description", "A list of employees reporting to this employee.");
+reportsProp.put("items", Collections.singletonMap("$ref", "#"));
+properties.put("reports", reportsProp);
+
+Map<String, Object> employeeJsonSchema = new HashMap<>();
+employeeJsonSchema.put("type", "object");
+employeeJsonSchema.put("properties", properties);
+employeeJsonSchema.put("required", Arrays.asList("name", "employee_id", "reports"));
+
+String prompt =
+    "Generate an organization chart for a small team.\n"
+        + "The manager is Alice, who manages Bob and Charlie. Bob manages David.";
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(employeeJsonSchema)
+                .build()));
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of(prompt))
+        .responseFormat(format)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -482,7 +737,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": "Generate an organization chart for a small team.\nThe manager is Alice, who manages Bob and Charlie. Bob manages David.",
       "response_format": {
         "type": "text",
@@ -507,7 +762,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**जवाब का उदाहरण:**
+**Przykładowa odpowiedź:**
 
 ```
 {
@@ -534,9 +789,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## नतीजों को स्ट्रीम करना
+## Strumieniowanie wyników
 
-स्ट्रक्चर्ड आउटपुट को स्ट्रीम किया जा सकता है. इससे, जवाब जनरेट होने के दौरान ही उसे प्रोसेस किया जा सकता है. स्ट्रीम किए गए चंक, JSON स्ट्रिंग के मान्य हिस्से होते हैं. इन्हें जोड़कर, फ़ाइनल JSON ऑब्जेक्ट बनाया जा सकता है.
+Możesz strumieniować uporządkowane dane wyjściowe, co pozwala na rozpoczęcie przetwarzania odpowiedzi w trakcie jej generowania. Strumieniowane fragmenty to prawidłowe częściowe ciągi JSON, które można połączyć, aby utworzyć ostateczny obiekt JSON.
 
 ### Python
 
@@ -553,7 +808,7 @@ client = genai.Client()
 prompt = "The new UI is incredibly intuitive. Add a very long summary to test streaming!"
 
 stream = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -589,7 +844,7 @@ const feedbackSchema = z.fromJSONSchema(feedbackJsonSchema);
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: "The new UI is incredibly intuitive. Add a very long summary!",
   response_format: {
     type: 'text',
@@ -608,6 +863,81 @@ for await (const event of stream) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.InteractionSSEEvent;
+import com.google.genai.gaos.models.interactions.InteractionSSEStreamEvent;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.StepDelta;
+import com.google.genai.gaos.models.interactions.StepDeltaData;
+import com.google.genai.gaos.models.interactions.TextDelta;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.operations.CreateInteractionResponse;
+import com.google.genai.gaos.utils.EventStream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> properties = new HashMap<>();
+
+Map<String, Object> sentimentProp = new HashMap<>();
+sentimentProp.put("type", "string");
+sentimentProp.put("enum", Arrays.asList("positive", "neutral", "negative"));
+properties.put("sentiment", sentimentProp);
+
+Map<String, Object> summaryProp = new HashMap<>();
+summaryProp.put("type", "string");
+properties.put("summary", summaryProp);
+
+Map<String, Object> feedbackJsonSchema = new HashMap<>();
+feedbackJsonSchema.put("type", "object");
+feedbackJsonSchema.put("properties", properties);
+feedbackJsonSchema.put("required", Arrays.asList("sentiment", "summary"));
+
+String prompt = "The new UI is incredibly intuitive. Add a very long summary to test streaming!";
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(feedbackJsonSchema)
+                .build()));
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of(prompt))
+        .responseFormat(format)
+        .stream(true)
+        .build();
+
+CreateInteractionResponse response =
+    client.interactions.create(CreateInteractionRequestBody.of(params));
+
+try (EventStream<InteractionSSEStreamEvent> events = response.events()) {
+  for (InteractionSSEStreamEvent streamEvent : events) {
+    InteractionSSEEvent event = streamEvent.data().orElse(null);
+    if (event instanceof StepDelta) {
+      StepDeltaData data = ((StepDelta) event).delta().orElse(null);
+      if (data instanceof TextDelta) {
+        ((TextDelta) data).text().ifPresent(System.out::print);
+      }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
@@ -615,7 +945,7 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": "The new UI is incredibly intuitive. Add a very long summary!",
       "response_format": {
         "type": "text",
@@ -633,14 +963,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## टूल के साथ स्ट्रक्चर्ड आउटपुट
+## Uporządkowane dane wyjściowe z narzędziami
 
-Gemini 3 की मदद से, स्ट्रक्चर्ड आउटपुट को इन-बिल्ट टूल के साथ जोड़ा जा सकता है. इनमें
-[Google Search के साथ ग्राउंडिंग](https://ai.google.dev/gemini-api/docs/google-search?hl=hi),
-[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi),
-[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi),
-[फ़ाइल सर्च](https://ai.google.dev/gemini-api/docs/file-search?hl=hi#structured-output), और
-[फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) शामिल हैं.
+Gemini 3 umożliwia łączenie uporządkowanych danych wyjściowych z wbudowanymi narzędziami, takimi jak
+[powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl),
+[kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl),
+[Code Execution](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl),
+[File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=pl#structured-output), i
+[Function Calling](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
 
 ### Python
 
@@ -707,6 +1037,73 @@ const match = matchSchema.parse(JSON.parse(interaction.output_text));
 console.log(match);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.interactions.URLContext;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> properties = new HashMap<>();
+
+Map<String, Object> winnerProp = new HashMap<>();
+winnerProp.put("type", "string");
+winnerProp.put("description", "The name of the winner.");
+properties.put("winner", winnerProp);
+
+Map<String, Object> scoreProp = new HashMap<>();
+scoreProp.put("type", "string");
+scoreProp.put("description", "The final match score.");
+properties.put("final_match_score", scoreProp);
+
+Map<String, Object> scorersProp = new HashMap<>();
+scorersProp.put("type", "array");
+scorersProp.put("description", "The name of the scorer.");
+scorersProp.put("items", Collections.singletonMap("type", "string"));
+properties.put("scorers", scorersProp);
+
+Map<String, Object> matchJsonSchema = new HashMap<>();
+matchJsonSchema.put("type", "object");
+matchJsonSchema.put("properties", properties);
+matchJsonSchema.put("required", Arrays.asList("winner", "final_match_score", "scorers"));
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(matchJsonSchema)
+                .build()));
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.1-pro-preview"))
+        .input(InteractionsInput.of("Search for all details for the latest Euro."))
+        .tools(Arrays.asList(GoogleSearch.builder().build(), URLContext.builder().build()))
+        .responseFormat(format)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -733,80 +1130,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## JSON स्कीमा के लिए सहायता
+## Obsługa schematu JSON
 
-JSON ऑब्जेक्ट जनरेट करने के लिए, `response_format` को `text` टाइप के ऑब्जेक्ट (या ऑब्जेक्ट वाले कलेक्शन) के साथ कॉन्फ़िगर करें. साथ ही, इसका `mime_type` को `application/json` पर सेट करें. `schema` फ़ील्ड में स्कीमा की जानकारी देनी चाहिए.
+Aby wygenerować obiekt JSON, skonfiguruj `response_format` za pomocą obiektu (lub tablicy zawierającej obiekt) typu `text` i ustaw jego `mime_type` na `application/json`. Schemat należy podać w polu `schema`.
 
-Gemini का स्ट्रक्चर्ड आउटपुट मोड,
-[JSON स्कीमा](https://json-schema.org/) की खास जानकारी के सबसेट के साथ काम करता है.
+Tryb uporządkowanych danych wyjściowych Gemini obsługuje podzbiór specyfikacji
+[schematu JSON](https://json-schema.org/).
 
-`type` की ये वैल्यू इस्तेमाल की जा सकती हैं:
+Obsługiwane są te wartości `type`:
 
-- **`string`**: टेक्स्ट के लिए.
-- **`number`**: फ़्लोटिंग-पॉइंट नंबर के लिए.
-- **`integer`**: पूर्णांक के लिए.
-- **`boolean`**: सही या गलत वैल्यू के लिए.
-- **`object`**: कुंजी-वैल्यू पेयर वाले स्ट्रक्चर्ड डेटा के लिए.
-- **`array`**: आइटम की सूची के लिए.
-- **`null`**: किसी प्रॉपर्टी को नल के तौर पर सेट करने के लिए, टाइप कलेक्शन में `"null"` शामिल करें. उदाहरण के लिए, `{"type": ["string", "null"]}`.
+- **`string`**: w przypadku tekstu.
+- **`number`**: w przypadku liczb zmiennoprzecinkowych.
+- **`integer`**: w przypadku liczb całkowitych.
+- **`boolean`**: w przypadku wartości true lub false.
+- **`object`**: w przypadku uporządkowanych danych z parami klucz-wartość.
+- **`array`**: w przypadku list elementów.
+- **`null`**: aby zezwolić na wartość null właściwości, dodaj `"null"` do tablicy typów (np. `{"type": ["string", "null"]}`).
 
-जानकारी देने वाली इन प्रॉपर्टी से, मॉडल को गाइड करने में मदद मिलती है:
+Te właściwości opisowe pomagają modelowi:
 
-- **`title`**: किसी प्रॉपर्टी की जानकारी.
-- **`description`**: किसी प्रॉपर्टी की ज़्यादा जानकारी.
+- **`title`**: krótki opis właściwości.
+- **`description`**: dłuższy i bardziej szczegółowy opis właściwości.
 
-### टाइप के हिसाब से प्रॉपर्टी
+### Właściwości specyficzne dla typu
 
-**`object` वैल्यू के लिए:**
+**W przypadku wartości `object`:**
 
-- **`properties`**: एक ऑब्जेक्ट, जिसमें हर कुंजी एक प्रॉपर्टी का नाम होती है और हर वैल्यू उस प्रॉपर्टी के लिए एक स्कीमा होती है.
-- **`required`**: स्ट्रिंग का एक कलेक्शन, जिसमें यह बताया जाता है कि कौनसी प्रॉपर्टी ज़रूरी हैं.
-- **`additionalProperties`**: इससे यह कंट्रोल किया जाता है कि `properties` में शामिल नहीं की गई प्रॉपर्टी इस्तेमाल की जा सकती हैं या नहीं. यह बूलियन या स्कीमा हो सकता है.
+- **`properties`**: obiekt, w którym każdy klucz jest nazwą właściwości, a każda wartość jest schematem tej właściwości.
+- **`required`**: tablica ciągów znaków, która zawiera listę właściwości obowiązkowych.
+- **`additionalProperties`**: określa, czy właściwości nieuwzględnione w `properties` są dozwolone. Może to być wartość logiczna lub schemat.
 
-**`string` वैल्यू के लिए:**
+**W przypadku wartości `string`:**
 
-- **`enum`**: क्लासिफ़िकेशन टास्क के लिए, स्ट्रिंग का एक खास सेट दिखाता है.
-- **`format`**: स्ट्रिंग के लिए एक सिंटैक्स तय करता है. जैसे, `date-time`, `date`, `time`.
+- **`enum`**: zawiera listę konkretnych możliwych ciągów znaków w przypadku zadań klasyfikacji.
+- **`format`**: określa składnię ciągu znaków, np. `date-time`, `date`, `time`.
 
-**`number` और `integer` वैल्यू के लिए:**
+**W przypadku wartości `number` i `integer`:**
 
-- **`enum`**: संख्या वाली संभावित वैल्यू का एक खास सेट दिखाता है.
-- **`minimum`**: शामिल की जा सकने वाली सबसे छोटी वैल्यू.
-- **`maximum`**: शामिल की जा सकने वाली सबसे बड़ी वैल्यू.
+- **`enum`**: zawiera listę konkretnych możliwych wartości liczbowych.
+- **`minimum`**: minimalna wartość włącznie.
+- **`maximum`**: maksymalna wartość włącznie.
 
-**`array` वैल्यू के लिए:**
+**W przypadku wartości `array` values:**
 
-- **`items`**: कलेक्शन में मौजूद सभी आइटम के लिए स्कीमा तय करता है.
-- **`prefixItems`**: पहले N आइटम के लिए स्कीमा की एक सूची तय करता है. इससे, टपल जैसे स्ट्रक्चर बनाए जा सकते हैं.
-- **`minItems`**: कलेक्शन में मौजूद आइटम की कम से कम संख्या.
-- **`maxItems`**: कलेक्शन में मौजूद आइटम की ज़्यादा से ज़्यादा संख्या.
+- **`items`**: określa schemat wszystkich elementów w tablicy.
+- **`prefixItems`**: określa listę schematów dla pierwszych N elementów, co umożliwia tworzenie struktur podobnych do krotek.
+- **`minItems`**: minimalna liczba elementów w tablicy.
+- **`maxItems`**: maksymalna liczba elementów w tablicy.
 
-## स्ट्रक्चर्ड आउटपुट बनाम फ़ंक्शन कॉलिंग
+## Uporządkowane dane wyjściowe a wywoływanie funkcji
 
-| सुविधा | इस्तेमाल का मुख्य उदाहरण |
+| Funkcja | Główny przypadek użycia |
 | --- | --- |
-| **स्ट्रक्चर्ड आउटपुट** | **फ़ाइनल जवाब को फ़ॉर्मैट करना.** इसका इस्तेमाल तब करें, जब आपको मॉडल का *जवाब* किसी खास फ़ॉर्मैट में चाहिए. |
-| **फ़ंक्शन कॉलिंग** | **बातचीत के दौरान कार्रवाई करना.** इसका इस्तेमाल तब करें, जब मॉडल को फ़ाइनल जवाब देने से पहले, आपसे कोई टास्क *पूछना* हो. |
+| **Uporządkowane dane wyjściowe** | **Formatowanie ostatecznej odpowiedzi.** Używaj, gdy chcesz, aby *odpowiedź* modelu miała określony format. |
+| **Wywoływanie funkcji** | **Podejmowanie działań podczas rozmowy.** Używaj, gdy model musi *poprosić Cię* o wykonanie zadania przed udzieleniem ostatecznej odpowiedzi. |
 
-## सबसे सही तरीके
+## Sprawdzone metody
 
-- **साफ़ तौर पर जानकारी देना:** मॉडल को गाइड करने के लिए, `description` फ़ील्ड का इस्तेमाल करें.
-- **टाइप तय करना:** खास टाइप (`integer`, `string`, `enum`) का इस्तेमाल करें.
-- **प्रॉम्प्ट इंजीनियरिंग:** साफ़ तौर पर बताएं कि आपको मॉडल से क्या काम कराना है.
-- **पुष्टि करना:** भले ही, आउटपुट सिंटैक्टिक तौर पर सही JSON हो, लेकिन हमेशा अपने ऐप्लिकेशन में वैल्यू की पुष्टि करें.
-- **गड़बड़ी को ठीक करना:** स्कीमा के मुताबिक, लेकिन सिमैंटिक तौर पर गलत आउटपुट के लिए, गड़बड़ी को ठीक करने की मज़बूत सुविधा लागू करें.
+- **Jasne opisy:** używaj pola `description`, aby kierować modelem.
+- **Silne typowanie:** używaj konkretnych typów (`integer`, `string`, `enum`).
+- **Inżynieria promptów:** jasno określ, co ma zrobić model.
+- **Weryfikacja:** chociaż dane wyjściowe są syntaktycznie poprawnym kodem JSON, zawsze weryfikuj wartości w aplikacji.
+- **Obsługa błędów:** zaimplementuj niezawodną obsługę błędów w przypadku danych wyjściowych zgodnych ze schematem, ale niepoprawnych semantycznie.
 
-## सीमाएं
+## Ograniczenia
 
-- **स्कीमा का सबसेट:** JSON स्कीमा की सभी सुविधाएं उपलब्ध नहीं हैं.
-- **स्कीमा की जटिलता:** बहुत बड़े या डीपली नेस्ट किए गए स्कीमा को अस्वीकार किया जा सकता है.
+- **Podzbiór schematu:** nie wszystkie funkcje schematu JSON są obsługiwane.
+- **Złożoność schematu:** bardzo duże lub głęboko zagnieżdżone schematy mogą zostać odrzucone.
 
-सुझाव भेजें
+Prześlij opinię
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
+Ostatnia aktualizacja: 2026-09-18 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Chcesz przekazać coś jeszcze?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]

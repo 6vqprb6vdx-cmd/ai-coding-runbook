@@ -1,67 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=es-419
-fetched_at: 2026-09-14T05:38:06.522147+00:00
-title: "Supervisi\u00f3n de abusos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=ko
+fetched_at: 2026-09-21T06:00:50.242629+00:00
+title: "\uc545\uc6a9 \ubaa8\ub2c8\ud130\ub9c1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Enviar comentarios
+의견 보내기
 
-# Supervisión de abusos
+# 악용 모니터링
 
-Google se compromete con el desarrollo y el uso responsables de la IA. Para garantizar la seguridad y la integridad de la API de Gemini, creamos estos lineamientos de políticas.
-Si usas la API de Gemini, aceptas los siguientes lineamientos, las [Condiciones del Servicio Adicionales](https://ai.google.dev/gemini-api/terms?hl=es-419) de la API de Gemini y la Política de Uso [Prohibido](https://policies.google.com/terms/generative-ai/use-policy?hl=es-419) de IA Generativas.
+Google은 AI의 책임감 있는 개발 및 사용을 위해 최선을 다하고 있습니다. Gemini API의 안전과 무결성을 보장하기 위해 Google은 다음과 같은 정책 가이드라인을 마련했습니다.
+Gemini API를 사용하면 다음 가이드라인, [Gemini API
+추가 서비스 약관](https://ai.google.dev/gemini-api/terms?hl=ko) 및 생성형 AI [금지된
+사용 정책](https://policies.google.com/terms/generative-ai/use-policy?hl=ko)에 동의하는 것으로 간주됩니다.
 
-## Cómo supervisamos el uso inadecuado
+## 오용 모니터링 방법
 
-El equipo de Confianza y Seguridad de Google emplea una combinación de procesos manuales y automatizados para detectar posibles usos inadecuados de la API de Gemini y Google AI Studio, y así aplicar nuestras políticas.
+Google의 신뢰 및 안전팀은 자동화된 프로세스와 수동 프로세스를 조합하여 Gemini API 및 Google AI Studio의 잠재적 오용을 감지하고 정책을 시행합니다.
 
-- **Detección automatizada:** Los sistemas automatizados analizan el uso de la API para detectar incumplimientos de nuestra Política de Uso Prohibido, como contenido que incite al odio, acoso, contenido sexualmente explícito y contenido peligroso.
-- **Detección manual:** Si un proyecto muestra actividad sospechosa de forma constante, es posible que se marque para que personal autorizado de Google lo revise de forma manual.
+- **자동 감지:** 자동화된 시스템은 API 사용을 검사하여 증오심 표현, 괴롭힘, 성적으로 노골적인 콘텐츠, 위험한 콘텐츠와 같은 금지된 사용 정책 위반을 감지합니다.
+- **수동 감지:** 프로젝트에서 지속적으로 의심스러운 활동이 나타나는 경우 승인된 Google 직원이 수동 검토를 위해 프로젝트에 플래그를 지정할 수 있습니다.
 
-## Cómo manejamos los datos
+## 데이터 처리 방법
 
-Google retiene los siguientes datos durante cincuenta y cinco (55) días para detectar y evitar incumplimientos de la Política de Uso Prohibido, mantener la seguridad de los Servicios y realizar las divulgaciones legales o reglamentarias necesarias:
+Google은 서비스의 안전과 보안을 유지하기 위해 금지된 사용 정책 위반을 감지하고 방지하기 위한 목적으로, 그리고 법적 또는 규제적 공개 요구사항을 준수하기 위해 다음과 같은 데이터를 55일 동안 보관합니다.
 
-- **Instrucciones:** Las instrucciones de texto que envías a la API
-- **Información contextual:** Cualquier contexto adicional que proporciones con tus instrucciones
-- **Resultados:** Las respuestas que genera la API de Gemini
+- **프롬프트:** API에 제출하는 텍스트 프롬프트입니다.
+- **맥락 정보:** 프롬프트와 함께 제공하는 추가 맥락입니다.
+- **출력:** Gemini API에서 생성한 응답입니다.
 
-## Cómo investigamos posibles problemas
+## 잠재적 문제 조사 방법
 
-Cuando los filtros de seguridad y los sistemas de detección de abusos descritos anteriormente marcan instrucciones o resultados del modelo, los empleados autorizados de Google pueden evaluar el contenido marcado y confirmar o corregir la clasificación o determinación según los lineamientos y las políticas predefinidos. Solo los empleados autorizados de Google pueden acceder a los datos para realizar revisiones humanas a través de una plataforma interna de evaluación de gobernanza y administración de revisiones. Cuando se registran datos para la supervisión de abusos, se usan únicamente para aplicar las políticas y evitar incumplimientos.
-No se usan para entrenar ni ajustar ningún modelo de IA o AA, excepto los que se usan específicamente para aplicar las políticas.
+위에서 설명한 안전 필터 및 악용 감지 시스템에서 프롬프트 또는 모델 출력이 플래그로 지정되면 승인된 Google 직원이 플래그가 지정된 콘텐츠를 평가하고 미리 정의된 가이드라인 및 정책에 따라 분류 또는 결정을 확인하거나 수정할 수 있습니다. 데이터는 내부 거버넌스 평가 및 검토 관리 플랫폼을 통해 승인된 Google 직원만 인적 검토를 위해 액세스할 수 있습니다. 악용 모니터링을 위해 데이터가 로깅되면 정책 시행 및 정책 위반 방지 목적으로만 사용됩니다.
+정책 시행을 위해 특별히 사용되는 모델 외에는 AI/ML 모델을 학습하거나 미세 조정하는 데 사용되지 않습니다.
 
-## Trabajamos contigo para garantizar el cumplimiento de las políticas
+## 정책 준수 관련 협력
 
-Si tu uso de Gemini no se alinea con nuestras políticas, es posible que tomemos las siguientes medidas:
+Gemini 사용이 Google 정책을 준수하지 않는 경우 Google은 다음과 같은 조치를 취할 수 있습니다.
 
-- **Comunicarnos contigo:** Es posible que nos comuniquemos contigo por correo electrónico para comprender tu caso de uso y explorar formas de que tu uso cumpla con las políticas.
-- **Límites de uso temporales:** Es posible que limitemos tu acceso a la API de Gemini ajustando los límites de frecuencia o cambiando el modelo que responde a una solicitud específica, por ejemplo.
-- **Suspensión temporal:** Es posible que pausemos temporalmente tu acceso a la API de Gemini.
-- **Cierre de la cuenta:** Como último recurso y en caso de incumplimientos graves, es posible que cerremos de forma permanente tu acceso a la API de Gemini y a otros servicios de Google.
+- **연락:** Google은 이메일을 통해 사용 사례를 파악하고 사용을 규정 준수 상태로 전환할 수 있는 방법을 모색하기 위해 연락을 드릴 수 있습니다.
+- **임시 사용 한도:** Google은 비율 제한을 조정하거나 특정 요청에 응답하는 모델을 변경하는 등의 방법으로 Gemini API에 대한 액세스를 제한할 수 있습니다.
+- **일시 정지:** Google은 Gemini API에 대한 액세스를 일시적으로 중지할 수 있습니다.
+- **계정 폐쇄:** 최후의 수단으로, 심각한 위반의 경우 Gemini API 및 기타 Google 서비스에 대한 액세스를 영구적으로 폐쇄할 수 있습니다.
 
-Si nos comunicamos contigo en relación con una suspensión o el cierre de cuenta, también te proporcionaremos un vínculo para que puedas apelar la decisión.
+정지 또는 계정 해지와 관련하여 연락을 드리는 경우 이의신청을 할 수 있는 링크도 제공합니다.
 
-## Alcance
+## 범위
 
-Estos lineamientos de políticas se aplican al uso de la API de Gemini y AI Studio.
+이 정책 가이드라인은 Gemini API 및 AI Studio 사용에 적용됩니다.
 
-Enviar comentarios
+의견 보내기
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última actualización: 2026-06-09 (UTC)
+최종 업데이트: 2026-06-09(UTC)
 
-¿Quieres brindar más información?
+의견을 전달하고 싶나요?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-09 (UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-09(UTC)"],[],[]]

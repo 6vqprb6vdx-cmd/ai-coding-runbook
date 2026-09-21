@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=tr
-fetched_at: 2026-09-14T05:39:15.725633+00:00
+fetched_at: 2026-09-21T05:58:19.208520+00:00
 title: "Google AI planlar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -12,6 +12,7 @@ Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojis
 
 - [Ana Sayfa](https://ai.google.dev/?hl=tr)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
 Geri bildirim gönderin
 

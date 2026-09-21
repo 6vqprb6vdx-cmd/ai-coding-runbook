@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=fr
-fetched_at: 2026-09-14T05:50:08.321484+00:00
+fetched_at: 2026-09-21T05:53:24.080232+00:00
 title: "Gestion des sessions avec l'API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -93,7 +93,7 @@ from google import genai
 from google.genai import types
 
 client = genai.Client()
-model = "gemini-3.1-flash-live-preview"
+model = "gemini-3.8-live"
 
 async def main():
     print(f"Connecting to the service with handle {previous_session_handle}...")
@@ -139,7 +139,7 @@ if __name__ == "__main__":
 import { GoogleGenAI, Modality } from '@google/genai';
 
 const ai = new GoogleGenAI({});
-const model = 'gemini-3.1-flash-live-preview';
+const model = 'gemini-3.8-live';
 
 async function live() {
   const responseQueue = [];
@@ -282,8 +282,8 @@ Envoyer des commentaires
 
 Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Dernière mise à jour le 2026/09/08 (UTC).
+Dernière mise à jour le 2026/09/17 (UTC).
 
 Voulez-vous nous donner plus d'informations ?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/08 (UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/17 (UTC)."],[],[]]

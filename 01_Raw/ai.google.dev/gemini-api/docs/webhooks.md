@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=vi
-fetched_at: 2026-09-14T05:35:05.654207+00:00
-title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=pl
+fetched_at: 2026-09-21T05:53:20.400919+00:00
+title: "Webhooki \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Gửi ý kiến phản hồi
+Prześlij opinię
 
-# Webhook
+# Webhooki
 
-Webhook cho phép Gemini API gửi thông báo theo thời gian thực đến máy chủ của bạn khi các Thao tác không đồng bộ hoặc Thao tác chạy trong thời gian dài (LRO) hoàn tất. Điều này giúp bạn không cần phải thăm dò API để biết thông tin cập nhật về trạng thái, giảm độ trễ và chi phí.
+Webhooki umożliwiają interfejsowi Gemini API wysyłanie powiadomień w czasie rzeczywistym na Twój serwer po zakończeniu operacji asynchronicznych lub długotrwałych. Zastępują one konieczność sondowania interfejsu API w celu uzyskania aktualizacji stanu, co zmniejsza opóźnienia i obciążenie.
 
-Webhook có sẵn cho các thao tác như [Công việc theo lô](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi),
-[Hoạt động tương tác](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) và [tạo video](https://ai.google.dev/gemini-api/docs/video?hl=vi).
+Webhooki są dostępne w przypadku operacji takich jak [zadania zbiorcze](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl),
+[interakcje](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) i [generowanie filmów](https://ai.google.dev/gemini-api/docs/video?hl=pl).
 
-## Cách hoạt động
+## Jak to działa
 
-Thay vì thăm dò `GET /operations` nhiều lần để kiểm tra xem một công việc đã hoàn tất hay chưa, bạn có thể định cấu hình Webhook Gemini API để gửi yêu cầu POST qua HTTP đến URL trình nghe ngay khi một sự kiện được kích hoạt.
+Zamiast wielokrotnie sondować `GET /operations`, aby sprawdzić, czy zadanie zostało zakończone, możesz skonfigurować webhooki Gemini API tak, aby natychmiast po wywołaniu zdarzenia wysyłały żądanie HTTP POST na adres URL odbiornika.
 
-Gemini API hỗ trợ 2 cách định cấu hình webhook:
+Interfejs Gemini API obsługuje 2 sposoby konfigurowania webhooków:
 
-- [**Webhook tĩnh**](#static-webhooks): Điểm cuối ở cấp dự án được định cấu hình
-  bằng Gemini [WebhookService API](https://ai.google.dev/api?hl=vi). Phù hợp với các hoạt động tích hợp trên toàn cầu (ví dụ: thông báo cho Slack, đồng bộ hoá cơ sở dữ liệu, v.v.).
-- [**Webhook động**](#dynamic-webhooks): Ghi đè ở cấp yêu cầu bằng cách truyền
-  URL webhook trong tải trọng cấu hình của một lệnh gọi công việc cụ thể. Phù hợp để định tuyến các công việc cụ thể đến các điểm cuối chuyên dụng.
+- [**Webhooki statyczne**](#static-webhooks): punkty końcowe na poziomie projektu skonfigurowane
+  za pomocą interfejsu Gemini [WebhookService API](https://ai.google.dev/api?hl=pl). Dobre do integracji globalnych (np. powiadamianie Slacka, synchronizowanie bazy danych itp.).
+- [**Webhooki dynamiczne**](#dynamic-webhooks): zastąpienia na poziomie żądania, które przekazują adres URL
+  webhooka w ładunku konfiguracji konkretnego wywołania zadania. Idealne do kierowania konkretnych zadań do dedykowanych punktów końcowych.
 
-## Webhook tĩnh
+## Webhooki statyczne
 
-Webhook tĩnh được đăng ký cho toàn bộ [dự án](https://ai.google.dev/gemini-api/docs/api-key?hl=vi#google-cloud-projects) và kích hoạt cho mọi sự kiện phù hợp.
+Webhooki statyczne są rejestrowane dla całego [projektu](https://ai.google.dev/gemini-api/docs/api-key?hl=pl#google-cloud-projects) i są wywoływane w przypadku każdego pasującego
+zdarzenia.
 
-### Tạo webhook
+### Tworzenie webhooka
 
-Bạn có thể tạo điểm cuối bằng SDK hoặc REST API.
+Punkty końcowe możesz tworzyć za pomocą pakietu SDK lub interfejsu API REST.
 
-**QUAN TRỌNG: Khi tạo webhook, API sẽ **chỉ trả về**
-**một lần**bí mật ký**. Bạn phải lưu trữ bí mật này một cách an toàn (ví dụ: trong các biến môi trường) để xác minh chữ ký sau này. Nếu mất bí mật ký, bạn sẽ phải
-[xoay vòng](#rotate-signing-secret) bí mật đó.
+**WAŻNE**: podczas tworzenia webhooka interfejs API zwraca **obiekt tajny podpisywania**
+**tylko raz**. Aby później weryfikować podpisy, musisz go bezpiecznie przechowywać (np. w zmiennych środowiskowych). Jeśli utracisz obiekt tajny podpisywania, musisz go
+[wymienić](#rotate-signing-secret).
 
 ### Python
 
@@ -86,6 +87,34 @@ async function createWebhook() {
 createWebhook();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.webhooks.Webhook;
+import com.google.genai.gaos.models.webhooks.WebhookInput;
+import com.google.genai.gaos.models.webhooks.WebhookSubscribedEvent;
+import java.util.Arrays;
+
+Client client = new Client();
+
+WebhookInput input =
+    WebhookInput.builder()
+        .name("MyBatchWebhook")
+        .subscribedEvents(
+            Arrays.asList(
+                WebhookSubscribedEvent.BATCH_SUCCEEDED, WebhookSubscribedEvent.BATCH_FAILED))
+        .uri("https://my-api.com/gemini-callback")
+        .build();
+
+Webhook webhook = client.webhooks.create(input).webhook().get();
+
+// Store webhook.newSigningSecret() securely
+String webhookSecret = webhook.newSigningSecret().orElse("");
+System.out.println(
+    "Created webhook: " + webhook.name().orElse("") + ", " + webhook.id().orElse(""));
+```
+
 ### REST
 
 ```
@@ -100,12 +129,12 @@ curl -X POST \
   }'
 ```
 
-Để biết thông tin chi tiết về cách thiết lập máy chủ để nhận dữ liệu, hãy xem phần
-[Xử lý yêu cầu webhook](#handle-webhook-requests).
+Szczegółowe informacje o konfigurowaniu serwera do odbierania danych znajdziesz w sekcji
+[Obsługa żądań webhooków](#handle-webhook-requests).
 
-### Nhận webhook
+### Pobieranie webhooka
 
-Truy xuất thông tin chi tiết về một webhook cụ thể theo tên tài nguyên của webhook đó.
+Pobierz szczegółowe informacje o konkretnym webhooku na podstawie jego nazwy zasobu.
 
 ### Python
 
@@ -139,6 +168,22 @@ async function getWebhook() {
 getWebhook();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.webhooks.Webhook;
+import java.util.Collections;
+
+Client client = new Client();
+
+Webhook webhook = client.webhooks.get("<your_webhook_id>").webhook().get();
+
+System.out.println("Webhook: " + webhook.name().orElse(""));
+System.out.println("URI: " + webhook.uri().orElse(""));
+System.out.println("Events: " + webhook.subscribedEvents().orElse(Collections.emptyList()));
+```
+
 ### REST
 
 ```
@@ -147,9 +192,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Liệt kê webhook
+### Wyświetlanie listy webhooków
 
-Liệt kê tất cả webhook đã định cấu hình cho dự án hiện tại, có thể phân trang.
+Wyświetl listę wszystkich skonfigurowanych webhooków w bieżącym projekcie z opcjonalną paginacją.
 
 ### Python
 
@@ -182,6 +227,25 @@ async function listWebhooks() {
 listWebhooks();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.webhooks.Webhook;
+import com.google.genai.gaos.models.webhooks.WebhookListResponse;
+import java.util.Collections;
+
+Client client = new Client();
+
+WebhookListResponse response =
+    client.webhooks.listDirect().webhookListResponse().orElse(new WebhookListResponse());
+
+for (Webhook wh : response.webhooks().orElse(Collections.emptyList())) {
+  System.out.println(
+      wh.id().orElse("") + ": " + wh.name().orElse("") + " -> " + wh.uri().orElse(""));
+}
+```
+
 ### REST
 
 ```
@@ -190,9 +254,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Cập nhật webhook
+### Aktualizowanie webhooka
 
-Cập nhật các thuộc tính của webhook hiện có, chẳng hạn như tên hiển thị, URI mục tiêu hoặc sự kiện đã đăng ký.
+Zaktualizuj właściwości istniejącego webhooka, takie jak nazwa wyświetlana, docelowy identyfikator URI lub subskrybowane zdarzenia.
 
 ### Python
 
@@ -230,6 +294,39 @@ async function updateWebhook() {
 updateWebhook();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.webhooks.Webhook;
+import com.google.genai.gaos.models.webhooks.WebhookUpdate;
+import com.google.genai.gaos.models.webhooks.WebhookUpdateSubscribedEvent;
+import java.util.Arrays;
+
+Client client = new Client();
+
+WebhookUpdate updateBody =
+    WebhookUpdate.builder()
+        .subscribedEvents(
+            Arrays.asList(
+                WebhookUpdateSubscribedEvent.BATCH_SUCCEEDED,
+                WebhookUpdateSubscribedEvent.BATCH_FAILED,
+                WebhookUpdateSubscribedEvent.of("batch.cancelled")))
+        .build();
+
+Webhook updatedWebhook =
+    client.webhooks
+        .update()
+        .id("<your_webhook_id>")
+        .updateMask("subscribed_events")
+        .body(updateBody)
+        .call()
+        .webhook()
+        .get();
+
+System.out.println("Updated webhook: " + updatedWebhook.name().orElse(""));
+```
+
 ### REST
 
 ```
@@ -242,9 +339,9 @@ curl -X PATCH \
   }'
 ```
 
-### Xoá webhook
+### Usuwanie webhooka
 
-Xoá điểm cuối webhook khỏi dự án. Thao tác này sẽ dừng việc phân phối sự kiện trong tương lai đến điểm cuối đó.
+Usuń punkt końcowy webhooka z projektu. Spowoduje to zatrzymanie dostarczania przyszłych zdarzeń do tego punktu końcowego.
 
 ### Python
 
@@ -274,6 +371,18 @@ async function deleteWebhook() {
 deleteWebhook();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+
+Client client = new Client();
+
+client.webhooks.delete("<your_webhook_id>");
+
+System.out.println("Webhook deleted.");
+```
+
 ### REST
 
 ```
@@ -282,11 +391,11 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Xoay vòng bí mật ký
+### Wymiana obiektu tajnego podpisywania
 
-Xoay vòng bí mật ký cho webhook. Bạn có thể định cấu hình để thu hồi ngay các bí mật đang hoạt động trước đó hoặc sau thời gian gia hạn 24 giờ.
+Wymień obiekt tajny podpisywania webhooka. Możesz skonfigurować, czy wcześniej aktywne obiekty tajne mają zostać unieważnione natychmiast, czy po 24-godzinnym okresie przejściowym.
 
-**QUAN TRỌNG**: Bí mật ký mới sẽ **chỉ được trả về một lần** tại thời điểm xoay vòng. Hãy lưu trữ bí mật này một cách an toàn trước khi cập nhật logic xác minh.
+**WAŻNE**: nowy obiekt tajny podpisywania jest zwracany **tylko raz** w momencie wymiany. Zanim zaktualizujesz logikę weryfikacji, bezpiecznie go przechowuj.
 
 ### Python
 
@@ -327,6 +436,35 @@ async function rotateSigningSecret() {
 rotateSigningSecret();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.webhooks.RevocationBehavior;
+import com.google.genai.gaos.models.webhooks.RotateSigningSecretRequest;
+import com.google.genai.gaos.models.webhooks.WebhookRotateSigningSecretResponse;
+
+Client client = new Client();
+
+RotateSigningSecretRequest requestBody =
+    RotateSigningSecretRequest.builder()
+        .revocationBehavior(RevocationBehavior.REVOKE_PREVIOUS_SECRETS_AFTER_H24)
+        .build();
+
+WebhookRotateSigningSecretResponse response =
+    client.webhooks
+        .rotateSigningSecret()
+        .id("<your_webhook_id>")
+        .body(requestBody)
+        .call()
+        .webhookRotateSigningSecretResponse()
+        .get();
+
+// Store response.secret() securely, then update your server's verification config
+String newSecret = response.secret().orElse("");
+System.out.println("New signing secret generated. Update your server configuration.");
+```
+
 ### REST
 
 ```
@@ -339,13 +477,14 @@ curl -X POST \
   }'
 ```
 
-### Xử lý yêu cầu webhook trên máy chủ
+### Obsługa żądań webhooków na serwerze
 
-Khi một sự kiện mà bạn đã đăng ký xảy ra, URL webhook của bạn sẽ nhận được yêu cầu POST qua HTTP. Điểm cuối của bạn phải phản hồi bằng mã trạng thái 2xx trong vòng vài giây để tránh thử lại. Để đảm bảo phân phối, Gemini API sẽ tự động thử lại các yêu cầu không thành công trong 24 giờ bằng cách sử dụng thuật toán trì hoãn theo cấp số nhân.
+Gdy wystąpi zdarzenie, które subskrybujesz, Twój adres URL webhooka otrzyma żądanie HTTP POST. Aby uniknąć ponowienia, punkt końcowy musi odpowiedzieć kodem stanu 2xx w ciągu kilku sekund. Aby zapewnić dostarczenie, interfejs Gemini API automatycznie ponawia nieudane żądania przez 24 godziny, używając algorytmu wzrastający czas do ponowienia.
 
-Gemini tuân thủ nghiêm ngặt thông số kỹ thuật [Webhook tiêu chuẩn](https://github.com/standard-webhooks/standard-webhooks) cho các tiêu đề bảo mật. Xác minh tải trọng trên máy chủ của bạn bằng chữ ký tiêu đề đã ký và bí mật ký tĩnh đã lưu trữ. Hãy xem phần [Vỏ webhook](#webhook-envelope) để biết thông tin về tải trọng.
+Gemini ściśle przestrzega specyfikacji [standardowych webhooków](https://github.com/standard-webhooks/standard-webhooks) w przypadku
+nagłówków bezpieczeństwa. Zweryfikuj ładunek na serwerze za pomocą podpisanych sygnatur nagłówków i przechowywanego statycznego obiektu tajnego podpisywania. Informacje o ładunku znajdziesz w sekcji [Koperta webhooka](#webhook-envelope).
 
-Sau đây là ví dụ về cách sử dụng Flask cho trình nghe HTTP:
+Oto przykład użycia Flaska jako odbiornika HTTP:
 
 ### Python
 
@@ -438,14 +577,92 @@ app.listen(8000, () => {
 });
 ```
 
-## Webhook động
+### Java
 
-Webhook động cho phép bạn liên kết điểm cuối webhook với **cấu hình yêu cầu
-cụ thể**, phù hợp với hàng đợi điều phối tác nhân. Webhook động tận dụng chữ ký JWKS khoá công khai không đối xứng thay vì bí mật đối xứng.
+```
+import com.sun.net.httpserver.HttpServer;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 
-### Gửi yêu cầu động
+String signingSecret = System.getenv("WEBHOOK_SIGNING_SECRET");
 
-Thêm `webhook_config` khi kích hoạt công việc không đồng bộ (ví dụ: tạo Lô).
+HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+server.createContext(
+    "/gemini-callback",
+    exchange -> {
+      String payload =
+          new String(exchange.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
+      String msgId = exchange.getRequestHeaders().getFirst("webhook-id");
+      String msgTimestamp = exchange.getRequestHeaders().getFirst("webhook-timestamp");
+      String msgSignature = exchange.getRequestHeaders().getFirst("webhook-signature");
+
+      try {
+        String toSign = msgId + "." + msgTimestamp + "." + payload;
+        Mac mac = Mac.getInstance("HmacSHA256");
+        byte[] secretBytes =
+            Base64.getDecoder().decode(signingSecret.replaceFirst("^whsec_", ""));
+        mac.init(new SecretKeySpec(secretBytes, "HmacSHA256"));
+        String expectedSig =
+            "v1,"
+                + Base64.getEncoder()
+                    .encodeToString(mac.doFinal(toSign.getBytes(StandardCharsets.UTF_8)));
+
+        if (msgSignature == null || !msgSignature.contains(expectedSig)) {
+          byte[] resp = "{\"error\": \"Signature invalid\"}".getBytes(StandardCharsets.UTF_8);
+          exchange.sendResponseHeaders(400, resp.length);
+          try (OutputStream os = exchange.getResponseBody()) {
+            os.write(resp);
+          }
+          return;
+        }
+
+        Matcher typeMatcher = Pattern.compile("\"type\"\\s*:\\s*\"([^\"]+)\"").matcher(payload);
+        String type = typeMatcher.find() ? typeMatcher.group(1) : "";
+
+        Matcher idMatcher = Pattern.compile("\"id\"\\s*:\\s*\"([^\"]+)\"").matcher(payload);
+        String id = idMatcher.find() ? idMatcher.group(1) : "";
+
+        Matcher uriMatcher =
+            Pattern.compile("\"output_file_uri\"\\s*:\\s*\"([^\"]+)\"").matcher(payload);
+        String outputFileUri = uriMatcher.find() ? uriMatcher.group(1) : "";
+
+        if ("batch.succeeded".equals(type)) {
+          System.out.println("Batch completed! ID: " + id);
+          if (!outputFileUri.isEmpty()) {
+            System.out.println("Batch file: " + outputFileUri);
+          }
+        } else if ("interaction.completed".equals(type)) {
+          System.out.println("Interaction completed! ID: " + id);
+        } else if ("video.generated".equals(type)) {
+          System.out.println("Video generated! URI: " + outputFileUri);
+        }
+
+        byte[] resp = "{\"status\": \"received\"}".getBytes(StandardCharsets.UTF_8);
+        exchange.sendResponseHeaders(200, resp.length);
+        try (OutputStream os = exchange.getResponseBody()) {
+          os.write(resp);
+        }
+      } catch (Exception e) {
+        exchange.sendResponseHeaders(400, -1);
+      }
+    });
+server.start();
+```
+
+## Webhooki dynamiczne
+
+Webhooki dynamiczne umożliwiają powiązanie punktu końcowego webhooka z **konkretną konfiguracją
+żądania**, co jest idealne w przypadku kolejek orkiestracji agentów. Webhooki dynamiczne używają asymetrycznych podpisów JWKS klucza publicznego zamiast symetrycznych obiektów tajnych.
+
+### Przesyłanie żądania dynamicznego
+
+Podczas wywoływania zadania asynchronicznego (np. tworzenia zadania zbiorczego) dodaj `webhook_config`.
 
 ### Python
 
@@ -456,7 +673,7 @@ from google import genai
 client = genai.Client()
 
 response = client.interactions.create(
-    model='gemini-3.6-flash',
+    model='gemini-3.8-flash',
     input='Tell me a short joke about programming.',
     background=True, # Required when webhook_config is specified
     webhook_config={
@@ -479,7 +696,7 @@ const client = new GoogleGenAI();
 
 async function createInteractionWithWebhook() {
   const response = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Tell me a short joke about programming.",
     background: true, // Required when webhook_config is specified
     webhook_config: {
@@ -495,6 +712,48 @@ async function createInteractionWithWebhook() {
 createInteractionWithWebhook();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionStatus;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.WebhookConfig;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> userMetadata = new HashMap<>();
+userMetadata.put("job_group", "nightly-eval");
+userMetadata.put("priority", "high");
+
+WebhookConfig webhookConfig =
+    WebhookConfig.builder()
+        .uris(Arrays.asList("https://my-api.com/gemini-webhook-dynamic"))
+        .userMetadata(userMetadata)
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .input(InteractionsInput.of("Tell me a short joke about programming."))
+        .background(true) // Required when webhookConfig is specified
+        .webhookConfig(webhookConfig)
+        .build();
+
+Interaction response =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println("Interaction created! ID: " + response.id().orElse(""));
+System.out.println(
+    "Status: " + response.status().map(InteractionStatus::value).orElse(""));
+```
+
 ### REST
 
 ```
@@ -504,7 +763,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": "Tell me a short joke about programming.",
     "background": true,
     "webhook_config": {
@@ -514,10 +773,10 @@ curl -X POST \
   }'
 ```
 
-### Xác minh chữ ký động (JWKS)
+### Weryfikowanie podpisów dynamicznych (JWKS)
 
-Các yêu cầu webhook động phát ra chữ ký Mã thông báo web JSON (JWT). Trình nghe của bạn
-phải trích xuất chữ ký và xác minh chữ ký đó bằng [các điểm cuối chứng chỉ công khai của Google](https://www.googleapis.com/oauth2/v3/certs).
+Żądania webhooków dynamicznych emitują podpis tokena sieciowego JSON (JWT). Odbiornik
+musi wyodrębnić podpis i zweryfikować go za pomocą [punktów końcowych certyfikatu publicznego Google](https://www.googleapis.com/oauth2/v3/certs).
 
 ### Python
 
@@ -618,11 +877,104 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 });
 ```
 
-## Vỏ webhook
+### Java
 
-Để tránh tình trạng tắc nghẽn băng thông, webhook Gemini sử dụng mô hình **tải trọng mỏng** để phân phối dữ liệu. Các hoạt động phân phối sẽ gửi ảnh chụp nhanh chứa thông tin chi tiết về trạng thái và con trỏ đến kết quả, thay vì chính tệp đầu ra thô.
+```
+import com.sun.net.httpserver.HttpServer;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.math.BigInteger;
+import java.net.InetSocketAddress;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.RSAPublicKeySpec;
+import java.util.Base64;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-Sau đây là ví dụ về định dạng tải trọng:
+String jwksUri = "https://generativelanguage.googleapis.com/.well-known/jwks.json";
+
+HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+server.createContext(
+    "/gemini-webhook-dynamic",
+    exchange -> {
+      String token = exchange.getRequestHeaders().getFirst("Webhook-Signature");
+      if (token == null || token.split("\\.").length != 3) {
+        byte[] resp = "{\"error\": \"No signature header\"}".getBytes(StandardCharsets.UTF_8);
+        exchange.sendResponseHeaders(400, resp.length);
+        try (OutputStream os = exchange.getResponseBody()) {
+          os.write(resp);
+        }
+        return;
+      }
+
+      try {
+        String[] parts = token.split("\\.");
+        String headerJson =
+            new String(Base64.getUrlDecoder().decode(parts[0]), StandardCharsets.UTF_8);
+        Matcher kidMatcher = Pattern.compile("\"kid\"\\s*:\\s*\"([^\"]+)\"").matcher(headerJson);
+        String kid = kidMatcher.find() ? kidMatcher.group(1) : "";
+
+        PublicKey pubKey = null;
+        try (InputStream in = URI.create(jwksUri).toURL().openStream()) {
+          String jwksJson = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+          Matcher keyBlockMatcher =
+              Pattern.compile(
+                      "\\{[^}]*\"kid\"\\s*:\\s*\"" + Pattern.quote(kid) + "\"[^}]*\\}")
+                  .matcher(jwksJson);
+          if (keyBlockMatcher.find()) {
+            String keyBlock = keyBlockMatcher.group(0);
+            Matcher nMatcher = Pattern.compile("\"n\"\\s*:\\s*\"([^\"]+)\"").matcher(keyBlock);
+            Matcher eMatcher = Pattern.compile("\"e\"\\s*:\\s*\"([^\"]+)\"").matcher(keyBlock);
+            if (nMatcher.find() && eMatcher.find()) {
+              BigInteger n =
+                  new BigInteger(1, Base64.getUrlDecoder().decode(nMatcher.group(1)));
+              BigInteger e =
+                  new BigInteger(1, Base64.getUrlDecoder().decode(eMatcher.group(1)));
+              pubKey =
+                  KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(n, e));
+            }
+          }
+        }
+
+        Signature sig = Signature.getInstance("SHA256withRSA");
+        sig.initVerify(pubKey);
+        sig.update((parts[0] + "." + parts[1]).getBytes(StandardCharsets.UTF_8));
+        boolean verified = sig.verify(Base64.getUrlDecoder().decode(parts[2]));
+
+        if (!verified) {
+          throw new SecurityException("Signature verification failed");
+        }
+
+        System.out.println("Verified Dynamic payload success.");
+        byte[] resp = "{\"status\": \"received\"}".getBytes(StandardCharsets.UTF_8);
+        exchange.sendResponseHeaders(200, resp.length);
+        try (OutputStream os = exchange.getResponseBody()) {
+          os.write(resp);
+        }
+      } catch (Exception e) {
+        byte[] resp =
+            ("{\"error\": \"Invalid Dynamic signature\", \"details\": \""
+                    + e.getMessage()
+                    + "\"}")
+                .getBytes(StandardCharsets.UTF_8);
+        exchange.sendResponseHeaders(400, resp.length);
+        try (OutputStream os = exchange.getResponseBody()) {
+          os.write(resp);
+        }
+      }
+    });
+server.start();
+```
+
+## Koperta webhooka
+
+Aby uniknąć przeciążenia pasma, webhooki Gemini używają modelu **cienki ładunek** do dostarczania danych. Dostarczanie wysyła migawkę zawierającą szczegóły stanu i wskaźniki wyników, a nie sam plik wyjściowy.
+
+Oto przykład formatu ładunku:
 
 ```
 {
@@ -636,42 +988,42 @@ Sau đây là ví dụ về định dạng tải trọng:
 }
 ```
 
-## Tài liệu tham khảo về danh mục sự kiện
+## Informacje o katalogu zdarzeń
 
-Các sự kiện sau đây được kích hoạt cho các công việc được hỗ trợ:
+W przypadku obsługiwanych zadań wywoływane są te zdarzenia:
 
-| Loại sự kiện | Trigger | Mục tải trọng (`data`) |
+| Typ zdarzenia | Aktywator | Element ładunku (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | Đã xử lý xong. | `id`, `output_file_uri` |
-| `batch.cancelled` | Người dùng đã huỷ yêu cầu | `id` |
-| `batch.expired` | Lô chưa được xử lý (hoàn tất) trong khung thời gian 24 giờ | `id` |
-| `batch.failed` | Công việc theo lô không thành công (lỗi hệ thống hoặc lỗi xác thực). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Lệnh gọi hàm, người dùng cần thực hiện thao tác | `id` |
-| `interaction.completed` | LRO trong API hoạt động tương tác thành công | `id` |
-| `interaction.failed` | LRO trong API hoạt động tương tác không thành công (lỗi hệ thống hoặc lỗi xác thực). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | LRO trong API hoạt động tương tác đã huỷ | `id` |
-| `video.generated` | Đã hoàn tất LRO tạo video. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | Przetwarzanie zostało zakończone. | `id`, `output_file_uri` |
+| `batch.cancelled` | Żądanie zostało anulowane przez użytkownika. | `id` |
+| `batch.expired` | Zadanie zbiorcze nie zostało przetworzone (zakończone) w ciągu 24 godzin. | `id` |
+| `batch.failed` | Nie udało się wykonać zadania wsadowego (błąd systemu lub weryfikacji). | `id`, `error_code`, `error_message` |
+| `interaction.requires_action` | Wywołanie funkcji, użytkownik musi coś zrobić. | `id` |
+| `interaction.completed` | Operacja LRO w interfejsie Interactions API zakończyła się powodzeniem. | `id` |
+| `interaction.failed` | Nie udało się wykonać operacji LRO w interfejsie Interactions API (błąd systemu lub weryfikacji). | `id`, `error_code`, `error_message` |
+| `interaction.cancelled` | Operacja LRO w interfejsie Interactions API została anulowana. | `id` |
+| `video.generated` | Operacja LRO generowania filmu została zakończona. | `id`, `output_file_uri`, `file_name` |
 
-## Các phương pháp hay nhất
+## Sprawdzone metody
 
-Để đảm bảo hoạt động đáng tin cậy và có khả năng mở rộng:
+Aby zapewnić niezawodne i skalowalne działanie:
 
-- **Kiểm tra nghiêm ngặt khả năng bảo vệ khỏi phát lại**: Tất cả yêu cầu đều mang `webhook-timestamp`
-  tiêu đề. Luôn xác thực dấu thời gian này trên lớp cấu hình máy chủ để từ chối các tải trọng cũ hơn **5 phút** (để giảm thiểu các cuộc tấn công phát lại).
-- **Xử lý không đồng bộ**: Phản hồi ngay lập tức bằng `2xx OK` khi phát hiện chữ ký hợp lệ
-  và xếp hàng các thao tác phân tích cú pháp nội bộ. Thời gian giữ trình nghe kéo dài sẽ kích hoạt chu kỳ thử lại phân phối.
-- **Xử lý việc loại bỏ dữ liệu trùng lặp**: Webhook tiêu chuẩn phân phối "Ít nhất một lần". Sử dụng tiêu đề `webhook-id` nhất quán để xử lý các bản sao tiềm ẩn trong các luồng tắc nghẽn cao hơn.
+- **Ścisłe sprawdzanie ochrony przed powtórzeniem**: wszystkie żądania zawierają `webhook-timestamp`
+  nagłówek. Zawsze sprawdzaj tę sygnaturę czasową w warstwie konfiguracji serwera, aby odrzucać ładunki starsze niż **5 minut** (aby ograniczyć ataki typu replay).
+- **Przetwarzanie asynchroniczne**: natychmiast po wykryciu prawidłowego
+  podpisu odpowiedz `2xx OK` i wewnętrznie umieść operacje analizowania w kolejce. Długie czasy wstrzymania odbiornika spowodują cykl ponawiania dostarczania.
+- **Obsługa deduplikacji**: standardowe webhooki dostarczają dane "co najmniej raz". Użyj spójnego nagłówka `webhook-id`, aby obsługiwać potencjalne duplikaty w przepływach o większym natężeniu.
 
-## Tiếp theo là gì?
+## Co dalej?
 
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=vi): Sử dụng webhook để tự động hoá các điểm cuối có khối lượng lớn.
+- [Interfejs Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl): używaj webhooków do automatyzowania punktów końcowych o dużej liczbie żądań.
 
-Gửi ý kiến phản hồi
+Prześlij opinię
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Cập nhật lần gần đây nhất: 2026-09-12 UTC.
+Ostatnia aktualizacja: 2026-09-18 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Chcesz przekazać coś jeszcze?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-12 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]

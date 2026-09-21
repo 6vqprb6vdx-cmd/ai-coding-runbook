@@ -1,22 +1,23 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content
-fetched_at: 2026-09-14T05:43:50.134634+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-BR
+fetched_at: 2026-09-21T05:41:17.644100+00:00
 title: "Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-- [Home](https://ai.google.dev/)
-- [Gemini API](https://ai.google.dev/gemini-api)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
 # Gemini API
 
-The Gemini API is the fastest path from prompt to production with Gemini, Veo,
-Nano Banana, and more. It lets you integrate these generative models into your
-applications to generate text and images, analyze multimodal inputs, and build
-conversational agents.
+A API Gemini é o caminho mais rápido do comando à produção com o Gemini, o Veo, o Nano Banana e muito mais. Ela permite integrar esses modelos generativos aos seus aplicativos para gerar texto e imagens, analisar entradas multimodais e criar agentes conversacionais.
 
 ### Python
 
@@ -144,123 +145,123 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-[Start building](https://ai.google.dev/gemini-api/docs/generate-content/get-started)
+[Comece a criar](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
 
 ---
 
-## Meet the models
+## Conheça os modelos
 
-[View all](https://ai.google.dev/gemini-api/docs/models)
+[Ver tudo](https://ai.google.dev/gemini-api/docs/models?hl=pt-br)
 
 [auto\_awesome
 Gemini 3.1 Pro
-New
+Novo
 
-Our most intelligent model, the best in the world for multimodal understanding, all built on state-of-the-art reasoning.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
+Nosso modelo mais inteligente, o melhor do mundo em compreensão multimodal, tudo com base em raciocínio de última geração.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br)
 [spark
 Gemini 3.6 Flash
-New
+Novo
 
-Our latest model that balances speed with intelligence to deliver strong performance in agentic and multimodal tasks.](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash)
+Nosso modelo mais recente, que equilibra velocidade e inteligência para oferecer um desempenho forte em tarefas agênticas e multimodais.](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br)
 [spark
 Gemini 3.5 Flash
 
-Frontier-class performance rivaling larger models at a fraction of the cost.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash)
+Desempenho de ponta que rivaliza com modelos maiores a uma fração do custo.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br)
 [spark
 Gemini 3.5 Flash-Lite
-New
+Novo
 
-High-volume, cost-sensitive model optimized for low-latency high throughput subagent tasks.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite)
+Modelo de alto volume e sensível a custos otimizado para tarefas de subagentes de alta capacidade de processamento e baixa latência.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br)
 [spark
 Gemini 3.1 Flash-Lite
 
-High-volume, cost-sensitive model with the performance and quality of the Gemini 3 series.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite)
+Modelo de alto volume e sensível a custos com o desempenho e a qualidade da série Gemini 3.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br)
 [spark
 Gemini 3 Flash
 
-Frontier-class performance rivaling larger models at a fraction of the cost.](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview)
+Desempenho de ponta que rivaliza com modelos maiores a uma fração do custo.](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br)
 [🍌
-Nano Banana 2 and Nano Banana Pro
+🍌 Nano Banana 2 e Nano Banana Pro
 
-State-of-the-art image generation and editing models.](https://ai.google.dev/gemini-api/docs/image-generation)
+Modelos de edição e geração de imagens de última geração.](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)
 [video\_library
 Veo 3.1
 
-Our state-of-the-art video generation model, with native audio.](https://ai.google.dev/gemini-api/docs/video)
+Nosso modelo de geração de vídeos de última geração, com áudio nativo.](https://ai.google.dev/gemini-api/docs/video?hl=pt-br)
 [spark
 Gemini Robotics
 
-A vision-language model (VLM) that brings Gemini's agentic capabilities to robotics and enables advanced reasoning in the physical world.](https://ai.google.dev/gemini-api/docs/robotics-overview)
+Um modelo de visão-linguagem (VLM) que traz os recursos agênticos do Gemini para a robótica e permite raciocínio avançado no mundo físico.](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pt-br)
 
-## Explore Capabilities
+## Conheça os recursos
 
 [imagesmode
 
-Native Image Generation (Nano Banana)
+Geração de imagens nativa (Nano Banana)
 
-Generate and edit highly contextual images natively with Gemini 2.5 Flash Image.](https://ai.google.dev/gemini-api/docs/image-generation)
+Gere e edite imagens altamente contextuais de forma nativa com o Gemini 2.5 Flash Image.](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)
 [article
 
-Long Context
+Contexto longo
 
-Input millions of tokens to Gemini models and derive understanding from unstructured images, videos, and documents.](https://ai.google.dev/gemini-api/docs/long-context)
+Insira milhões de tokens nos modelos do Gemini e extraia compreensão de imagens, vídeos e documentos não estruturados.](https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br)
 [code
 
-Structured Outputs
+Respostas estruturadas
 
-Constrain Gemini to respond with JSON, a structured data format suitable for automated processing.](https://ai.google.dev/gemini-api/docs/structured-output)
+Restrinja o Gemini para responder com JSON, um formato de dados estruturado adequado para processamento automatizado.](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)
 [functions
 
-Function Calling
+Chamadas de função
 
-Build agentic workflows by connecting Gemini to external APIs and tools.](https://ai.google.dev/gemini-api/docs/function-calling)
+Crie fluxos de trabalho agênticos conectando o Gemini a APIs e ferramentas externas.](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)
 [videocam
 
-Video Generation with Veo 3.1
+Geração de vídeos com o Veo 3.1
 
-Create high-quality video content from text or image prompts with our state-of-the-art model.](https://ai.google.dev/gemini-api/docs/video)
+Crie conteúdo de vídeo de alta qualidade com comandos de texto ou imagem usando nosso modelo de última geração.](https://ai.google.dev/gemini-api/docs/video?hl=pt-br)
 [android\_recorder
 
-Voice Agents with Live API
+Agentes de voz com a API Live
 
-Build real-time voice applications and agents with the Live API.](https://ai.google.dev/gemini-api/docs/live-api)
+Crie aplicativos e agentes de voz em tempo real com a API Live.](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br)
 [build
 
-Tools
+Ferramentas
 
-Connect Gemini to the world through built-in tools like Google Search, URL Context, Google Maps, Code Execution and Computer Use.](https://ai.google.dev/gemini-api/docs/tools)
+Conecte o Gemini ao mundo usando ferramentas integradas, como a Pesquisa Google, o contexto de URL, o Google Maps, a execução de código e o uso do computador.](https://ai.google.dev/gemini-api/docs/tools?hl=pt-br)
 [stacks
 
 Document Understanding
 
-Process up to 1000 pages of PDF files with full multimodal understanding or other text-based file types.](https://ai.google.dev/gemini-api/docs/document-processing)
+Processe até 1.000 páginas de arquivos PDF com compreensão multimodal completa ou outros tipos de arquivos baseados em texto.](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br)
 [cognition\_2
 
-Thinking
+Pensando
 
-Explore how thinking capabilities improve reasoning for complex tasks and agents.](https://ai.google.dev/gemini-api/docs/thinking)
+Saiba como os recursos de pensamento melhoram o raciocínio para tarefas e agentes complexos.](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br)
 
 [Google AI Studio
 
-Test prompts, manage your API keys, monitor usage, and build prototypes.](https://aistudio.google.com)
+Teste comandos, gerencie suas chaves de API, monitore o uso e crie protótipos.](https://aistudio.google.com?hl=pt-br)
 [group
 
-Developer Community
+Comunidade de desenvolvedores
 
-Ask questions and find solutions from other developers and Google engineers.](https://discuss.ai.google.dev/c/gemini-api/4)
+Faça perguntas e encontre soluções de outros desenvolvedores e engenheiros do Google.](https://discuss.ai.google.dev/c/gemini-api/4?hl=pt-br)
 [menu\_book
 
-API Reference
+Referência da API
 
-Find detailed information about the Gemini API in the official reference documentation.](https://ai.google.dev/api)
+Encontre informações detalhadas sobre a API Gemini na documentação de referência oficial.](https://ai.google.dev/api?hl=pt-br)
 [sensors
 
 Status
 
-Check the status of Gemini API, Google AI Studio, and our model services.](https://aistudio.google.com/status)
+Confira o status da API Gemini, do Google AI Studio e dos nossos serviços de modelo.](https://aistudio.google.com/status?hl=pt-br)
 
-Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Last updated 2026-09-10 UTC.
+Última atualização 2026-09-14 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-10 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-14 UTC."],[],[]]

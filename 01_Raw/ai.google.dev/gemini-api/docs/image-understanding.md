@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-BR
-fetched_at: 2026-09-14T05:42:48.648923+00:00
-title: "Compreens\u00e3o de imagens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=de
+fetched_at: 2026-09-21T05:43:57.042043+00:00
+title: "Bilder verstehen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Envie comentários
+Feedback geben
 
-# Compreensão de imagens
+# Bilder verstehen
 
-Os modelos do Gemini são multimodais desde o início, desbloqueando uma ampla variedade de tarefas de processamento de imagens e visão computacional, incluindo, entre outras, legendagem, classificação e resposta a perguntas visuais, sem precisar treinar modelos de machine learning especializados.
+Gemini-Modelle sind von Grund auf multimodal konzipiert und ermöglichen eine Vielzahl von Aufgaben in den Bereichen Bildverarbeitung und Computer Vision, darunter Bilduntertitelung, Klassifizierung und visuelle Frage-Antwort-Systeme, ohne dass spezielle ML-Modelle trainiert werden müssen.
 
-Além dos recursos multimodais gerais, os modelos do Gemini oferecem
-**maior precisão** para casos de uso específicos, como [detecção de objetos](#object-detection)
-e [segmentação](#segmentation), por meio de treinamento adicional.
+Neben ihren allgemeinen multimodalen Funktionen bieten Gemini-Modelle
+**eine höhere Genauigkeit** für bestimmte Anwendungsfälle wie [Objekterkennung](#object-detection)
+und [Segmentierung](#segmentation), durch zusätzliches Training.
 
-## Como transmitir imagens para o Gemini
+## Bilder an Gemini übergeben
 
-Você pode fornecer imagens como entrada para o Gemini usando vários métodos:
+Sie haben mehrere Möglichkeiten, Bilder als Eingabe für Gemini zu verwenden:
 
-- [Transmitir imagem usando o URL](#url-image): ideal para imagens de acesso público.
-- [Transmitir dados de imagem inline](#inline-image): para dados de imagem codificados em Base64.
-- [Fazer upload de imagens usando a API Files](#upload-image): recomendado para
-  arquivos maiores ou para reutilizar imagens em várias solicitações.
+- [Bild über URL übergeben](#url-image): Ideal für öffentlich zugängliche Bilder.
+- [Bilddaten inline übergeben](#inline-image): Für Base64-codierte Bilddaten.
+- [Bilder mit der File API hochladen](#upload-image): Empfohlen für
+  größere Dateien oder für die Wiederverwendung von Bildern in mehreren Anfragen.
 
-### Transmitir imagem usando o URL
+### Bild über URL übergeben
 
-É possível fazer upload de uma imagem usando a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br) e transmiti-la
-na solicitação:
+Sie können ein Bild mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hochladen und es
+in der Anfrage übergeben:
 
 ### Python
 
@@ -48,7 +48,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/organ.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -74,7 +74,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -87,6 +87,51 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+File uploadedFile =
+    client.files.upload(
+        new java.io.File("path/to/organ.jpg"),
+        UploadFileConfig.builder().mimeType("image/jpeg").build());
+
+Content textContent = TextContent.builder().text("Caption this image.").build();
+Content imageContent =
+    ImageContent.builder()
+        .uri(uploadedFile.uri().orElse(""))
+        .mimeType(ImageContentMimeType.of(uploadedFile.mimeType().orElse("image/jpeg")))
+        .build();
+
+List<Content> contents = Arrays.asList(textContent, imageContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -95,7 +140,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -107,9 +152,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Transmitir dados de imagem inline
+### Bilddaten inline übergeben
 
-Você pode fornecer dados de imagem como strings codificadas em Base64:
+Sie können Bilddaten als Base64-codierte Strings bereitstellen:
 
 ### Python
 
@@ -123,7 +168,7 @@ with open('path/to/small-sample.jpg', 'rb') as f:
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -148,7 +193,7 @@ const base64ImageFile = fs.readFileSync("path/to/small-sample.jpg", {
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -159,6 +204,50 @@ const interaction = await client.interactions.create({
     ]
 });
 console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+byte[] imageBytes = Files.readAllBytes(Paths.get("path/to/small-sample.jpg"));
+String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+Client client = new Client();
+
+Content textContent = TextContent.builder().text("Caption this image.").build();
+Content imageContent =
+    ImageContent.builder()
+        .data(base64Image)
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+        .build();
+
+List<Content> contents = Arrays.asList(textContent, imageContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -176,7 +265,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -188,9 +277,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Fazer upload de imagens usando a API Files
+### Bilder mit der File API hochladen
 
-Para arquivos grandes ou para usar o mesmo arquivo de imagem repetidamente, use a API Files. Consulte o guia da API [Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+Verwenden Sie die Files API für große Dateien oder um dieselbe Bilddatei wiederholt zu verwenden. Weitere Informationen finden Sie im Leitfaden zur [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
 
 ### Python
 
@@ -202,7 +291,7 @@ client = genai.Client()
 my_file = client.files.upload(file="path/to/sample.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -228,7 +317,7 @@ const myfile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -241,6 +330,51 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+File myFile =
+    client.files.upload(
+        new java.io.File("path/to/sample.jpg"),
+        UploadFileConfig.builder().mimeType("image/jpeg").build());
+
+Content textContent = TextContent.builder().text("Caption this image.").build();
+Content imageContent =
+    ImageContent.builder()
+        .uri(myFile.uri().orElse(""))
+        .mimeType(ImageContentMimeType.of(myFile.mimeType().orElse("image/jpeg")))
+        .build();
+
+List<Content> contents = Arrays.asList(textContent, imageContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -251,7 +385,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -263,9 +397,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Comandos com várias imagens
+## Prompts mit mehreren Bildern
 
-É possível fornecer várias imagens em um único comando, incluindo vários objetos de imagem na matriz `input`:
+Sie können mehrere Bilder in einem einzigen Prompt bereitstellen, indem Sie mehrere Bildobjekte in das `input`-Array einfügen:
 
 ### Python
 
@@ -275,7 +409,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": "What is different between these two images?"},
         {
@@ -301,7 +435,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: [
         {type: "text", text: "What is different between these two images?"},
         {
@@ -319,6 +453,50 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+Content textContent =
+    TextContent.builder().text("What is different between these two images?").build();
+Content image1 =
+    ImageContent.builder()
+        .uri("https://example.com/image1.jpg")
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+        .build();
+Content image2 =
+    ImageContent.builder()
+        .uri("https://example.com/image2.jpg")
+        .mimeType(ImageContentMimeType.IMAGE_JPEG)
+        .build();
+
+List<Content> contents = Arrays.asList(textContent, image1, image2);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -326,7 +504,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {"type": "text", "text": "What is different between these two images?"},
       {
@@ -343,9 +521,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Detecção de objetos
+## Objekterkennung
 
-Os modelos são treinados para detectar objetos em uma imagem e receber as coordenadas da caixa delimitadora. As coordenadas, relativas às dimensões da imagem, são dimensionadas para [0, 1000]. É necessário reduzir essas coordenadas com base no tamanho original da imagem.
+Modelle werden trainiert, um Objekte in einem Bild zu erkennen und die Koordinaten ihrer Begrenzungsrahmen zu ermitteln. Die Koordinaten werden relativ zu den Bildabmessungen auf [0, 1000] skaliert. Sie müssen diese Koordinaten anhand der ursprünglichen Bildgröße herunterskalieren.
 
 ### Python
 
@@ -367,7 +545,7 @@ class BoundingBoxes(BaseModel):
     boxes: List[BoundingBox]
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": prompt},
         {
@@ -405,7 +583,7 @@ const boundingBoxesSchema = z.object({
 });
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: [
     { type: "text", text: prompt },
     {
@@ -425,6 +603,85 @@ const result = boundingBoxesSchema.parse(JSON.parse(interaction.output_text));
 console.log(result);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+Client client = new Client();
+String prompt =
+    "Detect the all of the prominent items in the image. The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000.";
+
+Map<String, Object> boundingBoxSchema =
+    Map.of(
+        "type", "object",
+        "properties",
+            Map.of(
+                "box_2d",
+                    Map.of(
+                        "type", "array",
+                        "items", Map.of("type", "integer"),
+                        "description",
+                            "The 2D bounding box of the item as [ymin, xmin, ymax, xmax] normalized to 0-1000."),
+                "mask",
+                    Map.of(
+                        "type", "array",
+                        "items", Map.of("type", "array", "items", Map.of("type", "integer")),
+                        "description",
+                            "The segmentation mask of the item as a polygon of [x,y] coordinates, normalized to 0-1000."),
+                "label",
+                    Map.of("type", "string", "description", "A descriptive label for the item.")),
+        "required", List.of("box_2d", "mask", "label"));
+
+Map<String, Object> boundingBoxesSchema =
+    Map.of(
+        "type", "object",
+        "properties", Map.of("boxes", Map.of("type", "array", "items", boundingBoxSchema)),
+        "required", List.of("boxes"));
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(boundingBoxesSchema)
+                .build()));
+
+Content textContent = TextContent.builder().text(prompt).build();
+Content imageContent =
+    ImageContent.builder()
+        .uri("https://example.com/image.png")
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(Arrays.asList(textContent, imageContent)))
+        .responseFormat(format)
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -432,7 +689,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {"type": "text", "text": "Detect the all of the prominent items in the image. The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000."},
       {
@@ -466,15 +723,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
- 
+Weitere Beispiele finden Sie im [Gemini Cookbook](https://github.com/google-gemini/cookbook).
 
-Para mais exemplos, acesse o [Gemini Cookbook](https://github.com/google-gemini/cookbook).
+## Segmentierung
 
-## Segmentação
+Gemini-Modelle erkennen nicht nur Elemente, sondern segmentieren sie auch und stellen ihre Konturmasken bereit.
 
-Os modelos do Gemini não apenas detectam itens, mas também os segmentam e fornecem as máscaras de contorno.
-
-O modelo prevê uma lista JSON, em que cada item representa uma máscara de segmentação. Cada item tem uma caixa delimitadora ("`box_2d`") no formato `[ymin, xmin, ymax, xmax]` com coordenadas normalizadas entre 0 e 1000, um rótulo ("`label`") que identifica o objeto e, por fim, a máscara de segmentação dentro da caixa delimitadora como um polígono de coordenadas `[x, y]` normalizadas para 0 a 1000.
+Das Modell gibt eine JSON-Liste aus, in der jedes Element eine Segmentierungsmaske darstellt. Jedes Element hat einen Begrenzungsrahmen (`box_2d`) im Format `[ymin, xmin, ymax, xmax]` mit normalisierten Koordinaten zwischen 0 und 1000, ein Label (`label`), das das Objekt identifiziert, und schließlich die Segmentierungsmaske innerhalb des Begrenzungsrahmens als Polygon von `[x, y]`-Koordinaten, die auf 0–1000 normalisiert sind.
 
 ### Python
 
@@ -502,7 +757,7 @@ class BoundingBoxes(BaseModel):
     boxes: List[BoundingBox]
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "text", "text": prompt},
         {
@@ -548,7 +803,7 @@ const boundingBoxesSchema = z.object({
 });
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   input: [
     { type: "text", text: prompt },
     {
@@ -571,6 +826,92 @@ const result = boundingBoxesSchema.parse(JSON.parse(interaction.output_text));
 console.log(result);
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.CreateModelInteractionResponseFormat;
+import com.google.genai.gaos.models.interactions.GenerationConfig;
+import com.google.genai.gaos.models.interactions.ImageContent;
+import com.google.genai.gaos.models.interactions.ImageContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.ResponseFormat;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.interactions.TextResponseFormat;
+import com.google.genai.gaos.models.interactions.TextResponseFormatMimeType;
+import com.google.genai.gaos.models.interactions.ThinkingLevel;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+Client client = new Client();
+
+String prompt =
+    "Give the segmentation masks for the wooden and glass items.\n"
+        + "Output a JSON list of segmentation masks where each entry contains the 2D\n"
+        + "bounding box in the key \"box_2d\", the segmentation mask in key \"mask\", and\n"
+        + "the text label in the key \"label\". Use descriptive labels.";
+
+Map<String, Object> boundingBoxSchema =
+    Map.of(
+        "type", "object",
+        "properties",
+            Map.of(
+                "box_2d",
+                    Map.of(
+                        "type", "array",
+                        "items", Map.of("type", "integer"),
+                        "description",
+                            "The 2D bounding box of the item as [ymin, xmin, ymax, xmax] normalized to 0-1000."),
+                "mask",
+                    Map.of(
+                        "type", "array",
+                        "items", Map.of("type", "array", "items", Map.of("type", "integer")),
+                        "description",
+                            "The segmentation mask of the item as a polygon of [x,y] coordinates, normalized to 0-1000."),
+                "label",
+                    Map.of("type", "string", "description", "A descriptive label for the item.")),
+        "required", List.of("box_2d", "mask", "label"));
+
+Map<String, Object> boundingBoxesSchema =
+    Map.of(
+        "type", "object",
+        "properties", Map.of("boxes", Map.of("type", "array", "items", boundingBoxSchema)),
+        "required", List.of("boxes"));
+
+CreateModelInteractionResponseFormat format =
+    CreateModelInteractionResponseFormat.of(
+        ResponseFormat.of(
+            TextResponseFormat.builder()
+                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                .schema(boundingBoxesSchema)
+                .build()));
+
+Content textContent = TextContent.builder().text(prompt).build();
+Content imageContent =
+    ImageContent.builder()
+        .uri("https://example.com/image.png")
+        .mimeType(ImageContentMimeType.IMAGE_PNG)
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(Arrays.asList(textContent, imageContent)))
+        .responseFormat(format)
+        .generationConfig(GenerationConfig.builder().thinkingLevel(ThinkingLevel.MINIMAL).build())
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println("Segmentation results: " + interaction.outputText().orElse(""));
+```
+
 ### REST
 
 ```
@@ -578,7 +919,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {"type": "text", "text": "Give the segmentation masks for the wooden and glass items.\nOutput a JSON list of segmentation masks where each entry contains the 2D\nbounding box in the key \"box_2d\", the segmentation mask in key \"mask\", and\nthe text label in the key \"label\". Use descriptive labels."},
       {
@@ -615,81 +956,82 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Uma mesa com cupcakes, com os objetos de madeira e vidro destacados](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=pt-br)
+![Ein Tisch mit Cupcakes, auf dem die Holz- und Glasobjekte hervorgehoben sind](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=de)
 
-Um exemplo de saída de segmentação com objetos e máscaras de segmentação
+Beispiel für eine Segmentierungsausgabe mit Objekten und Segmentierungsmasken
 
-## Formatos de imagem compatíveis
+## Unterstützte Bildformate
 
-O Gemini oferece suporte aos seguintes tipos MIME de formato de imagem:
+Gemini unterstützt die folgenden MIME-Typen für Bildformate:
 
-- PNG - `image/png`
-- JPEG - `image/jpeg`
-- WEBP - `image/webp`
-- HEIC - `image/heic`
-- HEIF - `image/heif`
+- PNG – `image/png`
+- JPEG – `image/jpeg`
+- WEBP – `image/webp`
+- HEIC – `image/heic`
+- HEIF – `image/heif`
 
-Para saber mais sobre outros métodos de entrada de arquivos, consulte o
-[guia Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
+Weitere Informationen zu anderen Methoden für die Dateieingabe finden Sie im
+[Leitfaden zu Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
 
-## Recursos
+## Leistungsspektrum
 
-Todas as versões do modelo do Gemini são multimodais e podem ser usadas em uma ampla variedade de tarefas de processamento de imagens e visão computacional, incluindo, entre outras, legendagem de imagens, perguntas e respostas visuais, classificação de imagens, detecção e segmentação de objetos.
+Alle Gemini-Modellversionen sind multimodal und können für eine Vielzahl von Aufgaben in den Bereichen Bildverarbeitung und Computer Vision verwendet werden, darunter Bilduntertitelung, visuelle Frage-Antwort-Systeme, Bildklassifizierung, Objekterkennung und Segmentierung.
 
-O Gemini pode reduzir a necessidade de usar modelos de machine learning especializados, dependendo dos requisitos de qualidade e desempenho.
+Je nach Ihren Qualitäts- und Leistungsanforderungen kann Gemini die Notwendigkeit reduzieren, spezielle ML-Modelle zu verwenden.
 
-As versões mais recentes do modelo são treinadas especificamente para melhorar a precisão de
-tarefas especializadas, além de recursos genéricos, como detecção de
-[objetos](#object-detection) e [segmentação](#segmentation) aprimoradas.
+Die neuesten Modellversionen wurden speziell trainiert, um die Genauigkeit bei
+speziellen Aufgaben zusätzlich zu allgemeinen Funktionen wie verbesserter
+[Objekterkennung](#object-detection) und [Segmentierung](#segmentation) zu verbessern.
 
-## Limitações e principais informações técnicas
+## Einschränkungen und wichtige technische Informationen
 
-### Limite de arquivo
+### Dateilimit
 
-Os modelos do Gemini oferecem suporte a um máximo de 3.600 arquivos de imagem por solicitação.
+Gemini-Modelle unterstützen maximal 3.600 Bilddateien pro Anfrage.
 
-### Cálculo de tokens
+### Tokenberechnung
 
-- 258 tokens se as duas dimensões forem <= 384 pixels.
-  Imagens maiores são divididas em blocos de 768 x 768 pixels, cada um custando 258 tokens.
+- 258 Tokens, wenn beide Dimensionen <= 384 Pixel sind.
+  Größere Bilder werden in 768 × 768 Pixel große Kacheln unterteilt, die jeweils 258 Tokens kosten.
 
-Uma fórmula aproximada para calcular o número de blocos é a seguinte:
+Eine ungefähre Formel zur Berechnung der Anzahl der Kacheln lautet so:
 
-- Calcule o tamanho da unidade de corte, que é aproximadamente: `floor(min(width, height)` / 1.5).
-- Divida cada dimensão pelo tamanho da unidade de corte e multiplique para receber o número de blocos.
+- Berechnen Sie die Größe der Zuschneideeinheit, die ungefähr so aussieht: `floor(min(width, height)` / 1,5).
+- Teilen Sie jede Dimension durch die Größe der Zuschneideeinheit und multiplizieren Sie die Ergebnisse, um die Anzahl der Kacheln zu erhalten.
 
-Por exemplo, uma imagem de dimensões 960 x 540 teria um tamanho de unidade de corte de 360. Divida cada dimensão por 360 e o número de blocos será 3 \* 2 = 6.
+Bei einem Bild mit den Abmessungen 960 × 540 beträgt die Größe der Zuschneideeinheit beispielsweise 360. Teilen Sie jede Dimension durch 360. Die Anzahl der Kacheln ist dann 3 × 2 = 6.
 
-### Resolução de mídia
+### Auflösung von Medien
 
-O Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. O parâmetro `media_resolution` determina o **número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
-Resoluções mais altas melhoram a capacidade do modelo de ler textos finos ou identificar pequenos detalhes, mas aumentam o uso de tokens e a latência.
+Mit Gemini 3 wird mit dem Parameter `media_resolution` eine detaillierte Steuerung der multimodalen Bildverarbeitung eingeführt. Der Parameter `media_resolution` bestimmt die **maximale Anzahl von Tokens, die pro Eingabebild oder Videobild zugewiesen werden**.
+Höhere Auflösungen verbessern die Fähigkeit des Modells, kleinen Text zu lesen oder kleine Details zu erkennen, erhöhen aber die Tokennutzung und die Latenz.
 
-## Dicas e práticas recomendadas
+## Tipps und Best Practices
 
-- Verifique se as imagens estão giradas corretamente.
-- Use imagens nítidas e não borradas.
-- Ao usar uma única imagem com texto, coloque o comando de texto *antes* da imagem na matriz `input`.
+- Prüfen Sie, ob die Bilder richtig gedreht sind.
+- Verwenden Sie klare, nicht verschwommene Bilder.
+- Wenn Sie ein einzelnes Bild mit Text verwenden, platzieren Sie den Text-Prompt *vor* dem Bild im `input`-Array.
 
-## A seguir
+## Nächste Schritte
 
-Este guia mostra como fazer upload de arquivos de imagem e gerar saídas de texto a partir de entradas de imagem. Para saber mais, leia os seguintes artigos:
+In diesem Leitfaden erfahren Sie, wie Sie Bilddateien hochladen und Textausgaben aus Bildeingaben generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
 
-- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br): saiba mais sobre como fazer upload e gerenciar arquivos para uso com o Gemini.
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
-  As instruções do sistema permitem orientar o comportamento do modelo com base nas
-  necessidades e casos de uso específicos.
-- [Estratégias de comandos de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): a
-  API Gemini oferece suporte a comandos com dados de texto, imagem, áudio e vídeo, também
-  conhecidos como comandos multimodais.
-- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pt-br): às vezes, os modelos de IA generativa produzem saídas inesperadas, como saídas imprecisas, tendenciosas ou ofensivas. O pós-processamento e a avaliação humana são essenciais para limitar o risco de danos causados por essas saídas.
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de): Weitere Informationen zum Hochladen und Verwalten von Dateien für die Verwendung mit Gemini
+- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions):
+  Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren
+  spezifischen Anforderungen und Anwendungsfällen steuern.
+- [Strategien für Prompts mit Dateien](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die
+  Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch
+  multimodale Prompts genannt.
+- [Sicherheitsleitfaden](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Manchmal geben generative
+  KI-Modelle unerwartete Ausgaben aus, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
 
-Envie comentários
+Feedback geben
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Última atualização 2026-09-12 UTC.
+Zuletzt aktualisiert: 2026-09-18 (UTC).
 
-Quer enviar seu feedback?
+Haben Sie Feedback für uns?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-12 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-18 (UTC)."],[],[]]

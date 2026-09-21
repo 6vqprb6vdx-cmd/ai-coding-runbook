@@ -1,39 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=hi
-fetched_at: 2026-09-14T05:47:06.141346+00:00
-title: "\u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=id
+fetched_at: 2026-09-21T06:00:29.986848+00:00
+title: "Pemahaman dokumen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-सुझाव भेजें
+Kirim masukan
 
-# दस्तावेज़ को समझना
+# Pemahaman dokumen
 
-Gemini मॉडल, PDF फ़ॉर्मैट में मौजूद दस्तावेज़ों को प्रोसेस कर सकते हैं. इसके लिए, वे दस्तावेज़ के पूरे कॉन्टेक्स्ट को समझने के लिए, नेटिव विज़न का इस्तेमाल करते हैं. यह सिर्फ़ टेक्स्ट निकालने से कहीं ज़्यादा है. इससे Gemini ये काम कर सकता है:
+Model Gemini dapat memproses dokumen dalam format PDF, menggunakan vision native untuk memahami seluruh konteks dokumen. Hal ini lebih dari sekadar ekstraksi teks, sehingga Gemini dapat:
 
-- कॉन्टेंट का विश्लेषण और उसकी व्याख्या करना. इसमें टेक्स्ट, इमेज, डायग्राम, चार्ट, और टेबल शामिल हैं. भले ही, दस्तावेज़ 1, 000 पेजों तक के हों.
-- जानकारी को [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) फ़ॉर्मैट में निकालना.
-- किसी दस्तावेज़ में मौजूद विज़ुअल और टेक्स्ट एलिमेंट, दोनों के आधार पर खास जानकारी देना और सवालों के जवाब देना.
-- दस्तावेज़ के कॉन्टेंट को ट्रांसक्रिप्ट करना.जैसे, एचटीएमएल में. साथ ही, लेआउट और फ़ॉर्मैटिंग को बनाए रखना, ताकि डाउनस्ट्रीम ऐप्लिकेशन में इसका इस्तेमाल किया जा सके.
+- Menganalisis dan menafsirkan konten, termasuk teks, gambar, diagram, diagram, dan tabel, bahkan dalam dokumen panjang hingga 1.000 halaman.
+- Mengekstrak informasi ke dalam [format output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
+- Meringkas dan menjawab pertanyaan berdasarkan elemen visual dan tekstual dalam dokumen.
+- Mentranskripsikan konten dokumen (misalnya, ke HTML), mempertahankan tata letak dan pemformatan, untuk digunakan dalam aplikasi hilir.
 
-आपके पास, PDF के अलावा दूसरे फ़ॉर्मैट वाले दस्तावेज़ों को भी उसी तरीके से पास करने का विकल्प होता है. हालांकि, Gemini उन्हें सामान्य टेक्स्ट के तौर पर देखेगा. इससे चार्ट या फ़ॉर्मैटिंग जैसे कॉन्टेक्स्ट खत्म हो जाएंगे.
+Anda juga dapat meneruskan dokumen non-PDF dengan cara yang sama, tetapi Gemini akan melihatnya sebagai teks normal yang akan menghilangkan konteks seperti diagram atau pemformatan.
 
-## PDF डेटा को इनलाइन पास करना
+## Meneruskan data PDF secara inline
 
-आपके पास, अनुरोध में PDF डेटा को इनलाइन पास करने का विकल्प होता है. यह छोटे दस्तावेज़ों या अस्थायी प्रोसेसिंग के लिए सबसे सही है. इसमें आपको बाद के अनुरोधों में फ़ाइल का रेफ़रंस देने की ज़रूरत नहीं होती. हमारा सुझाव है कि बड़े दस्तावेज़ों के लिए,
-[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi#large-pdfs)
-का इस्तेमाल करें. इससे अनुरोध की लेटेन्सी कम होती है और बैंडविड्थ का इस्तेमाल कम होता है. साथ ही, आपको मल्टी-टर्न इंटरैक्शन में इन दस्तावेज़ों का रेफ़रंस देना होता है.
+Anda dapat meneruskan data PDF secara inline dalam permintaan. Cara ini paling cocok untuk dokumen yang lebih kecil atau pemrosesan sementara yang tidak memerlukan referensi file dalam permintaan berikutnya. Sebaiknya gunakan
+[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=id#large-pdfs)
+untuk dokumen yang lebih besar yang perlu Anda referensikan dalam interaksi multi-turn untuk
+meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth.
 
-यहां दिए गए उदाहरण में, PDF डेटा को इनलाइन पास करने का तरीका बताया गया है:
+Contoh berikut menunjukkan cara meneruskan data PDF secara inline:
 
 ### Python
 
@@ -47,7 +48,7 @@ with open('path/to/document.pdf', 'rb') as f:
     pdf_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {
             "type": "document",
@@ -75,7 +76,7 @@ async function main() {
     });
 
     const interaction = await ai.interactions.create({
-        model: "gemini-3.6-flash",
+        model: "gemini-3.8-flash",
         input: [
             { type: "text", text: "Summarize this document" },
             {
@@ -89,6 +90,50 @@ async function main() {
 }
 
 main();
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.DocumentContent;
+import com.google.genai.gaos.models.interactions.DocumentContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
+
+Client client = new Client();
+
+byte[] pdfBytes = Files.readAllBytes(Paths.get("path/to/document.pdf"));
+String base64Pdf = Base64.getEncoder().encodeToString(pdfBytes);
+
+Content docContent =
+    DocumentContent.builder()
+        .data(base64Pdf)
+        .mimeType(DocumentContentMimeType.APPLICATION_PDF)
+        .build();
+Content textContent = TextContent.builder().text("Summarize this document").build();
+
+List<Content> contents = Arrays.asList(docContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -106,7 +151,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
+    "model": "gemini-3.8-flash",
     "input": [
       {
         "type": "document",
@@ -118,7 +163,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-प्रोसेसिंग के लिए, स्थानीय तौर पर सेव की गई PDF फ़ाइल को भी अपलोड किया जा सकता है:
+Anda juga dapat mengupload file PDF lokal untuk diproses:
 
 ### Python
 
@@ -130,7 +175,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="file.pdf")
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "document", "uri": uploaded_file.uri, "mime_type": uploaded_file.mime_type},
         {"type": "text", "text": "Summarize this document"}
@@ -153,7 +198,7 @@ async function main() {
     });
 
     const interaction = await ai.interactions.create({
-        model: "gemini-3.6-flash",
+        model: "gemini-3.8-flash",
         input: [
             { type: "text", text: "Summarize this document" },
             {
@@ -167,6 +212,51 @@ async function main() {
 }
 
 main();
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.DocumentContent;
+import com.google.genai.gaos.models.interactions.DocumentContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+File uploadedFile =
+    client.files.upload(
+        new java.io.File("file.pdf"),
+        UploadFileConfig.builder().mimeType("application/pdf").build());
+
+Content docContent =
+    DocumentContent.builder()
+        .uri(uploadedFile.uri().orElse(""))
+        .mimeType(DocumentContentMimeType.of(uploadedFile.mimeType().orElse("application/pdf")))
+        .build();
+Content textContent = TextContent.builder().text("Summarize this document").build();
+
+List<Content> contents = Arrays.asList(docContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -207,7 +297,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": [
         {"type": "document", "uri": "'$file_uri'", "mime_type": "application/pdf"},
         {"type": "text", "text": "Summarize this document"}
@@ -220,13 +310,13 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-## Files API का इस्तेमाल करके PDF अपलोड करना
+## Mengupload PDF menggunakan Files API
 
-हमारा सुझाव है कि बड़ी फ़ाइलों के लिए या एक ही दस्तावेज़ को कई अनुरोधों में फिर से इस्तेमाल करने के लिए, Files API का इस्तेमाल करें. इससे अनुरोध की लेटेन्सी कम होती है और बैंडविड्थ का इस्तेमाल कम होता है. ऐसा इसलिए, क्योंकि फ़ाइल अपलोड करने की प्रोसेस, मॉडल के अनुरोधों से अलग होती है.
+Sebaiknya gunakan Files API untuk file yang lebih besar atau jika Anda ingin menggunakan kembali dokumen di beberapa permintaan. Hal ini meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth dengan memisahkan upload file dari permintaan model.
 
-### यूआरएल से बड़ी PDF फ़ाइलें
+### PDF besar dari URL
 
-यूआरएल से बड़ी PDF फ़ाइलें अपलोड करने और उन्हें प्रोसेस करने के लिए, File API का इस्तेमाल करें:
+Gunakan File API untuk menyederhanakan upload dan pemrosesan file PDF besar dari URL:
 
 ### Python
 
@@ -250,7 +340,7 @@ sample_doc = client.files.upload(
 prompt = "Summarize this document"
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "document", "uri": sample_doc.uri, "mime_type": sample_doc.mime_type},
         {"type": "text", "text": prompt}
@@ -295,7 +385,7 @@ async function main() {
     }
 
     const interaction = await ai.interactions.create({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         input: [
             { type: "document", uri: file.uri, mime_type: file.mime_type },
             { type: "text", text: "Summarize this document" }
@@ -307,6 +397,61 @@ async function main() {
 }
 
 main();
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.DocumentContent;
+import com.google.genai.gaos.models.interactions.DocumentContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+String longContextPdfPath = "https://arxiv.org/pdf/2312.11805";
+HttpClient httpClient = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder().uri(URI.create(longContextPdfPath)).build();
+byte[] pdfBytes = httpClient.send(request, HttpResponse.BodyHandlers.ofByteArray()).body();
+
+File sampleDoc =
+    client.files.upload(
+        pdfBytes, UploadFileConfig.builder().mimeType("application/pdf").build());
+
+String prompt = "Summarize this document";
+
+Content docContent =
+    DocumentContent.builder()
+        .uri(sampleDoc.uri().orElse(""))
+        .mimeType(DocumentContentMimeType.of(sampleDoc.mimeType().orElse("application/pdf")))
+        .build();
+Content textContent = TextContent.builder().text(prompt).build();
+
+List<Content> contents = Arrays.asList(docContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -354,7 +499,7 @@ echo "file_uri: ${file_uri}"
 # Create payload JSON file for safety
 cat << EOF > payload.json
 {
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
   "input": [
     {"type": "text", "text": "${PROMPT}"},
     {"type": "document", "uri": "${file_uri}", "mime_type": "application/pdf"}
@@ -379,7 +524,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### स्थानीय तौर पर सेव की गई बड़ी PDF फ़ाइलें
+### PDF besar yang disimpan secara lokal
 
 ### Python
 
@@ -395,7 +540,7 @@ sample_file = client.files.upload(
 )
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "document", "uri": sample_file.uri, "mime_type": sample_file.mime_type},
         {"type": "text", "text": "Summarize this document"}
@@ -434,7 +579,7 @@ async function main() {
     }
 
     const interaction = await ai.interactions.create({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         input: [
             { type: "document", uri: file.uri, mime_type: file.mime_type },
             { type: "text", text: "Summarize this document" }
@@ -446,6 +591,51 @@ async function main() {
 }
 
 main();
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.DocumentContent;
+import com.google.genai.gaos.models.interactions.DocumentContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+File sampleFile =
+    client.files.upload(
+        new java.io.File("large_file.pdf"),
+        UploadFileConfig.builder().mimeType("application/pdf").build());
+
+Content docContent =
+    DocumentContent.builder()
+        .uri(sampleFile.uri().orElse(""))
+        .mimeType(DocumentContentMimeType.of(sampleFile.mimeType().orElse("application/pdf")))
+        .build();
+Content textContent = TextContent.builder().text("Summarize this document").build();
+
+List<Content> contents = Arrays.asList(docContent, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -486,7 +676,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": [
         {"type": "document", "uri": "'$file_uri'", "mime_type": "application/pdf"},
         {"type": "text", "text": "Can you add a few more lines to this poem?"}
@@ -499,8 +689,8 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-`[`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=hi)` को कॉल करके, यह पुष्टि की जा सकती है कि एपीआई ने अपलोड की गई फ़ाइल को सेव कर लिया है. साथ ही, इसका
-मेटाडेटा भी पाया जा सकता है. सिर्फ़ `name` (और इसके साथ ही, `uri`) यूनीक होते हैं.
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
+metadatanya dengan memanggil [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=id). Hanya `name` (dan dengan ekstensi, `uri`) yang unik.
 
 ### Python
 
@@ -542,6 +732,30 @@ async function main() {
 main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Client client = new Client();
+
+Path fpath = Paths.get("example.pdf");
+Files.write(fpath, "hello".getBytes(StandardCharsets.UTF_8));
+
+File file =
+    client.files.upload(
+        fpath.toFile(), UploadFileConfig.builder().mimeType("application/pdf").build());
+
+File fileInfo = client.files.get(file.name().orElse(""), null);
+System.out.println(fileInfo.toJson());
+```
+
 ### REST
 
 ```
@@ -555,9 +769,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## एक से ज़्यादा PDF पास करना
+## Meneruskan beberapa PDF
 
-Gemini API, एक ही अनुरोध में एक से ज़्यादा PDF दस्तावेज़ों (1,000 पेजों तक) को प्रोसेस कर सकता है. हालांकि, इसके लिए ज़रूरी है कि दस्तावेज़ों और टेक्स्ट प्रॉम्प्ट का कुल साइज़, मॉडल के कॉन्टेक्स्ट विंडो में मौजूद हो.
+Gemini API dapat memproses beberapa dokumen PDF (hingga 1.000 halaman) dalam satu permintaan, selama ukuran gabungan dokumen dan perintah teks tetap berada dalam jendela konteks model.
 
 ### Python
 
@@ -586,7 +800,7 @@ sample_pdf_2 = client.files.upload(
 prompt = "What is the difference between each of the main benchmarks between these two papers? Output these in a table."
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=[
         {"type": "document", "uri": sample_pdf_1.uri, "mime_type": sample_pdf_1.mime_type},
         {"type": "document", "uri": sample_pdf_2.uri, "mime_type": sample_pdf_2.mime_type},
@@ -639,7 +853,7 @@ async function main() {
     const file2 = await uploadRemotePDF("https://arxiv.org/pdf/2403.05530", "PDF 2");
 
     const interaction = await ai.interactions.create({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         input: [
             { type: "document", uri: file1.uri, mime_type: file1.mime_type },
             { type: "document", uri: file2.uri, mime_type: file2.mime_type },
@@ -651,6 +865,78 @@ async function main() {
 }
 
 main();
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.Content;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.DocumentContent;
+import com.google.genai.gaos.models.interactions.DocumentContentMimeType;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.interactions.TextContent;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.File;
+import com.google.genai.types.UploadFileConfig;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Arrays;
+import java.util.List;
+
+Client client = new Client();
+
+String docUrl1 = "https://arxiv.org/pdf/2312.11805";
+String docUrl2 = "https://arxiv.org/pdf/2403.05530";
+
+HttpClient httpClient = HttpClient.newHttpClient();
+byte[] docData1 =
+    httpClient
+        .send(HttpRequest.newBuilder().uri(URI.create(docUrl1)).build(), HttpResponse.BodyHandlers.ofByteArray())
+        .body();
+byte[] docData2 =
+    httpClient
+        .send(HttpRequest.newBuilder().uri(URI.create(docUrl2)).build(), HttpResponse.BodyHandlers.ofByteArray())
+        .body();
+
+File samplePdf1 =
+    client.files.upload(
+        docData1, UploadFileConfig.builder().mimeType("application/pdf").build());
+File samplePdf2 =
+    client.files.upload(
+        docData2, UploadFileConfig.builder().mimeType("application/pdf").build());
+
+String prompt =
+    "What is the difference between each of the main benchmarks between these two papers? Output these in a table.";
+
+Content doc1Content =
+    DocumentContent.builder()
+        .uri(samplePdf1.uri().orElse(""))
+        .mimeType(DocumentContentMimeType.of(samplePdf1.mimeType().orElse("application/pdf")))
+        .build();
+Content doc2Content =
+    DocumentContent.builder()
+        .uri(samplePdf2.uri().orElse(""))
+        .mimeType(DocumentContentMimeType.of(samplePdf2.mimeType().orElse("application/pdf")))
+        .build();
+Content textContent = TextContent.builder().text(prompt).build();
+
+List<Content> contents = Arrays.asList(doc1Content, doc2Content, textContent);
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.ofContent(contents))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
 ```
 
 ### REST
@@ -720,7 +1006,7 @@ file_uri_2=$(upload_pdf "${DOC_URL_2}" "${DISPLAY_NAME_2}")
 # Create payload JSON file for safety
 cat << EOF > payload_multi.json
 {
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
   "input": [
     {"type": "document", "uri": "${file_uri_1}", "mime_type": "application/pdf"},
     {"type": "document", "uri": "${file_uri_2}", "mime_type": "application/pdf"},
@@ -748,52 +1034,57 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## तकनीकी जानकारी
+## Detail teknis
 
-Gemini, 50 एमबी या 1,000 पेजों तक की PDF फ़ाइलों के साथ काम करता है. यह सीमा, इनलाइन डेटा और Files API से अपलोड किए गए डेटा, दोनों पर लागू होती है. दस्तावेज़ का हर पेज, 258 टोकन के बराबर होता है.
+Gemini mendukung file PDF hingga 50 MB atau 1.000 halaman. Batas ini berlaku untuk data inline dan upload Files API. Setiap halaman dokumen setara dengan 258 token.
 
-मॉडल के [कॉन्टेक्स्ट विंडो](https://ai.google.dev/gemini-api/docs/long-context?hl=hi) के अलावा, किसी दस्तावेज़ में पिक्सल की संख्या की कोई खास सीमा नहीं होती. हालांकि, बड़े पेजों को 3072 x 3072 के ज़्यादा से ज़्यादा रिज़ॉल्यूशन पर स्केल डाउन किया जाता है. इस दौरान, उनके ओरिजनल आसपेक्ट रेशियो को बनाए रखा जाता है. वहीं, छोटे पेजों को 768 x 768 पिक्सल पर स्केल अप किया जाता है. कम साइज़ वाले पेजों के लिए, बैंडविड्थ के अलावा कोई शुल्क कम नहीं किया जाता. वहीं, ज़्यादा रिज़ॉल्यूशन वाले पेजों के लिए, परफ़ॉर्मेंस में कोई सुधार नहीं किया जाता.
+Meskipun tidak ada batasan khusus untuk jumlah piksel dalam dokumen selain
+jendela [konteks model](https://ai.google.dev/gemini-api/docs/long-context?hl=id), halaman yang lebih besar akan
+diperkecil hingga resolusi maksimum 3072 x 3072 sambil mempertahankan rasio
+aspek aslinya, sedangkan halaman yang lebih kecil akan diperbesar hingga 768 x 768 piksel. Tidak ada pengurangan biaya untuk halaman dengan ukuran yang lebih rendah, selain bandwidth, atau peningkatan performa untuk halaman dengan resolusi yang lebih tinggi.
 
-### Gemini 3 के मॉडल
+### Model Gemini 3
 
-Gemini 3 में, `media_resolution` पैरामीटर की मदद से, मल्टीमॉडल विज़न प्रोसेसिंग पर ज़्यादा कंट्रोल मिलता है. अब हर मीडिया पार्ट के लिए, रिज़ॉल्यूशन को कम, सामान्य या ज़्यादा पर सेट किया जा सकता है. इस सुविधा के जुड़ने के बाद, PDF दस्तावेज़ों की प्रोसेसिंग को अपडेट कर दिया गया है:
+Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan vision multimodal dengan parameter `media_resolution`. Sekarang Anda dapat menetapkan resolusi ke rendah, sedang, atau tinggi per bagian media. Dengan penambahan ini, pemrosesan dokumen PDF telah diperbarui:
 
-1. **नेटिव टेक्स्ट शामिल करना:** PDF में नेटिव तौर पर एम्बेड किए गए टेक्स्ट को निकालकर, मॉडल को उपलब्ध कराया जाता है.
-2. **बिलिंग और टोकन की रिपोर्टिंग:**
-   - PDF में निकाले गए **नेटिव टेक्स्ट** से जनरेट हुए टोकन के लिए, **कोई शुल्क नहीं लिया जाता**.
-   - एपीआई के जवाब के `usage_metadata` सेक्शन में, PDF पेजों को (इमेज के तौर पर) प्रोसेस करके जनरेट हुए टोकन को अब `IMAGE` मोडैलिटी में गिना जाता है. पहले के कुछ वर्शन में, इन्हें अलग `DOCUMENT` मोडैलिटी में गिना जाता था.
+1. **Pencantuman teks bawaan:** Teks yang disematkan secara bawaan dalam PDF diekstrak dan diberikan ke model.
+2. **Penagihan &pelaporan token:**
+   - Anda **tidak akan dikenai biaya** untuk token yang berasal dari **teks native** yang diekstrak dalam PDF.
+   - Di bagian `usage_metadata` respons API, token yang dihasilkan dari pemrosesan halaman PDF (sebagai gambar) kini dihitung dalam modalitas `IMAGE`, bukan modalitas `DOCUMENT` terpisah seperti pada beberapa versi sebelumnya.
 
-मीडिया रिज़ॉल्यूशन पैरामीटर के बारे में ज़्यादा जानने के लिए, [मीडिया रिज़ॉल्यूशन](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=hi) से जुड़ा लेख देखें.
+Untuk mengetahui detail selengkapnya tentang parameter resolusi media, lihat
+[Panduan resolusi media](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=id).
 
-### दस्तावेज़ के टाइप
+### Jenis dokumen
 
-तकनीकी तौर पर, दस्तावेज़ को समझने के लिए, TXT, Markdown, HTML, XML वगैरह जैसे अन्य MIME टाइप पास किए जा सकते हैं. हालांकि, दस्तावेज़ विज़न ***सिर्फ़ PDF को समझ सकता है***. अन्य टाइप को सिर्फ़ टेक्स्ट के तौर पर निकाला जाएगा. साथ ही, मॉडल उन फ़ाइलों की रेंडरिंग में दिखने वाले कॉन्टेंट की व्याख्या नहीं कर पाएगा. चार्ट, डायग्राम, एचटीएमएल टैग, Markdown फ़ॉर्मैटिंग वगैरह जैसे किसी भी फ़ाइल टाइप की खास जानकारी नहीं मिल पाएगी.
+Secara teknis, Anda dapat meneruskan jenis MIME lain untuk pemahaman dokumen, seperti TXT, Markdown, HTML, XML, dll. Namun, vision dokumen ***hanya memahami PDF secara bermakna***. Jenis lainnya akan diekstrak sebagai teks murni, dan model tidak akan dapat menafsirkan apa yang kita lihat dalam rendering file tersebut. Spesifikasi jenis file seperti diagram, diagram, tag HTML, pemformatan Markdown, dll., akan hilang.
 
-फ़ाइल इनपुट के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट के तरीके](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi) से जुड़ा लेख देखें.
+Untuk mempelajari metode input file lainnya, lihat
+[Panduan metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
 
-### सबसे सही तरीके
+### Praktik terbaik
 
-सर्वोत्तम परिणामों के लिएः
+Untuk hasil terbaik:
 
-- अपलोड करने से पहले, पेजों को सही ओरिएंटेशन में घुमाएं.
-- धुंधले पेजों का इस्तेमाल न करें.
-- अगर किसी एक पेज का इस्तेमाल किया जा रहा है, तो पेज के बाद टेक्स्ट प्रॉम्प्ट डालें.
+- Putar halaman ke orientasi yang benar sebelum mengupload.
+- Hindari halaman yang buram.
+- Jika menggunakan satu halaman, tempatkan perintah teks setelah halaman.
 
-## आगे क्या करना है
+## Langkah berikutnya
 
-ज़्यादा जानने के लिए, ये लेख देखें:
+Untuk mempelajari lebih lanjut, lihat referensi berikut:
 
-- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide): Gemini API, टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा देता है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
-- [सिस्टम के निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
-  सिस्टम के निर्देशों की मदद से, अपनी
-  ज़रूरतों और इस्तेमाल के उदाहरणों के हिसाब से मॉडल के व्यवहार को कंट्रोल किया जा सकता है.
+- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai multimodal prompting.
+- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
+  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan
+  kebutuhan dan kasus penggunaan tertentu.
 
-सुझाव भेजें
+Kirim masukan
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
+Terakhir diperbarui pada 2026-09-18 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Ada masukan untuk kami?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]

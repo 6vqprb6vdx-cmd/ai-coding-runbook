@@ -1,45 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=pl
-fetched_at: 2026-09-14T05:47:10.842499+00:00
-title: "Generowanie muzyki w\u00a0czasie rzeczywistym za pomoc\u0105 Lyrii RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419
+fetched_at: 2026-09-21T05:41:07.781393+00:00
+title: "Generaci\u00f3n de m\u00fasica en tiempo real con Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Prześlij opinię
+Enviar comentarios
 
-# Generowanie muzyki w czasie rzeczywistym za pomocą Lyrii RealTime
+# Generación de música en tiempo real con Lyria RealTime
 
-Gemini API, korzystający z
-[Lyrii RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=pl),
-zapewnia dostęp do najnowocześniejszego modelu generowania muzyki w czasie rzeczywistym i przesyłania strumieniowego. Umożliwia deweloperom tworzenie aplikacji, w których użytkownicy mogą interaktywnie tworzyć, stale sterować i wykonywać muzykę instrumentalną.
+La API de Gemini, que usa [Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=es-419), proporciona acceso a un modelo de generación de música en tiempo real y de transmisión de estado del arte. Permite a los desarrolladores crear aplicaciones en las que los usuarios pueden crear, dirigir y ejecutar música instrumental de forma interactiva.
 
-Generowanie muzyki za pomocą Lyrii RealTime wykorzystuje trwałe, dwukierunkowe,
-połączenie strumieniowe o niskim opóźnieniu za pomocą
-[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+La generación de música de Lyria RealTime usa una conexión de transmisión persistente, bidireccional y de baja latencia con [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
 
-Aby przekonać się, co można stworzyć za pomocą Lyrii RealTime, wypróbuj ją w AI Studio
-korzystając z [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=pl) lub
-[MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=pl) aplikacji.
+Para experimentar lo que se puede crear con Lyria RealTime, pruébalo en AI Studio con las apps [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=es-419) o [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=es-419).
 
-## Generowanie muzyki i sterowanie nią
+## Genera y controla música
 
-Lyria RealTime działa podobnie do [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=pl)
-ponieważ używa protokołu Websockets do utrzymywania komunikacji z modelem w czasie rzeczywistym.
+Lyria RealTime funciona de manera similar a la [API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419), ya que usa WebSockets para mantener la comunicación en tiempo real con el modelo.
 
-Poniższy kod pokazuje, jak generować muzykę:
+En el siguiente código, se muestra cómo generar música:
 
 ### Python
 
-Ten przykład inicjuje sesję Lyrii RealTime za pomocą `client.aio.live.music.connect()`, a następnie wysyła początkowego prompta za pomocą `session.set_weighted_prompts()` wraz z początkową konfiguracją za pomocą `session.set_music_generation_config`, rozpoczyna generowanie muzyki za pomocą `session.play()` i konfiguruje `receive_audio()` do przetwarzania otrzymywanych fragmentów dźwięku.
+En este ejemplo, se inicializa la sesión de Lyria RealTime con `client.aio.live.music.connect()`, luego se envía una instrucción inicial con `session.set_weighted_prompts()` junto con una configuración inicial con `session.set_music_generation_config`, se inicia la generación de música con `session.play()` y se configura `receive_audio()` para procesar los fragmentos de audio que recibe.
 
 ```
   import asyncio
@@ -82,7 +75,7 @@ Ten przykład inicjuje sesję Lyrii RealTime za pomocą `client.aio.live.music.c
 
 ### JavaScript
 
-Ten przykład inicjuje sesję Lyrii RealTime za pomocą `client.live.music.connect()`, a następnie wysyła początkowego prompta za pomocą `session.setWeightedPrompts()` wraz z początkową konfiguracją za pomocą `session.setMusicGenerationConfig`, rozpoczyna generowanie muzyki za pomocą `session.play()` i konfiguruje wywołanie zwrotne `onMessage` do przetwarzania otrzymywanych fragmentów dźwięku.
+En este ejemplo, se inicializa la sesión de Lyria RealTime con `client.live.music.connect()`, luego se envía una instrucción inicial con `session.setWeightedPrompts()` junto con una configuración inicial con `session.setMusicGenerationConfig`, se inicia la generación de música con `session.play()` y se configura una devolución de llamada `onMessage` para procesar los fragmentos de audio que recibe.
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -138,17 +131,17 @@ async function main() {
 main().catch(console.error);
 ```
 
-Następnie możesz użyć `session.play()`, `session.pause()`, `session.stop()` i `session.reset_context()`, aby rozpocząć, wstrzymać, zatrzymać lub zresetować sesję.
+Luego, puedes usar `session.play()`, `session.pause()`, `session.stop()` y `session.reset_context()` para iniciar, pausar, detener o restablecer la sesión.
 
-## Sterowanie muzyką w czasie rzeczywistym
+## Dirige la música en tiempo real
 
-Możesz sterować generowaniem muzyki w czasie rzeczywistym, wysyłając prompty i aktualizując parametry generowania w czasie rzeczywistym.
+Puedes dirigir la generación de música en tiempo real enviando instrucciones y actualizando los parámetros de generación en tiempo real.
 
-### Prompt Lyria RealTime
+### Cómo solicitarle a Lyria RealTime
 
-Gdy strumień jest aktywny, możesz w dowolnym momencie wysyłać nowe wiadomości `WeightedPrompt`, aby zmieniać generowaną muzykę. Model będzie płynnie przechodzić na podstawie nowych danych wejściowych.
+Mientras la transmisión esté activa, puedes enviar mensajes `WeightedPrompt` nuevos en cualquier momento para alterar la música generada. El modelo realizará una transición fluida en función de la nueva entrada.
 
-Prompty muszą mieć odpowiedni format z polem `text` (rzeczywisty prompt) i polem `weight`. Pole `weight` może przyjmować dowolną wartość z wyjątkiem `0`. Zwykle dobrym punktem wyjścia jest wartość `1.0`.
+Las instrucciones deben seguir el formato correcto con un `text` (la instrucción real) y un `weight`. El `weight` puede tomar cualquier valor, excepto `0`. `1.0` suele ser un buen punto de partida.
 
 ### Python
 
@@ -167,7 +160,7 @@ Prompty muszą mieć odpowiedni format z polem `text` (rzeczywisty prompt) i pol
 ### JavaScript
 
 ```
-  await session.setMusicGenerationConfig({
+  await session.setWeightedPrompts({
     weightedPrompts: [
       { text: 'Harmonica', weight: 0.3 },
       { text: 'Afrobeat', weight: 0.7 }
@@ -175,13 +168,13 @@ Prompty muszą mieć odpowiedni format z polem `text` (rzeczywisty prompt) i pol
   });
 ```
 
-Pamiętaj, że przejścia modelu mogą być nieco nagłe, gdy prompty są drastycznie zmieniane, dlatego zalecamy wdrożenie pewnego rodzaju przenikania przez wysyłanie do modelu pośrednich wartości wagi.
+Ten en cuenta que las transiciones del modelo pueden ser un poco abruptas cuando se cambian drásticamente las instrucciones, por lo que se recomienda implementar algún tipo de fundido cruzado enviando valores de peso intermedios al modelo.
 
-### Aktualizowanie konfiguracji
+### Actualiza la configuración
 
-Możesz sterować generowaniem muzyki, aktualizując parametry generowania muzyki w czasie rzeczywistym. Nie możesz po prostu zaktualizować parametru. Musisz ustawić całą konfigurację, w przeciwnym razie inne pola zostaną zresetowane do wartości domyślnych.
+Puedes dirigir la generación de música actualizando los parámetros en tiempo real. No puedes solo actualizar un parámetro, sino que debes establecer toda la configuración. De lo contrario, los otros campos se restablecerán a sus valores predeterminados.
 
-Ponieważ aktualizowanie bpm lub skali jest drastyczną zmianą dla modelu, musisz też poinformować go, aby zresetował swój kontekst za pomocą `reset_context()`, aby uwzględnić nową konfigurację. Nie spowoduje to zatrzymania strumienia, ale będzie to trudne przejście. Nie musisz tego robić w przypadku innych parametrów.
+Dado que actualizar el BPM o la escala es un cambio drástico para el modelo, también deberás indicarle que restablezca su contexto con `reset_context()` para tener en cuenta la nueva configuración. No detendrá la transmisión, pero será una transición abrupta. No es necesario que lo hagas para los demás parámetros.
 
 ### Python
 
@@ -211,138 +204,102 @@ Ponieważ aktualizowanie bpm lub skali jest drastyczną zmianą dla modelu, musi
   await session.reset_context();
 ```
 
-## Przewodnik po tworzeniu promptów dla Lyrii RealTime
+## Cómo dar instrucciones a Lyria RealTime
 
-Oto niepełna lista promptów, których możesz użyć do promptowania Lyrii RealTime:
+Lyria RealTime usa instrucciones ponderadas para combinar géneros, instrumentos y estados de ánimo musicales de forma dinámica. Para explorar estrategias de dirección de instrucciones, vocabularios de etiquetas de palabras clave y ejemplos de instrucciones completos, consulta la [guía de instrucciones de Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=es-419#realtime-prompting).
 
-- Instrumenty: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
-  Bagpipes, Balalaika Ensemble, Banjo, Bass Clarinet, Bongos, Boomy Bass,
-  Bouzouki, Buchla Synths, Cello, Charango, Clavichord, Conga Drums,
-  Didgeridoo, Dirty Synths, Djembe, Drumline, Dulcimer, Fiddle, Flamenco
-  Guitar, Funk Drums, Glockenspiel, Guitar, Hang Drum, Harmonica, Harp,
-  Harpsichord, Hurdy-gurdy, Kalimba, Koto, Lyre, Mandolin, Maracas, Marimba,
-  Mbira, Mellotron, Metallic Twang, Moog Oscillations, Ocarina, Persian Tar,
-  Pipa, Precision Bass, Ragtime Piano, Rhodes Piano, Shamisen, Shredding
-  Guitar, Sitar, Slide Guitar, Smooth Pianos, Spacey Synths, Steel Drum, Synth
-  Pads, Tabla, TR-909 Drum Machine, Trumpet, Tuba, Vibraphone, Viola Ensemble,
-  Warm Acoustic Guitar, Woodwinds, ...`
-- Gatunek muzyczny: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
-  Bhangra, Bluegrass, Blues Rock, Bossa Nova, Breakbeat, Celtic Folk, Chillout,
-  Chiptune, Classic Rock, Contemporary R&B, Cumbia, Deep House, Disco Funk,
-  Drum & Bass, Dubstep, EDM, Electro Swing, Funk Metal, G-funk, Garage Rock,
-  Glitch Hop, Grime, Hyperpop, Indian Classical, Indie Electronic, Indie Folk,
-  Indie Pop, Irish Folk, Jam Band, Jamaican Dub, Jazz Fusion, Latin Jazz, Lo-Fi
-  Hip Hop, Marching Band, Merengue, New Jack Swing, Minimal Techno, Moombahton,
-  Neo-Soul, Orchestral Score, Piano Ballad, Polka, Post-Punk, 60s Psychedelic
-  Rock, Psytrance, R&B, Reggae, Reggaeton, Renaissance Music, Salsa, Shoegaze,
-  Ska, Surf Rock, Synthpop, Techno, Trance, Trap Beat, Trip Hop, Vaporwave,
-  Witch house, ...`
-- Nastrój/opis: `Acoustic Instruments, Ambient, Bright Tones, Chill,
-  Crunchy Distortion, Danceable, Dreamy, Echo, Emotional, Ethereal Ambience,
-  Experimental, Fat Beats, Funky, Glitchy Effects, Huge Drop, Live Performance,
-  Lo-fi, Ominous Drone, Psychedelic, Rich Orchestration, Saturated Tones,
-  Subdued Melody, Sustained Chords, Swirling Phasers, Tight Groove,
-  Unsettling, Upbeat, Virtuoso, Weird Noises, ...`
+## Prácticas recomendadas
 
-To tylko kilka przykładów. Lyria RealTime potrafi znacznie więcej. Eksperymentuj z własnymi promptami!
+- Las aplicaciones cliente deben implementar un almacenamiento en búfer de audio sólido para garantizar una reproducción fluida. Esto ayuda a tener en cuenta la fluctuación de la red y las pequeñas variaciones en la latencia de generación.
+- Instrucciones eficaces:
+  - Sea descriptivo. Usa adjetivos que describan el estado de ánimo, el género y la instrumentación.
+  - Itera y dirige el proceso de forma gradual. En lugar de cambiar por completo la instrucción, intenta agregar o modificar elementos para transformar la música de forma más fluida.
+  - Experimenta con el peso en `WeightedPrompt` para influir en la intensidad con la que una nueva instrucción afecta la generación en curso.
 
-## Sprawdzone metody
+## Detalles técnicos
 
-- Aplikacje klienckie muszą implementować zaawansowane buforowanie dźwięku, aby zapewnić płynne odtwarzanie. Pomaga to uwzględnić wahania sieci i niewielkie różnice w opóźnieniu generowania.
-- Skuteczne promptowanie:
-  - Stosuj styl opisowy. Używaj przymiotników opisujących nastrój, gatunek i instrumentację.
-  - Iteruj i steruj stopniowo. Zamiast całkowicie zmieniać prompta, spróbuj dodawać lub modyfikować elementy, aby płynniej przekształcać muzykę.
-  - Eksperymentuj z wagą w `WeightedPrompt`, aby wpływać na to, jak silnie nowy prompt wpływa na bieżące generowanie.
+En esta sección, se describen los detalles específicos para usar la generación de música en tiempo real de Lyria.
 
-## Szczegóły techniczne
+### Especificaciones
 
-W tej sekcji opisujemy szczegóły korzystania z generowania muzyki za pomocą Lyrii RealTime.
+- Formato de salida: Audio PCM sin procesar de 16 bits
+- Tasa de muestreo: 48 kHz
+- Canales: 2 (estéreo)
 
-### Specyfikacja
+### Controles
 
-- Format wyjściowy: surowy dźwięk PCM 16-bitowy
-- Częstotliwość próbkowania: 48 kHz
-- Kanały: 2 (stereo)
+La generación de música se puede influenciar en tiempo real enviando mensajes que contengan lo siguiente:
 
-### Opcje
+- `WeightedPrompt`: Es una cadena de texto que describe una idea musical, un género, un instrumento, un estado de ánimo o una característica. Se pueden proporcionar varias instrucciones para combinar influencias. Consulta la sección [anterior](#steer-music) para obtener más detalles sobre cómo solicitarle información a Lyria RealTime de la mejor manera.
+- `MusicGenerationConfig`: Es la configuración del proceso de generación de música, que influye en las características del audio de salida. Los parámetros incluyen lo siguiente:
+  - `guidance`: (número de punto flotante) Rango: `[0.0, 6.0]`. Valor predeterminado: `4.0`.
+    Controla qué tan estrictamente el modelo sigue las instrucciones. Una mayor orientación mejora el cumplimiento de la instrucción, pero hace que las transiciones sean más abruptas.
+  - `bpm`: (int) Rango: `[60, 200]`.
+    Establece las pulsaciones por minuto que deseas para la música generada. Debes detener, reproducir o restablecer el contexto del modelo para que tenga en cuenta el nuevo BPM.
+  - `density`: (número de punto flotante) Rango: `[0.0, 1.0]`.
+    Controla la densidad de las notas o los sonidos musicales. Los valores más bajos producen música más dispersa, mientras que los valores más altos producen música más "ocupada".
+  - `brightness`: (número de punto flotante) Rango: `[0.0, 1.0]`.
+    Ajusta la calidad tonal. Los valores más altos producen un audio con un sonido más "brillante", que generalmente enfatiza las frecuencias más altas.
+  - `scale`: (Enum)
+    Establece la escala musical (clave y modo) para la generación. Usa los [valores de enumeración `Scale`](#scale-enum) que proporciona el SDK. Debes detener, reproducir o restablecer el contexto para que el modelo tenga en cuenta la nueva escala.
+  - `mute_bass`: (bool) Valor predeterminado: `False`.
+    Controla si el modelo reduce los graves de los resultados.
+  - `mute_drums`: (bool) Valor predeterminado: `False`.
+    Controla si el resultado del modelo reduce la batería de los resultados.
+  - `only_bass_and_drums`: (bool) Valor predeterminado: `False`.
+    Dirige el modelo para que intente generar solo el bajo y la batería.
+  - `music_generation_mode`: (Enum)
+    Indica al modelo si debe enfocarse en el `QUALITY` (valor predeterminado) o el `DIVERSITY` de la música. También se puede establecer en `VOCALIZATION` para permitir que el modelo genere vocalizaciones como otro instrumento (agrégalas como nuevas instrucciones).
+- `PlaybackControl`: Comandos para controlar aspectos de la reproducción, como reproducir, pausar, detener o restablecer el contexto.
 
-Na generowanie muzyki można wpływać w czasie rzeczywistym, wysyłając wiadomości zawierające:
+En el caso de `bpm`, `density`, `brightness` y `scale`, si no se proporciona ningún valor, el modelo decidirá qué es mejor según tus instrucciones iniciales.
 
-- `WeightedPrompt`: ciąg tekstowy opisujący pomysł muzyczny, gatunek, instrument, nastrój lub cechę. Można podać kilka promptów, aby połączyć wpływy. Więcej informacji o tym, jak najlepiej promptować
-  Lyrię RealTime, znajdziesz [powyżej](#steer-music).
-- `MusicGenerationConfig`: konfiguracja procesu generowania muzyki, która wpływa na charakterystykę wyjściowego dźwięku. Parametry obejmują:
-  - `guidance`: (float) zakres: `[0.0, 6.0]`. Domyślnie: `4.0`.
-    Określa, jak ściśle model ma przestrzegać promptów. Wyższa wartość guidance poprawia przestrzeganie prompta, ale sprawia, że przejścia są bardziej nagłe.
-  - `bpm`: (int) zakres: `[60, 200]`.
-    Ustawia liczbę uderzeń na minutę, którą chcesz uzyskać w generowanej muzyce. Aby model uwzględnił nowe bpm, musisz zatrzymać/odtwarzać lub zresetować kontekst.
-  - `density`: (float) zakres: `[0.0, 1.0]`.
-    Określa gęstość nut/dźwięków. Niższe wartości powodują rzadszą muzykę, a wyższe – „bardziej zajętą”.
-  - `brightness`: (float) zakres: `[0.0, 1.0]`.
-    Dostosowuje jakość tonalną. Wyższe wartości powodują „jaśniejszy” dźwięk, zwykle podkreślając wyższe częstotliwości.
-  - `scale`: (Enum) ustawia skalę muzyczną (tonację i tryb) dla generowania. Użyj wartości typu wyliczeniowego
-    [`Scale` udostępnionych przez SDK](#scale-enum). Aby model uwzględnił nową skalę, musisz zatrzymać/odtwarzać lub zresetować kontekst.
-  - `mute_bass`: (bool) domyślnie: `False`.
-    Określa, czy model ma zmniejszać bas w danych wyjściowych.
-  - `mute_drums`: (bool) domyślnie: `False`.
-    Określa, czy model ma zmniejszać perkusję w danych wyjściowych.
-  - `only_bass_and_drums`: (bool) domyślnie: `False`.
-    Steruje modelem, aby próbował generować tylko bas i perkusję.
-  - `music_generation_mode`: (Enum) wskazuje modelowi, czy ma się skupić na `QUALITY` (wartość domyślna) czy na `DIVERSITY` muzyki. Można też ustawić wartość `VOCALIZATION`, aby model generował wokalizacje jako kolejny instrument (dodaj je jako nowe prompty).
-- `PlaybackControl`: polecenia sterujące aspektami odtwarzania, takimi jak odtwarzanie, wstrzymywanie, zatrzymywanie lub resetowanie kontekstu.
+También se pueden personalizar otros parámetros más clásicos, como `temperature` (de 0.0 a 3.0, 1.1 de forma predeterminada), `top_k` (de 1 a 1,000, 40 de forma predeterminada) y `seed` (de 0 a 2,147,483,647, seleccionado de forma aleatoria de forma predeterminada) en `MusicGenerationConfig`.
 
-Jeśli nie podasz wartości dla `bpm`, `density`, `brightness` i `scale`, model zdecyduje, co jest najlepsze, na podstawie początkowych promptów.
+#### Valores de enumeración de la escala
 
-W `MusicGenerationConfig` można też dostosować bardziej klasyczne parametry, takie jak `temperature` (od 0.0 do 3.0, domyślnie 1.1), `top_k` (od 1 do 1000, domyślnie 40) i `seed` (od 0 do 2 147 483 647, domyślnie wybierany losowo).
+Estos son todos los valores de escala que puede aceptar el modelo:
 
-#### Wartości typu wyliczeniowego Scale
-
-Oto wszystkie wartości skali, które może zaakceptować model:
-
-| Wartość typu wyliczeniowego | Skala / tonacja |
+| Valor de enum | Escala / clave |
 | --- | --- |
-| `C_MAJOR_A_MINOR` | C-dur / a-moll |
-| `D_FLAT_MAJOR_B_FLAT_MINOR` | Des-dur / b-moll |
-| `D_MAJOR_B_MINOR` | D-dur / h-moll |
-| `E_FLAT_MAJOR_C_MINOR` | Es-dur / c-moll |
-| `E_MAJOR_D_FLAT_MINOR` | E-dur / cis-moll/des-moll |
-| `F_MAJOR_D_MINOR` | F-dur / d-moll |
-| `G_FLAT_MAJOR_E_FLAT_MINOR` | Ges-dur / es-moll |
-| `G_MAJOR_E_MINOR` | G-dur / e-moll |
-| `A_FLAT_MAJOR_F_MINOR` | As-dur / f-moll |
-| `A_MAJOR_G_FLAT_MINOR` | A-dur / fis-moll/ges-moll |
-| `B_FLAT_MAJOR_G_MINOR` | B-dur / g-moll |
-| `B_MAJOR_A_FLAT_MINOR` | H-dur / gis-moll/as-moll |
-| `SCALE_UNSPECIFIED` | Domyślnie / model decyduje |
+| `C_MAJOR_A_MINOR` | Do mayor / La menor |
+| `D_FLAT_MAJOR_B_FLAT_MINOR` | Re♭ mayor / si♭ menor |
+| `D_MAJOR_B_MINOR` | Re mayor / Si menor |
+| `E_FLAT_MAJOR_C_MINOR` | Mi♭ mayor / Do menor |
+| `E_MAJOR_D_FLAT_MINOR` | Mi mayor / Do♯ menor/Re♭ menor |
+| `F_MAJOR_D_MINOR` | Fa mayor / Re menor |
+| `G_FLAT_MAJOR_E_FLAT_MINOR` | Sol♭ mayor / mi♭ menor |
+| `G_MAJOR_E_MINOR` | Sol mayor / mi menor |
+| `A_FLAT_MAJOR_F_MINOR` | La bemol mayor / fa menor |
+| `A_MAJOR_G_FLAT_MINOR` | La mayor / la menor de F♯/G♭ |
+| `B_FLAT_MAJOR_G_MINOR` | Si♭ mayor / sol menor |
+| `B_MAJOR_A_FLAT_MINOR` | Si bemol mayor / sol sostenido menor/la bemol menor |
+| `SCALE_UNSPECIFIED` | Predeterminado / El modelo decide |
 
-Model może kierować odtwarzanymi nutami, ale nie rozróżnia tonacji względnych. Dlatego każdy typ wyliczeniowy odpowiada zarówno względnej tonacji durowej, jak i molowej. Na przykład `C_MAJOR_A_MINOR` odpowiadałby wszystkim białym klawiszom fortepianu, a `F_MAJOR_D_MINOR` – wszystkim białym klawiszom z wyjątkiem b.
+El modelo puede guiar las notas que se reproducen, pero no distingue entre las claves relativas. Por lo tanto, cada enumeración corresponde tanto a la versión principal como a la secundaria relativas. Por ejemplo, `C_MAJOR_A_MINOR` correspondería a todas las teclas blancas de un piano, y `F_MAJOR_D_MINOR` serían todas las teclas blancas, excepto el si bemol.
 
-### Ograniczenia
+### Limitaciones
 
-- Tylko instrumentalne: model generuje tylko muzykę instrumentalną.
-- Bezpieczeństwo: prompty są sprawdzane przez filtry bezpieczeństwa. Prompty, które uruchamiają filtry, będą ignorowane. W takim przypadku w polu `filtered_prompt` danych wyjściowych zostanie wpisane wyjaśnienie.
-- Znaki wodne: wyjściowy dźwięk jest zawsze oznaczony znakiem wodnym w celu identyfikacji zgodnie z
-  naszymi [zasadami odpowiedzialnej AI](https://ai.google/responsibility/principles/?hl=pl).
+- Solo instrumental: El modelo solo genera música instrumental.
+- Seguridad: Los filtros de seguridad verifican las instrucciones. Se ignorarán las instrucciones que activen los filtros, en cuyo caso se escribirá una explicación en el campo `filtered_prompt` del resultado.
+- Marcas de agua: El audio de salida siempre tiene una marca de agua para su identificación, de acuerdo con nuestros principios de [IA responsable](https://ai.google/responsibility/principles/?hl=es-419).
 
-## Co dalej?
+## ¿Qué sigue?
 
-- Generuj pełne utwory i ścieżki wokalne za pomocą [Lyrii 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=pl).
-- Zamiast muzyki dowiedz się, jak generować rozmowy z udziałem wielu osób za pomocą
-  modeli [TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl).
-- Dowiedz się, jak generować [obrazy](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl) lub [filmy](https://ai.google.dev/gemini-api/docs/video?hl=pl).
-- Zamiast generować muzykę lub dźwięk, dowiedz się, jak Gemini może
-  [rozumieć pliki audio](https://ai.google.dev/gemini-api/docs/audio?hl=pl).
-- Prowadź rozmowę z Gemini w czasie rzeczywistym za pomocą
-  [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=pl).
+- Genera canciones completas y pistas vocales con [Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419).
+- En lugar de música, aprende a generar conversaciones con varios oradores usando los [modelos de TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419).
+- Descubre cómo generar [imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) o [videos](https://ai.google.dev/gemini-api/docs/video?hl=es-419).
+- En lugar de generar música o audio, descubre cómo Gemini puede [comprender archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
+- Mantén una conversación en tiempo real con Gemini usando la [API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419).
 
-Więcej
-przykładów kodu i samouczków znajdziesz w [Cookbook](https://github.com/google-gemini/cookbook).
+Explora el [Cookbook](https://github.com/google-gemini/cookbook) para obtener más ejemplos de código y tutoriales.
 
-Prześlij opinię
+Enviar comentarios
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Ostatnia aktualizacja: 2026-09-09 UTC.
+Última actualización: 2026-09-18 (UTC)
 
-Chcesz przekazać coś jeszcze?
+¿Quieres brindar más información?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-09 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-18 (UTC)"],[],[]]

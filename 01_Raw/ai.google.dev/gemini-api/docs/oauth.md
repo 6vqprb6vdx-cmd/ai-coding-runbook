@@ -1,85 +1,90 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=vi
-fetched_at: 2026-09-14T05:47:17.953444+00:00
-title: "X\u00e1c th\u1ef1c b\u1eb1ng t\u00ednh n\u0103ng b\u1eaft \u0111\u1ea7u nhanh OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ko
+fetched_at: 2026-09-21T05:46:40.029171+00:00
+title: "OAuth\ub97c \ud1b5\ud55c \uc778\uc99d \ube60\ub978 \uc2dc\uc791 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-# Xác thực bằng tính năng bắt đầu nhanh OAuth
+# OAuth를 통한 인증 빠른 시작
 
-Cách dễ nhất để xác thực với Gemini API là định cấu hình khoá API, như mô tả trong [hướng dẫn bắt đầu sử dụng Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi). Nếu cần biện pháp kiểm soát quyền truy cập nghiêm ngặt hơn, bạn có thể sử dụng OAuth. Hướng dẫn này sẽ giúp bạn thiết lập quy trình xác thực bằng OAuth.
+Gemini API에 인증하는 가장 쉬운 방법은 [Gemini API 시작
+가이드](https://ai.google.dev/gemini-api/docs/get-started?hl=ko)에 설명된 대로 API
+키를 구성하는 것입니다. 더 엄격한 액세스 제어가 필요한 경우 OAuth를 대신 사용할 수 있습니다. 이 가이드는 OAuth를 사용하여 인증을 설정하는 데 도움이 됩니다.
 
-Hướng dẫn này sử dụng phương pháp xác thực đơn giản, phù hợp với môi trường kiểm thử. Đối với môi trường thực tế, hãy tìm hiểu về [xác thực và uỷ quyền](https://developers.google.com/workspace/guides/auth-overview?hl=vi) trước khi [chọn thông tin đăng nhập để truy cập](https://developers.google.com/workspace/guides/create-credentials?hl=vi#choose_the_access_credential_that_is_right_for_you) phù hợp với ứng dụng của bạn.
+이 가이드에서는 테스트 환경에 적합한 간소화된 인증 접근 방식을 사용합니다. 프로덕션 환경의 경우 앱에 적합한 [액세스 사용자 인증 정보를 선택](https://developers.google.com/workspace/guides/create-credentials?hl=ko#choose_the_access_credential_that_is_right_for_you)하기 전에 [인증 및 승인](https://developers.google.com/workspace/guides/auth-overview?hl=ko)에 대해 알아보세요.
 
-## Mục tiêu
+## 목표
 
-- Thiết lập dự án trên đám mây cho OAuth
-- Thiết lập application-default-credentials
-- Quản lý thông tin đăng nhập trong chương trình của bạn thay vì dùng `gcloud auth`
+- OAuth용 클라우드 프로젝트 설정
+- 애플리케이션 기본 사용자 인증 정보 설정
+- `gcloud auth`를 사용하는 대신 프로그램에서 사용자 인증 정보 관리
 
-## Điều kiện tiên quyết
+## 기본 요건
 
-Để chạy hướng dẫn bắt đầu nhanh này, bạn cần:
+이 빠른 시작을 실행하려면 다음이 필요합니다.
 
-- [Một dự án trên Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=vi)
-- [Một bản cài đặt cục bộ của gcloud CLI](https://cloud.google.com/sdk/docs/install?hl=vi)
+- [Google Cloud 프로젝트](https://developers.google.com/workspace/guides/create-project?hl=ko)
+- [gcloud CLI의 로컬 설치](https://cloud.google.com/sdk/docs/install?hl=ko)
 
-## Thiết lập dự án trên đám mây
+## 클라우드 프로젝트 설정
 
-Để hoàn tất hướng dẫn bắt đầu nhanh này, trước tiên bạn cần thiết lập dự án trên đám mây.
+이 빠른 시작을 완료하려면 먼저 Cloud 프로젝트를 설정해야 합니다.
 
-### 1. Bật API
+### 1. API 사용 설정
 
-Trước khi sử dụng API của Google, bạn cần bật các API đó trong một dự án trên Google Cloud.
+Google API를 사용하려면 먼저 Google Cloud 프로젝트에서 API를 사용 설정해야 합니다.
 
-- Trong Cloud Console, hãy bật Google Generative Language API.
+- Google Cloud 콘솔에서 Google Generative Language API를 사용 설정합니다.
 
-  [Bật API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=vi)
+  [API 사용 설정](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ko)
 
-### 2. Định cấu hình màn hình xin phép bằng OAuth
+### 2. OAuth 동의 화면 구성
 
-Tiếp theo, hãy định cấu hình màn hình xin phép OAuth của dự án và thêm chính bạn làm người dùng kiểm thử. Nếu bạn đã hoàn tất bước này cho dự án trên đám mây, hãy chuyển sang phần tiếp theo.
+다음으로 프로젝트의 OAuth 동의 화면을 구성하고 자신을 테스트 사용자로 추가합니다. Cloud 프로젝트에서 이 단계를 이미 완료했다면 다음 섹션으로 건너뛰세요.
 
-1. Trong Cloud Console của Google, hãy chuyển đến **Trình đơn** > **Nền tảng xác thực của Google** > **Tổng quan**.
+1. Google Cloud 콘솔에서 **메뉴** > **Google 인증 플랫폼** > **개요** 로 이동합니다.
 
-   [Truy cập vào nền tảng Google Auth](https://console.developers.google.com/auth/overview?hl=vi)
-2. Hoàn tất biểu mẫu định cấu hình dự án và đặt loại người dùng thành **Bên ngoài** trong mục **Đối tượng**.
-3. Hoàn tất phần còn lại của biểu mẫu, chấp nhận các điều khoản trong Chính sách về dữ liệu người dùng, rồi nhấp vào **Tạo**.
-4. Hiện tại, bạn có thể bỏ qua bước thêm phạm vi và nhấp vào **Lưu và tiếp tục**. Trong tương lai, khi tạo một ứng dụng để sử dụng bên ngoài tổ chức Google Workspace, bạn phải thêm và xác minh các phạm vi uỷ quyền mà ứng dụng của bạn yêu cầu.
-5. Thêm người dùng thử nghiệm:
+   [Google 인증 플랫폼으로 이동](https://console.developers.google.com/auth/overview?hl=ko)
+2. 프로젝트 구성 양식을 작성하고 **잠재고객** 섹션에서 사용자 유형을 **외부** 로 설정합니다.
+3. 양식의 나머지 부분을 작성하고 사용자 데이터 정책 약관에 동의한 후 **만들기** 를 클릭합니다.
+4. 지금은 범위를 추가하지 않아도 되며 **저장하고 계속하기** 를 클릭합니다. 나중에 Google Workspace 조직 외부에서 사용할 앱을 만들 때는 앱에 필요한 승인 범위를 추가하고 확인해야 합니다.
+5. 테스트 사용자 추가:
 
-   1. Chuyển đến [trang Đối tượng](https://console.developers.google.com/auth/audience?hl=vi) của nền tảng Google Auth.
-   2. Trong phần **Người dùng kiểm thử**, hãy nhấp vào **Thêm người dùng**.
-   3. Nhập địa chỉ email của bạn và mọi người dùng kiểm thử được uỷ quyền khác, sau đó nhấp vào **Lưu**.
+   1. Google 인증 플랫폼의
+      [잠재고객 페이지](https://console.developers.google.com/auth/audience?hl=ko)로 이동합니다.
+   2. \*\***테스트 사용자**\*\* 에서 \*\***사용자 추가**\*\* 를 클릭합니다.
+   3. 이메일 주소와 기타 승인된 테스트 사용자를 입력한 후 **저장** 을 클릭합니다.
 
-### 3. Uỷ quyền thông tin đăng nhập cho một ứng dụng dành cho máy tính
+### 3. 데스크톱 애플리케이션의 사용자 인증 정보 승인
 
-Để xác thực với tư cách là người dùng cuối và truy cập vào dữ liệu người dùng trong ứng dụng của mình, bạn cần tạo một hoặc nhiều Mã ứng dụng khách OAuth 2.0. Mã ứng dụng khách được dùng để xác định một ứng dụng duy nhất cho các máy chủ OAuth của Google. Nếu ứng dụng của bạn chạy trên nhiều nền tảng, bạn phải tạo một mã ứng dụng khách riêng cho mỗi nền tảng.
+최종 사용자로 인증하고 앱에서 사용자 데이터에 액세스하려면 OAuth 2.0 클라이언트 ID를 하나 이상 만들어야 합니다. 클라이언트 ID는 Google OAuth 서버에서 단일 앱을 식별하는 데 사용됩니다. 앱이 여러 플랫폼에서 실행되는 경우 각 플랫폼에 대해 별도의 클라이언트 ID를 만들어야 합니다.
 
-1. Trong Cloud Console, hãy chuyển đến **Trình đơn** > **Nền tảng xác thực của Google** > **Ứng dụng**.
+1. Google Cloud 콘솔에서 **메뉴** > **Google 인증 플랫폼** > **클라이언트** 로 이동합니다.
 
-   [Chuyển đến phần Thông tin đăng nhập](https://console.developers.google.com/auth/clients?hl=vi)
-2. Nhấp vào **Tạo ứng dụng**.
-3. Nhấp vào **Loại ứng dụng** > **Ứng dụng dành cho máy tính**.
-4. Trong trường **Name** (Tên), hãy nhập tên cho thông tin đăng nhập. Tên này chỉ xuất hiện trong Cloud Console.
-5. Nhấp vào **Tạo**. Màn hình ứng dụng OAuth đã tạo sẽ xuất hiện, cho biết Mã ứng dụng và Khoá bí mật của ứng dụng mới.
-6. Nhấp vào **OK**. Thông tin xác thực mới tạo sẽ xuất hiện trong phần **Mã ứng dụng khách OAuth 2.0**.
-7. Nhấp vào nút tải xuống để lưu tệp JSON. Tệp này sẽ được lưu dưới dạng `client_secret_<identifier>.json`, sau đó đổi tên thành `client_secret.json` và di chuyển tệp đó vào thư mục làm việc của bạn.
+   [사용자 인증 정보로 이동](https://console.developers.google.com/auth/clients?hl=ko)
+2. **클라이언트 만들기** 를 클릭합니다.
+3. **애플리케이션 유형** > **데스크톱 앱** 을 클릭합니다.
+4. **이름** 필드에 사용자 인증 정보의 이름을 입력합니다. 이 이름은 Google Cloud 콘솔에만 표시됩니다.
+5. **만들기** 를 클릭합니다. OAuth 클라이언트 생성됨 화면이 표시되고 여기에 새 클라이언트 ID와 클라이언트 보안 비밀번호가 표시됩니다.
+6. **확인** 을 클릭합니다. 새로 만든 사용자 인증 정보가 **OAuth 2.0 클라이언트 ID** 아래에 표시됩니다.
+7. 다운로드 버튼을 클릭하여 JSON 파일을 저장합니다.
+   `client_secret_<identifier>.json`으로 저장되고 이름을 `client_secret.json`
+   으로 바꾼 후 작업 디렉터리로 이동합니다.
 
-## Thiết lập thông tin xác thực mặc định của ứng dụng
+## 애플리케이션 기본 사용자 인증 정보 설정
 
-Để chuyển đổi tệp `client_secret.json` thành thông tin đăng nhập có thể sử dụng, hãy truyền vị trí của tệp này vào đối số `--client-id-file` của lệnh `gcloud auth application-default login`.
+`client_secret.json` 파일을 사용 가능한 사용자 인증 정보로 변환하려면 해당 위치를 `gcloud auth application-default login` 명령어의 `--client-id-file` 인수에 전달합니다.
 
 ```
 gcloud auth application-default login \
@@ -87,9 +92,10 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-Quy trình thiết lập dự án đơn giản trong hướng dẫn này sẽ kích hoạt hộp thoại **"Google chưa xác minh ứng dụng này"**. Đây là điều bình thường, hãy chọn **"tiếp tục"**.
+이 가이드의 간소화된 프로젝트 설정은 **"Google에서
+이 앱을 확인하지 않았습니다."** 대화상자를 트리거합니다. 이는 정상적인 현상이므로 **"계속"**을 선택합니다.
 
-Thao tác này sẽ đặt mã thông báo kết quả ở một vị trí đã biết để `gcloud` hoặc các thư viện ứng dụng có thể truy cập vào mã thông báo đó.
+이렇게 하면 결과 토큰이 잘 알려진 위치에 배치되므로 `gcloud` 또는 클라이언트 라이브러리에서 액세스할 수 있습니다.
 
 ```` ```
 gcloud auth application-default login   
@@ -100,11 +106,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-Sau khi bạn đặt Thông tin xác thực mặc định của ứng dụng (ADC), các thư viện ứng dụng bằng hầu hết các ngôn ngữ sẽ cần rất ít hoặc không cần sự trợ giúp để tìm thấy thông tin xác thực đó.
+애플리케이션 기본 사용자 인증 정보 (ADC)를 설정하면 대부분의 언어에서 클라이언트 라이브러리가 이를 찾는 데 최소한의 도움만 필요하거나 도움이 전혀 필요하지 않습니다.
 
 ### Curl
 
-Cách nhanh nhất để kiểm tra xem phương thức này có hoạt động hay không là sử dụng phương thức này để truy cập vào REST API bằng curl:
+이 기능이 작동하는지 테스트하는 가장 빠른 방법은 curl을 사용하여 REST API에 액세스하는 것입니다.
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -117,13 +123,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Trong Python, các thư viện ứng dụng sẽ tự động tìm thấy các tệp này:
+Python에서 클라이언트 라이브러리는 자동으로 이를 찾아야 합니다.
 
 ```
 pip install google-genai
 ```
 
-Một tập lệnh tối thiểu để kiểm thử có thể là:
+테스트를 위한 최소 스크립트는 다음과 같습니다.
 
 ```
 from google import genai
@@ -132,24 +138,24 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## Tự quản lý thông tin xác thực [Python]
+## 사용자 인증 정보 직접 관리 [Python]
 
-Trong nhiều trường hợp, bạn sẽ không có lệnh `gcloud` để tạo mã truy cập từ Mã ứng dụng (`client_secret.json`). Google cung cấp các thư viện bằng nhiều ngôn ngữ để cho phép bạn quản lý quy trình đó trong ứng dụng của mình. Phần này minh hoạ quy trình bằng Python. Bạn có thể xem các ví dụ tương đương về loại quy trình này cho các ngôn ngữ khác trong [tài liệu về API Drive](https://developers.google.com/drive/api/quickstart/python?hl=vi)
+대부분의 경우 클라이언트 ID (`client_secret.json`)에서 액세스 토큰을 만드는 데 사용할 수 있는 `gcloud` 명령어가 없습니다. Google은 앱 내에서 이 프로세스를 관리할 수 있도록 여러 언어로 라이브러리를 제공합니다. 이 섹션에서는 Python에서 이 프로세스를 보여줍니다. 이러한 절차와 동일한 예는 [Drive API 문서](https://developers.google.com/drive/api/quickstart/python?hl=ko)에서 다른 언어로 제공됩니다.
 
-### 1. Cài đặt các thư viện cần thiết
+### 1. 필요한 라이브러리 설치
 
-Cài đặt thư viện ứng dụng Google cho Python và thư viện ứng dụng Gemini.
+Python용 Google 클라이언트 라이브러리와 Gemini 클라이언트 라이브러리를 설치합니다.
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. Viết trình quản lý thông tin xác thực
+### 2. 사용자 인증 정보 관리자 작성
 
-Để giảm thiểu số lần bạn phải nhấp qua các màn hình uỷ quyền, hãy tạo một tệp có tên là `load_creds.py` trong thư mục làm việc để lưu vào bộ nhớ đệm một tệp `token.json` mà tệp này có thể sử dụng lại sau này hoặc làm mới nếu hết hạn.
+승인 화면을 클릭해야 하는 횟수를 최소화하려면 작업 디렉터리에 `load_creds.py`라는 파일을 만들어 나중에 재사용하거나 만료된 경우 새로고침할 수 있는 `token.json` 파일을 캐시합니다.
 
-Bắt đầu bằng đoạn mã sau để chuyển đổi tệp `client_secret.json` thành một mã thông báo có thể dùng với `genai.configure`:
+다음 코드로 시작하여 `client_secret.json` 파일을 `genai.configure`에서 사용할 수 있는 토큰으로 변환합니다.
 
 ```
 import os.path
@@ -186,9 +192,9 @@ def load_creds():
     return creds
 ```
 
-### 3. Viết chương trình
+### 3. 프로그램 작성
 
-Bây giờ, hãy tạo `script.py` của bạn:
+이제 `script.py`를 만듭니다.
 
 ```
 import pprint
@@ -203,27 +209,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. Chạy chương trình
+### 4. 프로그램 실행
 
-Trong thư mục làm việc, hãy chạy mẫu:
+작업 디렉터리에서 다음 샘플을 실행합니다.
 
 ```
 python script.py
 ```
 
-Trong lần đầu tiên bạn chạy tập lệnh, tập lệnh sẽ mở một cửa sổ trình duyệt và nhắc bạn uỷ quyền truy cập.
+스크립트를 처음 실행하면 브라우저 창이 열리고 액세스 권한을 부여하라는 메시지가 표시됩니다.
 
-1. Nếu chưa đăng nhập vào Tài khoản Google, bạn sẽ được nhắc đăng nhập. Nếu bạn đăng nhập vào nhiều tài khoản, **hãy nhớ chọn tài khoản mà bạn đã đặt làm "Tài khoản thử nghiệm" khi định cấu hình dự án.**
-2. Thông tin uỷ quyền được lưu trữ trong hệ thống tệp, vì vậy, vào lần tiếp theo chạy mã mẫu, bạn sẽ không được nhắc về việc uỷ quyền.
+1. 아직 Google 계정에 로그인하지 않았으면 로그인하라는 메시지가 표시됩니다. 여러 계정에 로그인되어 있는 경우 **프로젝트를 구성할 때 '테스트 계정'으로 설정한 계정을 선택해야 합니다.**
+2. 승인 정보가 파일 시스템에 저장되므로 다음에 샘플 코드를 실행할 때는 승인하라는 메시지가 표시되지 않습니다.
 
-Bạn đã thiết lập thành công quy trình xác thực.
+인증을 설정했습니다.
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Cập nhật lần gần đây nhất: 2026-09-10 UTC.
+최종 업데이트: 2026-09-10(UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+의견을 전달하고 싶나요?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-10 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-10(UTC)"],[],[]]

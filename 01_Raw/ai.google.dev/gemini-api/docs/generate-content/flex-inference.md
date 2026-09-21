@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=ar
-fetched_at: 2026-09-14T05:40:52.303719+00:00
-title: "\u0627\u0644\u0627\u0633\u062a\u0646\u062a\u0627\u062c \u0627\u0644\u0645\u0631\u0646 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=ja
+fetched_at: 2026-09-21T05:49:17.543552+00:00
+title: "Flex \u63a8\u8ad6 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
+Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-إرسال ملاحظات
+フィードバックを送信
 
-# الاستنتاج المرن
+# Flex 推論
 
-الوصف: تعرَّف على كيفية تحسين التكاليف باستخدام فئة الاستنتاج المرن
+説明: Flex 推論ティアで費用を最適化する方法について説明します。
 
-‫Gemini Flex API هو مستوى استنتاج يتيح خفض التكلفة بنسبة% 50 مقارنةً بالأسعار العادية، مقابل وقت استجابة متغيّر وتوفّر بأفضل جهد ممكن. وهي مصمَّمة لأحمال العمل التي تتحمّل وقت الاستجابة وتتطلّب معالجة متزامنة ولكنّها لا تحتاج إلى الأداء في الوقت الفعلي الذي توفّره واجهة برمجة التطبيقات العادية.
+Gemini Flex API は推論ティアで、レイテンシが変動し、ベスト エフォート型の可用性となる代わりに、標準料金から 50% の費用削減を実現します。同期処理が必要で、標準 API のリアルタイム パフォーマンスを必要としない、レイテンシ許容型のワークロード向けに設計されています。
 
-## كيفية استخدام Flex
+## Flex の使用方法
 
-لاستخدام فئة Flex، حدِّد `service_tier` على النحو `flex` في نص الطلب. تستخدم الطلبات تلقائيًا الفئة العادية إذا تم حذف هذا الحقل.
+Flex ティアを使用するには、リクエストの本文で `service_tier` を `flex` として指定します。デフォルトでは、このフィールドが省略されている場合、リクエストは標準ティアを使用します。
 
 ### Python
 
@@ -116,58 +116,60 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## طريقة عمل الاستنتاج المرن
+## Flex 推論の仕組み
 
-تساعد Gemini Flex Inference في سد الفجوة بين واجهة برمجة التطبيقات العادية ومدة التنفيذ البالغة 24 ساعة في [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar). تستفيد هذه الخدمة من سعة الحوسبة "القابلة للتخفيض" في غير أوقات الذروة لتوفير حلّ فعّال من حيث التكلفة للمهام التي يتم تنفيذها في الخلفية وسير العمل التسلسلي.
+Gemini Flex 推論は、標準 API と 24 時間
+の [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) のターンアラウンド タイムのギャップを埋めます。オフピークの「削減可能な」コンピューティング容量を利用して、バックグラウンド タスクとシーケンシャル ワークフローに費用対効果の高いソリューションを提供します。
 
-| الميزة | التعبير | الأولوية | خطة "الرزمة العادية" | مجمّعة |
+| 機能 | Flex | 候補 | 標準 | バッチ |
 | --- | --- | --- | --- | --- |
-| **الأسعار** | خصم بنسبة% 50 | أكثر من خطة Standard بنسبة تتراوح بين %75 و%100 | السعر الكامل | خصم بنسبة% 50 |
-| **وقت الاستجابة** | الدقائق (المدة المستهدَفة من دقيقة واحدة إلى 15 دقيقة) | منخفض (ثوانٍ) | من ثوانٍ إلى دقائق | ما يصل إلى 24 ساعة |
-| **الموثوقية** | أفضل جودة ممكنة (يمكن التضحية بها) | عالية (غير قابلة للإزالة) | مرتفع / مرتفع إلى حد ما | عالية (لمعدّل نقل البيانات) |
-| **الواجهة** | متزامن | متزامن | متزامن | غير متزامن |
+| **料金** | 50% 割引 | 標準の 75 ～ 100% 増 | 通常料金 | 50% 割引 |
+| **レイテンシ** | 分（目標 1 ～ 15 分） | 低（秒） | 数秒～数分 | 最大 24 時間 |
+| **信頼性** | ベスト エフォート（削減可能） | 高（削減不可） | 高 / 中～高 | 高（スループットの場合） |
+| **インターフェース** | 同期 | 同期 | 同期 | 非同期 |
 
-### المزايا الرئيسية
+### 主な特典
 
-- **فعالية التكلفة**: توفير كبير في التكاليف عند إجراء عمليات التقييم غير الإنتاجية، واستخدام البرامج في الخلفية، وإثراء البيانات
-- **سهولة الاستخدام**: ليس عليك إدارة عناصر الدفعات أو معرّفات المهام أو الاستقصاء، بل ما عليك سوى إضافة مَعلمة واحدة إلى طلباتك الحالية.
-- **سير العمل المتزامن**: خيار مثالي لسلاسل واجهات برمجة التطبيقات المتسلسلة التي يعتمد فيها الطلب التالي على ناتج الطلب السابق، ما يجعله أكثر مرونة من "المعالجة المجمّعة" لسير العمل بالذكاء الاصطناعي الوكيل.
+- **費用対効果**: 本番環境以外の評価、バックグラウンド エージェント、データ拡充で大幅なコスト削減を実現します。
+- **摩擦が少ない**: バッチ オブジェクト、ジョブ ID、ポーリングを管理する必要はありません。既存のリクエストに 1 つのパラメータを追加するだけです。
+- **同期ワークフロー**: 次のリクエストが前のリクエストの出力に依存するシーケンシャル API チェーンに最適です。エージェント ワークフローでは、Batch よりも柔軟性が高くなります。
 
-### حالات الاستخدام
+### ユースケース
 
-- **التقييمات بلا إنترنت**: إجراء اختبارات الانحدار أو قوائم الصدارة باستخدام "نماذج اللغة الكبيرة كحكم"
-- **الوكلاء الذين يعملون في الخلفية**: المهام المتسلسلة، مثل تعديلات نظام إدارة علاقات العملاء أو إنشاء الملفات الشخصية أو الإشراف على المحتوى، حيث يمكن قبول تأخيرات لمدة دقائق
-- **البحث المقيّد بالميزانية**: تجارب أكاديمية تتطلّب عددًا كبيرًا من الرموز المميزة بميزانية محدودة.
+- **オフライン評価**: 「LLM-as-a-Judge」回帰テストまたはリーダーボードの実行。
+- **バックグラウンド エージェント**: CRM の更新、プロファイルの作成、コンテンツ モデレーションなど、数分の遅延が許容されるシーケンシャル タスク。
+- **予算が限られた研究**: 限られた予算で大量のトークンを必要とする学術的な実験。
 
-### حدود معدّل الاستخدام
+### レート上限
 
-يتم احتساب عدد الزيارات التي تستخدم ميزة "الاستنتاج المرن" ضمن [حدود المعدّل](https://aistudio.google.com/rate-limit?hl=ar) العامة، ولا توفّر هذه الميزة حدودًا موسّعة للمعدّل مثل [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar).
+Flex 推論トラフィックは一般的な [レート上限](https://aistudio.google.com/rate-limit?hl=ja)にカウントされます。
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) のようなレート上限の引き上げは提供されません。
 
-### السعة القابلة للخفض
+### 削減可能な容量
 
-يتم التعامل مع الزيارات المرنة بأولوية أقل. في حال حدوث ارتفاع مفاجئ في عدد الزيارات العادية، قد يتم إيقاف طلبات Flex أو إزالتها لضمان توفّر السعة للمستخدمين ذوي الأولوية العالية. إذا كنت تبحث عن استنتاج ذي أولوية عالية، يمكنك الاطّلاع على [الاستنتاج ذو الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar).
+Flex トラフィックは低い優先度で処理されます。標準トラフィックが急増した場合、優先度の高いユーザーの容量を確保するために、Flex リクエストがプリエンプトまたは削除されることがあります。優先度の高い推論をお探しの場合は、
+[優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)をご覧ください。
 
-### رموز الخطأ
+### エラーコード
 
-عندما تكون السعة المرنة غير متاحة أو يكون النظام مزدحمًا، ستعرض واجهة برمجة التطبيقات رموز الخطأ العادية التالية:
+Flex 容量が使用できない場合や、システムが輻輳している場合、API は標準のエラーコードを返します。
 
-- **‫503 الخدمة غير متاحة**: يتلقّى النظام عدد طلبات كبير جدًا في الوقت الحالي.
-- **429 Too Many Requests**: تجاوز حدود المعدّل أو استنفاد الموارد
+- **503 Service Unavailable**: 現在、システム容量の上限に達しています。
+- **429 Too Many Requests**: レート上限またはリソースの枯渇。
 
-### مسؤولية العميل
+### クライアントの責任
 
-- **عدم توفّر خيار احتياطي من جهة الخادم**: لمنع فرض رسوم غير متوقّعة، لن يرقّي النظام تلقائيًا طلبًا من فئة Flex إلى فئة Standard إذا كانت سعة فئة Flex ممتلئة.
-- **عمليات إعادة المحاولة**: يجب تنفيذ منطق إعادة المحاولة من جهة العميل باستخدام خوارزمية الرقود الأسي الثنائي.
-- **مهلات**: بما أنّ طلبات Flex قد تبقى في صفّ الانتظار، ننصحك بزيادة المهلات من جهة العميل إلى 10 دقائق أو أكثر لتجنُّب إغلاق الاتصال قبل الأوان.
+- **サーバーサイドのフォールバックなし**: 予期しない料金が発生しないように、Flex 容量が上限に達した場合でも、Flex リクエストが自動的に標準ティアにアップグレードされることはありません。
+- **再試行**: 指数バックオフを使用して、独自のクライアントサイド再試行ロジックを実装する必要があります。
+- **タイムアウト**: Flex リクエストはキューに置かれる可能性があるため、接続が途中で切断されないように、クライアントサイドのタイムアウトを 10 分以上に増やすことをおすすめします。
 
-## تعديل فترات المهلة
+## タイムアウト ウィンドウを調整する
 
-يمكنك ضبط مهلات لكل طلب في واجهة REST API ومكتبات العميل،
-ومهلات عامة فقط عند استخدام مكتبات العميل.
+REST API とクライアント ライブラリのリクエストごとのタイムアウトを構成できます。グローバル タイムアウトは、クライアント ライブラリを使用する場合にのみ構成できます。
 
-احرص دائمًا على أن يغطي المهلة الزمنية من جهة العميل فترة انتظار الخادم المقصودة (على سبيل المثال، 600 ثانية أو أكثر لقوائم انتظار Flex). تتوقّع حِزم SDK قيم المهلة بالملي ثانية.
+クライアントサイドのタイムアウトが、目的のサーバーの待機ウィンドウ（Flex 待機キューの場合は 600 秒以上など）をカバーしていることを常に確認してください。SDK では、タイムアウト値はミリ秒単位で指定します。
 
-### انتهاء المهلة لكل طلب
+### リクエストごとのタイムアウト
 
 ### Python
 
@@ -314,13 +316,12 @@ func main() {
 
 ### REST
 
-عند إجراء طلبات REST، يمكنك التحكّم في المهلات باستخدام مجموعة من عناوين HTTP وخيارات `curl`:
+REST 呼び出しを行う場合は、HTTP ヘッダーと `curl` オプションの組み合わせを使用してタイムアウトを制御できます。
 
-- **`X-Server-Timeout` العنوان (مهلة من جهة الخادم)**: يقترح هذا العنوان مدة مهلة مفضّلة (600 ثانية تلقائيًا) لخادم Gemini API. سيحاول الخادم
-  الالتزام بذلك، ولكن ليس هناك ما يضمن ذلك. يجب أن تكون القيمة بالثواني.
-- **`--max-time` في `curl` (انتهاء المهلة من جهة العميل)**: يفرض الخيار `curl --max-time
-  <seconds>` حدًا أقصى على إجمالي الوقت (بالثواني) الذي ستنتظره `curl`
-  حتى تكتمل العملية بأكملها. هذا إجراء وقائي من جهة العميل.
+- **`X-Server-Timeout` ヘッダー（サーバーサイドのタイムアウト）**: このヘッダーは、推奨されるタイムアウト時間（デフォルトは 600 秒）を Gemini API サーバーに示します。サーバーはこの値を尊重しようとしますが、保証されるわけではありません。値は秒単位で指定します。
+- **`--max-time` in `curl`（クライアントサイドのタイムアウト）**: `curl --max-time
+  <seconds>` オプションは、`curl`
+  がオペレーション全体が完了するまで待機する合計時間（秒単位）に上限を設定します。これはクライアントサイドの保護です。
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -336,9 +337,9 @@ func main() {
  }'
 ```
 
-### مهلات عالمية
+### グローバル タイムアウト
 
-إذا كنت تريد أن تتضمّن جميع طلبات البيانات من واجهة برمجة التطبيقات التي يتم إجراؤها من خلال مثيل `genai.Client` معيّن (مكتبات العميل فقط) مهلة تلقائية، يمكنك ضبط ذلك عند تهيئة العميل باستخدام `http_options` و`genai.types.HttpOptions`.
+特定の `genai.Client` インスタンス（クライアント ライブラリのみ）を介して行われたすべての API 呼び出しにデフォルトのタイムアウトを設定する場合は、`http_options` と `genai.types.HttpOptions` を使用してクライアントを初期化するときに構成できます。
 
 ### Python
 
@@ -485,9 +486,9 @@ await main();
  }
 ```
 
-## تنفيذ عمليات إعادة المحاولة
+## 再試行を実装する
 
-بما أنّ Flex يمكن إيقافه مؤقتًا ويتعذّر تنفيذه بسبب أخطاء 503، إليك مثال على التنفيذ الاختياري لمنطق إعادة المحاولة لمواصلة الطلبات التي تعذّر تنفيذها:
+Flex は削減可能で、503 エラーで失敗するため、失敗したリクエストを続行するために再試行ロジックを実装する例を次に示します。
 
 ### Python
 
@@ -629,43 +630,43 @@ print(response.text)
  }
 ```
 
-## الأسعار
+## 料金
 
-يتم تحديد سعر الاستنتاج المرن بنسبة% 50 من [سعر واجهة برمجة التطبيقات العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)
-ويتم تحصيل الرسوم لكل رمز مميز.
+Flex 推論の料金は、[標準 API](https://ai.google.dev/gemini-api/docs/pricing?hl=ja) の 50% で、
+トークン単位で課金されます。
 
-## النماذج المتوافقة
+## サポートされているモデル
 
-تتيح الطُرز التالية الاستدلال باستخدام Flex:
+次のモデルは Flex 推論をサポートしています。
 
-| الطراز | الاستنتاج المرن |
+| モデル | Flex 推論 |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ar) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ar) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ar) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
-| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
-| [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
-| [معاينة الصور في Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ar) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ja) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ja) | ✔️ |
+| [Gemini 3.1 Pro プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ja) | ✔️ |
+| [Gemini 3 Flash プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja) | ✔️ |
+| [Gemini 3 Pro Image プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ja) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ja) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ja) | ✔️ |
+| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ja) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ja) | ✔️ |
 
-## الخطوات التالية
+## 次のステップ
 
-يمكنك الاطّلاع على خيارات [الاستدلال والتحسين](https://ai.google.dev/gemini-api/docs/optimization?hl=ar) الأخرى في Gemini:
+Gemini のその他の [推論オプションと最適化オプション](https://ai.google.dev/gemini-api/docs/optimization?hl=ja)について確認する。
 
-- [استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar) لوقت الاستجابة الفائق السرعة
-- [واجهة برمجة التطبيقات للمعالجة المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) للمعالجة غير المتزامنة في غضون 24 ساعة
-- [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar) لتقليل تكاليف الرموز المميزة للإدخال
+- [優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja) 超低レイテンシ向け。
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) は 24 時間以内の非同期処理用です。
+- [入力トークン費用を削減するためのコンテキスト キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)。
 
-إرسال ملاحظات
+フィードバックを送信
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
+最終更新日 2026-09-12 UTC。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+ご意見をお聞かせください
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]
