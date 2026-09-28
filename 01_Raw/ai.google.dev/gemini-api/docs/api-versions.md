@@ -1,49 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=ar
-fetched_at: 2026-09-21T05:44:19.101594+00:00
-title: "\u0634\u0631\u062d \u0625\u0635\u062f\u0627\u0631\u0627\u062a \u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=pl
+fetched_at: 2026-09-28T06:10:30.142094+00:00
+title: "Om\u00f3wienie wersji interfejsu API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api?hl=ar)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumentacja API](https://ai.google.dev/api?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-# شرح إصدارات واجهة برمجة التطبيقات
+# Omówienie wersji interfejsu API
 
-تقدّم هذه المستندات نظرة عامة عالية المستوى على الاختلافات بين الإصدارَين `v1`
-و `v1beta` من Gemini API.
+Ten dokument zawiera ogólne omówienie różnic między wersjami `v1` i `v1beta` interfejsu Gemini API.
 
-- **v1**: هو الإصدار الثابت من واجهة برمجة التطبيقات. تتوفّر الميزات في الإصدار الثابت بشكل كامل طوال فترة رقم الإصدار الرئيسي. في حال إجراء أي تغييرات قد تؤدي إلى عطل، سيتم إنشاء رقم الإصدار الرئيسي التالي من واجهة برمجة التطبيقات وسيتم إيقاف الإصدار الحالي نهائيًا بعد فترة زمنية معقولة.
-  يمكن إضافة تغييرات متوافقة إلى واجهة برمجة التطبيقات بدون تغيير رقم الإصدار الرئيسي. اعتبارًا من يونيو 2026، ستتوفّر **واجهة برمجة التطبيقات Interactions API** بشكل عام في الإصدار `v1`.
-- **v1beta**: يتضمّن هذا الإصدار ميزات وإمكانات مبكرة قيد التطوير حاليًا. على الرغم من أنّ الميزات في الإصدار `v1beta` قد تخضع للتغييرات أثناء تحسينها استنادًا إلى الملاحظات، فإنّه يتيح لك تجربة إمكانات جديدة قبل ترقيتها إلى الإصدار الثابت.
+- **v1**: stabilna wersja interfejsu API. Funkcje w wersji stabilnej są w pełni obsługiwane przez cały okres istnienia wersji głównej. Jeśli zostaną wprowadzone zmiany powodujące niezgodność wsteczną, utworzymy nową wersję główną interfejsu API, a dotychczasowa wersja zostanie wycofana po upływie odpowiedniego czasu.
+  W interfejsie API mogą być wprowadzane zmiany, które nie powodują błędów, bez zmiany wersji głównej. **Interfejs API interakcji** i jego podstawowe funkcje są ogólnie dostępne w `v1`.
+- **v1beta** ta wersja zawiera wczesne funkcje i możliwości, które są aktywnie rozwijane. Funkcje w `v1beta` mogą ulec zmianom, ponieważ dopracowujemy je na podstawie opinii. Dzięki temu możesz wypróbować nowe funkcje, zanim zostaną one udostępnione w wersji stabilnej.
 
-| الميزة | v1 | v1beta |
+## Obsługa funkcji i możliwości
+
+W tabeli poniżej znajdziesz informacje o dostępności funkcji w wersji `v1` (ogólnodostępnej) i `v1beta` (beta). Podstawowe możliwości interfejsu API i narzędzia dotyczą zarówno interfejsu Interactions API, jak i `generateContent`, chyba że podano inaczej:
+
+| Funkcja | v1 | v1beta |
 | --- | --- | --- |
-| Interactions API |  |  |
-| إنشاء محتوى - إدخال نص فقط |  |  |
-| إنشاء محتوى - إدخال نص وصورة |  |  |
-| إنشاء محتوى - إخراج نص |  |  |
-| إنشاء محتوى - محادثات مترابطة (محادثة) |  |  |
-| إنشاء محتوى - طلبات الدوال |  |  |
-| إنشاء محتوى - البث |  |  |
-| تضمين محتوى - إدخال نص فقط |  |  |
-| إنشاء إجابة |  |  |
-| أداة استرجاع دلالية |  |  |
+| **Podstawowe możliwości interfejsu API** |  |  |
+| [Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=pl) |  |  |
+| [Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) |  |  |
+| [Uporządkowane dane wyjściowe](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) |  |  |
+| [Myślenie / rozumowanie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl) |  |  |
+| [Instrukcje systemowe](https://ai.google.dev/gemini-api/docs/system-instructions?hl=pl) |  |  |
+| [Wyjście audio (konfiguracja mowy)](https://ai.google.dev/gemini-api/docs/audio?hl=pl) |  |  |
+| [Typ usługi (Priority / Flex)](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) |  |  |
+| **Narzędzia** |  |  |
+| [Narzędzie do wykonywania kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) |  |  |
+| [Grounding w wyszukiwarce Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) |  |  |
+| [Grounding w Mapach Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl) |  |  |
+| [Narzędzie kontekstu adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl) |  |  |
+| [Narzędzie do wyszukiwania plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl) |  |  |
+| [Narzędzie do korzystania z komputera](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl) |  |  |
+| [Narzędzie Serwery MCP](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#mcp) |  |  |
+| **Interfejsy API w czasie rzeczywistym** |  |  |
+| [Live API (WebSockets)](https://ai.google.dev/gemini-api/docs/live-api?hl=pl) |  |  |
+| [Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=pl) |  |  |
+| [Tokeny tymczasowe (interfejs API na żywo)](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pl) |  |  |
+| **Interfejsy API platformy** |  |  |
+| [Models API](https://ai.google.dev/gemini-api/docs/models?hl=pl) |  |  |
+| [Trasa usługi plików](https://ai.google.dev/gemini-api/docs/files?hl=pl) |  |  |
+| [File Search Stores Route](https://ai.google.dev/gemini-api/docs/file-search?hl=pl) |  |  |
+| [Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=pl) |  |  |
+| [Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=pl) |  |  |
+| [Zapisywanie kontekstu w pamięci podręcznej](https://ai.google.dev/gemini-api/docs/caching?hl=pl) |  |  |
 
-- - متاح
-- - لن يكون متاحًا أبدًا
+- – obsługiwane
 
-## ضبط إصدار واجهة برمجة التطبيقات في حزمة تطوير برامج (SDK)
+## Konfigurowanie wersji interfejsu API w pakiecie SDK
 
-تستخدم حزم تطوير البرامج (SDK) الخاصة بـ Gemini API الإصدار `v1beta` تلقائيًا، ولكن يمكنك تحديد الإصدارات بشكل صريح من خلال ضبط إصدار واجهة برمجة التطبيقات كما هو موضّح في عينة التعليمات البرمجية التالية:
+Pakiety SDK interfejsu Gemini API domyślnie używają wersji `v1beta`, ale możesz wyraźnie określić wersje, ustawiając wersję interfejsu API, jak pokazano w tym przykładowym kodzie:
 
 ### Python
 
@@ -53,7 +72,7 @@ from google import genai
 client = genai.Client(http_options={'api_version': 'v1'})
 
 interaction = client.interactions.create(
-    model='gemini-3.6-flash',
+    model='gemini-3.8-flash',
     input="Explain how AI works",
 )
 
@@ -71,7 +90,7 @@ const ai = new GoogleGenAI({
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Explain how AI works",
   });
   console.log(interaction.output_text);
@@ -80,24 +99,87 @@ async function main() {
 await main();
 ```
 
-### راحة
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.types.HttpOptions;
+
+Client client = Client.builder()
+    .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+    .build();
+
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.6-flash"))
+    .input(InteractionsInput.of("Explain how AI works"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        HTTPOptions: genai.HTTPOptions{
+            APIVersion: "v1",
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.6-flash"),
+            Input: interactions.NewInteractionsInput("Explain how AI works"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.6-flash",
-    "input": "Explain how AI works"
+    "model": "gemini-3.8-flash",
+    "input": "Explain how AI works",
   }'
 ```
 
-إرسال ملاحظات
+Prześlij opinię
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
+Ostatnia aktualizacja: 2026-09-24 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Chcesz przekazać coś jeszcze?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-24 UTC."],[],[]]

@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=fr
-fetched_at: 2026-09-21T05:46:12.825614+00:00
-title: "G\u00e9n\u00e9ration de texte \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=th
+fetched_at: 2026-09-28T06:23:46.253014+00:00
+title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Envoyer des commentaires
+ส่งความคิดเห็น
 
-# Génération de texte
+# การสร้างข้อความ
 
-L'API Gemini peut générer une sortie de texte à partir d'entrées de texte, d'images, de vidéos et audio.
+Gemini API สามารถสร้างเอาต์พุตข้อความจากอินพุตข้อความ รูปภาพ วิดีโอ และเสียง
 
-Voici un exemple de base :
+ตัวอย่างพื้นฐานมีดังนี้
 
 ### Python
 
@@ -78,6 +78,44 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("How does AI work?"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -90,19 +128,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Les SDK Google GenAI fournissent des propriétés pratiques directement sur l'objet `Interaction` renvoyé pour accéder à la réponse du modèle.
+Google GenAI SDK มีพร็อพเพอร์ตี้ความสะดวกโดยตรงในออบเจ็กต์ `Interaction` ที่ส่งกลับมาเพื่อเข้าถึงการตอบกลับของโมเดล
 
-L'assistant le plus courant est **`interaction.output_text`** (chaîne), qui renvoie les derniers blocs de texte dans la réponse du modèle. Si la réponse est divisée en plusieurs blocs `TextContent` consécutifs, elle les joint automatiquement.
-Notez que `.output_text` n'inclut pas les blocs de texte précédents séparés par du contenu non textuel (comme des réflexions, des images, de l'audio ou des appels d'outils). Pour les réponses multimodales complexes ou entrelacées, vous devez itérer manuellement sur `steps`. Pour en savoir plus sur les autres propriétés pratiques des médias, consultez la
-[présentation des interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=fr#convenience-properties).
+ตัวช่วยที่พบบ่อยที่สุดคือ **`interaction.output_text`** (String) ซึ่งจะแสดงผล
+บล็อกข้อความสุดท้ายในคำตอบของโมเดล หากคำตอบแยก
+เป็นหลาย`TextContent`บล็อกที่ต่อเนื่องกัน ระบบจะรวมบล็อกเหล่านั้นโดยอัตโนมัติ
+โปรดทราบว่า `.output_text` ไม่รวมบล็อกข้อความก่อนหน้าซึ่งคั่นด้วยเนื้อหาที่ไม่ใช่ข้อความ (เช่น ความคิด รูปภาพ เสียง หรือการเรียกใช้เครื่องมือ) สำหรับคำตอบแบบมัลติโมดัลที่ซับซ้อน
+หรือสลับกัน คุณต้องวนซ้ำผ่าน `steps`
+ด้วยตนเองแทน ดูข้อมูลเพิ่มเติมเกี่ยวกับพร็อพเพอร์ตี้ความสะดวกของสื่ออื่นๆ ได้ที่[ภาพรวมของการโต้ตอบ](https://ai.google.dev/gemini-api/docs/interactions?hl=th#convenience-properties)
 
-## Réflexion avec Gemini
+## การคิดด้วย Gemini
 
-Les modèles Gemini sont souvent [activés par défaut](https://ai.google.dev/gemini-api/docs/thinking?hl=fr), ce qui leur permet de raisonner avant de répondre à une
-requête.
+โมเดล Gemini มักจะ["คิด"](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+โดยค่าเริ่มต้น ซึ่งช่วยให้โมเดลใช้เหตุผลก่อนที่จะตอบคำขอได้
 
-Chaque modèle est compatible avec différentes configurations de réflexion, ce qui vous permet de contrôler les coûts, la latence et l'intelligence. Pour en savoir plus, consultez le
-[guide de réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#set-budget).
+แต่ละโมเดลรองรับการกำหนดค่าการคิดที่แตกต่างกัน ซึ่งช่วยให้คุณควบคุม
+ต้นทุน เวลาในการตอบสนอง และความอัจฉริยะได้ ดูรายละเอียดเพิ่มเติมได้ที่[คู่มือการคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#set-budget)
 
 ### Python
 
@@ -169,6 +210,47 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("How does AI work?"),
+            GenerationConfig: &interactions.GenerationConfig{
+                ThinkingLevel: interactions.ThinkingLevelMinimal.ToPointer(),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -184,9 +266,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Instructions système et autres configurations
+## วิธีการของระบบและการกำหนดค่าอื่นๆ
 
-Vous pouvez guider le comportement des modèles Gemini à l'aide d'instructions système. Transmettez un paramètre `system_instruction` pour configurer le comportement du modèle.
+คุณสามารถกำหนดลักษณะการทำงานของโมเดล Gemini ได้ด้วยคำสั่งของระบบ ส่งพารามิเตอร์ `system_instruction` เพื่อกำหนดค่าลักษณะการทำงานของโมเดล
 
 ### Python
 
@@ -248,6 +330,45 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:             interactions.Model("gemini-3.8-flash"),
+            Input:             interactions.NewInteractionsInput("Hello there"),
+            SystemInstruction: genai.Ptr("You are a cat. Your name is Neko."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -261,7 +382,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Vous pouvez également remplacer les paramètres de génération par défaut, tels que la température, à l'aide du paramètre `generation_config`.
+นอกจากนี้ คุณยังลบล้างพารามิเตอร์การสร้างเริ่มต้น เช่น
+อุณหภูมิ โดยใช้`generation_config`พารามิเตอร์ได้ด้วย
 
 ### Python
 
@@ -327,6 +449,47 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Explain the concept of Occam's Razor and provide a simple, everyday example."),
+            GenerationConfig: &interactions.GenerationConfig{
+                MaxOutputTokens: genai.Ptr(500),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -342,13 +505,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Consultez la documentation de référence de l'API [Interactions](https://ai.google.dev/api/interactions-api?hl=fr)
-pour obtenir la liste complète des paramètres configurables et leur
-description.
+ดูรายการพารามิเตอร์ที่กำหนดค่าได้ทั้งหมดและคำอธิบายได้ที่[ข้อมูลอ้างอิง Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
 
-## Entrées multimodales
+## อินพุตหลายรูปแบบ
 
-L'API Gemini est compatible avec les entrées multimodales, ce qui vous permet de combiner du texte avec des fichiers multimédias. L'exemple suivant montre comment fournir une image :
+Gemini API รองรับอินพุตหลายรูปแบบ ซึ่งช่วยให้คุณรวมข้อความกับ
+ไฟล์สื่อได้ ตัวอย่างต่อไปนี้แสดงการระบุรูปภาพ
 
 ### Python
 
@@ -446,6 +608,60 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    imageBytes, err := os.ReadFile("/path/to/organ.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Image := base64.StdEncoding.EncodeToString(imageBytes)
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Tell me about this instrument",
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    Data:     genai.Ptr(base64Image),
+                    MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -466,18 +682,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Pour découvrir d'autres méthodes permettant de fournir des images et un traitement d'image plus avancé,
-consultez notre [guide sur la compréhension des images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr).
-L'API est également compatible avec les entrées et la compréhension de [documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr), de [vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr) et
-[audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr).
+ดูวิธีการอื่นๆ ในการระบุรูปภาพและการประมวลผลรูปภาพขั้นสูงเพิ่มเติมได้ที่[คู่มือการทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
+นอกจากนี้ API ยังรองรับอินพุตและทำความเข้าใจ[เอกสาร](https://ai.google.dev/gemini-api/docs/document-processing?hl=th) [วิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th) และ
+[เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)ด้วย
 
-## Réponses en streaming
+## การสตรีมคำตอบ
 
-Par défaut, le modèle ne renvoie une réponse qu'une fois l'ensemble du processus de génération terminé.
+โดยค่าเริ่มต้น โมเดลจะแสดงคำตอบหลังจากกระบวนการสร้างทั้งหมดเสร็จสมบูรณ์แล้วเท่านั้น
 
-Pour des interactions plus fluides, utilisez le streaming pour gérer les blocs de réponse à mesure qu'ils sont générés. Pour obtenir un guide complet couvrant les types d'événements,
-le streaming avec des outils, la réflexion, les agents et la génération d'images, consultez le
-guide [dédié aux interactions en streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=fr).
+หากต้องการให้การโต้ตอบราบรื่นยิ่งขึ้น ให้ใช้การสตรีมเพื่อจัดการก้อนคำตอบ
+ขณะที่ระบบสร้างคำตอบ ดูคำแนะนำแบบละเอียดเกี่ยวกับประเภทเหตุการณ์
+การสตรีมด้วยเครื่องมือ การคิด เอเจนต์ และการสร้างรูปภาพได้ที่
+คำแนะนำ[การโต้ตอบผ่านการสตรีม](https://ai.google.dev/gemini-api/docs/streaming?hl=th)
+โดยเฉพาะ
 
 ### Python
 
@@ -564,6 +781,55 @@ try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:  interactions.Model("gemini-3.8-flash"),
+            Input:  interactions.NewInteractionsInput("Explain how AI works"),
+            Stream: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    stream := res.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -578,9 +844,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## Conversations multitours
+## การสนทนาไปมา
 
-L'API Interactions est compatible avec les conversations multitours en enchaînant les interactions à l'aide de `previous_interaction_id`. Chaque tour est une interaction distincte, et l'API gère automatiquement l'historique des conversations.
+Interactions API รองรับการสนทนาไปมาโดยการเชื่อมโยงการโต้ตอบ เข้าด้วยกันโดยใช้ `previous_interaction_id` แต่ละรอบคือการโต้ตอบแยกกัน
+และ API จะจัดการประวัติการสนทนาโดยอัตโนมัติ
 
 ### Python
 
@@ -662,6 +929,59 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // First turn
+    turn1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Hello, I have 2 dogs in my house."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if turn1.Interaction.OutputText != nil {
+        fmt.Printf("Model: %s\n", *turn1.Interaction.OutputText)
+    }
+
+    // Second turn (chained using PreviousInteractionID)
+    turn2, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:                 interactions.Model("gemini-3.8-flash"),
+            PreviousInteractionID: turn1.Interaction.ID,
+            Input:                 interactions.NewInteractionsInput("How many paws are in my house?"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if turn2.Interaction.OutputText != nil {
+        fmt.Printf("Model: %s\n", *turn2.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -685,7 +1005,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Le streaming peut également être utilisé pour les conversations multitours en combinant `previous_interaction_id` avec les méthodes de streaming.
+นอกจากนี้ คุณยังใช้การสตรีมสำหรับการสนทนาไปมาได้ด้วยการรวม `previous_interaction_id` เข้ากับวิธีการสตรีม
 
 ### Python
 
@@ -797,6 +1117,66 @@ try (EventStream<InteractionSSEStreamEvent> stream = response2.events()) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    turn1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Hello, I have 2 dogs in my house."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res2, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:                 interactions.Model("gemini-3.8-flash"),
+            PreviousInteractionID: turn1.Interaction.ID,
+            Input:                 interactions.NewInteractionsInput("How many paws are in my house?"),
+            Stream:                genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    stream := res2.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -821,13 +1201,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## Conversations sans état
+## การสนทนาแบบไม่เก็บสถานะ
 
-Par défaut, l'API Interactions gère l'état des conversations côté serveur lorsque vous utilisez `previous_interaction_id`. Toutefois, vous pouvez également fonctionner en mode sans état en gérant vous-même l'historique des conversations côté client.
+โดยค่าเริ่มต้น Interactions API จะจัดการสถานะการสนทนาฝั่งเซิร์ฟเวอร์เมื่อคุณใช้ `previous_interaction_id` อย่างไรก็ตาม คุณยังสามารถดำเนินการในโหมดแบบไม่เก็บสถานะได้ด้วยการจัดการประวัติการสนทนาด้วยตนเองในฝั่งไคลเอ็นต์
 
-Pour utiliser le mode sans état : 1. Définissez `store=false` dans votre requête pour désactiver le stockage côté serveur.
-2. Conservez l'historique des conversations sous forme de tableau d'**étapes** côté client.
-3. Dans les requêtes suivantes, transmettez les étapes accumulées dans le champ `input`, puis ajoutez votre nouveau tour en tant qu'étape `user_input`.
+วิธีใช้โหมดไม่เก็บสถานะ
+1. ตั้งค่า `store=false` ในคำขอเพื่อเลือกไม่ใช้พื้นที่เก็บข้อมูลฝั่งเซิร์ฟเวอร์
+2. เก็บประวัติการสนทนาเป็นอาร์เรย์ของ**ขั้นตอน**ในฝั่งไคลเอ็นต์
+3. ในคำขอต่อๆ ไป ให้ส่งขั้นตอนที่สะสมไว้ในช่อง `input` และต่อท้ายคำพูดใหม่เป็นขั้นตอน `user_input`
 
 ### Python
 
@@ -960,6 +1341,66 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Step{
+                interactions.NewStep(interactions.UserInputStep{
+                    Content: []interactions.Content{
+                        interactions.NewContent(interactions.TextContent{
+                            Text: "Hello, I have 2 dogs in my house.",
+                        }),
+                    },
+                }),
+                interactions.NewStep(interactions.ModelOutputStep{
+                    Content: []interactions.Content{
+                        interactions.NewContent(interactions.TextContent{
+                            Text: "That's great! Two dogs must keep your house lively.",
+                        }),
+                    },
+                }),
+                interactions.NewStep(interactions.UserInputStep{
+                    Content: []interactions.Content{
+                        interactions.NewContent(interactions.TextContent{
+                            Text: "How many paws are in my house?",
+                        }),
+                    },
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1002,30 +1443,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Conseils pour écrire des prompts
+## เคล็ดลับการเขียนพรอมต์
 
-Consultez notre [guide d'ingénierie des prompts](https://ai.google.dev/gemini/docs/prompting-strategies?hl=fr) pour
-obtenir des suggestions sur la façon de tirer le meilleur parti de Gemini.
+โปรดดู[คู่มือการทำวิศวกรรมพรอมต์](https://ai.google.dev/gemini/docs/prompting-strategies?hl=th)เพื่อดูคำแนะนำในการใช้ประโยชน์จาก Gemini ให้ได้มากที่สุด
 
-## Étape suivante
+## ขั้นตอนถัดไป
 
-- Essayez [Gemini dans Google AI Studio](https://aistudio.google.com?hl=fr).
-- Testez les
-  [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) pour les
-  réponses de type JSON.
-- Découvrez les fonctionnalités de compréhension des [images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr),
-  [vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr),
-  [audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr) et des
-  [documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr) de Gemini.
-- Découvrez les stratégies de prompt pour les fichiers multimodaux
-  .
+- ลองใช้ [Gemini ใน Google AI Studio](https://aistudio.google.com?hl=th)
+- ทดลองใช้[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)สำหรับ
+  การตอบกลับที่คล้ายกับ JSON
+- สำรวจความสามารถในการทำความเข้าใจ[รูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
+  [วิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th)
+  [เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th) และ
+  [เอกสาร](https://ai.google.dev/gemini-api/docs/document-processing?hl=th)ของ Gemini
+- ดูข้อมูลเกี่ยวกับ[กลยุทธ์การแจ้งไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide)แบบมัลติโมดัล
 
-Envoyer des commentaires
+ส่งความคิดเห็น
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Dernière mise à jour le 2026/09/18 (UTC).
+อัปเดตล่าสุด 2026-09-24 UTC
 
-Voulez-vous nous donner plus d'informations ?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/18 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]

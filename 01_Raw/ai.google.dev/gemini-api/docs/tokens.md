@@ -1,46 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=es-419
-fetched_at: 2026-09-21T05:44:42.723627+00:00
-title: "Comprender y contar tokens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=id
+fetched_at: 2026-09-28T06:24:20.271613+00:00
+title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Enviar comentarios
+Kirim masukan
 
-# Comprender y contar tokens
+# Memahami dan menghitung token
 
-Gemini y otros modelos de IA generativa procesan la entrada y la salida con una granularidad llamada *token*.
+Gemini dan model AI generatif lainnya memproses input dan output pada perincian
+yang disebut *token*.
 
-**En el caso de los modelos de Gemini, un token equivale a aproximadamente 4 caracteres.
-100 tokens equivalen a entre 60 y 80 palabras en inglés.**
+**Untuk model Gemini, satu token setara dengan sekitar 4 karakter.
+100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
 
-## Acerca de los tokens
+## Tentang token
 
-Los tokens pueden ser caracteres individuales, como `z`, o palabras completas, como `cat`. Las palabras largas se dividen en varios tokens. El conjunto de todos los tokens que usa el modelo se denomina vocabulario, y el proceso de dividir el texto en tokens se denomina *tokenización*.
+Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang
+dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses membagi teks menjadi token disebut *tokenisasi*.
 
-Cuando la facturación está habilitada, el [costo de una llamada a la API de Gemini](https://ai.google.dev/pricing?hl=es-419) se
-determina, en parte, por la cantidad de tokens de entrada y salida, por lo que puede ser útil saber cómo
-contarlos.
+Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id) sebagian ditentukan oleh jumlah token input dan output, jadi mengetahui cara menghitung token dapat membantu.
 
-## Cuenta tokens
+## Menghitung token
 
-Toda la entrada y la salida de la API de Gemini se tokenizan, incluidos el texto, los archivos de imagen y otras modalidades que no son de texto.
+Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
 
-Puedes contar tokens de las siguientes maneras:
+Anda dapat menghitung token dengan cara berikut:
 
-- **Llama `count_tokens` con la entrada de la solicitud.** Muestra la cantidad total de tokens *solo en la entrada*. Realiza esta llamada antes de enviar la entrada para verificar el tamaño de tus solicitudes.
-- **Usa el `usage` en la respuesta de interacción.** Muestra los recuentos de tokens para la entrada (`total_input_tokens`), la salida (`total_output_tokens`), el pensamiento (`total_thought_tokens`), el contenido almacenado en caché (`total_cached_tokens`), el uso de herramientas (`total_tool_use_tokens`) y el total (`total_tokens`).
+- **Panggil `count_tokens` dengan input permintaan.** Menampilkan jumlah total token dalam *input saja*. Lakukan panggilan ini sebelum mengirim input
+  untuk memeriksa ukuran permintaan Anda.
+- **Gunakan `usage` pada respons interaksi.** Menampilkan jumlah token
+  untuk input (`total_input_tokens`), output (`total_output_tokens`),
+  pemikiran (`total_thought_tokens`), konten yang di-cache
+  (`total_cached_tokens`), penggunaan alat (`total_tool_use_tokens`),
+  dan total (`total_tokens`).
 
-### Cuenta tokens de texto
+### Menghitung token teks
 
 ### Python
 
@@ -121,6 +126,36 @@ Interaction interaction =
 System.out.println(interaction.usage().orElse(null));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    modelInfo, err := client.Models.Get(ctx, "gemini-3.8-flash", nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Input token limit: %d\n", modelInfo.InputTokenLimit)
+    fmt.Printf("Output token limit: %d\n", modelInfo.OutputTokenLimit)
+}
+```
+
 ### REST
 
 ```
@@ -131,9 +166,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Cuenta tokens de varias turnos
+### Menghitung token multi-giliran
 
-Cuenta tokens en el historial de conversaciones con `previous_interaction_id`:
+Menghitung token di seluruh histori percakapan menggunakan `previous_interaction_id`:
 
 ### Python
 
@@ -222,17 +257,81 @@ if (interaction2.usage().isPresent()) {
 }
 ```
 
-### Cuenta tokens multimodales
+### Go
 
-Toda la entrada a la API de Gemini se tokeniza, incluidas las imágenes, el video y el audio.
-Puntos clave sobre la tokenización:
+```
+package main
 
-- **Imágenes**: Las imágenes de ≤384 píxeles en ambas dimensiones cuentan como 258 tokens. Las imágenes más grandes se dividen en tarjetas de 768 × 768 píxeles, cada una de las cuales cuenta como 258 tokens.
-- **Video**: 263 tokens por segundo (se aplica al procesamiento estático). Para el procesamiento de agentes, el uso de tokens varía. Consulta
-  [Uso de tokens de video por modo de procesamiento](#video-token-usage).
-- **Audio**: 32 tokens por segundo
+import (
+    "context"
+    "fmt"
+    "log"
 
-#### Tokens de imagen
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "The quick brown fox jumps over the lazy dog."
+
+    // Count input tokens before sending
+    totalTokens, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", genai.Text(prompt), nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("total_tokens: %d\n", totalTokens.TotalTokens)
+
+    // Create the interaction and inspect the returned usage metadata
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(prompt),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    interaction := res.Interaction
+    if interaction.OutputText != nil {
+        fmt.Println(*interaction.OutputText)
+    }
+    if interaction.Usage != nil {
+        if interaction.Usage.TotalInputTokens != nil {
+            fmt.Printf("Input tokens: %d\n", *interaction.Usage.TotalInputTokens)
+        }
+        if interaction.Usage.TotalOutputTokens != nil {
+            fmt.Printf("Output tokens: %d\n", *interaction.Usage.TotalOutputTokens)
+        }
+        if interaction.Usage.TotalThoughtTokens != nil {
+            fmt.Printf("Thought tokens: %d\n", *interaction.Usage.TotalThoughtTokens)
+        }
+        if interaction.Usage.TotalTokens != nil {
+            fmt.Printf("Total tokens: %d\n", *interaction.Usage.TotalTokens)
+        }
+    }
+}
+```
+
+### Menghitung token multimodal
+
+Semua input ke Gemini API di-tokenisasi, termasuk gambar, video, dan audio.
+Poin penting tentang tokenisasi:
+
+- **Gambar**: Gambar ≤384 piksel di kedua dimensi dihitung sebagai 258 token. Gambar yang lebih besar diatur menjadi ubin berukuran 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
+- **Video**: 263 token per detik (berlaku untuk pemrosesan statis). Untuk pemrosesan
+  berbasis agen, penggunaan token bervariasi. Lihat
+  [Penggunaan token video menurut mode pemrosesan](#video-token-usage).
+- **Audio**: 32 token per detik
+
+#### Token gambar
 
 ### Python
 
@@ -336,7 +435,62 @@ Interaction interaction =
 System.out.println(interaction.usage().orElse(null));
 ```
 
-**Ejemplo de datos intercalados:**
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:  interactions.Model("gemini-3.8-flash"),
+            Input:  interactions.NewInteractionsInput("Explain the history of the internet in 3 paragraphs."),
+            Stream: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    stream := res.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        }
+        if completed := event.GetDataInteractionCompleted(); completed != nil {
+            usage := completed.Interaction.Usage
+            if usage != nil && usage.TotalTokens != nil {
+                fmt.Printf("\nTotal tokens: %d\n", *usage.TotalTokens)
+            }
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+**Contoh data inline:**
 
 ### Python
 
@@ -361,7 +515,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Tokens de video
+#### Token video
 
 ### Python
 
@@ -394,25 +548,25 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Uso de tokens de video por modo de procesamiento
+#### Penggunaan token video menurut mode pemrosesan
 
-El uso de tokens para video depende del modo de procesamiento:
+Penggunaan token untuk video bergantung pada mode pemrosesan:
 
-| **Modo de procesamiento** | **Cálculo de tokens** | **Uso común** |
+| **Mode pemrosesan** | **Penghitungan token** | **Penggunaan umum** |
 | --- | --- | --- |
-| **Estático** (predeterminado) | ~100 tokens/segundo de forma predeterminada (baja resolución) o ~300 tokens/segundo (alta resolución). Todos los fotogramas se muestrean a 1 FPS. | Predecible, proporcional a la duración del video. |
-| **Agente** | Varía según la complejidad del contenido. El modelo carga solo la transcripción o los fotogramas o el audio necesarios para responder la instrucción. | Hasta un 88% menos de tokens para contenido de larga duración. |
+| **Statis** (default) | ~100 token/detik secara default (resolusi rendah) atau ~300 token/detik (resolusi tinggi). Semua frame diambil sampelnya pada 1 FPS. | Dapat diprediksi, proporsional dengan durasi video. |
+| **Agentic** | Bervariasi berdasarkan kompleksitas konten. Model hanya memuat transkrip dan/atau frame dan/atau audio yang diperlukan untuk menjawab perintah. | Hingga 88% lebih sedikit token untuk konten panjang. |
 
-Con el procesamiento de agentes, una conferencia de 1 hora que usaría ~1.08 M de tokens en modo estático podría usar ~108 K de tokens, según la instrucción y el contenido.
+Dengan pemrosesan agentik, kuliah 1 jam yang akan menggunakan ~1,08 juta token dalam mode statis mungkin menggunakan ~108 ribu token, bergantung pada perintah dan konten.
 
-Para verificar el uso real de tokens de una solicitud, inspecciona `interaction.usage`. Los tokens de video de agentes se informan en los siguientes campos:
+Untuk memeriksa penggunaan token sebenarnya untuk permintaan, periksa `interaction.usage`. Token video agentik dilaporkan di seluruh kolom berikut:
 
-- **Instrucción inicial** (referencia de video + instrucción del usuario): `total_input_tokens`
-- **Pensamiento de navegación**: `total_thought_tokens`
-- **Transcripción, fotogramas y audio cargados a pedido**: `total_tool_use_tokens`
-- **Respuesta final**: `total_output_tokens`
+- **Perintah awal** (referensi video + perintah pengguna): `total_input_tokens`
+- **Pemikiran navigasi**: `total_thought_tokens`
+- **Transkrip, frame, dan audio dimuat sesuai permintaan**: `total_tool_use_tokens`
+- **Jawaban akhir**: `total_output_tokens`
 
-#### Tokens de audio
+#### Token audio
 
 ### Python
 
@@ -438,9 +592,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Cuenta tokens de instrucciones del sistema
+### Menghitung token petunjuk sistem
 
-Las instrucciones del sistema se cuentan como parte de los tokens de entrada:
+Petunjuk sistem dihitung sebagai bagian dari token input:
 
 ### Python
 
@@ -456,9 +610,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Cuenta tokens de herramientas
+### Menghitung token alat
 
-También se cuentan las herramientas (funciones, ejecución de código, Búsqueda de Google):
+Alat (fungsi, eksekusi kode, Google Penelusuran) juga dihitung:
 
 ### Python
 
@@ -488,11 +642,12 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Ventana de contexto
+## Jendela konteks
 
-Cada modelo de Gemini tiene una cantidad máxima de tokens que puede manejar. La ventana de contexto define el límite combinado de tokens de entrada y salida.
+Setiap model Gemini memiliki jumlah token maksimum yang dapat ditangani. Jendela konteks
+menentukan batas gabungan token input dan output.
 
-### Obtén el tamaño de la ventana de contexto de forma programática
+### Mendapatkan ukuran jendela konteks secara terprogram
 
 ### Python
 
@@ -525,20 +680,93 @@ System.out.println("Input token limit: " + modelInfo.inputTokenLimit().orElse(0)
 System.out.println("Output token limit: " + modelInfo.outputTokenLimit().orElse(0));
 ```
 
-Encuentra los tamaños de la ventana de contexto en la página de [modelos](https://ai.google.dev/gemini-api/docs/models?hl=es-419).
+### Go
 
-## ¿Qué sigue?
+```
+package main
 
-- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419): Conceptos básicos de la generación
-- [Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419): Reduce los costos con el almacenamiento en caché
-- [Precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419): Comprende los costos
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
 
-Enviar comentarios
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-Última actualización: 2026-09-18 (UTC)
+    prompt := "Tell me about this instrument"
+    imageBytes, err := os.ReadFile("/path/to/organ.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Image := base64.StdEncoding.EncodeToString(imageBytes)
 
-¿Quieres brindar más información?
+    // Count tokens before creating the interaction
+    parts := []*genai.Part{
+        genai.NewPartFromText(prompt),
+        genai.NewPartFromBytes(imageBytes, "image/jpeg"),
+    }
+    totalTokens, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", []*genai.Content{
+        genai.NewContentFromParts(parts, genai.RoleUser),
+    }, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Estimated input tokens: %d\n", totalTokens.TotalTokens)
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-18 (UTC)"],[],[]]
+    // Create the multimodal interaction and inspect the usage metadata
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    Data:     genai.Ptr(base64Image),
+                    MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    interaction := res.Interaction
+    if interaction.OutputText != nil {
+        fmt.Println(*interaction.OutputText)
+    }
+    if interaction.Usage != nil && interaction.Usage.TotalTokens != nil {
+        fmt.Printf("Total tokens billed: %d\n", *interaction.Usage.TotalTokens)
+    }
+}
+```
+
+Temukan ukuran jendela konteks di halaman [model](https://ai.google.dev/gemini-api/docs/models?hl=id).
+
+## Langkah berikutnya
+
+- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id): Dasar-dasar pembuatan
+- [Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id): Mengurangi biaya dengan caching
+- [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id): Memahami biaya
+
+Kirim masukan
+
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+
+Terakhir diperbarui pada 2026-09-24 UTC.
+
+Ada masukan untuk kami?
+
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]

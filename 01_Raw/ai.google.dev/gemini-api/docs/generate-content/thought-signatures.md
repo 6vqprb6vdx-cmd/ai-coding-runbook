@@ -1,100 +1,99 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=it
-fetched_at: 2026-09-21T05:49:07.212195+00:00
-title: "Firme del pensiero \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=pl
+fetched_at: 2026-09-28T06:07:08.889427+00:00
+title: "podpisy w\u00a0my\u015blach \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-Invia feedback
+Prześlij opinię
 
-# Firme del pensiero
+# podpisy w myślach
 
-Le firme di ragionamento sono rappresentazioni criptate del processo di ragionamento interno del modello e vengono utilizzate per preservare il contesto di ragionamento nelle interazioni multi-step.
-Quando utilizzi i modelli di ragionamento (come le serie Gemini 3 e 2.5), l'API può
-restituire un campo `thoughtSignature` all'interno delle [parti di contenuti](https://ai.google.dev/api/caching?hl=it#Part)
-della risposta (ad es. parti `text` o `functionCall`).
+Podpisy myśli to zaszyfrowane reprezentacje wewnętrznego procesu myślowego modelu. Służą one do zachowania kontekstu rozumowania w interakcjach wieloetapowych.
+Gdy używasz modeli myślących (takich jak Gemini 3 i 2.5), interfejs API może
+zwracać pole `thoughtSignature` w [częściach odpowiedzi dotyczących treści](https://ai.google.dev/api/caching?hl=pl#Part) (np. `text` lub `functionCall`).
 
-In generale, se ricevi una firma di ragionamento in una risposta del modello, devi restituirla esattamente come l'hai ricevuta quando invii la cronologia della conversazione nel turno successivo.
-**Quando utilizzi i modelli Gemini 3, devi restituire le firme di ragionamento durante la chiamata di funzione, altrimenti riceverai un errore di convalida** (codice di stato 4xx).
-Ciò include l'utilizzo dell'impostazione del `minimal`
-[livello di ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it#thinking-levels) per Gemini 3
+Ogólnie rzecz biorąc, jeśli otrzymasz podpis myśli w odpowiedzi modelu, w następnym etapie musisz go przekazać dokładnie tak, jak został otrzymany, podczas wysyłania historii rozmowy.
+**Gdy używasz modeli Gemini 3, musisz przekazywać podpisy myśli podczas wywoływania funkcji. W przeciwnym razie otrzymasz błąd weryfikacji** (kod stanu 4xx).
+Dotyczy to również sytuacji, gdy używasz ustawienia `minimal`
+[poziomu myślenia](https://ai.google.dev/gemini-api/docs/thinking?hl=pl#thinking-levels) w przypadku Gemini 3
 Flash.
 
-## Come funziona
+## Jak to działa
 
-Il grafico riportato di seguito visualizza il significato di "turno" e "step" in relazione alla
-[chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) nell'API Gemini. Un "turno" è un singolo scambio completo in una conversazione tra un utente e un modello. Uno "step" è un'azione o un'operazione più granulare eseguita dal modello, spesso come parte di un processo più ampio per completare un turno.
+Poniższy diagram ilustruje znaczenie słów „etap” i „krok” w kontekście
+[wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) w interfejsie Gemini API. „Etap” to pojedyncza, pełna wymiana informacji w rozmowie między użytkownikiem a modelem. „Krok” to bardziej szczegółowe działanie lub operacja wykonywana przez model, często w ramach większego procesu mającego na celu ukończenie etapu.
 
-![Diagramma dei turni e dei passaggi della chiamata di funzione](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=it)
+![Diagram przedstawiający tury i kroki wywoływania funkcji](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=pl)
 
-*Questo documento si concentra sulla gestione della chiamata di funzione per i modelli Gemini 3. Per le discrepanze con la versione 2.5, consulta la sezione relativa al [comportamento del modello](#model-behavior).*
+*Ten dokument koncentruje się na obsłudze wywoływania funkcji w przypadku modeli Gemini 3. Więcej informacji o różnicach w przypadku modelu 2.5 znajdziesz w sekcji [Zachowanie modelu](#model-behavior).*
 
-Gemini 3 restituisce le firme di ragionamento per tutte le risposte del modello (risposte dell'API) con una chiamata di funzione. Le firme di ragionamento vengono visualizzate nei seguenti casi:
+Gemini 3 zwraca podpisy myśli we wszystkich odpowiedziach modelu (odpowiedziach z interfejsu API) z wywołaniem funkcji. Podpisy myśli pojawiają się w tych przypadkach:
 
-- Quando sono presenti [chiamate di funzione parallele](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#parallel_function_calling), la prima parte della chiamata di funzione restituita dalla risposta del modello avrà una
-  firma di ragionamento.
-- Quando sono presenti chiamate di funzione sequenziali (multi-step), ogni chiamata di funzione avrà una firma e devi restituire tutte le firme.
-- Le risposte del modello senza una chiamata di funzione restituiranno una firma di ragionamento all'interno dell'ultima parte restituita dal modello.
+- Gdy występują [równoległe wywołania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#parallel_function_calling), pierwsza część wywołania funkcji zwrócona przez odpowiedź modelu będzie zawierać
+  podpis myśli.
+- Gdy występują sekwencyjne wywołania funkcji (wieloetapowe), każde wywołanie funkcji będzie miało podpis i musisz przekazać wszystkie podpisy.
+- Odpowiedzi modelu bez wywołania funkcji będą zawierać podpis myśli w ostatniej części zwróconej przez model.
 
-La tabella seguente fornisce una visualizzazione delle chiamate di funzione multi-step, combinando le definizioni di turni e step con il concetto di firme introdotto sopra:
+W tabeli poniżej przedstawiono wizualizację wieloetapowych wywołań funkcji, łącząc definicje etapów i kroków z koncepcją podpisów wprowadzoną powyżej:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Turno** | **Step** | **Richiesta utente** | **Risposta del modello** | **FunctionResponse** |
+| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Nessuno |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Brak |
 
-## Firme nelle parti di chiamata di funzione
+## Podpisy w częściach wywoływania funkcji
 
-Quando Gemini genera un `functionCall`, si basa su `thought_signature` per elaborare correttamente l'output dello strumento nel turno successivo.
+Gdy Gemini generuje `functionCall`, korzysta z `thought_signature`, aby prawidłowo przetworzyć dane wyjściowe narzędzia w następnym etapie.
 
-- **Comportamento**:
-  - **Chiamata di funzione singola**: la parte `functionCall` conterrà un `thought_signature`.
-  - **Chiamate di funzione parallele**: se il modello genera chiamate di funzione parallele
-    in una risposta, `thought_signature` viene allegato **solo alla prima**
-    `functionCall` parte. Le parti `functionCall` successive nella stessa risposta **non** conterranno una firma.
-- **Requisito**: **devi** restituire questa firma nella parte esatta in cui l'hai ricevuta quando invii la cronologia della conversazione.
-- **Convalida**: viene applicata una convalida rigorosa per tutte le chiamate di funzione all'interno
-  del turno corrente . (È richiesto solo il turno corrente; non eseguiamo la convalida nei turni precedenti)
-  - L'API torna indietro nella cronologia (dal più recente al più vecchio) per trovare il messaggio **Utente** più recente che contiene contenuti standard (ad es. `text`) ( che sarebbe l'inizio del turno corrente). Non **be** un `functionResponse`.
-  - **Tutti** i turni `functionCall` del modello che si verificano dopo questo messaggio di utilizzo specifico
-    sono considerati parte del turno.
-  - La **prima** parte `functionCall` in **ogni step** del turno corrente **deve** includere il relativo `thought_signature`.
-  - Se ometti un `thought_signature` per la prima parte `functionCall` in qualsiasi step del turno corrente, la richiesta non andrà a buon fine e verrà restituito un errore 400.
-- **Se non vengono restituite le firme corrette, ecco come si verificherà l'errore**
-  - Modelli Gemini 3: se non includi le firme, verrà restituito un errore 400. La formulazione sarà del tipo:
-    - Nella chiamata di funzione `<Function Call>` nel `<index of contents array>`
-      blocco di contenuti manca un `thought_signature`. Ad esempio, *nella chiamata di funzione `FC1` nel blocco di contenuti `1.` manca un `thought_signature`.*
+- **Zachowanie**:
+  - **Pojedyncze wywołanie funkcji**: część `functionCall` będzie zawierać `thought_signature`.
+  - **Równoległe wywołania funkcji**: jeśli model wygeneruje równoległe wywołania funkcji
+    w odpowiedzi, `thought_signature` zostanie dołączony **tylko do pierwszej**
+    `functionCall` części. Kolejne części `functionCall` w tej samej odpowiedzi **nie** będą zawierać podpisu.
+- **Wymaganie**: podczas wysyłania historii rozmowy **musisz** zwrócić ten podpis w dokładnie tej części, w której został otrzymany.
+- **Weryfikacja**: w przypadku wszystkich wywołań funkcji w ramach
+  bieżącego etapu obowiązuje ścisła weryfikacja . (Wymagany jest tylko bieżący etap. Nie weryfikujemy poprzednich etapów).
+  - Interfejs API cofa się w historii (od najnowszej do najstarszej), aby znaleźć najnowszą wiadomość **użytkownika** zawierającą standardową treść (np. `text`) ( która będzie początkiem bieżącego etapu). Nie **be** to `functionResponse`.
+  - **Wszystkie** etapy `functionCall` modelu występujące po tej konkretnej wiadomości użytkownika są uważane za część etapu.
+  - **Pierwsza** część `functionCall` w **każdym kroku** bieżącego etapu **musi** zawierać swój `thought_signature`.
+  - Jeśli pominiesz `thought_signature` w pierwszej części `functionCall` w dowolnym kroku bieżącego etapu, żądanie zakończy się niepowodzeniem z błędem 400.
+- **Jeśli nie zostaną zwrócone prawidłowe podpisy, wystąpi błąd:**
+  - Modele Gemini 3: brak podpisów spowoduje błąd 400. Komunikat będzie miał postać:
+    - Wywołanie funkcji `<Function Call>` w bloku treści `<index of contents array>`
+      nie zawiera `thought_signature`. Na przykład *Wywołanie
+      funkcji `FC1` w bloku treści `1.` nie zawiera `thought_signature`.*
 
-### Esempio di chiamata di funzione sequenziale
+### Przykład sekwencyjnego wywoływania funkcji
 
-Questa sezione mostra un esempio di più chiamate di funzione in cui l'utente pone una domanda complessa che richiede più attività.
+W tej sekcji znajdziesz przykład wielu wywołań funkcji, w których użytkownik zadaje złożone pytanie wymagające wykonania kilku zadań.
 
-Esaminiamo un esempio di chiamata di funzione multi-turno in cui l'utente pone
-una domanda complessa che richiede più attività: `"Check flight status for AA100 and
+Przyjrzyjmy się przykładowi wywoływania funkcji w wielu etapach, w którym użytkownik zadaje
+złożone pytanie wymagające wykonania kilku zadań: `"Check flight status for AA100 and
 book a taxi if delayed"`.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Turno** | **Step** | **Richiesta utente** | **Risposta del modello** | **FunctionResponse** |
+| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Il seguente codice illustra la sequenza nella tabella riportata sopra.
+Poniższy kod ilustruje sekwencję w tabeli powyżej.
 
-**Turno 1, Step 1 (richiesta utente)**
+**Etap 1, krok 1 (prośba użytkownika)**
 
 ```
 {
@@ -149,7 +148,7 @@ Il seguente codice illustra la sequenza nella tabella riportata sopra.
 }
 ```
 
-**Turno 1, Step 1 (risposta del modello)**
+**Etap 1, krok 1 (odpowiedź modelu)**
 
 ```
 {
@@ -170,8 +169,8 @@ Il seguente codice illustra la sequenza nella tabella riportata sopra.
 }
 ```
 
-**Turno 1, Step 2 (risposta dell'utente - invio degli output dello strumento)** Poiché questo turno dell'utente contiene solo un `functionResponse` (nessun testo nuovo), siamo ancora nel Turno 1. Dobbiamo
-conservare `<Signature_A>`.
+**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)** Ponieważ ten etap użytkownika zawiera tylko `functionResponse` (bez nowego tekstu), nadal jesteśmy w etapie 1. Musimy
+zachować `<Signature_A>`.
 
 ```
 {
@@ -212,7 +211,7 @@ conservare `<Signature_A>`.
 }
 ```
 
-**Turno 1, Step 2 (modello)** Il modello ora decide di prenotare un taxi in base all'output dello strumento precedente.
+**Etap 1, krok 2 (model)** Model decyduje teraz o zamówieniu taksówki na podstawie poprzednich danych wyjściowych narzędzia.
 
 ```
 {
@@ -233,7 +232,8 @@ conservare `<Signature_A>`.
 }
 ```
 
-**Turno 1, Step 3 (utente - invio dell'output dello strumento)** Per inviare la conferma della prenotazione del taxi, dobbiamo includere le firme per **TUTTE** le chiamate di funzione in questo loop
+**Etap 1, krok 3 (użytkownik – wysyłanie danych wyjściowych narzędzia)** Aby wysłać potwierdzenie
+rezerwacji taksówki, musimy uwzględnić podpisy **wszystkich** wywołań funkcji w tej pętli
 (`<Signature A>` + `<Signature B>`).
 
 ```
@@ -303,19 +303,19 @@ conservare `<Signature_A>`.
 }
 ```
 
-### Esempio di chiamata di funzione parallela
+### Przykład równoległego wywoływania funkcji
 
-Esaminiamo un esempio di chiamata di funzione parallela in cui l'utente chiede
-`"Check weather in Paris and London"` per vedere dove il modello esegue la convalida.
+Przyjrzyjmy się przykładowi równoległego wywoływania funkcji, w którym użytkownik pyta
+`"Check weather in Paris and London"` aby zobaczyć, gdzie model przeprowadza weryfikację.
 
-| **Turno** | **Step** | **Richiesta utente** | **Risposta del modello** | **FunctionResponse** |
+| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + signature  FC2 ("London") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | None |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paryż") + podpis  FC2 ("Londyn") | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (brak FC) | Brak |
 
-Il seguente codice illustra la sequenza nella tabella riportata sopra.
+Poniższy kod ilustruje sekwencję w tabeli powyżej.
 
-**Turno 1, Step 1 (richiesta utente)**
+**Etap 1, krok 1 (prośba użytkownika)**
 
 ```
 {
@@ -354,7 +354,7 @@ Il seguente codice illustra la sequenza nella tabella riportata sopra.
 }
 ```
 
-**Turno 1, Step 1 (risposta del modello)**
+**Etap 1, krok 1 (odpowiedź modelu)**
 
 ```
 {
@@ -382,8 +382,8 @@ Il seguente codice illustra la sequenza nella tabella riportata sopra.
 }
 ```
 
-**Turno 1, Step 2 (risposta dell'utente - invio degli output dello strumento)** Dobbiamo conservare
-`<Signature_A>` nella prima parte esattamente come l'abbiamo ricevuta.
+**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)** Musimy zachować
+`<Signature_A>` w pierwszej części dokładnie tak, jak została otrzymana.
 
 ```
 [
@@ -441,20 +441,20 @@ Il seguente codice illustra la sequenza nella tabella riportata sopra.
 ]
 ```
 
-## Firme nelle parti non `functionCall`
+## Podpisy w częściach innych niż `functionCall`
 
-Gemini può anche restituire `thought_signatures` nella parte finale della risposta nelle parti non relative alla chiamata di funzione.
+Gemini może też zwracać `thought_signatures` w ostatniej części odpowiedzi w częściach innych niż wywołanie funkcji.
 
-- **Comportamento**: la parte di contenuti finale (`text, inlineData…`) restituita dal
-  modello può contenere un `thought_signature`.
-- **Consigli**: la restituzione di queste firme è **consigliata** per garantire
-  che il modello mantenga un ragionamento di alta qualità, soprattutto per le istruzioni complesse
-  o i workflow agentici simulati.
-- **Convalida**: l'API **non** applica rigorosamente la convalida. Se le ometti, non riceverai un errore di blocco, anche se il rendimento potrebbe peggiorare.
+- **Zachowanie**: ostatnia część treści (`text, inlineData…`) zwrócona przez
+  model może zawierać `thought_signature`.
+- **Zalecenie**: zwracanie tych podpisów jest **zalecane** , aby zapewnić
+  wysoką jakość rozumowania modelu, zwłaszcza w przypadku złożonych instrukcji
+  lub symulowanych przepływów pracy agenta.
+- **Weryfikacja**: interfejs API **nie** wymusza ścisłej weryfikacji. Jeśli je pominiesz, nie otrzymasz błędu blokującego, ale wydajność może się pogorszyć.
 
-### Ragionamento di testo/nel contesto (nessuna convalida)
+### Tekst/rozumowanie w kontekście (bez weryfikacji)
 
-**Turno 1, Step 1 (risposta del modello)**
+**Etap 1, krok 1 (odpowiedź modelu)**
 
 ```
 {
@@ -468,7 +468,7 @@ Gemini può anche restituire `thought_signatures` nella parte finale della rispo
 }
 ```
 
-**Turno 2, Step 1 (utente)**
+**Etap 2, krok 1 (użytkownik)**
 
 ```
 [
@@ -486,27 +486,29 @@ Gemini può anche restituire `thought_signatures` nella parte finale della rispo
 ]
 ```
 
-## Firme per la compatibilità con OpenAI
+## Podpisy dotyczące zgodności z OpenAI
 
-I seguenti esempi mostrano come gestire le firme di ragionamento per un'API di completamento della chat
-utilizzando [la compatibilità con OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
+W przykładach poniżej pokazujemy, jak obsługiwać podpisy myśli w interfejsie Chat
+Completion API przy użyciu [zgodności z OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl).
 
-### Esempio di chiamata di funzione sequenziale
+### Przykład sekwencyjnego wywoływania funkcji
 
-Questo è un esempio di più chiamate di funzione in cui l'utente pone una domanda complessa che richiede più attività.
+To jest przykład wielu wywołań funkcji, w których użytkownik zadaje złożone pytanie wymagające wykonania kilku zadań.
 
-Esaminiamo un esempio di chiamata di funzione multi-turno in cui l'utente chiede `Check flight status for AA100 and book a taxi if delayed` e puoi vedere cosa succede quando l'utente pone una domanda complessa che richiede più attività.
+Przyjrzyjmy się przykładowi wywoływania funkcji w wielu etapach, w którym użytkownik pyta
+`Check flight status for AA100 and book a taxi if delayed` i zobaczysz, co
+się stanie, gdy użytkownik zada złożone pytanie wymagające wykonania kilku zadań.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Turno** | **Step** | **Richiesta utente** | **Risposta del modello** | **FunctionResponse** |
+| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Il seguente codice illustra la sequenza indicata.
+Poniższy kod ilustruje podaną sekwencję.
 
-**Turno 1, Step 1 (richiesta utente)**
+**Etap 1, krok 1 (prośba użytkownika)**
 
 ```
 {
@@ -560,7 +562,7 @@ Il seguente codice illustra la sequenza indicata.
 }
 ```
 
-**Turno 1, Step 1 (risposta del modello)**
+**Etap 1, krok 1 (odpowiedź modelu)**
 
 ```
 {
@@ -583,10 +585,10 @@ Il seguente codice illustra la sequenza indicata.
     }
 ```
 
-**Turno 1, Step 2 (risposta dell'utente - invio degli output dello strumento)**
+**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)**
 
-Poiché questo turno dell'utente contiene solo un `functionResponse` (nessun testo nuovo), siamo
-ancora nel Turno 1 e dobbiamo conservare `<Signature_A>`.
+Ponieważ ten etap użytkownika zawiera tylko `functionResponse` (bez nowego tekstu), nadal jesteśmy
+w etapie 1 i musimy zachować `<Signature_A>`.
 
 ```
 "messages": [
@@ -621,9 +623,9 @@ ancora nel Turno 1 e dobbiamo conservare `<Signature_A>`.
   ]
 ```
 
-**Turno 1, Step 2 (modello)**
+**Etap 1, krok 2 (model)**
 
-Il modello ora decide di prenotare un taxi in base all'output dello strumento precedente.
+Model decyduje teraz o zamówieniu taksówki na podstawie poprzednich danych wyjściowych narzędzia.
 
 ```
 {
@@ -646,10 +648,10 @@ Il modello ora decide di prenotare un taxi in base all'output dello strumento pr
 }
 ```
 
-**Turno 1, Step 3 (utente - invio dell'output dello strumento)**
+**Etap 1, krok 3 (użytkownik – wysyłanie danych wyjściowych narzędzia)**
 
-Per inviare la conferma della prenotazione del taxi, dobbiamo includere le firme per TUTTE
-le chiamate di funzione in questo loop (`<Signature A>` + `<Signature B>`).
+Aby wysłać potwierdzenie rezerwacji taksówki, musimy uwzględnić podpisy wszystkich
+wywołań funkcji w tej pętli (`<Signature A>` + `<Signature B>`).
 
 ```
 "messages": [
@@ -708,21 +710,21 @@ le chiamate di funzione in questo loop (`<Signature A>` + `<Signature B>`).
   ]
 ```
 
-### Esempio di chiamata di funzione parallela
+### Przykład równoległego wywoływania funkcji
 
-Esaminiamo un esempio di chiamata di funzione parallela in cui l'utente chiede
-`"Check weather in Paris and London"` e puoi vedere dove il modello esegue la
-convalida.
+Przyjrzyjmy się przykładowi równoległego wywoływania funkcji, w którym użytkownik pyta
+`"Check weather in Paris and London"`, aby zobaczyć, gdzie model przeprowadza
+weryfikację.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Turno** | **Step** | **Richiesta utente** | **Risposta del modello** | **FunctionResponse** |
+| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-Ecco il codice per esaminare la sequenza indicata.
+Oto kod, który ilustruje podaną sekwencję.
 
-**Turno 1, Step 1 (richiesta utente)**
+**Etap 1, krok 1 (prośba użytkownika)**
 
 ```
 {
@@ -761,7 +763,7 @@ Ecco il codice per esaminare la sequenza indicata.
 }
 ```
 
-**Turno 1, Step 1 (risposta del modello)**
+**Etap 1, krok 1 (odpowiedź modelu)**
 
 ```
 {
@@ -792,9 +794,9 @@ Ecco il codice per esaminare la sequenza indicata.
 }
 ```
 
-**Turno 1, Step 2 (risposta dell'utente - invio degli output dello strumento)**
+**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)**
 
-Devi conservare `<Signature_A>` nella prima parte esattamente come l'hai ricevuta.
+Musisz zachować `<Signature_A>` w pierwszej części dokładnie tak, jak została otrzymana.
 
 ```
 "messages": [
@@ -843,52 +845,52 @@ Devi conservare `<Signature_A>` nella prima parte esattamente come l'hai ricevut
   ]
 ```
 
-## Domande frequenti
+## Najczęstsze pytania
 
-1. **Come faccio a trasferire la cronologia da un modello diverso a Gemini 3 con una parte di chiamata di funzione nel turno e nello step correnti? Devo fornire parti di chiamata di funzione
-   che non sono state generate dall'API e quindi non hanno una firma di ragionamento associata
-   ?**
+1. **Jak przenieść historię z innego modelu do Gemini 3 z częścią wywołania funkcji w bieżącym etapie i kroku? Muszę podać części wywołania funkcji
+   , które nie zostały wygenerowane przez interfejs API, a więc nie mają powiązanego
+   podpisu myśli?**
 
-   Sebbene l'inserimento di blocchi di chiamate di funzione personalizzati nella richiesta sia fortemente
-   sconsigliato, nei casi in cui non è possibile evitarlo, ad es. fornire informazioni
-   al modello sulle chiamate di funzione e sulle risposte eseguite
-   in modo deterministico dal client o trasferire una traccia da un modello diverso
-   che non include firme di ragionamento, puoi impostare le seguenti
-   firme fittizie di `"context_engineering_is_the_way_to_go"` o
-   `"skip_thought_signature_validator"` nel campo della firma di ragionamento per saltare la
-   convalida.
-2. **Sto inviando chiamate di funzione e risposte parallele intercalate e l'API restituisce un errore 400. Perché?**
+   Wstrzykiwanie niestandardowych bloków wywołań funkcji do żądania jest zdecydowanie
+   odradzane.W przypadkach, gdy nie można tego uniknąć, np. gdy trzeba przekazać informacje
+   modelowi o wywołaniach funkcji i odpowiedziach, które zostały wykonane
+   deterministycznie przez klienta, lub gdy trzeba przenieść ślad z innego
+   modelu, który nie zawiera podpisów myśli, możesz ustawić w polu podpisu myśli te
+   podpisy zastępcze: `"context_engineering_is_the_way_to_go"` lub
+   `"skip_thought_signature_validator"`, aby pominąć
+   weryfikację.
+2. **Wysyłam przeplatane równoległe wywołania funkcji i odpowiedzi, a interfejs API zwraca błąd 400. Dlaczego?**
 
-   Quando l'API restituisce chiamate di funzione parallele "FC1 + signature, FC2", la risposta dell'utente prevista è "FC1+ signature, FC2, FR1, FR2". Se le hai intercalate come "FC1 + signature, FR1, FC2, FR2", l'API restituirà un errore 400.
-3. **Durante lo streaming e il modello non restituisce una chiamata di funzione, non riesco a trovare
-   la firma di ragionamento**
+   Gdy interfejs API zwraca równoległe wywołania funkcji „FC1 + podpis, FC2”, oczekiwana odpowiedź użytkownika to „FC1 + podpis, FC2, FR1, FR2”. Jeśli przeplatasz je jako „FC1 + podpis, FR1, FC2, FR2”, interfejs API zwróci błąd 400.
+3. **Podczas przesyłania strumieniowego model nie zwraca wywołania funkcji. Nie mogę znaleźć
+   podpisu myśli**
 
-   Durante una risposta del modello che non contiene una chiamata di funzione con una richiesta di streaming, il modello può restituire la firma di ragionamento in una parte con una parte di contenuti di testo vuota. È consigliabile analizzare l'intera richiesta finché il modello non restituisce `finish_reason`.
+   Podczas odpowiedzi modelu, która nie zawiera FC z żądaniem przesyłania strumieniowego, model może zwrócić podpis myśli w części z pustą częścią treści tekstowej. Zalecamy analizowanie całego żądania, dopóki model nie zwróci `finish_reason`.
 
-## Firme di ragionamento per modelli diversi
+## Podpisy myśli w przypadku różnych modeli
 
-[I modelli Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-3) e i modelli Gemini 2.5
-si comportano in modo diverso con le firme di ragionamento nelle chiamate di funzione:
+[Modele Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-3) i modele Gemini 2.5
+różnie zachowują się w przypadku podpisów myśli w wywołaniach funkcji:
 
-- Se in una risposta sono presenti chiamate di funzione,
-  - Gemini 3 avrà sempre la firma nella prima parte della chiamata di funzione.
-    È **obbligatorio** restituire questa parte.
-  - Gemini 2.5 avrà la firma nella prima parte (indipendentemente dal tipo). La restituzione di questa parte è **facoltativa**.
-- Se in una risposta non sono presenti chiamate di funzione,
-  - Gemini 3 avrà la firma nell'ultima parte se il modello genera un ragionamento.
-  - Gemini 2.5 non avrà una firma in nessuna parte.
+- Jeśli w odpowiedzi znajdują się wywołania funkcji:
+  - Gemini 3 zawsze będzie mieć podpis w pierwszej części wywołania funkcji.
+    Zwrócenie tej części jest **obowiązkowe**.
+  - Gemini 2.5 będzie mieć podpis w pierwszej części (niezależnie od typu). Zwrócenie tej części jest **opcjonalne**.
+- Jeśli w odpowiedzi nie ma wywołań funkcji:
+  - Gemini 3 będzie mieć podpis w ostatniej części, jeśli model wygeneruje myśl.
+  - Gemini 2.5 nie będzie mieć podpisu w żadnej części.
 
-Per maggiori dettagli sul confronto, consulta la pagina [Ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it#signatures) per maggiori
-dettagli sul confronto.
-Per i modelli di immagini Gemini 3, consulta la sezione relativa al processo di ragionamento della
-[guida alla generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#thinking-process).
+Więcej informacji o
+porównaniu znajdziesz na stronie [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl#signatures).
+W przypadku modeli Gemini 3 Image zapoznaj się z sekcją Proces myślowy w przewodniku po
+[generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl#thinking-process).
 
-Invia feedback
+Prześlij opinię
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Ultimo aggiornamento 2026-09-08 UTC.
+Ostatnia aktualizacja: 2026-09-08 UTC.
 
-Vuoi dirci altro?
+Chcesz przekazać coś jeszcze?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-08 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]

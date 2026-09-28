@@ -1,592 +1,599 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/changelog?hl=it
-fetched_at: 2026-09-21T05:56:03.048585+00:00
-title: "Note di rilascio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/changelog?hl=th
+fetched_at: 2026-09-28T06:13:52.514532+00:00
+title: "\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e23\u0e38\u0e48\u0e19 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Invia feedback
+ส่งความคิดเห็น
 
-# Note di rilascio
+# บันทึกประจำรุ่น
 
-Questa pagina documenta gli aggiornamenti dell'API Gemini.
+หน้านี้มีบันทึกการอัปเดตของ Gemini API
 
-## 17 settembre 2026
+## 22 กันยายน 2026
 
-- **Agente Antigravity 09-2026**: rilasciato il giorno `antigravity-preview-09-2026`,
-  che sostituisce e ritira `antigravity-preview-05-2026`.
+- **TTS ของ Gemini 3.8 Flash และ TTS ของ Gemini 3.8 Flash-Lite พร้อมให้บริการแก่ผู้ใช้ทั่วไป
+  (GA)**: เปิดตัวโมเดลเสียงอ่านออกเสียงข้อความ (TTS) รุ่นถัดไปและ
+  ปลายทางเสียงของ Gemini API (`/v1beta/voices`):
 
-  Se esegui un sandbox remoto (`environment: "remote"`) e leggi solo i passaggi
-  `output_text` o `model_output`, aggiorna la stringa dell'agente e nient'altro
-  cambia.
+  - **[TTS ของ Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th)
+    (`gemini-3.8-flash-tts`)**: โมเดล TTS เชิงสร้างสรรค์รุ่นเรือธงที่ออกแบบมาเพื่อ
+    ความเที่ยงตรงของเสียงระดับสตูดิโอ การแสดงที่ซับซ้อน สำเนียงท้องถิ่น และ
+    ความเสถียรในการสนทนาไปมาแบบหลายรอบในรูปแบบยาว
+  - **[TTS ของ Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=th)
+    (`gemini-3.8-flash-lite-tts`)**: โมเดล TTS ที่รวดเร็วและคุ้มค่าซึ่งสร้างขึ้นเพื่อ
+    แทนที่ `gemini-3.1-flash-tts-preview` สำหรับการผลิตที่มีปริมาณงานสูง
+    และการเรียงซ้อนของเอเจนต์เสียงแบบเรียลไทม์
+  - **[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/voice-design?hl=th)
+    [การจำลองเสียง](https://ai.google.dev/gemini-api/docs/voice-replication?hl=th) และ
+    [คลังเสียงเพิ่มเติม](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th#voice-library)**
+    สร้างตัวตนของเสียงที่กำหนดเองแบบถาวรจากพรอมต์ข้อความ จำลองเสียง
+    ด้วยการยืนยันความยินยอม และค้นหาเสียงที่สร้างไว้ล่วงหน้าและเสียงที่กำหนดเองกว่า 150 เสียง
 
-  Se esegui gli strumenti localmente (`local_environment`) o analizzi i passaggi `function_call`, gli strumenti integrati sono cambiati. I parametri utilizzano PascalCase anziché snake\_case e le modifiche ai file utilizzano sostituzioni di intervalli di righe anziché riscritture complete.
+  ดู[คู่มือการอ่านออกเสียงข้อความ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)เพื่อเริ่มต้นใช้งาน
 
-  | Capacità | 05-2026 | 09-2026 |
+## 18 กันยายน 2026
+
+- **การอัปเดตสิทธิ์เข้าถึงโมเดล Gemini 2.5**: เราจะจำกัดสิทธิ์เข้าถึงโมเดล 2.5 สำหรับผู้ใช้ที่เคยใช้งานโมเดลนี้อย่างสม่ำเสมอในอดีต เพื่อให้มั่นใจว่าทุกคนจะได้รับประสิทธิภาพที่เชื่อถือได้
+  โมเดลเหล่านี้ไม่ได้เลิกใช้งานและจะ
+  ยังคงให้บริการต่อไปจนกว่าจะมีประกาศเพิ่มเติมผ่าน API สำหรับโปรเจ็กต์ใหม่
+  ให้ใช้โมเดลล่าสุดของเรา ได้แก่ 3.5 Flash-Lite หรือ 3.8 Flash ซึ่งจะช่วยให้เรามีกำลังการประมวลผลเพียงพอสำหรับทั้งเวิร์กโฟลว์เดิมที่ใช้อยู่และแอปพลิเคชันใหม่
+
+## 17 กันยายน 2026
+
+- **Antigravity Agent 09-2026**: เปิดตัว `antigravity-preview-09-2026`,
+  ซึ่งจะแทนที่และเลิกใช้งาน `antigravity-preview-05-2026`
+
+  หากคุณเรียกใช้ในแซนด์บ็อกซ์ระยะไกล (`environment: "remote"`) และอ่านอย่างเดียว
+  `output_text` หรือขั้นตอน `model_output` ให้อัปเดตสตริงของ Agent และไม่มี
+  การเปลี่ยนแปลงอื่นๆ
+
+  หากคุณเรียกใช้เครื่องมือในเครื่อง (`local_environment`) หรือแยกวิเคราะห์`function_call`
+  ขั้นตอน เครื่องมือในตัวจะเปลี่ยนไป พารามิเตอร์ใช้ PascalCase แทน snake\_case และการแก้ไขไฟล์ใช้การแทนที่ช่วงบรรทัดแทนการเขียนใหม่ทั้งหมด
+
+  | ความสามารถ | 05-2026 | 09-2026 |
   | --- | --- | --- |
-  | Creazione di file | `write_file(path, content)` | `write_to_file(TargetFile, CodeContent, Overwrite, Description)` |
-  | Modifica di file | `write_file(path, content)`, riscrittura completa | `replace_file_content(TargetFile, StartLine, EndLine, TargetContent, ReplacementContent)` |
-  | Lettura del file | `read_file(path, offset, limit)`, offset in byte | `view_file(AbsolutePath, StartLine, EndLine, ContentOffset)` |
-  | Elenco directory | `list_files(path)` | `list_dir(DirectoryPath)` |
-  | Ricerca di file e codice | Nessuno, gli agenti hanno utilizzato i comandi della shell | `find_by_name(SearchDirectory, Pattern, MaxDepth)` e `grep_search(SearchPath, Query, IsRegex)` |
-  | Esecuzione della shell | `code_execution(command, timeout_seconds)` | Invariato |
-  | Ricerca web | `google_search(queries)` | Invariato |
+  | การสร้างไฟล์ | `write_file(path, content)` | `write_to_file(TargetFile, CodeContent, Overwrite, Description)` |
+  | การแก้ไขไฟล์ | `write_file(path, content)` เขียนใหม่ทั้งหมด | `replace_file_content(TargetFile, StartLine, EndLine, TargetContent, ReplacementContent)` |
+  | การอ่านไฟล์ | `read_file(path, offset, limit)` ออฟเซ็ตไบต์ | `view_file(AbsolutePath, StartLine, EndLine, ContentOffset)` |
+  | รายการไดเรกทอรี | `list_files(path)` | `list_dir(DirectoryPath)` |
+  | การค้นหาไฟล์และโค้ด | ไม่มี Agent ใช้คำสั่ง Shell | `find_by_name(SearchDirectory, Pattern, MaxDepth)` และ `grep_search(SearchPath, Query, IsRegex)` |
+  | การดำเนินการ Shell | `code_execution(command, timeout_seconds)` | ไม่มีการเปลี่ยนแปลง |
+  | ค้นเว็บ | `google_search(queries)` | ไม่มีการเปลี่ยนแปลง |
 
-  Consulta la guida [Agente antigravità](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it).
-  `antigravity-preview-05-2026` verrà disattivato il 5 ottobre 2026, come indicato nella pagina
-  [Ritiri](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#managed-agents).
+  ดูคำแนะนำเกี่ยวกับ [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th)
+  `antigravity-preview-05-2026` จะปิดตัวในวันที่ 5 ตุลาคม 2026 โดยติดตามได้ในหน้า[การเลิกใช้งาน](https://ai.google.dev/gemini-api/docs/deprecations?hl=th#managed-agents)
 
-## 15 settembre 2026
+## 15 กันยายน 2569
 
-- **Gemini 3.8 Live e Gemini 3.8 Live Extended Thinking disponibili a livello generale
-  (GA)**: sono stati rilasciati due nuovi modelli audio-audio per applicazioni vocali in tempo reale utilizzando l'API Live:
+- **Gemini 3.8 Live และ Gemini 3.8 Live Extended Thinking พร้อมให้บริการแก่บุคคลทั่วไป (GA)**: เปิดตัวโมเดลเสียงต่อเสียงใหม่ 2 รายการสำหรับการใช้งานเสียงแบบเรียลไทม์
+  โดยใช้ Live API
 
-  - **Gemini 3.8 Live** ([`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=it)): l'opzione predefinita
-    per la maggior parte delle esperienze di agenti vocali a bassa latenza e per i dialoghi in tempo reale
-    senza ritardi nel ragionamento. Include il ragionamento intercalato, la chiamata di funzione asincrona predefinita e gli aggiornamenti completi dei contenuti client della sessione.
+  - **Gemini 3.8 Live** ([`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=th)): ตัวเลือกเริ่มต้น
+    สำหรับการใช้งานเอเจนต์เสียงที่มีเวลาในการตอบสนองต่ำส่วนใหญ่และการสนทนาแบบเรียลไทม์
+    โดยไม่มีความล่าช้าในการให้เหตุผล มีฟีเจอร์การให้เหตุผลแบบสลับ การเรียกใช้ฟังก์ชันแบบอะซิงโครนัสโดยค่าเริ่มต้น และการอัปเดตเนื้อหาไคลเอ็นต์ของเซสชันทั้งหมด
   - **Gemini 3.8 Live Extended Thinking**
-    ([`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=it)): modello audio-audio
-    con ragionamento avanzato che supporta il ragionamento in background durante le interazioni audio live, consigliato quando è necessario un ragionamento in background più avanzato.
+    ([`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=th)): โมเดลเสียงต่อเสียงที่มีการให้เหตุผลสูง
+    รองรับการให้เหตุผลเบื้องหลังระหว่างการโต้ตอบด้วยเสียงแบบเรียลไทม์
+    แนะนำให้ใช้เมื่อจำเป็นต้องมีการให้เหตุผลเบื้องหลังที่สูงขึ้น
 
-  Per iniziare, consulta la [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it), la
-  [guida alle funzionalità](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=it) e la
-  [guida al pensiero](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=it).
+  หากต้องการเริ่มต้นใช้งาน โปรดดู[คู่มือ Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th), [คู่มือความสามารถ](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=th) และ[คู่มือการคิด](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=th)
 
-## 3 settembre 2026
+## 3 กันยายน 2026
 
-- **Lyria 3.5 disponibile a livello generale (GA)**: è stata rilasciata la nuova generazione del modello di generazione di musica di Google:
+- **Lyria 3.5 พร้อมให้บริการแก่ผู้ใช้ทั่วไป (GA)**: เปิดตัวโมเดลการสร้างเพลงรุ่นถัดไปของ Google ซึ่งมีฟีเจอร์ดังนี้
 
-  - [`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=it):
-    Generazione di brani completi con una migliore coerenza musicale, voci naturali
-    e controllo granulare della durata e della struttura.
+  - [`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=th):
+    การสร้างเพลงแบบเต็มเพลงที่มีความสอดคล้องทางดนตรี เสียงร้องที่เป็นธรรมชาติ
+    และการควบคุมระยะเวลาและโครงสร้างที่ละเอียดยิ่งขึ้น
 
-  Il modello supporta input di testo e immagini e genera audio stereo
-  ad alta fedeltà a 44,1 kHz. Per dettagli ed esempi di codice, consulta la guida alla [generazione di musica](https://ai.google.dev/gemini-api/docs/music-generation?hl=it).
+  โมเดลรองรับอินพุตข้อความและรูปภาพ รวมถึงสร้างเสียงสเตอริโอ 44.1 kHz
+  ที่มีความสมจริงสูง ดูรายละเอียดและตัวอย่างโค้ดได้ในคำแนะนำ[การสร้างเพลง](https://ai.google.dev/gemini-api/docs/music-generation?hl=th)
 
-## 2 settembre 2026
+## 2 กันยายน 2026
 
-- **Gemini 3.8 Flash disponibile a livello generale (GA)**: rilasciato
-  `gemini-3.8-flash`, il nostro modello Flash più intelligente, progettato per
-  l'ingegneria del software a lungo termine, gli agenti autonomi e i workflow aziendali
-  complessi.
+- **Gemini 3.8 Flash พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA)**: เปิดตัว
+  `gemini-3.8-flash` โมเดล Flash ที่ชาญฉลาดที่สุดของเรา ซึ่งได้รับการออกแบบมาสำหรับ
+  วิศวกรรมซอฟต์แวร์ระยะยาว เอเจนต์อัตโนมัติ และเวิร์กโฟลว์ที่ซับซ้อนขององค์กร
 
-  Per iniziare, consulta la pagina del modello
-  [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=it) e la
-  [Guida ai modelli più recenti](https://ai.google.dev/gemini-api/docs/latest-model?hl=it).
+  หากต้องการเริ่มต้นใช้งาน โปรดดูหน้าโมเดล [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=th) และ[คู่มือโมเดลล่าสุด](https://ai.google.dev/gemini-api/docs/latest-model?hl=th)
 
-## 1° settembre 2026
+## 1 กันยายน 2026
 
-- **Comprensione dei video con agenti**: è stata rilasciata la comprensione dei video con agenti per
-  Gemini 3.7 Flash, 3.6 Flash e 3.5 Flash-Lite nelle API Interactions e
-  GenerateContent. Il modello naviga dinamicamente nelle sequenze temporali dei video,
-  richiedendo trascrizioni, fotogrammi o tracce audio su richiesta. Questo approccio utilizza
-  fino all'88% in meno di token per i contenuti di lunga durata rispetto all'elaborazione statica.
+- **ความเข้าใจวิดีโอแบบเอเจนต์**: เปิดตัวความเข้าใจวิดีโอแบบเอเจนต์สำหรับ
+  Gemini 3.7 Flash, 3.6 Flash และ 3.5 Flash-Lite ใน API การโต้ตอบและ
+  GenerateContent โมเดลจะไปยังไทม์ไลน์ของวิดีโอแบบไดนามิก
+  โดยขอข้อความถอดเสียง เฟรม หรือแทร็กเสียงตามต้องการ วิธีนี้ใช้โทเค็นน้อยลงถึง 88% สำหรับเนื้อหาแบบยาวเมื่อเทียบกับการประมวลผลแบบคงที่
 
-  Per iniziare, consulta la guida
-  [Comprensione dei video agentica](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#agentic-video-understanding).
+  หากต้องการเริ่มต้นใช้งาน โปรดดูคู่มือ[การทำความเข้าใจวิดีโอแบบเอเจนต์](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#agentic-video-understanding)
 
-## 27 agosto 2026
+## 27 สิงหาคม 2026
 
-- **Gemini Omni Flash in disponibilità generale (GA)**: rilasciato
-  il giorno `gemini-omni-1.1-flash`, la versione GA del nostro modello di generazione e modifica di video conversazionali veloci. Questa release include nuove funzionalità
-  significative:
+- **Gemini Omni Flash พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA)**: เปิดตัว
+  `gemini-omni-1.1-flash` ซึ่งเป็นโมเดลการสร้างและตัดต่อวิดีโอแบบสนทนาที่รวดเร็วของเราในเวอร์ชัน GA การเปิดตัวนี้รวมถึงความสามารถใหม่ๆ ที่สำคัญ ดังนี้
 
-  - **Estensione video**: estendi facilmente i video esistenti generando
-    continuazioni alla fine di un clip utilizzando l'attività `extend` o direttamente
-    con un prompt.
-  - **Interpolazione (primo + ultimo frame)**: genera un video di transizione
-    tra due immagini utilizzando l'attività `image_to_video` con un massimo di due immagini.
-  - **Controllo della risoluzione**: il nuovo parametro `resolution` in `video_config`
-    supporta gli output `360p`, `720p` (predefinito), `1080p` e `4k`.
-    Gli output a 1080p e 4K vengono generati utilizzando l'upscaling.
+  - **การขยายวิดีโอ**: ขยายวิดีโอที่มีอยู่ได้อย่างราบรื่นโดยการสร้าง
+    วิดีโอต่อเนื่องที่ส่วนท้ายของคลิปโดยใช้`extend` งานหรือใช้พรอมต์โดยตรง
+  - **การประมาณค่าระหว่างจุด (เฟรมแรก + เฟรมสุดท้าย)**: สร้างวิดีโอที่มีการเปลี่ยนฉาก
+    ระหว่าง 2 รูปภาพโดยใช้`image_to_video` งานที่มีรูปภาพได้สูงสุด 2 รูป
+  - **การควบคุมความละเอียด**: พารามิเตอร์ `resolution` ใหม่ใน `video_config`
+    รองรับเอาต์พุต `360p`, `720p` (ค่าเริ่มต้น), `1080p` และ `4k`
+    เอาต์พุต 1080p และ 4K สร้างขึ้นโดยใช้การเพิ่มความละเอียด
 
-  L'endpoint `gemini-omni-flash-preview` esistente verrà ritirato il
-  30 settembre 2026.
+  เราจะเลิกใช้งานปลายทาง `gemini-omni-flash-preview` ที่มีอยู่แล้วในวันที่ 30 กันยายน 2026
 
-  Per iniziare, consulta la pagina del modello
-  [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=it)
-  e la [guida di Omni](https://ai.google.dev/gemini-api/docs/omni?hl=it).
+  หากต้องการเริ่มต้นใช้งาน โปรดดูหน้าโมเดล [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=th)
+  และ[คู่มือ Omni](https://ai.google.dev/gemini-api/docs/omni?hl=th)
 
-## 26 agosto 2026
+## 26 สิงหาคม 2026
 
-- **Gemini 3.5 Transcribe in disponibilità generale (GA)**: sono stati rilasciati due modelli di sintesi vocale dedicati basati sulla comprensione dell'audio di Gemini:
+- **Gemini 3.5 Transcribe พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA)**: เปิดตัวโมเดลการแปลงเสียงเป็นข้อความ 2 รายการโดยเฉพาะซึ่งอิงตามความเข้าใจเสียงของ Gemini
 
-  - **Gemini 3.5 Transcribe** (`gemini-3.5-transcribe`): sintesi vocale non in streaming ad alta precisione e bassa latenza con rilevamento della lingua basato sulle espressioni in oltre 85 lingue, diarizzazione degli oratori, timestamp a livello di parola e bias del vocabolario personalizzato (fino a 1000 termini).
+  - **Gemini 3.5 Transcribe** (`gemini-3.5-transcribe`): การแปลงเสียงพูดเป็นข้อความแบบไม่สตรีมมิงที่มีความแม่นยำสูง
+    และเวลาในการตอบสนองต่ำ พร้อมการตรวจหาภาษาตามคำพูด
+    ในกว่า 85 ภาษา การระบุผู้พูด การประทับเวลาที่ระดับคำ
+    และการปรับคำศัพท์ที่กำหนดเอง (สูงสุด 1,000 คำ)
   - **Gemini 3.5 Transcribe Live** (`gemini-3.5-transcribe-live`):
-    Streaming bidirezionale di conversione della voce in testo a bassa latenza tramite WebSocket utilizzando
-    l'API Live, che supporta eventi di trascrizione provvisori e definitivi,
-    la modalità di trascrizione intelligente e più strategie di rilevamento di attività vocale (VAD).
+    การสตรีมเสียงแบบสองทางที่มีเวลาในการตอบสนองต่ำเป็นข้อความผ่าน WebSockets โดยใช้
+    Live API ซึ่งรองรับเหตุการณ์การถอดเสียงชั่วคราวและขั้นสุดท้าย
+    โหมดการถอดเสียงอัจฉริยะ และกลยุทธ์การตรวจจับกิจกรรมเสียงพูด (VAD) หลายรายการ
 
-  Per iniziare, consulta la
-  [guida alla trascrizione audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=it), la
-  [guida alla trascrizione live](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=it) e la
-  [pagina del modello Gemini 3.5 Transcribe](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=it).
+  หากต้องการเริ่มต้นใช้งาน โปรดดู
+  [คู่มือการถอดเสียง](https://ai.google.dev/gemini-api/docs/transcribe?hl=th)
+  [คู่มือการถอดเสียงแบบเรียลไทม์](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=th) และ
+  [หน้าโมเดลการถอดเสียง Gemini 3.5](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=th)
 
-## 13 agosto 2026
+## 13 สิงหาคม 2026
 
-- **Disponibilità generale (GA) di Gemini 3.7 Flash**: abbiamo rilasciato il nostro modello per la programmazione e gli agenti più intelligente di sempre:
+- **Gemini 3.7 Flash พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA)**: เปิดตัวโมเดลที่ชาญฉลาดที่สุดของเราในขณะนี้สำหรับการเขียนโค้ดและเอเจนต์
 
-  - **Gemini 3.7 Flash** (`gemini-3.7-flash`): miglioramenti sostanziali
-    in ingegneria del software, sviluppo web e flussi di lavoro agentici,
-    disponibile a un prezzo di lancio fino al 31 dicembre 2026.
+  - **Gemini 3.7 Flash** (`gemini-3.7-flash`): การปรับปรุงที่สำคัญ
+    ในด้านวิศวกรรมซอฟต์แวร์ การพัฒนาเว็บ และเวิร์กโฟลว์แบบเอเจนต์
+    พร้อมให้บริการในราคาช่วงแนะนำจนถึงวันที่ 31 ธันวาคม 2026
 
-  Per iniziare, consulta la pagina del modello
-  [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=it)
-  e la [Guida ai modelli più recenti](https://ai.google.dev/gemini-api/docs/latest-model?hl=it).
+  หากต้องการเริ่มต้นใช้งาน โปรดดูหน้าโมเดล [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=th)
+  และ[คู่มือโมเดลล่าสุด](https://ai.google.dev/gemini-api/docs/latest-model?hl=th)
 
-## 30 luglio 2026
+## 30 กรกฎาคม 2569
 
-- **Gemini Robotics ER 2 in anteprima pubblica**: sono stati rilasciati due nuovi endpoint del modello di ragionamento
-  incorporato per la robotica:
+- **Gemini Robotics ER 2 ในเวอร์ชันตัวอย่างแบบสาธารณะ**: เปิดตัวปลายทางโมเดลการให้เหตุผลแบบฝังตัวใหม่ 2 รายการสำหรับหุ่นยนต์
 
-  - `gemini-robotics-er-2-preview`: ragionamento spaziale avanzato, esecuzione di codice autonomo, orchestrazione di strumenti in più passaggi, ricerca di momenti video, classificazione dell'avanzamento e coordinamento di più robot.
-  - `gemini-robotics-er-2-streaming-preview`: ottimizzato per lo streaming di testo in tempo reale tramite l'API Live, che consente agenti robot a bassa latenza con input audio e video bidirezionale.
+  - `gemini-robotics-er-2-preview`: การให้เหตุผลเชิงพื้นที่ขั้นสูง การดำเนินการโค้ดแบบเอเจนต์ การประสานเครื่องมือแบบหลายขั้นตอน การค้นหาช่วงเวลาในวิดีโอ การจัดประเภทความคืบหน้า และการประสานงานของหุ่นยนต์หลายตัว
+  - `gemini-robotics-er-2-streaming-preview`: ปรับให้เหมาะกับการสตรีมข้อความแบบเรียลไทม์
+    โดยใช้ Live API ซึ่งช่วยให้เอเจนต์หุ่นยนต์ที่มีเวลาในการตอบสนองต่ำ
+    พร้อมอินพุตเสียงและวิดีโอแบบ 2 ทิศทาง
 
-  Entrambi gli endpoint del modello accettano input di testo, immagini, video e audio e supportano
-  la chiamata di funzioni con comportamento di blocco per le azioni del robot fisico.
-  Per iniziare, consulta la
-  [panoramica di Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=it). Per
-  casi d'uso di streaming in tempo reale, consulta
-  [Robotica con streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it).
-- **Annuncio di ritiro**: il modello `gemini-robotics-er-1.6-preview`
-  verrà [ritirato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 31 agosto 2026.
+  ทั้ง 2 โมเดลปลายทางยอมรับอินพุตข้อความ รูปภาพ วิดีโอ และเสียง รวมถึงรองรับ
+  การเรียกใช้ฟังก์ชันที่มีลักษณะการบล็อกสำหรับการดำเนินการของหุ่นยนต์จริง
+  หากต้องการเริ่มต้นใช้งาน โปรดดู[ภาพรวมของ Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th) สำหรับกรณีการใช้งานการสตรีมแบบเรียลไทม์ โปรดดู[หุ่นยนต์ที่มีการสตรีม](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th)
+- **ประกาศการเลิกใช้งาน**: เราจะ[ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดล `gemini-robotics-er-1.6-preview`
+  ในวันที่ 31 สิงหาคม 2026
 
-## 21 luglio 2026
+## 21 กรกฎาคม 2026
 
-- **Disponibilità generale (GA) di Gemini 3.6 Flash e Gemini 3.5 Flash-Lite**:
-  Sono state rilasciate versioni stabili e pronte per la produzione dei nostri modelli Flash 3.x più recenti:
+- **Gemini 3.6 Flash และ Gemini 3.5 Flash-Lite พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA)**:
+  เปิดตัวโมเดล 3.x Flash ล่าสุดเวอร์ชันที่เสถียรและพร้อมใช้งานจริง
 
-  - **Gemini 3.6 Flash** (`gemini-3.6-flash`): offre una migliore efficienza dei token e funzionalità di pianificazione di codice/agenti a un prezzo inferiore rispetto a 3.5 Flash, risolvendo i feedback degli sviluppatori relativi alla verbosità dell'output.
-  - **Gemini 3.5 Flash-Lite** (`gemini-3.5-flash-lite`): offre un'opzione di subagente a bassa latenza e altamente conveniente progettata per l'automazione di volumi elevati.
+  - **Gemini 3.6 Flash** (`gemini-3.6-flash`): มีประสิทธิภาพของโทเค็นที่ดียิ่งขึ้น
+    และความสามารถในการวางแผนโค้ด/เอเจนต์ในราคาที่ต่ำกว่า
+    3.5 Flash ซึ่งช่วยแก้ปัญหาที่นักพัฒนาซอฟต์แวร์แสดงความคิดเห็นเกี่ยวกับความละเอียดของเอาต์พุต
+  - **Gemini 3.5 Flash-Lite** (`gemini-3.5-flash-lite`): มีตัวเลือกเอเจนต์ย่อยที่มีเวลาในการตอบสนองต่ำและคุ้มค่าสูง ซึ่งออกแบบมาเพื่อการทำงานอัตโนมัติที่มีปริมาณสูง
 
-  Per saperne di più, consulta la guida [Ultimo modello Gemini](https://ai.google.dev/gemini-api/docs/latest-model?hl=it).
-- **Parametri obsoleti**: i parametri di campionamento `temperature`, `top_p`
-  e `top_k` sono ora obsoleti. Per maggiori dettagli, consulta la sezione
-  [Ultimo modello Gemini](https://ai.google.dev/gemini-api/docs/latest-model?hl=it#sampling-parameter-deprecation).
+  ดูข้อมูลเพิ่มเติมได้ที่คู่มือ[โมเดล Gemini ล่าสุด](https://ai.google.dev/gemini-api/docs/latest-model?hl=th)
+- **พารามิเตอร์ที่เลิกใช้งานแล้ว**: ตอนนี้พารามิเตอร์การสุ่มตัวอย่าง `temperature`, `top_p`
+  และ `top_k` เลิกใช้งานแล้ว ดูรายละเอียดได้ที่[โมเดล Gemini ล่าสุด](https://ai.google.dev/gemini-api/docs/latest-model?hl=th#sampling-parameter-deprecation)
 
-## 6 luglio 2026
+## 6 กรกฎาคม 2026
 
-- Supporto dei [log degli sviluppatori](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it) per l'API Interactions: i log per le chiamate API Interactions supportate sono ora visualizzabili nella [dashboard di AI Studio](https://aistudio.google.com/logs?hl=it).
+- การรองรับ[บันทึกของนักพัฒนาซอฟต์แวร์](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=th)สำหรับ
+  Interactions API: ตอนนี้คุณสามารถดูบันทึกสำหรับการเรียก Interactions API ที่รองรับได้แล้ว
+  ใน[แดชบอร์ด AI Studio](https://aistudio.google.com/logs?hl=th)
 
-## 30 giugno 2026
+## 30 มิถุนายน 2026
 
-- **Gemini Omni Flash in anteprima pubblica**: rilasciato il giorno `gemini-omni-flash-preview`,
-  un modello multimodale ad alte prestazioni progettato per la generazione di video ad alta velocità
-  e l'editing di video conversazionali. Utilizzando l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it),
-  puoi generare video di 3-10 secondi a 720p da descrizioni di testo o animare immagini statiche,
-  quindi modificare e perfezionare gli output in modo conversazionale. Per iniziare, consulta la guida a
-  [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=it) e la
-  scheda del modello [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=it).
-- Rilasciato `gemini-3.1-flash-lite-image` (Nano Banana 2 Lite) per la disponibilità generale, il nostro modello multimodale integrato ottimizzato per una latenza e una generazione e modifica delle immagini a costi contenuti. Consulta la scheda del modello [Gemini 3.1
-  Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=it) e la guida alla [generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
+- **Gemini Omni Flash ในเวอร์ชันตัวอย่างแบบสาธารณะ**: เปิดตัวเมื่อ`gemini-omni-flash-preview`
+  โมเดลมัลติโมดัลประสิทธิภาพสูงที่ออกแบบมาสำหรับการสร้างวิดีโอความเร็วสูง
+  และการตัดต่อวิดีโอแบบสนทนา การใช้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
+  คุณสามารถสร้างวิดีโอความยาว 3-10 วินาทีที่ความละเอียด 720p จากคำอธิบายข้อความหรือภาพเคลื่อนไหว
+  จากนั้นแก้ไขและปรับแต่งเอาต์พุตด้วยการสนทนา หากต้องการเริ่มต้นใช้งาน โปรดดูคู่มือ [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=th) และการ์ดโมเดล [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=th)
+- เปิดตัว `gemini-3.1-flash-lite-image` (Nano Banana 2 Lite) ให้พร้อมใช้งานทั่วไป (GA) ซึ่งเป็นโมเดลแบบหลายรูปแบบในตัวที่ได้รับการเพิ่มประสิทธิภาพเพื่อเวลาในการตอบสนองที่ต่ำมาก รวมถึงการสร้างและแก้ไขรูปภาพที่คุ้มค่า ดูการ์ดโมเดล[รูปภาพ Gemini 3.1
+  Flash Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=th) และคู่มือ[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
 
-## 24 giugno 2026
+## 24 มิถุนายน 2026
 
-- **Uso del computer**: è stata lanciata l'anteprima pubblica del supporto per lo strumento
-  [Uso del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) in Gemini 3.5 Flash. Questa
-  release include azioni semplificate con intent, supporto integrato per
-  ambienti browser, mobile e desktop, policy di sicurezza configurabili e
-  rilevamento di prompt injection avanzato.
+- **การใช้คอมพิวเตอร์**: เปิดตัวการรองรับเวอร์ชันตัวอย่างแบบสาธารณะสำหรับเครื่องมือ[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)ใน Gemini 3.5 Flash การเปิดตัวนี้ประกอบด้วยการดำเนินการที่ง่ายขึ้นด้วย Intent, การรองรับในตัวสำหรับสภาพแวดล้อมของเบราว์เซอร์ อุปกรณ์เคลื่อนที่ และเดสก์ท็อป, นโยบายความปลอดภัยที่กำหนดค่าได้ และการตรวจหาการแทรกพรอมต์ขั้นสูง
 
-## 17 giugno 2026
+## 17 มิถุนายน 2026
 
-- **Supporto dello streaming per la generazione vocale**: lo streaming tramite `streamGenerateContent`
-  (e `stream: true` nell'API Interactions) è ora supportato per il
-  modello `gemini-3.1-flash-tts-preview`. Per saperne di più, consulta la guida
-  [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it#streaming).
+- **การรองรับการสตรีมสำหรับการสร้างคำพูด**: ตอนนี้โมเดล `gemini-3.1-flash-tts-preview` รองรับการสตรีมผ่าน `streamGenerateContent`
+  (และ `stream: true` ใน Interactions API) แล้ว ดูข้อมูลเพิ่มเติมได้ที่คู่มือ[การอ่านออกเสียงข้อความ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th#streaming)
 
-## 15 giugno 2026
+## 15 มิถุนายน 2026
 
-- **Annuncio del ritiro**: i seguenti modelli di generazione di immagini
-  verranno ritirati e [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il **17 agosto 2026**:
+- **ประกาศการเลิกใช้งาน**: เราจะเลิกใช้งานโมเดลการสร้างรูปภาพต่อไปนี้และจะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ **17 สิงหาคม 2026**
 
-  - **Modelli Imagen 4 e Gemini 3 Image**:
+  - **โมเดลรูปภาพ Imagen 4 และ Gemini 3**
     - `imagen-4.0-generate-001`
     - `imagen-4.0-ultra-generate-001`
     - `imagen-4.0-fast-generate-001`
 
-  Per eseguire la migrazione del codice a endpoint di anteprima o stabili più recenti, consulta la pagina
-  [Ritiri di Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#imagen-models).
-- **Annuncio del ritiro**: i seguenti modelli di generazione video verranno ritirati e [arrestati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il **30 giugno 2026**:
+  หากต้องการย้ายข้อมูลโค้ดไปยังปลายทางที่เสถียรหรือเวอร์ชันตัวอย่างที่ใหม่กว่า โปรดดูหน้า[การเลิกใช้งาน Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=th#imagen-models)
+- **ประกาศการเลิกใช้งาน**: เราจะเลิกใช้งานโมเดลการสร้างวิดีโอต่อไปนี้และจะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ **30 มิถุนายน 2026**
 
-  - **Modelli Veo**:
+  - **รุ่น Veo**
     - `veo-2.0-generate-001`
     - `veo-3.0-generate-001`
     - `veo-3.0-fast-generate-001`
 
-  Aggiorna l'integrazione in modo da utilizzare gli ID modello di anteprima di Veo 3.1
-  (`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`) o i
-  modelli 3.1 GA disponibili tramite
-  [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=it)
-  per evitare interruzioni del servizio.
-- **Annuncio del ritiro**: lo strumento sperimentale GMP Contextual View (un'interfaccia fissa per Grounding con Google Maps) verrà [chiuso](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il **15 giugno 2026**:
+  โปรดอัปเดตการผสานรวมเพื่อใช้รหัสโมเดลเวอร์ชันตัวอย่างของ Veo 3.1
+  (`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`) หรือโมเดล 3.1 GA ที่พร้อมใช้งานผ่าน[แพลตฟอร์มเอเจนต์ Gemini Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=th)
+  เพื่อหลีกเลี่ยงการหยุดชะงักของบริการ
+- **ประกาศการหยุดให้บริการ**: เครื่องมือมุมมองตามบริบทของ GMP เวอร์ชันทดลอง (อินเทอร์เฟซแบบคงที่สำหรับการเชื่อมโยงกับเอาต์พุตของ Google Maps) จะ[ปิดตัวลง](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ **15 มิถุนายน 2026**
 
-## 1° giugno 2026
+## 1 มิถุนายน 2026
 
-- I seguenti modelli Gemini 2.0 sono ora [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it):
+- ตอนนี้เราได้[ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดล Gemini 2.0 ต่อไปนี้แล้ว
 
   - `gemini-2.0-flash`
   - `gemini-2.0-flash-001`
   - `gemini-2.0-flash-lite`
   - `gemini-2.0-flash-lite-001`
 
-  Utilizza [`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it) o
-  [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it)
-  in alternativa.
+  โปรดใช้ [`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) หรือ
+  [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th)
+  แทน
 
-## 28 maggio 2026
+## 28 พฤษภาคม 2026
 
-- Sono state rilasciate `gemini-3.1-flash-image` (Nano Banana 2) e `gemini-3-pro-image`
-  (Nano Banana Pro), le versioni disponibili a livello generale (GA) dei nostri modelli
-  visivi nativi, [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=it)
-  e [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=it).
-- **Supporto della generazione di immagini da video**: ora puoi passare un file video (tramite caricamento diretto o come URL pubblico di YouTube) come contesto multimodale insieme a un prompt testuale per generare miniature di alta qualità, locandine cinematografiche o infografiche riassuntive. Questa funzionalità è supportata esclusivamente sul modello
-  `gemini-3.1-flash-image`. Per saperne di più, consulta la guida
-  [Generazione di immagini da video](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#video-to-image).
-- Annuncio di ritiro: i modelli `gemini-3.1-flash-image-preview` e
-  `gemini-3-pro-image-preview` sono deprecati
-  e verranno [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 25 giugno 2026.
+- เราได้เปิดตัว `gemini-3.1-flash-image` (Nano Banana 2) และ `gemini-3-pro-image`
+  (Nano Banana Pro) ซึ่งเป็นโมเดลภาพเวอร์ชันพร้อมให้บริการแก่บุคคลทั่วไป (GA) ของเรา
+  [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=th)
+  และ [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=th)
+- **รองรับการสร้างรูปภาพจากวิดีโอ**: ตอนนี้คุณสามารถส่งไฟล์วิดีโอ (ผ่านการอัปโหลดโดยตรงหรือเป็น URL ของ YouTube สาธารณะ) เป็นบริบทแบบมัลติโมดอลพร้อมกับพรอมต์ข้อความเพื่อสร้างภาพปกคุณภาพสูง โปสเตอร์ภาพยนตร์ที่สวยงาม หรืออินโฟกราฟิกสรุป ฟีเจอร์นี้รองรับเฉพาะในรุ่น `gemini-3.1-flash-image` ดูข้อมูลเพิ่มเติมได้ที่คำแนะนำเกี่ยวกับ[การสร้างรูปภาพจากวิดีโอ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th#video-to-image)
+- ประกาศการเลิกใช้งาน: เราเลิกใช้งานโมเดล `gemini-3.1-flash-image-preview` และ
+  `gemini-3-pro-image-preview` แล้ว
+  และจะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ 25 มิถุนายน 2026
 
-## 25 maggio 2026
+## 25 พฤษภาคม 2026
 
-- Il modello `gemini-3.1-flash-lite-preview` è stato
-  [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it). Utilizza
-  [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it).
+- โมเดล `gemini-3.1-flash-lite-preview` ได้[ปิดตัวลง](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)แล้ว โปรดใช้
+  [`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) แทน
 
-## 19 maggio 2026
+## 19 พฤษภาคม 2026
 
-- Rilasciata il giorno `gemini-3.5-flash`, la versione in disponibilità generale (GA) di
-  [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=it),
-  il nostro modello più intelligente per prestazioni all'avanguardia sostenute in attività agentiche e di programmazione. Ora questo è il modello alla base di `gemini-flash-latest`.
-- Lanciata l'**API Managed Agents in Gemini** in anteprima pubblica. In questo modo, gli sviluppatori possono creare e implementare agent autonomi e stateful che vengono eseguiti in ambienti sandbox Linux sicuri, isolati e ospitati da Google. Per saperne di più,
-  consulta la pagina [Panoramica degli agenti](https://ai.google.dev/gemini-api/docs/agents?hl=it) e la
-  [guida rapida](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=it).
-- È stato rilasciato l'agente gestito **Antigravity Agent** per uso generico,
-  [`antigravity-preview-05-2026`](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=it), in anteprima pubblica.
-  L'agente Antigravity può pianificare, ragionare, scrivere ed eseguire codice autonomamente,
-  gestire file e navigare sul web all'interno del suo container sandbox. Per esempi di codice e specifiche, consulta la guida
-  [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it).
+- เราได้เปิดตัวเวอร์ชันพร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA) ของ `gemini-3.5-flash`[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th)
+  ซึ่งเป็นโมเดลที่ชาญฉลาดที่สุดของเราสำหรับการทำงานระดับแนวหน้าอย่างต่อเนื่องในงานที่ต้องใช้เอเจนต์และงานเขียนโค้ด ตอนนี้โมเดลนี้อยู่เบื้องหลัง `gemini-flash-latest`
+- เปิดตัว**Agent ที่ได้รับการจัดการใน Gemini API** ในเวอร์ชันตัวอย่างแบบสาธารณะ ซึ่งช่วยให้
+  นักพัฒนาแอปสร้างและทําให้ Agent แบบมีสถานะที่ทํางานโดยอัตโนมัติใช้งานได้ ซึ่งจะทํางานใน
+  สภาพแวดล้อมแซนด์บ็อกซ์ Linux ที่ปลอดภัยและแยกต่างหากซึ่งโฮสต์โดย Google ดูข้อมูลเพิ่มเติมได้ที่หน้า[ภาพรวมของเอเจนต์](https://ai.google.dev/gemini-api/docs/agents?hl=th)และ[การเริ่มต้นอย่างรวดเร็ว](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=th)
+- เปิดตัว Agent ที่มีการจัดการ **Antigravity Agent** แบบอเนกประสงค์
+  [`antigravity-preview-05-2026`](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=th) ในเวอร์ชันตัวอย่างแบบสาธารณะ
+  Agent ของ Antigravity สามารถวางแผน วิเคราะห์ เขียน และเรียกใช้โค้ด จัดการไฟล์ และท่องเว็บภายในคอนเทนเนอร์แซนด์บ็อกซ์ได้โดยอัตโนมัติ ดูตัวอย่างโค้ดและข้อกำหนดได้ในคู่มือ [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th)
 
-## 7 maggio 2026
+## 7 พฤษภาคม 2026
 
-- Rilasciata il giorno `gemini-3.1-flash-lite`, la versione di disponibilità generale (GA) di
-  [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it),
-  ottimizzata per velocità, scalabilità ed efficienza in termini di costi.
-- Annuncio di ritiro: il modello `gemini-3.1-flash-lite-preview` verrà ritirato l'11/05/26 e [disattivato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 25 maggio 2026.
+- เปิดตัว `gemini-3.1-flash-lite` เวอร์ชันพร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA) ของ
+  [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th)
+  ซึ่งได้รับการเพิ่มประสิทธิภาพด้านความเร็ว ความสามารถในการปรับขนาด และความคุ้มค่า
+- ประกาศการเลิกใช้งาน: เราจะเลิกใช้งานโมเดล `gemini-3.1-flash-lite-preview` ในวันที่ 11/5/26 และจะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ 25 พฤษภาคม 2026
 
-## 6 maggio 2026
+## 6 พฤษภาคม 2026
 
-- **Modifica che causa interruzione imminente**: lo schema di richiesta e risposta (`outputs` → `steps`) e la configurazione del formato di output (`response_format`) dell'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) stanno cambiando. Il nuovo schema diventerà
-  quello predefinito il **26 maggio** e lo schema legacy verrà rimosso l'**8 giugno**.
-  Per ulteriori dettagli, consulta la
-  [guida alla migrazione](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=it).
+- **การเปลี่ยนแปลงที่ทำให้เกิดข้อขัดข้องที่กำลังจะเกิดขึ้น**: สคีมาคำขอและการตอบกลับ (`outputs` → `steps`) และการกำหนดค่ารูปแบบเอาต์พุต (`response_format`) ของ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
+  กำลังจะมีการเปลี่ยนแปลง โดยสคีมาใหม่จะกลายเป็นสคีมาเริ่มต้นในวันที่ **26 พฤษภาคม** และระบบจะนำสคีมาเดิมออกในวันที่ **8 มิถุนายน**
+  ดูรายละเอียดได้จาก
+  [คำแนะนำในการย้ายข้อมูล](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=th)
 
-## 5 maggio 2026
+## 5 พฤษภาคม 2026
 
-- Aggiornamento della **Ricerca file** per supportare la ricerca multimodale. Ora puoi incorporare e cercare immagini in modo nativo utilizzando il modello `gemini-embedding-2`.
-  I metadati di base ora includono `media_id` per le citazioni visive e
-  `page_numbers` che indicano dove si trovano le informazioni. Per saperne
-  di più, consulta la guida alla [ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it).
+- อัปเดต**การค้นหาไฟล์**ให้รองรับการค้นหาหลายรูปแบบ ตอนนี้คุณสามารถฝังและค้นหารูปภาพโดยใช้โมเดล `gemini-embedding-2` ได้โดยตรง
+  ตอนนี้การอ้างอิงข้อมูลเมตาจะมี `media_id` สำหรับการอ้างอิงภาพและ
+  `page_numbers` ที่ระบุตำแหน่งของข้อมูล ดูข้อมูลเพิ่มเติมได้ที่คู่มือ[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)
 
-## 4 maggio 2026
+## 4 พฤษภาคม 2026
 
-- È stato lanciato il supporto dei [webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=it) basati su eventi nell'API Gemini per sostituire i flussi di lavoro di polling per l'API Batch e le operazioni a lunga esecuzione.
+- เปิดตัวการรองรับ [Webhooks](https://ai.google.dev/gemini-api/docs/webhooks?hl=th) ที่ขับเคลื่อนด้วยเหตุการณ์ใน Gemini API เพื่อแทนที่เวิร์กโฟลว์การสำรวจสำหรับ Batch API และการดำเนินการที่ใช้เวลานาน
 
-## 30 aprile 2026
+## 30 เมษายน 2026
 
-- Il modello `gemini-robotics-er-1.5-preview` è stato
-  [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it). Utilizza
-  [`gemini-robotics-er-1.6-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=it).
+- โมเดล `gemini-robotics-er-1.5-preview` ได้[ปิดตัวลง](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)แล้ว โปรดใช้
+  [`gemini-robotics-er-1.6-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=th) แทน
 
-## 22 aprile 2026
+## 22 เมษายน 2026
 
-- Rilasciato `gemini-embedding-2` come disponibile pubblicamente
-  (GA). Per saperne di più, consulta la pagina [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it).
+- เปิดตัว`gemini-embedding-2`เป็นเวอร์ชันสำหรับผู้ใช้ทั่วไป (GA) ดูข้อมูลเพิ่มเติมได้ที่หน้า[การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)
 
-## 21 aprile 2026
+## 21 เมษายน 2026
 
-- Sono state rilasciate nuove versioni dell'agente [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it)
-  con pianificazione collaborativa, supporto della visualizzazione, integrazione del server MCP
-  e ricerca di file:
+- เปิดตัวเอเจนต์ [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th)
+  เวอร์ชันใหม่พร้อมการวางแผนร่วมกัน การรองรับการแสดงภาพ การผสานรวมเซิร์ฟเวอร์ MCP
+  และการค้นหาไฟล์
 
-  - [`deep-research-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=it): progettato per
-    velocità ed efficienza, ideale per essere trasmesso in streaming a un'interfaccia utente client.
-  - [`deep-research-max-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=it): massima
-    completezza per la raccolta e la sintesi automatica del contesto.
+  - [`deep-research-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=th): ออกแบบมาเพื่อ
+    ความเร็วและประสิทธิภาพ เหมาะสำหรับการสตรีมกลับไปยัง UI ของไคลเอ็นต์
+  - [`deep-research-max-preview-04-2026`](https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=th): ความครอบคลุมสูงสุด
+    สำหรับการรวบรวมและสังเคราะห์บริบทอัตโนมัติ
 
-## 15 aprile 2026
+## 15 เมษายน 2026
 
-- È stata lanciata l'[anteprima di Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=it), il nostro modello di sintesi vocale economico, espressivo e controllabile. Per saperne di più, leggi la documentazione su
-  [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it).
+- เปิดตัว [Gemini 3.1 Flash TTS เวอร์ชันตัวอย่าง](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=th) ซึ่งเป็นโมเดลข้อความเป็นเสียงที่ประหยัดค่าใช้จ่าย
+  สื่ออารมณ์ และควบคุมได้ อ่านเอกสารประกอบ[ข้อความเป็นเสียงพูด](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)เพื่อดูข้อมูลเพิ่มเติม
 
-## 14 aprile 2026
+## 14 เมษายน 2026
 
-- È stato rilasciato `gemini-robotics-er-1.6-preview`, il nostro modello di robotica aggiornato.
-  Ora ha nuove funzionalità come la lettura degli strumenti e capacità di ragionamento spaziale e fisico migliorate. Per scoprire di più, consulta la pagina [Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=it) e il [blog](https://deepmind.google/blog/gemini-robotics-er-1-6?hl=it).
-- Annuncio di ritiro: il modello `gemini-robotics-er-1.5-preview` verrà [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 30 aprile 2026 alle 9:00 PST.
+- เปิดตัว `gemini-robotics-er-1.6-preview` โมเดลหุ่นยนต์ที่อัปเดตแล้ว
+  ตอนนี้โมเดลมีฟีเจอร์ใหม่ๆ เช่น การอ่านเครื่องดนตรี รวมถึงความสามารถด้านการให้เหตุผลเชิงพื้นที่และเชิงกายภาพที่ได้รับการปรับปรุง ดูข้อมูลเพิ่มเติมได้ที่หน้า[Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th) และ[บล็อก](https://deepmind.google/blog/gemini-robotics-er-1-6?hl=th)
+- ประกาศการเลิกใช้งาน: เราจะ[ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดล `gemini-robotics-er-1.5-preview`
+  ในวันที่ 30 เมษายน 2026 เวลา 09:00 น.
+  PST
 
-## 2 aprile 2026
+## 2 เมษายน 2026
 
-- Rilasciati il giorno `gemma-4-26b-a4b-it` e il giorno `gemma-4-31b-it`, disponibili su
-  [AI Studio](https://aistudio.google.com?hl=it) e tramite l'API Gemini,
-  nell'ambito del lancio di [Gemma 4](https://ai.google.dev/gemma/docs/core?hl=it).
+- เปิดตัว `gemma-4-26b-a4b-it` และ `gemma-4-31b-it` พร้อมให้บริการใน
+  [AI Studio](https://aistudio.google.com?hl=th) และผ่าน Gemini API
+  ซึ่งเป็นส่วนหนึ่งของการเปิดตัว [Gemma 4](https://ai.google.dev/gemma/docs/core?hl=th)
 
-## 1° aprile 2026
+## 1 เมษายน 2026
 
-- Sono stati introdotti i nuovi livelli di inferenza [Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it) e [Priorità](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it), che offrono più opzioni
-  per ottimizzare i costi o la latenza.
+- เปิดตัวระดับการอนุมานใหม่ [Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th) และ [Priority](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th) ซึ่งมีตัวเลือกเพิ่มเติม
+  สำหรับการเพิ่มประสิทธิภาพต้นทุนหรือเวลาในการตอบสนอง
 
-## 31 marzo 2026
+## 31 มีนาคม 2026
 
-- È stata lanciata l'anteprima di Veo 3.1 Lite, [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=it), il nostro modello di [generazione di video](https://ai.google.dev/gemini-api/docs/video?hl=it) più conveniente, progettato per l'iterazione rapida e la creazione di applicazioni ad alto volume.
-- Il modello `gemini-2.5-flash-lite-preview-09-2025` è stato arrestato. Utilizza
-  [`gemini-3.1-flash-lite-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=it).
+- เปิดตัวเวอร์ชันตัวอย่างของ Veo 3.1 Lite, [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=th) ซึ่งเป็นโมเดล[การสร้างวิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)ที่คุ้มค่าที่สุดของเรา ออกแบบมาเพื่อการทำซ้ำอย่างรวดเร็วและการสร้างแอปพลิเคชันที่มีปริมาณสูง
+- โมเดล `gemini-2.5-flash-lite-preview-09-2025` ได้ปิดให้บริการแล้ว โปรดใช้
+  [`gemini-3.1-flash-lite-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=th) แทน
 
-## 26 marzo 2026
+## 26 มีนาคม 2026
 
-- Rilasciato il giorno [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=it), l'ultimo modello
-  audio-audio (A2A) progettato per dialoghi in tempo reale e applicazioni di AI
-  che privilegiano la voce. Leggi la documentazione dell'[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it) per iniziare.
+- เปิดตัว [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=th) โมเดลเสียงต่อเสียง (A2A) ล่าสุดที่ออกแบบมาสำหรับบทสนทนาแบบเรียลไทม์และแอปพลิเคชัน AI ที่ใช้เสียงเป็นหลัก
+  อ่านเอกสารประกอบของ [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th) เพื่อเริ่มต้นใช้งาน
 
-## 25 marzo 2026
+## 25 มีนาคม 2026
 
-- Sono stati lanciati i modelli di generazione di musica [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=it): [`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=it)
-  (clip di 30 secondi) e [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=it)
-  (brani integrali). Entrambi i modelli accettano input di testo e immagini e generano
-  audio stereo di alta qualità a 48 kHz. Per dettagli ed esempi di codice, consulta la guida alla [generazione di musica](https://ai.google.dev/gemini-api/docs/music-generation?hl=it).
+- เปิดตัวโมเดลการสร้างเพลง [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=th)
+  [`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=th)
+  (คลิปความยาว 30 วินาที) และ [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=th)
+  (เพลงแบบเต็ม) ทั้ง 2 โมเดลยอมรับอินพุตข้อความและรูปภาพ และสร้าง
+  เสียงสเตอริโอ 48kHz คุณภาพสูง ดูรายละเอียดและ
+  ตัวอย่างโค้ดได้ในคำแนะนำเกี่ยวกับ[การสร้างเพลง](https://ai.google.dev/gemini-api/docs/music-generation?hl=th)
 
-## 23 marzo 2026
+## 23 มีนาคม 2026
 
-- Implementati [piani di fatturazione con pagamento anticipato e posticipato](https://ai.google.dev/gemini-api/docs/billing?hl=it) in
-  AI Studio. Gli account esistenti potrebbero essere interessati. Per saperne di più, leggi la documentazione sulla [fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it).
+- เปิดตัว[แพ็กเกจการเรียกเก็บเงินแบบชำระล่วงหน้าและชำระภายหลัง](https://ai.google.dev/gemini-api/docs/billing?hl=th)ใน AI Studio บัญชีที่มีอยู่อาจได้รับผลกระทบ โปรดอ่านข้อมูลเพิ่มเติมในเอกสารประกอบเรื่อง[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)
 
-## 18 marzo 2026
+## 18 มีนาคม 2026
 
-- È stata rilasciata la nuova funzionalità [Combinazione di strumenti integrati e chiamate di funzione](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it), che consente
-  di utilizzare gli strumenti integrati di Gemini insieme a strumenti di chiamata di funzione personalizzati
-  in un'unica chiamata API.
-- [Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it#supported_models)
-  è ora supportato per i modelli Gemini 3.
+- เปิดตัวฟีเจอร์ใหม่[การรวมเครื่องมือในตัวและการเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th) ซึ่งช่วยให้ใช้เครื่องมือในตัวของ Gemini ร่วมกับเครื่องมือการเรียกฟังก์ชันที่กำหนดเองได้ในการเรียก API ครั้งเดียว
+- [การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th#supported_models)
+  ตอนนี้รองรับโมเดล Gemini 3 แล้ว
 
-## 16 marzo 2026
+## 16 มีนาคม 2026
 
-- Sono stati introdotti [livelli di utilizzo](https://ai.google.dev/gemini-api/docs/billing?hl=it#about-billing)
-  e [limiti di spesa per l'account di fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it#tier-spend-caps)
-  migliorati per un'esperienza di fatturazione utente migliore.
+- เปิดตัว[ระดับการใช้งาน](https://ai.google.dev/gemini-api/docs/billing?hl=th#about-billing)ที่ปรับปรุงใหม่
+  และ[ขีดจำกัดค่าใช้จ่ายของบัญชีสำหรับการเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th#tier-spend-caps)
+  เพื่อประสบการณ์การเรียกเก็บเงินจากผู้ใช้ที่ดียิ่งขึ้น
 
-## 12 marzo 2026
+## 12 มีนาคม 2026
 
-- Sono stati introdotti i [limiti di spesa a livello di progetto](https://ai.google.dev/gemini-api/docs/billing?hl=it#project-spend-caps) nella fatturazione di AI Studio.
+- เปิดตัว[ขีดจำกัดการใช้จ่ายระดับโปรเจ็กต์](https://ai.google.dev/gemini-api/docs/billing?hl=th#project-spend-caps)สำหรับการเรียกเก็บเงินใน AI Studio
 
-## 10 marzo 2026
+## 10 มีนาคม 2026
 
-- È stato rilasciato `gemini-embedding-2-preview`, il nostro primo modello di embedding multimodale.
-  Supporta input di testo, immagini, video, audio e PDF,
-  mappa tutte le modalità in uno spazio di embedding unificato. Per saperne di più, consulta
-  [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it).
-- Annuncio di ritiro: il modello `gemini-2.5-flash-lite-preview-09-2025` verrà [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 31 marzo 2026.
+- เปิดตัว `gemini-embedding-2-preview` ซึ่งเป็นโมเดลการฝังแบบมัลติโมดัลตัวแรกของเรา
+  โดยรองรับอินพุตข้อความ รูปภาพ วิดีโอ เสียง และ PDF
+  ซึ่งจะแมปรูปแบบทั้งหมดลงในพื้นที่การฝังแบบรวม ดูข้อมูลเพิ่มเติมได้ที่
+  [การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)
+- ประกาศการเลิกใช้งาน: `gemini-2.5-flash-lite-preview-09-2025` โมเดล
+  จะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ 31 มีนาคม 2026
 
-## 9 marzo 2026
+## 9 มีนาคม 2026
 
-- Il modello Gemini 3 Pro Preview è stato [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it). Ora `gemini-3-pro-preview` rimanda a
-  [`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it).
+- เราได้[ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดล Gemini 3 Pro เวอร์ชันตัวอย่างแล้ว ตอนนี้ `gemini-3-pro-preview` ชี้ไปยัง
+  [`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th)
 
-## 3 marzo 2026
+## 3 มีนาคม 2026
 
-- È stata lanciata l'anteprima di Gemini 3.1 Flash-Lite, il primo modello Flash-Lite della serie Gemini 3. Consulta la [pagina del modello](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=it) per specifiche, aggiornamenti specifici e indicazioni per gli sviluppatori.
+- เปิดตัว Gemini 3.1 Flash-Lite (เวอร์ชันตัวอย่าง) ซึ่งเป็นโมเดล Flash-Lite ตัวแรกในซีรีส์ Gemini 3
+  อ่าน[หน้าโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=th)เพื่อดูข้อมูลจำเพาะ ข้อมูลอัปเดตที่เฉพาะเจาะจง และคำแนะนำสำหรับนักพัฒนาซอฟต์แวร์
 
-## 26 febbraio 2026
+## 26 กุมภาพันธ์ 2026
 
-- È stato lanciato Nano Banana 2, [Gemini 3.1 Flash Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=it), un modello ad alta efficienza
-  ottimizzato per la velocità e i casi d'uso ad alto volume.
-- Annuncio del ritiro: l'anteprima di Gemini 3 Pro (`gemini-3-pro-preview`)
-  verrà [chiusa](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 9 marzo 2026.
+- เปิดตัว Nano Banana 2, [ตัวอย่างรูปภาพ Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=th) ซึ่งเป็นโมเดลที่มีประสิทธิภาพสูง
+  ซึ่งได้รับการเพิ่มประสิทธิภาพสำหรับความเร็วและกรณีการใช้งานที่มีปริมาณสูง
+- ประกาศการเลิกใช้งาน: Gemini 3 Pro เวอร์ชันตัวอย่าง (`gemini-3-pro-preview`)
+  จะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ 9 มีนาคม 2026
 
-## 19 febbraio 2026
+## 19 กุมภาพันธ์ 2026
 
-- È stata rilasciata l'[anteprima di Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it), la nostra ultima iterazione della nuova famiglia di modelli Gemini 3.
-- È stato lanciato un endpoint separato `gemini-3.1-pro-preview-customtools`, che è
-  più efficace nel dare la priorità agli strumenti personalizzati, per gli utenti che creano con un mix di bash
-  e strumenti.
+- เปิดตัว [Gemini 3.1 Pro เวอร์ชันตัวอย่าง](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) ซึ่งเป็นรุ่นล่าสุดในตระกูล Gemini 3 รุ่นใหม่
+- เปิดตัวปลายทางแยกต่างหาก`gemini-3.1-pro-preview-customtools` ซึ่ง
+  จัดลำดับความสำคัญของเครื่องมือที่กำหนดเองได้ดีกว่า สำหรับผู้ใช้ที่สร้างด้วยการผสมผสานระหว่าง Bash
+  และเครื่องมือ
 
-## 18 febbraio 2026
+## 18 กุมภาพันธ์ 2026
 
-- Annuncio relativo al ritiro: i seguenti modelli verranno
-  [disattivati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 1° giugno 2026:
+- ประกาศการเลิกใช้งาน: เราจะ[ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดลต่อไปนี้ในวันที่ 1 มิถุนายน 2026
 
   - `gemini-2.0-flash`
   - `gemini-2.0-flash-001`
   - `gemini-2.0-flash-lite`
   - `gemini-2.0-flash-lite-001`
 
-## 17 febbraio 2026
+## 17 กุมภาพันธ์ 2026
 
-- I seguenti modelli sono [in fase di arresto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it):
-
-  - `gemini-2.5-flash-preview-09-25`
-  - `imagen-4.0-generate-preview-06-06`
-  - `imagen-4.0-ultra-generate-preview-06-06`
-
-## 29 gennaio 2026
-
-- È stato lanciato il supporto per lo strumento Utilizzo del computer in `gemini-3-pro-preview` e
-  `gemini-3-flash-preview`.
-
-## 21 gennaio 2026
-
-- Modificati gli alias di `latest`:
-
-  - `gemini-pro-latest` è passato a `gemini-3-pro-preview`
-  - `gemini-flash-latest` è passato a `gemini-3-flash-preview`
-
-## 15 gennaio 2026
-
-- Annuncio di ritiro: i seguenti modelli verranno
-  [arrestati](https://ai.google.dev/gemini-api/docs/deprecations?hl=it) il 17 febbraio 2026:
+- เราจะ[ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดลต่อไปนี้
 
   - `gemini-2.5-flash-preview-09-25`
   - `imagen-4.0-generate-preview-06-06`
   - `imagen-4.0-ultra-generate-preview-06-06`
-- Il modello `gemini-2.5-flash-image-preview` è stato arrestato.
 
-## 14 gennaio 2026
+## 29 มกราคม 2026
 
-- Il modello `text-embedding-004` è stato [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it).
+- เปิดตัวการสนับสนุนเครื่องมือการใช้คอมพิวเตอร์ใน `gemini-3-pro-preview` และ
+  `gemini-3-flash-preview`
 
-## 13 Gennaio 2026
+## 21 มกราคม 2026
 
-- Sono state aggiunte risoluzioni di output 4K per [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it) e un maggiore
-  supporto per i video verticali in tutte le risoluzioni.
+- เปลี่ยนชื่อแทน `latest` ดังนี้
 
-## 12 gennaio 2026
+  - `gemini-pro-latest` เปลี่ยนไปใช้ `gemini-3-pro-preview` แล้ว
+  - `gemini-flash-latest` เปลี่ยนไปใช้ `gemini-3-flash-preview` แล้ว
 
-- È stata lanciata la funzionalità del ciclo di vita del modello. Alcuni modelli ora specificano la fase del ciclo di vita e la cronologia di ritiro. Per ulteriori informazioni, consulta la seguente documentazione:
+## 15 มกราคม 2026
 
-  - [Fasi del modello](https://ai.google.dev/api/generate-content?hl=it#ModelStatus)
+- ประกาศการเลิกใช้งาน: โมเดลต่อไปนี้จะ[ปิดตัว](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)ในวันที่ 17 กุมภาพันธ์ 2026
 
-## 8 gennaio 2026
+  - `gemini-2.5-flash-preview-09-25`
+  - `imagen-4.0-generate-preview-06-06`
+  - `imagen-4.0-ultra-generate-preview-06-06`
+- โมเดล `gemini-2.5-flash-image-preview` ได้ปิดให้บริการแล้ว
 
-- È stato lanciato il supporto per i bucket Cloud Storage e per qualsiasi URL firmato di database pubblico e privato come sorgente di ingresso dei dati per l'API Gemini. Anche il limite di dimensione del file è stato aumentato da 20 MB a 100 MB. Per maggiori dettagli, consulta la [guida ai metodi di input dei file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=it).
+## 14 มกราคม 2026
 
-## 19 dicembre 2025
+- [ปิด](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)โมเดล `text-embedding-004` แล้ว
 
-- È stata introdotta una modifica che causa interruzioni all'API Interactions nella versione v1 beta. Il campo `total_reasoning_tokens` è stato rinominato in
-  `total_thought_tokens` per allinearsi meglio al concetto di "pensieri" nei
-  modelli di pensiero.
+## 13 มกราคม 2026
 
-## 17 dicembre 2025
+- เพิ่มความละเอียดเอาต์พุต 4K สำหรับ [Veo](https://ai.google.dev/gemini-api/docs/video?hl=th) และเพิ่ม
+  การรองรับวิดีโอแนวตั้งในทุกความละเอียด
 
-- È stata lanciata l'anteprima di Gemini 3 Flash, `gemini-3-flash-preview`, che offre prestazioni veloci
-  di livello avanzato che competono con modelli più grandi a una frazione del
-  costo. Con ragionamento visivo e spaziale migliorato e funzionalità di programmazione agentica. Leggi la documentazione su alcune nuove funzionalità, tra cui:
+## 12 มกราคม 2026
 
-  - [Risposte di funzioni multimodali](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#multimodal)
-  - [Esecuzione del codice con immagini](https://ai.google.dev/gemini-api/docs/code-execution?hl=it#images)
+- เปิดตัวฟีเจอร์วงจรการใช้งานโมเดล ตอนนี้โมเดลบางรุ่นจะระบุวงจร
+  ระยะและไทม์ไลน์การเลิกใช้งาน ดูข้อมูลเพิ่มเติมได้ในเอกสารประกอบต่อไปนี้
 
-## 12 dicembre 2025
+  - [ขั้นตอนของโมเดล](https://ai.google.dev/api/generate-content?hl=th#ModelStatus)
 
-- Rilasciato il giorno `gemini-2.5-flash-native-audio-preview-12-2025`,
-  un nuovo modello audio nativo per l'API Live. Questo aggiornamento migliora la capacità del modello
-  di gestire workflow complessi. Per saperne di più, consulta la
-  [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=it) e
-  [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-live?hl=it).
+## 8 มกราคม 2026
 
-## 11 dicembre 2025
+- เปิดตัวการรองรับที่เก็บข้อมูล Cloud Storage รวมถึง URL ที่ลงนามล่วงหน้าของ DB สาธารณะและส่วนตัว
+  เป็นแหล่งข้อมูลนำเข้าสำหรับ Gemini API นอกจากนี้ เรายังเพิ่มขีดจำกัดขนาดไฟล์จาก 20 MB เป็น 100 MB ด้วย โปรดดูรายละเอียดที่[วิธีการป้อนไฟล์
+  คำแนะนำ](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
 
-- È stata lanciata l'API Interactions. Questa API fornisce un'interfaccia unificata
-  per interagire con i modelli e gli agenti Gemini. Per saperne di più, consulta la guida all'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it).
-- È stato lanciato l'agente Gemini Deep Research in anteprima. Può pianificare, eseguire e sintetizzare autonomamente i risultati per attività di ricerca in più passaggi. Per maggiori dettagli, consulta la guida [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it).
+## 19 ธันวาคม 2025
 
-## 10 dicembre 2025
+- เปิดตัวการเปลี่ยนแปลงที่ไม่รองรับการทำงานร่วมกับ Interactions API ใน
+  v1beta ฟิลด์ `total_reasoning_tokens` ได้เปลี่ยนชื่อเป็น `total_thought_tokens` เพื่อให้สอดคล้องกับแนวคิดของ "ความคิด" ในโมเดลการคิดได้ดียิ่งขึ้น
 
-- Sono stati lanciati miglioramenti ai nostri [modelli di sintesi vocale](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it), all'anteprima di Gemini 2.5 Flash TTS (ottimizzata per la bassa latenza) e all'anteprima di Gemini 2.5 Pro TTS (ottimizzata per la qualità), tra cui espressività migliorata, ritmo preciso e dialoghi fluidi.
+## 17 ธันวาคม 2025
 
-## 9 dicembre 2025
+- เปิดตัวเวอร์ชันตัวอย่างของ Gemini 3 Flash `gemini-3-flash-preview` ซึ่งให้ประสิทธิภาพระดับแนวหน้า
+  ที่รวดเร็วเทียบเท่าโมเดลขนาดใหญ่กว่าในราคาที่ถูกกว่า
+  มาก ด้วยความสามารถในการให้เหตุผลด้านภาพและเชิงพื้นที่ที่ได้รับการอัปเกรด รวมถึงการเขียนโค้ดแบบ Agent
+  อ่านเอกสารประกอบเกี่ยวกับฟีเจอร์ใหม่ๆ บางอย่าง ซึ่งรวมถึง
 
-- I seguenti modelli API Gemini Live sono stati chiusi:
+  - [คำตอบของฟังก์ชันมัลติโมดัล](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#multimodal)
+  - [การเรียกใช้โค้ดด้วยรูปภาพ](https://ai.google.dev/gemini-api/docs/code-execution?hl=th#images)
+
+## 12 ธันวาคม 2025
+
+- เปิดตัว `gemini-2.5-flash-native-audio-preview-12-2025`,
+  โมเดลเสียงเนทีฟใหม่สำหรับ Live API การอัปเดตนี้จะปรับปรุงความสามารถของโมเดล
+  ในการจัดการเวิร์กโฟลว์ที่ซับซ้อน ดูข้อมูลเพิ่มเติมได้ที่[คู่มือ Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=th) และ[เสียงเนทีฟของ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-live?hl=th)
+
+## 11 ธันวาคม 2025
+
+- เปิดตัว Interactions API API นี้มีอินเทอร์เฟซแบบรวม
+  สำหรับการโต้ตอบกับโมเดลและเอเจนต์ของ Gemini ดูข้อมูลเพิ่มเติมได้ที่คู่มือ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
+- เปิดตัวเอเจนต์ Deep Research ของ Gemini ในเวอร์ชันตัวอย่าง ฟีเจอร์นี้สามารถ
+  วางแผน ดำเนินการ และสังเคราะห์ผลลัพธ์สำหรับงานค้นคว้าข้อมูลแบบหลายขั้นตอน
+  ได้โดยอัตโนมัติ ดูรายละเอียดได้ในคู่มือ [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th)
+
+## 10 ธันวาคม 2025
+
+- เปิดตัวการปรับปรุง[โมเดลข้อความเป็นเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th), ตัวอย่าง TTS ของ Gemini 2.5 Flash
+  (ปรับให้มีเวลาในการตอบสนองต่ำ) และตัวอย่าง TTS ของ Gemini 2.5 Pro (ปรับให้มี
+  คุณภาพ) ซึ่งรวมถึงการปรับปรุงความสามารถในการแสดงออก การเว้นวรรคที่แม่นยำ และ
+  บทสนทนาที่ราบรื่น
+
+## 9 ธันวาคม 2025
+
+- ตอนนี้เราได้ปิดตัวโมเดล Gemini Live API ต่อไปนี้แล้ว
   - `gemini-2.0-flash-live-001`
   - `gemini-live-2.5-flash-preview`
 
-## 5 dicembre 2025
+## 5 ธันวาคม 2025
 
-- La fatturazione di Gemini 3 per il [grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) inizierà il 5 gennaio 2026.
+- การเรียกเก็บเงินสำหรับ Gemini 3 สำหรับ[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) จะเริ่มในวันที่ 5 มกราคม 2026
 
-## 4 dicembre 2025
+## 4 ธันวาคม 2568
 
-- Annuncio di ritiro: il modello `gemini-2.5-flash-image-preview` verrà
-  disattivato il 15 gennaio 2026.
+- ประกาศการเลิกใช้งาน: โมเดล `gemini-2.5-flash-image-preview` จะ
+  ปิดตัวลงในวันที่ 15 มกราคม 2026
 
-## 3 dicembre 2025
+## 3 ธันวาคม 2025
 
-- Annuncio relativo al ritiro: il modello `text-embedding-004` verrà disattivato il 14 gennaio 2026.
+- ประกาศการเลิกใช้งาน: เราจะปิดโมเดล `text-embedding-004`
+  ในวันที่ 14 มกราคม 2026
 
-## 20 novembre 2025
+## 20 พฤศจิกายน 2025
 
-- È stata rilasciata l'anteprima delle immagini di Gemini 3 Pro, `gemini-3-pro-image-preview`, la
-  prossima iterazione del modello Nano Banana. Per ulteriori dettagli, consulta la pagina [Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
+- เปิดตัวตัวอย่างรูปภาพ Gemini 3 Pro, `gemini-3-pro-image-preview` ซึ่งเป็น
+  รุ่นถัดไปของโมเดล Nano Banana อ่านรายละเอียดเพิ่มเติมได้ที่หน้า[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
 
-## 18 novembre 2025
+## 18 พฤศจิกายน 2025
 
-- È stato lanciato il primo modello della serie Gemini 3, `gemini-3-pro-preview`, il nostro
-  modello allo stato dell'arte per il ragionamento e la comprensione multimodale con potenti
-  funzionalità agentiche e di programmazione.
+- เปิดตัวโมเดล Gemini 3 Series รุ่นแรก `gemini-3-pro-preview` ซึ่งเป็นโมเดลการให้เหตุผลและการทำความเข้าใจข้อมูลหลายรูปแบบที่ล้ำสมัยของเรา พร้อมความสามารถในการเขียนโค้ดและตัวแทนที่ทรงพลัง
 
-  Oltre ai miglioramenti in termini di intelligenza e prestazioni,
-  l'anteprima di Gemini 3 Pro introduce un nuovo comportamento in merito a:
+  นอกเหนือจากการปรับปรุงด้านความอัจฉริยะและประสิทธิภาพแล้ว
+  รุ่นตัวอย่างของ Gemini 3 Pro ยังมีลักษณะการทำงานใหม่ๆ ในด้านต่อไปนี้
 
-  - [Risoluzione dei contenuti multimediali](https://ai.google.dev/gemini-api/docs/media-resolution?hl=it)
-  - [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it)
-  - [Livelli di ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it#thinking-levels)
+  - [ความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/media-resolution?hl=th)
+  - [ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)
+  - [ระดับการคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#thinking-levels)
 
-  Leggi la [Guida per gli sviluppatori di Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=it) per
-  migrazione, nuove funzionalità e specifiche.
+  อ่าน[คู่มือนักพัฒนาซอฟต์แวร์ Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=th) สำหรับ
+  การย้ายข้อมูล ฟีเจอร์ใหม่ และข้อกำหนด
 
-## 11 novembre 2025
+## 11 พฤศจิกายน 2025
 
-- Annuncio del ritiro: i seguenti modelli verranno chiusi:
+- ประกาศการเลิกใช้งาน: เราจะปิดโมเดลต่อไปนี้
 
-  - 12 novembre:
+  - 12 พฤศจิกายน:
 
     - `veo-3.0-fast-generate-preview`
     - `veo-3.0-generate-preview`
-  - 14 novembre:
+  - 14 พฤศจิกายน:
 
     - `gemini-2.0-flash-exp-image-generation`
     - `gemini-2.0-flash-preview-image-generation`
 
-## 10 novembre 2025
+## 10 พฤศจิกายน 2025
 
-- Il seguente modello è stato arrestato:
+- เราจะปิดโมเดลต่อไปนี้
 
   - `imagen-3.0-generate-002`
 
-  Usa [Imagen 4](https://ai.google.dev/gemini-api/docs/imagen?hl=it#imagen-4). Per ulteriori dettagli, consulta la
-  [tabella dei ritiri di Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=it).
+  ให้ใช้ [Imagen 4](https://ai.google.dev/gemini-api/docs/imagen?hl=th#imagen-4) แทน ดูรายละเอียดเพิ่มเติมได้ใน[ตารางการเลิกใช้งาน Gemini](https://ai.google.dev/gemini-api/docs/deprecations?hl=th)
 
-## 6 novembre 2025
+## 6 พฤศจิกายน 2025
 
-- È stata lanciata l'API File Search in anteprima pubblica, consentendo agli sviluppatori di
-  basare le risposte sui propri dati. Per saperne di più, consulta la nuova pagina [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it).
+- เปิดตัว File Search API ในเวอร์ชันตัวอย่างแบบสาธารณะ ซึ่งช่วยให้นักพัฒนาซอฟต์แวร์
+  อ้างอิงคำตอบจากข้อมูลของตนเองได้ อ่านข้อมูลเพิ่มเติมได้ที่หน้า[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)ใหม่
 
-## November 4, 2025
+## 4 พฤศจิกายน 2025
 
-- Per [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/image-generation?hl=it), il conteggio dei token di input per le immagini è stato ridotto da 1290 a 258, diminuendo il costo della modifica delle immagini.
-- Annuncio del ritiro: i seguenti modelli verranno chiusi:
+- สำหรับ [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/image-generation?hl=th) เราได้ลดจำนวนโทเค็นอินพุต
+  สำหรับรูปภาพจาก 1,290 เป็น 258 ซึ่งจะช่วยลดต้นทุน
+  ในการแก้ไขรูปภาพ
+- ประกาศการเลิกใช้งาน: เราจะปิดโมเดลต่อไปนี้
 
-  - 18 novembre:
+  - 18 พฤศจิกายน:
 
     - `gemini-2.5-flash-lite-preview-06-17`
     - `gemini-2.5-flash-preview-05-20`
-  - 2 dicembre:
+  - 2 ธันวาคม:
 
     - `gemini-2.0-flash-thinking-exp`
     - `gemini-2.0-flash-thinking-exp-01-21`
@@ -594,7 +601,7 @@ Questa pagina documenta gli aggiornamenti dell'API Gemini.
     - `gemini-2.5-pro-preview-03-25`
     - `gemini-2.5-pro-preview-05-06`
     - `gemini-2.5-pro-preview-06-05`
-  - 9 dicembre:
+  - 9 ธันวาคม:
 
     - `gemini-2.0-flash-lite-preview`
     - `gemini-2.0-flash-lite-preview-02-05`
@@ -602,669 +609,642 @@ Questa pagina documenta gli aggiornamenti dell'API Gemini.
     - `gemini-2.0-pro-exp`
     - `gemini-2.0-pro-exp-02-05`
 
-## 29 ottobre 2025
+## 29 ตุลาคม 2025
 
-- È stato lanciato il nuovo strumento [logging e set di dati](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it)
-  per l'API Gemini.
+- เปิดตัวเครื่องมือ[การบันทึกและการสร้างชุดข้อมูล](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=th)ใหม่
+  สำหรับ Gemini API
 
-## 20 ottobre 2025
+## 20 ตุลาคม 2025
 
-- I seguenti modelli dell'API Gemini Live non sono più disponibili:
+- ตอนนี้เราได้ปิดตัวโมเดล Gemini Live API ต่อไปนี้แล้ว
 
   - `gemini-2.5-flash-preview-native-audio-dialog`
   - `gemini-2.5-flash-exp-native-audio-thinking-dialog`
 
-  Puoi utilizzare `gemini-2.5-flash-native-audio-preview-09-2025`.
-- Annuncio di ritiro: chiusura di `gemini-2.0-flash-live-001` e
-  `gemini-live-2.5-flash-preview` a partire dal 9 dicembre 2025.
+  คุณสามารถใช้ `gemini-2.5-flash-native-audio-preview-09-2025` แทนได้
+- ประกาศการเลิกใช้งาน: การปิดตัวของ `gemini-2.0-flash-live-001` และ
+  `gemini-live-2.5-flash-preview` ในวันที่ 9 ธันวาคม 2025
 
-## 17 ottobre 2025
+## 17 ตุลาคม 2025
 
-- **Grounding con Google Maps** è ora
-  disponibile a livello generale. Per saperne di più, consulta la documentazione relativa a [Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it).
+- **การเชื่อมต่อแหล่งข้อมูลกับ Google Maps** พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว
+  ดูข้อมูลเพิ่มเติมได้ที่เอกสารประกอบ[การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)
 
-## 15 ottobre 2025
+## 15 ตุลาคม 2025
 
-- Sono stati rilasciati i modelli [Veo 3.1 e 3.1 Fast](https://ai.google.dev/gemini-api/docs/video?hl=it#veo-3.1) in anteprima pubblica, con nuove funzionalità tra cui:
+- เปิดตัวโมเดล [Veo 3.1 และ 3.1 Fast](https://ai.google.dev/gemini-api/docs/video?hl=th#veo-3.1) ในเวอร์ชันตัวอย่างแบบสาธารณะ พร้อมฟีเจอร์ใหม่ๆ ซึ่งรวมถึง
 
-  - Estensione dei video creati con Veo.
-  - Fare riferimento a un massimo di tre immagini per generare un video.
-  - Fornendo le immagini del primo e dell'ultimo fotogramma per generare i video.
+  - การขยายวิดีโอที่สร้างด้วย Veo
+  - อ้างอิงรูปภาพได้สูงสุด 3 รูปเพื่อสร้างวิดีโอ
+  - การระบุรูปภาพเฟรมแรกและเฟรมสุดท้ายเพื่อสร้างวิดีโอ
 
-  Questo lancio ha aggiunto anche altre opzioni per le durate dei video di output di Veo 3: 4, 6 e 8 secondi.
-- Annuncio di ritiro: chiusura di `veo-3.0-generate-preview` e
-  `veo-3.0-fast-generate-preview` a partire dal 12 novembre 2025.
+  การเปิดตัวนี้ยังเพิ่มตัวเลือกเพิ่มเติมสำหรับระยะเวลาของวิดีโอเอาต์พุตของ Veo 3 ได้แก่ 4, 6 และ 8 วินาที
+- ประกาศการเลิกใช้งาน: การปิดตัวสำหรับ `veo-3.0-generate-preview` และ
+  `veo-3.0-fast-generate-preview` จะมีขึ้นในวันที่ 12 พฤศจิกายน 2025
 
-## 7 ottobre 2025
+## 7 ตุลาคม 2025
 
-- È stata lanciata l'[anteprima dell'utilizzo di Gemini 2.5 su computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)
+- เปิดตัว [Gemini 2.5 Computer Use Preview](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)
 
-## 2 ottobre 2025
+## 2 ตุลาคม 2025
 
-- Lancio della disponibilità generale di Gemini 2.5 Flash Image: [generazione di immagini con Gemini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)
+- เปิดตัว GA ของรูปภาพ Gemini 2.5 Flash: [การสร้างรูปภาพด้วย Gemini](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
 
-## 29 settembre 2025
+## 29 กันยายน 2025
 
-- I seguenti modelli Gemini 1.5 sono stati disattivati:
+- ตอนนี้เราได้ปิดโมเดล Gemini 1.5 ต่อไปนี้แล้ว
   - `gemini-1.5-pro`
   - `gemini-1.5-flash-8b`
   - `gemini-1.5-flash`
 
-## 25 settembre 2025
+## 25 กันยายน 2025
 
-- È stato rilasciato il modello Gemini Robotics ER 1.5 in anteprima. Consulta la
-  [panoramica della robotica](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=it)
-  per scoprire come utilizzare il modello per la tua applicazione di robotica.
-- Sono stati lanciati i seguenti modelli di anteprima:
+- เปิดตัวโมเดล Gemini Robotics ER 1.5 ในเวอร์ชันตัวอย่าง ดู[ภาพรวมของหุ่นยนต์](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th)
+  เพื่อดูวิธีใช้โมเดลสำหรับแอปพลิเคชันหุ่นยนต์
+- เปิดตัวโมเดลเวอร์ชันตัวอย่างต่อไปนี้
 
   - `gemini-2.5-flash-preview-09-2025`
   - `gemini-2.5-flash-lite-preview-09-2025`
 
-  Per maggiori dettagli, consulta la pagina [Modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
+  ดูรายละเอียดได้ที่หน้า[โมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
 
-## 23 settembre 2025
+## 23 กันยายน 2025
 
-- Rilasciato `gemini-2.5-flash-native-audio-preview-09-2025`, un nuovo modello audio nativo per l'API Live con gestione migliorata delle chiamate di funzioni e dell'interruzione del parlato. Per saperne di più, consulta la
-  [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=it) e
-  [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-native-audio).
+- เปิดตัว `gemini-2.5-flash-native-audio-preview-09-2025`
+  โมเดลเสียงเนทีฟใหม่สำหรับ Live API ที่มีการเรียกใช้ฟังก์ชันที่ได้รับการปรับปรุง
+  และการจัดการการตัดเสียงพูด ดูข้อมูลเพิ่มเติมได้ที่[คู่มือ Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=th) และ[เสียงเนทีฟของ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-native-audio)
 
-## 16 settembre 2025
+## 16 กันยายน 2025
 
-- Annuncio di ritiro: i seguenti modelli verranno arrestati a ottobre 2025:
+- ประกาศการเลิกใช้งาน: เราจะปิดให้บริการโมเดลต่อไปนี้ในเดือนตุลาคม 2025
 
   - `embedding-001`
   - `embedding-gecko-001`
   - `gemini-embedding-exp-03-07` (`gemini-embedding-exp`)
 
-  Per informazioni dettagliate sull'ultimo modello di embedding, consulta la pagina [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=it).
+  ดูรายละเอียดเกี่ยวกับโมเดลการฝังล่าสุดได้ที่หน้า[การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)
 
-## 10 settembre 2025
+## 10 กันยายน 2025
 
-- È stato rilasciato il supporto per il
-  [modello Embeddings nell'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it#batch-embedding)
-  ed è stata aggiunta l'API Batch alla
-  [libreria di compatibilità con OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it#batch) per
-  semplificare ulteriormente l'inizio delle query batch.
+- เปิดตัวการรองรับ[โมเดลการฝังใน Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th#batch-embedding) และเพิ่ม Batch API ลงใน[ไลบรารีความเข้ากันได้กับ OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=th#batch) เพื่อให้เริ่มต้นใช้งานการค้นหาแบบกลุ่มได้ง่ายยิ่งขึ้น
 
-## 9 settembre 2025
+## 9 กันยายน 2025
 
-- Lancio della GA di Veo 3 e Veo 3 Fast, con prezzi più bassi e nuove opzioni per
-  proporzioni, risoluzione e seeding. Per saperne di più, leggi la
-  [documentazione di Veo](https://ai.google.dev/gemini-api/docs/video?hl=it#model-features).
+- เปิดตัว Veo 3 และ Veo 3 Fast GA พร้อมราคาที่ต่ำลงและตัวเลือกใหม่สำหรับ
+  สัดส่วนภาพ ความละเอียด และการเริ่มต้น อ่านข้อมูลเพิ่มเติมได้ใน
+  [เอกสารประกอบของ Veo](https://ai.google.dev/gemini-api/docs/video?hl=th#model-features)
 
-## 26 agosto 2025
+## 26 สิงหาคม 2025
 
-- È stato lanciato [Gemini 2.5 Image Preview](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-image-preview),
-  il nostro modello di generazione di immagini nativo più recente.
+- เปิดตัว[ตัวอย่างรูปภาพ Gemini 2.5](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-image-preview)
+  โมเดลการสร้างรูปภาพแบบเนทีฟล่าสุดของเรา
 
-## 18 agosto 2025
+## 18 สิงหาคม 2025
 
-- È stato rilasciato lo [strumento Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) per la disponibilità generale (GA), uno strumento per fornire URL come contesto aggiuntivo ai prompt. Il supporto per l'utilizzo del contesto URL con il modello `gemini-2.0-flash`
-  (disponibile durante il rilascio sperimentale) verrà interrotto tra una settimana.
+- เปิดตัว[เครื่องมือบริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th) ในเวอร์ชันสำหรับผู้ใช้ทั่วไป (GA) ซึ่งเป็นเครื่องมือสำหรับระบุ URL เป็นบริบทเพิ่มเติมในพรอมต์
+  การสนับสนุนการใช้บริบท URL กับโมเดล `gemini-2.0-flash`
+  (พร้อมใช้งานในช่วงการเปิดตัวเวอร์ชันทดลอง) จะสิ้นสุดในอีก 1 สัปดาห์
 
-## 14 agosto 2025
+## 14 สิงหาคม 2025
 
-- Sono stati rilasciati i modelli Imagen 4 Ultra, Standard e Fast in disponibilità generale (GA). Per saperne di più, consulta la pagina [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=it).
+- เปิดตัวโมเดล Imagen 4 Ultra, Standard และ Fast เป็นแบบพร้อมให้บริการแก่ผู้ใช้ทั่วไป (GA) ดูข้อมูลเพิ่มเติมได้ที่หน้า [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=th)
 
-## 7 agosto 2025
+## 7 สิงหาคม 2025
 
-- L'impostazione `allow_adult` nella generazione Da immagine a video è ora disponibile nelle regioni con limitazioni. Per informazioni dettagliate, consulta la pagina
-  [Veo](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=it#veo-model-parameters).
+- `allow_adult` การตั้งค่าในการสร้างวิดีโอจากภาพพร้อมให้บริการในภูมิภาคที่ถูกจำกัดแล้ว ดูรายละเอียดได้ที่หน้า [Veo](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=th#veo-model-parameters)
 
-## 31 luglio 2025
+## 31 กรกฎาคม 2025
 
-- È stata lanciata la generazione di video da immagini per il modello Veo 3 Preview.
-- È stato rilasciato il modello di anteprima di Veo 3 Fast.
-- Per scoprire di più su Veo 3, visita la pagina [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it).
+- เปิดตัวการสร้างวิดีโอจากรูปภาพสำหรับโมเดล Veo 3 เวอร์ชันตัวอย่าง
+- เปิดตัวโมเดล Veo 3 Fast Preview
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับ Veo 3 ได้ที่หน้า [Veo](https://ai.google.dev/gemini-api/docs/video?hl=th)
 
-## 22 luglio 2025
+## 22 กรกฎาคม 2025
 
-- Rilasciato il giorno `gemini-2.5-flash-lite`, il nostro modello Gemini 2.5 veloce, economico e ad alte prestazioni. Per saperne di più, consulta [Gemini 2.5
-  Flash-Lite](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-lite).
+- เปิดตัว `gemini-2.5-flash-lite` โมเดล Gemini 2.5 ที่รวดเร็ว ต้นทุนต่ำ และมีประสิทธิภาพสูง ดูข้อมูลเพิ่มเติมได้ที่ [Gemini 2.5
+  Flash-Lite](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-lite)
 
-## Luglio 17, 2025
+## July 17, 2025
 
-- È stato lanciato `veo-3.0-generate-preview`, l'ultimo aggiornamento di Veo che introduce la generazione di video con audio. Per scoprire di più su Veo 3, visita la pagina [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it).
-- Aumento dei limiti di frequenza per Imagen 4 Standard e Ultra. Per ulteriori dettagli, visita la pagina [Limiti di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it).
+- เปิดตัว `veo-3.0-generate-preview` ซึ่งเป็นการอัปเดตล่าสุดของ Veo ที่มาพร้อม
+  การสร้างวิดีโอพร้อมเสียง ดูข้อมูลเพิ่มเติมเกี่ยวกับ Veo 3 ได้ที่หน้า [Veo](https://ai.google.dev/gemini-api/docs/video?hl=th)
+- เพิ่มขีดจำกัดอัตราสำหรับ Imagen 4 Standard และ Ultra ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ขีดจำกัดอัตรา](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th)
 
-## 14 luglio 2025
+## 14 กรกฎาคม 2025
 
-- È stata rilasciata `gemini-embedding-001`, la versione stabile del nostro
-  modello di text embedding. Per saperne di più, consulta
-  [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it). Il modello `gemini-embedding-exp-03-07` verrà ritirato il 14 agosto 2025.
+- เปิดตัว `gemini-embedding-001` โมเดลการฝังข้อความเวอร์ชันเสถียร
+  ดูข้อมูลเพิ่มเติมได้ที่
+  [การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th) `gemini-embedding-exp-03-07`
+  เราจะเลิกใช้งานโมเดลนี้ในวันที่ 14 สิงหาคม 2025
 
-## 7 luglio 2025
+## 7 กรกฎาคม 2025
 
-- È stata lanciata la modalità batch dell'API Gemini. Raggruppa le richieste e inviale per l'elaborazione
-  in modo asincrono. Per saperne di più, vedi [Modalità batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=it).
+- เปิดตัวโหมดกลุ่มของ Gemini API จัดกลุ่มคำขอและส่งไปประมวลผล
+  แบบไม่พร้อมกัน ดูข้อมูลเพิ่มเติมได้ที่[โหมดกลุ่ม](https://ai.google.dev/gemini-api/docs/batch-mode?hl=th)
 
-## 26 giugno 2025
+## 26 มิถุนายน 2025
 
-- I modelli in anteprima `gemini-2.5-pro-preview-05-06` e
-  `gemini-2.5-pro-preview-03-25` ora reindirizzano alla
-  versione stabile più recente `gemini-2.5-pro`.
-- `gemini-2.5-pro-exp-03-25` è stato chiuso.
+- ตอนนี้โมเดลเวอร์ชันตัวอย่าง `gemini-2.5-pro-preview-05-06` และ `gemini-2.5-pro-preview-03-25` จะเปลี่ยนเส้นทางไปยังเวอร์ชันล่าสุดที่เสถียร `gemini-2.5-pro`
+- `gemini-2.5-pro-exp-03-25` ปิดตัวแล้ว
 
-## 24 giugno 2025
+## 24 มิถุนายน 2025
 
-- Sono stati rilasciati i modelli di anteprima Imagen 4 Ultra e Standard. Per saperne di più, consulta la pagina
-  [Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
+- เปิดตัวโมเดลตัวอย่าง Imagen 4 Ultra และ Standard ดูข้อมูลเพิ่มเติมได้ที่หน้า[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
 
-## 17 giugno 2025
+## 17 มิถุนายน 2025
 
-- È stato rilasciato `gemini-2.5-pro`, la versione stabile del nostro modello più potente, ora con il pensiero adattivo. Per saperne di più, vedi
-  [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro)
-  e [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it). `gemini-2.5-pro-preview-05-06`
-  verrà reindirizzato a `gemini-2.5-pro` il 26 giugno 2025.
-- È stato rilasciato `gemini-2.5-flash`, il nostro primo modello 2.5 Flash stabile. Per saperne di più, consulta [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash).
-  `gemini-2.5-flash-preview-04-17` verrà ritirato il 15 luglio 2025.
-- Rilasciato il giorno `gemini-2.5-flash-lite-preview-06-17`, un modello Gemini 2.5 a basso costo e ad alte prestazioni. Per saperne di più, consulta [Anteprima di Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-lite).
+- เราได้เปิดตัว `gemini-2.5-pro` ซึ่งเป็นเวอร์ชันเสถียรของโมเดลที่ทรงพลังที่สุด
+  ของเรา ซึ่งตอนนี้มาพร้อมการคิดแบบปรับเปลี่ยนได้ ดูข้อมูลเพิ่มเติมได้ที่
+  [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-pro)
+  และ[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th) `gemini-2.5-pro-preview-05-06`
+  จะเปลี่ยนเส้นทางไปยัง `gemini-2.5-pro` ในวันที่ 26 มิถุนายน 2025
+- เปิดตัว `gemini-2.5-flash` โมเดล 2.5 Flash ที่เสถียรตัวแรกของเรา ดูข้อมูลเพิ่มเติมได้ที่ [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash)
+  `gemini-2.5-flash-preview-04-17` จะเลิกใช้งานในวันที่ 15 กรกฎาคม 2025
+- เปิดตัว `gemini-2.5-flash-lite-preview-06-17` โมเดล Gemini 2.5 ที่มีต้นทุนต่ำและประสิทธิภาพสูง
+  ดูข้อมูลเพิ่มเติมได้ที่[เวอร์ชันตัวอย่างของ Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-lite)
 
-## 5 giugno 2025
+## 5 มิถุนายน 2025
 
-- È stato rilasciato `gemini-2.5-pro-preview-06-05`, una nuova versione del nostro modello più potente, ora con il pensiero adattivo. Per saperne di più, consulta
-  [Anteprima di Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro-preview-06-05)
-  e [Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
-  `gemini-2.5-pro-preview-05-06` verrà reindirizzato a `gemini-2.5-pro` il
-  26 giugno 2025.
+- เปิดตัว `gemini-2.5-pro-preview-06-05` โมเดลเวอร์ชันใหม่ที่ทรงพลังที่สุดของเรา
+  ซึ่งมาพร้อมการคิดแบบปรับเปลี่ยนได้ ดูข้อมูลเพิ่มเติมได้ที่
+  [ตัวอย่าง Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-pro-preview-06-05)
+  และ[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+  ระบบจะเปลี่ยนเส้นทาง `gemini-2.5-pro-preview-05-06` ไปยัง `gemini-2.5-pro` ในวันที่ 26 มิถุนายน 2025
 
-## 27 maggio 2025
+## 27 พฤษภาคม 2025
 
-- L'ultimo modello di ottimizzazione disponibile, Gemini 1.5 Flash 001, è stato arrestato.
-  L'ottimizzazione non è più supportata su nessun modello.
-  Consulta [Ottimizzazione con l'API Gemini](https://ai.google.dev/gemini-api/docs/model-tuning?hl=it).
+- เราได้ปิดตัวโมเดลการปรับแต่งสุดท้ายที่พร้อมให้บริการอย่าง Gemini 1.5 Flash 001 แล้ว
+  ระบบไม่รองรับการปรับแต่งในโมเดลใดๆ อีกต่อไป
+  ดู[การปรับแต่งด้วย Gemini API](https://ai.google.dev/gemini-api/docs/model-tuning?hl=th)
 
-## 20 maggio 2025
+## 20 พ.ค. 2025
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato lanciato il supporto per
-  [l'elaborazione preliminare personalizzata dei video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#customize-video-processing)
-  utilizzando intervalli di ritaglio e campionamento della frequenza fotogrammi configurabile.
-- È stato lanciato l'utilizzo di più strumenti, che supporta la configurazione
-  dell'[esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) e del
-  [Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it) nella stessa
-  richiesta `generateContent`.
-- È stato lanciato il supporto per le
-  [chiamate di funzioni asincrone](https://ai.google.dev/gemini-api/docs/live-tools?hl=it#async-function-calling)
-  nell'API Live.
-- È stato lanciato uno
-  [strumento di contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)
-  sperimentale per fornire URL come contesto aggiuntivo per i prompt.
+- เปิดตัวการรองรับ
+  [การประมวลผลวิดีโอก่อนการแสดงผลที่กำหนดเอง](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#customize-video-processing)
+  โดยใช้ช่วงการตัดและอัตราการสุ่มตัวอย่างเฟรมที่กำหนดค่าได้
+- เปิดตัวการใช้เครื่องมือหลายอย่าง ซึ่งรองรับการกำหนดค่า[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)และ[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th) ในคำขอ`generateContent`เดียวกัน
+- เปิดตัวการรองรับ[การเรียกใช้ฟังก์ชันแบบไม่พร้อมกัน](https://ai.google.dev/gemini-api/docs/live-tools?hl=th#async-function-calling)
+  ใน Live API
+- เปิดตัว[เครื่องมือบริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)
+  เวอร์ชันทดลอง
+  เพื่อระบุ URL เป็นบริบทเพิ่มเติมในพรอมต์
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato `gemini-2.5-flash-preview-05-20`, un modello Gemini
-  [in anteprima](https://ai.google.dev/gemini-api/docs/models?hl=it#model-versions) ottimizzato per
-  il rapporto prezzo/prestazioni e il pensiero adattivo. Per saperne di più, consulta
-  [Anteprima di Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-preview)
-  e [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
-- Sono stati rilasciati i modelli
-  [`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro-preview-tts)
-  e
-  [`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-preview-tts), in grado di
-  [generare discorsi](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it) con uno o due
-  oratori.
-- È stato rilasciato il modello `lyria-realtime-exp`, che
-  [genera musica](https://ai.google.dev/gemini-api/docs/music-generation?hl=it) in tempo reale.
-- Sono stati rilasciati `gemini-2.5-flash-preview-native-audio-dialog` e
+- เปิดตัว `gemini-2.5-flash-preview-05-20` ซึ่งเป็นโมเดล[ตัวอย่าง](https://ai.google.dev/gemini-api/docs/models?hl=th#model-versions)ของ Gemini
+  ที่ได้รับการเพิ่มประสิทธิภาพเพื่อ
+  ประสิทธิภาพด้านราคาและการคิดแบบปรับเปลี่ยนได้ ดูข้อมูลเพิ่มเติมได้ที่[เวอร์ชันตัวอย่างของ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-preview)
+  และ[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+- เปิดตัวโมเดล
+  [`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-pro-preview-tts)
+  และ
+  [`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-preview-tts)
+  ซึ่งสามารถ[สร้างคำพูด](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)โดยมีผู้พูด 1 หรือ 2 คน
+- เปิดตัวโมเดล `lyria-realtime-exp` ซึ่ง[สร้างเพลง](https://ai.google.dev/gemini-api/docs/music-generation?hl=th)แบบเรียลไทม์
+- เปิดตัว `gemini-2.5-flash-preview-native-audio-dialog` และ
   `gemini-2.5-flash-exp-native-audio-thinking-dialog`,
-  nuovi modelli Gemini per l'API Live con funzionalità di output audio native. Per
-  scoprire di più, consulta la
-  [guida all'API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#native-audio-output) e
-  [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-native-audio).
-- Rilasciata l'anteprima di `gemma-3n-e4b-it`, disponibile su
-  [AI Studio](https://aistudio.google.com?hl=it) e tramite l'API Gemini,
-  nell'ambito del lancio di [Gemma 3n](https://ai.google.dev/gemma/docs/3n?hl=it).
+  โมเดล Gemini ใหม่สำหรับ Live API ที่มีความสามารถเอาต์พุตเสียงแบบเนทีฟ ดูข้อมูลเพิ่มเติมได้ที่[คู่มือ Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=th#native-audio-output) และ[เสียงดั้งเดิมของ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-native-audio)
+- เปิดตัว`gemma-3n-e4b-it`เวอร์ชันตัวอย่างที่พร้อมใช้งานใน
+  [AI Studio](https://aistudio.google.com?hl=th) และผ่าน Gemini API
+  ซึ่งเป็นส่วนหนึ่งของการเปิดตัว [Gemma 3n](https://ai.google.dev/gemma/docs/3n?hl=th)
 
-## 7 maggio 2025
+## 7 พฤษภาคม 2025
 
-- È stato rilasciato `gemini-2.0-flash-preview-image-generation`, un modello di anteprima per
-  generare e modificare immagini. Per saperne di più, consulta [Generazione
-  di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it) e
-  [Generazione di immagini di anteprima di Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.0-flash-preview-image-generation).
+- เปิดตัว `gemini-2.0-flash-preview-image-generation` โมเดลเวอร์ชันตัวอย่างสำหรับ
+  การสร้างและแก้ไขรูปภาพ ดูข้อมูลเพิ่มเติมได้ที่[การสร้าง
+  รูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)และ
+  [การสร้างรูปภาพตัวอย่างของ Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.0-flash-preview-image-generation)
 
-## 6 maggio 2025
+## 6 พฤษภาคม 2025
 
-- È stato rilasciato `gemini-2.5-pro-preview-05-06`, una nuova versione del nostro modello più potente, con miglioramenti al codice e alle chiamate di funzione. `gemini-2.5-pro-preview-03-25`
-  punterà automaticamente alla nuova versione del modello.
+- เปิดตัว `gemini-2.5-pro-preview-05-06` ซึ่งเป็นโมเดลเวอร์ชันใหม่ที่ทรงพลังที่สุดของเรา
+  พร้อมการปรับปรุงด้านโค้ดและการเรียกใช้ฟังก์ชัน `gemini-2.5-pro-preview-03-25`
+  จะชี้ไปยังโมเดลเวอร์ชันใหม่โดยอัตโนมัติ
 
-## 17 aprile 2025
+## 17 เมษายน 2025
 
-- È stato rilasciato `gemini-2.5-flash-preview-04-17`, un modello Gemini
-  [in anteprima](https://ai.google.dev/gemini-api/docs/models?hl=it#model-versions) ottimizzato per
-  il rapporto prezzo/prestazioni e il pensiero adattivo. Per saperne di più, consulta
-  [Anteprima di Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-flash-preview)
-  e [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+- เปิดตัว `gemini-2.5-flash-preview-04-17` ซึ่งเป็นโมเดล[ตัวอย่าง](https://ai.google.dev/gemini-api/docs/models?hl=th#model-versions)ของ Gemini
+  ที่ได้รับการเพิ่มประสิทธิภาพเพื่อ
+  ประสิทธิภาพด้านราคาและการคิดแบบปรับเปลี่ยนได้ ดูข้อมูลเพิ่มเติมได้ที่[เวอร์ชันตัวอย่างของ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-flash-preview)
+  และ[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
 
-## 16 Aprile 2025
+## 16 เมษายน 2025
 
-- È stata lanciata la memorizzazione nella cache del contesto per
-  [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.0-flash).
+- เปิดตัวการแคชบริบทสำหรับ
+  [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.0-flash)
 
-## 9 aprile 2025
+## 9 เมษายน 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato `veo-2.0-generate-001`, un modello di conversione di testo e immagini in video in disponibilità generale (GA), in grado di generare video dettagliati e artisticamente sfumati. Per saperne di più, consulta la [documentazione di Veo](https://ai.google.dev/gemini-api/docs/video?hl=it).
-- È stata rilasciata il giorno `gemini-2.0-flash-live-001` una versione di anteprima pubblica del modello
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=it) con la fatturazione abilitata.
+- เปิดตัว `veo-2.0-generate-001` ซึ่งเป็นโมเดลข้อความและรูปภาพเป็นวิดีโอที่พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA) โดยสามารถสร้างวิดีโอที่มีรายละเอียดและมีความแตกต่างในเชิงศิลปะ
+  ดูข้อมูลเพิ่มเติมได้ที่[เอกสารประกอบของ Veo](https://ai.google.dev/gemini-api/docs/video?hl=th)
+- เปิดตัว `gemini-2.0-flash-live-001` เวอร์ชันตัวอย่างแบบสาธารณะของโมเดล [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th) ที่เปิดใช้การเรียกเก็บเงิน
 
-  - **Gestione e affidabilità delle sessioni migliorate**
+  - **การจัดการเซสชันและความน่าเชื่อถือที่ได้รับการปรับปรุง**
 
-    - **Ripresa della sessione**:mantieni attive le sessioni in caso di interruzioni temporanee della rete. L'API ora supporta l'archiviazione dello stato della sessione lato server (fino a 24 ore) e fornisce handle (session\_resumption) per riconnettersi e riprendere da dove avevi interrotto.
-    - **Sessioni più lunghe tramite la compressione del contesto:** consente interazioni più lunghe rispetto ai limiti di tempo precedenti. Configura la compressione della finestra contestuale con un meccanismo di finestra scorrevole per gestire automaticamente la lunghezza del contesto, evitando interruzioni improvvise dovute ai limiti del contesto.
-    - **Notifica di disconnessione controllata**:ricevi un messaggio del server `GoAway` che indica quando una connessione sta per chiudersi, consentendo una gestione controllata prima della chiusura.
-  - **Maggiore controllo sulle dinamiche di interazione**
-  - **Rilevamento dell'attività vocale (VAD) configurabile**: scegli i livelli di sensibilità o disattiva completamente il VAD automatico e utilizza i nuovi eventi client (`activityStart`, `activityEnd`) per il controllo manuale del turno.
-  - **Gestione configurabile delle interruzioni:** decidi se l'input dell'utente
-    deve interrompere la risposta del modello.
-  - **Copertura della rotazione configurabile**:scegli se l'API elabora continuamente tutti gli input audio e video o li acquisisce solo quando viene rilevato che l'utente finale sta parlando.
-  - **Risoluzione dei contenuti multimediali configurabile:** ottimizza la qualità o l'utilizzo dei token
-    selezionando la risoluzione per i contenuti multimediali di input.
-  - **Output e funzionalità più ricchi**
-  - **Opzioni di voce e lingua ampliate:** scegli tra due nuove voci e
-    30 nuove lingue per l'uscita audio. La lingua di output è ora
-    configurabile in `speechConfig`.
-  - **Streaming di testo**:ricevi risposte di testo in modo incrementale man mano che vengono generate, consentendo una visualizzazione più rapida per l'utente.
-  - **Report sull'utilizzo dei token**:ottieni approfondimenti sull'utilizzo con conteggi dettagliati dei token forniti nel campo `usageMetadata` dei messaggi del server, suddivisi per modalità e fasi di prompt o risposta.
+    - **การกลับมาใช้เซสชันต่อ:** รักษาเซสชันให้ใช้งานได้แม้เครือข่ายจะหยุดชะงักชั่วคราว
+      ตอนนี้ API รองรับการจัดเก็บสถานะเซสชันฝั่งเซิร์ฟเวอร์ (นานสูงสุด 24 ชั่วโมง) และมีแฮนเดิล (session\_resumption) เพื่อเชื่อมต่ออีกครั้ง
+      และดำเนินการต่อจากที่ค้างไว้
+    - **เซสชันที่ยาวขึ้นผ่านการบีบอัดบริบท:** เปิดใช้การโต้ตอบที่ยาวขึ้น
+      นอกเหนือจากขีดจํากัดเวลาก่อนหน้า กำหนดค่าการบีบอัดหน้าต่างบริบท
+      ด้วยกลไกหน้าต่างเลื่อนเพื่อจัดการความยาวบริบทโดยอัตโนมัติ
+      ซึ่งจะช่วยป้องกันการสิ้นสุดอย่างกะทันหันเนื่องจากขีดจำกัดของบริบท
+    - **การแจ้งเตือนการยกเลิกการเชื่อมต่ออย่างราบรื่น:** รับข้อความจาก`GoAway`เซิร์ฟเวอร์
+      ซึ่งระบุเวลาที่การเชื่อมต่อกำลังจะปิด เพื่อให้จัดการได้อย่างราบรื่นก่อนสิ้นสุด
+  - **ควบคุมการโต้ตอบได้มากขึ้น**
+  - **การตรวจจับกิจกรรมเสียงพูด (VAD) ที่กำหนดค่าได้:** เลือกระดับความไว หรือปิดใช้ VAD อัตโนมัติทั้งหมด แล้วใช้เหตุการณ์ไคลเอ็นต์ใหม่ (`activityStart`, `activityEnd`) เพื่อควบคุมการพูดด้วยตนเอง
+  - **การจัดการการขัดจังหวะที่กำหนดค่าได้:** กำหนดว่าข้อมูลจากผู้ใช้ ควรขัดจังหวะการตอบกลับของโมเดลหรือไม่
+  - **ความครอบคลุมของผลัดที่กำหนดค่าได้:** เลือกว่า API จะประมวลผลอินพุตเสียงและวิดีโอทั้งหมดอย่างต่อเนื่อง หรือจะบันทึกเฉพาะเมื่อตรวจพบว่าผู้ใช้ปลายทางกำลังพูด
+  - **ความละเอียดของสื่อที่กำหนดค่าได้:** เพิ่มประสิทธิภาพเพื่อคุณภาพหรือการใช้โทเค็น
+    โดยเลือกความละเอียดสำหรับสื่ออินพุต
+  - **เอาต์พุตและฟีเจอร์ที่สมบูรณ์ยิ่งขึ้น**
+  - **ตัวเลือกเสียงและภาษาที่เพิ่มขึ้น:** เลือกจากเสียงใหม่ 2 แบบและ
+    ภาษาใหม่ 30 ภาษาสำหรับเอาต์พุตเสียง ตอนนี้คุณกำหนดค่าภาษาเอาต์พุตได้ภายใน `speechConfig` แล้ว
+  - **การสตรีมข้อความ:** รับคำตอบที่เป็นข้อความทีละรายการขณะที่ระบบสร้างคำตอบเหล่านั้น ซึ่งจะช่วยให้แสดงต่อผู้ใช้ได้เร็วขึ้น
+  - **การรายงานการใช้โทเค็น:** รับข้อมูลเชิงลึกเกี่ยวกับการใช้งานด้วย
+    จำนวนโทเค็นโดยละเอียดที่ระบุในฟิลด์ `usageMetadata` ของข้อความเซิร์ฟเวอร์
+    ซึ่งแบ่งตามรูปแบบและเฟสของพรอมต์หรือการตอบกลับ
 
-## 4 aprile 2025
+## 4 เมษายน 2025
 
-- Rilasciata il giorno `gemini-2.5-pro-preview-03-25`, una versione di Gemini 2.5 Pro in anteprima pubblica
-  con la fatturazione abilitata. Puoi continuare a utilizzare `gemini-2.5-pro-exp-03-25`
-  nel livello senza costi.
+- เปิดตัว `gemini-2.5-pro-preview-03-25` ซึ่งเป็นเวอร์ชันตัวอย่างแบบสาธารณะของ Gemini 2.5 Pro
+  ที่เปิดใช้การเรียกเก็บเงินแล้ว คุณยังคงใช้ `gemini-2.5-pro-exp-03-25` ใน
+  ระดับฟรีได้
 
-## 25 marzo 2025
+## 25 มีนาคม 2025
 
-- Rilasciato `gemini-2.5-pro-exp-03-25`, un modello Gemini sperimentale pubblico
-  con la modalità di ragionamento sempre attiva per impostazione predefinita.
-  Per saperne di più, consulta [Gemini 2.5 Pro Experimental](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-2.5-pro-preview-03-25).
+- เปิดตัว `gemini-2.5-pro-exp-03-25` โมเดล Gemini เวอร์ชันทดลองแบบสาธารณะ
+  โดยเปิดโหมดการคิดไว้เสมอโดยค่าเริ่มต้น
+  ดูข้อมูลเพิ่มเติมได้ที่[Gemini 2.5 Pro เวอร์ชันทดลอง](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-2.5-pro-preview-03-25)
 
-## 12 marzo 2025
+## 12 มีนาคม 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato lanciato un modello sperimentale [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/image-generation?hl=it#gemini)
-  in grado di generare e modificare immagini.
-- Rilasciato il giorno `gemma-3-27b-it`, disponibile su
-  [AI Studio](https://aistudio.google.com?hl=it) e tramite l'API Gemini,
-  nell'ambito del lancio di [Gemma 3](https://ai.google.dev/gemma/docs/core?hl=it).
+- เปิดตัวโมเดล [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/image-generation?hl=th#gemini)
+  เวอร์ชันทดลองที่สามารถสร้างและแก้ไขรูปภาพได้
+- เปิดตัว`gemma-3-27b-it` พร้อมใช้งานใน
+  [AI Studio](https://aistudio.google.com?hl=th) และผ่าน Gemini API
+  ซึ่งเป็นส่วนหนึ่งของการเปิดตัว [Gemma 3](https://ai.google.dev/gemma/docs/core?hl=th)
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il supporto per gli [URL di YouTube](https://ai.google.dev/gemini-api/docs/vision?hl=it#youtube) come origine media.
-- È stato aggiunto il supporto per l'inclusione di un
-  [video incorporato](https://ai.google.dev/gemini-api/docs/vision?hl=it#inline-video) di dimensioni inferiori a 20 MB.
+- เพิ่มการรองรับ[URL ของ YouTube](https://ai.google.dev/gemini-api/docs/vision?hl=th#youtube) เป็นแหล่งที่มาของสื่อ
+- เพิ่มการรองรับการใส่[วิดีโอในบรรทัด](https://ai.google.dev/gemini-api/docs/vision?hl=th#inline-video)ที่มีขนาดน้อยกว่า 20 MB
 
-## 11 marzo 2025
+## 11 มีนาคม 2025
 
-**Aggiornamenti dell'SDK:**
+**การอัปเดต SDK:**
 
-- È stata rilasciata l'[SDK Google Gen AI per TypeScript e JavaScript](https://googleapis.github.io/js-genai) in anteprima pubblica.
+- เปิดตัว[SDK ของ Gen AI ของ Google สำหรับ TypeScript และ JavaScript](https://googleapis.github.io/js-genai)
+  ในเวอร์ชันตัวอย่างแบบสาธารณะ
 
-## 7 marzo 2025
+## 7 มีนาคม 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Rilasciato il giorno `gemini-embedding-exp-03-07`, un
-  [modello di incorporamento sperimentale](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=it)
-  basato su Gemini in anteprima pubblica.
+- เปิดตัว `gemini-embedding-exp-03-07` โมเดลการฝังที่อิงตาม Gemini [เวอร์ชันทดลอง](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=th)
+  ในเวอร์ชันตัวอย่างแบบสาธารณะ
 
-## 28 febbraio 2025
+## 28 กุมภาพันธ์ 2025
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- Supporto della [Ricerca come strumento](https://ai.google.dev/gemini-api/docs/grounding?hl=it)
-  aggiunto a `gemini-2.0-pro-exp-02-05`, un modello sperimentale basato su
-  Gemini 2.0 Pro.
+- เพิ่มการรองรับ[Search เป็นเครื่องมือ](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
+  ใน `gemini-2.0-pro-exp-02-05` ซึ่งเป็นโมเดลทดลองที่อิงตาม
+  Gemini 2.0 Pro
 
-## 25 febbraio 2025
+## 25 กุมภาพันธ์ 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stata rilasciata il giorno `gemini-2.0-flash-lite` una versione disponibile a livello generale (GA) di
-  [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash-lite),
-  ottimizzata per velocità, scalabilità ed efficienza in termini di costi.
+- เปิดตัว `gemini-2.0-flash-lite` เวอร์ชันพร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA) ของ
+  [Gemini 2.0 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-2.0-flash-lite)
+  ซึ่งได้รับการเพิ่มประสิทธิภาพด้านความเร็ว การปรับขนาด และความคุ้มค่า
 
-## 19 febbraio 2025
+## 19 กุมภาพันธ์ 2025
 
-**Aggiornamenti di AI Studio:**
+**ข้อมูลอัปเดตเกี่ยวกับ AI Studio**
 
-- Supporto per
-  [regioni aggiuntive](https://ai.google.dev/gemini-api/docs/available-regions?hl=it)
-  (Kosovo, Groenlandia e Isole Fær Øer).
+- รองรับ[ภูมิภาคอื่นๆ](https://ai.google.dev/gemini-api/docs/available-regions?hl=th)
+  (โคโซโว กรีนแลนด์ และหมู่เกาะแฟโร)
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- Supporto per
-  [regioni aggiuntive](https://ai.google.dev/gemini-api/docs/available-regions?hl=it)
-  (Kosovo, Groenlandia e Isole Fær Øer).
+- รองรับ[ภูมิภาคอื่นๆ](https://ai.google.dev/gemini-api/docs/available-regions?hl=th)
+  (โคโซโว กรีนแลนด์ และหมู่เกาะแฟโร)
 
-## 18 febbraio 2025
+## 18 กุมภาพันธ์ 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Gemini 1.0 Pro non è più supportato. Per l'elenco dei modelli supportati, consulta
-  [Modelli Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it).
+- ระบบไม่รองรับ Gemini 1.0 Pro อีกต่อไป ดูรายการโมเดลที่รองรับได้ที่[โมเดล Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th)
 
-## 11 febbraio 2025
+## 11 กุมภาพันธ์ 2025
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- Aggiornamenti sulla
-  [compatibilità delle librerie OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
+- ข้อมูลอัปเดตเกี่ยวกับ[ความเข้ากันได้ของไลบรารี OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=th)
 
-## 6 febbraio 2025
+## 6 กุมภาพันธ์ 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stata rilasciata il giorno `imagen-3.0-generate-002` una versione disponibile a livello generale (GA) di
-  [Imagen 3 nell'API Gemini](https://ai.google.dev/gemini-api/docs/imagen?hl=it).
+- เปิดตัว `imagen-3.0-generate-002` ซึ่งเป็นเวอร์ชันพร้อมให้บริการแก่บุคคลทั่วไป (GA) ของ
+  [Imagen 3 ใน Gemini API](https://ai.google.dev/gemini-api/docs/imagen?hl=th)
 
-**Aggiornamenti dell'SDK:**
+**การอัปเดต SDK:**
 
-- È stato rilasciato l'[SDK Google Gen AI per Java](https://github.com/googleapis/java-genai)
-  per l'anteprima pubblica.
+- เปิดตัว [Google Gen AI SDK สำหรับ Java](https://github.com/googleapis/java-genai)
+  ในเวอร์ชันตัวอย่างแบบสาธารณะ
 
-## 5 febbraio 2025
+## 5 กุมภาพันธ์ 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Rilasciata il giorno `gemini-2.0-flash-001` una versione con disponibilità generale (GA) di
-  [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash) che
-  supporta l'output di solo testo.
-- Rilasciata il giorno `gemini-2.0-pro-exp-02-05`,
-  una versione di anteprima
-  pubblica [sperimentale](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=it) di Gemini 2.0 Pro.
-- È stato rilasciato `gemini-2.0-flash-lite-preview-02-05`, un [modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash-lite) sperimentale in anteprima pubblica ottimizzato per l'efficienza dei costi.
+- เปิดตัว `gemini-2.0-flash-001` ซึ่งเป็นเวอร์ชันสำหรับผู้ใช้ทั่วไป (GA) ของ
+  [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-2.0-flash) ที่
+  รองรับเอาต์พุตที่เป็นข้อความเท่านั้น
+- เปิดตัว `gemini-2.0-pro-exp-02-05`,
+  Gemini 2.0 Pro เวอร์ชันตัวอย่าง[ทดลอง](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=th)แบบสาธารณะ
+- เปิดตัว `gemini-2.0-flash-lite-preview-02-05` ซึ่งเป็น[โมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-2.0-flash-lite)เวอร์ชันทดลอง
+  แบบสาธารณะที่เพิ่มประสิทธิภาพเพื่อความคุ้มค่า
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il supporto
-  [dell'input di file e dell'output di grafici](https://ai.google.dev/gemini-api/docs/code-execution?hl=it#input-output)
-  all'esecuzione del codice.
+- เพิ่มการรองรับ[อินพุตไฟล์และเอาต์พุตกราฟ](https://ai.google.dev/gemini-api/docs/code-execution?hl=th#input-output)
+  ลงในการเรียกใช้โค้ด
 
-**Aggiornamenti dell'SDK:**
+**การอัปเดต SDK:**
 
-- È stata rilasciata la
-  [SDK Google Gen AI per Python](https://googleapis.github.io/python-genai/)
-  in disponibilità generale (GA).
+- เปิดตัว[Gen AI SDK ของ Google สำหรับ Python](https://googleapis.github.io/python-genai/)
+  ในเวอร์ชันสำหรับผู้ใช้ทั่วไป (GA)
 
-## 21 gennaio 2025
+## 21 มกราคม 2025
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Rilasciata il giorno `gemini-2.0-flash-thinking-exp-01-21`, l'ultima versione di anteprima del modello alla base del [modello Gemini 2.0 Flash Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+- เปิดตัว`gemini-2.0-flash-thinking-exp-01-21`เวอร์ชันตัวอย่างล่าสุดของ
+  โมเดลที่อยู่เบื้องหลัง[โมเดล Gemini 2.0 Flash Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
 
-## 19 dicembre 2024
+## 19 ธันวาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stata rilasciata la modalità Gemini 2.0 Flash Thinking per l'anteprima pubblica. La modalità di pensiero è
-  un modello di calcolo in fase di test che ti consente di vedere il processo di pensiero del modello
-  mentre genera una risposta e produce risposte con capacità di ragionamento
-  più solide.
+- เปิดตัวโหมด Gemini 2.0 Flash Thinking สำหรับเวอร์ชันตัวอย่างแบบสาธารณะ โหมดการคิดเป็นโมเดลการคำนวณในเวลาทดสอบที่ช่วยให้คุณเห็นกระบวนการคิดของโมเดลขณะที่โมเดลสร้างคำตอบ และสร้างคำตอบที่มีความสามารถในการให้เหตุผลที่ดียิ่งขึ้น
 
-  Scopri di più sulla modalità Flash Thinking di Gemini 2.0 nella nostra [pagina di panoramica](https://ai.google.dev/gemini-api/docs/thinking-mode?hl=it).
+  อ่านเพิ่มเติมเกี่ยวกับโหมด Gemini 2.0 Flash Thinking ได้ใน[หน้าภาพรวม](https://ai.google.dev/gemini-api/docs/thinking-mode?hl=th)
 
-## 11 dicembre 2024
+## 11 ธันวาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato [Gemini 2.0 Flash Experimental](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-2.0-flash)
-  per l'anteprima pubblica. L'elenco parziale delle funzionalità di Gemini 2.0 Flash Experimental include:
-  - Due volte più veloce di Gemini 1.5 Pro
-  - Streaming bidirezionale con la nostra API Live
-  - Generazione di risposte multimodali sotto forma di testo, immagini e voce
-  - Utilizzo di strumenti integrati con il ragionamento multi-turn per utilizzare funzionalità come l'esecuzione di codice, la ricerca, la chiamata di funzione e altro ancora
+- เปิดตัว [Gemini 2.0 Flash Experimental](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-2.0-flash)
+  สำหรับเวอร์ชันตัวอย่างแบบสาธารณะ รายการฟีเจอร์บางส่วนของ Gemini 2.0 Flash Experimental มีดังนี้
+  - เร็วกว่า Gemini 1.5 Pro ถึง 2 เท่า
+  - การสตรีมแบบ 2 ทางด้วย Live API
+  - การสร้างคำตอบแบบมัลติโมดัลในรูปแบบข้อความ รูปภาพ และคำพูด
+  - การใช้เครื่องมือในตัวที่มีการให้เหตุผลแบบหลายรอบเพื่อใช้ฟีเจอร์ต่างๆ เช่น การเรียกใช้โค้ด การค้นหา การเรียกใช้ฟังก์ชัน และอื่นๆ
 
-Scopri di più su Gemini 2.0 Flash nella nostra [pagina
-di panoramica](https://ai.google.dev/gemini-api/docs/models/gemini-v2?hl=it).
+อ่านข้อมูลเพิ่มเติมเกี่ยวกับ Gemini 2.0 Flash ได้ใน[หน้าภาพรวม](https://ai.google.dev/gemini-api/docs/models/gemini-v2?hl=th)
 
-## 21 novembre 2024
+## 21 พฤศจิกายน 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato `gemini-exp-1121`, un modello sperimentale dell'API Gemini ancora più potente.
+- เปิดตัว `gemini-exp-1121` โมเดล Gemini API เวอร์ชันทดลองที่ทรงพลังยิ่งกว่าเดิม
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Aggiornati gli alias dei modelli `gemini-1.5-flash-latest` e `gemini-1.5-flash`
-  per utilizzare `gemini-1.5-flash-002`.
-  - Modifica del parametro `top_k`: il modello `gemini-1.5-flash-002`
-    supporta valori di `top_k` compresi tra 1 e 41 (esclusi).
-    I valori superiori a 40 verranno modificati in 40.
+- อัปเดต`gemini-1.5-flash-latest`และ`gemini-1.5-flash`นามแฝงของโมเดล
+  เพื่อใช้ `gemini-1.5-flash-002`
+  - การเปลี่ยนแปลงพารามิเตอร์ `top_k`: โมเดล `gemini-1.5-flash-002`
+    รองรับค่า `top_k` ระหว่าง 1 ถึง 41 (ไม่รวม)
+    ระบบจะเปลี่ยนค่าที่มากกว่า 40 เป็น 40
 
-## 14 novembre 2024
+## 14 พฤศจิกายน 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Rilasciato il giorno `gemini-exp-1114`, un potente modello sperimentale dell'API Gemini.
+- เปิดตัว `gemini-exp-1114` ซึ่งเป็นโมเดล Gemini API เวอร์ชันทดลองที่มีประสิทธิภาพ
 
-## 8 novembre 2024
+## 8 พฤศจิกายน 2024
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- Aggiunto il [supporto di Gemini](https://ai.google.dev/gemini-api/docs/openai?hl=it) nelle librerie OpenAI / API REST.
+- เพิ่ม[การรองรับ Gemini](https://ai.google.dev/gemini-api/docs/openai?hl=th) ในไลบรารี / REST API ของ OpenAI
 
-## 31 ottobre 2024
+## 31 ตุลาคม 2024
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il [supporto per il grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it).
+- เพิ่ม[การรองรับการเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
 
-## 3 ottobre 2024
+## 3 ตุลาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Rilasciata il giorno `gemini-1.5-flash-8b-001`, una versione stabile del nostro modello di API Gemini più piccolo.
+- เปิดตัว `gemini-1.5-flash-8b-001` โมเดล Gemini
+  API ที่เล็กที่สุดของเราในเวอร์ชันเสถียร
 
-## 24 settembre 2024
+## 24 กันยายน 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Sono state rilasciate `gemini-1.5-pro-002` e `gemini-1.5-flash-002`, due nuove versioni stabili
-  di Gemini 1.5 Pro e 1.5 Flash, per la disponibilità generale.
-- È stato aggiornato il codice del modello `gemini-1.5-pro-latest` per utilizzare `gemini-1.5-pro-002`
-  e il codice del modello `gemini-1.5-flash-latest` per utilizzare `gemini-1.5-flash-002`.
-- Rilasciato `gemini-1.5-flash-8b-exp-0924` per sostituire `gemini-1.5-flash-8b-exp-0827`.
-- È stato rilasciato il [filtro di sicurezza per l'integrità civica](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it#safety-filters)
-  per l'API Gemini e AI Studio.
-- È stato rilasciato il supporto per due nuovi parametri per Gemini 1.5 Pro e 1.5 Flash in
-  Python e NodeJS:
-  [`frequencyPenalty`](https://ai.google.dev/api/generate-content?hl=it#FIELDS.frequency_penalty) e
-  [`presencePenalty`](https://ai.google.dev/api/generate-content?hl=it#FIELDS.presence_penalty).
+- เปิดตัว `gemini-1.5-pro-002` และ `gemini-1.5-flash-002` ซึ่งเป็น Gemini 1.5 Pro และ 1.5 Flash เวอร์ชันเสถียรใหม่ 2 รายการ สำหรับเวอร์ชันสำหรับผู้ใช้ทั่วไป
+- อัปเดตโค้ดโมเดล `gemini-1.5-pro-latest` ให้ใช้ `gemini-1.5-pro-002`
+  และโค้ดโมเดล `gemini-1.5-flash-latest` ให้ใช้ `gemini-1.5-flash-002`
+- เปิดตัว `gemini-1.5-flash-8b-exp-0924` เพื่อแทนที่ `gemini-1.5-flash-8b-exp-0827`
+- เปิดตัว[ตัวกรองความปลอดภัยด้านความซื่อสัตย์ของพลเมือง](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th#safety-filters)
+  สำหรับ Gemini API และ AI Studio
+- เปิดตัวการรองรับพารามิเตอร์ใหม่ 2 รายการสำหรับ Gemini 1.5 Pro และ 1.5 Flash ใน
+  Python และ NodeJS:
+  [`frequencyPenalty`](https://ai.google.dev/api/generate-content?hl=th#FIELDS.frequency_penalty) และ
+  [`presencePenalty`](https://ai.google.dev/api/generate-content?hl=th#FIELDS.presence_penalty)
 
-## 19 settembre 2024
+## 19 กันยายน 2024
 
-**Aggiornamenti di AI Studio:**
+**ข้อมูลอัปเดตเกี่ยวกับ AI Studio**
 
-- Sono stati aggiunti i pulsanti Mi piace e Non mi piace alle risposte del modello per consentire agli utenti di
-  fornire un feedback sulla qualità di una risposta.
+- เพิ่มปุ่มชอบและไม่ชอบในคำตอบของโมเดลเพื่อให้ผู้ใช้แสดงความคิดเห็นเกี่ยวกับคุณภาพของคำตอบได้
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il supporto per i crediti Google Cloud, che ora possono essere utilizzati per
-  l'utilizzo dell'API Gemini.
+- เพิ่มการรองรับเครดิต Google Cloud ซึ่งตอนนี้ใช้กับการใช้งาน Gemini API ได้แล้ว
 
-## 17 settembre 2024
+## 17 กันยายน 2024
 
-**Aggiornamenti di AI Studio:**
+**ข้อมูลอัปเดตเกี่ยวกับ AI Studio**
 
-- È stato aggiunto un pulsante **Apri in Colab** che esporta un prompt e il codice per eseguirlo in un notebook Colab. La funzionalità non supporta ancora
-  i prompt con strumenti (modalità JSON, chiamata di funzione o esecuzione del codice).
+- เพิ่มปุ่ม**เปิดใน Colab** ที่ส่งออกพรอมต์และโค้ดเพื่อดำเนินการไปยัง Colab Notebook ฟีเจอร์นี้ยังไม่รองรับ
+  การแจ้งด้วยเครื่องมือ (โหมด JSON, การเรียกใช้ฟังก์ชัน หรือการเรียกใช้โค้ด)
 
-## 13 settembre 2024
+## 13 กันยายน 2024
 
-**Aggiornamenti di AI Studio:**
+**ข้อมูลอัปเดตเกี่ยวกับ AI Studio**
 
-- È stato aggiunto il supporto della modalità di confronto, che consente di confrontare le risposte di modelli e prompt per trovare la soluzione migliore per il tuo caso d'uso.
+- เพิ่มการรองรับโหมดเปรียบเทียบ ซึ่งช่วยให้คุณเปรียบเทียบคำตอบในโมเดลและพรอมต์ต่างๆ เพื่อค้นหาคำตอบที่เหมาะกับกรณีการใช้งานของคุณมากที่สุด
 
-## 30 agosto 2024
+## 30 สิงหาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Gemini 1.5 Flash supporta
-  [la fornitura di schemi JSON tramite la configurazione del modello](https://ai.google.dev/gemini-api/docs/json-mode?hl=it#supply-schema-in-config).
+- Gemini 1.5 Flash รองรับ[การระบุสคีมา JSON ผ่านการกำหนดค่าโมเดล](https://ai.google.dev/gemini-api/docs/json-mode?hl=th#supply-schema-in-config)
 
-## 27 agosto 2024
+## 27 สิงหาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Sono stati rilasciati i seguenti
-  [modelli sperimentali](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=it):
+- เปิดตัว[โมเดลทดลอง](https://ai.google.dev/gemini-api/docs/models/experimental-models?hl=th)ต่อไปนี้
   - `gemini-1.5-pro-exp-0827`
   - `gemini-1.5-flash-exp-0827`
   - `gemini-1.5-flash-8b-exp-0827`
 
-## 9 agosto 2024
+## 9 สิงหาคม 2024
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il supporto per l'[elaborazione dei PDF](https://ai.google.dev/gemini-api/docs/document-processing?hl=it).
+- เพิ่มการรองรับ[การประมวลผล PDF](https://ai.google.dev/gemini-api/docs/document-processing?hl=th)
 
-## 5 agosto 2024
+## 5 สิงหาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato il supporto per il fine-tuning per Gemini 1.5 Flash.
+- เปิดตัวการรองรับการปรับแต่งสำหรับ Gemini 1.5 Flash
 
-## 1° agosto 2024
+## 1 สิงหาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stata rilasciata `gemini-1.5-pro-exp-0801`, una nuova versione sperimentale di
-  [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-pro).
+- เปิดตัว `gemini-1.5-pro-exp-0801` ซึ่งเป็นเวอร์ชันทดลองใหม่ของ
+  [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-1.5-pro)
 
-## 12 luglio 2024
+## 12 กรกฎาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Supporto per Gemini 1.0 Pro Vision rimosso dai servizi e dagli strumenti di Google AI.
+- นำการรองรับ Gemini 1.0 Pro Vision ออกจากบริการและเครื่องมือของ Google AI
 
-## 27 giugno 2024
+## 27 มิถุนายน 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Rilascio della disponibilità generale della finestra contestuale da 2 milioni di token di Gemini 1.5 Pro.
+- เปิดตัวเวอร์ชันสำหรับผู้ใช้ทั่วไปสำหรับหน้าต่างบริบทขนาด 2 ล้านโทเค็นของ Gemini 1.5 Pro
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il supporto per l'[esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it).
+- เพิ่มการรองรับ[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)
 
-## 18 giugno 2024
+## 18 มิถุนายน 2024
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stato aggiunto il supporto per la [memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it).
+- เพิ่มการรองรับ[การแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th)
 
-## 12 giugno 2024
+## 12 มิถุนายน 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Gemini 1.0 Pro Vision è stato ritirato.
+- เลิกใช้งาน Gemini 1.0 Pro Vision
 
-## 23 maggio 2024
+## 23 พฤษภาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-pro)
-  (`gemini-1.5-pro-001`) è disponibile a livello generale (GA).
-- [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-flash)
-  (`gemini-1.5-flash-001`) è disponibile pubblicamente (GA).
+- [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-1.5-pro)
+  (`gemini-1.5-pro-001`) พร้อมให้บริการแก่ผู้ใช้ทั่วไป (GA) แล้ว
+- [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-1.5-flash)
+  (`gemini-1.5-flash-001`) พร้อมให้บริการสำหรับผู้ใช้ทั่วไป (GA) แล้ว
 
-## 14 maggio 2024
+## 14 พฤษภาคม 2024
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stata introdotta una finestra contestuale di 2 milioni di token per Gemini 1.5 Pro (lista di attesa).
-- È stata introdotta la [fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it) con pagamento a consumo per Gemini 1.0 Pro, mentre la fatturazione per Gemini 1.5 Pro e Gemini 1.5 Flash sarà disponibile a breve.
-- Sono stati introdotti limiti di frequenza più elevati per il futuro livello a pagamento di Gemini 1.5
-  Pro.
-- Aggiunto il supporto video integrato all'[API File](https://ai.google.dev/api/rest/v1beta/files?hl=it).
-- Aggiunto il supporto del testo normale all'[API File](https://ai.google.dev/api/rest/v1beta/files?hl=it).
-- È stato aggiunto il supporto per la chiamata di funzioni parallela, che restituisce più di una
-  chiamata alla volta.
+- เปิดตัวหน้าต่างบริบทขนาด 2 ล้านโทเค็นสำหรับ Gemini 1.5 Pro (รายชื่อรอ)
+- เปิดตัว[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)แบบจ่ายเมื่อใช้สำหรับ Gemini 1.0 Pro โดยการเรียกเก็บเงินสำหรับ Gemini 1.5 Pro และ Gemini 1.5 Flash จะพร้อมให้บริการเร็วๆ นี้
+- เปิดตัวขีดจำกัดอัตราที่เพิ่มขึ้นสำหรับระดับการชำระเงินที่กำลังจะมาถึงของ Gemini 1.5
+  Pro
+- เพิ่มการรองรับวิดีโอบิวท์อินลงใน [File API](https://ai.google.dev/api/rest/v1beta/files?hl=th)
+- เพิ่มการรองรับข้อความธรรมดาใน [File API](https://ai.google.dev/api/rest/v1beta/files?hl=th)
+- เพิ่มการรองรับการเรียกใช้ฟังก์ชันแบบขนาน ซึ่งจะแสดงผลการเรียกมากกว่า 1 รายการพร้อมกัน
 
-## 10 maggio 2024
+## 10 พฤษภาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-flash)
-  (`gemini-1.5-flash-latest`) in anteprima.
+- เปิดตัว [Gemini 1.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-1.5-flash)
+  (`gemini-1.5-flash-latest`) ในเวอร์ชันตัวอย่าง
 
-## 9 aprile 2024
+## 9 เมษายน 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- È stato rilasciato [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#gemini-1.5-pro)
-  (`gemini-1.5-pro-latest`) in anteprima.
-- È stato rilasciato un nuovo modello di text embedding, `text-embeddings-004`, che supporta
-  [l'embedding elastico](https://ai.google.dev/gemini-api/docs/embeddings?hl=it#elastic-embedding)
-  con dimensioni inferiori a 768.
+- เปิดตัว [Gemini 1.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#gemini-1.5-pro)
+  (`gemini-1.5-pro-latest`) ในเวอร์ชันตัวอย่าง
+- เปิดตัวโมเดลการฝังข้อความใหม่ `text-embeddings-004` ซึ่งรองรับ
+  [การฝังแบบยืดหยุ่น](https://ai.google.dev/gemini-api/docs/embeddings?hl=th#elastic-embedding)
+  ที่มีขนาดต่ำกว่า 768
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- È stata rilasciata l'[API File](https://ai.google.dev/api/rest/v1beta/files?hl=it) per l'archiviazione temporanea
-  di file multimediali da utilizzare nei prompt.
-- È stato aggiunto il supporto per i prompt con dati di testo, immagini e audio, noti anche come prompt *multimodali*. Per scoprire di più, consulta
-  [Prompt con contenuti multimediali](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=it).
-- Sono state rilasciate le [istruzioni di sistema](https://ai.google.dev/gemini-api/docs/system-instructions?hl=it) in
-  versione beta.
-- È stata aggiunta la
-  [modalità di chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function_calling_mode),
-  che definisce il comportamento di esecuzione per la chiamata di funzione.
-- È stato aggiunto il supporto per l'opzione di configurazione `response_mime_type`, che consente di richiedere risposte in [formato JSON](https://ai.google.dev/gemini-api/docs/api-overview?hl=it#json).
+- เปิดตัว [File API](https://ai.google.dev/api/rest/v1beta/files?hl=th) สำหรับจัดเก็บไฟล์สื่อชั่วคราวเพื่อใช้ในการแจ้ง
+- เพิ่มการรองรับการเขียนพรอมต์ด้วยข้อมูลข้อความ รูปภาพ และเสียง หรือที่เรียกว่าการเขียนพรอมต์*แบบหลายรูปแบบ* ดูข้อมูลเพิ่มเติมได้ที่
+  [การพรอมต์ด้วยสื่อ](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=th)
+- เปิดตัว[คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/system-instructions?hl=th)ในเวอร์ชันเบต้า
+- เพิ่ม[โหมดการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#function_calling_mode)
+  ซึ่งกำหนดลักษณะการทำงานของการเรียกใช้ฟังก์ชัน
+- เพิ่มการรองรับ`response_mime_type`ตัวเลือกการกำหนดค่า ซึ่งช่วยให้คุณขอคำตอบใน[รูปแบบ JSON](https://ai.google.dev/gemini-api/docs/api-overview?hl=th#json) ได้
 
-## 19 marzo 2024
+## 19 มีนาคม 2024
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- Aggiunto il supporto per
-  [l'ottimizzazione di Gemini 1.0 Pro](https://developers.googleblog.com/en/tune-gemini-pro-in-google-ai-studio-or-with-the-gemini-api/)
-  in Google AI Studio o con l'API Gemini.
+- เพิ่มการรองรับ[การปรับแต่ง Gemini 1.0 Pro](https://developers.googleblog.com/en/tune-gemini-pro-in-google-ai-studio-or-with-the-gemini-api/)
+  ใน Google AI Studio หรือด้วย Gemini API
 
-## 13 dicembre 2023
+## 13 ธันวาคม 2023
 
-**Aggiornamenti del modello:**
+**การอัปเดตโมเดล:**
 
-- gemini-pro: nuovo modello di testo per un'ampia gamma di attività. Equilibra capacità ed efficienza.
-- gemini-pro-vision: nuovo modello multimodale per un'ampia gamma di attività.
-  Equilibra capacità ed efficienza.
-- embedding-001: Nuovo modello di embedding.
-- aqa: Un nuovo modello appositamente ottimizzato e addestrato per rispondere alle domande
-  utilizzando passaggi di testo per basare le risposte generate.
+- gemini-pro: โมเดลข้อความใหม่สำหรับงานที่หลากหลาย สมดุลความสามารถ
+  และประสิทธิภาพ
+- gemini-pro-vision: โมเดลมัลติโมดัลใหม่สำหรับงานที่หลากหลาย
+  ปรับสมดุลความสามารถและประสิทธิภาพ
+- embedding-001: โมเดลการฝังใหม่
+- aqa: โมเดลใหม่ที่ได้รับการปรับแต่งเป็นพิเศษซึ่งได้รับการฝึกให้ตอบคำถาม
+  โดยใช้ข้อความเพื่ออ้างอิงคำตอบที่สร้างขึ้น
 
-Per ulteriori dettagli, consulta la sezione [Modelli Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it).
+ดูรายละเอียดเพิ่มเติมได้ที่[โมเดล Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th)
 
-**Aggiornamenti della versione dell'API:**
+**การอัปเดตเวอร์ชัน API:**
 
-- v1: Il canale API stabile.
-- v1beta: canale beta. Questo canale ha funzionalità che potrebbero essere in fase di
-  sviluppo.
+- v1: ช่อง API ที่เสถียร
+- v1beta: เวอร์ชันเบต้า ช่องนี้มีฟีเจอร์ที่อาจอยู่ระหว่าง
+  การพัฒนา
 
-Per ulteriori dettagli, consulta l'[argomento sulle versioni dell'API](https://ai.google.dev/gemini-api/docs/api-versions?hl=it).
+ดูรายละเอียดเพิ่มเติมได้ที่[หัวข้อเกี่ยวกับเวอร์ชันของ API](https://ai.google.dev/gemini-api/docs/api-versions?hl=th)
 
-**Aggiornamenti dell'API:**
+**การอัปเดต API:**
 
-- `GenerateContent` è un unico endpoint unificato per chat e messaggi.
-- Streaming disponibile tramite il metodo `StreamGenerateContent`.
-- Funzionalità multimodale: l'immagine è una nuova modalità supportata
-- Nuove funzionalità beta:
-  - [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
-  - Question Answering con attribuzione (AQA)
-- Conteggio dei candidati aggiornato: i modelli Gemini restituiscono un solo candidato.
-- Diverse impostazioni di sicurezza e categorie di classificazione di sicurezza. Per maggiori dettagli, consulta le
-  [impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it).
-- Il perfezionamento dei modelli non è ancora supportato per i modelli Gemini (in corso).
+- `GenerateContent` เป็นปลายทางแบบครบวงจรเดียวสำหรับแชทและข้อความ
+- สตรีมได้ผ่านเมธอด `StreamGenerateContent`
+- ความสามารถแบบมัลติโมดัล: รูปภาพเป็นรูปแบบใหม่ที่รองรับ
+- ฟีเจอร์เบต้าใหม่
+  - [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+  - การตอบคำถามแบบระบุแหล่งที่มา (AQA)
+- จำนวนคำตอบที่เป็นไปได้ที่อัปเดตแล้ว: โมเดล Gemini จะแสดงคำตอบที่เป็นไปได้เพียง 1 รายการ
+- การตั้งค่าความปลอดภัยและหมวดหมู่ SafetyRating ที่แตกต่างกัน ดูรายละเอียดเพิ่มเติมได้ที่[การตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th)
+- ระบบยังไม่รองรับการปรับแต่งโมเดลสำหรับโมเดล Gemini (อยู่ระหว่างดำเนินการ)
 
-Invia feedback
+ส่งความคิดเห็น
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ultimo aggiornamento 2026-09-18 UTC.
+อัปเดตล่าสุด 2026-09-24 UTC
 
-Vuoi dirci altro?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-18 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]

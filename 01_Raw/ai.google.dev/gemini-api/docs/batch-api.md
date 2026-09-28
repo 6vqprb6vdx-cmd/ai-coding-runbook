@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-BR
-fetched_at: 2026-09-21T05:47:16.183683+00:00
-title: "API Batch \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=pl
+fetched_at: 2026-09-28T06:09:59.725335+00:00
+title: "Interfejs API do przetwarzania zbiorczego \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Envie comentários
+Prześlij opinię
 
-# API Batch
+# Interfejs API do przetwarzania zbiorczego
 
-A API Gemini Batch foi projetada para processar grandes volumes de solicitações
-de forma assíncrona com [50% do custo padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
-O tempo de resposta esperado é de 24 horas, mas, na maioria dos casos, é muito mais rápido.
+Wsadowy interfejs Gemini API został zaprojektowany do asynchronicznego przetwarzania dużych ilości żądań
+przy [50% standardowego kosztu](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
+Docelowy czas realizacji to 24 godziny, ale w większości przypadków jest on znacznie krótszy.
 
-Use a API Batch para tarefas não urgentes em grande escala, como pré-processamento de dados ou execução de avaliações em que uma resposta imediata não é necessária.
+Używaj wsadowego interfejsu API do zadań na dużą skalę, które nie wymagają natychmiastowej odpowiedzi, takich jak wstępne przetwarzanie danych czy przeprowadzanie ocen.
 
-## Como criar um job em lote
+## Tworzenie zadania wsadowego
 
-Há duas maneiras de enviar solicitações na API Batch:
+Żądania w wsadowym interfejsie API możesz przesyłać na 2 sposoby:
 
-- **[Solicitações inline](#inline-requests):** uma lista de objetos
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest) incluídos diretamente na solicitação de criação em lote. Isso é adequado para lotes menores que mantêm o tamanho total da solicitação abaixo de 20 MB. A **saída** retornada do modelo é uma lista de objetos `inlineResponse`.
-- **[Arquivo de entrada](#input-file):** um arquivo [JSON Lines (JSONL)](https://jsonlines.org/)
-  em que cada linha contém um objeto
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest) completo.
-  Esse método é recomendado para solicitações maiores. A **saída** retornada do modelo é um arquivo JSONL em que cada linha é um objeto `GenerateContentResponse` ou de status.
+- **[Żądania w treści](#inline-requests):** lista obiektów
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pl#GenerateContentRequest) dołączona bezpośrednio do żądania utworzenia zadania wsadowego. Ta metoda jest odpowiednia w przypadku mniejszych zadań wsadowych, w których łączny rozmiar żądania nie przekracza 20 MB. **Dane wyjściowe** zwracane przez model to lista obiektów `inlineResponse`.
+- **[Plik wejściowy](#input-file):** plik [JSON Lines (JSONL)](https://jsonlines.org/)
+  , w którym każdy wiersz zawiera pełny
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pl#GenerateContentRequest) obiekt.
+  Ta metoda jest zalecana w przypadku większych żądań. **Dane wyjściowe** zwracane przez model to plik JSONL, w którym każdy wiersz jest obiektem `GenerateContentResponse` lub obiektem stanu.
 
-### Solicitações inline
+### Żądania w treści
 
-Para um pequeno número de solicitações, é possível incorporar diretamente os
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest) objetos
-no [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#request-body). O
-exemplo a seguir chama o
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pt-br#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-método com solicitações inline:
+W przypadku niewielkiej liczby żądań możesz bezpośrednio osadzić obiekty
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pl#GenerateContentRequest)
+w [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pl#request-body). Ten
+przykład wywołuje metodę
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pl#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+z żądaniami w treści:
 
 ### Python
 
@@ -188,24 +188,25 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ba
 }'
 ```
 
-### Arquivo de entrada
+### Plik wejściowy
 
-Para conjuntos maiores de solicitações, prepare um arquivo JSON Lines (JSONL). Cada linha desse arquivo precisa ser um objeto JSON que contenha uma chave definida pelo usuário e um objeto de solicitação, em que a solicitação seja um objeto válido
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pt-br#GenerateContentRequest). A chave definida pelo usuário é usada na resposta para indicar qual saída é o resultado de qual solicitação. Por exemplo, a solicitação com a chave definida como `request-1` terá a resposta anotada com o mesmo nome de chave.
+W przypadku większych zestawów żądań przygotuj plik JSON Lines (JSONL). Każdy wiersz w
+tym pliku musi być obiektem JSON zawierającym zdefiniowany przez użytkownika klucz i obiekt żądania, gdzie żądanie jest prawidłowym
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=pl#GenerateContentRequest) obiektem. Klucz zdefiniowany przez użytkownika jest używany w odpowiedzi do wskazania, które dane wyjściowe są wynikiem którego żądania. Na przykład odpowiedź na żądanie z kluczem zdefiniowanym jako `request-1` będzie oznaczona tą samą nazwą klucza.
 
-Esse arquivo é enviado usando a [API File](https://ai.google.dev/gemini-api/docs/files?hl=pt-br). O tamanho máximo permitido para um arquivo de entrada é de 2 GB.
+Ten plik jest przesyłany za pomocą interfejsu [File API](https://ai.google.dev/gemini-api/docs/files?hl=pl). Maksymalny dozwolony rozmiar pliku wejściowego to 2 GB.
 
-Confira abaixo um exemplo de arquivo JSONL. É possível salvá-lo em um arquivo chamado `my-batch-requests.json`:
+Poniżej znajdziesz przykład pliku JSONL. Możesz go zapisać w pliku o nazwie `my-batch-requests.json`:
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-Assim como nas solicitações inline, é possível especificar outros parâmetros, como instruções do sistema, ferramentas ou outras configurações em cada JSON de solicitação.
+Podobnie jak w przypadku żądań w treści, w każdym żądaniu JSON możesz określić inne parametry, takie jak instrukcje systemowe, narzędzia lub inne konfiguracje.
 
-É possível fazer upload desse arquivo usando a [API File](https://ai.google.dev/gemini-api/docs/files?hl=pt-br), conforme
-mostrado no exemplo a seguir. Se você estiver trabalhando com entrada multimodal, poderá referenciar outros arquivos enviados no arquivo JSONL.
+Ten plik możesz przesłać za pomocą interfejsu [File API](https://ai.google.dev/gemini-api/docs/files?hl=pl), jak
+pokazano w tym przykładzie. Jeśli pracujesz z danymi wejściowymi multimodalnymi, możesz odwoływać się do innych przesłanych plików w pliku JSONL.
 
 ### Python
 
@@ -357,9 +358,9 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-O exemplo a seguir chama o
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pt-br#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-método com o arquivo de entrada enviado usando a API File:
+Ten przykład wywołuje metodę
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pl#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+z plikiem wejściowym przesłanym za pomocą interfejsu File API:
 
 ### Python
 
@@ -435,23 +436,23 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ba
 }"
 ```
 
-Ao criar um job em lote, você vai receber um nome de job retornado. Use esse nome
-para [monitorar](#batch-job-status) o status do job e
-[recuperar os resultados](#retrieve-batch-results) quando ele for concluído.
+Gdy utworzysz zadanie wsadowe, otrzymasz jego nazwę. Użyj tej nazwy
+do [monitorowania](#batch-job-status) stanu zadania i
+[pobierania wyników](#retrieve-batch-results) po jego zakończeniu.
 
-Confira abaixo um exemplo de saída que contém um nome de job:
+Oto przykładowe dane wyjściowe zawierające nazwę zadania:
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### Suporte a embedding em lote
+### Obsługa osadzania wsadowego
 
-É possível usar a API Batch para interagir com o
-[modelo Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br) para maior capacidade.
-Para criar um job em lote de embeddings com [solicitações inline](#inline-requests)
-ou [arquivos de entrada](#input-file), use a API `batches.create_embeddings` e
-especifique o modelo de embeddings.
+Aby zwiększyć przepustowość, możesz użyć wsadowego interfejsu API do interakcji z modelem
+[Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl).
+Aby utworzyć zadanie wsadowe osadzania z [żądaniami w treści](#inline-requests)
+lub [plikami wejściowymi](#input-file), użyj interfejsu `batches.create_embeddings` API i
+określ model osadzania.
 
 ### Python
 
@@ -537,12 +538,11 @@ BatchJob batchJob =
 System.out.println("Created batch job: " + batchJob.name().orElse(""));
 ```
 
-Leia a seção Embeddings no [manual da API Batch](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
-para mais exemplos.
+Więcej przykładów znajdziesz w sekcji Osadzanie w przewodniku po wsadowym interfejsie API .
 
-### Configuração das solicitações
+### Konfiguracja żądania
 
-É possível incluir todas as configurações de solicitação que você usaria em uma solicitação padrão não em lote. Por exemplo, você pode especificar a temperatura, as instruções do sistema ou até mesmo transmitir outras modalidades. O exemplo a seguir mostra uma solicitação inline que contém uma instrução do sistema para uma das solicitações:
+Możesz uwzględnić dowolne konfiguracje żądań, których używasz w standardowym żądaniu bez wsadowym. Możesz na przykład określić temperaturę, instrukcje systemowe lub nawet przekazać inne modalności. Ten przykład pokazuje przykładowe żądanie w treści, które zawiera instrukcję systemową dla jednego z żądań:
 
 ### Python
 
@@ -595,8 +595,8 @@ List<InlinedRequest> inlineRequestsList =
             .build());
 ```
 
-Da mesma forma, é possível especificar as ferramentas a serem usadas para uma solicitação. O exemplo a seguir
-mostra uma solicitação que ativa a ferramenta [Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br):
+Podobnie możesz określić narzędzia, których chcesz użyć w żądaniu. Ten przykład
+pokazuje żądanie, które włącza narzędzie wyszukiwarki [Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl):
 
 ### Python
 
@@ -643,8 +643,8 @@ List<InlinedRequest> inlinedRequests =
             .build());
 ```
 
-Também é possível especificar a saída [estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
-O exemplo a seguir mostra como especificar para suas solicitações em lote.
+Możesz też określić [uporządkowane dane wyjściowe](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl).
+Ten przykład pokazuje, jak określić żądania wsadowe.
 
 ### Python
 
@@ -912,7 +912,7 @@ for (int i = 0; i < responses.size(); i++) {
 }
 ```
 
-Confira abaixo um exemplo de saída desse job:
+Poniżej znajdziesz przykładowe dane wyjściowe tego zadania:
 
 ```
 --- Response 1 ---
@@ -1008,20 +1008,20 @@ Confira abaixo um exemplo de saída desse job:
 ]
 ```
 
-## Como monitorar o status do job
+## Monitorowanie stanu zadania
 
-Use o nome da operação recebido ao criar o job em lote para pesquisar o status dele.
-O campo de estado do job em lote vai indicar o status atual. Um job em lote pode estar em um dos seguintes estados:
+Aby sprawdzić stan zadania wsadowego, użyj nazwy operacji uzyskanej podczas jego tworzenia.
+Aktualny stan zadania wsadowego jest widoczny w polu stanu. Zadanie wsadowe może mieć jeden z tych stanów:
 
-- `JOB_STATE_PENDING`: o job foi criado e está aguardando o processamento pelo serviço.
-- `JOB_STATE_RUNNING`: o job está em andamento.
-- `JOB_STATE_SUCCEEDED`: o job foi concluído. Agora é possível recuperar os resultados.
-- `JOB_STATE_FAILED`: o job falhou. Confira os detalhes do erro para mais informações.
-- `JOB_STATE_CANCELLED`: o job foi cancelado pelo usuário.
-- `JOB_STATE_EXPIRED`: o job expirou porque estava em execução ou pendente por mais de 48 horas. O job não terá resultados para recuperar.
-  Tente enviar o job novamente ou dividir as solicitações em lotes menores.
+- `JOB_STATE_PENDING`: zadanie zostało utworzone i czeka na przetworzenie przez usługę.
+- `JOB_STATE_RUNNING`: zadanie jest w trakcie realizacji.
+- `JOB_STATE_SUCCEEDED`: zadanie zostało ukończone. Możesz teraz pobrać wyniki.
+- `JOB_STATE_FAILED`: zadanie nie powiodło się. Więcej informacji znajdziesz w szczegółach błędu.
+- `JOB_STATE_CANCELLED`: zadanie zostało anulowane przez użytkownika.
+- `JOB_STATE_EXPIRED`: zadanie wygasło, ponieważ było uruchomione lub oczekiwało na wykonanie przez ponad 48 godzin. Nie będzie można pobrać żadnych wyników.
+  Możesz spróbować ponownie przesłać zadanie lub podzielić żądania na mniejsze zadania wsadowe.
 
-É possível pesquisar o status do job periodicamente para verificar a conclusão.
+Aby sprawdzić, czy zadanie zostało ukończone, możesz okresowo sprawdzać jego stan.
 
 ### Python
 
@@ -1123,11 +1123,11 @@ if (batchJob.state().get().knownEnum() == JobState.Known.JOB_STATE_FAILED) {
 }
 ```
 
-### Pesquisa e webhooks
+### Sprawdzanie i webhooki
 
-**Cansou de pesquisar?** O Gemini agora oferece suporte a
-[webhooks](https://ai.google.dev/gemini-api/docs/webhooks?hl=pt-br) para processar conclusões de forma assíncrona.
-Em vez de chamar continuamente `GET / operations`, inscreva-se em `batch.succeeded` diretamente para permitir que a API Gemini envie notificações em tempo real ao seu servidor quando operações assíncronas ou de longa duração forem concluídas.
+**Masz już dość sprawdzania?** Gemini obsługuje teraz
+[webhooki](https://ai.google.dev/gemini-api/docs/webhooks?hl=pl) do asynchronicznego przetwarzania uzupełnień.
+Zamiast ciągle wywoływać `GET / operations`, zasubskrybuj `batch.succeeded`, aby interfejs Gemini API mógł wysyłać powiadomienia w czasie rzeczywistym na Twój serwer po zakończeniu operacji asynchronicznych lub długotrwałych.
 
 ### Python
 
@@ -1205,10 +1205,10 @@ curl -X POST \
   }'
 ```
 
-## Como recuperar resultados
+## Pobieranie wyników
 
-Quando o status do job indicar que o job em lote foi concluído, os resultados estarão disponíveis no campo `response`.
-Por padrão, os resultados do job em lote são armazenados e ficam disponíveis para download por seis semanas antes de serem excluídos permanentemente.
+Gdy stan zadania wskazuje, że zadanie wsadowe zostało ukończone, wyniki są dostępne w polu `response`.
+Domyślnie wyniki zadań wsadowych są przechowywane i dostępne do pobrania przez 6 tygodni, zanim zostaną trwale usunięte.
 
 ### Python
 
@@ -1429,9 +1429,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## Como listar jobs em lote
+## Wyświetlanie listy zadań wsadowych
 
-É possível listar seus jobs em lote recentes.
+Możesz wyświetlić listę ostatnich zadań wsadowych.
 
 ### Python
 
@@ -1485,9 +1485,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Como cancelar um job em lote
+## Anulowanie zadania wsadowego
 
-É possível cancelar um job em lote em andamento usando o nome dele. Quando um job é cancelado, ele para de processar novas solicitações.
+Trwające zadanie wsadowe możesz anulować za pomocą jego nazwy. Gdy zadanie zostanie anulowane, przestanie przetwarzać nowe żądania.
 
 ### Python
 
@@ -1527,9 +1527,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## Como excluir um job em lote
+## Usuwanie zadania wsadowego
 
-É possível excluir um job em lote usando o nome dele. Quando um job é excluído, ele para de processar novas solicitações e é removido da lista de jobs em lote.
+Istniejące zadanie wsadowe możesz usunąć za pomocą jego nazwy. Gdy zadanie zostanie usunięte, przestanie przetwarzać nowe żądania i zostanie usunięte z listy zadań wsadowych.
 
 ### Python
 
@@ -1564,17 +1564,17 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Como gerar imagens em lote
+## Generowanie obrazów w trybie wsadowym
 
-Se você estiver usando [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br) e precisar gerar muitas
-imagens, use a API Batch para receber limites de taxa
-[mais altos](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br) em troca de um tempo de resposta de até
-24 horas.
+Jeśli używasz [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl) i musisz wygenerować wiele
+obrazów, możesz użyć wsadowego interfejsu API, aby uzyskać wyższe
+[limity liczby żądań](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl) w zamian za czas realizacji do
+24 godzin.
 
-É possível usar [solicitações inline](#inline-requests-images) para pequenos lotes de solicitações (abaixo de 20 MB) ou
-um [arquivo de entrada JSONL](#input-file-images) para lotes grandes (recomendado para geração de imagens):
+W przypadku małych zadań wsadowych (poniżej 20 MB) możesz użyć [żądań w treści](#inline-requests-images), a w przypadku dużych zadań wsadowych (zalecane w przypadku generowania obrazów) –
+[pliku wejściowego JSONL](#input-file-images):
 
-### Solicitações inline para imagens
+### Żądania w treści dotyczące obrazów
 
 ### Python
 
@@ -1886,7 +1886,7 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-### Arquivo de entrada para imagens
+### Plik wejściowy dla obrazów
 
 ### Python
 
@@ -2198,47 +2198,42 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## Detalhes técnicos
+## Szczegóły techniczne
 
-- **Modelos compatíveis**:a API Batch oferece suporte a uma variedade de modelos do Gemini.
-  Consulte a [página Modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br) para saber mais sobre o suporte
-  da API Batch para cada modelo. As modalidades compatíveis com a API Batch são as mesmas que têm suporte na API interativa (ou não em lote).
-- **Preços**:o uso da API Batch tem um preço de 50% do custo padrão da API interativa para o modelo equivalente. Consulte a [página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br)
-  para mais detalhes. Consulte a [página de limites de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br#batch-mode)
-  para mais detalhes sobre os limites de taxa desse recurso.
-- **Objetivo de nível de serviço (SLO)** : os jobs em lote são projetados para serem concluídos em um tempo de resposta de 24 horas. Muitos jobs podem ser concluídos muito mais rápido, dependendo do tamanho e da carga atual do sistema.
-- **Armazenamento em cache:** [o armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br) é compatível
-  com solicitações em lote. Reutilize o conteúdo armazenado em cache especificando o nome do recurso `cached_content` na configuração de solicitações individuais no lote.
-  Se uma solicitação no lote resultar em uma ocorrência em cache, você pagará as
-  [taxas padrão de armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+- **Obsługiwane modele:** wsadowy interfejs API obsługuje różne modele Gemini.
+  Informacje o tym, które modele obsługują wsadowy interfejs API, znajdziesz na stronie [Modele](https://ai.google.dev/gemini-api/docs/models?hl=pl). Obsługiwane modalności w przypadku wsadowego interfejsu API są takie same jak w przypadku interaktywnego (lub bezwsadowego) interfejsu API.
+- **Ceny:** korzystanie z wsadowego interfejsu API jest rozliczane według 50% standardowego kosztu interaktywnego interfejsu API dla odpowiedniego modelu. Więcej informacji znajdziesz na [stronie cennika](https://ai.google.dev/gemini-api/docs/pricing?hl=pl). Szczegółowe informacje o limitach liczby żądań dla tej funkcji znajdziesz na stronie [Limity liczby żądań](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl#batch-mode).
+- **Docelowy poziom usług:** zadania wsadowe powinny zostać ukończone w ciągu 24 godzin. Wiele zadań może zostać ukończonych znacznie szybciej w zależności od ich rozmiaru i bieżącego obciążenia systemu.
+- **Pamięć podręczna:** [Buforowanie kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl) jest obsługiwane
+  w przypadku żądań wsadowych. Aby ponownie użyć treści z pamięci podręcznej, w konfiguracji poszczególnych żądań w zadaniu wsadowym określ nazwę zasobu `cached_content`.
+  Jeśli żądanie w zadaniu wsadowym spowoduje trafienie w pamięci podręcznej, zapłacisz
+  [standardowe stawki za buforowanie kontekstu](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
 
-## Práticas recomendadas
+## Sprawdzone metody
 
-- **Usar arquivos de entrada para solicitações grandes:** Para um grande número de solicitações,
-  sempre use o método de entrada de arquivo
-  para melhor gerenciamento e para evitar atingir os limites de tamanho da solicitação para
-  a chamada [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pt-br#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent). Há um limite de tamanho de arquivo de 2 GB por arquivo de entrada.
-- **Tratamento de erros**:verifique o `batchStats` para `failedRequestCount` após a conclusão de um job. Se você estiver usando a saída de arquivo, analise cada linha para verificar se ela é um objeto `GenerateContentResponse` ou de status que indica um erro para essa solicitação específica. Consulte o [guia
-  de solução de problemas](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=pt-br#error-codes) para ver um conjunto completo de
-  códigos de erro.
-- **Enviar jobs uma vez**:a criação de um job em lote não é idempotente.
-  Se você enviar a mesma solicitação de criação duas vezes, dois jobs em lote separados serão criados.
-- **Dividir lotes muito grandes**:embora o tempo de resposta esperado seja de 24 horas, o tempo de processamento real pode variar com base na carga do sistema e no tamanho do job.
-  Para jobs grandes, considere dividi-los em lotes menores se os resultados intermediários forem necessários mais cedo.
+- **Używaj plików wejściowych w przypadku dużych żądań:** w przypadku dużej liczby żądań,
+  zawsze używaj metody przesyłania plików,
+  aby ułatwić zarządzanie i uniknąć przekroczenia limitów rozmiaru żądań dla
+  samego wywołania [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=pl#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent). Pamiętaj, że maksymalny rozmiar pliku wejściowego to 2 GB.
+- **Obsługa błędów:** po zakończeniu zadania sprawdź `batchStats` pod kątem `failedRequestCount`. Jeśli używasz danych wyjściowych w pliku, przeanalizuj każdy wiersz, aby sprawdzić, czy jest to obiekt `GenerateContentResponse`, czy obiekt stanu wskazujący błąd w przypadku konkretnego żądania. Pełny zestaw
+  kodów błędów znajdziesz w przewodniku rozwiązywania[problemów](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=pl#error-codes).
+- **Przesyłaj zadania tylko raz:** tworzenie zadania wsadowego nie jest idempotentne.
+  Jeśli 2 razy wyślesz to samo żądanie utworzenia, zostaną utworzone 2 osobne zadania wsadowe.
+- **Dziel bardzo duże zadania wsadowe:** docelowy czas realizacji to 24 godziny, ale rzeczywisty czas przetwarzania może się różnić w zależności od obciążenia systemu i rozmiaru zadania.
+  W przypadku dużych zadań rozważ podzielenie ich na mniejsze zadania wsadowe, jeśli wyniki pośrednie są potrzebne wcześniej.
 
-## A seguir
+## Co dalej?
 
-- Confira o [notebook da API Batch](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=pt-br)
-  para mais exemplos.
-- A camada de compatibilidade com a OpenAI oferece suporte à API Batch. Leia os exemplos na
-  [página de compatibilidade do OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br#batch).
+- Więcej przykładów znajdziesz w notatniku [wsadowego interfejsu API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=pl).
+- Warstwa zgodności z OpenAI obsługuje wsadowy interfejs API. Przykłady znajdziesz na stronie
+  [Zgodność z OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl#batch).
 
-Envie comentários
+Prześlij opinię
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Última atualização 2026-09-18 UTC.
+Ostatnia aktualizacja: 2026-09-18 UTC.
 
-Quer enviar seu feedback?
+Chcesz przekazać coś jeszcze?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-18 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]

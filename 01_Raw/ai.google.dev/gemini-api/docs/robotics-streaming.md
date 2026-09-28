@@ -1,70 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar
-fetched_at: 2026-09-21T05:53:44.306798+00:00
-title: "\u0627\u0644\u0631\u0648\u0628\u0648\u062a\u0627\u062a \u0645\u0639 \u0627\u0644\u0628\u062b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr
+fetched_at: 2026-09-28T06:23:07.974919+00:00
+title: "Robotique avec streaming \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-# الروبوتات مع البث
+# Robotique avec streaming
 
-تعرض نقطة نهاية نموذج `gemini-robotics-er-2-streaming-preview` نقطة نهاية مخصّصة للبث المباشر تتكامل مع [Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ar)، ما يتيح تفاعلاً ثنائي الاتجاه في الوقت الفعلي بين تطبيقك والروبوت. وهذا يجعلها مناسبة للوكلاء الذين يحتاجون إلى حلقات ملاحظات سريعة وردود فعلية على البيئة.
+Le point de terminaison du modèle `gemini-robotics-er-2-streaming-preview` expose un point de terminaison de streaming dédié qui s'intègre à l'[API Live](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=fr), ce qui permet une interaction bidirectionnelle en temps réel entre votre application et le robot. Elle convient donc aux agents qui ont besoin de boucles de rétroaction rapides et de réponses réactives à l'environnement.
 
-[تجربة التطبيق في Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=ar)
-[استنساخ تطبيقات نموذجية من GitHub](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
+[Essayer dans Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-streaming-preview&hl=fr)
+[Cloner des exemples d'applications depuis GitHub](https://github.com/google-gemini/robotics-samples/tree/main/live-api)
 
-## حالات الاستخدام
+## Cas d'utilisation
 
-- **التنسيق بين الروبوتات المتعددة**: روبوتات متعددة تتواصل بشأن حالة المهام وتفوّض المهام الفرعية من خلال جلسة مشتركة.
-- **المراقبة المستمرة**: هي برامج آلية تراقب مشهدًا معيّنًا وتنفّذ إجراءات
-  عند وقوع أحداث معيّنة، مثل وصول حاوية إلى مستوى تعبئة معيّن.
-- **المستودع والخدمات اللوجستية**: وكلاء التعبئة والتغليف الذين يتحقّقون من السلع بشكل مرئي ويتتبّعون تقدّم عملية التغليف ويتعافون من الأخطاء
+- **Coordination de plusieurs robots** : plusieurs robots communiquent l'état des tâches et délèguent des sous-tâches par le biais d'une session partagée.
+- **Surveillance continue** : robots qui observent une scène et déclenchent des actions lorsque des événements spécifiques se produisent, par exemple lorsqu'un conteneur atteint un certain niveau de remplissage.
+- **Entrepôt et logistique** : agents de préparation et d'emballage qui vérifient visuellement les articles, suivent la progression de l'emballage et corrigent les erreurs.
 
-## المواصفات الفنية
+## Spécifications techniques
 
-يوضّح الجدول التالي المواصفات الفنية لواجهة Live API:
+Le tableau suivant présente les spécifications techniques de l'API Live :
 
-| الفئة | التفاصيل |
+| Catégorie | Détails |
 | --- | --- |
-| طُرق الإدخال | الصوت (صوت PCM خام بمعدل 16 بت، و16 كيلوهرتز، وترتيب وحدات البايت الصغيرة أولاً)، والصور (JPEG <= 1 لقطة في الثانية)، والنصوص |
-| طُرق الإخراج | نص |
-| البروتوكول | اتصال WebSocket ذو الحالة (WSS) |
+| Modes d'entrée | Audio (audio PCM 16 bits brut, 16 kHz, little-endian), images (JPEG <= 1 FPS), texte |
+| Modes de sortie | Texte |
+| Protocole | Connexion WebSocket avec état (WSS) |
 
-## إنشاء إعدادات تستند إلى الذكاء الاصطناعي الوكيل
+## Créer une configuration agentique
 
-تتّبع كل أداة روبوتية مستندة إلى Live API ثلاث خطوات:
+Chaque agent robotique basé sur l'API Live suit trois étapes :
 
-1. **التعريف بإمكانات الروبوت كأدوات.** يصبح كل إجراء يمكن للروبوت تنفيذه، مثل التنقّل والإمساك والتحدّث، تعريف دالة يتضمّن اسمًا ووصفًا ومخططًا للمعلمات. يجب أن تستخدم الإجراءات المادية
-   `"behavior": "BLOCKING"` لكي ينتظر النموذج إلى أن ينتهي الروبوت من تنفيذ الإجراء قبل
-   اختيار الخطوة التالية.
-2. **بث إدخال متعدد الوسائط في جلسة مستمرة** افتح جلسة `live.connect`
-   وأبقِها مفتوحة طوال مدة المهمة. إرسال إطارات الفيديو أو الصوت أو النص عند وصولها من مستشعرات الروبوت
-3. **التعامل مع طلبات استخدام الأدوات في حلقة تلقّي** في كل مرة يختار فيها النموذج إجراءً، يرسل رسالة `tool_call`. ينفّذ حلقة الاستلام الدالة على حزمة تطوير البرامج (SDK) الخاصة بالروبوت ويرسل `tool_response`. ستبقى الجلسة مفتوحة، وسيختار النموذج الإجراء التالي استنادًا إلى النتيجة.
+1. **Déclarez les capacités du robot en tant qu'outils.** Chaque action que le robot peut effectuer (naviguer, saisir, parler, etc.) devient une déclaration de fonction avec un nom, une description et un schéma de paramètres. Les actions physiques doivent utiliser `"behavior": "BLOCKING"` pour que le modèle attende que le robot ait terminé avant de choisir l'étape suivante.
+2. **Transmettre des entrées multimodales dans une session persistante** Ouvrez une session `live.connect` et laissez-la ouverte pendant toute la durée de la tâche. Envoyez des images vidéo, de l'audio ou du texte à mesure qu'ils arrivent des capteurs de votre robot.
+3. **Gérer les appels d'outils dans une boucle de réception** Chaque fois que le modèle sélectionne une action, il envoie un message `tool_call`. Votre boucle de réception exécute la fonction par rapport à votre SDK de robot et renvoie un `tool_response`. La session reste ouverte et le modèle choisit la prochaine action en fonction du résultat.
 
-توضّح الأقسام التالية كيفية تطبيق هذه الخطوات على ثلاثة أنماط شائعة:
-حلقة وكيل أساسية، ومراقبة المشهد بشكل استباقي باستخدام إشارة نبض، وتوجيه
-الكلام من خلال ميزة "تحويل النص إلى كلام" كأداة.
+Les sections suivantes montrent comment appliquer ces étapes à trois modèles courants : une boucle d'agent de référence, la surveillance proactive de scènes avec un signal de présence et le routage de la parole via TTS en tant qu'outil.
 
-## تنسيق عمل روبوت من خلال استدعاء الدوال
+## Orchestrer un robot à l'aide de l'appel de fonction
 
-يوضّح المثال التالي الخطوات الثلاث معًا في نص برمجي واحد بلغة Python.
+L'exemple suivant montre les trois étapes connectées dans un seul script Python.
 
-الخطوة 1 — تعريفات الأدوات — تعلن عن إمكانات الروبوت كتعريفات للدوال. تستخدم الدالة `navigate` `"behavior": "BLOCKING"`، لذا ينتظر النموذج وصول الروبوت إلى نقطة على المسار قبل استدعاء أداة أخرى.
-أضِف المزيد من تعريفات الدوال في القائمة نفسها لعرض إمكانات إضافية للروبوت.
+L'étape 1 (définitions d'outils) déclare les capacités du robot sous forme de déclarations de fonctions. La fonction `navigate` utilise `"behavior": "BLOCKING"`. Le modèle attend donc que le robot atteigne le point de cheminement avant d'appeler un autre outil.
+Ajoutez d'autres déclarations de fonction dans la même liste pour exposer des capacités de robot supplémentaires.
 
-تعرض الخطوة 2، أي أدوات المساعدة في الإدخال، ثلاث دوال تنقل أنواعًا مختلفة من بيانات الإدخال إلى الجلسة: `send_text` للأوامر، و`send_image` لإطارات الكاميرا مع طلب نصي اختياري، و`send_audio` لصوت PCM الأولي من الميكروفون.
+L'étape 2 (assistants d'entrée) présente trois fonctions qui transmettent en flux continu différentes entrées de modalités dans la session : `send_text` pour les commandes, `send_image` pour les images de caméra avec un prompt textuel facultatif et `send_audio` pour l'audio PCM brut provenant d'un micro.
 
-تعمل الخطوة 3، أي حلقة الاستلام، بشكل متزامن وتتعامل مع نوعَين من الرسائل: رسائل `server_content` (الناتج النصي للنموذج) ورسائل `tool_call` (النموذج يطلب تنفيذ إجراء من الروبوت). عندما يصل طلب استدعاء أداة، تستدعي الحلقة `execute_tool`، وهو رمز بديل يمكنك استبداله بحزمة SDK الخاصة بالروبوت، ثم ترسل `tool_response` حتى يتمكّن النموذج من اختيار الإجراء التالي.
+L'étape 3 (boucle de réception) s'exécute simultanément et gère deux types de messages : les messages `server_content` (sortie de texte du modèle) et les messages `tool_call` (le modèle demandant une action du robot). Lorsqu'un appel d'outil arrive, la boucle appelle `execute_tool` (un stub que vous remplacez par votre véritable SDK de robot), puis renvoie un `tool_response` afin que le modèle puisse sélectionner la prochaine action.
 
 ```
 import asyncio
@@ -169,20 +163,18 @@ async def main():
 asyncio.run(main())
 ```
 
-تظل حلقة الاستلام نشطة بعد كل ردّ من الأداة. ينشئ النموذج خطة طويلة الأمد ويراجعها بدون أن ترمز تسلسل الإجراءات بأكمله مسبقًا.
+La boucle de réception reste active après chaque réponse de l'outil. Le modèle construit et révise un plan à long terme sans que vous ayez à encoder toute la séquence d'actions à l'avance.
 
-## التفكير الاستباقي المكاني الزماني
+## Raisonnement spatio-temporel proactif
 
-تتيح Live API بث الفيديو، ولكنّ إطارات الفيديو وحدها لا تؤدي إلى بدء دورة استنتاج جديدة. يجب أن تكون لقطات الفيديو مصحوبة بطلب نصي أو صوتي لتفعيل استجابة النموذج. يمكنك الاطّلاع على [إمكانات Live API](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ar) لمزيد من التفاصيل.
+L'API Live diffuse des vidéos, mais les images vidéo seules ne déclenchent pas de nouveau tour de raisonnement. Les images vidéo doivent être accompagnées d'une requête textuelle ou audio pour déclencher une réponse du modèle. Pour en savoir plus, consultez [Fonctionnalités de l'API Live](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=fr).
 
-لتفعيل ميزة "الاستدلال الاستباقي"، عليك تنفيذ **إشارة نبض**: أرسِل بشكل دوري أحدث إطار من الكاميرا متبوعًا بطلب نصي قصير يجبر النموذج على فحص المشهد واتخاذ قرار واضح. يتم الحدّ من معدّل نقل بيانات الفيديو الوارد إلى لقطة واحدة في الثانية.
+Pour activer le raisonnement proactif, implémentez un **signal de présence** : envoyez régulièrement la dernière image de la caméra, suivie d'un court prompt textuel qui force le modèle à inspecter la scène et à prendre une décision explicite. L'entrée vidéo est limitée à une image par seconde.
 
-### تنفيذ الإشارات الدورية
+### Implémenter le signal de pulsation
 
-يتم تشغيل روتين القلب كوظيفة `asyncio` منفصلة في الجلسة نفسها.
-يستهدف هذا الإعداد بشكل انتهازي معدّل تكرار يبلغ 1 هرتز (يتطابق مع الحد الأقصى لمعدّل إدخال الفيديو)
-أثناء انتظار اكتمال كل دورة (`er_turn_done`) لتجنُّب مقاطعة
-الاستدلال أثناء التنفيذ:
+La coroutine heartbeat s'exécute en tant que tâche `asyncio` distincte dans la même session.
+Il cible de manière opportuniste une cadence de 1 Hz (correspondant à la limite de fréquence d'entrée vidéo) en attendant la fin de chaque tour (`er_turn_done`) pour éviter d'interrompre le raisonnement en cours :
 
 ```
 async def heartbeat(session, camera, er_turn_done: asyncio.Event):
@@ -216,10 +208,9 @@ async def heartbeat(session, camera, er_turn_done: asyncio.Event):
             await asyncio.sleep(remaining)
 ```
 
-### تعديل حلقة الاستلام
+### Mettre à jour la boucle de réception
 
-للإشارة إلى أنّ النموذج قد أكمل دوره، عدِّل `receive_loop`
-لضبط `er_turn_done`:
+Pour indiquer que le modèle a terminé son tour, mettez à jour votre `receive_loop` pour définir `er_turn_done` :
 
 ```
 # In receive_loop: signal when the model finishes its turn
@@ -227,13 +218,12 @@ if sc.turn_complete:
     er_turn_done.set()
 ```
 
-## مصدر إخراج الصوت من خلال تقنية TTS خارجية
+## Sortie audio via un système TTS externe
 
-يعرض Gemini Robotics ER 2 نصًا. يوجه تطبيقك الردود المكتملة إلى مقدّم خدمة منفصل لتحويل النص إلى كلام (مثل [Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)) من خلال دالة ردّ تم إدخالها.
-يساعد ذلك في إبقاء وقت استجابة الكلام واختيار الصوت وسلوك المقاطعة تحت سيطرتك، كما يتيح لك تبديل الأنظمة الخلفية لتحويل النص إلى كلام بدون تغيير منطق الوكيل.
+Gemini Robotics ER 2 renvoie du texte. Votre application achemine les réponses complètes vers un fournisseur de synthèse vocale distinct (tel que [Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr)) via un rappel injecté.
+Cela vous permet de contrôler la latence vocale, la sélection de la voix et le comportement d'interruption, et d'échanger les backends de synthèse vocale sans modifier la logique de l'agent.
 
-يمكنك أيضًا تعريف تحويل النص إلى كلام كأداة لكي يتعامل النموذج مع "قل شيئًا" بالطريقة نفسها التي يتعامل بها مع "حرِّك الذراع". أضِف تعريف الدالة التالي إلى قائمة `tools`
-من القسم الأول:
+Vous pouvez également déclarer la synthèse vocale comme un outil afin que le modèle traite "dis quelque chose" de la même manière que "bouge le bras". Ajoutez la déclaration de fonction suivante à votre liste `tools` de la première section :
 
 ```
 TOOLS = [
@@ -263,25 +253,24 @@ TOOLS = [
 ]
 ```
 
-من خلال تضمين TTS في تعريف دالة، يتعامل النموذج مع الكلام من خلال مسار استدعاء الأدوات نفسه الذي تستخدمه أي إجراءات أخرى يتخذها الروبوت. يستوفي تطبيقك
-طلب البيانات من خلال دالة ردّ نداء تم إدخالها.
+En encapsulant la synthèse vocale dans une déclaration de fonction, le modèle gère la parole via le même chemin d'appel d'outil que toute autre action du robot. Votre application traite l'appel avec un rappel injecté.
 
-## أمثلة على GitHub
+## Exemples sur GitHub
 
-للاطّلاع على أمثلة عملية كاملة، بما في ذلك العرض التوضيحي الخاص بجلب الوجبات الخفيفة باستخدام الروبوت Spot، والعرض التوضيحي الخاص بالتحريك الأفقي والرأسي باستخدام الروبوت Tinybot، يُرجى الاطّلاع على [أمثلة على Robotics Live API](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
+Pour obtenir des exemples fonctionnels complets, y compris la démonstration de récupération de snacks par le robot Spot et le bonjour du Tinybot avec panoramique et inclinaison, consultez les [exemples d'API Robotics Live](https://github.com/google-gemini/robotics-samples/tree/main/live-api).
 
-## الخطوات التالية
+## Étape suivante
 
-- [فهم الفيديو](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): العثور على اللحظات وتصنيف مستوى التقدّم
-- [تنظيم المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأمد بدون بث
-- [نظرة عامة على Live API](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ar): مستندات Live API الكاملة
+- [Compréhension des vidéos](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr) : recherche de moments et classification de la progression.
+- [Orchestration des tâches](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=fr) : tâches à long terme sans streaming.
+- [Présentation de l'API Live](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=fr) : documentation complète de l'API Live.
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-تاريخ التعديل الأخير: 2026-09-16 (حسب التوقيت العالمي المتفَّق عليه)
+Dernière mise à jour le 2026/09/16 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Voulez-vous nous donner plus d'informations ?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-16 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/16 (UTC)."],[],[]]

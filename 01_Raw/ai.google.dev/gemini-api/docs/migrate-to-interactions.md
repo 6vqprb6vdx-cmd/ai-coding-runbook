@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ko
-fetched_at: 2026-09-21T05:45:14.356913+00:00
-title: "Interactions API\ub85c \ub9c8\uc774\uadf8\ub808\uc774\uc158 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ja
+fetched_at: 2026-09-28T06:21:39.137468+00:00
+title: "Interactions API \u3078\u306e\u79fb\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-의견 보내기
+フィードバックを送信
 
-# Interactions API로 마이그레이션
+# Interactions API への移行
 
-이 가이드에서는 `generateContent` API에서 Interactions API로 이전하는 방법을 설명합니다.
+このガイドでは、`generateContent` API から Interactions API に移行する方法について説明します。
 
-Interactions API는 Gemini 모델 및 에이전트로 빌드하는 가장 간단하고 효과적인 방법입니다. `generateContent`는 계속 완전히 지원되지만 모든 신규 개발에는 Interactions API를 사용하는 것이 좋습니다.
+Interactions API は、Gemini モデルとエージェントを構築する最もシンプルで最適な方法です。`generateContent` は引き続き完全にサポートされますが、すべての新しい開発には Interactions API をおすすめします。
 
-### 마이그레이션이 필요한 이유
+### 移行の理由
 
-Interactions API는 Gemini 모델 및 에이전트를 사용하여 빌드하는 가장 간단하고 효과적인 방법입니다.
+Interactions API は、Gemini モデルとエージェントを構築する最もシンプルで最適な方法です。
 
-- **서버 측 기록 관리**: `previous_interaction_id`를 통해 멀티턴 흐름이 간소화되었습니다. 서버는 기본적으로 상태를 사용 설정하지만 (`store=true`) `store=false`를 설정하여 상태 비저장 동작을 선택할 수 있습니다.
-- **관찰 가능한 실행 단계**: 입력된 단계를 사용하면 복잡한 흐름을 쉽게 디버그하고 중간 이벤트 (예: 생각 또는 검색 위젯)의 UI를 렌더링할 수 있습니다.
-- **도구 사용 및 에이전트형 워크플로**: 유형이 지정된 실행 단계를 통해 다단계 도구 사용, 조정, 복잡한 추론 흐름을 기본적으로 지원합니다.
-- **장기 실행 및 백그라운드 작업**: `background=true`를 사용하여 Deep Think 및 Deep Research와 같은 시간 집약적인 작업을 백그라운드 프로세스로 오프로드하는 것을 지원합니다.
+- **サーバーサイドの履歴管理**: `previous_interaction_id` を使用してマルチターンのフローを簡素化します。サーバーはデフォルトで状態を有効にしますが（`store=true`）、`store=false` を設定することでステートレス動作を選択できます。
+- **Observable 実行ステップ**: 型付きステップを使用すると、複雑なフローのデバッグが容易になり、中間イベント（思考や検索ウィジェットなど）の UI をレンダリングできます。
+- **ツールの使用とエージェント ワークフロー**: 型付きの実行ステップを通じて、複数ステップのツールの使用、オーケストレーション、複雑な推論フローをネイティブにサポートします。
+- **長時間実行タスクとバックグラウンド タスク**: `background=true` を使用して、Deep Think や Deep Research などの時間のかかるオペレーションをバックグラウンド プロセスにオフロードすることをサポートします。
 
-## 기본 입력/출력
+## 基本的な入出力
 
-이 섹션에서는 간단한 텍스트 생성 요청을 이전하는 방법을 보여줍니다.
+このセクションでは、簡単なテキスト生成リクエストを移行する方法について説明します。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent` API는 상태가 없으며 응답을 직접 반환합니다. 응답 구조는 파싱할 `parts` 목록이 있는 `content`이 각각 포함된 `candidates` 목록으로 출력을 래핑합니다.
+`generateContent` API はステートレスで、レスポンスを直接返します。レスポンス構造は、出力を `candidates` のリストでラップします。各 には、解析する `parts` のリストを含む `content` が含まれます。
 
 ### Python
 
@@ -52,7 +52,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -66,7 +66,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -77,6 +77,39 @@ Client client = new Client();
 GenerateContentResponse response =
     client.models.generateContent("gemini-2.5-flash-lite", "Tell me a joke.", null);
 System.out.println(response.text());
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-2.5-flash-lite",
+        genai.Text("Tell me a joke."),
+        nil,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(response.Text())
+}
 ```
 
 ### REST
@@ -118,9 +151,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-Interactions API는 `steps` 타임라인과 함께 저장된 상호작용 리소스를 반환합니다. `steps` 배열을 수동으로 검사하여 중간 이벤트를 찾을 수 있지만 Google 생성형 AI SDK는 최종 출력에 액세스할 수 있도록 반환된 `Interaction` 객체에 편리한 속성을 직접 제공합니다.
+Interactions API は、`steps` タイムラインを含む保存済みのインタラクション リソースを返します。`steps` 配列を手動で検査して中間イベントを見つけることもできますが、Google GenAI SDK は、返された `Interaction` オブジェクトに最終出力にアクセスするための便利なプロパティを直接提供します。
 
-가장 일반적인 편의 속성은 **`.output_text`** (문자열)로, 모델의 대답 끝에 있는 연속된 `TextContent` 블록을 자동으로 추출하여 결합합니다. 이 방법은 간단한 대답에는 완벽하게 작동하지만 텍스트가 아닌 콘텐츠 (예: 생각, 이미지, 오디오, 도구 호출)로 구분된 이전 텍스트 블록은 포함하지 않습니다. 복잡하거나 인터리브된 멀티모달 응답의 경우 대신 `steps`를 수동으로 반복해야 합니다.
+最も一般的なコンビニエンス プロパティは **`.output_text`**（文字列）です。これは、モデルのレスポンスの末尾にある連続する `TextContent` ブロックを自動的に抽出して結合します。これは単純なレスポンスには最適ですが、テキスト以外のコンテンツ（思考、画像、音声、ツール呼び出しなど）で区切られた以前のテキスト ブロックは含まれません。複雑なマルチモーダル レスポンスやインターリーブされたマルチモーダル レスポンスの場合は、`steps` を手動で反復処理する必要があります。
 
 ### Python
 
@@ -136,7 +169,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -151,7 +184,7 @@ let interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -173,6 +206,43 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 
 System.out.println(interaction.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Tell me a joke."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
 ```
 
 ### REST
@@ -216,17 +286,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 멀티턴 대화
+## マルチターンの会話
 
-Interactions API는 기본적으로 상호작용을 저장하여 멀티턴 대화의 서버 측 상태 관리를 지원합니다.
+Interactions API はデフォルトでやり取りを保存するため、マルチターンの会話のサーバーサイドの状態管理が可能になります。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent`에서는 `contents` 배열 또는 클라이언트 측 채팅 도우미를 사용하여 대화 기록을 수동으로 관리해야 합니다.
+`generateContent` では、`contents` 配列またはクライアントサイドのチャット ヘルパーを使用して、会話履歴を手動で管理する必要があります。
 
 ### Python
 
-**채팅 도우미 사용 (권장)**
+**チャット ヘルパーを使用する（推奨）**
 
 ```
 from google import genai
@@ -241,7 +311,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**기록 수동 관리**
+**履歴を手動で管理する**
 
 ```
 from google import genai
@@ -267,9 +337,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
-**채팅 도우미 사용 (권장)**
+**チャット ヘルパーを使用する（推奨）**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -284,7 +354,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**기록 수동 관리**
+**履歴を手動で管理する**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -302,7 +372,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -343,6 +413,57 @@ GenerateContentResponse manualResponse =
 System.out.println(manualResponse.text());
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Using the chat helper (recommended)
+    chat, err := client.Chats.Create(ctx, "gemini-2.5-flash-lite", nil, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    response1, err := chat.SendMessage(ctx, genai.Part{Text: "Hi, my name is Phil."})
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(response1.Text())
+
+    response2, err := chat.SendMessage(ctx, genai.Part{Text: "What is my name?"})
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(response2.Text())
+
+    // Manually managing history
+    history := []*genai.Content{
+        genai.NewContentFromText("Hi, my name is Phil.", genai.RoleUser),
+        genai.NewContentFromText("Hi Phil, how can I help you?", genai.RoleModel),
+        genai.NewContentFromText("What is my name?", genai.RoleUser),
+    }
+    manualResponse, err := client.Models.GenerateContent(ctx, "gemini-2.5-flash-lite", history, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(manualResponse.Text())
+}
+```
+
 ### REST
 
 ```
@@ -377,9 +498,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-Interactions API는 서버의 상태를 관리합니다. `previous_interaction_id`을 참조하여 대화를 이어갑니다.
+Interactions API はサーバー上の状態を管理します。`previous_interaction_id` を参照して会話を続けます。
 
 ### Python
 
@@ -401,7 +522,7 @@ interaction2 = client.interactions.create(
 print("Response 2:", interaction2.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -422,7 +543,7 @@ interaction = await client.interactions.create({
 console.log("Response 2:", interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -454,6 +575,57 @@ CreateModelInteraction req2 =
 Interaction interaction2 =
     client.interactions.create(CreateInteractionRequestBody.of(req2)).interaction().get();
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Hi, my name is Phil."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res1.Interaction.OutputText != nil {
+        fmt.Println("Response 1:", *res1.Interaction.OutputText)
+    }
+
+    res2, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:                 interactions.Model("gemini-3.8-flash"),
+            PreviousInteractionID: res1.Interaction.ID,
+            Input:                 interactions.NewInteractionsInput("What is my name?"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res2.Interaction.OutputText != nil {
+        fmt.Println("Response 2:", *res2.Interaction.OutputText)
+    }
+}
 ```
 
 ### REST
@@ -506,13 +678,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 멀티모달 입력
+## マルチモーダル入力
 
-두 API 모두 멀티모달 입력 (텍스트, 이미지, 동영상 등)을 지원합니다.
+どちらの API もマルチモーダル入力（テキスト、画像、動画など）をサポートしています。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent`에서는 `contents` 배열 내에 `parts` 목록을 전달합니다. 응답은 첫 번째 후보의 `parts`에 출력을 반환합니다.
+`generateContent` では、`contents` 配列内の `parts` のリストを渡します。レスポンスは、最初の候補の `parts` で出力を返します。
 
 ### Python
 
@@ -535,7 +707,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -560,7 +732,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -581,6 +753,47 @@ GenerateContentResponse response =
             Part.fromBytes(imageBytes, "image/jpeg"), Part.fromText("Describe this image.")),
         null);
 System.out.println(response.text());
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    imageBytes, err := os.ReadFile("sample.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    contents := []*genai.Content{
+        genai.NewContentFromParts([]*genai.Part{
+            genai.NewPartFromBytes(imageBytes, "image/jpeg"),
+            genai.NewPartFromText("Describe this image."),
+        }, genai.RoleUser),
+    }
+
+    response, err := client.Models.GenerateContent(ctx, "gemini-2.5-flash-lite", contents, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(response.Text())
+}
 ```
 
 ### REST
@@ -623,9 +836,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-Interactions API에서는 `input` 필드에 배열을 전달합니다. 타임라인에서 `model_output` 단계를 찾아 출력 콘텐츠를 가져옵니다.
+Interactions API では、配列を `input` フィールドに渡します。出力コンテンツを取得するには、タイムラインで `model_output` ステップを見つけます。
 
 ### Python
 
@@ -653,7 +866,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -680,7 +893,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -718,6 +931,59 @@ CreateModelInteraction request =
 Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 System.out.println(interaction.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    imageBytes, err := os.ReadFile("sample.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64ImageData := base64.StdEncoding.EncodeToString(imageBytes)
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.ImageContent{
+                    MimeType: interactions.ImageContentMimeType("image/jpeg").ToPointer(),
+                    Data:     genai.Ptr(base64ImageData),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Describe this image.",
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
 ```
 
 ### REST
@@ -775,13 +1041,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 구조화된 출력
+## 構造化出力
 
-모델이 특정 스키마와 일치하는 JSON을 반환하도록 하려면 응답 형식을 구성하세요.
+特定のスキーマに一致する JSON をモデルが返すようにするには、レスポンス形式を構成します。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent`에서는 `config` (또는 `generationConfig`) 객체 내에 중첩된 `response_mime_type` 및 `response_schema` 필드를 사용하여 출력 형식을 구성합니다.
+`generateContent` では、`config`（または `generationConfig`）オブジェクト内にネストされた `response_mime_type` フィールドと `response_schema` フィールドを使用して出力形式を構成します。
 
 ### Python
 
@@ -807,7 +1073,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -835,7 +1101,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -871,6 +1137,54 @@ GenerateContentResponse response =
             .responseSchema(recipeSchema)
             .build());
 System.out.println(response.text());
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    recipeSchema := &genai.Schema{
+        Type: genai.TypeObject,
+        Properties: map[string]*genai.Schema{
+            "recipe_name": {Type: genai.TypeString},
+            "ingredients": {
+                Type:  genai.TypeArray,
+                Items: &genai.Schema{Type: genai.TypeString},
+            },
+        },
+        Required: []string{"recipe_name", "ingredients"},
+    }
+
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-2.5-flash-lite",
+        genai.Text("Give me a recipe for chocolate chip cookies."),
+        &genai.GenerateContentConfig{
+            ResponseMIMEType: "application/json",
+            ResponseSchema:   recipeSchema,
+        },
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(response.Text())
+}
 ```
 
 ### REST
@@ -919,9 +1233,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-Interactions API에서 출력 형식 컨트롤이 최상위 `response_format` 배열로 이동합니다.
+Interactions API では、出力形式の制御が最上位の `response_format` 配列に移動します。
 
 ### Python
 
@@ -950,7 +1264,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -981,7 +1295,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1026,6 +1340,61 @@ CreateModelInteraction request =
 Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(request)).interaction().get();
 System.out.println(interaction.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    schema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "recipe_name": map[string]any{"type": "string"},
+            "ingredients": map[string]any{
+                "type":  "array",
+                "items": map[string]any{"type": "string"},
+            },
+        },
+        "required": []string{"recipe_name", "ingredients"},
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Give me a recipe for chocolate chip cookies."),
+            ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
+                interactions.NewResponseFormat(interactions.TextResponseFormat{
+                    MimeType: interactions.TextResponseFormatMimeType("application/json").ToPointer(),
+                    Schema:   schema,
+                }),
+            )),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
 ```
 
 ### REST
@@ -1080,13 +1449,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 멀티모달 생성
+## マルチモーダル生成
 
-텍스트를 넘어 이미지나 오디오와 같은 모달리티로 콘텐츠를 생성할 때의 주요 차이점은 생성된 미디어의 응답 구조입니다.
+テキスト以外のモダリティ（画像や音声など）でコンテンツを生成する場合、主な違いは、レスポンスが生成されたメディアをどのように構造化するかです。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent`에서 응답은 생성된 미디어를 후보의 `parts`에 직접 반환합니다. 일반적으로 `inlineData`의 base64 데이터로 반환됩니다.
+`generateContent` では、レスポンスは生成されたメディアを候補の `parts` に直接返します。通常は `inlineData` の base64 データとして返されます。
 
 ```
 # Response structure concept
@@ -1111,9 +1480,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-Interactions API에서 생성된 미디어는 타임라인의 `model_output` 단계의 `content` 배열 내에 별도의 항목으로 표시되어 상호작용의 시간순 흐름을 유지합니다.
+Interactions API では、生成されたメディアはタイムラインの `model_output` ステップの `content` 配列内の個別のアイテムとして表示され、インタラクションの時系列フローが維持されます。
 
 ```
 # Response structure concept
@@ -1139,15 +1508,15 @@ Interactions API에서 생성된 미디어는 타임라인의 `model_output` 단
 }
 ```
 
-이렇게 하면 입력과 텍스트 출력이 처리되는 방식과 일관되게 대답을 파싱할 수 있습니다. 타임라인의 모든 항목이 단계입니다.
+これにより、入力とテキスト出力の処理方法とレスポンスの解析方法が一致します。つまり、すべてがタイムラインのステップになります。
 
-## 서버 측 도구
+## サーバーサイド ツール
 
-Gemini는 Google 검색 그라운딩과 같은 기본 제공 서버 측 도구를 지원합니다. 주요 차이점은 대답에서 도구 실행을 나타내는 방식입니다.
+Gemini は、Google 検索のグラウンディングなどの組み込みのサーバーサイド ツールをサポートしています。主な違いは、レスポンスでツールの実行を表す方法です。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent`에서 서버 측 도구는 대부분 불투명합니다. 도구를 사용 설정하고 별도의 `groundingMetadata` 객체로 최종 답변을 받습니다. 중요한 점은 인용이 인라인이 아니라는 것입니다. `groundingSupports`는 문자 색인을 사용하여 텍스트 세그먼트를 `groundingChunks`의 웹 소스에 다시 매핑합니다.
+`generateContent` では、サーバーサイド ツールはほとんどが不透明です。ツールを有効にして、別の `groundingMetadata` オブジェクトで最終的な回答を取得します。重要なのは、引用がインラインではないことです。`groundingSupports` は文字インデックスを使用して、テキスト セグメントを `groundingChunks` のウェブソースにマッピングします。
 
 ### Python
 
@@ -1173,7 +1542,7 @@ for support in metadata.grounding_supports:
     print(f"Citation: {support.segment.text}")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1197,7 +1566,7 @@ for (const support of metadata.groundingSupports) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1236,6 +1605,54 @@ if (!candidates.isEmpty() && candidates.get(0).groundingMetadata().isPresent()) 
     Optional<String> segmentText = support.segment().flatMap(s -> s.text());
     segmentText.ifPresent(text -> System.out.println("Citation: " + text));
   }
+}
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-2.5-flash-lite",
+        genai.Text("Who won Euro 2024?"),
+        &genai.GenerateContentConfig{
+            Tools: []*genai.Tool{
+                {GoogleSearch: &genai.GoogleSearch{}},
+            },
+        },
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if len(response.Candidates) > 0 && response.Candidates[0].GroundingMetadata != nil {
+        metadata := response.Candidates[0].GroundingMetadata
+        if metadata.SearchEntryPoint != nil {
+            fmt.Println("Search Entry Point:", metadata.SearchEntryPoint.RenderedContent)
+        }
+        for _, support := range metadata.GroundingSupports {
+            if support.Segment != nil {
+                fmt.Println("Citation:", support.Segment.Text)
+            }
+        }
+    }
 }
 ```
 
@@ -1297,11 +1714,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-Interactions API에서 서버 측 도구는 전체 타임라인 투명성을 제공합니다. API는 호출과 결과를 별도의 실행 `steps` (`google_search_call` 및 `google_search_result`)으로 기록하여 모델이 검색한 데이터를 정확하게 노출합니다.
+Interactions API では、サーバーサイド ツールによってタイムラインの完全な透明性が実現します。API は、呼び出しと結果を個別の実行 `steps`（`google_search_call` と `google_search_result`）として記録し、モデルが取得したデータを正確に公開します。
 
-또한 API는 인용을 **인라인**으로 반환합니다. 별도의 메타데이터 객체에서 색인을 매핑하는 대신 `model_output` 단계 내의 텍스트 항목에는 소스에 직접 연결되는 자체 `annotations` 배열이 포함됩니다.
+また、API は引用を**インライン**で返します。別のメタデータ オブジェクトからインデックスをマッピングする代わりに、`model_output` ステップ内のテキスト アイテムには、ソースに直接リンクする独自の `annotations` 配列が含まれています。
 
 ### Python
 
@@ -1326,7 +1743,7 @@ for step in interaction.steps:
                 print(f"Citation: {anno.title} ({anno.uri})")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1353,7 +1770,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1408,6 +1825,64 @@ for (Step step : interaction.steps().orElse(Collections.emptyList())) {
       }
     }
   }
+}
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Who won Euro 2024?"),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.GoogleSearch{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, step := range res.Interaction.Steps {
+        if searchStep := step.GoogleSearchResultStep; searchStep != nil {
+            for _, r := range searchStep.Result {
+                if r.SearchSuggestions != nil {
+                    fmt.Println("Search Suggestions:", *r.SearchSuggestions)
+                }
+            }
+        } else if modelOutput := step.ModelOutputStep; modelOutput != nil {
+            for _, contentBlock := range modelOutput.Content {
+                if textContent := contentBlock.TextContent; textContent != nil {
+                    fmt.Println("Answer:", textContent.Text)
+                    for _, anno := range textContent.Annotations {
+                        if cit := anno.URLCitation; cit != nil {
+                            fmt.Printf("Citation: %s (%s)\n", cit.GetTitle(), cit.GetURL())
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -1470,13 +1945,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 함수 호출
+## 関数呼び出し
 
-함수 호출 및 결과의 구조도 단계 스키마에 맞게 변경되었습니다.
+関数呼び出しと結果の構造も、ステップ スキーマに合わせて変更されました。
 
-### 이전 (`generateContent`)
+### 以前（`generateContent`）
 
-`generateContent`에서 대답은 후보 내의 함수 호출을 반환합니다.\* {Python}
+`generateContent` では、レスポンスは候補内の関数呼び出しを返します。\*{Python}
 
 ```
 ```python
@@ -1522,7 +1997,7 @@ print(response.text)
 ```
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1560,7 +2035,7 @@ response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1622,6 +2097,78 @@ GenerateContentResponse finalResponse =
 System.out.println(finalResponse.text());
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    weatherTool := &genai.Tool{
+        FunctionDeclarations: []*genai.FunctionDeclaration{
+            {
+                Name:        "get_weather",
+                Description: "Gets weather",
+                Parameters: &genai.Schema{
+                    Type: genai.TypeObject,
+                    Properties: map[string]*genai.Schema{
+                        "location": {Type: genai.TypeString},
+                    },
+                },
+            },
+        },
+    }
+
+    config := &genai.GenerateContentConfig{
+        Tools: []*genai.Tool{weatherTool},
+    }
+
+    response, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-2.5-flash-lite",
+        genai.Text("What's the weather in Boston?"),
+        config,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    calls := response.FunctionCalls()
+    if len(calls) > 0 {
+        functionCall := calls[0]
+        fmt.Println("Requested tool:", functionCall.Name)
+
+        result := "52°F and rain"
+        history := []*genai.Content{
+            genai.NewContentFromText("What's the weather in Boston?", genai.RoleUser),
+            response.Candidates[0].Content,
+            genai.NewContentFromParts([]*genai.Part{
+                genai.NewPartFromFunctionResponse(functionCall.Name, map[string]any{"result": result}),
+            }, genai.RoleUser),
+        }
+
+        finalResponse, err := client.Models.GenerateContent(ctx, "gemini-2.5-flash-lite", history, config)
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Println(finalResponse.Text())
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1672,9 +2219,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-이제 도구 호출과 결과가 타임라인에서 별도의 단계로 표시됩니다.
+ツール呼び出しと結果がタイムラインの個別のステップになりました。
 
 ### Python
 
@@ -1722,7 +2269,7 @@ for step in interaction.steps:
         print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1772,7 +2319,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1850,6 +2397,82 @@ for (Step step : interaction.steps().orElse(Collections.emptyList())) {
         client.interactions.create(CreateInteractionRequestBody.of(nextRequest)).interaction().get();
     System.out.println(nextInteraction.outputText().orElse(""));
   }
+}
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    weatherTool := interactions.NewTool(interactions.Function{
+        Name:        genai.Ptr("get_weather"),
+        Description: genai.Ptr("Gets weather"),
+        Parameters: map[string]any{
+            "type": "object",
+            "properties": map[string]any{
+                "location": map[string]any{"type": "string"},
+            },
+            "required": []string{"location"},
+        },
+    })
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("What's the weather in Boston?"),
+            Tools: []interactions.Tool{weatherTool},
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, step := range res.Interaction.Steps {
+        if fcStep := step.FunctionCallStep; fcStep != nil {
+            fmt.Printf("Executing %s for %v\n", fcStep.Name, fcStep.Arguments)
+
+            result := "52°F and rain"
+            funcResult := interactions.NewStep(interactions.FunctionResultStep{
+                CallID: fcStep.ID,
+                Name:   genai.Ptr(fcStep.Name),
+                Result: interactions.NewFunctionResultStepResultUnion([]interactions.FunctionResultSubcontent{
+                    interactions.NewFunctionResultSubcontent(interactions.TextContent{Text: result}),
+                }),
+            })
+
+            nextRes, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+                Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+                    Model:                 interactions.Model("gemini-3.8-flash"),
+                    PreviousInteractionID: res.Interaction.ID,
+                    Input:                 interactions.NewInteractionsInput([]interactions.Step{funcResult}),
+                }),
+            })
+            if err != nil {
+                log.Fatal(err)
+            }
+            if nextRes.Interaction.OutputText != nil {
+                fmt.Println(*nextRes.Interaction.OutputText)
+            }
+        }
+    }
 }
 ```
 
@@ -1940,15 +2563,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 스트리밍
+## ストリーミング
 
-스트리밍의 주요 차이점은 Interactions API는 요청 본문에 `"stream": true`가 있는 동일한 엔드포인트를 사용하는 반면 `generateContent` API는 전용 엔드포인트 (`:streamGenerateContent`)를 호출해야 한다는 것입니다.
+ストリーミングの大きな違いは、Interactions API がリクエスト本文で `"stream": true` を使用して同じエンドポイントを使用するのに対し、`generateContent` API では専用のエンドポイント（`:streamGenerateContent`）を呼び出す必要があったことです。
 
-또한 스트리밍 이벤트는 이제 전문화된 유형을 사용하여 상호작용 수명 주기를 모니터링하고 타임라인을 따라 실행 단계를 추적합니다.
+また、ストリーミング イベントで、インタラクション ライフサイクルをモニタリングし、タイムラインに沿って実行ステップをトラッキングするために、特殊な型が使用されるようになりました。
 
-### 이전 (`generateContentStream`)
+### 以前（`generateContentStream`）
 
-`generateContent`를 사용하면 응답 청크 스트림을 소비합니다.
+`generateContent` を使用すると、レスポンス チャンクのストリームが消費されます。
 
 ### Python
 
@@ -1964,7 +2587,7 @@ for chunk in response:
     print(chunk.text, end="")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const responseStream = await client.models.generateContentStream({
@@ -1976,7 +2599,7 @@ for await (const chunk of responseStream) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1990,6 +2613,40 @@ try (ResponseStream<GenerateContentResponse> responseStream =
   for (GenerateContentResponse chunk : responseStream) {
     System.out.print(chunk.text());
   }
+}
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for chunk, err := range client.Models.GenerateContentStream(
+        ctx,
+        "gemini-2.5-flash-lite",
+        genai.Text("Tell me a story"),
+        nil,
+    ) {
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Print(chunk.Text())
+    }
 }
 ```
 
@@ -2023,9 +2680,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### After (Interactions API)
+### 後（Interactions API）
 
-Interactions API에서 스트리밍은 서버 전송 이벤트 (SSE)와 특수 델타 유형을 사용하여 실행 단계를 발생하는 대로 나타냅니다.
+Interactions API では、ストリーミングでサーバー送信イベント（SSE）と特殊なデルタ型を使用して、実行ステップを発生順に表します。
 
 ### Python
 
@@ -2048,7 +2705,7 @@ for event in stream:
         print(f"\n\n--- Stream Finished ---")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -2072,7 +2729,7 @@ for await (const event of stream) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -2115,9 +2772,60 @@ try (EventStream<InteractionSSEStreamEvent> stream =
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:  interactions.Model("gemini-3.8-flash"),
+            Input:  interactions.NewInteractionsInput("Tell me a story"),
+            Stream: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    stream := res.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        } else if event.GetDataInteractionCompleted() != nil {
+            fmt.Println("\n\n--- Stream Finished ---")
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
-# SSE 스트림 출력 예
+# SSE ストリーム出力の例
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -2138,13 +2846,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### 스트리밍 도구 및 함수 호출
+### ストリーミング ツールと関数呼び出し
 
-스트림에서 도구가 작동하는 방식이 `generateContent`에서 세부적인 제어 및 가시성을 제공하는 방식으로 크게 바뀌었습니다.
+ストリーム内のツールの動作が `generateContent` から大幅に変更され、よりきめ細かい制御と可視性が実現しました。
 
-#### 이전 (`generateContent`)
+#### 以前（`generateContent`）
 
-`generateContent`를 사용하면 스트리밍 함수 호출이 단일 청크로 완전히 도착했습니다. 실시간으로 생성되는 인수를 확인할 수 없었으므로 핸들러는 완전한 `functionCall` 객체만 확인했습니다.
+`generateContent` では、ストリーミング関数呼び出しは 1 つのチャンクで完了しました。引数がリアルタイムで生成されるのを確認できなかったため、ハンドラは単に完全な `functionCall` オブジェクトを確認しました。
 
 ### Python
 
@@ -2169,7 +2877,7 @@ for chunk in stream:
         print(chunk.text, end="")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -2192,7 +2900,7 @@ for await (const chunk of stream) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -2238,6 +2946,62 @@ try (ResponseStream<GenerateContentResponse> stream =
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    weatherTool := &genai.Tool{
+        FunctionDeclarations: []*genai.FunctionDeclaration{
+            {
+                Name:        "get_weather",
+                Description: "Gets weather",
+                Parameters: &genai.Schema{
+                    Type: genai.TypeObject,
+                    Properties: map[string]*genai.Schema{
+                        "location": {Type: genai.TypeString},
+                    },
+                },
+            },
+        },
+    }
+
+    for chunk, err := range client.Models.GenerateContentStream(
+        ctx,
+        "gemini-2.5-flash-lite",
+        genai.Text("What's the weather in Boston?"),
+        &genai.GenerateContentConfig{
+            Tools: []*genai.Tool{weatherTool},
+        },
+    ) {
+        if err != nil {
+            log.Fatal(err)
+        }
+        if calls := chunk.FunctionCalls(); len(calls) > 0 {
+            fc := calls[0]
+            fmt.Printf("Call: %s(%v)\n", fc.Name, fc.Args)
+        } else if text := chunk.Text(); text != "" {
+            fmt.Print(text)
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -2254,9 +3018,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### After (Interactions API)
+#### 後（Interactions API）
 
-Interactions API는 함수 호출 인수를 `arguments` 이벤트로 문자별로 스트리밍합니다. 전체 도구 수명 주기(생각, 호출, 결과, 출력)는 일련의 개별 단계로 진행됩니다.
+Interactions API は、関数呼び出しの引数を `arguments` イベントとして 1 文字ずつストリーミングします。ツール ライフサイクル全体（思考、呼び出し、結果、出力）は、一連の個別のステップとして実行されます。
 
 ### Python
 
@@ -2285,7 +3049,7 @@ for event in stream:
         print("\n--- Done ---")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -2316,7 +3080,7 @@ for await (const event of stream) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -2390,6 +3154,76 @@ try (EventStream<InteractionSSEStreamEvent> stream =
       }
     }
   }
+}
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    getWeatherTool := interactions.NewTool(interactions.Function{
+        Name:        genai.Ptr("get_weather"),
+        Description: genai.Ptr("Gets weather"),
+        Parameters: map[string]any{
+            "type": "object",
+            "properties": map[string]any{
+                "location": map[string]any{"type": "string"},
+            },
+            "required": []string{"location"},
+        },
+    })
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:  interactions.Model("gemini-3.8-flash"),
+            Input:  interactions.NewInteractionsInput("What's the weather in Boston?"),
+            Tools:  []interactions.Tool{getWeatherTool},
+            Stream: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    stream := res.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        if stepStart := event.GetDataStepStart(); stepStart != nil {
+            if fcStep := stepStart.GetStepFunctionCall(); fcStep != nil {
+                fmt.Println("Calling:", fcStep.Name)
+            }
+        } else if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if argsDelta := stepDelta.GetDeltaArgumentsDelta(); argsDelta != nil {
+                fmt.Println("  args:", argsDelta.GetArguments())
+            } else if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        } else if event.GetDataInteractionCompleted() != nil {
+            fmt.Println("\n--- Done ---")
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
 }
 ```
 
@@ -2478,12 +3312,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-의견 보내기
+フィードバックを送信
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-최종 업데이트: 2026-09-18(UTC)
+最終更新日 2026-09-24 UTC。
 
-의견을 전달하고 싶나요?
+ご意見をお聞かせください
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-18(UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-24 UTC。"],[],[]]

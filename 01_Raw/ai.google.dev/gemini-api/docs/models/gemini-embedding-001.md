@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=id
-fetched_at: 2026-09-21T05:41:00.579812+00:00
-title: "Model Embedding Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=de
+fetched_at: 2026-09-28T06:09:08.928402+00:00
+title: "Gemini-Einbettungsmodell \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Kirim masukan
+Feedback geben
 
-# Model Embedding Gemini
+# Gemini-Einbettungsmodell
 
-Mesin khusus untuk representasi vektor berdimensi tinggi, yang menyediakan pemetaan numerik teks dan gambar yang efisien. Model Gemini Embedding paling cocok untuk penelusuran semantik, pengambilan dokumen, dan sistem rekomendasi yang memerlukan perhitungan kemiripan yang cepat dan skalabel di seluruh set data besar.
+Eine spezielle Engine für die hochdimensionale Vektordarstellung, die eine effiziente numerische Zuordnung von Text und Bildern ermöglicht. Das Gemini-Einbettungsmodell eignet sich am besten für die semantische Suche, den Dokumentabruf und Empfehlungssysteme, die schnelle, skalierbare Ähnlichkeitsberechnungen für große Datensätze erfordern.
 
-## Dokumentasi
+## Dokumentation
 
-Buka halaman [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id) untuk mengetahui cakupan lengkap
-fitur dan kemampuannya.
+Auf der Seite [Einbettungen](https://ai.google.dev/gemini-api/docs/embeddings?hl=de) finden Sie eine vollständige Übersicht
+der Funktionen.
 
 ## gemini-embedding-001
 
-| Properti | Deskripsi |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardKode model | **Gemini API**  `gemini-embedding-001` |
-| saveJenis data yang didukung | **Input**  Teks  **Output**  Embedding teks |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  2.048  **Ukuran dimensi output**  Fleksibel, mendukung: 128 - 3072, Direkomendasikan: 768, 1536, 3072 |
-| 123Versi | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Stabil: `gemini-embedding-001` |
-| calendar\_monthPembaruan terbaru | Juni 2025 |
+| id\_cardModellcode | **Gemini API**  `gemini-embedding-001` |
+| saveUnterstützte Datentypen | **Eingabe**  Text  **Ausgabe**  Texteinbettungen |
+| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Tokenlimit für Eingabe**  2.048  **Ausgabedimensionen**  Flexibel, unterstützt: 128–3072, empfohlen: 768, 1536, 3072 |
+| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stable: `gemini-embedding-001` |
+| calendar\_monthLetzte Aktualisierung | Juni 2025 |
 
-Kirim masukan
+Feedback geben
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+Zuletzt aktualisiert: 2026-04-29 (UTC).
 
-Ada masukan untuk kami?
+Haben Sie Feedback für uns?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

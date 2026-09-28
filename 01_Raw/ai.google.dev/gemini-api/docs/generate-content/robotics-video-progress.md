@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=it
-fetched_at: 2026-09-21T05:50:29.587300+00:00
+fetched_at: 2026-09-28T06:24:28.110634+00:00
 title: "Comprensione dei video \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

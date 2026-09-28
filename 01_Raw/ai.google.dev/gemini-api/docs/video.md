@@ -1,50 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=zh-CN
-fetched_at: 2026-09-21T06:00:18.911949+00:00
-title: "Gemini API \u4e2d\u7684\u89c6\u9891\u751f\u6210 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=th
+fetched_at: 2026-09-28T06:23:59.541172+00:00
+title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d\u0e43\u0e19 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-发送反馈
+ส่งความคิดเห็น
 
-# Gemini API 中的视频生成
+# การสร้างวิดีโอใน Gemini API
 
-Gemini API 提供两种用于生成视频的模型：[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=zh-cn) 和 [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=zh-cn)。
-每种模式都适用于不同的工作流程。
+Gemini API มีโมเดล 2 แบบสำหรับสร้างวิดีโอ ได้แก่
+[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=th) และ [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=th)
+ซึ่งแต่ละแบบได้รับการออกแบบมาสำหรับเวิร์กโฟลว์ที่แตกต่างกัน
 
-将 Gemini Omni Flash 用作视频生成的默认模型。它可提供出色的视频连贯性、多输入源推理（同时支持文本、图片、音频和视频输入）、角色一致性、事实准确性，以及多轮对话式编辑（例如元素替换或透视变化）。需要使用场景扩展、最后一帧控制或与旧版流水线集成等特定功能。
+ใช้ Gemini Omni Flash เป็นโมเดลเริ่มต้นสำหรับการสร้างวิดีโอ เนื่องจากมีความสอดคล้องของวิดีโอที่เหนือกว่า การให้เหตุผลแบบหลายอินพุต (รองรับอินพุตข้อความ รูปภาพ เสียง และวิดีโอพร้อมกัน) ความสอดคล้องของตัวละคร ความถูกต้องของข้อเท็จจริง และการตัดต่อแบบสนทนาหลายรอบ (เช่น การแทนที่องค์ประกอบหรือการเปลี่ยนมุมมอง) ใช้ Veo 3.1 สำหรับความสามารถเฉพาะ เช่น การขยายฉาก การควบคุมเฟรมสุดท้าย หรือการผสานรวมกับไปป์ไลน์เดิม
 
 ## Gemini Omni Flash
 
-Gemini Omni Flash 是一款快速的多模态模型，可用于生成视频和进行对话式视频编辑。它擅长快速将文本提示和图片转换为短视频，并允许您使用 Interactions API 在多个回合中优化结果。
+Gemini Omni Flash เป็นโมเดลมัลติโมดัลที่รวดเร็วสำหรับการสร้างวิดีโอและการตัดต่อวิดีโอแบบสนทนา มีความโดดเด่นในการเปลี่ยนพรอมต์ข้อความและรูปภาพให้เป็นวิดีโอสั้นๆ ได้อย่างรวดเร็ว และช่วยให้คุณปรับแต่งผลลัพธ์ได้หลายรอบโดยใช้ Interactions API
 
-[开始使用 Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=zh-cn)
+[เริ่มต้นใช้งาน Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=th)
 
 ## Veo 3.1
 
-Veo 3.1 是一种可生成包含原生音频的视频的模型。它通过 `generateContent` API 支持视频扩展、帧特定生成和基于图像的指导等功能。
+Veo 3.1 เป็นโมเดลสำหรับการสร้างวิดีโอพร้อมเสียงดั้งเดิม รองรับฟีเจอร์ต่างๆ เช่น การขยายวิดีโอ การสร้างเฉพาะเฟรม และการกำหนดทิศทางตามรูปภาพผ่าน `generateContent` API
 
-[开始使用 Veo 3.1 →](https://ai.google.dev/gemini-api/docs/veo?hl=zh-cn)
+[เริ่มต้นใช้งาน Veo 3.1 →](https://ai.google.dev/gemini-api/docs/veo?hl=th)
 
-## 视频理解
+## การทำความเข้าใจวิดีโอ
 
-如果您需要提取和分析现有视频内容，而不是生成新视频，请参阅[视频理解指南](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-cn)。
+หากต้องการนำเข้าและวิเคราะห์เนื้อหาวิดีโอที่มีอยู่แทนที่จะสร้าง
+วิดีโอใหม่ โปรดดู[คู่มือการทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th)
 
-发送反馈
+ส่งความคิดเห็น
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最后更新时间 (UTC)：2026-06-30。
+อัปเดตล่าสุด 2026-06-30 UTC
 
-需要向我们提供更多信息？
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-30。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-30 UTC"],[],[]]

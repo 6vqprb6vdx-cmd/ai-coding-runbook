@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ja
-fetched_at: 2026-09-21T05:47:43.964169+00:00
-title: "Gemini 3 Pro Image \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=th
+fetched_at: 2026-09-28T06:11:05.184512+00:00
+title: "\u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e Gemini 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-フィードバックを送信
+ส่งความคิดเห็น
 
-# Gemini 3 Pro Image
+# รูปภาพ Gemini 3 Pro
 
-**Nano Banana Pro** は、プロ仕様の画像編集と生成のための高度な推論駆動型エンジンです。スタジオ品質の精度と高度なクリエイティブ制御を実現します。Nano Banana Pro は、複雑なグラフィック デザイン、忠実度の高い商品のモックアップ、Google 検索による正確なテキスト レンダリングと現実世界のグラウンディングが必要な事実に基づいたデータ可視化に最適です。
+**Nano Banana Pro** เป็นเครื่องมือที่ซับซ้อนซึ่งขับเคลื่อนด้วยการให้เหตุผลสำหรับการแก้ไขและสร้างรูปภาพระดับมืออาชีพ โดยมีความแม่นยำระดับสตูดิโอและการควบคุมความคิดสร้างสรรค์ขั้นสูง Nano Banana Pro เหมาะที่สุดสำหรับการออกแบบกราฟิกที่ซับซ้อน การจำลองผลิตภัณฑ์ที่มีความสมจริงสูง และการแสดงข้อมูลที่เป็นข้อเท็จจริงซึ่งต้องมีการแสดงข้อความที่ถูกต้องและการเชื่อมโยงกับโลกแห่งความเป็นจริงผ่าน Google Search
 
-[Google AI Studio で試す](https://aistudio.google.com?model=gemini-3-pro-image&hl=ja)
+[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=gemini-3-pro-image&hl=th)
 
-## ドキュメント
+## เอกสารประกอบ
 
-機能と機能の全容については、[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)のページをご覧ください。
+ไปที่หน้า[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)เพื่อดู
+ฟีเจอร์และความสามารถทั้งหมด
 
 ## gemini-3-pro-image
 
-| プロパティ | 説明 |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_cardモデルコード | `gemini-3-pro-image` |
-| save でサポートされているデータ型 | **入力**  画像とテキスト  **出力**  画像とテキスト |
-| token\_autoトークンの上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  65,536  **出力トークンの上限**  32,768 |
-| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象外  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象外  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象外  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象外  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象外  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象外  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象外  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象外 |
-| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象外  **[優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象外 |
-| 123 バージョン | 詳しくは、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - 安定版: `gemini-3-pro-image` |
-| calendar\_month最終更新日 | 2025 年 11 月 |
-| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-3-pro-image/?hl=ja) |
+| id\_cardรหัสโมเดล | `gemini-3-pro-image` |
+| saveประเภทข้อมูลที่รองรับ | **อินพุต**  รูปภาพและข้อความ  **เอาต์พุต**  รูปภาพและข้อความ |
+| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  65,536  **ขีดจำกัดโทเค็นเอาต์พุต**  32,768 |
+| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  ไม่รองรับ  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  ไม่รองรับ  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  ไม่รองรับ  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  ไม่รองรับ  **[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  ไม่รองรับ  **[การเชื่อมโยงแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  ไม่รองรับ  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  สิ่งที่ทำได้  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  ไม่รองรับ  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  สิ่งที่ทำได้  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  ไม่รองรับ  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  สิ่งที่ทำได้  **[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  ไม่รองรับ |
+| speedตัวเลือกการใช้งาน | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  สิ่งที่ทำได้  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  ไม่รองรับ  **[Priority Inference](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  ไม่รองรับ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - เสถียร: `gemini-3-pro-image` |
+| calendar\_monthการอัปเดตล่าสุด | พฤศจิกายน 2025 |
+| id\_cardการ์ดโมเดล | [การ์ดโมเดล](https://deepmind.google/models/model-cards/gemini-3-pro-image/?hl=th) |
 
-フィードバックを送信
+ส่งความคิดเห็น
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最終更新日 2026-09-08 UTC。
+อัปเดตล่าสุด 2026-09-08 UTC
 
-ご意見をお聞かせください
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-08 UTC"],[],[]]

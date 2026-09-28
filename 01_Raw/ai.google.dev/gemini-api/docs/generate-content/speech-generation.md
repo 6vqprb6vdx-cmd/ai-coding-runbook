@@ -1,133 +1,104 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=de
-fetched_at: 2026-09-21T05:52:33.624775+00:00
-title: "Sprachausgabe \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi
+fetched_at: 2026-09-28T06:08:14.494144+00:00
+title: "\u0932\u093f\u0916\u0947 \u0917\u090f \u0936\u092c\u094d\u0926\u094b\u0902 \u0915\u094b \u0938\u0941\u0928\u0928\u0947 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e (\u091f\u0940\u091f\u0940\u090f\u0938) \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-Feedback geben
+सुझाव भेजें
 
-# Sprachausgabe
+# लिखे गए शब्दों को सुनने की सुविधा (टीटीएस)
 
-Mit der Gemini API kann Texteingabe mithilfe der Gemini-Funktionen zur Text-to-Speech-Generierung (TTS) in Audio für einen einzelnen oder mehrere Sprecher umgewandelt werden.
-Die TTS-Generierung (Text-to-Speech) ist *[steuerbar](#controllable)*. Das bedeutet, dass Sie mit natürlicher Sprache Interaktionen strukturieren und *Stil*, *Akzent*, *Tempo* und *Ton* der Audioausgabe festlegen können.
+Gemini API, टेक्स्ट इनपुट को एक या एक से ज़्यादा स्पीकर वाले ऑडियो में बदल सकता है. इसके लिए, Gemini की लिखाई को बोली में बदलने (टीटीएस) की सुविधा का इस्तेमाल किया जाता है.
+लिखे हुए शब्दों को बोली में बदलने की सुविधा को *[कंट्रोल किया जा सकता है](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi#controllable)*. इसका मतलब है कि ऑडियो की *स्टाइल*, *एक्सेंट*, *रफ़्तार*, और *टोन* को कंट्रोल करने के लिए, स्ट्रक्चर्ड टर्न मेटाडेटा (`speech_metadata`) और इनलाइन वोकल टैग को एक साथ इस्तेमाल किया जा सकता है.
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=de)
+[Google AI Studio में आज़माएं](https://aistudio.google.com/generate-speech?hl=hi)
 
-Die TTS-Funktion unterscheidet sich von der Sprachgenerierung über die [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de), die für interaktive, unstrukturierte Audio- sowie multimodale Ein- und Ausgaben konzipiert ist. Während die Live API sich durch dynamische Gesprächskontexte auszeichnet, ist TTS über die Gemini API für Szenarien konzipiert, in denen eine genaue Textwiedergabe mit detaillierter Steuerung von Stil und Klang erforderlich ist, z. B. bei der Erstellung von Podcasts oder Hörbüchern.
+टीटीएस की सुविधा, [लाइव एपीआई](https://ai.google.dev/gemini-api/docs/live?hl=hi) के ज़रिए उपलब्ध कराई गई स्पीच जनरेशन की सुविधा से अलग है. इसे इंटरैक्टिव, अनस्ट्रक्चर्ड ऑडियो, और मल्टीमॉडल इनपुट और आउटपुट के लिए डिज़ाइन किया गया है. लाइव एपीआई, बातचीत के कॉन्टेक्स्ट को डाइनैमिक तरीके से समझने में बेहतर है. वहीं, Gemini API के ज़रिए टीटीएस की सुविधा, उन स्थितियों के लिए तैयार की गई है जिनमें स्टाइल और आवाज़ पर बारीकी से कंट्रोल के साथ, सटीक टेक्स्ट सुनाने की ज़रूरत होती है. जैसे, पॉडकास्ट या ऑडियो बुक जनरेट करना.
 
-In dieser Anleitung erfahren Sie, wie Sie Audio mit einem oder mehreren Sprechern aus Text generieren.
+इस गाइड में बताया गया है कि [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=hi) (`gemini-3.8-flash-tts`) और [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=hi) (`gemini-3.8-flash-lite-tts`) का इस्तेमाल करके, टेक्स्ट से एक या एक से ज़्यादा स्पीकर की आवाज़ में ऑडियो कैसे जनरेट करें.
 
-## Hinweis
+## शुरू करने से पहले
 
-Achten Sie darauf, dass Sie eine Gemini-Modellvariante mit Gemini-TTS-Funktionen (Text-to-Speech) verwenden, wie im Abschnitt [Unterstützte Modelle](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de#supported-models) aufgeführt. Für optimale Ergebnisse sollten Sie überlegen, welches Modell am besten zu Ihrem spezifischen Anwendungsfall passt.
+पक्का करें कि आपने [साथ काम करने वाले मॉडल](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi#supported-models) सेक्शन में दिए गए Gemini के टीटीएस मॉडल का इस्तेमाल किया हो. बेहतर नतीजों के लिए, [किस मॉडल का इस्तेमाल कब करना चाहिए](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi#when-to-use-which-model) लेख पढ़ें. इससे आपको अपने वर्कलोड के लिए सबसे सही मॉडल चुनने में मदद मिलेगी.
 
-Es kann hilfreich sein, die [Gemini TTS-Modelle in AI Studio zu testen](https://aistudio.google.com/generate-speech?hl=de), bevor Sie mit der Entwicklung beginnen.
+ऐप्लिकेशन बनाना शुरू करने से पहले, [AI Studio में Gemini के टीटीएस मॉडल को टेस्ट करना](https://aistudio.google.com/generate-speech?hl=hi) आपके लिए फ़ायदेमंद हो सकता है.
 
-## TTS für einen einzelnen Sprecher
+## एक ही आवाज़ में टीटीएस की सुविधा
 
-Wenn Sie Text in Audioinhalte mit einem einzelnen Sprecher umwandeln möchten, legen Sie die Antwortmodalität auf „audio“ fest und übergeben Sie ein `SpeechConfig`-Objekt mit `VoiceConfig`.
-Sie müssen einen Namen für die Stimme aus den vordefinierten [Ausgabestimmen](#voices) auswählen.
+Gemini 3.8 के टीटीएस मॉडल की मदद से, टेक्स्ट को एक स्पीकर वाले ऑडियो में बदलने के लिए, `parts[].text` में हूबहू ट्रांसक्रिप्ट पास करें, `parts[].speech_metadata` में टर्न-लेवल की स्टाइलिंग अटैच करें, और `speechConfig.voiceConfig` में अपनी आवाज़ कॉन्फ़िगर करें. प्रीबिल्ट वॉइस नेम, Extended Voice Library का आईडी, कस्टम [वॉइस डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) का आईडी (`voice_...`) या [वॉइस रेप्लिकेशन](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=hi) का आईडी (`voice_...` या बिना स्थिति वाली वैकल्पिक `voicekey_...`) पास किया जा सकता है.
 
-In diesem Beispiel wird die Audioausgabe des Modells in einer WAV-Datei gespeichert:
+इस उदाहरण में, मॉडल से मिले आउटपुट ऑडियो को WAV फ़ाइल में सेव किया गया है:
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
-import wave
-
-# Set up the wave file to save the output:
-def wave_file(filename, pcm, channels=1, rate=24000, sample_width=2):
-   with wave.open(filename, "wb") as wf:
-      wf.setnchannels(channels)
-      wf.setsampwidth(sample_width)
-      wf.setframerate(rate)
-      wf.writeframes(pcm)
 
 client = genai.Client()
 
 response = client.models.generate_content(
-   model="gemini-3.1-flash-tts-preview",
-   contents="Say cheerfully: Have a wonderful day!",
-   config=types.GenerateContentConfig(
-      response_modalities=["AUDIO"],
-      speech_config=types.SpeechConfig(
-         voice_config=types.VoiceConfig(
-            prebuilt_voice_config=types.PrebuiltVoiceConfig(
-               voice_name='Kore',
-            )
-         )
-      ),
-   )
+    model="gemini-3.8-flash-tts",
+    contents=[{
+        "role": "user",
+        "parts": [{
+            "text": "Have a wonderful day!",
+            "speech_metadata": {"style": "cheerful and friendly"},
+        }],
+    }],
+    config={
+        "response_modalities": ["AUDIO"],
+        "speech_config": {
+            "voice_config": {"voice": "Kore"}
+        },
+    },
 )
 
 data = response.candidates[0].content.parts[0].inline_data.data
-
-file_name='out.wav'
-wave_file(file_name, data) # Saves the file to current directory
+with open("out.wav", "wb") as f:
+    f.write(data)
 ```
 
 ### JavaScript
 
 ```
 import {GoogleGenAI} from '@google/genai';
-import wav from 'wav';
-
-async function saveWaveFile(
-   filename,
-   pcmData,
-   channels = 1,
-   rate = 24000,
-   sampleWidth = 2,
-) {
-   return new Promise((resolve, reject) => {
-      const writer = new wav.FileWriter(filename, {
-            channels,
-            sampleRate: rate,
-            bitDepth: sampleWidth * 8,
-      });
-
-      writer.on('finish', resolve);
-      writer.on('error', reject);
-
-      writer.write(pcmData);
-      writer.end();
-   });
-}
+import * as fs from 'node:fs';
 
 async function main() {
    const ai = new GoogleGenAI({});
 
    const response = await ai.models.generateContent({
-      model: "gemini-3.1-flash-tts-preview",
-      contents: [{ parts: [{ text: 'Say cheerfully: Have a wonderful day!' }] }],
+      model: 'gemini-3.8-flash-tts',
+      contents: [{
+         role: 'user',
+         parts: [{
+            text: 'Have a wonderful day!',
+            speech_metadata: { style: 'cheerful and friendly' },
+         }],
+      }],
       config: {
-            responseModalities: ['AUDIO'],
-            speechConfig: {
-               voiceConfig: {
-                  prebuiltVoiceConfig: { voiceName: 'Kore' },
-               },
-            },
+         responseModalities: ['AUDIO'],
+         speechConfig: {
+            voiceConfig: { voice: 'Kore' },
+         },
       },
    });
 
    const data = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
    const audioBuffer = Buffer.from(data, 'base64');
 
-   const fileName = 'out.wav';
-   await saveWaveFile(fileName, audioBuffer);
+   fs.writeFileSync('out.wav', audioBuffer);
 }
 await main();
 ```
@@ -135,161 +106,149 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{
         "contents": [{
-          "parts":[{
-            "text": "Say cheerfully: Have a wonderful day!"
+          "role": "user",
+          "parts": [{
+            "text": "Have a wonderful day!",
+            "speech_metadata": {
+              "style": "cheerful and friendly"
+            }
           }]
         }],
         "generationConfig": {
           "responseModalities": ["AUDIO"],
           "speechConfig": {
             "voiceConfig": {
-              "prebuiltVoiceConfig": {
-                "voiceName": "Kore"
-              }
+              "voice": "Kore"
             }
           }
-        },
-        "model": "gemini-3.1-flash-tts-preview",
+        }
     }' | jq -r '.candidates[0].content.parts[0].inlineData.data' | \
-          base64 --decode >out.pcm
-# You may need to install ffmpeg.
-ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
+          base64 --decode > out.wav
 ```
 
-## TTS mit mehreren Sprechern
+## एक से ज़्यादा लोगों की आवाज़ में टीटीएस
 
-Für Audio mit mehreren Sprechern benötigen Sie ein `MultiSpeakerVoiceConfig`-Objekt, in dem jeder Sprecher (bis zu 2) als `SpeakerVoiceConfig` konfiguriert ist.
-Sie müssen jede `speaker` mit denselben Namen definieren, die im [Prompt](#controllable) verwendet werden:
+एक से ज़्यादा स्पीकर के बीच बातचीत के लिए, `prebuiltVoiceConfig` का इस्तेमाल करके `multiSpeakerVoiceConfig.speakerVoiceConfigs` में दो स्पीकर कॉन्फ़िगर करें. साथ ही, बातचीत के हर टर्न को अलग `part` के तौर पर पास करें. इसमें `speech_metadata` में `speaker` और टर्न-लेवल का वैकल्पिक `style`, दोनों की जानकारी दें:
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
-import wave
-
-# Set up the wave file to save the output:
-def wave_file(filename, pcm, channels=1, rate=24000, sample_width=2):
-   with wave.open(filename, "wb") as wf:
-      wf.setnchannels(channels)
-      wf.setsampwidth(sample_width)
-      wf.setframerate(rate)
-      wf.writeframes(pcm)
 
 client = genai.Client()
 
-prompt = """TTS the following conversation between Joe and Jane:
-         Joe: How's it going today Jane?
-         Jane: Not too bad, how about you?"""
-
 response = client.models.generate_content(
-   model="gemini-3.1-flash-tts-preview",
-   contents=prompt,
-   config=types.GenerateContentConfig(
-      response_modalities=["AUDIO"],
-      speech_config=types.SpeechConfig(
-         multi_speaker_voice_config=types.MultiSpeakerVoiceConfig(
-            speaker_voice_configs=[
-               types.SpeakerVoiceConfig(
-                  speaker='Joe',
-                  voice_config=types.VoiceConfig(
-                     prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                        voice_name='Kore',
-                     )
-                  )
-               ),
-               types.SpeakerVoiceConfig(
-                  speaker='Jane',
-                  voice_config=types.VoiceConfig(
-                     prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                        voice_name='Puck',
-                     )
-                  )
-               ),
-            ]
-         )
-      )
-   )
+    model="gemini-3.8-flash-tts",
+    contents=[{
+        "role": "user",
+        "parts": [
+            {
+                "text": "How's it going today Jane?",
+                "speech_metadata": {
+                    "speaker": "Joe",
+                    "style": "cheerful and friendly",
+                },
+            },
+            {
+                "text": "Not too bad, how about you? Ready to test these new voices?",
+                "speech_metadata": {
+                    "speaker": "Jane",
+                    "style": "calm and relaxed",
+                },
+            },
+        ],
+    }],
+    config={
+        "response_modalities": ["AUDIO"],
+        "speech_config": {
+            "multi_speaker_voice_config": {
+                "speaker_voice_configs": [
+                    {
+                        "speaker": "Joe",
+                        "voice_config": {
+                            "prebuilt_voice_config": {"voice_name": "Puck"}
+                        },
+                    },
+                    {
+                        "speaker": "Jane",
+                        "voice_config": {
+                            "prebuilt_voice_config": {"voice_name": "Kore"}
+                        },
+                    },
+                ]
+            }
+        },
+    },
 )
 
 data = response.candidates[0].content.parts[0].inline_data.data
-
-file_name='out.wav'
-wave_file(file_name, data) # Saves the file to current directory
+with open("out.wav", "wb") as f:
+    f.write(data)
 ```
 
 ### JavaScript
 
 ```
 import {GoogleGenAI} from '@google/genai';
-import wav from 'wav';
-
-async function saveWaveFile(
-   filename,
-   pcmData,
-   channels = 1,
-   rate = 24000,
-   sampleWidth = 2,
-) {
-   return new Promise((resolve, reject) => {
-      const writer = new wav.FileWriter(filename, {
-            channels,
-            sampleRate: rate,
-            bitDepth: sampleWidth * 8,
-      });
-
-      writer.on('finish', resolve);
-      writer.on('error', reject);
-
-      writer.write(pcmData);
-      writer.end();
-   });
-}
+import * as fs from 'node:fs';
 
 async function main() {
    const ai = new GoogleGenAI({});
 
-   const prompt = `TTS the following conversation between Joe and Jane:
-         Joe: How's it going today Jane?
-         Jane: Not too bad, how about you?`;
-
    const response = await ai.models.generateContent({
-      model: "gemini-3.1-flash-tts-preview",
-      contents: [{ parts: [{ text: prompt }] }],
+      model: 'gemini-3.8-flash-tts',
+      contents: [{
+         role: 'user',
+         parts: [
+            {
+               text: "How's it going today Jane?",
+               speech_metadata: {
+                  speaker: 'Joe',
+                  style: 'cheerful and friendly',
+               },
+            },
+            {
+               text: 'Not too bad, how about you? Ready to test these new voices?',
+               speech_metadata: {
+                  speaker: 'Jane',
+                  style: 'calm and relaxed',
+               },
+            },
+         ],
+      }],
       config: {
-            responseModalities: ['AUDIO'],
-            speechConfig: {
-               multiSpeakerVoiceConfig: {
-                  speakerVoiceConfigs: [
-                        {
-                           speaker: 'Joe',
-                           voiceConfig: {
-                              prebuiltVoiceConfig: { voiceName: 'Kore' }
-                           }
-                        },
-                        {
-                           speaker: 'Jane',
-                           voiceConfig: {
-                              prebuiltVoiceConfig: { voiceName: 'Puck' }
-                           }
-                        }
-                  ]
-               }
-            }
-      }
+         responseModalities: ['AUDIO'],
+         speechConfig: {
+            multiSpeakerVoiceConfig: {
+               speakerVoiceConfigs: [
+                  {
+                     speaker: 'Joe',
+                     voiceConfig: {
+                        prebuiltVoiceConfig: { voiceName: 'Puck' },
+                     },
+                  },
+                  {
+                     speaker: 'Jane',
+                     voiceConfig: {
+                        prebuiltVoiceConfig: { voiceName: 'Kore' },
+                     },
+                  },
+               ],
+            },
+         },
+      },
    });
 
    const data = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
    const audioBuffer = Buffer.from(data, 'base64');
 
-   const fileName = 'out.wav';
-   await saveWaveFile(fileName, audioBuffer);
+   fs.writeFileSync('out.wav', audioBuffer);
 }
 
 await main();
@@ -298,118 +257,140 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{
-  "contents": [{
-    "parts":[{
-      "text": "TTS the following conversation between Joe and Jane:
-                Joe: Hows it going today Jane?
-                Jane: Not too bad, how about you?"
-    }]
-  }],
-  "generationConfig": {
-    "responseModalities": ["AUDIO"],
-    "speechConfig": {
-      "multiSpeakerVoiceConfig": {
-        "speakerVoiceConfigs": [{
+    "contents": [{
+      "role": "user",
+      "parts": [
+        {
+          "text": "How'\''s it going today Jane?",
+          "speech_metadata": {
             "speaker": "Joe",
-            "voiceConfig": {
-              "prebuiltVoiceConfig": {
-                "voiceName": "Kore"
-              }
-            }
-          }, {
+            "style": "cheerful and friendly"
+          }
+        },
+        {
+          "text": "Not too bad, how about you? Ready to test these new voices?",
+          "speech_metadata": {
             "speaker": "Jane",
-            "voiceConfig": {
-              "prebuiltVoiceConfig": {
-                "voiceName": "Puck"
+            "style": "calm and relaxed"
+          }
+        }
+      ]
+    }],
+    "generationConfig": {
+      "responseModalities": ["AUDIO"],
+      "speechConfig": {
+        "multiSpeakerVoiceConfig": {
+          "speakerVoiceConfigs": [
+            {
+              "speaker": "Joe",
+              "voiceConfig": {
+                "prebuiltVoiceConfig": { "voiceName": "Puck" }
+              }
+            },
+            {
+              "speaker": "Jane",
+              "voiceConfig": {
+                "prebuiltVoiceConfig": { "voiceName": "Kore" }
               }
             }
-          }]
+          ]
+        }
       }
     }
-  },
-  "model": "gemini-3.1-flash-tts-preview",
-}' | jq -r '.candidates[0].content.parts[0].inlineData.data' | \
-    base64 --decode > out.pcm
-# You may need to install ffmpeg.
-ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
+  }' | jq -r '.candidates[0].content.parts[0].inlineData.data' | \
+      base64 --decode > out.wav
 ```
 
-## Sprachstil mit Prompts steuern
+## मेटाडेटा और टैग की मदद से, बोलने के तरीके को कंट्रोल करना
 
-Sie können Stil, Ton, Akzent und Tempo sowohl für TTS mit einem als auch mit mehreren Sprechern mit Prompts in natürlicher Sprache oder [Audio-Tags](#transcript-tags) steuern.
-Bei einem Prompt mit nur einem Sprecher können Sie beispielsweise Folgendes sagen:
+Gemini 3.8 TTS, `text` फ़ील्ड को हूबहू ट्रांसक्रिप्ट के तौर पर इस्तेमाल करता है. स्टेज के निर्देशों को तेज़ आवाज़ में सुने बिना डिलीवरी को कंट्रोल करने के लिए, अपने निर्देशों को स्कोप के हिसाब से बांटें:
 
-```
-Say in an spooky voice:
-"By the pricking of my thumbs... [short pause]
-[whisper] Something wicked this way comes"
-```
+- **लगातार एक ही तरह से जवाब देना (`speech_metadata.style`):** `speech_metadata.style` में, पूरे टर्न के दौरान एक ही तरह की भावनाएं, जवाब देने का तरीका, उतार-चढ़ाव, गति, और आवाज़ का इस्तेमाल करें. उदाहरण के लिए, `"style": "whispered urgently"`, `"style": "out of breath"` या `"style": "warm and enthusiastic"`.
+- **किसी समय पर होने वाले इवेंट (इनलाइन टैग):** कुछ समय के लिए बिना बोले आवाज़ में होने वाले बदलाव या पॉज़ को सीधे तौर पर ट्रांसक्रिप्ट में ऐंगल ब्रैकेट का इस्तेमाल करके डालें. उदाहरण के लिए, `"Wait... <short pause> did you hear that? <sigh>"` या `"Excuse me <cough> as I was saying..."`.
 
-Geben Sie in einem Prompt mit mehreren Sprechern den Namen und das entsprechende Transkript für jeden Sprecher an. Sie können auch für jeden Lautsprecher einzeln Anweisungen geben:
+सबसे सही तरीकों के बारे में पूरी जानकारी पाने के लिए, [प्रॉम्प्ट के लिए गाइड](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi#prompting-guide) देखें.
 
-```
-Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
+## आवाज़ के विकल्प
 
-Speaker1: So... [yawn] what's on the agenda today?
-Speaker2: You're never going to guess!
-```
+Gemini 3.8 में टीटीएस की सुविधा, चार तरीकों से आवाज़ें चुनने या बनाने की सुविधा देती है:
 
-Verwenden Sie eine [Stimmoption](#voices), die dem Stil oder der Emotion entspricht, die Sie vermitteln möchten, um diese noch stärker zu betonen. Im vorherigen Prompt könnte beispielsweise die gehauchte Stimme von *Enceladus* die Wörter „müde“ und „gelangweilt“ betonen, während der fröhliche Ton von *Puck* die Wörter „aufgeregt“ und „glücklich“ ergänzen könnte.
+1. **स्टूडियो की पहले से तैयार की गई आवाज़ें:** यहां दी गई टेबल में 30 आवाज़ें दी गई हैं.
+2. **एक्सटेंडेड वॉइस लाइब्रेरी:** इसमें अलग-अलग भाषाओं, लहज़ों, और किरदारों के हिसाब से सैकड़ों अतिरिक्त आवाज़ें उपलब्ध हैं. इन्हें `client.voices.list()` (`GET /v1beta/voices`) का इस्तेमाल करके ऐक्सेस किया जा सकता है.
+3. **[आवाज़ का डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi):** [Google AI Studio](https://aistudio.google.com/generate-speech?hl=hi) में, सामान्य भाषा में दिए गए ब्यौरे से, अपनी पसंद के मुताबिक आवाज़ जनरेट करें. इसके लिए, `POST /v1beta/voices` (`type="prompted"` का इस्तेमाल करें. यह `voice_...` आईडी और `sample_audio` WAV फ़ाइल की झलक दिखाता है. यह `CreateVoice` और `GetVoice` में उपलब्ध है).
+4. **[आवाज़ की नकल करना](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=hi):**
+   [Google AI Studio](https://aistudio.google.com/generate-speech?hl=hi) में, किसी स्पीकर की आवाज़ की नकल करने के लिए, रेफ़रंस और सहमति वाला ऑडियो इस्तेमाल करें. इसके अलावा, `POST /v1beta/voices` (`type="replicated"`, डिफ़ॉल्ट रूप से लगातार `store=True` या बिना स्थिति के वैकल्पिक `store=False`) का इस्तेमाल करके भी ऐसा किया जा सकता है.
 
-## Prompt zum Konvertieren in Audio generieren
+### कस्टम वॉइस की सीमाएं और टीटीएल
 
-Die TTS-Modelle geben nur Audio aus. Sie können jedoch [andere Modelle](https://ai.google.dev/gemini-api/docs/models?hl=de) verwenden, um zuerst ein Transkript zu erstellen, das Sie dann dem TTS-Modell zum Vorlesen übergeben.
+| बोलकर लिखवाएँ | स्टोरेज मोड | कोटा / सीमा | डेटा का रखरखाव (टीटीएल) |
+| --- | --- | --- | --- |
+| **स्टेटफ़ुल आवाज़ें** (`voice_...`, प्रॉम्प्ट की गई या कॉपी की गई) | `store=True` | **हर प्रोजेक्ट के लिए 200 आवाज़ें** (इन्हें प्रॉम्प्ट की गई और रेप्लिका की गई आवाज़ों के साथ शेयर किया जाता है) | **एक साल** |
+| **स्टेटलेस वॉइस की** (`voicekey_...`, रेप्लिका) | `store=False` | क्लाइंट की ओर से मैनेज किया गया | **सात दिन** |
+
+### पहले से मौजूद आवाज़ें
+
+|  |  |  |
+| --- | --- | --- |
+| **Zephyr** -- *Bright* | **Puck** -- *Upbeat* | **Charon** -- *Informative* |
+| **Kore** -- *Firm* | **Fenrir** -- *Excitable* | **Leda** -- *यूथफ़ुल* |
+| **Orus** -- *कंपनी* | **Aoede** -- *Breezy* | **Callirrhoe** -- *ईज़ी-गोइंग* |
+| **ऑटोनो** -- *ब्राइट* | **Enceladus** -- *Breathy* | **Iapetus** -- *Clear* |
+| **Umbriel** -- *शांत स्वभाव वाला* | **Algieba** -- *Smooth* | **Despina** -- *Smooth* |
+| **Erinome** -- *Clear* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *Informative* |
+| **Laomedeia** -- *Upbeat* | **Achernar** -- *Soft* | **Alnilam** -- *Firm* |
+| **Schedar** -- *Even* | **Gacrux** -- *मैच्योर* | **Pulcherrima** -- *Forward* |
+| **Achird** -- *Friendly* | **Zubenelgenubi** -- *कैज़ुअल* | **Vindemiatrix** -- *जेंटल* |
+| **Sadachbia** -- *Lively* | **Sadaltager** -- *Knowledgeable* | **Sulafat** -- *Warm* |
+
+### वॉइस लाइब्रेरी और फ़िल्टर करने की सुविधा को बेहतर बनाया गया
+
+ऊपर दी गई टेबल में, स्टूडियो में उपलब्ध 30 आवाज़ों के अलावा, **आवाज़ों की बड़ी लाइब्रेरी** में कई और आवाज़ें उपलब्ध हैं. ये आवाज़ें अलग-अलग भाषाओं, क्षेत्रीय लहज़ों, किरदार के पर्सोना, और डोमेन के हिसाब से उपलब्ध हैं. [Google AI Studio](https://aistudio.google.com/generate-speech?hl=hi) में, वॉइस लाइब्रेरी को ब्राउज़ किया जा सकता है. साथ ही, इसे फ़िल्टर किया जा सकता है और इसकी पूरी झलक देखी जा सकती है. इसके अलावा, `client.voices.list()` (`GET /v1beta/voices`, `google-genai` 2.25.0+ / `@google/genai` 2.24.0+ का इस्तेमाल करके) का इस्तेमाल करके, प्रोग्राम के हिसाब से इससे क्वेरी की जा सकती है.
+
+`ListVoices` से, सेव की गई आपकी कस्टम आवाज़ें (सबसे नई आवाज़ें पहले दिखती हैं) दिखती हैं. इसके बाद, फ़िल्टर के लिए तय की गई शर्तों से मेल खाने वाली, पहले से मौजूद कैटलॉग की आवाज़ें दिखती हैं. जब सूची वाले फ़िल्टर के लिए एक से ज़्यादा वैल्यू पास की जाती हैं, तो उस फ़िल्टर में मौजूद **किसी भी** वैल्यू से मेल खाने वाली आवाज़ें दिखाई जाती हैं (`OR`). वहीं, अलग-अलग फ़िल्टर पैरामीटर `AND` के साथ जुड़ जाते हैं:
+
+| पैरामीटर | टाइप | ब्यौरा |
+| --- | --- | --- |
+| `language_code` | `list[str]` | BCP-47 भाषा के टैग (उदाहरण के लिए, `["en-US", "en-GB"]`). केस-इनसेंसिटिव एग्ज़ैक्ट मैच. |
+| `region_code` | `list[str]` | ISO 3166-1 ऐल्फ़ा-2 या UN M.49 क्षेत्र का कोड (उदाहरण के लिए, `["US", "GB"]`). |
+| `accent` | `list[str]` | क्षेत्रीय लहज़े के बारे में बताने वाले डिस्क्रिप्टर (उदाहरण के लिए, `["American", "British"]`). |
+| `gender` | `list[str]` | लिंग की पहचान (`"female"`, `"male"` या `"neutral"`). |
+| `pitch` | `list[str]` | आवाज़ की पिच का क्लासिफ़िकेशन (`"low"`, `"medium"` या `"high"`). |
+| `persona` | `list[str]` | आवाज़ देने वाले का पर्सोना या किरदार (उदाहरण के लिए, `["Warm, Friendly"]`, `["Narrator"]`). |
+| `contexts` (REST में `context`) | `list[str]` | इस्तेमाल के लिए सबसे सही डोमेन (उदाहरण के लिए, `["Audiobook", "Conversational", "News"]`). |
+| `type` (`type_` in Python) | `list[str]` | आवाज़ के सोर्स के हिसाब से फ़िल्टर करें: `"prebuilt"`, `"prompted"` ([आवाज़ का डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi)) या `"replicated"` ([आवाज़ की नकल](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=hi)). |
+| `search` | `str` | फ़्री-टेक्स्ट सबस्ट्रिंग खोज, `display_name` और `description`, दोनों के साथ केस-इनसेंसिटिव तरीके से मैच हुई. |
+| `page_size` | `int` | हर पेज पर दिखाई जाने वाली आवाज़ों की ज़्यादा से ज़्यादा संख्या (डिफ़ॉल्ट `50`, ज़्यादा से ज़्यादा `1000`). |
+| `page_token` | `str` | `response.next_page_token` से मिला टोकन, जिसका इस्तेमाल नतीजों का अगला पेज फ़ेच करने के लिए किया जाता है. |
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
-transcript = client.models.generate_content(
-   model="gemini-3.6-flash",
-   contents="""Generate a short transcript around 100 words that reads
-            like it was clipped from a podcast by excited herpetologists.
-            The hosts names are Dr. Anya and Liam.""").text
-
-response = client.models.generate_content(
-   model="gemini-3.1-flash-tts-preview",
-   contents=transcript,
-   config=types.GenerateContentConfig(
-      response_modalities=["AUDIO"],
-      speech_config=types.SpeechConfig(
-         multi_speaker_voice_config=types.MultiSpeakerVoiceConfig(
-            speaker_voice_configs=[
-               types.SpeakerVoiceConfig(
-                  speaker='Dr. Anya',
-                  voice_config=types.VoiceConfig(
-                     prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                        voice_name='Kore',
-                     )
-                  )
-               ),
-               types.SpeakerVoiceConfig(
-                  speaker='Liam',
-                  voice_config=types.VoiceConfig(
-                     prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                        voice_name='Puck',
-                     )
-                  )
-               ),
-            ]
-         )
-      )
-   )
+# Filter the Voice Library by language, gender, pitch, domain context, and keyword
+response = client.voices.list(
+    language_code=["en-US", "en-GB"],
+    gender=["female"],
+    pitch=["medium", "low"],
+    contexts=["Audiobook", "Conversational"],
+    type_=["prebuilt"],
+    search="warm",
+    page_size=50,
 )
 
-# ...Code to handle audio output
+for voice in response.voices or []:
+    print(
+        f"{voice.id} | {voice.display_name} ({voice.language_code},"
+        f" {voice.accent}, {voice.gender}, pitch={voice.pitch}):"
+        f" {voice.description}"
+    )
 ```
 
 ### JavaScript
@@ -417,435 +398,350 @@ response = client.models.generate_content(
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const ai = new GoogleGenAI();
 
-async function main() {
+// Filter the Voice Library by language, gender, pitch, domain context, and keyword
+const response = await ai.voices.list({
+  language_code: ["en-US", "en-GB"],
+  gender: ["female"],
+  pitch: ["medium", "low"],
+  contexts: ["Audiobook", "Conversational"],
+  type: ["prebuilt"],
+  search: "warm",
+  page_size: 50,
+});
 
-const transcript = await ai.models.generateContent({
-   model: "gemini-3.6-flash",
-   contents: "Generate a short transcript around 100 words that reads like it was clipped from a podcast by excited herpetologists. The hosts names are Dr. Anya and Liam.",
-   })
-
-const response = await ai.models.generateContent({
-   model: "gemini-3.1-flash-tts-preview",
-   contents: transcript,
-   config: {
-      responseModalities: ['AUDIO'],
-      speechConfig: {
-         multiSpeakerVoiceConfig: {
-            speakerVoiceConfigs: [
-                   {
-                     speaker: "Dr. Anya",
-                     voiceConfig: {
-                        prebuiltVoiceConfig: {voiceName: "Kore"},
-                     }
-                  },
-                  {
-                     speaker: "Liam",
-                     voiceConfig: {
-                        prebuiltVoiceConfig: {voiceName: "Puck"},
-                    }
-                  }
-                ]
-              }
-            }
-      }
-  });
+for (const voice of response.voices ?? []) {
+  console.log(
+    `${voice.id} | ${voice.display_name} (${voice.language_code}, ${voice.accent}, ${voice.gender}, pitch=${voice.pitch}): ${voice.description}`
+  );
 }
-// ..JavaScript code for exporting .wav file for output audio
-
-await main();
 ```
 
-## Stimmoptionen
+### REST
 
-TTS-Modelle unterstützen die folgenden 30 Sprachoptionen im Feld `voice_name`:
+```
+curl -G "https://generativelanguage.googleapis.com/v1beta/voices" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  --data-urlencode "language_code=en-US" \
+  --data-urlencode "language_code=en-GB" \
+  --data-urlencode "gender=female" \
+  --data-urlencode "pitch=medium" \
+  --data-urlencode "context=Audiobook" \
+  --data-urlencode "type=prebuilt" \
+  --data-urlencode "search=warm" \
+  --data-urlencode "page_size=50"
+```
 
-|  |  |  |
+## इस्तेमाल की जा सकने वाली भाषाएं
+
+टीटीएस मॉडल, इनपुट की भाषा का पता अपने-आप लगा लेते हैं.
+[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=hi)
+(`gemini-3.8-flash-tts`) **130 से ज़्यादा भाषाओं** में काम करता है. वहीं, [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=hi)
+(`gemini-3.8-flash-lite-tts`) **100 से ज़्यादा भाषाओं** में काम करता है:
+
+| भाषा | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
 | --- | --- | --- |
-| **Zephyr** – *Hell* | **Puck** – *Upbeat* | **Charon** – *Informativ* |
-| **Kore** – *Fest* | **Fenrir** – *Leicht erregbar* | **Leda** – *Jugendlich* |
-| **Orus** – *Firm* | **Aoede** – *Breezy* | **Callirrhoe** – *Gelassen* |
-| **Autonoe** – *Hell* | **Enceladus** – *Breathy* | **Iapetus** – *Clear* |
-| **Umbriel** – *Unkompliziert* | **Algieba** – *Glatt* | **Despina** – *Smooth* |
-| **Erinome** – *Wolkenlos* | **Algenib** – *Gravelly* | **Rasalgethi** – *Informativ* |
-| **Laomedeia** – *Upbeat* | **Achernar** – *Weich* | **Alnilam** – *Firm* |
-| **Schedar** – *Gerade* | **Gacrux** – *Nicht jugendfrei* | **Pulcherrima** – *Vorwärts* |
-| **Achird** – *Freundlich* | **Zubenelgenubi** – *Casual* | **Vindemiatrix** – *Sanft* |
-| **Sadachbia** – *Lively* | **Sadaltager** – *Sachkundig* | **Sulafat** – *Warm* |
+| एचनीज़ (अरबी स्क्रिप्ट) | ✔️ | ✔️ |
+| अफ़्रीकान्स | ✔️ | ✔️ |
+| आकान | ✔️ | ✔️ |
+| अमहैरिक | ✔️ | ✔️ |
+| आर्मीनियन | ✔️ | ✔️ |
+| असमिया | ✔️ | ✔️ |
+| अवधी | ✔️ | ✔️ |
+| बालीनीज़ | ✔️ | ✔️ |
+| बांग्ला | ✔️ | ✔️ |
+| बंजार (अरबी लिपि) | ✔️ | — |
+| बंजार (लैटिन स्क्रिप्ट) | ✔️ | ✔️ |
+| बाश्कियर | ✔️ | — |
+| बॉस्क | ✔️ | ✔️ |
+| बेलारूसी | ✔️ | ✔️ |
+| बेंबा | ✔️ | — |
+| भोजपुरी | ✔️ | ✔️ |
+| बोस्नियन | ✔️ | ✔️ |
+| ब्‍यूगिनी | ✔️ | ✔️ |
+| बल्गैरियन | ✔️ | ✔️ |
+| बर्मीज़ | ✔️ | — |
+| कैंटोनीज़ | ✔️ | ✔️ |
+| कैटलैन | ✔️ | ✔️ |
+| सेबुआनो | ✔️ | ✔️ |
+| सेंट्रल कुर्दिश | ✔️ | ✔️ |
+| छत्तीसगढ़ी | ✔️ | ✔️ |
+| चाइनीज़ (हंस स्क्रिप्ट) | ✔️ | ✔️ |
+| चाइनीज़ (हंत स्क्रिप्ट) | ✔️ | ✔️ |
+| क्राइमियन टाटर | ✔️ | — |
+| क्रोएशियन | ✔️ | ✔️ |
+| चेक | ✔️ | ✔️ |
+| डैनिश | ✔️ | ✔️ |
+| डच | ✔️ | ✔️ |
+| ड्यूला | ✔️ | — |
+| जोंगखा | ✔️ | — |
+| मिस्री अरबी | ✔️ | ✔️ |
+| अंग्रेज़ी | ✔️ | ✔️ |
+| एस्टोनियन | ✔️ | ✔️ |
+| फ़िलिपीनी | ✔️ | ✔️ |
+| फ़िनिश | ✔️ | — |
+| फ़्रांसीसी | ✔️ | ✔️ |
+| गैलिशियन | ✔️ | ✔️ |
+| गांदा | ✔️ | ✔️ |
+| जॉर्जियन | ✔️ | ✔️ |
+| जर्मन | ✔️ | ✔️ |
+| ग्रीक | ✔️ | ✔️ |
+| गुअरानी | ✔️ | — |
+| गुजराती | ✔️ | ✔️ |
+| हैतियन क्रिओल | ✔️ | ✔️ |
+| हलह मंगोलियन | ✔️ | ✔️ |
+| हौसा | ✔️ | ✔️ |
+| हिब्रू | ✔️ | ✔️ |
+| हिन्दी | ✔️ | ✔️ |
+| हंगेरियन | ✔️ | ✔️ |
+| आइसलैंडिक | ✔️ | ✔️ |
+| इग्बो | ✔️ | — |
+| ईलोको | ✔️ | ✔️ |
+| इंडोनेशियन | ✔️ | ✔️ |
+| ईरानी फ़ारसी | ✔️ | ✔️ |
+| इटैलियन | ✔️ | ✔️ |
+| जापानी | ✔️ | ✔️ |
+| जावानीज़ | ✔️ | ✔️ |
+| कबाइल | ✔️ | — |
+| कांबा | ✔️ | ✔️ |
+| कन्नड़ | ✔️ | ✔️ |
+| कश्मीरी (अरबी लिपि) | ✔️ | ✔️ |
+| कश्मीरी (देव स्क्रिप्ट) | ✔️ | ✔️ |
+| कज़ाक | ✔️ | ✔️ |
+| ख्मेर | ✔️ | ✔️ |
+| किकुयू | ✔️ | ✔️ |
+| किनयारवांडा | ✔️ | ✔️ |
+| कॉन्गो | ✔️ | ✔️ |
+| कोरियन | ✔️ | ✔️ |
+| किर्गिज़ | ✔️ | ✔️ |
+| लाओ | ✔️ | ✔️ |
+| लैजालियन | ✔️ | — |
+| लिंगाला | ✔️ | ✔️ |
+| लिथुएनियन | ✔️ | — |
+| लक्ज़मबर्गिश | ✔️ | — |
+| मैसेडोनियन | ✔️ | ✔️ |
+| मगही | ✔️ | ✔️ |
+| मैथिली | ✔️ | ✔️ |
+| मलयालम | ✔️ | ✔️ |
+| मोल्टीज़ | ✔️ | ✔️ |
+| मणिपुरी | ✔️ | ✔️ |
+| मराठी | ✔️ | ✔️ |
+| मिनांग्काबाउ (अरबी लिपि) | ✔️ | ✔️ |
+| मिनांग्काबाउ (लैटिन स्क्रिप्ट) | ✔️ | — |
+| मिज़ो | ✔️ | ✔️ |
+| नेपाली (अलग भाषा) | ✔️ | ✔️ |
+| नाइजीरिया की फु़लफु़लदे | ✔️ | ✔️ |
+| उत्तरी अज़रबैजान | ✔️ | ✔️ |
+| नॉर्दर्न सोथो | ✔️ | ✔️ |
+| नॉर्दर्न उज़्बेक | ✔️ | ✔️ |
+| नॉर्वेजियन बोकमाल | ✔️ | ✔️ |
+| नार्वेजियन नॉर्स्क | ✔️ | ✔️ |
+| न्यान्जा | ✔️ | ✔️ |
+| ओसीटन | ✔️ | — |
+| ओड़िया (अलग भाषा) | ✔️ | ✔️ |
+| पंगासिनान | ✔️ | — |
+| पर्शन (अफ़ग़ानिस्तान) | ✔️ | ✔️ |
+| पोलिश | ✔️ | ✔️ |
+| पॉर्चुगीज़ | ✔️ | ✔️ |
+| पंजाबी | ✔️ | ✔️ |
+| रोमानियन | ✔️ | ✔️ |
+| रूसी | ✔️ | ✔️ |
+| संथाली | ✔️ | ✔️ |
+| सर्बियन | ✔️ | ✔️ |
+| सिंधी | ✔️ | — |
+| सिंहला | ✔️ | ✔️ |
+| स्लोवाक | ✔️ | ✔️ |
+| स्लोवेनियन | ✔️ | — |
+| सोमाली | ✔️ | — |
+| दक्षिणी अज़रबैजानी | ✔️ | ✔️ |
+| दक्षिणी पश्तो | ✔️ | ✔️ |
+| सदर्न सुटू | ✔️ | — |
+| स्पैनिश | ✔️ | ✔️ |
+| स्टैंडर्ड ऐरेबिक (अरबी लिपि) | ✔️ | ✔️ |
+| स्टैंडर्ड ऐरेबिक (लैटिन स्क्रिप्ट) | ✔️ | ✔️ |
+| स्टैंडर्ड लातवियन | ✔️ | ✔️ |
+| स्टैंडर्ड मलय | ✔️ | ✔️ |
+| स्वाहीली (अलग भाषा) | ✔️ | — |
+| स्वाटी | ✔️ | — |
+| स्वीडिश | ✔️ | — |
+| ताजिक | ✔️ | — |
+| तमिल | ✔️ | ✔️ |
+| तेलुगु | ✔️ | ✔️ |
+| थाई | ✔️ | — |
+| तिग्रिन्या | ✔️ | — |
+| टॉस्क अल्बानियन | ✔️ | — |
+| टर्किश | ✔️ | ✔️ |
+| विगर | ✔️ | — |
+| वियतनामीज़ | ✔️ | ✔️ |
 
-Alle Sprachoptionen finden Sie in [AI Studio](https://aistudio.google.com/generate-speech?hl=de).
+## इन मॉडल के साथ काम करता है
 
-## Unterstützte Sprachen
+| मॉडल | एक व्यक्ति बोल रहा है | एक से ज़्यादा स्पीकर | आवाज़ का डिज़ाइन | वॉइस रेप्लिकेशन |
+| --- | --- | --- | --- | --- |
+| [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=hi) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=hi) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash TTS की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=hi) | ✔️ | ✔️ | — | — |
+| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=hi) | ✔️ | ✔️ | — | — |
 
-Die TTS-Modelle erkennen die Eingabesprache automatisch. Folgende Sprachen werden unterstützt:
+### किस मॉडल का इस्तेमाल कब करना चाहिए
 
-| Sprache | BCP-47-Code | Sprache | BCP-47-Code |
-| --- | --- | --- | --- |
-| Arabisch | ar | Filipino | fil |
-| Bengalisch | bn | Finnisch | fi |
-| Niederländisch | nl | Galizisch | gl |
-| Englisch | de | Georgisch | ka |
-| Französisch | fr | Griechisch | el |
-| Deutsch | de | Gujarati | gu |
-| Hindi | hi | Haitianisch | ht |
-| Indonesisch | id | Hebräisch | er |
-| Italienisch | it | Ungarisch | hu |
-| Japanisch | ja | Isländisch | ist |
-| Koreanisch | ko | Javanisch | jv |
-| Marathi | mr | Kannada | kn |
-| Polnisch | pl | Konkani | kok |
-| Portugiesisch | pt | Lao | lo |
-| Rumänisch | ro | Latin | la |
-| Russisch | ru | Lettisch | lv |
-| Spanisch | es | Litauisch | lt |
-| Tamil | ta | Luxemburgisch | lb |
-| Telugu | te | Mazedonisch | mk |
-| Thailändisch | th | Maithili | mai |
-| Türkisch | tr | Malagasy | mg |
-| Ukrainisch | uk | Malaiisch | ms |
-| Vietnamesisch | vi | Malayalam | ml |
-| Afrikaans | af | Mongolisch | mn |
-| Albanisch | sq | Nepalesisch | ne |
-| Amharisch | am | Norwegisch (Bokmål) | nb |
-| Armenisch | hy | Norwegisch, Nynorsk | nn |
-| Aserbaidschanisch | az | Oriya | oder |
-| Baskisch | eu | Paschtu | ps |
-| Belarussisch | be | Persisch | fa |
-| Bulgarisch | bg | Punjabi | pa |
-| Burmesisch | my | Serbisch | sr |
-| Katalanisch | ca | Sindhi | sd |
-| Cebuano | ceb | Singhalesisch | si |
-| Chinesisch (Mandarin) | cmn | Slowakisch | sk |
-| Kroatisch | Std. | Slowenisch | sl |
-| Tschechisch | cs | Swahili | sw |
-| Dänisch | da | Schwedisch | sv |
-| Estnisch | et | Urdu | ur |
+Gemini 3.8 के दोनों टीटीएस मॉडल, एक ही एपीआई स्कीमा और प्रॉम्प्ट फ़ॉर्मैट का इस्तेमाल करते हैं. इसलिए, एक पैरामीटर में बदलाव करके, इन दोनों मॉडल के बीच स्विच किया जा सकता है:
 
-## Unterstützte Modelle
+- **[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=hi)
+  (`gemini-3.8-flash-tts`)** का इस्तेमाल तब करें, जब आपको सबसे ज़्यादा एकॉस्टिक फ़िडेलिटी, बारीकी से ऐक्टिंग, और एक्सप्रेशन पर कंट्रोल चाहिए हो. यह मॉडल, स्टूडियो-ग्रेड क्रिएटिव काम, कई स्पीकर वाले मुश्किल डायलॉग, तेज़ आवाज़ वाले टैग, मुश्किल उच्चारण, क्षेत्रीय या अल्पसंख्यक बोलियों, और लंबी अवधि के ऐसे नैरेशन के लिए सबसे सही है जिनमें आवाज़ और रूम-टोन की स्थिरता बहुत ज़रूरी होती है.
+- `gemini-3.1-flash-tts-preview` की जगह, **[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=hi)
+  (`gemini-3.8-flash-lite-tts`)** का इस्तेमाल करें. यह मॉडल, कम लागत में तेज़ी से काम करता है. इसे इन कामों के लिए ऑप्टिमाइज़ किया गया है: एक साथ कई ऑडियो बनाना, बातचीत करने वाले वॉइस एजेंट के लिए कैस्केड बनाना, पढ़कर सुनाने की सुविधा, भरोसेमंद तरीके से आवाज़ की नकल करना, और रोज़मर्रा की बातचीत में एक ही स्पीकर की आवाज़ को मुख्य भाषाओं में इस्तेमाल करना.
 
-| Modell | Einzelner Sprecher | Mehrere Sprecher |
+### माइग्रेशन गाइड
+
+अगर आपको झलक के तौर पर उपलब्ध कराए गए पुराने मॉडल (`gemini-3.1-flash-tts-preview` या
+`gemini-2.5-pro-preview-tts`) से Gemini 3.8 टीटीएस (`gemini-3.8-flash-tts` या
+`gemini-3.8-flash-lite-tts`) पर अपग्रेड करना है, तो इन पांच मुख्य बदलावों के बारे में जान लें:
+
+1. **स्टाइल को ट्रांसक्रिप्ट से अलग करना:** एक्टिंग, टोन, प्रॉसोडी, और पेसिंग से जुड़े निर्देशों (जैसे कि `"whispering"`, `"out of breath"` या `"speaking slowly"`) को सामान्य टेक्स्ट से हटाकर `speech_metadata.style` में ले जाएं.
+   `text` को, शब्दशः ट्रांसक्रिप्ट के साथ-साथ इनलाइन वोकल टैग के तौर पर ही रखें.
+2. **वॉइस डिज़ाइन की मदद से, पर्सोना को पहले से डिज़ाइन करें:** एक से ज़्यादा पैराग्राफ़ वाले `"Audio Profile"` या `"Director's Notes"` ब्लॉक को [वॉइस डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) में बनाई गई कस्टम आवाज़ से बदलें. इसके बाद, टीटीएस के अनुरोधों में उस `voice_...` आईडी का इस्तेमाल करें. साथ ही, `style` स्ट्रिंग को कम से कम या खाली रखें.
+3. **स्ट्रक्चर्ड डायलॉग टर्न का इस्तेमाल करें:** एक से ज़्यादा स्पीकर वाले डायलॉग के लिए, एक ही टेक्स्ट ब्लॉक में `Speaker: ...` प्रीफ़िक्स एम्बेड करने के बजाय, हर स्पीकर के टर्न के लिए `speech_metadata.speaker` के साथ एक `part` पास करें.
+4. **इनलाइन वोकल टैग के लिए ऐंगल ब्रैकेट का इस्तेमाल करें:** किसी समय पर की गई मानवीय आवाज़ और ठहराव के लिए, ऐंगल ब्रैकेट (`<laugh>`, `<sigh>`, `<cough>`, `<breath>`, `<short pause>`) का इस्तेमाल करें. बिना आवाज़ वाले साउंड इफ़ेक्ट टैग (जैसे, तालियां या धमक) का इस्तेमाल न करें.
+5. **एकल अनुरोधों पर डिफ़ॉल्ट WAV (`AUDIO_WAV`) आउटपुट का हिसाब रखें:**
+   `gemini-3.1-flash-tts-preview` के उलट, Gemini 3.8 के टीटीएस मॉडल, एकल अनुरोधों
+   पर RIFF हेडर (24 किलोहर्ट्ज़, मोनो, 16-बिट पीसीएम) के साथ पूरा **WAV
+   (`AUDIO_WAV`)** ऑडियो देते हैं. डिफ़ॉल्ट रूप से हेडरलेस रॉ पीसीएम
+   `AUDIO_L16` देता है. डिकोड किए गए ऑडियो बाइट को सीधे `.wav` फ़ाइल में लिखा जा सकता है. इसके लिए, उन्हें Python के `wave` मॉड्यूल या Node के `wav` पैकेज के साथ मैन्युअल तरीके से रैप करने की ज़रूरत नहीं होती. अगर आपकी मौजूदा पाइपलाइन को हेडरलेस रॉ पीसीएम की ज़रूरत है, तो `response_format` को `{"audio": {"mime_type": "AUDIO_L16"}}` पर सेट करें ([ऑडियो आउटपुट फ़ॉर्मैट](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi#audio-output-formats) देखें).
+
+## प्रॉम्प्ट से जुड़ी गाइड
+
+Gemini 3.8 के टीटीएस मॉडल, इनपुट टेक्स्ट को सिर्फ़ **शब्दशः ट्रांसक्रिप्ट** के तौर पर लेते हैं.
+पहले के प्रीव्यू मॉडल में, स्टेज के बारे में निर्देश सादे टेक्स्ट में एम्बेड किए जाते थे. हालांकि, Gemini 3.8 टीटीएस में, लगातार टर्न-लेवल के निर्देशों (`speech_metadata`) को, पॉइंट-इन-टाइम इनलाइन वोकल टैग से अलग किया जाता है.
+
+### स्टाइल फ़ील्ड बनाम इनलाइन टैग
+
+परफ़ॉर्मेंस के निर्देशों को स्कोप के हिसाब से बांटें:
+
+- **टर्न-लेवल डिलीवरी (`speech_metadata.style`):** डिलीवरी की लगातार बनी रहने वाली एट्रिब्यूट वैल्यू—जैसे कि भावना, उतार-चढ़ाव, बोलने की कुल गति या डिलीवरी स्टाइल (जैसे कि `"whispering"`, `"out of breath"`, `"muttering"` या `"sarcastic"`)—को `speech_metadata` के `style` फ़ील्ड में डालें. हर बार एक जैसा किरदार और परफ़ॉर्मेंस पाने के लिए, [आवाज़ का डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) में जाकर, पहले से ही पर्सोना डिज़ाइन करें. साथ ही, `style` का इस्तेमाल सिर्फ़ टर्न-लेवल में किए जाने वाले ज़रूरी बदलावों के लिए करें.
+- **किसी समय पर होने वाले इवेंट (इनलाइन टैग):** ट्रांसक्रिप्ट में कुछ समय के लिए बोले गए शब्दों के अलावा अन्य आवाज़ें, सांस लेने की आवाज़ या कुछ देर के लिए रुकने की आवाज़ को ऐंगल ब्रैकेट (`<cough>`, `<breath>`, `<sigh>`, `<short pause>`) का इस्तेमाल करके इनलाइन में डालें. सबसे अच्छी ऑडियो क्वालिटी के लिए, ऐंगल ब्रैकेट (`<...>`) का इस्तेमाल करें. साथ ही, आवाज़ के अलावा अन्य साउंड इफ़ेक्ट के बजाय, सिर्फ़ आवाज़ों का इस्तेमाल करें.
+
+| दायरा | कहां जोड़ें | उदाहरण |
 | --- | --- | --- |
-| [Gemini 3.1 Flash TTS (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=de) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=de) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=de) | ✔️ | ✔️ |
+| **टर्न-लेवल** (टर्न के दौरान जारी रहता है) | `speech_metadata.style` | `"angry tone"`, `"speaking rapidly"`, `"out of breath"`, `"whispers"`, `"sarcastic"` |
+| **पॉइंट-इन-टाइम** (किसी खास शब्द पर होता है) | `text` (`<...>`) में इनलाइन | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
 
-## Anleitung zu Prompts
+### गति और ठहराव
 
-Das Modell **Gemini Native Audio Generation Text-to-Speech (TTS)** unterscheidet sich von herkömmlichen TTS-Modellen dadurch, dass es ein Large Language Model verwendet, das ***nicht nur weiß, was gesagt werden soll, sondern auch, wie es gesagt werden soll***.
+रिदम और साइलेंस को तीन लेवल पर कंट्रोल किया जा सकता है:
 
-Das Modell interpretiert ein Transkript und bestimmt, wie Ihre Worte übermittelt werden sollen. Einfache Transkripte ohne zusätzliche Prompts klingen natürlich. Gemini TTS bietet aber auch Tools, mit denen Sie die Ausgabe steuern können.
+- **विराम चिह्न और एलिप्सिस:** बातचीत में स्वाभाविक रूप से हिचकिचाहट दिखाने के लिए, कॉमा, डैश (`--`), और एलिप्सिस (`...`) का इस्तेमाल करें.
+- **इनलाइन पॉज़ टैग:** स्क्रिप्ट में उन जगहों पर `<short pause>` या `<long pause>` डालें जहां स्पीकर को रुकना चाहिए:
+  `text
+  Hold on, let me think... <short pause> Alright, I've got it.`
+- **टर्न-लेवल की स्पीड:** पूरे टर्न के दौरान बोलने की स्पीड को कंट्रोल करने के लिए, `speech_metadata` में `"style": "speaking rapidly"` या `"style": "speaking slowly"` सेट करें.
 
-Dieser Leitfaden soll Ihnen grundlegende Orientierungshilfe und Ideen für die Entwicklung von Audioinhalten bieten. Wir beginnen mit **Tags** für die schnelle Inline-Steuerung und sehen uns dann erweiterte **Prompting-Strukturen** für die vollständige Leistungssteuerung an.
+### सुर और पिच
 
-### Audio-Tags
+किसी टर्न में उतार-चढ़ाव, पिच, और इन्फ़्लेक्शन को कंट्रोल करने के लिए, **`speech_metadata.style`** का इस्तेमाल करें. उदाहरण के लिए, `"style": "high pitch, cheerful and excited inflection"` या `"style": "monotone and flat"`. अगर बातचीत के बीच में भावना या उतार-चढ़ाव बदलता है, तो स्क्रिप्ट को अलग-अलग टर्न में बांटें. साथ ही, हर टर्न के लिए अलग-अलग `style` वैल्यू का इस्तेमाल करें.
 
-Tags sind Inline-Modifikatoren wie `[whispers]` oder `[laughs]`, mit denen Sie die Auslieferung detailliert steuern können. Damit können Sie den Ton, das Tempo und die emotionale Stimmung einer Zeile oder eines Abschnitts des Transkripts ändern. Sie können damit auch Zwischenrufe und einige andere nicht verbale Geräusche wie `[cough]`, `[sighs]` oder `[gasp]` hinzufügen.
+### हाइलाइट करना
 
-Es gibt keine vollständige Liste der Tags, die funktionieren und nicht funktionieren. Wir empfehlen, mit verschiedenen Emotionen und Ausdrücken zu experimentieren, um zu sehen, wie sich die Ausgabe ändert.
+ट्रांसक्रिप्ट में कुछ शब्दों को कैपिटल लेटर में लिखें. साथ ही, विराम चिह्न और इनलाइन वोकल टैग का इस्तेमाल करें, ताकि मुख्य शब्दों पर नैचुरल वोकल स्ट्रेस डाला जा सके:
 
-Wenn Ihr Transkript nicht auf Englisch ist, empfehlen wir, trotzdem englische Audio-Tags zu verwenden, um optimale Ergebnisse zu erzielen.
+```
+This is a VERY important point!
+It was a VERY long day <sigh> ... nobody listens anymore.
+```
 
-**Kreative Audiotags**
+### बोलने में रुकावट और बोली के अलावा अन्य आवाज़ें
 
-Um zu zeigen, welche Art von Variabilität mit Audio-Tags möglich ist, finden Sie hier eine Reihe von Beispielen, die alle dasselbe aussagen, aber je nach verwendeten Tags unterschiedlich formuliert sind.
-
-Sie können die Betonung der Wiedergabe ändern, indem Sie am Anfang einer Zeile Tags hinzufügen, um den Sprecher aufgeregt, gelangweilt oder widerwillig klingen zu lassen:
-
-- `[excitedly]` Hallo, ich bin ein neues Text-zu-Sprache-Modell und kann Dinge auf viele verschiedene Arten sagen. Was kann ich für Sie tun?
-- `[bored]` Hallo, ich bin ein neues Modell für die Sprachausgabe…
-- `[reluctantly]` Hallo, ich bin ein neues Modell für die Sprachausgabe…
-
-Tags können auch verwendet werden, um das Tempo der Wiedergabe zu ändern oder um das Tempo mit der Betonung zu kombinieren:
-
-- `[very fast]` Hallo, ich bin ein neues Modell für die Sprachausgabe…
-- `[very slow]` Hallo, ich bin ein neues Modell für die Sprachausgabe…
-- `[sarcastically, one painfully slow word at a time]` Hallo, ich bin ein neues Modell für die Sprachsynthese…
-
-Außerdem hast du die Möglichkeit, bestimmte Abschnitte zu flüstern und andere zu schreien.
-
-- `[whispers]` Hallo, ich bin ein neues Sprachausgabemodell, `[shouting]`, und ich kann Dinge auf viele verschiedene Arten sagen. `[whispers]` Was kann ich für Sie tun?
-
-Sie können auch mit jeder beliebigen kreativen Idee experimentieren:
-
-- `[like a cartoon dog]` Hallo, ich bin ein neues Modell für die Sprachausgabe…
-- `[like dracula]` Hallo, ich bin ein neues Modell für die Sprachausgabe…
-
-Häufig verwendete Tags sind:
+आवाज़ के अलावा अन्य मानवीय आवाज़ों को, ऐंगल ब्रैकेट (`<...>`) का इस्तेमाल करके, उसी जगह पर रखें जहां आवाज़ आनी चाहिए. सुझाए गए वोकल टैग में ये शामिल हैं:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| `[amazed]` | `[crying]` | `[curious]` | `[excited]` |
-| `[sighs]` | `[gasp]` | `[giggles]` | `[laughs]` |
-| `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
-| `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
-
-Mit Tags können Sie die Bereitstellung Ihres Transkripts schnell und einfach steuern. Für noch mehr Kontrolle können Sie sie mit einem Kontext-Prompt kombinieren, um den allgemeinen Ton und die Stimmung der Performance festzulegen.
-
-### Erweiterte Prompts
-
-Sie können sich einen erweiterten Prompt als Systemanweisung für das Modell vorstellen. So können Sie dem Modell mehr Kontext und Kontrolle über die Leistung geben.
-
-Ein robuster Prompt enthält idealerweise die folgenden Elemente, die zusammen eine gute Leistung ermöglichen:
-
-- **Audioprofil**: Hier wird eine Persona für die Stimme erstellt, die eine Charakteridentität, einen Archetyp und andere Merkmale wie Alter, Hintergrund usw. definiert.
-- **Szene**: Legt die Bühne fest. Beschreibt sowohl die physische Umgebung als auch die Atmosphäre.
-- **Hinweise des Regisseurs**: Hier finden Sie Leistungsanleitungen, in denen Sie aufschlüsseln können, welche Anweisungen für Ihr virtuelles Talent wichtig sind. Beispiele sind Stil, Atmung, Tempo, Artikulation und Akzent.
-- **Beispielkontext**: Bietet dem Modell einen kontextbezogenen Ausgangspunkt, sodass Ihr virtueller Schauspieler auf natürliche Weise in die von Ihnen eingerichtete Szene eintritt.
-- **Transkript**: Der Text, der vom Modell gesprochen wird. Für eine optimale Leistung sollten das Thema des Transkripts und der Schreibstil mit den Anweisungen übereinstimmen, die Sie geben.
-- **Audio-Tags**: Modifikatoren, die Sie in ein Transkript einfügen können, um die Wiedergabe eines bestimmten Textabschnitts zu ändern, z. B. `[whispers]` oder `[shouting]`.
-
-Beispiel für einen vollständigen Prompt:
-
-```
-# AUDIO PROFILE: Jaz R.
-## "The Morning Hype"
-
-## THE SCENE: The London Studio
-It is 10:00 PM in a glass-walled studio overlooking the moonlit London skyline,
-but inside, it is blindingly bright. The red "ON AIR" tally light is blazing.
-Jaz is standing up, not sitting, bouncing on the balls of their heels to the
-rhythm of a thumping backing track. Their hands fly across the faders on a
-massive mixing desk. It is a chaotic, caffeine-fueled cockpit designed to wake
-up an entire nation.
-
-### DIRECTOR'S NOTES
-Style:
-* The "Vocal Smile": You must hear the grin in the audio. The soft palate is
-always raised to keep the tone bright, sunny, and explicitly inviting.
-* Dynamics: High projection without shouting. Punchy consonants and elongated
-vowels on excitement words (e.g., "Beauuutiful morning").
-
-Pace: Speaks at an energetic pace, keeping up with the fast music.  Speaks
-with A "bouncing" cadence. High-speed delivery with fluid transitions — no dead
-air, no gaps.
-
-Accent: Jaz is from Brixton, London
-
-### SAMPLE CONTEXT
-Jaz is the industry standard for Top 40 radio, high-octane event promos, or any
-script that requires a charismatic Estuary accent and 11/10 infectious energy.
-
-#### TRANSCRIPT
-[excitedly] Yes, massive vibes in the studio! You are locked in and it is
-absolutely popping off in London right now. If you're stuck on the tube, or
-just sat there pretending to work... stop it. Seriously, I see you.
-[shouting] Turn this up! We've got the project roadmap landing in three,
-two... let's go!
-```
-
-### Detaillierte Prompt-Strategien
-
-Sehen wir uns die einzelnen Elemente des Prompts genauer an.
-
-#### Audioprofil
-
-Beschreiben Sie kurz die Persona des Charakters.
-
-- **Name:** Wenn Sie Ihrem Charakter einen Namen geben, kann das Modell die Leistung besser anpassen. Beziehen Sie sich beim Festlegen der Szene und des Kontexts auf den Charakter.
-- **Rolle**: Die grundlegende Identität und der Archetyp der Figur, die in der Szene dargestellt wird, z. B. Radiomoderator, Podcaster, Nachrichtenreporter usw.
-
-Beispiele:
-
-```
-# AUDIO PROFILE: Jaz R.
-## "The Morning Hype"
-```
-
-```
-# AUDIO PROFILE: Monica A.
-## "The Beauty Influencer"
-```
-
-#### Szene
-
-Legen Sie den Kontext für die Szene fest, einschließlich Ort, Stimmung und Umgebungsdetails, die den Ton und die Atmosphäre bestimmen. Beschreibe, was um die Figur herum passiert und wie sich das auf sie auswirkt. Die Szene bietet den Umgebungs-Kontext für die gesamte Interaktion und lenkt die schauspielerische Leistung auf subtile, organische Weise.
-
-Beispiele:
-
-```
-## THE SCENE: The London Studio
-It is 10:00 PM in a glass-walled studio overlooking the moonlit London skyline,
-but inside, it is blindingly bright. The red "ON AIR" tally light is blazing.
-Jaz is standing up, not sitting, bouncing on the balls of their heels to the
-rhythm of a thumping backing track. Their hands fly across the faders on a
-massive mixing desk. It is a chaotic, caffeine-fueled cockpit designed to
-wake up an entire nation.
-```
-
-```
-## THE SCENE: Homegrown Studio
-A meticulously sound-treated bedroom in a suburban home. The space is
-deadened by plush velvet curtains and a heavy rug, but there is a
-distinct "proximity effect."
-```
-
-#### Anmerkungen des Regisseurs
-
-Dieser wichtige Abschnitt enthält spezifische Leistungsrichtlinien. Sie können alle anderen Elemente überspringen, wir empfehlen jedoch, dieses Element einzufügen.
-
-Definieren Sie nur, was für die Leistung wichtig ist, und achten Sie darauf, nicht zu viele Angaben zu machen. Zu viele strenge Regeln schränken die Kreativität der Modelle ein und können zu einer schlechteren Leistung führen. Achte auf ein ausgewogenes Verhältnis zwischen der Rollen- und Szenenbeschreibung und den spezifischen Leistungsregeln.
-
-Die häufigsten Anweisungen sind **Stil, Tempo und Akzent**. Das Modell ist jedoch nicht auf diese beschränkt und erfordert sie auch nicht. Sie können benutzerdefinierte Anweisungen hinzufügen, um zusätzliche Details zu berücksichtigen, die für Ihre Leistung wichtig sind. Dabei können Sie so viele oder so wenige Details angeben, wie nötig.
-
-Beispiel:
-
-```
-### DIRECTOR'S NOTES
-
-Style: Enthusiastic and Sassy GenZ beauty YouTuber
-
-Pacing: Speaks at an energetic pace, keeping up with the extremely fast, rapid
-delivery influencers use in short form videos.
-
-Accent: Southern california valley girl from Laguna Beach |
-```
-
-**Stil:**
-
-Legt den Ton und Stil der generierten Sprache fest. Geben Sie beispielsweise „fröhlich“, „energisch“, „entspannt“ oder „gelangweilt“ an, um die Leistung zu beeinflussen. Sei beschreibend und gib so viele Details wie nötig an: *„Ansteckende Begeisterung. Der Zuhörer soll das Gefühl haben, Teil eines riesigen, aufregenden Community-Events zu sein.“* ist besser als einfach nur *„energetisch und enthusiastisch“* zu sagen.
-
-Sie können auch Begriffe aus der Voiceover-Branche wie „vocal smile“ ausprobieren. Sie können beliebig viele Stilmerkmale kombinieren.
-
-Beispiele:
-
-Simple Emotion
-
-```
-DIRECTORS NOTES
-...
-Style: Frustrated and angry developer who can't get the build to run.
-...
-```
-
-Mehr Tiefe
-
-```
-DIRECTORS NOTES
-...
-Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts.
-...
-```
-
-Komplex
-
-```
-DIRECTORS NOTES
-Style:
-* The "Vocal Smile": You must hear the grin in the audio. The soft palate is
-always raised to keep the tone bright, sunny, and explicitly inviting.
-*Dynamics: High projection without shouting. Punchy consonants and
-elongated vowels on excitement words (e.g., "Beauuutiful morning").
-```
-
-**Akzent:**
-
-Beschreiben Sie den gewünschten Akzent. Je genauer Ihre Angaben sind, desto besser sind die Ergebnisse. Verwenden Sie beispielsweise „*Akzent des britischen Englisch, wie er in Croydon, England, gesprochen wird*“ anstelle von „*Britischer Akzent*“.
-
-Beispiele:
-
-```
-### DIRECTORS NOTES
-...
-Accent: Southern california valley girl from Laguna Beach
-...
-```
-
-```
-### DIRECTORS NOTES
-...
-Accent: Jaz is a DJ from Brixton, London
-...
-```
-
-**Budgetabstufung**:
-
-Gesamtes Pacing und Pacing-Variationen im gesamten Beitrag.
-
-Beispiele:
-
-Einfach
-
-```
-### DIRECTORS NOTES
-...
-Pacing: Speak as fast as possible
-...
-```
-
-Mehr Tiefe
-
-```
-### DIRECTORS NOTES
-...
-Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
-...
-```
-
-Komplex
-
-```
-### DIRECTORS NOTES
-...
-Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into each other. There is zero urgency.
-...
-```
-
-#### Transkript und Audio-Tags
-
-Das Transkript enthält genau die Wörter, die das Modell sprechen wird. Ein Audio-Tag ist ein Wort in eckigen Klammern, das angibt, wie etwas gesagt werden soll, eine Änderung des Tons oder eine Zwischenbemerkung.
-
-```
-### TRANSCRIPT
-
-I know right, [sarcastically] I couldn't believe it. [whispers] She should have totally left
-at that point.
-
-[cough] Well, [sighs] I guess it doesn't matter now.
-```
-
-**Jetzt ausprobieren**
-
-Probieren Sie einige dieser Beispiele selbst in [AI Studio](https://aistudio.google.com/generate-speech?hl=de) aus, testen Sie unsere [TTS-App](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=de) und lassen Sie Gemini die Regie übernehmen. Hier sind einige Tipps für gute Gesangsleistungen:
-
-- Achten Sie darauf, dass der gesamte Prompt kohärent ist. Das Skript und die Regie gehen Hand in Hand, um eine gute Leistung zu erzielen.
-- Sie müssen nicht alles beschreiben. Manchmal hilft es, dem Modell Raum zu lassen, die Lücken zu füllen, um die Natürlichkeit zu erhöhen. (Just like a talented actor)
-- Wenn du einmal nicht weiterkommst, kannst du dir von Gemini helfen lassen, dein Skript oder deine Performance zu erstellen.
-
-## Sprachgenerierung per Streaming
-
-Sie können die generierte Audioausgabe streamen, während sie vom Modell generiert wird. Dies ist nützlich, um die wahrgenommene Latenz zu verringern.
+| `<argh>` | `<breath>` | `<heavy breath>` | `<exhales>` |
+| `<cackle>` | `<cheer>` | `<chuckle>` / `<chuckles>` | `<cough>` |
+| `<cry>` | `<gasp>` | `<giggle>` | `<groan>` |
+| `<growl>` | `<grunt>` | `<grr>` | `<hiss>` |
+| `<laugh>` / `<laughter>` | `<moan>` | `<pant>` | `<pff>` / `<phew>` |
+| `<scream>` | `<shout>` | `<shriek>` | `<sigh>` / `<sighs>` |
+| `<sneeze>` | `<snicker>` | `<snort>` | `<sob>` |
+| `<throat-clearing>` | `<tsk>` | `<whimper>` | `<whispers>` / `<whispering>` |
+| `<yawn>` | `<short pause>` | `<long pause>` |  |
+
+### बैकचैनल और एक साथ कई लोगों के बोलने की सुविधा
+
+एक से ज़्यादा लोगों के बीच बातचीत में, सुनने वाले की प्रतिक्रियाओं को पाइप कैरेक्टर (`|reaction|`) में रैप करें. ऐसा स्पीकर की बारी में किया जाता है, ताकि प्रतिक्रिया के लिए अलग से बारी न लेनी पड़े और बातचीत स्वाभाविक तरीके से जारी रहे.
+
+- **बैकचैनल पर की गई छोटी बातचीत:** बोलने वाले व्यक्ति के बोलने के दौरान, सुनने वाले लोगों की छोटी प्रतिक्रियाएं (`|oh hmm|`,
+  `|oh really?|`, `|absolutely|`) दिखाएं:
+  - **पहला टर्न (स्पीकर A):** `"So the launch is Thursday |oh hmm| Are we actually ready?"`
+  - **दूसरी बारी (स्पीकर B):** `"Ready enough |oh really?| The last blocker cleared this morning."`
+  - **तीसरी बारी (स्पीकर A):** `"Then let's ship it |absolutely| and watch the dashboards."`
+- **एक साथ बोली गई और बीच-बीच में बोली गई आवाज़:** एक साथ या बीच-बीच में बोली गई आवाज़ को सिम्युलेट करने के लिए, एक से ज़्यादा पाइप सेगमेंट का इस्तेमाल करें. यह सुविधा, दो लोगों के बीच की बातचीत के लिए सबसे अच्छी तरह काम करती है (`gemini-3.8-flash-tts` के साथ सबसे अच्छी तरह काम करती है):
+  - **एक साथ काउंटडाउन/कोरस:** `"Let's surprise him on three |ok| ready?"` इसके बाद `"one. two. three. |happy| happy |birthday| birthday!"`
+  - **स्पीकर की आवाज़ पूरी तरह से ओवरलैप हो रही है:** `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
+
+### जनरेट किए गए कॉन्टेंट में एकरूपता बनाए रखना और क्या नहीं करना चाहिए
+
+अपनी आवाज़ की पहचान को हर बार एक जैसा रखने के लिए, इन दिशा-निर्देशों का पालन करें:
+
+- **वॉइस डिज़ाइन में, स्टाइल ब्लॉक के बजाय पहले से ही पर्सोना डिज़ाइन करें:**
+  पहले के मॉडल से लिए गए लंबे-चौड़े `"Audio Profile"` पैराग्राफ़ और कई बुलेट पॉइंट `"Director's Notes"`, आवाज़ में बदलाव होने की सबसे आम वजह है.
+  [वॉइस डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) में, क्रिएटिविटी का इस्तेमाल करके एक स्थायी कस्टम `voice_...` पर्सोना जनरेट करें. इसके बाद, टीटीएस कॉल के दौरान उस वॉइस आईडी का इस्तेमाल करें.
+- **आवाज़ को स्थिर रखने के लिए, आवाज़ के रेफ़रंस पर भरोसा करें (मेटा-निर्देश शामिल न करें):**
+  Gemini 3.8 के टीटीएस मॉडल को, सबसे पहले ऑडियो रेफ़रंस पर फ़ोकस करने के लिए ट्रेन किया गया है.
+  मॉडल को आवाज़ स्थिर रखने के निर्देश शामिल न करें. जैसे, `"do not switch speaker identity"` या `"maintain identical timbre"`. प्रॉम्प्ट में ज़्यादा टेक्स्ट शामिल करने से, आवाज़ में बदलाव होने की संभावना बढ़ जाती है. स्टाइल से जुड़े गैर-ज़रूरी निर्देश हटा दें. साथ ही, मॉडल को आवाज़ के रेफ़रंस के हिसाब से, नैचुरल तरीके से अलग-अलग आवाज़ों में बोलने दें.
+- **`style` में स्पीकर की ऐसी विशेषताओं को बदलने की कोशिश न करें जिन्हें बदला नहीं जा सकता:** `speech_metadata.style` में उम्र, लिंग, नाम या स्थायी लहजे में बदलाव न करें.
+  इसके बजाय, Extended Voice Library से किसी क्षेत्र के हिसाब से आवाज़ चुनें या [आवाज़ डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) की मदद से कोई आवाज़ बनाएं.
+
+### सुझाया गया वर्कफ़्लो
+
+1. **एक बार में ही किरदार तैयार करें:** [आवाज़ डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) में जाकर अपना किरदार बनाएं. इसके अलावा, एक्सटेंडेड वॉइस लाइब्रेरी से ऐसी क्षेत्रीय आवाज़ चुनें जो आपकी टारगेट भाषा और पर्सोना से मेल खाती हो.
+2. **बोलचाल की भाषा में ट्रांसक्रिप्ट लिखें:** `text` को ज़्यादा से ज़्यादा नैचुरल बनाने के लिए, इसे बोलचाल की भाषा में ट्रांसक्रिप्ट के तौर पर लिखें. इसमें बातचीत के दौरान होने वाली रुकावटें और हिचकिचाहट भी शामिल करें. उदाहरण के लिए, `"Oh uh yeah I think... hm, so that's interesting"`.
+3. **सबसे पहले, सामान्य टीटीएस को आज़माएं:** सबसे पहले, अपनी ट्रांसक्रिप्ट को खाली `style` फ़ील्ड के साथ सिंथेसाइज़ करें. ज़्यादातर अनुरोधों के लिए, `style` निर्देश की ज़रूरत नहीं होती.
+4. **सिर्फ़ बदलावों के लिए छोटे `style` प्रॉम्प्ट जोड़ें:** सिर्फ़ उन टर्न के लिए छोटे `style` स्ट्रिंग (जैसे, `"casual, friendly"` या `"muttering, then reassuring"`) जोड़ें जिनमें डिलीवरी में खास बदलाव करने की ज़रूरत हो. साथ ही, जब आपको एक जैसा बेसलाइन चाहिए, तब सभी टर्न में उसी छोटे स्ट्रिंग का फिर से इस्तेमाल करें.
+
+### सिलसिलेवार बातचीत और वॉइस एजेंट
+
+रीयल-टाइम में बातचीत करने वाले वॉइस एजेंट या सिलसिलेवार बातचीत वाले ऐप्लिकेशन बनाते समय:
+
+- एलएलएम से टेक्स्ट के हिस्से मिलने पर, **हर बार एक टीटीएस कॉल करें**.
+- कॉन्फ़िगर किए गए `voice` (पहले से बने, डिज़ाइन किए गए `voice_...` या डुप्लीकेट किए गए `voice_...` / `voicekey_...`) को हर बार स्पीकर की पहचान करने दें. हर बार लंबी अवधि के किरदार की पर्सोना को फिर से न भेजें.
+- हर बातचीत के लिए `style` फ़ील्ड को खाली छोड़ दें या पूरी बातचीत के लिए एक छोटी सी स्ट्रिंग (जैसे कि `"casual, friendly"`) भेजें.
+- एजेंट के लंबे जवाबों को छोटे-छोटे हिस्सों में बांटें. इसके लिए, स्टाइल से जुड़े ज़्यादा बेहतर प्रॉम्प्ट का इस्तेमाल न करें.
+
+## स्ट्रीमिंग के दौरान बोली जनरेट करना
+
+मॉडल के ऑडियो जनरेट करने के दौरान ही, उसे स्ट्रीम किया जा सकता है. यूनरी अनुरोधों के उलट (ये RIFF हेडर वाली पूरी WAV फ़ाइल दिखाते हैं), **स्ट्रीमिंग अनुरोध, डिफ़ॉल्ट रूप से हेडरलेस रॉ 16-बिट साइंड लिटिल-एंडियन लीनियर पीसीएम (`AUDIO_L16` / `audio/L16;codec=pcm;rate=24000`, 24 kHz, मोनो) चंक दिखाते हैं**. इसलिए, कंटेनर हेडर के बिना ऑडियो चंक को लगातार चलाया या जोड़ा जा सकता है:
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
 response_stream = client.models.generate_content_stream(
-   model="gemini-3.1-flash-tts-preview",
-   contents="Say cheerfully: Have a wonderful day!",
-   config=types.GenerateContentConfig(
-      response_modalities=["AUDIO"],
-      speech_config=types.SpeechConfig(
-         voice_config=types.VoiceConfig(
-            prebuilt_voice_config=types.PrebuiltVoiceConfig(
-               voice_name='Kore',
-            )
-         )
-      ),
-   )
+    model="gemini-3.8-flash-tts",
+    contents=[{
+        "role": "user",
+        "parts": [{
+            "text": "Have a wonderful day!",
+            "speech_metadata": {"style": "cheerful and friendly"},
+        }],
+    }],
+    config={
+        "response_modalities": ["AUDIO"],
+        "speech_config": {
+            "voice_config": {"voice": "Kore"}
+        },
+    },
 )
 
 for chunk in response_stream:
-   try:
-      data = chunk.candidates[0].content.parts[0].inline_data.data
-      # data contains raw PCM bytes (24kHz, 1-channel, 16-bit)
-      # Process the audio chunk (e.g., play it or write to a file)
-   except (IndexError, AttributeError):
-      pass
+    try:
+        data = chunk.candidates[0].content.parts[0].inline_data.data
+        # data contains raw PCM bytes (24kHz, 1-channel, 16-bit)
+    except (IndexError, AttributeError):
+        pass
 ```
 
 ### JavaScript
@@ -857,15 +753,19 @@ async function main() {
    const ai = new GoogleGenAI({});
 
    const responseStream = await ai.models.generateContentStream({
-      model: "gemini-3.1-flash-tts-preview",
-      contents: [{ parts: [{ text: 'Say cheerfully: Have a wonderful day!' }] }],
+      model: 'gemini-3.8-flash-tts',
+      contents: [{
+         role: 'user',
+         parts: [{
+            text: 'Have a wonderful day!',
+            speech_metadata: { style: 'cheerful and friendly' },
+         }],
+      }],
       config: {
-            responseModalities: ['AUDIO'],
-            speechConfig: {
-               voiceConfig: {
-                  prebuiltVoiceConfig: { voiceName: 'Kore' },
-               },
-            },
+         responseModalities: ['AUDIO'],
+         speechConfig: {
+            voiceConfig: { voice: 'Kore' },
+         },
       },
    });
 
@@ -883,55 +783,188 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:streamGenerateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:streamGenerateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{
         "contents": [{
-          "parts":[{
-            "text": "Say cheerfully: Have a wonderful day!"
+          "role": "user",
+          "parts": [{
+            "text": "Have a wonderful day!",
+            "speech_metadata": {
+              "style": "cheerful and friendly"
+            }
           }]
         }],
         "generationConfig": {
           "responseModalities": ["AUDIO"],
           "speechConfig": {
             "voiceConfig": {
-              "prebuiltVoiceConfig": {
-                "voiceName": "Kore"
-              }
+              "voice": "Kore"
             }
           }
         }
     }'
 ```
 
-## Beschränkungen
+## ऑडियो आउटपुट के फ़ॉर्मैट
 
-- TTS-Modelle können nur Texteingaben empfangen und Audioausgaben generieren.
-- Eine TTS-Sitzung hat ein [Kontextfenster](https://ai.google.dev/gemini-api/docs/long-context?hl=de)-Limit von 32.000 Tokens.
-- Im Abschnitt [Sprachen](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de#languages) finden Sie Informationen zur Sprachunterstützung.
-- TTS unterstützt kein Streaming für Modelle, die älter als Version 3.1 sind (Streaming wird für `gemini-3.1-flash-tts-preview` und neuere Versionen unterstützt).
+Gemini 3.8 के टीटीएस मॉडल, अलग-अलग डिफ़ॉल्ट ऑडियो फ़ॉर्मैट का इस्तेमाल करते हैं. यह इस बात पर निर्भर करता है कि अनुरोध यूनरी है या स्ट्रीमिंग:
 
-Bei der Verwendung des Gemini 3.1 Flash TTS-Vorschaumodells für die Sprachgenerierung gelten die folgenden Einschränkungen:
+- **यूनरी अनुरोध (`models.generate_content`):** पूरा **WAV
+  (`AUDIO_WAV`)** ऑडियो, RIFF हेडर (24 किलोहर्ट्ज़, मोनो, 16-बिट साइंड
+  लिटिल-एंडियन पीसीएम) के साथ वापस भेजें. डिकोड किए गए ऑडियो बाइट को सीधे `.wav` फ़ाइल में लिखा जा सकता है. इसके लिए, WAV कंटेनर को मैन्युअल तरीके से जोड़ने की ज़रूरत नहीं होती.
+- **स्ट्रीमिंग के अनुरोध (`models.generate_content_stream` / `streamGenerateContent`):**
+  डिफ़ॉल्ट रूप से, **हेडरलेस रॉ लीनियर पीसीएम (`AUDIO_L16`)** चंक (24 किलोहर्ट्ज़, मोनो, 16-बिट साइंड लिटिल-एंडियन पीसीएम) दिखाएं, ताकि चंक को स्ट्रीम किया जा सके या हर चंक पर कंटेनर हेडर के बिना लगातार जोड़ा जा सके.
 
-- **Stimme stimmt nicht mit den Prompt-Anweisungen überein**:Die Ausgabe des Modells stimmt möglicherweise nicht immer genau mit dem ausgewählten Sprecher überein, sodass sich das Audio anders anhört als erwartet. Um zu vermeiden, dass der Ton nicht zum Sprecher passt (z. B. wenn eine tiefe Männerstimme versucht, wie ein junges Mädchen zu sprechen), sollten Sie darauf achten, dass der geschriebene Ton und Kontext Ihres Prompts natürlich zum Profil des ausgewählten Sprechers passen.
-- **Qualität längerer Ausgaben**:Die Sprachqualität und ‑konsistenz können bei generierten Ausgaben, die länger als einige Minuten sind, nachlassen. Wir empfehlen, Ihre Transkripte in kleinere Abschnitte aufzuteilen.
-- **Gelegentliche Rückgabe von Text-Tokens**:Das Modell gibt gelegentlich Text-Tokens anstelle von Audio-Tokens zurück, was dazu führt, dass der Server die Anfrage mit einem `500`-Fehler ablehnt. Da dies nur zufällig und bei einem sehr geringen Prozentsatz der Anfragen auftritt, sollten Sie in Ihrer Anwendung eine automatische Wiederholungslogik implementieren, um diese Fälle zu behandeln.
-- **Falsche Ablehnungen durch den Prompt-Klassifikator**:Bei vagen Prompts wird der Sprachsynthese-Klassifikator möglicherweise nicht ausgelöst, was zu einer abgelehnten Anfrage (`PROHIBITED_CONTENT`) führt oder dazu, dass das Modell Ihre Stilanweisungen und Regieanweisungen vorliest. Validieren Sie Ihre Prompts, indem Sie eine klare Präambel hinzufügen, in der das Modell angewiesen wird, Sprache zu synthetisieren, und explizit angeben, wo das eigentliche gesprochene Transkript beginnt.
+`generationConfig.responseFormat.audio` का इस्तेमाल करके, आउटपुट ऑडियो एन्कोडिंग और सैंपल रेट को बदला जा सकता है:
 
-## Nächste Schritte
+| `mimeType` की कीमत का | फ़ॉर्मैट | ब्यौरा |
+| --- | --- | --- |
+| `"AUDIO_WAV"` *(यूनरी डिफ़ॉल्ट)* | WAV (`audio/wav`) | RIFF हेडर वाली पूरी WAV फ़ाइल (24 किलोहर्ट्ज़, मोनो, 16-बिट पीसीएम). |
+| `"AUDIO_L16"` *(स्ट्रीमिंग के लिए डिफ़ॉल्ट)* | लीनियर पीसीएम (`audio/l16`) | हेडरलेस रॉ 16-बिट साइंड लिटिल-एंडियन लीनियर पीसीएम. यह मॉडल, स्ट्रीमिंग, कस्टम ऑडियो पाइपलाइन या सिलसिलेवार बातचीत की क्लिप को जोड़ने के लिए सबसे सही है. |
+| `"AUDIO_MULAW"` | μ-लॉ (`audio/basic` / `audio/mulaw`) | G.711 μ-लॉ कंपैंडेड ऑडियो. इसका इस्तेमाल आम तौर पर, उत्तरी अमेरिका और जापान में टेलीफ़ोनी के लिए किया जाता है (8 किलोहर्ट्ज़). |
+| `"AUDIO_ALAW"` | A-law (`audio/alaw`) | G.711 A-law कंपैंडेड ऑडियो. आम तौर पर, इसका इस्तेमाल यूरोप और अंतरराष्ट्रीय टेलीफ़ोनी (8 किलोहर्ट्ज़) में किया जाता है. |
 
-- [Cookbook zur Audioerstellung](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=de)
-- Die [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) von Gemini bietet interaktive Optionen zur Audiogenerierung, die Sie mit anderen Modalitäten kombinieren können.
-- Informationen zur Arbeit mit *Audioeingaben* finden Sie im Leitfaden [Verständnis von Audioinhalten](https://ai.google.dev/gemini-api/docs/audio?hl=de).
+इसके अलावा, `sampleRate` (उदाहरण के लिए, `24000`, `16000` या `8000` हर्ट्ज़; डिफ़ॉल्ट रूप से `24000` हर्ट्ज़ पर सेट होता है) भी तय किया जा सकता है.
 
-Feedback geben
+यहां दिए गए उदाहरण में, 24 किलोहर्ट्ज़ पर हेडरलेस रॉ 16-बिट पीसीएम (`AUDIO_L16`) का अनुरोध किया गया है:
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+### Python
 
-Zuletzt aktualisiert: 2026-09-12 (UTC).
+```
+from google import genai
 
-Haben Sie Feedback für uns?
+client = genai.Client()
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]
+response = client.models.generate_content(
+    model="gemini-3.8-flash-tts",
+    contents=[{
+        "role": "user",
+        "parts": [{
+            "text": "Have a wonderful day!",
+            "speech_metadata": {"style": "cheerful and friendly"},
+        }],
+    }],
+    config={
+        "response_modalities": ["AUDIO"],
+        "response_format": {
+            "audio": {
+                "mime_type": "AUDIO_L16",
+                "sample_rate": 24000,
+            }
+        },
+        "speech_config": {
+            "voice_config": {"voice": "Kore"}
+        },
+    },
+)
+
+data = response.candidates[0].content.parts[0].inline_data.data
+with open("out.pcm", "wb") as f:
+    f.write(data)
+```
+
+### JavaScript
+
+```
+import {GoogleGenAI} from '@google/genai';
+import * as fs from 'node:fs';
+
+async function main() {
+   const ai = new GoogleGenAI({});
+
+   const response = await ai.models.generateContent({
+      model: 'gemini-3.8-flash-tts',
+      contents: [{
+         role: 'user',
+         parts: [{
+            text: 'Have a wonderful day!',
+            speech_metadata: { style: 'cheerful and friendly' },
+         }],
+      }],
+      config: {
+         responseModalities: ['AUDIO'],
+         responseFormat: {
+            audio: {
+               mimeType: 'AUDIO_L16',
+               sampleRate: 24000,
+            },
+         },
+         speechConfig: {
+            voiceConfig: { voice: 'Kore' },
+         },
+      },
+   });
+
+   const data = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+   const audioBuffer = Buffer.from(data, 'base64');
+
+   fs.writeFileSync('out.pcm', audioBuffer);
+}
+await main();
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+        "contents": [{
+          "role": "user",
+          "parts": [{
+            "text": "Have a wonderful day!",
+            "speech_metadata": {
+              "style": "cheerful and friendly"
+            }
+          }]
+        }],
+        "generationConfig": {
+          "responseModalities": ["AUDIO"],
+          "responseFormat": {
+            "audio": {
+              "mimeType": "AUDIO_L16",
+              "sampleRate": 24000
+            }
+          },
+          "speechConfig": {
+            "voiceConfig": {
+              "voice": "Kore"
+            }
+          }
+        }
+    }' | jq -r '.candidates[0].content.parts[0].inlineData.data' | \
+          base64 --decode > out.pcm
+```
+
+## सीमाएं
+
+- टीटीएस मॉडल, सिर्फ़ टेक्स्ट वाले इनपुट स्वीकार करते हैं और सिर्फ़ ऑडियो वाले आउटपुट जनरेट करते हैं.
+- एक ही अनुरोध में कई स्पीकर की आवाज़ जनरेट करने की सुविधा (`multiSpeakerVoiceConfig`) के तहत, पहले से मौजूद आवाज़ों का इस्तेमाल करके ज़्यादा से ज़्यादा दो स्पीकर की आवाज़ जनरेट की जा सकती है. एक से ज़्यादा किरदार वाले डायलॉग में, कस्टम डिज़ाइन की गई (`voice_...`) या कॉपी की गई (`voice_...` / `voicekey_...`) आवाज़ों को एक साथ इस्तेमाल करने के लिए, हर किरदार के डायलॉग को अलग-अलग सिंथेसाइज़ करें.
+  यूनरी अनुरोधों में डिफ़ॉल्ट रूप से 44 बाइट का RIFF हेडर होता है. इसलिए, रॉ पीसीएम (`AUDIO_L16`) का अनुरोध करें या 24 किलोहर्ट्ज़ पीसीएम ऑडियो फ़्रेम को एक साथ जोड़ने से पहले, हर टर्न से WAV हेडर हटाएं.`audio/wav`
+- **कस्टम वॉइस के स्टोरेज की सीमाएं और टीटीएल:**
+  - **स्टेटफ़ुल आवाज़ें (`store=True`, प्रॉम्प्ट की गई या डुप्लीकेट की गई):** **हर प्रोजेक्ट के लिए ज़्यादा से ज़्यादा 200 आवाज़ें**. इनका **टीटीएल (टाइम-टू-लाइव) एक साल** होता है.
+  - **स्टेटलेस वॉइस की (`store=False`, `voicekey_...`):** **सात दिनों का टीटीएल**
+    (टाइम-टू-लिव).
+- भाषा कवरेज के लिए, [उपलब्ध भाषाएं](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi#languages) सेक्शन देखें.
+
+## आगे क्या करना है
+
+- [आवाज़ के डिज़ाइन](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=hi) की मदद से, नैचुरल लैंग्वेज से अपनी पसंद के मुताबिक़ आवाज़ें बनाएं.
+- [वॉइस रेप्लिकेशन](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=hi) की मदद से, किसी मौजूदा स्पीकर की आवाज़ को कॉपी करें.
+- [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=hi) और [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=hi) मॉडल के पेजों पर जाकर, मॉडल की खास बातों की तुलना करें.
+- [Live API](https://ai.google.dev/gemini-api/docs/live?hl=hi) की मदद से, दोनों ओर से ऑडियो के साथ इंटरैक्टिव बातचीत की सुविधा का इस्तेमाल करें.
+
+सुझाव भेजें
+
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+
+आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
+
+क्या आपको हमें और कुछ बताना है?
+
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]

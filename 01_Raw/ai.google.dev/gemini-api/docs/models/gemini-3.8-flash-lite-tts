@@ -1,0 +1,124 @@
+---
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-TW
+fetched_at: 2026-09-28T06:23:35.186087+00:00
+title: "Gemini 3.8 Flash-Lite TTS \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+---
+
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+
+提供意見
+
+# Gemini 3.8 Flash-Lite TTS
+
+Gemini 3.8 Flash-Lite TTS (`gemini-3.8-flash-lite-tts`) 是 Google 速度快、經濟實惠的主力文字轉語音模型，可取代 `gemini-3.1-flash-tts-preview`，用於高輸送量的正式環境工作負載。
+
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-3.8-flash-lite-tts&hl=zh-tw)
+
+## 總覽與功能
+
+Gemini 3.8 Flash-Lite TTS 結合了低延遲和生動自然的語音：
+
+- **高通量效率：**經過最佳化，可大量製作內容、串聯對話式語音代理程式、朗讀功能，以及以主要語言生成日常單一說話者的語音。
+- **即時 API 架構相容性：**與 `gemini-3.8-flash-tts` 共用完全相同的 API 架構和結構化提示格式，因此只要變更單一參數，即可切換模型。
+- **支援完整的語音生態系統：**支援預先建構的語音、擴充語音庫 (`GET /v1beta/voices`)、自訂[語音設計](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-tw)角色和[語音複製](https://ai.google.dev/gemini-api/docs/voice-replication?hl=zh-tw) (預設為持續儲存語音，另提供選用的無狀態金鑰)。您也可以在 [Google AI Studio](https://aistudio.google.com/generate-speech?hl=zh-tw) 中，以互動方式設計及複製聲音。
+
+如要全面瞭解功能、提示最佳做法和程式碼範例，請參閱 [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw) 指南。
+
+## 各個 TTS 模型的使用時機
+
+Gemini 3.8 TTS 模型共用相同的 API 架構和提示結構。選擇符合工作負載需求的模型：
+
+| 功能 / 工作負載 | Gemini 3.8 Flash-Lite TTS (`gemini-3.8-flash-lite-tts`) | Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`) |
+| --- | --- | --- |
+| **主要優點** | 高處理量、低延遲和具成本效益 | 盡可能提高語音保真度、演技細節和方言涵蓋範圍 |
+| **最佳用途** | 大量製作、即時語音代理串聯、朗讀功能、語音複製、日常單一說話者生成 | 有聲書、錄音室旁白、複雜的多人對話、大量爆發性演技、難以發音的字詞、地方方言 |
+| **支援的語言** | 101 種語言 | 130 種語言 |
+| **建議更換為** | `gemini-3.1-flash-tts-preview` | 全新旗艦廣告素材層級 |
+
+## 遷移指南
+
+如果從 `gemini-3.1-flash-tts-preview` 升級至 `gemini-3.8-flash-lite-tts`，請更新 Gemini 3.8 TTS 架構的要求：
+
+1. **將回合層級的指示移至 `speech_metadata`：**Gemini 3.8 TTS 會將輸入文字嚴格視為逐字稿。系統可能會朗讀行內文字方向，例如 `"Say cheerfully: Hello!"` 或 `"Speaker 1: Hello!"`。將持續傳送指示 (`style`) 和發言者標籤 (`speaker`) 移至結構化中繼資料：
+   - **互動 API：**使用 `"type":
+     "speech_metadata"`、`"speaker"` 和 `"style"` 為每個文字內容區塊附加註解。
+   - **GenerateContent API：**將 `"speech_metadata": {"speaker": "...",
+     "style": "..."}` 附加至每個 `part`。
+2. **只針對特定時間點的語音事件使用角括號內嵌標記：**使用角括號 (例如 `<laugh>`、`<sigh>`、`<cough>`、`<breath>` 或 `<short pause>`)，將短暫的非語音發聲和停頓內嵌在轉錄稿中。將耳語等傳達方式放在 `speech_metadata.style` 中。
+3. **在多位說話者要求中，為每個輪流發言指定 `speaker`：**多位說話者要求中的每個輪流發言，都必須在 `speech_metadata` 內明確包含 `speaker`，且與其中一位已設定的說話者相符。
+4. **預先使用 Voice Design 設計角色：**使用在 [Voice Design](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-tw) 中建立的自訂語音，取代舊版音訊設定檔 / 導演附註區塊，然後透過 TTS 要求傳送該 `voice_...` ID，並使用最少或空白的 `style` 字串。
+5. **單元要求預設會輸出 WAV (`audio/wav`)：**與 `gemini-3.1-flash-tts-preview` 和先前的 TTS 模型不同 (預設會傳回無標頭的原始 PCM `audio/l16`)，Gemini 3.8 TTS 預設會為單元要求傳回含有標準 RIFF 標頭的 WAV 音訊 (`audio/wav` / `AUDIO_WAV`)。
+   - 如果您的程式碼先前將原始 PCM 位元組包裝在 WAV 標頭中 (例如使用 Python 的 `wave` 模組或 `ffmpeg`)，請移除手動標頭包裝函式，並將傳回的位元組直接寫入 `.wav` 檔案。
+   - 如果管道需要無標頭的原始 PCM、mu-law 或 A-law 音訊，請將 `response_format` 明確設為 `"audio/l16"` (`"AUDIO_L16"`)、`"audio/mulaw"` (`"AUDIO_MULAW"`) 或 `"audio/alaw"` (`"AUDIO_ALAW"`)。請參閱[音訊輸出格式](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#audio-output-formats)。
+
+## gemini-3.8-flash-lite-tts
+
+| 屬性 | 說明 |
+| --- | --- |
+| id\_card 模型代碼 | `gemini-3.8-flash-lite-tts` |
+| save支援的資料類型 | **輸入裝置**  文字  **輸出內容**  音訊 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  8,192  **輸出內容詞元限制**  16,384 (Gemini API 服務限制) |
+| handyman功能 | **[生成音訊](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)**  支援  **[快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)**  支援  **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**  不支援  **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**  不支援  **[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**  不支援  **[利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**  不支援  **[圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)**  不支援  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw)**  不支援  **[以搜尋為基準](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)**  不支援  **[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)**  不支援  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)**  不支援  **[網址環境](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**  不支援 |
+| speed計費方案 | **[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)**  支援  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-tw)**  支援  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-tw)**  支援 |
+| 123 個版本 | 詳情請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - `gemini-3.8-flash-lite-tts` |
+| calendar\_month最新更新 | 2026 年 9 月 |
+
+## 支援的語言
+
+`gemini-3.8-flash-lite-tts` 會自動偵測輸入語言，並支援**超過 100 種語言**：
+
+| 語言 | 語言 | 語言 |
+| --- | --- | --- |
+| 亞齊文 (阿拉伯文字) | 德文 | 曼尼浦里文 |
+| 南非荷蘭文 | 希臘文 | 馬拉地文 |
+| 阿肯文 | 古吉拉特文 | 米南佳保文 (阿拉伯文字) |
+| 阿姆哈拉文 | 海地克里奧爾文 | 米佐文 |
+| 亞美尼亞文 | 喀爾喀蒙古文 | 尼泊爾文 (單一語言) |
+| 阿薩姆文 | 豪薩文 | 奈及利亞富爾富爾德文 |
+| 阿瓦德語 | 希伯來文 | 北亞塞拜然文 |
+| 峇里語 | 北印度文 | 北索托文 |
+| 孟加拉文 | 匈牙利文 | 北烏茲別克 |
+| 班查文 (拉丁文字) | 冰島文 | 挪威博克馬爾文 |
+| 巴斯克文 | 伊洛果語 | 挪威文 (耐諾斯克) |
+| 白俄羅斯文 | 印尼文 | 尼揚賈文 |
+| 博杰普爾文 | 伊朗波斯文 | 歐利亞文 (個別語言) |
+| 波士尼亞文 | 義大利文 | 波斯文 (阿富汗) |
+| 布吉斯文 | 日文 | 波蘭文 |
+| 保加利亞文 | 爪哇語 | 葡萄牙文 |
+| 粵語 | 坎巴文 | 旁遮普文 |
+| 加泰隆尼亞文 | 卡納達文 | 羅馬尼亞文 |
+| 宿霧文 | 喀什米爾文 (阿拉伯文字) | 俄文 |
+| 中庫德文點字 | 喀什米爾文 (天城文) | 桑塔利文 |
+| 切蒂斯格爾文 | 哈薩克文 | 塞爾維亞文 |
+| 中文 (漢字) | 高棉文 | 錫蘭文 |
+| 中文 (繁體) | 基庫猶文 | 斯洛伐克文 |
+| 克羅埃西亞文 | 盧旺達文 | 南亞塞拜然文 |
+| 捷克文 | 剛果文 | 南普什圖語 |
+| 丹麥文 | 韓文 | 西班牙文 |
+| 荷蘭文 | 吉爾吉斯文 | 標準阿拉伯文 (阿拉伯文字) |
+| 阿拉伯文 (埃及) | 寮文 | 標準阿拉伯文 (拉丁字母) |
+| 英文 | 林格拉文 | 標準拉脫維亞文 |
+| 愛沙尼亞文 | 馬其頓文 | 標準馬來文 |
+| 菲律賓文 | 摩揭陀文 | 泰米爾文 |
+| 法文 | 邁蒂利文 | 泰盧固文 |
+| 加里西亞文 | 馬拉雅拉姆文 | 土耳其文 |
+| 干達文 | 馬爾他文 | 越南文 |
+| 喬治亞文 | — | — |
+
+提供意見
+
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+
+上次更新時間：2026-09-24 (世界標準時間)。
+
+想進一步說明嗎？
+
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-24 (世界標準時間)。"],[],[]]

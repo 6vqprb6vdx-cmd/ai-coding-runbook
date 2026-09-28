@@ -1,214 +1,205 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=es-419
-fetched_at: 2026-09-21T06:00:40.167283+00:00
-title: "Crea apps en Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=pl
+fetched_at: 2026-09-28T06:16:25.958761+00:00
+title: "Tworzenie aplikacji w\u00a0Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Enviar comentarios
+Prześlij opinię
 
-# Crea apps en Google AI Studio
+# Tworzenie aplikacji w Google AI Studio
 
-En esta página, se describe cómo usar Google AI Studio para compilar rápidamente (o "vibe
-code") y, luego, implementar apps que prueben las capacidades más recientes de Gemini, como
-[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) y la [API
-de Live](https://ai.google.dev/gemini-api/docs/live?hl=es-419). Google AI Studio admite la compilación de **apps web** con entornos de ejecución full-stack y **apps nativas para Android** con Kotlin y Jetpack Compose, todo a través de instrucciones en lenguaje natural.
+Ta strona zawiera informacje o tym, jak używać Google AI Studio do szybkiego tworzenia (czyli "vibe
+coding") i wdrażania aplikacji, które testują najnowsze możliwości Gemini, takie jak
+[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl) i [Live
+API](https://ai.google.dev/gemini-api/docs/live?hl=pl). Google AI Studio obsługuje tworzenie **aplikacji internetowych** z pełnym stosem środowisk wykonawczych oraz **natywnych aplikacji na Androida** za pomocą Kotlina i Jetpack Compose – wszystko to za pomocą promptów w języku naturalnym.
 
-## Comenzar
+## Rozpocznij
 
-Comienza a usar el vibe coding en el [modo Build](https://aistudio.google.com/apps?hl=es-419) de Google AI Studio. Puedes comenzar a compilar de varias maneras:
+Zacznij stosować vibe coding w trybie [tworzenia](https://aistudio.google.com/apps?hl=pl) w Google AI Studio. Możesz zacząć tworzyć na kilka sposobów:
 
-- **Comienza con una instrucción**: En el modo Build, usa la casilla de entrada para ingresar una
-  descripción de lo que quieres compilar. Selecciona AI Chips para agregar funciones específicas, como la generación de imágenes o los datos de Google Maps, a tu instrucción. Incluso puedes decir lo que quieres con el botón de voz a texto.
-- **Botón "Voy a tener suerte"**: Si necesitas inspiración creativa, usa el botón "Voy a
-  tener suerte" y Gemini generará una instrucción con una idea de proyecto
-  para que comiences.
-- **Remezcla un proyecto de la galería**: Abre un proyecto de la [Galería
-  de apps](https://aistudio.google.com/apps?source=showcase&hl=es-419) y selecciona **Copiar app**.
-- **Importa un proyecto desde GitHub**: En el modo Build, selecciona
-  **Importar desde GitHub** en el menú **Agregar archivos** (ícono +) en la casilla de entrada de la instrucción
-  para importar tu código existente.
+- **Zacznij od prompta**: w trybie tworzenia użyj okna do wprowadzania danych, aby opisać, co chcesz utworzyć. Wybierz AI Chips, aby dodać do prompta określone funkcje, takie jak generowanie obrazów lub dane Map Google. Możesz też powiedzieć, co chcesz zrobić, za pomocą przycisku zamiany mowy na tekst.
+- **Przycisk „Spróbuję szczęścia”**: jeśli potrzebujesz inspiracji, użyj przycisku „Spróbuję szczęścia”, a Gemini wygeneruje prompta z pomysłem na projekt
+  który pomoże Ci zacząć.
+- **Remiksowanie projektu z galerii**: otwórz projekt z [Galerii
+  aplikacji](https://aistudio.google.com/apps?source=showcase&hl=pl) i kliknij **Kopiuj aplikację**.
+- **Importowanie projektu z GitHuba**: w trybie tworzenia kliknij **Importuj z GitHuba** w menu **Dodaj pliki** (ikona +) w oknie do wprowadzania danych prompta, aby zaimportować istniejący kod.
 
-Una vez que ejecutes la instrucción, verás que se generan el código y los archivos necesarios, con una vista previa en vivo de tu app que aparece en el lado derecho.
+Po uruchomieniu prompta zobaczysz, że generowane są niezbędne pliki i kod, a po prawej stronie pojawi się podgląd aplikacji na żywo.
 
-## ¿Qué se crea?
+## Co jest tworzone?
 
-Cuando ejecutas la instrucción, AI Studio crea una aplicación completa. Puedes elegir compilar una **app web** o una **app para Android nativa** con el selector de plataformas.
+Gdy uruchomisz prompta, AI Studio utworzy kompletną aplikację. Za pomocą selektora platformy możesz utworzyć **aplikację internetową** lub **natywną aplikację na Androida**.
 
-En el caso de las **apps web** (opción predeterminada), AI Studio crea un entorno full-stack que incluye lo siguiente:
+W przypadku **aplikacji internetowych** (domyślnie) AI Studio tworzy środowisko full stack, które obejmuje:
 
-- **Cliente**: Un frontend web (React es la opción predeterminada).
-- **Servidor**: Un entorno de ejecución de Node.js que permite llamadas seguras a la API,
-  conexiones de bases de datos y el uso de paquetes npm.
+- **Po stronie klienta**: frontend internetowy (domyślnie React).
+- **Po stronie serwera**: środowisko wykonawcze Node.js, które umożliwia bezpieczne wywołania interfejsu API, połączenia z bazą danych i korzystanie z pakietów npm.
 
-En el caso de las **apps para Android**, AI Studio genera un proyecto de Kotlin y Jetpack Compose
-que puedes obtener una vista previa en un emulador basado en el navegador, instalar en un dispositivo físico,
-y publicar en Play Store para realizar pruebas. [Obtén más información para compilar apps para Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=es-419).
+W przypadku **aplikacji na Androida** AI Studio generuje projekt w Kotlinie i Jetpack Compose
+który możesz wyświetlić w emulatorze w przeglądarce, zainstalować na urządzeniu fizycznym
+i opublikować w Sklepie Play na potrzeby testowania. [Dowiedz się więcej o tworzeniu aplikacji na Androida](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=pl).
 
-Para ver el código que se genera, selecciona la pestaña **Código** en el panel de vista previa de la derecha. El **agente de Antigravity** administra de forma inteligente varios archivos en tu pila, lo que garantiza que los cambios se propaguen correctamente.
+Kod wygenerowany przez AI Studio możesz wyświetlić, klikając kartę **Kod** w panelu podglądu po prawej stronie. **Agent Antigravity** inteligentnie zarządza wieloma plikami w całym stosie, zapewniając prawidłowe propagowanie zmian.
 
-### El agente de Antigravity
+### Agent Antigravity
 
-El **agente de Antigravity** es la principal funcionalidad de IA dentro de [Google
-Antigravity](https://antigravity.google?hl=es-419), y ahora los componentes principales del
-arnés del agente potencian la experiencia del modo Build en Google AI Studio. Va más allá de la simple generación de código, ya que mantiene el contexto de todo el proyecto, administra varios archivos y comprende instrucciones complejas para compilar aplicaciones full-stack sólidas.
+**Agent Antigravity** to główna funkcja AI w [Google
+Antigravity](https://antigravity.google?hl=pl), a teraz podstawowe komponenty
+uprzęży agenta obsługują tryb tworzenia w Google AI Studio. Wykracza on poza proste generowanie kodu, ponieważ utrzymuje kontekst całego projektu, zarządza wieloma plikami i rozumie złożone instrukcje, aby tworzyć niezawodne aplikacje full stack.
 
-Las siguientes son algunas de las funciones clave:
+Najważniejsze funkcje:
 
-- **Reconocimiento del contexto**: Mantiene el contexto de las instrucciones anteriores y los estados de los archivos.
-- **Administración de varios archivos**: Controla las dependencias en varios archivos.
-- **Ejecución verificada**: Verifica las actualizaciones de código para reducir las alucinaciones.
+- **Świadomość kontekstu**: utrzymuje kontekst poprzednich promptów i stanów plików.
+- **Zarządzanie wieloma plikami**: obsługuje zależności w wielu plikach.
+- **Zweryfikowane wykonanie**: weryfikuje aktualizacje kodu, aby ograniczyć halucynacje.
 
-## Capacidades full-stack
+## Możliwości full stack
 
-Google AI Studio libera el poder del ecosistema web moderno, lo que te permite compilar más que solo prototipos del cliente.
+Google AI Studio udostępnia możliwości nowoczesnego ekosystemu internetowego, dzięki czemu możesz tworzyć nie tylko prototypy po stronie klienta.
 
-- **Entorno de ejecución del servidor y npm**: Usa la amplia biblioteca de paquetes npm. El agente identificará e instalará automáticamente los paquetes según sea necesario para tu app (p.ej., bibliotecas específicas para la visualización de datos o clientes de API). También puedes solicitar paquetes específicos si lo deseas.
-- **Administración de secretos**: Almacena de forma segura claves de API y secretos en el
-  **menú Configuración**. Se puede acceder a ellos en el código del servidor, lo que los mantiene a salvo de la exposición del cliente.
-- **Multijugador**: Crea experiencias colaborativas en tiempo real directamente en
-  AI Studio. El entorno de ejecución del servidor administra el estado y las conexiones necesarias para que los usuarios interactúen entre sí.
-- **Firebase Firestore y Authentication**: Aprovisiona y configura Firebase automáticamente, incluida la base de datos de Firestore (almacenamiento de datos persistente) y
-  Firebase Authentication (flujos de acceso, específicamente "Acceder con
-  Google"). El agente controla todo el proceso de configuración e incluso escribe el código en tu app para estos servicios.
-- **Integraciones de Google Workspace**: Conecta tu app a las APIs de Google Workspace, como Gmail, Hojas de cálculo, Documentos, Drive, Calendario y mucho más. AI Studio controla automáticamente toda la configuración de OAuth.
+- **Środowisko wykonawcze po stronie serwera i npm:** korzystaj z obszernej biblioteki pakietów npm. Agent automatycznie identyfikuje i instaluje pakiety potrzebne do działania aplikacji (np. określone biblioteki do wizualizacji danych lub klienty interfejsu API). W razie potrzeby możesz też poprosić o konkretne pakiety.
+- **Zarządzanie obiektami tajnymi**: bezpiecznie przechowuj klucze interfejsu API i obiekty tajne w menu
+  **Ustawienia**. Są one dostępne w kodzie po stronie serwera, dzięki czemu są chronione przed ujawnieniem po stronie klienta.
+- **Wieloosobowa gra**: twórz interaktywne aplikacje w czasie rzeczywistym bezpośrednio w
+  AI Studio. Środowisko wykonawcze po stronie serwera zarządza stanem i połączeniami wymaganymi do interakcji użytkowników.
+- **Firebase Firestore i uwierzytelnianie**: automatycznie udostępniaj i konfiguruj Firebase, w tym bazę danych Firestore (trwałe przechowywanie danych) i uwierzytelnianie Firebase (procesy logowania, w szczególności „Zaloguj się przez Google”). Agent obsługuje cały proces konfiguracji, a nawet pisze kod w aplikacji na potrzeby tych usług.
+- **Integracje z Google Workspace**: połącz aplikację z interfejsami API Google Workspace, takimi jak Gmail, Arkusze, Dokumenty, Dysk, Kalendarz i inne. AI Studio automatycznie obsługuje całą konfigurację OAuth.
 
-[Obtén más información para desarrollar apps full-stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=es-419)
+[Dowiedz się więcej o tworzeniu aplikacji full stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=pl)
 
-### Apps para Android
+### Aplikacje na Androida
 
-También puedes compilar apps nativas para Android con Kotlin y Jetpack Compose.
-Obtén una vista previa de tu app en un emulador de Android basado en el navegador, instálala en un dispositivo físico con ADB en el navegador y publícala en Play Store para realizar pruebas internas.
+Możesz też tworzyć natywne aplikacje na Androida za pomocą Kotlina i Jetpack Compose.
+Wyświetl podgląd aplikacji w emulatorze Androida w przeglądarce, zainstaluj ją na urządzeniu fizycznym za pomocą ADB w przeglądarce i opublikuj w Sklepie Play na potrzeby testów wewnętrznych.
 
-[Obtén más información para compilar apps para Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=es-419)
+[Dowiedz się więcej o tworzeniu aplikacji na Androida](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=pl)
 
-## Continúa con la compilación
+## Kontynuuj tworzenie
 
-Una vez que Google AI Studio genere el código inicial de tu aplicación, puedes seguir perfeccionándolo:
+Gdy Google AI Studio wygeneruje początkowy kod aplikacji, możesz go dalej ulepszać:
 
-### Compila en Google AI Studio
+### Tworzenie w Google AI Studio
 
-- **Itera con Gemini**: Usa el panel de chat en el **modo Build** para pedirle a Gemini
-  que realice modificaciones, agregue funciones nuevas o cambie el estilo.
-- **Edita el código directamente**: Abre la **pestaña Código** en el panel de vista previa para
-  realizar ediciones en vivo.
+- **Iteracja z Gemini**: użyj panelu czatu w **trybie tworzenia**, aby poprosić Gemini
+  o wprowadzenie zmian, dodanie nowych funkcji lub zmianę stylu.
+- **Bezpośrednia edycja kodu**: otwórz **kartę Kod** w panelu podglądu, aby
+  wprowadzać zmiany na żywo.
 
-### Desarrolla externamente
+### Tworzenie zewnętrznie
 
-Para flujos de trabajo más avanzados, puedes sincronizar o exportar el código para trabajar en tu entorno preferido:
+W przypadku bardziej zaawansowanych przepływów pracy możesz zsynchronizować lub wyeksportować kod, aby pracować w preferowanym środowisku:
 
-- **Sincroniza con GitHub**: Conecta tu app a un repositorio de GitHub para habilitar
-  la sincronización bidireccional. Puedes enviar los cambios solicitados en AI Studio directamente a tu repositorio con mensajes de confirmación generados por IA o extraer los cambios realizados de forma local en tu IDE o por compañeros de equipo a AI Studio. Administra el estado de sincronización en cualquier momento en la pestaña **GitHub** de Configuración.
-- **Descarga y desarrolla de forma local**: Exporta el código generado como un **archivo
-  ZIP** y, luego, impórtalo a tu editor de código.
+- **Synchronizacja z GitHubem**: połącz aplikację z repozytorium GitHub, aby włączyć
+  synchronizację dwukierunkową. Możesz przesyłać zmiany wprowadzone w AI Studio bezpośrednio do repozytorium za pomocą wygenerowanych przez AI komunikatów zatwierdzenia lub pobierać zmiany wprowadzone lokalnie w IDE lub przez członków zespołu z powrotem do AI Studio. Stanem synchronizacji możesz zarządzać w dowolnym momencie na karcie **GitHub** w Ustawieniach.
+- **Pobieranie i tworzenie lokalne**: wyeksportuj wygenerowany kod jako **plik
+  ZIP** i zaimportuj go do edytora kodu.
 
-## Características clave
+## Najważniejsze funkcje
 
-Google AI Studio incluye varias funciones para que el proceso de compilación sea intuitivo y visual:
+Google AI Studio zawiera kilka funkcji, które sprawiają, że proces tworzenia jest intuicyjny i wizualny:
 
-- **Crea y realiza iteraciones en apps full-stack**: Crea apps full-stack con solo
-  una instrucción y realiza iteraciones a través del chat o el **modo de anotación**. El modo de anotación te permite destacar cualquier parte de la IU de tu app y describir el cambio que deseas.
-- **Comparte e implementa tu app**: Puedes compartir tus creaciones con otras personas para
-  colaborar o mostrar tu trabajo. Cuando compartes, las llamadas a la API se incluyen en tus límites de uso. Si usas modelos pagados, es posible que se apliquen costos. Luego, cuando tu app esté lista, impleméntala en Cloud Run.
-- **Galería de apps**: La Galería de apps proporciona una biblioteca visual de ideas de proyectos.
-  Puedes explorar lo que es posible con Gemini, obtener una vista previa de las aplicaciones al instante y remezclarlas para hacerlas tuyas.
+- **Tworzenie aplikacji full stack i iteracja**: twórz aplikacje full stack za pomocą
+  prompta i iteruj w trybie czatu lub **trybie adnotacji**. Tryb adnotacji umożliwia wyróżnienie dowolnej części interfejsu aplikacji i opisanie żądanej zmiany.
+- **Udostępnianie i wdrażanie aplikacji**: możesz udostępniać swoje projekty innym osobom, aby
+  współpracować lub prezentować swoją pracę. Podczas udostępniania wywołania interfejsu API są wliczane do limitów użycia. Jeśli używasz płatnych modeli, mogą zostać naliczone opłaty. Gdy aplikacja będzie gotowa, wdróż ją w Cloud Run.
+- **Galeria aplikacji**: Galeria aplikacji zawiera wizualną bibliotekę pomysłów na projekty.
+  Możesz przeglądać możliwości Gemini, wyświetlać podgląd aplikacji i remiksować je, aby dostosować je do swoich potrzeb.
 
-## Implementa o archiva tu app
+## Wdrażanie lub archiwizowanie aplikacji
 
-Una vez que tu aplicación esté lista, puedes implementarla:
+Gdy aplikacja będzie gotowa, możesz ją wdrożyć:
 
-- **Cloud Run**: Implementa tu aplicación como un servicio escalable.
-  Es posible que se apliquen precios para [Google Cloud Run](https://cloud.google.com/run?hl=es-419) según el uso. Para obtener más información sobre la implementación, consulta
-  [Cómo implementar desde Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=es-419).
-- **GitHub**: Sincroniza tu proyecto con un repositorio de GitHub nuevo o existente
-  para administrar el código fuente o colaborar con compañeros de equipo.
+- **Cloud Run**: wdróż aplikację jako skalowalną usługę.
+  W zależności od użycia mogą obowiązywać opłaty za [Google Cloud Run](https://cloud.google.com/run?hl=pl). Więcej informacji o wdrażaniu znajdziesz w artykule
+  [Wdrażanie z Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pl).
+- **GitHub**: zsynchronizuj projekt z nowym lub istniejącym repozytorium GitHub
+  aby zarządzać kodem źródłowym lub współpracować z członkami zespołu.
 
-## Limitaciones
+## Ograniczenia
 
-En esta sección, se enumeran las limitaciones actuales del modo Build en Google AI Studio.
+Ta sekcja zawiera listę aktualnych ograniczeń trybu tworzenia w Google AI Studio.
 
-### Administración de claves de API
+### Zarządzanie kluczami interfejsu API
 
-Cuando creas una app nueva que usa la API de Gemini, AI Studio configura automáticamente tu clave de API de Gemini como un secreto en el entorno del servidor de la app.
-Puedes ver y administrar esta clave en el panel **Secretos**.
+Gdy utworzysz nową aplikację, która korzysta z Gemini API, AI Studio automatycznie skonfiguruje klucz Gemini API jako obiekt tajny w środowisku po stronie serwera aplikacji.
+Ten klucz możesz wyświetlać i nim zarządzać w panelu **Obiekty tajne**.
 
-- **Configuración automática**: Tu `GEMINI_API_KEY` está configurada para ti. No se requiere configuración manual
-  para comenzar a compilar.
-- **Solo del servidor**: Las claves de API se insertan en el entorno de ejecución del servidor y
-  nunca se incluyen en el código del cliente.
-- **Apps existentes**: En el caso de las apps compiladas antes del 14 de mayo de 2026, el agente actualizará
-  automáticamente tu integración de la API de Gemini al enfoque recomendado del
-  servidor la próxima vez que modifiques las funciones de Gemini de la app.
+- **Automatyczna konfiguracja**: klucz `GEMINI_API_KEY` jest konfigurowany automatycznie – aby rozpocząć tworzenie, nie musisz niczego konfigurować ręcznie.
+- **Tylko po stronie serwera**: klucze interfejsu API są wstrzykiwane do środowiska wykonawczego po stronie serwera i
+  nigdy nie są uwzględniane w kodzie po stronie klienta.
+- **Istniejące aplikacje**: w przypadku aplikacji utworzonych przed 14 maja 2026 r. agent automatycznie zaktualizuje integrację Gemini API do zalecanego podejścia po stronie serwera przy następnej modyfikacji funkcji Gemini w aplikacji.
 
-### Implementación fuera de Google AI Studio
+### Wdrażanie poza Google AI Studio
 
-- **Cloud Run**: Cuando implementas en Cloud Run desde AI Studio, tu clave de API se
-  incluye de forma segura en el entorno del servidor. La app implementada usará tu clave de API para todas las llamadas a la API de Gemini de los usuarios.
-- **Descarga de ZIP**: Si descargas tu app como un archivo ZIP para ejecutarla
-  en otro lugar, deberás configurar la variable de entorno `GEMINI_API_KEY`en tu entorno de hosting. Dado que las llamadas a la API de Gemini de tu app se realizan desde el código del servidor, la clave no se expone a los usuarios finales.
+- **Cloud Run**: gdy wdrożysz aplikację w Cloud Run z AI Studio, klucz interfejsu API zostanie
+  bezpiecznie uwzględniony w środowisku po stronie serwera. Wdrożona aplikacja będzie używać Twojego klucza interfejsu API we wszystkich wywołaniach Gemini API użytkowników.
+- **Pobieranie pliku ZIP**: jeśli pobierzesz aplikację jako plik ZIP, aby uruchomić ją
+  w innym miejscu, musisz skonfigurować zmienną środowiskową `GEMINI_API_KEY`
+  w środowisku hostingu. Ponieważ wywołania Gemini API aplikacji są wykonywane z kodu po stronie serwera, klucz nie jest udostępniany użytkownikom.
 
-### Error al compartir apps
+### Błąd podczas udostępniania aplikacji
 
-Si compartes tu app y el usuario final se encuentra con un error **403 Access Restricted** cuando usa la URL compartida, puede deberse a uno de los siguientes motivos:
+Jeśli udostępnisz aplikację, a użytkownik napotka błąd **403 Access Restricted** (Odmowa dostępu) podczas korzystania z udostępnionego adresu URL, może to być spowodowane jednym z tych powodów:
 
-- **Extensiones del navegador**: Es posible que las extensiones de privacidad, como Privacy Badger, bloqueen la app. Inhabilita la extensión para evitar el error.
-- **Problemas de compilación**: Es posible que haya problemas con el código actual. Pídele al agente que "corrija cualquier problema de compilación con el código actual" y, luego, vuelve a compartir la URL.
+- **Rozszerzenia przeglądarki**: rozszerzenia prywatności, takie jak Privacy Badger, mogą blokować aplikację. Aby uniknąć błędu, wyłącz rozszerzenie.
+- **Problemy z kompilacją**: mogą występować problemy z bieżącym kodem. Poproś agenta o „naprawienie problemów z kompilacją w bieżącym kodzie”, a następnie udostępnij ponownie adres URL.
 
-## Preguntas frecuentes
+## Najczęstsze pytania
 
-### ¿Qué es Build en AI Studio?
+### Co to jest tworzenie w AI Studio?
 
-AI Studio Build es una plataforma diseñada para llevarte de una simple instrucción a una aplicación lista para producción potenciada por IA con Gemini. Describe lo que quieres compilar con una instrucción y Gemini generará una app para ti. También puedes explorar nuestra galería para ver lo que es posible con la API de Gemini y remezclar apps para hacerlas tuyas.
+Tworzenie w AI Studio to platforma, która umożliwia przejście od prostego prompta do gotowej do wdrożenia aplikacji opartej na AI, korzystającej z Gemini. Opisz, co chcesz utworzyć, za pomocą prompta, a Gemini wygeneruje dla Ciebie aplikację. Możesz też przejrzeć naszą galerię, aby zobaczyć, co można zrobić za pomocą Gemini API, i remiksować aplikacje, aby dostosować je do swoich potrzeb.
 
-### ¿Cómo controla Build mi clave de API de Gemini?
+### Jak tworzenie obsługuje mój klucz Gemini API?
 
-Cuando creas una app que usa la API de Gemini, AI Studio configura automáticamente tu clave de API de Gemini como un secreto del servidor. Las llamadas a la API de Gemini de tu app se realizan desde el código del servidor con esta clave, por lo que nunca se expone en el navegador. Puedes ver tu clave de API en el panel **Secretos** de Configuración.
+Gdy utworzysz aplikację, która korzysta z Gemini API, AI Studio automatycznie skonfiguruje klucz Gemini API jako obiekt tajny po stronie serwera. Wywołania Gemini API aplikacji są wykonywane z kodu po stronie serwera za pomocą tego klucza, więc nigdy nie są udostępniane w przeglądarce. Klucz interfejsu API możesz wyświetlić w panelu **Obiekty tajne** w Ustawieniach.
 
-### ¿Se expone mi clave de API cuando comparto apps?
+### Czy mój klucz interfejsu API jest udostępniany podczas udostępniania aplikacji?
 
-No. Tu clave de API se almacena como un secreto del servidor y nunca se incluye en el código del cliente. Cuando compartes tu app, otros usuarios pueden usarla, pero no pueden ver tu clave de API.
+Nie. Twój klucz interfejsu API jest przechowywany jako obiekt tajny po stronie serwera i nigdy nie jest uwzględniany w kodzie po stronie klienta. Gdy udostępnisz aplikację, inni użytkownicy będą mogli z niej korzystać, ale nie będą mogli zobaczyć Twojego klucza interfejsu API.
 
-Cuando compartes tus apps con otras personas, las llamadas a la API se incluyen en tus límites de uso.
-Si usas modelos pagados, es posible que se apliquen costos. AI Studio te avisará durante la configuración y antes de compartir si tu app podría generar costos.
+Podczas udostępniania aplikacji innym osobom wywołania interfejsu API są wliczane do limitów użycia.
+Jeśli używasz płatnych modeli, mogą zostać naliczone opłaty. AI Studio poinformuje Cię o tym podczas konfiguracji i przed udostępnieniem, jeśli Twoja aplikacja może generować koszty.
 
-### ¿Quién puede ver mis apps?
+### Kto może zobaczyć moje aplikacje?
 
-De forma predeterminada, tu app es privada. Puedes compartir tu app con otros usuarios para que la usen. Los usuarios con los que compartes tu app pueden ver su código y bifurcarlo para sus propios fines. Si compartes tu app con permiso de edición, los otros usuarios pueden editar el código de tu app.
+Domyślnie Twoja aplikacja jest prywatna. Możesz udostępnić aplikację innym użytkownikom, aby mogli z niej korzystać. Użytkownicy, którym udostępnisz aplikację, mogą zobaczyć jej kod i utworzyć jego rozwidlenie na własne potrzeby. Jeśli udostępnisz aplikację z uprawnieniami do edycji, inni użytkownicy będą mogli edytować jej kod.
 
-### ¿Puedo ejecutar apps fuera de AI Studio?
+### Czy mogę uruchamiać aplikacje poza AI Studio?
 
-Sí. Puedes implementar tu app en
-[Cloud Run](https://cloud.google.com/run?hl=es-419) desde AI Studio, lo que
-le otorga una URL pública con tu clave de API configurada de forma segura en el
-entorno del servidor. También puedes descargar tu app como un archivo ZIP y alojarla en otro lugar. Deberás configurar la variable de entorno `GEMINI_API_KEY` en tu entorno de hosting. Dado que las llamadas a la API de Gemini se realizan desde el código del servidor, tu clave permanece segura.
+Tak. Możesz wdrożyć aplikację w
+[Cloud Run](https://cloud.google.com/run?hl=pl) z AI Studio, co
+zapewni jej publiczny adres URL z bezpiecznie skonfigurowanym kluczem interfejsu API w
+środowisku po stronie serwera. Możesz też pobrać aplikację jako plik ZIP i hostować ją w innym miejscu – w tym celu musisz ustawić zmienną środowiskową `GEMINI_API_KEY` w środowisku hostingu. Ponieważ wywołania Gemini API są wykonywane z kodu po stronie serwera, Twój klucz pozostaje bezpieczny.
 
-Para obtener más información sobre las opciones de implementación, consulta [Cómo implementar desde Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=es-419).
+Więcej informacji o opcjach wdrażania znajdziesz w artykule [Wdrażanie z Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pl).
 
-### ¿Puedo desarrollar apps de forma local con mis propias herramientas y, luego, compartirlas aquí?
+### Czy mogę tworzyć aplikacje lokalnie za pomocą własnych narzędzi, a następnie udostępniać je tutaj?
 
-Sí. Puedes conectar tu app de AI Studio a un repositorio de GitHub para desarrollar de forma local con tu editor de código o herramientas de CLI preferidas, enviar tus cambios a GitHub y, luego, extraer esas actualizaciones directamente a AI Studio con la pestaña **GitHub** de Configuración.
+Tak. Możesz połączyć aplikację AI Studio z repozytorium GitHub, aby tworzyć ją lokalnie za pomocą preferowanego edytora kodu lub narzędzi CLI, przesyłać zmiany do GitHuba, a następnie pobierać te aktualizacje bezpośrednio do AI Studio za pomocą karty **GitHub** w Ustawieniach.
 
-### ¿Cómo puedo usar una base de datos o algún otro almacenamiento con mis apps?
+### Jak mogę używać bazy danych lub innego miejsca na dane w swoich aplikacjach?
 
-Las apps de AI Studio son apps estándar que se ejecutan en un contenedor de Cloud Run. Puedes usar cualquier solución de almacenamiento a la que puedas conectarte a través de una red, siempre que no haya un firewall que impida el acceso desde un rango de IP dinámico.
+Aplikacje AI Studio to standardowe aplikacje działające w kontenerze Cloud Run. Możesz używać dowolnego rozwiązania do przechowywania danych, z którym możesz się połączyć przez sieć, o ile nie ma zapory sieciowej uniemożliwiającej dostęp z dynamicznego zakresu adresów IP.
 
-Estamos trabajando para agregar compatibilidad directa con el almacenamiento en el futuro, que podrás configurar directamente en AI Studio.
+Pracujemy nad dodaniem w przyszłości bezpośredniej obsługi przechowywania danych, którą będzie można skonfigurować bezpośrednio w AI Studio.
 
-### ¿Cómo puedo acceder al micrófono, la cámara web y otras APIs de Navigator?
+### Jak mogę uzyskać dostęp do mikrofonu, kamery internetowej i innych interfejsów Navigator API?
 
-Para asegurarnos de que los usuarios estén al tanto del uso que hace una app de su cámara web o de otros
-dispositivos, requerimos una confirmación adicional antes de que la app pueda acceder a
-estas [APIs de Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator).
-Los creadores de apps pueden agregar estas solicitudes de permiso al archivo `metadata.json` de su app. Por ejemplo:
+Aby widzowie wiedzieli, że aplikacja korzysta z ich kamery internetowej lub innych
+urządzeń, wymagamy dodatkowego potwierdzenia, zanim aplikacja będzie mogła uzyskać dostęp
+do tych [interfejsów Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator).
+Twórcy aplikacji mogą dodać te prośby o uprawnienia do pliku `metadata.json` aplikacji. Na przykład:
 
 ```
 {
@@ -226,81 +217,75 @@ Los creadores de apps pueden agregar estas solicitudes de permiso al archivo `me
 }
 ```
 
-Los valores admitidos para `requestFramePermissions` son un subconjunto de las
-funciones estándar [controladas por políticas](https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md).
+Obsługiwane wartości dla `requestFramePermissions` to podzbiór
+standardowych [funkcji kontrolowanych przez zasady](https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md).
 
-### ¿Cómo puedo usar GitHub con mis apps?
+### Jak mogę używać GitHuba w swoich aplikacjach?
 
-AI Studio admite la sincronización bidireccional con GitHub:
+AI Studio obsługuje synchronizację dwukierunkową z GitHubem:
 
-- **Importa un repositorio**: En el modo Build, selecciona **Importar desde GitHub**
-  en el menú **Agregar archivos** (ícono +) en el cuadro de entrada de la instrucción para importar
-  código existente.
-- **Vincula un repositorio**: En Configuración, abre la pestaña **GitHub** para crear un
-  repositorio de GitHub nuevo desde tu app o vincularlo a uno existente.
-- **Sincronización bidireccional**: Envía los cambios solicitados en AI Studio directamente a tu
-  repositorio con mensajes de confirmación generados por IA o extrae los cambios realizados de forma
-  externa (como ediciones locales del IDE o solicitudes de extracción de compañeros de equipo) a AI
+- **Importowanie repozytorium**: w trybie tworzenia kliknij **Importuj z GitHuba** w menu **Dodaj pliki** (ikona +) w oknie do wprowadzania danych prompta, aby zaimportować istniejący kod.
+- **Łączenie repozytorium**: w Ustawieniach otwórz kartę **GitHub**, aby utworzyć
+  nowe repozytorium GitHub na podstawie aplikacji lub połączyć się z istniejącym.
+- **Synchronizacja dwukierunkowa**: przesyłaj zmiany wprowadzone w AI Studio bezpośrednio do
+  repozytorium za pomocą wygenerowanych przez AI komunikatów zatwierdzenia lub pobieraj zmiany wprowadzone
+  zewnętrznie (np. lokalne edycje IDE lub żądania pull członków zespołu) z powrotem do AI
   Studio.
-- **Resuelve conflictos de combinación**: Si los cambios entran en conflicto cuando se sincronizan con
-  GitHub, AI Studio proporciona un diálogo **Resolver conflictos** con un
-  visor de diferencias en paralelo, lo que te permite revisar las diferencias y elegir
-  si deseas conservar la versión de AI Studio o GitHub para cada archivo en conflicto.
+- **Rozwiązywanie konfliktów scalania**: jeśli podczas synchronizacji z
+  GitHubem wystąpią konflikty zmian, AI Studio wyświetli okno **Rozwiąż konflikty** z widokiem różnic obok siebie, co umożliwi sprawdzenie różnic i wybranie,
+  czy zachować wersję AI Studio, czy GitHub dla każdego pliku z konfliktem.
 
-### ¿Puedo otorgar acceso de edición a otros usuarios a mi app?
+### Czy mogę przyznać innym użytkownikom dostęp do edycji mojej aplikacji?
 
-AI Studio no admite la edición colaborativa directa en tiempo real.
-Sin embargo, puedes colaborar con compañeros de equipo vinculando tu app a un repositorio de GitHub compartido. Los compañeros de equipo pueden enviar cambios o abrir solicitudes de extracción en GitHub, y tú puedes extraer esas actualizaciones a AI Studio.
+AI Studio nie obsługuje bezpośredniej współpracy w czasie rzeczywistym.
+Możesz jednak współpracować z członkami zespołu, łącząc aplikację ze wspólnym repozytorium GitHub. Członkowie zespołu mogą przesyłać zmiany lub otwierać żądania pull na GitHubie, a Ty możesz pobierać te aktualizacje do AI Studio.
 
-### ¿Por qué se marcó mi app por incumplimiento de política?
+### Dlaczego moja aplikacja została oznaczona jako naruszająca zasady?
 
-Tenemos sistemas que revisan automáticamente las apps para garantizar que cumplan con nuestras políticas. Si determinamos que una app incumple nuestras políticas, se quitará de AI Studio. Los incumplimientos de política pueden incluir, entre otros, los siguientes:
+Mamy systemy, które automatycznie sprawdzają aplikacje pod kątem zgodności z naszymi zasadami. Jeśli stwierdzimy, że aplikacja narusza nasze zasady, zostanie usunięta z AI Studio. Naruszenia zasad mogą obejmować m.in.:
 
-- Apps que contienen software malicioso, phishing o suplantación de identidad
-- Apps que muestran o distribuyen contenido que incumple la política de imágenes de abuso sexual infantil
-- Apps que muestran o distribuyen contenido que incumple la política de acoso
-- Apps que muestran o distribuyen contenido que incumple la política sobre la incitación al odio o a la violencia
-- Apps que muestran o distribuyen contenido que incumple la política de trata de personas
-- Apps que muestran o distribuyen contenido que incumple la política de contenido sexual explícito
-- Apps que muestran o distribuyen contenido que incumple la política de Contenido violento o sangriento
-- Apps que muestran o distribuyen contenido que incumple la política de contenido peligroso o dañino
+- aplikacje zawierające złośliwe oprogramowanie, wyłudzanie informacji lub podszywanie się pod inne osoby;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące materiałów wizualnych przedstawiających wykorzystywanie seksualne dzieci;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące nękania;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące szerzenia nienawiści;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące handlu ludźmi;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące treści o charakterze jednoznacznie seksualnym;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące przemocy i okrucieństwa;
+- aplikacje, które wyświetlają lub rozpowszechniają treści naruszające zasady dotyczące szkodliwych lub niebezpiecznych treści.
 
-Si se marcó tu app por incumplimiento de política y crees que se trata de un error, puedes enviar una apelación. Los incumplimientos reiterados de nuestras políticas pueden ocasionar la rescisión de tu acceso a AI Studio.
+Jeśli Twoja aplikacja została oznaczona jako naruszająca zasady i uważasz, że doszło do pomyłki, możesz przesłać odwołanie. Powtarzające się naruszenia naszych zasad mogą spowodować utratę dostępu do AI Studio.
 
-### ¿Cuáles son mis responsabilidades como desarrollador de apps?
+### Jakie są moje obowiązki jako dewelopera aplikacji?
 
-Como recordatorio, como propietario de tu aplicación, eres responsable de su comportamiento y de todos los datos que maneja. Esto incluye lo siguiente:
+Przypominamy, że jako właściciel aplikacji odpowiadasz za jej działanie i wszystkie dane, które przetwarza. Obejmuje to m.in.:
 
-- **Cumplimiento legal y derechos de terceros:** Asegurarte de que tu app cumpla con todas las leyes y reglamentaciones aplicables y no infrinja los derechos de otras personas, incluidos los derechos de propiedad intelectual y derechos de privacidad.
-- **Supervisión de contenido:** Es posible que se aplique el cumplimiento de condiciones adicionales a
-  otros servicios que usa tu app. Por ejemplo,
-  [las Condiciones del Servicio de Google Cloud](https://cloud.google.com/terms?hl=es-419),
-  aplicables a Firestore, requieren que los clientes que alojan contenido de terceros
-  publiquen políticas que definan qué contenido está prohibido (p.ej., contenido
-  ilegal) y supervisen la presencia de ese contenido ilegal.
-- **Implementación segura:** Implementar las medidas de seguridad y las herramientas de moderación necesarias para evitar que se use de forma inadecuada tu aplicación
+- **Zgodność z przepisami i prawa osób trzecich:** musisz dopilnować, aby Twoja aplikacja była zgodna z obowiązującymi przepisami i nie naruszała praw innych osób, w tym praw własności intelektualnej i praw do prywatności.
+- **Monitorowanie treści:** w przypadku
+  innych usług używanych przez Twoją aplikację mogą obowiązywać dodatkowe warunki. Na przykład
+  [Warunki korzystania z Google Cloud](https://cloud.google.com/terms?hl=pl),
+  które mają zastosowanie do Firestore, wymagają od klientów hostujących treści osób trzecich publikowania zasad określających, jakie treści są zabronione (np. treści niezgodne z
+  prawem), oraz monitorowania obecności takich treści niezgodnych z prawem.
+- **Bezpieczne wdrożenie:** musisz wdrożyć niezbędne zabezpieczenia i narzędzia do moderowania, aby zapobiec niewłaściwemu użyciu aplikacji.
 
-Ten en cuenta las [restricciones de uso](https://ai.google.dev/gemini-api/terms?hl=es-419#use-restrictions)
-en las Condiciones del Servicio.
+Zapoznaj się z [ograniczeniami dotyczącymi użytkowania](https://ai.google.dev/gemini-api/terms?hl=pl#use-restrictions)
+w Warunkach korzystania z usługi.
 
-### ¿Qué condiciones se aplican a las apps de la galería de apps en AI Studio?
+### Jakie warunki obowiązują w przypadku aplikacji w galerii aplikacji w AI Studio?
 
-Las [Condiciones del Servicio Adicionales de la API de Gemini](https://ai.google.dev/gemini-api/terms?hl=es-419)
-se aplican al uso de las apps que aparecen en la galería de apps de AI Studio, a menos que
-se indique lo contrario.
+O ile nie zaznaczono inaczej, w przypadku korzystania z aplikacji prezentowanych w galerii aplikacji w AI Studio obowiązują [dodatkowe warunki korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/terms?hl=pl).
 
-## ¿Qué sigue?
+## Co dalej?
 
-- [Desarrollar apps full-stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=es-419) (web)
-- [Compilar apps para Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=es-419)
-- Ver ejemplos en la [Galería de apps](https://aistudio.google.com/apps?source=showcase&hl=es-419).
+- [Tworzenie aplikacji full stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=pl) (internetowych)
+- [Tworzenie aplikacji na Androida](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=pl)
+- Przykłady w [Galerii aplikacji](https://aistudio.google.com/apps?source=showcase&hl=pl)
 
-Enviar comentarios
+Prześlij opinię
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Última actualización: 2026-09-11 (UTC)
+Ostatnia aktualizacja: 2026-09-11 UTC.
 
-¿Quieres brindar más información?
+Chcesz przekazać coś jeszcze?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-11 (UTC)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-11 UTC."],[],[]]

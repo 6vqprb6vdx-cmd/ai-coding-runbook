@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar
-fetched_at: 2026-09-21T05:43:34.402017+00:00
-title: "\u0625\u0646\u0634\u0627\u0621 \u0648\u0643\u0644\u0627\u0621 \u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=hi
+fetched_at: 2026-09-28T06:13:36.060836+00:00
+title: "\u092e\u0948\u0928\u0947\u091c \u0915\u093f\u090f \u0917\u090f \u090f\u091c\u0947\u0902\u091f \u092c\u0928\u093e\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-إرسال ملاحظات
+सुझाव भेजें
 
-# إنشاء وكلاء مُدارين
+# मैनेज किए गए एजेंट बनाना
 
-تتيح لك الوكلاء المُدارون على Gemini API توسيع نطاق وكيل Antigravity باستخدام تعليماتك ومهاراتك وبياناتك. يمكنك [تخصيص الوكيل بشكل مضمّن](#customize-inline) في وقت التفاعل، أو [حفظ الإعداد](#save-agent) كوكيل مُدار يمكنك استدعاؤه باستخدام المعرّف.
+Gemini API से एजेंट बनाने और मैनेज करने की सुविधा की मदद से, Antigravity एजेंट को अपने निर्देशों, स्किल, और डेटा के साथ इस्तेमाल किया जा सकता है. आपके पास इंटरैक्शन के दौरान, [एजेंट को इनलाइन के तौर पर पसंद के मुताबिक बनाने](#customize-inline) का विकल्प होता है. इसके अलावा, [कॉन्फ़िगरेशन को सेव](#save-agent) करके, उसे आईडी के ज़रिए मैनेज किए जाने वाले एजेंट के तौर पर इस्तेमाल किया जा सकता है.
 
-## تخصيص وكيل Antigravity
+## Antigravity एजेंट को पसंद के मुताबिक बनाना
 
-أسرع طريقة لإنشاء وكيل مخصّص هي تمرير إعداداتك مضمّنةً أثناء إنشاء تفاعل جديد بدون الحاجة إلى إجراء خطوة التسجيل. يمكنك توسيع نطاق عمل الوكيل بعدة طرق رئيسية:
+कस्टम एजेंट बनाने का सबसे तेज़ तरीका यह है कि आप कॉन्फ़िगरेशन को इनलाइन पास करें. इसके लिए, आपको रजिस्ट्रेशन करने की ज़रूरत नहीं है. एजेंट को कई मुख्य तरीकों से बढ़ाया जा सकता है:
 
-- **[اختيار النموذج](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#model-selection)**: اختَر نموذج Gemini الأساسي من خلال `agent_config` (يكون الخيار التلقائي هو **Gemini 3.8 Flash**).
-- **تعليمات النظام**: يمكنك تمرير النص المضمّن من خلال `system_instruction` لتحديد سلوك الشكل.
-- **الأدوات**: يمكنك إلغاء الأدوات التلقائية (تنفيذ الرمز البرمجي، والبحث، وسياق عنوان URL)، أو تسجيل خوادم MCP عن بُعد، أو تحديد وظائف مخصّصة (استدعاء الوظائف).
-- **الملفات والمهارات**: يمكنك تحميل ملفات مثل `AGENTS.md` و`SKILL.md` في البيئة.
+- **[मॉडल चुनना](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#model-selection)**: `agent_config` की मदद से, Gemini का कोई मॉडल चुनें. डिफ़ॉल्ट रूप से, **Gemini 3.8 Flash** चुना जाता है.
+- **सिस्टम के लिए निर्देश**: `system_instruction` के ज़रिए, इनलाइन टेक्स्ट को शेप के व्यवहार में पास करें.
+- **टूल**: डिफ़ॉल्ट टूल (कोड एक्ज़ीक्यूशन, खोज, यूआरएल कॉन्टेक्स्ट) को बदलें, रिमोट एमसीपी सर्वर रजिस्टर करें या कस्टम फ़ंक्शन (फ़ंक्शन कॉलिंग) तय करें.
+- **फ़ाइलें और स्किल**: एनवायरमेंट में `AGENTS.md` और `SKILL.md` जैसी फ़ाइलें माउंट करें.
 
-في ما يلي مثال على تمرير المَعلمات الثلاث كلها في السطر:
+यहां तीनों को इनलाइन पास करने का उदाहरण दिया गया है:
 
 ### Python
 
@@ -93,7 +93,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -136,6 +136,60 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/AGENTS.md"),
+                Content: genai.Ptr("Always use matplotlib for charts. Include a summary table in every report."),
+            },
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/skills/slide-maker/SKILL.md"),
+                Content: genai.Ptr("---\nname: slide-maker\n---\n# Slide Maker\nCreate HTML slide decks from data analysis results."),
+            },
+        },
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:             interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:             interactions.NewInteractionsInput("Analyze the Q1 revenue data and create a slide deck."),
+            SystemInstruction: genai.Ptr("You are a data analyst. Always include visualizations and export results as PDF."),
+            Environment:       genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -164,22 +218,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-يتم تحديد كل شيء في وقت التفاعل. ليس عليك تسجيل أي شيء أولاً. توفر أداة Antigravity Agent بيئة التشغيل (تنفيذ الرموز البرمجية وإدارة الملفات والوصول إلى الويب) وطبقات الإعدادات في الأعلى.
+इंटरैक्शन के समय ही सब कुछ तय किया जाता है. इसके लिए, आपको पहले कुछ भी रजिस्टर करने की ज़रूरत नहीं है. Antigravity एजेंट का हार्नेस, रनटाइम (कोड एक्ज़ीक्यूशन, फ़ाइल मैनेजमेंट, वेब ऐक्सेस) और आपके कॉन्फ़िगरेशन लेयर उपलब्ध कराता है.
 
-### الأدوات وتعليمات النظام
+### टूल और सिस्टम के निर्देश
 
-يمكنك تخصيص سلوك الوكيل وإمكاناته لتفاعل معيّن باستخدام المَعلمتَين `system_instruction` و`tools`.
+`system_instruction` और `tools` पैरामीटर का इस्तेमाल करके, किसी खास इंटरैक्शन के लिए एजेंट के व्यवहार और क्षमताओं को अपनी पसंद के मुताबिक बनाया जा सकता है.
 
-- **تعليمات النظام**: استخدِم المَعلمة `system_instruction` لتمرير نص مضمّن يحدّد سلوك الوكيل. هذا الخيار مثالي لإجراء تعديلات سريعة تريد تغييرها لكل مكالمة. تكون السمتان `system_instruction` و`AGENTS.md` ترافقيتَين، أي أنّهما تسريان معًا عند توفّرهما.
-- **الأدوات**: بشكلٍ تلقائي، يمكن لوكيل Antigravity الوصول إلى `code_execution` و`google_search` و`url_context`. يمكنك تجاوز هذه القائمة من خلال تمرير المَعلمة `tools` في وقت التفاعل. يمكنك أيضًا تسجيل [خوادم MCP عن بُعد](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#mcp-servers) أو تحديد [دوال مخصّصة (استدعاء الدوال)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#function-calling) لربط الوكيل بواجهات برمجة التطبيقات وقواعد البيانات الخاصة بك. للاطّلاع على التفاصيل الكاملة حول الأدوات المتاحة، يُرجى الانتقال إلى [Antigravity Agent: الأدوات المتوافقة](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#supported-tools).
+- **सिस्टम के निर्देश**: एजेंट के व्यवहार को तय करने वाले इनलाइन टेक्स्ट को पास करने के लिए, `system_instruction` पैरामीटर का इस्तेमाल करें. यह सुविधा, उन बदलावों के लिए सबसे सही है जिन्हें आपको हर कॉल के हिसाब से बदलना है. `system_instruction` और `AGENTS.md`, दोनों को जोड़ा जा सकता है. अगर ये दोनों मौजूद हैं, तो दोनों लागू होंगी.
+- **टूल**: डिफ़ॉल्ट रूप से, Antigravity एजेंट के पास `code_execution`, `google_search`, और `url_context` का ऐक्सेस होता है. इंटरैक्शन के समय `tools` पैरामीटर पास करके, इस सूची को बदला जा सकता है. अपने एपीआई और डेटाबेस से एजेंट को कनेक्ट करने के लिए, [रिमोट एमसीपी सर्वर](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#mcp-servers) भी रजिस्टर किए जा सकते हैं. इसके अलावा, [कस्टम फ़ंक्शन (फ़ंक्शन कॉलिंग)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#function-calling) भी तय किए जा सकते हैं. उपलब्ध टूल के बारे में पूरी जानकारी के लिए, [Antigravity Agent: काम करने वाले टूल](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#supported-tools) लेख पढ़ें.
 
-### التخصيص المستند إلى الملفات
+### फ़ाइल के आधार पर मनमुताबिक बनाने की सुविधा
 
-#### بنية دليل الوكيل
+#### एजेंट डायरेक्ट्री स्ट्रक्चर
 
-على الرغم من أنّه يمكنك تمرير الإعدادات مضمّنة، ننصحك بتنظيم ملفات البرنامج في دليل منظَّم. يسهّل ذلك إدارة الملفات والتحكّم في إصداراتها وتثبيتها في بيئة الوكيل.
+कॉन्फ़िगरेशन को इनलाइन पास किया जा सकता है. हालांकि, हमारा सुझाव है कि आप अपने एजेंट की फ़ाइलों को व्यवस्थित डायरेक्ट्री में सेव करें. इससे, एजेंट के एनवायरमेंट में फ़ाइलों को मैनेज करना, वर्शन कंट्रोल करना, और माउंट करना आसान हो जाता है.
 
-يبدو دليل مشروع الوكيل النموذجي على النحو التالي:
+किसी एजेंट प्रोजेक्ट की डायरेक्ट्री आम तौर पर ऐसी दिखती है:
 
 ```
 my-agent/
@@ -190,13 +244,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-يفحص وقت تشغيل Antigravity `.agents/` (وجذر البيئة) بحثًا عن هذه الملفات.
+Antigravity रनटाइम, इन फ़ाइलों के लिए `.agents/` (और एनवायरमेंट के रूट) को स्कैन करता है.
 
 #### AGENTS.md
 
-يحمّل الوكيل تلقائيًا `.agents/AGENTS.md` (أو `/.agents/AGENTS.md`) من البيئة كتعليمات نظام عند بدء التشغيل. استخدِم `AGENTS.md` لتعريفات الشخصيات الطويلة والإرشادات والتعليمات المفصّلة التي تريد التحكّم في إصدارها إلى جانب الرمز.
+स्टार्टअप पर एजेंट, सिस्टम के निर्देशों के तौर पर एनवायरमेंट से `.agents/AGENTS.md` (या `/.agents/AGENTS.md`) को अपने-आप लोड करता है. `AGENTS.md` का इस्तेमाल, पर्सोना की लंबी परिभाषाओं, दिशा-निर्देशों, और उन निर्देशों के लिए करें जिन्हें आपको अपने कोड के साथ वर्शन कंट्रोल करना है.
 
-تثبيت `AGENTS.md` باستخدام مصدر مضمّن:
+इनलाइन सोर्स का इस्तेमाल करके, `AGENTS.md` को माउंट करें:
 
 ### Python
 
@@ -250,7 +304,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -288,6 +342,55 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/AGENTS.md"),
+                Content: genai.Ptr("Always use matplotlib for charts. Include a summary table in every report."),
+            },
+        },
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:             interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:             interactions.NewInteractionsInput("Analyze the Q1 revenue data and create a report."),
+            SystemInstruction: genai.Ptr("You are a data analyst. Always include visualizations and export results as PDF."),
+            Environment:       genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -311,9 +414,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### المهارات: SKILL.md
+#### स्किल: SKILL.md
 
-المهارات هي ملفات تُوسّع إمكانات الوكيل. ضَعها تحت `.agents/skills/<skill-name>/SKILL.md` وسيكتشفها الحزام ويسجّلها تلقائيًا.
+स्किल ऐसी फ़ाइलें होती हैं जो एजेंट की क्षमताओं को बढ़ाती हैं. उन्हें `.agents/skills/<skill-name>/SKILL.md` में रखें. इसके बाद, हार्नेस उन्हें अपने-आप ढूंढ लेगा और रजिस्टर कर देगा.
 
 ```
 .agents/
@@ -323,7 +426,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         └── SKILL.md
 ```
 
-تثبيت مهارة باستخدام مصدر مضمّن:
+इनलाइन सोर्स का इस्तेमाल करके किसी स्किल को माउंट करने के लिए:
 
 ### Python
 
@@ -377,7 +480,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -415,6 +518,55 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/skills/slide-maker/SKILL.md"),
+                Content: genai.Ptr("---\nname: slide-maker\ndescription: Create HTML slide decks\n---\n# Slide Maker\n\nWhen asked to create a presentation:\n1. Analyze the input data\n2. Create an HTML slide deck with reveal.js\n3. Save to /workspace/output/slides.html"),
+            },
+        },
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:             interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:             interactions.NewInteractionsInput("Create a presentation about our Q1 results."),
+            SystemInstruction: genai.Ptr("You create presentations from data."),
+            Environment:       genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -438,17 +590,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-يتم تلقائيًا اكتشاف المهارات المحمَّلة من `.agents/skills/` و`/.agents/skills/`.
+`.agents/skills/` और `/.agents/skills/` से लोड की गई दोनों तरह की स्किल अपने-आप दिख जाती हैं.
 
-## إنشاء وكيل مُدار
+## मैनेज किया गया एजेंट बनाना
 
-بعد تكرار عملية الإعداد، يمكنك إنشاء الإعداد كبرنامج وكيل مُدار باستخدام `agents.create`. يتيح لك ذلك استدعاء الوكيل حسب المعرّف بدون تكرار الإعداد في كل مرة.
+कॉन्फ़िगरेशन को दोहराने के बाद, इसे `agents.create` की मदद से मैनेज किए जाने वाले एजेंट के तौर पर बनाया जा सकता है. इससे, हर बार कॉन्फ़िगरेशन को दोहराए बिना, आईडी के ज़रिए एजेंट को शुरू किया जा सकता है.
 
-يجب أن يكون `id` الذي تحدّده عند إنشاء وكيل مُدار فريدًا لمشروعك ويجب ألا يبدأ بالبادئات المحجوزة (مثل `google-` و`gemini-`). اطّلِع على [قيود معرّف الوكيل](#agent-id-restrictions) للحصول على القائمة الكاملة بالبادئات المحظورة.
+मैनेज किया जा रहा एजेंट बनाते समय, आपको एक `id` तय करना होता है.यह आपके प्रोजेक्ट के लिए यूनीक होना चाहिए. साथ ही, यह रिज़र्व किए गए प्रीफ़िक्स (जैसे, `google-`, `gemini-`) से शुरू नहीं होना चाहिए. रिज़र्व किए गए प्रीफ़िक्स की पूरी सूची देखने के लिए, [एजेंट आईडी से जुड़ी पाबंदियां](#agent-id-restrictions) देखें.
 
-### من المصادر
+### सोर्स से
 
-حدِّد `base_agent` و`id` و`agent_config` و`system_instruction` و`base_environment` مع المصادر. توفّر المنصة بيئة اختبار جديدة تتضمّن ملفاتك في كل عملية استدعاء. راجِع [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar) لمعرفة أنواع المصادر المتاحة (Git وGCS والمضمّنة).
+सोर्स के साथ `base_agent`, `id`, `agent_config`, `system_instruction`, और `base_environment` की जानकारी दें. यह प्लैटफ़ॉर्म, हर बार अनुरोध करने पर आपकी फ़ाइलों के साथ एक नया सैंडबॉक्स उपलब्ध कराता है. उपलब्ध सोर्स टाइप (Git, GCS, इनलाइन) के लिए, [एनवायरमेंट](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi) देखें.
 
 ### Python
 
@@ -530,7 +682,7 @@ const agent = await client.agents.create({
 console.log(`Created agent: ${agent.id}`);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -581,6 +733,68 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Created agent: " + agent.id().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/agents"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/AGENTS.md"),
+                Content: genai.Ptr("Always use matplotlib for charts. Include a summary table in every report."),
+            },
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/skills/slide-maker/SKILL.md"),
+                Content: genai.Ptr("---\nname: slide-maker\n---\n# Slide Maker\nCreate HTML slide decks from data analysis results."),
+            },
+            {
+                Type:   interactions.SourceTypeRepository.ToPointer(),
+                Source: genai.Ptr("https://github.com/my-org/analysis-templates"),
+                Target: genai.Ptr("/workspace/templates"),
+            },
+        },
+    }
+
+    res, err := client.Agents.Create(ctx, operations.CreateAgentRequest{
+        Body: agents.Agent{
+            ID:        genai.Ptr("data-analyst"),
+            BaseAgent: genai.Ptr("antigravity-preview-09-2026"),
+            AgentConfig: genai.Ptr(agents.NewAgentConfig(interactions.AntigravityAgentConfig{
+                Model: genai.Ptr("gemini-3.8-flash"),
+            })),
+            SystemInstruction: genai.Ptr("You are a data analyst. Always include visualizations and export results as PDF."),
+            BaseEnvironment:   genai.Ptr(agents.NewBaseEnvironment(env)),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Created agent: %s\n", *res.Agent.ID)
+}
+```
+
 ### REST
 
 ```
@@ -618,9 +832,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### من بيئة حالية (تشعّب)
+### किसी मौजूदा एनवायरमेंट से (फ़ोर्क करना)
 
-كرِّر استخدام وكيل Antigravity الأساسي إلى أن تصبح البيئة مناسبة (تثبيت الحِزم، ووضع الملفات في مكانها)، ثم أنشئ نسخة من الوكيل في وكيل مُدار.
+जब तक एनवायरमेंट सही न हो जाए (पैकेज इंस्टॉल हो जाएं, फ़ाइलें सही जगह पर हों), तब तक Antigravity के बेस एजेंट का इस्तेमाल करें. इसके बाद, इसे मैनेज किए जा सकने वाले एजेंट में फ़ोर्क करें.
 
 ### Python
 
@@ -671,7 +885,7 @@ const agent = await client.agents.create({
 console.log(`Forked agent successfully: ${agent.id}`);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -707,6 +921,59 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Forked agent successfully: " + agent.id().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/agents"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Step 1: set up the environment interactively
+    intRes, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:       interactions.NewInteractionsInput("Install pandas, matplotlib, and seaborn. Create an analysis template at /workspace/template.py."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    interaction := intRes.Interaction
+
+    // Step 2: fork that environment into a managed agent
+    agentRes, err := client.Agents.Create(ctx, operations.CreateAgentRequest{
+        Body: agents.Agent{
+            ID:                genai.Ptr("my-data-analyst"),
+            BaseAgent:         genai.Ptr("antigravity-preview-09-2026"),
+            SystemInstruction: genai.Ptr("You are a data analyst. Use the template at /workspace/template.py for all reports."),
+            BaseEnvironment:   genai.Ptr(agents.NewBaseEnvironment(*interaction.EnvironmentID)),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Forked agent successfully: %s\n", *agentRes.Agent.ID)
+}
+```
+
 ### REST
 
 ```
@@ -720,13 +987,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### مع قواعد الشبكة
+### नेटवर्क के नियमों के साथ
 
-يمكنك حظر الوصول الخارجي أو إدخال بيانات الاعتماد عند حفظ وكيل مُدار. للاطّلاع على مخطط قائمة السماح الكامل وأنماط بيانات الاعتماد وأحرف البدل، يُرجى الانتقال إلى [البيئات: إعدادات الشبكة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#network-configuration).
+मैनेज किए जा रहे एजेंट को सेव करते समय, आउटबाउंड ऐक्सेस को लॉक किया जा सकता है या क्रेडेंशियल डाले जा सकते हैं. अनुमति वाली सूची के पूरे स्कीमा, क्रेडेंशियल पैटर्न, और वाइल्डकार्ड के लिए, [एनवायरमेंट: नेटवर्क कॉन्फ़िगरेशन](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi#network-configuration) देखें.
 
-يمكنك الإشارة إلى [بيانات اعتماد](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ar) مخزّنة حسب المعرّف في قاعدة قائمة السماح (`"credential": "github-production"`)، وسيُدرج خادم وكيل الخروج كلمة المرور في وقت الطلب، وبالتالي لن تظهر مطلقًا في تعريف الوكيل. يضبط هذا المثال العنوان مضمّنًا مع `transform` بدلاً من ذلك. يطبّق الخادم الوكيل كلا النموذجين بالطريقة نفسها، كما تتيح لك بيانات الاعتماد إعادة استخدام كلمة المرور في جميع البرامج وتغييرها في مكان واحد.
+अनुमति वाली सूची के नियम (`"credential": "github-production"`) में, आईडी के हिसाब से सेव किए गए [क्रेडेंशियल](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=hi) का रेफ़रंस दें. इसके बाद, अनुरोध के समय इग्रेस प्रॉक्सी सीक्रेट को इंजेक्ट करता है, ताकि यह आपके एजेंट की परिभाषा में कभी न दिखे. इस उदाहरण में, हेडर को `transform` के साथ इनलाइन सेट किया गया है. प्रॉक्सी, दोनों फ़ॉर्म को एक ही तरीके से लागू करती है. साथ ही, क्रेडेंशियल की मदद से, सभी एजेंट के लिए सीक्रेट को फिर से इस्तेमाल किया जा सकता है और इसे एक जगह पर रोटेट किया जा सकता है.
 
-ينشئ المثال التالي وكيلاً `issue-resolver` يمكنه الوصول إلى GitHub وPyPI فقط، مع إدخال بيانات الاعتماد الخاصة بـ GitHub:
+यहां दिए गए उदाहरण में, एक ऐसा `issue-resolver` एजेंट बनाया गया है जो सिर्फ़ GitHub और PyPI को ऐक्सेस कर सकता है. साथ ही, इसमें GitHub के क्रेडेंशियल डाले गए हैं:
 
 ### Python
 
@@ -802,7 +1069,7 @@ const agent = await client.agents.create({
 console.log(`Created issue-resolver agent successfully: ${agent.id}`);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -855,6 +1122,68 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Created issue-resolver agent successfully: " + agent.id().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/agents"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:   interactions.SourceTypeRepository.ToPointer(),
+                Source: genai.Ptr("https://github.com/my-org/backend"),
+                Target: genai.Ptr("/workspace/repo"),
+            },
+        },
+        Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
+            Allowlist: []interactions.AllowlistEntry{
+                {
+                    Domain: "api.github.com",
+                    Transform: genai.Ptr(interactions.NewTransform(map[string]string{
+                        "Authorization": "Basic YOUR_BASE64_TOKEN",
+                    })),
+                },
+                {
+                    Domain: "pypi.org",
+                },
+            },
+        }))),
+    }
+
+    res, err := client.Agents.Create(ctx, operations.CreateAgentRequest{
+        Body: agents.Agent{
+            ID:                genai.Ptr("issue-resolver"),
+            BaseAgent:         genai.Ptr("antigravity-preview-09-2026"),
+            SystemInstruction: genai.Ptr("You resolve GitHub issues. Clone the repo, find the bug, write the fix, run the tests, and open a PR."),
+            BaseEnvironment:   genai.Ptr(agents.NewBaseEnvironment(env)),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Created issue-resolver agent successfully: %s\n", *res.Agent.ID)
+}
+```
+
 ### REST
 
 ```
@@ -889,9 +1218,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## استدعاء الوكيل
+## एजेंट को शुरू करना
 
-اتّصِل بالوكيل المُدار باستخدام رقم تعريف الوكيل من خلال إنشاء تفاعل جديد. يؤدي كل استدعاء إلى إنشاء نسخة من البيئة الأساسية، لذا تبدأ كل عملية تشغيل بشكل نظيف.
+नया इंटरैक्शन बनाकर, अपने एजेंट आईडी से मैनेज किए जा रहे एजेंट को कॉल करें. हर इनवोकेशन, बेस एनवायरमेंट को फ़ोर्क करता है. इसलिए, हर रन क्लीन तरीके से शुरू होता है.
 
 ### Python
 
@@ -917,7 +1246,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -940,6 +1269,44 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("data-analyst"),
+            Input:       interactions.NewInteractionsInput("Analyze Q1 revenue data from /workspace/templates/sample.csv and create a slide deck."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -953,15 +1320,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-للمحادثات المترابطة والبث، يُرجى الاطّلاع على [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar). تنطبق أنماط `previous_interaction_id` و`environment` نفسها على البرامج التي يديرها المشرف.
+सिलसिलेवार बातचीत और स्ट्रीमिंग के लिए, [क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi) देखें. मैनेज किए गए एजेंट पर भी `previous_interaction_id` और `environment` के यही पैटर्न लागू होते हैं.
 
-تتيح الوكلاء المُدارين أيضًا تنفيذ العمليات في الخلفية وإلغاءها. للحصول على التفاصيل وأمثلة الرموز، يُرجى الاطّلاع على [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#background-execution).
+मैनेज किए गए एजेंट, बैकग्राउंड में टास्क पूरा करने और उसे रद्द करने की सुविधा भी देते हैं. ज़्यादा जानकारी और कोड के उदाहरणों के लिए, [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi#background-execution) देखें.
 
-## تجاوز الإعدادات عند الاستدعاء
+## इनवोकेशन के समय कॉन्फ़िगरेशन को बदलना
 
-يمكنك إلغاء إعدادات الشبكة التلقائية `system_instruction` و`tools` و`environment` الخاصة بالوكيل عند إنشاء تفاعل. يتيح لك ذلك تعديل سلوك الوكيل أو إمكاناته أو بيانات اعتماده لتنفيذ عملية معيّنة بدون تغيير تعريف الوكيل المخزّن.
+इंटरैक्शन बनाते समय, एजेंट के डिफ़ॉल्ट `system_instruction`, `tools`, और `environment` नेटवर्क कॉन्फ़िगरेशन को बदला जा सकता है. इससे, सेव की गई एजेंट की परिभाषा में बदलाव किए बिना, किसी खास रन के लिए एजेंट के व्यवहार, क्षमताओं या क्रेडेंशियल में बदलाव किया जा सकता है.
 
-### تجاوز تعليمات النظام وأدواته
+### सिस्टम के निर्देशों और टूल को ओवरराइड करना
 
 ### Python
 
@@ -990,7 +1357,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1017,6 +1384,46 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:             interactions.AgentOption("data-analyst"),
+            Input:             interactions.NewInteractionsInput("Analyze Q1 revenue data, but do not create a slide deck. Just output a summary table."),
+            SystemInstruction: genai.Ptr("You are a data analyst. Focus ONLY on summary tables. Ignore default instructions about slides."),
+            Tools:             []interactions.Tool{interactions.NewTool(interactions.CodeExecution{})}, // Override to only use code execution
+            Environment:       genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1032,12 +1439,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### تجاوز إعدادات الشبكة (تحديث بيانات الاعتماد)
+### नेटवर्क कॉन्फ़िगरेशन बदलना (क्रेडेंशियल रीफ़्रेश करना)
 
-إذا كان وكيلك المُدار يتضمّن بيانات اعتماد شبكة مضمّنة في `base_environment`،
-يمكنك إلغاء هذه البيانات في وقت الاستدعاء لتحديث الرموز المميزة المنتهية الصلاحية أو تدوير مفاتيح واجهة برمجة التطبيقات. مرِّر عنصر `environment` مع إعداد `network` جديد. تحلّ قواعد الشبكة الجديدة محلّ القواعد السابقة بشكل كامل في ما يتعلّق بهذا التفاعل. يتم الاحتفاظ بمصادر البيئة الأساسية (الملفات والمستودعات).
+अगर आपके मैनेज किए जा रहे एजेंट में नेटवर्क क्रेडेंशियल पहले से मौजूद हैं`base_environment`,
+तो उन्हें कॉल करने के समय बदला जा सकता है. ऐसा इसलिए किया जा सकता है, ताकि खत्म हो चुके टोकन को रीफ़्रेश किया जा सके या एपीआई
+कुंजियों को रोटेट किया जा सके. नए `network` कॉन्फ़िगरेशन के साथ `environment` ऑब्जेक्ट पास करें. नए नेटवर्क नियमों के लागू होने के बाद, उस इंटरैक्शन के लिए पिछले नियम पूरी तरह से बदल जाते हैं. बेस एनवायरमेंट के सोर्स (फ़ाइलें, रिपॉज़िटरी) सुरक्षित रखे जाते हैं.
 
-إذا كانت السمة `base_environment` تشير إلى [بيانات اعتماد](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ar) مخزّنة بدلاً من رمز مميّز مضمّن، لن تحتاج إلى إلغاء أي شيء. يمكنك تدوير بيانات الاعتماد باستخدام `PATCH`، وسيتمكّن كل وكيل يشير إليها من الحصول على الرمز السرّي الجديد في عملية التشغيل التالية.
+अगर `base_environment`, इनलाइन टोकन के बजाय सेव किए गए [क्रेडेंशियल](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=hi) का रेफ़रंस देता है, तो आपको किसी भी चीज़ को बदलने की ज़रूरत नहीं है. `PATCH` की मदद से क्रेडेंशियल को रोटेट करें. इसके बाद, इसे रेफ़र करने वाला हर एजेंट, अगली बार चलने पर नया सीक्रेट चुनता है.
 
 ### Python
 
@@ -1091,7 +1499,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1139,6 +1547,61 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Invoke the agent with a fresh token, overriding the base_environment credentials
+    env := interactions.Environment{
+        Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
+            Allowlist: []interactions.AllowlistEntry{
+                {
+                    Domain: "api.github.com",
+                    Transform: genai.Ptr(interactions.NewTransform(map[string]string{
+                        "Authorization": "Bearer ghp_REFRESHED_TOKEN",
+                    })),
+                },
+                {
+                    Domain: "pypi.org",
+                },
+            },
+        }))),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("issue-resolver"),
+            Input:       interactions.NewInteractionsInput("Fix issue #42 and open a PR."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1165,11 +1628,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## إدارة الوكلاء
+## एजेंट मैनेज करें
 
-يمكنك إدراج الوكلاء والحصول عليهم وحذفهم.
+आपके पास एजेंटों को सूची में शामिल करने, उन्हें पाने, और उन्हें मिटाने का विकल्प होता है.
 
-### عرض قائمة بالوكلاء
+### एजेंट की सूची बनाना
 
 ### Python
 
@@ -1190,7 +1653,7 @@ if (agents.agents) {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1205,6 +1668,40 @@ for (Agent a : agents) {
 }
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Agents.List(ctx, operations.ListAgentsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.AgentListResponse != nil {
+        for _, a := range res.AgentListResponse.Agents {
+            fmt.Printf("%s: %v\n", *a.ID, a.Description)
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1212,7 +1709,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### الحصول على وكيل
+### कोई एजेंट पाना
 
 ### Python
 
@@ -1228,7 +1725,7 @@ const agent = await client.agents.get("data-analyst");
 console.log(agent);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1240,6 +1737,38 @@ Agent agent = client.agents.get("data-analyst").agent().get();
 System.out.println(agent);
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Agents.Get(ctx, operations.GetAgentRequest{
+        ID: "data-analyst",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("%+v\n", res.Agent)
+}
+```
+
 ### REST
 
 ```
@@ -1247,9 +1776,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### حذف وكيل
+### किसी एजेंट को मिटाना
 
-يؤدي الحذف إلى إزالة الإعدادات. لا تتأثر البيئات والتفاعلات الحالية التي أنشأها الوكيل.
+मिटाने पर, कॉन्फ़िगरेशन हट जाता है. इससे, एजेंट की ओर से बनाए गए मौजूदा एनवायरमेंट और इंटरैक्शन पर कोई असर नहीं पड़ता.
 
 ### Python
 
@@ -1263,7 +1792,7 @@ client.agents.delete(id="data-analyst")
 await client.agents.delete("data-analyst");
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1273,6 +1802,35 @@ Client client = new Client();
 client.agents.delete("data-analyst");
 ```
 
+### ऐप पर जाएं
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    _, err = client.Agents.Delete(ctx, operations.DeleteAgentRequest{
+        ID: "data-analyst",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1280,24 +1838,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## مرجع تعريف الوكيل
+## एजेंट की परिभाषा का रेफ़रंस
 
-| الحقل | النوع | مطلوب | الوصف |
+| फ़ील्ड | प्रकार | ज़रूरी है | ब्यौरा |
 | --- | --- | --- | --- |
-| `id` | سلسلة | نعم | المعرّف الفريد للوكيل ضمن مشروع Google Cloud يُستخدَم لاستدعاء الوكيل. يجب عدم استخدام البادئات المحجوزة. اطّلِع على [قيود معرّف الوكيل](#agent-id-restrictions). |
-| `description` | سلسلة | لا | وصف الوكيل يمكن لشخص عادي قراءته |
-| `base_agent` | سلسلة | نعم | معرّف الوكيل الأساسي (مثلاً، `antigravity-preview-09-2026`) |
-| `agent_config` | عنصر | لا | إعدادات الوكيل الأساسي، بما في ذلك اختيار النموذج (`{"type": "antigravity", "model": "gemini-3.8-flash"}`). يتم ضبط القيمة التلقائية على `gemini-3.8-flash` في حال عدم تحديدها. لا يمكن إلغاء هذا الخيار في وقت التفاعل مع الوكلاء المحدّدين. |
-| `system_instruction` | سلسلة | لا | طلب النظام الذي يحدّد السلوك والشخصية |
-| `tools` | صفيف | لا | الأدوات التي يمكن للوكيل استخدامها في حال عدم تحديدها، يتم ضبطها تلقائيًا على `code_execution` و`google_search` و`url_context`. تشمل الأدوات المتوافقة `code_execution` و`google_search` و`url_context` و`mcp_server` وتعريفات `function` المخصّصة. |
-| `base_environment` | سلسلة أو عنصر | لا | `"remote"` أو `environment_id` أو عنصر إعدادات يتضمّن `sources` و`network` الاطّلاع على البيئات |
+| `id` | स्ट्रिंग | हां | Google Cloud प्रोजेक्ट में एजेंट का यूनीक आइडेंटिफ़ायर. इसका इस्तेमाल एजेंट को ट्रिगर करने के लिए किया जाता है. इसमें रिज़र्व किए गए प्रीफ़िक्स का इस्तेमाल नहीं किया जाना चाहिए. [एजेंट आईडी से जुड़ी पाबंदियां](#agent-id-restrictions) देखें. |
+| `description` | स्ट्रिंग | नहीं | इस फ़ील्ड में एजेंट के बारे में ऐसी जानकारी होती है जिसे कोई भी व्यक्ति आसानी से पढ़ सकता है. |
+| `base_agent` | स्ट्रिंग | हां | बुनियादी एजेंट आईडी (जैसे, `antigravity-preview-09-2026`). |
+| `agent_config` | ऑब्जेक्ट | नहीं | बेस एजेंट के लिए कॉन्फ़िगरेशन. इसमें मॉडल चुनने की सुविधा (`{"type": "antigravity", "model": "gemini-3.8-flash"}`) शामिल है. अगर इसे शामिल नहीं किया जाता है, तो डिफ़ॉल्ट रूप से `gemini-3.8-flash` का इस्तेमाल किया जाता है. नाम वाले एजेंट के लिए, इंटरैक्शन के दौरान इस सेटिंग को बदला नहीं जा सकता. |
+| `system_instruction` | स्ट्रिंग | नहीं | सिस्टम प्रॉम्प्ट, जिसमें व्यवहार और पर्सोना के बारे में बताया गया हो. |
+| `tools` | ऐरे | नहीं | ऐसे टूल जिनका इस्तेमाल एजेंट कर सकता है. अगर इसे शामिल नहीं किया जाता है, तो डिफ़ॉल्ट रूप से `code_execution`, `google_search`, और `url_context` पर सेट होता है. इन टूल का इस्तेमाल किया जा सकता है: `code_execution`, `google_search`, `url_context`, `mcp_server`, और कस्टम `function` डेफ़िनिशन. |
+| `base_environment` | स्ट्रिंग या ऑब्जेक्ट | नहीं | `"remote"`, `environment_id` या `sources` और `network` वाला कॉन्फ़िगरेशन ऑब्जेक्ट. एनवायरमेंट देखें. |
 
-### القيود المفروضة على رقم تعريف الوكيل
+### एजेंट आईडी से जुड़ी पाबंदियां
 
-عند إنشاء وكيل مُدار، يجب أن يلتزم `id` الذي تحدّده بالقواعد التالية:
+मैनेज किया गया एजेंट बनाते समय, आपके दिए गए `id` को इन नियमों का पालन करना होगा:
 
-- ويجب أن يكون فريدًا لمشروعك على Google Cloud.
-- يجب **ألا** يبدأ بأي من البادئات المحجوزة التالية (غير حساسة لحالة الأحرف)، وإلا ستتعذّر عملية الإنشاء:
+- यह आपके Google Cloud प्रोजेक्ट के लिए अलग होना चाहिए.
+- यह इनमें से किसी भी रिज़र्व किए गए प्रीफ़िक्स (केस-इनसेंसिटिव) से शुरू **नहीं** होना चाहिए. ऐसा न होने पर, इसे नहीं बनाया जा सकेगा:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -1315,35 +1873,35 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   - `nest-`
   - `kaggle-`
 
-## سير عمل التكرار
+## इटरेशन वर्कफ़्लो
 
-1. **إنشاء نموذج أولي** باستخدام وكيل Antigravity الأساسي تمرير تعليمات النظام ومصادر البيئة مضمّنة اختبار التعليمات والمهارات وإعداد البيئة بشكل تفاعلي
-2. **تثبيت** البيئة تثبيت الحِزم وربط المصادر والتحقّق من أنّ كل شيء يعمل بشكل سليم
-3. **الاستمرار** كوكيل مُدار من خلال إنشاء وكيل جديد، إما من المصادر أو عن طريق إنشاء نسخة من البيئة.
-4. **عدِّل** تعريف الوكيل. تغيير تعليمات النظام أو تبديل المهارات أو إضافة مصادر سيتم تطبيق الإعدادات الجديدة في عملية الاستدعاء التالية.
+1. Antigravity के बेसिक एजेंट की मदद से **प्रोटोटाइप** बनाएं. सिस्टम के निर्देश और एनवायरमेंट के सोर्स को इनलाइन पास करें. निर्देशों, कौशल, और एनवायरमेंट सेटअप की इंटरैक्टिव तरीके से जांच करें.
+2. एनवायरमेंट को **स्थिर करें**. पैकेज इंस्टॉल करें, सोर्स माउंट करें, और पुष्टि करें कि सब कुछ काम कर रहा है.
+3. सोर्स से या एनवायरमेंट को फ़ोर्क करके, नया एजेंट बनाकर मैनेज किए जा रहे एजेंट के तौर पर **बने रहें**.
+4. एजेंट की परिभाषा को **अपडेट करें**. सिस्टम के निर्देश बदलें, स्किल बदलें या सोर्स जोड़ें. अगला इनवोकेशन, नए कॉन्फ़िगरेशन को पिक अप करता है.
 
-## القيود
+## सीमाएं
 
-- **حالة المعاينة**: الوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
-- **الوكيل الأساسي والنماذج**: يُسمح فقط بالقيمة `antigravity-preview-09-2026` كقيمة `base_agent`. خيارات النماذج المتوافقة في `agent_config` هي `gemini-3.8-flash` (الخيار التلقائي) و`gemini-3.7-flash` و`gemini-3.6-flash` و`gemini-3.5-flash` و`gemini-3.5-flash-lite`. بالنسبة إلى الوكلاء المحدّدين، لا يمكن تجاهل النموذج في وقت التفاعل.
-- **عدم توفّر ميزة التحكم بالإصدارات**: لا تتوفّر ميزة التحكم بإصدارات الوكيل والرجوع إلى إصدار سابق بعد.
-- **عدم إمكانية إنشاء وكلاء فرعيين متداخلين**: لا تتوفّر بعد إمكانية تفويض وكيل فرعي.
-- يمكنك الحصول على ما يصل إلى 1,000 وكيل مُدار.
+- **झलक की स्थिति**: मैनेज किए गए एजेंट, झलक के तौर पर उपलब्ध हैं. सुविधाओं और स्कीमा में बदलाव हो सकता है.
+- **बेस एजेंट और मॉडल**: `base_agent` के तौर पर सिर्फ़ `antigravity-preview-09-2026` का इस्तेमाल किया जा सकता है. `agent_config` में इस्तेमाल किए जा सकने वाले मॉडल के विकल्प ये हैं: `gemini-3.8-flash` (डिफ़ॉल्ट), `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`, और `gemini-3.5-flash-lite`. नाम वाले एजेंट के लिए, इंटरैक्शन के समय मॉडल को ओवरराइड नहीं किया जा सकता.
+- **वर्शनिंग की सुविधा उपलब्ध नहीं है**: एजेंट वर्शनिंग और रोलबैक की सुविधा फ़िलहाल उपलब्ध नहीं है.
+- **सब-एजेंट नेस्टिंग की सुविधा उपलब्ध नहीं है**: फ़िलहाल, सब-एजेंट को डेलिगेट करने की सुविधा उपलब्ध नहीं है.
+- आपके पास ज़्यादा से ज़्यादा 1,000 मैनेज किए गए एजेंट हो सकते हैं.
 
-## الخطوات التالية
+## आगे क्या करना है
 
-- [نظرة عامة على الوكلاء](https://ai.google.dev/gemini-api/docs/agents?hl=ar): تعرَّف على المفاهيم الأساسية للوكلاء المُدارين.
-- [البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): ابدأ إنشاء محادثات مترابطة وبث المحتوى.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): استكشاف الإمكانات والأدوات والأسعار للوكيل التلقائي
-- [بيئات الوكيل](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar): يمكنك ضبط بيئات الاختبار المعزولة والمصادر والشبكات.
-- [Managed Agents API على "منصة الوكلاء"](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ar): لإنشاء الوكلاء المُدارين مع أدوات حوكمة مدمجة في المؤسسة
+- [एजेंट की खास जानकारी](https://ai.google.dev/gemini-api/docs/agents?hl=hi): मैनेज किए जाने वाले एजेंट के मुख्य सिद्धांतों के बारे में जानें.
+- [क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi): सिलसिलेवार बातचीत और स्ट्रीमिंग की सुविधा का इस्तेमाल शुरू करें.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi): डिफ़ॉल्ट एजेंट की सुविधाओं, टूल, और कीमत के बारे में जानें.
+- [एजेंट एनवायरमेंट](https://ai.google.dev/gemini-api/docs/agent-environment?hl=hi): सैंडबॉक्स, सोर्स, और नेटवर्किंग कॉन्फ़िगर करें.
+- [Agent Platform पर Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=hi): संगठन के लिए पहले से मौजूद गवर्नेंस के साथ एजेंट बनाने और मैनेज करने की सुविधा के लिए.
 
-إرسال ملاحظات
+सुझाव भेजें
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)
+आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+क्या आपको हमें और कुछ बताना है?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,79 +1,79 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=ja
-fetched_at: 2026-09-21T05:52:50.794552+00:00
-title: "Live API \u3067\u8003\u3048\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=zh-TW
+fetched_at: 2026-09-28T06:12:22.552335+00:00
+title: "\u4f7f\u7528 Live API \u6642\u7684\u601d\u8003\u65b9\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# Live API で考える
+# 使用 Live API 時的思考方式
 
-Gemini Live API を使用すると、Gemini モデルとリアルタイムで双方向の音声会話を行うことができます。
+Gemini Live API 可與 Gemini 模型進行即時雙向語音對話。
 
-標準音声モデルは、即時のやり取りに適しています。モデルに話しかけると、すぐに音声で返信が生成されます。ただし、リクエストに計画、複雑な分析、外部ツールが必要な場合は、直接的な回答には限界があります。モデルは、推論なしで回答するか、ツールが完了するのを待機しながら無音で一時停止する必要があります。
+標準語音模型很適合用於即時對話。你對模型說話，模型會立即生成語音回覆。但如果要求需要規劃、複雜分析或外部工具，直接回應就會受到限制。模型必須在沒有推論的情況下回答，或在等待工具完成時暫停。
 
-Live API（`gemini-3.8-live-extended-thinking`）で思考すると、リアルタイム音声セッションにバックグラウンド推論が追加されます。モデルは、自然な会話のフィラーを話しながら、バックグラウンドで非同期ツールを計画して呼び出し、インタラクションをアクティブに保ちます。
+Thinking in the Live API (`gemini-3.8-live-extended-thinking`) 會在即時語音對話中加入背景推論。模型會在背景規劃及呼叫非同步工具，同時說出自然對話的填充詞，讓互動持續進行。
 
-このアーキテクチャは、会話のライフサイクルを次の 2 つの点で変更します。
+這項架構會透過兩種主要方式改變對話生命週期：
 
-- **会話のつなぎ言葉**: モデルは、バックグラウンドでツールを実行しながら、中間的な更新（「フライトのオプションを確認しています」など）を話します。
-- **インタラクション ステータスのトラッキング**: モデルは 1 回のリクエストで複数回発話できるため、サーバーはバックグラウンド処理中に `interaction_status: "IN_PROGRESS"` を、タスク全体が完了したときに `interaction_status: "IDLE"` を出力します。
+- **對話式填充內容**：模型會在背景執行工具時，提供中間更新 (例如「正在檢查航班選項」)。
+- **追蹤互動狀態**：由於模型在單一要求期間可能會多次說話，因此伺服器會在背景處理期間發出 `interaction_status: "IN_PROGRESS"`，並在整體工作完成時發出 `interaction_status: "IDLE"`。
 
-次の図は、標準のライブ音声セッションとバックグラウンド推論による思考のインタラクション ライフサイクルを比較したものです。
+下圖比較標準 Live 語音通話和「思考並推理」的互動生命週期：
 
-![Live API の関数呼び出しと状態追跡の比較](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=ja)
+![即時 API 函式呼叫和狀態追蹤比較](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=zh-tw)
 
-## 適切なモデルを選択する
+## 選擇合適的機型
 
-`gemini-3.8-live` と `gemini-3.8-live-extended-thinking` のどちらを選択するかを決定する際は、応答レイテンシ、タスクの複雑さ、クライアントの状態処理という 3 つの主な考慮事項を検討します。
+在 `gemini-3.8-live` 和 `gemini-3.8-live-extended-thinking` 之間做決定時，請考量以下三項主要因素：回應延遲時間、工作複雜度和用戶端狀態處理。
 
-### Gemini 3.8 Live を使用する場面
+### 何時使用 Gemini 3.8 Live
 
-`gemini-3.8-live` は、すぐにターンを交代する必要があり、タスクが直接的な低レイテンシの会話型音声エージェントに使用します。
+如果需要低延遲的對話式語音代理，且必須立即輪流對話並直接執行工作，請使用 `gemini-3.8-live`。
 
-- **会話型音声アシスタント**: カスタマー サービスのトリアージ、言語学習、音声検索、インタラクティブなストーリーテリング。
-- **高速なツール実行**: 外部ツールがミリ秒単位で戻るワークフロー（センサー値の読み取りやスマート デバイスの制御など）。
-- **シンプルなクライアント ロジック**: 各ユーザーのターンで単一のモデル レスポンスを受け取り、セッションがアイドル状態になったときに `turnComplete: true` が確実にシグナルを送信するアプリケーション。
+- **對話式語音助理**：客戶服務分流、語言練習、語音搜尋和互動式說故事。
+- **快速執行工具**：外部工具會在毫秒內傳回資料的工作流程 (例如讀取感應器值或控制智慧型裝置)。
+- **簡單的用戶端邏輯**：應用程式中，每個使用者回合都會收到單一模型回覆，且 `turnComplete: true` 會在工作階段閒置時可靠地發出信號。
 
-### Gemini 3.8 Live Extended Thinking を使用するタイミング
+### 何時使用 Gemini 3.8 Live Extended Thinking
 
-エージェントが複雑なデータを評価したり、複数のステップを計画したり、実行に数秒かかるツールを処理したりする必要がある場合は、`gemini-3.8-live-extended-thinking` を使用します。
+如果代理程式必須評估複雜資料、規劃多個步驟，或處理需要幾秒才能執行的工具，請使用 `gemini-3.8-live-extended-thinking`。
 
-- **複数ステップの診断とサポート**: 複数のログ、エラーコード、構成チェックにわたってシステムの問題を診断するテクニカル サポート エージェント。
-- **調整されたデータ取得**: フライトの検索、ホテルのクエリ、並列 API 呼び出しでの料金の比較を行う旅行エージェントと予約エージェント。
-- **STEM とコードのチューター**: 数式の検証、コードのデバッグ、複数ステップのロジックの処理を行ってから説明を行う教育エージェント。
-- **マスキング ツールのレイテンシ**: 長時間実行関数がリスナーに不自然な沈黙を生じさせる音声エクスペリエンス。
+- **多步驟診斷與支援**：技術支援專員會診斷多個記錄檔、錯誤代碼和設定檢查中的系統問題。
+- **協調資料擷取**：旅遊和預訂代理程式，可透過平行 API 呼叫搜尋航班、查詢飯店和比較價格。
+- **STEM 和程式碼輔導**：教育代理程式會先驗證公式、偵錯程式碼或逐步完成邏輯，再提供說明。
+- **遮蓋工具延遲**：語音體驗，其中長期執行的函式會為聆聽者造成尷尬的沉默。
 
-### 主な違いの概要
+### 主要差異摘要
 
-次の表に、両方のモデルの技術的な違いをまとめます。
+下表摘要列出這兩種模型之間的技術差異：
 
-| 機能 | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
+| 功能 | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
 | --- | --- | --- |
-| **主なユースケース** | 低レイテンシの音声エージェント、直接コマンド、高速ツール | マルチステップの問題解決、複雑な計画、マルチツール ワークフロー |
-| **モデル エンドポイント** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
-| **推論アーキテクチャ** | 固定レイテンシ プロファイルを使用したインターリーブ推論（`thinking_level` はサポートされていません） | 構成可能なバックグラウンド推論（`thinking_level`: `low`、`medium`、`high`。`MINIMAL` は対象外） |
-| **曲がり角の境界** | `turnComplete: true` はターンを終了してアイドル状態に戻ります | `turnComplete: true` は発話を終了します。`interaction_status` はセッションのライフサイクルを制御します |
-| **会話のフィラー** | モデルはツール実行を待ってから発話する | 処理中に会話の中間的なフィラーをモデル化する |
-| **ツールの実行** | 同期（`BLOCKING`）ツールと非同期（`NON_BLOCKING`）ツールをサポート | 非同期（`NON_BLOCKING`）ツールの宣言が必要 |
+| **主要用途** | 低延遲語音代理、直接指令、快速工具 | 解決多步驟問題、規劃複雜事項、多工具工作流程 |
+| **模型端點** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
+| **推論架構** | 交錯推論，延遲時間設定檔固定 (不支援 `thinking_level`) | 可設定的背景推論 (`thinking_level`：`low`、`medium`、`high`；不支援 `MINIMAL`) |
+| **開啟界線** | `turnComplete: true` 會關閉回合並返回閒置狀態 | `turnComplete: true` 結束語音輸入；`interaction_status` 控制工作階段生命週期 |
+| **對話填充詞** | 模型會等待工具執行完畢再說話 | 模型會在處理期間串流中間對話填充詞 |
+| **執行工具** | 支援同步 (`BLOCKING`) 和非同步 (`NON_BLOCKING`) 工具 | 需要非同步 (`NON_BLOCKING`) 工具聲明 |
 
-## 移行と統合のパス
+## 遷移和整合路徑
 
-既存の音声アプリケーションをアップグレードするか、Thinking を Live API セッションに統合する手順は次のとおりです。
+請按照下列步驟升級現有的語音應用程式，或將 Thinking 整合至 Live API 工作階段。
 
-### Gemini 3.1 Flash Live からのアップグレード
+### 從 Gemini 3.1 Flash Live 升級
 
-`gemini-3.1-flash-live-preview` を使用する既存の音声アプリの場合、`gemini-3.8-live` にアップグレードするには、モデル文字列を更新し、`thinking_level` が `gemini-3.8-live` で対象外であるため、設定構成から `thinking_level`（または `thinking_config`）を省略する必要があります。
+如果現有的語音應用程式使用 `gemini-3.1-flash-live-preview`，升級至 `gemini-3.8-live` 時，需要更新模型字串，並從設定中省略 `thinking_level` (或 `thinking_config`)，因為 `gemini-3.8-live` 不支援 `thinking_level`：
 
 ```
 {
@@ -83,13 +83,13 @@ Live API（`gemini-3.8-live-extended-thinking`）で思考すると、リアル�
 }
 ```
 
-ターンのライフサイクルと `turnComplete` シグナルは同じままです。
+回合生命週期和 `turnComplete` 信號維持不變。
 
-### 思考の採用
+### 採用思考模式
 
-`gemini-3.8-live-extended-thinking` を採用するには、3 つの統合ポイントを更新します。
+如要採用 `gemini-3.8-live-extended-thinking`，請更新三個整合點：
 
-1. **`turnComplete` ではなく `interaction_status` を追跡**: 思考セッションでは、モデルは推論中に会話の中間的なフィラーを生成できます。受信したサーバー メッセージの `interaction_status` フィールドを検査して、UI の状態を管理します。`interaction_status` が `IDLE` の場合にのみアイドル状態に戻ります。
+1. **追蹤 `interaction_status`，而非 `turnComplete`**：在思考階段，模型可能會在推論時發出中間對話填充詞。檢查伺服器傳送的訊息中的 `interaction_status` 欄位，管理 UI 狀態。只有在 `interaction_status` 為 `IDLE` 時，才返回閒置狀態。
 
    ### Python
 
@@ -114,7 +114,7 @@ Live API（`gemini-3.8-live-extended-thinking`）で思考すると、リアル�
      setUiState('thinking');
    }
    ```
-2. **ノンブロッキング関数を宣言する**: すべての関数宣言で `"behavior": "NON_BLOCKING"` を設定します。思考モデルは、言葉による最新情報をストリーミングしながら、バックグラウンドでツールを非同期で実行します。同期ブロッキング ツールはエラーを返します。
+2. **宣告非封鎖函式**：在所有函式宣告中設定 `"behavior": "NON_BLOCKING"`。思考模型會在背景非同步執行工具，同時串流傳送口頭更新。同步封鎖工具會傳回錯誤。
 
    ### Python
 
@@ -149,7 +149,7 @@ Live API（`gemini-3.8-live-extended-thinking`）で思考すると、リアル�
      },
    };
    ```
-3. **推論の深さを構成する**: セッション構成で `thinking_config` を設定して、推論レベル（`low`、`medium`、`high`。`MINIMAL` はサポートされていません）を調整します。
+3. **設定推論深度**：在工作階段設定中設定 `thinking_config`，即可調整推論層級 (`low`、`medium` 或 `high`；不支援 `MINIMAL`)。
 
    ### Python
 
@@ -175,22 +175,23 @@ Live API（`gemini-3.8-live-extended-thinking`）で思考すると、リアル�
    };
    ```
 
-## プロトコルの並列比較
+## 並排比較通訊協定
 
-このセクションでは、Live API セッションの各フェーズで交換される WebSocket メッセージを比較します。
+本節會比較 Live API 工作階段各階段交換的 WebSocket 訊息。
 
-### ステップ 1: セッションの設定
+### 步驟 1：設定課程
 
-両方のモデルが同じ WebSocket エンドポイントに接続します。
+這兩個模型都會連線至相同的 WebSocket 端點：
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=$API_KEY
 ```
 
-- **同一**: WebSocket URL と API キーの認証。
-- **モデル文字列**: `gemini-3.8-live` と `gemini-3.8-live-extended-thinking`。
-- **思考モードの構成**: 思考モードでは、推論の深さを調整するために `thinkingConfig` が追加されます。
-- **ツールの動作**: 思考には関数宣言の `"behavior": "NON_BLOCKING"` が必要です。
+- **相同**：WebSocket 網址和 API 金鑰驗證。
+- **模型字串**：`gemini-3.8-live` 與
+  `gemini-3.8-live-extended-thinking`。
+- **思考設定**：思考會新增 `thinkingConfig`，用來調整推論深度。
+- **工具行為**：思考需要在函式宣告中加入 `"behavior": "NON_BLOCKING"`。
 
 ### Gemini 3.8 Live
 
@@ -249,7 +250,7 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-両方のモデルは、接続時に同じサーバー確認応答を受け取ります。
+這兩種模型在連線時都會收到相同的伺服器確認訊息：
 
 ```
 {
@@ -257,9 +258,9 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-### ステップ 2: ユーザーの音声入力
+### 步驟 2：使用者輸入音訊
 
-オーディオ ストリーミングは両方のモデルで同じです。リアルタイムの 16 kHz の RAW PCM 音声チャンクは、`realtimeInput` を使用してストリーミングされます。
+兩款機型的音訊串流方式相同。使用 `realtimeInput` 串流即時 16 kHz 原始 PCM 音訊區塊：
 
 ```
 {
@@ -272,14 +273,14 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-### ステップ 3: モデルのレスポンスと状態のライフサイクル
+### 步驟 3：模型回應和狀態生命週期
 
-どちらのモデルも、`serverContent.modelTurn` で 24 kHz の PCM 音声チャンクをストリーミングします。ただし、ライフサイクル管理は異なります。
+這兩款機型都會在 `serverContent.modelTurn` 中串流 24kHz PCM 音訊區塊。不過，生命週期管理有所不同：
 
-#### Gemini 3.8 Live の回答フロー
+#### Gemini 3.8 Live 回覆流程
 
-1. サーバーはターンの音声チャンクをストリーミングします。
-2. サーバーは `turnComplete: true` を送信します。これは、モデルが発話を終了し、セッションがアイドル状態であることを示します。
+1. 伺服器會串流傳輸輪流的音訊區塊。
+2. 伺服器會傳送 `turnComplete: true`，表示模型已說完話，且工作階段處於閒置狀態。
 
 ```
 // 1. Audio stream chunks
@@ -306,12 +307,12 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-#### Gemini 3.8 Live Extended Thinking の回答フロー
+#### Gemini 3.8 Live Extended Thinking 回覆流程
 
-1. **発話のつなぎ言葉**: モデルは、`turnComplete: true` と `interactionStatus: "IN_PROGRESS"` を使用して、中間的な発話（「シアトル行きのフライトを確認しています...」など）を出力します。
-2. **非同期ツール呼び出し**: サーバーは `interactionStatus` が `"IN_PROGRESS"` のままの状態でツール呼び出しを発行します。これは、サーバーがマルチステップ ターンをアクティブに処理し、ツールのレスポンスを待機していることを示します。
-3. **ツール レスポンス**: クライアントが関数を実行して出力を返します。
-4. **最終的なレスポンス**: サーバーは `turnComplete: true` と `interactionStatus: "IDLE"` を含む完全な回答を配信します。
+1. **口語填充詞**：模型會發出中間語音 (例如「正在查詢飛往西雅圖的航班...」)，並使用 `turnComplete: true` 和 `interactionStatus: "IN_PROGRESS"`。
+2. **非同步工具呼叫**：伺服器會發出工具呼叫，而 `interactionStatus` 仍為 `"IN_PROGRESS"`，表示伺服器正在積極處理多步驟對話，並等待工具回應。
+3. **工具回應**：用戶端執行函式並傳回輸出內容。
+4. **最終回應**：伺服器會透過 `turnComplete: true` 和 `interactionStatus: "IDLE"` 傳送完整答案。
 
 ```
 // 1. Spoken verbal filler while background reasoning proceeds
@@ -384,9 +385,9 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-## SDK 実装の例
+## SDK 導入範例
 
-次の例は、Google GenAI SDK を使用して思考を構成し、`interaction_status` を処理する方法を示しています。
+下列範例說明如何使用 Google GenAI SDK 設定「思考」並處理 `interaction_status`。
 
 ### Python
 
@@ -525,19 +526,19 @@ async function main() {
 main();
 ```
 
-## 次のステップ
+## 後續步驟
 
-- [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ja) モデルページと [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ja) モデルページをご覧ください。
-- すべての Live API モデルの機能の詳細な比較については、[モデル比較](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ja#model-comparison)表をご覧ください。
-- 関数呼び出しの詳細については、[Live API ツールの使用](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ja)ガイドをご覧ください。
-- セッションの再開とコンテキストのライフサイクルを処理するには、[セッション管理](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ja)を確認してください。
+- 請參閱 [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=zh-tw) 和 [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=zh-tw) 模型頁面。
+- 如要詳細比較所有 Live API 模型的各項功能，請參閱「模式比較」表格。
+- 如要進一步瞭解函式呼叫，請參閱[即時 API 工具使用](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-tw)指南。
+- 請參閱「[工作階段管理](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw)」一文，瞭解如何處理工作階段續傳和內容生命週期。
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-09-17 UTC。
+上次更新時間：2026-09-17 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-17 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-17 (世界標準時間)。"],[],[]]

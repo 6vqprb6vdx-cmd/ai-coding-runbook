@@ -1,122 +1,122 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=id
-fetched_at: 2026-09-21T06:00:17.058573+00:00
-title: "Panduan perintah Lyria \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=zh-CN
+fetched_at: 2026-09-28T06:23:57.600837+00:00
+title: "Lyria \u63d0\u793a\u6307\u5357 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Kirim masukan
+发送反馈
 
-# Panduan perintah Lyria
+# Lyria 提示指南
 
-Gemini API menawarkan dua cara untuk membuat musik dengan Lyria:
+Gemini API 提供了两种使用 Lyria 生成音乐的方式：
 
-- **Lyria 3.5 & Lyria 3 Clip**: Pembuatan non-streaming untuk klip berdurasi 30 detik atau lagu lengkap dengan lirik dan vokal. Lihat [Membuat musik dengan Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=id).
-- **Lyria RealTime**: Streaming musik interaktif real-time dan pengarahan langsung melalui WebSockets. Lihat [Pembuatan musik real-time dengan Lyria RealTime](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=id).
+- **Lyria 3.5 和 Lyria 3 Clip**：非流式生成，可生成 30 秒的片段或包含歌词和人声的完整歌曲。请参阅[使用 Lyria 3.5 生成音乐](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-cn)。
+- **Lyria RealTime**：通过 WebSocket 进行实时交互式音乐流式传输和实时控制。请参阅[使用 Lyria RealTime 实时生成音乐](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)。
 
-Kedua model merespons perintah teks deskriptif, terminologi musik, dan petunjuk struktural. Panduan ini membahas cara menulis perintah yang efektif untuk pembuatan batch dan pengarahan real-time.
+这两个模型都能响应描述性文本提示、音乐术语和结构指令。本指南介绍了如何为批量生成和实时引导撰写有效的提示。
 
-## Dasar-dasar perintah
+## 提示基础知识
 
-Perintah Anda dapat berupa frasa pendek:
+您的提示可以是简短的短语：
 
 ```
 A folk song about cute cats avoiding puddles, female vocals, acoustic guitar, sound of rain
 ```
 
-Atau deskripsi terstruktur dan mendetail:
+或者，结构化的详细说明：
 
 ```
 A 1980s-style synth-pop track with a driving beat, shimmering synthesizers, and a catchy, anthemic chorus. The song should have a retro-futuristic feel with modern production polish. Upbeat tempo around 120 BPM, clear verse-chorus structure, and a memorable instrumental hook. The lyrics describe getting ready for a party.
 ```
 
-Perintah singkat dan mendetail menghasilkan hasil yang kuat. Gunakan strategi berikut untuk memandu model menghasilkan suara yang persis seperti yang Anda inginkan.
+无论是简短的提示还是详细的提示，都能产生出色的结果。使用以下策略引导模型生成您想要的精确声音。
 
-## Genre dan gaya
+## 流派和风格
 
-Awali perintah Anda dengan genre utama. Anda dapat menggabungkan genre untuk menciptakan hibrida yang unik:
+在提示中先指定主要音乐类型。您可以组合多种流派，打造独特的混合流派：
 
-- Perpaduan metal dan hip-hop
-- Death metal yang dipadukan dengan vokal opera
-- Musik kamar klasik dengan elemen drone elektronik gelap
-- Musik dance elektronik (EDM) modern yang dipadukan dengan Europop
+- 金属乐和嘻哈音乐的融合
+- 死亡金属与歌剧唱腔的结合
+- 包含暗黑电子无人机元素的古典室内乐
+- 将现代电子舞曲 (EDM) 与欧陆流行音乐相融合
 
-Anda juga dapat menentukan era musik atau varian regional:
+您还可以指定音乐时代或地区变体：
 
-- Hip-hop boom-bap awal 1990-an
-- Pop yé-yé Prancis tahun 1960-an
-- Post-punk dan new wave tahun 1980-an
-- R&B mainstream 2000-an
-- Minimal techno Berlin atau hyphy Bay Area
+- 20 世纪 90 年代初的 boom-bap 嘻哈音乐
+- 20 世纪 60 年代法国耶耶流行乐
+- 20 世纪 80 年代的后朋克和新浪潮
+- 2000 年代主流 R&B
+- 柏林极简高科技舞曲或湾区 hyphy
 
-### Kata kunci genre
+### 流派关键字
 
-Gunakan istilah genre yang diakui ini dalam perintah Anda untuk Lyria 3.5 dan Lyria RealTime:
+在 Lyria 3.5 和 Lyria RealTime 的提示中使用以下公认的音乐流派术语：
 
-- **Elektronik & Dance**: `Acid House, Breakbeat, Chillout, Chiptune, Deep House, Drum & Bass, Dubstep, EDM, Electro Swing, Glitch Hop, Hyperpop, Minimal Techno, Moombahton, Psytrance, Synthpop, Techno, Trance, Trip Hop, Vaporwave`
-- **Hip-Hop & R&B**: `808 Hip Hop, Boom-Bap, Contemporary R&B, G-funk, Grime, Lo-Fi Hip Hop, Neo-Soul, New Jack Swing, Trap Beat`
-- **Rock & Alternatif**: `Alternative Country, Blues Rock, Classic Rock, Funk Metal, Garage Rock, Indie Folk, Indie Pop, Post-Punk, 60s Psychedelic Rock, Shoegaze, Surf Rock`
-- **Jazz, Soul & Funk**: `Acid Jazz, Afrobeat, Bossa Nova, Disco Funk, Funk, Jazz Fusion, Latin Jazz`
-- **Folk & Tradisional**: `Bengal Baul, Bhangra, Bluegrass, Celtic Folk, Cumbia, Indian Classical, Irish Folk, Merengue, Polka, Reggae, Reggaeton, Renaissance Music, Salsa`
-- **Klasik & Akustik**: `Baroque, Orchestral Score, Piano Ballad`
+- **电子音乐和舞曲**：`Acid House, Breakbeat, Chillout, Chiptune, Deep House, Drum & Bass, Dubstep, EDM, Electro Swing, Glitch Hop, Hyperpop, Minimal Techno, Moombahton, Psytrance, Synthpop, Techno, Trance, Trip Hop, Vaporwave`
+- **嘻哈音乐和 R&B**：`808 Hip Hop, Boom-Bap, Contemporary R&B, G-funk, Grime, Lo-Fi Hip Hop, Neo-Soul, New Jack Swing, Trap Beat`
+- **摇滚和另类**：`Alternative Country, Blues Rock, Classic Rock, Funk Metal, Garage Rock, Indie Folk, Indie Pop, Post-Punk, 60s Psychedelic Rock, Shoegaze, Surf Rock`
+- **爵士、灵魂和放克音乐**：`Acid Jazz, Afrobeat, Bossa Nova, Disco Funk, Funk, Jazz Fusion, Latin Jazz`
+- **民谣与传统音乐**：`Bengal Baul, Bhangra, Bluegrass, Celtic Folk, Cumbia, Indian Classical, Irish Folk, Merengue, Polka, Reggae, Reggaeton, Renaissance Music, Salsa`
+- **古典和原声**：`Baroque, Orchestral Score, Piano Ballad`
 
-## Instrumen dan tekstur
+## 乐器和纹理
 
-Lyria secara otomatis memilih instrumentasi yang sesuai untuk genre yang diminta. Jika Anda menginginkan instrumen tertentu atau kombinasi yang tidak biasa, nyatakan secara eksplisit:
+Lyria 会自动为所请求的音乐类型选择合适的乐器。如果您需要特定乐器或不寻常的组合，请明确声明：
 
 ```
 A dance track with a driving beat, shimmering synthesizers, and a catchy, anthemic chorus. A saxophone solo enters during the bridge.
 ```
 
-Jelaskan suara dan interaksi instrumen untuk mengatur mood dan tekstur:
+描述乐器的声音和互动方式，以营造氛围和质感：
 
-- Garis bas 303 yang terdistorsi menembus hi-hat yang tajam dan rapat
-- Pad synth analog yang hangat dan membesar di bawah gitar akustik yang jelas dan dekat
-- Dinding suara yang dibangun dari beberapa lapisan gitar fuzz, dengan vokal yang jauh dan penuh reverb
+- 失真的 303 低音线穿透清脆紧凑的踩镲
+- 温暖的模拟合成器柔音在干燥、亲切的原声吉他下方逐渐增强
+- 由多层模糊吉他打造的音墙，搭配遥远而充满混响的人声
 
-### Kata kunci instrumen
+### 插桩关键字
 
-- **Keyboard & Synthesizer**: `Buchla Synths, Clavichord, Dirty Synths, Harpsichord, Mellotron, Moog Oscillations, Ragtime Piano, Rhodes Piano, Smooth Pianos, Spacey Synths, Synth Pads`
-- **Bass & Drums**: `303 Acid Bass, 808 Hip Hop Beat, Boomy Bass, Conga Drums, Drumline, Funk Drums, Precision Bass, Tabla, TR-909 Drum Machine`
-- **Gitar & Senar**: `Banjo, Balalaika, Bouzouki, Cello, Charango, Dulcimer, Fiddle, Flamenco Guitar, Guitar, Harp, Koto, Lyre, Mandolin, Pipa, Shamisen, Shredding Guitar, Sitar, Slide Guitar, Viola Ensemble, Warm Acoustic Guitar`
-- **Tiup & Logam**: `Alto Saxophone, Bagpipes, Bass Clarinet, Didgeridoo, Harmonica, Ocarina, Trumpet, Tuba, Woodwinds`
-- **Perkusi**: `Bongos, Djembe, Glockenspiel, Hang Drum, Kalimba, Maracas, Marimba, Mbira, Steel Drum, Vibraphone`
+- **键盘和合成器**：`Buchla Synths, Clavichord, Dirty Synths, Harpsichord, Mellotron, Moog Oscillations, Ragtime Piano, Rhodes Piano, Smooth Pianos, Spacey Synths, Synth Pads`
+- **贝斯和鼓**：`303 Acid Bass, 808 Hip Hop Beat, Boomy Bass, Conga Drums, Drumline, Funk Drums, Precision Bass, Tabla, TR-909 Drum Machine`
+- **吉他和琴弦**：`Banjo, Balalaika, Bouzouki, Cello, Charango, Dulcimer, Fiddle, Flamenco Guitar, Guitar, Harp, Koto, Lyre, Mandolin, Pipa, Shamisen, Shredding Guitar, Sitar, Slide Guitar, Viola Ensemble, Warm Acoustic Guitar`
+- **管乐和铜管乐**：`Alto Saxophone, Bagpipes, Bass Clarinet, Didgeridoo, Harmonica, Ocarina, Trumpet, Tuba, Woodwinds`
+- **打击乐**：`Bongos, Djembe, Glockenspiel, Hang Drum, Kalimba, Maracas, Marimba, Mbira, Steel Drum, Vibraphone`
 
-## Struktur dan pengaturan waktu lagu
+## 歌曲结构和时间安排
 
-Untuk Lyria 3.5, tentukan progres lagu menggunakan tag atau panah:
+对于 Lyria 3.5，请使用标记或箭头定义歌曲进度：
 
 - `[Intro] -> [Verse 1] -> [Chorus] -> [Verse 2] -> [Chorus] -> [Bridge] -> [Outro]`
-- Mulai dengan intro piano yang tenang, bangun menjadi bait yang energik, jeda sejenak, lalu meledak menjadi chorus.
+- 以舒缓的钢琴前奏开场，逐渐过渡到充满活力的主歌，暂停片刻，然后爆发到合唱部分。
 
-Anda dapat mengarahkan dinamika dan transisi energi:
+您可以指导能量动态和转变：
 
-- Bangun ketegangan melalui pra-chorus, lalu turunkan ke keheningan sebelum chorus yang eksplosif
-- Crescendo bertahap di sepanjang lagu, menambahkan satu instrumen per bagian
-- Berhenti mendadak setelah jembatan, diikuti dengan chorus a cappella
+- 通过副歌前的部分营造紧张感，然后在爆发性的副歌之前突然静音
+- 歌曲中逐渐增强的渐强，每个乐段增加一种乐器
+- 桥段后突然停止，然后是无伴奏合唱
 
-Anda juga dapat meminta penanda waktu tertentu:
+您还可以提示特定时间标记：
 
-- Bangun hingga beat drop pada detik ke-12
-- Contoh vokal berulang setiap 4 birama
-- Bagian chorus dimulai pada detik ke-22
+- 在 12 秒时达到高潮
+- 人声样本每 4 小节重复一次
+- 合唱部分从第 22 秒开始
 
-## Lirik dan vokal
+## 歌词和人声
 
-Lyria 3.5 menghasilkan trek vokal dengan lirik secara default. Anda dapat memberikan lirik Anda sendiri, meminta model untuk membuatnya, atau meminta trek instrumental.
+Lyria 3.5 默认生成带有歌词的人声轨道。您可以提供自己的歌词，也可以让模型生成歌词，还可以请求提供伴奏曲目。
 
-### Menggunakan lirik Anda sendiri
+### 使用您自己的歌词
 
-Sertakan lirik Anda langsung dalam perintah di bawah header `Lyrics:`. Beri tag pada setiap bagian untuk memandu penyampaian lisan:
+在 `Lyrics:` 标题下方的提示中直接添加歌词。为每个部分添加标记，以指导语音播报：
 
 ```
 Lyrics:
@@ -135,56 +135,56 @@ Until the morning light
 Everything will be alright
 ```
 
-Gunakan tanda kurung untuk vokal latar, gema, atau ad-lib, seperti `(moving on)`.
+使用圆括号表示和声、回声或即兴演唱，例如 `(moving on)`。
 
-### Mengarahkan lirik yang dihasilkan
+### 指导生成的歌词
 
-Saat meminta Lyria 3.5 menulis lirik, buat garis besar narasi, emosi, atau frasa utama:
+让 Lyria 3.5 撰写歌词时，请提供叙事、情感或关键短语的大纲：
 
 ```
 The lyrics describe driving down the Pacific Coast Highway at sunset. The mood is nostalgic and reflective. Include an uplifting, anthemic chorus about second chances and starting over.
 ```
 
-Untuk genre musik elektronik dan dance, minta hook vokal pendek yang berulang:
+对于电子音乐和舞曲，请要求提供简短的重复人声钩子：
 
 ```
 An upbeat dance-pop track with a repetitive, high-energy vocal hook: "Feel the rhythm all night long."
 ```
 
-### Penyampaian vokal dan profil penyanyi
+### 人声演绎和歌手个人资料
 
-Tentukan gender, rentang vokal, dan timbre untuk hasil yang akurat:
+指定性别、音域和音色，以便实现精准的朗读效果：
 
-- **Soprano Wanita**: Timbre yang jernih dan seperti kristal dengan penyampaian yang lincah dan melambung. Nada cerah yang mampu menghasilkan tekstur lapang dan berhembus.
-- **Alto Perempuan**: Rentang bawah yang kaya, hangat, dan serak. Timbre berasap dengan suara dada yang penuh jiwa dan beresonansi.
-- **Tenor Pria**: Cerah, tajam, dan penuh semangat. Timbre muda dengan kekuatan vokal tinggi yang menembus campuran suara padat.
-- **Bariton Pria**: Suara dada yang dalam, sehalus beludru dengan penyampaian yang hangat, menenangkan, dan merdu.
-- **Weathered Rocker**: Timbre serak dan kasar yang mengingatkan pada rock alternatif tahun 1990-an. Intensitas emosional mentah dengan nada tinggi yang tegang.
+- **女高音**：音色清澈透亮，演唱灵活而高亢。明亮音调，可营造出空灵、气声质感。
+- **女低音**：低音浑厚、温暖、沙哑。烟嗓，胸腔共鸣，深情而富有磁性。
+- **男高音**：明亮、穿透力强、充满活力。音色年轻，高音穿透力强，可穿透密集混音。
+- **男中音**：深沉、丝滑的胸腔共鸣，温暖、舒缓、低吟浅唱。
+- **风化摇滚**：沙哑、粗犷的音色，让人想起 20 世纪 90 年代的另类摇滚。原始的情感强度，高音略显紧张。
 
-### Efek vokal non-lirik
+### 非歌词人声效果
 
-Anda juga dapat meminta dialog lisan, potongan vokal, dan efek sampling:
+您还可以提示生成对话、人声切片和采样效果：
 
-- Suara siaran radio vintage memperkenalkan lagu sebelum irama dimulai
-- Suara yang diucapkan berbisik tepat sebelum drop, diikuti dengan synth yang bersemangat
-- Sampel vokal yang dipotong dan diubah nada suaranya berputar sebagai elemen ritme instrumental
+- 在节拍开始之前，老式电台广播的声音介绍了这首歌
+- 在音乐高潮前，人声低语，随后是动感十足的合成器
+- 切分、变调的人声采样循环播放，作为乐器节奏元素
 
-## Parameter musik
+## 音乐参数
 
-Sempurnakan perintah Anda dengan properti musik standar:
+使用标准音乐属性优化提示：
 
-- **Tempo (BPM)**: Setel tempo secara langsung (misalnya, `120 BPM`, `slow tempo around 72 BPM`, `fast 160 BPM`).
-- **Kunci dan Skala**: Tentukan kunci root dan tonalitas (misalnya, `in G major`, `in D minor`, `in C pentatonic`).
-- **Suasana Hati dan Atmosfer**: Gunakan kata sifat emosional deskriptif:
+- **速度 (BPM)**：直接设置速度（例如 `120 BPM`、`slow tempo around 72 BPM`、`fast 160 BPM`）。
+- **调和音阶**：指定根音和调性（例如 `in G major`、`in D minor`、`in C pentatonic`）。
+- **曲调和氛围**：使用描述情感的形容词：
   `Ambient, Bright, Chill, Dark, Dreamy, Emotional, Ethereal, Euphoric, Funky, Groovy, Melancholic, Nostalgic, Ominous, Psychedelic, Relaxed, Soulful, Triumphant, Upbeat, Whimsical`
 
-## Membuat perintah Lyria RealTime
+## 为 Lyria RealTime 提供提示
 
-Lyria RealTime menggunakan **prompt berbobot**, bukan string prompt monolitik tunggal. Hal ini memungkinkan Anda memadukan beberapa pengaruh musik secara dinamis dan mengarahkan musik secara berkelanjutan melalui koneksi WebSocket.
+Lyria RealTime 使用**加权提示**，而不是单个整体提示字符串。这样一来，您就可以动态融合多种音乐风格，并通过 WebSocket 连接持续引导音乐。
 
-### Struktur perintah berbobot
+### 加权提示结构
 
-Setiap perintah berbobot terdiri dari frasa teks deskriptif dan bobot floating point:
+每个加权提示都包含一段描述性文字短语和一个浮点权重：
 
 ```
 prompts = [
@@ -194,35 +194,35 @@ prompts = [
 ]
 ```
 
-### Strategi pengarahan real-time
+### 实时转向策略
 
-- **Menggabungkan genre**: Gabungkan gaya yang berbeda dengan menetapkan bobot yang seimbang:
+- **混合流派**：通过分配均衡的权重来混合不同的风格：
   - `ambient synth pads (weight: 0.8)` + `lo-fi hip-hop drums (weight: 0.6)`
   - `flamenco guitar (weight: 0.7)` + `deep house groove (weight: 0.5)`
-- **Transisi dinamis**: Untuk mentransisikan musik dengan lancar, sesuaikan bobot perintah dari waktu ke waktu:
-  1. Diawali dengan `chill jazz piano (weight: 1.0)`.
-  2. Tambahkan `electronic breakbeat (weight: 0.3)` secara bertahap.
-  3. Tingkatkan `electronic breakbeat` menjadi `0.8` sambil menurunkan `chill jazz piano` menjadi `0.3`.
-- **Mengatur elemen berlapis**: Pisahkan tag instrumen dan tag suasana hati agar Anda dapat menyesuaikannya secara terpisah:
-  - Perintah 1: `bossa nova guitar (weight: 0.9)`
-  - Perintah 2: `warm acoustic bass (weight: 0.7)`
-  - Perintah 3: `subtle vinyl crackle (weight: 0.3)`
+- **动态过渡**：为了让音乐平稳过渡，请随时间调整提示权重：
+  1. 以 `chill jazz piano (weight: 1.0)` 开头的链。
+  2. 逐步添加 `electronic breakbeat (weight: 0.3)`。
+  3. 将 `electronic breakbeat` 提高到 `0.8`，同时将 `chill jazz piano` 降低到 `0.3`。
+- **分层元素**：将乐器标记和情绪标记分开，以便单独调整它们：
+  - 提示 1：`bossa nova guitar (weight: 0.9)`
+  - 提示 2：`warm acoustic bass (weight: 0.7)`
+  - 提示 3：`subtle vinyl crackle (weight: 0.3)`
 
-## Contoh perintah
+## 示例提示
 
-### Contoh Lyria 3.5
+### Lyria 3.5 示例
 
-- **Lo-Fi Study Beat**:
+- **Lo-Fi Study Beat**：
   `none
   A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes piano chords, a relaxed boom-bap drum groove at 82 BPM, and a warm upright bassline. Instrumental only.`
-- **Pop Anthem**:
+- **流行国歌**：
   `none
   An upbeat, feel-good indie-pop song in G major at 122 BPM. Bright acoustic guitar strumming, driving kick drum, handclaps, and warm female vocal harmonies. The lyrics describe an unforgettable summer road trip with friends.`
-- **Cinematic Cyberpunk**:
+- **Cinematic Cyberpunk**：
   `none
   Dark, cinematic cyberpunk synthwave at 110 BPM in D minor. Heavy distorted bass, ominous arpeggiated analog synthesizers, distant metallic percussion, and an ethereal female vocalise swelling during the climax.`
 
-### Setelan kemudi RealTime Lyria
+### Lyria RealTime 指向性设置
 
 ```
 # Initial high-energy groove
@@ -243,17 +243,17 @@ await session.set_weighted_prompts(
 )
 ```
 
-## Langkah berikutnya
+## 后续步骤
 
-- [Membuat musik dengan Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=id): Buat lagu lengkap dan klip berdurasi 30 detik menggunakan Interactions API.
-- [Pembuatan musik real-time dengan Lyria RealTime](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=id): Buat aplikasi streaming musik interaktif real-time melalui WebSockets.
+- [使用 Lyria 3.5 生成音乐](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-cn)：使用 Interactions API 生成完整歌曲和 30 秒的片段。
+- [使用 Lyria RealTime 实时音乐创作](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)：通过 WebSocket 构建实时交互式音乐串流应用。
 
-Kirim masukan
+发送反馈
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Terakhir diperbarui pada 2026-09-18 UTC.
+最后更新时间 (UTC)：2026-09-18。
 
-Ada masukan untuk kami?
+需要向我们提供更多信息？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-18。"],[],[]]

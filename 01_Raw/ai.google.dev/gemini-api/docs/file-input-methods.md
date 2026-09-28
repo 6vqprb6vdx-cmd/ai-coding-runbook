@@ -1,28 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl
-fetched_at: 2026-09-21T05:55:25.558970+00:00
-title: "Metody wprowadzania plik\u00f3w \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-BR
+fetched_at: 2026-09-28T06:10:12.464144+00:00
+title: "M\u00e9todos de entrada de arquivo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Metody wprowadzania plików
+# Métodos de entrada de arquivo
 
-W tym przewodniku wyjaśniamy różne sposoby dołączania plików multimedialnych, takich jak obrazy, dźwięk, wideo i dokumenty, podczas wysyłania żądań do interfejsu Gemini API.
-Nowe metody są obsługiwane we wszystkich punktach końcowych interfejsu Gemini API, w tym w interfejsach Batch, Interactions i Live API.
-Wybór odpowiedniej metody zależy od rozmiaru pliku, miejsca przechowywania danych i częstotliwości korzystania z pliku.
+Este guia explica as diferentes maneiras de incluir arquivos de mídia, como imagens, áudio, vídeo e documentos, ao fazer solicitações para a API Gemini.
+Os novos métodos são compatíveis com todos os endpoints da API Gemini, incluindo
+API Batch, Interactions e Live.
+A escolha do método certo depende do tamanho do arquivo, de onde os dados estão armazenados e da frequência com que você planeja usar o arquivo.
 
-Najprostszym sposobem na uwzględnienie pliku jako danych wejściowych jest odczytanie pliku lokalnego i uwzględnienie go w prompcie. Poniższy przykład pokazuje, jak odczytać lokalny plik PDF. W przypadku tej metody rozmiar plików PDF jest ograniczony do 50 MB. Pełną listę typów plików wejściowych i limitów znajdziesz w [tabeli porównawczej metod wprowadzania](#method-comparison).
+A maneira mais simples de incluir um arquivo como entrada é ler um arquivo local e
+incluí-lo em um comando. O exemplo a seguir mostra como ler um arquivo PDF local. Os PDFs são limitados a 50 MB para esse método. Consulte a [tabela de comparação de métodos de entrada](#method-comparison) para ver uma lista completa de tipos e limites de entrada de arquivos.
 
 ### Python
 
@@ -121,6 +123,61 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    pdfBytes, err := os.ReadFile("my_local_file.pdf")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Pdf := base64.StdEncoding.EncodeToString(pdfBytes)
+
+    prompt := "Summarize this document"
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+                interactions.NewContent(interactions.DocumentContent{
+                    Data:     genai.Ptr(base64Pdf),
+                    MimeType: interactions.DocumentContentMimeTypeApplicationPdf.ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -143,26 +200,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Porównanie metod wprowadzania
+## Comparação de métodos de entrada
 
-W tabeli poniżej znajdziesz porównanie poszczególnych metod wprowadzania danych z limitami plików i najlepszymi przypadkami użycia. Pamiętaj, że limit rozmiaru pliku może się różnić w zależności od typu pliku oraz modelu lub tokenizera użytego do jego przetworzenia.
+A tabela a seguir compara cada método de entrada com limites de arquivos e casos de uso recomendados. O limite de tamanho do arquivo pode variar dependendo do tipo de arquivo e do modelo ou tokenizador usado para processá-lo.
 
-| Metoda | Urządzenia | Maks. rozmiar pliku | Trwałość |
+| Método | Ideal para | Tamanho máximo do arquivo | Persistência |
 | --- | --- | --- | --- |
-| **Dane w treści** | Szybkie testowanie, małe pliki, aplikacje działające w czasie rzeczywistym. | 100 MB na żądanie lub ładunek   (**50 MB w przypadku plików PDF**) | Brak (wysyłany z każdym żądaniem) |
-| **Przesyłanie plików za pomocą interfejsu API** | Duże pliki, pliki używane wielokrotnie. | 2 GB na plik,   do 20 GB na projekt | 48 godzin |
-| **Rejestracja identyfikatora URI GCS interfejsu File API** | duże pliki, które są już w Google Cloud Storage, oraz pliki używane wielokrotnie. | 2 GB na plik, bez ogólnych limitów miejsca na dane | Brak (pobierane na żądanie). Jednorazowa rejestracja może zapewnić dostęp na maksymalnie 30 dni. |
-| **Zewnętrzne adresy URL** | dane publiczne lub dane w zasobnikach chmury (AWS, Azure, GCS) bez ponownego przesyłania; | 100 MB na żądanie lub ładunek | Brak (pobierane na żądanie) |
+| **Dados inline** | Testes rápidos, arquivos pequenos, aplicativos em tempo real. | 100 MB por solicitação ou payload   (**50 MB para PDFs**) | Nenhum (enviado com todas as solicitações) |
+| **Upload de arquivos da API** | Arquivos grandes, arquivos usados várias vezes. | 2 GB por arquivo,   até 20 GB por projeto | 48 horas |
+| **Registro de URI do GCS da API File** | Arquivos grandes já no Google Cloud Storage, arquivos usados várias vezes. | 2 GB por arquivo, sem limites gerais de armazenamento | Nenhum (buscado por solicitação). Um registro único pode dar acesso por até 30 dias. |
+| **URLs externos** | Dados públicos ou em buckets da nuvem (AWS, Azure, GCS) sem fazer upload novamente. | 100 MB por solicitação/payload | Nenhum (buscado por solicitação) |
 
-## Dane wbudowane
+## Dados inline
 
-W przypadku mniejszych plików (poniżej 100 MB lub 50 MB w przypadku plików PDF) możesz przekazać dane bezpośrednio w treści żądania. Jest to najprostsza metoda do szybkich testów lub aplikacji obsługujących dane przejściowe w czasie rzeczywistym. Dane możesz podawać jako ciągi zakodowane w formacie base64 lub przez bezpośrednie odczytywanie plików lokalnych.
+Para arquivos menores (menos de 100 MB ou 50 MB para PDFs), é possível transmitir os dados diretamente no payload da solicitação. Esse é o método mais simples para testes rápidos ou
+aplicativos que processam dados transitórios em tempo real. Você pode fornecer dados como strings codificadas em base64 ou lendo arquivos locais diretamente.
 
-Przykład odczytu z pliku lokalnego znajdziesz na początku tej strony.
+Para um exemplo de leitura de um arquivo local, consulte o exemplo no início
+desta página.
 
-### Pobieranie z adresu URL
+### Buscar de um URL
 
-Możesz też pobrać plik z adresu URL, przekonwertować go na bajty i uwzględnić w danych wejściowych.
+Também é possível buscar um arquivo de um URL, convertê-lo em bytes e incluí-lo na entrada.
 
 ### Python
 
@@ -268,6 +327,68 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "io"
+    "log"
+    "net/http"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    docURL := "https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf"
+    resp, err := http.Get(docURL)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.Body.Close()
+    docData, err := io.ReadAll(resp.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Pdf := base64.StdEncoding.EncodeToString(docData)
+
+    prompt := "Summarize this document"
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.DocumentContent{
+                    Data:     genai.Ptr(base64Pdf),
+                    MimeType: interactions.DocumentContentMimeTypeApplicationPdf.ToPointer(),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -311,13 +432,13 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## Gemini File API
+## API Gemini File
 
-Interfejs File API jest przeznaczony do większych plików (do 2 GB) lub plików, których zamierzasz używać w wielu żądaniach.
+A API File foi projetada para arquivos maiores (até 2 GB) ou arquivos que você pretende usar em várias solicitações.
 
-### Standardowe przesyłanie plików
+### Upload de arquivo padrão
 
-Prześlij plik lokalny do interfejsu Gemini API. Pliki przesłane w ten sposób są przechowywane tymczasowo (przez 48 godzin) i przetwarzane w celu efektywnego pobierania przez model.
+Faça upload de um arquivo local para a API Gemini. Os arquivos enviados dessa forma são armazenados temporariamente (48 horas) e processados para recuperação eficiente pelo modelo.
 
 ### Python
 
@@ -415,6 +536,60 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    docFile, err := client.Files.UploadFromPath(ctx, "path/to/your/sample.pdf", &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "Summarize this document"
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+                interactions.NewContent(interactions.DocumentContent{
+                    URI:      genai.Ptr(docFile.URI),
+                    MimeType: interactions.DocumentContentMimeType(docFile.MIMEType).ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -461,43 +636,47 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-### Rejestrowanie plików Google Cloud Storage
+### Registrar arquivos do Google Cloud Storage
 
-Jeśli dane są już w Google Cloud Storage, nie musisz ich pobierać i ponownie przesyłać. Możesz zarejestrować go bezpośrednio za pomocą interfejsu File API.
+Se os dados já estiverem no Google Cloud Storage, não será necessário fazer o download e o reenvio. É possível registrar diretamente com a API File.
 
-1. Przyznaj **agentowi usługi** dostęp do każdego zasobnika.
+1. Conceda ao **agente de serviço** acesso a cada bucket.
 
-   1. Włącz interfejs Gemini API w projekcie w chmurze Google.
-   2. Utwórz agenta usługi:
+   1. Ative a API Gemini no seu projeto do Google Cloud.
+   2. Crie o agente de serviço:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Przyznaj agentowi usługi Gemini API uprawnienia** do odczytu zasobników pamięci.
+   3. **Conceda ao agente de serviço da API Gemini permissões** para ler seus buckets de armazenamento.
 
-      Użytkownik musi przypisać do tego agenta usługi `Storage Object Viewer`
-      [rolę uprawnień](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=pl#storage.objectViewer) w określonych zasobnikach pamięci, których zamierza używać.
+      O usuário precisa atribuir o [papel do IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=pt-br#storage.objectViewer) `Storage Object Viewer` a esse agente de serviço nos buckets de armazenamento específicos que pretende usar.
 
-   Domyślnie ten dostęp nie wygasa, ale w każdej chwili możesz to zmienić. Możesz też użyć poleceń [pakietu Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=pl), aby przyznać uprawnienia.
-2. Uwierzytelnianie usługi
+   Esse acesso não expira por padrão, mas pode ser alterado a qualquer momento. Também é possível usar os comandos do [SDK do IAM do Google Cloud Storage](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=pt-br) para conceder permissões.
+2. Autenticar seu serviço
 
-   **Wymagania wstępne**
+   **Pré-requisitos**
 
-   - Włącz API
-   - Utwórz konto usługi lub agenta z odpowiednimi uprawnieniami.
+   - Ativar API
+   - Crie uma conta de serviço ou um agente com as permissões adequadas.
 
-   Najpierw musisz się uwierzytelnić jako usługa, która ma uprawnienia wyświetlającego obiekty Cloud Storage. Sposób działania zależy od środowiska, w którym będzie uruchamiany kod zarządzania plikami.
+   Primeiro, é necessário fazer a autenticação como o serviço que tem permissões de leitor de objetos do Storage. Isso depende do ambiente em que o código de gerenciamento de arquivos
+   será executado.
 
-   **Poza Google Cloud**
+   **Fora do Google Cloud**
 
-   Jeśli kod jest uruchamiany poza Google Cloud, np. na komputerze, pobierz dane logowania z konsoli Google Cloud, wykonując te czynności:
+   Se o código estiver sendo executado fora do Google Cloud, como no seu computador,
+   faça o download das credenciais da conta no console do Google Cloud seguindo estas etapas:
 
-   1. Otwórz [konsolę konta usługi](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=pl).
-   2. Wybierz odpowiednie konto usługi.
-   3. Kliknij kartę **Klucze** i wybierz **Dodaj klucz, Utwórz nowy klucz**.
-   4. Wybierz typ klucza **JSON** i zanotuj, gdzie plik został pobrany na komputer.
+   1. Acesse o [console da conta de serviço](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=pt-br).
+   2. Selecione a conta de serviço relevante
+   3. Selecione a guia **Chaves** e escolha **Adicionar chave, Criar nova chave**.
+   4. Escolha o tipo de chave **JSON** e observe onde o arquivo foi baixado na sua máquina.
 
-   Więcej informacji znajdziesz w oficjalnej dokumentacji Google Cloud na temat [zarządzania kluczami kont usługi](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=pl).
+   Para mais detalhes, consulte a documentação oficial do Google Cloud sobre
+   [gerenciamento de chaves de contas de serviço](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=pt-br).
 
-   Następnie użyj tych poleceń, aby się uwierzytelnić. W tych poleceniach zakłada się, że plik konta usługi znajduje się w bieżącym katalogu i ma nazwę `service-account.json`.
+   Em seguida, use os comandos abaixo para autenticar. Esses comandos pressupõem que o arquivo da
+   conta de serviço esteja no diretório atual, chamado
+   `service-account.json`.
 
    ### Python
 
@@ -535,7 +714,7 @@ Jeśli dane są już w Google Cloud Storage, nie musisz ich pobierać i ponownie
    });
    ```
 
-   ### Interfejs wiersza poleceń
+   ### CLI
 
    ```
    gcloud auth application-default login \
@@ -543,13 +722,13 @@ Jeśli dane są już w Google Cloud Storage, nie musisz ich pobierać i ponownie
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **W Google Cloud**
+   **No Google Cloud**
 
-   Jeśli korzystasz z Google Cloud bezpośrednio, np. za pomocą [funkcji Cloud Run](https://cloud.google.com/functions?hl=pl) lub [instancji Compute Engine](https://cloud.google.com/products/compute?hl=pl), masz domyślne dane logowania, ale musisz ponownie się uwierzytelnić, aby przyznać odpowiednie zakresy.
+   Se você estiver executando diretamente no Google Cloud, por exemplo, usando [funções do Cloud Run](https://cloud.google.com/functions?hl=pt-br) ou uma [instância do Compute Engine](https://cloud.google.com/products/compute?hl=pt-br), terá credenciais implícitas, mas precisará fazer a autenticação novamente para conceder os escopos adequados.
 
    ### Python
 
-   Ten kod oczekuje, że usługa działa w środowisku, w którym można automatycznie uzyskać [domyślne uwierzytelnianie aplikacji](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pl), np. w Cloud Run lub Compute Engine.
+   Esse código espera que o serviço esteja sendo executado em um ambiente em que as [Credenciais padrão de aplicativo](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pt-br) podem ser obtidas automaticamente, como o Cloud Run ou o Compute Engine.
 
    ```
    import google.auth
@@ -564,7 +743,7 @@ Jeśli dane są już w Google Cloud Storage, nie musisz ich pobierać i ponownie
 
    ### JavaScript
 
-   Ten kod oczekuje, że usługa działa w środowisku, w którym można automatycznie uzyskać [domyślne uwierzytelnianie aplikacji](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pl), np. w Cloud Run lub Compute Engine.
+   Esse código espera que o serviço esteja sendo executado em um ambiente em que as [Credenciais padrão de aplicativo](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pt-br) podem ser obtidas automaticamente, como o Cloud Run ou o Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -579,31 +758,57 @@ Jeśli dane są już w Google Cloud Storage, nie musisz ich pobierać i ponownie
 
 ### Java
 
-`java
+```
 import com.google.auth.oauth2.GoogleCredentials;
 import java.io.FileInputStream;
 import java.util.Arrays;
 import java.util.List;
+
 List<String> gcsReadScopes =
-Arrays.asList(
-"https://www.googleapis.com/auth/devstorage.read_only",
-"https://www.googleapis.com/auth/cloud-platform");
+    Arrays.asList(
+        "https://www.googleapis.com/auth/devstorage.read_only",
+        "https://www.googleapis.com/auth/cloud-platform");
+
 String serviceAccountFile = "service-account.json";
+
 GoogleCredentials credentials =
-GoogleCredentials.fromStream(new FileInputStream(serviceAccountFile))
-.createScoped(gcsReadScopes);`
+    GoogleCredentials.fromStream(new FileInputStream(serviceAccountFile))
+        .createScoped(gcsReadScopes);
+```
 
-### Interfejs wiersza poleceń
+### Go
 
-Jest to polecenie interaktywne. W przypadku usług takich jak Compute Engine możesz dołączyć zakresy do działającej usługi na poziomie konfiguracji. Przykład znajdziesz w [dokumentacji usługi zarządzanej przez użytkownika](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=pl#using).
+```
+package main
+
+import (
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    cc := &genai.ClientConfig{}
+    if err := cc.UseDefaultCredentials(); err != nil {
+        log.Fatal(err)
+    }
+    _ = cc.Credentials
+}
+```
+
+### CLI
+
+Este é um comando interativo. Para serviços como o Compute Engine, é possível anexar escopos ao
+serviço em execução no nível da configuração. Consulte a [documentação do serviço gerenciado pelo usuário](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=pt-br#using) para ver um exemplo.
 
 ```
 gcloud auth application-default login \
 --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
 ```
 
-1. Rejestracja plików (interfejs Files API)
-   Użyj interfejsu Files API, aby zarejestrować pliki i utworzyć ścieżkę interfejsu Files API, której można bezpośrednio używać w interfejsie Gemini API.
+1. Registro de arquivos (API Files)
+   Use a API Files para registrar arquivos e produzir um caminho da API Files que pode
+   ser usado diretamente na API Gemini.
 
    ### Python
 
@@ -720,7 +925,71 @@ for (File f : registeredGcsFiles.files().orElse(Collections.emptyList())) {
 }
 ```
 
-### Interfejs wiersza poleceń
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    cc := &genai.ClientConfig{}
+    if err := cc.UseDefaultCredentials(); err != nil {
+        log.Fatal(err)
+    }
+    client, err := genai.NewClient(ctx, cc)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    registeredGcsFiles, err := client.Files.RegisterFiles(
+        ctx,
+        []string{"gs://my_bucket/some_object.pdf", "gs://bucket2/object2.txt"},
+        cc.Credentials,
+        nil,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "Summarize this file."
+
+    for _, f := range registeredGcsFiles.Files {
+        fmt.Println(f.Name)
+        res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+            Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+                Model: interactions.Model("gemini-3.8-flash"),
+                Input: interactions.NewInteractionsInput([]interactions.Content{
+                    interactions.NewContent(interactions.TextContent{
+                        Text: prompt,
+                    }),
+                    interactions.NewContent(interactions.DocumentContent{
+                        URI:      genai.Ptr(f.URI),
+                        MimeType: interactions.DocumentContentMimeType(f.MIMEType).ToPointer(),
+                    }),
+                }),
+            }),
+        })
+        if err != nil {
+            log.Fatal(err)
+        }
+        if res.Interaction.OutputText != nil {
+            fmt.Println(*res.Interaction.OutputText)
+        }
+    }
+}
+```
+
+### CLI
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -732,10 +1001,11 @@ curl -X POST https://generativelanguage.googleapis.com/v1beta/files:register \
     -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
 ```
 
-## Zewnętrzne adresy URL HTTP / podpisane adresy URL
+## HTTP externo / URLs assinados
 
-W żądaniu możesz przekazywać publicznie dostępne adresy URL HTTPS lub wstępnie podpisane adresy URL. Interfejs Gemini API pobierze treść w bezpieczny sposób podczas przetwarzania.
-To idealne rozwiązanie w przypadku plików o rozmiarze do 100 MB, których nie chcesz przesyłać ponownie.
+É possível transmitir URLs HTTPS acessíveis publicamente ou URLs pré-assinados diretamente na sua
+solicitação. A API Gemini vai buscar o conteúdo de forma segura durante o processamento.
+Isso é ideal para arquivos de até 100 MB que você não quer reenviar.
 
 ### Python
 
@@ -800,21 +1070,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         }'
 ```
 
-### Ułatwienia dostępu
+### Acessibilidade
 
-Sprawdź, czy podane adresy URL nie prowadzą do stron, które wymagają logowania lub są umieszczone w sekcji płatnej. W przypadku prywatnych baz danych utwórz podpisany URL
-z prawidłowymi uprawnieniami dostępu i datą ważności.
+Verifique se os URLs fornecidos não levam a páginas que exigem login ou estão atrás de um paywall. Para bancos de dados particulares, crie um URL assinado
+com as permissões de acesso e o vencimento corretos.
 
-### Kontrole bezpieczeństwa
+### Confirmações de segurança
 
-System przeprowadza weryfikację adresu URL pod kątem moderacji treści, aby potwierdzić, że spełnia on standardy bezpieczeństwa i zasad. Jeśli URL nie przejdzie tego testu, otrzymasz `url_retrieval_status` z `URL_RETRIEVAL_STATUS_UNSAFE`.
+O sistema faz uma verificação de moderação de conteúdo no URL para confirmar se ele atende aos padrões de segurança e política. Se o URL não passar nessa verificação, você vai receber um
+`url_retrieval_status` de `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### Obsługiwane typy treści
+### Tipos de conteúdo compatíveis
 
-Ta lista obsługiwanych typów plików i ograniczeń ma charakter wstępny i nie jest wyczerpująca. Efektywny zestaw obsługiwanych typów może się zmieniać i różnić w zależności od konkretnego modelu i używanej wersji tokenizera. Nieobsługiwane typy spowodują błąd.
-Dodatkowo pobieranie treści w przypadku tych typów plików obsługuje tylko publicznie dostępne adresy URL.
+Essa lista de tipos de arquivo e limitações aceitos é apenas uma orientação inicial e não é abrangente. O conjunto efetivo de tipos compatíveis está sujeito a mudanças e pode variar de acordo com o modelo e a versão do tokenizador específicos em uso. Tipos incompatíveis vão resultar em um erro.
+Além disso, a recuperação de conteúdo para esses tipos de arquivo só é compatível com URLs de acesso público.
 
-#### Typy plików tekstowych
+#### Tipos de arquivos de texto
 
 - `text/html`
 - `text/css`
@@ -824,19 +1095,19 @@ Dodatkowo pobieranie treści w przypadku tych typów plików obsługuje tylko p
 - `text/rtf`
 - `text/javascript`
 
-#### Typy plików aplikacji
+#### Tipos de arquivo de aplicativo
 
 - `application/json`
 - `application/pdf`
 
-#### Typy plików graficznych:
+#### Tipos de arquivo de imagem
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Typy plików wideo
+#### Tipos de arquivo de vídeo
 
 - `video/mp4`
 - `video/mpeg`
@@ -848,32 +1119,37 @@ Dodatkowo pobieranie treści w przypadku tych typów plików obsługuje tylko p
 - `video/wmv`
 - `video/3gpp`
 
-## Sprawdzone metody
+## Práticas recomendadas
 
-- **Wybierz odpowiednią metodę:** w przypadku małych, tymczasowych plików używaj danych wbudowanych.
-  W przypadku większych lub często używanych plików używaj interfejsu File API. Używaj zewnętrznych adresów URL
-  w przypadku danych, które są już hostowane online.
-- **Określ typy MIME:** zawsze podawaj prawidłowy typ MIME danych pliku, aby zapewnić prawidłowe przetwarzanie.
-- **Obsługa błędów:** zaimplementuj w kodzie obsługę błędów, aby zarządzać potencjalnymi problemami, takimi jak awarie sieci, problemy z dostępem do plików lub błędy interfejsu API.
+- **Escolha o método certo**:use dados inline para arquivos pequenos e temporários.
+  Use a API File para arquivos maiores ou usados com frequência. Use URLs externos
+  para dados já hospedados on-line.
+- **Especifique tipos MIME**:sempre forneça o tipo MIME correto para os dados do arquivo para garantir o processamento adequado.
+- **Tratar erros**:implemente o tratamento de erros no seu código para gerenciar
+  possíveis problemas, como falhas de rede, problemas de acesso a arquivos ou erros
+  de API.
 
-## Ograniczenia
+## Limitações
 
-- Limity rozmiaru plików różnią się w zależności od metody (patrz [tabela porównawcza](#method-comparison)) i typu pliku.
-- Dane w tekście zwiększają rozmiar ładunku żądania.
-- Przesyłanie za pomocą interfejsu File API jest tymczasowe i wygasa po 48 godzinach.
-- Pobieranie zewnętrznych adresów URL jest ograniczone do 100 MB na ładunek i obsługuje określone typy treści.
+- Os limites de tamanho de arquivo variam de acordo com o método (consulte a [tabela de comparação](#method-comparison)) e o tipo de arquivo.
+- Os dados inline aumentam o tamanho do payload da solicitação.
+- Os uploads da API File são temporários e expiram após 48 horas.
+- A busca de URL externo é limitada a 100 MB por payload e é compatível com tipos de conteúdo específicos.
 
-## Co dalej?
+## A seguir
 
-- Wypróbuj pisanie własnych promptów multimodalnych w [Google AI Studio](http://aistudio.google.com/?hl=pl).
-- Informacje o tym, jak uwzględniać pliki w promptach, znajdziesz w przewodnikach [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=pl), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=pl) i [Przetwarzanie dokumentów](https://ai.google.dev/gemini-api/docs/document-processing?hl=pl).
+- Escreva seus próprios comandos multimodais usando o [Google AI Studio](http://aistudio.google.com/?hl=pt-br).
+- Para informações sobre como incluir arquivos nos comandos, consulte os guias de
+  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br),
+  [Áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br) e
+  [Processamento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br).
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-09-18 UTC.
+Última atualização 2026-09-24 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-24 UTC."],[],[]]

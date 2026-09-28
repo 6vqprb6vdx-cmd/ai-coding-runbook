@@ -1,37 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=zh-CN
-fetched_at: 2026-09-21T05:47:40.590306+00:00
-title: "\u4f7f\u7528 Gemini \u548c LlamaIndex \u7684\u7814\u7a76\u4ee3\u7406 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=tr
+fetched_at: 2026-09-28T06:17:38.099982+00:00
+title: "Gemini ve LlamaIndex ile ara\u015ft\u0131rma temsilcisi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-发送反馈
+Geri bildirim gönderin
 
-# 使用 Gemini 和 LlamaIndex 的研究代理
+# Gemini ve LlamaIndex ile araştırma temsilcisi
 
-LlamaIndex 是一个框架，用于使用连接到数据的 LLM 构建知识智能体。此示例向您展示了如何为研究智能体构建多智能体工作流。在 LlamaIndex 中，[`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
-是智能体和多智能体系统的构建块。
+LlamaIndex, verilerinize bağlı LLM'leri kullanarak bilgi aracıları oluşturmaya yönelik bir çerçevedir. Bu örnekte, bir Araştırma Ajanı için çoklu ajan iş akışının nasıl oluşturulacağı gösterilmektedir. LlamaIndex'te [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/), temsilci ve çoklu temsilci sistemlerinin yapı taşlarıdır.
 
-您需要 Gemini API 密钥。如果您还没有 API 密钥，可以在
-[Google AI Studio 中获取一个](https://aistudio.google.com/apikey?hl=zh-cn)。
-首先，安装所有必需的 LlamaIndex 库。LlamaIndex 在后台使用 `google-genai` 软件包。
+Gemini API anahtarına ihtiyacınız vardır. Henüz bir hesabınız yoksa [Google AI Studio'da hesap oluşturabilirsiniz](https://aistudio.google.com/apikey?hl=tr).
+Öncelikle, gerekli tüm LlamaIndex kitaplıklarını yükleyin. LlamaIndex, arka planda `google-genai` paketini kullanır.
 
 ```
 pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai llama-index-tools-google
 ```
 
-## 在 LlamaIndex 中设置 Gemini
+## LlamaIndex'te Gemini'ı kurma
 
-任何 LlamaIndex 智能体的引擎都是一个大语言模型，用于处理推理和文本处理。此示例使用 Gemini 3 Flash。[请确保将 API 密钥设置为环境变量。](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-cn)
+Herhangi bir LlamaIndex aracının motoru, akıl yürütme ve metin işlemeyi gerçekleştiren bir LLM'dir. Bu örnekte Gemini 3 Flash kullanılmaktadır. [API anahtarınızı ortam değişkeni olarak ayarladığınızdan](https://ai.google.dev/gemini-api/docs/api-key?hl=tr) emin olun.
 
 ```
 import os
@@ -43,11 +41,11 @@ assert 'GEMINI_API_KEY' in os.environ
 llm = GoogleGenAI(model="gemini-3.6-flash")
 ```
 
-## 构建工具
+## Derleme araçları
 
-智能体使用工具与外部世界互动，例如搜索网络或存储信息。[LlamaIndex 中的工具](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
-可以是常规 Python 函数，也可以从预先存在的 `ToolSpecs` 中导入。
-Gemini 附带一个用于使用 Google 搜索的内置工具，此处将使用该工具。
+Aracı, web'de arama yapmak veya bilgi depolamak gibi dış dünyayla etkileşim kurmak için araçları kullanır. [LlamaIndex'teki araçlar](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
+normal Python işlevleri olabilir veya önceden var olan `ToolSpecs`'dan içe aktarılabilir.
+Gemini, Google Arama'yı kullanmak için yerleşik bir araçla birlikte gelir. Burada bu araç kullanılır.
 
 ```
 from google.genai import types
@@ -62,21 +60,21 @@ llm_with_search = GoogleGenAI(
 )
 ```
 
-现在，使用需要搜索的查询测试 LLM 实例。本指南假定有一个正在运行的事件循环（例如 `python -m asyncio` 或 Google Colab）。
+Şimdi LLM örneğini arama gerektiren bir sorguyla test edin. Bu kılavuzda, çalışan bir etkinlik döngüsü (ör. `python -m asyncio` veya Google Colab) olduğu varsayılır.
 
 ```
 response = await llm_with_search.acomplete("What's the weather like today in Biarritz?")
 print(response)
 ```
 
-研究智能体将使用 Python 函数作为工具。您可以通过多种方式构建一个系统来执行此任务。在此示例中，您将使用以下内容：
+Araştırma Aracısı, Python işlevlerini araç olarak kullanır. Bu görevi gerçekleştirecek bir sistem oluşturmanın birçok yolu vardır. Bu örnekte aşağıdakileri kullanacaksınız:
 
-1. `search_web` 使用 Gemini 和 Google 搜索在网络上搜索有关给定主题的信息。
-2. `record_notes` 将在网络上找到的研究结果保存到状态，以便其他工具可以使用它。
-3. `write_report` 使用 `ResearchAgent` 找到的信息编写报告
-4. `review_report` 审核报告并提供反馈。
+1. `search_web`, verilen konuyla ilgili bilgileri web'de aramak için Google Arama ile Gemini'ı kullanır.
+2. `record_notes`, web'de bulunan araştırmaları diğer araçların kullanabilmesi için duruma kaydeder.
+3. `write_report`, `ResearchAgent` tarafından bulunan bilgileri kullanarak raporu yazar.
+4. `review_report` raporu inceler ve geri bildirim sağlar.
 
-`Context` 类在智能体/工具之间传递状态，每个智能体都可以访问系统的当前状态。
+`Context` sınıfı, durumları aracılar/araçlar arasında aktarır ve her aracı, sistemin mevcut durumuna erişebilir.
 
 ```
 from llama_index.core.workflow import Context
@@ -111,18 +109,18 @@ async def review_report(ctx: Context, review: str) -> str:
     return "Report reviewed."
 ```
 
-## 构建多智能体助理
+## Birden çok temsilcinin yer aldığı bir asistan oluşturma
 
-如需构建多智能体系统，您需要定义智能体及其互动。
-您的系统将包含三个智能体：
+Çoklu temsilci sistemi oluşturmak için temsilcileri ve etkileşimlerini tanımlarsınız.
+Sisteminizde üç temsilci bulunur:
 
-1. `ResearchAgent` 在网络上搜索有关给定主题的信息。
-2. `WriteAgent` 使用 `ResearchAgent` 找到的信息编写报告。
-3. `ReviewAgent` 审核报告并提供反馈。
+1. `ResearchAgent`, verilen konuyla ilgili bilgi için web'de arama yapar.
+2. `WriteAgent`, `ResearchAgent` tarafından bulunan bilgileri kullanarak raporu yazar.
+3. Bir `ReviewAgent` raporu inceler ve geri bildirim sağlar.
 
-此示例使用 `AgentWorkflow` 类创建一个多智能体系统，该系统将按顺序执行这些智能体。每个智能体都会获取一个 `system_prompt`，该提示会告知智能体应执行的操作，并建议如何与其他智能体协作。
+Bu örnekte, `AgentWorkflow` sınıfı kullanılarak bu aracıları sırayla yürütecek çok aracılı bir sistem oluşturuluyor. Her aracı, ne yapması gerektiğini söyleyen ve diğer aracılarla nasıl çalışılacağını öneren bir `system_prompt` alır.
 
-（可选）您可以使用 `can_handoff_to` 指定多智能体系统可以与其他哪些智能体通信，从而帮助该系统（否则，它会尝试自行确定）。
+İsteğe bağlı olarak, `can_handoff_to` kullanarak çoklu aracı sisteminizin hangi diğer aracılarla konuşabileceğini belirterek sisteminize yardımcı olabilirsiniz (Aksi takdirde, sistem bunu kendi başına bulmaya çalışır).
 
 ```
 from llama_index.core.agent.workflow import (
@@ -172,7 +170,7 @@ review_agent = FunctionAgent(
 )
 ```
 
-智能体已定义，现在您可以创建 `AgentWorkflow` 并高效运转它。
+Aracıları tanımladığınıza göre artık `AgentWorkflow` oluşturup uygulayabilirsiniz.
 
 ```
 from llama_index.core.agent.workflow import AgentWorkflow
@@ -188,7 +186,7 @@ agent_workflow = AgentWorkflow(
 )
 ```
 
-在工作流执行期间，您可以将事件、工具调用和更新流式传输到控制台。
+İş akışı yürütülürken etkinlikleri, araç çağrılarını ve güncellemeleri konsola aktarabilirsiniz.
 
 ```
 from llama_index.core.agent.workflow import (
@@ -236,7 +234,7 @@ async for event in handler.stream_events():
         print(f"  With arguments: {event.tool_kwargs}")
 ```
 
-工作流完成后，您可以打印报告的最终输出，以及审核智能体的最终审核状态。
+İş akışı tamamlandıktan sonra raporun nihai çıktısını ve inceleme aracısının nihai inceleme durumunu yazdırabilirsiniz.
 
 ```
 state = await handler.ctx.store.get("state")
@@ -244,27 +242,24 @@ print("Report Content:\n", state["report_content"])
 print("\n------------\nFinal Review:\n", state["review"])
 ```
 
-## 使用自定义工作流进一步探索
+## Özel iş akışlarıyla daha fazlasını yapın
 
-`AgentWorkflow` 是开始使用多智能体系统的绝佳方式。但如果您需要更多控制权，该怎么办？您可以从头开始构建工作流。以下是您可能需要构建自己的工作流的一些原因：
+`AgentWorkflow`, çoklu aracı sistemlerini kullanmaya başlamak için harika bir yöntemdir. Ancak daha fazla kontrole ihtiyacınız varsa ne yapmalısınız? Sıfırdan bir iş akışı oluşturabilirsiniz. Kendi iş akışınızı oluşturmak isteyebileceğiniz bazı nedenler şunlardır:
 
-- **更好地控制流程**：您可以决定智能体采取的确切路径
-  。这包括创建循环、在特定时间点做出决策，或让智能体并行处理不同的任务。
-- **使用复杂数据**：超越纯文本。借助自定义工作流，您可以将更多结构化数据（例如 JSON 对象或自定义类）用于输入和输出。
-- **使用不同的媒体**：构建不仅可以理解和处理文本，还可以理解和处理图像、音频和视频的智能体。
-- **更智能的规划**：您可以设计一个工作流，让智能体先制定
-  详细计划，然后再开始工作。这对于需要多个步骤的复杂任务非常有用。
-- **启用自我纠正**：创建可以审核自己工作的智能体。如果输出不够好，智能体可以重试，从而创建一个改进循环，直到结果完美为止。
+- **Süreç üzerinde daha fazla kontrol**: Temsilcilerinizin izleyeceği yolu tam olarak belirleyebilirsiniz. Buna döngüler oluşturma, belirli noktalarda kararlar alma veya temsilcilerin farklı görevler üzerinde paralel olarak çalışmasını sağlama dahildir.
+- **Karmaşık veriler kullanın**: Düz metnin ötesine geçin. Özel iş akışları, giriş ve çıkışlarınız için JSON nesneleri veya özel sınıflar gibi daha fazla yapılandırılmış veri kullanmanıza olanak tanır.
+- **Farklı medya türleriyle çalışma**: Yalnızca metni değil, resimleri, sesleri ve videoları da anlayıp işleyebilen aracılar oluşturun.
+- **Daha akıllı planlama**: Temsilciler çalışmaya başlamadan önce ayrıntılı bir plan oluşturan bir iş akışı tasarlayabilirsiniz. Bu özellik, birden fazla adım gerektiren karmaşık görevler için yararlıdır.
+- **Kendi kendini düzeltme özelliğini etkinleştirme**: Kendi çalışmalarını inceleyebilen aracılar oluşturun. Çıkış yeterince iyi değilse aracı tekrar deneyebilir ve sonuç mükemmel olana kadar iyileştirme döngüsü oluşturabilir.
 
-如需详细了解 LlamaIndex 工作流，请参阅 [LlamaIndex 工作流
-文档](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)。
+LlamaIndex Workflows hakkında daha fazla bilgi edinmek için [LlamaIndex Workflows Belgeleri](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)'ne bakın.
 
-发送反馈
+Geri bildirim gönderin
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最后更新时间 (UTC)：2026-09-12。
+Son güncelleme tarihi: 2026-09-12 UTC.
 
-需要向我们提供更多信息？
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]

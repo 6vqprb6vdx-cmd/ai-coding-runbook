@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=fr
-fetched_at: 2026-09-21T05:52:45.462301+00:00
-title: "Mod\u00e8le Gemini Embedding\u00a02 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=tr
+fetched_at: 2026-09-28T06:07:12.942725+00:00
+title: "Gemini Embedding 2 modeli \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-# Modèle Gemini Embedding 2
+# Gemini Embedding 2 modeli
 
-Notre premier modèle d'embedding multimodal, qui fournit un mappage numérique efficace du texte, des images, des vidéos, de l'audio et des PDF dans un seul espace d'embedding unifié. Le modèle Gemini Embedding 2 est idéal pour la recherche sémantique intermodale, la récupération de documents et les systèmes de recommandation qui nécessitent des calculs de similarité rapides et évolutifs sur de grands ensembles de données multimodales.
+Metin, resim, video, ses ve PDF'lerin tek bir birleşik yerleştirme alanında verimli sayısal eşlemesini sağlayan ilk çok formatlı yerleştirme modelimiz. Gemini Embedding 2 modeli, büyük çok formatlı veri kümelerinde hızlı ve ölçeklenebilir benzerlik hesaplamaları gerektiren çok formatlı semantik arama, doküman alma ve öneri sistemleri için en uygun modeldir.
 
-## Documentation
+## Belgeler
 
-Consultez la page [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr) pour obtenir une couverture complète
-des fonctionnalités.
+Özellikler ve işlevler hakkında kapsamlı bilgi için [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr) sayfasını ziyaret edin.
 
 ## gemini-embedding-2
 
-| Propriété | Description |
+| Mülk | Açıklama |
 | --- | --- |
-| id\_cardCode du modèle | **API Gemini**  `gemini-embedding-2` |
-| saveTypes de données acceptés | **Entrée**  Texte, image, vidéo, audio, PDF  **Résultat**  Embeddings textuels |
-| token\_auto[Limites de jetons[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  8 192  **Taille de la dimension de sortie**  Flexible, compatible avec : 128 à 3 072, recommandé : 768, 1 536, 3 072 |
-| 123Versions | Pour en savoir plus, consultez les [modèles de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Stable: `gemini-embedding-2` |
-| calendar\_monthDernière mise à jour | Avril 2026 |
+| id\_cardModel kodu | **Gemini API**  `gemini-embedding-2` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim, video, ses, PDF  **Çıkış**  Metin yerleştirmeleri |
+| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  8.192  **Çıkış boyutu**  Esnek, desteklenen boyutlar: 128 - 3072, Önerilen boyutlar: 768, 1536, 3072 |
+| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Kararlı: `gemini-embedding-2` |
+| calendar\_monthSon güncelleme | Nisan 2026 |
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Dernière mise à jour le 2026/04/29 (UTC).
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

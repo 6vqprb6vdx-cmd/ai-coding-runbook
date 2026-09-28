@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=it
-fetched_at: 2026-09-21T05:50:19.681745+00:00
+fetched_at: 2026-09-28T06:07:57.365263+00:00
 title: "API Gemini Developer e piattaforma agentica Gemini Enterprise \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

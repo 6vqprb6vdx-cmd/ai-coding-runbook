@@ -1,114 +1,126 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=tr
-fetched_at: 2026-09-21T05:55:16.316309+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=th
+fetched_at: 2026-09-28T06:22:30.215469+00:00
 title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Nano Banana ile görüntü üretme
+# การสร้างรูปภาพด้วย Nano Banana
 
-Tam işlevli, kullanıcı arayüzü tamamlanmış uygulamaların prototipini oluşturmak için istem girin ve Nano Banana 2'nin gerçek dünya araçları, verileri ve Gemini ekosistemiyle entegre edildiğini görün. Tüm bunları tek bir kod satırı yazmadan yapabilirsiniz.
+พรอมต์เพื่อสร้างต้นแบบแอปที่ทำงานได้อย่างเต็มรูปแบบและมี UI ที่สมบูรณ์
+และดู Nano Banana 2 ที่ผสานรวมกับเครื่องมือ ข้อมูล และระบบนิเวศ Gemini
+ในโลกแห่งความเป็นจริง ทั้งหมดนี้ก่อนที่จะเขียนโค้ดแม้แต่บรรทัดเดียว
 
-- [Nano Banana 2 uygulamasını deneyin](https://aistudio.google.com/apps/bundled/pet_passport?hl=tr)
-- Dilerseniz istemleri kullanarak kendi uygulamanızı oluşturabilirsiniz:
+- [ลองใช้แอป Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=th)
+- หรือสร้างเองจากพรอมต์
 
-- ![dergi](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
-  ![londra](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![restore](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![muz](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![makale](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![köpek](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![izometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![dergi](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![นิตยสาร](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![ลอนดอน](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  ![คืนค่า](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![กล้วย](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+  ![ร้านกาแฟ](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![บทความ](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![สุนัข](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![ไอโซเมตริก](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![นิตยสาร](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Nano Banana 2 tarafından üretildi
+  สร้างโดย Nano Banana 2
 
-  **İstem:** "Parlak bir dergi kapağının fotoğrafı. Minimalist mavi kapakta büyük ve kalın Nano Banana yazıyor. Metin, serif yazı tipinde ve görünümü dolduruyor. Başka metin yok. Metnin önünde, şık ve minimalist bir elbise giymiş bir kişinin portresi var. Odak noktası olan 2 rakamını eğlenceli bir şekilde tutuyor.
+  **พรอมต์:** "รูปภาพหน้าปกนิตยสารแบบมัน หน้าปกสีน้ำเงินแบบมินิมอลมีคำว่า Nano Banana ตัวหนาขนาดใหญ่ ข้อความอยู่ในแบบอักษร Serif และแสดงเต็มมุมมอง ไม่มีข้อความอื่น ด้านหน้าข้อความมีภาพบุคคลที่สวมชุดเรียบหรูและมินิมอล โดยเธอถือหมายเลข 2 อย่างสนุกสนาน ซึ่งเป็นจุดโฟกัส
     
-  Köşeye, barkodun yanı sıra sayı numarasını ve "Şubat 2026" tarihini ekleyin. Dergi, tasarımcı mağazasında turuncu sıvalı bir duvarın önündeki rafta duruyor."
+  ใส่หมายเลขฉบับและวันที่ "ก.พ. 2026" ไว้ที่มุมพร้อมกับบาร์โค้ด นิตยสารวางอยู่บนชั้นวางติดกับผนังสีส้มที่ฉาบปูนภายในร้านค้าของดีไซเนอร์"
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=tr)'da [profesyonel ürün çekimleri](#4_product_mockups_commercial_photography) oluşturma
-- ![londra](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  สร้าง[ภาพถ่ายสินค้าแบบมืออาชีพ](#4_product_mockups_commercial_photography)ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=th)
+- ![ลอนดอน](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Nano Banana Pro ile üretildi
+  สร้างโดย Nano Banana Pro
 
-  **İstem:** "Londra'nın en ikonik simge yapılarını ve mimari unsurlarını içeren, 45 derecelik yukarıdan bakış açılı net bir izometrik minyatür 3D çizgi film sahnesi oluştur. Gerçekçi PBR malzemeleri ve yumuşak, gerçekçi ışıklandırma ve gölgelerle yumuşak ve zarif dokular kullanın. Etkileyici bir atmosfer oluşturmak için mevcut hava koşullarını doğrudan şehir ortamına entegre edin. Yumuşak ve tek renkli bir arka planla temiz ve minimalist bir kompozisyon kullanın. En üstte ortada, büyük ve kalın harflerle "Londra" başlığını, altında belirgin bir hava durumu simgesini, ardından tarihi (küçük metin) ve sıcaklığı (orta metin) yerleştirin. Tüm metinler, tutarlı bir boşlukla ortalanmalı ve binaların üst kısımlarıyla hafifçe çakışabilir."
+  **พรอมต์:** "นำเสนอฉากการ์ตูน 3 มิติขนาดเล็กแบบไอโซเมตริกจากมุมมองด้านบน 45° ที่ชัดเจนของลอนดอน โดยมีสถานที่สำคัญและองค์ประกอบทางสถาปัตยกรรมที่โดดเด่นที่สุด ใช้พื้นผิวที่นุ่มนวลและละเอียดด้วยวัสดุ PBR ที่สมจริง รวมถึงแสงและเงาที่นุ่มนวลและสมจริง ผสานรวมสภาพอากาศปัจจุบันเข้ากับสภาพแวดล้อมของเมืองโดยตรงเพื่อสร้างบรรยากาศที่สมจริง ใช้การจัดองค์ประกอบที่เรียบง่ายและสะอาดตาโดยมีพื้นหลังสีทึบแบบนุ่ม ที่ด้านบนตรงกลาง ให้วางชื่อ "ลอนดอน" เป็นข้อความตัวหนาขนาดใหญ่ ไอคอนสภาพอากาศที่โดดเด่นไว้ใต้ชื่อ จากนั้นวางวันที่ (ข้อความขนาดเล็ก) และอุณหภูมิ (ข้อความขนาดกลาง) ข้อความทั้งหมดต้องอยู่ตรงกลางโดยมีระยะห่างที่สอดคล้องกัน และอาจซ้อนทับส่วนบนของอาคารเล็กน้อย"
 
-  [Arama temellendirmesi](#use-with-grounding) hakkında daha fazla bilgi edinin ve [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=tr)'da deneyin.
-- ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ดูข้อมูลเพิ่มเติมเกี่ยวกับ[การอ้างอิงจาก Search](#use-with-grounding) และลองใช้ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=th)
+- ![เควตซัล](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Nano Banana 2 tarafından üretildi
+  สร้างโดย Nano Banana 2
 
-  **İstem:** "Görsel arama özelliğini kullanarak parlak bir ketsal kuşunun doğru resimlerini bul. Bu kuşun, yukarıdan aşağıya doğal bir renk geçişi ve minimal bir kompozisyonla 3:2 oranında güzel bir duvar kağıdını oluştur."
+  **พรอมต์:** "ใช้การค้นหารูปภาพเพื่อหารูปภาพที่ถูกต้องของนกเควทซัลที่สวยงาม สร้างวอลเปเปอร์ขนาด 3:2 ที่สวยงามของนกตัวนี้ โดยใช้การไล่ระดับสีจากบนลงล่างตามธรรมชาติและองค์ประกอบที่เรียบง่าย"
 
-  Nano Banana 2 ile Google [Görsel Arama](#image-search)'yı kullanın. [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=tr)'da deneyin.
-- ![muz](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  ใช้การอ้างอิง [Image Search](#image-search) ของ Google กับ Nano Banana 2 ลองใช้ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=th)
+- ![กล้วย](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Nano Banana Pro ile üretildi
+  สร้างโดย Nano Banana Pro
 
-  **İstem:** "Bu logoyu muz kokulu bir parfümün üst düzey reklamına yerleştir. Logo, şişeye mükemmel şekilde entegre edilmiş."
+  **พรอมต์:** "ใส่โลโก้นี้ในโฆษณาน้ำหอมกลิ่นกล้วยระดับไฮเอนด์ โลโก้ผสานรวมเข้ากับขวดได้อย่างลงตัว"
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=tr)'da Nano Banana'nın [yüksek kaliteli ayrıntı koruma](#5_high-fidelity_detail_preservation) özelliğini deneyin.
-- ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ลองใช้[การคงรายละเอียดที่มีความเที่ยงตรงสูง](#5_high-fidelity_detail_preservation)ของ Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=th)
+- ![ร้านกาแฟ](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Nano Banana Pro ile üretildi
+  สร้างโดย Nano Banana Pro
 
-  **İstem:** "Kahvaltı servisi yapan kalabalık bir kafedeki günlük bir sahnenin fotoğrafı. Ön planda mavi saçlı bir anime karakteri var. Kişilerden biri kalemle çizilmiş, diğeri ise kil animasyon karakteri.
+  **พรอมต์:** "รูปภาพฉากในชีวิตประจำวันที่คาเฟ่ที่วุ่นวายซึ่งเสิร์ฟอาหารเช้า ในเบื้องหน้าเป็นชายหนุ่มในการ์ตูนที่มีผมสีน้ำเงิน คนหนึ่งเป็นภาพร่างดินสอ อีกคนเป็นตัวละครดินน้ำมัน"
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=tr)'da Nano Banana ile farklı [sanatsal stilleri](#3_style_transfer) deneyin.
-- ![makale](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ทดลองใช้[สไตล์ศิลปะ](#3_style_transfer)ต่างๆ ด้วย Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=th)
+- ![บทความ](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Nano Banana Pro ile üretildi
+  สร้างโดย Nano Banana Pro
 
-  **İstem:** "Gemini 3 Flash'in kullanıma sunulmasının nasıl karşılandığını bulmak için aramayı kullan. Bu bilgileri kullanarak konuyla ilgili kısa bir makale (başlıklarla birlikte) yaz. Makalenin, tasarıma odaklanan parlak bir dergide göründüğü şeklinin fotoğrafını döndür. Bu resimde, Gemini 3 Flash ile ilgili makalenin yer aldığı, katlanmış tek bir sayfa gösteriliyor. Bir lokomotif fotoğraf. Serif yazı tipinde başlık."
+  **พรอมต์:** "ใช้ Search เพื่อดูว่าผู้คนตอบรับการเปิดตัว Gemini 3 Flash อย่างไร ใช้ข้อมูลนี้เพื่อเขียนบทความสั้นๆ เกี่ยวกับเรื่องนี้ (พร้อมหัวข้อ) ส่งคืนรูปภาพของบทความตามที่ปรากฏในนิตยสารแบบมันที่เน้นการออกแบบ เป็นรูปภาพของหน้าเดียวที่พับอยู่ ซึ่งแสดงบทความเกี่ยวกับ Gemini 3 Flash รูปภาพหลัก 1 รูป บรรทัดแรกในแบบอักษร Serif"
 
-  [Arama](#use-with-grounding) sonuçlarından [doğru metinler](#3_accurate_text_in_images) oluşturun. [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=tr)'da Nano Banana'yı deneyin
-- ![köpek](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  สร้าง[ข้อความที่ถูกต้อง](#3_accurate_text_in_images)จาก[การค้นหา](#use-with-grounding) ลองใช้ Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=th)
+- ![สุนัข](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Nano Banana Pro ile üretildi
+  สร้างโดย Nano Banana Pro
 
-  **İstem:** "Sevimli bir köpeği temsil eden simge. Arka plan beyaz olmalı. Simgeleri renkli ve dokunma hissi uyandıran 3D tarzında oluştur. Metin yok."
+  **พรอมต์:** "ไอคอนที่แสดงสุนัขน่ารัก พื้นหลังเป็นสีขาว สร้างไอคอนในสไตล์ 3 มิติที่มีสีสันสดใสและรับรู้ได้ด้วยการสัมผัส ไม่มีข้อความ"
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=tr)'da Nano Banana ile [simgeler, çıkartmalar ve öğeler](#2_stylized_illustrations_stickers) oluşturma
-- ![izometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  สร้าง[ไอคอน สติกเกอร์ และชิ้นงาน](#2_stylized_illustrations_stickers)ด้วย Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=th)
+- ![ไอโซเมตริก](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Nano Banana 2 tarafından üretildi
+  สร้างโดย Nano Banana 2
 
-  **İstem:** "Tamamen izometrik bir fotoğraf oluştur. Bu, minyatür değil, yalnızca mükemmel bir şekilde izometrik olan bir fotoğraftır. Bu, güzel bir modern bahçenin fotoğrafı. 2 şeklinde büyük bir havuz ve "Nano Banana 2" yazısı var."
+  **พรอมต์:** "สร้างรูปภาพที่สมมาตรอย่างสมบูรณ์ นี่ไม่ใช่ภาพขนาดเล็ก แต่เป็นภาพที่ถ่ายได้ซึ่งมีลักษณะเป็นไอโซเมตริกอย่างสมบูรณ์แบบ เป็นรูปภาพของสวนสมัยใหม่ที่สวยงาม มีสระว่ายน้ำขนาดใหญ่รูปเลข 2 และคำว่า "Nano Banana 2"
 
-  [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=tr)'da [gerçekçi görüntü üretme](#1_photorealistic_scenes) özelliğini deneyin
+  ลองใช้[การสร้างรูปภาพที่สมจริง](#1_photorealistic_scenes)ใน [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=th)
 
-**Nano Banana**, Gemini'ın yerel görüntü üretme özelliklerinin adıdır.
-Gemini, metin, resim, video veya bunların kombinasyonuyla etkileşimli olarak resim oluşturabilir ve işleyebilir. Bu sayede, görselleri benzeri görülmemiş bir kontrolle oluşturabilir, düzenleyebilir ve yineleyebilirsiniz.
+**Nano Banana** คือชื่อของความสามารถในการสร้างรูปภาพดั้งเดิมของ Gemini
+Gemini สามารถสร้างและประมวลผลรูปภาพแบบสนทนา
+ด้วยข้อความ รูปภาพ วิดีโอ หรือการผสมผสานกัน ซึ่งช่วยให้คุณสร้าง แก้ไข และ
+ทำซ้ำภาพด้วยการควบคุมที่ไม่เคยมีมาก่อน
 
-Nano Banana, Gemini API'de bulunan dört farklı modeli ifade eder:
+Nano Banana หมายถึงโมเดลที่แตกต่างกัน 4 โมเดลซึ่งพร้อมใช้งานใน Gemini API
 
-- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=tr))
-  (`gemini-3.1-flash-lite-image`):** Hız ve maliyetin temel operasyonel kısıtlamalar olduğu durumlarda hız ve ölçek için tasarlanmış, en hızlı ve en uygun fiyatlı Gemini görüntü modelimiz. Birden fazla referans girişi veya çok aşamalı etkileşimli sıralı düzenleme için optimize edilmemiştir.
-- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=tr))
-  (`gemini-3.1-flash-image`):** En çok yönlü modeldir ve tüm görevler için genel amaçlı bir model olarak kullanılır. Hız ile son teknoloji 4K görüntü üretimi, dünya bilgisi ve güvenilir metin oluşturma arasında denge kurar. Birden fazla referans görselin işlenmesi ve tutarlılık konusunda mükemmel sonuçlar verir.
-- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=tr))
-  (`gemini-3-pro-image`):** En karmaşık görsel görevler için premium seçenek. Dünya bilgisi, gelişmiş yerelleştirme, marka tutarlılığı ve hassas yaratıcı kontrol konusunda en üst düzeyde performans sunar.
-- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=tr))
-  (`gemini-2.5-flash-image`):** Nano Banana serisinin öncüsü.
-  Güvenilir bir araç olsa da müşterilerin gelişmiş kalite, daha hızlı oluşturma hızları ve daha düşük API fiyatlandırması için Nano Banana 2 Lite'a geçmelerini önemle tavsiye ederiz.
+- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=th))
+  (`gemini-3.1-flash-lite-image`):** โมเดลรูปภาพ Gemini ที่เร็วและถูกที่สุดของเรา
+  ออกแบบมาเพื่อความเร็วและขนาดที่ความเร็วและต้นทุนเป็น
+  ข้อจำกัดในการดำเนินงานหลัก ไม่ได้เพิ่มประสิทธิภาพสำหรับการป้อนข้อมูลอ้างอิงหลายรายการ
+  หรือการแก้ไขแบบต่อเนื่องหลายรอบ
+- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=th))
+  (`gemini-3.1-flash-image`):** ทำหน้าที่เป็นโมเดลที่อเนกประสงค์ที่สุด ซึ่งเป็นโมเดล
+  เวิร์กฮอร์สแบบทั่วไปสำหรับทุกงาน โดยจะผสานความเร็วเข้ากับการสร้างวิดีโอ 4K
+  ที่ล้ำสมัย ความรู้เกี่ยวกับโลก และการแสดงข้อความที่เชื่อถือได้ ความสามารถในการ
+  ประมวลผลรูปภาพอ้างอิงหลายรูปและความสอดคล้องกัน
+- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=th))
+  (`gemini-3-pro-image`):** ตัวเลือกพรีเมียมสำหรับงานด้านภาพที่ซับซ้อนที่สุด
+  ซึ่งมีความรู้เกี่ยวกับโลกในระดับสูงสุด การแปลขั้นสูง
+  ความสอดคล้องของแบรนด์ที่แม่นยำ และการควบคุมครีเอทีฟโฆษณาที่แม่นยำ
+- **Nano Banana ([รูปภาพ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=th))
+  (`gemini-2.5-flash-image`):** ผู้บุกเบิกซีรีส์ Nano Banana รุ่นเดิม
+  แม้ว่าจะเป็นโมเดลที่ใช้งานได้ดี แต่เราขอแนะนำให้ลูกค้าเปลี่ยนไปใช้ Nano Banana 2 Lite เพื่อสัมผัสคุณภาพที่ดียิ่งขึ้น ความเร็วในการสร้างที่เร็วขึ้น และราคา API ที่ถูกลง
 
-Üretilen tüm görüntülerde [SynthID filigranı](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=tr) bulunur.
+รูปภาพที่สร้างขึ้นทั้งหมดจะมี[ลายน้ำ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=th)
 
-## Görüntü üretme (metinden görüntü oluşturma)
+## การสร้างรูปภาพ (เปลี่ยนข้อความเป็นรูปภาพ)
 
 ### Python
 
@@ -297,15 +309,16 @@ curl -s -X POST \
   }'
 ```
 
-## Görüntü düzenleme (metin ve görüntüden görüntüye)
+## การแต่งรูป (เปลี่ยนข้อความและรูปภาพเป็นรูปภาพ)
 
-**Hatırlatma**: Yüklediğiniz tüm resimlerle ilgili gerekli haklara sahip olduğunuzdan emin olun.
-Başkalarının haklarını ihlal eden içerikler (ör. yanıltıcı, taciz edici veya zarar verici videolar ya da görüntüler) üretmeyin. Bu üretken yapay zeka hizmetinin kullanımı [Yasaklanan Kullanım Politikamıza](https://policies.google.com/terms/generative-ai/use-policy?hl=tr) tabidir.
+**โปรดทราบ**: โปรดตรวจสอบว่าคุณมีสิทธิ์ที่จำเป็นสำหรับรูปภาพใดก็ตามที่คุณอัปโหลด
+อย่าสร้างเนื้อหาที่ละเมิดสิทธิของผู้อื่น รวมถึงวิดีโอหรือรูปภาพที่หลอกลวง คุกคาม หรือเป็นอันตราย การใช้บริการ Generative AI นี้อยู่ภายใต้[นโยบายการใช้งานที่ไม่อนุญาต](https://policies.google.com/terms/generative-ai/use-policy?hl=th)ของเรา
 
-Resim sağlayın ve metin istemlerini kullanarak öğe ekleyin, kaldırın veya değiştirin, stili değiştirin ya da renk derecelendirmesini ayarlayın.
+ระบุรูปภาพและใช้พรอมต์ข้อความเพื่อเพิ่ม นำออก หรือแก้ไของค์ประกอบ
+เปลี่ยนสไตล์ หรือปรับการไล่ระดับสี
 
-Aşağıdaki örnekte, `base64` kodlu resimlerin nasıl yükleneceği gösterilmektedir.
-Birden fazla resim, daha büyük yükler ve desteklenen MIME türleri için [Resim anlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr) sayfasını inceleyin.
+ตัวอย่างต่อไปนี้แสดงการอัปโหลดรูปภาพที่เข้ารหัส `base64`
+สำหรับรูปภาพหลายรูป เพย์โหลดขนาดใหญ่ และประเภท MIME ที่รองรับ โปรดดูหน้า[การทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
 
 ### Python
 
@@ -548,9 +561,10 @@ curl -s -X POST \
     }"
 ```
 
-### Çok aşamalı etkileşimli görüntü düzenleme
+### การแต่งรูปภาพแบบต่อเนื่อง
 
-Görsel oluşturmaya ve düzenlemeye sohbet ederek devam edin. Resimler üzerinde yineleme yapmak için sohbet veya çok turlu görüşme önerilir. Aşağıdaki örnekte, fotosentez hakkında infografik oluşturma istemi gösterilmektedir.
+สร้างและแก้ไขรูปภาพต่อไปด้วยการสนทนา แชทหรือการสนทนาไปมาเป็นวิธีที่แนะนำในการทำซ้ำรูปภาพ ตัวอย่างต่อไปนี้
+แสดงพรอมต์ในการสร้างอินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสง
 
 ### Python
 
@@ -782,11 +796,11 @@ curl -s -X POST \
   }'
 ```
 
-![Fotosentez hakkında yapay zekayla üretilmiş infografik](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=tr)
+![อินโฟกราฟิกที่ AI สร้างขึ้นเกี่ยวกับการสังเคราะห์ด้วยแสง](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=th)
 
-Fotosentez hakkında yapay zekayla üretilmiş infografik
+อินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสงที่ AI สร้างขึ้น
 
-Ardından, grafikteki dili İspanyolca olarak değiştirmek için aynı sohbeti kullanabilirsiniz.
+จากนั้นคุณสามารถใช้แชทเดียวกันเพื่อเปลี่ยนภาษาในกราฟิกเป็นภาษาสเปน
 
 ### Python
 
@@ -980,38 +994,44 @@ curl -s -X POST \
   }'
 ```
 
-![İspanyolca fotosentez infografiği (yapay zekayla üretilmiş)](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=tr)
+![อินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสงที่ AI สร้างขึ้นเป็นภาษาสเปน](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=th)
 
-İspanyolca fotosentez infografiği (yapay zekayla üretilmiş)
+อินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสงที่ AI สร้างขึ้นเป็นภาษาสเปน
 
-## Gemini 3 görüntü modelleriyle gelen yenilikler
+## ฟีเจอร์ใหม่ในโมเดลรูปภาพ Gemini 3
 
-Gemini 3, son teknoloji görüntü üretme ve düzenleme modelleri sunar. Gemini 3.1
-Flash Image, hız ve yüksek hacimli kullanım alanları için, Gemini 3
-Pro Image ise profesyonel öğe üretimi için optimize edilmiştir.
-Gelişmiş akıl yürütme yoluyla en zorlu iş akışlarının üstesinden gelmek için tasarlanan bu modeller, karmaşık ve çok aşamalı etkileşim içerik oluşturma ve değiştirme görevlerinde üstün performans gösterir.
+Gemini 3 มีโมเดลการสร้างและแก้ไขรูปภาพที่ล้ำสมัย รูปภาพ Gemini 3.1
+Flash ได้รับการเพิ่มประสิทธิภาพเพื่อความเร็วและกรณีการใช้งานที่มีปริมาณสูง ส่วนรูปภาพ Gemini 3
+Pro ได้รับการเพิ่มประสิทธิภาพเพื่อการผลิตชิ้นงานระดับมืออาชีพ
+ออกแบบมาเพื่อจัดการเวิร์กโฟลว์ที่ท้าทายที่สุดผ่านการให้เหตุผลขั้นสูง จึงทำงานได้ดีในงานสร้างสรรค์และการแก้ไขที่ซับซ้อนแบบการสนทนาไปมา
 
-- **Yüksek çözünürlüklü çıktı**: 1K, 2K ve 4K görseller için yerleşik üretim özellikleri.
-  - **Gemini 3.1 Flash Image**, daha küçük olan 512 (0,5K) çözünürlüğünü ekler.
-  - **Gemini 3.1 Flash Lite Image** yalnızca 1K çözünürlüğü destekler.
-- **Gelişmiş metin oluşturma**: İnfografikler, menüler, diyagramlar ve pazarlama öğeleri için okunaklı ve stilize edilmiş metinler oluşturabilir.
-- **Google Arama ile temellendirme**: Model, Google Arama'yı bir araç olarak kullanarak gerçekleri doğrulayabilir ve gerçek zamanlı verilere (ör. güncel hava durumu haritaları, borsa grafikleri, son olaylar) dayalı görüntüler oluşturabilir.
-  - **Gemini 3.1 Flash Lite Image modeli tarafından desteklenmez.**
-  - **Gemini 3.1 Flash Image**, Web Araması'nın yanı sıra Görüntüler için Google Arama ile Temellendirme entegrasyonunu ekler.
-- **Düşünme modu**: Model, karmaşık istemleri değerlendirmek için "düşünme" sürecini kullanır. Son yüksek kaliteli çıktıyı üretmeden önce kompozisyonu iyileştirmek için geçici "düşünce resimleri" oluşturur (arka uçta görünür ancak ücretlendirilmez).
-- **En fazla 14 referans görsel**: Artık nihai resmi oluşturmak için en fazla 14 referans görseli karıştırabilirsiniz.
-- **Yeni en-boy oranları**: Gemini 3.1 Flash Lite Image, `1:1`, `3:2`,
-  `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` [en-boy oranlarını](#aspect_ratios_and_image_size) ekler.
+- **เอาต์พุตความละเอียดสูง**: ความสามารถในการสร้างภาพความละเอียด 1K, 2K และ 4K ในตัว
+  - **รูปภาพ Gemini 3.1 Flash** เพิ่มความละเอียด 512 (0.5K) ที่เล็กลง
+  - **รูปภาพ Gemini 3.1 Flash Lite** รองรับความละเอียด 1K เท่านั้น
+- **การแสดงข้อความขั้นสูง**: สร้างข้อความที่อ่านได้และมีสไตล์สำหรับอินโฟกราฟิก เมนู ไดอะแกรม และชิ้นงานทางการตลาด
+- **การอ้างอิงจาก Google Search**: โมเดลสามารถใช้ Google Search เป็นเครื่องมือเพื่อ
+  ยืนยันข้อเท็จจริงและสร้างภาพตามข้อมูลแบบเรียลไทม์ (เช่น แผนที่
+  สภาพอากาศปัจจุบัน แผนภูมิหุ้น เหตุการณ์ล่าสุด)
+  - **โมเดลรูปภาพ Gemini 3.1 Flash Lite ไม่รองรับ**
+  - **รูปภาพ Gemini 3.1 Flash** เพิ่มการผสานรวมการเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับ Google รูปภาพควบคู่ไปกับ Web Search
+- **โหมดการคิด**: โมเดลใช้กระบวนการ "การคิด" เพื่อให้เหตุผลผ่านพรอมต์ที่ซับซ้อน
+  โดยจะสร้าง "รูปภาพความคิด" ชั่วคราว (มองเห็นได้ในแบ็กเอนด์
+  แต่ไม่มีการเรียกเก็บเงิน) เพื่อปรับแต่งองค์ประกอบก่อนที่จะสร้างเอาต์พุตคุณภาพสูง
+  ขั้นสุดท้าย
+- **รูปภาพอ้างอิงสูงสุด 14 รูป**: ตอนนี้คุณสามารถผสมรูปภาพอ้างอิงได้สูงสุด 14 รูปเพื่อสร้างรูปภาพสุดท้าย
+- **สัดส่วนภาพใหม่**: Gemini 3.1 Flash Lite Image เพิ่ม`1:1`, `3:2`,
+  `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` [สัดส่วนภาพ](#aspect_ratios_and_image_size)
 
-### En fazla 14 referans görsel kullanın
+### ใช้รูปภาพอ้างอิงได้สูงสุด 14 รูป
 
-Gemini 3 görüntü modelleri, 14 adede kadar referans görseli karıştırmanıza olanak tanır. Bu 14 resim aşağıdakileri içerebilir:
+โมเดลรูปภาพ Gemini 3 ช่วยให้คุณผสมรูปภาพอ้างอิงได้สูงสุด 14 รูป รูปภาพทั้ง 14 รูป
+อาจมีลักษณะต่อไปนี้
 
-| Gemini 3.1 Flash Lite Image | Gemini 3.1 Flash Görüntüsü | Gemini 3 Pro Image |
+| รูปภาพ Gemini 3.1 Flash Lite | รูปภาพ Gemini 3.1 Flash | รูปภาพ Gemini 3 Pro |
 | --- | --- | --- |
-| Son resme eklenecek, yüksek çözünürlüklü en fazla 14 nesne resmi | Son resme eklenecek, yüksek çözünürlüklü en fazla 10 nesne resmi | Son resme eklenecek, yüksek çözünürlüklü en fazla 6 nesne resmi |
-| Yok | Karakter tutarlılığını korumak için en fazla 4 karakter resmi | Karakter tutarlılığını korumak için en fazla 5 karakter resmi |
-| Yok | Yok | Stil referansı olarak kullanılacak en fazla 3 resim |
+| รูปภาพวัตถุที่มีความเที่ยงตรงสูงสูงสุด 14 ภาพที่จะรวมไว้ในรูปภาพสุดท้าย | รูปภาพวัตถุที่มีความเที่ยงตรงสูงสูงสุด 10 ภาพที่จะรวมไว้ในรูปภาพสุดท้าย | รูปภาพวัตถุที่มีความเที่ยงตรงสูงสูงสุด 6 ภาพที่จะรวมไว้ในรูปภาพสุดท้าย |
+| ไม่มี | รูปภาพตัวละครสูงสุด 4 ภาพเพื่อรักษาความสอดคล้องของตัวละคร | รูปภาพตัวละครสูงสุด 5 รูปเพื่อรักษาความสอดคล้องของตัวละคร |
+| ไม่มี | ไม่มี | รูปภาพสูงสุด 3 รูปที่จะใช้เป็นข้อมูลอ้างอิงสไตล์ |
 
 ### Python
 
@@ -1330,15 +1350,19 @@ curl -s -X POST \
     }"
 ```
 
-![Yapay zekayla üretilmiş ofis grubu fotoğrafı](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=tr)
+![รูปภาพกลุ่มในออฟฟิศที่ AI สร้างขึ้น](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=th)
 
-Yapay zekayla üretilmiş ofis grubu fotoğrafı
+ภาพหมู่ในออฟฟิศที่ AI สร้างขึ้น
 
-### Google Arama ile Temellendirme
+### การเชื่อมต่อแหล่งข้อมูลกับ Google Search
 
-Hava durumu tahminleri, borsa grafikleri veya son olaylar gibi anlık bilgilere dayalı görüntüler oluşturmak için [Google Arama aracını](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) kullanın.
+ใช้[เครื่องมือ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) เพื่อสร้างรูปภาพ
+โดยอิงตามข้อมูลแบบเรียลไทม์ เช่น พยากรณ์อากาศ แผนภูมิหุ้น หรือ
+เหตุการณ์ล่าสุด
 
-Google Arama ile temellendirme, görüntü oluşturma ile birlikte kullanılırken görüntü tabanlı arama sonuçlarının oluşturma modeline aktarılmadığını ve yanıttan çıkarıldığını unutmayın (bkz. [Görüntüler için Google Arama ile temellendirme](#image-search)).
+โปรดทราบว่าเมื่อใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ร่วมกับการสร้างรูปภาพ
+ระบบจะไม่ส่งผลการค้นหาตามรูปภาพไปยังโมเดลการสร้างและจะ
+ยกเว้นผลการค้นหาดังกล่าวจากคำตอบ (ดู[การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพ](#image-search))
 
 ### Python
 
@@ -1527,23 +1551,24 @@ curl -s -X POST \
   }'
 ```
 
-![San Francisco için yapay zekayla üretilmiş beş günlük hava durumu grafiği](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=tr)
+![แผนภูมิสภาพอากาศ 5 วันที่ AI สร้างขึ้นสำหรับซานฟรานซิสโก](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=th)
 
-San Francisco için yapay zekayla üretilmiş beş günlük hava durumu grafiği
+แผนภูมิพยากรณ์อากาศ 5 วันสำหรับซานฟรานซิสโกที่ AI สร้างขึ้น
 
-Yanıtta, aşağıdaki zorunlu alanları içeren `groundingMetadata` yer alıyor:
+การตอบกลับมี `groundingMetadata` ซึ่งมีฟิลด์ที่จำเป็นต่อไปนี้
 
-- **`searchEntryPoint`**: Gerekli arama önerilerini oluşturmak için HTML ve CSS'yi içerir.
-- **`groundingChunks`**: Oluşturulan görüntüyü temellendirmek için kullanılan en iyi 3 web kaynağını döndürür.
+- **`searchEntryPoint`**: มี HTML และ CSS เพื่อแสดงคำแนะนำในการค้นหาที่จำเป็น
+- **`groundingChunks`**: แสดงผลแหล่งที่มาบนเว็บ 3 อันดับแรกที่ใช้เป็นข้อมูลอ้างอิงสำหรับ
+  รูปภาพที่สร้างขึ้น
 
-### Görseller için Google Arama ile temellendirme (3.1 Flash)
+### การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพ (3.1 Flash)
 
-Görseller için Google Arama ile temellendirme, modellerin Google Arama aracılığıyla alınan web görsellerini görüntü oluşturma için görsel bağlam olarak kullanmasına olanak tanır. Görsel Arama, mevcut Google Arama ile Temellendirme aracındaki yeni bir arama türüdür ve standart [Web Arama](#use-with-grounding) ile birlikte çalışır.
+การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพช่วยให้โมเดลใช้รูปภาพบนเว็บที่ดึงข้อมูลผ่าน Google Search เป็นบริบทภาพสำหรับการสร้างรูปภาพได้ การค้นหารูปภาพเป็น การค้นหาประเภทใหม่ภายในเครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Search ที่มีอยู่ ซึ่งทำงานควบคู่ไปกับ[Web Search](#use-with-grounding)มาตรฐาน
 
-Görsel Arama'yı etkinleştirmek için API isteğinizde `googleSearch` aracını yapılandırın
-ve `searchTypes` nesnesinde `imageSearch` değerini belirtin. Görsel Arama bağımsız olarak veya Web Arama ile birlikte kullanılabilir.
+หากต้องการเปิดใช้การค้นหารูปภาพ ให้กำหนดค่าเครื่องมือ `googleSearch` ในคำขอ API
+และระบุ `imageSearch` ภายในออบเจ็กต์ `searchTypes` คุณใช้ฟีเจอร์ค้นหารูปภาพแยกกันหรือใช้ร่วมกับฟีเจอร์ค้นหาเว็บก็ได้
 
-Resimler için Google Arama ile Temellendirme özelliğinin, insan aramak için kullanılamayacağını unutmayın.
+โปรดทราบว่าคุณไม่สามารถใช้การอ้างอิงด้วย Google Search สำหรับรูปภาพเพื่อค้นหาบุคคลได้
 
 ### Python
 
@@ -1770,33 +1795,40 @@ curl -s -X POST \
   }'
 ```
 
-**Görüntüleme koşulları**
+**ข้อกำหนดในการแสดงผล**
 
-Google Arama ile Temellendirme'de Görsel Arama'yı kullanırken aşağıdaki koşullara uymanız gerekir:
+เมื่อใช้การค้นหารูปภาพภายใน การเชื่อมต่อแหล่งข้อมูลกับ Google Search คุณต้องปฏิบัติตามเงื่อนไขต่อไปนี้
 
-- **Kaynak atfı**: Kaynak resmi içeren web sayfasına (resim dosyası değil,"içeren sayfa") kullanıcı tarafından bağlantı olarak tanınacak şekilde bir bağlantı sağlamanız gerekir.
-- **Doğrudan gezinme**: Kaynak resimleri de göstermeyi seçerseniz kaynak resimlerden bunları içeren kaynak web sayfasına doğrudan, tek tıklamayla erişilebilen bir yol sağlamanız gerekir. Son kullanıcının kaynak web sayfasına erişimini geciktiren veya soyutlayan diğer tüm uygulamalara (ör. çok tıklamalı yol veya ara resim görüntüleyici kullanımı) izin verilmez.
+- **การระบุแหล่งที่มา**: คุณต้องระบุลิงก์ไปยังหน้าเว็บที่มีรูปภาพต้นฉบับ ("หน้าที่มีรูปภาพ" ไม่ใช่ไฟล์รูปภาพเอง) ในลักษณะที่ผู้ใช้จะจดจำได้ว่าเป็นลิงก์
+- **การนำทางโดยตรง**: หากเลือกแสดงรูปภาพต้นฉบับด้วย คุณต้องระบุเส้นทางแบบคลิกเดียวโดยตรงจากรูปภาพต้นฉบับไปยังหน้าเว็บต้นฉบับที่มีรูปภาพนั้น การติดตั้งใช้งานอื่นๆ ที่ทำให้การเข้าถึงหน้าเว็บแหล่งที่มาของผู้ใช้ปลายทางล่าช้าหรือซับซ้อน รวมถึงแต่ไม่จำกัดเพียงเส้นทางแบบหลายคลิกหรือการใช้โปรแกรมดูรูปภาพขั้นกลาง จะไม่ได้รับอนุญาต
 
-**Yanıt**
+**การตอบกลับ**
 
-API, görsel arama kullanılarak kaynağa dayalı yanıtlarda, çıktısını doğrulanmış kaynaklara bağlamak için net atıf ve meta veri sağlar. `groundingMetadata` nesnesindeki temel alanlar şunlardır:
+สำหรับคำตอบที่อิงตามการค้นหารูปภาพ API จะระบุแหล่งที่มาและข้อมูลเมตาอย่างชัดเจนเพื่อลิงก์เอาต์พุตกับแหล่งที่มาที่ได้รับการยืนยัน ฟิลด์หลักในออบเจ็กต์
+`groundingMetadata` มีดังนี้
 
-- **`imageSearchQueries`**: Modelin görsel bağlam (görsel arama) için kullandığı belirli sorgular.
-- **`groundingChunks`**: Alınan sonuçlarla ilgili kaynak bilgilerini içerir.
-  Resim kaynakları için bunlar, yeni bir resim parçası türü kullanılarak yönlendirme URL'leri olarak döndürülür. Bu parça şunları içerir:
+- **`imageSearchQueries`**: คำค้นหาที่เฉพาะเจาะจงซึ่งโมเดลใช้สำหรับบริบทภาพ (การค้นหารูปภาพ)
+- **`groundingChunks`**: มีข้อมูลแหล่งที่มาสำหรับผลการค้นหาที่ดึงข้อมูล
+  สำหรับแหล่งที่มาของรูปภาพ ระบบจะแสดงผลเป็น URL เปลี่ยนเส้นทางโดยใช้ประเภทก้อนข้อมูลรูปภาพใหม่
+  โดยส่วนนี้ประกอบด้วย
 
-  - **`uri`**: İlişkilendirme için kullanılan web sayfası URL'si (açılış sayfası).
-  - **`image_uri`**: Doğrudan resim URL'si.
-- **`groundingSupports`**: Oluşturulan içeriği parçalardaki ilgili alıntı kaynağına bağlayan belirli eşlemeler sağlar.
-- **`searchEntryPoint`**: Arama Önerileri'ni oluşturmak için uyumlu HTML ve CSS içeren "Google Arama" çipini içerir.
+  - **`uri`**: URL ของหน้าเว็บสำหรับการระบุแหล่งที่มา (หน้า Landing Page)
+  - **`image_uri`**: URL ของรูปภาพโดยตรง
+- **`groundingSupports`**: ระบุการแมปที่เฉพาะเจาะจงซึ่งลิงก์เนื้อหาที่สร้างขึ้น
+  ไปยังแหล่งที่มาของการอ้างอิงที่เกี่ยวข้องในก้อนข้อมูล
+- **`searchEntryPoint`**: มีชิป "Google Search" ที่มี HTML และ CSS ที่เป็นไปตามข้อกำหนดเพื่อแสดงผลคำแนะนำของ Search
 
-### Video-görüntü üretimi (3.1 Flash ve 3.1 Flash Lite)
+### การสร้างรูปภาพจากวิดีโอ (3.1 Flash และ 3.1 Flash Lite)
 
-Video-görsel üretimi, çok formatlı bir referans olarak videonun bağlamını kullanarak yeni görseller oluşturmanıza olanak tanır. Bu özellik; yüksek kaliteli video küçük resimleri, sinematik posterler, özet infografikleri veya bir video sahnesinden ilham alan yeni sanat eserleri oluşturmak için kullanışlıdır.
+การสร้างรูปภาพจากวิดีโอช่วยให้คุณสร้างรูปภาพใหม่ได้โดยใช้บริบทของวิดีโอ
+เป็นข้อมูลอ้างอิงแบบมัลติโมดัล ซึ่งมีประโยชน์ในการสร้างภาพปกวิดีโอคุณภาพสูง โปสเตอร์ภาพยนตร์
+อินโฟกราฟิกสรุป หรืออาร์ตเวิร์กใหม่ที่ได้แรงบันดาลใจจากฉากในวิดีโอ
 
-Oluşturma sırasında model, görsel temaları ve önemli etkinlikleri ayıklamak için video karelerini bağlam içinde (modelin giriş jetonu sınırı olan 131.072 jetona kadar) analiz eder. Ardından, çıkış resmini sentezlemek için bunları metin isteminizle birlikte kullanır.
+ในระหว่างการสร้าง โมเดลจะวิเคราะห์เฟรมวิดีโอในบริบท (สูงสุดตามขีดจํากัดโทเค็นอินพุตของโมเดลที่ 131,072 โทเค็น) เพื่อดึงธีมภาพและเหตุการณ์สําคัญ จากนั้นจะใช้ธีมและเหตุการณ์เหล่านั้นร่วมกับพรอมต์ข้อความเพื่อสังเคราะห์รูปภาพเอาต์พุต
 
-Herkese açık [YouTube URL'lerini](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr#youtube) doğrudan API isteğinize iletebilir veya [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanarak yerel video dosyalarını yükleyebilirsiniz.
+คุณสามารถส่ง [URL ของ YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#youtube)
+สาธารณะในคำขอ API โดยตรงหรืออัปโหลดไฟล์วิดีโอในเครื่องโดยใช้
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)
 
 ### Python
 
@@ -2052,15 +2084,16 @@ curl -s -X POST \
   }'
 ```
 
-![YouTube videosundan yapay zekayla üretilen infografik](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=tr)
+![อินโฟกราฟิกที่ AI สร้างขึ้นจากวิดีโอ YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=th)
 
-YouTube videosundan yapay zekayla üretilmiş bilgi grafiği
+อินโฟกราฟิกที่ AI สร้างขึ้นจากวิดีโอ YouTube
 
-### 4K çözünürlüğe kadar resim oluşturma
+### สร้างรูปภาพที่มีความละเอียดสูงสุด 4K
 
-Gemini 3 görüntü modelleri varsayılan olarak 1.000 görüntü oluşturur ancak 2.000, 4.000 ve 512 (0, 5K) görüntü de üretebilir (yalnızca Gemini 3.1 Flash Image). Daha yüksek çözünürlüklü öğeler oluşturmak için `generation_config` içinde `image_size` değerini belirtin.
+โมเดลรูปภาพ Gemini 3 จะสร้างรูปภาพขนาด 1K โดยค่าเริ่มต้น แต่ก็สามารถแสดงรูปภาพขนาด 2K, 4K และ 512 (0.5K) ได้เช่นกัน (รูปภาพ Gemini 3.1 Flash เท่านั้น) หากต้องการสร้างชิ้นงานที่มีความละเอียดสูงขึ้น
+ให้ระบุ `image_size` ใน `generation_config`
 
-Büyük harf "K" kullanmanız gerekir (ör. 1K, 2K, 4K). `512` değerinde "K" soneki kullanılmıyor. Küçük harfli parametreler (ör. 1k) reddedilir.
+คุณต้องใช้ตัว "K" พิมพ์ใหญ่ (เช่น 1K, 2K, 4K) ค่า `512` ไม่ได้ใช้คำต่อท้าย "K" ระบบจะปฏิเสธพารามิเตอร์ตัวพิมพ์เล็ก (เช่น 1k)
 
 ### Python
 
@@ -2299,19 +2332,21 @@ curl -s -X POST \
   }'
 ```
 
-Aşağıda, bu istemden oluşturulan örnek bir resim verilmiştir:
+ต่อไปนี้เป็นตัวอย่างรูปภาพที่สร้างขึ้นจากพรอมต์นี้
 
-![Yapay zeka tarafından üretilmiş, Da Vinci tarzında, parçalanmış bir kral kelebeğinin anatomik çizimi.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=tr)
+![ภาพร่างกายวิภาคสไตล์ดาวินชีที่ AI สร้างขึ้นของผีเสื้อจักรพรรดิที่ผ่า](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=th)
 
-Kral kelebeğinin diseksiyonu yapılmış halinin, Da Vinci tarzında yapay zekayla üretilmiş anatomik çizimi.
+ภาพร่างกายวิภาคของผีเสื้อจักรพรรดิที่ผ่าตัดแล้วในสไตล์ของดาวินชีซึ่ง AI สร้างขึ้น
 
-### Düşünme süreci
+### กระบวนการคิด
 
-Gemini 3 görüntü modelleri, karmaşık istemler için akıl yürütme süreci ("Düşünme") kullanan düşünen modellerdir. Bu özellik varsayılan olarak etkindir ve API'de devre dışı bırakılamaz. Düşünme süreci hakkında daha fazla bilgi edinmek için [Gemini Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) rehberine bakın.
+โมเดลรูปภาพ Gemini 3 เป็นโมเดลการคิดที่ใช้กระบวนการให้เหตุผล ("การคิด") สำหรับพรอมต์ที่ซับซ้อน ฟีเจอร์นี้เปิดใช้อยู่โดยค่าเริ่มต้นและ
+ปิดใช้ใน API ไม่ได้ ดูข้อมูลเพิ่มเติมเกี่ยวกับกระบวนการคิดได้ที่คำแนะนำ[การคิดของ Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
 
-Model, kompozisyonu ve mantığı test etmek için en fazla iki ara görüntü oluşturur. Düşünme aşamasındaki son resim, oluşturulan son resimdir.
+โมเดลจะสร้างรูปภาพชั่วคราวสูงสุด 2 รูปเพื่อทดสอบองค์ประกอบและตรรกะ
+รูปภาพสุดท้ายในส่วน "กำลังคิด" คือรูปภาพสุดท้ายที่แสดงผล
 
-Son görüntünün üretilmesine yol açan düşünceleri kontrol edebilirsiniz.
+คุณสามารถตรวจสอบความคิดที่นำไปสู่การสร้างรูปภาพสุดท้ายได้
 
 ### Python
 
@@ -2377,11 +2412,15 @@ foreach (var candidate in response.Candidates) {
 }
 ```
 
-#### Düşünme düzeylerini kontrol etme
+#### การควบคุมระดับการคิด
 
-Gemini 3.1 Flash Image ve Gemini 3.1 Flash Lite Image ile modelin kalite ve gecikme süresini dengelemek için kullandığı düşünme miktarını kontrol edebilirsiniz. Varsayılan `thinkingLevel` değeri `minimal`'dir ve desteklenen düzeyler `minimal` ile `high`'dir. `thinkingLevel` değerini `minimal` olarak ayarladığınızda en düşük gecikmeli yanıtlar elde edilir. Minimal düşünme, modelin hiç düşünmediği anlamına gelmez.
+Gemini 3.1 Flash Image และ Gemini 3.1 Flash Lite Image ช่วยให้คุณควบคุม
+ปริมาณการคิดของโมเดล
+เพื่อรักษาสมดุลระหว่างคุณภาพและเวลาในการตอบสนอง ค่าเริ่มต้น `thinkingLevel` คือ `minimal`
+และระดับที่รองรับคือ `minimal` และ `high` การตั้งค่า `thinkingLevel` เป็น `minimal` จะให้การตอบสนองที่มีเวลาในการตอบสนองต่ำที่สุด โปรดทราบว่า
+การคิดขั้นต่ำไม่ได้หมายความว่าโมเดลจะไม่ใช้การคิดเลย
 
-Modelin oluşturduğu düşüncelerin yanıtta döndürülüp döndürülmeyeceğini veya gizli kalıp kalmayacağını belirlemek için `includeThoughts` Boole değerini ekleyebilirsiniz.
+คุณสามารถเพิ่มบูลีน `includeThoughts` เพื่อกำหนดว่าจะแสดงความคิดที่โมเดลสร้างขึ้นในการตอบกลับหรือซ่อนไว้
 
 ### Python
 
@@ -2620,20 +2659,24 @@ curl -s -X POST \
   }'
 ```
 
-`includeThoughts`, `true` veya `false` olarak ayarlanmış olsun ya da olmasın, düşünme jetonlarının faturalandırıldığını unutmayın. Çünkü [düşünme süreci](#thinking-process), süreci görüntüleyip görüntülemediğinizden bağımsız olarak her zaman varsayılan olarak gerçekleşir.
+โปรดทราบว่าระบบจะเรียกเก็บเงินสำหรับโทเค็นการคิดไม่ว่า `includeThoughts` จะตั้งค่าเป็น `true` หรือ `false` เนื่องจาก[กระบวนการคิด](#thinking-process)จะเกิดขึ้นโดยค่าเริ่มต้นเสมอไม่ว่าคุณจะดูกระบวนการนี้หรือไม่ก็ตาม
 
-#### Düşünce imzaları
+#### ลายเซ็นความคิด
 
-Düşünce imzaları, modelin dahili düşünce sürecinin şifrelenmiş temsilleridir ve çok aşamalı etkileşimlerde akıl yürütme bağlamını korumak için kullanılır. Tüm yanıtlarda `thought_signature` alanı bulunur. Genel bir kural olarak, bir model yanıtında düşünce imzası alırsanız bir sonraki turda görüşme geçmişini gönderirken bunu aynen aldığınız şekilde geri iletmeniz gerekir. Düşünce imzalarının dolaştırılamaması yanıtın başarısız olmasına neden olabilir. İmzalarla ilgili daha fazla açıklama için [düşünce imzası](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=tr)
-dokümanını inceleyin.
+ลายเซ็นความคิดคือการแสดงที่เข้ารหัสของกระบวนการคิดภายในของโมเดล และใช้เพื่อรักษาบริบทการให้เหตุผลในการสนทนาไปมา คำตอบทั้งหมดจะมี`thought_signature`
+ฟิลด์ โดยทั่วไปแล้ว หากคุณได้รับลายเซ็นความคิดในคำตอบของโมเดล
+คุณควรส่งลายเซ็นกลับไปตามที่ได้รับเมื่อส่งประวัติการสนทนาในรอบถัดไป
+การไม่เผยแพร่ลายเซ็นความคิด
+อาจทำให้การตอบกลับไม่สำเร็จ ดูคำอธิบายเพิ่มเติมเกี่ยวกับลายเซ็นโดยรวมได้ในเอกสารประกอบเกี่ยวกับ[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)
 
-Düşünce imzaları şu şekilde çalışır:
+วิธีการทำงานของลายเซ็นความคิดมีดังนี้
 
-- Yanıtta yer alan, resim `mimetype` içeren tüm `inline_data` bölümlerinde imza bulunmalıdır.
-- Düşüncelerin hemen ardından (herhangi bir resimden önce) metin bölümleri varsa ilk metin bölümünde de imza bulunmalıdır.
-- `inline_data` Resim içeren `mimetype` bölümler düşüncelerin bir parçasıysa imza içermez.
+- `inline_data` ส่วนทั้งหมดที่มีรูปภาพ`mimetype`ซึ่งเป็นส่วนหนึ่งของการตอบกลับ
+  ควรมีลายเซ็น
+- หากมีข้อความบางส่วนที่ตอนต้น (ก่อนรูปภาพ) หลังจากความคิดเห็น ข้อความส่วนแรกควรมีลายเซ็นด้วย
+- หาก`inline_data`ชิ้นส่วนที่มีรูปภาพ`mimetype`เป็นส่วนหนึ่งของความคิด ระบบจะไม่ใส่ลายเซ็น
 
-Aşağıdaki kodda, düşünce imzalarının nerede yer aldığına dair bir örnek gösterilmektedir:
+โค้ดต่อไปนี้แสดงตัวอย่างตำแหน่งที่รวมลายเซ็นความคิด
 
 ```
 [
@@ -2693,181 +2736,215 @@ Aşağıdaki kodda, düşünce imzalarının nerede yer aldığına dair bir ör
 ]
 ```
 
-## Diğer görüntü üretme modları
+## โหมดการสร้างรูปภาพอื่นๆ
 
-Gemini, istem yapısına ve bağlama dayalı olarak diğer görüntü etkileşimi modlarını da destekler. Örneğin:
+Gemini รองรับโหมดการโต้ตอบกับรูปภาพอื่นๆ ตามโครงสร้างพรอมต์และบริบท ซึ่งรวมถึง
 
-- **Metinden resimlere ve metne (araya eklenmiş):** İlgili metinlerle birlikte resimler oluşturur.
-  - Örnek istem: "Paella için resimli bir tarif oluştur."
-- **Resimler ve metinden resimlere ve metne (dönüşümlü)**: İlgili yeni resimler ve metinler oluşturmak için giriş resimlerini ve metinlerini kullanır.
-  - Örnek istem: (Mobilyalı bir odanın resmiyle) "Mekanıma hangi renklerde kanepeler yakışır? Resmi güncelleyebilir misin?"
+- **ข้อความเป็นรูปภาพและข้อความ (แทรกสลับ):** แสดงรูปภาพพร้อมข้อความที่เกี่ยวข้อง
+  - ตัวอย่างพรอมต์: "สร้างสูตรปาเอญ่าพร้อมภาพประกอบ"
+- **รูปภาพและข้อความเป็นรูปภาพและข้อความ (แทรกสลับ)**: ใช้รูปภาพและข้อความที่ป้อนเพื่อสร้างรูปภาพและข้อความใหม่ที่เกี่ยวข้อง
+  - ตัวอย่างพรอมต์: (พร้อมรูปภาพห้องที่มีเฟอร์นิเจอร์) "โซฟาสีอื่นจะเข้ากับพื้นที่ของฉันไหม อัปเดตรูปภาพได้ไหม"
 
-## Toplu olarak resim oluşturma
+## สร้างรูปภาพเป็นชุด
 
-Çok sayıda resim oluşturmanız gerekiyorsa [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr)'yi kullanabilirsiniz. 24 saate kadar yanıt süresi karşılığında daha yüksek [hız sınırları](https://ai.google.dev/gemini-api/docs/rate-limits?hl=tr) elde edersiniz.
+หากต้องการสร้างรูปภาพจำนวนมาก ให้ใช้ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th) คุณจะได้รับ[ขีดจำกัดอัตรา](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th)ที่สูงขึ้น
+เพื่อแลกกับการดำเนินการที่ใช้เวลาไม่เกิน
+24 ชั่วโมง
 
-Toplu API görüntü örnekleri ve kodu için [Toplu API görüntü üretme belgelerini](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr#image-generation) ve [çözüm kitabını](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=tr) inceleyin.
+ดู[เอกสารประกอบการสร้างรูปภาพด้วย Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th#image-generation) และ[สูตรการแก้ปัญหา](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=th)
+สำหรับตัวอย่างรูปภาพและโค้ดของ Batch API
 
-## İstem yazma kılavuzu ve stratejileri
+## คำแนะนำและกลยุทธ์ในการเขียนพรอมต์
 
-Görüntü oluşturmada ustalaşmak için temel bir ilkeyi anlamanız gerekir:
+การสร้างรูปภาพอย่างเชี่ยวชาญเริ่มต้นด้วยหลักการพื้นฐานข้อเดียว
 
-> **Anahtar kelimeleri listelemekle yetinmeyin, sahneyi açıklayın.**
-> Modelin temel gücü, dili derinlemesine anlamasıdır. Bir anlatı, açıklayıcı bir paragraf neredeyse her zaman bağlantısız kelimelerden oluşan bir listeden daha iyi ve tutarlı bir resim oluşturur.
+> **อธิบายฉาก อย่าเพียงแสดงรายการคีย์เวิร์ด**
+> จุดแข็งหลักของโมเดลคือความเข้าใจภาษาอย่างลึกซึ้ง ย่อหน้าแบบบรรยาย
+> ที่อธิบายรายละเอียดจะสร้างรูปภาพที่ดีขึ้นและสอดคล้องกันมากกว่า
+> รายการคำที่ไม่ได้เชื่อมโยงกันเกือบเสมอ
 
-### Görüntü üretme istemleri
+### พรอมต์สำหรับการสร้างรูปภาพ
 
-Aşağıdaki stratejiler, tam olarak aradığınız resimleri oluşturmak için etkili istemler oluşturmanıza yardımcı olacaktır.
+กลยุทธ์ต่อไปนี้จะช่วยให้คุณสร้างพรอมต์ที่มีประสิทธิภาพเพื่อ
+สร้างรูปภาพที่คุณต้องการได้อย่างแม่นยำ
 
-#### Fotoğrafçılık
+#### การถ่ายภาพ
 
-Gerçekçi görüntüler için fotoğrafçılık terimlerini kullanın. Modeli gerçekçi bir sonuca yönlendirmek için kamera açılarını, lens türlerini, ışıklandırmayı ve ince ayrıntıları belirtin.
+หากต้องการรูปภาพที่สมจริง ให้ใช้คำศัพท์เกี่ยวกับการถ่ายภาพ ระบุมุมกล้อง ประเภทเลนส์
+แสง และรายละเอียดเล็กๆ น้อยๆ เพื่อนำโมเดลไปสู่ผลลัพธ์ที่สมจริง
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| Güneşten etkilenmiş derin kırışıklıkları ve sıcak, bilgili bir gülümsemesi olan yaşlı bir Japon seramik sanatçısının yakın çekim portre fotoğrafı. Yeni sırlanmış bir çay kasesini dikkatlice inceliyor. Arka planda, güneş ışığıyla dolu rustik atölyesi var. Sahne, pencereden süzülen yumuşak, altın saat ışığıyla aydınlatılıyor ve kilden yapılmış ürünün ince dokusu vurgulanıyor. 85 mm portre lensiyle çekilmiş, yumuşak ve bulanık bir arka plan (bokeh) oluşturulmuş. Genel atmosfer sakin ve ustaca olmalı. Dikey portre yönü. | Yaşlı Japon seramik sanatçısı |
+| ภาพถ่ายระยะใกล้ของช่างเซรามิกชาวญี่ปุ่นสูงวัยที่มีรอยเหี่ยวย่นลึกที่เกิดจากแสงแดดและรอยยิ้มอันอบอุ่นที่สื่อถึงความรอบรู้ เขากำลังตรวจสอบชามชาที่เพิ่งเคลือบอย่างละเอียด ฉากหลังเป็นเวิร์กช็อปแบบเรียบง่ายที่สว่างไสวด้วยแสงแดด ฉากสว่างไสวด้วยแสงอ่อนๆ ช่วงเวลาแสงสีทองที่ส่องผ่านหน้าต่าง ซึ่งช่วยขับเน้นพื้นผิวที่ละเอียดของดินเหนียว ถ่ายด้วยเลนส์ภาพบุคคล 85 มม. ทำให้ได้พื้นหลังที่เบลออย่างนุ่มนวล (โบเก้) ให้บรรยากาศโดยรวมดูสงบและเชี่ยวชาญ การวางแนวตั้ง | ช่างปั้นเซรามิกชาวญี่ปุ่นสูงวัย |
 
-#### Stilize edilmiş resimler ve çıkartmalar
+#### ภาพวาดและสติกเกอร์ที่มีสไตล์
 
-Çıkartma, simge veya öğe oluşturmak için stil hakkında net olun ve beyaz arka plan isteyin.
+หากต้องการสร้างสติกเกอร์ ไอคอน หรือชิ้นงาน ให้ระบุสไตล์อย่างชัดเจนและขอ
+พื้นหลังสีขาว
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| Küçük bir bambu şapka takan mutlu bir kırmızı pandanın kawaii tarzı çıkartması. Yeşil bir bambu yaprağını yiyor. Tasarımda belirgin ve temiz ana hatlar, basit selüloit gölgeleme ve canlı bir renk paleti kullanılıyor. Arka plan beyaz olmalıdır. | Kawaii kızıl panda çıkartması |
+| สติกเกอร์สไตล์คาวาอี้ของแพนด้าแดงที่มีความสุขสวมหมวกไม้ไผ่ใบเล็ก มันกำลังแทะใบไผ่สีเขียว การออกแบบมีโครงร่างที่ชัดเจนและสะอาดตา การแรเงาแบบเซลที่เรียบง่าย และชุดสีสดใส พื้นหลังต้องเป็นสีขาว | สติกเกอร์แพนด้าแดงคาวาอี้ |
 
-#### Resimlerdeki metinlerin doğruluğu
+#### ข้อความที่ถูกต้องในรูปภาพ
 
-Gemini, metin oluşturma konusunda üstündür. Metin, yazı tipi stili (açıklayıcı bir şekilde) ve genel tasarım hakkında net olun. Profesyonel öğe üretimi için Gemini 3 Pro Image'i kullanın.
+Gemini ทำงานด้านการแสดงข้อความได้ดีเยี่ยม ระบุข้อความ รูปแบบแบบอักษร
+(อย่างละเอียด) และการออกแบบโดยรวมให้ชัดเจน ใช้ Gemini 3 Pro สำหรับรูปภาพเพื่อ
+การผลิตชิ้นงานระดับมืออาชีพ
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| "The Daily Grind" adlı bir kafe için modern ve minimalist bir logo oluştur. Metin, sade, kalın ve sans-serif yazı tipinde olmalıdır. Renk şeması siyah beyazdır. Logoyu daire içine alın. Kahve çekirdeklerini akıllıca kullanın. | Kafe logosu |
+| สร้างโลโก้สไตล์มินิมอลที่ทันสมัยสำหรับร้านกาแฟชื่อ "The Daily Grind" ข้อความควรอยู่ในแบบอักษร Sans-Serif ที่สะอาดตาและตัวหนา รูปแบบสีเป็นขาวดำ ใส่โลโก้ในวงกลม ใช้เมล็ดกาแฟอย่างชาญฉลาด | โลโก้ร้านกาแฟ |
 
-#### Ürün maketleri ve ticari fotoğrafçılık
+#### ภาพจำลองผลิตภัณฑ์และการถ่ายภาพเชิงพาณิชย์
 
-E-ticaret, reklam veya markalama için net ve profesyonel ürün fotoğrafları oluşturmak üzere idealdir.
+เหมาะอย่างยิ่งสำหรับการสร้างภาพผลิตภัณฑ์ที่สะอาดตาและดูเป็นมืออาชีพสำหรับอีคอมเมิร์ซ
+การโฆษณา หรือการสร้างแบรนด์
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| Parlak beton yüzey üzerinde sunulan, mat siyah renkte minimalist seramik kahve kupasının yüksek çözünürlüklü, stüdyo ışıklı ürün fotoğrafı. Işıklandırma, yumuşak ve dağınık parlak alanlar oluşturmak ve sert gölgeleri ortadan kaldırmak için tasarlanmış üç noktalı bir softbox kurulumudur. Temiz çizgilerini göstermek için kamera açısı biraz yükseltilmiş 45 derecelik bir çekimdir. Kahveden yükselen buhara keskin bir şekilde odaklanılmış, ultra gerçekçi bir görüntü. Kare resim. | Seramik kahve kupası ürün fotoğrafı |
+| ภาพถ่ายผลิตภัณฑ์ความละเอียดสูงที่ถ่ายในสตูดิโอของแก้วกาแฟเซรามิกแบบมินิมอลสีดำด้านบนพื้นผิวคอนกรีตขัดเงา การจัดแสงเป็นแบบซอฟต์บ็อกซ์ 3 จุดที่ออกแบบมาเพื่อสร้างไฮไลต์ที่นุ่มนวลและกระจายแสง รวมถึงขจัดเงาที่แข็งกระด้าง มุมกล้องเป็นภาพมุมสูงเล็กน้อยที่ 45 องศาเพื่อแสดงให้เห็นเส้นสายที่สะอาดตา สมจริงสุดๆ โดยโฟกัสที่ไอน้ำที่ลอยขึ้นจากกาแฟอย่างคมชัด รูปภาพสี่เหลี่ยมจัตุรัส | ภาพผลิตภัณฑ์แก้วกาแฟมัคเซรามิก |
 
-#### Minimalist ve öğeler arasındaki boşluk tasarımı
+#### ดีไซน์เรียบง่ายและพื้นที่ว่างทางลบ
 
-Metnin yerleştirileceği web siteleri, sunumlar veya pazarlama materyalleri için arka plan oluşturmak üzere mükemmeldir.
+เหมาะอย่างยิ่งสำหรับการสร้างพื้นหลังสำหรับเว็บไซต์ งานนำเสนอ หรือสื่อการตลาด
+ที่จะมีการวางซ้อนข้อความ
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| Kadrajın sağ alt kısmında yer alan tek bir narin kırmızı akçaağaç yaprağının yer aldığı minimalist bir kompozisyon. Arka plan, metin için önemli bir boş alan oluşturan geniş ve boş bir kirli beyaz tuvaldir. Sol üstten gelen yumuşak ve eşit dağılmış ışıklandırma. Kare resim. | Kırmızı akçaağaç yaprağı içeren minimalist tasarım |
+| องค์ประกอบแบบมินิมอลที่มีใบเมเปิลสีแดงที่บอบบางเพียงใบเดียววางอยู่ด้านขวาล่างของเฟรม พื้นหลังเป็นผืนผ้าใบสีขาวนวลที่ว่างเปล่าและกว้างใหญ่ ทำให้มีพื้นที่ว่างสำหรับข้อความ แสงนุ่มนวลที่กระจายจากด้านซ้ายบน รูปภาพสี่เหลี่ยมจัตุรัส | ดีไซน์เรียบง่ายพร้อมใบเมเปิลสีแดง |
 
-#### Sıralı sanat (çizgi roman paneli / resimli taslak)
+#### ภาพต่อเนื่อง (แผงการ์ตูน / สตอรีบอร์ด)
 
-Görsel hikaye anlatımı için paneller oluşturmak üzere karakter tutarlılığı ve sahne açıklaması üzerine kuruludur. Metin doğruluğu ve hikaye anlatma becerisi için bu istemler en iyi sonucu Gemini 3.1 Pro ve Gemini 3.1 Flash Image ile verir.
+สร้างความสม่ำเสมอของตัวละครและคำอธิบายฉากเพื่อสร้างแผงสำหรับ
+การเล่าเรื่องด้วยภาพ สำหรับความแม่นยำของข้อความและความสามารถในการเล่าเรื่อง พรอมต์เหล่านี้
+จะทำงานได้ดีที่สุดกับ Gemini 3.1 Pro และ Gemini 3.1 Flash Image
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resmi:**  Beyaz gözlüklü adam   Giriş resmi   **İstem:** Yüksek kontrastlı siyah beyaz mürekkeplerle, sert ve karanlık bir sanat tarzında 3 panelli bir çizgi roman oluştur. Karakteri komik bir sahneye yerleştir. | Sert ve gerçekçi kara film tarzında çizgi roman paneli |
+| **รูปภาพที่อินพุตเข้ามา:**  ชายใส่แว่นสีขาว   รูปภาพอินพุต   **พรอมต์:** สร้างการ์ตูน 3 ช่องในสไตล์ศิลปะแบบนัวร์ที่สมจริงด้วยหมึกสีขาวดำที่มีคอนทราสต์สูง ใส่ตัวละครในฉากตลก | แผงการ์ตูนฟิล์มนัวร์สุดหดหู่ |
 
-#### Google Arama ile Temellendirme
+#### การเชื่อมต่อแหล่งข้อมูลกับ Google Search
 
-Google Arama'yı kullanarak güncel veya gerçek zamanlı bilgilere dayalı görseller oluşturun.
-Bu özellik; haberler, hava durumu ve zamana duyarlı diğer konular için kullanışlıdır.
+ใช้ Google Search เพื่อสร้างรูปภาพโดยอิงตามข้อมูลล่าสุดหรือข้อมูลแบบเรียลไทม์
+ซึ่งมีประโยชน์สำหรับข่าวสาร สภาพอากาศ และหัวข้ออื่นๆ ที่ต้องอัปเดตอยู่เสมอ
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| Dün geceki Şampiyonlar Ligi Arsenal maçının basit ama şık bir grafiğini oluştur. | Arsenal futbol maçının skor grafiği |
+| สร้างกราฟิกเรียบง่ายแต่มีสไตล์ของการแข่งขันของอาร์เซนอลเมื่อคืนในแชมเปียนส์ลีก | กราฟิกคะแนนฟุตบอลของอาร์เซนอล |
 
-### Resimleri düzenleme istemleri
+### พรอมต์สำหรับการแก้ไขรูปภาพ
 
-Bu örneklerde, düzenleme, kompozisyon ve stil aktarımı için metin istemlerinizle birlikte nasıl resim sağlayacağınız gösterilmektedir.
+ตัวอย่างเหล่านี้แสดงวิธีระบุรูปภาพพร้อมกับพรอมต์ข้อความสำหรับการ
+แก้ไข องค์ประกอบ และการโอนสไตล์
 
-#### Öğe ekleme ve kaldırma
+#### การเพิ่มและนำองค์ประกอบออก
 
-Bir resim sağlayın ve değişikliğinizi açıklayın. Model, orijinal resmin stili, ışıklandırması ve perspektifiyle eşleşir.
+ระบุรูปภาพและอธิบายการเปลี่ยนแปลง โมเดลจะตรงกับสไตล์ แสง และมุมมองของรูปภาพต้นฉบับ
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resmi:**  Kabarık tüylü, kızıl bir kedinin fotogerçekçi resmi...   Giriş resmi   **İstem:** Kedimin sağlanan resmini kullanarak lütfen başına küçük, örülmüş bir büyücü şapkası ekleyin. Koltukta rahatça oturuyormuş gibi görünmesini ve fotoğraftaki yumuşak ışıkla uyumlu olmasını sağlayın. | Sihirbaz şapkalı kedi |
+| **รูปภาพที่อินพุตเข้ามา:**  รูปภาพเหมือนจริงของแมวขิงขนปุย...   รูปภาพอินพุต   **พรอมต์:** ใช้รูปภาพแมวของฉันที่ให้มาเพื่อเพิ่มหมวกพ่อมดถักขนาดเล็กบนหัวของแมว ทำให้ดูเหมือนว่าวัตถุนั้นวางอยู่ได้อย่างสบายๆ และเข้ากับแสงที่นุ่มนวลของรูปภาพ | แมวใส่หมวกพ่อมด |
 
-#### İç boyama (semantik maskeleme)
+#### การลบสิ่งที่ไม่ต้องการออกจากภาพ (การมาสก์เชิงความหมาย)
 
-Resmin geri kalanına dokunmadan belirli bir bölümünü düzenlemek için "maske"yi sohbet ederek tanımlayın.
+กำหนด "มาสก์" ในลักษณะการสนทนาเพื่อแก้ไขส่วนที่ต้องการของรูปภาพโดย
+ไม่แตะต้องส่วนอื่นๆ
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resmi:**  Modern ve iyi aydınlatılmış bir oturma odasının geniş çekimi...   Giriş resmi   **İstem:** Sağlanan oturma odası resmini kullanarak yalnızca mavi kanepenin yerine eski tarz, kahverengi deri bir Chesterfield kanepe koy. Odanın geri kalanını (ör. koltuktaki yastıklar ve aydınlatma) değiştirmeyin. | Kahverengi deri kanepeli oturma odası |
+| **รูปภาพที่อินพุตเข้ามา:**  ภาพมุมกว้างของห้องนั่งเล่นสมัยใหม่ที่มีแสงสว่างเพียงพอ...   รูปภาพอินพุต   **พรอมต์:** ใช้รูปภาพห้องนั่งเล่นที่ให้มา เปลี่ยนเฉพาะโซฟาสีน้ำเงินให้เป็นโซฟาเชสเตอร์ฟิลด์หนังสีน้ำตาลสไตล์วินเทจ ส่วนอื่นๆ ของห้องจะยังคงเดิม รวมถึงหมอนบนโซฟาและแสงสว่าง | ห้องนั่งเล่นที่มีโซฟาหนังสีน้ำตาล |
 
-#### Stil aktarımı
+#### การถ่ายโอนสไตล์
 
-Bir resim sağlayın ve modelden içeriğini farklı bir sanatsal tarzda yeniden oluşturmasını isteyin.
+ส่งรูปภาพและขอให้โมเดลสร้างเนื้อหาของรูปภาพนั้นใหม่ใน
+สไตล์ศิลปะที่แตกต่างกัน
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resmi:**  Kalabalık bir şehir caddesinin fotogerçekçi ve yüksek çözünürlüklü fotoğrafı...   Giriş resmi   **İstem:** Gece çekilmiş modern bir şehir caddesinin fotoğrafını, Vincent van Gogh'un "Yıldızlı Gece" adlı eserinin sanatsal tarzına dönüştür. Binaların ve arabaların orijinal kompozisyonunu koruyun ancak tüm öğeleri, girdaplı, impasto fırça darbeleri ve koyu maviler ile parlak sarılardan oluşan dramatik bir paletle oluşturun. | Yıldızlı Gece tarzında şehir caddesi |
+| **รูปภาพที่อินพุตเข้ามา:**  ภาพถ่ายความละเอียดสูงที่สมจริงของถนนในเมืองที่วุ่นวาย...   รูปภาพอินพุต   **พรอมต์:** เปลี่ยนภาพถ่ายถนนในเมืองสมัยใหม่ที่ให้มาในตอนกลางคืนให้เป็นสไตล์ศิลปะของภาพ "ราตรีประดับดาว" ของวินเซนต์ แวน โก๊ะ คงองค์ประกอบเดิมของอาคารและรถยนต์ไว้ แต่แสดงผลองค์ประกอบทั้งหมดด้วยฝีแปรงแบบอิมพาสโตที่หมุนวนและจานสีที่น่าทึ่งของสีน้ำเงินเข้มและสีเหลืองสดใส | ถนนในเมืองในสไตล์ &quot;ราตรีประดับดาว&quot; |
 
-#### Gelişmiş kompozisyon: Birden fazla görüntüyü birleştirme
+#### การจัดองค์ประกอบขั้นสูง: การรวมรูปภาพหลายรูป
 
-Yeni bir kompozit sahne oluşturmak için bağlam olarak birden fazla resim sağlayın. Bu özellik, ürün maketleri veya yaratıcı kolajlar için idealdir.
+ระบุรูปภาพหลายรูปเป็นบริบทเพื่อสร้างฉากคอมโพสิตใหม่ ซึ่งเหมาะสำหรับภาพจำลองผลิตภัณฑ์หรือภาพคอลลาจที่สร้างสรรค์
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resimleri:**  Mavi çiçekli bir yazlık elbisenin profesyonelce çekilmiş fotoğrafı...   Giriş 1: Elbise   Saçları topuz yapılmış bir kadının tam boy fotoğrafı...   Giriş 2: Model   **İstem:** Profesyonel bir e-ticaret moda fotoğrafı oluştur. İlk resimdeki mavi çiçekli elbiseyi alıp ikinci resimdeki kadına giydir. Elbiseyi giyen kadının, dış ortamla uyumlu olacak şekilde ışık ve gölgeler ayarlanmış, gerçekçi ve tam vücut fotoğrafını oluştur. | Moda e-ticaret çekimi |
+| **รูปภาพอินพุต:**  รูปภาพชุดเดรสฤดูร้อนลายดอกไม้สีน้ำเงินที่ถ่ายอย่างมืออาชีพ...   อินพุต 1: ชุดเดรส   ภาพเต็มตัวของผู้หญิงที่มัดผมเป็นมวย...   อินพุต 2: นางแบบ   **พรอมต์:** สร้างภาพถ่ายแฟชั่นอีคอมเมิร์ซแบบมืออาชีพ นำชุดเดรสลายดอกไม้สีน้ำเงินจากรูปภาพแรกมาให้ผู้หญิงจากรูปภาพที่ 2 สวมใส่ สร้างภาพเต็มตัวที่สมจริงของผู้หญิงที่สวมชุด โดยปรับแสงและเงาให้เข้ากับสภาพแวดล้อมภายนอก | ภาพอีคอมเมิร์ซแฟชั่น |
 
-#### Yüksek doğruluk oranıyla ayrıntı koruma
+#### การรักษาความละเอียดสูง
 
-Düzenleme sırasında önemli ayrıntıların (ör. yüz veya logo) korunmasını sağlamak için düzenleme isteğinizle birlikte bu ayrıntıları ayrıntılı bir şekilde açıklayın.
+หากต้องการให้ระบบคงรายละเอียดที่สำคัญ (เช่น ใบหน้าหรือโลโก้) ไว้ในระหว่างการแก้ไข
+โปรดอธิบายรายละเอียดเหล่านั้นพร้อมกับคำขอแก้ไข
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resimleri:**  Kahverengi saçlı ve mavi gözlü bir kadının profesyonel portre fotoğrafı...   Giriş 1: Kadın   &quot;G&quot; ve &quot;A&quot; harflerinin yer aldığı sade ve modern bir logo...   Giriş 2: Logo   **İstem:** Kahverengi saçlı, mavi gözlü ve ifadesiz kadının ilk resmini al. İkinci resimdeki logoyu kadının siyah tişörtüne ekle. Kadının yüzünün ve özelliklerinin tamamen değişmeden kalmasını sağla. Logo, gömleğin kıvrımlarını takip ederek kumaşa doğal bir şekilde basılmış gibi görünmelidir. | Tişörtünde logo olan kadın |
+| **รูปภาพอินพุต:**  ภาพหน้าตรงแบบมืออาชีพของผู้หญิงผมสีน้ำตาลและตาสีฟ้า...   อินพุต 1: ผู้หญิง   โลโก้เรียบง่ายทันสมัยที่มีตัวอักษร &quot;G&quot; และ &quot;A&quot;...   อินพุต 2: โลโก้   **พรอมต์:** ใช้รูปภาพแรกของผู้หญิงที่มีผมสีน้ำตาล ตาสีฟ้า และสีหน้าเป็นกลาง เพิ่มโลโก้จากรูปภาพที่ 2 ลงบนเสื้อยืดสีดำของเธอ ตรวจสอบว่าใบหน้าและลักษณะของหญิงสาวยังคงเหมือนเดิมทุกประการ โลโก้ควรดูเหมือนพิมพ์ลงบนเนื้อผ้าอย่างเป็นธรรมชาติตามรอยพับของเสื้อ | ผู้หญิงใส่เสื้อยืดที่มีโลโก้ |
 
-#### Bir şeyi hayata geçirmek
+#### ทำให้มีชีวิตชีวา
 
-Kaba bir taslak veya çizim yükleyip modelden bunu tamamlanmış bir resme dönüştürmesini isteyin.
+อัปโหลดภาพร่างหรือภาพวาดคร่าวๆ แล้วขอให้โมเดลปรับแต่งให้เป็นรูปภาพที่เสร็จสมบูรณ์
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resmi:**  Araba eskizi   Arabanın kaba taslağı   **İstem:** Fütüristik bir arabanın bu taslak halindeki kurşun kalem çizimini, galerideki bitmiş konsept arabanın cilalı bir fotoğrafına dönüştür. Eskizdeki şık çizgileri ve alçak profili koruyun ancak metalik mavi boya ve neon jant ışığı ekleyin. | Konsept arabanın rötuşlanmış fotoğrafı |
+| **รูปภาพที่อินพุตเข้ามา:**  ภาพร่างรถยนต์   ภาพร่างคร่าวๆ ของรถยนต์   **พรอมต์:** เปลี่ยนภาพร่างด้วยดินสอคร่าวๆ ของรถยนต์แห่งอนาคตนี้ให้เป็นภาพถ่ายที่สวยงามของรถยนต์ต้นแบบที่เสร็จสมบูรณ์ในโชว์รูม คงเส้นสายที่โฉบเฉี่ยวและรูปลักษณ์ที่ต่ำจากภาพร่างไว้ แต่เพิ่มสีน้ำเงินเมทัลลิกและแสงขอบล้อสีนีออน | ภาพถ่ายรถแนวคิดที่ขัดเงา |
 
-#### Karakter tutarlılığı: 360 görünüm
+#### ความสอดคล้องของตัวละคร: มุมมอง 360 องศา
 
-Farklı açılar için yinelemeli istemler girerek bir karakterin 360 derece görünümlerini oluşturabilirsiniz. En iyi sonuçlar için tutarlılığı korumak amacıyla daha önce oluşturulan resimleri sonraki istemlere ekleyin. Karmaşık pozlar için istenen pozun referans görselini ekleyin.
+คุณสร้างมุมมอง 360 องศาของตัวละครได้โดยการป้อนพรอมต์ซ้ำๆ เพื่อให้ได้มุมที่แตกต่างกัน
+เพื่อผลลัพธ์ที่ดีที่สุด ให้ใส่รูปภาพที่สร้างไว้ก่อนหน้านี้ในพรอมต์ถัดไปเพื่อรักษาความสอดคล้องกัน สำหรับท่าทางที่ซับซ้อน ให้ใส่รูปภาพอ้างอิงของท่าทางที่ต้องการ
 
-| **İstem** | **Oluşturulan çıkış** |
+| **พรอมต์** | **เอาต์พุตที่ได้** |
 | --- | --- |
-| **Giriş resmi:**  Beyaz gözlüklü bir adamın orijinal girişi   Orijinal resim   **İstem:** Bu adamın beyaz arka plan üzerinde, sağa doğru bakan profil fotoğrafı | Sağa bakan beyaz gözlüklü bir adamın çıktısı   Beyaz gözlüklü adam sağa bakıyor   Beyaz gözlüklü bir adamın ileriye doğru baktığı görsel   Beyaz gözlüklü adam öne bakıyor |
+| **รูปภาพที่อินพุตเข้ามา:**  อินพุตต้นฉบับของชายสวมแว่นสีขาว   รูปภาพต้นฉบับ   **พรอมต์:** ภาพถ่ายสตูดิโอของชายคนนี้บนพื้นหลังสีขาว โดยหันข้างไปทางขวา | เอาต์พุตของชายใส่แว่นสีขาวที่มองไปทางขวา   ชายสวมแว่นตาสีขาวมองไปทางขวา   เอาต์พุตของชายใส่แว่นสีขาวที่มองไปข้างหน้า   ชายสวมแว่นตาสีขาวมองไปข้างหน้า |
 
-### En iyi uygulamalar
+### แนวทางปฏิบัติแนะนำ
 
-Sonuçlarınızı iyi seviyeden mükemmel seviyeye taşımak için bu profesyonel stratejileri iş akışınıza dahil edin.
+หากต้องการยกระดับผลลัพธ์จากดีเป็นยอดเยี่ยม ให้ใช้กลยุทธ์ระดับมืออาชีพเหล่านี้
+ในเวิร์กโฟลว์
 
-- **Çok ayrıntılı olun:** Ne kadar çok ayrıntı verirseniz o kadar fazla kontrol sahibi olursunuz. "Fantezi zırh" yerine "gümüş yaprak desenleriyle işlenmiş, yüksek yakalı ve şahin kanatları şeklinde omuzlukları olan, süslü elf zırhı" gibi bir açıklama yapın.
-- **Bağlam ve amaç sağlama:** Resmin *amacını* açıklayın. Modelin bağlamı anlaması, nihai çıktıyı etkiler. Örneğin, "Üst düzey, minimalist bir cilt bakımı markası için logo oluştur" istemi, yalnızca "Logo oluştur" istemine kıyasla daha iyi sonuçlar verir.
-- **Tekrar edin ve iyileştirin:** İlk denemede mükemmel bir resim elde etmeyi beklemeyin. Küçük değişiklikler yapmak için modelin etkileşimli yapısından yararlanın. "Bu harika, ancak ışığı biraz daha sıcak yapabilir misin?" veya "Her şeyi aynı tut ama karakterin ifadesini daha ciddi olacak şekilde değiştir" gibi istemlerle devam edin.
-- **Adım adım talimatlar kullanın:** Çok sayıda öğe içeren karmaşık sahneler için isteminizi adımlara ayırın. "Öncelikle şafakta sakin ve sisli bir orman arka planı oluştur. Ardından, ön plana yosun kaplı eski bir taş sunak ekleyin.
-  Son olarak, sunakın üzerine tek bir parlayan kılıç yerleştirin."
-- **"Anlamsal olumsuz istemler" kullanın:** "Araba yok" demek yerine istediğiniz sahneyi olumlu bir şekilde tanımlayın: "Trafik işareti olmayan boş ve ıssız bir sokak."
-- **Kamerayı kontrol etme:** Kompozisyonu kontrol etmek için fotoğraf ve sinema dilini kullanın. `wide-angle shot`, `macro shot`, `low-angle
-  perspective` gibi terimler.
+- **ระบุรายละเอียดให้ชัดเจน:** ยิ่งให้รายละเอียดมากเท่าไหร่ คุณก็ยิ่งควบคุมได้มากขึ้นเท่านั้น แทนที่จะใช้คำว่า "ชุดเกราะแฟนตาซี" ให้อธิบายว่า "ชุดเกราะเพลทของเอลฟ์ที่ตกแต่งอย่างงดงาม สลักลายใบไม้สีเงิน มีคอเสื้อสูงและเกราะไหล่รูปปีกเหยี่ยว"
+- **ระบุบริบทและเจตนา:** อธิบาย*วัตถุประสงค์*ของรูปภาพ ความเข้าใจบริบทของโมเดลจะส่งผลต่อเอาต์พุตสุดท้าย เช่น "สร้างโลโก้สำหรับแบรนด์ผลิตภัณฑ์ดูแลผิวระดับไฮเอนด์ที่เน้นความเรียบง่าย" จะให้ผลลัพธ์ที่ดีกว่า
+  เพียงแค่ "สร้างโลโก้"
+- **ทำซ้ำและปรับแต่ง:** อย่าคาดหวังว่าจะได้รูปภาพที่สมบูรณ์แบบตั้งแต่ครั้งแรก ใช้
+  ลักษณะการสนทนาของโมเดลเพื่อทำการเปลี่ยนแปลงเล็กๆ น้อยๆ ติดตามด้วยพรอมต์ เช่น "ดีมาก แต่ช่วยปรับแสงให้ดูอบอุ่นขึ้นหน่อยได้ไหม" หรือ
+  "คงทุกอย่างไว้เหมือนเดิม แต่เปลี่ยนสีหน้าของตัวละครให้ดู
+  จริงจังมากขึ้น"
+- **ใช้คำสั่งแบบทีละขั้นตอน:** สำหรับฉากที่ซับซ้อนซึ่งมีองค์ประกอบจำนวนมาก ให้แบ่งพรอมต์ออกเป็นขั้นตอน "ก่อนอื่น ให้สร้างพื้นหลังเป็นป่าที่เงียบสงบและมีหมอก
+  ในตอนเช้า จากนั้นที่ด้านหน้า ให้เพิ่มแท่นบูชาหินโบราณที่ปกคลุมด้วยมอส
+  สุดท้าย ให้วางดาบเรืองแสงเล่มเดียวไว้บนแท่นบูชา"
+- **ใช้ "พรอมต์เชิงลบเชิงความหมาย":** แทนที่จะพูดว่า "ไม่มีรถ" ให้อธิบาย
+  ฉากที่ต้องการในเชิงบวกว่า "ถนนที่ว่างเปล่าและรกร้างโดยไม่มีร่องรอย
+  การจราจร"
+- **ควบคุมกล้อง:** ใช้ภาษาที่เกี่ยวข้องกับการถ่ายภาพและภาพยนตร์เพื่อควบคุม
+  องค์ประกอบ คำอย่าง `wide-angle shot`, `macro shot`, `low-angle
+  perspective`
 
-## Sınırlamalar
+## ข้อจำกัด
 
-- En iyi performans için şu dilleri kullanın: EN, ar-EG, de-DE, es-MX,
-  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
-- Görüntü üretme, ses girişlerini desteklemez. Video girişleri yalnızca Gemini 3.1 Flash Image ve Gemini 3.1 Flash Lite Image için desteklenir.
-- Model, kullanıcının açıkça istediği resim çıkışlarının sayısını her zaman tam olarak karşılamaz.
-- `gemini-2.5-flash-image`, giriş olarak en fazla 3 resimle en iyi şekilde çalışır. `gemini-3-pro-image` ise yüksek doğrulukta 5 resmi ve toplamda 14 resmi destekler. `gemini-3.1-flash-image`, tek bir iş akışında en fazla 4 karakter benzerliğini ve 10 nesnenin doğruluğunu destekler.
-- Gemini, bir görüntü için metin oluştururken önce metni oluşturup ardından metni içeren bir görüntü istemeniz durumunda en iyi sonucu verir.
-- `gemini-3.1-flash-image` Google Arama ile Temellendirme, şu anda web aramasından elde edilen gerçek hayattaki insan fotoğraflarının kullanılmasını desteklemiyor.
-- Üretilen tüm görüntülerde [SynthID filigranı](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=tr) bulunur.
+- เพื่อประสิทธิภาพสูงสุด ให้ใช้ภาษาต่อไปนี้ EN, ar-EG, de-DE, es-MX,
+  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN
+- การสร้างรูปภาพไม่รองรับอินพุตเสียง ระบบรองรับอินพุตวิดีโอสำหรับรูปภาพ Gemini 3.1 Flash และรูปภาพ Gemini 3.1 Flash Lite เท่านั้น
+- โมเดลจะไม่สร้างรูปภาพตามจำนวนที่ผู้ใช้ขออย่างชัดเจนเสมอไป
+- `gemini-2.5-flash-image`ทำงานได้ดีที่สุดเมื่อมีรูปภาพเป็นอินพุตไม่เกิน 3 รูป ส่วน
+  `gemini-3-pro-image`รองรับรูปภาพ 5 รูปที่มีความเที่ยงตรงสูง และรองรับรูปภาพทั้งหมดไม่เกิน
+  14 รูป `gemini-3.1-flash-image` รองรับความคล้ายคลึงของตัวละคร
+  ได้สูงสุด 4 ตัว และความสมจริงของออบเจ็กต์ได้สูงสุด 10 รายการใน
+  เวิร์กโฟลว์เดียว
+- เมื่อสร้างข้อความสำหรับรูปภาพ Gemini จะทำงานได้ดีที่สุดหากคุณสร้างข้อความก่อน แล้วจึงขอรูปภาพที่มีข้อความนั้น
+- `gemini-3.1-flash-image` ขณะนี้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ไม่รองรับการใช้รูปภาพของผู้คนในโลกแห่งความเป็นจริงจากการค้นหาบนเว็บ
+- รูปภาพที่สร้างขึ้นทั้งหมดจะมี[ลายน้ำ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=th)
 
-## İsteğe bağlı yapılandırmalar
+## การกำหนดค่าที่ไม่บังคับ
 
-İsteğe bağlı olarak, `generate_content` çağrılarının `config` alanında modelin çıkışının yanıt biçimlerini ve en-boy oranını yapılandırabilirsiniz.
+คุณจะกำหนดค่ารูปแบบการตอบกลับและสัดส่วนภาพของเอาต์พุตของโมเดลในฟิลด์ `config` ของการเรียกใช้ `generate_content` ก็ได้
 
-### Çıkış türleri
+### ประเภทเอาต์พุต
 
-Model, varsayılan olarak metin ve resim yanıtları (ör. `response_modalities=['Text', 'Image']`) döndürür.
-`response_modalities=['Image']` kullanarak yanıtı yalnızca metin içermeyen resimler döndürecek şekilde yapılandırabilirsiniz.
+โมเดลจะแสดงคำตอบเป็นข้อความและรูปภาพโดยค่าเริ่มต้น
+(เช่น `response_modalities=['Text', 'Image']`)
+คุณกำหนดค่าคำตอบให้แสดงเฉพาะรูปภาพโดยไม่มีข้อความได้โดยใช้
+`response_modalities=['Image']`
 
 ### Python
 
@@ -2950,10 +3027,11 @@ curl -s -X POST \
   }'
 ```
 
-### En boy oranları ve resim boyutu
+### สัดส่วนภาพและขนาดรูปภาพ
 
-Model, varsayılan olarak çıkış resminin boyutunu giriş resminizin boyutuyla eşleştirir veya 1:1 kareler oluşturur.
-Yanıt isteğindeki `aspect_ratio` alanını kullanarak çıkış resminin en boy oranını kontrol edebilirsiniz. Bu alan, yanıt isteğinde `response_format` altında gösterilir:
+โดยค่าเริ่มต้น โมเดลจะจับคู่ขนาดรูปภาพเอาต์พุตกับขนาดของรูปภาพอินพุต หรือสร้างสี่เหลี่ยมจัตุรัส 1:1
+คุณควบคุมสัดส่วนของรูปภาพเอาต์พุตได้โดยใช้ฟิลด์ `aspect_ratio`
+ในส่วน `response_format` ในคำขอการตอบกลับ ดังที่แสดงที่นี่
 
 ### Python
 
@@ -3140,11 +3218,11 @@ curl -s -X POST \
   }'
 ```
 
-Kullanılabilen farklı oranlar ve oluşturulan resmin boyutu aşağıdaki tablolarda listelenmiştir:
+อัตราส่วนต่างๆ ที่ใช้ได้และขนาดของรูปภาพที่สร้างขึ้นแสดงอยู่ในตารางต่อไปนี้
 
-### 3.1 Flash Image
+### 3.1 รูปภาพ Flash
 
-| En boy oranı | 512 çözünürlük | 500 jeton | 1K çözünürlük | 1.000 jeton | 2K çözünürlük | 2 bin parça | 4K çözünürlük | 4 bin parça |
+| สัดส่วนภาพ | ความละเอียด 512 | 0.5K โทเค็น | ความละเอียดระดับ 1K | 1,000 โทเค็น | ความละเอียดระดับ 2K | 2,000 โทเค็น | ความละเอียดระดับ 4K | 4,000 โทเค็น |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
 | **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
@@ -3161,9 +3239,9 @@ Kullanılabilen farklı oranlar ve oluşturulan resmin boyutu aşağıdaki tablo
 | **16:9** | 688x384 | 747 | 1376x768 | 1120 | 2752x1536 | 1680 | 5504x3072 | 2520 |
 | **21:9** | 792x168 | 747 | 1584x672 | 1120 | 3168x1344 | 1680 | 6336x2688 | 2520 |
 
-### 3.1 Flash Lite Image
+### 3.1 รูปภาพ Flash Lite
 
-| En boy oranı | 512 çözünürlük | 500 jeton | 1K çözünürlük | 1.000 jeton |
+| สัดส่วนภาพ | ความละเอียด 512 | 0.5K โทเค็น | ความละเอียดระดับ 1K | 1,000 โทเค็น |
 | --- | --- | --- | --- | --- |
 | **1:1** | 512x512 | 747 | 1024x1024 | 1120 |
 | **1:4** | 256x1024 | 747 | 512x2048 | 1120 |
@@ -3182,7 +3260,7 @@ Kullanılabilen farklı oranlar ve oluşturulan resmin boyutu aşağıdaki tablo
 
 ### 3.1 Pro Image
 
-| En boy oranı | 1K çözünürlük | 1.000 jeton | 2K çözünürlük | 2 bin parça | 4K çözünürlük | 4 bin parça |
+| สัดส่วนภาพ | ความละเอียดระดับ 1K | 1,000 โทเค็น | ความละเอียดระดับ 2K | 2,000 โทเค็น | ความละเอียดระดับ 4K | 4,000 โทเค็น |
 | --- | --- | --- | --- | --- | --- | --- |
 | **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
@@ -3195,9 +3273,9 @@ Kullanılabilen farklı oranlar ve oluşturulan resmin boyutu aşağıdaki tablo
 | **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
 | **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
 
-### Gemini 2.5 Flash Image
+### รูปภาพ Gemini 2.5 Flash
 
-| En boy oranı | Çözünürlük | Token'lar |
+| สัดส่วนภาพ | ความละเอียด | โทเค็น |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
 | 2:3 | 832x1248 | 1290 |
@@ -3210,32 +3288,42 @@ Kullanılabilen farklı oranlar ve oluşturulan resmin boyutu aşağıdaki tablo
 | 16:9 | 1344x768 | 1290 |
 | 21:9 | 1536x672 | 1290 |
 
-## Model seçimi
+## การเลือกโมเดล
 
-Belirli kullanım alanınıza en uygun modeli seçin.
+เลือกโมเดลที่เหมาะกับกรณีการใช้งานของคุณมากที่สุด
 
-- **Gemini 3.1 Flash Image (Nano Banana 2)**, maliyet ve gecikme dengesi açısından en iyi genel performansı ve zekayı sunduğu için tercih etmeniz gereken görüntü üretme modelidir. Daha fazla bilgi için model [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-3.1-flash-image) ve [özellikler](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=tr) sayfasına göz atın.
-- **Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite)**, görüntü üretme ailesinin verimlilik uzmanı olarak tasarlanmıştır. Ultra düşük gecikme süresi ve uygun maliyetli görüntü üretme ve düzenleme özellikleri sunar.
-  Daha fazla bilgi için model [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-3.1-flash-lite-image) ve [özellikler](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=tr) sayfasına göz atın.
-- **Gemini 3 Pro Image (Nano Banana Pro)**, profesyonel öğe üretimi ve karmaşık talimatlar için tasarlanmıştır. Bu modelde, Google Arama kullanılarak gerçek dünyayla bağlantı kurulur, oluşturma işleminden önce kompozisyonu iyileştiren varsayılan bir "Düşünme" süreci uygulanır ve 4K çözünürlüğe kadar görüntüler oluşturulabilir. Daha fazla bilgi için model [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-3-pro-image) ve [özellikler](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=tr) sayfasına göz atın.
-- **Gemini 2.5 Flash Image (Nano Banana)**, hız ve verimlilik için tasarlanmıştır. Bu model, yüksek hacimli ve düşük gecikmeli görevler için optimize edilmiştir ve 1.024 piksel çözünürlükte görüntüler oluşturur. Daha fazla bilgi için model [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-2.5-flash-image) ve [özellikler](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=tr) sayfasına göz atın.
+- **รูปภาพ Gemini 3.1 Flash (Nano Banana 2)** ควรเป็นโมเดลการสร้างรูปภาพที่คุณเลือกใช้ เนื่องจากมีประสิทธิภาพและความอัจฉริยะรอบด้านที่ดีที่สุด รวมถึงความสมดุลระหว่างต้นทุนกับเวลาในการตอบสนอง ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.1-flash-image)และ[ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=th)ของโมเดล
+- **รูปภาพ Gemini 3.1 Flash Lite (Nano Banana 2 Lite)** ออกแบบมาเพื่อเป็น
+  ผู้เชี่ยวชาญด้านประสิทธิภาพของตระกูลการสร้างรูปภาพ โดยมี
+  การสร้างและแก้ไขรูปภาพที่มีเวลาในการตอบสนองต่ำมากและคุ้มค่า
+  ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.1-flash-lite-image)
+  และ[ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=th)ของโมเดล
+- **Gemini 3 Pro Image (Nano Banana Pro)** ออกแบบมาเพื่อ
+  การผลิตชิ้นงานระดับมืออาชีพและคำสั่งที่ซับซ้อน โมเดลนี้มี
+  การอ้างอิงจากโลกแห่งความเป็นจริงโดยใช้ Google Search ซึ่งเป็นกระบวนการ "การคิด" เริ่มต้นที่
+  ปรับแต่งองค์ประกอบก่อนการสร้าง และสามารถสร้างรูปภาพที่มีความละเอียดสูงสุด 4K
+  ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3-pro-image)และ[ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=th)ของโมเดล
+- **รูปภาพ Gemini 2.5 Flash (Nano Banana)** ออกแบบมาเพื่อความเร็วและ
+  ประสิทธิภาพ โมเดลนี้ได้รับการเพิ่มประสิทธิภาพสำหรับงานที่มีปริมาณมากและมีเวลาในการตอบสนองต่ำ และสร้างรูปภาพที่ความละเอียด 1024 พิกเซล ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-2.5-flash-image)และ
+  [ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=th)ของโมเดล
 
-### Imagen ne zaman kullanılır?
+### กรณีที่ควรใช้ Imagen
 
-Gemini'ın yerleşik görüntü üretme özelliklerini kullanmanın yanı sıra Gemini API aracılığıyla özel görüntü üretme modelimiz [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=tr)'e de erişebilirsiniz. Kapatma tarihinden önce taşımayı planlayın.
+นอกเหนือจากการใช้ความสามารถในการสร้างรูปภาพในตัวของ Gemini แล้ว คุณยังเข้าถึง [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=th) ซึ่งเป็นโมเดลการสร้างรูปภาพเฉพาะของเราผ่าน Gemini API ได้ด้วย
+โปรดวางแผนที่จะย้ายข้อมูลก่อนวันที่ปิดตัว
 
-## Sırada ne var?
+## ขั้นตอนถัดไป
 
-- Daha fazla örnek ve kod örneğini [cookbook rehberinde](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=tr) bulabilirsiniz.
-- Gemini API ile nasıl video oluşturacağınızı öğrenmek için [Veo kılavuzuna](https://ai.google.dev/gemini-api/docs/video?hl=tr) göz atın.
-- Gemini modelleri hakkında daha fazla bilgi edinmek için [Gemini modelleri](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr) başlıklı makaleyi inceleyin.
+- ดูตัวอย่างและตัวอย่างโค้ดเพิ่มเติมได้ใน[คู่มือสูตรการแก้ปัญหา](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=th)
+- ดู[คู่มือ Veo](https://ai.google.dev/gemini-api/docs/video?hl=th) เพื่อดูวิธีสร้างวิดีโอด้วย Gemini API
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับโมเดล Gemini ได้ที่[โมเดล Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-09-08 UTC.
+อัปเดตล่าสุด 2026-09-08 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-08 UTC"],[],[]]

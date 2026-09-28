@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=hi
-fetched_at: 2026-09-21T05:45:25.350354+00:00
-title: "\u0911\u0921\u093f\u092f\u094b \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=vi
+fetched_at: 2026-09-28T06:11:53.409285+00:00
+title: "Hi\u1ec3u \u00e2m thanh \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-# ऑडियो को समझना
+# Hiểu âm thanh
 
-Gemini, ऑडियो इनपुट का विश्लेषण करके टेक्स्ट वाले जवाब जनरेट कर सकता है.
+Gemini có thể phân tích thông tin đầu vào bằng âm thanh và tạo câu trả lời bằng văn bản.
 
 ### Python
 
@@ -115,6 +115,61 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", &genai.UploadFileConfig{
+        MIMEType: "audio/mp3",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Describe this audio clip",
+        }),
+        interactions.NewContent(interactions.AudioContent{
+            URI:      genai.Ptr(uploadedFile.URI),
+            MimeType: interactions.AudioContentMimeType(uploadedFile.MIMEType).ToPointer(),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -135,22 +190,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## खास जानकारी
+## Tổng quan
 
-Gemini, ऑडियो इनपुट का विश्लेषण कर सकता है और उसे समझ सकता है. साथ ही, टेक्स्ट फ़ॉर्मैट में जवाब जनरेट कर सकता है. इससे इन कामों को पूरा किया जा सकता है:
+Gemini có thể phân tích và hiểu dữ liệu đầu vào là âm thanh, đồng thời tạo ra câu trả lời bằng văn bản, từ đó hỗ trợ các trường hợp sử dụng như:
 
-- ऑडियो कॉन्टेंट के बारे में जानकारी देना, खास जानकारी देना या सवालों के जवाब देना
-- ट्रांसक्रिप्शन और अनुवाद (बोली को लिखाई में बदलने की सुविधा)
-- स्पीकर डायराइज़ेशन (अलग-अलग स्पीकर की पहचान करना)
-- भाषण और संगीत में भावनाओं का पता लगाना
-- टाइमस्टैंप की मदद से, किसी सेगमेंट का विश्लेषण करना
+- Mô tả, tóm tắt hoặc trả lời câu hỏi về nội dung âm thanh
+- Chép lời và dịch (lời nói thành văn bản)
+- Phân tách người nói (xác định những người nói khác nhau)
+- Phát hiện cảm xúc trong lời nói và âm nhạc
+- Phân tích các phân đoạn cụ thể bằng dấu thời gian
 
-रीयल-टाइम में आवाज़ और वीडियो से इंटरैक्ट करने के लिए, [Live API](https://ai.google.dev/gemini-api/docs/live?hl=hi) देखें.
-रीयल-टाइम ट्रांसक्रिप्शन की सुविधा के साथ काम करने वाले, बोली को लिखाई में बदलने वाले मॉडल के लिए, [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=hi) का इस्तेमाल करें.
+Để biết thông tin về các hoạt động tương tác bằng giọng nói và video theo thời gian thực, hãy xem [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
+Đối với các mô hình chuyển lời nói thành văn bản chuyên dụng có hỗ trợ phiên âm theo thời gian thực, hãy sử dụng [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=vi).
 
-## बोले जा रहे शब्दों को टेक्स्ट में बदलना
+## Chuyển lời nói thành văn bản
 
-इस उदाहरण में, [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) का इस्तेमाल करके, टाइमस्टैंप, स्पीकर डायराइज़ेशन, और भावनाओं का पता लगाने की सुविधा के साथ, स्पीच को ट्रांसक्राइब करने, उसका अनुवाद करने, और उसकी खास जानकारी पाने का तरीका दिखाया गया है.
+Ví dụ này cho thấy cách chép lời, dịch và tóm tắt lời nói có dấu thời gian, phân biệt người nói và phát hiện cảm xúc bằng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi).
 
 ### Python
 
@@ -357,6 +412,93 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    youtubeURL := "https://www.youtube.com/watch?v=ku-N-eS1lgM"
+
+    prompt := "Process the audio file and generate a detailed transcription.\n\n" +
+        "Requirements:\n" +
+        "1. Identify distinct speakers (e.g., Speaker 1, Speaker 2).\n" +
+        "2. Provide accurate timestamps for each segment (Format: MM:SS).\n" +
+        "3. Detect the primary language of each segment.\n" +
+        "4. If not English, provide the English translation.\n" +
+        "5. Identify the primary emotion: Happy, Sad, Angry, or Neutral.\n" +
+        "6. Provide a brief summary at the beginning."
+
+    responseSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "summary": map[string]any{"type": "string"},
+            "segments": map[string]any{
+                "type": "array",
+                "items": map[string]any{
+                    "type": "object",
+                    "properties": map[string]any{
+                        "speaker":   map[string]any{"type": "string"},
+                        "timestamp": map[string]any{"type": "string"},
+                        "content":   map[string]any{"type": "string"},
+                        "language":  map[string]any{"type": "string"},
+                        "emotion": map[string]any{
+                            "type": "string",
+                            "enum": []string{"happy", "sad", "angry", "neutral"},
+                        },
+                    },
+                    "required": []string{"speaker", "timestamp", "content", "emotion"},
+                },
+            },
+        },
+        "required": []string{"summary", "segments"},
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.VideoContent{
+            URI:      genai.Ptr(youtubeURL),
+            MimeType: interactions.VideoContentMimeTypeVideoMp4.ToPointer(),
+        }),
+        interactions.NewContent(interactions.TextContent{
+            Text: prompt,
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+            ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
+                interactions.NewResponseFormat(responseSchema),
+            )),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -397,18 +539,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Gemini ऐप्लिकेशन में, कई भाषाओं में ऑडियो ट्रांसक्रिप्शन की सुविधा](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=hi)
+![Ứng dụng Gemini có tính năng chuyển âm thanh thành văn bản bằng nhiều ngôn ngữ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=vi)
 
-## ऑडियो इनपुट
+## Âm thanh đầu vào
 
-ऑडियो डेटा इन तरीकों से दिया जा सकता है:
+Bạn có thể cung cấp dữ liệu âm thanh theo những cách sau:
 
-- अनुरोध करने से पहले, [ऑडियो फ़ाइल अपलोड करें](#upload-audio).
-- अनुरोध के साथ [इनलाइन ऑडियो डेटा पास करें](#inline-audio).
+- [Tải tệp âm thanh lên](#upload-audio) trước khi đưa ra yêu cầu.
+- [Truyền dữ liệu âm thanh nội tuyến](#inline-audio) bằng yêu cầu.
 
-### ऑडियो फ़ाइल अपलोड करना
+### Tải tệp âm thanh lên
 
-20 एमबी से बड़ी फ़ाइलों के लिए, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करें.
+Sử dụng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) cho các tệp lớn hơn 20 MB.
 
 ### Python
 
@@ -505,6 +647,62 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+// Upload an audio file using the Files API (recommended for files > 20 MB)
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", &genai.UploadFileConfig{
+        MIMEType: "audio/mp3",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Describe this audio clip",
+        }),
+        interactions.NewContent(interactions.AudioContent{
+            URI:      genai.Ptr(uploadedFile.URI),
+            MimeType: interactions.AudioContentMimeType(uploadedFile.MIMEType).ToPointer(),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -525,9 +723,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### ऑडियो डेटा को इनलाइन पास करना
+### Truyền dữ liệu âm thanh cùng dòng
 
-अगर ऑडियो फ़ाइलें छोटी हैं और अनुरोध का कुल साइज़ 20 एमबी से कम है, तो:
+Đối với các tệp âm thanh nhỏ có tổng kích thước yêu cầu dưới 20 MB:
 
 ### Python
 
@@ -625,6 +823,62 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    audioBytes, err := os.ReadFile("path/to/small-sample.mp3")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Audio := base64.StdEncoding.EncodeToString(audioBytes)
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Describe this audio clip",
+        }),
+        interactions.NewContent(interactions.AudioContent{
+            Data:     genai.Ptr(base64Audio),
+            MimeType: interactions.AudioContentMimeTypeAudioMp3.ToPointer(),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -652,13 +906,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-इनलाइन ऑडियो डेटा के बारे में जानकारी:
-\* अनुरोध का कुल साइज़ 20 एमबी से ज़्यादा नहीं होना चाहिए. इसमें प्रॉम्प्ट और सभी फ़ाइलें शामिल हैं
-\* दोबारा इस्तेमाल करने के लिए, [फ़ाइल अपलोड करें](#upload-audio)
+Lưu ý về dữ liệu âm thanh nội tuyến:
+\* Tổng kích thước yêu cầu tối đa là 20 MB (bao gồm cả câu lệnh và tất cả các tệp)
+\* Để sử dụng lại, hãy [tải tệp lên](#upload-audio) thay vì sử dụng dữ liệu âm thanh nội tuyến
 
-## ट्रांसक्रिप्ट पाना
+## Lấy bản chép lời
 
-ट्रांसक्रिप्ट पाने के लिए, प्रॉम्प्ट में ट्रांसक्रिप्ट पाने का अनुरोध करें:
+Để nhận bản chép lời, hãy yêu cầu bản chép lời trong câu lệnh:
 
 ### Python
 
@@ -739,9 +993,64 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-## टाइमस्टैंप देखें
+### Go
 
-किसी खास सेक्शन का रेफ़रंस देने के लिए, `MM:SS` फ़ॉर्मैट का इस्तेमाल करें:
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", &genai.UploadFileConfig{
+        MIMEType: "audio/mp3",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Generate a transcript of the speech.",
+        }),
+        interactions.NewContent(interactions.AudioContent{
+            URI:      genai.Ptr(uploadedFile.URI),
+            MimeType: interactions.AudioContentMimeType(uploadedFile.MIMEType).ToPointer(),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
+## Tham khảo dấu thời gian
+
+Sử dụng định dạng `MM:SS` để tham chiếu các phần cụ thể:
 
 ### Python
 
@@ -817,9 +1126,64 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-## टोकन गिनें
+### Go
 
-किसी ऑडियो फ़ाइल में टोकन की गिनती करना:
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", &genai.UploadFileConfig{
+        MIMEType: "audio/mp3",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Provide a transcript from 02:30 to 03:29.",
+        }),
+        interactions.NewContent(interactions.AudioContent{
+            URI:      genai.Ptr(uploadedFile.URI),
+            MimeType: interactions.AudioContentMimeType(uploadedFile.MIMEType).ToPointer(),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
+## Đếm số lượng mã thông báo
+
+Đếm số mã thông báo trong một tệp âm thanh:
 
 ### Python
 
@@ -871,48 +1235,89 @@ CountTokensResponse response =
 System.out.println(response);
 ```
 
-## इस्तेमाल किए जा सकने वाले ऑडियो फ़ॉर्मैट
+### Go
 
-Gemini में, इन ऑडियो फ़ॉर्मैट के MIME टाइप इस्तेमाल किए जा सकते हैं:
+```
+package main
 
-- WAV - `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
-- AAC - `audio/aac`
-- OGG - `audio/ogg`
-- FLAC - `audio/flac`
-- MPEG - `audio/mpeg`
-- M4A - `audio/m4a`
-- L16 - `audio/l16`
-- Opus - `audio/opus`
-- ALAW - `audio/alaw`
-- MULAW - `audio/mulaw`
-- WebM - `audio/webm`
+import (
+    "context"
+    "fmt"
+    "log"
 
-इस्तेमाल किए जा सकने वाले MIME टाइप और पैरामीटर स्कीमा की पूरी सूची देखने के लिए, [Interactions API का रेफ़रंस](https://ai.google.dev/api/interactions-api?hl=hi#Resource:Content) देखें.
+    "google.golang.org/genai"
+)
 
-## ऑडियो के बारे में तकनीकी जानकारी
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-- **टोकन**: ऑडियो के हर सेकंड के लिए 32 टोकन (1 मिनट = 1,920 टोकन)
-- **बोली न जाने वाली आवाज़ें**: Gemini, बोली न जाने वाली आवाज़ों (पक्षियों के चहचहाने, सायरन वगैरह) को समझता है
-- **ज़्यादा से ज़्यादा लंबाई**: हर प्रॉम्प्ट के लिए 9.5 घंटे का ऑडियो
-- **रिज़ॉल्यूशन**: 16 केबीपीएस पर डाउनसैंपल किया गया
-- **चैनल**: मल्टी-चैनल ऑडियो को एक चैनल में मिलाया गया है
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", &genai.UploadFileConfig{
+        MIMEType: "audio/mp3",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
 
-## आगे क्या करना है
+    response, err := client.Models.CountTokens(
+        ctx,
+        "gemini-3.8-flash",
+        []*genai.Content{
+            genai.NewContentFromURI(uploadedFile.URI, uploadedFile.MIMEType, genai.RoleUser),
+        },
+        nil,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi): ऑडियो फ़ाइलें अपलोड और मैनेज करें
-- [सिस्टम के निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
-  मॉडल के व्यवहार को पसंद के मुताबिक बनाएं
-- [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi):
-  ट्रांसक्रिप्शन के नतीजे JSON फ़ॉर्मैट में पाएं
+    fmt.Println(response.TotalTokens)
+}
+```
 
-सुझाव भेजें
+## Định dạng âm thanh được hỗ trợ
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Gemini hỗ trợ các loại MIME định dạng âm thanh sau:
 
-आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया.
+- WAV – `audio/wav`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
+- AAC – `audio/aac`
+- OGG – `audio/ogg`
+- FLAC – `audio/flac`
+- MPEG – `audio/mpeg`
+- M4A – `audio/m4a`
+- L16 – `audio/l16`
+- Opus – `audio/opus`
+- ALAW – `audio/alaw`
+- MULAW – `audio/mulaw`
+- WebM – `audio/webm`
 
-क्या आपको हमें और कुछ बताना है?
+Để xem danh sách đầy đủ các loại MIME và giản đồ tham số được hỗ trợ, hãy xem [Tài liệu tham khảo về Interactions API](https://ai.google.dev/api/interactions-api?hl=vi#Resource:Content).
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया."],[],[]]
+## Thông tin kỹ thuật về âm thanh
+
+- **Mã thông báo**: 32 mã thông báo cho mỗi giây âm thanh (1 phút = 1.920 mã thông báo)
+- **Âm thanh không phải lời nói**: Gemini hiểu được âm thanh không phải lời nói (tiếng chim hót, tiếng còi báo động, v.v.)
+- **Độ dài tối đa**: 9,5 giờ âm thanh cho mỗi câu lệnh
+- **Độ phân giải**: Giảm xuống còn 16 Kbps
+- **Kênh**: Âm thanh nhiều kênh kết hợp thành một kênh
+
+## Bước tiếp theo
+
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi): Tải lên và quản lý tệp âm thanh
+- [Hướng dẫn của hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Tuỳ chỉnh hành vi của mô hình
+- [Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi): Nhận kết quả phiên âm ở định dạng JSON
+
+Gửi ý kiến phản hồi
+
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+
+Cập nhật lần gần đây nhất: 2026-09-24 UTC.
+
+Bạn muốn chia sẻ thêm với chúng tôi?
+
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]

@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pl
-fetched_at: 2026-09-21T05:49:10.639231+00:00
-title: "Orkiestracja zada\u0144 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=it
+fetched_at: 2026-09-28T06:08:31.429742+00:00
+title: "Orchestrazione delle attivit\u00e0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Prześlij opinię
+Invia feedback
 
-# Orkiestracja zadań
+# Orchestrazione delle attività
 
-Modele Gemini Robotics ER potrafią planować zadania i rozumować o przestrzeni, wnioskując, jakie działania należy podjąć i jakie obiekty przenieść, aby osiągnąć cel. Ta strona
-zawiera przykład sterowania operacją [podnoszenia i przenoszenia](https://ai.google.dev/gemini-api/docs/calling-custom-robot-api?hl=pl)
-za pomocą niestandardowego interfejsu API robota, aby skoordynować zadanie umieszczenia przedmiotu
-w misce. W tym przykładzie używamy standardowego modelu Gemini ER 2. Przykład przesyłania strumieniowego
-znajdziesz w [przewodniku Gemini ER 2 Streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pl).
+I modelli Gemini Robotics ER possono pianificare le attività e ragionare sullo spazio, deducendo quali azioni intraprendere e quali oggetti spostare per raggiungere un obiettivo. Questa pagina
+mostra un esempio di [esecuzione di un'operazione di prelievo e posizionamento](https://ai.google.dev/gemini-api/docs/calling-custom-robot-api?hl=it)
+tramite un'API robot personalizzata per orchestrare l'attività di posizionamento di un elemento
+in una ciotola. Questo esempio utilizza il modello Gemini ER 2 standard. Per un esempio di streaming
+, consulta la [guida a Gemini ER 2 Streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it).
 
-Pełny kod, który można uruchomić, znajdziesz w
-[zbiorze przepisów Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Per il codice eseguibile completo, consulta il
+[ricettario di robotica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Korzystanie z niestandardowego interfejsu API robota
+## Utilizzare un'API robot personalizzata
 
-Ten przykład pokazuje koordynację zadań za pomocą niestandardowego interfejsu API robota. Przedstawia on pozorowany interfejs API przeznaczony do operacji podnoszenia i przenoszenia. Zadanie polega na podniesieniu niebieskiego klocka i umieszczeniu go w pomarańczowej misce:
+Questo esempio mostra l'orchestrazione delle attività con un'API robot personalizzata. Introduce un'API fittizia progettata per un'operazione di prelievo e posizionamento. L'attività consiste nel raccogliere un blocco blu e posizionarlo in una ciotola arancione:
 
-![Obraz przedstawiający blok i miskę](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=pl)
+![Un'immagine del blocco e della ciotola](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=it)
 
-W tym przykładzie używamy tego pozorowanego interfejsu API robota:
+Questo esempio utilizza la seguente API robot fittizia:
 
 ### Python
 
@@ -76,7 +76,7 @@ set_gripper_state_function = {
 }
 ```
 
-Ten przykład wysyła prompt i obraz do modelu wraz z definicjami narzędzi. Następnie uruchamia pętlę agenta: po każdej odpowiedzi modelu wykonuje wszystkie żądane wywołania funkcji (`move`, `setGripperState`), zwraca wyniki do modelu za pomocą `previous_interaction_id` i powtarza, dopóki model nie przestanie wywoływać funkcji lub nie zostanie osiągnięty limit kroków.
+L'esempio seguente invia il prompt e l'immagine al modello con le definizioni degli strumenti. Esegue quindi un loop di agenti: dopo ogni risposta del modello, esegue le chiamate di funzione richieste (`move`, `setGripperState`), restituisce i risultati al modello utilizzando `previous_interaction_id` e ripete l'operazione finché il modello non smette di chiamare le funzioni o non viene raggiunto il limite di passaggi.
 
 ### Python
 
@@ -152,7 +152,7 @@ while step_count < max_steps:
     )
 ```
 
-Poniżej przedstawiamy możliwe dane wyjściowe modelu na podstawie promptu i pozorowanego interfejsu API robota. Dane wyjściowe obejmują dane wyjściowe wywołań funkcji robota, które model połączył w sekwencję.
+Di seguito è riportato un possibile output del modello basato sul prompt e sull'API robot fittizia. L'output include l'output delle chiamate di funzione del robot che il modello ha sequenziato insieme.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -169,18 +169,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## Co dalej?
+## Passaggi successivi
 
-- [Robotyka z przesyłaniem strumieniowym](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pl) – przesyłanie strumieniowe w czasie rzeczywistym z wywoływaniem funkcji (tylko Gemini Robotics ER 2).
-- [Rozumienie obrazu](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pl) – śledzenie postępu zadania na podstawie filmu (tylko ER 2).
-- [Rozumowanie przestrzenne](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=pl) – przykłady wskazywania, śledzenia i ramki ograniczającej.
+- [Robotica con streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it): streaming in tempo reale con chiamata di funzione (solo Gemini Robotics ER 2).
+- [Comprensione video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=it): monitora l'avanzamento delle attività dal video (solo ER 2).
+- [Ragionamento spaziale](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=it): esempi di puntamento, monitoraggio e riquadro di delimitazione.
 
-Prześlij opinię
+Invia feedback
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Ostatnia aktualizacja: 2026-09-08 UTC.
+Ultimo aggiornamento 2026-09-08 UTC.
 
-Chcesz przekazać coś jeszcze?
+Vuoi dirci altro?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-08 UTC."],[],[]]

@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=de
-fetched_at: 2026-09-21T05:51:39.912736+00:00
-title: "Aufgabenorchestrierung \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=pl
+fetched_at: 2026-09-28T06:18:34.166749+00:00
+title: "Orkiestracja zada\u0144 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-Feedback geben
+Prześlij opinię
 
-# Aufgabenorchestrierung
+# Orkiestracja zadań
 
-Gemini Robotics ER-Modelle können Aufgaben planen und räumliche Zusammenhänge berücksichtigen. Sie leiten ab, welche Aktionen ausgeführt und welche Objekte bewegt werden müssen, um ein Ziel zu erreichen. Auf dieser Seite
-wird ein Beispiel für die Ausführung eines [Pick-and-Place](#calling-custom-robot-api)
-Vorgangs über eine benutzerdefinierte Roboter-API gezeigt, um die Aufgabe zu orchestrieren, einen Gegenstand
-in eine Schüssel zu legen.
+Modele Gemini Robotics ER mogą planować zadania i rozumować o przestrzeni, wnioskując, jakie działania należy podjąć i jakie obiekty przenieść, aby osiągnąć cel. Ta strona
+zawiera przykład sterowania operacją [podnoszenia i przenoszenia](#calling-custom-robot-api)
+za pomocą niestandardowego interfejsu API robota, aby skoordynować zadanie umieszczenia przedmiotu
+w misce.
 
-Vollständiger ausführbarer Code ist im
-[Robotics-Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) verfügbar.
+Pełny kod, który można uruchomić, znajdziesz w
+[przewodniku Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Benutzerdefinierte Roboter-API verwenden
+## Korzystanie z niestandardowego interfejsu API robota
 
-In diesem Beispiel wird die Aufgabenorchestrierung mit einer benutzerdefinierten Roboter-API veranschaulicht. Es wird eine Mock-API für einen Pick-and-Place-Vorgang eingeführt. Die Aufgabe besteht darin, einen blauen Block aufzunehmen und in eine orangefarbene Schüssel zu legen:
+Ten przykład pokazuje koordynację zadań za pomocą niestandardowego interfejsu API robota. Przedstawia on pozorowany interfejs API zaprojektowany do operacji podnoszenia i przenoszenia. Zadanie polega na podniesieniu niebieskiego klocka i umieszczeniu go w pomarańczowej misce:
 
-![Bild des Blocks und der Schale](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=de)
+![Obraz przedstawiający blok i miskę](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=pl)
 
-In diesem Beispiel werden die folgenden Mock-Roboter-API- und Tool-Definitionen verwendet:
+Ten przykład korzysta z tych pozorowanych definicji interfejsu API robota i narzędzia:
 
 ### Python
 
@@ -81,7 +81,7 @@ set_gripper_state_declaration = types.FunctionDeclaration(
 robot_tools = types.Tool(function_declarations=[move_declaration, set_gripper_state_declaration])
 ```
 
-Im folgenden Beispiel werden der Prompt und das Bild mit den Tool-Definitionen an das Modell gesendet. Anschließend wird eine Agenten-Schleife ausgeführt: Nach jeder Modellantwort werden alle angeforderten Funktionsaufrufe (`move`, `setGripperState`) ausgeführt, die Ergebnisse an das Modell zurückgegeben und der Vorgang wiederholt, bis das Modell keine Funktionen mehr aufruft oder das Schrittlimit erreicht ist.
+Ten przykład wysyła prompt i obraz do modelu wraz z definicjami narzędzi. Następnie uruchamia pętlę agenta: po każdej odpowiedzi modelu wykonuje wszystkie żądane wywołania funkcji (`move`, `setGripperState`), zwraca wyniki do modelu i powtarza, dopóki model nie przestanie wywoływać funkcji lub nie zostanie osiągnięty limit kroków.
 
 ### Python
 
@@ -155,7 +155,7 @@ while step_count < max_steps:
     contents.append(types.Content(role="user", parts=function_response_parts))
 ```
 
-Im Folgenden sehen Sie eine mögliche Ausgabe des Modells basierend auf dem Prompt und der Mock-Roboter-API. Die Ausgabe enthält die Ausgabe der Roboter-Funktionsaufrufe, die das Modell sequenziell ausgeführt hat.
+Poniżej przedstawiamy możliwe dane wyjściowe modelu na podstawie promptu i pozorowanego interfejsu API robota. Dane wyjściowe obejmują dane wyjściowe wywołań funkcji robota, które model połączył w sekwencję.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -172,18 +172,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## Nächste Schritte
+## Co dalej?
 
-- [Robotik mit Streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de): Echtzeit-Streaming mit Funktionsaufrufen (nur Gemini Robotics ER 2)
-- [Videoanalyse](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=de): Aufgabenfortschritt anhand von Videos verfolgen (nur ER 2)
-- [Räumliches Denken](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=de): Beispiele für Zeigen, Tracking und Begrenzungsrahmen
+- [Robotyka ze strumieniowaniem](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pl) – strumieniowanie w czasie rzeczywistym z wywoływaniem funkcji (tylko Gemini Robotics ER 2).
+- [Rozumienie obrazu](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pl) – śledzenie postępu zadania na podstawie filmu (tylko ER 2).
+- [Rozumowanie przestrzenne](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=pl) – przykłady wskazywania, śledzenia i ramki ograniczającej.
 
-Feedback geben
+Prześlij opinię
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Zuletzt aktualisiert: 2026-09-08 (UTC).
+Ostatnia aktualizacja: 2026-09-08 UTC.
 
-Haben Sie Feedback für uns?
+Chcesz przekazać coś jeszcze?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-08 (UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]

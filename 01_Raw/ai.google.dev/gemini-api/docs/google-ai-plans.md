@@ -1,62 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=tr
-fetched_at: 2026-09-21T05:58:19.208520+00:00
-title: "Google AI planlar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=vi
+fetched_at: 2026-09-28T06:18:59.846944+00:00
+title: "C\u00e1c g\u00f3i AI c\u1ee7a Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# Google AI planları
+# Các gói AI của Google
 
-AI Studio'da Google AI abonelik planınızı kullanın.
+Sử dụng gói thuê bao AI của Google trong AI Studio.
 
-Google AI Pro ve Ultra abonelik planları, ücretsiz katmana kıyasla AI Studio'da prototip oluşturma ve geliştirme için daha fazla model erişimi ve daha yüksek sıklık sınırları sunar.
+Các gói thuê bao Google AI Pro và Ultra cung cấp quyền truy cập rộng hơn vào mô hình và tăng hạn mức tốc độ để tạo nguyên mẫu và phát triển trong AI Studio so với gói miễn phí.
 
-Google AI planına kaydolmak için Google AI Studio'da sol gezinme menüsündeki **Yükselt** düğmesini tıklayarak doğrudan yükseltme yapabilirsiniz. Alternatif olarak, [Google AI Planları sayfasını](https://one.google.com/about/google-ai-plans/?hl=tr) ziyaret ederek de kaydolabilirsiniz.
+Để đăng ký gói AI của Google, bạn có thể nâng cấp trực tiếp trong Google AI Studio bằng cách nhấp vào nút **Nâng cấp** trong trình đơn điều hướng bên trái. Ngoài ra, bạn có thể đăng ký bằng cách truy cập vào [trang Các gói Google AI](https://one.google.com/about/google-ai-plans/?hl=vi).
 
-## Genel Bakış
+## Tổng quan
 
-Google AI Pro ve Ultra abonelikleri, geliştiricilerin Google AI Studio Playground'da ücretli modellerin ve daha yüksek sıklık sınırlarının kilidini açmasına olanak tanır. Ayrıca, [Build mode](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr)'da (Oluşturma modu) Code Assistant (Kod Asistanı) gibi özellikleri kullanarak sezgisel kodlama yapabilirler. Aboneler, [Playground](https://aistudio.google.com/prompts/new_chat?hl=tr) ve [Build](https://aistudio.google.com/apps?hl=tr) arayüzlerinde kullanmak üzere ücretsiz katmandan daha yüksek bir günlük kota hakkı elde eder. Günlük sınırlar, Cloud Faturalandırma ile üretime yönelik ölçekte geliştirmeye geçmeden önce sorunsuz bir geliştirme deneyimi sağlamak için kayan zaman aralıkları yerine sıfırlamalar kullanılarak uygulanır.
+Các gói thuê bao Google AI Pro và Ultra giúp nhà phát triển khai thác các mô hình có tính phí và hạn mức cao hơn trong Google AI Studio Playground cũng như các tính năng như Trợ lý lập trình ở [Chế độ tạo](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi) để lập trình theo cảm hứng. Người đăng ký sẽ nhận được hạn mức cơ bản hằng ngày cao hơn so với hạn mức của gói miễn phí để sử dụng trên các giao diện [Playground](https://aistudio.google.com/prompts/new_chat?hl=vi) và [Build](https://aistudio.google.com/apps?hl=vi). Giới hạn hằng ngày được thực thi bằng cách sử dụng các lần đặt lại thay vì khoảng thời gian cố định, đảm bảo trải nghiệm phát triển suôn sẻ trước khi chuyển sang phát triển ở quy mô sản xuất bằng Cloud Billing.
 
-| Plan | AI Studio kullanımı | Model erişimi ve avantajlar |
+| Lập kế hoạch | Mức sử dụng AI Studio | Quyền sử dụng mô hình và các lợi ích |
 | --- | --- | --- |
-| **Ücretsiz** | Az kota | Daha fazla erişim için yükseltme seçeneğiyle birlikte temel sınırlar ve erişim. |
-| **AI Pro** | Daha yüksek kota | Gemini Pro, Nano Banana ve Lyria gibi premium modellere erişim |
-| **AI Ultra** | En yüksek kota | Prototip oluşturma, geliştirme ve gelişmiş öncü modeller için en yüksek kullanım sınırları. |
+| **Free** | Hạn mức vừa phải | Hạn mức và quyền truy cập cơ bản, có thể nâng cấp để có thêm hạn mức và quyền truy cập. |
+| **AI Pro** | Hạn mức cao hơn | Quyền truy cập vào các mô hình cao cấp như Gemini Pro, Nano Banana và Lyria. |
+| **AI Ultra** | Hạn mức cao nhất | Hạn mức cao nhất để tạo nguyên mẫu, phát triển và sử dụng các mô hình tiên tiến. |
 
-## Gemini API kullanımı
+## Sử dụng Gemini API
 
-AI Studio'da günlük temel abonelik kotaları tükendiğinde, iş akışlarınıza doğrudan Gemini API'nin istek başına ödeme kullanımına yönelik olarak Cloud Faturalandırma'nın etkinleştirildiği bir Gemini API anahtarıyla devam edebilirsiniz.
-Projeler ve API anahtarları için Gemini API kullanımı [AI Studio kontrol panelinde](https://aistudio.google.com/projects?hl=tr) gözlemlenebilir.
+Khi hết hạn mức cơ bản hằng ngày của gói thuê bao trong AI Studio, bạn có thể tiếp tục quy trình làm việc bằng cách sử dụng khoá Gemini API có bật tính năng Thanh toán trên đám mây để sử dụng Gemini API trực tiếp theo mức trả phí cho mỗi yêu cầu.
+Bạn có thể theo dõi mức sử dụng Gemini API cho các dự án và khoá API trong [Trang tổng quan của AI Studio](https://aistudio.google.com/projects?hl=vi).
 
-Google Cloud Platform (GCP) projeleri ve Cloud Billing'i etkinleştirmiş aboneler, Gemini API dahil olmak üzere Cloud hizmetleri için [Google Developer Program](https://developers.google.com/program?hl=tr)'dan aylık Cloud kredisi almaya uygundur. Ön ödemeli ve sonradan ödemeli kullanım ve faturalandırma değişmez. Ön ödemeli faturalandırmayı kullanan kullanıcıların promosyon kredilerini etkinleştirmek için AI Studio'da 0 ABD dolarından fazla ödenmiş bakiyeye sahip olması gerekir. Varsa uygun Google Cloud kredileri öncelikle uygulanır.
-[Daha fazla bilgi edinin](https://ai.google.dev/gemini-api/docs/billing?hl=tr#billing-plans).
+Những người đăng ký có dự án trên Google Cloud Platform (GCP) và đã bật Cloud Billing đều đủ điều kiện nhận tín dụng Cloud hằng tháng từ [Google Developer Program](https://developers.google.com/program?hl=vi) cho các dịch vụ Cloud, bao gồm cả Gemini API. Việc sử dụng và thanh toán trả trước và trả sau vẫn không thay đổi. Đối với người dùng sử dụng phương thức thanh toán trả trước, bạn cần có số dư lớn hơn 0 USD trong AI Studio để kích hoạt tín dụng khuyến mãi. Khoản tín dụng Google Cloud đủ điều kiện (nếu có) sẽ được áp dụng trước.
+[Tìm hiểu thêm](https://ai.google.dev/gemini-api/docs/billing?hl=vi#billing-plans).
 
-Google Yapay Zeka aboneliği entegrasyonu, gelişmiş deneme ve geliştirme için giriş eşiğini düşürür. Ancak büyük ölçekli üretim dağıtımları için Google Cloud projeleri, [Google Cloud Başlangıç Katmanı](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=tr) ve Gemini API anahtarları önerilen yöntemdir.
+Việc tích hợp gói thuê bao AI của Google giúp giảm bớt rào cản đối với hoạt động thử nghiệm và phát triển nâng cao. Tuy nhiên, đối với các hoạt động triển khai quy mô lớn trong môi trường sản xuất, dự án Google Cloud, [Google Cloud Starter Tier](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=vi) và khoá Gemini API là những lựa chọn được đề xuất.
 
-## Sınırlamalar ve uyumluluk
+## Hạn chế và khả năng tương thích
 
-- **Yalnızca AI Studio kullanıcı arayüzü:** Geliştirici kullanımına yönelik Google AI planı avantajları yalnızca Google AI Studio web arayüzünde geçerlidir. Gemini API'nin doğrudan kullanımı (ör. API anahtarlarının veya harici uygulamaların kullanılması) ayrı olarak faturalandırılır ve yönetilir. Ancak aboneliğinizi diğer Google ürünlerinde kullanabilirsiniz ([Google AI Planları](https://one.google.com/about/google-ai-plans/?hl=tr)'na bakın).
-- **API faturalandırmasından farklıdır:** AI Studio için Google AI planları, geliştirme ve üretim API kullanımını kapsayan [Gemini API kullanım katmanlarından](https://ai.google.dev/gemini-api/docs/billing?hl=tr) ayrıdır.
-- **Google One kredileri:** [Google One yapay zeka kredileri](https://support.google.com/googleone/answer/16287445?hl=tr), AI Studio'da desteklenmeyen ve Google Cloud kredileriyle çakışmayan ayrı bir kredi sistemidir.
-- **Aracı erişimi:** AI Studio'daki aracılara (Deep Research ve Antigravity Preview) erişim, Google AI planlarına dahil değildir ve [ücretli bir API anahtarı](https://ai.google.dev/gemini-api/docs/billing?hl=tr#setup-billing) gerektirir.
+- **Chỉ có giao diện người dùng AI Studio:** Các lợi ích của gói AI của Google dành cho mục đích sử dụng của nhà phát triển chỉ áp dụng trong giao diện web của Google AI Studio. Việc sử dụng trực tiếp Gemini API (chẳng hạn như sử dụng khoá API hoặc các ứng dụng bên ngoài) sẽ được tính phí và quản lý riêng. Tuy nhiên, bạn có thể sử dụng gói thuê bao này trên các sản phẩm khác của Google (xem [Các gói AI của Google](https://one.google.com/about/google-ai-plans/?hl=vi)).
+- **Khác với phí sử dụng API:** Các gói AI của Google dành cho AI Studio tách biệt với [các bậc sử dụng Gemini API](https://ai.google.dev/gemini-api/docs/billing?hl=vi). Các bậc này bao gồm việc sử dụng API trong quá trình phát triển và sản xuất.
+- **Tín dụng Google One:** [Tín dụng AI của Google One](https://support.google.com/googleone/answer/16287445?hl=vi) là một hệ thống tín dụng riêng biệt không được hỗ trợ trong AI Studio và không trùng lặp với tín dụng Google Cloud.
+- **Quyền truy cập vào các tác nhân:** Các gói Google AI không bao gồm quyền truy cập vào các tác nhân (Deep Research và Antigravity Preview) trong AI Studio và yêu cầu phải có [khoá API trả phí](https://ai.google.dev/gemini-api/docs/billing?hl=vi#setup-billing).
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Son güncelleme tarihi: 2026-08-19 UTC.
+Cập nhật lần gần đây nhất: 2026-08-19 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-08-19 UTC."],[],[]]

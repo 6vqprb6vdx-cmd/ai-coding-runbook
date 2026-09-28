@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=fr
-fetched_at: 2026-09-21T05:59:16.337469+00:00
+fetched_at: 2026-09-28T06:15:51.570264+00:00
 title: "Premiers pas avec l'API Gemini\u00a0Live \u00e0 l'aide du SDK Google GenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

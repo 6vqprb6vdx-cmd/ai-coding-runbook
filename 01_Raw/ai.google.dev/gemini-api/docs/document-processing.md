@@ -1,40 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=id
-fetched_at: 2026-09-21T06:00:29.986848+00:00
-title: "Pemahaman dokumen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=ja
+fetched_at: 2026-09-28T06:16:56.366586+00:00
+title: "\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u306e\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Pemahaman dokumen
+# ドキュメントの理解
 
-Model Gemini dapat memproses dokumen dalam format PDF, menggunakan vision native untuk memahami seluruh konteks dokumen. Hal ini lebih dari sekadar ekstraksi teks, sehingga Gemini dapat:
+Gemini モデルは、ネイティブ ビジョンを使用してドキュメント全体のコンテキストを理解し、PDF 形式のドキュメントを処理できます。これは単なるテキスト抽出にとどまらず、Gemini は次のことができるようになります。
 
-- Menganalisis dan menafsirkan konten, termasuk teks, gambar, diagram, diagram, dan tabel, bahkan dalam dokumen panjang hingga 1.000 halaman.
-- Mengekstrak informasi ke dalam [format output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
-- Meringkas dan menjawab pertanyaan berdasarkan elemen visual dan tekstual dalam dokumen.
-- Mentranskripsikan konten dokumen (misalnya, ke HTML), mempertahankan tata letak dan pemformatan, untuk digunakan dalam aplikasi hilir.
+- 最大 1,000 ページの長いドキュメントでも、テキスト、画像、図、グラフ、表などのコンテンツを分析して解釈します。
+- 情報を[構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)形式で抽出します。
+- ドキュメント内のビジュアル要素とテキスト要素の両方に基づいて、要約を作成し、質問に回答します。
+- 下流のアプリケーションで使用するために、レイアウトと書式設定を保持したままドキュメントのコンテンツを（HTML などに）文字起こしします。
 
-Anda juga dapat meneruskan dokumen non-PDF dengan cara yang sama, tetapi Gemini akan melihatnya sebagai teks normal yang akan menghilangkan konteks seperti diagram atau pemformatan.
+PDF 以外のドキュメントも同じ方法で渡すことができますが、Gemini はそれらを通常のテキストとして認識するため、グラフや書式設定などのコンテキストは失われます。
 
-## Meneruskan data PDF secara inline
+## PDF データをインラインで渡す
 
-Anda dapat meneruskan data PDF secara inline dalam permintaan. Cara ini paling cocok untuk dokumen yang lebih kecil atau pemrosesan sementara yang tidak memerlukan referensi file dalam permintaan berikutnya. Sebaiknya gunakan
-[Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=id#large-pdfs)
-untuk dokumen yang lebih besar yang perlu Anda referensikan dalam interaksi multi-turn untuk
-meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth.
+リクエストで PDF データをインラインで渡すことができます。これは、後続のリクエストでファイルを参照する必要がない、小さなドキュメントや一時的な処理に最適です。リクエストのレイテンシを改善し、帯域幅の使用量を削減するには、マルチターンのやり取りで参照する必要がある大きなドキュメントには [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja#large-pdfs) を使用することをおすすめします。
 
-Contoh berikut menunjukkan cara meneruskan data PDF secara inline:
+次の例は、PDF データをインラインで渡す方法を示しています。
 
 ### Python
 
@@ -136,6 +133,59 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    pdfBytes, err := os.ReadFile("path/to/document.pdf")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Pdf := base64.StdEncoding.EncodeToString(pdfBytes)
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.DocumentContent{
+                    Data:     genai.Ptr(base64Pdf),
+                    MimeType: interactions.DocumentContentMimeTypeApplicationPdf.ToPointer(),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Summarize this document",
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -163,7 +213,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Anda juga dapat mengupload file PDF lokal untuk diproses:
+ローカルの PDF ファイルをアップロードして処理することもできます。
 
 ### Python
 
@@ -259,6 +309,58 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "file.pdf", &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.DocumentContent{
+                    URI:      genai.Ptr(uploadedFile.URI),
+                    MimeType: interactions.DocumentContentMimeType(uploadedFile.MIMEType).ToPointer(),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Summarize this document",
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -310,13 +412,13 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-## Mengupload PDF menggunakan Files API
+## Files API を使用して PDF をアップロードする
 
-Sebaiknya gunakan Files API untuk file yang lebih besar atau jika Anda ingin menggunakan kembali dokumen di beberapa permintaan. Hal ini meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth dengan memisahkan upload file dari permintaan model.
+大きなファイルの場合や、複数のリクエストでドキュメントを再利用する場合は、Files API を使用することをおすすめします。これにより、ファイル アップロードをモデル リクエストから切り離すことで、リクエストのレイテンシが改善され、帯域幅の使用量が削減されます。
 
-### PDF besar dari URL
+### URL からの大きな PDF
 
-Gunakan File API untuk menyederhanakan upload dan pemrosesan file PDF besar dari URL:
+File API を使用すると、URL からの大きな PDF ファイルのアップロードと処理を簡素化できます。
 
 ### Python
 
@@ -454,6 +556,74 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "bytes"
+    "context"
+    "fmt"
+    "io"
+    "log"
+    "net/http"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    longContextPdfPath := "https://arxiv.org/pdf/2312.11805"
+    resp, err := http.Get(longContextPdfPath)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.Body.Close()
+    pdfBytes, err := io.ReadAll(resp.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    sampleDoc, err := client.Files.Upload(ctx, bytes.NewReader(pdfBytes), &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "Summarize this document"
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.DocumentContent{
+                    URI:      genai.Ptr(sampleDoc.URI),
+                    MimeType: interactions.DocumentContentMimeType(sampleDoc.MIMEType).ToPointer(),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -524,7 +694,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### PDF besar yang disimpan secara lokal
+### ローカルに保存された大きな PDF
 
 ### Python
 
@@ -638,6 +808,58 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    sampleFile, err := client.Files.UploadFromPath(ctx, "large_file.pdf", &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.DocumentContent{
+                    URI:      genai.Ptr(sampleFile.URI),
+                    MimeType: interactions.DocumentContentMimeType(sampleFile.MIMEType).ToPointer(),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Summarize this document",
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -689,8 +911,7 @@ echo
 jq -r ".steps[-1].content[0].text" response.json
 ```
 
-Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
-metadatanya dengan memanggil [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=id). Hanya `name` (dan dengan ekstensi, `uri`) yang unik.
+[`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=ja) を呼び出すことで、API がアップロードされたファイルを正常に保存し、そのメタデータを取得したことを確認できます。`name`（および `uri`）のみが一意です。
 
 ### Python
 
@@ -756,6 +977,46 @@ File fileInfo = client.files.get(file.name().orElse(""), null);
 System.out.println(fileInfo.toJson());
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if err := os.WriteFile("example.pdf", []byte("hello"), 0644); err != nil {
+        log.Fatal(err)
+    }
+
+    file, err := client.Files.UploadFromPath(ctx, "example.pdf", &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fileInfo, err := client.Files.Get(ctx, file.Name, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(fileInfo)
+}
+```
+
 ### REST
 
 ```
@@ -769,9 +1030,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Meneruskan beberapa PDF
+## 複数の PDF を渡す
 
-Gemini API dapat memproses beberapa dokumen PDF (hingga 1.000 halaman) dalam satu permintaan, selama ukuran gabungan dokumen dan perintah teks tetap berada dalam jendela konteks model.
+Gemini API は、ドキュメントとテキスト プロンプトの合計サイズがモデルのコンテキスト ウィンドウ内に収まる限り、1 回のリクエストで複数の PDF ドキュメント（最大 1, 000 ページ）を処理できます。
 
 ### Python
 
@@ -939,6 +1200,96 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "bytes"
+    "context"
+    "fmt"
+    "io"
+    "log"
+    "net/http"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    docURL1 := "https://arxiv.org/pdf/2312.11805"
+    docURL2 := "https://arxiv.org/pdf/2403.05530"
+
+    resp1, err := http.Get(docURL1)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp1.Body.Close()
+    docData1, err := io.ReadAll(resp1.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    resp2, err := http.Get(docURL2)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp2.Body.Close()
+    docData2, err := io.ReadAll(resp2.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    samplePdf1, err := client.Files.Upload(ctx, bytes.NewReader(docData1), &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    samplePdf2, err := client.Files.Upload(ctx, bytes.NewReader(docData2), &genai.UploadFileConfig{
+        MIMEType: "application/pdf",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "What is the difference between each of the main benchmarks between these two papers? Output these in a table."
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.DocumentContent{
+                    URI:      genai.Ptr(samplePdf1.URI),
+                    MimeType: interactions.DocumentContentMimeType(samplePdf1.MIMEType).ToPointer(),
+                }),
+                interactions.NewContent(interactions.DocumentContent{
+                    URI:      genai.Ptr(samplePdf2.URI),
+                    MimeType: interactions.DocumentContentMimeType(samplePdf2.MIMEType).ToPointer(),
+                }),
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1034,57 +1385,50 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## Detail teknis
+## 詳細な技術情報
 
-Gemini mendukung file PDF hingga 50 MB atau 1.000 halaman. Batas ini berlaku untuk data inline dan upload Files API. Setiap halaman dokumen setara dengan 258 token.
+Gemini は、最大 50 MB または 1,000 ページの PDF ファイルに対応しています。この上限は、インライン データと Files API のアップロードの両方に適用されます。ドキュメントの各ページは 258 個のトークンに相当します。
 
-Meskipun tidak ada batasan khusus untuk jumlah piksel dalam dokumen selain
-jendela [konteks model](https://ai.google.dev/gemini-api/docs/long-context?hl=id), halaman yang lebih besar akan
-diperkecil hingga resolusi maksimum 3072 x 3072 sambil mempertahankan rasio
-aspek aslinya, sedangkan halaman yang lebih kecil akan diperbesar hingga 768 x 768 piksel. Tidak ada pengurangan biaya untuk halaman dengan ukuran yang lebih rendah, selain bandwidth, atau peningkatan performa untuk halaman dengan resolusi yang lebih tinggi.
+モデルの[コンテキスト ウィンドウ](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)を除き、ドキュメントのピクセル数に特に制限はありませんが、大きなページは元のアスペクト比を維持したまま、最大解像度 3, 072 x 3, 072 に合わせて縮小され、小さなページは 768 x 768 ピクセルに拡大されます。低解像度のページでは帯域幅以外のコスト削減はなく、高解像度のページではパフォーマンスの向上はありません。
 
-### Model Gemini 3
+### Gemini 3 モデル
 
-Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan vision multimodal dengan parameter `media_resolution`. Sekarang Anda dapat menetapkan resolusi ke rendah, sedang, atau tinggi per bagian media. Dengan penambahan ini, pemrosesan dokumen PDF telah diperbarui:
+Gemini 3 では、`media_resolution` パラメータを使用して、マルチモーダル ビジョン処理をきめ細かく制御できます。個々のメディア要素ごとに解像度を低、中、高に設定できるようになりました。この追加により、PDF ドキュメントの処理が更新されました。
 
-1. **Pencantuman teks bawaan:** Teks yang disematkan secara bawaan dalam PDF diekstrak dan diberikan ke model.
-2. **Penagihan &pelaporan token:**
-   - Anda **tidak akan dikenai biaya** untuk token yang berasal dari **teks native** yang diekstrak dalam PDF.
-   - Di bagian `usage_metadata` respons API, token yang dihasilkan dari pemrosesan halaman PDF (sebagai gambar) kini dihitung dalam modalitas `IMAGE`, bukan modalitas `DOCUMENT` terpisah seperti pada beberapa versi sebelumnya.
+1. **ネイティブ テキストの組み込み:** PDF にネイティブに埋め込まれたテキストが抽出され、モデルに提供されます。
+2. **請求とトークンのレポート:**
+   - PDF から抽出された**ネイティブ テキスト**に由来するトークンについては、**課金されません**。
+   - API レスポンスの `usage_metadata` セクションで、PDF ページの処理（画像として）から生成されたトークンが、以前のバージョンの一部のように個別の `DOCUMENT` モダリティではなく、`IMAGE` モダリティでカウントされるようになりました。
 
-Untuk mengetahui detail selengkapnya tentang parameter resolusi media, lihat
-[Panduan resolusi media](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=id).
+メディア解像度パラメータの詳細については、[メディア解像度](https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=ja)ガイドをご覧ください。
 
-### Jenis dokumen
+### ドキュメント タイプ
 
-Secara teknis, Anda dapat meneruskan jenis MIME lain untuk pemahaman dokumen, seperti TXT, Markdown, HTML, XML, dll. Namun, vision dokumen ***hanya memahami PDF secara bermakna***. Jenis lainnya akan diekstrak sebagai teks murni, dan model tidak akan dapat menafsirkan apa yang kita lihat dalam rendering file tersebut. Spesifikasi jenis file seperti diagram, diagram, tag HTML, pemformatan Markdown, dll., akan hilang.
+技術的には、TXT、Markdown、HTML、XML など、ドキュメント理解用の他の MIME タイプを渡すことができます。ただし、ドキュメント ビジョンは ***PDF のみを意味のある形で理解します***。他のタイプは純粋なテキストとして抽出され、モデルはこれらのファイルのレンダリングで表示される内容を解釈できません。グラフ、図、HTML タグ、マークダウン形式などのファイル形式固有のものはすべて失われます。
 
-Untuk mempelajari metode input file lainnya, lihat
-[Panduan metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
+その他のファイル入力方法については、[ファイル入力方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja)ガイドをご覧ください。
 
-### Praktik terbaik
+### ベスト プラクティス
 
-Untuk hasil terbaik:
+最良の結果を得るために、次のことを行います。
 
-- Putar halaman ke orientasi yang benar sebelum mengupload.
-- Hindari halaman yang buram.
-- Jika menggunakan satu halaman, tempatkan perintah teks setelah halaman.
+- アップロードする前に、ページを正しい向きに回転させます。
+- ぼやけたページは避けてください。
+- 1 ページのみを使用する場合は、テキスト プロンプトをページの後に配置します。
 
-## Langkah berikutnya
+## 次のステップ
 
-Untuk mempelajari lebih lanjut, lihat referensi berikut:
+詳細については、次のリソースをご覧ください。
 
-- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai multimodal prompting.
-- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
-  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan
-  kebutuhan dan kasus penggunaan tertentu.
+- [ファイル プロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide): Gemini API は、テキスト、画像、音声、動画データによるプロンプト（マルチモーダル プロンプトとも呼ばれます）をサポートしています。
+- [システム指示](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions): システム指示を使用すると、特定のニーズやユースケースに基づいてモデルの動作を制御できます。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-09-18 UTC.
+最終更新日 2026-09-24 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-24 UTC。"],[],[]]

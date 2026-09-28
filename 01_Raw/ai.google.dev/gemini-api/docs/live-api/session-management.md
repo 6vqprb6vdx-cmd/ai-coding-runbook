@@ -1,51 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=fr
-fetched_at: 2026-09-21T05:53:24.080232+00:00
-title: "Gestion des sessions avec l'API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-BR
+fetched_at: 2026-09-28T06:10:33.726348+00:00
+title: "Gerenciamento de sess\u00f5es com a API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Envoyer des commentaires
+Envie comentários
 
-# Gestion des sessions avec l'API Live
+# Gerenciamento de sessões com a API Live
 
-Dans l'API Live, une session fait référence à une connexion persistante
-dans laquelle les entrées et les sorties sont diffusées en continu sur la même
-connexion (en savoir plus sur [son fonctionnement](https://ai.google.dev/gemini-api/docs/live?hl=fr)).
-Cette conception de session unique permet une faible latence et prend en charge des fonctionnalités uniques, mais peut également poser des problèmes, tels que des limites de temps de session et une résiliation anticipée.
-Ce guide présente des stratégies pour surmonter les problèmes de gestion de session qui peuvent survenir lors de l'utilisation de l'API Live.
+Na API Live, uma sessão se refere a uma conexão persistente
+em que a entrada e a saída são transmitidas continuamente pela mesma
+conexão. Saiba mais sobre [como ela funciona](https://ai.google.dev/gemini-api/docs/live?hl=pt-br).
+Esse design de sessão exclusivo permite baixa latência e oferece suporte a recursos exclusivos, mas também pode apresentar desafios, como limites de tempo de sessão e encerramento antecipado.
+Este guia aborda estratégias para superar os desafios de gerenciamento de sessão que podem surgir ao usar a API Live.
 
-## Durée de vie de la session
+## Tempo de vida da sessão
 
-Sans compression, les sessions audio uniquement sont limitées à 15 minutes, et les sessions audio-vidéo à 2 minutes. Si vous dépassez ces limites, la session (et donc la connexion) sera interrompue. Toutefois, vous pouvez utiliser
-[la compression de la fenêtre de contexte](#context-window-compression) pour étendre les sessions à
-une durée illimitée.
+Sem compressão, as sessões somente de áudio são limitadas a 15 minutos, e as sessões de áudio e vídeo são limitadas a 2 minutos. Exceder esses limites
+encerra a sessão (e, portanto, a conexão), mas é possível usar
+[a compressão da janela de contexto](#context-window-compression) para estender as sessões por
+um período ilimitado.
 
-La durée de vie d'une connexion est également limitée à environ 10 minutes. Lorsque la connexion est interrompue, la session l'est également. Dans ce cas, vous pouvez
-configurer une seule session pour qu'elle reste active sur plusieurs connexions à l'aide de
-[la reprise de session](#session-resumption).
-Vous recevrez également un [message GoAway](#goaway-message) avant la
-fin de la connexion, ce qui vous permettra de prendre d'autres mesures.
+O tempo de vida de uma conexão também é limitado a cerca de 10 minutos. Quando a conexão é encerrada, a sessão também é. Nesse caso, é possível
+configurar uma única sessão para permanecer ativa em várias conexões usando
+[a retomada da sessão](#session-resumption).
+Você também vai receber uma [mensagem GoAway](#goaway-message) antes do
+término da conexão, permitindo que você tome outras ações.
 
-## Compression de la fenêtre de contexte
+## Compressão da janela de contexto
 
-Pour activer des sessions plus longues et éviter l'interruption brutale de la connexion, vous pouvez
-activer la compression de la fenêtre de contexte en définissant le champ [contextWindowCompression](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression)
-dans la configuration de la session.
+Para ativar sessões mais longas e evitar o encerramento abrupto da conexão, você pode
+ativar a compactação da janela de contexto definindo o campo [contextWindowCompression](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression)
+como parte da configuração da sessão.
 
-Dans [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=fr#contextwindowcompressionconfig), vous pouvez configurer un
-[mécanisme de fenêtre glissante](https://ai.google.dev/api/live?hl=fr#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
-et le [nombre de jetons](https://ai.google.dev/api/live?hl=fr#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
-qui déclenchent la compression.
+No [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=pt-br#contextwindowcompressionconfig), é possível configurar um
+[mecanismo de janela deslizante](https://ai.google.dev/api/live?hl=pt-br#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
+e o [número de tokens](https://ai.google.dev/api/live?hl=pt-br#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
+que acionam a compressão.
 
 ### Python
 
@@ -72,18 +73,19 @@ const config = {
 };
 ```
 
-## Reprise de session
+## Retomada da sessão
 
-Pour éviter l'interruption de la session lorsque le serveur réinitialise périodiquement la connexion WebSocket, configurez le champ [sessionResumption](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption)
-dans la [configuration](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentSetup).
+Para evitar o encerramento da sessão quando o servidor redefine periodicamente a conexão WebSocket
+connection, configure o [sessionResumption](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption)
+campo na [configuração de instalação](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentSetup).
 
-Lorsque vous transmettez cette configuration, le
-serveur envoie des messages [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=fr#SessionResumptionUpdate)
-, qui peuvent être utilisés pour reprendre la session en transmettant le dernier jeton de reprise
-en tant que [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=fr#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle)
-de la connexion suivante.
+A transmissão dessa configuração faz com que o
+servidor envie [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=pt-br#SessionResumptionUpdate)
+mensagens, que podem ser usadas para retomar a sessão transmitindo o último token de retomada
+como o [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=pt-br#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle)
+da conexão subsequente.
 
-Les jetons de reprise sont valides pendant deux heures après la fin des dernières sessions.
+Os tokens de retomada são válidos por duas horas após o encerramento das últimas sessões.
 
 ### Python
 
@@ -218,12 +220,12 @@ async function main() {
 main();
 ```
 
-## Recevoir un message avant la déconnexion de la session
+## Receber uma mensagem antes da desconexão da sessão
 
-Le serveur envoie un message [GoAway](https://ai.google.dev/api/live?hl=fr#GoAway) qui signale que la connexion actuelle
-sera bientôt interrompue. Ce message inclut le [timeLeft](https://ai.google.dev/api/live?hl=fr#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left),
-qui indique le temps restant et vous permet de prendre d'autres mesures avant que la
-connexion ne soit interrompue (considérée comme ABORTED).
+O servidor envia uma mensagem [GoAway](https://ai.google.dev/api/live?hl=pt-br#GoAway) que sinaliza que a conexão atual
+será encerrada em breve. Essa mensagem inclui o [timeLeft](https://ai.google.dev/api/live?hl=pt-br#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left),
+indicando o tempo restante, e permite que você tome outras medidas antes que a
+conexão seja encerrada como ABORTADA.
 
 ### Python
 
@@ -246,10 +248,10 @@ for (const turn of turns) {
 }
 ```
 
-## Recevoir un message lorsque la génération est terminée
+## Receber uma mensagem quando a geração estiver concluída
 
-Le serveur envoie un [generationComplete](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
-message qui signale que le modèle a terminé de générer la réponse.
+O servidor envia uma [generationComplete](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
+mensagem que sinaliza que o modelo terminou de gerar a resposta.
 
 ### Python
 
@@ -271,19 +273,19 @@ for (const turn of turns) {
 }
 ```
 
-## Étape suivante
+## A seguir
 
-Découvrez d'autres façons d'utiliser l'API Live dans le guide complet des
-[fonctionnalités](https://ai.google.dev/gemini-api/docs/live?hl=fr),
-la page [Utilisation des outils](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr) ou le
-[livre de recettes de l'API Live](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=fr).
+Confira outras maneiras de trabalhar com a API Live no guia completo de
+[recursos](https://ai.google.dev/gemini-api/docs/live?hl=pt-br),
+na página de [uso da ferramenta](https://ai.google.dev/gemini-api/docs/live-tools?hl=pt-br) ou no
+[livro de receitas da API Live](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=pt-br).
 
-Envoyer des commentaires
+Envie comentários
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Dernière mise à jour le 2026/09/17 (UTC).
+Última atualização 2026-09-17 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Quer enviar seu feedback?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/17 (UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-17 UTC."],[],[]]

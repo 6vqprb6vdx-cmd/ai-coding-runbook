@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=fr
-fetched_at: 2026-09-21T05:47:18.806342+00:00
-title: "Vision agentique \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=pl
+fetched_at: 2026-09-28T06:19:06.362426+00:00
+title: "Agentic Vision \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Envoyer des commentaires
+Prześlij opinię
 
-# Vision agentique
+# Agentic Vision
 
-Les modèles Gemini Robotics ER peuvent écrire et exécuter du code Python pour manipuler des images et appliquer une logique avant de répondre. Cette page présente des exemples d'exécution de code : détection d'objets avec zoom et recadrage, lecture d'instruments, mesure de fluides, lecture de cartes de circuits imprimés et annotation d'images.
+Modele Gemini Robotics ER mogą pisać i wykonywać kod w języku Python, aby manipulować obrazami i stosować logikę przed udzieleniem odpowiedzi. Na tej stronie znajdziesz przykłady wykonywania kodu: wykrywanie obiektów z powiększeniem i przycinaniem, odczytywanie wskazań przyrządów, pomiar płynów, odczytywanie informacji z płytek drukowanych i dodawanie adnotacji do obrazów.
 
-Pour adapter ces exemples à votre cas d'utilisation, remplacez le texte du prompt et le fichier image importé par les vôtres. Vous pouvez également ajuster le schéma JSON demandé dans le prompt pour qu'il corresponde à la structure de sortie dont votre application a besoin, ou ajouter une `system_instruction` pour appliquer le format et la précision de la sortie.
+Aby dostosować te przykłady do swojego przypadku użycia, zastąp tekst prompta i przesłany plik obrazu własnymi. Możesz też dostosować żądany schemat JSON w prompcie, aby pasował do struktury danych wyjściowych wymaganej przez Twoją aplikację, lub dodać `system_instruction`, aby wymusić format i precyzję danych wyjściowych.
 
-Pour obtenir un code exécutable complet, consultez le
-[livre de recettes sur la robotique](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Pełny kod, który można uruchomić, znajdziesz w
+[przewodniku Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Niveau de réflexion
+## Poziom myślenia
 
-Vous pouvez contrôler le niveau de réflexion du modèle pour échanger la latence contre la précision. Les tâches spatiales telles que la détection d'objets fonctionnent bien avec un faible niveau de réflexion. Les tâches complexes telles que le comptage ou l'estimation du poids bénéficient d'un niveau de réflexion plus élevé.
+Możesz kontrolować poziom myślenia modelu, aby zwiększyć dokładność kosztem opóźnienia. Zadania przestrzenne, takie jak wykrywanie obiektów, działają dobrze przy niskim poziomie myślenia. Złożone zadania, takie jak liczenie lub szacowanie wagi, wymagają wyższego poziomu myślenia.
 
-L'exemple suivant définit le niveau de réflexion sur `high` pour une tâche de comptage complexe :
+Poniższy przykład ustawia poziom myślenia na `high` w przypadku złożonego zadania liczenia:
 
 ### Python
 
@@ -58,11 +58,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Pour en savoir plus, consultez la section [Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
+Więcej informacji znajdziesz w sekcji [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
 
-## Détection d'objets (zoom et recadrage)
+## Wykrywanie obiektów (powiększenie i przycinanie)
 
-L'exemple suivant utilise l'exécution de code pour zoomer et recadrer une image afin d'obtenir une vue plus claire lors de la détection d'objets et du renvoi de cadres de délimitation.
+Poniższy przykład wykorzystuje wykonywanie kodu do powiększania i przycinania obrazu, aby uzyskać wyraźniejszy widok podczas wykrywania obiektów i zwracania obwiedni.
 
 ### Python
 
@@ -96,7 +96,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-La sortie du modèle serait semblable à la réponse JSON suivante :
+Dane wyjściowe modelu będą podobne do tej odpowiedzi JSON:
 
 ```
 [
@@ -108,13 +108,13 @@ La sortie du modèle serait semblable à la réponse JSON suivante :
 ]
 ```
 
-L'image suivante affiche les cadres renvoyés par le modèle.
+Na tym obrazie widać pola zwrócone przez model.
 
-![Exemple montrant les cadres de délimitation des objets trouvés](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=fr)
+![Przykład pokazujący pola ograniczenia znalezionych obiektów](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=pl)
 
-## Lire une jauge analogique et appliquer une logique
+## Odczytywanie wskazań przyrządu analogowego i stosowanie logiki
 
-L'exemple suivant montre comment utiliser le modèle pour lire une jauge analogique et effectuer des calculs de temps. Il utilise une instruction système pour appliquer une sortie JSON.
+Poniższy przykład pokazuje, jak używać modelu do odczytywania wskazań przyrządu analogowego i wykonywania obliczeń czasu. Używa instrukcji systemowej, aby wymusić dane wyjściowe w formacie JSON.
 
 ### Python
 
@@ -145,9 +145,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Mesurer le fluide dans un conteneur
+## Pomiar płynu w pojemniku
 
-L'exemple suivant montre comment utiliser l'exécution de code pour mesurer le niveau de fluide dans un conteneur.
+Poniższy przykład pokazuje, jak używać wykonywania kodu do pomiaru poziomu płynu w pojemniku.
 
 ### Python
 
@@ -177,9 +177,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Lire les marquages sur une carte de circuit imprimé
+## Odczytywanie oznaczeń na płytce drukowanej
 
-L'exemple suivant montre comment utiliser l'exécution de code pour lire les marquages sur une carte de circuit imprimé.
+Poniższy przykład pokazuje, jak używać wykonywania kodu do odczytywania oznaczeń na płytce drukowanej.
 
 ### Python
 
@@ -209,11 +209,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-![Exemple de marquages sur un circuit imprimé](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=fr)
+![Przykład pokazujący oznaczenia na płytce drukowanej](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=pl)
 
-## Annotation d'images
+## Adnotacja do obrazu
 
-L'exemple suivant montre comment utiliser l'exécution de code pour annoter une image (par exemple, en dessinant des flèches pour les instructions d'élimination) et renvoyer l'image modifiée.
+Poniższy przykład pokazuje, jak używać wykonywania kodu do dodawania adnotacji do obrazu (np. rysowania strzałek z instrukcjami utylizacji) i zwracania zmodyfikowanego obrazu.
 
 ### Python
 
@@ -247,11 +247,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Voici un exemple d'image d'entrée.
+Poniżej znajdziesz przykładowy obraz wejściowy.
 
-![Exemple montrant une horloge à lire](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=fr)
+![Przykład pokazujący zegar do odczytania](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=pl)
 
-La sortie du modèle serait semblable à ce qui suit :
+Dane wyjściowe modelu będą podobne do tych:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -260,18 +260,18 @@ La sortie du modèle serait semblable à ce qui suit :
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Étape suivante
+## Co dalej?
 
-- [Orchestration des tâches](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=fr) : tâches à long terme avec des API de robot personnalisées.
-- [Robotique avec streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr) : streaming bidirectionnel en temps réel (Gemini Robotics ER 2 uniquement).
-- [Compréhension vidéo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr) : recherche de moments et classification de la progression (Gemini Robotics ER 2 uniquement).
+- [Orkiestracja zadań](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pl) – zadania długoterminowe z niestandardowymi interfejsami API robotów.
+- [Robotyka ze strumieniowaniem](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pl) – dwukierunkowe strumieniowanie w czasie rzeczywistym (tylko Gemini Robotics ER 2).
+- [Rozumienie treści wideo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pl) – wyszukiwanie momentów i klasyfikacja postępów (tylko Gemini Robotics ER 2).
 
-Envoyer des commentaires
+Prześlij opinię
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Dernière mise à jour le 2026/09/08 (UTC).
+Ostatnia aktualizacja: 2026-09-08 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Chcesz przekazać coś jeszcze?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/08 (UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]

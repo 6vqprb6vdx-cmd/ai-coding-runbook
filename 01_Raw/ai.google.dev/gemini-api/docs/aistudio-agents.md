@@ -1,138 +1,138 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=vi
-fetched_at: 2026-09-21T05:56:32.094908+00:00
-title: "T\u00e1c nh\u00e2n trong AI Studio Playground \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=de
+fetched_at: 2026-09-28T06:21:41.065572+00:00
+title: "KI-Agenten im AI\u00a0Studio-Playground \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Gửi ý kiến phản hồi
+Feedback geben
 
-# Tác nhân trong AI Studio Playground
+# KI-Agenten im AI Studio-Playground
 
-Google AI Studio Playground cung cấp một giao diện trực quan để tạo nguyên mẫu và tìm hiểu cách xây dựng các tác nhân được quản lý mà không cần phải tạo và viết lệnh gọi API.
+Google AI Studio Playground bietet eine visuelle Oberfläche, mit der Sie Prototypen erstellen und lernen können, wie Sie verwaltete Agents entwickeln, ohne API-Aufrufe erstellen und schreiben zu müssen.
 
-Để bắt đầu, hãy chuyển đến thẻ **Playground** (Sân chơi) trong bảng điều hướng của Google AI Studio, rồi chuyển nút bật/tắt sang **Agents** (Trợ lý AI).
+Rufen Sie dazu in der Navigationsleiste von Google AI Studio den Tab **Playground** auf und stellen Sie den Schalter auf **Agents**.
 
-## Mẫu tạo sẵn
+## Vordefinierte Vorlagen
 
-Thẻ **Agents** (Tác nhân) có một loạt mẫu định cấu hình sẵn Antigravity Agent cơ bản bằng cách thiết lập cấu hình công cụ và môi trường. Tất cả các mẫu đều là nguồn mở và được xuất bản trong kho lưu trữ [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/). Khám phá những mẫu này là một cách tuyệt vời để tìm hiểu cách xây dựng và cấu trúc tác nhân được quản lý của riêng bạn.
+Auf dem Tab **Agents** (KI-Agenten) finden Sie eine Reihe von Vorlagen, mit denen der Antigravity-Basis-KI-Agent durch Festlegen von Tool- und Umgebungskonfigurationen vorkonfiguriert wird. Alle Vorlagen sind Open Source und werden im Repository [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/) veröffentlicht. Wenn Sie sich diese Vorlagen ansehen, können Sie lernen, wie Sie Ihren eigenen verwalteten Agent erstellen und strukturieren.
 
-Ví dụ: khi bạn chọn mẫu AI Radio, mẫu này sẽ bật tất cả các công cụ được phép và liên kết một tệp `AGENTS.md` chuyên dụng cùng các kỹ năng để sản xuất chương trình phát thanh. Bạn có thể xem các chế độ cài đặt này trên giao diện người dùng Sân chơi trong mục **Môi trường** bằng cách nhấp vào nút **Nguồn**.
+Wenn Sie beispielsweise die Vorlage „KI‑Radio“ auswählen, werden alle zulässigen Tools aktiviert und eine spezielle `AGENTS.md`-Datei sowie Skills für die Produktion von Radiosendungen verknüpft. Sie können diese Einstellungen in der Playground-Benutzeroberfläche im Bereich **Environment** (Umgebung) aufrufen, indem Sie auf die Schaltfläche **Sources** (Quellen) klicken.
 
-## Cấu hình công cụ
+## Toolkonfiguration
 
-Trong phần Cài đặt tác nhân của Sân chơi, bạn có thể bật/tắt quyền truy cập vào các công cụ tích hợp sau đây:
+In den Agent-Einstellungen im Playground können Sie den Zugriff auf die folgenden integrierten Tools aktivieren oder deaktivieren:
 
-- **Google Tìm kiếm:** Truy cập vào web mở để có thông tin theo thời gian thực.
-- **Ngữ cảnh URL:** Tìm nạp và phân tích nội dung văn bản của các URL trang web cụ thể.
-- **Thực thi mã:** Chạy các lệnh Bash và Python ngay trong môi trường hộp cát biệt lập.
-- **Công cụ hệ thống tệp:** Đọc, ghi, liệt kê và xoá các tệp trong không gian làm việc.
+- **Google Suche**:Auf das öffentliche Web zugreifen, um Echtzeitinformationen zu erhalten.
+- **URL-Kontext**:Textinhalte bestimmter Webseiten-URLs abrufen und parsen.
+- **Codeausführung**:Bash- und Python-Befehle direkt in der isolierten Sandbox-Umgebung ausführen.
+- **Dateisystemtools**:Dateien im Arbeitsbereich lesen, schreiben, auflisten und löschen.
 
-## Cấu hình môi trường
+## Umgebung konfigurieren
 
-Các tác nhân được quản lý chạy trong một hộp cát Linux tạm thời, bảo mật (môi trường) cung cấp không gian làm việc và các công cụ cần thiết để hoạt động. Để tìm hiểu thêm, hãy xem hướng dẫn về [môi trường tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi).
+Verwaltete Agents werden in einer sicheren, kurzlebigen Linux-Sandbox (der Umgebung) ausgeführt, die den Arbeitsbereich und die Tools bereitstellt, die sie für ihre Arbeit benötigen. Weitere Informationen finden Sie im Leitfaden zur [verwalteten Agent-Umgebung](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de).
 
-### Kiểm soát hành vi của tác nhân
+### Agent-Verhalten steuern
 
-Hành vi, tính cách và khả năng của tác nhân chủ yếu được xác định bởi các tệp có trong môi trường của tác nhân. Tác nhân này tự động phát hiện và tải các cấu hình từ một thư mục `.agents` đặc biệt:
+Das Verhalten, die Persona und die Funktionen des Agenten werden hauptsächlich durch die Dateien in seiner Umgebung bestimmt. Der Agent erkennt und lädt Konfigurationen automatisch aus einem speziellen `.agents`-Ordner:
 
-- **`AGENTS.md`**: Được tải sẵn vào ngữ cảnh của tác nhân để xác định hướng dẫn và tính cách của hệ thống.
-- **`SKILL.md`**: Nằm trong các thư mục kỹ năng tương ứng (ví dụ: `.agents/skills/my-skill/SKILL.md`) để xác định các chức năng và quy trình cụ thể.
+- **`AGENTS.md`**: Vorgegeben im Kontext des Agenten, um Systemanweisungen und Persona zu definieren.
+- **`SKILL.md`**: Diese Dateien befinden sich in den jeweiligen Skill-Ordnern (z.B. `.agents/skills/my-skill/SKILL.md`), um bestimmte Funktionen und Workflows zu definieren.
 
-### Cung cấp môi trường
+### Umgebung bereitstellen
 
-Bạn có thể định cấu hình môi trường mà tác nhân sẽ sử dụng bằng cách gắn các tệp vào môi trường trước khi bắt đầu một phiên. Bạn có thể tạo một môi trường mới bằng cách gắn các nguồn hoặc khôi phục một môi trường trước đó:
+Sie können die vom Agent verwendete Umgebung konfigurieren, indem Sie Dateien in die Umgebung einbinden, bevor Sie eine Sitzung starten. Sie können entweder eine neue Umgebung erstellen, indem Sie Quellen einbinden, oder eine vorherige Umgebung wiederherstellen:
 
-- **Để tạo một môi trường mới**, hãy nhấp vào **Thêm nguồn** trong bảng điều khiển Cài đặt môi trường rồi chọn một trong các loại nguồn sau:
+- **So erstellen Sie eine neue Umgebung**: Klicken Sie im Bereich „Umgebungseinstellungen“ auf **Quellen hinzufügen** und wählen Sie einen der folgenden Quelltypen aus:
 
-| Loại nguồn | Mô tả | Đường dẫn gắn kết |
+| Quelltyp | Beschreibung | Bereitstellungspfad |
 | --- | --- | --- |
-| **Tệp nội tuyến** | Viết hoặc dán tệp cấu hình, tập dữ liệu mô phỏng hoặc tập lệnh tiện ích (tối đa 100 KB) trực tiếp vào giao diện người dùng Playground. | Đường dẫn đích do người dùng xác định (ví dụ: `/workspace/scripts/parser.py`). |
-| **Google Cloud Storage** | Gắn một bộ chứa Cloud Storage công khai hoặc riêng tư.  Bộ chứa riêng tư yêu cầu mã thông báo Bearer OAuth 2.0 tiêu chuẩn. Để biết thêm thông tin, hãy xem phần [Nguồn riêng tư](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#private-sources). | Liên kết một đường dẫn bộ chứa GCS (ví dụ: `gs://your-bucket-name/data/`) với một thư mục không gian làm việc (ví dụ: `/workspace/data/`). |
-| **Kho lưu trữ GitHub** | Sao chép cơ sở mã công khai hoặc riêng tư.  Kho lưu trữ riêng tư yêu cầu xác thực cơ bản bằng Mã truy cập cá nhân (PAT) của bạn trên GitHub. Để biết thêm thông tin, hãy xem phần [Nguồn riêng tư](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#private-sources). | Được sao chép trực tiếp vào `/workspace/` (thường là trong `/workspace/<repo-name>`). |
+| **Inline-Dateien** | Konfigurationsdateien, Mock-Datasets oder Utility-Scripts (bis zu 100 KB) können direkt in die Playground-Benutzeroberfläche geschrieben oder eingefügt werden. | Benutzerdefinierter Zielpfad (z.B. `/workspace/scripts/parser.py`). |
+| **Google Cloud Storage** | Einen öffentlichen oder privaten Cloud Storage-Bucket einbinden  Für private Buckets ist ein standardmäßiges OAuth 2.0-Inhabertoken erforderlich. Weitere Informationen finden Sie unter [Private Quellen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de#private-sources). | Ordnet einen GCS-Bucket-Pfad (z.B. `gs://your-bucket-name/data/`) einem Workspace-Verzeichnis (z.B. `/workspace/data/`) zu. |
+| **GitHub-Repositories** | Öffentliche oder private Codebases klonen  Für private Repositories ist die Standardauthentifizierung mit Ihrem persönlichen GitHub-Zugriffstoken (Personal Access Token, PAT) erforderlich. Weitere Informationen finden Sie unter [Private Quellen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de#private-sources). | Direkt in `/workspace/` geklont (in der Regel unter `/workspace/<repo-name>`). |
 
-- **Để khôi phục một môi trường trước đó**, bạn có thể [sử dụng lại một mã môi trường hiện có](#reusing-an-existing-environment-id) để sao chép và phân nhánh trạng thái chính xác của môi trường đó.
+- **Wenn Sie eine frühere Umgebung wiederherstellen möchten**, können Sie [eine vorhandene Umgebungs-ID wiederverwenden](#reusing-an-existing-environment-id), um ihren genauen Status zu klonen und zu forken.
 
-### Sử dụng lại mã môi trường hiện có
+### Vorhandene Umgebungs-ID wiederverwenden
 
-Nếu đã dành thời gian thiết lập một môi trường hộp cát, bạn không cần phải bắt đầu lại từ đầu. Cách sử dụng một môi trường hiện có:
+Wenn Sie bereits eine Sandbox-Umgebung eingerichtet haben, müssen Sie nicht von vorn beginnen. So verwenden Sie eine vorhandene Umgebung:
 
-1. Chuyển đến bảng điều khiển Environments (Môi trường) trong AI Studio rồi chuyển **Type** (Loại) thành **Existing** (Hiện có)
-2. Nhập **Mã môi trường** (ví dụ: `env_abc123`)
+1. Rufen Sie in AI Studio den Bereich „Umgebungen“ auf und stellen Sie **Typ** auf **Vorhanden** um.
+2. Geben Sie die **Umgebungs-ID** ein, z. B. `env_abc123`.
 
-Để biết thêm thông tin, hãy xem phần [Định cấu hình môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#configure-an-environment). Bạn cũng có thể truy xuất Mã nhận dạng môi trường của phiên hiện tại trong thẻ Môi trường của giao diện người dùng.
+Weitere Informationen finden Sie unter [Umgebung konfigurieren](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de#configure-an-environment). Sie können die Umgebungs-ID der aktuellen Sitzung auch auf dem Tab „Umgebung“ in der Benutzeroberfläche abrufen.
 
-Sau khi bạn gửi tin nhắn đầu tiên cho nhân viên hỗ trợ, cấu hình môi trường sẽ cố định cho phiên đó. Bạn không thể gắn các nguồn mới hoặc sửa đổi danh sách cho phép mạng trong khi hoạt động tương tác đang chạy.
+Sobald Sie Ihre erste Nachricht an den Agent senden, ist die Umgebungskonfiguration für diese Sitzung festgelegt. Sie können keine neuen Quellen einbinden oder die Zulassungsliste für das Netzwerk ändern, während die Interaktion aktiv ausgeführt wird.
 
-## Tải môi trường xuống
+## Umgebung herunterladen
 
-Sau khi tạo một môi trường, bạn có thể tải ảnh chụp nhanh môi trường xuống bất cứ lúc nào bằng cách sử dụng nút **Tải xuống** trong phần Cài đặt môi trường của AI Studio Playground để truy xuất các tệp môi trường dưới dạng một tệp tar.
+Nachdem eine Umgebung erstellt wurde, können Sie den Umgebungs-Snapshot jederzeit über die Schaltfläche **Herunterladen** in den Umgebungseinstellungen des AI Studio Playgrounds herunterladen, um Umgebungsdateien als Tarball abzurufen.
 
-## Quản lý chi phí và an toàn
+## Sicherheit und Kostenverwaltung
 
-### Quản lý việc sử dụng mã thông báo
+### Tokenverbrauch verwalten
 
-Không giống như yêu cầu trò chuyện tiêu chuẩn chỉ tạo ra một đầu ra, Antigravity Agent thực thi một quy trình công việc tự động. Nó lên kế hoạch, chạy mã, quan sát kết quả và lặp lại. Điều này có nghĩa là một câu lệnh duy nhất có thể dẫn đến mức tiêu thụ mã thông báo không giới hạn.
+Im Gegensatz zu einer Standard-Chatanfrage, die eine einzelne Ausgabe erzeugt, führt der Antigravity-Agent einen autonomen Workflow aus. Es plant, führt Code aus, beobachtet Ergebnisse und wiederholt den Vorgang. Das bedeutet, dass ein einzelner Prompt zu einem unbegrenzten Tokenverbrauch führen kann.
 
-Để quản lý chi phí, hãy **cung cấp tiêu chí chấm dứt rõ ràng trong câu lệnh và thu hẹp phạm vi nhiệm vụ cho tác nhân**. Một ví dụ hay có thể là câu lệnh như *Xem xét yêu cầu kéo và dừng lại sau khi bạn đã tạo bản tóm tắt bằng markdown.
-Đừng tự mình tìm cách khắc phục*.
+Um die Kosten zu verwalten, **geben Sie in Ihren Prompts klare Beendigungskriterien an und begrenzen Sie die Aufgaben für den Agenten**. Ein gutes Beispiel ist der Prompt: *Überprüfe die Pull-Anfrage und stoppe, sobald du die Markdown-Zusammenfassung erstellt hast.
+Versuchen Sie nicht, die Korrektur selbst zu schreiben.*
 
-### Chi phí bổ sung
+### Zusätzliche Kosten
 
-Theo mặc định, tất cả các mẫu tác nhân trên Playground đều có quyền truy cập vào dịch vụ Gemini API và có thể thực hiện các lệnh gọi API từ môi trường để thực hiện các yêu cầu. Những thao tác này có thể phát sinh thêm chi phí và sẽ không được phản ánh trong mức tiêu thụ mã thông báo.
+Standardmäßig haben alle Agent-Vorlagen im Playground Zugriff auf den Gemini API-Dienst und können API-Aufrufe aus der Umgebung ausführen, um Anfragen zu bearbeiten. Dabei können zusätzliche Kosten anfallen, die nicht im Tokenverbrauch berücksichtigt werden.
 
-Tương tự, nếu bạn thêm các dịch vụ bên ngoài khác, thì tác nhân có thể phát sinh thêm chi phí khi gọi các dịch vụ này thay cho bạn.
+Wenn Sie andere externe Dienste hinzufügen, können für den Agenten zusätzliche Kosten anfallen, da er diese Dienste in Ihrem Namen aufruft.
 
-### Danh sách mạng được phép
+### Zulassungsliste für Netzwerke
 
-Theo mặc định, trên AI Studio, tất cả các yêu cầu mạng gửi đi từ môi trường hộp cát của tác nhân đều được kiểm soát chặt chẽ và hạn chế để đảm bảo an toàn. Để cấp cho tác nhân của bạn khả năng truy cập vào các API bên ngoài, dịch vụ web hoặc trình quản lý gói, bạn phải khai báo rõ ràng các API đó:
+Standardmäßig werden in AI Studio alle ausgehenden Netzwerkanfragen aus der Sandbox-Umgebung Ihres Agents streng kontrolliert und eingeschränkt, um die Sicherheit zu gewährleisten. Damit Ihr Agent externe APIs, Webservices oder Paketmanager erreichen kann, müssen Sie diese explizit deklarieren:
 
-1. Chuyển đến bảng điều khiển Environments (Môi trường) trong AI Studio.
-2. Chọn nút **quy tắc** bên cạnh **Mạng**.
-3. Trong bảng điều khiển **Cấu hình mạng**, hãy nhấp vào **Thêm vào danh sách cho phép** rồi điền thông tin chi tiết có liên quan:
-   - **Hạn chế về miền:** Chỉ những miền cụ thể hoặc mẫu ký tự đại diện được thêm vào danh sách mới có thể truy cập vào máy ảo của tác nhân. Ví dụ: bạn có thể nhập các miền chính xác như `api.github.com` hoặc các mẫu rộng như `*.googleapis.com`.
-   - **Thêm tiêu đề HTTP và chèn mã thông báo:** Sử dụng lựa chọn **Thêm tiêu đề HTTP** để chèn thông tin đăng nhập bắt buộc (chẳng hạn như mã thông báo API) một cách an toàn cho một miền cụ thể. Những thông tin đăng nhập này được truyền an toàn thông qua một proxy xuất và không bao giờ bị lộ trực tiếp dưới dạng văn bản thô bên trong hộp cát của tác nhân.
+1. Rufen Sie in AI Studio das Feld „Umgebungen“ auf.
+2. Klicken Sie neben **Netzwerk** auf die Schaltfläche **Regeln**.
+3. Klicken Sie im Bereich **Netzwerkkonfiguration** auf **Zur Zulassungsliste hinzufügen** und geben Sie die entsprechenden Details ein:
+   - **Domainbeschränkung**:Nur auf die bestimmten Domains oder Platzhaltermuster, die der Liste hinzugefügt wurden, kann über die virtuelle Maschine des Agents zugegriffen werden. Sie können beispielsweise genaue Domains wie `api.github.com` oder allgemeine Muster wie `*.googleapis.com` eingeben.
+   - **HTTP-Header und Token-Injection hinzufügen**:Mit der Option **HTTP-Header hinzufügen** können Sie erforderliche Anmeldedaten (z. B. ein API-Token) für eine bestimmte Domain sicher einfügen. Diese Anmeldedaten werden sicher über einen Egress-Proxy weitergeleitet und niemals direkt als Rohtext in der Agent-Sandbox offengelegt.
 
-Luôn thận trọng khi thêm miền vào danh sách cho phép. Việc cấp cho tác nhân quyền truy cập vào các dịch vụ đã xác thực có nghĩa là tác nhân có thể thay mặt bạn hành động, điều này có thể dẫn đến những hành động ngoài ý muốn nếu bạn không giám sát cẩn thận.
+Seien Sie immer vorsichtig, wenn Sie Domains auf die Zulassungsliste setzen. Wenn Sie dem Agent Zugriff auf authentifizierte Dienste gewähren, kann er in Ihrem Namen handeln. Wenn Sie das nicht sorgfältig überwachen, kann das zu unbeabsichtigten Aktionen führen.
 
-### Các phương pháp hay nhất về thông tin đăng nhập
+### Best Practices für Anmeldedaten
 
-Nếu quy trình làm việc của bạn yêu cầu tác nhân xác thực bằng các dịch vụ bên ngoài, thì bạn chịu trách nhiệm cung cấp và xác định phạm vi cho những thông tin đăng nhập đó. Hãy làm theo các nguyên tắc sau để giảm rủi ro:
+Wenn für Ihren Workflow eine Authentifizierung des Agenten bei externen Diensten erforderlich ist, sind Sie für die Bereitstellung und den Umfang dieser Anmeldedaten verantwortlich. Befolgen Sie diese Richtlinien, um das Risiko zu verringern:
 
-- **Sử dụng thông tin đăng nhập có ít đặc quyền nhất:** Tạo tài khoản dịch vụ hoặc khoá API chỉ có các quyền mà tác nhân của bạn cần. Tránh truyền thông tin đăng nhập có quyền truy cập rộng hoặc quyền quản trị.
-- **Ưu tiên mã thông báo ngắn hạn:** Nếu có thể, hãy sử dụng thông tin đăng nhập hoặc mã thông báo có giới hạn thời gian và hết hạn thay vì khoá API dài hạn.
-- **Giả định có toàn quyền truy cập:** Tác nhân có thể sử dụng mọi thông tin đăng nhập mà tác nhân có quyền truy cập để hoàn thành nhiệm vụ mà bạn đã giao. Chỉ cung cấp thông tin đăng nhập mà bạn sẵn sàng cấp toàn bộ phạm vi quyền truy cập.
-- **Thường xuyên xoay vòng thông tin đăng nhập:** Xử lý thông tin đăng nhập được chia sẻ với tác nhân theo cách tương tự như cách bạn xử lý mọi thông tin đăng nhập có lập trình; xoay vòng thông tin đăng nhập theo lịch trình thường xuyên.
+- **Anmeldedaten mit geringsten Berechtigungen verwenden**:Erstellen Sie Dienstkonten oder API-Schlüssel mit nur den Berechtigungen, die Ihr Agent benötigt. Vermeiden Sie die Übergabe von Anmeldedaten mit umfassendem oder administrativem Zugriff.
+- **Kurzlebige Tokens bevorzugen**:Verwenden Sie nach Möglichkeit zeitlich begrenzte Anmeldedaten oder Tokens, die ablaufen, anstatt langlebiger API-Schlüssel.
+- **Vollzugriff annehmen**:Der Agent kann alle Anmeldedaten verwenden, auf die er Zugriff hat, um die von Ihnen erteilte Aufgabe auszuführen. Geben Sie nur Anmeldedaten an, deren vollständigen Zugriffsbereich Sie gewähren möchten.
+- **Anmeldedaten regelmäßig rotieren**:Behandeln Sie Anmeldedaten, die für den Agenten freigegeben wurden, genauso wie alle anderen programmatischen Anmeldedaten. Rotieren Sie sie regelmäßig.
 
-### Kết nối các công cụ và API bên ngoài
+### Verbindung zu externen Tools und APIs herstellen
 
-Bạn có thể kết nối các công cụ và API bên ngoài (chẳng hạn như máy chủ Giao thức ngữ cảnh mô hình / MCP) để mở rộng các chức năng của tác nhân. Khi làm như vậy:
+Sie können externe Tools und APIs (z. B. Model Context Protocol-/MCP-Server) verbinden, um die Funktionen des Agenten zu erweitern. Dabei gilt:
 
-- Chỉ kết nối các công cụ từ những nguồn mà bạn tin tưởng. Một công cụ độc hại hoặc được viết kém có thể làm lộ dữ liệu hoặc thực hiện các hành động không mong muốn.
-- Định cấu hình các công cụ với quyền tối thiểu cần thiết cho trường hợp sử dụng của bạn. Nếu một công cụ hỗ trợ chế độ chỉ có thể đọc, hãy ưu tiên chế độ đó trừ phi bạn thực sự cần ghi.
-- Trước khi kết nối một công cụ với nguồn dữ liệu sản xuất, hãy kiểm thử công cụ đó dựa trên dữ liệu mẫu hoặc dữ liệu tổng hợp để xác minh rằng tác nhân sử dụng công cụ đó như dự kiến.
+- Verbinden Sie nur Tools von Quellen, denen Sie vertrauen. Ein böswilliges oder schlecht geschriebenes Tool kann Daten offenlegen oder unbeabsichtigte Aktionen ausführen.
+- Konfigurieren Sie Tools mit den für Ihren Anwendungsfall erforderlichen Mindestberechtigungen. Wenn ein Tool den schreibgeschützten Modus unterstützt, sollten Sie diesen bevorzugen, es sei denn, Schreibvorgänge sind unbedingt erforderlich.
+- Bevor Sie ein Tool mit einer Produktionsdatenquelle verbinden, sollten Sie es mit Beispiel- oder synthetischen Daten testen, um zu prüfen, ob der Agent es wie erwartet verwendet.
 
-### Sự giám sát của con người
+### Menschliche Aufsicht
 
-Các tác nhân có thể suy luận, lập kế hoạch và thực thi quy trình làm việc nhiều bước với mức độ tự chủ cao. Mặc dù có nhiều tính năng, nhưng điều này cũng có nghĩa là bạn nên áp dụng chế độ giám sát thích hợp; đặc biệt là đối với những tác vụ sửa đổi dữ liệu hoặc tương tác với các hệ thống bên ngoài.
+KI-Agenten können mehrstufige Workflows mit einem hohen Maß an Autonomie planen, begründen und ausführen. Das ist zwar leistungsstark, bedeutet aber auch, dass Sie für eine angemessene Aufsicht sorgen müssen, insbesondere bei Aufgaben, die Daten ändern oder mit externen Systemen interagieren.
 
-Luôn xác minh các kết quả đầu ra quan trọng như mã được tạo, quá trình chuyển đổi dữ liệu hoặc các thay đổi về cấu hình trước khi triển khai.
+Prüfen Sie immer kritische Ausgaben wie generierten Code, Datentransformationen oder Konfigurationsänderungen, bevor Sie sie bereitstellen.
 
-Gửi ý kiến phản hồi
+Feedback geben
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Cập nhật lần gần đây nhất: 2026-08-19 UTC.
+Zuletzt aktualisiert: 2026-08-19 (UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Haben Sie Feedback für uns?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-08-19 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-08-19 (UTC)."],[],[]]

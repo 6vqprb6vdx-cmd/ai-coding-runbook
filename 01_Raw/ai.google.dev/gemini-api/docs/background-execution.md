@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=hi
-fetched_at: 2026-09-21T05:56:26.030997+00:00
-title: "\u092c\u0948\u0915\u0917\u094d\u0930\u093e\u0909\u0902\u0921 \u092e\u0947\u0902 \u0915\u094b\u0921 \u090f\u0915\u094d\u091c\u093c\u0940\u0915\u094d\u092f\u0942\u091f \u0939\u094b\u0928\u0947 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=he
+fetched_at: 2026-09-28T06:17:04.495572+00:00
+title: "\u05d1\u05d9\u05e6\u05d5\u05e2 \u05d1\u05e8\u05e7\u05e2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-सुझाव भेजें
+שליחת משוב
 
-# बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा
+# ביצוע ברקע
 
-डीप रिसर्च, जटिल तर्क या कई चरणों वाले एजेंट एक्ज़ीक्यूशन जैसे लंबे समय तक चलने वाले टास्क के लिए, कनेक्शन टाइमआउट की वजह से स्टैंडर्ड एचटीटीपी अनुरोधों में रुकावट आ सकती है. ये अनुरोध आम तौर पर 60 सेकंड के बाद बंद हो जाते हैं. [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi), इन टास्क को एसिंक्रोनस तरीके से चलाने के लिए **बैकग्राउंड में प्रोसेस करने की सुविधा** देता है.
+במשימות ארוכות כמו Deep Research, חשיבה רציונלית מורכבת או הרצות של סוכנים מרובי-שלבים, זמן קצוב לתפוגה לחיבור עלול להפריע לבקשות HTTP רגילות (שבדרך כלל נסגרות אחרי 60 שניות). [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) מספק **background execution** כדי להריץ את המשימות האלה באופן אסינכרוני.
 
-इंटरैक्शन को तब तक चलने दें, जब तक कि वह सर्वर पर टास्क पूरा न कर ले. इसके लिए, इंटरैक्शन बनाते समय `"background": true` सेट करें. एपीआई तुरंत इंटरैक्शन आईडी दिखाता है. क्लाइंट ऐप्लिकेशन, इस आईडी का इस्तेमाल करके स्टेटस, स्ट्रीम की प्रोग्रेस या डिस्कनेक्ट की गई स्ट्रीम से फिर से कनेक्ट करने के लिए पोल कर सकते हैं.
+כדי לאפשר לאינטראקציה לפעול עד שהיא משלימה את המשימה בשרת, מגדירים את `"background": true` כשיוצרים את האינטראקציה. ה-API מחזיר באופן מיידי מזהה אינטראקציה, שאפליקציות לקוח יכולות להשתמש בו כדי לבדוק את הסטטוס, את התקדמות הסטרימינג או להתחבר מחדש לסטרימינג שהחיבור אליו נותק.
 
-बैकग्राउंड में प्रोग्राम चलाने की सुविधा, Gemini के स्टैंडर्ड मॉडल (जैसे कि `gemini-3.8-flash` और `gemini-3.1-pro-preview`) और एजेंट बनाने और मैनेज करने की सुविधा (जैसे कि `antigravity-preview-09-2026`) के लिए उपलब्ध है.
+הביצוע ברקע נתמך במודלים רגילים של Gemini (כמו `gemini-3.8-flash` ו-`gemini-3.1-pro-preview`) ובסוכנים מנוהלים (כמו `antigravity-preview-09-2026`).
 
-## बैकग्राउंड इंटरैक्शन बनाना
+## יצירת אינטראקציה ברקע
 
-बैकग्राउंड इंटरैक्शन शुरू करने के लिए, संसाधन बनाते समय `background` पैरामीटर को `true` पर सेट करें.
+כדי להתחיל אינטראקציה ברקע, מגדירים את הפרמטר `background` לערך `true` כשיוצרים את המשאב.
 
 ### Python
 
@@ -81,6 +81,44 @@ Interaction interaction =
 System.out.println("Created background interaction ID: " + interaction.id().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:      interactions.Model("gemini-3.8-flash"),
+            Input:      interactions.NewInteractionsInput("Write a guide on space exploration."),
+            Background: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.ID != nil {
+        fmt.Printf("Created background interaction ID: %s\n", *res.Interaction.ID)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -95,31 +133,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा कैसे काम करती है
+## איך הרצה ברקע פועלת
 
-बैकग्राउंड इंटरैक्शन बनाने पर, टास्क सर्वर पर एसिंक्रोनस तरीके से चलता है. इंटरैक्शन, एक्ज़ीक्यूशन की अलग-अलग स्थितियों से गुज़रता है:
+כשיוצרים אינטראקציה ברקע, המשימה פועלת באופן אסינכרוני בשרת. האינטראקציה עוברת בין מצבי ביצוע שונים:
 
-- `in_progress`: सर्वर, इंटरैक्शन को चालू तौर पर लागू कर रहा है. जैसे, कोड चलाना या रिसर्च करना.
-- `requires_action`: इंटरैक्शन को रोक दिया गया है और क्लाइंट के इनपुट का इंतज़ार किया जा रहा है. जैसे, टूल के इस्तेमाल की पुष्टि करना या किसी सवाल का जवाब देना.
-- `completed`: इंटरैक्शन पूरा हो गया है और आउटपुट उपलब्ध है.
-- `failed`: स्क्रिप्ट चलाने के दौरान कोई गड़बड़ी हुई. जैसे, टूल काम नहीं कर रहा है या दर की सीमाएं पूरी हो गई हैं.
-- `cancelled`: क्लाइंट के अनुरोध पर, एक्ज़ीक्यूशन रोक दिया गया है.
+- ‫`in_progress`: השרת מבצע באופן פעיל את האינטראקציה (למשל, מריץ קוד או מבצע מחקר).
+- ‫`requires_action`: האינטראקציה מושהית וממתינה לקלט מהלקוח (למשל, אישור של הפעלת כלי או מענה על שאלה).
+- ‫`completed`: האינטראקציה הסתיימה בהצלחה והפלט זמין.
+- ‫`failed`: אירעה שגיאה במהלך הביצוע (למשל, כשל בכלי או הגבלות קצב).
+- ‫`cancelled`: בקשה של לקוח עצרה את הביצוע.
 
-### उपयोग के उदाहरण
+### תרחישים לדוגמה
 
-बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा का इस्तेमाल इन कामों के लिए किया जा सकता है:
+שימוש בביצוע ברקע עבור:
 
-- **एजेंट के ज़रिए की जाने वाली कार्रवाइयां:** ऐसे टास्क जिनके लिए कोड को लागू करना, वेब ब्राउज़ करना या सब-एजेंट को व्यवस्थित करना ज़रूरी होता है. जैसे, `antigravity-preview-09-2026`.
-- **Deep Research:** यह `deep-research-preview-04-2026` या `deep-research-max-preview-04-2026` का इस्तेमाल करके काम करता है. इसमें कई मिनट लगते हैं.
-- **गहराई से विश्लेषण में ज़्यादा समय लगना:** ऐसे टास्क जिनमें मॉडल के गहराई से विचार करने के चरण, स्टैंडर्ड एचटीटीपी कनेक्शन की सीमाओं से ज़्यादा होते हैं.
+- **הרצות של סוכנים:** משימות שדורשות הרצת קוד, גלישה באינטרנט או תיאום בין סוכנים משניים (כמו `antigravity-preview-09-2026`).
+- **Deep Research:** פועל באמצעות `deep-research-preview-04-2026` או `deep-research-max-preview-04-2026`, והתהליך נמשך כמה דקות.
+- **הסקה ארוכה:** משימות שבהן שלבי החשיבה של המודל חורגים מהמגבלות הרגילות של חיבור HTTP.
 
-## नतीजे वापस पाना
+## אחזור תוצאות
 
-**पोलिंग** या **स्ट्रीमिंग** का इस्तेमाल करके, बैकग्राउंड इंटरैक्शन के नतीजे पाएं.
+אפשר לקבל תוצאות של אינטראקציות ברקע באמצעות **polling** או **סטרימינג**.
 
-### पोलिंग पैटर्न (नॉन-ब्लॉकिंग)
+### תבנית דגימה (לא חוסמת)
 
-पोलिंग, इंटरैक्शन की स्थिति की समय-समय पर जांच करती है. इसके लिए, नॉन-ब्लॉकिंग GET अनुरोधों का इस्तेमाल किया जाता है. यह तब तक किया जाता है, जब तक कि इंटरैक्शन की स्थिति आखिरी स्थिति तक न पहुंच जाए.
+התשאול בודק את סטטוס האינטראקציה באופן תקופתי באמצעות בקשות GET לא חוסמות, עד שהוא מגיע למצב סופי.
 
 ### Python
 
@@ -195,6 +233,58 @@ if (InteractionStatus.COMPLETED.equals(interaction.status().orElse(null))) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Get(ctx, operations.GetInteractionByIDRequest{
+        ID: "YOUR_INTERACTION_ID",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    interaction := res.Interaction
+
+    for interaction.Status == interactions.InteractionStatusInProgress {
+        time.Sleep(5 * time.Second)
+        res, err = client.Interactions.Get(ctx, operations.GetInteractionByIDRequest{
+            ID: *interaction.ID,
+        })
+        if err != nil {
+            log.Fatal(err)
+        }
+        interaction = res.Interaction
+    }
+
+    if interaction.Status == interactions.InteractionStatusCompleted {
+        if interaction.OutputText != nil {
+            fmt.Println(*interaction.OutputText)
+        }
+    } else {
+        fmt.Printf("Finished with status: %s\n", interaction.Status)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -203,9 +293,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### स्ट्रीमिंग पैटर्न
+### תבנית סטרימינג
 
-अगर नेटवर्क में रुकावट आने की वजह से कोई स्ट्रीम बंद हो जाती है, तो स्ट्रीमिंग को आखिरी बार मिले इवेंट से फिर से शुरू किया जा सकता है. हर डेल्टा के पेलोड में एक यूनीक `event_id` होता है. इस आईडी को `last_event_id` के तौर पर पास करने से, स्ट्रीम उस इवेंट से फिर से शुरू हो जाती है.
+אם השידור מתנתק בגלל הפרעה ברשת, אפשר להמשיך את השידור מהאירוע האחרון שהתקבל. כל דלתא מכילה `event_id` ייחודי במטען הייעודי שלה. העברת המזהה הזה כ-`last_event_id` מפעילה מחדש את הזרם מהאירוע הזה.
 
 ### Python
 
@@ -338,6 +428,70 @@ while (!completed) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    interactionID := "YOUR_INTERACTION_ID"
+    var lastEventID *string
+    completed := false
+
+    for !completed {
+        res, err := client.Interactions.Get(ctx, operations.GetInteractionByIDRequest{
+            ID:          interactionID,
+            Stream:      genai.Ptr(true),
+            LastEventID: lastEventID,
+        })
+        if err != nil {
+            fmt.Printf("\n[Connection lost: %v. Reconnecting in 3s...]\n", err)
+            time.Sleep(3 * time.Second)
+            continue
+        }
+
+        stream := res.InteractionSSEStreamEvent
+        for stream.Next() {
+            event := stream.Value()
+            if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+                if stepDelta.EventID != nil {
+                    lastEventID = stepDelta.EventID
+                }
+                if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                    fmt.Print(textDelta.GetText())
+                }
+            } else if event.GetDataInteractionCompleted() != nil {
+                completed = true
+                break
+            }
+        }
+        if err := stream.Err(); err != nil {
+            fmt.Printf("\n[Stream error: %v. Reconnecting in 3s...]\n", err)
+            _ = stream.Close()
+            time.Sleep(3 * time.Second)
+            continue
+        }
+        _ = stream.Close()
+    }
+}
+```
+
 ### REST
 
 ```
@@ -346,14 +500,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## सिलसिलेवार बातचीत
+## שיחות רב-שלביות
 
-इसके बाद के इंटरैक्शन को, `previous_interaction_id` का इस्तेमाल करके बैकग्राउंड बातचीत से जोड़ा जा सकता है. हालांकि, इसके लिए ये शर्तें पूरी होनी चाहिए:
+אינטראקציות עוקבות יכולות להתבסס על שיחה ברקע באמצעות `previous_interaction_id`, בכפוף למגבלות הבאות:
 
-1. **चालू किए गए एक्ज़ीक्यूशन ब्लॉक कर दिए जाते हैं:** `in_progress` स्टेटस वाले इंटरैक्शन के बाद, किसी अन्य इंटरैक्शन को चेन करने पर `400 Bad Request` गड़बड़ी दिखती है. अगला इंटरैक्शन शुरू करने से पहले, इंटरैक्शन के `completed` स्थिति में पहुँचने का इंतज़ार करें.
-2. **एजेंट बनाने और मैनेज करने की सुविधा के लिए एनवायरमेंट पैरामीटर:** एजेंट बनाने और मैनेज करने की सुविधा (जैसे कि `antigravity-preview-09-2026`) के लिए इंटरैक्शन को चेन करते समय, अनुरोधों में `previous_interaction_id` और `environment`, दोनों शामिल होने चाहिए.
+1. **ביצועים פעילים נחסמים:** שרשור של אינטראקציה עוקבת לאינטראקציה עם סטטוס `in_progress` מחזיר שגיאת `400 Bad Request`. צריך לחכות שהאינטראקציה תגיע למצב `completed` לפני שמתחילים את האינטראקציה הבאה.
+2. **פרמטר סביבה לסוכנים מנוהלים:** כשמשרשרים אינטראקציות לסוכנים מנוהלים (כמו `antigravity-preview-09-2026`), הבקשות צריכות לכלול גם את `previous_interaction_id` וגם את `environment`.
 
-यहां दिए गए उदाहरणों में, इंटरैक्शन को एक साथ जोड़ने का तरीका बताया गया है:
+בדוגמאות הבאות אפשר לראות איך יוצרים שרשור של אינטראקציות:
 
 ### Python
 
@@ -478,6 +632,74 @@ Interaction interaction2 =
     client.interactions.create(CreateInteractionRequestBody.of(params2)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+    "time"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    agentModel := interactions.Model("antigravity-preview-09-2026")
+    remoteEnv := interactions.NewCreateModelInteractionEnvironment("remote")
+
+    // First interaction: Provision sandbox environment and execute first instruction
+    res1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:       agentModel,
+            Input:       interactions.NewInteractionsInput("Create a folder named project/ and write hello.py inside."),
+            Environment: &remoteEnv,
+            Background:  genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Wait for completion
+    for {
+        check, err := client.Interactions.Get(ctx, operations.GetInteractionByIDRequest{
+            ID: *res1.Interaction.ID,
+        })
+        if err != nil {
+            log.Fatal(err)
+        }
+        if check.Interaction.Status != interactions.InteractionStatusInProgress {
+            break
+        }
+        time.Sleep(2 * time.Second)
+    }
+
+    // Second interaction: Chain using PreviousInteractionID and Environment
+    _, err = client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:                 agentModel,
+            Input:                 interactions.NewInteractionsInput("List all files in the project/ directory."),
+            PreviousInteractionID: res1.Interaction.ID,
+            Environment:           &remoteEnv,
+            Background:            genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -495,12 +717,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## रद्द करना और मिटाना
+## ביטול ומחיקה
 
-अनुरोध रद्द करने और मिटाने की सुविधा का इस्तेमाल करके, चल रहे एक्ज़ीक्यूशन को कंट्रोल करें और स्टोरेज को मैनेज करें:
+שליטה בהרצות פעולות וניהול האחסון באמצעות בקשות ביטול ומחיקה:
 
-- **रद्द करें (`POST /interactions/{id}/cancel`):** इससे चल रहा टास्क बंद हो जाता है. इसके बाद, स्टेटस `cancelled` में बदल जाता है. सर्वर पर क्लीन-अप की कार्रवाइयों की वजह से, GET अनुरोधों में स्थिति अपडेट होने में थोड़ा समय लग सकता है.
-- **मिटाएं (`DELETE /interactions/{id}`):** इससे इंटरैक्शन रिकॉर्ड, सर्वर से हट जाते हैं. इसके बाद, GET अनुरोधों से `404 Not Found` गड़बड़ी का मैसेज मिलता है.
+- **ביטול (`POST /interactions/{id}/cancel`):** מפסיק את המשימה הפעילה. הסטטוס משתנה ל`cancelled`. פעולות ניקוי בשרת יכולות לגרום לעיכוב קל לפני שהסטטוס מתעדכן בבקשות GET.
+- **מחיקה (`DELETE /interactions/{id}`):** רשומות האינטראקציות יוסרו מהשרת. בקשות GET הבאות מחזירות שגיאה `404 Not Found`.
 
 ### Python
 
@@ -544,6 +766,44 @@ client.interactions.cancel("YOUR_INTERACTION_ID");
 client.interactions.delete("YOUR_INTERACTION_ID");
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Cancel a running interaction
+    _, err = client.Interactions.Cancel(ctx, operations.CancelInteractionByIDRequest{
+        ID: "YOUR_INTERACTION_ID",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Delete the interaction record entirely
+    _, err = client.Interactions.Delete(ctx, operations.DeleteInteractionRequest{
+        ID: "YOUR_INTERACTION_ID",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -558,18 +818,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## अगले चरण
+## השלבים הבאים
 
-- सेशन और स्टेट मैनेजमेंट को समझने के लिए, [Interactions API की खास जानकारी](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) पढ़ें.
-- रीयल-टाइम में इवेंट के अपडेट के बारे में जानने के लिए, [स्ट्रीमिंग के दौरान दर्शकों से इंटरैक्ट करना](https://ai.google.dev/gemini-api/docs/streaming?hl=hi) गाइड देखें.
-- स्टेटफ़ुल सिलसिलेवार बातचीत वाले एजेंट बनाने के लिए, [मैनेज किए गए एजेंट के लिए क्विकस्टार्ट गाइड](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=hi) देखें.
+- במאמר [סקירה כללית על Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) מוסבר על ניהול סשנים ומצבים.
+- פרטים נוספים על עדכונים בזמן אמת של אירועים זמינים במדריך בנושא [אינטראקציות בסטרימינג](https://ai.google.dev/gemini-api/docs/streaming?hl=he).
+- כדי ליצור סוכנים עם שמירת מצב שמנהלים שיחות רב-שלביות, כדאי לעיין ב[מדריך למתחילים בנושא סוכנים מנוהלים](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he).
 
-सुझाव भेजें
+שליחת משוב
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया.
+עדכון אחרון: 2026-09-24 (שעון UTC).
 
-क्या आपको हमें और कुछ बताना है?
+רוצה לתת לנו משוב?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]

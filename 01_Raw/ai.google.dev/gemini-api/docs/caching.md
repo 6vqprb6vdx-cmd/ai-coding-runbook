@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/caching?hl=es-419
-fetched_at: 2026-09-21T06:00:32.458906+00:00
+fetched_at: 2026-09-28T06:21:44.973678+00:00
 title: "El almacenamiento de contexto en cach\u00e9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

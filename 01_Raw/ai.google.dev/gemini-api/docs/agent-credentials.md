@@ -1,31 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=it
-fetched_at: 2026-09-21T05:48:54.027216+00:00
-title: "Credenziali negli agenti gestiti \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fr
+fetched_at: 2026-09-28T06:15:58.588662+00:00
+title: "Identifiants dans les agents g\u00e9r\u00e9s \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Invia feedback
+Envoyer des commentaires
 
-# Credenziali negli agenti gestiti
+# Identifiants dans les agents gérés
 
-Le credenziali sono secret gestiti dal server che consentono agli agenti di raggiungere servizi di terze parti
-senza che il secret entri mai nell'ambiente dell'agente. Archivi una credenziale una sola volta, fai riferimento a essa tramite ID e il proxy di uscita la risolve e la inserisce al momento della richiesta.
+Les identifiants sont des secrets gérés par le serveur qui permettent à vos agents d'accéder à des services tiers sans que le secret n'entre dans l'environnement de l'agent. Vous stockez un identifiant une seule fois, vous y faites référence par son ID, et le proxy de sortie le résout et l'injecte au moment de la requête.
 
-I valori dei secret sono di sola scrittura. Una volta memorizzati, non vengono mai restituiti da alcun
-endpoint, quindi un agente compromesso non può leggere i token che sta utilizzando.
+Les valeurs secrètes sont en écriture seule. Une fois stockés, ils ne sont jamais renvoyés par aucun point de terminaison. Par conséquent, un agent piraté ne peut pas relire les jetons qu'il utilise.
 
-Il luogo principale in cui utilizzi una credenziale è la lista consentita di rete su
-[`environment.network`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it). Memorizza prima il secret:
+Vous utilisez principalement un identifiant dans la liste d'autorisation du réseau sur [`environment.network`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr). Stockez d'abord le secret :
 
 ### Python
 
@@ -59,6 +56,42 @@ const credential = await client.credentials.create({
 console.log(`Credential ID: ${credential.id}, Status: ${credential.status}`);
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Create(ctx, operations.CreateCredentialRequest{
+        Body: credentials.NewCredentialCreateParams(credentials.HTTPBearerConfig{
+            ID:    "github-production",
+            Token: "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Credential ID: %s, Status: %v\n", res.Credential.ID, res.Credential.GetStatus())
+}
+```
+
 ### REST
 
 ```
@@ -72,7 +105,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Quindi, collegalo al dominio che autentica:
+Associez-le ensuite au domaine qu'il authentifie :
 
 ### Python
 
@@ -110,6 +143,50 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent: interactions.AgentOption("antigravity-preview-09-2026"),
+            Input: interactions.NewInteractionsInput("Triage the open issues in my-org/my-repo."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(interactions.Environment{
+                Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
+                    Allowlist: []interactions.AllowlistEntry{
+                        {Domain: "api.github.com", Credential: genai.Ptr("github-production")},
+                        {Domain: "*"},
+                    },
+                }))),
+            })),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -131,26 +208,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-L'agente ora effettua richieste autenticate a `api.github.com` e il token
-non esiste mai all'interno della sandbox.
+L'agent effectue désormais des requêtes authentifiées vers `api.github.com`, et le jeton n'existe jamais dans le bac à sable.
 
-## Tipi di credenziali
+## Types d'identifiants
 
-Ogni credenziale ha un `type` che determina quali campi accetta e come
-il proxy la applica.
+Chaque identifiant possède un `type` qui détermine les champs qu'il accepte et la façon dont le proxy l'applique.
 
-| Tipo | Caso d'uso | Comportamento |
+| Type | Cas d'utilisation | Comportement |
 | --- | --- | --- |
-| `bearer_token` | Token di accesso personali, token bot, chiavi API statiche | Il proxy inserisce il token come intestazione della richiesta. Nessuna logica di aggiornamento. |
-| `oauth2` | App OAuth e flussi con delega utente | Il proxy scambia il token di aggiornamento con i token di accesso e li aggiorna alla scadenza. |
-| `environment_variable` | SDK client che leggono i secret dall'ambiente di processo | L'ambiente dell'agente riceve un segnaposto. Il proxy sostituisce il secret reale nelle richieste in uscita. |
+| `bearer_token` | Jetons d'accès personnels, jetons de bot, clés API statiques | Le proxy injecte le jeton en tant qu'en-tête de requête. Aucune logique d'actualisation. |
+| `oauth2` | Applications OAuth et flux délégués par l'utilisateur | Le proxy échange le jeton d'actualisation contre des jetons d'accès et les actualise lorsqu'ils expirent. |
+| `environment_variable` | SDK clients qui lisent les secrets de l'environnement de processus | L'environnement de l'agent reçoit un espace réservé. Le proxy remplace le secret réel dans les requêtes sortantes. |
 
-## Utilizzare le credenziali nella lista consentita di rete
+## Utiliser des identifiants dans la liste d'autorisation du réseau
 
-Aggiungi `credential` a una regola della lista consentita e il proxy autentica ogni
-richiesta in uscita a quel dominio. Questo è il modo consigliato per concedere a un agente l'accesso a un'API privata, a un repository privato o a un bucket privato.
+Ajoutez `credential` à une règle de liste d'autorisation. Le proxy authentifie alors chaque requête sortante vers ce domaine. Il s'agit de la méthode recommandée pour accorder à un agent l'accès à une API privée, un dépôt privé ou un bucket privé.
 
-Puoi combinare regole autenticate e non autenticate nella stessa lista consentita:
+Vous pouvez combiner des règles authentifiées et non authentifiées dans la même liste d'autorisation :
 
 ### Python
 
@@ -204,6 +278,58 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent: interactions.AgentOption("antigravity-preview-09-2026"),
+            Input: interactions.NewInteractionsInput("Sync the open Jira issues into the tracking sheet in my repo."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(interactions.Environment{
+                Sources: []interactions.Source{
+                    {
+                        Type:   interactions.SourceTypeRepository.ToPointer(),
+                        Source: genai.Ptr("https://github.com/your-org/backend"),
+                        Target: genai.Ptr("/backend-app"),
+                    },
+                },
+                Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
+                    Allowlist: []interactions.AllowlistEntry{
+                        {Domain: "github.com", Credential: genai.Ptr("github-production")},
+                        {Domain: "api.atlassian.com", Credential: genai.Ptr("jira-oauth")},
+                        {Domain: "*.googleapis.com"},
+                    },
+                }))),
+            })),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -233,32 +359,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Poiché il proxy risolve la credenziale per richiesta, una credenziale `oauth2`
-aggiorna il token di accesso in modo trasparente. Un'interazione a lunga esecuzione non
-si interrompe alla scadenza del token di accesso.
+Étant donné que le proxy résout les identifiants pour chaque requête, un identifiant `oauth2` actualise son jeton d'accès de manière transparente. Une interaction de longue durée ne s'interrompt pas lorsque le jeton d'accès expire.
 
-### Combinazione di `credential` e `transform`
+### Combiner `credential` et `transform`
 
-Le regole della lista consentita accettano anche un oggetto
-[`transform`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it#private-sources) incorporato che
-imposta le intestazioni direttamente nella regola. Entrambi i meccanismi vengono applicati dal proxy
-di uscita sul cavo, quindi in entrambi i casi il valore dell'intestazione non esiste mai all'interno
-della sandbox. Entrambi i campi possono essere visualizzati nella stessa regola.
+Les règles de liste d'autorisation acceptent également un objet [`transform`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr#private-sources) intégré qui définit les en-têtes directement sur la règle. Les deux mécanismes sont appliqués par le proxy de sortie sur le réseau. Dans les deux cas, la valeur de l'en-tête n'existe donc jamais dans le bac à sable. Les deux champs peuvent apparaître dans la même règle.
 
-| Configurazione della regola | Comportamento |
+| Configuration de la règle | Comportement |
 | --- | --- |
-| Solo `credential` | Il proxy risolve le credenziali e inserisce la relativa intestazione in ogni richiesta al dominio. |
-| Solo `transform` | Inserimento di intestazione statica. Le intestazioni che scrivi vengono inviate così come sono. |
-| Entrambi | La credenziale viene applicata per prima, poi `transform` viene unita sopra. Un'intestazione `transform` esplicita ha la precedenza se entrambe impostano la stessa chiave. |
-| Nessuna delle due | Il dominio è consentito e non vengono inserite intestazioni. |
+| `credential` uniquement | Le proxy résout les identifiants et injecte leur en-tête dans chaque requête envoyée au domaine. |
+| `transform` uniquement | Injection d'en-tête statique. Les en-têtes que vous rédigez sont envoyés tels quels. |
+| Les deux | L'identifiant est appliqué en premier, puis `transform` est fusionné par-dessus. Un en-tête `transform` explicite est prioritaire si les deux définissent la même clé. |
+| Ni l'un, ni l'autre | Le domaine est autorisé et aucun en-tête n'est injecté. |
 
-Una credenziale è utile quando vuoi archiviare un secret una sola volta e farvi riferimento da ogni ambiente, agente e trigger del tuo progetto e quando vuoi che l'aggiornamento e la rotazione dei token di accesso vengano gestiti per te. Un `transform` inline è adatto
-quando il valore appartiene a una singola chiamata, ad esempio un token che generi
-tu stesso subito prima di creare l'interazione.
+Il est intéressant d'utiliser un identifiant lorsque vous souhaitez stocker un secret une seule fois et y faire référence depuis chaque environnement, agent et déclencheur de votre projet, et lorsque vous souhaitez que l'actualisation et la rotation des jetons d'accès soient gérées pour vous. Un `transform` intégré est adapté lorsque la valeur appartient à un seul appel, par exemple un jeton que vous générez vous-même juste avant de créer l'interaction.
 
-La combinazione dei due è comune. La credenziale contiene l'intestazione di autenticazione
-e `transform` aggiunge tutto ciò che il servizio upstream si aspetta nella stessa
-richiesta:
+Il est courant de combiner les deux. Les identifiants comportent l'en-tête d'authentification, et `transform` ajoute tout ce que le service en amont attend de la même requête :
 
 ```
 {
@@ -270,13 +386,11 @@ richiesta:
 }
 ```
 
-Per spostare un secret da un `transform` inline a una credenziale, archivialo
-con `POST /credentials`, sostituisci l'intestazione di autenticazione in `transform` con
-`"credential": "<id>"` e lascia invariato il resto dell'oggetto `transform`.
+Pour déplacer un secret d'un `transform` intégré vers un identifiant, stockez-le avec `POST /credentials`, remplacez l'en-tête d'authentification dans `transform` par `"credential": "<id>"` et laissez le reste de l'objet `transform` tel quel.
 
-## Utilizzare le credenziali con i server MCP
+## Utiliser des identifiants avec les serveurs MCP
 
-I server MCP remoti accettano lo stesso campo `credential`. Impostalo su uno strumento `mcp_server` e il proxy inserisce l'intestazione di autenticazione in ogni richiesta al server:
+Les serveurs MCP distants acceptent le même champ `credential`. Définissez-le sur un outil `mcp_server`. Le proxy injecte l'en-tête d'authentification dans chaque requête envoyée à ce serveur :
 
 ### Python
 
@@ -310,6 +424,55 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent: interactions.AgentOption("antigravity-preview-09-2026"),
+            Input: interactions.NewInteractionsInput("Create a new issue in my-org/my-repo"),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(interactions.Environment{
+                Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
+                    Allowlist: []interactions.AllowlistEntry{
+                        {Domain: "api.githubcopilot.com", Credential: genai.Ptr("github-production")},
+                    },
+                }))),
+            })),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.MCPServer{
+                    Name: genai.Ptr("github"),
+                    URL:  genai.Ptr("https://api.githubcopilot.com/mcp"),
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -331,9 +494,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`credential` e `headers` seguono la stessa regola di precedenza della lista consentita.
-La credenziale viene applicata per prima e `headers` viene unita in primo piano, quindi un'intestazione
-esplicita ha la precedenza se entrambe impostano la stessa chiave:
+`credential` et `headers` suivent la même règle de priorité que la liste d'autorisation.
+Les identifiants sont appliqués en premier, et `headers` est fusionné par-dessus. Par conséquent, un en-tête explicite est prioritaire si les deux définissent la même clé :
 
 ```
 {
@@ -347,17 +509,14 @@ esplicita ha la precedenza se entrambe impostano la stessa chiave:
 }
 ```
 
-Per spostare un secret da `headers` in linea a una credenziale, archivialo con
-`POST /credentials` e sostituisci la voce di autenticazione in `headers` con `credential`.
-Mantieni le altre intestazioni dove si trovano.
+Pour déplacer un secret hors de `headers` intégré et dans un identifiant, stockez-le avec `POST /credentials` et remplacez l'entrée d'authentification dans `headers` par `credential`.
+Conservez les autres en-têtes à leur emplacement.
 
-## Utilizzare le credenziali come variabili di ambiente
+## Utiliser des identifiants comme variables d'environnement
 
-Alcune librerie client leggono i secret dall'ambiente di processo anziché
-accettarli come intestazioni delle richieste. I client in modalità socket e long polling sono lo scenario comune.
+Certaines bibliothèques clientes lisent les secrets à partir de l'environnement de processus au lieu de les accepter comme en-têtes de requête. Les clients en mode Socket et en mode Long-Polling sont les plus courants.
 
-Associa una credenziale `environment_variable` a un nome di variabile in
-`environment.env`:
+Associez un identifiant `environment_variable` à un nom de variable sous `environment.env` :
 
 ### Python
 
@@ -391,6 +550,48 @@ const interaction = await client.interactions.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent: interactions.AgentOption("antigravity-preview-09-2026"),
+            Input: interactions.NewInteractionsInput("Run the sync script and check notifications."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(interactions.Environment{
+                Env: genai.Ptr(interactions.NewEnv(map[string]interactions.EnvVar{
+                    "NODE_ENV":        {Value: genai.Ptr("production")},
+                    "SLACK_BOT_TOKEN": {Credential: genai.Ptr("slack-bot-token")},
+                })),
+            })),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -410,27 +611,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`env` accetta stringhe letterali e riferimenti alle credenziali affiancati. Una stringa letterale viene inserita nel container come una normale variabile di testo normale.
+`env` accepte les chaînes littérales et les références d'identifiants côte à côte. Une chaîne littérale est injectée dans le conteneur en tant que variable en texte brut normale.
 
-Un riferimento alle credenziali non lo è. La variabile riceve il segnaposto
-`__GEMINI_CRED_<credential-id>__` e il proxy sostituisce il segreto reale solo
-per le richieste in uscita dirette a un dominio in `trusted_domains` delle credenziali. Una
-richiesta a qualsiasi altro dominio viene rifiutata, quindi il secret non lascia mai il
-perimetro e il segnaposto non viene inviato al suo posto.
+Une référence d'identifiant ne l'est pas. La variable reçoit l'espace réservé `__GEMINI_CRED_<credential-id>__`, et le proxy remplace le secret réel uniquement pour les requêtes sortantes adressées à un domaine dans le `trusted_domains` des identifiants. Toute requête adressée à un autre domaine est rejetée. Le secret ne quitte donc jamais le périmètre et l'espace réservé n'est pas envoyé à sa place.
 
-Imposta `trusted_domains` su ogni credenziale `environment_variable`. È il
-controllo che definisce l'ambito in cui può essere utilizzato il secret.
+Définissez `trusted_domains` sur chaque identifiant `environment_variable`. Il s'agit du contrôle qui définit l'étendue d'utilisation du secret.
 
-## Crea una qualifica
+## Créer un identifiant
 
-Ogni richiesta di creazione richiede un `type`, oltre ai campi richiesti da quel tipo.
+Chaque requête de création nécessite un `type`, ainsi que les champs requis par ce type.
 
-Quando chiami direttamente REST, tutti i nomi dei campi utilizzano snake\_case. L'invio di un campo
-camelCase restituisce `400`.
+Lorsque vous appelez REST directement, tous les noms de champs utilisent snake\_case. L'envoi d'un champ camelCase renvoie un `400`.
 
-### Token di connessione
+### Jeton de support
 
-Una credenziale con token di autenticazione richiede solo `token`:
+Un identifiant de jeton de support n'a besoin que de `token` :
 
 ### Python
 
@@ -452,6 +647,42 @@ const credential = await client.credentials.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Create(ctx, operations.CreateCredentialRequest{
+        Body: credentials.NewCredentialCreateParams(credentials.HTTPBearerConfig{
+            ID:    "github-production",
+            Token: "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Created credential: %s\n", res.Credential.ID)
+}
+```
+
 ### REST
 
 ```
@@ -465,7 +696,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-La risposta restituisce solo i metadati, mai il token:
+La réponse ne renvoie que des métadonnées, jamais le jeton :
 
 ```
 {
@@ -477,8 +708,7 @@ La risposta restituisce solo i metadati, mai il token:
 }
 ```
 
-Per impostazione predefinita, il proxy invia `Authorization: Bearer <token>`. Esegui l'override di
-`header_name` e `prefix` per scegliere come target un servizio che si aspetta qualcos'altro:
+Par défaut, le proxy envoie `Authorization: Bearer <token>`. Remplacez `header_name` et `prefix` pour cibler un service qui attend autre chose :
 
 ### Python
 
@@ -504,6 +734,44 @@ const credential = await client.credentials.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Create(ctx, operations.CreateCredentialRequest{
+        Body: credentials.NewCredentialCreateParams(credentials.HTTPBearerConfig{
+            ID:         "my-api-key",
+            Token:      "key_xxxxxxxxxxxx",
+            HeaderName: genai.Ptr("x-goog-api-key"),
+            Prefix:     genai.Ptr(""),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Created credential: %s\n", res.Credential.ID)
+}
+```
+
 ### REST
 
 ```
@@ -519,11 +787,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Questa configurazione produce l'intestazione `x-goog-api-key: key_xxxxxxxxxxxx`.
+Cette configuration génère l'en-tête `x-goog-api-key: key_xxxxxxxxxxxx`.
 
-La seguente tabella mostra come si combinano `header_name` e `prefix`:
+Le tableau suivant montre comment `header_name` et `prefix` se combinent :
 
-| Configurazione | Intestazione inserita |
+| Configuration | En-tête injecté |
 | --- | --- |
 | `{"token": "ghp_xxx"}` | `Authorization: Bearer ghp_xxx` |
 | `{"token": "sk_live_xxx"}` | `Authorization: Bearer sk_live_xxx` |
@@ -532,7 +800,7 @@ La seguente tabella mostra come si combinano `header_name` e `prefix`:
 
 ### OAuth2
 
-Una credenziale OAuth2 richiede `client_id`, `client_secret`, `refresh_token` e `token_url`. Il campo `scopes` è facoltativo:
+Un identifiant OAuth2 nécessite `client_id`, `client_secret`, `refresh_token` et `token_url`. Le champ `scopes` est facultatif :
 
 ### Python
 
@@ -562,6 +830,46 @@ const credential = await client.credentials.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Create(ctx, operations.CreateCredentialRequest{
+        Body: credentials.NewCredentialCreateParams(credentials.OAuth2Config{
+            ID:           "jira-oauth",
+            ClientID:     "my-client-id",
+            ClientSecret: "my-client-secret",
+            TokenURL:     "https://auth.atlassian.com/oauth/token",
+            RefreshToken: "rt_xxxxxxxxxxxxxxxxxxxx",
+            Scopes:       []string{"read:jira-work", "write:jira-work"},
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Created OAuth2 credential: %s\n", res.Credential.ID)
+}
+```
+
 ### REST
 
 ```
@@ -579,11 +887,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-La creazione di una credenziale OAuth2 esegue uno scambio di token in tempo reale con
-`token_url` per verificare che la configurazione funzioni. La credenziale viene memorizzata solo se il provider restituisce una risposta di token riuscita contenente un `access_token`. Sono accettate sia le risposte JSON che quelle form-urlencoded.
+La création d'un identifiant OAuth2 effectue un échange de jetons en direct avec `token_url` pour confirmer que la configuration fonctionne. L'identifiant n'est stocké que si le fournisseur renvoie une réponse de jeton réussie contenant un `access_token`. Les réponses JSON et form-urlencoded sont acceptées.
 
-Ciò significa che al momento della creazione è necessario un token di aggiornamento valido e non scaduto. Se il
-fornitore rifiuta lo scambio, l'errore ti viene restituito:
+Cela signifie que vous avez besoin d'un jeton d'actualisation valide et non expiré au moment de la création. Si le fournisseur refuse l'échange, l'erreur vous est renvoyée :
 
 ```
 {
@@ -594,13 +900,11 @@ fornitore rifiuta lo scambio, l'errore ti viene restituito:
 }
 ```
 
-Una volta memorizzato, il proxy aggiorna i token di accesso alla scadenza. Se il fornitore
-ruota i token di aggiornamento e ne restituisce uno nuovo durante un aggiornamento, il nuovo token
-sostituisce automaticamente quello memorizzato.
+Une fois stocké, le proxy actualise les jetons d'accès lorsqu'ils expirent. Si le fournisseur effectue une rotation des jetons d'actualisation et en renvoie un nouveau lors d'une actualisation, le nouveau jeton remplace automatiquement celui stocké.
 
-### Variabile di ambiente
+### Variable d'environnement
 
-Una qualifica `environment_variable` richiede `value` e `injection_location`:
+Un identifiant `environment_variable` nécessite `value` et `injection_location` :
 
 ### Python
 
@@ -626,6 +930,44 @@ const credential = await client.credentials.create({
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Create(ctx, operations.CreateCredentialRequest{
+        Body: credentials.NewCredentialCreateParams(credentials.EnvironmentVariableConfig{
+            ID:                "slack-bot-token",
+            Value:             "xoxb-xxxxxxxxxxxx-xxxxxxxxxxxx",
+            TrustedDomains:    []string{"*.slack.com", "slack.com"},
+            InjectionLocation: credentials.NewEnvironmentVariableConfigInjectionLocation(credentials.InjectionLocationEnumHeader),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Created environment variable credential: %s\n", res.Credential.ID)
+}
+```
+
 ### REST
 
 ```
@@ -641,21 +983,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Il campo `injection_location` indica al proxy in quale punto della richiesta in uscita sostituire il secret. Accetta `header`, `query` o `body`, come
-singola stringa o come array quando un servizio ne richiede più di una:
+Le champ `injection_location` indique au proxy où remplacer le secret dans la requête sortante. Il accepte `header`, `query` ou `body`, sous forme de chaîne unique ou de tableau lorsqu'un service en a besoin de plusieurs :
 
 ```
 "injection_location": ["header", "query"]
 ```
 
-La sostituzione avviene solo nelle località che elenchi. Una richiesta che contiene il
-segnaposto in un'altra posizione viene rifiutata anziché inviata.
+La substitution n'a lieu que dans les emplacements que vous indiquez. Une requête contenant le code de substitution ailleurs est refusée au lieu d'être envoyée.
 
-Per associare la credenziale a un nome di variabile, consulta [Utilizzare le credenziali come variabili di ambiente](#environment-variables).
+Pour associer les identifiants à un nom de variable, consultez [Utiliser des identifiants comme variables d'environnement](#environment-variables).
 
-### ID generati
+### ID générés
 
-Il campo `id` è facoltativo. Omettilo e il servizio genera un UUID:
+Le champ `id` est facultatif. Si vous l'omettez, le service génère un UUID :
 
 ```
 {
@@ -667,14 +1007,11 @@ Il campo `id` è facoltativo. Omettilo e il servizio genera un UUID:
 }
 ```
 
-Fornisci il tuo ID quando vuoi un riferimento stabile e leggibile da utilizzare in tutte le
-interazioni. Poiché l'ID viene visualizzato nel percorso della risorsa, preferisci caratteri
-alfanumerici minuscoli con trattini o trattini bassi.
+Fournissez votre propre ID lorsque vous souhaitez disposer d'une référence stable et lisible à utiliser dans les interactions. Étant donné que l'ID apparaît dans le chemin d'accès à la ressource, préférez les caractères alphanumériques en minuscules avec des traits d'union ou des traits de soulignement.
 
-## Elenca le credenziali
+## Lister les identifiants
 
-Elenca le credenziali appartenenti al tuo progetto. Utilizza i parametri di impaginazione per
-controllare le dimensioni del batch di risposta.
+Répertoriez les identifiants appartenant à votre projet. Utilisez les paramètres de pagination pour contrôler la taille du lot de réponses.
 
 ### Python
 
@@ -693,6 +1030,40 @@ for (const credential of response.credentials) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.List(ctx, operations.ListCredentialsRequest{
+        PageSize: genai.Ptr(10),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, cred := range res.CredentialListResponse.Credentials {
+        fmt.Printf("Credential ID: %s, Type: %v\n", cred.ID, cred.GetType())
+    }
+}
+```
+
 ### REST
 
 ```
@@ -700,7 +1071,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/credentials?page_s
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La risposta contiene solo metadati:
+La réponse ne contient que des métadonnées :
 
 ```
 {
@@ -724,16 +1095,16 @@ La risposta contiene solo metadati:
 }
 ```
 
-Passa `next_page_token` come `page_token` per recuperare la pagina successiva. Il campo viene omesso quando non sono presenti altri risultati.
+Transmettez `next_page_token` en tant que `page_token` pour récupérer la page suivante. Ce champ est omis lorsqu'il n'y a plus de résultats.
 
-| Parametro | Tipo | Descrizione |
+| Paramètre | Type | Description |
 | --- | --- | --- |
-| `page_size` | integer | Numero massimo di credenziali per pagina. |
-| `page_token` | stringa | Token dal campo `next_page_token` di una risposta precedente. |
+| `page_size` | entier | Nombre maximal d'identifiants par page. |
+| `page_token` | chaîne | Jeton provenant du `next_page_token` d'une réponse précédente. |
 
-## Ottenere una credenziale
+## Obtenir un identifiant
 
-Recupera i metadati per una credenziale specifica in base al relativo ID.
+Récupérez les métadonnées d'un identifiant spécifique à l'aide de son ID.
 
 ### Python
 
@@ -749,6 +1120,38 @@ const credential = await client.credentials.get("github-production");
 console.log(`Credential ID: ${credential.id}, Status: ${credential.status}`);
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Get(ctx, operations.GetCredentialRequest{
+        ID: "github-production",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Credential ID: %s, Status: %v\n", res.Credential.ID, res.Credential.GetStatus())
+}
+```
+
 ### REST
 
 ```
@@ -756,7 +1159,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/credentials/github
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La risposta è simile alla seguente:
+La réponse ressemble à ce qui suit :
 
 ```
 {
@@ -768,7 +1171,7 @@ La risposta è simile alla seguente:
 }
 ```
 
-La richiesta di una credenziale inesistente restituisce `404`:
+Si vous demandez un identifiant qui n'existe pas, le code d'erreur `404` est renvoyé :
 
 ```
 {
@@ -779,16 +1182,13 @@ La richiesta di una credenziale inesistente restituisce `404`:
 }
 ```
 
-## Ruotare una credenziale
+## Faire tourner un identifiant
 
-Sostituisci un secret senza modificare alcuna regola della lista consentita, definizione dello strumento o
-variabile di ambiente che lo fa riferimento. La rotazione ha effetto alla successiva
-risoluzione del proxy.
+Remplacez un secret sans modifier les règles de la liste d'autorisation, la définition de l'outil ni les variables d'environnement qui y font référence. La rotation prend effet lors de la prochaine résolution du proxy.
 
-La richiesta deve includere `type`, oltre ai campi che vuoi modificare. I campi che
-ometti mantengono i valori correnti.
+La requête doit inclure `type`, ainsi que les champs que vous souhaitez modifier. Les champs que vous omettez conservent leurs valeurs actuelles.
 
-Ruotare un token di connessione:
+Faire pivoter un jeton de support :
 
 ### Python
 
@@ -809,6 +1209,42 @@ const credential = await client.credentials.update("github-production", {
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Update(ctx, operations.UpdateCredentialRequest{
+        ID: "github-production",
+        Body: credentials.NewCredentialUpdate(credentials.HTTPBearerUpdateConfig{
+            Token: genai.Ptr("ghp_new_xxxxxxxxxxxxxxxxxxxx"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Updated credential %s at %v\n", res.Credential.ID, res.Credential.GetUpdateTime())
+}
+```
+
 ### REST
 
 ```
@@ -821,7 +1257,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/credentials/gith
 }'
 ```
 
-Ruota un token di aggiornamento OAuth2:
+Faire pivoter un jeton d'actualisation OAuth2 :
 
 ### Python
 
@@ -842,6 +1278,42 @@ const credential = await client.credentials.update("jira-oauth", {
 });
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/credentials"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Credentials.Update(ctx, operations.UpdateCredentialRequest{
+        ID: "jira-oauth",
+        Body: credentials.NewCredentialUpdate(credentials.OAuth2UpdateConfig{
+            RefreshToken: genai.Ptr("rt_new_xxxxxxxxxxxxxxxxxxxx"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Updated credential %s at %v\n", res.Credential.ID, res.Credential.GetUpdateTime())
+}
+```
+
 ### REST
 
 ```
@@ -854,7 +1326,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/credentials/jira
 }'
 ```
 
-La risposta riflette il nuovo `update_time`:
+La réponse reflète le nouveau `update_time` :
 
 ```
 {
@@ -866,12 +1338,11 @@ La risposta riflette il nuovo `update_time`:
 }
 ```
 
-Il `type` di una credenziale viene fissato al momento della creazione. Per modificarla, elimina la credenziale
-e creane una nuova.
+Le `type` d'un identifiant est fixe lors de la création. Pour le modifier, supprimez l'identifiant et créez-en un autre.
 
-## Eliminare una credenziale
+## Supprimer un identifiant
 
-Elimina una credenziale e il relativo secret archiviato quando non sono più necessari.
+Supprimez un identifiant et son secret stocké lorsqu'ils ne sont plus nécessaires.
 
 ### Python
 
@@ -885,6 +1356,35 @@ client.credentials.delete(id="github-production")
 await client.credentials.delete("github-production");
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    _, err = client.Credentials.Delete(ctx, operations.DeleteCredentialRequest{
+        ID: "github-production",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -892,55 +1392,55 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/credentials/git
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Un'eliminazione corretta restituisce un oggetto vuoto:
+Une suppression réussie renvoie un objet vide :
 
 ```
 {}
 ```
 
-Qualsiasi regola di lista consentita, strumento o variabile di ambiente che fa ancora riferimento all'ID non verrà risolto, quindi aggiornali prima.
+Toute règle, tout outil ou toute variable d'environnement de la liste d'autorisation qui fait encore référence à l'ID ne pourra pas être résolue. Mettez-les donc à jour en premier.
 
-## Riferimento al campo
+## Référence de champ
 
-Campi comuni a ogni credenziale:
+Champs communs à tous les identifiants :
 
-| Campo | Tipo | Obbligatorio | Descrizione |
+| Champ | Type | Obligatoire | Description |
 | --- | --- | --- | --- |
-| `id` | stringa | No | Identificatore univoco. Generato come UUID se omesso. |
-| `type` | stringa | Sì | Uno dei valori `bearer_token`, `oauth2`, `environment_variable`. |
-| `status` | stringa | Sola lettura | Stato attuale della credenziale. |
-| `create_time` | stringa | Sola lettura | Timestamp di creazione RFC 3339. |
-| `update_time` | stringa | Sola lettura | Timestamp RFC 3339 dell'ultimo aggiornamento. |
+| `id` | chaîne | Non | Identifiant unique. Généré sous forme d'UUID lorsqu'il est omis. |
+| `type` | chaîne | Oui | à savoir `bearer_token`, `oauth2` ou `environment_variable`. |
+| `status` | chaîne | Lecture seule | État actuel du certificat. |
+| `create_time` | chaîne | Lecture seule | Code temporel de création au format RFC 3339. |
+| `update_time` | chaîne | Lecture seule | Code temporel RFC 3339 de la dernière mise à jour. |
 
-Campi per `bearer_token`:
+Champs pour `bearer_token` :
 
-| Campo | Tipo | Obbligatorio | Descrizione |
+| Champ | Type | Obligatoire | Description |
 | --- | --- | --- | --- |
-| `token` | stringa | Sì | Solo scrittura. Il valore del token. |
-| `header_name` | stringa | No | Intestazione da inserire. Il valore predefinito è `Authorization`. |
-| `prefix` | stringa | No | Prefisso valore. Il valore predefinito è `Bearer`. Imposta questo valore su `""` per non specificare un limite. |
+| `token` | chaîne | Oui | Écriture seule. Valeur du jeton. |
+| `header_name` | chaîne | Non | En-tête à injecter. La valeur par défaut est `Authorization`. |
+| `prefix` | chaîne | Non | Préfixe de la valeur. La valeur par défaut est `Bearer`. Définissez la valeur sur `""` pour qu'il n'y ait pas de traînée. |
 
-Campi per `oauth2`:
+Champs pour `oauth2` :
 
-| Campo | Tipo | Obbligatorio | Descrizione |
+| Champ | Type | Obligatoire | Description |
 | --- | --- | --- | --- |
-| `client_id` | stringa | Sì | ID client OAuth2. |
-| `client_secret` | stringa | Sì | Solo scrittura. Client secret OAuth2. |
-| `refresh_token` | stringa | Sì | Solo scrittura. Token di aggiornamento utilizzato per ottenere i token di accesso. |
-| `token_url` | stringa | Sì | Endpoint token del fornitore. |
-| `scopes` | matrice | No | Ambiti OAuth da richiedere. |
+| `client_id` | chaîne | Oui | ID client OAuth2. |
+| `client_secret` | chaîne | Oui | Écriture seule. Code secret du client OAuth2. |
+| `refresh_token` | chaîne | Oui | Écriture seule. Jeton d'actualisation utilisé pour obtenir des jetons d'accès. |
+| `token_url` | chaîne | Oui | Point de terminaison du jeton du fournisseur. |
+| `scopes` | tableau | Non | Champs d'application OAuth à demander. |
 
-Campi per `environment_variable`:
+Champs pour `environment_variable` :
 
-| Campo | Tipo | Obbligatorio | Descrizione |
+| Champ | Type | Obligatoire | Description |
 | --- | --- | --- | --- |
-| `value` | stringa | Sì | Solo scrittura. Il valore del secret. |
-| `injection_location` | stringa o array | Sì | Dove sostituire il secret. Uno o più dei seguenti valori: `header`, `query`, `body`. |
-| `trusted_domains` | matrice | No | Pattern di dominio autorizzati per la sostituzione. |
+| `value` | chaîne | Oui | Écriture seule. Valeur du secret. |
+| `injection_location` | chaîne ou tableau | Oui | Où remplacer le secret. Une ou plusieurs des valeurs suivantes : `header`, `query`, `body`. |
+| `trusted_domains` | tableau | Non | Schémas de domaine autorisés pour la substitution. |
 
-## Errori
+## Erreurs
 
-Gli errori restituiscono un oggetto JSON con un `message` e un `code`:
+Les erreurs renvoient un objet JSON avec un `message` et un `code` :
 
 ```
 {
@@ -951,13 +1451,13 @@ Gli errori restituiscono un oggetto JSON con un `message` e un `code`:
 }
 ```
 
-| Stato HTTP | `code` | Causa |
+| État HTTP | `code` | Cause |
 | --- | --- | --- |
-| 400 | `invalid_request` | Campo obbligatorio mancante, campo sconosciuto, `type` non supportato o convalida OAuth2 non riuscita. |
-| 404 | `not_found` | Nessuna credenziale con questo ID. |
-| 409 | `aborted` | Esiste già una credenziale con questo ID. |
+| 400 | `invalid_request` | Champ obligatoire manquant, champ inconnu, `type` non accepté ou validation OAuth2 ayant échoué. |
+| 404 | `not_found` | Aucun identifiant ne correspond à cet ID. |
+| 409 | `aborted` | Un identifiant associé à cet ID existe déjà. |
 
-I campi sconosciuti vengono rifiutati anziché ignorati e l'errore indica il nome del campo:
+Les champs inconnus sont rejetés plutôt qu'ignorés, et l'erreur indique le nom du champ :
 
 ```
 {
@@ -968,18 +1468,18 @@ I campi sconosciuti vengono rifiutati anziché ignorati e l'errore indica il nom
 }
 ```
 
-## Passaggi successivi
+## Étape suivante
 
-- [Ambienti](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it): scopri come gli agenti eseguono il codice e mantengono i file.
-- [Panoramica degli agenti](https://ai.google.dev/gemini-api/docs/agents?hl=it): scopri i concetti fondamentali degli agenti gestiti.
-- [Creazione di agenti personalizzati](https://ai.google.dev/gemini-api/docs/custom-agents?hl=it): definisci i tuoi agenti utilizzando `AGENTS.md` e `SKILL.md`.
+- [Environnements](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : découvrez comment les agents exécutent du code et conservent les fichiers.
+- [Présentation des agents](https://ai.google.dev/gemini-api/docs/agents?hl=fr) : découvrez les concepts de base des agents gérés.
+- [Créer des agents personnalisés](https://ai.google.dev/gemini-api/docs/custom-agents?hl=fr) : définissez vos propres agents à l'aide de `AGENTS.md` et `SKILL.md`.
 
-Invia feedback
+Envoyer des commentaires
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Ultimo aggiornamento 2026-09-18 UTC.
+Dernière mise à jour le 2026/09/24 (UTC).
 
-Vuoi dirci altro?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-18 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/24 (UTC)."],[],[]]

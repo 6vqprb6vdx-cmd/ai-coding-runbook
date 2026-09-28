@@ -1,31 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-input-methods?hl=de
-fetched_at: 2026-09-21T05:49:25.722731+00:00
-title: "Methoden zur Dateieingabe \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-input-methods?hl=fr
+fetched_at: 2026-09-28T06:16:03.117145+00:00
+title: "M\u00e9thodes de saisie de fichiers \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
 
-Feedback geben
+Envoyer des commentaires
 
-# Methoden zur Dateieingabe
+# Méthodes de saisie de fichiers
 
-In dieser Anleitung werden die verschiedenen Möglichkeiten erläutert, wie Sie Mediendateien wie Bilder, Audio, Video und Dokumente in Anfragen an die Gemini API einfügen können.
-Die neuen Methoden werden in allen Gemini API-Endpunkten unterstützt, einschließlich
-Batch, Interactions und Live API.
-Die Wahl der richtigen Methode hängt von der Größe der Datei, dem Speicherort der Daten und der Häufigkeit ab, mit der Sie die Datei verwenden möchten.
+Ce guide explique les différentes manières d'inclure des fichiers multimédias tels que des images, des fichiers audio, des vidéos et des documents lorsque vous envoyez des requêtes à l'API Gemini.
+Les nouvelles méthodes sont compatibles avec tous les points de terminaison de l'API Gemini, y compris les API
+Batch, Interactions et Live.
+Le choix de la méthode appropriée dépend de la taille de votre fichier, de l'emplacement où vos données sont actuellement stockées et de la fréquence à laquelle vous prévoyez d'utiliser le fichier.
 
-Die einfachste Möglichkeit, eine Datei als Eingabe zu verwenden, besteht darin, eine lokale Datei zu lesen und in einen Prompt einzufügen. Im folgenden Beispiel wird gezeigt, wie eine lokale PDF-Datei gelesen wird. Für diese Methode sind PDFs auf 50 MB beschränkt. Eine vollständige Liste der Dateieingabetypen und ‑beschränkungen finden Sie in der
-[Vergleichstabelle für Eingabemethoden](#method-comparison).
+Le moyen le plus simple d'inclure un fichier en tant qu'entrée consiste à lire un fichier local et à l'inclure dans une requête. L'exemple suivant montre comment lire un fichier PDF local. Les fichiers PDF sont limités à 50 Mo pour cette méthode. Consultez le
+[tableau comparatif des méthodes d'entrée](#method-comparison) pour obtenir la liste complète des types d'entrée de fichier
+et des limites.
 
 ### Python
 
@@ -114,26 +115,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
   }'
 ```
 
-## Vergleich der Eingabemethoden
+## Comparaison des méthodes d'entrée
 
-In der folgenden Tabelle werden die einzelnen Eingabemethoden mit Dateibeschränkungen und optimalen Anwendungsfällen verglichen. Die Dateigrößenbeschränkung kann je nach Dateityp und Modell/Tokenizer variieren, das zum Verarbeiten der Datei verwendet wird.
+Le tableau suivant compare chaque méthode d'entrée avec les limites de fichiers et les cas d'utilisation les plus adaptés. Notez que la limite de taille de fichier peut varier en fonction du type de fichier et du modèle/tokenizer utilisé pour traiter le fichier.
 
-| Methode | Optimal für | Maximale Dateigröße | Persistenz |
+| Méthode | Application idéale | Taille maximale du fichier | Persistance |
 | --- | --- | --- | --- |
-| **Inlinedaten** | Schnelle Tests, kleine Dateien, Echtzeitanwendungen | 100 MB pro Anfrage/Nutzlast   (**50 MB für PDFs**) | Keine (wird mit jeder Anfrage gesendet) |
-| **Datei-Upload über die File API** | Große Dateien, Dateien, die mehrmals verwendet werden | 2 GB pro Datei,   bis zu 20 GB pro Projekt | 48 Stunden |
-| **Registrierung der GCS-URI über die File API** | Große Dateien, die bereits in Google Cloud Storage gespeichert sind, Dateien, die mehrmals verwendet werden | 2 GB pro Datei, keine Beschränkungen für den Gesamtspeicher | Keine (wird pro Anfrage abgerufen). Durch eine einmalige Registrierung kann der Zugriff bis zu 30 Tage lang gewährt werden. |
-| **Externe URLs** | Öffentliche Daten oder Daten in Cloud-Buckets (AWS, Azure, GCS), ohne sie noch einmal hochzuladen | 100 MB pro Anfrage/Nutzlast | Keine (wird pro Anfrage abgerufen) |
+| **Données intégrées** | Tests rapides, petits fichiers, applications en temps réel. | 100 Mo par requête/charge utile   (**50 Mo pour les fichiers PDF**) | Aucune (envoyée avec chaque requête) |
+| **Importation de fichiers via l'API** | Fichiers volumineux, fichiers utilisés plusieurs fois. | 2 Go par fichier,   jusqu'à 20 Go par projet | 48 heures |
+| **Enregistrement d'URI GCS via l'API Files** | Fichiers volumineux déjà présents dans Google Cloud Storage, fichiers utilisés plusieurs fois. | 2 Go par fichier, aucune limite de stockage globale | Aucune (récupérée par requête). L'enregistrement unique peut donner accès jusqu'à 30 jours. |
+| **URL externes** | Données publiques ou données dans des buckets cloud (AWS, Azure, GCS) sans avoir à les importer à nouveau. | 100 Mo par requête/charge utile | Aucune (récupérée par requête) |
 
-## Inlinedaten
+## Données intégrées
 
-Bei kleineren Dateien (unter 100 MB oder 50 MB für PDFs) können Sie die Daten direkt in der Anfrage-Nutzlast übergeben. Dies ist die einfachste Methode für schnelle Tests oder Anwendungen, die Echtzeitdaten verarbeiten. Sie können Daten als base64-codierte Strings bereitstellen oder lokale Dateien direkt lesen.
+Pour les fichiers plus petits (moins de 100 Mo ou 50 Mo pour les fichiers PDF), vous pouvez transmettre les données directement dans la charge utile de la requête. Il s'agit de la méthode la plus simple pour les tests rapides ou les applications qui gèrent des données transitoires en temps réel. Vous pouvez fournir des données sous forme de chaînes encodées en base64 ou en lisant directement des fichiers locaux.
 
-Ein Beispiel für das Lesen aus einer lokalen Datei finden Sie am Anfang dieser Seite.
+Pour obtenir un exemple de lecture à partir d'un fichier local, consultez l'exemple au début de cette page.
 
-### Von einer URL abrufen
+### Récupérer à partir d'une URL
 
-Sie können eine Datei auch von einer URL abrufen, sie in Byte umwandeln und in die Eingabe einfügen.
+Vous pouvez également récupérer un fichier à partir d'une URL, le convertir en octets et l'inclure dans l'entrée.
 
 ### Python
 
@@ -235,13 +236,13 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Gemini File API
+## API Gemini Files
 
-Die File API ist für größere Dateien (bis zu 2 GB) oder Dateien konzipiert, die Sie in mehreren Anfragen verwenden möchten.
+L'API Files est conçue pour les fichiers plus volumineux (jusqu'à 2 Go) ou les fichiers que vous prévoyez d'utiliser dans plusieurs requêtes.
 
-### Standardmäßiger Datei-Upload
+### Importation standard de fichiers
 
-Laden Sie eine lokale Datei in die Gemini API hoch. Auf diese Weise hochgeladene Dateien werden vorübergehend (48 Stunden) gespeichert und für den effizienten Abruf durch das Modell verarbeitet.
+Importez un fichier local dans l'API Gemini. Les fichiers importés de cette manière sont stockés temporairement (48 heures) et traités pour être récupérés efficacement par le modèle.
 
 ### Python
 
@@ -348,47 +349,47 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Google Cloud Storage-Dateien registrieren
+### Enregistrer des fichiers Google Cloud Storage
 
-Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie nicht herunterladen und noch einmal hochladen. Sie können sie direkt bei der File API registrieren.
+Si vos données se trouvent déjà dans Google Cloud Storage, vous n'avez pas besoin de les télécharger ni de les importer à nouveau. Vous pouvez les enregistrer directement avec l'API Files.
 
-1. **Dienst-Agent** Zugriff auf jeden Bucket gewähren
+1. Accorder l'accès à l'**agent de service** à chaque bucket
 
-   1. Aktivieren Sie die Gemini API in Ihrem Google Cloud-Projekt.
-   2. Erstellen Sie den Dienst-Agent:
+   1. Activez l'API Gemini dans votre projet Google Cloud.
+   2. Créez l'agent de service :
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Gewähren Sie dem Gemini API-Dienst-Agent Berechtigungen** zum Lesen Ihrer Storage-Buckets.
+   3. **Accordez à l'agent de service de l'API Gemini les autorisations** nécessaires pour lire vos buckets de stockage.
 
-      Der Nutzer muss diesem Dienst-Agent die `Storage Object Viewer`
-      [IAM-Rolle](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=de#storage.objectViewer)
-      für die jeweiligen Storage-Buckets zuweisen, die er verwenden möchte.
+      L'utilisateur doit attribuer le `Storage Object Viewer`
+      [rôle IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=fr#storage.objectViewer)
+      à cet agent de service sur les buckets de stockage spécifiques qu'il prévoit d'utiliser.
 
-   Dieser Zugriff läuft standardmäßig nicht ab, kann aber jederzeit geändert werden. Sie können
-   auch die
-   [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=de)
-   -Befehle verwenden, um Berechtigungen zu gewähren.
-2. Dienst authentifizieren
+   Par défaut, cet accès n'expire pas, mais il peut être modifié à tout moment. Vous pouvez
+   également utiliser les
+   [commandes du SDK IAM Google Cloud Storage](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=fr)
+   pour accorder des autorisations.
+2. Authentifier votre service
 
-   **Voraussetzungen**
+   **Prérequis**
 
-   - API aktivieren
-   - Erstellen Sie ein Dienstkonto/einen Dienst-Agent mit den entsprechenden Berechtigungen.
+   - Activer l'API
+   - Créer un compte de service/agent avec les autorisations appropriées.
 
-   Sie müssen sich zuerst als der Dienst authentifizieren, der Berechtigungen für den Storage-Objekt-Betrachter hat. Wie das geschieht, hängt von der Umgebung ab, in der Ihr Dateiverwaltungscode ausgeführt wird.
+   Vous devez d'abord vous authentifier en tant que service disposant des autorisations de lecteur d'objets de stockage. La manière dont cela se produit dépend de l'environnement dans lequel votre code de gestion des fichiers sera exécuté.
 
-   **Außerhalb von Google Cloud**
+   **En dehors de Google Cloud**
 
-   Wenn Ihr Code außerhalb von Google Cloud ausgeführt wird, z. B. auf Ihrem Computer, laden Sie die Kontoberechtigungen mit den folgenden Schritten aus der Google Cloud Console herunter:
+   Si votre code s'exécute en dehors de Google Cloud, par exemple sur votre ordinateur, téléchargez les identifiants du compte à partir de la console Google Cloud en procédant comme suit :
 
-   1. Rufen Sie die [Dienstkonto-Konsole](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=de) auf.
-   2. Wählen Sie das entsprechende Dienstkonto aus.
-   3. Wählen Sie den Tab **Schlüssel** aus und klicken Sie auf **Schlüssel hinzufügen > Neuen Schlüssel erstellen**.
-   4. Wählen Sie den Schlüsseltyp **JSON** aus und notieren Sie sich, wohin die Datei auf Ihrem Computer heruntergeladen wurde.
+   1. Accédez à la console [Comptes de service](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=fr).
+   2. Sélectionnez le compte de service concerné.
+   3. Sélectionnez l'onglet **Clés, puis **Ajouter une clé** et Créer une clé**.
+   4. Choisissez le type de clé **JSON** et notez l'emplacement où le fichier a été téléchargé sur votre ordinateur.
 
-   Weitere Informationen finden Sie in der offiziellen Google Cloud-Dokumentation zur [Verwaltung von Dienstkontoschlüsseln](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=de).
+   Pour en savoir plus, consultez la documentation officielle de Google Cloud sur la [gestion des clés de compte de service](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=fr).
 
-   Verwenden Sie dann die folgenden Befehle, um sich zu authentifizieren. Bei diesen Befehlen wird davon ausgegangen, dass sich Ihre Dienstkontodatei im aktuellen Verzeichnis befindet und den Namen `service-account.json` hat.
+   Utilisez ensuite les commandes suivantes pour vous authentifier. Ces commandes supposent que votre fichier de compte de service se trouve dans le répertoire actuel et qu'il est nommé `service-account.json`.
 
    ### Python
 
@@ -434,19 +435,15 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **Mit Google Cloud**
+   **Sur Google Cloud**
 
-   Wenn Sie direkt in Google Cloud ausgeführt werden, z. B. mit [Cloud
-   Run-Funktionen](https://cloud.google.com/functions?hl=de) oder einer
-   [Compute Engine-Instanz](https://cloud.google.com/products/compute?hl=de), haben Sie
-   implizite Anmeldedaten, müssen sich aber noch einmal authentifizieren, um die
-   entsprechenden Bereiche zu gewähren.
+   Si vous exécutez directement dans Google Cloud, par exemple à l'aide de [fonctions Cloud Run](https://cloud.google.com/functions?hl=fr) ou d'une [instance Compute Engine](https://cloud.google.com/products/compute?hl=fr), vous disposerez d'identifiants implicites, mais vous devrez vous réauthentifier pour accorder les champs d'application appropriés.
 
    ### Python
 
-   Dieser Code geht davon aus, dass der Dienst in einer Umgebung ausgeführt wird, in der
-   [Standardanmeldedaten für Anwendungen](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=de)
-   automatisch abgerufen werden können, z. B. Cloud Run oder Compute Engine.
+   Ce code s'attend à ce que le service s'exécute dans un environnement où
+   [les identifiants par défaut de l'application](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=fr)
+   peuvent être obtenus automatiquement, comme Cloud Run ou Compute Engine.
 
    ```
    import google.auth
@@ -461,9 +458,9 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
 
    ### JavaScript
 
-   Dieser Code geht davon aus, dass der Dienst in einer Umgebung ausgeführt wird, in der
-   [Standardanmeldedaten für Anwendungen](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=de)
-   automatisch abgerufen werden können, z. B. Cloud Run oder Compute Engine.
+   Ce code s'attend à ce que le service s'exécute dans un environnement où
+   [les identifiants par défaut de l'application](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=fr)
+   peuvent être obtenus automatiquement, comme Cloud Run ou Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -478,15 +475,15 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
 
    ### CLI
 
-   Dies ist ein interaktiver Befehl. Bei Diensten wie Compute Engine können Sie Bereiche auf Konfigurationsebene an den ausgeführten Dienst anhängen. Ein Beispiel finden Sie in der [Dokumentation zu vom Nutzer verwalteten Diensten](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=de#using).
+   Il s'agit d'une commande interactive. Pour les services tels que Compute Engine, vous pouvez associer des champs d'application au service en cours d'exécution au niveau de la configuration. [Pour obtenir un exemple, consultez la documentation sur les services gérés par l'utilisateur.](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=fr#using)
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. Dateiregistrierung (Files API)
+3. Enregistrement de fichiers (API Files)
 
-   Verwenden Sie die Files API, um Dateien zu registrieren und einen Files API-Pfad zu erstellen, der direkt in der Gemini API verwendet werden kann.
+   Utilisez l'API Files pour enregistrer des fichiers et générer un chemin d'accès à l'API Files qui peut être utilisé directement dans l'API Gemini.
 
    ### Python
 
@@ -531,14 +528,13 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## Externe HTTP-/signierte URLs
+## URL HTTP externes / signées
 
-Sie können öffentlich zugängliche HTTPS-URLs oder vorab signierte URLs (kompatibel mit
-[S3-vorab signierten
-URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
-und Azure SAS) direkt in Ihre Generierungsanfrage einfügen. Die Gemini API ruft die Inhalte während der Verarbeitung sicher ab. Dies ist ideal für Dateien mit einer Größe von bis zu 100 MB, die Sie nicht noch einmal hochladen möchten.
+Vous pouvez transmettre des URL HTTPS accessibles au public ou des URL pré-signées (compatibles avec
+[les URL pré-signées S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
+et les SAS Azure) directement dans votre requête de génération. L'API Gemini récupère le contenu de manière sécurisée lors du traitement. Cette méthode est idéale pour les fichiers de 100 Mo maximum que vous ne souhaitez pas importer à nouveau.
 
-Sie können öffentliche oder signierte URLs als Eingabe verwenden, indem Sie die URLs im Feld `file_uri` verwenden.
+Vous pouvez utiliser des URL publiques ou signées comme entrée en utilisant les URL dans le champ `file_uri`.
 
 ### Python
 
@@ -612,20 +608,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
         }'
 ```
 
-### Bedienungshilfen
+### Accessibilité
 
-Prüfen Sie, ob die von Ihnen angegebenen URLs nicht zu Seiten führen, für die eine Anmeldung erforderlich ist oder die sich hinter einer Paywall befinden. Erstellen Sie für private Datenbanken eine signierte URL mit den richtigen Zugriffsberechtigungen und dem richtigen Ablaufdatum.
+Vérifiez que les URL que vous fournissez ne mènent pas à des pages qui nécessitent des identifiants de connexion ou qui sont soumises à un paywall. Pour les bases de données privées, assurez-vous de créer une URL signée avec les autorisations d'accès et la date d'expiration appropriées.
 
-### Sicherheitschecks
+### Vérifications de sécurité
 
-Das System führt eine Inhaltsmoderationsprüfung für die URL durch, um zu bestätigen, dass sie den Sicherheits- und Richtlinienstandards entspricht (z.B. Inhalte, für die keine Abmeldung erfolgt ist und die sich hinter einer Paywall befinden). Wenn die von Ihnen angegebene URL diese Prüfung nicht besteht, erhalten Sie für `url_retrieval_status` den Wert `URL_RETRIEVAL_STATUS_UNSAFE`.
+Le système effectue une vérification de modération du contenu sur l'URL pour s'assurer qu'elle respecte les normes de sécurité et les règles (par exemple, contenu non désactivé et soumis à un paywall). Si l'URL que vous avez fournie échoue à cette vérification, vous recevrez un `url_retrieval_status` de `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### Unterstützte Inhaltstypen
+### Types de contenu compatibles
 
-Diese Liste der unterstützten Dateitypen und ‑beschränkungen dient als erste Orientierung und ist nicht vollständig. Die tatsächliche Menge der unterstützten Typen kann sich ändern und je nach verwendetem Modell und Tokenizer-Version variieren. Nicht unterstützte Typen führen zu einem Fehler.
-Außerdem wird der Abruf von Inhalten für diese Dateitypen derzeit nur für öffentlich zugängliche URLs unterstützt.
+Cette liste des types de fichiers et des limites compatibles est fournie à titre indicatif et n'est pas exhaustive. L'ensemble effectif des types compatibles est susceptible d'être modifié et peut varier en fonction du modèle et de la version du tokenizer spécifiques utilisés. Les types non compatibles entraîneront une erreur.
+De plus, la récupération de contenu pour ces types de fichiers n'est actuellement compatible qu'avec les URL accessibles au public.
 
-#### Textdateitypen
+#### Types de fichiers texte
 
 - `text/html`
 - `text/css`
@@ -635,19 +631,19 @@ Außerdem wird der Abruf von Inhalten für diese Dateitypen derzeit nur für öf
 - `text/rtf`
 - `text/javascript`
 
-#### Anwendungsdateitypen
+#### Types de fichiers d'application
 
 - `application/json`
 - `application/pdf`
 
-#### Bilddateitypen
+#### Types de fichiers image
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Videodateitypen
+#### Types de fichiers vidéo
 
 - `video/mp4`
 - `video/mpeg`
@@ -659,41 +655,41 @@ Außerdem wird der Abruf von Inhalten für diese Dateitypen derzeit nur für öf
 - `video/wmv`
 - `video/3gpp`
 
-## Best Practices
+## Bonnes pratiques
 
-- **Die richtige Methode auswählen**:Verwenden Sie Inlinedaten für kleine, temporäre Dateien.
-  Verwenden Sie die File API für größere oder häufig verwendete Dateien. Verwenden Sie externe URLs für Daten, die bereits online gehostet werden.
-- **MIME-Typen angeben**:Geben Sie immer den richtigen MIME-Typ für die Dateidaten an, um eine ordnungsgemäße Verarbeitung zu gewährleisten.
-- **Fehler behandeln**:Implementieren Sie die Fehlerbehandlung in Ihrem Code, um potenzielle Probleme wie Netzwerkausfälle, Probleme beim Dateizugriff oder API-Fehler zu beheben.
-- **GCS-Berechtigungen verwalten**:Wenn Sie die GCS-Registrierung verwenden, gewähren Sie dem Gemini API-Dienst-Agent nur die erforderliche Rolle `Storage Object Viewer` für die jeweiligen Buckets.
-- **Sicherheit signierter URLs**:Achten Sie darauf, dass signierte URLs eine angemessene Ablaufzeit und eingeschränkte Berechtigungen haben.
+- **Choisissez la bonne méthode** : utilisez des données intégrées pour les petits fichiers transitoires.
+  Utilisez l'API Files pour les fichiers plus volumineux ou fréquemment utilisés. Utilisez des URL externes pour les données déjà hébergées en ligne.
+- **Spécifiez les types MIME** : fournissez toujours le type MIME correct pour les données de fichier afin de garantir un traitement approprié.
+- **Gérez les erreurs** : implémentez la gestion des erreurs dans votre code pour gérer les problèmes potentiels tels que les défaillances réseau, les problèmes d'accès aux fichiers ou les erreurs d'API.
+- **Gérez les autorisations GCS** : lorsque vous utilisez l'enregistrement GCS, n'accordez à l'agent de service de l'API Gemini que le rôle `Storage Object Viewer` nécessaire sur les buckets spécifiques.
+- **Sécurité des URL signées** : assurez-vous que les URL signées ont une durée d'expiration appropriée et des autorisations limitées.
 
-## Beschränkungen
+## Limites
 
-- Die Dateigrößenbeschränkungen variieren je nach Methode (siehe [Vergleichstabelle](#method-comparison))
-  und Dateityp.
-- Inlinedaten erhöhen die Größe der Anfrage-Nutzlast.
-- Datei-Uploads über die File API sind temporär und laufen nach 48 Stunden ab.
-- Der Abruf externer URLs ist auf 100 MB pro Nutzlast beschränkt und unterstützt bestimmte Inhaltstypen.
-- Für die Google Cloud Storage-Registrierung sind eine ordnungsgemäße IAM-Einrichtung und die Verwaltung von OAuth-Tokens erforderlich.
+- Les limites de taille des fichiers varient en fonction de la méthode (voir le [tableau comparatif](#method-comparison))
+  et du type de fichier.
+- Les données intégrées augmentent la taille de la charge utile de la requête.
+- Les importations de fichiers via l'API sont temporaires et expirent au bout de 48 heures.
+- La récupération d'URL externes est limitée à 100 Mo par charge utile et est compatible avec des types de contenu spécifiques.
+- L'enregistrement Google Cloud Storage nécessite une configuration IAM appropriée et une gestion des jetons OAuth.
 
-## Nächste Schritte
+## Étape suivante
 
-- Versuchen Sie, mit
-  [Google AI Studio](http://aistudio.google.com/?hl=de) eigene multimodale Prompts zu schreiben.
-- Informationen zum Einfügen von Dateien in Ihre Prompts finden Sie in den Anleitungen zur
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=de),
-  [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=de) und
-  [Dokumentverarbeitung](https://ai.google.dev/gemini-api/docs/document-processing?hl=de).
-- Weitere Informationen zum Prompt-Design, z. B. zum Optimieren von Sampling-Parametern, finden Sie in der
-  [Anleitung zu Prompt-Strategien](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=de).
+- Essayez d'écrire vos propres requêtes multimodales à l'aide de
+  [Google AI Studio](http://aistudio.google.com/?hl=fr).
+- Pour savoir comment inclure des fichiers dans vos requêtes, consultez les guides
+  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=fr),
+  [de l'audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr) et
+  [des documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr).
+- Pour obtenir d'autres conseils sur la conception de requêtes, comme l'ajustement des paramètres d'échantillonnage, consultez le
+  [guide Stratégies de requête](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=fr).
 
-Feedback geben
+Envoyer des commentaires
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Zuletzt aktualisiert: 2026-09-12 (UTC).
+Dernière mise à jour le 2026/09/12 (UTC).
 
-Haben Sie Feedback für uns?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/12 (UTC)."],[],[]]

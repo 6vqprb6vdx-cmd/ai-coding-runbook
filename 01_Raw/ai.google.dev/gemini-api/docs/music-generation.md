@@ -1,40 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=id
-fetched_at: 2026-09-21T05:44:37.576641+00:00
-title: "Membuat musik dengan Lyria 3.5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=fr
+fetched_at: 2026-09-28T06:14:31.975788+00:00
+title: "G\u00e9n\u00e9rer de la musique avec Lyria\u00a03.5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Kirim masukan
+Envoyer des commentaires
 
-# Membuat musik dengan Lyria 3.5
+# Générer de la musique avec Lyria 3.5
 
-Lyria 3.5 adalah serangkaian model pembuatan musik Google, yang tersedia melalui Gemini API. Dengan Lyria 3.5, Anda dapat menghasilkan audio stereo 44, 1 kHz berkualitas tinggi dari perintah teks atau dari gambar. Model ini memberikan koherensi struktural, termasuk vokal, lirik yang disesuaikan waktunya, dan aransemen instrumental lengkap.
+Lyria 3.5 est la famille de modèles de génération de musique de Google, disponible via l'API Gemini. Avec Lyria 3.5, vous pouvez générer de l'audio stéréo de haute qualité à 44, 1 kHz à partir de requêtes textuelles ou d'images. Ces modèles offrent une cohérence structurelle, y compris les voix, les paroles synchronisées et les arrangements instrumentaux complets.
 
-Keluarga Lyria mencakup model:
+La famille Lyria inclut les modèles suivants :
 
-| Model | ID Model | Paling cocok untuk | Durasi | Output |
+| Modèle | ID du modèle | Application idéale | Durée | Sortie |
 | --- | --- | --- | --- | --- |
-| **Klip Lyria 3** | `lyria-3-clip-preview` | Klip pendek, loop, pratinjau | 30 detik | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | Lagu berdurasi penuh dengan bait, refrein, dan jembatan | Beberapa menit (dapat dikontrol menggunakan perintah) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips courts, boucles, extraits | 30 secondes | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | Chansons complètes avec des couplets, des refrains et des ponts | Quelques minutes (contrôlable à l'aide d'un prompt) | MP3 |
 
-Kedua model dapat digunakan menggunakan
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) baru, yang mendukung input multimodal (teks dan gambar), serta menghasilkan audio **stereo dengan akurasi tinggi 44,1 kHz**.
+Les deux modèles peuvent être utilisés avec la nouvelle [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), qui accepte les entrées multimodales (texte et images) et produit de l'audio **stéréo haute fidélité à 44,1 kHz**.
 
-## Membuat klip musik
+## Générer un extrait musical
 
-Model Klip Lyria 3 selalu menghasilkan klip **30 detik**. Untuk membuat klip, panggil metode `interactions.create` dengan perintah teks. Respons
-selalu menyertakan lirik dan struktur lagu yang dihasilkan bersama dengan audio dalam
-skema `steps`.
+Le modèle Lyria 3 Clip génère toujours un extrait de **30 secondes**. Pour générer un extrait, appelez la méthode `interactions.create` avec un prompt textuel. La réponse inclut toujours les paroles et la structure du morceau générées, ainsi que l'audio dans le schéma `steps`.
 
 ### Python
 
@@ -115,6 +112,56 @@ if (interaction.outputAudio().isPresent() && interaction.outputAudio().get().dat
 interaction.outputText().ifPresent(lyrics -> System.out.println("Lyrics:\n" + lyrics));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3-clip-preview"),
+            Input: interactions.NewInteractionsInput("A short instrumental acoustic guitar piece."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputAudio != nil && res.Interaction.OutputAudio.Data != nil {
+        audioBytes, err := base64.StdEncoding.DecodeString(*res.Interaction.OutputAudio.Data)
+        if err != nil {
+            log.Fatal(err)
+        }
+        if err := os.WriteFile("music.mp3", audioBytes, 0644); err != nil {
+            log.Fatal(err)
+        }
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Printf("Lyrics:\n%s\n", *res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -127,14 +174,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Anda dapat mengambil data musik yang dihasilkan menggunakan properti `interaction.output_audio`, yang menampilkan blok audio terakhir yang dihasilkan. Anda juga dapat mengambil lirik dan struktur lagu menggunakan properti `interaction.output_text`. Untuk mengetahui detail properti praktis, lihat
-[Ringkasan interaksi](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id#convenience-properties).
+Vous pouvez récupérer les données musicales générées à l'aide de la propriété `interaction.output_audio`, qui renvoie le dernier bloc audio généré. Vous pouvez également récupérer les paroles et la structure du titre à l'aide de la propriété `interaction.output_text`. Pour en savoir plus sur les propriétés pratiques, consultez la [présentation des interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr#convenience-properties).
 
-## Membuat lagu berdurasi penuh
+## Générer une chanson complète
 
-Gunakan model `lyria-3.5` untuk membuat lagu berdurasi penuh yang berdurasi beberapa menit. Model Pro memahami struktur musik dan dapat membuat komposisi dengan bait, refrain, dan jembatan yang berbeda. Anda dapat memengaruhi
-durasi dengan menentukannya dalam perintah (misalnya, "buat lagu berdurasi 2 menit") atau dengan
-menggunakan [stempel waktu](#timing) untuk menentukan struktur.
+Utilisez le modèle `lyria-3.5` pour générer des titres complets de quelques minutes. Le modèle Pro comprend la structure musicale et peut créer des compositions avec des couplets, des refrains et des ponts distincts. Vous pouvez influencer la durée en la spécifiant dans votre requête (par exemple, "crée une chanson de deux minutes") ou en utilisant des [codes temporels](#timing) pour définir la structure.
 
 ### Python
 
@@ -178,6 +222,42 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput(
+                "An epic cinematic orchestral piece about a journey home. Starts with a solo piano intro, builds through sweeping strings, and climaxes with a massive wall of sound.",
+            ),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -190,11 +270,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Pilih format output
+## Sélectionner un format de sortie
 
-Secara default, model Lyria 3.5 menghasilkan audio dalam format **MP3**. Untuk
-Lyria 3.5, Anda juga dapat meminta output dalam format **WAV** dengan menyetel
-`response_format`.
+Par défaut, les modèles Lyria 3.5 génèrent de l'audio au format **MP3**. Pour Lyria 3.5, vous pouvez également demander le résultat au format **WAV** en définissant `response_format`.
 
 ### Python
 
@@ -246,6 +324,43 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput("A beautiful piano melody."),
+            ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
+                interactions.NewResponseFormat(interactions.AudioResponseFormat{}),
+            )),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -261,13 +376,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Mengurai respons
+## Analyser la réponse
 
-Respons dari Lyria 3.5 berisi beberapa blok konten dalam skema `steps`.
-Interaksi menampilkan urutan langkah, dengan `model_output` langkah berisi
-konten yang dihasilkan.
-Blok konten teks berisi lirik yang dibuat atau deskripsi JSON dari struktur lagu.
-Blok konten dengan jenis `audio` berisi data audio berenkode base64.
+La réponse de Lyria 3.5 contient plusieurs blocs de contenu dans le schéma `steps`.
+Les interactions renvoient une séquence d'étapes, où les étapes `model_output` contiennent le contenu généré.
+Les blocs de contenu textuel contiennent les paroles générées ou une description JSON de la structure du morceau.
+Les blocs de contenu de type `audio` contiennent les données audio encodées en base64.
 
 ### Python
 
@@ -336,6 +450,56 @@ if (interaction.outputText().isPresent()) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput("A song about a starry night."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputAudio != nil && res.Interaction.OutputAudio.Data != nil {
+        audioBytes, err := base64.StdEncoding.DecodeString(*res.Interaction.OutputAudio.Data)
+        if err != nil {
+            log.Fatal(err)
+        }
+        if err := os.WriteFile("output.mp3", audioBytes, 0644); err != nil {
+            log.Fatal(err)
+        }
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Printf("Lyrics:\n%s\n", *res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -345,12 +509,11 @@ if (interaction.outputText().isPresent()) {
 curl ... | jq -r '.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio") | .data' | base64 -d > output.mp3
 ```
 
-#### Lirik dan musik yang diselingi
+#### Paroles et musique entrelacées
 
-Karena output dari Lyria 3.5 rumit—berisi langkah-langkah dan blok terpisah untuk lirik yang dihasilkan (teks) dan lagu itu sendiri (audio)—properti kemudahan menawarkan pintasan yang cepat dan direkomendasikan.
+Étant donné que la sortie de Lyria 3.5 est complexe (elle contient des étapes et des blocs distincts pour les paroles (texte) et le morceau lui-même (audio)), les propriétés pratiques offrent un raccourci rapide et recommandé.
 
-Namun, jika Anda menginginkan kontrol penuh dan terprogram atas linimasa langkah-langkah mentah
-yang ditampilkan oleh server (seperti mencatat setiap blok konten saat diterima), Anda dapat melakukan iterasi secara manual atas `steps`:
+Toutefois, si vous souhaitez contrôler entièrement et de manière programmatique le calendrier brut des étapes renvoyées par le serveur (par exemple, en enregistrant les blocs de contenu individuels à mesure qu'ils sont reçus), vous pouvez itérer manuellement sur `steps` à la place :
 
 ### Python
 
@@ -465,11 +628,75 @@ if (audioData != null) {
 }
 ```
 
-## Membuat musik dari gambar
+### Go
 
-Lyria 3.5 mendukung input multimodal — Anda dapat memberikan hingga **10 gambar**
-bersama perintah teks Anda dalam daftar `input` dan model akan membuat musik
-yang terinspirasi dari konten visual.
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+    "strings"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput("A song about a starry night."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    var lyrics []string
+    var audioData []byte
+
+    for _, step := range res.Interaction.Steps {
+        if step.ModelOutputStep != nil {
+            for _, contentBlock := range step.ModelOutputStep.Content {
+                if contentBlock.AudioContent != nil && contentBlock.AudioContent.Data != nil {
+                    decoded, err := base64.StdEncoding.DecodeString(*contentBlock.AudioContent.Data)
+                    if err != nil {
+                        log.Fatal(err)
+                    }
+                    audioData = decoded
+                } else if contentBlock.TextContent != nil {
+                    lyrics = append(lyrics, contentBlock.TextContent.Text)
+                }
+            }
+        }
+    }
+
+    if len(lyrics) > 0 {
+        fmt.Printf("Lyrics:\n%s\n", strings.Join(lyrics, "\n"))
+    }
+
+    if audioData != nil {
+        if err := os.WriteFile("output.mp3", audioData, 0644); err != nil {
+            log.Fatal(err)
+        }
+    }
+}
+```
+
+## Générer de la musique à partir d'images
+
+Lyria 3.5 accepte les entrées multimodales. Vous pouvez fournir jusqu'à **10 images** en plus de votre prompt textuel dans la liste `input`. Le modèle composera de la musique inspirée du contenu visuel.
 
 ### Python
 
@@ -565,6 +792,58 @@ Interaction response =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    imageBytes, err := os.ReadFile("desert_sunset.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+    imageB64 := base64.StdEncoding.EncodeToString(imageBytes)
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "An atmospheric ambient track inspired by the mood and colors in this image.",
+        }),
+        interactions.NewContent(interactions.ImageContent{
+            MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+            Data:     genai.Ptr(imageB64),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -581,11 +860,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Menyediakan lirik kustom
+## Fournir des paroles personnalisées
 
-Anda dapat menulis lirik Anda sendiri dan menyertakannya dalam perintah. Gunakan tag bagian
-seperti `[Verse]`, `[Chorus]`, dan `[Bridge]` untuk membantu model memahami
-struktur lagu:
+Vous pouvez écrire vos propres paroles et les inclure dans la requête. Utilisez des tags de section tels que `[Verse]`, `[Chorus]` et `[Bridge]` pour aider le modèle à comprendre la structure du morceau :
 
 ### Python
 
@@ -689,6 +966,57 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "Create a dreamy indie pop song with the following lyrics:\n\n" +
+        "[Verse 1]\n" +
+        "Walking through the neon glow,\n" +
+        "city lights reflect below,\n" +
+        "every shadow tells a story,\n" +
+        "every corner, fading glory.\n\n" +
+        "[Chorus]\n" +
+        "We are the echoes in the night,\n" +
+        "burning brighter than the light,\n" +
+        "hold on tight, don't let me go,\n" +
+        "we are the echoes down below.\n\n" +
+        "[Verse 2]\n" +
+        "Footsteps lost on empty streets,\n" +
+        "rhythms sync to heartbeats,\n" +
+        "whispers carried by the breeze,\n" +
+        "dancing through the autumn leaves."
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput(prompt),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -701,10 +1029,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Mengontrol waktu dan struktur
+## Contrôler le timing et la structure
 
-Anda dapat menentukan apa yang terjadi pada momen tertentu dalam lagu menggunakan stempel waktu. Hal ini berguna untuk mengontrol kapan instrumen masuk, kapan lirik
-disampaikan, dan bagaimana progres lagu:
+Vous pouvez spécifier exactement ce qui se passe à des moments précis de la chanson à l'aide de codes temporels. Cela permet de contrôler le moment où les instruments entrent en jeu, où les paroles sont diffusées et comment la chanson progresse :
 
 ### Python
 
@@ -772,6 +1099,45 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "[0:00 - 0:10] Intro: Begin with a soft lo-fi beat and muffled vinyl crackle.\n" +
+        "[0:10 - 0:30] Verse 1: Add a warm Fender Rhodes piano melody and gentle vocals singing about a rainy morning.\n" +
+        "[0:30 - 0:50] Chorus: Full band with upbeat drums and soaring synth leads. The lyrics are hopeful and uplifting.\n" +
+        "[0:50 - 1:00] Outro: Fade out with the piano melody alone."
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput(prompt),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -784,9 +1150,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Membuat trek instrumental
+## Générer des pistes instrumentales
 
-Untuk musik latar, soundtrack game, atau kasus penggunaan apa pun yang tidak memerlukan vokal, Anda dapat meminta model untuk menghasilkan trek khusus instrumental:
+Pour la musique de fond, les bandes originales de jeux ou tout cas d'utilisation où les voix ne sont pas nécessaires, vous pouvez demander au modèle de produire des pistes instrumentales uniquement :
 
 ### Python
 
@@ -830,6 +1196,42 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3-clip-preview"),
+            Input: interactions.NewInteractionsInput(
+                "A bright chiptune melody in C Major, retro 8-bit video game style. Instrumental only, no vocals.",
+            ),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -842,10 +1244,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Membuat musik dalam berbagai bahasa
+## Générer de la musique dans différentes langues
 
-Lyria 3.5 membuat lirik dalam bahasa perintah Anda. Untuk membuat lagu dengan lirik dalam bahasa Prancis, tulis perintah Anda dalam bahasa Prancis. Model ini menyesuaikan gaya vokal
-dan pengucapannya agar sesuai dengan bahasa.
+Lyria 3.5 génère des paroles dans la langue de votre requête. Pour générer une chanson avec des paroles en français, rédigez votre requête en français. Le modèle adapte son style vocal et sa prononciation à la langue.
 
 ### Python
 
@@ -889,6 +1290,42 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("lyria-3.5"),
+            Input: interactions.NewInteractionsInput(
+                "Crée une chanson pop romantique en français sur un coucher de soleil à Paris. Utilise du piano et de la guitare acoustique.",
+            ),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    _ = res
+}
+```
+
 ### REST
 
 ```
@@ -901,55 +1338,47 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Kecerdasan model
+## Intelligence du modèle
 
-Lyria 3.5 menganalisis proses perintah Anda saat model melakukan penalaran melalui struktur musik (intro, bait, chorus, jembatan, dll.) berdasarkan perintah Anda.
-Hal ini terjadi sebelum audio dibuat dan memastikan koherensi struktural dan musikalitas.
+Lyria 3.5 analyse le processus de votre requête, où le modèle raisonne à travers la structure musicale (intro, couplet, refrain, pont, etc.) en fonction de votre requête.
+Cela se produit avant la génération de l'audio et garantit la cohérence structurelle et la musicalité.
 
-## Panduan penulisan perintah
+## Guide sur les requêtes
 
-Untuk mempelajari cara membuat perintah yang efektif untuk genre musik, instrumen, struktur lagu, lirik kustom, dan gaya penyampaian vokal, lihat [panduan perintah Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=id).
+Pour savoir comment rédiger des requêtes efficaces pour les genres musicaux, les instruments, la structure des morceaux, les paroles personnalisées et les styles vocaux, consultez le [guide des requêtes Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=fr).
 
-## Praktik terbaik
+## Bonnes pratiques
 
-- **Lakukan iterasi dengan Klip terlebih dahulu.** Gunakan model `lyria-3-clip-preview` yang lebih cepat untuk bereksperimen dengan perintah sebelum melakukan pembuatan panjang penuh dengan `lyria-3.5`.
-- **Jadilah spesifik.** Perintah yang tidak jelas akan menghasilkan hasil yang umum. Sebutkan instrumen,
-  BPM, nada dasar, mood, dan struktur untuk output terbaik.
-- **Cocokkan bahasa Anda.** Berikan perintah dalam bahasa yang Anda inginkan untuk liriknya.
-- **Gunakan tag bagian.** Tag `[Verse]`, `[Chorus]`, `[Bridge]` memberikan struktur yang jelas untuk diikuti model.
-- **Pisahkan lirik dari petunjuk.** Saat memberikan lirik kustom, pisahkan dengan jelas dari petunjuk arahan musik Anda.
+- **Commencez par itérer avec Clip.** Utilisez le modèle `lyria-3-clip-preview` plus rapide pour tester des requêtes avant de vous engager dans une génération complète avec `lyria-3.5`.
+- **Soyez précis.** Les requêtes vagues produisent des résultats génériques. Mentionne les instruments, le tempo, la tonalité, l'humeur et la structure pour obtenir le meilleur résultat.
+- **Choisissez votre langue.** Saisissez une requête dans la langue dans laquelle vous souhaitez obtenir les paroles.
+- **Utilisez des tags de section.** Les balises `[Verse]`, `[Chorus]` et `[Bridge]` fournissent au modèle une structure claire à suivre.
+- **Sépare les paroles des instructions.** Lorsque vous fournissez des paroles personnalisées, séparez-les clairement de vos instructions musicales.
 
-## Batasan
+## Limites
 
-- **Keamanan (Safety)**: Semua perintah diperiksa oleh filter keamanan. Perintah yang memicu
-  filter akan diblokir. Hal ini mencakup perintah yang meminta suara artis tertentu atau pembuatan lirik yang dilindungi hak cipta.
-- **Pemberian watermark**: Semua audio yang dihasilkan menyertakan
-  [watermark audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id) untuk
-  identifikasi. Watermark ini tidak dapat didengar oleh telinga manusia dan tidak memengaruhi pengalaman mendengarkan.
-- **Pengeditan berkelanjutan**: Pembuatan musik adalah proses sekali putaran.
-  Pengeditan atau penyempurnaan klip yang dihasilkan secara berulang melalui beberapa perintah tidak didukung di Lyria 3.5 versi saat ini.
-- **Panjang**: Model Klip selalu menghasilkan klip berdurasi 30 detik. Model Pro
-  menghasilkan lagu berdurasi beberapa menit; durasi yang tepat dapat
-  dipengaruhi melalui perintah Anda.
-- **Determinisme**: Hasil dapat bervariasi antar-panggilan, bahkan dengan perintah yang sama.
+- **Sécurité** : toutes les requêtes sont vérifiées par des filtres de sécurité. Les requêtes qui déclenchent les filtres seront bloquées. Cela inclut les requêtes demandant des voix d'artistes spécifiques ou la génération de paroles protégées par des droits d'auteur.
+- **Filigranes** : tous les contenus audio générés incluent un [filigrane audio SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr) pour l'identification. Ce filigrane est imperceptible à l'oreille humaine et n'affecte pas l'expérience d'écoute.
+- **Édition avec chat multitour** : la génération de musique est un processus monotour.
+  L'édition itérative ou l'affinage d'un extrait généré à l'aide de plusieurs requêtes ne sont pas pris en charge dans la version actuelle de Lyria 3.5.
+- **Durée** : le modèle Clip génère toujours des extraits de 30 secondes. Le modèle Pro génère des titres qui durent quelques minutes. La durée exacte peut être influencée par votre requête.
+- **Déterminisme** : les résultats peuvent varier d'un appel à l'autre, même avec le même prompt.
 
-## Langkah berikutnya
+## Étape suivante
 
-- Periksa [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id) untuk model Lyria 3.5.
-- Coba [pembuatan musik streaming real-time](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=id) dengan Lyria RealTime.
-- Buat percakapan multi-pembicara dengan
-  [model TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id).
-- Temukan cara membuat [gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id) atau [video](https://ai.google.dev/gemini-api/docs/video?hl=id).
-- Cari tahu cara Gemini dapat [memahami file audio](https://ai.google.dev/gemini-api/docs/audio?hl=id).
-- Lakukan percakapan real-time dengan Gemini menggunakan
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=id).
+- Consultez les [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr) des modèles Lyria 3.5.
+- Essayez la [génération de musique en streaming et en temps réel](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=fr) avec Lyria RealTime.
+- Générez des conversations à plusieurs locuteurs avec les [modèles TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr).
+- Découvrez comment générer des [images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr) ou des [vidéos](https://ai.google.dev/gemini-api/docs/video?hl=fr).
+- Découvrez comment Gemini peut [comprendre les fichiers audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr).
+- Discutez en temps réel avec Gemini à l'aide de l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr).
 
-Kirim masukan
+Envoyer des commentaires
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Terakhir diperbarui pada 2026-09-18 UTC.
+Dernière mise à jour le 2026/09/24 (UTC).
 
-Ada masukan untuk kami?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-18 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/24 (UTC)."],[],[]]

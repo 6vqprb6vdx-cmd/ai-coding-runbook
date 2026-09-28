@@ -1,52 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/webhooks?hl=es-419
-fetched_at: 2026-09-21T05:51:16.277097+00:00
-title: "Webhooks \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/webhooks?hl=ar
+fetched_at: 2026-09-28T06:10:23.201931+00:00
+title: "\u0627\u0644\u0631\u062f\u0651 \u0627\u0644\u062a\u0644\u0642\u0627\u0626\u064a \u0639\u0644\u0649 \u0627\u0644\u0648\u064a\u0628 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
 
-Enviar comentarios
+إرسال ملاحظات
 
-# Webhooks
+# الردّ التلقائي على الويب
 
-Los webhooks permiten que la API de Gemini envíe notificaciones en tiempo real a tu servidor cuando se completan las operaciones asíncronas o de larga duración (LRO). Esto reemplaza la necesidad de sondear la API para obtener actualizaciones de estado, lo que reduce la latencia y la sobrecarga.
+تتيح الويب هوك لواجهة Gemini API إرسال إشعارات في الوقت الفعلي إلى الخادم عند اكتمال العمليات غير المتزامنة أو العمليات الطويلة الأمد. يحلّ ذلك محل الحاجة إلى طلب البيانات من واجهة برمجة التطبيقات بشكل متكرر للحصول على آخر المعلومات، ما يقلّل من وقت الاستجابة والحِمل الزائد.
 
-Los webhooks están disponibles para operaciones como [trabajos por lotes](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419),
-[interacciones](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) y [generación de video](https://ai.google.dev/gemini-api/docs/video?hl=es-419).
+تتوفّر خطافات الويب لعمليات مثل مهام [المعالجة المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) و[التفاعلات](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) و[إنشاء الفيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar).
 
-## Cómo funciona
+## آلية العمل
 
-En lugar de sondear `GET /operations` de forma repetida para verificar si un trabajo finalizó, puedes configurar los webhooks de la API de Gemini para enviar una solicitud HTTP POST a la URL del objeto de escucha inmediatamente después de que se active un evento.
+بدلاً من إجراء استطلاع متكرّر `GET /operations` لمعرفة ما إذا كانت مهمة قد اكتملت،
+يمكنك ضبط Webhooks في Gemini API لإرسال طلب HTTP POST إلى
+عنوان URL الخاص بالبرنامج المستمع فور تشغيل حدث.
 
-La API de Gemini admite dos formas de configurar webhooks:
+تتيح Gemini API طريقتَين لإعداد خطافات الويب:
 
-- [**Webhooks estáticos**](#static-webhooks): Son extremos a nivel del proyecto configurados
-  con la API de Gemini [WebhookService](https://ai.google.dev/api?hl=es-419). Son adecuados para integraciones globales (p. ej., notificar a Slack, sincronizar una base de datos, etcétera).
-- [**Webhooks dinámicos**](#dynamic-webhooks): Son anulaciones a nivel de la solicitud que pasan una
-  URL de webhook en la carga útil de configuración de una llamada de trabajos específica. Son ideales para enrutar trabajos específicos a extremos dedicados.
+- [**عمليات ربط ثابتة**](#static-webhooks): نقاط نهاية على مستوى المشروع تم إعدادها باستخدام [WebhookService API](https://ai.google.dev/api?hl=ar) في Gemini. مناسبة لعمليات الدمج العالمية (مثل إرسال إشعارات إلى Slack ومزامنة قاعدة بيانات وما إلى ذلك).
+- [**روابط الويب هوك الديناميكية**](#dynamic-webhooks): عمليات إلغاء على مستوى الطلب يتم فيها تمرير عنوان URL لويب هوك في حمولة الإعدادات لطلب وظائف معيّن. وهي مثالية لتوجيه مهام معيّنة إلى نقاط نهاية مخصّصة.
 
-## Webhooks estáticos
+## الويب هوك الثابتة
 
-Los webhooks estáticos se registran para todo un [proyecto](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) y se activan para cualquier evento
-coincidente.
+يتم تسجيل خطافات الويب الثابتة [لمشروع](https://ai.google.dev/gemini-api/docs/api-key?hl=ar#google-cloud-projects) بأكمله ويتم تشغيلها لأي حدث مطابق.
 
-### Crea un webhook
+### إنشاء ويب هوك
 
-Puedes crear extremos con el SDK o la API de REST.
+يمكنك إنشاء نقاط نهاية باستخدام حزمة تطوير البرامج أو واجهة REST API.
 
-**IMPORTANTE**: Cuando se crea un webhook, la API muestra un **secreto de firma**
-**solo una vez**. Debes almacenarlo de forma segura (p.ej., en tus variables de entorno) para verificar las firmas más adelante. Si pierdes el secreto de firma, deberás
-[rotarlo](#rotate-signing-secret).
+**ملاحظة مهمة**: عند إنشاء خطاف ويب، تعرض واجهة برمجة التطبيقات **مفتاح توقيع**
+**مرة واحدة فقط**. يجب تخزين هذا المفتاح بشكل آمن (مثلاً في متغيّرات البيئة) للتحقّق من التواقيع لاحقًا. في حال فقدان سر التوقيع، عليك [تغييره](#rotate-signing-secret).
 
 ### Python
 
@@ -102,12 +99,11 @@ curl -X POST \
   }'
 ```
 
-Para obtener detalles sobre cómo configurar tu servidor para recibir datos, consulta la
-[sección Controla solicitudes de webhook](#handle-webhook-requests).
+للحصول على تفاصيل حول إعداد الخادم لتلقّي البيانات، يُرجى الاطّلاع على قسم [التعامل مع طلبات Webhook](#handle-webhook-requests).
 
-### Obtén un webhook
+### الحصول على ويب هوك
 
-Recupera detalles sobre un webhook específico por su nombre de recurso.
+استرداد تفاصيل حول خطاف ويب معيّن من خلال اسم المورد
 
 ### Python
 
@@ -149,9 +145,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Enumera webhooks
+### عرض قائمة بالويب هوك
 
-Enumera todos los webhooks configurados para el proyecto actual, con paginación opcional.
+تعرض هذه الطريقة جميع خطافات الويب التي تم ضبط إعداداتها للمشروع الحالي، مع إمكانية تقسيم النتائج إلى صفحات.
 
 ### Python
 
@@ -192,9 +188,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Actualiza un webhook
+### تعديل ويب هوك
 
-Actualiza las propiedades de un webhook existente, como el nombre visible, el URI de destino o los eventos suscritos.
+تعديل خصائص خطاف ويب حالي، مثل الاسم المعروض أو معرّف الموارد المنتظم المستهدف أو الأحداث التي تم الاشتراك فيها
 
 ### Python
 
@@ -244,9 +240,9 @@ curl -X PATCH \
   }'
 ```
 
-### Borra un webhook
+### حذف ويب هوك
 
-Quita un extremo de webhook del proyecto. De este modo, se detienen las entregas de eventos futuros a ese extremo.
+إزالة نقطة نهاية لـ Webhook من المشروع سيؤدي ذلك إلى إيقاف عمليات تسليم الأحداث المستقبلية إلى نقطة النهاية هذه.
 
 ### Python
 
@@ -284,11 +280,11 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Rota un secreto de firma
+### تغيير سر توقيع
 
-Rota el secreto de firma de un webhook. Puedes configurar si los secretos activos anteriormente se revocan de inmediato o después de un período de gracia de 24 horas.
+تغيير واجهة برمجة التطبيقات السرّية للتوقيع الخاصة بخطاف ويب يمكنك ضبط ما إذا كان سيتم إبطال رموز الأمان النشطة سابقًا على الفور أو بعد فترة سماح مدتها 24 ساعة.
 
-**IMPORTANTE**: El nuevo secreto de firma se muestra **solo una vez** en el momento de la rotación. Almacénalo de forma segura antes de actualizar tu lógica de verificación.
+**ملاحظة مهمة**: يتم عرض سر التوقيع الجديد **مرة واحدة فقط** عند تدويره. يجب تخزينها بشكل آمن قبل تعديل منطق إثبات الملكية.
 
 ### Python
 
@@ -341,14 +337,13 @@ curl -X POST \
   }'
 ```
 
-### Controla solicitudes de webhook en un servidor
+### التعامل مع طلبات ويب هوك على خادم
 
-Cuando ocurre un evento al que te suscribiste, la URL de tu webhook recibirá una solicitud HTTP POST. Tu extremo debe responder con un código de estado 2xx en unos segundos para evitar un reintento. Para garantizar la entrega, la API de Gemini vuelve a intentar automáticamente las solicitudes fallidas durante 24 horas con una retirada exponencial.
+عند وقوع حدث اشتركت فيه، سيتلقّى رابط ويب هوك طلب HTTP POST. يجب أن يستجيب نقطة النهاية برمز حالة 2xx في غضون بضع ثوانٍ لتجنُّب إعادة المحاولة. لضمان تسليم الردود، تعيد Gemini API تلقائيًا معالجة الطلبات التي فشلت لمدة 24 ساعة باستخدام التراجع الدليلي.
 
-Gemini sigue estrictamente la especificación de [webhooks estándar](https://github.com/standard-webhooks/standard-webhooks) para los
-encabezados de seguridad. Verifica la carga útil en tu servidor con las firmas de encabezado firmadas y tu secreto de firma estático almacenado. Consulta la sección [Sobre de webhook](#webhook-envelope) para obtener información sobre la carga útil.
+يتّبع Gemini بدقة مواصفات [Standard Webhooks](https://github.com/standard-webhooks/standard-webhooks) لعناوين الأمان. تحقَّق من الحمولة على الخادم باستخدام توقيعات العنوان الموقَّع وسر التوقيع الثابت المخزَّن. راجِع قسم [حزمة Webhook](#webhook-envelope) للحصول على معلومات الحمولة.
 
-A continuación, se muestra un ejemplo con Flask para el objeto de escucha HTTP:
+في ما يلي مثال على استخدام Flask لمستمع HTTP:
 
 ### Python
 
@@ -437,14 +432,13 @@ app.listen(8000, () => {
 });
 ```
 
-## Webhooks dinámicos
+## خطافات الويب الديناميكية
 
-Los webhooks dinámicos te permiten vincular un extremo de webhook a una **configuración de solicitud
-específica**, ideal para colas de orquestación de agentes. Los webhooks dinámicos aprovechan las firmas JWKS de clave pública asimétrica en lugar de secretos simétricos.
+تتيح لك خطافات الويب الديناميكية ربط نقطة نهاية خطاف الويب **بإعداد طلب معيّن**، ما يجعلها مثالية لقوائم انتظار تنسيق الوكلاء. تستفيد خطافات الويب الديناميكية من توقيعات JWKS غير المتماثلة بالمفتاح العام بدلاً من الأسرار المتماثلة.
 
-### Envía una solicitud dinámica
+### إرسال طلب ديناميكي
 
-Agrega un `webhook_config` cuando actives un trabajo asíncrono (p.ej., crear un lote).
+أضِف `webhook_config` عند تشغيل مهمة غير متزامنة (مثل إنشاء Batch).
 
 ### Python
 
@@ -508,10 +502,9 @@ curl -X POST \
   }'
 ```
 
-### Verifica firmas dinámicas (JWKS)
+### التحقّق من صحة التواقيع الديناميكية (JWKS)
 
-Las solicitudes de webhook dinámicas emiten una firma de token web JSON (JWT). Tu objeto de escucha
-debe extraer la firma y verificarla con los extremos de certificado público de [Google](https://www.googleapis.com/oauth2/v3/certs).
+تُصدر طلبات Webhook الديناميكية توقيع JSON Web Token (JWT). على المستمع استخراج التوقيع والتحقّق منه باستخدام [نقاط نهاية الشهادة العامة من Google](https://www.googleapis.com/oauth2/v3/certs).
 
 ### Python
 
@@ -612,11 +605,11 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 });
 ```
 
-## Sobre de webhook
+## حزمة ويب هوك
 
-Para evitar la congestión del ancho de banda, los webhooks de Gemini usan un modelo de **carga útil delgada** para entregar datos. Las entregas envían una instantánea que contiene detalles de estado y punteros a los resultados, en lugar del archivo de salida sin procesar.
+لتجنُّب الازدحام في النطاق الترددي، تستخدم خطافات الويب في Gemini نموذج **حمولة رقيقة** لتقديم البيانات، حيث ترسل عمليات التسليم لقطة تحتوي على تفاصيل الحالة ومؤشرات إلى النتائج، بدلاً من ملف الإخراج الأولي نفسه.
 
-A continuación, se muestra un formato de carga útil de ejemplo:
+في ما يلي مثال على تنسيق الحمولة:
 
 ```
 {
@@ -630,42 +623,40 @@ A continuación, se muestra un formato de carga útil de ejemplo:
 }
 ```
 
-## Referencia del catálogo de eventos
+## مرجع كتالوج الأحداث
 
-Los siguientes eventos se activan para trabajos compatibles:
+يتم تشغيل الأحداث التالية للوظائف المتوافقة:
 
-| Tipo de evento | Activador | Elemento de carga útil (`data`) |
+| نوع الحدث | Trigger | عنصر الحمولة (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | El procesamiento finalizó correctamente. | `id`, `output_file_uri` |
-| `batch.cancelled` | El usuario canceló la solicitud. | `id` |
-| `batch.expired` | El lote no se procesó (finalizó) en un período de 24 horas. | `id` |
-| `batch.failed` | No se pudo realizar el trabajo por lotes (error del sistema o de validación). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Llamada a la función, el usuario debe hacer algo. | `id` |
-| `interaction.completed` | La LRO en la API de Interactions se realizó correctamente. | `id` |
-| `interaction.failed` | No se pudo realizar la LRO en la API de Interactions (error del sistema o de validación). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | Se canceló la LRO en la API de Interactions. | `id` |
-| `video.generated` | Se completó la LRO de generación de video. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | اكتملت المعالجة بنجاح. | ‫`id`، `output_file_uri` |
+| `batch.cancelled` | ألغى المستخدم الطلب | `id` |
+| `batch.expired` | لم تتم معالجة الدفعة (انتهت) خلال فترة 24 ساعة | `id` |
+| `batch.failed` | تعذّر تنفيذ مهمة الدفعات (خطأ في النظام أو خطأ في التحقّق). | ‫`id`، `error_code`، `error_message` |
+| `interaction.requires_action` | طلب تنفيذ دالة، يجب أن يتّخذ المستخدم إجراءً | `id` |
+| `interaction.completed` | نجاح عملية LRO في واجهة برمجة التطبيقات الخاصة بالتفاعلات | `id` |
+| `interaction.failed` | تعذّر تنفيذ عملية LRO في واجهة برمجة التطبيقات الخاصة بالتفاعلات (حدث خطأ في النظام أو التحقّق من الصحة). | ‫`id`، `error_code`، `error_message` |
+| `interaction.cancelled` | تم إلغاء LRO في واجهة برمجة التطبيقات الخاصة بالتفاعلات | `id` |
+| `video.generated` | اكتملت عملية إنشاء الفيديو الطويلة الأمد. | ‫`id`، `output_file_uri`، `file_name` |
 
-## Prácticas recomendadas
+## أفضل الممارسات
 
-Para garantizar una operación confiable y escalable, haz lo siguiente:
+لضمان التشغيل الموثوق والقابل للتوسّع، اتّبِع ما يلي:
 
-- **Verificación estricta de protección de reproducción**: Todas las solicitudes tienen un `webhook-timestamp`
-  encabezado. Siempre valida esta marca de tiempo en la capa de configuración del servidor para rechazar cargas útiles de más de **5 minutos** (para mitigar los ataques de reproducción).
-- **Procesa de forma asíncrona**: Responde con `2xx OK` inmediatamente después de la detección de una firma válida
-  y pon en cola las operaciones de análisis de forma interna. Los tiempos de espera prolongados del objeto de escucha activarán un ciclo de reintento de entrega.
-- **Control de deduplicación**: Los webhooks estándar entregan "Al menos una vez". Usa el encabezado `webhook-id` coherente para controlar posibles duplicados en flujos de mayor congestión.
+- **التحقّق من الحماية الصارمة من إعادة التشغيل**: تتضمّن جميع الطلبات عنوان `webhook-timestamp`. يجب دائمًا التحقّق من صحة هذا الطابع الزمني في طبقة إعدادات الخادم لرفض الحِزم التي مرّ عليها أكثر من **5 دقائق** (للحدّ من هجمات إعادة الإرسال).
+- **المعالجة بشكل غير متزامن**: الردّ باستخدام `2xx OK` فور رصد توقيع صالح، ووضع عمليات التحليل في قائمة الانتظار داخليًا. سيؤدي إطالة مدة الاستماع إلى بدء دورة إعادة محاولة التسليم.
+- **التعامل مع إزالة التكرار**: تقدّم خطافات الويب العادية خدمة "مرة واحدة على الأقل". استخدِم العنوان `webhook-id` المتسق للتعامل مع النسخ المكرّرة المحتملة في تدفقات الازدحام الأعلى.
 
-## Próximos pasos
+## ما هي الخطوات التالية؟
 
-- [API de Batch](https://ai.google.dev/gemini-api/docs/batch?hl=es-419): Utiliza webhooks para automatizar extremos de gran volumen.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=ar): استخدِم خطافات الويب لأتمتة نقاط النهاية ذات الحجم الكبير.
 
-Enviar comentarios
+إرسال ملاحظات
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última actualización: 2026-09-12 (UTC)
+تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
 
-¿Quieres brindar más información?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-12 (UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

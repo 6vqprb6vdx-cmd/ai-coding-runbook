@@ -1,51 +1,53 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=pl
-fetched_at: 2026-09-21T05:53:20.400919+00:00
-title: "Webhooki \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=id
+fetched_at: 2026-09-28T06:16:20.489382+00:00
+title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Prześlij opinię
+Kirim masukan
 
-# Webhooki
+# Webhook
 
-Webhooki umożliwiają interfejsowi Gemini API wysyłanie powiadomień w czasie rzeczywistym na Twój serwer po zakończeniu operacji asynchronicznych lub długotrwałych. Zastępują one konieczność sondowania interfejsu API w celu uzyskania aktualizacji stanu, co zmniejsza opóźnienia i obciążenie.
+Webhook memungkinkan Gemini API mengirimkan notifikasi real-time ke server Anda
+saat Operasi Asinkron atau Operasi yang Berjalan Lama (LRO) selesai. Hal ini menggantikan
+kebutuhan untuk melakukan polling API guna mendapatkan update status, sehingga mengurangi latensi dan overhead.
 
-Webhooki są dostępne w przypadku operacji takich jak [zadania zbiorcze](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl),
-[interakcje](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) i [generowanie filmów](https://ai.google.dev/gemini-api/docs/video?hl=pl).
+Webhook tersedia untuk operasi seperti tugas [Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=id),
+[Interaksi](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id), dan [pembuatan video](https://ai.google.dev/gemini-api/docs/video?hl=id).
 
-## Jak to działa
+## Cara kerjanya
 
-Zamiast wielokrotnie sondować `GET /operations`, aby sprawdzić, czy zadanie zostało zakończone, możesz skonfigurować webhooki Gemini API tak, aby natychmiast po wywołaniu zdarzenia wysyłały żądanie HTTP POST na adres URL odbiornika.
+Daripada melakukan polling `GET /operations` berulang kali untuk memeriksa apakah tugas telah selesai, Anda dapat mengonfigurasi Webhook Gemini API untuk mengirim permintaan HTTP POST ke URL pendengar Anda segera setelah pemicu peristiwa.
 
-Interfejs Gemini API obsługuje 2 sposoby konfigurowania webhooków:
+Gemini API mendukung dua cara untuk mengonfigurasi webhook:
 
-- [**Webhooki statyczne**](#static-webhooks): punkty końcowe na poziomie projektu skonfigurowane
-  za pomocą interfejsu Gemini [WebhookService API](https://ai.google.dev/api?hl=pl). Dobre do integracji globalnych (np. powiadamianie Slacka, synchronizowanie bazy danych itp.).
-- [**Webhooki dynamiczne**](#dynamic-webhooks): zastąpienia na poziomie żądania, które przekazują adres URL
-  webhooka w ładunku konfiguracji konkretnego wywołania zadania. Idealne do kierowania konkretnych zadań do dedykowanych punktów końcowych.
+- [**Webhook statis**](#static-webhooks): Endpoint tingkat project yang dikonfigurasi dengan [WebhookService API](https://ai.google.dev/api?hl=id) Gemini. Cocok untuk integrasi global (misalnya, memberi tahu Slack, menyinkronkan database, dll.).
+- [**Webhook dinamis**](#dynamic-webhooks): Penggantian tingkat permintaan yang meneruskan
+  URL webhook dalam payload konfigurasi panggilan tugas tertentu. Ideal untuk
+  merutekan tugas tertentu ke endpoint khusus.
 
-## Webhooki statyczne
+## Webhook statis
 
-Webhooki statyczne są rejestrowane dla całego [projektu](https://ai.google.dev/gemini-api/docs/api-key?hl=pl#google-cloud-projects) i są wywoływane w przypadku każdego pasującego
-zdarzenia.
+Webhook statis didaftarkan untuk seluruh [project](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) dan dipicu untuk setiap peristiwa yang cocok.
 
-### Tworzenie webhooka
+### Membuat webhook
 
-Punkty końcowe możesz tworzyć za pomocą pakietu SDK lub interfejsu API REST.
+Anda dapat membuat endpoint menggunakan SDK atau REST API.
 
-**WAŻNE**: podczas tworzenia webhooka interfejs API zwraca **obiekt tajny podpisywania**
-**tylko raz**. Aby później weryfikować podpisy, musisz go bezpiecznie przechowywać (np. w zmiennych środowiskowych). Jeśli utracisz obiekt tajny podpisywania, musisz go
-[wymienić](#rotate-signing-secret).
+**PENTING**: Saat membuat webhook, API akan menampilkan **secret penandatanganan**
+**hanya sekali**. Anda harus menyimpannya dengan aman (misalnya, di variabel lingkungan Anda)
+untuk memverifikasi tanda tangan nanti. Jika Anda kehilangan rahasia penandatanganan, Anda harus
+[merotasinya](#rotate-signing-secret).
 
 ### Python
 
@@ -115,6 +117,49 @@ System.out.println(
     "Created webhook: " + webhook.name().orElse("") + ", " + webhook.id().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+    "google.golang.org/genai/interactions/models/webhooks"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Webhooks.Create(ctx, operations.CreateWebhookRequest{
+        Body: webhooks.WebhookInput{
+            Name: genai.Ptr("MyBatchWebhook"),
+            SubscribedEvents: []webhooks.WebhookSubscribedEvent{
+                webhooks.WebhookSubscribedEventBatchSucceeded,
+                webhooks.WebhookSubscribedEventBatchFailed,
+            },
+            URI: "https://my-api.com/gemini-callback",
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    webhook := res.Webhook
+    // Store webhook.GetNewSigningSecret() securely
+    _ = webhook.GetNewSigningSecret()
+    fmt.Printf("Created webhook: %v, %v\n", webhook.GetName(), webhook.GetID())
+}
+```
+
 ### REST
 
 ```
@@ -129,12 +174,12 @@ curl -X POST \
   }'
 ```
 
-Szczegółowe informacje o konfigurowaniu serwera do odbierania danych znajdziesz w sekcji
-[Obsługa żądań webhooków](#handle-webhook-requests).
+Untuk mengetahui detail tentang cara menyiapkan server Anda untuk menerima data, lihat bagian
+[Menangani permintaan webhook](#handle-webhook-requests).
 
-### Pobieranie webhooka
+### Mendapatkan webhook
 
-Pobierz szczegółowe informacje o konkretnym webhooku na podstawie jego nazwy zasobu.
+Mengambil detail tentang webhook tertentu berdasarkan nama resource-nya.
 
 ### Python
 
@@ -184,6 +229,43 @@ System.out.println("URI: " + webhook.uri().orElse(""));
 System.out.println("Events: " + webhook.subscribedEvents().orElse(Collections.emptyList()));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Webhooks.Get(ctx, operations.GetWebhookRequest{
+        ID: "<your_webhook_id>",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    webhook := res.Webhook
+    if webhook.Name != nil {
+        fmt.Printf("Webhook: %s\n", *webhook.Name)
+    }
+    fmt.Printf("URI: %s\n", webhook.URI)
+    fmt.Printf("Events: %v\n", webhook.SubscribedEvents)
+}
+```
+
 ### REST
 
 ```
@@ -192,9 +274,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Wyświetlanie listy webhooków
+### Mencantumkan webhook
 
-Wyświetl listę wszystkich skonfigurowanych webhooków w bieżącym projekcie z opcjonalną paginacją.
+Mencantumkan semua webhook yang dikonfigurasi untuk project saat ini, dengan penomoran halaman opsional.
 
 ### Python
 
@@ -246,6 +328,40 @@ for (Webhook wh : response.webhooks().orElse(Collections.emptyList())) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Webhooks.List(ctx, operations.ListWebhooksRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.WebhookListResponse != nil {
+        for _, wh := range res.WebhookListResponse.Webhooks {
+            fmt.Printf("%v: %v -> %s\n", wh.GetID(), wh.GetName(), wh.URI)
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -254,9 +370,10 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Aktualizowanie webhooka
+### Memperbarui webhook
 
-Zaktualizuj właściwości istniejącego webhooka, takie jak nazwa wyświetlana, docelowy identyfikator URI lub subskrybowane zdarzenia.
+Memperbarui properti webhook yang ada seperti nama tampilan, URI target, atau
+peristiwa yang disubscribe.
 
 ### Python
 
@@ -327,6 +444,49 @@ Webhook updatedWebhook =
 System.out.println("Updated webhook: " + updatedWebhook.name().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+    "google.golang.org/genai/interactions/models/webhooks"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Webhooks.Update(ctx, operations.UpdateWebhookRequest{
+        ID:         "<your_webhook_id>",
+        UpdateMask: genai.Ptr("subscribed_events"),
+        Body: &webhooks.WebhookUpdate{
+            SubscribedEvents: []webhooks.WebhookUpdateSubscribedEvent{
+                webhooks.WebhookUpdateSubscribedEventBatchSucceeded,
+                webhooks.WebhookUpdateSubscribedEventBatchFailed,
+                webhooks.WebhookUpdateSubscribedEvent("batch.cancelled"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Webhook.Name != nil {
+        fmt.Printf("Updated webhook: %s\n", *res.Webhook.Name)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -339,9 +499,9 @@ curl -X PATCH \
   }'
 ```
 
-### Usuwanie webhooka
+### Menghapus webhook
 
-Usuń punkt końcowy webhooka z projektu. Spowoduje to zatrzymanie dostarczania przyszłych zdarzeń do tego punktu końcowego.
+Menghapus endpoint webhook dari project. Tindakan ini akan menghentikan pengiriman acara pada masa mendatang ke endpoint tersebut.
 
 ### Python
 
@@ -383,6 +543,38 @@ client.webhooks.delete("<your_webhook_id>");
 System.out.println("Webhook deleted.");
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    _, err = client.Webhooks.Delete(ctx, operations.DeleteWebhookRequest{
+        ID: "<your_webhook_id>",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println("Webhook deleted.")
+}
+```
+
 ### REST
 
 ```
@@ -391,11 +583,11 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Wymiana obiektu tajnego podpisywania
+### Merotasi secret penandatanganan
 
-Wymień obiekt tajny podpisywania webhooka. Możesz skonfigurować, czy wcześniej aktywne obiekty tajne mają zostać unieważnione natychmiast, czy po 24-godzinnym okresie przejściowym.
+Merotasi rahasia penandatanganan untuk webhook. Anda dapat mengonfigurasi apakah secret yang sebelumnya aktif dicabut segera atau setelah masa tenggang 24 jam.
 
-**WAŻNE**: nowy obiekt tajny podpisywania jest zwracany **tylko raz** w momencie wymiany. Zanim zaktualizujesz logikę weryfikacji, bezpiecznie go przechowuj.
+**PENTING**: Secret penandatanganan baru hanya ditampilkan **sekali** pada waktu rotasi. Simpan dengan aman sebelum memperbarui logika verifikasi Anda.
 
 ### Python
 
@@ -465,6 +657,44 @@ String newSecret = response.secret().orElse("");
 System.out.println("New signing secret generated. Update your server configuration.");
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/operations"
+    "google.golang.org/genai/interactions/models/webhooks"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Webhooks.RotateSigningSecret(ctx, operations.RotateSigningSecretRequest{
+        ID: "<your_webhook_id>",
+        Body: &webhooks.RotateSigningSecretRequest{
+            RevocationBehavior: webhooks.RevocationBehaviorRevokePreviousSecretsAfterH24.ToPointer(),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Store res.WebhookRotateSigningSecretResponse.GetSecret() securely, then update your server's verification config
+    _ = res.WebhookRotateSigningSecretResponse.GetSecret()
+    fmt.Println("New signing secret generated. Update your server configuration.")
+}
+```
+
 ### REST
 
 ```
@@ -477,14 +707,16 @@ curl -X POST \
   }'
 ```
 
-### Obsługa żądań webhooków na serwerze
+### Menangani permintaan webhook di server
 
-Gdy wystąpi zdarzenie, które subskrybujesz, Twój adres URL webhooka otrzyma żądanie HTTP POST. Aby uniknąć ponowienia, punkt końcowy musi odpowiedzieć kodem stanu 2xx w ciągu kilku sekund. Aby zapewnić dostarczenie, interfejs Gemini API automatycznie ponawia nieudane żądania przez 24 godziny, używając algorytmu wzrastający czas do ponowienia.
+Saat peristiwa yang Anda ikuti terjadi, URL webhook Anda akan menerima
+permintaan POST HTTP. Endpoint Anda harus merespons dengan kode status 2xx dalam beberapa detik untuk menghindari percobaan ulang. Untuk memastikan pengiriman, Gemini API
+akan otomatis mencoba ulang permintaan yang gagal selama 24 jam menggunakan backoff eksponensial.
 
-Gemini ściśle przestrzega specyfikacji [standardowych webhooków](https://github.com/standard-webhooks/standard-webhooks) w przypadku
-nagłówków bezpieczeństwa. Zweryfikuj ładunek na serwerze za pomocą podpisanych sygnatur nagłówków i przechowywanego statycznego obiektu tajnego podpisywania. Informacje o ładunku znajdziesz w sekcji [Koperta webhooka](#webhook-envelope).
+Gemini secara ketat mengikuti spesifikasi [Webhook Standar](https://github.com/standard-webhooks/standard-webhooks) untuk
+header keamanan. Verifikasi payload di server Anda menggunakan tanda tangan header yang ditandatangani dan rahasia penandatanganan statis tersimpan Anda. Lihat bagian [Webhook envelope](#webhook-envelope) untuk mengetahui informasi payload.
 
-Oto przykład użycia Flaska jako odbiornika HTTP:
+Berikut adalah contoh penggunaan Flask untuk pemroses HTTP:
 
 ### Python
 
@@ -655,14 +887,93 @@ server.createContext(
 server.start();
 ```
 
-## Webhooki dynamiczne
+### Go
 
-Webhooki dynamiczne umożliwiają powiązanie punktu końcowego webhooka z **konkretną konfiguracją
-żądania**, co jest idealne w przypadku kolejek orkiestracji agentów. Webhooki dynamiczne używają asymetrycznych podpisów JWKS klucza publicznego zamiast symetrycznych obiektów tajnych.
+```
+package main
 
-### Przesyłanie żądania dynamicznego
+import (
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+    "encoding/json"
+    "fmt"
+    "io"
+    "log"
+    "net/http"
+    "os"
+    "strings"
 
-Podczas wywoływania zadania asynchronicznego (np. tworzenia zadania zbiorczego) dodaj `webhook_config`.
+)
+
+func main() {
+    signingSecret := os.Getenv("WEBHOOK_SIGNING_SECRET")
+
+    http.HandleFunc("/gemini-callback", func(w http.ResponseWriter, r *http.Request) {
+        payloadBytes, err := io.ReadAll(r.Body)
+        if err != nil {
+            http.Error(w, `{"error": "Failed to read body"}`, http.StatusBadRequest)
+            return
+        }
+        payload := string(payloadBytes)
+        msgID := r.Header.Get("webhook-id")
+        msgTimestamp := r.Header.Get("webhook-timestamp")
+        msgSignature := r.Header.Get("webhook-signature")
+
+        secretBytes, err := base64.StdEncoding.DecodeString(strings.TrimPrefix(signingSecret, "whsec_"))
+        if err != nil {
+            http.Error(w, `{"error": "Invalid secret"}`, http.StatusBadRequest)
+            return
+        }
+
+        toSign := fmt.Sprintf("%s.%s.%s", msgID, msgTimestamp, payload)
+        mac := hmac.New(sha256.New, secretBytes)
+        mac.Write([]byte(toSign))
+        expectedSig := "v1," + base64.StdEncoding.EncodeToString(mac.Sum(nil))
+
+        if msgSignature == "" || !strings.Contains(msgSignature, expectedSig) {
+            http.Error(w, `{"error": "Signature invalid"}`, http.StatusBadRequest)
+            return
+        }
+
+        var event struct {
+            Type string `json:"type"`
+            Data struct {
+                ID            string `json:"id"`
+                OutputFileURI string `json:"output_file_uri"`
+            } `json:"data"`
+        }
+        _ = json.Unmarshal(payloadBytes, &event)
+
+        switch event.Type {
+        case "batch.succeeded":
+            fmt.Printf("Batch completed! ID: %s\n", event.Data.ID)
+            if event.Data.OutputFileURI != "" {
+                fmt.Printf("Batch file: %s\n", event.Data.OutputFileURI)
+            }
+        case "interaction.completed":
+            fmt.Printf("Interaction completed! ID: %s\n", event.Data.ID)
+        case "video.generated":
+            fmt.Printf("Video generated! URI: %s\n", event.Data.OutputFileURI)
+        }
+
+        w.Header().Set("Content-Type", "application/json")
+        w.WriteHeader(http.StatusOK)
+        _, _ = w.Write([]byte(`{"status": "received"}`))
+    })
+
+    log.Fatal(http.ListenAndServe(":8000", nil))
+}
+```
+
+## Webhook dinamis
+
+Webhook dinamis memungkinkan Anda mengikat endpoint webhook ke **konfigurasi
+permintaan tertentu**, yang ideal untuk antrean orkestrasi agen. Webhook dinamis memanfaatkan tanda tangan JWKS kunci publik asimetris, bukan rahasia simetris.
+
+### Mengirim permintaan dinamis
+
+Tambahkan `webhook_config` saat memicu tugas asinkron (misalnya, membuat Batch).
 
 ### Python
 
@@ -754,6 +1065,53 @@ System.out.println(
     "Status: " + response.status().map(InteractionStatus::value).orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:      interactions.Model("gemini-3.8-flash"),
+            Input:      interactions.NewInteractionsInput("Tell me a short joke about programming."),
+            Background: genai.Ptr(true), // Required when WebhookConfig is specified
+            WebhookConfig: &interactions.WebhookConfig{
+                Uris: []string{"https://my-api.com/gemini-webhook-dynamic"},
+                UserMetadata: map[string]any{
+                    "job_group": "nightly-eval",
+                    "priority":  "high",
+                },
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.ID != nil {
+        fmt.Printf("Interaction created! ID: %s\n", *res.Interaction.ID)
+    }
+    fmt.Printf("Status: %s\n", res.Interaction.Status)
+}
+```
+
 ### REST
 
 ```
@@ -773,10 +1131,10 @@ curl -X POST \
   }'
 ```
 
-### Weryfikowanie podpisów dynamicznych (JWKS)
+### Memverifikasi tanda tangan dinamis (JWKS)
 
-Żądania webhooków dynamicznych emitują podpis tokena sieciowego JSON (JWT). Odbiornik
-musi wyodrębnić podpis i zweryfikować go za pomocą [punktów końcowych certyfikatu publicznego Google](https://www.googleapis.com/oauth2/v3/certs).
+Permintaan webhook dinamis memancarkan tanda tangan Token Web JSON (JWT). Pemroses Anda
+harus mengekstrak tanda tangan dan memverifikasinya menggunakan [endpoint sertifikat publik Google](https://www.googleapis.com/oauth2/v3/certs).
 
 ### Python
 
@@ -970,11 +1328,103 @@ server.createContext(
 server.start();
 ```
 
-## Koperta webhooka
+### Go
 
-Aby uniknąć przeciążenia pasma, webhooki Gemini używają modelu **cienki ładunek** do dostarczania danych. Dostarczanie wysyła migawkę zawierającą szczegóły stanu i wskaźniki wyników, a nie sam plik wyjściowy.
+```
+package main
 
-Oto przykład formatu ładunku:
+import (
+    "crypto"
+    "crypto/rsa"
+    "crypto/sha256"
+    "encoding/base64"
+    "encoding/json"
+    "fmt"
+    "io"
+    "log"
+    "math/big"
+    "net/http"
+    "strings"
+
+)
+
+func main() {
+    jwksURI := "https://generativelanguage.googleapis.com/.well-known/jwks.json"
+
+    http.HandleFunc("/gemini-webhook-dynamic", func(w http.ResponseWriter, r *http.Request) {
+        token := r.Header.Get("Webhook-Signature")
+        parts := strings.Split(token, ".")
+        if len(parts) != 3 {
+            http.Error(w, `{"error": "No signature header"}`, http.StatusBadRequest)
+            return
+        }
+
+        headerBytes, err := base64.RawURLEncoding.DecodeString(parts[0])
+        if err != nil {
+            http.Error(w, `{"error": "Invalid header"}`, http.StatusBadRequest)
+            return
+        }
+        var header struct {
+            Kid string `json:"kid"`
+        }
+        _ = json.Unmarshal(headerBytes, &header)
+
+        resp, err := http.Get(jwksURI)
+        if err != nil {
+            http.Error(w, `{"error": "Failed to fetch JWKS"}`, http.StatusBadRequest)
+            return
+        }
+        defer resp.Body.Close()
+        jwksBytes, _ := io.ReadAll(resp.Body)
+
+        var jwks struct {
+            Keys []struct {
+                Kid string `json:"kid"`
+                N   string `json:"n"`
+                E   string `json:"e"`
+            } `json:"keys"`
+        }
+        _ = json.Unmarshal(jwksBytes, &jwks)
+
+        var pubKey *rsa.PublicKey
+        for _, k := range jwks.Keys {
+            if k.Kid == header.Kid {
+                nBytes, _ := base64.RawURLEncoding.DecodeString(k.N)
+                eBytes, _ := base64.RawURLEncoding.DecodeString(k.E)
+                pubKey = &rsa.PublicKey{
+                    N: new(big.Int).SetBytes(nBytes),
+                    E: int(new(big.Int).SetBytes(eBytes).Int64()),
+                }
+                break
+            }
+        }
+        if pubKey == nil {
+            http.Error(w, `{"error": "Matching key not found"}`, http.StatusBadRequest)
+            return
+        }
+
+        sigBytes, _ := base64.RawURLEncoding.DecodeString(parts[2])
+        hashed := sha256.Sum256([]byte(parts[0] + "." + parts[1]))
+        if err := rsa.VerifyPKCS1v15(pubKey, crypto.SHA256, hashed[:], sigBytes); err != nil {
+            http.Error(w, `{"error": "Invalid Dynamic signature"}`, http.StatusBadRequest)
+            return
+        }
+
+        fmt.Println("Verified Dynamic payload success.")
+        w.Header().Set("Content-Type", "application/json")
+        w.WriteHeader(http.StatusOK)
+        _, _ = w.Write([]byte(`{"status": "received"}`))
+    })
+
+    log.Fatal(http.ListenAndServe(":8000", nil))
+}
+```
+
+## Amplop webhook
+
+Untuk menghindari kemacetan bandwidth, webhook Gemini menggunakan model **payload tipis** untuk mengirimkan data. Pengiriman mengirimkan snapshot yang berisi detail status dan pointer ke hasil, bukan file output mentah itu sendiri.
+
+Berikut contoh format payload:
 
 ```
 {
@@ -988,42 +1438,40 @@ Oto przykład formatu ładunku:
 }
 ```
 
-## Informacje o katalogu zdarzeń
+## Referensi katalog acara
 
-W przypadku obsługiwanych zadań wywoływane są te zdarzenia:
+Peristiwa berikut dipicu untuk tugas pendukung:
 
-| Typ zdarzenia | Aktywator | Element ładunku (`data`) |
+| Jenis peristiwa | Pemicu | Item payload (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | Przetwarzanie zostało zakończone. | `id`, `output_file_uri` |
-| `batch.cancelled` | Żądanie zostało anulowane przez użytkownika. | `id` |
-| `batch.expired` | Zadanie zbiorcze nie zostało przetworzone (zakończone) w ciągu 24 godzin. | `id` |
-| `batch.failed` | Nie udało się wykonać zadania wsadowego (błąd systemu lub weryfikacji). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Wywołanie funkcji, użytkownik musi coś zrobić. | `id` |
-| `interaction.completed` | Operacja LRO w interfejsie Interactions API zakończyła się powodzeniem. | `id` |
-| `interaction.failed` | Nie udało się wykonać operacji LRO w interfejsie Interactions API (błąd systemu lub weryfikacji). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | Operacja LRO w interfejsie Interactions API została anulowana. | `id` |
-| `video.generated` | Operacja LRO generowania filmu została zakończona. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | Pemrosesan berhasil diselesaikan. | `id`, `output_file_uri` |
+| `batch.cancelled` | Pengguna membatalkan permintaan | `id` |
+| `batch.expired` | Batch belum diproses (selesai) dalam jangka waktu 24 jam | `id` |
+| `batch.failed` | Tugas batch gagal (error sistem atau validasi). | `id`, `error_code`, `error_message` |
+| `interaction.requires_action` | Panggilan fungsi, pengguna perlu melakukan sesuatu | `id` |
+| `interaction.completed` | LRO di API interaksi berhasil | `id` |
+| `interaction.failed` | LRO di API interaksi gagal (error sistem atau validasi). | `id`, `error_code`, `error_message` |
+| `interaction.cancelled` | LRO di API interaksi dibatalkan | `id` |
+| `video.generated` | LRO pembuatan video selesai. | `id`, `output_file_uri`, `file_name` |
 
-## Sprawdzone metody
+## Praktik terbaik
 
-Aby zapewnić niezawodne i skalowalne działanie:
+Untuk memastikan operasi yang andal dan skalabel:
 
-- **Ścisłe sprawdzanie ochrony przed powtórzeniem**: wszystkie żądania zawierają `webhook-timestamp`
-  nagłówek. Zawsze sprawdzaj tę sygnaturę czasową w warstwie konfiguracji serwera, aby odrzucać ładunki starsze niż **5 minut** (aby ograniczyć ataki typu replay).
-- **Przetwarzanie asynchroniczne**: natychmiast po wykryciu prawidłowego
-  podpisu odpowiedz `2xx OK` i wewnętrznie umieść operacje analizowania w kolejce. Długie czasy wstrzymania odbiornika spowodują cykl ponawiania dostarczania.
-- **Obsługa deduplikacji**: standardowe webhooki dostarczają dane "co najmniej raz". Użyj spójnego nagłówka `webhook-id`, aby obsługiwać potencjalne duplikaty w przepływach o większym natężeniu.
+- **Pemeriksaan perlindungan replay ketat**: Semua permintaan membawa header `webhook-timestamp`. Selalu validasi stempel waktu ini di lapisan konfigurasi server Anda untuk menolak payload yang lebih lama dari **5 menit** (untuk memitigasi serangan replay).
+- **Memproses secara asinkron**: Merespons dengan `2xx OK` segera setelah deteksi tanda tangan yang valid, dan mengantrekan operasi parsing secara internal. Waktu tunggu pendengar yang lama akan memicu siklus percobaan ulang pengiriman.
+- **Penanganan penghapusan duplikat**: Webhook standar mengirimkan "Minimal sekali". Gunakan header `webhook-id` yang konsisten untuk menangani potensi duplikat dalam alur kemacetan yang lebih tinggi.
 
-## Co dalej?
+## Apa langkah selanjutnya?
 
-- [Interfejs Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl): używaj webhooków do automatyzowania punktów końcowych o dużej liczbie żądań.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id): Manfaatkan webhook untuk mengotomatiskan endpoint bervolume tinggi.
 
-Prześlij opinię
+Kirim masukan
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ostatnia aktualizacja: 2026-09-18 UTC.
+Terakhir diperbarui pada 2026-09-24 UTC.
 
-Chcesz przekazać coś jeszcze?
+Ada masukan untuk kami?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]

@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=pt-BR
-fetched_at: 2026-09-21T05:59:13.065265+00:00
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=it
+fetched_at: 2026-09-28T06:22:12.080051+00:00
 title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envie comentários
+Invia feedback
 
 # Hooks
 
-Os hooks permitem executar scripts personalizados ou solicitações HTTP externas imediatamente antes ou depois que o agente executa o código ou modifica arquivos no sandbox remoto. Use hooks para estender o loop do agente com proteções automatizadas e fluxos de trabalho em segundo plano, como:
+Gli hook ti consentono di eseguire script personalizzati o richieste HTTP esterne immediatamente prima o dopo che l'agente esegue il codice o modifica i file all'interno del sandbox remoto. Utilizza gli hook per estendere il ciclo dell'agente con barriere protettive automatizzate e workflow in background, ad esempio:
 
-- **Aplicar proteções de segurança e acesso** antes da execução de comandos shell de alto risco ou leituras de arquivos restritas.
-- **Automatizar transformações de pipeline de dados** logo depois que um agente cria ou modifica arquivos.
-- **Transmita telemetria de auditoria empresarial** para sistemas de monitoramento externos após a execução da ferramenta.
+- **Applicazione di misure di sicurezza e di controllo dell'accesso** prima dell'esecuzione di comandi shell ad alto rischio o di letture di file con restrizioni.
+- **Automatizzare le trasformazioni della pipeline di dati** subito dopo che un agente crea o modifica i file.
+- **Trasmettere in streaming la telemetria di controllo aziendale** a sistemi di monitoraggio esterni dopo l'esecuzione dello strumento.
 
 ### Python
 
@@ -211,6 +211,87 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    hooksConfig := `{
+  "security-gate": {
+    "pre_tool_execution": [
+      {
+        "matcher": "code_execution",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /.agents/hooks-scripts/gate.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}`
+
+    gateScript := `#!/usr/bin/env python3
+import sys, json
+data = json.load(sys.stdin)
+cmd = str(data.get("tool_call", {}).get("args", {}))
+if "rm -rf" in cmd:
+    print(json.dumps({"decision": "deny", "reason": "Destructive command blocked by security gate."}))
+else:
+    print(json.dumps({"decision": "allow"}))
+`
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/hooks.json"),
+                Content: genai.Ptr(hooksConfig),
+            },
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/hooks-scripts/gate.py"),
+                Content: genai.Ptr(gateScript),
+            },
+        },
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:       interactions.NewInteractionsInput("Run `rm -rf /tmp/forbidden` using code_execution."),
+            Tools:       []interactions.Tool{interactions.NewTool(interactions.CodeExecution{})},
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -239,20 +320,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Eventos de ciclo de vida compatíveis
+## Eventi del ciclo di vita supportati
 
-Os hooks são compatíveis com dois eventos no sandbox:
+Gli hook supportano due eventi all'interno della sandbox:
 
-| Evento | Quando é disparado | O que faz? |
+| Evento | Quando viene attivato | Descrizione |
 | --- | --- | --- |
-| `pre_tool_execution` | Logo antes de uma ferramenta ser executada | Pode aprovar (`allow`) ou bloquear (`deny`) a ferramenta antes da execução. Quando bloqueado, o modelo vê o motivo da sua rejeição e se adapta. |
-| `post_tool_execution` | Logo após a conclusão de uma ferramenta | Executa tarefas de acompanhamento, como formatação de código, execução de testes de unidade ou registro de telemetria. Não é possível bloquear ou desfazer ações concluídas. |
+| `pre_tool_execution` | Subito prima dell'esecuzione di uno strumento | Può approvare (`allow`) o bloccare (`deny`) lo strumento prima dell'esecuzione. Quando viene bloccato, il modello visualizza il motivo del rifiuto e si adegua. |
+| `post_tool_execution` | Subito dopo il completamento di uno strumento | Esegue attività di follow-up come la formattazione del codice, l'esecuzione di test delle unità o la registrazione della telemetria. Non è possibile bloccare o annullare le azioni completate. |
 
 ### `pre_tool_execution`
 
-Disparado logo antes da execução de uma ferramenta. Seu script lê os detalhes da chamada de função de `stdin` e gera o JSON de decisão (`allow` ou `deny`) em `stdout`.
+Viene attivato subito prima dell'esecuzione di uno strumento. Lo script legge i dettagli della chiamata allo strumento da `stdin` e restituisce il JSON della decisione (`allow` o `deny`) a `stdout`.
 
-**Payload de entrada (`stdin`):**
+**Payload di input (`stdin`):**
 
 ```
 {
@@ -267,9 +348,9 @@ Disparado logo antes da execução de uma ferramenta. Seu script lê os detalhes
 }
 ```
 
-**Resposta da saída (`stdout`):**
+**Risposta di output (`stdout`):**
 
-Para aprovar a chamada de ferramenta:
+Per approvare la chiamata allo strumento:
 
 ```
 {
@@ -277,7 +358,7 @@ Para aprovar a chamada de ferramenta:
 }
 ```
 
-Para bloquear a chamada de ferramenta e retornar feedback ao modelo:
+Per bloccare la chiamata allo strumento e restituire il feedback al modello:
 
 ```
 {
@@ -286,15 +367,15 @@ Para bloquear a chamada de ferramenta e retornar feedback ao modelo:
 }
 ```
 
-Quando um hook nega um comando, a chamada de ferramenta é ignorada imediatamente. O agente mostra um resultado de erro com o motivo da rejeição na mesma vez. Em seguida, o modelo pode se autocorrigir escolhendo um comando alternativo ou explicando o bloqueio ao usuário.
+Quando un hook nega un comando, la chiamata allo strumento viene ignorata immediatamente. L'agente visualizza un risultato di errore contenente il motivo del rifiuto all'interno del turno corrente. Il modello può quindi correggersi scegliendo un comando alternativo o spiegando il blocco all'utente.
 
-Se o script gerar JSON não reconhecido, texto simples ou algo diferente de `{"decision": "deny"}`, o tempo de execução vai tratar a resposta como uma aprovação (`allow`).
+Se lo script restituisce JSON non riconosciuto, testo normale o qualsiasi altro formato diverso da `{"decision": "deny"}`, il runtime considera la risposta come approvazione (`allow`).
 
 ### `post_tool_execution`
 
-Disparado logo após a conclusão de uma ferramenta. O script lê os detalhes da execução e qualquer status de erro de `stdin`.
+Viene attivato subito dopo il completamento di uno strumento. Lo script legge i dettagli di esecuzione e lo stato di eventuali errori da `stdin`.
 
-**Payload de entrada (`stdin`):**
+**Payload di input (`stdin`):**
 
 ```
 {
@@ -309,27 +390,27 @@ Disparado logo após a conclusão de uma ferramenta. O script lê os detalhes da
 }
 ```
 
-Se um comando do shell imprimir erros no erro padrão (`stderr`) ou se uma operação do sistema de arquivos falhar, um campo `"error"` contendo o texto do erro será incluído no payload. Quando o comando é executado sem erros, o campo `"error"` é omitido por completo.
+Se un comando shell stampa errori nell'errore standard (`stderr`) o un'operazione del file system non va a buon fine, nel payload viene incluso un campo `"error"` contenente il testo dell'errore. Quando il comando ha esito positivo senza errori, il campo `"error"` viene omesso completamente.
 
-**Resposta da saída (`stdout`):**
+**Risposta di output (`stdout`):**
 
 ```
 {}
 ```
 
-Como os hooks pós-ferramenta são executados estritamente para tarefas em segundo plano, como formatação de código ou geração de registros, o tempo de execução ignora todos os valores de decisão retornados em `stdout`.
+Poiché gli hook post-strumento vengono eseguiti rigorosamente per attività in background come la formattazione del codice o la registrazione, il runtime ignora tutti i valori di decisione restituiti su `stdout`.
 
-## Descoberta de configuração
+## Rilevamento della configurazione
 
-O ambiente de execução descobre automaticamente as definições de hook de `.agents/hooks.json` ou `/.agents/hooks.json` no ambiente de sandbox. É possível fornecer `hooks.json` com seus scripts personalizados usando qualquer [origem de ambiente](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br#mount_from_a_source) compatível:
+Il runtime rileva automaticamente le definizioni degli hook da `.agents/hooks.json` o `/.agents/hooks.json` all'interno dell'ambiente sandbox. Puoi fornire `hooks.json` insieme ai tuoi script personalizzati utilizzando qualsiasi [origine dell'ambiente](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it#mount_from_a_source) supportata:
 
-- **Montagem do repositório**: um repositório Git que contém `.agents/hooks.json` e `AGENTS.md`.
-- **Cloud Storage (`gcs`)**: um bucket do GCS que contém `hooks.json` copiado para o ambiente.
-- **Fontes inline**: string JSON bruta e conteúdo do script transmitidos em `environment.sources` ao chamar `client.interactions.create`.
+- **Montaggio del repository**: un repository Git contenente `.agents/hooks.json` insieme a `AGENTS.md`.
+- **Cloud Storage (`gcs`)**: un bucket GCS contenente `hooks.json` copiato nell'ambiente.
+- **Origini inline**: stringa JSON non elaborata e contenuti dello script passati in `environment.sources` quando viene chiamato `client.interactions.create`.
 
-### `hooks.json` esquema
+### `hooks.json` schema
 
-Um arquivo `hooks.json` agrupa definições de eventos (`pre_tool_execution` ou `post_tool_execution`) com nomes personalizados. É possível ativar ou desativar cada grupo de forma independente:
+Un file `hooks.json` raggruppa le definizioni degli eventi (`pre_tool_execution` o `post_tool_execution`) con nomi personalizzati. Puoi attivare o disattivare ogni gruppo in modo indipendente:
 
 ```
 {
@@ -365,71 +446,71 @@ Um arquivo `hooks.json` agrupa definições de eventos (`pre_tool_execution` ou 
 }
 ```
 
-### Sintaxe e regras do comparador
+### Sintassi e regole del matcher
 
-Cada grupo de regras em `hooks.json` define quando e como os manipuladores são acionados usando as propriedades `matcher` e `hooks`:
+Ogni gruppo di regole in `hooks.json` definisce quando e come vengono attivati i gestori utilizzando le proprietà `matcher` e `hooks`:
 
-| Campo | Tipo | Descrição |
+| Campo | Tipo | Descrizione |
 | --- | --- | --- |
-| `enabled` | `boolean` | Opcional. Defina como `false` para desativar o grupo (`true` por padrão). |
-| `matcher` | `string` | Expressão regular para fazer a correspondência de padrões com os nomes das ferramentas de destino dentro do contêiner. |
-| `hooks` | `array` | Lista ordenada de definições de gerenciadores (`command` ou `http`). Os gerenciadores são executados em sequência na ordem de declaração. |
+| `enabled` | `boolean` | Facoltativo. Imposta su `false` per disattivare il gruppo (`true` per impostazione predefinita). |
+| `matcher` | `string` | Espressione regolare per trovare corrispondenze con i nomi degli strumenti di targeting all'interno del contenitore. |
+| `hooks` | `array` | Elenco ordinato di definizioni di gestori (`command` o `http`). I gestori vengono eseguiti in sequenza nell'ordine di dichiarazione. |
 
-#### Como funciona a avaliação de regex
+#### Come funziona la valutazione delle espressioni regolari
 
-Quando o agente invoca uma ferramenta na sandbox, o tempo de execução avalia o nome do contêiner da ferramenta em relação ao seu padrão `matcher` usando expressões regulares RE2 padrão. Se a regex corresponder ao nome da ferramenta, todos os manipuladores na matriz `hooks` serão executados em ordem. Se vários grupos de regras corresponderem à mesma ferramenta, todas as matrizes de manipuladores correspondentes serão executadas.
+Quando l'agente richiama uno strumento all'interno della sandbox, il runtime valuta il nome del contenitore dello strumento rispetto al pattern `matcher` utilizzando le espressioni regolari RE2 standard. Se l'espressione regolare corrisponde al nome dello strumento, tutti i gestori nell'array `hooks` vengono eseguiti in ordine. Se più gruppi di regole corrispondono allo stesso strumento, vengono eseguiti tutti gli array di gestori corrispondenti.
 
-Você pode segmentar qualquer nome de ferramenta de contêiner integrada: execução de código (`code_execution`) ou operações do sistema de arquivos (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` e `delete_file`).
+Puoi scegliere come target qualsiasi nome di strumento contenitore integrato: esecuzione del codice (`code_execution`) o operazioni sul file system (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` e `delete_file`).
 
-#### Expressões de correspondência comuns
+#### Espressioni di corrispondenza comuni
 
-- `"code_execution"`: correspondência exata de string para comandos do shell e execuções de script.
-- `"write_to_file"`: correspondência exata para criação de arquivos do sistema de arquivos e gravações em disco.
-- `"view_file|write_to_file"`: a separação por barra vertical corresponde a vários nomes de ferramentas específicas em uma única regra.
-- `".*_file"`: curinga de regex que corresponde a qualquer ferramenta que termine em `_file` (como `view_file`, `write_to_file` ou `delete_file`). Isso abrange apenas parte do conjunto de ferramentas do sistema de arquivos. `replace_file_content` e `list_dir` não terminam em `_file`. Portanto, nomeie-os explicitamente quando precisar deles. As expressões regulares RE2 padrão exigem `.*`. Globs de shell simples, como `*_file`, são sintaxes de regex inválidas e não vão corresponder.
-- `".*"` ou `"*"` ou `""`: padrão abrangente que intercepta todas as chamadas de função dentro do contêiner.
+- `"code_execution"`: Corrispondenza esatta delle stringhe per i comandi della shell e le esecuzioni di script.
+- `"write_to_file"`: Corrispondenza esatta per la creazione di file del file system e le scritture su disco.
+- `"view_file|write_to_file"`: La separazione con la barra verticale corrisponde a più nomi di strumenti specifici in una singola regola.
+- `".*_file"`: corrispondenza con caratteri jolly regex per qualsiasi strumento che termina con `_file` (ad esempio `view_file`, `write_to_file` o `delete_file`). Questo copre solo una parte del set di strumenti del file system. `replace_file_content` e `list_dir` non terminano con `_file`, quindi denominali in modo esplicito quando ne hai bisogno. Le espressioni regolari RE2 standard richiedono `.*`; i caratteri jolly della shell semplici come `*_file` non sono una sintassi regex valida e non verranno trovate corrispondenze.
+- `".*"` o `"*"` o `""`: pattern generico che intercetta ogni singola chiamata allo strumento all'interno del contenitore.
 
-## Tipos de gerenciadores
+## Tipi di gestori
 
-### Hooks de comando
+### Hook dei comandi
 
-Os hooks de comando executam um comando ou script de shell dentro do sandbox. O script recebe o JSON do evento em `stdin` e gera o JSON de decisão em `stdout`.
+Gli hook di comando eseguono un comando shell o uno script all'interno del sandbox. Lo script riceve il JSON dell'evento su `stdin` e restituisce il JSON della decisione su `stdout`.
 
-| Campo | Tipo | Descrição |
+| Campo | Tipo | Descrizione |
 | --- | --- | --- |
-| `type` | `string` | Precisa ser `"command"`. |
-| `command` | `string` | Linha de comando a ser executada no sandbox (por exemplo, `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | Tempo limite em segundos. Padrão: `30`. |
+| `type` | `string` | Deve essere `"command"`. |
+| `command` | `string` | Riga di comando da eseguire all'interno della sandbox (ad esempio, `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | Timeout in secondi. Valore predefinito: `30`. |
 
-### Hooks HTTP
+### Hook HTTP
 
-Os hooks HTTP enviam o JSON do evento como uma solicitação POST para um URL HTTPS externo diretamente da rede sandbox. O servidor de destino retorna a decisão no corpo da resposta HTTP usando exatamente o mesmo formato JSON (`{"decision": "allow"}` ou `{"decision": "deny", "reason": "..."}`).
+Gli hook HTTP inviano il JSON dell'evento come richiesta POST a un URL HTTPS esterno direttamente dall'interno della rete sandbox. Il server di destinazione restituisce la sua decisione nel corpo della risposta HTTP utilizzando lo stesso formato JSON (`{"decision": "allow"}` o `{"decision": "deny", "reason": "..."}`).
 
-| Campo | Tipo | Descrição |
+| Campo | Tipo | Descrizione |
 | --- | --- | --- |
-| `type` | `string` | Precisa ser `"http"`. |
-| `url` | `string` | Endpoint HTTPS externo para POST do payload do evento. |
-| `headers` | `object` | Pares de chave-valor opcionais para cabeçalhos personalizados não sensíveis (como `{"X-Event-Source": "agent-sandbox"}`). Para autenticação, use uma [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=pt-br) na lista de permissão de rede. |
-| `timeout` | `integer` | Tempo limite em segundos. Padrão: `30`. |
+| `type` | `string` | Deve essere `"http"`. |
+| `url` | `string` | Endpoint HTTPS esterno a cui inviare il payload dell'evento. |
+| `headers` | `object` | Coppie chiave-valore facoltative per intestazioni personalizzate non sensibili (ad esempio `{"X-Event-Source": "agent-sandbox"}`). Per l'autenticazione, utilizza invece una [credenziale](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=it) nella lista consentita di rete. |
+| `timeout` | `integer` | Timeout in secondi. Valore predefinito: `30`. |
 
-#### Proxy de saída e transformação de token
+#### Proxy in uscita e trasformazione dei token
 
-Como os hooks HTTP são executados diretamente de dentro do namespace de rede da sandbox, as solicitações de saída passam pelo proxy de saída transparente. Essa arquitetura oferece duas vantagens de segurança importantes:
+Poiché gli hook HTTP vengono eseguiti direttamente dall'interno dello spazio dei nomi di rete sandbox, le richieste in uscita passano attraverso il proxy di uscita trasparente. Questa architettura offre due vantaggi di sicurezza fondamentali:
 
-- **Lista de permissões de rede**:os endpoints de destino precisam ser explicitamente permitidos no `network.allowlist` do seu ambiente. O tráfego de loopback (`127.0.0.1` ou `localhost`) é bloqueado pelo proxy. Sempre direcione endpoints externos na lista de permissões.
-- **Injeção de credenciais**:não é necessário armazenar chaves de API ou tokens de autenticação secretos em `.agents/hooks.json` nem montá-los no contêiner. Armazene o segredo uma vez como uma [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=pt-br) e faça referência a ele por ID no `network.allowlist` do seu ambiente. O proxy de saída intercepta automaticamente o tráfego de hook HTTP de saída e injeta o cabeçalho de autenticação real no fio antes de sair da sandbox. As regras `transform` inline definem cabeçalhos da mesma forma no fio. Uma credencial é a que deve ser usada quando você quer reutilizar o segredo em todo o projeto e fazer a rotação em um só lugar. Consulte [configuração de rede](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br#network-configuration).
+- **Elenco consentito di reti**:gli endpoint di destinazione devono essere esplicitamente consentiti nel `network.allowlist` del tuo ambiente. Il traffico di loopback (`127.0.0.1` o `localhost`) viene bloccato dal proxy; scegli sempre come target endpoint esterni consentiti.
+- **Inserimento delle credenziali**:non è necessario archiviare chiavi API o token di autenticazione segreti all'interno di `.agents/hooks.json` o montarli nel container. Memorizza il secret una sola volta come [credenziale](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=it) e fai riferimento a esso tramite ID da `network.allowlist` del tuo ambiente. Il proxy di uscita intercetta automaticamente il traffico HTTP hook in uscita e inserisce l'intestazione di autenticazione reale sul cavo prima di uscire dalla sandbox. Le regole `transform` inline impostano le intestazioni allo stesso modo sul cavo, una credenziale è quella da utilizzare quando vuoi riutilizzare il secret in tutto il progetto e ruotarlo in un'unica posizione. Consulta la sezione [Configurazione di rete](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it#network-configuration).
 
-## Como o ambiente de execução lida com decisões e falhas
+## Come il runtime gestisce le decisioni e gli errori
 
-- **Espera síncrona**:o agente faz uma pausa e aguarda a conclusão dos seus hooks antes de continuar.
-- **Bloqueio da execução da ferramenta**:se o hook pré-ferramenta retornar `{"decision": "deny", "reason": "<your reason>"}`, o ambiente de execução vai cancelar imediatamente a chamada da ferramenta. O modelo vê o motivo da sua rejeição no histórico de conversas e se adapta escolhendo uma alternativa segura ou explicando o bloqueio ao usuário.
-- **Como lidar com falhas de script, erros HTTP e tempos limite**:se um script de comando falhar (status de saída diferente de zero), um hook HTTP retornar um código de status diferente de 2xx (como um erro de servidor 4xx ou 5xx) ou uma operação atingir o tempo limite ou retornar JSON não reconhecido, o ambiente de execução vai tratar isso como uma aprovação (`allow`). A execução da ferramenta continua normalmente para que um script corrompido ou um servidor de telemetria inacessível nunca cause um deadlock no seu aplicativo.
+- **Attesa sincrona:** l'agente si mette in pausa e attende il completamento degli hook prima di continuare.
+- **Esecuzione dello strumento di blocco**:se l'hook pre-strumento restituisce `{"decision": "deny", "reason": "<your reason>"}`, il runtime annulla immediatamente la chiamata allo strumento. Il modello vede il motivo del rifiuto nella cronologia delle conversazioni e si adatta scegliendo un'alternativa sicura o spiegando il blocco all'utente.
+- **Gestione di arresti anomali degli script, errori HTTP e timeout**:se un comando script si arresta in modo anomalo (stato di uscita diverso da zero), un hook HTTP restituisce un codice di stato diverso da 2xx (ad esempio un errore del server 4xx o 5xx) oppure un'operazione va in timeout o restituisce JSON non riconosciuto, il runtime lo considera come un'approvazione (`allow`). L'esecuzione dello strumento continua normalmente, quindi uno script danneggiato o un server di telemetria irraggiungibile non blocca mai l'applicazione.
 
-## Casos de uso comuns
+## Casi d'uso comuni
 
-### Recuperação multiturno para privacidade de dados e compliance
+### Recupero in più passaggi per la privacy e la conformità dei dati
 
-Quando um hook bloqueia o acesso a recursos restritos, como diretórios que contêm informações de identificação pessoal (PII) ou registros financeiros confidenciais, é possível transmitir `previous_interaction_id` na próxima chamada para continuar a vez no mesmo ambiente. O agente lê a explicação da recusa e se recupera automaticamente consultando tabelas públicas aprovadas.
+Quando un hook blocca l'accesso a risorse con limitazioni, come directory contenenti informazioni che consentono l'identificazione personale (PII) o registri finanziari riservati, puoi passare `previous_interaction_id` alla chiamata successiva per continuare il turno nello stesso ambiente. L'agente legge la spiegazione del rifiuto e recupera automaticamente eseguendo una query sulle tabelle pubbliche approvate.
 
 ### Python
 
@@ -690,6 +771,118 @@ Interaction int2 = client.interactions.create(CreateInteractionRequestBody.of(pa
 System.out.println(int2.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    hooksConfig := `{
+  "privacy-gate": {
+    "pre_tool_execution": [
+      {
+        "matcher": "read_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /.agents/hooks-scripts/check_privacy.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}`
+
+    checkPrivacyScript := `#!/usr/bin/env python3
+import sys, json
+data = json.load(sys.stdin)
+path = str(data.get("tool_call", {}).get("args", {}).get("path", ""))
+if "/private/" in path:
+    resp = {
+        "decision": "deny",
+        "reason": "Access to confidential '/private/' records is blocked by PII compliance policy. Query approved '/public/' summary tables instead."
+    }
+else:
+    resp = {"decision": "allow"}
+print(json.dumps(resp))
+`
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/hooks.json"),
+                Content: genai.Ptr(hooksConfig),
+            },
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/hooks-scripts/check_privacy.py"),
+                Content: genai.Ptr(checkPrivacyScript),
+            },
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr("workspace/private/employees.json"),
+                Content: genai.Ptr(`{"employees": [{"id": 1, "salary": 150000, "ssn": "000-00-0000"}]}`),
+            },
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr("workspace/public/summary.json"),
+                Content: genai.Ptr(`{"department": "Engineering", "team_size": 42, "status": "active"}`),
+            },
+        },
+    }
+
+    // Step 1: Agent attempts to read confidential PII records and is intercepted
+    res1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:       interactions.NewInteractionsInput("Use your filesystem tool to read `/workspace/private/employees.json` and summarize the employee details."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    int1 := res1.Interaction
+    if int1.OutputText != nil {
+        fmt.Println(*int1.OutputText)
+    }
+
+    // Step 2: Continue in the same environment using previous_interaction_id; agent recovers with public tables
+    res2, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:                 interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:                 interactions.NewInteractionsInput("Understood. Please read the approved `/workspace/public/summary.json` file instead and provide the summary."),
+            Environment:           genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(*int1.EnvironmentID)),
+            PreviousInteractionID: int1.ID,
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res2.Interaction.OutputText != nil {
+        fmt.Println(*res2.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -739,12 +932,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### Telemetria e geração de registros de auditoria externos
+### Telemetria e logging di audit esterni
 
-Envie eventos de auditoria em tempo real de dentro da sandbox para um servidor de monitoramento externo sempre que os arquivos forem lidos ou modificados.
+Invia eventi di controllo in tempo reale dall'interno della sandbox a un server di monitoraggio esterno ogni volta che i file vengono letti o modificati.
 
-- **Corresponder a várias ferramentas**:como os matchers usam regex padrão, é possível combinar várias ferramentas em uma única regra usando barras verticais (`view_file|write_to_file|replace_file_content`) ou caracteres curinga (`.*_file`).
-- **Mantenha segredos fora da sua configuração**:armazene o token de autenticação como uma [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=pt-br) e faça referência a ele por ID na [configuração de rede](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br#network-configuration) do seu ambiente (`network.allowlist.credential`). O proxy de saída injeta o token de autenticação real em solicitações de saída. Este exemplo define o cabeçalho inline com `transform`, que é protegido pelo mesmo proxy e se encaixa quando o token pertence a essa configuração.
+- **Corrispondenza di più strumenti**:poiché i matcher utilizzano espressioni regolari standard, puoi combinare più strumenti in una singola regola utilizzando le barre verticali (`view_file|write_to_file|replace_file_content`) o i caratteri jolly (`.*_file`).
+- **Non includere secret nella configurazione**:memorizza il token di autenticazione come [credenziale](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=it) e fai riferimento a esso tramite ID dalla [configurazione di rete](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it#network-configuration) del tuo ambiente (`network.allowlist.credential`). Il proxy di uscita inserisce il token di autenticazione effettivo nelle richieste in uscita. Questo esempio imposta l'intestazione in linea con `transform`, che è protetta dallo stesso proxy e si adatta quando il token appartiene a questa configurazione.
 
 ### Python
 
@@ -929,6 +1122,85 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Define hook without secrets; the egress proxy injects headers dynamically
+    hooksConfig := `{
+  "audit-logging": {
+    "post_tool_execution": [
+      {
+        "matcher": "read_file|write_file",
+        "hooks": [
+          {
+            "type": "http",
+            "url": "https://telemetry.example.com/api/v1/agent-events",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}`
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/hooks.json"),
+                Content: genai.Ptr(hooksConfig),
+            },
+        },
+        Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
+            Allowlist: []interactions.AllowlistEntry{
+                {
+                    Domain: "telemetry.example.com",
+                    Transform: genai.Ptr(interactions.NewTransform(map[string]string{
+                        "Authorization": "Bearer telemetry_secret_token_123",
+                    })),
+                },
+                {
+                    Domain: "*",
+                },
+            },
+        }))),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:       interactions.NewInteractionsInput("Use your filesystem tool to create `/workspace/audit.log` containing 'event 1', then immediately read it back using your filesystem read tool."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(env)),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -962,25 +1234,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Limitações
+## Limitazioni
 
-- **Escopo da ferramenta de sandbox**:os hooks interceptam ferramentas integradas no sandbox: execução de código (`code_execution`) e operações do sistema de arquivos (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` e `delete_file`). Eles não são acionados para chamadas de função personalizadas (`function`) ou ferramentas externas do Protocolo de Contexto de Modelo (`mcp_server`) processadas fora do contêiner.
-- **Listas de permissão de rede**:os hooks HTTP são executados na rede do contêiner. É necessário permitir explicitamente os URLs de destino no `network.allowlist` do seu ambiente. Endereços de loopback (`localhost`, `127.0.0.1`) são bloqueados pelo proxy.
-- **Aprovação automática em erros**:se um script de hook falhar (status de saída diferente de zero), atingir o tempo limite ou falhar, o tempo de execução vai registrar a falha e permitir que a chamada de ferramenta continue. Isso garante que scripts de linter corrompidos ou processos pendentes nunca causem um deadlock nos seus aplicativos.
-- **Proteção da configuração do sandbox**:como os hooks são executados no sandbox do contêiner, os agentes com ferramentas de gravação do sistema de arquivos ou permissões de execução de código do shell podem modificar `.agents/hooks.json` locais ou scripts em espaços de trabalho graváveis. Use hooks de contêiner como orientação de política automatizada e proteções operacionais. Se for necessária uma resistência estrita contra execuções de modelos não confiáveis, monte fontes de configuração de repositórios somente leitura.
+- **Ambito dello strumento sandbox**:gli hook intercettano gli strumenti integrati all'interno della sandbox: esecuzione del codice (`code_execution`) e operazioni sul file system (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` e `delete_file`). Non vengono attivati per la chiamata di funzioni personalizzate (`function`) o per strumenti esterni Model Context Protocol (`mcp_server`) gestiti al di fuori del container.
+- **Liste consentite di rete**:gli hook HTTP vengono eseguiti all'interno della rete del container. Devi consentire esplicitamente gli URL di destinazione nel `network.allowlist` del tuo ambiente. Gli indirizzi di loopback (`localhost`, `127.0.0.1`) sono bloccati dal proxy.
+- **Approvazione automatica in caso di errori:** se uno script hook si arresta in modo anomalo (stato di uscita diverso da zero), si verifica un timeout o non va a buon fine, il runtime registra l'errore e consente alla chiamata allo strumento di continuare. In questo modo, gli script di controllo sintattico interrotti o i processi bloccati non bloccano mai le tue applicazioni.
+- **Protezione della configurazione della sandbox**:poiché gli hook vengono eseguiti all'interno della sandbox del container, gli agenti con strumenti di scrittura del file system o autorizzazioni di esecuzione del codice shell possono modificare `.agents/hooks.json` o gli script locali all'interno degli spazi di lavoro scrivibili. Utilizza gli hook dei container come indicazioni delle norme automatizzate e misure di salvaguardia operative. Se è richiesta una rigorosa resistenza alla manomissione contro l'esecuzione di modelli non attendibili, monta le origini di configurazione da repository di sola lettura.
 
-## A seguir
+## Passaggi successivi
 
-- Saiba como configurar [ambientes e sandboxes remotos](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br) persistentes.
-- Conheça os recursos e as ferramentas integradas do [agente do Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br).
-- Consulte a [visão geral da API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) para sessões multiturno e streaming.
+- Scopri come configurare [sandbox e ambienti remoti](https://ai.google.dev/gemini-api/docs/agent-environment?hl=it) persistenti.
+- Esplora le funzionalità e gli strumenti integrati dell'[agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it).
+- Per sessioni multi-turno e streaming, consulta la [panoramica dell'API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it).
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-09-18 UTC.
+Ultimo aggiornamento 2026-09-24 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-18 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-24 UTC."],[],[]]

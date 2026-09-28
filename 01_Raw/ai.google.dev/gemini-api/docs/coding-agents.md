@@ -1,62 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=vi
-fetched_at: 2026-09-21T05:52:26.626370+00:00
-title: "Thi\u1ebft l\u1eadp tr\u1ee3 l\u00fd l\u1eadp tr\u00ecnh b\u1eb1ng Gemini MCP v\u00e0 Skills \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi
+fetched_at: 2026-09-28T06:10:59.231315+00:00
+title: "Gemini MCP \u0914\u0930 Skills \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, \u0915\u094b\u0921\u093f\u0902\u0917 \u0905\u0938\u093f\u0938\u094d\u091f\u0947\u0902\u091f \u0915\u094b \u0938\u0947\u091f \u0905\u092a \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-# Thiết lập trợ lý lập trình bằng Gemini MCP và Skills
+# Gemini MCP और Skills की मदद से, कोडिंग असिस्टेंट को सेट अप करना
 
-Trợ lý lập trình AI rất mạnh mẽ nhưng vẫn có những hạn chế – dữ liệu huấn luyện bị cắt ở một ngày cụ thể, thiếu các tính năng và thay đổi mới của API. Nếu không có quyền truy cập vào tài liệu dành riêng cho Gemini, các đặc vụ có thể đề xuất các mẫu chung thay vì các phương pháp được tối ưu hoá.
+एआई कोडिंग असिस्टेंट बहुत काम के होते हैं, लेकिन इनकी कुछ सीमाएं होती हैं. जैसे, ट्रेनिंग डेटा एक तय तारीख के बाद अपडेट नहीं होता. साथ ही, इनमें एपीआई की नई सुविधाएं और बदलाव शामिल नहीं होते. Gemini से जुड़े दस्तावेज़ों का ऐक्सेस न होने पर, एजेंट ऑप्टिमाइज़ किए गए तरीकों के बजाय सामान्य पैटर्न के सुझाव दे सकते हैं.
 
-Để trợ lý lập trình của bạn luôn được cập nhật theo Gemini API đang phát triển và cách sử dụng được đề xuất, bạn nên thiết lập **MCP của Gemini Docs** và nâng cao môi trường của bạn bằng **Các kỹ năng của Gemini API**. Mặc dù có thể sử dụng độc lập, nhưng những công cụ này được thiết kế để hoạt động cùng nhau nhằm cung cấp phạm vi bao phủ đầy đủ.
+हमारा सुझाव है कि आप **Gemini Docs MCP** सेट अप करें. साथ ही, **Gemini API की स्किल** का इस्तेमाल करके अपने एनवायरमेंट को बेहतर बनाएं. इससे, आपकी कोडिंग असिस्टेंट को Gemini API और उसके इस्तेमाल के सुझावों के बारे में अप-टू-डेट जानकारी मिलती रहेगी. इन टूल का इस्तेमाल अलग-अलग किया जा सकता है. हालांकि, इन्हें एक साथ काम करने के लिए डिज़ाइन किया गया है, ताकि पूरी कवरेज मिल सके.
 
-## Kết nối Gemini Docs MCP
+## Gemini Docs MCP को कनेक्ट करना
 
-Gemini lưu trữ một máy chủ Giao thức ngữ cảnh mô hình (MCP) công khai tại `https://gemini-api-docs-mcp.dev`. Việc kết nối tác nhân lập trình với máy chủ này đảm bảo rằng tất cả các truy vấn đều có quyền truy cập vào các API, bản cập nhật mã và ví dụ về cấu hình tối ưu mới nhất.
+Gemini, `https://gemini-api-docs-mcp.dev` पर एक सार्वजनिक मॉडल कॉन्टेक्स्ट प्रोटोकॉल (एमसीपी) सर्वर होस्ट करता है. अपने कोडिंग एजेंट को इस सर्वर से कनेक्ट करने पर, यह पक्का किया जा सकता है कि सभी क्वेरी के पास नए एपीआई, कोड अपडेट, और सबसे सही कॉन्फ़िगरेशन के उदाहरणों का ऐक्सेस हो.
 
-Chạy lệnh sau trong thiết bị đầu cuối hoặc thư mục gốc của dự án để cài đặt máy chủ:
+सर्वर इंस्टॉल करने के लिए, अपने एजेंट के टर्मिनल या प्रोजेक्ट रूट में यह कमांड चलाएं:
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-Máy chủ này thêm một hàm `search_documentation` mà tác nhân của bạn có thể dùng để truy xuất các định nghĩa API và mẫu tích hợp theo thời gian thực từ các tệp tài liệu chính thức của Gemini.
+यह सर्वर, `search_documentation` फ़ंक्शन जोड़ता है. इसका इस्तेमाल करके आपका एजेंट, Gemini के आधिकारिक दस्तावेज़ों की फ़ाइलों से रीयल-टाइम एपीआई की परिभाषाएं और इंटिग्रेशन पैटर्न पा सकता है.
 
-## Thêm kỹ năng phát triển API
+## एपीआई डेवलपमेंट की स्किल जोड़ना
 
-Các kỹ năng này cung cấp **các quy tắc và phương pháp hay nhất được tích hợp sẵn** (chẳng hạn như thực thi đúng SDK và phiên bản mô hình hiện tại) ngay trong ngữ cảnh của trợ lý. Kỹ năng này hoạt động cùng với dịch vụ Gemini Docs MCP: Nếu bạn đã cài đặt cả hai, kỹ năng này sẽ sử dụng dịch vụ MCP để cung cấp tài liệu. Tuy nhiên, ngay cả khi chưa cài đặt MCP, kỹ năng này vẫn sẽ tìm nạp `llms.txt` từ `ai.google.dev` làm phương án dự phòng.
+इन स्किल में, **पहले से मौजूद नियम और सबसे सही तरीके** शामिल होते हैं. जैसे, सही एसडीके और मॉडल के मौजूदा वर्शन को लागू करना. ये सीधे तौर पर आपके असिस्टेंट के कॉन्टेक्स्ट में शामिल होते हैं. यह स्किल, Gemini Docs की एमसीपी सेवा के साथ मिलकर काम करती है: अगर आपने दोनों को इंस्टॉल किया है, तो यह स्किल दस्तावेज़ बनाने के लिए एमसीपी सेवा का इस्तेमाल करती है. हालाँकि, एमसीपी इंस्टॉल न होने पर भी, यह फ़ॉलबैक के तौर पर `ai.google.dev` से [`/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=hi) फ़ेच करेगी. इसमें `.md.txt` जोड़कर, अलग-अलग पेजों को रॉ मार्कडाउन के तौर पर भी फ़ेच किया जा सकता है. जैसे, `https://ai.google.dev/gemini-api/docs/speech-generation.md.txt`.
 
-Để cài đặt các kỹ năng này, bạn có thể sử dụng một trong các công cụ được hỗ trợ sau đây. Hướng dẫn cài đặt cho cả hai được cung cấp bên dưới mỗi mô-đun kỹ năng:
+इन स्किल को इंस्टॉल करने के लिए, यहां दिए गए टूल में से किसी एक का इस्तेमाल किया जा सकता है. दोनों को इंस्टॉल करने के निर्देश, हर स्किल मॉड्यूल के नीचे दिए गए हैं:
 
-- **[skills.sh](https://skills.sh)**: Nên dùng. Tiêu chuẩn mở cho các hành vi của tác nhân di động.
-- **[Context7](https://context7.com)**: Được hỗ trợ cho những người dùng đã sử dụng hệ sinh thái Context7.
+- **[skills.sh](https://skills.sh)**: इसका सुझाव दिया जाता है. यह एजेंट के व्यवहार को पोर्ट करने के लिए ओपन स्टैंडर्ड है.
+- **[Context7](https://context7.com)**: यह उन उपयोगकर्ताओं के लिए उपलब्ध है जो पहले से ही Context7 के इकोसिस्टम का इस्तेमाल कर रहे हैं.
 
 ### gemini-api-dev
 
-Kỹ năng cơ bản để phát triển Gemini cho mục đích chung. Kỹ năng này cung cấp tài liệu và các phương pháp hay nhất cho:
+[Gemini API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) (Interactions API) का इस्तेमाल करके ऐप्लिकेशन बनाने की स्किल. Interactions API, Gemini मॉडल और एजेंटों के साथ काम करने का सबसे आसान और बेहतरीन तरीका है. इस स्किल में ये शामिल हैं:
 
-- Định tuyến câu lệnh đến các mô hình hiện tại (ví dụ: Gemini 3.1 Pro/Flash) và tránh các mô hình không dùng nữa
-- Câu lệnh đa phương thức, gọi hàm, đầu ra có cấu trúc và các mẫu tích hợp phổ biến
+- टेक्स्ट जनरेट करने, सिलसिलेवार बातचीत करने, और स्ट्रीमिंग की सुविधा
+- फ़ंक्शन कॉल करना, स्ट्रक्चर्ड आउटपुट, और इमेज जनरेट करना
+- बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा और Deep Research एजेंट
+- सर्वर-साइड पर बातचीत की स्थिति को मैनेज करना
+- मौजूदा मॉडल पर तुरंत स्विच करना और बंद किए जा चुके मॉडल का इस्तेमाल न करना
+- Python और TypeScript SDK टूल के पैटर्न
 
-#### Cài đặt bằng skills.sh
+#### skills.sh की मदद से इंस्टॉल करना
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 ```
 
-#### Cài đặt bằng Context7
+#### Context7 की मदद से इंस्टॉल करना
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
@@ -64,107 +68,85 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
 
 ### gemini-live-api-dev
 
-Kỹ năng xây dựng các ứng dụng AI đàm thoại theo thời gian thực bằng Gemini Live API. Kỹ năng này cung cấp tài liệu và các phương pháp hay nhất cho:
+Gemini Live API की मदद से, रीयल-टाइम में बातचीत करने वाले एआई ऐप्लिकेशन बनाने की स्किल. इस स्किल में, इनके लिए दस्तावेज़ और सबसे सही तरीके दिए गए हैं:
 
-- Kết nối WebSocket để truyền phát trực tiếp có độ trễ thấp
-- Truyền trực tuyến âm thanh, video và văn bản
-- Hỗ trợ phát hiện hoạt động giọng nói và tính năng ngắt lời
+- कम इंतज़ार के समय में स्ट्रीमिंग के लिए WebSocket कनेक्शन
+- ऑडियो, वीडियो, और टेक्स्ट स्ट्रीम करना
+- आवाज़ का पता लगाने की तकनीक और बार्ज-इन की सुविधा
 
-#### Cài đặt bằng skills.sh
+#### skills.sh की मदद से इंस्टॉल करना
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 ```
 
-#### Cài đặt bằng Context7
+#### Context7 की मदद से इंस्टॉल करना
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
 ```
 
-### gemini-interactions-api
+## इंस्टॉल हो जाने की पुष्टि करें
 
-Kỹ năng xây dựng ứng dụng bằng [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi). Interactions API là cách đơn giản và hiệu quả nhất để tạo ứng dụng bằng các mô hình và tác nhân Gemini. Kỹ năng này bao gồm:
+इंस्टॉल करने के बाद, पुष्टि करें कि कोडिंग असिस्टेंट, Gemini Docs MCP सर्वर से कनेक्ट हो सकती है और इंस्टॉल की गई आपकी स्किल का इस्तेमाल कर सकती है.
 
-- Tạo văn bản, trò chuyện nhiều lượt và phát trực tuyến
-- Gọi hàm, đầu ra có cấu trúc và tạo hình ảnh
-- Chạy ở chế độ nền và các tác nhân Deep Research
-- Quản lý trạng thái cuộc trò chuyện phía máy chủ
-- Các mẫu SDK Python và TypeScript
+### 1. एजेंट के व्यवहार की पुष्टि करना
 
-#### Cài đặt bằng skills.sh
+पुष्टि करने का सबसे भरोसेमंद तरीका यह है कि आप अपने एजेंट से Gemini API के बारे में कोई तकनीकी सवाल पूछें.
 
-```
-npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
-```
+**प्रॉम्प्ट:** "मैं Gemini API के साथ कॉन्टेक्स्ट कैशिंग का इस्तेमाल कैसे करूं?"
 
-#### Cài đặt bằng Context7
+सेटअप पूरा होने पर:
 
-```
-npx ctx7 skills install /google-gemini/gemini-skills gemini-interactions-api
-```
+- **सटीक कोड दें**: Gemini के खास तरीकों का रेफ़रंस दें. जैसे, नए एंडपॉइंट से `cacheContent` या `cachedContents.create`.
+- **एमसीपी टूल का इस्तेमाल करना**: दिखाएँ कि यह **Gemini Docs MCP सर्वर** से कनेक्ट है या डेटा फ़ेच करने के लिए `search_documentation` टूल का इस्तेमाल कर रहा है.
+- **लोड की गई स्किल शुरू करना**: एक इंडिकेटर दिखाएं, जिसमें यह बताया गया हो कि "skill: gemini-api-dev का इस्तेमाल किया जा रहा है" (अगर किसी सेकंडरी रैपर पर भरोसा किया जा रहा है).
 
-## Xác minh cài đặt
+### 2. मेनिफ़ेस्टेशन और टूल की पुष्टि करना
 
-Sau khi cài đặt, hãy xác nhận rằng trợ lý lập trình của bạn có thể kết nối với máy chủ MCP của Gemini Docs và sử dụng các kỹ năng bạn đã cài đặt.
+अगर एजेंट सामान्य जवाब देता है, तो अपने एनवायरमेंट के लिए Discovery या Status कमांड का इस्तेमाल करें. इससे यह पुष्टि की जा सकेगी कि Docs MCP या स्किल को मेमोरी में लोड किया गया है.
 
-### 1. Xác minh hành vi của nhân viên hỗ trợ
-
-Cách đáng tin cậy nhất để xác minh là đặt cho nhân viên hỗ trợ một câu hỏi kỹ thuật về Gemini API.
-
-**Câu lệnh:** "Làm cách nào để sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh bằng Gemini API?"
-
-Quá trình thiết lập thành công sẽ:
-
-- **Cung cấp mã chính xác**: Tham chiếu các phương thức cụ thể của Gemini như `cacheContent` hoặc `cachedContents.create` từ các điểm cuối mới nhất.
-- **Sử dụng Công cụ MCP**: Cho biết công cụ này được kết nối với **Máy chủ MCP của Gemini Docs** hoặc đang sử dụng công cụ `search_documentation` để tìm nạp dữ liệu.
-- **Gọi các kỹ năng đã tải**: Hiện một chỉ báo cho biết "Đang sử dụng kỹ năng: gemini-api-dev" (nếu dựa vào một trình bao bọc phụ).
-
-### 2. Xác minh biểu hiện và công cụ
-
-Nếu tác nhân đưa ra câu trả lời chung chung, hãy sử dụng các lệnh Discovery hoặc Status cụ thể cho môi trường của bạn để xác minh rằng Docs MCP hoặc kỹ năng đã được tải vào bộ nhớ.
-
-| Môi trường | Xác minh MCP | Xác minh kỹ năng |
+| परिवेश | MCP की पुष्टि | स्किल की पुष्टि करना |
 | --- | --- | --- |
-| **Claude Code** | Nhập `/mcp` vào thiết bị đầu cuối để xem các máy chủ đang hoạt động và các công cụ `search_documentation`. | Nhập `/skills` vào thiết bị đầu cuối để liệt kê tất cả các tệp kê khai đang hoạt động. |
-| **Cursor** | Chuyển đến phần **Cài đặt > Tính năng > MCP**. Đảm bảo máy chủ ở trạng thái "Đã kết nối". | Mở **Cài đặt > Quy tắc**. Xác minh kỹ năng xuất hiện trong phần "Agent Decides" (Nhân viên quyết định). |
-| **Antigravity** | Kiểm tra thanh bên **Tuỳ chỉnh > Kết nối** để biết trạng thái MCP. | Nhập `/skills list` hoặc kiểm tra thanh bên **Tuỳ chỉnh > Quy tắc**. |
-| **Gemini CLI** | Chạy `gemini mcp list` hoặc sử dụng `/mcp list`. | Chạy lệnh `gemini skills list` hoặc sử dụng lệnh dấu gạch chéo `/skills` trong phiên. |
-| **Copilot** | Nhập `@gemini /mcp` để liệt kê các trình kết nối dữ liệu đang hoạt động. | Nhập `@gemini /skills` (hoặc `/skills`) để xem các tiện ích đang hoạt động. |
+| **Claude Code** | चालू सर्वर और `search_documentation` टूल देखने के लिए, टर्मिनल में `/mcp` टाइप करें. | सभी चालू मेनिफ़ेस्ट की सूची बनाने के लिए, टर्मिनल में `/skills` टाइप करें. |
+| **कर्सर** | **सेटिंग > सुविधाएं > एमसीपी** पर जाएं. पक्का करें कि सर्वर "कनेक्ट किया गया" हो. | **सेटिंग > नियम** खोलें. पुष्टि करें कि "एजेंट तय करता है" सेक्शन में स्किल दिख रही हो. |
+| **Antigravity** | एमसीपी की स्थिति देखने के लिए, **कस्टमाइज़ेशन > कनेक्शन** साइडबार पर जाएं. | `/skills list` टाइप करें या **कस्टमाइज़ेशन > नियम** साइडबार देखें. |
+| **Gemini CLI** | `gemini mcp list` चलाएं या `/mcp list` का इस्तेमाल करें. | `gemini skills list` चलाएं या सेशन के दौरान `/skills` स्लैश कमांड का इस्तेमाल करें. |
+| **Copilot** | चालू डेटा कनेक्टर की सूची बनाने के लिए, `@gemini /mcp` टाइप करें. | चालू एक्सटेंशन देखने के लिए, `@gemini /skills` (या `/skills`) टाइप करें. |
 
-## Khắc phục sự cố
+## समस्या का हल
 
-Nếu tác nhân của bạn chỉ cung cấp thông tin chung hoặc không nhận ra các phương thức dành riêng cho Gemini, hãy kiểm tra những điều sau:
+अगर आपका एजेंट सिर्फ़ सामान्य जानकारी देता है या Gemini के खास तरीकों को नहीं पहचान पाता है, तो यहां दी गई बातें देखें:
 
-### Trợ lý không phát hiện thấy kỹ năng
+### एजेंट को स्किल नहीं मिली
 
-Hầu hết các tác nhân chỉ lập chỉ mục các kỹ năng khi khởi động.
+ज़्यादातर एजेंट, सिर्फ़ स्टार्टअप पर कौशल को इंडेक्स करते हैं.
 
-**Khắc phục:** Khởi động lại hoàn toàn IDE (Cursor/VS Code) hoặc thoát rồi mở lại tác nhân dựa trên thiết bị đầu cuối (Claude Code).
+**ठीक करें:** अपने आईडीई (Cursor/VS Code) को पूरी तरह से रीस्टार्ट करें या टर्मिनल पर आधारित एजेंट (Claude Code) को बंद करके फिर से खोलें.
 
-### Xung đột toàn cầu và xung đột cục bộ
+### अंतरराष्ट्रीय बनाम स्थानीय संघर्ष
 
-Nếu bạn cài đặt bằng cờ `--global`, thì tác nhân có thể bỏ qua cờ này để ưu tiên các quy tắc dành riêng cho dự án.
+अगर आपने `--global` फ़्लैग का इस्तेमाल करके इंस्टॉल किया है, तो हो सकता है कि आपका एजेंट, प्रोजेक्ट के हिसाब से बनाए गए नियमों के पक्ष में इसे अनदेखा कर रहा हो.
 
-**Khắc phục:** Thử cài đặt kỹ năng trực tiếp vào thư mục gốc của dự án mà không cần cờ chung:
+**ठीक करें:** ग्लोबल फ़्लैग के बिना, सीधे अपने प्रोजेक्ट रूट में स्किल इंस्टॉल करने की कोशिश करें:
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev
 ```
 
-## Tài nguyên
+## संसाधन
 
-- [Các kỹ năng của Gemini API trên GitHub](https://github.com/google-gemini/gemini-skills)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi)
-- [Bắt đầu](https://ai.google.dev/gemini-api/docs/get-started?hl=vi)
-- [Thư viện](https://ai.google.dev/gemini-api/docs/libraries?hl=vi)
+- [GitHub पर Gemini API की स्किल](https://github.com/google-gemini/gemini-skills)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi)
+- [शुरू करें](https://ai.google.dev/gemini-api/docs/get-started?hl=hi)
+- [लाइब्रेरी](https://ai.google.dev/gemini-api/docs/libraries?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-07-08 UTC.
+आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-08 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]

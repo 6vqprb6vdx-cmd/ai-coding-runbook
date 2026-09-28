@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=vi
-fetched_at: 2026-09-21T05:58:24.267502+00:00
-title: "C\u0103n c\u1ee9 v\u00e0o Google Maps \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=hi
+fetched_at: 2026-09-28T06:23:31.449241+00:00
+title: "Google Maps \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0917\u094d\u0930\u093e\u0909\u0902\u0921\u093f\u0902\u0917 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-# Căn cứ vào Google Maps
+# Google Maps की मदद से ग्राउंडिंग करना
 
-Tính năng Bám sát nguồn bằng Google Maps kết nối các khả năng tạo sinh của Gemini với dữ liệu phong phú, thực tế và mới nhất của Google Maps. Tính năng này giúp nhà phát triển dễ dàng tích hợp chức năng nhận biết vị trí vào các ứng dụng của họ. Khi một cụm từ tìm kiếm của người dùng có bối cảnh liên quan đến dữ liệu trên Maps, mô hình Gemini sẽ tận dụng Google Maps để cung cấp câu trả lời chính xác về mặt thực tế và mới nhất, đồng thời liên quan đến vị trí cụ thể hoặc khu vực khái quát mà người dùng chỉ định.
+Grounding with Google Maps की मदद से, Gemini की जनरेटिव क्षमताओं को Google Maps के सटीक, अप-टू-डेट, और ज़्यादा डेटा से जोड़ा जा सकता है. इस सुविधा की मदद से, डेवलपर अपने ऐप्लिकेशन में जगह की जानकारी के आधार पर काम करने वाली सुविधाएं आसानी से शामिल कर सकते हैं. जब किसी उपयोगकर्ता की क्वेरी, Maps के डेटा से जुड़ी होती है, तो Gemini मॉडल, Google Maps का इस्तेमाल करके, तथ्यों पर आधारित और अप-टू-डेट जवाब देता है. ये जवाब, उपयोगकर्ता की बताई गई जगह या जगह की अनुमानित जानकारी के हिसाब से होते हैं.
 
-- **Câu trả lời chính xác, nhận biết vị trí:** Tận dụng dữ liệu phong phú và mới nhất của Google Maps cho các cụm từ tìm kiếm theo địa lý cụ thể.
-- **Cá nhân hoá nâng cao:** Điều chỉnh đề xuất và thông tin dựa trên vị trí do người dùng cung cấp.
+- **जगह की जानकारी के आधार पर सटीक जवाब:** भौगोलिक तौर पर खास क्वेरी के लिए, Google Maps के मौजूदा और ज़्यादा डेटा का इस्तेमाल करें.
+- **बेहतर मनमुताबिक अनुभव:** उपयोगकर्ता की बताई गई जगहों के आधार पर, सुझाव और जानकारी को अपनी ज़रूरत के हिसाब से बनाएं.
 
-## Bắt đầu
+## शुरू करें
 
-Ví dụ này minh hoạ cách tích hợp tính năng Nền tảng với Google Maps vào ứng dụng của bạn để cung cấp câu trả lời chính xác, nhận biết vị trí cho các truy vấn của người dùng. Câu lệnh yêu cầu đề xuất địa điểm ở địa phương kèm theo vị trí người dùng (không bắt buộc), cho phép mô hình Gemini sử dụng dữ liệu của Google Maps.
+इस उदाहरण में, Grounding with Google Maps को अपने ऐप्लिकेशन में इंटिग्रेट करने का तरीका बताया गया है. इससे उपयोगकर्ता की क्वेरी के सटीक और जगह की जानकारी के आधार पर जवाब दिए जा सकते हैं. प्रॉम्प्ट में, स्थानीय सुझाव मांगे जाते हैं. इसमें उपयोगकर्ता की जगह की जानकारी देना ज़रूरी नहीं है. इससे Gemini मॉडल, Google Maps के डेटा का इस्तेमाल कर पाता है.
 
 ### Python
 
@@ -128,34 +128,35 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## Cách hoạt động của tính năng Neo bám vào Google Maps
+## Grounding with Google Maps कैसे काम करता है
 
-Tính năng neo bám vào Google Maps tích hợp Gemini API với hệ sinh thái Google Geo bằng cách sử dụng Maps API làm nguồn neo bám. Khi cụm từ tìm kiếm của người dùng có ngữ cảnh địa lý, mô hình Gemini có thể gọi công cụ Nền tảng với Google Maps. Sau đó, mô hình có thể tạo ra câu trả lời dựa trên dữ liệu của Google Maps liên quan đến vị trí được cung cấp.
+Grounding with Google Maps, Maps API को सोर्स के तौर पर इस्तेमाल करके, Gemini API को Google Geo इकोसिस्टम के साथ इंटिग्रेट करता है. जब किसी उपयोगकर्ता की क्वेरी में भौगोलिक संदर्भ शामिल होता है, तो Gemini मॉडल, Grounding with Google Maps टूल को शुरू कर सकता है. इसके बाद, मॉडल, दी गई जगह के हिसाब से Google Maps के डेटा के आधार पर जवाब जनरेट कर सकता है.
 
-Quy trình này thường bao gồm:
+आम तौर पर, इस प्रोसेस में ये चरण शामिल होते हैं:
 
-1. **Cụm từ tìm kiếm của người dùng:** Người dùng gửi một cụm từ tìm kiếm đến ứng dụng của bạn, có thể bao gồm cả bối cảnh địa lý (ví dụ: "quán cà phê gần tôi", "bảo tàng ở San Francisco").
-2. **Gọi công cụ:** Mô hình Gemini, khi nhận ra ý định về địa lý, sẽ gọi công cụ Grounding with Google Maps. Bạn có thể cung cấp cho công cụ này `latitude` và `longitude` của người dùng (không bắt buộc). Công cụ này là một công cụ tìm kiếm bằng văn bản và hoạt động tương tự như khi bạn tìm kiếm trên Maps, tức là các cụm từ tìm kiếm địa phương ("gần tôi") sẽ sử dụng toạ độ, trong khi các cụm từ tìm kiếm cụ thể hoặc không phải địa phương sẽ khó bị ảnh hưởng bởi vị trí rõ ràng.
-3. **Truy xuất dữ liệu:** Dịch vụ Grounding with Google Maps truy vấn Google Maps để tìm thông tin liên quan (ví dụ: địa điểm, bài đánh giá, ảnh, địa chỉ, giờ mở cửa).
-4. **Tạo câu trả lời dựa trên dữ liệu:** Dữ liệu được truy xuất từ Maps được dùng để cung cấp thông tin cho câu trả lời của mô hình Gemini, đảm bảo tính chính xác và mức độ phù hợp của thông tin.
-5. **Phản hồi:** Mô hình trả về một câu trả lời bằng văn bản, trong đó có nội dung trích dẫn đến các nguồn trên Google Maps.
+1. **उपयोगकर्ता की क्वेरी:** कोई उपयोगकर्ता आपके ऐप्लिकेशन में क्वेरी सबमिट करता है.इसमें भौगोलिक संदर्भ शामिल हो सकता है. जैसे, "मेरे आस-पास की कॉफ़ी शॉप," "सैन फ़्रांसिस्को में मौजूद म्यूज़ियम".
+2. **टूल शुरू करना:** Gemini मॉडल, भौगोलिक इरादे को पहचानकर, Grounding with Google Maps टूल को शुरू करता है. इस टूल को उपयोगकर्ता के `latitude` और `longitude` की जानकारी भी दी जा सकती है. हालांकि, यह ज़रूरी नहीं है. यह टूल, टेक्स्ट के आधार पर खोज करने वाला टूल है. यह Maps पर खोज करने की तरह ही काम करता है. जैसे, स्थानीय क्वेरी ("मेरे आस-पास") के लिए, निर्देशांकों का इस्तेमाल किया जाएगा. वहीं, खास या गैर-स्थानीय क्वेरी पर, साफ़ तौर पर बताई गई जगह का असर नहीं पड़ेगा.
+3. **डेटा वापस पाना:** Grounding with Google Maps सेवा, Google Maps से काम की जानकारी (जैसे, जगहें, समीक्षाएं, फ़ोटो, पते, कारोबार के खुले होने का समय) के लिए क्वेरी करती है.
+4. **आधारित जनरेशन:** वापस पाए गए Maps के डेटा का इस्तेमाल, Gemini मॉडल के जवाब के लिए किया जाता है. इससे यह पक्का किया जाता है कि जवाब सटीक और काम का हो.
+5. **जवाब:** मॉडल, टेक्स्ट में जवाब देता है. इसमें Google Maps के सोर्स के लिए, एट्रिब्यूशन शामिल होते हैं.
 
-## Lý do và thời điểm nên sử dụng tính năng Neo bám vào Google Maps
+## Grounding with Google Maps का इस्तेमाल कब और क्यों करना चाहिए
 
-Neo bám vào Google Maps là lựa chọn lý tưởng cho những ứng dụng cần thông tin chính xác, mới nhất và theo vị trí cụ thể. Nhờ cơ sở dữ liệu phong phú của Google Maps với hơn 250 triệu địa điểm trên toàn thế giới, tính năng này mang đến nội dung phù hợp và được cá nhân hoá, giúp nâng cao trải nghiệm người dùng.
+Grounding with Google Maps, उन ऐप्लिकेशन के लिए सबसे सही है जिनमें सटीक, अप-टू-डेट, और जगह के हिसाब से जानकारी की ज़रूरत होती है. यह उपयोगकर्ता अनुभव को बेहतर बनाता है. इसके लिए, Google Maps के 25 करोड़ से ज़्यादा जगहों के डेटाबेस के आधार पर, काम का और मनमुताबिक कॉन्टेंट उपलब्ध कराया जाता है.
 
-Bạn nên sử dụng tính năng Grounding with Google Maps khi ứng dụng của bạn cần:
+Grounding with Google Maps का इस्तेमाल तब करें, जब आपके ऐप्लिकेशन को:
 
-- Đưa ra câu trả lời đầy đủ và chính xác cho các câu hỏi theo vị trí địa lý.
-- Xây dựng công cụ lập kế hoạch chuyến đi và hướng dẫn viên địa phương dựa trên cuộc trò chuyện.
-- Đề xuất các địa điểm yêu thích dựa trên vị trí và lựa chọn ưu tiên của người dùng, chẳng hạn như nhà hàng hoặc cửa hàng.
-- Tạo trải nghiệm nhận biết vị trí cho các dịch vụ xã hội, bán lẻ hoặc giao đồ ăn.
+- जगह से जुड़े सवालों के सटीक और पूरे जवाब देने हों.
+- बातचीत के आधार पर ट्रिप प्लैनर और स्थानीय गाइड बनाने हों.
+- जगह और उपयोगकर्ता की प्राथमिकताओं (जैसे, रेस्टोरेंट या दुकानें) के आधार पर, दिलचस्पी की जगहों के सुझाव देने हों.
+- सामाजिक, खुदरा या फ़ूड डिलीवरी सेवाओं के लिए, जगह की जानकारी के आधार पर अनुभव बनाने हों.
 
-Neo bám vào Google Maps vượt trội trong các trường hợp sử dụng mà dữ liệu thực tế hiện tại và khoảng cách là yếu tố quan trọng, chẳng hạn như tìm "quán cà phê ngon nhất gần tôi" hoặc nhận chỉ đường.
+Grounding with Google Maps, उन मामलों में सबसे अच्छा काम करता है जहां आस-पास की जगहें और मौजूदा सटीक डेटा ज़रूरी होता है. जैसे, "मेरे आस-पास की सबसे अच्छी कॉफ़ी शॉप" ढूंढना या दिशा-निर्देश पाना.
 
-## Phương thức và tham số API
+## एपीआई के तरीके और पैरामीटर
 
-Tính năng Neo bám vào Google Maps được cung cấp thông qua Gemini API dưới dạng một công cụ trong phương thức [`generateContent`](https://ai.google.dev/api/generate-content?hl=vi). Bạn bật và định cấu hình tính năng Neo bám vào Google Maps bằng cách thêm một đối tượng [`googleMaps`](https://ai.google.dev/api/caching?hl=vi#GoogleMaps) vào tham số `tools` trong yêu cầu của bạn.
+Grounding with Google Maps, Gemini API के ज़रिए एक टूल के तौर पर
+[`generateContent`](https://ai.google.dev/api/generate-content?hl=hi) तरीके में उपलब्ध है. Grounding with Google Maps को चालू और कॉन्फ़िगर करने के लिए, अपने अनुरोध के `tools` पैरामीटर में [`googleMaps`](https://ai.google.dev/api/caching?hl=hi#GoogleMaps) ऑब्जेक्ट शामिल करें.
 
 ### JSON
 
@@ -170,7 +171,7 @@ Tính năng Neo bám vào Google Maps được cung cấp thông qua Gemini API 
 }
 ```
 
-Ngoài ra, công cụ này hỗ trợ truyền vị trí theo bối cảnh dưới dạng `toolConfig`.
+इसके अलावा, टूल, कॉन्टेक्चुअल जगह को `toolConfig` के तौर पर पास करने की सुविधा देता है.
 
 ### JSON
 
@@ -193,10 +194,11 @@ Ngoài ra, công cụ này hỗ trợ truyền vị trí theo bối cảnh dư�
 }
 ```
 
-### Tìm hiểu về câu trả lời dựa trên thông tin thực tế
+### भरोसेमंद स्रोतों से मिले जवाब को समझना
 
-Khi một câu trả lời được căn cứ thành công vào dữ liệu của Google Maps, câu trả lời đó sẽ bao gồm trường [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=vi#GroundingMetadata).
-Dữ liệu có cấu trúc này rất cần thiết để xác minh các câu trích dẫn và tạo trải nghiệm trích dẫn phong phú trong ứng dụng của bạn, cũng như đáp ứng các yêu cầu về việc sử dụng dịch vụ.
+जब किसी जवाब को Google Maps के डेटा के आधार पर जनरेट किया जाता है, तो जवाब
+में [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=hi#GroundingMetadata) फ़ील्ड शामिल होता है.
+यह स्ट्रक्चर्ड डेटा, दावों की पुष्टि करने और आपके ऐप्लिकेशन में एट्रिब्यूशन का बेहतर अनुभव बनाने के साथ-साथ, सेवा के इस्तेमाल की ज़रूरी शर्तें पूरी करने के लिए ज़रूरी है.
 
 ### JSON
 
@@ -243,20 +245,23 @@ Dữ liệu có cấu trúc này rất cần thiết để xác minh các câu t
 }
 ```
 
-Gemini API trả về thông tin sau bằng [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=vi#GroundingMetadata):
+Gemini API,
+[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=hi#GroundingMetadata) के साथ यह जानकारी दिखाता है:
 
-- `groundingChunks`: Mảng đối tượng chứa các nguồn `maps` (`uri`, `placeId` và `title`).
-- `groundingSupports`: Mảng các đoạn văn bản để kết nối văn bản phản hồi của mô hình với các nguồn trong `groundingChunks`. Mỗi đoạn liên kết một khoảng văn bản (do `startIndex` và `endIndex` xác định) với một hoặc nhiều `groundingChunkIndices`. Đây là chìa khoá để tạo trích dẫn trong dòng.
+- `groundingChunks`: ऑब्जेक्ट की एक ऐसी कैटगरी जिसमें `maps` सोर्स (`uri`, `placeId`, और `title`) शामिल होते हैं.
+- `groundingSupports`: `groundingChunks` में मौजूद सोर्स से, मॉडल के जवाब के टेक्स्ट को कनेक्ट करने के लिए, चंक की एक कैटगरी. हर चंक, टेक्स्ट स्पैन (`startIndex` और `endIndex` से तय किया गया) को एक या उससे ज़्यादा `groundingChunkIndices` से लिंक करता है. यह इनलाइन एट्रिब्यूशन बनाने की कुंजी है.
 
-Để xem đoạn mã cho biết cách hiển thị trích dẫn nội dòng trong văn bản, hãy xem [ví dụ](https://ai.google.dev/gemini-api/docs/google-search?hl=vi#attributing_sources_with_inline_citations) trong tài liệu Neo bám vào Google Tìm kiếm.
+टेक्स्ट में इनलाइन एट्रिब्यूशन दिखाने के तरीके के बारे में जानने के लिए, [the
+Grounding with Google Search के दस्तावेज़ों में दिया गया](https://ai.google.dev/gemini-api/docs/google-search?hl=hi#attributing_sources_with_inline_citations)
+उदाहरण देखें.
 
-## Trường hợp sử dụng
+## इस्तेमाल के उदाहरण
 
-Tính năng liên kết với Google Maps hỗ trợ nhiều trường hợp sử dụng có nhận biết vị trí. Các ví dụ sau đây minh hoạ cách các câu lệnh và tham số khác nhau có thể tận dụng tính năng Nền tảng với Google Maps. Thông tin trong Kết quả thực tế trên Google Maps có thể khác với điều kiện thực tế.
+Grounding with Google Maps, जगह की जानकारी के आधार पर काम करने वाले कई तरह के मामलों में इस्तेमाल किया जा सकता है. यहां दिए गए उदाहरणों से पता चलता है कि अलग-अलग प्रॉम्प्ट और पैरामीटर, Grounding with Google Maps का इस्तेमाल कैसे कर सकते हैं. Google Maps के आधार पर मिले नतीजों में मौजूद जानकारी, असल हालात से अलग हो सकती है.
 
-### Xử lý các câu hỏi về địa điểm cụ thể
+### जगह से जुड़े सवालों को मैनेज करना
 
-Đặt câu hỏi chi tiết về một địa điểm cụ thể để nhận câu trả lời dựa trên các bài đánh giá của người dùng trên Google và dữ liệu khác trên Maps.
+किसी खास जगह के बारे में ज़्यादा जानकारी वाले सवाल पूछें, ताकि Google पर उपयोगकर्ताओं की समीक्षाओं और Maps के अन्य डेटा के आधार पर जवाब मिल सकें.
 
 ### Python
 
@@ -294,7 +299,7 @@ if grounding := response.candidates[0].grounding_metadata:
   ```
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -362,9 +367,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-### Cung cấp tính năng cá nhân hoá dựa trên vị trí
+### जगह के आधार पर मनमुताबिक अनुभव देना
 
-Nhận đề xuất phù hợp với lựa chọn ưu tiên của người dùng và một khu vực địa lý cụ thể.
+किसी उपयोगकर्ता की प्राथमिकताओं और किसी खास इलाके के हिसाब से सुझाव पाएं.
 
 ### Python
 
@@ -399,7 +404,7 @@ if grounding := response.candidates[0].grounding_metadata:
       print(f'- [{chunk.maps.title}]({chunk.maps.uri})')
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -466,9 +471,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-### Hỗ trợ lập kế hoạch cho hành trình
+### यात्रा की योजना बनाने में मदद करना
 
-Tạo kế hoạch nhiều ngày kèm theo chỉ đường và thông tin về nhiều địa điểm, phù hợp với các ứng dụng du lịch.
+कई दिनों की यात्रा की योजनाएं जनरेट करें. इनमें अलग-अलग जगहों के बारे में दिशा-निर्देश और जानकारी शामिल होती है. यह सुविधा, यात्रा से जुड़े ऐप्लिकेशन के लिए सबसे सही है.
 
 ### Python
 
@@ -503,7 +508,7 @@ if grounding := response.candidates[0].grounding_metadata:
       print(f'- [{chunk.maps.title}]({chunk.maps.uri})')
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -572,70 +577,73 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## Yêu cầu về việc sử dụng dịch vụ
+## सेवा के इस्तेमाल की ज़रूरी शर्तें
 
-Phần này mô tả các yêu cầu về việc sử dụng dịch vụ để sử dụng tính năng Grounding with Google Maps.
+इस सेक्शन में, Grounding with Google Maps के इस्तेमाल की ज़रूरी शर्तों के बारे में बताया गया है.
 
-### Thông báo cho người dùng về việc sử dụng các nguồn của Google Maps
+### उपयोगकर्ता को Google Maps के सोर्स के इस्तेमाल के बारे में बताना
 
-Với mỗi kết quả dựa trên dữ liệu thực tế trên Google Maps, bạn sẽ nhận được các nguồn trong `groundingChunks` hỗ trợ cho từng câu trả lời. Siêu dữ liệu sau đây cũng được trả về:
+Google Maps के आधार पर मिले हर नतीजे के साथ, आपको `groundingChunks` में सोर्स मिलेंगे. ये सोर्स, हर जवाब के लिए एट्रिब्यूशन के तौर पर काम करते हैं. इसके अलावा, यह मेटाडेटा भी दिखाया जाता है:
 
-- uri nguồn
-- tiêu đề
-- ID
+- सोर्स यूआरआई
+- title
+- आईडी
 
-Khi trình bày kết quả từ tính năng Grounding with Google Maps, bạn phải chỉ định các nguồn liên kết trên Google Maps và thông báo cho người dùng về những điều sau:
+Grounding with Google Maps से मिले नतीजे दिखाते समय, आपको Google Maps के सोर्स के बारे में बताना होगा. साथ ही, अपने उपयोगकर्ताओं को यह जानकारी देनी होगी:
 
-- Các nguồn trên Google Maps phải nằm ngay sau nội dung được tạo mà các nguồn đó hỗ trợ. Nội dung được tạo này còn được gọi là Kết quả dựa trên vị trí thực tế trên Google Maps.
-- Người dùng phải xem được các nguồn dữ liệu của Google Maps trong một lượt tương tác của người dùng.
+- Google Maps के सोर्स, जनरेट किए गए उस कॉन्टेंट के तुरंत बाद दिखने चाहिए जिसके लिए ये सोर्स एट्रिब्यूशन के तौर पर काम करते हैं. जनरेट किए गए इस कॉन्टेंट को, Google Maps के आधार पर मिला नतीजा भी कहा जाता है.
+- Google Maps के सोर्स, उपयोगकर्ता के एक इंटरैक्शन में दिखने चाहिए.
 
-### Hiển thị các nguồn trên Google Maps bằng đường liên kết đến Google Maps
+### Google Maps के लिंक के साथ, Google Maps के सोर्स दिखाना
 
-Đối với mỗi nguồn trong `groundingChunks` và trong `grounding_chunks.maps.placeAnswerSources.reviewSnippets`, bạn phải tạo bản xem trước đường liên kết theo các yêu cầu sau:
+`groundingChunks` और `grounding_chunks.maps.placeAnswerSources.reviewSnippets` में मौजूद हर सोर्स के लिए, लिंक की झलक इन ज़रूरी शर्तों के मुताबिक जनरेट की जानी चाहिए:
 
-- Ghi công từng nguồn cho Google Maps theo [nguyên tắc ghi công](#maps-attribution-guidelines) văn bản của Google Maps.
-- Hiển thị tiêu đề nguồn có trong câu trả lời.
-- Liên kết đến nguồn bằng cách sử dụng biểu tượng `uri` hoặc `googleMapsUri` trong câu trả lời.
+- Google Maps के टेक्स्ट
+  [एट्रिब्यूशन के दिशा-निर्देशों के मुताबिक, हर सोर्स को Google Maps के लिए एट्रिब्यूट करें](#maps-attribution-guidelines).
+- जवाब में दिए गए सोर्स का टाइटल दिखाएं.
+- जवाब में मौजूद `uri` या `googleMapsUri` का इस्तेमाल करके, सोर्स से लिंक करें.
 
-Những hình ảnh này cho thấy các yêu cầu tối thiểu để hiển thị nguồn và đường liên kết đến Google Maps.
+इन इमेज में, सोर्स और Google Maps के लिंक दिखाने के लिए ज़रूरी शर्तें दिखाई गई हैं.
 
-![Câu lệnh có câu trả lời cho thấy các nguồn](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=vi)
+![जवाब के साथ सोर्स दिखाने वाला प्रॉम्प्ट](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=hi)
 
-Bạn có thể thu gọn chế độ xem nguồn.
+सोर्स के व्यू को छोटा किया जा सकता है.
 
-![Câu lệnh có phản hồi và nguồn được thu gọn](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=vi)
+![जवाब और सोर्स को छोटा करके दिखाया गया प्रॉम्प्ट](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=hi)
 
-Không bắt buộc: Cải thiện bản xem trước đường liên kết bằng nội dung bổ sung, chẳng hạn như:
+ज़रूरी नहीं: लिंक की झलक को अन्य कॉन्टेंट के साथ बेहतर बनाएं. जैसे:
 
-- Một [biểu tượng trang web của Google Maps](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=vi) được chèn trước thông tin ghi công của Google Maps.
-- Ảnh từ URL nguồn (`og:image`).
+- Google Maps के टेक्स्ट एट्रिब्यूशन से पहले, [Google Maps का फ़ेविकॉन](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=hi)
+  डाला जाता है.
+- सोर्स यूआरएल (`og:image`) से कोई फ़ोटो.
 
-Để biết thêm thông tin về một số nhà cung cấp dữ liệu của Google Maps và điều khoản cấp phép của họ, hãy xem [Thông báo pháp lý của Google Maps và Google Earth](https://www.google.com/help/legalnotices_maps/?hl=vi).
+Google Maps के कुछ डेटा प्रोवाइडर और उनकी
+लाइसेंस की शर्तों के बारे में ज़्यादा जानने के लिए, [Google Maps और Google Earth के कानूनी नोटिस देखें](https://www.google.com/help/legalnotices_maps/?hl=hi).
 
-### Nguyên tắc ghi công bằng văn bản của Google Maps
+### Google Maps के टेक्स्ट एट्रिब्यूशन के दिशा-निर्देश
 
-Khi ghi nguồn cho Google Maps bằng văn bản, hãy tuân thủ các nguyên tắc sau:
+टेक्स्ट में सोर्स को Google Maps के लिए एट्रिब्यूट करते समय, इन दिशा-निर्देशों का पालन करें:
 
-- Không sửa đổi văn bản Google Maps theo bất kỳ cách nào:
-  - Không thay đổi kiểu viết hoa của Google Maps.
-  - Đừng xuống dòng Google Maps.
-  - Đừng bản địa hoá Google Maps sang một ngôn ngữ khác.
-  - Ngăn trình duyệt dịch Google Maps bằng cách sử dụng thuộc tính HTML translate="no".
-- Tạo kiểu cho văn bản trên Google Maps như mô tả trong bảng sau:
+- Google Maps के टेक्स्ट में किसी भी तरह का बदलाव न करें:
+  - Google Maps के केस में बदलाव न करें.
+  - Google Maps को कई लाइनों में रैप न करें.
+  - Google Maps को किसी दूसरी भाषा में स्थानीय भाषा में अनुवादित न करें.
+  - translate="no" एचटीएमएल एट्रिब्यूट का इस्तेमाल करके, ब्राउज़र को Google Maps का अनुवाद करने से रोकें.
+- Google Maps के टेक्स्ट को, यहां दी गई टेबल में बताए गए तरीके से स्टाइल करें:
 
-| Thuộc tính | Kiểu |
+| प्रॉपर्टी | शैली |
 | --- | --- |
-| `Font family` | Roboto. Bạn không bắt buộc phải tải phông chữ. |
-| `Fallback font family` | Mọi phông chữ không chân đã được dùng trong sản phẩm của bạn hoặc "Sans-Serif" để gọi phông chữ hệ thống mặc định |
-| `Font style` | Bình thường |
+| `Font family` | Roboto. फ़ॉन्ट लोड करना ज़रूरी नहीं है. |
+| `Fallback font family` | आपके प्रॉडक्ट में पहले से इस्तेमाल किया जा रहा कोई भी sans serif बॉडी फ़ॉन्ट या डिफ़ॉल्ट सिस्टम फ़ॉन्ट को शुरू करने के लिए "Sans-Serif" |
+| `Font style` | सामान्य |
 | `Font weight` | 400 |
-| `Font color` | Trắng, đen (#1F1F1F) hoặc xám (#5E5E5E). Duy trì độ tương phản dễ tiếp cận (4,5:1) so với nền. |
-| `Font size` | - Cỡ chữ tối thiểu: 12sp - Cỡ chữ tối đa: 16sp - Để tìm hiểu về sp, hãy xem phần Đơn vị kích thước phông chữ trên [trang web Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
-| `Spacing` | Bình thường |
+| `Font color` | सफ़ेद, काला (#1F1F1F) या ग्रे (#5E5E5E). बैकग्राउंड के साथ, ऐक्सेस किया जा सकने वाला (4.5:1) कंट्रास्ट बनाए रखें. |
+| `Font size` | - फ़ॉन्ट का कम से कम साइज़: 12sp - फ़ॉन्ट का ज़्यादा से ज़्यादा साइज़: 16sp - sp के बारे में जानने के लिए, [मटीरियल डिज़ाइन की वेबसाइट](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc) पर फ़ॉन्ट साइज़ की इकाइयां देखें. |
+| `Spacing` | सामान्य |
 
-#### Ví dụ về CSS
+#### सीएसएस का उदाहरण
 
-CSS sau đây kết xuất Google Maps với kiểu chữ và màu sắc phù hợp trên nền trắng hoặc nền sáng.
+यहां दी गई सीएसएस, Google Maps को सफ़ेद या हल्के बैकग्राउंड पर, सही टाइपोग्राफ़िक स्टाइल और रंग के साथ रेंडर करती है.
 
 ### CSS
 
@@ -654,76 +662,80 @@ color: #5e5e5e;
 }
 ```
 
-### Mã địa điểm và mã bài đánh giá
+### जगह का आईडी और समीक्षा का आईडी
 
-Dữ liệu của Google Maps bao gồm mã địa điểm và mã bài đánh giá. Bạn có thể lưu vào bộ nhớ đệm, lưu trữ và xuất dữ liệu phản hồi sau:
+Google Maps के डेटा में, जगह का आईडी और समीक्षा का आईडी शामिल होता है. जवाब के इस डेटा को कैश किया जा सकता है, सेव किया जा सकता है, और एक्सपोर्ट किया जा सकता है:
 
 - `placeId`
 - `reviewId`
 
-Các quy định hạn chế đối với việc lưu vào bộ nhớ đệm trong Điều khoản về việc neo bám vào Google Maps sẽ không áp dụng.
+Grounding with Google Maps की शर्तों में, कैश करने पर लगी पाबंदियां लागू नहीं होती हैं.
 
-### Hoạt động và lãnh thổ bị cấm
+### रोकी गई गतिविधि और इलाका
 
-Tính năng tiếp đất bằng Google Maps có thêm các quy định hạn chế đối với một số nội dung và hoạt động nhất định để duy trì một nền tảng an toàn và đáng tin cậy. Ngoài các quy định hạn chế về việc sử dụng trong [Điều khoản](https://ai.google.dev/gemini-api/terms?hl=vi#grounding-with-google-maps):
+Grounding with Google Maps के लिए, कुछ कॉन्टेंट और गतिविधियों पर अतिरिक्त पाबंदियां हैं, ताकि प्लैटफ़ॉर्म को सुरक्षित और भरोसेमंद बनाए रखा जा सके. शर्तों में इस्तेमाल पर लगी पाबंदियों
+के अलावा [शर्तें](https://ai.google.dev/gemini-api/terms?hl=hi#grounding-with-google-maps):
 
-- Bạn sẽ không sử dụng tính năng Grounding với Google Maps cho các hoạt động có rủi ro cao, bao gồm cả dịch vụ ứng phó khẩn cấp.
-- Bạn sẽ không phân phối hoặc tiếp thị ứng dụng cung cấp tính năng Định hướng bằng Google Maps ở một Lãnh thổ bị cấm. Để biết thêm thông tin, hãy xem [Các lãnh thổ bị cấm của Google Maps Platform](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=vi).
-  Danh sách Các lãnh thổ bị cấm có thể được cập nhật theo thời gian.
+- Grounding with Google Maps का इस्तेमाल, ज़्यादा जोखिम वाली गतिविधियों के लिए नहीं किया जा सकता. इनमें आपातकालीन सेवाओं के लिए भी इसका इस्तेमाल नहीं किया जा सकता.
+- जिस इलाके में Grounding with Google Maps की सुविधा उपलब्ध नहीं है वहां, इस सुविधा का इस्तेमाल करने वाले ऐप्लिकेशन को डिस्ट्रिब्यूट या मार्केट नहीं किया जा सकता. ज़्यादा जानकारी के लिए, [Google Maps Platform के लिए पाबंदी वाले इलाके](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=hi) देखें.
+  पाबंदी वाले इलाकों की सूची को समय-समय पर अपडेट किया जा सकता है.
 
-## Các phương pháp hay nhất
+## सबसे सही तरीके
 
-- **Cung cấp vị trí của người dùng:** Để nhận được những câu trả lời phù hợp và mang tính cá nhân hoá nhất, hãy luôn thêm `user_location` (vĩ độ và kinh độ) vào cấu hình `googleMapsGrounding` khi bạn biết vị trí của người dùng.
-- **Thông báo cho Người dùng cuối:** Thông báo rõ ràng cho người dùng cuối rằng dữ liệu trên Google Maps đang được dùng để trả lời các câu hỏi của họ, đặc biệt là khi công cụ này được bật.
-- **Theo dõi độ trễ:** Đối với các ứng dụng đàm thoại, hãy đảm bảo rằng độ trễ P95 cho các câu trả lời có căn cứ vẫn nằm trong ngưỡng chấp nhận được để duy trì trải nghiệm mượt mà cho người dùng.
-- **Tắt khi không cần thiết:** Theo mặc định, tính năng tiếp đất bằng Google Maps sẽ ở trạng thái tắt. Chỉ bật (`"tools": [{"googleMaps": {}}]`) khi truy vấn có ngữ cảnh địa lý rõ ràng để tối ưu hoá hiệu suất và chi phí.
+- **उपयोगकर्ता की जगह की जानकारी देना:** सबसे काम के और मनमुताबिक जवाब पाने के लिए, `googleMapsGrounding` कॉन्फ़िगरेशन में हमेशा `user_location` (अक्षांश और देशांतर) शामिल करें. ऐसा तब करें, जब उपयोगकर्ता की जगह की जानकारी उपलब्ध हो.
+- **आखिरी उपयोगकर्ताओं को जानकारी देना:** अपने आखिरी उपयोगकर्ताओं को साफ़ तौर पर बताएं कि उनकी क्वेरी के जवाब देने के लिए, Google Maps के डेटा का इस्तेमाल किया जा रहा है. खास तौर पर, तब जब टूल चालू हो.
+- **लेटेंसी की निगरानी करना:** बातचीत वाले ऐप्लिकेशन के लिए, पक्का करें कि भरोसेमंद स्रोतों से मिले जवाबों के लिए P95 लेटेंसी, स्वीकार किए जा सकने वाले थ्रेशोल्ड के अंदर हो. इससे उपयोगकर्ता अनुभव को बेहतर बनाए रखा जा सकता है.
+- **ज़रूरत न होने पर टॉगल बंद करना:** Grounding with Google Maps, डिफ़ॉल्ट रूप से बंद होता है. इसे सिर्फ़ तब चालू करें (`"tools": [{"googleMaps": {}}]`) जब किसी क्वेरी में भौगोलिक संदर्भ साफ़ तौर पर दिया गया हो. इससे परफ़ॉर्मेंस और लागत को ऑप्टिमाइज़ किया जा सकता है.
 
-## Các điểm hạn chế
+## सीमाएं
 
-- **Phạm vi địa lý:** Tính năng neo bám vào Google Maps được cung cấp trên toàn cầu
-- **Hỗ trợ mô hình:** Xem phần [Các mô hình được hỗ trợ](#supported-models).
-- **Đầu vào/Đầu ra đa phương thức:** Tính năng liên kết với Google Maps hiện không hỗ trợ đầu vào hoặc đầu ra đa phương thức ngoài văn bản.
-- **Trạng thái mặc định:** Công cụ Neo bám vào Google Maps sẽ tắt theo mặc định.
-  Bạn phải bật tính năng này một cách rõ ràng trong các yêu cầu API.
+- **भौगोलिक दायरा:** Grounding with Google Maps, दुनिया भर में उपलब्ध है
+- **मॉडल के साथ काम करने की सुविधा:** काम करने वाले [मॉडल](#supported-models) सेक्शन देखें.
+- **मल्टीमॉडल इनपुट/आउटपुट:** फ़िलहाल, Grounding with Google Maps, टेक्स्ट के अलावा मल्टीमॉडल इनपुट या आउटपुट के साथ काम नहीं करता.
+- **डिफ़ॉल्ट स्थिति:** Grounding with Google Maps टूल, डिफ़ॉल्ट रूप से बंद होता है.
+  आपको एपीआई के अनुरोधों में इसे साफ़ तौर पर चालू करना होगा.
 
-## Mức giá và hạn mức
+## कीमत और दर की सीमाएं
 
-Giá của tính năng neo bám vào Google Maps được tính dựa trên số lượng câu hỏi. Mức giá hiện tại là **25 USD / 1.000 câu lệnh có căn cứ**. Cấp miễn phí cũng có tối đa 500 yêu cầu mỗi ngày. Yêu cầu chỉ được tính vào hạn mức khi một câu lệnh trả về thành công ít nhất một kết quả có căn cứ của Google Maps (tức là kết quả chứa ít nhất một nguồn của Google Maps). Nếu nhiều truy vấn được gửi đến Google Maps từ một yêu cầu duy nhất, thì yêu cầu đó sẽ được tính là một yêu cầu trong giới hạn về tốc độ.
+Grounding with Google Maps की कीमत, क्वेरी के आधार पर तय की जाती है. फ़िलहाल, दर **25 डॉलर / 1,000 प्रॉम्प्ट** है. मुफ़्त टियर में, हर दिन 500 अनुरोध किए जा सकते हैं. किसी अनुरोध को कोटा में सिर्फ़ तब गिना जाता है, जब कोई प्रॉम्प्ट, Google Maps के आधार पर कम से कम एक नतीजा दिखाता है. इसका मतलब है कि नतीजों में Google Maps का कम से कम एक सोर्स शामिल हो. अगर Google Maps को एक अनुरोध से कई क्वेरी भेजी जाती हैं, तो इसे दर की सीमा के हिसाब से एक अनुरोध के तौर पर गिना जाता है.
 
-Để biết thông tin chi tiết về giá, hãy xem [trang định giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
+कीमत की ज़्यादा जानकारी के लिए, [Gemini API की कीमत वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) देखें.
 
-## Mô hình được hỗ trợ
+## काम करने वाले मॉडल
 
-Các mô hình sau đây hỗ trợ tính năng Neo bám vào Google Maps:
+ये मॉडल, Grounding with Google Maps के साथ काम करते हैं:
 
-| Mô hình | Neo bám vào Google Maps |
+| मॉडल | Grounding with Google Maps |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=hi) | ✔️ |
+| [Gemini 3.1 Pro का प्रीव्यू](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3 Flash का प्रीव्यू](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
 
-## Các tổ hợp công cụ được hỗ trợ
+## टूल के साथ काम करने वाले कॉम्बिनेशन
 
-Các mô hình Gemini 3 hỗ trợ kết hợp các công cụ tích hợp sẵn (như Bám sát nguồn bằng Google Maps) với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
+Gemini 3 मॉडल, बिल्ट-इन टूल (जैसे, Grounding with Google Maps) को कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ इस्तेमाल करने की सुविधा देते हैं. ज़्यादा जानने के लिए,
+[टूल के कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) वाला पेज देखें.
 
-## Bước tiếp theo
+## आगे क्या करना है
 
-- Hãy thử [Hướng dẫn về việc tiếp cận thông tin thực tế bằng Google Tìm kiếm trong sổ tay về Gemini API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=vi).
-- Tìm hiểu về [các công cụ khác hiện có](https://ai.google.dev/gemini-api/docs/tools?hl=vi).
-- Để tìm hiểu thêm về các phương pháp hay nhất về AI có trách nhiệm và bộ lọc an toàn của Gemini API, hãy xem [hướng dẫn về Chế độ cài đặt an toàn](https://ai.google.dev/gemini-api/docs/safety-settings?hl=vi).
+- [Gemini API की
+  कुकबुक में, Grounding with Google Search](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=hi) को आज़माएं.
+- अन्य [उपलब्ध टूल](https://ai.google.dev/gemini-api/docs/tools?hl=hi) के बारे में जानें.
+- ज़िम्मेदार एआई के सबसे सही तरीकों और Gemini API के सुरक्षा
+  फ़िल्टर के बारे में ज़्यादा जानने के लिए, [सुरक्षा सेटिंग की गाइड देखें](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi).
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-09-12 UTC.
+आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-12 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]

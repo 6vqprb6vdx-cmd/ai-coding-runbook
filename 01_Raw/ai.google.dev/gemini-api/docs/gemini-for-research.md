@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=he
-fetched_at: 2026-09-21T05:50:50.224134+00:00
+fetched_at: 2026-09-28T06:11:02.436316+00:00
 title: "\u05de\u05d0\u05d9\u05e6\u05d9\u05dd \u05d0\u05ea \u05ea\u05d4\u05dc\u05d9\u05da \u05d4\u05d2\u05d9\u05dc\u05d5\u05d9 \u05d1\u05e2\u05d6\u05e8\u05ea Gemini \u05dc\u05de\u05d7\u05e7\u05e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -38,7 +38,7 @@ from google import genai
 
 client = genai.Client()
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="How large is the universe?",
 )
 
@@ -54,7 +54,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: "How large is the universe?",
   });
   console.log(response.text);
@@ -63,10 +63,65 @@ async function main() {
 await main();
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.8-flash"))
+    .input(InteractionsInput.of("How large is the universe?"))
+    .build();
+var interaction = client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("How large is the universe?"),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -X POST \
@@ -83,11 +138,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 
 "במחקר שלנו אנחנו בודקים את Gemini כמודל שפה חזותי (VLM) ואת ההתנהגויות שלו בסביבות מגוונות מנקודות מבט של חוסן ובטיחות. עד עכשיו, בדקנו את העמידות של Gemini בפני הסחות דעת כמו חלונות קופצים כשסוכני VLM מבצעים משימות במחשב, והשתמשנו ב-Gemini כדי לנתח אינטראקציה חברתית, אירועים זמניים וגורמי סיכון על סמך קלט וידאו".
 
-[האתר של דייי יאנג](https://cs.stanford.edu/~diyiy/)
+[האתר של Diyi Yang](https://cs.stanford.edu/~diyiy/)
 
 ![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=he)
 
-‫"Gemini Pro ו-Flash, עם חלון ההקשר הארוך שלהם, עוזרים לנו ב-OK-Robot, פרויקט המניפולציה הניידת שלנו עם אוצר מילים פתוח. ‫Gemini מאפשר לשלוח שאילתות ופקודות מורכבות בשפה טבעית לזיכרון של הרובוט: במקרה הזה, תצפיות קודמות שהרובוט ביצע במהלך פעולה ארוכה. גם אני ומאהי שפיאוללה משתמשים ב-Gemini כדי לפרק משימות לקוד שהרובוט יכול להריץ בעולם האמיתי".
+‫"Gemini Pro ו-Flash, עם חלון ההקשר הארוך שלהם, עוזרים לנו ב-OK-Robot, פרויקט המניפולציה הניידת שלנו עם אוצר מילים פתוח. ‫Gemini מאפשר לשלוח שאילתות ופקודות מורכבות בשפה טבעית ל"זיכרון" של הרובוט: במקרה הזה, תצפיות קודמות שהרובוט ביצע במהלך פעולה ארוכה. גם אני ומאהי שפיאוללה משתמשים ב-Gemini כדי לפרק משימות לקוד שהרובוט יכול להריץ בעולם האמיתי".
 
 [האתר של Lerrel Pinto](https://www.lerrelpinto.com/)
 
@@ -95,16 +150,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 
 חוקרים אקדמיים שעומדים בדרישות (כמו חברי סגל, עובדים וסטודנטים לתואר שלישי) ב[מדינות נתמכות](https://ai.google.dev/gemini-api/docs/available-regions?hl=he) יכולים להגיש בקשה לקבלת קרדיטים ל-Gemini API ומכסות שימוש גבוהות יותר לפרויקטים מחקריים. התמיכה הזו מאפשרת תפוקה גבוהה יותר בניסויים מדעיים ומקדמת את המחקר.
 
-אנחנו מתעניינים במיוחד בתחומי המחקר שמפורטים בקטע הבא,
-אבל נשמח לקבל בקשות מתחומים מדעיים מגוונים:
+אנחנו מתעניינים במיוחד בתחומי המחקר שמפורטים בקטע הבא, אבל אנחנו מקבלים בקשות מתחומים מדעיים מגוונים:
 
-- **הערכות ובנצ'מרקים**: שיטות הערכה שאושרו על ידי הקהילה ויכולות לספק אות חזק של ביצועים בתחומים כמו עובדתיות, בטיחות, ביצוע הוראות, חשיבה רציונלית ותכנון.
-- **קידום גילויים מדעיים לטובת האנושות**: יישומים פוטנציאליים של AI במחקר מדעי רב-תחומי, כולל תחומים כמו מחלות נדירות ומוזנחות, ביולוגיה ניסויית, מדע החומרים וקיימות.
-- **התגלמות ואינטראקציות**: שימוש במודלים גדולים של שפה כדי לחקור אינטראקציות חדשות בתחומים של AI מבוסס-גוף, אינטראקציות סביבתיות, רובוטיקה ואינטראקציית אדם-מחשב.
+- **הערכות ובנצ'מרקים**: שיטות הערכה שקיבלו אישור מהקהילה ויכולות לספק אות חזק של ביצועים בתחומים כמו עובדתיות, בטיחות, ביצוע הוראות, חשיבה רציונלית ותכנון.
+- **קידום גילויים מדעיים לטובת האנושות**: יישומים פוטנציאליים של AI במחקר מדעי רב-תחומי, כולל תחומים כמו מחלות נדירות ומוזנחות, ביולוגיה ניסויית, מדע חומרים וקיימות.
+- **התגלמות ואינטראקציות**: שימוש במודלים גדולים של שפה כדי לחקור אינטראקציות חדשות בתחומי ה-AI המגולם, האינטראקציות הסביבתיות, הרובוטיקה והאינטראקציה בין אדם למחשב.
 - **יכולות מתפתחות**: בחינת יכולות אג'נטיות חדשות שנדרשות לשיפור חשיבה רציונלית ותכנון, ואיך אפשר להרחיב את היכולות במהלך היקש (למשל, באמצעות Gemini Flash).
 - **אינטראקציה והבנה מולטי-מודאליות**: זיהוי פערים והזדמנויות במודלים בסיסיים מולטי-מודאליים לניתוח, להסקת מסקנות ולתכנון במגוון משימות.
 
-הזכאות: רק אנשים פרטיים (חברי סגל, חוקרים או אנשים בתפקיד מקביל) שמשויכים למוסד אקדמי תקף או לארגון מחקר אקדמי יכולים להגיש בקשה. הערה: Google תעניק ותסיר גישה ל-API וקרדיטים לפי שיקול דעתה. אנחנו בודקים את הבקשות פעם בחודש.
+הזכאות: רק אנשים פרטיים (חברי סגל, חוקרים או אנשים בתפקיד מקביל) שמשויכים למוסד אקדמי תקף או לארגון מחקר אקדמי יכולים להגיש בקשה. הערה: Google תעניק ותסיר גישה ל-API וקרדיטים לפי שיקול דעתה. אנחנו בודקים את הבקשות אחת לחודש.
 
 ### איך מתחילים לחקור באמצעות Gemini API
 
@@ -112,6 +166,6 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 
 אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-עדכון אחרון: 2026-09-12 (שעון UTC).
+עדכון אחרון: 2026-09-24 (שעון UTC).
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]

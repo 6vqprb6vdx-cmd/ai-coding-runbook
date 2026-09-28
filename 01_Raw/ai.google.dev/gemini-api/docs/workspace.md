@@ -1,50 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=zh-CN
-fetched_at: 2026-09-21T05:57:38.578505+00:00
-title: "\u4f7f\u7528\u60a8\u7684 Workspace \u5e10\u53f7\u8bbf\u95ee Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=hi
+fetched_at: 2026-09-28T06:17:59.936088+00:00
+title: "\u0905\u092a\u0928\u0947 Workspace \u0916\u093e\u0924\u0947 \u0938\u0947 Google AI Studio \u0915\u094b \u0910\u0915\u094d\u0938\u0947\u0938 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-发送反馈
+सुझाव भेजें
 
-# 使用您的 Workspace 帐号访问 Google AI Studio
+# अपने Workspace खाते से Google AI Studio को ऐक्सेस करना
 
-所有 [Google Workspace](https://workspace.google.com?hl=zh-cn) 用户默认都有权访问 AI Studio。如果您是 Workspace 用户，并且想要开始使用 AI Studio，请参阅 [AI Studio 快速入门](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=zh-cn)。
+[Google Workspace के सभी उपयोगकर्ताओं के पास, डिफ़ॉल्ट रूप से AI
+Studio का ऐक्सेस होता है.](https://workspace.google.com?hl=hi) अगर आपके पास Workspace का खाता है और आपको
+AI Studio का इस्तेमाल करना है, तो
+[AI Studio का इस्तेमाल शुरू करने से जुड़ी गाइड पढ़ें](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=hi).
 
-## 问题排查
+## समस्या का हल
 
-如果您的 Google Workspace 账号无法访问 AI Studio，您可能会看到类似以下内容的错误消息：
+अगर आपके Google Workspace खाते के लिए, AI Studio का ऐक्सेस बंद कर दिया गया है, तो आपको यह गड़बड़ी दिख सकती है:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-如果您认为自己应该有权访问 AI Studio，请与您的 Workspace 管理员联系。
+अगर आपको लगता है कि आपके पास AI Studio का ऐक्सेस होना चाहिए, तो अपने Workspace एडमिन से संपर्क करें.
 
-## 为 Workspace 用户启用 AI Studio
+## Workspace के उपयोगकर्ताओं के लिए AI Studio चालू करना
 
-作为 Google Workspace 管理员，您可以控制哪些用户可以使用 AI Studio：
+Google Workspace एडमिन के तौर पर, आपके पास यह कंट्रोल करने का विकल्प होता है कि AI Studio का इस्तेमाल कौन कर सकता है:
 
-- 默认情况下，AI Studio 在所有版本中都处于启用状态。
-- 您可以为不同组织部门或同一组织部门中的一组用户停用或启用 AI Studio。
-- Google Workspace 教育版：未满 18 周岁的用户无法通过其 Google Workspace 教育版账号使用 AI Studio。即使 AI Studio 设置处于开启状态，也是如此。如需了解详情，请参阅[按年龄控制对 Google 服务的使用权限](https://support.google.com/a/answer/10651918?hl=zh-cn)。
+- सभी वर्शन के लिए, AI Studio डिफ़ॉल्ट रूप से चालू रहता है.
+- संगठन की अलग-अलग इकाइयों के उपयोगकर्ताओं और उनके ग्रुप के लिए, AI Studio को बंद या चालू किया जा सकता है.
+- Google Workspace for Education के वर्शन: 18 साल से कम उम्र के उपयोगकर्ता, अपने Google Workspace for Education खातों से AI Studio का इस्तेमाल नहीं कर सकते. यह तब भी लागू होता है, जब AI Studio की सेटिंग चालू हो. ज़्यादा जानकारी के लिए, [उम्र के हिसाब से, Google की सेवाओं के ऐक्सेस को कंट्रोल करना
+  लेख पढ़ें](https://support.google.com/a/answer/10651918?hl=hi).
 
-如需为组织中的用户启用或停用 AI Studio，请参阅[为用户启用或停用 Google AI Studio](https://support.google.com/a/answer/15004095?hl=zh-cn)。
+अपने संगठन के उपयोगकर्ताओं के लिए, AI Studio को चालू या बंद करने के बारे में जानने के लिए,
+[उपयोगकर्ताओं के लिए Google AI Studio को चालू या बंद करना](https://support.google.com/a/answer/15004095?hl=hi) लेख पढ़ें.
 
-发送反馈
+सुझाव भेजें
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最后更新时间 (UTC)：2026-04-29。
+आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
 
-需要向我们提供更多信息？
+क्या आपको हमें और कुछ बताना है?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]

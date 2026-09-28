@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=zh-CN
-fetched_at: 2026-09-21T05:53:54.026774+00:00
-title: "\u7f51\u5740\u4e0a\u4e0b\u6587 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=vi
+fetched_at: 2026-09-28T06:17:56.958844+00:00
+title: "Ng\u1eef c\u1ea3nh URL \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-发送反馈
+Gửi ý kiến phản hồi
 
-# 网址上下文
+# Ngữ cảnh URL
 
-借助网址上下文工具，您可以网址的形式向模型提供更多上下文。通过在请求中添加网址，模型将访问这些网页中的内容（只要不是[限制部分](#limitations)中列出的网址类型），以便提供更优质的回答。
+Công cụ ngữ cảnh URL cho phép bạn cung cấp thêm ngữ cảnh cho các mô hình dưới dạng URL. Bằng cách thêm URL vào yêu cầu, mô hình sẽ truy cập vào nội dung của những trang đó (miễn là đó không phải là loại URL được liệt kê trong [phần hạn chế](#limitations)) để cung cấp thông tin và cải thiện câu trả lời của mô hình.
 
-网址上下文工具适用于以下任务：
+Công cụ ngữ cảnh URL rất hữu ích cho những việc như sau:
 
-- **提取数据**：从多个网址中提取价格、名称或关键发现等特定信息。
-- **比较文档**：分析多份报告、文章或 PDF，以找出差异并跟踪趋势。
-- **综合和创建内容**：整合来自多个来源网址的信息，以生成准确的摘要、博文或报告。
-- **分析代码和文档**：指向 GitHub 代码库或技术文档，以解释代码、生成设置说明或回答问题。
+- **Trích xuất dữ liệu**: Lấy thông tin cụ thể như giá, tên hoặc phát hiện khoá từ nhiều URL.
+- **So sánh tài liệu**: Phân tích nhiều báo cáo, bài viết hoặc tệp PDF để xác định điểm khác biệt và theo dõi xu hướng.
+- **Tổng hợp và tạo nội dung**: Kết hợp thông tin từ nhiều URL nguồn để tạo bản tóm tắt, bài đăng trên blog hoặc báo cáo chính xác.
+- **Phân tích mã và tài liệu**: Chỉ đến một kho lưu trữ GitHub hoặc tài liệu kỹ thuật để giải thích mã, tạo hướng dẫn thiết lập hoặc trả lời câu hỏi.
 
-以下示例展示了如何比较来自不同网站的两份食谱。
+Ví dụ sau đây cho thấy cách so sánh hai công thức nấu ăn trên các trang web khác nhau.
 
 ### Python
 
@@ -41,7 +41,7 @@ url1 = "https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-rec
 url2 = "https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/"
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input=f"Compare the ingredients and cooking times from the recipes at {url1} and {url2}",
     tools=[{"type": "url_context"}]
 )
@@ -69,7 +69,7 @@ const client = new GoogleGenAI({});
 
 async function main() {
   const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
     tools: [{ type: "url_context" }]
   });
@@ -97,6 +97,67 @@ async function main() {
 await main();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    url1 := "https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592"
+    url2 := "https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/"
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(
+                fmt.Sprintf("Compare the ingredients and cooking times from the recipes at %s and %s", url1, url2),
+            ),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.URLContext{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Print the model's text response and its source annotations
+    for _, step := range res.Interaction.Steps {
+        if step.ModelOutputStep != nil {
+            for _, contentBlock := range step.ModelOutputStep.Content {
+                if contentBlock.TextContent != nil {
+                    fmt.Println(contentBlock.TextContent.Text)
+                    if len(contentBlock.TextContent.Annotations) > 0 {
+                        fmt.Println("\nSources:")
+                        for _, annotation := range contentBlock.TextContent.Annotations {
+                            if annotation.URLCitation != nil {
+                                fmt.Printf("  - %s: %s\n", annotation.URLCitation.GetTitle(), annotation.URLCitation.GetURL())
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -105,25 +166,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
       "tools": [{"type": "url_context"}]
   }'
 ```
 
-## 运作方式
+## Cách hoạt động
 
-网址上下文工具使用两步检索流程来平衡速度、费用和对最新数据的访问。当您提供网址时，该工具会先尝试从内部索引缓存中提取内容。它充当高度优化的缓存。如果某个网址未编入索引（例如，如果该网址指向的网页是新近发布的），该工具会自动回退到执行实时提取。此工具会直接访问网址，以实时检索其内容。
+Công cụ Bối cảnh URL sử dụng quy trình truy xuất gồm hai bước để cân bằng tốc độ, chi phí và quyền truy cập vào dữ liệu mới. Khi bạn cung cấp một URL, công cụ này trước tiên sẽ cố gắng tìm nạp nội dung từ bộ nhớ đệm chỉ mục nội bộ. Đây là bộ nhớ đệm được tối ưu hoá cao. Nếu một URL không có trong chỉ mục (ví dụ: nếu đó là một trang rất mới), thì công cụ này sẽ tự động quay lại để thực hiện một lệnh tìm nạp trực tiếp.
+Thao tác này truy cập trực tiếp vào URL để truy xuất nội dung theo thời gian thực.
 
-## 与其他工具结合使用
+## Kết hợp với các công cụ khác
 
-您可以将网址上下文工具与其他工具结合使用，以创建更强大的工作流。
+Bạn có thể kết hợp công cụ ngữ cảnh URL với các công cụ khác để tạo quy trình làm việc hiệu quả hơn.
 
-[Gemini 3 模型](#supported-models)支持将内置工具（例如网址上下文）与自定义工具（函数调用）相结合。如需了解详情，请参阅[工具组合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)页面。
+[Các mô hình Gemini 3](#supported-models) hỗ trợ việc kết hợp các công cụ tích hợp sẵn (chẳng hạn như Bối cảnh từ URL) với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
 
-### 依托搜索进行接地
+### Neo bám vào nội dung tìm kiếm
 
-同时启用网址上下文和[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)后，模型可以使用其搜索功能在网上查找相关信息，然后使用网址上下文工具更深入地了解找到的网页。对于需要广泛搜索和深入分析特定网页的提示，这种方法非常有效。
+Khi cả Bối cảnh từ URL và tính năng [Neo bám vào Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) đều được bật, mô hình có thể sử dụng các khả năng tìm kiếm của mình để tìm thông tin liên quan trên mạng, sau đó sử dụng công cụ Bối cảnh từ URL để hiểu rõ hơn về các trang mà mô hình tìm thấy. Phương pháp này rất hiệu quả đối với những câu lệnh yêu cầu cả tìm kiếm trên diện rộng và phân tích chuyên sâu các trang cụ thể.
 
 ### Python
 
@@ -134,7 +196,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
     tools=[
         {"type": "url_context"},
@@ -159,7 +221,7 @@ const client = new GoogleGenAI({});
 
 async function main() {
   const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
     tools: [
       { type: "url_context" },
@@ -179,6 +241,54 @@ async function main() {
 await main();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.URLContext{}),
+                interactions.NewTool(interactions.GoogleSearch{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, step := range res.Interaction.Steps {
+        if step.ModelOutputStep != nil {
+            for _, contentBlock := range step.ModelOutputStep.Content {
+                if contentBlock.TextContent != nil {
+                    fmt.Println(contentBlock.TextContent.Text)
+                }
+            }
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -187,7 +297,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-      "model": "gemini-3.6-flash",
+      "model": "gemini-3.8-flash",
       "input": "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
       "tools": [
           {"type": "url_context"},
@@ -196,19 +306,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 了解回答
+## Tìm hiểu câu trả lời
 
-当模型使用网址上下文工具时，其文本回答会在文本内容块中添加内嵌 `url_citation` 注释。每条注释都会将回答文本的某个部分（通过 `start_index` 和 `end_index`）链接到其来源网址。这是在应用中显示引用的主要方式 - 请参阅[上文中的主要示例](#get-started)，了解如何提取引用。
+Khi mô hình sử dụng công cụ ngữ cảnh URL, phản hồi bằng văn bản của mô hình sẽ có chú thích `url_citation` nội tuyến trên khối nội dung văn bản. Mỗi chú thích liên kết một đoạn văn bản phản hồi (thông qua `start_index` và `end_index`) với URL nguồn mà đoạn văn bản đó được lấy từ đó. Đây là cách chính để hiển thị trích dẫn trong ứng dụng của bạn – hãy xem [ví dụ chính ở trên](#get-started) để biết cách trích xuất các trích dẫn này.
 
-响应中还包含一个 `url_context_result` 步骤，其中包含有关每次网址检索尝试（状态、检索到的网址）的元数据。这主要用于调试。
+Phản hồi cũng bao gồm một bước `url_context_result` có siêu dữ liệu về từng lần thử truy xuất URL (trạng thái, URL đã truy xuất). Điều này chủ yếu hữu ích cho việc gỡ lỗi.
 
-### 安全检查
+### Kiểm tra an toàn
 
-系统会对网址执行内容审核检查，以确认其符合安全标准。如果某个网址未通过此检查，相应的 `url_context_result` 步骤将显示 `"unsafe"` 的 `status`。
+Hệ thống sẽ kiểm tra nội dung của URL để xác nhận rằng URL đó đáp ứng các tiêu chuẩn an toàn. Nếu một URL không vượt qua được bước kiểm tra này, bước `url_context_result` tương ứng sẽ cho thấy `status` của `"unsafe"`.
 
-### Token 计数
+### Số token
 
-从您在提示中指定的网址检索到的内容会作为输入 token 的一部分进行统计。您可以在互动的 `usage` 对象中查看 token 数量。下面给出了一个示例：
+Nội dung được truy xuất từ các URL mà bạn chỉ định trong câu lệnh sẽ được tính là một phần của mã thông báo đầu vào. Bạn có thể xem số token trong đối tượng `usage` của lượt tương tác. Sau đây là một ví dụ:
 
 ```
 'usage': {
@@ -222,57 +332,58 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-每个令牌的价格取决于所用模型，详情请参阅[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)页面。
+Giá mỗi mã thông báo phụ thuộc vào mô hình được dùng, hãy xem trang [định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) để biết thông tin chi tiết.
 
-## 支持的模型
+## Mô hình được hỗ trợ
 
-| 模型 | 网址上下文 |
+| Mô hình | Bối cảnh từ URL |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=vi) | ✔️ |
+| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=vi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
+| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
+| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
 
-## 最佳做法
+## Các phương pháp hay nhất
 
-- **提供具体网址**：为获得最佳结果，请提供您希望模型分析的内容的直接网址。该模型只会从您提供的网址中检索内容，而不会从任何嵌套链接中检索内容。
-- **检查可访问性**：验证您提供的网址是否不会指向需要登录或位于付费墙后面的网页。
-- **使用完整网址**：提供完整网址，包括协议（例如，https://www.google.com 而不是仅提供 google.com）。
+- **Cung cấp URL cụ thể**: Để có kết quả tốt nhất, hãy cung cấp URL trực tiếp đến nội dung mà bạn muốn mô hình phân tích. Mô hình này sẽ chỉ truy xuất nội dung từ những URL mà bạn cung cấp, chứ không truy xuất nội dung từ các đường liên kết lồng nhau.
+- **Kiểm tra khả năng tiếp cận**: Xác minh rằng các URL bạn cung cấp không dẫn đến những trang yêu cầu đăng nhập hoặc nằm sau tường phí.
+- **Sử dụng URL đầy đủ**: Cung cấp URL đầy đủ, bao gồm cả giao thức (ví dụ: https://www.google.com thay vì chỉ google.com).
 
-## 限制
+## Các điểm hạn chế
 
-- 请求限制：该工具每次请求最多可处理 20 个网址。
-- 网址内容大小：从单个网址检索的内容大小上限为 34MB。
-- 公开可访问性：网址必须可在网络上公开访问。
-  不支持本地主机地址（例如 localhost、127.0.0.1）、专用网络和隧道服务（例如 ngrok、pinggy）。
-- 仅限 Gemini API：网址上下文仅在 Gemini API 中可用，无法通过 Gemini Enterprise Agent Platform 使用。
+- Giới hạn yêu cầu: Công cụ này có thể xử lý tối đa 20 URL cho mỗi yêu cầu.
+- Kích thước nội dung URL: Kích thước tối đa cho nội dung được truy xuất từ một URL duy nhất là 34 MB.
+- Khả năng truy cập công khai: Các URL phải truy cập được công khai trên web.
+  Không hỗ trợ địa chỉ máy chủ cục bộ (ví dụ: máy chủ cục bộ, 127.0.0.1), mạng riêng tư và dịch vụ đường hầm (ví dụ: ngrok, pinggy).
 
-### 支持和不支持的内容类型
+### Các loại nội dung được hỗ trợ và không được hỗ trợ
 
-该工具可以从具有以下内容类型的网址中提取内容：
+Công cụ này có thể trích xuất nội dung từ các URL có những loại nội dung sau:
 
-- 文本（text/html、application/json、text/plain、text/xml、text/css、text/javascript、text/csv、text/rtf）
-- 图片（image/png、image/jpeg、image/bmp、image/webp）
+- Văn bản (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
+- Hình ảnh (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-以下内容类型不受支持：
+Các loại nội dung sau **không** được hỗ trợ:
 
-- 付费内容
-- YouTube 视频（如需了解如何处理 YouTube 网址，请参阅[视频理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-cn#youtube)）
-- Google Workspace 文件，例如 Google 文档或电子表格
-- 视频和音频文件
+- Nội dung có tường phí
+- Video trên YouTube (Xem phần [hiểu video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#youtube) để tìm hiểu cách xử lý URL của YouTube)
+- Các tệp trên Google Workspace, chẳng hạn như tài liệu hoặc bảng tính trên Google
+- Tệp video và âm thanh
 
-发送反馈
+Gửi ý kiến phản hồi
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最后更新时间 (UTC)：2026-09-12。
+Cập nhật lần gần đây nhất: 2026-09-24 UTC.
 
-需要向我们提供更多信息？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]

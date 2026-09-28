@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/veo?hl=ko
-fetched_at: 2026-09-21T05:52:24.765539+00:00
+fetched_at: 2026-09-28T06:24:16.135797+00:00
 title: "Gemini API\uc5d0\uc11c Veo 3.1\ub85c \ub3d9\uc601\uc0c1 \uc0dd\uc131\ud558\uae30 \u00a0|\u00a0 Google AI for Developers"
 ---
 

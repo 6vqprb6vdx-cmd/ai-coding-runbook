@@ -1,90 +1,85 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ko
-fetched_at: 2026-09-21T05:46:40.029171+00:00
-title: "OAuth\ub97c \ud1b5\ud55c \uc778\uc99d \ube60\ub978 \uc2dc\uc791 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=zh-CN
+fetched_at: 2026-09-28T06:13:10.676575+00:00
+title: "\u4f7f\u7528 OAuth \u8fdb\u884c\u8eab\u4efd\u9a8c\u8bc1\u7684\u5feb\u901f\u5165\u95e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-의견 보내기
+发送反馈
 
-# OAuth를 통한 인증 빠른 시작
+# 使用 OAuth 进行身份验证的快速入门
 
-Gemini API에 인증하는 가장 쉬운 방법은 [Gemini API 시작
-가이드](https://ai.google.dev/gemini-api/docs/get-started?hl=ko)에 설명된 대로 API
-키를 구성하는 것입니다. 더 엄격한 액세스 제어가 필요한 경우 OAuth를 대신 사용할 수 있습니다. 이 가이드는 OAuth를 사용하여 인증을 설정하는 데 도움이 됩니다.
+对 Gemini API 进行身份验证的最简单方法是配置 API 密钥，如 [Gemini API 快速入门指南](https://ai.google.dev/gemini-api/docs/get-started?hl=zh-cn)中所述。如果您需要更严格的访问权限控制，可以改用 OAuth。本指南将帮助您设置 OAuth 身份验证。
 
-이 가이드에서는 테스트 환경에 적합한 간소화된 인증 접근 방식을 사용합니다. 프로덕션 환경의 경우 앱에 적합한 [액세스 사용자 인증 정보를 선택](https://developers.google.com/workspace/guides/create-credentials?hl=ko#choose_the_access_credential_that_is_right_for_you)하기 전에 [인증 및 승인](https://developers.google.com/workspace/guides/auth-overview?hl=ko)에 대해 알아보세요.
+本指南使用一种简化的身份验证方法，该方法适用于测试环境。对于生产环境，请先了解[身份验证和授权](https://developers.google.com/workspace/guides/auth-overview?hl=zh-cn)，然后再[选择适合您应用的访问凭据](https://developers.google.com/workspace/guides/create-credentials?hl=zh-cn#choose_the_access_credential_that_is_right_for_you)。
 
-## 목표
+## 目标
 
-- OAuth용 클라우드 프로젝트 설정
-- 애플리케이션 기본 사용자 인증 정보 설정
-- `gcloud auth`를 사용하는 대신 프로그램에서 사용자 인증 정보 관리
+- 为 OAuth 设置云项目
+- 设置应用默认凭据
+- 在您的计划中管理凭据，而不是使用 `gcloud auth`
 
-## 기본 요건
+## 前提条件
 
-이 빠른 시작을 실행하려면 다음이 필요합니다.
+如需运行本快速入门，您需要满足以下条件：
 
-- [Google Cloud 프로젝트](https://developers.google.com/workspace/guides/create-project?hl=ko)
-- [gcloud CLI의 로컬 설치](https://cloud.google.com/sdk/docs/install?hl=ko)
+- [Google Cloud 项目](https://developers.google.com/workspace/guides/create-project?hl=zh-cn)
+- [本地安装的 gcloud CLI](https://cloud.google.com/sdk/docs/install?hl=zh-cn)
 
-## 클라우드 프로젝트 설정
+## 设置 Cloud 项目
 
-이 빠른 시작을 완료하려면 먼저 Cloud 프로젝트를 설정해야 합니다.
+如需完成本快速入门，您需要先设置云项目。
 
-### 1. API 사용 설정
+### 1. 启用 API
 
-Google API를 사용하려면 먼저 Google Cloud 프로젝트에서 API를 사용 설정해야 합니다.
+在使用 Google API 之前，您需要在 Google Cloud 项目中启用它们。
 
-- Google Cloud 콘솔에서 Google Generative Language API를 사용 설정합니다.
+- 在 Google Cloud 控制台中，启用 Google Generative Language API。
 
-  [API 사용 설정](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ko)
+  [启用 API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=zh-cn)
 
-### 2. OAuth 동의 화면 구성
+### 2. 配置 OAuth 权限请求页面
 
-다음으로 프로젝트의 OAuth 동의 화면을 구성하고 자신을 테스트 사용자로 추가합니다. Cloud 프로젝트에서 이 단계를 이미 완료했다면 다음 섹션으로 건너뛰세요.
+接下来，配置项目的 OAuth 权限请求页面，并将自己添加为测试用户。如果您已为 Cloud 项目完成此步骤，请跳至下一部分。
 
-1. Google Cloud 콘솔에서 **메뉴** > **Google 인증 플랫폼** > **개요** 로 이동합니다.
+1. 在 Google Cloud 控制台中，依次前往**菜单** > **Google Auth 平台** > **概览**。
 
-   [Google 인증 플랫폼으로 이동](https://console.developers.google.com/auth/overview?hl=ko)
-2. 프로젝트 구성 양식을 작성하고 **잠재고객** 섹션에서 사용자 유형을 **외부** 로 설정합니다.
-3. 양식의 나머지 부분을 작성하고 사용자 데이터 정책 약관에 동의한 후 **만들기** 를 클릭합니다.
-4. 지금은 범위를 추가하지 않아도 되며 **저장하고 계속하기** 를 클릭합니다. 나중에 Google Workspace 조직 외부에서 사용할 앱을 만들 때는 앱에 필요한 승인 범위를 추가하고 확인해야 합니다.
-5. 테스트 사용자 추가:
+   [前往 Google Auth Platform](https://console.developers.google.com/auth/overview?hl=zh-cn)
+2. 填写项目配置表单，并在**受众群体**部分将用户类型设置为**外部**。
+3. 完成表单的其余部分，接受《用户数据政策》条款，然后点击**创建**。
+4. 目前，您可以跳过添加范围的步骤，然后点击**保存并继续**。未来，当您创建供 Google Workspace 组织外部使用的应用时，必须添加并验证应用所需的授权范围。
+5. 添加测试用户：
 
-   1. Google 인증 플랫폼의
-      [잠재고객 페이지](https://console.developers.google.com/auth/audience?hl=ko)로 이동합니다.
-   2. \*\***테스트 사용자**\*\* 에서 \*\***사용자 추가**\*\* 를 클릭합니다.
-   3. 이메일 주소와 기타 승인된 테스트 사용자를 입력한 후 **저장** 을 클릭합니다.
+   1. 前往 Google Auth 平台的[受众群体页面](https://console.developers.google.com/auth/audience?hl=zh-cn)。
+   2. 在**测试用户**下，点击**添加用户**。
+   3. 输入您的电子邮件地址和任何其他已获授权的测试用户，然后点击**保存**。
 
-### 3. 데스크톱 애플리케이션의 사용자 인증 정보 승인
+### 3. 为桌面应用授权凭据
 
-최종 사용자로 인증하고 앱에서 사용자 데이터에 액세스하려면 OAuth 2.0 클라이언트 ID를 하나 이상 만들어야 합니다. 클라이언트 ID는 Google OAuth 서버에서 단일 앱을 식별하는 데 사용됩니다. 앱이 여러 플랫폼에서 실행되는 경우 각 플랫폼에 대해 별도의 클라이언트 ID를 만들어야 합니다.
+如需以最终用户身份进行身份验证并访问应用中的用户数据，您需要创建一个或多个 OAuth 2.0 客户端 ID。客户端 ID 用于向 Google 的 OAuth 服务器标识单个应用。如果您的应用在多个平台上运行，您必须为每个平台分别创建客户端 ID。
 
-1. Google Cloud 콘솔에서 **메뉴** > **Google 인증 플랫폼** > **클라이언트** 로 이동합니다.
+1. 在 Google Cloud 控制台中，依次前往**菜单** > **Google Auth Platform** > **客户端**。
 
-   [사용자 인증 정보로 이동](https://console.developers.google.com/auth/clients?hl=ko)
-2. **클라이언트 만들기** 를 클릭합니다.
-3. **애플리케이션 유형** > **데스크톱 앱** 을 클릭합니다.
-4. **이름** 필드에 사용자 인증 정보의 이름을 입력합니다. 이 이름은 Google Cloud 콘솔에만 표시됩니다.
-5. **만들기** 를 클릭합니다. OAuth 클라이언트 생성됨 화면이 표시되고 여기에 새 클라이언트 ID와 클라이언트 보안 비밀번호가 표시됩니다.
-6. **확인** 을 클릭합니다. 새로 만든 사용자 인증 정보가 **OAuth 2.0 클라이언트 ID** 아래에 표시됩니다.
-7. 다운로드 버튼을 클릭하여 JSON 파일을 저장합니다.
-   `client_secret_<identifier>.json`으로 저장되고 이름을 `client_secret.json`
-   으로 바꾼 후 작업 디렉터리로 이동합니다.
+   [进入“凭据”页面](https://console.developers.google.com/auth/clients?hl=zh-cn)
+2. 点击**创建客户端**。
+3. 依次点击**应用类型** > **桌面应用**。
+4. 在**名称**字段中，输入凭据的名称。此名称仅在 Google Cloud 控制台中显示。
+5. 点击**创建**。此时会显示“OAuth 客户端已创建”界面，其中显示您的新客户端 ID 和客户端密钥。
+6. 点击**确定**。新创建的凭证会显示在 **OAuth 2.0 客户端 ID** 下。
+7. 点击下载按钮以保存 JSON 文件。它将保存为 `client_secret_<identifier>.json`，然后将其重命名为 `client_secret.json` 并移至您的工作目录。
 
-## 애플리케이션 기본 사용자 인증 정보 설정
+## 设置应用默认凭证
 
-`client_secret.json` 파일을 사용 가능한 사용자 인증 정보로 변환하려면 해당 위치를 `gcloud auth application-default login` 명령어의 `--client-id-file` 인수에 전달합니다.
+如需将 `client_secret.json` 文件转换为可用的凭据，请将该文件的位置传递给 `gcloud auth application-default login` 命令的 `--client-id-file` 实参。
 
 ```
 gcloud auth application-default login \
@@ -92,10 +87,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-이 가이드의 간소화된 프로젝트 설정은 **"Google에서
-이 앱을 확인하지 않았습니다."** 대화상자를 트리거합니다. 이는 정상적인 현상이므로 **"계속"**을 선택합니다.
+本教程中简化的项目设置会触发**“Google 尚未验证此应用”**对话框。这是正常现象，请选择**“继续”**。
 
-이렇게 하면 결과 토큰이 잘 알려진 위치에 배치되므로 `gcloud` 또는 클라이언트 라이브러리에서 액세스할 수 있습니다.
+这会将生成的令牌放置在已知位置，以便 `gcloud` 或客户端库可以访问该令牌。
 
 ```` ```
 gcloud auth application-default login   
@@ -106,11 +100,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-애플리케이션 기본 사용자 인증 정보 (ADC)를 설정하면 대부분의 언어에서 클라이언트 라이브러리가 이를 찾는 데 최소한의 도움만 필요하거나 도움이 전혀 필요하지 않습니다.
+设置应用默认凭证 (ADC) 后，大多数语言的客户端库只需极少的帮助或无需任何帮助即可找到这些凭证。
 
 ### Curl
 
-이 기능이 작동하는지 테스트하는 가장 빠른 방법은 curl을 사용하여 REST API에 액세스하는 것입니다.
+测试此功能是否正常运行的最快方法是使用它通过 curl 访问 REST API：
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -123,13 +117,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Python에서 클라이언트 라이브러리는 자동으로 이를 찾아야 합니다.
+在 Python 中，客户端库应会自动找到这些凭据：
 
 ```
 pip install google-genai
 ```
 
-테스트를 위한 최소 스크립트는 다음과 같습니다.
+用于测试它的最简脚本可能如下所示：
 
 ```
 from google import genai
@@ -138,24 +132,24 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## 사용자 인증 정보 직접 관리 [Python]
+## 自行管理凭据 [Python]
 
-대부분의 경우 클라이언트 ID (`client_secret.json`)에서 액세스 토큰을 만드는 데 사용할 수 있는 `gcloud` 명령어가 없습니다. Google은 앱 내에서 이 프로세스를 관리할 수 있도록 여러 언어로 라이브러리를 제공합니다. 이 섹션에서는 Python에서 이 프로세스를 보여줍니다. 이러한 절차와 동일한 예는 [Drive API 문서](https://developers.google.com/drive/api/quickstart/python?hl=ko)에서 다른 언어로 제공됩니다.
+在许多情况下，您无法使用 `gcloud` 命令从客户端 ID (`client_secret.json`) 创建访问令牌。Google 提供了多种语言的库，可让您在应用内管理该流程。本部分将以 Python 为例演示该流程。[Drive API 文档](https://developers.google.com/drive/api/quickstart/python?hl=zh-cn)中提供了其他语言的类似过程示例
 
-### 1. 필요한 라이브러리 설치
+### 1. 安装必要的库
 
-Python용 Google 클라이언트 라이브러리와 Gemini 클라이언트 라이브러리를 설치합니다.
+安装 Python 版 Google 客户端库和 Gemini 客户端库。
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. 사용자 인증 정보 관리자 작성
+### 2. 编写凭据管理器
 
-승인 화면을 클릭해야 하는 횟수를 최소화하려면 작업 디렉터리에 `load_creds.py`라는 파일을 만들어 나중에 재사용하거나 만료된 경우 새로고침할 수 있는 `token.json` 파일을 캐시합니다.
+为了尽量减少您必须点击授权屏幕的次数，请在工作目录中创建一个名为 `load_creds.py` 的文件，以缓存 `token.json` 文件，以便稍后重复使用，或者在过期时刷新。
 
-다음 코드로 시작하여 `client_secret.json` 파일을 `genai.configure`에서 사용할 수 있는 토큰으로 변환합니다.
+首先使用以下代码将 `client_secret.json` 文件转换为可与 `genai.configure` 搭配使用的令牌：
 
 ```
 import os.path
@@ -192,9 +186,9 @@ def load_creds():
     return creds
 ```
 
-### 3. 프로그램 작성
+### 3. 编写您的计划
 
-이제 `script.py`를 만듭니다.
+现在创建 `script.py`：
 
 ```
 import pprint
@@ -209,27 +203,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. 프로그램 실행
+### 4. 运行程序
 
-작업 디렉터리에서 다음 샘플을 실행합니다.
+在工作目录中，运行示例：
 
 ```
 python script.py
 ```
 
-스크립트를 처음 실행하면 브라우저 창이 열리고 액세스 권한을 부여하라는 메시지가 표시됩니다.
+首次运行脚本时，系统会打开一个浏览器窗口，并提示您授权访问。
 
-1. 아직 Google 계정에 로그인하지 않았으면 로그인하라는 메시지가 표시됩니다. 여러 계정에 로그인되어 있는 경우 **프로젝트를 구성할 때 '테스트 계정'으로 설정한 계정을 선택해야 합니다.**
-2. 승인 정보가 파일 시스템에 저장되므로 다음에 샘플 코드를 실행할 때는 승인하라는 메시지가 표시되지 않습니다.
+1. 如果您尚未登录 Google 账号，系统会提示您登录。如果您登录了多个账号，**请务必选择在配置项目时设置为“测试账号”的账号。**
+2. 授权信息存储在文件系统中，因此下次运行示例代码时，系统不会提示您进行授权。
 
-인증을 설정했습니다.
+您已成功设置身份验证。
 
-의견 보내기
+发送反馈
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-최종 업데이트: 2026-09-10(UTC)
+最后更新时间 (UTC)：2026-09-10。
 
-의견을 전달하고 싶나요?
+需要向我们提供更多信息？
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-10(UTC)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-10。"],[],[]]

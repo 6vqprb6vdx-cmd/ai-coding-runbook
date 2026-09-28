@@ -1,45 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-TW
-fetched_at: 2026-09-21T05:53:29.587461+00:00
-title: "\u4f7f\u7528\u5de5\u5177\u642d\u914d Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ja
+fetched_at: 2026-09-28T06:12:05.757743+00:00
+title: "Live API \u3067\u306e\u30c4\u30fc\u30eb\u306e\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-提供意見
+フィードバックを送信
 
-# 使用工具搭配 Live API
+# Live API でのツールの使用
 
-使用工具可讓 Live API 不只是對話，還能在現實世界中執行動作，並在維持即時連線的同時，擷取外部脈絡。
-您可以使用 Live API 定義工具，例如[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)和 [Google 搜尋](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)。
+ツールを使用すると、Live API は会話だけでなく、リアルタイム接続を維持しながら現実世界でアクションを実行したり、外部コンテキストを取得したりできます。
+Live API を使用して、[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)
+や [Google 検索](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)などのツールを定義できます。
 
-## 支援的工具總覽
+## サポートされているツールの概要
 
-以下簡要介紹 Live API 模型可用的工具：
+Live API モデルで使用できるツールについて簡単に説明します。
 
-| 工具 | Gemini 3.1 Flash Live 預先發布版 | Gemini 2.5 Flash Live Preview |
+| ツール | Gemini 3.1 Flash Live プレビュー | Gemini 2.5 Flash Live プレビュー |
 | --- | --- | --- |
-| **搜尋** | 支援 | 支援 |
-| **函式呼叫** | 支援 (僅限同步) | 支援 (同步和[非同步](#async-function-calling)) |
-| **Google 地圖** | 不支援 | 不支援 |
-| **執行程式碼** | 不支援 | 不支援 |
-| **網址內容** | 不支援 | 不支援 |
+| **検索** | サポート対象 | サポート対象 |
+| **関数呼び出し** | サポート対象（同期のみ） | サポート対象（同期と[非同期](#async-function-calling)） |
+| **Google マップ** | サポート対象外 | サポート対象外 |
+| **コード実行** | サポート対象外 | サポート対象外 |
+| **URL コンテキスト** | サポート対象外 | サポート対象外 |
 
-## 函式呼叫
+## 関数呼び出し
 
-Live API 支援函式呼叫，就像一般內容生成要求一樣。透過函式呼叫，Live API 可以與外部資料和程式互動，大幅提升應用程式的功能。
+Live API は、通常のコンテンツ生成リクエストと同様に、関数呼び出しをサポートしています。関数呼び出しを使用すると、Live API は外部データやプログラムとやり取りできるため、アプリケーションでできることが大幅に増えます。
 
-您可以在工作階段設定中定義函式宣告。收到工具呼叫後，用戶端應使用 `session.send_tool_response` 方法，以 `FunctionResponse` 物件清單回應。
+関数宣言は、セッション構成の一部として定義できます。
+ツール呼び出しを受信したら、クライアントは `session.send_tool_response` メソッドを使用して、`FunctionResponse` オブジェクトのリストをレスポンスで返す必要があります。
 
-詳情請參閱[函式呼叫教學課程](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+詳しくは、[関数呼び出しのチュートリアル](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)をご覧ください
+。
 
 ### Python
 
@@ -216,13 +219,14 @@ async function main() {
 main();
 ```
 
-模型可以從單一提示生成多個函式呼叫，以及串連輸出內容所需的程式碼。這段程式碼會在沙箱環境中執行，產生後續的 [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontenttoolcall) 訊息。
+モデルは、単一のプロンプトから複数の関数呼び出しと、出力の連結に必要なコードを生成できます。このコードはサンドボックス
+環境で実行され、後続の [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=ja#bidigeneratecontenttoolcall) メッセージを生成します。
 
-## 非同步函式呼叫
+## 非同期関数呼び出し
 
-根據預設，函式呼叫會依序執行，也就是說，執行作業會暫停，直到每個函式呼叫的結果都可用為止。這可確保系統依序處理函式，也就是說，函式執行期間，您無法繼續與模型互動。
+関数呼び出しはデフォルトで順番に実行されます。つまり、各関数呼び出しの結果が表示されるまで実行は停止します。これにより、順番どおりに処理が行われます。つまり、関数が実行されている間はモデルとのやり取りを続行できません。
 
-如果不想封鎖對話，可以要求模型非同步執行函式。如要這麼做，請先在函式定義中新增 `behavior`：
+会話をブロックしたくない場合は、関数を非同期で実行するようにモデルに指示できます。そのためには、まず関数定義に `behavior` を追加する必要があります。
 
 ### Python
 
@@ -246,14 +250,16 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` 可確保函式以非同步方式執行，同時您可繼續與模型互動。
+`NON-BLOCKING` を指定すると、関数は非同期で実行され、モデルとのやり取りを続行できます。
 
-接著，您需要使用 `scheduling` 參數，告知模型收到 `FunctionResponse` 時的行為。你可以選擇：
+次に、`scheduling` パラメータを使用して、`FunctionResponse` を受信したときのモデルの動作をモデルに伝える必要があります。次のいずれかになります。
 
-- 中斷目前執行的動作，並立即告知你收到的回覆 (`scheduling="INTERRUPT"`)，
-- 請等待裝置完成目前執行的作業 (`scheduling="WHEN_IDLE"`)，
-- 或者，您也可以不採取任何行動，稍後在討論中使用該知識
-  (`scheduling="SILENT"`)
+- 実行中の処理を中断して、取得したレスポンスをすぐに通知する
+  (`scheduling="INTERRUPT"`)
+- 現在実行中の処理が完了するまで待つ
+  (`scheduling="WHEN_IDLE"`)
+- 何もせず、その知識を後でディスカッションで使用する
+  （`scheduling="SILENT"`）
 
 ### Python
 
@@ -285,9 +291,10 @@ const functionResponse = {
 }
 ```
 
-## 以 Google 搜尋建立基準
+## Google 検索によるグラウンディング
 
-您可以在工作階段設定中啟用「以 Google 搜尋強化事實基礎」。這可提高 Live API 的準確度，並避免產生幻覺。詳情請參閱[基礎教學課程](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)。
+セッション構成の一部として、Google 検索によるグラウンディングを有効にできます。これにより、Live API の精度が向上し、ハルシネーションを防ぐことができます。詳しくは、[グラウンディングのチュートリアル](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)を
+ご覧ください。
 
 ### Python
 
@@ -446,9 +453,9 @@ async function main() {
 main();
 ```
 
-## 結合多項工具
+## 複数のツールを組み合わせる
 
-您可以在 Live API 中結合多種工具，進一步提升應用程式的功能：
+Live API 内で複数のツールを組み合わせることで、アプリケーションの機能をさらに強化できます。
 
 ### Python
 
@@ -496,17 +503,19 @@ const config = {
 // ... remaining model call
 ```
 
-## 後續步驟
+## 次のステップ
 
-- 如要查看更多搭配 Live API 使用工具的範例，請參閱[工具使用食譜](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=zh-tw)。
-- 如要瞭解功能和設定的完整資訊，請參閱[即時 API 功能指南](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw)。
+- Live API でツールを使用するその他の例については、
+  [ツールの使用方法のクックブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ja)をご覧ください。
+- 機能と構成の詳細については、
+  [Live API の機能ガイド](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja)をご覧ください。
 
-提供意見
+フィードバックを送信
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-上次更新時間：2026-09-17 (世界標準時間)。
+最終更新日 2026-09-17 UTC。
 
-想進一步說明嗎？
+ご意見をお聞かせください
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-17 (世界標準時間)。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-17 UTC。"],[],[]]

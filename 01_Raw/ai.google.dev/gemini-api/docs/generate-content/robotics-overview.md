@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview?hl=ar
-fetched_at: 2026-09-21T05:55:59.204992+00:00
+fetched_at: 2026-09-28T06:16:35.721144+00:00
 title: "Gemini Robotics ER \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

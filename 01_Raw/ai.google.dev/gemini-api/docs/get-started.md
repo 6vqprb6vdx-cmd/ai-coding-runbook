@@ -1,66 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=es-419
-fetched_at: 2026-09-21T05:43:23.135698+00:00
-title: "C\u00f3mo empezar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=pt-BR
+fetched_at: 2026-09-28T06:15:26.565623+00:00
+title: "Vamos come\u00e7ar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Enviar comentarios
+Envie comentários
 
-# Cómo empezar
+# Vamos começar
 
-En esta guía, se explica cómo comenzar a usar la API de Gemini con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419). Realizarás tu primera llamada a la API en menos de un minuto y explorarás la generación de texto, la comprensión multimodal, la generación de imágenes, el resultado estructurado, las herramientas, las llamadas a funciones, los agentes y la ejecución en segundo plano.
+Este guia ajuda você a começar a usar a API Gemini com a [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br). Você vai fazer sua primeira chamada de API em menos de um minuto e conhecer a geração de texto, a compreensão multimodal, a geração de imagens, a saída estruturada, as ferramentas, a chamada de função, os agentes e a execução em segundo plano.
 
-La API de Interactions está disponible a través de los SDKs de [Python](https://github.com/googleapis/python-genai) y [JavaScript](https://github.com/googleapis/js-genai), así como a través de REST.
+A API Interactions está disponível nos SDKs [Python](https://github.com/googleapis/python-genai) e [JavaScript](https://github.com/googleapis/js-genai), além de REST.
 
-## 1. Obtén una clave de API
+## 1. Gerar uma chave de API
 
-Para usar la API de Gemini, debes tener una clave de API para autenticar tus solicitudes, aplicar límites de seguridad y hacer un seguimiento del uso de tu cuenta.
+Para usar a API Gemini, você precisa ter uma chave de API para autenticar suas solicitações, aplicar limites de segurança e rastrear o uso na sua conta.
 
-- Google AI Studio crea automáticamente un proyecto y una clave de API para los usuarios nuevos.
-  Puedes copiarla desde la [página Claves de API](https://aistudio.google.com/api-keys?hl=es-419).
-- Si necesitas una clave nueva, haz clic en **Create API key** en AI Studio y sigue el diálogo para agregar un nuevo par proyecto-clave.
+- O Google AI Studio cria automaticamente um projeto e uma chave de API para novos usuários.
+  É possível copiar na [página de chaves de API](https://aistudio.google.com/api-keys?hl=pt-br).
+- Se você precisar de uma nova chave, clique em **Criar chave de API** no AI Studio e siga a caixa de diálogo para adicionar um novo par chave-projeto.
 
-[Crea una clave de la API de Gemini](https://aistudio.google.com/apikey?hl=es-419)
+[Criar uma chave da API Gemini](https://aistudio.google.com/apikey?hl=pt-br)
 
-Configura tu clave como una variable de entorno:
+Defina a chave como uma variável de ambiente:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### Actualiza al nivel pagado
+### Fazer upgrade para o nível pago
 
-Si actualizas a la versión pagada, aumentarán tus límites de frecuencia y deberás configurar la Facturación de Cloud.
+Ao fazer upgrade para o nível pago, você aumenta seus limites de taxa e precisa configurar o Cloud Billing.
 
-- Haz clic en **Configurar facturación** en las páginas [Claves de API](https://aistudio.google.com/api-keys?hl=es-419) o [Proyectos](https://aistudio.google.com/projects?hl=es-419) de AI Studio.
-- Sigue el diálogo de Facturación de Cloud para crear o vincular una cuenta de facturación, agregar una forma de pago y pagar por adelantado un mínimo de USD 5 (o el equivalente en la moneda local) en créditos pagados.
-- Consulta el uso de la API en [Google AI Studio](https://aistudio.google.com/usage?hl=es-419) en **Panel** > **Uso**.
+- Clique em **Configurar faturamento** nas páginas [Chaves de API](https://aistudio.google.com/api-keys?hl=pt-br) ou [Projetos](https://aistudio.google.com/projects?hl=pt-br) do AI Studio.
+- Siga a caixa de diálogo do Cloud Billing para criar ou vincular uma conta de faturamento, adicionar uma forma de pagamento e fazer um pré-pagamento de no mínimo US $5 (ou o equivalente na sua moeda local) em créditos pagos.
+- Confira o uso da API no [Google AI Studio](https://aistudio.google.com/usage?hl=pt-br) em **Painel** > **Uso**.
 
-Consulta la [página Facturación](https://ai.google.dev/gemini-api/docs/billing?hl=es-419) para obtener más información.
+Consulte a [página de faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br) para mais informações.
 
-## 2. Instala el SDK y haz tu primera llamada
+## 2. Instalar o SDK e fazer sua primeira chamada
 
-Instala el SDK y genera texto con una sola llamada a la API.
+Instale o SDK e gere texto com uma única chamada de API.
 
 ### Python
 
-Instala el SDK:
+Instale o SDK:
 
 ```
 pip install -U google-genai
 ```
 
-Inicializa el cliente y realiza una solicitud:
+Inicialize o cliente e faça uma solicitação:
 
 ```
 from google import genai
@@ -76,13 +76,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-Instala el SDK:
+Instale o SDK:
 
 ```
 npm install @google/genai
 ```
 
-Inicializa el cliente y realiza una solicitud:
+Inicialize o cliente e faça uma solicitação:
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -120,6 +120,44 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Explain how AI works in a few words."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -132,7 +170,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Respuesta:**
+**Resposta:**
 
 ```
 {
@@ -164,13 +202,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-Cuando se usa REST, la API devuelve el recurso `Interaction` completo que contiene metadatos, estadísticas de uso y el historial paso a paso del turno.
+Ao usar REST, a API retorna o recurso `Interaction` completo com metadados, estatísticas de uso e o histórico detalhado da interação.
 
-Si bien los SDKs exponen la respuesta completa, también proporcionan propiedades convenientes, como `interaction.output_text` y `interaction.output_image`, para acceder directamente a los resultados finales. Obtén más información sobre la estructura de la respuesta en la [visión general de las interacciones](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) o lee la [guía de generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419) para obtener detalles sobre las instrucciones del sistema y la configuración de generación.
+Embora os SDKs exponham a resposta completa, eles também oferecem propriedades convenientes, como `interaction.output_text` e `interaction.output_image`, para acessar os resultados finais diretamente. Saiba mais sobre a estrutura de resposta na [visão geral das interações](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) ou leia o [guia de geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br) para detalhes sobre instruções do sistema e configuração de geração.
 
-## 3. Transmite la respuesta
+## 3. Mostrar composição da resposta
 
-Para lograr interacciones más fluidas, transmite la respuesta a medida que se genera. Cada evento `step.delta` entrega un fragmento de texto que puedes mostrar de inmediato.
+Para interações mais fluidas, transmita a resposta à medida que ela é gerada. Cada evento `step.delta` entrega um trecho de texto que pode ser mostrado imediatamente.
 
 ### Python
 
@@ -237,6 +275,44 @@ try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Write a haiku about coding."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -251,9 +327,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-Cuando se transmite, el servidor responde con una transmisión de eventos enviados por el servidor (SSE). Cada evento incluye un tipo y datos JSON.
+Ao transmitir, o servidor responde com um fluxo de eventos enviados pelo servidor (SSE). Cada evento inclui um tipo e dados JSON.
 
-**Respuesta:**
+**Resposta:**
 
 ```
 event: interaction.created
@@ -284,18 +360,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-Para obtener una descripción detallada del manejo de eventos de transmisión y tipos de delta, consulta la [guía de interacciones de transmisión](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419).
+Para uma análise detalhada sobre como processar eventos de streaming e tipos delta, consulte o [guia de interações de streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=pt-br).
 
-## 4. Conversaciones de varios turnos
+## 4. Conversas com vários turnos
 
-La API de Interactions admite conversaciones de varios turnos con dos enfoques:
+A API Interactions é compatível com conversas multiturno de duas maneiras:
 
-- **Con estado (recomendado)**: Continúa una conversación en el servidor con `previous_interaction_id`. Ideal para la mayoría de los flujos de trabajo de chat y con agentes en los que deseas que el servidor administre el historial y optimice el almacenamiento en caché.
-- **Sin estado**: Administra el historial de conversaciones en el cliente pasando todos los turnos anteriores (incluidos los pasos intermedios de pensamiento del modelo y de herramientas) en cada solicitud.
+- **Com estado (recomendado)**: continue uma conversa no servidor usando `previous_interaction_id`. Ideal para a maioria dos fluxos de trabalho de chat e com agentes em que você quer que o servidor gerencie o histórico e otimize o armazenamento em cache.
+- **Sem estado**: gerencie o histórico de conversas no cliente transmitindo todas as interações anteriores (incluindo o raciocínio do modelo intermediário e as etapas da ferramenta) em cada solicitação.
 
-### Con estado (recomendado)
+### Com estado (recomendado)
 
-Encadena interacciones pasando `previous_interaction_id`. El servidor administra el historial de conversaciones completo por ti.
+Encadeie interações transmitindo `previous_interaction_id`. O servidor gerencia todo o histórico de conversas para você.
 
 ### Python
 
@@ -376,6 +452,55 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:  interactions.Model("gemini-3.8-flash"),
+            Input:  interactions.NewInteractionsInput("Explain quantum computing in simple terms."),
+            Stream: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    stream := res.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -400,9 +525,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Sin estado
+### Sem estado
 
-Establece `store=false` y administra el historial de conversaciones en el cliente. Debes conservar y volver a enviar todos los pasos generados por el modelo (incluidos los pasos `thought` y `function_call`) exactamente como los recibiste.
+Defina `store=false` e gerencie o histórico de conversas no lado do cliente. Você precisa preservar e reenviar todas as etapas geradas pelo modelo (incluindo as etapas `thought` e `function_call`) exatamente como foram recebidas.
 
 ### Python
 
@@ -531,6 +656,59 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // 1. First turn
+    res1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Hi, my name is Alex."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res1.Interaction.OutputText != nil {
+        fmt.Println(*res1.Interaction.OutputText)
+    }
+
+    // 2. Second turn (passing PreviousInteractionID)
+    res2, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:                 interactions.Model("gemini-3.8-flash"),
+            Input:                 interactions.NewInteractionsInput("What's my name?"),
+            PreviousInteractionID: res1.Interaction.ID,
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res2.Interaction.OutputText != nil {
+        fmt.Println(*res2.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -568,7 +746,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**Respuesta:**
+**Resposta:**
 
 ```
 {
@@ -595,11 +773,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-La segunda interacción devuelve un objeto de respuesta completo que incluye solo los pasos nuevos, pero se basa en el contexto del turno anterior. Obtén más información para mantener el estado en la [guía de conversaciones de varios turnos](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#multi-turn-conversations) o explora el [modo sin estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#stateless-conversations) para la administración del historial del cliente.
+A segunda interação retorna um objeto de resposta completo que inclui apenas as novas etapas, mas se baseia no contexto do turno anterior. Saiba como manter o estado no [guia de conversas multiturno](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#multi-turn-conversations) ou confira o [modo sem estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#stateless-conversations) para gerenciamento de histórico do lado do cliente.
 
-## 5. Comprensión multimodal
+## 5. Compreensão multimodal
 
-Los modelos de Gemini comprenden imágenes, audio, video y documentos de forma nativa. Pasa contenido multimedia junto con texto en una sola solicitud.
+Os modelos do Gemini entendem imagens, áudio, vídeo e documentos de forma nativa. Transmita mídia e texto em uma única solicitação.
 
 ### Python
 
@@ -713,6 +891,60 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    imageBytes, err := os.ReadFile("path/to/organ.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Image := base64.StdEncoding.EncodeToString(imageBytes)
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: "What is in this image?",
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    Data:     genai.Ptr(base64Image),
+                    MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -740,7 +972,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**Respuesta:**
+**Resposta:**
 
 ```
 {
@@ -765,27 +997,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-Explora cómo pasar imágenes, videos y archivos de audio en la [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
+Saiba como transmitir imagens, vídeos e arquivos de áudio no [guia de compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br).
 
 [hearing
 
-Comprensión de audio
+Compreensão de áudio
 
-Transcribir, resumir o responder preguntas sobre archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
+Transcrever, resumir ou responder a perguntas sobre arquivos de áudio.](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br)
 [videocam
 
-Comprensión de videos
+Compreensão de vídeo
 
-Analiza el contenido de video, ubica eventos y describe acciones.](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419)
+Analisar conteúdo de vídeo, localizar eventos e descrever ações.](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br)
 [description
 
-Procesamiento de documentos
+Processamento de documentos
 
-Extrae información de archivos PDF y otros formatos de documentos.](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419)
+Extrair informações de PDFs e outros formatos de documento.](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br)
 
-## 6. Generación multimodal
+## 6. Geração multimodal
 
-Gemini puede generar imágenes de forma nativa con los modelos de imágenes de [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419).
+O Gemini pode gerar imagens de forma nativa usando os modelos de imagem [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br).
 
 ### Python
 
@@ -858,6 +1090,87 @@ if (interaction.outputImage().isPresent()) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    weatherTool := interactions.NewTool(interactions.Function{
+        Name:        genai.Ptr("get_current_weather"),
+        Description: genai.Ptr("Gets the current weather for a given location."),
+        Parameters: map[string]any{
+            "type": "object",
+            "properties": map[string]any{
+                "location": map[string]any{
+                    "type":        "string",
+                    "description": "The city and state, e.g. San Francisco, CA",
+                },
+            },
+            "required": []string{"location"},
+        },
+    })
+
+    // 1. Send prompt with tool declaration
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("What is the weather like in Boston?"),
+            Tools: []interactions.Tool{weatherTool},
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // 2. Check if the model requested a function call
+    for _, step := range res.Interaction.Steps {
+        if call := step.FunctionCallStep; call != nil {
+            fmt.Printf("Function to call: %s\n", call.Name)
+            fmt.Printf("Arguments: %v\n", call.Arguments)
+
+            // 3. Execute your local function and send the result back
+            finalRes, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+                Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+                    Model:                 interactions.Model("gemini-3.8-flash"),
+                    PreviousInteractionID: res.Interaction.ID,
+                    Input: interactions.NewInteractionsInput([]interactions.Step{
+                        interactions.NewStep(interactions.FunctionResultStep{
+                            Name:   genai.Ptr(call.Name),
+                            CallID: call.ID,
+                            Result: interactions.NewFunctionResultStepResultUnion(`{"temperature": "72F", "condition": "Sunny"}`),
+                        }),
+                    }),
+                }),
+            })
+            if err != nil {
+                log.Fatal(err)
+            }
+
+            if finalRes.Interaction.OutputText != nil {
+                fmt.Println(*finalRes.Interaction.OutputText)
+            }
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -872,7 +1185,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**Respuesta:**
+**Resposta:**
 
 ```
 {
@@ -895,22 +1208,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-Cuando el modelo genera una imagen, devuelve los datos de la imagen codificados en base64 en un paso dentro del array `steps`, así como a través de la propiedad de conveniencia `output_image`. Consulta la [guía de generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) para obtener información sobre las relaciones de aspecto, la edición de imágenes y las referencias.
+Quando o modelo gera uma imagem, ele retorna os dados de imagem codificados em base64 em uma etapa na matriz `steps` e também pela propriedade de conveniência `output_image`. Confira o [guia de geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br) para saber mais sobre proporções, edição de imagens e referências.
 
 [record\_voice\_over
 
-Generación de voz
+Geração de fala
 
-Genera una voz expresiva con varios oradores con Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)
+Gere falas expressivas com vários locutores usando o Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pt-br)
 [music\_note
 
-Generación de música
+Geração de música
 
-Crea clips y canciones completas con Lyria 3.5.](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419)
+Crie clipes e músicas completas com o Lyria 3.5.](https://ai.google.dev/gemini-api/docs/music-generation?hl=pt-br)
 
-## 7. Usa resultados estructurados
+## 7. Usar saída estruturada
 
-Configura el modelo para que devuelva un objeto JSON que coincida con un esquema que definas. Los resultados estructurados funcionan con [Pydantic](https://docs.pydantic.dev/latest/) (Python) y [Zod](https://zod.dev/) (JavaScript).
+Configure o modelo para retornar um JSON que corresponda a um esquema definido por você. A saída estruturada funciona com [Pydantic](https://docs.pydantic.dev/latest/) (Python) e [Zod](https://zod.dev/) (JavaScript).
 
 ### Python
 
@@ -1046,6 +1359,71 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Who won the latest Super Bowl and what was the score?"),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.GoogleSearch{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+
+    // Optional: Inspect search queries and citations
+    for _, step := range res.Interaction.Steps {
+        if searchCall := step.GoogleSearchCallStep; searchCall != nil {
+            fmt.Printf("Search queries: %v\n", searchCall.Arguments.Queries)
+        } else if modelOut := step.ModelOutputStep; modelOut != nil {
+            for _, part := range modelOut.Content {
+                if textPart := part.TextContent; textPart != nil {
+                    for _, annotation := range textPart.Annotations {
+                        if citation := annotation.URLCitation; citation != nil {
+                            var title, url string
+                            if citation.Title != nil {
+                                title = *citation.Title
+                            }
+                            if citation.URL != nil {
+                                url = *citation.URL
+                            }
+                            fmt.Printf("Source: %s (%s)\n", title, url)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1078,7 +1456,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Respuesta:**
+**Resposta:**
 
 ```
 {
@@ -1100,11 +1478,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-El bloque de texto de salida contiene una cadena JSON válida que se ajusta exactamente al esquema solicitado. Para obtener información sobre cómo definir estructuras más complejas y esquemas recursivos, consulta la [guía de resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419).
+O bloco de texto de saída contém uma string JSON válida que está exatamente de acordo com o esquema solicitado. Para saber como definir estruturas mais complexas e esquemas recursivos, consulte o [guia de saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
 
-## 8. Usar herramientas
+## 8. Usar ferramentas
 
-Fundamentar la respuesta del modelo en información en tiempo real con la Búsqueda de Google La API busca, procesa los resultados y devuelve las citas automáticamente.
+Baseie a resposta do modelo em informações em tempo real com a Pesquisa Google. A API pesquisa, processa resultados e retorna citações automaticamente.
 
 ### Python
 
@@ -1214,6 +1592,55 @@ for (Step step : interaction.steps().orElse(Collections.emptyList())) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Calculate the 20th Fibonacci number and verify if it is prime."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.CodeExecution{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, step := range res.Interaction.Steps {
+        if codeCall := step.CodeExecutionCallStep; codeCall != nil {
+            fmt.Printf("Generated Code:\n%s\n", codeCall.Arguments.Code)
+        } else if codeRes := step.CodeExecutionResultStep; codeRes != nil {
+            fmt.Printf("Execution Output:\n%s\n", codeRes.Result)
+        }
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1227,7 +1654,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Respuesta:**
+**Resposta:**
 
 ```
 {
@@ -1277,41 +1704,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-Los pasos de la búsqueda se detallan en el historial de interacciones, y el resultado final incluye citas intercaladas que apuntan a fuentes web.
+As etapas de pesquisa são detalhadas no histórico de interações, e a saída final inclui citações inline que apontam para fontes da Web.
 
-Puedes aprender a extraer citas de la búsqueda en la [guía de fundamentación de la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) o ver cómo combinar varias herramientas en la [guía de combinación de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
+Saiba como extrair citações de pesquisa no [guia de embasamento da Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) ou como combinar várias ferramentas no [guia de combinação de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
 
 [code
 
-Ejecución de código
+Execução de código
 
-Ejecuta código de Python en un entorno de zona de pruebas seguro de Borg.](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)
+Executar código Python em um ambiente Borg seguro em sandbox.](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br)
 [link
 
 Contexto de URL
 
-Pasa URLs web públicas directamente para fundamentar las respuestas en el contenido de las páginas web.](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)
+Transmita URLs públicos da Web diretamente para embasar respostas no conteúdo da página da Web.](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br)
 [search
 
-Búsqueda de archivos
+Pesquisa de arquivos
 
-Indexa y busca en los documentos y archivos multimedia subidos.](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)
+Indexar e pesquisar documentos e arquivos de mídia enviados.](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br)
 [map
 
 Google Maps
 
-Fundamentar las respuestas en datos geoespaciales y de ubicación del mundo real](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)
+Respostas empíricas em dados geoespaciais e de localização do mundo real.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br)
 [computer
 
-Uso de la computadora
+Uso do computador
 
-Automatización del navegador e interacción con la pantalla](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419)
+Automação de navegador e interação com a tela.](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br)
 
-## 9. Llama a tus propias funciones
+## 9. Chamar suas próprias funções
 
-La llamada a funciones te permite conectar el modelo a tu código. Declaras el nombre y los parámetros de una función, el modelo decide cuándo llamarla y devuelve argumentos estructurados, y tú la ejecutas de forma local y envías el resultado.
+Com a chamada de função, é possível conectar o modelo ao seu código. Você declara o nome e os parâmetros de uma função, o modelo decide quando chamar e retorna argumentos estruturados, e você executa localmente e envia o resultado de volta.
 
-### Con estado (recomendado)
+### Com estado (recomendado)
 
 ### Python
 
@@ -1528,6 +1955,69 @@ while (true) {
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Turn 1: Create a CSV file in the sandbox
+    turn1, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Write a Python script to save a CSV file 'sales.csv' with 5 rows of sample data."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.CodeExecution{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    var env *interactions.CreateModelInteractionEnvironment
+    if turn1.Interaction.EnvironmentID != nil {
+        env = genai.Ptr(interactions.NewCreateModelInteractionEnvironment(*turn1.Interaction.EnvironmentID))
+    }
+
+    // Turn 2: Reuse the sandbox environment to analyze the file created in Turn 1
+    turn2, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:                 interactions.Model("gemini-3.8-flash"),
+            PreviousInteractionID: turn1.Interaction.ID,
+            Environment:           env,
+            Input:                 interactions.NewInteractionsInput("Now read 'sales.csv' and compute the total revenue."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.CodeExecution{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if turn2.Interaction.OutputText != nil {
+        fmt.Println(*turn2.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1585,13 +2075,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Sin estado
+### Sem estado
 
-También puedes usar la llamada a funciones en modo sin estado administrando el historial de conversaciones del cliente y configurando `store=false`. En el modo sin estado, debes pasar el historial completo de la conversación en el campo `input` de cada solicitud posterior. Este historial debe incluir lo siguiente:
+Também é possível usar a chamada de função no modo sem estado gerenciando o histórico de conversas no lado do cliente e definindo `store=false`. No modo sem estado, é necessário transmitir todo o histórico da conversa no campo `input` de cada solicitação subsequente. Esse histórico precisa incluir:
 
-1. Es el paso `user_input` inicial.
-2. Todos los pasos generados por el modelo que se devolvieron en el turno 1 (incluidos los pasos `thought` y `function_call`) exactamente como se recibieron.
-3. El paso `function_result` que contiene el resultado de la función ejecutada.
+1. A etapa inicial `user_input`.
+2. Todas as etapas geradas pelo modelo retornadas na rodada 1 (incluindo as etapas `thought` e `function_call`) exatamente como foram recebidas.
+3. A etapa `function_result` que contém a saída da função executada.
 
 ### Python
 
@@ -1821,6 +2311,63 @@ while (true) {
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    recipeSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "recipe_name":       map[string]any{"type": "string"},
+            "prep_time_minutes": map[string]any{"type": "integer"},
+            "ingredients": map[string]any{
+                "type":  "array",
+                "items": map[string]any{"type": "string"},
+            },
+        },
+        "required": []string{"recipe_name", "prep_time_minutes", "ingredients"},
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Give me a quick recipe for chocolate chip cookies."),
+            ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
+                interactions.NewResponseFormat(interactions.TextResponseFormat{
+                    MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+                    Schema:   recipeSchema,
+                }),
+            )),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -1892,9 +2439,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**Respuesta:**
+**Resposta:**
 
-Durante el turno 1, el modelo devuelve una respuesta con el estado `requires_action` y el paso `function_call`:
+Durante a primeira interação, o modelo retorna uma resposta com o status `requires_action` e a etapa `function_call`:
 
 ```
 {
@@ -1915,7 +2462,7 @@ Durante el turno 1, el modelo devuelve una respuesta con el estado `requires_act
 }
 ```
 
-Después de ejecutar la función de forma local y enviar el resultado (turno 2), se muestra la interacción final completada:
+Depois de executar a função localmente e enviar o resultado (Turno 2), a interação final concluída será retornada:
 
 ```
 {
@@ -1945,11 +2492,11 @@ Después de ejecutar la función de forma local y enviar el resultado (turno 2),
 }
 ```
 
-Para obtener información sobre las funciones avanzadas, como la llamada a función paralela o los modos de elección de funciones, consulta la [guía de llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
+Para recursos avançados, como chamada de função paralela ou modos de escolha de função, consulte o [guia de chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
 
-## 10. Ejecuta un agente administrado
+## 10. Executar um agente gerenciado
 
-Los agentes administrados se ejecutan en una zona de pruebas remota con acceso a herramientas como la ejecución de código y la administración de archivos. Pasa un `agent` en lugar de un `model` y establece `environment="remote"`.
+Os agentes gerenciados são executados em um sandbox remoto com acesso a ferramentas como execução de código e gerenciamento de arquivos. Transmita um `agent` em vez de um `model` e defina `environment="remote"`.
 
 ### Python
 
@@ -2010,6 +2557,59 @@ System.out.println("Environment: " + interaction.environmentId().orElse(""));
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-pro"),
+            Input: interactions.NewInteractionsInput("Solve this logic puzzle: Three gods A, B, and C are called True, False, and Random..."),
+            GenerationConfig: &interactions.GenerationConfig{
+                ThinkingLevel:     interactions.ThinkingLevelHigh.ToPointer(),
+                ThinkingSummaries: interactions.ThinkingSummariesAuto.ToPointer(),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Print thought summaries if returned
+    for _, step := range res.Interaction.Steps {
+        if thought := step.ThoughtStep; thought != nil {
+            for _, part := range thought.Summary {
+                if part.TextContent != nil {
+                    fmt.Printf("Thought Summary: %s\n", part.TextContent.Text)
+                }
+            }
+        }
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Printf("Answer: %s\n", *res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -2023,27 +2623,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-También puedes definir y guardar [agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419) con tus propias instrucciones, habilidades y fuentes de datos.
+Também é possível definir e salvar [agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pt-br) com suas próprias instruções, habilidades e fontes de dados.
 
 [rocket\_launch
 
-Guía de inicio rápido
+Guia de início rápido
 
-Haz tu primera llamada al agente, transmite respuestas y crea un agente personalizado.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419)
+Faça sua primeira chamada de agente, transmita respostas e crie um agente personalizado.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pt-br)
 [smart\_toy
 
-Agente de Antigravity
+Agente do Antigravity
 
-Funciones, herramientas, entrada multimodal y precios del agente predeterminado.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419)
+Recursos, ferramentas, entrada multimodal e preços do agente padrão.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br)
 [experiment
 
-Agentes en AI Studio
+Agentes no AI Studio
 
-Espacio de pruebas visual para crear prototipos de agentes sin escribir código.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=es-419)
+Playground visual para prototipagem de agentes sem escrever código.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=pt-br)
 
-## 11. Ejecutar tareas en segundo plano
+## 11. Executar tarefas em segundo plano
 
-Establece `background=True` para ejecutar tareas largas de forma asíncrona. Busca resultados con `interactions.get()`. Para obtener más detalles, consulta la [guía de ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
+Defina `background=True` para executar tarefas longas de forma assíncrona. Pesquise os resultados com `interactions.get()`. Para mais detalhes, consulte o [guia de execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br).
 
 ### Python
 
@@ -2150,6 +2750,67 @@ while (true) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Start a Deep Research agent in the background
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:      interactions.AgentOption("deep-research-pro-preview-12-2025"),
+            Input:      interactions.NewInteractionsInput("Research the competitive landscape of solid-state EV batteries in 2026."),
+            Background: genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    interaction := res.Interaction
+    fmt.Printf("Started research job: %s\n", *interaction.ID)
+
+    // Poll until completion
+    for interaction.Status != interactions.InteractionStatusCompleted && interaction.Status != interactions.InteractionStatusFailed {
+        time.Sleep(10 * time.Second)
+        getRes, err := client.Interactions.Get(ctx, operations.GetInteractionByIDRequest{
+            ID: *interaction.ID,
+        })
+        if err != nil {
+            log.Fatal(err)
+        }
+        interaction = getRes.Interaction
+        fmt.Printf("Current status: %s\n", interaction.Status)
+    }
+
+    if interaction.Status == interactions.InteractionStatusCompleted {
+        if interaction.OutputText != nil {
+            fmt.Println(*interaction.OutputText)
+        }
+    } else {
+        fmt.Printf("Research failed: %v\n", interaction.Errors)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -2184,9 +2845,9 @@ while true; do
 done
 ```
 
-**Respuesta:**
+**Resposta:**
 
-La respuesta inicial se muestra de inmediato con el estado `in_progress`:
+A resposta inicial retorna imediatamente com o status `in_progress`:
 
 ```
 {
@@ -2197,7 +2858,7 @@ La respuesta inicial se muestra de inmediato con el estado `in_progress`:
 }
 ```
 
-Una vez que la tarea en segundo plano se ejecute por completo, la verificación del estado de interacción devolverá lo siguiente:
+Quando a tarefa em segundo plano é totalmente executada, a verificação do estado da interação retorna:
 
 ```
 {
@@ -2219,27 +2880,27 @@ Una vez que la tarea en segundo plano se ejecute por completo, la verificación 
 }
 ```
 
-Lee sobre la ejecución asíncrona de modelos y agentes en la [guía de ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
+Leia sobre a execução assíncrona de modelos e agentes no [guia de execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br).
 
-## ¿Qué sigue?
+## A seguir
 
-- [Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419): Ejecuta tareas de larga duración de forma asíncrona y administra el estado.
-- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419): Instrucciones del sistema, configuración de generación y patrones de texto avanzados.
-- [Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419): Relaciones de aspecto, edición de imágenes y referencias de estilo
-- [Comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419): Clasificación, detección de objetos y preguntas y respuestas visuales.
-- [Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419): Usa el razonamiento de cadena de pensamiento para tareas complejas.
-- [Llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419): Modos de funciones paralelos, compositivos y restringidos
-- [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419): Fundamentación, citas y sugerencias de búsqueda
-- [Agentes administrados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Agentes prediseñados con ejecución de código y administración de archivos.
-- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419): Investigación autónoma de varios pasos con planificación y síntesis.
-- [Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419): Esquemas JSON, enumeraciones y definiciones de tipos recursivos.
+- [Execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br): execute tarefas de longa duração de forma assíncrona e gerencie o estado.
+- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br): instruções do sistema, configuração de geração e padrões de texto avançados.
+- [Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br): proporções, edição de imagens e referências de estilo.
+- [Compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br): classificação, detecção de objetos e perguntas e respostas visuais.
+- [Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br): use a linha de raciocínio para tarefas complexas.
+- [Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br): modos de função paralelos, de composição e restritos.
+- [Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br): embasamento, citações e sugestões de pesquisa.
+- [Agentes gerenciados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pt-br): agentes pré-criados com execução de código e gerenciamento de arquivos.
+- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br): pesquisa autônoma em várias etapas com planejamento e síntese.
+- [Saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br): esquemas JSON, enums e definições de tipo recursivas.
 
-Enviar comentarios
+Envie comentários
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última actualización: 2026-09-18 (UTC)
+Última atualização 2026-09-24 UTC.
 
-¿Quieres brindar más información?
+Quer enviar seu feedback?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-18 (UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-24 UTC."],[],[]]

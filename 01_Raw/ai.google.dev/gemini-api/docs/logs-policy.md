@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=pl
-fetched_at: 2026-09-21T05:44:22.084676+00:00
+fetched_at: 2026-09-28T06:07:23.284856+00:00
 title: "Logowanie i\u00a0udost\u0119pnianie danych \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

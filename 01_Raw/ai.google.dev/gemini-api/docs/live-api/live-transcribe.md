@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=de
-fetched_at: 2026-09-21T05:50:08.818515+00:00
-title: "Live-Transkription mit der Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=fr
+fetched_at: 2026-09-28T06:19:15.902451+00:00
+title: "Transcription en direct avec l'API Gemini\u00a0Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Feedback geben
+Envoyer des commentaires
 
-# Live-Transkription mit der Gemini Live API
+# Transcription en direct avec l'API Gemini Live
 
-Die Gemini Live API unterstützt die Echtzeit-Sprach-zu-Text-Transkription mit geringer Latenz mithilfe des Modells [`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=de). Wenn Sie über WebSockets eine Verbindung zur Live API herstellen oder das Google Gen AI SDK verwenden, können Sie kontinuierliche Audioeingaben streamen und inkrementelle Texttranskriptionen in Echtzeit erhalten, während gesprochen wird.
+L'API Gemini Live permet la transcription instantanée de la parole en texte à faible latence à l'aide du modèle [`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=fr). En vous connectant à l'API Live via des WebSockets ou en utilisant le SDK Google Gen AI, vous pouvez diffuser en continu des entrées audio et recevoir des transcriptions textuelles incrémentielles en temps réel au fur et à mesure que la parole est prononcée.
 
-[Live-Transkription in Google AI Studio ausprobierenmic](https://aistudio.google.com/live?model=gemini-3.5-transcribe-live&hl=de)
-[Colab-Cookbook öffnencode](https://github.com/google-gemini/cookbook)
-[Coding-Agent-Skills verwendenterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=de#gemini-live-api-dev)
+[Essayer la transcription en direct dans Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-transcribe-live&hl=fr)
+[Ouvrir le cookbook Colabcode](https://github.com/google-gemini/cookbook)
+[Utiliser les compétences de l'agent de programmationterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=fr#gemini-live-api-dev)
 
-Durch die Nutzung der Gemini Live API können Entwicklerplattformen wie [Agora](https://docs.agora.io/en/ai/models/asr/gemini), [Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration), [LiveKit](https://docs.livekit.io/agents/models/stt/gemini/), [Pipecat](https://docs.pipecat.ai/api-reference/server/services/stt/google), [Vercel](https://vercel.com/docs/ai-gateway/modalities/speech-to-text) und [Vision Agents](https://visionagents.ai/integrations/stt/gemini) ganz einfach leistungsstarke sprachgesteuerte Benutzeroberflächen erstellen und bereitstellen. Diese Plattformen verwalten im Hintergrund eine komplexe Infrastruktur für das Media-Streaming in Echtzeit, sodass sich Entwickler ganz auf die Gestaltung der Nutzererfahrung konzentrieren können.
+En tirant parti de l'API Gemini Live, les plates-formes de développement telles que [Agora](https://docs.agora.io/en/ai/models/asr/gemini), [Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration), [LiveKit](https://docs.livekit.io/agents/models/stt/gemini/), [Pipecat](https://docs.pipecat.ai/api-reference/server/services/stt/google), [Vercel](https://vercel.com/docs/ai-gateway/modalities/speech-to-text) et [Vision Agents](https://visionagents.ai/integrations/stt/gemini) permettent aux développeurs de créer et de déployer facilement des interfaces vocales hautes performances. Ces plates-formes gèrent en coulisses une infrastructure complexe de streaming multimédia en temps réel, ce qui permet aux développeurs de se concentrer entièrement sur la conception de l'expérience utilisateur.
 
-## Kundenservicemitarbeiter im Vergleich zur Live-Transkription
+## Agent réel ou transcription en direct
 
-Beide nutzen die bidirektionale Streamingverbindung der Live API, aber die automatische Transkription ist eine spezielle Spracherkennungspipeline mit niedriger Latenz und kein Konversations-Agent.
+Bien que les deux utilisent la connexion de streaming bidirectionnel de l'API Live, la transcription instantanée fonctionne comme un pipeline de reconnaissance vocale dédié à faible latence plutôt que comme un agent conversationnel.
 
-| Funktion | Frag den Kundenservice | Live-Transkription |
+| Fonctionnalité | Agent en direct | Transcription en direct |
 | --- | --- | --- |
-| **Primäre Rolle** | Ein konversationeller Assistent, der zuhört, nachdenkt und antwortet. | Echtzeit-Spracherkennungspipeline, die eingehende Audioinhalte transkribiert. |
-| **Antwortmodalität** | Gesprochene Audioinhalte und Text (`response_modalities=["AUDIO"]`). | Transkriptionen von Streamingtext (`response_modalities=["TEXT"]`) |
-| **Interaktionsstil** | Turn-basierter Dialog mit Pausenerkennung und Unterbrechungen. | Kontinuierliche Streamverarbeitung während des Sprechens. |
-| **Unterstützte Funktionen** | Funktionsaufrufe, Google Suche, Systemanweisungen. | Sprachbias (`custom_vocabulary`), Spracherkennung, manuelle und hybride VAD, Smart Transcription. |
-| **Eingabestream** | Multimodal: Audio, Video, Bilder, Text. | Audioeingabe (rohes 16‑Bit-PCM). |
+| **Rôle principal** | Assistant conversationnel qui écoute, réfléchit et répond. | Pipeline de reconnaissance vocale en temps réel qui transcrit l'audio entrant. |
+| **Modalité de réponse** | Texte et audio parlés (`response_modalities=["AUDIO"]`). | Transcriptions de texte en streaming (`response_modalities=["TEXT"]`) |
+| **Style d'interaction** | Dialogue au tour par tour avec détection des pauses et des interruptions. | Traitement continu du flux à mesure que l'orateur parle. |
+| **Fonctionnalités disponibles** | Appel de fonction, recherche Google, instructions système. | Pondération du langage (`custom_vocabulary`), détection de la langue, VAD manuelle et hybride, transcription intelligente. |
+| **Flux d'entrée** | Multimodal : audio, vidéo, images, texte. | Entrée audio (PCM 16 bits brut). |
 
-## Jetzt starten
+## Premiers pas
 
-Die folgenden Beispiele zeigen, wie Sie mit `gemini-3.5-transcribe-live` eine bidirektionale Streaming-Sitzung öffnen und Echtzeit-Transkriptionen empfangen.
+Les exemples suivants montrent comment ouvrir une session de streaming bidirectionnel avec `gemini-3.5-transcribe-live` et recevoir des transcriptions en temps réel.
 
 ### Python
 
@@ -144,14 +144,14 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Vorläufige und endgültige Transkriptionen
+## Transcriptions provisoires et définitives
 
-Wenn Audio in die Live API gestreamt wird, gibt der Server zwei sich ergänzende Transkriptionsfelder in `server_content` aus:
+Lorsque des flux audio sont transmis à l'API Live, le serveur émet deux champs de transcription complémentaires dans `server_content` :
 
-- **`interim_input_transcription`**: Spekulative Teilhypothesen mit geringer Latenz, die aktualisiert werden, während der Sprecher aktiv spricht. Diese Teilaktualisierungen erfolgen schnell und mit minimaler Verzögerung. Verwenden Sie `interim_input_transcription`, um responsive Live-Untertitel für die Benutzeroberfläche oder Vorschauuntertitel zu rendern.
-- **`input_transcription`**: Das endgültige Transkript, das ausgegeben wird, wenn der Sprecher pausiert, der Turn abgeschlossen ist oder die Sprache fertiggestellt ist. Sobald dieser Text ausgegeben wird, stellt er die maßgebliche Transkription des Modells für dieses Sprachsegment dar. Im Modus „Intelligente Transkription“ ist die bereinigte, formatierte Antwort enthalten.
+- **`interim_input_transcription`** : hypothèses partielles spéculatives à faible latence mises à jour pendant que l'orateur parle. Ces mises à jour partielles sont rapides et ne prennent que quelques instants. Utilisez `interim_input_transcription` pour afficher des sous-titres ou des aperçus de sous-titres responsifs dans l'UI en direct.
+- **`input_transcription`** : transcription finalisée émise lorsque l'orateur fait une pause, que le tour est terminé ou que la parole est finalisée. Une fois émis, ce texte représente la transcription faisant autorité du modèle pour ce segment de parole. En mode transcription intelligente, cela inclut la réponse nettoyée et mise en forme.
 
-Im folgenden Beispiel wird gezeigt, wie Sie Streaming-Zwischenergebnisse anzeigen und endgültige Transkripte übertragen:
+L'exemple suivant montre comment afficher les résultats partiels intermédiaires du flux et valider les transcriptions finales :
 
 ### Python
 
@@ -207,13 +207,13 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Audio senden
+## Envoi de l'audio
 
-Audio-Chunks als rohes 16‑Bit-PCM-Audio über die aktive Verbindung streamen.
+Diffusez des blocs audio sur la connexion active en tant qu'audio PCM 16 bits brut.
 
-- **Audioformat**:Rohes 16‑Bit-PCM mit 16 kHz (Mono, Little Endian).
-- **Blockgröße**:Senden Sie Audio in Blöcken von 100 ms (1.024 bis 2.048 Frames).
-- **MIME-Typ**:`audio/pcm;rate=16000` (oder die entsprechende Samplingrate).
+- **Format audio** : PCM 16 bits brut à 16 kHz (mono, little-endian).
+- **Taille des blocs** : envoyez l'audio par blocs de 100 ms (de 1 024 à 2 048 frames).
+- **Type MIME** : `audio/pcm;rate=16000` (ou la fréquence d'échantillonnage correspondante).
 
 ### Python
 
@@ -268,11 +268,11 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-## Transkriptionsfunktionen
+## Fonctionnalités de transcription
 
-### Automatische Spracherkennung
+### Détection automatique de la langue
 
-Wenn Sie `language_codes` weglassen oder `language_codes=[]` festlegen, wird die Sprache standardmäßig automatisch erkannt. Das Modell erkennt die gesprochene Sprache in Äußerungen dynamisch, auch bei mehrsprachigen Unterhaltungen und Sprachwechseln.
+Par défaut, si vous omettez `language_codes` ou définissez `language_codes=[]`, l'identification automatique de la langue est activée. Le modèle détecte de manière dynamique la langue parlée dans les énoncés, y compris les conversations multilingues et le changement de code.
 
 ### Python
 
@@ -313,9 +313,9 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Spezifischer Sprachhinweis
+### Indicateur de langue spécifique
 
-Geben Sie explizite BCP-47-Sprachcodes an (z. B. `["es-ES"]` für Spanisch oder `["fr-FR"]` für Französisch), um die Spracherkennung auf bestimmte Sprachen auszurichten (siehe [Unterstützte Sprachen](#supported-languages)).
+Fournissez des codes de langue BCP-47 explicites (par exemple, `["es-ES"]` pour l'espagnol ou `["fr-FR"]` pour le français) afin de favoriser la reconnaissance de langues spécifiques (voir [Langues acceptées](#supported-languages)).
 
 ### Python
 
@@ -356,9 +356,9 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Benutzerdefiniertes Vokabular
+### Pondération du vocabulaire personnalisé
 
-Geben Sie in `custom_vocabulary` eine Liste mit bis zu 1.000 Begriffen, Eigennamen, Markennamen oder Fachbegriffen an, um die Spracherkennung auf bestimmte Begriffe auszurichten. Die besten Ergebnisse werden in der Regel mit bis zu 100 Begriffen erzielt.
+Fournissez une liste de 1 000 expressions, noms propres, noms de marques ou termes techniques maximum dans `custom_vocabulary` pour orienter la reconnaissance vocale vers une terminologie spécifique (les meilleurs résultats sont généralement obtenus avec un maximum de 100 termes).
 
 ### Python
 
@@ -402,17 +402,17 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Intelligente Transkription
+### Transcription intelligente
 
-Konfigurieren Sie die Formatierung der Transkriptionsausgabe mit dem Parameter `mode` in `input_audio_transcription`:
+Configurez la mise en forme de la transcription à l'aide du paramètre `mode` dans `input_audio_transcription` :
 
-- **`VERBATIM` (Standard)**: Erstellt ein exaktes wörtliches Transkript von allem Gesprochenen, wobei Füllwörter („ähm“, „äh“, „wie“), Wiederholungen und Falschstarts beibehalten werden.
-- **`SMART` (Smart Transcribe)**: Das Transkript wird bereinigt und strukturiert, um die Lesbarkeit zu verbessern:
+- **`VERBATIM` (par défaut)** : produit une transcription littérale exacte de tout ce qui est dit, en conservant les mots de remplissage bruts ("euh", "hum", "genre"), les répétitions et les faux départs.
+- **`SMART` (Transcription intelligente)** : nettoie et structure la transcription pour la rendre plus lisible :
 
-  - **Entfernung von Unflüssigkeiten**: Füllwörter, Stottern und Fehlstarts werden entfernt.
-  - **Inline-Selbstkorrekturen**: Gesprochene Korrekturen werden auf natürliche Weise berücksichtigt.
-  - **Strukturierte Formatierung**: Listen, Aufzählungszeichen, Zahlen, Datumsangaben und Absatzumbrüche werden automatisch formatiert.
-  - **Grammatik und Groß-/Kleinschreibung**: Wendet natürliche Groß-/Kleinschreibung und Interpunktion an.
+  - **Suppression des hésitations** : supprime les mots de remplissage, les bégaiements et les faux départs.
+  - **Autocorrection en ligne** : corrige naturellement les erreurs de prononciation.
+  - **Mise en forme structurée** : met automatiquement en forme les listes, les puces, les nombres, les dates et les sauts de paragraphe.
+  - **Grammaire et casse** : applique une mise en forme naturelle des majuscules et de la ponctuation.
 
 ### Python
 
@@ -453,20 +453,20 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-## Strategien zur Erkennung von Sprachaktivitäten (Voice Activity Detection, VAD)
+## Stratégies de détection de l'activité vocale (VAD)
 
-### Automatische VAD (Standard)
+### Détection automatique de l'activité vocale (par défaut)
 
-Standardmäßig wird serverseitig automatisch erkannt, wann ein Sprecher zu sprechen beginnt und aufhört.
+Par défaut, la détection automatique de l'activité vocale côté serveur détecte quand un locuteur commence et arrête de parler.
 
-### Hybrid-VAD
+### VAD hybride
 
-[Hybrid-VAD](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de#hybrid-vad) kombiniert die serverseitige automatische Erkennung des Sprechbeginns mit der clientseitigen Erkennung des Sprechendes für die latenzfreie Finalisierung von Zügen:
+La [détection d'activité vocale hybride](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=fr#hybrid-vad) combine la détection automatique du début de la parole côté serveur et la détection de la fin de la parole côté client pour finaliser les tours de parole sans latence :
 
-1. **Die serverseitige automatische VAD bleibt aktiviert**, um den Beginn der Sprache mit Prefix-Audio-Padding genau zu erkennen und so das Abschneiden von Wörtern am Anfang zu verhindern.
-2. **Clientseitige VAD erkennt Stille**: Wenn eine lokale VAD auf dem Gerät erkennt, dass der Sprecher aufgehört hat zu sprechen, sendet der Client sofort ein `audio_stream_end`-Signal.
-3. **Schnelle Finalisierung**: Der Server behandelt `audio_stream_end` als Aufforderung zur sofortigen Finalisierung des Turns. Die standardmäßige serverseitige Wartezeit für die Stille wird umgangen und das finalisierte Transkript wird mit minimaler Latenz zurückgegeben.
-4. **Fallback**: Wenn die clientseitige VAD nicht ausgelöst wird, dient die serverseitige VAD als automatischer Fallback.
+1. **La détection automatique de l'activité vocale côté serveur reste activée** pour détecter précisément le début des paroles avec un remplissage audio de préfixe, ce qui évite la troncature du premier mot.
+2. **La VAD côté client détecte le silence** : lorsqu'une VAD locale sur l'appareil détecte que l'orateur a cessé de parler, le client envoie immédiatement un signal `audio_stream_end`.
+3. **Finalisation rapide** : le serveur traite `audio_stream_end` comme une invite de finalisation immédiate du tour de parole, en ignorant le délai d'attente de silence par défaut côté serveur et en renvoyant la transcription finalisée avec une latence minimale.
+4. **Solution de secours** : si la VAD côté client ne se déclenche pas, la VAD côté serveur sert de solution de secours automatique.
 
 ### Python
 
@@ -534,9 +534,9 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-### Manuelle VAD (Push-to-Talk)
+### VAD manuelle (appuyer pour parler)
 
-Bei Walkie-Talkie-Schnittstellen oder Push-to-Talk-Schaltflächen sollten Sie die automatische VAD vollständig deaktivieren und die Sprechpausen explizit mit `activity_start` und `activity_end` steuern:
+Pour les interfaces de talkie-walkie ou les boutons "appuyer pour parler", désactivez complètement la VAD automatique et contrôlez explicitement les limites des tours de parole à l'aide de `activity_start` et `activity_end` :
 
 ### Python
 
@@ -625,11 +625,11 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-## Sitzungsspezifische Tokens in Clientanwendungen
+## Jetons éphémères dans les applications clientes
 
-Verwenden Sie für Client-Server-Anwendungen (z. B. mobile Apps oder Web-Apps, die direkt von einem Mikrofon streamen) [ephemere Tokens](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=de), um zu vermeiden, dass Ihr API-Schlüssel im Clientcode offengelegt wird.
+Pour les applications client-serveur (comme les applications mobiles ou Web qui diffusent du contenu directement depuis un micro), utilisez des [jetons éphémères](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=fr) pour éviter d'exposer votre clé API dans le code client.
 
-Erstellen Sie auf Ihrem Server ein eingeschränktes temporäres Token, bevor Sie die Clientverbindung initiieren:
+Créez un jeton éphémère contraint sur votre serveur avant d'initier la connexion client :
 
 ### Python
 
@@ -703,95 +703,95 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-## Unterstützte Sprachen
+## Langues disponibles
 
-Die folgenden Sprachen und BCP-47-Sprachcodes werden für Gemini 3.5 Transcribe Live unterstützt:
+Les langues et codes de langue BCP-47 suivants sont compatibles avec Gemini 3.5 Transcribe Live :
 
-| Sprache | BCP-47-Code | Sprache | BCP-47-Code |
+| Langue | Code BCP-47 | Langue | Code BCP-47 |
 | --- | --- | --- | --- |
-| Afrikaans | `af-ZA` | Japanisch | `ja-JP` |
-| Amharisch | `am-ET` | Javanisch | `jv-ID` |
-| Arabisch (Ägypten) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| Armenisch | `hy-AM` | Kannada | `kn-IN` |
-| Assamesisch | `as-IN` | Kasachisch | `kk-KZ` |
-| Aserbaidschanisch | `az-AZ` | Koreanisch | `ko-KR` |
-| Belarussisch | `be-BY` | Kirgisisch | `ky-KG` |
-| Bengalisch (Bangladesch) | `bn-BD` | Lettisch | `lv-LV` |
-| Bengalisch (Indien) | `bn-IN` | Lingala | `ln-CD` |
-| Bosnisch | `bs-BA` | Litauisch | `lt-LT` |
-| Bulgarisch | `bg-BG` | Mazedonisch | `mk-MK` |
-| Bulgarisch (Aromanisch) | `rup-BG` | Malaiisch | `ms-MY` |
-| Burmesisch | `my-MM` | Malayalam | `ml-IN` |
-| Kantonesisch (traditionell) | `yue-Hant-HK` | Maltesisch | `mt-MT` |
-| Katalanisch | `ca-ES` | Chinesisch (Mandarin, vereinfacht) | `cmn-Hans-CN` |
+| Afrikaans | `af-ZA` | Japonais | `ja-JP` |
+| Amharique | `am-ET` | Javanais | `jv-ID` |
+| Arabe (Égypte) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| Arménien | `hy-AM` | Kannada | `kn-IN` |
+| Assamais | `as-IN` | Kazakh | `kk-KZ` |
+| Azéri | `az-AZ` | Coréen | `ko-KR` |
+| Biélorusse | `be-BY` | Kirghiz | `ky-KG` |
+| Bengali (Bangladesh) | `bn-BD` | Letton | `lv-LV` |
+| Bengali (Inde) | `bn-IN` | Lingala | `ln-CD` |
+| Bosniaque | `bs-BA` | Lituanien | `lt-LT` |
+| Bulgare | `bg-BG` | Macédonien | `mk-MK` |
+| Bulgare (aroumain) | `rup-BG` | Malaisien | `ms-MY` |
+| Birman | `my-MM` | Malayalam | `ml-IN` |
+| Cantonais (traditionnel) | `yue-Hant-HK` | Maltais | `mt-MT` |
+| Catalan | `ca-ES` | Chinois mandarin (simplifié) | `cmn-Hans-CN` |
 | Cebuano | `ceb` | Marathi | `mr-IN` |
-| Standard-Khmer | `km-KH` | Mongolisch | `mn-MN` |
-| Kroatisch | `hr-HR` | Nepalesisch | `ne-NP` |
-| Tschechien | `cs-CZ` | Norwegisch | `nb-NO` |
-| Dänisch | `da-DK` | Oriya | `or-IN` |
-| Niederländisch | `nl-NL` | Polnisch | `pl-PL` |
-| Englisch (Vereinigtes Königreich) | `en-GB` | Portugiesisch (Brasilien) | `pt-BR` |
-| Englisch (Indien) | `en-IN` | Portugiesisch (Portugal) | `pt-PT` |
-| Englisch (USA) | `en-US` | Punjabi | `pa-IN` |
-| Estnisch | `et-EE` | Panjabi (Gurmukhi-Schrift) | `pa-Guru-IN` |
-| Farsi | `fa-IR` | Rumänisch | `ro-RO` |
-| Filipino | `fil-PH` | Russisch | `ru-RU` |
-| Finnisch | `fi-FI` | Serbisch | `sr-RS` |
-| Französisch | `fr-FR` | Sindhi (arabische Schrift) | `sd-Arab-IN` |
-| Galizisch | `gl-ES` | Slowakisch | `sk-SK` |
-| Georgisch | `ka-GE` | Slowenisch | `sl-SI` |
-| Deutsch | `de-DE` | Spanisch (Lateinamerika) | `es-419` |
-| Griechisch | `el-GR` | Spanisch (USA) | `es-US` |
-| Gujarati | `gu-IN` | Swahili (Kenia) | `sw-KE` |
-| Hausa | `ha-NG` | Schwedisch | `sv-SE` |
-| Hebräisch | `he-IL` | Tadschikisch | `tg-TJ` |
+| Khmer central | `km-KH` | Mongol | `mn-MN` |
+| Croate | `hr-HR` | Népalais | `ne-NP` |
+| Tchèque | `cs-CZ` | Norvégien | `nb-NO` |
+| Danois | `da-DK` | Oriya | `or-IN` |
+| Néerlandais | `nl-NL` | Polonais | `pl-PL` |
+| Anglais (Grande-Bretagne) | `en-GB` | Portugais (Brésil) | `pt-BR` |
+| Anglais (Inde) | `en-IN` | Portugais (Portugal) | `pt-PT` |
+| Anglais (États-Unis) | `en-US` | Panjabi | `pa-IN` |
+| Estonien | `et-EE` | Panjabi (écriture gurmukhī) | `pa-Guru-IN` |
+| Farsi | `fa-IR` | Roumain | `ro-RO` |
+| Tagalog | `fil-PH` | Russe | `ru-RU` |
+| Finnois | `fi-FI` | Serbe | `sr-RS` |
+| Français | `fr-FR` | Sindhi (écriture arabe) | `sd-Arab-IN` |
+| Galicien | `gl-ES` | Slovaque | `sk-SK` |
+| Géorgien | `ka-GE` | Slovène | `sl-SI` |
+| Allemand | `de-DE` | Espagnol (Amérique latine) | `es-419` |
+| Grec | `el-GR` | Espagnol (États-Unis) | `es-US` |
+| Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
+| Haoussa | `ha-NG` | Suédois | `sv-SE` |
+| Hébreu | `he-IL` | Tadjik | `tg-TJ` |
 | Hindi | `hi-IN` | Telugu | `te-IN` |
-| Ungarisch | `hu-HU` | Thailändisch | `th-TH` |
-| Isländisch | `is-IS` | Türkisch | `tr-TR` |
-| Indisches Englisch | `en-IN` | Ukrainisch | `uk-UA` |
-| Indonesisch | `id-ID` | Usbekisch | `uz-UZ` |
-| Italienisch | `it-IT` | Vietnamesisch | `vi-VN` |
+| Hongrois | `hu-HU` | Thaï | `th-TH` |
+| Islandais | `is-IS` | Turc | `tr-TR` |
+| Anglais (Inde) | `en-IN` | Ukrainien | `uk-UA` |
+| Indonésien | `id-ID` | Ouzbek | `uz-UZ` |
+| Italien | `it-IT` | Vietnamien | `vi-VN` |
 
-## Parameterverweis
+## Référence de paramètre
 
-Konfigurieren Sie die Live-Transkription mithilfe von Feldern in `input_audio_transcription` und `realtime_input_config`:
+Configurez la transcription instantanée à l'aide des champs de `input_audio_transcription` et `realtime_input_config` :
 
-| Parameter | Typ | Beschreibung |
+| Paramètre | Type | Description |
 | --- | --- | --- |
-| `language_codes` | String-Array | BCP-47-Sprachcodes (z.B. `["en-US"]`). Wenn dieser Parameter weggelassen oder leer ist (`[]`), erkennt das Modell die Sprache automatisch und verarbeitet mehrsprachige Sprache. |
-| `custom_vocabulary` | String-Array | Bis zu 1.000 benutzerdefinierte Begriffe, Akronyme, Markennamen oder Eigennamen, um die Spracherkennung zu optimieren. |
-| `mode` | String | Transkriptionsmodus: `"VERBATIM"` (Standard) oder `"SMART"` (Smart-Transkription). Wenn diese Option auf `"SMART"` gesetzt ist, entfernt das Modell Füllwörter, formatiert Listen und korrigiert Unflüssigkeiten. |
-| `automatic_activity_detection.disabled` | Boolesch | Wenn Sie `true` festlegen, wird die automatische Erkennung von Sprachaktivitäten deaktiviert und Sie müssen die Signale `activityStart` und `activityEnd` manuell senden. |
+| `language_codes` | Tableau de chaînes | Codes de langue BCP-47 (par exemple, `["en-US"]`). S'ils sont omis ou vides (`[]`), le modèle détecte automatiquement la langue et gère la parole multilingue. |
+| `custom_vocabulary` | Tableau de chaînes | Jusqu'à 1 000 termes, acronymes, noms de marques ou noms propres personnalisés pour orienter la reconnaissance vocale. |
+| `mode` | Chaîne | Mode Transcription : `"VERBATIM"` (par défaut) ou `"SMART"` (Transcription intelligente). Lorsqu'il est défini sur `"SMART"`, le modèle supprime les mots de remplissage, met en forme les listes et corrige les hésitations. |
+| `automatic_activity_detection.disabled` | Booléen | Définissez sur `true` pour désactiver la détection automatique de l'activité vocale et envoyer manuellement les signaux `activityStart` et `activityEnd`. |
 
-### Felder für Serverantworten
+### Champs de réponse du serveur
 
-| Feld | Beschreibung |
+| Champ | Description |
 | --- | --- |
-| `server_content.interim_input_transcription` | Hypothese für die vorläufige Teiltranskription mit geringer Latenz, die kontinuierlich ausgegeben wird, während der Nutzer aktiv spricht. |
-| `server_content.input_transcription` | Finalisiertes, autoritatives Eingabetranskript, das ausgegeben wird, wenn ein Sprachabschnitt beendet ist. |
+| `server_content.interim_input_transcription` | Hypothèse de transcription partielle provisoire à faible latence émise en continu pendant que l'utilisateur parle. |
+| `server_content.input_transcription` | Transcription d'entrée définitive et faisant autorité, émise à la fin d'un tour de parole. |
 
-## Beschränkungen
+## Limites
 
-- **Sitzungsdauer**:Livetranskriptionssitzungen unterstützen kontinuierliches Streaming für bis zu 10 Minuten.
-- **Sprecherbestimmung**:Die Sprecherbestimmung wird in Livestreaming-Sitzungen nicht unterstützt. Verwenden Sie für die Sprecherzuordnung den Nicht-Streaming-Endpunkt [Audio-Transkription](https://ai.google.dev/gemini-api/docs/transcribe?hl=de#speaker-diarization).
-- **Zeitstempel auf Wortebene**:Zeitstempel auf Wortebene werden über die Live API nicht unterstützt. Die Live API gibt Zeitstempel auf Äußerungsebene aus (`interim_input_transcription` und `input_transcription`).
-- **Benutzerdefiniertes Vokabular**:Sie können bis zu 1.000 Begriffe in `custom_vocabulary` angeben. Die besten Ergebnisse werden jedoch in der Regel mit bis zu 100 Begriffen erzielt.
-- **Kompatibilität mit Modi**:Bei der intelligenten Transkription (`"mode": "SMART"`) werden Füllwörter entfernt und der Text wird entsprechend der Intention formatiert. Sie kann jedoch nicht mit Wortanmerkungen kombiniert werden.
+- **Durée de la session** : les sessions de transcription instantanée permettent la diffusion en continu pendant 10 minutes maximum.
+- **Identification du locuteur** : l'identification du locuteur n'est pas disponible dans les sessions de streaming en direct. Pour la segmentation des locuteurs, utilisez le point de terminaison [Transcription audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr#speaker-diarization) non en streaming.
+- **Codes temporels au niveau du mot** : les codes temporels au niveau du mot ne sont pas compatibles avec l'API Live. L'API Live émet des codes temporels au niveau de l'énoncé (`interim_input_transcription` et `input_transcription`).
+- **Vocabulaire personnalisé** : vous pouvez fournir jusqu'à 1 000 termes dans `custom_vocabulary`, mais les meilleurs résultats sont généralement obtenus avec un maximum de 100 termes.
+- **Compatibilité des modes** : la transcription intelligente (`"mode": "SMART"`) supprime les mots de remplissage et met en forme le texte en fonction de l'intention, mais ne peut pas être combinée aux annotations de mots.
 
-## Nächste Schritte
+## Étape suivante
 
-- [Dokumentation zu Gemini Transcribe](https://ai.google.dev/gemini-api/docs/transcribe?hl=de) für nicht gestreamte Audiodateien
-- Lesen Sie die [Übersicht über die Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de) für Konversations-Sprach-Agents.
-- Weitere Informationen zur Echtzeit-Übersetzung von Sprache zu Sprache finden Sie im [Leitfaden zur Live-Übersetzung](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=de).
-- Die Preise für das Streaming über die Live API [findest du auf der Preisseite](https://ai.google.dev/gemini-api/docs/pricing?hl=de#gemini-3.5-transcribe-live).
-- [Leitfaden zu den Funktionen der Live API](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de)
+- Consultez la [documentation Gemini Transcribe](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr) pour les fichiers audio non diffusés en streaming.
+- Consultez la [présentation de l'API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr) pour les agents vocaux conversationnels.
+- Consultez le [guide de la traduction instantanée](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=fr) pour la traduction vocale en temps réel.
+- Consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.5-transcribe-live) pour connaître les tarifs de l'API Live Stream.
+- Consultez le [guide des fonctionnalités de l'API Live](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=fr).
 
-Feedback geben
+Envoyer des commentaires
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Zuletzt aktualisiert: 2026-09-10 (UTC).
+Dernière mise à jour le 2026/09/10 (UTC).
 
-Haben Sie Feedback für uns?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-10 (UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/10 (UTC)."],[],[]]

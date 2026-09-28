@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/agents?hl=vi
-fetched_at: 2026-09-21T05:47:33.735978+00:00
+fetched_at: 2026-09-28T06:09:35.432810+00:00
 title: "T\u1ed5ng quan v\u1ec1 nh\u00e2n vi\u00ean h\u1ed7 tr\u1ee3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

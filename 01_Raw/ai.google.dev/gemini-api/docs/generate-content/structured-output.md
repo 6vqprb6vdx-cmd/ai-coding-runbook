@@ -1,42 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=zh-CN
-fetched_at: 2026-09-21T05:51:27.302972+00:00
-title: "\u7ed3\u6784\u5316\u8f93\u51fa \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=hi
+fetched_at: 2026-09-28T06:09:44.038469+00:00
+title: "\u0938\u094d\u091f\u094d\u0930\u0915\u094d\u091a\u0930\u094d\u0921 \u0906\u0909\u091f\u092a\u0941\u091f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-发送反馈
+सुझाव भेजें
 
-# 结构化输出
+# स्ट्रक्चर्ड आउटपुट
 
-您可以配置 Gemini 模型，以生成符合所提供 JSON 架构的响应。这可确保结果可预测且类型安全，并简化了从非结构化文本中提取结构化数据的过程。
+Gemini मॉडल को, दिए गए JSON स्कीमा के मुताबिक जवाब जनरेट करने के लिए कॉन्फ़िगर किया जा सकता है. इससे, टाइप-सेफ़ और अनुमान के मुताबिक नतीजे मिलते हैं. साथ ही, बिना स्ट्रक्चर वाले टेक्स्ट से स्ट्रक्चर्ड डेटा निकालना आसान हो जाता है.
 
-使用结构化输出非常适合以下情况：
+स्ट्रक्चर्ड आउटपुट का इस्तेमाल इन कामों के लिए किया जा सकता है:
 
-- **数据提取** ：从文本中提取特定信息，例如姓名和日期。
-- **结构化分类** ：将文本归入预定义的类别。
-- **智能体工作流** ：为工具或 API 生成结构化输入。
+- **डेटा निकालना:** टेक्स्ट से नाम और तारीख जैसी खास जानकारी निकालना.
+- **स्ट्रक्चर्ड क्लासिफ़िकेशन:** टेक्स्ट को पहले से तय की गई कैटगरी में बांटना.
+- **एजेंटिक वर्कफ़्लो:** टूल या एपीआई के लिए स्ट्रक्चर्ड इनपुट जनरेट करना.
 
-除了在 REST API 中支持 JSON 架构之外，Google GenAI SDKs
-还可让您轻松使用
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) 和
-[Zod](https://zod.dev/) (JavaScript) 定义架构。
+REST API में JSON स्कीमा के साथ-साथ, Google GenAI SDK की मदद से [Pydantic](https://docs.pydantic.dev/latest/) (Python) और [Zod](https://zod.dev/) (JavaScript) का इस्तेमाल करके स्कीमा को आसानी से तय किया जा सकता है.
 
-## 结构化输出示例
+## स्ट्रक्चर्ड आउटपुट के उदाहरण
 
-### 食谱提取器
+### रेसिपी निकालने वाला टूल
 
-此示例演示了如何使用基本 JSON 架构类型（例如 `object`、`array`、`string` 和 `integer`）从文本中提取结构化数据。
+इस उदाहरण में, `object`, `array`, `string`, और `integer` जैसे सामान्य JSON स्कीमा टाइप का इस्तेमाल करके, टेक्स्ट से स्ट्रक्चर्ड डेटा निकालने का तरीका दिखाया गया है.
 
 ### Python
 
@@ -130,7 +127,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -267,7 +264,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**示例响应**：
+**जवाब का उदाहरण:**
 
 ```
 {
@@ -322,9 +319,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### 内容审核
+### कॉन्टेंट को मॉडरेट करना
 
-此示例展示了如何使用 `anyOf` 实现条件架构，以及如何使用 `enum` 实现分类，从而使输出结构能够根据内容而变化。
+इस उदाहरण में, शर्तों के हिसाब से स्कीमा के लिए `anyOf` और क्लासिफ़िकेशन के लिए `enum` का इस्तेमाल दिखाया गया है. इससे, कॉन्टेंट के आधार पर आउटपुट स्ट्रक्चर में बदलाव किया जा सकता है.
 
 ### Python
 
@@ -403,7 +400,7 @@ const result = moderationResultSchema.parse(JSON.parse(response.text));
 console.log(result);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -551,9 +548,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### 递归结构
+### रिकर्सिव स्ट्रक्चर
 
-此示例说明了如何定义递归架构，例如组织结构图。
+इस उदाहरण में, संगठन चार्ट जैसे रिकर्सिव स्कीमा को तय करने का तरीका दिखाया गया है.
 
 ### Python
 
@@ -622,7 +619,7 @@ const employee = employeeSchema.parse(JSON.parse(response.text));
 console.log(employee);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -716,7 +713,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**示例响应**：
+**जवाब का उदाहरण:**
 
 ```
 {
@@ -743,11 +740,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-## 流式
+## स्ट्रीमिंग
 
-您可以流式传输结构化输出，这样您就可以在生成响应时开始处理响应，而无需等待整个输出完成。这可以提升应用的感知性能。
+स्ट्रक्चर्ड आउटपुट को स्ट्रीम किया जा सकता है. इससे, पूरा आउटपुट जनरेट होने का इंतज़ार किए बिना, जवाब को प्रोसेस किया जा सकता है. इससे, आपके ऐप्लिकेशन की परफ़ॉर्मेंस बेहतर हो सकती है.
 
-流式传输的块将是有效的 JSON 部分字符串，可以将其串联起来以形成最终的完整 JSON 对象。
+स्ट्रीम किए गए चंक, मान्य पार्शियल JSON स्ट्रिंग होंगे. इन्हें जोड़कर, पूरा JSON ऑब्जेक्ट बनाया जा सकता है.
 
 ### Python
 
@@ -803,14 +800,14 @@ for await (const chunk of stream) {
 }
 ```
 
-## 使用工具的结构化输出
+## टूल के साथ स्ट्रक्चर्ड आउटपुट
 
-借助 Gemini 3，您可以将结构化输出与内置工具相结合，包括
-[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)、
-[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)、
-[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)、
-[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn#structured-output)和
-[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+Gemini 3 की मदद से, स्ट्रक्चर्ड आउटपुट को बिल्ट-इन टूल के साथ जोड़ा जा सकता है. इनमें
+[Google Search के साथ ग्राउंडिंग](https://ai.google.dev/gemini-api/docs/google-search?hl=hi),
+[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi),
+[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi),
+[फ़ाइल सर्च](https://ai.google.dev/gemini-api/docs/file-search?hl=hi#structured-output), और
+[फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) शामिल हैं.
 
 ### Python
 
@@ -915,101 +912,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## JSON 架构支持
+## JSON स्कीमा के लिए सहायता
 
-如需生成 JSON 对象，请在生成配置中设置 `response_format`。该架构必须是描述所需输出格式的有效 [JSON 架构](https://json-schema.org/)。
+JSON ऑब्जेक्ट जनरेट करने के लिए, जनरेशन कॉन्फ़िगरेशन में `response_format` सेट करें. स्कीमा, मान्य [JSON स्कीमा](https://json-schema.org/) होना चाहिए. इसमें, मनचाहे आउटपुट फ़ॉर्मैट के बारे में बताया गया हो.
 
-然后，模型会生成一个响应，该响应是与所提供的架构匹配的语法有效的 JSON 字符串。使用结构化输出时，模型将按架构中键的顺序生成输出。
+इसके बाद, मॉडल एक ऐसा जवाब जनरेट करेगा जो दिए गए स्कीमा से मेल खाने वाली, सिंटैक्टिक तौर पर मान्य JSON स्ट्रिंग होगी. स्ट्रक्चर्ड आउटपुट का इस्तेमाल करने पर, मॉडल स्कीमा में मौजूद कुंजियों के क्रम में ही आउटपुट जनरेट करेगा.
 
-Gemini 的结构化输出模式支持 [JSON 架构](https://json-schema.org)规范的子集。
+Gemini का स्ट्रक्चर्ड आउटपुट मोड, [JSON स्कीमा](https://json-schema.org) की खास जानकारी के सबसेट के साथ काम करता है.
 
-支持以下 `type` 值：
+`type` की ये वैल्यू काम करती हैं:
 
-- **`string`**：适用于文本。
-- **`number`**：适用于浮点数。
-- **`integer`**：适用于整数。
-- **`boolean`**：适用于 true/false 值。
-- **`object`**：适用于具有键值对的结构化数据。
-- **`array`**：适用于项列表。
-- **`null`**：如需允许属性为 null，请在类型数组中添加 `"null"`（例如 `{"type": ["string", "null"]}`）。
+- **`string`**: टेक्स्ट के लिए.
+- **`number`**: फ़्लोटिंग-पॉइंट नंबर के लिए.
+- **`integer`**: होल नंबर के लिए.
+- **`boolean`**: सही/गलत वैल्यू के लिए.
+- **`object`**: कुंजी-वैल्यू पेयर वाले स्ट्रक्चर्ड डेटा के लिए.
+- **`array`**: आइटम की सूचियों के लिए.
+- **`null`**: किसी प्रॉपर्टी को नल होने की अनुमति देने के लिए, टाइप कलेक्शन में `"null"` शामिल करें. जैसे, `{"type": ["string", "null"]}`.
 
-这些描述性属性有助于指导模型：
+ये जानकारी देने वाली प्रॉपर्टी, मॉडल को गाइड करने में मदद करती हैं:
 
-- **`title`**：属性的简短说明。
-- **`description`**：属性的较长且更详细的说明。
+- **`title`**: किसी प्रॉपर्टी का छोटा ब्यौरा.
+- **`description`**: किसी प्रॉपर्टी का लंबा और ज़्यादा जानकारी वाला ब्यौरा.
 
-### 特定于类型的属性
+### टाइप के हिसाब से प्रॉपर्टी
 
-**对于 `object` 值**：
+**`object` वैल्यू के लिए:**
 
-- **`properties`**：一个对象，其中每个键都是属性名称，每个值都是该属性的架构。
-- **`required`**：一个字符串数组，列出了哪些属性是必需的。
-- **`additionalProperties`**：控制是否允许使用未在 `properties` 中列出的属性。可以是布尔值或架构。
+- **`properties`**: एक ऑब्जेक्ट, जिसमें हर कुंजी एक प्रॉपर्टी का नाम होती है और हर वैल्यू उस प्रॉपर्टी के लिए एक स्कीमा होती है.
+- **`required`**: स्ट्रिंग का एक कलेक्शन, जिसमें यह बताया जाता है कि कौनसी प्रॉपर्टी ज़रूरी हैं.
+- **`additionalProperties`**: इससे यह कंट्रोल किया जाता है कि `properties` में शामिल न की गई प्रॉपर्टी की अनुमति है या नहीं. यह बूलियन या स्कीमा हो सकता है.
 
-**对于 `string` 值**：
+**`string` वैल्यू के लिए:**
 
-- **`enum`**：列出了一组特定的可能字符串，用于分类任务。
-- **`format`**：指定字符串的语法，例如 `date-time`、`date`、`time`。
+- **`enum`**: क्लासिफ़िकेशन टास्क के लिए, संभावित स्ट्रिंग का एक खास सेट दिखाता है.
+- **`format`**: स्ट्रिंग के लिए एक सिंटैक्स तय करता है. जैसे, `date-time`, `date`, `time`.
 
-**对于 `number` 和 `integer` 值**：
+**`number` और `integer` वैल्यू के लिए:**
 
-- **`enum`**：列出了一组特定的可能数值。
-- **`minimum`**：包含的最小值。
-- **`maximum`**：包含的最大值。
+- **`enum`**: संभावित संख्या वाली वैल्यू का एक खास सेट दिखाता है.
+- **`minimum`**: शामिल की जा सकने वाली कम से कम वैल्यू.
+- **`maximum`**: शामिल की जा सकने वाली ज़्यादा से ज़्यादा वैल्यू.
 
-**对于 `array` 值**：
+**`array` वैल्यू के लिए:**
 
-- **`items`**：定义数组中所有项的架构。
-- **`prefixItems`**：为前 N 个项定义架构列表，允许使用类似元组的结构。
-- **`minItems`**：数组中的最小项数。
-- **`maxItems`**：数组中的最大项数。
+- **`items`**: कलेक्शन में मौजूद सभी आइटम के लिए स्कीमा तय करता है.
+- **`prefixItems`**: पहले N आइटम के लिए स्कीमा की सूची तय करता है. इससे, टपल जैसे स्ट्रक्चर की अनुमति मिलती है.
+- **`minItems`**: कलेक्शन में मौजूद आइटम की कम से कम संख्या.
+- **`maxItems`**: कलेक्शन में मौजूद आइटम की ज़्यादा से ज़्यादा संख्या.
 
-## 模型支持
+## मॉडल के लिए सहायता
 
-以下模型支持结构化输出：
+ये मॉडल, स्ट्रक्चर्ड आउटपुट के साथ काम करते हैं:
 
-| 模型 | 结构化输出 |
+| मॉडल | स्ट्रक्चर्ड आउटपुट |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro 预览版 | ✔️ |
+| Gemini 3.1 Pro Preview | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite 预览版 | ✔️ |
+| Gemini 3.1 Flash-Lite Preview | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* 请注意，Gemini 2.0 需要在 JSON 输入中包含显式 `propertyOrdering` 列表，以定义首选结构。您可以在此[实用手册](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)中找到示例。*
+*\* ध्यान दें कि Gemini 2.0 के लिए, पसंदीदा स्ट्रक्चर तय करने के लिए JSON इनपुट में, साफ़ तौर पर `propertyOrdering` सूची शामिल करना ज़रूरी है. इस [कुकबुक](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) में, इसका एक उदाहरण देखा जा सकता है.*
 
-## 结构化输出与函数调用
+## स्ट्रक्चर्ड आउटपुट बनाम फ़ंक्शन कॉलिंग
 
-结构化输出和函数调用都使用 JSON 架构，但用途不同：
+स्ट्रक्चर्ड आउटपुट और फ़ंक्शन कॉलिंग, दोनों में JSON स्कीमा का इस्तेमाल किया जाता है. हालांकि, इनके लक्ष्य अलग-अलग होते हैं:
 
-| 功能 | 主要用途 |
+| सुविधा | इस्तेमाल का मुख्य उदाहरण |
 | --- | --- |
-| **结构化输出** | **设置最终用户响应的格式。**当您希望模型的 *回答* 采用特定格式时（例如，从文档中提取数据以保存到数据库），请使用此功能。 |
-| **函数调用** | **在对话期间执行操作。**当模型需要 *要求您* 执行任务（例如“获取当前天气”）才能提供最终答案时，请使用此功能。 |
+| **स्ट्रक्चर्ड आउटपुट** | **उपयोगकर्ता को मिलने वाले आखिरी जवाब को फ़ॉर्मैट करना.** इसका इस्तेमाल तब करें, जब आपको मॉडल का *जवाब* किसी खास फ़ॉर्मैट में चाहिए. जैसे, किसी दस्तावेज़ से डेटा निकालकर डेटाबेस में सेव करना. |
+| **फ़ंक्शन कॉलिंग** | **बातचीत के दौरान कार्रवाई करना.** इसका इस्तेमाल तब करें, जब मॉडल को आखिरी जवाब देने से पहले, *आपसे* कोई टास्क पूरा करने के लिए कहना हो. जैसे, "अभी का मौसम कैसा है". |
 
-## 最佳实践
+## सबसे सही तरीके
 
-- **清晰的说明** ：在架构中使用 `description` 字段，向模型提供有关每个属性代表什么内容的清晰说明。这对于指导模型的输出至关重要。
-- **强类型** ：尽可能使用特定类型（`integer`、`string`、`enum`）。如果参数具有一组有限的有效值，请使用 `enum`。
-- **提示工程** ：在提示中明确说明您希望模型执行的操作。例如，“从文本中提取以下信息…”或“根据提供的架构对这条反馈进行分类…”。
-- **验证** ：虽然结构化输出可保证 JSON 在语法上正确，但不能保证值在语义上正确。请务必先在应用代码中验证最终输出，然后再使用。
-- **错误处理** ：在应用中实现强大的错误处理功能，以便妥善处理模型输出虽然符合架构，但可能不符合您的业务逻辑要求的情况。
+- **साफ़ तौर पर जानकारी देना:** अपने स्कीमा में `description` फ़ील्ड का इस्तेमाल करके, मॉडल को साफ़ तौर पर निर्देश दें कि हर प्रॉपर्टी किस बारे में है. मॉडल के आउटपुट को गाइड करने के लिए यह ज़रूरी है.
+- **टाइपिंग:** जहां तक हो सके, खास टाइप (`integer`, `string`, `enum`) का इस्तेमाल करें. अगर किसी पैरामीटर के लिए मान्य वैल्यू का सेट सीमित है, तो `enum` का इस्तेमाल करें.
+- **प्रॉम्प्ट इंजीनियरिंग:** अपने प्रॉम्प्ट में साफ़ तौर पर बताएं कि आपको मॉडल से क्या करवाना है. उदाहरण के लिए, "टेक्स्ट से यह जानकारी निकालें..." या "दिए गए स्कीमा के मुताबिक, इस फ़ीडबैक को कैटगरी में बांटें...".
+- **मान्य करना:** स्ट्रक्चर्ड आउटपुट से, सिंटैक्टिक तौर पर सही JSON मिलने की गारंटी मिलती है. हालांकि, इससे यह गारंटी नहीं मिलती कि वैल्यू, सिमैंटिक तौर पर सही हैं. अपने ऐप्लिकेशन कोड में, आखिरी आउटपुट का इस्तेमाल करने से पहले, हमेशा उसे मान्य करें.
+- **गड़बड़ी को मैनेज करना:** अपने ऐप्लिकेशन में, गड़बड़ी को मैनेज करने की मज़बूत सुविधा लागू करें. इससे, उन मामलों को आसानी से मैनेज किया जा सकेगा जहां मॉडल का आउटपुट, स्कीमा के मुताबिक होने के बावजूद, आपके कारोबारी नियम से जुड़ी ज़रूरी शर्तों को पूरा नहीं करता.
 
-## 限制
+## सीमाएं
 
-- **架构子集** ：并非所有 JSON 架构规范功能都受支持。模型会忽略不受支持的属性。
-- **架构复杂性** ：API 可能会拒绝非常大或嵌套很深的架构。如果您遇到错误，请尝试通过缩短属性名称、减少嵌套或限制约束数量来简化架构。
+- **स्कीमा का सबसेट:** JSON स्कीमा की खास जानकारी की सभी सुविधाएं काम नहीं करती हैं. मॉडल, उन प्रॉपर्टी को अनदेखा करता है जिनका इस्तेमाल नहीं किया जा सकता.
+- **स्कीमा की जटिलता:** एपीआई, बहुत बड़े या डीपली नेस्ट किए गए स्कीमा को अस्वीकार कर सकता है. अगर आपको गड़बड़ियां दिखती हैं, तो प्रॉपर्टी के नाम छोटे करके, नेस्टिंग कम करके या पाबंदियों की संख्या सीमित करके, अपने स्कीमा को आसान बनाने की कोशिश करें.
 
-发送反馈
+सुझाव भेजें
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最后更新时间 (UTC)：2026-09-12。
+आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
 
-需要向我们提供更多信息？
+क्या आपको हमें और कुछ बताना है?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]

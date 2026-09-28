@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar
-fetched_at: 2026-09-21T05:48:28.435246+00:00
-title: "\u0627\u0644\u0628\u062f\u0621 \u0627\u0644\u0633\u0631\u064a\u0639 \u0641\u064a \u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0648\u0643\u0644\u0627\u0621 \u0627\u0644\u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl
+fetched_at: 2026-09-28T06:20:33.906312+00:00
+title: "Szybkie wprowadzenie do zarz\u0105dzanych agent\u00f3w \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-# البدء السريع في استخدام الوكلاء المُدارين
+# Szybkie wprowadzenie do zarządzanych agentów
 
-يرشدك هذا الدليل إلى كيفية إنشاء واستخدام "الوكلاء المُدارون" على Gemini API باستخدام [وكيل Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=ar). ستجري مكالمتك الأولى مع الوكيل، وتواصل محادثة متعدّدة الأدوار، وتبث الرد، وتنزّل الملفات من البيئة التجريبية، وتعمل مع وكيل Antigravity المُدار.
+Z tego przewodnika dowiesz się, jak tworzyć zarządzane agenty w interfejsie Gemini API i z nich korzystać, używając [agenta Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=pl). Nawiążesz pierwsze połączenie z agentem, będziesz kontynuować wieloetapową rozmowę, przesyłać strumieniowo odpowiedź, pobierać pliki z piaskownicy i pracować z agentem zarządzanym Antigravity.
 
-## إجراء التفاعل الأول مع الوكيل
+## Przeprowadź pierwszą interakcję z agentem
 
-يؤدي طلب واحد إلى [واجهة برمجة التطبيقات Interactions API](https://ai.google.dev/gemini-api/docs?hl=ar) إلى توفير بيئة اختبارية لنظام التشغيل Linux، وتشغيل حلقة الوكيل، وعرض النتيجة. عليك تحديد ثلاث مَعلمات:
+Pojedyncze wywołanie [interfejsu Interactions API](https://ai.google.dev/gemini-api/docs?hl=pl) udostępnia piaskownicę Linuksa, uruchamia pętlę agenta i zwraca wynik. Zdefiniujesz 3 parametry:
 
-- مرِّر `agent` كـ `"antigravity-preview-09-2026",`، وهو الإصدار الحالي من الوكيل المُدار المحدّد مسبقًا والعام.
-- حدِّد `environment="remote"` لتوفير بيئة وضع الحماية جديدة.
-- أنشئ إدخالاً يحدّد ما تريد أن يفعله الوكيل.
+- Przekaż `agent` jako `"antigravity-preview-09-2026"`, czyli obecną wersję naszego predefiniowanego agenta zarządzanego ogólnego przeznaczenia.
+- Zdefiniuj `environment="remote"`, aby udostępnić nowe, świeże środowisko piaskownicy.
+- Utwórz dane wejściowe, określając, co ma robić agent.
 
 ### Python
 
@@ -66,7 +66,7 @@ console.log(`Environment ID: ${interaction.environment_id}`);
 console.log(`Output: ${interaction.output_text}`);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -93,6 +93,47 @@ System.out.println("Environment ID: " + interaction.environmentId().orElse(""));
 System.out.println("Output: " + interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:       interactions.NewInteractionsInput("Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    interaction := res.Interaction
+    // Print the agent's final output
+    fmt.Printf("Interaction ID: %s\n", *interaction.ID)
+    fmt.Printf("Environment ID: %s\n", *interaction.EnvironmentID)
+    fmt.Printf("Output: %s\n", *interaction.OutputText)
+}
+```
+
 ### REST
 
 ```
@@ -106,16 +147,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-تعرض الاستجابة عنصر `Interaction`. يمكنك تخزين `interaction.id` و`interaction.environment_id` لمواصلة المحادثة في بيئة الاختبار المعزولة نفسها. استخدِم `interaction.output_text` للوصول إلى الردّ النهائي من الموظف. تعرض `interaction.steps` كل خطوة اتّخذها الوكيل (الاستدلال، واستدعاء الأدوات، وتطبيق الرموز البرمجية).
+Odpowiedź zwraca obiekt `Interaction`. Zapisz `interaction.id` i `interaction.environment_id`, aby kontynuować rozmowę w tym samym środowisku piaskownicy. Użyj `interaction.output_text`, aby uzyskać dostęp do ostatecznej odpowiedzi agenta. `interaction.steps` zawiera listę wszystkich kroków podjętych przez agenta (rozumowanie, wywołania narzędzi, wykonanie kodu).
 
-## مواصلة المحادثة (محادثة مترابطة)
+## Kontynuowanie rozmowy (wieloetapowej)
 
-تتتبّع واجهة برمجة التطبيقات سمتَين مستقلتَين للحالة:
+Interfejs API śledzi 2 niezależne wymiary stanu:
 
-- **سياق المحادثة:** سجلّ المحادثات، وتتبُّع الاستدلال، واستخدام الأدوات، واستخدام `previous_interaction_id`
-- [**حالة البيئة:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar) الملفات والحِزم المثبَّتة وحالة وضع الحماية، باستخدام `environment`
+- **Kontekst rozmowy:** historia czatu, ślad rozumowania, korzystanie z narzędzi, używanie `previous_interaction_id`.
+- [**Stan środowiska:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl) pliki, zainstalowane pakiety i stan piaskownicy, przy użyciu `environment`.
 
-مرِّر كلتا البطاقتَين في المكان المخصّص لهما لاستئناف اللعب:
+Przesuń oba elementy w odpowiednie miejsca, aby wznowić:
 
 ### Python
 
@@ -143,7 +184,7 @@ const interaction2 = await client.interactions.create({
 console.log(interaction2.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -169,6 +210,48 @@ Interaction interaction2 = client.interactions.create(CreateInteractionRequestBo
 System.out.println(interaction2.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    interactionID := "INTERACTION_ID"
+    environmentID := "ENVIRONMENT_ID"
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:                 interactions.AgentOption("antigravity-preview-09-2026"),
+            PreviousInteractionID: genai.Ptr(interactionID),
+            Environment:           genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(environmentID)),
+            Input:                 interactions.NewInteractionsInput("Now plot the Fibonacci sequence as a line chart and save it as chart.png."),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -183,20 +266,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-تظل الملفات من الجولة الأولى (`fibonacci.txt`) متوفّرة في الجولة الثانية. يحتفظ الوكيل أيضًا بسياق المحادثة.
+Pliki z tury 1 (`fibonacci.txt`) są zachowywane w turze 2. Agent zachowuje też kontekst rozmowy.
 
-يمكنك الجمع بين هذه الخيارات بشكل مستقل:
+Możesz je łączyć i dopasowywać niezależnie od siebie:
 
-- **محو المحادثة والاحتفاظ بالملفات:** احذف `previous_interaction_id`، ومرِّر رقم تعريف البيئة فقط باستخدام `environment` لإجراء محادثة جديدة في مساحة العمل نفسها.
-- **الاحتفاظ بالمحادثة، مساحة عمل جديدة:** أدخِل `previous_interaction_id`، واضبط `environment="remote"` لإنشاء بيئة اختبارية جديدة.
+- **Wyczyść rozmowę, zachowaj pliki:** pomiń `previous_interaction_id`, przekaż tylko identyfikator środowiska za pomocą `environment`, aby rozpocząć nową rozmowę w tym samym obszarze roboczym.
+- **Zachowaj rozmowę, nowy obszar roboczy:** przekaż `previous_interaction_id`, ustaw `environment="remote"`, aby utworzyć nowe środowisko testowe.
 
-### ضغط السياق التلقائي
+### Automatyczne kompresowanie kontekstu
 
-في المحادثات الطويلة المتعددة الأدوار، يمكن أن يزداد حجم السجلّ الأولي لخطوات الاستدلال واستدعاء الأدوات ومحتوى الملفات الكبيرة بسرعة ويستهلك مساحة كبيرة من سياق المحادثة. لمنع حدوث أخطاء بسبب تجاوز الحد الأقصى للرموز المميزة والحفاظ على تركيز الوكيل (منع "تدهور السياق")، تتضمّن واجهة برمجة التطبيقات "الوكلاء المُدارون" خطوة مدمجة لضغط السياق عند حوالي 135 ألف رمز مميز. وتتم هذه العملية تلقائيًا.
+W długich rozmowach wieloetapowych historia kroków rozumowania, wywołań narzędzi i zawartości dużych plików może szybko się rozrastać i zajmować dużo miejsca w kontekście. Aby zapobiec błędom związanym z limitem tokenów i utrzymać koncentrację agenta (zapobiec „utracie kontekstu”), interfejs zarządzanych agentów API zawiera natywny krok kompresji kontekstu przy około 135 tys. tokenów. Dzieje się to automatycznie.
 
-## عرض الرد تدريجيًا
+## Przesyłanie odpowiedzi strumieniowo
 
-بالنسبة إلى المهام التي تستغرق وقتًا طويلاً، يمكنك بث الردّ لمشاهدة الوكيل وهو يعمل في الوقت الفعلي:
+W przypadku długotrwałych zadań możesz przesyłać strumieniowo odpowiedź, aby zobaczyć, jak agent pracuje w czasie rzeczywistym:
 
 ### Python
 
@@ -240,7 +323,7 @@ for await (const event of stream) {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -273,6 +356,56 @@ try (EventStream<InteractionSSEStreamEvent> stream =
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("antigravity-preview-09-2026"),
+            Input:       interactions.NewInteractionsInput("Read Hacker News, summarize the top 5 stories, and save the results as a PDF."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
+            Stream:      genai.Ptr(true),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    stream := res.InteractionSSEStreamEvent
+    defer stream.Close()
+
+    for stream.Next() {
+        event := stream.Value()
+        fmt.Printf("%+v\n", event)
+        if stepStop := event.GetDataStepStop(); stepStop != nil && stepStop.Usage != nil {
+            fmt.Printf("%+v\n", stepStop.Usage)
+        }
+    }
+    if err := stream.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -287,11 +420,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-تعرض ميزة البث فروق الخطوات مع التعديلات المتزايدة. عند اكتمال إحدى الخطوات، يتضمّن حدث `step.stop` إحصاءات الاستخدام المتراكمة. يمكنك الاطّلاع على مزيد من المعلومات في [دليل البث](https://ai.google.dev/gemini-api/docs/streaming?hl=ar).
+Streaming zwraca delty kroków z przyrostowymi aktualizacjami. Gdy krok zostanie ukończony, zdarzenie `step.stop` zawiera skumulowane statystyki użytkowania. Więcej informacji znajdziesz w [przewodniku po strumieniowaniu](https://ai.google.dev/gemini-api/docs/streaming?hl=pl).
 
-## تنزيل ملفات من البيئة
+## Pobieranie plików ze środowiska
 
-عندما ينشئ الوكيل ملفات داخل البيئة التجريبية يمكنك تنزيلها باستخدام Files API من خلال طلب HTTP مباشر (لا تتوفّر طريقة SDK حتى الآن):
+Gdy agent tworzy pliki w piaskownicy. Pobierz je za pomocą interfejsu Files API za pomocą bezpośredniego żądania HTTP (nie ma jeszcze metody SDK):
 
 ### Python
 
@@ -348,7 +481,7 @@ execSync("tar -xf snapshot.tar -C extracted_snapshot");
 console.log(fs.readdirSync("extracted_snapshot"));
 ```
 
-### جافا
+### Java
 
 ```
 import java.net.URI;
@@ -376,6 +509,49 @@ Files.write(Paths.get("snapshot.tar"), response.body());
 System.out.println("Saved snapshot to snapshot.tar");
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "io"
+    "log"
+    "net/http"
+    "os"
+)
+
+func main() {
+    ctx := context.Background()
+    envID := "ENVIRONMENT_ID"
+    apiKey := os.Getenv("GEMINI_API_KEY")
+
+    url := fmt.Sprintf("https://generativelanguage.googleapis.com/v1beta/files/environment-%s:download?alt=media", envID)
+    req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    req.Header.Set("x-goog-api-key", apiKey)
+
+    resp, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.Body.Close()
+
+    data, err := io.ReadAll(resp.Body)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if err := os.WriteFile("snapshot.tar", data, 0644); err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println("Saved snapshot to snapshot.tar")
+}
+```
+
 ### REST
 
 ```
@@ -389,13 +565,13 @@ mkdir -p extracted_snapshot
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## حفظ وكيل مُدار
+## Zapisywanie agenta zarządzanego
 
-في الخطوات السابقة، استخدمنا وكيل Antigravity التلقائي وعدّلناه بشكل مضمّن. بعد تكرار عملية الضبط (التعليمات والمهارات واختيار النموذج والبيئة)، يمكنك حفظها كوكيل مُدار قابل لإعادة الاستخدام. يتيح لك ذلك استدعاءه حسب رقم التعريف بدون تكرار الإعداد.
+W poprzednich krokach użyliśmy domyślnego agenta Antigravity i dostosowaliśmy go w tekście. Po wprowadzeniu zmian w konfiguracji (instrukcje, umiejętności, wybór modelu i środowisko) możesz zapisać ją jako zarządzanego agenta wielokrotnego użytku. Dzięki temu możesz wywołać go za pomocą identyfikatora bez powtarzania konfiguracji.
 
-عند حفظ وكيل، لاحظ التماثل المعماري مع التفاعلات المضمّنة: يمكنك تحديد `base_agent: "antigravity-preview-09-2026"` ويمكنك تمرير `agent_config` مع `model` الذي اخترته تمامًا كما تفعل في `interactions.create`. يمكنك أيضًا تحديد `base_environment` (إما من المصادر أو عن طريق إنشاء نسخة من بيئة حالية). سيستخدم الوكيل إعدادات البيئة والنموذج هذه لكل تفاعل جديد.
+Gdy zapiszesz agenta, zauważysz symetrię architektury z interakcjami wbudowanymi: określasz `base_agent: "antigravity-preview-09-2026"` i możesz przekazać `agent_config` z wybranym `model` tak samo jak w przypadku `interactions.create`. Możesz też zdefiniować `base_environment` (ze źródeł lub przez rozwidlenie istniejącego środowiska). Agent będzie używać tego środowiska i konfiguracji modelu w przypadku każdej nowej interakcji.
 
-**من المصادر:** حدِّد المصادر بشكل مضمّن أو من مصادر أخرى، مثل GitHub أو Cloud Storage.
+**Ze źródeł:** zdefiniuj źródła w tekście lub z innych źródeł, takich jak GitHub czy Cloud Storage.
 
 ### Python
 
@@ -459,7 +635,7 @@ const agent = await client.agents.create({
 console.log(`Saved agent: ${agent.id}`);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -505,6 +681,63 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Saved agent: " + agent.id().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/agents"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    env := interactions.Environment{
+        Sources: []interactions.Source{
+            {
+                Type:    interactions.SourceTypeInline.ToPointer(),
+                Target:  genai.Ptr(".agents/AGENTS.md"),
+                Content: genai.Ptr("Always include a chart and a summary table in your reports."),
+            },
+            {
+                Type:   interactions.SourceTypeRepository.ToPointer(),
+                Source: genai.Ptr("https://github.com/your-org/skills"),
+                Target: genai.Ptr(".agents/skills"),
+            },
+        },
+    }
+
+    res, err := client.Agents.Create(ctx, operations.CreateAgentRequest{
+        Body: agents.Agent{
+            ID:        genai.Ptr("fibonacci-analyst"),
+            BaseAgent: genai.Ptr("antigravity-preview-09-2026"),
+            AgentConfig: genai.Ptr(agents.NewAgentConfig(interactions.AntigravityAgentConfig{
+                Model: genai.Ptr("gemini-3.8-flash"),
+            })),
+            SystemInstruction: genai.Ptr("You are a math analysis agent. Generate sequences, visualize them, and export results as PDF reports."),
+            BaseEnvironment:   genai.Ptr(agents.NewBaseEnvironment(env)),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("Saved agent: %s\n", *res.Agent.ID)
+}
+```
+
 ### REST
 
 ```
@@ -537,9 +770,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## استدعاء الوكيل المُدار
+## Wywoływanie agenta zarządzanego
 
-بعد حفظ وكيل مُدار، يمكنك استدعاؤه باستخدام المعرّف. يؤدي كل استدعاء إلى إنشاء نسخة من البيئة الأساسية، لذا يبدأ كل تشغيل بشكل نظيف:
+Po zapisaniu zarządzanego agenta możesz go wywołać za pomocą identyfikatora. Każde wywołanie rozwidla środowisko bazowe, więc każde uruchomienie zaczyna się od czystego stanu:
 
 ### Python
 
@@ -567,7 +800,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -590,6 +823,44 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
+            Agent:       interactions.AgentOption("fibonacci-analyst"),
+            Input:       interactions.NewInteractionsInput("Generate the first 50 prime numbers, plot their distribution, and save a PDF report."),
+            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -603,19 +874,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## الخطوات التالية
+## Co dalej?
 
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): الإمكانات والأدوات المتوافقة والإدخال المتعدد الوسائط والأسعار والقيود
-- [إنشاء وكلاء مُدارين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar): يمكنك توسيع نطاق Antigravity باستخدام التعليمات والمهارات والبيانات الخاصة بك.
-- [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar): المصادر والشبكات ودورة الحياة وحدود الموارد
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar): هي واجهة برمجة التطبيقات الأساسية للنماذج والوكلاء.
+- [Antigravity Agent:](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl) funkcje, obsługiwane narzędzia, multimodalne wprowadzanie danych, ceny i ograniczenia.
+- [Tworzenie zarządzanych agentów:](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl) rozszerzaj Antigravity o własne instrukcje, umiejętności i dane.
+- [Środowiska:](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl) źródła, sieć, cykl życia, limity zasobów.
+- [Interactions API:](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) podstawowy interfejs API dla modeli i agentów.
 
-إرسال ملاحظات
+Prześlij opinię
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)
+Ostatnia aktualizacja: 2026-09-25 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Chcesz przekazać coś jeszcze?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-25 UTC."],[],[]]

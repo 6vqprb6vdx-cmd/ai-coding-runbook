@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=ja
-fetched_at: 2026-09-21T05:59:37.205419+00:00
-title: "\u30d1\u30bd\u30b3\u30f3\u306e\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=tr
+fetched_at: 2026-09-28T06:11:22.006713+00:00
+title: "Bilgisayar kullan\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-フィードバックを送信
+Geri bildirim gönderin
 
-# パソコンの使用
+# Bilgisayar kullanımı
 
-コンピュータ使用ツールを使用すると、ブラウザ、モバイル、パソコンの制御エージェントを構築して、タスクを操作して自動化できます。モデルはスクリーンショットを使用して、コンピュータ画面を「見て」、マウスのクリックやキーボード入力などの特定の UI アクションを生成して「操作」できます。関数呼び出しと同様に、クライアントサイドの実行環境を実装して、コンピュータ使用アクションを受信して実行する必要があります。
+Bilgisayar Kullanımı aracı, tarayıcı, mobil ve masaüstü kontrol ajanları oluşturmanıza olanak tanır. Bu ajanlar, görevlerle etkileşim kurup görevleri otomatikleştirir. Model, ekran görüntülerini kullanarak bilgisayar ekranını "görebilir" ve fare tıklamaları ile klavye girişleri gibi belirli kullanıcı arayüzü işlemleri oluşturarak "hareket edebilir". İşlev çağrısına benzer şekilde, Bilgisayar Kullanımı işlemlerini almak ve yürütmek için istemci tarafı yürütme ortamını uygulamanız gerekir.
 
-サポートされているモデルの一覧については、[モデルのバージョン](#model-versions)をご覧ください。Gemini 3.x モデルは、次の高度な機能をサポートしています。
+Desteklenen modellerin listesi için [Model sürümleri](#model-versions) başlıklı makaleyi inceleyin. Gemini 3.x modelleri, çeşitli gelişmiş özellikleri destekler:
 
-- **マルチ環境のサポート:** [ブラウザ、モバイル、パソコン](#supported-environments)環境用のエージェントを構築します。
-- **インテントを使用した合理化されたアクション:** アクションには、各ステップの背後にあるモデルの推論を説明する `intent` フィールドが含まれています。
-- **構成可能な安全性ポリシー:** 組み込みのポリシー カテゴリとオーバーライドを使用して、[安全性動作](#safety-policies)を微調整します。
-- **プロンプト インジェクションの検出:** [スクリーンショット スキャン](#prompt-injection)を有効にして、隠れた敵対的指示を検出します。
+- **Çoklu ortam desteği:** [Tarayıcı, mobil ve masaüstü](#supported-environments) ortamları için aracı oluşturun.
+- **Intent'lerle basitleştirilmiş işlemler:** İşlemlerde, modelin her adımın arkasındaki mantığını açıklayan bir `intent` alanı bulunur.
+- **Yapılandırılabilir güvenlik politikaları:** Yerleşik politika kategorileri ve geçersiz kılma işlemleriyle [güvenlik davranışını](#safety-policies) hassas bir şekilde ayarlayın.
+- **İstem enjeksiyonu tespiti:** Gizli saldırı talimatlarını tespit etmek için [ekran görüntüsü taramayı](#prompt-injection) etkinleştirin.
 
-コンピュータ使用モデルを使用すると、次のことができるエージェントを構築できます。
+Bilgisayar Kullanımı ile şunları yapabilen temsilciler oluşturabilirsiniz:
 
-- ウェブサイトでのデータ入力やフォームへの記入など、繰り返し発生する作業を自動化します。
-- ウェブ アプリケーションとユーザーフローの自動テストを実行する
-- さまざまなウェブサイトで調査を行う（e コマース サイトから商品の情報、価格、レビューを収集して購入の判断に役立てるなど）
+- Web sitelerinde tekrarlayan veri girişini veya form doldurma işlemlerini otomatikleştirin.
+- Web uygulamalarının ve kullanıcı akışlarının otomatik testini gerçekleştirme
+- Çeşitli web sitelerinde araştırma yapma (ör. satın alma işlemi hakkında bilgi vermek için e-ticaret sitelerinden ürün bilgileri, fiyatlar ve yorumlar toplama)
 
-ブラウザ環境で `computer_use` ツールを有効にして、クライアントを初期化し、モデルにプロンプトを送信する最小限の例を次に示します。
+İstemciyi başlatma ve tarayıcı ortamında `computer_use` aracı etkinleştirilmişken modele istem gönderme ile ilgili minimum örnek aşağıda verilmiştir:
 
 ### Python
 
@@ -96,44 +96,87 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-## コンピュータ使用の仕組み
+### Go
 
-コンピュータ使用モデルを使用してエージェントを構築するには、アプリケーションと API の間に継続的なループを設定する必要があります。各ステップでコードが実行する処理は次のとおりです。
+```
+package main
 
-1. [**モデルにリクエストを送信する**](#send-request)
-   - アプリケーションは、コンピュータ使用ツール、構成設定（ターゲット環境など）、ユーザーのプロンプト、現在の画面のスクリーンショットを含む API リクエストを送信します。
-2. [**モデル レスポンスを受信する**](#model-response)
-   - モデルは画面とプロンプトを分析し、UI アクション（クリック、スクロール、キーストロークなど）を表す `function_call` を含むレスポンスを返します。
-   - **Gemini 3.x モデル**の場合、レスポンスには、モデルがそのアクションを選択した理由を説明する推論 `intent` も含まれます。
-   - レスポンスには、アクションを通常/許可、`require_confirmation`（ユーザーの承認が必要）、ブロックに分類する内部安全システムからの `safety_decision` が含まれる場合もあります。
-3. [**受信したアクションを実行する**](#execute-actions)
-   - アクションが許可されている場合（またはユーザーが確認した場合）、クライアントサイドのコードは `function_call` を解析し、正規化された座標をビューポートに合わせてスケーリングし、自動化ツール（Playwright など）を使用してターゲット環境でアクションを実行します。アクションがブロックされた場合、クライアントは実行を停止するか、中断を処理する必要があります。
-4. [**新しい環境の状態をキャプチャする**](#capture-state)
-   - アクションの実行が完了すると、アプリケーションは新しいスクリーンショットをキャプチャし、`function_result` でモデルに送り返して次のステップをリクエストします。
+import (
+    "context"
+    "fmt"
+    "log"
 
-このプロセスはステップ 2 から繰り返され、タスクが完了または終了するまで、モデルから次のアクションが継続的に求められます。
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
 
-![コンピュータ使用の概要](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=ja)
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-## コンピュータの使用を実装する方法
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Search for 'Gemini API' on Google."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment: interactions.EnvironmentEnumBrowser.ToPointer(),
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
 
-コンピュータの使用ツールを使用して構築する前に、次の設定を行う必要があります。
+    fmt.Println(res.Interaction)
+}
+```
 
-- **安全な実行環境:** サンドボックス化された VM またはコンテナでエージェントを実行して、ホストシステムから隔離し、潜在的な影響を制限します。[リファレンス実装](https://github.com/google/computer-use-preview/)には、出発点として使用できる Docker ベースのサンドボックスが含まれています。
-- **クライアントサイドのアクション ハンドラ:** 座標の実行、テキストの入力、スクリーンショットの撮影を行うクライアントサイドのロジックを実装します。
+## Bilgisayar Kullanımı nasıl çalışır?
 
-次の例では、実行環境としてウェブブラウザを使用し、クライアントサイド ハンドラとして [Playwright](https://playwright.dev/) を使用しています。
+Bilgisayar Kullanımı modeliyle bir aracı oluşturmak için uygulamanız ile API arasında sürekli bir döngü oluşturmanız gerekir. Kodunuzun her adımda ne yapacağını aşağıda bulabilirsiniz:
 
-### 0: Playwright を設定する
+1. [**Modele istek gönderme**](#send-request)
+   - Uygulamanız, Bilgisayar Kullanımı aracını, yapılandırma ayarlarınızı (ör. hedef ortam), kullanıcının istemini ve mevcut ekranın ekran görüntüsünü içeren bir API isteği gönderir.
+2. [**Model yanıtını alma**](#model-response)
+   - Model, ekranı ve istemi analiz ederek bir yanıt döndürür. Bu yanıtta, kullanıcı arayüzü işlemini (ör. tıklama, kaydırma veya tuş vuruşu) temsil eden önerilen bir `function_call` yer alır.
+   - **Gemini 3.x modellerinde** yanıt, modelin bu işlemi neden seçtiğini açıklayan bir gerekçe `intent`
+     de içerir.
+   - Yanıt, işlemi normal/izin verilen, `safety_decision` (kullanıcı onayı gerektiren) veya engellenen olarak sınıflandıran bir dahili güvenlik sisteminden `require_confirmation` de içerebilir.
+3. [**Alınan işlemi yürütün**](#execute-actions)
+   - İşleme izin verilirse (veya kullanıcı işlemi onaylarsa) istemci tarafı kodunuz `function_call` öğesini ayrıştırır, normalleştirilmiş koordinatları görünüm alanınızla eşleşecek şekilde ölçeklendirir ve otomasyon araçlarını (ör. Playwright) kullanarak hedef ortamınızda işlemi yürütür. İşlem engellenirse istemciniz yürütmeyi durdurmalı veya kesintiyi işlemelidir.
+4. [**Yeni ortam durumunu yakalama**](#capture-state)
+   - İşlem yürütülmeyi tamamladıktan sonra uygulamanız yeni bir ekran görüntüsü alır ve bir sonraki adımı istemek için `function_result` içinde modele geri gönderir.
 
-まず、必要なパッケージをインストールします。
+Bu işlem daha sonra 2. adımdan itibaren tekrarlanır ve görev tamamlanana veya sonlandırılana kadar modelden sürekli olarak bir sonraki işlem istenir.
+
+![Bilgisayar Kullanımı'na genel bakış](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=tr)
+
+## Bilgisayar Kullanımı'nı uygulama
+
+Bilgisayar Kullanımı aracıyla oluşturmaya başlamadan önce şunları ayarlamanız gerekir:
+
+- **Güvenli yürütme ortamı:** Aracılarınızı, ana makine sisteminizden izole etmek ve olası etkilerini sınırlamak için korumalı alanda çalışan bir sanal makinede veya kapsayıcıda çalıştırın.
+  [Referans uygulama](https://github.com/google/computer-use-preview/), başlangıç noktası olarak kullanabileceğiniz, kullanıma hazır Docker tabanlı bir sanal alan içerir.
+- **İstemci tarafı işlem işleyici:** Koordinatları yürütmek, metin yazmak ve ekran görüntüsü almak için istemci tarafı mantığını uygulayın.
+
+Aşağıdaki örneklerde yürütme ortamı olarak web tarayıcısı, istemci tarafı işleyici olarak ise [Playwright](https://playwright.dev/) kullanılır.
+
+### 0. Playwright'ı ayarlama
+
+Öncelikle gerekli paketleri yükleyin:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-次に、実行に使用する Playwright ブラウザ インスタンスを初期化します。
+Ardından, yürütme için kullanılacak bir Playwright tarayıcı örneği başlatın:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -161,15 +204,15 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. モデルにリクエストを送信する
+### 1. Modele istek gönderme
 
-クライアント ライブラリを初期化し、コンピュータ使用ツールを構成します。リクエストを発行する際に表示サイズを指定する必要はありません。モデルは、画面の高さと幅に合わせてスケーリングされたピクセル座標を予測します。
+İstemci kitaplığını başlatın ve Bilgisayar Kullanımı aracını yapılandırın. İstek gönderirken ekran boyutunu belirtmenize gerek olmadığını unutmayın. Model, piksel koordinatlarını ekranın yüksekliğine ve genişliğine göre ölçekleyerek tahmin eder.
 
 ### Gemini 3.x
 
 ### Python
 
-`google-genai` Python SDK（バージョン `2.7.0` 以降）を使用して、ブラウザ環境をターゲットとするリクエストを構成します。
+Tarayıcı ortamını hedefleyen bir isteği yapılandırmak için `google-genai` Python SDK'sını (`2.7.0` veya sonraki bir sürüm) kullanın:
 
 ```
 from google import genai
@@ -193,7 +236,7 @@ print(interaction)
 
 ### JavaScript
 
-`@google/genai` Node.js SDK を使用して、ブラウザ環境をターゲットとするリクエストを構成します。
+Tarayıcı ortamını hedefleyen bir isteği yapılandırmak için `@google/genai` Node.js SDK'sını kullanın:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -249,9 +292,51 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment:                    interactions.EnvironmentEnumBrowser.ToPointer(),
+                    EnablePromptInjectionDetection: genai.Ptr(true),
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction)
+}
+```
+
 ### REST
 
-curl を使用してリクエストを送信します。
+İstek göndermek için curl'ü kullanın:
 
 ```
 curl -X POST \
@@ -271,7 +356,7 @@ curl -X POST \
   }'
 ```
 
-### Gemini 2.5（以前のバージョン）
+### Gemini 2.5 (Legacy)
 
 ### Python
 
@@ -359,9 +444,54 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-### 2. モデル レスポンスを受信する
+### Go
 
-レスポンス モデルは関数呼び出しを提案します。**Gemini 3.x モデル**の場合、レスポンスには座標とともにカスタマイズされた推論インテントが含まれます。次の例は、両方のレスポンスを示しています。
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Specify predefined functions to exclude (optional)
+    excludedFunctions := []string{"drag_and_drop"}
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-2.5-computer-use-preview-10-2025"),
+            Input: interactions.NewInteractionsInput("Search for highly rated smart fridges on Google Shopping."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment:                 interactions.EnvironmentEnumBrowser.ToPointer(),
+                    ExcludedPredefinedFunctions: excludedFunctions,
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction)
+}
+```
+
+### 2. Model yanıtını alma
+
+Yanıt modeli, bir işlev çağrısı öneriyor. **Gemini 3.x modellerinde** yanıt, koordinatların yanı sıra amaca uygun bir akıl yürütme niyeti içerir. Aşağıda her iki yanıtın da örnekleri verilmiştir:
 
 ### Gemini 3.x
 
@@ -381,7 +511,7 @@ System.out.println(interaction);
 }
 ```
 
-### Gemini 2.5（以前のバージョン）
+### Gemini 2.5 (Legacy)
 
 ```
 {
@@ -409,11 +539,11 @@ System.out.println(interaction);
 }
 ```
 
-### 3. 受信したアクションを実行する
+### 3. Alınan işlemleri yürütme
 
-アプリは、レスポンスの座標を解析し、アクションを実行して、正規化された 1000x1000 の座標からスケーリングする必要があります。
+Uygulamanız, yanıt koordinatlarını ayrıştırmalı, işlemi yürütmeli ve bunları normalleştirilmiş 1.000x1.000 koordinatlarından ölçeklendirmelidir.
 
-次のコードは、以前のツールのコマンド（`click_at`、`type_text_at`）と最新の効率化されたコマンド（`click`、`type`）の両方を処理します。
+Aşağıdaki kod hem eski araç komutlarını (`click_at`, `type_text_at`) hem de modern, basitleştirilmiş komutları (`click`, `type`) işler.
 
 ### Python
 
@@ -641,9 +771,77 @@ class ActionExecutor {
 }
 ```
 
-### 4. 新しい環境の状態をキャプチャする
+### Go
 
-アクションを実行したら、関数実行の結果をモデルに送り返します。モデルはこの情報を使用して次のアクションを生成します。複数のアクション（並列呼び出し）が実行された場合は、後続のユーザーターンでそれぞれに対して `function_result` を送信する必要があります。
+```
+package main
+
+import (
+    "fmt"
+
+    "google.golang.org/genai/interactions/models/interactions"
+)
+
+func denormalizeX(x, screenWidth int) int {
+    return int(float64(x) / 1000.0 * float64(screenWidth))
+}
+
+func denormalizeY(y, screenHeight int) int {
+    return int(float64(y) / 1000.0 * float64(screenHeight))
+}
+
+func executeFunctionCalls(interaction *interactions.Interaction, screenWidth, screenHeight int) []map[string]any {
+    var results []map[string]any
+
+    for _, step := range interaction.Steps {
+        if functionCall := step.FunctionCallStep; functionCall != nil {
+            fname := functionCall.Name
+            args := functionCall.Arguments
+            actionResult := map[string]any{}
+
+            intent := args["intent"]
+            if intent == nil {
+                intent = "N/A"
+            }
+            fmt.Printf("  -> Executing: %s (Intent: %v)\n", fname, intent)
+
+            switch fname {
+            case "click", "click_at":
+                xVal, _ := args["x"].(float64)
+                yVal, _ := args["y"].(float64)
+                actualX := denormalizeX(int(xVal), screenWidth)
+                actualY := denormalizeY(int(yVal), screenHeight)
+                _ = actualX
+                _ = actualY
+                // Perform mouse click at (actualX, actualY) using your browser automation library
+            case "type", "type_text_at":
+                text, _ := args["text"].(string)
+                _ = text
+                // Type text into active element using your browser automation library
+            case "navigate":
+                url, _ := args["url"].(string)
+                _ = url
+                // Navigate browser to url
+            }
+
+            results = append(results, map[string]any{
+                "name":   fname,
+                "callId": functionCall.ID,
+                "result": actionResult,
+            })
+        }
+    }
+    return results
+}
+
+func main() {
+    // Example helper usage with an Interaction response
+}
+```
+
+### 4. Yeni ortam durumunu yakalama
+
+İşlemleri yürüttükten sonra, işlev yürütme sonucunu modele geri gönderin. Böylece model, bu bilgileri kullanarak sonraki işlemi oluşturabilir. Birden fazla işlem (paralel çağrı) yürütülürse sonraki kullanıcı dönüşünde her biri için bir `function_result` göndermeniz gerekir.
 
 ### Python
 
@@ -752,13 +950,59 @@ class StateCapturer {
 }
 ```
 
-環境の状態をキャプチャしてフォーマットする方法を定義したら、これらのステップをすべて継続的な実行ループにまとめることができます。
+### Go
 
-## エージェント ループを作成する
+```
+package main
 
-複数ステップのやり取りを可能にするには、[コンピュータの使用方法を実装する](#implement-computer-use)セクションの 4 つの手順を 1 つのループにまとめます。このループは、タスクが完了するまでアクションをリクエストし、結果をモデルにフィードバックし続けます。
+import (
+    "encoding/base64"
+    "fmt"
 
-各ステップでモデルのレスポンスと関数のレスポンスの両方を履歴に追加して、会話履歴を正しく管理してください。
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+)
+
+func getFunctionResponses(screenshotBytes []byte, currentURL string, results []map[string]any) []interactions.Step {
+    var functionResponses []interactions.Step
+    base64Screenshot := base64.StdEncoding.EncodeToString(screenshotBytes)
+
+    for _, entry := range results {
+        name, _ := entry["name"].(string)
+        callID, _ := entry["callId"].(string)
+        jsonResult := fmt.Sprintf(`{"url": "%s"}`, currentURL)
+
+        responseStep := interactions.NewStep(interactions.FunctionResultStep{
+            Name:   genai.Ptr(name),
+            CallID: callID,
+            Result: interactions.NewFunctionResultStepResultUnion([]interactions.FunctionResultSubcontent{
+                interactions.NewFunctionResultSubcontent(interactions.TextContent{
+                    Text: jsonResult,
+                }),
+                interactions.NewFunctionResultSubcontent(interactions.ImageContent{
+                    Data:     genai.Ptr(base64Screenshot),
+                    MimeType: interactions.ImageContentMimeType("image/png").ToPointer(),
+                }),
+            }),
+        })
+        functionResponses = append(functionResponses, responseStep)
+    }
+    return functionResponses
+}
+
+func main() {
+    // Example helper usage to build FunctionResultStep responses
+}
+```
+
+Ortam durumunun nasıl yakalanacağını ve biçimlendirileceğini tanımladıktan sonra tüm bu adımları sürekli bir yürütme döngüsünde birleştirebilirsiniz.
+
+## Aracı döngüsü oluşturma
+
+Çok adımlı etkileşimleri etkinleştirmek için [Bilgisayar kullanımını uygulama](#implement-computer-use) bölümündeki dört adımı tek bir döngüde birleştirin.
+Bu döngü, görev tamamlanana kadar işlem isteğinde bulunmaya ve sonuçları modele geri göndermeye devam eder.
+
+Her adımda hem model yanıtlarını hem de işlev yanıtlarınızı geçmişe ekleyerek sohbet geçmişini doğru şekilde yönetmeyi unutmayın.
 
 ### Python
 
@@ -1047,107 +1291,213 @@ for (int i = 0; i < turnLimit; i++) {
 }
 ```
 
-## サポートされる環境（Gemini 3.x）
+### Go
 
-Gemini 3.x モデルは、`computer_use` 構成で指定された次の 3 つの環境をサポートしています。
+```
+package main
 
-### ブラウザ環境（`ENVIRONMENT_BROWSER`）
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "strings"
 
-ブラウザツールで使用できるアクション:
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
 
-| コマンド名 | 説明 | 引数（関数呼び出し内） |
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Constants for screen dimensions
+    screenWidth := 1440
+    screenHeight := 900
+    _ = screenWidth
+    _ = screenHeight
+
+    // Capture initial screenshot from browser driver (e.g. Playwright)
+    initialScreenshot := []byte{}
+    base64Screenshot := base64.StdEncoding.EncodeToString(initialScreenshot)
+    userPrompt := "Go to ai.google.dev/gemini-api/docs and search for pricing."
+    fmt.Println("Goal:", userPrompt)
+
+    computerUseTool := interactions.NewTool(interactions.ComputerUse{
+        Environment:                    interactions.EnvironmentEnumBrowser.ToPointer(),
+        EnablePromptInjectionDetection: genai.Ptr(true),
+    })
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{Text: userPrompt}),
+                interactions.NewContent(interactions.ImageContent{
+                    Data:     genai.Ptr(base64Screenshot),
+                    MimeType: interactions.ImageContentMimeType("image/png").ToPointer(),
+                }),
+            }),
+            Tools: []interactions.Tool{computerUseTool},
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    interaction := res.Interaction
+
+    turnLimit := 5
+    for i := 0; i < turnLimit; i++ {
+        fmt.Printf("\n--- Turn %d ---\n", i+1)
+
+        hasFunctionCalls := false
+        for _, step := range interaction.Steps {
+            if step.FunctionCallStep != nil {
+                hasFunctionCalls = true
+                break
+            }
+        }
+
+        if !hasFunctionCalls {
+            var parts []string
+            for _, step := range interaction.Steps {
+                if outStep := step.ModelOutputStep; outStep != nil {
+                    for _, contentBlock := range outStep.Content {
+                        if textContent := contentBlock.TextContent; textContent != nil {
+                            parts = append(parts, textContent.GetText())
+                        }
+                    }
+                }
+            }
+            fmt.Println("Agent finished:", strings.TrimSpace(strings.Join(parts, " ")))
+            break
+        }
+
+        fmt.Println("Executing actions and capturing state...")
+        // Execute function calls against browser driver and capture []interactions.Step functionResponses
+        var functionResponses []interactions.Step
+
+        nextRes, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+            Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+                Model:                 interactions.Model("gemini-3.8-flash"),
+                PreviousInteractionID: interaction.ID,
+                Input:                 interactions.NewInteractionsInput(functionResponses),
+                Tools:                 []interactions.Tool{computerUseTool},
+            }),
+        })
+        if err != nil {
+            log.Fatal(err)
+        }
+        interaction = nextRes.Interaction
+    }
+}
+```
+
+## Desteklenen ortamlar (Gemini 3.x)
+
+Gemini 3.x modelleri, `computer_use` yapılandırmalarında belirtilen üç ortamı destekler:
+
+### Tarayıcı ortamı (`ENVIRONMENT_BROWSER`)
+
+Tarayıcı aracında kullanılabilen işlemler:
+
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
 | --- | --- | --- |
-| **click** | 座標で左クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **double\_click** | 座標をダブルクリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **triple\_click** | 座標を 3 回クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **middle\_click** | 座標で中クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **right\_click** | 座標での右クリック。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **mouse\_down** | 座標でマウスボタンを押して長押しします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **mouse\_up** | 座標でマウスボタンを離します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **move** | カーソルを指定した位置に移動します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **type** | テキストを入力します。 | `text`: str `press_enter`: bool（省略可、デフォルトは `false`） `intent`: str |
-| **drag\_and\_drop** | アイテムを開始座標から終了座標までドラッグします。 | `start_y`: int（0 ～ 999） `start_x`: int（0 ～ 999） `end_y`: int（0 ～ 999） `end_x`: int（0 ～ 999） `intent`: str |
-| **wait** | 指定された秒数だけ実行を一時停止します。 | `seconds`: int（省略可、デフォルトは `1`） `intent`: str |
-| **press\_key** | 指定されたキーを押して離します。 | `key`: str `intent`: str |
-| **key\_down** | 指定されたキーを押して保持します。 | `key`: str `intent`: str |
-| **key\_up** | 指定されたキーをリリースします。 | `key`: str `intent`: str |
-| **ホットキー** | 指定されたキーの組み合わせを押します。 | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | 現在の画面のスクリーンショットを返します。 | `intent`: str |
-| **scroll** | 座標で上下左右にピクセル距離だけスクロールします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `direction`: str（`"up"`、`"down"`、`"left"`、`"right"`） `magnitude_in_pixels`: int（0 ～ 999、省略可、デフォルトは `300`） `intent`: str |
-| **go\_back** | ブラウザの履歴の前のウェブページに戻ります。 | `intent`: str |
-| **navigate** | 指定された URL に直接移動します。 | `url`: str `intent`: str |
-| **go\_forward** | ブラウザの履歴の次のウェブページに移動します。 | `intent`: str |
+| **tıklama** | Koordinatta sol tıklama. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Koordinatı çift tıklayın. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Koordinat üç kez tıklanır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Orta tıklama ile koordinat seçilir. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Koordinatta sağ tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Fare düğmesini koordinatta basar ve basılı tutar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Fare düğmesini koordinatta bırakır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **move** | İmleci belirtilen konuma taşır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
+| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
+| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
+| **key\_down** | Belirtilen tuşa basar ve basılı tutar. | `key`: str `intent`: str |
+| **key\_up** | Belirtilen anahtarı serbest bırakır. | `key`: str `intent`: str |
+| **hotkey** | Belirtilen tuş kombinasyonuna basar. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
+| **scroll** | Bir koordinatta yukarı, aşağı, sola veya sağa bir piksel mesafede kaydırır. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, İsteğe bağlı, varsayılan `300`) `intent`: str |
+| **go\_back** | Tarama geçmişinde önceki web sayfasına geri döner. | `intent`: str |
+| **navigate** | Belirtilen bir URL'ye doğrudan gider. | `url`: str `intent`: str |
+| **go\_forward** | Tarayıcı geçmişinde sonraki web sayfasına gider. | `intent`: str |
 
-### モバイル環境（`ENVIRONMENT_MOBILE`）
+### Mobil ortam (`ENVIRONMENT_MOBILE`)
 
-Android に最適化された環境アクション:
+Android için optimize edilmiş ortam işlemleri:
 
-| コマンド名 | 説明 | 引数（関数呼び出し内） |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
 | --- | --- | --- |
-| **open\_app** | 名前でアプリケーションを開きます。 | `app_name`: str `intent`: str |
-| **click** | 座標で左クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **list\_apps** | デバイスで利用可能なアプリを一覧表示し、名前とパッケージ名を返します。 | `intent`: str |
-| **wait** | 指定された秒数だけ実行を一時停止します。 | `seconds`: int（省略可、デフォルトは `1`） `intent`: str |
-| **go\_back** | 前の画面またはウェブページに戻ります。 | `intent`: str |
-| **type** | テキストを入力します。 | `text`: str `press_enter`: bool（省略可、デフォルトは `false`） `intent`: str |
-| **drag\_and\_drop** | アイテムを開始座標から終了座標までドラッグします。 | `start_y`: int（0 ～ 999） `start_x`: int（0 ～ 999） `end_y`: int（0 ～ 999） `end_x`: int（0 ～ 999） `intent`: str |
-| **long\_press** | 画面上の座標で長押しを実行します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `seconds`: int（省略可、デフォルトは `2`） `intent`: str |
-| **press\_key** | 指定されたキーを押して離します。 | `key`: str `intent`: str |
-| **take\_screenshot** | 現在の画面のスクリーンショットを返します。 | `intent`: str |
+| **open\_app** | Bir uygulamayı adına göre açar. | `app_name`: str `intent`: str |
+| **tıklama** | Koordinatta sol tıklama. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | Cihazdaki kullanılabilir uygulamaları adları ve paket adlarıyla birlikte listeler. | `intent`: str |
+| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
+| **go\_back** | Önceki ekrana veya web sayfasına geri döner. | `intent`: str |
+| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
+| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | Ekranda bir koordinata uzun basma işlemi gerçekleştirir. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (İsteğe bağlı, varsayılan `2`) `intent`: str |
+| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
+| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
 
-### デスクトップ環境（`ENVIRONMENT_DESKTOP`）
+### Masaüstü ortamı (`ENVIRONMENT_DESKTOP`)
 
-デスクトップ環境の OS レベルのカーソル コマンド:
+Masaüstü ortamlarında işletim sistemi düzeyinde imleç komutları:
 
-| コマンド名 | 説明 | 引数（関数呼び出し内） |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
 | --- | --- | --- |
-| **click** | 座標で左クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **double\_click** | 座標をダブルクリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **triple\_click** | 座標を 3 回クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **middle\_click** | 座標で中クリックします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **right\_click** | 座標での右クリック。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **mouse\_down** | 座標でマウスボタンを押して長押しします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **mouse\_up** | 座標でマウスボタンを離します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **move** | カーソルを指定した位置に移動します。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `intent`: str |
-| **type** | テキストを入力します。 | `text`: str `press_enter`: bool（省略可、デフォルトは `false`） `intent`: str |
-| **drag\_and\_drop** | アイテムを開始座標から終了座標までドラッグします。 | `start_y`: int（0 ～ 999） `start_x`: int（0 ～ 999） `end_y`: int（0 ～ 999） `end_x`: int（0 ～ 999） `intent`: str |
-| **wait** | 指定された秒数だけ実行を一時停止します。 | `seconds`: int（省略可、デフォルトは `1`） `intent`: str |
-| **press\_key** | 指定されたキーを押して離します。 | `key`: str `intent`: str |
-| **key\_down** | 指定されたキーを押して保持します。 | `key`: str `intent`: str |
-| **key\_up** | 指定されたキーをリリースします。 | `key`: str `intent`: str |
-| **ホットキー** | 指定されたキーの組み合わせを押します。 | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | 現在の画面のスクリーンショットを返します。 | `intent`: str |
-| **scroll** | 座標で上下左右にピクセル距離だけスクロールします。 | `y`: int（0 ～ 999） `x`: int（0 ～ 999） `direction`: str（`"up"`、`"down"`、`"left"`、`"right"`） `magnitude_in_pixels`: int（0 ～ 999、省略可、デフォルトは `300`） `intent`: str |
+| **tıklama** | Koordinatta sol tıklama. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Koordinatı çift tıklayın. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Koordinat üç kez tıklanır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Orta tıklama ile koordinat seçilir. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Koordinatta sağ tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Fare düğmesini koordinatta basar ve basılı tutar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Fare düğmesini koordinatta bırakır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **move** | İmleci belirtilen konuma taşır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
+| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
+| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
+| **key\_down** | Belirtilen tuşa basar ve basılı tutar. | `key`: str `intent`: str |
+| **key\_up** | Belirtilen anahtarı serbest bırakır. | `key`: str `intent`: str |
+| **hotkey** | Belirtilen tuş kombinasyonuna basar. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
+| **scroll** | Bir koordinatta yukarı, aşağı, sola veya sağa bir piksel mesafede kaydırır. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, İsteğe bağlı, varsayılan `300`) `intent`: str |
 
-## 以前のサポート対象の UI アクション（Gemini 2.5）
+## Eski desteklenen kullanıcı arayüzü işlemleri (Gemini 2.5)
 
-以前のモデル（`gemini-2.5-computer-use-preview-10-2025`）では、次のアクションがサポートされています。
+Eski modeller (`gemini-2.5-computer-use-preview-10-2025`) için aşağıdaki işlemler desteklenir:
 
-| コマンド名 | 説明 | 引数（関数呼び出し内） | 関数呼び出しの例 |
+| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) | Örnek işlev çağrısı |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | ウェブブラウザを開きます。 | なし | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | 実行を 5 秒間一時停止します。 | なし | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | 履歴の前のページに移動します。 | なし | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | 履歴の次のページに移動します。 | なし | `{"name": "go_forward", "arguments": {}}` |
-| **search** | デフォルトの検索エンジンに移動します。 | なし | `{"name": "search", "arguments": {}}` |
-| **navigate** | ブラウザを指定された URL に直接移動します。 | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | 特定の座標をクリックします。 | `y`: int（0～999）、`x`: int（0～999） | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | 特定の座標にマウスを移動します。 | `y`: int（0～999）、`x`: int（0～999） | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | 座標にテキストを入力します。 | `y`: int（0 ～ 999）、`x`: int（0 ～ 999）、`text`: str、`press_enter`: bool（省略可、デフォルトは True）、`clear_before_typing`: bool（省略可、デフォルトは True） | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | キーまたはキーの組み合わせを押します。 | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | ウェブページ全体をスクロールします。 | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | 座標（x,y）でスクロールします。 | `y`: int、`x`: int、`direction`: str、`magnitude`: int（省略可、デフォルトは 800） | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | 2 つの座標間でドラッグします。 | `y`: int、`x`: int、`destination_y`: int、`destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+| **open\_web\_browser** | Web tarayıcısını açar. | Yok | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | Yürütmeyi 5 saniye duraklatır. | Yok | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | Geçmişteki önceki sayfaya gider. | Yok | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | Geçmiş'te sonraki sayfaya gider. | Yok | `{"name": "go_forward", "arguments": {}}` |
+| **search** | Varsayılan arama motoruna gider. | Yok | `{"name": "search", "arguments": {}}` |
+| **navigate** | Tarayıcıyı doğrudan belirtilen URL'ye yönlendirir. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Belirli bir koordinattaki tıklamalar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | Fareyi belirli bir koordinat üzerinde tutar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Bir koordinata metin yazar. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (isteğe bağlı, varsayılan değer True), `clear_before_typing`: bool (isteğe bağlı, varsayılan değer True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | Tuşlara veya kombinasyonlara basın. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | Web sayfasının tamamını kaydırır. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | (x,y) koordinatında kaydırır. | `y`: int, `x`: int, `direction`: str, `magnitude`: int (isteğe bağlı, varsayılan 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | İki koordinat arasında sürükleme. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
 
-## カスタムのユーザー定義関数
+## Özel kullanıcı tanımlı işlevler
 
-カスタム ユーザー定義関数を含めて、モデルの機能を拡張できます。たとえば、人間参加型（HITL）シナリオでは、デフォルトの事前定義済みアクションを除外して、カスタム アクションを登録できます。
+Özel kullanıcı tanımlı işlevler ekleyerek modelin işlevselliğini genişletebilirsiniz. Örneğin, sürece insanların dahil edildiği (HITL) senaryolarda varsayılan olarak önceden tanımlanmış işlemleri hariç tutabilir ve özel işlemleri kaydedebilirsiniz.
 
-#### Gemini 3.x カスタム ツール
+#### Gemini 3.x Özel Araçları
 
 ### Python
 
-標準の事前定義されたブラウザ アクション（`click` など）を除外し、カスタム `yield_to_user` ツールを登録します。
+Standart önceden tanımlanmış tarayıcı işlemlerini (ör. `click`) hariç tutun ve özel bir `yield_to_user` aracı kaydedin:
 
 ```
 from google import genai
@@ -1186,7 +1536,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-標準の事前定義されたブラウザ アクション（`click` など）を除外し、カスタム `yield_to_user` ツールを登録します。
+Standart önceden tanımlanmış tarayıcı işlemlerini (ör. `click`) hariç tutun ve özel bir `yield_to_user` aracı kaydedin:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1280,7 +1630,62 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-#### Gemini 2.5（以前のバージョン）のカスタム ツール
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    yieldToUserTool := interactions.NewTool(interactions.Function{
+        Name:        genai.Ptr("yield_to_user"),
+        Description: genai.Ptr("Yields control back to the user for assistance or verification when an automated action is unsafe or ambiguous."),
+        Parameters: map[string]any{
+            "type": "object",
+            "properties": map[string]any{
+                "reason": map[string]any{
+                    "type":        "string",
+                    "description": "The reason why the agent is yielding control to the human.",
+                },
+            },
+            "required": []string{"reason"},
+        },
+    })
+
+    _, err = client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Click the submit button. If you need a second factor authentication code, ask me."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment:                 interactions.EnvironmentEnumMobile.ToPointer(),
+                    ExcludedPredefinedFunctions: []string{"click"},
+                }),
+                yieldToUserTool,
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+#### Gemini 2.5 (Legacy) Özel Araçlar
 
 ### Python
 
@@ -1415,29 +1820,91 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-## 思考レベルの管理（Gemini 3.x）
+### Go
 
-コンピュータ使用エージェントでは、アクションの品質と実行速度のバランスを取るために、さまざまな思考レベルを構成できます。一般的に、標準的な自動化タスクでは、思考レベルを低くするとバランスが取れます。
+```
+package main
 
-## 安全性とセキュリティ
+import (
+    "context"
+    "fmt"
+    "log"
 
-### 安全に関するポリシーを構成する（Gemini 3.x）
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
 
-Gemini 3.x モデルには、ユーザーの確認が必要かどうかを自動的に判断する組み込みの安全性サービス カテゴリが含まれています。
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-| 安全性に関するポリシーのカテゴリ | 説明 |
+    // Define custom tools here
+    customFunction := interactions.NewTool(interactions.Function{
+        Name:        genai.Ptr("long_press_at"),
+        Description: genai.Ptr("Long-press at specified coordinates."),
+    })
+
+    excludedFunctions := []string{
+        "open_web_browser",
+        "wait_5_seconds",
+        "go_back",
+        "go_forward",
+        "search",
+        "navigate",
+        "hover_at",
+        "scroll_document",
+        "key_combination",
+        "drag_and_drop",
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-2.5-computer-use-preview-10-2025"),
+            Input: interactions.NewInteractionsInput("Open Chrome, then long-press at 200,400."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment:                 interactions.EnvironmentEnumBrowser.ToPointer(),
+                    ExcludedPredefinedFunctions: excludedFunctions,
+                }),
+                customFunction,
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(res.Interaction)
+}
+```
+
+## Düşünme düzeylerini yönetme (Gemini 3.x)
+
+Bilgisayar kullanımına yönelik aracıları, işlem kalitesi ile yürütme hızını dengelemek için farklı düşünme düzeylerinde yapılandırabilirsiniz. Daha düşük düşünme seviyeleri, standart otomasyon görevlerinde genellikle iyi bir denge sağlar.
+
+## Güvenlik
+
+### Güvenlik politikalarını yapılandırma (Gemini 3.x)
+
+Gemini 3.x modellerinde, kullanıcı onayının gerekip gerekmediğini otomatik olarak belirleyen yerleşik güvenlik hizmeti kategorileri bulunur.
+
+| Güvenlik politikası kategorisi | Açıklama |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | 支払い、小売店のレジ、規制対象商品に関連するアクションをブロックするか、確認をトリガーします。 |
-| `SENSITIVE_DATA_MODIFICATION` | 医療、財務、政府の記録を不正な変更から保護します。 |
-| `COMMUNICATION_TOOL` | エージェントがメール、チャット メッセージ、下書きを自律的に送信することを制限します。 |
-| `ACCOUNT_CREATION` | エージェントがウェブサイトで新しいアカウントを自律的に登録することを制限します。 |
-| `DATA_MODIFICATION` | ファイル システムの変更、データ共有、ストレージの削除を全体的に規制します。 |
-| `USER_CONSENT_MANAGEMENT` | Cookie 使用の同意バナーとプライバシー プロンプトでユーザーの操作が必要になります。 |
-| `LEGAL_TERMS_AND_AGREEMENTS` | モデルが利用規約や法的拘束力のある契約に自律的に同意することを防ぎます。 |
+| `FINANCIAL_TRANSACTIONS` | Ödeme, perakende ödemesi veya yasal düzenlemelere tabi ürünler içeren işlemler için onaylama özelliğini engeller veya tetikler. |
+| `SENSITIVE_DATA_MODIFICATION` | Sağlık, finans veya devlet kayıtlarını yetkisiz değişikliklere karşı korur. |
+| `COMMUNICATION_TOOL` | Aracının bağımsız olarak e-posta, sohbet mesajı veya taslak göndermesini kısıtlar. |
+| `ACCOUNT_CREATION` | Aracının web sitelerinde bağımsız olarak yeni hesap kaydetmesini kısıtlar. |
+| `DATA_MODIFICATION` | Genel dosya sistemi değişikliklerini, veri paylaşımını ve depolama silme işlemlerini düzenler. |
+| `USER_CONSENT_MANAGEMENT` | Çerez izni banner'ları ve gizlilik istemleri için kullanıcı devralma işlemi gerektirir. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | Modelin, Hizmet Şartları'nı veya yasal olarak bağlayıcı sözleşmeleri bağımsız olarak kabul etmesini engeller. |
 
-#### 安全性のオーバーライド
+#### Güvenlik geçersiz kılma işlemleri
 
-オーバーライドを渡すことで、一部のポリシーをオーバーライドできます。
+Geçersiz kılmalar ileterek belirli politikaları geçersiz kılabilirsiniz:
 
 ### Python
 
@@ -1515,13 +1982,54 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### プロンプト インジェクションの検出（Gemini 3.x）
+### Go
 
-Gemini 3.5 Flash 以降のコンピュータ使用では、プロンプト インジェクション攻撃を検出する高度な安全メカニズムがサポートされています。この機能を有効にすると、含まれているスクリーンショットに隠された敵対的な指示（「前のコマンドを無視する」など）が含まれているかどうかがチェックされ、検出された場合は実行がブロックされます。
+```
+package main
 
-プロンプト インジェクションの検出は、オプトイン機能です。デフォルト値は `false` です。
+import (
+    "context"
+    "log"
 
-次の例は、コンピュータ使用ツールの構成でプロンプト インジェクション検出を有効にする方法を示しています。
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    _, err = client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("Clean up the local folder by archiving old logs."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment: interactions.EnvironmentEnumDesktop.ToPointer(),
+                    DisabledSafetyPolicies: []interactions.DisabledSafetyPolicy{
+                        interactions.DisabledSafetyPolicyDataModification,
+                    },
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+### İstem enjeksiyonu tespiti (Gemini 3.x)
+
+Gemini 3.5 Flash veya sonraki sürümler için bilgisayar kullanımı, istem enjeksiyonu saldırılarını tespit etmek üzere gelişmiş bir güvenlik mekanizmasını destekler. Bu özellik etkinleştirildiğinde, eklenen ekran görüntüsünde gizli saldırgan talimatlar (örneğin, "Önceki komutları yoksay") olup olmadığını kontrol eder ve algılandığında yürütmeyi engeller.
+
+İstem enjeksiyonu tespiti, etkinleştirilmesi gereken bir özelliktir. Varsayılan değer: `false`.
+
+Aşağıdaki örneklerde, Bilgisayar Kullanımı aracı yapılandırmanızda istem enjeksiyonu tespitinin nasıl etkinleştirileceği gösterilmektedir:
 
 ### Python
 
@@ -1593,6 +2101,45 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    _, err = client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.5-flash"),
+            Input: interactions.NewInteractionsInput("Search for flight deals and summarize top results."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment:                    interactions.EnvironmentEnumDesktop.ToPointer(),
+                    EnablePromptInjectionDetection: genai.Ptr(true),
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ### cURL
 
 ```
@@ -1611,9 +2158,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI
 }'
 ```
 
-### 安全性の判断を確認する
+### Güvenlik kararını onaylama
 
-レスポンスには、関数呼び出しの引数に `safety_decision` パラメータが含まれる場合があります。
+Yanıt, işlev çağrısı bağımsız değişkenlerinde bir `safety_decision` parametresi içerebilir:
 
 ```
 {
@@ -1634,7 +2181,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI
 }
 ```
 
-`safety_decision` が `require_confirmation` の場合は、エンドユーザーにプロンプトを表示します。ユーザーが確認した場合は、`function_result` で `safety_acknowledgement` を設定します。
+`safety_decision` `require_confirmation` ise son kullanıcıya istem gösterin. Kullanıcı onaylarsa `safety_acknowledgement` değerini `function_result` olarak ayarlayın.
 
 ### Python
 
@@ -1653,13 +2200,13 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### 安全に使用するためのベスト プラクティス
+### Güvenlikle ilgili en iyi uygulamalar
 
-コンピュータ使用は、ユーザーに代わってモデルが画面上の信頼できないコンテンツに遭遇したり、アクションの実行でエラーが発生したりする可能性があるため、独自のセキュリティ リスクと運用リスクが生じます。ユーザーデータとシステムを保護するには、次のベスト プラクティスを実装します。
+Kullanıcı adına hareket eden bir model, ekranlarda güvenilmeyen içeriklerle karşılaşabileceği veya işlemleri yürütürken hatalar yapabileceği için Bilgisayar Kullanımı, benzersiz güvenlik ve operasyonel riskler barındırır. Kullanıcı verilerini ve sistemlerini korumak için aşağıdaki en iyi uygulamaları kullanın:
 
-1. **人間参加型（HITL）:**
-   - **ユーザー確認を強制する:** 安全レスポンスで `require_confirmation` が示されている場合（または以前の安全判定で必要とされている場合）、ユーザーに承認を求めます。
-   - **カスタムの安全に関する指示を提供する:** カスタム システム指示を実装して、独自の安全性の境界を定義し、適用します。次に例を示します。
+1. **İnsanların dahil edilmesi (HITL):**
+   - **Kullanıcı onayını zorunlu kılma:** Güvenlik yanıtı `require_confirmation` simgesini gösterdiğinde (veya eski güvenlik kararı bunu gerektirdiğinde) kullanıcıdan onay isteyin.
+   - **Özel güvenlik talimatları sağlama:** Kendi güvenlik sınırlarınızı tanımlamak ve zorunlu kılmak için özel bir sistem talimatı uygulayın. Örneğin:
 
      ### Python
 
@@ -1875,7 +2422,7 @@ if 'safety_decision' in function_call.arguments:
 
 ### Java
 
-`` java
+```
 import com.google.genai.Client;
 import com.google.genai.gaos.models.interactions.ComputerUse;
 import com.google.genai.gaos.models.interactions.CreateModelInteraction;
@@ -1884,59 +2431,112 @@ import com.google.genai.gaos.models.interactions.Interaction;
 import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
 import java.util.Arrays;
+
 Client client = new Client();
+
 String systemInstruction =
-"## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**\n\n"
-+ "This is your first and most important check. If the next required action falls "
-+ "into any of the following categories, you MUST stop immediately, and seek the "
-+ "user's explicit permission.\n\n"
-+ "## **RULE 2: Default Behavior (ACTUATE)**\n\n"
-+ "If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`, "
-+ "your default behavior is to **Actuate**.";
+    "## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**\n\n"
+        + "This is your first and most important check. If the next required action falls "
+        + "into any of the following categories, you MUST stop immediately, and seek the "
+        + "user's explicit permission.\n\n"
+        + "## **RULE 2: Default Behavior (ACTUATE)**\n\n"
+        + "If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`, "
+        + "your default behavior is to **Actuate**.";
+
 CreateModelInteraction params =
-CreateModelInteraction.builder()
-.model("gemini-3.8-flash")
-.systemInstruction(systemInstruction)
-.input(InteractionsInput.of("Prepare a draft but do not send."))
-.tools(
-Arrays.asList(
-ComputerUse.builder().environment(EnvironmentEnum.BROWSER).build()))
-.build();
+    CreateModelInteraction.builder()
+        .model("gemini-3.8-flash")
+        .systemInstruction(systemInstruction)
+        .input(InteractionsInput.of("Prepare a draft but do not send."))
+        .tools(
+            Arrays.asList(
+                ComputerUse.builder().environment(EnvironmentEnum.BROWSER).build()))
+        .build();
+
 Interaction interaction =
-client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get(); ``
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+```
 
-1. **安全な実行環境:** 安全なサンドボックス環境でエージェントを実行して、潜在的な影響を制限します。これは、サンドボックス化された仮想マシン（VM）、コンテナ（Docker など）、権限が制限された専用のブラウザ プロファイルなどです。Docker を使用したサンドボックスのセットアップ ガイダンスについては、[GitHub リファレンス実装](https://github.com/google/computer-use-preview/)をご覧ください。
-2. **入力のサニタイズ:** プロンプト内のユーザーが生成したすべてのテキストをサニタイズして、意図しない指示やプロンプト インジェクションのリスクを軽減します。これはセキュリティの有用なレイヤですが、安全な実行環境の代わりにはなりません。
-3. **コンテンツ ガードレール:** ガードレールとコンテンツ安全 API を使用して、ユーザー入力、ツール入力と出力、エージェントのレスポンスの適切性、プロンプト インジェクション、ジェイルブレイクの検出を評価します。
-4. **許可リストとブロックリスト:** モデルが移動できる場所と実行できる操作を制御するフィルタリング メカニズムを実装します。禁止されているウェブサイトのブロックリストは適切な出発点ですが、より制限の厳しい許可リストを使用することで安全性を高めることができます。
-5. **オブザーバビリティとロギング:** デバッグ、監査、インシデント対応のために詳細なログを保持します。クライアントは、プロンプト、スクリーンショット、モデルが提案したアクション（`function_call`）、安全性に関するレスポンス、クライアントが最終的に実行したすべてのアクションをログに記録する必要があります。
-6. **環境管理:** GUI 環境の一貫性を確保します。予期しないポップアップ、通知、レイアウトの変更は、モデルを混乱させる可能性があります。可能であれば、新しいタスクごとに既知のクリーンな状態から開始します。
+### Go
 
-## モデル バージョン
+```
+package main
 
-コンピュータ使用は次のモデルで使用できます。
+import (
+    "context"
+    "log"
 
-- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ja)（`gemini-3.8-flash`）: 高精度の UI 操作と信頼性の高いツール呼び出しを備えた、パソコンでの使用におすすめのモデル。
-- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=ja)（`gemini-3.7-flash`）: コンピュータ使用の以前の安定版モデル。インテントによるアクションの合理化、ブラウザ、モバイル、デスクトップ環境のサポート、構成可能な安全ポリシー、プロンプト インジェクションの検出が特徴です。
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja)（`gemini-3.5-flash-lite`）: コンピュータの使用をサポートする、低レイテンシで費用対効果の高いモデル。
-- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja)（`gemini-3.5-flash`）: コンピュータでの使用をサポートする以前の安定版モデル。
-- [**Gemini 3 Flash プレビュー**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja)（`gemini-3-flash-preview`）: コンピュータでの使用をサポートするプレビュー モデル。
-- [**Gemini 2.5（以前のプレビュー）**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ja)（`gemini-2.5-computer-use-preview-10-2025`）: ブラウザベースのコンピュータでの使用に最適化された以前のプレビュー モデル。
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
 
-## 次のステップ
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-- [Browserbase デモ環境](http://gemini.browserbase.com)でコンピュータの使用を試す。
-- サンプルコードについては、[リファレンス実装](https://github.com/google/computer-use-preview)をご覧ください。
-- 他の Gemini API ツールについて学習します。
-  - [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)
-  - [Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)
+    systemInstruction := "## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**\n\n" +
+        "This is your first and most important check. If the next required action falls " +
+        "into any of the following categories, you MUST stop immediately, and seek the " +
+        "user's explicit permission.\n\n" +
+        "## **RULE 2: Default Behavior (ACTUATE)**\n\n" +
+        "If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`, " +
+        "your default behavior is to **Actuate**."
 
-フィードバックを送信
+    _, err = client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model:             interactions.Model("gemini-3.8-flash"),
+            SystemInstruction: genai.Ptr(systemInstruction),
+            Input:             interactions.NewInteractionsInput("Prepare a draft but do not send."),
+            Tools: []interactions.Tool{
+                interactions.NewTool(interactions.ComputerUse{
+                    Environment: interactions.EnvironmentEnumBrowser.ToPointer(),
+                }),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+1. **Güvenli yürütme ortamı:** Potansiyel etkisini sınırlamak için aracınızı güvenli ve korumalı bir ortamda çalıştırın. Bu, sınırlı izinlere sahip bir sanal makine (VM), bir kapsayıcı (ör. Docker) veya özel bir tarayıcı profili olabilir. Docker kullanarak sanal alan kurulumuyla ilgili rehberlik için [GitHub referans uygulamasını](https://github.com/google/computer-use-preview/) inceleyin.
+2. **Giriş temizleme:** İstenmeyen talimatlar veya istem enjeksiyonu riskini azaltmak için istemlerdeki kullanıcı tarafından oluşturulan tüm metinleri temizleyin. Bu, faydalı bir güvenlik katmanı olsa da güvenli bir yürütme ortamının yerini almaz.
+3. **İçerik koruma sınırları:** Kullanıcı girişlerini, araç girişlerini ve çıkışlarını, aracının yanıtlarını uygunluk, istem enjeksiyonu ve jailbreak tespiti açısından değerlendirmek için koruma sınırlarını ve içerik güvenliği API'lerini kullanın.
+4. **İzin verilenler ve engellenenler listeleri:** Modelin nereye gidebileceğini ve neler yapabileceğini kontrol etmek için filtreleme mekanizmalarını uygulayın. Yasaklanmış web sitelerinin engellenenler listesi iyi bir başlangıç noktasıdır. Daha kısıtlayıcı bir izin verilenler listesi ise daha da güvenlidir.
+5. **Gözlemlenebilirlik ve günlük kaydı:** Hata ayıklama, denetleme ve olay müdahalesi için ayrıntılı günlükler tutun. Müşteriniz istemleri, ekran görüntülerini, model tarafından önerilen işlemleri (`function_call`), güvenlik yanıtlarını ve sonuç olarak istemci tarafından gerçekleştirilen tüm işlemleri kaydetmelidir.
+6. **Ortam yönetimi:** GUI ortamının tutarlı olmasını sağlayın.
+   Beklenmedik pop-up'lar, bildirimler veya düzendeki değişiklikler modelin kafasını karıştırabilir. Mümkünse her yeni görev için bilinen ve temiz bir durumdan başlayın.
 
-最終更新日 2026-09-18 UTC。
+## Model sürümleri
 
-ご意見をお聞かせください
+Bilgisayar Kullanımı'nı aşağıdaki modellerle kullanabilirsiniz:
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-18 UTC。"],[],[]]
+- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=tr) (`gemini-3.8-flash`): Yüksek doğrulukta kullanıcı arayüzü etkileşimi ve güvenilir araç çağrısı özelliklerine sahip olan bu model, bilgisayar kullanımı için önerilir.
+- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=tr) (`gemini-3.7-flash`): Bilgisayar kullanımına yönelik önceki kararlı model. Amaçlarla basitleştirilmiş işlemler, tarayıcı, mobil ve masaüstü ortamları için destek, yapılandırılabilir güvenlik politikaları ve istem enjeksiyonu tespiti özelliklerine sahiptir.
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=tr) (`gemini-3.5-flash-lite`): Bilgisayar kullanımını destekleyen, düşük gecikmeli ve uygun maliyetli bir modeldir.
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) (`gemini-3.5-flash`): Bilgisayar kullanımını destekleyen önceki kararlı model.
+- [**Gemini 3 Flash Preview**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) (`gemini-3-flash-preview`): Bilgisayar kullanımını destekleyen önizleme modeli.
+- [**Gemini 2.5 (Eski Önizleme)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=tr) (`gemini-2.5-computer-use-preview-10-2025`): Tarayıcı tabanlı bilgisayar kullanımı için optimize edilmiş eski önizleme modeli.
+
+## Sırada ne var?
+
+- [Browserbase demo ortamında](http://gemini.browserbase.com) bilgisayar kullanımını deneyin.
+- Örnek kod için [Referans uygulama](https://github.com/google/computer-use-preview) bölümünü inceleyin.
+- Diğer Gemini API araçları hakkında bilgi edinin:
+  - [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
+  - [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)
+
+Geri bildirim gönderin
+
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+
+Son güncelleme tarihi: 2026-09-24 UTC.
+
+Bize geri bildirimde bulunmak mı istiyorsunuz?
+
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]

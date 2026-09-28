@@ -1,44 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=he
-fetched_at: 2026-09-21T05:50:16.789815+00:00
-title: "\u05d4\u05d1\u05e0\u05ea \u05e1\u05e8\u05d8\u05d5\u05e0\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=it
+fetched_at: 2026-09-28T06:15:38.243766+00:00
+title: "Comprensione dei video \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-שליחת משוב
+Invia feedback
 
-# הבנת סרטונים
+# Comprensione dei video
 
-> מידע נוסף על יצירת סרטונים זמין במדריך [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=he).
+> Per scoprire di più sulla generazione di video, consulta la guida [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=it).
 
-מודלים של Gemini יכולים לעבד סרטונים, וכך לאפשר למפתחים להשתמש בהם בתרחישי שימוש רבים ומתקדמים, שבדרך כלל נדרשים להם מודלים ספציפיים לתחום.
-חלק מהיכולות של Gemini בתחום הראייה כוללות את האפשרות: לתאר, לפלח ולחלץ מידע מסרטונים, לענות על שאלות לגבי תוכן של סרטונים ולהתייחס לחותמות זמן ספציפיות בסרטון.
+I modelli Gemini possono elaborare video, consentendo molti casi d'uso per gli sviluppatori all'avanguardia
+che in passato avrebbero richiesto modelli specifici per il dominio.
+Alcune delle funzionalità di visione di Gemini includono la possibilità di descrivere, segmentare ed estrarre informazioni dai video, rispondere a domande sui contenuti video e fare riferimento a timestamp specifici all'interno di un video.
 
-יש כמה דרכים לספק סרטונים כקלט ל-Gemini:
+Puoi fornire video come input a Gemini nei seguenti modi:
 
-| שיטת קלט | גודל מקסימלי | תרחיש שימוש מומלץ |
+| Metodo inserimento | Dimensione massima | Caso d'uso consigliato |
 | --- | --- | --- |
-| [File API](#upload-video) | ‫20GB (בתשלום) / 2GB (בחינם) | קבצים גדולים (100MB ומעלה), סרטונים ארוכים (10 דקות ומעלה), קבצים שאפשר לעשות בהם שימוש חוזר. |
-| [הרשמה ל-Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he#registration) | ‫2GB (לכל קובץ, ללא מגבלות אחסון) | קבצים גדולים (100MB ומעלה), סרטונים ארוכים (10 דקות ומעלה), קבצים קבועים שאפשר לעשות בהם שימוש חוזר. |
-| [נתונים מוטבעים](#inline-video) | < 100MB | קבצים קטנים (פחות מ-100MB), משך קצר (פחות מדקה), קלט חד-פעמי. |
-| [כתובות URL ב-YouTube](#youtube) | לא רלוונטי | סרטונים ציבוריים ב-YouTube. |
+| [API File](#upload-video) | 20 GB (a pagamento) / 2 GB (senza costi) | File di grandi dimensioni (oltre 100 MB), video lunghi (oltre 10 minuti), file riutilizzabili. |
+| [Registrazione di Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=it#registration) | 2 GB (per file, senza limiti di spazio di archiviazione) | File di grandi dimensioni (oltre 100 MB), video lunghi (oltre 10 minuti), file persistenti e riutilizzabili. |
+| [Dati in linea](#inline-video) | < 100MB | File piccoli (< 100 MB), di breve durata (< 1 minuto), input una tantum. |
+| [URL di YouTube](#youtube) | N/D | Video di YouTube pubblici. |
 
-> **הערה:** מומלץ להשתמש ב-[File API](#upload-video) ברוב תרחישי השימוש, במיוחד בקבצים שגודלם גדול מ-100MB או כשרוצים לעשות שימוש חוזר בקובץ בכמה בקשות.
+> **Nota**:l'[API File](#upload-video) è consigliata per la maggior parte dei casi d'uso, in particolare per i file di dimensioni superiori a 100 MB o quando vuoi riutilizzare il file in più richieste.
 
-מידע על שיטות אחרות להזנת קבצים, כמו שימוש בכתובות URL חיצוניות או בקבצים שמאוחסנים ב-Google Cloud, מופיע במדריך [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
+Per scoprire altri metodi di input dei file, ad esempio l'utilizzo di URL esterni o file
+archiviati in Google Cloud, consulta la guida
+[Metodi di input dei file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=it).
 
-### העלאת קובץ של סרטון
+### Caricare un file video
 
-הקוד הבא מוריד סרטון לאימון המודל, מעלה אותו באמצעות [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he), מחכה לסיום העיבוד שלו ואז משתמש בהפניה לקובץ שהועלה כדי לסכם את הסרטון.
+Il seguente codice scarica un video di esempio, lo carica utilizzando l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it),
+attende l'elaborazione e poi utilizza il riferimento al file caricato per
+riassumere il video.
 
 ### Python
 
@@ -163,6 +168,71 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    myfile, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp4", &genai.UploadFileConfig{
+        MIMEType: "video/mp4",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for myfile.State != genai.FileStateActive {
+        fmt.Println("Processing video...")
+        time.Sleep(5 * time.Second)
+        myfile, err = client.Files.Get(ctx, myfile.Name, nil)
+        if err != nil {
+            log.Fatal(err)
+        }
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.VideoContent{
+            URI:      genai.Ptr(myfile.URI),
+            MimeType: interactions.VideoContentMimeType(myfile.MIMEType).ToPointer(),
+        }),
+        interactions.NewContent(interactions.TextContent{
+            Text: "Summarize this video. Then create a quiz with an answer key based on the information in this video.",
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -231,18 +301,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-כדי לייעל את היעילות והביצועים של הטוקנים, מומלץ להשתמש ב[עיבוד סרטונים באמצעות סוכנים](#agentic-video-understanding).
+Per ottimizzare l'efficienza e il rendimento dei token, valuta la possibilità di utilizzare
+l'[elaborazione di video con agenti](#agentic-video-understanding).
 
-תמיד צריך להשתמש ב-Files API אם הגודל הכולל של הבקשה (כולל הקובץ, הנחיית הטקסט, הוראות המערכת וכו') גדול מ-20MB, אם משך הסרטון משמעותי או אם מתכוונים להשתמש באותו סרטון בכמה הנחיות.
-‫File API מקבל ישירות פורמטים של קובצי וידאו.
+Utilizza sempre l'API Files quando le dimensioni totali della richiesta (inclusi il file, il prompt di testo, le istruzioni di sistema e così via) superano i 20 MB, la durata del video è significativa o se intendi utilizzare lo stesso video in più prompt.
+L'API File accetta direttamente i formati dei file video.
 
-מידע נוסף על עבודה עם קובצי מדיה זמין במאמר בנושא [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
+Per saperne di più su come lavorare con i file multimediali, consulta l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it).
 
-### העברת נתוני סרטונים בתוך התג
+### Trasmettere i dati video in linea
 
-במקום להעלות קובץ וידאו באמצעות File API, אפשר להעביר סרטונים קצרים יותר ישירות בבקשה. האפשרות הזו מתאימה לסרטונים קצרים יותר, שגודל הבקשה הכולל שלהם הוא פחות מ-20MB.
+Anziché caricare un file video utilizzando l'API File, puoi trasmettere video più piccoli direttamente nella richiesta. Questa opzione è adatta ai video più brevi con dimensioni totali della richiesta inferiori a 20 MB.
 
-דוגמה לאספקת נתוני וידאו מוטמעים:
+Ecco un esempio di fornitura di dati video in linea:
 
 ### Python
 
@@ -340,6 +411,63 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    videoFileName := "/path/to/your/video.mp4"
+    videoBytes, err := os.ReadFile(videoFileName)
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Video := base64.StdEncoding.EncodeToString(videoBytes)
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Please summarize the video in 3 sentences.",
+        }),
+        interactions.NewContent(interactions.VideoContent{
+            Data:     genai.Ptr(base64Video),
+            MimeType: interactions.VideoContentMimeTypeVideoMp4.ToPointer(),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -367,9 +495,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### העברת כתובות URL ב-YouTube
+### Trasmettere gli URL di YouTube
 
-אתם יכולים להעביר כתובות URL של YouTube ישירות אל Gemini API כחלק מהבקשה שלכם, באופן הבא:
+Puoi trasmettere gli URL di YouTube direttamente all'API Gemini nell'ambito della tua richiesta nel seguente modo:
 
 ### Python
 
@@ -448,6 +576,53 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    contents := []interactions.Content{
+        interactions.NewContent(interactions.TextContent{
+            Text: "Please summarize the video in 3 sentences.",
+        }),
+        interactions.NewContent(interactions.VideoContent{
+            URI: genai.Ptr("https://www.youtube.com/watch?v=9hE5-98ZeCg"),
+        }),
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput(contents),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -466,33 +641,40 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**מגבלות:**
+**Limitazioni:**
 
-- בתוכנית החינמית, אי אפשר להעלות יותר מ-8 שעות של סרטוני YouTube ביום.
-- במינוי בתשלום, אין מכסה על אורך הסרטון.
-- במודלים שקודמים ל-Gemini 2.5, אפשר להעלות רק סרטון אחד לכל בקשה. במודלים Gemini 2.5 ואילך, אפשר להעלות עד 10 סרטונים לכל בקשה.
-- אפשר להעלות רק סרטונים שגלויים לכולם (ולא סרטונים פרטיים או לא רשומים).
+- Per il livello senza costi, non puoi caricare più di 8 ore di video di YouTube al giorno.
+- Per il livello a pagamento, non esiste alcun limite in base alla durata del video.
+- Per i modelli precedenti a Gemini 2.5, puoi caricare un solo video per richiesta. Per Gemini 2.5 e modelli successivi, puoi caricare un massimo di 10 video per richiesta.
+- Puoi caricare solo video pubblici (non privati o non in elenco).
 
-## הבנת סרטונים על ידי סוכן
+## Comprensione dei video agentica
 
-כברירת מחדל, קבצים של קלט וידאו עוברים עיבוד סטטי (חילוץ פריימים בקצב של 1 FPS).
-מודלים של Gemini 3.8 Flash,‏ 3.7 Flash,‏ 3.6 Flash ו-3.5 Flash Lite תומכים גם ב**הבנת סרטונים באמצעות סוכנים**. במודל הזה, המודל בוחן באופן דינמי את ציר הזמן של הסרטון, בודק באופן סלקטיבי תמלילים ומתאים באופן אדפטיבי את קצב הפריימים והרזולוציה תוך כדי תנועה על סמך ההנחיה.
+Per impostazione predefinita, gli input video utilizzano l'elaborazione statica (estrazione di frame a 1 FPS).
+I modelli Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash e 3.5 Flash Lite supportano anche la
+**comprensione dei video agentici**, in cui il modello esplora dinamicamente la sequenza temporale del video,
+ispezionando selettivamente le trascrizioni e regolando in modo adattivo la frequenza dei fotogrammi e la risoluzione al volo in base al prompt.
 
-| **המצב** | **תיאור** | **דגמים נתמכים** |
+| **Modalità** | **Descrizione** | **Modelli supportati** |
 | --- | --- | --- |
-| **סטטי** (ברירת מחדל) | הכלי מחלץ פריימים בקצב קבוע (1 FPS) ומציב אותם בהקשר במעבר יחיד. מתאים לקטעי וידאו קצרים. | כל המודלים של Gemini |
-| **Agentic** | המודל מנווט באופן דינמי בציר הזמן של הסרטון, וטוען רק את התוכן שהוא צריך על סמך ההנחיה. עד 88% יותר יעילות בשימוש בטוקנים ואיכות גבוהה יותר בכ-7% בתכנים ארוכים. | ‫Gemini 3.8 Flash, ‏ Gemini 3.7 Flash, ‏ Gemini 3.6 Flash, ‏ Gemini 3.5 Flash Lite |
+| **Statica** (impostazione predefinita) | Estrae i fotogrammi a una velocità fissa (1 f/s) e li inserisce nel contesto in un'unica passata. Funziona bene per i clip brevi. | Tutti i modelli Gemini |
+| **Agentic** | Il modello naviga dinamicamente nella sequenza temporale del video, caricando solo i contenuti necessari in base al prompt. Fino all'88% in più di efficienza dei token e una qualità superiore di circa il 7% per i contenuti nel formato lungo. | Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite |
 
-### בחירת מצב עיבוד
+### Scegliere una modalità di elaborazione
 
-ככלל, מומלץ להתחיל במצב **agentic**, במיוחד כשמבצעים אופטימיזציה לאיכות התשובה או ליעילות השימוש באסימונים.
+Come linea guida generale, inizia con la modalità **agente**, soprattutto quando ottimizzi
+per la qualità della risposta o l'efficienza dei token.
 
-- **סוכן:** סרטונים ארוכים או שאילתות שמטרגטות רגעים ספציפיים. המודל עובר באופן דינמי בציר הזמן כדי למקד מידע רלוונטי להקשר בלי למלא את חלון ההקשר.
-- **סטטי:** שאילתות שרגישות לזמן האחזור בקליפים קצרים (עד 5 דקות), או במקרים שבהם נדרשת רמת דיוק של פריים בכל הקליפ.
+- **Agentic**:video nel formato lungo o query che hanno come target momenti specifici. Il modello naviga dinamicamente nella cronologia per individuare informazioni contestualmente pertinenti senza riempire la finestra contestuale.
+- **Statica**:query sensibili alla latenza su clip brevi (meno di 5 minuti) o
+  casi in cui è necessaria una precisione a livello di frame sull'intero clip.
 
-> **הערה:** בסרטונים ארוכים או בהנחיות מורכבות שבהן העיבוד על ידי הסוכן לוקח יותר זמן, כדאי להשתמש בסטרימינג (`stream=True`) או בהרצת הרקע (`background=True`). כך החיבור יישאר פעיל, שלבי הנימוק הביניים יוצגו ולא יתרחשו פסק זמן בחיבור או באימות.
+> **Nota**:per video lunghi o prompt complessi in cui l'elaborazione agentica richiede
+> più tempo, utilizza lo streaming (`stream=True`) o l'esecuzione in background
+> (`background=True`). In questo modo la connessione rimane attiva, vengono visualizzati i passaggi di ragionamento
+> intermedi ed evitati timeout di connessione o autenticazione.
 
-### הגדרת מצב העיבוד
+### Imposta la modalità di elaborazione
 
 ### Python
 
@@ -579,18 +761,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-> **הערה:** כדי לוודא שהיה שימוש בעיבוד מבוסס-סוכן, בודקים את `interaction.steps`. הנוכחות של התגים `processing_call` ו-`processing_result` מציינת שהמודל ניווט בסרטון באופן דינמי.
+> **Nota:** per verificare che sia stata utilizzata l'elaborazione con agenti, esamina `interaction.steps`. La presenza di `processing_call` e `processing_result` indica che il modello ha navigato dinamicamente nel video.
 
-### שלבי התגובה
+### Passaggi per la risposta
 
-עיבוד אקטיבי מוסיף שני סוגים חדשים של שלבים למערך `steps`:
+L'elaborazione agentica aggiunge due nuovi tipi di passaggi all'array `steps`:
 
-- ‫`processing_call`: המודל ביקש קטע וידאו או תמליל אודיו, שמזוהים על ידי `id`.
-- ‫`processing_result`: התוצאה של הטעינה הזו, שמקושרת באמצעות `call_id`.
+- `processing_call`: il modello ha richiesto un segmento video o una trascrizione audio, identificati da `id`.
+- `processing_result`: il risultato del carico, collegato da `call_id`.
 
-הן מופיעות לסירוגין עם `thought` שלבים (כשהסיכומים מופעלים) ולפני השלב הסופי `model_output`. אפשר להשתמש בהם כדי להציג את התקדמות התהליך בממשק המשתמש, אבל לא צריך להגיב עליהם.
+Questi vengono visualizzati alternati ai passaggi `thought` (quando i riepiloghi sono attivati) e precedono il passaggio finale `model_output`. Possono essere utilizzati per mostrare una traccia di avanzamento nell'interfaccia utente, ma non richiedono una risposta.
 
-בדוגמה הבאה מוצג מטען הייעודי (payload) של התגובה עם שלבי עיבוד משולבים:
+L'esempio seguente mostra il payload della risposta con i passaggi di elaborazione intercalati:
 
 ```
 {
@@ -658,9 +840,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### שימוש במצבי עיבוד שונים בסרטונים שונים
+### Combinare le modalità di elaborazione tra i video
 
-אפשר להגדיר מצבי עיבוד שונים לכל סרטון באותה בקשה:
+Puoi impostare diverse modalità di elaborazione per ogni video nella stessa richiesta:
 
 ### Python
 
@@ -756,16 +938,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-### שיחות וידאו רב-שלביות
+### Conversazioni video multi-turno
 
-ההקשר של הסרטון נשמר לאורך כל התורות בשיחה. כשמשתמשים בעיבוד מבוסס-סוכן:
+Il contesto del video viene mantenuto durante i turni di una conversazione. Quando utilizzi l'elaborazione
+con agenti:
 
-- **מצב Stateful** (שימוש ב-`previous_interaction_id`): השרת שומר את ההקשר של הסרטון. אין צורך בטיפול נוסף.
-- **מצב בלי שמירת מצב** (באמצעות `step_list`): במצב בלי שמירת מצב, התגובה כוללת את השלבים `processing_call` ו-`processing_result` שמקודדים את ההקשר של הסרטון. כדי לשמור על ההקשר של הסרטון, צריך לכלול את כל השלבים מהתשובה בבקשה הבאה שלך `step_list`. למרות שכרגע השמטה שלהם לא מחזירה שגיאת API, ההקשר של הסרטון אובד, ואיכות התשובות לשאלות המשך יורדת באופן משמעותי. שימו לב שהשלבים שמוחזרים ונשלחים בבקשות הבאות נכללים בספירת האסימונים של הקלט.
+- **Modalità stateful** (utilizzando `previous_interaction_id`): il server conserva il contesto del video. Non è necessaria alcuna gestione aggiuntiva.
+- **Modalità stateless** (utilizzando `step_list`): in modalità stateless, la risposta
+  include i passaggi `processing_call` e `processing_result` che codificano il
+  contesto del video. Devi includere tutti i passaggi della risposta nella tua prossima
+  richiesta `step_list` per preservare il contesto del video. Sebbene la loro omissione non restituisca
+  attualmente un errore API, il contesto del video viene perso, riducendo
+  in modo significativo la qualità della risposta alle domande successive. Tieni presente che i passaggi restituiti
+  in richieste successive contribuiscono al conteggio dei token di input.
 
-## הפניה לחותמות זמן בתוכן
+## Fare riferimento ai timestamp nei contenuti
 
-אתם יכולים לשאול שאלות על נקודות זמן ספציפיות בסרטון באמצעות חותמות זמן בתבנית `MM:SS`.
+Puoi porre domande su momenti specifici del video utilizzando
+timestamp nel formato `MM:SS`.
 
 ### Python
 
@@ -785,17 +975,27 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 String prompt = "What are the examples given at 00:05 and 00:10 supposed to show us?";
 ```
 
+### Go
+
+```
+prompt := "What are the examples given at 00:05 and 00:10 supposed to show us?"
+```
+
 ### REST
 
 ```
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## חילוץ תובנות מפורטות מסרטון
+## Estrarre informazioni dettagliate dal video
 
-מודלים של Gemini מציעים יכולות מתקדמות להבנת תוכן וידאו על ידי עיבוד מידע מזרמי **האודיו והווידאו**. התכונה הזו מאפשרת לחלץ מגוון רחב של פרטים, כולל יצירת תיאורים של מה שקורה בסרטון ומענה לשאלות לגבי התוכן שלו.
+I modelli Gemini offrono potenti funzionalità per la comprensione dei contenuti video elaborando le informazioni provenienti dai flussi **audio e visivi**. In questo modo puoi
+estrarre un ricco insieme di dettagli, tra cui generare descrizioni di ciò che
+accade in un video e rispondere a domande sui suoi contenuti.
 
-בתיאורים חזותיים, המודל דוגם את הסרטון בקצב של **פרים אחד לשנייה** (FPS). קצב הדגימה הזה מתאים לרוב התוכן, אבל חשוב לזכור שהוא עלול לפספס פרטים בסרטונים עם תנועה מהירה או שינויי סצנה מהירים.
+Per le descrizioni visive, il modello esegue il campionamento del video a una velocità di **1 frame
+al secondo** (f/s). Questa frequenza di campionamento predefinita funziona bene per la maggior parte dei contenuti, ma
+tieni presente che potrebbe non rilevare i dettagli nei video con movimenti rapidi o cambi di scena veloci.
 
 ### Python
 
@@ -816,19 +1016,27 @@ String prompt =
     "Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments.";
 ```
 
+### Go
+
+```
+prompt := "Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
+```
+
 ### REST
 
 ```
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## התאמה אישית של עיבוד הסרטון
+## Personalizzare l'elaborazione video
 
-אתם יכולים להתאים אישית את עיבוד הסרטון ב-Gemini API על ידי הגדרת מרווחי חיתוך או על ידי מתן דגימה מותאמת אישית של קצב הפריימים. אפשרויות ההתאמה האישית האלה נתמכות רק כשמעבדים את הסרטון במצב `"static"`.
+Puoi personalizzare l'elaborazione video nell'API Gemini impostando intervalli di ritaglio
+o fornendo un campionamento della frequenza dei fotogrammi personalizzato. Queste opzioni di personalizzazione
+sono supportate solo durante l'elaborazione del video in modalità `"static"`.
 
-### הגדרת מרווחי זמן לחיתוך
+### Impostare gli intervalli di ritaglio
 
-כדי לחתוך סרטון, מציינים את `start_offset` ואת `end_offset` באובייקט ההגדרה `processing`.
+Puoi tagliare il video specificando `start_offset` e `end_offset` nell'oggetto di configurazione `processing`.
 
 ### Python
 
@@ -898,9 +1106,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-### הגדרת קצב פריימים בהתאמה אישית
+### Impostare una frequenza fotogrammi personalizzata
 
-כדי להגדיר דגימה של קצב פריימים בהתאמה אישית, מעבירים ארגומנט `fps` באובייקט ההגדרות `processing`.
+Puoi impostare il campionamento personalizzato della frequenza fotogrammi passando un argomento `fps` nell'oggetto di configurazione `processing`.
 
 ### Python
 
@@ -967,9 +1175,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-## פורמטים נתמכים של וידאו
+## Formati video supportati
 
-‫Gemini תומך בסוגי ה-MIME הבאים של פורמטים של סרטונים:
+Gemini supporta i seguenti tipi MIME di formati video:
 
 - `video/mp4`
 - `video/mpeg`
@@ -981,51 +1189,75 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `video/wmv`
 - `video/3gpp`
 
-## פרטים טכניים על סרטונים
+## Dettagli tecnici sui video
 
-- **מודלים והקשר נתמכים**: כל המודלים של Gemini יכולים לעבד נתוני וידאו.
-  - מודלים עם חלון הקשר של מיליון טוקנים יכולים לעבד סרטונים באורך של עד 3 שעות כברירת מחדל (ברזולוציית מדיה נמוכה), או באורך של עד שעה ברזולוציית מדיה גבוהה.
-- **מצבי עיבוד**: מודלים של Gemini 3.8 Flash,‏ 3.7 Flash,‏ 3.6 Flash,‏ 3.5 Flash Lite ומודלים מתקדמים יותר תומכים בשני מצבי עיבוד וידאו:
-  - **סטטי**: הפריימים מחולצים בקצב של 1 FPS ומוצבים בהקשר (ברירת המחדל לכל המודלים). האודיו מעובד בקצב של 1Kbps (ערוץ יחיד).
-    חותמות הזמן מתווספות כל שנייה. הכי מתאים לקליפים קצרים או כשכל פריים חשוב (למשל, בדיקה של פריים אחרי פריים). שימו לב שרצפים של פעולות מהירות עלולים לאבד פרטים בגלל קצב הדגימה של 1 FPS.
-  - **מבוסס-סוכן**: המודל מנווט בסרטון באופן דינמי, וטוען תמליל, פריימים או אודיו על פי דרישה. השימוש בשיטה הזו מאפשר לצמצם את מספר הטוקנים בתוכן ארוך ב-88% לפחות, אבל יכול להיות שהניווט יגרום לעלייה קלה בזמן עד לטוקן הראשון (TTFT) בקליפים קצרים (עד 5 דקות) בגלל תהליכי חשיבה פנימיים ושימוש בכלי הלוך ושוב לפני תחילת היצירה. הכי מתאים לסרטונים ארוכים (LFV) כדי לבצע אופטימיזציה של עלויות הטוקנים ואיכות התשובות.
-    התכונה נתמכת ב-Gemini 3.8 Flash,‏ 3.7 Flash,‏ 3.6 Flash ו-3.5 Flash Lite.
-    פרטים נוספים זמינים במאמר בנושא [הבנת סרטונים באמצעות סוכנים](#agentic-video-understanding).
-- **חישוב טוקנים (מצב סטטי)**: כל שנייה של סרטון עוברת טוקניזציה באופן הבא:
-  - פריימים בודדים (נדגמים ב-1 FPS):
-    - אם הערך של `media_resolution` מוגדר כנמוך, הפריימים עוברים טוקניזציה בשיעור של 66 טוקנים לכל פריים.
-    - אחרת, הפריימים עוברים טוקניזציה בקצב של 258 טוקנים לכל פריים.
-  - אודיו: 32 טוקנים לשנייה.
-  - המטא-נתונים כלולים גם הם.
-  - סה"כ: כ-100 טוקנים לשנייה של וידאו ברזולוציית מדיה (נמוכה) שמוגדרת כברירת מחדל, או כ-300 טוקנים לשנייה של וידאו ברזולוציית מדיה גבוהה.
-- **חישוב אסימונים (מצב סוכן):** השימוש באסימונים משתנה בהתאם למורכבות התוכן ולאסטרטגיית הניווט של המודל. טוקנים של נימוקי ניווט שנוצרים במהלך חיפוש בסרטון נספרים כ**טוקנים של מחשבה** (`total_thought_tokens`), ואילו פריימים, אודיו ותמליל שנטענים לפי דרישה נספרים כטוקנים של שימוש בכלי (`total_tool_use_tokens`). בדרך כלל, עיבוד באמצעות סוכן משתמש בעד 88% פחות טוקנים כוללים מאשר עיבוד סטטי של תוכן ארוך, כי המודל טוען רק את התמליל או הפריימים או האודיו שהוא צריך כדי לענות על ההנחיה (ראו את [המדריך לטוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he#video-token-usage)).
-- **רזולוציית מדיה**: ב-Gemini 3 יש שליטה מדויקת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר
-  `media_resolution` קובע את **המספר המקסימלי של טוקנים
-  שהוקצו לכל תמונה או פריים של סרטון קלט.** רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל מגדילות את השימוש בטוקנים ואת זמן האחזור. הפרמטרים `media_resolution` ו-`processing` הם בלתי תלויים: אפשר להגדיר את שניהם באותו קלט וידאו.
+- **Modelli e contesto supportati**: tutti i modelli Gemini possono elaborare i dati video.
+  - I modelli con una finestra contestuale di 1 milione di token possono elaborare video della durata massima di 3 ore per impostazione predefinita (a bassa risoluzione multimediale) o della durata massima di 1 ora ad alta risoluzione multimediale.
+- **Modalità di elaborazione**: Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite
+  e i modelli successivi supportano due modalità di elaborazione video:
+  - **Statico**: i frame vengono estratti a 1 FPS e inseriti nel contesto (valore predefinito
+    per tutti i modelli). L'audio viene elaborato a 1 Kbps (singolo canale).
+    I timestamp vengono aggiunti ogni secondo. Ideale per clip brevi o quando ogni fotogramma
+    è importante (ad esempio per l'ispezione fotogramma per fotogramma). Tieni presente che le sequenze di azioni rapide
+    potrebbero perdere dettagli a causa della frequenza di campionamento di 1 FPS.
+  - **Agentic**: il modello naviga dinamicamente nel video, caricando
+    la trascrizione e/o i frame e/o l'audio su richiesta. In questo modo, vengono utilizzati fino all'88%
+    in meno di token per i contenuti nel formato lungo, anche se la navigazione potrebbe aumentare leggermente
+    il tempo al primo token (TTFT) nei clip brevi (< 5 minuti) a causa
+    del ragionamento interno e dei round trip degli strumenti prima dell'inizio della generazione. Ideale
+    per i video nel formato lungo per ottimizzare i costi dei token e la qualità delle risposte.
+    Supportato su Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash e 3.5 Flash Lite.
+    Per maggiori dettagli, consulta [Comprensione dei video agentica](#agentic-video-understanding).
+- **Calcolo dei token (modalità statica)**: ogni secondo di video viene tokenizzato come segue:
+  - Singoli fotogrammi (campionati a 1 FPS):
+    - Se `media_resolution` è impostato su basso, i frame vengono tokenizzati a 66
+      token per frame.
+    - In caso contrario, i frame vengono tokenizzati a 258 token per frame.
+  - Audio: 32 token al secondo.
+  - Sono inclusi anche i metadati.
+  - Totale: circa 100 token al secondo di video con risoluzione multimediale predefinita (bassa) o circa 300 token al secondo di video con risoluzione multimediale elevata.
+- **Calcolo dei token (modalità agente)**: l'utilizzo dei token varia in base alla complessità dei contenuti e alla strategia di navigazione del modello. I token di ragionamento della navigazione generati durante l'esplorazione dei video vengono conteggiati come **token di pensiero** (`total_thought_tokens`), mentre i frame, l'audio e la trascrizione caricati su richiesta vengono conteggiati come token di utilizzo degli strumenti (`total_tool_use_tokens`). L'elaborazione con agenti in genere utilizza fino all'88% in meno di token totali rispetto all'elaborazione statica per i contenuti nel formato lungo, perché il modello carica solo la trascrizione e/o i frame e/o l'audio necessari per rispondere al prompt (consulta la [guida ai token](https://ai.google.dev/gemini-api/docs/tokens?hl=it#video-token-usage)).
+- **Risoluzione dei contenuti multimediali**: Gemini 3 introduce un controllo granulare dell'elaborazione multimodale
+  della visione con il parametro `media_resolution`. Il parametro
+  `media_resolution` determina il **numero massimo di token
+  allocati per ogni immagine di input o frame video.** Risoluzioni più elevate migliorano la capacità del modello di leggere testi piccoli o identificare piccoli dettagli, ma aumentano l'utilizzo dei token e la latenza. I parametri `media_resolution` e `processing`
+  sono indipendenti: puoi impostarli entrambi sullo stesso input video.
 
-פרטים נוספים על חישוב אסימונים זמינים במדריך בנושא [אסימונים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
+Per maggiori dettagli sui calcoli dei token, consulta la guida ai [token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
 
-- **פורמט חותמת הזמן**: כשמפנים לרגעים ספציפיים בסרטון בהנחיה, צריך להשתמש בפורמט `MM:SS` (למשל, `01:15` לציון דקה ו-15 שניות).
-- **מיקום ההנחיה**: אם משלבים טקסט וסרטון אחד, צריך למקם את הנחיית הטקסט *אחרי* חלק הסרטון במערך `input`.
-- **פסק זמן לבקשות ארוכות**: בסרטונים שנדרש להם זמן עיבוד ממושך או ניתוח מורכב בכמה שלבים, כדאי להשתמש בסטרימינג (`stream=True`) או בהרצה ברקע (`background=True`). בקשות סינכרוניות שאינן סטרימינג, שמתבצעים בהן ניסיונות חוזרים בעורף המערכת בביקוש גבוה, עשויות לחרוג מחלונות התוקף של החיבור או של אסימון האימות, מה שעלול להוביל לשגיאות לא צפויות מסוג `401 Unauthorized` או לשגיאות של פסק זמן.
-  הסטרימינג שומר על החיבור פעיל ומציג את שלבי הביניים של החשיבה הרציונלית ואת ההתקדמות של קריאות הכלים.
+- **Formato del timestamp**: quando fai riferimento a momenti specifici di un video all'interno
+  del prompt, utilizza il formato `MM:SS` (ad es. `01:15` per 1 minuto e 15
+  secondi).
+- **Posizionamento del prompt**: se combini testo e un singolo video, posiziona il prompt testuale
+  *dopo* la parte video nell'array `input`.
+- **Timeout per richieste lunghe**: per i video che richiedono tempi di elaborazione prolungati o ragionamenti multi-step complessi, utilizza lo streaming (`stream=True`) o l'esecuzione in background (`background=True`). Le richieste sincrone non in streaming che subiscono nuovi tentativi di backend in caso di forte domanda possono superare le finestre di validità della connessione o del token di autenticazione, il che può causare errori `401 Unauthorized` o di timeout imprevisti.
+  Lo streaming mantiene attiva la connessione e mostra il ragionamento intermedio
+  e l'avanzamento della chiamata allo strumento.
 
-## המאמרים הבאים
+## Passaggi successivi
 
-- [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he): שליטה ברזולוציה של פריימים של סרטונים כדי לאזן בין איכות לבין שימוש באסימונים.
-- [טוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he): הסבר על האופן שבו תוכן וידאו עובר טוקניזציה במצבי עיבוד סטטיים ודינמיים.
-- [הוראות למערכת](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
-  ההוראות למערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
-- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): מידע נוסף על העלאה וניהול של קבצים לשימוש עם Gemini.
-- [אסטרטגיות להנפקת הנחיות לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בהנפקת הנחיות עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראות גם הנחיות מולטימודאליות.
-- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים פלטים לא צפויים, כמו פלטים לא מדויקים, מוטים או פוגעניים. עיבוד תמונה (Post Processing) והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
+- [Risoluzione dei contenuti multimediali](https://ai.google.dev/gemini-api/docs/media-resolution?hl=it): controlla la
+  risoluzione dei fotogrammi video per bilanciare qualità e utilizzo dei token.
+- [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=it): scopri come vengono tokenizzati i contenuti video
+  nelle modalità di elaborazione statica e con agenti.
+- [Istruzioni di sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions):
+  Le istruzioni di sistema ti consentono di orientare il comportamento del modello in base alle tue
+  esigenze e ai tuoi casi d'uso specifici.
+- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=it): scopri di più sul caricamento e sulla gestione dei file da utilizzare con Gemini.
+- [Strategie di prompt dei file](https://ai.google.dev/gemini-api/docs/files?hl=it#prompt-guide): l'API Gemini
+  supporta i prompt con dati di testo, immagini, audio e video, noti anche come
+  prompt multimodali.
+- [Indicazioni per la sicurezza](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=it): a volte i modelli di AI generativa
+  producono output inaspettati, ad esempio output imprecisi,
+  di parte o offensivi. Il post-processing e la valutazione umana sono essenziali per
+  limitare il rischio di danni derivanti da questi output.
 
-שליחת משוב
+Invia feedback
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-עדכון אחרון: 2026-09-18 (שעון UTC).
+Ultimo aggiornamento 2026-09-24 UTC.
 
-רוצה לתת לנו משוב?
+Vuoi dirci altro?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-18 (שעון UTC)."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-24 UTC."],[],[]]

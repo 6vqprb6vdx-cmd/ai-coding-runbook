@@ -1,29 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=id
-fetched_at: 2026-09-21T05:52:05.865620+00:00
-title: "Menggabungkan alat bawaan dan panggilan fungsi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi
+fetched_at: 2026-09-28T06:07:52.773503+00:00
+title: "K\u1ebft h\u1ee3p c\u00e1c c\u00f4ng c\u1ee5 t\u00edch h\u1ee3p v\u00e0 t\u00ednh n\u0103ng g\u1ecdi h\u00e0m \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Menggabungkan alat bawaan dan panggilan fungsi
+# Kết hợp các công cụ tích hợp và tính năng gọi hàm
 
-Gemini memungkinkan kombinasi [alat bawaan](https://ai.google.dev/gemini-api/docs/tools?hl=id), seperti
-`google_search`, dan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-(juga dikenal sebagai *alat kustom*) dalam satu interaksi dengan mempertahankan dan mengekspos
-histori konteks panggilan alat. Kombinasi alat bawaan dan kustom memungkinkan alur kerja agentik yang kompleks, yang memungkinkan model, misalnya, mendasarkan diri pada data web real-time sebelum memanggil logika bisnis spesifik Anda.
+Gemini cho phép kết hợp [các công cụ tích hợp](https://ai.google.dev/gemini-api/docs/tools?hl=vi), chẳng hạn như `google_search` và [lệnh gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) (còn gọi là *công cụ tuỳ chỉnh*) trong một lượt tương tác bằng cách duy trì và hiển thị nhật ký ngữ cảnh của các lệnh gọi công cụ. Các tổ hợp công cụ tích hợp và tuỳ chỉnh cho phép các quy trình làm việc phức tạp, có tác nhân, trong đó, chẳng hạn như mô hình có thể tự căn cứ vào dữ liệu web theo thời gian thực trước khi gọi logic kinh doanh cụ thể của bạn.
 
-Berikut adalah contoh yang mengaktifkan kombinasi alat bawaan dan kustom dengan `google_search` dan fungsi kustom `getWeather`:
+Dưới đây là ví dụ cho phép kết hợp các công cụ tích hợp và tuỳ chỉnh bằng `google_search` và một hàm tuỳ chỉnh `getWeather`:
 
 ### Python
 
@@ -52,7 +49,7 @@ getWeather = {
 # The Interactions API manages context automatically across tool calls.
 # The model will first use Google Search, then call getWeather.
 interaction = client.interactions.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     input="What is the northernmost city in the United States? What's the weather like there today?",
     tools=[
         {"type": "google_search"},
@@ -95,7 +92,7 @@ const getWeather = {
 // The Interactions API manages context automatically across tool calls.
 // The model will first use Google Search, then call getWeather.
 const interaction = await client.interactions.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     input: "What is the northernmost city in the United States? What's the weather like there today?",
     tools: [
         { type: "google_search" },
@@ -113,6 +110,95 @@ for (const step of interaction.steps) {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Function;
+import com.google.genai.gaos.models.interactions.GoogleSearch;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+Client client = new Client();
+
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("type", "object");
+
+Function customFunc =
+    Function.builder()
+        .name("get_user_location")
+        .description("Retrieves user current location.")
+        .parameters(parameters)
+        .build();
+
+CreateModelInteraction params =
+    CreateModelInteraction.builder()
+        .model(Model.of("gemini-3.8-flash"))
+        .input(InteractionsInput.of("What is the weather like where I am right now?"))
+        .tools(Arrays.asList(customFunc, new GoogleSearch()))
+        .build();
+
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
+
+System.out.println(interaction.outputText().orElse(""));
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    customFunc := interactions.NewTool(interactions.Function{
+        Name:        genai.Ptr("get_user_location"),
+        Description: genai.Ptr("Retrieves user current location."),
+        Parameters: map[string]any{
+            "type": "object",
+        },
+    })
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput("What is the weather like where I am right now?"),
+            Tools: []interactions.Tool{
+                customFunc,
+                interactions.NewTool(interactions.GoogleSearch{}),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -121,7 +207,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-  "model": "gemini-3.6-flash",
+  "model": "gemini-3.8-flash",
   "input": "What is the northernmost city in the United States? What'\''s the weather like there today?",
   "tools": [
     { "type": "google_search" },
@@ -144,92 +230,87 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Cara kerjanya
+## Cách hoạt động
 
-Model Gemini 3 menggunakan *sirkulasi konteks alat* untuk mengaktifkan kombinasi alat bawaan dan kustom. Sirkulasi konteks alat memungkinkan konteks alat bawaan dipertahankan dan diekspos, serta dibagikan dengan alat kustom dalam interaksi yang sama.
+Các mô hình Gemini 3 sử dụng *vòng lưu chuyển ngữ cảnh công cụ* để cho phép kết hợp các công cụ tuỳ chỉnh và công cụ tích hợp. Tính năng lưu thông bối cảnh công cụ giúp duy trì và hiển thị bối cảnh của các công cụ tích hợp, đồng thời chia sẻ bối cảnh đó với các công cụ tuỳ chỉnh trong cùng một hoạt động tương tác.
 
-### Mengaktifkan kombinasi alat
+### Bật tính năng kết hợp công cụ
 
-- Sertakan [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#function-declarations), beserta
-  alat bawaan yang ingin Anda gunakan, untuk memicu perilaku kombinasi.
+- Thêm [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#function-declarations), cùng với các công cụ tích hợp mà bạn muốn sử dụng, để kích hoạt hành vi kết hợp.
 
-### Langkah-langkah yang ditampilkan API
+### API trả về các bước
 
-Dalam respons interaksi, API menampilkan langkah-langkah terpisah untuk panggilan alat bawaan dan panggilan fungsi (alat kustom):
+Trong một phản hồi tương tác, API sẽ trả về các bước riêng biệt cho lệnh gọi công cụ tích hợp và lệnh gọi hàm (công cụ tuỳ chỉnh):
 
-- **Langkah-langkah alat bawaan**: API mengelola langkah-langkah ini secara otomatis, mempertahankan
-  konteks di seluruh giliran.
-- **Langkah-langkah panggilan fungsi**: API menampilkan langkah-langkah `function_call` untuk fungsi kustom Anda. Anda menjalankan fungsi dan memberikan hasilnya kembali.
+- **Các bước của công cụ tích hợp sẵn**: API tự động quản lý các bước này, duy trì ngữ cảnh trong các lượt tương tác.
+- **Các bước gọi hàm**: API này trả về `function_call` bước cho các hàm tuỳ chỉnh của bạn. Bạn thực thi hàm và cung cấp kết quả.
 
-### Kolom penting dalam langkah-langkah yang ditampilkan
+### Các trường quan trọng trong các bước được trả về
 
-Kolom tertentu dalam langkah-langkah yang ditampilkan sangat penting untuk mempertahankan konteks alat dan mengaktifkan kombinasi alat:
+Một số trường trong các bước được trả về là rất quan trọng để duy trì ngữ cảnh của công cụ và cho phép kết hợp các công cụ:
 
-- **`id`**: Ditemukan di langkah-langkah `function_call` dan `function_response`. ID unik yang memetakan panggilan ke responsnya.
-- **`signature`**: Ditemukan di langkah-langkah `thought`, serta semua langkah panggilan alat (mis., `function_call`) dan hasil (mis., `function_response`) untuk model Gemini 3+. Konteks terenkripsi ini memungkinkan **sirkulasi konteks alat** di seluruh interaksi.
+- **`id`**: Tìm thấy ở các bước `function_call` và `function_response`. Giá trị nhận dạng riêng biệt liên kết một lệnh gọi với phản hồi của lệnh gọi đó.
+- **`signature`**: Xuất hiện ở các bước `thought`, cũng như tất cả các bước gọi công cụ (ví dụ: `function_call`) và kết quả (ví dụ: `function_response`) cho các mô hình Gemini 3 trở lên. Bối cảnh được mã hoá này cho phép **lưu thông bối cảnh công cụ** trong các lượt tương tác.
 
-**Mengelola kolom ini:**
+**Quản lý các trường này:**
 
-- **Mode Stateful (Direkomendasikan)**: Saat Anda menggunakan `previous_interaction_id`, server akan otomatis menangani kolom `id` dan `signature`.
-- **Mode Stateless**: Saat mengelola histori percakapan secara manual, Anda harus memastikan bahwa Anda meneruskan kolom `id` dan `signature` kembali ke model dalam permintaan berikutnya untuk memvalidasi keaslian dan mempertahankan konteks. SDK resmi menangani hal ini secara otomatis jika Anda meneruskan objek respons lengkap kembali ke histori.
+- **Chế độ có trạng thái (Nên dùng)**: Khi bạn sử dụng `previous_interaction_id`, máy chủ sẽ tự động xử lý cả hai trường `id` và `signature`.
+- **Chế độ không trạng thái**: Khi quản lý nhật ký cuộc trò chuyện theo cách thủ công, bạn phải đảm bảo rằng bạn truyền cả trường `id` và `signature` trở lại mô hình trong các yêu cầu tiếp theo để xác thực tính xác thực và duy trì ngữ cảnh. Các SDK chính thức sẽ tự động xử lý việc này nếu bạn truyền toàn bộ đối tượng phản hồi trở lại nhật ký.
 
-### Data khusus alat
+### Dữ liệu dành riêng cho công cụ
 
-Beberapa alat bawaan menampilkan argumen data yang terlihat oleh pengguna yang khusus untuk jenis alat.
+Một số công cụ tích hợp trả về các đối số dữ liệu mà người dùng có thể thấy, dành riêng cho loại công cụ.
 
-| Alat | Argumen panggilan alat yang terlihat oleh pengguna (jika ada) | Respons alat yang terlihat oleh pengguna (jika ada) |
+| Công cụ | Đối số gọi công cụ mà người dùng nhìn thấy (nếu có) | Câu trả lời của công cụ mà người dùng nhìn thấy (nếu có) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` URL yang akan dijelajahi | `status`: Status penjelajahan `retrieved_url`: URL yang dijelajahi |
-| **file\_search** | Tidak ada | Tidak ada |
+| **url\_context** | `urls` URL cần duyệt xem | `status`: Trạng thái duyệt xem `retrieved_url`: Các URL đã duyệt xem |
+| **file\_search** | Không có | Không có |
 
-## Token dan harga
+## Mã thông báo và giá
 
-Perhatikan bahwa bagian panggilan alat bawaan dalam permintaan dihitung ke dalam `prompt_token_count`. Karena langkah-langkah alat perantara ini kini terlihat dan ditampilkan kepada Anda, langkah-langkah tersebut merupakan bagian dari histori percakapan. Hal ini hanya berlaku untuk
-kasus untuk *permintaan*, bukan *respons*.
+Xin lưu ý rằng các phần gọi công cụ tích hợp sẵn trong yêu cầu được tính vào `prompt_token_count`. Vì các bước công cụ trung gian này hiện có thể nhìn thấy và được trả về cho bạn, nên chúng là một phần của nhật ký trò chuyện. Đây chỉ là trường hợp đối với *yêu cầu*, chứ không phải *phản hồi*.
 
-Alat Google Penelusuran adalah pengecualian untuk aturan ini. Google Penelusuran sudah
-menerapkan model harganya sendiri di tingkat kueri, sehingga token tidak
-dikenai biaya dua kali (lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)).
+Công cụ Google Tìm kiếm là một trường hợp ngoại lệ đối với quy tắc này. Google Tìm kiếm đã áp dụng mô hình định giá riêng ở cấp truy vấn, vì vậy, các mã thông báo sẽ không bị tính phí gấp đôi (xem trang [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi)).
 
-Baca halaman [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mengetahui informasi selengkapnya.
+Hãy đọc trang [Mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) để biết thêm thông tin.
 
-## Batasan
+## Các điểm hạn chế
 
-- Secara default, gunakan mode `validated` (mode `auto` tidak didukung) saat sirkulasi konteks alat diaktifkan.
-- Alat bawaan seperti `google_search` mengandalkan informasi lokasi dan waktu saat ini. Jadi, jika `system_instruction` atau `function_declaration.description` Anda memiliki informasi lokasi dan waktu yang bertentangan, fitur kombinasi alat mungkin tidak berfungsi dengan baik.
+- Chuyển sang chế độ `validated` theo mặc định (chế độ `auto` không được hỗ trợ) khi bật tính năng lưu thông bối cảnh công cụ.
+- Các công cụ tích hợp như `google_search` dựa vào thông tin vị trí và thời gian hiện tại. Vì vậy, nếu `system_instruction` hoặc `function_declaration.description` của bạn có thông tin vị trí và thời gian mâu thuẫn, thì tính năng kết hợp công cụ có thể không hoạt động hiệu quả.
 
-## Alat yang didukung
+## Các công cụ được hỗ trợ
 
-Sirkulasi konteks alat standar berlaku untuk alat sisi server (bawaan).
-Eksekusi Kode juga merupakan alat sisi server, tetapi memiliki solusi bawaannya sendiri untuk sirkulasi konteks. Penggunaan Komputer dan panggilan fungsi adalah alat sisi klien, dan juga memiliki solusi bawaan untuk sirkulasi konteks.
+Hoạt động lưu thông bối cảnh công cụ tiêu chuẩn áp dụng cho các công cụ phía máy chủ (được tích hợp sẵn).
+Thực thi mã cũng là một công cụ phía máy chủ, nhưng có giải pháp tích hợp sẵn riêng để lưu thông ngữ cảnh. Sử dụng máy tính và gọi hàm là các công cụ phía máy khách, đồng thời có các giải pháp tích hợp để lưu thông ngữ cảnh.
 
-| Alat | Sisi eksekusi | Dukungan Sirkulasi Konteks |
+| Công cụ | Bên thực thi | Hỗ trợ lưu thông theo bối cảnh |
 | --- | --- | --- |
-| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Sisi server | Didukung |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Sisi server | Didukung |
-| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Sisi server | Didukung |
-| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Sisi server | Didukung |
-| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Sisi server | Didukung (bawaan, menggunakan langkah-langkah `code_execution` dan `code_execution_result`) |
-| [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Sisi klien | Didukung (bawaan, menggunakan langkah-langkah `function_call` dan `function_response`) |
-| [Fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) | Sisi klien | Didukung (bawaan, menggunakan langkah-langkah `function_call` dan `function_response`) |
+| [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) | Phía máy chủ | Được hỗ trợ |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi) | Phía máy chủ | Được hỗ trợ |
+| [Bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi) | Phía máy chủ | Được hỗ trợ |
+| [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi) | Phía máy chủ | Được hỗ trợ |
+| [Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi) | Phía máy chủ | Được hỗ trợ (tích hợp sẵn, sử dụng các bước `code_execution` và `code_execution_result`) |
+| [Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi) | Phía máy khách | Được hỗ trợ (tích hợp sẵn, sử dụng các bước `function_call` và `function_response`) |
+| [Hàm tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) | Phía máy khách | Được hỗ trợ (tích hợp sẵn, sử dụng các bước `function_call` và `function_response`) |
 
-## Langkah berikutnya
+## Bước tiếp theo
 
-- Pelajari lebih lanjut [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API.
-- Pelajari alat yang didukung:
-  - [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)
-  - [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
-  - [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id)
+- Tìm hiểu thêm về tính năng [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) trong Gemini API.
+- Khám phá các công cụ được hỗ trợ:
+  - [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)
+  - [Bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)
+  - [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Terakhir diperbarui pada 2026-09-12 UTC.
+Cập nhật lần gần đây nhất: 2026-09-24 UTC.
 
-Ada masukan untuk kami?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]

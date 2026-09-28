@@ -1,113 +1,113 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=es-419
-fetched_at: 2026-09-21T05:49:32.315134+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=id
+fetched_at: 2026-09-28T06:18:57.557661+00:00
 title: "Gemini 3.5 Transcribe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Enviar comentarios
+Kirim masukan
 
 # Gemini 3.5 Transcribe
 
-Gemini 3.5 Transcribe es un modelo de voz a texto basado en las capacidades de comprensión de audio de Gemini. Proporciona transcripciones precisas y de baja latencia con detección de idioma basada en segmentos, identificación de interlocutores, marcas de tiempo a nivel de palabra, transcripción inteligente y ponderación del habla con vocabulario personalizado.
+Gemini 3.5 Transcribe adalah model speech-to-text berdasarkan kemampuan pemahaman audio Gemini. Layanan ini menyediakan transkripsi yang akurat dan latensi rendah dengan deteksi bahasa berbasis ucapan, diarisasi pembicara, stempel waktu tingkat kata, Transkripsi pintar, dan penyesuaian ucapan kosakata kustom.
 
-[Probar en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=es-419)
+[Coba di Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=id)
 
-## Documentación
+## Dokumentasi
 
-Gemini 3.5 Transcribe convierte la voz en texto a partir de archivos de audio. Detecta automáticamente más de 85 idiomas, controla el cambio de idioma, identifica a los interlocutores individuales, genera marcas de tiempo a nivel de palabras y se adapta a los términos específicos del dominio a través de la adaptación del vocabulario personalizado.
+Transcribe Gemini 3.5 mengonversi ucapan menjadi teks dari file audio. Model ini otomatis mendeteksi lebih dari 85 bahasa, menangani peralihan kode multi-bahasa, mengidentifikasi setiap penutur, menghasilkan stempel waktu tingkat kata, dan beradaptasi dengan istilah khusus domain melalui penyesuaian kosakata kustom.
 
-Visita la guía de [transcripción de audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=es-419) para obtener una cobertura completa de las funciones que no son de transmisión. Para obtener información sobre la transcripción de transmisión en tiempo real y con baja latencia a través de WebSockets, consulta la guía de [transcripción instantánea](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=es-419) con `gemini-3.5-transcribe-live`. Para obtener información detallada sobre los precios, consulta la [página Precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#gemini-3.5-transcribe).
+Buka panduan [Transkripsi audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=id) untuk mengetahui cakupan lengkap fitur non-streaming. Untuk transkripsi streaming latensi rendah real-time melalui WebSockets, buka panduan [Transkripsi instan](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=id) menggunakan `gemini-3.5-transcribe-live`. Untuk mengetahui harga mendetail, lihat [halaman Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.5-transcribe).
 
 ## gemini-3.5-transcribe
 
-| Propiedad | Descripción |
+| Properti | Deskripsi |
 | --- | --- |
-| Código del modelo id\_card | `gemini-3.5-transcribe` |
-| saveTipos de datos admitidos | **Entradas**  Audio (hasta 1 hora)  **Resultado**  Anotaciones de texto y palabras |
-| Límites de audio de token\_auto | **Límite de audio unario**  Hasta 1 hora por solicitud (hasta 30 minutos cuando se habilitan la diarización del interlocutor o las marcas de tiempo a nivel de la palabra) |
-| handymanFunciones | **[Transcripción de audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=es-419)**  Admitido  **[Identificación de interlocutores](https://ai.google.dev/gemini-api/docs/transcribe?hl=es-419#speaker-diarization)**  Admitido  **[Marcas de tiempo a nivel de la palabra](https://ai.google.dev/gemini-api/docs/transcribe?hl=es-419#word-timestamps)**  Admitido  **[Vocabulario personalizado](https://ai.google.dev/gemini-api/docs/transcribe?hl=es-419#custom-vocabulary)**  Admitido  **[Transcripción inteligente](https://ai.google.dev/gemini-api/docs/transcribe?hl=es-419#transcription-modes)**  Admitido  **[Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**  No compatible  **[Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)**  No compatible  **[Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)**  No compatible  **[Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)**  No compatible  **[Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)**  No compatible  **[Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419)**  No compatible |
-| speedOpciones de consumo | **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**  No compatible  **[Inferencia Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)**  No compatible  **[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)**  No compatible |
-| Versiones de 123 | Lee los [patrones de versiones del modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - `gemini-3.5-transcribe` (unario) - `gemini-3.5-transcribe-live` (API de Live) |
-| calendar\_monthÚltima actualización | Agosto de 2026 |
+| Kode model id\_card | `gemini-3.5-transcribe` |
+| saveJenis data yang didukung | **Input**  Audio (hingga 1 jam)  **Output**  Anotasi Teks, Kata |
+| Batas audio token\_auto | **Batas audio unary**  Hingga 1 jam per permintaan (hingga 30 menit jika pemisahan pembicara atau stempel waktu tingkat kata diaktifkan) |
+| handymanKemampuan | **[Transkripsi audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=id)**  Didukung  **[Diarisasi pembicara](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#speaker-diarization)**  Didukung  **[Stempel waktu tingkat kata](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#word-timestamps)**  Didukung  **[Kosakata kustom](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#custom-vocabulary)**  Didukung  **[Transkripsi pintar](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#transcription-modes)**  Didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Tidak didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Tidak didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Tidak didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Tidak didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Tidak didukung |
+| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Tidak didukung  **[Inferensi Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - `gemini-3.5-transcribe` (Unary) - `gemini-3.5-transcribe-live` (Live API) |
+| calendar\_monthPembaruan terbaru | Agustus 2026 |
 
-## Compatibilidad y limitaciones de las funciones
+## Dukungan dan batasan fitur
 
-La función Transcribe de Gemini 3.5 admite las siguientes funciones en sus dos extremos:
+Transkripsi Gemini 3.5 mendukung fitur berikut di kedua endpoint-nya:
 
-| Función | Transmisión en vivo (`gemini-3.5-transcribe-live`) | Procesamiento de archivos de audio (`gemini-3.5-transcribe`) | Notas o limitaciones |
+| Fitur | Live Streaming (`gemini-3.5-transcribe-live`) | Pemrosesan File Audio (`gemini-3.5-transcribe`) | Catatan / Batasan |
 | --- | --- | --- | --- |
-| **Detección automática de idioma** | Compatible (más de 85 idiomas) | Compatible (más de 85 idiomas) | Incluye la combinación de código durante la sesión. |
-| **Marcas de tiempo a nivel de la palabra** | No compatible | Compatible | Disminuye la precisión de la transcripción. |
-| **Ajuste del vocabulario personalizado** | Admitido (hasta 1,000 términos) | Admitido (hasta 1,000 términos) | Por lo general, los clientes obtienen los mejores resultados con hasta 100 términos. |
-| **Dictado y formato inteligentes** | Compatible | Compatible | Incluye la eliminación de muletillas y el formato alfanumérico que tiene en cuenta la intención. |
-| **Identificación de interlocutores** | No compatible | Admitido (hasta 8 bocinas) | La atribución para más de 3 bocinas es experimental. |
-| **Duración máxima del audio** | 10 minutos por sesión | Hasta 1 hora | El procesamiento de archivos se limita a 30 minutos cuando se habilitan funciones como la diarización o las marcas de tiempo. |
+| **Deteksi Otomatis Bahasa** | Didukung (lebih dari 85 bahasa) | Didukung (lebih dari 85 bahasa) | Mencakup pencampuran kode di tengah sesi. |
+| **Stempel Waktu Tingkat Kata** | Tidak Didukung | Didukung | Menurunkan akurasi transkripsi. |
+| **Penyesuaian Kosakata Kustom** | Didukung (hingga 1.000 istilah) | Didukung (hingga 1.000 istilah) | Pelanggan biasanya melihat hasil terbaik dengan hingga 100 istilah. |
+| **Dikte & Pemformatan Cerdas** | Didukung | Didukung | Mencakup penghapusan kata pengisi dan pemformatan alfanumerik yang sesuai dengan maksud. |
+| **Diarisasi Pembicara** | Tidak Didukung | Didukung (hingga 8 speaker) | Atribusi untuk 3+ speaker bersifat eksperimental. |
+| **Durasi Audio Maksimum** | 10 menit per sesi. | Hingga 1 jam | Pemrosesan file dibatasi hingga 30 menit jika fitur seperti diarisasi atau stempel waktu diaktifkan. |
 
-## Idiomas admitidos
+## Bahasa yang didukung
 
-Los siguientes idiomas y códigos de idioma BCP-47 son compatibles con Gemini 3.5 Transcribe:
+Bahasa dan kode bahasa BCP-47 berikut didukung untuk Transkripsi Gemini 3.5:
 
-| Idioma | Código BCP-47 | Idioma | Código BCP-47 |
+| Language | Kode BCP-47 | Language | Kode BCP-47 |
 | --- | --- | --- | --- |
-| Afrikaans | `af-ZA` | Japonés | `ja-JP` |
-| Amárico | `am-ET` | Javanés | `jv-ID` |
-| Árabe (Egipto) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| Armenio | `hy-AM` | Canarés | `kn-IN` |
-| Asamés | `as-IN` | Kazajo | `kk-KZ` |
-| Azerí | `az-AZ` | Coreano | `ko-KR` |
-| Bielorruso | `be-BY` | Kirguís | `ky-KG` |
-| Bengalí (Bangladés) | `bn-BD` | Letón | `lv-LV` |
-| Bengalí (India) | `bn-IN` | Lingala | `ln-CD` |
-| Bosnio | `bs-BA` | Lituano | `lt-LT` |
-| Búlgaro | `bg-BG` | Macedonio | `mk-MK` |
-| Búlgaro (arrumano) | `rup-BG` | Malayo | `ms-MY` |
-| Birmano | `my-MM` | Malayalam | `ml-IN` |
-| Cantonés (tradicional) | `yue-Hant-HK` | Maltés | `mt-MT` |
-| Catalán | `ca-ES` | Chino mandarín (simplificado) | `cmn-Hans-CN` |
-| Cebuano | `ceb` | Maratí | `mr-IN` |
-| Camboyano | `km-KH` | Mongol | `mn-MN` |
-| Croata | `hr-HR` | Nepalí | `ne-NP` |
-| Checo | `cs-CZ` | Noruego | `nb-NO` |
-| Danés | `da-DK` | Oriya | `or-IN` |
-| Holandés | `nl-NL` | Polaco | `pl-PL` |
-| Inglés (Gran Bretaña) | `en-GB` | Portugués (Brasil) | `pt-BR` |
-| Inglés (India) | `en-IN` | Portugués (Portugal) | `pt-PT` |
-| Inglés (Estados Unidos) | `en-US` | Punyabí | `pa-IN` |
-| Estonio | `et-EE` | Panyabí (alfabeto gurmukhi) | `pa-Guru-IN` |
-| Persa | `fa-IR` | Rumano | `ro-RO` |
-| Filipino | `fil-PH` | Ruso | `ru-RU` |
-| Finlandés | `fi-FI` | Serbio | `sr-RS` |
-| Francés | `fr-FR` | Sindhi (alfabeto árabe) | `sd-Arab-IN` |
-| Gallego | `gl-ES` | Eslovaco | `sk-SK` |
-| Georgiano | `ka-GE` | Esloveno | `sl-SI` |
-| Alemán | `de-DE` | Español (Latinoamérica) | `es-419` |
-| Griego | `el-GR` | Español (Estados Unidos) | `es-US` |
-| Gujarati | `gu-IN` | Suajili (Kenia) | `sw-KE` |
-| Hausa | `ha-NG` | Sueco | `sv-SE` |
-| Hebreo | `he-IL` | Tayiko | `tg-TJ` |
+| Afrika | `af-ZA` | Jepang | `ja-JP` |
+| Amharik | `am-ET` | Jawa | `jv-ID` |
+| Arab (Mesir) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| Armenia | `hy-AM` | Kannada | `kn-IN` |
+| Assam | `as-IN` | Kazak | `kk-KZ` |
+| Azerbaijan | `az-AZ` | Korea | `ko-KR` |
+| Belarusia | `be-BY` | Kirgiz | `ky-KG` |
+| Bengali (Bangladesh) | `bn-BD` | Latvia | `lv-LV` |
+| Bengali (India) | `bn-IN` | Lingala | `ln-CD` |
+| Bosnia | `bs-BA` | Lituania | `lt-LT` |
+| Bulgaria | `bg-BG` | Makedonia | `mk-MK` |
+| Bulgaria (Aromania) | `rup-BG` | Melayu | `ms-MY` |
+| Burma | `my-MM` | Malayalam | `ml-IN` |
+| Kanton (Tradisional) | `yue-Hant-HK` | Malta | `mt-MT` |
+| Katalan | `ca-ES` | China Mandarin (Aksara Sederhana) | `cmn-Hans-CN` |
+| Cebuano | `ceb` | Marathi | `mr-IN` |
+| Khmer Tengah | `km-KH` | Mongolia | `mn-MN` |
+| Kroasia | `hr-HR` | Nepal | `ne-NP` |
+| Ceko | `cs-CZ` | Norwegia | `nb-NO` |
+| Denmark | `da-DK` | Oriya | `or-IN` |
+| Belanda | `nl-NL` | Polandia | `pl-PL` |
+| Inggris (Britania Raya) | `en-GB` | Portugis (Brasil) | `pt-BR` |
+| Inggris (India) | `en-IN` | Portugis (Portugal) | `pt-PT` |
+| Inggris (Amerika Serikat) | `en-US` | Punjabi | `pa-IN` |
+| Estonia | `et-EE` | Punjabi (skrip Gurmukhi) | `pa-Guru-IN` |
+| Persia | `fa-IR` | Rumania | `ro-RO` |
+| Filipino | `fil-PH` | Rusia | `ru-RU` |
+| Finlandia | `fi-FI` | Serbia | `sr-RS` |
+| Prancis | `fr-FR` | Sindhi (skrip Arab) | `sd-Arab-IN` |
+| Galisia | `gl-ES` | Slovakia | `sk-SK` |
+| Georgia | `ka-GE` | Slovenia | `sl-SI` |
+| Jerman | `de-DE` | Spanyol (Amerika Latin) | `es-419` |
+| Yunani | `el-GR` | Spanyol (Amerika Serikat) | `es-US` |
+| Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
+| Hausa | `ha-NG` | Swedia | `sv-SE` |
+| Ibrani | `he-IL` | Tajik | `tg-TJ` |
 | Hindi | `hi-IN` | Telugu | `te-IN` |
-| Húngaro | `hu-HU` | Tailandés | `th-TH` |
-| Islandés | `is-IS` | Turco | `tr-TR` |
-| tu idioma o tu país | `en-IN` | Ucraniano | `uk-UA` |
-| Indonesio | `id-ID` | Uzbeko | `uz-UZ` |
-| Italiano | `it-IT` | Vietnamita | `vi-VN` |
+| Hungaria | `hu-HU` | Thai | `th-TH` |
+| Islandia | `is-IS` | Turki | `tr-TR` |
+| Inggris - India | `en-IN` | Ukraina | `uk-UA` |
+| Indonesia | `id-ID` | Uzbek | `uz-UZ` |
+| Italia | `it-IT` | Vietnam | `vi-VN` |
 
-Enviar comentarios
+Kirim masukan
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última actualización: 2026-09-10 (UTC)
+Terakhir diperbarui pada 2026-09-10 UTC.
 
-¿Quieres brindar más información?
+Ada masukan untuk kami?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-10 (UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]

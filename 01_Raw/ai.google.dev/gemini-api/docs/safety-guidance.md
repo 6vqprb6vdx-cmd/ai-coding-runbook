@@ -1,116 +1,149 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he
-fetched_at: 2026-09-21T05:44:16.085326+00:00
-title: "\u05d4\u05e0\u05d7\u05d9\u05d5\u05ea \u05d1\u05e0\u05d5\u05e9\u05d0 \u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d5\u05d3\u05d9\u05d5\u05e7 \u05e2\u05d5\u05d1\u05d3\u05ea\u05d9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id
+fetched_at: 2026-09-28T06:24:02.653559+00:00
+title: "Panduan keselamatan dan faktualitas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-# הנחיות בנושא בטיחות ודיוק עובדתי
+# Panduan keselamatan dan faktualitas
 
-מודלים של בינה מלאכותית גנרטיבית הם כלים רבי עוצמה, אבל יש להם מגבלות. הגמישות והישימות שלהם עלולות לפעמים להוביל לתוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. עיבוד תמונה (Post Processing) והערכה ידנית קפדנית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
+Model kecerdasan buatan generatif adalah alat yang canggih, tetapi memiliki keterbatasan. Fleksibilitas dan penerapannya terkadang dapat menghasilkan output yang tidak terduga, seperti output yang tidak akurat, bias, atau menyinggung. Pemrosesan pasca-output, dan evaluasi manual yang ketat sangat penting untuk membatasi risiko bahaya dari output tersebut.
 
-אפשר להשתמש במודלים שמסופקים על ידי Gemini API למגוון רחב של אפליקציות של AI גנרטיבי ועיבוד שפה טבעית (NLP). השימוש בפונקציות האלה זמין רק דרך Gemini API או אפליקציית האינטרנט של Google AI Studio. השימוש ב-Gemini API כפוף גם [למדיניות בנושא שימוש אסור ב-AI גנרטיבי](https://policies.google.com/terms/generative-ai/use-policy?hl=he) ול[תנאים ולהגבלות של Gemini API](https://ai.google.dev/terms?hl=he).
+Model yang disediakan oleh Gemini API dapat digunakan untuk berbagai aplikasi AI generatif dan pemrosesan bahasa alami (NLP). Penggunaan fungsi ini hanya tersedia melalui Gemini API atau aplikasi web Google AI Studio. Penggunaan Gemini API oleh Anda juga tunduk pada [Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id) dan [persyaratan layanan Gemini API](https://ai.google.dev/terms?hl=id).
 
-אחד הדברים שהופכים מודלים גדולים של שפה (LLM) לשימושיים כל כך הוא שהם כלים יצירתיים שיכולים לטפל במשימות שונות שקשורות לשפה. לצערנו, המשמעות היא גם שמודלים גדולים של שפה יכולים ליצור פלט שלא ציפיתם לו, כולל טקסט פוגעני, חסר רגישות או לא מדויק מבחינה עובדתית.
-בנוסף, הרבגוניות המדהימה של המודלים האלה היא גם מה שמקשה על חיזוי מדויק של סוגי הפלט הלא רצויים שהם עשויים ליצור. ‫Gemini API תוכנן בהתאם [לכללי ה-AI של Google](https://ai.google/principles/?hl=he), אבל האחריות לשימוש במודלים האלה בצורה אחראית מוטלת על המפתחים. כדי לעזור למפתחים ליצור אפליקציות בטוחות ואחראיות, ל-Gemini API יש סינון תוכן מובנה וגם הגדרות בטיחות שניתנות להתאמה אישית ב-4 מימדים של נזק. מידע נוסף זמין במדריך בנושא [הגדרות בטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he). בנוסף, הוא מציע Grounding עם חיפוש Google מופעל כדי לשפר את הדיוק העובדתי, אבל אפשר להשבית את התכונה הזו למפתחים שהתרחישים שלהם יצירתיים יותר ולא קשורים לחיפוש מידע.
+Sebagian dari hal yang membuat model bahasa besar (LLM) sangat berguna adalah karena model ini merupakan alat kreatif yang dapat menangani berbagai tugas bahasa. Sayangnya,
+hal ini juga berarti bahwa model bahasa besar dapat menghasilkan output yang tidak
+Anda harapkan, termasuk teks yang menyinggung, tidak sensitif, atau salah secara faktual.
+Selain itu, fleksibilitas model ini yang luar biasa juga menyulitkan
+memprediksi dengan tepat jenis output yang tidak diinginkan yang mungkin dihasilkan. Meskipun
+Gemini API telah dirancang dengan mempertimbangkan [prinsip AI Google](https://ai.google/principles/?hl=id), developer bertanggung jawab untuk
+menerapkan model ini secara bertanggung jawab. Untuk membantu developer membuat aplikasi yang aman dan bertanggung jawab, Gemini API memiliki beberapa pemfilteran konten bawaan serta setelan keamanan yang dapat disesuaikan di 4 dimensi bahaya. Baca panduan
+[setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id) untuk mempelajari lebih lanjut. Fitur ini juga menawarkan Perujukan dengan Google Penelusuran yang diaktifkan untuk meningkatkan faktualitas, meskipun fitur ini dapat dinonaktifkan bagi developer yang kasus penggunaannya lebih kreatif dan tidak mencari informasi.
 
-המסמך הזה נועד להציג לכם כמה סיכוני בטיחות שעלולים להתעורר כשמשתמשים במודלים של שפה גדולה (LLM), ולהמליץ על המלצות חדשות לתכנון ולפיתוח של בטיחות. (חשוב לזכור שחוקים ותקנות עשויים להטיל הגבלות גם כן, אבל שיקולים כאלה הם מעבר להיקף המדריך הזה).
+Dokumen ini dimaksudkan untuk memperkenalkan beberapa risiko keamanan yang dapat muncul saat
+menggunakan LLM, dan merekomendasikan desain dan pengembangan keamanan yang baru muncul. (Perhatikan bahwa hukum dan peraturan juga dapat memberlakukan batasan, tetapi pertimbangan tersebut berada di luar cakupan panduan ini.)
 
-מומלץ לבצע את השלבים הבאים כשמפתחים אפליקציות עם מודלים גדולים של שפה (LLM):
+Langkah-langkah berikut direkomendasikan saat membangun aplikasi dengan LLM:
 
-- הסבר על סיכוני הבטיחות של האפליקציה
-- שוקלים לבצע שינויים כדי לצמצם את סיכוני הבטיחות
-- ביצוע בדיקות בטיחות שמתאימות לתרחיש השימוש
-- בקשת משוב מהמשתמשים ומעקב אחר השימוש
+- Memahami risiko keamanan aplikasi Anda
+- Mempertimbangkan penyesuaian untuk mengurangi risiko keselamatan
+- Melakukan pengujian keamanan yang sesuai dengan kasus penggunaan Anda
+- Meminta masukan dari pengguna dan memantau penggunaan
 
-שלבי ההתאמה והבדיקה צריכים להיות איטרטיביים עד שתגיעו לביצועים שמתאימים לאפליקציה שלכם.
+Fase penyesuaian dan pengujian harus dilakukan secara berulang hingga Anda mencapai performa yang sesuai untuk aplikasi Anda.
 
-![מחזור ההטמעה של המודל](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=he)
+![Siklus penerapan model](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=id)
 
-## הסבר על סיכוני הבטיחות באפליקציה
+## Memahami risiko keamanan aplikasi Anda
 
-בהקשר הזה, בטיחות מוגדרת כיכולת של מודל שפה גדול (LLM) להימנע מגרימת נזק למשתמשים שלו, למשל על ידי יצירת שפה רעילה או תוכן שמקדם סטריאוטיפים. המודלים שזמינים דרך Gemini API תוכננו בהתאם [לעקרונות ה-AI של Google](https://ai.google/principles/?hl=he), והשימוש בהם כפוף [למדיניות בנושא שימוש אסור ב-AI גנרטיבי](https://policies.google.com/terms/generative-ai/use-policy?hl=he). ה-API מספק מסנני בטיחות מובנים שעוזרים לטפל בבעיות נפוצות במודלים של שפה, כמו שפה רעילה ודברי שטנה, ופועל למען הכללה והימנעות מסטריאוטיפים. עם זאת, כל אפליקציה עלולה להציב בפני המשתמשים שלה קבוצה שונה של סיכונים. לכן, כבעלי האפליקציה, אתם אחראים להכיר את המשתמשים שלכם ואת הנזקים הפוטנציאליים שהאפליקציה עלולה לגרום, ולוודא שהאפליקציה משתמשת במודלים של שפה בצורה בטוחה ואחראית.
+Dalam konteks ini, keamanan didefinisikan sebagai kemampuan LLM untuk menghindari menyebabkan bahaya bagi penggunanya, misalnya, dengan membuat bahasa atau konten berbahaya yang mempromosikan stereotipe. Model yang tersedia melalui Gemini API telah dirancang dengan mempertimbangkan [prinsip AI Google](https://ai.google/principles/?hl=id) dan penggunaan model ini tunduk pada [Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id). API ini menyediakan filter keamanan bawaan untuk membantu mengatasi beberapa masalah umum model bahasa seperti bahasa berbahaya dan ujaran kebencian, serta berupaya untuk inklusivitas dan menghindari stereotipe. Namun, setiap aplikasi dapat menimbulkan serangkaian risiko yang berbeda bagi penggunanya. Jadi, sebagai pemilik aplikasi, Anda bertanggung jawab untuk mengetahui pengguna Anda dan potensi bahaya yang dapat ditimbulkan oleh aplikasi Anda, serta memastikan bahwa aplikasi Anda menggunakan LLM secara aman dan bertanggung jawab.
 
-במסגרת ההערכה הזו, צריך לקחת בחשבון את הסבירות להתרחשות נזק, ולקבוע את חומרת הנזק ואת השלבים לצמצום הסיכון. לדוגמה, אפליקציה שמייצרת חיבורים על סמך אירועים עובדתיים צריכה להיזהר יותר מלהפיץ מידע מוטעה, בהשוואה לאפליקציה שמייצרת סיפורים בדיוניים למטרות בידור. דרך טובה להתחיל לבדוק את סיכוני הבטיחות הפוטנציאליים היא לחקור את משתמשי הקצה ואת האנשים האחרים שעשויים להיות מושפעים מהתוצאות של האפליקציה. אפשר לעשות את זה בדרכים שונות, כולל מחקר של מחקרים מתקדמים בתחום האפליקציה, צפייה בשימוש של אנשים באפליקציות דומות, הפעלת מחקר משתמשים, סקר או ראיונות לא רשמיים עם משתמשים פוטנציאליים.
+Sebagai bagian dari penilaian ini, Anda harus mempertimbangkan kemungkinan terjadinya bahaya dan menentukan keseriusan serta langkah-langkah mitigasinya. Misalnya, aplikasi yang membuat esai berdasarkan peristiwa faktual harus lebih berhati-hati dalam menghindari misinformasi, dibandingkan dengan aplikasi yang membuat cerita fiksi untuk hiburan. Cara yang baik untuk mulai mempelajari potensi risiko keselamatan adalah dengan meneliti pengguna akhir Anda, dan orang lain yang mungkin terpengaruh oleh hasil aplikasi Anda. Hal ini dapat dilakukan dalam berbagai bentuk, termasuk meneliti studi terbaru di domain aplikasi Anda, mengamati cara orang menggunakan aplikasi serupa, atau menjalankan studi pengguna, survei, atau melakukan wawancara informal dengan calon pengguna.
 
-### טיפים מתקדמים
+### Tips lanjutan
 
-- כדאי לשוחח עם מגוון רחב של משתמשים פוטנציאליים בקרב אוכלוסיית היעד שלכם על האפליקציה ועל המטרה שלה, כדי לקבל נקודת מבט רחבה יותר על סיכונים פוטנציאליים ולשנות את קריטריוני הגיוון לפי הצורך.
-- [המסגרת הרעיונית לניהול סיכונים ב-AI](https://www.nist.gov/itl/ai-risk-management-framework) שפורסמה על ידי המכון הלאומי לתקנים וטכנולוגיה (NIST) של ממשלת ארה"ב מספקת הנחיות מפורטות יותר ומשאבים נוספים ללמידה על ניהול סיכונים ב-AI.
-- בפרסום של DeepMind בנושא [סיכונים אתיים וחברתיים לנזק ממודלי שפה](https://arxiv.org/abs/2112.04359) מתוארות בפירוט הדרכים שבהן אפליקציות של מודלי שפה יכולות לגרום נזק.
+- Bicaralah dengan beragam calon pengguna dalam target populasi Anda tentang aplikasi Anda dan tujuan yang dimaksudkan agar mendapatkan perspektif yang lebih luas tentang potensi risiko dan menyesuaikan kriteria keberagaman sesuai kebutuhan.
+- [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) yang dirilis oleh National Institute of Standards and Technology (NIST) pemerintah Amerika Serikat memberikan panduan yang lebih mendetail dan sumber pembelajaran tambahan untuk manajemen risiko AI.
+- Publikasi DeepMind tentang [risiko bahaya etis dan sosial dari model bahasa](https://arxiv.org/abs/2112.04359) menjelaskan secara mendetail cara aplikasi model bahasa dapat menyebabkan bahaya.
 
-## שוקלים לבצע שינויים כדי לצמצם את הסיכונים שקשורים לבטיחות ולדיוק העובדות
+## Mempertimbangkan penyesuaian untuk mengurangi risiko keselamatan dan faktualitas
 
-אחרי שמבינים את הסיכונים, אפשר להחליט איך לצמצם אותם. קביעת סדר העדיפויות של הסיכונים והיקף הפעולות שצריך לבצע כדי לנסות למנוע אותם היא החלטה קריטית, בדומה למיון באגים בפרויקט תוכנה. אחרי שקובעים את סדר העדיפויות, אפשר להתחיל לחשוב על סוגי הפעולות לצמצום הסיכונים שיהיו הכי מתאימים. לעיתים קרובות, שינויים פשוטים יכולים לעשות את ההבדל ולהפחית את הסיכונים.
+Setelah memahami risiko, Anda dapat memutuskan cara memitigasinya. Menentukan risiko mana yang harus diprioritaskan dan seberapa besar upaya yang harus Anda lakukan untuk mencoba mencegahnya adalah keputusan penting, mirip dengan memilah-milah bug dalam proyek software. Setelah menentukan prioritas, Anda dapat mulai memikirkan jenis mitigasi yang paling tepat. Sering kali perubahan sederhana dapat
+membuat perbedaan dan mengurangi risiko.
 
-לדוגמה, כשמעצבים אפליקציה, כדאי לקחת בחשבון את הדברים הבאים:
+Misalnya, saat mendesain aplikasi, pertimbangkan:
 
-- **שיפור הפלט של המודל** כדי שישקף טוב יותר את מה שמקובל בהקשר של האפליקציה. שיפור הפלט יכול להפוך אותו ליותר צפוי ועקבי, ולכן יכול לעזור לצמצם סיכונים מסוימים.
-- **שימוש בשיטת קלט שמספקת פלט בטוח יותר.** הקלט המדויק שנותנים למודל שפה גדול (LLM) יכול להשפיע על איכות הפלט.
-  כדאי להתנסות בהנחיות קלט כדי לגלות מה הכי בטוח לשימוש בתרחיש הספציפי שלכם, וכך תוכלו לספק חוויית משתמש שתקל על כך. לדוגמה, אפשר להגביל את המשתמשים כך שיוכלו לבחור רק מתוך רשימה נפתחת של הנחיות קלט, או להציע הצעות קופצות עם ביטויים תיאוריים שזוהו כבטוחים לשימוש בהקשר של האפליקציה.
-- **חסימת קלט לא בטוח וסינון הפלט לפני שהוא מוצג למשתמש.** במקרים פשוטים, אפשר להשתמש ברשימות חסימה כדי לזהות ולחסום מילים או ביטויים לא בטוחים בהנחיות או בתשובות, או לדרוש מבודקים אנושיים לשנות או לחסום תוכן כזה באופן ידני.
-- **שימוש בסיווגים מאומנים כדי לתייג כל הנחיה עם נזקים פוטנציאליים או אותות עוינים.** אפשר להשתמש באסטרטגיות שונות כדי לטפל בבקשה בהתאם לסוג הנזק שזוהה. לדוגמה, אם הקלט הוא בעל אופי עוין או פוגע באופן בולט, יכול להיות שהוא ייחסם ובמקומו תוצג תגובה מוכנה מראש.
-  **טיפ מתקדם:** אם האותות קובעים שהפלט מזיק, האפליקציה יכולה להשתמש באפשרויות הבאות:
+- **Menyesuaikan output model** agar lebih mencerminkan apa yang dapat diterima dalam konteks aplikasi Anda. Penyesuaian dapat membuat output model lebih
+  dapat diprediksi dan konsisten, sehingga dapat membantu mengurangi risiko tertentu.
+- **Menyediakan metode input yang memfasilitasi output yang lebih aman.** Input persis yang Anda berikan ke LLM dapat memengaruhi kualitas output.
+  Bereksperimen dengan perintah input untuk menemukan perintah yang paling aman dalam kasus penggunaan Anda sangatlah bermanfaat, karena Anda kemudian dapat memberikan UX yang memfasilitasinya. Misalnya, Anda dapat membatasi pengguna untuk memilih hanya dari
+  daftar drop-down perintah input, atau menawarkan saran pop-up dengan
+  frasa
+  deskriptif yang Anda temukan berperforma aman dalam konteks aplikasi Anda.
+- **Memblokir input yang tidak aman dan memfilter output sebelum ditampilkan kepada
+  pengguna.** Dalam situasi sederhana, daftar yang tidak diizinkan dapat digunakan untuk mengidentifikasi dan memblokir kata atau frasa yang tidak aman dalam perintah atau respons, atau mewajibkan peninjau manual untuk mengubah atau memblokir konten tersebut secara manual.
+- **Menggunakan pengklasifikasi terlatih untuk memberi label setiap perintah dengan sinyal berpotensi berbahaya atau adversarial.** Kemudian, berbagai strategi dapat diterapkan untuk menangani permintaan berdasarkan jenis bahaya yang terdeteksi. Misalnya, jika input bersifat terlalu adversarial atau melanggar, input tersebut dapat diblokir dan menghasilkan respons yang telah ditulis dalam skrip.
+  **Tips lanjutan:** Jika sinyal menentukan bahwa output berbahaya, aplikasi dapat menggunakan opsi berikut:
 
-  - לספק הודעת שגיאה או פלט מוכן מראש של סקריפט.
-  - כדאי לנסות שוב את ההנחיה, למקרה שיופק פלט בטוח חלופי, כי לפעמים אותה הנחיה תניב פלטים שונים.
-- **הטמעת אמצעי הגנה מפני שימוש לרעה מכוון**, כמו הקצאת מזהה ייחודי לכל משתמש והגבלת נפח השאילתות של המשתמשים שאפשר לשלוח בפרק זמן נתון. אמצעי הגנה נוסף הוא ניסיון להגן מפני החדרת הנחיות אפשרית. הזרקת פרומפטים, בדומה להזרקת SQL, היא דרך שבה משתמשים זדוניים יכולים לעצב פרומפט קלט שמשפיע על הפלט של המודל. לדוגמה, הם יכולים לשלוח פרומפט קלט שמורה למודל להתעלם מכל הדוגמאות הקודמות. פרטים על שימוש לרעה מכוון מופיעים [במדיניות בנושא שימוש אסור ב-AI גנרטיבי](https://policies.google.com/terms/generative-ai/use-policy?hl=he).
-- **שינוי הפונקציונליות למשהו שבאופן מובנה כרוך בסיכון נמוך יותר.**
-  משימות בהיקף מצומצם יותר (למשל, חילוץ מילות מפתח מקטעי טקסט) או כאלה שכוללות פיקוח אנושי רב יותר (למשל, יצירת תוכן קצר שייבדק על ידי אדם), בדרך כלל כרוכות בסיכון נמוך יותר. לדוגמה, במקום ליצור אפליקציה לכתיבת תשובה לאימייל מאפס, אפשר להגביל אותה להרחבת טיוטה או להצעת ניסוחים חלופיים.
-- **שינוי הגדרות הבטיחות מפני תוכן פוגעני כדי להקטין את הסיכוי שתראו תשובות שעלולות להיות מזיקות.** ב-Gemini API יש הגדרות בטיחות שאפשר לשנות בשלב יצירת אב טיפוס, כדי לקבוע אם האפליקציה דורשת הגדרת בטיחות מגבילה יותר או פחות. אתם יכולים לשנות את ההגדרות האלה בחמש קטגוריות של מסננים כדי להגביל או לאפשר סוגים מסוימים של תוכן. ב[מדריך להגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he) מוסבר על הגדרות הבטיחות שניתנות להתאמה אישית דרך Gemini API.
-- **כדי לצמצם את הסיכון לאי-דיוקים עובדתיים או להזיות, מומלץ להפעיל את התכונה 'עיגון באמצעות חיפוש Google'**. חשוב לזכור שמודלים רבים של AI הם ניסיוניים, ויכול להיות שהם יציגו מידע לא מדויק מבחינה עובדתית, יפיקו הזיות או יציגו תוצאות בעייתיות בדרכים אחרות. התכונה 'עיגון באמצעות חיפוש Google' מחברת את מודל Gemini לתוכן מהאינטרנט שמתעדכן בזמן אמת, והיא פועלת בכל השפות הזמינות. כך Gemini יכול לספק תשובות מדויקות יותר ולצטט מקורות שאפשר לאמת, מעבר לתאריך סף הידע של המודלים.
+  - Menyediakan pesan error atau output yang telah ditulis dalam skrip.
+  - Coba lagi perintahnya, jika output alternatif yang aman dihasilkan, karena terkadang perintah yang sama akan menghasilkan output yang berbeda.
+- **Menerapkan pengamanan terhadap penyalahgunaan yang disengaja** seperti menetapkan ID unik untuk setiap pengguna dan membatasi volume kueri pengguna yang dapat dikirimkan dalam jangka waktu tertentu. Pengamanan lainnya adalah mencoba dan
+  melindungi dari kemungkinan injeksi perintah. Injeksi perintah, seperti injeksi SQL, adalah cara bagi pengguna berbahaya untuk mendesain perintah input yang memanipulasi output model, misalnya, dengan mengirimkan perintah input yang menginstruksikan model untuk mengabaikan contoh sebelumnya. Lihat
+  [Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id)
+  untuk mengetahui detail tentang penyalahgunaan yang disengaja.
+- **Menyesuaikan fungsi menjadi sesuatu yang pada dasarnya memiliki risiko lebih rendah.**
+  Tugas yang lebih sempit cakupannya (misalnya, mengekstrak kata kunci dari bagian
+  teks) atau yang memiliki pengawasan manusia yang lebih besar (misalnya, membuat konten
+  singkat yang akan ditinjau oleh manusia), sering kali menimbulkan risiko yang lebih rendah. Jadi, misalnya, daripada membuat aplikasi untuk menulis balasan email dari awal, Anda dapat membatasinya untuk memperluas kerangka atau menyarankan susunan kata alternatif.
+- **Menyesuaikan setelan keamanan konten berbahaya untuk mengurangi kemungkinan Anda
+  melihat respons yang dapat berbahaya.** Gemini API menyediakan setelan keamanan
+  yang dapat Anda sesuaikan selama tahap pembuatan prototipe untuk menentukan apakah
+  aplikasi Anda memerlukan konfigurasi keamanan yang lebih ketat atau longgar. Anda dapat
+  menyesuaikan setelan ini di lima kategori filter untuk membatasi atau mengizinkan
+  jenis konten tertentu. Lihat [panduan setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id) untuk mempelajari setelan keamanan yang dapat disesuaikan yang tersedia melalui Gemini API.
+- **Mengurangi potensi ketidakakuratan faktual atau halusinasi dengan mengaktifkan
+  Perujukan dengan Google Penelusuran**. Ingat, banyak model AI bersifat eksperimental
+  dan dapat menyajikan informasi yang faktanya tidak akurat, berhalusinasi, atau
+  menghasilkan output yang bermasalah. Fitur Grounding with Google Search menghubungkan model Gemini ke konten web real-time dan berfungsi dengan semua bahasa yang tersedia. Dengan fitur ini, Gemini dapat memberikan jawaban yang lebih akurat dan mengutip sumber yang dapat diverifikasi di luar batas informasinya.
 
-## ביצוע בדיקות בטיחות שמתאימות לתרחיש השימוש
+## Melakukan pengujian keamanan yang sesuai dengan kasus penggunaan Anda
 
-בדיקות הן חלק חשוב בפיתוח אפליקציות חזקות ובטוחות, אבל היקף הבדיקות, התחום שלהן והאסטרטגיות שלהן משתנים. לדוגמה, סביר להניח שאפליקציה שיוצרת שירי הייקו רק בשביל הכיף תציב סיכונים פחות חמורים מאפליקציה שמיועדת לשימוש של משרדי עורכי דין כדי לסכם מסמכים משפטיים ולעזור בניסוח חוזים. אבל יכול להיות שמגוון המשתמשים באפליקציה שיוצרת שירי הייקו יהיה רחב יותר, מה שאומר שהפוטנציאל לניסיונות התנגדות או אפילו לקלט מזיק לא מכוון יכול להיות גדול יותר. גם הקשר ההטמעה חשוב. לדוגמה, יכול להיות שאפליקציה עם פלטים שנבדקים על ידי מומחים אנושיים לפני שננקטת פעולה כלשהי תיחשב כבעלת סיכוי נמוך יותר ליצור פלטים מזיקים מאפליקציה זהה ללא פיקוח כזה.
+Pengujian adalah bagian penting dalam membangun aplikasi yang andal dan aman, tetapi tingkat, cakupan, dan strategi pengujian akan bervariasi. Misalnya, generator haiku yang hanya untuk bersenang-senang cenderung menimbulkan risiko yang tidak terlalu parah dibandingkan, misalnya, aplikasi yang dirancang untuk digunakan oleh firma hukum guna meringkas dokumen hukum dan membantu menyusun kontrak. Namun, generator haiku dapat digunakan oleh berbagai pengguna yang lebih luas, yang berarti potensi upaya berbahaya atau bahkan input berbahaya yang tidak disengaja dapat lebih besar. Konteks penerapan juga penting. Misalnya, aplikasi dengan output yang ditinjau oleh pakar manusia sebelum tindakan apa pun diambil mungkin dianggap lebih kecil kemungkinannya menghasilkan output berbahaya dibandingkan aplikasi identik tanpa pengawasan tersebut.
 
-לא נדיר לעבור כמה איטרציות של ביצוע שינויים ובדיקות לפני שמרגישים בטוחים שמוכנים להשיק, גם כשמדובר באפליקציות עם סיכון נמוך יחסית. יש שני סוגים של בדיקות ששימושיות במיוחד לאפליקציות מבוססות-AI:
+Tidak jarang Anda harus melakukan beberapa iterasi perubahan dan pengujian sebelum merasa yakin bahwa Anda siap meluncurkan aplikasi, bahkan untuk aplikasi yang risikonya relatif rendah. Dua jenis pengujian sangat berguna untuk aplikasi AI:
 
-- **השוואה של רמת הבטיחות** כוללת תכנון של מדדי בטיחות שמשקפים את האופנים שבהם האפליקציה עלולה להיות לא בטוחה בהקשר של האופן שבו סביר שהיא תשמש, ולאחר מכן בדיקה של הביצועים של האפליקציה במדדים באמצעות מערכי נתונים להערכה. מומלץ לחשוב על הרמות המינימליות של מדדי הבטיחות לפני הבדיקה, כדי ש-1) תוכלו להעריך את תוצאות הבדיקה בהשוואה לציפיות האלה ו-2) תוכלו לאסוף את מערך הנתונים של ההערכה על סמך הבדיקות שמעריכות את המדדים שהכי חשובים לכם.
+- **Tolok ukur keamanan** melibatkan perancangan metrik keamanan yang mencerminkan cara aplikasi Anda dapat menjadi tidak aman dalam konteks kemungkinan penggunaannya, lalu menguji seberapa baik performa aplikasi Anda berdasarkan metrik tersebut menggunakan set data evaluasi. Sebaiknya pikirkan tingkat minimum metrik keamanan yang dapat diterima sebelum melakukan pengujian sehingga 1) Anda dapat mengevaluasi hasil pengujian berdasarkan ekspektasi tersebut dan 2) Anda dapat mengumpulkan set data evaluasi berdasarkan pengujian yang mengevaluasi metrik yang paling penting bagi Anda.
 
-  **טיפים מתקדמים:**
+  **Tips lanjutan:**
 
-  - חשוב להיזהר מלהסתמך יתר על המידה על גישות מוכנות מראש, כי סביר להניח שתצטרכו ליצור מערכי נתונים משלכם לבדיקה באמצעות בודקים אנושיים, כדי להתאים אותם באופן מלא להקשר של האפליקציה שלכם.
-  - אם יש לכם יותר ממדד אחד, תצטרכו להחליט איך תתפשרו אם שינוי מסוים יוביל לשיפור במדד אחד אבל לפגיעה במדד אחר. כמו בהנדסת ביצועים אחרת, יכול להיות שתרצו להתמקד בביצועים במקרה הגרוע ביותר בסט ההערכה שלכם, ולא בביצועים הממוצעים.
-- **בדיקה אדברסרית** כוללת ניסיון יזום לפרוץ לאפליקציה. המטרה היא לזהות נקודות חולשה כדי שתוכלו לנקוט צעדים לתיקון שלהן לפי הצורך. בדיקה אדברסרית יכולה לדרוש זמן ומאמץ משמעותיים מצד בודקים עם מומחיות באפליקציה שלכם – אבל ככל שתבצעו יותר בדיקות כאלה, כך יגדל הסיכוי שתזהו בעיות, במיוחד בעיות שמתרחשות לעיתים רחוקות או רק אחרי הפעלה חוזרת של האפליקציה.
+  - Berhati-hatilah agar tidak terlalu mengandalkan pendekatan “siap pakai” karena kemungkinan Anda perlu membuat set data pengujian sendiri menggunakan pemberi rating manusia agar sesuai sepenuhnya dengan konteks aplikasi Anda.
+  - Jika memiliki lebih dari satu metrik, Anda harus memutuskan cara melakukan trade-off jika perubahan menyebabkan peningkatan pada satu metrik dan penurunan pada metrik lainnya. Seperti halnya teknik performa lainnya, Anda mungkin ingin berfokus pada performa terburuk di seluruh set evaluasi, bukan performa rata-rata.
+- **Pengujian adversarial** secara proaktif mencoba merusak aplikasi Anda. Tujuannya adalah untuk mengidentifikasi titik lemah sehingga Anda dapat mengambil langkah-langkah untuk memperbaikinya sebagaimana mestinya. Pengujian adversarial dapat memerlukan waktu/upaya yang signifikan dari evaluator dengan keahlian di aplikasi Anda, tetapi makin sering Anda melakukannya, makin besar peluang Anda untuk menemukan masalah, terutama yang jarang terjadi atau hanya terjadi setelah aplikasi dijalankan berulang kali.
 
-  - בדיקה אדברסרית היא שיטה להערכה שיטתית של מודל ML במטרה ללמוד איך הוא מתנהג כשמספקים לו קלט זדוני או קלט שגורם נזק בטעות:
-    - קלט יכול להיות זדוני אם הוא נועד באופן ברור ליצור פלט לא בטוח או מזיק – למשל, אם מבקשים ממודל ליצירת טקסט ליצור נאום שטנה על דת מסוימת.
-    - קלט מזיק לא מכוון הוא קלט שאולי נראה תמים, אבל יוצר פלט מזיק. לדוגמה, אם מבקשים ממודל ליצירת טקסט לתאר אדם ממוצא אתני מסוים ומקבלים פלט גזעני.
-  - מה שמבדיל בין בדיקה אדברסרית לבין הערכה רגילה הוא הרכב הנתונים שמשמשים לבדיקה. בבדיקות אדברסריות, בוחרים נתוני בדיקה שסביר להניח שיגרמו למודל להפיק פלט בעייתי. המשמעות היא בדיקה של התנהגות המודל בכל סוגי הנזקים האפשריים, כולל דוגמאות נדירות או לא רגילות ומקרים חריגים שרלוונטיים למדיניות הבטיחות. הוא צריך לכלול גם מגוון בממדים השונים של משפט, כמו מבנה, משמעות ואורך. מידע נוסף על מה שצריך לקחת בחשבון כשיוצרים מערך נתונים לבדיקה זמין במאמר בנושא [שיטות מומלצות של Google לשימוש אחראי ב-AI: הוגנות](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=he).
-    **טיפים למתקדמים:**
-  - מומלץ להשתמש ב[בדיקות אוטומטיות](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=he) במקום בשיטה המסורתית של גיוס אנשים ל 'צוותים אדומים' כדי לנסות לפרוץ לאפליקציה. בבדיקות אוטומטיות, 'הצוות האדום' הוא מודל שפה נוסף שמאתר טקסט קלט שגורם למודל שנבדק להפיק פלט מזיק.
+  - Pengujian adversarial adalah metode untuk mengevaluasi model ML secara sistematis dengan maksud mempelajari perilakunya saat diberi input berbahaya atau yang tidak sengaja membahayakan:
+    - Input dapat dianggap berbahaya jika input tersebut jelas dirancang untuk
+      menghasilkan output yang tidak aman atau berbahaya--misalnya, meminta model
+      pembuatan teks untuk membuat ujaran kebencian tentang agama tertentu.
+    - Input tidak sengaja membahayakan jika input itu sendiri mungkin tampak aman, tetapi menghasilkan output yang membahayakan -- misalnya, meminta model pembuatan teks untuk mendeskripsikan seseorang dari etnis tertentu dan menerima output yang bersifat rasis.
+  - Yang membedakan pengujian adversarial dari evaluasi standar adalah komposisi data yang digunakan untuk pengujian. Untuk pengujian adversarial, pilih data pengujian yang kemungkinan besar akan memicu output bermasalah dari model. Hal ini berarti menyelidiki perilaku model untuk semua jenis bahaya yang mungkin terjadi, termasuk contoh langka atau tidak biasa dan kasus ekstrem yang relevan dengan kebijakan keamanan. Hal ini juga harus mencakup
+    keberagaman dalam berbagai dimensi kalimat seperti struktur,
+    makna, dan panjang. Anda dapat melihat [praktik AI Bertanggung Jawab Google dalam
+    keterbukaan](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=id)
+    untuk mengetahui detail selengkapnya tentang hal yang perlu dipertimbangkan saat membuat set data pengujian.
+    **Tips lanjutan:**
+  - Gunakan [pengujian otomatis](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=id), bukan metode tradisional dengan merekrut orang ke dalam 'tim merah' untuk mencoba merusak aplikasi Anda. Dalam pengujian otomatis, 'red team' adalah model bahasa lain yang menemukan teks input yang memicu output berbahaya dari model yang sedang diuji.
 
-## מעקב אחר בעיות
+## Memantau masalah
 
-לא משנה כמה תבדקו ותנסו לצמצם את הסיכונים, לא תוכלו להבטיח שהכל יהיה מושלם. לכן, חשוב לתכנן מראש איך תזהו בעיות שיתעוררו ואיך תתמודדו איתן. בין הגישות הנפוצות: הגדרת ערוץ בפיקוח שבו המשתמשים יכולים לשתף משוב (למשל, דירוג עם לייק או דיסלייק), וביצוע מחקר על התנהגות משתמשים כדי לקבל משוב באופן יזום ממגוון משתמשים – זה חשוב במיוחד אם דפוסי השימוש שונים מהצפוי.
+Tidak peduli seberapa banyak Anda menguji dan memitigasi, Anda tidak akan pernah dapat menjamin kesempurnaan, jadi rencanakan terlebih dahulu cara Anda akan menemukan dan mengatasi masalah yang muncul. Pendekatan umum mencakup menyiapkan saluran yang dipantau agar pengguna dapat membagikan masukan (misalnya, rating suka/tidak suka) dan menjalankan studi pengguna untuk secara proaktif meminta masukan dari beragam pengguna, terutama jika pola penggunaan berbeda dari yang diharapkan.
 
-### טיפים מתקדמים
+### Tips lanjutan
 
-- כשמשתמשים שולחים משוב על מוצרי AI, זה יכול לשפר מאוד את הביצועים של ה-AI ואת חוויית המשתמש לאורך זמן. למשל, המשוב יכול לעזור לכם לבחור דוגמאות טובות יותר לשיפור ההנחיות. [בפרק 'משוב ושליטה'](https://pair.withgoogle.com/chapter/feedback-controls/) [במדריך של Google בנושא אנשים ו-AI](https://pair.withgoogle.com/guidebook/chapters) מפורטים שיקולים חשובים שכדאי לקחת בחשבון כשמעצבים מנגנוני משוב.
+- Saat pengguna memberikan masukan ke produk AI, hal ini dapat meningkatkan performa AI dan pengalaman pengguna seiring waktu, misalnya, dengan membantu Anda memilih contoh yang lebih baik untuk penyesuaian perintah. [Bab Masukan dan Kontrol](https://pair.withgoogle.com/chapter/feedback-controls/) dalam [Panduan Google untuk Orang dan AI](https://pair.withgoogle.com/guidebook/chapters) menggarisbawahi pertimbangan utama yang harus diperhatikan saat mendesain mekanisme masukan.
 
-## השלבים הבאים
+## Langkah berikutnya
 
-- במדריך [הגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he) מוסבר על הגדרות הבטיחות שניתנות להתאמה אישית דרך Gemini API.
-- כדי להתחיל לכתוב את ההנחיות הראשונות, אפשר לעיין [בהקדמה לכתיבת הנחיות](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=he).
+- Lihat panduan
+  [setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id) untuk mempelajari setelan keamanan yang dapat disesuaikan yang tersedia melalui Gemini API.
+- Lihat [pengantar perintah](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=id) untuk mulai menulis perintah pertama Anda.
 
-שליחת משוב
+Kirim masukan
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-עדכון אחרון: 2026-06-05 (שעון UTC).
+Terakhir diperbarui pada 2026-06-05 UTC.
 
-רוצה לתת לנו משוב?
+Ada masukan untuk kami?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-05 (שעון UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-05 UTC."],[],[]]

@@ -1,530 +1,452 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=id
-fetched_at: 2026-09-21T05:47:36.927489+00:00
-title: "Penagihan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=he
+fetched_at: 2026-09-28T06:22:40.504152+00:00
+title: "\u05d7\u05d9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Penagihan
+# חיוב
 
-Panduan ini memberikan ringkasan berbagai opsi penagihan Gemini API, menjelaskan cara mengaktifkan penagihan dan memantau penggunaan, serta memberikan jawaban atas pertanyaan umum (FAQ) tentang penagihan.
+במדריך הזה מוסבר על אפשרויות החיוב השונות של Gemini API, איך להפעיל את החיוב ולעקוב אחרי השימוש, וגם יש בו תשובות לשאלות נפוצות בנושא חיוב.
 
-## Tentang penagihan dan tingkat
+## מידע על חיוב ורמות
 
-Penagihan untuk Gemini API didasarkan pada histori pembayaran Anda.
+החיוב על Gemini API מבוסס על היסטוריית התשלומים שלכם.
 
-| Tingkat penggunaan | Kualifikasi | [Batas tingkat penagihan](#spend-caps) |
+| רמת שימוש | מוקדמות | [מגבלת שכבת החיוב](#spend-caps) |
 | --- | --- | --- |
-| **Gratis** | [Project aktif](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) atau uji coba gratis | T/A |
-| **Tingkat 1** | [Menyiapkan dan menautkan akun penagihan yang aktif](#setup-billing) | $250 |
-| **Tingkat 2** | Dibayar $100 + 3 hari sejak pembayaran pertama yang berhasil | $2.000 |
-| **Tingkat 3** | Membayar $1.000 + 30 hari sejak pembayaran pertama yang berhasil | $20.000 - $100.000+ |
+| **Free** | [פרויקט פעיל](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) או תקופת ניסיון בחינם | לא רלוונטי |
+| **רמה 1** | [הגדרה וקישור של חשבון לחיוב פעיל](#setup-billing) | ‎$250 |
+| **רמה 2** | התשלום בוצע בסך 100 $+ 3 ימים מהתשלום הראשון שבוצע בהצלחה | 2,000 $ |
+| **רמה 3** | התשלום בוצע בסך ‎1,000 $‎ + 30 ימים מהתשלום הראשון שבוצע בהצלחה | ‫$20,000 – $100,000 ומעלה |
 
-Akun baru dimulai dengan Paket Gratis, yang memungkinkan akses ke [model tertentu](https://ai.google.dev/gemini-api/docs/pricing?hl=id) di Gemini API dan AI Studio, hingga [batas laju](https://aistudio.google.com/rate-limit?hl=id) paket gratis model.
+בחשבונות חדשים מתחילים בתוכנית בחינם, שמאפשרת גישה ל[מודלים מסוימים](https://ai.google.dev/gemini-api/docs/pricing?hl=he) ב-Gemini API וב-AI Studio, עד [למכסות השימוש](https://aistudio.google.com/rate-limit?hl=he) של המודלים בתוכנית בחינם.
 
-Untuk men-deploy aplikasi langsung dari mode Build, Anda dapat menggunakan
-**Paket Awal Google Cloud**. Tingkat ini memungkinkan Anda memublikasikan hingga 2 aplikasi full stack tanpa menyiapkan project Google Cloud atau akun penagihan.
-Lihat [Men-deploy dari Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=id) untuk mengetahui detailnya dan lihat [dokumentasi Paket Awal Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=id) untuk mengetahui informasi selengkapnya.
+כדי לפרוס את האפליקציות ישירות ממצב בנייה, אפשר להשתמש ב**תוכנית למתחילים של Google Cloud**. במסגרת הרמה הזו אפשר לפרסם עד 2 אפליקציות full stack בלי להגדיר פרויקט בענן ב-Google Cloud או חשבון לחיוב.
+פרטים נוספים זמינים במאמר בנושא [פריסה מ-Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=he) וב[מאמרי העזרה בנושא תוכנית למתחילים של Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=he).
 
-Untuk mengakses batas frekuensi yang lebih tinggi, menggunakan model lanjutan, dan memastikan perintah dan respons Anda **tidak** digunakan untuk meningkatkan kualitas produk Google\*, Anda dapat [menautkan akun penagihan](#setup-billing) dan [Membayar di Muka](#prepay) untuk beralih ke Paket Berbayar.
-Kemudian, Anda akan berpindah ke tingkat yang lebih tinggi berdasarkan pembelanjaan kumulatif dan usia akun.
+כדי לגשת למגבלות קצב גבוהות יותר, להשתמש במודלים מתקדמים ולוודא שההנחיות והתשובות שלכם **לא** ישמשו לשיפור מוצרי Google\*, אתם יכולים [לקשר חשבון לחיוב](#setup-billing) ו[לשלם מראש](#prepay) כדי לעבור לתוכניות בתשלום.
+לאחר מכן, תעברו לרמות גבוהות יותר בהתאם להוצאה המצטברת ולגיל החשבון.
 
-Tingkatan, batas frekuensi, dan batas akun penagihan ditentukan di tingkat [akun
-penagihan](#cloud-billing).
+הרמות, מגבלות הקצב והמגבלות על החשבון לחיוב נקבעים ברמת [החשבון לחיוב](#cloud-billing).
 
-\* *Privasi data tingkat perusahaan: Untuk mengetahui informasi selengkapnya tentang penggunaan data untuk layanan berbayar, lihat [Persyaratan Layanan](https://ai.google.dev/gemini-api/terms?hl=id#data-use-paid).*
+‫\* *פרטיות נתונים ברמה שמתאימה לארגונים: מידע נוסף על השימוש בנתונים בשירותים בתשלום זמין [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#data-use-paid).*
 
-## Menyiapkan penagihan untuk mengakses Paket Berbayar
+## הגדרת חיוב כדי לקבל גישה לתוכנית בתשלום
 
-Anda dapat membuat project dan menyiapkan penagihan, atau mengimpor project yang ada, untuk mengupgrade ke Tingkat Berbayar di [Google AI Studio](https://aistudio.google.com/projects?hl=id).
-Mengupgrade dari Paket Gratis ke Paket Berbayar berarti menautkan akun penagihan dan [membayar di muka](#prepay) untuk menambahkan kredit minimal $5 (atau yang setara dalam mata uang lain) ke akun Anda.
+כדי לשדרג למינוי בתשלום ב-[Google AI Studio](https://aistudio.google.com/projects?hl=he), אתם יכולים ליצור פרויקט ולהגדיר חיוב, או לייבא פרויקט קיים.
+כדי לשדרג מהתוכנית בחינם לתוכנית בתשלום, צריך לקשר חשבון לחיוב ולבצע [תשלום מראש](#prepay) כדי להוסיף לחשבון לפחות 5$ (או שווה ערך במטבעות אחרים) של קרדיטים.
 
-1. Buka halaman [kunci API](https://aistudio.google.com/api-keys?hl=id) AI Studio, halaman
-   [Project](https://aistudio.google.com/projects?hl=id), atau tempat mana pun Anda melihat tombol
-   **Siapkan penagihan** di AI Studio.
-   - Pengguna baru akan memiliki [project dan kunci API](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) yang dibuat untuk mereka secara default.
-   - Jika Anda memerlukan kunci baru, klik [**Buat kunci API**](https://aistudio.google.com/api-keys?hl=id)
-     dan ikuti dialog untuk menambahkan pasangan kunci-project ke tabel.
-2. Temukan project Tingkat Gratis yang ingin Anda upgrade ke Tingkat Berbayar, lalu klik
-   **Siapkan penagihan** di kolom *Tingkat Penagihan*.
-3. Jika Anda belum pernah menyiapkan akun penagihan Google sebelumnya:
-   - Anda akan diminta untuk memilih negara Anda guna menyetujui Persyaratan Layanan.
-   - Kemudian, isi atau konfirmasi informasi kontak dan metode pembayaran Anda untuk melanjutkan.
-4. Jika Anda telah menyiapkan akun penagihan Google di masa lalu:
-   - Anda akan diminta memilih dari akun penagihan yang sudah ada.
-   - Jika Anda tidak ingin menggunakan salah satu akun yang ada, klik **Tambahkan akun penagihan baru**, lalu isi atau konfirmasi informasi kontak dan metode pembayaran Anda untuk melanjutkan.
-5. Selanjutnya, Anda akan:
-   - Diminta untuk membayar di muka minimal Rp50.000 untuk menyelesaikan penyiapan penagihan (artinya akun Anda ditetapkan secara otomatis ke paket penagihan [Prabayar](#prepay)),
-   - Diberi pilihan antara paket penagihan [Prabayar](#prepay) dan [Pascabayar](#postpay) untuk akun Anda.
-   - Ditetapkan ke paket penagihan [Pasca Bayar](#postpay) untuk periode sementara
-     hingga sistem Prabayar baru diterapkan kepada semua pengguna (mulai 23 Maret 2026).
-6. Setelah melakukan pembayaran di muka atau memilih Pascabayar, penyiapan akun Anda selesai.
+1. עוברים לדף [מפתחות API](https://aistudio.google.com/api-keys?hl=he), לדף [פרויקטים](https://aistudio.google.com/projects?hl=he) או לכל מקום אחר שבו מופיע הלחצן **הגדרת חיוב** ב-AI Studio.
+   - למשתמשים חדשים נוצר [פרויקט ומפתח API](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) כברירת מחדל.
+   - אם אתם צריכים מפתח חדש, לוחצים על [**Create API key**](https://aistudio.google.com/api-keys?hl=he) (יצירת מפתח API) ופועלים לפי ההוראות בתיבת הדו-שיח כדי להוסיף לטבלה צמד של מפתח ופרויקט.
+2. מאתרים את הפרויקט בתוכנית ללא תשלום שרוצים לשדרג לתוכנית בתשלום ולוחצים על **הגדרת חיוב** בעמודה *תוכנית חיוב*.
+3. אם אף פעם לא הגדרתם חשבון לחיוב ב-Google:
+   - תתבקשו לבחור את המדינה שלכם כדי לאשר את התנאים וההגבלות.
+   - לאחר מכן, ממלאים את פרטי הקשר ואת אמצעי התשלום או מאשרים אותם כדי להמשיך.
+4. אם הגדרתם בעבר חשבונות לחיוב ב-Google:
+   - תתבקשו לבחור מתוך החשבונות הקיימים לחיוב.
+   - אם אתם לא רוצים להשתמש באף אחד מהחשבונות הקיימים, לוחצים על **הוספת חשבון חיוב חדש** וממלאים או מאשרים את פרטי הקשר ואת אמצעי התשלום כדי להמשיך.
+5. לאחר מכן, תהיה לכם אחת מהאפשרויות הבאות:
+   - מתבקשים לשלם מראש סכום מינימלי של 5 $כדי להשלים את הגדרת החיוב (כלומר, החשבון שלכם משויך אוטומטית לתוכנית החיוב [תשלום מראש](#prepay)),
+   - אם יש לכם אפשרות לבחור בין תוכניות חיוב של [תשלום מראש](#prepay) לבין [תשלום לאחר השימוש](#postpay) בחשבון.
+   - הוקצו לתוכנית חיוב [Postpay](#postpay) לתקופת ביניים עד שהמערכת החדשה של Prepay תתעדכן אצל כל המשתמשים (החל מ-23 במרץ 2026).
+6. אחרי שתשלמו מראש או תבחרו באפשרות 'תשלום לאחר השימוש', הגדרת החשבון תושלם.
 
-### Melakukan upgrade ke tingkat berbayar berikutnya
+### שדרוג לרמת המינוי הבאה בתשלום
 
-Jika Anda sudah menggunakan paket berbayar dan memenuhi [kriteria](#about-billing)
-untuk perubahan paket, Anda akan otomatis diupgrade ke paket berikutnya
-(tunduk pada [waktu pemrosesan](#processing-times)).
+אם אתם כבר משתמשים בתוכנית בתשלום ועומדים [בקריטריונים](#about-billing) לשינוי תוכנית, תקבלו שדרוג אוטומטי לתוכנית הבאה (בכפוף [לזמני העיבוד](#processing-times)).
 
-## Memverifikasi status penagihan
+## אימות סטטוס החיוב
 
-Setelah [menautkan akun penagihan](#setup-billing) ke project, Anda
-dapat memantau statusnya di
-[halaman Penagihan AI Studio](https://aistudio.google.com/billing?hl=id). Tidak seperti paket gratis, status paket berbayar bersifat dinamis; meskipun paket penggunaan Anda ditentukan oleh histori akun Anda, Gemini API hanya akan melayani permintaan jika Anda memiliki saldo kredit [Prabayar](#prepay) yang positif.
+אחרי [קישור חשבון לחיוב](#setup-billing) לפרויקט, אפשר לעקוב אחרי הסטטוס שלו ב[דף החיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he). בניגוד לתוכנית בחינם, הסטטוס של תוכנית בתשלום הוא דינמי. רמת השימוש נקבעת לפי היסטוריית החשבון, אבל Gemini API ישרת בקשות רק אם יש לכם יתרה חיובית של קרדיטים ב[תשלום מראש](#prepay).
 
-Di halaman [Project](https://aistudio.google.com/projects?hl=id), Anda dapat
-melihat tingkat dan paket penagihan project di kolom *Tingkat Penagihan*. Setiap
-tindakan status penagihan yang mungkin perlu Anda lakukan untuk project ditampilkan di kolom
-*Tingkat Penagihan* atau *Status*:
+בדף [Projects](https://aistudio.google.com/projects?hl=he), בעמודה *Billing Tier*, תוכלו לראות את רמת החיוב ואת תוכנית החיוב של הפרויקט. פעולות שצריך לבצע לגבי סטטוס החיוב של פרויקט מוצגות בעמודות *רמת החיוב* או *סטטוס*:
 
-- "***Siapkan penagihan***" jika project tidak memiliki akun penagihan yang terkait.
-- "***Siapkan Prabayar***" jika project sudah memiliki akun penagihan yang terlampir, tetapi
-  diwajibkan untuk menggunakan paket penagihan [Prabayar](#prepay) yang perlu disiapkan.
-- "***Tidak ada kredit***" jika akun penagihan diwajibkan untuk membeli kredit, tetapi akun pembayaran Prabayar belum disiapkan atau saldo kredit yang tersedia sudah habis.
+- ‫***Set up billing*** אם לפרויקט לא מצורף חשבון לחיוב.
+- ‫***Set up Prepay*** (הגדרת תשלום מראש) אם לפרויקט יש חשבון לחיוב שמצורף אליו, אבל נדרשת תוכנית חיוב [Prepay](#prepay) (תשלום מראש) שצריך להגדיר.
+- ‫***No credits*** אם נדרש לרכוש קרדיטים בחשבון לחיוב, אבל חשבון התשלומים מראש לא מוגדר או שמאזן הקרדיטים הזמין התרוקן.
 
-Klik salah satu pesan untuk melanjutkan tindakan yang diperlukan.
+לוחצים על אחת מההודעות כדי להמשיך בפעולות הנדרשות.
 
-## Memantau penggunaan
+## מעקב אחרי השימוש
 
-Anda dapat memantau penggunaan Gemini API di
-[Google AI Studio](https://aistudio.google.com/usage?hl=id) di **Dasbor** >
-**Penggunaan**.
+אפשר לעקוב אחרי השימוש ב-Gemini API ב-[Google AI Studio](https://aistudio.google.com/usage?hl=he) בדף **מרכז הבקרה** > **שימוש**.
 
-## Paket penagihan
+## תוכניות חיוב
 
-Paket penagihan untuk Gemini API dan AI Studio terbagi dalam dua kategori yang menentukan kapan Anda membayar penggunaan: Prabayar dan Pascabayar. Anda dapat memeriksa paket penagihan yang ditetapkan dan mengelola metode pembayaran di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id).
+יש שני סוגים של תוכניות חיוב ל-Gemini API ול-AI Studio, שקובעים מתי משלמים על השימוש: תשלום מראש ותשלום בסוף תקופת החיוב. בדף [AI Studio Billing](https://aistudio.google.com/billing?hl=he) אפשר לבדוק את תוכנית החיוב שהוקצתה לכם ולנהל את אמצעי התשלום.
 
-### Prabayar
+### תשלום מראש
 
-Dalam paket penagihan Prabayar, Anda membeli kredit untuk saldo prabayar sebelum penggunaan Gemini API, dan biaya penggunaan API Anda akan dipotong dari saldo kredit Prabayar Anda [hampir secara real-time](#processing-times).
-Anda dapat melakukan prabayar dengan [menambahkan kredit](#buy-credits) ke akun, atau menyiapkan [isi ulang otomatis](#auto-reload). Setelah kredit dibeli, kredit yang tidak digunakan akan habis masa berlakunya setelah 12 bulan dan [tidak dapat dikembalikan dananya](#refunds), kecuali setelah
-[beralih ke akun Pascabayar](#postpay).
+בתוכנית החיוב מראש, אתם רוכשים קרדיטים ליתרת התשלום מראש לפני השימוש ב-Gemini API, ועלויות השימוש ב-API מנוכות מיתרת הקרדיטים של התשלום מראש [כמעט בזמן אמת](#processing-times).
+אתם יכולים לשלם מראש על ידי [הוספת קרדיטים](#buy-credits) לחשבון או על ידי הגדרת [הוספת כסף אוטומטית](#auto-reload). אחרי רכישת הקרדיטים, קרדיטים שלא נעשה בהם שימוש יפוגו אחרי 12 חודשים ו[לא ניתן לקבל עליהם החזר כספי](#refunds), אלא אחרי [מעבר לחשבון עם תשלום לאחר השימוש (postpay)](#postpay).
 
-Saat saldo kredit Prabayar di akun penagihan Anda mencapai $0, semua kunci API di
-semua project yang ditautkan ke akun penagihan tersebut akan berhenti berfungsi secara bersamaan.
-Permintaan kemudian gagal dengan error [HTTP 402 Payment
-Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=id) hingga Anda menambahkan kredit.
-Kredit prabayar hanya berlaku untuk biaya penggunaan Gemini API; Anda tidak dapat menggunakannya untuk membayar layanan Google Cloud lainnya.
+כשהיתרה שלכם בקרדיט לתשלום מראש בחשבון לחיוב תגיע ל-0$, כל מפתחות ה-API בכל הפרויקטים שמקושרים לחשבון הזה לחיוב יפסיקו לפעול בו-זמנית.
+הבקשות ייכשלו עם השגיאה [HTTP 402 Payment Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=he) עד שתקבלו קרדיטים.
+קרדיטים לתשלום מראש חלים רק על עלויות השימוש ב-Gemini API, ואי אפשר להשתמש בהם לתשלום על שירותים אחרים של Google Cloud.
 
-Pengguna baru secara default menggunakan paket penagihan Prabayar. Project yang ada sebelum
-pengenalan paket penagihan Prabayar dan Pascabayar mungkin perlu [memperbarui
-detail penagihan project](#verify-billing) sebelum melanjutkan penggunaan Gemini
-API.
+משתמשים חדשים מוגדרים כברירת מחדל לתוכנית התשלום מראש. יכול להיות שיהיה צורך [לעדכן את פרטי החיוב של הפרויקט](#verify-billing) בפרויקטים שנוצרו לפני שהשקנו את תוכניות החיוב בתשלום מראש ובתשלום בסוף החודש, כדי להמשיך להשתמש ב-Gemini API.
 
-*Perhatikan bahwa Prabayar tidak tersedia untuk akun [Dengan invoice (atau Offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=id#billing_account_types)*.
+*חשוב לזכור שאי אפשר להגדיר תשלום מראש בחשבונות [שמחויבים בחשבונית (אופליין)](https://docs.cloud.google.com/billing/docs/concepts?hl=he#billing_account_types).*
 
-#### Menambahkan Prabayar ke akun Pascabayar yang sudah ada
+#### הוספת תשלום מראש לחשבון קיים עם תשלום לאחר השימוש
 
-Jika akun Penagihan Cloud yang ada menggunakan paket **Pascabayar**, Anda dapat menambahkan kemampuan **Prabayar** untuk membeli kredit di muka. Dengan kredit prabayar ini, Anda dapat menggunakan Gemini API tanpa membuat akun Penagihan Cloud baru.
+אם בחשבון לחיוב ב-Cloud הקיים שלכם מוגדרת תוכנית **תשלום לאחר השימוש**, אתם יכולים להוסיף יכולות **תשלום מראש** כדי לרכוש קרדיטים מראש. הקרדיטים האלה מאפשרים לכם להשתמש ב-Gemini API בלי ליצור חשבון חדש לחיוב ב-Cloud.
 
-Selama penyiapan untuk menambahkan **Prabayar** ke akun yang ada, Anda akan
-melihat layar konfirmasi wajib yang menjelaskan bahwa akun Penagihan Cloud yang
-Anda pilih akan diubah.
+במהלך ההגדרה של הוספת **תשלום מראש** לחשבון קיים, מוצג מסך אישור חובה שבו מוסבר שהחשבון לחיוב ב-Cloud שנבחר ישתנה.
 
-Sistem harus mengubah status akun Anda *sebelum* Anda mengirimkan pembayaran di muka.
-Oleh karena itu, membatalkan proses setelah mengonfirmasi perubahan, tetapi sebelum
-menyelesaikan penyiapan pembayaran di muka dapat menyebabkan gangguan layanan sementara
-untuk project yang sudah ditautkan ke akun Penagihan Cloud tersebut. Pastikan Anda siap
-untuk menyelesaikan proses pembayaran prabayar sebelum mengonfirmasi peralihan. Jika Anda mengalami masalah, lihat [Layanan terganggu setelah membatalkan penyiapan **Prabayar**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id#prepay-issue).
+המערכת צריכה לשנות את סטטוס החשבון *לפני* שתשלחו את התשלום מראש.
+לכן, ביטול התהליך אחרי אישור השינוי אבל לפני השלמת הגדרת התשלום מראש עלול לגרום לשיבושים זמניים בשירות בפרויקטים שכבר מקושרים לחשבון לחיוב ב-Cloud הזה. לפני שמאשרים את המעבר, חשוב לוודא שמוכנים להשלים את תהליך התשלום מראש. אם נתקלים בבעיות, אפשר לעיין במאמר [הפרעה בשירותים אחרי ביטול הגדרת **תשלום מראש**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#prepay-issue).
 
-Jika Anda memenuhi syarat dan beralih secara manual dari siklus **Prabayar** ke siklus **Pascabayar**, sisa saldo kredit prabayar akan otomatis dikembalikan dananya ke metode pembayaran awal yang digunakan untuk prabayar. Namun, jika Anda menutup akun Penagihan Cloud karena alasan lain, sisa kredit prabayar akan hangus dan tidak dikembalikan.
+אם אתם עומדים בדרישות ועוברים באופן ידני ממחזור **תשלום מראש** למחזור **תשלום לאחר השימוש**, כל יתרת זיכוי שנותרה מהתשלום מראש מוחזרת אוטומטית לאמצעי התשלום המקורי ששימש לתשלום מראש. עם זאת, אם תסגרו את החשבון לחיוב ב-Cloud מסיבה אחרת, לא תקבלו החזר על יתרת הקרדיטים שנותרו בתשלום מראש.
 
-#### Membeli kredit
+#### רכישת קרדיטים
 
-Anda dapat membeli kredit secara manual sebelum penggunaan Gemini API untuk memuatnya ke saldo kredit akun Prabayar.
+אתם יכולים לרכוש קרדיטים באופן ידני לפני השימוש ב-Gemini API כדי להוסיף אותם ליתרת הקרדיטים בחשבון התשלום מראש.
 
-Untuk membeli poin, buka halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id), lalu pilih **Beli poin**.
-Pembelian minimum adalah $5. Jumlah maksimum kredit yang dapat Anda bayar di muka adalah $5.000.
+כדי לקנות קרדיטים, עוברים לדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he) ובוחרים באפשרות **קניית קרדיטים**.
+סכום הרכישה המינימלי הוא 5$. הסכום המקסימלי של הקרדיטים שאפשר לשלם מראש הוא 5,000$.
 
-#### Muat ulang otomatis
+#### הוספת כסף אוטומטית
 
-Isi ulang otomatis adalah fitur opsional yang otomatis mengisi ulang saldo kredit Prabayar Anda saat saldo tersebut hampir habis. Hal ini berguna untuk mencegah gangguan layanan.
+הוספת כסף אוטומטית היא תכונה אופציונלית שמוסיפה קרדיטים ליתרת הזכות שלכם בחשבון תשלום מראש כשהיא יורדת מתחת לסכום מסוים. כך אפשר למנוע שיבושים בשירות.
 
-Anda dapat menyiapkan isi ulang otomatis dan melihat status isi ulang otomatis di kartu *Kredit tersedia* di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id). Klik **Siapkan isi ulang otomatis** atau **Kelola isi ulang otomatis** untuk menetapkan metode pembayaran, jumlah isi ulang, dan saldo minimum yang memicu pembayaran isi ulang.
+בדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he), בכרטיס *קרדיטים זמינים*, אפשר להגדיר הוספת כסף אוטומטית ולראות את הסטטוס שלה. לוחצים על **הגדרת הוספת כסף אוטומטית** או על **ניהול הוספת כסף אוטומטית** כדי להגדיר את אמצעי התשלום, את סכום הטעינה ואת היתרה המינימלית שתפעיל את תשלום הטעינה.
 
-#### Batas pengisian otomatis bulanan
+#### תקרה חודשית לחיובים אוטומטיים
 
-Batas isi ulang otomatis bulanan tersedia untuk pengguna Prabayar dan membantu mencegah biaya tak terduga dari isi ulang otomatis kredit yang sering.
-Gunakan fitur ini untuk menetapkan batas maksimum pengisian ulang otomatis poin dalam
-satu siklus penagihan. Setelah jumlah total isi ulang otomatis dalam siklus penagihan mencapai batas ini, sistem akan menonaktifkan isi ulang otomatis hingga awal bulan berikutnya. Pembayaran satu kali yang Anda lakukan secara manual tidak mengurangi batas ini.
+תקרת החיוב החודשית האוטומטית זמינה למשתמשים שמשלמים מראש, ועוזרת למנוע עלויות לא צפויות כתוצאה מהוספה אוטומטית של כסף לחשבון בתדירות גבוהה.
+אתם יכולים להשתמש בתכונה הזו כדי להגדיר מגבלה מקסימלית לטעינה אוטומטית של קרדיטים במסגרת מחזור חיובים יחיד. אחרי שהסכום הכולל של הוספות הכסף האוטומטיות במחזור חיובים מגיע לתקרה הזו, המערכת משביתה את הוספת הכסף האוטומטית עד לתחילת החודש הבא. המגבלה הזו לא כוללת תשלומים חד-פעמיים שאתם יוזמים באופן ידני.
 
-Untuk menetapkan batas pengisian otomatis bulanan saat isi ulang otomatis diaktifkan:
+כדי להגדיר את המגבלה החודשית לחיוב אוטומטי כשהאפשרות להוספת כסף אוטומטית מופעלת:
 
-1. Buka halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id).
-2. Klik **Kelola isi ulang otomatis**.
-3. Perluas bagian **Batas Bulanan** dan masukkan batas bulanan maksimum untuk isi ulang otomatis.
-4. Klik **Simpan**.
+1. עוברים לדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he).
+2. לוחצים על **ניהול ההגדרות של הוספת הכסף האוטומטית**.
+3. מרחיבים את הקטע **מגבלה חודשית** ומזינים את המגבלה החודשית המקסימלית להוספת כסף אוטומטית.
+4. לוחצים על **שמירה**.
 
-### Pascabayar
+### תשלום לאחר השימוש (postpay)
 
-Dalam paket penagihan Pascabayar, akun Penagihan Cloud Anda mengakumulasi biaya dan Anda akan ditagih secara otomatis di akhir bulan, atau saat biaya Anda mencapai [batas pembelanjaan yang ditetapkan secara otomatis](#tier-spend-caps) berdasarkan tingkat akun Anda.
-Pembayaran ditagihkan ke metode pembayaran yang terlampir pada akun pembayaran Pascabayar Anda, yang dapat Anda kelola di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id). Di halaman **Penagihan**, Anda dapat
-melihat saldo, tanggal jatuh tempo, dan pembayaran sebelumnya, serta melakukan pembayaran dan
-mengelola metode pembayaran.
+בתוכנית התשלום לאחר השימוש, העלויות בחשבון לחיוב ב-Cloud מצטברות ואתם מחויבים אוטומטית בסוף החודש, או כשהעלויות מגיעות ל[מגבלת ההוצאות שהוקצתה אוטומטית](#tier-spend-caps) בהתאם לרמת החשבון.
+התשלום יחויב באמצעי התשלום שמצורף לחשבון התשלומים בסוף החודש, שאפשר לנהל בדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he). בדף **חיוב** תוכלו לראות את היתרה, את מועדי התשלום ואת התשלומים הקודמים, וגם לבצע תשלומים ולנהל את אמצעי התשלום.
 
-Saat [menyiapkan penagihan](#setup-billing) untuk project baru, jika memenuhi syarat
-untuk Pascabayar, Anda akan memiliki opsi untuk memilih antara Prabayar dan Pascabayar dalam
-dialog [penyiapan penagihan](#setup-billing).
+כש[מגדירים חיוב](#setup-billing) לפרויקט חדש, אם אתם עומדים בדרישות לתשלום לאחר השימוש, תוכלו לבחור בין תשלום מראש לתשלום לאחר השימוש בתיבת הדו-שיח [הגדרת חיוב](#setup-billing).
 
-Setelah Anda mengalihkan akun Penagihan Cloud untuk menggunakan paket penagihan Pascabayar, semua project yang ditautkan ke akun penagihan tersebut akan dialihkan ke paket Pascabayar. Anda
-dapat memindahkan akun yang memenuhi syarat ke Prabayar dengan mengikuti langkah-langkah di [Bermigrasi ke prabayar](#migrate-to-prepay). Anda juga dapat
-memindahkan project ke akun penagihan dengan paket penagihan yang berbeda untuk mengubah
-siklus penagihan untuk project tersebut; buka dokumentasi Cloud tentang [mengelola
-penagihan untuk project](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id).
+אחרי שמעבירים חשבון לחיוב ב-Cloud לשימוש בתוכנית חיוב לפי שימוש, כל הפרויקטים שמקושרים לחשבון הזה לחיוב מועברים לתוכנית הזו. כדי להעביר חשבון שעומד בדרישות לתשלום מראש, פועלים לפי השלבים במאמר [מעבר לתשלום מראש](#migrate-to-prepay). אפשר גם להעביר פרויקט לחשבון לחיוב עם תוכנית חיוב שונה כדי לשנות את מחזור החיוב של הפרויקט. מידע נוסף זמין במסמכי Cloud בנושא [ניהול החיוב של פרויקטים](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he).
 
-Anda dapat mempelajari lebih lanjut siklus penagihan Pascabayar dalam [panduan Penagihan Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id).
+[מידע נוסף על מחזור החיובים בתשלום לאחר השימוש](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he)
 
-### Beralih ke prabayar
+### מעבר לתשלום מראש
 
-Google AI Studio sedang mengalihkan akun developer dari penagihan Pascabayar ke Prabayar untuk penggunaan Gemini API. Perubahan ini hanya berlaku untuk Gemini API; layanan Google Cloud lainnya yang ditautkan ke akun penagihan Anda tetap menggunakan metode Pascabayar.
+אנחנו מעבירים חשבונות מפתחים ב-Google AI Studio מחיוב לאחר השימוש (postpay) לחיוב מראש (prepay) על שימוש ב-Gemini API. השינוי הזה חל רק על Gemini API. שירותים אחרים של Google Cloud שמקושרים לחשבון לחיוב שלכם ימשיכו להיות בשיטת התשלום שאחרי השימוש.
 
-Beralihlah ke Prabayar dan tambahkan kredit sebelum tanggal peralihan yang tercantum dalam pemberitahuan akun Anda untuk menghindari gangguan layanan. Akun yang hanya menggunakan fitur Tingkat Gratis tidak perlu melakukan tindakan apa pun.
+כדי למנוע שיבושים בשירות, צריך לעבור לתשלום מראש ולהוסיף קרדיטים לפני תאריך המעבר שמופיע בהודעה בחשבון. אם אתם משתמשים רק בתכונות של התוכנית בחינם, אתם לא צריכים לבצע פעולה כלשהי.
 
-Untuk mengalihkan akun Pascabayar yang ada ke Prabayar:
+כדי להעביר חשבון קיים עם תשלום לאחר השימוש (postpay) לתשלום מראש (prepay):
 
-1. Buka halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id).
-2. Pilih **Beralih ke Prabayar** untuk akun penagihan Anda.
-3. [Beli kredit](#buy-credits) (minimal Rp50.000) untuk mengisi saldo awal Anda.
+1. עוברים לדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he).
+2. בוחרים באפשרות **מעבר לתשלום מראש** בחשבון לחיוב.
+3. [רוכשים קרדיטים](#buy-credits) (מינימום 5$) כדי לטעון את היתרה ההתחלתית.
 
-Untuk mencegah gangguan layanan setelah beralih, konfigurasi [isi ulang otomatis](#auto-reload) untuk mengisi ulang saldo kredit Anda saat saldo menipis.
+כדי למנוע שיבושים בשירות אחרי המעבר, צריך להגדיר [הוספת כסף אוטומטית](#auto-reload) כדי להוסיף כסף ליתרת הקרדיט כשהיא מתקרבת לאפס.
 
-## Batas pembelanjaan
+## תקרת הוצאות
 
-Gemini API mendukung batas pembelanjaan bulanan di tingkat project dan tingkat akun penagihan. Kontrol ini dirancang untuk melindungi akun Anda dari tagihan yang tidak terduga dan ekosistem untuk memastikan ketersediaan layanan.
+‫Gemini API תומך בתקרות הוצאות חודשיות גם ברמת החשבון לחיוב וגם ברמת הפרויקט. אמצעי הבקרה האלה נועדו להגן על החשבון שלכם מפני חריגות לא צפויות, ועל המערכת האקולוגית כדי להבטיח את זמינות השירות.
 
-*Perhatikan bahwa batas pembelanjaan tidak tersedia untuk akun [Dengan invoice (atau Offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=id#billing_account_types).*
+*שימו לב: אי אפשר להגדיר תקרות הוצאות בחשבונות [שמחויבים בחשבונית (אופליין)](https://docs.cloud.google.com/billing/docs/concepts?hl=he#billing_account_types).*
 
-### Batas pembelanjaan project
+### תקרות הוצאה בפרויקט
 
-Anda dapat menetapkan batas pembelanjaan [level project](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) sendiri di AI Studio.
-Hal ini berguna jika Anda memiliki beberapa project dalam akun penagihan yang sama dan ingin memastikan setiap project memiliki akses ke batas pembelanjaan kumulatif yang cukup.
+אתם יכולים להגדיר מגבלות הוצאה משלכם [ברמת הפרויקט](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) ב-AI Studio.
+האפשרות הזו שימושית אם יש לכם כמה פרויקטים באותו חשבון לחיוב ואתם רוצים לוודא שלכל אחד מהם תהיה גישה למספיק מהסכום המצטבר של מגבלת ההוצאות.
 
-Akun dengan [peran](https://docs.cloud.google.com/iam/docs/roles-overview?hl=id) editor, pemilik, atau admin project dapat menetapkan batas pembelanjaan per project di AI Studio pada halaman [Pembelanjaan](https://aistudio.google.com/spend?hl=id)
-di bagian **Batas pembelanjaan bulanan** > **Edit batas pembelanjaan**.
+בחשבונות עם [תפקידים](https://docs.cloud.google.com/iam/docs/roles-overview?hl=he) של עורך, בעלים או אדמין בפרויקט, אפשר להגדיר מגבלות הוצאה לכל פרויקט ב-AI Studio בדף [הוצאות](https://aistudio.google.com/spend?hl=he) בקטע **מגבלת הוצאות חודשית** > **עריכת מגבלת הוצאות**.
 
-Untuk mengetahui detail tentang izin IAM Google Cloud tertentu yang diperlukan untuk melihat atau mengedit batas pembelanjaan dan informasi penagihan di AI Studio, lihat [panduan pemecahan masalah AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=id#iam-permissions).
+פרטים על הרשאות ספציפיות ב-Google Cloud IAM שנדרשות כדי להציג או לערוך את מגבלות ההוצאות ופרטי החיוב ב-AI Studio מופיעים [במדריך לפתרון בעיות ב-AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=he#iam-permissions).
 
-Jika Anda [memindahkan project ke akun penagihan lain](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#change_the_billing_account_for_a_project),
-batas pembelanjaan yang telah Anda tetapkan untuk project tersebut akan tetap ada, tetapi pembelanjaan yang terakumulasi akan direset menjadi $0 untuk siklus penagihan baru.
+אם [מעבירים פרויקט לחשבון אחר לחיוב](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#change_the_billing_account_for_a_project), כל מגבלת הוצאות שכבר הגדרתם לפרויקט הזה תישאר בתוקף, אבל כל ההוצאות המצטברות יאופסו ל-0 $עבור מחזור החיוב החדש.
 
-Tugas yang berjalan lama seperti penyelesaian [mode batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=id) dan sesi agen dapat menimbulkan biaya tambahan di luar batas pembelanjaan project Anda.
+יכול להיות שיהיו חריגות במשימות ארוכות טווח כמו השלמות של [מצב אצווה](https://ai.google.dev/gemini-api/docs/batch-api?hl=he) וסשנים של סוכנים, מעבר למכסת ההוצאות של הפרויקט.
 
-Waktu pemrosesan data penagihan dapat tertunda di AI Studio, hingga sekitar 10 menit. Anda mungkin mengalami kelebihan penggunaan di luar batas project jika data penagihan belum diproses sebelum tagihan lainnya terakumulasi.
+יכול להיות עיכוב של עד 10 דקות בעיבוד נתוני החיוב ב-AI Studio. יכול להיות שתחויבו על חריגה ממכסת הפרויקט אם נתוני החיוב לא עברו עיבוד לפני שנוספו חיובים נוספים.
 
-### Batas pembelanjaan tingkat akun penagihan
+### תקרות הוצאות ברמת החשבון לחיוב
 
-Setiap [tingkatan](#about-billing) memiliki batas pembelanjaan bulanan maksimum:
+לכל [רמה](#about-billing) יש תקרת הוצאות חודשית מקסימלית:
 
-| Tingkat penggunaan | Batas pembelanjaan |
+| רמת שימוש | תקרת הוצאות |
 | --- | --- |
-| **Gratis** | T/A |
-| **Tingkat 1** | $250 |
-| **Tingkat 2** | $2.000 |
-| **Tingkat 3** | $20.000 - $100.000 |
+| **Free** | לא רלוונטי |
+| **רמה 1** | ‎$250 |
+| **רמה 2** | 2,000 $ |
+| **רמה 3** | ‫$20,000 – $100,000 |
 
-Batas penggunaan bulanan diterapkan untuk Gemini API di tingkat [akun penagihan](#cloud-billing). Meskipun batas default telah ditetapkan, Anda dapat [meminta
-peningkatan](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=id)
-untuk mengakomodasi penggunaan yang lebih tinggi. Total pembelanjaan diagregasi di semua project tertaut yang mengaktifkan layanan Gemini API. Setelah total akun kumulatif mencapai batas tingkat, layanan akan dijeda untuk semua project yang ditautkan ke akun penagihan tersebut hingga awal siklus penagihan berikutnya (tanggal 1 setiap bulan).
+מכסות השימוש החודשיות נאכפות ב-Gemini API ברמת [החשבון לחיוב](#cloud-billing). המגבלות מוגדרות מראש, אבל אפשר [לבקש להגדיל אותן](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=he) כדי לאפשר שימוש גבוה יותר. ההוצאה הכוללת היא סכום מצטבר של כל הפרויקטים המקושרים שבהם מופעל שירות Gemini API. אחרי שהסכום הכולל בחשבון מגיע למגבלת הרמה, השירות מושהה בכל הפרויקטים שמקושרים לאותו חשבון לחיוב עד לתחילת מחזור החיוב הבא (הראשון בכל חודש).
 
-#### Mengevaluasi pembelanjaan akun penagihan Anda
+#### הערכת ההוצאות בחשבון לחיוב
 
-Untuk mengevaluasi pembelanjaan bulanan historis Anda guna menentukan apakah [batas pembelanjaan tingkat Akun Penagihan](#tier-spend-caps) yang baru akan memengaruhi project yang sedang berjalan, ikuti langkah-langkah berikut:
+כדי להעריך את ההוצאות החודשיות הקודמות שלכם ולקבוע אם [מגבלות ההוצאות החדשות לפי רמת חשבון לחיוב](#tier-spend-caps) ישפיעו על הפרויקטים הפעילים שלכם, אתם יכולים לפעול לפי השלבים הבאים:
 
-1. Di konsol Google Cloud, lihat halaman [Laporan akun Penagihan Cloud](https://console.cloud.google.com/billing/reports?hl=id) Anda.
-   - Jika Anda memiliki lebih dari satu akun penagihan, saat diminta, pilih akun Penagihan Cloud yang ingin Anda lihat laporan biayanya.
-2. Laporan secara default "Dikelompokkan menurut Layanan" pada "Bulan ini". Anda akan
-   melihat **Gemini API** di kolom **Service** dan total pembelanjaan di kolom **Usage
-   cost** dalam tabel.
-3. Untuk melihat biaya terperinci yang terbatas pada penggunaan Gemini API, tetapkan filter **Kelompokkan menurut**
-   untuk mengelompokkan menurut **SKU**, dan filter **Layanan** ke **Gemini API**.
-4. Sesuaikan filter **Rentang waktu menurut tanggal penggunaan** ke rentang yang diinginkan untuk mengevaluasi pembelanjaan historis Anda dalam suatu periode.
+1. במסוף Google Cloud, נכנסים לדף [Reports](https://console.cloud.google.com/billing/reports?hl=he) בחשבון לחיוב ב-Cloud.
+   - אם יש לכם יותר מחשבון אחד לחיוב, בהודעה שמופיעה בוחרים את החשבון לחיוב ב-Cloud שרוצים לראות את דוחות העלויות שלו.
+2. כברירת מחדל, הדוח מוגדר ל'קיבוץ לפי שירות' בחודש הנוכחי. בטבלה, בעמודה **Service** יופיע **Gemini API**, ובעמודה **Usage cost** יופיע סך ההוצאות.
+3. כדי לראות עלויות מפורטות שקשורות רק לשימוש ב-Gemini API, מגדירים את המסנן **Group by** לקיבוץ לפי **SKU**, ואת המסנן **Services** ל-**Gemini API**.
+4. משנים את המסנן **Time range by usage date** לטווח הרצוי כדי להעריך את ההוצאות ההיסטוריות בתקופה מסוימת.
 
-## Waktu pemrosesan
+## משך זמן הטיפול
 
-Sinyal dan pembaruan penagihan tidak selalu terjadi secara real time.
+העדכונים והאותות שקשורים לחיוב לא תמיד מתרחשים בזמן אמת.
 
-- **Penggunaan kredit**: Biaya penggunaan biasanya ditarik dari saldo Anda dalam beberapa menit.
-- **Konfirmasi pembayaran**: Meskipun sebagian besar pembayaran kartu bersifat instan, beberapa metode pembayaran (seperti transfer bank) mungkin memerlukan waktu beberapa hari untuk diproses. Layanan hanya dilanjutkan atau diupgrade setelah pembelian kredit dikonfirmasi secara resmi.
-- **Upgrade tingkat**: Setelah pembayaran berhasil, atau saat Anda memenuhi
-  [kriteria upgrade](#about-billing), upgrade tingkat biasanya akan ditampilkan dalam waktu 10
-  menit.
-- **Grafik perincian Total Biaya**: Grafik yang menampilkan perincian total biaya di halaman [Penagihan](https://aistudio.google.com/billing?hl=id) dan halaman [Pembelanjaan](https://aistudio.google.com/spend?hl=id) dapat memerlukan waktu hingga 24 jam untuk diperbarui.
+- **שימוש בזיכויים**: בדרך כלל, עלויות השימוש מנוכות מהיתרה תוך דקות.
+- **אישור תשלום**: רוב התשלומים בכרטיס מתבצעים באופן מיידי, אבל יכול להיות שיעברו כמה ימים עד שסוגים מסוימים של תשלומים (כמו העברות בנקאיות) יאושרו. השירותים יתחדשו או ישודרגו רק אחרי שהרכישה של הקרדיטים תאושר באופן רשמי.
+- **שדרוגים של רמות**: אחרי תשלום מוצלח, או כשעומדים [בקריטריונים לשדרוג](#about-billing), השדרוגים של הרמות בדרך כלל משתקפים תוך 10 דקות.
+- **תרשימים של פירוט העלות הכוללת**: יכולות לעבור עד 24 שעות עד שהתרשימים שבהם מוצג פירוט העלות הכוללת בדף [חיוב](https://aistudio.google.com/billing?hl=he) ובדף [הוצאות](https://aistudio.google.com/spend?hl=he) יתעדכנו.
 
-Baca panduan Penagihan Cloud tentang [siklus penagihan](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id#delayed-billing) dan latensi [transaksi](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=id#missing-transactions) untuk mempelajari lebih lanjut potensi keterlambatan penagihan.
+במאמרים בנושא חיוב ב-Cloud מוסבר על [מחזור החיובים](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he#delayed-billing) ועל השהיות ב[עסקאות](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=he#missing-transactions), ובהם אפשר לקרוא מידע נוסף על עיכובים אפשריים בחיוב.
 
-## Pengembalian dana
+## החזרים כספיים
 
-Pengembalian dana tidak diizinkan untuk akun penagihan **Prabayar**, kecuali saat beralih jenis akun.
+לא ניתן לקבל החזרים כספיים על חשבונות לחיוב בשיטת **תשלום מראש**, אלא אם מבצעים החלפה של סוג החשבון.
 
-**Saat akun Prabayar beralih ke jenis akun Pascabayar** (setelah Anda
-memenuhi [kriteria](#about-billing) dan [mengupgrade akun secara manual](#postpay)), akun Prabayar akan ditutup dan sisa kredit prabayar akan otomatis dikembalikan ke metode pembayaran yang tercatat.
+**כשמשנים חשבון עם תשלום מראש לסוג חשבון עם תשלום לאחר השימוש** (אחרי שעומדים [בקריטריונים](#about-billing) ו[משדרגים את החשבון באופן ידני](#postpay)), החשבון עם התשלום מראש נסגר וכל יתרת הקרדיטים ששולמו מראש מוחזרת באופן אוטומטי לאמצעי התשלום שמוגדר בחשבון.
 
-Jika Anda [menutup](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=id#close-a-billing-account)
-akun Prabayar karena alasan apa pun selain mengupgrade ke Pascabayar, sisa kredit prabayar akan hangus.
+אם [סוגרים](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=he#close-a-billing-account) את החשבון בתשלום מראש מכל סיבה שהיא, מלבד שדרוג לתשלום לאחר השימוש, מאבדים את כל היתרה של הקרדיטים בתשלום מראש.
 
-Masa berlaku kredit yang dibeli akan berakhir setelah 1 tahun. Setelah masa berlaku berakhir, kredit akan hangus dan tidak dapat diambil kembali.
+התוקף של קרדיטים שרכשתם יפוג אחרי שנה. אחרי שתוקף השוברים יפוג, הם יבוטלו ולא ניתן יהיה לשחזר אותם.
 
-Akun **pascabayar** mengikuti [kebijakan pengembalian dana Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=id#request_a_refund).
+בחשבונות **postpay** חלה [מדיניות ההחזרים הכספיים של Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=he#request_a_refund).
 
-## Akun Penagihan Cloud
+## חשבונות לחיוב ב-Cloud
 
-Gemini API menggunakan [akun Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=id) untuk layanan penagihan, yang dapat Anda [siapkan langsung di AI Studio](#setup-billing).
-Anda dapat menggunakan AI Studio untuk melacak pembelanjaan, memahami biaya, dan melakukan pembayaran.
+ממשקי Gemini API משתמשים ב[חשבונות לחיוב ב-Cloud](https://cloud.google.com/billing/docs/concepts?hl=he) לשירותי חיוב, ואפשר [להגדיר אותם ישירות ב-AI Studio](#setup-billing).
+אתם יכולים להשתמש ב-AI Studio כדי לעקוב אחרי ההוצאות, להבין את העלויות ולבצע תשלומים.
 
-Tingkatan, batas frekuensi, dan batas akun penagihan ditentukan di tingkat akun penagihan.
+הרמות, מגבלות התעריפים והמגבלות על החשבון לחיוב נקבעים ברמת החשבון לחיוב.
 
-### Project dan kunci API
+### פרויקטים ומפתחות API
 
-Semua [project](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) yang ditautkan ke akun Penagihan Cloud akan mewarisi tingkat penggunaan dan batas tarif serta batas akun yang terkait dengan akun penagihan tersebut. Jika Anda [mengubah project](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#change_the_billing_account_for_a_project)
-dari satu akun penagihan ke akun penagihan lain, tingkatnya, dan selanjutnya batas kecepatan serta
-batas akun, akan beralih ke tingkat akun penagihan baru.
+כל [הפרויקטים](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) שמקושרים לחשבון לחיוב ב-Cloud יורשים את רמת השימוש של החשבון לחיוב ואת מגבלות התעריפים והמגבלות על החשבון שמשויכות אליה. אם [משנים פרויקט](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#change_the_billing_account_for_a_project) מחשבון אחד לחיוב לחשבון אחר, רמת הפרויקט, ומכסות הקצב ומכסות החשבון שנגזרות ממנה, ישתנו לרמה של החשבון החדש לחיוב.
 
-Pembelanjaan kumulatif (untuk semua produk Google Cloud) dan usia akun di semua project yang terkait dengan akun penagihan akan dihitung untuk [kualifikasi tingkat](#about-billing) akun penagihan tersebut.
+ההוצאה המצטברת (על כל מוצרי Google Cloud) וגיל החשבון בכל הפרויקטים שמקושרים לחשבון לחיוב נספרים לצורך [העמידה בדרישות לרמת החברות](#about-billing) של החשבון לחיוב.
 
-Anda dapat [membatalkan tautan project](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#disable_billing_for_a_project)
-dari akun penagihannya untuk kembali ke paket gratis.
+אפשר [לבטל את הקישור של פרויקט](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#disable_billing_for_a_project) לחשבון לחיוב כדי לחזור לתוכנית החינמית.
 
-[Kunci API](https://ai.google.dev/gemini-api/docs/api-key?hl=id) adalah kredensial yang dibuat di dalam project.
-Project ini tidak memiliki setelan penagihan independen; project ini mewarisi batas tingkat dan
-status penagihan project. Penggunaan kumulatif dari semua kunci dalam project dihitung dalam batas pembelanjaan project tersebut dan total pembelanjaan akun penagihan.
+[מפתחות API](https://ai.google.dev/gemini-api/docs/api-key?hl=he) הם אמצעי אימות שנוצרים בתוך פרויקט.
+אין להם הגדרות חיוב עצמאיות, והם מקבלים בירושה את מגבלות הרמה ואת סטטוס החיוב של הפרויקט. השימוש המצטבר מכל המפתחות בפרויקט נספר במסגרת מגבלת ההוצאות של הפרויקט וההוצאות הכוללות בחשבון לחיוב.
 
-## Pertanyaan umum (FAQ)
+## שאלות נפוצות
 
-Bagian berikut memberikan jawaban atas pertanyaan umum (FAQ).
+בקטעים הבאים ריכזנו תשובות לשאלות נפוצות.
 
-### Apa yang ditagih kepada saya?
+### על מה מחייבים אותי?
 
-Harga Gemini API didasarkan pada hal berikut:
+התמחור של Gemini API מבוסס על:
 
-- Jumlah token input
-- Jumlah token output
-- Jumlah token yang di-cache
-- Durasi penyimpanan token yang di-cache
+- כמות הטוקנים של הקלט
+- כמות טוקנים בפלט
+- כמות טוקנים שנשמרו במטמון
+- משך האחסון של טוקנים במטמון
 
-Untuk mengetahui informasi harga, lihat [Halaman harga](https://ai.google.dev/pricing?hl=id).
+למידע על מחירים אפשר לעיין ב[דף המחירים](https://ai.google.dev/pricing?hl=he).
 
-### Di mana saya dapat melihat kuota saya?
+### איפה אפשר לראות את המכסה?
 
-Anda dapat melihat kuota dan batas sistem di
-[AI Studio](https://aistudio.google.com/usage?hl=id).
+אפשר לראות את המכסה ואת מגבלות המערכת ב-[AI Studio](https://aistudio.google.com/usage?hl=he).
 
-### Bagaimana cara beralih ke tingkat batas frekuensi panggilan yang lebih tinggi, atau meminta lebih banyak kuota?
+### איך עוברים לרמה גבוהה יותר של מכסה לקצב שליחת בקשות או מבקשים להגדיל את המכסה?
 
-Anda akan otomatis mendapatkan lebih banyak kuota saat akun Anda mencapai
-[persyaratan tingkat](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id#usage-tiers) berikutnya.
+המכסה שלכם תוגדל באופן אוטומטי כשהחשבון יעמוד [בדרישות של השלב הבא](https://ai.google.dev/gemini-api/docs/rate-limits?hl=he#usage-tiers).
 
-### Dapatkah saya menggunakan Gemini API secara gratis di EEA (termasuk Uni Eropa), Inggris Raya, dan Swiss?
+### האם אפשר להשתמש ב-Gemini API בחינם באזור הכלכלי האירופי (כולל האיחוד האירופי), בבריטניה ובשווייץ?
 
-Ya, kami menyediakan paket gratis dan paket berbayar di [banyak region](https://ai.google.dev/gemini-api/docs/available-regions?hl=id).
+כן, אנחנו מציעים תוכנית בחינם ותוכנית בתשלום [באזורים רבים](https://ai.google.dev/gemini-api/docs/available-regions?hl=he).
 
-### Jika saya menyiapkan penagihan dengan Gemini API, apakah saya akan ditagih untuk penggunaan Google AI Studio?
+### אם אגדיר חיוב ב-Gemini API, האם אחויב על השימוש שלי ב-Google AI Studio?
 
-Penggunaan AI Studio tetap gratis kecuali jika pengguna menautkan kunci API berbayar untuk mengakses fitur berbayar.
-Setelah menautkan kunci API berbayar sebagai bagian dari project berbayar di AI Studio, Anda akan ditagih untuk penggunaan AI Studio untuk kunci tersebut. Anda dapat beralih antara project Paket Berbayar dan project Paket Gratis sesuai kebutuhan dengan menggunakan kunci API masing-masing yang ditautkan ke setiap jenis.
+השימוש ב-AI Studio נשאר בחינם, אלא אם המשתמשים מקשרים מפתח API בתשלום כדי לגשת לתכונות בתשלום.
+אחרי שמקשרים מפתח API בתשלום כחלק מפרויקט בתשלום ב-AI Studio, יחויב על השימוש ב-AI Studio עבור המפתח הזה. אתם יכולים לעבור בין פרויקטים במסלול בתשלום לבין פרויקטים בתוכנית בחינם לפי הצורך, באמצעות מפתחות ה-API המתאימים שמקושרים לכל סוג.
 
-### Jika saya menggunakan Paket Gratis, bagaimana cara mengupgrade ke paket yang lebih tinggi?
+### אם אני משתמש בתוכנית בחינם, איך משדרגים לתוכניות גבוהות יותר?
 
-Untuk mengakses tingkat yang lebih tinggi, Anda harus menyiapkan penagihan di project Anda. Klik [**Siapkan
-penagihan**](#setup-billing) di Google AI Studio. Bagian ini akan memandu Anda memilih atau membuat akun Penagihan Cloud. Jika Anda diwajibkan menggunakan model penagihan prabayar, proses **Siapkan penagihan** akan memandu Anda melalui proses pembuatan akun Prabayar yang ditautkan ke akun Penagihan Cloud Anda.
+כדי לגשת לרמות גבוהות יותר, צריך להגדיר חיוב בפרויקט. ב-Google AI Studio, לוחצים על [**הגדרת החיוב**](#setup-billing). במאמר הזה מוסבר איך לבחור או ליצור חשבון לחיוב ב-Cloud. אם אתם נדרשים להשתמש במודל של חיוב מראש, התהליך של **הגדרת חיוב** ידריך אתכם בתהליך ליצירת חשבון תשלום מראש שמקושר לחשבון לחיוב ב-Cloud.
 
-### Dapatkah saya menggunakan 1 juta token dalam paket gratis?
+### האם אפשר להשתמש במיליון טוקנים בתוכנית בחינם?
 
-Paket gratis untuk Gemini API berbeda-beda berdasarkan model yang dipilih. Untuk saat ini, Anda
-dapat mencoba jendela konteks 1 juta token dengan cara berikut:
+דרגת המינוי החינמית ל-Gemini API משתנה בהתאם למודל שנבחר. בשלב הזה, אפשר לנסות את חלון ההקשר של מיליון טוקנים בדרכים הבאות:
 
-- Di Google AI Studio
-- Dengan paket tanpa biaya untuk model tertentu
-- Dengan paket pascabayar
+- ב-Google AI Studio
+- עם תוכניות ללא עלות למודלים נבחרים
+- עם מינויים בתשלום לאחר השימוש (postpay)
 
-### Dapatkah saya kembali ke Paket Gratis setelah melakukan upgrade ke paket yang lebih tinggi (berbayar)?
+### אפשר לחזור לרמה החינמית אחרי שמשדרגים לרמות גבוהות יותר (בתשלום)?
 
-Untuk melakukan downgrade ke Paket Gratis, Anda dapat [menonaktifkan penagihan](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#disable_billing_for_a_project)
-di setiap project yang ingin Anda downgrade.
+כדי לשדרג לאחור לתוכנית בחינם, אפשר [להשבית את החיוב](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#disable_billing_for_a_project) בכל אחד מהפרויקטים שרוצים לשדרג לאחור.
 
-### Bagaimana cara menghitung jumlah token yang saya gunakan?
+### איך אפשר לחשב את מספר הטוקנים שבהם נעשה שימוש?
 
-Gunakan metode [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=id#count_tokens)
-untuk menghitung jumlah token. Lihat [Panduan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mempelajari lebih lanjut token.
+משתמשים בשיטה [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=he#count_tokens) כדי לספור את מספר האסימונים. מידע נוסף על אסימונים זמין [במדריך בנושא אסימונים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
 
-### Jika saya mendaftar ke akun Penagihan Cloud pertama saya melalui AI Studio, apakah saya tetap akan mendapatkan Uji Coba Gratis Google Cloud?
+### אם נרשמתי לחשבון החיוב הראשון שלי ב-Cloud דרך AI Studio, האם עדיין אקבל תקופת ניסיון בחינם ב-Google Cloud?
 
-Saat Anda mendaftar ke akun Penagihan Cloud pertama Anda, [Uji Coba Gratis Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=id#free-trial) Anda akan dimulai dan Anda akan mendapatkan [Kredit selamat datang](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id#welcome-credits) senilai $300.
-Namun, kredit tersebut tidak dapat digunakan untuk membayar penggunaan AI Studio. Anda dapat menggunakan Kredit selamat datang untuk membayar layanan lain yang memenuhi syarat dalam Google Cloud (perhatikan bahwa setelah kredit tersebut digunakan atau habis masa berlakunya (dalam waktu 90 hari), biaya penggunaan tambahan akan otomatis ditagih ke metode pembayaran yang telah Anda tetapkan).
+כשנרשמים לחשבון לחיוב ב-Cloud בפעם הראשונה, מתחילה [תקופת הניסיון בחינם ל-Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=he#free-trial) ומקבלים [קרדיט על סך 300 $](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#welcome-credits).
+עם זאת, אי אפשר להשתמש בקרדיטים האלה כדי לשלם על שימוש ב-AI Studio. אתם יכולים להשתמש בקרדיט על ההצטרפות כדי לשלם על שירותים אחרים שעומדים בדרישות ב-Google Cloud (שימו לב שאחרי שתשתמשו בקרדיטים האלה או שהם יפוגו (תוך 90 יום), כל עלויות שימוש נוספות יחויבו באופן אוטומטי באמצעי התשלום שהגדרתם).
 
-### Dapatkah saya menggunakan kredit Selamat Datang Google Cloud dengan Gemini API?
+### האם אפשר להשתמש בקרדיט קבלת הפנים שלי ב-Google Cloud עם Gemini API?
 
-Tidak, [kredit Selamat datang](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id#welcome-credits) Google Cloud atau kredit uji coba gratis tidak dapat digunakan untuk Gemini API atau AI Studio.
+לא, אי אפשר להשתמש ב[קרדיט הפתיחה](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#welcome-credits) או בקרדיט לתקופת הניסיון בחינם של Google Cloud עבור Gemini API או AI Studio.
 
-Jika Anda diberi kredit selamat datang Google Cloud sebelum kredit tersebut menjadi tidak memenuhi syarat, Anda diizinkan untuk membelanjakan sisa kredit Anda di Gemini API dan AI Studio hingga kredit tersebut berakhir (setelah 90 hari).
+אם קיבלתם קרדיט לשימוש ב-Google Cloud לפני שהפסקתם לעמוד בדרישות, אתם יכולים להשתמש ביתרה שנותרה לכם ב-Gemini API וב-AI Studio עד שהקרדיט יפוג (אחרי 90 יום).
 
-### Apakah Uji Coba Gratis Google Cloud berlaku untuk penggunaan Gemini API?
+### האם תקופת הניסיון בחינם ב-Google Cloud חלה על שימוש ב-Gemini API?
 
-Tidak, mulai Maret 2026, biaya penggunaan Gemini API secara khusus tidak termasuk dalam program [Uji Coba Gratis Google Cloud senilai$300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=id#free-trial).
+לא. החל ממרץ 2026, עלויות השימוש ב-Gemini API לא כלולות בתוכנית [תקופת הניסיון בחינם של Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=he#free-trial).
 
-### Bagaimana cara kerja kredit Google Cloud dengan Prabayar?
+### איך קרדיטים ב-Google Cloud עובדים עם תשלום מראש?
 
-Pengguna prabayar harus [membeli kredit Prabayar](#buy-credits) terlebih dahulu sebelum kredit Google Cloud yang memenuhi syarat dapat diterapkan ke penggunaan Gemini API. Setelah Anda memiliki
-saldo kredit Prabayar yang aktif, kredit Google Cloud yang memenuhi syarat untuk
-Gemini API akan digunakan sebelum saldo kredit Prabayar Anda. Saat saldo kredit Prabayar di akun penagihan mencapai $0, kredit Google Cloud tidak akan digunakan lagi.
+משתמשים שמשלמים מראש צריכים קודם [לקנות קרדיטים בתשלום מראש](#buy-credits) כדי שיוכלו להשתמש בקרדיטים של Google Cloud שמתאימים לשימוש ב-Gemini API. אחרי שיש לכם יתרה פעילה של קרדיט לתשלום מראש, המערכת תנצל את הקרדיטים של Google Cloud שעומדים בדרישות לשימוש ב-Gemini API לפני שתנצל את היתרה של הקרדיט לתשלום מראש. כשהיתרה של הקרדיט בתשלום מראש בחשבון לחיוב תגיע ל-0$, לא ייעשה יותר שימוש בקרדיטים של Google Cloud.
 
-Tidak semua kredit Google Cloud, seperti
-[kredit Selamat Datang di Google Cloud](#cloud-credits), dapat digunakan untuk Gemini API
-dan AI Studio.
+לא כל הקרדיטים ב-Google Cloud, כמו [קרדיט ההצטרפות ל-Google Cloud](#cloud-credits), ניתנים למימוש ב-Gemini API וב-AI Studio.
 
-### Bagaimana penagihan ditangani?
+### איך מתבצע החיוב?
 
-Penagihan untuk Gemini API ditangani oleh sistem [Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=id). Pelajari tentang konfigurasi penagihan Penagihan Cloud dalam produk di [dokumentasi Penagihan Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id).
+החיוב על Gemini API מתבצע באמצעות מערכת [החיוב ב-Cloud](https://cloud.google.com/billing/docs/concepts?hl=he). מידע נוסף על הגדרת החיוב ב-Cloud דרך המוצר עצמו זמין ב[מאמרי העזרה בנושא חיוב ב-Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he).
 
-### Apakah saya dikenai biaya untuk permintaan yang gagal?
+### האם מחייבים אותי על בקשות שנכשלו?
 
-Jika permintaan Anda gagal dengan error 400 atau 500, Anda tidak akan ditagih untuk token yang digunakan. Namun, permintaan tersebut tetap akan mengurangi kuota Anda.
+אם הבקשה נכשלת עם שגיאה 400 או 500, לא תחויבו על האסימונים שבהם נעשה שימוש. עם זאת, הבקשה עדיין תיחשב לחלק מהמכסה שלכם.
 
-### Apakah `GetTokens` ditagih?
+### האם `GetTokens` מחויב?
 
-Permintaan ke API `GetTokens` tidak ditagih, dan tidak mengurangi kuota inferensi.
+לא נגבה תשלום על בקשות ל-`GetTokens` API, והן לא נכללות במכסת ההסקה.
 
-### Bagaimana penanganan data Google AI Studio saya jika saya memiliki akun API berbayar?
+### איך הנתונים שלי ב-Google AI Studio מטופלים אם יש לי חשבון API בתשלום?
 
-Lihat [Persyaratan layanan](https://ai.google.dev/gemini-api/terms?hl=id#paid-services) untuk mengetahui detail tentang cara data ditangani saat Penagihan Cloud diaktifkan (lihat "Cara Google Menggunakan Data Anda" di bagian "Layanan Berbayar"). Perhatikan bahwa perintah Google AI Studio Anda diperlakukan berdasarkan persyaratan "Layanan Berbayar" yang sama selama setidaknya 1 project API mengaktifkan penagihan, yang dapat Anda validasi di [halaman kunci API Gemini](https://aistudio.google.com/api-keys?hl=id) jika Anda melihat project yang ditandai sebagai "Berbayar" di bagian "Paket".
+פרטים על אופן הטיפול בנתונים כשמופעל חיוב ב-Cloud מופיעים [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#paid-services) (בקטע 'איך Google משתמשת בנתונים שלך' שבקטע 'שירותים בתשלום'). חשוב לדעת שההנחיות שלכם ב-Google AI Studio נחשבות כחלק מהתנאים של 'שירותים בתשלום' כל עוד החיוב מופעל לפחות בפרויקט API אחד. תוכלו לוודא זאת ב[דף מפתח Gemini API](https://aistudio.google.com/api-keys?hl=he) אם אתם רואים פרויקטים שמסומנים כ'בתשלום' בקטע 'תוכנית'.
 
-### Apa itu penagihan Prabayar dan siapa yang wajib menggunakan model penagihan prabayar?
+### מהו חיוב מראש ומי נדרש להשתמש במודל של חיוב מראש?
 
-Penagihan prabayar memungkinkan pengguna Gemini API di AI Studio membeli kredit di muka.
-Mulai 23 Maret 2026, pengguna baru AI Studio mungkin diwajibkan untuk menggunakan paket penagihan Prabayar. Selama proses [Menyiapkan Penagihan](#setup-billing) di AI Studio, UI akan memandu Anda melalui alur penyiapan penagihan dan akan menunjukkan apakah Anda diwajibkan untuk melakukan prabayar.
+חיוב בתשלום מראש מאפשר למשתמשים ב-Gemini API ב-AI Studio לבצע רכישה מוקדמת של קרדיטים.
+החל מ-23 במרץ 2026, משתמשים חדשים ב-AI Studio עשויים להידרש להשתמש בתוכנית חיוב מראש. במהלך תהליך [הגדרת החיוב](#setup-billing) ב-AI Studio, ממשק המשתמש ינחה אתכם בתהליך הגדרת החיוב ויציין אם נדרש תשלום מראש.
 
-### Bagaimana cara membeli kredit Prabayar, dan apakah ada jumlah minimum atau maksimum?
+### איך קונים קרדיטים לתשלום מראש, והאם יש סכום מינימלי או מקסימלי?
 
-Anda dapat [membeli poin](#buy-credits) di halaman Penagihan AI Studio. Selama
-proses pembelian, UI akan memberikan jumlah pembelian di muka minimum yang
-diperlukan untuk wilayah dan tingkat Anda, serta jumlah maksimum yang dapat
-ada di akun Anda dalam satu waktu.
+אפשר [לקנות קרדיטים](#buy-credits) בדף החיוב ב-AI Studio. במהלך תהליך הרכישה, בממשק המשתמש יוצג סכום המינימום הנדרש לרכישה מוקדמת בהתאם לאזור ולרמת המינוי, וגם הסכום המקסימלי שיכול להיות בחשבון בכל פעם.
 
-### Dapatkah saya mengonfigurasi akun Prabayar untuk otomatis membeli lebih banyak kredit sesuai kebutuhan?
+### האם אפשר להגדיר בחשבון התשלום מראש רכישה אוטומטית של קרדיטים נוספים לפי הצורך?
 
-Ya, sebaiknya Anda mengonfigurasi [isi ulang otomatis](#auto-reload) di setelan Penagihan AI Studio. Anda menentukan saldo kredit "pemicu" (misalnya, "jika saldo saya kurang dari Rp300.000") dan "nilai isi ulang" (misalnya, "tambahkan Rp1.000.000").
+כן, מומלץ להגדיר [הוספת כסף אוטומטית](#auto-reload) בהגדרות החיוב של AI Studio. אתם מציינים יתרת קרדיט שמהווה "טריגר" (למשל, "כשהיתרה שלי יורדת מתחת ל-30$") ו "סכום להוספה" (למשל, "הוספת 100$").
 
-### Dapatkah saya membatasi jumlah pengisian ulang otomatis?
+### האם אפשר להגביל את סכום החיובים של טעינה אוטומטית?
 
-Ya, pengguna Prabayar dapat menetapkan [Batas Isi Ulang Otomatis Bulanan](#monthly-auto-charge-limit)
-dalam widget **Isi Ulang Otomatis**. Jika total jumlah isi ulang otomatis dalam siklus penagihan mencapai batas ini, sistem akan menonaktifkan isi ulang otomatis hingga bulan berikutnya. Pembelian kredit manual tidak diperhitungkan dalam batas ini.
+כן, משתמשים במינוי בתשלום מראש יכולים להגדיר [מגבלה חודשית על טעינה אוטומטית](#monthly-auto-charge-limit) בווידג'ט **טעינה אוטומטית**. כשהסכום הכולל של הוספות הכסף האוטומטיות במחזור חיובים מגיע לתקרה הזו, המערכת משביתה את הוספת הכסף האוטומטית עד לחודש הבא. המגבלה הזו לא כוללת רכישות ידניות של קרדיטים.
 
-### Bisakah saya mendapatkan pengembalian dana untuk kredit yang tidak saya gunakan?
+### האם אפשר לקבל החזר כספי על קרדיטים שלא נוצלו?
 
-Semua kredit API Prabayar akan berakhir setelah 1 tahun dan tidak dapat dikembalikan dananya. Baca
-[kebijakan pengembalian dana untuk akun Prabayar](#refunds).
+התוקף של כל הקרדיטים ב-API בתשלום מראש הוא שנה אחת, ואי אפשר לקבל עליהם החזר כספי. [כאן](#refunds) אפשר לקרוא את מדיניות ההחזרים הכספיים לחשבונות שמוגדר בהם תשלום מראש.
 
-### Apakah masa berlaku kredit prabayar saya akan berakhir?
+### האם יש תוקף לקרדיטים ששילמתי עליהם מראש?
 
-Ya, masa berlaku kredit akan berakhir 12 bulan setelah tanggal pembeliannya.
+כן, הקרדיטים תקפים למשך 12 חודשים ממועד הרכישה.
 
-### Apa yang terjadi jika saldo kredit prabayar saya mencapai Rp0?
+### מה קורה כשמאזן הקרדיט בתשלום מראש מגיע ל-0$?
 
-Semua layanan Gemini API di semua project yang dibayar oleh akun Pembayaran di Muka Penagihan Cloud tersebut akan segera dihentikan untuk mencegah pengenaan biaya lebih lanjut. Project Anda tidak otomatis didowngrade ke Paket Gratis.
+כל השירותים של Gemini API בכל הפרויקטים שמשולמים באמצעות חשבון התשלום מראש ב-Cloud יופסקו באופן מיידי כדי למנוע חיובים נוספים. הפרויקטים שלכם לא ישונמכו אוטומטית לתוכנית בחינם.
 
-Untuk memulihkan layanan di tingkat Berbayar saat ini, Anda harus [membeli
-kredit tambahan](#buy-credits). Setelah membeli kredit, Anda akan dapat menggunakan Gemini API. Perhatikan bahwa mungkin ada [keterlambatan](#processing-times) saat sistem kami diperbarui untuk menampilkan saldo kredit Anda.
+כדי לשחזר את השירות ברמה הנוכחית של התוכנית בתשלום, צריך [לרכוש קרדיטים נוספים](#buy-credits). אחרי שקונים קרדיטים, אמורה להיות לכם אפשרות להשתמש ב-Gemini API. שימו לב: יכול להיות שיהיה [עיכוב](#processing-times) עד שהמערכות שלנו יתעדכנו ויציגו את יתרת הקרדיט שלכם.
 
-Jika ingin melakukan downgrade ke Paket Gratis, Anda dapat [menonaktifkan penagihan](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#disable_billing_for_a_project)
-pada project yang ingin didowngrade.
+לחלופין, כדי לשנמך לתוכנית בחינם, אפשר [להשבית את החיוב](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#disable_billing_for_a_project) בפרויקטים שרוצים לשנמך.
 
-### Mengapa penggunaan saya berhenti meskipun saldo kredit Prabayar saya lebih besar dari Rp0?
+### למה השימוש שלי הופסק למרות שיתרת הקרדיט בתשלום מראש גבוהה מ-0$?
 
-Anda mungkin telah mencapai [batas penggunaan](#tier-spend-caps) untuk paket saat ini.
-Batas penggunaan akan meningkat secara otomatis saat Anda naik ke tingkat yang lebih tinggi. Penggunaan Gemini API AI Studio Anda juga dapat terpengaruh karena [status
-akun Penagihan Cloud Anda](#missed-payment).
+יכול להיות שהגעתם [למכסת השימוש](#tier-spend-caps) של הרמה הנוכחית.
+מכסות השימוש יגדלו באופן אוטומטי כשתעברו לרמות גבוהות יותר. גם השימוש ב-Gemini API ב-AI Studio יכול להיות מושפע מ[הסטטוס של החשבון לחיוב ב-Cloud](#missed-payment).
 
-### Mengapa saldo kredit akun Prabayar saya negatif?
+### למה היתרה בחשבון שלי בתשלום מראש שלילית?
 
-Karena kompleksitas sistem penagihan dan pemrosesan kami, mungkin ada
-[penundaan](#processing-times) dalam kemampuan kami untuk menghentikan penggunaan setelah Anda menggunakan
-semua kredit Anda. Penggunaan berlebih ini mungkin muncul sebagai saldo kredit negatif di dasbor penagihan AI Studio Anda. Jika hal ini terjadi, layanan Anda akan dijeda,
-dan saldo negatif Anda akan dikurangi dari pembelian kredit berikutnya.
+בגלל המורכבות של מערכות החיוב והעיבוד שלנו, יכול להיות שיהיו [עיכובים](#processing-times) ביכולת שלנו להפסיק את השימוש אחרי שתנצלו את כל הזיכויים. יכול להיות שהשימוש העודף הזה יופיע כיתרת קרדיט שלילית בלוח הבקרה לחיוב ב-AI Studio. במקרה כזה, השירות שלכם יושהה והיתרה השלילית תנוכה מהרכישה הבאה של קרדיט.
 
-Untuk menghindari jeda pada layanan Gemini API, sebaiknya siapkan
-[isi ulang otomatis](#auto-reload) untuk membeli lebih banyak kredit secara otomatis saat saldo kredit Anda kurang dari nilai yang Anda tentukan.
+כדי למנוע השהיה בשירות Gemini API, מומלץ להגדיר [הוספת כסף אוטומטית](#auto-reload) כדי לרכוש באופן אוטומטי קרדיטים נוספים כשיתרת הזכות שלכם יורדת מתחת לערך שאתם מציינים.
 
-### Dapatkah saya menggunakan kredit Prabayar untuk layanan Google Cloud lainnya, seperti Gemini Enterprise Agent Platform?
+### האם אפשר להשתמש בקרדיטים של תשלום מראש לשירותים אחרים של Google Cloud, כמו Gemini Enterprise Agent Platform?
 
-Tidak, kredit Prabayar hanya dapat digunakan untuk penggunaan Gemini API. Layanan Google Cloud lainnya yang Anda gunakan (Compute, Storage, Gemini Enterprise Agent Platform) ditagih menggunakan [siklus penagihan Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id) standar.
+לא, קרדיטים לתשלום מראש מיועדים לשימוש ב-Gemini API בלבד. שירותים אחרים של Google Cloud שבהם אתם משתמשים (Compute, ‏ Storage, ‏ Gemini Enterprise Agent Platform) מחויבים באמצעות [מחזור החיובים הרגיל ב-Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he).
 
-### Dapatkah saya beralih dari penagihan Prabayar ke Pascabayar?
+### האם אפשר לעבור מחיוב בתשלום מראש לחיוב בתשלום לאחר השימוש (postpay)?
 
-Tidak, beralih dari paket penagihan Prabayar ke paket penagihan Pascabayar tidak didukung.
+לא, אי אפשר לעבור מתוכנית חיוב בתשלום מראש לתוכנית חיוב בתשלום לאחר השימוש.
 
-### Dapatkah saya beralih dari penagihan Pascabayar ke Prabayar?
+### האם אפשר לעבור מחיוב לאחר השימוש לחיוב מראש?
 
-Ya, Anda dapat mentransisikan akun Postpay yang sudah ada di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id). Lihat [Beralih ke prabayar](#migrate-to-prepay) untuk mengetahui petunjuknya.
+כן, אפשר להעביר חשבון קיים עם תשלום בסוף החודש בדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he). הוראות מפורטות מופיעות במאמר [מעבר לתשלום מראש](#migrate-to-prepay).
 
-### Apa yang terjadi pada kredit Prabayar saya jika saya beralih ke Pascabayar?
+### מה יקרה לקרדיט בתשלום מראש אם אעבור לתשלום לאחר השימוש (postpay)?
 
-Saat Anda mengupgrade ke [Pasca-bayar](#postpay), Penagihan Cloud akan menutup akun pembayaran Prabayar Anda, menonaktifkan [isi ulang otomatis](#auto-reload), dan otomatis mengembalikan dana kredit Prabayar yang tidak terpakai kepada Anda (tunduk pada waktu pemrosesan pengembalian dana standar).
+כשמשדרגים ל[תשלום לאחר השימוש](#postpay), המערכת לחיוב ב-Cloud סוגרת את חשבון התשלומים לתשלום מראש, משביתה את [הוספת כסף אוטומטית](#auto-reload) ומזכה אתכם אוטומטית על כל יתרה שלא נוצלה (בכפוף לזמן העיבוד הרגיל של ההחזרים הכספיים).
 
-### Di mana saya dapat melihat saldo kredit Prabayar dan histori transaksi saat ini?
+### איפה אפשר לראות את יתרת הקרדיט הנוכחית שלי בתשלום מראש ואת היסטוריית העסקאות?
 
-Semua pengelolaan saldo dan histori transaksi untuk Gemini API harus dilakukan langsung di tab Penagihan Google AI Studio.
+כל הפעולות שקשורות לניהול היתרה ולהיסטוריית העסקאות ב-Gemini API צריכות להתבצע ישירות בכרטיסייה 'חיוב' ב-Google AI Studio.
 
-### Mengapa saya melihat pesan "Jenis akun penagihan tidak aktif atau tidak didukung"?
+### למה מוצגת לי ההודעה 'סוג החשבון לחיוב לא פעיל או לא נתמך'?
 
-Interaksi pembayaran di [halaman Penagihan AI Studio](https://aistudio.google.com/billing?hl=id) dapat diblokir dan diganti dengan pesan "Jenis akun penagihan tidak aktif atau tidak didukung" jika jenis akun penagihan atau status akun penagihan yang Anda pilih tidak memenuhi syarat untuk Tingkat Berbayar di AI Studio.
+יכול להיות שאינטראקציות שקשורות לתשלומים ב[דף החיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he) ייחסמו ויוחלפו בהודעה 'סוג החשבון לחיוב לא פעיל או לא נתמך' אם סוג החשבון לחיוב או סטטוס החשבון לחיוב שבחרתם לא כשירים לשימוש בתוכנית בתשלום ב-AI Studio.
 
-Periksa [Konsol Cloud](https://console.cloud.google.com/billing/?hl=id) untuk melihat status akun penagihan Anda. Salah satu jenis yang tidak memenuhi syarat adalah *Akun uji coba gratis*. Dalam hal ini, Anda dapat [mengaktifkan penagihan](#setup-billing) di AI Studio agar memenuhi syarat. Salah satu status tidak aktif adalah *Ditutup*, dalam hal ini Anda dapat [membuka kembali akun](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=id).
+אפשר לבדוק את הסטטוס של החשבון לחיוב ב[מסוף Cloud](https://console.cloud.google.com/billing/?hl=he). סוג אחד של חשבון שלא עומד בדרישות הוא *חשבון עם תקופת ניסיון בחינם*. במקרה כזה, אפשר [להפעיל את החיוב](#setup-billing) ב-AI Studio כדי לעמוד בדרישות. מצב לא פעיל אחד יכול להיות *סגור*, ובמקרה כזה אפשר [לפתוח מחדש את החשבון](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=he).
 
-### Apakah biaya penggunaan Gemini API saya akan muncul di Konsol Google Cloud?
+### האם עלויות השימוש ב-Gemini API יופיעו במסוף Google Cloud?
 
-Ya, biaya Gemini API, beserta biaya yang terkait dengan layanan Google Cloud lainnya yang dibayar oleh akun Penagihan Cloud Anda, dapat dilihat di [halaman Pengelolaan biaya](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=id#cost-reports) di [konsol Penagihan Cloud](https://console.cloud.google.com/billing?hl=id). Perhatikan
-bahwa Anda hanya dapat mengelola saldo kredit Prabayar di AI Studio.
+כן, העלויות של Gemini API, לצד העלויות שקשורות לכל שירות אחר של Google Cloud שמשלמים עליו דרך החשבון לחיוב ב-Cloud, מוצגות ב[דפים לניהול עלויות](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=he#cost-reports) ב[מסוף החיוב ב-Cloud](https://console.cloud.google.com/billing?hl=he). הערה:
+אפשר לנהל את יתרת הקרדיטים בתשלום מראש רק ב-AI Studio.
 
-### Mengapa Penggunaan Gemini API saya tidak muncul di Konsol Penagihan Cloud, padahal saya dapat melihatnya di Penagihan AI Studio, beserta penggunaan kredit saya?
+### למה השימוש שלי ב-Gemini API לא מופיע ב-Cloud Billing Console, למרות שאני יכול לראות אותו בחיוב ב-AI Studio, יחד עם ניצול הקרדיטים שלי?
 
-Google Cloud dan AI Studio melaporkan data penggunaan ke Penagihan Cloud pada berbagai interval. Karena kompleksitas sistem penagihan dan pemrosesan kami, Anda mungkin melihat jeda antara penggunaan layanan dengan saat penggunaan dan biaya dapat dilihat di Penagihan Cloud. Biasanya, detail biaya Anda tersedia dalam satu hari, tetapi terkadang dapat memerlukan waktu lebih dari 24 jam.
-Pelajari lebih lanjut penagihan tertunda di [dokumentasi Penagihan Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id#delayed-billing).
+שירותי Google Cloud ו-AI Studio מדווחים על נתוני השימוש לחיוב ב-Cloud במרווחי זמן שונים. בגלל המורכבות של מערכות החיוב והעיבוד שלנו, יכול להיות שלא תראו בחיוב ב-Cloud את נתוני השימוש והעלויות מייד אחרי השימוש בשירותים. בדרך כלל פרטי העלויות זמינים תוך יום, אבל לפעמים הם מדוּוחים אחרי יותר מ-24 שעות.
+מידע נוסף על חיובים מושהים זמין ב[מאמרי העזרה בנושא חיוב ב-Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he#delayed-billing).
 
-### Jika saya menggunakan layanan Google Cloud lainnya dengan biaya yang tunduk pada siklus penagihan Pascabayar, apa yang terjadi jika saya terlambat membayar?
+### אם אני משתמש בשירותים אחרים של Google Cloud עם עלויות שחלות עליהן מחזורי חיוב בתשלום בסוף התקופה, מה יקרה אם אפספס תשלום?
 
-Keterlambatan pembayaran untuk layanan Google Cloud lainnya dapat menangguhkan akses Gemini API Anda di AI Studio, **terlepas dari jumlah kredit Prabayar yang tersedia**. Penggunaan AI Studio didukung oleh akun Penagihan Google Cloud, yang dapat menggunakan penagihan Prabayar untuk AI Studio dan penagihan Pascabayar untuk layanan Cloud lainnya. Masalah pada saldo Pascabayar Anda akan menghentikan semua layanan yang terkait dengan akun tersebut. Penggunaan Gemini API Anda akan ditangguhkan jika akun Penagihan Cloud Anda ditandai karena masalah seperti:
+אם לא תשלמו על שירותים אחרים של Google Cloud, יכול להיות שהגישה שלכם ל-Gemini API ב-AI Studio תושעה, **גם אם יש לכם קרדיטים בתשלום מראש**. השימוש ב-AI Studio מבוסס על חשבון לחיוב ב-Google Cloud, שיכול לשמש גם לחיוב מראש על השימוש ב-AI Studio וגם לחיוב בסוף החודש על השימוש בשירותים אחרים של Cloud. בעיה ביתרה שלכם בתשלום לאחר השימוש (postpay) גורמת להשעיה של כל השירותים שמשויכים לחשבון הזה. השימוש ב-Gemini API יושעה אם החשבון לחיוב ב-Cloud יסומן בגלל בעיות כמו:
 
-- Saldo yang terlambat atau lewat jatuh tempo
-- Pembayaran yang ditolak
-- Metode pembayaran yang tidak valid atau sudah tidak berlaku
+- יתרת חוב בפיגור או יתרת חוב לתשלום
+- תשלום שנדחה
+- אמצעי תשלום לא תקין או לא בתוקף
 
-Untuk memulihkan layanan, Anda harus [menyelesaikan masalah akun Pasca Bayar](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=id#resolving-declined-payments)
-di konsol Penagihan Google Cloud. Setelah mengatasi masalah ini, Anda akan mendapatkan kembali akses ke layanan dan saldo Gemini API prabayar Anda.
+כדי לשחזר את השירות, צריך [לפתור את הבעיה בחשבון התשלום לאחר השימוש (postpay)](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=he#resolving-declined-payments) במסוף חיוב ב-Cloud. אחרי שתפתרו את הבעיה, תקבלו שוב גישה לקרדיטים ולשירותים של Gemini API בתשלום מראש.
 
-### Mengapa proyek saya terganggu setelah saya membatalkan penyiapan Prabayar?
+### למה יש שיבושים בפרויקטים שלי אחרי שביטלתי את ההגדרה של תשלום מראש?
 
-**Masalah:** Anda memulai alur untuk menambahkan kemampuan Prabayar ke akun penagihan Pascabayar yang ada, tetapi menutup jendela atau membatalkan proses sebelum menyelesaikan penyiapan pembayaran di muka. Project lain yang tertaut ke akun penagihan tersebut kehilangan akses ke Gemini API.
+**הבעיה:** התחלתם את התהליך להוספת אפשרויות תשלום מראש לחשבון לחיוב קיים שמוגדר לתשלום לאחר השימוש (postpay), אבל סגרתם את החלון או ביטלתם את התהליך לפני שהשלמתם את הגדרת התשלום מראש. פרויקטים אחרים שמקושרים לחשבון לחיוב הזה איבדו את הגישה ל-Gemini API.
 
-**Penyebab:** Selama alur peralihan, infrastruktur untuk mendukung Pembayaran di Muka dibuat di akun penagihan Anda segera setelah Anda menyetujui dialog konfirmasi. Jika Anda tidak menyelesaikan langkah-langkah prabayar, konfigurasi akan tetap
-dalam status yang tidak dapat ditagih. Karena status ini berlaku di tingkat akun penagihan, status ini membatasi akses untuk semua project yang ditautkan ke akun penagihan tersebut yang mengandalkan layanan Prabayar.
+**הסיבה:** במהלך תהליך המעבר, התשתית לתמיכה בתשלום מראש נוצרת בחשבון החיוב מיד אחרי שמאשרים את תיבת הדו-שיח לאישור. אם לא תבצעו את השלבים של התשלום מראש, ההגדרה תישאר במצב שלא מאפשר חיוב. מכיוון שהמצב הזה חל ברמת החשבון לחיוב, הוא מגביל את הגישה לכל הפרויקטים שמקושרים לחשבון לחיוב הזה ומסתמכים על שירותים בתשלום מראש.
 
-**Penyelesaian:** Karena status akun telah berubah, tidak ada cara otomatis untuk mengembalikan status jika Anda membatalkan alur pembayaran. Untuk memulihkan
-layanan ke project tertaut Anda, lakukan salah satu hal berikut:
+**פתרון:** מכיוון שמצב החשבון כבר השתנה, אין דרך אוטומטית לשנות את המצב אם לא תמשיכו בתהליך התשלום. כדי לשחזר את השירות בפרויקטים המקושרים, אפשר לבצע אחת מהפעולות הבאות:
 
-- **Selesaikan penyiapan:** Kembali ke Google AI Studio, mulai ulang alur penyiapan penagihan, dan selesaikan proses prabayar. Setelah pembayaran diproses, paket penagihan Prabayar akan aktif dan layanan akan dipulihkan.
-- **Hubungi Dukungan:** Jika Anda tidak ingin menggunakan paket penagihan Prabayar dan ingin mengembalikan akun penagihan ke Pasca Bayar, [hubungi Dukungan Penagihan Cloud](https://cloud.google.com/support/billing?hl=id) untuk mereset status akun Anda secara manual.
+- **משלימים את ההגדרה:** חוזרים אל Google AI Studio, מפעילים מחדש את תהליך הגדרת החיוב ומשלימים את תהליך התשלום מראש. אחרי שהתשלום יעובד, תוכנית החיוב בתשלום מראש תופעל והשירות ישוחזר.
+- **פנייה לתמיכה:** אם אתם לא רוצים להשתמש בתוכנית התשלום מראש ורוצים להחזיר את חשבון החיוב שלכם לתשלום לאחר השימוש (postpay), [פנו לתמיכה בנושא חיוב ב-Cloud](https://cloud.google.com/support/billing?hl=he) כדי לאפס את מצב החשבון באופן ידני.
 
-### Di mana saya bisa mendapatkan bantuan terkait penagihan?
+### איפה אפשר לקבל עזרה בנושא חיובים?
 
-Untuk mendapatkan bantuan terkait penagihan, lihat
-[Mendapatkan dukungan penagihan Cloud](https://cloud.google.com/support/billing?hl=id).
+כדי לקבל עזרה בנושא חיוב, אפשר לעיין במאמר [איך מקבלים תמיכה בנושא חיוב ב-Cloud](https://cloud.google.com/support/billing?hl=he).
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-09-20 UTC.
+עדכון אחרון: 2026-09-20 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-20 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-20 (שעון UTC)."],[],[]]

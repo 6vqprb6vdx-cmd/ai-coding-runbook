@@ -1,42 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=de
-fetched_at: 2026-09-21T05:43:57.042043+00:00
-title: "Bilder verstehen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=id
+fetched_at: 2026-09-28T06:15:02.309800+00:00
+title: "Pemahaman gambar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Bilder verstehen
+# Pemahaman gambar
 
-Gemini-Modelle sind von Grund auf multimodal konzipiert und ermöglichen eine Vielzahl von Aufgaben in den Bereichen Bildverarbeitung und Computer Vision, darunter Bilduntertitelung, Klassifizierung und visuelle Frage-Antwort-Systeme, ohne dass spezielle ML-Modelle trainiert werden müssen.
+Model Gemini dibangun dari awal agar bersifat multimodal, sehingga memungkinkan berbagai tugas pemrosesan gambar dan computer vision, termasuk tetapi tidak terbatas pada pemberian teks gambar, klasifikasi, dan penjawaban pertanyaan visual tanpa harus melatih model ML khusus.
 
-Neben ihren allgemeinen multimodalen Funktionen bieten Gemini-Modelle
-**eine höhere Genauigkeit** für bestimmte Anwendungsfälle wie [Objekterkennung](#object-detection)
-und [Segmentierung](#segmentation), durch zusätzliches Training.
+Selain kemampuan multimodal umumnya, model Gemini menawarkan
+**akurasi yang ditingkatkan** untuk kasus penggunaan tertentu seperti [deteksi objek](#object-detection)
+dan [segmentasi](#segmentation), melalui pelatihan tambahan.
 
-## Bilder an Gemini übergeben
+## Meneruskan gambar ke Gemini
 
-Sie haben mehrere Möglichkeiten, Bilder als Eingabe für Gemini zu verwenden:
+Anda dapat memberikan gambar sebagai input ke Gemini menggunakan beberapa metode:
 
-- [Bild über URL übergeben](#url-image): Ideal für öffentlich zugängliche Bilder.
-- [Bilddaten inline übergeben](#inline-image): Für Base64-codierte Bilddaten.
-- [Bilder mit der File API hochladen](#upload-image): Empfohlen für
-  größere Dateien oder für die Wiederverwendung von Bildern in mehreren Anfragen.
+- [Meneruskan gambar menggunakan URL](#url-image): Ideal untuk gambar yang dapat diakses secara publik.
+- [Meneruskan data gambar inline](#inline-image): Untuk data gambar berenkode base64.
+- [Mengupload gambar menggunakan File API](#upload-image): Direkomendasikan untuk
+  file yang lebih besar atau untuk menggunakan kembali gambar di beberapa permintaan.
 
-### Bild über URL übergeben
+### Meneruskan gambar menggunakan URL
 
-Sie können ein Bild mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hochladen und es
-in der Anfrage übergeben:
+Anda dapat mengupload gambar menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) dan meneruskannya dalam permintaan:
 
 ### Python
 
@@ -132,6 +131,58 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    uploadedFile, err := client.Files.UploadFromPath(ctx, "path/to/organ.jpg", &genai.UploadFileConfig{
+        MIMEType: "image/jpeg",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Caption this image.",
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    URI:      genai.Ptr(uploadedFile.URI),
+                    MimeType: interactions.ImageContentMimeType(uploadedFile.MIMEType).ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -152,9 +203,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Bilddaten inline übergeben
+### Meneruskan data gambar sebaris
 
-Sie können Bilddaten als Base64-codierte Strings bereitstellen:
+Anda dapat menyediakan data gambar sebagai string berenkode base64:
 
 ### Python
 
@@ -250,6 +301,59 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    imageBytes, err := os.ReadFile("path/to/small-sample.jpg")
+    if err != nil {
+        log.Fatal(err)
+    }
+    base64Image := base64.StdEncoding.EncodeToString(imageBytes)
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Caption this image.",
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    Data:     genai.Ptr(base64Image),
+                    MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -277,9 +381,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Bilder mit der File API hochladen
+### Mengupload gambar menggunakan File API
 
-Verwenden Sie die Files API für große Dateien oder um dieselbe Bilddatei wiederholt zu verwenden. Weitere Informationen finden Sie im Leitfaden zur [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
+Untuk file besar atau agar dapat menggunakan file gambar yang sama berulang kali, gunakan
+Files API. Lihat [panduan Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
 ### Python
 
@@ -375,6 +480,58 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    myFile, err := client.Files.UploadFromPath(ctx, "path/to/sample.jpg", &genai.UploadFileConfig{
+        MIMEType: "image/jpeg",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: "Caption this image.",
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    URI:      genai.Ptr(myFile.URI),
+                    MimeType: interactions.ImageContentMimeType(myFile.MIMEType).ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -397,9 +554,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Prompts mit mehreren Bildern
+## Memberikan perintah dengan beberapa gambar
 
-Sie können mehrere Bilder in einem einzigen Prompt bereitstellen, indem Sie mehrere Bildobjekte in das `input`-Array einfügen:
+Anda dapat memberikan beberapa gambar dalam satu perintah dengan menyertakan beberapa objek gambar dalam array `input`:
 
 ### Python
 
@@ -497,6 +654,55 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: "What is different between these two images?",
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    URI:      genai.Ptr("https://example.com/image1.jpg"),
+                    MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    URI:      genai.Ptr("https://example.com/image2.jpg"),
+                    MimeType: interactions.ImageContentMimeTypeImageJpeg.ToPointer(),
+                }),
+            }),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -521,9 +727,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Objekterkennung
+## Deteksi objek
 
-Modelle werden trainiert, um Objekte in einem Bild zu erkennen und die Koordinaten ihrer Begrenzungsrahmen zu ermitteln. Die Koordinaten werden relativ zu den Bildabmessungen auf [0, 1000] skaliert. Sie müssen diese Koordinaten anhand der ursprünglichen Bildgröße herunterskalieren.
+Model dilatih untuk mendeteksi objek dalam
+gambar dan mendapatkan koordinat kotak pembatasnya. Koordinat, relatif terhadap dimensi gambar, diskalakan ke [0, 1000]. Anda perlu membatalkan penskalaan koordinat ini berdasarkan
+ukuran gambar asli Anda.
 
 ### Python
 
@@ -682,6 +890,93 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "Detect the all of the prominent items in the image. The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000."
+
+    boundingBoxSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "box_2d": map[string]any{
+                "type":        "array",
+                "items":       map[string]any{"type": "integer"},
+                "description": "The 2D bounding box of the item as [ymin, xmin, ymax, xmax] normalized to 0-1000.",
+            },
+            "mask": map[string]any{
+                "type":        "array",
+                "items":       map[string]any{"type": "array", "items": map[string]any{"type": "integer"}},
+                "description": "The segmentation mask of the item as a polygon of [x,y] coordinates, normalized to 0-1000.",
+            },
+            "label": map[string]any{
+                "type":        "string",
+                "description": "A descriptive label for the item.",
+            },
+        },
+        "required": []string{"box_2d", "mask", "label"},
+    }
+
+    boundingBoxesSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "boxes": map[string]any{
+                "type":  "array",
+                "items": boundingBoxSchema,
+            },
+        },
+        "required": []string{"boxes"},
+    }
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   boundingBoxesSchema,
+        }),
+    )
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    URI:      genai.Ptr("https://example.com/image.png"),
+                    MimeType: interactions.ImageContentMimeTypeImagePng.ToPointer(),
+                }),
+            }),
+            ResponseFormat: genai.Ptr(format),
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println(*res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -723,13 +1018,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Weitere Beispiele finden Sie im [Gemini Cookbook](https://github.com/google-gemini/cookbook).
+Untuk melihat contoh lainnya, buka [Gemini Cookbook](https://github.com/google-gemini/cookbook).
 
-## Segmentierung
+## Segmentasi
 
-Gemini-Modelle erkennen nicht nur Elemente, sondern segmentieren sie auch und stellen ihre Konturmasken bereit.
+Model Gemini tidak hanya mendeteksi item, tetapi juga menyegmentasikannya dan menyediakan masker konturnya.
 
-Das Modell gibt eine JSON-Liste aus, in der jedes Element eine Segmentierungsmaske darstellt. Jedes Element hat einen Begrenzungsrahmen (`box_2d`) im Format `[ymin, xmin, ymax, xmax]` mit normalisierten Koordinaten zwischen 0 und 1000, ein Label (`label`), das das Objekt identifiziert, und schließlich die Segmentierungsmaske innerhalb des Begrenzungsrahmens als Polygon von `[x, y]`-Koordinaten, die auf 0–1000 normalisiert sind.
+Model memprediksi daftar JSON, dengan setiap item mewakili mask segmentasi. Setiap item memiliki kotak pembatas ("`box_2d`") dalam format `[ymin, xmin, ymax, xmax]` dengan koordinat yang dinormalisasi antara 0 dan 1000, label ("`label`") yang mengidentifikasi objek, dan terakhir mask segmentasi di dalam kotak pembatas sebagai poligon koordinat `[x, y]` yang dinormalisasi ke 0-1000.
 
 ### Python
 
@@ -912,6 +1207,99 @@ Interaction interaction =
 System.out.println("Segmentation results: " + interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := "Give the segmentation masks for the wooden and glass items.\n" +
+        "Output a JSON list of segmentation masks where each entry contains the 2D\n" +
+        "bounding box in the key \"box_2d\", the segmentation mask in key \"mask\", and\n" +
+        "the text label in the key \"label\". Use descriptive labels."
+
+    boundingBoxSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "box_2d": map[string]any{
+                "type":        "array",
+                "items":       map[string]any{"type": "integer"},
+                "description": "The 2D bounding box of the item as [ymin, xmin, ymax, xmax] normalized to 0-1000.",
+            },
+            "mask": map[string]any{
+                "type":        "array",
+                "items":       map[string]any{"type": "array", "items": map[string]any{"type": "integer"}},
+                "description": "The segmentation mask of the item as a polygon of [x,y] coordinates, normalized to 0-1000.",
+            },
+            "label": map[string]any{
+                "type":        "string",
+                "description": "A descriptive label for the item.",
+            },
+        },
+        "required": []string{"box_2d", "mask", "label"},
+    }
+
+    boundingBoxesSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "boxes": map[string]any{
+                "type":  "array",
+                "items": boundingBoxSchema,
+            },
+        },
+        "required": []string{"boxes"},
+    }
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   boundingBoxesSchema,
+        }),
+    )
+
+    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
+            Model: interactions.Model("gemini-3.8-flash"),
+            Input: interactions.NewInteractionsInput([]interactions.Content{
+                interactions.NewContent(interactions.TextContent{
+                    Text: prompt,
+                }),
+                interactions.NewContent(interactions.ImageContent{
+                    URI:      genai.Ptr("https://example.com/image.png"),
+                    MimeType: interactions.ImageContentMimeTypeImagePng.ToPointer(),
+                }),
+            }),
+            ResponseFormat: genai.Ptr(format),
+            GenerationConfig: &interactions.GenerationConfig{
+                ThinkingLevel: interactions.ThinkingLevelMinimal.ToPointer(),
+            },
+        }),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Interaction.OutputText != nil {
+        fmt.Println("Segmentation results: " + *res.Interaction.OutputText)
+    }
+}
+```
+
 ### REST
 
 ```
@@ -956,82 +1344,81 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Ein Tisch mit Cupcakes, auf dem die Holz- und Glasobjekte hervorgehoben sind](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=de)
+![Meja dengan cupcake, dengan objek kayu dan kaca yang disoroti](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=id)
 
-Beispiel für eine Segmentierungsausgabe mit Objekten und Segmentierungsmasken
+Contoh output segmentasi dengan objek dan mask segmentasi
 
-## Unterstützte Bildformate
+## Format gambar yang didukung
 
-Gemini unterstützt die folgenden MIME-Typen für Bildformate:
+Gemini mendukung jenis MIME format gambar berikut:
 
-- PNG – `image/png`
-- JPEG – `image/jpeg`
-- WEBP – `image/webp`
-- HEIC – `image/heic`
-- HEIF – `image/heif`
+- PNG - `image/png`
+- JPEG - `image/jpeg`
+- WEBP - `image/webp`
+- HEIC - `image/heic`
+- HEIF - `image/heif`
 
-Weitere Informationen zu anderen Methoden für die Dateieingabe finden Sie im
-[Leitfaden zu Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
+Untuk mempelajari metode input file lainnya, lihat panduan
+[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
 
-## Leistungsspektrum
+## Kemampuan
 
-Alle Gemini-Modellversionen sind multimodal und können für eine Vielzahl von Aufgaben in den Bereichen Bildverarbeitung und Computer Vision verwendet werden, darunter Bilduntertitelung, visuelle Frage-Antwort-Systeme, Bildklassifizierung, Objekterkennung und Segmentierung.
+Semua versi model Gemini bersifat multimodal dan dapat digunakan dalam berbagai tugas pemrosesan gambar dan computer vision, termasuk, tetapi tidak terbatas pada, pembuatan teks gambar, pertanyaan dan jawaban visual, klasifikasi gambar, deteksi dan segmentasi objek.
 
-Je nach Ihren Qualitäts- und Leistungsanforderungen kann Gemini die Notwendigkeit reduzieren, spezielle ML-Modelle zu verwenden.
+Gemini dapat mengurangi kebutuhan untuk menggunakan model ML khusus, bergantung pada persyaratan kualitas dan performa Anda.
 
-Die neuesten Modellversionen wurden speziell trainiert, um die Genauigkeit bei
-speziellen Aufgaben zusätzlich zu allgemeinen Funktionen wie verbesserter
-[Objekterkennung](#object-detection) und [Segmentierung](#segmentation) zu verbessern.
+Versi model terbaru dilatih secara khusus untuk meningkatkan akurasi tugas khusus selain kemampuan generik, seperti [deteksi objek](#object-detection) dan [segmentasi](#segmentation) yang ditingkatkan.
 
-## Einschränkungen und wichtige technische Informationen
+## Batasan dan informasi teknis utama
 
-### Dateilimit
+### Batas file
 
-Gemini-Modelle unterstützen maximal 3.600 Bilddateien pro Anfrage.
+Model Gemini mendukung maksimal 3.600 file gambar per permintaan.
 
-### Tokenberechnung
+### Penghitungan token
 
-- 258 Tokens, wenn beide Dimensionen <= 384 Pixel sind.
-  Größere Bilder werden in 768 × 768 Pixel große Kacheln unterteilt, die jeweils 258 Tokens kosten.
+- 258 token jika kedua dimensi <= 384 piksel.
+  Gambar yang lebih besar diatur menjadi ubin 768x768 piksel, yang masing-masing berharga 258 token.
 
-Eine ungefähre Formel zur Berechnung der Anzahl der Kacheln lautet so:
+Rumus kasar untuk menghitung jumlah kartu adalah sebagai berikut:
 
-- Berechnen Sie die Größe der Zuschneideeinheit, die ungefähr so aussieht: `floor(min(width, height)` / 1,5).
-- Teilen Sie jede Dimension durch die Größe der Zuschneideeinheit und multiplizieren Sie die Ergebnisse, um die Anzahl der Kacheln zu erhalten.
+- Hitung ukuran unit pangkas yang kira-kira: `floor(min(width, height)` / 1,5).
+- Bagi setiap dimensi dengan ukuran unit pangkas dan kalikan bersama untuk mendapatkan
+  jumlah petak.
 
-Bei einem Bild mit den Abmessungen 960 × 540 beträgt die Größe der Zuschneideeinheit beispielsweise 360. Teilen Sie jede Dimension durch 360. Die Anzahl der Kacheln ist dann 3 × 2 = 6.
+Misalnya, gambar berdimensi 960x540 akan memiliki ukuran unit pangkas
+360. Bagi setiap dimensi dengan 360 dan jumlah petak adalah 3 \* 2 = 6.
 
-### Auflösung von Medien
+### Resolusi media
 
-Mit Gemini 3 wird mit dem Parameter `media_resolution` eine detaillierte Steuerung der multimodalen Bildverarbeitung eingeführt. Der Parameter `media_resolution` bestimmt die **maximale Anzahl von Tokens, die pro Eingabebild oder Videobild zugewiesen werden**.
-Höhere Auflösungen verbessern die Fähigkeit des Modells, kleinen Text zu lesen oder kleine Details zu erkennen, erhöhen aber die Tokennutzung und die Latenz.
+Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter
+`media_resolution`. Parameter `media_resolution` menentukan
+**jumlah maksimum token yang dialokasikan per gambar input atau frame video.**
+Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks kecil atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
 
-## Tipps und Best Practices
+## Tips dan praktik terbaik
 
-- Prüfen Sie, ob die Bilder richtig gedreht sind.
-- Verwenden Sie klare, nicht verschwommene Bilder.
-- Wenn Sie ein einzelnes Bild mit Text verwenden, platzieren Sie den Text-Prompt *vor* dem Bild im `input`-Array.
+- Pastikan gambar diputar dengan benar.
+- Gunakan gambar yang jelas dan tidak buram.
+- Saat menggunakan satu gambar dengan teks, tempatkan perintah teks *sebelum* gambar dalam array `input`.
 
-## Nächste Schritte
+## Langkah berikutnya
 
-In diesem Leitfaden erfahren Sie, wie Sie Bilddateien hochladen und Textausgaben aus Bildeingaben generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
+Panduan ini menunjukkan cara mengupload file gambar dan membuat output teks
+dari input gambar. Untuk mempelajari lebih lanjut, lihat referensi berikut:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de): Weitere Informationen zum Hochladen und Verwalten von Dateien für die Verwendung mit Gemini
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions):
-  Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren
-  spezifischen Anforderungen und Anwendungsfällen steuern.
-- [Strategien für Prompts mit Dateien](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die
-  Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch
-  multimodale Prompts genannt.
-- [Sicherheitsleitfaden](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Manchmal geben generative
-  KI-Modelle unerwartete Ausgaben aus, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id): Pelajari lebih lanjut cara mengupload dan mengelola file untuk digunakan dengan Gemini.
+- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
+  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
+- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video.
+- [Panduan keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id): Terkadang model AI generatif menghasilkan output yang tidak terduga, seperti output yang tidak akurat, bias, atau menyinggung. Pemrosesan pasca-dan evaluasi manusia sangat penting untuk membatasi risiko bahaya dari output tersebut.
 
-Feedback geben
+Kirim masukan
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Zuletzt aktualisiert: 2026-09-18 (UTC).
+Terakhir diperbarui pada 2026-09-24 UTC.
 
-Haben Sie Feedback für uns?
+Ada masukan untuk kami?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-18 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]

@@ -1,37 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=id
-fetched_at: 2026-09-21T05:40:57.184193+00:00
-title: "Kemampuan visi agentik \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=tr
+fetched_at: 2026-09-28T06:13:20.175730+00:00
+title: "Ajan tabanl\u0131 g\u00f6r\u00fc\u015f yetenekleri \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
 
-Kirim masukan
+Geri bildirim gönderin
 
-# Kemampuan visi agentik
+# Ajan tabanlı görüş yetenekleri
 
-Model Gemini Robotics ER dapat menulis dan mengeksekusi kode Python untuk memanipulasi gambar dan menerapkan logika sebelum memberikan jawaban. Halaman ini mencakup contoh eksekusi kode: deteksi objek dengan zoom dan pangkas, pembacaan instrumen, pengukuran cairan, pembacaan papan sirkuit, dan anotasi gambar.
+Gemini Robotics ER modelleri, resimleri değiştirmek ve yanıt vermeden önce mantık uygulamak için Python kodu yazıp yürütebilir. Bu sayfada, kod yürütme örnekleri (yakınlaştırma ve kırpma ile nesne tespit etme, cihaz okuma, sıvı ölçümü, devre kartı okuma ve görüntü ek açıklaması) ele alınmaktadır.
 
-Untuk menyesuaikan contoh ini dengan kasus penggunaan Anda sendiri, ganti teks perintah dan file gambar yang diupload dengan milik Anda sendiri. Anda juga dapat menyesuaikan skema JSON yang diminta dalam perintah agar sesuai dengan struktur output yang dibutuhkan aplikasi Anda, atau menambahkan `system_instruction` untuk menerapkan format dan presisi output.
+Bu örnekleri kendi kullanım alanınıza uyarlamak için istem metnini ve yüklenen resim dosyasını kendinizinkilerle değiştirin. Ayrıca, istemdeki istenen JSON şemasını uygulamanızın ihtiyaç duyduğu çıkış yapısına uyacak şekilde ayarlayabilir veya çıkış biçimini ve doğruluğunu zorunlu kılmak için `system_instruction` ekleyebilirsiniz.
 
-Untuk kode yang dapat dijalankan sepenuhnya, lihat
-[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Çalıştırılabilir kodun tamamı için [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'a (Robotik yemek kitabı) bakın.
 
-## Tingkat penalaran
+## Düşünme düzeyi
 
-Anda dapat mengontrol tingkat pemikiran untuk menukar latensi dengan akurasi. Tugas spasial seperti deteksi objek berperforma baik dengan tingkat pemikiran yang rendah. Tugas yang kompleks seperti
-menghitung atau memperkirakan berat akan lebih baik jika dilakukan dengan tingkat pemikiran yang lebih tinggi.
+Gecikmeyi doğrulukla değiştirmek için düşünme düzeyini kontrol edebilirsiniz. Nesne tespit etme gibi uzamsal görevler, düşük düşünme seviyesinde iyi performans gösterir. Sayma veya ağırlık tahmini gibi karmaşık görevler, daha yüksek bir düşünme seviyesinden yararlanır.
 
-Contoh berikut menetapkan tingkat pemikiran ke `high` untuk tugas penghitungan yang kompleks:
+Aşağıdaki örnekte, karmaşık bir sayma görevi için düşünme düzeyi `high` olarak ayarlanmıştır:
 
 ### Python
 
@@ -61,11 +59,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Lihat [Berpikir](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=id) untuk mengetahui detailnya.
+Ayrıntılar için [Thinking](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=tr) (Düşünme) bölümüne bakın.
 
-## Deteksi objek (Zoom dan pangkas)
+## Nesne tespit etme (yakınlaştırma ve kırpma)
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk melakukan zoom dan memangkas gambar agar tampilan lebih jelas saat mendeteksi objek dan menampilkan kotak pembatas.
+Aşağıdaki örnekte, nesneleri algılarken ve sınırlayıcı kutuları döndürürken daha net bir görünüm için kodu yürütme özelliğini kullanarak bir resmi nasıl yakınlaştırıp kırpacağınız gösterilmektedir.
 
 ### Python
 
@@ -103,7 +101,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Output model akan mirip dengan respons JSON berikut:
+Model çıkışı, aşağıdaki JSON yanıtına benzer olacaktır:
 
 ```
 [
@@ -115,13 +113,13 @@ Output model akan mirip dengan respons JSON berikut:
 ]
 ```
 
-Gambar berikut menampilkan kotak yang ditampilkan dari model.
+Aşağıdaki resimde, modelden döndürülen kutular gösterilmektedir.
 
-![Contoh yang menampilkan kotak pembatas untuk objek yang ditemukan](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=id)
+![Bulunan nesnelerin sınırlayıcı kutularını gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=tr)
 
-## Membaca pengukur analog dan menerapkan logika
+## Analog bir göstergeyi okuma ve mantık uygulama
 
-Contoh berikut menunjukkan cara menggunakan model untuk membaca pengukur analog dan melakukan penghitungan waktu. Tindakan ini menggunakan petunjuk sistem untuk menerapkan output JSON.
+Aşağıdaki örnekte, analog bir ölçüm cihazını okumak ve zaman hesaplamaları yapmak için modelin nasıl kullanılacağı gösterilmektedir. JSON çıkışını zorunlu kılmak için sistem talimatı kullanır.
 
 ### Python
 
@@ -157,10 +155,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Mengukur cairan dalam wadah
+## Bir kaptaki sıvıyı ölçme
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk mengukur
-tingkat cairan dalam wadah.
+Aşağıdaki örnekte, bir kaptaki sıvı seviyesini ölçmek için kod yürütmenin nasıl kullanılacağı gösterilmektedir.
 
 ### Python
 
@@ -195,9 +192,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Membaca tanda pada papan sirkuit
+## Devre kartındaki işaretleri okuma
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk membaca tanda pada papan sirkuit.
+Aşağıdaki örnekte, devre kartındaki işaretleri okumak için kod yürütmenin nasıl kullanılacağı gösterilmektedir.
 
 ### Python
 
@@ -232,11 +229,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-![Contoh yang menampilkan tanda pada papan sirkuit](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=id)
+![Bir devre kartındaki işaretleri gösteren örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=tr)
 
-## Anotasi gambar
+## Resim ek açıklaması
 
-Contoh berikut menunjukkan cara menggunakan eksekusi kode untuk memberi anotasi pada gambar (misalnya, menggambar panah untuk petunjuk pembuangan) dan menampilkan gambar yang telah dimodifikasi.
+Aşağıdaki örnekte, kod yürütme özelliğini kullanarak bir resmi nasıl açıklayacağınız (ör. imha talimatları için ok çizme) ve değiştirilen resmi nasıl döndüreceğiniz gösterilmektedir.
 
 ### Python
 
@@ -273,11 +270,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Berikut adalah contoh input gambar.
+Aşağıda örnek bir resim girişi verilmiştir.
 
-![Contoh yang menunjukkan jam untuk dibaca](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=id)
+![Okumak için saat gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=tr)
 
-Output model akan mirip dengan berikut ini:
+Model çıkışı aşağıdaki gibi olur:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -286,18 +283,18 @@ Output model akan mirip dengan berikut ini:
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Langkah berikutnya
+## Sırada ne var?
 
-- [Orkestrasi tugas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=id) — tugas jangka panjang dengan API robot kustom.
-- [Robotika dengan streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=id) — streaming dua arah real-time (khusus Gemini Robotics ER 2).
-- [Pemahaman video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=id) — penemuan momen dan klasifikasi progres (khusus Gemini Robotics ER 2).
+- [Görev düzenleme](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=tr): Özel robot API'leri içeren uzun vadeli görevler.
+- [Yayın özellikli robotik](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=tr): Gerçek zamanlı çift yönlü yayın (yalnızca Gemini Robotics ER 2).
+- [Video anlama](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=tr): Anları bulma ve ilerleme sınıflandırması (yalnızca Gemini Robotics ER 2).
 
-Kirim masukan
+Geri bildirim gönderin
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Terakhir diperbarui pada 2026-09-08 UTC.
+Son güncelleme tarihi: 2026-09-10 UTC.
 
-Ada masukan untuk kami?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-08 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-10 UTC."],[],[]]

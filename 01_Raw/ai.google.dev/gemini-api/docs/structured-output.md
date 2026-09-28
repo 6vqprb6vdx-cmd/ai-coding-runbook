@@ -1,41 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=pl
-fetched_at: 2026-09-21T05:50:41.214404+00:00
-title: "Dane wyj\u015bciowe uporz\u0105dkowane \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=id
+fetched_at: 2026-09-28T06:23:54.300354+00:00
+title: "Output terstruktur \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Prześlij opinię
+Kirim masukan
 
-# Dane wyjściowe uporządkowane
+# Output terstruktur
 
-Modele Gemini możesz skonfigurować tak, aby generowały odpowiedzi zgodne z podanym schematem JSON. Dzięki temu uzyskasz przewidywalne i bezpieczne typowo wyniki oraz uprościsz wyodrębnianie uporządkowanych danych z nieuporządkowanego tekstu.
+Anda dapat mengonfigurasi model Gemini untuk menghasilkan respons yang sesuai dengan Skema JSON yang diberikan. Hal ini memastikan hasil yang dapat diprediksi dan aman untuk jenis, serta menyederhanakan
+ekstraksi data terstruktur dari teks tidak terstruktur.
 
-Używanie uporządkowanych danych wyjściowych jest idealne w przypadku:
+Penggunaan output terstruktur sangat ideal untuk:
 
-- **Wyodrębnianie danych:** wyodrębnianie z tekstu konkretnych informacji, takich jak imiona i nazwiska oraz daty.
-- **Uporządkowanej klasyfikacji:** klasyfikowania tekstu według wstępnie zdefiniowanych kategorii.
-- **Przepływów pracy agenta:** generowania uporządkowanych danych wejściowych dla narzędzi lub interfejsów API.
+- **Ekstraksi data:** Mengambil informasi tertentu seperti nama dan tanggal dari teks.
+- **Klasifikasi terstruktur:** Mengklasifikasikan teks ke dalam kategori yang telah ditentukan.
+- **Alur kerja agentic:** Membuat input terstruktur untuk alat atau API.
 
-Oprócz obsługi schematu JSON w interfejsie REST API, pakiety SDK Google GenAI
-umożliwiają definiowanie schematów za pomocą
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) i
+Selain mendukung Skema JSON di REST API, Google GenAI SDK
+memungkinkan penentuan skema menggunakan
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) dan
 [Zod](https://zod.dev/) (JavaScript).
 
-## Przykłady uporządkowanych danych wyjściowych
+## Contoh output terstruktur
 
-### Ekstraktor przepisów
+### Pengekstrak Resep
 
-Ten przykład pokazuje, jak wyodrębniać uporządkowane dane z tekstu za pomocą podstawowych typów schematu JSON, takich jak `object`, `array`, `string` i `integer`.
+Contoh ini menunjukkan cara mengekstrak data terstruktur dari teks menggunakan jenis Skema JSON dasar seperti `object`, `array`, `string`, dan `integer`.
 
 ### Python
 
@@ -251,6 +252,102 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    recipeJsonSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "recipe_name": map[string]any{
+                "type":        "string",
+                "description": "The name of the recipe.",
+            },
+            "prep_time_minutes": map[string]any{
+                "type":        "integer",
+                "description": "Optional time in minutes to prepare the recipe.",
+            },
+            "ingredients": map[string]any{
+                "type": "array",
+                "items": map[string]any{
+                    "type": "object",
+                    "properties": map[string]any{
+                        "name": map[string]any{
+                            "type":        "string",
+                            "description": "Name of the ingredient.",
+                        },
+                        "quantity": map[string]any{
+                            "type":        "string",
+                            "description": "Quantity of the ingredient, including units.",
+                        },
+                    },
+                    "required": []string{"name", "quantity"},
+                },
+            },
+            "instructions": map[string]any{
+                "type": "array",
+                "items": map[string]any{
+                    "type": "string",
+                },
+            },
+        },
+        "required": []string{"recipe_name", "ingredients", "instructions"},
+    }
+
+    prompt := `Please extract the recipe from the following text.
+The user wants to make delicious chocolate chip cookies.
+They need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,
+1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,
+3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.
+For the best part, they'll need 2 cups of semisweet chocolate chips.
+First, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,
+baking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar
+until light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry
+ingredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons
+onto ungreased baking sheets and bake for 9 to 11 minutes.`
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   recipeJsonSchema,
+        }),
+    )
+
+    resp, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(
+            interactions.CreateModelInteraction{
+                Model:          interactions.Model("gemini-3.8-flash"),
+                Input:          interactions.NewInteractionsInput(prompt),
+                ResponseFormat: &format,
+            },
+        ),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(resp.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -297,7 +394,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Przykładowa odpowiedź:**
+**Contoh Respons:**
 
 ```
 {
@@ -325,9 +422,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Moderacja treści
+### Moderasi Konten
 
-Ten przykład pokazuje, jak używać `anyOf` w przypadku schematów warunkowych i `enum` w przypadku klasyfikacji, co pozwala na zmianę struktury danych wyjściowych w zależności od treści.
+Contoh ini menampilkan `anyOf` untuk skema bersyarat dan `enum` untuk
+klasifikasi, sehingga struktur output dapat bervariasi berdasarkan konten.
 
 ### Python
 
@@ -519,6 +617,98 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    spamDetailsSchema := map[string]any{
+        "type":  "object",
+        "title": "SpamDetails",
+        "properties": map[string]any{
+            "reason": map[string]any{
+                "type":        "string",
+                "description": "The reason why the content is considered spam.",
+            },
+            "spam_type": map[string]any{
+                "type":        "string",
+                "enum":        []string{"phishing", "scam", "unsolicited promotion", "other"},
+                "description": "The type of spam.",
+            },
+        },
+        "required": []string{"reason", "spam_type"},
+    }
+
+    notSpamDetailsSchema := map[string]any{
+        "type":  "object",
+        "title": "NotSpamDetails",
+        "properties": map[string]any{
+            "summary": map[string]any{
+                "type":        "string",
+                "description": "A brief summary of the content.",
+            },
+            "is_safe": map[string]any{
+                "type":        "boolean",
+                "description": "Whether the content is safe for all audiences.",
+            },
+        },
+        "required": []string{"summary", "is_safe"},
+    }
+
+    moderationResultJsonSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "decision": map[string]any{
+                "anyOf": []any{spamDetailsSchema, notSpamDetailsSchema},
+            },
+        },
+        "required": []string{"decision"},
+    }
+
+    prompt := "Please moderate the following content and provide a decision.\n" +
+        "Content: 'Congratulations! You've won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'"
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   moderationResultJsonSchema,
+        }),
+    )
+
+    resp, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(
+            interactions.CreateModelInteraction{
+                Model:          interactions.Model("gemini-3.8-flash"),
+                Input:          interactions.NewInteractionsInput(prompt),
+                ResponseFormat: &format,
+            },
+        ),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(resp.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -566,7 +756,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Przykładowa odpowiedź:**
+**Contoh Respons:**
 
 ```
 {
@@ -577,9 +767,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Struktury rekurencyjne
+### Struktur Rekursif
 
-Ten przykład pokazuje, jak zdefiniować schemat rekurencyjny, np. schemat organizacyjny.
+Contoh ini menggambarkan cara menentukan skema rekursif seperti
+diagram organisasi.
 
 ### Python
 
@@ -730,6 +921,75 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    employeeJsonSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "name": map[string]any{
+                "type": "string",
+            },
+            "employee_id": map[string]any{
+                "type": "integer",
+            },
+            "reports": map[string]any{
+                "type":        "array",
+                "description": "A list of employees reporting to this employee.",
+                "items": map[string]any{
+                    "$ref": "#",
+                },
+            },
+        },
+        "required": []string{"name", "employee_id", "reports"},
+    }
+
+    prompt := "Generate an organization chart for a small team.\n" +
+        "The manager is Alice, who manages Bob and Charlie. Bob manages David."
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   employeeJsonSchema,
+        }),
+    )
+
+    resp, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(
+            interactions.CreateModelInteraction{
+                Model:          interactions.Model("gemini-3.8-flash"),
+                Input:          interactions.NewInteractionsInput(prompt),
+                ResponseFormat: &format,
+            },
+        ),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(resp.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -762,7 +1022,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Przykładowa odpowiedź:**
+**Contoh Respons:**
 
 ```
 {
@@ -789,9 +1049,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Strumieniowanie wyników
+## Hasil streaming
 
-Możesz strumieniować uporządkowane dane wyjściowe, co pozwala na rozpoczęcie przetwarzania odpowiedzi w trakcie jej generowania. Strumieniowane fragmenty to prawidłowe częściowe ciągi JSON, które można połączyć, aby utworzyć ostateczny obiekt JSON.
+Anda dapat mengalirkan output terstruktur, sehingga Anda dapat mulai memproses respons saat respons tersebut sedang dibuat. Potongan yang di-streaming adalah string JSON parsial yang valid yang dapat digabungkan untuk membentuk objek JSON akhir.
 
 ### Python
 
@@ -938,6 +1198,77 @@ try (EventStream<InteractionSSEStreamEvent> events = response.events()) {
 }
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    feedbackJsonSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "sentiment": map[string]any{
+                "type": "string",
+                "enum": []string{"positive", "neutral", "negative"},
+            },
+            "summary": map[string]any{
+                "type": "string",
+            },
+        },
+        "required": []string{"sentiment", "summary"},
+    }
+
+    prompt := "The new UI is incredibly intuitive. Add a very long summary to test streaming!"
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   feedbackJsonSchema,
+        }),
+    )
+
+    resp, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(
+            interactions.CreateModelInteraction{
+                Model:          interactions.Model("gemini-3.8-flash"),
+                Input:          interactions.NewInteractionsInput(prompt),
+                ResponseFormat: &format,
+                Stream:         genai.Ptr(true),
+            },
+        ),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer resp.InteractionSSEStreamEvent.Close()
+
+    for resp.InteractionSSEStreamEvent.Next() {
+        event := resp.InteractionSSEStreamEvent.Value()
+        if stepDelta := event.GetDataStepDelta(); stepDelta != nil {
+            if textDelta := stepDelta.GetDeltaText(); textDelta != nil {
+                fmt.Print(textDelta.GetText())
+            }
+        }
+    }
+}
+```
+
 ### REST
 
 ```
@@ -963,14 +1294,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## Uporządkowane dane wyjściowe z narzędziami
+## Output terstruktur dengan alat
 
-Gemini 3 umożliwia łączenie uporządkowanych danych wyjściowych z wbudowanymi narzędziami, takimi jak
-[powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl),
-[kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl),
-[Code Execution](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl),
-[File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=pl#structured-output), i
-[Function Calling](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
+Gemini 3 memungkinkan Anda menggabungkan Output Terstruktur dengan alat bawaan, termasuk
+[Perujukan dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id),
+[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id),
+[Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id),
+[Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id#structured-output), dan
+[Pemanggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
 
 ### Python
 
@@ -1104,6 +1435,78 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+    "google.golang.org/genai/interactions/models/interactions"
+    "google.golang.org/genai/interactions/models/operations"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    matchJsonSchema := map[string]any{
+        "type": "object",
+        "properties": map[string]any{
+            "winner": map[string]any{
+                "type":        "string",
+                "description": "The name of the winner.",
+            },
+            "final_match_score": map[string]any{
+                "type":        "string",
+                "description": "The final match score.",
+            },
+            "scorers": map[string]any{
+                "type":        "array",
+                "description": "The name of the scorer.",
+                "items": map[string]any{
+                    "type": "string",
+                },
+            },
+        },
+        "required": []string{"winner", "final_match_score", "scorers"},
+    }
+
+    format := interactions.NewCreateModelInteractionResponseFormat(
+        interactions.NewResponseFormat(interactions.TextResponseFormat{
+            MimeType: interactions.TextResponseFormatMimeTypeApplicationJSON.ToPointer(),
+            Schema:   matchJsonSchema,
+        }),
+    )
+
+    resp, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
+        Body: operations.NewCreateInteractionRequestBody(
+            interactions.CreateModelInteraction{
+                Model: interactions.Model("gemini-3.1-pro-preview"),
+                Input: interactions.NewInteractionsInput("Search for all details for the latest Euro."),
+                Tools: []interactions.Tool{
+                    interactions.NewTool(interactions.GoogleSearch{}),
+                    interactions.NewTool(interactions.URLContext{}),
+                },
+                ResponseFormat: &format,
+            },
+        ),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Println(resp.Interaction.GetOutputText())
+}
+```
+
 ### REST
 
 ```
@@ -1130,80 +1533,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Obsługa schematu JSON
+## Dukungan skema JSON
 
-Aby wygenerować obiekt JSON, skonfiguruj `response_format` za pomocą obiektu (lub tablicy zawierającej obiekt) typu `text` i ustaw jego `mime_type` na `application/json`. Schemat należy podać w polu `schema`.
+Untuk membuat objek JSON, konfigurasi `response_format` dengan objek (atau array yang berisi objek) berjenis `text` dan tetapkan `mime_type`-nya ke `application/json`. Skema harus diberikan di kolom `schema`.
 
-Tryb uporządkowanych danych wyjściowych Gemini obsługuje podzbiór specyfikacji
-[schematu JSON](https://json-schema.org/).
+Mode output terstruktur Gemini mendukung subset spesifikasi
+[JSON Schema](https://json-schema.org/).
 
-Obsługiwane są te wartości `type`:
+Nilai `type` berikut didukung:
 
-- **`string`**: w przypadku tekstu.
-- **`number`**: w przypadku liczb zmiennoprzecinkowych.
-- **`integer`**: w przypadku liczb całkowitych.
-- **`boolean`**: w przypadku wartości true lub false.
-- **`object`**: w przypadku uporządkowanych danych z parami klucz-wartość.
-- **`array`**: w przypadku list elementów.
-- **`null`**: aby zezwolić na wartość null właściwości, dodaj `"null"` do tablicy typów (np. `{"type": ["string", "null"]}`).
+- **`string`**: Untuk teks.
+- **`number`**: Untuk bilangan floating point.
+- **`integer`**: Untuk bilangan bulat.
+- **`boolean`**: Untuk nilai benar atau salah.
+- **`object`**: Untuk data terstruktur dengan pasangan nilai kunci.
+- **`array`**: Untuk daftar item.
+- **`null`**: Untuk mengizinkan properti bernilai null, sertakan `"null"` dalam array jenis (misalnya, `{"type": ["string", "null"]}`).
 
-Te właściwości opisowe pomagają modelowi:
+Properti deskriptif ini membantu memandu model:
 
-- **`title`**: krótki opis właściwości.
-- **`description`**: dłuższy i bardziej szczegółowy opis właściwości.
+- **`title`**: Deskripsi singkat properti.
+- **`description`**: Deskripsi properti yang lebih panjang dan mendetail.
 
-### Właściwości specyficzne dla typu
+### Properti spesifik per jenis
 
-**W przypadku wartości `object`:**
+**Untuk nilai `object`:**
 
-- **`properties`**: obiekt, w którym każdy klucz jest nazwą właściwości, a każda wartość jest schematem tej właściwości.
-- **`required`**: tablica ciągów znaków, która zawiera listę właściwości obowiązkowych.
-- **`additionalProperties`**: określa, czy właściwości nieuwzględnione w `properties` są dozwolone. Może to być wartość logiczna lub schemat.
+- **`properties`**: Objek dengan setiap kunci adalah nama properti dan setiap nilai adalah skema untuk properti tersebut.
+- **`required`**: Array string, yang mencantumkan properti mana yang wajib diisi.
+- **`additionalProperties`**: Mengontrol apakah properti yang tidak tercantum dalam `properties` diizinkan. Dapat berupa boolean atau skema.
 
-**W przypadku wartości `string`:**
+**Untuk nilai `string`:**
 
-- **`enum`**: zawiera listę konkretnych możliwych ciągów znaków w przypadku zadań klasyfikacji.
-- **`format`**: określa składnię ciągu znaków, np. `date-time`, `date`, `time`.
+- **`enum`**: Mencantumkan kumpulan string tertentu yang mungkin untuk tugas klasifikasi.
+- **`format`**: Menentukan sintaksis untuk string, seperti `date-time`, `date`, `time`.
 
-**W przypadku wartości `number` i `integer`:**
+**Untuk nilai `number` dan `integer`:**
 
-- **`enum`**: zawiera listę konkretnych możliwych wartości liczbowych.
-- **`minimum`**: minimalna wartość włącznie.
-- **`maximum`**: maksymalna wartość włącznie.
+- **`enum`**: Mencantumkan serangkaian nilai numerik tertentu yang mungkin.
+- **`minimum`**: Nilai inklusif minimum.
+- **`maximum`**: Nilai inklusif maksimum.
 
-**W przypadku wartości `array` values:**
+**Untuk nilai `array`:**
 
-- **`items`**: określa schemat wszystkich elementów w tablicy.
-- **`prefixItems`**: określa listę schematów dla pierwszych N elementów, co umożliwia tworzenie struktur podobnych do krotek.
-- **`minItems`**: minimalna liczba elementów w tablicy.
-- **`maxItems`**: maksymalna liczba elementów w tablicy.
+- **`items`**: Menentukan skema untuk semua item dalam array.
+- **`prefixItems`**: Menentukan daftar skema untuk N item pertama, sehingga memungkinkan struktur seperti tuple.
+- **`minItems`**: Jumlah minimum item dalam array.
+- **`maxItems`**: Jumlah maksimum item dalam array.
 
-## Uporządkowane dane wyjściowe a wywoływanie funkcji
+## Output terstruktur versus pemanggilan fungsi
 
-| Funkcja | Główny przypadek użycia |
+| Fitur | Kasus Penggunaan Utama |
 | --- | --- |
-| **Uporządkowane dane wyjściowe** | **Formatowanie ostatecznej odpowiedzi.** Używaj, gdy chcesz, aby *odpowiedź* modelu miała określony format. |
-| **Wywoływanie funkcji** | **Podejmowanie działań podczas rozmowy.** Używaj, gdy model musi *poprosić Cię* o wykonanie zadania przed udzieleniem ostatecznej odpowiedzi. |
+| **Output Terstruktur** | **Memformat respons akhir.** Gunakan saat Anda menginginkan *jawaban* model dalam format tertentu. |
+| **Pemanggilan Fungsi** | **Mengambil tindakan selama percakapan.** Gunakan saat model perlu *meminta Anda* melakukan tugas sebelum memberikan jawaban akhir. |
 
-## Sprawdzone metody
+## Praktik terbaik
 
-- **Jasne opisy:** używaj pola `description`, aby kierować modelem.
-- **Silne typowanie:** używaj konkretnych typów (`integer`, `string`, `enum`).
-- **Inżynieria promptów:** jasno określ, co ma zrobić model.
-- **Weryfikacja:** chociaż dane wyjściowe są syntaktycznie poprawnym kodem JSON, zawsze weryfikuj wartości w aplikacji.
-- **Obsługa błędów:** zaimplementuj niezawodną obsługę błędów w przypadku danych wyjściowych zgodnych ze schematem, ale niepoprawnych semantycznie.
+- **Deskripsi yang jelas:** Gunakan kolom `description` untuk memandu model.
+- **Pengetikan kuat:** Gunakan jenis tertentu (`integer`, `string`, `enum`).
+- **Rekayasa perintah:** Nyatakan dengan jelas apa yang Anda ingin model lakukan.
+- **Validasi:** Meskipun output adalah JSON yang benar secara sintaksis, selalu validasi nilai di aplikasi Anda.
+- **Penanganan error:** Terapkan penanganan error yang andal untuk output yang sesuai dengan skema, tetapi salah secara semantik.
 
-## Ograniczenia
+## Batasan
 
-- **Podzbiór schematu:** nie wszystkie funkcje schematu JSON są obsługiwane.
-- **Złożoność schematu:** bardzo duże lub głęboko zagnieżdżone schematy mogą zostać odrzucone.
+- **Subkumpulan skema:** Tidak semua fitur Skema JSON didukung.
+- **Kompleksitas skema:** Skema yang sangat besar atau memiliki banyak tingkat mungkin ditolak.
 
-Prześlij opinię
+Kirim masukan
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ostatnia aktualizacja: 2026-09-18 UTC.
+Terakhir diperbarui pada 2026-09-24 UTC.
 
-Chcesz przekazać coś jeszcze?
+Ada masukan untuk kami?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]
