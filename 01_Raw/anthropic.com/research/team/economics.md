@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/team/economics
-fetched_at: 2026-09-21T05:40:35.537246+00:00
+fetched_at: 2026-09-28T06:06:52.844709+00:00
 title: "Economics \\ Anthropic"
 ---
 
@@ -50,6 +50,9 @@ Search
 
 DateCategoryTitle
 
+- [Sep 24, 2026Economics
+
+  Project Swap: What happens when agents trade for us?](https://www.anthropic.com/research/project-swap)
 - [Aug 12, 2026Economics
 
   Reviewing the evidence on worker retraining programs](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
@@ -77,8 +80,5 @@ DateCategoryTitle
 - [Mar 24, 2026Economics
 
   Anthropic Economic Index report: Learning curves](https://www.anthropic.com/research/economic-index-march-2026-report)
-- [Mar 5, 2026Economics
-
-  Labor market impacts of AI: A new measure and early evidence](https://www.anthropic.com/research/labor-market-impacts)
 
 [See more](#)
