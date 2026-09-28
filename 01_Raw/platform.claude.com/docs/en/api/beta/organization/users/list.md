@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/users/list
-fetched_at: 2026-09-14T05:35:01.567588+00:00
+fetched_at: 2026-09-28T06:07:02.284248+00:00
 fetch_method: mintlify_md
 ---
 
@@ -37,7 +37,7 @@ List the organization's members.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `roles: optional array of string`
 

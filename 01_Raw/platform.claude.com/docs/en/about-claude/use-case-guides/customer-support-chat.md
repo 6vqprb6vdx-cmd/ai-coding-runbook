@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat
-fetched_at: 2026-08-24T02:17:11.017561+00:00
+fetched_at: 2026-09-28T06:06:53.160459+00:00
 fetch_method: mintlify_md
 ---
 
@@ -398,7 +398,7 @@ Add the model name, the tool definition, and a stub implementation to `config.py
 ```python
 import time
 
-MODEL = "claude-opus-5"
+MODEL = "claude-opus-5-5"
 
 TOOLS = [
     {

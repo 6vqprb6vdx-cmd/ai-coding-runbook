@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/update
-fetched_at: 2026-09-21T05:40:44.366329+00:00
+fetched_at: 2026-09-28T06:07:02.469503+00:00
 fetch_method: mintlify_md
 ---
 
@@ -69,7 +69,7 @@ Update Workspace
 
   Name of the Workspace.
 
-  maxLength: 40, minLength: 1
+  minLength: 1, maxLength: 40
 
 - `tags: optional map[string] or null`
 

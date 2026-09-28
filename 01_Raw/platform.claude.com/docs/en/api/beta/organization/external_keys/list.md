@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/external_keys/list
-fetched_at: 2026-09-14T05:35:00.536708+00:00
+fetched_at: 2026-09-28T06:07:01.275301+00:00
 fetch_method: mintlify_md
 ---
 
@@ -24,7 +24,7 @@ Results are ordered by creation time (newest first). Use the
 
   Number of results per page.
 
-  default: 20, maximum: 100, minimum: 1
+  default: 20, minimum: 1, maximum: 100
 
 - `page: optional string`
 

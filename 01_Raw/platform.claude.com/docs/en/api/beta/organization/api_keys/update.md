@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/api_keys/update
-fetched_at: 2026-09-14T05:35:00.502625+00:00
+fetched_at: 2026-09-28T06:07:01.117181+00:00
 fetch_method: mintlify_md
 ---
 
@@ -27,7 +27,7 @@ Update API Key
 
   Name of the API key.
 
-  maxLength: 500, minLength: 1
+  minLength: 1, maxLength: 500
 
 - `status: optional "active" or "archived" or "inactive" or null`
 

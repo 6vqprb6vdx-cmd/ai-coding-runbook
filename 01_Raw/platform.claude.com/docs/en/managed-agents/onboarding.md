@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/onboarding
-fetched_at: 2026-09-21T05:40:33.722361+00:00
+fetched_at: 2026-09-28T06:06:51.240876+00:00
 fetch_method: mintlify_md
 ---
 
@@ -8,11 +8,13 @@ fetch_method: mintlify_md
 title: Build in Console
 url: https://platform.claude.com/docs/en/managed-agents/onboarding
 description: Create, test, and iterate on agents visually in Console, then run them from your code with the API.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
-
-## Compatibility
-- Status: Beta
-- [Beta header](https://platform.claude.com/docs/en/api/beta-headers): `managed-agents-2026-04-01`
 
 [Console](https://platform.claude.com/workspaces/default/agent-quickstart/) provides a visual interface for creating and configuring agents. It lets you iterate on configuration interactively before writing code.
 

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/define-outcomes
-fetched_at: 2026-09-21T05:40:34.055490+00:00
+fetched_at: 2026-09-28T06:06:51.705960+00:00
 fetch_method: mintlify_md
 ---
 
@@ -8,11 +8,13 @@ fetch_method: mintlify_md
 title: Define outcomes
 url: https://platform.claude.com/docs/en/managed-agents/define-outcomes
 description: Tell the agent what 'done' looks like, and let it iterate until it gets there.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
-
-## Compatibility
-- Status: Beta
-- [Beta header](https://platform.claude.com/docs/en/api/beta-headers): `managed-agents-2026-04-01`
 
 An outcome tells the session what the end result should look like and how to measure its quality. The agent works toward that target, self-evaluating and iterating until the outcome is met.
 

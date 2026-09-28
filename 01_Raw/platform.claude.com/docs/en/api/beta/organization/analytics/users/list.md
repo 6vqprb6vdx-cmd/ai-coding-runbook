@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/analytics/users/list
-fetched_at: 2026-09-14T05:35:03.047591+00:00
+fetched_at: 2026-09-28T06:07:03.834811+00:00
 fetch_method: mintlify_md
 ---
 
@@ -383,7 +383,7 @@ the `read:analytics` scope.
 
     - `user: optional BetaAnalyticsUser or null`
 
-      A user in the organization, identified by tagged id and email address.
+      The user this row describes. Null on rows aggregated across users.
 
       - `type: "user"`
 

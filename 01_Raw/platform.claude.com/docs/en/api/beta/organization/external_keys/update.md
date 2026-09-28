@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/external_keys/update
-fetched_at: 2026-09-14T05:35:00.534129+00:00
+fetched_at: 2026-09-28T06:07:01.267686+00:00
 fetch_method: mintlify_md
 ---
 
@@ -33,7 +33,7 @@ encrypted data requires the original key identity to decrypt.
 
   Human-friendly display name.
 
-  maxLength: 255, minLength: 1
+  minLength: 1, maxLength: 255
 
 - `geo: optional "us" or null`
 
